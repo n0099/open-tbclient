@@ -2,7 +2,7 @@ package com.baidu.location;
 
 import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class LocationClientOption {
     public static final int GpsFirst = 1;
     public static final int GpsOnly = 3;
@@ -39,7 +39,7 @@ public final class LocationClientOption {
     public int timeOut;
     public int wifiCacheTimeOut;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public enum LocationMode {
         Hight_Accuracy,
         Battery_Saving,
@@ -216,7 +216,7 @@ public final class LocationClientOption {
 
     public void setCoorType(String str) {
         String lowerCase = str.toLowerCase();
-        if (lowerCase.equals("gcj02") || lowerCase.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09) || lowerCase.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09LL)) {
+        if (lowerCase.equals("gcj02") || lowerCase.equals("bd09") || lowerCase.equals("bd09ll")) {
             this.coorType = lowerCase;
         }
     }

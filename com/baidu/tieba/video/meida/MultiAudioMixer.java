@@ -6,27 +6,27 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.Arrays;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class MultiAudioMixer {
-    private b hps;
+    private b hwF;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface b {
-        void N(byte[] bArr) throws IOException;
+        void O(byte[] bArr) throws IOException;
 
-        void bEU();
+        void bIh();
 
-        void vk(int i);
+        void vH(int i);
     }
 
     abstract byte[] b(byte[][] bArr);
 
-    public static MultiAudioMixer bET() {
+    public static MultiAudioMixer bIg() {
         return new a();
     }
 
     public void a(b bVar) {
-        this.hps = bVar;
+        this.hwF = bVar;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[ARITH, INVOKE, ARITH, IF, INVOKE, MOVE_EXCEPTION, AGET, IF, ARRAY_LENGTH, INVOKE, MOVE_EXCEPTION] complete} */
@@ -45,8 +45,8 @@ public abstract class MultiAudioMixer {
                     fileInputStreamArr[i2] = new FileInputStream(fileArr[i2]);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    if (this.hps != null) {
-                        this.hps.vk(1);
+                    if (this.hwF != null) {
+                        this.hwF.vH(1);
                     }
                     try {
                         int length2 = fileInputStreamArr.length;
@@ -89,8 +89,8 @@ public abstract class MultiAudioMixer {
                 }
             }
             byte[] b2 = b(bArr);
-            if (b2 != null && this.hps != null) {
-                this.hps.N(b2);
+            if (b2 != null && this.hwF != null) {
+                this.hwF.O(b2);
             }
             z = true;
             for (boolean z2 : zArr) {
@@ -99,12 +99,12 @@ public abstract class MultiAudioMixer {
                 }
             }
         } while (!z);
-        if (this.hps != null) {
-            this.hps.bEU();
+        if (this.hwF != null) {
+            this.hwF.bIh();
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class AudioMixException extends IOException {
         private static final long serialVersionUID = -1344782236320621800L;
 
@@ -113,7 +113,7 @@ public abstract class MultiAudioMixer {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     private static class a extends MultiAudioMixer {
         private a() {
         }

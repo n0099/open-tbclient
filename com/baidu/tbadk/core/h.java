@@ -5,7 +5,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class h {
-    private static final CustomMessageListener aeT = new CustomMessageListener(0) { // from class: com.baidu.tbadk.core.h.1
+    private static final CustomMessageListener ajQ = new CustomMessageListener(0) { // from class: com.baidu.tbadk.core.h.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -38,11 +38,11 @@ public class h {
     };
 
     public static void init() {
-        MessageManager.getInstance().registerListener(2005009, aeT);
-        MessageManager.getInstance().registerListener(2005010, aeT);
-        MessageManager.getInstance().registerListener(2005011, aeT);
-        MessageManager.getInstance().registerListener(2005012, aeT);
-        MessageManager.getInstance().registerListener(2005013, aeT);
-        MessageManager.getInstance().registerListener(2005015, aeT);
+        MessageManager.getInstance().registerListener(2005009, ajQ);
+        MessageManager.getInstance().registerListener(2005010, ajQ);
+        MessageManager.getInstance().registerListener(2005011, ajQ);
+        MessageManager.getInstance().registerListener(2005012, ajQ);
+        MessageManager.getInstance().registerListener(2005013, ajQ);
+        MessageManager.getInstance().registerListener(2005015, ajQ);
     }
 }

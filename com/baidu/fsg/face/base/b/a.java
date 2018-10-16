@@ -7,19 +7,20 @@ import com.baidu.android.common.logging.Log;
 import com.baidu.fsg.base.statistics.RimStatisticsUtil;
 import com.baidu.fsg.face.base.b.b;
 import com.baidu.fsg.face.base.d.g;
+import com.baidu.searchbox.ng.ai.apps.media.audio.AiAppsAudioPlayer;
 import java.util.HashMap;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
     private Context a;
-    private C0065a b;
+    private C0076a b;
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [66=4] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(Context context, int i, Bundle bundle) {
         this.a = context;
-        this.b = new C0065a();
+        this.b = new C0076a();
         b.a a = b.a(i);
         c a2 = b.a(context).a(context.getApplicationContext(), a.a);
         this.b.j = a.a;
@@ -85,8 +86,8 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.fsg.face.base.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0065a {
+    /* loaded from: classes6.dex */
+    public class C0076a {
         private static final String b = "load_so_zip_version";
         private static final String c = "load_so_modle_name";
         private static final String d = "load_default_so";
@@ -102,7 +103,7 @@ public class a {
         private String n;
         private String o;
 
-        private C0065a() {
+        private C0076a() {
             this.l = false;
             this.m = true;
         }
@@ -111,9 +112,9 @@ public class a {
             HashMap hashMap = new HashMap();
             hashMap.put(b, this.i);
             hashMap.put(c, this.j);
-            hashMap.put(d, this.l ? "1" : "-1");
-            hashMap.put(e, this.k ? "1" : "-1");
-            hashMap.put(f, this.m ? "1" : "-1");
+            hashMap.put(d, this.l ? "1" : AiAppsAudioPlayer.ERROR_UNKNOWN);
+            hashMap.put(e, this.k ? "1" : AiAppsAudioPlayer.ERROR_UNKNOWN);
+            hashMap.put(f, this.m ? "1" : AiAppsAudioPlayer.ERROR_UNKNOWN);
             hashMap.put(g, this.n);
             hashMap.put(h, this.o);
             return hashMap;

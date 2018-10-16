@@ -14,11 +14,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class a {
-    private final long gYA;
-    private final String gYB;
-    private final int gYC;
-    private final int gYD;
-    private e gYE;
+    private final String WU;
+    private final long hfT;
+    private final int hfU;
+    private final int hfV;
+    private e hfW;
     protected final String mFileName;
 
     public abstract d b(ArrayList<Integer> arrayList, String str, int i);
@@ -29,20 +29,20 @@ public abstract class a {
 
     public a(String str, int i, int i2, long j, String str2) {
         this.mFileName = str;
-        this.gYD = i2;
-        this.gYA = j;
-        this.gYB = str2;
-        this.gYC = i;
+        this.hfV = i2;
+        this.hfT = j;
+        this.WU = str2;
+        this.hfU = i;
     }
 
     public void a(e eVar) {
-        this.gYE = eVar;
+        this.hfW = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void uw(int i) {
-        if (this.gYE != null) {
-            this.gYE.aw(i / 100.0f);
+    public void uT(int i) {
+        if (this.hfW != null) {
+            this.hfW.ax(i / 100.0f);
         }
     }
 
@@ -58,33 +58,33 @@ public abstract class a {
             return null;
         } else {
             x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
-            xVar.u("chunk_no", String.valueOf(i));
-            xVar.u("chunk_sum", String.valueOf(this.gYD));
-            xVar.u("chunk_size", String.valueOf(a.length));
-            xVar.u("video_size", String.valueOf(this.gYA));
-            xVar.u("video_md5", this.gYB);
-            xVar.u("video_len", String.valueOf(j));
-            xVar.u("tbs", TbadkCoreApplication.getInst().getTbs());
+            xVar.x("chunk_no", String.valueOf(i));
+            xVar.x("chunk_sum", String.valueOf(this.hfV));
+            xVar.x("chunk_size", String.valueOf(a.length));
+            xVar.x("video_size", String.valueOf(this.hfT));
+            xVar.x("video_md5", this.WU);
+            xVar.x("video_len", String.valueOf(j));
+            xVar.x("tbs", TbadkCoreApplication.getInst().getTbs());
             xVar.d("video_chunk", a);
-            xVar.u("upload_id", str);
+            xVar.x("upload_id", str);
             if (isCancelled()) {
                 return null;
             }
-            String zw = xVar.zw();
+            String BD = xVar.BD();
             if (isCancelled()) {
                 return null;
             }
             d dVar2 = new d();
-            if (xVar.zR().AQ().isRequestSuccess()) {
-                dVar2.videoUrl = uP(zw);
+            if (xVar.BY().CX().isRequestSuccess()) {
+                dVar2.videoUrl = vr(BD);
                 return dVar2;
             }
-            if (xVar.zR().AQ().zU()) {
-                dVar2.errorNo = xVar.zR().AQ().aut;
+            if (xVar.BY().CX().Cb()) {
+                dVar2.errorNo = xVar.BY().CX().aze;
             } else {
-                dVar2.errorNo = xVar.zR().AQ().Cq;
+                dVar2.errorNo = xVar.BY().CX().Da;
             }
-            dVar2.errorMessage = xVar.zR().AQ().mErrorString;
+            dVar2.errorMessage = xVar.BY().CX().mErrorString;
             return dVar2;
         }
     }
@@ -94,15 +94,15 @@ public abstract class a {
         if (randomAccessFile == null || i < 0) {
             return null;
         }
-        if (i == this.gYD) {
-            i2 = (int) (this.gYA - ((i - 1) * this.gYC));
+        if (i == this.hfV) {
+            i2 = (int) (this.hfT - ((i - 1) * this.hfU));
         } else {
-            i2 = this.gYC;
+            i2 = this.hfU;
         }
         byte[] bArr = new byte[i2];
         try {
             synchronized (randomAccessFile) {
-                randomAccessFile.seek((i - 1) * this.gYC);
+                randomAccessFile.seek((i - 1) * this.hfU);
                 r3 = randomAccessFile.read(bArr, 0, i2) != -1;
             }
         } catch (IOException e) {
@@ -114,7 +114,7 @@ public abstract class a {
         return null;
     }
 
-    private String uP(String str) {
+    private String vr(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

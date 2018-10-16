@@ -10,12 +10,14 @@ import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.location.Address;
 import com.baidu.location.d.g;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
+import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class BDLocation implements Parcelable {
     public static final String BDLOCATION_BD09LL_TO_GCJ02 = "bd09ll2gcj";
     public static final String BDLOCATION_BD09_TO_GCJ02 = "bd092gcj";
@@ -429,7 +431,7 @@ public final class BDLocation implements Parcelable {
             try {
                 JSONObject jSONObject2 = new JSONObject(str);
                 JSONObject jSONObject3 = jSONObject2.getJSONObject("result");
-                int parseInt = Integer.parseInt(jSONObject3.getString("error"));
+                int parseInt = Integer.parseInt(jSONObject3.getString(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR));
                 setLocType(parseInt);
                 setTime(jSONObject3.getString("time"));
                 if (parseInt == 61) {
@@ -634,7 +636,7 @@ public final class BDLocation implements Parcelable {
                                 try {
                                     String[] split2 = jSONObject12.getString("ret_fields").split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
                                     for (String str3 : split2) {
-                                        String[] split3 = str3.split("=");
+                                        String[] split3 = str3.split(ETAG.EQUAL);
                                         this.O.putString(split3[0], split3[1]);
                                     }
                                 } catch (Exception e5) {

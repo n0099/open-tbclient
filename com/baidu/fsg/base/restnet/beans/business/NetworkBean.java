@@ -22,6 +22,7 @@ import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.base.utils.Md5Utils;
 import com.baidu.fsg.base.utils.NetworkUtils;
 import com.baidu.fsg.base.utils.PhoneUtils;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import java.net.SocketTimeoutException;
 import java.security.cert.CertificateException;
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ import java.util.UUID;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class NetworkBean extends ApollonBean {
     private static final boolean DEBUG = false;
     private static final String PARAM_APPID = "appid";
@@ -154,7 +155,7 @@ public abstract class NetworkBean extends ApollonBean {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(PARAM_CUID_2, PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, PhoneUtils.getCUID2(context)));
-            jSONObject.put(PARAM_FKWCP, PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, (((("fp=" + BdWalletUtils.getDeviceFP(this.mContext)) + "&lastModify=" + BdWalletUtils.getFPFileLastModified(this.mContext)) + "&cpuInfo=" + PhoneUtils.getSystemCPUInfo().getCpuPath() + "_" + PhoneUtils.getNumCores()) + "&diskCapacity=" + PhoneUtils.getTotalInternalMemorySize()) + "&upTime=" + (SystemClock.elapsedRealtime() / 1000)));
+            jSONObject.put(PARAM_FKWCP, PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, (((("fp=" + BdWalletUtils.getDeviceFP(this.mContext)) + "&lastModify=" + BdWalletUtils.getFPFileLastModified(this.mContext)) + "&cpuInfo=" + PhoneUtils.getSystemCPUInfo().getCpuPath() + BaseRequestAction.SPLITE + PhoneUtils.getNumCores()) + "&diskCapacity=" + PhoneUtils.getTotalInternalMemorySize()) + "&upTime=" + (SystemClock.elapsedRealtime() / 1000)));
             jSONObject.put(PARAM_NETTYPE, PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, NetworkUtils.getNetworkType(context) + ""));
             jSONObject.put(PARAM_IMEI_NEW, PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, PhoneUtils.getImei(context)));
             jSONObject.put(PARAM_MOBILE_IP, PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, PhoneUtils.getIpInfo()));

@@ -3,12 +3,12 @@ package com.baidu.tieba.enterForum.data;
 import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
 import tbclient.ForumRecommend.LikeForum;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class f extends e implements com.baidu.tbadk.mvc.b.a {
-    private int cXV;
-    private String cXW;
-    private int cXX;
-    private int cXY;
+    private int dgm;
+    private String dgn;
+    private int dgo;
+    private int dgp;
     private String mId;
     private int mLevel;
     private String mName;
@@ -21,16 +21,16 @@ public class f extends e implements com.baidu.tbadk.mvc.b.a {
         return this.mName;
     }
 
-    public void kg(int i) {
-        this.cXV = i;
+    public void kE(int i) {
+        this.dgm = i;
     }
 
-    public int aql() {
-        return this.cXV;
+    public int atH() {
+        return this.dgm;
     }
 
-    public int aqm() {
-        return this.cXY;
+    public int atI() {
+        return this.dgp;
     }
 
     public void setLevel(int i) {
@@ -42,7 +42,7 @@ public class f extends e implements com.baidu.tbadk.mvc.b.a {
     }
 
     public String getAvatar() {
-        return this.cXW;
+        return this.dgn;
     }
 
     public void a(LikeForum likeForum) {
@@ -56,11 +56,11 @@ public class f extends e implements com.baidu.tbadk.mvc.b.a {
             try {
                 this.mId = String.valueOf(likeForum.forum_id);
                 this.mName = likeForum.forum_name;
-                this.cXV = likeForum.is_sign.intValue();
+                this.dgm = likeForum.is_sign.intValue();
                 this.mLevel = likeForum.level_id.intValue();
-                this.cXW = likeForum.avatar;
-                this.cXX = likeForum.is_liveforum.intValue();
-                this.cXY = likeForum.is_brand_forum.intValue();
+                this.dgn = likeForum.avatar;
+                this.dgo = likeForum.is_liveforum.intValue();
+                this.dgp = likeForum.is_brand_forum.intValue();
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

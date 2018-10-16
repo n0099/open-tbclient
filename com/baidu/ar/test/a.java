@@ -33,7 +33,7 @@ public class a {
             jSONObject3.put("video", true);
             jSONArray2.put(jSONObject3);
             jSONObject2.put(ARResourceKey.HTTP_POWER, jSONArray2);
-            jSONObject2.put(ARResourceKey.HTTP_VERSION_CODE, "1489068966");
+            jSONObject2.put("version_code", "1489068966");
             jSONObject2.put(ARResourceKey.AR_CODE_URL, "http://ar-fm.cdn.bcebos.com/content-online/so/lib_res_1.zip");
             jSONObject2.put("ar_code_version", 9);
             jSONObject.put(ARResourceKey.HTTP_RET, jSONObject2);

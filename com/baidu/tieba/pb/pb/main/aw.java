@@ -6,53 +6,53 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.message.GameLaunchMessage;
 import com.baidu.tbadk.core.util.ay;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class aw {
-    private static aw fPb = null;
+    private static aw fWB = null;
 
-    public static aw bhp() {
-        if (fPb == null) {
+    public static aw bkB() {
+        if (fWB == null) {
             synchronized (aw.class) {
-                if (fPb == null) {
-                    fPb = new aw();
+                if (fWB == null) {
+                    fWB = new aw();
                 }
             }
         }
-        return fPb;
+        return fWB;
     }
 
     public void c(TbPageContext tbPageContext, String str) {
         if (tbPageContext != null && !TextUtils.isEmpty(str)) {
             if (str.contains("is_native_app=1")) {
             }
-            if (sb(str)) {
+            if (sC(str)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
-            } else if (sc(str)) {
-                ay.AN().a((TbPageContext<?>) tbPageContext, new String[]{str}, true);
+            } else if (sD(str)) {
+                ay.CU().a((TbPageContext<?>) tbPageContext, new String[]{str}, true);
             } else {
-                ay.AN().c(tbPageContext, new String[]{str});
+                ay.CU().c(tbPageContext, new String[]{str});
             }
         }
     }
 
-    public static boolean sa(String str) {
+    public static boolean sB(String str) {
         return str != null && str.contains("bookcover:");
     }
 
-    private boolean sb(String str) {
-        Map<String, String> fh;
-        if (!TextUtils.isEmpty(str) && (fh = ay.fh(ay.fi(str))) != null) {
-            String str2 = fh.get("url");
+    private boolean sC(String str) {
+        Map<String, String> fv;
+        if (!TextUtils.isEmpty(str) && (fv = ay.fv(ay.fw(str))) != null) {
+            String str2 = fv.get("url");
             if (!TextUtils.isEmpty(str2)) {
-                return sb(com.baidu.adp.lib.util.k.bz(str2));
+                return sC(com.baidu.adp.lib.util.k.by(str2));
             }
-            String str3 = fh.get("tbgametype");
+            String str3 = fv.get("tbgametype");
             return !TextUtils.isEmpty(str3) && str3.equals("1");
         }
         return false;
     }
 
-    private boolean sc(String str) {
+    private boolean sD(String str) {
         return !TextUtils.isEmpty(str) && str.contains("xiaoying.tv");
     }
 }

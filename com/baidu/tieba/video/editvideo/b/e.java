@@ -7,34 +7,34 @@ import android.media.MediaMuxer;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @TargetApi(18)
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 class e {
-    private final MediaMuxer hlM;
-    private volatile boolean hlO;
-    private volatile boolean hlP;
-    private int hlN = 2;
+    private final MediaMuxer htb;
+    private volatile boolean htd;
+    private volatile boolean hte;
+    private int htc = 2;
     private boolean mIsStarted = false;
 
     public e(String str) throws IOException {
-        this.hlM = new MediaMuxer(str, 0);
+        this.htb = new MediaMuxer(str, 0);
     }
 
-    public void bDO() {
-        this.hlO = true;
+    public void bHc() {
+        this.htd = true;
     }
 
-    public void bDP() {
-        this.hlP = true;
+    public void bHd() {
+        this.hte = true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized boolean start() {
         boolean z;
-        if (!this.hlP || !this.hlO) {
+        if (!this.hte || !this.htd) {
             z = false;
         } else {
-            if (this.hlN > 0 && this.hlP && this.hlO) {
-                this.hlM.start();
+            if (this.htc > 0 && this.hte && this.htd) {
+                this.htb.start();
                 this.mIsStarted = true;
                 notifyAll();
             }
@@ -45,10 +45,10 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void stop() {
-        if (this.hlN > 0) {
+        if (this.htc > 0) {
             try {
-                this.hlM.stop();
-                this.hlM.release();
+                this.htb.stop();
+                this.htb.release();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -61,13 +61,13 @@ class e {
         if (this.mIsStarted) {
             throw new IllegalStateException("muxer already started");
         }
-        return this.hlM.addTrack(mediaFormat);
+        return this.htb.addTrack(mediaFormat);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void writeSampleData(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
         if (this.mIsStarted) {
-            this.hlM.writeSampleData(i, byteBuffer, bufferInfo);
+            this.htb.writeSampleData(i, byteBuffer, bufferInfo);
         }
     }
 

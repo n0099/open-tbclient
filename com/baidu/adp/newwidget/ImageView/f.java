@@ -8,41 +8,40 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
-import android.support.v4.view.ViewCompat;
 /* loaded from: classes.dex */
 public class f extends k {
-    private boolean Ip;
+    private boolean IR;
+    private final Paint Jc = new Paint();
+    private final Paint Jd = new Paint();
     private Rect mRect;
-    private Path nJ;
-    private final Paint Iz = new Paint();
-    private final Paint IA = new Paint();
+    private Path oy;
 
     public f() {
-        this.Iz.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.Iz.setStyle(Paint.Style.FILL);
-        this.Iz.setAntiAlias(true);
-        this.IA.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        this.Jc.setColor(-16777216);
+        this.Jc.setStyle(Paint.Style.FILL);
+        this.Jc.setAntiAlias(true);
+        this.Jd.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
     }
 
     private void d(Rect rect) {
         boolean z = false;
         if (rect != null) {
-            if (this.nJ == null || this.Ip != this.mArgs.Ip) {
+            if (this.oy == null || this.IR != this.mArgs.IR) {
                 z = true;
             }
             if (this.mRect == null || !this.mRect.contains(rect)) {
                 z = true;
             }
-            this.Ip = this.mArgs.Ip;
+            this.IR = this.mArgs.IR;
             if (z) {
                 this.mRect = rect;
-                this.nJ = new Path();
-                if (this.Ip) {
-                    this.nJ.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
+                this.oy = new Path();
+                if (this.IR) {
+                    this.oy.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
                 } else {
-                    this.nJ.addRoundRect(new RectF(rect), this.mArgs.Io, this.mArgs.Io, Path.Direction.CCW);
+                    this.oy.addRoundRect(new RectF(rect), this.mArgs.IQ, this.mArgs.IQ, Path.Direction.CCW);
                 }
-                this.nJ.close();
+                this.oy.close();
             }
         }
     }
@@ -52,7 +51,7 @@ public class f extends k {
         canvas.save();
         d(drawable.getBounds());
         try {
-            canvas.clipPath(this.nJ);
+            canvas.clipPath(this.oy);
         } catch (Exception e) {
         }
         drawable.draw(canvas);

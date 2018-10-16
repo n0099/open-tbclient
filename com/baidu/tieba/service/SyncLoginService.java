@@ -72,47 +72,47 @@ public class SyncLoginService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: B */
+        /* renamed from: C */
         public c doInBackground(String... strArr) {
             c cVar;
             Exception e;
             try {
                 this.mNetWork = new x(TbConfig.SERVER_ADDRESS + "c/s/switch");
-                this.mNetWork.u("_os_version", Build.VERSION.RELEASE);
+                this.mNetWork.x("_os_version", Build.VERSION.RELEASE);
                 StringBuffer stringBuffer = new StringBuffer(15);
                 stringBuffer.append(String.valueOf(l.aO(TbadkCoreApplication.getInst().getApp())));
                 stringBuffer.append(",");
                 stringBuffer.append(String.valueOf(l.aQ(TbadkCoreApplication.getInst().getApp())));
-                this.mNetWork.u("_phone_screen", stringBuffer.toString());
-                this.mNetWork.u("scr_w", String.valueOf(l.aO(TbadkCoreApplication.getInst().getApp())));
-                this.mNetWork.u("scr_h", String.valueOf(l.aQ(TbadkCoreApplication.getInst().getApp())));
-                this.mNetWork.u("scr_dip", String.valueOf(l.aR(TbadkCoreApplication.getInst().getApp())));
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.Ff().Fi() > 0) {
-                    this.mNetWork.u("_msg_status", "0");
+                this.mNetWork.x("_phone_screen", stringBuffer.toString());
+                this.mNetWork.x("scr_w", String.valueOf(l.aO(TbadkCoreApplication.getInst().getApp())));
+                this.mNetWork.x("scr_h", String.valueOf(l.aQ(TbadkCoreApplication.getInst().getApp())));
+                this.mNetWork.x("scr_dip", String.valueOf(l.aR(TbadkCoreApplication.getInst().getApp())));
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.Hg().Hj() > 0) {
+                    this.mNetWork.x("_msg_status", "0");
                 } else {
-                    this.mNetWork.u("_msg_status", "1");
+                    this.mNetWork.x("_msg_status", "1");
                 }
                 String activeVersion = TbadkCoreApplication.getInst().getActiveVersion();
                 if (activeVersion != null) {
                     if (activeVersion.length() < 1) {
                         activeVersion = "0";
                     }
-                    this.mNetWork.u("_active", activeVersion);
+                    this.mNetWork.x("_active", activeVersion);
                 }
-                this.mNetWork.u("_pic_quality", String.valueOf(TbadkCoreApplication.getInst().getViewImageQuality()));
+                this.mNetWork.x("_pic_quality", String.valueOf(TbadkCoreApplication.getInst().getViewImageQuality()));
                 if (SyncLoginService.mStatistics != null) {
-                    this.mNetWork.u("_msg_type", SyncLoginService.mStatistics);
+                    this.mNetWork.x("_msg_type", SyncLoginService.mStatistics);
                 }
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
-                this.mNetWork.u("package", packageName);
-                this.mNetWork.u("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
-                this.mNetWork.u("signmd5", ar.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.mNetWork.u(ARResourceKey.HTTP_AR_MD5, h.getTiebaApkMd5());
-                String zt = this.mNetWork.zt();
-                if (this.mNetWork.zR().AQ().isRequestSuccess()) {
+                this.mNetWork.x("package", packageName);
+                this.mNetWork.x("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
+                this.mNetWork.x("signmd5", ar.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
+                this.mNetWork.x(ARResourceKey.HTTP_AR_MD5, h.getTiebaApkMd5());
+                String BA = this.mNetWork.BA();
+                if (this.mNetWork.BY().CX().isRequestSuccess()) {
                     cVar = new c();
                     try {
-                        cVar.parserJson(zt);
+                        cVar.parserJson(BA);
                         String unused = SyncLoginService.mStatistics = null;
                         return cVar;
                     } catch (Exception e2) {
@@ -132,7 +132,7 @@ public class SyncLoginService extends BdBaseService {
         public void cancel() {
             SyncLoginService.this.mSyncTask = null;
             if (this.mNetWork != null) {
-                this.mNetWork.iT();
+                this.mNetWork.ji();
             }
             super.cancel(true);
         }

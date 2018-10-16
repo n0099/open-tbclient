@@ -29,22 +29,22 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public abstract class BasePraiseView<T> extends LinearLayout {
+    protected View.OnClickListener aAK;
+    protected int aBa;
+    protected int aBb;
+    public int aBc;
+    public int aBd;
+    public int aBe;
+    public int aBf;
+    public int aBg;
+    protected TextView aBh;
+    protected ImageView aBi;
+    protected ScaleAnimation aBj;
     protected int agreeType;
-    protected long alZ;
-    protected long ama;
-    protected View.OnClickListener avZ;
-    protected int awp;
-    protected int awq;
-    public int awr;
-    public int aws;
-    public int awt;
-    public int awu;
-    public int awv;
-    protected TextView aww;
-    protected ImageView awx;
-    protected ScaleAnimation awy;
+    protected long aqU;
+    protected long aqV;
     protected T mData;
     protected String mForumId;
     protected int mFrom;
@@ -53,9 +53,9 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     private int mSkinType;
     protected String mThreadId;
 
-    public abstract void Bp();
-
     public abstract long getNum();
+
+    public abstract void updateUI();
 
     public BasePraiseView(Context context) {
         this(context, null);
@@ -65,39 +65,39 @@ public abstract class BasePraiseView<T> extends LinearLayout {
         super(context, attributeSet);
         this.mSkinType = 3;
         this.agreeType = 2;
-        this.awp = 3;
-        this.awq = 1;
+        this.aBa = 3;
+        this.aBb = 1;
         this.mFrom = 2;
-        this.awr = e.j.action_praise_default;
-        this.aws = e.f.icon_card_like_n;
-        this.awt = e.f.icon_card_like_s;
-        this.awu = e.d.cp_cont_j;
-        this.awv = e.d.cp_cont_h;
+        this.aBc = e.j.action_praise_default;
+        this.aBd = e.f.icon_card_like_n;
+        this.aBe = e.f.icon_card_like_s;
+        this.aBf = e.d.cp_cont_j;
+        this.aBg = e.d.cp_cont_h;
         this.mThreadId = "";
         this.mForumId = "";
         this.mPostId = "";
         setOrientation(0);
         setGravity(17);
-        bB(context);
-        Bq();
+        bJ(context);
+        Dw();
     }
 
-    protected void bB(Context context) {
+    protected void bJ(Context context) {
         if (context != null) {
             View inflate = View.inflate(context, e.h.praise_view, this);
-            this.aww = (TextView) inflate.findViewById(e.g.thread_info_praise_num);
-            this.awx = (ImageView) inflate.findViewById(e.g.thread_info_praise_img);
+            this.aBh = (TextView) inflate.findViewById(e.g.thread_info_praise_num);
+            this.aBi = (ImageView) inflate.findViewById(e.g.thread_info_praise_img);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Bq() {
+    public void Dw() {
         this.agreeType = 2;
-        this.awr = e.j.action_praise_default;
-        this.awu = e.d.cp_cont_j;
-        this.awv = e.d.cp_cont_h;
-        this.aws = e.f.icon_card_like_n;
-        this.awt = e.f.icon_card_like_s;
+        this.aBc = e.j.action_praise_default;
+        this.aBf = e.d.cp_cont_j;
+        this.aBg = e.d.cp_cont_h;
+        this.aBd = e.f.icon_card_like_n;
+        this.aBe = e.f.icon_card_like_s;
     }
 
     public StateListDrawable createStateDrawable(int i, int i2) {
@@ -118,26 +118,25 @@ public abstract class BasePraiseView<T> extends LinearLayout {
 
     public void a(int i, bb bbVar) {
         com.baidu.tbadk.data.h hVar = new com.baidu.tbadk.data.h();
-        hVar.aOv = i;
-        hVar.aOw = bbVar;
+        hVar.aSX = i;
+        hVar.aSY = bbVar;
         hVar.forumId = this.mForumId;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016551, hVar));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, hVar));
     }
 
-    public void dn(int i) {
-        if (this.awx != null && i == 0) {
-            this.awx.startAnimation(getScaleAnimation());
+    public void dx(int i) {
+        if (this.aBi != null && i == 0) {
+            this.aBi.startAnimation(getScaleAnimation());
         }
     }
 
-    /* renamed from: do  reason: not valid java name */
-    public void m15do(int i) {
+    public void dy(int i) {
         if (this.mData != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
             httpMessage.addParam("z_id", FH.gz(TbadkCoreApplication.getInst()));
             httpMessage.addParam("thread_id", this.mThreadId);
             httpMessage.addParam("op_type", i);
-            httpMessage.addParam("obj_type", this.awp);
+            httpMessage.addParam("obj_type", this.aBa);
             httpMessage.addParam("agree_type", this.agreeType);
             httpMessage.addParam("forum_id", this.mForumId);
             if (!TextUtils.isEmpty(this.mPostId)) {
@@ -151,22 +150,22 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public Animation getScaleAnimation() {
-        if (this.awy == null) {
-            this.awy = new ScaleAnimation(1.3f, 1.0f, 1.3f, 1.0f, 1, 1.0f, 1, 1.0f);
-            this.awy.setDuration(200L);
+        if (this.aBj == null) {
+            this.aBj = new ScaleAnimation(1.3f, 1.0f, 1.3f, 1.0f, 1, 1.0f, 1, 1.0f);
+            this.aBj.setDuration(200L);
         }
-        return this.awy;
+        return this.aBj;
     }
 
     public void onChangeSkinType(int i) {
         if (this.mData == null && this.mSkinType != i) {
-            Bp();
+            updateUI();
             this.mSkinType = i;
         }
     }
 
     public void setDisPraiseFrom(int i) {
-        this.awq = i;
+        this.aBb = i;
     }
 
     public void setFrom(int i) {
@@ -174,7 +173,7 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public void setObjType(int i) {
-        this.awp = i;
+        this.aBa = i;
     }
 
     public void setForumId(String str) {
@@ -191,12 +190,12 @@ public abstract class BasePraiseView<T> extends LinearLayout {
 
     public void setViewEnabled(boolean z) {
         setClickable(z);
-        this.awx.setEnabled(z);
-        this.aww.setEnabled(z);
+        this.aBi.setEnabled(z);
+        this.aBh.setEnabled(z);
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.avZ = onClickListener;
+        this.aAK = onClickListener;
     }
 
     public TbPageContext<?> getTbPageContext() {
@@ -220,34 +219,34 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public ImageView getImageView() {
-        return this.awx;
+        return this.aBi;
     }
 
     public TextView getTextView() {
-        return this.aww;
+        return this.aBh;
     }
 
-    public void aY(boolean z) {
+    public void bi(boolean z) {
         am amVar = new am("c13271");
-        amVar.al("uid", TbadkCoreApplication.getCurrentAccount());
-        amVar.al(ImageViewerConfig.FORUM_ID, this.mForumId);
-        amVar.al("tid", this.mThreadId);
-        amVar.al("post_id", this.mPostId);
-        amVar.w("obj_type", getObjType());
-        amVar.w("obj_locate", getObjLocate());
-        amVar.w(VideoPlayActivityConfig.OBJ_ID, z ? 1 : 0);
-        amVar.w("obj_param1", com.baidu.tbadk.util.a.Mu().CM() ? 1 : 0);
+        amVar.ax("uid", TbadkCoreApplication.getCurrentAccount());
+        amVar.ax(ImageViewerConfig.FORUM_ID, this.mForumId);
+        amVar.ax("tid", this.mThreadId);
+        amVar.ax("post_id", this.mPostId);
+        amVar.x("obj_type", getObjType());
+        amVar.x("obj_locate", getObjLocate());
+        amVar.x(VideoPlayActivityConfig.OBJ_ID, z ? 1 : 0);
+        amVar.x("obj_param1", com.baidu.tbadk.util.a.Os().EQ() ? 1 : 0);
         TiebaStatic.log(amVar);
     }
 
     private int getObjLocate() {
-        return this.awq;
+        return this.aBb;
     }
 
     private int getObjType() {
-        if (this.awp == 1) {
+        if (this.aBa == 1) {
             return 2;
         }
-        return this.awp == 2 ? 3 : 1;
+        return this.aBa == 2 ? 3 : 1;
     }
 }

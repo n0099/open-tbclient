@@ -12,6 +12,7 @@ import com.baidu.android.pushservice.k.e;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.fsg.base.utils.PhoneUtils;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -161,7 +162,7 @@ public class b {
 
     public static int[] a(Context context) {
         int[] iArr = new int[3];
-        WindowManager windowManager = (WindowManager) context.getSystemService("window");
+        WindowManager windowManager = (WindowManager) context.getSystemService(WindowConfig.JSON_WINDOW_KEY);
         if (windowManager == null) {
             iArr[0] = 0;
             iArr[1] = 0;

@@ -20,42 +20,42 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static final HashMap<Integer, Integer[]> anE = new HashMap<>(2);
-    private LinearLayout.LayoutParams anD;
-    private AlertDialog ank;
-    private List<CharSequence> anw;
-    private InterfaceC0100b anx;
-    private final View any;
+    private static final HashMap<Integer, Integer[]> asy = new HashMap<>(2);
+    private AlertDialog asf;
+    private InterfaceC0124b asr;
+    private final View ass;
+    private LinearLayout.LayoutParams asx;
     private final Activity mActivity;
     private final ViewGroup mContentView;
     private com.baidu.adp.base.e<?> mContext;
+    private List<CharSequence> mItems;
     private final ViewGroup mRootView;
     private String mTitle;
     private final TextView mTitleView;
-    private int anA = -1;
-    private int amY = -1;
-    private int anB = -1;
-    private boolean anm = false;
-    private int anC = -1;
-    private int anz = e.h.dialog_bdlist_item;
+    private int asu = -1;
+    private int arT = -1;
+    private int asv = -1;
+    private boolean ash = false;
+    private int asw = -1;
+    private int ast = e.h.dialog_bdlist_item;
 
     /* loaded from: classes.dex */
     public static final class a {
-        public static final int anH = e.k.dialog_ani_b2t;
-        public static final int anI = e.k.dialog_ani_t2b;
+        public static final int asB = e.k.dialog_ani_b2t;
+        public static final int asC = e.k.dialog_ani_t2b;
         public static final int LEFT_TO_RIGHT = e.k.dialog_ani_l2r;
         public static final int RIGHT_TO_LEFT = e.k.dialog_ani_r2l;
     }
 
     /* renamed from: com.baidu.tbadk.core.dialog.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0100b {
+    public interface InterfaceC0124b {
         void a(b bVar, int i, View view);
     }
 
     static {
-        anE.put(0, new Integer[]{Integer.valueOf(e.f.dialg_alert_btn_bg), Integer.valueOf(e.f.dialog_bdalert_button_textcolor_pressed)});
-        anE.put(1, new Integer[]{Integer.valueOf(e.f.btn_blue_square), Integer.valueOf(e.d.cp_bg_line_d)});
+        asy.put(0, new Integer[]{Integer.valueOf(e.f.dialg_alert_btn_bg), Integer.valueOf(e.f.dialog_bdalert_button_textcolor_pressed)});
+        asy.put(1, new Integer[]{Integer.valueOf(e.f.btn_blue_square), Integer.valueOf(e.d.cp_bg_line_d)});
     }
 
     public b(Activity activity) {
@@ -63,7 +63,7 @@ public class b {
         this.mRootView = (ViewGroup) LayoutInflater.from(activity).inflate(e.h.dialog_bdlist, (ViewGroup) null);
         this.mTitleView = (TextView) this.mRootView.findViewById(e.g.dialog_title_list);
         this.mContentView = (ViewGroup) this.mRootView.findViewById(e.g.dialog_content);
-        this.any = this.mRootView.findViewById(e.g.line_bg);
+        this.ass = this.mRootView.findViewById(e.g.line_bg);
     }
 
     public TextView getTitleView() {
@@ -74,58 +74,58 @@ public class b {
         return this.mRootView;
     }
 
-    public b dU(String str) {
+    public b ek(String str) {
         this.mTitle = str;
         return this;
     }
 
-    public b cs(int i) {
-        return dU(this.mActivity.getResources().getString(i));
+    public b cC(int i) {
+        return ek(this.mActivity.getResources().getString(i));
     }
 
-    public b a(CharSequence[] charSequenceArr, InterfaceC0100b interfaceC0100b) {
+    public b a(CharSequence[] charSequenceArr, InterfaceC0124b interfaceC0124b) {
         if (charSequenceArr != null && charSequenceArr.length > 0) {
-            return a(Arrays.asList(charSequenceArr), interfaceC0100b);
+            return a(Arrays.asList(charSequenceArr), interfaceC0124b);
         }
         return this;
     }
 
-    public b a(List<CharSequence> list, InterfaceC0100b interfaceC0100b) {
+    public b a(List<CharSequence> list, InterfaceC0124b interfaceC0124b) {
         if (list != null && list.size() > 0) {
-            this.anw = list;
-            if (interfaceC0100b != null) {
-                this.anx = interfaceC0100b;
+            this.mItems = list;
+            if (interfaceC0124b != null) {
+                this.asr = interfaceC0124b;
             }
         }
         return this;
     }
 
-    public b ct(int i) {
-        this.anA = i;
+    public b cD(int i) {
+        this.asu = i;
         return this;
     }
 
-    public b cu(int i) {
-        this.amY = i;
+    public b cE(int i) {
+        this.arT = i;
         return this;
     }
 
     public b d(com.baidu.adp.base.e<?> eVar) {
-        if (!this.anm) {
+        if (!this.ash) {
             this.mContext = eVar;
-            this.anm = true;
+            this.ash = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
                 this.mTitleView.setText(this.mTitle);
                 this.mTitleView.setVisibility(0);
-                this.any.setVisibility(0);
+                this.ass.setVisibility(0);
             } else {
                 this.mTitleView.setVisibility(8);
-                this.any.setVisibility(8);
+                this.ass.setVisibility(8);
             }
-            if (this.anw != null && this.anw.size() > 0) {
-                int size = this.anw.size();
+            if (this.mItems != null && this.mItems.size() > 0) {
+                int size = this.mItems.size();
                 for (int i = 0; i < size; i++) {
-                    cw(i);
+                    cG(i);
                 }
             }
             c(eVar);
@@ -134,33 +134,33 @@ public class b {
     }
 
     public void reset() {
-        this.anm = false;
+        this.ash = false;
         if (this.mContentView != null) {
             this.mContentView.removeAllViews();
         }
     }
 
-    public b yo() {
-        if (!this.anm) {
+    public b Ax() {
+        if (!this.ash) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
-        if (this.ank != null) {
-            com.baidu.adp.lib.g.g.a(this.ank, this.mActivity);
+        if (this.asf != null) {
+            com.baidu.adp.lib.g.g.a(this.asf, this.mActivity);
         } else {
-            this.ank = new AlertDialog.Builder(this.mActivity, e.k.NoBackDimEnableDialog).create();
-            this.ank.setCanceledOnTouchOutside(true);
-            if (com.baidu.adp.lib.g.g.a(this.ank, this.mActivity)) {
-                Window window = this.ank.getWindow();
-                if (this.anA == -1) {
-                    this.anA = a.anH;
+            this.asf = new AlertDialog.Builder(this.mActivity, e.k.NoBackDimEnableDialog).create();
+            this.asf.setCanceledOnTouchOutside(true);
+            if (com.baidu.adp.lib.g.g.a(this.asf, this.mActivity)) {
+                Window window = this.asf.getWindow();
+                if (this.asu == -1) {
+                    this.asu = a.asB;
                 }
-                if (this.amY == -1) {
-                    this.amY = 17;
+                if (this.arT == -1) {
+                    this.arT = 17;
                 }
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.dimAmount = 0.5f;
                 window.setAttributes(attributes);
-                window.setGravity(this.amY);
+                window.setGravity(this.arT);
                 window.setContentView(this.mRootView);
             }
         }
@@ -177,39 +177,39 @@ public class b {
     }
 
     public void dismiss() {
-        if (this.ank != null) {
-            com.baidu.adp.lib.g.g.b(this.ank, this.mActivity);
+        if (this.asf != null) {
+            com.baidu.adp.lib.g.g.b(this.asf, this.mActivity);
         }
     }
 
-    public void cv(int i) {
-        this.anC = i;
+    public void cF(int i) {
+        this.asw = i;
     }
 
-    private View cw(final int i) {
-        View inflate = LayoutInflater.from(this.mActivity).inflate(this.anz, this.mContentView, false);
+    private View cG(final int i) {
+        View inflate = LayoutInflater.from(this.mActivity).inflate(this.ast, this.mContentView, false);
         LinearLayout linearLayout = (LinearLayout) inflate;
         final TextView textView = (TextView) inflate.findViewById(e.g.dialog_item_btn);
-        if (this.anD != null) {
-            textView.setLayoutParams(this.anD);
+        if (this.asx != null) {
+            textView.setLayoutParams(this.asx);
         }
-        if (this.anB != -1) {
-            textView.setTextSize(0, this.anB);
+        if (this.asv != -1) {
+            textView.setTextSize(0, this.asv);
         }
-        if (this.anC != -1) {
+        if (this.asw != -1) {
             textView.setPadding(0, 0, 0, 0);
-            textView.setGravity(this.anC);
+            textView.setGravity(this.asw);
         }
         View findViewById = inflate.findViewById(e.g.line);
-        CharSequence charSequence = this.anw.get(i);
+        CharSequence charSequence = this.mItems.get(i);
         if (charSequence.length() <= 0) {
             charSequence = "";
         }
         textView.setText(charSequence);
-        if (i == this.anw.size() - 1) {
+        if (i == this.mItems.size() - 1) {
             findViewById.setVisibility(8);
             al.i(inflate, e.f.dialog_single_button_bg_selector);
-        } else if (this.anw.size() == 1) {
+        } else if (this.mItems.size() == 1) {
             findViewById.setVisibility(8);
             al.i(inflate, e.f.dialog_single_button_only_one_bg_selector);
         } else if (i == 0 && StringUtils.isNull(this.mTitle)) {
@@ -217,11 +217,11 @@ public class b {
         } else {
             al.i(inflate, e.f.dialg_alert_btn_bg);
         }
-        if (this.anx != null) {
+        if (this.asr != null) {
             linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    b.this.anx.a(b.this, i, textView);
+                    b.this.asr.a(b.this, i, textView);
                 }
             });
         }
@@ -229,7 +229,7 @@ public class b {
         return inflate;
     }
 
-    public View cx(int i) {
+    public View cH(int i) {
         if (this.mContentView == null) {
             return null;
         }

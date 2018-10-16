@@ -1,8 +1,8 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class SideBarViewShareEntranceSwitchStatic extends com.baidu.adp.lib.b.a {
     static {
-        com.baidu.adp.lib.b.d.iB().i(SideBarViewShareEntranceSwitchStatic.class);
+        com.baidu.adp.lib.b.d.iR().i(SideBarViewShareEntranceSwitchStatic.class);
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -15,22 +15,22 @@ public class SideBarViewShareEntranceSwitchStatic extends com.baidu.adp.lib.b.a 
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] ir() {
+    protected String[] iH() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int is() {
+    protected int iI() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int it() {
+    protected int iJ() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int iu() {
+    protected int iK() {
         return 10;
     }
 }

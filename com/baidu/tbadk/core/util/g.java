@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.util;
 import android.os.Build;
 /* loaded from: classes.dex */
 public class g {
-    public static boolean zl() {
+    public static boolean Bt() {
         boolean z = true;
-        if (com.baidu.tbadk.p.ac.jw()) {
+        if (com.baidu.tbadk.p.ac.jL()) {
             String trim = Build.MODEL.trim();
             String[] strArr = {"ANE-AL00", "CLT-AL01", "PACM00", "vivo Y85A", "vivo X21A"};
             int length = strArr.length;
@@ -25,7 +25,7 @@ public class g {
         return false;
     }
 
-    public static boolean zm() {
+    public static boolean Bu() {
         return ao.equals(Build.MODEL.trim(), "ANE-AL00");
     }
 }

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -208,7 +207,7 @@ public class c implements View.OnClickListener, EasyAudioCallback {
     public void a(int i, String str, int i2) {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", 2001);
-        hashMap.put(NotificationCompat.CATEGORY_STATUS, Integer.valueOf(i));
+        hashMap.put("status", Integer.valueOf(i));
         if (str != null) {
             hashMap.put("voice_result", str);
         }

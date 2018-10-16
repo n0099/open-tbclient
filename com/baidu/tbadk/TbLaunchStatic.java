@@ -24,7 +24,7 @@ import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
 import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
 import com.baidu.tieba.wxapi.WXEntryActivity;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class TbLaunchStatic {
     static {
         initRegisterIntent();
@@ -60,7 +60,7 @@ public class TbLaunchStatic {
                     long j = b.getInstance().getLong("clear_redundance_files_time", 0L);
                     long currentTimeMillis = System.currentTimeMillis();
                     if (currentTimeMillis - j > 86400000) {
-                        PluginPackageManager.mT().nj();
+                        PluginPackageManager.nd().nt();
                         b.getInstance().putLong("clear_redundance_files_time", currentTimeMillis);
                     }
                 }

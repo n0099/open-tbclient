@@ -1,19 +1,19 @@
 package com.baidu.adp.lib.stats;
 /* loaded from: classes.dex */
 public class c {
-    public String DA;
-    public String Do;
-    public String Dp;
-    public String Dq;
-    public String Dr;
-    public String Ds;
-    public String Dt;
-    public String Du;
-    public String Dv;
-    public String Dw;
-    public String Dx;
-    public String Dy;
-    public String Dz;
+    public String DX;
+    public String DY;
+    public String DZ;
+    public String Ea;
+    public String Eb;
+    public String Ec;
+    public String Ed;
+    public String Ee;
+    public String Ef;
+    public String Eg;
+    public String Eh;
+    public String Ei;
+    public String Ej;
     public String mAppVersion;
     public String mChannel;
     public String mCuid;

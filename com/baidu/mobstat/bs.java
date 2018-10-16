@@ -6,6 +6,7 @@ import android.graphics.Rect;
 import android.text.TextUtils;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
+import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
 import com.coremedia.iso.boxes.MetaBox;
 import java.lang.ref.WeakReference;
 import java.util.Map;
@@ -215,7 +216,7 @@ public class bs {
             while (i < jSONArray.length()) {
                 JSONObject jSONObject2 = (JSONObject) jSONArray.get(i);
                 i++;
-                z = (str.equals(jSONObject2.optString("page")) && str2.equals((String) jSONObject2.opt("url")) && str3.equals(jSONObject2.optString("layout")) && str4.equals((String) jSONObject2.opt("webLayout"))) ? true : z;
+                z = (str.equals(jSONObject2.optString(SystemScreenshotManager.PAGE)) && str2.equals((String) jSONObject2.opt("url")) && str3.equals(jSONObject2.optString("layout")) && str4.equals((String) jSONObject2.opt("webLayout"))) ? true : z;
             }
         } catch (Exception e2) {
         }

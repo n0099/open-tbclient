@@ -10,7 +10,7 @@ import android.opengl.EGLSurface;
 import android.util.Log;
 import android.view.Surface;
 @TargetApi(18)
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 class g {
     private EGLContext mEGLContext;
     private EGLDisplay mEGLDisplay;
@@ -22,10 +22,10 @@ class g {
             throw new NullPointerException();
         }
         this.mSurface = surface;
-        bDQ();
+        bHe();
     }
 
-    private void bDQ() {
+    private void bHe() {
         this.mEGLDisplay = EGL14.eglGetDisplay(0);
         if (this.mEGLDisplay == EGL14.EGL_NO_DISPLAY) {
             throw new RuntimeException("unable to get EGL14 display");

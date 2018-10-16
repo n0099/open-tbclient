@@ -10,6 +10,7 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.g.b;
 import com.baidu.appsearchlib.Info;
+import com.baidu.searchbox.ng.ai.apps.view.coverview.model.ImageCoverViewModel;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
@@ -119,12 +120,12 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
         this.mInjectListener = new AntiHelper.a() { // from class: com.baidu.tieba.im.model.MsglistModel.1
             @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
             public void onPositiveButtonClick(a aVar) {
-                TiebaStatic.log(new am("c12536").w("obj_locate", as.a.atR));
+                TiebaStatic.log(new am("c12536").x("obj_locate", as.a.ayC));
             }
 
             @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
             public void onNavigationButtonClick(a aVar) {
-                TiebaStatic.log(new am("c12535").w("obj_locate", as.a.atR));
+                TiebaStatic.log(new am("c12535").x("obj_locate", as.a.ayC));
             }
         };
         this.mCustomListenerInMessageCenter = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.model.MsglistModel.14
@@ -136,7 +137,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                 } else if (customResponsedMessage.getCmd() == 501126 && (customResponsedMessage instanceof ResponsedMessage)) {
                     MsglistModel.this.mDatas.getChatMessages().add((ChatMessage) customResponsedMessage.getOrginalMessage());
                     if (MsglistModel.this.mLoadDataCallBack != null) {
-                        MsglistModel.this.mLoadDataCallBack.j(MsglistModel.this.mDatas);
+                        MsglistModel.this.mLoadDataCallBack.m(MsglistModel.this.mDatas);
                     }
                 }
             }
@@ -148,7 +149,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                 if (customResponsedMessage instanceof ResponseUnLoginMessage) {
                     MsglistModel.this.mLoadDataMode = 11;
                     if (MsglistModel.this.mLoadDataCallBack != null) {
-                        MsglistModel.this.mLoadDataCallBack.j(null);
+                        MsglistModel.this.mLoadDataCallBack.m(null);
                     }
                 }
             }
@@ -163,12 +164,12 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
         this.mInjectListener = new AntiHelper.a() { // from class: com.baidu.tieba.im.model.MsglistModel.1
             @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
             public void onPositiveButtonClick(a aVar) {
-                TiebaStatic.log(new am("c12536").w("obj_locate", as.a.atR));
+                TiebaStatic.log(new am("c12536").x("obj_locate", as.a.ayC));
             }
 
             @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
             public void onNavigationButtonClick(a aVar) {
-                TiebaStatic.log(new am("c12535").w("obj_locate", as.a.atR));
+                TiebaStatic.log(new am("c12535").x("obj_locate", as.a.ayC));
             }
         };
         this.mCustomListenerInMessageCenter = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.model.MsglistModel.14
@@ -180,7 +181,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                 } else if (customResponsedMessage.getCmd() == 501126 && (customResponsedMessage instanceof ResponsedMessage)) {
                     MsglistModel.this.mDatas.getChatMessages().add((ChatMessage) customResponsedMessage.getOrginalMessage());
                     if (MsglistModel.this.mLoadDataCallBack != null) {
-                        MsglistModel.this.mLoadDataCallBack.j(MsglistModel.this.mDatas);
+                        MsglistModel.this.mLoadDataCallBack.m(MsglistModel.this.mDatas);
                     }
                 }
             }
@@ -192,7 +193,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                 if (customResponsedMessage instanceof ResponseUnLoginMessage) {
                     MsglistModel.this.mLoadDataMode = 11;
                     if (MsglistModel.this.mLoadDataCallBack != null) {
-                        MsglistModel.this.mLoadDataCallBack.j(null);
+                        MsglistModel.this.mLoadDataCallBack.m(null);
                     }
                 }
             }
@@ -245,7 +246,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
 
     public void onDestroy() {
         this.mAntiDialog = null;
-        com.baidu.tieba.im.sendmessage.a.aPC().setSendCallback(null);
+        com.baidu.tieba.im.sendmessage.a.aSQ().setSendCallback(null);
         unRegisterListener();
     }
 
@@ -266,9 +267,9 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
         genChatMessage.setCustomGroupType(this.customGroupType);
         genChatMessage.setMsgType(s);
         genChatMessage.setContent(str);
-        long cs = com.baidu.tieba.im.util.d.cs(getLastMid());
-        genChatMessage.setMsgId(cs);
-        genChatMessage.setRecordId(cs);
+        long cz = com.baidu.tieba.im.util.d.cz(getLastMid());
+        genChatMessage.setMsgId(cz);
+        genChatMessage.setRecordId(cz);
         genChatMessage.setTime(System.currentTimeMillis() / 1000);
         UserData userData = new UserData();
         userData.setUserName(TbadkCoreApplication.getCurrentAccountName());
@@ -302,7 +303,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             this.mDatas.getChatMessages().add(createMessage);
             this.mLoadDataMode = 4;
             if (this.mLoadDataCallBack != null) {
-                this.mLoadDataCallBack.j(this.mDatas);
+                this.mLoadDataCallBack.m(this.mDatas);
             }
             doSendText(createMessage);
         }
@@ -314,7 +315,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             this.mDatas.getChatMessages().add(createMessage);
             this.mLoadDataMode = 4;
             if (this.mLoadDataCallBack != null) {
-                this.mLoadDataCallBack.j(this.mDatas);
+                this.mLoadDataCallBack.m(this.mDatas);
             }
             doSendText(createMessage);
         }
@@ -326,7 +327,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             this.mDatas.getChatMessages().add(createMessage);
             this.mLoadDataMode = 4;
             if (this.mLoadDataCallBack != null) {
-                this.mLoadDataCallBack.j(this.mDatas);
+                this.mLoadDataCallBack.m(this.mDatas);
             }
             doSendText(createMessage);
         }
@@ -339,7 +340,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             this.mDatas.getChatMessages().add(createMessage);
             this.mLoadDataMode = 4;
             if (this.mLoadDataCallBack != null) {
-                this.mLoadDataCallBack.j(this.mDatas);
+                this.mLoadDataCallBack.m(this.mDatas);
             }
             doSendText(createMessage);
         }
@@ -350,7 +351,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             JSONArray jSONArray = new JSONArray();
             JSONObject jSONObject = new JSONObject();
             jSONObject.put(Info.kBaiduPIDKey, oVar.getPid());
-            jSONObject.put("packet_name", oVar.Dw());
+            jSONObject.put("packet_name", oVar.Fx());
             jSONObject.put("face_name", oVar.getName());
             jSONObject.put("size_width", oVar.getWidth());
             jSONObject.put("size_height", oVar.getHeight());
@@ -373,7 +374,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             this.mDatas.getChatMessages().add(createMessage);
             this.mLoadDataMode = 4;
             if (this.mLoadDataCallBack != null) {
-                this.mLoadDataCallBack.j(this.mDatas);
+                this.mLoadDataCallBack.m(this.mDatas);
             }
             if (createMessage instanceof CommonGroupChatMessage) {
                 final CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) createMessage;
@@ -386,7 +387,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                     /* JADX WARN: Can't rename method to resolve collision */
                     @Override // com.baidu.tbadk.util.w
                     public Boolean doInBackground() {
-                        return Boolean.valueOf(c.aLL().a(commonGroupChatMessage.getGroupId(), linkedList, false));
+                        return Boolean.valueOf(c.aPa().a(commonGroupChatMessage.getGroupId(), linkedList, false));
                     }
                 }, new h<Boolean>() { // from class: com.baidu.tieba.im.model.MsglistModel.3
                     /* JADX DEBUG: Method merged with bridge method */
@@ -406,7 +407,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                     /* JADX WARN: Can't rename method to resolve collision */
                     @Override // com.baidu.tbadk.util.w
                     public Boolean doInBackground() {
-                        return Boolean.valueOf(m.aMd().a(e.s(personalChatMessage), linkedList2, false));
+                        return Boolean.valueOf(m.aPs().a(e.s(personalChatMessage), linkedList2, false));
                     }
                 }, new h<Boolean>() { // from class: com.baidu.tieba.im.model.MsglistModel.5
                     /* JADX DEBUG: Method merged with bridge method */
@@ -426,7 +427,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                     /* JADX WARN: Can't rename method to resolve collision */
                     @Override // com.baidu.tbadk.util.w
                     public Boolean doInBackground() {
-                        return Boolean.valueOf(l.aMb().a(e.s(officialChatMessage), linkedList3, false));
+                        return Boolean.valueOf(l.aPq().a(e.s(officialChatMessage), linkedList3, false));
                     }
                 }, new h<Boolean>() { // from class: com.baidu.tieba.im.model.MsglistModel.7
                     /* JADX DEBUG: Method merged with bridge method */
@@ -445,7 +446,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
         if (z != null) {
             chatMessage.setLogTime(System.currentTimeMillis());
             com.baidu.tieba.im.sendmessage.a.m(chatMessage);
-            com.baidu.tieba.im.sendmessage.a.aPC().a(z, chatMessage);
+            com.baidu.tieba.im.sendmessage.a.aSQ().a(z, chatMessage);
         }
     }
 
@@ -460,7 +461,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             this.mDatas.getChatMessages().add(createMessage);
             this.mLoadDataMode = 4;
             if (this.mLoadDataCallBack != null) {
-                this.mLoadDataCallBack.j(this.mDatas);
+                this.mLoadDataCallBack.m(this.mDatas);
             }
             if (createMessage instanceof CommonGroupChatMessage) {
                 final CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) createMessage;
@@ -473,7 +474,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                     /* JADX WARN: Can't rename method to resolve collision */
                     @Override // com.baidu.tbadk.util.w
                     public Boolean doInBackground() {
-                        return Boolean.valueOf(c.aLL().a(commonGroupChatMessage.getGroupId(), linkedList, false));
+                        return Boolean.valueOf(c.aPa().a(commonGroupChatMessage.getGroupId(), linkedList, false));
                     }
                 }, new h<Boolean>() { // from class: com.baidu.tieba.im.model.MsglistModel.9
                     /* JADX DEBUG: Method merged with bridge method */
@@ -493,7 +494,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                     /* JADX WARN: Can't rename method to resolve collision */
                     @Override // com.baidu.tbadk.util.w
                     public Boolean doInBackground() {
-                        return Boolean.valueOf(m.aMd().a(e.s(personalChatMessage), linkedList2, false));
+                        return Boolean.valueOf(m.aPs().a(e.s(personalChatMessage), linkedList2, false));
                     }
                 }, new h<Boolean>() { // from class: com.baidu.tieba.im.model.MsglistModel.11
                     /* JADX DEBUG: Method merged with bridge method */
@@ -513,7 +514,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                     /* JADX WARN: Can't rename method to resolve collision */
                     @Override // com.baidu.tbadk.util.w
                     public Boolean doInBackground() {
-                        return Boolean.valueOf(l.aMb().a(e.s(officialChatMessage), linkedList3, false));
+                        return Boolean.valueOf(l.aPq().a(e.s(officialChatMessage), linkedList3, false));
                     }
                 }, new h<Boolean>() { // from class: com.baidu.tieba.im.model.MsglistModel.13
                     /* JADX DEBUG: Method merged with bridge method */
@@ -534,7 +535,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             }
             if (str == null) {
                 try {
-                    str = new JSONArray(chatMessage.getContent()).getJSONObject(0).optString("src");
+                    str = new JSONArray(chatMessage.getContent()).getJSONObject(0).optString(ImageCoverViewModel.KEY_SRC);
                 } catch (Exception e) {
                     e.printStackTrace();
                     sendMsgFail(chatMessage);
@@ -548,9 +549,9 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             chatMessage.setProgressValue(0);
             chatMessage.setIsUploading(true);
             if (str.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                com.baidu.tieba.im.sendmessage.a.aPC().r(chatMessage);
+                com.baidu.tieba.im.sendmessage.a.aSQ().r(chatMessage);
             } else {
-                com.baidu.tieba.im.sendmessage.a.aPC().c(chatMessage, str);
+                com.baidu.tieba.im.sendmessage.a.aSQ().c(chatMessage, str);
             }
         }
     }
@@ -581,7 +582,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             }
             this.mLoadDataMode = 6;
             if (this.mLoadDataCallBack != null) {
-                this.mLoadDataCallBack.j(this.mDatas);
+                this.mLoadDataCallBack.m(this.mDatas);
             }
             updateMsgResend(i, msg);
         }
@@ -618,14 +619,14 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                 MemoryModifyLastMsgMessage.a aVar = new MemoryModifyLastMsgMessage.a();
                 aVar.customGroupType = cacheInfo.customGroupType;
                 aVar.id = cacheInfo.id;
-                aVar.eGs = chatMessage2;
+                aVar.eOb = chatMessage2;
                 aVar.type = 2;
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new MemoryModifyLastMsgMessage(aVar));
             }
         }
         this.mLoadDataMode = 7;
         if (this.mLoadDataCallBack != null) {
-            this.mLoadDataCallBack.j(null);
+            this.mLoadDataCallBack.m(null);
         }
     }
 
@@ -645,7 +646,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
     }
 
     public void doSendText(ChatMessage chatMessage) {
-        com.baidu.tieba.im.sendmessage.a.aPC().r(chatMessage);
+        com.baidu.tieba.im.sendmessage.a.aSQ().r(chatMessage);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -672,7 +673,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                     if (this.mDatas.getIsNewAdd()) {
                         this.mLoadDataMode = 1;
                         if (this.mLoadDataCallBack != null) {
-                            this.mLoadDataCallBack.j(null);
+                            this.mLoadDataCallBack.m(null);
                         }
                     }
                     return true;
@@ -680,7 +681,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                 if (this.mDatas.getIsNewAdd()) {
                     this.mLoadDataMode = 2;
                     if (this.mLoadDataCallBack != null) {
-                        this.mLoadDataCallBack.j(null);
+                        this.mLoadDataCallBack.m(null);
                     }
                 }
                 return false;
@@ -702,7 +703,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                 String str = loadDraftResponsedMessage.getData().mDraft;
                 this.mLoadDataMode = 8;
                 if (this.mLoadDataCallBack != null) {
-                    this.mLoadDataCallBack.j(str);
+                    this.mLoadDataCallBack.m(str);
                 }
             }
         }
@@ -725,7 +726,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                 this.mLoadDataMode = 3;
             }
             if (this.mLoadDataCallBack != null) {
-                this.mLoadDataCallBack.j(this.mDatas);
+                this.mLoadDataCallBack.m(this.mDatas);
             }
         } else {
             this.mDatas.setIsNewAdd(false);
@@ -748,13 +749,13 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                     if (AntiHelper.am(responseCommitMessage.getError(), responseCommitMessage.getErrorString())) {
                         if (this.mAntiDialog != null) {
                             if (!this.mAntiDialog.isShowing()) {
-                                TiebaStatic.log(new am("c12534").w("obj_locate", as.a.atR));
-                                this.mAntiDialog.yl();
+                                TiebaStatic.log(new am("c12534").x("obj_locate", as.a.ayC));
+                                this.mAntiDialog.Au();
                             }
                         } else {
                             this.mAntiDialog = AntiHelper.a(this.mActivity.getActivity(), responseCommitMessage.getBlockPopInfoData(), this.mInjectListener);
                             if (this.mAntiDialog != null) {
-                                TiebaStatic.log(new am("c12534").w("obj_locate", as.a.atR));
+                                TiebaStatic.log(new am("c12534").x("obj_locate", as.a.ayC));
                             }
                         }
                     } else if (responseCommitMessage.getError() != 3160008 && responseCommitMessage.getError() != 3100001) {
@@ -786,7 +787,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             this.mDatas.getChatMessages().clear();
             this.mLoadDataMode = 12;
             if (this.mLoadDataCallBack != null) {
-                this.mLoadDataCallBack.j(null);
+                this.mLoadDataCallBack.m(null);
             }
         }
     }
@@ -887,8 +888,8 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                         if (MessageManager.getInstance().getSocketClient() != null) {
                             z = MessageManager.getInstance().getSocketClient().a(chatMessage);
                         }
-                        if (!z && (chatMessage.getMsgType() != 2 || !com.baidu.tieba.im.sendmessage.a.aPC().n(chatMessage))) {
-                            if (chatMessage.getMsgType() != 3 || !com.baidu.tieba.im.sendmessage.a.aPC().q(chatMessage)) {
+                        if (!z && (chatMessage.getMsgType() != 2 || !com.baidu.tieba.im.sendmessage.a.aSQ().n(chatMessage))) {
+                            if (chatMessage.getMsgType() != 3 || !com.baidu.tieba.im.sendmessage.a.aSQ().q(chatMessage)) {
                                 chatMessage.getLocalData().setStatus((short) 2);
                             }
                         }
@@ -927,10 +928,10 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             }
             this.mLoadDataMode = 5;
             if (this.mLoadDataCallBack != null) {
-                this.mLoadDataCallBack.j(this.mDatas);
+                this.mLoadDataCallBack.m(this.mDatas);
             }
             if (this.mSendCallback != null) {
-                this.mSendCallback.pg(0);
+                this.mSendCallback.pE(0);
             }
         }
     }
@@ -962,7 +963,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                     this.mDatas.setIsNewAdd(false);
                     this.mLoadDataMode = 5;
                     if (this.mLoadDataCallBack != null) {
-                        this.mLoadDataCallBack.j(this.mDatas);
+                        this.mLoadDataCallBack.m(this.mDatas);
                     }
                 }
             }
@@ -1028,7 +1029,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             if (i2 >= 0 && i < size) {
                 for (ChatMessage chatMessage : list) {
                     if (chatMessage.getMsgType() == 4) {
-                        j.esQ = i.MC();
+                        j.eAG = i.OA();
                     }
                     long userId = chatMessage.getUserId();
                     String portrait = chatMessage.getUserInfo().getPortrait();
@@ -1056,10 +1057,10 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
 
     public void setSendCallback(d dVar) {
         this.mSendCallback = dVar;
-        com.baidu.tieba.im.sendmessage.a.aPC().setSendCallback(dVar);
+        com.baidu.tieba.im.sendmessage.a.aSQ().setSendCallback(dVar);
     }
 
-    public void setImageUploadUIProgressCallback(a.InterfaceC0114a<ChatMessage> interfaceC0114a) {
-        com.baidu.tieba.im.sendmessage.a.aPC().setImageUploadUIProgressCallback(interfaceC0114a);
+    public void setImageUploadUIProgressCallback(a.InterfaceC0138a<ChatMessage> interfaceC0138a) {
+        com.baidu.tieba.im.sendmessage.a.aSQ().setImageUploadUIProgressCallback(interfaceC0138a);
     }
 }

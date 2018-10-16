@@ -1,5 +1,6 @@
 package com.squareup.wire;
 
+import com.baidu.webkit.internal.ETAG;
 import com.squareup.wire.ExtendableMessage;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -50,7 +51,7 @@ public final class ExtensionMap<T extends ExtendableMessage<?>> {
                 Map.Entry<Extension<T, ?>, Object> next = it.next();
                 sb.append(str2);
                 sb.append(next.getKey().getTag());
-                sb.append("=");
+                sb.append(ETAG.EQUAL);
                 sb.append(next.getValue());
                 str = ", ";
             } else {

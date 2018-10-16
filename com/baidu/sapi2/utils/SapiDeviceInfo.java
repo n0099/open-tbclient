@@ -17,6 +17,8 @@ import com.baidu.sapi2.passhost.framework.a.b;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccountManagerService;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.baidu.sapi2.utils.SapiDeviceUtils;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
+import com.baidu.webkit.internal.ETAG;
 import com.tencent.connect.common.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -171,7 +173,7 @@ public class SapiDeviceInfo {
         try {
             String d2 = d();
             String base64Encode = SapiDeviceUtils.DeviceCrypto.base64Encode(new AES().encrypt(str, d2, d));
-            return TextUtils.join("_", new String[]{d2, base64Encode, MD5Util.toMd5(TextUtils.join("_", new String[]{d2, base64Encode, "check"}).getBytes(), false).substring(0, 6)});
+            return TextUtils.join(BaseRequestAction.SPLITE, new String[]{d2, base64Encode, MD5Util.toMd5(TextUtils.join(BaseRequestAction.SPLITE, new String[]{d2, base64Encode, "check"}).getBytes(), false).substring(0, 6)});
         } catch (Throwable th) {
             Log.e(th);
             return "";
@@ -260,7 +262,7 @@ public class SapiDeviceInfo {
             arrayList.add("usetype");
             arrayList.add("used_times");
             arrayList.add("cur_uid");
-            arrayList.add("net_type");
+            arrayList.add(ETAG.KEY_NET_TYPE);
             arrayList.add("is_root");
             arrayList.add("wifi");
             arrayList.add("imei");

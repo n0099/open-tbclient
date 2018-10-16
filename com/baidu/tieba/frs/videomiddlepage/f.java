@@ -10,11 +10,11 @@ public interface f {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void JR();
+        void LP();
 
         void a(a aVar);
 
-        void b(List<com.baidu.tieba.card.data.b> list, boolean z, boolean z2);
+        void c(List<com.baidu.tieba.card.data.b> list, boolean z, boolean z2);
 
         void hideLoadingView();
 

@@ -30,7 +30,6 @@ import android.support.v4.app.NotificationCompatJellybean;
 import android.support.v4.app.NotificationCompatKitKat;
 import android.support.v4.app.RemoteInputCompatBase;
 import android.support.v4.text.BidiFormatter;
-import android.support.v4.view.ViewCompat;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.TextAppearanceSpan;
@@ -1336,7 +1335,7 @@ public class NotificationCompat {
             BidiFormatter bidiFormatter = BidiFormatter.getInstance();
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             boolean z = Build.VERSION.SDK_INT >= 21;
-            int i2 = z ? ViewCompat.MEASURED_STATE_MASK : -1;
+            int i2 = z ? -16777216 : -1;
             CharSequence sender = message.getSender();
             if (TextUtils.isEmpty(message.getSender())) {
                 String str = this.mUserDisplayName == null ? "" : this.mUserDisplayName;

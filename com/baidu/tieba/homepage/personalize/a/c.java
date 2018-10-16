@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.personalize.a;
 
 import android.view.View;
 import com.baidu.tieba.card.n;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class c<T extends n> extends com.baidu.tieba.card.a.a<T> implements com.baidu.tieba.play.f {
     public c(T t) {
         super(t);
@@ -10,62 +10,62 @@ public class c<T extends n> extends com.baidu.tieba.card.a.a<T> implements com.b
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a.a
-    /* renamed from: aGI */
-    public T aln() {
-        return (T) this.cIW;
+    /* renamed from: aKa */
+    public T aoP() {
+        return (T) this.cRp;
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlayStarted() {
-        if (this.cIW == 0) {
+        if (this.cRp == 0) {
             return false;
         }
-        return ((n) this.cIW).isPlayStarted();
+        return ((n) this.cRp).isPlayStarted();
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlaying() {
-        if (this.cIW == 0) {
+        if (this.cRp == 0) {
             return false;
         }
-        return ((n) this.cIW).isPlaying();
+        return ((n) this.cRp).isPlaying();
     }
 
     @Override // com.baidu.tieba.play.f
     public void startPlay() {
-        if (this.cIW != 0) {
-            ((n) this.cIW).startPlay();
+        if (this.cRp != 0) {
+            ((n) this.cRp).startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public void stopPlay() {
-        if (this.cIW != 0) {
-            ((n) this.cIW).stopPlay();
+        if (this.cRp != 0) {
+            ((n) this.cRp).stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public View getVideoContainer() {
-        if (this.cIW == 0) {
+        if (this.cRp == 0) {
             return null;
         }
-        return ((n) this.cIW).getVideoContainer();
+        return ((n) this.cRp).getVideoContainer();
     }
 
     @Override // com.baidu.tieba.play.f
     public String getPlayUrl() {
-        if (this.cIW == 0) {
+        if (this.cRp == 0) {
             return null;
         }
-        return ((n) this.cIW).getPlayUrl();
+        return ((n) this.cRp).getPlayUrl();
     }
 
     @Override // com.baidu.tieba.play.f
     public int getCurrentPosition() {
-        if (this.cIW == 0) {
+        if (this.cRp == 0) {
             return 0;
         }
-        return ((n) this.cIW).getCurrentPosition();
+        return ((n) this.cRp).getCurrentPosition();
     }
 }

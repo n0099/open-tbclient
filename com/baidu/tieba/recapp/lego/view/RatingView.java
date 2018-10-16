@@ -14,13 +14,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class RatingView extends LinearLayout {
-    private a gzb;
+    private a gGB;
     private Context mContext;
 
     /* loaded from: classes3.dex */
     public static class a {
-        public String faN;
-        public Double faO;
+        public String fiv;
+        public Double fiw;
         public String title;
     }
 
@@ -39,15 +39,15 @@ public class RatingView extends LinearLayout {
         setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
     }
 
-    private ImageView f(Drawable drawable) {
+    private ImageView e(Drawable drawable) {
         ImageView imageView = new ImageView(this.mContext);
         imageView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        imageView.setPadding(0, 0, l.h(this.mContext, e.C0141e.ds4), 0);
+        imageView.setPadding(0, 0, l.h(this.mContext, e.C0175e.ds4), 0);
         imageView.setImageDrawable(drawable);
         return imageView;
     }
 
-    private a tz(String str) {
+    private a ub(String str) {
         a aVar = new a();
         aVar.title = "";
         if (!TextUtils.isEmpty(str)) {
@@ -57,7 +57,7 @@ public class RatingView extends LinearLayout {
                     if (!TextUtils.isEmpty(matcher.group(1))) {
                         aVar.title = matcher.group(1);
                     }
-                    aVar.faO = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
+                    aVar.fiw = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
                 } catch (NumberFormatException e) {
                     aVar.title = str;
                 }
@@ -69,39 +69,39 @@ public class RatingView extends LinearLayout {
     }
 
     public void setRating(String str, String str2) {
-        this.gzb = tz(str2);
-        this.gzb.faN = str;
-        aUD();
+        this.gGB = ub(str2);
+        this.gGB.fiv = str;
+        aXQ();
     }
 
-    private void aUD() {
+    private void aXQ() {
         int i;
         removeAllViews();
-        if (this.gzb != null) {
-            if (!TextUtils.isEmpty(this.gzb.faN)) {
+        if (this.gGB != null) {
+            if (!TextUtils.isEmpty(this.gGB.fiv)) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 TextView textView = new TextView(this.mContext);
-                textView.setText(this.gzb.faN);
-                textView.setTextSize(0, l.h(this.mContext, e.C0141e.fontsize24));
+                textView.setText(this.gGB.fiv);
+                textView.setTextSize(0, l.h(this.mContext, e.C0175e.fontsize24));
                 textView.setTextColor(al.getColor(e.d.cp_cont_d));
-                textView.setPadding(0, 0, l.h(this.mContext, e.C0141e.ds30), 0);
+                textView.setPadding(0, 0, l.h(this.mContext, e.C0175e.ds30), 0);
                 textView.setLayoutParams(layoutParams);
                 textView.setIncludeFontPadding(false);
                 addView(textView);
             }
-            if (!TextUtils.isEmpty(this.gzb.title)) {
+            if (!TextUtils.isEmpty(this.gGB.title)) {
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                 TextView textView2 = new TextView(this.mContext);
-                textView2.setText(this.gzb.title);
-                textView2.setTextSize(0, l.h(this.mContext, e.C0141e.fontsize24));
+                textView2.setText(this.gGB.title);
+                textView2.setTextSize(0, l.h(this.mContext, e.C0175e.fontsize24));
                 textView2.setTextColor(al.getColor(e.d.cp_cont_d));
-                textView2.setPadding(0, 0, l.h(this.mContext, e.C0141e.ds6), 0);
+                textView2.setPadding(0, 0, l.h(this.mContext, e.C0175e.ds6), 0);
                 textView2.setLayoutParams(layoutParams2);
                 textView2.setIncludeFontPadding(false);
                 addView(textView2);
             }
-            if (this.gzb.faO != null && !Double.isNaN(this.gzb.faO.doubleValue())) {
-                Integer valueOf = Integer.valueOf(this.gzb.faO.intValue());
+            if (this.gGB.fiw != null && !Double.isNaN(this.gGB.fiw.doubleValue())) {
+                Integer valueOf = Integer.valueOf(this.gGB.fiw.intValue());
                 if (valueOf.intValue() > 10) {
                     valueOf = 10;
                 }
@@ -110,17 +110,17 @@ public class RatingView extends LinearLayout {
                 }
                 int intValue = valueOf.intValue() >> 1;
                 for (int i2 = 0; i2 < intValue; i2++) {
-                    addView(f(al.getDrawable(e.f.icon_star_full)));
+                    addView(e(al.getDrawable(e.f.icon_star_full)));
                 }
                 int i3 = 5 - intValue;
                 if (valueOf.intValue() <= 0 || valueOf.intValue() % 2 != 1) {
                     i = i3;
                 } else {
-                    addView(f(al.getDrawable(e.f.icon_star_half)));
+                    addView(e(al.getDrawable(e.f.icon_star_half)));
                     i = i3 - 1;
                 }
                 for (int i4 = 0; i4 < i; i4++) {
-                    addView(f(al.getDrawable(e.f.icon_star_empty)));
+                    addView(e(al.getDrawable(e.f.icon_star_empty)));
                 }
             }
         }

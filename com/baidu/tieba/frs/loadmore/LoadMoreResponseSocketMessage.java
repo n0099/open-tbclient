@@ -15,7 +15,7 @@ import java.util.List;
 import tbclient.ThreadInfo;
 import tbclient.ThreadList.ThreadListResIdl;
 import tbclient.User;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
     private BannerListData bannerListData;
     private ArrayList<h> threadList;
@@ -49,7 +49,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     }
                 }
             }
-            com.baidu.tieba.recapp.d.a.bqL().tD(threadListResIdl.data.asp_shown_info);
+            com.baidu.tieba.recapp.d.a.bua().uf(threadListResIdl.data.asp_shown_info);
             Message<?> orginalMessage2 = getOrginalMessage();
             boolean isBrandForum = (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) ? false : ((LoadMoreRequestMessage) orginalMessage2.getExtra()).isBrandForum();
             this.threadList = new ArrayList<>();
@@ -59,12 +59,12 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     bb bbVar = new bb();
                     bbVar.setUserMap(this.userMap);
                     bbVar.a(list2.get(i3));
-                    bbVar.cj(3);
-                    bbVar.wW();
-                    bbVar.amv = isBrandForum;
-                    if (!TextUtils.isEmpty(bbVar.xg())) {
+                    bbVar.setCurrentPage(3);
+                    bbVar.zf();
+                    bbVar.arq = isBrandForum;
+                    if (!TextUtils.isEmpty(bbVar.zp())) {
                         ab abVar = new ab();
-                        abVar.dz(bbVar.xg());
+                        abVar.dP(bbVar.zp());
                         this.threadList.add(abVar);
                     } else {
                         this.threadList.add(bbVar);

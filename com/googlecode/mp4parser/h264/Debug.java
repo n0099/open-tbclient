@@ -1,7 +1,7 @@
 package com.googlecode.mp4parser.h264;
 
 import java.nio.ShortBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class Debug {
     public static final boolean debug = false;
 

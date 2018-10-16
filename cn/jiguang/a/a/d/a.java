@@ -15,8 +15,8 @@ public final class a implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityCreated(Activity activity, Bundle bundle) {
-        if (cn.jiguang.a.a.jH != null) {
-            cn.jiguang.a.a.jH.F(activity, "onCreate");
+        if (cn.jiguang.a.a.km != null) {
+            cn.jiguang.a.a.km.F(activity, "onCreate");
         }
     }
 
@@ -26,13 +26,13 @@ public final class a implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityPaused(Activity activity) {
-        if (cn.jiguang.a.a.jH != null) {
-            cn.jiguang.a.a.jH.W(activity);
+        if (cn.jiguang.a.a.km != null) {
+            cn.jiguang.a.a.km.W(activity);
         }
         if (cn.jiguang.a.a.b) {
             return;
         }
-        b.ba().b(activity);
+        b.br().b(activity);
         Context applicationContext = activity != null ? activity.getApplicationContext() : cn.jiguang.d.a.d;
         aa.a(applicationContext);
         aa.b(applicationContext);
@@ -40,13 +40,13 @@ public final class a implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityResumed(Activity activity) {
-        if (cn.jiguang.a.a.jH != null) {
-            cn.jiguang.a.a.jH.V(activity);
+        if (cn.jiguang.a.a.km != null) {
+            cn.jiguang.a.a.km.V(activity);
         }
         if (cn.jiguang.a.a.b) {
             return;
         }
-        b.ba().a(activity);
+        b.br().a(activity);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -60,8 +60,8 @@ public final class a implements Application.ActivityLifecycleCallbacks {
             cn.jiguang.api.e.d(activity.getApplicationContext(), 1);
         }
         b++;
-        if (cn.jiguang.a.a.jH != null) {
-            cn.jiguang.a.a.jH.F(activity, "onStart");
+        if (cn.jiguang.a.a.km != null) {
+            cn.jiguang.a.a.km.F(activity, "onStart");
         }
     }
 

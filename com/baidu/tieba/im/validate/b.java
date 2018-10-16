@@ -10,77 +10,77 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.im.data.ValidateItemData;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.adp.base.b<ValidateActivity> {
-    private View eEF;
-    private HeadImageView eEG;
-    private TextView eEH;
-    private ValidateActivity eJS;
-    private TextView eJT;
-    private TextView eJU;
-    private TextView eJV;
-    private ValidateItemData eJW;
+    private View eMo;
+    private HeadImageView eMp;
+    private TextView eMq;
+    private ValidateActivity eRB;
+    private TextView eRC;
+    private TextView eRD;
+    private TextView eRE;
+    private ValidateItemData eRF;
 
     public b(ValidateActivity validateActivity) {
         super(validateActivity.getPageContext(), e.h.validate_item);
-        this.eJS = validateActivity;
+        this.eRB = validateActivity;
         initView();
     }
 
     void initView() {
-        this.eEF = this.uz.findViewById(e.g.root_view);
-        this.eEG = (HeadImageView) this.eEF.findViewById(e.g.iv_head);
-        this.eEG.setIsRound(false);
-        this.eJT = (TextView) this.eEF.findViewById(e.g.tv_user_name);
-        this.eEH = (TextView) this.eEF.findViewById(e.g.tv_group_name);
-        this.eJU = (TextView) this.eEF.findViewById(e.g.tv_apply_reason);
-        this.eJV = (TextView) this.eEF.findViewById(e.g.btn_pass);
-        this.eJV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.1
+        this.eMo = this.vm.findViewById(e.g.root_view);
+        this.eMp = (HeadImageView) this.eMo.findViewById(e.g.iv_head);
+        this.eMp.setIsRound(false);
+        this.eRC = (TextView) this.eMo.findViewById(e.g.tv_user_name);
+        this.eMq = (TextView) this.eMo.findViewById(e.g.tv_group_name);
+        this.eRD = (TextView) this.eMo.findViewById(e.g.tv_apply_reason);
+        this.eRE = (TextView) this.eMo.findViewById(e.g.btn_pass);
+        this.eRE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.eJS.a(b.this.eJV, 100, 0, 0L, b.this.eJW);
+                b.this.eRB.a(b.this.eRE, 100, 0, 0L, b.this.eRF);
             }
         });
-        this.eEG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.2
+        this.eMp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.eJS.a(b.this.eEG, 101, 0, 0L, b.this.eJW);
+                b.this.eRB.a(b.this.eMp, 101, 0, 0L, b.this.eRF);
             }
         });
-        this.eEF.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.validate.b.3
+        this.eMo.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.validate.b.3
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                b.this.eJS.b(b.this.eEF, 200, 0, 0L, b.this.eJW);
+                b.this.eRB.b(b.this.eMo, 200, 0, 0L, b.this.eRF);
                 return true;
             }
         });
     }
 
     public void refresh() {
-        if (this.eJW != null) {
-            this.eJS.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-            this.eJS.getLayoutMode().onModeChanged(this.eEF);
-            String portrait = this.eJW.getPortrait();
-            this.eEG.setTag(portrait);
-            this.eEG.startLoad(portrait, 12, false);
-            if (!TextUtils.isEmpty(this.eJW.getUserName())) {
-                this.eJT.setText(this.eJW.getUserName());
+        if (this.eRF != null) {
+            this.eRB.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+            this.eRB.getLayoutMode().onModeChanged(this.eMo);
+            String portrait = this.eRF.getPortrait();
+            this.eMp.setTag(portrait);
+            this.eMp.startLoad(portrait, 12, false);
+            if (!TextUtils.isEmpty(this.eRF.getUserName())) {
+                this.eRC.setText(this.eRF.getUserName());
             }
-            if (!TextUtils.isEmpty(this.eJW.getGroupName())) {
-                this.eEH.setText(this.eJS.getPageContext().getString(e.j.validate_im_apply_prefix) + this.eJW.getGroupName());
+            if (!TextUtils.isEmpty(this.eRF.getGroupName())) {
+                this.eMq.setText(this.eRB.getPageContext().getString(e.j.validate_im_apply_prefix) + this.eRF.getGroupName());
             }
-            if (!TextUtils.isEmpty(this.eJW.getApplyReason())) {
-                this.eJU.setText(this.eJS.getPageContext().getString(e.j.validate_im_reason_prefix) + this.eJW.getApplyReason());
+            if (!TextUtils.isEmpty(this.eRF.getApplyReason())) {
+                this.eRD.setText(this.eRB.getPageContext().getString(e.j.validate_im_reason_prefix) + this.eRF.getApplyReason());
             }
-            if (this.eJW.isPass()) {
-                this.eJV.setEnabled(false);
-                this.eJV.setText(this.eJS.getPageContext().getString(e.j.passed));
-                al.h(this.eJV, e.d.cp_cont_d);
-                this.eJV.setBackgroundDrawable(null);
+            if (this.eRF.isPass()) {
+                this.eRE.setEnabled(false);
+                this.eRE.setText(this.eRB.getPageContext().getString(e.j.passed));
+                al.h(this.eRE, e.d.cp_cont_d);
+                this.eRE.setBackgroundDrawable(null);
             } else {
-                this.eJV.setEnabled(true);
-                this.eJV.setText(this.eJS.getPageContext().getString(e.j.pass));
+                this.eRE.setEnabled(true);
+                this.eRE.setText(this.eRB.getPageContext().getString(e.j.pass));
             }
-            if (!this.eJW.isShown()) {
-                al.i(this.eEF, e.d.common_color_10178);
+            if (!this.eRF.isShown()) {
+                al.i(this.eMo, e.d.common_color_10178);
             }
         }
     }
@@ -91,6 +91,6 @@ public class b extends com.baidu.adp.base.b<ValidateActivity> {
     }
 
     public void g(ValidateItemData validateItemData) {
-        this.eJW = validateItemData;
+        this.eRF = validateItemData;
     }
 }

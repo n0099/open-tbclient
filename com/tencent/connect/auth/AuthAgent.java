@@ -36,6 +36,8 @@ import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.ar.parser.ARResourceKey;
 import com.baidu.fsg.face.base.d.h;
+import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
+import com.baidu.searchbox.ng.ai.apps.setting.oauth.ScopeInfo;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
@@ -57,7 +59,7 @@ import java.lang.ref.WeakReference;
 import java.net.URLDecoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class AuthAgent extends BaseApi {
     public static final String SECURE_LIB_ARM64_FILE_NAME = "libwbsafeedit_64";
     public static final String SECURE_LIB_ARM_FILE_NAME = "libwbsafeedit";
@@ -106,7 +108,7 @@ public class AuthAgent extends BaseApi {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public class c implements IUiListener {
         private final IUiListener b;
         private final boolean c;
@@ -209,7 +211,7 @@ public class AuthAgent extends BaseApi {
         String str = (System.currentTimeMillis() / 1000) + "";
         a2.putString("sign", com.tencent.open.utils.h.b(e.a(), str));
         a2.putString("time", str);
-        a2.putString("display", "mobile");
+        a2.putString("display", ScopeInfo.SCOPE_ID_MOBILE);
         a2.putString(WBConstants.AUTH_PARAMS_RESPONSE_TYPE, "token");
         a2.putString(WBConstants.AUTH_PARAMS_REDIRECT_URL, "auth://tauth.qq.com/");
         a2.putString("cancel_display", "1");
@@ -318,7 +320,7 @@ public class AuthAgent extends BaseApi {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public class a implements IUiListener {
         IUiListener a;
 
@@ -361,7 +363,7 @@ public class AuthAgent extends BaseApi {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public class b implements IUiListener {
         IUiListener a;
         private final String c = "sendinstall";
@@ -396,7 +398,7 @@ public class AuthAgent extends BaseApi {
             }
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes6.dex */
         private abstract class a implements View.OnClickListener {
             Dialog d;
 
@@ -500,7 +502,7 @@ public class AuthAgent extends BaseApi {
 
         private View a(Context context, Drawable drawable, String str, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            ((WindowManager) context.getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay().getMetrics(displayMetrics);
             float f = displayMetrics.density;
             RelativeLayout relativeLayout = new RelativeLayout(context);
             ImageView imageView = new ImageView(context);

@@ -16,7 +16,7 @@ import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.keepLive.nativekeepalive.GuardServiceObserver;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class SyncService extends Service {
     private static final Object syncLock = new Object();
     private static a syncAdapter = null;
@@ -59,7 +59,7 @@ public class SyncService extends Service {
         return null;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     class a extends AbstractThreadedSyncAdapter {
         public a(Context context, boolean z) {
             super(context, z);

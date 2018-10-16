@@ -3,23 +3,23 @@ package com.baidu.tbadk.imageManager;
 import android.content.Context;
 /* loaded from: classes.dex */
 public interface a {
-    int IW();
+    int KU();
 
-    C0113a ak(Context context, String str);
+    C0137a ak(Context context, String str);
 
-    int gW(String str);
+    int hk(String str);
 
-    int gX(String str);
+    int hl(String str);
 
-    String gY(String str);
+    String hm(String str);
 
     /* renamed from: com.baidu.tbadk.imageManager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0113a {
+    public static class C0137a {
         private int mHeight;
         private int mWidth;
 
-        public C0113a(int i, int i2) {
+        public C0137a(int i, int i2) {
             this.mWidth = 0;
             this.mHeight = 0;
             this.mWidth = i;

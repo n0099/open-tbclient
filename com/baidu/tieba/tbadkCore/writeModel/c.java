@@ -41,16 +41,16 @@ public class c {
 
     public static void a(x xVar, WriteData writeData) {
         if (writeData != null && writeData.isHasLocationData()) {
-            xVar.u("is_location", "2");
-            Address R = com.baidu.adp.lib.d.a.iH().R(false);
+            xVar.x("is_location", "2");
+            Address R = com.baidu.adp.lib.d.a.iX().R(false);
             if (R != null) {
-                xVar.u("lat", String.valueOf(R.getLatitude()));
-                xVar.u("lng", String.valueOf(R.getLongitude()));
+                xVar.x("lat", String.valueOf(R.getLatitude()));
+                xVar.x("lng", String.valueOf(R.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bzs().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bCH().getLocationData();
             if (locationData != null) {
-                xVar.u("name", locationData.bzo());
-                xVar.u("sn", locationData.bzq());
+                xVar.x("name", locationData.bCD());
+                xVar.x("sn", locationData.bCF());
             }
         }
     }

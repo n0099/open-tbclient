@@ -5,18 +5,18 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes.dex */
 public class q extends c<String> {
-    private String zH;
+    private String Ar;
 
     public q(com.baidu.adp.base.a.b bVar, String str) {
         super(bVar);
-        this.zH = str;
+        this.Ar = str;
     }
 
     @Override // com.baidu.adp.lib.cache.c
     public String as(String str) {
-        this.zI.af("CREATE TABLE IF NOT EXISTS " + this.zH + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
-        this.zI.af("CREATE INDEX if not exists idx_mi_ns ON " + this.zH + "(m_ns)");
-        return this.zH;
+        this.As.af("CREATE TABLE IF NOT EXISTS " + this.Ar + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
+        this.As.af("CREATE INDEX if not exists idx_mi_ns ON " + this.Ar + "(m_ns)");
+        return this.Ar;
     }
 
     @Override // com.baidu.adp.lib.cache.c
@@ -24,7 +24,7 @@ public class q extends c<String> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public int hX() {
+    public int im() {
         return 1;
     }
 
@@ -35,7 +35,7 @@ public class q extends c<String> {
         Throwable th;
         g<String> gVar = null;
         try {
-            cursor = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.zJ + " where m_key = ?", new String[]{str});
+            cursor = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.At + " where m_key = ?", new String[]{str});
         } catch (Throwable th2) {
             cursor = null;
             th = th2;
@@ -43,11 +43,11 @@ public class q extends c<String> {
         try {
             if (cursor.moveToNext()) {
                 gVar = new g<>();
-                gVar.zU = cursor.getString(0);
-                gVar.zV = cursor.getString(1);
-                gVar.zW = cursor.getLong(2);
-                gVar.zX = cursor.getLong(3);
-                gVar.zY = cursor.getLong(4);
+                gVar.AE = cursor.getString(0);
+                gVar.AF = cursor.getString(1);
+                gVar.AG = cursor.getLong(2);
+                gVar.AH = cursor.getLong(3);
+                gVar.AI = cursor.getLong(4);
                 gVar.value = cursor.getString(5);
                 com.baidu.adp.lib.g.a.e(cursor);
             } else {
@@ -64,27 +64,27 @@ public class q extends c<String> {
     @Override // com.baidu.adp.lib.cache.c
     protected ContentValues a(g<String> gVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("m_key", gVar.zU);
-        contentValues.put("m_ns", gVar.zV);
+        contentValues.put("m_key", gVar.AE);
+        contentValues.put("m_ns", gVar.AF);
         contentValues.put("m_value", gVar.value);
-        contentValues.put("saveTime", Long.valueOf(gVar.zW));
-        contentValues.put("lastHitTime", Long.valueOf(gVar.zX));
-        contentValues.put("timeToExpire", Long.valueOf(gVar.zY));
+        contentValues.put("saveTime", Long.valueOf(gVar.AG));
+        contentValues.put("lastHitTime", Long.valueOf(gVar.AH));
+        contentValues.put("timeToExpire", Long.valueOf(gVar.AI));
         return contentValues;
     }
 
     @Override // com.baidu.adp.lib.cache.c
     public Cursor d(SQLiteDatabase sQLiteDatabase, String str) {
-        return sQLiteDatabase.rawQuery("select * from " + this.zJ + " where m_ns = ?", new String[]{str});
+        return sQLiteDatabase.rawQuery("select * from " + this.At + " where m_ns = ?", new String[]{str});
     }
 
     @Override // com.baidu.adp.lib.cache.c
     protected boolean at(String str) {
         try {
-            this.zI.fL().delete(this.zJ, "m_ns = ?", new String[]{str});
+            this.As.ge().delete(this.At, "m_ns = ?", new String[]{str});
             return true;
         } catch (Throwable th) {
-            this.zI.a(th, "clearData");
+            this.As.a(th, "clearData");
             return false;
         }
     }

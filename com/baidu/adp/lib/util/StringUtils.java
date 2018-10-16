@@ -1,6 +1,7 @@
 package com.baidu.adp.lib.util;
 
 import android.text.TextUtils;
+import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -148,6 +149,6 @@ public class StringUtils {
 
     public static long getyyyyMMddHHTimeForNow() {
         Calendar calendar = Calendar.getInstance();
-        return calendar.get(11) + 0 + (calendar.get(1) * 1000000) + ((calendar.get(2) + 1) * 10000) + (calendar.get(5) * 100);
+        return calendar.get(11) + 0 + (calendar.get(1) * 1000000) + ((calendar.get(2) + 1) * ErrDef.Feature.WEIGHT) + (calendar.get(5) * 100);
     }
 }

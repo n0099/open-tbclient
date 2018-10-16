@@ -7,8 +7,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.coremedia.iso.boxes.UserBox;
-import com.tencent.open.SocialConstants;
+import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.TreeMap;
 import org.json.JSONObject;
@@ -29,12 +28,12 @@ public class o {
                 nVar = a;
             } else {
                 SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_account", 0);
-                String string = sharedPreferences.getString(UserBox.TYPE, null);
+                String string = sharedPreferences.getString("uuid", null);
                 String string2 = sharedPreferences.getString("token", null);
                 String string3 = sharedPreferences.getString("security", null);
                 String string4 = sharedPreferences.getString(HttpConstants.HTTP_APP_ID, null);
                 String string5 = sharedPreferences.getString("app_token", null);
-                String string6 = sharedPreferences.getString("package_name", null);
+                String string6 = sharedPreferences.getString(ETAG.KEY_PACKAGE_NAME, null);
                 String string7 = sharedPreferences.getString("device_id", null);
                 int i = sharedPreferences.getInt("env_type", 1);
                 if (!TextUtils.isEmpty(string7) && string7.startsWith("a-")) {
@@ -73,7 +72,7 @@ public class o {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
                 packageInfo = null;
             }
-            treeMap.put("appversion", packageInfo != null ? String.valueOf(packageInfo.versionCode) : "0");
+            treeMap.put(ETAG.KEY_APP_VERSION, packageInfo != null ? String.valueOf(packageInfo.versionCode) : "0");
             treeMap.put("sdkversion", Integer.toString(26));
             treeMap.put("packagename", str6);
             treeMap.put("model", Build.MODEL);
@@ -98,7 +97,7 @@ public class o {
                     a(context, nVar);
                     a = nVar;
                 } else {
-                    r.a(context, jSONObject.getInt("code"), jSONObject.optString(SocialConstants.PARAM_COMMENT));
+                    r.a(context, jSONObject.getInt("code"), jSONObject.optString("description"));
                     com.xiaomi.channel.commonutils.logger.b.a(a4);
                 }
             }
@@ -115,11 +114,11 @@ public class o {
 
     public static void a(Context context, n nVar) {
         SharedPreferences.Editor edit = context.getSharedPreferences("mipush_account", 0).edit();
-        edit.putString(UserBox.TYPE, nVar.a);
+        edit.putString("uuid", nVar.a);
         edit.putString("security", nVar.c);
         edit.putString("token", nVar.b);
         edit.putString(HttpConstants.HTTP_APP_ID, nVar.d);
-        edit.putString("package_name", nVar.f);
+        edit.putString(ETAG.KEY_PACKAGE_NAME, nVar.f);
         edit.putString("app_token", nVar.e);
         edit.putString("device_id", com.xiaomi.channel.commonutils.android.e.e(context));
         edit.putInt("env_type", nVar.g);

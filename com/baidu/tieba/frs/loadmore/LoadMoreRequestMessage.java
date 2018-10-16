@@ -10,7 +10,7 @@ import com.baidu.tbadk.util.p;
 import tbclient.ThreadList.AdParam;
 import tbclient.ThreadList.DataReq;
 import tbclient.ThreadList.ThreadListReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class LoadMoreRequestMessage extends NetMessage {
     private String forumName;
     private long forum_id;
@@ -76,11 +76,11 @@ public class LoadMoreRequestMessage extends NetMessage {
         builder.st_type = Integer.valueOf(this.st_type);
         builder.scr_h = Integer.valueOf(aQ);
         builder.scr_w = Integer.valueOf(aO);
-        builder.q_type = Integer.valueOf(aq.Az().AB() ? 2 : 1);
+        builder.q_type = Integer.valueOf(aq.CG().CI() ? 2 : 1);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
         builder.sort_type = Integer.valueOf(this.mSortType);
         p.bindCommonParamsToProtobufData(builder, true, false, true);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.bqL().bqO();
+        builder.app_pos = com.baidu.tieba.recapp.d.a.bua().bud();
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.load_count = Integer.valueOf(this.loadCount);
         builder2.refresh_count = Integer.valueOf(this.refreshCount);

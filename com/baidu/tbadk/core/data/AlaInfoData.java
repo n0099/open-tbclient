@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import android.util.SparseArray;
 import com.baidu.adp.lib.util.BdLog;
-import com.tencent.open.SocialConstants;
+import com.baidu.webkit.internal.ETAG;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -51,7 +51,7 @@ public class AlaInfoData implements Serializable {
             try {
                 this.live_id = jSONObject.optLong("live_id");
                 this.cover = jSONObject.optString("cover");
-                this.session_id = jSONObject.optString("session_id");
+                this.session_id = jSONObject.optString(ETAG.KEY_STATISTICS_SEESIONID);
                 this.rtmp_url = jSONObject.optString("rtmp_url");
                 this.hls_url = jSONObject.optString("hls_url");
                 this.group_id = jSONObject.optLong("group_id");
@@ -59,7 +59,7 @@ public class AlaInfoData implements Serializable {
                 this.media_pic = jSONObject.optString("media_pic");
                 this.media_id = jSONObject.optString("media_id");
                 this.media_subtitle = jSONObject.optString("media_subtitle");
-                this.description = jSONObject.optString(SocialConstants.PARAM_COMMENT);
+                this.description = jSONObject.optString("description");
                 this.user_info = new AlaUserInfoData();
                 this.user_info.parserJson(jSONObject.optJSONObject("user_info"));
                 this.share_info = new AlaShareInfoData();

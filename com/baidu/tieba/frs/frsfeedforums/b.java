@@ -7,23 +7,23 @@ import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class b {
-    public int aCJ = 3;
-    public View bNG;
-    public View bum;
-    public BarImageView dDd;
-    public TextView dDe;
-    public TextView dDf;
-    public EntelechyUserLikeButton dDg;
+    public int aHp = 3;
+    public View byq;
+    public BarImageView dLd;
+    public TextView dLe;
+    public TextView dLf;
+    public EntelechyUserLikeButton dLg;
+    public View mDivider;
     public TextView mTitle;
     public int position;
 
     public b(View view) {
-        this.bum = view;
-        this.dDd = (BarImageView) view.findViewById(e.g.frs_feed_forum_image);
+        this.byq = view;
+        this.dLd = (BarImageView) view.findViewById(e.g.frs_feed_forum_image);
         this.mTitle = (TextView) view.findViewById(e.g.frs_feed_forum_title);
-        this.dDe = (TextView) view.findViewById(e.g.frs_feed_forum_other_info);
-        this.dDf = (TextView) view.findViewById(e.g.frs_feed_forum_related);
-        this.dDg = (EntelechyUserLikeButton) view.findViewById(e.g.frs_feed_forum_attention);
-        this.bNG = view.findViewById(e.g.frs_feed_forum_divider);
+        this.dLe = (TextView) view.findViewById(e.g.frs_feed_forum_other_info);
+        this.dLf = (TextView) view.findViewById(e.g.frs_feed_forum_related);
+        this.dLg = (EntelechyUserLikeButton) view.findViewById(e.g.frs_feed_forum_attention);
+        this.mDivider = view.findViewById(e.g.frs_feed_forum_divider);
     }
 }

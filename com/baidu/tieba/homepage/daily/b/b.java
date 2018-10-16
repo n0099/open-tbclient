@@ -6,43 +6,43 @@ import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GodBanner;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private List<a> ebY;
+    private List<a> ejR;
     private List<h> mDataList = new ArrayList();
 
-    public List<a> aFI() {
-        return this.ebY;
+    public List<a> aJa() {
+        return this.ejR;
     }
 
     public List<h> getDataList() {
         return this.mDataList;
     }
 
-    public List<a> bQ(List<GodBanner> list) {
-        if (this.ebY == null) {
-            this.ebY = new ArrayList();
+    public List<a> cg(List<GodBanner> list) {
+        if (this.ejR == null) {
+            this.ejR = new ArrayList();
         }
-        this.ebY.clear();
-        if (v.z(list)) {
+        this.ejR.clear();
+        if (v.J(list)) {
             return null;
         }
         for (GodBanner godBanner : list) {
             if (godBanner != null && !StringUtils.isNull(godBanner.pic_url)) {
                 a aVar = new a();
-                aVar.dB(godBanner.pic_url);
-                aVar.ob(godBanner.link_url);
+                aVar.dR(godBanner.pic_url);
+                aVar.oF(godBanner.link_url);
                 aVar.setTitle(godBanner.intro);
-                this.ebY.add(aVar);
-                if (v.y(this.ebY) == 5) {
+                this.ejR.add(aVar);
+                if (v.I(this.ejR) == 5) {
                     break;
                 }
             }
         }
-        return this.ebY;
+        return this.ejR;
     }
 
-    public boolean Lz() {
-        return v.z(this.ebY) && v.z(this.mDataList);
+    public boolean Nx() {
+        return v.J(this.ejR) && v.J(this.mDataList);
     }
 }

@@ -17,7 +17,6 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.ar.util.Res;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class ScanView extends View {
@@ -71,7 +70,7 @@ public class ScanView extends View {
 
     public ScanView(Context context) {
         super(context);
-        this.b = SubsamplingScaleImageView.ORIENTATION_180;
+        this.b = 180;
         this.h = null;
         this.j = null;
         this.l = null;
@@ -84,7 +83,7 @@ public class ScanView extends View {
 
     public ScanView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.b = SubsamplingScaleImageView.ORIENTATION_180;
+        this.b = 180;
         this.h = null;
         this.j = null;
         this.l = null;
@@ -97,7 +96,7 @@ public class ScanView extends View {
 
     public ScanView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.b = SubsamplingScaleImageView.ORIENTATION_180;
+        this.b = 180;
         this.h = null;
         this.j = null;
         this.l = null;
@@ -111,7 +110,7 @@ public class ScanView extends View {
     @TargetApi(21)
     public ScanView(Context context, AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
-        this.b = SubsamplingScaleImageView.ORIENTATION_180;
+        this.b = 180;
         this.h = null;
         this.j = null;
         this.l = null;
@@ -186,7 +185,7 @@ public class ScanView extends View {
 
     public void dismissScan() {
         this.n = false;
-        this.b = SubsamplingScaleImageView.ORIENTATION_180;
+        this.b = 180;
         setVisibility(8);
         if (this.i != null) {
             this.i.interrupt();

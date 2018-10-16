@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import cn.jiguang.a.a.c.e;
 import cn.jiguang.d.d.aa;
-import com.tencent.tauth.AuthActivity;
 /* loaded from: classes3.dex */
 public final class c implements Runnable {
     public final Context a;
@@ -26,22 +25,22 @@ public final class c implements Runnable {
                 break;
             case 2:
                 if (a.d(this.a)) {
-                    e aZ = e.aZ();
+                    e bq = e.bq();
                     Context context = this.a;
-                    if (aZ.a) {
+                    if (bq.a) {
                         return;
                     }
-                    aZ.a = true;
+                    bq.a = true;
                     cn.jiguang.d.a.d.a(a.X(context), true);
                     return;
                 }
                 return;
             case 3:
                 if (a.d(this.a)) {
-                    e aZ2 = e.aZ();
+                    e bq2 = e.bq();
                     Context context2 = this.a;
-                    if (aZ2.a) {
-                        aZ2.a = false;
+                    if (bq2.a) {
+                        bq2.a = false;
                         cn.jiguang.d.a.d.a(a.X(context2), false);
                         return;
                     }
@@ -58,7 +57,7 @@ public final class c implements Runnable {
         }
         aa.a(context3);
         Bundle bundle = new Bundle();
-        bundle.putString(AuthActivity.ACTION_KEY, "cn.jpush.android.intent.REPORT");
+        bundle.putString("action", "cn.jpush.android.intent.REPORT");
         bundle.putString("report", com.baidu.fsg.base.statistics.b.o);
         bundle.putString("report.extra.info", "");
         cn.jiguang.api.e.b(context3, a.a, bundle);

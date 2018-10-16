@@ -3,7 +3,7 @@ package com.baidu.fsg.base.permission;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class DangerousPermissionManagerProxy {
     private DangerousPermissionManagerProxy() {
     }
@@ -12,7 +12,7 @@ public class DangerousPermissionManagerProxy {
         return SingleInstance.mInstance;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     private static class SingleInstance {
         private static DangerousPermissionManagerProxy mInstance = new DangerousPermissionManagerProxy();
 

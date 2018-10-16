@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
@@ -34,7 +33,7 @@ public class FragmentTabRootView extends LinearLayout {
         setDrawingCacheEnabled(false);
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(ViewCompat.MEASURED_STATE_MASK);
+        this.mPaint.setColor(-16777216);
         this.mPaint.setAlpha(0);
         setWillNotDraw(false);
     }

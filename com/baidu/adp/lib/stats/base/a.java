@@ -5,38 +5,39 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.stats.b.i;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.ar.util.SystemInfoUtil;
+import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 /* loaded from: classes.dex */
 public class a {
-    private String DM;
-    protected String DX;
-    protected String DZ;
-    protected i Ea;
-    private StringBuffer DN = new StringBuffer();
-    private StringBuffer DO = new StringBuffer();
-    private int DQ = 0;
-    private int DR = 0;
-    private long DF = 0;
-    private long DS = 0;
-    protected long DT = 0;
-    private long DU = 0;
-    private long DV = 0;
-    protected int DW = 50;
-    protected final String DY = ".log";
+    protected String EF;
+    protected String EH;
+    protected i EI;
+    private String Ev;
+    private StringBuffer Ew = new StringBuffer();
+    private StringBuffer Ex = new StringBuffer();
+    private int Ey = 0;
+    private int Ez = 0;
+    private long Eo = 0;
+    private long EA = 0;
+    protected long EB = 0;
+    private long EC = 0;
+    private long ED = 0;
+    protected int EE = 50;
+    protected final String EG = ".log";
     protected boolean mUseSdCard = false;
     protected boolean mMustSuccess = false;
     private boolean isUploading = false;
 
     public a(i iVar) {
-        this.Ea = iVar;
+        this.EI = iVar;
     }
 
     public synchronized void a(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 try {
-                    this.DN.append(aVar.toString());
-                    this.DN.append(SystemInfoUtil.LINE_END);
-                    this.DQ++;
+                    this.Ew.append(aVar.toString());
+                    this.Ew.append(SystemInfoUtil.LINE_END);
+                    this.Ey++;
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -44,19 +45,19 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.Ea != null) {
-            this.Ea.g(this);
+        if (this.EI != null) {
+            this.EI.g(this);
         }
-        this.DF = System.currentTimeMillis();
+        this.Eo = System.currentTimeMillis();
     }
 
     public synchronized void b(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 try {
-                    this.DO.append(aVar.toString());
-                    this.DO.append(SystemInfoUtil.LINE_END);
-                    this.DR++;
+                    this.Ex.append(aVar.toString());
+                    this.Ex.append(SystemInfoUtil.LINE_END);
+                    this.Ez++;
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -64,51 +65,51 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.Ea != null) {
-            this.Ea.g(this);
+        if (this.EI != null) {
+            this.EI.g(this);
         }
-        this.DS = System.currentTimeMillis();
+        this.EA = System.currentTimeMillis();
     }
 
-    public int jI() {
-        return this.DQ;
+    public int jW() {
+        return this.Ey;
     }
 
-    public int jJ() {
-        return this.DR;
+    public int jX() {
+        return this.Ez;
     }
 
-    public long jK() {
-        return this.DT;
+    public long jY() {
+        return this.EB;
     }
 
     public void n(long j) {
-        this.DT = j;
+        this.EB = j;
     }
 
-    public long jL() {
-        return this.DF;
+    public long jZ() {
+        return this.Eo;
     }
 
-    public long jM() {
-        return this.DS;
+    public long ka() {
+        return this.EA;
     }
 
-    public String jN() {
-        if (TextUtils.isEmpty(this.DZ)) {
+    public String kb() {
+        if (TextUtils.isEmpty(this.EH)) {
             StringBuilder sb = new StringBuilder(30);
-            sb.append(this.DX);
+            sb.append(this.EF);
             sb.append(BdStatisticsManager.getInstance().getProcessName());
             sb.append("Writing");
             sb.append(".log");
-            this.DZ = sb.toString();
+            this.EH = sb.toString();
         }
-        return this.DZ;
+        return this.EH;
     }
 
-    public String jO() {
+    public String kc() {
         StringBuilder sb = new StringBuilder(40);
-        sb.append(this.DX);
+        sb.append(this.EF);
         sb.append(System.currentTimeMillis());
         sb.append(BdStatisticsManager.getInstance().getProcessName());
         sb.append("Uploading");
@@ -116,45 +117,45 @@ public class a {
         return sb.toString();
     }
 
-    public long jP() {
-        return this.DU;
+    public long kd() {
+        return this.EC;
     }
 
-    public long jQ() {
-        return this.DV;
+    public long ke() {
+        return this.ED;
     }
 
     public void o(long j) {
-        this.DU = j;
+        this.EC = j;
     }
 
     public void p(long j) {
-        this.DV = j;
+        this.ED = j;
     }
 
-    public synchronized void jR() {
-        this.DN = new StringBuffer();
-        this.DQ = 0;
-        this.DU = 0L;
+    public synchronized void kf() {
+        this.Ew = new StringBuffer();
+        this.Ey = 0;
+        this.EC = 0L;
     }
 
-    public synchronized void jS() {
-        this.DO = new StringBuffer();
-        this.DR = 0;
-        this.DV = 0L;
+    public synchronized void kg() {
+        this.Ex = new StringBuffer();
+        this.Ez = 0;
+        this.ED = 0L;
     }
 
-    public void ba(String str) {
+    public void aZ(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.DM = str;
+            this.Ev = str;
         }
     }
 
-    public String jT() {
-        return this.DM;
+    public String kh() {
+        return this.Ev;
     }
 
-    public boolean jU() {
+    public boolean ki() {
         return this.isUploading;
     }
 
@@ -162,33 +163,33 @@ public class a {
         this.isUploading = z;
     }
 
-    public String jV() {
+    public String kj() {
         return "omp";
     }
 
-    public StringBuffer jW() {
-        return this.DN;
+    public StringBuffer kk() {
+        return this.Ew;
     }
 
-    public StringBuffer jX() {
-        return this.DO;
+    public StringBuffer kl() {
+        return this.Ex;
     }
 
-    public boolean jY() {
+    public boolean km() {
         return this.mUseSdCard;
     }
 
-    public boolean jZ() {
+    public boolean kn() {
         return this.mMustSuccess;
     }
 
-    public String ka() {
-        return this.DX;
+    public String ko() {
+        return this.EF;
     }
 
-    public static String bb(String str) {
+    public static String ba(String str) {
         if ("net".equals(str) || "op".equals(str) || "crash".equals(str) || "msg".equals(str)) {
-            return "error";
+            return AiAppsTouchHelper.TouchEventName.TOUCH_ERROR;
         }
         return str;
     }

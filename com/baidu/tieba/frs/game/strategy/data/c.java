@@ -7,21 +7,21 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    public int dDt;
-    public List<h> dDu;
+    public int dLt;
+    public List<h> dLu;
     public boolean hasMore;
     public String key;
     public int labelId;
     public int pn;
 
-    public int br(List<h> list) {
+    public int bH(List<h> list) {
         boolean z;
-        if (v.z(list)) {
+        if (v.J(list)) {
             return 0;
         }
-        if (v.z(this.dDu)) {
-            this.dDu = new LinkedList();
-            this.dDu.addAll(list);
+        if (v.J(this.dLu)) {
+            this.dLu = new LinkedList();
+            this.dLu.addAll(list);
             return list.size();
         }
         LinkedList linkedList = new LinkedList();
@@ -29,15 +29,15 @@ public class c {
             h hVar = list.get(i);
             int i2 = 0;
             while (true) {
-                if (i2 >= this.dDu.size()) {
+                if (i2 >= this.dLu.size()) {
                     z = false;
                     break;
                 }
-                h hVar2 = this.dDu.get(i2);
+                h hVar2 = this.dLu.get(i2);
                 if (hVar != null && (hVar instanceof b) && hVar2 != null && (hVar2 instanceof b)) {
-                    bb UT = ((b) hVar).UT();
-                    bb UT2 = ((b) hVar2).UT();
-                    if (UT != null && UT2 != null && UT.getTid() != null && UT2.getTid() != null && UT.getTid().equals(UT2.getTid())) {
+                    bb YA = ((b) hVar).YA();
+                    bb YA2 = ((b) hVar2).YA();
+                    if (YA != null && YA2 != null && YA.getTid() != null && YA2.getTid() != null && YA.getTid().equals(YA2.getTid())) {
                         z = true;
                         break;
                     }
@@ -49,7 +49,7 @@ public class c {
             }
         }
         if (linkedList.size() != 0) {
-            v.a((List) this.dDu, 0, (List) linkedList);
+            v.a((List) this.dLu, 0, (List) linkedList);
         }
         return linkedList.size();
     }

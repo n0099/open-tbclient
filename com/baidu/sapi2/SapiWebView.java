@@ -51,12 +51,10 @@ import com.baidu.cloudsdk.common.http.HttpResponseHandler;
 import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiJsInterpreters;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.callback.GetTplStokenCallback;
 import com.baidu.sapi2.callback.GetUserInfoCallback;
 import com.baidu.sapi2.callback.SapiCallback;
-import com.baidu.sapi2.dto.FaceBaseDTO;
 import com.baidu.sapi2.passhost.framework.PluginFacade;
 import com.baidu.sapi2.passhost.pluginsdk.service.IEventCenterService;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
@@ -85,8 +83,12 @@ import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.sapi2.utils.enums.RegistMode;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
+import com.baidu.searchbox.ng.ai.apps.setting.oauth.ScopeInfo;
+import com.baidu.searchbox.ng.ai.apps.system.bluetooth.utils.AiAppsBluetoothConstants;
+import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.webkit.internal.ETAG;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 import com.huawei.hwid.openapi.OpenHwID;
 import com.huawei.hwid.openapi.out.IHwIDCallBack;
@@ -101,9 +103,7 @@ import com.tencent.connect.UnionInfo;
 import com.tencent.connect.common.Constants;
 import com.tencent.mm.sdk.modelmsg.SendAuth;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
-import com.tencent.open.SocialConstants;
 import com.tencent.open.SocialOperation;
-import com.tencent.tauth.AuthActivity;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
 import com.tencent.tauth.UiError;
@@ -664,7 +664,7 @@ public final class SapiWebView extends WebView {
         setWebChromeClient(new WebChromeClient() { // from class: com.baidu.sapi2.SapiWebView.3
             @Override // android.webkit.WebChromeClient
             public boolean onJsAlert(WebView webView, String str, String str2, final JsResult jsResult) {
-                AlertDialog.Builder positiveButton = new AlertDialog.Builder(SapiWebView.this.getContext()).setTitle("JavaScript Message").setMessage(str2).setPositiveButton("ok", new DialogInterface.OnClickListener() { // from class: com.baidu.sapi2.SapiWebView.3.1
+                AlertDialog.Builder positiveButton = new AlertDialog.Builder(SapiWebView.this.getContext()).setTitle("JavaScript Message").setMessage(str2).setPositiveButton(AiAppsBluetoothConstants.ERROR_OK, new DialogInterface.OnClickListener() { // from class: com.baidu.sapi2.SapiWebView.3.1
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i2) {
                         jsResult.confirm();
@@ -1183,7 +1183,7 @@ public final class SapiWebView extends WebView {
     }
 
     public String getUaInfo() {
-        String encode = URLEncoder.encode("Sapi_8.7.5.1.2_Android_" + SapiUtils.getAppName(getContext()) + "_" + SapiUtils.getVersionName(getContext()) + "_" + (!TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : "") + "_" + (!TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "") + "_Sapi");
+        String encode = URLEncoder.encode("Sapi_8.7.5.1.2_Android_" + SapiUtils.getAppName(getContext()) + BaseRequestAction.SPLITE + SapiUtils.getVersionName(getContext()) + BaseRequestAction.SPLITE + (!TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : "") + BaseRequestAction.SPLITE + (!TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "") + "_Sapi");
         if (n() && !TextUtils.isEmpty(this.I.userAgent)) {
             return encode + " " + this.I.userAgent;
         }
@@ -1557,7 +1557,7 @@ public final class SapiWebView extends WebView {
             Log.e(e2);
         }
         if (!TextUtils.isEmpty(str2)) {
-            loadUrl(l() + "&" + str2 + o);
+            loadUrl(l() + ETAG.ITEM_SEPARATOR + str2 + o);
         } else {
             loadLogin();
         }
@@ -1644,7 +1644,7 @@ public final class SapiWebView extends WebView {
                 }
             }
             if (!arrayList.isEmpty()) {
-                return str + "&" + SapiUtils.createRequestParams(arrayList);
+                return str + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
             }
             return str;
         }
@@ -1683,7 +1683,7 @@ public final class SapiWebView extends WebView {
         a(getContext(), str);
         ArrayList arrayList = new ArrayList();
         try {
-            arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + e + "=" + i, "UTF-8")));
+            arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + e + ETAG.EQUAL + i, "UTF-8")));
             if (!TextUtils.isEmpty(str2)) {
                 arrayList.add(new BasicNameValuePair("skin", str2));
             }
@@ -1692,7 +1692,7 @@ public final class SapiWebView extends WebView {
         }
         String f2 = f();
         if (arrayList.size() > 0) {
-            f2 = f2 + "&" + SapiUtils.createRequestParams(arrayList);
+            f2 = f2 + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
         }
         String b2 = b();
         ArrayList arrayList2 = new ArrayList();
@@ -1734,7 +1734,7 @@ public final class SapiWebView extends WebView {
         }
         int indexOf = str.indexOf("?");
         if (indexOf > 0) {
-            str2 = str.substring(0, indexOf + 1) + SapiUtils.createRequestParams(list) + "&" + str.substring(indexOf + 1, str.length());
+            str2 = str.substring(0, indexOf + 1) + SapiUtils.createRequestParams(list) + ETAG.ITEM_SEPARATOR + str.substring(indexOf + 1, str.length());
         } else {
             str2 = str + "?" + SapiUtils.createRequestParams(list);
         }
@@ -1744,7 +1744,7 @@ public final class SapiWebView extends WebView {
     public void loadForgetPwd(String str) {
         ArrayList arrayList = new ArrayList();
         try {
-            arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + e + "=" + h, "UTF-8")));
+            arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + e + ETAG.EQUAL + h, "UTF-8")));
             if (!TextUtils.isEmpty(str)) {
                 arrayList.add(new BasicNameValuePair("skin", str));
             }
@@ -1753,7 +1753,7 @@ public final class SapiWebView extends WebView {
         }
         String e3 = e();
         if (arrayList.size() > 0) {
-            e3 = e3 + "&" + SapiUtils.createRequestParams(arrayList);
+            e3 = e3 + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
         }
         loadUrl(e3);
     }
@@ -1777,7 +1777,7 @@ public final class SapiWebView extends WebView {
         }
         String g2 = g();
         if (arrayList.size() > 0) {
-            g2 = g2 + "&" + SapiUtils.createRequestParams(arrayList);
+            g2 = g2 + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
         }
         loadUrl(g2);
     }
@@ -1814,7 +1814,7 @@ public final class SapiWebView extends WebView {
         }
         String a2 = a(bindWidgetAction);
         if (arrayList.size() > 0) {
-            a2 = a2 + "&" + SapiUtils.createRequestParams(arrayList);
+            a2 = a2 + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
         }
         String a3 = a(a2, list);
         String b2 = b();
@@ -1842,7 +1842,7 @@ public final class SapiWebView extends WebView {
         ArrayList arrayList = new ArrayList();
         try {
             arrayList.add(new BasicNameValuePair("token", URLEncoder.encode(str2, "UTF-8")));
-            arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + e + "=" + g, "UTF-8")));
+            arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + e + ETAG.EQUAL + g, "UTF-8")));
             if (!TextUtils.isEmpty(str3)) {
                 arrayList.add(new BasicNameValuePair("skin", str3));
             }
@@ -1851,7 +1851,7 @@ public final class SapiWebView extends WebView {
         }
         String h2 = h();
         if (arrayList.size() > 0) {
-            h2 = h2 + "&" + SapiUtils.createRequestParams(arrayList);
+            h2 = h2 + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
         }
         loadUrl(h2);
     }
@@ -1878,7 +1878,7 @@ public final class SapiWebView extends WebView {
         }
         String j2 = j();
         if (arrayList.size() > 0) {
-            j2 = j2 + "&" + SapiUtils.createRequestParams(arrayList);
+            j2 = j2 + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
         }
         loadUrl(j2);
     }
@@ -1901,7 +1901,7 @@ public final class SapiWebView extends WebView {
                 arrayList2.add(new BasicNameValuePair("bduss", str));
                 arrayList2.add(new BasicNameValuePair(ISapiAccount.SAPI_ACCOUNT_STOKEN, getTplStokenResult.tplStokenMap.get("pp")));
                 arrayList2.add(new BasicNameValuePair("bdstoken", SapiWebView.this.I.realnameAuthenticateStoken));
-                SapiWebView.this.loadUrl(k2 + "&" + SapiUtils.createRequestParams(arrayList2) + "#idcardverify");
+                SapiWebView.this.loadUrl(k2 + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList2) + "#idcardverify");
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1941,7 +1941,7 @@ public final class SapiWebView extends WebView {
         } catch (UnsupportedEncodingException e2) {
             Log.e(e2);
         }
-        loadUrl(i() + "&" + SapiUtils.createRequestParams(arrayList));
+        loadUrl(i() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList));
     }
 
     public void loadFastReg() {
@@ -1997,7 +1997,7 @@ public final class SapiWebView extends WebView {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("okU", SapiHost.getHost(SapiHost.ACTION_INTERCEPT_URL)));
         if (!TextUtils.isEmpty(str2)) {
-            arrayList.add(new BasicNameValuePair(FaceBaseDTO.KEY_BUSINESS_SCENE, str2));
+            arrayList.add(new BasicNameValuePair("scene", str2));
         }
         loadAccountCenter(arrayList, str, ACCOUNT_CENTER_REAL_NAME);
     }
@@ -2192,7 +2192,7 @@ public final class SapiWebView extends WebView {
                                     z2 = z3;
                                 }
                             } else {
-                                if (sapiAccountResponse == null && name.equalsIgnoreCase(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE)) {
+                                if (sapiAccountResponse == null && name.equalsIgnoreCase("error_code")) {
                                     SapiAccountResponse sapiAccountResponse3 = new SapiAccountResponse();
                                     try {
                                         sapiAccountResponse3.errorCode = Integer.parseInt(newPullParser.nextText());
@@ -2378,7 +2378,7 @@ public final class SapiWebView extends WebView {
                                 }
                                 socialResponse = socialResponse2;
                                 break;
-                            } else if (socialResponse2 == null && name.equalsIgnoreCase(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE)) {
+                            } else if (socialResponse2 == null && name.equalsIgnoreCase("error_code")) {
                                 socialResponse = new SocialResponse();
                                 try {
                                     socialResponse.errorCode = Integer.parseInt(newPullParser.nextText());
@@ -2402,7 +2402,7 @@ public final class SapiWebView extends WebView {
                                 }
                             } else {
                                 if (socialResponse2 != null) {
-                                    if (name.equalsIgnoreCase(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE)) {
+                                    if (name.equalsIgnoreCase("error_code")) {
                                         socialResponse2.errorCode = Integer.parseInt(newPullParser.nextText());
                                         socialResponse = socialResponse2;
                                         break;
@@ -2754,11 +2754,11 @@ public final class SapiWebView extends WebView {
                     if (!TextUtils.isEmpty(optString)) {
                         SapiWebView.this.K.onFinish();
                         SendAuth.Req req = new SendAuth.Req();
-                        req.scope = "snsapi_userinfo";
+                        req.scope = ScopeInfo.SCOPE_ID_USERINFO;
                         req.state = optString;
                         WXAPIFactory.createWXAPI(SapiWebView.this.getContext(), SapiWebView.this.I.wxAppID).sendReq(req);
                     } else {
-                        String optString2 = jSONObject.optString(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE, "");
+                        String optString2 = jSONObject.optString("error_code", "");
                         if (SapiWebView.this.K != null) {
                             SapiWebView.this.K.handleServerError(optString2);
                         }
@@ -2897,10 +2897,10 @@ public final class SapiWebView extends WebView {
                     try {
                         JSONObject jSONObject = new JSONObject((String) new XiaomiOAuthorize().callOpenApi(SapiWebView.this.getContext(), SapiWebView.this.I.xiaomiAppID.longValue(), "/user/profile", xiaomiOAuthResults.getAccessToken(), xiaomiOAuthResults.getMacKey(), xiaomiOAuthResults.getMacAlgorithm()).getResult());
                         String optString = jSONObject.optString("result");
-                        if ("ok".equals(optString)) {
+                        if (AiAppsBluetoothConstants.ERROR_OK.equals(optString)) {
                             str2 = jSONObject.getJSONObject("data").optString("userId");
-                        } else if ("error".equals(optString)) {
-                            Log.e(jSONObject.optString(SocialConstants.PARAM_COMMENT) + "(" + jSONObject.optString("code") + ")", new Object[0]);
+                        } else if (AiAppsTouchHelper.TouchEventName.TOUCH_ERROR.equals(optString)) {
+                            Log.e(jSONObject.optString("description") + "(" + jSONObject.optString("code") + ")", new Object[0]);
                             SapiWebView.this.v();
                             SapiWebView.this.finish();
                             return;
@@ -2917,10 +2917,10 @@ public final class SapiWebView extends WebView {
                     try {
                         JSONObject jSONObject2 = new JSONObject((String) new XiaomiOAuthorize().callOpenApi(SapiWebView.this.getContext(), SapiWebView.this.I.xiaomiAppID.longValue(), "/user/phone", xiaomiOAuthResults.getAccessToken(), xiaomiOAuthResults.getMacKey(), xiaomiOAuthResults.getMacAlgorithm()).getResult());
                         String optString2 = jSONObject2.optString("result");
-                        if ("ok".equals(optString2)) {
+                        if (AiAppsBluetoothConstants.ERROR_OK.equals(optString2)) {
                             str3 = jSONObject2.getJSONObject("data").optString(ISapiAccount.SAPI_ACCOUNT_PHONE);
-                        } else if ("error".equals(optString2)) {
-                            Log.e(jSONObject2.optString(SocialConstants.PARAM_COMMENT) + "(" + jSONObject2.optString("code") + ")", new Object[0]);
+                        } else if (AiAppsTouchHelper.TouchEventName.TOUCH_ERROR.equals(optString2)) {
+                            Log.e(jSONObject2.optString("description") + "(" + jSONObject2.optString("code") + ")", new Object[0]);
                             SapiWebView.this.v();
                             SapiWebView.this.finish();
                             return;
@@ -3212,10 +3212,10 @@ public final class SapiWebView extends WebView {
             try {
                 JSONObject jSONObject = new JSONObject(str.toString());
                 Command command = new Command();
-                JSONObject optJSONObject = jSONObject.optJSONObject(AuthActivity.ACTION_KEY);
+                JSONObject optJSONObject = jSONObject.optJSONObject("action");
                 if (optJSONObject != null) {
                     command.a = optJSONObject.optString("name");
-                    JSONArray optJSONArray = optJSONObject.optJSONArray(LegoListActivityConfig.PARAMS);
+                    JSONArray optJSONArray = optJSONObject.optJSONArray("params");
                     if (optJSONArray != null) {
                         for (int i = 0; i < optJSONArray.length(); i++) {
                             command.b.add(optJSONArray.optString(i));
@@ -3626,7 +3626,7 @@ public final class SapiWebView extends WebView {
                 if (!str4.equals(md5)) {
                     str3 = "&passAppHash=" + MD5Util.toMd5(str.getBytes(), false);
                 } else {
-                    str3 = (TextUtils.isEmpty(version) ? "" : "&passAppVersion=" + version) + "&passAppHash=" + SapiCache.c(getContext(), c2).hash;
+                    str3 = (TextUtils.isEmpty(version) ? "" : "" + ETAG.ITEM_SEPARATOR + "passAppVersion=" + version) + "&passAppHash=" + SapiCache.c(getContext(), c2).hash;
                 }
             }
             return split[0] + str3 + "#" + split[1];
@@ -3709,43 +3709,43 @@ public final class SapiWebView extends WebView {
     }
 
     String e() {
-        return SapiAccountManager.getInstance().getAccountService().b() + "&" + SapiUtils.createRequestParams(d());
+        return SapiAccountManager.getInstance().getAccountService().b() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(d());
     }
 
     String f() {
-        return SapiAccountManager.getInstance().getAccountService().c() + "&" + SapiUtils.createRequestParams(d());
+        return SapiAccountManager.getInstance().getAccountService().c() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(d());
     }
 
     String g() {
-        return SapiAccountManager.getInstance().getAccountService().d() + "&" + SapiUtils.createRequestParams(d());
+        return SapiAccountManager.getInstance().getAccountService().d() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(d());
     }
 
     String a(BindWidgetAction bindWidgetAction) {
-        return SapiAccountManager.getInstance().getAccountService().a(bindWidgetAction) + "&" + SapiUtils.createRequestParams(d());
+        return SapiAccountManager.getInstance().getAccountService().a(bindWidgetAction) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(d());
     }
 
     String h() {
-        return SapiAccountManager.getInstance().getAccountService().e() + "&" + SapiUtils.createRequestParams(d());
+        return SapiAccountManager.getInstance().getAccountService().e() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(d());
     }
 
     String i() {
-        return SapiAccountManager.getInstance().getAccountService().f() + "&" + SapiUtils.createRequestParams(d());
+        return SapiAccountManager.getInstance().getAccountService().f() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(d());
     }
 
     String a(SocialType socialType) {
-        return SapiAccountManager.getInstance().getAccountService().a(socialType) + "&" + SapiUtils.createRequestParams(d());
+        return SapiAccountManager.getInstance().getAccountService().a(socialType) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(d());
     }
 
     String a(String str) {
-        return SapiAccountManager.getInstance().getAccountService().a(str) + "&" + SapiUtils.createRequestParams(d());
+        return SapiAccountManager.getInstance().getAccountService().a(str) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(d());
     }
 
     String j() {
-        return SapiAccountManager.getInstance().getAccountService().g() + "&" + SapiUtils.createRequestParams(d());
+        return SapiAccountManager.getInstance().getAccountService().g() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(d());
     }
 
     String k() {
-        return SapiAccountManager.getInstance().getAccountService().i() + "&" + SapiUtils.createRequestParams(d());
+        return SapiAccountManager.getInstance().getAccountService().i() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(d());
     }
 
     String l() {
@@ -3753,26 +3753,26 @@ public final class SapiWebView extends WebView {
     }
 
     String b(SocialType socialType) {
-        return SapiAccountManager.getInstance().getAccountService().b(socialType) + "&" + SapiUtils.createRequestParams(d());
+        return SapiAccountManager.getInstance().getAccountService().b(socialType) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(d());
     }
 
     String a(SocialType socialType, String str, String str2, String str3) {
-        return SapiAccountManager.getInstance().getAccountService().a(socialType, str, str2, str3) + "&" + SapiUtils.createRequestParams(d());
+        return SapiAccountManager.getInstance().getAccountService().a(socialType, str, str2, str3) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(d());
     }
 
     String a(String str, String str2, String str3) {
-        return SapiAccountManager.getInstance().getAccountService().a(str, str2, str3) + "&" + SapiUtils.createRequestParams(d());
+        return SapiAccountManager.getInstance().getAccountService().a(str, str2, str3) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(d());
     }
 
     String a(boolean z2, String str) {
-        return SapiAccountManager.getInstance().getAccountService().a(z2, str) + "&" + SapiUtils.createRequestParams(d());
+        return SapiAccountManager.getInstance().getAccountService().a(z2, str) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(d());
     }
 
     String b(String str, String str2, String str3) {
-        return SapiAccountManager.getInstance().getAccountService().b(str, str2, str3) + "&" + SapiUtils.createRequestParams(d());
+        return SapiAccountManager.getInstance().getAccountService().b(str, str2, str3) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(d());
     }
 
     String a(String str, String str2, boolean z2) {
-        return SapiAccountManager.getInstance().getAccountService().a(str, str2, z2) + "&" + SapiUtils.createRequestParams(d());
+        return SapiAccountManager.getInstance().getAccountService().a(str, str2, z2) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(d());
     }
 }

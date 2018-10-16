@@ -9,7 +9,6 @@ import android.util.Log;
 import com.baidu.ar.recorder.d.c;
 import com.baidu.ar.recorder.d.d;
 import com.baidu.ar.recorder.d.e;
-import com.baidu.baiduarsdk.ArBridge;
 import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public class a implements com.baidu.ar.recorder.a.a {
@@ -23,12 +22,12 @@ public class a implements com.baidu.ar.recorder.a.a {
 
     /* renamed from: com.baidu.ar.recorder.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private class C0040a {
+    private class C0043a {
         ByteBuffer a;
         int b;
         long c;
 
-        public C0040a(ByteBuffer byteBuffer, int i, long j) {
+        public C0043a(ByteBuffer byteBuffer, int i, long j) {
             this.a = byteBuffer;
             this.b = i;
             this.c = j;
@@ -126,13 +125,13 @@ public class a implements com.baidu.ar.recorder.a.a {
                 f();
                 return;
             case 1003:
-                C0040a c0040a = (C0040a) message.obj;
-                b(c0040a.a, c0040a.b, c0040a.c);
+                C0043a c0043a = (C0043a) message.obj;
+                b(c0043a.a, c0043a.b, c0043a.c);
                 return;
             case 1004:
                 g();
                 return;
-            case ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC /* 1005 */:
+            case 1005:
                 h();
                 return;
             case 1006:
@@ -147,11 +146,11 @@ public class a implements com.baidu.ar.recorder.a.a {
         if (byteBuffer == null || i <= 0) {
             return;
         }
-        C0040a c0040a = new C0040a(byteBuffer, i, j);
+        C0043a c0043a = new C0043a(byteBuffer, i, j);
         if (this.c == null || !this.f) {
             return;
         }
-        this.c.sendMessage(this.c.obtainMessage(1003, c0040a));
+        this.c.sendMessage(this.c.obtainMessage(1003, c0043a));
     }
 
     public boolean a(d dVar, e eVar, c cVar) {
@@ -185,7 +184,7 @@ public class a implements com.baidu.ar.recorder.a.a {
 
     public void e() {
         if (this.c != null) {
-            this.c.sendMessage(this.c.obtainMessage(ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC));
+            this.c.sendMessage(this.c.obtainMessage(1005));
             this.c.sendMessage(this.c.obtainMessage(1006));
         }
     }

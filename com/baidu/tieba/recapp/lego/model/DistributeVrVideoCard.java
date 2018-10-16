@@ -10,13 +10,13 @@ public class DistributeVrVideoCard extends BaseLegoCardInfo {
 
     /* loaded from: classes3.dex */
     public static class a {
-        public String bjk;
-        public int bjn;
-        public int cKF;
-        public String eXs;
-        public int eXt;
-        public int eXu;
-        public boolean eXw;
+        public String bno;
+        public int bnr;
+        public int cSY;
+        public String feZ;
+        public int ffa;
+        public int ffb;
+        public boolean ffd;
         public int videoDuration;
         public int videoHeight;
         public String videoUrl;
@@ -40,17 +40,17 @@ public class DistributeVrVideoCard extends BaseLegoCardInfo {
             boolean z = optJSONObject.optInt("show_progress", 1) == 1;
             if (optInt > 0 && !TextUtils.isEmpty(optString2)) {
                 this.videoInfo = new a();
-                this.videoInfo.eXs = optString;
+                this.videoInfo.feZ = optString;
                 this.videoInfo.videoUrl = optString2;
                 this.videoInfo.videoDuration = optInt;
                 this.videoInfo.videoWidth = optInt2;
                 this.videoInfo.videoHeight = optInt3;
-                this.videoInfo.bjk = optString3;
-                this.videoInfo.eXt = optInt4;
-                this.videoInfo.eXu = optInt5;
-                this.videoInfo.cKF = optInt6;
-                this.videoInfo.bjn = optInt7;
-                this.videoInfo.eXw = z;
+                this.videoInfo.bno = optString3;
+                this.videoInfo.ffa = optInt4;
+                this.videoInfo.ffb = optInt5;
+                this.videoInfo.cSY = optInt6;
+                this.videoInfo.bnr = optInt7;
+                this.videoInfo.ffd = z;
                 return;
             }
             this.videoInfo = null;

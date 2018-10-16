@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.personCenter.data.i;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class e extends com.baidu.adp.widget.ListView.a<i, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.d>> {
     private TbPageContext mPageContext;
 
@@ -27,7 +27,7 @@ public class e extends com.baidu.adp.widget.ListView.a<i, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, i iVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.d> aVar) {
-        aVar.aln().a(iVar);
+        aVar.aoP().a(iVar);
         return aVar.getView();
     }
 }

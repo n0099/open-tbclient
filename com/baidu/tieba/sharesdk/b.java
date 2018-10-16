@@ -8,13 +8,13 @@ import com.baidu.tbadk.coreExtra.c.d;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
 /* loaded from: classes3.dex */
 public class b implements com.baidu.tbadk.coreExtra.c.b {
-    private com.baidu.tbadk.coreExtra.c.a aJE;
+    private com.baidu.tbadk.coreExtra.c.a aOg;
     private Context mContext;
 
     public b(Context context, com.baidu.tbadk.coreExtra.c.a aVar) {
         this.mContext = null;
         this.mContext = context;
-        this.aJE = aVar;
+        this.aOg = aVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.c.b
@@ -30,14 +30,14 @@ public class b implements com.baidu.tbadk.coreExtra.c.b {
             shareEntity.setContent(dVar.content);
             shareEntity.setImageUri(dVar.imageUri);
             String str = dVar.linkUrl;
-            if (i == 6 && !StringUtils.isNull(dVar.aJp)) {
-                str = dVar.aJp;
+            if (i == 6 && !StringUtils.isNull(dVar.aNR)) {
+                str = dVar.aNR;
             }
             shareEntity.setLinkUrl(str);
-            shareEntity.setLocation(dVar.aJq);
-            shareEntity.tr(i);
-            shareEntity.f(dVar.GP());
-            shareEntity.mw(dVar.aJx);
+            shareEntity.setLocation(dVar.aNS);
+            shareEntity.tO(i);
+            shareEntity.f(dVar.IQ());
+            shareEntity.mO(dVar.aNZ);
             Bundle bundle = new Bundle();
             bundle.putParcelable("extra_share_data", shareEntity);
             intentConfig.getIntent().putExtras(bundle);

@@ -25,7 +25,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 /* loaded from: classes.dex */
 final class b {
-    private static Method fpu;
+    private static Method fwZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static List<File> a(Context context, ApplicationInfo applicationInfo, File file, boolean z) throws IOException {
@@ -39,7 +39,7 @@ final class b {
             } catch (IOException e) {
                 Log.w("MultiDex", "Failed to reload existing extracted secondary dex files, falling back to fresh extraction", e);
                 if (context instanceof c.a) {
-                    ((c.a) context).getSplash().aYr();
+                    ((c.a) context).getSplash().bbD();
                 }
                 c = c(file2, file);
                 b(context, I(file2), J, c.size() + 1);
@@ -47,7 +47,7 @@ final class b {
         } else {
             Log.i("MultiDex", "Detected that extraction must be performed.");
             if (context instanceof c.a) {
-                ((c.a) context).getSplash().aYr();
+                ((c.a) context).getSplash().bbD();
             }
             c = c(file2, file);
             b(context, I(file2), J, c.size() + 1);
@@ -59,7 +59,7 @@ final class b {
     private static List<File> a(Context context, File file, File file2) throws IOException {
         Log.i("MultiDex", "loading existing secondary dex files");
         String str = file.getName() + ".classes";
-        int i = bl(context).getInt("dex.number", 1);
+        int i = bu(context).getInt("dex.number", 1);
         ArrayList arrayList = new ArrayList(i);
         for (int i2 = 2; i2 <= i; i2++) {
             File file3 = new File(file2, str + i2 + ".zip");
@@ -76,8 +76,8 @@ final class b {
     }
 
     private static boolean a(Context context, File file, long j) {
-        SharedPreferences bl = bl(context);
-        return (bl.getLong(HttpConstants.TIMESTAMP, -1L) == I(file) && bl.getLong("crc", -1L) == j) ? false : true;
+        SharedPreferences bu = bu(context);
+        return (bu.getLong(HttpConstants.TIMESTAMP, -1L) == I(file) && bu.getLong("crc", -1L) == j) ? false : true;
     }
 
     private static long I(File file) {
@@ -98,7 +98,7 @@ final class b {
 
     private static List<File> c(File file, File file2) throws IOException {
         String str = file.getName() + ".classes";
-        g(file2, str);
+        h(file2, str);
         ArrayList arrayList = new ArrayList();
         ZipFile zipFile = new ZipFile(file);
         try {
@@ -144,18 +144,18 @@ final class b {
     }
 
     private static void b(Context context, long j, long j2, int i) {
-        SharedPreferences.Editor edit = bl(context).edit();
+        SharedPreferences.Editor edit = bu(context).edit();
         edit.putLong(HttpConstants.TIMESTAMP, j);
         edit.putLong("crc", j2);
         edit.putInt("dex.number", i);
         apply(edit);
     }
 
-    private static SharedPreferences bl(Context context) {
+    private static SharedPreferences bu(Context context) {
         return context.getSharedPreferences("multidex.version", Build.VERSION.SDK_INT < 11 ? 0 : 4);
     }
 
-    private static void g(File file, final String str) throws IOException {
+    private static void h(File file, final String str) throws IOException {
         K(file.getParentFile());
         K(file);
         File[] listFiles = file.listFiles(new FileFilter() { // from class: com.baidu.tieba.l.b.1
@@ -242,9 +242,9 @@ final class b {
     }
 
     private static void apply(SharedPreferences.Editor editor) {
-        if (fpu != null) {
+        if (fwZ != null) {
             try {
-                fpu.invoke(editor, new Object[0]);
+                fwZ.invoke(editor, new Object[0]);
                 return;
             } catch (IllegalAccessException e) {
             } catch (InvocationTargetException e2) {
@@ -255,9 +255,9 @@ final class b {
 
     static {
         try {
-            fpu = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
+            fwZ = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
         } catch (NoSuchMethodException e) {
-            fpu = null;
+            fwZ = null;
         }
     }
 }

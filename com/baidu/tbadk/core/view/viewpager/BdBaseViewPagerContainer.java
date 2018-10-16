@@ -15,8 +15,8 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdBaseViewPagerContainer extends RelativeLayout {
-    private a aCL;
-    private b aCM;
+    private a aHr;
+    private b aHs;
 
     public BdBaseViewPagerContainer(Context context) {
         super(context);
@@ -29,62 +29,62 @@ public class BdBaseViewPagerContainer extends RelativeLayout {
     }
 
     private void a(Context context, ViewGroup viewGroup, boolean z) {
-        this.aCL = new a(LayoutInflater.from(context).inflate(e.h.bd_base_viewpager_container, viewGroup, z), context);
-        a(this.aCL);
-        this.aCM = new b(context, this.aCL.aCR, this.aCL.aCP, this.aCL.aCO, 4, false, true);
+        this.aHr = new a(LayoutInflater.from(context).inflate(e.h.bd_base_viewpager_container, viewGroup, z), context);
+        a(this.aHr);
+        this.aHs = new b(context, this.aHr.aHx, this.aHr.aHv, this.aHr.aHu, 4, false, true);
     }
 
     private void a(a aVar) {
         if (aVar != null) {
             al.j(aVar.getView(), e.d.cp_bg_line_d);
             al.c(aVar.title, e.d.cp_cont_c, 1);
-            al.j(aVar.aCQ, e.d.cp_bg_line_b);
-            al.c(aVar.aCO, e.d.cp_cont_d, 1);
-            al.j(aVar.aCO, e.d.cp_bg_line_d);
-            aVar.aCO.setText(TbadkCoreApplication.getInst().getString(e.j.recommend_frs_hot_thread_more));
-            aVar.aCP.setSelector(al.getDrawable(e.f.icon_choose_dot_s));
-            aVar.aCP.setDrawable(al.getDrawable(e.f.icon_choose_dot_n));
+            al.j(aVar.aHw, e.d.cp_bg_line_b);
+            al.c(aVar.aHu, e.d.cp_cont_d, 1);
+            al.j(aVar.aHu, e.d.cp_bg_line_d);
+            aVar.aHu.setText(TbadkCoreApplication.getInst().getString(e.j.recommend_frs_hot_thread_more));
+            aVar.aHv.setSelector(al.getDrawable(e.f.icon_choose_dot_s));
+            aVar.aHv.setDrawable(al.getDrawable(e.f.icon_choose_dot_n));
         }
     }
 
     @Override // android.view.View
     public View getRootView() {
-        return this.aCL.getView();
+        return this.aHr.getView();
     }
 
     public BdBaseViewPager getViewPager() {
-        return this.aCL.aCR;
+        return this.aHr.aHx;
     }
 
     public IndicatorView getIndicatorView() {
-        return this.aCL.aCP;
+        return this.aHr.aHv;
     }
 
     public TextView getMoreView() {
-        return this.aCL.aCO;
+        return this.aHr.aHu;
     }
 
     public a getViewHolder() {
-        return this.aCL;
+        return this.aHr;
     }
 
     public void setMaxScrollCountLimit(int i) {
-        this.aCM.setMaxScrollCountLimit(i);
+        this.aHs.setMaxScrollCountLimit(i);
     }
 
     public void setIsMaxScrollEnabled(boolean z) {
-        this.aCM.setIsMaxScrollEnabled(z);
+        this.aHs.setIsMaxScrollEnabled(z);
     }
 
     public void setIsAutoScrollEnabled(boolean z) {
-        this.aCM.bl(z);
+        this.aHs.bv(z);
     }
 
     public void setDatas(List<h> list) {
-        this.aCM.setDatas(list);
+        this.aHs.setDatas(list);
     }
 
     public void setAutoScrollIntervalTime(long j) {
-        this.aCM.setAutoScrollIntervalTime(j);
+        this.aHs.setAutoScrollIntervalTime(j);
     }
 }

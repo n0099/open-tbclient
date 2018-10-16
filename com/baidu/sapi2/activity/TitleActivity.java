@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.ar.statistic.StatisticConstants;
-import com.baidu.d.a.a;
+import com.baidu.e.a.a;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiAccountManager;
@@ -27,6 +27,7 @@ import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.views.ViewUtility;
+import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public abstract class TitleActivity extends Activity implements View.OnClickListener {
@@ -272,7 +273,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
     /* JADX INFO: Access modifiers changed from: protected */
     public void reportWebviewError(Throwable th) {
         HashMap hashMap = new HashMap();
-        hashMap.put("error", Log.getStackTraceString(th));
+        hashMap.put(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, Log.getStackTraceString(th));
         hashMap.put(Config.DEVICE_PART, Build.MODEL);
         hashMap.put(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE);
         StatService.onEvent("webview_init_error", hashMap, false);

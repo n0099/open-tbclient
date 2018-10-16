@@ -17,31 +17,31 @@ import com.baidu.tieba.im.model.GroupLevelModel;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class GroupLevelActivity extends BaseActivity<GroupLevelActivity> {
-    private GroupLevelModel ezR;
-    private k ezS;
-    private com.baidu.tbadk.core.dialog.a ezT;
-    private a.b ezU = new a.b() { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.1
+    private GroupLevelModel eHB;
+    private k eHC;
+    private com.baidu.tbadk.core.dialog.a eHD;
+    private a.b eHE = new a.b() { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.1
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
             RequestUpgradeMemberGroupMessage requestUpgradeMemberGroupMessage = new RequestUpgradeMemberGroupMessage();
-            requestUpgradeMemberGroupMessage.setGroupId(GroupLevelActivity.this.ezR.getGroupId());
+            requestUpgradeMemberGroupMessage.setGroupId(GroupLevelActivity.this.eHB.getGroupId());
             requestUpgradeMemberGroupMessage.setUpOrDown(true);
             GroupLevelActivity.this.sendMessage(requestUpgradeMemberGroupMessage);
             aVar.dismiss();
         }
     };
-    private a.b ezV = new a.b() { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.2
+    private a.b eHF = new a.b() { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.2
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
             aVar.dismiss();
         }
     };
-    private com.baidu.adp.framework.listener.c era = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.3
+    private com.baidu.adp.framework.listener.c eyR = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             GroupLevelInfo.LevelInfo levelInfo;
-            GroupLevelActivity.this.ezS.hU(false);
+            GroupLevelActivity.this.eHC.im(false);
             if (socketResponsedMessage == null) {
                 GroupLevelActivity.this.showToast(e.j.neterror);
             } else if (socketResponsedMessage instanceof ResponseGroupLevelMessage) {
@@ -69,22 +69,22 @@ public class GroupLevelActivity extends BaseActivity<GroupLevelActivity> {
                         int activeDay = groupLevelInfo.getActiveDay();
                         int thresholdDay = levelInfo.getThresholdDay();
                         String intro = levelInfo.getIntro();
-                        GroupLevelActivity.this.ezS.x(grade, groupLevelInfo.isMemGroup());
-                        GroupLevelActivity.this.ezS.aME().setText(intro);
-                        GroupLevelActivity.this.ezS.S(grade, activeDay, thresholdDay);
-                        GroupLevelActivity.this.ezS.a(groupLevelInfo.isMemGroup(), groupLevelInfo.isGroupAuthor(), groupLevelInfo.isCanCreateMember(), groupLevelInfo.getLeftCreateMemGroup());
-                        TextView[] aMC = GroupLevelActivity.this.ezS.aMC();
+                        GroupLevelActivity.this.eHC.x(grade, groupLevelInfo.isMemGroup());
+                        GroupLevelActivity.this.eHC.aPT().setText(intro);
+                        GroupLevelActivity.this.eHC.S(grade, activeDay, thresholdDay);
+                        GroupLevelActivity.this.eHC.a(groupLevelInfo.isMemGroup(), groupLevelInfo.isGroupAuthor(), groupLevelInfo.isCanCreateMember(), groupLevelInfo.getLeftCreateMemGroup());
+                        TextView[] aPR = GroupLevelActivity.this.eHC.aPR();
                         for (int i = 1; i < levelInfos.size(); i++) {
                             int maxMemberNum = levelInfos.get(i).getMaxMemberNum();
-                            if (i <= aMC.length) {
-                                aMC[i].setText(GroupLevelActivity.this.getPageContext().getContext().getString(e.j.grouplevel_level_condition, String.valueOf(maxMemberNum)));
+                            if (i <= aPR.length) {
+                                aPR[i].setText(GroupLevelActivity.this.getPageContext().getContext().getString(e.j.grouplevel_level_condition, String.valueOf(maxMemberNum)));
                             }
                         }
-                        TextView[] aMD = GroupLevelActivity.this.ezS.aMD();
+                        TextView[] aPS = GroupLevelActivity.this.eHC.aPS();
                         for (int i2 = 1; i2 < vipLevelInfos.size(); i2++) {
                             int maxMemberNum2 = vipLevelInfos.get(i2).getMaxMemberNum();
-                            if (i2 <= aMD.length) {
-                                aMD[i2].setText(GroupLevelActivity.this.getPageContext().getContext().getString(e.j.grouplevel_level_condition, String.valueOf(maxMemberNum2)));
+                            if (i2 <= aPS.length) {
+                                aPS[i2].setText(GroupLevelActivity.this.getPageContext().getContext().getString(e.j.grouplevel_level_condition, String.valueOf(maxMemberNum2)));
                             }
                         }
                     }
@@ -109,29 +109,29 @@ public class GroupLevelActivity extends BaseActivity<GroupLevelActivity> {
         super.onCreate(bundle);
         TiebaStatic.log("im_group_level_visit");
         initData(bundle);
-        r(bundle);
+        s(bundle);
         startLoading();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startLoading() {
-        this.ezS.hU(true);
-        this.ezR.sendMessage(this.ezR.getGroupId(), getUniqueId());
+        this.eHC.im(true);
+        this.eHB.sendMessage(this.eHB.getGroupId(), getUniqueId());
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.ezR.saveInstance(bundle);
+        this.eHB.saveInstance(bundle);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.ezS.aMA()) {
+        if (view == this.eHC.aPP()) {
             closeActivity();
-        } else if (view == this.ezS.aMB()) {
+        } else if (view == this.eHC.aPQ()) {
             TiebaStatic.log("im_group_level_upgrade_mem");
-            this.ezT.yl();
+            this.eHD.Au();
         }
     }
 
@@ -139,7 +139,7 @@ public class GroupLevelActivity extends BaseActivity<GroupLevelActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.ezS.onChangeSkinType(i);
+        this.eHC.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -149,22 +149,22 @@ public class GroupLevelActivity extends BaseActivity<GroupLevelActivity> {
     }
 
     public void initData(Bundle bundle) {
-        this.ezR = new GroupLevelModel(this);
+        this.eHB = new GroupLevelModel(this);
         if (bundle == null) {
-            this.ezR.initWithIntent(getIntent());
+            this.eHB.initWithIntent(getIntent());
         } else {
-            this.ezR.initWithBundle(bundle);
+            this.eHB.initWithBundle(bundle);
         }
-        registerListener(103006, this.era);
-        registerListener(103105, this.era);
+        registerListener(103006, this.eyR);
+        registerListener(103105, this.eyR);
     }
 
-    private void r(Bundle bundle) {
-        this.ezS = new k(this, this.ezR.isMem());
-        this.ezT = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        this.ezT.cp(e.j.upgrade_mem_group_if_up);
-        this.ezT.a(e.j.confirm, this.ezU);
-        this.ezT.b(e.j.cancel, this.ezV);
-        this.ezT.b(getPageContext());
+    private void s(Bundle bundle) {
+        this.eHC = new k(this, this.eHB.isMem());
+        this.eHD = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
+        this.eHD.cz(e.j.upgrade_mem_group_if_up);
+        this.eHD.a(e.j.confirm, this.eHE);
+        this.eHD.b(e.j.cancel, this.eHF);
+        this.eHD.b(getPageContext());
     }
 }

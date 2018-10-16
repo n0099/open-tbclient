@@ -6,8 +6,8 @@ import com.baidu.adp.widget.ListView.h;
 import tbclient.User;
 /* loaded from: classes3.dex */
 public class e implements h {
-    public static final BdUniqueId doC = BdUniqueId.gen();
-    private String doD;
+    public static final BdUniqueId dwE = BdUniqueId.gen();
+    private String dwF;
     private int fansNum;
     private String intro;
     private String name;
@@ -16,7 +16,7 @@ public class e implements h {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return doC;
+        return dwE;
     }
 
     public String getUserId() {
@@ -27,12 +27,12 @@ public class e implements h {
         this.userId = str;
     }
 
-    public String auM() {
-        return this.doD;
+    public String ayi() {
+        return this.dwF;
     }
 
-    public void mN(String str) {
-        this.doD = str;
+    public void np(String str) {
+        this.dwF = str;
     }
 
     public String getName() {
@@ -70,7 +70,7 @@ public class e implements h {
     public void a(User user, int i) {
         if (user != null && user.god_data != null) {
             setUserId(user.id + "");
-            mN(user.portrait);
+            np(user.portrait);
             setName(user.name);
             setNameShow(user.name_show);
             setIntro(user.god_data.intro);

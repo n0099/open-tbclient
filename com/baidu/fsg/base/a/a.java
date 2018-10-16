@@ -8,13 +8,13 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.searchbox.ng.ai.apps.scheme.actions.OpenAppAction;
 import java.util.HashMap;
 import java.util.HashSet;
 @TargetApi(9)
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class a {
     private static final String a = "WalletDownloadManager";
     private static final String b = "content://downloads/my_downloads/";
@@ -24,15 +24,15 @@ public final class a {
     private Context f;
 
     /* renamed from: com.baidu.fsg.base.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0063a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0074a {
         void a(c cVar);
     }
 
     private a(Context context) {
         this.f = null;
         this.f = context;
-        this.d = (DownloadManager) this.f.getSystemService("download");
+        this.d = (DownloadManager) this.f.getSystemService(OpenAppAction.PARAMS_DOWNLOAD_KEY);
     }
 
     public static a a(Context context) {
@@ -42,9 +42,9 @@ public final class a {
         return c;
     }
 
-    public void a(Context context, long j, InterfaceC0063a interfaceC0063a) {
+    public void a(Context context, long j, InterfaceC0074a interfaceC0074a) {
         b bVar;
-        if (interfaceC0063a != null && -1 != j) {
+        if (interfaceC0074a != null && -1 != j) {
             b bVar2 = this.e.get(Long.valueOf(j));
             if (bVar2 == null) {
                 bVar = new b(context, j);
@@ -53,16 +53,16 @@ public final class a {
             } else {
                 bVar = bVar2;
             }
-            bVar.a(interfaceC0063a);
+            bVar.a(interfaceC0074a);
         }
     }
 
-    public void b(Context context, long j, InterfaceC0063a interfaceC0063a) {
+    public void b(Context context, long j, InterfaceC0074a interfaceC0074a) {
         b bVar;
         if (j == -1 || (bVar = this.e.get(Long.valueOf(j))) == null) {
             return;
         }
-        bVar.b(interfaceC0063a);
+        bVar.b(interfaceC0074a);
         if (bVar.a()) {
             context.getContentResolver().unregisterContentObserver(bVar);
             this.e.remove(Uri.parse(b + j));
@@ -127,7 +127,7 @@ public final class a {
                     if (query.getCount() != 0 && query.moveToFirst()) {
                         int columnIndexOrThrow = query.getColumnIndexOrThrow("total_size");
                         int columnIndexOrThrow2 = query.getColumnIndexOrThrow("bytes_so_far");
-                        int columnIndex = query.getColumnIndex(NotificationCompat.CATEGORY_STATUS);
+                        int columnIndex = query.getColumnIndex("status");
                         long j = query.getLong(columnIndexOrThrow);
                         long j2 = query.getLong(columnIndexOrThrow2);
                         int i = query.getInt(columnIndex);
@@ -150,10 +150,10 @@ public final class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     private final class b extends ContentObserver {
         private final c b;
-        private final HashSet<InterfaceC0063a> c;
+        private final HashSet<InterfaceC0074a> c;
         private long d;
         private long e;
         private int f;
@@ -182,23 +182,23 @@ public final class a {
                 this.f = this.b.a();
                 this.e = currentTimeMillis;
                 synchronized (this) {
-                    InterfaceC0063a[] interfaceC0063aArr = new InterfaceC0063a[this.c.size()];
-                    this.c.toArray(interfaceC0063aArr);
-                    for (InterfaceC0063a interfaceC0063a : interfaceC0063aArr) {
-                        interfaceC0063a.a(this.b);
+                    InterfaceC0074a[] interfaceC0074aArr = new InterfaceC0074a[this.c.size()];
+                    this.c.toArray(interfaceC0074aArr);
+                    for (InterfaceC0074a interfaceC0074a : interfaceC0074aArr) {
+                        interfaceC0074a.a(this.b);
                     }
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public synchronized boolean a(InterfaceC0063a interfaceC0063a) {
-            return this.c.add(interfaceC0063a);
+        public synchronized boolean a(InterfaceC0074a interfaceC0074a) {
+            return this.c.add(interfaceC0074a);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public synchronized boolean b(InterfaceC0063a interfaceC0063a) {
-            return this.c.remove(interfaceC0063a);
+        public synchronized boolean b(InterfaceC0074a interfaceC0074a) {
+            return this.c.remove(interfaceC0074a);
         }
 
         /* JADX INFO: Access modifiers changed from: private */

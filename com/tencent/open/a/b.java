@@ -1,19 +1,20 @@
 package com.tencent.open.a;
 
 import android.support.v7.widget.ActivityChooserView;
+import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import com.tencent.open.a.d;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private static SimpleDateFormat a = d.C0288d.a("yy.MM.dd.HH");
+    private static SimpleDateFormat a = d.C0341d.a("yy.MM.dd.HH");
     private File g;
     private String b = "Tracer.File";
     private int c = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
     private int d = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
     private int e = 4096;
-    private long f = 10000;
+    private long f = ErrDef.Feature.WEIGHT;
     private int h = 10;
     private String i = ".log";
     private long j = Long.MAX_VALUE;

@@ -1,5 +1,6 @@
 package com.google.zxing.client.result;
 
+import com.baidu.webkit.sdk.WebView;
 import com.google.zxing.Result;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -75,7 +76,7 @@ public final class VEventResultParser extends ResultParser {
 
     private static String stripMailto(String str) {
         if (str != null) {
-            if (str.startsWith("mailto:") || str.startsWith("MAILTO:")) {
+            if (str.startsWith(WebView.SCHEME_MAILTO) || str.startsWith("MAILTO:")) {
                 return str.substring(7);
             }
             return str;

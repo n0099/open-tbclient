@@ -7,6 +7,7 @@ import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.ala.e;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MyForbiddenFansActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
@@ -19,22 +20,22 @@ public class PersonListActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(PersonListActivityConfig.class, PersonListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(MyForbiddenFansActivityConfig.class, MyForbiddenFansActivity.class);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2902120));
-        avI();
+        aze();
     }
 
-    public static void avI() {
-        com.baidu.tbadk.ala.b.sB().a(5, new com.baidu.tbadk.ala.d() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
-            @Override // com.baidu.tbadk.ala.d
+    public static void aze() {
+        com.baidu.tbadk.ala.b.uL().a(5, new e() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
+            @Override // com.baidu.tbadk.ala.e
             public View createView(Context context) {
-                TextView bg = com.baidu.tbadk.ala.c.bg(context);
-                if (bg != null) {
+                TextView bp = com.baidu.tbadk.ala.c.bp(context);
+                if (bp != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    al.h(bg, e.d.cp_link_tip_a);
-                    layoutParams.setMargins(l.h(context, e.C0141e.ds8), 0, l.h(context, e.C0141e.ds8), 0);
+                    al.h(bp, e.d.cp_link_tip_a);
+                    layoutParams.setMargins(l.h(context, e.C0175e.ds8), 0, l.h(context, e.C0175e.ds8), 0);
                     layoutParams.gravity = 16;
-                    bg.setLayoutParams(layoutParams);
+                    bp.setLayoutParams(layoutParams);
                 }
-                return bg;
+                return bp;
             }
         });
     }

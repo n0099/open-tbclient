@@ -21,9 +21,9 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private PbListView bBr;
-    private com.baidu.tieba.frs.gamerecommend.a.a dFS;
-    private FrameLayout dFT;
+    private PbListView bJY;
+    private com.baidu.tieba.frs.gamerecommend.a.a dNR;
+    private FrameLayout dNS;
     private String mForumId;
     private String mForumName;
     private BdTypeListView mListView;
@@ -43,7 +43,7 @@ public class a {
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(e.h.frs_game_recommend_layout, (ViewGroup) null);
         this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(e.g.view_no_network);
-        this.dFT = (FrameLayout) this.mRootView.findViewById(e.g.game_recom_container);
+        this.dNS = (FrameLayout) this.mRootView.findViewById(e.g.game_recom_container);
         this.mListView = (BdTypeListView) this.mRootView.findViewById(e.g.game_recom_listview);
         this.mListView.setDivider(null);
         this.mPullView = new k(this.mPageContext);
@@ -57,42 +57,42 @@ public class a {
             }
         });
         this.mNavigationBar.showBottomLine();
-        this.bBr = new PbListView(this.mPageContext.getPageActivity());
-        this.bBr.ov();
-        this.dFS = new com.baidu.tieba.frs.gamerecommend.a.a(this.mPageContext, this.mListView, this.mForumId, this.mForumName);
+        this.bJY = new PbListView(this.mPageContext.getPageActivity());
+        this.bJY.oG();
+        this.dNR = new com.baidu.tieba.frs.gamerecommend.a.a(this.mPageContext, this.mListView, this.mForumId, this.mForumName);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setData(List<h> list, boolean z) {
         if (z) {
-            Vr();
+            YY();
         } else {
-            Vq();
+            YX();
         }
-        this.dFS.setData(list);
+        this.dNR.setData(list);
     }
 
-    private void Vq() {
-        if (this.bBr != null) {
-            if (this.bBr.getView().getParent() == null) {
-                this.mListView.setNextPage(this.bBr);
+    private void YX() {
+        if (this.bJY != null) {
+            if (this.bJY.getView().getParent() == null) {
+                this.mListView.setNextPage(this.bJY);
             }
-            this.bBr.setText(this.mPageContext.getPageActivity().getResources().getString(e.j.list_no_more));
-            this.bBr.BJ();
+            this.bJY.setText(this.mPageContext.getPageActivity().getResources().getString(e.j.list_no_more));
+            this.bJY.DP();
         }
     }
 
-    private void Vr() {
-        if (this.bBr != null) {
-            if (this.bBr.getView().getParent() == null) {
-                this.mListView.setNextPage(this.bBr);
+    private void YY() {
+        if (this.bJY != null) {
+            if (this.bJY.getView().getParent() == null) {
+                this.mListView.setNextPage(this.bJY);
             }
-            this.bBr.BN();
-            this.bBr.BI();
+            this.bJY.DT();
+            this.bJY.DO();
         }
     }
 
-    public void VB() {
+    public void Zi() {
         this.mListView.setNextPage(null);
     }
 
@@ -108,8 +108,8 @@ public class a {
         this.mPullView.a(bVar);
     }
 
-    public void VY() {
-        if (this.mListView != null && com.baidu.adp.lib.util.j.kK()) {
+    public void ZF() {
+        if (this.mListView != null && com.baidu.adp.lib.util.j.kX()) {
             this.mListView.startPullRefresh();
         }
     }
@@ -118,11 +118,11 @@ public class a {
         return this.mRootView;
     }
 
-    public FrameLayout aAs() {
-        return this.dFT;
+    public FrameLayout aDL() {
+        return this.dNS;
     }
 
-    public NavigationBar WW() {
+    public NavigationBar aaD() {
         return this.mNavigationBar;
     }
 

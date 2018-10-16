@@ -187,7 +187,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
                     this.liveInfoData = new AlaLiveInfoCoreData();
                     this.liveInfoData.parserProtoBuf(profileResIdl.data.ala_live_info);
                 }
-                if (!v.z(profileResIdl.data.ala_live_record)) {
+                if (!v.J(profileResIdl.data.ala_live_record)) {
                     this.liveReplayData = new ArrayList();
                     for (AlaLiveInfo alaLiveInfo : profileResIdl.data.ala_live_record) {
                         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
@@ -205,26 +205,26 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        l<byte[]> W = com.baidu.tbadk.core.c.a.yh().W("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        l<byte[]> aj = com.baidu.tbadk.core.c.a.Aq().aj("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
-            W.e(PROFILE_CACHE_KEY, bArr);
+            aj.e(PROFILE_CACHE_KEY, bArr);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        l<String> X;
+        l<String> ak;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.ucCardData != null && (X = com.baidu.tbadk.core.c.a.yh().X("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
-            List<g.a> list = this.ucCardData.gav;
-            if (v.y(list) > 4) {
+        if (this.ucCardData != null && (ak = com.baidu.tbadk.core.c.a.Aq().ak("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
+            List<g.a> list = this.ucCardData.ghW;
+            if (v.I(list) > 4) {
                 list.get(4).timeStamp = 8L;
                 for (g.a aVar : list) {
-                    if (aVar.timeStamp > com.baidu.adp.lib.g.b.d(X.get(aVar.title), 0L)) {
-                        aVar.gaw = true;
+                    if (aVar.timeStamp > com.baidu.adp.lib.g.b.d(ak.get(aVar.title), 0L)) {
+                        aVar.ghX = true;
                     } else {
-                        aVar.gaw = false;
+                        aVar.ghX = false;
                     }
                 }
             }

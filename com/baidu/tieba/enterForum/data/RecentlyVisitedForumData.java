@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.data.VisitedForumData;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class RecentlyVisitedForumData extends OrmObject {
     private LinkedList<VisitedForumData> mForumData = new LinkedList<>();
 
@@ -27,11 +27,11 @@ public class RecentlyVisitedForumData extends OrmObject {
                 this.mForumData.remove(visitedForumData2);
             }
             this.mForumData.addFirst(visitedForumData);
-            aqp();
+            atL();
         }
     }
 
-    private void aqp() {
+    private void atL() {
         if (this.mForumData != null) {
             while (this.mForumData.size() > 20) {
                 this.mForumData.removeLast();
@@ -69,7 +69,7 @@ public class RecentlyVisitedForumData extends OrmObject {
         if (linkedList != null && linkedList.size() != 0) {
             this.mForumData.clear();
             this.mForumData.addAll(linkedList);
-            aqp();
+            atL();
         }
     }
 
@@ -82,7 +82,7 @@ public class RecentlyVisitedForumData extends OrmObject {
                     this.mForumData.addLast(next);
                 }
             }
-            aqp();
+            atL();
         }
     }
 

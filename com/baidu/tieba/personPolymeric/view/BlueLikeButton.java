@@ -17,25 +17,25 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.view.userLike.b {
-    private boolean giX;
+    private boolean gqx;
 
     public BlueLikeButton(Context context) {
         super(context);
-        this.giX = false;
+        this.gqx = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.giX = false;
+        this.gqx = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.giX = false;
+        this.gqx = false;
     }
 
-    public void bi(boolean z) {
-        this.giX = z;
+    public void bs(boolean z) {
+        this.gqx = z;
         if (z) {
             setText(e.j.followed);
             setBackgroundDrawable(al.getDrawable(e.f.selector_like_button_gray_bg));
@@ -46,14 +46,14 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
         }
         setText(e.j.attention);
         setBackgroundDrawable(al.getDrawable(e.f.selector_like_button_bg));
-        setPadding(getResources().getDimensionPixelSize(e.C0141e.tbds20), 0, 0, 0);
+        setPadding(getResources().getDimensionPixelSize(e.C0175e.tbds20), 0, 0, 0);
         setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(e.f.icon_add_follow_white), (Drawable) null, (Drawable) null, (Drawable) null);
         al.c(this, e.d.cp_cont_g, 1);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void d(boolean z, int i) {
-        bi(z);
+        bs(z);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
@@ -62,26 +62,26 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void dS(int i) {
+    public void ec(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void X(View view) {
-        TiebaStatic.log(new am("c12503").al("obj_locate", "4"));
+        TiebaStatic.log(new am("c12503").ax("obj_locate", "4"));
         if (!ao.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
             am amVar = new am("c12507");
-            amVar.al("uid", TbadkCoreApplication.getCurrentAccount());
-            amVar.w("obj_locate", 2);
-            amVar.al(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, TbadkCoreApplication.getInst().getTaskId());
+            amVar.ax("uid", TbadkCoreApplication.getCurrentAccount());
+            amVar.x("obj_locate", 2);
+            amVar.ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, TbadkCoreApplication.getInst().getTaskId());
             TiebaStatic.log(amVar);
         }
-        if (!this.giX) {
+        if (!this.gqx) {
             Context context = getContext();
             if ((context instanceof Activity) && (context instanceof com.baidu.tbadk.pageStayDuration.a)) {
                 String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");
                 List<String> currentPageSourceKeyList = ((com.baidu.tbadk.pageStayDuration.a) context).getCurrentPageSourceKeyList();
                 if (currentPageSourceKeyList != null && ao.equals((String) v.d(currentPageSourceKeyList, currentPageSourceKeyList.size() - 1), "a002") && !ao.isEmpty(stringExtra)) {
-                    TiebaStatic.log(new am("c12613").w("obj_type", 1).al("tid", stringExtra));
+                    TiebaStatic.log(new am("c12613").x("obj_type", 1).ax("tid", stringExtra));
                 }
             }
         }
@@ -93,7 +93,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
     }
 
     public void onChangeSkinType(int i) {
-        if (this.giX) {
+        if (this.gqx) {
             setBackgroundDrawable(al.getDrawable(e.f.selector_like_button_gray_bg));
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             al.c(this, e.d.cp_cont_e, 1);

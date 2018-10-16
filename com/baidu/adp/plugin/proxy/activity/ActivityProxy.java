@@ -50,6 +50,7 @@ import com.baidu.adp.plugin.proxy.ContentResolverProxy;
 import com.baidu.adp.plugin.util.d;
 import com.baidu.adp.widget.ListView.k;
 import com.baidu.megapp.ma.MAActivity;
+import com.baidu.searchbox.ng.ai.apps.media.audio.event.AudioStatusCallback;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes.dex */
@@ -291,7 +292,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
                 return this.mEntity.getResources();
             }
         } else {
-            Resources resources = g.fK().getResources();
+            Resources resources = g.gd().getResources();
             if (resources != null) {
                 return resources;
             }
@@ -582,7 +583,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     @Override // android.app.Activity
     protected void onPause() {
         if (this.mEntity != null) {
-            d.invokeMethod(this.mEntity, "onPause", new Class[0], new Object[0]);
+            d.invokeMethod(this.mEntity, AudioStatusCallback.ON_PAUSE, new Class[0], new Object[0]);
         } else {
             super.onPause();
         }
@@ -683,7 +684,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     @Override // android.app.Activity
     protected void onStop() {
         if (this.mEntity != null) {
-            d.invokeMethod(this.mEntity, "onStop", new Class[0], new Object[0]);
+            d.invokeMethod(this.mEntity, AudioStatusCallback.ON_STOP, new Class[0], new Object[0]);
         } else {
             super.onStop();
         }

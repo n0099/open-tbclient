@@ -25,14 +25,14 @@ public final class a {
     public static String c;
     public static Context d;
     public static String g;
-    private static Pair<String, Integer> kB;
+    private static Pair<String, Integer> lf;
     public static final String a = SdkType.JCORE.name();
     public static boolean b = false;
     static boolean e = false;
-    public static final cn.jiguang.c.b ky = new cn.jiguang.c.a();
+    public static final cn.jiguang.c.b ld = new cn.jiguang.c.a();
     public static boolean h = false;
     public static boolean i = false;
-    private static final AtomicInteger kA = new AtomicInteger(-1);
+    private static final AtomicInteger le = new AtomicInteger(-1);
     private static final Object k = new Object();
     private static ServiceConnection m = new b();
 
@@ -45,19 +45,19 @@ public final class a {
     }
 
     public static Pair<String, Integer> Y(Context context) {
-        if (kB == null) {
+        if (lf == null) {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                 String str = packageInfo.versionName;
                 if (str.length() > 30) {
                     str = str.substring(0, 30);
                 }
-                kB = new Pair<>(str, Integer.valueOf(packageInfo.versionCode));
+                lf = new Pair<>(str, Integer.valueOf(packageInfo.versionCode));
             } catch (Throwable th) {
                 cn.jiguang.e.c.a("JCoreGlobal", "NO versionCode or versionName defined in manifest.");
             }
         }
-        return kB;
+        return lf;
     }
 
     public static void a(Context context, boolean z) {
@@ -80,7 +80,7 @@ public final class a {
             Bundle bundle = new Bundle();
             bundle.putBoolean("force", z);
             bundle.putLong("rtc_delay", j);
-            l.bI().d(context, "intent.RTC", bundle);
+            l.bZ().d(context, "intent.RTC", bundle);
         } catch (Throwable th) {
             cn.jiguang.e.c.c("JCoreGlobal", "sendHeartBeat error:" + th.getMessage());
         }
@@ -125,7 +125,7 @@ public final class a {
     }
 
     public static boolean c(Context context) {
-        switch (kA.get()) {
+        switch (le.get()) {
             case -1:
                 Context X = X(context);
                 if (X != null) {
@@ -154,35 +154,35 @@ public final class a {
     public static int e(Context context) {
         i = h;
         h = true;
-        int i2 = kA.get();
+        int i2 = le.get();
         if (i2 != -1) {
             return i2;
         }
         synchronized (k) {
-            int i3 = kA.get();
+            int i3 = le.get();
             if (i3 != -1) {
                 return i3;
             }
             cn.jiguang.e.c.a("JCoreGlobal", "action:init - sdkVersion:1.2.5, buildId:195");
-            i.bG();
+            i.bX();
             Context X = X(context);
             if (X == null) {
                 return -1;
             }
-            cn.jiguang.a.a.c.e.aZ().b();
+            cn.jiguang.a.a.c.e.bq().b();
             cn.jiguang.d.a.a.d(X, "1.2.5");
             cn.jiguang.a.a.a(X);
             if (!a()) {
                 cn.jiguang.e.c.d("JCoreGlobal", "JCore .so file do not match JCore .jar file in the project, Failed to init JCore");
-                kA.set(3);
+                le.set(3);
                 return 3;
             } else if (!g(X)) {
-                kA.set(2);
+                le.set(2);
                 return 2;
             } else {
                 int at = cn.jiguang.g.a.at(X);
                 if (at != 0) {
-                    kA.set(at);
+                    le.set(at);
                     return at;
                 }
                 b(X);
@@ -202,7 +202,7 @@ public final class a {
                     cn.jiguang.a.a.c.e.a(X);
                     s.a(X, (String) null, "nowrap");
                 }
-                kA.set(0);
+                le.set(0);
                 e.a("SDK_MAIN", new c(X, 1), new int[0]);
                 return 0;
             }

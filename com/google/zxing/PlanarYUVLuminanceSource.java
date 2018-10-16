@@ -1,6 +1,4 @@
 package com.google.zxing;
-
-import android.support.v4.view.ViewCompat;
 /* loaded from: classes3.dex */
 public final class PlanarYUVLuminanceSource extends LuminanceSource {
     private static final int THUMBNAIL_SCALE_FACTOR = 2;
@@ -78,7 +76,7 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
         for (int i2 = 0; i2 < height; i2++) {
             int i3 = i2 * width;
             for (int i4 = 0; i4 < width; i4++) {
-                iArr[i3 + i4] = ((bArr[(i4 << 1) + i] & 255) * 65793) | ViewCompat.MEASURED_STATE_MASK;
+                iArr[i3 + i4] = ((bArr[(i4 << 1) + i] & 255) * 65793) | (-16777216);
             }
             i += this.dataWidth << 1;
         }

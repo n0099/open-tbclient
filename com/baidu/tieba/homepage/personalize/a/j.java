@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.card.data.o;
 import com.baidu.tieba.card.u;
 import com.baidu.tieba.card.v;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class j extends com.baidu.adp.widget.ListView.a<o, com.baidu.tieba.card.a.a<u>> {
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public j(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), o.cIH);
+        super(tbPageContext.getPageActivity(), o.cRa);
         this.mPageContext = tbPageContext;
     }
 
@@ -25,7 +25,7 @@ public class j extends com.baidu.adp.widget.ListView.a<o, com.baidu.tieba.card.a
     /* renamed from: Y */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
         u uVar = new u(this.mPageContext);
-        uVar.x("c10718", "c10719", "c10742");
+        uVar.E("c10718", "c10719", "c10742");
         return new com.baidu.tieba.card.a.a(uVar);
     }
 
@@ -34,9 +34,9 @@ public class j extends com.baidu.adp.widget.ListView.a<o, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, o oVar, com.baidu.tieba.card.a.a aVar) {
-        aVar.aln().a(oVar);
-        aVar.aln().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        v.akM().a(new am("c10718").al(VideoPlayActivityConfig.OBJ_ID, String.valueOf(oVar.cII)));
+        aVar.aoP().a(oVar);
+        aVar.aoP().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        v.aoo().a(new am("c10718").ax(VideoPlayActivityConfig.OBJ_ID, String.valueOf(oVar.cRb)));
         return aVar.getView();
     }
 }

@@ -4,6 +4,7 @@ import android.graphics.SurfaceTexture;
 import android.opengl.GLSurfaceView;
 import android.os.Build;
 import android.util.Log;
+import com.baidu.webkit.internal.Statistics;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import javax.microedition.khronos.egl.EGL10;
@@ -28,7 +29,7 @@ public final class a {
 
     /* renamed from: com.baidu.baiduarsdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static class C0055a implements d {
+    private static class C0060a implements d {
         protected int a;
         protected int b;
         protected int c;
@@ -38,7 +39,7 @@ public final class a {
         protected int[] g;
         private int[] h = new int[1];
 
-        public C0055a(int i, int i2, int i3, int i4, int i5, int i6) {
+        public C0060a(int i, int i2, int i3, int i4, int i5, int i6) {
             this.a = i;
             this.b = i2;
             this.c = i3;
@@ -428,7 +429,7 @@ public final class a {
                                     case 12288:
                                         z14 = z7;
                                         break;
-                                    case 12302:
+                                    case Statistics.kTypeWhiteScreen /* 12302 */:
                                         z14 = true;
                                         break;
                                     default:
@@ -800,7 +801,7 @@ public final class a {
 
     public void a(GLSurfaceView.Renderer renderer) {
         if (this.g == null) {
-            this.g = new C0055a(8, 8, 8, 8, 16, 0);
+            this.g = new C0060a(8, 8, 8, 8, 16, 0);
         }
         if (this.h == null) {
             this.h = new b();

@@ -13,7 +13,7 @@ import com.baidu.tieba.keepLive.startActivity.ScreenBroadcastListener;
 import com.baidu.tieba.keepLive.startActivity.ScreenManager;
 import com.baidu.tieba.keepLive.sync.SyncService;
 import com.baidu.tieba.keepLive.util.RomTypeUtil;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class KeepLiveUtil {
     private static final String ENABLED_NOTIFICATION_LISTENERS = "enabled_notification_listeners";
     public static final String NEEDSHOWNOTIFICATION = "needShowBindSystemNotification";

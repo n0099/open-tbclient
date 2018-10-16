@@ -32,7 +32,7 @@ public class DownloadProvider extends ContentProvider {
                     return;
                 }
             }
-            cn.jiguang.d.i.f.bT().bU().a(getContext(), i, z, str, str2, str3);
+            cn.jiguang.d.i.f.ck().cl().a(getContext(), i, z, str, str2, str3);
         }
     }
 
@@ -45,7 +45,7 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
         init();
-        return cn.jiguang.d.f.a.bO().a(getContext(), uri);
+        return cn.jiguang.d.f.a.cf().a(getContext(), uri);
     }
 
     @Override // android.content.ContentProvider

@@ -1,7 +1,5 @@
 package com.baidu.tieba.channel.message;
 
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.channel.data.c;
@@ -35,8 +33,8 @@ public class ResponseChannelFansListMessage extends JsonHttpResponsedMessage {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {
-            this.mErrCode = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
-            this.mErrMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
+            this.mErrCode = jSONObject.optInt("error_code");
+            this.mErrMsg = jSONObject.optString("error_msg");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
                 this.data = new c();

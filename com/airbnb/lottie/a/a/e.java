@@ -7,37 +7,37 @@ import com.airbnb.lottie.a.b.a;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class e implements k, a.InterfaceC0006a {
-    private final com.airbnb.lottie.f mp;
-    private final Path nJ = new Path();
-    @Nullable
-    private q nS;
-    private final com.airbnb.lottie.a.b.a<?, PointF> nW;
-    private final com.airbnb.lottie.a.b.a<?, PointF> nX;
-    private final com.airbnb.lottie.model.content.a nY;
-    private boolean nZ;
+public class e implements k, a.InterfaceC0009a {
     private final String name;
+    private final com.airbnb.lottie.f nh;
+    @Nullable
+    private q oH;
+    private final com.airbnb.lottie.a.b.a<?, PointF> oL;
+    private final com.airbnb.lottie.a.b.a<?, PointF> oM;
+    private final com.airbnb.lottie.model.content.a oN;
+    private boolean oO;
+    private final Path oy = new Path();
 
     public e(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, com.airbnb.lottie.model.content.a aVar2) {
         this.name = aVar2.getName();
-        this.mp = fVar;
-        this.nW = aVar2.dL().dp();
-        this.nX = aVar2.dB().dp();
-        this.nY = aVar2;
-        aVar.a(this.nW);
-        aVar.a(this.nX);
-        this.nW.b(this);
-        this.nX.b(this);
+        this.nh = fVar;
+        this.oL = aVar2.ed().dH();
+        this.oM = aVar2.dT().dH();
+        this.oN = aVar2;
+        aVar.a(this.oL);
+        aVar.a(this.oM);
+        this.oL.b(this);
+        this.oM.b(this);
     }
 
-    @Override // com.airbnb.lottie.a.b.a.InterfaceC0006a
-    public void cM() {
+    @Override // com.airbnb.lottie.a.b.a.InterfaceC0009a
+    public void de() {
         invalidate();
     }
 
     private void invalidate() {
-        this.nZ = false;
-        this.mp.invalidateSelf();
+        this.oO = false;
+        this.nh.invalidateSelf();
     }
 
     @Override // com.airbnb.lottie.a.a.b
@@ -47,9 +47,9 @@ public class e implements k, a.InterfaceC0006a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof q) && ((q) bVar).cV() == ShapeTrimPath.Type.Simultaneously) {
-                    this.nS = (q) bVar;
-                    this.nS.a(this);
+                if ((bVar instanceof q) && ((q) bVar).dn() == ShapeTrimPath.Type.Simultaneously) {
+                    this.oH = (q) bVar;
+                    this.oH.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -65,34 +65,34 @@ public class e implements k, a.InterfaceC0006a {
 
     @Override // com.airbnb.lottie.a.a.k
     public Path getPath() {
-        if (this.nZ) {
-            return this.nJ;
+        if (this.oO) {
+            return this.oy;
         }
-        this.nJ.reset();
-        PointF value = this.nW.getValue();
+        this.oy.reset();
+        PointF value = this.oL.getValue();
         float f = value.x / 2.0f;
         float f2 = value.y / 2.0f;
         float f3 = f * 0.55228f;
         float f4 = f2 * 0.55228f;
-        this.nJ.reset();
-        if (this.nY.isReversed()) {
-            this.nJ.moveTo(0.0f, -f2);
-            this.nJ.cubicTo(0.0f - f3, -f2, -f, 0.0f - f4, -f, 0.0f);
-            this.nJ.cubicTo(-f, 0.0f + f4, 0.0f - f3, f2, 0.0f, f2);
-            this.nJ.cubicTo(0.0f + f3, f2, f, 0.0f + f4, f, 0.0f);
-            this.nJ.cubicTo(f, 0.0f - f4, 0.0f + f3, -f2, 0.0f, -f2);
+        this.oy.reset();
+        if (this.oN.isReversed()) {
+            this.oy.moveTo(0.0f, -f2);
+            this.oy.cubicTo(0.0f - f3, -f2, -f, 0.0f - f4, -f, 0.0f);
+            this.oy.cubicTo(-f, 0.0f + f4, 0.0f - f3, f2, 0.0f, f2);
+            this.oy.cubicTo(0.0f + f3, f2, f, 0.0f + f4, f, 0.0f);
+            this.oy.cubicTo(f, 0.0f - f4, 0.0f + f3, -f2, 0.0f, -f2);
         } else {
-            this.nJ.moveTo(0.0f, -f2);
-            this.nJ.cubicTo(0.0f + f3, -f2, f, 0.0f - f4, f, 0.0f);
-            this.nJ.cubicTo(f, 0.0f + f4, 0.0f + f3, f2, 0.0f, f2);
-            this.nJ.cubicTo(0.0f - f3, f2, -f, 0.0f + f4, -f, 0.0f);
-            this.nJ.cubicTo(-f, 0.0f - f4, 0.0f - f3, -f2, 0.0f, -f2);
+            this.oy.moveTo(0.0f, -f2);
+            this.oy.cubicTo(0.0f + f3, -f2, f, 0.0f - f4, f, 0.0f);
+            this.oy.cubicTo(f, 0.0f + f4, 0.0f + f3, f2, 0.0f, f2);
+            this.oy.cubicTo(0.0f - f3, f2, -f, 0.0f + f4, -f, 0.0f);
+            this.oy.cubicTo(-f, 0.0f - f4, 0.0f - f3, -f2, 0.0f, -f2);
         }
-        PointF value2 = this.nX.getValue();
-        this.nJ.offset(value2.x, value2.y);
-        this.nJ.close();
-        com.airbnb.lottie.c.f.a(this.nJ, this.nS);
-        this.nZ = true;
-        return this.nJ;
+        PointF value2 = this.oM.getValue();
+        this.oy.offset(value2.x, value2.y);
+        this.oy.close();
+        com.airbnb.lottie.c.f.a(this.oy, this.oH);
+        this.oO = true;
+        return this.oy;
     }
 }

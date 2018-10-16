@@ -9,17 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.e;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
-import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import tbclient.VideoInfo;
 /* loaded from: classes3.dex */
-public class q implements com.baidu.b.a.b.c {
-    @Override // com.baidu.b.a.b.c
-    public View Z(Context context, String str) {
-        if (TbConfig.TMP_PIC_DIR_NAME.equalsIgnoreCase(str)) {
+public class q implements com.baidu.c.a.b.c {
+    @Override // com.baidu.c.a.b.c
+    public View aa(Context context, String str) {
+        if ("image".equalsIgnoreCase(str)) {
             TbClipImageView tbClipImageView = new TbClipImageView(context);
             tbClipImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             tbClipImageView.setDrawerType(1);
@@ -38,15 +36,15 @@ public class q implements com.baidu.b.a.b.c {
         }
     }
 
-    @Override // com.baidu.b.a.b.c
-    public boolean a(String str, View view, com.baidu.b.a.a.a aVar) {
+    @Override // com.baidu.c.a.b.c
+    public boolean a(String str, View view, com.baidu.c.a.a.a aVar) {
         DistributeVideoView distributeVideoView;
         if (aVar == null || view == null) {
             return false;
         }
         if (view instanceof TbClipImageView) {
-            if (aVar.We > 0.0f) {
-                ((TbClipImageView) view).setRadius((int) (aVar.We * view.getResources().getDisplayMetrics().density));
+            if (aVar.aaI > 0.0f) {
+                ((TbClipImageView) view).setRadius((int) (aVar.aaI * view.getResources().getDisplayMetrics().density));
             } else {
                 ((TbClipImageView) view).setRadius(0);
             }
@@ -55,27 +53,27 @@ public class q implements com.baidu.b.a.b.c {
         } else if (!"video".equalsIgnoreCase(str) || (distributeVideoView = (DistributeVideoView) view.findViewById(e.g.advert_video)) == null) {
             return false;
         } else {
-            int dimension = (int) view.getContext().getResources().getDimension(e.C0141e.ds278);
+            int dimension = (int) view.getContext().getResources().getDimension(e.C0175e.ds278);
             VideoInfo.Builder builder = new VideoInfo.Builder();
             builder.video_url = aVar.src;
-            builder.thumbnail_url = aVar.Wd;
+            builder.thumbnail_url = aVar.aaH;
             builder.video_duration = Integer.valueOf(aVar.videoDuration);
             builder.video_width = Integer.valueOf(aVar.width);
             builder.video_height = Integer.valueOf(aVar.height);
-            distributeVideoView.setData(builder.build(true), (int) (com.baidu.adp.lib.util.l.aO(view.getContext()) - (view.getContext().getResources().getDimension(e.C0141e.ds44) * 2.0f)), dimension, (int) view.getContext().getResources().getDimension(e.C0141e.ds640));
+            distributeVideoView.setData(builder.build(true), (int) (com.baidu.adp.lib.util.l.aO(view.getContext()) - (view.getContext().getResources().getDimension(e.C0175e.ds44) * 2.0f)), dimension, (int) view.getContext().getResources().getDimension(e.C0175e.ds640));
             return true;
         }
     }
 
-    @Override // com.baidu.b.a.b.c
+    @Override // com.baidu.c.a.b.c
     public boolean a(String str, final View view, final String str2, String str3) {
         if (view == null || TextUtils.isEmpty(str2)) {
             return false;
         }
-        if (str2.startsWith(SkiaImageDecoder.FILE_PREFIX) && str2.length() > 7) {
-            int identifier = com.baidu.adp.base.g.fK().getResources().getIdentifier(str2.substring(7), "drawable", BdBaseApplication.getInst().getPackageName());
-            if (!TextUtils.isEmpty(str3) && str3.startsWith(SkiaImageDecoder.FILE_PREFIX) && str3.length() > 7) {
-                int identifier2 = com.baidu.adp.base.g.fK().getResources().getIdentifier(str3.substring(7), "drawable", BdBaseApplication.getInst().getPackageName());
+        if (str2.startsWith("file://") && str2.length() > 7) {
+            int identifier = com.baidu.adp.base.g.gd().getResources().getIdentifier(str2.substring(7), "drawable", BdBaseApplication.getInst().getPackageName());
+            if (!TextUtils.isEmpty(str3) && str3.startsWith("file://") && str3.length() > 7) {
+                int identifier2 = com.baidu.adp.base.g.gd().getResources().getIdentifier(str3.substring(7), "drawable", BdBaseApplication.getInst().getPackageName());
                 if (identifier2 <= 0 || identifier <= 0) {
                     return true;
                 }
@@ -93,13 +91,13 @@ public class q implements com.baidu.b.a.b.c {
                 return true;
             }
         }
-        com.baidu.adp.lib.f.c.jn().a(str2, 17, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.recapp.q.1
+        com.baidu.adp.lib.f.c.jC().a(str2, 17, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.recapp.q.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str4, int i) {
                 if (str2.equalsIgnoreCase(str4)) {
-                    view.setBackgroundDrawable(aVar.oj());
+                    view.setBackgroundDrawable(aVar.ou());
                 }
             }
         }, null);

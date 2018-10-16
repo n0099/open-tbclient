@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tieba.keepLive.startActivity.ScreenManager;
 import com.baidu.tieba.keepLive.util.RomTypeUtil;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class KeepLiveStatic {
     public static final CustomMessageListener mKeepLiveServiceListener = new CustomMessageListener(2921300) { // from class: com.baidu.tieba.keepLive.KeepLiveStatic.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -18,7 +18,7 @@ public class KeepLiveStatic {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Boolean) {
                     if (((Boolean) data).booleanValue()) {
-                        a.fE().fF();
+                        a.fW().fX();
                     } else {
                         KeepLiveUtil.startForKeeplive(TbadkCoreApplication.getInst().getApplicationContext());
                     }

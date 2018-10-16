@@ -14,6 +14,8 @@ import com.baidu.ar.audio.AudioParams;
 import com.baidu.ar.util.IoUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
+import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
 import com.baidu.tbadk.TbConfig;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -141,10 +143,10 @@ public class f extends d {
 
     private String e() {
         try {
-            WindowManager windowManager = (WindowManager) this.a.getSystemService("window");
+            WindowManager windowManager = (WindowManager) this.a.getSystemService(WindowConfig.JSON_WINDOW_KEY);
             if (windowManager != null) {
                 Display defaultDisplay = windowManager.getDefaultDisplay();
-                return defaultDisplay.getHeight() + "_" + defaultDisplay.getWidth();
+                return defaultDisplay.getHeight() + BaseRequestAction.SPLITE + defaultDisplay.getWidth();
             }
             return null;
         } catch (Exception e) {

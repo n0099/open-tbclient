@@ -18,7 +18,7 @@ public class a {
             httpURLConnection.setReadTimeout(10000);
             httpURLConnection.setDoOutput(true);
             httpURLConnection.getOutputStream().write(a);
-            return g(httpURLConnection);
+            return i(httpURLConnection);
         } catch (IOException e) {
             e.printStackTrace();
             throw new AuthException(283504, AuthException.b);
@@ -30,7 +30,7 @@ public class a {
         return str.getBytes("UTF-8");
     }
 
-    public static String g(HttpURLConnection httpURLConnection) {
+    public static String i(HttpURLConnection httpURLConnection) {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
         StringBuffer stringBuffer = new StringBuffer();
         char[] cArr = new char[512];

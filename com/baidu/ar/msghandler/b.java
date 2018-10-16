@@ -13,6 +13,8 @@ import com.baidu.ar.bean.ToastBean;
 import com.baidu.baiduarsdk.ArBridge;
 import com.baidu.baiduarsdk.util.MsgParamsUtil;
 import com.baidu.fsg.base.armor.RimArmor;
+import com.baidu.searchbox.ng.ai.apps.statistic.AiAppsUBCStatistic;
+import com.baidu.searchbox.ng.ai.apps.textarea.info.TextAreaCallbackInfo;
 import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
@@ -91,7 +93,7 @@ public class b implements d {
             public void onClick(DialogInterface dialogInterface, int i) {
                 HashMap<String, Object> hashMap = new HashMap<>();
                 hashMap.put("id", Integer.valueOf((int) ComponentMessageType.MSG_TYPE_DIALOG_RESULT));
-                hashMap.put("result", "confirm");
+                hashMap.put("result", TextAreaCallbackInfo.EVENT_NAME_CONFIRM);
                 hashMap.put(RimArmor.KEY, dialogBean.e());
                 ArBridge.getInstance().sendMessage(ArBridge.MessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
             }
@@ -101,7 +103,7 @@ public class b implements d {
             public void onClick(DialogInterface dialogInterface, int i) {
                 HashMap<String, Object> hashMap = new HashMap<>();
                 hashMap.put("id", Integer.valueOf((int) ComponentMessageType.MSG_TYPE_DIALOG_RESULT));
-                hashMap.put("result", "cancel");
+                hashMap.put("result", AiAppsUBCStatistic.VALUE_CANCEL);
                 hashMap.put(RimArmor.KEY, dialogBean.e());
                 ArBridge.getInstance().sendMessage(ArBridge.MessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
             }

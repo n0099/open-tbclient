@@ -13,6 +13,9 @@ import android.view.Display;
 import android.view.WindowManager;
 import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
+import com.baidu.webkit.internal.ETAG;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -162,7 +165,7 @@ public final class g {
 
     private static String a(byte[] bArr) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
             messageDigest.reset();
             messageDigest.update(bArr);
             byte[] digest = messageDigest.digest();
@@ -223,7 +226,7 @@ public final class g {
                 sb.append(SystemInfoUtil.LINE_END);
             }
             bufferedReader.close();
-            Object[] split = new String(a.a("30212102dicudiab", "30212102dicudiab", Base64.decode(sb.toString().getBytes(), 0))).split("=");
+            Object[] split = new String(a.a("30212102dicudiab", "30212102dicudiab", Base64.decode(sb.toString().getBytes(), 0))).split(ETAG.EQUAL);
             if (split == null || split.length != 2 || !str.equals(split[0])) {
                 return "";
             }
@@ -237,7 +240,7 @@ public final class g {
     public static String f(Context context) {
         String str;
         try {
-            Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
+            Display defaultDisplay = ((WindowManager) context.getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay();
             DisplayMetrics displayMetrics = new DisplayMetrics();
             defaultDisplay.getMetrics(displayMetrics);
             if (displayMetrics.widthPixels < displayMetrics.heightPixels) {

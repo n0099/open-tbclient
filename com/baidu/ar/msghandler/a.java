@@ -2,7 +2,6 @@ package com.baidu.ar.msghandler;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.baidu.ar.DuMixCallback;
 import com.baidu.ar.base.MsgField;
@@ -17,7 +16,6 @@ import com.baidu.ar.util.ARLog;
 import com.baidu.baiduarsdk.ArBridge;
 import com.baidu.baiduarsdk.util.MsgParamsUtil;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -96,7 +94,7 @@ public class a extends com.baidu.baiduarsdk.b.a {
     private void e(HashMap<String, Object> hashMap) {
         try {
             if (MsgParamsUtil.obj2Int(hashMap.get("id"), -1) == 5001 && this.h != null) {
-                int intValue = ((Integer) hashMap.get(TbConfig.ST_TYPE_OPEN)).intValue();
+                int intValue = ((Integer) hashMap.get("open")).intValue();
                 if (intValue == 0) {
                     StatisticHelper.getInstance().statisticInfo(StatisticConstants.PADDLE_GESTURE_CLOSE);
                     this.h.onStateChange(MsgField.MSG_PADDLE_ENABLE, false);
@@ -242,7 +240,7 @@ public class a extends com.baidu.baiduarsdk.b.a {
                 }
                 return;
             case ArBridge.MessageType.MSG_TYPE_MODEL_LOAD_PROGRESS /* 6001 */:
-                ARLog.e("bdar: MSG_TYPE_MODEL_LOAD_PROGRESS:" + ((Integer) hashMap.get(NotificationCompat.CATEGORY_PROGRESS)).intValue());
+                ARLog.e("bdar: MSG_TYPE_MODEL_LOAD_PROGRESS:" + ((Integer) hashMap.get("progress")).intValue());
                 return;
             default:
                 return;

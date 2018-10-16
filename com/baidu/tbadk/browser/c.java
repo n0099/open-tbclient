@@ -18,32 +18,32 @@ public class c extends n {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String tt() {
+    public String vC() {
         return "TBHY_COMMON_Utils";
     }
 
-    @o(value = "showToast", yT = false)
+    @o(Bb = false, value = "showToast")
     private void showToast(JSONObject jSONObject) {
         if (jSONObject != null) {
-            BdToast.a(getContext(), jSONObject.optString("message")).yt();
+            BdToast.a(getContext(), jSONObject.optString("message")).AC();
         }
     }
 
-    @o(value = "showNetStatus", yT = false)
+    @o(Bb = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         JSONObject jSONObject = new JSONObject();
         int i = 0;
         String str = "NotReachable";
-        if (j.kL()) {
+        if (j.kY()) {
             i = 1;
             str = "WIFI";
-        } else if (j.kP()) {
+        } else if (j.lc()) {
             i = 3;
             str = "2G";
-        } else if (j.kO()) {
+        } else if (j.lb()) {
             i = 4;
             str = "3G";
-        } else if (j.kN()) {
+        } else if (j.la()) {
             i = 5;
             str = "4G";
         }
@@ -55,7 +55,7 @@ public class c extends n {
         return jSONObject;
     }
 
-    @o(value = "showDeviceInfo", yT = false)
+    @o(Bb = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         JSONObject jSONObject = new JSONObject();
         String cuid = TbadkCoreApplication.getInst().getCuid();

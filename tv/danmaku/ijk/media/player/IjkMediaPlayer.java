@@ -18,7 +18,6 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import com.baidu.ar.parser.ARResourceKey;
 import com.baidu.ar.util.SystemInfoUtil;
-import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.play.b.e;
 import java.io.FileDescriptor;
@@ -33,7 +32,7 @@ import java.util.Map;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 import tv.danmaku.ijk.media.player.misc.IAndroidIO;
 import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class IjkMediaPlayer extends AbstractMediaPlayer {
     public static final int FFP_PROPV_DECODER_AVCODEC = 1;
     public static final int FFP_PROPV_DECODER_MEDIACODEC = 2;
@@ -133,17 +132,17 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     private static volatile boolean mIsLibLoaded = false;
     private static volatile boolean mIsNativeInitialized = false;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnControlMessageListener {
         String onControlResolveSegmentUrl(int i);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnMediaCodecSelectListener {
         String onMediaCodecSelect(IMediaPlayer iMediaPlayer, String str, int i, int i2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnNativeInvokeListener {
         public static final String ARG_RETRY_COUNTER = "retry_counter";
         public static final String ARG_SEGMENT_INDEX = "segment_index";
@@ -739,7 +738,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class EventHandler extends Handler {
         private boolean ignoreSubError;
         private final WeakReference<IjkMediaPlayer> mWeakPlayer;
@@ -791,7 +790,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                     return;
                 case 100:
                     ijkMediaPlayer.notifySpeed(ijkMediaPlayer.getTcpSpeed());
-                    if (!ijkMediaPlayer.notifyOnError(SapiErrorCode.NETWORK_FAILED, message.arg1, message.arg2)) {
+                    if (!ijkMediaPlayer.notifyOnError(-200, message.arg1, message.arg2)) {
                         ijkMediaPlayer.notifyOnCompletion();
                     }
                     ijkMediaPlayer.stayAwake(false);
@@ -806,7 +805,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                         return;
                     }
                 case 400:
-                    e.bA(message.arg1, message.arg2);
+                    e.bD(message.arg1, message.arg2);
                     ijkMediaPlayer.notifyOnSubError(message.arg1, message.arg2, "");
                     return;
                 case 500:
@@ -909,7 +908,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         return onMediaCodecSelectListener.onMediaCodecSelect(ijkMediaPlayer, str, i, i2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class DefaultMediaCodecSelector implements OnMediaCodecSelectListener {
         public static final DefaultMediaCodecSelector sInstance = new DefaultMediaCodecSelector();
 

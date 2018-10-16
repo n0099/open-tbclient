@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.chat.a.c;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class StrangerListAdapter extends c {
     public StrangerListAdapter(StrangerListActivity strangerListActivity) {
         super(strangerListActivity.getPageContext().getContext());
@@ -14,7 +14,7 @@ public class StrangerListAdapter extends c {
     @Override // com.baidu.tieba.im.chat.a.c
     protected BasicNameValuePair a(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
         int i2 = 0;
-        if (!com.baidu.tbadk.coreExtra.messageCenter.c.Ff().Fn()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.c.Hg().Ho()) {
             str = "";
             i = 0;
         }
@@ -28,10 +28,10 @@ public class StrangerListAdapter extends c {
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.etk.setDrawBorder(true);
-        aVar.etk.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+        aVar.eAZ.setDrawBorder(true);
+        aVar.eAZ.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
         if (!TextUtils.isEmpty(imMessageCenterShowItemData.getFriendPortrait())) {
-            aVar.etk.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 12, false);
+            aVar.eAZ.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 12, false);
         }
     }
 

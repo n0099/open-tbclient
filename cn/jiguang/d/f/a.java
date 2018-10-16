@@ -25,7 +25,7 @@ import cn.jiguang.d.h.h;
 import cn.jpush.android.service.DownloadProvider;
 import com.baidu.ar.audio.AudioParams;
 import com.baidu.mobstat.Config;
-import com.tencent.tauth.AuthActivity;
+import com.baidu.searchbox.ng.ai.apps.media.audio.AiAppsAudioPlayer;
 import java.io.File;
 import java.io.LineNumberReader;
 import java.io.StringReader;
@@ -42,11 +42,11 @@ public final class a {
     private static final Object e = new Object();
     private static Boolean f;
     private static Boolean g;
-    private static a lH;
+    private static a mm;
     private int b;
     private String d;
     private volatile boolean h;
-    private long[] lG;
+    private long[] ml;
 
     private a() {
         e.F("share_process_executor");
@@ -167,7 +167,7 @@ public final class a {
             try {
                 if ("asm".equals(intent.getAction())) {
                     Bundle extras = intent.getExtras();
-                    extras.putString(AuthActivity.ACTION_KEY, "asm");
+                    extras.putString("action", "asm");
                     e.b(context, cn.jiguang.d.a.a, extras);
                 }
             } catch (Throwable th) {
@@ -203,7 +203,7 @@ public final class a {
         try {
             PackageManager packageManager = context.getPackageManager();
             Intent intent = new Intent();
-            intent.setAction(e.bl());
+            intent.setAction(e.bC());
             queryIntentServices = packageManager.queryIntentServices(intent, 0);
         } catch (Throwable th) {
         }
@@ -265,25 +265,14 @@ public final class a {
         }
     }
 
-    public static a bO() {
-        if (lH == null) {
-            synchronized (e) {
-                if (lH == null) {
-                    lH = new a();
-                }
-            }
-        }
-        return lH;
-    }
-
     private static String c(Context context) {
         if (context == null) {
-            return "-1";
+            return AiAppsAudioPlayer.ERROR_UNKNOWN;
         }
         if (!e(context) || d.ae(context) == 1) {
             return "-4";
         }
-        if (i.bG().f()) {
+        if (i.bX().f()) {
             int v = cn.jiguang.d.a.a.v();
             if (v < 0) {
                 return "-3";
@@ -311,6 +300,17 @@ public final class a {
             }
         }
         return "-7";
+    }
+
+    public static a cf() {
+        if (mm == null) {
+            synchronized (e) {
+                if (mm == null) {
+                    mm = new a();
+                }
+            }
+        }
+        return mm;
     }
 
     private static ActivityInfo d(String str, Context context) {
@@ -358,7 +358,7 @@ public final class a {
             return true;
         }
         try {
-            if (!cn.jiguang.g.a.a(context, e.bl(), true)) {
+            if (!cn.jiguang.g.a.a(context, e.bC(), true)) {
                 Boolean bool = false;
                 f = bool;
                 return bool.booleanValue();
@@ -416,7 +416,7 @@ public final class a {
                     return "-4";
                 }
                 Bundle bundle = new Bundle();
-                bundle.putString(AuthActivity.ACTION_KEY, "asm");
+                bundle.putString("action", "asm");
                 bundle.putString("data", jSONObject.toString());
                 e.b(context, cn.jiguang.d.a.a, bundle);
                 return "0";
@@ -465,7 +465,7 @@ public final class a {
     public final synchronized void a(Context context) {
         if (!e(context) || d.ae(context) == 1) {
             a(context, context.getPackageName());
-        } else if (i.bG().f() && !this.h) {
+        } else if (i.bX().f() && !this.h) {
             this.h = true;
             this.b = 0;
             e.a("share_process_executor", new b(this, context), new int[0]);
@@ -477,9 +477,9 @@ public final class a {
             return;
         }
         this.b++;
-        if (this.b <= 2 && this.lG != null && this.lG.length > 0 && !TextUtils.isEmpty(this.d)) {
-            byte[] a2 = cn.jiguang.d.e.a.a.b.a(e.bh(), e.getSid(), d.c(context), this.d, this.lG);
-            cn.jiguang.d.b.d.bx();
+        if (this.b <= 2 && this.ml != null && this.ml.length > 0 && !TextUtils.isEmpty(this.d)) {
+            byte[] a2 = cn.jiguang.d.e.a.a.b.a(e.by(), e.getSid(), d.c(context), this.d, this.ml);
+            cn.jiguang.d.b.d.bO();
             cn.jiguang.d.b.d.a(a2, SdkType.JCORE.name(), 0);
         }
     }
@@ -489,8 +489,8 @@ public final class a {
             if (TextUtils.isEmpty(this.d)) {
                 return;
             }
-            byte[] b = cn.jiguang.d.e.a.a.b.b(e.bh(), e.getSid(), d.c(context), this.d, new long[]{j});
-            cn.jiguang.d.b.d.bx();
+            byte[] b = cn.jiguang.d.e.a.a.b.b(e.by(), e.getSid(), d.c(context), this.d, new long[]{j});
+            cn.jiguang.d.b.d.bO();
             cn.jiguang.d.b.d.a(b, SdkType.JCORE.name(), 0);
         } catch (Throwable th) {
         }
@@ -504,13 +504,13 @@ public final class a {
         }
         try {
             cn.jiguang.d.e.a.d i = cn.jiguang.d.e.a.a.a.i(bArr);
-            if (i.bM().a() != 3) {
+            if (i.cd().a() != 3) {
                 return;
             }
-            ByteBuffer bN = i.bN();
-            bN.get();
-            long j2 = bN.getLong();
-            String i2 = cn.jiguang.api.a.c.i(bN);
+            ByteBuffer ce = i.ce();
+            ce.get();
+            long j2 = ce.getLong();
+            String i2 = cn.jiguang.api.a.c.i(ce);
             if (TextUtils.isEmpty(i2)) {
                 return;
             }
@@ -526,18 +526,18 @@ public final class a {
             if (!e(context) || d.ae(context) == 1) {
                 a(context, e.getUid());
             } else if (!cn.jiguang.g.a.i(context, readLine)) {
-                a(context, i.bM().c());
+                a(context, i.cd().c());
                 a(context, readLine);
             } else {
                 String encodeToString = Base64.encodeToString(bArr, 10);
-                Long bL = i.bM().bL();
+                Long cc = i.cd().cc();
                 HashMap hashMap = new HashMap();
                 hashMap.put("ktm", encodeToString);
                 hashMap.put("ktp", cn.jiguang.d.h.a.a.b());
                 hashMap.put("ktma", readLine2);
                 hashMap.put("mtmmi", new StringBuilder().append(j2).toString());
                 hashMap.put("ktmfp", context.getPackageName());
-                hashMap.put("ktmr", new StringBuilder().append(bL).toString());
+                hashMap.put("ktmr", new StringBuilder().append(cc).toString());
                 String a2 = a(context, readLine, "asm", hashMap);
                 if (TextUtils.isEmpty(a2)) {
                     if (d(context)) {
@@ -551,13 +551,13 @@ public final class a {
                             intent.putExtra("data", a3.toString());
                             context.startActivity(intent);
                         } else {
-                            a(context, i.bM().c());
+                            a(context, i.cd().c());
                         }
                     } else {
-                        a(context, i.bM().c());
+                        a(context, i.cd().c());
                     }
                 } else if (a2.equals("-4")) {
-                    a(context, i.bM().c());
+                    a(context, i.cd().c());
                 } else {
                     a2.equals("0");
                 }
@@ -568,7 +568,7 @@ public final class a {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x008c: INVOKE  (r8v0 long A[REMOVE]) = 
-      (wrap: cn.jiguang.d.e.a.a.c : 0x0088: INVOKE  (r3v5 cn.jiguang.d.e.a.a.c A[REMOVE]) = (r0v6 cn.jiguang.d.e.a.d) type: VIRTUAL call: cn.jiguang.d.e.a.d.bM():cn.jiguang.d.e.a.a.c)
+      (wrap: cn.jiguang.d.e.a.a.c : 0x0088: INVOKE  (r3v5 cn.jiguang.d.e.a.a.c A[REMOVE]) = (r0v6 cn.jiguang.d.e.a.d) type: VIRTUAL call: cn.jiguang.d.e.a.d.cd():cn.jiguang.d.e.a.a.c)
      type: VIRTUAL call: cn.jiguang.d.e.a.a.c.c():long)] */
     public final void a(Context context, Bundle bundle) {
         if (bundle != null) {
@@ -593,17 +593,17 @@ public final class a {
                 hashMap.put("ktma", optString5);
                 hashMap.put("ktmr", optString6);
                 byte[] decode = Base64.decode(optString, 10);
-                i.bG();
+                i.bX();
                 cn.jiguang.d.e.a.d d = cn.jiguang.d.e.a.a.a.d(decode, optString2);
-                hashMap.put("ktmu", new StringBuilder().append(d.bM().c()).toString());
+                hashMap.put("ktmu", new StringBuilder().append(d.cd().c()).toString());
                 if (!e(context) || d.ae(context) == 1) {
                     hashMap.put("asmrc", "3");
-                } else if (d.bM().c() != e.getUid()) {
+                } else if (d.cd().c() != e.getUid()) {
                     hashMap.put("asmrc", "1");
                 } else {
                     hashMap.put("asmrc", "0");
-                    cn.jiguang.d.d.e.bD();
-                    cn.jiguang.d.d.e.a(context, d.bM(), d.bN());
+                    cn.jiguang.d.d.e.bU();
+                    cn.jiguang.d.d.e.a(context, d.cd(), d.ce());
                 }
                 a(context, optString4, "asmr", hashMap);
             } catch (Throwable th) {

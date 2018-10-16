@@ -4,7 +4,7 @@ import android.support.v7.widget.ActivityChooserView;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 final class i {
-    private static Integer[] lk = new Integer[64];
+    private static Integer[] lQ = new Integer[64];
     private String d;
     private String f;
     private boolean h;
@@ -14,8 +14,8 @@ final class i {
     private int g = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
 
     static {
-        for (int i = 0; i < lk.length; i++) {
-            lk[i] = Integer.valueOf(i);
+        for (int i = 0; i < lQ.length; i++) {
+            lQ[i] = Integer.valueOf(i);
         }
     }
 
@@ -30,7 +30,7 @@ final class i {
     }
 
     private static Integer n(int i) {
-        return (i < 0 || i >= lk.length) ? Integer.valueOf(i) : lk[i];
+        return (i < 0 || i >= lQ.length) ? Integer.valueOf(i) : lQ[i];
     }
 
     public final void a(int i) {

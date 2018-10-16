@@ -8,14 +8,14 @@ import com.airbnb.lottie.model.content.ShapeStroke;
 /* loaded from: classes2.dex */
 public class p extends a {
     private final String name;
-    private final com.airbnb.lottie.a.b.a<Integer, Integer> oa;
+    private final com.airbnb.lottie.a.b.a<Integer, Integer> oP;
 
     public p(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, ShapeStroke shapeStroke) {
-        super(fVar, aVar, shapeStroke.dS().toPaintCap(), shapeStroke.dT().toPaintJoin(), shapeStroke.dE(), shapeStroke.dR(), shapeStroke.dU(), shapeStroke.dV());
+        super(fVar, aVar, shapeStroke.ek().toPaintCap(), shapeStroke.el().toPaintJoin(), shapeStroke.dW(), shapeStroke.ej(), shapeStroke.em(), shapeStroke.en());
         this.name = shapeStroke.getName();
-        this.oa = shapeStroke.el().dp();
-        this.oa.b(this);
-        aVar.a(this.oa);
+        this.oP = shapeStroke.eD().dH();
+        this.oP.b(this);
+        aVar.a(this.oP);
     }
 
     @Override // com.airbnb.lottie.a.a.d
@@ -25,7 +25,7 @@ public class p extends a {
 
     @Override // com.airbnb.lottie.a.a.a, com.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
-        this.paint.setColor(this.oa.getValue().intValue());
+        this.paint.setColor(this.oP.getValue().intValue());
         super.a(canvas, matrix, i);
     }
 

@@ -6,8 +6,8 @@ public class a {
 
     /* renamed from: com.baidu.tieba.channel.config.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class C0139a {
-        public static final BdUniqueId cKr = BdUniqueId.gen();
-        public static final BdUniqueId cKs = BdUniqueId.gen();
+    public static final class C0173a {
+        public static final BdUniqueId cSK = BdUniqueId.gen();
+        public static final BdUniqueId cSL = BdUniqueId.gen();
     }
 }

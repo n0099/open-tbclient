@@ -28,7 +28,7 @@ public class a {
     private ImageView f;
     private CategoryView g;
     private String h;
-    private InterfaceC0050a j;
+    private InterfaceC0053a j;
     private boolean i = false;
     private View.OnClickListener k = new View.OnClickListener() { // from class: com.baidu.ar.ui.view.a.1
         @Override // android.view.View.OnClickListener
@@ -52,7 +52,7 @@ public class a {
 
     /* renamed from: com.baidu.ar.ui.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0050a {
+    public interface InterfaceC0053a {
         void f();
 
         void g();
@@ -205,8 +205,8 @@ public class a {
         RotateViewUtils.requestOrientation(this.c, orientation);
     }
 
-    public void a(InterfaceC0050a interfaceC0050a) {
-        this.j = interfaceC0050a;
+    public void a(InterfaceC0053a interfaceC0053a) {
+        this.j = interfaceC0053a;
     }
 
     public void a(boolean z) {
@@ -218,8 +218,8 @@ public class a {
         }
         this.g = (CategoryView) this.b.findViewById(Res.id("bdar_capture_category"));
         ViewUtils.setViewVisibility(this.g, 0);
-        this.g.setCategoryListener(new a.InterfaceC0051a() { // from class: com.baidu.ar.ui.view.a.3
-            @Override // com.baidu.ar.ui.view.adapter.a.InterfaceC0051a
+        this.g.setCategoryListener(new a.InterfaceC0054a() { // from class: com.baidu.ar.ui.view.a.3
+            @Override // com.baidu.ar.ui.view.adapter.a.InterfaceC0054a
             public void a(com.baidu.ar.ui.view.adapter.a aVar, String str) {
                 a.this.h = str;
                 if (str.equals("拍摄")) {

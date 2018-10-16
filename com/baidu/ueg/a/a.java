@@ -1,5 +1,5 @@
 package com.baidu.ueg.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static boolean i(CharSequence charSequence) {
         int length;

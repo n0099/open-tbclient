@@ -27,7 +27,7 @@ public class b implements Observer {
     private boolean n = true;
     private boolean o = false;
     private int q = 1;
-    private List<InterfaceC0036b> r = new ArrayList();
+    private List<InterfaceC0039b> r = new ArrayList();
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -36,7 +36,7 @@ public class b implements Observer {
 
     /* renamed from: com.baidu.ar.imu.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0036b {
+    public interface InterfaceC0039b {
         void a(float[] fArr);
     }
 
@@ -106,9 +106,9 @@ public class b implements Observer {
         }
     }
 
-    public void a(InterfaceC0036b interfaceC0036b) {
+    public void a(InterfaceC0039b interfaceC0039b) {
         try {
-            this.r.add(interfaceC0036b);
+            this.r.add(interfaceC0039b);
         } catch (Error e) {
             e.printStackTrace();
         }
@@ -195,8 +195,8 @@ public class b implements Observer {
             if (this.p != null) {
                 this.p.a(this.h);
             }
-            for (InterfaceC0036b interfaceC0036b : this.r) {
-                interfaceC0036b.a(fArr);
+            for (InterfaceC0039b interfaceC0039b : this.r) {
+                interfaceC0039b.a(fArr);
             }
         } catch (Error e) {
             e.printStackTrace();

@@ -12,6 +12,8 @@ import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.ar.util.IoUtils;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
+import com.baidu.searchbox.ng.ai.apps.scheme.actions.OpenAppAction;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.b.b;
 import com.baidu.sofire.b.g;
@@ -353,7 +355,7 @@ public class U extends Thread {
                             this.preference.a(optJSONArray.toString(), optLong);
                             com.baidu.sofire.b.e.h(this.context);
                         }
-                        JSONObject optJSONObject = jSONObject8.optJSONObject("plugin");
+                        JSONObject optJSONObject = jSONObject8.optJSONObject(OpenAppAction.DOWNLOAD_FROM_PLUGIN);
                         if (optJSONObject == null) {
                             if (this.mEndReason == 0) {
                                 this.mEndReason = 10;
@@ -912,7 +914,7 @@ public class U extends Thread {
             String string = eVar.a.getString("pdcgts", "");
             com.baidu.sofire.b.e.g(context);
             if (!TextUtils.isEmpty(string)) {
-                String[] split = string.split("_");
+                String[] split = string.split(BaseRequestAction.SPLITE);
                 for (String str : split) {
                     if (!TextUtils.isEmpty(str)) {
                         jSONArray.put(Long.valueOf(str));

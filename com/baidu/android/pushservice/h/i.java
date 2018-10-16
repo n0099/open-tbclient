@@ -2,6 +2,7 @@ package com.baidu.android.pushservice.h;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.searchbox.ng.ai.apps.aps.AiAppsApsUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -30,7 +31,7 @@ public class i extends c {
             jSONObject.put("app_package_name", b());
         }
         if (!TextUtils.isEmpty(c())) {
-            jSONObject.put("app_name", c());
+            jSONObject.put(AiAppsApsUtils.APP_NAME, c());
         }
         if (!TextUtils.isEmpty(d())) {
             jSONObject.put("app_cfrom", d());

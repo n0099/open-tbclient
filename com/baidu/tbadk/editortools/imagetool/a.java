@@ -3,11 +3,11 @@ package com.baidu.tbadk.editortools.imagetool;
 import com.baidu.tbadk.img.WriteImagesInfo;
 /* loaded from: classes.dex */
 public class a {
-    public WriteImagesInfo aQt;
-    public boolean aQu;
+    public WriteImagesInfo aUU;
+    public boolean aUV;
 
     public a(WriteImagesInfo writeImagesInfo, boolean z) {
-        this.aQt = writeImagesInfo;
-        this.aQu = z;
+        this.aUU = writeImagesInfo;
+        this.aUV = z;
     }
 }

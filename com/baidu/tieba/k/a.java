@@ -11,52 +11,52 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.channels.FileChannel;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private static final int foY = L(new byte[]{102, 114, 101, 101});
-    private static final int foZ = L(new byte[]{106, 117, 110, 107});
-    private static final int fpa = L(new byte[]{109, 100, 97, 116});
-    private static final int fpb = L(new byte[]{109, 111, 111, 118});
-    private static final int fpc = L(new byte[]{112, 110, 111, 116});
-    private static final int fpd = L(new byte[]{115, 107, 105, 112});
-    private static final int fpe = L(new byte[]{119, 105, 100, 101});
-    private static final int fpf = L(new byte[]{80, 73, 67, 84});
-    private static final int fpg = L(new byte[]{102, 116, 121, 112});
-    private static final int fph = L(new byte[]{117, 117, 105, 100});
-    private static final int fpi = L(new byte[]{99, 109, 111, 118});
-    private static final int fpj = L(new byte[]{115, 116, 99, 111});
-    private static final int fpk = L(new byte[]{99, 111, 54, 52});
+    private static final int fwE = M(new byte[]{102, 114, 101, 101});
+    private static final int fwF = M(new byte[]{106, 117, 110, 107});
+    private static final int fwG = M(new byte[]{109, 100, 97, 116});
+    private static final int fwH = M(new byte[]{109, 111, 111, 118});
+    private static final int fwI = M(new byte[]{112, 110, 111, 116});
+    private static final int fwJ = M(new byte[]{115, 107, 105, 112});
+    private static final int fwK = M(new byte[]{119, 105, 100, 101});
+    private static final int fwL = M(new byte[]{80, 73, 67, 84});
+    private static final int fwM = M(new byte[]{102, 116, 121, 112});
+    private static final int fwN = M(new byte[]{117, 117, 105, 100});
+    private static final int fwO = M(new byte[]{99, 109, 111, 118});
+    private static final int fwP = M(new byte[]{115, 116, 99, 111});
+    private static final int fwQ = M(new byte[]{99, 111, 54, 52});
 
     /* renamed from: com.baidu.tieba.k.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0190a {
-        void jl(boolean z);
+    /* loaded from: classes4.dex */
+    public interface InterfaceC0224a {
+        void jD(boolean z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface b {
-        void qz(int i);
+        void qX(int i);
     }
 
-    static long qy(int i) {
+    static long qW(int i) {
         return i & 4294967295L;
     }
 
-    static int cC(long j) throws RuntimeException {
+    static int cJ(long j) throws RuntimeException {
         if (j > 2147483647L || j < 0) {
             throw new RuntimeException("uint32 value is too large");
         }
         return (int) j;
     }
 
-    static long cD(long j) throws RuntimeException {
+    static long cK(long j) throws RuntimeException {
         if (j < 0) {
             throw new RuntimeException("uint64 value is too large");
         }
         return j;
     }
 
-    private static int L(byte[] bArr) {
+    private static int M(byte[] bArr) {
         return ByteBuffer.wrap(bArr).order(ByteOrder.BIG_ENDIAN).getInt();
     }
 
@@ -77,18 +77,18 @@ public class a {
     public static void a(String str, final b bVar) {
         if (bVar != null) {
             if (StringUtils.isNull(str)) {
-                bVar.qz(2);
+                bVar.qX(2);
             }
             new BdAsyncTask<String, Void, Integer>() { // from class: com.baidu.tieba.k.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-                /* renamed from: x */
+                /* renamed from: y */
                 public Integer doInBackground(String... strArr) {
                     if (strArr == null || strArr.length != 1) {
                         return 2;
                     }
-                    return Integer.valueOf(a.rh(strArr[0]));
+                    return Integer.valueOf(a.rH(strArr[0]));
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -97,14 +97,14 @@ public class a {
                 public void onPostExecute(Integer num) {
                     super.onPostExecute((AnonymousClass1) num);
                     if (b.this != null) {
-                        b.this.qz(num.intValue());
+                        b.this.qX(num.intValue());
                     }
                 }
             }.execute(str);
         }
     }
 
-    public static int rh(String str) {
+    public static int rH(String str) {
         FileInputStream fileInputStream;
         Throwable th;
         try {
@@ -138,16 +138,16 @@ public class a {
                 i = i2;
                 break;
             }
-            long qy = qy(order.getInt());
+            long qW = qW(order.getInt());
             i = order.getInt();
-            if (i == fpg) {
-                int cC = cC(qy);
-                ByteBuffer order2 = ByteBuffer.allocate(cC).order(ByteOrder.BIG_ENDIAN);
+            if (i == fwM) {
+                int cJ = cJ(qW);
+                ByteBuffer order2 = ByteBuffer.allocate(cJ).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
                 order2.put(order);
-                if (fileChannel.read(order2) >= cC - 8) {
+                if (fileChannel.read(order2) >= cJ - 8) {
                     order2.flip();
-                    if ((i == foY && i != foZ && i != fpa && i != fpb && i != fpc && i != fpd && i != fpe && i != fpf && i != fph && i != fpg) || qy < 8) {
+                    if ((i == fwE && i != fwF && i != fwG && i != fwH && i != fwI && i != fwJ && i != fwK && i != fwL && i != fwN && i != fwM) || qW < 8) {
                         break;
                     }
                     i2 = i;
@@ -155,28 +155,28 @@ public class a {
                     break;
                 }
             } else {
-                if (qy == 1) {
+                if (qW == 1) {
                     order.clear();
                     if (!a(fileChannel, order)) {
                         break;
                     }
-                    qy = cD(order.getLong());
-                    fileChannel.position((fileChannel.position() + qy) - 16);
+                    qW = cK(order.getLong());
+                    fileChannel.position((fileChannel.position() + qW) - 16);
                 } else {
-                    fileChannel.position((fileChannel.position() + qy) - 8);
+                    fileChannel.position((fileChannel.position() + qW) - 8);
                 }
-                if (i == foY) {
+                if (i == fwE) {
                 }
                 i2 = i;
             }
         }
-        return i != fpb ? 0 : 1;
+        return i != fwH ? 0 : 1;
     }
 
-    public static void a(String str, String str2, final InterfaceC0190a interfaceC0190a) {
-        if (interfaceC0190a != null) {
+    public static void a(String str, String str2, final InterfaceC0224a interfaceC0224a) {
+        if (interfaceC0224a != null) {
             if (StringUtils.isNull(str) || StringUtils.isNull(str2) || !new File(str).exists()) {
-                interfaceC0190a.jl(false);
+                interfaceC0224a.jD(false);
             } else {
                 new BdAsyncTask<String, Void, Boolean>() { // from class: com.baidu.tieba.k.a.2
                     /* JADX DEBUG: Method merged with bridge method */
@@ -186,7 +186,7 @@ public class a {
                         if (strArr == null || strArr.length != 2) {
                             return false;
                         }
-                        return Boolean.valueOf(a.bR(strArr[0], strArr[1]));
+                        return Boolean.valueOf(a.cd(strArr[0], strArr[1]));
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -194,8 +194,8 @@ public class a {
                     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                     public void onPostExecute(Boolean bool) {
                         super.onPostExecute((AnonymousClass2) bool);
-                        if (InterfaceC0190a.this != null) {
-                            InterfaceC0190a.this.jl(bool.booleanValue());
+                        if (InterfaceC0224a.this != null) {
+                            InterfaceC0224a.this.jD(bool.booleanValue());
                         }
                     }
                 }.execute(str, str2);
@@ -204,7 +204,7 @@ public class a {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [238=4] */
-    public static boolean bR(String str, String str2) {
+    public static boolean cd(String str, String str2) {
         FileInputStream fileInputStream;
         Throwable th;
         FileOutputStream fileOutputStream;
@@ -265,14 +265,14 @@ public class a {
                 j = j4;
                 break;
             }
-            j2 = qy(order.getInt());
+            j2 = qW(order.getInt());
             i2 = order.getInt();
-            if (i2 == fpg) {
-                int cC = cC(j2);
-                byteBuffer2 = ByteBuffer.allocate(cC).order(ByteOrder.BIG_ENDIAN);
+            if (i2 == fwM) {
+                int cJ = cJ(j2);
+                byteBuffer2 = ByteBuffer.allocate(cJ).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
                 byteBuffer2.put(order);
-                if (fileChannel.read(byteBuffer2) < cC - 8) {
+                if (fileChannel.read(byteBuffer2) < cJ - 8) {
                     long j5 = j3;
                     byteBuffer = byteBuffer2;
                     i = i2;
@@ -281,7 +281,7 @@ public class a {
                 }
                 byteBuffer2.flip();
                 j3 = fileChannel.position();
-                if (i2 == foY && i2 != foZ && i2 != fpa && i2 != fpb && i2 != fpc && i2 != fpd && i2 != fpe && i2 != fpf && i2 != fph && i2 != fpg) {
+                if (i2 == fwE && i2 != fwF && i2 != fwG && i2 != fwH && i2 != fwI && i2 != fwJ && i2 != fwK && i2 != fwL && i2 != fwN && i2 != fwM) {
                     long j6 = j3;
                     byteBuffer = byteBuffer2;
                     i = i2;
@@ -304,62 +304,62 @@ public class a {
                         j = j8;
                         break;
                     }
-                    j2 = cD(order.getLong());
+                    j2 = cK(order.getLong());
                     fileChannel.position((fileChannel.position() + j2) - 16);
                 } else {
                     fileChannel.position((fileChannel.position() + j2) - 8);
                 }
-                if (i2 == foY) {
+                if (i2 == fwE) {
                 }
                 if (j2 < 8) {
                 }
             }
         }
-        if (i != fpb) {
+        if (i != fwH) {
             return false;
         }
-        int cC2 = cC(j2);
-        long size = fileChannel.size() - cC2;
-        ByteBuffer order2 = ByteBuffer.allocate(cC2).order(ByteOrder.BIG_ENDIAN);
+        int cJ2 = cJ(j2);
+        long size = fileChannel.size() - cJ2;
+        ByteBuffer order2 = ByteBuffer.allocate(cJ2).order(ByteOrder.BIG_ENDIAN);
         if (!a(fileChannel, order2, size)) {
             throw new RuntimeException("failed to read moov atom");
         }
-        if (order2.getInt(12) == fpi) {
+        if (order2.getInt(12) == fwO) {
             throw new RuntimeException("this utility does not support compressed moov atoms yet");
         }
         while (order2.remaining() >= 8) {
             int position = order2.position();
             int i3 = order2.getInt(position + 4);
-            if (i3 != fpj && i3 != fpk) {
+            if (i3 != fwP && i3 != fwQ) {
                 order2.position(order2.position() + 1);
-            } else if (qy(order2.getInt(position)) > order2.remaining()) {
+            } else if (qW(order2.getInt(position)) > order2.remaining()) {
                 throw new RuntimeException("bad atom size");
             } else {
                 order2.position(position + 12);
                 if (order2.remaining() < 4) {
                     throw new RuntimeException("malformed atom");
                 }
-                int cC3 = cC(order2.getInt());
-                if (i3 == fpj) {
-                    if (order2.remaining() < cC3 * 4) {
+                int cJ3 = cJ(order2.getInt());
+                if (i3 == fwP) {
+                    if (order2.remaining() < cJ3 * 4) {
                         throw new RuntimeException("bad atom size/element count");
                     }
-                    for (int i4 = 0; i4 < cC3; i4++) {
+                    for (int i4 = 0; i4 < cJ3; i4++) {
                         int i5 = order2.getInt(order2.position());
-                        int i6 = i5 + cC2;
+                        int i6 = i5 + cJ2;
                         if (i5 < 0 && i6 >= 0) {
                             throw new RuntimeException("This is bug in original qt-faststart.c: stco atom should be extended to co64 atom as new offset value overflows uint32, but is not implemented.");
                         }
                         order2.putInt(i6);
                     }
                     continue;
-                } else if (i3 != fpk) {
+                } else if (i3 != fwQ) {
                     continue;
-                } else if (order2.remaining() < cC3 * 8) {
+                } else if (order2.remaining() < cJ3 * 8) {
                     throw new RuntimeException("bad atom size/element count");
                 } else {
-                    for (int i7 = 0; i7 < cC3; i7++) {
-                        order2.putLong(order2.getLong(order2.position()) + cC2);
+                    for (int i7 = 0; i7 < cJ3; i7++) {
+                        order2.putLong(order2.getLong(order2.position()) + cJ2);
                     }
                 }
             }

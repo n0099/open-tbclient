@@ -23,32 +23,32 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AutoBannerView extends RelativeLayout {
-    private com.baidu.tbadk.f.a aJS;
-    private final d<com.baidu.tieba.frs.worldcup.talkball.b.a> aoA;
-    private d<com.baidu.tieba.frs.worldcup.talkball.b.a> dTI;
-    private CoverFlowView<com.baidu.tieba.frs.worldcup.talkball.b.a> dgZ;
+    private com.baidu.tbadk.f.a aOu;
+    private final d<com.baidu.tieba.frs.worldcup.talkball.b.a> ats;
+    private CoverFlowView<com.baidu.tieba.frs.worldcup.talkball.b.a> dpd;
+    private d<com.baidu.tieba.frs.worldcup.talkball.b.a> ebB;
     private List<com.baidu.tieba.frs.worldcup.talkball.b.a> mData;
     private RelativeLayout mTitleLayout;
     private TextView mTitleView;
 
     public AutoBannerView(Context context) {
         super(context);
-        this.dgZ = null;
+        this.dpd = null;
         this.mData = null;
-        this.aoA = new d<com.baidu.tieba.frs.worldcup.talkball.b.a>() { // from class: com.baidu.tieba.frs.worldcup.talkball.view.AutoBannerView.2
+        this.ats = new d<com.baidu.tieba.frs.worldcup.talkball.b.a>() { // from class: com.baidu.tieba.frs.worldcup.talkball.view.AutoBannerView.2
             @Override // com.baidu.tbadk.core.flow.a.d
             public void h(int i, String str) {
-                if (AutoBannerView.this.dTI != null && AutoBannerView.this.checkIndex(i)) {
-                    AutoBannerView.this.dTI.h(i, str);
+                if (AutoBannerView.this.ebB != null && AutoBannerView.this.checkIndex(i)) {
+                    AutoBannerView.this.ebB.h(i, str);
                 }
-                AutoBannerView.this.nN(str);
+                AutoBannerView.this.or(str);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.core.flow.a.d
             public void a(int i, com.baidu.tieba.frs.worldcup.talkball.b.a aVar) {
-                if (AutoBannerView.this.dTI != null && AutoBannerView.this.checkIndex(i)) {
-                    AutoBannerView.this.dTI.a(i, aVar);
+                if (AutoBannerView.this.ebB != null && AutoBannerView.this.checkIndex(i)) {
+                    AutoBannerView.this.ebB.a(i, aVar);
                 }
                 if (aVar != null && AutoBannerView.this.mTitleView != null) {
                     AutoBannerView.this.mTitleView.setText(aVar.getTitle());
@@ -59,29 +59,29 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     private void initUI() {
-        this.dgZ = new CoverFlowView<>(getContext());
+        this.dpd = new CoverFlowView<>(getContext());
         b bVar = new b() { // from class: com.baidu.tieba.frs.worldcup.talkball.view.AutoBannerView.1
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
-            public e yx() {
+            public e AF() {
                 e eVar = new e();
-                eVar.setHeight(l.h(AutoBannerView.this.getContext(), e.C0141e.tbds418));
+                eVar.setHeight(l.h(AutoBannerView.this.getContext(), e.C0175e.tbds418));
                 return eVar;
             }
 
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
-            public c yw() {
+            public c AE() {
                 c cVar = new c();
-                cVar.cG(e.f.icon_banner_gray_n);
-                cVar.cH(e.f.icon_banner_s);
+                cVar.cQ(e.f.icon_banner_gray_n);
+                cVar.cR(e.f.icon_banner_s);
                 cVar.setGravity(85);
-                cVar.cI(e.C0141e.tbds26);
-                cVar.cJ(e.C0141e.tbds44);
-                cVar.setSpacing(e.C0141e.tbds10);
+                cVar.cS(e.C0175e.tbds26);
+                cVar.cT(e.C0175e.tbds44);
+                cVar.setSpacing(e.C0175e.tbds10);
                 return cVar;
             }
 
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
-            public TbImageView bi(Context context) {
+            public TbImageView br(Context context) {
                 TbImageView tbImageView = new TbImageView(context);
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 tbImageView.setDefaultResource(e.f.img_default_100);
@@ -91,96 +91,96 @@ public class AutoBannerView extends RelativeLayout {
             }
 
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
-            public View yy() {
+            public View AG() {
                 RelativeLayout relativeLayout = new RelativeLayout(AutoBannerView.this.getContext());
                 AutoBannerView.this.mTitleLayout = new RelativeLayout(AutoBannerView.this.getContext());
                 relativeLayout.addView(AutoBannerView.this.mTitleLayout);
                 AutoBannerView.this.mTitleView = new TextView(AutoBannerView.this.getContext());
                 AutoBannerView.this.mTitleLayout.addView(AutoBannerView.this.mTitleView);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, l.h(AutoBannerView.this.getContext(), e.C0141e.tbds150));
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, l.h(AutoBannerView.this.getContext(), e.C0175e.tbds150));
                 layoutParams.addRule(12, -1);
                 AutoBannerView.this.mTitleLayout.setLayoutParams(layoutParams);
-                AutoBannerView.this.mTitleView.setTextSize(0, l.h(AutoBannerView.this.getContext(), e.C0141e.tbfontsize46));
+                AutoBannerView.this.mTitleView.setTextSize(0, l.h(AutoBannerView.this.getContext(), e.C0175e.tbfontsize46));
                 AutoBannerView.this.mTitleView.setSingleLine(true);
                 AutoBannerView.this.mTitleView.setEllipsize(TextUtils.TruncateAt.END);
-                RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(l.h(AutoBannerView.this.getContext(), e.C0141e.tbds741), -2);
+                RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(l.h(AutoBannerView.this.getContext(), e.C0175e.tbds741), -2);
                 layoutParams2.addRule(12, -1);
-                layoutParams2.leftMargin = l.h(AutoBannerView.this.getContext(), e.C0141e.tbds44);
-                layoutParams2.bottomMargin = l.h(AutoBannerView.this.getContext(), e.C0141e.tbds26);
+                layoutParams2.leftMargin = l.h(AutoBannerView.this.getContext(), e.C0175e.tbds44);
+                layoutParams2.bottomMargin = l.h(AutoBannerView.this.getContext(), e.C0175e.tbds26);
                 AutoBannerView.this.mTitleView.setLayoutParams(layoutParams2);
                 AutoBannerView.this.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
                 return relativeLayout;
             }
         };
-        this.dgZ.setIndicatorNoOffet(true);
-        this.dgZ.setDisableParentEvent(false);
-        this.dgZ.setCoverFlowFactory(bVar);
-        this.dgZ.setCallback(this.aoA);
-        addView(this.dgZ);
+        this.dpd.setIndicatorNoOffet(true);
+        this.dpd.setDisableParentEvent(false);
+        this.dpd.setCoverFlowFactory(bVar);
+        this.dpd.setCallback(this.ats);
+        addView(this.dpd);
     }
 
     public CoverFlowView getCoverFlowView() {
-        return this.dgZ;
+        return this.dpd;
     }
 
-    public com.baidu.tieba.frs.worldcup.talkball.b.a mN(int i) {
+    public com.baidu.tieba.frs.worldcup.talkball.b.a nl(int i) {
         return (com.baidu.tieba.frs.worldcup.talkball.b.a) v.d(this.mData, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean checkIndex(int i) {
-        return i > 0 && i <= v.y(this.mData);
+        return i > 0 && i <= v.I(this.mData);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nN(String str) {
+    public void or(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                ay.AN().c((TbPageContext) i.aK(getContext()), new String[]{str});
+                ay.CU().c((TbPageContext) i.aK(getContext()), new String[]{str});
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void Cl() {
-        if (this.dgZ != null) {
-            this.dgZ.yA();
+    public void Eq() {
+        if (this.dpd != null) {
+            this.dpd.AI();
         }
     }
 
-    public void Ck() {
-        if (this.dgZ != null) {
-            this.dgZ.yz();
+    public void Ep() {
+        if (this.dpd != null) {
+            this.dpd.AH();
         }
     }
 
-    public void bF(List<com.baidu.tieba.frs.worldcup.talkball.b.a> list) {
+    public void bV(List<com.baidu.tieba.frs.worldcup.talkball.b.a> list) {
         this.mData = list;
-        this.dgZ.setData(list);
+        this.dpd.setData(list);
     }
 
     public void setIWindowChangedListener(com.baidu.tbadk.f.a aVar) {
-        this.aJS = aVar;
+        this.aOu = aVar;
     }
 
     public void setOutOnCoverViewCallback(d<com.baidu.tieba.frs.worldcup.talkball.b.a> dVar) {
-        this.dTI = dVar;
+        this.ebB = dVar;
     }
 
     public void onChangeSkinType(int i) {
         al.b(this.mTitleView, e.d.cp_cont_i, 1, i);
         al.d(this.mTitleLayout, e.f.bg_frs_auto_banner_mask, i);
-        if (this.dgZ != null) {
-            this.dgZ.onChangeSkinType();
+        if (this.dpd != null) {
+            this.dpd.onChangeSkinType();
         }
     }
 
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        if (this.aJS != null) {
-            this.aJS.a(this, i == 0, null);
+        if (this.aOu != null) {
+            this.aOu.a(this, i == 0, null);
         }
     }
 }

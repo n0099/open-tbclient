@@ -14,12 +14,11 @@ import com.baidu.fsg.face.liveness.datamodel.UploadContrastPortraitModel;
 import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
 import com.baidu.fsg.face.liveness.utils.enums.LivenessRecogType;
 import com.baidu.sapi2.bio.BiometricsManager;
-import com.baidu.tbadk.TbConfig;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class i extends k {
     private String b;
     private String c;
@@ -86,7 +85,7 @@ public class i extends k {
         String randomString = RandomUtils.getRandomString(4096);
         arrayList.add(new RestNameValuePair("imgdigests", this.b));
         try {
-            arrayList.add(new RestNameValuePair(TbConfig.TMP_PIC_DIR_NAME, Base64Utils.encodeToString(SafeUtils.xor(this.a, randomString).getBytes("UTF-8"))));
+            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.a, randomString).getBytes("UTF-8"))));
         } catch (UnsupportedEncodingException e2) {
             e2.printStackTrace();
         }

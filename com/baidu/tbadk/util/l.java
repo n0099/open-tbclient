@@ -7,26 +7,26 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 /* loaded from: classes.dex */
 public class l {
-    private static String aZG;
+    private static String beh;
     private static String mPid;
-    private static String aZF = "";
+    private static String bef = "";
     private static int mThreadType = 0;
-    public static String aZH = "floor";
-    public static String aZI = "pbPage";
+    public static String bei = "floor";
+    public static String bej = "pbPage";
 
     public static void a(String str, String str2, String str3, int i, com.baidu.adp.base.e eVar) {
-        aZG = str;
+        beh = str;
         mPid = str2;
-        aZF = str3;
+        bef = str3;
         mThreadType = i;
-        if (!StringUtils.isNull(aZF) && eVar != null && eVar.getPageActivity() != null) {
-            if (aZH.equals(aZF)) {
-                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(eVar.getPageActivity()).createSubPbActivityConfig(aZG, mPid, "search_post", true);
+        if (!StringUtils.isNull(bef) && eVar != null && eVar.getPageActivity() != null) {
+            if (bei.equals(bef)) {
+                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(eVar.getPageActivity()).createSubPbActivityConfig(beh, mPid, "search_post", true);
                 createSubPbActivityConfig.setKeyPageStartFrom(8);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
                 return;
             }
-            PbActivityConfig createNormalCfg = new PbActivityConfig(eVar.getPageActivity()).createNormalCfg(aZG, mPid, "search_post");
+            PbActivityConfig createNormalCfg = new PbActivityConfig(eVar.getPageActivity()).createNormalCfg(beh, mPid, "search_post");
             createNormalCfg.setStartFrom(8);
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
         }

@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class GroupMsgImageActivityConfig extends AbsMsgImageActivityConfig {
     public GroupMsgImageActivityConfig(Context context, String str, long j, boolean z, String str2) {
         super(context);

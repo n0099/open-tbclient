@@ -3,10 +3,10 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class bc extends com.baidu.tieba.card.data.b {
-    public int amB;
-    public int amC;
-    public int amD;
-    public int amE;
+    public int arw;
+    public int arx;
+    public int ary;
+    public int arz;
     public String stType;
     public bb threadData;
 

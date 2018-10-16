@@ -3,6 +3,8 @@ package com.baidu.crabsdk.b;
 import android.content.Context;
 import android.os.Looper;
 import com.baidu.appsearchlib.Info;
+import com.baidu.searchbox.ng.ai.apps.network.WebSocketAction;
+import com.baidu.searchbox.ng.ai.apps.statistic.search.AiAppsSearchFlowUBC;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,14 +16,15 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class c {
-    private static String Ve = "data/anr/traces.txt";
-    private static int Vf = 5;
-    private static Thread Vg = null;
     private static Context mContext;
+    private static String XR = "data/anr/traces.txt";
+    private static int aU = 5;
+    private static Thread XS = null;
 
     private static void a(Map<String, Object> map) {
+        int indexOf;
         StringBuilder sb = new StringBuilder();
         try {
             String str = (String) map.get("time");
@@ -30,7 +33,7 @@ public final class c {
             }
             String substring = str.substring(5);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("logcat -d -v time", (String[]) null, new File("/")).getInputStream()), 8192);
-            String F = o.F();
+            String G = o.G();
             boolean z = true;
             int i = 0;
             while (true) {
@@ -61,16 +64,21 @@ public final class c {
                 if (readLine.contains("Reason:")) {
                     String[] split = readLine.split("Reason:");
                     if (split.length == 2) {
-                        map.put("reason", split[1].trim());
+                        map.put(WebSocketAction.PARAM_KEY_REASON, split[1].trim());
+                        if (split[1].trim().contains("(") && (indexOf = split[1].trim().indexOf("(")) > 0) {
+                            map.put("type", split[1].trim().substring(0, indexOf));
+                        }
                     }
                 }
-                if (readLine.contains("ActivityManager") || readLine.contains(F)) {
+                if (readLine.contains("ActivityManager") || readLine.contains(G)) {
                     sb.append(readLine).append("\n");
                 }
                 i = i2;
             }
         } catch (Exception e) {
-            com.baidu.crabsdk.c.a.f("putAnrLogcat", e);
+            com.baidu.crabsdk.c.a.f("putAnrLogcat error!", e);
+        } catch (OutOfMemoryError e2) {
+            com.baidu.crabsdk.c.a.f("putAnrLogcat oom!", e2);
         }
     }
 
@@ -85,23 +93,23 @@ public final class c {
     }
 
     public static void d(Context context) {
-        com.baidu.crabsdk.c.a.cv("init AnrCollector");
-        com.baidu.crabsdk.c.a.cv("===Anr init!===");
+        com.baidu.crabsdk.c.a.cG("init AnrCollector");
+        com.baidu.crabsdk.c.a.cG("===Anr init!===");
         mContext = context;
-        if (com.baidu.crabsdk.sender.e.Y()) {
-            com.baidu.crabsdk.c.a.cv("===Anr watchThread start!===");
+        if (com.baidu.crabsdk.sender.e.rD()) {
+            com.baidu.crabsdk.c.a.cG("===Anr watchThread start!===");
             try {
                 com.baidu.crabsdk.sender.a aVar = new com.baidu.crabsdk.sender.a(context);
-                Vg = aVar;
+                XS = aVar;
                 aVar.start();
             } catch (Exception e) {
-                com.baidu.crabsdk.c.a.cy("Anr watchThread start failed !!");
+                com.baidu.crabsdk.c.a.cJ("Anr watchThread start failed !!");
             }
         }
     }
 
-    public static Thread qg() {
-        return Vg;
+    public static Thread rq() {
+        return XS;
     }
 
     public static Map<String, Object> t() {
@@ -114,16 +122,16 @@ public final class c {
         ArrayList arrayList2 = new ArrayList();
         int i = 0;
         try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Ve)));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(XR)));
             String readLine = bufferedReader.readLine();
-            String F = o.F();
+            String G = o.G();
             while (true) {
                 if (readLine == null) {
                     break;
                 }
                 if (readLine.startsWith("-----") && readLine.endsWith("-----") && readLine.contains(" pid ") && readLine.contains(" at ")) {
                     i++;
-                    if (i > Vf) {
+                    if (i > aU) {
                         bufferedReader.close();
                         return null;
                     }
@@ -133,9 +141,9 @@ public final class c {
                         str4 = split[2];
                     }
                 }
-                if (readLine.contains(F)) {
+                if (readLine.contains(G)) {
                     hashMap.put("apiType", "ANR");
-                    hashMap.put("errorType", "ANR");
+                    hashMap.put(AiAppsSearchFlowUBC.FE_DATA_ERRTYPE, "ANR");
                     hashMap.put(Info.kBaiduPIDKey, str3);
                     hashMap.put("time", str4);
                     StringBuilder sb = new StringBuilder();
@@ -252,12 +260,12 @@ public final class c {
                         sb7.append(stackTraceElement.toString()).append("\n");
                     }
                     hashMap.put("apiType", "ANR");
-                    hashMap.put("errorType", "ANR");
+                    hashMap.put(AiAppsSearchFlowUBC.FE_DATA_ERRTYPE, "ANR");
                     hashMap.put(Info.kBaiduPIDKey, "N/A");
                     hashMap.put("time", Long.valueOf(System.currentTimeMillis()));
                     hashMap.put("anrMsg", "N/A");
-                    hashMap.put("threadList", r.L());
-                    hashMap.put("traceList", "由于系统原因，Android7.0以上无权限读取\"data/anr/traces.txt\"\n\n" + sb7.toString());
+                    hashMap.put("threadList", r.M());
+                    hashMap.put("traceList", "由于系统原因，Android7.0以上无权限读取\"data/anr/...\"\n\n" + sb7.toString());
                     hashMap.put("mainThread", sb7.toString());
                     hashMap.put("errorLine", stackTrace[0].toString());
                     hashMap.put("errorOriLine", stackTrace[0].toString());
@@ -265,6 +273,10 @@ public final class c {
             } catch (Exception e2) {
                 com.baidu.crabsdk.c.a.f("7.0+封装anr数据失败!", e2);
             }
+        } catch (Exception e3) {
+            com.baidu.crabsdk.c.a.f("封装anr数据失败!", e3);
+        } catch (OutOfMemoryError e4) {
+            com.baidu.crabsdk.c.a.f("内存溢出了！", e4);
         }
         return hashMap;
     }

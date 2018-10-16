@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.fsg.base.activity.BaseActivity;
 @SuppressLint({"InlinedApi", "NewApi"})
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class RimGlobalUtils {
     private static String a;
 

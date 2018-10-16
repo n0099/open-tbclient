@@ -1,6 +1,5 @@
 package cn.jiguang.d.c;
 
-import com.baidu.tbadk.TbConfig;
 import com.meizu.cloud.pushsdk.constants.MeizuConstants;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -19,15 +18,15 @@ import java.util.StringTokenizer;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes3.dex */
 public class o {
-    private static o lp;
+    private static o lV;
     private String[] a = null;
-    private j[] lo = null;
+    private j[] lU = null;
     private int c = -1;
 
     static {
         o oVar = new o();
         synchronized (o.class) {
-            lp = oVar;
+            lV = oVar;
         }
     }
 
@@ -35,7 +34,7 @@ public class o {
         if (c() || d()) {
             return;
         }
-        if (this.a == null || this.lo == null) {
+        if (this.a == null || this.lU == null) {
             String property = System.getProperty("os.name");
             String property2 = System.getProperty("java.vendor");
             if (property.indexOf("Windows") == -1) {
@@ -193,10 +192,10 @@ public class o {
         if (this.a == null && list.size() > 0) {
             this.a = (String[]) list.toArray(new String[0]);
         }
-        if (this.lo != null || list2.size() <= 0) {
+        if (this.lU != null || list2.size() <= 0) {
             return;
         }
-        this.lo = (j[]) list2.toArray(new j[0]);
+        this.lU = (j[]) list2.toArray(new j[0]);
     }
 
     private void b(String str) {
@@ -263,10 +262,10 @@ public class o {
         }
     }
 
-    public static synchronized o bC() {
+    public static synchronized o bT() {
         o oVar;
         synchronized (o.class) {
-            oVar = lp;
+            oVar = lV;
         }
         return oVar;
     }
@@ -289,7 +288,7 @@ public class o {
             }
         }
         a(arrayList, arrayList2);
-        return (this.a == null || this.lo == null) ? false : true;
+        return (this.a == null || this.lU == null) ? false : true;
     }
 
     private boolean d() {
@@ -299,7 +298,7 @@ public class o {
             Class<?>[] clsArr = new Class[0];
             Object[] objArr = new Object[0];
             Class<?> cls = Class.forName("sun.net.dns.ResolverConfiguration");
-            Object invoke = cls.getDeclaredMethod(TbConfig.ST_TYPE_OPEN, clsArr).invoke(null, objArr);
+            Object invoke = cls.getDeclaredMethod("open", clsArr).invoke(null, objArr);
             List<String> list = (List) cls.getMethod("nameservers", clsArr).invoke(invoke, objArr);
             List<String> list2 = (List) cls.getMethod("searchlist", clsArr).invoke(invoke, objArr);
             if (list.size() == 0) {

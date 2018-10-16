@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppRomUtils;
 /* loaded from: classes2.dex */
 public final class AccessibilityServiceInfoCompat {
     public static final int CAPABILITY_CAN_FILTER_KEY_EVENTS = 8;
@@ -167,7 +168,7 @@ public final class AccessibilityServiceInfoCompat {
             case 6:
             case 7:
             default:
-                return "UNKNOWN";
+                return AiAppRomUtils.UNKNOWN;
             case 4:
                 return "CAPABILITY_CAN_REQUEST_ENHANCED_WEB_ACCESSIBILITY";
             case 8:

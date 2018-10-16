@@ -11,7 +11,7 @@ import tbclient.UserMuteQuery.MuteUser;
 /* loaded from: classes3.dex */
 public class UserMuteQueryModel extends BdBaseModel {
     public static int NET_SUCCESS = 0;
-    private com.baidu.adp.framework.listener.a dLp = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_USER_MUTE_QUERY, 303028) { // from class: com.baidu.tieba.setting.usermutelist.UserMuteQueryModel.1
+    private com.baidu.adp.framework.listener.a dTl = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_USER_MUTE_QUERY, 303028) { // from class: com.baidu.tieba.setting.usermutelist.UserMuteQueryModel.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof UserMuteQuerySocketResponsedMessage) {
@@ -22,7 +22,7 @@ public class UserMuteQueryModel extends BdBaseModel {
                     if (list != null) {
                         arrayList.addAll(list);
                     }
-                    UserMuteQueryModel.this.gJm.a(arrayList, userMuteQuerySocketResponsedMessage.getError(), userMuteQuerySocketResponsedMessage.getErrorString());
+                    UserMuteQueryModel.this.gQK.a(arrayList, userMuteQuerySocketResponsedMessage.getError(), userMuteQuerySocketResponsedMessage.getErrorString());
                 } else {
                     return;
                 }
@@ -37,12 +37,12 @@ public class UserMuteQueryModel extends BdBaseModel {
                             arrayList2.add(muteUser);
                         }
                     }
-                    UserMuteQueryModel.this.gJm.a(arrayList2, userMuteQueryHttpResponsedMessage.getError(), userMuteQueryHttpResponsedMessage.getErrorString());
+                    UserMuteQueryModel.this.gQK.a(arrayList2, userMuteQueryHttpResponsedMessage.getError(), userMuteQueryHttpResponsedMessage.getErrorString());
                 }
             }
         }
     };
-    private a gJm;
+    private a gQK;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -50,8 +50,8 @@ public class UserMuteQueryModel extends BdBaseModel {
     }
 
     public UserMuteQueryModel(a aVar) {
-        this.gJm = aVar;
-        registerListener(this.dLp);
+        this.gQK = aVar;
+        registerListener(this.dTl);
         com.baidu.tieba.tbadkCore.a.a.c(303028, UserMuteQuerySocketResponsedMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(303028, CmdConfigHttp.CMD_USER_MUTE_QUERY, TbConfig.USER_MUTE_QUERY, UserMuteQueryHttpResponsedMessage.class, false, false, true, false);
     }
@@ -64,7 +64,7 @@ public class UserMuteQueryModel extends BdBaseModel {
         sendMessage(userMuteQueryRequestMessage);
     }
 
-    public void cU(long j) {
+    public void db(long j) {
         c(j, 1, 10);
     }
 
@@ -80,6 +80,6 @@ public class UserMuteQueryModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.dLp);
+        MessageManager.getInstance().unRegisterListener(this.dTl);
     }
 }

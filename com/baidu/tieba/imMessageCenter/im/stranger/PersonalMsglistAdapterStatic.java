@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.im.chat.MsgAdapterScanMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.MsgReplyCardViewItemAdapter;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PersonalMsglistAdapterStatic {
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2001275) { // from class: com.baidu.tieba.imMessageCenter.im.stranger.PersonalMsglistAdapterStatic.1
@@ -15,10 +15,10 @@ public class PersonalMsglistAdapterStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof MsgAdapterScanMessage.a)) {
                     MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-                    if (aVar.erW != null && aVar.context != null) {
+                    if (aVar.ezM != null && aVar.context != null) {
                         MsgReplyCardViewItemAdapter msgReplyCardViewItemAdapter = new MsgReplyCardViewItemAdapter(aVar.context, ChatMessage.TYPE_MSG_REPLY_CARD);
-                        msgReplyCardViewItemAdapter.hz(true);
-                        aVar.erW.add(msgReplyCardViewItemAdapter);
+                        msgReplyCardViewItemAdapter.hR(true);
+                        aVar.ezM.add(msgReplyCardViewItemAdapter);
                     }
                 }
             }

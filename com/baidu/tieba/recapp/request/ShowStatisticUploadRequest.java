@@ -14,6 +14,7 @@ import com.baidu.tbadk.core.util.a.h;
 import com.baidu.tbadk.coreExtra.data.d;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.tbadkCore.d.a;
+import com.baidu.webkit.internal.ETAG;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,10 +30,10 @@ public class ShowStatisticUploadRequest extends HttpMessage {
         addParam("_os_version", Build.VERSION.RELEASE);
         String netType = h.getNetType();
         if (netType != null) {
-            addParam("net_type", netType);
+            addParam(ETAG.KEY_NET_TYPE, netType);
         }
         d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        task.setUrl((adAdSense == null || adAdSense.CZ()) ? "https://als.baidu.com/flog/logFeed" : "http://als.baidu.com/flog/logFeed");
+        task.setUrl((adAdSense == null || adAdSense.Fd()) ? "https://als.baidu.com/flog/logFeed" : "http://als.baidu.com/flog/logFeed");
     }
 
     ShowStatisticUploadRequest init(int i, String str, String str2, String str3) {
@@ -52,8 +53,8 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                 if (bVar != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("tid", bVar.aZG);
-                        jSONObject.put("locate", bVar.cHA);
+                        jSONObject.put("tid", bVar.beh);
+                        jSONObject.put("locate", bVar.cPU);
                         jSONArray.put(jSONObject);
                     } catch (JSONException e) {
                         BdLog.e(e);
@@ -76,7 +77,7 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                     try {
                         jSONObject.put(Info.kBaiduPIDKey, bVar.mPid);
                         jSONObject.put("tid", str4);
-                        jSONObject.put("locate", bVar.cHA);
+                        jSONObject.put("locate", bVar.cPU);
                         jSONArray.put(jSONObject);
                     } catch (JSONException e) {
                         BdLog.e(e);

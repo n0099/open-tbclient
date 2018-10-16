@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class j {
     public static String z() {
         int myPid = Process.myPid();
@@ -16,7 +16,7 @@ public final class j {
         ArrayList arrayList2 = new ArrayList();
         arrayList2.addAll(Arrays.asList("-t", String.valueOf(com.baidu.crabsdk.a.h), "-v", "time"));
         int indexOf = arrayList2.indexOf("-t");
-        if (indexOf >= 0 && indexOf < arrayList2.size() && com.baidu.crabsdk.c.c.qm() < 8) {
+        if (indexOf >= 0 && indexOf < arrayList2.size() && com.baidu.crabsdk.c.c.rv() < 8) {
             arrayList2.remove(indexOf + 1);
             arrayList2.remove(indexOf);
             arrayList2.add("-d");
@@ -36,6 +36,11 @@ public final class j {
                 }
             }
         } catch (IOException e) {
+            com.baidu.crabsdk.c.a.f("collectLogCat failed.", e);
+        } catch (Exception e2) {
+            com.baidu.crabsdk.c.a.f("collectLogCat failed!", e2);
+        } catch (OutOfMemoryError e3) {
+            com.baidu.crabsdk.c.a.f("collectLogCat oom.", e3);
         }
         return bVar.toString();
     }

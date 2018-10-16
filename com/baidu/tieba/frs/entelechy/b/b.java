@@ -5,7 +5,7 @@ import com.baidu.tieba.frs.k;
 import com.baidu.tieba.frs.vc.f;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.tieba.tbadkCore.l;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public interface b {
     int a(int i, FrsRequestData frsRequestData);
 
@@ -15,5 +15,5 @@ public interface b {
 
     void aK(View view);
 
-    boolean lt(int i);
+    boolean lR(int i);
 }

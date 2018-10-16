@@ -2,7 +2,7 @@ package protobuf.QueryUserInfos;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class DataReq extends Message {
     public static final Long DEFAULT_REQUSERID = 0L;
     @ProtoField(tag = 1, type = Message.Datatype.INT64)
@@ -22,7 +22,7 @@ public final class DataReq extends Message {
         this.reqUserId = builder.reqUserId;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Long reqUserId;
 

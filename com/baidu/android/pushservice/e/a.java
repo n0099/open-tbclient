@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.ar.statistic.StatisticConstants;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
 import java.io.InputStream;
 import java.util.HashMap;
 import org.json.JSONException;
@@ -15,12 +14,12 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
     protected Context a;
     protected l b;
     protected String c = com.baidu.android.pushservice.h.e();
-    private C0030a d = new C0030a();
+    private C0033a d = new C0033a();
 
     /* renamed from: com.baidu.android.pushservice.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0030a {
-        public C0030a() {
+    public class C0033a {
+        public C0033a() {
         }
 
         public void a(Boolean bool) {
@@ -166,7 +165,7 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
     private void b(int i, byte[] bArr) {
         Intent intent = new Intent("com.baidu.android.pushservice.action.internal.RECEIVE");
         intent.putExtra("method", this.b.a);
-        intent.putExtra(PushConstants.EXTRA_ERROR_CODE, i);
+        intent.putExtra("error_msg", i);
         intent.putExtra("content", bArr);
         intent.putExtra("appid", this.b.f);
         intent.setFlags(32);
@@ -206,7 +205,7 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
                 intent.setAction(PushConstants.ACTION_RECEIVE);
             }
             intent.putExtra("method", this.b.a);
-            intent.putExtra(PushConstants.EXTRA_ERROR_CODE, i);
+            intent.putExtra("error_msg", i);
             intent.putExtra("content", bArr);
             intent.setFlags(32);
             a(intent);
@@ -228,7 +227,7 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
                     JSONObject jSONObject = new JSONObject(new String(bArr));
                     bVar.b = jSONObject.getString(StatisticConstants.REQUEST_ID);
                     if (i != 0) {
-                        bVar.a = jSONObject.getString(PushConstants.EXTRA_ERROR_CODE);
+                        bVar.a = jSONObject.getString("error_msg");
                     }
                     String string = jSONObject.getJSONObject("response_params").getString("appid");
                     bVar.h = string;
@@ -297,11 +296,11 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            int i = jSONObject.getInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
-            String string = jSONObject.getString(PushConstants.EXTRA_ERROR_CODE);
+            int i = jSONObject.getInt("error_code");
+            String string = jSONObject.getString("error_msg");
             String string2 = jSONObject.getString(StatisticConstants.REQUEST_ID);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put(PushConstants.EXTRA_ERROR_CODE, string);
+            jSONObject2.put("error_msg", string);
             jSONObject2.put(StatisticConstants.REQUEST_ID, string2);
             a(i, jSONObject2.toString().getBytes());
         } catch (JSONException e) {

@@ -16,15 +16,15 @@ import tbclient.StarTrends.DataRes;
 import tbclient.StarTrends.StarTrendsResIdl;
 import tbclient.ThreadInfo;
 import tbclient.User;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class b implements com.baidu.tbadk.mvc.b.c {
     public static final Wire WIRE = new Wire(new Class[0]);
     public boolean hasMore;
     public ArrayList<h> threadList = new ArrayList<>();
     public HashMap<String, MetaData> userMap = new HashMap<>();
-    public int dzx = 0;
+    public int dHx = 0;
 
-    public StarTrendsResIdl J(byte[] bArr) {
+    public StarTrendsResIdl K(byte[] bArr) {
         if (bArr == null) {
             return null;
         }
@@ -43,7 +43,7 @@ public class b implements com.baidu.tbadk.mvc.b.c {
 
     private void a(DataRes dataRes) {
         if (dataRes != null) {
-            if (!v.z(dataRes.user_list)) {
+            if (!v.J(dataRes.user_list)) {
                 for (User user : dataRes.user_list) {
                     if (user != null) {
                         MetaData metaData = new MetaData();
@@ -55,15 +55,15 @@ public class b implements com.baidu.tbadk.mvc.b.c {
                     }
                 }
             }
-            if (!v.z(dataRes.thread_list)) {
+            if (!v.J(dataRes.thread_list)) {
                 for (ThreadInfo threadInfo : dataRes.thread_list) {
                     if (threadInfo != null) {
                         bb bbVar = new bb();
                         bbVar.setUserMap(this.userMap);
                         bbVar.a(threadInfo);
-                        bbVar.cj(3);
-                        bbVar.wW();
-                        if (bbVar.getType() == bb.ajX || bbVar.getType() == bb.ajZ || bbVar.getType() == bb.ake || bbVar.getType() == bb.aka || bbVar.getType() == bb.akf || bbVar.getType() == bb.akg) {
+                        bbVar.setCurrentPage(3);
+                        bbVar.zf();
+                        if (bbVar.getType() == bb.aoS || bbVar.getType() == bb.aoU || bbVar.getType() == bb.aoZ || bbVar.getType() == bb.aoV || bbVar.getType() == bb.apa || bbVar.getType() == bb.apb) {
                             this.threadList.add(bbVar);
                         }
                     }
@@ -73,7 +73,7 @@ public class b implements com.baidu.tbadk.mvc.b.c {
         }
     }
 
-    public bb nh(String str) {
+    public bb nJ(String str) {
         if (this.threadList == null) {
             return null;
         }
@@ -88,7 +88,7 @@ public class b implements com.baidu.tbadk.mvc.b.c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] KM() {
+    public byte[] MK() {
         return null;
     }
 
@@ -103,7 +103,7 @@ public class b implements com.baidu.tbadk.mvc.b.c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void E(JSONObject jSONObject) {
+    public void H(JSONObject jSONObject) {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j

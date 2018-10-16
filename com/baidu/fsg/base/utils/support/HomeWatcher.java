@@ -4,7 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-/* loaded from: classes3.dex */
+import com.baidu.searchbox.ng.ai.apps.network.WebSocketAction;
+/* loaded from: classes6.dex */
 public class HomeWatcher {
     static final String a = "HomeWatcher";
     private final Context b;
@@ -12,7 +13,7 @@ public class HomeWatcher {
     private OnHomePressedListener d;
     private InnerRecevier e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface OnHomePressedListener {
         void onHomeLongPressed();
 
@@ -40,9 +41,9 @@ public class HomeWatcher {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     class InnerRecevier extends BroadcastReceiver {
-        final String a = "reason";
+        final String a = WebSocketAction.PARAM_KEY_REASON;
         final String b = "globalactions";
         final String c = "recentapps";
         final String d = "homekey";
@@ -53,7 +54,7 @@ public class HomeWatcher {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             String stringExtra;
-            if (intent.getAction().equals("android.intent.action.CLOSE_SYSTEM_DIALOGS") && (stringExtra = intent.getStringExtra("reason")) != null && HomeWatcher.this.d != null) {
+            if (intent.getAction().equals("android.intent.action.CLOSE_SYSTEM_DIALOGS") && (stringExtra = intent.getStringExtra(WebSocketAction.PARAM_KEY_REASON)) != null && HomeWatcher.this.d != null) {
                 if (stringExtra.equals("homekey")) {
                     HomeWatcher.this.d.onHomePressed();
                 } else if (stringExtra.equals("recentapps")) {

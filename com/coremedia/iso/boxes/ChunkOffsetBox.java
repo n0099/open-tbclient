@@ -4,9 +4,9 @@ import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class ChunkOffsetBox extends AbstractFullBox {
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_0 = null;
 
     static {
         ajc$preClinit();

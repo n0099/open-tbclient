@@ -15,8 +15,7 @@ public class y {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    /* renamed from: if  reason: not valid java name */
-    public static int m16if(String str) {
+    public static int is(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -31,7 +30,7 @@ public class y {
         return i;
     }
 
-    public static int ig(String str) {
+    public static int it(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -42,13 +41,13 @@ public class y {
             if (substring.length() >= 2) {
                 i += 2;
             } else {
-                i += m16if(substring);
+                i += is(substring);
             }
         }
         return i;
     }
 
-    public static int ih(String str) {
+    public static int iu(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -62,13 +61,13 @@ public class y {
         return i;
     }
 
-    public static String G(String str, int i) {
+    public static String H(String str, int i) {
         int codePointCount = str.codePointCount(0, str.length());
         int i2 = 1;
         String str2 = str;
         while (i2 <= codePointCount) {
             String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-            if (ih(substring) > i) {
+            if (iu(substring) > i) {
                 break;
             }
             i2++;
@@ -77,11 +76,11 @@ public class y {
         return str2;
     }
 
-    public static String H(String str, int i) {
+    public static String I(String str, int i) {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (m16if(str) > i) {
+        if (is(str) > i) {
             return o(str, 0, i - 2) + "...";
         }
         return str;
@@ -119,7 +118,7 @@ public class y {
         return (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == ' ';
     }
 
-    public static String z(String str, int i) {
+    public static String A(String str, int i) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return sb.toString();
@@ -147,13 +146,13 @@ public class y {
         return sb.toString();
     }
 
-    public static String I(String str, int i) {
+    public static String J(String str, int i) {
         int codePointCount = str.codePointCount(0, str.length());
         int i2 = 1;
         String str2 = str;
         while (i2 <= codePointCount) {
             String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-            if (ig(substring) > i) {
+            if (it(substring) > i) {
                 break;
             }
             i2++;

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes3.dex */
 public class ARSDKInfo {
@@ -20,7 +21,7 @@ public class ARSDKInfo {
                 if (packageInfo != null) {
                     String str2 = packageInfo.versionName;
                     if (!TextUtils.isEmpty(str2)) {
-                        sb.append("_");
+                        sb.append(BaseRequestAction.SPLITE);
                         sb.append(str2);
                         ARLog.d("appId = " + sb.toString());
                     }

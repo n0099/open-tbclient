@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.atomData.InviteFriendListActivityConfig;
 import com.baidu.tieba.imMessageCenter.RequestCommitInviteMessage;
 import protobuf.CommitInviteMsg.DataReq;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class e extends BdBaseModel<InviteFriendListActivity> {
-    private RequestCommitInviteMessage eMT;
-    private long eMU;
-    private long esm;
+    private long eAc;
+    private RequestCommitInviteMessage eUB;
+    private long eUC;
 
     public e(InviteFriendListActivity inviteFriendListActivity) {
         super(inviteFriendListActivity.getPageContext());
@@ -24,26 +24,26 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
 
     public void initWithIntent(Intent intent) {
         if (intent != null) {
-            this.esm = intent.getLongExtra("gid", -1L);
-            this.eMU = intent.getLongExtra(InviteFriendListActivityConfig.GROUP_ID, -1L);
+            this.eAc = intent.getLongExtra("gid", -1L);
+            this.eUC = intent.getLongExtra(InviteFriendListActivityConfig.GROUP_ID, -1L);
         }
     }
 
     public void initWithBundle(Bundle bundle) {
         if (bundle != null) {
-            this.esm = bundle.getLong("gid", -1L);
-            this.eMU = bundle.getLong(InviteFriendListActivityConfig.GROUP_ID, -1L);
+            this.eAc = bundle.getLong("gid", -1L);
+            this.eUC = bundle.getLong(InviteFriendListActivityConfig.GROUP_ID, -1L);
         }
     }
 
-    public void s(Bundle bundle) {
-        bundle.putLong("gid", this.esm);
-        bundle.putLong(InviteFriendListActivityConfig.GROUP_ID, this.eMU);
+    public void t(Bundle bundle) {
+        bundle.putLong("gid", this.eAc);
+        bundle.putLong(InviteFriendListActivityConfig.GROUP_ID, this.eUC);
     }
 
-    public void pC(String str) {
-        this.eMT = a(this.esm, this.eMU, str);
-        super.sendMessage(this.eMT);
+    public void qe(String str) {
+        this.eUB = a(this.eAc, this.eUC, str);
+        super.sendMessage(this.eUB);
     }
 
     private RequestCommitInviteMessage a(long j, long j2, String str) {

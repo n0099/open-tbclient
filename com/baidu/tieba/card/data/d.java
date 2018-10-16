@@ -1,38 +1,39 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.searchbox.ng.ai.apps.media.audio.AiAppsAudioPlayer;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 /* loaded from: classes.dex */
 public class d extends b implements p {
-    public String cHI = "";
+    public String cQb = "";
     public int mPn = 0;
     public String mPageType = "";
-    public AdvertAppInfo cHH = null;
+    public AdvertAppInfo cQa = null;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        if (this.cHH != null && this.cHH.getType() == AdvertAppInfo.afN) {
-            return AdvertAppInfo.afT;
+        if (this.cQa != null && this.cQa.getType() == AdvertAppInfo.akK) {
+            return AdvertAppInfo.akQ;
         }
-        if (this.cHH != null && this.cHH.legoCard != null) {
-            BdUniqueId bdUniqueId = AdvertAppInfo.afW;
-            switch (this.cHH.legoCard.getGoodsStyle()) {
+        if (this.cQa != null && this.cQa.legoCard != null) {
+            BdUniqueId bdUniqueId = AdvertAppInfo.akT;
+            switch (this.cQa.legoCard.getGoodsStyle()) {
                 case 2:
                 case 8:
-                    return AdvertAppInfo.afX;
+                    return AdvertAppInfo.akU;
                 case 3:
                 case 4:
                 case 5:
                 default:
                     return bdUniqueId;
                 case 6:
-                    return AdvertAppInfo.afY;
+                    return AdvertAppInfo.akV;
                 case 7:
-                    return AdvertAppInfo.afZ;
+                    return AdvertAppInfo.akW;
                 case 9:
-                    return AdvertAppInfo.agb;
+                    return AdvertAppInfo.akY;
                 case 10:
-                    return AdvertAppInfo.aga;
+                    return AdvertAppInfo.akX;
             }
         }
         return null;
@@ -40,23 +41,23 @@ public class d extends b implements p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        return com.baidu.adp.lib.g.b.l(this.cHH != null ? this.cHH.adPosition : "-1", -1);
+        return com.baidu.adp.lib.g.b.l(this.cQa != null ? this.cQa.adPosition : AiAppsAudioPlayer.ERROR_UNKNOWN, -1);
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean ald() {
+    public boolean aoF() {
         return false;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void eS(boolean z) {
+    public void fk(boolean z) {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void eT(boolean z) {
+    public void fl(boolean z) {
     }
 
-    public AdvertAppInfo ale() {
-        return this.cHH;
+    public AdvertAppInfo aoG() {
+        return this.cQa;
     }
 }

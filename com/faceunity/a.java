@@ -5,9 +5,9 @@ import com.baidu.tieba.video.record.f;
 import com.faceunity.wrapper.faceunity;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class a {
-    public static int dd(Context context) {
+    public static int dw(Context context) {
         try {
             InputStream open = context.getAssets().open("beauty/v3.mp3");
             byte[] bArr = new byte[open.available()];

@@ -9,7 +9,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.HttpResponseException;
 import org.apache.http.util.EntityUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class BinaryHttpResponseHandler extends HttpResponseHandler {
     private String[] mAllowedContentTypes;
 

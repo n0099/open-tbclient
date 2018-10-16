@@ -11,10 +11,10 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk.core.view.userLike.b {
-    private TranslateAnimation fRa;
-    private ObjectAnimator fRb;
+    private TranslateAnimation fYA;
+    private ObjectAnimator fYB;
 
     public PbNavbarUserConcernView(Context context) {
         super(context);
@@ -40,7 +40,7 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void dS(int i) {
+    public void ec(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
@@ -58,11 +58,11 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
             setVisibility(0);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         } else if (z) {
-            if (this.fRa == null) {
-                this.fRa = new TranslateAnimation(0.0f, -getMeasuredWidth(), 0.0f, 0.0f);
-                this.fRa.setDuration(300L);
-                this.fRa.setFillAfter(true);
-                this.fRa.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbNavbarUserConcernView.1
+            if (this.fYA == null) {
+                this.fYA = new TranslateAnimation(0.0f, -getMeasuredWidth(), 0.0f, 0.0f);
+                this.fYA.setDuration(300L);
+                this.fYA.setFillAfter(true);
+                this.fYA.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbNavbarUserConcernView.1
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
                     }
@@ -77,15 +77,15 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
                     }
                 });
             }
-            startAnimation(this.fRa);
+            startAnimation(this.fYA);
         } else {
-            if (this.fRb == null) {
-                this.fRb = ObjectAnimator.ofFloat(this, "translationX", 0.0f, -30.0f);
-                this.fRb.setDuration(200L);
-                this.fRb.setRepeatCount(1);
-                this.fRb.setRepeatMode(2);
+            if (this.fYB == null) {
+                this.fYB = ObjectAnimator.ofFloat(this, "translationX", 0.0f, -30.0f);
+                this.fYB.setDuration(200L);
+                this.fYB.setRepeatCount(1);
+                this.fYB.setRepeatMode(2);
             }
-            this.fRb.start();
+            this.fYB.start();
         }
     }
 

@@ -48,6 +48,8 @@ import com.baidu.ar.util.IoUtils;
 import com.baidu.fsg.base.armor.RimArmor;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppRomUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -81,7 +83,7 @@ public final class a {
     private static final ArrayList<String> e;
     private static Boolean f;
     private static String g;
-    private static PushReceiver lZ;
+    private static PushReceiver mM;
 
     static {
         ArrayList arrayList = new ArrayList();
@@ -234,7 +236,7 @@ public final class a {
 
     public static String a(String str) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
             char[] charArray = str.toCharArray();
             byte[] bArr = new byte[charArray.length];
             for (int i = 0; i < charArray.length; i++) {
@@ -522,7 +524,7 @@ public final class a {
         String a2 = j.a(context, "ro.product.brand");
         String a3 = j.a(context, "ro.miui.ui.version.name");
         if (!TextUtils.isEmpty(a2) && "Xiaomi".equals(a2) && !TextUtils.isEmpty(a3)) {
-            String a4 = j.a(context, "ro.build.version.incremental");
+            String a4 = j.a(context, AiAppRomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL);
             if (!TextUtils.isEmpty(a4) && a4.startsWith("V7.1")) {
                 return false;
             }
@@ -558,7 +560,7 @@ public final class a {
 
     public static int at(Context context) {
         cn.jiguang.e.c.a("AndroidUtil", "action:checkValidManifest");
-        if (cn.jiguang.d.d.i.bG().f()) {
+        if (cn.jiguang.d.d.i.bX().f()) {
             if (!q(context)) {
                 cn.jiguang.e.c.d("AndroidUtil", "AndroidManifest.xml missing required service: " + PushService.class.getCanonicalName());
                 return 4;
@@ -574,10 +576,10 @@ public final class a {
             if (b(context, DaemonService.class) == null) {
                 cn.jiguang.e.c.c("AndroidUtil", "AndroidManifest.xml missing required service: " + DaemonService.class.getCanonicalName());
                 cn.jiguang.api.e.h(false);
-            } else if (a(context, cn.jiguang.api.e.bl(), true)) {
+            } else if (a(context, cn.jiguang.api.e.bC(), true)) {
                 cn.jiguang.api.e.h(true);
             } else {
-                cn.jiguang.e.c.c("AndroidUtil", "AndroidManifest.xml missing intent filter for DaemonService: " + cn.jiguang.api.e.bl());
+                cn.jiguang.e.c.c("AndroidUtil", "AndroidManifest.xml missing intent filter for DaemonService: " + cn.jiguang.api.e.bC());
                 cn.jiguang.api.e.h(false);
             }
             if (!cn.jiguang.d.a.d.i(context)) {
@@ -633,20 +635,20 @@ public final class a {
 
     private static boolean au(Context context) {
         try {
-            if (lZ == null) {
-                lZ = new PushReceiver();
-                context.registerReceiver(lZ, new IntentFilter("android.intent.action.USER_PRESENT"));
-                context.registerReceiver(lZ, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+            if (mM == null) {
+                mM = new PushReceiver();
+                context.registerReceiver(mM, new IntentFilter("android.intent.action.USER_PRESENT"));
+                context.registerReceiver(mM, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
                 IntentFilter intentFilter = new IntentFilter("android.intent.action.PACKAGE_ADDED");
                 intentFilter.addDataScheme("package");
                 IntentFilter intentFilter2 = new IntentFilter("android.intent.action.PACKAGE_REMOVED");
                 intentFilter2.addDataScheme("package");
-                context.registerReceiver(lZ, intentFilter);
-                context.registerReceiver(lZ, intentFilter2);
+                context.registerReceiver(mM, intentFilter);
+                context.registerReceiver(mM, intentFilter2);
                 IntentFilter intentFilter3 = new IntentFilter(JPushInterface.ACTION_NOTIFICATION_RECEIVED_PROXY);
                 intentFilter3.setPriority(1000);
                 intentFilter3.addCategory(context.getPackageName());
-                context.registerReceiver(lZ, intentFilter3);
+                context.registerReceiver(mM, intentFilter3);
             } else {
                 cn.jiguang.e.c.a("AndroidUtil", "has register in code");
             }
@@ -694,7 +696,7 @@ public final class a {
 
     public static String b(String str) {
         try {
-            byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes(IoUtils.UTF_8));
+            byte[] digest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5).digest(str.getBytes(IoUtils.UTF_8));
             StringBuffer stringBuffer = new StringBuffer();
             for (byte b2 : digest) {
                 int i = b2 & 255;
@@ -938,7 +940,7 @@ public final class a {
             intent = null;
         }
         if (intent != null) {
-            int intExtra = intent.getIntExtra(NotificationCompat.CATEGORY_STATUS, -1);
+            int intExtra = intent.getIntExtra("status", -1);
             if (intExtra == 2 || intExtra == 5) {
                 return intent.getIntExtra("plugged", -1);
             }
@@ -1120,13 +1122,13 @@ public final class a {
 
     public static void m(Context context) {
         boolean z = true;
-        cn.jiguang.d.a.c br = cn.jiguang.d.a.a.br();
-        if (br.d()) {
+        cn.jiguang.d.a.c bI = cn.jiguang.d.a.a.bI();
+        if (bI.d()) {
             return;
         }
-        String a2 = br.a();
-        String b2 = br.b();
-        String c2 = br.c();
+        String a2 = bI.a();
+        String b2 = bI.b();
+        String c2 = bI.c();
         String d2 = d(context, "");
         String h = h(context);
         if (i.a(h)) {
@@ -1171,7 +1173,7 @@ public final class a {
         cn.jiguang.d.a.d.g(context);
         n(context, "");
         l(context, "");
-        cn.jiguang.d.h.e.bR().b(context);
+        cn.jiguang.d.h.e.ci().b(context);
     }
 
     public static boolean q(Context context) {
@@ -1193,12 +1195,12 @@ public final class a {
     }
 
     public static void s(Context context) {
-        if (lZ == null || k(context, PushReceiver.class.getCanonicalName())) {
+        if (mM == null || k(context, PushReceiver.class.getCanonicalName())) {
             return;
         }
         try {
-            context.unregisterReceiver(lZ);
-            lZ = null;
+            context.unregisterReceiver(mM);
+            mM = null;
         } catch (Exception e2) {
         }
     }

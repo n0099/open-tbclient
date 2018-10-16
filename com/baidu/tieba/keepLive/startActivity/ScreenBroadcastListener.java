@@ -4,13 +4,13 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ScreenBroadcastListener {
     private Context mContext;
     private ScreenStateListener mListener;
     private ScreenBroadcastReceiver mScreenReceiver = new ScreenBroadcastReceiver();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface ScreenStateListener {
         void onScreenOff();
 
@@ -21,7 +21,7 @@ public class ScreenBroadcastListener {
         this.mContext = context.getApplicationContext();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class ScreenBroadcastReceiver extends BroadcastReceiver {
         private String action = null;
 

@@ -4,17 +4,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-/* loaded from: classes2.dex */
+import com.baidu.searchbox.ng.ai.apps.canvas.action.draw.DaScale;
+/* loaded from: classes6.dex */
 public final class g {
-    private static Intent Vq;
+    private static Intent Yc;
 
     public static void d(Context context) {
-        if (Vq != null || context == null) {
+        if (Yc != null || context == null) {
             return;
         }
         try {
-            Vq = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-            com.baidu.crabsdk.c.a.cx("Battery Broadcast Regist Success");
+            Yc = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            com.baidu.crabsdk.c.a.cI("Battery Broadcast Regist Success");
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.f("Register Battery Error!", e);
         }
@@ -22,7 +23,7 @@ public final class g {
 
     public static String f(Context context) {
         Object[] objArr;
-        if (com.baidu.crabsdk.c.c.qm() < 5) {
+        if (com.baidu.crabsdk.c.c.rv() < 5) {
             return "N/A";
         }
         StringBuilder sb = new StringBuilder();
@@ -43,11 +44,11 @@ public final class g {
     }
 
     public static String w() {
-        if (Vq == null) {
+        if (Yc == null) {
             return "N/A";
         }
         try {
-            return ((int) ((Vq.getIntExtra("level", 0) * 100.0f) / Vq.getIntExtra("scale", 100))) + "%";
+            return ((int) ((Yc.getIntExtra("level", 0) * 100.0f) / Yc.getIntExtra(DaScale.ACTION_TYPE, 100))) + "%";
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.f("Get Battery Error!", e);
             return "N/A";

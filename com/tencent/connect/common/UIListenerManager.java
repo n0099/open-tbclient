@@ -1,6 +1,8 @@
 package com.tencent.connect.common;
 
 import android.content.Intent;
+import com.baidu.searchbox.ng.ai.apps.statistic.AiAppsUBCStatistic;
+import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import com.tencent.open.a.f;
 import com.tencent.open.utils.h;
 import com.tencent.open.utils.j;
@@ -11,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class UIListenerManager {
     private static UIListenerManager a = null;
     private Map<String, ApiTask> b;
@@ -117,9 +119,9 @@ public class UIListenerManager {
         } else if ("action_share".equals(stringExtra)) {
             String stringExtra3 = intent.getStringExtra("result");
             String stringExtra4 = intent.getStringExtra("response");
-            if ("cancel".equals(stringExtra3)) {
+            if (AiAppsUBCStatistic.VALUE_CANCEL.equals(stringExtra3)) {
                 iUiListener.onCancel();
-            } else if ("error".equals(stringExtra3)) {
+            } else if (AiAppsTouchHelper.TouchEventName.TOUCH_ERROR.equals(stringExtra3)) {
                 iUiListener.onError(new UiError(-6, "unknown error", stringExtra4 + ""));
             } else if ("complete".equals(stringExtra3)) {
                 try {
@@ -183,9 +185,9 @@ public class UIListenerManager {
             } else if ("action_share".equals(stringExtra)) {
                 String stringExtra3 = intent.getStringExtra("result");
                 String stringExtra4 = intent.getStringExtra("response");
-                if ("cancel".equals(stringExtra3)) {
+                if (AiAppsUBCStatistic.VALUE_CANCEL.equals(stringExtra3)) {
                     iUiListener2.onCancel();
-                } else if ("error".equals(stringExtra3)) {
+                } else if (AiAppsTouchHelper.TouchEventName.TOUCH_ERROR.equals(stringExtra3)) {
                     iUiListener2.onError(new UiError(-6, "unknown error", stringExtra4 + ""));
                 } else if ("complete".equals(stringExtra3)) {
                     try {
@@ -218,7 +220,7 @@ public class UIListenerManager {
         return true;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public class ApiTask {
         public IUiListener mListener;
         public int mRequestCode;

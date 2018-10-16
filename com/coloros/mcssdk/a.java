@@ -2,7 +2,7 @@ package com.coloros.mcssdk;
 
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.searchbox.ng.ai.apps.network.WebSocketAction;
 import com.coloros.mcssdk.a.d;
 import com.coloros.mcssdk.a.e;
 import com.sina.weibo.sdk.constant.WBConstants;
@@ -11,17 +11,17 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
     private static int count = 0;
-    private List<com.coloros.mcssdk.b.c> hMf;
-    private List<d> hMg;
-    private String hMh;
-    private String hMi;
-    private com.coloros.mcssdk.d.b hMj;
+    private List<com.coloros.mcssdk.b.c> hUZ;
+    private List<d> hVa;
+    private String hVb;
+    private String hVc;
+    private com.coloros.mcssdk.d.b hVd;
     private String mAppKey;
     private Context mContext;
 
     private a() {
-        this.hMf = new ArrayList();
-        this.hMg = new ArrayList();
+        this.hUZ = new ArrayList();
+        this.hVa = new ArrayList();
         synchronized (a.class) {
             if (count > 0) {
                 throw new RuntimeException("PushManager can't create again!");
@@ -43,8 +43,8 @@ public class a {
             intent.setAction("com.coloros.mcssdk.action.RECEIVE_SDK_MESSAGE");
             intent.setPackage("com.coloros.mcs");
             intent.putExtra("type", 12291);
-            intent.putExtra("taskID", aVar.bMx());
-            intent.putExtra("appPackage", aVar.bMy());
+            intent.putExtra(WebSocketAction.PARAM_KEY_TASKID, aVar.bQN());
+            intent.putExtra("appPackage", aVar.bQO());
             intent.putExtra("messageID", new StringBuilder().append(aVar.getMessageID()).toString());
             intent.putExtra("messageType", aVar.getType());
             intent.putExtra("eventID", str);
@@ -61,8 +61,8 @@ public class a {
             intent.setAction("com.coloros.mcssdk.action.RECEIVE_SDK_MESSAGE");
             intent.setPackage("com.coloros.mcs");
             intent.putExtra("type", 12291);
-            intent.putExtra("taskID", dVar.bMx());
-            intent.putExtra("appPackage", dVar.bMy());
+            intent.putExtra(WebSocketAction.PARAM_KEY_TASKID, dVar.bQN());
+            intent.putExtra("appPackage", dVar.bQO());
             intent.putExtra("messageID", new StringBuilder().append(dVar.getMessageID()).toString());
             intent.putExtra("messageType", dVar.getType());
             intent.putExtra("eventID", str);
@@ -74,13 +74,13 @@ public class a {
 
     private synchronized void a(d dVar) {
         if (dVar != null) {
-            this.hMg.add(dVar);
+            this.hVa.add(dVar);
         }
     }
 
     private synchronized void a(com.coloros.mcssdk.b.c cVar) {
         if (cVar != null) {
-            this.hMf.add(cVar);
+            this.hUZ.add(cVar);
         }
     }
 
@@ -89,26 +89,26 @@ public class a {
         intent.setAction("com.coloros.mcssdk.action.RECEIVE_SDK_MESSAGE");
         intent.setPackage("com.coloros.mcs");
         intent.putExtra("type", i);
-        intent.putExtra(LegoListActivityConfig.PARAMS, str);
+        intent.putExtra("params", str);
         intent.putExtra("appPackage", this.mContext.getPackageName());
         intent.putExtra(WBConstants.SSO_APP_KEY, this.mAppKey);
-        intent.putExtra("appSecret", this.hMh);
-        intent.putExtra("registerID", this.hMi);
+        intent.putExtra("appSecret", this.hVb);
+        intent.putExtra("registerID", this.hVc);
         intent.putExtra("sdkVersion", getSDKVersion());
         this.mContext.startService(intent);
     }
 
-    public static a bMu() {
+    public static a bQK() {
         a aVar;
-        aVar = c.hMk;
+        aVar = c.hVe;
         return aVar;
     }
 
-    public static boolean dc(Context context) {
+    public static boolean dp(Context context) {
         return com.coloros.mcssdk.c.d.a(context, "com.coloros.mcs") && com.coloros.mcssdk.c.d.b(context, "com.coloros.mcs") >= 1012 && com.coloros.mcssdk.c.d.a(context, "com.coloros.mcs", "supportOpenPush");
     }
 
-    private void wo(int i) {
+    private void wV(int i) {
         at(i, "");
     }
 
@@ -116,33 +116,33 @@ public class a {
         if (context == null) {
             throw new IllegalArgumentException("context is null !");
         }
-        if (!dc(context)) {
+        if (!dp(context)) {
             throw new IllegalArgumentException("the phone is not support oppo push!");
         }
         this.mAppKey = str;
-        this.hMh = str2;
+        this.hVb = str2;
         this.mContext = context.getApplicationContext();
-        this.hMj = bVar;
-        wo(12289);
+        this.hVd = bVar;
+        wV(12289);
     }
 
-    public List<d> bMs() {
-        return this.hMg;
+    public List<d> bQI() {
+        return this.hVa;
     }
 
-    public List<com.coloros.mcssdk.b.c> bMt() {
-        return this.hMf;
+    public List<com.coloros.mcssdk.b.c> bQJ() {
+        return this.hUZ;
     }
 
-    public com.coloros.mcssdk.d.b bMv() {
-        return this.hMj;
+    public com.coloros.mcssdk.d.b bQL() {
+        return this.hVd;
     }
 
     public String getSDKVersion() {
         return "1.0.1";
     }
 
-    public void xf(String str) {
-        this.hMi = str;
+    public void yf(String str) {
+        this.hVc = str;
     }
 }

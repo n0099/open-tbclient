@@ -2,6 +2,7 @@ package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.ng.ai.apps.scheme.AiAppUnitedSchemeUtilsDispatcher;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Icon;
@@ -54,7 +55,7 @@ public class IconData extends OrmObject implements Serializable {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.icon = jSONObject.optString("icon");
+                this.icon = jSONObject.optString(AiAppUnitedSchemeUtilsDispatcher.PARAM_TOAST_ICON_KEY);
                 this.name = jSONObject.optString("name");
                 this.url = jSONObject.optString("url");
             } catch (Exception e) {

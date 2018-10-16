@@ -19,6 +19,9 @@ import com.baidu.fsg.face.base.b.c;
 import com.baidu.fsg.face.base.d.g;
 import com.baidu.fsg.face.base.d.k;
 import com.baidu.fsg.face.base.d.l;
+import com.baidu.searchbox.ng.ai.apps.media.audio.AiAppsAudioPlayer;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppFileClassifyHelper;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -36,7 +39,7 @@ import java.util.zip.ZipInputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static String a = "UpdateSo";
     protected Context b;
@@ -47,7 +50,7 @@ public class e {
     private b.a g;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(c.a aVar);
 
@@ -185,7 +188,7 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public void c(c cVar) {
         this.c.p = true;
-        String[] strArr = {"application/octet-stream", "*/*", "application/apk", "application/vnd.android.package-archive", "application/zip"};
+        String[] strArr = {"application/octet-stream", "*/*", "application/apk", AiAppFileClassifyHelper.MIME_TYPE_APK, "application/zip"};
         com.baidu.fsg.face.base.d.d.d(a, "loadFileFromExternal onFailure distributedSdk uri:" + cVar.o.b);
         final String str = System.currentTimeMillis() + "";
         final long doDownload = ApollonDownloadManager.getInstance(this.b).doDownload(Environment.DIRECTORY_DOWNLOADS, str + "", cVar.o.b, false, false, false, ".zip");
@@ -552,7 +555,7 @@ public class e {
                             th = th;
                         }
                         if (name.endsWith(PluginInstallerService.APK_LIB_SUFFIX)) {
-                            String str3 = name.substring(name.lastIndexOf("/") + 1, name.lastIndexOf("_")) + PluginInstallerService.APK_LIB_SUFFIX;
+                            String str3 = name.substring(name.lastIndexOf("/") + 1, name.lastIndexOf(BaseRequestAction.SPLITE)) + PluginInstallerService.APK_LIB_SUFFIX;
                             com.baidu.fsg.face.base.d.d.a(a, "unZipApkSoToLibDir(),fileName2:" + str3);
                             File file = new File(str2 + File.separator + str3);
                             if (file.exists()) {
@@ -641,7 +644,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class b {
         public static final String a = "dl_so_zip_version";
         private static final String c = "dl_so_modle_name";
@@ -668,17 +671,17 @@ public class e {
             HashMap hashMap = new HashMap();
             hashMap.put(c, e.this.g.a);
             hashMap.put(a, this.k);
-            hashMap.put(d, this.l ? "1" : "-1");
+            hashMap.put(d, this.l ? "1" : AiAppsAudioPlayer.ERROR_UNKNOWN);
             if (this.l) {
-                hashMap.put(j, this.r ? "1" : "-1");
-                hashMap.put(f, this.n ? "1" : "-1");
+                hashMap.put(j, this.r ? "1" : AiAppsAudioPlayer.ERROR_UNKNOWN);
+                hashMap.put(f, this.n ? "1" : AiAppsAudioPlayer.ERROR_UNKNOWN);
             }
             if (this.r) {
-                hashMap.put(i, this.o ? "1" : "-1");
+                hashMap.put(i, this.o ? "1" : AiAppsAudioPlayer.ERROR_UNKNOWN);
             }
             if (this.n) {
-                hashMap.put(g, this.p ? "1" : "-1");
-                hashMap.put(e, this.m ? "1" : "-1");
+                hashMap.put(g, this.p ? "1" : AiAppsAudioPlayer.ERROR_UNKNOWN);
+                hashMap.put(e, this.m ? "1" : AiAppsAudioPlayer.ERROR_UNKNOWN);
             }
             hashMap.put(h, this.q);
             return hashMap;

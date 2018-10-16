@@ -7,19 +7,19 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class d implements ae {
     private String avatar;
-    private int bDP;
-    private int cQM;
+    private int bMu;
+    private int cZc;
     private String errorMsg;
     private int forumId;
     private String forumName;
-    private int gLY;
-    private int gLZ;
-    private int gMa;
-    private boolean gMb;
-    private boolean gMc;
-    private boolean gMd;
-    private boolean gMe;
-    private int gMf;
+    private boolean gTA;
+    private boolean gTB;
+    private int gTC;
+    private int gTv;
+    private int gTw;
+    private int gTx;
+    private boolean gTy;
+    private boolean gTz;
 
     public int getForumId() {
         return this.forumId;
@@ -33,82 +33,82 @@ public class d implements ae {
         return this.avatar;
     }
 
-    public int bve() {
-        return this.gLY;
+    public int byt() {
+        return this.gTv;
     }
 
-    public int bvf() {
-        return this.bDP;
+    public int byu() {
+        return this.bMu;
     }
 
-    public int bvg() {
-        return this.cQM;
+    public int byv() {
+        return this.cZc;
     }
 
-    public int bvh() {
-        return this.gLZ;
+    public int byw() {
+        return this.gTw;
     }
 
-    public int bvi() {
-        return this.gMa;
+    public int byx() {
+        return this.gTx;
     }
 
-    public void tI(int i) {
-        this.gLY = i;
+    public void uf(int i) {
+        this.gTv = i;
     }
 
-    public void tJ(int i) {
-        this.bDP = i;
+    public void ug(int i) {
+        this.bMu = i;
     }
 
-    public void tK(int i) {
-        this.cQM = i;
+    public void uh(int i) {
+        this.cZc = i;
     }
 
-    public boolean VN() {
-        return this.gMb;
+    public boolean Zu() {
+        return this.gTy;
     }
 
-    public void mA(boolean z) {
-        this.gMb = z;
-        this.gLY = 1;
+    public void mS(boolean z) {
+        this.gTy = z;
+        this.gTv = 1;
     }
 
-    public boolean bvj() {
-        return this.gMd;
+    public boolean byy() {
+        return this.gTA;
     }
 
-    public void mB(boolean z) {
-        this.gMd = z;
-        this.gLY = 0;
+    public void mT(boolean z) {
+        this.gTA = z;
+        this.gTv = 0;
     }
 
-    public boolean bvk() {
-        return this.gMe;
+    public boolean byz() {
+        return this.gTB;
     }
 
-    public void mC(boolean z) {
-        this.gMe = z;
+    public void mU(boolean z) {
+        this.gTB = z;
     }
 
-    public int bvl() {
-        return this.gMf;
+    public int byA() {
+        return this.gTC;
     }
 
-    public void tL(int i) {
-        this.gMf = i;
+    public void ui(int i) {
+        this.gTC = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean bvm() {
-        return this.gMc;
+    public boolean byB() {
+        return this.gTz;
     }
 
-    public void mD(boolean z) {
-        this.gMc = z;
+    public void mV(boolean z) {
+        this.gTz = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -116,14 +116,14 @@ public class d implements ae {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString("avatar");
-            this.gLY = jSONObject.optInt("is_sign_in");
-            this.bDP = jSONObject.optInt("cont_sign_num");
-            this.cQM = jSONObject.optInt("user_level");
-            this.gLZ = jSONObject.optInt("user_exp");
-            this.gMa = jSONObject.optInt("need_exp");
-            if (this.gLY != 0) {
-                this.gMb = true;
-                this.gMd = false;
+            this.gTv = jSONObject.optInt("is_sign_in");
+            this.bMu = jSONObject.optInt("cont_sign_num");
+            this.cZc = jSONObject.optInt("user_level");
+            this.gTw = jSONObject.optInt("user_exp");
+            this.gTx = jSONObject.optInt("need_exp");
+            if (this.gTv != 0) {
+                this.gTy = true;
+                this.gTA = false;
             }
         }
     }

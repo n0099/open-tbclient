@@ -33,10 +33,10 @@ public class ARPaddleHelper implements a {
 
         public void onResult(FloatMatrix floatMatrix) {
             if (ARPaddleHelper.this.d != null) {
-                a.C0033a c0033a = new a.C0033a();
+                a.C0036a c0036a = new a.C0036a();
                 if (floatMatrix != null) {
-                    c0033a.a(floatMatrix.data, floatMatrix.width, floatMatrix.height);
-                    ARPaddleHelper.this.d.a(c0033a);
+                    c0036a.a(floatMatrix.data, floatMatrix.width, floatMatrix.height);
+                    ARPaddleHelper.this.d.a(c0036a);
                 }
             }
         }
@@ -77,12 +77,12 @@ public class ARPaddleHelper implements a {
     }
 
     @Override // com.baidu.ar.algo.a.a.a
-    public a.C0033a predictForFloatMatrix(float[] fArr, int i, int i2, int i3) {
+    public a.C0036a predictForFloatMatrix(float[] fArr, int i, int i2, int i3) {
         FloatMatrix predictForFloatMatrix = this.a.predictForFloatMatrix(fArr, i, i2, i3);
         if (predictForFloatMatrix != null) {
-            a.C0033a c0033a = new a.C0033a();
-            c0033a.a(predictForFloatMatrix.data, predictForFloatMatrix.width, predictForFloatMatrix.height);
-            return c0033a;
+            a.C0036a c0036a = new a.C0036a();
+            c0036a.a(predictForFloatMatrix.data, predictForFloatMatrix.width, predictForFloatMatrix.height);
+            return c0036a;
         }
         return null;
     }

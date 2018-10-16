@@ -2,8 +2,8 @@ package com.xiaomi.smack;
 
 import android.os.SystemClock;
 import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
+import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import com.xiaomi.network.Fallback;
 import com.xiaomi.network.Host;
@@ -242,7 +242,7 @@ public abstract class h extends a {
             this.f = address[0] & 255;
             this.f |= (address[1] << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK;
             this.f |= (address[2] << 16) & 16711680;
-            this.f = ((address[3] << 24) & ViewCompat.MEASURED_STATE_MASK) | this.f;
+            this.f = ((address[3] << 24) & (-16777216)) | this.f;
         } catch (UnknownHostException e) {
         }
         return fallbacksByHost;
@@ -266,7 +266,7 @@ public abstract class h extends a {
         if (z) {
             return;
         }
-        this.r.a(new i(this, 13, currentTimeMillis), 10000L);
+        this.r.a(new i(this, 13, currentTimeMillis), ErrDef.Feature.WEIGHT);
     }
 
     public void c(int i, Exception exc) {

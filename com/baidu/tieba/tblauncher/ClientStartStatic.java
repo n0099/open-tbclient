@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.x;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class ClientStartStatic {
     static {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
             new a().execute(new Void[0]);
             MessageManager.getInstance().registerListener(new CustomMessageListener(2001011) { // from class: com.baidu.tieba.tblauncher.ClientStartStatic.1
-                private long ehb;
+                private long mTimeStamp;
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
@@ -26,20 +26,20 @@ public class ClientStartStatic {
                     Boolean data;
                     if ((customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null) {
                         if (data.booleanValue()) {
-                            this.ehb = SystemClock.elapsedRealtime();
+                            this.mTimeStamp = SystemClock.elapsedRealtime();
                             return;
                         }
-                        if (SystemClock.elapsedRealtime() - this.ehb > StatisticConfig.MIN_UPLOAD_INTERVAL) {
+                        if (SystemClock.elapsedRealtime() - this.mTimeStamp > StatisticConfig.MIN_UPLOAD_INTERVAL) {
                             new a().execute(new Void[0]);
                         }
-                        TiebaStatic.log(new am("c11894").w("obj_param1", 1));
+                        TiebaStatic.log(new am("c11894").x("obj_param1", 1));
                     }
                 }
             });
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public static class a extends BdAsyncTask<Void, Void, Void> {
         private a() {
             setPriority(1);
@@ -50,8 +50,8 @@ public class ClientStartStatic {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
             x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.STAT_CLIENT_START);
-            xVar.u("type", "1");
-            xVar.zt();
+            xVar.x("type", "1");
+            xVar.BA();
             return null;
         }
     }

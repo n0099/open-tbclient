@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.k;
+import com.baidu.searchbox.ng.ai.apps.canvas.action.draw.DaRotate;
 import com.baidu.tbadk.album.MediaFileInfo;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.img.ImageUploadResult;
@@ -42,7 +43,7 @@ public class ImageFileInfo extends MediaFileInfo {
                 StringBuilder sb = new StringBuilder();
                 sb.append("persist_");
                 sb.append(this.filePath);
-                if (v.y(this.persistActionsList) > 0) {
+                if (v.I(this.persistActionsList) > 0) {
                     Iterator<ImageOperation> it = this.persistActionsList.iterator();
                     while (it.hasNext()) {
                         ImageOperation next = it.next();
@@ -51,7 +52,7 @@ public class ImageFileInfo extends MediaFileInfo {
                         }
                     }
                 }
-                if (v.y(this.pageActionsList) > 0) {
+                if (v.I(this.pageActionsList) > 0) {
                     Iterator<ImageOperation> it2 = this.pageActionsList.iterator();
                     while (it2.hasNext()) {
                         ImageOperation next2 = it2.next();
@@ -336,7 +337,7 @@ public class ImageFileInfo extends MediaFileInfo {
             Iterator<ImageOperation> it = getPageActionsList().iterator();
             while (it.hasNext()) {
                 ImageOperation next = it.next();
-                if ("rotate".equals(next.actionName)) {
+                if (DaRotate.ACTION_TYPE.equals(next.actionName)) {
                     if (imageFileInfo != null) {
                         imageFileInfo.setIsGif(false);
                     }

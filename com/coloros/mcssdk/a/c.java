@@ -20,7 +20,7 @@ public abstract class c implements d {
         }
         com.coloros.mcssdk.c.c.a("MessageParser--getMessageByIntent--type:" + i);
         ArrayList arrayList = new ArrayList();
-        for (d dVar : com.coloros.mcssdk.a.bMu().bMs()) {
+        for (d dVar : com.coloros.mcssdk.a.bQK().bQI()) {
             if (dVar != null && (a = dVar.a(context, i, intent)) != null) {
                 arrayList.add(a);
             }

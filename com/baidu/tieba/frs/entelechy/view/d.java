@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.view.ThreadLinkView;
 import com.baidu.tieba.card.o;
 import com.baidu.tieba.e;
 import com.baidu.tieba.view.k;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class d extends c {
-    private View aAH;
-    private TextView cFr;
-    private ThreadLinkView cFs;
+    private TextView cNL;
+    private ThreadLinkView cNM;
+    private View mMaskView;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -31,20 +31,20 @@ public class d extends c {
     @Override // com.baidu.tieba.frs.entelechy.view.c
     protected void av(View view) {
         if (view != null) {
-            this.cFs = (ThreadLinkView) view.findViewById(e.g.link_thread_root);
-            this.cFs.setTag(getTag());
-            this.cFr = (TextView) view.findViewById(e.g.card_home_page_normal_thread_title);
-            this.aAH = view.findViewById(e.g.thread_multi_del_mask_view);
-            this.bND.setOnSelectStatusChangeListener(new ThreadCommentAndPraiseInfoLayout.a() { // from class: com.baidu.tieba.frs.entelechy.view.d.1
+            this.cNM = (ThreadLinkView) view.findViewById(e.g.link_thread_root);
+            this.cNM.setTag(getTag());
+            this.cNL = (TextView) view.findViewById(e.g.card_home_page_normal_thread_title);
+            this.mMaskView = view.findViewById(e.g.thread_multi_del_mask_view);
+            this.bWf.setOnSelectStatusChangeListener(new ThreadCommentAndPraiseInfoLayout.a() { // from class: com.baidu.tieba.frs.entelechy.view.d.1
                 @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.a
-                public void bh(boolean z) {
-                    al.j(d.this.aAH, z ? e.d.cp_bg_line_d : e.d.transparent);
+                public void br(boolean z) {
+                    al.j(d.this.mMaskView, z ? e.d.cp_bg_line_d : e.d.transparent);
                 }
             });
-            this.aAH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.d.2
+            this.mMaskView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.d.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    d.this.bND.changeSelectStatus();
+                    d.this.bWf.changeSelectStatus();
                 }
             });
         }
@@ -56,69 +56,69 @@ public class d extends c {
     public void a(bb bbVar) {
         if (bbVar != null) {
             super.a(bbVar);
-            if ((StringUtils.isNull(bbVar.getTitle()) && (bbVar.wk() == null || bbVar.wk().size() == 0)) || bbVar.wC() == 1) {
+            if ((StringUtils.isNull(bbVar.getTitle()) && (bbVar.yt() == null || bbVar.yt().size() == 0)) || bbVar.yL() == 1) {
                 bbVar.g(false, true);
-                if (bbVar.wM() == null || StringUtils.isNull(bbVar.wM().toString())) {
-                    this.cFr.setVisibility(8);
+                if (bbVar.yV() == null || StringUtils.isNull(bbVar.yV().toString())) {
+                    this.cNL.setVisibility(8);
                 } else {
-                    this.cFr.setVisibility(0);
-                    this.cFr.setText(bbVar.wM());
+                    this.cNL.setVisibility(0);
+                    this.cNL.setText(bbVar.yV());
                 }
             } else {
-                this.cFr.setVisibility(0);
-                bbVar.akp = 0;
-                bbVar.g(false, bbVar.xi());
-                SpannableStringBuilder wM = bbVar.wM();
-                this.cFr.setOnTouchListener(new k(wM));
-                this.cFr.setText(wM);
-                o.a(this.cFr, bbVar.getId(), e.d.cp_cont_b, e.d.cp_cont_d);
+                this.cNL.setVisibility(0);
+                bbVar.apk = 0;
+                bbVar.g(false, bbVar.zr());
+                SpannableStringBuilder yV = bbVar.yV();
+                this.cNL.setOnTouchListener(new k(yV));
+                this.cNL.setText(yV);
+                o.a(this.cNL, bbVar.getId(), e.d.cp_cont_b, e.d.cp_cont_d);
             }
-            this.cFs.setData(this.awf);
-            if (this.bND.isInFrsAllThread() && com.baidu.tieba.frs.a.avq().avr()) {
-                this.aAH.setVisibility(0);
-                if (this.awf.xN() || this.awf.xO()) {
-                    al.j(this.aAH, e.d.cp_bg_line_d);
+            this.cNM.setData(this.aAQ);
+            if (this.bWf.isInFrsAllThread() && com.baidu.tieba.frs.a.ayM().ayN()) {
+                this.mMaskView.setVisibility(0);
+                if (this.aAQ.zW() || this.aAQ.zX()) {
+                    al.j(this.mMaskView, e.d.cp_bg_line_d);
                     return;
                 } else {
-                    this.aAH.setBackgroundResource(e.d.transparent);
+                    this.mMaskView.setBackgroundResource(e.d.transparent);
                     return;
                 }
             }
-            this.aAH.setVisibility(8);
+            this.mMaskView.setVisibility(8);
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.c, com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         super.d(tbPageContext, i);
-        this.cFs.onChangeSkinType();
+        this.cNM.onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.entelechy.view.c
-    public void akr() {
-        super.akr();
-        o.a(this.cFr, this.awf.getId(), e.d.cp_cont_b, e.d.cp_cont_d);
-        this.cFs.fL(this.awf.getId());
+    public void anT() {
+        super.anT();
+        o.a(this.cNL, this.aAQ.getId(), e.d.cp_cont_b, e.d.cp_cont_d);
+        this.cNM.fZ(this.aAQ.getId());
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.c, com.baidu.tieba.card.ab
-    public void hK(int i) {
+    public void ii(int i) {
         this.currentPageType = i;
-        if (this.bND != null) {
-            this.bND.amD = i;
+        if (this.bWf != null) {
+            this.bWf.ary = i;
             if (i == 15) {
-                this.bND.setFrom(10);
+                this.bWf.setFrom(10);
             } else {
-                this.bND.setFrom(2);
-                this.bND.setDisPraiseFrom(2);
+                this.bWf.setFrom(2);
+                this.bWf.setDisPraiseFrom(2);
             }
         }
-        if (this.bNC != null) {
+        if (this.bWe != null) {
             if (i == 15) {
-                this.bNC.setFrom(5);
+                this.bWe.setFrom(5);
             } else {
-                this.bNC.setFrom(3);
+                this.bWe.setFrom(3);
             }
         }
     }

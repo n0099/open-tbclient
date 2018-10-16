@@ -1,41 +1,41 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.sapi2.views.SmsLoginView;
+import com.baidu.searchbox.ng.ai.apps.statistic.AiAppsUBCStatistic;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.bb;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.v;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class k extends c {
     public bb threadData;
-    public static String cHM = "";
-    public static String cHN = "";
-    public static String cHO = "";
-    public static String cHP = "";
-    public static String cHQ = "";
-    public static String cHR = "";
-    public static String cHS = "";
-    public static String cHT = "";
-    public static String cHU = "";
-    public static String cHV = "";
-    public static String cHW = "";
+    public static String cQf = "";
+    public static String cQg = "";
+    public static String cQh = "";
+    public static String cQi = "";
+    public static String cQj = "";
+    public static String cQk = "";
+    public static String cQl = "";
+    public static String cQm = "";
+    public static String cQn = "";
+    public static String cQo = "";
+    public static String cQp = "";
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId cHX = BdUniqueId.gen();
-    public static final BdUniqueId ajY = BdUniqueId.gen();
-    public static final BdUniqueId ake = BdUniqueId.gen();
-    public static final BdUniqueId cHY = BdUniqueId.gen();
-    public boolean cHZ = false;
+    public static final BdUniqueId cQq = BdUniqueId.gen();
+    public static final BdUniqueId aoT = BdUniqueId.gen();
+    public static final BdUniqueId aoZ = BdUniqueId.gen();
+    public static final BdUniqueId cQr = BdUniqueId.gen();
+    public boolean cQs = false;
     public boolean isLinkThread = false;
-    public boolean cIa = false;
-    public boolean aQN = true;
+    public boolean cQt = false;
+    public boolean aVo = true;
 
     public static boolean S(bb bbVar) {
         if (bbVar == null) {
             return false;
         }
-        return bbVar.getType() == bb.ajX || bbVar.getType() == bb.ajZ || bbVar.getType() == bb.ajY || bbVar.getType() == bb.ake || bbVar.getType() == bb.akg;
+        return bbVar.getType() == bb.aoS || bbVar.getType() == bb.aoU || bbVar.getType() == bb.aoT || bbVar.getType() == bb.aoZ || bbVar.getType() == bb.apb;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
@@ -43,185 +43,185 @@ public class k extends c {
         if (this.threadData == null) {
             return TYPE;
         }
-        if (this.cHZ) {
-            return cHX;
+        if (this.cQs) {
+            return cQq;
         }
         if (this.isLinkThread) {
-            return ajY;
+            return aoT;
         }
         if (this.threadData.isShareThread) {
-            return ake;
+            return aoZ;
         }
-        if (this.threadData.getType() == bb.akg) {
-            return cHY;
+        if (this.threadData.getType() == bb.apb) {
+            return cQr;
         }
         return TYPE;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bb UT() {
+    public bb YA() {
         if (this.threadData == null) {
             return this.threadData;
         }
-        if (this.threadData.wb() == 5) {
+        if (this.threadData.yk() == 5) {
             return this.threadData;
         }
         this.threadData.setResource(1);
         return this.threadData;
     }
 
-    public boolean alg() {
-        return (this.threadData == null || v.y(this.threadData.wB()) == 0) ? false : true;
+    public boolean aoI() {
+        return (this.threadData == null || v.I(this.threadData.yK()) == 0) ? false : true;
     }
 
-    public am alh() {
-        bb UT;
-        if (this.cHZ) {
+    public am aoJ() {
+        bb YA;
+        if (this.cQs) {
             am amVar = new am("c11003");
-            if (UT() != null && (UT = UT()) != null) {
-                amVar.al("tid", UT.getTid());
-                if (UT.wm() != null) {
-                    amVar.w("ab_type", UT.wm().hadConcerned() ? 1 : 0);
+            if (YA() != null && (YA = YA()) != null) {
+                amVar.ax("tid", YA.getTid());
+                if (YA.yv() != null) {
+                    amVar.x("ab_type", YA.yv().hadConcerned() ? 1 : 0);
                 }
             }
             return amVar;
-        } else if (alg()) {
-            am lG = lG(cHR);
-            if (lG != null && UT() != null) {
-                bb UT2 = UT();
-                lG.w("obj_name", UT2.xD() != null && (UT2.xD().byO() != null || UT2.xD().OX() != null) ? 1 : 0);
-                if (UT2.wm() != null) {
-                    lG.w("ab_type", UT2.wm().hadConcerned() ? 1 : 0);
+        } else if (aoI()) {
+            am mi = mi(cQk);
+            if (mi != null && YA() != null) {
+                bb YA2 = YA();
+                mi.x("obj_name", YA2.zM() != null && (YA2.zM().bCd() != null || YA2.zM().QS() != null) ? 1 : 0);
+                if (YA2.yv() != null) {
+                    mi.x("ab_type", YA2.yv().hadConcerned() ? 1 : 0);
                 }
             }
-            return lG;
+            return mi;
         } else {
-            am lG2 = lG(cHM);
-            if (lG2 != null) {
-                lG2.al("ab_tag", akY()).al("ab_action", SmsLoginView.StatEvent.LOGIN_SHOW);
-                if (UT() != null) {
-                    bb UT3 = UT();
-                    boolean z = (UT3.xD() == null || (UT3.xD().byO() == null && UT3.xD().OX() == null)) ? false : true;
-                    lG2.w("obj_name", z ? 1 : 0);
-                    if (z && UT3.xD().byO() != null && UT3.xD().byO().OP() != null && UT3.xD().byO().OP().size() > 0) {
-                        lG2.w("obj_to", UT3.xD().gWf ? 2 : 1);
+            am mi2 = mi(cQf);
+            if (mi2 != null) {
+                mi2.ax("ab_tag", aoA()).ax("ab_action", "show");
+                if (YA() != null) {
+                    bb YA3 = YA();
+                    boolean z = (YA3.zM() == null || (YA3.zM().bCd() == null && YA3.zM().QS() == null)) ? false : true;
+                    mi2.x("obj_name", z ? 1 : 0);
+                    if (z && YA3.zM().bCd() != null && YA3.zM().bCd().QK() != null && YA3.zM().bCd().QK().size() > 0) {
+                        mi2.x("obj_to", YA3.zM().hdA ? 2 : 1);
                     }
-                    if (UT3.wm() != null) {
-                        lG2.w("ab_type", UT3.wm().hadConcerned() ? 1 : 0);
+                    if (YA3.yv() != null) {
+                        mi2.x("ab_type", YA3.yv().hadConcerned() ? 1 : 0);
                     }
                 }
             }
-            return lG2;
+            return mi2;
         }
     }
 
-    public am lI(String str) {
+    public am mk(String str) {
         int i;
         am amVar = new am(str);
         if (amVar != null && this.threadData != null) {
-            amVar.g(ImageViewerConfig.FORUM_ID, this.threadData.getFid());
-            amVar.al("tid", this.threadData.getTid());
+            amVar.h(ImageViewerConfig.FORUM_ID, this.threadData.getFid());
+            amVar.ax("tid", this.threadData.getTid());
             if (this.threadData.isLinkThread()) {
                 i = 4;
             } else {
                 i = this.threadData.isShareThread ? 5 : 1;
             }
-            amVar.w("obj_type", i);
-            amVar.al(VideoPlayActivityConfig.OBJ_ID, this.threadData.wm().getUserId());
-            amVar.w("obj_param1", alc() ? 2 : 1);
+            amVar.x("obj_type", i);
+            amVar.ax(VideoPlayActivityConfig.OBJ_ID, this.threadData.yv().getUserId());
+            amVar.x("obj_param1", aoE() ? 2 : 1);
         }
         return amVar;
     }
 
-    public am lJ(String str) {
-        am lG = lG(str);
-        if (lG != null) {
-            lG.al("ab_tag", akY()).al("ab_action", SmsLoginView.StatEvent.LOGIN_SHOW);
-            if (UT() != null) {
-                bb UT = UT();
-                boolean z = (UT.xD() == null || (UT.xD().byO() == null && UT.xD().OX() == null)) ? false : true;
-                lG.w("obj_name", z ? 1 : 0);
-                if (z && UT.xD().byO() != null && UT.xD().byO().OP() != null && UT.xD().byO().OP().size() > 0) {
-                    lG.w("obj_to", UT.xD().gWf ? 2 : 1);
+    public am ml(String str) {
+        am mi = mi(str);
+        if (mi != null) {
+            mi.ax("ab_tag", aoA()).ax("ab_action", "show");
+            if (YA() != null) {
+                bb YA = YA();
+                boolean z = (YA.zM() == null || (YA.zM().bCd() == null && YA.zM().QS() == null)) ? false : true;
+                mi.x("obj_name", z ? 1 : 0);
+                if (z && YA.zM().bCd() != null && YA.zM().bCd().QK() != null && YA.zM().bCd().QK().size() > 0) {
+                    mi.x("obj_to", YA.zM().hdA ? 2 : 1);
                 }
             }
         }
-        return lG;
+        return mi;
     }
 
-    public am lK(String str) {
-        am lG = lG(str);
-        if (lG != null) {
-            lG.al("ab_tag", akY()).al("ab_action", "click");
+    public am mm(String str) {
+        am mi = mi(str);
+        if (mi != null) {
+            mi.ax("ab_tag", aoA()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
         }
-        return lG;
+        return mi;
     }
 
-    public am ali() {
-        if (alg()) {
-            return lG(cHS);
+    public am aoK() {
+        if (aoI()) {
+            return mi(cQl);
         }
-        am lG = lG(cHN);
-        if (lG != null) {
-            lG.al("ab_tag", akY()).al("ab_action", "click");
-            return lG;
+        am mi = mi(cQg);
+        if (mi != null) {
+            mi.ax("ab_tag", aoA()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
+            return mi;
         }
-        return lG;
+        return mi;
     }
 
-    public am alj() {
-        if (alg()) {
-            return lG(cHT);
+    public am aoL() {
+        if (aoI()) {
+            return mi(cQm);
         }
-        am V = V(cHO, 0);
-        if (V != null) {
-            V.al("ab_tag", akY()).al("ab_action", "click");
-            return V;
+        am Z = Z(cQh, 0);
+        if (Z != null) {
+            Z.ax("ab_tag", aoA()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
+            return Z;
         }
-        return V;
+        return Z;
     }
 
-    public am alk() {
-        if (alg()) {
-            return lG(cHU);
+    public am aoM() {
+        if (aoI()) {
+            return mi(cQn);
         }
-        am lG = lG(cHP);
-        if (lG != null) {
-            lG.al("ab_tag", akY()).al("ab_action", "click");
-            return lG;
+        am mi = mi(cQi);
+        if (mi != null) {
+            mi.ax("ab_tag", aoA()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
+            return mi;
         }
-        return lG;
+        return mi;
     }
 
-    public am all() {
-        if (alg()) {
-            return lG(cHV);
+    public am aoN() {
+        if (aoI()) {
+            return mi(cQo);
         }
-        am lG = lG(cHQ);
-        if (lG != null) {
-            lG.al("ab_tag", akY()).al("ab_action", "click");
-            return lG;
+        am mi = mi(cQj);
+        if (mi != null) {
+            mi.ax("ab_tag", aoA()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
+            return mi;
         }
-        return lG;
+        return mi;
     }
 
-    public am alm() {
-        return lG(cHW);
+    public am aoO() {
+        return mi(cQp);
     }
 
-    public am lL(String str) {
-        return lG(str);
+    public am mn(String str) {
+        return mi(str);
     }
 
-    public am lM(String str) {
-        am lG = lG(str);
-        if (this.threadData != null && this.threadData.wm() != null) {
-            lG.w("ab_type", this.threadData.wm().hadConcerned() ? 1 : 0);
+    public am mo(String str) {
+        am mi = mi(str);
+        if (this.threadData != null && this.threadData.yv() != null) {
+            mi.x("ab_type", this.threadData.yv().hadConcerned() ? 1 : 0);
         }
-        return lG;
+        return mi;
     }
 
-    public am lN(String str) {
-        return lG(str);
+    public am mp(String str) {
+        return mi(str);
     }
 }

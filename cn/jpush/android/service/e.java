@@ -11,8 +11,8 @@ import cn.jpush.android.a.k;
 import cn.jpush.android.a.n;
 import cn.jpush.android.api.JThirdPlatFormInterface;
 import cn.jpush.android.data.JPushLocalNotification;
+import com.baidu.searchbox.ng.ai.apps.event.message.AiAppsLifecycleMessage;
 import com.baidu.tieba.ala.ALaKeepAliveService;
-import com.tencent.tauth.AuthActivity;
 /* loaded from: classes3.dex */
 public final class e {
     private static e b;
@@ -30,7 +30,7 @@ public final class e {
     }
 
     public static void a(Context context, Bundle bundle, String str) {
-        bundle.putString(AuthActivity.ACTION_KEY, b(context) + "." + str);
+        bundle.putString("action", b(context) + "." + str);
     }
 
     private static String b(Context context) {
@@ -48,7 +48,7 @@ public final class e {
     public final void a(Bundle bundle, Handler handler) {
         String string;
         cn.jpush.android.d.f.a("PushServiceCore", "bundle:" + (bundle != null ? bundle.toString() : ""));
-        if (bundle == null || (string = bundle.getString(AuthActivity.ACTION_KEY)) == null) {
+        if (bundle == null || (string = bundle.getString("action")) == null) {
             return;
         }
         cn.jpush.android.d.f.a("PushServiceCore", "Action - handleServiceAction - action:" + string);
@@ -104,7 +104,7 @@ public final class e {
                 g.a().a(this.a, bundle);
             }
         } else {
-            String string2 = bundle.getString("appId");
+            String string2 = bundle.getString(AiAppsLifecycleMessage.APP_ID_KEY);
             String string3 = bundle.getString("senderId");
             String string4 = bundle.getString("JMessageExtra");
             byte b2 = bundle.getByte("platform");

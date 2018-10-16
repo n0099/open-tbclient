@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes2.dex */
@@ -506,12 +507,12 @@ public class LinearLayoutCompat extends ViewGroup {
                             if (measuredHeight2 < 0) {
                                 measuredHeight2 = 0;
                             }
-                            virtualChildAt3.measure(childMeasureSpec, View.MeasureSpec.makeMeasureSpec(measuredHeight2, 1073741824));
+                            virtualChildAt3.measure(childMeasureSpec, View.MeasureSpec.makeMeasureSpec(measuredHeight2, AiAppsFileUtils.GB));
                         } else {
                             if (i35 <= 0) {
                                 i35 = 0;
                             }
-                            virtualChildAt3.measure(childMeasureSpec, View.MeasureSpec.makeMeasureSpec(i35, 1073741824));
+                            virtualChildAt3.measure(childMeasureSpec, View.MeasureSpec.makeMeasureSpec(i35, AiAppsFileUtils.GB));
                         }
                         i5 = i36;
                         i6 = View.combineMeasuredStates(i32, virtualChildAt3.getMeasuredState() & InputDeviceCompat.SOURCE_ANY);
@@ -560,7 +561,7 @@ public class LinearLayoutCompat extends ViewGroup {
                     }
                     View virtualChildAt4 = getVirtualChildAt(i40);
                     if (virtualChildAt4 != null && virtualChildAt4.getVisibility() != 8 && ((LayoutParams) virtualChildAt4.getLayoutParams()).weight > 0.0f) {
-                        virtualChildAt4.measure(View.MeasureSpec.makeMeasureSpec(virtualChildAt4.getMeasuredWidth(), 1073741824), View.MeasureSpec.makeMeasureSpec(i20, 1073741824));
+                        virtualChildAt4.measure(View.MeasureSpec.makeMeasureSpec(virtualChildAt4.getMeasuredWidth(), AiAppsFileUtils.GB), View.MeasureSpec.makeMeasureSpec(i20, AiAppsFileUtils.GB));
                     }
                     i39 = i40 + 1;
                 }
@@ -578,7 +579,7 @@ public class LinearLayoutCompat extends ViewGroup {
     }
 
     private void forceUniformWidth(int i, int i2) {
-        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(getMeasuredWidth(), 1073741824);
+        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(getMeasuredWidth(), AiAppsFileUtils.GB);
         for (int i3 = 0; i3 < i; i3++) {
             View virtualChildAt = getVirtualChildAt(i3);
             if (virtualChildAt.getVisibility() != 8) {
@@ -827,14 +828,14 @@ public class LinearLayoutCompat extends ViewGroup {
                             if (measuredWidth2 < 0) {
                                 measuredWidth2 = 0;
                             }
-                            virtualChildAt3.measure(View.MeasureSpec.makeMeasureSpec(measuredWidth2, 1073741824), childMeasureSpec);
+                            virtualChildAt3.measure(View.MeasureSpec.makeMeasureSpec(measuredWidth2, AiAppsFileUtils.GB), childMeasureSpec);
                         } else {
                             if (i35 <= 0) {
                                 i35 = 0;
                             }
-                            virtualChildAt3.measure(View.MeasureSpec.makeMeasureSpec(i35, 1073741824), childMeasureSpec);
+                            virtualChildAt3.measure(View.MeasureSpec.makeMeasureSpec(i35, AiAppsFileUtils.GB), childMeasureSpec);
                         }
-                        i9 = View.combineMeasuredStates(i32, virtualChildAt3.getMeasuredState() & ViewCompat.MEASURED_STATE_MASK);
+                        i9 = View.combineMeasuredStates(i32, virtualChildAt3.getMeasuredState() & (-16777216));
                         f2 = f7;
                     } else {
                         i8 = i33;
@@ -891,7 +892,7 @@ public class LinearLayoutCompat extends ViewGroup {
                     }
                     View virtualChildAt4 = getVirtualChildAt(i40);
                     if (virtualChildAt4 != null && virtualChildAt4.getVisibility() != 8 && ((LayoutParams) virtualChildAt4.getLayoutParams()).weight > 0.0f) {
-                        virtualChildAt4.measure(View.MeasureSpec.makeMeasureSpec(i19, 1073741824), View.MeasureSpec.makeMeasureSpec(virtualChildAt4.getMeasuredHeight(), 1073741824));
+                        virtualChildAt4.measure(View.MeasureSpec.makeMeasureSpec(i19, AiAppsFileUtils.GB), View.MeasureSpec.makeMeasureSpec(virtualChildAt4.getMeasuredHeight(), AiAppsFileUtils.GB));
                     }
                     i39 = i40 + 1;
                 }
@@ -909,7 +910,7 @@ public class LinearLayoutCompat extends ViewGroup {
     }
 
     private void forceUniformHeight(int i, int i2) {
-        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(getMeasuredHeight(), 1073741824);
+        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(getMeasuredHeight(), AiAppsFileUtils.GB);
         for (int i3 = 0; i3 < i; i3++) {
             View virtualChildAt = getVirtualChildAt(i3);
             if (virtualChildAt.getVisibility() != 8) {

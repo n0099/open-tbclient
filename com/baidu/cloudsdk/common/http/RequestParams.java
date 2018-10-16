@@ -1,6 +1,7 @@
 package com.baidu.cloudsdk.common.http;
 
 import android.text.TextUtils;
+import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,7 +13,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class RequestParams {
     protected static final String ENCODING = "UTF-8";
     protected HashMap<String, String> mParams;
@@ -90,13 +91,13 @@ public class RequestParams {
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, String> entry : this.mParams.entrySet()) {
             if (sb.length() > 0) {
-                sb.append("&");
+                sb.append(ETAG.ITEM_SEPARATOR);
             }
-            sb.append(entry.getKey()).append("=").append(entry.getValue());
+            sb.append(entry.getKey()).append(ETAG.EQUAL).append(entry.getValue());
         }
         for (Map.Entry<String, ArrayList<String>> entry2 : this.mParamsWithArray.entrySet()) {
             if (sb.length() > 0) {
-                sb.append("&");
+                sb.append(ETAG.ITEM_SEPARATOR);
             }
             boolean z = true;
             String key = entry2.getKey();
@@ -105,10 +106,10 @@ public class RequestParams {
                 String next = it.next();
                 if (!TextUtils.isEmpty(next)) {
                     if (!z) {
-                        sb.append("&");
+                        sb.append(ETAG.ITEM_SEPARATOR);
                     }
                     z = false;
-                    sb.append(key).append("=").append(next);
+                    sb.append(key).append(ETAG.EQUAL).append(next);
                 }
             }
         }

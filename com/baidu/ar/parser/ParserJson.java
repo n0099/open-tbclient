@@ -17,6 +17,7 @@ import com.baidu.ar.representation.c;
 import com.baidu.ar.util.ARFileUtils;
 import com.baidu.ar.util.ARLog;
 import com.baidu.ar.util.Constants;
+import com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsNaViewModel;
 import com.coremedia.iso.boxes.TrackReferenceTypeBox;
 import java.io.File;
 import java.util.ArrayList;
@@ -40,7 +41,7 @@ public final class ParserJson {
         }
         int optInt = jSONObject.optInt("ar_type");
         String optString2 = jSONObject.optString(ARResourceKey.THUMBNAIL);
-        String optString3 = jSONObject.optString(ARResourceKey.HTTP_VERSION_CODE);
+        String optString3 = jSONObject.optString("version_code");
         ARResource aRResource = new ARResource();
         aRResource.setKey(optString);
         aRResource.setType(optInt);
@@ -205,8 +206,8 @@ public final class ParserJson {
                 if (jSONObject2.has(ARResourceKey.HTTP_AR_REDIRECT_URL)) {
                     aRResource.setRedirectUrl(jSONObject2.getString(ARResourceKey.HTTP_AR_REDIRECT_URL));
                 }
-                if (jSONObject2.has(ARResourceKey.HTTP_VERSION_CODE)) {
-                    aRResource.setVersionCode(jSONObject2.getString(ARResourceKey.HTTP_VERSION_CODE));
+                if (jSONObject2.has("version_code")) {
+                    aRResource.setVersionCode(jSONObject2.getString("version_code"));
                 }
                 if (jSONObject2.has("ar_type")) {
                     aRResource.setType(Integer.parseInt(jSONObject2.getString("ar_type")));
@@ -406,8 +407,8 @@ public final class ParserJson {
             if (jSONObject.has("place_type")) {
                 eVar.a(jSONObject.getInt("place_type"));
             }
-            if (jSONObject.has("position")) {
-                eVar.b(jSONObject.getString("position"));
+            if (jSONObject.has(AiAppsNaViewModel.KEY_POSITION)) {
+                eVar.b(jSONObject.getString(AiAppsNaViewModel.KEY_POSITION));
             }
             if (jSONObject.has("distance")) {
                 eVar.b(jSONObject.getInt("distance"));

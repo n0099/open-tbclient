@@ -2,6 +2,7 @@ package com.baidu.android.pushservice;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import com.baidu.webkit.internal.GlobalConstants;
 /* loaded from: classes3.dex */
 public final class a {
     private static int a = 0;
@@ -59,6 +60,6 @@ public final class a {
     }
 
     public static boolean d(Context context) {
-        return context.getPackageName().equals("com.baidu.searchbox") && context.getSharedPreferences("com.baidu.pushservice.single_conn", 0).getBoolean("single_enable", false);
+        return context.getPackageName().equals(GlobalConstants.SEARCHBOX_PACKAGE_NAME) && context.getSharedPreferences("com.baidu.pushservice.single_conn", 0).getBoolean("single_enable", false);
     }
 }

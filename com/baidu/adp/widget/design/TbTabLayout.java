@@ -46,6 +46,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
 import java.lang.ref.WeakReference;
@@ -56,13 +57,13 @@ public class TbTabLayout extends HorizontalScrollView {
     private static final int[] APPCOMPAT_CHECK_ATTRS = {R.attr.colorPrimary};
     public static final Interpolator FAST_OUT_SLOW_IN_INTERPOLATOR = new FastOutSlowInInterpolator();
     private static final Pools.Pool<e> sTabPool = new Pools.SynchronizedPool(16);
-    private e Qg;
-    private final d Qh;
-    private b Qi;
-    private b Qj;
-    private TbTabLayoutOnPageChangeListener Qk;
-    private a Ql;
-    private int Qm;
+    private a QA;
+    private int QB;
+    private e Qv;
+    private final d Qw;
+    private b Qx;
+    private b Qy;
+    private TbTabLayoutOnPageChangeListener Qz;
     private int mContentInsetStart;
     int mMode;
     private PagerAdapter mPagerAdapter;
@@ -113,13 +114,13 @@ public class TbTabLayout extends HorizontalScrollView {
         this.mTabViewPool = new Pools.SimplePool(12);
         checkAppCompatTheme(context);
         setHorizontalScrollBarEnabled(false);
-        this.Qh = new d(context);
-        super.addView(this.Qh, 0, new FrameLayout.LayoutParams(-2, -1));
+        this.Qw = new d(context);
+        super.addView(this.Qw, 0, new FrameLayout.LayoutParams(-2, -1));
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, android.support.design.R.styleable.TabLayout, i, android.support.design.R.style.Widget_Design_TabLayout);
         TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, e.l.TbTabLayout);
-        this.Qh.setSelectedIndicatorHeight(obtainStyledAttributes.getDimensionPixelSize(android.support.design.R.styleable.TabLayout_tabIndicatorHeight, 0));
-        this.Qh.bc(obtainStyledAttributes2.getDimensionPixelSize(e.l.TbTabLayout_tabIndicatorWidth, 0));
-        this.Qh.setSelectedIndicatorColor(obtainStyledAttributes.getColor(android.support.design.R.styleable.TabLayout_tabIndicatorColor, 0));
+        this.Qw.setSelectedIndicatorHeight(obtainStyledAttributes.getDimensionPixelSize(android.support.design.R.styleable.TabLayout_tabIndicatorHeight, 0));
+        this.Qw.bc(obtainStyledAttributes2.getDimensionPixelSize(e.l.TbTabLayout_tabIndicatorWidth, 0));
+        this.Qw.setSelectedIndicatorColor(obtainStyledAttributes.getColor(android.support.design.R.styleable.TabLayout_tabIndicatorColor, 0));
         int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(android.support.design.R.styleable.TabLayout_tabPadding, 0);
         this.mTabPaddingBottom = dimensionPixelSize;
         this.mTabPaddingEnd = dimensionPixelSize;
@@ -153,30 +154,30 @@ public class TbTabLayout extends HorizontalScrollView {
             this.mTabTextMultiLineSize = resources.getDimensionPixelSize(android.support.design.R.dimen.design_tab_text_size_2line);
             this.mScrollableTabMinWidth = resources.getDimensionPixelSize(android.support.design.R.dimen.design_tab_scrollable_min_width);
             applyModeAndGravity();
-            oW();
+            pe();
         } catch (Throwable th) {
             obtainStyledAttributes3.recycle();
             throw th;
         }
     }
 
-    private void oW() {
+    private void pe() {
         String str = Build.MODEL;
         if (str.contains("vivo") && str.contains("X20")) {
-            this.Qm = l.h(getContext(), e.C0141e.tbds2);
+            this.QB = l.h(getContext(), e.C0175e.tbds2);
         }
     }
 
     public void setSelectedTabIndicatorColor(@ColorInt int i) {
-        this.Qh.setSelectedIndicatorColor(i);
+        this.Qw.setSelectedIndicatorColor(i);
     }
 
     public void setSelectedTabIndicatorHeight(int i) {
-        this.Qh.setSelectedIndicatorHeight(i);
+        this.Qw.setSelectedIndicatorHeight(i);
     }
 
     public void setSelectedTabIndicatorWidth(int i) {
-        this.Qh.bc(i);
+        this.Qw.bc(i);
     }
 
     public void setScrollPosition(int i, float f2, boolean z) {
@@ -185,9 +186,9 @@ public class TbTabLayout extends HorizontalScrollView {
 
     void setScrollPosition(int i, float f2, boolean z, boolean z2) {
         int round = Math.round(i + f2);
-        if (round >= 0 && round < this.Qh.getChildCount()) {
+        if (round >= 0 && round < this.Qw.getChildCount()) {
             if (z2) {
-                this.Qh.setIndicatorPositionFromTabPosition(i, f2);
+                this.Qw.setIndicatorPositionFromTabPosition(i, f2);
             }
             if (this.mScrollAnimator != null && this.mScrollAnimator.isRunning()) {
                 this.mScrollAnimator.cancel();
@@ -200,7 +201,7 @@ public class TbTabLayout extends HorizontalScrollView {
     }
 
     private float getScrollPosition() {
-        return this.Qh.getIndicatorPosition();
+        return this.Qw.getIndicatorPosition();
     }
 
     public void a(@NonNull e eVar) {
@@ -212,7 +213,7 @@ public class TbTabLayout extends HorizontalScrollView {
     }
 
     public void a(@NonNull e eVar, int i, boolean z) {
-        if (eVar.Qs != this) {
+        if (eVar.QH != this) {
             throw new IllegalArgumentException("Tab belongs to a different TbTabLayout.");
         }
         a(eVar, i);
@@ -223,28 +224,28 @@ public class TbTabLayout extends HorizontalScrollView {
     }
 
     private void a(@NonNull TbTabItem tbTabItem) {
-        e oX = oX();
+        e pf = pf();
         if (tbTabItem.mText != null) {
-            oX.b(tbTabItem.mText);
+            pf.b(tbTabItem.mText);
         }
         if (tbTabItem.mIcon != null) {
-            oX.d(tbTabItem.mIcon);
+            pf.c(tbTabItem.mIcon);
         }
         if (tbTabItem.mCustomLayout != 0) {
-            oX.be(tbTabItem.mCustomLayout);
+            pf.be(tbTabItem.mCustomLayout);
         }
         if (!TextUtils.isEmpty(tbTabItem.getContentDescription())) {
-            oX.c(tbTabItem.getContentDescription());
+            pf.c(tbTabItem.getContentDescription());
         }
-        a(oX);
+        a(pf);
     }
 
     @Deprecated
     public void setOnTabSelectedListener(@Nullable b bVar) {
-        if (this.Qi != null) {
-            b(this.Qi);
+        if (this.Qx != null) {
+            b(this.Qx);
         }
-        this.Qi = bVar;
+        this.Qx = bVar;
         if (bVar != null) {
             a(bVar);
         }
@@ -261,13 +262,13 @@ public class TbTabLayout extends HorizontalScrollView {
     }
 
     @NonNull
-    public e oX() {
+    public e pf() {
         e acquire = sTabPool.acquire();
         if (acquire == null) {
             acquire = new e();
         }
-        acquire.Qs = this;
-        acquire.Qt = b(acquire);
+        acquire.QH = this;
+        acquire.QI = b(acquire);
         return acquire;
     }
 
@@ -284,14 +285,14 @@ public class TbTabLayout extends HorizontalScrollView {
     }
 
     public int getSelectedTabPosition() {
-        if (this.Qg != null) {
-            return this.Qg.getPosition();
+        if (this.Qv != null) {
+            return this.Qv.getPosition();
         }
         return -1;
     }
 
     public void removeAllTabs() {
-        for (int childCount = this.Qh.getChildCount() - 1; childCount >= 0; childCount--) {
+        for (int childCount = this.Qw.getChildCount() - 1; childCount >= 0; childCount--) {
             removeTabViewAt(childCount);
         }
         Iterator<e> it = this.mTabs.iterator();
@@ -301,7 +302,7 @@ public class TbTabLayout extends HorizontalScrollView {
             next.reset();
             sTabPool.release(next);
         }
-        this.Qg = null;
+        this.Qv = null;
     }
 
     public void setTabMode(int i) {
@@ -352,35 +353,35 @@ public class TbTabLayout extends HorizontalScrollView {
 
     private void setupWithViewPager(@Nullable ViewPager viewPager, boolean z, boolean z2) {
         if (this.mViewPager != null) {
-            if (this.Qk != null) {
-                this.mViewPager.removeOnPageChangeListener(this.Qk);
+            if (this.Qz != null) {
+                this.mViewPager.removeOnPageChangeListener(this.Qz);
             }
-            if (this.Ql != null) {
-                this.mViewPager.removeOnAdapterChangeListener(this.Ql);
+            if (this.QA != null) {
+                this.mViewPager.removeOnAdapterChangeListener(this.QA);
             }
         }
-        if (this.Qj != null) {
-            b(this.Qj);
-            this.Qj = null;
+        if (this.Qy != null) {
+            b(this.Qy);
+            this.Qy = null;
         }
         if (viewPager != null) {
             this.mViewPager = viewPager;
-            if (this.Qk == null) {
-                this.Qk = new TbTabLayoutOnPageChangeListener(this);
+            if (this.Qz == null) {
+                this.Qz = new TbTabLayoutOnPageChangeListener(this);
             }
-            this.Qk.reset();
-            viewPager.addOnPageChangeListener(this.Qk);
-            this.Qj = new g(viewPager);
-            a(this.Qj);
+            this.Qz.reset();
+            viewPager.addOnPageChangeListener(this.Qz);
+            this.Qy = new g(viewPager);
+            a(this.Qy);
             PagerAdapter adapter = viewPager.getAdapter();
             if (adapter != null) {
                 setPagerAdapter(adapter, z);
             }
-            if (this.Ql == null) {
-                this.Ql = new a();
+            if (this.QA == null) {
+                this.QA = new a();
             }
-            this.Ql.setAutoRefresh(z);
-            viewPager.addOnAdapterChangeListener(this.Ql);
+            this.QA.setAutoRefresh(z);
+            viewPager.addOnAdapterChangeListener(this.QA);
             setScrollPosition(viewPager.getCurrentItem(), 0.0f, true);
         } else {
             this.mViewPager = null;
@@ -420,7 +421,7 @@ public class TbTabLayout extends HorizontalScrollView {
     }
 
     private int getTabScrollRange() {
-        return Math.max(0, ((this.Qh.getWidth() - getWidth()) - getPaddingLeft()) - getPaddingRight());
+        return Math.max(0, ((this.Qw.getWidth() - getWidth()) - getPaddingLeft()) - getPaddingRight());
     }
 
     void setPagerAdapter(@Nullable PagerAdapter pagerAdapter, boolean z) {
@@ -443,7 +444,7 @@ public class TbTabLayout extends HorizontalScrollView {
         if (this.mPagerAdapter != null) {
             int count = this.mPagerAdapter.getCount();
             for (int i = 0; i < count; i++) {
-                a(oX().b(this.mPagerAdapter.getPageTitle(i)), false);
+                a(pf().b(this.mPagerAdapter.getPageTitle(i)), false);
             }
             if (this.mViewPager != null && count > 0 && (currentItem = this.mViewPager.getCurrentItem()) != getSelectedTabPosition() && currentItem < getTabCount()) {
                 d(bb(currentItem));
@@ -479,7 +480,7 @@ public class TbTabLayout extends HorizontalScrollView {
     }
 
     private void c(e eVar) {
-        this.Qh.addView(eVar.Qt, eVar.getPosition(), createLayoutParamsForTabs());
+        this.Qw.addView(eVar.QI, eVar.getPosition(), createLayoutParamsForTabs());
     }
 
     @Override // android.widget.HorizontalScrollView, android.view.ViewGroup
@@ -536,10 +537,10 @@ public class TbTabLayout extends HorizontalScrollView {
         int dpToPx = dpToPx(getDefaultHeight()) + getPaddingTop() + getPaddingBottom();
         switch (View.MeasureSpec.getMode(i2)) {
             case Integer.MIN_VALUE:
-                i2 = View.MeasureSpec.makeMeasureSpec(Math.min(dpToPx, View.MeasureSpec.getSize(i2)), 1073741824);
+                i2 = View.MeasureSpec.makeMeasureSpec(Math.min(dpToPx, View.MeasureSpec.getSize(i2)), AiAppsFileUtils.GB);
                 break;
             case 0:
-                i2 = View.MeasureSpec.makeMeasureSpec(dpToPx, 1073741824);
+                i2 = View.MeasureSpec.makeMeasureSpec(dpToPx, AiAppsFileUtils.GB);
                 break;
         }
         int size = View.MeasureSpec.getSize(i);
@@ -566,14 +567,14 @@ public class TbTabLayout extends HorizontalScrollView {
                     break;
             }
             if (z) {
-                childAt.measure(View.MeasureSpec.makeMeasureSpec(getMeasuredWidth(), 1073741824), getChildMeasureSpec(i2, getPaddingTop() + getPaddingBottom(), childAt.getLayoutParams().height));
+                childAt.measure(View.MeasureSpec.makeMeasureSpec(getMeasuredWidth(), AiAppsFileUtils.GB), getChildMeasureSpec(i2, getPaddingTop() + getPaddingBottom(), childAt.getLayoutParams().height));
             }
         }
     }
 
     private void removeTabViewAt(int i) {
-        f fVar = (f) this.Qh.getChildAt(i);
-        this.Qh.removeViewAt(i);
+        f fVar = (f) this.Qw.getChildAt(i);
+        this.Qw.removeViewAt(i);
         if (fVar != null) {
             fVar.reset();
             this.mTabViewPool.release(fVar);
@@ -583,7 +584,7 @@ public class TbTabLayout extends HorizontalScrollView {
 
     private void animateToTab(int i) {
         if (i != -1) {
-            if (getWindowToken() == null || !ViewCompat.isLaidOut(this) || this.Qh.childrenNeedLayout()) {
+            if (getWindowToken() == null || !ViewCompat.isLaidOut(this) || this.Qw.childrenNeedLayout()) {
                 setScrollPosition(i, 0.0f, true);
                 return;
             }
@@ -594,7 +595,7 @@ public class TbTabLayout extends HorizontalScrollView {
                 this.mScrollAnimator.setIntValues(scrollX, calculateScrollXForTab);
                 this.mScrollAnimator.start();
             }
-            this.Qh.animateIndicatorToPosition(i, 300);
+            this.Qw.animateIndicatorToPosition(i, 300);
         }
     }
 
@@ -618,11 +619,11 @@ public class TbTabLayout extends HorizontalScrollView {
     }
 
     private void setSelectedTabView(int i) {
-        int childCount = this.Qh.getChildCount();
+        int childCount = this.Qw.getChildCount();
         if (i < childCount) {
             int i2 = 0;
             while (i2 < childCount) {
-                this.Qh.getChildAt(i2).setSelected(i2 == i);
+                this.Qw.getChildAt(i2).setSelected(i2 == i);
                 i2++;
             }
         }
@@ -633,7 +634,7 @@ public class TbTabLayout extends HorizontalScrollView {
     }
 
     void b(e eVar, boolean z) {
-        e eVar2 = this.Qg;
+        e eVar2 = this.Qv;
         if (eVar2 == eVar) {
             if (eVar2 != null) {
                 g(eVar);
@@ -656,7 +657,7 @@ public class TbTabLayout extends HorizontalScrollView {
         if (eVar2 != null) {
             f(eVar2);
         }
-        this.Qg = eVar;
+        this.Qv = eVar;
         if (eVar != null) {
             e(eVar);
         }
@@ -682,8 +683,8 @@ public class TbTabLayout extends HorizontalScrollView {
 
     private int calculateScrollXForTab(int i, float f2) {
         if (this.mMode == 0) {
-            View childAt = this.Qh.getChildAt(i);
-            View childAt2 = i + 1 < this.Qh.getChildCount() ? this.Qh.getChildAt(i + 1) : null;
+            View childAt = this.Qw.getChildAt(i);
+            View childAt2 = i + 1 < this.Qw.getChildCount() ? this.Qw.getChildAt(i + 1) : null;
             int width = childAt != null ? childAt.getWidth() : 0;
             int width2 = childAt2 != null ? childAt2.getWidth() : 0;
             int left = (childAt.getLeft() + (width / 2)) - (getWidth() / 2);
@@ -694,13 +695,13 @@ public class TbTabLayout extends HorizontalScrollView {
     }
 
     private void applyModeAndGravity() {
-        ViewCompat.setPaddingRelative(this.Qh, this.mMode == 0 ? Math.max(0, this.mContentInsetStart - this.mTabPaddingStart) : 0, 0, 0, 0);
+        ViewCompat.setPaddingRelative(this.Qw, this.mMode == 0 ? Math.max(0, this.mContentInsetStart - this.mTabPaddingStart) : 0, 0, 0, 0);
         switch (this.mMode) {
             case 0:
-                this.Qh.setGravity(GravityCompat.START);
+                this.Qw.setGravity(GravityCompat.START);
                 break;
             case 1:
-                this.Qh.setGravity(1);
+                this.Qw.setGravity(1);
                 break;
         }
         updateTabViews(true);
@@ -710,8 +711,8 @@ public class TbTabLayout extends HorizontalScrollView {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.Qh.getChildCount()) {
-                View childAt = this.Qh.getChildAt(i2);
+            if (i2 < this.Qw.getChildCount()) {
+                View childAt = this.Qw.getChildAt(i2);
                 childAt.setMinimumWidth(getTabMinWidth());
                 updateTabViewLayoutParams((LinearLayout.LayoutParams) childAt.getLayoutParams());
                 if (z) {
@@ -726,8 +727,8 @@ public class TbTabLayout extends HorizontalScrollView {
 
     /* loaded from: classes.dex */
     public static final class e {
-        TbTabLayout Qs;
-        f Qt;
+        TbTabLayout QH;
+        f QI;
         private CharSequence mContentDesc;
         private View mCustomView;
         private Drawable mIcon;
@@ -735,25 +736,25 @@ public class TbTabLayout extends HorizontalScrollView {
         private Object mTag;
         private CharSequence mText;
         private int mPosition = -1;
-        private int Qq = 0;
-        private boolean Qr = false;
+        private int QF = 0;
+        private boolean QG = false;
 
         e() {
         }
 
-        public int oY() {
-            return this.Qq;
+        public int pg() {
+            return this.QF;
         }
 
         public e g(int i, boolean z) {
-            this.Qq = i;
-            this.Qr = z;
+            this.QF = i;
+            this.QG = z;
             updateView();
             return this;
         }
 
         public boolean isShowRedDot() {
-            return this.Qr;
+            return this.QG;
         }
 
         public int getId() {
@@ -779,7 +780,7 @@ public class TbTabLayout extends HorizontalScrollView {
 
         @NonNull
         public e be(@LayoutRes int i) {
-            return C(LayoutInflater.from(this.Qt.getContext()).inflate(i, (ViewGroup) this.Qt, false));
+            return C(LayoutInflater.from(this.QI.getContext()).inflate(i, (ViewGroup) this.QI, false));
         }
 
         @Nullable
@@ -801,7 +802,7 @@ public class TbTabLayout extends HorizontalScrollView {
         }
 
         @NonNull
-        public e d(@Nullable Drawable drawable) {
+        public e c(@Nullable Drawable drawable) {
             this.mIcon = drawable;
             updateView();
             return this;
@@ -815,17 +816,17 @@ public class TbTabLayout extends HorizontalScrollView {
         }
 
         public void select() {
-            if (this.Qs == null) {
+            if (this.QH == null) {
                 throw new IllegalArgumentException("Tab not attached to a TbTabLayout");
             }
-            this.Qs.d(this);
+            this.QH.d(this);
         }
 
         public boolean isSelected() {
-            if (this.Qs == null) {
+            if (this.QH == null) {
                 throw new IllegalArgumentException("Tab not attached to a TbTabLayout");
             }
-            return this.Qs.getSelectedTabPosition() == this.mPosition;
+            return this.QH.getSelectedTabPosition() == this.mPosition;
         }
 
         @NonNull
@@ -841,14 +842,14 @@ public class TbTabLayout extends HorizontalScrollView {
         }
 
         void updateView() {
-            if (this.Qt != null) {
-                this.Qt.update();
+            if (this.QI != null) {
+                this.QI.update();
             }
         }
 
         void reset() {
-            this.Qs = null;
-            this.Qt = null;
+            this.QH = null;
+            this.QI = null;
             this.mTag = null;
             this.mIcon = null;
             this.mText = null;
@@ -861,9 +862,9 @@ public class TbTabLayout extends HorizontalScrollView {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class f extends LinearLayout {
-        private e Qu;
-        private Drawable Qv;
-        private String Qw;
+        private e QJ;
+        private Drawable QK;
+        private String QL;
         private ImageView mCustomIconView;
         private TextView mCustomTextView;
         private View mCustomView;
@@ -887,11 +888,11 @@ public class TbTabLayout extends HorizontalScrollView {
         @Override // android.view.View
         public boolean performClick() {
             boolean performClick = super.performClick();
-            if (this.Qu != null) {
+            if (this.QJ != null) {
                 if (!performClick) {
                     playSoundEffect(0);
                 }
-                this.Qu.select();
+                this.QJ.select();
                 return true;
             }
             return performClick;
@@ -964,8 +965,8 @@ public class TbTabLayout extends HorizontalScrollView {
         }
 
         void k(@Nullable e eVar) {
-            if (eVar != this.Qu) {
-                this.Qu = eVar;
+            if (eVar != this.QJ) {
+                this.QJ = eVar;
                 update();
             }
         }
@@ -976,7 +977,7 @@ public class TbTabLayout extends HorizontalScrollView {
         }
 
         final void update() {
-            e eVar = this.Qu;
+            e eVar = this.QJ;
             View customView = eVar != null ? eVar.getCustomView() : null;
             if (customView != null) {
                 ViewParent parent = customView.getParent();
@@ -1032,11 +1033,11 @@ public class TbTabLayout extends HorizontalScrollView {
 
         private void updateTextAndIcon(@Nullable TextView textView, @Nullable ImageView imageView) {
             int i = 0;
-            Drawable icon = this.Qu != null ? this.Qu.getIcon() : null;
-            CharSequence text = this.Qu != null ? this.Qu.getText() : null;
-            CharSequence contentDescription = this.Qu != null ? this.Qu.getContentDescription() : null;
-            int oY = this.Qu != null ? this.Qu.oY() : 0;
-            boolean isShowRedDot = this.Qu != null ? this.Qu.isShowRedDot() : false;
+            Drawable icon = this.QJ != null ? this.QJ.getIcon() : null;
+            CharSequence text = this.QJ != null ? this.QJ.getText() : null;
+            CharSequence contentDescription = this.QJ != null ? this.QJ.getContentDescription() : null;
+            int pg = this.QJ != null ? this.QJ.pg() : 0;
+            boolean isShowRedDot = this.QJ != null ? this.QJ.isShowRedDot() : false;
             if (imageView != null) {
                 if (icon != null) {
                     imageView.setImageDrawable(icon);
@@ -1062,24 +1063,24 @@ public class TbTabLayout extends HorizontalScrollView {
             }
             if (textView != null && z) {
                 if (isShowRedDot) {
-                    if (oY <= 0) {
-                        this.Qv = al.getDrawable(e.f.icon_news_red_dot);
-                        this.Qw = null;
-                    } else if (oY < 10) {
-                        this.Qv = al.getDrawable(e.f.icon_news_red_dot_one_number);
-                        this.Qw = String.valueOf(oY);
-                    } else if (oY < 100) {
-                        this.Qv = al.getDrawable(e.f.icon_news_red_dot_two_number);
-                        this.Qw = String.valueOf(oY);
+                    if (pg <= 0) {
+                        this.QK = al.getDrawable(e.f.icon_news_red_dot);
+                        this.QL = null;
+                    } else if (pg < 10) {
+                        this.QK = al.getDrawable(e.f.icon_news_red_dot_one_number);
+                        this.QL = String.valueOf(pg);
+                    } else if (pg < 100) {
+                        this.QK = al.getDrawable(e.f.icon_news_red_dot_two_number);
+                        this.QL = String.valueOf(pg);
                     } else {
-                        this.Qv = al.getDrawable(e.f.icon_news_red_dot_two_number);
-                        this.Qw = "...";
+                        this.QK = al.getDrawable(e.f.icon_news_red_dot_two_number);
+                        this.QL = "...";
                     }
-                    if (this.Qv == null) {
-                        this.Qv = al.getDrawable(e.f.icon_news_red_dot);
+                    if (this.QK == null) {
+                        this.QK = al.getDrawable(e.f.icon_news_red_dot);
                     }
                 } else {
-                    this.Qv = null;
+                    this.QK = null;
                 }
             }
             if (imageView != null) {
@@ -1102,7 +1103,7 @@ public class TbTabLayout extends HorizontalScrollView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class d extends LinearLayout {
-        private int Qo;
+        private int QD;
         private ValueAnimator mIndicatorAnimator;
         private int mIndicatorLeft;
         private int mIndicatorRight;
@@ -1140,8 +1141,8 @@ public class TbTabLayout extends HorizontalScrollView {
         }
 
         void bc(int i) {
-            if (this.Qo != i) {
-                this.Qo = i;
+            if (this.QD != i) {
+                this.QD = i;
                 ViewCompat.postInvalidateOnAnimation(this);
             }
         }
@@ -1322,13 +1323,13 @@ public class TbTabLayout extends HorizontalScrollView {
             Rect rect;
             super.draw(canvas);
             if (this.mIndicatorLeft >= 0 && this.mIndicatorRight > this.mIndicatorLeft) {
-                int i = (this.Qo <= 0 || this.mIndicatorRight - this.mIndicatorLeft <= this.Qo) ? 0 : ((this.mIndicatorRight - this.mIndicatorLeft) - this.Qo) / 2;
+                int i = (this.QD <= 0 || this.mIndicatorRight - this.mIndicatorLeft <= this.QD) ? 0 : ((this.mIndicatorRight - this.mIndicatorLeft) - this.QD) / 2;
                 canvas.drawLine(this.mIndicatorLeft + i, getHeight() - (this.mSelectedIndicatorHeight / 2), this.mIndicatorRight - i, getHeight() - (this.mSelectedIndicatorHeight / 2), this.mSelectedIndicatorPaint);
             }
             for (int childCount = getChildCount() - 1; childCount >= 0; childCount--) {
                 if (getChildAt(childCount) instanceof f) {
                     f fVar = (f) getChildAt(childCount);
-                    if (fVar.Qv != null) {
+                    if (fVar.QK != null) {
                         TextView textView = null;
                         if (fVar.mTextView != null) {
                             textView = fVar.mTextView;
@@ -1336,17 +1337,17 @@ public class TbTabLayout extends HorizontalScrollView {
                             textView = fVar.mCustomTextView;
                         }
                         if (textView != null) {
-                            int right = (fVar.getRight() - (fVar.getWidth() - textView.getRight())) - l.h(getContext(), e.C0141e.tbds3);
-                            int top = (textView.getTop() - (fVar.Qv.getIntrinsicHeight() / 2)) + l.h(getContext(), e.C0141e.tbds10);
-                            fVar.Qv.setBounds(right, top, fVar.Qv.getIntrinsicWidth() + right, fVar.Qv.getIntrinsicHeight() + top);
-                            fVar.Qv.draw(canvas);
-                            if (!TextUtils.isEmpty(fVar.Qw)) {
-                                if (fVar.Qw.equals("...")) {
+                            int right = (fVar.getRight() - (fVar.getWidth() - textView.getRight())) - l.h(getContext(), e.C0175e.tbds3);
+                            int top = (textView.getTop() - (fVar.QK.getIntrinsicHeight() / 2)) + l.h(getContext(), e.C0175e.tbds10);
+                            fVar.QK.setBounds(right, top, fVar.QK.getIntrinsicWidth() + right, fVar.QK.getIntrinsicHeight() + top);
+                            fVar.QK.draw(canvas);
+                            if (!TextUtils.isEmpty(fVar.QL)) {
+                                if (fVar.QL.equals("...")) {
                                     Drawable drawable = al.getDrawable(e.f.icon_news_white_dot);
-                                    int intrinsicWidth = right + (fVar.Qv.getIntrinsicWidth() / 2);
-                                    int intrinsicHeight2 = (fVar.Qv.getIntrinsicHeight() / 2) + top;
-                                    int h = l.h(getContext(), e.C0141e.tbds6);
-                                    int h2 = l.h(getContext(), e.C0141e.tbds7);
+                                    int intrinsicWidth = right + (fVar.QK.getIntrinsicWidth() / 2);
+                                    int intrinsicHeight2 = (fVar.QK.getIntrinsicHeight() / 2) + top;
+                                    int h = l.h(getContext(), e.C0175e.tbds6);
+                                    int h2 = l.h(getContext(), e.C0175e.tbds7);
                                     int i2 = intrinsicWidth - (h / 2);
                                     int i3 = intrinsicHeight2 - (h / 2);
                                     int i4 = intrinsicWidth + (h / 2);
@@ -1360,11 +1361,11 @@ public class TbTabLayout extends HorizontalScrollView {
                                 } else {
                                     Paint paint = new Paint(1);
                                     paint.setColor(al.getColor(e.d.cp_cont_i));
-                                    paint.setTextSize(l.h(getContext(), e.C0141e.tbfontsize26));
+                                    paint.setTextSize(l.h(getContext(), e.C0175e.tbfontsize26));
                                     paint.setTextAlign(Paint.Align.CENTER);
                                     paint.setTypeface(Typeface.MONOSPACE);
-                                    paint.getTextBounds(fVar.Qw, 0, fVar.Qw.length(), new Rect());
-                                    canvas.drawText(fVar.Qw, right + (fVar.Qv.getIntrinsicWidth() / 2), (intrinsicHeight - ((fVar.Qv.getIntrinsicHeight() - rect.height()) / 2)) - TbTabLayout.this.Qm, paint);
+                                    paint.getTextBounds(fVar.QL, 0, fVar.QL.length(), new Rect());
+                                    canvas.drawText(fVar.QL, right + (fVar.QK.getIntrinsicWidth() / 2), (intrinsicHeight - ((fVar.QK.getIntrinsicHeight() - rect.height()) / 2)) - TbTabLayout.this.QB, paint);
                                 }
                             }
                         }
@@ -1421,12 +1422,12 @@ public class TbTabLayout extends HorizontalScrollView {
 
     /* loaded from: classes.dex */
     public static class TbTabLayoutOnPageChangeListener implements ViewPager.OnPageChangeListener {
-        private final WeakReference<TbTabLayout> Qx;
+        private final WeakReference<TbTabLayout> QM;
         private int mPreviousScrollState;
         private int mScrollState;
 
         public TbTabLayoutOnPageChangeListener(TbTabLayout tbTabLayout) {
-            this.Qx = new WeakReference<>(tbTabLayout);
+            this.QM = new WeakReference<>(tbTabLayout);
         }
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -1438,7 +1439,7 @@ public class TbTabLayout extends HorizontalScrollView {
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
             boolean z = false;
-            TbTabLayout tbTabLayout = this.Qx.get();
+            TbTabLayout tbTabLayout = this.QM.get();
             if (tbTabLayout != null) {
                 boolean z2 = this.mScrollState != 2 || this.mPreviousScrollState == 1;
                 if (this.mScrollState != 2 || this.mPreviousScrollState != 0) {
@@ -1450,7 +1451,7 @@ public class TbTabLayout extends HorizontalScrollView {
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            TbTabLayout tbTabLayout = this.Qx.get();
+            TbTabLayout tbTabLayout = this.QM.get();
             if (tbTabLayout != null && tbTabLayout.getSelectedTabPosition() != i && i < tbTabLayout.getTabCount()) {
                 tbTabLayout.b(tbTabLayout.bb(i), this.mScrollState == 0 || (this.mScrollState == 2 && this.mPreviousScrollState == 0));
             }

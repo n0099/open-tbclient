@@ -53,9 +53,9 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public int view_card_num;
     public static int FROM_PERSON_POLYMERIC = 1;
     public static int FROM_PERSON_POST = 2;
-    private static int giT = 0;
-    private static int giU = 1;
-    private static String giV = "";
+    private static int gqt = 0;
+    private static int gqu = 1;
+    private static String gqv = "";
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -182,36 +182,36 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     public void resetThreadPn() {
-        giU = 1;
+        gqu = 1;
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, a aVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4) {
         this.mIsReset = z;
         if (z3) {
-            if (z || !str.equals(giV)) {
-                giT = 1;
-                giV = str;
+            if (z || !str.equals(gqv)) {
+                gqt = 1;
+                gqv = str;
             } else {
-                giT++;
+                gqt++;
             }
         } else {
-            if (z || !str.equals(giV)) {
+            if (z || !str.equals(gqv)) {
                 if (this.mFrom == FROM_PERSON_POLYMERIC) {
-                    giU = 1;
+                    gqu = 1;
                 } else {
-                    giU = 0;
+                    gqu = 0;
                 }
-                giV = str;
+                gqv = str;
             }
-            giU++;
+            gqu++;
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
         userPostPageRequestMessage.set_sub_type(i);
-        userPostPageRequestMessage.setUid(giV);
+        userPostPageRequestMessage.setUid(gqv);
         if (z3) {
-            userPostPageRequestMessage.setPn(giT);
+            userPostPageRequestMessage.setPn(gqt);
         } else {
-            userPostPageRequestMessage.setPn(giU);
+            userPostPageRequestMessage.setPn(gqu);
         }
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(!z3);
@@ -222,7 +222,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         int aO = l.aO(TbadkCoreApplication.getInst().getApp());
         int aQ = l.aQ(TbadkCoreApplication.getInst().getApp());
         float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = aq.Az().AB() ? 2 : 1;
+        int i2 = aq.CG().CI() ? 2 : 1;
         userPostPageRequestMessage.set_scr_w(aO);
         userPostPageRequestMessage.set_scr_h(aQ);
         userPostPageRequestMessage.set_scr_dip(f);
@@ -246,7 +246,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             } else {
                 z = true;
             }
-            if (v.z(dataRes.post_list) && z) {
+            if (v.J(dataRes.post_list) && z) {
                 this.mCardNullPolymericData = new i();
                 this.postList.add(this.mCardNullPolymericData);
                 return;
@@ -264,7 +264,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 } else if (this.mFrom == FROM_PERSON_POST) {
                     cardPersonDynamicThreadData.from = 1;
                 }
-                if (cardPersonDynamicThreadData.cIs != 33) {
+                if (cardPersonDynamicThreadData.cQL != 33) {
                     this.threadList.add(cardPersonDynamicThreadData);
                     this.postList.add(postInfoList2);
                 }
@@ -503,39 +503,39 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         String str;
         String str2;
         String str3;
-        String U = ao.U(System.currentTimeMillis());
+        String W = ao.W(System.currentTimeMillis());
         String str4 = "";
         String str5 = "";
         Iterator<h> it = arrayList.iterator();
         while (it.hasNext()) {
             h next = it.next();
             if (next instanceof CardPersonDynamicThreadData) {
-                ((CardPersonDynamicThreadData) next).cIE = true;
-                ((CardPersonDynamicThreadData) next).cID = true;
-                long j = ((CardPersonDynamicThreadData) next).cIq * 1000;
-                String U2 = ao.U(j);
-                String X = ao.X(j);
-                String W = ao.W(j);
-                if (ao.equals(U2, U)) {
-                    ((CardPersonDynamicThreadData) next).cIE = false;
+                ((CardPersonDynamicThreadData) next).cQX = true;
+                ((CardPersonDynamicThreadData) next).cQW = true;
+                long j = ((CardPersonDynamicThreadData) next).cQJ * 1000;
+                String W2 = ao.W(j);
+                String Z = ao.Z(j);
+                String Y = ao.Y(j);
+                if (ao.equals(W2, W)) {
+                    ((CardPersonDynamicThreadData) next).cQX = false;
                 }
-                if (ao.equals(W, str5) && ao.equals(X, str4) && ao.equals(U2, U)) {
-                    ((CardPersonDynamicThreadData) next).cID = false;
+                if (ao.equals(Y, str5) && ao.equals(Z, str4) && ao.equals(W2, W)) {
+                    ((CardPersonDynamicThreadData) next).cQW = false;
                     str = str5;
                     str2 = str4;
-                    str3 = U;
+                    str3 = W;
                 } else {
-                    str = W;
-                    str2 = X;
-                    str3 = U2;
+                    str = Y;
+                    str2 = Z;
+                    str3 = W2;
                 }
             } else {
                 str = str5;
                 str2 = str4;
-                str3 = U;
+                str3 = W;
             }
             str4 = str2;
-            U = str3;
+            W = str3;
             str5 = str;
         }
         return arrayList;

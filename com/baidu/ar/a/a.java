@@ -11,7 +11,7 @@ import java.util.LinkedList;
 public class a implements SensorEventListener {
     private SensorManager a;
     private Sensor b;
-    private InterfaceC0032a c;
+    private InterfaceC0035a c;
     private Context d;
     private boolean e = true;
     private LinkedList<Double> f = new LinkedList<>();
@@ -25,7 +25,7 @@ public class a implements SensorEventListener {
 
     /* renamed from: com.baidu.ar.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0032a {
+    public interface InterfaceC0035a {
         void a();
 
         void a(float f, float f2, float f3, float f4);
@@ -106,8 +106,8 @@ public class a implements SensorEventListener {
         }
     }
 
-    public void a(InterfaceC0032a interfaceC0032a) {
-        this.c = interfaceC0032a;
+    public void a(InterfaceC0035a interfaceC0035a) {
+        this.c = interfaceC0035a;
     }
 
     public void a(LinkedList linkedList, double d) {

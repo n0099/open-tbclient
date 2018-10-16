@@ -1,5 +1,6 @@
 package com.coremedia.iso.boxes;
 
+import com.baidu.webkit.internal.ETAG;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.coremedia.iso.Utf8;
@@ -9,14 +10,14 @@ import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class KeywordsBox extends AbstractFullBox {
     public static final String TYPE = "kywd";
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_4 = null;
     private String[] keywords;
     private String language;
 
@@ -95,7 +96,7 @@ public class KeywordsBox extends AbstractFullBox {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("KeywordsBox[language=").append(getLanguage());
         for (int i = 0; i < this.keywords.length; i++) {
-            stringBuffer.append(";keyword").append(i).append("=").append(this.keywords[i]);
+            stringBuffer.append(";keyword").append(i).append(ETAG.EQUAL).append(this.keywords[i]);
         }
         stringBuffer.append("]");
         return stringBuffer.toString();

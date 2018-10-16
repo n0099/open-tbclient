@@ -16,7 +16,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class f extends SQLiteOpenHelper {
     protected static final String[] a = {RimArmor.KEY};
     protected static f b;

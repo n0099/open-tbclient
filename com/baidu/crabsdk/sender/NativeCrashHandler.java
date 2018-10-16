@@ -4,19 +4,20 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.crabsdk.CrabSDK;
+import com.baidu.searchbox.ng.ai.apps.media.audio.AiAppsAudioPlayer;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class NativeCrashHandler {
-    private static NativeCrashHandler bM = null;
+    private static NativeCrashHandler bL = null;
     private static Context mContext;
-    private boolean bN = false;
+    private boolean bM = false;
 
     private NativeCrashHandler(Context context) {
         mContext = context;
     }
 
     public static NativeCrashHandler ae() {
-        return bM;
+        return bL;
     }
 
     private native boolean nClearVarParams();
@@ -26,54 +27,54 @@ public class NativeCrashHandler {
     private native boolean nSetLogcatLineCount(int i);
 
     public static NativeCrashHandler s(Context context) {
-        if (bM == null) {
-            bM = new NativeCrashHandler(context);
+        if (bL == null) {
+            bL = new NativeCrashHandler(context);
         }
-        return bM;
+        return bL;
     }
 
     public final void af() {
         try {
-            com.baidu.crabsdk.c.a.cw("加载系统库，调用native接口");
+            com.baidu.crabsdk.c.a.cH("加载系统库，调用native接口");
             if (mContext == null) {
-                com.baidu.crabsdk.c.a.cv("NativeCrashHandler openNativeCrashHandler failed context is null!");
+                com.baidu.crabsdk.c.a.cG("NativeCrashHandler openNativeCrashHandler failed context is null!");
             } else {
                 String str = mContext.getApplicationInfo().nativeLibraryDir + "/" + System.mapLibraryName("crab_native");
                 if (TextUtils.isEmpty(str) || new File(str).exists()) {
                     System.loadLibrary("crab_native");
-                    this.bN = true;
-                    CrabSDK.NDK_VERSION = "3.1.0";
-                    com.baidu.crabsdk.c.a.cv("NativeCrashHandler openNativeCrashHandler success!  CPU_ABI is " + Build.CPU_ABI);
+                    this.bM = true;
+                    CrabSDK.NDK_VERSION = "3.1.2";
+                    com.baidu.crabsdk.c.a.cG("NativeCrashHandler openNativeCrashHandler success!  CPU_ABI is " + Build.CPU_ABI);
                 } else {
-                    com.baidu.crabsdk.c.a.cv("NativeCrashHandler openNativeCrashHandler failed so file is not exists! dir is " + str + " " + Build.CPU_ABI);
+                    com.baidu.crabsdk.c.a.cG("NativeCrashHandler openNativeCrashHandler failed so file is not exists! dir is " + str + " " + Build.CPU_ABI);
                 }
             }
         } catch (Exception e) {
-            this.bN = false;
-            CrabSDK.NDK_VERSION = "-1";
+            this.bM = false;
+            CrabSDK.NDK_VERSION = AiAppsAudioPlayer.ERROR_UNKNOWN;
             com.baidu.crabsdk.c.a.f("loadSysLib Error!!", e);
         }
     }
 
     public final void ag() {
-        if (this.bN) {
+        if (this.bM) {
             nClearVarParams();
         } else {
-            com.baidu.crabsdk.c.a.cy("call after failed! native lib init failed");
+            com.baidu.crabsdk.c.a.cJ("call after failed! native lib init failed");
         }
     }
 
     public final void b(int i) {
-        if (this.bN) {
+        if (this.bM) {
             nSetLogcatLineCount(i);
         }
     }
 
-    public final void p(String str) {
-        if (this.bN) {
+    public final void q(String str) {
+        if (this.bM) {
             nRequiredVarParams(str);
         } else {
-            com.baidu.crabsdk.c.a.cy("call before failed! native lib init failed");
+            com.baidu.crabsdk.c.a.cJ("call before failed! native lib init failed");
         }
     }
 }

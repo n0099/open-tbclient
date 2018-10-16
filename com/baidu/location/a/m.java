@@ -8,7 +8,8 @@ import android.os.Build;
 import android.os.Handler;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.location.Jni;
-import com.baidu.mobstat.Config;
+import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -19,9 +20,9 @@ import java.io.RandomAccessFile;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class m extends com.baidu.location.d.e {
-    private static m ZA = null;
+    private static m aeh = null;
     String a = null;
     String b = null;
     String c = null;
@@ -42,7 +43,7 @@ public class m extends com.baidu.location.d.e {
             try {
                 bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file2));
                 try {
-                    byte[] bArr = new byte[Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION];
+                    byte[] bArr = new byte[5120];
                     while (true) {
                         int read = bufferedInputStream2.read(bArr);
                         if (read == -1) {
@@ -85,7 +86,7 @@ public class m extends com.baidu.location.d.e {
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo != null && activeNetworkInfo.getType() == 0) {
-                String a = com.baidu.location.b.c.a(com.baidu.location.b.b.rG().e());
+                String a = com.baidu.location.b.c.a(com.baidu.location.b.b.tA().e());
                 if (!a.equals("3G")) {
                     if (a.equals("4G")) {
                     }
@@ -210,8 +211,8 @@ public class m extends com.baidu.location.d.e {
         if (file.exists() || !a("http://" + this.a + "/" + this.b, this.b)) {
             return;
         }
-        String a = com.baidu.location.d.g.a(file, "SHA-256");
-        if (this.d == null || a == null || !com.baidu.location.d.g.k(a, this.d, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
+        String a = com.baidu.location.d.g.a(file, AiAppEncryptUtils.ENCRYPT_SHA256);
+        if (this.d == null || a == null || !com.baidu.location.d.g.n(a, this.d, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
             return;
         }
         File file2 = new File(com.baidu.location.d.g.h() + File.separator + com.baidu.location.f.replaceFileName);
@@ -225,11 +226,11 @@ public class m extends com.baidu.location.d.e {
         }
     }
 
-    public static m rB() {
-        if (ZA == null) {
-            ZA = new m();
+    public static m tv() {
+        if (aeh == null) {
+            aeh = new m();
         }
-        return ZA;
+        return aeh;
     }
 
     @Override // com.baidu.location.d.e
@@ -244,12 +245,12 @@ public class m extends com.baidu.location.d.e {
         stringBuffer.append(com.baidu.location.f.getFrameVersion());
         stringBuffer.append("&suit=");
         stringBuffer.append(2);
-        if (com.baidu.location.d.b.rS().b == null) {
+        if (com.baidu.location.d.b.tM().b == null) {
             stringBuffer.append("&im=");
-            stringBuffer.append(com.baidu.location.d.b.rS().a);
+            stringBuffer.append(com.baidu.location.d.b.tM().a);
         } else {
             stringBuffer.append("&cu=");
-            stringBuffer.append(com.baidu.location.d.b.rS().b);
+            stringBuffer.append(com.baidu.location.d.b.tM().b);
         }
         stringBuffer.append("&mb=");
         stringBuffer.append(Build.MODEL);
@@ -314,11 +315,11 @@ public class m extends com.baidu.location.d.e {
             } catch (Exception e) {
             }
         }
-        com.baidu.location.d.c.rT().a(System.currentTimeMillis());
+        com.baidu.location.d.c.tN().a(System.currentTimeMillis());
     }
 
     public void c() {
-        if (System.currentTimeMillis() - com.baidu.location.d.c.rT().b() > 86400000) {
+        if (System.currentTimeMillis() - com.baidu.location.d.c.tN().b() > 86400000) {
             f().postDelayed(new Runnable() { // from class: com.baidu.location.a.m.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -326,7 +327,7 @@ public class m extends com.baidu.location.d.e {
                         m.this.d();
                     }
                 }
-            }, 10000L);
+            }, ErrDef.Feature.WEIGHT);
             f().postDelayed(new Runnable() { // from class: com.baidu.location.a.m.2
                 @Override // java.lang.Runnable
                 public void run() {

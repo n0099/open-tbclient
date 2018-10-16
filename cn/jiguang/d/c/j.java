@@ -6,17 +6,17 @@ import java.text.DecimalFormat;
 public final class j implements Serializable, Comparable {
     public static final j a;
     public static final j b;
-    private static final j lm;
+    private static final j lS;
     private byte[] c;
     private long d;
     private int e;
     private static final byte[] f = {0};
     private static final byte[] g = {1, 42};
-    private static final DecimalFormat ll = new DecimalFormat();
+    private static final DecimalFormat lR = new DecimalFormat();
     private static final byte[] i = new byte[256];
 
     static {
-        ll.setMinimumIntegerDigits(3);
+        lR.setMinimumIntegerDigits(3);
         for (int i2 = 0; i2 < i.length; i2++) {
             if (i2 < 65 || i2 > 90) {
                 i[i2] = (byte) i2;
@@ -31,7 +31,7 @@ public final class j implements Serializable, Comparable {
         b = jVar2;
         jVar2.c = new byte[0];
         j jVar3 = new j();
-        lm = jVar3;
+        lS = jVar3;
         jVar3.b(g, 0, 1);
     }
 
@@ -227,7 +227,7 @@ public final class j implements Serializable, Comparable {
             int i6 = bArr[i5] & 255;
             if (i6 <= 32 || i6 >= 127) {
                 stringBuffer.append('\\');
-                stringBuffer.append(ll.format(i6));
+                stringBuffer.append(lR.format(i6));
             } else if (i6 == 34 || i6 == 40 || i6 == 41 || i6 == 46 || i6 == 59 || i6 == 92 || i6 == 64 || i6 == 36) {
                 stringBuffer.append('\\');
                 stringBuffer.append((char) i6);

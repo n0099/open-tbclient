@@ -3,7 +3,7 @@ package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import protobuf.SetLocation.SetLocationResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ResponsePersonalLbsInfoMessage extends TbSocketReponsedMessage {
     private com.baidu.tbadk.coreExtra.relationship.b lbsInfo;
 

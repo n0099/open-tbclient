@@ -29,9 +29,9 @@ public class OfficialBarChatActivityStatic {
                     x.b(new w<Void>() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivityStatic.1.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.w
-                        /* renamed from: Tl */
+                        /* renamed from: Vh */
                         public Void doInBackground() {
-                            return l.aMb().o(linkedList);
+                            return l.aPq().o(linkedList);
                         }
                     }, new h<Void>() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivityStatic.1.2
                         /* JADX DEBUG: Method merged with bridge method */
@@ -49,7 +49,7 @@ public class OfficialBarChatActivityStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        ay.AN().a(new ay.a() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivityStatic.2
+        ay.CU().a(new ay.a() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivityStatic.2
             @Override // com.baidu.tbadk.core.util.ay.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -57,11 +57,11 @@ public class OfficialBarChatActivityStatic {
                 }
                 String str = strArr[0];
                 if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jump_official_chat=1")) {
-                    String aA = ab.aA(str, "barid=");
-                    String aA2 = ab.aA(str, "barname=");
-                    String aA3 = ab.aA(str, "portrait=");
-                    if (aA != null && aA.length() > 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(tbPageContext.getPageActivity(), com.baidu.adp.lib.g.b.d(aA, 0L), aA2, aA3, 0)));
+                    String aL = ab.aL(str, "barid=");
+                    String aL2 = ab.aL(str, "barname=");
+                    String aL3 = ab.aL(str, "portrait=");
+                    if (aL != null && aL.length() > 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(tbPageContext.getPageActivity(), com.baidu.adp.lib.g.b.d(aL, 0L), aL2, aL3, 0)));
                     }
                     return 1;
                 }

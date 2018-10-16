@@ -10,32 +10,32 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.imageProblem.logic.ImageProblemAssistant;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ImageProblemView extends c {
-    private ScrollView dqb;
-    ImageProblemActivity eSU;
-    private Button eSV;
+    private ScrollView bDf;
+    ImageProblemActivity faC;
+    private Button faD;
     private LinearLayout mLayout;
     private NavigationBar mNavigationBar;
     private View mParent;
 
     public ImageProblemView(ImageProblemActivity imageProblemActivity, ImageProblemAssistant imageProblemAssistant) {
         super(imageProblemActivity.getPageContext());
-        this.eSU = imageProblemActivity;
-        this.eSU.setContentView(e.h.image_problem_activity);
-        this.mParent = this.eSU.findViewById(e.g.parent);
-        this.mNavigationBar = (NavigationBar) this.eSU.findViewById(e.g.view_navigation_bar);
+        this.faC = imageProblemActivity;
+        this.faC.setContentView(e.h.image_problem_activity);
+        this.mParent = this.faC.findViewById(e.g.parent);
+        this.mNavigationBar = (NavigationBar) this.faC.findViewById(e.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.eSU.getPageContext().getString(e.j.image_problem));
-        this.dqb = (ScrollView) this.eSU.findViewById(e.g.scrollView);
-        this.eSV = (Button) this.eSU.findViewById(e.g.check_btn);
-        this.eSV.setOnClickListener(imageProblemActivity);
-        this.mLayout = new LinearLayout(this.eSU.getPageContext().getPageActivity());
+        this.mNavigationBar.setTitleText(this.faC.getPageContext().getString(e.j.image_problem));
+        this.bDf = (ScrollView) this.faC.findViewById(e.g.scrollView);
+        this.faD = (Button) this.faC.findViewById(e.g.check_btn);
+        this.faD.setOnClickListener(imageProblemActivity);
+        this.mLayout = new LinearLayout(this.faC.getPageContext().getPageActivity());
         this.mLayout.setOrientation(1);
-        this.dqb.addView(this.mLayout);
+        this.bDf.addView(this.mLayout);
         Iterator<ImageProblemAssistant.TestTask> it = imageProblemAssistant.taskList.iterator();
         while (it.hasNext()) {
-            ImageProblemItemView imageProblemItemView = new ImageProblemItemView(this.eSU.getPageContext().getPageActivity());
+            ImageProblemItemView imageProblemItemView = new ImageProblemItemView(this.faC.getPageContext().getPageActivity());
             imageProblemItemView.hideArrow();
             imageProblemItemView.setText(it.next().title);
             this.mLayout.addView(imageProblemItemView);
@@ -43,7 +43,7 @@ public class ImageProblemView extends c {
     }
 
     public Button getCheckButton() {
-        return this.eSV;
+        return this.faD;
     }
 
     public void start() {
@@ -93,7 +93,7 @@ public class ImageProblemView extends c {
                     imageProblemItemView.setHelpText("");
                     imageProblemItemView.setArrowImg(e.f.icon_diagnose_ok);
                 } else {
-                    imageProblemItemView.setHelpText(arrayList.get(i2).eSQ);
+                    imageProblemItemView.setHelpText(arrayList.get(i2).fay);
                     imageProblemItemView.setArrowImg(e.f.icon_error);
                 }
             }
@@ -107,8 +107,8 @@ public class ImageProblemView extends c {
     }
 
     public void onChangeSkinType(int i) {
-        this.eSU.getLayoutMode().setNightMode(i == 1);
-        this.eSU.getLayoutMode().onModeChanged(this.mParent);
+        this.faC.getLayoutMode().setNightMode(i == 1);
+        this.faC.getLayoutMode().onModeChanged(this.mParent);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 }

@@ -11,65 +11,65 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class PbFloorAgreeView extends FrameLayout {
-    private ImageView awx;
-    private ScaleAnimation dxr;
-    private TextView fQU;
-    private TextView fQV;
-    private boolean fQW;
+    private ImageView aBi;
+    private ScaleAnimation dFs;
+    private TextView fYu;
+    private TextView fYv;
+    private boolean fYw;
 
     public PbFloorAgreeView(Context context) {
         super(context);
-        this.fQW = false;
+        this.fYw = false;
         init();
     }
 
     public PbFloorAgreeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fQW = false;
+        this.fYw = false;
         init();
     }
 
     public PbFloorAgreeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fQW = false;
+        this.fYw = false;
         init();
     }
 
     public void init() {
         Context context = getContext();
         LinearLayout linearLayout = new LinearLayout(getContext());
-        this.fQU = new TextView(getContext());
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, l.h(context, e.C0141e.tbds48));
-        layoutParams.leftMargin = l.h(context, e.C0141e.tbds9);
-        layoutParams.topMargin = l.h(context, e.C0141e.tbds18);
-        this.fQU.setLayoutParams(layoutParams);
-        this.fQU.setTextSize(0, l.h(context, e.C0141e.tbfontsize30));
-        this.fQU.setGravity(17);
-        al.h(this.fQU, e.d.cp_cont_j);
-        this.awx = new ImageView(context);
-        al.c(this.awx, e.f.icon_floor_like_n);
-        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(l.h(context, e.C0141e.tbds48), l.h(context, e.C0141e.tbds48));
-        layoutParams2.leftMargin = l.h(context, e.C0141e.tbds9);
-        layoutParams2.topMargin = l.h(context, e.C0141e.tbds18);
-        this.awx.setLayoutParams(layoutParams2);
-        linearLayout.addView(this.awx);
-        linearLayout.addView(this.fQU);
+        this.fYu = new TextView(getContext());
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, l.h(context, e.C0175e.tbds48));
+        layoutParams.leftMargin = l.h(context, e.C0175e.tbds9);
+        layoutParams.topMargin = l.h(context, e.C0175e.tbds18);
+        this.fYu.setLayoutParams(layoutParams);
+        this.fYu.setTextSize(0, l.h(context, e.C0175e.tbfontsize30));
+        this.fYu.setGravity(17);
+        al.h(this.fYu, e.d.cp_cont_j);
+        this.aBi = new ImageView(context);
+        al.c(this.aBi, e.f.icon_floor_like_n);
+        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(l.h(context, e.C0175e.tbds48), l.h(context, e.C0175e.tbds48));
+        layoutParams2.leftMargin = l.h(context, e.C0175e.tbds9);
+        layoutParams2.topMargin = l.h(context, e.C0175e.tbds18);
+        this.aBi.setLayoutParams(layoutParams2);
+        linearLayout.addView(this.aBi);
+        linearLayout.addView(this.fYu);
         FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, -2);
         layoutParams3.gravity = 5;
         addView(linearLayout, layoutParams3);
-        this.fQV = new TextView(getContext());
-        this.fQV.setTextSize(0, l.h(getContext(), e.C0141e.fontsize24));
-        addView(this.fQV);
-        this.fQV.setVisibility(8);
+        this.fYv = new TextView(getContext());
+        this.fYv.setTextSize(0, l.h(getContext(), e.C0175e.fontsize24));
+        addView(this.fYv);
+        this.fYv.setVisibility(8);
     }
 
     private Animation getScaleAnimation() {
-        if (this.dxr == null) {
-            this.dxr = new ScaleAnimation(1.4f, 1.0f, 1.4f, 1.0f, 1, 0.5f, 1, 1.0f);
-            this.dxr.setDuration(200L);
+        if (this.dFs == null) {
+            this.dFs = new ScaleAnimation(1.4f, 1.0f, 1.4f, 1.0f, 1, 0.5f, 1, 1.0f);
+            this.dFs.setDuration(200L);
         }
-        return this.dxr;
+        return this.dFs;
     }
 }

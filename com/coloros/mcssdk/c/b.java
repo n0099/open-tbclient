@@ -10,11 +10,11 @@ import javax.crypto.spec.DESKeySpec;
 public abstract class b {
     public static String b(String str, String str2) {
         Cipher cipher = Cipher.getInstance("DES");
-        cipher.init(2, xg(str2));
+        cipher.init(2, yg(str2));
         return new String(cipher.doFinal(Base64.decode(str, 0)), Charset.defaultCharset()).trim();
     }
 
-    private static Key xg(String str) {
+    private static Key yg(String str) {
         return SecretKeyFactory.getInstance("DES").generateSecret(new DESKeySpec(Base64.decode(str, 0)));
     }
 }

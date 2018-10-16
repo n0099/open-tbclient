@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.authoring.adaptivestreaming;
 
+import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.Container;
 import com.coremedia.iso.boxes.SoundMediaHeaderBox;
@@ -21,7 +22,7 @@ import java.nio.channels.FileChannel;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.logging.Logger;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class FlatPackageWriterImpl implements PackageWriter {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static Logger LOG;
@@ -30,7 +31,7 @@ public class FlatPackageWriterImpl implements PackageWriter {
     private FragmentedMp4Builder ismvBuilder;
     ManifestWriter manifestWriter;
     private File outputDirectory;
-    long timeScale = 10000000;
+    long timeScale = ErrDef.Platform.WEIGHT;
 
     static {
         $assertionsDisabled = !FlatPackageWriterImpl.class.desiredAssertionStatus();

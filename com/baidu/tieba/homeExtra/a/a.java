@@ -6,27 +6,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tieba.homepage.a.a.a {
-    private com.baidu.tieba.lego.c.a dZH;
+    private com.baidu.tieba.lego.c.a ehA;
 
     public void a(com.baidu.tieba.lego.c.a aVar) {
-        this.dZH = aVar;
+        this.ehA = aVar;
         update();
-        aFo();
+        aIG();
     }
 
     private void update() {
-        if (this.dZH != null && this.dZH.hasData()) {
-            List<ICardInfo> aUG = this.dZH.aUG();
+        if (this.ehA != null && this.ehA.hasData()) {
+            List<ICardInfo> aXT = this.ehA.aXT();
             this.mThreadList = new ArrayList();
-            this.mThreadList.addAll(aUG);
-            this.mHasMore = this.dZH.hasMore();
-            this.pn = this.dZH.getPn();
+            this.mThreadList.addAll(aXT);
+            this.mHasMore = this.ehA.hasMore();
+            this.pn = this.ehA.getPn();
         }
     }
 
-    private void aFo() {
+    private void aIG() {
         if (this.mThreadList != null) {
-            q.q(this.mThreadList, 2);
+            q.r(this.mThreadList, 2);
         }
     }
 }

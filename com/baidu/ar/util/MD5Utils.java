@@ -1,5 +1,6 @@
 package com.baidu.ar.util;
 
+import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -16,7 +17,7 @@ public class MD5Utils {
 
     static {
         try {
-            b = MessageDigest.getInstance("MD5");
+            b = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
         } catch (NoSuchAlgorithmException e) {
             System.err.println(MD5Utils.class.getName() + "初始化失败，MessageDigest不支持MD5Util。");
             e.printStackTrace();
@@ -57,7 +58,7 @@ public class MD5Utils {
             try {
                 try {
                     byte[] bArr = new byte[1024];
-                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                    MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
                     while (true) {
                         int read = fileInputStream.read(bArr);
                         if (read == -1) {
@@ -148,7 +149,7 @@ public class MD5Utils {
 
     public static String md5(String str) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
             char[] charArray = str.toCharArray();
             byte[] bArr = new byte[charArray.length];
             for (int i = 0; i < charArray.length; i++) {

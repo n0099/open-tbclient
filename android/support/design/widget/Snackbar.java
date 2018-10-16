@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 /* loaded from: classes2.dex */
 public final class Snackbar extends BaseTransientBottomBar<Snackbar> {
     public static final int LENGTH_INDEFINITE = -2;
@@ -174,7 +175,7 @@ public final class Snackbar extends BaseTransientBottomBar<Snackbar> {
             for (int i3 = 0; i3 < childCount; i3++) {
                 View childAt = getChildAt(i3);
                 if (childAt.getLayoutParams().width == -1) {
-                    childAt.measure(View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824), View.MeasureSpec.makeMeasureSpec(childAt.getMeasuredHeight(), 1073741824));
+                    childAt.measure(View.MeasureSpec.makeMeasureSpec(measuredWidth, AiAppsFileUtils.GB), View.MeasureSpec.makeMeasureSpec(childAt.getMeasuredHeight(), AiAppsFileUtils.GB));
                 }
             }
         }

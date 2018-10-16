@@ -9,7 +9,7 @@ import tbclient.ForumSubLabel;
 public class LabelDataList extends ArrayList<a> {
     public void parseProtu(List<ForumSubLabel> list) {
         clear();
-        if (!v.z(list)) {
+        if (!v.J(list)) {
             for (ForumSubLabel forumSubLabel : list) {
                 if (forumSubLabel != null) {
                     a aVar = new a();

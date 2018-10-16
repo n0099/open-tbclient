@@ -9,53 +9,53 @@ import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
-    private a bvR;
+    private a bzT;
 
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.bvR = a.Ti();
+        this.bzT = a.Ve();
     }
 
-    public void a(a.InterfaceC0130a interfaceC0130a) {
-        this.bvR.a(interfaceC0130a);
+    public void a(a.InterfaceC0154a interfaceC0154a) {
+        this.bzT.a(interfaceC0154a);
     }
 
-    public void b(a.InterfaceC0130a interfaceC0130a) {
-        this.bvR.b(interfaceC0130a);
+    public void b(a.InterfaceC0154a interfaceC0154a) {
+        this.bzT.b(interfaceC0154a);
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.a> Tz() {
-        return this.bvR.Tj();
+    public List<com.baidu.tbadk.coreExtra.relationship.a> Vv() {
+        return this.bzT.Vf();
     }
 
-    public void TA() {
+    public void Vw() {
         sendMessage(new CustomMessage(2001178));
     }
 
-    public void Tv() {
+    public void Vr() {
         super.sendMessage(new RequestGetAddressListMessage(304001));
     }
 
-    public void aa(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.bvR.X(list);
+    public void aj(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
+        this.bzT.ag(list);
     }
 
     public void a(com.baidu.tbadk.coreExtra.relationship.a aVar) {
-        this.bvR.a(aVar);
+        this.bzT.a(aVar);
     }
 
-    public void aL(long j) {
-        this.bvR.aL(j);
+    public void aN(long j) {
+        this.bzT.aN(j);
     }
 
-    public int jz(String str) {
+    public int jM(String str) {
         int i;
-        if (c.gu(str)) {
-            List<com.baidu.tbadk.coreExtra.relationship.a> Tj = this.bvR.Tj();
-            if (Tj != null) {
-                for (com.baidu.tbadk.coreExtra.relationship.a aVar : Tj) {
-                    if (str.equals(aVar.GL())) {
-                        i = Tj.indexOf(aVar);
+        if (c.gI(str)) {
+            List<com.baidu.tbadk.coreExtra.relationship.a> Vf = this.bzT.Vf();
+            if (Vf != null) {
+                for (com.baidu.tbadk.coreExtra.relationship.a aVar : Vf) {
+                    if (str.equals(aVar.IM())) {
+                        i = Vf.indexOf(aVar);
                         break;
                     }
                 }

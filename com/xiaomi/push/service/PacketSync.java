@@ -3,6 +3,8 @@ package com.xiaomi.push.service;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.searchbox.ng.ai.apps.network.WebSocketAction;
+import com.baidu.searchbox.ng.ai.apps.statistic.AiAppsUBCStatistic;
 import com.coremedia.iso.boxes.AuthorBox;
 import com.xiaomi.network.Fallback;
 import com.xiaomi.network.HostManager;
@@ -85,7 +87,7 @@ public class PacketSync {
             if (p != null) {
                 String m = dVar.m();
                 String a = p.a("type");
-                String a2 = p.a("reason");
+                String a2 = p.a(WebSocketAction.PARAM_KEY_REASON);
                 com.xiaomi.channel.commonutils.logger.b.a("kicked by server, chid=" + l + " userid=" + m + " type=" + a + " reason=" + a2);
                 if (!"wait".equals(a)) {
                     this.a.a(l, m, 3, a2, a);
@@ -141,7 +143,7 @@ public class PacketSync {
                     }
                     return;
                 } else if ("CONF".equals(bVar.b())) {
-                    at.a().a(b.C0299b.b(bVar.k()));
+                    at.a().a(b.C0352b.b(bVar.k()));
                     return;
                 } else if (TextUtils.equals("U", bVar.b())) {
                     b.k b3 = b.k.b(bVar.k());
@@ -218,7 +220,7 @@ public class PacketSync {
                             }
                             b8.a(ak.c.unbind, 1, 5, b7.h(), f2);
                             ak.a().a(num, j2);
-                        } else if ("cancel".equals(f2)) {
+                        } else if (AiAppsUBCStatistic.VALUE_CANCEL.equals(f2)) {
                             b8.a(ak.c.unbind, 1, 7, b7.h(), f2);
                             ak.a().a(num, j2);
                         } else if ("wait".equals(f2)) {

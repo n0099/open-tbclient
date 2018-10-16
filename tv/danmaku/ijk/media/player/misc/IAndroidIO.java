@@ -1,7 +1,7 @@
 package tv.danmaku.ijk.media.player.misc;
 
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface IAndroidIO {
     int close() throws IOException;
 

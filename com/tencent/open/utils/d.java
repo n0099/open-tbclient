@@ -4,7 +4,7 @@ import android.util.Base64;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class d {
     private static byte[] a = {1, 2, 3, 4, 5, 6, 7, 8};
 

@@ -6,27 +6,27 @@ import cn.jpush.android.service.DownloadProvider;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
 public class f {
-    private static f lW;
+    private static f mJ;
     private AtomicBoolean c = new AtomicBoolean(false);
-    private e lU;
-    private h lV;
+    private e mH;
+    private h mI;
 
     private f() {
-        this.lU = null;
-        this.lV = null;
-        this.lU = new e();
-        this.lV = new h();
+        this.mH = null;
+        this.mI = null;
+        this.mH = new e();
+        this.mI = new h();
     }
 
-    public static f bT() {
-        if (lW == null) {
+    public static f ck() {
+        if (mJ == null) {
             synchronized (f.class) {
-                if (lW == null) {
-                    lW = new f();
+                if (mJ == null) {
+                    mJ = new f();
                 }
             }
         }
-        return lW;
+        return mJ;
     }
 
     public final void a(Context context) {
@@ -37,17 +37,17 @@ public class f {
         if (b == null) {
             b = "";
         }
-        this.lU.c(cn.jiguang.api.e.bl());
-        this.lU.d("cn.jpush.android.service.PushService");
-        this.lU.e(DownloadProvider.class);
-        this.lU.a(3600L);
-        this.lU.b(cn.jiguang.d.a.d.c(context));
-        this.lU.a(b);
-        this.lV.a(3600L);
-        h hVar = this.lV;
-        cn.jiguang.d.d.e.bD();
+        this.mH.c(cn.jiguang.api.e.bC());
+        this.mH.d("cn.jpush.android.service.PushService");
+        this.mH.e(DownloadProvider.class);
+        this.mH.a(3600L);
+        this.mH.b(cn.jiguang.d.a.d.c(context));
+        this.mH.a(b);
+        this.mI.a(3600L);
+        h hVar = this.mI;
+        cn.jiguang.d.d.e.bU();
         hVar.b(cn.jiguang.d.d.e.j(SdkType.JPUSH.name(), ""));
-        this.lV.a(b);
+        this.mI.a(b);
         this.c.set(true);
     }
 
@@ -58,11 +58,11 @@ public class f {
         }
     }
 
-    public final e bU() {
-        return this.lU;
+    public final e cl() {
+        return this.mH;
     }
 
-    public final h bV() {
-        return this.lV;
+    public final h cm() {
+        return this.mI;
     }
 }

@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
+import com.baidu.searchbox.ng.ai.apps.event.message.AiAppsLifecycleMessage;
+import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -170,9 +172,9 @@ public class e {
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("id", jVar.a());
-            contentValues.put("appId", Long.valueOf(jVar.e()));
+            contentValues.put(AiAppsLifecycleMessage.APP_ID_KEY, Long.valueOf(jVar.e()));
             contentValues.put("name", jVar.c());
-            contentValues.put("package_name", jVar.g());
+            contentValues.put(ETAG.KEY_PACKAGE_NAME, jVar.g());
             contentValues.put("create_time", Long.valueOf(jVar.i()));
             contentValues.put("type", jVar.k().name());
             contentValues.put("center_longtitude", String.valueOf(jVar.m().a()));
@@ -226,8 +228,8 @@ public class e {
                         com.xiaomi.xmpush.thrift.j jVar = new com.xiaomi.xmpush.thrift.j();
                         jVar.a(a.getString(a.getColumnIndex("id")));
                         jVar.b(a.getString(a.getColumnIndex("name")));
-                        jVar.a(a.getInt(a.getColumnIndex("appId")));
-                        jVar.c(a.getString(a.getColumnIndex("package_name")));
+                        jVar.a(a.getInt(a.getColumnIndex(AiAppsLifecycleMessage.APP_ID_KEY)));
+                        jVar.c(a.getString(a.getColumnIndex(ETAG.KEY_PACKAGE_NAME)));
                         jVar.b(a.getInt(a.getColumnIndex("create_time")));
                         com.xiaomi.xmpush.thrift.k a2 = a(a);
                         if (a2 == null) {

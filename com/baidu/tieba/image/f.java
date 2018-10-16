@@ -1,36 +1,37 @@
 package com.baidu.tieba.image;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.ng.ai.apps.media.chooser.action.ChooseVideoAction;
 import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f {
-    private boolean eRr;
+    private boolean eYY;
     private boolean isBlockedPic;
     private boolean isLongPic;
-    private String eRo = null;
+    private String eYV = null;
     private String imageUrl = null;
-    private String biY = null;
+    private String bnc = null;
     private int width = 0;
     private int height = 0;
-    private String eRp = null;
+    private String eYW = null;
     private long originalSize = 0;
     private int picType = 0;
     private String tagName = "";
     private int index = -1;
     private long overAllIndex = 0;
-    private String eRq = null;
+    private String eYX = null;
 
     public String getImageUrl() {
         return this.imageUrl;
     }
 
-    public String aRW() {
-        return this.eRo;
+    public String aVk() {
+        return this.eYV;
     }
 
-    public String aRX() {
-        return this.eRq;
+    public String aVl() {
+        return this.eYX;
     }
 
     public int getWidth() {
@@ -45,12 +46,12 @@ public class f {
         return this.index;
     }
 
-    public String Pg() {
-        return this.biY;
+    public String Rb() {
+        return this.bnc;
     }
 
-    public String Pn() {
-        return this.eRp;
+    public String Ri() {
+        return this.eYW;
     }
 
     public long getOriginalSize() {
@@ -65,11 +66,11 @@ public class f {
         return this.tagName;
     }
 
-    public boolean aRY() {
-        return this.eRr;
+    public boolean aVm() {
+        return this.eYY;
     }
 
-    public boolean aRZ() {
+    public boolean aVn() {
         return this.isBlockedPic;
     }
 
@@ -77,7 +78,7 @@ public class f {
         return this.isLongPic;
     }
 
-    public long aSa() {
+    public long aVo() {
         return this.overAllIndex;
     }
 
@@ -85,20 +86,20 @@ public class f {
         JSONObject optJSONObject;
         try {
             this.overAllIndex = jSONObject.optLong("overall_index", 0L);
-            this.eRq = jSONObject.optString("post_id");
-            this.eRr = jSONObject.optInt("show_original_btn") == 1;
+            this.eYX = jSONObject.optString("post_id");
+            this.eYY = jSONObject.optInt("show_original_btn") == 1;
             this.isBlockedPic = jSONObject.optInt("is_blocked_pic") == 1;
             this.isLongPic = jSONObject.optInt("is_long_pic") == 1;
             this.index = jSONObject.optInt("index", -1);
             JSONObject optJSONObject2 = jSONObject.optJSONObject(SocialConstants.PARAM_IMG_URL);
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("original")) != null) {
-                this.eRo = optJSONObject.optString("id");
+                this.eYV = optJSONObject.optString("id");
                 this.imageUrl = optJSONObject.optString("url");
                 this.width = optJSONObject.optInt("width", 0);
                 this.height = optJSONObject.optInt("height", 0);
-                this.biY = optJSONObject.optString("big_cdn_src", null);
-                this.eRp = optJSONObject.optString("original_src");
-                this.originalSize = optJSONObject.optInt("size");
+                this.bnc = optJSONObject.optString("big_cdn_src", null);
+                this.eYW = optJSONObject.optString("original_src");
+                this.originalSize = optJSONObject.optInt(ChooseVideoAction.CB_KEY_SIZE);
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("pic_tagname");
             if (optJSONObject3 != null) {

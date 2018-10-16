@@ -5,6 +5,7 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class AlbumActivityConfig extends IntentConfig {
+    public static final String ACTION_SELECT_IMAGE_RESULT = "com.baidu.tieba.AlbumActivity.SelectImageResult";
     public static final String ALBUM_RESULT = "album_result";
     public static final String AUTO_PHOTO_NAME = "auto_photo_name";
     public static final int AVATAR_TYPE = 2;
@@ -13,6 +14,7 @@ public class AlbumActivityConfig extends IntentConfig {
     public static final String CAMERA_RESULT = "camera_result";
     public static final int COMMON_TYPE = 0;
     public static final String FINISH_SELF = "finish_self";
+    public static final String FROM_AIAPPS = "aiapps";
     public static final int FROM_DEFAULT = 0;
     public static final String FROM_FRS = "frs";
     public static final String FROM_MAIN_TAB = "main_tab";

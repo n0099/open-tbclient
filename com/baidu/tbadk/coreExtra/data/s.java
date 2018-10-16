@@ -7,7 +7,7 @@ public class s {
     private String link_url;
     private long start_time;
 
-    public String DA() {
+    public String FB() {
         return this.link_url;
     }
 

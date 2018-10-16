@@ -1,6 +1,5 @@
 package com.baidu.mobstat;
 
-import com.baidu.baiduarsdk.ArBridge;
 import com.baidu.mobstat.cw;
 import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
@@ -46,7 +45,7 @@ public class cu extends cx implements ct {
     }
 
     private void g() throws co {
-        this.f = ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC;
+        this.f = 1005;
         ByteBuffer c = super.c();
         c.mark();
         if (c.remaining() >= 2) {

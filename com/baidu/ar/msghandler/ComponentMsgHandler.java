@@ -16,12 +16,12 @@ import com.baidu.mobstat.Config;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class ComponentMsgHandler implements d {
-    private static a.InterfaceC0032a c = new a.InterfaceC0032a() { // from class: com.baidu.ar.msghandler.ComponentMsgHandler.1
-        @Override // com.baidu.ar.a.a.InterfaceC0032a
+    private static a.InterfaceC0035a c = new a.InterfaceC0035a() { // from class: com.baidu.ar.msghandler.ComponentMsgHandler.1
+        @Override // com.baidu.ar.a.a.InterfaceC0035a
         public void a() {
         }
 
-        @Override // com.baidu.ar.a.a.InterfaceC0032a
+        @Override // com.baidu.ar.a.a.InterfaceC0035a
         public void a(float f, float f2, float f3, float f4) {
             ARLog.e("acc  x " + f + " , y : " + f2 + " , z " + f3);
             ComponentMsgHandler.sendAccelerationToLua(f, f2, f3, f4);

@@ -27,6 +27,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import com.baidu.mobstat.bb;
 import com.baidu.mobstat.bz;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -1052,7 +1053,7 @@ public class bq {
                 }
                 if (!TextUtils.isEmpty(str)) {
                     if (!TextUtils.isEmpty(sb.toString())) {
-                        sb.append("_");
+                        sb.append(BaseRequestAction.SPLITE);
                     }
                     sb.append(str);
                 }

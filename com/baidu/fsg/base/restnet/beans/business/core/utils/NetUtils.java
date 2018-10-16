@@ -5,10 +5,11 @@ import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import com.baidu.fsg.base.utils.LogUtil;
+import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class NetUtils {
     private static final String TAG = "NetUtils";
 
@@ -23,7 +24,7 @@ public final class NetUtils {
                 return jSONObject;
             }
         } catch (Exception e) {
-            LogUtil.e(TAG, "error", e);
+            LogUtil.e(TAG, AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, e);
         }
         WifiInfo connectionInfo = wifiManager.getConnectionInfo();
         List<ScanResult> scanResults = wifiManager.getScanResults();
@@ -56,7 +57,7 @@ public final class NetUtils {
             }
             return jSONObject;
         } catch (Exception e2) {
-            LogUtil.e(TAG, "error", e2);
+            LogUtil.e(TAG, AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, e2);
             return null;
         }
     }

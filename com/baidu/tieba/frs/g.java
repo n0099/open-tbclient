@@ -2,11 +2,11 @@ package com.baidu.tieba.frs;
 
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class g {
     private static UserData mUserData;
 
-    public static UserData avR() {
+    public static UserData azn() {
         return mUserData;
     }
 
@@ -17,7 +17,7 @@ public class g {
 
     public static void a(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, com.baidu.tieba.tbadkCore.l lVar) {
         if (threadCommentAndPraiseInfoLayout != null) {
-            if (lVar != null && lVar.gUm != 303 && b(a(lVar))) {
+            if (lVar != null && lVar.hbH != 303 && b(a(lVar))) {
                 threadCommentAndPraiseInfoLayout.setManageVisible(true);
             } else {
                 threadCommentAndPraiseInfoLayout.setManageVisible(false);
@@ -38,12 +38,12 @@ public class g {
         }
     }
 
-    public static boolean avS() {
-        UserData avR = avR();
-        if (avR == null) {
+    public static boolean azo() {
+        UserData azn = azn();
+        if (azn == null) {
             return false;
         }
-        switch (avR.getIs_manager()) {
+        switch (azn.getIs_manager()) {
             case 1:
                 return true;
             default:

@@ -9,57 +9,57 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.e;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.view.NavigationBarCoverTip;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class i {
-    private TextView anY;
-    private FrsFragment dKj;
-    private NavigationBarCoverTip dOy;
-    private int dOz;
+    private TextView asQ;
+    private FrsFragment dSf;
+    private NavigationBarCoverTip dWt;
+    private int dWu;
 
     public i(FrsFragment frsFragment, NavigationBarCoverTip navigationBarCoverTip) {
-        this.dKj = frsFragment;
-        this.dOy = navigationBarCoverTip;
+        this.dSf = frsFragment;
+        this.dWt = navigationBarCoverTip;
         init();
     }
 
     private void init() {
-        this.dOz = 0;
-        this.anY = new TextView(this.dKj.getActivity());
-        this.anY.setLayoutParams(new LinearLayout.LayoutParams(-1, this.dKj.getResources().getDimensionPixelSize(e.C0141e.tbds112)));
+        this.dWu = 0;
+        this.asQ = new TextView(this.dSf.getActivity());
+        this.asQ.setLayoutParams(new LinearLayout.LayoutParams(-1, this.dSf.getResources().getDimensionPixelSize(e.C0175e.tbds112)));
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.anY.setPadding(this.dKj.getResources().getDimensionPixelSize(e.C0141e.ds34), this.dKj.getResources().getDimensionPixelSize(e.C0141e.ds1), this.dKj.getResources().getDimensionPixelSize(e.C0141e.ds34), 0);
-            this.anY.setGravity(3);
+            this.asQ.setPadding(this.dSf.getResources().getDimensionPixelSize(e.C0175e.ds34), this.dSf.getResources().getDimensionPixelSize(e.C0175e.ds1), this.dSf.getResources().getDimensionPixelSize(e.C0175e.ds34), 0);
+            this.asQ.setGravity(3);
         } else {
-            this.anY.setPadding(this.dKj.getResources().getDimensionPixelSize(e.C0141e.ds34), 0, this.dKj.getResources().getDimensionPixelSize(e.C0141e.ds34), 0);
-            this.anY.setGravity(19);
+            this.asQ.setPadding(this.dSf.getResources().getDimensionPixelSize(e.C0175e.ds34), 0, this.dSf.getResources().getDimensionPixelSize(e.C0175e.ds34), 0);
+            this.asQ.setGravity(19);
         }
-        this.anY.setTextSize(0, this.dKj.getResources().getDimensionPixelSize(e.C0141e.ds28));
-        this.anY.setLineSpacing(this.dKj.getResources().getDimensionPixelSize(e.C0141e.ds2), 1.0f);
-        this.anY.setMaxLines(2);
-        this.anY.setEllipsize(TextUtils.TruncateAt.END);
+        this.asQ.setTextSize(0, this.dSf.getResources().getDimensionPixelSize(e.C0175e.ds28));
+        this.asQ.setLineSpacing(this.dSf.getResources().getDimensionPixelSize(e.C0175e.ds2), 1.0f);
+        this.asQ.setMaxLines(2);
+        this.asQ.setEllipsize(TextUtils.TruncateAt.END);
     }
 
-    public void mY(String str) {
+    public void nA(String str) {
         String str2;
-        if (!ao.isEmpty(str) && this.dOy != null && this.dKj.isPrimary() && this.dOz <= 0) {
-            this.dOz++;
+        if (!ao.isEmpty(str) && this.dWt != null && this.dSf.isPrimary() && this.dWu <= 0) {
+            this.dWu++;
             if (str.length() < 20) {
-                str2 = this.dKj.getResources().getString(e.j.forum_ueg_tip) + "\n" + str;
+                str2 = this.dSf.getResources().getString(e.j.forum_ueg_tip) + "\n" + str;
             } else if (str.length() < 34) {
-                str2 = this.dKj.getResources().getString(e.j.forum_ueg_tip) + str;
+                str2 = this.dSf.getResources().getString(e.j.forum_ueg_tip) + str;
             } else {
-                str2 = this.dKj.getResources().getString(e.j.forum_ueg_tip) + str.substring(0, 34);
+                str2 = this.dSf.getResources().getString(e.j.forum_ueg_tip) + str.substring(0, 34);
             }
-            this.anY.setText(str2);
-            al.h(this.anY, e.d.cp_cont_i);
-            al.j(this.dOy, e.d.cp_link_tip_a_alpha95);
-            this.dOy.a(this.dKj.getActivity(), this.anY, 5000);
+            this.asQ.setText(str2);
+            al.h(this.asQ, e.d.cp_cont_i);
+            al.j(this.dWt, e.d.cp_link_tip_a_alpha95);
+            this.dWt.a(this.dSf.getActivity(), this.asQ, 5000);
         }
     }
 
     public void onDestory() {
-        if (this.dOy != null) {
-            this.dOy.onDestroy();
+        if (this.dWt != null) {
+            this.dWt.onDestroy();
         }
     }
 }

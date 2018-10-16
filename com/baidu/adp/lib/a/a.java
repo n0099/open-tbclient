@@ -13,36 +13,36 @@ import java.net.UnknownHostException;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class a {
-    private static a Au = null;
-    private final String Av = "c.tieba.baidu.com";
-    private long Aw;
-    private String Ax;
-    private long Ay;
+    private static a Bf = null;
+    private final String Bg = "c.tieba.baidu.com";
+    private long Bh;
+    private String Bi;
+    private long Bj;
 
-    public static final a iq() {
-        if (Au == null) {
+    public static final a iG() {
+        if (Bf == null) {
             synchronized (a.class) {
-                if (Au == null) {
-                    Au = new a();
+                if (Bf == null) {
+                    Bf = new a();
                 }
             }
         }
-        return Au;
+        return Bf;
     }
 
     private a() {
-        this.Aw = 0L;
-        this.Ax = null;
-        this.Ay = 0L;
+        this.Bh = 0L;
+        this.Bi = null;
+        this.Bj = 0L;
         SharedPreferences config = getConfig();
-        this.Aw = config.getLong(aK("c.tieba.baidu.com"), 0L);
-        this.Ax = config.getString(aL("c.tieba.baidu.com"), null);
-        this.Ay = config.getLong(aM("c.tieba.baidu.com"), 0L);
+        this.Bh = config.getLong(aK("c.tieba.baidu.com"), 0L);
+        this.Bi = config.getString(aL("c.tieba.baidu.com"), null);
+        this.Bj = config.getLong(aM("c.tieba.baidu.com"), 0L);
     }
 
     public void a(String str, String str2, boolean z, boolean z2) {
         String host;
-        if (!TextUtils.isEmpty(str) && j.kK()) {
+        if (!TextUtils.isEmpty(str) && j.kX()) {
             try {
                 URL url = new URL(str);
                 String host2 = url.getHost();
@@ -54,9 +54,9 @@ public class a {
                 }
                 if ("c.tieba.baidu.com".equals(host)) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    long j = this.Aw;
-                    long j2 = this.Ay;
-                    String str3 = this.Ax;
+                    long j = this.Bh;
+                    long j2 = this.Bj;
+                    String str3 = this.Bi;
                     if (currentTimeMillis - j > 43200000) {
                         a(host, host2, z, "12hour", z2);
                         return;
@@ -74,7 +74,7 @@ public class a {
                         if (!TextUtils.equals(host2, str3) || str3 == null) {
                             a(host, host2, z, "ipchange", z2);
                         } else {
-                            this.Ay = System.currentTimeMillis();
+                            this.Bj = System.currentTimeMillis();
                         }
                     }
                 }
@@ -96,7 +96,7 @@ public class a {
                 statsItem.append("hostip", str2);
                 statsItem.f("issuc", Boolean.valueOf(z));
                 statsItem.f("isuseip", Boolean.valueOf(z2));
-                Address d = com.baidu.adp.lib.d.a.iH().d(false, false);
+                Address d = com.baidu.adp.lib.d.a.iX().d(false, false);
                 if (d != null) {
                     statsItem.f("lati", Double.valueOf(d.getLatitude()));
                     statsItem.f("longi", Double.valueOf(d.getLongitude()));
@@ -106,9 +106,9 @@ public class a {
                 EditorHelper.putLong(config, aK(str), currentTimeMillis);
                 EditorHelper.putString(config, aL(str), str2);
                 EditorHelper.putLong(config, aM(str), currentTimeMillis2);
-                this.Aw = currentTimeMillis;
-                this.Ay = currentTimeMillis2;
-                this.Ax = str2;
+                this.Bh = currentTimeMillis;
+                this.Bj = currentTimeMillis2;
+                this.Bi = str2;
             }
         }
     }

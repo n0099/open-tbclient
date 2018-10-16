@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class AlertDialogLayout extends LinearLayoutCompat {
@@ -112,7 +113,7 @@ public class AlertDialogLayout extends LinearLayoutCompat {
                 i13 -= min;
                 i12 += min;
             }
-            view3.measure(i, View.MeasureSpec.makeMeasureSpec(i12, 1073741824));
+            view3.measure(i, View.MeasureSpec.makeMeasureSpec(i12, AiAppsFileUtils.GB));
             i6 = View.combineMeasuredStates(i11, view3.getMeasuredState());
             int i15 = i13;
             i7 = view3.getMeasuredHeight() + i14;
@@ -147,7 +148,7 @@ public class AlertDialogLayout extends LinearLayoutCompat {
     }
 
     private void forceUniformWidth(int i, int i2) {
-        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(getMeasuredWidth(), 1073741824);
+        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(getMeasuredWidth(), AiAppsFileUtils.GB);
         for (int i3 = 0; i3 < i; i3++) {
             View childAt = getChildAt(i3);
             if (childAt.getVisibility() != 8) {

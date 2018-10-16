@@ -19,7 +19,7 @@ import com.baidu.fsg.base.utils.ResUtils;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Random;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClickListener {
     private Button a;
     private Button b;
@@ -190,7 +190,7 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a extends Handler {
         WeakReference<SafeKeyBoardPopupWindow> a;
 

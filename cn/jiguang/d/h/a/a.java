@@ -1,6 +1,5 @@
 package cn.jiguang.d.h.a;
 
-import android.support.v4.view.ViewCompat;
 import android.util.Base64;
 import cn.jiguang.d.a.d;
 import com.baidu.ar.util.IoUtils;
@@ -168,7 +167,7 @@ public final class a {
     }
 
     public static int c() {
-        return Math.abs(new SecureRandom().nextInt()) & ViewCompat.MEASURED_SIZE_MASK;
+        return Math.abs(new SecureRandom().nextInt()) & 16777215;
     }
 
     private static String i(long j) {

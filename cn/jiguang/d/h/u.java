@@ -1,5 +1,6 @@
 package cn.jiguang.d.h;
 
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes3.dex */
@@ -16,7 +17,7 @@ final class u implements ThreadFactory {
     @Override // java.util.concurrent.ThreadFactory
     public final Thread newThread(Runnable runnable) {
         int i;
-        Thread thread = new Thread(runnable, this.c == 0 ? this.b + "_" + this.a.getAndIncrement() : this.b);
+        Thread thread = new Thread(runnable, this.c == 0 ? this.b + BaseRequestAction.SPLITE + this.a.getAndIncrement() : this.b);
         if (thread.isDaemon()) {
             thread.setDaemon(false);
         }

@@ -18,7 +18,7 @@ import com.baidu.tbadk.util.PageType;
 import com.baidu.tieba.e;
 import com.baidu.tieba.tbadkCore.e.c;
 @SuppressLint({"SetJavaScriptEnabled"})
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity> {
     private static final String JS_PROMPT_ACCOUNT_METHOD_EXIT = "exit";
     private static final String JS_PROMPT_INTERFACE_NAME = "AccountJsBridge";

@@ -1,7 +1,7 @@
 package com.xiaomi.xmpush.thrift;
 
 import com.baidu.fsg.base.BaiduRimConstants;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.searchbox.ng.ai.apps.event.message.AiAppsLifecycleMessage;
 import java.io.Serializable;
 import java.util.BitSet;
 import java.util.Collections;
@@ -17,13 +17,13 @@ public class aj implements Serializable, Cloneable, org.apache.thrift.a<aj, a> {
     private static final org.apache.thrift.protocol.b o = new org.apache.thrift.protocol.b("debug", (byte) 11, 1);
     private static final org.apache.thrift.protocol.b p = new org.apache.thrift.protocol.b(BaiduRimConstants.ACTION_TARGET, (byte) 12, 2);
     private static final org.apache.thrift.protocol.b q = new org.apache.thrift.protocol.b("id", (byte) 11, 3);
-    private static final org.apache.thrift.protocol.b r = new org.apache.thrift.protocol.b("appId", (byte) 11, 4);
+    private static final org.apache.thrift.protocol.b r = new org.apache.thrift.protocol.b(AiAppsLifecycleMessage.APP_ID_KEY, (byte) 11, 4);
     private static final org.apache.thrift.protocol.b s = new org.apache.thrift.protocol.b("packageName", (byte) 11, 5);
     private static final org.apache.thrift.protocol.b t = new org.apache.thrift.protocol.b("topic", (byte) 11, 6);
     private static final org.apache.thrift.protocol.b u = new org.apache.thrift.protocol.b("aliasName", (byte) 11, 7);
     private static final org.apache.thrift.protocol.b v = new org.apache.thrift.protocol.b("message", (byte) 12, 8);
     private static final org.apache.thrift.protocol.b w = new org.apache.thrift.protocol.b("needAck", (byte) 2, 9);
-    private static final org.apache.thrift.protocol.b x = new org.apache.thrift.protocol.b(LegoListActivityConfig.PARAMS, (byte) 13, 10);
+    private static final org.apache.thrift.protocol.b x = new org.apache.thrift.protocol.b("params", (byte) 13, 10);
     private static final org.apache.thrift.protocol.b y = new org.apache.thrift.protocol.b("category", (byte) 11, 11);
     private static final org.apache.thrift.protocol.b z = new org.apache.thrift.protocol.b("userAccount", (byte) 11, 12);
     public String a;
@@ -45,13 +45,13 @@ public class aj implements Serializable, Cloneable, org.apache.thrift.a<aj, a> {
         DEBUG(1, "debug"),
         TARGET(2, BaiduRimConstants.ACTION_TARGET),
         ID(3, "id"),
-        APP_ID(4, "appId"),
+        APP_ID(4, AiAppsLifecycleMessage.APP_ID_KEY),
         PACKAGE_NAME(5, "packageName"),
         TOPIC(6, "topic"),
         ALIAS_NAME(7, "aliasName"),
         MESSAGE(8, "message"),
         NEED_ACK(9, "needAck"),
-        PARAMS(10, LegoListActivityConfig.PARAMS),
+        PARAMS(10, "params"),
         CATEGORY(11, "category"),
         USER_ACCOUNT(12, "userAccount");
         
@@ -82,13 +82,13 @@ public class aj implements Serializable, Cloneable, org.apache.thrift.a<aj, a> {
         enumMap.put((EnumMap) a.DEBUG, (a) new org.apache.thrift.meta_data.b("debug", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.TARGET, (a) new org.apache.thrift.meta_data.b(BaiduRimConstants.ACTION_TARGET, (byte) 2, new org.apache.thrift.meta_data.g((byte) 12, u.class)));
         enumMap.put((EnumMap) a.ID, (a) new org.apache.thrift.meta_data.b("id", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.APP_ID, (a) new org.apache.thrift.meta_data.b("appId", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
+        enumMap.put((EnumMap) a.APP_ID, (a) new org.apache.thrift.meta_data.b(AiAppsLifecycleMessage.APP_ID_KEY, (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.PACKAGE_NAME, (a) new org.apache.thrift.meta_data.b("packageName", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.TOPIC, (a) new org.apache.thrift.meta_data.b("topic", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.ALIAS_NAME, (a) new org.apache.thrift.meta_data.b("aliasName", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.MESSAGE, (a) new org.apache.thrift.meta_data.b("message", (byte) 2, new org.apache.thrift.meta_data.g((byte) 12, q.class)));
         enumMap.put((EnumMap) a.NEED_ACK, (a) new org.apache.thrift.meta_data.b("needAck", (byte) 2, new org.apache.thrift.meta_data.c((byte) 2)));
-        enumMap.put((EnumMap) a.PARAMS, (a) new org.apache.thrift.meta_data.b(LegoListActivityConfig.PARAMS, (byte) 2, new org.apache.thrift.meta_data.e((byte) 13, new org.apache.thrift.meta_data.c((byte) 11), new org.apache.thrift.meta_data.c((byte) 11))));
+        enumMap.put((EnumMap) a.PARAMS, (a) new org.apache.thrift.meta_data.b("params", (byte) 2, new org.apache.thrift.meta_data.e((byte) 13, new org.apache.thrift.meta_data.c((byte) 11), new org.apache.thrift.meta_data.c((byte) 11))));
         enumMap.put((EnumMap) a.CATEGORY, (a) new org.apache.thrift.meta_data.b("category", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.USER_ACCOUNT, (a) new org.apache.thrift.meta_data.b("userAccount", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         m = Collections.unmodifiableMap(enumMap);

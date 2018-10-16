@@ -10,7 +10,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CustomAlertDialog extends Dialog {
     private ViewSwitcher a;
     private TextView b;

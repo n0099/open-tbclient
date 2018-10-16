@@ -2,6 +2,7 @@ package cn.jiguang.d.d;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppDateTimeUtil;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -13,7 +14,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class f {
     private static final Object d = new Object();
-    private static volatile f lt;
+    private static volatile f lY;
     private long a;
     private Map<String, Set<String>> b = new HashMap();
 
@@ -140,15 +141,15 @@ public final class f {
         }
     }
 
-    public static f bE() {
-        if (lt == null) {
+    public static f bV() {
+        if (lY == null) {
             synchronized (d) {
-                if (lt == null) {
-                    lt = new f();
+                if (lY == null) {
+                    lY = new f();
                 }
             }
         }
-        return lt;
+        return lY;
     }
 
     public final void a(Context context, JSONObject jSONObject) {
@@ -193,7 +194,7 @@ public final class f {
             long f = cn.jiguang.d.a.d.f(context, 3600000L);
             long j = f >= 0 ? f < 60000 ? 60000L : f : 3600000L;
             long j2 = j <= 604800000 ? j : 604800000L;
-            cn.jiguang.d.h.c.a("yyyy-MM-dd HH:mm:ss");
+            cn.jiguang.d.h.c.a(AiAppDateTimeUtil.TIME_FORMAT);
             if (this.a == 0 || j2 + this.a < currentTimeMillis) {
                 y.a(context, this.b == null || this.b.isEmpty());
             }

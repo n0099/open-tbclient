@@ -1,94 +1,93 @@
 package com.baidu.tieba.pbextra.emotion.model;
 
-import android.support.v4.app.FrameMetricsAggregator;
 import android.support.v4.internal.view.SupportMenu;
 import com.baidu.baiduarsdk.ArBridge;
 import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes3.dex */
 class b {
-    private int fYA;
-    private int fYB;
-    private int fYC;
-    int fYD;
-    int fYF;
-    int fYM;
-    int fYN;
-    int fYO;
-    int fYS;
-    private int fYx;
-    private int fYy;
-    private byte[] fYz;
-    int fYE = 12;
-    int fYG = 4096;
-    int[] fYH = new int[5003];
-    int[] fYI = new int[5003];
-    int fYJ = 5003;
-    int fYK = 0;
-    boolean fYL = false;
-    int fYP = 0;
-    int fYQ = 0;
-    int[] fYR = {0, 1, 3, 7, 15, 31, 63, 127, 255, FrameMetricsAggregator.EVERY_DURATION, ArBridge.MessageType.MSG_TYPE_VIDEO_PAUSE, 2047, 4095, 8191, 16383, 32767, SupportMenu.USER_MASK};
-    byte[] fYT = new byte[256];
+    private int gfY;
+    private int gfZ;
+    private byte[] gga;
+    private int ggb;
+    private int ggc;
+    private int ggd;
+    int gge;
+    int ggg;
+    int ggn;
+    int ggo;
+    int ggp;
+    int ggt;
+    int ggf = 12;
+    int ggh = 4096;
+    int[] ggi = new int[5003];
+    int[] ggj = new int[5003];
+    int ggk = 5003;
+    int ggl = 0;
+    boolean ggm = false;
+    int ggq = 0;
+    int ggr = 0;
+    int[] ggs = {0, 1, 3, 7, 15, 31, 63, 127, 255, 511, ArBridge.MessageType.MSG_TYPE_VIDEO_PAUSE, 2047, 4095, 8191, 16383, 32767, SupportMenu.USER_MASK};
+    byte[] ggu = new byte[256];
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(int i, int i2, byte[] bArr, int i3) {
-        this.fYx = i;
-        this.fYy = i2;
-        this.fYz = bArr;
-        this.fYA = Math.max(2, i3);
+        this.gfY = i;
+        this.gfZ = i2;
+        this.gga = bArr;
+        this.ggb = Math.max(2, i3);
     }
 
     void a(byte b, OutputStream outputStream) throws IOException {
-        byte[] bArr = this.fYT;
-        int i = this.fYS;
-        this.fYS = i + 1;
+        byte[] bArr = this.ggu;
+        int i = this.ggt;
+        this.ggt = i + 1;
         bArr[i] = b;
-        if (this.fYS >= 254) {
-            f(outputStream);
+        if (this.ggt >= 254) {
+            g(outputStream);
         }
     }
 
-    void e(OutputStream outputStream) throws IOException {
-        rH(this.fYJ);
-        this.fYK = this.fYN + 2;
-        this.fYL = true;
-        b(this.fYN, outputStream);
+    void f(OutputStream outputStream) throws IOException {
+        se(this.ggk);
+        this.ggl = this.ggo + 2;
+        this.ggm = true;
+        b(this.ggo, outputStream);
     }
 
-    void rH(int i) {
+    void se(int i) {
         for (int i2 = 0; i2 < i; i2++) {
-            this.fYH[i2] = -1;
+            this.ggi[i2] = -1;
         }
     }
 
     void a(int i, OutputStream outputStream) throws IOException {
         int i2 = 0;
-        this.fYM = i;
-        this.fYL = false;
-        this.fYD = this.fYM;
-        this.fYF = rI(this.fYD);
-        this.fYN = 1 << (i - 1);
-        this.fYO = this.fYN + 1;
-        this.fYK = this.fYN + 2;
-        this.fYS = 0;
-        int bjy = bjy();
-        for (int i3 = this.fYJ; i3 < 65536; i3 *= 2) {
+        this.ggn = i;
+        this.ggm = false;
+        this.gge = this.ggn;
+        this.ggg = sf(this.gge);
+        this.ggo = 1 << (i - 1);
+        this.ggp = this.ggo + 1;
+        this.ggl = this.ggo + 2;
+        this.ggt = 0;
+        int bmJ = bmJ();
+        for (int i3 = this.ggk; i3 < 65536; i3 *= 2) {
             i2++;
         }
         int i4 = 8 - i2;
-        int i5 = this.fYJ;
-        rH(i5);
-        b(this.fYN, outputStream);
+        int i5 = this.ggk;
+        se(i5);
+        b(this.ggo, outputStream);
         while (true) {
-            int bjy2 = bjy();
-            if (bjy2 != -1) {
-                int i6 = (bjy2 << this.fYE) + bjy;
-                int i7 = (bjy2 << i4) ^ bjy;
-                if (this.fYH[i7] == i6) {
-                    bjy = this.fYI[i7];
+            int bmJ2 = bmJ();
+            if (bmJ2 != -1) {
+                int i6 = (bmJ2 << this.ggf) + bmJ;
+                int i7 = (bmJ2 << i4) ^ bmJ;
+                if (this.ggi[i7] == i6) {
+                    bmJ = this.ggj[i7];
                 } else {
-                    if (this.fYH[i7] >= 0) {
+                    if (this.ggi[i7] >= 0) {
                         int i8 = i5 - i7;
                         if (i7 == 0) {
                             i8 = 1;
@@ -98,28 +97,28 @@ class b {
                             if (i7 < 0) {
                                 i7 += i5;
                             }
-                            if (this.fYH[i7] == i6) {
-                                bjy = this.fYI[i7];
+                            if (this.ggi[i7] == i6) {
+                                bmJ = this.ggj[i7];
                                 break;
                             }
-                        } while (this.fYH[i7] >= 0);
+                        } while (this.ggi[i7] >= 0);
                     }
-                    b(bjy, outputStream);
-                    if (this.fYK < this.fYG) {
-                        int[] iArr = this.fYI;
-                        int i9 = this.fYK;
-                        this.fYK = i9 + 1;
+                    b(bmJ, outputStream);
+                    if (this.ggl < this.ggh) {
+                        int[] iArr = this.ggj;
+                        int i9 = this.ggl;
+                        this.ggl = i9 + 1;
                         iArr[i7] = i9;
-                        this.fYH[i7] = i6;
-                        bjy = bjy2;
+                        this.ggi[i7] = i6;
+                        bmJ = bmJ2;
                     } else {
-                        e(outputStream);
-                        bjy = bjy2;
+                        f(outputStream);
+                        bmJ = bmJ2;
                     }
                 }
             } else {
-                b(bjy, outputStream);
-                b(this.fYO, outputStream);
+                b(bmJ, outputStream);
+                b(this.ggp, outputStream);
                 return;
             }
         }
@@ -127,71 +126,71 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void encode(OutputStream outputStream) throws IOException {
-        outputStream.write(this.fYA);
-        this.fYB = this.fYx * this.fYy;
-        this.fYC = 0;
-        a(this.fYA + 1, outputStream);
+        outputStream.write(this.ggb);
+        this.ggc = this.gfY * this.gfZ;
+        this.ggd = 0;
+        a(this.ggb + 1, outputStream);
         outputStream.write(0);
     }
 
-    void f(OutputStream outputStream) throws IOException {
-        if (this.fYS > 0) {
-            outputStream.write(this.fYS);
-            outputStream.write(this.fYT, 0, this.fYS);
-            this.fYS = 0;
+    void g(OutputStream outputStream) throws IOException {
+        if (this.ggt > 0) {
+            outputStream.write(this.ggt);
+            outputStream.write(this.ggu, 0, this.ggt);
+            this.ggt = 0;
         }
     }
 
-    final int rI(int i) {
+    final int sf(int i) {
         return (1 << i) - 1;
     }
 
-    private int bjy() {
-        if (this.fYB == 0) {
+    private int bmJ() {
+        if (this.ggc == 0) {
             return -1;
         }
-        this.fYB--;
-        byte[] bArr = this.fYz;
-        int i = this.fYC;
-        this.fYC = i + 1;
+        this.ggc--;
+        byte[] bArr = this.gga;
+        int i = this.ggd;
+        this.ggd = i + 1;
         return bArr[i] & 255;
     }
 
     void b(int i, OutputStream outputStream) throws IOException {
-        this.fYP &= this.fYR[this.fYQ];
-        if (this.fYQ > 0) {
-            this.fYP |= i << this.fYQ;
+        this.ggq &= this.ggs[this.ggr];
+        if (this.ggr > 0) {
+            this.ggq |= i << this.ggr;
         } else {
-            this.fYP = i;
+            this.ggq = i;
         }
-        this.fYQ += this.fYD;
-        while (this.fYQ >= 8) {
-            a((byte) (this.fYP & 255), outputStream);
-            this.fYP >>= 8;
-            this.fYQ -= 8;
+        this.ggr += this.gge;
+        while (this.ggr >= 8) {
+            a((byte) (this.ggq & 255), outputStream);
+            this.ggq >>= 8;
+            this.ggr -= 8;
         }
-        if (this.fYK > this.fYF || this.fYL) {
-            if (this.fYL) {
-                int i2 = this.fYM;
-                this.fYD = i2;
-                this.fYF = rI(i2);
-                this.fYL = false;
+        if (this.ggl > this.ggg || this.ggm) {
+            if (this.ggm) {
+                int i2 = this.ggn;
+                this.gge = i2;
+                this.ggg = sf(i2);
+                this.ggm = false;
             } else {
-                this.fYD++;
-                if (this.fYD == this.fYE) {
-                    this.fYF = this.fYG;
+                this.gge++;
+                if (this.gge == this.ggf) {
+                    this.ggg = this.ggh;
                 } else {
-                    this.fYF = rI(this.fYD);
+                    this.ggg = sf(this.gge);
                 }
             }
         }
-        if (i == this.fYO) {
-            while (this.fYQ > 0) {
-                a((byte) (this.fYP & 255), outputStream);
-                this.fYP >>= 8;
-                this.fYQ -= 8;
+        if (i == this.ggp) {
+            while (this.ggr > 0) {
+                a((byte) (this.ggq & 255), outputStream);
+                this.ggq >>= 8;
+                this.ggr -= 8;
             }
-            f(outputStream);
+            g(outputStream);
         }
     }
 }

@@ -1,5 +1,7 @@
 package com.google.zxing.client.result;
 
+import com.baidu.searchbox.ng.ai.apps.network.NetworkDef;
+import com.baidu.webkit.sdk.WebView;
 import com.google.zxing.Result;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -15,7 +17,7 @@ public final class EmailAddressResultParser extends ResultParser {
         String[] strArr;
         String str3;
         String massagedText = getMassagedText(result);
-        if (massagedText.startsWith("mailto:") || massagedText.startsWith("MAILTO:")) {
+        if (massagedText.startsWith(WebView.SCHEME_MAILTO) || massagedText.startsWith("MAILTO:")) {
             String substring = massagedText.substring(7);
             int indexOf = substring.indexOf(63);
             if (indexOf >= 0) {
@@ -31,7 +33,7 @@ public final class EmailAddressResultParser extends ResultParser {
                     String[] split3 = str4 != null ? COMMA.split(str4) : null;
                     String str5 = parseNameValuePairs.get("bcc");
                     r2 = str5 != null ? COMMA.split(str5) : null;
-                    str = parseNameValuePairs.get("body");
+                    str = parseNameValuePairs.get(NetworkDef.Http.BODY);
                     split = split2;
                     strArr = r2;
                     r2 = split3;

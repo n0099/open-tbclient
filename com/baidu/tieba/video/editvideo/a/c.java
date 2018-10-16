@@ -17,10 +17,10 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.e;
 import com.baidu.tieba.video.editvideo.data.MusicData;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class c extends BaseAdapter {
-    public int hlw;
-    public String hlx;
+    public int hsL;
+    public String hsM;
     private List<MusicData> mList;
     private e mPageContext;
 
@@ -31,7 +31,7 @@ public class c extends BaseAdapter {
     public void setData(List<MusicData> list) {
         if (list != null) {
             this.mList = list;
-            vv(this.hlx);
+            vX(this.hsM);
             notifyDataSetChanged();
         }
     }
@@ -63,16 +63,16 @@ public class c extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(e.h.layout_music_item, (ViewGroup) null);
             aVar = new a();
-            aVar.hkF = (TbImageView) view.findViewById(e.g.music_image);
-            aVar.hkI = (TextView) view.findViewById(e.g.music_title);
-            aVar.hkH = view.findViewById(e.g.music_loading);
-            aVar.hkF.setDrawerType(1);
-            aVar.hkF.setIsRound(true);
-            aVar.hkF.setDefaultBgResource(e.d.transparent);
-            aVar.hkF.setDefaultErrorResource(e.f.bg_video_cloudmusic);
-            aVar.hkF.setDefaultResource(e.f.bg_video_cloudmusic);
-            aVar.hkF.setBorderWidth(l.h(this.mPageContext.getPageActivity(), e.C0141e.ds4));
-            aVar.hkF.setBorderColor(al.getColor(e.d.cp_link_tip_a));
+            aVar.hrV = (TbImageView) view.findViewById(e.g.music_image);
+            aVar.hrY = (TextView) view.findViewById(e.g.music_title);
+            aVar.hrX = view.findViewById(e.g.music_loading);
+            aVar.hrV.setDrawerType(1);
+            aVar.hrV.setIsRound(true);
+            aVar.hrV.setDefaultBgResource(e.d.transparent);
+            aVar.hrV.setDefaultErrorResource(e.f.bg_video_cloudmusic);
+            aVar.hrV.setDefaultResource(e.f.bg_video_cloudmusic);
+            aVar.hrV.setBorderWidth(l.h(this.mPageContext.getPageActivity(), e.C0175e.ds4));
+            aVar.hrV.setBorderColor(al.getColor(e.d.cp_link_tip_a));
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -81,30 +81,30 @@ public class c extends BaseAdapter {
         if (musicData != null) {
             switch (musicData.editMusicType) {
                 case 1:
-                    aVar.hkF.startLoad(String.valueOf(e.f.icon_video_mute), 24, false);
+                    aVar.hrV.startLoad(String.valueOf(e.f.icon_video_mute), 24, false);
                     break;
                 case 2:
-                    aVar.hkF.startLoad(String.valueOf(e.f.icon_video_cloudmusic), 24, false);
+                    aVar.hrV.startLoad(String.valueOf(e.f.icon_video_cloudmusic), 24, false);
                     break;
                 default:
-                    aVar.hkF.startLoad(musicData.img, 10, false);
+                    aVar.hrV.startLoad(musicData.img, 10, false);
                     break;
             }
-            aVar.hkH.setVisibility(4);
-            aVar.hkI.setTextColor(al.getColor(e.d.cp_cont_j));
-            aVar.hkI.setText(musicData.name);
-            b(aVar.hkI, l.h(this.mPageContext.getPageActivity(), e.C0141e.ds120), musicData.name);
-            if (i == this.hlw) {
-                aVar.hkF.setDrawBorder(true);
+            aVar.hrX.setVisibility(4);
+            aVar.hrY.setTextColor(al.getColor(e.d.cp_cont_j));
+            aVar.hrY.setText(musicData.name);
+            b(aVar.hrY, l.h(this.mPageContext.getPageActivity(), e.C0175e.ds120), musicData.name);
+            if (i == this.hsL) {
+                aVar.hrV.setDrawBorder(true);
             } else {
-                aVar.hkF.setDrawBorder(false);
+                aVar.hrV.setDrawBorder(false);
             }
             if (i == 0) {
-                view.setPadding(l.h(this.mPageContext.getPageActivity(), e.C0141e.ds34), l.h(this.mPageContext.getPageActivity(), e.C0141e.ds44), 0, 0);
+                view.setPadding(l.h(this.mPageContext.getPageActivity(), e.C0175e.ds34), l.h(this.mPageContext.getPageActivity(), e.C0175e.ds44), 0, 0);
             } else if (i == this.mList.size() - 1) {
-                view.setPadding(l.h(this.mPageContext.getPageActivity(), e.C0141e.ds34), l.h(this.mPageContext.getPageActivity(), e.C0141e.ds44), l.h(this.mPageContext.getPageActivity(), e.C0141e.ds34), 0);
+                view.setPadding(l.h(this.mPageContext.getPageActivity(), e.C0175e.ds34), l.h(this.mPageContext.getPageActivity(), e.C0175e.ds44), l.h(this.mPageContext.getPageActivity(), e.C0175e.ds34), 0);
             } else {
-                view.setPadding(l.h(this.mPageContext.getPageActivity(), e.C0141e.ds28), l.h(this.mPageContext.getPageActivity(), e.C0141e.ds44), 0, 0);
+                view.setPadding(l.h(this.mPageContext.getPageActivity(), e.C0175e.ds28), l.h(this.mPageContext.getPageActivity(), e.C0175e.ds44), 0, 0);
             }
             if (this.mPageContext.getPageActivity() instanceof BaseActivity) {
                 ((BaseActivity) this.mPageContext.getPageActivity()).getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
@@ -117,13 +117,13 @@ public class c extends BaseAdapter {
         return view;
     }
 
-    public void vg(int i) {
-        this.hlw = i;
+    public void vD(int i) {
+        this.hsL = i;
         notifyDataSetChanged();
     }
 
-    public void vv(String str) {
-        this.hlx = str;
+    public void vX(String str) {
+        this.hsM = str;
         if (!TextUtils.isEmpty(str) && this.mList != null) {
             int i = -1;
             for (int i2 = 0; i2 < this.mList.size(); i2++) {
@@ -134,17 +134,17 @@ public class c extends BaseAdapter {
             if (i == -1) {
                 i = 1;
             }
-            this.hlw = i;
+            this.hsL = i;
         }
     }
 
-    public int bDC() {
-        return this.hlw;
+    public int bGQ() {
+        return this.hsL;
     }
 
     public void b(TextView textView, int i, String str) {
         if (i > 0) {
-            float h = l.h(this.mPageContext.getPageActivity(), e.C0141e.fontsize24);
+            float h = l.h(this.mPageContext.getPageActivity(), e.C0175e.fontsize24);
             TextPaint textPaint = new TextPaint();
             textPaint.setTextSize(h);
             while (textPaint.measureText(str) > i) {
@@ -155,11 +155,11 @@ public class c extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class a {
-        public TbImageView hkF;
-        public View hkH;
-        public TextView hkI;
+        public TbImageView hrV;
+        public View hrX;
+        public TextView hrY;
 
         public a() {
         }

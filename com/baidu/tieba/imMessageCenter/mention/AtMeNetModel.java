@@ -3,19 +3,19 @@ package com.baidu.tieba.imMessageCenter.mention;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.model.NetModel;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AtMeNetModel extends NetModel<b, c, AtMessageActivity> {
     public AtMeNetModel(TbPageContext<AtMessageActivity> tbPageContext, b bVar) {
         super(tbPageContext, bVar, NetModel.NetModelType.TYPE_NETWORK);
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int Lh() {
+    protected int Nf() {
         return CmdConfigHttp.REPLYME_HTTP_CMD;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String Lj() {
+    protected String Nh() {
         return "c/u/feed/atme";
     }
 
@@ -25,7 +25,7 @@ public class AtMeNetModel extends NetModel<b, c, AtMessageActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int Li() {
+    protected int Ng() {
         return 0;
     }
 }

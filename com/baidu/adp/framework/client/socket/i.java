@@ -8,8 +8,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.webkit.internal.ETAG;
 import com.tencent.open.SocialConstants;
-import com.tencent.tauth.AuthActivity;
 import java.util.LinkedList;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
@@ -55,19 +55,19 @@ public class i {
         a(str, i, -1L, i2, str2, i3, str3);
     }
 
-    public static void gF() {
+    public static void gX() {
         try {
-            BdStatisticsManager.getInstance().debug("socket", "url", com.baidu.adp.lib.webSocket.h.lw().getUrl(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.h.lw().lt()), TiebaStatic.CON_COST, Long.valueOf(com.baidu.adp.lib.webSocket.h.lw().lD()), "remote_ip", com.baidu.adp.lib.webSocket.h.lw().ls(), "local_dns", com.baidu.adp.lib.webSocket.h.lw().lc(), "local_dns_bak", com.baidu.adp.lib.webSocket.h.lw().ld(), "net", BdStatisticsManager.getInstance().getCurNetworkType());
+            BdStatisticsManager.getInstance().debug("socket", "url", com.baidu.adp.lib.webSocket.h.lH().getUrl(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.h.lH().lE()), TiebaStatic.CON_COST, Long.valueOf(com.baidu.adp.lib.webSocket.h.lH().lN()), "remote_ip", com.baidu.adp.lib.webSocket.h.lH().lD(), ETAG.KEY_LOCAL_DNS, com.baidu.adp.lib.webSocket.h.lH().getLocalDns(), "local_dns_bak", com.baidu.adp.lib.webSocket.h.lH().lp(), "net", BdStatisticsManager.getInstance().getCurNetworkType());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public static void gG() {
+    public static void gY() {
         try {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
-            statsItem.append(AuthActivity.ACTION_KEY, "imconn");
-            statsItem.append(TiebaStatic.CON_COST, String.valueOf(com.baidu.adp.lib.webSocket.h.lw().lD()));
+            statsItem.append("action", "imconn");
+            statsItem.append(TiebaStatic.CON_COST, String.valueOf(com.baidu.adp.lib.webSocket.h.lH().lN()));
             statsItem.append("nettype", com.baidu.adp.lib.stats.d.getNetType(BdBaseApplication.getInst()));
             BdStatisticsManager.getInstance().performance("im", statsItem);
         } catch (Exception e) {

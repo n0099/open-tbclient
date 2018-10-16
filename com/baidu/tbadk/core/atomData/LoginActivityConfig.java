@@ -20,7 +20,7 @@ public class LoginActivityConfig extends IntentConfig {
 
     public LoginActivityConfig(Context context, boolean z, int i) {
         super(context);
-        getIntent().putExtra(IntentConfig.CLOSE, z);
+        getIntent().putExtra("close", z);
         setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
     }
@@ -31,7 +31,7 @@ public class LoginActivityConfig extends IntentConfig {
 
     public LoginActivityConfig(Context context, boolean z) {
         super(context);
-        getIntent().putExtra(IntentConfig.CLOSE, z);
+        getIntent().putExtra("close", z);
     }
 
     public void setJumpToAfterDestroy(int i) {

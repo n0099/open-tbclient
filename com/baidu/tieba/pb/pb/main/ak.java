@@ -6,17 +6,17 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tieba.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class ak extends k<com.baidu.tieba.pb.data.h, al> {
-    private BdUniqueId fLp;
-    private BdUniqueId fLq;
+    private BdUniqueId fSQ;
+    private BdUniqueId fSR;
     private View.OnClickListener mCommonClickListener;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ak(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
-        this.fLp = BdUniqueId.gen();
-        this.fLq = BdUniqueId.gen();
+        this.fSQ = BdUniqueId.gen();
+        this.fSR = BdUniqueId.gen();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,12 +24,12 @@ public class ak extends k<com.baidu.tieba.pb.data.h, al> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bo */
     public al onCreateViewHolder(ViewGroup viewGroup) {
-        al alVar = new al(this.fFd.getPageContext(), LayoutInflater.from(this.mContext).inflate(e.h.pb_reply_title_layout, viewGroup, false));
+        al alVar = new al(this.fME.getPageContext(), LayoutInflater.from(this.mContext).inflate(e.h.pb_reply_title_layout, viewGroup, false));
         alVar.J(this.mCommonClickListener);
-        if (getType() == com.baidu.tieba.pb.data.h.fAN) {
-            alVar.h(this.fLp);
-        } else if (getType() == com.baidu.tieba.pb.data.h.fAO) {
-            alVar.n(this.fLq);
+        if (getType() == com.baidu.tieba.pb.data.h.fIp) {
+            alVar.h(this.fSQ);
+        } else if (getType() == com.baidu.tieba.pb.data.h.fIq) {
+            alVar.n(this.fSR);
         }
         return alVar;
     }
@@ -47,8 +47,8 @@ public class ak extends k<com.baidu.tieba.pb.data.h, al> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fLp);
-        MessageManager.getInstance().unRegisterListener(this.fLq);
+        MessageManager.getInstance().unRegisterListener(this.fSQ);
+        MessageManager.getInstance().unRegisterListener(this.fSR);
     }
 
     public void q(View.OnClickListener onClickListener) {

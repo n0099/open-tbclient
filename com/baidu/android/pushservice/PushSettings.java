@@ -8,6 +8,7 @@ import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.j.l;
 import com.baidu.android.pushservice.j.m;
+import com.baidu.searchbox.ng.ai.apps.ar.model.ARCameraAttr;
 /* loaded from: classes3.dex */
 public class PushSettings {
     private static int a = -1;
@@ -184,7 +185,7 @@ public class PushSettings {
     public static void h(Context context) {
         if (context == null) {
         }
-        com.baidu.android.pushservice.j.j.a(context, "com.baidu.pushservice.lms", "off");
+        com.baidu.android.pushservice.j.j.a(context, "com.baidu.pushservice.lms", ARCameraAttr.FlashType.FLASH_OFF);
     }
 
     public static void i(Context context) {

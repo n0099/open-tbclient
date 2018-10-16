@@ -1,7 +1,6 @@
 package com.baidu.sapi2;
 
 import android.os.Looper;
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
@@ -24,14 +23,13 @@ import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class QrCodeService extends AbstractService {
     private static QrCodeService b;
     private boolean a;
@@ -218,7 +216,7 @@ public class QrCodeService extends AbstractService {
                         switch (parseInt) {
                             case 0:
                                 JSONObject jSONObject2 = new JSONObject(jSONObject.optString("channel_v"));
-                                int optInt = jSONObject2.optInt(NotificationCompat.CATEGORY_STATUS);
+                                int optInt = jSONObject2.optInt("status");
                                 qrLoginStatusCheckResult.status = optInt;
                                 if (optInt == 1) {
                                     qrLoginStatusCheckCallback.onScanQrCodeDone(qrLoginStatusCheckResult);
@@ -435,7 +433,7 @@ public class QrCodeService extends AbstractService {
                     qrAppLoginResult.setResultCode(parseInt);
                     switch (parseInt) {
                         case 0:
-                            JSONObject optJSONObject = jSONObject.optJSONObject(RecentlyVisitedForumModel.LOCAL_ACCOUNT);
+                            JSONObject optJSONObject = jSONObject.optJSONObject("local");
                             if (optJSONObject != null) {
                                 qrAppLoginResult.country = optJSONObject.optString("country");
                                 qrAppLoginResult.province = optJSONObject.optString("provice");

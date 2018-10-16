@@ -9,7 +9,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.Arrays;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class MpegSampleEntry extends AbstractSampleEntry {
     public MpegSampleEntry() {
         super("mp4s");

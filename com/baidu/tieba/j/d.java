@@ -7,9 +7,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class d {
-    public static boolean f(File file, String str) {
+    public static boolean g(File file, String str) {
         return a(file, str, true);
     }
 
@@ -47,7 +47,7 @@ public class d {
         }
     }
 
-    public static void qP(String str) {
+    public static void rq(String str) {
         if (!StringUtils.isNull(str)) {
             File file = new File(str);
             if (!file.exists()) {
@@ -95,7 +95,7 @@ public class d {
         return sb.toString();
     }
 
-    public static JSONArray qQ(String str) {
+    public static JSONArray rr(String str) {
         JSONArray jSONArray = new JSONArray();
         if (StringUtils.isNull(str)) {
             return jSONArray;
@@ -130,9 +130,9 @@ public class d {
         }
     }
 
-    public static void qR(String str) {
+    public static void rs(String str) {
         if (!StringUtils.isNull(str)) {
-            com.baidu.tbadk.core.util.l.x(new File(g.a.fov + g.a.fom + str));
+            com.baidu.tbadk.core.util.l.x(new File(g.a.fwb + g.a.fvS + str));
         }
     }
 }

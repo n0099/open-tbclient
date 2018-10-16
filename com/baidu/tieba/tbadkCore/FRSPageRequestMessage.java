@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Message;
 import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class FRSPageRequestMessage extends NetMessage {
     private int callFrom;
     private int categoryId;
@@ -210,7 +210,7 @@ public class FRSPageRequestMessage extends NetMessage {
         builder.lastids = this.lastId;
         builder.category_id = Integer.valueOf(this.categoryId);
         builder.call_from = Integer.valueOf(this.callFrom);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.bqL().bqO();
+        builder.app_pos = com.baidu.tieba.recapp.d.a.bua().bud();
         com.baidu.tbadk.util.p.bindCommonParamsToProtobufData(builder, true, false, true);
         FrsPageReqIdl.Builder builder2 = new FrsPageReqIdl.Builder();
         builder2.data = builder.build(false);

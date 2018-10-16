@@ -2,7 +2,6 @@ package com.baidu.ar.msghandler;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.baidu.ar.base.MsgField;
 import com.baidu.ar.bean.c;
@@ -19,7 +18,6 @@ import com.baidu.ar.util.ARLog;
 import com.baidu.ar.util.NetworkUtil;
 import com.baidu.ar.util.UrlUtils;
 import com.baidu.baiduarsdk.ArBridge;
-import com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel;
 import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
@@ -253,7 +251,7 @@ public class DownloadMsgHandler {
         ARLog.e("bdar:DownloadMsgHandler:responseEngineDownloadProgress progress = " + i);
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put(StatisticConstants.REQUEST_ID, str);
-        hashMap.put(NotificationCompat.CATEGORY_PROGRESS, Integer.valueOf(i));
+        hashMap.put("progress", Integer.valueOf(i));
         ArBridge.getInstance().sendMessage(5002, hashMap);
     }
 
@@ -286,7 +284,7 @@ public class DownloadMsgHandler {
         String b2 = a2.b();
         if (TextUtils.isEmpty(b2)) {
             responseEngineDownload(str3, -1);
-        } else if (b2.equals(RecentlyVisitedForumModel.LOCAL_ACCOUNT)) {
+        } else if (b2.equals("local")) {
             responseEngineDownload(str3, 0);
         } else {
             String c2 = a2.c();

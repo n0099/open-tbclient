@@ -1,14 +1,84 @@
 package com.baidu.tieba.play;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.recapp.activity.WebVideoActivityConfig;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.core.data.AlaInfoData;
+import java.util.Iterator;
+import tbclient.VideoDesc;
+import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class v {
-    public static void a(String str, String str2, boolean z, int i, int i2) {
-        com.baidu.tbadk.core.d.a.a("video", -1L, -1, str, 0, "", "account", TbadkCoreApplication.getCurrentAccount(), "origin_url", str2, "is_use_cache", String.valueOf(z ? 1 : 0), "video_size", String.valueOf(i), WebVideoActivityConfig.KEY_VIDEO_DURATION, String.valueOf(i2));
+    private int duration;
+    private String gvU;
+    private String videoMd5;
+    private long videoSize;
+    private String videoUrl;
+
+    public void a(VideoInfo videoInfo, boolean z) {
+        String str;
+        if (videoInfo != null) {
+            String str2 = videoInfo.video_url;
+            videoInfo.video_width.toString();
+            videoInfo.video_height.toString();
+            if (z && videoInfo.video_select_flag.intValue() == 1 && !com.baidu.tbadk.core.util.v.J(videoInfo.video_desc)) {
+                VideoDesc videoDesc = null;
+                Iterator<VideoDesc> it = videoInfo.video_desc.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    VideoDesc next = it.next();
+                    if (next != null && !StringUtils.isNull(next.video_url)) {
+                        if (next.video_id.intValue() != 2 || !com.baidu.adp.lib.util.j.kY()) {
+                            if (next.video_id.intValue() == 3 && com.baidu.adp.lib.util.j.kZ()) {
+                                videoDesc = next;
+                                break;
+                            }
+                        } else {
+                            videoDesc = next;
+                            break;
+                        }
+                    }
+                }
+                if (videoDesc != null) {
+                    str = videoDesc.video_url;
+                    String str3 = videoDesc.video_width;
+                    String str4 = videoDesc.video_height;
+                    this.videoUrl = str;
+                    this.videoSize = videoInfo.video_length.intValue();
+                    this.duration = videoInfo.video_duration.intValue();
+                    this.gvU = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
+                    this.videoMd5 = videoInfo.video_md5;
+                }
+            }
+            str = str2;
+            this.videoUrl = str;
+            this.videoSize = videoInfo.video_length.intValue();
+            this.duration = videoInfo.video_duration.intValue();
+            this.gvU = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
+            this.videoMd5 = videoInfo.video_md5;
+        }
     }
 
-    public static void v(String str, int i, int i2) {
-        com.baidu.tbadk.core.d.a.a("video", -1L, -1, "cache_download", 0, "", "account", TbadkCoreApplication.getCurrentAccount(), "origin_url", str, "current_get_size", String.valueOf(i), "video_size", String.valueOf(i2));
+    public void g(VideoInfo videoInfo) {
+        a(videoInfo, false);
+    }
+
+    public void b(AlaInfoData alaInfoData) {
+        if (alaInfoData != null) {
+            this.videoUrl = alaInfoData.hls_url;
+        }
+    }
+
+    public long bqG() {
+        return this.videoSize;
+    }
+
+    public int getDuration() {
+        return this.duration;
+    }
+
+    public String bqH() {
+        return this.gvU;
     }
 }

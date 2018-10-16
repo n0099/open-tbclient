@@ -3,31 +3,32 @@ package com.baidu.crabsdk.a;
 import android.text.TextUtils;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.ar.util.SystemInfoUtil;
+import com.baidu.searchbox.ng.ai.apps.statistic.search.AiAppsSearchFlowUBC;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class a {
-    public static int T = 2000;
-    public static int U = 1;
-    static a Us = null;
-    private long Um;
-    private long Un;
-    private long Uo;
-    private long Up;
-    private StringBuilder Uq = new StringBuilder();
-    public ArrayList<String> Ur = new ArrayList<>();
+    public static int U = 2000;
+    public static int V = 1;
+    static a Xh = null;
+    private long Xc;
+    private long Xd;
+    private long Xe;
+    private StringBuilder Xf = new StringBuilder();
+    public ArrayList<String> Xg = new ArrayList<>();
+    private long Z;
 
     private a() {
     }
 
     private String f() {
-        Iterator<String> it = this.Ur.iterator();
+        Iterator<String> it = this.Xg.iterator();
         while (it.hasNext()) {
             String next = it.next();
-            com.baidu.crabsdk.c.a.cx("===== stackEntry ===== \n" + next);
-            this.Uq.append(next);
+            com.baidu.crabsdk.c.a.cI("===== stackEntry ===== \n" + next);
+            this.Xf.append(next);
             String[] split = next.split(SystemInfoUtil.LINE_END);
             if (split != null && split.length > 0) {
                 for (String str : split) {
@@ -42,48 +43,48 @@ public final class a {
     }
 
     public static long h() {
-        return T * 0.6f;
+        return U * 0.6f;
     }
 
-    public static a pY() {
-        if (Us == null) {
+    public static a ri() {
+        if (Xh == null) {
             synchronized (a.class) {
-                if (Us == null) {
-                    Us = new a();
+                if (Xh == null) {
+                    Xh = new a();
                 }
             }
         }
-        return Us;
+        return Xh;
     }
 
     public final a a(long j, long j2, long j3, long j4) {
-        this.Um = j2 - j;
-        this.Un = j4 - j3;
-        this.Uo = j;
-        this.Up = j2;
+        this.Xc = j2 - j;
+        this.Xd = j4 - j3;
+        this.Xe = j;
+        this.Z = j2;
         return this;
     }
 
     public final Map<String, Object> g() {
         HashMap hashMap = new HashMap();
-        long j = this.Uo;
-        long j2 = this.Up;
-        long j3 = this.Um;
-        long j4 = this.Un;
+        long j = this.Xe;
+        long j2 = this.Z;
+        long j3 = this.Xc;
+        long j4 = this.Xd;
         String f = f();
         if (TextUtils.isEmpty(f)) {
             return null;
         }
         hashMap.put("apiType", "BLOCK");
-        hashMap.put("errorType", "BLOCK");
+        hashMap.put(AiAppsSearchFlowUBC.FE_DATA_ERRTYPE, "BLOCK");
         hashMap.put("blockStartTime", Long.valueOf(j));
         hashMap.put("blockEndTime", Long.valueOf(j2));
         hashMap.put("blockCostTime", Long.valueOf(j3));
         hashMap.put("blockThreadTime", Long.valueOf(j4));
-        hashMap.put("errorTrace", this.Uq.toString());
+        hashMap.put("errorTrace", this.Xf.toString());
         hashMap.put("errorLine", f);
         hashMap.put("errorOriLine", f);
-        this.Uq.setLength(0);
+        this.Xf.setLength(0);
         return hashMap;
     }
 }

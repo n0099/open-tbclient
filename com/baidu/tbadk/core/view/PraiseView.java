@@ -6,9 +6,9 @@ import android.view.View;
 import com.baidu.tbadk.core.data.bb;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.ba;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class PraiseView extends BasePraiseView<bb> {
-    private View.OnClickListener azz;
+    private View.OnClickListener aEh;
 
     public PraiseView(Context context) {
         this(context, null);
@@ -23,93 +23,93 @@ public class PraiseView extends BasePraiseView<bb> {
         if (this.mData == 0) {
             return 0L;
         }
-        return ((bb) this.mData).xy();
+        return ((bb) this.mData).zH();
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.baidu.tbadk.core.data.bb */
     /* JADX WARN: Multi-variable type inference failed */
     public void a(bb bbVar) {
         if (bbVar != 0) {
-            if (bbVar.xA() != 0) {
-                if (bbVar.xB() == 0 || bbVar.xB() == 1) {
-                    bbVar.cm(2);
+            if (bbVar.zJ() != 0) {
+                if (bbVar.zK() == 0 || bbVar.zK() == 1) {
+                    bbVar.cw(2);
                 }
-                if (bbVar.xB() == 3 || bbVar.xB() == 4) {
-                    bbVar.cm(5);
+                if (bbVar.zK() == 3 || bbVar.zK() == 4) {
+                    bbVar.cw(5);
                 }
             }
             this.mData = bbVar;
             this.mThreadId = bbVar.getTid();
             this.mForumId = String.valueOf(bbVar.getFid());
-            this.alZ = ((bb) this.mData).xy();
-            this.ama = ((bb) this.mData).xz();
-            Bp();
+            this.aqU = ((bb) this.mData).zH();
+            this.aqV = ((bb) this.mData).zI();
+            updateUI();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.BasePraiseView
-    public void Bp() {
+    public void updateUI() {
         Context context = getContext();
         long num = getNum();
-        String string = context.getString(this.awr);
+        String string = context.getString(this.aBc);
         if (num > 0) {
-            string = ao.L(num);
+            string = ao.N(num);
         }
-        this.aww.setText(string);
-        this.aww.setContentDescription(context.getString(this.awr) + num);
-        if (this.mData != 0 && ((bb) this.mData).xA() != 0 && Bt()) {
-            this.awx.setImageDrawable(createStateDrawable(this.awt, this.aws));
-            this.aww.setTextColor(createColorStateList(this.awv, this.awu));
+        this.aBh.setText(string);
+        this.aBh.setContentDescription(context.getString(this.aBc) + num);
+        if (this.mData != 0 && ((bb) this.mData).zJ() != 0 && Dz()) {
+            this.aBi.setImageDrawable(createStateDrawable(this.aBe, this.aBd));
+            this.aBh.setTextColor(createColorStateList(this.aBg, this.aBf));
             return;
         }
-        this.awx.setImageDrawable(createStateDrawable(this.aws, this.awt));
-        this.aww.setTextColor(createColorStateList(this.awu, this.awv));
+        this.aBi.setImageDrawable(createStateDrawable(this.aBd, this.aBe));
+        this.aBh.setTextColor(createColorStateList(this.aBf, this.aBg));
     }
 
-    public int Bs() {
+    public int Dy() {
         int i;
         if (this.mData == 0) {
             return 0;
         }
-        if (((bb) this.mData).xA() != 0 && Bt()) {
-            ((bb) this.mData).cm(2);
-            ((bb) this.mData).ck(0);
-            ((bb) this.mData).t(((bb) this.mData).xy() - 1);
-            ((bb) this.mData).u(((bb) this.mData).xz());
+        if (((bb) this.mData).zJ() != 0 && Dz()) {
+            ((bb) this.mData).cw(2);
+            ((bb) this.mData).cu(0);
+            ((bb) this.mData).v(((bb) this.mData).zH() - 1);
+            ((bb) this.mData).w(((bb) this.mData).zI());
             i = 1;
         } else {
-            if (((bb) this.mData).xA() != 0 && ((bb) this.mData).xB() == 5) {
-                ((bb) this.mData).u(((bb) this.mData).xz() - 1);
+            if (((bb) this.mData).zJ() != 0 && ((bb) this.mData).zK() == 5) {
+                ((bb) this.mData).w(((bb) this.mData).zI() - 1);
             }
-            ((bb) this.mData).ck(1);
-            ((bb) this.mData).t(((bb) this.mData).xy() + 1);
-            ((bb) this.mData).cm(2);
-            com.baidu.tieba.n.a.bpD().y(getTbPageContext());
+            ((bb) this.mData).cu(1);
+            ((bb) this.mData).v(((bb) this.mData).zH() + 1);
+            ((bb) this.mData).cw(2);
+            com.baidu.tieba.n.a.bsS().y(getTbPageContext());
             i = 0;
         }
         return i;
     }
 
     public int L(View view) {
-        if (com.baidu.tbadk.util.g.isFastDoubleClick() || !ba.bA(getContext()) || this.mData == 0) {
+        if (com.baidu.tbadk.util.g.isFastDoubleClick() || !ba.bI(getContext()) || this.mData == 0) {
             return -1;
         }
-        int Bs = Bs();
-        Bp();
-        dn(Bs);
-        m15do(Bs);
-        if (this.avZ != null) {
-            this.avZ.onClick(view);
+        int Dy = Dy();
+        updateUI();
+        dx(Dy);
+        dy(Dy);
+        if (this.aAK != null) {
+            this.aAK.onClick(view);
         }
-        a(Bs, (bb) this.mData);
-        if (this.azz != null && ((bb) this.mData).wr()) {
-            this.azz.onClick(view);
+        a(Dy, (bb) this.mData);
+        if (this.aEh != null && ((bb) this.mData).yA()) {
+            this.aEh.onClick(view);
         }
-        return Bs;
+        return Dy;
     }
 
-    public boolean Bt() {
-        return this.mData != 0 && (((bb) this.mData).xB() == 2 || ((bb) this.mData).xB() == 1);
+    public boolean Dz() {
+        return this.mData != 0 && (((bb) this.mData).zK() == 2 || ((bb) this.mData).zK() == 1);
     }
 
     public void setShowPraiseNum(boolean z) {
@@ -119,6 +119,6 @@ public class PraiseView extends BasePraiseView<bb> {
     }
 
     public void setForumAfterClickListener(View.OnClickListener onClickListener) {
-        this.azz = onClickListener;
+        this.aEh = onClickListener;
     }
 }

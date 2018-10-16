@@ -2,19 +2,21 @@ package com.baidu.tbadk.core.util;
 
 import android.content.pm.PackageInfo;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.ng.ai.apps.media.audio.AiAppsAudioPlayer;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.security.MessageDigest;
 /* loaded from: classes.dex */
 public class ar {
-    private static final char[] FZ = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static String d(PackageInfo packageInfo) throws NumberFormatException {
         long j = 0;
         String e = e(packageInfo);
         if (e == null || e.length() < 32) {
-            return "-1";
+            return AiAppsAudioPlayer.ERROR_UNKNOWN;
         }
         String substring = e.substring(8, 24);
         long j2 = 0;
@@ -42,16 +44,16 @@ public class ar {
     public static String E(byte[] bArr) {
         int i = 0;
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
             messageDigest.update(bArr);
             byte[] digest = messageDigest.digest();
             char[] cArr = new char[32];
             for (int i2 = 0; i2 < 16; i2++) {
                 byte b = digest[i2];
                 int i3 = i + 1;
-                cArr[i] = FZ[(b >>> 4) & 15];
+                cArr[i] = HEX_DIGITS[(b >>> 4) & 15];
                 i = i3 + 1;
-                cArr[i3] = FZ[b & 15];
+                cArr[i3] = HEX_DIGITS[b & 15];
             }
             return new String(cArr);
         } catch (Exception e) {
@@ -76,7 +78,7 @@ public class ar {
         return null;
     }
 
-    public static String fe(String str) {
-        return com.baidu.adp.lib.util.s.bD(str);
+    public static String fs(String str) {
+        return com.baidu.adp.lib.util.s.bC(str);
     }
 }

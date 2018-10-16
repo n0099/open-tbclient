@@ -3,7 +3,6 @@ package com.baidu.ar.ui.rotateview;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import com.baidu.ar.rotate.Orientation;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 /* loaded from: classes3.dex */
 public class RotateViewUtils {
 
@@ -71,7 +70,7 @@ public class RotateViewUtils {
         iRotateView.clearAnimation();
         switch (iRotateView.getAngle()) {
             case 0:
-            case SubsamplingScaleImageView.ORIENTATION_180 /* 180 */:
+            case 180:
             case 360:
                 switch (orientation) {
                     case PORTRAIT:
@@ -96,7 +95,7 @@ public class RotateViewUtils {
                     default:
                         return;
                 }
-            case SubsamplingScaleImageView.ORIENTATION_270 /* 270 */:
+            case 270:
                 switch (orientation) {
                     case PORTRAIT:
                         a(iRotateView, 0, orientation);

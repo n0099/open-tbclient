@@ -10,7 +10,7 @@ import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class LogUtil {
     private static final String a = "apollon_rest";
     public static final boolean DEBUG = ApollonConstants.DEBUG;

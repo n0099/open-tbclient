@@ -27,7 +27,7 @@ import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.ar.statistic.StatisticConstants;
-import com.tencent.tauth.AuthActivity;
+import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
 import java.io.UnsupportedEncodingException;
 import java.lang.ref.WeakReference;
 import java.net.URLDecoder;
@@ -96,17 +96,17 @@ public class BaiduStatJSInterface {
             JSONObject jSONObject2;
             JSONObject jSONObject3;
             JSONObject jSONObject4 = new JSONObject(str);
-            String string = jSONObject4.getString(AuthActivity.ACTION_KEY);
+            String string = jSONObject4.getString("action");
             JSONObject jSONObject5 = jSONObject4.getJSONObject("obj");
             Context context = this.a.get();
             if (context != null) {
                 if ("onPageStart".equals(string)) {
-                    String string2 = jSONObject5.getString("page");
+                    String string2 = jSONObject5.getString(SystemScreenshotManager.PAGE);
                     if (!TextUtils.isEmpty(string2)) {
                         BDStatCore.instance().onPageStart(context, string2);
                     }
                 } else if ("onPageEnd".equals(string)) {
-                    String string3 = jSONObject5.getString("page");
+                    String string3 = jSONObject5.getString(SystemScreenshotManager.PAGE);
                     if (!TextUtils.isEmpty(string3)) {
                         BDStatCore.instance().onPageEnd(context, string3, null, true);
                     }

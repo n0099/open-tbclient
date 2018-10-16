@@ -35,10 +35,11 @@ import com.baidu.ar.util.Utils;
 import com.baidu.ar.util.ViewUtils;
 import com.baidu.ar.util.sputil.SPUtils;
 import com.baidu.baiduarsdk.ArBridge;
+import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public class CaptureUI implements a.InterfaceC0050a {
+public class CaptureUI implements a.InterfaceC0053a {
     private static final String b = CaptureUI.class.getSimpleName();
     private com.baidu.ar.b c;
     private c d;
@@ -320,7 +321,7 @@ public class CaptureUI implements a.InterfaceC0050a {
     public void j() {
         ViewUtils.setViewEnabled(this.d.t.b(), false);
         this.j = true;
-        this.c.i().startRecord(Utils.getHideVideoUrl(), 10000L, this.t);
+        this.c.i().startRecord(Utils.getHideVideoUrl(), ErrDef.Feature.WEIGHT, this.t);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -365,24 +366,24 @@ public class CaptureUI implements a.InterfaceC0050a {
     }
 
     private void m() {
-        a.C0048a c0048a = new a.C0048a(this.c.h().getActivity());
-        c0048a.a((CharSequence) Res.getString("bdar_audio_permission_dialog_title"));
-        c0048a.a(SystemInfoUtil.getAppName(this.c.h().getActivity()) + Res.getString("bdar_audio_permission_dialog_context"));
-        c0048a.a(Res.getString("bdar_ok"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.ui.CaptureUI.4
+        a.C0051a c0051a = new a.C0051a(this.c.h().getActivity());
+        c0051a.a((CharSequence) Res.getString("bdar_audio_permission_dialog_title"));
+        c0051a.a(SystemInfoUtil.getAppName(this.c.h().getActivity()) + Res.getString("bdar_audio_permission_dialog_context"));
+        c0051a.a(Res.getString("bdar_ok"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.ui.CaptureUI.4
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 CaptureUI.this.n();
                 StatisticHelper.getInstance().statisticInfo(StatisticConstants.AUDIO_DIALOG_YES);
             }
         });
-        c0048a.b(Res.getString("bdar_cancel"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.ui.CaptureUI.5
+        c0051a.b(Res.getString("bdar_cancel"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.ui.CaptureUI.5
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 CaptureUI.this.j();
                 StatisticHelper.getInstance().statisticInfo(StatisticConstants.AUDIO_DIALOG_NO);
             }
         });
-        com.baidu.ar.ui.a.a a2 = c0048a.a();
+        com.baidu.ar.ui.a.a a2 = c0051a.a();
         a2.setCanceledOnTouchOutside(false);
         a2.setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.baidu.ar.ui.CaptureUI.6
             @Override // android.content.DialogInterface.OnKeyListener
@@ -425,7 +426,7 @@ public class CaptureUI implements a.InterfaceC0050a {
 
     public void a() {
         this.p = new com.baidu.ar.ui.view.a(this.h, (RelativeLayout) this.f.findViewById(Res.id("bdar_capture_container")));
-        this.p.a((a.InterfaceC0050a) this);
+        this.p.a((a.InterfaceC0053a) this);
         Map<FunctionType, Boolean> functionMap = this.e != null ? this.e.getFunctionMap() : null;
         this.p.a(functionMap == null || !functionMap.containsKey(FunctionType.VIDEO) || functionMap.get(FunctionType.VIDEO).booleanValue());
         o();
@@ -503,7 +504,7 @@ public class CaptureUI implements a.InterfaceC0050a {
         return true;
     }
 
-    @Override // com.baidu.ar.ui.view.a.InterfaceC0050a
+    @Override // com.baidu.ar.ui.view.a.InterfaceC0053a
     public void f() {
         if (this.d.g() && !this.i) {
             this.i = true;
@@ -516,7 +517,7 @@ public class CaptureUI implements a.InterfaceC0050a {
         }
     }
 
-    @Override // com.baidu.ar.ui.view.a.InterfaceC0050a
+    @Override // com.baidu.ar.ui.view.a.InterfaceC0053a
     public void g() {
         if (this.j) {
             return;
@@ -532,7 +533,7 @@ public class CaptureUI implements a.InterfaceC0050a {
         }
     }
 
-    @Override // com.baidu.ar.ui.view.a.InterfaceC0050a
+    @Override // com.baidu.ar.ui.view.a.InterfaceC0053a
     public void h() {
         a(RecordAction.GO_TO_SHARE_VIEW);
     }

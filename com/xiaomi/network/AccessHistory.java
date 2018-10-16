@@ -1,5 +1,6 @@
 package com.xiaomi.network;
 
+import com.baidu.searchbox.ng.ai.apps.media.chooser.action.ChooseVideoAction;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -30,7 +31,7 @@ public class AccessHistory {
 
     public AccessHistory a(JSONObject jSONObject) {
         this.b = jSONObject.getLong("cost");
-        this.e = jSONObject.getLong("size");
+        this.e = jSONObject.getLong(ChooseVideoAction.CB_KEY_SIZE);
         this.c = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
         this.a = jSONObject.getInt("wt");
         this.d = jSONObject.optString("expt");
@@ -40,7 +41,7 @@ public class AccessHistory {
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("cost", this.b);
-        jSONObject.put("size", this.e);
+        jSONObject.put(ChooseVideoAction.CB_KEY_SIZE, this.e);
         jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.c);
         jSONObject.put("wt", this.a);
         jSONObject.put("expt", this.d);

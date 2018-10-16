@@ -6,13 +6,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.e, com.baidu.tieba.card.a.a<com.baidu.tieba.card.h>> {
-    private com.baidu.tieba.card.h dFq;
+    private com.baidu.tieba.card.h dNp;
     private String mForumId;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.e.cUs);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.e.dcK);
         this.mPageContext = tbPageContext;
         this.mForumId = str;
     }
@@ -22,9 +22,9 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.e, com.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: Y */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.h> onCreateViewHolder(ViewGroup viewGroup) {
-        this.dFq = new com.baidu.tieba.card.h(this.mPageContext);
-        this.dFq.setForumId(this.mForumId);
-        return new com.baidu.tieba.card.a.a<>(this.dFq);
+        this.dNp = new com.baidu.tieba.card.h(this.mPageContext);
+        this.dNp.setForumId(this.mForumId);
+        return new com.baidu.tieba.card.a.a<>(this.dNp);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,11 +32,11 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.e, com.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.e eVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.h> aVar) {
-        if (aVar.aln() == null) {
+        if (aVar.aoP() == null) {
             return null;
         }
-        aVar.aln().a(eVar);
-        aVar.aln().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        return aVar.aln().getView();
+        aVar.aoP().a(eVar);
+        aVar.aoP().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        return aVar.aoP().getView();
     }
 }

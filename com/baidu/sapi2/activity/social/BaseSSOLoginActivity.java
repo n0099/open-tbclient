@@ -2,7 +2,7 @@ package com.baidu.sapi2.activity.social;
 
 import android.content.Intent;
 import android.os.Bundle;
-import com.baidu.d.a.a.a.a;
+import com.baidu.e.a.a.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiWebView;
@@ -103,7 +103,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.C0061a.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(a.C0072a.layout_sapi_sdk_webview_with_title_bar);
             initData();
         } catch (Throwable th) {
             reportWebviewError(th);

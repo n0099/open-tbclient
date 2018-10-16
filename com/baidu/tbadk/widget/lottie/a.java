@@ -10,50 +10,50 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.d.m;
 /* loaded from: classes.dex */
 public class a implements c {
-    public static final String bgR = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
-    private m bgS;
-    private boolean bgT = false;
-    private String yz;
+    public static final String blg = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
+    private m blh;
+    private boolean bli = false;
+    private String mPath;
 
     @Override // com.airbnb.lottie.c
     public Bitmap a(g gVar) {
-        if (ao.isEmpty(this.yz)) {
+        if (ao.isEmpty(this.mPath)) {
             return null;
         }
-        String str = this.yz + gVar.cG().replace("/", "") + "/" + gVar.getFileName();
-        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.f.c.jn().a(str, 36, new Object[0]);
+        String str = this.mPath + gVar.cY().replace("/", "") + "/" + gVar.getFileName();
+        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.f.c.jC().a(str, 36, new Object[0]);
         if (aVar == null && getFristLoadInternal()) {
-            if (this.bgS == null) {
-                this.bgS = new m();
+            if (this.blh == null) {
+                this.blh = new m();
             }
-            aVar = this.bgS.m(str, 0, 0);
+            aVar = this.blh.m(str, 0, 0);
         }
-        if (aVar != null && aVar.oh() != null) {
-            Bitmap oh = aVar.oh();
+        if (aVar != null && aVar.os() != null) {
+            Bitmap os = aVar.os();
             try {
-                return oh.copy(oh.getConfig(), false);
+                return os.copy(os.getConfig(), false);
             } catch (OutOfMemoryError e) {
                 TbadkCoreApplication.getInst().onAppMemoryLow();
                 BdLog.e(e);
             }
         }
-        com.baidu.adp.lib.f.c.jn().a(str, 36, null, null);
+        com.baidu.adp.lib.f.c.jC().a(str, 36, null, null);
         return null;
     }
 
     public void setPath(String str) {
-        this.yz = getAnimationPath() + str + "/";
+        this.mPath = getAnimationPath() + str + "/";
     }
 
     public static String getAnimationPath() {
-        return bgR + "/" + TbConfig.getTempDirName() + "/animation/";
+        return blg + "/" + TbConfig.getTempDirName() + "/animation/";
     }
 
     public void setFirstLoadInternal(boolean z) {
-        this.bgT = z;
+        this.bli = z;
     }
 
     public boolean getFristLoadInternal() {
-        return this.bgT;
+        return this.bli;
     }
 }

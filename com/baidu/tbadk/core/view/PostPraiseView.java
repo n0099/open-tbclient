@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class PostPraiseView extends BasePraiseView<PostData> {
     public PostPraiseView(Context context) {
         this(context, null);
@@ -16,8 +16,8 @@ public class PostPraiseView extends BasePraiseView<PostData> {
 
     public PostPraiseView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.awp = 1;
-        if (this.awp == 2) {
+        this.aBa = 1;
+        if (this.aBa == 2) {
             setDisPraiseFrom(9);
         } else {
             setDisPraiseFrom(8);
@@ -29,70 +29,70 @@ public class PostPraiseView extends BasePraiseView<PostData> {
         if (this.mData == 0) {
             return 0L;
         }
-        return ((PostData) this.mData).xy();
+        return ((PostData) this.mData).zH();
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.baidu.tieba.tbadkCore.data.PostData */
     /* JADX WARN: Multi-variable type inference failed */
     public void a(PostData postData) {
         if (postData != 0) {
-            if (postData.ayA()) {
-                if (postData.xB() == 0 || postData.xB() == 1 || postData.xB() == 2) {
-                    postData.cm(2);
+            if (postData.aBT()) {
+                if (postData.zK() == 0 || postData.zK() == 1 || postData.zK() == 2) {
+                    postData.cw(2);
                 }
-                if (postData.xB() == 3 || postData.xB() == 4 || postData.xB() == 5) {
-                    postData.cm(5);
+                if (postData.zK() == 3 || postData.zK() == 4 || postData.zK() == 5) {
+                    postData.cw(5);
                 }
             }
             this.mData = postData;
             this.mPostId = postData.getId();
-            this.alZ = ((PostData) this.mData).xy();
-            this.ama = ((PostData) this.mData).xz();
-            Bp();
+            this.aqU = ((PostData) this.mData).zH();
+            this.aqV = ((PostData) this.mData).zI();
+            updateUI();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.BasePraiseView
-    public void Bp() {
+    public void updateUI() {
         Context context = getContext();
         long num = getNum();
-        String string = context.getString(this.awr);
-        if (!com.baidu.tbadk.util.a.Mu().CM()) {
+        String string = context.getString(this.aBc);
+        if (!com.baidu.tbadk.util.a.Os().EQ()) {
             string = "";
         }
         if (num > 0) {
-            string = ao.L(num);
+            string = ao.N(num);
         }
-        this.aww.setText(string);
-        this.aww.setContentDescription(context.getString(this.awr) + num);
-        if (this.mData != 0 && ((PostData) this.mData).ayA() && Bt()) {
-            this.awx.setImageDrawable(createStateDrawable(this.awt, this.aws));
-            this.aww.setTextColor(createColorStateList(this.awv, this.awu));
+        this.aBh.setText(string);
+        this.aBh.setContentDescription(context.getString(this.aBc) + num);
+        if (this.mData != 0 && ((PostData) this.mData).aBT() && Dz()) {
+            this.aBi.setImageDrawable(createStateDrawable(this.aBe, this.aBd));
+            this.aBh.setTextColor(createColorStateList(this.aBg, this.aBf));
             return;
         }
-        this.awx.setImageDrawable(createStateDrawable(this.aws, this.awt));
-        this.aww.setTextColor(createColorStateList(this.awu, this.awv));
+        this.aBi.setImageDrawable(createStateDrawable(this.aBd, this.aBe));
+        this.aBh.setTextColor(createColorStateList(this.aBf, this.aBg));
     }
 
-    public int Bs() {
+    public int Dy() {
         int i;
         if (this.mData == 0) {
             return 0;
         }
-        if (((PostData) this.mData).ayA() && Bt()) {
-            ((PostData) this.mData).cm(2);
-            ((PostData) this.mData).mR(false);
-            ((PostData) this.mData).t(((PostData) this.mData).xy() - 1);
-            ((PostData) this.mData).u(((PostData) this.mData).xz());
+        if (((PostData) this.mData).aBT() && Dz()) {
+            ((PostData) this.mData).cw(2);
+            ((PostData) this.mData).ni(false);
+            ((PostData) this.mData).v(((PostData) this.mData).zH() - 1);
+            ((PostData) this.mData).w(((PostData) this.mData).zI());
             i = 1;
         } else {
-            if (((PostData) this.mData).ayA() && ((PostData) this.mData).xB() == 5) {
-                ((PostData) this.mData).u(((PostData) this.mData).xz() - 1);
+            if (((PostData) this.mData).aBT() && ((PostData) this.mData).zK() == 5) {
+                ((PostData) this.mData).w(((PostData) this.mData).zI() - 1);
             }
-            ((PostData) this.mData).mR(true);
-            ((PostData) this.mData).t(((PostData) this.mData).xy() + 1);
-            ((PostData) this.mData).cm(2);
-            com.baidu.tieba.n.a.bpD().y(getTbPageContext());
+            ((PostData) this.mData).ni(true);
+            ((PostData) this.mData).v(((PostData) this.mData).zH() + 1);
+            ((PostData) this.mData).cw(2);
+            com.baidu.tieba.n.a.bsS().y(getTbPageContext());
             i = 0;
         }
         return i;
@@ -100,20 +100,20 @@ public class PostPraiseView extends BasePraiseView<PostData> {
 
     public int L(View view) {
         int i = -1;
-        if (!com.baidu.tbadk.util.g.isFastDoubleClick() && ba.bA(getContext()) && this.mData != 0) {
-            i = Bs();
-            Bp();
-            dn(i);
-            m15do(i);
-            if (this.avZ != null) {
-                this.avZ.onClick(view);
+        if (!com.baidu.tbadk.util.g.isFastDoubleClick() && ba.bI(getContext()) && this.mData != 0) {
+            i = Dy();
+            updateUI();
+            dx(i);
+            dy(i);
+            if (this.aAK != null) {
+                this.aAK.onClick(view);
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016552, this.mData));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016529, this.mData));
         }
         return i;
     }
 
-    public boolean Bt() {
-        return this.mData != 0 && (((PostData) this.mData).xB() == 2 || ((PostData) this.mData).xB() == 1);
+    public boolean Dz() {
+        return this.mData != 0 && (((PostData) this.mData).zK() == 2 || ((PostData) this.mData).zK() == 1);
     }
 }

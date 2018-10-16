@@ -10,6 +10,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -125,7 +126,7 @@ public class g {
                 writableDatabase.beginTransaction();
                 for (a aVar : list) {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put("package_name", aVar.a);
+                    contentValues.put(ETAG.KEY_PACKAGE_NAME, aVar.a);
                     contentValues.put("message_ts", Long.valueOf(aVar.b));
                     contentValues.put(HttpConstants.NETWORK_TYPE, Integer.valueOf(aVar.c));
                     contentValues.put("bytes", Long.valueOf(aVar.f));

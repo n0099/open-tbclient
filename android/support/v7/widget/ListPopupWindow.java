@@ -29,6 +29,7 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.PopupWindow;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
 public class ListPopupWindow implements ShowableListMenu {
@@ -715,10 +716,10 @@ public class ListPopupWindow implements ShowableListMenu {
                 makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.mContext.getResources().getDisplayMetrics().widthPixels - (this.mTempRect.left + this.mTempRect.right), Integer.MIN_VALUE);
                 break;
             case -1:
-                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.mContext.getResources().getDisplayMetrics().widthPixels - (this.mTempRect.left + this.mTempRect.right), 1073741824);
+                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.mContext.getResources().getDisplayMetrics().widthPixels - (this.mTempRect.left + this.mTempRect.right), AiAppsFileUtils.GB);
                 break;
             default:
-                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.mDropDownWidth, 1073741824);
+                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.mDropDownWidth, AiAppsFileUtils.GB);
                 break;
         }
         int measureHeightOfChildrenCompat = this.mDropDownList.measureHeightOfChildrenCompat(makeMeasureSpec, 0, -1, maxAvailableHeight - i, -1);

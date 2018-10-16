@@ -2,11 +2,11 @@ package com.baidu.tieba.video.record;
 
 import android.hardware.Camera;
 import android.view.MotionEvent;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 class b {
-    private float hpS;
-    private int hpT;
-    private i hpU;
+    private float hxf;
+    private int hxg;
+    private i hxh;
     private Camera mCamera;
     private int mode = 0;
 
@@ -15,11 +15,11 @@ class b {
     }
 
     public void setRecordController(i iVar) {
-        this.hpU = iVar;
+        this.hxh = iVar;
     }
 
     public boolean j(MotionEvent motionEvent) {
-        if (this.hpU == null || !this.hpU.isRecording()) {
+        if (this.hxh == null || !this.hxh.isRecording()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
@@ -27,21 +27,21 @@ class b {
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
                         float t = t(motionEvent);
-                        int i = (int) ((t - this.hpS) / 10.0f);
+                        int i = (int) ((t - this.hxf) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.hpT;
+                            int i2 = i + this.hxg;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.hpS = t;
+                            this.hxf = t;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.hpS = t(motionEvent);
+                    this.hxf = t(motionEvent);
                     break;
             }
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.hpT = i;
+                this.hxg = i;
             }
         }
     }

@@ -3,7 +3,7 @@ package com.tencent.open.a;
 import android.text.format.Time;
 import android.util.Log;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class h {
     public static final h a = new h();
 

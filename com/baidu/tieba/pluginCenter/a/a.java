@@ -10,51 +10,51 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<PluginNetConfigInfos.PluginConfig, com.baidu.tbadk.mvc.d.b> {
-    private TextView dRP;
-    private TbImageView gpW;
-    private TextView gpX;
-    private ImageView gpY;
+    private TextView dZJ;
+    private TbImageView gxx;
+    private TextView gxy;
+    private ImageView gxz;
     private TextView title;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.gpW = (TbImageView) view.findViewById(e.g.icon);
+        this.gxx = (TbImageView) view.findViewById(e.g.icon);
         this.title = (TextView) view.findViewById(e.g.title);
-        this.dRP = (TextView) view.findViewById(e.g.desc);
-        this.gpX = (TextView) view.findViewById(e.g.status);
-        this.gpY = (ImageView) view.findViewById(e.g.new_mark);
+        this.dZJ = (TextView) view.findViewById(e.g.desc);
+        this.gxy = (TextView) view.findViewById(e.g.status);
+        this.gxz = (ImageView) view.findViewById(e.g.new_mark);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.f.e
     /* renamed from: a */
-    public void H(PluginNetConfigInfos.PluginConfig pluginConfig) {
-        super.H(pluginConfig);
+    public void L(PluginNetConfigInfos.PluginConfig pluginConfig) {
+        super.L(pluginConfig);
         if (pluginConfig != null) {
             if (!StringUtils.isNull(pluginConfig.icon)) {
-                this.gpW.startLoad(pluginConfig.icon, 10, false);
+                this.gxx.startLoad(pluginConfig.icon, 10, false);
             }
             this.title.setText(pluginConfig.display_name);
-            this.dRP.setText(pluginConfig.verbose);
-            if (PluginPackageManager.mT().bY(pluginConfig.package_name)) {
-                if (PluginPackageManager.mT().ca(pluginConfig.package_name)) {
-                    this.gpY.setVisibility(0);
-                    this.gpX.setText(e.j.download_update);
+            this.dZJ.setText(pluginConfig.verbose);
+            if (PluginPackageManager.nd().bX(pluginConfig.package_name)) {
+                if (PluginPackageManager.nd().bZ(pluginConfig.package_name)) {
+                    this.gxz.setVisibility(0);
+                    this.gxy.setText(e.j.download_update);
                     return;
                 }
-                this.gpY.setVisibility(8);
-                if (PluginPackageManager.mT().bZ(pluginConfig.package_name)) {
-                    this.gpX.setText(e.j.plugin_unenabled);
+                this.gxz.setVisibility(8);
+                if (PluginPackageManager.nd().bY(pluginConfig.package_name)) {
+                    this.gxy.setText(e.j.plugin_unenabled);
                     return;
                 } else {
-                    this.gpX.setText(e.j.plugin_enabled);
+                    this.gxy.setText(e.j.plugin_enabled);
                     return;
                 }
             }
-            this.gpY.setVisibility(8);
-            this.gpX.setText(e.j.plugin_disabled);
+            this.gxz.setVisibility(8);
+            this.gxy.setText(e.j.plugin_disabled);
         }
     }
 

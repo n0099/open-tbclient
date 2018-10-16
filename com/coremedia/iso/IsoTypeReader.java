@@ -1,13 +1,12 @@
 package com.coremedia.iso;
 
 import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.ViewCompat;
 import com.googlecode.mp4parser.util.IntHashMap;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class IsoTypeReader {
     private static IntHashMap codeCache = new IntHashMap();
     private static byte[] codeBytes = new byte[4];
@@ -75,13 +74,13 @@ public final class IsoTypeReader {
     public static double readFixedPoint1616(ByteBuffer byteBuffer) {
         byte[] bArr = new byte[4];
         byteBuffer.get(bArr);
-        return ((bArr[3] & 255) | (((((bArr[0] << 24) & ViewCompat.MEASURED_STATE_MASK) | 0) | ((bArr[1] << 16) & 16711680)) | ((bArr[2] << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK))) / 65536.0d;
+        return ((bArr[3] & 255) | (((((bArr[0] << 24) & (-16777216)) | 0) | ((bArr[1] << 16) & 16711680)) | ((bArr[2] << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK))) / 65536.0d;
     }
 
     public static double readFixedPoint0230(ByteBuffer byteBuffer) {
         byte[] bArr = new byte[4];
         byteBuffer.get(bArr);
-        return ((bArr[3] & 255) | (((((bArr[0] << 24) & ViewCompat.MEASURED_STATE_MASK) | 0) | ((bArr[1] << 16) & 16711680)) | ((bArr[2] << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK))) / 1.073741824E9d;
+        return ((bArr[3] & 255) | (((((bArr[0] << 24) & (-16777216)) | 0) | ((bArr[1] << 16) & 16711680)) | ((bArr[2] << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK))) / 1.073741824E9d;
     }
 
     public static float readFixedPoint88(ByteBuffer byteBuffer) {
@@ -101,7 +100,7 @@ public final class IsoTypeReader {
 
     public static String read4cc(ByteBuffer byteBuffer) {
         byteBuffer.get(codeBytes);
-        int i = (codeBytes[3] & 255) | ((codeBytes[0] << 24) & ViewCompat.MEASURED_STATE_MASK) | ((codeBytes[1] << 16) & 16711680) | ((codeBytes[2] << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK);
+        int i = (codeBytes[3] & 255) | ((codeBytes[0] << 24) & (-16777216)) | ((codeBytes[1] << 16) & 16711680) | ((codeBytes[2] << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK);
         String str = (String) codeCache.get(i);
         if (str == null) {
             try {

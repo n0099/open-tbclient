@@ -10,18 +10,18 @@ import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class b implements com.baidu.tbadk.core.flow.a {
     @Override // com.baidu.tbadk.core.flow.a
-    public c yw() {
+    public c AE() {
         c cVar = new c();
-        cVar.cG(e.f.icon_banner_n);
-        cVar.cH(e.f.icon_banner_s);
-        cVar.setSpacing(e.C0141e.ds22);
+        cVar.cQ(e.f.icon_banner_n);
+        cVar.cR(e.f.icon_banner_s);
+        cVar.setSpacing(e.C0175e.ds22);
         cVar.setGravity(81);
-        cVar.cI(e.C0141e.ds22);
+        cVar.cS(e.C0175e.ds22);
         return cVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.a
-    public TbImageView bi(Context context) {
+    public TbImageView br(Context context) {
         TbImageView tbImageView = new TbImageView(context);
         tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
         tbImageView.setGifIconSupport(false);
@@ -29,17 +29,17 @@ public class b implements com.baidu.tbadk.core.flow.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a
-    public e yx() {
+    public e AF() {
         e eVar = new e();
         Resources resources = TbadkCoreApplication.getInst().getResources();
         if (resources != null) {
-            eVar.setHeight(resources.getDimensionPixelSize(e.C0141e.ds330));
+            eVar.setHeight(resources.getDimensionPixelSize(e.C0175e.ds330));
         }
         return eVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.a
-    public View yy() {
+    public View AG() {
         return null;
     }
 }

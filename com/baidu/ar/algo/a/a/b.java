@@ -11,7 +11,6 @@ import android.renderscript.ScriptIntrinsicYuvToRGB;
 import android.renderscript.Type;
 import android.util.Log;
 import com.baidu.ar.algo.a.a.a;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
@@ -75,14 +74,14 @@ public class b {
                 Bitmap a = a(i, i2, bArr);
                 Bitmap a2 = a(a, 160.0d, 160.0d);
                 if (this.d == 1) {
-                    a2 = a(a2, SubsamplingScaleImageView.ORIENTATION_180);
+                    a2 = a(a2, 180);
                 }
                 int allocationByteCount = (a2.getAllocationByteCount() * 3) / 4;
                 if (this.b == null || this.b.length != allocationByteCount) {
                     this.b = new float[allocationByteCount];
                 }
                 a(this.b, a2);
-                a.C0033a predictForFloatMatrix = this.a.predictForFloatMatrix(this.b, 160, 160, 3);
+                a.C0036a predictForFloatMatrix = this.a.predictForFloatMatrix(this.b, 160, 160, 3);
                 float[] fArr = predictForFloatMatrix != null ? predictForFloatMatrix.a : null;
                 Bundle bundle = new Bundle();
                 bundle.putFloatArray("result", fArr);

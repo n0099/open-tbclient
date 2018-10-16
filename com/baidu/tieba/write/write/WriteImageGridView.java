@@ -24,7 +24,7 @@ public class WriteImageGridView extends GridView {
         super.onMeasure(i, i2);
         if (getCount() > 0) {
             int ceil = (int) Math.ceil(getCount() / 4.0f);
-            setMeasuredDimension(getMeasuredWidth(), ((ceil - 1) * l.h(getContext(), e.C0141e.ds16)) + ((((l.aO(getContext()) - (l.h(getContext(), e.C0141e.ds34) * 2)) - (l.h(getContext(), e.C0141e.ds16) * 3)) / 4) * ceil) + getPaddingTop() + getPaddingBottom());
+            setMeasuredDimension(getMeasuredWidth(), ((ceil - 1) * l.h(getContext(), e.C0175e.ds16)) + ((((l.aO(getContext()) - (l.h(getContext(), e.C0175e.ds34) * 2)) - (l.h(getContext(), e.C0175e.ds16) * 3)) / 4) * ceil) + getPaddingTop() + getPaddingBottom());
         }
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.fsg.base.widget.textfilter;
 
 import android.text.TextUtils;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class NumberEditTextPasteFilter implements IEditTextPasteFilter {
     private static final String a = NumberEditTextPasteFilter.class.getSimpleName();
 

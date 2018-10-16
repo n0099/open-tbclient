@@ -13,7 +13,7 @@ public class m implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null || !(customMessage instanceof RequestOfficialBarMenuLocalMessage)) {
             return null;
         }
-        byte[] bArr = com.baidu.tbadk.core.c.a.yh().dP("tb.official_bar_menu").get(ResponseOfficialBarMenuMessage.OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuLocalMessage) customMessage).getForum_id());
+        byte[] bArr = com.baidu.tbadk.core.c.a.Aq().ef("tb.official_bar_menu").get(ResponseOfficialBarMenuMessage.OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuLocalMessage) customMessage).getForum_id());
         ResponseOfficialBarMenuLocalMessage responseOfficialBarMenuLocalMessage = new ResponseOfficialBarMenuLocalMessage();
         try {
             responseOfficialBarMenuLocalMessage.decodeInBackGround(2001177, bArr);

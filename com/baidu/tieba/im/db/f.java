@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteStatement;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.webkit.internal.ETAG;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
@@ -191,7 +192,7 @@ public class f extends SQLiteOpenHelper {
                             sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD rid BIGINT;");
                             sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD is_delete int default 0;");
                             sQLiteDatabase.execSQL("UPDATE " + next + " SET read_flag=0 WHERE read_flag is null");
-                            sQLiteDatabase.execSQL("UPDATE " + next + " SET rid=mid WHERE rid is null");
+                            sQLiteDatabase.execSQL("UPDATE " + next + " SET rid" + ETAG.EQUAL + "mid WHERE rid is null");
                         } catch (Exception e) {
                             TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.groupMsg2to3", new Object[0]);
                             sQLiteDatabase.execSQL("DROP TABLE IF EXISTS " + next);
@@ -234,7 +235,7 @@ public class f extends SQLiteOpenHelper {
                 Iterator<String> it = E.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
-                    if (!TextUtils.isEmpty(next) && (next.startsWith(m.exv) || next.startsWith(l.exv))) {
+                    if (!TextUtils.isEmpty(next) && (next.startsWith(m.HEAD) || next.startsWith(l.HEAD))) {
                         try {
                             sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD is_friend int default 1;");
                         } catch (Exception e) {
@@ -337,12 +338,12 @@ public class f extends SQLiteOpenHelper {
                 sQLiteDatabase.setTransactionSuccessful();
                 try {
                     sQLiteDatabase.beginTransaction();
-                    g.exL.put(TbadkCoreApplication.getCurrentAccount() + ".db", sQLiteDatabase);
-                    k.aMa();
+                    g.eFw.put(TbadkCoreApplication.getCurrentAccount() + ".db", sQLiteDatabase);
+                    k.aPp();
                     sQLiteDatabase.setTransactionSuccessful();
                 } finally {
                     sQLiteDatabase.endTransaction();
-                    g.exL.remove(TbadkCoreApplication.getCurrentAccount() + ".db");
+                    g.eFw.remove(TbadkCoreApplication.getCurrentAccount() + ".db");
                 }
             } finally {
                 sQLiteDatabase.endTransaction();

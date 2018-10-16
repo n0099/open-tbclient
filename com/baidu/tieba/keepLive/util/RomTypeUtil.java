@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class RomTypeUtil {
     private static final String KEY_VERSION_EMUI = "ro.build.version.emui";
     private static final String KEY_VERSION_MIUI = "ro.miui.ui.version.name";
@@ -28,11 +28,11 @@ public class RomTypeUtil {
     }
 
     public static boolean isUseForHuawei() {
-        return check(ROM_EMUI) && Build.VERSION.SDK_INT >= 24;
+        return check("EMUI") && Build.VERSION.SDK_INT >= 24;
     }
 
     public static boolean isFlyme() {
-        return check(ROM_FLYME);
+        return check("FLYME");
     }
 
     public static String getVersion() {
@@ -49,31 +49,31 @@ public class RomTypeUtil {
         String prop = getProp(KEY_VERSION_MIUI);
         sVersion = prop;
         if (!TextUtils.isEmpty(prop)) {
-            sName = ROM_MIUI;
+            sName = "MIUI";
         } else {
             String prop2 = getProp(KEY_VERSION_EMUI);
             sVersion = prop2;
             if (!TextUtils.isEmpty(prop2)) {
-                sName = ROM_EMUI;
+                sName = "EMUI";
             } else {
                 String prop3 = getProp(KEY_VERSION_OPPO);
                 sVersion = prop3;
                 if (!TextUtils.isEmpty(prop3)) {
-                    sName = ROM_OPPO;
+                    sName = "OPPO";
                 } else {
                     String prop4 = getProp(KEY_VERSION_VIVO);
                     sVersion = prop4;
                     if (!TextUtils.isEmpty(prop4)) {
-                        sName = ROM_VIVO;
+                        sName = "VIVO";
                     } else {
                         String prop5 = getProp(KEY_VERSION_SMARTISAN);
                         sVersion = prop5;
                         if (!TextUtils.isEmpty(prop5)) {
-                            sName = ROM_SMARTISAN;
+                            sName = "SMARTISAN";
                         } else {
                             sVersion = Build.DISPLAY;
-                            if (sVersion.toUpperCase().contains(ROM_FLYME)) {
-                                sName = ROM_FLYME;
+                            if (sVersion.toUpperCase().contains("FLYME")) {
+                                sName = "FLYME";
                             } else {
                                 sVersion = "unknown";
                                 sName = Build.MANUFACTURER.toUpperCase();

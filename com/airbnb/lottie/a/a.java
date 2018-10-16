@@ -21,18 +21,18 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a<T> {
     private static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
-    private final e my;
+    private final e np;
     @Nullable
-    public final T nA;
+    public final T on;
     @Nullable
-    public final T nB;
+    public final T oo;
     @Nullable
-    public final Interpolator nC;
-    public final float nD;
+    public final Interpolator oq;
+    public final float or;
     @Nullable
-    public Float nE;
-    private float nF = Float.MIN_VALUE;
-    private float nG = Float.MIN_VALUE;
+    public Float ot;
+    private float ou = Float.MIN_VALUE;
+    private float ov = Float.MIN_VALUE;
 
     public static void f(List<? extends a<?>> list) {
         int size = list.size();
@@ -42,82 +42,82 @@ public class a<T> {
             if (i2 >= size - 1) {
                 break;
             }
-            list.get(i2).nE = Float.valueOf(list.get(i2 + 1).nD);
+            list.get(i2).ot = Float.valueOf(list.get(i2 + 1).or);
             i = i2 + 1;
         }
         a<?> aVar = list.get(size - 1);
-        if (aVar.nA == null) {
+        if (aVar.on == null) {
             list.remove(aVar);
         }
     }
 
     public a(e eVar, @Nullable T t, @Nullable T t2, @Nullable Interpolator interpolator, float f, @Nullable Float f2) {
-        this.my = eVar;
-        this.nA = t;
-        this.nB = t2;
-        this.nC = interpolator;
-        this.nD = f;
-        this.nE = f2;
+        this.np = eVar;
+        this.on = t;
+        this.oo = t2;
+        this.oq = interpolator;
+        this.or = f;
+        this.ot = f2;
     }
 
-    public float cH() {
-        if (this.nF == Float.MIN_VALUE) {
-            this.nF = (this.nD - ((float) this.my.cn())) / this.my.ct();
+    public float cZ() {
+        if (this.ou == Float.MIN_VALUE) {
+            this.ou = (this.or - ((float) this.np.cF())) / this.np.cL();
         }
-        return this.nF;
+        return this.ou;
     }
 
-    public float cI() {
-        if (this.nG == Float.MIN_VALUE) {
-            if (this.nE == null) {
-                this.nG = 1.0f;
+    public float da() {
+        if (this.ov == Float.MIN_VALUE) {
+            if (this.ot == null) {
+                this.ov = 1.0f;
             } else {
-                this.nG = cH() + ((this.nE.floatValue() - this.nD) / this.my.ct());
+                this.ov = cZ() + ((this.ot.floatValue() - this.or) / this.np.cL());
             }
         }
-        return this.nG;
+        return this.ov;
     }
 
-    public boolean cJ() {
-        return this.nC == null;
+    public boolean db() {
+        return this.oq == null;
     }
 
     public boolean g(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        return f >= cH() && f < cI();
+        return f >= cZ() && f < da();
     }
 
     public String toString() {
-        return "Keyframe{startValue=" + this.nA + ", endValue=" + this.nB + ", startFrame=" + this.nD + ", endFrame=" + this.nE + ", interpolator=" + this.nC + '}';
+        return "Keyframe{startValue=" + this.on + ", endValue=" + this.oo + ", startFrame=" + this.or + ", endFrame=" + this.ot + ", interpolator=" + this.oq + '}';
     }
 
     /* renamed from: com.airbnb.lottie.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0004a {
-        private static SparseArrayCompat<WeakReference<Interpolator>> nH;
+    public static class C0007a {
+        private static SparseArrayCompat<WeakReference<Interpolator>> ow;
 
-        private static SparseArrayCompat<WeakReference<Interpolator>> cL() {
-            if (nH == null) {
-                nH = new SparseArrayCompat<>();
+        private static SparseArrayCompat<WeakReference<Interpolator>> dd() {
+            if (ow == null) {
+                ow = new SparseArrayCompat<>();
             }
-            return nH;
+            return ow;
         }
 
         @Nullable
         private static WeakReference<Interpolator> s(int i) {
             WeakReference<Interpolator> weakReference;
-            synchronized (C0004a.class) {
-                weakReference = cL().get(i);
+            synchronized (C0007a.class) {
+                weakReference = dd().get(i);
             }
             return weakReference;
         }
 
         private static void a(int i, WeakReference<Interpolator> weakReference) {
-            synchronized (C0004a.class) {
-                nH.put(i, weakReference);
+            synchronized (C0007a.class) {
+                ow.put(i, weakReference);
             }
         }
 
-        private C0004a() {
+        private C0007a() {
         }
 
         public static <T> a<T> a(JSONObject jSONObject, e eVar, float f, m.a<T> aVar) {

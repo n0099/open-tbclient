@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.text.TextUtils;
-import com.tencent.tauth.AuthActivity;
 import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public class j implements cn.jiguang.api.b {
@@ -15,22 +14,22 @@ public class j implements cn.jiguang.api.b {
             if (a.code == 0) {
                 switch (a.getCommand()) {
                     case 19:
-                        cn.jiguang.d.b.d.bx().a(a, j);
+                        cn.jiguang.d.b.d.bO().a(a, j);
                         break;
                     case 25:
-                        cn.jiguang.a.c.a.a(context, cn.jiguang.d.b.d.bx().by(), j, a);
+                        cn.jiguang.a.c.a.a(context, cn.jiguang.d.b.d.bO().bP(), j, a);
                         break;
                     case 26:
                         if (a.code != 0) {
-                            i.bG().a(context, a.getRid().longValue());
+                            i.bX().a(context, a.getRid().longValue());
                             break;
                         } else {
-                            i.bG().b(context, a.getRid().longValue());
+                            i.bX().b(context, a.getRid().longValue());
                             break;
                         }
                     case 30:
                     case 32:
-                        cn.jiguang.d.f.a.bO().a(a.code, a.getCommand());
+                        cn.jiguang.d.f.a.cf().a(a.code, a.getCommand());
                         break;
                 }
             } else {
@@ -38,7 +37,7 @@ public class j implements cn.jiguang.api.b {
             }
         }
         if (a != null) {
-            return a.getHead().bL().longValue();
+            return a.getHead().cc().longValue();
         }
         return -1L;
     }
@@ -46,9 +45,9 @@ public class j implements cn.jiguang.api.b {
     @Override // cn.jiguang.api.b
     public void dispatchTimeOutMessage(Context context, long j, long j2, int i) {
         if (i == 26) {
-            i.bG().c(context, j2);
+            i.bX().c(context, j2);
         } else if (i == 32 || i == 30) {
-            cn.jiguang.d.f.a.bO().a(context, i);
+            cn.jiguang.d.f.a.cf().a(context, i);
         }
     }
 
@@ -74,16 +73,16 @@ public class j implements cn.jiguang.api.b {
     @Override // cn.jiguang.api.b
     public void onActionRun(Context context, long j, Bundle bundle, Object obj) {
         if (bundle != null) {
-            String string = bundle.getString(AuthActivity.ACTION_KEY);
+            String string = bundle.getString("action");
             if (!TextUtils.isEmpty(string) && string.equals("asm")) {
-                cn.jiguang.d.f.a.bO().a(context, bundle);
+                cn.jiguang.d.f.a.cf().a(context, bundle);
                 return;
             }
         }
-        cn.jiguang.a.c.b.bc();
+        cn.jiguang.a.c.b.bt();
         cn.jiguang.e.c.a("ARunAction", " pkg:" + cn.jiguang.d.a.c);
         cn.jiguang.e.c.a("ARunAction", new StringBuilder("bundle:").append(bundle).toString() != null ? bundle.toString() : "");
-        if (bundle == null || !"cn.jpush.android.intent.REPORT".equals(bundle.getString(AuthActivity.ACTION_KEY))) {
+        if (bundle == null || !"cn.jpush.android.intent.REPORT".equals(bundle.getString("action"))) {
             return;
         }
         String string2 = bundle.getString("report");

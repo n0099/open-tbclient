@@ -1,5 +1,6 @@
 package com.baidu.appsearchlib;
 
+import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import java.security.MessageDigest;
 /* loaded from: classes.dex */
 public class Md5Util {
@@ -8,7 +9,7 @@ public class Md5Util {
     static {
         md5 = null;
         try {
-            md5 = MessageDigest.getInstance("MD5");
+            md5 = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

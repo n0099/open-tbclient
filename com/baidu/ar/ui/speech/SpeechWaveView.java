@@ -13,7 +13,6 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Shader;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.FragmentTransaction;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
@@ -100,7 +99,7 @@ public class SpeechWaveView extends View {
         public void run() {
             while (!a()) {
                 if (this.a != null) {
-                    this.a.F.sendEmptyMessage(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                    this.a.F.sendEmptyMessage(4097);
                     try {
                         Thread.sleep(16L);
                     } catch (InterruptedException e) {
@@ -307,7 +306,7 @@ public class SpeechWaveView extends View {
             this.E.a(true);
         }
         if (this.F != null) {
-            this.F.removeMessages(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+            this.F.removeMessages(4097);
         }
         b();
     }

@@ -1,6 +1,7 @@
 package com.baidu.mobstat;
 
 import com.baidu.ar.parser.ARResourceKey;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.security.MessageDigest;
@@ -23,7 +24,7 @@ public final class bz {
     public static class b {
         public static String a(byte[] bArr) {
             try {
-                return bz.b(MessageDigest.getInstance("SHA-256"), bArr);
+                return bz.b(MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_SHA256), bArr);
             } catch (Exception e) {
                 return "";
             }
@@ -31,7 +32,7 @@ public final class bz {
 
         public static String a(File file) {
             try {
-                return bz.b(MessageDigest.getInstance("SHA-256"), file);
+                return bz.b(MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_SHA256), file);
             } catch (NoSuchAlgorithmException e) {
                 return "";
             }

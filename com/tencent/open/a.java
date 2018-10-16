@@ -11,18 +11,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class a {
     protected HashMap<String, b> a = new HashMap<>();
 
     /* renamed from: com.tencent.open.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0287a {
+    /* loaded from: classes6.dex */
+    public static class C0340a {
         protected WeakReference<WebView> a;
         protected long b;
         protected String c;
 
-        public C0287a(WebView webView, long j, String str) {
+        public C0340a(WebView webView, long j, String str) {
             this.a = new WeakReference<>(webView);
             this.b = j;
             this.c = str;
@@ -58,9 +58,9 @@ public class a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class b {
-        public void call(String str, List<String> list, C0287a c0287a) {
+        public void call(String str, List<String> list, C0340a c0340a) {
             Object invoke;
             Method[] declaredMethods = getClass().getDeclaredMethods();
             Method method = null;
@@ -79,8 +79,8 @@ public class a {
                     i++;
                 } catch (Exception e) {
                     f.b("openSDK_LOG.JsBridge", "-->handler call mehtod ex. targetMethod: " + ((Object) null), e);
-                    if (c0287a != null) {
-                        c0287a.a();
+                    if (c0340a != null) {
+                        c0340a.a();
                         return;
                     }
                     return;
@@ -113,14 +113,14 @@ public class a {
                 Class<?> returnType = method.getReturnType();
                 f.b("openSDK_LOG.JsBridge", "-->call, result: " + invoke + " | ReturnType: " + returnType.getName());
                 if ("void".equals(returnType.getName()) || returnType == Void.class) {
-                    if (c0287a != null) {
-                        c0287a.a((Object) null);
+                    if (c0340a != null) {
+                        c0340a.a((Object) null);
                     }
-                } else if (c0287a != null && customCallback()) {
-                    c0287a.a(invoke != null ? invoke.toString() : null);
+                } else if (c0340a != null && customCallback()) {
+                    c0340a.a(invoke != null ? invoke.toString() : null);
                 }
-            } else if (c0287a != null) {
-                c0287a.a();
+            } else if (c0340a != null) {
+                c0340a.a();
             }
         }
 
@@ -133,7 +133,7 @@ public class a {
         this.a.put(str, bVar);
     }
 
-    public void a(String str, String str2, List<String> list, C0287a c0287a) {
+    public void a(String str, String str2, List<String> list, C0340a c0340a) {
         f.a("openSDK_LOG.JsBridge", "getResult---objName = " + str + " methodName = " + str2);
         int size = list.size();
         for (int i = 0; i < size; i++) {
@@ -146,12 +146,12 @@ public class a {
         b bVar = this.a.get(str);
         if (bVar != null) {
             f.b("openSDK_LOG.JsBridge", "call----");
-            bVar.call(str2, list, c0287a);
+            bVar.call(str2, list, c0340a);
             return;
         }
         f.b("openSDK_LOG.JsBridge", "not call----objName NOT FIND");
-        if (c0287a != null) {
-            c0287a.a();
+        if (c0340a != null) {
+            c0340a.a();
         }
     }
 
@@ -161,9 +161,9 @@ public class a {
             ArrayList arrayList = new ArrayList(Arrays.asList((str + "/#").split("/")));
             if (arrayList.size() >= 6) {
                 List<String> subList = arrayList.subList(4, arrayList.size() - 1);
-                C0287a c0287a = new C0287a(webView, 4L, str);
+                C0340a c0340a = new C0340a(webView, 4L, str);
                 webView.getUrl();
-                a((String) arrayList.get(2), (String) arrayList.get(3), subList, c0287a);
+                a((String) arrayList.get(2), (String) arrayList.get(3), subList, c0340a);
                 return true;
             }
             return false;

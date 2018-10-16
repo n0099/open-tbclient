@@ -57,6 +57,8 @@ import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Language;
 import com.baidu.sapi2.utils.enums.RegistMode;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.searchbox.ng.ai.apps.aps.AiAppsApsUtils;
+import com.baidu.webkit.internal.ETAG;
 import com.tencent.open.SocialConstants;
 import com.tencent.open.SocialOperation;
 import java.io.UnsupportedEncodingException;
@@ -90,7 +92,7 @@ public final class SapiAccountService implements ISAccountService {
         arrayList.add(new BasicNameValuePair("adapter", "3"));
         arrayList.add(new BasicNameValuePair("banner", "1"));
         arrayList.add(new BasicNameValuePair("t", String.valueOf(System.currentTimeMillis())));
-        return this.c.c() + "?" + a(false) + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.c() + "?" + a(false) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -99,7 +101,7 @@ public final class SapiAccountService implements ISAccountService {
         arrayList.add(new BasicNameValuePair("adapter", "3"));
         arrayList.add(new BasicNameValuePair("banner", "1"));
         arrayList.add(new BasicNameValuePair("t", String.valueOf(System.currentTimeMillis())));
-        return this.c.d() + "?" + a(false) + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.d() + "?" + a(false) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -107,7 +109,7 @@ public final class SapiAccountService implements ISAccountService {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("adapter", "3"));
         arrayList.add(new BasicNameValuePair("banner", "1"));
-        return this.c.e() + "?" + a(false) + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.e() + "?" + a(false) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -117,28 +119,28 @@ public final class SapiAccountService implements ISAccountService {
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("adapter", "3"));
-        return this.c.a(bindWidgetAction) + "?" + j() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.a(bindWidgetAction) + "?" + j() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String e() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("adapter", "3"));
-        return this.c.h() + "?" + j() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.h() + "?" + j() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String f() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("adapter", "3"));
-        return this.c.i() + "?" + j() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.i() + "?" + j() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(SocialType socialType) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("type", socialType.getName()));
-        return this.c.p() + "?" + j() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.p() + "?" + j() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -160,7 +162,7 @@ public final class SapiAccountService implements ISAccountService {
         } else {
             l = this.c.l();
         }
-        return l + "?" + a(false) + "&" + SapiUtils.createRequestParams(arrayList);
+        return l + "?" + a(false) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -170,7 +172,7 @@ public final class SapiAccountService implements ISAccountService {
         arrayList.add(new BasicNameValuePair("showtype", ISapiAccount.SAPI_ACCOUNT_PHONE));
         arrayList.add(new BasicNameValuePair(Config.DEVICE_PART, "wap"));
         arrayList.add(new BasicNameValuePair("adapter", "apps"));
-        return this.c.f() + j() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.f() + j() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -187,7 +189,7 @@ public final class SapiAccountService implements ISAccountService {
         if (TextUtils.isEmpty(sapiConfiguration.clientId)) {
             sapiConfiguration.clientId = SapiUtils.getClientId(sapiConfiguration.context);
         }
-        return str + "?" + j() + "&" + SapiUtils.createRequestParams(arrayList);
+        return str + "?" + j() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     String j() {
@@ -260,7 +262,7 @@ public final class SapiAccountService implements ISAccountService {
         }
         arrayList.add(new BasicNameValuePair("access_token", str));
         arrayList.add(new BasicNameValuePair("osuid", str2));
-        return this.c.r() + "?" + j() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.r() + "?" + j() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -271,7 +273,7 @@ public final class SapiAccountService implements ISAccountService {
         arrayList.add(new BasicNameValuePair("access_token", str));
         arrayList.add(new BasicNameValuePair("osuid", str2));
         arrayList.add(new BasicNameValuePair(SocialOperation.GAME_UNION_ID, str3));
-        return this.c.r() + "?" + j() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.r() + "?" + j() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -282,7 +284,7 @@ public final class SapiAccountService implements ISAccountService {
         arrayList.add(new BasicNameValuePair("access_token", str));
         arrayList.add(new BasicNameValuePair("osuid", str2));
         arrayList.add(new BasicNameValuePair(ISapiAccount.SAPI_ACCOUNT_PHONE, str3));
-        return this.c.r() + "?" + j() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.r() + "?" + j() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -290,7 +292,7 @@ public final class SapiAccountService implements ISAccountService {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("type", SocialType.WEIXIN.getType() + ""));
         arrayList.add(new BasicNameValuePair("display", a));
-        arrayList.add(new BasicNameValuePair("app_key", this.b.wxAppID));
+        arrayList.add(new BasicNameValuePair(AiAppsApsUtils.APP_KEY, this.b.wxAppID));
         arrayList.add(new BasicNameValuePair("scope", "snsapi_login"));
         if (SapiAccountManager.getInstance().getConfignation().supportGuestAccountLogin) {
             arrayList.add(new BasicNameValuePair("supportGuestAccount", "1"));
@@ -300,7 +302,7 @@ public final class SapiAccountService implements ISAccountService {
             arrayList.add(new BasicNameValuePair("wapsec", "center"));
             arrayList.add(new BasicNameValuePair("adapter", "3"));
             if (TextUtils.isEmpty(str)) {
-                str = this.b.environment.getWap(SapiUtils.getDefaultHttpsEnabled()) + SapiEnv.ACCOUNT_CENTER_ACCOUNT_BIND + "?" + j() + "&" + SapiUtils.createRequestParams(arrayList);
+                str = this.b.environment.getWap(SapiUtils.getDefaultHttpsEnabled()) + SapiEnv.ACCOUNT_CENTER_ACCOUNT_BIND + "?" + j() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
             }
             try {
                 arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(str, "UTF-8")));
@@ -310,7 +312,7 @@ public final class SapiAccountService implements ISAccountService {
         } else {
             arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_ACT, this.b.socialBindType.getName()));
         }
-        return this.c.t() + "?" + j() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.t() + "?" + j() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -324,7 +326,7 @@ public final class SapiAccountService implements ISAccountService {
         }
         arrayList.add(new BasicNameValuePair("appid", this.b.wxAppID));
         arrayList.add(new BasicNameValuePair("display", a));
-        return this.c.u() + "?" + j() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.u() + "?" + j() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -338,7 +340,7 @@ public final class SapiAccountService implements ISAccountService {
         arrayList.add(new BasicNameValuePair("display", a));
         arrayList.add(new BasicNameValuePair("type", socialType.getType() + ""));
         arrayList.add(new BasicNameValuePair("guidebind", "1"));
-        return this.c.t() + "?" + j() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.t() + "?" + j() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

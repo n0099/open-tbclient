@@ -1,6 +1,7 @@
 package com.meizu.cloud.pushsdk.platform.a;
 
 import android.content.Context;
+import com.baidu.searchbox.ng.ai.apps.event.message.AiAppsLifecycleMessage;
 import com.meizu.cloud.pushsdk.common.util.g;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.networking.c.k;
@@ -53,7 +54,7 @@ public class a {
 
     public void a(String str, String str2, String str3, k kVar) {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        linkedHashMap.put("appId", str);
+        linkedHashMap.put(AiAppsLifecycleMessage.APP_ID_KEY, str);
         linkedHashMap.put("deviceId", str3);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
@@ -64,7 +65,7 @@ public class a {
 
     public void b(String str, String str2, String str3, k kVar) {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        linkedHashMap.put("appId", str);
+        linkedHashMap.put(AiAppsLifecycleMessage.APP_ID_KEY, str);
         linkedHashMap.put("deviceId", str3);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
@@ -86,7 +87,7 @@ public class a {
 
     public void c(String str, String str2, String str3, k kVar) {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        linkedHashMap.put("appId", str);
+        linkedHashMap.put(AiAppsLifecycleMessage.APP_ID_KEY, str);
         linkedHashMap.put(PushConstants.KEY_PUSH_ID, str3);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
@@ -97,7 +98,7 @@ public class a {
 
     public void a(String str, String str2, String str3, int i, boolean z, k kVar) {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        linkedHashMap.put("appId", str);
+        linkedHashMap.put(AiAppsLifecycleMessage.APP_ID_KEY, str);
         linkedHashMap.put(PushConstants.KEY_PUSH_ID, str3);
         linkedHashMap.put("msgType", String.valueOf(i));
         linkedHashMap.put("subSwitch", z ? "1" : "0");
@@ -110,7 +111,7 @@ public class a {
 
     public void a(String str, String str2, String str3, String str4, k kVar) {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        linkedHashMap.put("appId", str);
+        linkedHashMap.put(AiAppsLifecycleMessage.APP_ID_KEY, str);
         linkedHashMap.put(PushConstants.KEY_PUSH_ID, str3);
         linkedHashMap.put("tags", str4);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
@@ -122,7 +123,7 @@ public class a {
 
     public void b(String str, String str2, String str3, String str4, k kVar) {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        linkedHashMap.put("appId", str);
+        linkedHashMap.put(AiAppsLifecycleMessage.APP_ID_KEY, str);
         linkedHashMap.put(PushConstants.KEY_PUSH_ID, str3);
         linkedHashMap.put("tags", str4);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
@@ -134,7 +135,7 @@ public class a {
 
     public void d(String str, String str2, String str3, k kVar) {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        linkedHashMap.put("appId", str);
+        linkedHashMap.put(AiAppsLifecycleMessage.APP_ID_KEY, str);
         linkedHashMap.put(PushConstants.KEY_PUSH_ID, str3);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
@@ -145,7 +146,7 @@ public class a {
 
     public void c(String str, String str2, String str3, String str4, k kVar) {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        linkedHashMap.put("appId", str);
+        linkedHashMap.put(AiAppsLifecycleMessage.APP_ID_KEY, str);
         linkedHashMap.put(WBConstants.SSO_APP_KEY, str2);
         linkedHashMap.put(PushConstants.KEY_PUSH_ID, str3);
         linkedHashMap.put("alias", str4);
@@ -158,7 +159,7 @@ public class a {
 
     public void d(String str, String str2, String str3, String str4, k kVar) {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        linkedHashMap.put("appId", str);
+        linkedHashMap.put(AiAppsLifecycleMessage.APP_ID_KEY, str);
         linkedHashMap.put(PushConstants.KEY_PUSH_ID, str3);
         linkedHashMap.put("alias", str4);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
@@ -170,7 +171,7 @@ public class a {
 
     public void e(String str, String str2, String str3, k kVar) {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        linkedHashMap.put("appId", str);
+        linkedHashMap.put(AiAppsLifecycleMessage.APP_ID_KEY, str);
         linkedHashMap.put(PushConstants.KEY_PUSH_ID, str3);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);

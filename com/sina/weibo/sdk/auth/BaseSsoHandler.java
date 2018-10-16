@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import com.sina.weibo.sdk.WbSdk;
 import com.sina.weibo.sdk.WeiboAppManager;
 import com.sina.weibo.sdk.constant.WBConstants;
@@ -161,7 +162,7 @@ public class BaseSsoHandler {
                     this.authListener.onFailure(new WbConnectErrorMessage(WbAuthConstants.AUTH_FAILED_INSTALL_APP_COUNTERFEIT_MESSAGE, WbAuthConstants.AUTH_FAILED_INSTALL_APP_COUNTERFEIT_CODE));
                     return;
                 }
-                String safeString = Utility.safeString(intent.getStringExtra("error"));
+                String safeString = Utility.safeString(intent.getStringExtra(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR));
                 String safeString2 = Utility.safeString(intent.getStringExtra("error_type"));
                 String safeString3 = Utility.safeString(intent.getStringExtra("error_description"));
                 LogUtil.d(WBAgent.TAG, "error: " + safeString + ", error_type: " + safeString2 + ", error_description: " + safeString3);

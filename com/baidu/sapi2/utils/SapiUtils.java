@@ -49,6 +49,8 @@ import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppRomUtils;
+import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
@@ -262,9 +264,9 @@ public class SapiUtils {
             for (NameValuePair nameValuePair : list) {
                 if (!TextUtils.isEmpty(nameValuePair.getName()) && !TextUtils.isEmpty(nameValuePair.getValue())) {
                     if (TextUtils.isEmpty(sb.toString())) {
-                        sb.append(nameValuePair.getName()).append("=").append(nameValuePair.getValue());
+                        sb.append(nameValuePair.getName()).append(ETAG.EQUAL).append(nameValuePair.getValue());
                     } else {
-                        sb.append("&").append(nameValuePair.getName()).append("=").append(nameValuePair.getValue());
+                        sb.append(ETAG.ITEM_SEPARATOR).append(nameValuePair.getName()).append(ETAG.EQUAL).append(nameValuePair.getValue());
                     }
                 }
             }
@@ -330,10 +332,10 @@ public class SapiUtils {
                 case 13:
                     return "4G";
                 default:
-                    return "UNKNOWN";
+                    return AiAppRomUtils.UNKNOWN;
             }
         }
-        return "UNKNOWN";
+        return AiAppRomUtils.UNKNOWN;
     }
 
     public static boolean isRoot() {
@@ -564,7 +566,7 @@ public class SapiUtils {
             for (String str3 : cookie.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {
                 String trim = str3.trim();
                 if (!TextUtils.isEmpty(trim)) {
-                    String[] split = trim.split("=");
+                    String[] split = trim.split(ETAG.EQUAL);
                     if (split.length == 2 && split[0].equals(str2)) {
                         return split[1];
                     }
@@ -611,7 +613,7 @@ public class SapiUtils {
     private static String a(String str, String str2, String str3, Date date, boolean z) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(c, Locale.US);
         simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
-        return str2 + "=" + str3 + ";domain=" + str + ";path=/;expires=" + simpleDateFormat.format(date) + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "httponly" + (z ? ";secure" : "");
+        return str2 + ETAG.EQUAL + str3 + ";domain=" + str + ";path=/;expires=" + simpleDateFormat.format(date) + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "httponly" + (z ? ";secure" : "");
     }
 
     public static String buildDeviceInfoCookie(String str, String str2, String str3) {
@@ -770,17 +772,17 @@ public class SapiUtils {
     }
 
     public static boolean isQrLoginSchema(String str) {
-        if (!TextUtils.isEmpty(str) && str.contains(b) && str.contains("sign") && str.contains("cmd") && str.contains(KEY_QR_LOGIN_LP)) {
+        if (!TextUtils.isEmpty(str) && str.contains("error") && str.contains("sign") && str.contains("cmd") && str.contains(KEY_QR_LOGIN_LP)) {
             HashMap hashMap = new HashMap();
-            for (String str2 : str.split("&")) {
-                String[] split = str2.split("=");
+            for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
+                String[] split = str2.split(ETAG.EQUAL);
                 if (split.length > 1) {
                     hashMap.put(split[0], split[1]);
                 } else if (split.length == 1) {
                     hashMap.put(split[0], "");
                 }
             }
-            return (TextUtils.isEmpty((CharSequence) hashMap.get(b)) || TextUtils.isEmpty((CharSequence) hashMap.get("sign")) || TextUtils.isEmpty((CharSequence) hashMap.get("cmd")) || TextUtils.isEmpty((CharSequence) hashMap.get(KEY_QR_LOGIN_LP))) ? false : true;
+            return (TextUtils.isEmpty((CharSequence) hashMap.get("error")) || TextUtils.isEmpty((CharSequence) hashMap.get("sign")) || TextUtils.isEmpty((CharSequence) hashMap.get("cmd")) || TextUtils.isEmpty((CharSequence) hashMap.get(KEY_QR_LOGIN_LP))) ? false : true;
         }
         return false;
     }
@@ -903,13 +905,13 @@ public class SapiUtils {
                 case 10004:
                     event = GIDEvent.BUSINESS_GET_GID;
                     break;
-                case SapiGIDEvent.BUSINESS_LOGOUT /* 10005 */:
+                case 10005:
                     event = GIDEvent.BUSINESS_LOGOUT;
                     break;
-                case SapiGIDEvent.SYSTEM_SCREEN_ON /* 10006 */:
+                case 10006:
                     event = GIDEvent.SYSTEM_SCREEN_ON;
                     break;
-                case SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE /* 11001 */:
+                case 11001:
                     event = GIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE;
                     break;
                 case 11002:
@@ -974,7 +976,7 @@ public class SapiUtils {
         while (it.hasNext()) {
             String str3 = (String) it.next();
             sb.append(str3);
-            sb.append("=");
+            sb.append(ETAG.EQUAL);
             try {
                 String str4 = map.get(str3);
                 if (!TextUtils.isEmpty(str4)) {
@@ -983,7 +985,7 @@ public class SapiUtils {
             } catch (UnsupportedEncodingException e2) {
                 Log.e(e2);
             }
-            sb.append("&");
+            sb.append(ETAG.ITEM_SEPARATOR);
         }
         sb.append("sign_key=").append(str);
         return MD5Util.toMd5(sb.toString().getBytes(), false);
@@ -1033,8 +1035,8 @@ public class SapiUtils {
                     Log.e(e2);
                 }
             }
-            for (String str2 : str.split("&")) {
-                String[] split = str2.split("=");
+            for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
+                String[] split = str2.split(ETAG.EQUAL);
                 if (split.length == 2) {
                     hashMap.put(split[0], split[1]);
                 }
@@ -1052,19 +1054,19 @@ public class SapiUtils {
             String key = entry.getKey();
             String value = entry.getValue();
             if (sb.length() > 0) {
-                sb.append("&");
+                sb.append(ETAG.ITEM_SEPARATOR);
             } else {
                 sb.append("?");
             }
             if (value == null) {
                 try {
-                    sb.append(key).append("=");
+                    sb.append(key).append(ETAG.EQUAL);
                 } catch (Exception e2) {
-                    sb.append(key).append("=").append((Object) value);
+                    sb.append(key).append(ETAG.EQUAL).append((Object) value);
                     e2.printStackTrace();
                 }
             } else {
-                sb.append(key).append("=").append(URLEncoder.encode(value.toString(), "UTF-8"));
+                sb.append(key).append(ETAG.EQUAL).append(URLEncoder.encode(value.toString(), "UTF-8"));
             }
         }
         return sb.toString();

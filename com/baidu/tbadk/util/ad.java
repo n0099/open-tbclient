@@ -7,14 +7,13 @@ import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 /* loaded from: classes.dex */
 public class ad {
     public static int readPictureDegree(String str) {
         try {
             switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
                 case 3:
-                    return SubsamplingScaleImageView.ORIENTATION_180;
+                    return 180;
                 case 4:
                 case 5:
                 case 7:
@@ -23,7 +22,7 @@ public class ad {
                 case 6:
                     return 90;
                 case 8:
-                    return SubsamplingScaleImageView.ORIENTATION_270;
+                    return 270;
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -31,10 +30,10 @@ public class ad {
         }
     }
 
-    private static Bitmap fF(int i) {
+    private static Bitmap fO(int i) {
         Exception e;
         try {
-            int readPictureDegree = readPictureDegree(com.baidu.tbadk.core.util.l.el("camera.jpg"));
+            int readPictureDegree = readPictureDegree(com.baidu.tbadk.core.util.l.eB("camera.jpg"));
             Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap("camera.jpg", i);
             if (readPictureDegree != 0 && subSampleBitmap != null) {
                 try {
@@ -71,7 +70,7 @@ public class ad {
 
     public static Bitmap a(int i, Context context, Uri uri, String str, int i2) {
         if (i == 12001) {
-            return fF(i2);
+            return fO(i2);
         }
         if (!TextUtils.isEmpty(str)) {
             return f(context, str, i2);

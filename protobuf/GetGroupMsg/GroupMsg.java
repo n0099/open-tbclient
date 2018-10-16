@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import protobuf.GroupInfo;
 import protobuf.MsgInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class GroupMsg extends Message {
     @ProtoField(tag = 1)
     public final GroupInfo groupInfo;
@@ -39,7 +39,7 @@ public final class GroupMsg extends Message {
         this.hasMore = builder.hasMore;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder extends Message.Builder<GroupMsg> {
         public GroupInfo groupInfo;
         public Integer hasMore;

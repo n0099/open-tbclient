@@ -12,10 +12,10 @@ public class k extends PopupWindow {
     public k(Activity activity, View view) {
         super(activity);
         this.mContentView = null;
-        d(activity, view);
+        e(activity, view);
     }
 
-    private void d(Activity activity, View view) {
+    private void e(Activity activity, View view) {
         this.mContentView = view;
         setContentView(this.mContentView);
         setOutsideTouchable(true);

@@ -1,8 +1,8 @@
 package com.baidu.tieba.personCenter.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class h {
-    public boolean gcf;
-    public String gch;
-    public boolean gce = false;
-    public long gcg = -1;
+    public boolean gjH;
+    public String gjJ;
+    public boolean gjG = false;
+    public long gjI = -1;
 }

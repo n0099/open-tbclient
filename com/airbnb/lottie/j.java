@@ -401,7 +401,7 @@ public final class j {
         public static final int[] MenuGroup = {16842766, 16842960, 16843156, 16843230, 16843231, 16843232};
         public static final int[] MenuItem = {16842754, 16842766, 16842960, 16843014, 16843156, 16843230, 16843231, 16843233, 16843234, 16843235, 16843236, 16843237, 16843375, R.attr.alphabeticModifiers, R.attr.numericModifiers, R.attr.showAsAction, R.attr.actionLayout, R.attr.actionViewClass, R.attr.actionProviderClass, R.attr.contentDescription, R.attr.tooltipText, R.attr.iconTint, R.attr.iconTintMode};
         public static final int[] MenuView = {16842926, 16843052, 16843053, 16843054, 16843055, 16843056, 16843057, R.attr.preserveIconSpacing, R.attr.subMenuArrow};
-        public static final int[] PopupWindow = {16843126, 16843465, R.attr.overlapAnchor};
+        public static final int[] PopupWindow = {16843126, 16843465, R.attr.overlapAnchor, R.attr.popupBackground, R.attr.popupAnimationStyle};
         public static final int[] PopupWindowBackgroundState = {R.attr.state_above_anchor};
         public static final int[] RecycleListView = {R.attr.paddingBottomNoButtons, R.attr.paddingTopNoTitle};
         public static final int[] SearchView = {16842970, 16843039, 16843296, 16843364, R.attr.layout, R.attr.iconifiedByDefault, R.attr.queryHint, R.attr.defaultQueryHint, R.attr.closeIcon, R.attr.goIcon, R.attr.searchIcon, R.attr.searchHintIcon, R.attr.voiceIcon, R.attr.commitIcon, R.attr.suggestionRowLayout, R.attr.queryBackground, R.attr.submitBackground};

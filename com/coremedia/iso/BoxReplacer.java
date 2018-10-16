@@ -10,7 +10,7 @@ import java.nio.channels.FileChannel;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BoxReplacer {
     static final /* synthetic */ boolean $assertionsDisabled;
 

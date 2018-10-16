@@ -2,6 +2,8 @@ package com.baidu.android.pushservice.f;
 
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.webkit.internal.ABTestConstants;
+import com.baidu.webkit.internal.ETAG;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -18,14 +20,12 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
-import org.apache.http.client.methods.HttpDelete;
-import org.apache.http.client.methods.HttpPut;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class b {
     static {
         if (Build.VERSION.SDK_INT <= 8) {
-            System.setProperty("http.keepAlive", "false");
+            System.setProperty("http.keepAlive", ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE);
         }
     }
 
@@ -111,11 +111,11 @@ public class b {
             }
             Map.Entry<String, String> next = it.next();
             if (i2 != 0) {
-                stringBuffer.append("&");
+                stringBuffer.append(ETAG.ITEM_SEPARATOR);
             }
             String key = next.getKey();
             if (!TextUtils.isEmpty(key)) {
-                stringBuffer.append(key).append("=");
+                stringBuffer.append(key).append(ETAG.EQUAL);
                 String value = next.getValue();
                 if (TextUtils.isEmpty(value)) {
                     stringBuffer.append(URLEncoder.encode("", "UTF-8"));
@@ -133,11 +133,11 @@ public class b {
             try {
                 httpURLConnection.setConnectTimeout(30000);
                 httpURLConnection.setReadTimeout(30000);
-                if ("POST".equals(str2) || HttpPut.METHOD_NAME.equals(str2)) {
+                if ("POST".equals(str2) || "PUT".equals(str2)) {
                     httpURLConnection.setDoOutput(true);
                     httpURLConnection.setDoInput(true);
                     httpURLConnection.setUseCaches(false);
-                } else if (HttpDelete.METHOD_NAME.equals(str2)) {
+                } else if ("DELETE".equals(str2)) {
                     httpURLConnection.setDoOutput(true);
                 } else if ("GET".equals(str2)) {
                     httpURLConnection.setDoOutput(false);
@@ -161,7 +161,7 @@ public class b {
     }
 
     private static void a(String str, HashMap<String, String> hashMap, HttpURLConnection httpURLConnection) throws IOException {
-        if (("POST".equals(str) || HttpPut.METHOD_NAME.equals(str) || HttpDelete.METHOD_NAME.equals(str)) && !a(httpURLConnection, hashMap)) {
+        if (("POST".equals(str) || "PUT".equals(str) || "DELETE".equals(str)) && !a(httpURLConnection, hashMap)) {
             throw new IOException("failed to writeRequestParams");
         }
     }

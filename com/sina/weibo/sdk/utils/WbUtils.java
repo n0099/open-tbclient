@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Bundle;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
+import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
@@ -26,8 +28,8 @@ public class WbUtils {
     public static Bundle decodeUrl(String str) {
         Bundle bundle = new Bundle();
         if (str != null) {
-            for (String str2 : str.split("&")) {
-                String[] split = str2.split("=");
+            for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
+                String[] split = str2.split(ETAG.EQUAL);
                 try {
                     bundle.putString(URLDecoder.decode(split[0], "UTF-8"), URLDecoder.decode(split[1], "UTF-8"));
                 } catch (UnsupportedEncodingException e) {
@@ -41,11 +43,11 @@ public class WbUtils {
     public static String generateUA(Context context, String str) {
         StringBuilder sb = new StringBuilder();
         sb.append(Build.MANUFACTURER).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(Build.MODEL);
-        sb.append("_");
+        sb.append(BaseRequestAction.SPLITE);
         sb.append(Build.VERSION.RELEASE);
-        sb.append("_");
+        sb.append(BaseRequestAction.SPLITE);
         sb.append("weibosdk");
-        sb.append("_");
+        sb.append(BaseRequestAction.SPLITE);
         sb.append(WbSdkVersion.WEIBO_SDK_VERSION_CODE);
         sb.append("_android");
         return sb.toString();

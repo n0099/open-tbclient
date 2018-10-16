@@ -1,7 +1,7 @@
 package com.tencent.open.utils;
 
 import android.support.v4.view.MotionEventCompat;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class l implements Cloneable {
     private int a;
 

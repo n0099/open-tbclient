@@ -10,43 +10,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class e {
-    private HTypeListView btQ;
-    private a gaA;
-    private c gay;
-    private b gaz;
+    private HTypeListView bxV;
+    private c ghZ;
+    private b gia;
+    private a gib;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.btQ = hTypeListView;
+        this.bxV = hTypeListView;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.gay = new c(this.mTbPageContext, k.asU);
-        this.gaz = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.gaI);
-        this.gaA = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.gai);
-        this.mAdapters.add(this.gay);
-        this.mAdapters.add(this.gaz);
-        this.mAdapters.add(this.gaA);
-        this.btQ.addAdapters(this.mAdapters);
+        this.ghZ = new c(this.mTbPageContext, k.axF);
+        this.gia = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.gik);
+        this.gib = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.ghJ);
+        this.mAdapters.add(this.ghZ);
+        this.mAdapters.add(this.gia);
+        this.mAdapters.add(this.gib);
+        this.bxV.addAdapters(this.mAdapters);
     }
 
     public void setDatas(List<h> list) {
-        if (this.btQ != null) {
-            this.btQ.setData(list);
+        if (this.bxV != null) {
+            this.bxV.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.btQ != null && (this.btQ.getAdapter() instanceof q)) {
-            ((q) this.btQ.getAdapter()).notifyDataSetChanged();
+        if (this.bxV != null && (this.bxV.getAdapter() instanceof q)) {
+            ((q) this.bxV.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.gay.u(onClickListener);
-        this.gaz.u(onClickListener);
+        this.ghZ.u(onClickListener);
+        this.gia.u(onClickListener);
     }
 }

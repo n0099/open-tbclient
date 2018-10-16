@@ -8,9 +8,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.ar.parser.ARResourceKey;
 import com.baidu.ar.util.SystemInfoUtil;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
+import com.baidu.webkit.internal.ETAG;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.open.utils.j;
 import com.tencent.tauth.IRequestListener;
@@ -91,12 +92,12 @@ import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class HttpUtils {
     private HttpUtils() {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class HttpStatusException extends Exception {
         public static final String ERROR_INFO = "http status code error:";
 
@@ -105,7 +106,7 @@ public class HttpUtils {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class NetworkUnavailableException extends Exception {
         public static final String ERROR_INFO = "network unavailable";
 
@@ -453,7 +454,7 @@ public class HttpUtils {
             if (str.indexOf("?") == -1) {
                 str3 = str + "?";
             } else {
-                str3 = str + "&";
+                str3 = str + ETAG.ITEM_SEPARATOR;
             }
             com.tencent.open.a.f.a("openSDK_LOG.HttpUtils", "-->openUrl2 encodedParam =" + encodeUrl + " -- url = " + str3);
             HttpGet httpGet2 = new HttpGet(str3 + encodeUrl);
@@ -558,7 +559,7 @@ public class HttpUtils {
             i = 0;
         }
         if (i == 0) {
-            i = BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
+            i = 15000;
         }
         if (i2 == 0) {
             i2 = 30000;
@@ -567,7 +568,7 @@ public class HttpUtils {
         HttpConnectionParams.setSoTimeout(basicHttpParams, i2);
         HttpProtocolParams.setVersion(basicHttpParams, HttpVersion.HTTP_1_1);
         HttpProtocolParams.setContentCharset(basicHttpParams, "UTF-8");
-        HttpProtocolParams.setUserAgent(basicHttpParams, "AndroidSDK_" + Build.VERSION.SDK + "_" + Build.DEVICE + "_" + Build.VERSION.RELEASE);
+        HttpProtocolParams.setUserAgent(basicHttpParams, "AndroidSDK_" + Build.VERSION.SDK + BaseRequestAction.SPLITE + Build.DEVICE + BaseRequestAction.SPLITE + Build.VERSION.RELEASE);
         DefaultHttpClient defaultHttpClient = new DefaultHttpClient(new ThreadSafeClientConnManager(basicHttpParams, schemeRegistry), basicHttpParams);
         c proxy = getProxy(context);
         if (proxy != null) {
@@ -589,9 +590,9 @@ public class HttpUtils {
                     if (z) {
                         z = false;
                     } else {
-                        sb.append("&");
+                        sb.append(ETAG.ITEM_SEPARATOR);
                     }
-                    sb.append(URLEncoder.encode(str) + "=");
+                    sb.append(URLEncoder.encode(str) + ETAG.EQUAL);
                     String[] stringArray = bundle.getStringArray(str);
                     if (stringArray != null) {
                         for (int i = 0; i < stringArray.length; i++) {
@@ -606,9 +607,9 @@ public class HttpUtils {
                     if (z) {
                         z = false;
                     } else {
-                        sb.append("&");
+                        sb.append(ETAG.ITEM_SEPARATOR);
                     }
-                    sb.append(URLEncoder.encode(str) + "=" + URLEncoder.encode(bundle.getString(str)));
+                    sb.append(URLEncoder.encode(str) + ETAG.EQUAL + URLEncoder.encode(bundle.getString(str)));
                 }
                 z = z;
             }
@@ -655,7 +656,7 @@ public class HttpUtils {
         return null;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class c {
         public final String a;
         public final int b;
@@ -702,7 +703,7 @@ public class HttpUtils {
         return System.getProperty("http.proxyHost");
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class a extends SSLSocketFactory {
         private final SSLContext a;
 
@@ -729,7 +730,7 @@ public class HttpUtils {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class b implements X509TrustManager {
         X509TrustManager a;
 

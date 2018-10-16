@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.ac.U;
 import com.baidu.sofire.b.o;
@@ -27,7 +28,7 @@ public class MyReceiver extends BroadcastReceiver {
     public void onReceive(final Context context, final Intent intent) {
         if (intent != null) {
             try {
-                if (!this.b || System.currentTimeMillis() - this.c >= 2000) {
+                if (!this.b || System.currentTimeMillis() - this.c >= SystemScreenshotManager.DELAY_TIME) {
                     new StringBuilder("PPP(receiver) try do action ").append(intent.toString());
                     final boolean z = this.b;
                     t a = t.a();

@@ -5,95 +5,95 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.bb;
 import com.baidu.tbadk.core.util.am;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class l extends c implements com.baidu.tbadk.core.util.e.a {
-    public static final BdUniqueId cIb = BdUniqueId.gen();
-    public static final BdUniqueId cIc = BdUniqueId.gen();
-    public static String cId = "";
-    public static String cIe = "";
-    public static String cIf = "";
-    public static String cIg = "";
-    public static String cIh = "";
-    public static String cIi = "";
-    public bb bzB;
-    public boolean cIa = false;
-    public boolean cIj = true;
+    public bb bIj;
+    public static final BdUniqueId cQu = BdUniqueId.gen();
+    public static final BdUniqueId cQv = BdUniqueId.gen();
+    public static String cQw = "";
+    public static String cQx = "";
+    public static String cQy = "";
+    public static String cQz = "";
+    public static String cQA = "";
+    public static String cQB = "";
+    public boolean cQt = false;
+    public boolean cQC = true;
     public int sourceType = 0;
 
     public l(bb bbVar) {
-        this.bzB = bbVar;
+        this.bIj = bbVar;
     }
 
     public static boolean S(bb bbVar) {
-        return (bbVar == null || bbVar.wE() == null) ? false : true;
+        return (bbVar == null || bbVar.yN() == null) ? false : true;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        if (this.bzB == null) {
-            return cIb;
+        if (this.bIj == null) {
+            return cQu;
         }
-        if (this.bzB.wp() || this.bzB.wq()) {
-            return cIc;
+        if (this.bIj.yy() || this.bIj.yz()) {
+            return cQv;
         }
-        return cIb;
+        return cQu;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bb UT() {
-        if (this.bzB == null) {
-            return this.bzB;
+    public bb YA() {
+        if (this.bIj == null) {
+            return this.bIj;
         }
-        if (this.bzB.wb() == 5) {
-            return this.bzB;
+        if (this.bIj.yk() == 5) {
+            return this.bIj;
         }
-        this.bzB.setResource(1);
-        return this.bzB;
+        this.bIj.setResource(1);
+        return this.bIj;
     }
 
-    public am lI(String str) {
+    public am mk(String str) {
         am amVar = new am(str);
-        if (this.bzB != null) {
-            amVar.g(ImageViewerConfig.FORUM_ID, this.bzB.getFid());
-            amVar.al("tid", this.bzB.getTid());
-            amVar.w("obj_type", 2);
-            amVar.w("obj_param1", alc() ? 2 : 1);
-            if (this.bzB.wm() != null) {
-                amVar.al(VideoPlayActivityConfig.OBJ_ID, this.bzB.wm().getUserId());
+        if (this.bIj != null) {
+            amVar.h(ImageViewerConfig.FORUM_ID, this.bIj.getFid());
+            amVar.ax("tid", this.bIj.getTid());
+            amVar.x("obj_type", 2);
+            amVar.x("obj_param1", aoE() ? 2 : 1);
+            if (this.bIj.yv() != null) {
+                amVar.ax(VideoPlayActivityConfig.OBJ_ID, this.bIj.yv().getUserId());
             }
         }
         return amVar;
     }
 
-    public am alh() {
-        am p = p(cIf, true);
-        if (p != null && UT() != null) {
-            bb UT = UT();
-            p.w("obj_name", UT.xD() != null && (UT.xD().byO() != null || UT.xD().OX() != null) ? 1 : 0);
-            if (UT.wm() != null) {
-                p.w("ab_type", UT.wm().hadConcerned() ? 1 : 0);
+    public am aoJ() {
+        am w = w(cQy, true);
+        if (w != null && YA() != null) {
+            bb YA = YA();
+            w.x("obj_name", YA.zM() != null && (YA.zM().bCd() != null || YA.zM().QS() != null) ? 1 : 0);
+            if (YA.yv() != null) {
+                w.x("ab_type", YA.yv().hadConcerned() ? 1 : 0);
             }
         }
-        return p;
+        return w;
     }
 
     public am T(bb bbVar) {
-        return (bbVar.xp() == null || bbVar.xp().channelId <= 0) ? p(cIg, true) : p(cIh, true);
+        return (bbVar.zy() == null || bbVar.zy().channelId <= 0) ? w(cQz, true) : w(cQA, true);
     }
 
-    public am alj() {
-        return p(cIe, true);
+    public am aoL() {
+        return w(cQx, true);
     }
 
     public am U(bb bbVar) {
-        return (bbVar.xp() == null || bbVar.xp().channelId <= 0) ? p(cId, true) : p(cIi, true);
+        return (bbVar.zy() == null || bbVar.zy().channelId <= 0) ? w(cQw, true) : w(cQB, true);
     }
 
     @Override // com.baidu.tbadk.core.util.e.a
     public String getVideoUrl() {
-        if (this.bzB == null || this.bzB.wE() == null || this.bzB.wE().video_url == null) {
+        if (this.bIj == null || this.bIj.yN() == null || this.bIj.yN().video_url == null) {
             return null;
         }
-        return this.bzB.wE().video_url;
+        return this.bIj.yN().video_url;
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.tbadk.data;
 
+import com.baidu.searchbox.ng.ai.apps.aps.AiAppsApsUtils;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.UserVipInfo;
@@ -18,7 +19,7 @@ public class UserVipInfoData implements Serializable {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.vipStatus = jSONObject.optInt("v_status", 0);
-            this.vipIconUrl = jSONObject.optString("icon_url", "");
+            this.vipIconUrl = jSONObject.optString(AiAppsApsUtils.ICON_URL, "");
             this.vipStartTime = jSONObject.optInt("s_time", 0);
             this.vipEndTime = jSONObject.optInt("e_time", 0);
             this.getScore = jSONObject.optInt("ext_score", 0);

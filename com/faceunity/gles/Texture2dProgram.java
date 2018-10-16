@@ -4,9 +4,9 @@ import android.opengl.GLES20;
 import android.util.Log;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class Texture2dProgram {
-    private ProgramType hNt;
+    private ProgramType ijL;
     private float mColorAdjust;
     private float[] mKernel = new float[9];
     private int mProgramHandle;
@@ -20,7 +20,7 @@ public class Texture2dProgram {
     private int muTexMatrixLoc;
     private int muTexOffsetLoc;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public enum ProgramType {
         TEXTURE_2D,
         TEXTURE_EXT,
@@ -29,7 +29,7 @@ public class Texture2dProgram {
     }
 
     public Texture2dProgram(ProgramType programType) {
-        this.hNt = programType;
+        this.ijL = programType;
         switch (programType) {
             case TEXTURE_2D:
                 this.mTextureTarget = 3553;

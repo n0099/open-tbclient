@@ -11,6 +11,6 @@ public class FeatureCardGod extends OrmObject {
     public Integer type;
 
     public boolean isValid() {
-        return !v.z(this.sub_nodes);
+        return !v.J(this.sub_nodes);
     }
 }

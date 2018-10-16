@@ -8,6 +8,7 @@ import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.base.debug.Log;
+import com.baidu.webkit.internal.ETAG;
 import java.io.FileInputStream;
 import java.net.NetworkInterface;
 import java.net.URLEncoder;
@@ -196,7 +197,7 @@ public class SapiDeviceUtils {
             }
             int i6 = length % 3;
             for (int i7 = 0; i7 < i6; i7++) {
-                sb.append("=");
+                sb.append(ETAG.EQUAL);
             }
             return sb.toString();
         }

@@ -12,6 +12,9 @@ import android.util.Pair;
 import android.webkit.WebView;
 import com.baidu.mobstat.aq;
 import com.baidu.mobstat.ar;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
+import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
+import com.baidu.webkit.internal.ETAG;
 import com.coremedia.iso.boxes.MetaBox;
 import com.sina.weibo.sdk.constant.WBConstants;
 import java.net.URI;
@@ -383,9 +386,9 @@ public class at {
                 String encode = URLEncoder.encode(((String) pair.first).toString(), "UTF-8");
                 String encode2 = URLEncoder.encode(((String) pair.second).toString(), "UTF-8");
                 if (TextUtils.isEmpty(sb.toString())) {
-                    sb.append(encode + "=" + encode2);
+                    sb.append(encode + ETAG.EQUAL + encode2);
                 } else {
-                    sb.append("&" + encode + "=" + encode2);
+                    sb.append(ETAG.ITEM_SEPARATOR + encode + ETAG.EQUAL + encode2);
                 }
             } catch (Exception e) {
             }
@@ -445,7 +448,7 @@ public class at {
                 } catch (Exception e) {
                 }
             }
-            this.h.sendMessageDelayed(this.h.obtainMessage(2), 2000L);
+            this.h.sendMessageDelayed(this.h.obtainMessage(2), SystemScreenshotManager.DELAY_TIME);
         }
     }
 
@@ -536,7 +539,7 @@ public class at {
             JSONArray jSONArray2 = new JSONArray();
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                 JSONObject jSONObject4 = (JSONObject) jSONArray.get(i2);
-                if (str.equals((String) jSONObject4.get("page"))) {
+                if (str.equals((String) jSONObject4.get(SystemScreenshotManager.PAGE))) {
                     jSONArray2.put(jSONObject4);
                 }
             }
@@ -573,7 +576,7 @@ public class at {
                 if (str == null) {
                     str = "";
                 }
-                this.D.put(i + "_" + System.currentTimeMillis() + "_" + ((cc.s(this.a) ? 1 : 0) + "|" + str));
+                this.D.put(i + BaseRequestAction.SPLITE + System.currentTimeMillis() + BaseRequestAction.SPLITE + ((cc.s(this.a) ? 1 : 0) + "|" + str));
                 bv.a(this.a, "trace_circle.data", this.D.toString(), false);
             }
         }

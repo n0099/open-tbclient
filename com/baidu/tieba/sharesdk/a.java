@@ -28,14 +28,14 @@ public class a {
     }
 
     public void a(int i, d dVar, boolean z) {
-        Location amH;
+        Location aqg;
         if (dVar != null) {
-            if (!j.kK()) {
+            if (!j.kX()) {
                 l.showToast(TbadkCoreApplication.getInst().getContext(), e.j.share_on_no_network);
                 return;
             }
-            if (z && (amH = amH()) != null) {
-                dVar.aJq = amH;
+            if (z && (aqg = aqg()) != null) {
+                dVar.aNS = aqg;
             }
             com.baidu.tbadk.coreExtra.c.e eVar = new com.baidu.tbadk.coreExtra.c.e(this.mContext, null);
             if (i == 3) {
@@ -43,7 +43,7 @@ public class a {
                 eVar.b(dVar);
             } else if (i == 2) {
                 a(dVar, 3);
-                if (dVar.aJg) {
+                if (dVar.aNI) {
                     dVar.content = m(dVar);
                 }
                 eVar.c(dVar);
@@ -53,22 +53,22 @@ public class a {
                     eVar.e(dVar);
                     return;
                 }
-                BdToast.a(this.mContext, this.mContext.getText(e.j.share_qq_not_install)).yt();
+                BdToast.a(this.mContext, this.mContext.getText(e.j.share_qq_not_install)).AC();
             } else if (i == 5) {
                 a(dVar, 6);
-                if (!dVar.aJf) {
+                if (!dVar.aNH) {
                     dVar.content = m(dVar);
                 }
                 eVar.f(dVar);
             } else if (i == 6) {
                 a(dVar, 7);
-                if (!dVar.aJf) {
+                if (!dVar.aNH) {
                     dVar.content = m(dVar);
                 }
                 eVar.g(dVar);
             } else if (i == 7) {
                 a(dVar, 8);
-                if (!dVar.aJf) {
+                if (!dVar.aNH) {
                     dVar.content = m(dVar);
                 }
                 eVar.h(dVar);
@@ -78,29 +78,29 @@ public class a {
                     eVar.d(dVar);
                     return;
                 }
-                BdToast.a(this.mContext, this.mContext.getText(e.j.share_qq_not_install)).yt();
+                BdToast.a(this.mContext, this.mContext.getText(e.j.share_qq_not_install)).AC();
             }
         }
     }
 
     private void a(d dVar, int i) {
         if (dVar != null && dVar.extData != null) {
-            if (dVar.aJg) {
-                TiebaStatic.log(new am("c10125").al(ImageViewerConfig.FORUM_ID, dVar.extData).w("obj_type", i));
-            } else if (dVar.aJh || dVar.aJk) {
-                TiebaStatic.log(new am("c10125").al("tid", dVar.extData).w("obj_type", i).w(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.aJu).w("obj_param1", dVar.aJv).al(ImageViewerConfig.FORUM_ID, dVar.fid));
-            } else if (dVar.aJi) {
-                TiebaStatic.log(new am("c10427").al("tid", dVar.extData).w("obj_type", i));
-            } else if (dVar.aJf) {
-                aj(i, dVar.aJr);
-            } else if (dVar.aJj) {
-                TiebaStatic.log(new am("c10125").w("obj_param1", 7).w("obj_type", i).al(ImageViewerConfig.FORUM_ID, dVar.extData));
-            } else if (dVar.aJl) {
-                am w = new am("c10125").w("obj_type", i);
+            if (dVar.aNI) {
+                TiebaStatic.log(new am("c10125").ax(ImageViewerConfig.FORUM_ID, dVar.extData).x("obj_type", i));
+            } else if (dVar.aNJ || dVar.aNM) {
+                TiebaStatic.log(new am("c10125").ax("tid", dVar.extData).x("obj_type", i).x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.aNW).x("obj_param1", dVar.aNX).ax(ImageViewerConfig.FORUM_ID, dVar.fid));
+            } else if (dVar.aNK) {
+                TiebaStatic.log(new am("c10427").ax("tid", dVar.extData).x("obj_type", i));
+            } else if (dVar.aNH) {
+                aj(i, dVar.aNT);
+            } else if (dVar.aNL) {
+                TiebaStatic.log(new am("c10125").x("obj_param1", 7).x("obj_type", i).ax(ImageViewerConfig.FORUM_ID, dVar.extData));
+            } else if (dVar.aNN) {
+                am x = new am("c10125").x("obj_type", i);
                 if (!ao.isEmpty(dVar.linkUrl) && dVar.linkUrl.contains("worldcup")) {
-                    w.w("obj_param1", 9);
+                    x.x("obj_param1", 9);
                 }
-                TiebaStatic.log(w);
+                TiebaStatic.log(x);
             }
         }
     }
@@ -115,8 +115,8 @@ public class a {
         TiebaStatic.eventStat(this.mContext, "pb_new_share", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
     }
 
-    private Location amH() {
-        if (ab.bs(this.mContext)) {
+    private Location aqg() {
+        if (ab.bB(this.mContext)) {
             LocationManager locationManager = (LocationManager) this.mContext.getSystemService(Headers.LOCATION);
             Criteria criteria = new Criteria();
             criteria.setAccuracy(1);

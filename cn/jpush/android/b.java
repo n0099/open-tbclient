@@ -38,7 +38,7 @@ public final class b {
     }
 
     public static void a(Context context, String str, String str2, boolean z) {
-        if (z || cn.jiguang.api.e.bd()) {
+        if (z || cn.jiguang.api.e.bu()) {
             i.f(context, "jpush_save_custom_builder" + str, str2);
             return;
         }
@@ -51,7 +51,7 @@ public final class b {
     }
 
     public static void a(Context context, String str, boolean z) {
-        if (z || cn.jiguang.api.e.bd()) {
+        if (z || cn.jiguang.api.e.bu()) {
             i.f(context, "setting_silence_push_time", str);
             return;
         }
@@ -71,7 +71,7 @@ public final class b {
     }
 
     public static void b(Context context, String str, boolean z) {
-        if (z || cn.jiguang.api.e.bd()) {
+        if (z || cn.jiguang.api.e.bu()) {
             i.f(context, "setting_push_time", str);
             return;
         }

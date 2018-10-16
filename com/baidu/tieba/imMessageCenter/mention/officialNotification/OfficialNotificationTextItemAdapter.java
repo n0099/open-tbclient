@@ -6,7 +6,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class OfficialNotificationTextItemAdapter extends e<a> {
     private View.OnClickListener mOnClickListener;
     private TbPageContext mPageContext;
@@ -31,10 +31,10 @@ public class OfficialNotificationTextItemAdapter extends e<a> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<a> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        a aJH = aVar.aJH();
-        aJH.onChangeSkinType();
-        if (aJH != null) {
-            aJH.setData(chatMessage);
+        a aMY = aVar.aMY();
+        aMY.onChangeSkinType();
+        if (aMY != null) {
+            aMY.setData(chatMessage);
         }
         return view;
     }

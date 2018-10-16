@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.searchbox.ng.ai.apps.scheme.actions.OpenAppAction;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.e;
@@ -15,9 +16,9 @@ import com.baidu.tieba.recapp.view.AdCloseView;
 import com.baidu.tieba.recapp.view.AdThreadCommentAndPraiseInfoLayout;
 import com.baidu.tieba.recapp.widget.ApkDownloadView;
 /* loaded from: classes3.dex */
-public class p implements com.baidu.b.a.b.b {
-    @Override // com.baidu.b.a.b.b
-    public View Y(Context context, String str) {
+public class p implements com.baidu.c.a.b.b {
+    @Override // com.baidu.c.a.b.b
+    public View Z(Context context, String str) {
         if ("head".equalsIgnoreCase(str)) {
             HeadImageView headImageView = new HeadImageView(context);
             headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -33,7 +34,7 @@ public class p implements com.baidu.b.a.b.b {
         } else if ("closead".equalsIgnoreCase(str)) {
             return new AdCloseView(context);
         } else {
-            if ("download".equalsIgnoreCase(str)) {
+            if (OpenAppAction.PARAMS_DOWNLOAD_KEY.equalsIgnoreCase(str)) {
                 return new ApkDownloadView(context);
             }
             if ("viewbtn".equalsIgnoreCase(str)) {
@@ -61,14 +62,14 @@ public class p implements com.baidu.b.a.b.b {
         }
     }
 
-    @Override // com.baidu.b.a.b.b
-    public boolean a(String str, View view, com.baidu.b.a.a.a aVar, boolean z) {
+    @Override // com.baidu.c.a.b.b
+    public boolean a(String str, View view, com.baidu.c.a.a.a aVar, boolean z) {
         if (aVar == null) {
             return false;
         }
         if (view instanceof HeadImageView) {
-            if (aVar.We > 0.0f) {
-                ((HeadImageView) view).setRadius((int) (aVar.We * view.getResources().getDisplayMetrics().density));
+            if (aVar.aaI > 0.0f) {
+                ((HeadImageView) view).setRadius((int) (aVar.aaI * view.getResources().getDisplayMetrics().density));
             } else {
                 ((HeadImageView) view).setRadius(0);
             }
@@ -78,16 +79,16 @@ public class p implements com.baidu.b.a.b.b {
         if ("time".equalsIgnoreCase(str)) {
             TextView textView = (TextView) view;
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                textView.setTextColor(aVar.Wf);
+                textView.setTextColor(aVar.aaJ);
             } else {
                 textView.setTextColor(aVar.color);
             }
-            textView.setTextSize(0, aVar.Wg * view.getContext().getResources().getDisplayMetrics().density);
+            textView.setTextSize(0, aVar.aaK * view.getContext().getResources().getDisplayMetrics().density);
             textView.setText(aVar.text);
         } else if (view instanceof JumpButton) {
             ((JumpButton) view).setText(aVar.text);
             return true;
-        } else if ("download".equalsIgnoreCase(str) && (view instanceof ApkDownloadView)) {
+        } else if (OpenAppAction.PARAMS_DOWNLOAD_KEY.equalsIgnoreCase(str) && (view instanceof ApkDownloadView)) {
             ((ApkDownloadView) view).setDefaultText(aVar.text);
         }
         return false;

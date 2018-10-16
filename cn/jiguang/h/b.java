@@ -12,8 +12,8 @@ public class b {
     private boolean g;
     private boolean h;
     private boolean i;
-    private e mb;
-    private HostnameVerifier mc;
+    private e mO;
+    private HostnameVerifier mP;
     private boolean n;
     private boolean j = true;
     private boolean k = false;
@@ -27,18 +27,18 @@ public class b {
     }
 
     public void a(e eVar) {
-        this.mb = eVar;
+        this.mO = eVar;
     }
 
-    public boolean bW() {
+    public boolean cn() {
         return this.l;
     }
 
-    public e bX() {
-        return this.mb;
+    public e co() {
+        return this.mO;
     }
 
-    public byte[] bY() {
+    public byte[] cp() {
         if (this.f != null) {
             if (this.f instanceof String) {
                 if (!TextUtils.isEmpty((CharSequence) this.f)) {
@@ -55,16 +55,12 @@ public class b {
         return g.getBytes();
     }
 
-    public boolean bZ() {
+    public boolean cq() {
         return this.j;
     }
 
-    public boolean ca() {
+    public boolean cr() {
         return this.k;
-    }
-
-    public void f(Object obj) {
-        this.f = obj;
     }
 
     public int getConnectTimeout() {
@@ -72,7 +68,7 @@ public class b {
     }
 
     public HostnameVerifier getHostnameVerifier() {
-        return this.mc;
+        return this.mP;
     }
 
     public int getReadTimeout() {
@@ -85,6 +81,10 @@ public class b {
 
     public String getUrl() {
         return this.a;
+    }
+
+    public void i(Object obj) {
+        this.f = obj;
     }
 
     public void j(boolean z) {

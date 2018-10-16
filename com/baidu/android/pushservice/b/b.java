@@ -10,6 +10,7 @@ import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.j.n;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.ar.util.IoUtils;
+import com.baidu.webkit.internal.ABTestConstants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -100,7 +101,7 @@ public final class b {
                         if (fVar.g) {
                             stringBuffer.append("true");
                         } else {
-                            stringBuffer.append("false");
+                            stringBuffer.append(ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE);
                         }
                         stringBuffer.append(",");
                         stringBuffer.append(fVar.e);

@@ -1,44 +1,48 @@
 package com.google.gson.internal.a;
 
-import com.google.gson.internal.a.g;
-import com.google.gson.m;
+import com.google.gson.JsonSyntaxException;
+import com.google.gson.o;
+import com.google.gson.p;
+import com.google.gson.stream.JsonToken;
 import java.io.IOException;
-import java.lang.reflect.Type;
-import java.lang.reflect.TypeVariable;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 /* loaded from: classes2.dex */
-public final class j<T> extends m<T> {
-    private final m<T> hNI;
-    private final com.google.gson.d hPg;
-    private final Type hPh;
+public final class j extends o<Date> {
+    public static final p ilm = new p() { // from class: com.google.gson.internal.a.j.1
+        @Override // com.google.gson.p
+        public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
+            if (aVar.bZq() == Date.class) {
+                return new j();
+            }
+            return null;
+        }
+    };
+    private final DateFormat ilU = new SimpleDateFormat("MMM d, yyyy");
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(com.google.gson.d dVar, m<T> mVar, Type type) {
-        this.hPg = dVar;
-        this.hNI = mVar;
-        this.hPh = type;
-    }
-
-    @Override // com.google.gson.m
-    public void a(com.google.gson.stream.a aVar, T t) throws IOException {
-        m<T> mVar = this.hNI;
-        Type a = a(this.hPh, t);
-        if (a != this.hPh) {
-            mVar = this.hPg.a(com.google.gson.b.a.l(a));
-            if ((mVar instanceof g.a) && !(this.hNI instanceof g.a)) {
-                mVar = this.hNI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.gson.o
+    /* renamed from: l */
+    public synchronized Date b(com.google.gson.stream.a aVar) throws IOException {
+        Date date;
+        if (aVar.bZe() == JsonToken.NULL) {
+            aVar.nextNull();
+            date = null;
+        } else {
+            try {
+                date = new Date(this.ilU.parse(aVar.nextString()).getTime());
+            } catch (ParseException e) {
+                throw new JsonSyntaxException(e);
             }
         }
-        mVar.a(aVar, t);
+        return date;
     }
 
-    private Type a(Type type, Object obj) {
-        if (obj != null) {
-            if (type == Object.class || (type instanceof TypeVariable) || (type instanceof Class)) {
-                return obj.getClass();
-            }
-            return type;
-        }
-        return type;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.gson.o
+    public synchronized void a(com.google.gson.stream.b bVar, Date date) throws IOException {
+        bVar.yM(date == null ? null : this.ilU.format((java.util.Date) date));
     }
 }

@@ -23,11 +23,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    private InterfaceC0038a a;
+    private InterfaceC0041a a;
 
     /* renamed from: com.baidu.ar.recommend.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0038a {
+    public interface InterfaceC0041a {
         void a(String str, int i);
 
         void a(String str, boolean z, String str2);
@@ -52,7 +52,7 @@ public class a {
                 if (jSONObject.optInt(ARResourceKey.HTTP_ERR_CODE, -1) == 0 && (optJSONArray = (optJSONObject = jSONObject.optJSONObject(ARResourceKey.HTTP_RET)).optJSONArray(ARResourceKey.HTTP_AR_MULTI_RESOURCE)) != null && optJSONArray.length() >= 1) {
                     String optString = optJSONArray.optString(0);
                     if (!TextUtils.isEmpty(optString)) {
-                        this.a.setVersionCode(optJSONObject.optString(ARResourceKey.HTTP_VERSION_CODE));
+                        this.a.setVersionCode(optJSONObject.optString("version_code"));
                         downloadParam.mErrorCode = 0;
                         downloadParam.mDownloadUrl = optString;
                         String aRCaseMainZipFullPath = ARFileUtils.getARCaseMainZipFullPath(this.a.getKey(), this.a.getVersionCode());
@@ -208,7 +208,7 @@ public class a {
         }, actionResponseListener, actionResponseListener2, actionResponseListener3);
     }
 
-    public void a(InterfaceC0038a interfaceC0038a) {
-        this.a = interfaceC0038a;
+    public void a(InterfaceC0041a interfaceC0041a) {
+        this.a = interfaceC0041a;
     }
 }

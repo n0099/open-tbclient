@@ -7,7 +7,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import tbclient.FrsPage.FrsPageResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<i, FrsPageResIdl> {
     private boolean hasNetworkError;
     private int mCategoryId;
@@ -45,7 +45,7 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<i, 
                 this.needCache = frsRequestData.isNeedCache();
                 this.mCategoryId = frsRequestData.getCategoryId();
                 this.hasNetworkError = hasError();
-                this.mSortType = frsRequestData.Xb();
+                this.mSortType = frsRequestData.aaI();
                 this.mIsGood = frsRequestData.getIsGood();
                 this.mLoadType = frsRequestData.getLoadType();
             }
@@ -56,13 +56,13 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<i, 
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         this.responseData = new i();
-        FrsPageResIdl M = this.responseData.M(bArr);
-        if (M != null && M.error != null) {
-            if (M.error.errorno != null) {
-                setError(M.error.errorno.intValue());
-                this.responseData.dzx = M.error.errorno.intValue();
+        FrsPageResIdl N = this.responseData.N(bArr);
+        if (N != null && N.error != null) {
+            if (N.error.errorno != null) {
+                setError(N.error.errorno.intValue());
+                this.responseData.dHx = N.error.errorno.intValue();
             }
-            setErrorString(M.error.usermsg);
+            setErrorString(N.error.usermsg);
         }
         setData(this.responseData);
     }
@@ -73,7 +73,7 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<i, 
         int l;
         CustomResponsedMessage runTask;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.responseData.bxd() != null && !StringUtils.isNull(this.responseData.bxd().uP(), true) && !this.responseData.bxd().uP().equals("0") && this.responseData.bxd().uQ() == 3 && (l = com.baidu.adp.lib.g.b.l(this.responseData.bxd().uP(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(l))) != null) {
+        if (this.responseData.bAs() != null && !StringUtils.isNull(this.responseData.bAs().wY(), true) && !this.responseData.bAs().wY().equals("0") && this.responseData.bAs().wZ() == 3 && (l = com.baidu.adp.lib.g.b.l(this.responseData.bAs().wY(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(l))) != null) {
             this.responseData.q(Integer.valueOf(((Integer) runTask.getData()).intValue()));
         }
     }
@@ -81,13 +81,13 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<i, 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        if (!hasError() && this.responseData != null && this.needCache && this.responseData.bbH() != null) {
-            int Xb = this.responseData.Xb();
-            String d = c.bwy().d(this.responseData.bbH().getName(), Xb, this.mIsGood, this.mCategoryId);
-            if (Xb == 3) {
-                c.bwy().o(d, bArr);
+        if (!hasError() && this.responseData != null && this.needCache && this.responseData.beT() != null) {
+            int aaI = this.responseData.aaI();
+            String d = c.bzN().d(this.responseData.beT().getName(), aaI, this.mIsGood, this.mCategoryId);
+            if (aaI == 3) {
+                c.bzN().o(d, bArr);
             } else {
-                c.bwy().c(d, bArr, true);
+                c.bzN().c(d, bArr, true);
             }
         }
     }

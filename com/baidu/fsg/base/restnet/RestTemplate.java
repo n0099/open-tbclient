@@ -10,11 +10,12 @@ import com.baidu.fsg.base.restnet.rest.d;
 import com.baidu.fsg.base.restnet.rest.e;
 import com.baidu.fsg.base.restnet.rest.f;
 import com.baidu.fsg.base.utils.LogUtil;
+import com.baidu.webkit.internal.ETAG;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class RestTemplate {
     public static final String TAG = "RestTemplate";
     private Context mContext;
@@ -144,7 +145,7 @@ public class RestTemplate {
             if (list != null && !list.isEmpty()) {
                 sb.append("? params : ");
                 for (RestNameValuePair restNameValuePair : list) {
-                    sb.append(restNameValuePair.getName() + "=" + restNameValuePair.getValue() + ",");
+                    sb.append(restNameValuePair.getName() + ETAG.EQUAL + restNameValuePair.getValue() + ",");
                 }
                 sb.delete(sb.length() - 1, sb.length());
             }
@@ -279,7 +280,7 @@ public class RestTemplate {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public final class AcceptHeaderRequestInterceptor implements RestHttpRequestInterceptor {
         private final Class<?> responseType;
 

@@ -8,7 +8,7 @@ import java.lang.Thread;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d implements Thread.UncaughtExceptionHandler {
     private Thread.UncaughtExceptionHandler a;
     private Context b;
@@ -21,7 +21,7 @@ public class d implements Thread.UncaughtExceptionHandler {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         private static d a = new d(null);
 

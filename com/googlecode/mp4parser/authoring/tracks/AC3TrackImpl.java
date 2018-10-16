@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class AC3TrackImpl extends AbstractTrack {
     static int[][][][] bitRateAndFrameSizeTable = (int[][][][]) Array.newInstance(Integer.TYPE, 19, 2, 3, 2);
     private final DataSource dataSource;
@@ -183,21 +183,21 @@ public class AC3TrackImpl extends AbstractTrack {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class a implements Sample {
-        private final long apu;
+        private final long aul;
         private final DataSource dataSource;
         private final long size;
 
         public a(long j, long j2, DataSource dataSource) {
-            this.apu = j;
+            this.aul = j;
             this.size = j2;
             this.dataSource = dataSource;
         }
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public void writeTo(WritableByteChannel writableByteChannel) throws IOException {
-            this.dataSource.transferTo(this.apu, this.size, writableByteChannel);
+            this.dataSource.transferTo(this.aul, this.size, writableByteChannel);
         }
 
         @Override // com.googlecode.mp4parser.authoring.Sample
@@ -208,7 +208,7 @@ public class AC3TrackImpl extends AbstractTrack {
         @Override // com.googlecode.mp4parser.authoring.Sample
         public ByteBuffer asByteBuffer() {
             try {
-                return this.dataSource.map(this.apu, this.size);
+                return this.dataSource.map(this.aul, this.size);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

@@ -10,6 +10,7 @@ import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.baidu.webkit.internal.ETAG;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
@@ -206,7 +207,7 @@ public class BDLocManager {
         } catch (Exception e2) {
             str = null;
         }
-        this.q = "&" + packageName + "&" + str;
+        this.q = ETAG.ITEM_SEPARATOR + packageName + ETAG.ITEM_SEPARATOR + str;
         this.i = (WifiManager) this.b.getSystemService("wifi");
         try {
             Field declaredField = Class.forName("android.net.wifi.WifiManager").getDeclaredField("mService");

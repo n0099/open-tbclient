@@ -1,6 +1,8 @@
 package com.baidu.cloudsdk.common.http;
 
 import android.text.TextUtils;
+import com.baidu.searchbox.ng.ai.apps.canvas.model.CanvasToTempFileModel;
+import com.baidu.webkit.internal.ETAG;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -11,7 +13,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.apache.http.HttpEntity;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class MultipartRequestParams extends RequestParams {
     protected HashMap<String, FileWrapper> mFileParams;
 
@@ -46,7 +48,7 @@ public class MultipartRequestParams extends RequestParams {
 
     public void put(String str, InputStream inputStream, String str2) {
         if (TextUtils.isEmpty(str2)) {
-            put(str, inputStream, str2, "png");
+            put(str, inputStream, str2, CanvasToTempFileModel.IMAGE_EXT_PNG);
         } else {
             put(str, inputStream, str2, URLConnection.getFileNameMap().getContentTypeFor(str2));
         }
@@ -101,15 +103,15 @@ public class MultipartRequestParams extends RequestParams {
         StringBuilder stringBuilder = super.getStringBuilder();
         for (Map.Entry<String, FileWrapper> entry : this.mFileParams.entrySet()) {
             if (stringBuilder.length() > 0) {
-                stringBuilder.append("&");
+                stringBuilder.append(ETAG.ITEM_SEPARATOR);
             }
-            stringBuilder.append(entry.getKey()).append("=").append("FILE");
+            stringBuilder.append(entry.getKey()).append(ETAG.EQUAL).append("FILE");
         }
         return stringBuilder;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class FileWrapper {
         public String mContentType;
         public String mFileName;

@@ -5,11 +5,12 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.fsg.base.ApollonConstants;
+import com.baidu.webkit.internal.ETAG;
 import java.io.File;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class CheckUtils {
     private static final String a = "CheckUtils";
     private static final int b = 3;
@@ -111,8 +112,8 @@ public final class CheckUtils {
             return false;
         }
         try {
-            for (String str31 : str.toUpperCase().split("&")) {
-                String[] split = str31.split("=");
+            for (String str31 : str.toUpperCase().split(ETAG.ITEM_SEPARATOR)) {
+                String[] split = str31.split(ETAG.EQUAL);
                 if (split != null && !TextUtils.isEmpty(split[0])) {
                     if ("CURRENCY".equals(split[0])) {
                         if (split.length > 1 && (decode = URLDecoder.decode(split[1])) != null && !Pattern.compile("^1$").matcher(decode).matches()) {

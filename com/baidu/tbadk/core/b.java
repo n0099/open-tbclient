@@ -1,207 +1,207 @@
 package com.baidu.tbadk.core;
 /* loaded from: classes.dex */
 public class b {
-    private int aeA;
-    private int aeB;
-    private int aeC;
-    private int aeD;
-    private int aeE;
-    private int aeF;
-    private int aeG;
-    private StringBuffer aeH = new StringBuffer();
-    private String aem;
-    private int aen;
-    private int aeo;
-    private int aep;
-    private int aeq;
-    private int aer;
-    private int aes;
-    private int aet;
-    private int aeu;
-    private int aev;
-    private int aew;
-    private int aex;
-    private int aey;
-    private int aez;
+    private int ajA;
+    private int ajB;
+    private int ajC;
+    private int ajD;
+    private StringBuffer ajE = new StringBuffer();
+    private String ajj;
+    private int ajk;
+    private int ajl;
+    private int ajm;
+    private int ajn;
+    private int ajo;
+    private int ajp;
+    private int ajq;
+    private int ajr;
+    private int ajs;
+    private int ajt;
+    private int aju;
+    private int ajv;
+    private int ajw;
+    private int ajx;
+    private int ajy;
+    private int ajz;
     private String id;
 
     public String toString() {
-        return "BDLayoutInfo [TAG=" + this.aeH.toString() + "]";
+        return "BDLayoutInfo [TAG=" + this.ajE.toString() + "]";
     }
 
-    public void dq(String str) {
-        this.aeH.append(str).append(" || ");
+    public void dG(String str) {
+        this.ajE.append(str).append(" || ");
     }
 
-    public int tN() {
-        return this.aeB;
+    public int vW() {
+        return this.ajy;
     }
 
-    public void bo(int i) {
-        this.aeB = i;
+    public void bz(int i) {
+        this.ajy = i;
     }
 
-    public int tO() {
-        return this.aeC;
+    public int vX() {
+        return this.ajz;
     }
 
-    public void bp(int i) {
-        this.aeC = i;
+    public void bA(int i) {
+        this.ajz = i;
     }
 
-    public int tP() {
-        return this.aez;
+    public int vY() {
+        return this.ajw;
     }
 
-    public void bq(int i) {
-        this.aez = i;
+    public void bB(int i) {
+        this.ajw = i;
     }
 
-    public int tQ() {
-        return this.aeA;
+    public int vZ() {
+        return this.ajx;
     }
 
-    public void br(int i) {
-        this.aeA = i;
+    public void bC(int i) {
+        this.ajx = i;
     }
 
-    public int tR() {
-        return this.aex;
+    public int wa() {
+        return this.aju;
     }
 
-    public void bs(int i) {
-        this.aex = i;
+    public void bD(int i) {
+        this.aju = i;
     }
 
-    public int tS() {
-        return this.aey;
+    public int wb() {
+        return this.ajv;
     }
 
-    public void bt(int i) {
-        this.aey = i;
+    public void bE(int i) {
+        this.ajv = i;
     }
 
     public String getId() {
         return this.id;
     }
 
-    public int tT() {
-        return this.aeD;
+    public int wc() {
+        return this.ajA;
     }
 
-    public void bu(int i) {
-        this.aeD = i;
+    public void bF(int i) {
+        this.ajA = i;
     }
 
-    public int tU() {
-        return this.aeE;
+    public int wd() {
+        return this.ajB;
     }
 
-    public void bv(int i) {
-        this.aeE = i;
+    public void bG(int i) {
+        this.ajB = i;
     }
 
     public void setId(String str) {
         this.id = str;
     }
 
-    public void dr(String str) {
-        this.aem = str;
+    public void dH(String str) {
+        this.ajj = str;
     }
 
-    public int tV() {
-        return this.aen;
-    }
-
-    public void bw(int i) {
-        this.aen = i;
-    }
-
-    public int tW() {
-        return this.aeo;
-    }
-
-    public void bx(int i) {
-        this.aeo = i;
-    }
-
-    public int tX() {
-        return this.aer;
-    }
-
-    public void by(int i) {
-        this.aer = i;
-    }
-
-    public int tY() {
-        return this.aes;
-    }
-
-    public void bz(int i) {
-        this.aes = i;
-    }
-
-    public int tZ() {
-        return this.aep;
-    }
-
-    public void bA(int i) {
-        this.aep = i;
-    }
-
-    public int ua() {
-        return this.aeq;
-    }
-
-    public void bB(int i) {
-        this.aeq = i;
-    }
-
-    public int ub() {
-        return this.aeu;
-    }
-
-    public int uc() {
-        return this.aet;
-    }
-
-    public void bC(int i) {
-        this.aet = i;
-    }
-
-    public void bD(int i) {
-        this.aeu = i;
-    }
-
-    public int ud() {
-        return this.aew;
-    }
-
-    public void bE(int i) {
-        this.aew = i;
-    }
-
-    public int ue() {
-        return this.aev;
-    }
-
-    public void bF(int i) {
-        this.aev = i;
-    }
-
-    public int uf() {
-        return this.aeF;
-    }
-
-    public void bG(int i) {
-        this.aeF = i;
-    }
-
-    public int ug() {
-        return this.aeG;
+    public int we() {
+        return this.ajk;
     }
 
     public void bH(int i) {
-        this.aeG = i;
+        this.ajk = i;
+    }
+
+    public int wf() {
+        return this.ajl;
+    }
+
+    public void bI(int i) {
+        this.ajl = i;
+    }
+
+    public int wg() {
+        return this.ajo;
+    }
+
+    public void bJ(int i) {
+        this.ajo = i;
+    }
+
+    public int wh() {
+        return this.ajp;
+    }
+
+    public void bK(int i) {
+        this.ajp = i;
+    }
+
+    public int wi() {
+        return this.ajm;
+    }
+
+    public void bL(int i) {
+        this.ajm = i;
+    }
+
+    public int wj() {
+        return this.ajn;
+    }
+
+    public void bM(int i) {
+        this.ajn = i;
+    }
+
+    public int wk() {
+        return this.ajr;
+    }
+
+    public int wl() {
+        return this.ajq;
+    }
+
+    public void bN(int i) {
+        this.ajq = i;
+    }
+
+    public void bO(int i) {
+        this.ajr = i;
+    }
+
+    public int wm() {
+        return this.ajt;
+    }
+
+    public void bP(int i) {
+        this.ajt = i;
+    }
+
+    public int wn() {
+        return this.ajs;
+    }
+
+    public void bQ(int i) {
+        this.ajs = i;
+    }
+
+    public int wo() {
+        return this.ajC;
+    }
+
+    public void bR(int i) {
+        this.ajC = i;
+    }
+
+    public int wp() {
+        return this.ajD;
+    }
+
+    public void bS(int i) {
+        this.ajD = i;
     }
 }

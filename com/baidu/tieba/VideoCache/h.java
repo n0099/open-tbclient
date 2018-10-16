@@ -1,67 +1,67 @@
 package com.baidu.tieba.VideoCache;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class h {
-    private String acs;
-    private String bru;
-    private boolean brv;
-    private long brw = -1;
-    private long brx = -1;
-    private long bry = 0;
-    private long brz = 0;
+    private String ahr;
+    private String bvC;
+    private boolean bvD;
+    private long bvE = -1;
+    private long bvF = -1;
+    private long bvG = 0;
+    private long bvH = 0;
 
-    public String Sb() {
-        return this.bru;
+    public String TX() {
+        return this.bvC;
     }
 
-    public void iM(String str) {
-        this.bru = str;
+    public void iZ(String str) {
+        this.bvC = str;
     }
 
-    public String Sc() {
-        return this.acs;
+    public String TY() {
+        return this.ahr;
     }
 
-    public void iN(String str) {
-        this.acs = str;
+    public void ja(String str) {
+        this.ahr = str;
     }
 
-    public boolean Sd() {
-        return this.brv;
+    public boolean TZ() {
+        return this.bvD;
     }
 
-    public void cO(boolean z) {
-        this.brv = z;
+    public void cX(boolean z) {
+        this.bvD = z;
     }
 
-    public long Se() {
-        return this.brw;
-    }
-
-    public void aH(long j) {
-        this.brw = j;
-    }
-
-    public long Sf() {
-        return this.brx;
-    }
-
-    public void aI(long j) {
-        this.brx = j;
-    }
-
-    public long getTotalLength() {
-        return this.bry;
-    }
-
-    public void aa(long j) {
-        this.bry = j;
+    public long Ua() {
+        return this.bvE;
     }
 
     public void aJ(long j) {
-        this.brz = j;
+        this.bvE = j;
     }
 
-    public long Sg() {
-        return this.brz;
+    public long Ub() {
+        return this.bvF;
+    }
+
+    public void aK(long j) {
+        this.bvF = j;
+    }
+
+    public long getTotalLength() {
+        return this.bvG;
+    }
+
+    public void ac(long j) {
+        this.bvG = j;
+    }
+
+    public void aL(long j) {
+        this.bvH = j;
+    }
+
+    public long Uc() {
+        return this.bvH;
     }
 }

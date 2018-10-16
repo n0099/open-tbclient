@@ -3,6 +3,8 @@ package com.baidu.adp.lib.stats;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.ar.util.IoUtils;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
+import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -10,9 +12,9 @@ import java.util.Iterator;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class a {
-    boolean Dl;
-    private ArrayList<BasicNameValuePair> Dm;
-    private StringBuilder Dn;
+    boolean DU;
+    private ArrayList<BasicNameValuePair> DV;
+    private StringBuilder DW;
     public long logID;
     private long mStartTime;
     public String mType;
@@ -21,11 +23,11 @@ public class a {
     public a(String str) {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.Dl = false;
+        this.DU = false;
         this.mType = null;
-        this.Dn = new StringBuilder(100);
+        this.DW = new StringBuilder(100);
         this.mType = str;
-        this.Dl = false;
+        this.DU = false;
         this.logID = -1L;
         this.sequenceID = -1L;
     }
@@ -33,27 +35,27 @@ public class a {
     public a() {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.Dl = false;
+        this.DU = false;
         this.mType = null;
-        this.Dn = new StringBuilder(100);
+        this.DW = new StringBuilder(100);
     }
 
     public void c(Object obj, Object obj2) {
         if (obj != null && obj2 != null) {
-            if (this.Dm == null) {
-                this.Dm = new ArrayList<>();
+            if (this.DV == null) {
+                this.DV = new ArrayList<>();
             }
-            this.Dm.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+            this.DV.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder(200);
-        if (this.Dn.length() > 0) {
-            sb.append((CharSequence) this.Dn);
+        if (this.DW.length() > 0) {
+            sb.append((CharSequence) this.DW);
         }
-        if (this.Dm != null) {
-            Iterator<BasicNameValuePair> it = this.Dm.iterator();
+        if (this.DV != null) {
+            Iterator<BasicNameValuePair> it = this.DV.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
@@ -63,10 +65,10 @@ public class a {
                     sb.append(next.getName());
                     sb.append('=');
                     try {
-                        sb.append(URLEncoder.encode(aX(next.getValue()), IoUtils.UTF_8));
+                        sb.append(URLEncoder.encode(aW(next.getValue()), IoUtils.UTF_8));
                     } catch (UnsupportedEncodingException e) {
                         BdLog.e(e);
-                        sb.append(aX(next.getValue()));
+                        sb.append(aW(next.getValue()));
                     }
                 }
             }
@@ -89,29 +91,29 @@ public class a {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
-            if (this.Dn.length() > 0) {
-                this.Dn.append('&');
+            if (this.DW.length() > 0) {
+                this.DW.append('&');
             }
-            this.Dn.append(str);
-            this.Dn.append("=");
+            this.DW.append(str);
+            this.DW.append(ETAG.EQUAL);
             try {
-                this.Dn.append(URLEncoder.encode(aX(str2), IoUtils.UTF_8));
+                this.DW.append(URLEncoder.encode(aW(str2), IoUtils.UTF_8));
             } catch (Throwable th) {
                 BdLog.e(th);
-                this.Dn.append(aX(str2));
+                this.DW.append(aW(str2));
             }
         }
     }
 
-    public void jx() {
+    public void startTimer() {
         this.mStartTime = System.currentTimeMillis();
     }
 
-    public long jy() {
+    public long jM() {
         return System.currentTimeMillis() - this.mStartTime;
     }
 
-    public static String aX(String str) {
-        return str.replace(" ", "_").replace("[", "(").replace("]", ")").replace("&", "|");
+    public static String aW(String str) {
+        return str.replace(" ", BaseRequestAction.SPLITE).replace("[", "(").replace("]", ")").replace(ETAG.ITEM_SEPARATOR, "|");
     }
 }

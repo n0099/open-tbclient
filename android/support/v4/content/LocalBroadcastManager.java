@@ -8,7 +8,6 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import com.tencent.tauth.AuthActivity;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
@@ -188,7 +187,7 @@ public final class LocalBroadcastManager {
                                         str = "category";
                                         break;
                                     case -3:
-                                        str = AuthActivity.ACTION_KEY;
+                                        str = "action";
                                         break;
                                     case -2:
                                         str = "data";

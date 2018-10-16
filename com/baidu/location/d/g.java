@@ -14,6 +14,7 @@ import com.baidu.android.bbalbs.common.security.Base64;
 import com.baidu.android.common.security.RSAUtil;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
+import com.baidu.searchbox.ng.ai.apps.network.AiAppNetworkUtils;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import java.io.File;
 import java.io.FileInputStream;
@@ -30,22 +31,22 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class g {
     public static boolean a = false;
     public static boolean b = false;
     public static boolean c = false;
     public static int d = 0;
-    private static String aaz = "http://loc.map.baidu.com/sdk.php";
+    private static String afg = "http://loc.map.baidu.com/sdk.php";
     public static String e = "http://loc.map.baidu.com/sdk_ep.php";
-    private static String aaA = "http://loc.map.baidu.com/user_err.php";
-    private static String aaB = "http://loc.map.baidu.com/oqur.php";
-    private static String aaC = "http://loc.map.baidu.com/tcu.php";
-    private static String aaD = "http://loc.map.baidu.com/rtbu.php";
-    private static String aaE = "http://loc.map.baidu.com/iofd.php";
-    private static String aaF = "http://loc.map.baidu.com/wloc";
+    private static String afh = "http://loc.map.baidu.com/user_err.php";
+    private static String afi = "http://loc.map.baidu.com/oqur.php";
+    private static String afj = "http://loc.map.baidu.com/tcu.php";
+    private static String afk = "http://loc.map.baidu.com/rtbu.php";
+    private static String afl = "http://loc.map.baidu.com/iofd.php";
+    private static String afm = "http://loc.map.baidu.com/wloc";
     public static String f = "https://loc.map.baidu.com/sdk.php";
-    public static String g = "no";
+    public static String g = AiAppNetworkUtils.NETWORK_TYPE_CELL_UN_CONNECTED;
     public static boolean h = false;
     public static boolean i = false;
     public static boolean j = false;
@@ -56,17 +57,17 @@ public class g {
     public static String o = "";
     public static boolean p = true;
     public static int q = 3;
-    public static double YA = 0.0d;
-    public static double YB = 0.0d;
-    public static double YC = 0.0d;
+    public static double adh = 0.0d;
+    public static double adi = 0.0d;
+    public static double adj = 0.0d;
     public static double u = 0.0d;
     public static int v = 0;
-    public static byte[] aaG = null;
+    public static byte[] afn = null;
     public static boolean x = false;
     public static int y = 0;
     public static float z = 1.1f;
-    public static float aaH = 2.2f;
-    public static float aaI = 2.3f;
+    public static float afo = 2.2f;
+    public static float afp = 2.3f;
     public static float C = 3.8f;
     public static int D = 3;
     public static int E = 10;
@@ -76,15 +77,15 @@ public class g {
     public static int I = 70;
     public static int J = 120;
     public static float K = 2.0f;
-    public static float aaJ = 10.0f;
-    public static float aaK = 50.0f;
-    public static float aaL = 200.0f;
+    public static float afq = 10.0f;
+    public static float afr = 50.0f;
+    public static float afs = 200.0f;
     public static int O = 16;
-    public static float aaM = 0.9f;
+    public static float aft = 0.9f;
     public static int Q = 10000;
-    public static float aaN = 0.5f;
-    public static float aaO = 0.0f;
-    public static float aaP = 0.1f;
+    public static float afu = 0.5f;
+    public static float afv = 0.0f;
+    public static float afw = 0.1f;
     public static int U = 30;
     public static int V = 100;
     public static int W = 0;
@@ -96,20 +97,20 @@ public class g {
     public static int ac = 20;
     public static int ad = 300;
     public static int ae = 1000;
-    public static int aaQ = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    public static long aaR = 900000;
-    public static long aaS = 420000;
-    public static long aaT = 180000;
+    public static int afx = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    public static long afy = 900000;
+    public static long afz = 420000;
+    public static long afA = 180000;
     public static long aj = 0;
-    public static long aaU = 15;
-    public static long aaV = ReportUserInfoModel.TIME_INTERVAL;
+    public static long afB = 15;
+    public static long afC = ReportUserInfoModel.TIME_INTERVAL;
     public static int am = 1000;
     public static int an = 0;
     public static int ao = 30000;
     public static int ap = 30000;
-    public static float aaW = 10.0f;
-    public static float aaX = 6.0f;
-    public static float aaY = 10.0f;
+    public static float afD = 10.0f;
+    public static float afE = 6.0f;
+    public static float afF = 10.0f;
     public static int at = 60;
     public static int au = 70;
     public static int av = 6;
@@ -153,7 +154,7 @@ public class g {
         String e2;
         String f2;
         StringBuffer stringBuffer = new StringBuffer(1024);
-        if (aVar != null && (f2 = com.baidu.location.b.b.rG().f(aVar)) != null) {
+        if (aVar != null && (f2 = com.baidu.location.b.b.tA().f(aVar)) != null) {
             stringBuffer.append(f2);
         }
         if (eVar != null) {
@@ -168,14 +169,14 @@ public class g {
                 stringBuffer.append(h2);
             }
         }
-        String a2 = b.rS().a(i2 == 0);
+        String a2 = b.tM().a(i2 == 0);
         if (a2 != null) {
             stringBuffer.append(a2);
         }
         if (str != null) {
             stringBuffer.append(str);
         }
-        if (aVar != null && (e2 = com.baidu.location.b.b.rG().e(aVar)) != null && e2.length() + stringBuffer.length() < 750) {
+        if (aVar != null && (e2 = com.baidu.location.b.b.tA().e(aVar)) != null && e2.length() + stringBuffer.length() < 750) {
             stringBuffer.append(e2);
         }
         String stringBuffer2 = stringBuffer.toString();
@@ -188,9 +189,9 @@ public class g {
                 int g2 = eVar.g();
                 int a3 = eVar.a();
                 boolean h3 = eVar.h();
-                if (speed < aaX && ((i3 == 1 || i3 == 0) && (g2 < at || h3))) {
+                if (speed < afE && ((i3 == 1 || i3 == 0) && (g2 < at || h3))) {
                     q = 1;
-                } else if (speed >= aaY || (!(i3 == 1 || i3 == 0 || i3 == 3) || (g2 >= au && a3 <= av))) {
+                } else if (speed >= afF || (!(i3 == 1 || i3 == 0 || i3 == 3) || (g2 >= au && a3 <= av))) {
                     q = 3;
                 } else {
                     q = 2;
@@ -228,7 +229,7 @@ public class g {
         return Jni.en1(o + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str);
     }
 
-    public static Object ac(Context context, String str) {
+    public static Object ad(Context context, String str) {
         if (context == null) {
             return null;
         }
@@ -293,7 +294,7 @@ public class g {
     }
 
     public static String c() {
-        return aaz;
+        return afg;
     }
 
     public static String c(Context context) {
@@ -303,7 +304,7 @@ public class g {
     }
 
     public static String d() {
-        return aaC;
+        return afj;
     }
 
     public static String d(Context context) {
@@ -389,7 +390,7 @@ public class g {
         }
     }
 
-    public static int j(String str, String str2, String str3) {
+    public static int m(String str, String str2, String str3) {
         int indexOf;
         int length;
         int indexOf2;
@@ -404,7 +405,7 @@ public class g {
         }
     }
 
-    public static boolean k(String str, String str2, String str3) {
+    public static boolean n(String str, String str2, String str3) {
         try {
             PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str3.getBytes())));
             Signature signature = Signature.getInstance("SHA1WithRSA");

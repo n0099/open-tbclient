@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import cn.jpush.android.a.i;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -111,7 +110,7 @@ public final class g extends b implements Runnable {
                     cn.jiguang.h.c a2 = cn.jpush.android.b.a.a(str4, 5, 5000L);
                     if (a2 != null && a2.getResponseCode() == 200) {
                         z = true;
-                        str = a2.cb();
+                        str = a2.cs();
                         break;
                     }
                 }
@@ -141,7 +140,7 @@ public final class g extends b implements Runnable {
                     cn.jpush.android.a.e.a(str3, 1014, null, this.R);
                     return;
                 }
-                this.Q = SkiaImageDecoder.FILE_PREFIX + str6;
+                this.Q = "file://" + str6;
                 cn.jpush.android.a.e.a(str3, 995, null, this.R);
                 cn.jpush.android.api.c.a(this.R, this);
             }

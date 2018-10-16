@@ -11,37 +11,37 @@ public class m implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h
     public Object g(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Class<?> hL = cVar.hL();
-        if (hL == Byte.class || hL == Byte.TYPE) {
+        Class<?> ia = cVar.ia();
+        if (ia == Byte.class || ia == Byte.TYPE) {
             return Byte.valueOf(this.value.byteValue());
         }
-        if (hL == Short.class || hL == Short.TYPE) {
+        if (ia == Short.class || ia == Short.TYPE) {
             return Short.valueOf(this.value.shortValue());
         }
-        if (hL == Integer.class || hL == Integer.TYPE) {
+        if (ia == Integer.class || ia == Integer.TYPE) {
             return Integer.valueOf(this.value.intValue());
         }
-        if (hL == Long.class || hL == Long.TYPE) {
+        if (ia == Long.class || ia == Long.TYPE) {
             return Long.valueOf(this.value.longValue());
         }
-        if (hL == Float.class || hL == Float.TYPE) {
+        if (ia == Float.class || ia == Float.TYPE) {
             return Float.valueOf(this.value.floatValue());
         }
-        if (hL == Double.class || hL == Double.TYPE) {
+        if (ia == Double.class || ia == Double.TYPE) {
             return Double.valueOf(this.value.doubleValue());
         }
-        if (hL == Character.class || hL == Character.TYPE) {
+        if (ia == Character.class || ia == Character.TYPE) {
             return Character.valueOf((char) this.value.intValue());
         }
-        if (hL == Boolean.class || hL == Boolean.TYPE) {
+        if (ia == Boolean.class || ia == Boolean.TYPE) {
             return Boolean.valueOf(this.value.byteValue() == 0);
-        } else if (hL == String.class) {
+        } else if (ia == String.class) {
             return String.valueOf(this.value);
         } else {
-            if (hL == char[].class) {
+            if (ia == char[].class) {
                 return String.valueOf(this.value).toCharArray();
             }
-            if (hL == byte[].class) {
+            if (ia == byte[].class) {
                 try {
                     return com.baidu.adp.lib.util.c.decode(String.valueOf(this.value), 0);
                 } catch (IOException e) {

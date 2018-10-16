@@ -2,6 +2,7 @@ package com.xiaomi.channel.commonutils.file;
 
 import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
+import com.baidu.searchbox.ng.ai.apps.canvas.model.CanvasToTempFileModel;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileFilter;
@@ -19,7 +20,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 /* loaded from: classes3.dex */
 public class a {
-    public static final String[] a = {"jpg", "png", "bmp", "gif", "webp"};
+    public static final String[] a = {CanvasToTempFileModel.IMAGE_EXT_JPG, CanvasToTempFileModel.IMAGE_EXT_PNG, "bmp", "gif", "webp"};
 
     public static void a(ParcelFileDescriptor parcelFileDescriptor) {
         if (parcelFileDescriptor != null) {

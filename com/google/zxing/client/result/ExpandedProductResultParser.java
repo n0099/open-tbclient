@@ -1,5 +1,6 @@
 package com.google.zxing.client.result;
 
+import com.baidu.searchbox.ng.ai.apps.launch.model.AiAppsLaunchType;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.tencent.connect.common.Constants;
@@ -87,7 +88,7 @@ public final class ExpandedProductResultParser extends ResultParser {
                     }
                     break;
                 case 1567967:
-                    if (findAIvalue.equals("3101")) {
+                    if (findAIvalue.equals(AiAppsLaunchType.LAUNCH_FROM_BAIDU_AIAPP_HISTORY)) {
                         c = '\b';
                         break;
                     }
@@ -117,13 +118,13 @@ public final class ExpandedProductResultParser extends ResultParser {
                     }
                     break;
                 case 1567972:
-                    if (findAIvalue.equals("3106")) {
+                    if (findAIvalue.equals(AiAppsLaunchType.LAUNCH_FROM_SECOND_FLOOR_HISTORY)) {
                         c = '\r';
                         break;
                     }
                     break;
                 case 1567973:
-                    if (findAIvalue.equals("3107")) {
+                    if (findAIvalue.equals(AiAppsLaunchType.LAUNCH_FROM_SECOND_FLOOR_HISTORY_LIST)) {
                         c = 14;
                         break;
                     }

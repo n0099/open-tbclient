@@ -2,6 +2,7 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppDateTimeUtil;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -22,7 +23,7 @@ public final class cd {
 
     public static String a(long j) {
         Date date = new Date(j);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(AiAppDateTimeUtil.DAY_FORMAT);
         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT+08:00"));
         return simpleDateFormat.format(date);
     }

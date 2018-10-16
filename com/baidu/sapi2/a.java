@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.ar.constants.HttpConstants;
@@ -62,6 +61,7 @@ import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.searchbox.ng.ai.apps.network.NetworkDef;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
@@ -69,7 +69,6 @@ import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.SocialConstants;
-import com.tencent.tauth.AuthActivity;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -97,12 +96,12 @@ public final class a {
     private static final String b = "3";
     private SapiConfiguration c = SapiAccountManager.getInstance().getSapiConfiguration();
     private AsyncHttpClient d;
-    private C0078a e;
+    private C0089a e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0078a {
+    public static class C0089a {
         static List<String> b = new ArrayList();
         static int c;
         Context a;
@@ -114,7 +113,7 @@ public final class a {
             b.add(SapiEnv.PASS_RETRY_IP3);
         }
 
-        public C0078a(Context context) {
+        public C0089a(Context context) {
             this.a = context;
             e();
             f();
@@ -150,7 +149,7 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
-        this.e = new C0078a(context);
+        this.e = new C0089a(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -1773,7 +1772,7 @@ public final class a {
         }
         a2.put("access_token", iqiyiLoginDTO.accessToken);
         a2.put("osuid", iqiyiLoginDTO.openID);
-        a2.put("json", "1");
+        a2.put(NetworkDef.DataType.JSON, "1");
         a2.put("type", SocialType.IQIYI.getType() + "");
         a2.put(SocialConstants.PARAM_ACT, "special");
         a2.put("display", "native");
@@ -2026,7 +2025,7 @@ public final class a {
                     checkUserFaceIdResult.setResultCode(parseInt);
                     checkUserFaceIdResult.setResultMsg(jSONObject.optString("errmsg"));
                     if (parseInt == 0) {
-                        checkUserFaceIdResult.status = jSONObject.optInt(NotificationCompat.CATEGORY_STATUS);
+                        checkUserFaceIdResult.status = jSONObject.optInt("status");
                         checkUserFaceIdResult.livingUname = jSONObject.optString("livinguname");
                         checkUserFaceIdResult.authsid = jSONObject.optString("authsid");
                         checkUserFaceIdResult.authWidgetURL = jSONObject.optString("authurl");
@@ -2103,7 +2102,7 @@ public final class a {
                     faceLoginStatusResult.setResultCode(parseInt);
                     faceLoginStatusResult.setResultMsg(jSONObject.optString("errmsg"));
                     if (parseInt == 0) {
-                        faceLoginStatusResult.status = jSONObject.optInt(NotificationCompat.CATEGORY_STATUS);
+                        faceLoginStatusResult.status = jSONObject.optInt("status");
                         faceLoginStatusResult.livingUname = jSONObject.optString("livinguname");
                         faceLoginStatusResult.authsid = jSONObject.optString("authsid");
                         faceLoginStatusResult.authWidgetURL = jSONObject.optString("authurl");
@@ -2132,9 +2131,9 @@ public final class a {
         this.d.setUserAgent(w());
         Map<String, String> a2 = a(SapiEnv.FACE_LOGIN_SWITCH_URI);
         if (z) {
-            a2.put(AuthActivity.ACTION_KEY, "enable_face_login");
+            a2.put("action", "enable_face_login");
         } else {
-            a2.put(AuthActivity.ACTION_KEY, "disable_face_login");
+            a2.put("action", "disable_face_login");
         }
         if (!TextUtils.isEmpty(str2)) {
             a2.put("callbackKey", str2);

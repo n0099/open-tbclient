@@ -1,12 +1,40 @@
 package com.baidu.crabsdk.c;
 
 import android.util.Log;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class a {
-    public static String VE = "CRAB";
-    public static String VF = "CRAB-NA";
+    public static String Yr = "CRAB";
+    public static String Ys = "CRAB-NA";
 
-    private static String cA(String str) {
+    public static int cG(String str) {
+        if (com.baidu.crabsdk.a.F) {
+            return Log.i(Yr, cK(str));
+        }
+        return -1;
+    }
+
+    public static int cH(String str) {
+        if (com.baidu.crabsdk.a.F) {
+            return Log.d(Ys, cK(str));
+        }
+        return -1;
+    }
+
+    public static int cI(String str) {
+        if (com.baidu.crabsdk.a.F) {
+            return Log.d(Yr, cK(str));
+        }
+        return -1;
+    }
+
+    public static int cJ(String str) {
+        if (com.baidu.crabsdk.a.F) {
+            return Log.e(Yr, cK(str));
+        }
+        return -1;
+    }
+
+    private static String cK(String str) {
         String str2;
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         if (stackTrace != null) {
@@ -21,44 +49,16 @@ public final class a {
         return str2 == null ? str : str2 + " - " + str;
     }
 
-    public static int cv(String str) {
-        if (com.baidu.crabsdk.a.F) {
-            return Log.i(VE, cA(str));
-        }
-        return -1;
-    }
-
-    public static int cw(String str) {
-        if (com.baidu.crabsdk.a.F) {
-            return Log.d(VF, cA(str));
-        }
-        return -1;
-    }
-
-    public static int cx(String str) {
-        if (com.baidu.crabsdk.a.F) {
-            return Log.d(VE, cA(str));
-        }
-        return -1;
-    }
-
-    public static int cy(String str) {
-        if (com.baidu.crabsdk.a.F) {
-            return Log.e(VE, cA(str));
-        }
-        return -1;
-    }
-
-    public static int cz(String str) {
-        if (com.baidu.crabsdk.a.F) {
-            return Log.w(VE, cA(str));
-        }
-        return -1;
-    }
-
     public static int f(String str, Throwable th) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.e(VE, cA(str), th);
+            return Log.e(Yr, cK(str), th);
+        }
+        return -1;
+    }
+
+    public static int v(String str) {
+        if (com.baidu.crabsdk.a.F) {
+            return Log.w(Yr, cK(str));
         }
         return -1;
     }

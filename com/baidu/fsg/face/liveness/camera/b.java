@@ -12,13 +12,14 @@ import com.baidu.fsg.base.statistics.RimStatisticsUtil;
 import com.baidu.fsg.face.base.d.d;
 import com.baidu.fsg.face.base.d.f;
 import com.baidu.fsg.face.base.d.g;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
+import com.baidu.searchbox.ng.ai.apps.ar.model.ARCameraAttr;
+import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static final int a = 1;
     public static final int b = 2;
@@ -33,7 +34,7 @@ public class b {
     SurfaceHolder h;
     private a k;
     private int o;
-    private String l = "off";
+    private String l = ARCameraAttr.FlashType.FLASH_OFF;
     private boolean m = false;
     private boolean p = true;
     private int q = 2;
@@ -127,10 +128,10 @@ public class b {
                     i2 = 90;
                     break;
                 case 2:
-                    i2 = SubsamplingScaleImageView.ORIENTATION_180;
+                    i2 = 180;
                     break;
                 case 3:
-                    i2 = SubsamplingScaleImageView.ORIENTATION_270;
+                    i2 = 270;
                     break;
             }
             if (Build.VERSION.SDK_INT >= 9) {
@@ -162,13 +163,13 @@ public class b {
             }
             if (parameters.getSupportedFlashModes() != null) {
                 if (this.p) {
-                    this.l = "off";
+                    this.l = ARCameraAttr.FlashType.FLASH_OFF;
                     parameters.setFlashMode(this.l);
                 } else {
                     parameters.setFlashMode(this.l);
                 }
             } else {
-                this.l = "off";
+                this.l = ARCameraAttr.FlashType.FLASH_OFF;
             }
             this.f.setParameters(parameters);
         }
@@ -302,7 +303,7 @@ public class b {
         if (supportedPreviewSizes == null || supportedPreviewSizes.size() == 0) {
             return null;
         }
-        Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
+        Display defaultDisplay = ((WindowManager) activity.getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay();
         a aVar = new a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
         if ((aVar.a * aVar.b) / 4 <= 921600) {
             i2 = 153600;
@@ -340,7 +341,7 @@ public class b {
         if (a2 == null || a2.size() == 0) {
             return this.k;
         }
-        Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
+        Display defaultDisplay = ((WindowManager) activity.getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay();
         a aVar = new a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
         float f = aVar.b / aVar.a;
         ArrayList arrayList = new ArrayList();
@@ -419,7 +420,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public int a;
         public int b;

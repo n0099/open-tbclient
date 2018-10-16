@@ -11,7 +11,7 @@ import android.widget.EditText;
 import com.baidu.fsg.base.utils.LogUtil;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class SafeKeyBoardUtil {
     private String a;
     private Context b;

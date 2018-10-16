@@ -17,6 +17,7 @@ import com.baidu.ar.util.Res;
 import com.baidu.ar.util.UiThreadUtil;
 import com.baidu.ar.util.UiUtils;
 import com.baidu.ar.util.ViewUtils;
+import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
 /* loaded from: classes3.dex */
 public class e extends c implements r {
     private View A;
@@ -135,7 +136,7 @@ public class e extends c implements r {
             case MsgConstants.TRACK_SHOW_RECG_NOTSANNER /* 315 */:
                 b(Res.getString("bdar_not_recg_image"));
                 ViewUtils.setViewVisibility(this.x, 0);
-                i.a().a(MsgConstants.TRACK_HIDE_RECG_NOTSANNER, 2000L);
+                i.a().a(MsgConstants.TRACK_HIDE_RECG_NOTSANNER, SystemScreenshotManager.DELAY_TIME);
                 return;
             case MsgConstants.TRACK_HIDE_RECG_NOTSANNER /* 316 */:
                 ViewUtils.setViewVisibility(this.x, 8);

@@ -4,36 +4,36 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.ActivityHead;
 import tbclient.FrsPage.HeadImgs;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class o {
-    private String ahp;
-    private int ahq;
-    private ArrayList<q> ahr = new ArrayList<>();
+    private String aml;
+    private int amm;
+    private ArrayList<q> amn = new ArrayList<>();
     private int height;
     private String obj_id;
     private int width;
 
-    public ArrayList<q> uO() {
-        return this.ahr;
+    public ArrayList<q> wX() {
+        return this.amn;
     }
 
     public void j(ArrayList<q> arrayList) {
-        this.ahr = arrayList;
+        this.amn = arrayList;
     }
 
     public void a(ActivityHead activityHead) {
         if (activityHead != null) {
-            this.ahq = activityHead.activity_type.intValue();
-            this.ahp = activityHead.activity_title;
+            this.amm = activityHead.activity_type.intValue();
+            this.aml = activityHead.activity_title;
             this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
             this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
             this.obj_id = activityHead.obj_id;
-            s(activityHead.head_imgs);
+            C(activityHead.head_imgs);
         }
     }
 
-    public void s(List<HeadImgs> list) {
-        if (!com.baidu.tbadk.core.util.v.z(list)) {
+    public void C(List<HeadImgs> list) {
+        if (!com.baidu.tbadk.core.util.v.J(list)) {
             for (HeadImgs headImgs : list) {
                 a(headImgs);
             }
@@ -44,7 +44,7 @@ public class o {
         if (headImgs != null) {
             q qVar = new q();
             qVar.b(headImgs);
-            this.ahr.add(qVar);
+            this.amn.add(qVar);
         }
     }
 }

@@ -8,7 +8,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class e {
     public static void a(String str, int i, String str2, Context context) {
-        if (cn.jiguang.api.e.bf() && context != null) {
+        if (cn.jiguang.api.e.bw() && context != null) {
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append("action:reportActionResult - messageId: " + str + ", code: " + i + Constants.ACCEPT_TIME_SEPARATOR_SERVER + m.a(i));
             if (!TextUtils.isEmpty(str2)) {
@@ -29,7 +29,7 @@ public final class e {
     }
 
     public static void a(String str, String str2, byte b, int i, Context context) {
-        if (cn.jiguang.api.e.bf() && context != null) {
+        if (cn.jiguang.api.e.bw() && context != null) {
             new StringBuffer().append("action:reportThirdSDKMsgActionResult - messageId: " + str + ", code: " + i);
             JSONObject jSONObject = new JSONObject();
             try {

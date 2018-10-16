@@ -12,7 +12,6 @@ import com.baidu.ar.recorder.d.c;
 import com.baidu.ar.recorder.d.d;
 import com.baidu.ar.recorder.d.g;
 import com.baidu.ar.recorder.filter.FilterManager;
-import com.baidu.baiduarsdk.ArBridge;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class b implements com.baidu.ar.recorder.a.a {
@@ -40,10 +39,10 @@ public class b implements com.baidu.ar.recorder.a.a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.ar.recorder.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class HandlerC0041b extends Handler {
+    public static class HandlerC0044b extends Handler {
         private com.baidu.ar.recorder.a.a a;
 
-        public HandlerC0041b(Looper looper, com.baidu.ar.recorder.a.a aVar) {
+        public HandlerC0044b(Looper looper, com.baidu.ar.recorder.a.a aVar) {
             super(looper);
             this.a = aVar;
         }
@@ -71,7 +70,7 @@ public class b implements com.baidu.ar.recorder.a.a {
     private void a(com.baidu.ar.recorder.d.e eVar, c cVar) {
         this.c = new HandlerThread("VideoRecorderThread");
         this.c.start();
-        this.d = new HandlerC0041b(this.c.getLooper(), this);
+        this.d = new HandlerC0044b(this.c.getLooper(), this);
         if (Build.VERSION.SDK_INT >= 18) {
             this.f = new g();
             this.f.a(cVar);
@@ -154,7 +153,7 @@ public class b implements com.baidu.ar.recorder.a.a {
             case 1004:
                 b((FilterManager.FilterType) message.obj);
                 return;
-            case ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC /* 1005 */:
+            case 1005:
                 b((float[]) message.obj, (message.arg2 & 4294967295L) | (message.arg1 << 32));
                 return;
             case 1006:
@@ -189,7 +188,7 @@ public class b implements com.baidu.ar.recorder.a.a {
         if (this.d == null || !this.h) {
             return;
         }
-        this.d.sendMessage(this.d.obtainMessage(ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC, i2, i3, fArr));
+        this.d.sendMessage(this.d.obtainMessage(1005, i2, i3, fArr));
     }
 
     public boolean a(Context context, ArrayList<com.baidu.ar.recorder.b.a> arrayList, d dVar, com.baidu.ar.recorder.d.e eVar, c cVar) {

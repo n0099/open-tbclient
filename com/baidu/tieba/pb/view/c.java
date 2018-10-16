@@ -6,13 +6,14 @@ import android.util.SparseIntArray;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
+import com.baidu.searchbox.ng.ai.apps.scheme.AiAppUnitedSchemeUtilsDispatcher;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class c {
-    private static SparseIntArray fWt = new SparseIntArray();
+    private static SparseIntArray gdT = new SparseIntArray();
 
     public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
         if (smallTailInfo != null && smallTailInfo.tailSpannable != null && smallTailInfo.tailSpannable.length() != 0 && textView != null) {
@@ -24,23 +25,23 @@ public class c {
     private static void b(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
         if (smallTailInfo != null && textView != null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-            int rD = rD(e.C0141e.ds32);
+            int sa = sa(e.C0175e.ds32);
             if (z2 && z3) {
-                layoutParams.setMargins(rD, rD(e.C0141e.ds8), rD, rD(e.C0141e.ds18));
+                layoutParams.setMargins(sa, sa(e.C0175e.ds8), sa, sa(e.C0175e.ds18));
             } else if (z) {
-                layoutParams.setMargins(0, rD(e.C0141e.ds8), 0, 0);
+                layoutParams.setMargins(0, sa(e.C0175e.ds8), 0, 0);
             } else if (!z2) {
-                layoutParams.setMargins(rD(e.C0141e.ds120), rD(e.C0141e.ds8), rD(e.C0141e.ds34), rD(e.C0141e.ds14));
+                layoutParams.setMargins(sa(e.C0175e.ds120), sa(e.C0175e.ds8), sa(e.C0175e.ds34), sa(e.C0175e.ds14));
             } else {
-                layoutParams.setMargins(rD, rD(e.C0141e.ds8), rD, rD(e.C0141e.ds14));
+                layoutParams.setMargins(sa, sa(e.C0175e.ds8), sa, sa(e.C0175e.ds14));
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) "icon");
+            spannableStringBuilder.append((CharSequence) AiAppUnitedSchemeUtilsDispatcher.PARAM_TOAST_ICON_KEY);
             spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
             Drawable drawable = al.getDrawable(e.f.icon_pb_tail);
-            drawable.setBounds(0, 0, rD, rD);
+            drawable.setBounds(0, 0, sa, sa);
             com.baidu.tbadk.widget.c cVar = new com.baidu.tbadk.widget.c(drawable);
-            cVar.fI(rD(e.C0141e.ds4));
+            cVar.fR(sa(e.C0175e.ds4));
             spannableStringBuilder.setSpan(cVar, 0, 4, 33);
             textView.setLayoutParams(layoutParams);
             textView.setText(spannableStringBuilder);
@@ -49,11 +50,11 @@ public class c {
         }
     }
 
-    private static int rD(int i) {
-        int i2 = fWt.get(i, -1);
+    private static int sa(int i) {
+        int i2 = gdT.get(i, -1);
         if (i2 == -1) {
             int h = l.h(TbadkCoreApplication.getInst().getContext(), i);
-            fWt.put(i, h);
+            gdT.put(i, h);
             return h;
         }
         return i2;

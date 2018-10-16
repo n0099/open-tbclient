@@ -18,17 +18,17 @@ public final class d {
     private final Context a;
     private final long c;
     private byte[] f;
-    private final cn.jiguang.d.b.g kH;
-    private g kK;
-    private a kL;
-    private c kM;
-    private final a kI = new a();
-    private final a kJ = new a();
-    private final LinkedList<f> kN = f.J(cn.jiguang.d.a.a.m());
+    private final cn.jiguang.d.b.g ll;
+    private g lo;
+    private a lp;
+    private c lq;
+    private final a lm = new a();
+    private final a ln = new a();
+    private final LinkedList<f> lr = f.J(cn.jiguang.d.a.a.m());
 
     public d(Context context, cn.jiguang.d.b.g gVar, long j) {
         this.a = context;
-        this.kH = gVar;
+        this.ll = gVar;
         this.c = j;
     }
 
@@ -86,16 +86,16 @@ public final class d {
         return cn.jiguang.d.d.g.a(str, c, cn.jiguang.d.h.a.a.a(cn.jiguang.d.h.a.a.a(c), bArr), z, length);
     }
 
-    private g bu() {
-        if (this.kK == null) {
+    private g bL() {
+        if (this.lo == null) {
             String b = cn.jiguang.d.a.b(this.a);
             long c = cn.jiguang.d.a.d.c(this.a);
             int a = k.a(this.a);
             String b2 = k.b(this.a);
             cn.jiguang.a.a.b.e R = cn.jiguang.a.a.b.f.R(this.a);
-            this.kK = new g(a, b, "1.2.5", c, b2, R.b(), R.c(), R.d());
+            this.lo = new g(a, b, "1.2.5", c, b2, R.b(), R.c(), R.d());
         }
-        return this.kK;
+        return this.lo;
     }
 
     public static b g(byte[] bArr) {
@@ -134,11 +134,11 @@ public final class d {
     }
 
     private void h() {
-        while (this.kN.size() > 5) {
-            this.kN.removeFirst();
+        while (this.lr.size() > 5) {
+            this.lr.removeFirst();
         }
         JSONArray jSONArray = new JSONArray();
-        Iterator<f> it = this.kN.iterator();
+        Iterator<f> it = this.lr.iterator();
         while (it.hasNext()) {
             jSONArray.put(it.next().a());
         }
@@ -146,39 +146,39 @@ public final class d {
     }
 
     public final void a(String str, int i, int i2) {
-        this.kI.a(str, i, String.valueOf(i2));
+        this.lm.a(str, i, String.valueOf(i2));
     }
 
     public final void a(String str, int i, long j, long j2, int i2) {
         if (c.a(str, i)) {
             f fVar = new f();
             fVar.a = 1;
-            fVar.kO = new c(str, i);
+            fVar.lt = new c(str, i);
             fVar.d = j;
             fVar.e = j2;
             fVar.j = i2;
-            g bu = bu();
-            if (bu != null) {
-                fVar.f = bu.a();
-                fVar.c = bu.b();
-                fVar.g = bu.c();
-                fVar.h = bu.bw();
-                fVar.i = bu.e();
+            g bL = bL();
+            if (bL != null) {
+                fVar.f = bL.a();
+                fVar.c = bL.b();
+                fVar.g = bL.c();
+                fVar.h = bL.bN();
+                fVar.i = bL.e();
             }
-            this.kN.add(fVar);
+            this.lr.add(fVar);
             h();
         }
     }
 
     public final boolean a(c cVar) {
-        return this.kI.a(cVar);
+        return this.lm.a(cVar);
     }
 
     public final void b(String str, int i, long j, long j2, int i2) {
         if (c.a(str, i)) {
             f fVar = new f();
             fVar.a = 2;
-            fVar.kO = new c(str, i);
+            fVar.lt = new c(str, i);
             fVar.d = j;
             fVar.e = j2;
             fVar.j = i2;
@@ -190,71 +190,71 @@ public final class d {
                 fVar.h = R.c();
                 fVar.i = R.d();
             }
-            this.kN.add(fVar);
+            this.lr.add(fVar);
             h();
         }
     }
 
     public final boolean b(c cVar) {
-        return this.kJ.a(cVar);
+        return this.ln.a(cVar);
     }
 
-    public final a bs() {
-        if (this.kL == null) {
-            this.kL = a.I(cn.jiguang.d.a.a.l());
+    public final a bJ() {
+        if (this.lp == null) {
+            this.lp = a.I(cn.jiguang.d.a.a.l());
         }
-        if (this.kL == null || this.kL.a()) {
-            this.kL = new a();
-            LinkedHashMap<String, Integer> bn = cn.jiguang.d.a.ky.bn();
-            if (bn != null) {
-                for (String str : bn.keySet()) {
-                    this.kL.a(str, bn.get(str).intValue(), "hardcode_ip");
+        if (this.lp == null || this.lp.a()) {
+            this.lp = new a();
+            LinkedHashMap<String, Integer> bE = cn.jiguang.d.a.ld.bE();
+            if (bE != null) {
+                for (String str : bE.keySet()) {
+                    this.lp.a(str, bE.get(str).intValue(), "hardcode_ip");
                 }
             }
-            if (!this.kL.a()) {
-                cn.jiguang.d.a.a.d(this.kL.toString());
+            if (!this.lp.a()) {
+                cn.jiguang.d.a.a.d(this.lp.toString());
             }
         }
-        return this.kL;
+        return this.lp;
     }
 
-    public final a bt() {
-        this.kM = c.a(cn.jiguang.d.a.a.n());
+    public final a bK() {
+        this.lq = c.a(cn.jiguang.d.a.a.n());
         a aVar = new a();
-        for (Map.Entry<String, Integer> entry : cn.jiguang.d.a.ky.bm().entrySet()) {
+        for (Map.Entry<String, Integer> entry : cn.jiguang.d.a.ld.bD().entrySet()) {
             aVar.a(entry.getKey(), entry.getValue().intValue(), "hardcode_domain");
         }
-        if (this.kM != null) {
-            aVar.a(this.kM.a, this.kM.b, "last_good");
+        if (this.lq != null) {
+            aVar.a(this.lq.a, this.lq.b, "last_good");
         }
         return aVar;
     }
 
-    public final cn.jiguang.d.b.g bv() {
-        return this.kH;
+    public final cn.jiguang.d.b.g bM() {
+        return this.ll;
     }
 
     public final void c(a aVar) {
-        if (aVar == null || aVar.equals(this.kL)) {
+        if (aVar == null || aVar.equals(this.lp)) {
             return;
         }
-        this.kL = aVar;
-        cn.jiguang.d.a.a.d(this.kL.toString());
+        this.lp = aVar;
+        cn.jiguang.d.a.a.d(this.lp.toString());
     }
 
     public final void c(c cVar) {
-        if (cVar.equals(this.kM)) {
+        if (cVar.equals(this.lq)) {
             return;
         }
-        this.kM = cVar;
-        cn.jiguang.d.a.a.f(this.kM.toString());
+        this.lq = cVar;
+        cn.jiguang.d.a.a.f(this.lq.toString());
     }
 
     public final byte[] c() {
         if (this.f == null) {
-            bu();
+            bL();
             try {
-                this.f = a("UG", this.kK.f().toString());
+                this.f = a("UG", this.lo.f().toString());
             } catch (Exception e) {
                 throw new e(1, "Failed to package data - " + e.getMessage());
             }
@@ -296,10 +296,10 @@ public final class d {
         L1d:
             java.lang.String r2 = "DG"
             byte[] r2 = a(r2, r1)     // Catch: java.lang.Throwable -> L65
-            cn.jiguang.d.b.a.a r1 = r5.bt()     // Catch: java.lang.Throwable -> L65
+            cn.jiguang.d.b.a.a r1 = r5.bK()     // Catch: java.lang.Throwable -> L65
             int r1 = r5.a(r1, r0, r2)     // Catch: java.lang.Throwable -> L65
             if (r1 == 0) goto L41
-            cn.jiguang.c.b r1 = cn.jiguang.d.a.ky     // Catch: java.lang.Throwable -> L65
+            cn.jiguang.c.b r1 = cn.jiguang.d.a.ld     // Catch: java.lang.Throwable -> L65
             java.lang.String r1 = r1.f()     // Catch: java.lang.Throwable -> L65
             java.util.List r1 = cn.jiguang.d.c.f.a(r1)     // Catch: java.lang.Throwable -> L65
             r3 = 0
@@ -349,6 +349,6 @@ public final class d {
     }
 
     public final void h(String str, int i, int i2) {
-        this.kJ.a(str, i, String.valueOf(i2));
+        this.ln.a(str, i, String.valueOf(i2));
     }
 }

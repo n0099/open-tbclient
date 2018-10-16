@@ -6,22 +6,22 @@ import com.baidu.tieba.frs.aggregation.g;
 import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 /* loaded from: classes3.dex */
 public class c {
-    private g dOT;
-    private com.baidu.tieba.frs.aggregation.g dOU;
-    private ValueAnimator dOV;
-    private com.baidu.tieba.play.c dxj;
+    private com.baidu.tieba.play.c dFk;
+    private g dWO;
+    private com.baidu.tieba.frs.aggregation.g dWP;
+    private ValueAnimator dWQ;
     private View rootView;
 
     public void a(g gVar) {
-        this.dOT = gVar;
+        this.dWO = gVar;
     }
 
-    public com.baidu.tieba.frs.aggregation.g aDf() {
-        if (this.dOU == null) {
-            this.dOU = new com.baidu.tieba.frs.aggregation.g();
+    public com.baidu.tieba.frs.aggregation.g aGx() {
+        if (this.dWP == null) {
+            this.dWP = new com.baidu.tieba.frs.aggregation.g();
         }
-        a(this.dOU, this.dOT.aDj());
-        return this.dOU;
+        a(this.dWP, this.dWO.aGB());
+        return this.dWP;
     }
 
     private void a(com.baidu.tieba.frs.aggregation.g gVar, VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo) {
@@ -36,7 +36,7 @@ public class c {
                 aVar.portrait = videoSerializeVideoThreadInfo.getAuthor().portrait;
                 aVar.hasFocus = videoSerializeVideoThreadInfo.getAuthor().hasFocus;
             }
-            gVar.dxJ = aVar;
+            gVar.dFK = aVar;
             g.b bVar = new g.b();
             if (videoSerializeVideoThreadInfo.getThreadVideoInfo() != null) {
                 bVar.thumbnailWidth = videoSerializeVideoThreadInfo.getThreadVideoInfo().thumbnailWidth;
@@ -51,14 +51,14 @@ public class c {
                 bVar.originVideoUrl = videoSerializeVideoThreadInfo.getThreadVideoInfo().videoUrl;
                 gVar.playCount = videoSerializeVideoThreadInfo.playCount;
             }
-            gVar.dxK = bVar;
+            gVar.dFL = bVar;
             gVar.forumId = videoSerializeVideoThreadInfo.forumId;
             gVar.threadId = videoSerializeVideoThreadInfo.threadId;
             gVar.firstPostId = videoSerializeVideoThreadInfo.firstPostId;
             gVar.createTime = videoSerializeVideoThreadInfo.createTime;
             gVar.postNum = videoSerializeVideoThreadInfo.postNum;
             gVar.agreeNum = videoSerializeVideoThreadInfo.agreeNum;
-            gVar.dxG = videoSerializeVideoThreadInfo.disAgreeNum;
+            gVar.dFH = videoSerializeVideoThreadInfo.disAgreeNum;
             gVar.agreeType = videoSerializeVideoThreadInfo.agreeType;
             gVar.shareNum = videoSerializeVideoThreadInfo.shareNum;
             gVar.hasAgree = videoSerializeVideoThreadInfo.hasAgree;
@@ -70,21 +70,21 @@ public class c {
         }
     }
 
-    public void ayp() {
-        if (this.dxj != null) {
-            this.dxj.destroy();
-            this.dxj = null;
+    public void aBK() {
+        if (this.dFk != null) {
+            this.dFk.destroy();
+            this.dFk = null;
         }
     }
 
     public void onDestroy() {
-        if (this.dOV != null) {
-            this.dOV.cancel();
-            this.dOV = null;
+        if (this.dWQ != null) {
+            this.dWQ.cancel();
+            this.dWQ = null;
         }
         if (this.rootView != null) {
             this.rootView.clearAnimation();
         }
-        ayp();
+        aBK();
     }
 }

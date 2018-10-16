@@ -16,21 +16,21 @@ import com.baidu.tieba.e;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
-    private TextView aUF;
-    private TextView adB;
-    private TextView cML;
-    private TextView cMM;
-    private TextView cMQ;
-    private LinearLayout cMR;
+    private TextView aZe;
+    private TextView aiy;
+    private TextView cVd;
+    private TextView cVe;
+    private TextView cVi;
+    private LinearLayout cVj;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.adB = (TextView) view.findViewById(e.g.chosen_no_picture_title);
-        this.cML = (TextView) view.findViewById(e.g.chosen_no_picture_praise);
-        this.cMM = (TextView) view.findViewById(e.g.chosen_no_picture_comment);
-        this.cMQ = (TextView) view.findViewById(e.g.chosen_no_picture_head);
-        this.aUF = (TextView) view.findViewById(e.g.chosen_no_picture_sub);
-        this.cMR = (LinearLayout) view.findViewById(e.g.chosen_no_picture_comment_line);
+        this.aiy = (TextView) view.findViewById(e.g.chosen_no_picture_title);
+        this.cVd = (TextView) view.findViewById(e.g.chosen_no_picture_praise);
+        this.cVe = (TextView) view.findViewById(e.g.chosen_no_picture_comment);
+        this.cVi = (TextView) view.findViewById(e.g.chosen_no_picture_head);
+        this.aZe = (TextView) view.findViewById(e.g.chosen_no_picture_sub);
+        this.cVj = (LinearLayout) view.findViewById(e.g.chosen_no_picture_comment_line);
     }
 
     @Override // com.baidu.tieba.tbadkCore.o
@@ -44,48 +44,48 @@ public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.f.e
     /* renamed from: a */
-    public void H(final tinfo tinfoVar) {
-        super.H(tinfoVar);
+    public void L(final tinfo tinfoVar) {
+        super.L(tinfoVar);
         if (StringUtils.isNull(tinfoVar.title)) {
-            this.cMQ.setVisibility(8);
+            this.cVi.setVisibility(8);
         } else {
-            this.cMQ.setVisibility(0);
-            this.cMQ.setText(tinfoVar.title);
+            this.cVi.setVisibility(0);
+            this.cVi.setText(tinfoVar.title);
         }
         if (StringUtils.isNull(tinfoVar.forum_name)) {
-            this.cMR.setVisibility(8);
+            this.cVj.setVisibility(8);
         } else {
-            this.cMR.setVisibility(0);
-            this.adB.setVisibility(0);
-            this.adB.setText(UtilHelper.getFixedText(getContext().getString(e.j.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-            this.adB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.b.1
+            this.cVj.setVisibility(0);
+            this.aiy.setVisibility(0);
+            this.aiy.setText(UtilHelper.getFixedText(getContext().getString(e.j.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
+            this.aiy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     String str = tinfoVar.forum_name;
-                    if (ao.bw(str)) {
+                    if (ao.bv(str)) {
                         TiebaStatic.eventStat(b.this.getActivity(), "kantie_6", null, 1, new Object[0]);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(b.this.getActivity()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
                     }
                 }
             });
             if (tinfoVar.zan_num == null) {
-                this.cML.setVisibility(8);
+                this.cVd.setVisibility(8);
             } else {
-                this.cML.setVisibility(0);
-                this.cML.setText(tinfoVar.zan_num + "");
+                this.cVd.setVisibility(0);
+                this.cVd.setText(tinfoVar.zan_num + "");
             }
             if (tinfoVar.reply_num == null) {
-                this.cMM.setVisibility(8);
+                this.cVe.setVisibility(8);
             } else {
-                this.cMM.setVisibility(0);
-                this.cMM.setText(tinfoVar.reply_num + "");
+                this.cVe.setVisibility(0);
+                this.cVe.setText(tinfoVar.reply_num + "");
             }
         }
         if (StringUtils.isNull(tinfoVar._abstract)) {
-            this.aUF.setVisibility(8);
+            this.aZe.setVisibility(8);
             return;
         }
-        this.aUF.setVisibility(0);
-        this.aUF.setText(tinfoVar._abstract);
+        this.aZe.setVisibility(0);
+        this.aZe.setText(tinfoVar._abstract);
     }
 }

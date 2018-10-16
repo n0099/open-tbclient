@@ -4,13 +4,13 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class e {
-    private long ack;
+    private long mEndTime;
     private long mStartTime;
 
-    public void f(JSONArray jSONArray) {
+    public void parseJson(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() == 2) {
             this.mStartTime = jSONArray.optLong(0, 0L) * 1000;
-            this.ack = jSONArray.optLong(1, 0L) * 1000;
+            this.mEndTime = jSONArray.optLong(1, 0L) * 1000;
         }
     }
 
@@ -19,6 +19,6 @@ public class e {
     }
 
     public long getEndTime() {
-        return this.ack + UtilHelper.getTimesMorning();
+        return this.mEndTime + UtilHelper.getTimesMorning();
     }
 }

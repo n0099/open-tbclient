@@ -1,11 +1,11 @@
 package com.baidu.location.a;
 
 import android.os.HandlerThread;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class o {
     private static HandlerThread a = null;
 
-    public static synchronized HandlerThread rE() {
+    public static synchronized HandlerThread ty() {
         HandlerThread handlerThread;
         synchronized (o.class) {
             if (a == null) {

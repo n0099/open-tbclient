@@ -13,34 +13,34 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.ueg.UEGCancelModel;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean hiO = false;
-    private UEGCancelModel.a hiM;
-    public int hiN = as.a.atT;
-    private UEGCancelModel hiL = new UEGCancelModel();
+    public static boolean hqe = false;
+    private UEGCancelModel.a hqc;
+    public int hqd = as.a.ayE;
+    private UEGCancelModel hqb = new UEGCancelModel();
 
     public b() {
-        if (this.hiM == null) {
-            this.hiM = new UEGCancelModel.a() { // from class: com.baidu.tieba.ueg.b.1
+        if (this.hqc == null) {
+            this.hqc = new UEGCancelModel.a() { // from class: com.baidu.tieba.ueg.b.1
                 @Override // com.baidu.tieba.ueg.UEGCancelModel.a
                 public void d(BlockPopInfoData blockPopInfoData) {
-                    if (blockPopInfoData != null && !b.hiO) {
+                    if (blockPopInfoData != null && !b.hqe) {
                         b.this.a(blockPopInfoData);
                     }
                 }
             };
         }
-        this.hiL.a(this.hiM);
+        this.hqb.a(this.hqc);
     }
 
-    public void uU(int i) {
-        this.hiN = i;
-        this.hiL.cancelRequest();
+    public void vr(int i) {
+        this.hqd = i;
+        this.hqb.cancelRequest();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(BlockPopInfoData blockPopInfoData) {
         boolean z = false;
-        if (blockPopInfoData != null && com.baidu.adp.base.a.fE().fF() != null) {
+        if (blockPopInfoData != null && com.baidu.adp.base.a.fW().fX() != null) {
             String str = blockPopInfoData.block_id_code;
             int i = blockPopInfoData.win_type;
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -56,51 +56,51 @@ public class b {
                 if (!z2 && z) {
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean(str + i + currentAccount, true);
                     b(blockPopInfoData);
-                    TiebaStatic.log(new am("c12534").w("obj_locate", this.hiN).w("obj_type", i));
+                    TiebaStatic.log(new am("c12534").x("obj_locate", this.hqd).x("obj_type", i));
                 }
             }
         }
     }
 
     private void b(final BlockPopInfoData blockPopInfoData) {
-        Activity fF;
-        if (blockPopInfoData != null && (fF = com.baidu.adp.base.a.fE().fF()) != null) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(fF);
-            aVar.dT(blockPopInfoData.block_info);
+        Activity fX;
+        if (blockPopInfoData != null && (fX = com.baidu.adp.base.a.fW().fX()) != null) {
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(fX);
+            aVar.ej(blockPopInfoData.block_info);
             aVar.b(blockPopInfoData.ok_info, new a.b() { // from class: com.baidu.tieba.ueg.b.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
-                    TiebaStatic.log(new am("c12535").w("obj_locate", b.this.hiN).w("obj_type", blockPopInfoData.win_type));
+                    TiebaStatic.log(new am("c12535").x("obj_locate", b.this.hqd).x("obj_type", blockPopInfoData.win_type));
                 }
             });
             aVar.a(blockPopInfoData.ahead_info, new a.b() { // from class: com.baidu.tieba.ueg.b.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     b.this.c(blockPopInfoData);
-                    TiebaStatic.log(new am("c12536").w("obj_locate", b.this.hiN).w("obj_type", blockPopInfoData.win_type));
+                    TiebaStatic.log(new am("c12536").x("obj_locate", b.this.hqd).x("obj_type", blockPopInfoData.win_type));
                 }
             });
-            aVar.b(((f) fF).getPageContext());
-            aVar.yl();
+            aVar.b(((f) fX).getPageContext());
+            aVar.Au();
         }
     }
 
-    public void nm(boolean z) {
-        hiO = z;
+    public void nD(boolean z) {
+        hqe = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(BlockPopInfoData blockPopInfoData) {
-        Activity fF;
-        if (blockPopInfoData != null && (fF = com.baidu.adp.base.a.fE().fF()) != null) {
-            AntiHelper.aH(fF, blockPopInfoData.ahead_url);
+        Activity fX;
+        if (blockPopInfoData != null && (fX = com.baidu.adp.base.a.fW().fX()) != null) {
+            AntiHelper.aJ(fX, blockPopInfoData.ahead_url);
         }
     }
 
     public void onDestroy() {
-        if (this.hiL != null) {
-            this.hiL.onDestroy();
+        if (this.hqb != null) {
+            this.hqb.onDestroy();
         }
     }
 }

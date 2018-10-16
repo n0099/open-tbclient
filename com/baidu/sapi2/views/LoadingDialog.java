@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.d.a.a;
+import com.baidu.e.a.a;
 /* loaded from: classes2.dex */
 public class LoadingDialog extends Dialog {
     public LoadingDialog(Context context) {

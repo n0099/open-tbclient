@@ -1,5 +1,5 @@
 package com.baidu.location;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class Jni {
     private static int a = 0;
     private static int b = 1;
@@ -34,9 +34,9 @@ public class Jni {
             return dArr;
         }
         int i2 = -1;
-        if (str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09)) {
+        if (str.equals("bd09")) {
             i2 = a;
-        } else if (str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09LL)) {
+        } else if (str.equals("bd09ll")) {
             i2 = b;
         } else if (str.equals("gcj02")) {
             i2 = c;

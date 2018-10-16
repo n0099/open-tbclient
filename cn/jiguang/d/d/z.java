@@ -25,7 +25,7 @@ public final class z implements Runnable {
         try {
             String jSONObject = y.ak(this.a).f().toString();
             aj = y.aj(this.a);
-            aj.addAll(cn.jiguang.d.a.ky.bo());
+            aj.addAll(cn.jiguang.d.a.ld.bF());
             if (cn.jiguang.g.a.d(this.a)) {
                 Iterator it = aj.iterator();
                 while (it.hasNext()) {

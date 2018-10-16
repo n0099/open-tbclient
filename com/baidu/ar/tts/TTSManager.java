@@ -3,12 +3,14 @@ package com.baidu.ar.tts;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.ar.util.NetworkUtil;
+import com.baidu.searchbox.ng.ai.apps.scheme.AiAppUnitedSchemeTTSDispatcher;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tts.auth.AuthInfo;
 import com.baidu.tts.client.SpeechError;
 import com.baidu.tts.client.SpeechSynthesizer;
 import com.baidu.tts.client.SpeechSynthesizerListener;
 import com.baidu.tts.client.TtsMode;
+import com.baidu.webkit.internal.GlobalConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -30,7 +32,7 @@ public class TTSManager {
 
     private void a() {
         if (NetworkUtil.isNetworkConnected(this.a)) {
-            if (this.a.getApplicationContext().getPackageName().equals("com.baidu.searchbox")) {
+            if (this.a.getApplicationContext().getPackageName().equals(GlobalConstants.SEARCHBOX_PACKAGE_NAME)) {
                 this.b = true;
             }
             if (this.b) {
@@ -50,9 +52,9 @@ public class TTSManager {
             this.c.setApiKey("bgW5575sEj5m9CHEatxTGln6", "kD9VCx8q56s3lAaAk0juQtkFfXj3Xsp4");
             AuthInfo auth = this.c.auth(TtsMode.ONLINE);
             if (auth.isSuccess()) {
-                Log.e("tts", "auth success");
+                Log.e(AiAppUnitedSchemeTTSDispatcher.MODULE_TTS, "auth success");
             } else {
-                Log.e("tts", "auth failed errorMsg=" + auth.getTtsError().getDetailMessage());
+                Log.e(AiAppUnitedSchemeTTSDispatcher.MODULE_TTS, "auth failed errorMsg=" + auth.getTtsError().getDetailMessage());
             }
             this.c.initTts(TtsMode.ONLINE);
         }
@@ -95,9 +97,9 @@ public class TTSManager {
             this.c.setStereoVolume(Float.parseFloat(str3), Float.parseFloat(str3));
             AuthInfo auth = this.c.auth(TtsMode.ONLINE);
             if (auth.isSuccess()) {
-                Log.e("tts", "auth success");
+                Log.e(AiAppUnitedSchemeTTSDispatcher.MODULE_TTS, "auth success");
             } else {
-                Log.e("tts", "auth failed errorMsg=" + auth.getTtsError().getDetailMessage());
+                Log.e(AiAppUnitedSchemeTTSDispatcher.MODULE_TTS, "auth failed errorMsg=" + auth.getTtsError().getDetailMessage());
             }
             this.c.initTts(TtsMode.ONLINE);
         }

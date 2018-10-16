@@ -7,46 +7,46 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.bb;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private m dzV;
-    private e ebO;
-    private d ebP;
-    private c ebQ;
-    private b ebR;
-    private f ebS;
+    private m dHV;
+    private e ejH;
+    private d ejI;
+    private c ejJ;
+    private b ejK;
+    private f ejL;
     private List<com.baidu.adp.widget.ListView.a> mAdapters;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, m mVar) {
         this.mPageContext = tbPageContext;
-        this.dzV = mVar;
+        this.dHV = mVar;
         initAdapters();
-        this.dzV.addAdapters(this.mAdapters);
+        this.dHV.addAdapters(this.mAdapters);
     }
 
     private void initAdapters() {
         this.mAdapters = new ArrayList();
-        this.ebO = new e(this.mPageContext, com.baidu.tieba.homepage.daily.b.e.ecf);
-        this.ebP = new d(this.mPageContext, com.baidu.tieba.homepage.daily.b.d.ecb);
-        this.ebQ = new c(this.mPageContext, com.baidu.tieba.homepage.daily.b.c.ebZ);
-        this.ebR = new b(this.mPageContext, bb.ajX);
-        this.ebS = new f(this.mPageContext, bb.aka);
-        this.mAdapters.add(this.ebO);
-        this.mAdapters.add(this.ebP);
-        this.mAdapters.add(this.ebQ);
-        this.mAdapters.add(this.ebR);
-        this.mAdapters.add(this.ebS);
+        this.ejH = new e(this.mPageContext, com.baidu.tieba.homepage.daily.b.e.ejY);
+        this.ejI = new d(this.mPageContext, com.baidu.tieba.homepage.daily.b.d.ejU);
+        this.ejJ = new c(this.mPageContext, com.baidu.tieba.homepage.daily.b.c.ejS);
+        this.ejK = new b(this.mPageContext, bb.aoS);
+        this.ejL = new f(this.mPageContext, bb.aoV);
+        this.mAdapters.add(this.ejH);
+        this.mAdapters.add(this.ejI);
+        this.mAdapters.add(this.ejJ);
+        this.mAdapters.add(this.ejK);
+        this.mAdapters.add(this.ejL);
     }
 
     public void notifyDataSetChanged() {
-        if (this.dzV != null) {
-            this.dzV.getListAdapter().notifyDataSetChanged();
+        if (this.dHV != null) {
+            this.dHV.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<h> list) {
-        this.dzV.setData(list);
+        this.dHV.setData(list);
     }
 
     public void onChangeSkinType(int i) {

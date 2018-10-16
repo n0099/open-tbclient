@@ -49,6 +49,7 @@ import com.baidu.adp.plugin.pluginBase.PluginBaseFragmentActivity;
 import com.baidu.adp.plugin.util.d;
 import com.baidu.adp.widget.ListView.k;
 import com.baidu.megapp.ma.MAFragmentActivity;
+import com.baidu.searchbox.ng.ai.apps.media.audio.event.AudioStatusCallback;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes.dex */
@@ -300,7 +301,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
                 return this.mEntity.getResources();
             }
         } else {
-            Resources resources = g.fK().getResources();
+            Resources resources = g.gd().getResources();
             if (resources != null) {
                 return resources;
             }
@@ -603,7 +604,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         if (this.mEntity != null) {
-            d.invokeMethod(this.mEntity, "onPause", new Class[0], new Object[0]);
+            d.invokeMethod(this.mEntity, AudioStatusCallback.ON_PAUSE, new Class[0], new Object[0]);
         } else {
             super.onPause();
         }
@@ -704,7 +705,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStop() {
         if (this.mEntity != null) {
-            d.invokeMethod(this.mEntity, "onStop", new Class[0], new Object[0]);
+            d.invokeMethod(this.mEntity, AudioStatusCallback.ON_STOP, new Class[0], new Object[0]);
         } else {
             super.onStop();
         }
@@ -1570,18 +1571,18 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
         d.a aVar = null;
         if (stringExtra != null) {
-            aVar = com.baidu.adp.plugin.d.mk().bI(stringExtra);
+            aVar = com.baidu.adp.plugin.d.mu().bH(stringExtra);
         }
-        if (aVar == null || aVar.Jk == null) {
+        if (aVar == null || aVar.JJ == null) {
             BdLog.d("service stop error!" + intent.toString());
             return false;
-        } else if (com.baidu.adp.plugin.d.mk().ml() == 1) {
-            com.baidu.adp.plugin.d.mk().bJ(stringExtra);
-            aVar.Jk.stopSelf();
+        } else if (com.baidu.adp.plugin.d.mu().mv() == 1) {
+            com.baidu.adp.plugin.d.mu().bI(stringExtra);
+            aVar.JJ.stopSelf();
             return true;
         } else {
-            aVar.Jk.onDestroy();
-            com.baidu.adp.plugin.d.mk().bJ(stringExtra);
+            aVar.JJ.onDestroy();
+            com.baidu.adp.plugin.d.mu().bI(stringExtra);
             return true;
         }
     }

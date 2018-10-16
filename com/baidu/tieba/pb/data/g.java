@@ -2,13 +2,13 @@ package com.baidu.tieba.pb.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class g extends PostData {
-    public static final BdUniqueId fAM = BdUniqueId.gen();
+    public static final BdUniqueId fIo = BdUniqueId.gen();
     private int position = 0;
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return fAM;
+        return fIo;
     }
 }

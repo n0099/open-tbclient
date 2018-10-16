@@ -6,7 +6,7 @@ import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class h extends b {
     public h(Context context) {
         super(context);

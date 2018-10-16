@@ -1,6 +1,5 @@
 package com.google.zxing.oned;
 
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;
 import com.google.zxing.DecodeHintType;
@@ -33,9 +32,9 @@ public abstract class OneDReader implements Reader {
                 BinaryBitmap rotateCounterClockwise = binaryBitmap.rotateCounterClockwise();
                 Result doDecode = doDecode(rotateCounterClockwise, map);
                 Map<ResultMetadataType, Object> resultMetadata = doDecode.getResultMetadata();
-                int i = SubsamplingScaleImageView.ORIENTATION_270;
+                int i = 270;
                 if (resultMetadata != null && resultMetadata.containsKey(ResultMetadataType.ORIENTATION)) {
-                    i = (((Integer) resultMetadata.get(ResultMetadataType.ORIENTATION)).intValue() + SubsamplingScaleImageView.ORIENTATION_270) % 360;
+                    i = (((Integer) resultMetadata.get(ResultMetadataType.ORIENTATION)).intValue() + 270) % 360;
                 }
                 doDecode.putMetadata(ResultMetadataType.ORIENTATION, Integer.valueOf(i));
                 ResultPoint[] resultPoints = doDecode.getResultPoints();
@@ -93,7 +92,7 @@ public abstract class OneDReader implements Reader {
                                 map2.remove(DecodeHintType.NEED_RESULT_POINT_CALLBACK);
                                 Result decodeRow = decodeRow(i5, bitArray2, map2);
                                 if (i6 != 1) {
-                                    decodeRow.putMetadata(ResultMetadataType.ORIENTATION, Integer.valueOf((int) SubsamplingScaleImageView.ORIENTATION_180));
+                                    decodeRow.putMetadata(ResultMetadataType.ORIENTATION, 180);
                                     ResultPoint[] resultPoints = decodeRow.getResultPoints();
                                     if (resultPoints != null) {
                                         resultPoints[0] = new ResultPoint((width - resultPoints[0].getX()) - 1.0f, resultPoints[0].getY());

@@ -6,6 +6,7 @@ import android.view.View;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.appsearchlib.Info;
+import com.baidu.searchbox.ng.ai.apps.scheme.AiAppUnitedSchemeUtilsDispatcher;
 import com.baidu.tbadk.core.atomData.EmotionImageActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -20,27 +21,27 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     protected abstract void initView();
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    protected abstract boolean o(Bundle bundle);
+    protected abstract boolean p(Bundle bundle);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public void aJa() {
-        super.aJa();
+    public void aMr() {
+        super.aMr();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void M(Intent intent) {
+    public void Q(Intent intent) {
         UserData userData = (UserData) intent.getSerializableExtra("user");
         c(userData);
-        ((CommonPersonalMsglistModel) this.esS).setUser(userData);
+        ((CommonPersonalMsglistModel) this.eAI).setUser(userData);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void q(Bundle bundle) {
+    public void r(Bundle bundle) {
         if (bundle != null && bundle.getString("user") != null) {
             UserData userData = (UserData) OrmObject.objectWithJsonStr(bundle.getString("user"), UserData.class);
             c(userData);
-            ((CommonPersonalMsglistModel) this.esS).setUser(userData);
+            ((CommonPersonalMsglistModel) this.eAI).setUser(userData);
         }
     }
 
@@ -48,31 +49,31 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putSerializable("user", OrmObject.jsonStrWithObject(((CommonPersonalMsglistModel) this.esS).getUser()));
+        bundle.putSerializable("user", OrmObject.jsonStrWithObject(((CommonPersonalMsglistModel) this.eAI).getUser()));
     }
 
     protected void c(UserData userData) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean aJc() {
+    public boolean aMt() {
         UserData user;
-        return (!(this.esS instanceof CommonPersonalMsglistModel) || (user = ((CommonPersonalMsglistModel) this.esS).getUser()) == null || user.getUserIdLong() == 0) ? false : true;
+        return (!(this.eAI instanceof CommonPersonalMsglistModel) || (user = ((CommonPersonalMsglistModel) this.eAI).getUser()) == null || user.getUserIdLong() == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void p(Bundle bundle) throws Exception {
-        this.esS.setIsAcceptNotify(bundle.getBoolean(IntentConfig.IS_ACCEPT_NOTIFY, true));
-        q(bundle);
+    public void q(Bundle bundle) throws Exception {
+        this.eAI.setIsAcceptNotify(bundle.getBoolean(IntentConfig.IS_ACCEPT_NOTIFY, true));
+        r(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aJb() {
+    public void aMs() {
         Intent intent = getIntent();
         boolean booleanExtra = intent.getBooleanExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
-        if (this.esS != null) {
-            this.esS.setIsAcceptNotify(booleanExtra);
-            M(intent);
+        if (this.eAI != null) {
+            this.eAI.setIsAcceptNotify(booleanExtra);
+            Q(intent);
         }
     }
 
@@ -83,7 +84,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         super.a(view, i, i2, j);
         switch (i) {
             case 7:
-                if (aJM() && this.esS != null && (msg = this.esS.getMsg(i2)) != null && com.baidu.tieba.im.util.e.u(msg) && (content = msg.getContent()) != null) {
+                if (aNd() && this.eAI != null && (msg = this.eAI.getMsg(i2)) != null && com.baidu.tieba.im.util.e.u(msg) && (content = msg.getContent()) != null) {
                     JSONObject jSONObject = null;
                     try {
                         JSONArray jSONArray = new JSONArray(content);
@@ -99,7 +100,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
                     }
                     if (jSONObject != null) {
                         String optString = jSONObject.optString("url_d");
-                        sendMessage(new CustomMessage(2902011, new EmotionImageActivityConfig(getPageContext().getContext(), jSONObject.optString(Info.kBaiduPIDKey), jSONObject.optString("packet_name"), jSONObject.optString("icon"), jSONObject.optString("url_s"), optString, jSONObject.optString("face_name"), 2, jSONObject.optInt("size_width"), jSONObject.optInt("size_height"))));
+                        sendMessage(new CustomMessage(2902011, new EmotionImageActivityConfig(getPageContext().getContext(), jSONObject.optString(Info.kBaiduPIDKey), jSONObject.optString("packet_name"), jSONObject.optString(AiAppUnitedSchemeUtilsDispatcher.PARAM_TOAST_ICON_KEY), jSONObject.optString("url_s"), optString, jSONObject.optString("face_name"), 2, jSONObject.optInt("size_width"), jSONObject.optInt("size_height"))));
                         return;
                     }
                     return;

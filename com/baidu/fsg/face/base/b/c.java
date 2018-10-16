@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static final String a = "SdkConfigOptions";
     public static final String b = "global-config";
@@ -58,7 +58,7 @@ public class c {
         while (true) {
             if (i2 < jSONArray.length()) {
                 JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
-                if (jSONObject2 != null && e3.equals(jSONObject2.optString(i))) {
+                if (jSONObject2 != null && e3.equals(jSONObject2.optString("cpu"))) {
                     break;
                 }
                 i2++;
@@ -95,7 +95,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         private static final String d = "name";
         private static final String e = "url";

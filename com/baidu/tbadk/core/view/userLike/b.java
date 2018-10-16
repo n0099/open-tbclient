@@ -11,5 +11,5 @@ public interface b {
 
     void d(boolean z, int i);
 
-    void dS(int i);
+    void ec(int i);
 }

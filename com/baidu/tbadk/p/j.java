@@ -9,27 +9,27 @@ public abstract class j extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] ir() {
+    protected String[] iH() {
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.b.a
-    public int is() {
+    public int iI() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int it() {
+    protected int iJ() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int iu() {
+    protected int iK() {
         return 10;
     }
 
-    public boolean jw() {
-        return com.baidu.adp.lib.b.d.iB().aO(getName()) == is();
+    public boolean jL() {
+        return com.baidu.adp.lib.b.d.iR().aO(getName()) == iI();
     }
 }

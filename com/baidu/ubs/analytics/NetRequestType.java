@@ -1,5 +1,5 @@
 package com.baidu.ubs.analytics;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public enum NetRequestType {
     GET,
     POST,

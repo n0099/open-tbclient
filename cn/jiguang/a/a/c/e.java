@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import cn.jiguang.d.d.aa;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -17,8 +18,8 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class e implements Thread.UncaughtExceptionHandler {
     public boolean a;
-    private Thread.UncaughtExceptionHandler kj = null;
-    private static e ki = new e();
+    private Thread.UncaughtExceptionHandler kP = null;
+    private static e kO = new e();
     private static int c = 1048576;
 
     private e() {
@@ -85,7 +86,7 @@ public final class e implements Thread.UncaughtExceptionHandler {
         JSONObject jSONObject;
         int i2;
         int i3 = 0;
-        long bq = cn.jiguang.d.a.a.bq() + System.currentTimeMillis();
+        long bH = cn.jiguang.d.a.a.bH() + System.currentTimeMillis();
         StringWriter stringWriter = new StringWriter();
         th.printStackTrace(new PrintWriter(stringWriter));
         String stringWriter2 = stringWriter.toString();
@@ -102,7 +103,7 @@ public final class e implements Thread.UncaughtExceptionHandler {
                 jSONObject = jSONArray.optJSONObject(i4);
                 if (jSONObject != null && stringWriter2.equals(jSONObject.getString("stacktrace"))) {
                     jSONObject.put(Config.TRACE_VISIT_RECENT_COUNT, jSONObject.getInt(Config.TRACE_VISIT_RECENT_COUNT) + 1);
-                    jSONObject.put("crashtime", bq);
+                    jSONObject.put("crashtime", bH);
                     break;
                 }
                 i4++;
@@ -111,7 +112,7 @@ public final class e implements Thread.UncaughtExceptionHandler {
         }
         if (jSONObject == null) {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("crashtime", bq);
+            jSONObject2.put("crashtime", bH);
             jSONObject2.put("stacktrace", stringWriter2);
             jSONObject2.put("message", a(th));
             jSONObject2.put(Config.TRACE_VISIT_RECENT_COUNT, 1);
@@ -158,7 +159,7 @@ public final class e implements Thread.UncaughtExceptionHandler {
 
     public static void a(Context context, String str) {
         if (!cn.jiguang.g.i.a(str) && str.equals(com.baidu.fsg.base.statistics.b.o)) {
-            e eVar = ki;
+            e eVar = kO;
             if (context == null || !cn.jiguang.d.a.d.d(context)) {
                 return;
             }
@@ -169,8 +170,8 @@ public final class e implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    public static e aZ() {
-        return ki;
+    public static e bq() {
+        return kO;
     }
 
     private JSONArray c(Context context, Throwable th) {
@@ -194,8 +195,8 @@ public final class e implements Thread.UncaughtExceptionHandler {
     }
 
     public final void b() {
-        if (this.kj == null) {
-            this.kj = Thread.getDefaultUncaughtExceptionHandler();
+        if (this.kP == null) {
+            this.kP = Thread.getDefaultUncaughtExceptionHandler();
         }
         Thread.setDefaultUncaughtExceptionHandler(this);
     }
@@ -216,13 +217,13 @@ public final class e implements Thread.UncaughtExceptionHandler {
             try {
                 f fVar = new f(this);
                 fVar.start();
-                fVar.join(2000L);
+                fVar.join(SystemScreenshotManager.DELAY_TIME);
             } catch (InterruptedException e) {
             } catch (Throwable th2) {
             }
         }
-        if (this.kj != this) {
-            this.kj.uncaughtException(thread, th);
+        if (this.kP != this) {
+            this.kP.uncaughtException(thread, th);
         }
         throw new RuntimeException(th);
     }

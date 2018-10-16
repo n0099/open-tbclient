@@ -6,49 +6,50 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class i {
-    private static i eOO = null;
-    private final HttpMessageListener asW = new HttpMessageListener(CmdConfigHttp.MSG_REMINDER_CMD) { // from class: com.baidu.tieba.imMessageCenter.mention.i.1
+    private static i eWw = null;
+    private final HttpMessageListener axH = new HttpMessageListener(CmdConfigHttp.MSG_REMINDER_CMD) { // from class: com.baidu.tieba.imMessageCenter.mention.i.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002500 && (httpResponsedMessage instanceof MsgReminderHttpRespMessage)) {
                 h msgData = ((MsgReminderHttpRespMessage) httpResponsedMessage).getMsgData();
-                if (!com.baidu.tbadk.coreExtra.messageCenter.a.EA() && msgData != null && com.baidu.tbadk.coreExtra.messageCenter.c.Ff().Fh()) {
-                    if (msgData.aRq() >= 0) {
-                        com.baidu.tbadk.coreExtra.messageCenter.a.Ey().setMsgBookmark(msgData.aRq());
+                if (!com.baidu.tbadk.coreExtra.messageCenter.a.GB() && msgData != null && com.baidu.tbadk.coreExtra.messageCenter.c.Hg().Hi()) {
+                    if (msgData.aUE() >= 0) {
+                        com.baidu.tbadk.coreExtra.messageCenter.a.Gz().setMsgBookmark(msgData.aUE());
                     }
-                    if (msgData.aRo() >= 0) {
-                        com.baidu.tbadk.coreExtra.messageCenter.a.Ey().setMsgAtme(msgData.aRo());
+                    if (msgData.aUC() >= 0) {
+                        com.baidu.tbadk.coreExtra.messageCenter.a.Gz().setMsgAtme(msgData.aUC());
                     }
-                    if (msgData.aRn() >= 0) {
-                        com.baidu.tbadk.coreExtra.messageCenter.a.Ey().setMsgReplyme(msgData.aRn());
+                    if (msgData.aUB() >= 0) {
+                        com.baidu.tbadk.coreExtra.messageCenter.a.Gz().setMsgReplyme(msgData.aUB());
                     }
-                    if (msgData.aRp() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.Ff().Fl()) {
-                        com.baidu.tbadk.coreExtra.messageCenter.a.Ey().setMsgFans(msgData.aRp());
+                    if (msgData.aUD() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.Hg().Hm()) {
+                        com.baidu.tbadk.coreExtra.messageCenter.a.Gz().setMsgFans(msgData.aUD());
                     }
-                    if (msgData.aRm() >= 0) {
-                        com.baidu.tbadk.coreExtra.messageCenter.a.Ey().ek(msgData.aRm());
+                    if (msgData.aUA() >= 0) {
+                        com.baidu.tbadk.coreExtra.messageCenter.a.Gz().et(msgData.aUA());
                     }
                 }
             }
         }
     };
-    private long eOP = 0;
+    private long eWx = 0;
     private final Handler mHandler = new Handler() { // from class: com.baidu.tieba.imMessageCenter.mention.i.2
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 1) {
                 int i = message.arg1;
-                i.this.eOP = System.currentTimeMillis();
+                i.this.eWx = System.currentTimeMillis();
                 boolean z = !MessageManager.getInstance().getSocketClient().isValid();
-                if (i == 2 || (z && com.baidu.adp.lib.util.j.kK())) {
-                    i.this.aRs();
+                if (i == 2 || (z && com.baidu.adp.lib.util.j.kX())) {
+                    i.this.aUG();
                 }
                 i.this.j(1, KeepJobService.JOB_CHECK_PERIODIC);
             }
@@ -62,28 +63,28 @@ public class i {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static synchronized i aRr() {
+    public static synchronized i aUF() {
         i iVar;
         synchronized (i.class) {
-            if (eOO == null) {
-                eOO = new i();
+            if (eWw == null) {
+                eWw = new i();
             }
-            iVar = eOO;
+            iVar = eWw;
         }
         return iVar;
     }
 
     public i() {
-        MessageManager.getInstance().registerListener(this.asW);
+        MessageManager.getInstance().registerListener(this.axH);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aRs() {
+    public void aUG() {
         MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.MSG_REMINDER_CMD));
     }
 
     public void restart() {
-        this.eOP = 0L;
+        this.eWx = 0L;
         destroy();
         start();
     }
@@ -91,17 +92,17 @@ public class i {
     public void start() {
         int i;
         long j;
-        long currentTimeMillis = System.currentTimeMillis() - this.eOP;
+        long currentTimeMillis = System.currentTimeMillis() - this.eWx;
         long j2 = currentTimeMillis > 0 ? currentTimeMillis : 0L;
         if (j2 >= KeepJobService.JOB_CHECK_PERIODIC) {
             i = 2;
-            j = 10000;
+            j = ErrDef.Feature.WEIGHT;
         } else {
             i = 1;
             j = KeepJobService.JOB_CHECK_PERIODIC - j2;
         }
         j(i, j);
-        this.eOP = System.currentTimeMillis();
+        this.eWx = System.currentTimeMillis();
     }
 
     public void destroy() {

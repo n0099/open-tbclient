@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class BLauncher extends ImageView implements g {
-    private boolean aPe;
+    private boolean aTG;
     private int mIcon;
     private int mId;
     private int mSkinType;
@@ -19,7 +19,7 @@ public class BLauncher extends ImageView implements g {
     public BLauncher(Context context, int i, int i2) {
         super(context);
         this.mSkinType = 0;
-        this.aPe = false;
+        this.aTG = false;
         setIcon(i);
         setToolId(i2);
     }
@@ -42,17 +42,17 @@ public class BLauncher extends ImageView implements g {
     }
 
     @Override // com.baidu.tbadk.editortools.g
-    public void pI() {
+    public void pQ() {
         setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.editortools.g
     public void hide() {
-        II();
+        KG();
         setVisibility(8);
     }
 
-    public void gU(String str) {
+    public void hi(String str) {
         if (getVisibility() != 8 && !TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
@@ -83,7 +83,7 @@ public class BLauncher extends ImageView implements g {
         }
     }
 
-    public void II() {
+    public void KG() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -98,9 +98,9 @@ public class BLauncher extends ImageView implements g {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                II();
+                KG();
             } else if (aVar.data instanceof String) {
-                gU((String) aVar.data);
+                hi((String) aVar.data);
             }
         }
     }
@@ -120,11 +120,11 @@ public class BLauncher extends ImageView implements g {
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.aPe;
+        return this.aTG;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.aPe = z;
+        this.aTG = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

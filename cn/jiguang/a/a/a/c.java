@@ -82,8 +82,8 @@ public final class c {
                 String str3 = TextUtils.isEmpty(str) ? "" : str;
                 String str4 = TextUtils.isEmpty(str2) ? "" : str2;
                 String str5 = TextUtils.isEmpty(str3) ? str4 : str3;
-                boolean b = a.aV().b(context, str5);
-                a.aV();
+                boolean b = a.bm().b(context, str5);
+                a.bm();
                 a.a(context);
                 if (b) {
                     new h(wifiManager, str5, str3, str4, context, 300, 2, (byte) 0).start();

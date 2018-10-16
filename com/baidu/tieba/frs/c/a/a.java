@@ -2,15 +2,15 @@ package com.baidu.tieba.frs.c.a;
 
 import android.view.View;
 import android.widget.LinearLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public interface a {
-    LinearLayout aBs();
+    LinearLayout aEL();
 
     View getHeaderView();
 
     void hideTitle();
 
-    void it(String str);
+    void iG(String str);
 
     void onChangeSkinType(int i);
 

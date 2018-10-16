@@ -2,20 +2,19 @@ package com.coremedia.iso;
 
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.Container;
-import com.coremedia.iso.boxes.UserBox;
 import com.googlecode.mp4parser.DataSource;
 import java.io.EOFException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.logging.Logger;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class AbstractBoxParser implements BoxParser {
     private static Logger LOG = Logger.getLogger(AbstractBoxParser.class.getName());
     ThreadLocal<ByteBuffer> header = new ThreadLocal<ByteBuffer>() { // from class: com.coremedia.iso.AbstractBoxParser.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // java.lang.ThreadLocal
-        /* renamed from: bMz */
+        /* renamed from: bQP */
         public ByteBuffer initialValue() {
             return ByteBuffer.allocate(32);
         }
@@ -56,7 +55,7 @@ public abstract class AbstractBoxParser implements BoxParser {
                 } else {
                     j = readUInt32 - 8;
                 }
-                if (UserBox.TYPE.equals(read4cc)) {
+                if ("uuid".equals(read4cc)) {
                     this.header.get().limit(this.header.get().limit() + 16);
                     dataSource.read(this.header.get());
                     byte[] bArr3 = new byte[16];

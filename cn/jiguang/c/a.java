@@ -7,23 +7,23 @@ import java.util.LinkedHashSet;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class a implements b {
-    private static final LinkedHashMap<String, Integer> ku;
-    private static final LinkedHashMap<String, Integer> kv;
-    private static final LinkedHashSet<String> kx;
+    private static final LinkedHashMap<String, Integer> la;
+    private static final LinkedHashMap<String, Integer> lb;
+    private static final LinkedHashSet<String> lc;
 
     static {
         LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<>();
-        ku = linkedHashMap;
+        la = linkedHashMap;
         linkedHashMap.put("s.jpush.cn", 19000);
-        ku.put("sis.jpush.io", 19000);
-        ku.put("easytomessage.com", 19000);
+        la.put("sis.jpush.io", 19000);
+        la.put("easytomessage.com", 19000);
         LinkedHashMap<String, Integer> linkedHashMap2 = new LinkedHashMap<>();
-        kv = linkedHashMap2;
+        lb = linkedHashMap2;
         linkedHashMap2.put("123.196.118.23", 19000);
-        kv.put("103.229.215.60", 19000);
-        kv.put("117.121.49.100", 19000);
+        lb.put("103.229.215.60", 19000);
+        lb.put("117.121.49.100", 19000);
         LinkedHashSet<String> linkedHashSet = new LinkedHashSet<>();
-        kx = linkedHashSet;
+        lc = linkedHashSet;
         linkedHashSet.add("https://tsis.jpush.cn");
     }
 
@@ -52,18 +52,18 @@ public final class a implements b {
     }
 
     @Override // cn.jiguang.c.b
-    public final LinkedHashMap<String, Integer> bm() {
-        return ku;
+    public final LinkedHashMap<String, Integer> bD() {
+        return la;
     }
 
     @Override // cn.jiguang.c.b
-    public final LinkedHashMap<String, Integer> bn() {
-        return kv;
+    public final LinkedHashMap<String, Integer> bE() {
+        return lb;
     }
 
     @Override // cn.jiguang.c.b
-    public final LinkedHashSet<String> bo() {
-        return kx;
+    public final LinkedHashSet<String> bF() {
+        return lc;
     }
 
     @Override // cn.jiguang.c.b

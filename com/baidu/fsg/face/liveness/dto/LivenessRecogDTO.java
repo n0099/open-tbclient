@@ -5,9 +5,10 @@ import com.baidu.fsg.base.restnet.beans.business.core.PayUtils;
 import com.baidu.fsg.face.base.dto.SapiBiometricDto;
 import com.baidu.fsg.face.liveness.beans.c;
 import com.baidu.fsg.face.liveness.utils.enums.LivenessRecogType;
+import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LivenessRecogDTO extends SapiBiometricDto {
     private static final int IMAGE_FLAG_CUTIMAGE = 1;
     private static final int IMAGE_FLAG_ORIGINIMAGE = 2;
@@ -42,10 +43,10 @@ public class LivenessRecogDTO extends SapiBiometricDto {
         HashMap<String, String> hashMap = new HashMap<>();
         if (!TextUtils.isEmpty(this.spParams)) {
             try {
-                String[] split2 = this.spParams.split("&");
+                String[] split2 = this.spParams.split(ETAG.ITEM_SEPARATOR);
                 if (split2 != null && split2.length > 0) {
                     for (String str : split2) {
-                        if (str != null && (split = str.split("=")) != null && split.length == 2) {
+                        if (str != null && (split = str.split(ETAG.EQUAL)) != null && split.length == 2) {
                             hashMap.put(split[0], split[1]);
                         }
                     }

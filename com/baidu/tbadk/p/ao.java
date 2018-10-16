@@ -3,7 +3,7 @@ package com.baidu.tbadk.p;
 public class ao extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected void Z(int i) {
-        com.baidu.tbadk.l.m.LZ().cl(1 == i);
+        com.baidu.tbadk.l.m.NX().cu(1 == i);
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -12,22 +12,22 @@ public class ao extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] ir() {
+    protected String[] iH() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int is() {
+    protected int iI() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int it() {
+    protected int iJ() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int iu() {
+    protected int iK() {
         return 10;
     }
 }

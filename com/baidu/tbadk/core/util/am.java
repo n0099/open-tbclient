@@ -22,19 +22,19 @@ public class am {
         this.key = str;
     }
 
-    public am al(String str, String str2) {
+    public am ax(String str, String str2) {
         this.params.add(str);
         this.params.add(str2);
         return this;
     }
 
-    public am w(String str, int i) {
+    public am x(String str, int i) {
         this.params.add(str);
         this.params.add(Integer.valueOf(i));
         return this;
     }
 
-    public am g(String str, long j) {
+    public am h(String str, long j) {
         this.params.add(str);
         this.params.add(Long.valueOf(j));
         return this;

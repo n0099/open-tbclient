@@ -3,16 +3,15 @@ package cn.jiguang.a.a.b;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import com.baidu.baiduarsdk.ArBridge;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class g extends Handler {
-    final /* synthetic */ f kf;
+    final /* synthetic */ f kL;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(f fVar, Looper looper) {
         super(looper);
-        this.kf = fVar;
+        this.kL = fVar;
     }
 
     @Override // android.os.Handler
@@ -22,21 +21,21 @@ public final class g extends Handler {
         boolean z;
         switch (message.what) {
             case 1000:
-                z = this.kf.k;
+                z = this.kL.k;
                 if (z) {
                     return;
                 }
-                this.kf.k = true;
-                f.b(this.kf);
-                f.c(this.kf);
+                this.kL.k = true;
+                f.b(this.kL);
+                f.c(this.kL);
                 return;
             case 1001:
             case 1003:
             case 1004:
-            case ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC /* 1005 */:
-                cVar = this.kf.kd;
+            case 1005:
+                cVar = this.kL.kJ;
                 if (cVar != null) {
-                    cVar2 = this.kf.kd;
+                    cVar2 = this.kL.kJ;
                     cVar2.a(message);
                     return;
                 }

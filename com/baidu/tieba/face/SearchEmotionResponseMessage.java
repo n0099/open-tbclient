@@ -1,5 +1,6 @@
 package com.baidu.tieba.face;
 
+import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.face.data.EmotionImageData;
 import java.util.ArrayList;
@@ -21,12 +22,12 @@ public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {
             this.mData = new com.baidu.tieba.face.data.a();
-            JSONObject optJSONObject = jSONObject.optJSONObject("page");
+            JSONObject optJSONObject = jSONObject.optJSONObject(SystemScreenshotManager.PAGE);
             if (optJSONObject != null) {
                 this.mData.setPage(optJSONObject.optInt("current_pn"));
                 this.mData.setHasMore(optJSONObject.optInt("has_more"));
             }
-            this.mData.aY(parseImageData(jSONObject.optJSONArray("list")));
+            this.mData.bo(parseImageData(jSONObject.optJSONArray("list")));
         }
     }
 

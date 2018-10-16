@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
 import com.coremedia.iso.boxes.MetaBox;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +41,7 @@ public class bp {
                     JSONArray jSONArray = (JSONArray) jSONObject.get("data");
                     for (int i = 0; i < jSONArray.length(); i++) {
                         JSONObject jSONObject2 = (JSONObject) jSONArray.get(i);
-                        String optString = jSONObject2.optString("page");
+                        String optString = jSONObject2.optString(SystemScreenshotManager.PAGE);
                         String optString2 = jSONObject2.optString("layout");
                         int optInt = jSONObject2.optInt("contentAsLabel");
                         boolean z = jSONObject2.optInt("ignoreCellIndex") != 0;

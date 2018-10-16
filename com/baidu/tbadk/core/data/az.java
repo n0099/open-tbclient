@@ -3,13 +3,13 @@ package com.baidu.tbadk.core.data;
 public class az {
     protected String img_url = null;
     protected String link = null;
-    protected String ajS = null;
+    protected String aoN = null;
 
-    public String uW() {
+    public String xf() {
         return this.img_url;
     }
 
-    public void dB(String str) {
+    public void dR(String str) {
         this.img_url = str;
     }
 
@@ -21,11 +21,11 @@ public class az {
         this.link = str;
     }
 
-    public String vN() {
-        return this.ajS;
+    public String xW() {
+        return this.aoN;
     }
 
-    public void dC(String str) {
-        this.ajS = str;
+    public void dS(String str) {
+        this.aoN = str;
     }
 }

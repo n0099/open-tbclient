@@ -12,14 +12,14 @@ public final class r extends a {
     }
 
     private byte[] a(int i) {
-        SocketChannel socketChannel = (SocketChannel) this.lc.channel();
+        SocketChannel socketChannel = (SocketChannel) this.lI.channel();
         byte[] bArr = new byte[i];
         ByteBuffer wrap = ByteBuffer.wrap(bArr);
-        this.lc.interestOps(1);
+        this.lI.interestOps(1);
         int i2 = 0;
         while (i2 < i) {
             try {
-                if (this.lc.isReadable()) {
+                if (this.lI.isReadable()) {
                     long read = socketChannel.read(wrap);
                     if (read < 0) {
                         throw new EOFException();
@@ -29,11 +29,11 @@ public final class r extends a {
                         throw new SocketTimeoutException();
                     }
                 } else {
-                    a(this.lc, this.a);
+                    a(this.lI, this.a);
                 }
             } finally {
-                if (this.lc.isValid()) {
-                    this.lc.interestOps(0);
+                if (this.lI.isValid()) {
+                    this.lI.interestOps(0);
                 }
             }
         }
@@ -44,23 +44,23 @@ public final class r extends a {
         int i = 0;
         r rVar = new r(j);
         try {
-            SocketChannel socketChannel = (SocketChannel) rVar.lc.channel();
+            SocketChannel socketChannel = (SocketChannel) rVar.lI.channel();
             if (!socketChannel.connect(socketAddress2)) {
-                rVar.lc.interestOps(8);
+                rVar.lI.interestOps(8);
                 while (!socketChannel.finishConnect()) {
-                    if (!rVar.lc.isConnectable()) {
-                        a(rVar.lc, rVar.a);
+                    if (!rVar.lI.isConnectable()) {
+                        a(rVar.lI, rVar.a);
                     }
                 }
-                if (rVar.lc.isValid()) {
-                    rVar.lc.interestOps(0);
+                if (rVar.lI.isValid()) {
+                    rVar.lI.interestOps(0);
                 }
             }
-            SocketChannel socketChannel2 = (SocketChannel) rVar.lc.channel();
+            SocketChannel socketChannel2 = (SocketChannel) rVar.lI.channel();
             ByteBuffer[] byteBufferArr = {ByteBuffer.wrap(new byte[]{(byte) (bArr.length >>> 8), (byte) (bArr.length & 255)}), ByteBuffer.wrap(bArr)};
-            rVar.lc.interestOps(4);
+            rVar.lI.interestOps(4);
             while (i < bArr.length + 2) {
-                if (rVar.lc.isWritable()) {
+                if (rVar.lI.isWritable()) {
                     long write = socketChannel2.write(byteBufferArr);
                     if (write < 0) {
                         throw new EOFException();
@@ -70,15 +70,15 @@ public final class r extends a {
                         throw new SocketTimeoutException();
                     }
                 } else {
-                    a(rVar.lc, rVar.a);
+                    a(rVar.lI, rVar.a);
                 }
             }
-            if (rVar.lc.isValid()) {
-                rVar.lc.interestOps(0);
+            if (rVar.lI.isValid()) {
+                rVar.lI.interestOps(0);
             }
             byte[] a = rVar.a(2);
             byte[] a2 = rVar.a((a[1] & 255) + ((a[0] & 255) << 8));
-            rVar.lc.channel();
+            rVar.lI.channel();
             return a2;
         } finally {
             rVar.a();

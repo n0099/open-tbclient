@@ -5,7 +5,6 @@ import android.graphics.PointF;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.RestrictTo;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.ActivityChooserView;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -1167,7 +1166,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
             i4 = 16388;
         } else {
             i3 = 4161;
-            i4 = FragmentTransaction.TRANSIT_FRAGMENT_OPEN;
+            i4 = 4097;
         }
         if (this.mOrientation == 0) {
             return this.mHorizontalBoundCheck.findOneViewWithinBoundFlags(i, i2, i3, i4);

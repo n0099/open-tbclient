@@ -6,6 +6,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.e;
+import com.baidu.webkit.internal.ETAG;
 import java.net.MalformedURLException;
 import java.net.URL;
 /* loaded from: classes.dex */
@@ -30,33 +31,33 @@ public class BaseWebViewFragment extends BaseFragment {
     }
 
     public boolean isNeedShowNavigationBar() {
-        return T(this.mUrl, "nonavigationbar");
+        return ag(this.mUrl, "nonavigationbar");
     }
 
     public boolean isNeedShowShareItem() {
-        return T(this.mUrl, "noshare");
+        return ag(this.mUrl, "noshare");
     }
 
     public boolean isNeedShowMenuItem() {
-        return T(this.mUrl, "nomenu");
+        return ag(this.mUrl, "nomenu");
     }
 
-    public boolean da(String str) {
-        return T(str, "blank");
+    public boolean dq(String str) {
+        return ag(str, "blank");
     }
 
-    public boolean T(String str, String str2) {
+    public boolean ag(String str, String str2) {
         String[] split;
         if (StringUtils.isNull(str) || StringUtils.isNull(str2)) {
             return true;
         }
         try {
             String query = new URL(str).getQuery();
-            if (StringUtils.isNull(query) || (split = query.split("&")) == null) {
+            if (StringUtils.isNull(query) || (split = query.split(ETAG.ITEM_SEPARATOR)) == null) {
                 return true;
             }
             for (String str3 : split) {
-                String[] split2 = str3.split("=");
+                String[] split2 = str3.split(ETAG.EQUAL);
                 if (split2 != null && split2.length == 2) {
                     String str4 = split2[0];
                     String str5 = split2[1];

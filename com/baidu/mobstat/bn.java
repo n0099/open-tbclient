@@ -5,6 +5,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.mobstat.bz;
+import com.baidu.webkit.internal.ETAG;
 import com.sina.weibo.sdk.constant.WBConstants;
 import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
@@ -176,9 +177,9 @@ public class bn {
                 String encode = URLEncoder.encode(((String) pair.first).toString(), "UTF-8");
                 String encode2 = URLEncoder.encode(((String) pair.second).toString(), "UTF-8");
                 if (TextUtils.isEmpty(sb.toString())) {
-                    sb.append(encode + "=" + encode2);
+                    sb.append(encode + ETAG.EQUAL + encode2);
                 } else {
-                    sb.append("&" + encode + "=" + encode2);
+                    sb.append(ETAG.ITEM_SEPARATOR + encode + ETAG.EQUAL + encode2);
                 }
             } catch (Exception e) {
             }
@@ -205,9 +206,9 @@ public class bn {
                 String encode = URLEncoder.encode(((String) pair.first).toString(), "UTF-8");
                 String encode2 = URLEncoder.encode(((String) pair.second).toString(), "UTF-8");
                 if (TextUtils.isEmpty(sb.toString())) {
-                    sb.append(encode + "=" + encode2);
+                    sb.append(encode + ETAG.EQUAL + encode2);
                 } else {
-                    sb.append("&" + encode + "=" + encode2);
+                    sb.append(ETAG.ITEM_SEPARATOR + encode + ETAG.EQUAL + encode2);
                 }
             } catch (Exception e) {
             }

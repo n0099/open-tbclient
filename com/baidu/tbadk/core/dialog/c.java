@@ -10,8 +10,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class c extends AlertDialog {
-    private TextView anJ;
-    private CircleView anK;
+    private TextView asD;
+    private CircleView asE;
     private FrameLayout mFrameLayout;
     private String mMessage;
     private TextView mTextView;
@@ -28,14 +28,14 @@ public class c extends AlertDialog {
             window.setContentView(e.h.progress_dialog);
             this.mFrameLayout = (FrameLayout) window.findViewById(e.g.frame_progress_dialog);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mFrameLayout.getLayoutParams();
-            layoutParams.topMargin = getContext().getResources().getDimensionPixelSize(e.C0141e.ds32);
+            layoutParams.topMargin = getContext().getResources().getDimensionPixelSize(e.C0175e.ds32);
             this.mFrameLayout.setLayoutParams(layoutParams);
             if (!StringUtils.isNull(this.mMessage)) {
-                this.anJ = (TextView) window.findViewById(e.g.text_progress_dialog_message);
-                this.anJ.setText(this.mMessage);
+                this.asD = (TextView) window.findViewById(e.g.text_progress_dialog_message);
+                this.asD.setText(this.mMessage);
             }
             this.mTextView = (TextView) window.findViewById(e.g.text_progress_dialog_percent);
-            this.anK = (CircleView) window.findViewById(e.g.circle_progress_dialog);
+            this.asE = (CircleView) window.findViewById(e.g.circle_progress_dialog);
         }
     }
 
@@ -43,15 +43,15 @@ public class c extends AlertDialog {
         if (this.mTextView != null) {
             this.mTextView.setText(i + "%");
         }
-        if (this.anK != null) {
-            this.anK.setProgress(i);
+        if (this.asE != null) {
+            this.asE.setProgress(i);
         }
     }
 
     public void setMessage(String str) {
         this.mMessage = str;
-        if (this.anJ != null) {
-            this.anJ.setText(this.mMessage);
+        if (this.asD != null) {
+            this.asD.setText(this.mMessage);
         }
     }
 }

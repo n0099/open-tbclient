@@ -24,6 +24,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.List;
@@ -302,7 +303,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton {
             case 0:
             default:
                 return i;
-            case 1073741824:
+            case AiAppsFileUtils.GB /* 1073741824 */:
                 return size;
         }
     }

@@ -21,9 +21,9 @@ public interface g {
 
         void f(int i, String str);
 
-        void j(Map<String, String> map);
+        void lG();
 
-        void lv();
+        void onOpen(Map<String, String> map);
 
         void x(byte[] bArr);
     }

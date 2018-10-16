@@ -7,7 +7,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.pb.data.j;
 import com.squareup.wire.Wire;
 import tbclient.PbFloor.PbFloorResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
     public j pbFloorData;
     private boolean treatDelPage;
@@ -41,7 +41,7 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
             if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
                 jVar = j.a(pbFloorResIdl.data, context);
                 if (jVar != null) {
-                    jVar.fBc = pbFloorResIdl.error;
+                    jVar.fIE = pbFloorResIdl.error;
                 } else if (pbFloorResIdl.error != null) {
                     if (pbFloorResIdl.error.errorno != null) {
                         setError(pbFloorResIdl.error.errorno.intValue());

@@ -6,7 +6,7 @@ import com.baidu.fsg.base.restnet.beans.IBeanResponse;
 import com.baidu.fsg.base.utils.JsonUtils;
 import java.io.Serializable;
 import org.json.JSONException;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class UploadContrastPortraitModel implements IBeanResponse, Serializable {
     public String authsid;
     public String callbackkey;
@@ -17,7 +17,7 @@ public class UploadContrastPortraitModel implements IBeanResponse, Serializable 
     public String need_confirm;
     public int recordvideo;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class ConfirmBean implements NoProguard, Serializable {
         public String cancel_msg;
         public String confirm_msg;

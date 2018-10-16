@@ -1,5 +1,6 @@
 package com.baidu.tieba.forbidden.fans;
 
+import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
 import com.baidu.tbadk.core.data.al;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
                 }
             }
             this.pageData = new al();
-            this.pageData.parserJson(jSONObject.optJSONObject("page"));
+            this.pageData.parserJson(jSONObject.optJSONObject(SystemScreenshotManager.PAGE));
         }
     }
 

@@ -38,12 +38,12 @@ public final class a {
             d i = i(bArr);
             if (i != null) {
                 long c = cn.jiguang.d.a.d.c(context);
-                long j = i.bM().f;
+                long j = i.cd().f;
                 if (c == 0 || j == 0 || c == j) {
-                    cn.jiguang.d.d.e.bD();
-                    cn.jiguang.d.d.e.a(context, i.bM(), i.bN());
+                    cn.jiguang.d.d.e.bU();
+                    cn.jiguang.d.d.e.a(context, i.cd(), i.ce());
                 } else {
-                    cn.jiguang.d.f.a.bO().a(context, j, bArr);
+                    cn.jiguang.d.f.a.cf().a(context, j, bArr);
                 }
                 return true;
             }
@@ -85,7 +85,7 @@ public final class a {
     public static h h(byte[] bArr) {
         d i = i(bArr);
         if (i != null) {
-            return a(i.bM(), i.bN());
+            return a(i.cd(), i.ce());
         }
         return null;
     }

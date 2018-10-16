@@ -16,7 +16,7 @@ public class ResponseCommitGroupMessage extends ResponseCommitMessage {
         setError(commitGroupMsgResIdl.error.errorno.intValue());
         setErrorString(commitGroupMsgResIdl.error.usermsg);
         if (getError() == 0) {
-            setMsgId(d.ct(commitGroupMsgResIdl.data.msgId.longValue()));
+            setMsgId(d.cA(commitGroupMsgResIdl.data.msgId.longValue()));
             setRecordId(commitGroupMsgResIdl.data.recordId.longValue());
             setGroupId(String.valueOf(commitGroupMsgResIdl.data.groupId));
         }

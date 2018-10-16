@@ -9,39 +9,39 @@ import android.graphics.Shader;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class k extends a {
-    protected BitmapShader II;
+    protected BitmapShader Jk;
     protected Matrix mShaderMatrix = new Matrix();
-    protected RectF IJ = new RectF();
+    protected RectF Jl = new RectF();
 
     @Override // com.baidu.adp.newwidget.ImageView.a
     public void a(c cVar, ImageView imageView) {
         int width = cVar.getWidth();
         int height = cVar.getHeight();
-        PointF a = a(this.If.left, this.If.top, this.Ie);
+        PointF a = a(this.mBounds.left, this.mBounds.top, this.IG);
         int i = (int) a.x;
         int i2 = (int) a.y;
-        PointF a2 = a(this.If.right, this.If.bottom, this.Ie);
+        PointF a2 = a(this.mBounds.right, this.mBounds.bottom, this.IG);
         int i3 = (int) a2.x;
         int i4 = (int) a2.y;
         this.mShaderMatrix.reset();
         this.mShaderMatrix.postScale((i3 - i) / width, (i4 - i2) / height);
         this.mShaderMatrix.postTranslate(i, i2);
-        if (cVar.mb()) {
-            this.II = new BitmapShader(cVar.Im.getBitmap(), Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+        if (cVar.ml()) {
+            this.Jk = new BitmapShader(cVar.IO.getBitmap(), Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
         } else {
-            this.II = cVar.In.on();
+            this.Jk = cVar.IP.oy();
         }
-        if (this.II != null) {
-            this.II.setLocalMatrix(this.mShaderMatrix);
-            this.mPaint.setShader(this.II);
+        if (this.Jk != null) {
+            this.Jk.setLocalMatrix(this.mShaderMatrix);
+            this.mPaint.setShader(this.Jk);
             int width2 = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
-            this.IJ.set(Math.max(i, 0), Math.max(i2, 0), Math.min(i3, width2), Math.min(i4, (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom()));
-            if (this.mArgs.Iq) {
+            this.Jl.set(Math.max(i, 0), Math.max(i2, 0), Math.min(i3, width2), Math.min(i4, (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom()));
+            if (this.mArgs.IS) {
                 float f = this.mArgs.mBorderWidth / 2.0f;
-                if (!this.mArgs.Ir) {
+                if (!this.mArgs.IT) {
                     this.mBorderRect.set(f, f, imageView.getWidth() - f, imageView.getHeight() - f);
                 } else {
-                    this.mBorderRect.set(this.IJ.left + f, this.IJ.top + f, this.IJ.right - f, this.IJ.bottom - f);
+                    this.mBorderRect.set(this.Jl.left + f, this.Jl.top + f, this.Jl.right - f, this.Jl.bottom - f);
                 }
             }
         }
@@ -49,30 +49,30 @@ public class k extends a {
 
     @Override // com.baidu.adp.newwidget.ImageView.a
     public void b(Canvas canvas, c cVar, ImageView imageView) {
-        boolean mc = cVar.mc();
-        if (mc) {
-            cVar.In.ag(true);
+        boolean mm = cVar.mm();
+        if (mm) {
+            cVar.IP.af(true);
         }
-        if (!this.mArgs.Ip) {
-            canvas.drawRoundRect(this.IJ, this.mArgs.Io, this.mArgs.Io, this.mPaint);
+        if (!this.mArgs.IR) {
+            canvas.drawRoundRect(this.Jl, this.mArgs.IQ, this.mArgs.IQ, this.mPaint);
         } else {
-            canvas.drawCircle((this.IJ.right + this.IJ.left) / 2.0f, (this.IJ.top + this.IJ.bottom) / 2.0f, Math.min(this.IJ.width(), this.IJ.height()) / 2.0f, this.mPaint);
+            canvas.drawCircle((this.Jl.right + this.Jl.left) / 2.0f, (this.Jl.top + this.Jl.bottom) / 2.0f, Math.min(this.Jl.width(), this.Jl.height()) / 2.0f, this.mPaint);
         }
-        if (mc) {
-            cVar.In.ag(false);
+        if (mm) {
+            cVar.IP.af(false);
         }
     }
 
     @Override // com.baidu.adp.newwidget.ImageView.a
     public void b(Canvas canvas, ImageView imageView) {
-        if (this.mArgs.Iq) {
-            if (!this.mArgs.Ip) {
-                canvas.drawRoundRect(this.mBorderRect, this.mArgs.Io, this.mArgs.Io, this.mBorderPaint);
+        if (this.mArgs.IS) {
+            if (!this.mArgs.IR) {
+                canvas.drawRoundRect(this.mBorderRect, this.mArgs.IQ, this.mArgs.IQ, this.mBorderPaint);
                 return;
             }
-            float f = (this.IJ.right + this.IJ.left) / 2.0f;
-            float f2 = (this.IJ.top + this.IJ.bottom) / 2.0f;
-            float min = Math.min(this.IJ.width(), this.IJ.height()) / 2.0f;
+            float f = (this.Jl.right + this.Jl.left) / 2.0f;
+            float f2 = (this.Jl.top + this.Jl.bottom) / 2.0f;
+            float min = Math.min(this.Jl.width(), this.Jl.height()) / 2.0f;
             if (min <= 0.0f) {
                 f = (imageView.getRight() + imageView.getLeft()) / 2.0f;
                 f2 = (imageView.getTop() + imageView.getBottom()) / 2.0f;
@@ -84,18 +84,18 @@ public class k extends a {
 
     @Override // com.baidu.adp.newwidget.ImageView.a
     public void a(Canvas canvas, ImageView imageView) {
-        if (this.mArgs.Iv != 0) {
+        if (this.mArgs.IY != 0) {
             int scrollX = imageView.getScrollX();
             int scrollY = imageView.getScrollY();
             canvas.translate(scrollX, scrollY);
-            this.Id.setColor(this.mArgs.Iv);
-            if (!this.mArgs.Ip) {
-                this.Ik.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-                canvas.drawRoundRect(this.Ik, this.mArgs.Io, this.mArgs.Io, this.Id);
+            this.IF.setColor(this.mArgs.IY);
+            if (!this.mArgs.IR) {
+                this.IL.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
+                canvas.drawRoundRect(this.IL, this.mArgs.IQ, this.mArgs.IQ, this.IF);
             } else {
                 float width = imageView.getWidth() / 2.0f;
                 float height = imageView.getHeight() / 2.0f;
-                canvas.drawCircle(width, height, Math.min(width, height) - (this.mArgs.mBorderWidth / 2.0f), this.Id);
+                canvas.drawCircle(width, height, Math.min(width, height) - (this.mArgs.mBorderWidth / 2.0f), this.IF);
             }
             canvas.translate(-scrollX, -scrollY);
         }

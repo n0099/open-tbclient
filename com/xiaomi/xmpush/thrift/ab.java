@@ -1,7 +1,6 @@
 package com.xiaomi.xmpush.thrift;
 
 import com.baidu.fsg.base.BaiduRimConstants;
-import com.tencent.tauth.AuthActivity;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.util.BitSet;
@@ -15,7 +14,7 @@ import java.util.Map;
 public class ab implements Serializable, Cloneable, org.apache.thrift.a<ab, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> i;
     private static final org.apache.thrift.protocol.j j = new org.apache.thrift.protocol.j("XmPushActionContainer");
-    private static final org.apache.thrift.protocol.b k = new org.apache.thrift.protocol.b(AuthActivity.ACTION_KEY, (byte) 8, 1);
+    private static final org.apache.thrift.protocol.b k = new org.apache.thrift.protocol.b("action", (byte) 8, 1);
     private static final org.apache.thrift.protocol.b l = new org.apache.thrift.protocol.b("encryptAction", (byte) 2, 2);
     private static final org.apache.thrift.protocol.b m = new org.apache.thrift.protocol.b("isRequest", (byte) 2, 3);
     private static final org.apache.thrift.protocol.b n = new org.apache.thrift.protocol.b("pushAction", (byte) 11, 4);
@@ -35,7 +34,7 @@ public class ab implements Serializable, Cloneable, org.apache.thrift.a<ab, a> {
 
     /* loaded from: classes3.dex */
     public enum a {
-        ACTION(1, AuthActivity.ACTION_KEY),
+        ACTION(1, "action"),
         ENCRYPT_ACTION(2, "encryptAction"),
         IS_REQUEST(3, "isRequest"),
         PUSH_ACTION(4, "pushAction"),
@@ -68,7 +67,7 @@ public class ab implements Serializable, Cloneable, org.apache.thrift.a<ab, a> {
 
     static {
         EnumMap enumMap = new EnumMap(a.class);
-        enumMap.put((EnumMap) a.ACTION, (a) new org.apache.thrift.meta_data.b(AuthActivity.ACTION_KEY, (byte) 1, new org.apache.thrift.meta_data.a((byte) 16, com.xiaomi.xmpush.thrift.a.class)));
+        enumMap.put((EnumMap) a.ACTION, (a) new org.apache.thrift.meta_data.b("action", (byte) 1, new org.apache.thrift.meta_data.a((byte) 16, com.xiaomi.xmpush.thrift.a.class)));
         enumMap.put((EnumMap) a.ENCRYPT_ACTION, (a) new org.apache.thrift.meta_data.b("encryptAction", (byte) 1, new org.apache.thrift.meta_data.c((byte) 2)));
         enumMap.put((EnumMap) a.IS_REQUEST, (a) new org.apache.thrift.meta_data.b("isRequest", (byte) 1, new org.apache.thrift.meta_data.c((byte) 2)));
         enumMap.put((EnumMap) a.PUSH_ACTION, (a) new org.apache.thrift.meta_data.b("pushAction", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));

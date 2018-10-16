@@ -9,7 +9,7 @@ public final class a {
     public static String a = "";
     public static int b = -1;
     public static boolean c = false;
-    private static cn.jiguang.g.b.d kC;
+    private static cn.jiguang.g.b.d lg;
 
     public static void G(Context context, String str) {
         Z(context).d("device_config_appkey", str);
@@ -24,14 +24,14 @@ public final class a {
     }
 
     private static cn.jiguang.g.b.d Z(Context context) {
-        if (kC == null) {
-            kC = cn.jiguang.g.b.d.O(context, "cn.jpush.preferences.v2");
+        if (lg == null) {
+            lg = cn.jiguang.g.b.d.O(context, "cn.jpush.preferences.v2");
         }
-        return kC;
+        return lg;
     }
 
     public static long a(long j) {
-        return (bq() + j) / 1000;
+        return (bH() + j) / 1000;
     }
 
     public static String a(Context context) {
@@ -115,11 +115,11 @@ public final class a {
         Z(null).d("backup_user_addr", str);
     }
 
-    public static long bp() {
+    public static long bG() {
         return a(System.currentTimeMillis());
     }
 
-    public static long bq() {
+    public static long bH() {
         if (b.a()) {
             return b.b();
         }
@@ -132,7 +132,7 @@ public final class a {
         return longValue2 - longValue;
     }
 
-    public static c br() {
+    public static c bI() {
         return new c((String) Z(null).c("device_main_imei", ""), (String) Z(null).c("device_main_android_id", ""), (String) Z(null).c("device_main_mac", ""));
     }
 

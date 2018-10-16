@@ -5,16 +5,16 @@ import android.content.Context;
 /* loaded from: classes3.dex */
 public final class c implements Runnable {
     final /* synthetic */ Context a;
-    final /* synthetic */ b kq;
+    final /* synthetic */ b kW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, Context context) {
-        this.kq = bVar;
+        this.kW = bVar;
         this.a = context;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        b.a(this.kq, this.a);
+        b.a(this.kW, this.a);
     }
 }

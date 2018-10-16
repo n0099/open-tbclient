@@ -3,6 +3,8 @@ package com.baidu.fsg.base.utils;
 import android.annotation.SuppressLint;
 import android.support.v4.view.InputDeviceCompat;
 import android.text.TextUtils;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
+import com.baidu.webkit.internal.ETAG;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -14,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class Md5Utils {
     private static char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
@@ -48,7 +50,7 @@ public final class Md5Utils {
                     break;
                 }
                 String str3 = (String) arrayList.get(i2);
-                sb.append(str3 + "=" + jSONObject.optString(str3) + str2);
+                sb.append(str3 + ETAG.EQUAL + jSONObject.optString(str3) + str2);
                 i = i2 + 1;
             }
         }
@@ -90,7 +92,7 @@ public final class Md5Utils {
         String str;
         synchronized (Md5Utils.class) {
             try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
                 messageDigest.update(bArr);
                 byte[] digest = messageDigest.digest();
                 StringBuilder sb = new StringBuilder();
@@ -108,7 +110,7 @@ public final class Md5Utils {
 
     private static MessageDigest a() {
         try {
-            return MessageDigest.getInstance("MD5");
+            return MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }

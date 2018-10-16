@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.authoring.builder;
 
+import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoFile;
 import com.coremedia.iso.IsoTypeWriter;
@@ -63,7 +64,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class FragmentedMp4Builder implements Mp4Builder {
     private static final Logger LOG = Logger.getLogger(FragmentedMp4Builder.class.getName());
     protected FragmentIntersectionFinder intersectionFinder;
@@ -136,11 +137,11 @@ public class FragmentedMp4Builder implements Mp4Builder {
                     j2 += samples.get(i2).getSize();
                     i = i2 + 1;
                 }
-                d = ((samples.size() * j2) / 10000) + d;
+                d = ((samples.size() * j2) / ErrDef.Feature.WEIGHT) + d;
             }
         }
         double d2 = (1.2d * d) / j;
-        long j3 = 10000;
+        long j3 = ErrDef.Feature.WEIGHT;
         do {
             long round = Math.round(((j * d2) / j3) - j) * 1000;
             linkedList.add(new ProgressiveDownloadInformationBox.Entry(j3, round > 0 ? round + 3000 : 0L));
@@ -214,20 +215,20 @@ public class FragmentedMp4Builder implements Mp4Builder {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class a implements Box {
-        long hQE = -1;
-        private final /* synthetic */ long hQF;
-        private final /* synthetic */ long hQG;
-        private final /* synthetic */ Track hQH;
-        private final /* synthetic */ int hnF;
+        private final /* synthetic */ int huU;
+        long inR = -1;
+        private final /* synthetic */ long inS;
+        private final /* synthetic */ long inT;
+        private final /* synthetic */ Track inU;
         Container parent;
 
         a(long j, long j2, Track track, int i) {
-            this.hQF = j;
-            this.hQG = j2;
-            this.hQH = track;
-            this.hnF = i;
+            this.inS = j;
+            this.inT = j2;
+            this.inU = track;
+            this.huU = i;
         }
 
         @Override // com.coremedia.iso.boxes.Box
@@ -247,14 +248,14 @@ public class FragmentedMp4Builder implements Mp4Builder {
 
         @Override // com.coremedia.iso.boxes.Box
         public long getSize() {
-            if (this.hQE != -1) {
-                return this.hQE;
+            if (this.inR != -1) {
+                return this.inR;
             }
             long j = 8;
-            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.hQF, this.hQG, this.hQH, this.hnF)) {
+            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.inS, this.inT, this.inU, this.huU)) {
                 j = sample.getSize() + j;
             }
-            this.hQE = j;
+            this.inR = j;
             return j;
         }
 
@@ -270,7 +271,7 @@ public class FragmentedMp4Builder implements Mp4Builder {
             allocate.put(IsoFile.fourCCtoBytes(getType()));
             allocate.rewind();
             writableByteChannel.write(allocate);
-            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.hQF, this.hQG, this.hQH, this.hnF)) {
+            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.inS, this.inT, this.inU, this.huU)) {
                 sample.writeTo(writableByteChannel);
             }
         }

@@ -6,24 +6,24 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a aEh = null;
-    private boolean aEg;
-    private int aEi;
+    private static volatile a aIL = null;
+    private boolean aIK;
+    private int aIM;
 
     private a() {
-        this.aEg = false;
-        this.aEi = 0;
+        this.aIK = false;
+        this.aIM = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
             dVar.F(true);
             dVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-            if (dVar.hm()) {
+            if (dVar.hD()) {
                 String content = dVar.getContent();
                 if (content != null) {
-                    this.aEi = Integer.parseInt(content);
+                    this.aIM = Integer.parseInt(content);
                 }
-                if (this.aEi == 1 || this.aEi == 2) {
-                    this.aEg = true;
+                if (this.aIM == 1 || this.aIM == 2) {
+                    this.aIK = true;
                 }
             }
         } catch (Throwable th) {
@@ -31,26 +31,26 @@ public class a {
         }
     }
 
-    public static a CI() {
-        if (aEh == null) {
+    public static a EM() {
+        if (aIL == null) {
             synchronized (a.class) {
-                if (aEh == null) {
-                    aEh = new a();
+                if (aIL == null) {
+                    aIL = new a();
                 }
             }
         }
-        return aEh;
+        return aIL;
     }
 
-    public boolean CJ() {
-        return this.aEg;
+    public boolean EN() {
+        return this.aIK;
     }
 
-    public int CK() {
-        return this.aEi;
+    public int EO() {
+        return this.aIM;
     }
 
-    public String CL() {
-        return this.aEg ? "pub_env=" + this.aEi + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
+    public String EP() {
+        return this.aIK ? "pub_env=" + this.aIM + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

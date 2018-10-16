@@ -6,43 +6,43 @@ import android.net.Uri;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class w implements MediaScannerConnection.MediaScannerConnectionClient {
-    private MediaScannerConnection arK;
-    private String arL;
-    private String[] arM;
-    private String[] arN;
-    private boolean arO;
-    private a arP;
+    private MediaScannerConnection awA;
+    private String[] awB;
+    private a awC;
+    private boolean completed;
     private int length;
     private Context mContext;
-    private String yz;
+    private String mMimeType;
+    private String mPath;
+    private String[] mPaths;
 
     /* loaded from: classes.dex */
     public interface a {
-        void zP();
+        void BW();
     }
 
     public w(Context context) {
         this.mContext = context;
-        this.arK = new MediaScannerConnection(this.mContext, this);
+        this.awA = new MediaScannerConnection(this.mContext, this);
     }
 
-    public void eQ(String str) {
-        this.yz = str;
-        String substring = this.yz.substring(this.yz.lastIndexOf("."));
-        this.arL = "image/jpeg";
+    public void ff(String str) {
+        this.mPath = str;
+        String substring = this.mPath.substring(this.mPath.lastIndexOf("."));
+        this.mMimeType = "image/jpeg";
         if (substring.equals(".gif")) {
-            this.arL = "image/gif";
+            this.mMimeType = "image/gif";
         }
-        this.arK.connect();
+        this.awA.connect();
     }
 
-    public void eR(String str) {
-        this.yz = str;
-        this.arL = eS(str);
-        this.arK.connect();
+    public void fg(String str) {
+        this.mPath = str;
+        this.mMimeType = getVideoMimeType(str);
+        this.awA.connect();
     }
 
-    private String eS(String str) {
+    private String getVideoMimeType(String str) {
         String lowerCase = str.toLowerCase();
         if (!lowerCase.endsWith("mp4") && !lowerCase.endsWith("mpeg4") && lowerCase.endsWith("3gp")) {
             return "video/3gp";
@@ -52,37 +52,37 @@ public class w implements MediaScannerConnection.MediaScannerConnectionClient {
 
     @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
     public void onMediaScannerConnected() {
-        if (!TextUtils.isEmpty(this.yz) && !TextUtils.isEmpty(this.arL)) {
-            this.arK.scanFile(this.yz, this.arL);
+        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.mMimeType)) {
+            this.awA.scanFile(this.mPath, this.mMimeType);
         }
-        if (this.arM != null && this.arN != null && this.arM.length == this.arN.length) {
-            int length = this.arM.length;
+        if (this.mPaths != null && this.awB != null && this.mPaths.length == this.awB.length) {
+            int length = this.mPaths.length;
             for (int i = 0; i < length; i++) {
-                this.arK.scanFile(this.arM[i], this.arN[i]);
+                this.awA.scanFile(this.mPaths[i], this.awB[i]);
             }
         }
     }
 
     @Override // android.media.MediaScannerConnection.OnScanCompletedListener
     public void onScanCompleted(String str, Uri uri) {
-        if (!TextUtils.isEmpty(this.yz) && !TextUtils.isEmpty(this.arL) && str.equals(this.yz)) {
-            this.arK.disconnect();
-            this.yz = null;
-            this.arL = null;
-            this.arO = true;
-        } else if (this.arM != null && this.arN != null && this.arM.length == this.arN.length) {
+        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.mMimeType) && str.equals(this.mPath)) {
+            this.awA.disconnect();
+            this.mPath = null;
+            this.mMimeType = null;
+            this.completed = true;
+        } else if (this.mPaths != null && this.awB != null && this.mPaths.length == this.awB.length) {
             this.length--;
             if (this.length == 0) {
-                this.arK.disconnect();
-                this.arM = null;
-                this.arN = null;
-                this.arO = true;
+                this.awA.disconnect();
+                this.mPaths = null;
+                this.awB = null;
+                this.completed = true;
             } else {
-                this.arO = false;
+                this.completed = false;
             }
         }
-        if (this.arO && this.arP != null) {
-            this.arP.zP();
+        if (this.completed && this.awC != null) {
+            this.awC.BW();
         }
     }
 }

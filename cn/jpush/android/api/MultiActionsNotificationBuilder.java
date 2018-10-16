@@ -60,7 +60,7 @@ public class MultiActionsNotificationBuilder extends DefaultPushNotificationBuil
                     JSONObject jSONObject = this.actionJSONArray.getJSONObject(i);
                     Intent intent = new Intent("cn.jpush.android.intent.NOTIFICATION_CLICK_ACTION_PROXY");
                     intent.putExtra(JPushInterface.EXTRA_NOTIFICATION_ACTION_EXTRA, jSONObject.getString(NOTI_ACT_EXTRA_STR));
-                    if (cn.jiguang.api.e.bk()) {
+                    if (cn.jiguang.api.e.bB()) {
                         intent.setClass(this.mContext, PopWinActivity.class);
                         intent.putExtra("isNotification", true);
                         broadcast = PendingIntent.getActivity(this.mContext, i, intent, 134217728);

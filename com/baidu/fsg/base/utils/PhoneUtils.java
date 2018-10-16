@@ -36,6 +36,7 @@ import com.baidu.fsg.base.armor.RimArmor;
 import com.baidu.fsg.base.permission.PermissionManager;
 import com.baidu.fsg.face.base.d.h;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
 import java.io.File;
@@ -56,7 +57,7 @@ import java.util.Random;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class PhoneUtils {
     private static final String a = "PhoneUtils";
     private static final String b = "_rim_pay.preferences";
@@ -584,7 +585,7 @@ public final class PhoneUtils {
     public static String getAvailMemory(Context context) {
         ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
         ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
-        return Formatter.formatFileSize(context, memoryInfo.availMem) + "_" + memoryInfo.lowMemory + "_" + Formatter.formatFileSize(context, memoryInfo.threshold);
+        return Formatter.formatFileSize(context, memoryInfo.availMem) + BaseRequestAction.SPLITE + memoryInfo.lowMemory + BaseRequestAction.SPLITE + Formatter.formatFileSize(context, memoryInfo.threshold);
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -875,7 +876,7 @@ public final class PhoneUtils {
         return str2;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class CPUInfo {
         public static final String FEATURE_COMMON = "common";
         public static final String FEATURE_NEON = "neon";

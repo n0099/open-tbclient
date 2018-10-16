@@ -9,6 +9,7 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.g.b;
 import com.baidu.adp.lib.g.e;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -22,10 +23,10 @@ public class AddExperiencedModel extends BdBaseModel {
     public static int MAX_ADD_ADVANCED = 6;
     public static int MAX_ADD_NORMAL = 3;
     public static String USELESS_FORUM_ID = "24981790";
-    private HttpMessageListener asW;
-    private ContriInfo gJA;
-    private Runnable gJB;
-    private a gJz;
+    private HttpMessageListener axH;
+    private a gQX;
+    private ContriInfo gQY;
+    private Runnable gQZ;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -34,26 +35,26 @@ public class AddExperiencedModel extends BdBaseModel {
 
     public AddExperiencedModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.gJB = new Runnable() { // from class: com.baidu.tieba.share.AddExperiencedModel.1
+        this.gQZ = new Runnable() { // from class: com.baidu.tieba.share.AddExperiencedModel.1
             @Override // java.lang.Runnable
             public void run() {
-                if (AddExperiencedModel.this.gJz != null) {
-                    AddExperiencedModel.this.gJz.b(AddExperiencedModel.this.gJA);
+                if (AddExperiencedModel.this.gQX != null) {
+                    AddExperiencedModel.this.gQX.b(AddExperiencedModel.this.gQY);
                 }
             }
         };
-        this.asW = new HttpMessageListener(CmdConfigHttp.CMD_ADD_EXPERIENCED, true) { // from class: com.baidu.tieba.share.AddExperiencedModel.2
+        this.axH = new HttpMessageListener(CmdConfigHttp.CMD_ADD_EXPERIENCED, true) { // from class: com.baidu.tieba.share.AddExperiencedModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AddExperiencedResponseMessage)) {
-                    AddExperiencedModel.this.gJA = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
-                    e.jt().postDelayed(AddExperiencedModel.this.gJB, 2000L);
+                    AddExperiencedModel.this.gQY = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
+                    e.jI().postDelayed(AddExperiencedModel.this.gQZ, SystemScreenshotManager.DELAY_TIME);
                 }
             }
         };
         registerTask();
-        registerListener(this.asW);
+        registerListener(this.axH);
     }
 
     private void registerTask() {
@@ -62,23 +63,23 @@ public class AddExperiencedModel extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void co(String str, String str2) {
+    public void cz(String str, String str2) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_EXPERIENCED);
         httpMessage.addParam("forum_id", str);
         httpMessage.addParam("thread_id", str2);
         sendMessage(httpMessage);
     }
 
-    public static boolean tQ(String str) {
+    public static boolean us(String str) {
         return b.d(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str);
     }
 
-    public static boolean tR(String str) {
+    public static boolean ut(String str) {
         String str2;
         boolean z;
-        l<String> X = com.baidu.tbadk.core.c.a.yh().X("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());
-        if (X != null) {
-            String str3 = X.get(str);
+        l<String> ak = com.baidu.tbadk.core.c.a.Aq().ak("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());
+        if (ak != null) {
+            String str3 = ak.get(str);
             String currentDay = UtilHelper.getCurrentDay();
             if (!StringUtils.isNull(str3)) {
                 String[] split = str3.split(",");
@@ -106,7 +107,7 @@ public class AddExperiencedModel extends BdBaseModel {
                 str2 = currentDay + ",1";
                 z = true;
             }
-            X.e(str, str2);
+            ak.e(str, str2);
             return z;
         }
         return false;
@@ -123,10 +124,10 @@ public class AddExperiencedModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.gJz = aVar;
+        this.gQX = aVar;
     }
 
     public void onDestroy() {
-        e.jt().removeCallbacks(this.gJB);
+        e.jI().removeCallbacks(this.gQZ);
     }
 }

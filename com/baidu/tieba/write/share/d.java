@@ -6,8 +6,8 @@ import com.baidu.tbadk.core.data.ErrorData;
 public class d {
     public AntiData antiData;
     public String fid;
-    public ErrorData hEg;
-    public String hEh;
+    public ErrorData hLs;
+    public String hLt;
     public String pid;
     public String preMsg;
     public String tid;

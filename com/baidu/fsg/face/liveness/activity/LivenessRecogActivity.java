@@ -81,6 +81,8 @@ import com.baidu.idl.facesdk.FaceTracker;
 import com.baidu.idl.facesdk.FaceVerifyData;
 import com.baidu.sapi2.biometrics.liveness.R;
 import com.baidu.sapi2.views.SmsLoginView;
+import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
+import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
 import com.tencent.connect.common.Constants;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -95,7 +97,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LivenessRecogActivity extends LivenessBaseActivity implements Handler.Callback {
     public static final String EXTRA_UPLOAD_ACTION_TYPE = "action_type";
     public static final int REQUEST_CODE_LIVENESS_RECOG_ACTIVITY = 1001;
@@ -1167,7 +1169,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     private b.a s() {
-        Display defaultDisplay = ((WindowManager) getSystemService("window")).getDefaultDisplay();
+        Display defaultDisplay = ((WindowManager) getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay();
         return new b.a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + com.baidu.fsg.face.base.d.f.a(this));
     }
 
@@ -1815,7 +1817,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     private class b extends AsyncTask<Void, Void, String> {
         private b() {
         }
@@ -1846,7 +1848,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class f extends CountDownTimer {
         public f(long j, long j2) {
             super(j, j2);
@@ -2461,7 +2463,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                 public void run() {
                     LivenessRecogActivity.this.R.startAnimation(AnimationUtils.loadAnimation(LivenessRecogActivity.this, R.anim.sapi_liveness_time_count_point));
                 }
-            }, 2000L);
+            }, SystemScreenshotManager.DELAY_TIME);
             this.aO.postDelayed(this.aP, 1000L);
             new Handler(Looper.getMainLooper()).postDelayed(new Runnable() { // from class: com.baidu.fsg.face.liveness.activity.LivenessRecogActivity.36
                 @Override // java.lang.Runnable
@@ -2543,7 +2545,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class c implements MediaPlayer.OnErrorListener {
         c() {
         }
@@ -2993,7 +2995,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class d {
         static final int A = 5000;
         static final int B = 20000;
@@ -3033,7 +3035,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a {
         static final int a = 0;
         static final int b = 1;
@@ -3058,7 +3060,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class e {
         static final int a = 0;
         static final int b = 1;

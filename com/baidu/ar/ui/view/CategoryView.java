@@ -22,7 +22,7 @@ public class CategoryView extends RelativeLayout implements ViewPager.OnPageChan
     private EdgeEffectCompat c;
     private EdgeEffectCompat d;
     private boolean e;
-    private a.InterfaceC0051a f;
+    private a.InterfaceC0054a f;
     private volatile int g;
     private volatile float h;
     private float i;
@@ -202,8 +202,8 @@ public class CategoryView extends RelativeLayout implements ViewPager.OnPageChan
         return super.performClick();
     }
 
-    public void setCategoryListener(a.InterfaceC0051a interfaceC0051a) {
-        this.f = interfaceC0051a;
+    public void setCategoryListener(a.InterfaceC0054a interfaceC0054a) {
+        this.f = interfaceC0054a;
     }
 
     public void setCurrentItem(int i) {

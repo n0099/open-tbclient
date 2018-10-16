@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 @Descriptor(tags = {5})
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class DecoderSpecificInfo extends BaseDescriptor {
     byte[] bytes;
 

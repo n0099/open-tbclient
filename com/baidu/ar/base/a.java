@@ -35,10 +35,10 @@ public class a implements b.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.ar.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0034a implements EasyAudioCallback {
+    public static class C0037a implements EasyAudioCallback {
         private WeakReference<a> a;
 
-        public C0034a(a aVar) {
+        public C0037a(a aVar) {
             this.a = new WeakReference<>(aVar);
         }
 
@@ -151,7 +151,7 @@ public class a implements b.c {
         if (this.o != null) {
             return;
         }
-        this.o = new C0034a(this);
+        this.o = new C0037a(this);
     }
 
     @Override // com.baidu.baiduarsdk.blend.b.c

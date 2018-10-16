@@ -7,22 +7,22 @@ import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class DiskFileOperate {
     protected volatile byte[] mData;
+    private volatile boolean mIsSuccess;
     protected volatile Object mLock;
     protected String mName;
     private OutputStream mOutputStream;
-    private volatile boolean yA;
-    private boolean yB;
-    private File yC;
-    private boolean yD;
-    private boolean yE;
-    private int yF;
-    private String yG;
-    private String yH;
-    private e.a yI;
-    private OperateType yw;
-    protected boolean yx;
-    protected Action yy;
-    protected String yz;
+    protected String mPath;
+    private OperateType zh;
+    protected boolean zi;
+    protected Action zj;
+    private boolean zk;
+    private File zl;
+    private boolean zm;
+    private boolean zn;
+    private int zo;
+    private String zp;
+    private String zq;
+    private e.a zr;
 
     /* loaded from: classes.dex */
     public enum Action {
@@ -45,58 +45,58 @@ public class DiskFileOperate {
     }
 
     public DiskFileOperate(String str, String str2, Action action) {
-        this.yw = OperateType.MUST_SUCCESS;
-        this.yx = false;
-        this.yy = Action.READ;
+        this.zh = OperateType.MUST_SUCCESS;
+        this.zi = false;
+        this.zj = Action.READ;
         this.mData = null;
         this.mLock = null;
         this.mName = null;
-        this.yz = null;
-        this.yA = false;
-        this.yB = true;
+        this.mPath = null;
+        this.mIsSuccess = false;
+        this.zk = true;
         this.mOutputStream = null;
-        this.yC = null;
-        this.yD = true;
-        this.yE = false;
-        this.yF = 0;
-        this.yG = null;
-        this.yH = null;
-        this.yI = null;
-        this.yz = str;
+        this.zl = null;
+        this.zm = true;
+        this.zn = false;
+        this.zo = 0;
+        this.zp = null;
+        this.zq = null;
+        this.zr = null;
+        this.mPath = str;
         this.mName = str2;
-        this.yy = action;
+        this.zj = action;
     }
 
     public DiskFileOperate(String str, String str2, String str3, String str4, Action action) {
-        this.yw = OperateType.MUST_SUCCESS;
-        this.yx = false;
-        this.yy = Action.READ;
+        this.zh = OperateType.MUST_SUCCESS;
+        this.zi = false;
+        this.zj = Action.READ;
         this.mData = null;
         this.mLock = null;
         this.mName = null;
-        this.yz = null;
-        this.yA = false;
-        this.yB = true;
+        this.mPath = null;
+        this.mIsSuccess = false;
+        this.zk = true;
         this.mOutputStream = null;
-        this.yC = null;
-        this.yD = true;
-        this.yE = false;
-        this.yF = 0;
-        this.yG = null;
-        this.yH = null;
-        this.yI = null;
-        this.yz = str;
+        this.zl = null;
+        this.zm = true;
+        this.zn = false;
+        this.zo = 0;
+        this.zp = null;
+        this.zq = null;
+        this.zr = null;
+        this.mPath = str;
         this.mName = str2;
-        this.yG = str3;
-        this.yH = str4;
-        this.yy = action;
+        this.zp = str3;
+        this.zq = str4;
+        this.zj = action;
     }
 
-    public void n(Object obj) {
+    public void q(Object obj) {
         this.mLock = obj;
     }
 
-    public void hs() {
+    public void unLock() {
         if (this.mLock != null) {
             try {
                 synchronized (this.mLock) {
@@ -121,80 +121,80 @@ public class DiskFileOperate {
     }
 
     public String getPath() {
-        return this.yz;
+        return this.mPath;
     }
 
-    public Action ht() {
-        return this.yy;
+    public Action hJ() {
+        return this.zj;
     }
 
     public boolean q(byte[] bArr) {
         return true;
     }
 
-    public byte[] hu() {
+    public byte[] hK() {
         return null;
     }
 
     public boolean isSuccess() {
-        return this.yA;
+        return this.mIsSuccess;
     }
 
     public void setSuccess(boolean z) {
-        this.yA = z;
+        this.mIsSuccess = z;
     }
 
     public void D(boolean z) {
-        this.yx = z;
+        this.zi = z;
     }
 
-    public String hv() {
-        if (this.yx && this.mName != null) {
+    public String hL() {
+        if (this.zi && this.mName != null) {
             int hashCode = this.mName.hashCode();
             if (hashCode < 0) {
                 hashCode *= -1;
             }
             int i = (hashCode % 100) + 1;
-            if (this.yz == null) {
+            if (this.mPath == null) {
                 return String.valueOf(i);
             }
-            return this.yz + "/" + i;
+            return this.mPath + "/" + i;
         }
-        return this.yz;
+        return this.mPath;
     }
 
-    public String hw() {
-        if (this.yx && this.yH != null) {
-            int hashCode = this.yH.hashCode();
+    public String hM() {
+        if (this.zi && this.zq != null) {
+            int hashCode = this.zq.hashCode();
             if (hashCode < 0) {
                 hashCode *= -1;
             }
             int i = (hashCode % 100) + 1;
-            if (this.yG == null) {
+            if (this.zp == null) {
                 return String.valueOf(i);
             }
-            return this.yG + "/" + i;
+            return this.zp + "/" + i;
         }
-        return this.yG;
+        return this.zp;
     }
 
-    public OperateType hx() {
-        return this.yw;
+    public OperateType hN() {
+        return this.zh;
     }
 
     public void a(OperateType operateType) {
-        this.yw = operateType;
+        this.zh = operateType;
     }
 
     public void A(boolean z) {
     }
 
-    public boolean hy() {
-        return this.yB;
+    public boolean hO() {
+        return this.zk;
     }
 
     public void E(boolean z) {
-        this.yB = z;
+        this.zk = z;
     }
 
     protected void finalize() throws Throwable {
@@ -228,51 +228,51 @@ public class DiskFileOperate {
         }
     }
 
-    public File hz() {
-        return this.yC;
+    public File hP() {
+        return this.zl;
     }
 
     public void l(File file) {
-        this.yC = file;
+        this.zl = file;
     }
 
-    public boolean hA() {
-        return this.yD;
+    public boolean hQ() {
+        return this.zm;
     }
 
     public void F(boolean z) {
-        this.yD = z;
+        this.zm = z;
     }
 
     public void G(boolean z) {
-        this.yE = z;
+        this.zn = z;
     }
 
-    public boolean hB() {
-        return this.yE;
+    public boolean hR() {
+        return this.zn;
     }
 
-    public boolean hm() {
-        return com.baidu.adp.lib.Disk.d.hl().b(this);
+    public boolean hD() {
+        return com.baidu.adp.lib.Disk.d.hC().b(this);
     }
 
-    public int hC() {
-        return this.yF;
+    public int hS() {
+        return this.zo;
     }
 
     public void Y(int i) {
-        this.yF = i;
+        this.zo = i;
     }
 
-    public String hD() {
-        return this.yG;
+    public String hT() {
+        return this.zp;
     }
 
-    public String hE() {
-        return this.yH;
+    public String hU() {
+        return this.zq;
     }
 
-    public e.a hF() {
-        return this.yI;
+    public e.a hV() {
+        return this.zr;
     }
 }

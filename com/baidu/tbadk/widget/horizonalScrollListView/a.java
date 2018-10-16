@@ -1,5 +1,5 @@
 package com.baidu.tbadk.widget.horizonalScrollListView;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class a {
     public String forumAvatar;
     public long forumId;

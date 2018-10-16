@@ -1,5 +1,6 @@
 package com.google.zxing.client.result;
 
+import com.baidu.searchbox.ng.ai.apps.util.AiAppDateTimeUtil;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -159,7 +160,7 @@ public final class CalendarParsedResult extends ParsedResult {
     }
 
     private static DateFormat buildDateFormat() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd", Locale.ENGLISH);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(AiAppDateTimeUtil.DAY_FORMAT, Locale.ENGLISH);
         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
         return simpleDateFormat;
     }

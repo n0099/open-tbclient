@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class StringUtils {
     public static String[] toStringArray(Collection<String> collection) {
         if (collection == null) {

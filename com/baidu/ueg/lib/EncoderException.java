@@ -1,5 +1,5 @@
 package com.baidu.ueg.lib;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class EncoderException extends Exception {
     private static final long serialVersionUID = 1;
 

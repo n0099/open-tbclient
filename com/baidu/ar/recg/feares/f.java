@@ -16,7 +16,7 @@ import com.baidu.ar.util.HttpUtils;
 import com.baidu.ar.util.MD5Utils;
 import com.baidu.ar.util.Utils;
 import com.baidu.ar.util.ZipUtils;
-import com.baidu.baiduarsdk.ArBridge;
+import com.baidu.webkit.internal.ETAG;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -239,11 +239,11 @@ public class f implements com.baidu.ar.recg.feares.a {
         if (hashMap != null) {
             for (Map.Entry<String, String> entry : hashMap.entrySet()) {
                 sb.append((Object) entry.getKey());
-                sb.append("=");
+                sb.append(ETAG.EQUAL);
                 sb.append((Object) entry.getValue());
-                sb.append("&");
+                sb.append(ETAG.ITEM_SEPARATOR);
             }
-            sb.deleteCharAt(sb.lastIndexOf("&"));
+            sb.deleteCharAt(sb.lastIndexOf(ETAG.ITEM_SEPARATOR));
         }
         String post = HttpUtils.post(str, sb.toString());
         d dVar = new d();
@@ -382,7 +382,7 @@ public class f implements com.baidu.ar.recg.feares.a {
             case 1004:
                 c((String) message.obj);
                 return;
-            case ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC /* 1005 */:
+            case 1005:
                 f();
                 return;
             case 1006:
@@ -439,7 +439,7 @@ public class f implements com.baidu.ar.recg.feares.a {
         a(true);
         if (this.c != null) {
             this.c.removeMessages(1006);
-            this.c.sendMessage(this.c.obtainMessage(ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC));
+            this.c.sendMessage(this.c.obtainMessage(1005));
         }
     }
 

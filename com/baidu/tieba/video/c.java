@@ -1,12 +1,13 @@
 package com.baidu.tieba.video;
 
+import com.baidu.searchbox.ng.ai.apps.core.container.init.NgWebViewInitHelper;
 import com.baidu.tbadk.core.util.l;
 /* loaded from: classes.dex */
 public class c {
-    public static final String hju = l.EZ + "/tieba/.music/";
-    public static final String hjv = l.EZ + "/tieba/videoCover.jpg";
-    public static final String hjw = l.EZ + "/tieba/tbVideo/temp/";
-    public static final String hjx = l.EZ + "/DCIM/tieba/";
-    public static final String hjy = l.EZ + "/tieba/.pendant/";
-    public static final String hjz = l.EZ + "/tieba/takepic/";
+    public static final String hqK = l.FH + "/" + NgWebViewInitHelper.INIT_BWEBKIT_APPID + "/.music/";
+    public static final String hqL = l.FH + "/" + NgWebViewInitHelper.INIT_BWEBKIT_APPID + "/videoCover.jpg";
+    public static final String hqM = l.FH + "/" + NgWebViewInitHelper.INIT_BWEBKIT_APPID + "/tbVideo/temp/";
+    public static final String hqN = l.FH + "/DCIM/tieba/";
+    public static final String hqO = l.FH + "/" + NgWebViewInitHelper.INIT_BWEBKIT_APPID + "/.pendant/";
+    public static final String hqP = l.FH + "/" + NgWebViewInitHelper.INIT_BWEBKIT_APPID + "/takepic/";
 }

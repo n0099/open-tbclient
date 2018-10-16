@@ -11,7 +11,7 @@ import com.tencent.connect.common.UIListenerManager;
 import com.tencent.open.a.f;
 import com.tencent.open.utils.h;
 import com.tencent.open.utils.j;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class AuthActivity extends Activity {
     public static final String ACTION_KEY = "action";
     public static final String ACTION_SHARE_PRIZE = "sharePrize";
@@ -49,7 +49,7 @@ public class AuthActivity extends Activity {
             finish();
             return;
         }
-        String string = a2.getString(ACTION_KEY);
+        String string = a2.getString("action");
         f.c("openSDK_LOG.AuthActivity", "-->handleActionUri, action: " + string);
         if (string == null) {
             finish();

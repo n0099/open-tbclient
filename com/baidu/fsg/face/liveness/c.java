@@ -2,7 +2,7 @@ package com.baidu.fsg.face.liveness;
 
 import android.content.Context;
 import com.baidu.fsg.base.utils.ResUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static final int a = 1;
     public static final int b = 2;
@@ -18,7 +18,7 @@ public class c {
     public void a() {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a extends com.baidu.fsg.face.base.c.a {
         public static final int a = 1;
         public static final int b = 2;

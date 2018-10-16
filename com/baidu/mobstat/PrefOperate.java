@@ -2,6 +2,7 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.webkit.internal.ABTestConstants;
 /* loaded from: classes3.dex */
 public class PrefOperate {
     public static void loadMetaDataConfig(Context context) {
@@ -45,7 +46,7 @@ public class PrefOperate {
             if (!TextUtils.isEmpty(a4)) {
                 if ("true".equals(a4)) {
                     BasicStoreTools.getInstance().setOnlyWifi(context, true);
-                } else if ("false".equals(a4)) {
+                } else if (ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE.equals(a4)) {
                     BasicStoreTools.getInstance().setOnlyWifi(context, false);
                 }
             }

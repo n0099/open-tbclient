@@ -12,6 +12,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Map;
@@ -21,79 +22,79 @@ import plugin.writeSettings.ReqData;
 import plugin.writeSettings.WriteSettingsReqIdl;
 /* loaded from: classes.dex */
 public class b {
-    private static b Ld;
-    private a Le;
-    private boolean Lg;
-    private e Lh;
-    private static final BdUniqueId Lc = BdUniqueId.gen();
-    public static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, Lc);
-    private PluginSettings Lf = new PluginSettings();
+    private static b LB;
+    private a LC;
+    private boolean LE;
+    private e LG;
+    private static final BdUniqueId LA = BdUniqueId.gen();
+    public static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, LA);
+    private PluginSettings LD = new PluginSettings();
     private final int BUFFER_SIZE = 1024;
 
-    public static b nr() {
-        if (Ld == null) {
+    public static b nB() {
+        if (LB == null) {
             synchronized (b.class) {
-                if (Ld == null) {
-                    Ld = new b();
+                if (LB == null) {
+                    LB = new b();
                 }
             }
         }
-        return Ld;
+        return LB;
     }
 
     private b() {
     }
 
-    public PluginSettings ns() {
-        return this.Lf;
+    public PluginSettings nC() {
+        return this.LD;
     }
 
     public void a(e eVar) {
         boolean z;
         PluginSettings pluginSettings;
-        if (!this.Lg) {
-            this.Lh = eVar;
+        if (!this.LE) {
+            this.LG = eVar;
             try {
-                z = new File(nu()).exists();
+                z = new File(nE()).exists();
             } catch (Exception e) {
                 z = true;
             }
-            this.Lg = true;
-            PluginSettings nt = nt();
-            this.Lg = false;
-            if (nt != null) {
-                this.Lf = nt;
-                pluginSettings = nt;
+            this.LE = true;
+            PluginSettings nD = nD();
+            this.LE = false;
+            if (nD != null) {
+                this.LD = nD;
+                pluginSettings = nD;
             } else {
-                this.Lg = true;
-                PluginSettings nt2 = nt();
-                this.Lg = false;
-                if (nt2 != null) {
-                    this.Lf = nt2;
-                    pluginSettings = nt2;
+                this.LE = true;
+                PluginSettings nD2 = nD();
+                this.LE = false;
+                if (nD2 != null) {
+                    this.LD = nD2;
+                    pluginSettings = nD2;
                 } else {
                     if (z) {
-                        com.baidu.adp.plugin.b.a.mG().bQ(PluginPackageManager.mT().isMainProcess() ? "plugin_setting_read_null_main" : "plugin_setting_read_null");
-                        com.baidu.adp.plugin.b.a.mG().f("plugin_setting", "setting_read_null", null, null);
+                        com.baidu.adp.plugin.b.a.mQ().bP(PluginPackageManager.nd().isMainProcess() ? "plugin_setting_read_null_main" : "plugin_setting_read_null");
+                        com.baidu.adp.plugin.b.a.mQ().f("plugin_setting", "setting_read_null", null, null);
                     }
-                    pluginSettings = nt2;
+                    pluginSettings = nD2;
                 }
             }
-            if (this.Lh != null) {
-                this.Lh.a(pluginSettings);
-                this.Lh = null;
+            if (this.LG != null) {
+                this.LG.a(pluginSettings);
+                this.LG = null;
             }
         }
     }
 
-    private PluginSettings nt() {
+    private PluginSettings nD() {
         Wire wire = new Wire(new Class[0]);
         try {
-            byte[] ch = ch(nr().nu());
-            if (ch == null) {
+            byte[] cg = cg(nB().nE());
+            if (cg == null) {
                 return null;
             }
-            WriteSettingsReqIdl writeSettingsReqIdl = (WriteSettingsReqIdl) wire.parseFrom(ch, WriteSettingsReqIdl.class);
+            WriteSettingsReqIdl writeSettingsReqIdl = (WriteSettingsReqIdl) wire.parseFrom(cg, WriteSettingsReqIdl.class);
             if (writeSettingsReqIdl == null || writeSettingsReqIdl.data == null) {
                 return null;
             }
@@ -152,8 +153,8 @@ public class b {
             }
             return pluginSettings;
         } catch (Throwable th) {
-            com.baidu.adp.plugin.b.a.mG().bQ("plugin_settings_read_error");
-            com.baidu.adp.plugin.b.a.mG().f("plugin_setting", "settings_read_error", null, th.getMessage());
+            com.baidu.adp.plugin.b.a.mQ().bP("plugin_settings_read_error");
+            com.baidu.adp.plugin.b.a.mQ().f("plugin_setting", "settings_read_error", null, th.getMessage());
             th.printStackTrace();
             return null;
         }
@@ -166,7 +167,7 @@ public class b {
     /* JADX WARN: Type inference failed for: r1v1, types: [java.io.OutputStream] */
     /* JADX WARN: Type inference failed for: r1v3 */
     /* JADX WARN: Type inference failed for: r1v8 */
-    private byte[] ch(String str) {
+    private byte[] cg(String str) {
         FileInputStream fileInputStream;
         Exception e;
         byte[] bArr = null;
@@ -206,7 +207,7 @@ public class b {
                             throw th;
                         }
                     } else {
-                        com.baidu.adp.lib.g.a.h(null);
+                        com.baidu.adp.lib.g.a.h((InputStream) null);
                         com.baidu.adp.lib.g.a.b((OutputStream) null);
                     }
                 } catch (Exception e4) {
@@ -225,46 +226,46 @@ public class b {
 
     public void save(PluginSettings pluginSettings, d dVar) {
         if (pluginSettings != null) {
-            this.Lf = pluginSettings;
-            if (this.Lg && this.Lh != null) {
-                this.Lh.a(this.Lf);
-                this.Lh = null;
-                this.Lg = false;
+            this.LD = pluginSettings;
+            if (this.LE && this.LG != null) {
+                this.LG.a(this.LD);
+                this.LG = null;
+                this.LE = false;
             }
-            if (this.Le != null) {
-                this.Le.cancel();
-                this.Le = null;
+            if (this.LC != null) {
+                this.LC.cancel();
+                this.LC = null;
             }
             if (TextUtils.isEmpty(pluginSettings.getContainerVersion())) {
                 pluginSettings.setContainerSetting("");
             }
-            this.Le = new a(pluginSettings, dVar);
-            this.Le.setParallel(sBdAsyncTaskParallel);
-            this.Le.execute(new String[0]);
+            this.LC = new a(pluginSettings, dVar);
+            this.LC.setParallel(sBdAsyncTaskParallel);
+            this.LC.execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, Boolean> {
-        private PluginSettings Li;
-        private d Lj;
+        private PluginSettings LH;
+        private d LI;
 
         public a(PluginSettings pluginSettings, d dVar) {
-            this.Li = pluginSettings;
-            this.Lj = dVar;
+            this.LH = pluginSettings;
+            this.LI = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            if (this.Li == null || this.Li.getPlugins() == null) {
+            if (this.LH == null || this.LH.getPlugins() == null) {
                 return false;
             }
             ReqData.Builder builder = new ReqData.Builder();
             ArrayList arrayList = new ArrayList();
-            for (Map.Entry<String, PluginSetting> entry : this.Li.getPlugins().entrySet()) {
+            for (Map.Entry<String, PluginSetting> entry : this.LH.getPlugins().entrySet()) {
                 PluginSetting value = entry.getValue();
                 if (value != null) {
                     Plugin_setting.Builder builder2 = new Plugin_setting.Builder();
@@ -306,15 +307,15 @@ public class b {
                 }
             }
             builder.plugin_settings_list = arrayList;
-            builder.container_version = this.Li.getContainerVersion();
-            builder.forbidden_feature = this.Li.getForbiddenFeatures();
+            builder.container_version = this.LH.getContainerVersion();
+            builder.forbidden_feature = this.LH.getForbiddenFeatures();
             WriteSettingsReqIdl.Builder builder3 = new WriteSettingsReqIdl.Builder();
             try {
                 builder3.data = builder.build(false);
-                return Boolean.valueOf(b.this.f(b.this.nu(), builder3.build(false).toByteArray()));
+                return Boolean.valueOf(b.this.f(b.this.nE(), builder3.build(false).toByteArray()));
             } catch (Throwable th) {
-                com.baidu.adp.plugin.b.a.mG().bQ("plugin_settings_write_error");
-                com.baidu.adp.plugin.b.a.mG().f("plugin_setting", "settings_write_error", null, th.getMessage());
+                com.baidu.adp.plugin.b.a.mQ().bP("plugin_settings_write_error");
+                com.baidu.adp.plugin.b.a.mQ().f("plugin_setting", "settings_write_error", null, th.getMessage());
                 return false;
             }
         }
@@ -324,11 +325,11 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            if (this.Lj != null) {
+            if (this.LI != null) {
                 if (bool != null && bool.booleanValue()) {
-                    this.Lj.ny();
+                    this.LI.nI();
                 } else {
-                    this.Lj.nz();
+                    this.LI.nJ();
                 }
             }
         }
@@ -336,8 +337,8 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            if (this.Lj != null) {
-                this.Lj.nz();
+            if (this.LI != null) {
+                this.LI.nJ();
             }
         }
     }
@@ -392,10 +393,10 @@ public class b {
         }
     }
 
-    public String nu() {
-        if (Util.nG() == null) {
+    public String nE() {
+        if (Util.nQ() == null) {
             return null;
         }
-        return Util.nG().getAbsoluteFile() + File.separator + "plugin_settings";
+        return Util.nQ().getAbsoluteFile() + File.separator + "plugin_settings";
     }
 }

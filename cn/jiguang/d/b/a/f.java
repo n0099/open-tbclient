@@ -1,6 +1,7 @@
 package cn.jiguang.d.b.a;
 
 import android.text.TextUtils;
+import com.baidu.searchbox.ng.ai.apps.system.bluetooth.utils.AiAppsBluetoothConstants;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,7 +17,7 @@ public final class f {
     double h;
     long i;
     int j;
-    c kO;
+    c lt;
 
     public static LinkedList<f> J(String str) {
         LinkedList<f> linkedList = new LinkedList<>();
@@ -39,9 +40,9 @@ public final class f {
         try {
             f fVar = new f();
             fVar.a = jSONObject.getInt("type");
-            fVar.kO = c.a(jSONObject.getString("addr"));
+            fVar.lt = c.a(jSONObject.getString("addr"));
             fVar.d = jSONObject.getLong("rtime");
-            fVar.e = jSONObject.getLong("interval");
+            fVar.e = jSONObject.getLong(AiAppsBluetoothConstants.KEY_INTERVAL);
             fVar.f = jSONObject.getInt("net");
             fVar.j = jSONObject.getInt("code");
             fVar.c = jSONObject.optInt("uid");
@@ -59,9 +60,9 @@ public final class f {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("type", this.a);
-            jSONObject.put("addr", this.kO.toString());
+            jSONObject.put("addr", this.lt.toString());
             jSONObject.put("rtime", this.d);
-            jSONObject.put("interval", this.e);
+            jSONObject.put(AiAppsBluetoothConstants.KEY_INTERVAL, this.e);
             jSONObject.put("net", this.f);
             jSONObject.put("code", this.j);
             if (this.c != 0) {

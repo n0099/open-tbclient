@@ -7,7 +7,7 @@ public final class k {
     private long d;
 
     public k(String str, String str2) {
-        if (cn.jiguang.api.e.be()) {
+        if (cn.jiguang.api.e.bv()) {
             this.a = str;
             this.b = str2;
             this.d = System.currentTimeMillis();
@@ -15,7 +15,7 @@ public final class k {
     }
 
     public final void a() {
-        if (!cn.jiguang.api.e.be() || this.c) {
+        if (!cn.jiguang.api.e.bv() || this.c) {
             return;
         }
         this.d = System.currentTimeMillis();

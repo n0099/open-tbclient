@@ -24,43 +24,43 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes.dex */
 public class WheelView extends View {
-    private int bkR;
-    private int bkS;
-    private int bkT;
-    private float bkU;
-    private boolean bkX;
-    private DividerType bkZ;
-    private GestureDetector blU;
-    private b blV;
-    private boolean blW;
-    private ScheduledExecutorService blX;
-    private ScheduledFuture<?> blY;
-    private Paint blZ;
-    private Paint bma;
-    private Paint bmb;
-    private a bmc;
-    private int bmd;
-    private int bme;
-    private int bmf;
-    private float bmg;
-    private Typeface bmh;
-    private boolean bmi;
-    private float bmj;
-    private float bmk;
-    private float bml;
-    private int bmm;
-    private int bmn;
-    private int bmo;
-    private int bmp;
-    private int bmq;
-    private int bmr;
-    private int bms;
-    private float bmt;
-    private int bmu;
-    private int bmv;
-    private int bmw;
-    private float bmx;
-    private final float bmy;
+    private int boT;
+    private int boU;
+    private int boV;
+    private float boW;
+    private boolean boZ;
+    private GestureDetector bpW;
+    private b bpX;
+    private boolean bpY;
+    private ScheduledExecutorService bpZ;
+    private DividerType bpb;
+    private final float bqA;
+    private ScheduledFuture<?> bqa;
+    private Paint bqb;
+    private Paint bqc;
+    private Paint bqd;
+    private a bqe;
+    private int bqf;
+    private int bqg;
+    private int bqh;
+    private float bqi;
+    private Typeface bqj;
+    private boolean bqk;
+    private float bql;
+    private float bqm;
+    private float bqn;
+    private int bqo;
+    private int bqp;
+    private int bqq;
+    private int bqr;
+    private int bqs;
+    private int bqt;
+    private int bqu;
+    private float bqv;
+    private int bqw;
+    private int bqx;
+    private int bqy;
+    private float bqz;
     private float centerY;
     private Context context;
     private Handler handler;
@@ -90,199 +90,199 @@ public class WheelView extends View {
 
     public WheelView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.blW = false;
-        this.bkX = true;
-        this.blX = Executors.newSingleThreadScheduledExecutor();
-        this.bmh = Typeface.MONOSPACE;
-        this.bkU = 1.6f;
-        this.bmq = 7;
+        this.bpY = false;
+        this.boZ = true;
+        this.bpZ = Executors.newSingleThreadScheduledExecutor();
+        this.bqj = Typeface.MONOSPACE;
+        this.boW = 1.6f;
+        this.bqs = 7;
         this.mOffset = 0;
-        this.bmt = 0.0f;
+        this.bqv = 0.0f;
         this.startTime = 0L;
         this.mGravity = 17;
-        this.bmv = 0;
-        this.bmw = 0;
-        this.bmy = 0.5f;
-        this.textSize = getResources().getDimensionPixelSize(e.C0141e.pickerview_textsize);
+        this.bqx = 0;
+        this.bqy = 0;
+        this.bqA = 0.5f;
+        this.textSize = getResources().getDimensionPixelSize(e.C0175e.pickerview_textsize);
         float f = getResources().getDisplayMetrics().density;
         if (f < 1.0f) {
-            this.bmx = 2.4f;
+            this.bqz = 2.4f;
         } else if (1.0f <= f && f < 2.0f) {
-            this.bmx = 3.6f;
+            this.bqz = 3.6f;
         } else if (1.0f <= f && f < 2.0f) {
-            this.bmx = 4.5f;
+            this.bqz = 4.5f;
         } else if (2.0f <= f && f < 3.0f) {
-            this.bmx = 6.0f;
+            this.bqz = 6.0f;
         } else if (f >= 3.0f) {
-            this.bmx = f * 2.5f;
+            this.bqz = f * 2.5f;
         }
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, e.l.pickerview, 0, 0);
             this.mGravity = obtainStyledAttributes.getInt(e.l.pickerview_wheelview_gravity, 17);
-            this.bkR = obtainStyledAttributes.getColor(e.l.pickerview_wheelview_textColorOut, -5723992);
-            this.bkS = obtainStyledAttributes.getColor(e.l.pickerview_wheelview_textColorCenter, -14013910);
-            this.bkT = obtainStyledAttributes.getColor(e.l.pickerview_wheelview_dividerColor, -2763307);
+            this.boT = obtainStyledAttributes.getColor(e.l.pickerview_wheelview_textColorOut, -5723992);
+            this.boU = obtainStyledAttributes.getColor(e.l.pickerview_wheelview_textColorCenter, -14013910);
+            this.boV = obtainStyledAttributes.getColor(e.l.pickerview_wheelview_dividerColor, -2763307);
             this.textSize = obtainStyledAttributes.getDimensionPixelOffset(e.l.pickerview_wheelview_textSize, this.textSize);
-            this.bkU = obtainStyledAttributes.getFloat(e.l.pickerview_wheelview_lineSpacingMultiplier, this.bkU);
+            this.boW = obtainStyledAttributes.getFloat(e.l.pickerview_wheelview_lineSpacingMultiplier, this.boW);
             obtainStyledAttributes.recycle();
         }
-        Qh();
-        bN(context);
+        Sb();
+        bV(context);
     }
 
-    private void Qh() {
-        if (this.bkU < 1.0f) {
-            this.bkU = 1.0f;
-        } else if (this.bkU > 4.0f) {
-            this.bkU = 4.0f;
+    private void Sb() {
+        if (this.boW < 1.0f) {
+            this.boW = 1.0f;
+        } else if (this.boW > 4.0f) {
+            this.boW = 4.0f;
         }
     }
 
-    private void bN(Context context) {
+    private void bV(Context context) {
         this.context = context;
         this.handler = new com.baidu.tbadk.widget.timepicker.wheel.d.b(this);
-        this.blU = new GestureDetector(context, new com.baidu.tbadk.widget.timepicker.wheel.c.a(this));
-        this.blU.setIsLongpressEnabled(false);
-        this.bmi = true;
-        this.bml = 0.0f;
-        this.bmm = -1;
-        Qi();
+        this.bpW = new GestureDetector(context, new com.baidu.tbadk.widget.timepicker.wheel.c.a(this));
+        this.bpW.setIsLongpressEnabled(false);
+        this.bqk = true;
+        this.bqn = 0.0f;
+        this.bqo = -1;
+        Sc();
     }
 
-    private void Qi() {
-        this.blZ = new Paint();
-        this.blZ.setColor(this.bkR);
-        this.blZ.setAntiAlias(true);
-        this.blZ.setTypeface(this.bmh);
-        this.blZ.setTextSize(this.textSize);
-        this.bma = new Paint();
-        this.bma.setColor(this.bkS);
-        this.bma.setAntiAlias(true);
-        this.bma.setTextScaleX(1.1f);
-        this.bma.setTypeface(this.bmh);
-        this.bma.setTextSize(this.textSize);
-        this.bmb = new Paint();
-        this.bmb.setColor(this.bkT);
-        this.bmb.setAntiAlias(true);
+    private void Sc() {
+        this.bqb = new Paint();
+        this.bqb.setColor(this.boT);
+        this.bqb.setAntiAlias(true);
+        this.bqb.setTypeface(this.bqj);
+        this.bqb.setTextSize(this.textSize);
+        this.bqc = new Paint();
+        this.bqc.setColor(this.boU);
+        this.bqc.setAntiAlias(true);
+        this.bqc.setTextScaleX(1.1f);
+        this.bqc.setTypeface(this.bqj);
+        this.bqc.setTextSize(this.textSize);
+        this.bqd = new Paint();
+        this.bqd.setColor(this.boV);
+        this.bqd.setAntiAlias(true);
         setLayerType(1, null);
     }
 
-    private void Qj() {
-        if (this.bmc != null) {
-            Qk();
-            int i = (int) (this.bmg * (this.bmq - 1));
-            this.bmr = (int) ((i * 2) / 3.141592653589793d);
+    private void Sd() {
+        if (this.bqe != null) {
+            Se();
+            int i = (int) (this.bqi * (this.bqs - 1));
+            this.bqt = (int) ((i * 2) / 3.141592653589793d);
             this.radius = (int) (i / 3.141592653589793d);
-            this.bms = View.MeasureSpec.getSize(this.bmu);
-            this.bmj = (this.bmr - this.bmg) / 2.0f;
-            this.bmk = (this.bmr + this.bmg) / 2.0f;
-            this.centerY = (this.bmk - ((this.bmg - this.bme) / 2.0f)) - this.bmx;
-            if (this.bmm == -1) {
-                if (this.bmi) {
-                    this.bmm = (this.bmc.getItemsCount() + 1) / 2;
+            this.bqu = View.MeasureSpec.getSize(this.bqw);
+            this.bql = (this.bqt - this.bqi) / 2.0f;
+            this.bqm = (this.bqt + this.bqi) / 2.0f;
+            this.centerY = (this.bqm - ((this.bqi - this.bqg) / 2.0f)) - this.bqz;
+            if (this.bqo == -1) {
+                if (this.bqk) {
+                    this.bqo = (this.bqe.getItemsCount() + 1) / 2;
                 } else {
-                    this.bmm = 0;
+                    this.bqo = 0;
                 }
             }
-            this.bmo = this.bmm;
+            this.bqq = this.bqo;
         }
     }
 
-    private void Qk() {
+    private void Se() {
         Rect rect = new Rect();
-        for (int i = 0; i < this.bmc.getItemsCount(); i++) {
-            String K = K(this.bmc.getItem(i));
-            this.bma.getTextBounds(K, 0, K.length(), rect);
+        for (int i = 0; i < this.bqe.getItemsCount(); i++) {
+            String O = O(this.bqe.getItem(i));
+            this.bqc.getTextBounds(O, 0, O.length(), rect);
             int width = rect.width();
-            if (width > this.bmd) {
-                this.bmd = width;
+            if (width > this.bqf) {
+                this.bqf = width;
             }
-            this.bma.getTextBounds("星期", 0, 2, rect);
-            this.bme = rect.height() + 2;
+            this.bqc.getTextBounds("星期", 0, 2, rect);
+            this.bqg = rect.height() + 2;
         }
-        this.bmg = this.bkU * this.bme;
+        this.bqi = this.boW * this.bqg;
     }
 
     public void a(ACTION action) {
-        Ql();
+        Sf();
         if (action == ACTION.FLING || action == ACTION.DAGGLE) {
-            this.mOffset = (int) (((this.bml % this.bmg) + this.bmg) % this.bmg);
-            if (this.mOffset > this.bmg / 2.0f) {
-                this.mOffset = (int) (this.bmg - this.mOffset);
+            this.mOffset = (int) (((this.bqn % this.bqi) + this.bqi) % this.bqi);
+            if (this.mOffset > this.bqi / 2.0f) {
+                this.mOffset = (int) (this.bqi - this.mOffset);
             } else {
                 this.mOffset = -this.mOffset;
             }
         }
-        this.blY = this.blX.scheduleWithFixedDelay(new c(this, this.mOffset), 0L, 10L, TimeUnit.MILLISECONDS);
+        this.bqa = this.bpZ.scheduleWithFixedDelay(new c(this, this.mOffset), 0L, 10L, TimeUnit.MILLISECONDS);
     }
 
-    public final void ae(float f) {
-        Ql();
-        this.blY = this.blX.scheduleWithFixedDelay(new com.baidu.tbadk.widget.timepicker.wheel.d.a(this, f), 0L, 5L, TimeUnit.MILLISECONDS);
+    public final void af(float f) {
+        Sf();
+        this.bqa = this.bpZ.scheduleWithFixedDelay(new com.baidu.tbadk.widget.timepicker.wheel.d.a(this, f), 0L, 5L, TimeUnit.MILLISECONDS);
     }
 
-    public void Ql() {
-        if (this.blY != null && !this.blY.isCancelled()) {
-            this.blY.cancel(true);
-            this.blY = null;
+    public void Sf() {
+        if (this.bqa != null && !this.bqa.isCancelled()) {
+            this.bqa.cancel(true);
+            this.bqa = null;
         }
     }
 
     public final void setCyclic(boolean z) {
-        this.bmi = z;
+        this.bqk = z;
     }
 
     public final void setTypeface(Typeface typeface) {
-        this.bmh = typeface;
-        this.blZ.setTypeface(this.bmh);
-        this.bma.setTypeface(this.bmh);
+        this.bqj = typeface;
+        this.bqb.setTypeface(this.bqj);
+        this.bqc.setTypeface(this.bqj);
     }
 
     public final void setTextSize(float f) {
         if (f > 0.0f) {
             this.textSize = (int) (this.context.getResources().getDisplayMetrics().density * f);
-            this.blZ.setTextSize(this.textSize);
-            this.bma.setTextSize(this.textSize);
+            this.bqb.setTextSize(this.textSize);
+            this.bqc.setTextSize(this.textSize);
         }
     }
 
     public final void setCurrentItem(int i) {
-        this.bmn = i;
-        this.bmm = i;
-        this.bml = 0.0f;
+        this.bqp = i;
+        this.bqo = i;
+        this.bqn = 0.0f;
         invalidate();
     }
 
     public final void setOnItemSelectedListener(b bVar) {
-        this.blV = bVar;
+        this.bpX = bVar;
     }
 
     public final void setAdapter(a aVar) {
-        this.bmc = aVar;
-        Qj();
+        this.bqe = aVar;
+        Sd();
         invalidate();
     }
 
     public final a getAdapter() {
-        return this.bmc;
+        return this.bqe;
     }
 
     public final int getCurrentItem() {
-        if (this.bmc == null) {
+        if (this.bqe == null) {
             return 0;
         }
-        if (this.bmi && (this.bmn < 0 || this.bmn >= this.bmc.getItemsCount())) {
-            return Math.max(0, Math.min(Math.abs(Math.abs(this.bmn) - this.bmc.getItemsCount()), this.bmc.getItemsCount() - 1));
+        if (this.bqk && (this.bqp < 0 || this.bqp >= this.bqe.getItemsCount())) {
+            return Math.max(0, Math.min(Math.abs(Math.abs(this.bqp) - this.bqe.getItemsCount()), this.bqe.getItemsCount() - 1));
         }
-        return Math.max(0, Math.min(this.bmn, this.bmc.getItemsCount() - 1));
+        return Math.max(0, Math.min(this.bqp, this.bqe.getItemsCount() - 1));
     }
 
-    public final void Qm() {
-        if (this.blV != null) {
+    public final void Sg() {
+        if (this.bpX != null) {
             postDelayed(new Runnable() { // from class: com.baidu.tbadk.widget.timepicker.wheel.view.WheelView.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    WheelView.this.blV.gC(WheelView.this.getCurrentItem());
+                    WheelView.this.bpX.gK(WheelView.this.getCurrentItem());
                 }
             }, 200L);
         }
@@ -290,173 +290,173 @@ public class WheelView extends View {
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        String K;
+        String O;
         int i;
-        if (this.bmc != null) {
-            this.bmm = Math.min(Math.max(0, this.bmm), this.bmc.getItemsCount() - 1);
-            Object[] objArr = new Object[this.bmq];
-            this.bmp = (int) (this.bml / this.bmg);
+        if (this.bqe != null) {
+            this.bqo = Math.min(Math.max(0, this.bqo), this.bqe.getItemsCount() - 1);
+            Object[] objArr = new Object[this.bqs];
+            this.bqr = (int) (this.bqn / this.bqi);
             try {
-                this.bmo = this.bmm + (this.bmp % this.bmc.getItemsCount());
+                this.bqq = this.bqo + (this.bqr % this.bqe.getItemsCount());
             } catch (ArithmeticException e) {
                 Log.e("WheelView", "出错了！adapter.getItemsCount() == 0，联动数据不匹配");
             }
-            if (!this.bmi) {
-                if (this.bmo < 0) {
-                    this.bmo = 0;
+            if (!this.bqk) {
+                if (this.bqq < 0) {
+                    this.bqq = 0;
                 }
-                if (this.bmo > this.bmc.getItemsCount() - 1) {
-                    this.bmo = this.bmc.getItemsCount() - 1;
+                if (this.bqq > this.bqe.getItemsCount() - 1) {
+                    this.bqq = this.bqe.getItemsCount() - 1;
                 }
             } else {
-                if (this.bmo < 0) {
-                    this.bmo = this.bmc.getItemsCount() + this.bmo;
+                if (this.bqq < 0) {
+                    this.bqq = this.bqe.getItemsCount() + this.bqq;
                 }
-                if (this.bmo > this.bmc.getItemsCount() - 1) {
-                    this.bmo -= this.bmc.getItemsCount();
+                if (this.bqq > this.bqe.getItemsCount() - 1) {
+                    this.bqq -= this.bqe.getItemsCount();
                 }
             }
-            float f = this.bml % this.bmg;
-            for (int i2 = 0; i2 < this.bmq; i2++) {
-                int i3 = this.bmo - ((this.bmq / 2) - i2);
-                if (this.bmi) {
-                    objArr[i2] = this.bmc.getItem(gD(i3));
+            float f = this.bqn % this.bqi;
+            for (int i2 = 0; i2 < this.bqs; i2++) {
+                int i3 = this.bqq - ((this.bqs / 2) - i2);
+                if (this.bqk) {
+                    objArr[i2] = this.bqe.getItem(gL(i3));
                 } else if (i3 < 0) {
                     objArr[i2] = "";
-                } else if (i3 > this.bmc.getItemsCount() - 1) {
+                } else if (i3 > this.bqe.getItemsCount() - 1) {
                     objArr[i2] = "";
                 } else {
-                    objArr[i2] = this.bmc.getItem(i3);
+                    objArr[i2] = this.bqe.getItem(i3);
                 }
             }
-            if (this.bkZ == DividerType.WRAP) {
-                float f2 = TextUtils.isEmpty(this.label) ? ((this.bms - this.bmd) / 2) - 12 : ((this.bms - this.bmd) / 4) - 12;
+            if (this.bpb == DividerType.WRAP) {
+                float f2 = TextUtils.isEmpty(this.label) ? ((this.bqu - this.bqf) / 2) - 12 : ((this.bqu - this.bqf) / 4) - 12;
                 if (f2 <= 0.0f) {
                     f2 = 10.0f;
                 }
-                float f3 = this.bms - f2;
-                canvas.drawLine(f2, this.bmj, f3, this.bmj, this.bmb);
-                canvas.drawLine(f2, this.bmk, f3, this.bmk, this.bmb);
+                float f3 = this.bqu - f2;
+                canvas.drawLine(f2, this.bql, f3, this.bql, this.bqd);
+                canvas.drawLine(f2, this.bqm, f3, this.bqm, this.bqd);
             } else {
-                canvas.drawLine(0.0f, this.bmj, this.bms, this.bmj, this.bmb);
-                canvas.drawLine(0.0f, this.bmk, this.bms, this.bmk, this.bmb);
+                canvas.drawLine(0.0f, this.bql, this.bqu, this.bql, this.bqd);
+                canvas.drawLine(0.0f, this.bqm, this.bqu, this.bqm, this.bqd);
             }
-            if (!TextUtils.isEmpty(this.label) && this.bkX) {
-                canvas.drawText(this.label, (this.bms - c(this.bma, this.label)) - this.bmx, this.centerY, this.bma);
+            if (!TextUtils.isEmpty(this.label) && this.boZ) {
+                canvas.drawText(this.label, (this.bqu - c(this.bqc, this.label)) - this.bqz, this.centerY, this.bqc);
             }
-            for (int i4 = 0; i4 < this.bmq; i4++) {
+            for (int i4 = 0; i4 < this.bqs; i4++) {
                 canvas.save();
-                double d = ((this.bmg * i4) - f) / this.radius;
+                double d = ((this.bqi * i4) - f) / this.radius;
                 float f4 = (float) (90.0d - ((d / 3.141592653589793d) * 180.0d));
                 if (f4 >= 90.0f || f4 <= -90.0f) {
                     canvas.restore();
                 } else {
                     float pow = (float) Math.pow(Math.abs(f4) / 90.0f, 2.2d);
-                    if (!this.bkX && !TextUtils.isEmpty(this.label) && !TextUtils.isEmpty(K(objArr[i4]))) {
-                        K = K(objArr[i4]) + this.label;
+                    if (!this.boZ && !TextUtils.isEmpty(this.label) && !TextUtils.isEmpty(O(objArr[i4]))) {
+                        O = O(objArr[i4]) + this.label;
                     } else {
-                        K = K(objArr[i4]);
+                        O = O(objArr[i4]);
                     }
-                    iu(K);
-                    iv(K);
-                    iw(K);
-                    float cos = (float) ((this.radius - (Math.cos(d) * this.radius)) - ((Math.sin(d) * this.bme) / 2.0d));
+                    iH(O);
+                    iI(O);
+                    iJ(O);
+                    float cos = (float) ((this.radius - (Math.cos(d) * this.radius)) - ((Math.sin(d) * this.bqg) / 2.0d));
                     canvas.translate(0.0f, cos);
-                    if (cos <= this.bmj && this.bme + cos >= this.bmj) {
+                    if (cos <= this.bql && this.bqg + cos >= this.bql) {
                         canvas.save();
-                        canvas.clipRect(0.0f, 0.0f, this.bms, this.bmj - cos);
+                        canvas.clipRect(0.0f, 0.0f, this.bqu, this.bql - cos);
                         canvas.scale(1.0f, ((float) Math.sin(d)) * 0.8f);
-                        canvas.drawText(K, this.bmw, this.bme, this.blZ);
+                        canvas.drawText(O, this.bqy, this.bqg, this.bqb);
                         canvas.restore();
                         canvas.save();
-                        canvas.clipRect(0.0f, this.bmj - cos, this.bms, (int) this.bmg);
+                        canvas.clipRect(0.0f, this.bql - cos, this.bqu, (int) this.bqi);
                         canvas.scale(1.0f, ((float) Math.sin(d)) * 1.0f);
-                        canvas.drawText(K, this.bmv, this.bme - this.bmx, this.bma);
+                        canvas.drawText(O, this.bqx, this.bqg - this.bqz, this.bqc);
                         canvas.restore();
-                    } else if (cos <= this.bmk && this.bme + cos >= this.bmk) {
+                    } else if (cos <= this.bqm && this.bqg + cos >= this.bqm) {
                         canvas.save();
-                        canvas.clipRect(0.0f, 0.0f, this.bms, this.bmk - cos);
+                        canvas.clipRect(0.0f, 0.0f, this.bqu, this.bqm - cos);
                         canvas.scale(1.0f, ((float) Math.sin(d)) * 1.0f);
-                        canvas.drawText(K, this.bmv, this.bme - this.bmx, this.bma);
+                        canvas.drawText(O, this.bqx, this.bqg - this.bqz, this.bqc);
                         canvas.restore();
                         canvas.save();
-                        canvas.clipRect(0.0f, this.bmk - cos, this.bms, (int) this.bmg);
+                        canvas.clipRect(0.0f, this.bqm - cos, this.bqu, (int) this.bqi);
                         canvas.scale(1.0f, ((float) Math.sin(d)) * 0.8f);
-                        canvas.drawText(K, this.bmw, this.bme, this.blZ);
+                        canvas.drawText(O, this.bqy, this.bqg, this.bqb);
                         canvas.restore();
-                    } else if (cos >= this.bmj && cos + this.bme <= this.bmk) {
-                        canvas.drawText(K, this.bmv, this.bme - this.bmx, this.bma);
-                        this.bmn = this.bmo - ((this.bmq / 2) - i4);
+                    } else if (cos >= this.bql && cos + this.bqg <= this.bqm) {
+                        canvas.drawText(O, this.bqx, this.bqg - this.bqz, this.bqc);
+                        this.bqp = this.bqq - ((this.bqs / 2) - i4);
                     } else {
                         canvas.save();
-                        canvas.clipRect(0, 0, this.bms, (int) this.bmg);
+                        canvas.clipRect(0, 0, this.bqu, (int) this.bqi);
                         canvas.scale(1.0f, ((float) Math.sin(d)) * 0.8f);
-                        Paint paint = this.blZ;
-                        if (this.bmf == 0) {
+                        Paint paint = this.bqb;
+                        if (this.bqh == 0) {
                             i = 0;
                         } else {
-                            i = this.bmf > 0 ? 1 : -1;
+                            i = this.bqh > 0 ? 1 : -1;
                         }
                         paint.setTextSkewX((f4 > 0.0f ? -1 : 1) * i * 0.5f * pow);
-                        this.blZ.setAlpha((int) ((1.0f - pow) * 255.0f));
-                        canvas.drawText(K, this.bmw + (this.bmf * pow), this.bme, this.blZ);
+                        this.bqb.setAlpha((int) ((1.0f - pow) * 255.0f));
+                        canvas.drawText(O, this.bqy + (this.bqh * pow), this.bqg, this.bqb);
                         canvas.restore();
                     }
                     canvas.restore();
-                    this.bma.setTextSize(this.textSize);
+                    this.bqc.setTextSize(this.textSize);
                 }
             }
         }
     }
 
-    private void iu(String str) {
+    private void iH(String str) {
         Rect rect = new Rect();
-        this.bma.getTextBounds(str, 0, str.length(), rect);
+        this.bqc.getTextBounds(str, 0, str.length(), rect);
         int i = this.textSize;
-        for (int width = rect.width(); width > this.bms; width = rect.width()) {
+        for (int width = rect.width(); width > this.bqu; width = rect.width()) {
             i--;
-            this.bma.setTextSize(i);
-            this.bma.getTextBounds(str, 0, str.length(), rect);
+            this.bqc.setTextSize(i);
+            this.bqc.getTextBounds(str, 0, str.length(), rect);
         }
-        this.blZ.setTextSize(i);
+        this.bqb.setTextSize(i);
     }
 
-    private int gD(int i) {
+    private int gL(int i) {
         if (i < 0) {
-            return gD(this.bmc.getItemsCount() + i);
+            return gL(this.bqe.getItemsCount() + i);
         }
-        if (i > this.bmc.getItemsCount() - 1) {
-            return gD(i - this.bmc.getItemsCount());
+        if (i > this.bqe.getItemsCount() - 1) {
+            return gL(i - this.bqe.getItemsCount());
         }
         return i;
     }
 
-    private String K(Object obj) {
+    private String O(Object obj) {
         if (obj == null) {
             return "";
         }
         if (obj instanceof com.baidu.tbadk.widget.timepicker.wheel.b.a) {
-            return ((com.baidu.tbadk.widget.timepicker.wheel.b.a) obj).Qg();
+            return ((com.baidu.tbadk.widget.timepicker.wheel.b.a) obj).Sa();
         }
         return obj instanceof Integer ? String.format(Locale.getDefault(), "%02d", Integer.valueOf(((Integer) obj).intValue())) : obj.toString();
     }
 
-    private void iv(String str) {
+    private void iI(String str) {
         Rect rect = new Rect();
-        this.bma.getTextBounds(str, 0, str.length(), rect);
+        this.bqc.getTextBounds(str, 0, str.length(), rect);
         switch (this.mGravity) {
             case 3:
-                this.bmv = 0;
+                this.bqx = 0;
                 return;
             case 5:
-                this.bmv = (this.bms - rect.width()) - ((int) this.bmx);
+                this.bqx = (this.bqu - rect.width()) - ((int) this.bqz);
                 return;
             case 17:
-                if (this.blW || this.label == null || this.label.equals("") || !this.bkX) {
-                    this.bmv = (int) ((this.bms - rect.width()) * 0.5d);
+                if (this.bpY || this.label == null || this.label.equals("") || !this.boZ) {
+                    this.bqx = (int) ((this.bqu - rect.width()) * 0.5d);
                     return;
                 } else {
-                    this.bmv = (int) ((this.bms - rect.width()) * 0.25d);
+                    this.bqx = (int) ((this.bqu - rect.width()) * 0.25d);
                     return;
                 }
             default:
@@ -464,22 +464,22 @@ public class WheelView extends View {
         }
     }
 
-    private void iw(String str) {
+    private void iJ(String str) {
         Rect rect = new Rect();
-        this.blZ.getTextBounds(str, 0, str.length(), rect);
+        this.bqb.getTextBounds(str, 0, str.length(), rect);
         switch (this.mGravity) {
             case 3:
-                this.bmw = 0;
+                this.bqy = 0;
                 return;
             case 5:
-                this.bmw = (this.bms - rect.width()) - ((int) this.bmx);
+                this.bqy = (this.bqu - rect.width()) - ((int) this.bqz);
                 return;
             case 17:
-                if (this.blW || this.label == null || this.label.equals("") || !this.bkX) {
-                    this.bmw = (int) ((this.bms - rect.width()) * 0.5d);
+                if (this.bpY || this.label == null || this.label.equals("") || !this.boZ) {
+                    this.bqy = (int) ((this.bqu - rect.width()) * 0.5d);
                     return;
                 } else {
-                    this.bmw = (int) ((this.bms - rect.width()) * 0.25d);
+                    this.bqy = (int) ((this.bqu - rect.width()) * 0.25d);
                     return;
                 }
             default:
@@ -489,28 +489,28 @@ public class WheelView extends View {
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        this.bmu = i;
-        Qj();
-        setMeasuredDimension(this.bms, this.bmr);
+        this.bqw = i;
+        Sd();
+        setMeasuredDimension(this.bqu, this.bqt);
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         boolean z = false;
-        boolean onTouchEvent = this.blU.onTouchEvent(motionEvent);
-        float f = (-this.bmm) * this.bmg;
-        float itemsCount = ((this.bmc.getItemsCount() - 1) - this.bmm) * this.bmg;
+        boolean onTouchEvent = this.bpW.onTouchEvent(motionEvent);
+        float f = (-this.bqo) * this.bqi;
+        float itemsCount = ((this.bqe.getItemsCount() - 1) - this.bqo) * this.bqi;
         switch (motionEvent.getAction()) {
             case 0:
                 this.startTime = System.currentTimeMillis();
-                Ql();
-                this.bmt = motionEvent.getRawY();
+                Sf();
+                this.bqv = motionEvent.getRawY();
                 break;
             case 1:
             default:
                 if (!onTouchEvent) {
                     float y = motionEvent.getY();
-                    this.mOffset = (int) (((((int) (((Math.acos((this.radius - y) / this.radius) * this.radius) + (this.bmg / 2.0f)) / this.bmg)) - (this.bmq / 2)) * this.bmg) - (((this.bml % this.bmg) + this.bmg) % this.bmg));
+                    this.mOffset = (int) (((((int) (((Math.acos((this.radius - y) / this.radius) * this.radius) + (this.bqi / 2.0f)) / this.bqi)) - (this.bqs / 2)) * this.bqi) - (((this.bqn % this.bqi) + this.bqi) % this.bqi));
                     if (System.currentTimeMillis() - this.startTime > 120) {
                         a(ACTION.DAGGLE);
                         break;
@@ -521,11 +521,11 @@ public class WheelView extends View {
                 }
                 break;
             case 2:
-                float rawY = this.bmt - motionEvent.getRawY();
-                this.bmt = motionEvent.getRawY();
-                this.bml += rawY;
-                if (!this.bmi && ((this.bml - (this.bmg * 0.25f) < f && rawY < 0.0f) || (this.bml + (0.25f * this.bmg) > itemsCount && rawY > 0.0f))) {
-                    this.bml -= rawY;
+                float rawY = this.bqv - motionEvent.getRawY();
+                this.bqv = motionEvent.getRawY();
+                this.bqn += rawY;
+                if (!this.bqk && ((this.bqn - (this.bqi * 0.25f) < f && rawY < 0.0f) || (this.bqn + (0.25f * this.bqi) > itemsCount && rawY > 0.0f))) {
+                    this.bqn -= rawY;
                     z = true;
                     break;
                 }
@@ -538,8 +538,8 @@ public class WheelView extends View {
     }
 
     public int getItemsCount() {
-        if (this.bmc != null) {
-            return this.bmc.getItemsCount();
+        if (this.bqe != null) {
+            return this.bqe.getItemsCount();
         }
         return 0;
     }
@@ -548,8 +548,8 @@ public class WheelView extends View {
         this.label = str;
     }
 
-    public void cF(boolean z) {
-        this.bkX = z;
+    public void cO(boolean z) {
+        this.boZ = z;
     }
 
     public void setGravity(int i) {
@@ -573,60 +573,60 @@ public class WheelView extends View {
     }
 
     public void setIsOptions(boolean z) {
-        this.blW = z;
+        this.bpY = z;
     }
 
     public void setTextColorOut(int i) {
-        this.bkR = i;
-        this.blZ.setColor(this.bkR);
+        this.boT = i;
+        this.bqb.setColor(this.boT);
     }
 
     public void setTextColorCenter(int i) {
-        this.bkS = i;
-        this.bma.setColor(this.bkS);
+        this.boU = i;
+        this.bqc.setColor(this.boU);
     }
 
     public void setTextXOffset(int i) {
-        this.bmf = i;
+        this.bqh = i;
         if (i != 0) {
-            this.bma.setTextScaleX(1.0f);
+            this.bqc.setTextScaleX(1.0f);
         }
     }
 
     public void setDividerColor(int i) {
-        this.bkT = i;
-        this.bmb.setColor(i);
+        this.boV = i;
+        this.bqd.setColor(i);
     }
 
     public void setDividerType(DividerType dividerType) {
-        this.bkZ = dividerType;
+        this.bpb = dividerType;
     }
 
     public void setLineSpacingMultiplier(float f) {
         if (f != 0.0f) {
-            this.bkU = f;
-            Qh();
+            this.boW = f;
+            Sb();
         }
     }
 
-    public boolean Qn() {
-        return this.bmi;
+    public boolean Sh() {
+        return this.bqk;
     }
 
     public float getTotalScrollY() {
-        return this.bml;
+        return this.bqn;
     }
 
     public void setTotalScrollY(float f) {
-        this.bml = f;
+        this.bqn = f;
     }
 
     public float getItemHeight() {
-        return this.bmg;
+        return this.bqi;
     }
 
     public int getInitPosition() {
-        return this.bmm;
+        return this.bqo;
     }
 
     @Override // android.view.View

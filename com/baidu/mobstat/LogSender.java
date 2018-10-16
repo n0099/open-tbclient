@@ -118,7 +118,7 @@ public class LogSender {
     public void saveLogData(Context context, String str, boolean z) {
         bv.a(context, (z ? Config.PREFIX_SEND_DATA_FULL : Config.PREFIX_SEND_DATA) + System.currentTimeMillis(), str, false);
         if (z) {
-            a(context, Config.FULL_TRACE_LOG_LIMIT, Config.PREFIX_SEND_DATA_FULL);
+            a(context, 10485760L, Config.PREFIX_SEND_DATA_FULL);
         }
     }
 

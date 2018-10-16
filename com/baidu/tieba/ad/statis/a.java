@@ -6,12 +6,12 @@ public class a implements com.baidu.tieba.p.a {
 
     /* renamed from: com.baidu.tieba.ad.statis.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static class C0128a {
-        private static a btP = new a();
+    private static class C0152a {
+        private static a bxU = new a();
     }
 
-    public static a Tc() {
-        return C0128a.btP;
+    public static a UY() {
+        return C0152a.bxU;
     }
 
     @Override // com.baidu.tieba.p.a
@@ -25,7 +25,7 @@ public class a implements com.baidu.tieba.p.a {
     }
 
     @Override // com.baidu.tieba.p.a
-    public void aH(String str, String str2) {
+    public void aR(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
         init.addParam("f1", "cardshow");
         init.addParam("f2", str2);
@@ -34,7 +34,7 @@ public class a implements com.baidu.tieba.p.a {
     }
 
     @Override // com.baidu.tieba.p.a
-    public void aI(String str, String str2) {
+    public void aS(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
         init.addParam("f1", "cardclick");
         init.addParam("f2", str2);
@@ -43,7 +43,7 @@ public class a implements com.baidu.tieba.p.a {
     }
 
     @Override // com.baidu.tieba.p.a
-    public void aJ(String str, String str2) {
+    public void aT(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
         init.addParam("f1", "fullvideoshow");
         init.addParam("f2", str2);
@@ -63,7 +63,7 @@ public class a implements com.baidu.tieba.p.a {
     }
 
     @Override // com.baidu.tieba.p.a
-    public void p(String str, String str2, String str3) {
+    public void s(String str, String str2, String str3) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
         init.addParam("f1", "alert_click");
         init.addParam("f2", str);

@@ -5,7 +5,6 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
@@ -42,23 +41,23 @@ public class SignStatic {
                 try {
                     TiebaStatic.eventStat(TbadkCoreApplication.getInst().getContext(), "sign_do_time", System.currentTimeMillis() + "");
                     x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
-                    xVar.u("kw", name);
-                    xVar.u(ImageViewerConfig.FORUM_ID, id);
-                    xVar.zR().AP().mIsNeedTbs = true;
-                    xVar.aR(true);
-                    String zt = xVar.zt();
-                    if (xVar.zU()) {
-                        if (xVar.zR().AQ().isRequestSuccess()) {
+                    xVar.x("kw", name);
+                    xVar.x(ImageViewerConfig.FORUM_ID, id);
+                    xVar.BY().CW().mIsNeedTbs = true;
+                    xVar.bb(true);
+                    String BA = xVar.BA();
+                    if (xVar.Cb()) {
+                        if (xVar.BY().CX().isRequestSuccess()) {
                             signData = new SignData();
-                            signData.parserJson(zt);
+                            signData.parserJson(BA);
                             signData.forumId = id;
                             signData.forumName = name;
                         } else {
-                            if (!ao.isEmpty(zt)) {
-                                JSONObject jSONObject = new JSONObject(zt);
-                                if (AntiHelper.uo(xVar.zV()) || "199901".equals(jSONObject.optString(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE))) {
+                            if (!ao.isEmpty(BA)) {
+                                JSONObject jSONObject = new JSONObject(BA);
+                                if (AntiHelper.uL(xVar.Cc()) || "199901".equals(jSONObject.optString("error_code"))) {
                                     signData = new SignData();
-                                    signData.parserJson(zt);
+                                    signData.parserJson(BA);
                                     signData.is_signed = 1;
                                     signData.count_sign_num = 1;
                                     signData.sign_bonus_point = 0;
@@ -66,7 +65,7 @@ public class SignStatic {
                                     signData.forumName = name;
                                 }
                             }
-                            signMessage.mSignErrorCode = xVar.zV();
+                            signMessage.mSignErrorCode = xVar.Cc();
                             signMessage.mSignErrorString = xVar.getErrorString();
                         }
                         signMessage.signData = signData;

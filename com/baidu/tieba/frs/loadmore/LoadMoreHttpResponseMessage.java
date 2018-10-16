@@ -16,7 +16,7 @@ import java.util.List;
 import tbclient.ThreadInfo;
 import tbclient.ThreadList.ThreadListResIdl;
 import tbclient.User;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
     private BannerListData bannerListData;
     private ArrayList<h> threadList;
@@ -39,7 +39,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
             setError(threadListResIdl.error.errorno.intValue());
             setErrorString(threadListResIdl.error.usermsg);
             if (getError() == 0 && threadListResIdl.data != null) {
-                if (v.y(threadListResIdl.data.user_list) > 0) {
+                if (v.I(threadListResIdl.data.user_list) > 0) {
                     this.userMap = new HashMap<>();
                     List<User> list = threadListResIdl.data.user_list;
                     if (list != null) {
@@ -55,7 +55,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                 }
                 Message<?> orginalMessage2 = getOrginalMessage();
                 boolean isBrandForum = (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) ? false : ((LoadMoreRequestMessage) orginalMessage2.getExtra()).isBrandForum();
-                if (v.y(threadListResIdl.data.thread_list) > 0) {
+                if (v.I(threadListResIdl.data.thread_list) > 0) {
                     this.threadList = new ArrayList<>();
                     List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
                     if (list2 != null) {
@@ -63,12 +63,12 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             bb bbVar = new bb();
                             bbVar.setUserMap(this.userMap);
                             bbVar.a(list2.get(i3));
-                            bbVar.cj(3);
-                            bbVar.wW();
-                            bbVar.amv = isBrandForum;
-                            if (!TextUtils.isEmpty(bbVar.xg())) {
+                            bbVar.setCurrentPage(3);
+                            bbVar.zf();
+                            bbVar.arq = isBrandForum;
+                            if (!TextUtils.isEmpty(bbVar.zp())) {
                                 ab abVar = new ab();
-                                abVar.dz(bbVar.xg());
+                                abVar.dP(bbVar.zp());
                                 this.threadList.add(abVar);
                             } else {
                                 this.threadList.add(bbVar);

@@ -3,7 +3,7 @@ package com.baidu.tieba.passaccount.app;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.ar.constants.HttpConstants;
-import com.baidu.d.a.a;
+import com.baidu.e.a.a;
 import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
@@ -19,13 +19,14 @@ import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.tbadk.coreExtra.data.AuthVerifyData;
 import com.baidu.tieba.passaccount.a.b;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
+import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class AuthActivity extends BaseActivity {
     private String authToken;
     private String bduss;
@@ -39,7 +40,7 @@ public class AuthActivity extends BaseActivity {
         super.onCreate(bundle);
         try {
             setContentView(a.e.layout_sapi_sdk_webview_with_title_bar);
-            PassManagerStatic.baF();
+            PassManagerStatic.bdR();
             init();
             setupViews();
         } catch (Throwable th) {
@@ -78,7 +79,7 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    private String bat() {
+    private String bdF() {
         ArrayList arrayList = new ArrayList();
         try {
             arrayList.add(new BasicNameValuePair("adapter", URLEncoder.encode("3", "UTF-8")));
@@ -86,17 +87,17 @@ public class AuthActivity extends BaseActivity {
             arrayList.add(new BasicNameValuePair("isnew", "true"));
             arrayList.add(new BasicNameValuePair("token", URLEncoder.encode(this.authToken, "UTF-8")));
             arrayList.add(new BasicNameValuePair(BaiduRimConstants.TPL_INIT_KEY, URLEncoder.encode(this.tpl, "UTF-8")));
-            arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action=auth-widget", "UTF-8")));
+            arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action" + ETAG.EQUAL + "auth-widget", "UTF-8")));
         } catch (UnsupportedEncodingException e) {
             Log.e(e);
         }
         return (SapiAccountManager.getInstance().getConfignation().getEnvironment().getWap(SapiUtils.getDefaultHttpsEnabled()) + "/passport/authwidget") + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
-    private String bau() {
+    private String bdG() {
         ArrayList arrayList = new ArrayList();
         try {
-            arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action=modify-pwd", "UTF-8")));
+            arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action" + ETAG.EQUAL + "modify-pwd", "UTF-8")));
             arrayList.add(new BasicNameValuePair("adapter", "3"));
             arrayList.add(new BasicNameValuePair("banner", "1"));
             arrayList.add(new BasicNameValuePair("t", String.valueOf(System.currentTimeMillis())));
@@ -108,12 +109,12 @@ public class AuthActivity extends BaseActivity {
         }
         String str = (SapiAccountManager.getInstance().getConfignation().getEnvironment().getWap(SapiUtils.getDefaultHttpsEnabled()) + "/wp/passwordindex") + "?" + SapiUtils.createRequestParams(arrayList);
         if (arrayList.size() > 0) {
-            return str + "&" + SapiUtils.createRequestParams(arrayList);
+            return str + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
         }
         return str;
     }
 
-    private List<NameValuePair> bav() {
+    private List<NameValuePair> bdH() {
         Domain environment = SapiAccountManager.getInstance().getConfignation().getEnvironment();
         String buildBDUSSCookie = SapiUtils.buildBDUSSCookie(environment.getWap(SapiUtils.getDefaultHttpsEnabled()).replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", ""), "BIND_BDUSS", "");
         ArrayList arrayList = new ArrayList();
@@ -146,11 +147,11 @@ public class AuthActivity extends BaseActivity {
                     AuthActivity.this.l(true, str);
                 }
             });
-            this.sapiWebView.loadUrl(bat());
+            this.sapiWebView.loadUrl(bdF());
         } else if (this.type == 1) {
             setTitleText(a.f.sapi_sdk_title_modify_pwd);
             SapiAccountManager.getInstance().getAccountService().webLogin(this, this.bduss);
-            this.sapiWebView.loadUrl(bau(), bav());
+            this.sapiWebView.loadUrl(bdG(), bdH());
             PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIWEBVIEW_CHANGE_PWD, IEventCenterService.EventResult.PHASE.START);
             this.sapiWebView.setChangePwdCallback(new SapiWebView.ChangePwdCallback() { // from class: com.baidu.tieba.passaccount.app.AuthActivity.4
                 @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
@@ -203,13 +204,13 @@ public class AuthActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void l(boolean z, String str) {
         if (this.type == 0) {
-            b.baL().m(z, str);
+            b.bdX().m(z, str);
         } else if (this.type == 1) {
-            b.baL().jG(z);
+            b.bdX().jX(z);
         } else if (this.type == 2) {
-            b.baL().jH(z);
+            b.bdX().jY(z);
         } else {
-            b.baL().a((AuthVerifyData.c) null);
+            b.bdX().a((AuthVerifyData.c) null);
         }
         finish();
     }

@@ -18,6 +18,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class ActionMenuItemView extends AppCompatTextView implements MenuView.ItemView, ActionMenuView.ActionMenuChildView, View.OnClickListener {
@@ -228,7 +229,7 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
         int measuredWidth = getMeasuredWidth();
         int min = mode == Integer.MIN_VALUE ? Math.min(size, this.mMinWidth) : this.mMinWidth;
         if (mode != 1073741824 && this.mMinWidth > 0 && measuredWidth < min) {
-            super.onMeasure(View.MeasureSpec.makeMeasureSpec(min, 1073741824), i2);
+            super.onMeasure(View.MeasureSpec.makeMeasureSpec(min, AiAppsFileUtils.GB), i2);
         }
         if (!hasText && this.mIcon != null) {
             super.setPadding((getMeasuredWidth() - this.mIcon.getBounds().width()) / 2, getPaddingTop(), getPaddingRight(), getPaddingBottom());

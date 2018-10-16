@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GuessLikeThreadInfo;
 import tbclient.PbPage.GuessLikeStruct;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class CardHListViewData extends b implements Serializable {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     private static final long serialVersionUID = 6577771607010727691L;
@@ -28,16 +28,16 @@ public class CardHListViewData extends b implements Serializable {
     }
 
     public void parseProtobuf(GuessLikeStruct guessLikeStruct) {
-        if (guessLikeStruct != null && v.y(guessLikeStruct.thread_list) >= 3) {
-            this.title = ao.fd(guessLikeStruct.title);
+        if (guessLikeStruct != null && v.I(guessLikeStruct.thread_list) >= 3) {
+            this.title = ao.fr(guessLikeStruct.title);
             List<GuessLikeThreadInfo> list = guessLikeStruct.thread_list;
-            if (v.y(list) > 9) {
+            if (v.I(list) > 9) {
                 list = v.b(list, 0, 9);
             }
-            if (!v.z(list)) {
+            if (!v.J(list)) {
                 this.mList.clear();
                 for (GuessLikeThreadInfo guessLikeThreadInfo : list) {
-                    if (guessLikeThreadInfo != null && guessLikeThreadInfo.thread_id.longValue() >= 0 && !ao.bx(guessLikeThreadInfo.recom_cover) && !ao.bx(guessLikeThreadInfo.title)) {
+                    if (guessLikeThreadInfo != null && guessLikeThreadInfo.thread_id.longValue() >= 0 && !ao.bw(guessLikeThreadInfo.recom_cover) && !ao.bw(guessLikeThreadInfo.title)) {
                         CardHListViewNormalItemData cardHListViewNormalItemData = new CardHListViewNormalItemData();
                         cardHListViewNormalItemData.parseProtobuf(guessLikeThreadInfo);
                         this.mList.add(cardHListViewNormalItemData);

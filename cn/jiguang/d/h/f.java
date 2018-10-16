@@ -202,14 +202,6 @@ public final class f {
         return a(file, bytes);
     }
 
-    public static File[] b(String str, boolean z) {
-        try {
-            return a(new File(str), z);
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
     public static File c(File[] fileArr) {
         File file = null;
         if (fileArr != null && fileArr.length != 0) {
@@ -273,6 +265,14 @@ public final class f {
         try {
             file.createNewFile();
         } catch (Throwable th) {
+        }
+    }
+
+    public static File[] e(String str, boolean z) {
+        try {
+            return a(new File(str), z);
+        } catch (Exception e) {
+            return null;
         }
     }
 

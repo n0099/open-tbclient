@@ -2,6 +2,7 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppDateTimeUtil;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.text.SimpleDateFormat;
@@ -233,7 +234,7 @@ public class af {
     }
 
     public boolean a(long j) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(AiAppDateTimeUtil.DAY_FORMAT);
         return simpleDateFormat.format(Long.valueOf(j)).equals(simpleDateFormat.format(Long.valueOf(System.currentTimeMillis())));
     }
 

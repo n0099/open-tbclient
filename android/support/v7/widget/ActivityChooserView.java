@@ -27,6 +27,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class ActivityChooserView extends ViewGroup implements ActivityChooserModel.ActivityChooserModelClient {
@@ -254,7 +255,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     protected void onMeasure(int i, int i2) {
         LinearLayoutCompat linearLayoutCompat = this.mActivityChooserContent;
         if (this.mDefaultActivityButton.getVisibility() != 0) {
-            i2 = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i2), 1073741824);
+            i2 = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i2), AiAppsFileUtils.GB);
         }
         measureChild(linearLayoutCompat, i, i2);
         setMeasuredDimension(linearLayoutCompat.getMeasuredWidth(), linearLayoutCompat.getMeasuredHeight());

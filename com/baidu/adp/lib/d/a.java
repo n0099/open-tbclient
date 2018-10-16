@@ -8,32 +8,33 @@ import com.baidu.adp.R;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static a Bw = null;
-    public long Bu = 10000;
-    public long Bv = 0;
-    private long Bx = ReportUserInfoModel.TIME_INTERVAL;
-    private boolean By = false;
-    private boolean Bz = false;
-    private boolean BA = false;
+    private static a Ce = null;
+    public long Cc = ErrDef.Feature.WEIGHT;
+    public long Cd = 0;
+    private long Cf = ReportUserInfoModel.TIME_INTERVAL;
+    private boolean Cg = false;
+    private boolean Ch = false;
+    private boolean Ci = false;
     private int errorCode = 4;
-    private Address BB = null;
-    private ArrayList<SoftReference<InterfaceC0014a>> BC = null;
-    private ArrayList<com.baidu.adp.lib.d.b> BD = new ArrayList<>();
+    private Address Cj = null;
+    private ArrayList<SoftReference<InterfaceC0017a>> Ck = null;
+    private ArrayList<com.baidu.adp.lib.d.b> Cl = new ArrayList<>();
     private Handler handler = null;
-    private b BE = new b() { // from class: com.baidu.adp.lib.d.a.1
+    private b Cm = new b() { // from class: com.baidu.adp.lib.d.a.1
         @Override // com.baidu.adp.lib.d.a.b
         public void a(int i, String str, Address address, long j, boolean z) {
-            a.this.Bv = j;
-            a.this.BB = address;
-            a.this.By = z;
+            a.this.Cd = j;
+            a.this.Cj = address;
+            a.this.Cg = z;
             a.this.errorCode = i;
-            a.this.iK();
+            a.this.iZ();
             switch (i) {
                 case 1:
                     if (StringUtils.isNull(str)) {
@@ -66,7 +67,7 @@ public class a {
 
     /* renamed from: com.baidu.adp.lib.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0014a {
+    public interface InterfaceC0017a {
         void b(int i, String str, Address address);
     }
 
@@ -78,23 +79,23 @@ public class a {
     private a() {
     }
 
-    public static a iH() {
-        if (Bw == null) {
+    public static a iX() {
+        if (Ce == null) {
             synchronized (a.class) {
-                if (Bw == null) {
-                    Bw = new a();
+                if (Ce == null) {
+                    Ce = new a();
                 }
             }
         }
-        return Bw;
+        return Ce;
     }
 
     public void a(com.baidu.adp.lib.d.b bVar) {
         if (bVar != null) {
-            synchronized (this.BD) {
-                if (!this.BD.contains(bVar)) {
-                    bVar.a(this.BE);
-                    this.BD.add(bVar);
+            synchronized (this.Cl) {
+                if (!this.Cl.contains(bVar)) {
+                    bVar.a(this.Cm);
+                    this.Cl.add(bVar);
                 }
             }
         }
@@ -102,25 +103,25 @@ public class a {
 
     public void b(com.baidu.adp.lib.d.b bVar) {
         if (bVar != null) {
-            synchronized (this.BD) {
+            synchronized (this.Cl) {
                 bVar.destroy();
-                this.BD.remove(bVar);
+                this.Cl.remove(bVar);
             }
         }
     }
 
     public void initial() {
-        this.BC = new ArrayList<>();
-        iI();
+        this.Ck = new ArrayList<>();
+        initHandler();
     }
 
-    private void iI() {
+    private void initHandler() {
         this.handler = new Handler(Looper.getMainLooper(), new Handler.Callback() { // from class: com.baidu.adp.lib.d.a.2
             @Override // android.os.Handler.Callback
             public boolean handleMessage(Message message) {
                 switch (message.what) {
                     case 0:
-                        a.this.iK();
+                        a.this.iZ();
                         String str = "";
                         switch (a.this.errorCode) {
                             case 1:
@@ -148,8 +149,8 @@ public class a {
         });
     }
 
-    public long iJ() {
-        return this.Bu;
+    public long iY() {
+        return this.Cc;
     }
 
     public Address R(boolean z) {
@@ -157,18 +158,18 @@ public class a {
     }
 
     public Address d(boolean z, boolean z2) {
-        if (System.currentTimeMillis() - this.Bv > this.Bx) {
-            this.BB = null;
+        if (System.currentTimeMillis() - this.Cd > this.Cf) {
+            this.Cj = null;
         }
-        if (this.BB != null && !z && ((z2 && this.By) || !z2)) {
-            return this.BB;
+        if (this.Cj != null && !z && ((z2 && this.Cg) || !z2)) {
+            return this.Cj;
         }
-        this.BB = null;
-        if (!this.BA) {
+        this.Cj = null;
+        if (!this.Ci) {
             S(z2);
             return null;
-        } else if (this.BA && z2 && !this.Bz) {
-            iK();
+        } else if (this.Ci && z2 && !this.Ch) {
+            iZ();
             S(z2);
             return null;
         } else {
@@ -176,32 +177,32 @@ public class a {
         }
     }
 
-    public Address a(boolean z, InterfaceC0014a interfaceC0014a) {
-        return a(z, false, interfaceC0014a);
+    public Address a(boolean z, InterfaceC0017a interfaceC0017a) {
+        return a(z, false, interfaceC0017a);
     }
 
-    public Address a(boolean z, boolean z2, InterfaceC0014a interfaceC0014a) {
+    public Address a(boolean z, boolean z2, InterfaceC0017a interfaceC0017a) {
         boolean z3;
-        InterfaceC0014a interfaceC0014a2;
-        if (System.currentTimeMillis() - this.Bv > this.Bx) {
-            this.BB = null;
+        InterfaceC0017a interfaceC0017a2;
+        if (System.currentTimeMillis() - this.Cd > this.Cf) {
+            this.Cj = null;
         }
-        if (this.BB != null && !z && ((z2 && this.By) || !z2)) {
-            if (interfaceC0014a != null) {
-                interfaceC0014a.b(0, "", this.BB);
+        if (this.Cj != null && !z && ((z2 && this.Cg) || !z2)) {
+            if (interfaceC0017a != null) {
+                interfaceC0017a.b(0, "", this.Cj);
             }
-            return this.BB;
+            return this.Cj;
         }
-        if (interfaceC0014a != null) {
-            synchronized (this.BC) {
+        if (interfaceC0017a != null) {
+            synchronized (this.Ck) {
                 int i = 0;
                 while (true) {
-                    if (i >= this.BC.size()) {
+                    if (i >= this.Ck.size()) {
                         z3 = false;
                         break;
                     }
-                    SoftReference<InterfaceC0014a> softReference = this.BC.get(i);
-                    if (softReference == null || (interfaceC0014a2 = softReference.get()) == null || !interfaceC0014a2.equals(interfaceC0014a)) {
+                    SoftReference<InterfaceC0017a> softReference = this.Ck.get(i);
+                    if (softReference == null || (interfaceC0017a2 = softReference.get()) == null || !interfaceC0017a2.equals(interfaceC0017a)) {
                         i++;
                     } else {
                         z3 = true;
@@ -209,17 +210,17 @@ public class a {
                     }
                 }
                 if (!z3) {
-                    if (this.BC.size() >= 100) {
-                        this.BC.remove(0);
+                    if (this.Ck.size() >= 100) {
+                        this.Ck.remove(0);
                     }
-                    this.BC.add(new SoftReference<>(interfaceC0014a));
+                    this.Ck.add(new SoftReference<>(interfaceC0017a));
                 }
             }
-            if (!this.BA) {
+            if (!this.Ci) {
                 S(z2);
                 return null;
-            } else if (this.BA && z2 && !this.Bz) {
-                iK();
+            } else if (this.Ci && z2 && !this.Ch) {
+                iZ();
                 S(z2);
                 return null;
             }
@@ -227,17 +228,17 @@ public class a {
         return null;
     }
 
-    public void a(InterfaceC0014a interfaceC0014a) {
-        InterfaceC0014a interfaceC0014a2;
-        synchronized (this.BC) {
+    public void a(InterfaceC0017a interfaceC0017a) {
+        InterfaceC0017a interfaceC0017a2;
+        synchronized (this.Ck) {
             int i = 0;
             while (true) {
-                if (i < this.BC.size()) {
-                    SoftReference<InterfaceC0014a> softReference = this.BC.get(i);
-                    if (softReference == null || (interfaceC0014a2 = softReference.get()) == null || !interfaceC0014a2.equals(interfaceC0014a)) {
+                if (i < this.Ck.size()) {
+                    SoftReference<InterfaceC0017a> softReference = this.Ck.get(i);
+                    if (softReference == null || (interfaceC0017a2 = softReference.get()) == null || !interfaceC0017a2.equals(interfaceC0017a)) {
                         i++;
                     } else {
-                        this.BC.remove(softReference);
+                        this.Ck.remove(softReference);
                         break;
                     }
                 } else {
@@ -248,17 +249,17 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iK() {
+    public void iZ() {
         if (this.handler.hasMessages(0)) {
             this.handler.removeMessages(0);
         }
-        this.BA = false;
-        Iterator<com.baidu.adp.lib.d.b> it = this.BD.iterator();
+        this.Ci = false;
+        Iterator<com.baidu.adp.lib.d.b> it = this.Cl.iterator();
         while (it.hasNext()) {
             com.baidu.adp.lib.d.b next = it.next();
             if (next != null) {
                 try {
-                    next.iL();
+                    next.ja();
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
@@ -271,14 +272,14 @@ public class a {
             this.handler.removeMessages(0);
         }
         this.errorCode = 4;
-        this.Bz = z;
-        this.BA = true;
-        if (this.BD == null || this.BD.isEmpty()) {
+        this.Ch = z;
+        this.Ci = true;
+        if (this.Cl == null || this.Cl.isEmpty()) {
             this.errorCode = 6;
             this.handler.sendMessage(this.handler.obtainMessage(0));
             return;
         }
-        Iterator<com.baidu.adp.lib.d.b> it = this.BD.iterator();
+        Iterator<com.baidu.adp.lib.d.b> it = this.Cl.iterator();
         while (it.hasNext()) {
             com.baidu.adp.lib.d.b next = it.next();
             if (next != null) {
@@ -289,28 +290,28 @@ public class a {
                 }
             }
         }
-        this.handler.sendMessageDelayed(this.handler.obtainMessage(0), this.Bu);
+        this.handler.sendMessageDelayed(this.handler.obtainMessage(0), this.Cc);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, String str, Address address) {
-        InterfaceC0014a interfaceC0014a;
+        InterfaceC0017a interfaceC0017a;
         int i2 = 0;
         if (this.handler.hasMessages(0)) {
             this.handler.removeMessages(0);
         }
-        if (this.BC != null) {
-            synchronized (this.BC) {
+        if (this.Ck != null) {
+            synchronized (this.Ck) {
                 while (true) {
                     int i3 = i2;
-                    if (i3 < this.BC.size()) {
-                        SoftReference<InterfaceC0014a> softReference = this.BC.get(i3);
-                        if (softReference != null && (interfaceC0014a = softReference.get()) != null) {
-                            interfaceC0014a.b(i, str, address);
+                    if (i3 < this.Ck.size()) {
+                        SoftReference<InterfaceC0017a> softReference = this.Ck.get(i3);
+                        if (softReference != null && (interfaceC0017a = softReference.get()) != null) {
+                            interfaceC0017a.b(i, str, address);
                         }
                         i2 = i3 + 1;
                     } else {
-                        this.BC.clear();
+                        this.Ck.clear();
                     }
                 }
             }

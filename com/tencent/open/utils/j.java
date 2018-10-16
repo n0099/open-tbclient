@@ -20,7 +20,11 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.webkit.internal.ABTestConstants;
+import com.baidu.webkit.internal.ETAG;
 import com.tencent.connect.common.Constants;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -35,7 +39,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Enumeration;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class j {
     private static String f;
     private static String a = "";
@@ -49,8 +53,8 @@ public class j {
         Bundle bundle = new Bundle();
         if (str != null) {
             try {
-                for (String str2 : str.split("&")) {
-                    String[] split = str2.split("=");
+                for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
+                    String[] split = str2.split(ETAG.EQUAL);
                     if (split.length == 2) {
                         bundle.putString(URLDecoder.decode(split[0]), URLDecoder.decode(split[1]));
                     }
@@ -68,8 +72,8 @@ public class j {
             jSONObject = new JSONObject();
         }
         if (str != null) {
-            for (String str2 : str.split("&")) {
-                String[] split = str2.split("=");
+            for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
+                String[] split = str2.split(ETAG.EQUAL);
                 if (split.length == 2) {
                     try {
                         split[0] = URLDecoder.decode(split[0]);
@@ -109,7 +113,7 @@ public class j {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public String a;
         public long b;
@@ -125,7 +129,7 @@ public class j {
     }
 
     public static JSONObject d(String str) throws JSONException {
-        if (str.equals("false")) {
+        if (str.equals(ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE)) {
             str = "{value : false}";
         }
         if (str.equals("true")) {
@@ -171,7 +175,7 @@ public class j {
                 return false;
             }
             try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
                 messageDigest.update(signatureArr[0].toByteArray());
                 String a2 = a(messageDigest.digest());
                 messageDigest.reset();
@@ -233,7 +237,7 @@ public class j {
         Intent intent = new Intent();
         intent.setComponent(new ComponentName(str, str2));
         intent.setAction("android.intent.action.VIEW");
-        intent.addFlags(1073741824);
+        intent.addFlags(AiAppsFileUtils.GB);
         intent.addFlags(268435456);
         intent.setData(Uri.parse(str3));
         context.startActivity(intent);
@@ -241,7 +245,7 @@ public class j {
 
     public static String f(String str) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
             messageDigest.update(i(str));
             byte[] digest = messageDigest.digest();
             if (digest != null) {
@@ -401,7 +405,7 @@ public class j {
         bundle.putString("network", com.tencent.open.b.a.a(e.a()));
         bundle.putString("apn", com.tencent.open.b.a.b(e.a()));
         bundle.putString("model_name", Build.MODEL);
-        bundle.putString("sdk_ver", Constants.SDK_VERSION);
+        bundle.putString(ETAG.KEY_SDK_VER, Constants.SDK_VERSION);
         bundle.putString("packagename", e.b());
         bundle.putString("app_ver", d(e.a(), e.b()));
         return bundle;

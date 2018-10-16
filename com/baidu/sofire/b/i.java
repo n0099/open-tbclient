@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import com.baidu.ar.util.SystemInfoUtil;
+import com.baidu.searchbox.ng.ai.apps.media.chooser.action.ChooseVideoAction;
 import com.baidu.sofire.core.ApkInfo;
 import java.io.File;
 import org.json.JSONArray;
@@ -94,7 +95,7 @@ public final class i {
                 } else if (file2.exists()) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("path", file2.getAbsolutePath());
-                    jSONObject.put("size", file2.length());
+                    jSONObject.put(ChooseVideoAction.CB_KEY_SIZE, file2.length());
                     jSONArray.put(jSONObject);
                     j += file2.length();
                 }

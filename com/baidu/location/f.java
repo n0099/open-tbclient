@@ -8,10 +8,11 @@ import android.content.Intent;
 import android.os.IBinder;
 import com.baidu.location.c.a;
 import com.baidu.location.d.g;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import dalvik.system.DexClassLoader;
 import java.io.File;
 import java.io.RandomAccessFile;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class f extends Service {
     LLSInterface a = null;
     LLSInterface b = null;
@@ -33,8 +34,8 @@ public class f extends Service {
                     byte[] bArr = new byte[readInt];
                     randomAccessFile.read(bArr, 0, readInt);
                     String str = new String(bArr);
-                    String a = g.a(file, "SHA-256");
-                    if (str != null && a != null && g.k(a, str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
+                    String a = g.a(file, AiAppEncryptUtils.ENCRYPT_SHA256);
+                    if (str != null && a != null && g.n(a, str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
                         z = true;
                     }
                 }

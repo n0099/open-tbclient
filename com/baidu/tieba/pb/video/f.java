@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class f extends com.baidu.tbadk.core.view.userLike.c {
     public f(TbPageContext tbPageContext, com.baidu.tbadk.core.view.userLike.b bVar) {
         super(tbPageContext, bVar);
@@ -14,8 +14,8 @@ public class f extends com.baidu.tbadk.core.view.userLike.c {
     @Override // com.baidu.tbadk.core.view.userLike.c, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (this.aCx != null) {
-            TiebaStatic.log(new am("c11924").al(VideoPlayActivityConfig.OBJ_ID, this.aCx.getUserId()));
+        if (this.aHd != null) {
+            TiebaStatic.log(new am("c11924").ax(VideoPlayActivityConfig.OBJ_ID, this.aHd.getUserId()));
         }
     }
 }

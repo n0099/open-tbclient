@@ -3,6 +3,7 @@ package com.baidu.ar.recorder.d;
 import android.media.MediaCodec;
 import android.media.MediaFormat;
 import android.util.Log;
+import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 abstract class b {
@@ -34,7 +35,7 @@ abstract class b {
         try {
             ByteBuffer[] outputBuffers = this.b.getOutputBuffers();
             while (true) {
-                int dequeueOutputBuffer = this.b.dequeueOutputBuffer(this.c, 10000L);
+                int dequeueOutputBuffer = this.b.dequeueOutputBuffer(this.c, ErrDef.Feature.WEIGHT);
                 if (dequeueOutputBuffer == -1) {
                     if (!z) {
                         return;
@@ -125,7 +126,7 @@ abstract class b {
             if (this.i && this.h == -1) {
                 return;
             }
-            int dequeueInputBuffer = this.b.dequeueInputBuffer(10000L);
+            int dequeueInputBuffer = this.b.dequeueInputBuffer(ErrDef.Feature.WEIGHT);
             if (dequeueInputBuffer < 0) {
                 Log.d(g, "drainBuffer encode input buffer not available");
             } else if (z) {

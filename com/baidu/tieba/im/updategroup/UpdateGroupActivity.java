@@ -15,40 +15,40 @@ import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 import com.baidu.tieba.im.model.UpdateGroupModel;
 /* loaded from: classes3.dex */
 public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
-    private UpdateGroupModel eJz;
-    private a eJy = null;
-    private int eJA = 1;
-    a.b ewU = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.1
+    private UpdateGroupModel eRi;
+    private a eRh = null;
+    private int eRj = 1;
+    a.b eEI = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.1
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-            UpdateGroupActivity.this.aPV();
+            UpdateGroupActivity.this.aTj();
         }
     };
-    a.b ewV = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.2
+    a.b eEJ = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.2
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
             UpdateGroupActivity.this.setResult(0);
             UpdateGroupActivity.this.finish();
         }
     };
-    private com.baidu.adp.framework.listener.c era = new com.baidu.adp.framework.listener.c(103102) { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.3
+    private com.baidu.adp.framework.listener.c eyR = new com.baidu.adp.framework.listener.c(103102) { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 103102) {
-                UpdateGroupActivity.this.eJy.setIsLoading(false);
+                UpdateGroupActivity.this.eRh.setIsLoading(false);
                 if (!(socketResponsedMessage instanceof ResponseUpdateGroupMessage)) {
                     UpdateGroupActivity.this.showToast(e.j.group_update_fail);
                     return;
                 }
                 ResponseUpdateGroupMessage responseUpdateGroupMessage = (ResponseUpdateGroupMessage) socketResponsedMessage;
                 if (responseUpdateGroupMessage.getError() != 0) {
-                    UpdateGroupActivity.this.af(StringUtils.isNull(responseUpdateGroupMessage.getErrorString()) ? UpdateGroupActivity.this.getResources().getString(e.j.neterror) : responseUpdateGroupMessage.getErrorString(), responseUpdateGroupMessage.getError());
+                    UpdateGroupActivity.this.aj(StringUtils.isNull(responseUpdateGroupMessage.getErrorString()) ? UpdateGroupActivity.this.getResources().getString(e.j.neterror) : responseUpdateGroupMessage.getErrorString(), responseUpdateGroupMessage.getError());
                     return;
                 }
                 UpdateGroupActivity.this.showToast(e.j.group_update_success);
                 Intent intent = UpdateGroupActivity.this.getIntent();
-                intent.putExtra(UpdateGroupActivityConfig.GROUP_TEXT, UpdateGroupActivity.this.eJy.getText());
+                intent.putExtra(UpdateGroupActivityConfig.GROUP_TEXT, UpdateGroupActivity.this.eRh.getText());
                 UpdateGroupActivity.this.setResult(-1, intent);
                 UpdateGroupActivity.this.finish();
             }
@@ -56,7 +56,7 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void af(String str, int i) {
+    public void aj(String str, int i) {
         if (i < 0) {
             showToast(e.j.neterror);
         } else if (!TextUtils.isEmpty(str)) {
@@ -74,79 +74,79 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
         long longExtra = intent.getLongExtra("group_id", 0L);
         String stringExtra = intent.getStringExtra(UpdateGroupActivityConfig.GROUP_TEXT);
         i(intExtra, longExtra);
-        this.eJz = new UpdateGroupModel(getPageContext());
-        this.eJz.setUniqueId(getUniqueId());
-        this.eJy.pt(stringExtra);
-        this.eJy.a(this.ewV);
-        this.eJy.b(this.ewU);
+        this.eRi = new UpdateGroupModel(getPageContext());
+        this.eRi.setUniqueId(getUniqueId());
+        this.eRh.pV(stringExtra);
+        this.eRh.a(this.eEJ);
+        this.eRh.b(this.eEI);
         initListener();
     }
 
     private void initListener() {
-        registerListener(this.era);
+        registerListener(this.eyR);
     }
 
     private void i(int i, long j) {
         if (i == 1) {
-            this.eJy = new c(this);
+            this.eRh = new c(this);
         } else if (i == 2) {
-            this.eJy = new b(this);
+            this.eRh = new b(this);
         }
-        this.eJA = i;
-        this.eJy.setGroupId(j);
+        this.eRj = i;
+        this.eRh.setGroupId(j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.eJy.onChangeSkinType(i);
+        this.eRh.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.eJy.aLq()) {
-            if (((d) this.eJy).aPW()) {
+        if (view == this.eRh.aOF()) {
+            if (((d) this.eRh).aTk()) {
                 finish();
-            } else if (this.eJy.aPT() && this.eJy.aLg()) {
-                aPV();
+            } else if (this.eRh.aTh() && this.eRh.aOv()) {
+                aTj();
             } else {
-                showToast(this.eJy.aPS());
+                showToast(this.eRh.aTg());
             }
-        } else if (view == this.eJy.aKD()) {
-            this.eJy.clearText();
-        } else if (view == this.eJy.aPQ() && !aPU()) {
+        } else if (view == this.eRh.aNT()) {
+            this.eRh.clearText();
+        } else if (view == this.eRh.aTe() && !aTi()) {
             finish();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && keyEvent.getRepeatCount() == 0 && aPU()) {
+        if (i == 4 && keyEvent.getRepeatCount() == 0 && aTi()) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private boolean aPU() {
-        if (TextUtils.isEmpty(this.eJy.getText()) || !this.eJy.aLg() || this.eJy.getText().equals(this.eJy.aPP())) {
+    private boolean aTi() {
+        if (TextUtils.isEmpty(this.eRh.getText()) || !this.eRh.aOv() || this.eRh.getText().equals(this.eRh.aTd())) {
             return false;
         }
-        this.eJy.showDialog();
+        this.eRh.showDialog();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aPV() {
-        this.eJy.setIsLoading(true);
-        this.eJz.setGroupId(this.eJy.getGroupId());
-        if (this.eJA == 1) {
-            this.eJz.setName(this.eJy.getText());
-            this.eJz.sendMessage(2);
-        } else if (this.eJA == 2) {
-            this.eJz.setIntro(this.eJy.getText());
-            this.eJz.sendMessage(1);
+    public void aTj() {
+        this.eRh.setIsLoading(true);
+        this.eRi.setGroupId(this.eRh.getGroupId());
+        if (this.eRj == 1) {
+            this.eRi.setName(this.eRh.getText());
+            this.eRi.sendMessage(2);
+        } else if (this.eRj == 2) {
+            this.eRi.setIntro(this.eRh.getText());
+            this.eRi.sendMessage(1);
         }
     }
 
@@ -155,7 +155,7 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
     public void onDestroy() {
         releaseResouce();
         super.onDestroy();
-        this.eJz.cancelMessage();
-        this.eJy.release();
+        this.eRi.cancelMessage();
+        this.eRh.release();
     }
 }

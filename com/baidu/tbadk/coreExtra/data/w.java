@@ -5,50 +5,50 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class w {
-    private String aFD;
-    private long aFE;
-    private long aFF;
-    private long aFG;
-    private String aFH;
-    private String aFI;
+    private String aKg;
+    private long aKh;
+    private long aKi;
+    private long aKj;
+    private String aKk;
+    private String aKl;
 
     public void parseJson(String str) {
         if (!ao.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.aFD = jSONObject.optString("splash_video_url");
-                this.aFE = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.aFF = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.aFG = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.aFH = jSONObject.optString("splash_video_h5_url");
-                this.aFI = jSONObject.optString("splash_video_h5_text");
+                this.aKg = jSONObject.optString("splash_video_url");
+                this.aKh = jSONObject.optLong("splash_video_start_time") * 1000;
+                this.aKi = jSONObject.optLong("splash_video_end_time") * 1000;
+                this.aKj = jSONObject.optLong("splash_video_interval_time") * 1000;
+                this.aKk = jSONObject.optString("splash_video_h5_url");
+                this.aKl = jSONObject.optString("splash_video_h5_text");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String DH() {
-        return this.aFD;
+    public String FI() {
+        return this.aKg;
     }
 
-    public long DI() {
-        return this.aFE;
+    public long FJ() {
+        return this.aKh;
     }
 
-    public long DJ() {
-        return this.aFF;
+    public long FK() {
+        return this.aKi;
     }
 
-    public long DK() {
-        return this.aFG;
+    public long FL() {
+        return this.aKj;
     }
 
-    public String DL() {
-        return this.aFH;
+    public String FM() {
+        return this.aKk;
     }
 
-    public String DM() {
-        return this.aFI;
+    public String FN() {
+        return this.aKl;
     }
 }

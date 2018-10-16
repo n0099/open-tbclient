@@ -18,6 +18,7 @@ import android.text.TextUtils;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
 import com.baidu.tieba.e;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
@@ -25,14 +26,14 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private volatile boolean cjc;
-    private RelativeLayout fpw;
-    private TextView fpx;
-    private Runnable fpy;
-    private Runnable fpz;
+    private RelativeLayout fxb;
+    private TextView fxc;
+    private Runnable fxd;
+    private Runnable fxe;
     private Context mContext;
     private Handler mHandler;
     private HandlerThread mHandlerThread;
+    private volatile boolean mIsShowing;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -43,8 +44,8 @@ public class c {
         this.mContext = context;
     }
 
-    public void aYr() {
-        if (!this.cjc && isMainProcess() && aYs()) {
+    public void bbD() {
+        if (!this.mIsShowing && isMainProcess() && bbE()) {
             if (this.mHandlerThread == null) {
                 this.mHandlerThread = new HandlerThread("splash-thread");
                 this.mHandlerThread.start();
@@ -52,73 +53,73 @@ public class c {
             if (this.mHandler == null) {
                 this.mHandler = new Handler(this.mHandlerThread.getLooper());
             }
-            if (this.fpy == null) {
-                this.fpy = new Runnable() { // from class: com.baidu.tieba.l.c.1
+            if (this.fxd == null) {
+                this.fxd = new Runnable() { // from class: com.baidu.tieba.l.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (c.this.fpw != null) {
-                            ((WindowManager) c.this.mContext.getSystemService("window")).removeViewImmediate(c.this.fpw);
+                        if (c.this.fxb != null) {
+                            ((WindowManager) c.this.mContext.getSystemService(WindowConfig.JSON_WINDOW_KEY)).removeViewImmediate(c.this.fxb);
                             c.this.clean();
                         }
                     }
                 };
             }
-            if (this.fpz == null) {
-                this.fpz = new Runnable() { // from class: com.baidu.tieba.l.c.2
+            if (this.fxe == null) {
+                this.fxe = new Runnable() { // from class: com.baidu.tieba.l.c.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.rj(c.this.mContext.getString(e.j.data_init));
+                        c.this.rJ(c.this.mContext.getString(e.j.data_init));
                     }
                 };
             }
-            this.mHandler.removeCallbacks(this.fpz);
-            this.mHandler.postAtFrontOfQueue(this.fpz);
-            this.cjc = true;
-            this.mHandler.postDelayed(this.fpy, 20000L);
+            this.mHandler.removeCallbacks(this.fxe);
+            this.mHandler.postAtFrontOfQueue(this.fxe);
+            this.mIsShowing = true;
+            this.mHandler.postDelayed(this.fxd, 20000L);
         }
     }
 
     public void hide() {
-        if (this.fpw != null && this.fpx != null) {
-            this.mHandler.removeCallbacks(this.fpy);
-            this.mHandler.post(this.fpy);
+        if (this.fxb != null && this.fxc != null) {
+            this.mHandler.removeCallbacks(this.fxd);
+            this.mHandler.post(this.fxd);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void clean() {
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.fpy);
-            this.mHandler.removeCallbacks(this.fpz);
-            this.fpz = null;
-            this.fpy = null;
+            this.mHandler.removeCallbacks(this.fxd);
+            this.mHandler.removeCallbacks(this.fxe);
+            this.fxe = null;
+            this.fxd = null;
             this.mHandler = null;
         }
         if (this.mHandlerThread != null) {
             this.mHandlerThread.quit();
         }
-        if (this.fpx != null) {
-            this.fpx = null;
+        if (this.fxc != null) {
+            this.fxc = null;
         }
-        if (this.fpw != null) {
-            this.fpw = null;
+        if (this.fxb != null) {
+            this.fxb = null;
         }
-        this.cjc = false;
+        this.mIsShowing = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rj(String str) {
-        if (this.fpx == null) {
-            this.fpx = new b(this.mContext);
-            this.fpx.setTextSize(1, 18.0f);
+    public void rJ(String str) {
+        if (this.fxc == null) {
+            this.fxc = new b(this.mContext);
+            this.fxc.setTextSize(1, 18.0f);
         }
-        this.fpx.setText(str);
-        this.fpw = new RelativeLayout(this.mContext);
-        this.fpw.setBackgroundResource(e.f.bg_splash_logo);
+        this.fxc.setText(str);
+        this.fxb = new RelativeLayout(this.mContext);
+        this.fxb.setBackgroundResource(e.f.bg_splash_logo);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(14);
         layoutParams.addRule(15);
-        this.fpw.addView(this.fpx, layoutParams);
+        this.fxb.addView(this.fxc, layoutParams);
         WindowManager.LayoutParams layoutParams2 = new WindowManager.LayoutParams();
         layoutParams2.type = 2005;
         layoutParams2.format = 1;
@@ -128,7 +129,7 @@ public class c {
         layoutParams2.width = -1;
         layoutParams2.height = -1;
         layoutParams2.flags = 1280;
-        ((WindowManager) this.mContext.getSystemService("window")).addView(this.fpw, layoutParams2);
+        ((WindowManager) this.mContext.getSystemService(WindowConfig.JSON_WINDOW_KEY)).addView(this.fxb, layoutParams2);
     }
 
     private boolean isMainProcess() {
@@ -151,15 +152,15 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean aYs() {
-        List<String> cy = cy(this.mContext);
-        if (cy == null || cy.size() == 0) {
+    private boolean bbE() {
+        List<String> cL = cL(this.mContext);
+        if (cL == null || cL.size() == 0) {
             return false;
         }
         ActivityManager.RunningTaskInfo runningTaskInfo = ((ActivityManager) this.mContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningTasks(1).get(0);
         String shortString = runningTaskInfo.baseActivity.toShortString();
         String shortString2 = runningTaskInfo.topActivity.toShortString();
-        for (String str : cy) {
+        for (String str : cL) {
             if (shortString.equals(str) || shortString2.equals(str)) {
                 return true;
             }
@@ -169,7 +170,7 @@ public class c {
         return false;
     }
 
-    private List<String> cy(Context context) {
+    private List<String> cL(Context context) {
         PackageManager packageManager = context.getPackageManager();
         Intent intent = new Intent("com.baidu.tieba.SPLASH_PIPELINE_ACTION");
         intent.setPackage(context.getPackageName());
@@ -188,30 +189,30 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends TextView {
-        private int Pm;
-        private LinearGradient fpB;
-        private Matrix fpC;
-        private int fpD;
+        private int PC;
+        private LinearGradient fxg;
+        private Matrix fxh;
+        private int fxi;
         private boolean mAnimating;
         private Paint mPaint;
 
         public b(Context context) {
             super(context);
-            this.Pm = 0;
-            this.fpD = 0;
+            this.PC = 0;
+            this.fxi = 0;
             this.mAnimating = true;
         }
 
         @Override // android.widget.TextView, android.view.View
         protected void onDraw(Canvas canvas) {
             super.onDraw(canvas);
-            if (this.mAnimating && this.fpC != null) {
-                this.fpD += this.Pm / 10;
-                if (this.fpD > this.Pm * 2) {
-                    this.fpD = -this.Pm;
+            if (this.mAnimating && this.fxh != null) {
+                this.fxi += this.PC / 10;
+                if (this.fxi > this.PC * 2) {
+                    this.fxi = -this.PC;
                 }
-                this.fpC.setTranslate(this.fpD, 0.0f);
-                this.fpB.setLocalMatrix(this.fpC);
+                this.fxh.setTranslate(this.fxi, 0.0f);
+                this.fxg.setLocalMatrix(this.fxh);
                 postInvalidateDelayed(50L);
             }
         }
@@ -219,13 +220,13 @@ public class c {
         @Override // android.view.View
         protected void onSizeChanged(int i, int i2, int i3, int i4) {
             super.onSizeChanged(i, i2, i3, i4);
-            if (this.Pm == 0) {
-                this.Pm = getMeasuredWidth();
-                if (this.Pm > 0) {
+            if (this.PC == 0) {
+                this.PC = getMeasuredWidth();
+                if (this.PC > 0) {
                     this.mPaint = getPaint();
-                    this.fpB = new LinearGradient(-this.Pm, 0.0f, 0.0f, 0.0f, new int[]{1610612736, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 1610612736}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP);
-                    this.mPaint.setShader(this.fpB);
-                    this.fpC = new Matrix();
+                    this.fxg = new LinearGradient(-this.PC, 0.0f, 0.0f, 0.0f, new int[]{1610612736, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 1610612736}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP);
+                    this.mPaint.setShader(this.fxg);
+                    this.fxh = new Matrix();
                 }
             }
         }

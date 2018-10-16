@@ -9,19 +9,19 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class k {
     @Nullable
-    public final com.airbnb.lottie.model.a.a pX;
+    public final com.airbnb.lottie.model.a.a qK;
     @Nullable
-    public final com.airbnb.lottie.model.a.a pY;
+    public final com.airbnb.lottie.model.a.a qL;
     @Nullable
-    public final b pZ;
+    public final b qM;
     @Nullable
-    public final b qa;
+    public final b qN;
 
     k(@Nullable com.airbnb.lottie.model.a.a aVar, @Nullable com.airbnb.lottie.model.a.a aVar2, @Nullable b bVar, @Nullable b bVar2) {
-        this.pX = aVar;
-        this.pY = aVar2;
-        this.pZ = bVar;
-        this.qa = bVar2;
+        this.qK = aVar;
+        this.qL = aVar2;
+        this.qM = bVar;
+        this.qN = bVar2;
     }
 
     /* loaded from: classes2.dex */
@@ -32,9 +32,9 @@ public class k {
             }
             JSONObject optJSONObject = jSONObject.optJSONObject(Config.APP_VERSION_CODE);
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("fc");
-            com.airbnb.lottie.model.a.a d = optJSONObject2 != null ? a.C0007a.d(optJSONObject2, eVar) : null;
+            com.airbnb.lottie.model.a.a d = optJSONObject2 != null ? a.C0010a.d(optJSONObject2, eVar) : null;
             JSONObject optJSONObject3 = optJSONObject.optJSONObject(Config.STAT_SDK_CHANNEL);
-            com.airbnb.lottie.model.a.a d2 = optJSONObject3 != null ? a.C0007a.d(optJSONObject3, eVar) : null;
+            com.airbnb.lottie.model.a.a d2 = optJSONObject3 != null ? a.C0010a.d(optJSONObject3, eVar) : null;
             JSONObject optJSONObject4 = optJSONObject.optJSONObject(TbConfig.SW_APID);
             b e = optJSONObject4 != null ? b.a.e(optJSONObject4, eVar) : null;
             JSONObject optJSONObject5 = optJSONObject.optJSONObject("t");

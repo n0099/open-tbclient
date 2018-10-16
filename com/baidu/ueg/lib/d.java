@@ -1,7 +1,7 @@
 package com.baidu.ueg.lib;
 
 import java.nio.charset.Charset;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class d {
     private static byte[] a(String str, Charset charset) {
         if (str == null) {
@@ -10,7 +10,7 @@ public class d {
         return str.getBytes(charset);
     }
 
-    public static byte[] xe(String str) {
+    public static byte[] ye(String str) {
         return a(str, c.UTF_8);
     }
 
@@ -21,7 +21,7 @@ public class d {
         return new String(bArr, charset);
     }
 
-    public static String R(byte[] bArr) {
+    public static String S(byte[] bArr) {
         return a(bArr, c.UTF_8);
     }
 }

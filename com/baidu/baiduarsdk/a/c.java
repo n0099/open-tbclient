@@ -3,7 +3,6 @@ package com.baidu.baiduarsdk.a;
 import android.content.Context;
 import android.view.OrientationEventListener;
 import com.baidu.baiduarsdk.ArBridge;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 /* loaded from: classes3.dex */
 public class c extends OrientationEventListener {
     private ArBridge.TouchOrientation a;
@@ -23,10 +22,7 @@ public class c extends OrientationEventListener {
         if (this.a == ArBridge.TouchOrientation.SCREEN_ORIENTATION_REVERSE_LANDSCAPE) {
             return -90;
         }
-        if (this.a == ArBridge.TouchOrientation.SCREEN_ORIENTATION_REVERSE_PORTRAIT) {
-            return SubsamplingScaleImageView.ORIENTATION_180;
-        }
-        return 0;
+        return this.a == ArBridge.TouchOrientation.SCREEN_ORIENTATION_REVERSE_PORTRAIT ? 180 : 0;
     }
 
     public void a() {

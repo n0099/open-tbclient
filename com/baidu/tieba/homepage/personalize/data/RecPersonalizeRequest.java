@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.p;
 import tbclient.Personalized.DataReq;
 import tbclient.Personalized.PersonalizedReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class RecPersonalizeRequest extends NetMessage {
     private int loadType;
     private int needForumlist;
@@ -71,7 +71,7 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.scr_dip = Double.valueOf(l.aR(TbadkCoreApplication.getInst()));
         builder.q_type = 1;
         builder.need_forumlist = Integer.valueOf(this.needForumlist);
-        builder.new_net_type = Integer.valueOf(j.kQ());
+        builder.new_net_type = Integer.valueOf(j.ld());
         PersonalizedReqIdl.Builder builder2 = new PersonalizedReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

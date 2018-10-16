@@ -3,7 +3,7 @@ package com.baidu.tieba.card.data;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.bb;
 import com.baidu.tbadk.core.util.am;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class j extends k {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
 
@@ -20,16 +20,16 @@ public class j extends k {
         return bbVar != null && bbVar.getThreadType() == 49;
     }
 
-    public am lH(String str) {
-        am lI = lI(str);
-        lI.delete("obj_type");
-        lI.delete("obj_type");
-        lI.w("obj_type", 3);
-        return lI;
+    public am mj(String str) {
+        am mk = mk(str);
+        mk.delete("obj_type");
+        mk.delete("obj_type");
+        mk.x("obj_type", 3);
+        return mk;
     }
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.c
-    public bb UT() {
+    public bb YA() {
         return this.threadData;
     }
 }

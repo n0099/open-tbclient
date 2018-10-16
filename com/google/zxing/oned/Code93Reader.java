@@ -11,6 +11,7 @@ import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.Map;
+import okhttp3.internal.http.StatusLine;
 import org.apache.http.HttpStatus;
 /* loaded from: classes3.dex */
 public final class Code93Reader extends OneDReader {
@@ -22,7 +23,7 @@ public final class Code93Reader extends OneDReader {
     private final int[] counters = new int[6];
 
     static {
-        int[] iArr = {276, 328, 324, 322, 296, 292, 290, 336, 274, 266, HttpStatus.SC_FAILED_DEPENDENCY, HttpStatus.SC_METHOD_FAILURE, 418, HttpStatus.SC_NOT_FOUND, HttpStatus.SC_PAYMENT_REQUIRED, 394, 360, 356, 354, 308, 282, 344, 332, 326, 300, 278, 436, 434, 428, HttpStatus.SC_UNPROCESSABLE_ENTITY, HttpStatus.SC_NOT_ACCEPTABLE, HttpStatus.SC_GONE, 364, 358, MsgConstants.TRACK_MSG_ID_TRACK_LOST, MsgConstants.TRACK_SHOW_CAPTURE, 302, 468, 466, 458, 366, 374, 430, 294, 474, 470, MsgConstants.TRACK_MODEL_SHOWING, 350};
+        int[] iArr = {276, 328, 324, 322, 296, 292, 290, 336, 274, 266, HttpStatus.SC_FAILED_DEPENDENCY, HttpStatus.SC_METHOD_FAILURE, 418, 404, 402, 394, 360, 356, 354, StatusLine.HTTP_PERM_REDIRECT, 282, 344, 332, 326, 300, 278, 436, 434, 428, HttpStatus.SC_UNPROCESSABLE_ENTITY, 406, 410, 364, 358, MsgConstants.TRACK_MSG_ID_TRACK_LOST, MsgConstants.TRACK_SHOW_CAPTURE, 302, 468, 466, 458, 366, 374, 430, 294, 474, 470, MsgConstants.TRACK_MODEL_SHOWING, 350};
         CHARACTER_ENCODINGS = iArr;
         ASTERISK_ENCODING = iArr[47];
     }

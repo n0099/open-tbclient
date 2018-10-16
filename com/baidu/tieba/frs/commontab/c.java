@@ -12,45 +12,45 @@ import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetModel;
 import java.util.HashSet;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class c implements NetModel.b<FrsCommonTabRequestData, d> {
-    private FrsCommonTabFragment dyO;
-    private d dzb;
-    private FrsCommonTabRequestData dzc;
-    private FrsCommonTabNetModel dzd;
-    private boolean dze;
+    private FrsCommonTabFragment dGO;
+    private d dHb;
+    private FrsCommonTabRequestData dHc;
+    private FrsCommonTabNetModel dHd;
+    private boolean dHe;
     private int mErrorCode;
     private String mErrorString;
-    private HashSet<String> dzf = new HashSet<>();
+    private HashSet<String> dHf = new HashSet<>();
     private int mPn = 1;
 
     public c(FrsCommonTabFragment frsCommonTabFragment, int i, int i2) {
         if (frsCommonTabFragment != null) {
-            this.dyO = frsCommonTabFragment;
-            this.dzc = new FrsCommonTabRequestData();
-            this.dzc.fid = i;
-            this.dzc.tabId = i2;
-            this.dzd = new FrsCommonTabNetModel(frsCommonTabFragment.getPageContext(), this.dzc);
-            this.dzd.a(this);
-            this.dzd.setUniqueId(frsCommonTabFragment.getUniqueId());
+            this.dGO = frsCommonTabFragment;
+            this.dHc = new FrsCommonTabRequestData();
+            this.dHc.fid = i;
+            this.dHc.tabId = i2;
+            this.dHd = new FrsCommonTabNetModel(frsCommonTabFragment.getPageContext(), this.dHc);
+            this.dHd.a(this);
+            this.dHd.setUniqueId(frsCommonTabFragment.getUniqueId());
         }
     }
 
-    public void ayI() {
-        if (!this.dzd.BO()) {
+    public void aCb() {
+        if (!this.dHd.DU()) {
             this.mPn = 1;
-            this.dze = true;
-            this.dzc.pn = this.mPn;
-            this.dzd.Ll();
+            this.dHe = true;
+            this.dHc.pn = this.mPn;
+            this.dHd.Nj();
         }
     }
 
-    public void Vd() {
-        if (!this.dzd.BO()) {
+    public void YK() {
+        if (!this.dHd.DU()) {
             this.mPn++;
-            this.dze = false;
-            this.dzc.pn = this.mPn;
-            this.dzd.Ll();
+            this.dHe = false;
+            this.dHc.pn = this.mPn;
+            this.dHd.Nj();
         }
     }
 
@@ -58,36 +58,36 @@ public class c implements NetModel.b<FrsCommonTabRequestData, d> {
         if (frsCommonTabRequestData == null || dVar == null) {
             return false;
         }
-        if (this.dze) {
-            this.dzb = dVar;
-            this.dzf.clear();
+        if (this.dHe) {
+            this.dHb = dVar;
+            this.dHf.clear();
             Iterator<h> it = dVar.threadList.iterator();
             while (it.hasNext()) {
                 h next = it.next();
                 if (next instanceof bb) {
                     String tid = ((bb) next).getTid();
-                    if (!this.dzf.contains(tid)) {
-                        this.dzf.add(tid);
+                    if (!this.dHf.contains(tid)) {
+                        this.dHf.add(tid);
                     }
                 }
             }
         } else {
-            this.dzb.hasMore = dVar.hasMore;
-            this.dzb.userMap.putAll(dVar.userMap);
+            this.dHb.hasMore = dVar.hasMore;
+            this.dHb.userMap.putAll(dVar.userMap);
             Iterator<h> it2 = dVar.threadList.iterator();
             while (it2.hasNext()) {
                 h next2 = it2.next();
                 if (next2 instanceof bb) {
                     String tid2 = ((bb) next2).getTid();
-                    if (!this.dzf.contains(tid2)) {
-                        ((bb) next2).amv = this.dyO.isBrandForum;
-                        this.dzb.threadList.add(next2);
-                        this.dzf.add(tid2);
+                    if (!this.dHf.contains(tid2)) {
+                        ((bb) next2).arq = this.dGO.isBrandForum;
+                        this.dHb.threadList.add(next2);
+                        this.dHf.add(tid2);
                     }
                 }
             }
         }
-        this.dyO.a(this.dzb);
+        this.dGO.a(this.dHb);
         return true;
     }
 
@@ -113,7 +113,7 @@ public class c implements NetModel.b<FrsCommonTabRequestData, d> {
                 errorData.setError_code(this.mErrorCode);
                 errorData.setError_msg(this.mErrorString);
                 if (this.mErrorCode != 0) {
-                    this.dyO.a(errorData);
+                    this.dGO.a(errorData);
                 }
             }
         }
@@ -141,13 +141,13 @@ public class c implements NetModel.b<FrsCommonTabRequestData, d> {
                 errorData.setError_code(this.mErrorCode);
                 errorData.setError_msg(this.mErrorString);
                 if (this.mErrorCode != 0) {
-                    this.dyO.a(errorData);
+                    this.dGO.a(errorData);
                 }
             }
         }
     }
 
     public boolean hasData() {
-        return (this.dzb == null || v.z(this.dzb.threadList)) ? false : true;
+        return (this.dHb == null || v.J(this.dHb.threadList)) ? false : true;
     }
 }

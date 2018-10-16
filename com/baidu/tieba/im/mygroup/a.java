@@ -17,31 +17,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private PersonalGroupFragment eHq;
-    private List<GroupInfoData> eHr = new ArrayList();
+    private PersonalGroupFragment eOZ;
+    private List<GroupInfoData> ePa = new ArrayList();
 
-    public void cv(List<GroupInfoData> list) {
-        this.eHr = list;
+    public void cK(List<GroupInfoData> list) {
+        this.ePa = list;
     }
 
     public a(PersonalGroupFragment personalGroupFragment) {
-        this.eHq = personalGroupFragment;
+        this.eOZ = personalGroupFragment;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.eHr.size();
+        return this.ePa.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: pf */
+    /* renamed from: pD */
     public GroupInfoData getItem(int i) {
         int itemId = (int) getItemId(i);
-        if (itemId < 0 || itemId >= this.eHr.size()) {
+        if (itemId < 0 || itemId >= this.ePa.size()) {
             return null;
         }
-        return this.eHr.get(itemId);
+        return this.ePa.get(itemId);
     }
 
     @Override // android.widget.Adapter
@@ -51,62 +51,62 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0180a c0180a;
-        if (view == null || view.getTag() == null || !(view.getTag() instanceof C0180a)) {
-            view = LayoutInflater.from(this.eHq.getActivity()).inflate(e.h.tab_my_group_item, viewGroup, false);
-            c0180a = new C0180a();
-            c0180a.eHs = (LinearLayout) view.findViewById(e.g.click_head);
-            c0180a.eHu = (ImageView) view.findViewById(e.g.diver_top);
-            c0180a.eHv = (ImageView) view.findViewById(e.g.diver_buttom_px);
-            c0180a.eHw = (ImageView) view.findViewById(e.g.diver_top_px);
-            c0180a.ezz = (GroupImageView) view.findViewById(e.g.item_head);
-            c0180a.ezA = (TextView) view.findViewById(e.g.item_group_name);
-            c0180a.ezC = (TextView) view.findViewById(e.g.item_group_num);
-            c0180a.ezD = (TextView) view.findViewById(e.g.item_introduce);
-            c0180a.eHt = (TextView) view.findViewById(e.g.isCreator);
-            c0180a.ezE = (ImageView) view.findViewById(e.g.item_grade1);
-            c0180a.ezF = (ImageView) view.findViewById(e.g.item_grade2);
-            c0180a.ezG = (ImageView) view.findViewById(e.g.item_grade3);
-            c0180a.ezH = new ImageView[4];
-            c0180a.ezH[1] = c0180a.ezE;
-            c0180a.ezH[2] = c0180a.ezF;
-            c0180a.ezH[3] = c0180a.ezG;
-            view.setTag(c0180a);
+        C0214a c0214a;
+        if (view == null || view.getTag() == null || !(view.getTag() instanceof C0214a)) {
+            view = LayoutInflater.from(this.eOZ.getActivity()).inflate(e.h.tab_my_group_item, viewGroup, false);
+            c0214a = new C0214a();
+            c0214a.ePb = (LinearLayout) view.findViewById(e.g.click_head);
+            c0214a.ePd = (ImageView) view.findViewById(e.g.diver_top);
+            c0214a.ePe = (ImageView) view.findViewById(e.g.diver_buttom_px);
+            c0214a.ePf = (ImageView) view.findViewById(e.g.diver_top_px);
+            c0214a.eHj = (GroupImageView) view.findViewById(e.g.item_head);
+            c0214a.eHk = (TextView) view.findViewById(e.g.item_group_name);
+            c0214a.eHm = (TextView) view.findViewById(e.g.item_group_num);
+            c0214a.eHn = (TextView) view.findViewById(e.g.item_introduce);
+            c0214a.ePc = (TextView) view.findViewById(e.g.isCreator);
+            c0214a.eHo = (ImageView) view.findViewById(e.g.item_grade1);
+            c0214a.eHp = (ImageView) view.findViewById(e.g.item_grade2);
+            c0214a.eHq = (ImageView) view.findViewById(e.g.item_grade3);
+            c0214a.eHr = new ImageView[4];
+            c0214a.eHr[1] = c0214a.eHo;
+            c0214a.eHr[2] = c0214a.eHp;
+            c0214a.eHr[3] = c0214a.eHq;
+            view.setTag(c0214a);
         } else {
-            c0180a = (C0180a) view.getTag();
+            c0214a = (C0214a) view.getTag();
         }
-        GroupInfoData groupInfoData = this.eHr.get(i);
-        c0180a.ezz.setTag(null);
-        c0180a.ezz.setDrawBorder(true);
+        GroupInfoData groupInfoData = this.ePa.get(i);
+        c0214a.eHj.setTag(null);
+        c0214a.eHj.setDrawBorder(true);
         if (groupInfoData != null) {
             String portrait = groupInfoData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
-                c0180a.ezz.startLoad(portrait, 10, false);
+                c0214a.eHj.startLoad(portrait, 10, false);
             } else {
-                c0180a.ezz.startLoad("", 10, false);
+                c0214a.eHj.startLoad("", 10, false);
             }
-            c0180a.eHs.setOnClickListener(this.eHq);
-            c0180a.eHs.setTag(groupInfoData);
-            c0180a.eHu.setVisibility(8);
-            c0180a.eHw.setVisibility(8);
-            c0180a.eHv.setVisibility(0);
-            c0180a.ezA.setText(groupInfoData.getName());
-            c0180a.ezC.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
-            c0180a.ezD.setText(groupInfoData.getIntro());
+            c0214a.ePb.setOnClickListener(this.eOZ);
+            c0214a.ePb.setTag(groupInfoData);
+            c0214a.ePd.setVisibility(8);
+            c0214a.ePf.setVisibility(8);
+            c0214a.ePe.setVisibility(0);
+            c0214a.eHk.setText(groupInfoData.getName());
+            c0214a.eHm.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
+            c0214a.eHn.setText(groupInfoData.getIntro());
             if (groupInfoData.getIsGroupManager() == 1) {
-                c0180a.eHt.setVisibility(0);
+                c0214a.ePc.setVisibility(0);
             } else {
-                c0180a.eHt.setVisibility(8);
+                c0214a.ePc.setVisibility(8);
             }
-            a(c0180a.ezH, groupInfoData.getGrade());
+            a(c0214a.eHr, groupInfoData.getGrade());
         }
-        this.eHq.getBaseFragmentActivity().getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.eHq.getBaseFragmentActivity().getLayoutMode().onModeChanged(view);
+        this.eOZ.getBaseFragmentActivity().getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.eOZ.getBaseFragmentActivity().getLayoutMode().onModeChanged(view);
         if (groupInfoData != null && groupInfoData.isMemGroup()) {
-            al.c(c0180a.ezA, e.d.common_color_10009, 1);
-            al.c(c0180a.ezE, e.f.icon_vip_grade_big_small_s);
-            al.c(c0180a.ezF, e.f.icon_vip_grade_big_small_s);
-            al.c(c0180a.ezG, e.f.icon_vip_grade_big_small_s);
+            al.c(c0214a.eHk, e.d.common_color_10009, 1);
+            al.c(c0214a.eHo, e.f.icon_vip_grade_big_small_s);
+            al.c(c0214a.eHp, e.f.icon_vip_grade_big_small_s);
+            al.c(c0214a.eHq, e.f.icon_vip_grade_big_small_s);
         }
         return view;
     }
@@ -127,22 +127,22 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.im.mygroup.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    static class C0180a {
-        LinearLayout eHs;
-        TextView eHt;
-        ImageView eHu;
-        ImageView eHv;
-        ImageView eHw;
-        TextView ezA;
-        TextView ezC;
-        TextView ezD;
-        ImageView ezE;
-        ImageView ezF;
-        ImageView ezG;
-        ImageView[] ezH;
-        GroupImageView ezz;
+    static class C0214a {
+        GroupImageView eHj;
+        TextView eHk;
+        TextView eHm;
+        TextView eHn;
+        ImageView eHo;
+        ImageView eHp;
+        ImageView eHq;
+        ImageView[] eHr;
+        LinearLayout ePb;
+        TextView ePc;
+        ImageView ePd;
+        ImageView ePe;
+        ImageView ePf;
 
-        C0180a() {
+        C0214a() {
         }
     }
 }

@@ -16,38 +16,38 @@ public class b extends o<Float, Float> {
     }
 
     @Override // com.airbnb.lottie.model.a.m
-    public com.airbnb.lottie.a.b.a<Float, Float> dp() {
-        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.oZ) : new com.airbnb.lottie.a.b.c(this.oL);
+    public com.airbnb.lottie.a.b.a<Float, Float> dH() {
+        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.pR) : new com.airbnb.lottie.a.b.c(this.pD);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.model.a.o
-    /* renamed from: dq */
-    public Float dr() {
-        return (Float) this.oZ;
+    /* renamed from: dI */
+    public Float dJ() {
+        return (Float) this.pR;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.airbnb.lottie.model.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0008b implements m.a<Float> {
-        static final C0008b pO = new C0008b();
+    public static class C0011b implements m.a<Float> {
+        static final C0011b qB = new C0011b();
 
-        private C0008b() {
+        private C0011b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.airbnb.lottie.model.a.m.a
         /* renamed from: e */
         public Float b(Object obj, float f) {
-            return Float.valueOf(com.airbnb.lottie.c.b.i(obj) * f);
+            return Float.valueOf(com.airbnb.lottie.c.b.l(obj) * f);
         }
     }
 
     /* loaded from: classes2.dex */
     public static final class a {
         /* JADX INFO: Access modifiers changed from: package-private */
-        public static b ds() {
+        public static b dK() {
             return new b();
         }
 
@@ -56,12 +56,12 @@ public class b extends o<Float, Float> {
         }
 
         public static b a(JSONObject jSONObject, com.airbnb.lottie.e eVar, boolean z) {
-            float cu = z ? eVar.cu() : 1.0f;
+            float cM = z ? eVar.cM() : 1.0f;
             if (jSONObject != null && jSONObject.has(Config.EVENT_HEAT_X)) {
                 eVar.V("Lottie doesn't support expressions.");
             }
-            n.a dJ = n.a(jSONObject, cu, eVar, C0008b.pO).dJ();
-            return new b(dJ.oL, (Float) dJ.oZ);
+            n.a eb = n.a(jSONObject, cM, eVar, C0011b.qB).eb();
+            return new b(eb.pD, (Float) eb.pR);
         }
     }
 }

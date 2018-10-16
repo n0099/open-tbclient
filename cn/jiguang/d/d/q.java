@@ -46,12 +46,12 @@ public final class q {
         this.f = z;
     }
 
-    public final JSONObject bK() {
-        return this.b;
-    }
-
     public final File c() {
         return this.a;
+    }
+
+    public final JSONObject cb() {
+        return this.b;
     }
 
     public final JSONObject e() {

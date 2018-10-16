@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.RedNotify.RedNotifyResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class CheckRedNotifyHttpResMessage extends HttpResponsedMessage {
     private boolean isShowRedNotify;
 

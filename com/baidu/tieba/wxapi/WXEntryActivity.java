@@ -18,10 +18,10 @@ import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IWXAPIEventHandler {
-    private IWXAPI hKu;
-    private Intent hKv;
+    private IWXAPI hRG;
+    private Intent hRH;
     private NavigationBar mNavigationBar;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -32,10 +32,10 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         this.mNavigationBar = (NavigationBar) findViewById(e.g.sapi_login_navi);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getResources().getString(e.j.login));
-        this.hKu = WXAPIFactory.createWXAPI(getPageContext().getPageActivity(), SapiAccountManager.getInstance().getSapiConfiguration().wxAppID, false);
-        this.hKv = getIntent();
-        if (this.hKv != null) {
-            this.hKu.handleIntent(getIntent(), this);
+        this.hRG = WXAPIFactory.createWXAPI(getPageContext().getPageActivity(), SapiAccountManager.getInstance().getSapiConfiguration().wxAppID, false);
+        this.hRH = getIntent();
+        if (this.hRH != null) {
+            this.hRG.handleIntent(getIntent(), this);
         }
     }
 
@@ -43,9 +43,9 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        this.hKv = intent;
-        if (this.hKv != null) {
-            this.hKu.handleIntent(intent, this);
+        this.hRH = intent;
+        if (this.hRH != null) {
+            this.hRG.handleIntent(intent, this);
         }
     }
 
@@ -65,8 +65,8 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
 
     @Override // com.tencent.mm.sdk.openapi.IWXAPIEventHandler
     public void onReq(BaseReq baseReq) {
-        if (this.hKv != null && this.hKu != null) {
-            this.hKu.handleIntent(this.hKv, this);
+        if (this.hRH != null && this.hRG != null) {
+            this.hRG.handleIntent(this.hRH, this);
         }
         closeActivity();
     }
@@ -76,8 +76,8 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         if (baseResp != null) {
             if (1 == baseResp.getType()) {
                 a aVar = new a();
-                aVar.fwB = this;
-                aVar.fwC = baseResp;
+                aVar.fEc = this;
+                aVar.fEd = baseResp;
                 MessageManager.getInstance().runTask(2921351, null, aVar);
                 closeActivity();
             } else if (2 == baseResp.getType() && (baseResp instanceof SendMessageToWX.Resp)) {

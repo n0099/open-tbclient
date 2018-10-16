@@ -13,15 +13,15 @@ import com.baidu.tieba.homepage.daily.message.DailyPageHttpResMessage;
 import com.baidu.tieba.homepage.daily.message.DailyPageRequetMessage;
 import com.baidu.tieba.homepage.daily.message.DailyPageSocketResMessage;
 import tbclient.DailyPage.DataRes;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class DailyNetModel extends BdBaseModel {
-    private a eco;
-    private final int ecq;
+    private a ekh;
+    private final int ekj;
     private int mCurrentPage;
     private boolean mIsLoading;
     private com.baidu.adp.framework.listener.a mNetMessageListener;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(DataRes dataRes, boolean z);
 
@@ -30,15 +30,15 @@ public class DailyNetModel extends BdBaseModel {
 
     public DailyNetModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.ecq = 30;
+        this.ekj = 30;
         this.mNetMessageListener = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_DAILY_PAGE, 309617) { // from class: com.baidu.tieba.homepage.daily.model.DailyNetModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 DailyNetModel.this.mIsLoading = false;
                 int i = (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof DailyPageRequetMessage)) ? 0 : ((DailyPageRequetMessage) responsedMessage.getOrginalMessage().getExtra()).pn;
                 if (responsedMessage.getError() != 0) {
-                    if (DailyNetModel.this.eco != null) {
-                        DailyNetModel.this.eco.s(responsedMessage.getError(), responsedMessage.getErrorString());
+                    if (DailyNetModel.this.ekh != null) {
+                        DailyNetModel.this.ekh.s(responsedMessage.getError(), responsedMessage.getErrorString());
                         return;
                     }
                     return;
@@ -50,13 +50,13 @@ public class DailyNetModel extends BdBaseModel {
                     dataRes = ((DailyPageSocketResMessage) responsedMessage).getData();
                 }
                 DailyNetModel.this.mCurrentPage = i;
-                if (DailyNetModel.this.eco != null) {
-                    DailyNetModel.this.eco.a(dataRes, i == 1);
+                if (DailyNetModel.this.ekh != null) {
+                    DailyNetModel.this.ekh.a(dataRes, i == 1);
                 }
             }
         };
-        aiT();
-        alX();
+        amx();
+        apx();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -66,29 +66,29 @@ public class DailyNetModel extends BdBaseModel {
         registerListener(this.mNetMessageListener);
     }
 
-    private void alX() {
+    private void apx() {
         b bVar = new b(309617);
         bVar.setResponsedClass(DailyPageSocketResMessage.class);
         bVar.x(true);
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private void aiT() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_DAILY_PAGE, com.baidu.tieba.tbadkCore.a.a.aP(TbConfig.URL_DAILY_PAGE, 309617));
+    private void amx() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_DAILY_PAGE, com.baidu.tieba.tbadkCore.a.a.aT(TbConfig.URL_DAILY_PAGE, 309617));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(DailyPageHttpResMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     public void refresh() {
-        hs(1);
+        hQ(1);
     }
 
-    public void Vd() {
-        hs(this.mCurrentPage + 1);
+    public void YK() {
+        hQ(this.mCurrentPage + 1);
     }
 
-    public void hs(int i) {
+    public void hQ(int i) {
         if (!this.mIsLoading) {
             DailyPageRequetMessage dailyPageRequetMessage = new DailyPageRequetMessage();
             dailyPageRequetMessage.pn = i;
@@ -109,12 +109,12 @@ public class DailyNetModel extends BdBaseModel {
         return false;
     }
 
-    public boolean BO() {
+    public boolean DU() {
         return this.mIsLoading;
     }
 
     public void a(a aVar) {
-        this.eco = aVar;
+        this.ekh = aVar;
     }
 
     public void onDestroy() {

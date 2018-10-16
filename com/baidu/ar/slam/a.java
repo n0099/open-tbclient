@@ -38,17 +38,17 @@ public class a extends com.baidu.ar.base.b {
     private boolean C;
     private c s;
     private com.baidu.ar.algo.a.b.b t;
-    private C0043a u;
+    private C0046a u;
     private boolean v;
     private e w;
     private float[] z;
 
     /* renamed from: com.baidu.ar.slam.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0043a implements b.a {
+    public static class C0046a implements b.a {
         com.baidu.ar.imu.b a;
 
-        C0043a(com.baidu.ar.imu.b bVar) {
+        C0046a(com.baidu.ar.imu.b bVar) {
             this.a = bVar;
         }
 
@@ -116,7 +116,7 @@ public class a extends com.baidu.ar.base.b {
                     aVar.m();
                     d.a((int) MsgField.IMSG_MODEL_LOADED, MsgField.SMSG_MODEL_LOADED);
                     return;
-                case MsgConstants.SLAM_MODEL_SHOWING /* 506 */:
+                case 506:
                 case 512:
                 default:
                     return;
@@ -143,7 +143,7 @@ public class a extends com.baidu.ar.base.b {
         if (PerformanceTest.isOpenSlam()) {
             this.k.a(0);
         }
-        this.u = new C0043a(this.k);
+        this.u = new C0046a(this.k);
         if (this.s == null) {
             this.s = new c(this);
         }

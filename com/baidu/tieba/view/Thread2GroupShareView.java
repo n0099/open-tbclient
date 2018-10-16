@@ -12,58 +12,58 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public final class Thread2GroupShareView extends LinearLayout {
-    private LinearLayout aAJ;
-    private TextView dRP;
-    private EditText dRx;
-    private ShareFromPBMsgData eKB;
-    private TbImageView epd;
+    private LinearLayout aFq;
+    private TextView dZJ;
+    private EditText dZs;
+    private ShareFromPBMsgData eSk;
+    private TbImageView ewS;
     private TextView title;
 
     public EditText getChatMsgView() {
-        return this.dRx;
+        return this.dZs;
     }
 
-    public void E(String str, boolean z) {
-        if (this.epd != null) {
-            this.epd.startLoad(str, z ? 17 : 18, false);
+    public void L(String str, boolean z) {
+        if (this.ewS != null) {
+            this.ewS.startLoad(str, z ? 17 : 18, false);
         }
     }
 
     public Thread2GroupShareView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        cf(context);
+        cs(context);
     }
 
     public Thread2GroupShareView(Context context) {
         super(context);
-        cf(context);
+        cs(context);
     }
 
-    private void cf(Context context) {
+    private void cs(Context context) {
         LayoutInflater.from(context).inflate(e.h.thread_to_group_share_view, this);
         setOrientation(1);
-        this.aAJ = (LinearLayout) findViewById(e.g.share_content);
+        this.aFq = (LinearLayout) findViewById(e.g.share_content);
         this.title = (TextView) findViewById(e.g.share_title_view);
-        this.dRx = (EditText) findViewById(e.g.chat_msg);
-        this.epd = (TbImageView) findViewById(e.g.chat_group_img);
-        this.dRP = (TextView) findViewById(e.g.chat_group_desc);
+        this.dZs = (EditText) findViewById(e.g.chat_msg);
+        this.ewS = (TbImageView) findViewById(e.g.chat_group_img);
+        this.dZJ = (TextView) findViewById(e.g.chat_group_desc);
         al.c(this.title, e.d.cp_cont_b, 1);
-        al.c(this.dRx, e.d.cp_cont_b, 2);
-        al.c(this.dRP, e.d.cp_cont_f, 1);
-        this.dRx.setHintTextColor(al.getColor(e.d.cp_cont_e));
-        this.dRx.setPadding(context.getResources().getDimensionPixelSize(e.C0141e.ds20), 0, 0, 0);
-        aDw();
+        al.c(this.dZs, e.d.cp_cont_b, 2);
+        al.c(this.dZJ, e.d.cp_cont_f, 1);
+        this.dZs.setHintTextColor(al.getColor(e.d.cp_cont_e));
+        this.dZs.setPadding(context.getResources().getDimensionPixelSize(e.C0175e.ds20), 0, 0, 0);
+        aGO();
     }
 
-    public void aDw() {
-        this.aAJ.setFocusable(true);
-        this.aAJ.setFocusableInTouchMode(true);
-        this.aAJ.requestFocus();
+    public void aGO() {
+        this.aFq.setFocusable(true);
+        this.aFq.setFocusableInTouchMode(true);
+        this.aFq.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.dRx != null) {
-            return com.baidu.adp.lib.util.k.a(this.dRx.getText(), null);
+        if (this.dZs != null) {
+            return com.baidu.adp.lib.util.k.a(this.dZs.getText(), null);
         }
         return null;
     }
@@ -76,13 +76,13 @@ public final class Thread2GroupShareView extends LinearLayout {
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.eKB = shareFromPBMsgData;
-        Bp();
+        this.eSk = shareFromPBMsgData;
+        updateUI();
     }
 
-    private void Bp() {
-        this.title.setText(this.eKB.getTitle());
-        this.epd.setTag(this.eKB.getImageUrl());
-        this.dRP.setText(this.eKB.getContent());
+    private void updateUI() {
+        this.title.setText(this.eSk.getTitle());
+        this.ewS.setTag(this.eSk.getImageUrl());
+        this.dZJ.setText(this.eSk.getContent());
     }
 }

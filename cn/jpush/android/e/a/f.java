@@ -136,7 +136,7 @@ public final class f {
 
     @JavascriptInterface
     public final void executeMsgMessage(String str) {
-        if (!cn.jiguang.api.e.be() || this.a.get() == null) {
+        if (!cn.jiguang.api.e.bv() || this.a.get() == null) {
             return;
         }
         i.a(this.a.get(), str);

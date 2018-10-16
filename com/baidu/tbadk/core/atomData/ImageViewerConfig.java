@@ -28,6 +28,7 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String INDEX = "index";
     public static final String IS_CAN_DRAG = "is_can_drag";
     public static final String IS_DATA_VALID = "is_data_valid";
+    public static final String IS_FROM_AI_APP = "is_from_ai_app";
     public static final String IS_HOT_SORT = "is_hot_sort";
     public static final String IS_IDENTIFY_IMAGE = "is_identify_image";
     public static final String IS_PV = "is_pv";
@@ -59,10 +60,10 @@ public class ImageViewerConfig extends IntentConfig {
     }
 
     public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z3, boolean z4, boolean z5) {
-        return createConfig(arrayList, i, str, str2, str3, z, str4, z2, concurrentHashMap, z3, z4, z5, -1);
+        return createConfig(arrayList, i, str, str2, str3, z, str4, z2, concurrentHashMap, z3, z4, z5, -1, false);
     }
 
-    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z3, boolean z4, boolean z5, int i2) {
+    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z3, boolean z4, boolean z5, int i2, boolean z6) {
         ImageUrlData imageUrlData;
         Intent intent = getIntent();
         intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
@@ -82,6 +83,7 @@ public class ImageViewerConfig extends IntentConfig {
             intent.putExtra(IS_SHOW_AD, z3);
             intent.putExtra(NEED_BROADCAST, z4);
             intent.putExtra(SEE_HOST, z5);
+            intent.putExtra(IS_FROM_AI_APP, z6);
             if (i2 >= 0) {
                 intent.putExtra("thread_type", i2);
             }

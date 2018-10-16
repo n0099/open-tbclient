@@ -3,7 +3,7 @@ package com.baidu.fsg.base.statistics;
 import com.baidu.fsg.base.statistics.s;
 import com.baidu.fsg.base.utils.LogUtil;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class o implements s.a {
     final /* synthetic */ String a;
     final /* synthetic */ h[] b;

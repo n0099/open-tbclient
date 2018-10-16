@@ -11,27 +11,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends a {
-    private final List<a> mN;
+    private final List<a> nC;
     private final RectF rect;
     @Nullable
-    private final com.airbnb.lottie.a.b.a<Float, Float> rq;
-    private final RectF rr;
+    private final com.airbnb.lottie.a.b.a<Float, Float> sc;
+    private final RectF se;
 
     public b(com.airbnb.lottie.f fVar, Layer layer, List<Layer> list, com.airbnb.lottie.e eVar) {
         super(fVar, layer);
         a aVar;
-        this.mN = new ArrayList();
+        this.nC = new ArrayList();
         this.rect = new RectF();
-        this.rr = new RectF();
-        com.airbnb.lottie.model.a.b eF = layer.eF();
-        if (eF != null) {
-            this.rq = eF.dp();
-            a(this.rq);
-            this.rq.b(this);
+        this.se = new RectF();
+        com.airbnb.lottie.model.a.b eX = layer.eX();
+        if (eX != null) {
+            this.sc = eX.dH();
+            a(this.sc);
+            this.sc.b(this);
         } else {
-            this.rq = null;
+            this.sc = null;
         }
-        LongSparseArray longSparseArray = new LongSparseArray(eVar.cp().size());
+        LongSparseArray longSparseArray = new LongSparseArray(eVar.cH().size());
         int size = list.size() - 1;
         a aVar2 = null;
         while (size >= 0) {
@@ -39,13 +39,13 @@ public class b extends a {
             if (a == null) {
                 aVar = aVar2;
             } else {
-                longSparseArray.put(a.ep().getId(), a);
+                longSparseArray.put(a.eH().getId(), a);
                 if (aVar2 != null) {
                     aVar2.b(a);
                     aVar = null;
                 } else {
-                    this.mN.add(0, a);
-                    switch (r0.ez()) {
+                    this.nC.add(0, a);
+                    switch (r0.eR()) {
                         case Add:
                         case Invert:
                             aVar = a;
@@ -61,7 +61,7 @@ public class b extends a {
         }
         for (int i = 0; i < longSparseArray.size(); i++) {
             a aVar3 = (a) longSparseArray.get(longSparseArray.keyAt(i));
-            a aVar4 = (a) longSparseArray.get(aVar3.ep().eA());
+            a aVar4 = (a) longSparseArray.get(aVar3.eH().eS());
             if (aVar4 != null) {
                 aVar3.c(aVar4);
             }
@@ -72,15 +72,15 @@ public class b extends a {
     void b(Canvas canvas, Matrix matrix, int i) {
         com.airbnb.lottie.d.beginSection("CompositionLayer#draw");
         canvas.save();
-        this.rr.set(0.0f, 0.0f, this.rf.ew(), this.rf.ex());
-        matrix.mapRect(this.rr);
-        for (int size = this.mN.size() - 1; size >= 0; size--) {
+        this.se.set(0.0f, 0.0f, this.rS.eO(), this.rS.eP());
+        matrix.mapRect(this.se);
+        for (int size = this.nC.size() - 1; size >= 0; size--) {
             boolean z = true;
-            if (!this.rr.isEmpty()) {
-                z = canvas.clipRect(this.rr);
+            if (!this.se.isEmpty()) {
+                z = canvas.clipRect(this.se);
             }
             if (z) {
-                this.mN.get(size).a(canvas, matrix, i);
+                this.nC.get(size).a(canvas, matrix, i);
             }
         }
         canvas.restore();
@@ -91,8 +91,8 @@ public class b extends a {
     public void a(RectF rectF, Matrix matrix) {
         super.a(rectF, matrix);
         this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
-        for (int size = this.mN.size() - 1; size >= 0; size--) {
-            this.mN.get(size).a(this.rect, this.re);
+        for (int size = this.nC.size() - 1; size >= 0; size--) {
+            this.nC.get(size).a(this.rect, this.rR);
             if (rectF.isEmpty()) {
                 rectF.set(this.rect);
             } else {
@@ -104,15 +104,15 @@ public class b extends a {
     @Override // com.airbnb.lottie.model.layer.a
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         super.setProgress(f);
-        if (this.rq != null) {
-            f = (this.rq.getValue().floatValue() * 1000.0f) / ((float) this.mp.cC().getDuration());
+        if (this.sc != null) {
+            f = (this.sc.getValue().floatValue() * 1000.0f) / ((float) this.nh.cU().getDuration());
         }
-        if (this.rf.eu() != 0.0f) {
-            f /= this.rf.eu();
+        if (this.rS.eM() != 0.0f) {
+            f /= this.rS.eM();
         }
-        float cH = f - this.rf.cH();
-        for (int size = this.mN.size() - 1; size >= 0; size--) {
-            this.mN.get(size).setProgress(cH);
+        float cZ = f - this.rS.cZ();
+        for (int size = this.nC.size() - 1; size >= 0; size--) {
+            this.nC.get(size).setProgress(cZ);
         }
     }
 
@@ -121,9 +121,9 @@ public class b extends a {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.mN.size()) {
-                a aVar = this.mN.get(i2);
-                String name = aVar.ep().getName();
+            if (i2 < this.nC.size()) {
+                a aVar = this.nC.get(i2);
+                String name = aVar.eH().getName();
                 if (str == null) {
                     aVar.b((String) null, (String) null, colorFilter);
                 } else if (name.equals(str)) {

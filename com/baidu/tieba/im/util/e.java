@@ -4,6 +4,8 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
+import com.baidu.searchbox.ng.ai.apps.view.coverview.model.ImageCoverViewModel;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.e;
@@ -19,15 +21,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private static Pattern auc = Pattern.compile("(#\\([^#\\)\\(]+\\))");
+    private static Pattern ayN = Pattern.compile("(#\\([^#\\)\\(]+\\))");
 
-    public static String G(String str, boolean z) {
+    public static String N(String str, boolean z) {
         String str2 = null;
         if (str == null) {
             return null;
         }
         try {
-            str2 = new JSONArray(str).getJSONObject(0).optString(z ? "big_src" : "src");
+            str2 = new JSONArray(str).getJSONObject(0).optString(z ? "big_src" : ImageCoverViewModel.KEY_SRC);
             return str2;
         } catch (Exception e) {
             return str2;
@@ -45,7 +47,7 @@ public class e {
     }
 
     public static String a(JSONObject jSONObject, boolean z) {
-        return jSONObject.optString(z ? "big_src" : "src");
+        return jSONObject.optString(z ? "big_src" : ImageCoverViewModel.KEY_SRC);
     }
 
     public static boolean t(ChatMessage chatMessage) {
@@ -125,7 +127,7 @@ public class e {
         }
     }
 
-    private static final String pu(String str) {
+    private static final String pW(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -154,7 +156,7 @@ public class e {
         return sb.toString();
     }
 
-    private static final String pv(String str) {
+    private static final String pX(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -186,19 +188,19 @@ public class e {
             return null;
         }
         if (i == 1) {
-            String pu = (str.length() <= 1 || str.charAt(0) != '[') ? null : pu(str);
-            if (TextUtils.isEmpty(pu)) {
-                pu = str;
+            String pW = (str.length() <= 1 || str.charAt(0) != '[') ? null : pW(str);
+            if (TextUtils.isEmpty(pW)) {
+                pW = str;
             }
-            if (pu == null) {
+            if (pW == null) {
                 return null;
             }
-            Matcher matcher = auc.matcher(pu);
+            Matcher matcher = ayN.matcher(pW);
             while (matcher.find()) {
                 String group = matcher.group();
-                pu = pu.replace(group, group.replace("#(", "[").replace(")", "]"));
+                pW = pW.replace(group, group.replace("#(", "[").replace(")", "]"));
             }
-            return pu;
+            return pW;
         } else if (i == 2) {
             return TbadkCoreApplication.getInst().getApp().getString(e.j.last_msg_pic);
         } else {
@@ -206,7 +208,7 @@ public class e {
                 return TbadkCoreApplication.getInst().getApp().getString(e.j.last_msg_voice);
             }
             if (i == 11) {
-                return pw(str);
+                return pY(str);
             }
             if (i == 23) {
                 return TbadkCoreApplication.getInst().getApp().getString(e.j.last_msg_reply_card);
@@ -295,7 +297,7 @@ public class e {
                         return TbadkCoreApplication.getInst().getApp().getString(e.j.great_call_notify_default);
                     }
                 } else if (i == 9) {
-                    return pv(str);
+                    return pX(str);
                 } else {
                     return null;
                 }
@@ -327,7 +329,7 @@ public class e {
         return A(chatMessage);
     }
 
-    private static String pw(String str) {
+    private static String pY(String str) {
         String str2 = null;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -435,25 +437,25 @@ public class e {
         }
     }
 
-    public static int q(Context context, int i) {
+    public static int r(Context context, int i) {
         return context.getResources().getDimensionPixelSize(i);
     }
 
     public static com.baidu.tieba.im.data.d a(CommonMsgPojo commonMsgPojo) {
         if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 7) {
-            return px(commonMsgPojo.getContent());
+            return pZ(commonMsgPojo.getContent());
         }
         return null;
     }
 
-    public static com.baidu.tieba.im.data.d px(String str) {
+    public static com.baidu.tieba.im.data.d pZ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
-                return py(jSONArray.getJSONObject(0).optString("msg_src"));
+                return qa(jSONArray.getJSONObject(0).optString("msg_src"));
             }
             return null;
         } catch (Exception e) {
@@ -462,13 +464,13 @@ public class e {
         }
     }
 
-    public static com.baidu.tieba.im.data.d py(String str) {
+    public static com.baidu.tieba.im.data.d qa(String str) {
         String[] split;
-        if (TextUtils.isEmpty(str) || (split = str.split("_")) == null || split.length != 2) {
+        if (TextUtils.isEmpty(str) || (split = str.split(BaseRequestAction.SPLITE)) == null || split.length != 2) {
             return null;
         }
         com.baidu.tieba.im.data.d dVar = new com.baidu.tieba.im.data.d();
-        dVar.exu = split[0];
+        dVar.eFh = split[0];
         dVar.taskId = split[1];
         return dVar;
     }

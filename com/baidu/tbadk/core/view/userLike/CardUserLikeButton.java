@@ -25,28 +25,28 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void init() {
         super.init();
-        setTextSize(0, l.h(getContext(), e.C0141e.fontsize26));
+        setTextSize(0, l.h(getContext(), e.C0175e.fontsize26));
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
     public void d(boolean z, int i) {
-        this.aCm = z;
+        this.aGS = z;
         setVisibility(0);
         if (z) {
             setClickable(false);
-            setText(this.aCk);
+            setText(this.aGQ);
             setPadding(0, 0, 0, 0);
         } else {
             setClickable(true);
-            setText(this.aCl);
-            setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0141e.ds16), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0141e.ds8), 0);
+            setText(this.aGR);
+            setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0175e.ds16), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0175e.ds8), 0);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.aCm) {
+        if (this.aGS) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             al.b(this, e.d.cp_cont_e, 1, i);
             setBackgroundDrawable(null);

@@ -1,7 +1,7 @@
 package com.baidu.mobstat;
 
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
+import com.baidu.searchbox.ng.ai.apps.network.WebSocketAction;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.URI;
@@ -84,7 +84,7 @@ public class aq {
         @Override // com.baidu.mobstat.ci
         public void a(df dfVar) {
             if (bk.c().b()) {
-                bk.c().a("onOpen");
+                bk.c().a(WebSocketAction.PARAM_KEY_ONOPEN);
             }
             if (aq.this.a != null) {
                 aq.this.a.a();
@@ -120,7 +120,7 @@ public class aq {
                             }
                         }
                         try {
-                            i = ((Integer) ((JSONObject) jSONObject.get("data")).get(NotificationCompat.CATEGORY_STATUS)).intValue();
+                            i = ((Integer) ((JSONObject) jSONObject.get("data")).get("status")).intValue();
                         } catch (Exception e4) {
                             i = -1;
                         }

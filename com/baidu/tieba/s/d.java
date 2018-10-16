@@ -3,17 +3,17 @@ package com.baidu.tieba.s;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class d {
-    public final List<String> hja;
-    public final String hjb;
+    public final List<String> hqq;
+    public final String hqr;
 
     public d(List<String> list, String str) {
         if (list != null) {
-            this.hja = new ArrayList(list);
+            this.hqq = new ArrayList(list);
         } else {
-            this.hja = new ArrayList();
+            this.hqq = new ArrayList();
         }
-        this.hjb = str;
+        this.hqr = str;
     }
 }

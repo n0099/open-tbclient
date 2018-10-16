@@ -1,31 +1,31 @@
 package com.baidu.ubs.analytics.a;
 
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class p {
-    private o hKR = new o();
+    private o hTJ = new o();
 
     public final void c(n nVar) {
-        this.hKR.a(nVar);
+        this.hTJ.a(nVar);
     }
 
     public final void b(n nVar) {
-        this.hKR.b(nVar);
+        this.hTJ.b(nVar);
     }
 
-    public final List<n> bLQ() {
-        return this.hKR.bLQ();
+    public final List<n> bQg() {
+        return this.hTJ.bQg();
     }
 
-    public final void wN(String str) {
-        this.hKR.wN(str);
+    public final void xN(String str) {
+        this.hTJ.xN(str);
     }
 
-    public final void wP(String str) {
-        this.hKR.wN(str);
+    public final void xP(String str) {
+        this.hTJ.xN(str);
     }
 
-    public final boolean wO(String str) {
-        return this.hKR.wO(str);
+    public final boolean xO(String str) {
+        return this.hTJ.xO(str);
     }
 }

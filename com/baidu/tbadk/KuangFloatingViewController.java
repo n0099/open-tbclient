@@ -13,6 +13,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.l;
+import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -23,6 +24,7 @@ import com.baidu.tbadk.core.util.ah;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.e;
 import com.baidu.tieba.t.b;
+import com.baidu.webkit.internal.GlobalConstants;
 /* loaded from: classes.dex */
 public class KuangFloatingViewController {
     private View mFloatingView;
@@ -46,7 +48,7 @@ public class KuangFloatingViewController {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Class<?> intentClass;
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof IntentConfig) && (intentClass = ah.Ao().getIntentClass(((IntentConfig) customResponsedMessage.getData()).getClass())) != null) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof IntentConfig) && (intentClass = ah.Cv().getIntentClass(((IntentConfig) customResponsedMessage.getData()).getClass())) != null) {
                 if (intentClass.getName().contains(KuangFloatingViewController.WRITE_PACKAGE) || intentClass.getName().contains(KuangFloatingViewController.STORY_PACKAGE)) {
                     KuangFloatingViewController.this.hideFloatingView();
                 }
@@ -72,11 +74,11 @@ public class KuangFloatingViewController {
                     if (currentActivity != null) {
                         currentActivity.moveTaskToBack(true);
                     }
-                    TiebaStatic.log(new am("c12264").w(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 1));
-                    Intent launchIntentForPackage = TbadkCoreApplication.getInst().getPackageManager().getLaunchIntentForPackage("com.baidu.searchbox");
+                    TiebaStatic.log(new am("c12264").x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 1));
+                    Intent launchIntentForPackage = TbadkCoreApplication.getInst().getPackageManager().getLaunchIntentForPackage(GlobalConstants.SEARCHBOX_PACKAGE_NAME);
                     if (launchIntentForPackage != null) {
                         TbadkCoreApplication.getInst().startActivity(launchIntentForPackage);
-                        TiebaStatic.log(new am("C12265").w("obj_type", 1));
+                        TiebaStatic.log(new am("C12265").x("obj_type", 1));
                     }
                 }
             });
@@ -95,16 +97,16 @@ public class KuangFloatingViewController {
 
     public void showFloatingView() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        layoutParams.type = b.uV(2002);
+        layoutParams.type = b.vs(2002);
         layoutParams.flags = 65800;
         layoutParams.format = -3;
         layoutParams.x = 0;
-        layoutParams.y = l.h(TbadkCoreApplication.getInst(), e.C0141e.ds260) + UtilHelper.getStatusBarHeight();
+        layoutParams.y = l.h(TbadkCoreApplication.getInst(), e.C0175e.ds260) + UtilHelper.getStatusBarHeight();
         layoutParams.width = -2;
         layoutParams.height = -2;
         layoutParams.gravity = 51;
         if (this.wm == null) {
-            this.wm = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
+            this.wm = (WindowManager) TbadkCoreApplication.getInst().getSystemService(WindowConfig.JSON_WINDOW_KEY);
         }
         try {
             if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(TbadkCoreApplication.getInst().getContext())) {
@@ -125,7 +127,7 @@ public class KuangFloatingViewController {
 
     public void hideFloatingView() {
         if (this.wm == null) {
-            this.wm = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
+            this.wm = (WindowManager) TbadkCoreApplication.getInst().getSystemService(WindowConfig.JSON_WINDOW_KEY);
         }
         if (this.mFloatingView != null && this.mFloatingView.getParent() != null) {
             try {

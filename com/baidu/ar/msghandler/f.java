@@ -2,7 +2,6 @@ package com.baidu.ar.msghandler;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.baidu.ar.base.MsgField;
 import com.baidu.ar.load.downloader.DownloadManager;
@@ -69,7 +68,7 @@ public class f {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", Integer.valueOf((int) MsgField.MSG_STAT_FIRST_LOAD_FILE_MANAGE_FAILURE));
         hashMap.put(StatisticConstants.REQUEST_ID, str);
-        hashMap.put(NotificationCompat.CATEGORY_STATUS, Integer.valueOf(i));
+        hashMap.put("status", Integer.valueOf(i));
         ArBridge.getInstance().sendMessage(ArBridge.MessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
     }
 

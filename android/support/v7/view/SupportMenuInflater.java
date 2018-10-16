@@ -114,7 +114,7 @@ public class SupportMenuInflater extends MenuInflater {
         r3 = r5;
      */
     /* JADX WARN: Code restructure failed: missing block: B:27:0x007e, code lost:
-        if (r3.equals(android.support.v7.view.SupportMenuInflater.XML_MENU) == false) goto L28;
+        if (r3.equals("menu") == false) goto L28;
      */
     /* JADX WARN: Code restructure failed: missing block: B:28:0x0080, code lost:
         parseMenu(r11, r12, r7.addSubMenuItem());
@@ -165,7 +165,7 @@ public class SupportMenuInflater extends MenuInflater {
         r3 = r5;
      */
     /* JADX WARN: Code restructure failed: missing block: B:49:0x00d7, code lost:
-        if (r3.equals(android.support.v7.view.SupportMenuInflater.XML_MENU) == false) goto L10;
+        if (r3.equals("menu") == false) goto L10;
      */
     /* JADX WARN: Code restructure failed: missing block: B:50:0x00d9, code lost:
         r0 = true;
@@ -195,7 +195,7 @@ public class SupportMenuInflater extends MenuInflater {
         while (true) {
             if (eventType == 2) {
                 String name = xmlPullParser.getName();
-                if (name.equals(XML_MENU)) {
+                if (name.equals("menu")) {
                     eventType = xmlPullParser.next();
                 } else {
                     throw new RuntimeException("Expecting menu, got " + name);

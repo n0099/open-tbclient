@@ -40,24 +40,25 @@ import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 import com.baidu.tieba.pb.pb.sub.SubPbHttpResponseMessage;
 import com.baidu.tieba.pb.pb.sub.SubPbSocketResponseMessage;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
+import com.baidu.webkit.internal.ETAG;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import tbclient.PbPage.PbPageResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class PbActivityStatic {
-    private static BdAsyncTaskParallel fFc = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+    private static BdAsyncTaskParallel fMD = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
 
     static {
-        avI();
-        Vb();
-        bdY();
-        bea();
-        bed();
-        beb();
-        bec();
-        bdX();
-        com.baidu.adp.lib.b.d.iB().i(l.class);
+        aze();
+        YI();
+        bhk();
+        bhm();
+        bhp();
+        bhn();
+        bho();
+        bhj();
+        com.baidu.adp.lib.b.d.iR().i(l.class);
         CustomMessageTask customMessageTask = new CustomMessageTask(2004001, new CustomMessageTask.CustomRunnable<PbActivityConfig>() { // from class: com.baidu.tieba.pb.pb.main.PbActivityStatic.5
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<PbActivityConfig> customMessage) {
@@ -73,8 +74,8 @@ public class PbActivityStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        aHL();
-        bdZ();
+        aLd();
+        bhl();
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.pb.pb.main.PbActivityStatic.6
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -90,119 +91,119 @@ public class PbActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(GodFansCallWebViewActivityConfig.class, GodFansCallWebViewActivity.class);
     }
 
-    private static void Vb() {
+    private static void YI() {
         com.baidu.tieba.tbadkCore.a.a.a(302001, pbPageSocketResponseMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.aP("c/f/pb/page", 302001));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.aT("c/f/pb/page", 302001));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setIsUseCurrentBDUSS(false);
         tbHttpMessageTask.setResponsedClass(pbPageHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        LocationModel.bzx();
-        bee();
+        LocationModel.bCM();
+        bhq();
     }
 
-    private static void bdX() {
+    private static void bhj() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_FLOOR_AGREE, TbConfig.SERVER_ADDRESS + TbConfig.PB_FLOOR_AGREE_URL);
         tbHttpMessageTask.setResponsedClass(PbFloorAgreeResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bdY() {
+    private static void bhk() {
         com.baidu.tieba.tbadkCore.a.a.b(2004003, au.class);
     }
 
-    private static void bdZ() {
+    private static void bhl() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_APPLY_COPY_THREAD, TbConfig.SERVER_ADDRESS + TbConfig.URL_APPLY_COPY_THREAD);
         tbHttpMessageTask.setResponsedClass(ApplyCopyThreadResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public static void avI() {
-        com.baidu.tbadk.ala.b.sB().a(2, new com.baidu.tbadk.ala.d() { // from class: com.baidu.tieba.pb.pb.main.PbActivityStatic.1
-            @Override // com.baidu.tbadk.ala.d
+    public static void aze() {
+        com.baidu.tbadk.ala.b.uL().a(2, new com.baidu.tbadk.ala.e() { // from class: com.baidu.tieba.pb.pb.main.PbActivityStatic.1
+            @Override // com.baidu.tbadk.ala.e
             public View createView(Context context) {
-                TextView bg = com.baidu.tbadk.ala.c.bg(context);
-                if (bg != null) {
+                TextView bp = com.baidu.tbadk.ala.c.bp(context);
+                if (bp != null) {
                     FloatingLayout.a aVar = new FloatingLayout.a(-2, -2);
                     aVar.gravity = 16;
-                    com.baidu.tbadk.core.util.al.h(bg, e.d.cp_link_tip_a);
-                    aVar.setMargins(com.baidu.adp.lib.util.l.h(context, e.C0141e.ds8), com.baidu.adp.lib.util.l.h(context, e.C0141e.ds4), 0, 0);
-                    bg.setLayoutParams(aVar);
+                    com.baidu.tbadk.core.util.al.h(bp, e.d.cp_link_tip_a);
+                    aVar.setMargins(com.baidu.adp.lib.util.l.h(context, e.C0175e.ds8), com.baidu.adp.lib.util.l.h(context, e.C0175e.ds4), 0, 0);
+                    bp.setLayoutParams(aVar);
                 }
-                return bg;
+                return bp;
             }
         });
-        com.baidu.tbadk.ala.b.sB().a(3, new com.baidu.tbadk.ala.d() { // from class: com.baidu.tieba.pb.pb.main.PbActivityStatic.2
-            @Override // com.baidu.tbadk.ala.d
+        com.baidu.tbadk.ala.b.uL().a(3, new com.baidu.tbadk.ala.e() { // from class: com.baidu.tieba.pb.pb.main.PbActivityStatic.2
+            @Override // com.baidu.tbadk.ala.e
             public View createView(Context context) {
-                TextView bg = com.baidu.tbadk.ala.c.bg(context);
-                if (bg != null) {
-                    com.baidu.tbadk.core.util.al.h(bg, e.d.cp_link_tip_a);
+                TextView bp = com.baidu.tbadk.ala.c.bp(context);
+                if (bp != null) {
+                    com.baidu.tbadk.core.util.al.h(bp, e.d.cp_link_tip_a);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    layoutParams.setMargins(com.baidu.adp.lib.util.l.h(context, e.C0141e.ds8), com.baidu.adp.lib.util.l.h(context, e.C0141e.ds2), 0, 0);
+                    layoutParams.setMargins(com.baidu.adp.lib.util.l.h(context, e.C0175e.ds8), com.baidu.adp.lib.util.l.h(context, e.C0175e.ds2), 0, 0);
                     layoutParams.gravity = 16;
-                    bg.setLayoutParams(layoutParams);
+                    bp.setLayoutParams(layoutParams);
                 }
-                return bg;
+                return bp;
             }
         });
-        com.baidu.tbadk.ala.b.sB().a(4, new com.baidu.tbadk.ala.d() { // from class: com.baidu.tieba.pb.pb.main.PbActivityStatic.3
-            @Override // com.baidu.tbadk.ala.d
+        com.baidu.tbadk.ala.b.uL().a(4, new com.baidu.tbadk.ala.e() { // from class: com.baidu.tieba.pb.pb.main.PbActivityStatic.3
+            @Override // com.baidu.tbadk.ala.e
             public View createView(Context context) {
-                TextView bg = com.baidu.tbadk.ala.c.bg(context);
-                if (bg != null) {
+                TextView bp = com.baidu.tbadk.ala.c.bp(context);
+                if (bp != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    com.baidu.tbadk.core.util.al.h(bg, e.d.cp_link_tip_a);
-                    layoutParams.setMargins(com.baidu.adp.lib.util.l.h(context, e.C0141e.ds8), com.baidu.adp.lib.util.l.h(context, e.C0141e.ds2), 0, 0);
+                    com.baidu.tbadk.core.util.al.h(bp, e.d.cp_link_tip_a);
+                    layoutParams.setMargins(com.baidu.adp.lib.util.l.h(context, e.C0175e.ds8), com.baidu.adp.lib.util.l.h(context, e.C0175e.ds2), 0, 0);
                     layoutParams.gravity = 16;
-                    bg.setLayoutParams(layoutParams);
+                    bp.setLayoutParams(layoutParams);
                 }
-                return bg;
+                return bp;
             }
         });
-        com.baidu.tbadk.ala.b.sB().a(6, new com.baidu.tbadk.ala.d() { // from class: com.baidu.tieba.pb.pb.main.PbActivityStatic.4
-            @Override // com.baidu.tbadk.ala.d
+        com.baidu.tbadk.ala.b.uL().a(6, new com.baidu.tbadk.ala.e() { // from class: com.baidu.tieba.pb.pb.main.PbActivityStatic.4
+            @Override // com.baidu.tbadk.ala.e
             public View createView(Context context) {
-                TextView bg = com.baidu.tbadk.ala.c.bg(context);
-                if (bg != null) {
+                TextView bp = com.baidu.tbadk.ala.c.bp(context);
+                if (bp != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    com.baidu.tbadk.core.util.al.h(bg, e.d.cp_link_tip_a);
-                    layoutParams.setMargins(com.baidu.adp.lib.util.l.h(context, e.C0141e.ds8), com.baidu.adp.lib.util.l.h(context, e.C0141e.ds2), 0, 0);
+                    com.baidu.tbadk.core.util.al.h(bp, e.d.cp_link_tip_a);
+                    layoutParams.setMargins(com.baidu.adp.lib.util.l.h(context, e.C0175e.ds8), com.baidu.adp.lib.util.l.h(context, e.C0175e.ds2), 0, 0);
                     layoutParams.gravity = 16;
-                    bg.setLayoutParams(layoutParams);
+                    bp.setLayoutParams(layoutParams);
                 }
-                return bg;
+                return bp;
             }
         });
     }
 
-    private static void bea() {
+    private static void bhm() {
         TbadkCoreApplication.getInst().RegisterIntent(SubPbActivityConfig.class, NewSubPbActivity.class);
         com.baidu.tbadk.task.b a = com.baidu.tieba.tbadkCore.a.a.a(302002, SubPbSocketResponseMessage.class, false, false);
         TbHttpMessageTask a2 = com.baidu.tieba.tbadkCore.a.a.a(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
-        a.setParallel(fFc);
-        a2.setParallel(fFc);
+        a.setParallel(fMD);
+        a2.setParallel(fMD);
     }
 
-    private static void beb() {
+    private static void bhn() {
         TbadkCoreApplication.getInst().RegisterIntent(PbSearchEmotionActivityConfig.class, PbSearchEmotionActivity.class);
     }
 
-    private static void bec() {
+    private static void bho() {
         TbadkCoreApplication.getInst().RegisterIntent(PbFullScreenEditorActivityConfig.class, PbFullScreenEditorActivity.class);
     }
 
-    private static void bed() {
+    private static void bhp() {
         TbadkCoreApplication.getInst().RegisterIntent(ForbidActivityConfig.class, ForbidActivity.class);
     }
 
-    private static void aHL() {
-        ay.AN().a(new ay.a() { // from class: com.baidu.tieba.pb.pb.main.PbActivityStatic.7
-            Pattern dgY = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
+    private static void aLd() {
+        ay.CU().a(new ay.a() { // from class: com.baidu.tieba.pb.pb.main.PbActivityStatic.7
+            Pattern dpc = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
 
             /* JADX WARN: Code restructure failed: missing block: B:64:0x0186, code lost:
                 if (com.baidu.adp.lib.util.StringUtils.isNull(r2) == false) goto L73;
@@ -212,7 +213,7 @@ public class PbActivityStatic {
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-                String aA;
+                String aL;
                 boolean z;
                 boolean z2;
                 boolean z3;
@@ -224,18 +225,18 @@ public class PbActivityStatic {
                 boolean z5 = false;
                 String lowerCase = strArr[0].toLowerCase();
                 String str2 = null;
-                Matcher matcher = this.dgY.matcher(lowerCase);
+                Matcher matcher = this.dpc.matcher(lowerCase);
                 String str3 = Config.PUSH;
                 boolean z6 = false;
                 if (Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1").matcher(lowerCase).find()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001609, lowerCase));
                     return 0;
                 } else if (lowerCase.contains("bookcover:")) {
-                    Map<String, String> fh = ay.fh(lowerCase.substring("bookcover:".length()));
-                    if (fh == null || fh.size() <= 0) {
+                    Map<String, String> fv = ay.fv(lowerCase.substring("bookcover:".length()));
+                    if (fv == null || fv.size() <= 0) {
                         return 0;
                     }
-                    if (com.baidu.adp.lib.g.b.l(fh.get("book_type"), 1) == 3) {
+                    if (com.baidu.adp.lib.g.b.l(fv.get("book_type"), 1) == 3) {
                         if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MangaCoverActivityConfig.class)) {
                             com.baidu.adp.lib.util.l.showToast(tbPageContext.getPageActivity(), e.j.manga_plugin_not_install_tip);
                             return 0;
@@ -251,7 +252,7 @@ public class PbActivityStatic {
                     if (matcher.find()) {
                         String group = matcher.group(1);
                         if (lowerCase != null) {
-                            String[] split = lowerCase.split("&");
+                            String[] split = lowerCase.split(ETAG.ITEM_SEPARATOR);
                             String str4 = Config.PUSH;
                             for (int i = 0; i < split.length; i++) {
                                 if (split[i] != null) {
@@ -262,11 +263,11 @@ public class PbActivityStatic {
                                     }
                                 }
                             }
-                            z5 = com.baidu.adp.lib.g.b.d(com.baidu.tbadk.util.ab.aA(lowerCase, "is_from_push="), false);
+                            z5 = com.baidu.adp.lib.g.b.g(com.baidu.tbadk.util.ab.aL(lowerCase, "is_from_push="), false);
                             str3 = str4;
                         }
                         if (lowerCase != null && lowerCase.contains("?")) {
-                            String[] split2 = lowerCase.substring(lowerCase.indexOf("?") + 1, lowerCase.length()).split("&");
+                            String[] split2 = lowerCase.substring(lowerCase.indexOf("?") + 1, lowerCase.length()).split(ETAG.ITEM_SEPARATOR);
                             int length = split2.length;
                             int i2 = 0;
                             while (true) {
@@ -283,12 +284,12 @@ public class PbActivityStatic {
                             }
                         }
                         if (lowerCase != null) {
-                            str = com.baidu.tbadk.util.ab.aA(lowerCase, "sttype=");
+                            str = com.baidu.tbadk.util.ab.aL(lowerCase, "sttype=");
                         }
                         str = "allthread";
                         z6 = true;
                         str2 = str;
-                        aA = group;
+                        aL = group;
                         z = z5;
                         z2 = false;
                     } else if (lowerCase != null && (lowerCase.startsWith("http://tieba.baidu.com/f?") || lowerCase.startsWith("http://tieba.baidu.com/f?"))) {
@@ -300,28 +301,28 @@ public class PbActivityStatic {
                         }
                         if (str6 == null) {
                             z3 = false;
-                            aA = null;
+                            aL = null;
                         } else {
-                            String[] split3 = str6.split("&");
+                            String[] split3 = str6.split(ETAG.ITEM_SEPARATOR);
                             int i3 = 0;
                             while (true) {
                                 if (i3 >= split3.length) {
-                                    aA = null;
+                                    aL = null;
                                     z3 = false;
                                     break;
                                 } else if (split3[i3] == null || !split3[i3].startsWith("kz=")) {
                                     i3++;
                                 } else {
-                                    aA = split3[i3].substring(3);
+                                    aL = split3[i3].substring(3);
                                     z3 = true;
                                     break;
                                 }
                             }
-                            if (!TextUtils.isEmpty(aA) && aA.contains("&")) {
-                                aA = aA.split("&")[0];
+                            if (!TextUtils.isEmpty(aL) && aL.contains(ETAG.ITEM_SEPARATOR)) {
+                                aL = aL.split(ETAG.ITEM_SEPARATOR)[0];
                             }
-                            if (TextUtils.isEmpty(aA)) {
-                                aA = null;
+                            if (TextUtils.isEmpty(aL)) {
+                                aL = null;
                             }
                         }
                         z = false;
@@ -330,7 +331,7 @@ public class PbActivityStatic {
                         str2 = "allthread";
                         z6 = z7;
                     } else if (lowerCase.startsWith("pb:")) {
-                        aA = lowerCase.substring(3);
+                        aL = lowerCase.substring(3);
                         z6 = true;
                         if (strArr.length <= 1) {
                             z = false;
@@ -341,20 +342,20 @@ public class PbActivityStatic {
                             z2 = false;
                         }
                     } else if (lowerCase.startsWith("com.baidu.tieba://?kz=")) {
-                        aA = lowerCase.substring("com.baidu.tieba://?kz=".length());
+                        aL = lowerCase.substring("com.baidu.tieba://?kz=".length());
                         z2 = true;
                         z = false;
                     } else if (lowerCase.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && lowerCase.contains("kz=")) {
-                        aA = com.baidu.tbadk.util.ab.aA(lowerCase, "kz=");
+                        aL = com.baidu.tbadk.util.ab.aL(lowerCase, "kz=");
                         z = false;
                         z2 = false;
                     } else {
                         return 3;
                     }
-                    if (!StringUtils.isNull(aA, true) && tbPageContext != null) {
-                        PbActivityConfig createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(aA, null, str2);
-                        if (lowerCase.contains(BigImgPbActivityConfig.OPEN_COMMON) && "1".equals(com.baidu.tbadk.util.ab.aA(lowerCase, BigImgPbActivityConfig.OPEN_COMMON))) {
-                            createNormalCfg.setUserName(com.baidu.tbadk.util.ab.aA(lowerCase, BigImgPbActivityConfig.BIG_PB_USER_NAME));
+                    if (!StringUtils.isNull(aL, true) && tbPageContext != null) {
+                        PbActivityConfig createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(aL, null, str2);
+                        if (lowerCase.contains(BigImgPbActivityConfig.OPEN_COMMON) && "1".equals(com.baidu.tbadk.util.ab.aL(lowerCase, BigImgPbActivityConfig.OPEN_COMMON))) {
+                            createNormalCfg.setUserName(com.baidu.tbadk.util.ab.aL(lowerCase, BigImgPbActivityConfig.BIG_PB_USER_NAME));
                         }
                         createNormalCfg.setVideo_source(str3);
                         if (z) {
@@ -366,9 +367,9 @@ public class PbActivityStatic {
                             return 0;
                         }
                         return 0;
-                    } else if (z2 && !TextUtils.isEmpty(aA)) {
-                        com.baidu.adp.lib.g.f.e(TbadkCoreApplication.getInst(), aq.at(TbadkCoreApplication.getInst(), aA));
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.am("c10320").w("obj_locate", 3).w("obj_type", 2));
+                    } else if (z2 && !TextUtils.isEmpty(aL)) {
+                        com.baidu.adp.lib.g.f.e(TbadkCoreApplication.getInst(), aq.av(TbadkCoreApplication.getInst(), aL));
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.am("c10320").x("obj_locate", 3).x("obj_type", 2));
                         return 1;
                     } else if (z6) {
                         tbPageContext.showToast(e.j.page_not_found);
@@ -381,7 +382,7 @@ public class PbActivityStatic {
         });
     }
 
-    private static void bee() {
+    private static void bhq() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921343, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.pb.pb.main.PbActivityStatic.8
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.tieba.ueg.a> run(CustomMessage<Context> customMessage) {

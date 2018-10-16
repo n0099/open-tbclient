@@ -7,10 +7,10 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class ShapeTrimPath implements b {
     private final String name;
-    private final Type oG;
-    private final com.airbnb.lottie.model.a.b qL;
-    private final com.airbnb.lottie.model.a.b qT;
-    private final com.airbnb.lottie.model.a.b qU;
+    private final Type py;
+    private final com.airbnb.lottie.model.a.b rG;
+    private final com.airbnb.lottie.model.a.b rH;
+    private final com.airbnb.lottie.model.a.b ry;
 
     /* loaded from: classes2.dex */
     public enum Type {
@@ -31,30 +31,30 @@ public class ShapeTrimPath implements b {
 
     private ShapeTrimPath(String str, Type type, com.airbnb.lottie.model.a.b bVar, com.airbnb.lottie.model.a.b bVar2, com.airbnb.lottie.model.a.b bVar3) {
         this.name = str;
-        this.oG = type;
-        this.qT = bVar;
-        this.qU = bVar2;
-        this.qL = bVar3;
+        this.py = type;
+        this.rG = bVar;
+        this.rH = bVar2;
+        this.ry = bVar3;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type cV() {
-        return this.oG;
+    public Type dn() {
+        return this.py;
     }
 
-    public com.airbnb.lottie.model.a.b en() {
-        return this.qU;
+    public com.airbnb.lottie.model.a.b eF() {
+        return this.rH;
     }
 
-    public com.airbnb.lottie.model.a.b eo() {
-        return this.qT;
+    public com.airbnb.lottie.model.a.b eG() {
+        return this.rG;
     }
 
-    public com.airbnb.lottie.model.a.b eh() {
-        return this.qL;
+    public com.airbnb.lottie.model.a.b ez() {
+        return this.ry;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -63,7 +63,7 @@ public class ShapeTrimPath implements b {
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.qT + ", end: " + this.qU + ", offset: " + this.qL + "}";
+        return "Trim Path: {start: " + this.rG + ", end: " + this.rH + ", offset: " + this.ry + "}";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

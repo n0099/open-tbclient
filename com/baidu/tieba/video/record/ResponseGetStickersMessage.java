@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ResponseGetStickersMessage extends JsonHttpResponsedMessage {
     private List<StickerItem> mStickerItems;
 

@@ -1,11 +1,11 @@
 package com.baidu.tieba.j.a;
 
 import com.baidu.tieba.play.b.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public interface c<T extends com.baidu.tieba.play.b.b> {
-    e aYn();
+    void bbB();
 
-    void aYp();
+    e bbz();
 
     String getKey();
 }

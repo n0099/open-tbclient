@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISpManagerService;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class d implements ISpManagerService {
@@ -33,7 +34,7 @@ public class d implements ISpManagerService {
 
     @Override // com.baidu.sapi2.passhost.pluginsdk.service.ISpManagerService
     public ISpManagerService.ISPer getSPer(String str, int i) {
-        return a(i + "_" + str);
+        return a(i + BaseRequestAction.SPLITE + str);
     }
 
     private ISpManagerService.ISPer a(String str) {

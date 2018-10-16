@@ -5,6 +5,7 @@ import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 import android.util.Log;
 import android.view.SurfaceHolder;
+import com.baidu.searchbox.ng.ai.apps.ar.model.ARCameraAttr;
 /* loaded from: classes3.dex */
 class c {
     private static final String a = c.class.getSimpleName();
@@ -153,8 +154,8 @@ class c {
         try {
             if (CameraHelper.isBackCameraCurrent()) {
                 Camera.Parameters parameters = this.b.getParameters();
-                if (!"off".equals(parameters.getFlashMode())) {
-                    parameters.setFlashMode("off");
+                if (!ARCameraAttr.FlashType.FLASH_OFF.equals(parameters.getFlashMode())) {
+                    parameters.setFlashMode(ARCameraAttr.FlashType.FLASH_OFF);
                     this.b.setParameters(parameters);
                     return true;
                 }

@@ -5,31 +5,31 @@ import java.security.InvalidParameterException;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class b<T> {
-    private int CE;
-    private int CF;
-    private LinkedList<T> CG;
-    private c<T> CH;
+    private int Do;
+    private int Dp;
+    private LinkedList<T> Dq;
+    private c<T> Dr;
 
     public b(c<T> cVar, int i, int i2) {
-        this.CE = 10;
-        this.CF = 0;
-        this.CG = null;
-        this.CH = null;
+        this.Do = 10;
+        this.Dp = 0;
+        this.Dq = null;
+        this.Dr = null;
         if (cVar == null || i <= 0 || i2 > i) {
             throw new InvalidParameterException("invalid params");
         }
-        this.CH = cVar;
-        this.CE = i;
-        this.CF = i2;
-        this.CG = new LinkedList<>();
-        ao(this.CF);
+        this.Dr = cVar;
+        this.Do = i;
+        this.Dp = i2;
+        this.Dq = new LinkedList<>();
+        ao(this.Dp);
     }
 
     private void an(int i) {
         synchronized (this) {
             for (int i2 = 0; i2 < i; i2++) {
                 try {
-                    this.CH.r(this.CG.poll());
+                    this.Dr.u(this.Dq.poll());
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
@@ -42,13 +42,13 @@ public class b<T> {
         synchronized (this) {
             for (int i2 = 0; i2 < i; i2++) {
                 try {
-                    t = this.CH.s(this.CH.jm());
+                    t = this.Dr.v(this.Dr.jB());
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     t = null;
                 }
                 if (t != null) {
-                    this.CG.offer(t);
+                    this.Dq.offer(t);
                 }
             }
         }
@@ -56,35 +56,35 @@ public class b<T> {
 
     public void ap(int i) {
         synchronized (this) {
-            int i2 = i < this.CF ? this.CF : i;
+            int i2 = i < this.Dp ? this.Dp : i;
             if (i2 <= 0) {
                 i2 = 1;
             }
-            this.CE = i2;
-            an(this.CG.size() - this.CE);
+            this.Do = i2;
+            an(this.Dq.size() - this.Do);
         }
     }
 
     public void aq(int i) {
         synchronized (this) {
-            if (i > this.CE) {
-                i = this.CE;
+            if (i > this.Do) {
+                i = this.Do;
             }
-            this.CF = i;
-            ao(this.CF - this.CG.size());
+            this.Dp = i;
+            ao(this.Dp - this.Dq.size());
         }
     }
 
-    public T jl() {
+    public T jA() {
         T t = null;
         synchronized (this) {
             try {
-                if (this.CG.size() > 0) {
-                    t = this.CH.s(this.CG.poll());
+                if (this.Dq.size() > 0) {
+                    t = this.Dr.v(this.Dq.poll());
                 } else {
-                    t = this.CH.s(this.CH.jm());
+                    t = this.Dr.v(this.Dr.jB());
                 }
-                ao(this.CF - this.CG.size());
+                ao(this.Dp - this.Dq.size());
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -92,28 +92,28 @@ public class b<T> {
         return t;
     }
 
-    public void q(T t) {
+    public void t(T t) {
         T t2;
         synchronized (this) {
-            if (this.CG.size() < this.CE) {
+            if (this.Dq.size() < this.Do) {
                 try {
-                    t2 = this.CH.t(t);
+                    t2 = this.Dr.w(t);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     t2 = null;
                 }
                 if (t2 != null) {
-                    this.CG.offer(t2);
+                    this.Dq.offer(t2);
                 }
             } else {
-                this.CH.r(t);
+                this.Dr.u(t);
             }
         }
     }
 
     public void clear() {
         synchronized (this) {
-            this.CG.clear();
+            this.Dq.clear();
         }
     }
 }

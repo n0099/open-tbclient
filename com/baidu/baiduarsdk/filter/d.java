@@ -5,7 +5,6 @@ import com.baidu.baiduarsdk.filter.a.p;
 import com.baidu.baiduarsdk.filter.a.q;
 import com.baidu.baiduarsdk.filter.configdata.FilterData;
 import com.baidu.baiduarsdk.gpuimage.a.g;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -185,7 +184,7 @@ public final class d {
                 }
                 filterData.a(arrayList);
             }
-            filterData.a(jSONObject.optJSONObject(LegoListActivityConfig.PARAMS));
+            filterData.a(jSONObject.optJSONObject("params"));
             return filterData;
         }
         return null;

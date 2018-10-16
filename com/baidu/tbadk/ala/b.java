@@ -5,31 +5,31 @@ import android.util.SparseArray;
 import android.view.View;
 /* loaded from: classes.dex */
 public class b {
-    private static b acx = null;
-    private SparseArray<d> acw = new SparseArray<>();
+    private static b ahw = null;
+    private SparseArray<e> ahv = new SparseArray<>();
 
     private b() {
     }
 
-    public static b sB() {
-        if (acx == null) {
+    public static b uL() {
+        if (ahw == null) {
             synchronized (b.class) {
-                if (acx == null) {
-                    acx = new b();
+                if (ahw == null) {
+                    ahw = new b();
                 }
             }
         }
-        return acx;
+        return ahw;
     }
 
-    public View i(Context context, int i) {
-        if (this.acw.get(i) == null) {
+    public View j(Context context, int i) {
+        if (this.ahv.get(i) == null) {
             return null;
         }
-        return this.acw.get(i).createView(context);
+        return this.ahv.get(i).createView(context);
     }
 
-    public void a(int i, d dVar) {
-        this.acw.put(i, dVar);
+    public void a(int i, e eVar) {
+        this.ahv.put(i, eVar);
     }
 }

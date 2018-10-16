@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.p;
 import tbclient.GetADList.DataReq;
 import tbclient.GetADList.GetADListReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class ADRequestMessage extends NetMessage {
     private long fid;
     private long offset;

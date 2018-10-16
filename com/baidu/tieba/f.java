@@ -24,69 +24,69 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.tbadkCore.u;
 /* loaded from: classes.dex */
 public class f extends Dialog {
-    private a bqA;
-    private View.OnClickListener bqB;
-    private View.OnClickListener bqC;
-    private boolean bqD;
-    private boolean bqE;
-    private VersionData bqb;
-    private CombineDownload bqc;
-    private boolean bqd;
-    private boolean bqe;
-    private boolean bqf;
-    private boolean bqg;
-    private LinearLayout bqh;
-    private TextView bqi;
-    private TextView bqj;
-    private TextView bqk;
-    private String bql;
-    private TextView bqm;
-    private TextView bqn;
-    private TextView bqo;
-    private TextView bqp;
-    private ImageView bqq;
-    private TextView bqr;
-    private TextView bqs;
-    private View bqt;
-    private LinearLayout bqu;
-    private TextView bqv;
-    private TextView bqw;
-    private TextView bqx;
-    private View bqy;
-    private LinearLayout bqz;
+    private TextView buA;
+    private TextView buB;
+    private View buC;
+    private LinearLayout buD;
+    private TextView buE;
+    private TextView buF;
+    private TextView buG;
+    private View buH;
+    private LinearLayout buI;
+    private a buJ;
+    private View.OnClickListener buK;
+    private View.OnClickListener buL;
+    private boolean buM;
+    private boolean buN;
+    private VersionData buk;
+    private CombineDownload bul;
+    private boolean bum;
+    private boolean bun;
+    private boolean buo;
+    private boolean bup;
+    private LinearLayout buq;
+    private TextView bur;
+    private TextView bus;
+    private TextView but;
+    private String buu;
+    private TextView buv;
+    private TextView buw;
+    private TextView bux;
+    private TextView buy;
+    private ImageView buz;
     private View dividerLine;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
     /* loaded from: classes.dex */
     interface a {
-        void RI();
+        void TE();
 
-        void RJ();
+        void TF();
 
-        void cM(boolean z);
+        void cV(boolean z);
 
-        void cN(boolean z);
+        void cW(boolean z);
 
         void stopService();
     }
 
     public f(Context context, int i) {
         super(context, i);
-        this.bqd = false;
-        this.bqe = true;
-        this.bqf = false;
-        this.bqg = false;
-        this.bqD = true;
-        this.bqE = true;
+        this.bum = false;
+        this.bun = true;
+        this.buo = false;
+        this.bup = false;
+        this.buM = true;
+        this.buN = true;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.f.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view.getId() == f.this.bqo.getId()) {
-                    f.this.bqA.RI();
-                    f.this.bP(f.this.mContext);
-                } else if (view.getId() == f.this.bqq.getId()) {
-                    f.this.bqA.RI();
+                if (view.getId() == f.this.bux.getId()) {
+                    f.this.buJ.TE();
+                    f.this.bX(f.this.mContext);
+                } else if (view.getId() == f.this.buz.getId()) {
+                    f.this.buJ.TE();
                 }
             }
         };
@@ -97,38 +97,38 @@ public class f extends Dialog {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(e.h.app_download_dialog);
-        this.bqh = (LinearLayout) findViewById(e.g.app_info);
-        this.bqi = (TextView) findViewById(e.g.app_version_and_size);
-        this.bqj = (TextView) findViewById(e.g.app_description);
-        this.bqp = (TextView) findViewById(e.g.fullsize_download_button);
-        this.bqn = (TextView) findViewById(e.g.cancel_download_button);
-        this.bqo = (TextView) findViewById(e.g.btn_update_save_flow);
-        this.bqq = (ImageView) findViewById(e.g.img_close);
-        this.bqo.setOnClickListener(this.mOnClickListener);
-        this.bqq.setOnClickListener(this.mOnClickListener);
+        this.buq = (LinearLayout) findViewById(e.g.app_info);
+        this.bur = (TextView) findViewById(e.g.app_version_and_size);
+        this.bus = (TextView) findViewById(e.g.app_description);
+        this.buy = (TextView) findViewById(e.g.fullsize_download_button);
+        this.buw = (TextView) findViewById(e.g.cancel_download_button);
+        this.bux = (TextView) findViewById(e.g.btn_update_save_flow);
+        this.buz = (ImageView) findViewById(e.g.img_close);
+        this.bux.setOnClickListener(this.mOnClickListener);
+        this.buz.setOnClickListener(this.mOnClickListener);
         this.dividerLine = findViewById(e.g.divider_line);
-        this.bqk = (TextView) findViewById(e.g.download_process);
-        this.bqr = (TextView) findViewById(e.g.incremental_download_button);
-        this.bqs = (TextView) findViewById(e.g.not_install_as_tip);
-        this.bqt = findViewById(e.g.incremental_download_layout);
-        this.bqm = (TextView) findViewById(e.g.other_app_recommend);
-        this.bqy = findViewById(e.g.divider_under_button);
-        this.bqz = (LinearLayout) findViewById(e.g.cancel_confirm_ll);
-        this.bql = this.bqk.getText().toString();
-        this.bqu = (LinearLayout) findViewById(e.g.cancel_dialog);
-        this.bqw = (TextView) findViewById(e.g.sure_cancel);
-        this.bqx = (TextView) findViewById(e.g.cancel_button);
-        this.bqv = (TextView) findViewById(e.g.cancel_tip);
-        this.bqw.setOnClickListener(this.bqB);
-        this.bqx.setOnClickListener(this.bqC);
-        if (com.baidu.adp.lib.b.d.iB().aO("android_shouzhu_update") == 1) {
-            this.bqD = true;
+        this.but = (TextView) findViewById(e.g.download_process);
+        this.buA = (TextView) findViewById(e.g.incremental_download_button);
+        this.buB = (TextView) findViewById(e.g.not_install_as_tip);
+        this.buC = findViewById(e.g.incremental_download_layout);
+        this.buv = (TextView) findViewById(e.g.other_app_recommend);
+        this.buH = findViewById(e.g.divider_under_button);
+        this.buI = (LinearLayout) findViewById(e.g.cancel_confirm_ll);
+        this.buu = this.but.getText().toString();
+        this.buD = (LinearLayout) findViewById(e.g.cancel_dialog);
+        this.buF = (TextView) findViewById(e.g.sure_cancel);
+        this.buG = (TextView) findViewById(e.g.cancel_button);
+        this.buE = (TextView) findViewById(e.g.cancel_tip);
+        this.buF.setOnClickListener(this.buK);
+        this.buG.setOnClickListener(this.buL);
+        if (com.baidu.adp.lib.b.d.iR().aO("android_shouzhu_update") == 1) {
+            this.buM = true;
         } else {
-            this.bqD = false;
+            this.buM = false;
         }
-        String size = this.bqb.getSize();
-        String newVersion = this.bqb.getNewVersion();
-        String newVersionDesc = this.bqb.getNewVersionDesc();
+        String size = this.buk.getSize();
+        String newVersion = this.buk.getNewVersion();
+        String newVersionDesc = this.buk.getNewVersionDesc();
         StringBuilder sb = new StringBuilder();
         sb.append(this.mContext.getString(e.j.new_version_format));
         if (!TextUtils.isEmpty(newVersion)) {
@@ -137,92 +137,92 @@ public class f extends Dialog {
         if (!TextUtils.isEmpty(size)) {
             sb.append(" / " + String.format("%.2f", Float.valueOf(com.baidu.adp.lib.g.b.c(size, 0.0f) / 1048576.0f)) + "MB");
         }
-        this.bqi.setText(sb.toString());
-        this.bqj.setText(newVersionDesc);
-        if (this.bqb.forceUpdate()) {
-            this.bqg = true;
-            this.bqn.setText(this.mContext.getString(e.j.quit));
-            this.bqo.setVisibility(8);
-            this.bqq.setVisibility(8);
-        } else if (l.T(this.mContext, "com.tencent.android.qqdownloader")) {
-            this.bqn.setVisibility(8);
+        this.bur.setText(sb.toString());
+        this.bus.setText(newVersionDesc);
+        if (this.buk.forceUpdate()) {
+            this.bup = true;
+            this.buw.setText(this.mContext.getString(e.j.quit));
+            this.bux.setVisibility(8);
+            this.buz.setVisibility(8);
+        } else if (this.buk.isOfficialVersion() && l.T(this.mContext, "com.tencent.android.qqdownloader")) {
+            this.buw.setVisibility(8);
         } else {
-            this.bqn.setText(this.mContext.getString(e.j.update_after));
-            this.bqo.setVisibility(8);
-            this.bqq.setVisibility(8);
+            this.buw.setText(this.mContext.getString(e.j.update_after));
+            this.bux.setVisibility(8);
+            this.buz.setVisibility(8);
         }
-        if (this.bqc != null && this.bqc.showCombineDownload() && !TextUtils.isEmpty(this.bqc.getApkMD5RSA())) {
-            this.bqm.setText(this.bqc.getAppName());
-            if (!u.isInstalledPackage(this.mContext, this.bqc.getAppProc()) && !TextUtils.isEmpty(this.bqc.getAppUrl())) {
-                this.bqm.setVisibility(0);
+        if (this.bul != null && this.bul.showCombineDownload() && !TextUtils.isEmpty(this.bul.getApkMD5RSA())) {
+            this.buv.setText(this.bul.getAppName());
+            if (!u.isInstalledPackage(this.mContext, this.bul.getAppProc()) && !TextUtils.isEmpty(this.bul.getAppUrl())) {
+                this.buv.setVisibility(0);
                 Drawable drawable = this.mContext.getResources().getDrawable(e.f.btn_dailog_choose_s);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                this.bqm.setCompoundDrawables(drawable, null, null, null);
-                this.bqd = true;
+                this.buv.setCompoundDrawables(drawable, null, null, null);
+                this.bum = true;
             } else {
-                this.bqm.setVisibility(8);
-                this.bqd = false;
+                this.buv.setVisibility(8);
+                this.bum = false;
             }
         } else {
-            this.bqm.setVisibility(8);
-            this.bqd = false;
+            this.buv.setVisibility(8);
+            this.bum = false;
         }
-        cK(this.bqD);
-        this.bqp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.f.1
+        cT(this.buM);
+        this.buy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TiebaStatic.log("c10003");
-                f.this.bqf = true;
-                if (f.this.bqe) {
+                f.this.buo = true;
+                if (f.this.bun) {
                     Drawable drawable2 = al.getDrawable(e.f.btn_dailog_choose_d);
                     drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-                    f.this.bqm.setCompoundDrawables(drawable2, null, null, null);
+                    f.this.buv.setCompoundDrawables(drawable2, null, null, null);
                 }
-                f.this.bqA.cM(f.this.bqe);
+                f.this.buJ.cV(f.this.bun);
             }
         });
-        this.bqr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.f.2
+        this.buA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.f.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (f.this.bqE) {
+                if (f.this.buN) {
                     TiebaStatic.log("c10001");
                 } else {
                     TiebaStatic.log("c10009");
                 }
-                f.this.bqr.setEnabled(false);
-                f.this.bqA.cN(f.this.bqe);
+                f.this.buA.setEnabled(false);
+                f.this.buJ.cW(f.this.bun);
             }
         });
-        this.bqn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.f.3
+        this.buw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.f.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                f.this.bqA.RI();
+                f.this.buJ.TE();
             }
         });
-        this.bqm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.f.4
+        this.buv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.f.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!f.this.bqf) {
-                    if (f.this.bqe) {
+                if (!f.this.buo) {
+                    if (f.this.bun) {
                         Drawable drawable2 = al.getDrawable(e.f.btn_dailog_choose_n);
                         drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-                        f.this.bqm.setCompoundDrawables(drawable2, null, null, null);
-                        f.this.bqd = false;
-                        f.this.bqe = false;
+                        f.this.buv.setCompoundDrawables(drawable2, null, null, null);
+                        f.this.bum = false;
+                        f.this.bun = false;
                         return;
                     }
                     Drawable drawable3 = al.getDrawable(e.f.btn_dailog_choose_s);
                     drawable3.setBounds(0, 0, drawable3.getMinimumWidth(), drawable3.getMinimumHeight());
-                    f.this.bqm.setCompoundDrawables(drawable3, null, null, null);
-                    f.this.bqd = true;
-                    f.this.bqe = true;
+                    f.this.buv.setCompoundDrawables(drawable3, null, null, null);
+                    f.this.bum = true;
+                    f.this.bun = true;
                 }
             }
         });
-        RG();
+        TC();
     }
 
-    private void RG() {
+    private void TC() {
         WindowManager.LayoutParams attributes;
         Window window = getWindow();
         if (window != null && (attributes = window.getAttributes()) != null) {
@@ -232,92 +232,94 @@ public class f extends Dialog {
         }
     }
 
-    public void cK(boolean z) {
+    public void cT(boolean z) {
         if (h.a(this.mContext.getPackageManager())) {
-            this.bqs.setVisibility(8);
+            this.buB.setVisibility(8);
         } else {
-            this.bqs.setVisibility(0);
+            this.buB.setVisibility(0);
         }
         if (z) {
-            if (this.bqb == null || TextUtils.isEmpty(this.bqb.getPatch()) || this.bqb.getNewVersionCode() < 0) {
-                this.bqt.setVisibility(0);
-                this.bqr.setText(e.j.super_update);
-                al.i(this.bqr, e.f.dialog_middle_item_bg_selector);
-                this.bqz.setVisibility(0);
-                this.bqE = false;
+            if (this.buk == null || TextUtils.isEmpty(this.buk.getPatch()) || this.buk.getNewVersionCode() < 0) {
+                this.buC.setVisibility(0);
+                this.buA.setText(e.j.super_update);
+                al.i(this.buA, e.f.dialog_middle_item_bg_selector);
+                this.buI.setVisibility(0);
+                this.buN = false;
                 TiebaStatic.log("c10008");
                 TiebaStatic.log("c10010");
                 return;
             }
-            this.bqt.setVisibility(0);
-            this.bqr.setText(e.j.incremental_update);
-            al.i(this.bqr, e.f.dialog_single_button_bg_selector);
-            this.bqy.setVisibility(8);
-            this.bqz.setVisibility(8);
-            this.bqE = true;
+            this.buC.setVisibility(0);
+            this.buA.setText(e.j.incremental_update);
+            al.i(this.buA, e.f.dialog_single_button_bg_selector);
+            this.buH.setVisibility(8);
+            this.buI.setVisibility(8);
+            this.buN = true;
             TiebaStatic.log("c10002");
-        } else if (this.bqb == null || TextUtils.isEmpty(this.bqb.getPatch()) || this.bqb.getNewVersionCode() < 0) {
-            this.bqt.setVisibility(8);
-            this.bqz.setVisibility(0);
+        } else if (this.buk == null || TextUtils.isEmpty(this.buk.getPatch()) || this.buk.getNewVersionCode() < 0) {
+            this.buC.setVisibility(8);
+            this.buI.setVisibility(0);
             TiebaStatic.log("c10010");
         } else {
-            this.bqt.setVisibility(0);
-            al.i(this.bqr, e.f.dialog_middle_item_bg_selector);
-            this.bqr.setText(e.j.incremental_update);
-            this.bqz.setVisibility(0);
-            this.bqE = true;
+            this.buC.setVisibility(0);
+            al.i(this.buA, e.f.dialog_middle_item_bg_selector);
+            this.buA.setText(e.j.incremental_update);
+            this.buI.setVisibility(0);
+            this.buN = true;
             TiebaStatic.log("c10002");
             TiebaStatic.log("c10010");
         }
     }
 
     public void updateProgress(int i) {
-        this.bqp.setVisibility(8);
-        this.bqt.setVisibility(8);
-        this.bqn.setVisibility(8);
+        this.buy.setVisibility(8);
+        this.buC.setVisibility(8);
+        this.buw.setVisibility(8);
         this.dividerLine.setVisibility(8);
-        this.bqf = true;
-        this.bqz.setVisibility(0);
-        this.bqk.setVisibility(0);
-        this.bqk.setText(this.bql + i + "%");
+        this.buo = true;
+        this.buI.setVisibility(0);
+        this.but.setVisibility(0);
+        this.but.setText(this.buu + i + "%");
+        this.buz.setVisibility(8);
+        this.bux.setVisibility(8);
     }
 
-    public void cL(boolean z) {
-        this.bqp.setEnabled(z);
+    public void cU(boolean z) {
+        this.buy.setEnabled(z);
     }
 
     @Override // android.app.Dialog
     public void onBackPressed() {
         super.onBackPressed();
-        if (this.bqf) {
-            this.bqA.stopService();
-            this.bqh.setVisibility(8);
-            if (this.bqg) {
-                this.bqv.setText(getContext().getString(e.j.download_exit));
+        if (this.buo) {
+            this.buJ.stopService();
+            this.buq.setVisibility(8);
+            if (this.bup) {
+                this.buE.setText(getContext().getString(e.j.download_exit));
             }
-            this.bqu.setVisibility(0);
+            this.buD.setVisibility(0);
             return;
         }
-        this.bqA.RJ();
+        this.buJ.TF();
     }
 
     public void a(VersionData versionData, CombineDownload combineDownload, a aVar) {
-        this.bqb = versionData;
-        this.bqc = combineDownload;
-        this.bqA = aVar;
+        this.buk = versionData;
+        this.bul = combineDownload;
+        this.buJ = aVar;
     }
 
-    public void RH() {
-        this.bqu.setVisibility(8);
-        this.bqh.setVisibility(0);
+    public void TD() {
+        this.buD.setVisibility(8);
+        this.buq.setVisibility(0);
     }
 
     public void e(View.OnClickListener onClickListener) {
-        this.bqB = onClickListener;
+        this.buK = onClickListener;
     }
 
     public void f(View.OnClickListener onClickListener) {
-        this.bqC = onClickListener;
+        this.buL = onClickListener;
     }
 
     public void c(TbPageContext<?> tbPageContext, int i) {
@@ -325,10 +327,10 @@ public class f extends Dialog {
             tbPageContext.getLayoutMode().setNightMode(i == 1);
             tbPageContext.getLayoutMode().onModeChanged(findViewById(e.g.app_download_dialog_layout));
         }
-        al.c(this.bqq, e.f.write_close_selector);
+        al.c(this.buz, e.f.write_close_selector);
     }
 
-    public void bP(Context context) {
+    public void bX(Context context) {
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + context.getPackageName()));
         try {
             intent.setClassName("com.tencent.android.qqdownloader", "com.tencent.pangu.link.LinkProxyActivity");

@@ -12,55 +12,55 @@ import com.baidu.tbadk.mvc.message.MvcSocketMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetModel;
 import com.baidu.tieba.tbadkCore.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class FrsDynamicModelController extends BdBaseModel implements NetModel.b<FrsDynamicRequestData, b> {
-    private b dzo;
-    private FrsDynamicFragment dzt;
-    private FrsDynamicRequestData dzu;
-    private FrsDynamicModel<FrsDynamicFragment> dzv;
-    private d.a dzw;
+    private b dHo;
+    private FrsDynamicFragment dHt;
+    private FrsDynamicRequestData dHu;
+    private FrsDynamicModel<FrsDynamicFragment> dHv;
+    private d.a dHw;
     private long mForumId;
     private int mType;
 
     public FrsDynamicModelController(FrsDynamicFragment frsDynamicFragment) {
         super(frsDynamicFragment.getPageContext());
         this.mType = 3;
-        this.dzt = frsDynamicFragment;
-        this.dzu = new FrsDynamicRequestData();
-        this.dzo = new b();
-        this.dzv = new FrsDynamicModel<>(this.dzt.getPageContext(), this.dzu);
-        this.dzv.a(this);
-        this.dzv.setUniqueId(getUniqueId());
+        this.dHt = frsDynamicFragment;
+        this.dHu = new FrsDynamicRequestData();
+        this.dHo = new b();
+        this.dHv = new FrsDynamicModel<>(this.dHt.getPageContext(), this.dHu);
+        this.dHv.a(this);
+        this.dHv.setUniqueId(getUniqueId());
     }
 
     public void setForumId(long j) {
         this.mForumId = j;
     }
 
-    public boolean ayJ() {
-        this.dzo = new b();
-        this.dzu.lastThreadId = 0L;
-        a(this.dzu, 3);
+    public boolean aCc() {
+        this.dHo = new b();
+        this.dHu.lastThreadId = 0L;
+        a(this.dHu, 3);
         return true;
     }
 
-    public void bM(long j) {
-        if (!this.dzv.BO()) {
-            this.dzu.lastThreadId = j;
-            a(this.dzu, 4);
+    public void bT(long j) {
+        if (!this.dHv.DU()) {
+            this.dHu.lastThreadId = j;
+            a(this.dHu, 4);
         }
     }
 
     private void a(FrsDynamicRequestData frsDynamicRequestData, int i) {
-        if (this.dzt != null && this.dzt.isAdded() && this.dzt.getPageContext() != null) {
-            this.dzt.dtt.kS(i);
-            this.dzv.a(frsDynamicRequestData);
+        if (this.dHt != null && this.dHt.isAdded() && this.dHt.getPageContext() != null) {
+            this.dHt.dBu.lq(i);
+            this.dHv.a(frsDynamicRequestData);
             this.mType = i;
-            int aO = l.aO(this.dzt.getPageContext().getPageActivity());
-            int aQ = l.aQ(this.dzt.getPageContext().getPageActivity());
+            int aO = l.aO(this.dHt.getPageContext().getPageActivity());
+            int aQ = l.aQ(this.dHt.getPageContext().getPageActivity());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i2 = 1;
-            if (aq.Az().AB()) {
+            if (aq.CG().CI()) {
                 i2 = 2;
             }
             frsDynamicRequestData.scrW = aO;
@@ -68,12 +68,12 @@ public class FrsDynamicModelController extends BdBaseModel implements NetModel.b
             frsDynamicRequestData.scrDip = f;
             frsDynamicRequestData.qType = i2;
             frsDynamicRequestData.forumId = this.mForumId;
-            this.dzv.Ll();
+            this.dHv.Nj();
         }
     }
 
-    public boolean BO() {
-        return this.dzv.BO();
+    public boolean DU() {
+        return this.dHv.DU();
     }
 
     private boolean a(b bVar) {
@@ -81,13 +81,13 @@ public class FrsDynamicModelController extends BdBaseModel implements NetModel.b
             return false;
         }
         if (!bVar.userMap.isEmpty()) {
-            this.dzo.userMap.putAll(bVar.userMap);
+            this.dHo.userMap.putAll(bVar.userMap);
         }
-        if (!v.z(bVar.threadList)) {
-            this.dzo.threadList.addAll(bVar.threadList);
+        if (!v.J(bVar.threadList)) {
+            this.dHo.threadList.addAll(bVar.threadList);
         }
-        this.dzo.hasMore = bVar.hasMore;
-        this.dzt.dtt.a(this.mType, false, this.dzw);
+        this.dHo.hasMore = bVar.hasMore;
+        this.dHt.dBu.a(this.mType, false, this.dHw);
         return true;
     }
 
@@ -104,14 +104,14 @@ public class FrsDynamicModelController extends BdBaseModel implements NetModel.b
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
     public void a(MvcHttpResponsedMessage<b> mvcHttpResponsedMessage, MvcHttpMessage<FrsDynamicRequestData, b> mvcHttpMessage, MvcNetMessage<FrsDynamicRequestData, b> mvcNetMessage) {
         if (mvcHttpResponsedMessage != null) {
-            if (this.dzw == null) {
-                this.dzw = new d.a();
+            if (this.dHw == null) {
+                this.dHw = new d.a();
             }
-            this.dzw.gSe = mvcHttpResponsedMessage.getError() < -13 || mvcHttpResponsedMessage.getError() > -10;
-            this.dzw.isSuccess = mvcHttpResponsedMessage.hasError() ? false : true;
-            this.dzw.errorCode = mvcHttpResponsedMessage.getError();
-            this.dzw.errorMsg = mvcHttpResponsedMessage.getErrorString();
-            this.dzw.gSf = mvcHttpResponsedMessage.getDownSize();
+            this.dHw.gZz = mvcHttpResponsedMessage.getError() < -13 || mvcHttpResponsedMessage.getError() > -10;
+            this.dHw.isSuccess = mvcHttpResponsedMessage.hasError() ? false : true;
+            this.dHw.errorCode = mvcHttpResponsedMessage.getError();
+            this.dHw.errorMsg = mvcHttpResponsedMessage.getErrorString();
+            this.dHw.gZA = mvcHttpResponsedMessage.getDownSize();
             a(mvcHttpResponsedMessage.getData());
             this.mErrorCode = mvcHttpResponsedMessage.getError();
             this.mErrorString = mvcHttpResponsedMessage.getErrorString();
@@ -121,14 +121,14 @@ public class FrsDynamicModelController extends BdBaseModel implements NetModel.b
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
     public void a(MvcSocketResponsedMessage<b, ?> mvcSocketResponsedMessage, MvcSocketMessage<FrsDynamicRequestData, b> mvcSocketMessage, MvcNetMessage<FrsDynamicRequestData, b> mvcNetMessage) {
         if (mvcSocketResponsedMessage != null) {
-            if (this.dzw == null) {
-                this.dzw = new d.a();
+            if (this.dHw == null) {
+                this.dHw = new d.a();
             }
-            this.dzw.gSe = mvcSocketResponsedMessage.getError() < -13 || mvcSocketResponsedMessage.getError() > -10;
-            this.dzw.isSuccess = mvcSocketResponsedMessage.hasError() ? false : true;
-            this.dzw.errorCode = mvcSocketResponsedMessage.getError();
-            this.dzw.errorMsg = mvcSocketResponsedMessage.getErrorString();
-            this.dzw.gSf = mvcSocketResponsedMessage.getDownSize();
+            this.dHw.gZz = mvcSocketResponsedMessage.getError() < -13 || mvcSocketResponsedMessage.getError() > -10;
+            this.dHw.isSuccess = mvcSocketResponsedMessage.hasError() ? false : true;
+            this.dHw.errorCode = mvcSocketResponsedMessage.getError();
+            this.dHw.errorMsg = mvcSocketResponsedMessage.getErrorString();
+            this.dHw.gZA = mvcSocketResponsedMessage.getDownSize();
             a(mvcSocketResponsedMessage.getData());
             this.mErrorCode = mvcSocketResponsedMessage.getError();
             this.mErrorString = mvcSocketResponsedMessage.getErrorString();
@@ -139,12 +139,12 @@ public class FrsDynamicModelController extends BdBaseModel implements NetModel.b
         return this.mType;
     }
 
-    public b ayK() {
-        return this.dzo;
+    public b aCd() {
+        return this.dHo;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onActivityDestroy() {
-        this.dzv.cancelLoadData();
+        this.dHv.cancelLoadData();
     }
 }

@@ -7,8 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class j {
-    private static j la = null;
-    private static Pattern lb = Pattern.compile("(([0-1]?[0-9]{1,2}\\.)|(2[0-4][0-9]\\.)|(25[0-5]\\.)){3}(([0-1]?[0-9]{1,2})|(2[0-4][0-9])|(25[0-5]))");
+    private static j lG = null;
+    private static Pattern lH = Pattern.compile("(([0-1]?[0-9]{1,2}\\.)|(2[0-4][0-9]\\.)|(25[0-5]\\.)){3}(([0-1]?[0-9]{1,2})|(2[0-4][0-9])|(25[0-5]))");
     String f;
     String g;
     int h;
@@ -23,7 +23,7 @@ public final class j {
     boolean l = false;
 
     public static boolean c(String str) {
-        return lb.matcher(str).matches();
+        return lH.matcher(str).matches();
     }
 
     public final String a() {

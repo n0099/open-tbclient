@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.UnreadTip.UnreadTipResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class ConcernUnreadTipHttpResMsg extends HttpResponsedMessage {
     public e mData;
 

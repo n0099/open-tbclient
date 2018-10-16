@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsoluteLayout;
 import android.widget.ProgressBar;
-import com.baidu.d.a.a;
+import com.baidu.e.a.a;
 import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.base.debug.Log;

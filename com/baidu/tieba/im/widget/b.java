@@ -13,7 +13,7 @@ import com.baidu.tieba.im.db.l;
 import com.baidu.tieba.im.db.m;
 /* loaded from: classes.dex */
 public class b {
-    public static void aQb() {
+    public static void aTp() {
         MessageManager.getInstance().registerListener(2005016, new CustomMessageListener(0) { // from class: com.baidu.tieba.im.widget.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -21,16 +21,16 @@ public class b {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && customResponsedMessage.getData() != null) {
                     final boolean isNull = StringUtils.isNull(((AccountData) customResponsedMessage.getData()).getAccount());
                     if (!isNull) {
-                        com.baidu.tbadk.coreExtra.messageCenter.a.Ey().c(new e());
-                        com.baidu.tbadk.coreExtra.messageCenter.a.Ey().setMsgChat(0);
-                        com.baidu.tbadk.coreExtra.messageCenter.a.Ey().setMsgAtme(0);
-                        com.baidu.tbadk.coreExtra.messageCenter.a.Ey().ek(0);
-                        com.baidu.tbadk.coreExtra.messageCenter.a.Ey().setMsgFans(0);
-                        com.baidu.tbadk.coreExtra.messageCenter.a.Ey().setMsgGiftNum(0);
-                        com.baidu.tbadk.coreExtra.messageCenter.a.Ey().EQ();
-                        x.MU();
-                        m.aMd().aLI();
-                        l.aMb().aLI();
+                        com.baidu.tbadk.coreExtra.messageCenter.a.Gz().c(new e());
+                        com.baidu.tbadk.coreExtra.messageCenter.a.Gz().setMsgChat(0);
+                        com.baidu.tbadk.coreExtra.messageCenter.a.Gz().setMsgAtme(0);
+                        com.baidu.tbadk.coreExtra.messageCenter.a.Gz().et(0);
+                        com.baidu.tbadk.coreExtra.messageCenter.a.Gz().setMsgFans(0);
+                        com.baidu.tbadk.coreExtra.messageCenter.a.Gz().setMsgGiftNum(0);
+                        com.baidu.tbadk.coreExtra.messageCenter.a.Gz().GR();
+                        x.OS();
+                        m.aPs().aOX();
+                        l.aPq().aOX();
                     }
                     x.b(new w<Integer>() { // from class: com.baidu.tieba.im.widget.b.1.1
                         /* JADX DEBUG: Method merged with bridge method */
@@ -38,7 +38,7 @@ public class b {
                         @Override // com.baidu.tbadk.util.w
                         public Integer doInBackground() {
                             if (!isNull) {
-                                com.baidu.tieba.im.db.b.aLJ().aLK();
+                                com.baidu.tieba.im.db.b.aOY().aOZ();
                             }
                             return 0;
                         }

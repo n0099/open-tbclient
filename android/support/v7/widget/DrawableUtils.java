@@ -14,7 +14,7 @@ import android.support.annotation.RestrictTo;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.graphics.drawable.DrawableWrapper;
 import android.util.Log;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsNaViewModel;
 import java.lang.reflect.Field;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
@@ -55,13 +55,13 @@ public class DrawableUtils {
                                 }
                                 break;
                             case 115029:
-                                if (name.equals("top")) {
+                                if (name.equals(AiAppsNaViewModel.POSITION_KEY_TOP)) {
                                     c = 1;
                                     break;
                                 }
                                 break;
                             case 3317767:
-                                if (name.equals(CustomDialogData.POS_LEFT)) {
+                                if (name.equals("left")) {
                                     c = 0;
                                     break;
                                 }

@@ -23,8 +23,8 @@ public class ARPermissionManager {
     private ARFragment c;
     private com.baidu.ar.ui.a e;
     private ARCallback f;
-    private a.InterfaceC0047a g = new a.InterfaceC0047a() { // from class: com.baidu.ar.ARPermissionManager.1
-        @Override // com.baidu.ar.ui.a.InterfaceC0047a
+    private a.InterfaceC0050a g = new a.InterfaceC0050a() { // from class: com.baidu.ar.ARPermissionManager.1
+        @Override // com.baidu.ar.ui.a.InterfaceC0050a
         public void a() {
             if (!ARPermissionManager.hasCameraPermission(ARPermissionManager.this.b)) {
                 StatisticHelper.getInstance().statisticInfo(StatisticConstants.USER_CAMERA_PERMISSION_DENY);
@@ -32,7 +32,7 @@ public class ARPermissionManager {
             ARPermissionManager.this.c.callbackQuitAR();
         }
 
-        @Override // com.baidu.ar.ui.a.InterfaceC0047a
+        @Override // com.baidu.ar.ui.a.InterfaceC0050a
         public void b() {
             Activity activity = ARPermissionManager.this.b;
             if (activity == null) {
@@ -49,7 +49,7 @@ public class ARPermissionManager {
     private b i;
 
     /* loaded from: classes3.dex */
-    public class a implements a.InterfaceC0090a {
+    public class a implements a.InterfaceC0101a {
         private String b;
         private int c;
         private String d;
@@ -127,12 +127,12 @@ public class ARPermissionManager {
             b();
         } else if (this.e == null) {
             this.e = new com.baidu.ar.ui.a(this.b);
-            this.e.a(new a.InterfaceC0047a() { // from class: com.baidu.ar.ARPermissionManager.4
-                @Override // com.baidu.ar.ui.a.InterfaceC0047a
+            this.e.a(new a.InterfaceC0050a() { // from class: com.baidu.ar.ARPermissionManager.4
+                @Override // com.baidu.ar.ui.a.InterfaceC0050a
                 public void a() {
                 }
 
-                @Override // com.baidu.ar.ui.a.InterfaceC0047a
+                @Override // com.baidu.ar.ui.a.InterfaceC0050a
                 public void b() {
                     if (ARPermissionManager.this.b != null) {
                         ARPermissionManager.this.b.finish();
@@ -234,7 +234,7 @@ public class ARPermissionManager {
                 return;
             }
             StatisticHelper.getInstance().statisticInfo(StatisticConstants.BAIDU_CUSTOMIZED_PERMISSION_DIALOG_REQUEST_MICROPHONE);
-            com.baidu.searchbox.a.b.a("plugin_ar_audio_recg", this.b, strArr, new a.InterfaceC0090a() { // from class: com.baidu.ar.ARPermissionManager.3
+            com.baidu.searchbox.a.b.a("plugin_ar_audio_recg", this.b, strArr, new a.InterfaceC0101a() { // from class: com.baidu.ar.ARPermissionManager.3
             });
         }
     }

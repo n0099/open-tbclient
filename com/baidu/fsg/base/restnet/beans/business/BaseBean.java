@@ -12,10 +12,11 @@ import com.baidu.fsg.base.utils.BussinessUtils;
 import com.baidu.fsg.base.utils.JsonUtils;
 import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.base.utils.Md5Utils;
+import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseBean extends NetworkBean {
     public static final int COMET_BEAN = 1;
     private static final String TAG = "BeasBean";
@@ -99,7 +100,7 @@ public abstract class BaseBean extends NetworkBean {
             String str = beanResponseBase.csign;
             JSONObject jSONObject = beanResponseBase.result;
             if (jSONObject != null) {
-                String mds = Md5Utils.toMds(jSONObject, this.reqId, "&");
+                String mds = Md5Utils.toMds(jSONObject, this.reqId, ETAG.ITEM_SEPARATOR);
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(mds) || !str.equals(mds)) {
                     throw new Exception(BeanConstants.ERROR_MSG_CHECKSIGN);
                 }

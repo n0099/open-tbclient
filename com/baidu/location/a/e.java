@@ -6,14 +6,14 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class e {
     private String p;
     private boolean q = true;
-    private static e YR = null;
+    private static e ady = null;
     private static String b = "Temp_in.dat";
     private static File c = new File(com.baidu.location.d.f.a, b);
-    private static StringBuffer YS = null;
+    private static StringBuffer adz = null;
     private static boolean e = true;
     private static int f = 0;
     private static int g = 0;
@@ -95,9 +95,9 @@ public class e {
             long time = location.getTime() / 1000;
             if (e) {
                 f = 1;
-                YS = new StringBuffer("");
-                YS.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
-                g = YS.length();
+                adz = new StringBuffer("");
+                adz.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
+                g = adz.length();
                 h = time;
                 k = longitude;
                 l = latitude;
@@ -110,12 +110,12 @@ public class e {
             Location.distanceBetween(latitude, longitude, l, k, fArr);
             long j2 = time - h;
             if (fArr[0] >= com.baidu.location.d.g.ac || j2 >= com.baidu.location.d.g.ad) {
-                if (YS == null) {
+                if (adz == null) {
                     f++;
                     g = 0;
-                    YS = new StringBuffer("");
-                    YS.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
-                    g = YS.length();
+                    adz = new StringBuffer("");
+                    adz.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
+                    g = adz.length();
                     h = time;
                     k = longitude;
                     l = latitude;
@@ -129,15 +129,15 @@ public class e {
                     m = (int) (time - h);
                     n = (int) (floor - i);
                     o = (int) (floor2 - j);
-                    YS.append(String.format(Locale.CHINA, "%d,%d,%d|", Integer.valueOf(m), Integer.valueOf(n), Integer.valueOf(o)));
-                    g = YS.length();
+                    adz.append(String.format(Locale.CHINA, "%d,%d,%d|", Integer.valueOf(m), Integer.valueOf(n), Integer.valueOf(o)));
+                    g = adz.length();
                     h = time;
                     i = floor;
                     j = floor2;
                 }
                 if (g + 15 > 750) {
-                    a(YS.toString());
-                    YS = null;
+                    a(adz.toString());
+                    adz = null;
                 }
                 if (f >= com.baidu.location.d.g.ae) {
                     this.q = false;
@@ -272,7 +272,7 @@ public class e {
 
     private static void c() {
         e = true;
-        YS = null;
+        adz = null;
         f = 0;
         g = 0;
         h = 0L;
@@ -307,11 +307,11 @@ public class e {
         }
     }
 
-    public static e rt() {
-        if (YR == null) {
-            YR = new e(com.baidu.location.d.b.rS().c());
+    public static e tm() {
+        if (ady == null) {
+            ady = new e(com.baidu.location.d.b.tM().c());
         }
-        return YR;
+        return ady;
     }
 
     public boolean f(Location location) {

@@ -8,6 +8,6 @@ public final class k extends i {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // cn.jiguang.d.b.a.a.i
     public final int a() {
-        return b(a(cn.jiguang.d.b.a.a.b(cn.jiguang.d.c.f.a(cn.jiguang.d.a.ky.f()), false)));
+        return b(a(cn.jiguang.d.b.a.a.b(cn.jiguang.d.c.f.a(cn.jiguang.d.a.ld.f()), false)));
     }
 }

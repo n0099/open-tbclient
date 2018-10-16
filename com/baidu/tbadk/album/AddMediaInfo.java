@@ -1,5 +1,5 @@
 package com.baidu.tbadk.album;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class AddMediaInfo extends MediaFileInfo {
     @Override // com.baidu.tbadk.album.MediaFileInfo
     public int getType() {

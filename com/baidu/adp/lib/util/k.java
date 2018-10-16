@@ -2,6 +2,7 @@ package com.baidu.adp.lib.util;
 
 import android.annotation.SuppressLint;
 import com.baidu.ar.util.IoUtils;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppDateTimeUtil;
 import java.lang.Character;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -10,16 +11,16 @@ import java.util.Date;
 @SuppressLint({"SimpleDateFormat"})
 /* loaded from: classes.dex */
 public class k {
-    protected static SimpleDateFormat Fu = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    protected static SimpleDateFormat Fv = new SimpleDateFormat("yyyy年");
-    protected static SimpleDateFormat Fw = new SimpleDateFormat("HH:mm");
-    protected static SimpleDateFormat Fx = new SimpleDateFormat("M月d日");
-    protected static SimpleDateFormat Fy = new SimpleDateFormat("M月d日 HH:mm");
-    protected static SimpleDateFormat Fz = new SimpleDateFormat("yyyy-MM-dd");
-    protected static SimpleDateFormat FA = new SimpleDateFormat("yyyy-MM-dd E");
-    protected static SimpleDateFormat FB = new SimpleDateFormat("yy-M-d");
-    protected static SimpleDateFormat FC = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-    protected static SimpleDateFormat FD = new SimpleDateFormat("MM-dd");
+    protected static SimpleDateFormat Gd = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    protected static SimpleDateFormat Ge = new SimpleDateFormat("yyyy年");
+    protected static SimpleDateFormat Gf = new SimpleDateFormat("HH:mm");
+    protected static SimpleDateFormat Gg = new SimpleDateFormat("M月d日");
+    protected static SimpleDateFormat Gh = new SimpleDateFormat("M月d日 HH:mm");
+    protected static SimpleDateFormat Gi = new SimpleDateFormat(AiAppDateTimeUtil.DATE_FORMAT);
+    protected static SimpleDateFormat Gj = new SimpleDateFormat("yyyy-MM-dd E");
+    protected static SimpleDateFormat Gk = new SimpleDateFormat("yy-M-d");
+    protected static SimpleDateFormat Gl = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+    protected static SimpleDateFormat Gm = new SimpleDateFormat("MM-dd");
 
     public static String a(CharSequence charSequence, String str) {
         if (charSequence instanceof String) {
@@ -30,32 +31,32 @@ public class k {
 
     public static String a(Date date) {
         String format;
-        synchronized (Fy) {
-            format = Fy.format(date);
+        synchronized (Gh) {
+            format = Gh.format(date);
         }
         return format;
     }
 
     public static String b(Date date) {
         String format;
-        synchronized (Fw) {
-            format = Fw.format(date);
+        synchronized (Gf) {
+            format = Gf.format(date);
         }
         return format;
     }
 
     public static String c(Date date) {
         String format;
-        synchronized (Fx) {
-            format = Fx.format(date);
+        synchronized (Gg) {
+            format = Gg.format(date);
         }
         return format;
     }
 
     public static String d(Date date) {
         String format;
-        synchronized (Fz) {
-            format = Fz.format(date);
+        synchronized (Gi) {
+            format = Gi.format(date);
         }
         return format;
     }
@@ -65,7 +66,7 @@ public class k {
         return of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A || of == Character.UnicodeBlock.GENERAL_PUNCTUATION || of == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION || of == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS;
     }
 
-    public static boolean bw(String str) {
+    public static boolean bv(String str) {
         return str != null && str.length() > 0;
     }
 
@@ -73,11 +74,11 @@ public class k {
         return str == null || str.length() == 0 || str.equals("null");
     }
 
-    public static boolean bx(String str) {
+    public static boolean bw(String str) {
         return str == null || str.trim().length() == 0;
     }
 
-    public static String by(String str) {
+    public static String bx(String str) {
         if (str == null) {
             return null;
         }
@@ -89,7 +90,7 @@ public class k {
         }
     }
 
-    public static String bz(String str) {
+    public static String by(String str) {
         try {
             return URLDecoder.decode(str, IoUtils.UTF_8);
         } catch (Exception e) {
@@ -98,7 +99,7 @@ public class k {
         }
     }
 
-    public static int bA(String str) {
+    public static int bz(String str) {
         int i = 0;
         for (int i2 = 0; i2 < str.length(); i2++) {
             if (Integer.toHexString(str.charAt(i2)).length() == 4) {
@@ -143,12 +144,5 @@ public class k {
             sb.append(str);
         }
         return sb.toString();
-    }
-
-    public static boolean F(String str, String str2) {
-        if (str == null || str2 == null) {
-            return false;
-        }
-        return str.equals(str2);
     }
 }

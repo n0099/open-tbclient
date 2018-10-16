@@ -5,7 +5,7 @@ import com.baidu.ubs.analytics.a.l;
 import com.baidu.ubs.analytics.a.n;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class b implements Serializable {
     private a l;
     private List<n> m;
@@ -53,7 +53,7 @@ public final class b implements Serializable {
         this.p = list;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Serializable {
         private String A;
         private String B;

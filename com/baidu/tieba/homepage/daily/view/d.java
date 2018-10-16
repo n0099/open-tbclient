@@ -15,41 +15,41 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.e;
 import com.baidu.tieba.homepage.daily.b.e;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class d extends BaseAdapter {
-    private int ecB;
-    private int ecC;
-    private List<e.a> ecg;
+    private List<e.a> ejZ;
+    private int eku;
+    private int ekv;
     private Context mContext;
 
     public d(Context context) {
         this.mContext = context;
-        this.ecB = ((((l.aO(context) - (l.h(context, e.C0141e.tbds44) * 2)) - l.h(context, e.C0141e.tbds60)) / 2) - l.h(context, e.C0141e.tbds104)) - l.h(context, e.C0141e.tbds26);
+        this.eku = ((((l.aO(context) - (l.h(context, e.C0175e.tbds44) * 2)) - l.h(context, e.C0175e.tbds60)) / 2) - l.h(context, e.C0175e.tbds104)) - l.h(context, e.C0175e.tbds26);
     }
 
     public void setData(List<e.a> list) {
         if (list != null) {
-            this.ecg = list;
+            this.ejZ = list;
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return v.y(this.ecg);
+        return v.I(this.ejZ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: ne */
+    /* renamed from: nC */
     public e.a getItem(int i) {
-        return (e.a) v.d(this.ecg, i);
+        return (e.a) v.d(this.ejZ, i);
     }
 
-    public String aFP() {
-        e.a aVar = (e.a) v.d(this.ecg, 0);
+    public String aJh() {
+        e.a aVar = (e.a) v.d(this.ejZ, 0);
         if (aVar != null) {
-            return aVar.aFP();
+            return aVar.aJh();
         }
         return null;
     }
@@ -65,9 +65,9 @@ public class d extends BaseAdapter {
         if (view == null || !(view.getTag() instanceof a)) {
             view = LayoutInflater.from(this.mContext).inflate(e.h.daily_topic_item_view, (ViewGroup) null);
             a aVar2 = new a();
-            aVar2.ecD = (TbImageView) view.findViewById(e.g.topic_pic);
-            aVar2.ecv = (TextView) view.findViewById(e.g.topic_title);
-            aVar2.ecE = (TextView) view.findViewById(e.g.topic_abstract);
+            aVar2.ekw = (TbImageView) view.findViewById(e.g.topic_pic);
+            aVar2.eko = (TextView) view.findViewById(e.g.topic_title);
+            aVar2.ekx = (TextView) view.findViewById(e.g.topic_abstract);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -75,26 +75,26 @@ public class d extends BaseAdapter {
         }
         e.a item = getItem(i);
         if (item != null) {
-            aVar.ecD.startLoad(item.aFN(), 10, false);
-            aVar.ecv.setText(this.mContext.getString(e.j.daily_topic_name, b(aVar.ecv.getPaint(), item.vE(), this.ecB)));
-            aVar.ecE.setText(item.aFO());
+            aVar.ekw.startLoad(item.aJf(), 10, false);
+            aVar.eko.setText(this.mContext.getString(e.j.daily_topic_name, b(aVar.eko.getPaint(), item.xN(), this.eku)));
+            aVar.ekx.setText(item.aJg());
         }
         aVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return view;
     }
 
     public String b(TextPaint textPaint, String str, int i) {
-        if (this.ecC <= 0) {
-            this.ecC = i - l.c(textPaint, "##");
+        if (this.ekv <= 0) {
+            this.ekv = i - l.c(textPaint, "##");
         }
-        return l.a(textPaint, str, this.ecC);
+        return l.a(textPaint, str, this.ekv);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     private static class a {
-        public TbImageView ecD;
-        public TextView ecE;
-        public TextView ecv;
+        public TextView eko;
+        public TbImageView ekw;
+        public TextView ekx;
         private int mSkinType;
 
         private a() {
@@ -104,9 +104,9 @@ public class d extends BaseAdapter {
         public void onChangeSkinType(int i) {
             if (i != this.mSkinType) {
                 this.mSkinType = i;
-                this.ecD.setBorderColor(al.getColor(e.d.black_alpha15));
-                al.h(this.ecv, e.d.cp_cont_b);
-                al.h(this.ecE, e.d.cp_cont_d);
+                this.ekw.setBorderColor(al.getColor(e.d.black_alpha15));
+                al.h(this.eko, e.d.cp_cont_b);
+                al.h(this.ekx, e.d.cp_cont_d);
             }
         }
     }

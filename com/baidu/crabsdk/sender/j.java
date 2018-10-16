@@ -4,25 +4,25 @@ import android.content.Context;
 import com.baidu.crabsdk.b.r;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class j implements Runnable {
-    final /* synthetic */ Context VY;
-    final /* synthetic */ Throwable VZ;
+    final /* synthetic */ Context YK;
+    final /* synthetic */ Throwable YL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(Throwable th, Context context) {
-        this.VZ = th;
-        this.VY = context;
+        this.YL = th;
+        this.YK = context;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         try {
-            Map<String, Object> a = d.a(this.VZ, this.VY);
+            Map<String, Object> a = d.a(this.YL, this.YK);
             d.b(a);
             a.put("exceptionThread", r.a(Thread.currentThread()));
-            f.b(this.VY, f.k(a));
-            h.o(this.VY);
+            f.b(this.YK, f.j(a));
+            h.o(this.YK);
         } catch (Exception e) {
             e.printStackTrace();
         }

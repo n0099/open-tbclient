@@ -1,5 +1,6 @@
 package com.squareup.wire;
 
+import com.baidu.webkit.internal.ETAG;
 import com.squareup.wire.ExtendableMessage;
 import com.squareup.wire.Message;
 import java.io.IOException;
@@ -443,7 +444,7 @@ public final class MessageAdapter<M extends Message> {
                 sb.append(str);
                 str = ", ";
                 sb.append(fieldInfo.name);
-                sb.append("=");
+                sb.append(ETAG.EQUAL);
                 sb.append(fieldValue);
             }
         }

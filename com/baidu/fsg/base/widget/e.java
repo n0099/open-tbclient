@@ -3,7 +3,7 @@ package com.baidu.fsg.base.widget;
 import android.view.KeyEvent;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e implements View.OnKeyListener {
     final /* synthetic */ SafeKeyBoardEditText a;
 

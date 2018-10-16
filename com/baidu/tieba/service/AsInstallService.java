@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseService;
+import com.baidu.searchbox.ng.ai.apps.scheme.actions.OpenAppAction;
 import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.VersionData;
@@ -77,7 +78,7 @@ public class AsInstallService extends BdBaseService {
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals("android.intent.action.PACKAGE_ADDED")) {
                 String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
-                if (!TextUtils.isEmpty(schemeSpecificPart) && "com.baidu.appsearch".equals(schemeSpecificPart) && AsInstallService.this.mVersionData != null) {
+                if (!TextUtils.isEmpty(schemeSpecificPart) && OpenAppAction.APPSEARCH_PACKAGE_NAME.equals(schemeSpecificPart) && AsInstallService.this.mVersionData != null) {
                     h.a(context, AsInstallService.this.mVersionData);
                     TiebaStatic.log("c10007");
                 }

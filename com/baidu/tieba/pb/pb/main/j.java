@@ -17,40 +17,40 @@ import com.baidu.tbadk.widget.layout.ConstrainImageGroup;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.e;
 import com.baidu.tieba.pb.pb.sub.SubPbLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class j extends q.a {
-    public TextView cyw;
-    public View fFW;
-    public LinearLayout fFX;
-    public TextView fFY;
-    public TextView fFZ;
-    public boolean fFt;
-    public View fGa;
-    public View fGb;
-    public TextView fGc;
-    public ImageView fGd;
-    public PostPraiseView fGe;
-    public PostDisPraiseView fGf;
-    public HeadImageView fGg;
-    public TbRichTextView fGh;
-    public ConstrainImageGroup fGi;
-    public SubPbLayout fGj;
-    public TextView fGk;
-    public ImageView fGl;
-    public HeadPendantView fGm;
-    public UserIconBox fGn;
-    public UserIconBox fGo;
-    public TextView fGp;
-    public LinearLayout fGq;
-    public TextView fGr;
-    public View fGs;
-    public TextView fGt;
-    public ImageView fGu;
-    public LinearLayout fGv;
-    public LinearLayout fGw;
-    public TextView fGx;
-    public ImageView fGy;
-    public com.baidu.tbadk.core.view.a fGz;
+    public TextView cGZ;
+    public boolean fMU;
+    public TextView fNA;
+    public View fNB;
+    public View fNC;
+    public TextView fND;
+    public ImageView fNE;
+    public PostPraiseView fNF;
+    public PostDisPraiseView fNG;
+    public HeadImageView fNH;
+    public TbRichTextView fNI;
+    public ConstrainImageGroup fNJ;
+    public SubPbLayout fNK;
+    public TextView fNL;
+    public ImageView fNM;
+    public HeadPendantView fNN;
+    public UserIconBox fNO;
+    public UserIconBox fNP;
+    public TextView fNQ;
+    public LinearLayout fNR;
+    public TextView fNS;
+    public View fNT;
+    public TextView fNU;
+    public ImageView fNV;
+    public LinearLayout fNW;
+    public LinearLayout fNX;
+    public TextView fNY;
+    public ImageView fNZ;
+    public View fNx;
+    public LinearLayout fNy;
+    public TextView fNz;
+    public com.baidu.tbadk.core.view.a fOa;
     public View mBottomLine;
     public int mSkinType;
     public View mTopLine;
@@ -58,63 +58,63 @@ public class j extends q.a {
     public j(TbPageContext tbPageContext, View view) {
         super(view);
         this.mSkinType = 3;
-        this.fFt = true;
+        this.fMU = true;
         if (tbPageContext != null && view != null) {
-            this.fFW = view;
+            this.fNx = view;
             this.mTopLine = view.findViewById(e.g.top_divider_line);
-            this.cyw = (TextView) view.findViewById(e.g.view_user_name);
-            this.fFX = (LinearLayout) view.findViewById(e.g.content_user_and_praise);
-            this.fFY = (TextView) view.findViewById(e.g.view_author_tip);
-            this.fFZ = (TextView) view.findViewById(e.g.view_post_time);
-            this.fGl = (ImageView) view.findViewById(e.g.icon_forum_level);
-            this.fGc = (TextView) view.findViewById(e.g.view_location);
-            this.fGd = (ImageView) view.findViewById(e.g.image_more_tip);
-            this.fGe = (PostPraiseView) view.findViewById(e.g.view_floor_new_praise);
-            this.fGf = (PostDisPraiseView) view.findViewById(e.g.view_floor_new_dispraise);
-            this.fGz = new com.baidu.tbadk.core.view.a(this.fGe, this.fGf, this.fGd);
-            this.fGg = (HeadImageView) view.findViewById(e.g.normal_user_photo);
-            this.fGm = (HeadPendantView) view.findViewById(e.g.pendant_user_photo);
-            this.fGm.setHasPendantStyle();
-            if (this.fGm.getHeadView() != null) {
-                this.fGm.getHeadView().setIsRound(true);
-                this.fGm.getHeadView().setDrawBorder(false);
+            this.cGZ = (TextView) view.findViewById(e.g.view_user_name);
+            this.fNy = (LinearLayout) view.findViewById(e.g.content_user_and_praise);
+            this.fNz = (TextView) view.findViewById(e.g.view_author_tip);
+            this.fNA = (TextView) view.findViewById(e.g.view_post_time);
+            this.fNM = (ImageView) view.findViewById(e.g.icon_forum_level);
+            this.fND = (TextView) view.findViewById(e.g.view_location);
+            this.fNE = (ImageView) view.findViewById(e.g.image_more_tip);
+            this.fNF = (PostPraiseView) view.findViewById(e.g.view_floor_new_praise);
+            this.fNG = (PostDisPraiseView) view.findViewById(e.g.view_floor_new_dispraise);
+            this.fOa = new com.baidu.tbadk.core.view.a(this.fNF, this.fNG, this.fNE);
+            this.fNH = (HeadImageView) view.findViewById(e.g.normal_user_photo);
+            this.fNN = (HeadPendantView) view.findViewById(e.g.pendant_user_photo);
+            this.fNN.setHasPendantStyle();
+            if (this.fNN.getHeadView() != null) {
+                this.fNN.getHeadView().setIsRound(true);
+                this.fNN.getHeadView().setDrawBorder(false);
             }
-            this.fGn = (UserIconBox) view.findViewById(e.g.show_icon_vip);
-            this.fGo = (UserIconBox) view.findViewById(e.g.show_icon_yinji);
-            this.fGh = (TbRichTextView) view.findViewById(e.g.richText);
-            this.fGj = (SubPbLayout) view.findViewById(e.g.pb_post_footer_layout);
-            this.fGi = (ConstrainImageGroup) view.findViewById(e.g.floor_images_content);
+            this.fNO = (UserIconBox) view.findViewById(e.g.show_icon_vip);
+            this.fNP = (UserIconBox) view.findViewById(e.g.show_icon_yinji);
+            this.fNI = (TbRichTextView) view.findViewById(e.g.richText);
+            this.fNK = (SubPbLayout) view.findViewById(e.g.pb_post_footer_layout);
+            this.fNJ = (ConstrainImageGroup) view.findViewById(e.g.floor_images_content);
             this.mBottomLine = view.findViewById(e.g.pb_bottom_line);
-            this.fGk = (TextView) view.findViewById(e.g.floor_num);
-            this.fGa = view.findViewById(e.g.line_between_floor_and_time);
-            this.fGb = view.findViewById(e.g.line_between_time_and_locate);
-            this.fGi.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0141e.ds16));
-            this.fGi.setSingleImageRatio(0.75d);
-            this.fGi.setImageProcessor(new com.baidu.tbadk.widget.layout.e(3));
-            this.fGh.setLayoutStrategy(new b(this.fGh.getLayoutStrategy()));
-            this.fGh.setTextSize(TbConfig.getContentSize());
-            this.fGg.setIsRound(true);
-            this.fGh.setDisplayImage(this.fFt, false);
-            this.fGh.setVoiceViewRes(e.h.voice_play_btn_new);
-            this.fGp = (TextView) view.findViewById(e.g.pb_item_tail_content);
-            this.fGq = (LinearLayout) view.findViewById(e.g.pb_post_recommend_live_layout);
-            this.fGr = (TextView) view.findViewById(e.g.pb_post_recommend_live_prefix_tv);
-            this.fGs = view.findViewById(e.g.pb_post_recommend_live_divider);
-            this.fGt = (TextView) view.findViewById(e.g.pb_post_recommend_live_title);
-            this.fGu = (ImageView) view.findViewById(e.g.pb_post_recommend_live_arrow);
-            this.fGv = (LinearLayout) view.findViewById(e.g.all_content);
-            this.fGw = (LinearLayout) view.findViewById(e.g.fold_op_area);
-            this.fGx = (TextView) view.findViewById(e.g.fold_title);
-            this.fGy = (ImageView) view.findViewById(e.g.fold_btn);
-            this.fGz.Bn();
-            this.fGz.h(tbPageContext.getUniqueId());
+            this.fNL = (TextView) view.findViewById(e.g.floor_num);
+            this.fNB = view.findViewById(e.g.line_between_floor_and_time);
+            this.fNC = view.findViewById(e.g.line_between_time_and_locate);
+            this.fNJ.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0175e.ds16));
+            this.fNJ.setSingleImageRatio(0.75d);
+            this.fNJ.setImageProcessor(new com.baidu.tbadk.widget.layout.e(3));
+            this.fNI.setLayoutStrategy(new b(this.fNI.getLayoutStrategy()));
+            this.fNI.setTextSize(TbConfig.getContentSize());
+            this.fNH.setIsRound(true);
+            this.fNI.setDisplayImage(this.fMU, false);
+            this.fNI.setVoiceViewRes(e.h.voice_play_btn_new);
+            this.fNQ = (TextView) view.findViewById(e.g.pb_item_tail_content);
+            this.fNR = (LinearLayout) view.findViewById(e.g.pb_post_recommend_live_layout);
+            this.fNS = (TextView) view.findViewById(e.g.pb_post_recommend_live_prefix_tv);
+            this.fNT = view.findViewById(e.g.pb_post_recommend_live_divider);
+            this.fNU = (TextView) view.findViewById(e.g.pb_post_recommend_live_title);
+            this.fNV = (ImageView) view.findViewById(e.g.pb_post_recommend_live_arrow);
+            this.fNW = (LinearLayout) view.findViewById(e.g.all_content);
+            this.fNX = (LinearLayout) view.findViewById(e.g.fold_op_area);
+            this.fNY = (TextView) view.findViewById(e.g.fold_title);
+            this.fNZ = (ImageView) view.findViewById(e.g.fold_btn);
+            this.fOa.Du();
+            this.fOa.h(tbPageContext.getUniqueId());
         }
     }
 
-    public void aX(boolean z) {
-        if (this.fGz != null) {
-            this.fGz.aX(z);
-            this.fGz.Bn();
+    public void bh(boolean z) {
+        if (this.fOa != null) {
+            this.fOa.bh(z);
+            this.fOa.Du();
         }
     }
 }

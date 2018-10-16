@@ -47,7 +47,7 @@ public final class a extends cn.jiguang.b.b {
 
     @Override // cn.jiguang.b.a
     public final IBinder a(String str, String str2) {
-        e.bD();
+        e.bU();
         return e.h(str, str2);
     }
 
@@ -57,7 +57,7 @@ public final class a extends cn.jiguang.b.b {
             return;
         }
         try {
-            l.bI().a(cn.jiguang.d.a.d, str, bundle);
+            l.bZ().a(cn.jiguang.d.a.d, str, bundle);
         } catch (Throwable th) {
             c.c("DataShare", "onAction error:" + th.getMessage());
         }
@@ -65,7 +65,7 @@ public final class a extends cn.jiguang.b.b {
 
     @Override // cn.jiguang.b.a
     public final boolean a() {
-        d.bx();
+        d.bO();
         return d.d();
     }
 }

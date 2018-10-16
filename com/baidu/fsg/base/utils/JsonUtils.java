@@ -1,6 +1,7 @@
 package com.baidu.fsg.base.utils;
 
 import com.baidu.fsg.base.ApollonConstants;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppDateTimeUtil;
 import dalvik.system.PathClassLoader;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
@@ -22,7 +23,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONStringer;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class JsonUtils {
     private static final boolean a = ApollonConstants.DEBUG & false;
 
@@ -46,7 +47,7 @@ public final class JsonUtils {
         return (T) Decoder.deserialize(new JSONObject(str), cls);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     private static class Encoder {
         private Encoder() {
         }
@@ -158,7 +159,7 @@ public final class JsonUtils {
                             field.setAccessible(true);
                             Object obj2 = field.get(obj);
                             if (Date.class.isAssignableFrom(field.getType())) {
-                                obj2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA).format((Date) obj2);
+                                obj2 = new SimpleDateFormat(AiAppDateTimeUtil.TIME_FORMAT, Locale.CHINA).format((Date) obj2);
                             }
                             jSONStringer.key(field.getName());
                             serialize(jSONStringer, obj2);
@@ -171,7 +172,7 @@ public final class JsonUtils {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     private static class Decoder {
         private Decoder() {
         }
@@ -296,7 +297,7 @@ public final class JsonUtils {
                     Class<?> type = field.getType();
                     field.setAccessible(true);
                     if (Date.class.isAssignableFrom(type)) {
-                        field.set(obj, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA).parse(obj2.toString()));
+                        field.set(obj, new SimpleDateFormat(AiAppDateTimeUtil.TIME_FORMAT, Locale.CHINA).parse(obj2.toString()));
                     } else {
                         field.set(obj, obj2);
                     }
@@ -413,7 +414,7 @@ public final class JsonUtils {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class DataType {
         public static boolean isNull(Object obj) {
             if (obj instanceof JSONObject) {

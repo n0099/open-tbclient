@@ -9,6 +9,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class NetworkHelper {
@@ -101,7 +102,7 @@ public class NetworkHelper {
         sb.append("sdk");
         sb.append("__");
         try {
-            sb.append(context.getPackageManager().getPackageInfo(context.getPackageName(), 16).versionName.replaceAll("\\s+", "_"));
+            sb.append(context.getPackageManager().getPackageInfo(context.getPackageName(), 16).versionName.replaceAll("\\s+", BaseRequestAction.SPLITE));
         } catch (Exception e) {
             sb.append("unknown");
         }

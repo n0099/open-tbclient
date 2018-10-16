@@ -7,48 +7,48 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class h {
-    private d gqC;
-    BdTypeListView gqP;
-    private com.baidu.tbadk.k.g gqw;
+    private com.baidu.tbadk.k.g gxX;
+    private d gyd;
+    BdTypeListView gyq;
     private Context mContext;
     private View mRootView;
     NoDataView mNoDataView = null;
-    private View.OnClickListener eBr = new View.OnClickListener() { // from class: com.baidu.tieba.post.h.1
+    private View.OnClickListener eJb = new View.OnClickListener() { // from class: com.baidu.tieba.post.h.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (com.baidu.adp.lib.util.j.ky()) {
-                if (h.this.gqw != null) {
-                    h.this.gqw.ad(h.this.mRootView);
-                    h.this.gqw = null;
+            if (com.baidu.adp.lib.util.j.kM()) {
+                if (h.this.gxX != null) {
+                    h.this.gxX.ad(h.this.mRootView);
+                    h.this.gxX = null;
                 }
-                if (h.this.gqC != null) {
-                    h.this.gqC.bnN();
+                if (h.this.gyd != null) {
+                    h.this.gyd.brc();
                 }
             }
         }
     };
 
-    public BdTypeListView bnZ() {
-        return this.gqP;
+    public BdTypeListView bro() {
+        return this.gyq;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(Context context, View view) {
         this.mContext = context;
         this.mRootView = view;
-        this.gqP = (BdTypeListView) view.findViewById(e.g.list);
+        this.gyq = (BdTypeListView) view.findViewById(e.g.list);
     }
 
-    public d boa() {
-        return this.gqC;
+    public d brp() {
+        return this.gyd;
     }
 
     public void b(d dVar) {
-        this.gqC = dVar;
+        this.gyd = dVar;
     }
 
-    public void F(String str, boolean z) {
-        f.a(this.gqw, this.eBr, this.mContext, this.mRootView, str, z);
-        this.gqP.setVisibility(8);
+    public void M(String str, boolean z) {
+        f.a(this.gxX, this.eJb, this.mContext, this.mRootView, str, z);
+        this.gyq.setVisibility(8);
     }
 }

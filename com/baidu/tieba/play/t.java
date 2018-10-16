@@ -1,53 +1,87 @@
 package com.baidu.tieba.play;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.io.File;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class t {
-    public static final String brA = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
-    public static final String brB = brA + "/.tieba_video_cache";
-    public static final String ya = brB + "/v2";
-    public static final String brC = ya + "/";
-    public static final String brD = ya + "/files";
-    public static final String brE = brD + "/";
+    private static i gvQ = null;
+    private static boolean gvR = true;
+    private static boolean gvS = true;
 
-    private static long iQ(String str) {
-        File file;
-        File file2;
-        File[] listFiles;
-        long j = 0;
-        if (str != null && !str.isEmpty() && (file = new File(brE + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
-            for (File file3 : listFiles) {
-                if (file3 != null && file3.exists()) {
-                    j += file3.length();
-                }
+    private static i bqE() {
+        if (gvQ == null) {
+            gvR = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("prefs_save_paled_video", true);
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016479, i.class);
+            if (runTask != null) {
+                gvQ = (i) runTask.getData();
             }
         }
-        return j;
+        return gvQ;
     }
 
-    private static String iR(String str) {
-        if (str == null || !str.contains("/")) {
-            return null;
-        }
-        String substring = str.substring(str.lastIndexOf("/") + 1);
-        if (substring != null && substring.contains(".mp4")) {
-            return substring.replace(".mp4", "");
-        }
-        return substring;
-    }
-
-    public static long sO(String str) {
-        try {
-            String iR = iR(str);
-            if (StringUtils.isNULL(iR)) {
-                return 0L;
+    public static String X(String str, boolean z) {
+        if (z) {
+            if (gvS && bqE() != null) {
+                return bqE().v(str, true);
             }
-            return iQ(iR);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 0L;
+            return str;
+        } else if (gvS && gvR && bqE() != null) {
+            return bqE().jg(str);
+        } else {
+            return str;
         }
+    }
+
+    public static String jh(String str) {
+        if (bqE() != null) {
+            return bqE().jh(str);
+        }
+        return null;
+    }
+
+    public static void g(Context context, String str, int i) {
+        if (bqE() != null) {
+            bqE().g(context, str, i);
+        }
+    }
+
+    public static void ar(Context context, String str) {
+        if (bqE() != null) {
+            bqE().ar(context, str);
+        }
+    }
+
+    public static void as(Context context, String str) {
+        if (gvS && gvR && bqE() != null) {
+            bqE().as(context, str);
+        }
+    }
+
+    public static void ji(String str) {
+        if (gvS && gvR && bqE() != null) {
+            bqE().ji(str);
+        }
+    }
+
+    public static void clearCache(Context context) {
+        if (bqE() != null) {
+            bqE().clearCache(context);
+        }
+    }
+
+    public static String jj(String str) {
+        if (bqE() != null) {
+            return bqE().jj(str);
+        }
+        return null;
+    }
+
+    public static void mo(boolean z) {
+        gvR = z;
+    }
+
+    public static void bqF() {
+        gvS = com.baidu.adp.lib.b.d.iR().aO("android_video_cache_open") == 1;
     }
 }

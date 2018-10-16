@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
+import com.baidu.searchbox.ng.ai.apps.event.message.AiAppsLifecycleMessage;
 import com.meizu.cloud.pushsdk.networking.c.k;
 import com.meizu.cloud.pushsdk.networking.error.ANError;
 import com.meizu.cloud.pushsdk.platform.PlatformMessageSender;
@@ -35,7 +36,7 @@ public class b {
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 String string = message.getData().getString("deviceId");
-                String string2 = message.getData().getString("appId");
+                String string2 = message.getData().getString(AiAppsLifecycleMessage.APP_ID_KEY);
                 String string3 = message.getData().getString(WBConstants.SSO_APP_KEY);
                 switch (message.what) {
                     case 0:
@@ -347,7 +348,7 @@ public class b {
                 Message obtainMessage = b.this.c.obtainMessage();
                 Bundle bundle = new Bundle();
                 bundle.putString("deviceId", deviceId);
-                bundle.putString("appId", str);
+                bundle.putString(AiAppsLifecycleMessage.APP_ID_KEY, str);
                 bundle.putString(WBConstants.SSO_APP_KEY, str2);
                 obtainMessage.setData(bundle);
                 obtainMessage.what = i;

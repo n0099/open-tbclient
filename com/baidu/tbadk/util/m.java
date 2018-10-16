@@ -4,9 +4,10 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Looper;
 import android.os.Message;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 /* loaded from: classes.dex */
 public class m {
-    public static final boolean MG() {
+    public static final boolean OE() {
         Message message;
         int i = 0;
         Object c = com.baidu.adp.lib.OrmObject.a.a.c(Looper.myQueue(), "mMessages");
@@ -17,20 +18,20 @@ public class m {
         boolean z = false;
         while (message2 != null && message2.obj != null && !z && i < 10) {
             i++;
-            boolean m = m(message2);
-            Object c2 = com.baidu.adp.lib.OrmObject.a.a.c(message2, "next");
+            boolean p = p(message2);
+            Object c2 = com.baidu.adp.lib.OrmObject.a.a.c(message2, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
             if (c2 != null && (c2 instanceof Message)) {
                 message = (Message) c2;
             } else {
                 message = null;
             }
             message2 = message;
-            z = m;
+            z = p;
         }
         return z;
     }
 
-    private static final boolean m(Message message) {
+    private static final boolean p(Message message) {
         Object c;
         ComponentName component;
         if (message == null) {

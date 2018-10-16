@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.p;
 import tbclient.SmartAppList.DataReq;
 import tbclient.SmartAppList.SmartAppListReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class FrsListProgramListRequestMessage extends NetMessage {
     private long fid;
     private int pn;

@@ -5,47 +5,47 @@ import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import java.util.TimerTask;
 /* loaded from: classes.dex */
 public final class c extends TimerTask {
-    private final WheelView blO;
-    private int blS = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    private int blT = 0;
+    private final WheelView bpQ;
+    private int bpU = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    private int bpV = 0;
     private int offset;
 
     public c(WheelView wheelView, int i) {
-        this.blO = wheelView;
+        this.bpQ = wheelView;
         this.offset = i;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public final void run() {
-        if (this.blS == Integer.MAX_VALUE) {
-            this.blS = this.offset;
+        if (this.bpU == Integer.MAX_VALUE) {
+            this.bpU = this.offset;
         }
-        this.blT = (int) (this.blS * 0.1f);
-        if (this.blT == 0) {
-            if (this.blS < 0) {
-                this.blT = -1;
+        this.bpV = (int) (this.bpU * 0.1f);
+        if (this.bpV == 0) {
+            if (this.bpU < 0) {
+                this.bpV = -1;
             } else {
-                this.blT = 1;
+                this.bpV = 1;
             }
         }
-        if (Math.abs(this.blS) <= 1) {
-            this.blO.Ql();
-            this.blO.getHandler().sendEmptyMessage(3000);
+        if (Math.abs(this.bpU) <= 1) {
+            this.bpQ.Sf();
+            this.bpQ.getHandler().sendEmptyMessage(3000);
             return;
         }
-        this.blO.setTotalScrollY(this.blO.getTotalScrollY() + this.blT);
-        if (!this.blO.Qn()) {
-            float itemHeight = this.blO.getItemHeight();
-            float f = (-this.blO.getInitPosition()) * itemHeight;
-            float itemsCount = itemHeight * ((this.blO.getItemsCount() - 1) - this.blO.getInitPosition());
-            if (this.blO.getTotalScrollY() <= f || this.blO.getTotalScrollY() >= itemsCount) {
-                this.blO.setTotalScrollY(this.blO.getTotalScrollY() - this.blT);
-                this.blO.Ql();
-                this.blO.getHandler().sendEmptyMessage(3000);
+        this.bpQ.setTotalScrollY(this.bpQ.getTotalScrollY() + this.bpV);
+        if (!this.bpQ.Sh()) {
+            float itemHeight = this.bpQ.getItemHeight();
+            float f = (-this.bpQ.getInitPosition()) * itemHeight;
+            float itemsCount = itemHeight * ((this.bpQ.getItemsCount() - 1) - this.bpQ.getInitPosition());
+            if (this.bpQ.getTotalScrollY() <= f || this.bpQ.getTotalScrollY() >= itemsCount) {
+                this.bpQ.setTotalScrollY(this.bpQ.getTotalScrollY() - this.bpV);
+                this.bpQ.Sf();
+                this.bpQ.getHandler().sendEmptyMessage(3000);
                 return;
             }
         }
-        this.blO.getHandler().sendEmptyMessage(1000);
-        this.blS -= this.blT;
+        this.bpQ.getHandler().sendEmptyMessage(1000);
+        this.bpU -= this.bpV;
     }
 }

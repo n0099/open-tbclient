@@ -8,118 +8,118 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private static a buH;
-    private List<InterfaceC0130a> buI = new ArrayList();
-    private List<com.baidu.tbadk.coreExtra.relationship.a> buJ;
+    private static a byK;
+    private List<InterfaceC0154a> byL = new ArrayList();
+    private List<com.baidu.tbadk.coreExtra.relationship.a> byM;
 
     /* renamed from: com.baidu.tieba.addresslist.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0130a {
-        void W(List<com.baidu.tbadk.coreExtra.relationship.a> list);
+    public interface InterfaceC0154a {
+        void af(List<com.baidu.tbadk.coreExtra.relationship.a> list);
     }
 
     private a() {
     }
 
-    public static synchronized a Ti() {
+    public static synchronized a Ve() {
         a aVar;
         synchronized (a.class) {
-            if (buH == null) {
-                buH = new a();
+            if (byK == null) {
+                byK = new a();
             }
-            aVar = buH;
+            aVar = byK;
         }
         return aVar;
     }
 
-    public void a(InterfaceC0130a interfaceC0130a) {
-        if (interfaceC0130a != null && !this.buI.contains(interfaceC0130a)) {
-            this.buI.add(interfaceC0130a);
+    public void a(InterfaceC0154a interfaceC0154a) {
+        if (interfaceC0154a != null && !this.byL.contains(interfaceC0154a)) {
+            this.byL.add(interfaceC0154a);
         }
     }
 
-    public void b(InterfaceC0130a interfaceC0130a) {
-        if (interfaceC0130a != null) {
-            this.buI.remove(interfaceC0130a);
+    public void b(InterfaceC0154a interfaceC0154a) {
+        if (interfaceC0154a != null) {
+            this.byL.remove(interfaceC0154a);
         }
     }
 
-    public void X(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.buJ = list;
-        if (this.buJ != null) {
-            Collections.sort(this.buJ, new ContactComparator());
+    public void ag(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
+        this.byM = list;
+        if (this.byM != null) {
+            Collections.sort(this.byM, new ContactComparator());
         }
         notifyObservers();
     }
 
     public void a(com.baidu.tbadk.coreExtra.relationship.a aVar) {
         boolean z = false;
-        if (this.buJ != null && aVar != null) {
-            String GL = aVar.GL();
-            if (TextUtils.isEmpty(GL)) {
-                GL = "#";
-                aVar.gr("#");
+        if (this.byM != null && aVar != null) {
+            String IM = aVar.IM();
+            if (TextUtils.isEmpty(IM)) {
+                IM = "#";
+                aVar.gG("#");
             }
-            String str = GL;
+            String str = IM;
             String userName = aVar.getUserName();
             String str2 = userName == null ? "" : userName;
             boolean z2 = false;
-            for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : this.buJ) {
+            for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : this.byM) {
                 if (str2.equals(aVar2.getUserName())) {
                     z = true;
                 }
-                z2 = str.equals(aVar2.GL()) ? true : z2;
+                z2 = str.equals(aVar2.IM()) ? true : z2;
             }
             if (!z) {
                 if (!z2) {
                     com.baidu.tbadk.coreExtra.relationship.a aVar3 = new com.baidu.tbadk.coreExtra.relationship.a();
-                    aVar3.gr(str);
-                    this.buJ.add(aVar3);
+                    aVar3.gG(str);
+                    this.byM.add(aVar3);
                 }
-                this.buJ.add(aVar);
-                Collections.sort(this.buJ, new ContactComparator());
+                this.byM.add(aVar);
+                Collections.sort(this.byM, new ContactComparator());
                 notifyObservers();
             }
         }
     }
 
-    public void aL(long j) {
-        if (this.buJ != null) {
+    public void aN(long j) {
+        if (this.byM != null) {
             String str = null;
-            Iterator<com.baidu.tbadk.coreExtra.relationship.a> it = this.buJ.iterator();
+            Iterator<com.baidu.tbadk.coreExtra.relationship.a> it = this.byM.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 com.baidu.tbadk.coreExtra.relationship.a next = it.next();
                 if (next.getUserId() == j) {
-                    str = next.GL();
-                    this.buJ.remove(next);
+                    str = next.IM();
+                    this.byM.remove(next);
                     break;
                 }
             }
             if (str != null) {
                 ArrayList arrayList = new ArrayList();
-                for (com.baidu.tbadk.coreExtra.relationship.a aVar : this.buJ) {
-                    if (str.equals(aVar.GL())) {
+                for (com.baidu.tbadk.coreExtra.relationship.a aVar : this.byM) {
+                    if (str.equals(aVar.IM())) {
                         arrayList.add(aVar);
                     }
                 }
                 if (arrayList.size() <= 1) {
-                    this.buJ.removeAll(arrayList);
+                    this.byM.removeAll(arrayList);
                 }
             }
             notifyObservers();
         }
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.a> Tj() {
-        return this.buJ;
+    public List<com.baidu.tbadk.coreExtra.relationship.a> Vf() {
+        return this.byM;
     }
 
     private void notifyObservers() {
-        for (InterfaceC0130a interfaceC0130a : this.buI) {
-            interfaceC0130a.W(this.buJ);
+        for (InterfaceC0154a interfaceC0154a : this.byL) {
+            interfaceC0154a.af(this.byM);
         }
     }
 }

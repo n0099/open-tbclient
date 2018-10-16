@@ -7,17 +7,17 @@ public final class i implements Comparable<i> {
     public final String a;
     public final int b;
     public final String c;
-    final /* synthetic */ h kh;
+    final /* synthetic */ h kN;
 
     public i(h hVar, ScanResult scanResult) {
-        this.kh = hVar;
+        this.kN = hVar;
         this.a = scanResult.BSSID;
         this.b = scanResult.level;
         this.c = cn.jiguang.g.i.c(scanResult.SSID);
     }
 
     public i(h hVar, String str, int i, String str2) {
-        this.kh = hVar;
+        this.kN = hVar;
         this.a = str;
         this.b = i;
         this.c = cn.jiguang.g.i.c(str2);
@@ -30,7 +30,7 @@ public final class i implements Comparable<i> {
             jSONObject.put("signal_strength", this.b);
             jSONObject.put("ssid", this.c);
             jSONObject.put("age", 0);
-            jSONObject.put("itime", cn.jiguang.d.a.a.bp());
+            jSONObject.put("itime", cn.jiguang.d.a.a.bG());
         } catch (Exception e) {
         }
         return jSONObject;

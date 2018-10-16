@@ -5,8 +5,8 @@ import com.tencent.open.a;
 import com.tencent.open.a.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class c extends a.C0287a {
+/* loaded from: classes6.dex */
+public class c extends a.C0340a {
     private String d;
 
     public c(WebView webView, long j, String str, String str2) {
@@ -14,17 +14,17 @@ public class c extends a.C0287a {
         this.d = str2;
     }
 
-    @Override // com.tencent.open.a.C0287a
+    @Override // com.tencent.open.a.C0340a
     public void a(Object obj) {
         f.a("openSDK_LOG.SecureJsListener", "-->onComplete, result: " + obj);
     }
 
-    @Override // com.tencent.open.a.C0287a
+    @Override // com.tencent.open.a.C0340a
     public void a() {
         f.b("openSDK_LOG.SecureJsListener", "-->onNoMatchMethod...");
     }
 
-    @Override // com.tencent.open.a.C0287a
+    @Override // com.tencent.open.a.C0340a
     public void a(String str) {
         f.a("openSDK_LOG.SecureJsListener", "-->onCustomCallback, js: " + str);
         JSONObject jSONObject = new JSONObject();

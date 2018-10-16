@@ -11,55 +11,55 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d implements b {
     private final String name;
-    private final com.airbnb.lottie.model.a.d qf;
-    private final GradientType qp;
-    private final Path.FillType qq;
-    private final com.airbnb.lottie.model.a.c qr;
-    private final com.airbnb.lottie.model.a.f qs;
-    private final com.airbnb.lottie.model.a.f qt;
+    private final com.airbnb.lottie.model.a.d qS;
+    private final GradientType rb;
+    private final Path.FillType rc;
+    private final com.airbnb.lottie.model.a.c rd;
+    private final com.airbnb.lottie.model.a.f re;
+    private final com.airbnb.lottie.model.a.f rf;
     @Nullable
-    private final com.airbnb.lottie.model.a.b qu;
+    private final com.airbnb.lottie.model.a.b rg;
     @Nullable
-    private final com.airbnb.lottie.model.a.b qv;
+    private final com.airbnb.lottie.model.a.b rh;
 
     private d(String str, GradientType gradientType, Path.FillType fillType, com.airbnb.lottie.model.a.c cVar, com.airbnb.lottie.model.a.d dVar, com.airbnb.lottie.model.a.f fVar, com.airbnb.lottie.model.a.f fVar2, com.airbnb.lottie.model.a.b bVar, com.airbnb.lottie.model.a.b bVar2) {
-        this.qp = gradientType;
-        this.qq = fillType;
-        this.qr = cVar;
-        this.qf = dVar;
-        this.qs = fVar;
-        this.qt = fVar2;
+        this.rb = gradientType;
+        this.rc = fillType;
+        this.rd = cVar;
+        this.qS = dVar;
+        this.re = fVar;
+        this.rf = fVar2;
         this.name = str;
-        this.qu = bVar;
-        this.qv = bVar2;
+        this.rg = bVar;
+        this.rh = bVar2;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public GradientType dN() {
-        return this.qp;
+    public GradientType ef() {
+        return this.rb;
     }
 
     public Path.FillType getFillType() {
-        return this.qq;
+        return this.rc;
     }
 
-    public com.airbnb.lottie.model.a.c dO() {
-        return this.qr;
+    public com.airbnb.lottie.model.a.c eg() {
+        return this.rd;
     }
 
-    public com.airbnb.lottie.model.a.d dE() {
-        return this.qf;
+    public com.airbnb.lottie.model.a.d dW() {
+        return this.qS;
     }
 
-    public com.airbnb.lottie.model.a.f dP() {
-        return this.qs;
+    public com.airbnb.lottie.model.a.f eh() {
+        return this.re;
     }
 
-    public com.airbnb.lottie.model.a.f dQ() {
-        return this.qt;
+    public com.airbnb.lottie.model.a.f ei() {
+        return this.rf;
     }
 
     @Override // com.airbnb.lottie.model.content.b

@@ -12,7 +12,7 @@ import java.util.HashMap;
 public final class a {
     private HashMap<String, Long> a = null;
     private File d = null;
-    private static a jI = null;
+    private static a kn = null;
     private static final Object c = new Object();
 
     private a() {
@@ -20,15 +20,6 @@ public final class a {
 
     public static long a(Context context) {
         return cn.jiguang.a.b.a.c(context);
-    }
-
-    public static a aV() {
-        if (jI == null) {
-            synchronized (c) {
-                jI = new a();
-            }
-        }
-        return jI;
     }
 
     private void b(Context context) {
@@ -48,6 +39,15 @@ public final class a {
             objectInputStream.close();
         } catch (Exception e) {
         }
+    }
+
+    public static a bm() {
+        if (kn == null) {
+            synchronized (c) {
+                kn = new a();
+            }
+        }
+        return kn;
     }
 
     public final void a(Context context, String str) {

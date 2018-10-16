@@ -5,6 +5,8 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.format.Formatter;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -15,7 +17,7 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
     private static final String a = "utf-8";
     private static final String b = "c82c403505338808201aad86f8194734";
@@ -149,7 +151,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String a(byte[] bArr, boolean z) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
             messageDigest.reset();
             messageDigest.update(bArr);
             return a(messageDigest.digest(), "", z);
@@ -209,7 +211,7 @@ public class a {
     public static String b(Context context) {
         ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
         ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
-        return Formatter.formatFileSize(context, memoryInfo.availMem) + "_" + memoryInfo.lowMemory + "_" + Formatter.formatFileSize(context, memoryInfo.threshold);
+        return Formatter.formatFileSize(context, memoryInfo.availMem) + BaseRequestAction.SPLITE + memoryInfo.lowMemory + BaseRequestAction.SPLITE + Formatter.formatFileSize(context, memoryInfo.threshold);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

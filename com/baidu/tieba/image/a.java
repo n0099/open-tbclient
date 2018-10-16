@@ -25,51 +25,51 @@ import com.baidu.tieba.tbadkCore.u;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a implements ImagePagerAdapter.a {
-    private static int eQI = 7;
-    private boolean aKI;
-    private AdvertAppInfo eQK;
-    private boolean eQL;
-    private b eQM;
-    private c eQN;
+    private static int eYp = 7;
+    private boolean aPk;
+    private AdvertAppInfo eYr;
+    private boolean eYs;
+    private b eYt;
+    private c eYu;
     private TbPageContext<?> mContext;
-    private int eQJ = 0;
-    private boolean eQO = false;
-    private final View.OnClickListener eQP = new View.OnClickListener() { // from class: com.baidu.tieba.image.a.2
+    private int eYq = 0;
+    private boolean eYv = false;
+    private final View.OnClickListener eYw = new View.OnClickListener() { // from class: com.baidu.tieba.image.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.eQK != null) {
-                if (a.this.eQM == null || !a.this.eQM.eQX || a.this.eQM.aRK() != view) {
-                    if (u.I((Activity) view.getContext())) {
-                        a.this.eQN.aRQ();
-                        com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.e(a.this.eQK));
-                        int i = a.this.eQK.agd;
+            if (a.this.eYr != null) {
+                if (a.this.eYt == null || !a.this.eYt.eYE || a.this.eYt.aUY() != view) {
+                    if (u.L((Activity) view.getContext())) {
+                        a.this.eYu.aVe();
+                        com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.e(a.this.eYr));
+                        int i = a.this.eYr.ala;
                         if (i == 0 || i == 3) {
-                            if (!j.kK() || j.kL()) {
-                                String str = a.this.eQK.agg;
+                            if (!j.kX() || j.kY()) {
+                                String str = a.this.eYr.alc;
                                 if (StringUtils.isNull(str)) {
                                     str = a.this.mContext.getString(e.j.app_name);
                                 }
-                                a.this.eQN.aRS();
-                                if (s.a(a.this.mContext.getPageActivity(), a.this.eQK, 0, str)) {
-                                    a.this.eQN.pH(a.this.eQK.agk);
+                                a.this.eYu.aVg();
+                                if (s.a(a.this.mContext.getPageActivity(), a.this.eYr, 0, str)) {
+                                    a.this.eYu.qj(a.this.eYr.alg);
                                     return;
                                 }
                                 return;
                             }
-                            a.this.c(a.this.eQK);
+                            a.this.c(a.this.eYr);
                             return;
                         } else if (i == 1) {
-                            s.f(a.this.eQK);
-                            a.this.eQK.agd = 3;
-                            a.this.aRF();
+                            s.f(a.this.eYr);
+                            a.this.eYr.ala = 3;
+                            a.this.aUT();
                             return;
                         } else if (i == 2) {
-                            if (com.baidu.tieba.recapp.download.d.bqc().gS(a.this.eQK.agk)) {
-                                u.aD(a.this.mContext.getPageActivity(), a.this.eQK.agk);
+                            if (com.baidu.tieba.recapp.download.d.btr().hg(a.this.eYr.alg)) {
+                                u.aF(a.this.mContext.getPageActivity(), a.this.eYr.alg);
                                 return;
                             }
-                            a.this.eQK.agd = 0;
-                            a.this.aRF();
+                            a.this.eYr.ala = 0;
+                            a.this.aUT();
                             return;
                         } else {
                             return;
@@ -80,19 +80,19 @@ public class a implements ImagePagerAdapter.a {
             }
         }
     };
-    private final View.OnClickListener eQQ = new View.OnClickListener() { // from class: com.baidu.tieba.image.a.3
+    private final View.OnClickListener eYx = new View.OnClickListener() { // from class: com.baidu.tieba.image.a.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.eQK != null) {
-                if (a.this.eQM == null || !a.this.eQM.eQX || a.this.eQM.aRK() != view) {
-                    a.this.eQN.aRQ();
-                    com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.e(a.this.eQK));
-                    r.bpV().bpS().a(a.this.mContext.getPageActivity(), new String[]{a.this.eQK.agi}, true);
+            if (a.this.eYr != null) {
+                if (a.this.eYt == null || !a.this.eYt.eYE || a.this.eYt.aUY() != view) {
+                    a.this.eYu.aVe();
+                    com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.e(a.this.eYr));
+                    r.btk().bth().a(a.this.mContext.getPageActivity(), new String[]{a.this.eYr.ale}, true);
                 }
             }
         }
     };
-    private final CustomMessageListener eQR = new CustomMessageListener(0) { // from class: com.baidu.tieba.image.a.6
+    private final CustomMessageListener eYy = new CustomMessageListener(0) { // from class: com.baidu.tieba.image.a.6
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -108,121 +108,121 @@ public class a implements ImagePagerAdapter.a {
     };
 
     public a(boolean z, boolean z2, TbPageContext<?> tbPageContext, String str, String str2) {
-        this.aKI = false;
-        this.eQL = false;
-        this.aKI = z;
-        this.eQL = z2;
+        this.aPk = false;
+        this.eYs = false;
+        this.aPk = z;
+        this.eYs = z2;
         this.mContext = tbPageContext;
-        this.mContext.registerListener(2001118, this.eQR);
-        this.eQN = new c(tbPageContext.getPageActivity(), str, str2);
+        this.mContext.registerListener(2001118, this.eYy);
+        this.eYu = new c(tbPageContext.getPageActivity(), str, str2);
     }
 
     public void a(AdvertAppInfo advertAppInfo, int i) {
-        this.eQK = advertAppInfo;
-        this.eQJ = i;
-        this.eQN.d(this.eQK);
+        this.eYr = advertAppInfo;
+        this.eYq = i;
+        this.eYu.d(this.eYr);
     }
 
-    public boolean aRE() {
-        if (!this.eQL || this.eQK == null) {
+    public boolean aUS() {
+        if (!this.eYs || this.eYr == null) {
             return false;
         }
-        return (this.eQK.uJ() || this.eQK.uI()) && !u.isInstalledPackage(this.mContext.getPageActivity(), this.eQK.agk);
+        return (this.eYr.wS() || this.eYr.wR()) && !u.isInstalledPackage(this.mContext.getPageActivity(), this.eYr.alg);
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
     public View f(ViewGroup viewGroup, int i) {
-        if (pw(i)) {
-            this.eQM = new b(viewGroup);
-            aRF();
-            viewGroup.addView(this.eQM.getView());
-            return this.eQM.getView();
+        if (pU(i)) {
+            this.eYt = new b(viewGroup);
+            aUT();
+            viewGroup.addView(this.eYt.getView());
+            return this.eYt.getView();
         }
         return null;
     }
 
-    private boolean pw(int i) {
-        return aRE() && this.eQJ != 0 && i == this.eQJ;
+    private boolean pU(int i) {
+        return aUS() && this.eYq != 0 && i == this.eYq;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aRF() {
-        if (this.eQK != null && this.eQK.agr != null) {
-            aRG();
-            if (this.eQK.uJ()) {
-                this.eQM.aRL().setVisibility(8);
-                this.eQM.t(this.eQQ);
-            } else if (this.eQK.uI()) {
-                this.eQM.aRL().setVisibility(0);
-                this.eQM.t(this.eQP);
-                aRH();
+    public void aUT() {
+        if (this.eYr != null && this.eYr.aln != null) {
+            aUU();
+            if (this.eYr.wS()) {
+                this.eYt.aUZ().setVisibility(8);
+                this.eYt.t(this.eYx);
+            } else if (this.eYr.wR()) {
+                this.eYt.aUZ().setVisibility(0);
+                this.eYt.t(this.eYw);
+                aUV();
             }
-            s.a(this.eQK.agr.agK, this.eQM.eQU, this.eQK.agr.tagRatio, l.h(this.mContext.getPageActivity(), e.C0141e.ds26));
-            if (!TextUtils.isEmpty(this.eQK.agr.adSource)) {
-                this.eQM.eQW.setText(this.eQK.agr.adSource);
-                this.eQM.eQV.setVisibility(0);
+            s.a(this.eYr.aln.alG, this.eYt.eYB, this.eYr.aln.tagRatio, l.h(this.mContext.getPageActivity(), e.C0175e.ds26));
+            if (!TextUtils.isEmpty(this.eYr.aln.adSource)) {
+                this.eYt.eYD.setText(this.eYr.aln.adSource);
+                this.eYt.eYC.setVisibility(0);
                 return;
             }
-            this.eQM.eQV.setVisibility(8);
+            this.eYt.eYC.setVisibility(8);
         }
     }
 
-    private void aRG() {
-        this.eQM.aRK().setEvent(new TbImageView.a() { // from class: com.baidu.tieba.image.a.1
+    private void aUU() {
+        this.eYt.aUY().setEvent(new TbImageView.a() { // from class: com.baidu.tieba.image.a.1
             @Override // com.baidu.tbadk.widget.TbImageView.a
-            public void k(String str, boolean z) {
+            public void r(String str, boolean z) {
                 if (z) {
-                    a.this.eQM.aRO();
+                    a.this.eYt.aVc();
                 }
-                a.this.eQM.aRP();
+                a.this.eYt.aVd();
             }
 
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void onCancel() {
-                a.this.eQM.aRP();
+                a.this.eYt.aVd();
             }
         });
-        this.eQM.aRK().startLoad(this.eQK.agr.agC, this.aKI ? 30 : 31, 720, 720, false);
+        this.eYt.aUY().startLoad(this.eYr.aln.aly, this.aPk ? 30 : 31, 720, 720, false);
     }
 
-    private void aRH() {
-        if (this.eQK != null) {
-            String str = this.eQK.agg;
+    private void aUV() {
+        if (this.eYr != null) {
+            String str = this.eYr.alc;
             if (StringUtils.isNull(str)) {
                 str = this.mContext.getString(e.j.app_name);
             }
-            if (com.baidu.tieba.recapp.download.d.bqc().gS(this.eQK.agk)) {
-                this.eQK.agd = 2;
-            } else if (com.baidu.tieba.recapp.download.d.bqc().ci(this.eQK.agk, str)) {
-                if (com.baidu.tieba.recapp.download.d.bqc().gQ(this.eQK.agk)) {
-                    this.eQK.agd = 1;
+            if (com.baidu.tieba.recapp.download.d.btr().hg(this.eYr.alg)) {
+                this.eYr.ala = 2;
+            } else if (com.baidu.tieba.recapp.download.d.btr().ct(this.eYr.alg, str)) {
+                if (com.baidu.tieba.recapp.download.d.btr().he(this.eYr.alg)) {
+                    this.eYr.ala = 1;
                 } else {
-                    this.eQK.agd = 3;
+                    this.eYr.ala = 3;
                 }
             }
-            switch (this.eQK.agd) {
+            switch (this.eYr.ala) {
                 case 0:
                     String string = this.mContext.getString(e.j.install_app);
-                    if (this.eQK.agr != null && !StringUtils.isNull(this.eQK.agr.buttonText)) {
-                        string = this.eQK.agr.buttonText;
+                    if (this.eYr.aln != null && !StringUtils.isNull(this.eYr.aln.buttonText)) {
+                        string = this.eYr.aln.buttonText;
                     }
-                    if (string.length() > eQI) {
-                        string = string.substring(0, eQI);
+                    if (string.length() > eYp) {
+                        string = string.substring(0, eYp);
                     }
-                    this.eQM.pG(string);
+                    this.eYt.qi(string);
                     return;
                 case 1:
-                    this.eQM.aRM();
+                    this.eYt.aVa();
                     return;
                 case 2:
-                    this.eQM.aRN();
+                    this.eYt.aVb();
                     return;
                 case 3:
-                    this.eQM.pG(this.mContext.getString(e.j.pb_download_pause));
+                    this.eYt.qi(this.mContext.getString(e.j.pb_download_pause));
                     return;
                 default:
-                    this.eQM.aRL().setVisibility(8);
-                    this.eQM.t(null);
+                    this.eYt.aUZ().setVisibility(8);
+                    this.eYt.t(null);
                     return;
             }
         }
@@ -233,22 +233,22 @@ public class a implements ImagePagerAdapter.a {
         String string;
         if (advertAppInfo != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
-            if (j.kM()) {
+            if (j.kZ()) {
                 string = this.mContext.getString(e.j.frs_network_tips);
             } else {
                 string = this.mContext.getString(e.j.confirm_download_app);
             }
-            aVar.dT(string);
+            aVar.ej(string);
             aVar.a(e.j.alert_yes_button, new a.b() { // from class: com.baidu.tieba.image.a.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    String str = a.this.eQK.agg;
+                    String str = a.this.eYr.alc;
                     if (StringUtils.isNull(str)) {
                         str = a.this.mContext.getString(e.j.app_name);
                     }
-                    a.this.eQN.aRS();
-                    if (s.a(a.this.mContext.getPageActivity(), a.this.eQK, 0, str)) {
-                        a.this.eQN.pH(a.this.eQK.agk);
+                    a.this.eYu.aVg();
+                    if (s.a(a.this.mContext.getPageActivity(), a.this.eYr, 0, str)) {
+                        a.this.eYu.qj(a.this.eYr.alg);
                     }
                     aVar2.dismiss();
                 }
@@ -259,38 +259,38 @@ public class a implements ImagePagerAdapter.a {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(this.mContext).yl();
+            aVar.b(this.mContext).Au();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(ResponsedMessage<?> responsedMessage) {
         List<DownloadData> data;
-        if ((responsedMessage instanceof DownloadMessage) && this.eQK != null && (data = ((DownloadMessage) responsedMessage).getData()) != null && data.size() != 0) {
+        if ((responsedMessage instanceof DownloadMessage) && this.eYr != null && (data = ((DownloadMessage) responsedMessage).getData()) != null && data.size() != 0) {
             for (DownloadData downloadData : data) {
-                if (downloadData != null && TextUtils.equals(this.eQK.agk, downloadData.getId())) {
+                if (downloadData != null && TextUtils.equals(this.eYr.alg, downloadData.getId())) {
                     int status = downloadData.getStatus();
                     if (status == 3 || status == 0) {
-                        this.eQK.agd = 2;
+                        this.eYr.ala = 2;
                     } else if (status == 2 || status == 4) {
                         if (!ao.isEmpty(downloadData.getStatusMsg())) {
                             this.mContext.showToast(downloadData.getStatusMsg());
                         }
-                        this.eQK.agd = 0;
+                        this.eYr.ala = 0;
                     } else if (status == 1) {
-                        this.eQK.agd = 1;
+                        this.eYr.ala = 1;
                     }
-                    aRF();
+                    aUT();
                 }
             }
         }
     }
 
-    public void aRI() {
-        if (!this.eQO) {
-            this.eQO = true;
-            this.eQN.aRR();
-            com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.e(this.eQK));
+    public void aUW() {
+        if (!this.eYv) {
+            this.eYv = true;
+            this.eYu.aVf();
+            com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.e(this.eYr));
         }
     }
 }

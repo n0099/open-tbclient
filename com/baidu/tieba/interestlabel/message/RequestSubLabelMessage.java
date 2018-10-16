@@ -23,7 +23,7 @@ public class RequestSubLabelMessage extends NetMessage {
     }
 
     public void setLabelList(List<Integer> list) {
-        if (v.z(list)) {
+        if (v.J(list)) {
             list = new ArrayList<>();
         }
         this.labelList = list;

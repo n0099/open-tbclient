@@ -11,8 +11,8 @@ public interface a extends IInterface {
 
     /* renamed from: com.baidu.android.pushservice.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static abstract class AbstractBinderC0026a extends Binder implements a {
-        public AbstractBinderC0026a() {
+    public static abstract class AbstractBinderC0029a extends Binder implements a {
+        public AbstractBinderC0029a() {
             attachInterface(this, "com.baidu.android.pushservice.aidl.IPushService");
         }
 

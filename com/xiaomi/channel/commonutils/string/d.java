@@ -1,5 +1,6 @@
 package com.xiaomi.channel.commonutils.string;
 
+import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -21,7 +22,7 @@ public class d {
     public static String a(String str) {
         if (str != null) {
             try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
                 messageDigest.update(c(str));
                 return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
             } catch (NoSuchAlgorithmException e) {
@@ -68,7 +69,7 @@ public class d {
     public static String a(byte[] bArr) {
         String str = "";
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
             messageDigest.update(bArr);
             str = String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
         } catch (Exception e) {

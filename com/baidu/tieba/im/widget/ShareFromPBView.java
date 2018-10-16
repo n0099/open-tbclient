@@ -10,9 +10,9 @@ import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public final class ShareFromPBView extends LinearLayout {
-    private TextView dRP;
-    private HeadImageView dRy;
-    private ShareFromPBMsgData eKB;
+    private TextView dZJ;
+    private HeadImageView dZt;
+    private ShareFromPBMsgData eSk;
     private TextView title;
 
     public ShareFromPBView(Context context, AttributeSet attributeSet) {
@@ -29,30 +29,30 @@ public final class ShareFromPBView extends LinearLayout {
         LayoutInflater.from(getContext()).inflate(e.h.share_from_pb_view, this);
         setOrientation(1);
         this.title = (TextView) findViewById(e.g.chat_title);
-        this.dRy = (HeadImageView) findViewById(e.g.chat_group_img);
-        this.dRP = (TextView) findViewById(e.g.chat_group_desc);
+        this.dZt = (HeadImageView) findViewById(e.g.chat_group_img);
+        this.dZJ = (TextView) findViewById(e.g.chat_group_desc);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
             this.title.setTextColor(getContext().getResources().getColor(e.d.cp_cont_b));
-            this.dRP.setTextColor(getContext().getResources().getColor(e.d.cp_cont_f));
+            this.dZJ.setTextColor(getContext().getResources().getColor(e.d.cp_cont_f));
             return;
         }
         this.title.setTextColor(getContext().getResources().getColor(e.d.cp_cont_g));
-        this.dRP.setTextColor(getContext().getResources().getColor(e.d.cp_cont_g));
+        this.dZJ.setTextColor(getContext().getResources().getColor(e.d.cp_cont_g));
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.eKB = shareFromPBMsgData;
-        Bp();
+        this.eSk = shareFromPBMsgData;
+        updateUI();
     }
 
-    private void Bp() {
-        this.title.setText(this.eKB.getTitle());
-        this.dRy.setDefaultResource(e.f.icon_default_ba_120);
-        this.dRy.setAutoChangeStyle(false);
-        this.dRy.startLoad(this.eKB.getImageUrl(), 10, false);
-        this.dRP.setText(this.eKB.getContent());
+    private void updateUI() {
+        this.title.setText(this.eSk.getTitle());
+        this.dZt.setDefaultResource(e.f.icon_default_ba_120);
+        this.dZt.setAutoChangeStyle(false);
+        this.dZt.startLoad(this.eSk.getImageUrl(), 10, false);
+        this.dZJ.setText(this.eSk.getContent());
     }
 }

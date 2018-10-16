@@ -27,11 +27,11 @@ import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class ChannelEditActivity extends BaseActivity<ChannelEditActivity> {
     public static boolean isChanged = false;
-    private c cJg;
-    private ChannelEditModel cJh;
-    private ChannelInfo cJi;
+    private ChannelEditModel cRA;
+    private ChannelInfo cRB;
+    private c cRz;
     private final WriteImagesInfo writeImagesInfo = new WriteImagesInfo(1);
-    private HttpMessageListener cJj = new HttpMessageListener(CmdConfigHttp.CMD_CHANNEL_UPDATE_INFO) { // from class: com.baidu.tieba.channel.activity.ChannelEditActivity.1
+    private HttpMessageListener cRC = new HttpMessageListener(CmdConfigHttp.CMD_CHANNEL_UPDATE_INFO) { // from class: com.baidu.tieba.channel.activity.ChannelEditActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -45,7 +45,7 @@ public class ChannelEditActivity extends BaseActivity<ChannelEditActivity> {
                     ChannelEditActivity.this.getPageContext().showToast(string);
                     return;
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016512, ChannelEditActivity.this.cJi));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016512, ChannelEditActivity.this.cRB));
                 ChannelEditActivity.isChanged = false;
                 ChannelEditActivity.this.getPageContext().showToast(ChannelEditActivity.this.getPageContext().getString(e.j.success));
                 ChannelEditActivity.this.finish();
@@ -57,44 +57,44 @@ public class ChannelEditActivity extends BaseActivity<ChannelEditActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.cJi = (ChannelInfo) getIntent().getSerializableExtra(ChannelEditActivityConfig.CHANNEL_INFO);
+        this.cRB = (ChannelInfo) getIntent().getSerializableExtra(ChannelEditActivityConfig.CHANNEL_INFO);
         isChanged = false;
-        this.cJg = new c(this);
-        this.cJh = new ChannelEditModel(this);
-        alp();
-        this.cJg.c(this.cJi);
+        this.cRz = new c(this);
+        this.cRA = new ChannelEditModel(this);
+        aoR();
+        this.cRz.c(this.cRB);
     }
 
-    private void alp() {
-        registerListener(this.cJj);
+    private void aoR() {
+        registerListener(this.cRC);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.cJg.onResume();
+        this.cRz.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.cJg.onPause();
+        this.cRz.onPause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.cJg.onDestroy();
+        this.cRz.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.cJg.onChangeSkinType(i);
+        this.cRz.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -129,15 +129,15 @@ public class ChannelEditActivity extends BaseActivity<ChannelEditActivity> {
                 case 25009:
                     isChanged = true;
                     PhotoUrlData photoUrlData = (PhotoUrlData) intent.getSerializableExtra("pic_info");
-                    this.cJi.setChannelCover(photoUrlData.getBigurl());
-                    this.cJi.setChannelSmallCover(photoUrlData.getBigurl());
-                    this.cJg.c(this.cJi);
+                    this.cRB.setChannelCover(photoUrlData.getBigurl());
+                    this.cRB.setChannelSmallCover(photoUrlData.getBigurl());
+                    this.cRz.c(this.cRB);
                     return;
                 case 25010:
                 case 25011:
                     isChanged = true;
-                    this.cJi.setChannelAvatar(((PhotoUrlData) intent.getSerializableExtra("pic_info")).getBigurl());
-                    this.cJg.c(this.cJi);
+                    this.cRB.setChannelAvatar(((PhotoUrlData) intent.getSerializableExtra("pic_info")).getBigurl());
+                    this.cRz.c(this.cRB);
                     return;
                 default:
                     return;
@@ -154,23 +154,23 @@ public class ChannelEditActivity extends BaseActivity<ChannelEditActivity> {
         if (stringExtra != null) {
             this.writeImagesInfo.parseJson(stringExtra);
             this.writeImagesInfo.updateQuality();
-            if (!v.z(this.writeImagesInfo.getChosedFiles())) {
+            if (!v.J(this.writeImagesInfo.getChosedFiles())) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new EditHeadActivityConfig(getPageContext().getPageActivity(), (int) IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_CHECK, i, intent.getData(), TbadkCoreApplication.getCurrentAccountObj(), i2, this.writeImagesInfo.getChosedFiles().get(0).getFilePath(), f)));
             }
             this.writeImagesInfo.clear();
         }
     }
 
-    public void alq() {
-        if (!j.kK()) {
+    public void aoS() {
+        if (!j.kX()) {
             showToast(e.j.neterror);
             return;
         }
-        this.cJi.setDescription(this.cJg.getDescription());
-        this.cJh.b(this.cJi);
+        this.cRB.setDescription(this.cRz.getDescription());
+        this.cRA.b(this.cRB);
     }
 
-    public ChannelInfo alr() {
-        return this.cJi;
+    public ChannelInfo aoT() {
+        return this.cRB;
     }
 }

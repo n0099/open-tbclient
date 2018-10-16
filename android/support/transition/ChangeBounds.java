@@ -21,6 +21,7 @@ import android.util.AttributeSet;
 import android.util.Property;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsNaViewModel;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class ChangeBounds extends Transition {
@@ -103,7 +104,7 @@ public class ChangeBounds extends Transition {
             return null;
         }
     };
-    private static final Property<View, PointF> POSITION_PROPERTY = new Property<View, PointF>(PointF.class, "position") { // from class: android.support.transition.ChangeBounds.6
+    private static final Property<View, PointF> POSITION_PROPERTY = new Property<View, PointF>(PointF.class, AiAppsNaViewModel.KEY_POSITION) { // from class: android.support.transition.ChangeBounds.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public void set(View view, PointF pointF) {

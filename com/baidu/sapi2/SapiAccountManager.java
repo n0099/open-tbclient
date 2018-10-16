@@ -12,7 +12,6 @@ import com.baidu.fsg.base.utils.ResUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.callback.GetTplStokenCallback;
-import com.baidu.sapi2.dto.FaceBaseDTO;
 import com.baidu.sapi2.passhost.framework.PluginFacade;
 import com.baidu.sapi2.passhost.hostsdk.service.ThreadPoolService;
 import com.baidu.sapi2.passhost.pluginsdk.service.IEventCenterService;
@@ -26,7 +25,6 @@ import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.utils.SapiDeviceInfo;
 import com.baidu.sapi2.utils.SapiDeviceUtils;
-import com.baidu.sapi2.utils.SapiGIDEvent;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
@@ -251,7 +249,7 @@ public final class SapiAccountManager implements ISapiAccountManagerService, ISA
         StatService.onEvent("logout", Collections.singletonMap("pis_di", SapiDeviceInfo.getPisDeviceInfo()));
         removeLoginAccount(getSession());
         new ShareCallPacking().markLoginState(false);
-        SapiUtils.reportGid(SapiGIDEvent.BUSINESS_LOGOUT);
+        SapiUtils.reportGid(10005);
     }
 
     public String getSession(String str, String str2) {
@@ -352,14 +350,14 @@ public final class SapiAccountManager implements ISapiAccountManagerService, ISA
         HashMap hashMap = new HashMap();
         hashMap.put("cuid", SapiUtils.getClientId(getConfignation().context));
         hashMap.put(Config.DEVICE_PART, Build.MODEL);
-        hashMap.put(FaceBaseDTO.KEY_BUSINESS_SCENE, "product_line_call");
+        hashMap.put("scene", "product_line_call");
         StatService.onEvent("load_login", hashMap, false);
         List<ShareStorage.StorageModel> a2 = com.baidu.sapi2.share.a.a().a(b.context);
         if (a2.size() > 0) {
             hashMap.clear();
             hashMap.put("cuid", SapiUtils.getClientId(getConfignation().context));
             hashMap.put(Config.DEVICE_PART, Build.MODEL);
-            hashMap.put(FaceBaseDTO.KEY_BUSINESS_SCENE, "product_line_call");
+            hashMap.put("scene", "product_line_call");
             StatService.onEvent("share_account_open", hashMap, false);
         }
         return a2;

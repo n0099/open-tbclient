@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
+import com.baidu.webkit.internal.Statistics;
 import com.coloros.mcssdk.c.d;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -21,13 +22,13 @@ public class PushService extends Service implements com.coloros.mcssdk.d.a {
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
         List<com.coloros.mcssdk.e.c> j = com.coloros.mcssdk.a.c.j(getApplicationContext(), intent);
-        List<com.coloros.mcssdk.b.c> bMt = a.bMu().bMt();
-        if (j == null || j.size() == 0 || bMt == null || bMt.size() == 0) {
+        List<com.coloros.mcssdk.b.c> bQJ = a.bQK().bQJ();
+        if (j == null || j.size() == 0 || bQJ == null || bQJ.size() == 0) {
             return super.onStartCommand(intent, i, i2);
         }
         for (com.coloros.mcssdk.e.c cVar : j) {
             if (cVar != null) {
-                for (com.coloros.mcssdk.b.c cVar2 : bMt) {
+                for (com.coloros.mcssdk.b.c cVar2 : bQJ) {
                     if (cVar2 != null) {
                         try {
                             cVar2.a(getApplicationContext(), cVar, this);
@@ -47,64 +48,64 @@ public class PushService extends Service implements com.coloros.mcssdk.d.a {
 
     @Override // com.coloros.mcssdk.d.a
     public void processMessage(Context context, com.coloros.mcssdk.e.b bVar) {
-        if (a.bMu().bMv() == null) {
+        if (a.bQK().bQL() == null) {
             return;
         }
         switch (bVar.getCommand()) {
             case 12289:
-                a.bMu().bMv().onRegister(bVar.getResponseCode(), bVar.getContent());
+                a.bQK().bQL().onRegister(bVar.getResponseCode(), bVar.getContent());
                 if (bVar.getResponseCode() == 0) {
-                    a.bMu().xf(bVar.getContent());
+                    a.bQK().yf(bVar.getContent());
                     return;
                 }
                 return;
             case 12290:
-                a.bMu().bMv().onUnRegister(bVar.getResponseCode());
+                a.bQK().bQL().onUnRegister(bVar.getResponseCode());
                 return;
             case 12291:
             case 12299:
             case 12300:
-            case 12304:
+            case Statistics.kTypeWhiteScreenForAsyncSearch /* 12304 */:
             case 12305:
             case 12307:
             case 12308:
             default:
                 return;
             case 12292:
-                a.bMu().bMv().onSetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
+                a.bQK().bQL().onSetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
                 return;
             case 12293:
-                a.bMu().bMv().onGetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
+                a.bQK().bQL().onGetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
                 return;
             case 12294:
-                a.bMu().bMv().onUnsetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
+                a.bQK().bQL().onUnsetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
                 return;
             case 12295:
-                a.bMu().bMv().onSetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
+                a.bQK().bQL().onSetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
                 return;
             case 12296:
-                a.bMu().bMv().onGetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
+                a.bQK().bQL().onGetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
                 return;
             case 12297:
-                a.bMu().bMv().onUnsetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
+                a.bQK().bQL().onUnsetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
                 return;
             case 12298:
-                a.bMu().bMv().onSetPushTime(bVar.getResponseCode(), bVar.getContent());
+                a.bQK().bQL().onSetPushTime(bVar.getResponseCode(), bVar.getContent());
                 return;
             case 12301:
-                a.bMu().bMv().onSetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
+                a.bQK().bQL().onSetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
                 return;
-            case 12302:
-                a.bMu().bMv().onGetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
+            case Statistics.kTypeWhiteScreen /* 12302 */:
+                a.bQK().bQL().onGetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
                 return;
             case 12303:
-                a.bMu().bMv().onUnsetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
+                a.bQK().bQL().onUnsetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
                 return;
             case 12306:
-                a.bMu().bMv().onGetPushStatus(bVar.getResponseCode(), d.a(bVar.getContent()));
+                a.bQK().bQL().onGetPushStatus(bVar.getResponseCode(), d.a(bVar.getContent()));
                 return;
             case 12309:
-                a.bMu().bMv().onGetNotificationStatus(bVar.getResponseCode(), d.a(bVar.getContent()));
+                a.bQK().bQL().onGetNotificationStatus(bVar.getResponseCode(), d.a(bVar.getContent()));
                 return;
         }
     }

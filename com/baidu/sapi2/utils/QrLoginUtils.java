@@ -2,10 +2,11 @@ package com.baidu.sapi2.utils;
 
 import android.text.TextUtils;
 import com.baidu.sapi2.ServiceManager;
+import com.baidu.searchbox.ng.ai.apps.media.audio.AiAppsAudioPlayer;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class QrLoginUtils {
     public static boolean isJoinQrLoginSchema(String str) {
         try {
@@ -21,7 +22,7 @@ public class QrLoginUtils {
             return null;
         }
         if (ServiceManager.getInstance().getIsAccountManager().getSession() == null) {
-            return "-1";
+            return AiAppsAudioPlayer.ERROR_UNKNOWN;
         }
         return URLDecoder.decode(SapiUtils.urlParamsToMap(str).get("prompt"));
     }

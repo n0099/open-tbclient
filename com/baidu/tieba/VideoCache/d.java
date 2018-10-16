@@ -1,31 +1,31 @@
 package com.baidu.tieba.VideoCache;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class d {
-    private long brm;
-    private long brn;
+    private long Zx;
+    private long bvv;
     private String fileName;
 
     public String getFileName() {
         return this.fileName;
     }
 
-    public void iF(String str) {
+    public void iS(String str) {
         this.fileName = str;
     }
 
-    public long RW() {
-        return this.brm;
+    public long TS() {
+        return this.bvv;
     }
 
-    public void aF(long j) {
-        this.brm = j;
+    public void aH(long j) {
+        this.bvv = j;
     }
 
-    public long RX() {
-        return this.brn;
+    public long TT() {
+        return this.Zx;
     }
 
-    public void aG(long j) {
-        this.brn = j;
+    public void aI(long j) {
+        this.Zx = j;
     }
 }

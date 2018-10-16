@@ -7,42 +7,42 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class CreateGroupStepAdapter extends PagerAdapter {
-    public CreateGroupStepActivity evx;
-    private List<o> ewj = new ArrayList();
+    private List<o> eDX = new ArrayList();
+    public CreateGroupStepActivity eDl;
 
     public CreateGroupStepAdapter(CreateGroupStepActivity createGroupStepActivity) {
-        this.evx = createGroupStepActivity;
+        this.eDl = createGroupStepActivity;
     }
 
     public List<o> getList() {
-        return this.ewj;
+        return this.eDX;
     }
 
-    public o ox(int i) {
+    public o oV(int i) {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        return this.ewj.get(i);
+        return this.eDX.get(i);
     }
 
     public void a(o oVar) {
-        this.ewj.add(oVar);
+        this.eDX.add(oVar);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.ewj.size();
+        return this.eDX.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(View view, int i) {
-        ((ViewPager) view).addView(this.ewj.get(i).getView(), 0);
-        return this.ewj.get(i).getView();
+        ((ViewPager) view).addView(this.eDX.get(i).getView(), 0);
+        return this.eDX.get(i).getView();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(View view, int i, Object obj) {
-        ((ViewPager) view).removeView(this.ewj.get(i).getView());
+        ((ViewPager) view).removeView(this.eDX.get(i).getView());
     }
 
     @Override // android.support.v4.view.PagerAdapter

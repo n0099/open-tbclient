@@ -6,15 +6,15 @@ import android.content.Context;
 import android.os.Build;
 import java.util.LinkedHashSet;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 final class a {
-    private static final a hKS = new a();
+    private static final a hTK = new a();
     private boolean ac;
-    private final Set<InterfaceC0269a> hKT = new LinkedHashSet();
+    private final Set<InterfaceC0306a> hTL = new LinkedHashSet();
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0269a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0306a {
         void T();
 
         void U();
@@ -28,26 +28,26 @@ final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a bLS() {
-        return hKS;
+    public static a bQi() {
+        return hTK;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Set<InterfaceC0269a> bLT() {
-        return this.hKT;
+    public final Set<InterfaceC0306a> bQj() {
+        return this.hTL;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(InterfaceC0269a interfaceC0269a) {
-        synchronized (this.hKT) {
-            this.hKT.add(interfaceC0269a);
+    public final void a(InterfaceC0306a interfaceC0306a) {
+        synchronized (this.hTL) {
+            this.hTL.add(interfaceC0306a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void S() {
-        synchronized (this.hKT) {
-            this.hKT.clear();
+        synchronized (this.hTL) {
+            this.hTL.clear();
         }
     }
 
@@ -59,7 +59,7 @@ final class a {
         try {
             ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new h(this));
         } catch (Exception e) {
-            com.baidu.ubs.analytics.d.j.wT("registerActivityLifecycleCallbacks encounter exception");
+            com.baidu.ubs.analytics.d.j.xT("registerActivityLifecycleCallbacks encounter exception");
         }
         this.ac = true;
     }

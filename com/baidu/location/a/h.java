@@ -2,20 +2,21 @@ package com.baidu.location.a;
 
 import android.content.Context;
 import android.util.Log;
+import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import java.util.Hashtable;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class h implements com.baidu.c.a.a {
+/* loaded from: classes6.dex */
+public class h implements com.baidu.d.a.a {
+    private static Object a = new Object();
+    private static h adJ = null;
     private int c = 0;
     private Context d = null;
     private long e = 0;
     private String f = null;
-    private static Object a = new Object();
-    private static h Zc = null;
 
     public static String b(Context context) {
         try {
-            return com.baidu.c.a.h.be(context).b(context);
+            return com.baidu.d.a.h.bn(context).b(context);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -24,27 +25,27 @@ public class h implements com.baidu.c.a.a {
 
     public static String c(Context context) {
         try {
-            return com.baidu.c.a.h.be(context).a();
+            return com.baidu.d.a.h.bn(context).a();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    public static h rv() {
+    public static h tp() {
         h hVar;
         synchronized (a) {
-            if (Zc == null) {
-                Zc = new h();
+            if (adJ == null) {
+                adJ = new h();
             }
-            hVar = Zc;
+            hVar = adJ;
         }
         return hVar;
     }
 
     public void a(Context context) {
         this.d = context;
-        com.baidu.c.a.h.be(this.d).a(false, "lbs_locsdk", (Hashtable<String, String>) null, (com.baidu.c.a.a) this);
+        com.baidu.d.a.h.bn(this.d).a(false, "lbs_locsdk", (Hashtable<String, String>) null, (com.baidu.d.a.a) this);
         this.e = System.currentTimeMillis();
     }
 
@@ -57,18 +58,18 @@ public class h implements com.baidu.c.a.a {
             long currentTimeMillis = System.currentTimeMillis() - this.e;
             if (z) {
                 if (currentTimeMillis > 86400000) {
-                    com.baidu.c.a.h.be(this.d).a(false, "lbs_locsdk", (Hashtable<String, String>) null, (com.baidu.c.a.a) this);
+                    com.baidu.d.a.h.bn(this.d).a(false, "lbs_locsdk", (Hashtable<String, String>) null, (com.baidu.d.a.a) this);
                     this.e = System.currentTimeMillis();
                 }
-            } else if (currentTimeMillis < 0 || currentTimeMillis > 10000) {
-                com.baidu.c.a.h.be(this.d).a(false, "lbs_locsdk", (Hashtable<String, String>) null, (com.baidu.c.a.a) this);
+            } else if (currentTimeMillis < 0 || currentTimeMillis > ErrDef.Feature.WEIGHT) {
+                com.baidu.d.a.h.bn(this.d).a(false, "lbs_locsdk", (Hashtable<String, String>) null, (com.baidu.d.a.a) this);
                 this.e = System.currentTimeMillis();
             }
         }
         return z;
     }
 
-    @Override // com.baidu.c.a.a
+    @Override // com.baidu.d.a.a
     public void g(int i, String str) {
         this.c = i;
         if (this.c == 0) {

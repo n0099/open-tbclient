@@ -13,17 +13,17 @@ import com.baidu.tieba.frs.entelechy.a.d;
 import com.baidu.tieba.frs.entelechy.a.e;
 import com.baidu.tieba.frs.entelechy.a.i;
 import com.baidu.tieba.frs.entelechy.a.p;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static void a(bb bbVar, String str, int i) {
-        if (bbVar != null && !TextUtils.isEmpty(str) && bbVar.xI()) {
-            TiebaStatic.log(new am("c13020").al(ImageViewerConfig.FORUM_ID, str).al("obj_name", bbVar.xG()).al("tid", bbVar.getTid()).w("obj_locate", i));
+        if (bbVar != null && !TextUtils.isEmpty(str) && bbVar.zR()) {
+            TiebaStatic.log(new am("c13020").ax(ImageViewerConfig.FORUM_ID, str).ax("obj_name", bbVar.zP()).ax("tid", bbVar.getTid()).x("obj_locate", i));
         }
     }
 
     public static void b(bb bbVar, String str, int i) {
         if (bbVar != null && !TextUtils.isEmpty(str)) {
-            TiebaStatic.log(new am("c13090").al(ImageViewerConfig.FORUM_ID, str).al("tid", bbVar.getTid()).w("obj_locate", i));
+            TiebaStatic.log(new am("c13090").ax(ImageViewerConfig.FORUM_ID, str).ax("tid", bbVar.getTid()).x("obj_locate", i));
         }
     }
 
@@ -46,14 +46,14 @@ public class c {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class a extends ad<bb> {
-        private int dSE;
+        private int eay;
         private String mForumId;
 
         public a(String str, int i) {
             this.mForumId = str;
-            this.dSE = i;
+            this.eay = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,19 +61,19 @@ public class c {
         public void a(View view, bb bbVar, Object obj) {
             if (view != null && bbVar != null && (obj instanceof BdUniqueId)) {
                 BdUniqueId bdUniqueId = (BdUniqueId) obj;
-                if (bb.ajX.getId() == bdUniqueId.getId()) {
-                    c.b(bbVar, this.mForumId, this.dSE);
-                } else if (bb.aka.getId() == bdUniqueId.getId()) {
-                    c.b(bbVar, this.mForumId, this.dSE);
-                } else if (bb.akg.getId() == bdUniqueId.getId()) {
-                    c.b(bbVar, this.mForumId, this.dSE);
-                    if (this.dSE == 1) {
+                if (bb.aoS.getId() == bdUniqueId.getId()) {
+                    c.b(bbVar, this.mForumId, this.eay);
+                } else if (bb.aoV.getId() == bdUniqueId.getId()) {
+                    c.b(bbVar, this.mForumId, this.eay);
+                } else if (bb.apb.getId() == bdUniqueId.getId()) {
+                    c.b(bbVar, this.mForumId, this.eay);
+                    if (this.eay == 1) {
                         c.a(bbVar, this.mForumId, 2);
                     }
-                } else if (bb.akf.getId() == bdUniqueId.getId()) {
-                    c.b(bbVar, this.mForumId, this.dSE);
-                } else if (bb.ajZ.getId() == bdUniqueId.getId()) {
-                    c.b(bbVar, this.mForumId, this.dSE);
+                } else if (bb.apa.getId() == bdUniqueId.getId()) {
+                    c.b(bbVar, this.mForumId, this.eay);
+                } else if (bb.aoU.getId() == bdUniqueId.getId()) {
+                    c.b(bbVar, this.mForumId, this.eay);
                 }
             }
         }
@@ -95,7 +95,7 @@ public class c {
                 }
             }
             if (i > 0) {
-                TiebaStatic.log(new am("c13086").w("obj_locate", i).al(ImageViewerConfig.FORUM_ID, str));
+                TiebaStatic.log(new am("c13086").x("obj_locate", i).ax(ImageViewerConfig.FORUM_ID, str));
             }
         }
     }

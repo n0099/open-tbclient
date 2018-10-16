@@ -8,17 +8,17 @@ import java.util.Properties;
 /* loaded from: classes.dex */
 public final class r {
     public static boolean isEMUI() {
-        return p("ro.build.version.emui", "ro.build.hw_emui_api_level");
+        return q("ro.build.version.emui", "ro.build.hw_emui_api_level");
     }
 
-    private static boolean p(String... strArr) {
+    private static boolean q(String... strArr) {
         if (strArr == null || strArr.length == 0) {
             return false;
         }
         try {
-            a MM = a.MM();
+            a OK = a.OK();
             for (String str : strArr) {
-                if (MM.getProperty(str) != null) {
+                if (OK.getProperty(str) != null) {
                     return true;
                 }
             }
@@ -31,26 +31,26 @@ public final class r {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static final class a {
-        private static a aZP;
-        private final Properties aZQ = new Properties();
+        private static a beq;
+        private final Properties ber = new Properties();
 
         private a() throws IOException {
-            this.aZQ.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
+            this.ber.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
         }
 
-        public static a MM() throws IOException {
-            if (aZP == null) {
+        public static a OK() throws IOException {
+            if (beq == null) {
                 synchronized (a.class) {
-                    if (aZP == null) {
-                        aZP = new a();
+                    if (beq == null) {
+                        beq = new a();
                     }
                 }
             }
-            return aZP;
+            return beq;
         }
 
         public String getProperty(String str) {
-            return this.aZQ.getProperty(str);
+            return this.ber.getProperty(str);
         }
     }
 }

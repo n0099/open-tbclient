@@ -1,8 +1,7 @@
 package com.baidu.tieba.signall;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
+import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -10,35 +9,35 @@ import org.json.JSONObject;
 public class h {
     private int errorCode;
     private String errorMsg;
-    private int gLx;
-    private String gLy;
-    private int gNa;
-    private String gNb;
-    private a gLT = new a();
-    private ArrayList<i> gNc = new ArrayList<>();
+    private int gSU;
+    private String gSV;
+    private int gUx;
+    private String gUy;
+    private a gTq = new a();
+    private ArrayList<i> gUz = new ArrayList<>();
 
-    public int bvu() {
-        return this.gLx;
+    public int byJ() {
+        return this.gSU;
     }
 
-    public String buS() {
-        return this.gLy;
+    public String byh() {
+        return this.gSV;
     }
 
-    public a buU() {
-        return this.gLT;
+    public a byj() {
+        return this.gTq;
     }
 
-    public ArrayList<i> bvv() {
-        return this.gNc;
+    public ArrayList<i> byK() {
+        return this.gUz;
     }
 
-    public int bvw() {
-        return this.gNa;
+    public int byL() {
+        return this.gUx;
     }
 
-    public String bvx() {
-        return this.gNb;
+    public String byM() {
+        return this.gUy;
     }
 
     public int getErrorCode() {
@@ -62,13 +61,13 @@ public class h {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.gLT.parserJson(jSONObject.optJSONObject("error"));
-                this.gLx = jSONObject.optInt("show_dialog");
-                this.gLy = jSONObject.optString("sign_notice");
-                this.gNa = jSONObject.optInt("is_timeout");
-                this.gNb = jSONObject.optString("timeout_notice");
-                this.errorCode = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
-                this.errorMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
+                this.gTq.parserJson(jSONObject.optJSONObject(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR));
+                this.gSU = jSONObject.optInt("show_dialog");
+                this.gSV = jSONObject.optString("sign_notice");
+                this.gUx = jSONObject.optInt("is_timeout");
+                this.gUy = jSONObject.optString("timeout_notice");
+                this.errorCode = jSONObject.optInt("error_code");
+                this.errorMsg = jSONObject.optString("error_msg");
                 JSONArray optJSONArray = jSONObject.optJSONArray("info");
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
@@ -76,7 +75,7 @@ public class h {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         i iVar = new i();
                         iVar.parserJson(jSONObject2);
-                        this.gNc.add(iVar);
+                        this.gUz.add(iVar);
                     }
                 }
             } catch (Exception e) {

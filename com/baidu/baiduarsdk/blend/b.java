@@ -21,7 +21,7 @@ public class b {
     private com.baidu.baiduarsdk.blend.a g;
     private e j;
     private com.baidu.baiduarsdk.filter.a k;
-    private InterfaceC0057b l;
+    private InterfaceC0062b l;
     private boolean e = false;
     private boolean i = false;
 
@@ -32,7 +32,7 @@ public class b {
 
     /* renamed from: com.baidu.baiduarsdk.blend.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0057b {
+    public interface InterfaceC0062b {
         void a(com.baidu.baiduarsdk.filter.a aVar);
     }
 

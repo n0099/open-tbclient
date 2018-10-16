@@ -7,6 +7,10 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.ng.ai.apps.media.audio.AiAppsAudioPlayer;
+import com.baidu.searchbox.ng.ai.apps.media.chooser.action.ChooseVideoAction;
+import com.baidu.searchbox.ng.ai.apps.scheme.actions.OpenAppAction;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.ar;
@@ -43,7 +47,7 @@ public class h {
         for (PackageInfo packageInfo : packageManager.getInstalledPackages(8192)) {
             if (packageInfo != null) {
                 String str = packageInfo.packageName;
-                if (!TextUtils.isEmpty(str) && str.equals("com.baidu.appsearch")) {
+                if (!TextUtils.isEmpty(str) && str.equals(OpenAppAction.APPSEARCH_PACKAGE_NAME)) {
                     return packageInfo.versionCode >= 16782633;
                 }
             }
@@ -56,7 +60,7 @@ public class h {
     }
 
     public static void a(Context context, VersionData versionData) {
-        String str = "-1";
+        String str = AiAppsAudioPlayer.ERROR_UNKNOWN;
         try {
             str = ar.d(TbadkCoreApplication.getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 64));
         } catch (PackageManager.NameNotFoundException e) {
@@ -67,7 +71,7 @@ public class h {
         Intent intent = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
         intent.setFlags(268435488);
         intent.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
-        intent.putExtra("backup", "0");
+        intent.putExtra(UnitedSchemeConstants.UNITED_SCHEME_BACKUP, "0");
         intent.putExtra("func", Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
         Bundle bundle = new Bundle();
         bundle.putInt("versioncode", versionData.getNewVersionCode());
@@ -79,7 +83,7 @@ public class h {
         bundle.putString("versionname", versionData.getNewVersion());
         bundle.putString("iconurl", versionData.getTiebaIconUrl());
         bundle.putString("updatetime", ao.d(new Date(System.currentTimeMillis())));
-        bundle.putString("size", versionData.getSize());
+        bundle.putString(ChooseVideoAction.CB_KEY_SIZE, versionData.getSize());
         bundle.putString("signmd5", str);
         bundle.putString("tj", str + context.getString(e.j.app_name));
         intent.putExtra("extra_client_downloadinfo", bundle);

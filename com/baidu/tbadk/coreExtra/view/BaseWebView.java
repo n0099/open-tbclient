@@ -145,7 +145,7 @@ public class BaseWebView extends WebView {
             removeJavascriptInterface("accessibility");
             removeJavascriptInterface("accessibilityTraversal");
         }
-        com.baidu.tbadk.browser.a.bh(getContext());
+        com.baidu.tbadk.browser.a.bq(getContext());
         if (Build.VERSION.SDK_INT >= 21) {
             setAcceptThirdPartyCookies(true);
             getSettings().setMixedContentMode(0);

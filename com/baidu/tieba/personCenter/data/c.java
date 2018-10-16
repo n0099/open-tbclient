@@ -2,18 +2,18 @@ package com.baidu.tieba.personCenter.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.UserData;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class c extends com.baidu.tieba.card.data.b {
-    public static BdUniqueId gbN = BdUniqueId.gen();
-    public UserData fAd;
-    public int gbJ;
-    public int gbK;
-    public int gbL;
-    public boolean gbM;
+    public static BdUniqueId gjp = BdUniqueId.gen();
+    public UserData fHF;
+    public int gjl;
+    public int gjm;
+    public int gjn;
+    public boolean gjo;
     public int threadNum;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return gbN;
+        return gjp;
     }
 }

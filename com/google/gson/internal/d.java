@@ -1,4 +1,9 @@
 package com.google.gson.internal;
+
+import java.io.IOException;
 /* loaded from: classes2.dex */
-public interface d<T> {
+public abstract class d {
+    public static d ikF;
+
+    public abstract void g(com.google.gson.stream.a aVar) throws IOException;
 }
