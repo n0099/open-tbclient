@@ -52,7 +52,7 @@ public class ChannelHomeModel extends BdBaseModel<ChannelHomeActivity> {
         this.cTm = z;
     }
 
-    public boolean apl() {
+    public boolean apm() {
         return this.cTm;
     }
 

@@ -21,7 +21,7 @@ public class h extends com.baidu.tieba.frs.h<bb, a> {
         this.dEO = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.entelechy.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: aBF */
+            /* renamed from: aBG */
             public ConstrainImageLayout jB() {
                 return new ConstrainImageLayout(h.this.mPageContext.getPageActivity());
             }

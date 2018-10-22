@@ -3,46 +3,46 @@ package org.aspectj.a.b;
 import java.lang.reflect.Modifier;
 /* loaded from: classes5.dex */
 class h {
-    static h iqH = new h();
-    static h iqI;
+    static h iqI = new h();
     static h iqJ;
-    int iqG;
-    boolean iqy = true;
+    static h iqK;
+    int iqH;
     boolean iqz = true;
-    boolean iqA = false;
+    boolean iqA = true;
     boolean iqB = false;
     boolean iqC = false;
-    boolean iqD = true;
+    boolean iqD = false;
     boolean iqE = true;
     boolean iqF = true;
+    boolean iqG = true;
 
     h() {
     }
 
     static {
-        iqH.iqy = true;
-        iqH.iqz = false;
-        iqH.iqA = false;
-        iqH.iqB = false;
-        iqH.iqC = true;
-        iqH.iqD = false;
-        iqH.iqE = false;
-        iqH.iqG = 0;
-        iqI = new h();
-        iqI.iqy = true;
         iqI.iqz = true;
         iqI.iqA = false;
         iqI.iqB = false;
         iqI.iqC = false;
-        iqH.iqG = 1;
+        iqI.iqD = true;
+        iqI.iqE = false;
+        iqI.iqF = false;
+        iqI.iqH = 0;
         iqJ = new h();
-        iqJ.iqy = false;
         iqJ.iqz = true;
-        iqJ.iqA = false;
-        iqJ.iqB = true;
+        iqJ.iqA = true;
+        iqJ.iqB = false;
         iqJ.iqC = false;
-        iqJ.iqF = false;
-        iqJ.iqG = 2;
+        iqJ.iqD = false;
+        iqI.iqH = 1;
+        iqK = new h();
+        iqK.iqz = false;
+        iqK.iqA = true;
+        iqK.iqB = false;
+        iqK.iqC = true;
+        iqK.iqD = false;
+        iqK.iqG = false;
+        iqK.iqH = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -53,7 +53,7 @@ class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String yu(int i) {
-        if (this.iqB) {
+        if (this.iqC) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
@@ -80,11 +80,11 @@ class h {
     }
 
     public String D(Class cls) {
-        return b(cls, cls.getName(), this.iqy);
+        return b(cls, cls.getName(), this.iqz);
     }
 
     public String i(Class cls, String str) {
-        return b(cls, str, this.iqC);
+        return b(cls, str, this.iqD);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -98,7 +98,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.iqz) {
+            if (!this.iqA) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.iqA && clsArr != null && clsArr.length != 0) {
+        if (this.iqB && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

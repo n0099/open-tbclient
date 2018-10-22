@@ -17,19 +17,19 @@ import com.baidu.tieba.card.v;
 public class h extends com.baidu.adp.widget.ListView.a<l, a> implements com.baidu.tieba.a.f {
     public BdUniqueId aZt;
     private String bVS;
-    private com.baidu.tieba.homepage.concern.view.c eiE;
-    private ad eio;
+    private com.baidu.tieba.homepage.concern.view.c eiF;
+    private ad eip;
     private TbPageContext<?> mPageContext;
 
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.eio = new ad<l>() { // from class: com.baidu.tieba.homepage.concern.a.h.1
+        this.eip = new ad<l>() { // from class: com.baidu.tieba.homepage.concern.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             public void a(View view, l lVar) {
-                if (view != null && h.this.eiE != null && h.this.eiE.getView() != null && lVar != null && lVar.YA() != null && !StringUtils.isNull(lVar.YA().getTid())) {
+                if (view != null && h.this.eiF != null && h.this.eiF.getView() != null && lVar != null && lVar.YB() != null && !StringUtils.isNull(lVar.YB().getTid())) {
                     am amVar = new am("c12352");
-                    if ((h.this.eiE.getHeaderImg() != null && view.getId() == h.this.eiE.getHeaderImg().getId()) || (h.this.eiE.anR() != null && view.getId() == h.this.eiE.anR().getId())) {
+                    if ((h.this.eiF.getHeaderImg() != null && view.getId() == h.this.eiF.getHeaderImg().getId()) || (h.this.eiF.anS() != null && view.getId() == h.this.eiF.anS().getId())) {
                         amVar.x("obj_locate", 1);
                     } else {
                         amVar.x("obj_locate", 2);
@@ -38,7 +38,7 @@ public class h extends com.baidu.adp.widget.ListView.a<l, a> implements com.baid
                     amVar.ax("tid", lVar.bIj.getTid());
                     amVar.h(ImageViewerConfig.FORUM_ID, lVar.bIj.getFid());
                     amVar.ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1");
-                    amVar.x("obj_param1", lVar.aoE() ? 2 : 1);
+                    amVar.x("obj_param1", lVar.aoF() ? 2 : 1);
                     TiebaStatic.log(amVar);
                 }
             }
@@ -66,8 +66,8 @@ public class h extends com.baidu.adp.widget.ListView.a<l, a> implements com.baid
                 }
             });
         }
-        this.eiE = cVar;
-        return new a(this.eiE);
+        this.eiF = cVar;
+        return new a(this.eiF);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -75,26 +75,26 @@ public class h extends com.baidu.adp.widget.ListView.a<l, a> implements com.baid
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, l lVar, a aVar) {
-        if (lVar == null || aVar == null || aVar.eiH == null) {
+        if (lVar == null || aVar == null || aVar.eiI == null) {
             return null;
         }
         lVar.jT(i + 1);
-        v.aoo().a(lVar.mk("c12351"));
-        if (aVar.eiH instanceof com.baidu.tieba.a.e) {
-            aVar.eiH.setPage(this.bVS);
+        v.aop().a(lVar.mk("c12351"));
+        if (aVar.eiI instanceof com.baidu.tieba.a.e) {
+            aVar.eiI.setPage(this.bVS);
         }
-        aVar.eiH.a(lVar);
-        aVar.eiH.b(this.eio);
+        aVar.eiI.a(lVar);
+        aVar.eiI.b(this.eip);
         return aVar.getView();
     }
 
     /* loaded from: classes6.dex */
     public static class a extends q.a {
-        public com.baidu.tieba.homepage.concern.view.c eiH;
+        public com.baidu.tieba.homepage.concern.view.c eiI;
 
         public a(com.baidu.tieba.homepage.concern.view.c cVar) {
             super(cVar.getView());
-            this.eiH = cVar;
+            this.eiI = cVar;
         }
     }
 

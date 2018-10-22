@@ -54,10 +54,10 @@ public class TBGLWriteView extends LinearLayout {
                 return eGLConfigArr[0];
             }
         });
-        anN();
+        anO();
     }
 
-    private void anN() {
+    private void anO() {
         if (!this.cKn) {
             setProjectionMode(1);
             setBackTransparent();

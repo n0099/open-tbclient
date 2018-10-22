@@ -32,7 +32,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements ak {
             if (customResponsedMessage != null && !TextUtils.isEmpty((String) customResponsedMessage.getData())) {
                 String[] split = ((String) customResponsedMessage.getData()).split(BaseRequestAction.SPLITE);
                 if (split.length == 2 && "FrsGameRecommend".equals(split[0]) && 11 == b.l(split[1], 0)) {
-                    FrsGameRecommendFragment.this.ZF();
+                    FrsGameRecommendFragment.this.ZG();
                 }
             }
         }
@@ -41,8 +41,8 @@ public class FrsGameRecommendFragment extends BaseFragment implements ak {
         @Override // com.baidu.tieba.frs.gamerecommend.model.AlaGameRecommendModel.a
         public void b(boolean z, List<h> list) {
             FrsGameRecommendFragment.this.dMX.completePullRefresh();
-            FrsGameRecommendFragment.this.hideNetRefreshView(FrsGameRecommendFragment.this.dMX.aDL());
-            FrsGameRecommendFragment.this.hideLoadingView(FrsGameRecommendFragment.this.dMX.aDL());
+            FrsGameRecommendFragment.this.hideNetRefreshView(FrsGameRecommendFragment.this.dMX.aDM());
+            FrsGameRecommendFragment.this.hideLoadingView(FrsGameRecommendFragment.this.dMX.aDM());
             FrsGameRecommendFragment.this.dMX.setData(list, z);
         }
 
@@ -50,11 +50,11 @@ public class FrsGameRecommendFragment extends BaseFragment implements ak {
         public void e(int i, String str, boolean z) {
             FrsGameRecommendFragment.this.dMX.completePullRefresh();
             if (!z) {
-                FrsGameRecommendFragment.this.showNetRefreshView(FrsGameRecommendFragment.this.dMX.aDL(), str, false);
+                FrsGameRecommendFragment.this.showNetRefreshView(FrsGameRecommendFragment.this.dMX.aDM(), str, false);
             } else {
                 FrsGameRecommendFragment.this.showToast(e.j.card_vr_video_load_failed);
             }
-            FrsGameRecommendFragment.this.dMX.Zi();
+            FrsGameRecommendFragment.this.dMX.Zj();
         }
     };
     private j.b aEo = new j.b() { // from class: com.baidu.tieba.frs.gamerecommend.FrsGameRecommendFragment.3
@@ -75,7 +75,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements ak {
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             if (FrsGameRecommendFragment.this.dMY != null) {
-                FrsGameRecommendFragment.this.dMY.YK();
+                FrsGameRecommendFragment.this.dMY.YL();
             }
         }
     };
@@ -110,8 +110,8 @@ public class FrsGameRecommendFragment extends BaseFragment implements ak {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ZF() {
-        this.dMX.ZF();
+    public void ZG() {
+        this.dMX.ZG();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -122,8 +122,8 @@ public class FrsGameRecommendFragment extends BaseFragment implements ak {
     }
 
     @Override // com.baidu.tieba.frs.ak
-    public NavigationBar aaD() {
-        return this.dMX.aaD();
+    public NavigationBar aaE() {
+        return this.dMX.aaE();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -131,11 +131,11 @@ public class FrsGameRecommendFragment extends BaseFragment implements ak {
         super.onPrimary();
         if (isAdded() && isPrimary() && this.dMY != null) {
             if (this.dMY.hasData()) {
-                ZF();
+                ZG();
                 return;
             }
             this.dMY.loadData();
-            showLoadingView(this.dMX.aDL());
+            showLoadingView(this.dMX.aDM());
         }
     }
 

@@ -8,7 +8,7 @@ public interface d {
     public interface a {
         void a(CloudMusicData.MusicTagList.MusicList musicList, int i);
 
-        void aBV();
+        void aBW();
 
         void brW();
 

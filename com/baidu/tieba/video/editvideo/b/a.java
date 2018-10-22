@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a {
-    private com.baidu.tieba.video.editvideo.data.a hsO;
-    private b hsP;
-    b.a hsQ;
+    private com.baidu.tieba.video.editvideo.data.a hsP;
+    private b hsQ;
+    b.a hsR;
     private Context mContext;
 
     public a(Context context) {
@@ -20,45 +20,45 @@ public class a {
     }
 
     public void a(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.hsO = aVar;
+        this.hsP = aVar;
     }
 
     public boolean bGR() {
-        return (this.hsO == null || "normal".equalsIgnoreCase(this.hsO.value)) ? false : true;
+        return (this.hsP == null || "normal".equalsIgnoreCase(this.hsP.value)) ? false : true;
     }
 
     public void vY(String str) {
-        if ((this.hsP == null || !this.hsP.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+        if ((this.hsQ == null || !this.hsQ.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
             String bGU = bGU();
             String str2 = "normal";
-            if (this.hsO != null) {
-                str2 = this.hsO.value;
+            if (this.hsP != null) {
+                str2 = this.hsP.value;
             }
-            this.hsP = new b(this.mContext, str, bGU, str2);
-            if (this.hsQ != null) {
-                this.hsP.a(this.hsQ);
+            this.hsQ = new b(this.mContext, str, bGU, str2);
+            if (this.hsR != null) {
+                this.hsQ.a(this.hsR);
             }
-            this.hsP.bGV();
+            this.hsQ.bGV();
         }
     }
 
     public boolean bGS() {
-        if (this.hsP != null) {
-            return this.hsP.isRunning();
+        if (this.hsQ != null) {
+            return this.hsQ.isRunning();
         }
         return false;
     }
 
     public void bGT() {
-        if (this.hsP != null) {
-            this.hsP.bGW();
+        if (this.hsQ != null) {
+            this.hsQ.bGW();
         }
     }
 
     public void a(b.a aVar) {
-        this.hsQ = aVar;
-        if (this.hsP != null) {
-            this.hsP.a(this.hsQ);
+        this.hsR = aVar;
+        if (this.hsQ != null) {
+            this.hsQ.a(this.hsR);
         }
     }
 
@@ -95,6 +95,6 @@ public class a {
     }
 
     private static String bGU() {
-        return com.baidu.tieba.video.c.hqM + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+        return com.baidu.tieba.video.c.hqN + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

@@ -5,5 +5,5 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class c {
     public List<h> brA;
-    public int eoJ = 0;
+    public int eoK = 0;
 }

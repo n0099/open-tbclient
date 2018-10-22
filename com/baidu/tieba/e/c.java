@@ -15,7 +15,7 @@ public class c implements com.baidu.adp.widget.ListView.h {
         return dcE;
     }
 
-    public FeatureCardCompetition asx() {
+    public FeatureCardCompetition asy() {
         return this.dcF;
     }
 

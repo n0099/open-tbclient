@@ -5,32 +5,32 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class PersonBarActivity extends BasePersonInfoActivity {
-    private PersonBarAdapter glC = null;
-    private PersonBarModel glD = null;
+    private PersonBarAdapter glD = null;
+    private PersonBarModel glE = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.gky && this.eOK != 23011) {
+        if (this.gkz && this.eOL != 23011) {
             setSwipeBackEnabled(false);
         }
-        this.glD = new PersonBarModel(getPageContext(), aSn());
-        this.glD.setSex(getSex());
-        this.glD.setId(getUid());
-        this.glD.setUniqueId(getUniqueId());
+        this.glE = new PersonBarModel(getPageContext(), aSn());
+        this.glE.setSex(getSex());
+        this.glE.setId(getUid());
+        this.glE.setUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public BasePersonInfoAdapter a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        if (this.glC == null) {
-            this.glC = new PersonBarAdapter(this, aSn());
+        if (this.glD == null) {
+            this.glD = new PersonBarAdapter(this, aSn());
         }
-        return this.glC;
+        return this.glD;
     }
 
     public PersonBarModel bnT() {
-        return this.glD;
+        return this.glE;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
@@ -73,13 +73,13 @@ public class PersonBarActivity extends BasePersonInfoActivity {
         BaseFragment baseFragment;
         b bod;
         super.onPageSelected(i);
-        if (this.glC != null && this.glC.getItem(i) != null && (baseFragment = (BaseFragment) this.glC.getItem(i)) != null && (baseFragment instanceof PersonBarFragment) && (bod = ((PersonBarFragment) baseFragment).bod()) != null) {
+        if (this.glD != null && this.glD.getItem(i) != null && (baseFragment = (BaseFragment) this.glD.getItem(i)) != null && (baseFragment instanceof PersonBarFragment) && (bod = ((PersonBarFragment) baseFragment).bod()) != null) {
             bod.cY(false);
             bod.notifyDataSetChanged();
         }
     }
 
     public int getRequestCode() {
-        return this.eOK;
+        return this.eOL;
     }
 }

@@ -110,11 +110,11 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.e.d dVar) {
-        if (dVar != null && dVar.asy() != null) {
-            if (!TextUtils.isEmpty(dVar.asy().title)) {
-                this.cLv.setText(dVar.asy().title);
+        if (dVar != null && dVar.asz() != null) {
+            if (!TextUtils.isEmpty(dVar.asz().title)) {
+                this.cLv.setText(dVar.asz().title);
             }
-            List<bb> list = dVar.asy().sub_nodes;
+            List<bb> list = dVar.asz().sub_nodes;
             if (com.baidu.tbadk.core.util.v.I(list) >= 1) {
                 this.cLA = new com.baidu.tieba.e.a();
                 this.cLA.setData(list.get(0));
@@ -146,20 +146,20 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
                 if (this.cLF != null) {
                     this.cLF.b(view, this.cLA);
                 }
-                K(this.cLA.YA());
+                K(this.cLA.YB());
             }
         } else if (view == this.cLy.getView()) {
             if (this.cLB != null) {
                 if (this.cLF != null) {
                     this.cLF.b(view, this.cLB);
                 }
-                K(this.cLB.YA());
+                K(this.cLB.YB());
             }
         } else if (view == this.cLz.getView() && this.cLC != null) {
             if (this.cLF != null) {
                 this.cLF.b(view, this.cLC);
             }
-            K(this.cLC.YA());
+            K(this.cLC.YB());
         }
     }
 

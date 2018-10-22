@@ -7,8 +7,8 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 /* loaded from: classes.dex */
 public class DragLayer extends FrameLayout {
-    private a heB;
-    private b heW;
+    private a heC;
+    private b heX;
 
     public DragLayer(Context context) {
         super(context);
@@ -30,38 +30,38 @@ public class DragLayer extends FrameLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        return this.heB.onInterceptTouchEvent(motionEvent);
+        return this.heC.onInterceptTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.heB.onTouchEvent(motionEvent);
+        return this.heC.onTouchEvent(motionEvent);
     }
 
     public a getDragController() {
-        return this.heB;
+        return this.heC;
     }
 
     public void setDragController(a aVar) {
-        this.heB = aVar;
+        this.heC = aVar;
     }
 
     public void setDragObject(b bVar) {
-        this.heW = bVar;
+        this.heX = bVar;
         invalidate();
     }
 
     public b getDragObject() {
-        return this.heW;
+        return this.heX;
     }
 
     public void bCB() {
-        if (this.heW != null) {
-            if (this.heW.bfJ != null) {
-                this.heW.bfJ.recycle();
-                this.heW.bfJ = null;
+        if (this.heX != null) {
+            if (this.heX.bfJ != null) {
+                this.heX.bfJ.recycle();
+                this.heX.bfJ = null;
             }
-            this.heW = null;
+            this.heX = null;
         }
     }
 
@@ -73,8 +73,8 @@ public class DragLayer extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.heW != null && this.heB.hes) {
-            this.heW.draw(canvas);
+        if (this.heX != null && this.heC.het) {
+            this.heX.draw(canvas);
         }
     }
 

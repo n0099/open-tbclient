@@ -15,35 +15,35 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     public BdUniqueId aZt;
     private String bVS;
     private NEGFeedBackView.a bsM;
-    private ad eio;
-    private r enu;
+    private ad eip;
+    private r env;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.bsM = null;
-        this.eio = new ad<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.personalize.a.e.1
+        this.eip = new ad<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.personalize.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
-                v.aoo().dy(true);
-                if (view != null && e.this.enu != null && e.this.enu.getView() != null && kVar != null && kVar.YA() != null && !StringUtils.isNull(kVar.YA().getTid())) {
-                    if (view.getId() != e.this.enu.getView().getId()) {
-                        if (e.this.enu.getHeaderImg() == null || view.getId() != e.this.enu.getHeaderImg().getId()) {
-                            if (e.this.enu.anR() == null || view.getId() != e.this.enu.anR().getId()) {
-                                if (e.this.enu.bWf == null || e.this.enu.bWf.getBarNameTv() == null || view.getId() != e.this.enu.bWf.getBarNameTv().getId()) {
-                                    if (e.this.enu.bWS == null || e.this.enu.bWS.aFR == null || view.getId() != e.this.enu.bWS.aFR.getId()) {
-                                        if (e.this.enu.anQ() != null && view.getId() == e.this.enu.anQ().getId()) {
+                v.aop().dy(true);
+                if (view != null && e.this.env != null && e.this.env.getView() != null && kVar != null && kVar.YB() != null && !StringUtils.isNull(kVar.YB().getTid())) {
+                    if (view.getId() != e.this.env.getView().getId()) {
+                        if (e.this.env.getHeaderImg() == null || view.getId() != e.this.env.getHeaderImg().getId()) {
+                            if (e.this.env.anS() == null || view.getId() != e.this.env.anS().getId()) {
+                                if (e.this.env.bWf == null || e.this.env.bWf.getBarNameTv() == null || view.getId() != e.this.env.bWf.getBarNameTv().getId()) {
+                                    if (e.this.env.bWS == null || e.this.env.bWS.aFR == null || view.getId() != e.this.env.bWS.aFR.getId()) {
+                                        if (e.this.env.anR() != null && view.getId() == e.this.env.anR().getId()) {
                                             TiebaStatic.log(kVar.mn("c12202"));
                                             return;
                                         }
                                         return;
                                     }
-                                    TiebaStatic.log(kVar.aoL());
+                                    TiebaStatic.log(kVar.aoM());
                                     return;
                                 }
-                                TiebaStatic.log(kVar.aoL());
+                                TiebaStatic.log(kVar.aoM());
                                 return;
                             }
                             TiebaStatic.log(kVar.mm("c12191"));
@@ -65,16 +65,16 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: Y */
     public com.baidu.tieba.card.a.a<r> onCreateViewHolder(ViewGroup viewGroup) {
-        this.enu = new r(this.mPageContext);
-        this.enu.currentPageType = 2;
-        if (this.enu.bWf != null) {
-            this.enu.bWf.ary = 2;
+        this.env = new r(this.mPageContext);
+        this.env.currentPageType = 2;
+        if (this.env.bWf != null) {
+            this.env.bWf.ary = 2;
         }
-        if (this.enu.bWS != null && this.enu.bWS.aFS != null) {
-            this.enu.bWS.aFS.ary = 2;
+        if (this.env.bWS != null && this.env.bWS.aFS != null) {
+            this.env.bWS.aFS.ary = 2;
         }
-        this.enu.j(this.aZt);
-        return new com.baidu.tieba.card.a.a<>(this.enu);
+        this.env.j(this.aZt);
+        return new com.baidu.tieba.card.a.a<>(this.env);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -82,17 +82,17 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, com.baidu.tieba.card.a.a<r> aVar) {
-        if (kVar == null || aVar == null || aVar.aoP() == null) {
+        if (kVar == null || aVar == null || aVar.aoQ() == null) {
             return null;
         }
         kVar.jT(i + 1);
-        v.aoo().a(kVar.ml("c12190"));
-        if (aVar.aoP() instanceof com.baidu.tieba.a.e) {
-            aVar.aoP().setPage(this.bVS);
+        v.aop().a(kVar.ml("c12190"));
+        if (aVar.aoQ() instanceof com.baidu.tieba.a.e) {
+            aVar.aoQ().setPage(this.bVS);
         }
-        aVar.aoP().a(kVar);
-        aVar.aoP().b(this.eio);
-        aVar.aoP().a(this.bsM);
+        aVar.aoQ().a(kVar);
+        aVar.aoQ().b(this.eip);
+        aVar.aoQ().a(this.bsM);
         return aVar.getView();
     }
 

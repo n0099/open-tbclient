@@ -16,7 +16,7 @@ public class p implements com.baidu.adp.widget.ListView.h {
         return dxE;
     }
 
-    public int ayn() {
+    public int ayo() {
         return this.dxF;
     }
 
@@ -24,7 +24,7 @@ public class p implements com.baidu.adp.widget.ListView.h {
         this.dxF = i;
     }
 
-    public int ayo() {
+    public int ayp() {
         return this.dxJ;
     }
 
@@ -32,7 +32,7 @@ public class p implements com.baidu.adp.widget.ListView.h {
         this.dxJ = i;
     }
 
-    public int ayp() {
+    public int ayq() {
         return this.dxG;
     }
 
@@ -40,7 +40,7 @@ public class p implements com.baidu.adp.widget.ListView.h {
         this.dxG = i;
     }
 
-    public String ayq() {
+    public String ayr() {
         return this.dxH;
     }
 
@@ -48,7 +48,7 @@ public class p implements com.baidu.adp.widget.ListView.h {
         this.dxH = str;
     }
 
-    public String ayr() {
+    public String ays() {
         return this.dxI;
     }
 

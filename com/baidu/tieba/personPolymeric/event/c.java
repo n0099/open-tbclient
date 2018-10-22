@@ -47,17 +47,17 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes3.dex */
 public class c extends a {
-    private e goY;
-    private com.baidu.tieba.personPolymeric.b.a goy;
+    private e goZ;
+    private com.baidu.tieba.personPolymeric.b.a goz;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
     public void a(e eVar) {
-        this.goY = eVar;
-        if (this.goY != null) {
-            this.goy = this.goY.boK();
+        this.goZ = eVar;
+        if (this.goZ != null) {
+            this.goz = this.goZ.boK();
         }
     }
 
@@ -93,7 +93,7 @@ public class c extends a {
                         kVar.bR(true);
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(kVar);
-                        this.goY.boL().a((h) kVar, (List<h>) arrayList, 0);
+                        this.goZ.boL().a((h) kVar, (List<h>) arrayList, 0);
                         return;
                     }
                     return;
@@ -117,9 +117,9 @@ public class c extends a {
                     this.mPageContext.getPageActivity().finish();
                     return;
                 case 9:
-                    if (this.goy != null && this.goy.boF() != null) {
+                    if (this.goz != null && this.goz.boF() != null) {
                         TiebaStatic.log("c12207");
-                        this.goy.boF().boR();
+                        this.goz.boF().boR();
                         return;
                     }
                     return;

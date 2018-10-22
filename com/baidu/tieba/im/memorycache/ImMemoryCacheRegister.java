@@ -61,9 +61,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ImMemoryCacheRegister {
-    private static volatile ImMemoryCacheRegister eMY;
-    private ResponseOnlineMessage eMX;
-    private com.baidu.adp.framework.listener.c eMZ = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.1
+    private static volatile ImMemoryCacheRegister eMZ;
+    private ResponseOnlineMessage eMY;
+    private com.baidu.adp.framework.listener.c eNa = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(final SocketResponsedMessage socketResponsedMessage) {
@@ -109,7 +109,7 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private com.baidu.adp.framework.listener.c eNa = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.12
+    private com.baidu.adp.framework.listener.c eNb = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.12
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(final SocketResponsedMessage socketResponsedMessage) {
@@ -178,7 +178,7 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener eNb = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.23
+    private CustomMessageListener eNc = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.23
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -200,7 +200,7 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener eNc = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.26
+    private CustomMessageListener eNd = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.26
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -222,7 +222,7 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener eNd = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.27
+    private CustomMessageListener eNe = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.27
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -267,7 +267,7 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener eNe = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.28
+    private CustomMessageListener eNf = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.28
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -279,7 +279,7 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener eNf = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.29
+    private CustomMessageListener eNg = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.29
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -294,18 +294,18 @@ public class ImMemoryCacheRegister {
                     if (!TextUtils.isEmpty(valueOf)) {
                         ImMessageCenterPojo aw = b.aRy().aw(valueOf, customType);
                         if (groupMsgData.getCmd() == 2012125) {
-                            com.baidu.tieba.im.chat.b.b.a(groupMsgData, aw, ImMemoryCacheRegister.this.eNv);
+                            com.baidu.tieba.im.chat.b.b.a(groupMsgData, aw, ImMemoryCacheRegister.this.eNw);
                         } else if (groupMsgData.getCmd() == 2012124) {
-                            com.baidu.tieba.im.chat.b.c.a(groupMsgData, aw, ImMemoryCacheRegister.this.eNx);
+                            com.baidu.tieba.im.chat.b.c.a(groupMsgData, aw, ImMemoryCacheRegister.this.eNy);
                         } else if (groupMsgData.getCmd() == 2012123) {
-                            d.b(groupMsgData, aw, ImMemoryCacheRegister.this.eNy);
+                            d.b(groupMsgData, aw, ImMemoryCacheRegister.this.eNz);
                         } else if (groupMsgData.getCmd() == 2012121) {
-                            com.baidu.tieba.im.chat.b.e.b(groupMsgData, aw, ImMemoryCacheRegister.this.eNz);
+                            com.baidu.tieba.im.chat.b.e.b(groupMsgData, aw, ImMemoryCacheRegister.this.eNA);
                         } else if (groupMsgData.getCmd() == 2012120) {
-                            f.a(groupMsgData, aw, ImMemoryCacheRegister.this.eNw);
+                            f.a(groupMsgData, aw, ImMemoryCacheRegister.this.eNx);
                         } else if (groupMsgData.getCmd() == 2012128) {
                             if (groupMsgData.getListMessage() != null && groupMsgData.getListMessage().size() > 0) {
-                                b.aRy().c(-1, groupMsgData.getListMessage().get(0).getMsgId(), String.valueOf(com.baidu.tieba.im.sendmessage.a.eQm));
+                                b.aRy().c(-1, groupMsgData.getListMessage().get(0).getMsgId(), String.valueOf(com.baidu.tieba.im.sendmessage.a.eQn));
                             }
                         } else if (groupMsgData.getCmd() == 2012129) {
                             if (groupMsgData.getListMessage() != null && groupMsgData.getListMessage().size() > 0) {
@@ -349,19 +349,19 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private com.baidu.adp.framework.listener.c eNg = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.30
+    private com.baidu.adp.framework.listener.c eNh = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.30
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
-                ImMemoryCacheRegister.this.eMX = (ResponseOnlineMessage) socketResponsedMessage;
-                if (b.aRy().eMJ.get()) {
+                ImMemoryCacheRegister.this.eMY = (ResponseOnlineMessage) socketResponsedMessage;
+                if (b.aRy().eMK.get()) {
                     ImMemoryCacheRegister.this.aRM();
                 }
             }
         }
     };
-    private CustomMessageListener eNh = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.2
+    private CustomMessageListener eNi = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -375,7 +375,7 @@ public class ImMemoryCacheRegister {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005018) {
-                ImMemoryCacheRegister.this.eMX = null;
+                ImMemoryCacheRegister.this.eMY = null;
                 com.baidu.tieba.im.sendmessage.a.cx(0L);
                 com.baidu.tieba.im.sendmessage.a.cy(0L);
                 b.aRy().init();
@@ -383,13 +383,13 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener eNi = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.4
+    private CustomMessageListener eNj = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             MemoryModifyLastMsgMessage.a data;
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016003 && (data = ((MemoryModifyLastMsgMessage) customResponsedMessage).getData()) != null) {
-                b.aRy().a(data.customGroupType, data.eOb, data.id, data.type);
+                b.aRy().a(data.customGroupType, data.eOc, data.id, data.type);
                 final ImMessageCenterPojo aw = b.aRy().aw(data.id, data.customGroupType);
                 if (aw != null) {
                     final ImMessageCenterPojo imMessageCenterPojo = null;
@@ -415,7 +415,7 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener eNj = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.5
+    private CustomMessageListener eNk = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -424,7 +424,7 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener eNk = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.6
+    private CustomMessageListener eNl = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -463,7 +463,7 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener eNl = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.7
+    private CustomMessageListener eNm = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -492,7 +492,7 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener eNm = new CustomMessageListener(2016016) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.8
+    private CustomMessageListener eNn = new CustomMessageListener(2016016) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.8
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -527,7 +527,7 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageTask.CustomRunnable<Integer> eNn = new CustomMessageTask.CustomRunnable<Integer>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.9
+    private CustomMessageTask.CustomRunnable<Integer> eNo = new CustomMessageTask.CustomRunnable<Integer>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.9
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
             List<ImMessageCenterPojo> aRG;
@@ -547,7 +547,7 @@ public class ImMemoryCacheRegister {
             return new ResponsedMemoryListMessage(aRG, intValue);
         }
     };
-    private CustomMessageListener eNo = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.10
+    private CustomMessageListener eNp = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.10
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -677,7 +677,7 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    CustomMessageListener eNp = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.11
+    CustomMessageListener eNq = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.11
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -729,13 +729,13 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private com.baidu.adp.framework.listener.c eNq = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.13
+    private com.baidu.adp.framework.listener.c eNr = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.13
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 205006 && (socketResponsedMessage instanceof ResponsedPersonalMsgReadMessage)) {
                 ResponsedPersonalMsgReadMessage responsedPersonalMsgReadMessage = (ResponsedPersonalMsgReadMessage) socketResponsedMessage;
-                if (!responsedPersonalMsgReadMessage.hasError() && responsedPersonalMsgReadMessage.getGroupId() == com.baidu.tieba.im.sendmessage.a.eQm.longValue() && responsedPersonalMsgReadMessage.getToUserType() == 0) {
+                if (!responsedPersonalMsgReadMessage.hasError() && responsedPersonalMsgReadMessage.getGroupId() == com.baidu.tieba.im.sendmessage.a.eQn.longValue() && responsedPersonalMsgReadMessage.getToUserType() == 0) {
                     final ImMessageCenterPojo aw = b.aRy().aw(String.valueOf(responsedPersonalMsgReadMessage.getToUid()), 2);
                     if (aw != null) {
                         long cA = com.baidu.tieba.im.util.d.cA(responsedPersonalMsgReadMessage.getHasSentMsgId());
@@ -763,7 +763,7 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener eNr = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.14
+    private CustomMessageListener eNs = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.14
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -795,7 +795,7 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener eNs = new CustomMessageListener(2016017) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.15
+    private CustomMessageListener eNt = new CustomMessageListener(2016017) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.15
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -830,18 +830,18 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener eNt = new CustomMessageListener(2016020) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.16
+    private CustomMessageListener eNu = new CustomMessageListener(2016020) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.16
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             final ImMessageCenterPojo aw;
             if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
                 if (customResponsedMessage.getData() instanceof PersonalChatMessage) {
-                    b.aRy().c(-1, ((PersonalChatMessage) customResponsedMessage.getData()).getMsgId(), String.valueOf(com.baidu.tieba.im.sendmessage.a.eQm));
-                    aw = b.aRy().aw(String.valueOf(com.baidu.tieba.im.sendmessage.a.eQm), -1);
+                    b.aRy().c(-1, ((PersonalChatMessage) customResponsedMessage.getData()).getMsgId(), String.valueOf(com.baidu.tieba.im.sendmessage.a.eQn));
+                    aw = b.aRy().aw(String.valueOf(com.baidu.tieba.im.sendmessage.a.eQn), -1);
                 } else if (customResponsedMessage.getData() instanceof OfficialChatMessage) {
-                    b.aRy().c(-9, ((OfficialChatMessage) customResponsedMessage.getData()).getMsgId(), String.valueOf(com.baidu.tieba.im.sendmessage.a.eQn));
-                    aw = b.aRy().aw(String.valueOf(com.baidu.tieba.im.sendmessage.a.eQn), -9);
+                    b.aRy().c(-9, ((OfficialChatMessage) customResponsedMessage.getData()).getMsgId(), String.valueOf(com.baidu.tieba.im.sendmessage.a.eQo));
+                    aw = b.aRy().aw(String.valueOf(com.baidu.tieba.im.sendmessage.a.eQo), -9);
                 } else {
                     ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
                     b.aRy().c(1, chatMessage.getMsgId(), chatMessage.getGroupId());
@@ -861,7 +861,7 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener eNu = new CustomMessageListener(2001382) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.17
+    private CustomMessageListener eNv = new CustomMessageListener(2001382) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.17
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -886,7 +886,7 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private a.b eNv = new a.b() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.18
+    private a.b eNw = new a.b() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.18
         @Override // com.baidu.tieba.im.chat.b.a.b
         public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
             b.aRy().j(imMessageCenterPojo);
@@ -914,7 +914,7 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private a.b eNw = new a.b() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.19
+    private a.b eNx = new a.b() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.19
         @Override // com.baidu.tieba.im.chat.b.a.b
         public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
             b.aRy().c(-2, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
@@ -924,7 +924,7 @@ public class ImMemoryCacheRegister {
         public void j(String str, List<CommonMsgPojo> list) {
         }
     };
-    private a.b eNx = new a.b() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.20
+    private a.b eNy = new a.b() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.20
         @Override // com.baidu.tieba.im.chat.b.a.b
         public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
             b.aRy().c(5, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
@@ -944,7 +944,7 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private a.b eNy = new a.b() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.21
+    private a.b eNz = new a.b() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.21
         @Override // com.baidu.tieba.im.chat.b.a.b
         public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
             b.aRy().j(imMessageCenterPojo);
@@ -960,13 +960,13 @@ public class ImMemoryCacheRegister {
                     RequestSendPVTJMessage.sendOfficialBarPVTJ(RequestSendPVTJMessage.TYPE_V_MPUSH, commonMsgPojo.getUid());
                     com.baidu.tieba.im.data.d a = e.a(commonMsgPojo);
                     if (a != null) {
-                        TiebaStatic.eventStat(TbadkCoreApplication.getInst(), "message_receive", "receive", 1, "task_type", a.eFh, "task_id", a.taskId);
+                        TiebaStatic.eventStat(TbadkCoreApplication.getInst(), "message_receive", "receive", 1, "task_type", a.eFi, "task_id", a.taskId);
                     }
                 }
             }
         }
     };
-    private a.b eNz = new a.b() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.22
+    private a.b eNA = new a.b() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.22
         @Override // com.baidu.tieba.im.chat.b.a.b
         public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
             b.aRy().j(imMessageCenterPojo);
@@ -986,62 +986,62 @@ public class ImMemoryCacheRegister {
 
     public static ImMemoryCacheRegister aRL() {
         com.baidu.adp.lib.util.l.lm();
-        if (eMY == null) {
+        if (eMZ == null) {
             synchronized (ImMemoryCacheRegister.class) {
-                if (eMY == null) {
-                    eMY = new ImMemoryCacheRegister();
+                if (eMZ == null) {
+                    eMZ = new ImMemoryCacheRegister();
                 }
             }
         }
-        return eMY;
+        return eMZ;
     }
 
     private void register() {
-        MessageManager.getInstance().registerListener(2012125, this.eNf);
-        MessageManager.getInstance().registerListener(2012124, this.eNf);
-        MessageManager.getInstance().registerListener(2012123, this.eNf);
-        MessageManager.getInstance().registerListener(2012121, this.eNf);
-        MessageManager.getInstance().registerListener(2012120, this.eNf);
-        MessageManager.getInstance().registerListener(2012126, this.eNf);
-        MessageManager.getInstance().registerListener(2012128, this.eNf);
-        MessageManager.getInstance().registerListener(2012129, this.eNf);
-        MessageManager.getInstance().registerListener(1001, this.eNg);
+        MessageManager.getInstance().registerListener(2012125, this.eNg);
+        MessageManager.getInstance().registerListener(2012124, this.eNg);
+        MessageManager.getInstance().registerListener(2012123, this.eNg);
+        MessageManager.getInstance().registerListener(2012121, this.eNg);
+        MessageManager.getInstance().registerListener(2012120, this.eNg);
+        MessageManager.getInstance().registerListener(2012126, this.eNg);
+        MessageManager.getInstance().registerListener(2012128, this.eNg);
+        MessageManager.getInstance().registerListener(2012129, this.eNg);
+        MessageManager.getInstance().registerListener(1001, this.eNh);
         MessageManager.getInstance().registerListener(2005018, this.bwP);
         MessageManager.getInstance().registerStickyMode(2016002);
-        MessageManager.getInstance().registerListener(2016002, this.eNh);
-        MessageManager.getInstance().registerListener(2016003, this.eNi);
-        MessageManager.getInstance().registerListener(2008016, this.eNj);
-        MessageManager.getInstance().registerListener(2016005, this.eNk);
-        MessageManager.getInstance().registerListener(2016006, this.eNl);
-        MessageManager.getInstance().registerListener(this.eNm);
-        MessageManager.getInstance().registerListener(2016015, this.eNe);
-        CustomMessageTask customMessageTask = new CustomMessageTask(2016007, this.eNn);
+        MessageManager.getInstance().registerListener(2016002, this.eNi);
+        MessageManager.getInstance().registerListener(2016003, this.eNj);
+        MessageManager.getInstance().registerListener(2008016, this.eNk);
+        MessageManager.getInstance().registerListener(2016005, this.eNl);
+        MessageManager.getInstance().registerListener(2016006, this.eNm);
+        MessageManager.getInstance().registerListener(this.eNn);
+        MessageManager.getInstance().registerListener(2016015, this.eNf);
+        CustomMessageTask customMessageTask = new CustomMessageTask(2016007, this.eNo);
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        MessageManager.getInstance().registerListener(2001210, this.eNb);
-        MessageManager.getInstance().registerListener(2001211, this.eNc);
-        MessageManager.getInstance().registerListener(202001, this.eMZ);
-        MessageManager.getInstance().registerListener(205001, this.eNa);
-        MessageManager.getInstance().registerListener(2001126, this.eNo);
-        MessageManager.getInstance().registerListener(2001125, this.eNo);
-        MessageManager.getInstance().registerListener(2001128, this.eNo);
-        MessageManager.getInstance().registerListener(2001129, this.eNo);
-        MessageManager.getInstance().registerListener(2001130, this.eNo);
-        MessageManager.getInstance().registerListener(2001131, this.eNo);
-        MessageManager.getInstance().registerListener(2001132, this.eNo);
-        MessageManager.getInstance().registerListener(2001133, this.eNo);
-        MessageManager.getInstance().registerListener(2001134, this.eNo);
-        MessageManager.getInstance().registerListener(2001135, this.eNo);
-        MessageManager.getInstance().registerListener(2001137, this.eNo);
-        MessageManager.getInstance().registerListener(2001138, this.eNo);
-        MessageManager.getInstance().registerListener(2001139, this.eNo);
-        MessageManager.getInstance().registerListener(2016009, this.eNd);
-        MessageManager.getInstance().registerListener(2001174, this.eNp);
-        MessageManager.getInstance().registerListener(205006, this.eNq);
-        MessageManager.getInstance().registerListener(2016013, this.eNr);
-        MessageManager.getInstance().registerListener(this.eNs);
+        MessageManager.getInstance().registerListener(2001210, this.eNc);
+        MessageManager.getInstance().registerListener(2001211, this.eNd);
+        MessageManager.getInstance().registerListener(202001, this.eNa);
+        MessageManager.getInstance().registerListener(205001, this.eNb);
+        MessageManager.getInstance().registerListener(2001126, this.eNp);
+        MessageManager.getInstance().registerListener(2001125, this.eNp);
+        MessageManager.getInstance().registerListener(2001128, this.eNp);
+        MessageManager.getInstance().registerListener(2001129, this.eNp);
+        MessageManager.getInstance().registerListener(2001130, this.eNp);
+        MessageManager.getInstance().registerListener(2001131, this.eNp);
+        MessageManager.getInstance().registerListener(2001132, this.eNp);
+        MessageManager.getInstance().registerListener(2001133, this.eNp);
+        MessageManager.getInstance().registerListener(2001134, this.eNp);
+        MessageManager.getInstance().registerListener(2001135, this.eNp);
+        MessageManager.getInstance().registerListener(2001137, this.eNp);
+        MessageManager.getInstance().registerListener(2001138, this.eNp);
+        MessageManager.getInstance().registerListener(2001139, this.eNp);
+        MessageManager.getInstance().registerListener(2016009, this.eNe);
+        MessageManager.getInstance().registerListener(2001174, this.eNq);
+        MessageManager.getInstance().registerListener(205006, this.eNr);
+        MessageManager.getInstance().registerListener(2016013, this.eNs);
         MessageManager.getInstance().registerListener(this.eNt);
         MessageManager.getInstance().registerListener(this.eNu);
+        MessageManager.getInstance().registerListener(this.eNv);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1055,9 +1055,9 @@ public class ImMemoryCacheRegister {
         ArrayList arrayList3;
         boolean z;
         StringBuilder sb;
-        if (this.eMX != null) {
+        if (this.eMY != null) {
             StringBuilder sb2 = null;
-            for (GroupUpdateMessage groupUpdateMessage : this.eMX.getGroupInfos()) {
+            for (GroupUpdateMessage groupUpdateMessage : this.eMY.getGroupInfos()) {
                 if (groupUpdateMessage != null) {
                     if (sb2 == null) {
                         sb = new StringBuilder(50);
@@ -1085,12 +1085,12 @@ public class ImMemoryCacheRegister {
                 }
             }
             long j = -1;
-            if (this.eMX.getOrginalMessage() != null) {
-                j = this.eMX.getOrginalMessage().getClientLogID();
+            if (this.eMY.getOrginalMessage() != null) {
+                j = this.eMY.getOrginalMessage().getClientLogID();
             }
-            int cmd = this.eMX.getCmd();
-            int error = this.eMX.getError();
-            String errorString = this.eMX.getErrorString();
+            int cmd = this.eMY.getCmd();
+            int error = this.eMY.getError();
+            String errorString = this.eMY.getErrorString();
             Object[] objArr = new Object[2];
             objArr[0] = ClientCookie.COMMENT_ATTR;
             objArr[1] = sb2 == null ? "" : sb2.toString();
@@ -1109,7 +1109,7 @@ public class ImMemoryCacheRegister {
                     }
                     arrayList5.add(imMessageCenterPojo10);
                     boolean z2 = true;
-                    Iterator<GroupUpdateMessage> it = this.eMX.getGroupInfos().iterator();
+                    Iterator<GroupUpdateMessage> it = this.eMY.getGroupInfos().iterator();
                     while (true) {
                         z = z2;
                         if (!it.hasNext()) {
@@ -1261,11 +1261,11 @@ public class ImMemoryCacheRegister {
             onlineToDbCustomMessage.privateChatGroup = imMessageCenterPojo8;
             onlineToDbCustomMessage.officialChatGroup = imMessageCenterPojo9;
             onlineToDbCustomMessage.yyGroupList = arrayList6;
-            if (this.eMX.isUserAvailable()) {
+            if (this.eMY.isUserAvailable()) {
                 onlineToDbCustomMessage.needDeleteGroupList = arrayList4;
             }
             MessageManager.getInstance().sendMessage(onlineToDbCustomMessage, customMessageTask);
-            this.eMX = null;
+            this.eMY = null;
         }
     }
 

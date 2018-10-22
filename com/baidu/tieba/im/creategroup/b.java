@@ -14,29 +14,29 @@ import com.baidu.tieba.e;
 public class b implements o {
     private int OG;
     TextView asQ;
-    CreateGroupStepActivity eDl;
-    TbImageView eDm;
-    private ImageView eDn;
-    private int eDp;
+    CreateGroupStepActivity eDm;
+    TbImageView eDn;
+    private ImageView eDo;
+    private int eDq;
     private int mIndex;
     View mView;
-    private int eDk = 3;
-    private boolean eDo = false;
+    private int eDl = 3;
+    private boolean eDp = false;
 
     public b(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3) {
-        this.eDl = null;
-        this.mView = null;
         this.eDm = null;
-        this.asQ = null;
+        this.mView = null;
         this.eDn = null;
-        this.eDl = createGroupStepActivity;
+        this.asQ = null;
+        this.eDo = null;
+        this.eDm = createGroupStepActivity;
         this.mView = LayoutInflater.from(createGroupStepActivity.getPageContext().getPageActivity()).inflate(e.h.create_group_step4_view, (ViewGroup) null);
-        this.eDm = (TbImageView) this.mView.findViewById(e.g.step4_img_bg);
+        this.eDn = (TbImageView) this.mView.findViewById(e.g.step4_img_bg);
         this.asQ = (TextView) this.mView.findViewById(e.g.txt_tip_view);
-        this.eDn = (ImageView) this.mView.findViewById(e.g.create_group_address_rightarrwow);
+        this.eDo = (ImageView) this.mView.findViewById(e.g.create_group_address_rightarrwow);
         this.mIndex = i;
         this.OG = i2;
-        this.eDp = i3;
+        this.eDq = i3;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
@@ -54,65 +54,65 @@ public class b implements o {
     }
 
     public int aNC() {
-        return this.eDk;
+        return this.eDl;
     }
 
     public void aND() {
-        this.eDn.setVisibility(0);
-        this.eDo = false;
+        this.eDo.setVisibility(0);
+        this.eDp = false;
         aNI();
         this.asQ.setText(e.j.location_loading);
-        this.eDk = 3;
+        this.eDl = 3;
     }
 
     public void setBusiness(String str) {
-        this.eDn.setVisibility(0);
-        this.eDo = true;
+        this.eDo.setVisibility(0);
+        this.eDp = true;
         aNI();
         this.asQ.setText(str);
-        this.eDk = 0;
+        this.eDl = 0;
     }
 
     public void setAddress(String str) {
-        this.eDn.setVisibility(8);
-        this.eDo = true;
+        this.eDo.setVisibility(8);
+        this.eDp = true;
         aNI();
         this.asQ.setText(str);
-        this.eDk = 4;
+        this.eDl = 4;
     }
 
     public void aNE() {
-        this.eDn.setVisibility(0);
-        this.eDo = false;
+        this.eDo.setVisibility(0);
+        this.eDp = false;
         aNI();
         this.asQ.setText(e.j.address_locate_failed_opengps);
-        this.eDk = 1;
+        this.eDl = 1;
     }
 
     public void aNF() {
-        this.eDo = false;
+        this.eDp = false;
         aNI();
         this.asQ.setText(e.j.address_locate_failed_tryagain);
-        this.eDn.setVisibility(8);
-        this.eDk = 2;
+        this.eDo.setVisibility(8);
+        this.eDl = 2;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public void aNG() {
-        this.eDm.setBackgroundDrawable(null);
+        this.eDn.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public void aNH() {
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
-        this.eDl.getLayoutMode().setNightMode(z);
-        this.eDl.getLayoutMode().onModeChanged(this.mView);
-        this.eDm.startLoad(c.a(this.eDl.getActivity(), c.eDq, z), 29, false);
+        this.eDm.getLayoutMode().setNightMode(z);
+        this.eDm.getLayoutMode().onModeChanged(this.mView);
+        this.eDn.startLoad(c.a(this.eDm.getActivity(), c.eDr, z), 29, false);
         aNI();
     }
 
     private void aNI() {
-        if (this.eDo) {
+        if (this.eDp) {
             Drawable drawable = al.getDrawable(e.f.icon_jq_lbs_s);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
             this.asQ.setCompoundDrawables(drawable, null, null, null);
@@ -127,15 +127,15 @@ public class b implements o {
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String getTitle() {
-        return String.format(this.eDl.getPageContext().getString(e.j.group_create_step_address), Integer.valueOf(this.OG));
+        return String.format(this.eDm.getPageContext().getString(e.j.group_create_step_address), Integer.valueOf(this.OG));
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String aNJ() {
-        if (this.mIndex != this.eDp) {
-            return this.eDl.getPageContext().getString(e.j.next_step);
+        if (this.mIndex != this.eDq) {
+            return this.eDm.getPageContext().getString(e.j.next_step);
         }
-        return this.eDl.getPageContext().getString(e.j.group_create_step_done_tip);
+        return this.eDm.getPageContext().getString(e.j.group_create_step_done_tip);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o

@@ -23,7 +23,7 @@ public class n extends b implements p {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean aoF() {
+    public boolean aoG() {
         return true;
     }
 

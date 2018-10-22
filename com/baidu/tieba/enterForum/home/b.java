@@ -19,14 +19,14 @@ public class b implements com.baidu.tieba.c.a {
         @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
         public void a(EnterForumModel.a aVar) {
             if (b.this.dhf != null) {
-                if (aVar == null || !aVar.dhF || aVar.dhG == null || aVar.dhG.atD() == null) {
+                if (aVar == null || !aVar.dhF || aVar.dhG == null || aVar.dhG.atE() == null) {
                     b.this.dhf.a(null, false, 1, 0);
                     return;
                 }
                 ArrayList<TransmitForumData> arrayList = new ArrayList<>();
-                ArrayList<f> atJ = aVar.dhG.atD().atJ();
-                if (v.I(atJ) > 0) {
-                    Iterator<f> it = atJ.iterator();
+                ArrayList<f> atK = aVar.dhG.atE().atK();
+                if (v.I(atK) > 0) {
+                    Iterator<f> it = atK.iterator();
                     while (it.hasNext()) {
                         f next = it.next();
                         if (next != null && !StringUtils.isNull(next.getId()) && !StringUtils.isNull(next.getName())) {
@@ -60,7 +60,7 @@ public class b implements com.baidu.tieba.c.a {
     }
 
     @Override // com.baidu.tieba.c.a
-    public void apP() {
+    public void apQ() {
         if (this.dhf != null && this.dgM != null) {
             this.dgM.fQ(true);
         }

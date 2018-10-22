@@ -58,7 +58,7 @@ public class h extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return getItem(i).aya();
+        return getItem(i).ayb();
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -103,28 +103,16 @@ public class h extends BaseAdapter {
                 cVar = cVar3;
             }
             com.baidu.tieba.forumMember.bawu.b bVar = (com.baidu.tieba.forumMember.bawu.b) getItem(i);
-            if (bVar != null && bVar.ayb() != null && bVar.ayb().size() > 0) {
+            if (bVar != null && bVar.ayc() != null && bVar.ayc().size() > 0) {
                 if (bVar.isLast()) {
                     cVar.dww.setPadding(this.cqH, 0, this.cqH, this.dwu);
                     if (this.dwt != null && !this.dwt.isEmpty()) {
-                        if (bVar.ayb().size() == 2) {
-                            if (bVar.ayc().equals(this.mContext.getResources().getString(e.j.bawu_member_bazhu_tip))) {
+                        if (bVar.ayc().size() == 2) {
+                            if (bVar.ayd().equals(this.mContext.getResources().getString(e.j.bawu_member_bazhu_tip))) {
                                 cVar.dwA.setVisibility(8);
                                 cVar.dwz.setVisibility(0);
-                                cVar.dwz.aa(this.mContext.getResources().getString(e.j.tip_manager_apply), this.dwt.ayn());
+                                cVar.dwz.aa(this.mContext.getResources().getString(e.j.tip_manager_apply), this.dwt.ayo());
                                 cVar.dwz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.1
-                                    @Override // android.view.View.OnClickListener
-                                    public void onClick(View view2) {
-                                        if (h.this.dwq != null) {
-                                            h.this.dwq.no(h.this.dwt.ayq());
-                                        }
-                                    }
-                                });
-                            } else if (bVar.ayc().equals(this.mContext.getResources().getString(e.j.bawu_member_xbazhu_tip))) {
-                                cVar.dwA.setVisibility(8);
-                                cVar.dwz.setVisibility(0);
-                                cVar.dwz.aa(this.mContext.getResources().getString(e.j.tip_assist_apply), this.dwt.ayp());
-                                cVar.dwz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.2
                                     @Override // android.view.View.OnClickListener
                                     public void onClick(View view2) {
                                         if (h.this.dwq != null) {
@@ -132,30 +120,42 @@ public class h extends BaseAdapter {
                                         }
                                     }
                                 });
+                            } else if (bVar.ayd().equals(this.mContext.getResources().getString(e.j.bawu_member_xbazhu_tip))) {
+                                cVar.dwA.setVisibility(8);
+                                cVar.dwz.setVisibility(0);
+                                cVar.dwz.aa(this.mContext.getResources().getString(e.j.tip_assist_apply), this.dwt.ayq());
+                                cVar.dwz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.2
+                                    @Override // android.view.View.OnClickListener
+                                    public void onClick(View view2) {
+                                        if (h.this.dwq != null) {
+                                            h.this.dwq.no(h.this.dwt.ays());
+                                        }
+                                    }
+                                });
                             }
-                        } else if (bVar.ayc().equals(this.mContext.getResources().getString(e.j.bawu_member_bazhu_tip))) {
+                        } else if (bVar.ayd().equals(this.mContext.getResources().getString(e.j.bawu_member_bazhu_tip))) {
                             cVar.dwy.setVisibility(8);
                             cVar.dwA.setVisibility(0);
                             cVar.dwz.setVisibility(8);
-                            cVar.dwA.aa(this.mContext.getResources().getString(e.j.tip_manager_apply), this.dwt.ayn());
+                            cVar.dwA.aa(this.mContext.getResources().getString(e.j.tip_manager_apply), this.dwt.ayo());
                             cVar.dwA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.3
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view2) {
                                     if (h.this.dwq != null) {
-                                        h.this.dwq.no(h.this.dwt.ayq());
+                                        h.this.dwq.no(h.this.dwt.ayr());
                                     }
                                 }
                             });
-                        } else if (bVar.ayc().equals(this.mContext.getResources().getString(e.j.bawu_member_xbazhu_tip))) {
+                        } else if (bVar.ayd().equals(this.mContext.getResources().getString(e.j.bawu_member_xbazhu_tip))) {
                             cVar.dwy.setVisibility(8);
                             cVar.dwA.setVisibility(0);
                             cVar.dwz.setVisibility(8);
-                            cVar.dwA.aa(this.mContext.getResources().getString(e.j.tip_assist_apply), this.dwt.ayp());
+                            cVar.dwA.aa(this.mContext.getResources().getString(e.j.tip_assist_apply), this.dwt.ayq());
                             cVar.dwA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.4
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view2) {
                                     if (h.this.dwq != null) {
-                                        h.this.dwq.no(h.this.dwt.ayr());
+                                        h.this.dwq.no(h.this.dwt.ays());
                                     }
                                 }
                             });
@@ -166,9 +166,9 @@ public class h extends BaseAdapter {
                     cVar.dwz.setVisibility(8);
                     cVar.dwA.setVisibility(8);
                 }
-                cVar.dwx.a(bVar.ayb().get(0));
-                if (bVar.ayb().size() >= 2) {
-                    cVar.dwy.a(bVar.ayb().get(1));
+                cVar.dwx.a(bVar.ayc().get(0));
+                if (bVar.ayc().size() >= 2) {
+                    cVar.dwy.a(bVar.ayc().get(1));
                     cVar.dwy.setVisibility(0);
                 } else {
                     cVar.dwy.setVisibility(8);

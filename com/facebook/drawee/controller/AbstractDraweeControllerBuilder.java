@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDraweeControllerBuilder<BUILDER, REQUEST, IMAGE, INFO>, REQUEST, IMAGE, INFO> implements com.facebook.drawee.d.d {
-    private static final c<Object> hZj = new b<Object>() { // from class: com.facebook.drawee.controller.AbstractDraweeControllerBuilder.1
+    private static final c<Object> hZk = new b<Object>() { // from class: com.facebook.drawee.controller.AbstractDraweeControllerBuilder.1
         @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
         public void onFinalImageSet(String str, @Nullable Object obj, @Nullable Animatable animatable) {
             if (animatable != null) {
@@ -21,30 +21,30 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
             }
         }
     };
-    private static final NullPointerException hZk = new NullPointerException("No image request was specified!");
-    private static final AtomicLong hZr = new AtomicLong();
-    private final Set<c> hYD;
-    private boolean hYN;
+    private static final NullPointerException hZl = new NullPointerException("No image request was specified!");
+    private static final AtomicLong hZs = new AtomicLong();
+    private final Set<c> hYE;
+    private boolean hYO;
     @Nullable
-    private c<? super INFO> hYU;
+    private c<? super INFO> hYV;
     @Nullable
-    private d hYV;
+    private d hYW;
     @Nullable
-    private Object hYY;
+    private Object hYZ;
     @Nullable
-    private i<com.facebook.datasource.b<IMAGE>> hYx;
-    private boolean hZc;
-    private String hZd;
-    @Nullable
-    private REQUEST hZl;
+    private i<com.facebook.datasource.b<IMAGE>> hYy;
+    private boolean hZd;
+    private String hZe;
     @Nullable
     private REQUEST hZm;
     @Nullable
-    private REQUEST[] hZn;
-    private boolean hZo;
-    private boolean hZp;
+    private REQUEST hZn;
     @Nullable
-    private com.facebook.drawee.d.a hZq;
+    private REQUEST[] hZo;
+    private boolean hZp;
+    private boolean hZq;
+    @Nullable
+    private com.facebook.drawee.d.a hZr;
     private final Context mContext;
 
     /* loaded from: classes2.dex */
@@ -64,82 +64,82 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
     /* JADX INFO: Access modifiers changed from: protected */
     public AbstractDraweeControllerBuilder(Context context, Set<c> set) {
         this.mContext = context;
-        this.hYD = set;
+        this.hYE = set;
         init();
     }
 
     private void init() {
-        this.hYY = null;
-        this.hZl = null;
+        this.hYZ = null;
         this.hZm = null;
         this.hZn = null;
-        this.hZo = true;
-        this.hYU = null;
+        this.hZo = null;
+        this.hZp = true;
         this.hYV = null;
-        this.hYN = false;
-        this.hZp = false;
-        this.hZq = null;
-        this.hZd = null;
+        this.hYW = null;
+        this.hYO = false;
+        this.hZq = false;
+        this.hZr = null;
+        this.hZe = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.d.d
     /* renamed from: az */
     public BUILDER aC(Object obj) {
-        this.hYY = obj;
+        this.hYZ = obj;
         return bSD();
     }
 
     @Nullable
     public Object bST() {
-        return this.hYY;
+        return this.hYZ;
     }
 
     public BUILDER aA(REQUEST request) {
-        this.hZl = request;
+        this.hZm = request;
         return bSD();
     }
 
     @Nullable
     public REQUEST bSU() {
-        return this.hZl;
+        return this.hZm;
     }
 
     public boolean bSV() {
-        return this.hZc;
+        return this.hZd;
     }
 
     public BUILDER oD(boolean z) {
-        this.hZp = z;
+        this.hZq = z;
         return bSD();
     }
 
     public BUILDER b(c<? super INFO> cVar) {
-        this.hYU = cVar;
+        this.hYV = cVar;
         return bSD();
     }
 
     @Nullable
     public d bSW() {
-        return this.hYV;
+        return this.hYW;
     }
 
     @Nullable
     public String bSX() {
-        return this.hZd;
+        return this.hZe;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.d.d
     /* renamed from: a */
     public BUILDER b(@Nullable com.facebook.drawee.d.a aVar) {
-        this.hZq = aVar;
+        this.hZr = aVar;
         return bSD();
     }
 
     @Nullable
     public com.facebook.drawee.d.a bSY() {
-        return this.hZq;
+        return this.hZr;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -147,17 +147,17 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
     /* renamed from: bSZ */
     public a bTd() {
         validate();
-        if (this.hZl == null && this.hZn == null && this.hZm != null) {
-            this.hZl = this.hZm;
-            this.hZm = null;
+        if (this.hZm == null && this.hZo == null && this.hZn != null) {
+            this.hZm = this.hZn;
+            this.hZn = null;
         }
         return bTa();
     }
 
     protected void validate() {
         boolean z = false;
-        g.c(this.hZn == null || this.hZl == null, "Cannot specify both ImageRequest and FirstAvailableImageRequests!");
-        if (this.hYx == null || (this.hZn == null && this.hZl == null && this.hZm == null)) {
+        g.c(this.hZo == null || this.hZm == null, "Cannot specify both ImageRequest and FirstAvailableImageRequests!");
+        if (this.hYy == null || (this.hZo == null && this.hZm == null && this.hZn == null)) {
             z = true;
         }
         g.c(z, "Cannot specify DataSourceSupplier with other ImageRequests! Use one or the other.");
@@ -175,28 +175,28 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static String bTb() {
-        return String.valueOf(hZr.getAndIncrement());
+        return String.valueOf(hZs.getAndIncrement());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public i<com.facebook.datasource.b<IMAGE>> bTc() {
-        if (this.hYx != null) {
-            return this.hYx;
+        if (this.hYy != null) {
+            return this.hYy;
         }
         i<com.facebook.datasource.b<IMAGE>> iVar = null;
-        if (this.hZl != null) {
-            iVar = aB(this.hZl);
-        } else if (this.hZn != null) {
-            iVar = a(this.hZn, this.hZo);
+        if (this.hZm != null) {
+            iVar = aB(this.hZm);
+        } else if (this.hZo != null) {
+            iVar = a(this.hZo, this.hZp);
         }
-        if (iVar != null && this.hZm != null) {
+        if (iVar != null && this.hZn != null) {
             ArrayList arrayList = new ArrayList(2);
             arrayList.add(iVar);
-            arrayList.add(aB(this.hZm));
+            arrayList.add(aB(this.hZn));
             iVar = f.ep(arrayList);
         }
         if (iVar == null) {
-            return com.facebook.datasource.c.x(hZk);
+            return com.facebook.datasource.c.x(hZl);
         }
         return iVar;
     }
@@ -237,27 +237,27 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
     }
 
     protected void b(a aVar) {
-        if (this.hYD != null) {
-            for (c cVar : this.hYD) {
+        if (this.hYE != null) {
+            for (c cVar : this.hYE) {
                 aVar.a(cVar);
             }
         }
-        if (this.hYU != null) {
-            aVar.a(this.hYU);
+        if (this.hYV != null) {
+            aVar.a(this.hYV);
         }
-        if (this.hZp) {
-            aVar.a(hZj);
+        if (this.hZq) {
+            aVar.a(hZk);
         }
     }
 
     protected void c(a aVar) {
-        if (this.hYN) {
+        if (this.hYO) {
             com.facebook.drawee.components.b bSM = aVar.bSM();
             if (bSM == null) {
                 bSM = new com.facebook.drawee.components.b();
                 aVar.a(bSM);
             }
-            bSM.oB(this.hYN);
+            bSM.oB(this.hYO);
             d(aVar);
         }
     }

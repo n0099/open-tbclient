@@ -6,11 +6,11 @@ public class c {
     public String appName;
     public String content;
     public String forumId;
-    public String hLn;
     public String hLo;
     public String hLp;
     public String hLq;
     public String hLr;
+    public String hLs;
     public String imageUrl;
     public String linkUrl;
     public String title;

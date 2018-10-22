@@ -13,7 +13,7 @@ public class b implements h {
         return dwB;
     }
 
-    public int ayh() {
+    public int ayi() {
         return this.dwC;
     }
 

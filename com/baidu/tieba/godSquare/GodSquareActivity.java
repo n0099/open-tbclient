@@ -17,20 +17,20 @@ import com.baidu.tieba.godSquare.model.b;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class GodSquareActivity extends BaseActivity<GodSquareActivity> implements BdListView.e, j.b {
-    private a ege;
-    private b egf;
+    private a egf;
+    private b egg;
     private boolean mHasMore = true;
-    private boolean egg = false;
-    private b.a egh = new b.a() { // from class: com.baidu.tieba.godSquare.GodSquareActivity.1
+    private boolean egh = false;
+    private b.a egi = new b.a() { // from class: com.baidu.tieba.godSquare.GodSquareActivity.1
         @Override // com.baidu.tieba.godSquare.model.b.a
         public void a(List<h> list, boolean z, boolean z2, String str) {
             GodSquareActivity.this.mHasMore = z2;
-            GodSquareActivity.this.ege.getListView().completePullRefreshPostDelayed(SystemScreenshotManager.DELAY_TIME);
-            GodSquareActivity.this.ege.hideLoadingView();
+            GodSquareActivity.this.egf.getListView().completePullRefreshPostDelayed(SystemScreenshotManager.DELAY_TIME);
+            GodSquareActivity.this.egf.hideLoadingView();
             if (v.J(list)) {
-                GodSquareActivity.this.ege.aIp();
-                if (v.J(GodSquareActivity.this.egf.dwM)) {
-                    GodSquareActivity.this.ege.nt(str);
+                GodSquareActivity.this.egf.aIp();
+                if (v.J(GodSquareActivity.this.egg.dwM)) {
+                    GodSquareActivity.this.egf.nt(str);
                     return;
                 }
                 GodSquareActivity.this.mHasMore = true;
@@ -40,18 +40,18 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
                 }
                 return;
             }
-            GodSquareActivity.this.ege.ZH();
+            GodSquareActivity.this.egf.ZI();
             if (z) {
-                GodSquareActivity.this.egf.dwM = list;
-                GodSquareActivity.this.ege.ce(GodSquareActivity.this.egf.dwM);
+                GodSquareActivity.this.egg.dwM = list;
+                GodSquareActivity.this.egf.ce(GodSquareActivity.this.egg.dwM);
             } else {
-                GodSquareActivity.this.egf.dwM.addAll(list);
-                GodSquareActivity.this.ege.notifyDataSetChanged();
+                GodSquareActivity.this.egg.dwM.addAll(list);
+                GodSquareActivity.this.egf.notifyDataSetChanged();
             }
             if (z2) {
-                GodSquareActivity.this.ege.aIo();
+                GodSquareActivity.this.egf.aIo();
             } else {
-                GodSquareActivity.this.ege.aIq();
+                GodSquareActivity.this.egf.aIq();
             }
         }
     };
@@ -62,8 +62,8 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid)) {
-                    if (GodSquareActivity.this.egf.ca(com.baidu.adp.lib.g.b.d(updateAttentionMessage.getData().toUid, 0L))) {
-                        GodSquareActivity.this.egg = true;
+                    if (GodSquareActivity.this.egg.ca(com.baidu.adp.lib.g.b.d(updateAttentionMessage.getData().toUid, 0L))) {
+                        GodSquareActivity.this.egh = true;
                     }
                 }
             }
@@ -73,10 +73,10 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void bn(boolean z) {
             if (z) {
-                if (v.J(GodSquareActivity.this.egf.dwM)) {
+                if (v.J(GodSquareActivity.this.egg.dwM)) {
                     GodSquareActivity.this.aIn();
                 } else {
-                    GodSquareActivity.this.ege.startPullRefresh();
+                    GodSquareActivity.this.egf.startPullRefresh();
                 }
             }
         }
@@ -86,9 +86,9 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.ege = new a(this);
-        this.ege.g(this.cRx);
-        this.egf = new b(this.egh, this);
+        this.egf = new a(this);
+        this.egf.g(this.cRx);
+        this.egg = new b(this.egi, this);
         registerListener(this.mAttentionListener);
         aIn();
     }
@@ -97,16 +97,16 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.ege.notifyDataSetChanged();
-        if (this.egg) {
-            this.ege.startPullRefresh();
+        this.egf.notifyDataSetChanged();
+        if (this.egh) {
+            this.egf.startPullRefresh();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aIn() {
-        this.ege.showLoadingView();
-        this.egf.update();
+        this.egf.showLoadingView();
+        this.egg.update();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -121,20 +121,20 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.ege.onChangeSkinType(i);
+        this.egf.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tbadk.core.view.j.b
     public void bp(boolean z) {
-        this.egg = false;
-        this.egf.update();
+        this.egh = false;
+        this.egg.update();
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
         if (this.mHasMore) {
-            this.egf.YK();
-            this.ege.aIo();
+            this.egg.YL();
+            this.egf.aIo();
         }
     }
 

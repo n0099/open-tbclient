@@ -8,21 +8,21 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class ae implements ai<com.facebook.imagepipeline.f.d> {
-    private final com.facebook.common.memory.a hXc;
-    private final com.facebook.common.memory.g icg;
-    private final af ieq;
+    private final com.facebook.common.memory.a hXd;
+    private final com.facebook.common.memory.g ich;
+    private final af ier;
 
     public ae(com.facebook.common.memory.g gVar, com.facebook.common.memory.a aVar, af afVar) {
-        this.icg = gVar;
-        this.hXc = aVar;
-        this.ieq = afVar;
+        this.ich = gVar;
+        this.hXd = aVar;
+        this.ier = afVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
         ajVar.bXr().cX(ajVar.getId(), "NetworkFetchProducer");
-        final s d = this.ieq.d(jVar, ajVar);
-        this.ieq.a((af) d, new af.a() { // from class: com.facebook.imagepipeline.producers.ae.1
+        final s d = this.ier.d(jVar, ajVar);
+        this.ier.a((af) d, new af.a() { // from class: com.facebook.imagepipeline.producers.ae.1
             @Override // com.facebook.imagepipeline.producers.af.a
             public void e(InputStream inputStream, int i) throws IOException {
                 ae.this.a(d, inputStream, i);
@@ -44,11 +44,11 @@ public class ae implements ai<com.facebook.imagepipeline.f.d> {
     public void a(s sVar, InputStream inputStream, int i) throws IOException {
         com.facebook.common.memory.i bRH;
         if (i > 0) {
-            bRH = this.icg.xe(i);
+            bRH = this.ich.xe(i);
         } else {
-            bRH = this.icg.bRH();
+            bRH = this.ich.bRH();
         }
-        byte[] bArr = this.hXc.get(16384);
+        byte[] bArr = this.hXd.get(16384);
         while (true) {
             try {
                 int read = inputStream.read(bArr);
@@ -59,12 +59,12 @@ public class ae implements ai<com.facebook.imagepipeline.f.d> {
                         sVar.bXD().ax(cg(bRH.size(), i));
                     }
                 } else {
-                    this.ieq.a((af) sVar, bRH.size());
+                    this.ier.a((af) sVar, bRH.size());
                     b(bRH, sVar);
                     return;
                 }
             } finally {
-                this.hXc.release(bArr);
+                this.hXd.release(bArr);
                 bRH.close();
             }
         }
@@ -124,7 +124,7 @@ public class ae implements ai<com.facebook.imagepipeline.f.d> {
 
     private boolean c(s sVar) {
         if (sVar.bXE().bXq().bYj()) {
-            return this.ieq.a(sVar);
+            return this.ier.a(sVar);
         }
         return false;
     }
@@ -132,7 +132,7 @@ public class ae implements ai<com.facebook.imagepipeline.f.d> {
     @Nullable
     private Map<String, String> b(s sVar, int i) {
         if (sVar.bXr().yD(sVar.getId())) {
-            return this.ieq.b(sVar, i);
+            return this.ier.b(sVar, i);
         }
         return null;
     }

@@ -16,9 +16,9 @@ import com.baidu.tieba.e;
 public class MessageCardBottomView extends LinearLayout {
     private TextView aEG;
     private String aNQ;
-    private ViewGroup eYc;
-    private ImageView eYd;
-    private TextView eYe;
+    private ViewGroup eYd;
+    private ImageView eYe;
+    private TextView eYf;
 
     public MessageCardBottomView(Context context) {
         super(context);
@@ -33,9 +33,9 @@ public class MessageCardBottomView extends LinearLayout {
     private void cs(Context context) {
         View inflate = LayoutInflater.from(context).inflate(e.h.message_card_bottom_layout, (ViewGroup) this, true);
         this.aEG = (TextView) inflate.findViewById(e.g.message_bottom_bar_name);
-        this.eYc = (ViewGroup) inflate.findViewById(e.g.message_bottom_reply_container);
-        this.eYd = (ImageView) inflate.findViewById(e.g.message_bottom_reply_img);
-        this.eYe = (TextView) inflate.findViewById(e.g.message_bottom_reply);
+        this.eYd = (ViewGroup) inflate.findViewById(e.g.message_bottom_reply_container);
+        this.eYe = (ImageView) inflate.findViewById(e.g.message_bottom_reply_img);
+        this.eYf = (TextView) inflate.findViewById(e.g.message_bottom_reply);
     }
 
     public void setData(String str, boolean z) {
@@ -44,7 +44,7 @@ public class MessageCardBottomView extends LinearLayout {
             return;
         }
         setVisibility(0);
-        this.eYc.setVisibility(z ? 0 : 8);
+        this.eYd.setVisibility(z ? 0 : 8);
         if (ao.isEmpty(str)) {
             this.aEG.setVisibility(8);
             return;
@@ -56,11 +56,11 @@ public class MessageCardBottomView extends LinearLayout {
 
     public void onChangeSkinType() {
         al.h(this.aEG, e.d.cp_cont_d);
-        al.h(this.eYe, e.f.selector_comment_and_prise_item_text_color);
-        al.c(this.eYd, e.f.icon_home_card_comment);
+        al.h(this.eYf, e.f.selector_comment_and_prise_item_text_color);
+        al.c(this.eYe, e.f.icon_home_card_comment);
     }
 
     public View getReplyContainer() {
-        return this.eYc;
+        return this.eYd;
     }
 }

@@ -15,7 +15,7 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class d extends BaseAdapter {
     BaseActivity bwX;
-    private View.OnClickListener eBX = new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.d.1
+    private View.OnClickListener eBY = new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.d.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int intValue = ((Integer) view.getTag()).intValue();
@@ -121,7 +121,7 @@ public class d extends BaseAdapter {
                     chatMessage2.setMsgType(aVar.type);
                     j.a(this.mContext, historyItemView3, historyItemView4.getImageView(), chatMessage2, 0L, "official_history_adapter");
                     historyItemView4.getImageView().setTag(Integer.valueOf(i));
-                    historyItemView4.getImageView().setOnClickListener(this.eBX);
+                    historyItemView4.getImageView().setOnClickListener(this.eBY);
                     return historyItemView3;
                 case 2:
                     View historyItemView5 = view == null ? new HistoryItemView(this.mContext) : view;

@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public final class d {
     private Context g;
     private String h;
-    private JSONArray hTy;
+    private JSONArray hTz;
     private String i;
     private boolean j;
     private Map<String, g> k;
@@ -20,7 +20,7 @@ public final class d {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class a {
-        public static final d hTz = new d((byte) 0);
+        public static final d hTA = new d((byte) 0);
     }
 
     /* synthetic */ d(byte b) {
@@ -40,7 +40,7 @@ public final class d {
     }
 
     public static d bQf() {
-        return a.hTz;
+        return a.hTA;
     }
 
     public final void a(Context context) {
@@ -87,7 +87,7 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final SampleResult xM(String str) {
-        if (this.hTy == null) {
+        if (this.hTz == null) {
             if (str == null || this.k == null) {
                 return SampleResult.OTHERE;
             }
@@ -96,8 +96,8 @@ public final class d {
             }
             return SampleResult.OTHERE;
         }
-        for (int i = 0; i < this.hTy.length(); i++) {
-            JSONObject optJSONObject = this.hTy.optJSONObject(i);
+        for (int i = 0; i < this.hTz.length(); i++) {
+            JSONObject optJSONObject = this.hTz.optJSONObject(i);
             if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
                 return i.xZ(optJSONObject.optString("group"));
             }

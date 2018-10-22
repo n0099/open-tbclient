@@ -43,11 +43,11 @@ public abstract class c extends b implements ae {
         this.cPV = str;
     }
 
-    public int aoy() {
+    public int aoz() {
         return this.cPU;
     }
 
-    public String aoz() {
+    public String aoA() {
         return this.mSource + "#" + this.cPU + "#" + this.cPV;
     }
 
@@ -59,11 +59,11 @@ public abstract class c extends b implements ae {
         return this.mSource;
     }
 
-    public String aoA() {
+    public String aoB() {
         return this.cPV;
     }
 
-    public String aoB() {
+    public String aoC() {
         return this.cPW;
     }
 
@@ -71,7 +71,7 @@ public abstract class c extends b implements ae {
         this.cPW = str;
     }
 
-    public bb YA() {
+    public bb YB() {
         return null;
     }
 
@@ -87,7 +87,7 @@ public abstract class c extends b implements ae {
         return this.mExtra;
     }
 
-    public Integer aoC() {
+    public Integer aoD() {
         return this.cPY;
     }
 
@@ -100,36 +100,36 @@ public abstract class c extends b implements ae {
     }
 
     public am w(String str, boolean z) {
-        bb YA = YA();
-        if (YA == null) {
+        bb YB = YB();
+        if (YB == null) {
             return null;
         }
-        am ax = new am(str).ax(ImageViewerConfig.FORUM_ID, String.valueOf(YA.getFid())).ax("tid", String.valueOf(YA.getTid())).ax(VideoPlayActivityConfig.OBJ_ID, getExtra()).ax("obj_param1", getWeight()).x("obj_param2", 1).ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).x("obj_locate", aoy()).ax("uid", TbadkCoreApplication.getCurrentAccount()).ax("obj_param3", com.baidu.tieba.card.o.aof());
+        am ax = new am(str).ax(ImageViewerConfig.FORUM_ID, String.valueOf(YB.getFid())).ax("tid", String.valueOf(YB.getTid())).ax(VideoPlayActivityConfig.OBJ_ID, getExtra()).ax("obj_param1", getWeight()).x("obj_param2", 1).ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).x("obj_locate", aoz()).ax("uid", TbadkCoreApplication.getCurrentAccount()).ax("obj_param3", com.baidu.tieba.card.o.aog());
         if (!z) {
-            ax.x("obj_type", aoD());
+            ax.x("obj_type", aoE());
         } else {
-            if (YA.are > 0) {
+            if (YB.are > 0) {
                 ax.x("midpageflag", 1);
             } else {
                 ax.x("midpageflag", 0);
             }
-            ax.ax("ab_tag", aoA());
-            ax.x("is_vertical", aoC().intValue());
+            ax.ax("ab_tag", aoB());
+            ax.x("is_vertical", aoD().intValue());
         }
-        if (YA.zM() != null && YA.zM().bCd() != null && YA.zM().bCd().QK() != null && YA.zM().bCd().QK().size() > 0) {
-            ax.x("obj_to", YA.zM().hdA ? 2 : 1);
+        if (YB.zM() != null && YB.zM().bCd() != null && YB.zM().bCd().QK() != null && YB.zM().bCd().QK().size() > 0) {
+            ax.x("obj_to", YB.zM().hdB ? 2 : 1);
         }
         return ax;
     }
 
     public am Z(String str, int i) {
-        bb YA = YA();
-        if (YA == null) {
+        bb YB = YB();
+        if (YB == null) {
             return null;
         }
-        am ax = new am(str).ax(ImageViewerConfig.FORUM_ID, String.valueOf(YA.getFid())).ax("tid", String.valueOf(YA.getTid())).x(VideoPlayActivityConfig.OBJ_ID, R(YA)).x("obj_param2", 1).ax("obj_param1", getWeight()).ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).x("obj_locate", aoy()).ax("obj_name", aoA()).ax("uid", TbadkCoreApplication.getCurrentAccount()).ax("obj_param3", com.baidu.tieba.card.o.aof());
+        am ax = new am(str).ax(ImageViewerConfig.FORUM_ID, String.valueOf(YB.getFid())).ax("tid", String.valueOf(YB.getTid())).x(VideoPlayActivityConfig.OBJ_ID, R(YB)).x("obj_param2", 1).ax("obj_param1", getWeight()).ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).x("obj_locate", aoz()).ax("obj_name", aoB()).ax("uid", TbadkCoreApplication.getCurrentAccount()).ax("obj_param3", com.baidu.tieba.card.o.aog());
         if (i == 0) {
-            ax.x("obj_type", aoD());
+            ax.x("obj_type", aoE());
         } else {
             ax.x("obj_type", i);
         }
@@ -137,14 +137,14 @@ public abstract class c extends b implements ae {
         return ax;
     }
 
-    private int aoD() {
+    private int aoE() {
         int i;
         int i2 = 0;
-        bb YA = YA();
-        if (YA == null) {
+        bb YB = YB();
+        if (YB == null) {
             return 0;
         }
-        ArrayList<MediaData> yG = YA.yG();
+        ArrayList<MediaData> yG = YB.yG();
         if (yG == null) {
             i = 0;
         } else {
@@ -166,9 +166,9 @@ public abstract class c extends b implements ae {
 
     @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<PreLoadImageInfo> getImages() {
-        bb YA = YA();
-        if (YA != null) {
-            return YA.getImages();
+        bb YB = YB();
+        if (YB != null) {
+            return YB.getImages();
         }
         return null;
     }
@@ -184,7 +184,7 @@ public abstract class c extends b implements ae {
         this.cPZ = i;
     }
 
-    public boolean aoE() {
+    public boolean aoF() {
         return this.cPZ == 1;
     }
 }

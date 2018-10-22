@@ -25,15 +25,15 @@ public class g extends com.baidu.tieba.frs.h<AdvertAppInfo, h> {
     private n brm;
     private com.baidu.adp.lib.e.b<ConstrainImageLayout> dEO;
     private com.baidu.adp.lib.e.b<TbImageView> dEP;
-    AdvertAppInfo.ILegoAdvert gDw;
+    AdvertAppInfo.ILegoAdvert gDx;
 
     public g(n nVar, BdUniqueId bdUniqueId) {
         super(nVar.getTbPageContext(), bdUniqueId);
-        this.gDw = null;
+        this.gDx = null;
         this.dEO = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.recapp.b.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: aBF */
+            /* renamed from: aBG */
             public ConstrainImageLayout jB() {
                 return new AdConstrainImageLayout(g.this.mPageContext.getPageActivity());
             }
@@ -106,7 +106,7 @@ public class g extends com.baidu.tieba.frs.h<AdvertAppInfo, h> {
         if (advertAppInfo == null || advertAppInfo.legoCard == null) {
             return null;
         }
-        this.gDw = advertAppInfo.legoCard;
+        this.gDx = advertAppInfo.legoCard;
         if (bK(view)) {
             this.viewholder = onCreateViewHolder(viewGroup);
             if (this.viewholder == 0) {
@@ -120,11 +120,11 @@ public class g extends com.baidu.tieba.frs.h<AdvertAppInfo, h> {
     }
 
     private boolean bK(View view) {
-        if (view == null || view.getTag() == null || this.viewholder == 0 || this.gDw == null) {
+        if (view == null || view.getTag() == null || this.viewholder == 0 || this.gDx == null) {
             return true;
         }
         if (((h) this.viewholder).getClass().isAssignableFrom(view.getTag().getClass()) && view.getTag().getClass().isAssignableFrom(((h) this.viewholder).getClass()) && (view.getTag(e.g.tag_first) instanceof AdvertAppInfo.ILegoAdvert)) {
-            return !this.gDw.isReusable((AdvertAppInfo.ILegoAdvert) view.getTag(e.g.tag_first));
+            return !this.gDx.isReusable((AdvertAppInfo.ILegoAdvert) view.getTag(e.g.tag_first));
         }
         return true;
     }
@@ -135,13 +135,13 @@ public class g extends com.baidu.tieba.frs.h<AdvertAppInfo, h> {
     /* renamed from: bD */
     public h onCreateViewHolder(ViewGroup viewGroup) {
         View view;
-        if (this.gDw != null && (view = (View) com.baidu.tieba.lego.card.b.aWA().a(this.mPageContext, this.gDw, 1)) != null) {
+        if (this.gDx != null && (view = (View) com.baidu.tieba.lego.card.b.aWA().a(this.mPageContext, this.gDx, 1)) != null) {
             if (view instanceof AdPostImageView) {
                 AdPostImageView adPostImageView = (AdPostImageView) view;
                 adPostImageView.setConstrainImagePool(this.dEP);
                 adPostImageView.setConstrainLayoutPool(this.dEO);
             }
-            view.setTag(e.g.tag_first, this.gDw);
+            view.setTag(e.g.tag_first, this.gDx);
             return new h((com.baidu.tieba.lego.card.view.e) view);
         }
         return null;
@@ -154,7 +154,7 @@ public class g extends com.baidu.tieba.frs.h<AdvertAppInfo, h> {
         if (advertAppInfo == null || advertAppInfo.legoCard == null) {
             return null;
         }
-        this.gDw = advertAppInfo.legoCard;
+        this.gDx = advertAppInfo.legoCard;
         return onCreateViewHolder(viewGroup);
     }
 
@@ -167,8 +167,8 @@ public class g extends com.baidu.tieba.frs.h<AdvertAppInfo, h> {
         if (this.brm == null) {
             return null;
         }
-        this.gDw = advertAppInfo.legoCard;
-        if (this.gDw == null || view == null) {
+        this.gDx = advertAppInfo.legoCard;
+        if (this.gDx == null || view == null) {
             return null;
         }
         this.mPageContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
@@ -177,10 +177,10 @@ public class g extends com.baidu.tieba.frs.h<AdvertAppInfo, h> {
             com.baidu.tbadk.core.data.b.a(advertAppInfo);
             com.baidu.tieba.lego.card.view.e eVar = (com.baidu.tieba.lego.card.view.e) view;
             eVar.setFromCDN(this.mIsFromCDN);
-            eVar.aa(this.gDw);
+            eVar.aa(this.gDx);
             final String fid = this.brm.getFid();
             final int pageNum = this.brm.getPageNum();
-            this.brm.azO();
+            this.brm.azP();
             eVar.setAfterClickSchemeListener(new com.baidu.tieba.lego.card.a() { // from class: com.baidu.tieba.recapp.b.g.3
                 @Override // com.baidu.tieba.lego.card.a
                 public void b(int i2, HashMap<String, Object> hashMap) {

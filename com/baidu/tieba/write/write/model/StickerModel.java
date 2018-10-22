@@ -12,12 +12,12 @@ import com.baidu.tieba.write.write.message.ResponseSocketGetStickerMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class StickerModel extends BdBaseModel {
-    private a hRm;
-    private com.baidu.adp.framework.listener.a hRn;
+    private a hRn;
+    private com.baidu.adp.framework.listener.a hRo;
 
     public StickerModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.hRn = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_STICKET_LIST, 309475) { // from class: com.baidu.tieba.write.write.model.StickerModel.1
+        this.hRo = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_STICKET_LIST, 309475) { // from class: com.baidu.tieba.write.write.model.StickerModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
@@ -28,18 +28,18 @@ public class StickerModel extends BdBaseModel {
                         } else if (responsedMessage instanceof ResponseSocketGetStickerMessage) {
                             list = ((ResponseSocketGetStickerMessage) responsedMessage).getUrlList();
                         }
-                        if (StickerModel.this.hRm != null) {
-                            StickerModel.this.hRm.ej(list);
+                        if (StickerModel.this.hRn != null) {
+                            StickerModel.this.hRn.ej(list);
                         }
                     }
                 }
             }
         };
-        registerListener(this.hRn);
+        registerListener(this.hRo);
     }
 
     public void a(a aVar) {
-        this.hRm = aVar;
+        this.hRn = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

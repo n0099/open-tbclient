@@ -25,7 +25,7 @@ public class i extends com.baidu.adp.widget.ListView.a<CardPersonDynamicThreadDa
         this.dEO = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.personPolymeric.a.i.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: aBF */
+            /* renamed from: aBG */
             public ConstrainImageLayout jB() {
                 return new ConstrainImageLayout(i.this.mPageContext.getPageActivity());
             }
@@ -123,8 +123,8 @@ public class i extends com.baidu.adp.widget.ListView.a<CardPersonDynamicThreadDa
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, CardPersonDynamicThreadData cardPersonDynamicThreadData, com.baidu.tieba.card.a.a<t> aVar) {
-        aVar.aoP().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar.aoP().a(cardPersonDynamicThreadData);
+        aVar.aoQ().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.aoQ().a(cardPersonDynamicThreadData);
         return aVar.getView();
     }
 

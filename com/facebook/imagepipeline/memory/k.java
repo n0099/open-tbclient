@@ -6,20 +6,20 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class k extends BasePool<NativeMemoryChunk> {
-    private final int[] ige;
+    private final int[] igf;
 
     public k(com.facebook.common.memory.c cVar, r rVar, s sVar) {
         super(cVar, rVar, sVar);
-        SparseIntArray sparseIntArray = rVar.igw;
-        this.ige = new int[sparseIntArray.size()];
-        for (int i = 0; i < this.ige.length; i++) {
-            this.ige[i] = sparseIntArray.keyAt(i);
+        SparseIntArray sparseIntArray = rVar.igx;
+        this.igf = new int[sparseIntArray.size()];
+        for (int i = 0; i < this.igf.length; i++) {
+            this.igf[i] = sparseIntArray.keyAt(i);
         }
         initialize();
     }
 
     public int bWS() {
-        return this.ige[0];
+        return this.igf[0];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,7 +50,7 @@ public class k extends BasePool<NativeMemoryChunk> {
         if (i <= 0) {
             throw new BasePool.InvalidSizeException(Integer.valueOf(i));
         }
-        for (int i2 : this.ige) {
+        for (int i2 : this.igf) {
             if (i2 >= i) {
                 return i2;
             }

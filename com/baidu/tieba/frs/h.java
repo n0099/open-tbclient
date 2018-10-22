@@ -109,7 +109,7 @@ public abstract class h<T, V extends q.a> extends com.baidu.adp.widget.ListView.
         this.dzT = fVar;
     }
 
-    public boolean azp() {
+    public boolean azq() {
         return this.dzU;
     }
 

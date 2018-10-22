@@ -20,19 +20,19 @@ public class g extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
     private String bVS;
     private k cKF;
     private x dIU;
-    private ad eio;
+    private ad eip;
     private TbPageContext<?> mPageContext;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.eio = new ad<bc>() { // from class: com.baidu.tieba.homepage.concern.a.g.1
+        this.eip = new ad<bc>() { // from class: com.baidu.tieba.homepage.concern.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             public void a(View view, bc bcVar) {
                 k kVar = g.this.cKF;
-                if (view != null && g.this.dIU != null && g.this.dIU.getView() != null && kVar != null && kVar.YA() != null && !StringUtils.isNull(kVar.YA().getTid())) {
+                if (view != null && g.this.dIU != null && g.this.dIU.getView() != null && kVar != null && kVar.YB() != null && !StringUtils.isNull(kVar.YB().getTid())) {
                     am amVar = new am("c12352");
-                    if ((g.this.dIU.getHeaderImg() == null || view.getId() != g.this.dIU.getHeaderImg().getId()) && (g.this.dIU.anR() == null || view.getId() != g.this.dIU.anR().getId())) {
+                    if ((g.this.dIU.getHeaderImg() == null || view.getId() != g.this.dIU.getHeaderImg().getId()) && (g.this.dIU.anS() == null || view.getId() != g.this.dIU.anS().getId())) {
                         if (view.getId() == g.this.dIU.cOy.getId()) {
                             amVar.x("obj_locate", 3);
                         } else {
@@ -61,7 +61,7 @@ public class g extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
         this.dIU.j(this.aZt);
         this.dIU.fe(false);
         this.dIU.setIsFromConcern(true);
-        this.dIU.b(this.eio);
+        this.dIU.b(this.eip);
         this.dIU.currentPageType = 1;
         if (this.dIU.bWf != null) {
             this.dIU.bWf.ary = 1;
@@ -80,21 +80,21 @@ public class g extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, k kVar, com.baidu.tieba.card.a.a<x> aVar) {
-        if (kVar == null || aVar == null || aVar.aoP() == null) {
+        if (kVar == null || aVar == null || aVar.aoQ() == null) {
             return null;
         }
         this.cKF = kVar;
         kVar.jT(i + 1);
-        v.aoo().a(kVar.mk("c12351"));
-        bc bcVar = new bc(kVar.YA());
+        v.aop().a(kVar.mk("c12351"));
+        bc bcVar = new bc(kVar.YB());
         bcVar.stType = "personalize_page";
         bcVar.arw = 9;
         bcVar.arx = 4;
         bcVar.arz = 4;
-        if (aVar.aoP() instanceof com.baidu.tieba.a.e) {
-            aVar.aoP().setPage(this.bVS);
+        if (aVar.aoQ() instanceof com.baidu.tieba.a.e) {
+            aVar.aoQ().setPage(this.bVS);
         }
-        aVar.aoP().a(bcVar);
+        aVar.aoQ().a(bcVar);
         return aVar.getView();
     }
 

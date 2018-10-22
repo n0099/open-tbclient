@@ -19,7 +19,7 @@ public class a {
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
-    public List<com.baidu.adp.widget.ListView.a> ays() {
+    public List<com.baidu.adp.widget.ListView.a> ayt() {
         return this.mAdapters;
     }
 

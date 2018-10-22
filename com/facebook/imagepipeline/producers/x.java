@@ -13,13 +13,13 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 /* loaded from: classes2.dex */
 public class x implements at<com.facebook.imagepipeline.f.d> {
-    private final com.facebook.common.memory.g icg;
+    private final com.facebook.common.memory.g ich;
     private final ContentResolver mContentResolver;
     private final Executor mExecutor;
 
     public x(Executor executor, com.facebook.common.memory.g gVar, ContentResolver contentResolver) {
         this.mExecutor = executor;
-        this.icg = gVar;
+        this.ich = gVar;
         this.mContentResolver = contentResolver;
     }
 
@@ -43,7 +43,7 @@ public class x implements at<com.facebook.imagepipeline.f.d> {
                 if (C == null || !C.hasThumbnail()) {
                     return null;
                 }
-                return x.this.a(x.this.icg.T(C.getThumbnail()), C);
+                return x.this.a(x.this.ich.T(C.getThumbnail()), C);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -89,7 +89,7 @@ public class x implements at<com.facebook.imagepipeline.f.d> {
         try {
             com.facebook.imagepipeline.f.d dVar = new com.facebook.imagepipeline.f.d(c);
             com.facebook.common.references.a.c((com.facebook.common.references.a<?>) c);
-            dVar.c(com.facebook.c.b.ibM);
+            dVar.c(com.facebook.c.b.ibN);
             dVar.xz(a);
             dVar.setWidth(intValue);
             dVar.setHeight(intValue2);

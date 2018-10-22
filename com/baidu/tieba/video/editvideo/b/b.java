@@ -7,15 +7,15 @@ import java.io.File;
 /* loaded from: classes5.dex */
 public class b {
     private boolean Ep = false;
-    private String hrg;
-    private a hsQ;
-    private String hsR;
-    private f hsS;
-    private d hsT;
-    private e hsU;
-    private volatile boolean hsV;
+    private String hrh;
+    private a hsR;
+    private String hsS;
+    private f hsT;
+    private d hsU;
+    private e hsV;
     private volatile boolean hsW;
     private volatile boolean hsX;
+    private volatile boolean hsY;
     private Context mContext;
     private String mFilterName;
 
@@ -30,78 +30,78 @@ public class b {
 
     public b(Context context, String str, String str2, String str3) {
         this.mContext = context;
-        this.hsR = str;
-        this.hrg = str2;
+        this.hsS = str;
+        this.hrh = str2;
         this.mFilterName = str3;
     }
 
     public void bGV() {
         if (!this.Ep) {
             this.Ep = true;
-            this.hsV = false;
             this.hsW = false;
             this.hsX = false;
+            this.hsY = false;
             try {
-                File file = new File(new File(this.hrg).getParent());
+                File file = new File(new File(this.hrh).getParent());
                 if (!file.exists()) {
                     file.mkdirs();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                if (this.hsQ != null) {
-                    this.hsQ.aq(222, com.baidu.tieba.j.a.o(e));
+                if (this.hsR != null) {
+                    this.hsR.aq(222, com.baidu.tieba.j.a.o(e));
                 }
             }
             try {
-                this.hsU = new e(this.hrg);
-                this.hsS = new f(this.mContext, this.hsR, this.mFilterName, this.hsU, this.hsQ) { // from class: com.baidu.tieba.video.editvideo.b.b.1
+                this.hsV = new e(this.hrh);
+                this.hsT = new f(this.mContext, this.hsS, this.mFilterName, this.hsV, this.hsR) { // from class: com.baidu.tieba.video.editvideo.b.b.1
                     @Override // com.baidu.tieba.video.editvideo.b.f
-                    public void onPostExecute() {
-                        b.this.hsV = true;
-                        b.this.bGX();
-                    }
-                };
-                this.hsS.start();
-                this.hsT = new d(this.mContext, this.hsR, this.hsU, this.hsQ) { // from class: com.baidu.tieba.video.editvideo.b.b.2
-                    @Override // com.baidu.tieba.video.editvideo.b.d
                     public void onPostExecute() {
                         b.this.hsW = true;
                         b.this.bGX();
                     }
                 };
                 this.hsT.start();
+                this.hsU = new d(this.mContext, this.hsS, this.hsV, this.hsR) { // from class: com.baidu.tieba.video.editvideo.b.b.2
+                    @Override // com.baidu.tieba.video.editvideo.b.d
+                    public void onPostExecute() {
+                        b.this.hsX = true;
+                        b.this.bGX();
+                    }
+                };
+                this.hsU.start();
             } catch (Exception e2) {
             }
         }
     }
 
     public void bGW() {
-        if (this.hsS != null) {
-            this.hsS.interrupt();
-            this.hsS = null;
-        }
         if (this.hsT != null) {
             this.hsT.interrupt();
             this.hsT = null;
+        }
+        if (this.hsU != null) {
+            this.hsU.interrupt();
+            this.hsU = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bGX() {
-        if (this.hsV && this.hsW && !this.hsX) {
-            this.hsU.stop();
-            this.hsX = true;
+        if (this.hsW && this.hsX && !this.hsY) {
+            this.hsV.stop();
+            this.hsY = true;
             bGY();
         }
     }
 
     private void bGY() {
-        if (this.hsQ != null) {
-            File file = new File(this.hrg);
+        if (this.hsR != null) {
+            File file = new File(this.hrh);
             if (file.exists() && file.length() > 0) {
-                this.hsQ.vT(this.hrg);
+                this.hsR.vT(this.hrh);
             } else {
-                this.hsQ.aq(223, "Err empty outputFile");
+                this.hsR.aq(223, "Err empty outputFile");
             }
         }
         this.Ep = false;
@@ -112,6 +112,6 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.hsQ = aVar;
+        this.hsR = aVar;
     }
 }

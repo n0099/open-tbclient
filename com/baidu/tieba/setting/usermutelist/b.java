@@ -17,14 +17,14 @@ public class b extends c<UserMuteListActivity> {
     private View aix;
     private BaseActivity<UserMuteListActivity> bwX;
     private NoNetworkView dgC;
-    private a gQF;
+    private a gQG;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
 
     public b(BaseActivity<UserMuteListActivity> baseActivity, a aVar) {
         super(baseActivity.getPageContext());
         this.bwX = baseActivity;
-        this.gQF = aVar;
+        this.gQG = aVar;
         initUI();
     }
 

@@ -5,9 +5,9 @@ import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class bf<R, T> implements d.b<R, T> {
-    private static final Object iyL = new Object();
-    private final rx.functions.e<R> iyJ;
-    final rx.functions.g<R, ? super T, R> iyK;
+    private static final Object iyM = new Object();
+    private final rx.functions.e<R> iyK;
+    final rx.functions.g<R, ? super T, R> iyL;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -24,31 +24,31 @@ public final class bf<R, T> implements d.b<R, T> {
     }
 
     public bf(rx.functions.e<R> eVar, rx.functions.g<R, ? super T, R> gVar) {
-        this.iyJ = eVar;
-        this.iyK = gVar;
+        this.iyK = eVar;
+        this.iyL = gVar;
     }
 
     public bf(rx.functions.g<R, ? super T, R> gVar) {
-        this(iyL, gVar);
+        this(iyM, gVar);
     }
 
     /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: rx.j<T>, rx.j<? super T> */
     public rx.j<? super T> call(final rx.j<? super R> jVar) {
-        final R call = this.iyJ.call();
-        if (call == iyL) {
+        final R call = this.iyK.call();
+        if (call == iyM) {
             return (rx.j<T>) new rx.j<T>(jVar) { // from class: rx.internal.operators.bf.2
-                boolean itq;
+                boolean itr;
                 R value;
 
                 @Override // rx.e
                 public void onNext(T t) {
                     R r;
-                    if (!this.itq) {
-                        this.itq = true;
+                    if (!this.itr) {
+                        this.itr = true;
                         r = t;
                     } else {
                         try {
-                            r = bf.this.iyK.j(this.value, t);
+                            r = bf.this.iyL.j(this.value, t);
                         } catch (Throwable th) {
                             rx.exceptions.a.a(th, jVar, t);
                             return;
@@ -80,7 +80,7 @@ public final class bf<R, T> implements d.b<R, T> {
             @Override // rx.e
             public void onNext(T t) {
                 try {
-                    R j = bf.this.iyK.j(this.value, t);
+                    R j = bf.this.iyL.j(this.value, t);
                     this.value = j;
                     aVar.onNext(j);
                 } catch (Throwable th) {
@@ -115,7 +115,7 @@ public final class bf<R, T> implements d.b<R, T> {
         volatile boolean done;
         boolean emitting;
         Throwable error;
-        long iyP;
+        long iyQ;
         boolean missed;
         volatile rx.f producer;
         final Queue<Object> queue;
@@ -182,7 +182,7 @@ public final class bf<R, T> implements d.b<R, T> {
                     synchronized (this.requested) {
                         fVar = this.producer;
                         if (fVar == null) {
-                            this.iyP = rx.internal.operators.a.s(this.iyP, j);
+                            this.iyQ = rx.internal.operators.a.s(this.iyQ, j);
                         }
                     }
                 }
@@ -202,11 +202,11 @@ public final class bf<R, T> implements d.b<R, T> {
                 if (this.producer != null) {
                     throw new IllegalStateException("Can't set more than one Producer!");
                 }
-                j = this.iyP;
+                j = this.iyQ;
                 if (j != Long.MAX_VALUE) {
                     j--;
                 }
-                this.iyP = 0L;
+                this.iyQ = 0L;
                 this.producer = fVar;
             }
             if (j > 0) {

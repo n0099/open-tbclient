@@ -18,33 +18,33 @@ public class Static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921326, new CustomMessageTask.CustomRunnable<FrsFragment>() { // from class: com.baidu.tieba.frs.ar.Static.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<FrsFragment> customMessage) {
-                if (customMessage == null || customMessage.getData() == null || customMessage.getData() == null || customMessage.getData().azR() == null || customMessage.getData().azR().dGk == null) {
+                if (customMessage == null || customMessage.getData() == null || customMessage.getData() == null || customMessage.getData().azS() == null || customMessage.getData().azS().dGk == null) {
                     return null;
                 }
-                ForumArIno forumArIno = customMessage.getData().azR().dGk;
+                ForumArIno forumArIno = customMessage.getData().azS().dGk;
                 if (forumArIno._switch.intValue() == 0) {
                     return null;
                 }
                 FrsAREntryView frsAREntryView = new FrsAREntryView(customMessage.getData().getPageContext().getPageActivity());
                 frsAREntryView.setForumArIno(forumArIno);
-                if (customMessage.getData().azR().beT() != null) {
-                    frsAREntryView.setForumName(customMessage.getData().azR().beT().getName());
+                if (customMessage.getData().azS().beT() != null) {
+                    frsAREntryView.setForumName(customMessage.getData().azS().beT().getName());
                 }
-                frsAREntryView.aBX();
-                RelativeLayout aAI = customMessage.getData().azA().aAI();
-                if (aAI instanceof RelativeLayout) {
+                frsAREntryView.aBY();
+                RelativeLayout aAJ = customMessage.getData().azB().aAJ();
+                if (aAJ instanceof RelativeLayout) {
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
                     layoutParams.addRule(11);
                     layoutParams.addRule(12);
                     layoutParams.bottomMargin = 100;
                     layoutParams.rightMargin = 30;
-                    aAI.addView(frsAREntryView, layoutParams);
-                } else if (aAI instanceof FrameLayout) {
+                    aAJ.addView(frsAREntryView, layoutParams);
+                } else if (aAJ instanceof FrameLayout) {
                     FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
                     layoutParams2.gravity = 85;
                     layoutParams2.bottomMargin = 100;
                     layoutParams2.rightMargin = 30;
-                    ((FrameLayout) aAI).addView(frsAREntryView, layoutParams2);
+                    ((FrameLayout) aAJ).addView(frsAREntryView, layoutParams2);
                 }
                 CustomResponsedMessage<?> customResponsedMessage = new CustomResponsedMessage<>(2921326);
                 customResponsedMessage.setOrginalMessage(customMessage);

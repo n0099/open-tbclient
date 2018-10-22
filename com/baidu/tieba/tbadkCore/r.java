@@ -20,8 +20,8 @@ public class r {
     private String level_name;
     private int levelup_score;
     private BlockPopInfoData mBlockPopInfoData;
-    private List<FeedForumData> hbO = new ArrayList();
-    private int hbN = 0;
+    private List<FeedForumData> hbP = new ArrayList();
+    private int hbO = 0;
     private int like_num = 0;
     private int user_level = 0;
 
@@ -65,7 +65,7 @@ public class r {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.hbN = jSONObject.optInt("is_black", 0);
+                this.hbO = jSONObject.optInt("is_black", 0);
                 this.like_num = jSONObject.optInt("like_num", 0);
                 this.user_level = jSONObject.optInt("level_id", 0);
                 setLike(jSONObject.optInt("is_like", 0));
@@ -109,7 +109,7 @@ public class r {
                     feedForumData.setReason(jSONObject.optString(WebSocketAction.PARAM_KEY_REASON));
                     feedForumData.setIsLike(jSONObject.optInt("is_like", 0));
                     feedForumData.setPos(jSONObject.optInt("pos", 0));
-                    this.hbO.add(feedForumData);
+                    this.hbP.add(feedForumData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -154,7 +154,7 @@ public class r {
     }
 
     public List<FeedForumData> bzU() {
-        return this.hbO;
+        return this.hbP;
     }
 
     public BlockPopInfoData getBlockPopInfoData() {

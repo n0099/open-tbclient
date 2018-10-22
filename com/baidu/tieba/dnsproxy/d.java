@@ -9,7 +9,7 @@ import org.apache.http.cookie.ClientCookie;
 public class d {
     private static volatile d ddf = null;
 
-    public static final d asI() {
+    public static final d asJ() {
         if (ddf == null) {
             synchronized (d.class) {
                 if (ddf == null) {

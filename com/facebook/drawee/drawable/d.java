@@ -6,10 +6,10 @@ import android.graphics.drawable.Drawable;
 /* loaded from: classes2.dex */
 public class d {
     private int mAlpha = -1;
-    private boolean hZT = false;
+    private boolean hZU = false;
     private ColorFilter mColorFilter = null;
-    private int hZU = -1;
     private int hZV = -1;
+    private int hZW = -1;
 
     public void setAlpha(int i) {
         this.mAlpha = i;
@@ -17,15 +17,15 @@ public class d {
 
     public void setColorFilter(ColorFilter colorFilter) {
         this.mColorFilter = colorFilter;
-        this.hZT = true;
+        this.hZU = true;
     }
 
     public void setDither(boolean z) {
-        this.hZU = z ? 1 : 0;
+        this.hZV = z ? 1 : 0;
     }
 
     public void setFilterBitmap(boolean z) {
-        this.hZV = z ? 1 : 0;
+        this.hZW = z ? 1 : 0;
     }
 
     @SuppressLint({"Range"})
@@ -34,14 +34,14 @@ public class d {
             if (this.mAlpha != -1) {
                 drawable.setAlpha(this.mAlpha);
             }
-            if (this.hZT) {
+            if (this.hZU) {
                 drawable.setColorFilter(this.mColorFilter);
             }
-            if (this.hZU != -1) {
-                drawable.setDither(this.hZU != 0);
-            }
             if (this.hZV != -1) {
-                drawable.setFilterBitmap(this.hZV != 0);
+                drawable.setDither(this.hZV != 0);
+            }
+            if (this.hZW != -1) {
+                drawable.setFilterBitmap(this.hZW != 0);
             }
         }
     }

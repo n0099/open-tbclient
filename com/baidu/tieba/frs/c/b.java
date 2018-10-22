@@ -22,11 +22,11 @@ import com.baidu.tieba.e;
 import org.apache.http.HttpStatus;
 /* loaded from: classes6.dex */
 public class b implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
-    private ImageView dRp;
-    private TextView dRq;
-    private String dRr;
-    private View dRs;
+    private ImageView dRq;
+    private TextView dRr;
+    private String dRs;
     private View dRt;
+    private View dRu;
     private TbPageContext mContext;
     private View rootView;
     private TextView titleText;
@@ -36,7 +36,7 @@ public class b implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
         @Override // com.baidu.adp.lib.f.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             if (aVar != null) {
-                aVar.a(b.this.dRp);
+                aVar.a(b.this.dRq);
             }
         }
 
@@ -58,18 +58,18 @@ public class b implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
     public b(TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
         this.rootView = LayoutInflater.from(tbPageContext.getContext()).inflate(e.h.frs_head_image_item, (ViewGroup) null, false);
-        this.dRs = this.rootView.findViewById(e.g.frs_header_title_container);
-        this.dRp = (ImageView) this.rootView.findViewById(e.g.frs_head_image);
+        this.dRt = this.rootView.findViewById(e.g.frs_header_title_container);
+        this.dRq = (ImageView) this.rootView.findViewById(e.g.frs_head_image);
         this.titleText = (TextView) this.rootView.findViewById(e.g.frs_header_title);
-        this.dRq = (TextView) this.rootView.findViewById(e.g.frs_header_title_lable);
-        this.dRt = this.rootView.findViewById(e.g.frs_image_header_contianer);
+        this.dRr = (TextView) this.rootView.findViewById(e.g.frs_header_title_lable);
+        this.dRu = this.rootView.findViewById(e.g.frs_image_header_contianer);
         aEK();
-        this.dRt.getLayoutParams().height = aEJ();
-        this.dRt.requestLayout();
-        this.dRq.setText(tbPageContext.getString(e.j.frs_header_image_lable));
-        this.dRp.setOnClickListener(this);
-        this.dRs.setOnClickListener(this);
+        this.dRu.getLayoutParams().height = aEJ();
+        this.dRu.requestLayout();
+        this.dRr.setText(tbPageContext.getString(e.j.frs_header_image_lable));
+        this.dRq.setOnClickListener(this);
         this.dRt.setOnClickListener(this);
+        this.dRu.setOnClickListener(this);
     }
 
     private int aEJ() {
@@ -103,11 +103,11 @@ public class b implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void onChangeSkinType(int i) {
-        if (this.dRp != null) {
-            al.e(this.dRp, e.d.cp_bg_line_e, i);
-        }
         if (this.dRq != null) {
-            al.c(this.dRq, e.d.cp_cont_i, i);
+            al.e(this.dRq, e.d.cp_bg_line_e, i);
+        }
+        if (this.dRr != null) {
+            al.c(this.dRr, e.d.cp_cont_i, i);
         }
         if (this.titleText != null) {
             al.c(this.titleText, e.d.cp_cont_i, i);
@@ -116,8 +116,8 @@ public class b implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void hideTitle() {
-        if (this.dRs != null) {
-            this.dRs.setVisibility(8);
+        if (this.dRt != null) {
+            this.dRt.setVisibility(8);
         }
     }
 
@@ -133,34 +133,34 @@ public class b implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void iG(String str) {
-        if (this.dRp != null && !TextUtils.isEmpty(str)) {
+        if (this.dRq != null && !TextUtils.isEmpty(str)) {
             c.jC().a(str, 10, this.mCallback, 0, 0, null, new Object[0]);
         }
     }
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void setTitle(String str) {
-        if (this.titleText != null && this.dRq != null) {
+        if (this.titleText != null && this.dRr != null) {
             if (!TextUtils.isEmpty(str)) {
                 this.titleText.setText(str);
-                this.dRq.setVisibility(0);
+                this.dRr.setVisibility(0);
                 this.titleText.setVisibility(0);
                 return;
             }
-            this.dRq.setVisibility(8);
+            this.dRr.setVisibility(8);
             this.titleText.setVisibility(8);
         }
     }
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void setSchemaUrl(String str) {
-        this.dRr = str;
+        this.dRs = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!TextUtils.isEmpty(this.dRr) && this.mContext != null) {
-            ay.CU().a(this.mContext, new String[]{this.dRr}, true);
+        if (!TextUtils.isEmpty(this.dRs) && this.mContext != null) {
+            ay.CU().a(this.mContext, new String[]{this.dRs}, true);
         }
     }
 }

@@ -61,11 +61,11 @@ public class ChannelEditActivity extends BaseActivity<ChannelEditActivity> {
         isChanged = false;
         this.cRz = new c(this);
         this.cRA = new ChannelEditModel(this);
-        aoR();
+        aoS();
         this.cRz.c(this.cRB);
     }
 
-    private void aoR() {
+    private void aoS() {
         registerListener(this.cRC);
     }
 
@@ -161,7 +161,7 @@ public class ChannelEditActivity extends BaseActivity<ChannelEditActivity> {
         }
     }
 
-    public void aoS() {
+    public void aoT() {
         if (!j.kX()) {
             showToast(e.j.neterror);
             return;
@@ -170,7 +170,7 @@ public class ChannelEditActivity extends BaseActivity<ChannelEditActivity> {
         this.cRA.b(this.cRB);
     }
 
-    public ChannelInfo aoT() {
+    public ChannelInfo aoU() {
         return this.cRB;
     }
 }

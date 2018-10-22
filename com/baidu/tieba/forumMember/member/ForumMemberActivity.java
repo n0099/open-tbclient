@@ -33,7 +33,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                 }
             }
             if (!v.J(arrayList)) {
-                ForumMemberActivity.this.dwN.ZH();
+                ForumMemberActivity.this.dwN.ZI();
                 ForumMemberActivity.this.dwM = arrayList;
                 ForumMemberActivity.this.dwN.bz(ForumMemberActivity.this.dwM);
             } else if (v.J(ForumMemberActivity.this.dwM) && arVar != null) {
@@ -47,7 +47,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
             ForumMemberActivity.this.dwN.gb(z);
             if (z) {
                 if (v.J(ForumMemberActivity.this.dwM)) {
-                    ForumMemberActivity.this.ayj();
+                    ForumMemberActivity.this.ayk();
                 } else {
                     ForumMemberActivity.this.dwN.startPullRefresh();
                 }
@@ -66,7 +66,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         this.dwO.setTag(getUniqueId());
         this.dwO.init();
         this.dwO.a(this.dwP);
-        ayj();
+        ayk();
     }
 
     private void k(Bundle bundle) {
@@ -104,7 +104,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.dwO.aaU();
+        this.dwO.aaV();
         if (this.dwN != null) {
             this.dwN.onDestroy();
         }
@@ -121,12 +121,12 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         if (com.baidu.adp.lib.util.j.kM()) {
-            ayj();
+            ayk();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ayj() {
+    public void ayk() {
         this.dwN.showLoadingView();
         e eVar = this.dwO;
         e eVar2 = this.dwO;

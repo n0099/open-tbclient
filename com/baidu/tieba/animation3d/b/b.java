@@ -16,12 +16,12 @@ public class b extends a {
         ah(this.cIU);
     }
 
-    public void ano() {
+    public void anp() {
         Df();
         a(new b.a() { // from class: com.baidu.tieba.animation3d.b.b.1
             @Override // com.baidu.tieba.animation3d.a.b.a, com.baidu.tieba.animation3d.a.a
             public void e(float f, float f2, float f3, int i) {
-                b.this.anm();
+                b.this.ann();
             }
 
             @Override // com.baidu.tieba.animation3d.a.b.a, com.baidu.tieba.animation3d.a.a
@@ -31,7 +31,7 @@ public class b extends a {
         });
     }
 
-    public void anp() {
+    public void anq() {
         Df();
         a(new b.c() { // from class: com.baidu.tieba.animation3d.b.b.2
             @Override // com.baidu.tieba.animation3d.a.b.c, com.baidu.tieba.animation3d.a.a
@@ -41,26 +41,26 @@ public class b extends a {
 
             @Override // com.baidu.tieba.animation3d.a.b.c, com.baidu.tieba.animation3d.a.a
             public void e(float f, float f2, float f3, int i) {
-                b.this.anm();
+                b.this.ann();
             }
         });
         a(new b.a() { // from class: com.baidu.tieba.animation3d.b.b.3
             @Override // com.baidu.tieba.animation3d.a.b.a, com.baidu.tieba.animation3d.a.a
             public void e(float f, float f2, float f3, int i) {
-                b.this.anm();
                 b.this.ann();
+                b.this.ano();
             }
         });
         a(new b.C0168b() { // from class: com.baidu.tieba.animation3d.b.b.4
             @Override // com.baidu.tieba.animation3d.a.b.C0168b, com.baidu.tieba.animation3d.a.a
             public void e(float f, float f2, float f3, int i) {
-                b.this.anm();
                 b.this.ann();
+                b.this.ano();
             }
         });
     }
 
-    public void anq() {
+    public void anr() {
         this.cIT = true;
     }
 

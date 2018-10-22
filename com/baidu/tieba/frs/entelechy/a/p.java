@@ -111,34 +111,34 @@ public class p extends com.baidu.tieba.frs.h<bb, a<com.baidu.tieba.frs.entelechy
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bb bbVar, a aVar) {
-        if (aVar == null || aVar.aoP() == null) {
+        if (aVar == null || aVar.aoQ() == null) {
             return null;
         }
-        if (aVar.aoP() instanceof com.baidu.tieba.a.e) {
-            aVar.aoP().setPage(this.bVS);
+        if (aVar.aoQ() instanceof com.baidu.tieba.a.e) {
+            aVar.aoQ().setPage(this.bVS);
         }
         super.onFillViewHolder(i, view, viewGroup, bbVar, aVar);
-        com.baidu.tieba.frs.g.a(aVar.aoP().aaX(), this.dzP);
-        com.baidu.tieba.frs.g.a(aVar.aoP().aaY(), this.dzP);
-        aVar.aoP().setVideoStatsData(X(bbVar));
+        com.baidu.tieba.frs.g.a(aVar.aoQ().aaY(), this.dzP);
+        com.baidu.tieba.frs.g.a(aVar.aoQ().aaZ(), this.dzP);
+        aVar.aoQ().setVideoStatsData(X(bbVar));
         if (this.dzP != null && this.dzP.beT() != null && !StringUtils.isNull(this.dzP.beT().getTopic_special_icon()) && !StringUtils.isNull(this.dzP.beT().getTopic_special_icon_right())) {
-            aVar.aoP().ai(this.dzP.beT().getTopic_special_icon(), this.dzP.beT().getTopic_special_icon_right());
+            aVar.aoQ().ai(this.dzP.beT().getTopic_special_icon(), this.dzP.beT().getTopic_special_icon_right());
         }
-        aVar.aoP().a(bbVar);
-        aVar.aoP().setForumName(this.mForumName);
-        aVar.aoP().b(this.bVT);
+        aVar.aoQ().a(bbVar);
+        aVar.aoQ().setForumName(this.mForumName);
+        aVar.aoQ().b(this.bVT);
         if (this.dzP != null) {
-            aVar.aoP().dJD = this.dzP.hbl;
+            aVar.aoQ().dJD = this.dzP.hbm;
         } else {
-            aVar.aoP().dJD = this.dGU;
+            aVar.aoQ().dJD = this.dGU;
         }
         if (this.dIB != null) {
-            aVar.aoP().dJE = this.dIB.dTF;
+            aVar.aoQ().dJE = this.dIB.dTG;
         }
         com.baidu.tieba.frs.e.b.aFC().a(this.dIB, bbVar);
         com.baidu.tieba.frs.e.b.aFC().ad(bbVar);
         if (bbVar != null) {
-            TiebaStatic.log(new am("c12125").ax("tid", bbVar.getId()).x("obj_locate", azp() ? 2 : 1).h(VideoPlayActivityConfig.OBJ_ID, bbVar.yP() != null ? bbVar.yP().live_id : -1L).x("obj_type", 1));
+            TiebaStatic.log(new am("c12125").ax("tid", bbVar.getId()).x("obj_locate", azq() ? 2 : 1).h(VideoPlayActivityConfig.OBJ_ID, bbVar.yP() != null ? bbVar.yP().live_id : -1L).x("obj_type", 1));
             bbVar.zs();
         }
         return aVar.getView();
@@ -150,17 +150,17 @@ public class p extends com.baidu.tieba.frs.h<bb, a<com.baidu.tieba.frs.entelechy
         }
         z zVar = new z();
         zVar.mLocate = bbVar.zo() ? "3" : "2";
-        if (this.dIB.dTF == 501) {
+        if (this.dIB.dTG == 501) {
             zVar.mLocate = "frs_tab";
         }
-        zVar.cQb = this.dIB.dTE;
+        zVar.cQb = this.dIB.dTF;
         zVar.beh = bbVar.getTid();
         zVar.mSource = bbVar.mRecomSource;
-        zVar.gwv = bbVar.aqK;
-        zVar.gww = bbVar.mRecomWeight;
-        zVar.gwy = bbVar.mRecomAbTag;
+        zVar.gww = bbVar.aqK;
+        zVar.gwx = bbVar.mRecomWeight;
+        zVar.gwz = bbVar.mRecomAbTag;
         if (bbVar.yN() != null) {
-            zVar.gwz = bbVar.yN().video_md5;
+            zVar.gwA = bbVar.yN().video_md5;
         }
         return zVar;
     }
@@ -186,7 +186,7 @@ public class p extends com.baidu.tieba.frs.h<bb, a<com.baidu.tieba.frs.entelechy
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Z(bb bbVar) {
-        TiebaStatic.log(new am("c12126").ax("tid", bbVar.getId()).x("obj_locate", azp() ? 2 : 1).h(VideoPlayActivityConfig.OBJ_ID, bbVar.yP() == null ? -1L : bbVar.yP().live_id).x("obj_type", 1));
+        TiebaStatic.log(new am("c12126").ax("tid", bbVar.getId()).x("obj_locate", azq() ? 2 : 1).h(VideoPlayActivityConfig.OBJ_ID, bbVar.yP() == null ? -1L : bbVar.yP().live_id).x("obj_type", 1));
     }
 
     public void setInFrsAllThread(boolean z) {
@@ -199,7 +199,7 @@ public class p extends com.baidu.tieba.frs.h<bb, a<com.baidu.tieba.frs.entelechy
     }
 
     @Override // com.baidu.tieba.frs.e.c
-    public com.baidu.tieba.frs.e.a aCM() {
+    public com.baidu.tieba.frs.e.a aCN() {
         return this.dIB;
     }
 }

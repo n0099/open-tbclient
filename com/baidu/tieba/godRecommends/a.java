@@ -69,8 +69,8 @@ public class a extends BaseAdapter {
             C0197a c0197a2 = new C0197a();
             c0197a2.cAS = (ClickableHeaderImageView) view.findViewById(e.g.photo);
             c0197a2.chf = (TextView) view.findViewById(e.g.user_name);
-            c0197a2.efK = (TextView) view.findViewById(e.g.god_info);
-            c0197a2.efL = (TextView) view.findViewById(e.g.fans_and_thread_count);
+            c0197a2.efL = (TextView) view.findViewById(e.g.god_info);
+            c0197a2.efM = (TextView) view.findViewById(e.g.fans_and_thread_count);
             c0197a2.dvn = (TextView) view.findViewById(e.g.attention_btn);
             c0197a2.czB = view.findViewById(e.g.bottom_line);
             view.setTag(c0197a2);
@@ -91,16 +91,16 @@ public class a extends BaseAdapter {
             c0197a.chf.setText(item.getName_show());
             switch (item.getGodUserData().getType()) {
                 case 1:
-                    c0197a.efK.setText(UtilHelper.getFixedBarText(item.getGodUserData().getIntro(), 10, true, true));
+                    c0197a.efL.setText(UtilHelper.getFixedBarText(item.getGodUserData().getIntro(), 10, true, true));
                     break;
                 case 2:
-                    c0197a.efK.setText(UtilHelper.getFixedBarText(this.mContext.getString(e.j.chosen_pb_original_god_bar, item.getGodUserData().getForumName()), 10, true, true));
+                    c0197a.efL.setText(UtilHelper.getFixedBarText(this.mContext.getString(e.j.chosen_pb_original_god_bar, item.getGodUserData().getForumName()), 10, true, true));
                     break;
                 default:
-                    c0197a.efK.setVisibility(8);
+                    c0197a.efL.setVisibility(8);
                     break;
             }
-            c0197a.efL.setText(ao.N(item.getFansNum()) + this.mContext.getString(e.j.fans_default_name) + " " + ao.N(item.getLikeNum()) + this.mContext.getString(e.j.zan));
+            c0197a.efM.setText(ao.N(item.getFansNum()) + this.mContext.getString(e.j.fans_default_name) + " " + ao.N(item.getLikeNum()) + this.mContext.getString(e.j.zan));
         }
         if (i == getCount() - 1) {
             c0197a.czB.setVisibility(8);
@@ -119,8 +119,8 @@ public class a extends BaseAdapter {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (c0197a.mSkinType != skinType) {
                 al.h(c0197a.chf, e.d.cp_cont_h);
-                al.h(c0197a.efK, e.d.cp_cont_d);
                 al.h(c0197a.efL, e.d.cp_cont_d);
+                al.h(c0197a.efM, e.d.cp_cont_d);
                 al.j(c0197a.czB, e.d.cp_bg_line_b);
             }
             c0197a.mSkinType = skinType;
@@ -153,8 +153,8 @@ public class a extends BaseAdapter {
         public TextView chf;
         public View czB;
         public TextView dvn;
-        public TextView efK;
         public TextView efL;
+        public TextView efM;
         public int mSkinType;
 
         private C0197a() {

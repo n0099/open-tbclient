@@ -24,10 +24,10 @@ public final class c extends rx.g {
     /* loaded from: classes2.dex */
     static final class a extends g.a implements Runnable {
         final Executor executor;
-        final ConcurrentLinkedQueue<ScheduledAction> ixv = new ConcurrentLinkedQueue<>();
+        final ConcurrentLinkedQueue<ScheduledAction> ixw = new ConcurrentLinkedQueue<>();
         final AtomicInteger wip = new AtomicInteger();
-        final rx.subscriptions.b iCc = new rx.subscriptions.b();
-        final ScheduledExecutorService iCd = d.ccJ();
+        final rx.subscriptions.b iCd = new rx.subscriptions.b();
+        final ScheduledExecutorService iCe = d.ccJ();
 
         public a(Executor executor) {
             this.executor = executor;
@@ -38,15 +38,15 @@ public final class c extends rx.g {
             if (isUnsubscribed()) {
                 return rx.subscriptions.e.cdU();
             }
-            ScheduledAction scheduledAction = new ScheduledAction(rx.c.c.g(aVar), this.iCc);
-            this.iCc.add(scheduledAction);
-            this.ixv.offer(scheduledAction);
+            ScheduledAction scheduledAction = new ScheduledAction(rx.c.c.g(aVar), this.iCd);
+            this.iCd.add(scheduledAction);
+            this.ixw.offer(scheduledAction);
             if (this.wip.getAndIncrement() == 0) {
                 try {
                     this.executor.execute(this);
                     return scheduledAction;
                 } catch (RejectedExecutionException e) {
-                    this.iCc.b(scheduledAction);
+                    this.iCd.b(scheduledAction);
                     this.wip.decrementAndGet();
                     rx.c.c.onError(e);
                     throw e;
@@ -57,14 +57,14 @@ public final class c extends rx.g {
 
         @Override // java.lang.Runnable
         public void run() {
-            while (!this.iCc.isUnsubscribed()) {
-                ScheduledAction poll = this.ixv.poll();
+            while (!this.iCd.isUnsubscribed()) {
+                ScheduledAction poll = this.ixw.poll();
                 if (poll != null) {
                     if (!poll.isUnsubscribed()) {
-                        if (!this.iCc.isUnsubscribed()) {
+                        if (!this.iCd.isUnsubscribed()) {
                             poll.run();
                         } else {
-                            this.ixv.clear();
+                            this.ixw.clear();
                             return;
                         }
                     }
@@ -75,7 +75,7 @@ public final class c extends rx.g {
                     return;
                 }
             }
-            this.ixv.clear();
+            this.ixw.clear();
         }
 
         @Override // rx.g.a
@@ -90,11 +90,11 @@ public final class c extends rx.g {
             rx.subscriptions.c cVar = new rx.subscriptions.c();
             final rx.subscriptions.c cVar2 = new rx.subscriptions.c();
             cVar2.g(cVar);
-            this.iCc.add(cVar2);
+            this.iCd.add(cVar2);
             final k j2 = rx.subscriptions.e.j(new rx.functions.a() { // from class: rx.internal.schedulers.c.a.1
                 @Override // rx.functions.a
                 public void call() {
-                    a.this.iCc.b(cVar2);
+                    a.this.iCd.b(cVar2);
                 }
             });
             ScheduledAction scheduledAction = new ScheduledAction(new rx.functions.a() { // from class: rx.internal.schedulers.c.a.2
@@ -111,7 +111,7 @@ public final class c extends rx.g {
             });
             cVar.g(scheduledAction);
             try {
-                scheduledAction.add(this.iCd.schedule(scheduledAction, j, timeUnit));
+                scheduledAction.add(this.iCe.schedule(scheduledAction, j, timeUnit));
                 return j2;
             } catch (RejectedExecutionException e) {
                 rx.c.c.onError(e);
@@ -121,13 +121,13 @@ public final class c extends rx.g {
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.iCc.isUnsubscribed();
+            return this.iCd.isUnsubscribed();
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.iCc.unsubscribe();
-            this.ixv.clear();
+            this.iCd.unsubscribe();
+            this.ixw.clear();
         }
     }
 }

@@ -61,24 +61,24 @@ public class c extends BaseAdapter {
             aVar = new a();
             aVar.djV = (TbImageView) view.findViewById(e.g.pic);
             aVar.djW = (ImageView) view.findViewById(e.g.select_icon);
-            aVar.hjg = (RelativeLayout) view.findViewById(e.g.lay_select);
+            aVar.hjh = (RelativeLayout) view.findViewById(e.g.lay_select);
             aVar.aQj = (TextView) view.findViewById(e.g.tv_fname);
-            aVar.hjf = (FrameLayout) view.findViewById(e.g.pic_layout);
-            aVar.hjf.setOnClickListener(this.aDy);
+            aVar.hjg = (FrameLayout) view.findViewById(e.g.pic_layout);
+            aVar.hjg.setOnClickListener(this.aDy);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
         aVar.djV.setTag(null);
-        aVar.hjg.setTag(null);
+        aVar.hjh.setTag(null);
         aVar.aQj.setText("");
-        aVar.hjf.setTag(null);
+        aVar.hjg.setTag(null);
         Object item = getItem(i);
         if (item != null && (item instanceof InterestFrsData.Card)) {
             InterestFrsData.Card card = (InterestFrsData.Card) item;
             b(aVar.djW, card.getIs_like() == 1);
+            aVar.hjh.setTag(card);
             aVar.hjg.setTag(card);
-            aVar.hjf.setTag(card);
             aVar.djV.setTag(card.getIcon_url());
             aVar.djV.startLoad(card.getIcon_url(), 21, false);
             aVar.aQj.setText(card.getFname());
@@ -99,8 +99,8 @@ public class c extends BaseAdapter {
         TextView aQj;
         TbImageView djV;
         ImageView djW;
-        FrameLayout hjf;
-        RelativeLayout hjg;
+        FrameLayout hjg;
+        RelativeLayout hjh;
 
         private a() {
         }

@@ -54,7 +54,7 @@ public class i extends e {
             this.cNn.setImageClickListener(new com.baidu.tbadk.widget.layout.c() { // from class: com.baidu.tieba.frs.entelechy.view.i.1
                 @Override // com.baidu.tbadk.widget.layout.c
                 public void b(View view, int i, boolean z) {
-                    if (i.this.aAQ != null && i.this.act()) {
+                    if (i.this.aAQ != null && i.this.acu()) {
                         ay.CU().c(i.this.mTbPageContext, new String[]{i.this.aAQ.getActUrl()});
                     }
                 }
@@ -72,12 +72,12 @@ public class i extends e {
 
     @Override // com.baidu.tieba.frs.entelechy.view.e
     protected void fb(boolean z) {
-        if (this.aAQ != null && act()) {
+        if (this.aAQ != null && acu()) {
             ay.CU().c(this.mTbPageContext, new String[]{this.aAQ.getActUrl()});
         }
     }
 
-    protected boolean act() {
+    protected boolean acu() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }

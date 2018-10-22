@@ -13,7 +13,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes3.dex */
 public class b {
     private BaseActivity bwX;
-    private final a gRU;
+    private final a gRV;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -24,7 +24,7 @@ public class b {
 
     public b(BaseActivity baseActivity, a aVar) {
         this.bwX = baseActivity;
-        this.gRU = aVar;
+        this.gRV = aVar;
         bxA();
     }
 
@@ -46,16 +46,16 @@ public class b {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    if (b.this.gRU != null) {
+                    if (b.this.gRV != null) {
                         if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1002701) {
-                            b.this.gRU.onFailure();
+                            b.this.gRV.onFailure();
                             return;
                         }
                         int statusCode = httpResponsedMessage.getStatusCode();
                         int error = httpResponsedMessage.getError();
                         if (statusCode == 200 && error == 0 && (httpResponsedMessage instanceof ForumPrefixResponsedMessage)) {
                             ForumPrefixResponsedMessage forumPrefixResponsedMessage = (ForumPrefixResponsedMessage) httpResponsedMessage;
-                            b.this.gRU.a(forumPrefixResponsedMessage.isHasPostpre(), forumPrefixResponsedMessage.getData());
+                            b.this.gRV.a(forumPrefixResponsedMessage.isHasPostpre(), forumPrefixResponsedMessage.getData());
                         }
                     }
                 }

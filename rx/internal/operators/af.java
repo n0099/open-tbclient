@@ -5,8 +5,8 @@ import java.util.List;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class af<T, TClosing> implements d.b<List<T>, T> {
-    final rx.functions.e<? extends rx.d<? extends TClosing>> ivl;
-    final int ivm;
+    final rx.functions.e<? extends rx.d<? extends TClosing>> ivm;
+    final int ivn;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -14,12 +14,12 @@ public final class af<T, TClosing> implements d.b<List<T>, T> {
     }
 
     public af(rx.functions.e<? extends rx.d<? extends TClosing>> eVar, int i) {
-        this.ivl = eVar;
-        this.ivm = i;
+        this.ivm = eVar;
+        this.ivn = i;
     }
 
     public af(final rx.d<? extends TClosing> dVar, int i) {
-        this.ivl = new rx.functions.e<rx.d<? extends TClosing>>() { // from class: rx.internal.operators.af.1
+        this.ivm = new rx.functions.e<rx.d<? extends TClosing>>() { // from class: rx.internal.operators.af.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.e, java.util.concurrent.Callable
             /* renamed from: cbN */
@@ -27,12 +27,12 @@ public final class af<T, TClosing> implements d.b<List<T>, T> {
                 return dVar;
             }
         };
-        this.ivm = i;
+        this.ivn = i;
     }
 
     public rx.j<? super T> call(rx.j<? super List<T>> jVar) {
         try {
-            rx.d<? extends TClosing> call = this.ivl.call();
+            rx.d<? extends TClosing> call = this.ivm.call();
             final a aVar = new a(new rx.b.f(jVar));
             rx.j<TClosing> jVar2 = new rx.j<TClosing>() { // from class: rx.internal.operators.af.2
                 @Override // rx.e
@@ -65,18 +65,18 @@ public final class af<T, TClosing> implements d.b<List<T>, T> {
     public final class a extends rx.j<T> {
         final rx.j<? super List<T>> child;
         boolean done;
-        List<T> ivq;
+        List<T> ivr;
 
         public a(rx.j<? super List<T>> jVar) {
             this.child = jVar;
-            this.ivq = new ArrayList(af.this.ivm);
+            this.ivr = new ArrayList(af.this.ivn);
         }
 
         @Override // rx.e
         public void onNext(T t) {
             synchronized (this) {
                 if (!this.done) {
-                    this.ivq.add(t);
+                    this.ivr.add(t);
                 }
             }
         }
@@ -86,7 +86,7 @@ public final class af<T, TClosing> implements d.b<List<T>, T> {
             synchronized (this) {
                 if (!this.done) {
                     this.done = true;
-                    this.ivq = null;
+                    this.ivr = null;
                     this.child.onError(th);
                     unsubscribe();
                 }
@@ -99,8 +99,8 @@ public final class af<T, TClosing> implements d.b<List<T>, T> {
                 synchronized (this) {
                     if (!this.done) {
                         this.done = true;
-                        List<T> list = this.ivq;
-                        this.ivq = null;
+                        List<T> list = this.ivr;
+                        this.ivr = null;
                         this.child.onNext(list);
                         this.child.onCompleted();
                         unsubscribe();
@@ -114,8 +114,8 @@ public final class af<T, TClosing> implements d.b<List<T>, T> {
         void emit() {
             synchronized (this) {
                 if (!this.done) {
-                    List<T> list = this.ivq;
-                    this.ivq = new ArrayList(af.this.ivm);
+                    List<T> list = this.ivr;
+                    this.ivr = new ArrayList(af.this.ivn);
                     try {
                         this.child.onNext(list);
                     } finally {

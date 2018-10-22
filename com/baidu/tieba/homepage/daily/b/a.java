@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.daily.b;
 /* loaded from: classes6.dex */
 public class a implements com.baidu.tbadk.core.flow.a.a {
-    private String eaZ;
+    private String eba;
     private String mImgUrl;
     private String mTitle;
 
@@ -10,7 +10,7 @@ public class a implements com.baidu.tbadk.core.flow.a.a {
     }
 
     public void oF(String str) {
-        this.eaZ = str;
+        this.eba = str;
     }
 
     public void setTitle(String str) {
@@ -24,6 +24,6 @@ public class a implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String xa() {
-        return this.eaZ;
+        return this.eba;
     }
 }

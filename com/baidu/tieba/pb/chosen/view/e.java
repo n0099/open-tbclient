@@ -16,16 +16,16 @@ import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 /* loaded from: classes3.dex */
 public class e {
     private Context context;
-    private View fHe;
-    private TextView fHf;
-    private ImageView fHg;
-    private TextView fHh;
+    private View fHf;
+    private TextView fHg;
+    private ImageView fHh;
     private TextView fHi;
-    private a fHj;
-    public boolean fHk;
-    private Animation fHm;
-    private long fHl = 0;
-    private boolean fHn = false;
+    private TextView fHj;
+    private a fHk;
+    public boolean fHl;
+    private Animation fHn;
+    private long fHm = 0;
+    private boolean fHo = false;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -36,42 +36,42 @@ public class e {
 
     public e(Context context) {
         this.context = context;
-        this.fHe = LayoutInflater.from(context).inflate(e.h.chosen_pb_post_info, (ViewGroup) null);
-        this.fHf = (TextView) this.fHe.findViewById(e.g.chosen_post_info_copyright);
-        this.fHg = (ImageView) this.fHe.findViewById(e.g.chosen_post_info_praise_icon);
-        this.fHh = (TextView) this.fHe.findViewById(e.g.chosen_post_info_praise_num);
-        this.fHi = (TextView) this.fHe.findViewById(e.g.chosen_post_info_original_post);
+        this.fHf = LayoutInflater.from(context).inflate(e.h.chosen_pb_post_info, (ViewGroup) null);
+        this.fHg = (TextView) this.fHf.findViewById(e.g.chosen_post_info_copyright);
+        this.fHh = (ImageView) this.fHf.findViewById(e.g.chosen_post_info_praise_icon);
+        this.fHi = (TextView) this.fHf.findViewById(e.g.chosen_post_info_praise_num);
+        this.fHj = (TextView) this.fHf.findViewById(e.g.chosen_post_info_original_post);
     }
 
     public View beL() {
-        return this.fHe;
+        return this.fHf;
     }
 
     public void a(a aVar) {
-        this.fHj = aVar;
+        this.fHk = aVar;
     }
 
     public void rk(int i) {
-        if (this.fHf != null) {
-            this.fHf.setText(i);
+        if (this.fHg != null) {
+            this.fHg.setText(i);
         }
     }
 
     public void D(View.OnClickListener onClickListener) {
-        if (this.fHi != null) {
-            this.fHi.setOnClickListener(onClickListener);
+        if (this.fHj != null) {
+            this.fHj.setOnClickListener(onClickListener);
         }
     }
 
     public void cQ(long j) {
         if (j >= 0) {
-            this.fHl = j;
-            if (this.fHh != null) {
-                this.fHh.setVisibility(0);
-                this.fHh.setText(this.context.getString(e.j.chosen_pb_praise_num, ao.L(j)));
+            this.fHm = j;
+            if (this.fHi != null) {
+                this.fHi.setVisibility(0);
+                this.fHi.setText(this.context.getString(e.j.chosen_pb_praise_num, ao.L(j)));
             }
-            if (this.fHh != null && this.fHh.getVisibility() == 8) {
-                this.fHh.setVisibility(0);
+            if (this.fHi != null && this.fHi.getVisibility() == 8) {
+                this.fHi.setVisibility(0);
             }
         }
     }
@@ -81,14 +81,14 @@ public class e {
             rk(e.j.chosen_pb_copyright);
             cQ(excellentPbThreadInfo.zan.zansum.longValue());
             kh(excellentPbThreadInfo.zan.is_zan.booleanValue());
-            this.fHg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
+            this.fHh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (!e.this.fHn && ba.bI(e.this.context)) {
-                        e.this.fHn = true;
-                        e.this.fHg.startAnimation(e.this.beN());
-                        if (e.this.fHj != null) {
-                            e.this.fHj.kd(e.this.fHk);
+                    if (!e.this.fHo && ba.bI(e.this.context)) {
+                        e.this.fHo = true;
+                        e.this.fHh.startAnimation(e.this.beN());
+                        if (e.this.fHk != null) {
+                            e.this.fHk.kd(e.this.fHl);
                         }
                     }
                 }
@@ -96,8 +96,8 @@ public class e {
             D(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (e.this.fHj != null) {
-                        e.this.fHj.q(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
+                    if (e.this.fHk != null) {
+                        e.this.fHk.q(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
                     }
                 }
             });
@@ -105,34 +105,34 @@ public class e {
     }
 
     public void beM() {
-        this.fHn = false;
+        this.fHo = false;
     }
 
     public void kg(boolean z) {
         kh(z);
         if (z) {
-            this.fHl++;
+            this.fHm++;
         } else {
-            this.fHl--;
+            this.fHm--;
         }
-        cQ(this.fHl);
+        cQ(this.fHm);
     }
 
     private void kh(boolean z) {
-        this.fHk = z;
+        this.fHl = z;
         if (z) {
-            al.c(this.fHg, e.f.btn_zambia_big_s);
+            al.c(this.fHh, e.f.btn_zambia_big_s);
         } else {
-            al.c(this.fHg, e.f.btn_zambia_big_n);
+            al.c(this.fHh, e.f.btn_zambia_big_n);
         }
-        this.fHg.setVisibility(0);
+        this.fHh.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public Animation beN() {
-        if (this.fHm == null) {
-            this.fHm = AnimationUtils.loadAnimation(this.context, e.a.praise_animation_scale3);
+        if (this.fHn == null) {
+            this.fHn = AnimationUtils.loadAnimation(this.context, e.a.praise_animation_scale3);
         }
-        return this.fHm;
+        return this.fHn;
     }
 }

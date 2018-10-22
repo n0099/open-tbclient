@@ -109,7 +109,7 @@ public class j extends com.baidu.adp.widget.ListView.c {
         } catch (Exception e) {
         }
         this.aEw.addView(this.aEs);
-        this.aEu.ano();
+        this.aEu.anp();
         DX();
         return this.mHeaderView;
     }
@@ -142,9 +142,9 @@ public class j extends com.baidu.adp.widget.ListView.c {
             this.aEs.onResume();
             this.aEs.setRenderMode(1);
             if (z) {
-                this.aEu.anq();
+                this.aEu.anr();
             }
-            this.aEu.ano();
+            this.aEu.anp();
             this.aEs.setVisibility(0);
         } else if (this.aEr != null && this.aEn != null) {
             this.aEr.stop();
@@ -163,7 +163,7 @@ public class j extends com.baidu.adp.widget.ListView.c {
             this.aEs.onResume();
             this.aEs.setVisibility(0);
             this.aEs.setRenderMode(1);
-            this.aEu.anp();
+            this.aEu.anq();
             this.aEu.a(this.aEx, this.aEx, this.aEx, this.aEx, this.aEx, this.aEx);
         } else if (this.aEr != null && this.aEn != null) {
             this.aEr.stop();
@@ -208,7 +208,7 @@ public class j extends com.baidu.adp.widget.ListView.c {
     public void oH() {
         if (Cu()) {
             this.aEu.a(this.aEx, this.aEx, this.aEz, this.aEx, this.aEx, this.aEx);
-            this.aEu.anq();
+            this.aEu.anr();
             this.aEs.setRenderMode(1);
         }
     }

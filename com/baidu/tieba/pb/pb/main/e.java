@@ -7,33 +7,33 @@ import com.baidu.tbadk.core.data.bb;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class e extends as {
-    private TextView fKj;
+    private TextView fKk;
 
     public e(BaseActivity baseActivity, View view) {
         super(baseActivity, view);
-        this.fKj = null;
+        this.fKk = null;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.as
     protected void a(d dVar) {
-        this.fKj = (TextView) this.mRootView.findViewById(e.g.icon_push);
-        this.fKj.setVisibility(8);
+        this.fKk = (TextView) this.mRootView.findViewById(e.g.icon_push);
+        this.fKk.setVisibility(8);
     }
 
     public void kq(boolean z) {
-        if (this.fKj != null) {
+        if (this.fKk != null) {
             if (z) {
-                this.fKj.setText(e.j.push);
-                com.baidu.tbadk.core.util.al.h(this.fKj, e.f.push_text_selector);
-                com.baidu.tbadk.core.util.al.i(this.fKj, e.f.push_bg_selector);
-                this.fKj.setClickable(true);
+                this.fKk.setText(e.j.push);
+                com.baidu.tbadk.core.util.al.h(this.fKk, e.f.push_text_selector);
+                com.baidu.tbadk.core.util.al.i(this.fKk, e.f.push_bg_selector);
+                this.fKk.setClickable(true);
             } else {
-                this.fKj.setText(e.j.already_push);
-                com.baidu.tbadk.core.util.al.i(this.fKj, e.f.label_bg_gray80);
-                com.baidu.tbadk.core.util.al.h(this.fKj, e.d.cp_cont_d);
-                this.fKj.setClickable(false);
+                this.fKk.setText(e.j.already_push);
+                com.baidu.tbadk.core.util.al.i(this.fKk, e.f.label_bg_gray80);
+                com.baidu.tbadk.core.util.al.h(this.fKk, e.d.cp_cont_d);
+                this.fKk.setClickable(false);
             }
-            this.fKj.setVisibility(0);
+            this.fKk.setVisibility(0);
         }
     }
 
@@ -49,6 +49,6 @@ public class e extends as {
     }
 
     public TextView bgl() {
-        return this.fKj;
+        return this.fKk;
     }
 }

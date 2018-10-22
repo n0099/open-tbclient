@@ -8,27 +8,27 @@ import android.widget.MediaController;
 public class j {
     private MediaController.MediaPlayerControl bxJ;
     private a cNb;
-    private c gtY;
-    private b gtZ;
-    private int gtW = 1000;
-    private int gtX = 0;
+    private c gtZ;
+    private b gua;
+    private int gtX = 1000;
+    private int gtY = 0;
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.play.j.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message != null && message.what == 1 && j.this.bxJ != null && j.this.bxJ.isPlaying()) {
                 int currentPosition = j.this.bxJ.getCurrentPosition();
                 int duration = j.this.bxJ.getDuration();
-                if (currentPosition < j.this.gtX) {
+                if (currentPosition < j.this.gtY) {
                     if (j.this.cNb != null) {
-                        j.this.cNb.aoe();
+                        j.this.cNb.aof();
                     }
-                } else if (currentPosition == j.this.gtX && j.this.gtY != null) {
-                    j.this.gtY.YV();
+                } else if (currentPosition == j.this.gtY && j.this.gtZ != null) {
+                    j.this.gtZ.YW();
                 }
-                if (j.this.gtZ != null) {
-                    j.this.gtZ.bC(duration, currentPosition);
+                if (j.this.gua != null) {
+                    j.this.gua.bC(duration, currentPosition);
                 }
-                j.this.gtX = currentPosition;
+                j.this.gtY = currentPosition;
                 j.this.bqe();
             }
         }
@@ -36,7 +36,7 @@ public class j {
 
     /* loaded from: classes.dex */
     public interface a {
-        void aoe();
+        void aof();
     }
 
     /* loaded from: classes.dex */
@@ -46,7 +46,7 @@ public class j {
 
     /* loaded from: classes.dex */
     public interface c {
-        void YV();
+        void YW();
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
@@ -54,7 +54,7 @@ public class j {
     }
 
     public void start() {
-        this.gtX = 0;
+        this.gtY = 0;
         bqe();
     }
 
@@ -65,7 +65,7 @@ public class j {
     /* JADX INFO: Access modifiers changed from: private */
     public void bqe() {
         this.mHandler.removeMessages(1);
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.gtW);
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.gtX);
     }
 
     public void a(a aVar) {
@@ -73,10 +73,10 @@ public class j {
     }
 
     public void a(c cVar) {
-        this.gtY = cVar;
+        this.gtZ = cVar;
     }
 
     public void a(b bVar) {
-        this.gtZ = bVar;
+        this.gua = bVar;
     }
 }

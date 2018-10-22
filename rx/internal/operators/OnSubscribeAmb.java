@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class OnSubscribeAmb<T> implements d.a<T> {
-    final Iterable<? extends rx.d<? extends T>> isX;
+    final Iterable<? extends rx.d<? extends T>> isY;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -105,13 +105,13 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.j<T> {
-        private final Selection<T> ite;
-        private boolean itf;
+        private final Selection<T> itf;
+        private boolean itg;
         private final rx.j<? super T> subscriber;
 
         a(long j, rx.j<? super T> jVar, Selection<T> selection) {
             this.subscriber = jVar;
-            this.ite = selection;
+            this.itf = selection;
             request(j);
         }
 
@@ -142,18 +142,18 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
         }
 
         private boolean isSelected() {
-            if (this.itf) {
+            if (this.itg) {
                 return true;
             }
-            if (this.ite.get() == this) {
-                this.itf = true;
+            if (this.itf.get() == this) {
+                this.itg = true;
                 return true;
-            } else if (this.ite.compareAndSet(null, this)) {
-                this.ite.unsubscribeOthers(this);
-                this.itf = true;
+            } else if (this.itf.compareAndSet(null, this)) {
+                this.itf.unsubscribeOthers(this);
+                this.itg = true;
                 return true;
             } else {
-                this.ite.unsubscribeLosers();
+                this.itf.unsubscribeLosers();
                 return false;
             }
         }
@@ -185,7 +185,7 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
     }
 
     private OnSubscribeAmb(Iterable<? extends rx.d<? extends T>> iterable) {
-        this.isX = iterable;
+        this.isY = iterable;
     }
 
     public void call(rx.j<? super T> jVar) {
@@ -200,7 +200,7 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
                 OnSubscribeAmb.j(selection.ambSubscribers);
             }
         }));
-        for (rx.d<? extends T> dVar : this.isX) {
+        for (rx.d<? extends T> dVar : this.isY) {
             if (jVar.isUnsubscribed()) {
                 break;
             }

@@ -34,32 +34,32 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
         if (getIntent() == null) {
             finish();
         }
-        alw();
+        alx();
         if (this.mForumId <= 0 || TextUtils.isEmpty(this.dOJ)) {
             finish();
         }
-        aDP();
+        aDQ();
         this.dOE = new com.baidu.tieba.frs.gamesubpb.view.a(this, this.mCommonClickListener, this.dOJ);
         setContentView(this.dOE.getRootView());
-        this.dOF = new c(this, this.dOE.getListView(), this.dOE.aaD());
-        this.dOF.aDU();
+        this.dOF = new c(this, this.dOE.getListView(), this.dOE.aaE());
+        this.dOF.aDV();
         this.dOF.a(new c.a() { // from class: com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity.1
             private boolean dOK = false;
 
             @Override // com.baidu.tieba.frs.gamesubpb.c.a
-            public void aDQ() {
+            public void aDR() {
                 FrsGameSubPbActivity.this.dOE.gV(false);
                 this.dOK = true;
             }
 
             @Override // com.baidu.tieba.frs.gamesubpb.c.a
-            public void aDR() {
+            public void aDS() {
             }
 
             @Override // com.baidu.tieba.frs.gamesubpb.c.a
-            public boolean aDS() {
+            public boolean aDT() {
                 if (!this.dOK) {
-                    return FrsGameSubPbActivity.this.dOE.aEg() != null && FrsGameSubPbActivity.this.dOE.aEg().getTop() == 0;
+                    return FrsGameSubPbActivity.this.dOE.aEh() != null && FrsGameSubPbActivity.this.dOE.aEh().getTop() == 0;
                 }
                 this.dOK = false;
                 return false;
@@ -79,7 +79,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
         this.dOG.a(new a.InterfaceC0190a() { // from class: com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity.3
             @Override // com.baidu.tieba.frs.gamesubpb.model.a.InterfaceC0190a
             public void a(boolean z, int i, String str, boolean z2, boolean z3, com.baidu.tieba.frs.gamesubpb.model.b bVar, List<h> list) {
-                if (FrsGameSubPbActivity.this.dOF != null && FrsGameSubPbActivity.this.dOF.aDV()) {
+                if (FrsGameSubPbActivity.this.dOF != null && FrsGameSubPbActivity.this.dOF.aDW()) {
                     FrsGameSubPbActivity.this.dOF.mh(e.d.cp_bg_line_k_alpha10_1);
                 }
                 if (z) {
@@ -100,7 +100,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
                     }
                     frsGameSubPbActivity.showNetRefreshView(rootView, str, false);
                     if (FrsGameSubPbActivity.this.dOF != null) {
-                        FrsGameSubPbActivity.this.dOF.aDT();
+                        FrsGameSubPbActivity.this.dOF.aDU();
                     }
                 }
             }
@@ -124,13 +124,13 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
         this.dOG.loadData(false);
     }
 
-    private void aDP() {
+    private void aDQ() {
         this.mCommonClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if ((view != null || FrsGameSubPbActivity.this.dOE != null) && view == FrsGameSubPbActivity.this.dOE.aEh() && FrsGameSubPbActivity.this.checkUpIsLogin()) {
+                if ((view != null || FrsGameSubPbActivity.this.dOE != null) && view == FrsGameSubPbActivity.this.dOE.aEi() && FrsGameSubPbActivity.this.checkUpIsLogin()) {
                     if (FrsGameSubPbActivity.this.dOF != null) {
-                        FrsGameSubPbActivity.this.dOF.aDT();
+                        FrsGameSubPbActivity.this.dOF.aDU();
                     }
                     FrsGameSubPbActivity.this.dOE.nP(null);
                 }
@@ -138,7 +138,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
         };
     }
 
-    private void alw() {
+    private void alx() {
         Intent intent = getIntent();
         this.mForumId = intent.getIntExtra(FrsGameSubPbActivityConfig.ARG_FORUM_ID, -1);
         this.dOJ = intent.getStringExtra(FrsGameSubPbActivityConfig.ARG_MAIN_TOWER_ID);

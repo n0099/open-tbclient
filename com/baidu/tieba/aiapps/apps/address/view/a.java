@@ -40,11 +40,11 @@ public class a {
     }
 
     private void initData(Context context) {
-        this.bBU = c.WD().WF();
-        this.bBV = c.WD().WG();
-        this.bBW = c.WD().WH();
-        WN();
+        this.bBU = c.WE().WG();
+        this.bBV = c.WE().WH();
+        this.bBW = c.WE().WI();
         WO();
+        WP();
         this.bCv = new MultiPickerDialog.Builder(context);
         this.bCw = new BdMultiPicker.OnMultiSelectedChangedListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.1
             @Override // com.baidu.searchbox.ng.ai.apps.res.ui.BdMultiPicker.OnMultiSelectedChangedListener
@@ -60,13 +60,13 @@ public class a {
         };
     }
 
-    private void WN() {
+    private void WO() {
         this.mDataIndex.put(0);
         this.mDataIndex.put(0);
         this.mDataIndex.put(0);
     }
 
-    private void WO() {
+    private void WP() {
         if (this.bBU.size() > 0) {
             this.mDataArray.put(aq(this.bBU));
         }
@@ -117,7 +117,7 @@ public class a {
         return jSONArray;
     }
 
-    public void WP() {
+    public void WQ() {
         if (this.mMultiPickerDialog == null) {
             this.mMultiPickerDialog = this.bCv.setDataArray(this.mDataArray).setDataIndex(this.mDataIndex).setMultiSelectedListener(this.bCw).setTitle("城市选择").setPositiveButton(R.string.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.3
                 @Override // android.content.DialogInterface.OnClickListener

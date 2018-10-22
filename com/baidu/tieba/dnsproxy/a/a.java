@@ -21,7 +21,7 @@ public class a {
     HashMap<String, b> ddz = new HashMap<>();
     HashMap<String, b> ddA = new HashMap<>();
 
-    public static final String asR() {
+    public static final String asS() {
         String str;
         WifiInfo connectionInfo;
         try {
@@ -37,11 +37,11 @@ public class a {
                         return typeName + BaseRequestAction.SPLITE + str;
                     }
                 }
-                com.baidu.tieba.dnsproxy.d.asI().aU("get_connectpoint_null", typeName + BaseRequestAction.SPLITE + str);
+                com.baidu.tieba.dnsproxy.d.asJ().aU("get_connectpoint_null", typeName + BaseRequestAction.SPLITE + str);
             }
         } catch (Throwable th) {
             BdLog.detailException(th);
-            com.baidu.tieba.dnsproxy.d.asI().aU("get_connectpoint_name", th.getMessage());
+            com.baidu.tieba.dnsproxy.d.asJ().aU("get_connectpoint_name", th.getMessage());
         }
         return null;
     }

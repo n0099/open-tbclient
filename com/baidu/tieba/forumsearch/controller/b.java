@@ -67,7 +67,7 @@ public class b implements View.OnClickListener {
                 String str = (String) customResponsedMessage.getData();
                 b.this.dyA.dyM.setText(str);
                 b.this.dyA.dyM.setSelection(str.length());
-                b.this.ayB();
+                b.this.ayC();
             }
         }
     };
@@ -76,23 +76,23 @@ public class b implements View.OnClickListener {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                b.this.ayC();
+                b.this.ayD();
             }
         }
     };
     private d.a dyJ = new d.a() { // from class: com.baidu.tieba.forumsearch.controller.b.5
         @Override // com.baidu.tieba.forumsearch.controller.d.a
         public void a(boolean z, com.baidu.tieba.forumsearch.b.c cVar) {
-            if (!z || cVar == null || v.J(cVar.ayK())) {
+            if (!z || cVar == null || v.J(cVar.ayL())) {
                 if (StringUtils.isNull(b.this.dyD)) {
-                    b.this.ayC();
+                    b.this.ayD();
                     return;
                 } else {
-                    b.this.ayz();
+                    b.this.ayA();
                     return;
                 }
             }
-            b.this.deX = cVar.ayK();
+            b.this.deX = cVar.ayL();
             b.this.setDatas(b.this.deX);
         }
     };
@@ -103,13 +103,13 @@ public class b implements View.OnClickListener {
     public b(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
         this.dyA = new c(tbPageContext);
-        ayA();
+        ayB();
         this.dyB = new d(tbPageContext, tbPageContext.getUniqueId());
         this.dyB.a(this.dyJ);
         this.deX = new ArrayList<>();
         this.dyC = new a(tbPageContext, this.dyA.mListView);
         this.dyC.p(this.dyF);
-        ayC();
+        ayD();
         tbPageContext.registerListener(this.dyI);
         tbPageContext.registerListener(this.dyH);
         com.baidu.adp.lib.g.e.jI().postDelayed(this.dyG, 500L);
@@ -144,12 +144,12 @@ public class b implements View.OnClickListener {
         this.mPageContext.getPageActivity().finish();
     }
 
-    public c ayy() {
+    public c ayz() {
         return this.dyA;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ayz() {
+    public void ayA() {
         this.deX.clear();
         com.baidu.tieba.forumsearch.b.a aVar = new com.baidu.tieba.forumsearch.b.a();
         aVar.setType(com.baidu.tieba.forumsearch.b.a.dyS);
@@ -162,13 +162,13 @@ public class b implements View.OnClickListener {
         this.dyA.mListView.setData(arrayList);
     }
 
-    private void ayA() {
+    private void ayB() {
         this.dyA.aix.setOnClickListener(this);
         this.dyA.dyM.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.forumsearch.controller.b.6
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 3) {
-                    b.this.ayB();
+                    b.this.ayC();
                     return true;
                 }
                 return false;
@@ -185,7 +185,7 @@ public class b implements View.OnClickListener {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                b.this.ayB();
+                b.this.ayC();
             }
         });
         this.dyA.dyM.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.forumsearch.controller.b.8
@@ -194,7 +194,7 @@ public class b implements View.OnClickListener {
                 if (!z) {
                     l.a(b.this.mPageContext.getPageActivity(), view);
                 } else {
-                    b.this.ayB();
+                    b.this.ayC();
                 }
             }
         });
@@ -204,11 +204,11 @@ public class b implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ayB() {
+    public void ayC() {
         if (this.dyA.dyM.getText() == null || StringUtils.isNull(this.dyA.dyM.getText().toString())) {
             this.dyA.dyN.setVisibility(8);
             this.dyD = null;
-            ayC();
+            ayD();
             return;
         }
         h hVar = (h) v.d(this.deX, 0);
@@ -222,15 +222,15 @@ public class b implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ayC() {
+    public void ayD() {
         this.dyB.cancelMessage();
         this.deX.clear();
-        ArrayList<String> ayE = e.ayE();
-        if (!v.J(ayE)) {
+        ArrayList<String> ayF = e.ayF();
+        if (!v.J(ayF)) {
             com.baidu.tieba.forumsearch.b.a aVar = new com.baidu.tieba.forumsearch.b.a();
             aVar.setType(com.baidu.tieba.forumsearch.b.a.dyR);
             this.deX.add(aVar);
-            this.deX.add(new com.baidu.tieba.forumsearch.b.a(ayE));
+            this.deX.add(new com.baidu.tieba.forumsearch.b.a(ayF));
             setDatas(this.deX);
             return;
         }
@@ -247,7 +247,7 @@ public class b implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.dyA.dyM) {
-            ayB();
+            ayC();
         } else if (view == this.dyA.cpf) {
             l.a(this.mPageContext.getPageActivity(), this.dyA.dyM);
             this.mPageContext.getPageActivity().finish();

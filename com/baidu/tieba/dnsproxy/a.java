@@ -15,8 +15,8 @@ public class a {
     private volatile int operator;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String asF() {
-        asG();
+    public String asG() {
+        asH();
         if (j.kY()) {
             return ddb[new Random().nextInt(ddb.length)];
         }
@@ -35,7 +35,7 @@ public class a {
         return "119.75.222.62";
     }
 
-    protected void asG() {
+    protected void asH() {
         this.imsi = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSubscriberId();
         this.operator = 0;
         if (this.imsi != null) {

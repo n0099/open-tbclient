@@ -22,7 +22,7 @@ public class a implements com.baidu.tieba.tbadkCore.e.b {
         }
     }
 
-    public void asZ() {
+    public void ata() {
         if (this.deg != null) {
             this.deg.clear();
         }

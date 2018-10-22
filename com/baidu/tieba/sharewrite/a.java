@@ -29,11 +29,11 @@ public class a {
     private String arY;
     private DialogInterface.OnCancelListener asd;
     private AlertDialog asf;
-    private String gRM;
-    private b gRN;
+    private String gRN;
     private b gRO;
     private b gRP;
-    private DialogInterface.OnKeyListener gRQ;
+    private b gRQ;
+    private DialogInterface.OnKeyListener gRR;
     protected final Activity mActivity;
     private View mContentView;
     private String mMessage;
@@ -41,8 +41,8 @@ public class a {
     private String mTitle;
     private int arT = -1;
     private int mIconResId = -1;
-    private int gRK = e.f.btn_blue_bg;
-    private int gRL = e.d.cp_cont_g;
+    private int gRL = e.f.btn_blue_bg;
+    private int gRM = e.d.cp_cont_g;
     private boolean ash = false;
     private boolean asi = true;
 
@@ -57,17 +57,17 @@ public class a {
     }
 
     public a tZ(int i) {
-        this.gRK = i;
-        return this;
-    }
-
-    public a ua(int i) {
         this.gRL = i;
         return this;
     }
 
+    public a ua(int i) {
+        this.gRM = i;
+        return this;
+    }
+
     public a a(DialogInterface.OnKeyListener onKeyListener) {
-        this.gRQ = onKeyListener;
+        this.gRR = onKeyListener;
         return this;
     }
 
@@ -81,7 +81,7 @@ public class a {
     public a a(int i, b bVar) {
         if (this.mActivity != null) {
             this.arX = this.mActivity.getResources().getString(i);
-            this.gRN = bVar;
+            this.gRO = bVar;
         }
         return this;
     }
@@ -89,7 +89,7 @@ public class a {
     public a b(int i, b bVar) {
         if (this.mActivity != null) {
             this.arY = this.mActivity.getResources().getString(i);
-            this.gRO = bVar;
+            this.gRP = bVar;
         }
         return this;
     }
@@ -116,8 +116,8 @@ public class a {
             ImageView imageView = (ImageView) this.mRootView.findViewById(e.g.bdalert_icon);
             TextView textView2 = (TextView) this.mRootView.findViewById(e.g.message);
             Button button = (Button) this.mRootView.findViewById(e.g.yes);
-            al.i(button, this.gRK);
-            al.c(button, this.gRL, 3);
+            al.i(button, this.gRL);
+            al.c(button, this.gRM, 3);
             Button button2 = (Button) this.mRootView.findViewById(e.g.no);
             Button button3 = (Button) this.mRootView.findViewById(e.g.cancel);
             if (!TextUtils.isEmpty(this.mTitle)) {
@@ -142,8 +142,8 @@ public class a {
                 z = false;
             } else {
                 button.setText(this.arX);
-                if (this.gRN != null) {
-                    button.setOnClickListener(new View$OnClickListenerC0274a(this, this.gRN));
+                if (this.gRO != null) {
+                    button.setOnClickListener(new View$OnClickListenerC0274a(this, this.gRO));
                 }
                 z = true;
             }
@@ -151,17 +151,17 @@ public class a {
                 z2 = false;
             } else {
                 button2.setText(this.arY);
-                if (this.gRO != null) {
-                    button2.setOnClickListener(new View$OnClickListenerC0274a(this, this.gRO));
+                if (this.gRP != null) {
+                    button2.setOnClickListener(new View$OnClickListenerC0274a(this, this.gRP));
                 }
                 z2 = true;
             }
-            if (TextUtils.isEmpty(this.gRM)) {
+            if (TextUtils.isEmpty(this.gRN)) {
                 z3 = false;
             } else {
-                button3.setText(this.gRM);
-                if (this.gRP != null) {
-                    button3.setOnClickListener(new View$OnClickListenerC0274a(this, this.gRP));
+                button3.setText(this.gRN);
+                if (this.gRQ != null) {
+                    button3.setOnClickListener(new View$OnClickListenerC0274a(this, this.gRQ));
                 }
                 z3 = true;
             }
@@ -241,8 +241,8 @@ public class a {
             if (this.asd != null) {
                 this.asf.setOnCancelListener(this.asd);
             }
-            if (this.gRQ != null) {
-                this.asf.setOnKeyListener(this.gRQ);
+            if (this.gRR != null) {
+                this.asf.setOnKeyListener(this.gRR);
             }
             if (z) {
                 g.a(this.asf, this.mActivity);
@@ -291,18 +291,18 @@ public class a {
     /* renamed from: com.baidu.tieba.sharewrite.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     private class View$OnClickListenerC0274a implements View.OnClickListener {
-        private final a gRS;
-        private final b gRT;
+        private final a gRT;
+        private final b gRU;
 
         public View$OnClickListenerC0274a(a aVar, b bVar) {
-            this.gRS = aVar;
-            this.gRT = bVar;
+            this.gRT = aVar;
+            this.gRU = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.gRT != null) {
-                this.gRT.a(this.gRS);
+            if (this.gRU != null) {
+                this.gRU.a(this.gRT);
             }
         }
     }

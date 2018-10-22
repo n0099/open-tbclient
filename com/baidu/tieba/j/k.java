@@ -12,25 +12,25 @@ import com.baidu.webkit.internal.ETAG;
 public class k {
     private static final String TAG = k.class.getName();
     private long fwA;
-    private boolean fwB;
-    private long fwz;
+    private long fwB;
+    private boolean fwC;
 
     public void bbu() {
-        this.fwB = true;
-        this.fwz = SystemClock.elapsedRealtime();
-    }
-
-    public void bbv() {
+        this.fwC = true;
         this.fwA = SystemClock.elapsedRealtime();
     }
 
+    public void bbv() {
+        this.fwB = SystemClock.elapsedRealtime();
+    }
+
     public void a(String str, long j, long j2, String str2) {
-        if (this.fwB) {
-            this.fwB = false;
+        if (this.fwC) {
+            this.fwC = false;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            long j3 = this.fwA - this.fwz;
-            long j4 = elapsedRealtime - this.fwA;
-            long j5 = elapsedRealtime - this.fwz;
+            long j3 = this.fwB - this.fwA;
+            long j4 = elapsedRealtime - this.fwB;
+            long j5 = elapsedRealtime - this.fwA;
             if (com.baidu.adp.lib.util.j.ld() == 2 || j3 <= 17500) {
                 am amVar = new am("c13171");
                 amVar.ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, str2);

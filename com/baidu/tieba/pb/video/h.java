@@ -11,9 +11,9 @@ import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class h {
     private BaseActivity bwX;
-    private d gcf;
-    private e gcg;
-    private com.baidu.tieba.c.d gch;
+    private d gcg;
+    private e gch;
+    private com.baidu.tieba.c.d gci;
     private int mSkinType = 3;
 
     public h(BaseActivity baseActivity) {
@@ -27,72 +27,72 @@ public class h {
 
     private void aq(bb bbVar) {
         if (bbVar != null) {
-            if (this.gcf == null) {
-                this.gcf = new d(LayoutInflater.from(this.bwX.getPageContext().getPageActivity()).inflate(e.h.pb_header_video_abstract_layout, (ViewGroup) null));
+            if (this.gcg == null) {
+                this.gcg = new d(LayoutInflater.from(this.bwX.getPageContext().getPageActivity()).inflate(e.h.pb_header_video_abstract_layout, (ViewGroup) null));
             }
-            this.gcf.an(bbVar);
+            this.gcg.an(bbVar);
         }
     }
 
     public View blW() {
-        if (this.gcf == null) {
+        if (this.gcg == null) {
             return null;
         }
-        return this.gcf.mRootView;
+        return this.gcg.mRootView;
     }
 
     private void b(bh bhVar, bb bbVar, int i) {
         if (bhVar != null && bbVar != null) {
-            if (this.gcg == null) {
-                this.gcg = new e(this.bwX, LayoutInflater.from(this.bwX.getPageContext().getPageActivity()).inflate(e.h.video_pb_video_channel_info_layout, (ViewGroup) null));
+            if (this.gch == null) {
+                this.gch = new e(this.bwX, LayoutInflater.from(this.bwX.getPageContext().getPageActivity()).inflate(e.h.video_pb_video_channel_info_layout, (ViewGroup) null));
             }
             bhVar.arL = i;
-            this.gcg.ao(bbVar);
+            this.gch.ao(bbVar);
             bbVar.a(bhVar);
         }
     }
 
     public View blX() {
-        if (this.gcg == null) {
+        if (this.gch == null) {
             return null;
         }
-        return this.gcg.getRootView();
+        return this.gch.getRootView();
     }
 
     public void ar(bb bbVar) {
-        if (this.gcg != null && bbVar != null && bbVar.zy() != null && bbVar.zy().arL == 2) {
-            if (this.gch == null) {
-                this.gch = new com.baidu.tieba.c.d(this.bwX.getPageContext(), this.gcg.blT());
-                this.gch.km(5000);
+        if (this.gch != null && bbVar != null && bbVar.zy() != null && bbVar.zy().arL == 2) {
+            if (this.gci == null) {
+                this.gci = new com.baidu.tieba.c.d(this.bwX.getPageContext(), this.gch.blT());
+                this.gci.km(5000);
             }
-            this.gch.h(this.bwX.getResources().getString(e.j.pb_order_channel_tip), "pb_show_order_channel_tip", true);
+            this.gci.h(this.bwX.getResources().getString(e.j.pb_order_channel_tip), "pb_show_order_channel_tip", true);
         }
     }
 
     public void n(long j, int i) {
-        if (this.gcg != null && j > 0) {
-            this.gcg.l(i, j);
+        if (this.gch != null && j > 0) {
+            this.gch.l(i, j);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.gcf != null) {
-                this.gcf.IX();
-            }
             if (this.gcg != null) {
                 this.gcg.IX();
+            }
+            if (this.gch != null) {
+                this.gch.IX();
             }
             this.mSkinType = i;
         }
     }
 
     public void b(BdTypeListView bdTypeListView) {
-        if (this.gcf != null) {
-            bdTypeListView.removeHeaderView(this.gcf.mRootView);
-        }
         if (this.gcg != null) {
-            bdTypeListView.removeHeaderView(this.gcg.getRootView());
+            bdTypeListView.removeHeaderView(this.gcg.mRootView);
+        }
+        if (this.gch != null) {
+            bdTypeListView.removeHeaderView(this.gch.getRootView());
         }
     }
 
@@ -101,8 +101,8 @@ public class h {
     }
 
     public void blY() {
-        if (this.gch != null) {
-            this.gch.apY();
+        if (this.gci != null) {
+            this.gci.apZ();
         }
     }
 }

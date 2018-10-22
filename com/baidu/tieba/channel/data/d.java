@@ -8,11 +8,11 @@ public class d {
     private ChannelInfo cST;
     private ChannelHomeVideoList<h> cSU;
 
-    public g aoX() {
+    public g aoY() {
         return this.cSS;
     }
 
-    public boolean aoY() {
+    public boolean aoZ() {
         return this.cSU == null || this.cSU.size() == 0;
     }
 
@@ -20,7 +20,7 @@ public class d {
         this.cSS = gVar;
     }
 
-    public ChannelInfo aoZ() {
+    public ChannelInfo apa() {
         return this.cST;
     }
 
@@ -28,7 +28,7 @@ public class d {
         this.cST = channelInfo;
     }
 
-    public ChannelHomeVideoList<h> apa() {
+    public ChannelHomeVideoList<h> apb() {
         return this.cSU;
     }
 
@@ -44,7 +44,7 @@ public class d {
         this.cSR = i;
     }
 
-    public boolean apb() {
+    public boolean apc() {
         return this.cSS != null && this.cSS.isHasMore();
     }
 

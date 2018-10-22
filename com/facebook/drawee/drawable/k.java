@@ -18,24 +18,24 @@ import javax.annotation.Nullable;
 public class k extends BitmapDrawable implements j, o {
     private final Path bEi;
     @Nullable
-    private p hZI;
-    private WeakReference<Bitmap> iaA;
-    private boolean iaj;
+    private p hZJ;
+    private boolean iaA;
+    private WeakReference<Bitmap> iaB;
     private boolean iak;
-    private final float[] ial;
-    final float[] iam;
-    final RectF ian;
+    private boolean ial;
+    private final float[] iam;
+    final float[] ian;
     final RectF iao;
     final RectF iap;
     final RectF iaq;
-    final Matrix iar;
+    final RectF iar;
     final Matrix ias;
     final Matrix iat;
     final Matrix iau;
     final Matrix iav;
     final Matrix iaw;
-    private float iax;
-    private boolean iay;
+    final Matrix iax;
+    private float iay;
     private boolean iaz;
     private int mBorderColor;
     private final Paint mBorderPaint;
@@ -45,29 +45,29 @@ public class k extends BitmapDrawable implements j, o {
 
     public k(Resources resources, Bitmap bitmap, @Nullable Paint paint) {
         super(resources, bitmap);
-        this.iaj = false;
         this.iak = false;
-        this.ial = new float[8];
+        this.ial = false;
         this.iam = new float[8];
-        this.ian = new RectF();
+        this.ian = new float[8];
         this.iao = new RectF();
         this.iap = new RectF();
         this.iaq = new RectF();
-        this.iar = new Matrix();
+        this.iar = new RectF();
         this.ias = new Matrix();
         this.iat = new Matrix();
         this.iau = new Matrix();
         this.iav = new Matrix();
         this.iaw = new Matrix();
+        this.iax = new Matrix();
         this.mBorderWidth = 0.0f;
         this.mBorderColor = 0;
-        this.iax = 0.0f;
+        this.iay = 0.0f;
         this.mPath = new Path();
         this.bEi = new Path();
-        this.iay = true;
+        this.iaz = true;
         this.mPaint = new Paint();
         this.mBorderPaint = new Paint(1);
-        this.iaz = true;
+        this.iaA = true;
         if (paint != null) {
             this.mPaint.set(paint);
         }
@@ -77,34 +77,34 @@ public class k extends BitmapDrawable implements j, o {
 
     @Override // com.facebook.drawee.drawable.j
     public void oE(boolean z) {
-        this.iaj = z;
-        this.iay = true;
+        this.iak = z;
+        this.iaz = true;
         invalidateSelf();
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void setRadius(float f) {
         com.facebook.common.internal.g.checkState(f >= 0.0f);
-        Arrays.fill(this.ial, f);
-        this.iak = f != 0.0f;
-        this.iay = true;
+        Arrays.fill(this.iam, f);
+        this.ial = f != 0.0f;
+        this.iaz = true;
         invalidateSelf();
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void e(float[] fArr) {
         if (fArr == null) {
-            Arrays.fill(this.ial, 0.0f);
-            this.iak = false;
+            Arrays.fill(this.iam, 0.0f);
+            this.ial = false;
         } else {
             com.facebook.common.internal.g.checkArgument(fArr.length == 8, "radii should have exactly 8 values");
-            System.arraycopy(fArr, 0, this.ial, 0, 8);
-            this.iak = false;
+            System.arraycopy(fArr, 0, this.iam, 0, 8);
+            this.ial = false;
             for (int i = 0; i < 8; i++) {
-                this.iak = (fArr[i] > 0.0f) | this.iak;
+                this.ial = (fArr[i] > 0.0f) | this.ial;
             }
         }
-        this.iay = true;
+        this.iaz = true;
         invalidateSelf();
     }
 
@@ -113,23 +113,23 @@ public class k extends BitmapDrawable implements j, o {
         if (this.mBorderColor != i || this.mBorderWidth != f) {
             this.mBorderColor = i;
             this.mBorderWidth = f;
-            this.iay = true;
+            this.iaz = true;
             invalidateSelf();
         }
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void aG(float f) {
-        if (this.iax != f) {
-            this.iax = f;
-            this.iay = true;
+        if (this.iay != f) {
+            this.iay = f;
+            this.iaz = true;
             invalidateSelf();
         }
     }
 
     @Override // com.facebook.drawee.drawable.o
     public void a(@Nullable p pVar) {
-        this.hZI = pVar;
+        this.hZJ = pVar;
     }
 
     @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
@@ -157,7 +157,7 @@ public class k extends BitmapDrawable implements j, o {
         bTq();
         mk();
         int save = canvas.save();
-        canvas.concat(this.iav);
+        canvas.concat(this.iaw);
         canvas.drawPath(this.mPath, this.mPaint);
         if (this.mBorderWidth > 0.0f) {
             this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
@@ -168,70 +168,70 @@ public class k extends BitmapDrawable implements j, o {
     }
 
     boolean bTo() {
-        return this.iaj || this.iak || this.mBorderWidth > 0.0f;
+        return this.iak || this.ial || this.mBorderWidth > 0.0f;
     }
 
     private void bTp() {
-        if (this.hZI != null) {
-            this.hZI.e(this.iat);
-            this.hZI.b(this.ian);
+        if (this.hZJ != null) {
+            this.hZJ.e(this.iau);
+            this.hZJ.b(this.iao);
         } else {
-            this.iat.reset();
-            this.ian.set(getBounds());
+            this.iau.reset();
+            this.iao.set(getBounds());
         }
-        this.iap.set(0.0f, 0.0f, getBitmap().getWidth(), getBitmap().getHeight());
-        this.iaq.set(getBounds());
-        this.iar.setRectToRect(this.iap, this.iaq, Matrix.ScaleToFit.FILL);
-        if (!this.iat.equals(this.iau) || !this.iar.equals(this.ias)) {
+        this.iaq.set(0.0f, 0.0f, getBitmap().getWidth(), getBitmap().getHeight());
+        this.iar.set(getBounds());
+        this.ias.setRectToRect(this.iaq, this.iar, Matrix.ScaleToFit.FILL);
+        if (!this.iau.equals(this.iav) || !this.ias.equals(this.iat)) {
+            this.iaA = true;
+            this.iau.invert(this.iaw);
+            this.iax.set(this.iau);
+            this.iax.preConcat(this.ias);
+            this.iav.set(this.iau);
+            this.iat.set(this.ias);
+        }
+        if (!this.iao.equals(this.iap)) {
             this.iaz = true;
-            this.iat.invert(this.iav);
-            this.iaw.set(this.iat);
-            this.iaw.preConcat(this.iar);
-            this.iau.set(this.iat);
-            this.ias.set(this.iar);
-        }
-        if (!this.ian.equals(this.iao)) {
-            this.iay = true;
-            this.iao.set(this.ian);
+            this.iap.set(this.iao);
         }
     }
 
     private void bTq() {
-        if (this.iay) {
+        if (this.iaz) {
             this.bEi.reset();
-            this.ian.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
-            if (this.iaj) {
-                this.bEi.addCircle(this.ian.centerX(), this.ian.centerY(), Math.min(this.ian.width(), this.ian.height()) / 2.0f, Path.Direction.CW);
+            this.iao.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
+            if (this.iak) {
+                this.bEi.addCircle(this.iao.centerX(), this.iao.centerY(), Math.min(this.iao.width(), this.iao.height()) / 2.0f, Path.Direction.CW);
             } else {
-                for (int i = 0; i < this.iam.length; i++) {
-                    this.iam[i] = (this.ial[i] + this.iax) - (this.mBorderWidth / 2.0f);
+                for (int i = 0; i < this.ian.length; i++) {
+                    this.ian[i] = (this.iam[i] + this.iay) - (this.mBorderWidth / 2.0f);
                 }
-                this.bEi.addRoundRect(this.ian, this.iam, Path.Direction.CW);
+                this.bEi.addRoundRect(this.iao, this.ian, Path.Direction.CW);
             }
-            this.ian.inset((-this.mBorderWidth) / 2.0f, (-this.mBorderWidth) / 2.0f);
+            this.iao.inset((-this.mBorderWidth) / 2.0f, (-this.mBorderWidth) / 2.0f);
             this.mPath.reset();
-            this.ian.inset(this.iax, this.iax);
-            if (this.iaj) {
-                this.mPath.addCircle(this.ian.centerX(), this.ian.centerY(), Math.min(this.ian.width(), this.ian.height()) / 2.0f, Path.Direction.CW);
+            this.iao.inset(this.iay, this.iay);
+            if (this.iak) {
+                this.mPath.addCircle(this.iao.centerX(), this.iao.centerY(), Math.min(this.iao.width(), this.iao.height()) / 2.0f, Path.Direction.CW);
             } else {
-                this.mPath.addRoundRect(this.ian, this.ial, Path.Direction.CW);
+                this.mPath.addRoundRect(this.iao, this.iam, Path.Direction.CW);
             }
-            this.ian.inset(-this.iax, -this.iax);
+            this.iao.inset(-this.iay, -this.iay);
             this.mPath.setFillType(Path.FillType.WINDING);
-            this.iay = false;
+            this.iaz = false;
         }
     }
 
     private void mk() {
         Bitmap bitmap = getBitmap();
-        if (this.iaA == null || this.iaA.get() != bitmap) {
-            this.iaA = new WeakReference<>(bitmap);
+        if (this.iaB == null || this.iaB.get() != bitmap) {
+            this.iaB = new WeakReference<>(bitmap);
             this.mPaint.setShader(new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
-            this.iaz = true;
+            this.iaA = true;
         }
-        if (this.iaz) {
-            this.mPaint.getShader().setLocalMatrix(this.iaw);
-            this.iaz = false;
+        if (this.iaA) {
+            this.mPaint.getShader().setLocalMatrix(this.iax);
+            this.iaA = false;
         }
     }
 }

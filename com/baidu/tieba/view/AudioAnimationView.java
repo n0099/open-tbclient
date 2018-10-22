@@ -24,7 +24,7 @@ public class AudioAnimationView extends View {
     private int Tu;
     private int Tv;
     private final Runnable Tw;
-    private Rect[] hDA;
+    private Rect[] hDB;
     private Paint mPaint;
     private int mSkinType;
     private Random random;
@@ -105,8 +105,8 @@ public class AudioAnimationView extends View {
         if (this.To) {
             for (int i = 0; i < this.Tn; i++) {
                 pV();
-                if (i < this.hDA.length) {
-                    canvas.drawRect(this.hDA[i], this.mPaint);
+                if (i < this.hDB.length) {
+                    canvas.drawRect(this.hDB[i], this.mPaint);
                 }
             }
         }
@@ -130,8 +130,8 @@ public class AudioAnimationView extends View {
 
     private void pV() {
         int nextInt;
-        if (this.hDA == null || this.hDA.length != this.Tn) {
-            this.hDA = new Rect[this.Tn];
+        if (this.hDB == null || this.hDB.length != this.Tn) {
+            this.hDB = new Rect[this.Tn];
         }
         for (int i = 0; i < this.Tn; i++) {
             int i2 = this.Tu * i * 2;
@@ -142,10 +142,10 @@ public class AudioAnimationView extends View {
             }
             int i3 = this.Tu + i2;
             int i4 = this.Tr;
-            if (this.hDA[i] == null) {
-                this.hDA[i] = new Rect(i2, nextInt, i3, i4);
+            if (this.hDB[i] == null) {
+                this.hDB[i] = new Rect(i2, nextInt, i3, i4);
             } else {
-                this.hDA[i].set(i2, nextInt, i3, i4);
+                this.hDB[i].set(i2, nextInt, i3, i4);
             }
         }
     }

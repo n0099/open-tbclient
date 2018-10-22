@@ -224,9 +224,9 @@ public class e implements ai {
         bVar.dwK = e.j.complaint_bar_lord;
         bVar.mUrl = "https://tieba.baidu.com/n/interact/complainManager/" + this.forumId;
         arrayList.add(bVar);
-        com.baidu.adp.widget.ListView.h ayk = ayk();
-        if (ayk != null) {
-            arrayList.add(ayk);
+        com.baidu.adp.widget.ListView.h ayl = ayl();
+        if (ayl != null) {
+            arrayList.add(ayl);
         }
         return arrayList;
     }
@@ -257,7 +257,7 @@ public class e implements ai {
         }
     }
 
-    private com.baidu.tieba.frs.i ayk() {
+    private com.baidu.tieba.frs.i ayl() {
         int h;
         if (this.mMemberGroupInfoList == null || this.mMemberGroupInfoList.size() <= 0) {
             return null;
@@ -325,7 +325,7 @@ public class e implements ai {
     }
 
     @Override // com.baidu.tieba.frs.ai
-    public void aaU() {
+    public void aaV() {
         MessageManager.getInstance().unRegisterListener(this.cVx);
         MessageManager.getInstance().unRegisterListener(this.dwk);
         MessageManager.getInstance().unRegisterListener(this.dwS);

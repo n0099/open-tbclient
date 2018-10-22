@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class a {
-    private static Map<String, String> fml;
+    private static Map<String, String> fmm;
 
     public static void qN(String str) {
         try {
@@ -17,15 +17,15 @@ public class a {
     }
 
     public static Map<String, String> aYQ() {
-        if (fml == null) {
+        if (fmm == null) {
             try {
                 Field declaredField = Class.forName("dalvik.system.VMRuntime").getDeclaredField("ABI_TO_INSTRUCTION_SET_MAP");
                 declaredField.setAccessible(true);
-                fml = (Map) declaredField.get(null);
+                fmm = (Map) declaredField.get(null);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        return fml;
+        return fmm;
     }
 }

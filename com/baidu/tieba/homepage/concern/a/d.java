@@ -12,7 +12,7 @@ import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.a, a> {
     public d(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.a.eiJ);
+        super(context, com.baidu.tieba.homepage.concern.b.a.eiK);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,7 +31,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         if (aVar.aBr != null) {
             aVar2.aCQ.setText(aVar.aBr);
         }
-        switch (aVar.eiK) {
+        switch (aVar.eiL) {
             case 2:
                 aVar2.aW(TbadkCoreApplication.getInst().getSkinType(), e.f.emotion_dashen);
                 break;
@@ -48,15 +48,15 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         private int aHp;
         public View dJk;
         public View dJl;
-        public ViewGroup eiu;
-        public ImageView eiv;
+        public ViewGroup eiv;
+        public ImageView eiw;
 
         public a(View view) {
             super(view);
             this.aHp = 3;
             this.dJk = view.findViewById(e.g.concern_emotion_tip_top_line);
-            this.eiu = (ViewGroup) view.findViewById(e.g.ll_concern_emotion_tip);
-            this.eiv = (ImageView) view.findViewById(e.g.iv_concern_emotion_tip_pic);
+            this.eiv = (ViewGroup) view.findViewById(e.g.ll_concern_emotion_tip);
+            this.eiw = (ImageView) view.findViewById(e.g.iv_concern_emotion_tip_pic);
             this.aCQ = (TextView) view.findViewById(e.g.tv_concern_emotion_tip);
             this.dJl = view.findViewById(e.g.concern_emotion_tip_bottom_line);
         }
@@ -64,7 +64,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         protected void aW(int i, int i2) {
             if (this.aHp != i) {
                 al.j(this.dJk, e.d.cp_bg_line_c);
-                al.c(this.eiv, i2);
+                al.c(this.eiw, i2);
                 al.h(this.aCQ, e.d.cp_cont_b);
                 al.j(this.dJl, e.d.cp_bg_line_c);
             }

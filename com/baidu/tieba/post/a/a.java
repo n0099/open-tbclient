@@ -16,9 +16,9 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    public i gnO;
-    private b gyA;
-    public j gyz;
+    public i gnP;
+    public j gyA;
+    private b gyB;
     private BdTypeListView mListView;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private ArrayList<h> cip = new ArrayList<>();
@@ -29,12 +29,12 @@ public class a {
     }
 
     private void p(TbPageContext<?> tbPageContext) {
-        this.gnO = new i(tbPageContext);
-        this.gyz = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.gpY);
-        this.gyA = new d(tbPageContext, this, tbPageContext.getUniqueId());
-        this.gyz.a(this.gyA);
-        this.mAdapters.add(this.gnO);
-        this.mAdapters.add(this.gyz);
+        this.gnP = new i(tbPageContext);
+        this.gyA = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.gpZ);
+        this.gyB = new d(tbPageContext, this, tbPageContext.getUniqueId());
+        this.gyA.a(this.gyB);
+        this.mAdapters.add(this.gnP);
+        this.mAdapters.add(this.gyA);
         this.mListView.addAdapters(this.mAdapters);
     }
 

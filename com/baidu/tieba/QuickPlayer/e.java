@@ -76,10 +76,10 @@ public class e implements d.b, com.baidu.tieba.play.g {
                 if (message.obj != null && (message.obj instanceof com.baidu.tieba.play.b.d)) {
                     com.baidu.tieba.play.b.d dVar = (com.baidu.tieba.play.b.d) message.obj;
                     if (e.this.bkN != null) {
-                        e.this.bkN.onError(e.this, dVar.what, dVar.gwW);
+                        e.this.bkN.onError(e.this, dVar.what, dVar.gwX);
                     }
                     if (e.this.btA != null) {
-                        e.this.btA.a(e.this, dVar.gwV, dVar.what, dVar.gwW);
+                        e.this.btA.a(e.this, dVar.gwW, dVar.what, dVar.gwX);
                     }
                 }
             } else if (message.what == 9) {

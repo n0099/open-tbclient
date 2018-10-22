@@ -17,9 +17,9 @@ public class FrsBaseViewPager extends BdBaseViewPager {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void azl();
+        void azm();
 
-        boolean azm();
+        boolean azn();
     }
 
     public FrsBaseViewPager(Context context) {
@@ -44,7 +44,7 @@ public class FrsBaseViewPager extends BdBaseViewPager {
         switch (motionEvent.getAction()) {
             case 0:
                 if (this.dzI != null) {
-                    this.dzI.azl();
+                    this.dzI.azm();
                 }
                 if (this.x >= getMeasuredWidth() - this.dzG && this.x <= getMeasuredWidth()) {
                     setmDisallowSlip(false);
@@ -61,12 +61,12 @@ public class FrsBaseViewPager extends BdBaseViewPager {
                 break;
             case 2:
                 if (this.dzK) {
-                    boolean azm = this.dzI != null ? this.dzI.azm() : true;
-                    if (this.dzH && azm) {
+                    boolean azn = this.dzI != null ? this.dzI.azn() : true;
+                    if (this.dzH && azn) {
                         z = false;
                     }
                     setmDisallowSlip(z);
-                    this.dzK = azm;
+                    this.dzK = azn;
                     break;
                 }
                 break;

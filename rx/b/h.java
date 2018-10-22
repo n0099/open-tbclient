@@ -6,7 +6,7 @@ import java.util.concurrent.CountDownLatch;
 import rx.j;
 /* loaded from: classes2.dex */
 public class h<T> extends j<T> {
-    private static final rx.e<Object> iEx = new rx.e<Object>() { // from class: rx.b.h.1
+    private static final rx.e<Object> iEy = new rx.e<Object>() { // from class: rx.b.h.1
         @Override // rx.e
         public void onCompleted() {
         }
@@ -19,29 +19,29 @@ public class h<T> extends j<T> {
         public void onNext(Object obj) {
         }
     };
-    private final rx.e<T> iEs;
-    private final List<Throwable> iEt;
-    private int iEu;
-    private final CountDownLatch iEv;
-    private volatile Thread iEw;
+    private final rx.e<T> iEt;
+    private final List<Throwable> iEu;
+    private int iEv;
+    private final CountDownLatch iEw;
+    private volatile Thread iEx;
     private volatile int valueCount;
     private final List<T> values;
 
     public h(long j) {
-        this(iEx, j);
+        this(iEy, j);
     }
 
     public h(rx.e<T> eVar, long j) {
-        this.iEv = new CountDownLatch(1);
+        this.iEw = new CountDownLatch(1);
         if (eVar == null) {
             throw new NullPointerException();
         }
-        this.iEs = eVar;
+        this.iEt = eVar;
         if (j >= 0) {
             request(j);
         }
         this.values = new ArrayList();
-        this.iEt = new ArrayList();
+        this.iEu = new ArrayList();
     }
 
     public h() {
@@ -51,30 +51,30 @@ public class h<T> extends j<T> {
     @Override // rx.e
     public void onCompleted() {
         try {
-            this.iEu++;
-            this.iEw = Thread.currentThread();
-            this.iEs.onCompleted();
+            this.iEv++;
+            this.iEx = Thread.currentThread();
+            this.iEt.onCompleted();
         } finally {
-            this.iEv.countDown();
+            this.iEw.countDown();
         }
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
         try {
-            this.iEw = Thread.currentThread();
-            this.iEt.add(th);
-            this.iEs.onError(th);
+            this.iEx = Thread.currentThread();
+            this.iEu.add(th);
+            this.iEt.onError(th);
         } finally {
-            this.iEv.countDown();
+            this.iEw.countDown();
         }
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.iEw = Thread.currentThread();
+        this.iEx = Thread.currentThread();
         this.values.add(t);
         this.valueCount = this.values.size();
-        this.iEs.onNext(t);
+        this.iEt.onNext(t);
     }
 }

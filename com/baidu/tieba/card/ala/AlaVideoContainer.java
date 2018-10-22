@@ -110,7 +110,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.bkR = new QuickVideoView.b() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.5
             @Override // com.baidu.tieba.play.QuickVideoView.b
             public void onSurfaceDestroyed() {
-                AlaVideoContainer.this.YS();
+                AlaVideoContainer.this.YT();
             }
         };
         this.bkN = new g.b() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.6
@@ -123,7 +123,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.bkP = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.7
             @Override // java.lang.Runnable
             public void run() {
-                AlaVideoContainer.this.YS();
+                AlaVideoContainer.this.YT();
             }
         };
         this.cPO = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.8
@@ -192,7 +192,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.bkR = new QuickVideoView.b() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.5
             @Override // com.baidu.tieba.play.QuickVideoView.b
             public void onSurfaceDestroyed() {
-                AlaVideoContainer.this.YS();
+                AlaVideoContainer.this.YT();
             }
         };
         this.bkN = new g.b() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.6
@@ -205,7 +205,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.bkP = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.7
             @Override // java.lang.Runnable
             public void run() {
-                AlaVideoContainer.this.YS();
+                AlaVideoContainer.this.YT();
             }
         };
         this.cPO = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.8
@@ -274,7 +274,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.bkR = new QuickVideoView.b() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.5
             @Override // com.baidu.tieba.play.QuickVideoView.b
             public void onSurfaceDestroyed() {
-                AlaVideoContainer.this.YS();
+                AlaVideoContainer.this.YT();
             }
         };
         this.bkN = new g.b() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.6
@@ -287,7 +287,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.bkP = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.7
             @Override // java.lang.Runnable
             public void run() {
-                AlaVideoContainer.this.YS();
+                AlaVideoContainer.this.YT();
             }
         };
         this.cPO = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.8
@@ -403,7 +403,7 @@ public class AlaVideoContainer extends LinearLayout {
         return this.bJN;
     }
 
-    public void YS() {
+    public void YT() {
         this.cPz.setVisibility(0);
         this.cPB.setVisibility(0);
         this.cPC.setVisibility(8);

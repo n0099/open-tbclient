@@ -68,10 +68,10 @@ public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.data.a
     public void L(com.baidu.tieba.enterForum.data.a aVar) {
         super.L(aVar);
         if (aVar != null) {
-            a(aVar.atB(), true);
-            a(aVar.atC(), false);
-            b(aVar.atB(), true);
-            b(aVar.atC(), false);
+            a(aVar.atC(), true);
+            a(aVar.atD(), false);
+            b(aVar.atC(), true);
+            b(aVar.atD(), false);
             al.j(this.diA, e.d.cp_bg_line_c);
             al.j(this.diB, e.d.cp_bg_line_c);
             al.i(this.dit, e.f.icon_ba_sign_n);
@@ -105,14 +105,14 @@ public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.data.a
                     if (eVar instanceof f) {
                         f fVar = (f) eVar;
                         textView.setText(fVar.getName());
-                        imageView.setVisibility(fVar.atH() == 0 ? 8 : 0);
+                        imageView.setVisibility(fVar.atI() == 0 ? 8 : 0);
                         if (fVar.getLevel() == 0) {
                             imageView2.setVisibility(8);
                         } else {
                             imageView2.setVisibility(0);
                             al.c(imageView2, BitmapHelper.getGradeResourceIdInEnterForum(fVar.getLevel()));
                         }
-                        if (fVar.atI() == 1) {
+                        if (fVar.atJ() == 1) {
                             textView2.setVisibility(0);
                             textView2.setText(e.j.brand_label_text);
                             al.i(textView2, e.f.enter_forum_brand_label_bg_shape);

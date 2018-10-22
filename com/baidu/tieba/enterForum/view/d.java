@@ -76,7 +76,7 @@ public class d {
         this.diX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                d.this.auH();
+                d.this.auI();
             }
         });
         this.diY = (TextView) this.mRootView.findViewById(e.g.done);
@@ -132,7 +132,7 @@ public class d {
             }
 
             @Override // com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel.a
-            public void auh() {
+            public void aui() {
                 d.this.notifyDataSetChanged();
             }
 
@@ -148,7 +148,7 @@ public class d {
         this.mPageContext.registerListener(this.dje);
     }
 
-    public boolean atA() {
+    public boolean atB() {
         if (this.dfU) {
             cY(false);
             return true;
@@ -181,7 +181,7 @@ public class d {
         }
     }
 
-    public void auH() {
+    public void auI() {
         this.djb = !this.djb;
         com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("key_recently_visited_forum_extend_state", this.djb);
         if (this.djb) {
@@ -189,10 +189,10 @@ public class d {
         } else {
             TiebaStatic.log(new am("c13004"));
         }
-        auI();
+        auJ();
     }
 
-    private void auI() {
+    private void auJ() {
         if (this.djb) {
             this.diZ.setVisibility(0);
             this.mDivider.setVisibility(0);
@@ -208,7 +208,7 @@ public class d {
     public void ca(boolean z) {
         if (z && !com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("recnbar" + TbadkCoreApplication.getCurrentAccount(), false)) {
             this.diV.setVisibility(0);
-            auI();
+            auJ();
             return;
         }
         this.diV.setVisibility(8);
@@ -218,14 +218,14 @@ public class d {
 
     public void m(LinkedList<VisitedForumData> linkedList) {
         if (this.dja != null && linkedList != null) {
-            auI();
+            auJ();
             this.dja.k(linkedList);
             notifyDataSetChanged();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void auJ() {
+    public void auK() {
         if (this.diW != null) {
             this.diW.refresh();
         }
@@ -262,7 +262,7 @@ public class d {
             al.h(this.mTitle, e.d.cp_cont_d);
             al.j(this.mDivider, e.d.cp_bg_line_e);
             al.h(this.diY, e.d.cp_link_tip_a);
-            auI();
+            auJ();
             notifyDataSetChanged();
         }
     }

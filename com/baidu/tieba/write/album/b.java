@@ -20,14 +20,14 @@ import java.util.List;
 public class b extends BaseAdapter {
     private String doG;
     private int doH;
-    private AlbumActivity hIX;
+    private AlbumActivity hIY;
     private LayoutInflater mLayoutInflater;
     private List<com.baidu.tbadk.album.a> mList;
 
     public b(AlbumActivity albumActivity) {
-        this.hIX = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.hIX.getPageContext().getPageActivity());
-        this.doH = l.aO(this.hIX.getPageContext().getPageActivity()) / 2;
+        this.hIY = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.hIY.getPageContext().getPageActivity());
+        this.doH = l.aO(this.hIY.getPageContext().getPageActivity()) / 2;
     }
 
     public void f(List<com.baidu.tbadk.album.a> list, String str) {
@@ -60,11 +60,11 @@ public class b extends BaseAdapter {
         } else {
             view = this.mLayoutInflater.inflate(e.h.album_list_item, viewGroup, false);
             aVar = new a();
-            aVar.hJi = (TbImageView) view.findViewById(e.g.item_head);
+            aVar.hJj = (TbImageView) view.findViewById(e.g.item_head);
             aVar.doK = (TextView) view.findViewById(e.g.item_name);
             aVar.doL = (ImageView) view.findViewById(e.g.item_arrow);
-            aVar.hJi.setGifIconSupport(false);
-            aVar.hJi.setLongIconSupport(false);
+            aVar.hJj.setGifIconSupport(false);
+            aVar.hJj.setLongIconSupport(false);
             view.setTag(aVar);
         }
         com.baidu.tbadk.album.a item = getItem(i);
@@ -86,9 +86,9 @@ public class b extends BaseAdapter {
             }
             MediaFileInfo uP = item.uP();
             if (uP instanceof VideoFileInfo) {
-                aVar.hJi.startLoad(((VideoFileInfo) uP).videoPath, 37, false);
+                aVar.hJj.startLoad(((VideoFileInfo) uP).videoPath, 37, false);
             } else if (uP instanceof ImageFileInfo) {
-                aVar.hJi.startLoad(((ImageFileInfo) uP).getFilePath(), 35, false);
+                aVar.hJj.startLoad(((ImageFileInfo) uP).getFilePath(), 35, false);
             }
             al.h(aVar.doK, e.d.cp_cont_b);
             al.i(view, e.f.addresslist_item_bg);
@@ -100,7 +100,7 @@ public class b extends BaseAdapter {
     private class a {
         TextView doK;
         ImageView doL;
-        TbImageView hJi;
+        TbImageView hJj;
 
         private a() {
         }

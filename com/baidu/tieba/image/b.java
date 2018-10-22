@@ -17,28 +17,28 @@ import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class b {
     private TbImageView dmy;
-    private TextView eHA;
-    private RelativeLayout eYA;
-    public TbImageView eYB;
-    public LinearLayout eYC;
-    public TextView eYD;
-    public boolean eYE = false;
+    private TextView eHB;
+    private RelativeLayout eYB;
+    public TbImageView eYC;
+    public LinearLayout eYD;
+    public TextView eYE;
+    public boolean eYF = false;
     private Context mContext;
     private ProgressBar mProgressBar;
 
     public b(ViewGroup viewGroup) {
-        this.eYA = (RelativeLayout) LayoutInflater.from(viewGroup.getContext()).inflate(e.h.big_image_ad, (ViewGroup) null);
-        this.dmy = (TbImageView) this.eYA.findViewById(e.g.big_image_ad_image);
-        this.eHA = (TextView) this.eYA.findViewById(e.g.big_image_ad_button);
-        this.eYB = (TbImageView) this.eYA.findViewById(e.g.big_image_ad_label);
-        this.eYC = (LinearLayout) this.eYA.findViewById(e.g.big_image_ad_source_container);
-        this.eYD = (TextView) this.eYA.findViewById(e.g.big_image_ad_source);
+        this.eYB = (RelativeLayout) LayoutInflater.from(viewGroup.getContext()).inflate(e.h.big_image_ad, (ViewGroup) null);
+        this.dmy = (TbImageView) this.eYB.findViewById(e.g.big_image_ad_image);
+        this.eHB = (TextView) this.eYB.findViewById(e.g.big_image_ad_button);
+        this.eYC = (TbImageView) this.eYB.findViewById(e.g.big_image_ad_label);
+        this.eYD = (LinearLayout) this.eYB.findViewById(e.g.big_image_ad_source_container);
+        this.eYE = (TextView) this.eYB.findViewById(e.g.big_image_ad_source);
         this.mContext = viewGroup.getContext();
         aUX();
     }
 
     public View getView() {
-        return this.eYA;
+        return this.eYB;
     }
 
     public void aUX() {
@@ -48,7 +48,7 @@ public class b {
         layoutParams.addRule(13);
         this.mProgressBar.setLayoutParams(layoutParams);
         this.mProgressBar.setIndeterminate(true);
-        this.eYA.addView(this.mProgressBar);
+        this.eYB.addView(this.mProgressBar);
     }
 
     public TbImageView aUY() {
@@ -56,28 +56,28 @@ public class b {
     }
 
     public TextView aUZ() {
-        return this.eHA;
+        return this.eHB;
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void aVa() {
-        this.eHA.setText(e.j.pause_load);
-        this.eHA.setBackgroundResource(e.f.button_fenfa_xiazaizhong);
-        al.b(this.eHA, e.d.common_color_10049, 1, 0);
+        this.eHB.setText(e.j.pause_load);
+        this.eHB.setBackgroundResource(e.f.button_fenfa_xiazaizhong);
+        al.b(this.eHB, e.d.common_color_10049, 1, 0);
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void qi(String str) {
-        this.eHA.setText(str);
-        this.eHA.setBackgroundResource(e.f.button_fenfa_download_selector);
-        al.b(this.eHA, e.f.button_fenfa_download_text_selector, 1, 0);
+        this.eHB.setText(str);
+        this.eHB.setBackgroundResource(e.f.button_fenfa_download_selector);
+        al.b(this.eHB, e.f.button_fenfa_download_text_selector, 1, 0);
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void aVb() {
-        this.eHA.setText(e.j.setup_text);
-        this.eHA.setBackgroundResource(e.f.button_fenfa_download_selector);
-        al.b(this.eHA, e.f.button_fenfa_download_text_selector, 1, 0);
+        this.eHB.setText(e.j.setup_text);
+        this.eHB.setBackgroundResource(e.f.button_fenfa_download_selector);
+        al.b(this.eHB, e.f.button_fenfa_download_text_selector, 1, 0);
     }
 
     public void aVc() {
@@ -95,7 +95,7 @@ public class b {
     }
 
     public void t(View.OnClickListener onClickListener) {
-        this.eHA.setOnClickListener(onClickListener);
+        this.eHB.setOnClickListener(onClickListener);
         this.dmy.setOnClickListener(onClickListener);
     }
 

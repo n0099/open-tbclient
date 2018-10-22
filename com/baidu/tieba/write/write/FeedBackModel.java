@@ -12,23 +12,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class FeedBackModel extends BdBaseModel<TbPageContext> {
-    private a hNR;
-    private ArrayList<bb> hNS;
+    private a hNS;
+    private ArrayList<bb> hNT;
     private TbPageContext mContext;
     private int mErrCode;
 
     public FeedBackModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.hNR = null;
         this.hNS = null;
+        this.hNT = null;
         this.mErrCode = 0;
         this.mContext = tbPageContext;
-        this.hNS = new ArrayList<>();
+        this.hNT = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ArrayList<bb> bNl() {
-        return this.hNS;
+        return this.hNT;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -38,10 +38,10 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void xe(String str) {
-        if (this.hNR == null) {
-            this.hNR = new a();
-            this.hNR.setPriority(3);
-            this.hNR.execute(str);
+        if (this.hNS == null) {
+            this.hNS = new a();
+            this.hNS.setPriority(3);
+            this.hNS.execute(str);
         }
     }
 
@@ -75,14 +75,14 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
         /* renamed from: c */
         public void onPostExecute(FeedBackModel feedBackModel) {
             super.onPostExecute(feedBackModel);
-            FeedBackModel.this.hNR = null;
+            FeedBackModel.this.hNS = null;
             FeedBackModel.this.mLoadDataCallBack.m(feedBackModel);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            FeedBackModel.this.hNR = null;
+            FeedBackModel.this.hNS = null;
             if (this.mNetWork != null) {
                 this.mNetWork.ji();
             }
@@ -108,7 +108,7 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
                         if (jSONObject2 != null) {
                             bb bbVar = new bb();
                             bbVar.parserJson(jSONObject2);
-                            this.hNS.add(bbVar);
+                            this.hNT.add(bbVar);
                         }
                     }
                 }
@@ -125,8 +125,8 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.hNR != null) {
-            this.hNR.cancel();
+        if (this.hNS != null) {
+            this.hNS.cancel();
             return true;
         }
         return true;

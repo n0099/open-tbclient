@@ -124,7 +124,7 @@ public class SearchEditView extends RelativeLayout {
         }
     }
 
-    public boolean auS() {
+    public boolean auT() {
         return this.djI.requestFocus();
     }
 }

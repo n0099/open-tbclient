@@ -12,26 +12,26 @@ import java.util.List;
 public class a {
     l dEw;
     private m dHV;
-    private VideoTopicFragment ebJ;
-    private b ebO;
+    private VideoTopicFragment ebK;
+    private b ebP;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new LinkedList();
 
     public a(VideoTopicFragment videoTopicFragment, m mVar) {
-        this.ebJ = videoTopicFragment;
+        this.ebK = videoTopicFragment;
         this.dHV = mVar;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.ebO = new b(this.ebJ.getPageContext(), bb.aph, this.ebJ.getUniqueId());
-        this.dEw = new l(this.ebJ.getPageContext(), com.baidu.tieba.frs.m.dCR);
+        this.ebP = new b(this.ebK.getPageContext(), bb.aph, this.ebK.getUniqueId());
+        this.dEw = new l(this.ebK.getPageContext(), com.baidu.tieba.frs.m.dCR);
         this.mAdapters.add(this.dEw);
-        this.mAdapters.add(this.ebO);
+        this.mAdapters.add(this.ebP);
         this.dHV.addAdapters(this.mAdapters);
     }
 
     public void setForumId(String str) {
-        this.ebO.setForumId(str);
+        this.ebP.setForumId(str);
     }
 
     public void setData(ArrayList<h> arrayList) {

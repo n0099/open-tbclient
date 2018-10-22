@@ -13,7 +13,7 @@ public class b extends com.baidu.tieba.card.data.b implements h {
         return dLs;
     }
 
-    public bb YA() {
+    public bb YB() {
         return this.threadData;
     }
 

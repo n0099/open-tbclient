@@ -130,7 +130,7 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
     private String mUrl;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void anW() {
+    public void anX() {
         if (this.cML != null && this.cMQ) {
             try {
                 this.bkF.start();
@@ -152,10 +152,10 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 202:
-                        a.this.aoa();
+                        a.this.aob();
                         return;
                     case 203:
-                        a.this.aob();
+                        a.this.aoc();
                         return;
                     default:
                         return;
@@ -170,7 +170,7 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
                     a.this.cML.setVolume(0.0f, 0.0f);
                 }
                 a.this.cMN.bbv();
-                a.this.anW();
+                a.this.anX();
             }
         };
         this.btB = new g.e() { // from class: com.baidu.tieba.frs.entelechy.view.a.16
@@ -192,7 +192,7 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
         this.bkN = new g.b() { // from class: com.baidu.tieba.frs.entelechy.view.a.18
             @Override // com.baidu.tieba.play.g.b
             public boolean onError(com.baidu.tieba.play.g gVar, int i, int i2) {
-                a.this.anr();
+                a.this.ans();
                 a.this.e(true, 4);
                 a.this.cMQ = false;
                 return true;
@@ -201,7 +201,7 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
         this.cMX = new VideoLoadingProgressView.a() { // from class: com.baidu.tieba.frs.entelechy.view.a.19
             @Override // com.baidu.tieba.play.VideoLoadingProgressView.a
             public void onAnimationEnd() {
-                a.this.anW();
+                a.this.anX();
             }
         };
         this.bkM = new TbImageView.a() { // from class: com.baidu.tieba.frs.entelechy.view.a.2
@@ -240,7 +240,7 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
         this.bkQ = new Runnable() { // from class: com.baidu.tieba.frs.entelechy.view.a.7
             @Override // java.lang.Runnable
             public void run() {
-                a.this.anr();
+                a.this.ans();
                 a.this.e(true, 4);
             }
         };
@@ -264,23 +264,23 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
         this.aGk = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.a.10
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.anO() != null) {
-                    a.this.anO().a(view, a.this.aAQ);
+                if (a.this.anP() != null) {
+                    a.this.anP().a(view, a.this.aAQ);
                 }
             }
         };
         this.aEh = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.a.11
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.aAQ != null && a.this.anO() != null) {
-                    a.this.anO().a(view, a.this.aAQ);
+                if (a.this.aAQ != null && a.this.anP() != null) {
+                    a.this.anP().a(view, a.this.aAQ);
                 }
             }
         };
         this.cNb = new j.a() { // from class: com.baidu.tieba.frs.entelechy.view.a.13
             @Override // com.baidu.tieba.play.j.a
-            public void aoe() {
-                a.this.anX();
+            public void aof() {
+                a.this.anY();
             }
         };
         this.cNc = new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.entelechy.view.a.14
@@ -454,17 +454,17 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
     }
 
     private void ay(View view) {
-        if (anO() != null) {
-            anO().a(view, this.aAQ);
+        if (anP() != null) {
+            anP().a(view, this.aAQ);
         }
         if (!com.baidu.adp.lib.util.j.kX()) {
             l.showToast(this.mContext.getPageActivity(), e.j.no_network_guide);
         } else {
-            anY();
+            anZ();
         }
     }
 
-    private void anY() {
+    private void anZ() {
         if (this.aAQ != null) {
             ArrayList arrayList = new ArrayList();
             VideoItemData videoItemData = new VideoItemData();
@@ -481,19 +481,19 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
             amVar.ax(ImageViewerConfig.FORUM_ID, this.aAQ.getFid() + "");
             TiebaStatic.log(amVar);
         }
-        if (anO() != null) {
-            anO().a(view, this.aAQ);
+        if (anP() != null) {
+            anP().a(view, this.aAQ);
         }
         if (view == this.bkB) {
             if (!com.baidu.adp.lib.util.j.kX()) {
                 l.showToast(this.mContext.getPageActivity(), e.j.no_network_guide);
             } else {
-                anZ();
+                aoa();
             }
         }
     }
 
-    private void anZ() {
+    private void aoa() {
         VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
         videoSerializeVideoThreadInfo.copyFromThreadInfo(this.aAQ);
         VideoSerializeVideoThreadInfo.VideoCardViewInfo videoCardViewInfo = new VideoSerializeVideoThreadInfo.VideoCardViewInfo();
@@ -521,8 +521,8 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
                 TiebaStatic.log(new am("c10806").x("obj_locate", 3).ax("tid", this.aAQ.getId()));
             }
         }
-        if (anO() != null) {
-            anO().a(view, this.aAQ);
+        if (anP() != null) {
+            anP().a(view, this.aAQ);
         }
         if (this.aAQ != null) {
             o.md(this.aAQ.getId());
@@ -578,7 +578,7 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aoa() {
+    public void aob() {
         this.cMW.removeMessages(202);
         if (this.bkF.getCurrentPosition() > 0) {
             e(false, 3);
@@ -589,7 +589,7 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aob() {
+    public void aoc() {
         if (getView().getParent() == null) {
             stopPlay();
             return;
@@ -693,7 +693,7 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
         }
         this.bWd.setVisibility(0);
         this.bWd.setOnClickListener(this);
-        aoc();
+        aod();
         if (!StringUtils.isNull(this.mUrl) && !StringUtils.isNull(this.aqw)) {
             this.aAQ.ai(this.mUrl, this.aqw);
         }
@@ -760,7 +760,7 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
         } else {
             this.cMV.setVisibility(8);
         }
-        if (this.bWf.isInFrsAllThread() && com.baidu.tieba.frs.a.ayM().ayN()) {
+        if (this.bWf.isInFrsAllThread() && com.baidu.tieba.frs.a.ayN().ayO()) {
             this.mMaskView.setVisibility(0);
             if (this.aAQ.zW() || this.aAQ.zX()) {
                 al.j(this.mMaskView, e.d.cp_bg_line_d);
@@ -774,7 +774,7 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void anr() {
+    public void ans() {
         this.cMW.removeMessages(202);
         this.cMW.removeMessages(203);
     }
@@ -784,9 +784,9 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
         com.baidu.adp.lib.g.e.jI().removeCallbacks(this.bkQ);
     }
 
-    private void aoc() {
+    private void aod() {
         Qv();
-        anr();
+        ans();
         if (this.bkD != null && this.bkB != null && this.bkF != null) {
             if (com.baidu.tbadk.core.i.ws().ww() && this.aAQ != null && this.aAQ.yN() != null) {
                 this.bkB.setVisibility(0);
@@ -884,14 +884,14 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
                     if (this.bJO != null) {
                         this.bJO.start();
                     }
-                    anX();
+                    anY();
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void anX() {
+    public void anY() {
         if (this.aAQ != null && this.aAQ.yN() != null) {
             String str = this.aAQ.zo() ? "floor5" : "frs";
             if (this.aAQ.yA()) {
@@ -906,17 +906,17 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
             zVar.cQb = this.aAQ.getFid() + "";
             zVar.mUid = TbadkCoreApplication.getCurrentAccount();
             zVar.mSource = this.aAQ.mRecomSource;
-            zVar.gwv = this.aAQ.mRecomAbTag;
-            zVar.gww = this.aAQ.mRecomWeight;
-            zVar.gwx = "";
-            zVar.gwz = this.aAQ.yN().video_md5;
+            zVar.gww = this.aAQ.mRecomAbTag;
+            zVar.gwx = this.aAQ.mRecomWeight;
+            zVar.gwy = "";
+            zVar.gwA = this.aAQ.yN().video_md5;
             com.baidu.tieba.play.l.a(this.aAQ.yN().video_md5, "", "1", zVar);
         }
     }
 
     public void stopPlay() {
         Qv();
-        anr();
+        ans();
         e(true, 1);
         if (this.bkF != null) {
             this.bkF.stopPlayback();
@@ -927,11 +927,11 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
         this.cMQ = false;
     }
 
-    public ThreadCommentAndPraiseInfoLayout aaX() {
+    public ThreadCommentAndPraiseInfoLayout aaY() {
         return this.bWf;
     }
 
-    public ThreadCommentAndPraiseInfoLayout aaY() {
+    public ThreadCommentAndPraiseInfoLayout aaZ() {
         return this.bWS.aFS;
     }
 

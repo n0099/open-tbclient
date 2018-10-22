@@ -128,16 +128,16 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
         this.mFid = j;
         this.dLm = str;
         this.dLB.a(this.dLC);
-        aAk();
-        YI();
+        aAl();
+        YJ();
     }
 
-    private void aAk() {
+    private void aAl() {
         this.dLD.setTag(this.mPageId);
         MessageManager.getInstance().registerListener(this.dLD);
     }
 
-    private static void YI() {
+    private static void YJ() {
         com.baidu.tieba.tbadkCore.a.a.a(309478, FrsGameStrategySocketResponseMessage.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FRS_GAME_STRATEGY, com.baidu.tieba.tbadkCore.a.a.aT("c/f/game/gameForumGuideTab", 309478));
         tbHttpMessageTask.setIsNeedLogin(false);

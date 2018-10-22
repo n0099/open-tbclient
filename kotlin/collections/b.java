@@ -4,8 +4,8 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* loaded from: classes2.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State ioR = State.NotReady;
-    private T ioS;
+    private State ioS = State.NotReady;
+    private T ioT;
 
     protected abstract void bZY();
 
@@ -16,8 +16,8 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (!kotlin.jvm.internal.p.h(this.ioR, State.Failed)) {
-            switch (this.ioR) {
+        if (!kotlin.jvm.internal.p.h(this.ioS, State.Failed)) {
+            switch (this.ioS) {
                 case Done:
                     return false;
                 case Ready:
@@ -32,26 +32,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.ioR = State.NotReady;
-            return this.ioS;
+            this.ioS = State.NotReady;
+            return this.ioT;
         }
         throw new NoSuchElementException();
     }
 
     private final boolean bZX() {
-        this.ioR = State.Failed;
+        this.ioS = State.Failed;
         bZY();
-        return kotlin.jvm.internal.p.h(this.ioR, State.Ready);
+        return kotlin.jvm.internal.p.h(this.ioS, State.Ready);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void aT(T t) {
-        this.ioS = t;
-        this.ioR = State.Ready;
+        this.ioT = t;
+        this.ioS = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.ioR = State.Done;
+        this.ioS = State.Done;
     }
 }

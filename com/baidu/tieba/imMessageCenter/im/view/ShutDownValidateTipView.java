@@ -17,10 +17,10 @@ import java.util.ArrayList;
 public class ShutDownValidateTipView extends FrameLayout {
     private ArrayList<a> aDJ;
     private boolean aFa;
-    private TextView eVo;
-    private ImageView eVp;
-    private TextView eVq;
+    private TextView eVp;
+    private ImageView eVq;
     private TextView eVr;
+    private TextView eVs;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -47,15 +47,15 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public void init(Context context) {
         addView(LayoutInflater.from(context).inflate(e.h.shut_down_validate_tip, (ViewGroup) null));
-        this.eVp = (ImageView) findViewById(e.g.no_network_icon);
-        this.eVq = (TextView) findViewById(e.g.no_network_guide1);
-        this.eVr = (TextView) findViewById(e.g.no_network_guide2);
-        this.eVo = (TextView) findViewById(e.g.no_network_showmore);
+        this.eVq = (ImageView) findViewById(e.g.no_network_icon);
+        this.eVr = (TextView) findViewById(e.g.no_network_guide1);
+        this.eVs = (TextView) findViewById(e.g.no_network_guide2);
+        this.eVp = (TextView) findViewById(e.g.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        if (this.eVo != null) {
-            this.eVo.setOnClickListener(onClickListener);
+        if (this.eVp != null) {
+            this.eVp.setOnClickListener(onClickListener);
         }
     }
 
@@ -122,16 +122,16 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void onChangeSkinType(int i) {
-        al.c(this.eVp, e.f.icon_error);
+        al.c(this.eVq, e.f.icon_error);
         al.i(findViewById(e.g.no_network_parent), e.f.bg_no_network);
         if (i == 1) {
-            this.eVq.setTextColor(-10523526);
-            this.eVr.setTextColor(-8682095);
-            this.eVo.setTextColor(-10523526);
+            this.eVr.setTextColor(-10523526);
+            this.eVs.setTextColor(-8682095);
+            this.eVp.setTextColor(-10523526);
             return;
         }
-        this.eVq.setTextColor(-14277082);
-        this.eVr.setTextColor(-5065030);
-        this.eVo.setTextColor(-14277082);
+        this.eVr.setTextColor(-14277082);
+        this.eVs.setTextColor(-5065030);
+        this.eVp.setTextColor(-14277082);
     }
 }

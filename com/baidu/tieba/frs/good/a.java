@@ -46,9 +46,9 @@ public class a {
     private List<com.baidu.adp.widget.ListView.a> dIa;
     private final HashMap<Integer, bb> dIg;
     private com.baidu.tieba.tbadkCore.l dIh;
-    private FrsGoodFragment dQJ;
-    private com.baidu.adp.widget.ListView.a dQK;
+    private FrsGoodFragment dQK;
     private com.baidu.adp.widget.ListView.a dQL;
+    private com.baidu.adp.widget.ListView.a dQM;
     private ArrayList<h> deX;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new LinkedList();
     private CustomMessageListener dHk = new CustomMessageListener(2003008) { // from class: com.baidu.tieba.frs.good.a.1
@@ -63,7 +63,7 @@ public class a {
                 while (it.hasNext()) {
                     com.baidu.adp.widget.ListView.a aVar = (com.baidu.adp.widget.ListView.a) it.next();
                     if (aVar instanceof com.baidu.tieba.frs.h) {
-                        ((com.baidu.tieba.frs.h) aVar).a(a.this.dQJ.getPageContext(), a.this.dQJ.getUniqueId());
+                        ((com.baidu.tieba.frs.h) aVar).a(a.this.dQK.getPageContext(), a.this.dQK.getUniqueId());
                     }
                 }
                 ArrayList arrayList = new ArrayList();
@@ -95,23 +95,23 @@ public class a {
     }
 
     public void a(FrsGoodFragment frsGoodFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.dQJ = frsGoodFragment;
+        this.dQK = frsGoodFragment;
         this.dHk.setPriority(1);
         this.dHk.setSelfListener(true);
-        this.dQJ.registerListener(this.dHk);
-        this.dHh = new i(frsGoodFragment.getPageContext(), bb.aoS, this.dQJ.getUniqueId());
+        this.dQK.registerListener(this.dHk);
+        this.dHh = new i(frsGoodFragment.getPageContext(), bb.aoS, this.dQK.getUniqueId());
         this.dHh.setVoiceManager(frsGoodFragment.getVoiceManager());
-        this.dHW = new g(frsGoodFragment.getPageContext(), bb.aoT, this.dQJ.getUniqueId());
-        this.dHi = new i(frsGoodFragment.getPageContext(), bb.aoU, this.dQJ.getUniqueId());
+        this.dHW = new g(frsGoodFragment.getPageContext(), bb.aoT, this.dQK.getUniqueId());
+        this.dHi = new i(frsGoodFragment.getPageContext(), bb.aoU, this.dQK.getUniqueId());
         this.dHi.setVoiceManager(frsGoodFragment.getVoiceManager());
-        this.dGP = new p(frsGoodFragment.getPageContext(), bb.aoV, this.dQJ.getUniqueId());
-        this.dGQ = new d(frsGoodFragment.getPageContext(), bb.apa, this.dQJ.getUniqueId());
+        this.dGP = new p(frsGoodFragment.getPageContext(), bb.aoV, this.dQK.getUniqueId());
+        this.dGQ = new d(frsGoodFragment.getPageContext(), bb.apa, this.dQK.getUniqueId());
         this.dEw = new l(frsGoodFragment.getPageContext(), m.dCR);
-        this.dHY = c.ayV().a(frsGoodFragment.getPageContext(), bb.aqq, this.dQJ.getUniqueId(), true);
-        this.dHZ = c.ayV().b(frsGoodFragment.getPageContext(), bb.aqy, this.dQJ.getUniqueId());
-        this.dQK = r.btk().a(this.dQJ, AdvertAppInfo.akK);
-        this.dQL = r.btk().a(this.dQJ, AdvertAppInfo.akT);
-        this.dHj = new com.baidu.tieba.frs.entelechy.a.l(frsGoodFragment.getPageContext(), bb.aoZ, this.dQJ.getUniqueId());
+        this.dHY = c.ayW().a(frsGoodFragment.getPageContext(), bb.aqq, this.dQK.getUniqueId(), true);
+        this.dHZ = c.ayW().b(frsGoodFragment.getPageContext(), bb.aqy, this.dQK.getUniqueId());
+        this.dQL = r.btk().a(this.dQK, AdvertAppInfo.akK);
+        this.dQM = r.btk().a(this.dQK, AdvertAppInfo.akT);
+        this.dHj = new com.baidu.tieba.frs.entelechy.a.l(frsGoodFragment.getPageContext(), bb.aoZ, this.dQK.getUniqueId());
         this.mAdapters.add(this.dHh);
         this.mAdapters.add(this.dHW);
         this.mAdapters.add(this.dHh);
@@ -127,11 +127,11 @@ public class a {
         if (this.dHZ != null) {
             this.mAdapters.add(this.dHZ);
         }
-        this.mAdapters.add(this.dQK);
         this.mAdapters.add(this.dQL);
+        this.mAdapters.add(this.dQM);
         CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2003008, new AbsDelegateAdapterList());
         CustomMessage customMessage = new CustomMessage(2003008);
-        customMessage.setTag(this.dQJ.getUniqueId());
+        customMessage.setTag(this.dQK.getUniqueId());
         customResponsedMessage.setOrginalMessage(customMessage);
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
         a(bdTypeRecyclerView);
@@ -160,7 +160,7 @@ public class a {
         this.dEu.setData(arrayList);
         this.deX = arrayList;
         this.dIh = lVar;
-        aBZ();
+        aCa();
     }
 
     public void gX(boolean z) {
@@ -171,24 +171,24 @@ public class a {
         }
     }
 
-    private void aBZ() {
-        com.baidu.tieba.frs.e.a aCM;
+    private void aCa() {
+        com.baidu.tieba.frs.e.a aCN;
         if (this.dIh != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.mAdapters) {
-                if ((aVar instanceof com.baidu.tieba.frs.e.c) && (aCM = ((com.baidu.tieba.frs.e.c) aVar).aCM()) != null) {
-                    if (this.dIh.hai == 1) {
-                        aCM.dTC = true;
+                if ((aVar instanceof com.baidu.tieba.frs.e.c) && (aCN = ((com.baidu.tieba.frs.e.c) aVar).aCN()) != null) {
+                    if (this.dIh.haj == 1) {
+                        aCN.dTD = true;
                     } else {
-                        aCM.dTC = false;
+                        aCN.dTD = false;
                     }
                     if (this.dIh.beT() != null) {
-                        aCM.dTE = this.dIh.beT().getId();
+                        aCN.dTF = this.dIh.beT().getId();
                     }
-                    if (this.dQJ != null) {
-                        if (this.dQJ.dQS) {
-                            aCM.dTH = 8;
+                    if (this.dQK != null) {
+                        if (this.dQK.dQT) {
+                            aCN.dTI = 8;
                         } else {
-                            aCM.dTD = 5;
+                            aCN.dTE = 5;
                         }
                     }
                 }
@@ -218,11 +218,11 @@ public class a {
         }
     }
 
-    public HashMap<Integer, bb> aCF() {
+    public HashMap<Integer, bb> aCG() {
         return this.dIg;
     }
 
-    public void aCG() {
+    public void aCH() {
         if (this.dEu != null && this.dEu.getData() != null && this.dEu.getData().size() != 0) {
             for (h hVar : this.dEu.getData()) {
                 if ((hVar instanceof bb) && ((bb) hVar).yq() != 0) {
@@ -285,8 +285,8 @@ public class a {
     }
 
     private void a(BdTypeRecyclerView bdTypeRecyclerView) {
-        if (this.dQJ != null && bdTypeRecyclerView != null && !b(bdTypeRecyclerView)) {
-            this.dQJ.registerListener(this.dIj);
+        if (this.dQK != null && bdTypeRecyclerView != null && !b(bdTypeRecyclerView)) {
+            this.dQK.registerListener(this.dIj);
         }
     }
 
@@ -294,7 +294,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
     public boolean b(BdTypeRecyclerView bdTypeRecyclerView) {
-        if (this.dQJ == null || bdTypeRecyclerView == null) {
+        if (this.dQK == null || bdTypeRecyclerView == null) {
             return false;
         }
         this.dIa = new ArrayList();
@@ -304,7 +304,7 @@ public class a {
         }
         int size = bBo.size();
         for (int i = 0; i < size; i++) {
-            com.baidu.tieba.frs.h<ICardInfo, ? extends q.a> a = c.ayV().a(this.dQJ.getPageContext(), bBo.get(i), this.dQJ.getUniqueId());
+            com.baidu.tieba.frs.h<ICardInfo, ? extends q.a> a = c.ayW().a(this.dQK.getPageContext(), bBo.get(i), this.dQK.getUniqueId());
             if (a != null) {
                 this.mAdapters.add(a);
                 this.dIa.add(a);

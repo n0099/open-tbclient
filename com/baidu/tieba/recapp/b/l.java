@@ -5,94 +5,94 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.q;
 /* loaded from: classes3.dex */
 public class l extends q.a implements com.baidu.tieba.play.f {
-    com.baidu.tieba.lego.card.view.e<?> dRz;
-    private com.baidu.tieba.recapp.i gDB;
+    com.baidu.tieba.lego.card.view.e<?> dRA;
+    private com.baidu.tieba.recapp.i gDC;
 
     public l(com.baidu.tieba.lego.card.view.e<?> eVar) {
         super((View) eVar);
-        this.dRz = eVar;
+        this.dRA = eVar;
     }
 
     public void aXe() {
-        if (this.dRz != null) {
-            this.dRz.aXe();
+        if (this.dRA != null) {
+            this.dRA.aXe();
         }
     }
 
     public void a(com.baidu.tieba.recapp.i iVar) {
-        this.gDB = iVar;
+        this.gDC = iVar;
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlayStarted() {
-        if (this.gDB == null) {
+        if (this.gDC == null) {
             return false;
         }
-        return this.gDB.isPlayStarted();
+        return this.gDC.isPlayStarted();
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlaying() {
-        if (this.gDB == null) {
+        if (this.gDC == null) {
             return false;
         }
-        return this.gDB.isPlaying();
+        return this.gDC.isPlaying();
     }
 
     @Override // com.baidu.tieba.play.f
     public void startPlay() {
-        if (this.gDB != null) {
-            this.gDB.startPlay();
+        if (this.gDC != null) {
+            this.gDC.startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public void stopPlay() {
-        if (this.gDB != null) {
-            this.gDB.stopPlay();
+        if (this.gDC != null) {
+            this.gDC.stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public View getVideoContainer() {
-        if (this.gDB == null) {
+        if (this.gDC == null) {
             return null;
         }
-        return this.gDB.getVideoContainer();
+        return this.gDC.getVideoContainer();
     }
 
     @Override // com.baidu.tieba.play.f
     public String getPlayUrl() {
-        return this.gDB == null ? "" : this.gDB.getPlayUrl();
+        return this.gDC == null ? "" : this.gDC.getPlayUrl();
     }
 
     @Override // com.baidu.tieba.play.f
     public int getCurrentPosition() {
-        if (this.gDB == null) {
+        if (this.gDC == null) {
             return 0;
         }
-        return (int) this.gDB.getCurrentPosition();
+        return (int) this.gDC.getCurrentPosition();
     }
 
     public int getPlayStatus() {
-        if (this.gDB != null) {
-            return this.gDB.getPlayStatus();
+        if (this.gDC != null) {
+            return this.gDC.getPlayStatus();
         }
         return -2;
     }
 
     public void autoPlay(int i) {
-        if (this.gDB != null) {
-            this.gDB.autoPlay(i);
+        if (this.gDC != null) {
+            this.gDC.autoPlay(i);
         }
     }
 
     public boolean cX(Context context) {
-        if (this.gDB == null) {
+        if (this.gDC == null) {
             return false;
         }
         int[] iArr = new int[2];
-        this.gDB.getLocationInWindow(iArr);
-        return iArr[1] + this.gDB.getHeight() >= 0 && iArr[1] <= com.baidu.adp.lib.util.l.aQ(context);
+        this.gDC.getLocationInWindow(iArr);
+        return iArr[1] + this.gDC.getHeight() >= 0 && iArr[1] <= com.baidu.adp.lib.util.l.aQ(context);
     }
 }

@@ -23,8 +23,8 @@ import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPushActivity> implements BdSwitchView.a {
-    private BdListView dTo = null;
-    private a gQq = null;
+    private BdListView dTp = null;
+    private a gQr = null;
     private ArrayList<OfficialAccountPushInfo> list;
     private NavigationBar mNavigationBar;
     private NoNetworkView mNetworkView;
@@ -36,7 +36,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(e.h.official_account_push_activity);
-        aaR();
+        aaS();
         Uz();
         Uy();
     }
@@ -46,14 +46,14 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
             bxi();
         } else if (v.J(this.list)) {
             aEI();
-        } else if (this.gQq == null) {
-            this.gQq = new a(getPageContext());
-            this.gQq.setData(this.list);
-            this.dTo.setAdapter((ListAdapter) this.gQq);
-            this.gQq.setSwitchStateChangeListener(this);
+        } else if (this.gQr == null) {
+            this.gQr = new a(getPageContext());
+            this.gQr.setData(this.list);
+            this.dTp.setAdapter((ListAdapter) this.gQr);
+            this.gQr.setSwitchStateChangeListener(this);
         } else {
-            this.gQq.setData(this.list);
-            this.gQq.notifyDataSetChanged();
+            this.gQr.setData(this.list);
+            this.gQr.notifyDataSetChanged();
         }
     }
 
@@ -62,7 +62,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         this.mNavigationBar = (NavigationBar) findViewById(e.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_CENTER, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setCenterTextTitle(getPageContext().getString(e.j.offical_account_push_msg));
-        this.dTo = (BdListView) findViewById(e.g.list);
+        this.dTp = (BdListView) findViewById(e.g.list);
         this.mNoDataView = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.ds120)), NoDataViewFactory.d.dO(e.j.no_data_text), null);
         this.mNoDataView.setVisibility(0);
         this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(e.g.no_network);
@@ -77,7 +77,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         this.mNetworkView.onChangeSkinType(getPageContext(), i);
     }
 
-    private void aaR() {
+    private void aaS() {
         Intent intent = getIntent();
         if (intent != null) {
             this.list = intent.getParcelableArrayListExtra(OfficialAccountPushActivityConfig.OFFICIAL_LIST);
@@ -85,14 +85,14 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     }
 
     public void aEI() {
-        this.dTo.setVisibility(8);
+        this.dTp.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.dO(e.j.no_data_text));
         al.j(this.mRootView, e.d.cp_bg_line_d);
     }
 
     public void bxi() {
-        this.dTo.setVisibility(8);
+        this.dTp.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.dO(e.j.refresh_view_title_text));
         al.j(this.mRootView, e.d.cp_bg_line_d);
@@ -122,21 +122,21 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     }
 
     private void d(boolean z, long j) {
-        if (this.list != null && this.gQq != null) {
+        if (this.list != null && this.gQr != null) {
             if (!j.kX()) {
-                this.gQq.notifyDataSetChanged();
+                this.gQr.notifyDataSetChanged();
                 return;
             }
             for (int i = 0; i < this.list.size(); i++) {
                 if (this.list.get(i).uid == j) {
                     if (z) {
-                        this.list.get(i).gQt = 1;
+                        this.list.get(i).gQu = 1;
                     } else {
-                        this.list.get(i).gQt = 0;
+                        this.list.get(i).gQu = 0;
                     }
                 }
             }
-            this.gQq.notifyDataSetChanged();
+            this.gQr.notifyDataSetChanged();
         }
     }
 

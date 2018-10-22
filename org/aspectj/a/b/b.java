@@ -6,24 +6,24 @@ import org.aspectj.a.b.c;
 import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public final class b {
-    static Hashtable iqi = new Hashtable();
-    private static Object[] iqj;
-    static Class iqk;
+    static Hashtable iqj = new Hashtable();
+    private static Object[] iqk;
+    static Class iql;
     String filename;
-    Class iqg;
-    ClassLoader iqh;
+    Class iqh;
+    ClassLoader iqi;
 
     static {
-        iqi.put("void", Void.TYPE);
-        iqi.put("boolean", Boolean.TYPE);
-        iqi.put("byte", Byte.TYPE);
-        iqi.put("char", Character.TYPE);
-        iqi.put("short", Short.TYPE);
-        iqi.put("int", Integer.TYPE);
-        iqi.put("long", Long.TYPE);
-        iqi.put("float", Float.TYPE);
-        iqi.put("double", Double.TYPE);
-        iqj = new Object[0];
+        iqj.put("void", Void.TYPE);
+        iqj.put("boolean", Boolean.TYPE);
+        iqj.put("byte", Byte.TYPE);
+        iqj.put("char", Character.TYPE);
+        iqj.put("short", Short.TYPE);
+        iqj.put("int", Integer.TYPE);
+        iqj.put("long", Long.TYPE);
+        iqj.put("float", Float.TYPE);
+        iqj.put("double", Double.TYPE);
+        iqk = new Object[0];
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,7 +32,7 @@ public final class b {
         if (str.equals("*")) {
             return null;
         }
-        Class cls2 = (Class) iqi.get(str);
+        Class cls2 = (Class) iqj.get(str);
         if (cls2 == null) {
             try {
                 if (classLoader == null) {
@@ -42,12 +42,12 @@ public final class b {
                 }
                 return cls;
             } catch (ClassNotFoundException e) {
-                if (iqk == null) {
+                if (iql == null) {
                     Class yW = yW("java.lang.ClassNotFoundException");
-                    iqk = yW;
+                    iql = yW;
                     return yW;
                 }
-                return iqk;
+                return iql;
             }
         }
         return cls2;
@@ -63,8 +63,8 @@ public final class b {
 
     public b(String str, Class cls) {
         this.filename = str;
-        this.iqg = cls;
-        this.iqh = cls.getClassLoader();
+        this.iqh = cls;
+        this.iqi = cls.getClassLoader();
     }
 
     public a.InterfaceC0360a a(String str, org.aspectj.lang.c cVar, int i) {
@@ -72,7 +72,7 @@ public final class b {
     }
 
     public static org.aspectj.lang.a a(a.InterfaceC0360a interfaceC0360a, Object obj, Object obj2) {
-        return new c(interfaceC0360a, obj, obj2, iqj);
+        return new c(interfaceC0360a, obj, obj2, iqk);
     }
 
     public static org.aspectj.lang.a a(a.InterfaceC0360a interfaceC0360a, Object obj, Object obj2, Object obj3) {
@@ -85,12 +85,12 @@ public final class b {
 
     public org.aspectj.lang.reflect.c b(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         int parseInt = Integer.parseInt(str, 16);
-        Class b = b(str3, this.iqh);
+        Class b = b(str3, this.iqi);
         StringTokenizer stringTokenizer = new StringTokenizer(str4, ":");
         int countTokens = stringTokenizer.countTokens();
         Class[] clsArr = new Class[countTokens];
         for (int i = 0; i < countTokens; i++) {
-            clsArr[i] = b(stringTokenizer.nextToken(), this.iqh);
+            clsArr[i] = b(stringTokenizer.nextToken(), this.iqi);
         }
         StringTokenizer stringTokenizer2 = new StringTokenizer(str5, ":");
         int countTokens2 = stringTokenizer2.countTokens();
@@ -102,12 +102,12 @@ public final class b {
         int countTokens3 = stringTokenizer3.countTokens();
         Class[] clsArr2 = new Class[countTokens3];
         for (int i3 = 0; i3 < countTokens3; i3++) {
-            clsArr2[i3] = b(stringTokenizer3.nextToken(), this.iqh);
+            clsArr2[i3] = b(stringTokenizer3.nextToken(), this.iqi);
         }
-        return new e(parseInt, str2, b, clsArr, strArr, clsArr2, b(str7, this.iqh));
+        return new e(parseInt, str2, b, clsArr, strArr, clsArr2, b(str7, this.iqi));
     }
 
     public org.aspectj.lang.reflect.d cp(int i, int i2) {
-        return new g(this.iqg, this.filename, i);
+        return new g(this.iqh, this.filename, i);
     }
 }

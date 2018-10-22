@@ -81,7 +81,7 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
         this.cKr = adVar;
     }
 
-    public ad<T> anO() {
+    public ad<T> anP() {
         return this.cKr;
     }
 

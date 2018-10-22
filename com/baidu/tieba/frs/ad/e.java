@@ -33,7 +33,7 @@ public class e {
         aG(view);
     }
 
-    public a aBG() {
+    public a aBH() {
         return this.dEE;
     }
 
@@ -96,29 +96,29 @@ public class e {
         return this.dBZ;
     }
 
-    public RelativeLayout aAI() {
+    public RelativeLayout aAJ() {
         return this.bwo;
     }
 
-    public View aBH() {
+    public View aBI() {
         return this.bMJ;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ZI() {
+    public void ZJ() {
         this.dBZ.setNextPage(this.bJY);
         this.bJY.dX(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.bJY.DO();
     }
 
-    public void ZJ() {
+    public void ZK() {
         this.dBZ.setNextPage(this.bJY);
         this.bJY.dX(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.bJY.DP();
         this.bJY.setText(this.dEt.getResources().getString(e.j.list_no_more));
     }
 
-    public void ZK() {
+    public void ZL() {
         this.dBZ.setNextPage(null);
     }
 
@@ -130,7 +130,7 @@ public class e {
         this.bMJ.setRefreshing(true);
     }
 
-    public void aAx() {
+    public void aAy() {
         if (this.dEE != null) {
             this.dEE.notifyDataSetChanged();
         }

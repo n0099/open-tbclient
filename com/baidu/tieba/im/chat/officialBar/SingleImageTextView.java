@@ -25,8 +25,8 @@ public class SingleImageTextView extends RelativeLayout {
     private TextView cNm;
     private TextView dmH;
     private TbImageView dmy;
-    private TextView eCM;
-    private com.baidu.adp.lib.c.b ezH;
+    private TextView eCN;
+    private com.baidu.adp.lib.c.b ezI;
     private ImageView mArrow;
     private Context mContext;
     private View mDivider;
@@ -43,7 +43,7 @@ public class SingleImageTextView extends RelativeLayout {
 
     public SingleImageTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ezH = null;
+        this.ezI = null;
         this.mContext = context;
         initView();
     }
@@ -54,15 +54,15 @@ public class SingleImageTextView extends RelativeLayout {
         this.cNm = (TextView) findViewById(e.g.single_abstract);
         this.dmy = (TbImageView) findViewById(e.g.single_content_pic);
         this.dmy.setAutoChangeStyle(false);
-        this.eCM = (TextView) findViewById(e.g.read_all);
+        this.eCN = (TextView) findViewById(e.g.read_all);
         this.mArrow = (ImageView) findViewById(e.g.arrow);
         this.mDivider = findViewById(e.g.single_divider);
         this.dmH = (TextView) findViewById(e.g.show_time_single);
         setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.SingleImageTextView.1
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                if (SingleImageTextView.this.ezH != null) {
-                    SingleImageTextView.this.ezH.b(view, 9, SingleImageTextView.this.mPosition, 0L);
+                if (SingleImageTextView.this.ezI != null) {
+                    SingleImageTextView.this.ezI.b(view, 9, SingleImageTextView.this.mPosition, 0L);
                     return false;
                 }
                 return false;
@@ -90,17 +90,17 @@ public class SingleImageTextView extends RelativeLayout {
                         ay.CU().c(tbPageContext, new String[]{aVar.url});
                         if (i == 1) {
                             TiebaStatic.eventStat(SingleImageTextView.this.mContext, "official_msg_ck", AiAppsUBCStatistic.TYPE_CLICK, 1, ImageViewerConfig.FORUM_ID, aVar.fid);
-                            com.baidu.tieba.im.data.d qa = com.baidu.tieba.im.util.e.qa(aVar.eBw);
+                            com.baidu.tieba.im.data.d qa = com.baidu.tieba.im.util.e.qa(aVar.eBx);
                             if (qa != null) {
-                                TiebaStatic.eventStat(SingleImageTextView.this.mContext, "message_open_detail", AiAppsUBCStatistic.TYPE_CLICK, 1, "task_type", qa.eFh, "task_id", qa.taskId, "loc", "0");
+                                TiebaStatic.eventStat(SingleImageTextView.this.mContext, "message_open_detail", AiAppsUBCStatistic.TYPE_CLICK, 1, "task_type", qa.eFi, "task_id", qa.taskId, "loc", "0");
                                 if ((aVar.userType == 1 || aVar.userType == 3) && !"0".equals(qa.taskId)) {
                                     com.baidu.tieba.im.b.a.aSY().pU(qa.taskId);
                                 }
                             }
                             am amVar = new am("official_message_open_detail");
-                            amVar.h("msg_id", aVar.eBD / 100);
-                            amVar.ax("official_id", aVar.eBE);
-                            amVar.x("official_type", aVar.eBF);
+                            amVar.h("msg_id", aVar.eBE / 100);
+                            amVar.ax("official_id", aVar.eBF);
+                            amVar.x("official_type", aVar.eBG);
                             amVar.h("operate_time", System.currentTimeMillis() / 1000);
                             amVar.h("task_id", aVar.taskId);
                             amVar.ax("obj_params1", aVar.url);
@@ -132,7 +132,7 @@ public class SingleImageTextView extends RelativeLayout {
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.ezH = bVar;
+        this.ezI = bVar;
     }
 
     public void setPosition(int i) {
@@ -147,7 +147,7 @@ public class SingleImageTextView extends RelativeLayout {
         this.dmy.setAutoChangeStyle(z);
         al.b(this.mTitle, e.d.common_color_10039, 1, skinType);
         al.b(this.cNm, e.d.cp_cont_c, 1, skinType);
-        al.b(this.eCM, e.d.common_color_10039, 1, skinType);
+        al.b(this.eCN, e.d.common_color_10039, 1, skinType);
         al.d(this.mArrow, e.f.icon_ba_top_arrow_big, skinType);
         al.b(this.dmH, e.d.common_color_10067, 1, skinType);
         al.d(this.mDivider, e.f.multi_single_divider_selector, skinType);

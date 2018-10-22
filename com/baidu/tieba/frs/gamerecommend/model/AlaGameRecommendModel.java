@@ -41,11 +41,11 @@ public class AlaGameRecommendModel extends BdBaseModel {
     public AlaGameRecommendModel(String str, a aVar) {
         this.mForumId = str;
         this.dNM = aVar;
-        aDI();
+        aDJ();
         registerListener();
     }
 
-    private void aDI() {
+    private void aDJ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO, TbConfig.SERVER_ADDRESS + "c/f/game/gameForumRecomTab");
         tbHttpMessageTask.setResponsedClass(AlaGameRecommendReponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -94,7 +94,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void YK() {
+    public void YL() {
         if (this.hasMore && !this.bJp) {
             this.bJp = true;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO);

@@ -6,7 +6,7 @@ public class m implements com.baidu.adp.widget.ListView.h {
     public static final BdUniqueId dCR = BdUniqueId.gen();
     private int dCS;
 
-    public int aAS() {
+    public int aAT() {
         return this.dCS;
     }
 

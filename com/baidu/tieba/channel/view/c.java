@@ -86,7 +86,7 @@ public class c implements View.OnClickListener {
             public void afterTextChanged(Editable editable) {
                 String replaceAll = editable.toString().replaceAll("\\s*", "");
                 BdLog.d(editable.toString());
-                if (!replaceAll.equals(c.this.cTH.aoT().getDescription())) {
+                if (!replaceAll.equals(c.this.cTH.aoU().getDescription())) {
                     ChannelEditActivity.isChanged = true;
                 }
             }
@@ -133,7 +133,7 @@ public class c implements View.OnClickListener {
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                         aVar.dismiss();
-                        c.this.cTH.aoS();
+                        c.this.cTH.aoT();
                     }
                 });
                 this.cTR.b(this.mContext.getString(e.j.cancel), new a.b() { // from class: com.baidu.tieba.channel.view.c.3
@@ -149,7 +149,7 @@ public class c implements View.OnClickListener {
             }
             this.cTH.finish();
         } else if (view == this.cTK) {
-            this.cTH.aoS();
+            this.cTH.aoT();
         }
     }
 

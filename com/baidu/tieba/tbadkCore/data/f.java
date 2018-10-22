@@ -1,7 +1,7 @@
 package com.baidu.tieba.tbadkCore.data;
 /* loaded from: classes.dex */
 public class f {
-    private String hcA;
+    private String hcB;
     private int status;
 
     public void setStatus(int i) {
@@ -9,10 +9,10 @@ public class f {
     }
 
     public String bBD() {
-        return this.hcA;
+        return this.hcB;
     }
 
     public void uV(String str) {
-        this.hcA = str;
+        this.hcB = str;
     }
 }

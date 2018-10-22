@@ -1,7 +1,7 @@
 package com.facebook.common.a;
 /* loaded from: classes2.dex */
 public class c implements b {
-    private static c hWF = null;
+    private static c hWG = null;
 
     private c() {
     }
@@ -9,10 +9,10 @@ public class c implements b {
     public static synchronized c bRv() {
         c cVar;
         synchronized (c.class) {
-            if (hWF == null) {
-                hWF = new c();
+            if (hWG == null) {
+                hWG = new c();
             }
-            cVar = hWF;
+            cVar = hWG;
         }
         return cVar;
     }

@@ -8,8 +8,8 @@ import java.util.List;
 import tbclient.DailyTopic;
 /* loaded from: classes6.dex */
 public class e extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId ejY = BdUniqueId.gen();
-    public List<a> ejZ;
+    public static final BdUniqueId ejZ = BdUniqueId.gen();
+    public List<a> eka;
 
     public static e ch(List<DailyTopic> list) {
         if (v.J(list)) {
@@ -17,7 +17,7 @@ public class e extends com.baidu.tieba.card.data.b {
         }
         e eVar = new e();
         ArrayList arrayList = new ArrayList();
-        eVar.ejZ = arrayList;
+        eVar.eka = arrayList;
         int i = 0;
         Iterator<DailyTopic> it = list.iterator();
         while (true) {
@@ -43,43 +43,43 @@ public class e extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return ejY;
+        return ejZ;
     }
 
     /* loaded from: classes6.dex */
     public static class a {
-        private String ebl;
-        private String eka;
+        private String ebm;
         private String ekb;
         private String ekc;
         private String ekd;
+        private String eke;
 
         public void a(DailyTopic dailyTopic) {
-            this.eka = dailyTopic.topic_pic;
-            this.ebl = dailyTopic.topic_title;
-            this.ekb = dailyTopic.topic_abstract;
-            this.ekc = dailyTopic.topic_url;
-            this.ekd = dailyTopic.topic_rank_url;
+            this.ekb = dailyTopic.topic_pic;
+            this.ebm = dailyTopic.topic_title;
+            this.ekc = dailyTopic.topic_abstract;
+            this.ekd = dailyTopic.topic_url;
+            this.eke = dailyTopic.topic_rank_url;
         }
 
         public String aJf() {
-            return this.eka;
-        }
-
-        public String xN() {
-            return this.ebl;
-        }
-
-        public String aJg() {
             return this.ekb;
         }
 
-        public String zV() {
+        public String xN() {
+            return this.ebm;
+        }
+
+        public String aJg() {
             return this.ekc;
         }
 
-        public String aJh() {
+        public String zV() {
             return this.ekd;
+        }
+
+        public String aJh() {
+            return this.eke;
         }
     }
 }

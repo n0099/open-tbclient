@@ -45,7 +45,7 @@ public class a extends h<com.baidu.tieba.h.b, b> implements c {
         }
         al.j(view, e.d.cp_bg_line_d);
         if (this.dIB != null) {
-            TiebaStatic.log(new am("c12104").ax(ImageViewerConfig.FORUM_ID, this.dIB.dTE));
+            TiebaStatic.log(new am("c12104").ax(ImageViewerConfig.FORUM_ID, this.dIB.dTF));
         }
         if (bVar2.dMO != null) {
             bVar2.dMO.setData(bVar);
@@ -54,7 +54,7 @@ public class a extends h<com.baidu.tieba.h.b, b> implements c {
                 public void b(com.baidu.tieba.h.a aVar, int i2) {
                     if (aVar != null) {
                         if (a.this.dIB != null) {
-                            TiebaStatic.log(new am("c12105").ax(ImageViewerConfig.FORUM_ID, a.this.dIB.dTE).x("obj_locate", i2 + 1));
+                            TiebaStatic.log(new am("c12105").ax(ImageViewerConfig.FORUM_ID, a.this.dIB.dTF).x("obj_locate", i2 + 1));
                         }
                         if (!StringUtils.isNull(aVar.aHI())) {
                             com.baidu.tbadk.browser.a.ae(a.this.mPageContext.getPageActivity(), aVar.aHI());
@@ -79,7 +79,7 @@ public class a extends h<com.baidu.tieba.h.b, b> implements c {
     }
 
     @Override // com.baidu.tieba.frs.e.c
-    public com.baidu.tieba.frs.e.a aCM() {
+    public com.baidu.tieba.frs.e.a aCN() {
         return this.dIB;
     }
 }

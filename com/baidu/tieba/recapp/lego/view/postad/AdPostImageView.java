@@ -13,8 +13,8 @@ import com.baidu.tieba.recapp.lego.model.AdPost;
 /* loaded from: classes3.dex */
 public class AdPostImageView extends AdPostBaseView {
     private ConstrainImageGroup cNn;
-    private b<TbImageView> gIg;
-    private b<ConstrainImageLayout> gIh;
+    private b<TbImageView> gIh;
+    private b<ConstrainImageLayout> gIi;
 
     public AdPostImageView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -34,8 +34,8 @@ public class AdPostImageView extends AdPostBaseView {
         this.cNn.setChildClickListener(this.cKG);
         this.cNn.setImageMargin(dimensionPixelSize);
         this.cNn.setImageProcessor(eVar);
-        this.cNn.setImageViewPool(this.gIg);
-        this.cNn.setConstrainLayoutPool(this.gIh);
+        this.cNn.setImageViewPool(this.gIh);
+        this.cNn.setConstrainLayoutPool(this.gIi);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.postad.AdPostBaseView
@@ -61,10 +61,10 @@ public class AdPostImageView extends AdPostBaseView {
     }
 
     public void setConstrainLayoutPool(b<ConstrainImageLayout> bVar) {
-        this.gIh = bVar;
+        this.gIi = bVar;
     }
 
     public void setConstrainImagePool(b<TbImageView> bVar) {
-        this.gIg = bVar;
+        this.gIh = bVar;
     }
 }

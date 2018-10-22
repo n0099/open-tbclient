@@ -182,14 +182,14 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
             this.dFk.me(false);
             this.dFk.a(new c.InterfaceC0258c() { // from class: com.baidu.tieba.frs.aggregation.b.1
                 @Override // com.baidu.tieba.play.c.InterfaceC0258c
-                public void XC() {
+                public void XD() {
                     if (b.this.dFk.bpH()) {
                         b.this.dEZ.setVisibility(8);
                     }
                 }
 
                 @Override // com.baidu.tieba.play.c.InterfaceC0258c
-                public void XD() {
+                public void XE() {
                     if (b.this.dFk.bpH()) {
                         b.this.dEZ.setVisibility(8);
                     }
@@ -200,7 +200,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
             });
             this.dFk.a(new c.l() { // from class: com.baidu.tieba.frs.aggregation.b.2
                 @Override // com.baidu.tieba.play.c.l
-                public void aBM() {
+                public void aBN() {
                     b.this.dFp = false;
                     b.this.dEZ.setVisibility(8);
                     b.this.nE(b.this.atr ? "1" : "2");
@@ -208,7 +208,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
                 }
 
                 @Override // com.baidu.tieba.play.c.l
-                public void aBN() {
+                public void aBO() {
                     b.this.dEZ.setVisibility(8);
                     b.this.onClick(b.this.dEW);
                 }
@@ -244,21 +244,21 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
                 amVar.x("obj_locate", i);
                 amVar.x("obj_param2", 1);
                 TiebaStatic.log(amVar);
-                this.dFm.gwv = "auto_midpage";
+                this.dFm.gww = "auto_midpage";
                 this.dFm.mLocate = Constants.VIA_REPORT_TYPE_JOININ_GROUP;
-                this.dFm.gwx = "1";
-                this.dFn.gwv = "auto_midpage";
+                this.dFm.gwy = "1";
+                this.dFn.gww = "auto_midpage";
                 this.dFn.mLocate = "auto_midpage";
-                this.dFn.gwx = "1";
+                this.dFn.gwy = "1";
             } else {
-                this.dFm.gwx = "frs_bavideotab";
+                this.dFm.gwy = "frs_bavideotab";
                 this.dFm.mLocate = Constants.VIA_REPORT_TYPE_SET_AVATAR;
-                this.dFn.gwx = "frs_bavideotab";
+                this.dFn.gwy = "frs_bavideotab";
                 this.dFn.mLocate = "frs_bavideotab";
             }
             if (gVar.dFL != null) {
-                this.dFm.gwz = gVar.dFL.videoMd5;
-                this.dFn.gwz = gVar.dFL.videoMd5;
+                this.dFm.gwA = gVar.dFL.videoMd5;
+                this.dFn.gwA = gVar.dFL.videoMd5;
             }
             this.bJP.setVideoStatsData(this.dFm);
             this.dFk.getVideoView().setBusiness(this.bJP);
@@ -280,7 +280,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
                 }
 
                 @Override // com.baidu.tieba.play.c.d
-                public void aBO() {
+                public void aBP() {
                     if (!b.this.dFk.bpH()) {
                         b.this.dEY.setVisibility(0);
                     } else if (b.this.dEY.getVisibility() == 0) {
@@ -319,7 +319,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
             this.dFk.tk(gVar.title);
             this.dFk.a(new c.i() { // from class: com.baidu.tieba.frs.aggregation.b.7
                 @Override // com.baidu.tieba.play.c.i
-                public void aBP() {
+                public void aBQ() {
                     b.this.dEZ.setVisibility(8);
                 }
             });
@@ -347,7 +347,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
         return this.dFk.bpH();
     }
 
-    public void aBI() {
+    public void aBJ() {
         if (isPlaying()) {
             this.dFk.pausePlay();
         }
@@ -357,7 +357,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
         return this.dFk.sy(i);
     }
 
-    public void aBJ() {
+    public void aBK() {
         this.dFa.setVisibility(8);
         this.dFk.stopPlay();
         if (this.dEY != null) {
@@ -368,7 +368,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
         }
     }
 
-    public void aBK() {
+    public void aBL() {
         if (this.dFk != null) {
             this.dFk.destroy();
         }
@@ -376,9 +376,9 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
 
     @Override // com.baidu.tieba.card.a
     public void onDestroy() {
-        aBK();
+        aBL();
         if (this.dFl != null) {
-            this.dFl.aBV();
+            this.dFl.aBW();
         }
     }
 
@@ -492,9 +492,9 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (anO() != null) {
+        if (anP() != null) {
             view.setTag(this);
-            anO().a(view, this.aAV);
+            anP().a(view, this.aAV);
         }
         if (view == this.cxi || view == this.aFZ) {
             boolean z = false;
@@ -545,7 +545,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
     }
 
     @Override // com.baidu.tieba.frs.aggregation.c
-    public void aBL() {
+    public void aBM() {
         if (this.aAV != null) {
             this.aAV.hasAgree = !this.aAV.hasAgree;
             if (this.aAV.hasAgree) {

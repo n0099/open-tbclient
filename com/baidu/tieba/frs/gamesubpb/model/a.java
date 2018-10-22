@@ -104,26 +104,26 @@ public class a {
         this.dOV = frsGameSubPbActivity;
         this.mForumId = i;
         this.dOJ = str;
-        aDX();
         aDY();
         aDZ();
+        aEa();
     }
 
-    private void aDX() {
+    private void aDY() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SELECT_SUB_COMMENT, TbConfig.SERVER_ADDRESS + "game/client/selectSubComment");
         tbHttpMessageTask.setResponsedClass(FrsSelectSubCommentReponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         this.dOV.registerListener(CmdConfigHttp.CMD_SELECT_SUB_COMMENT, this.dPa);
     }
 
-    private void aDY() {
+    private void aDZ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_SUB_COMMENT, TbConfig.SERVER_ADDRESS + "game/client/addSubComment");
         tbHttpMessageTask.setResponsedClass(FrsAddSubCommentResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         this.dOV.registerListener(CmdConfigHttp.CMD_ADD_SUB_COMMENT, this.dPb);
     }
 
-    private void aDZ() {
+    private void aEa() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_DELETE_SUB_COMMENT, TbConfig.SERVER_ADDRESS + "game/client/deleteSubComment");
         tbHttpMessageTask.setResponsedClass(FrsDeleteSubCommentResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

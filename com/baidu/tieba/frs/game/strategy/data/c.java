@@ -35,9 +35,9 @@ public class c {
                 }
                 h hVar2 = this.dLu.get(i2);
                 if (hVar != null && (hVar instanceof b) && hVar2 != null && (hVar2 instanceof b)) {
-                    bb YA = ((b) hVar).YA();
-                    bb YA2 = ((b) hVar2).YA();
-                    if (YA != null && YA2 != null && YA.getTid() != null && YA2.getTid() != null && YA.getTid().equals(YA2.getTid())) {
+                    bb YB = ((b) hVar).YB();
+                    bb YB2 = ((b) hVar2).YB();
+                    if (YB != null && YB2 != null && YB.getTid() != null && YB2.getTid() != null && YB.getTid().equals(YB2.getTid())) {
                         z = true;
                         break;
                     }

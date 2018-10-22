@@ -34,17 +34,17 @@ import com.baidu.tieba.usermute.response.UserMuteCheckSocketResponsedMessage;
 public class PersonPolymericActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PersonPolymericActivityConfig.class, PersonPolymericActivity.class);
-        YI();
+        YJ();
         boy();
         boz();
         boA();
         boB();
         boC();
-        aze();
+        azf();
         boD();
     }
 
-    private static void YI() {
+    private static void YJ() {
         com.baidu.tieba.tbadkCore.a.a.a(309408, PersonPolymericSocketResMsg.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PERSON_POLYMERIC, com.baidu.tieba.tbadkCore.a.a.aT("c/u/user/personal", 309408));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -109,7 +109,7 @@ public class PersonPolymericActivityStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void aze() {
+    private static void azf() {
         com.baidu.tbadk.ala.b.uL().a(7, new e() { // from class: com.baidu.tieba.personPolymeric.PersonPolymericActivityStatic.2
             @Override // com.baidu.tbadk.ala.e
             public View createView(Context context) {

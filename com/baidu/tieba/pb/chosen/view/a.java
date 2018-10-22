@@ -26,7 +26,7 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.pb.chosen.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0245a {
-        TbImageView fcZ;
+        TbImageView fda;
     }
 
     public a(Context context) {
@@ -114,7 +114,7 @@ public class a extends BaseAdapter {
         if (view == null || !(view.getTag() instanceof C0245a)) {
             view = LayoutInflater.from(this.context).inflate(e.h.chosen_pb_image_item, (ViewGroup) null);
             c0245a = new C0245a();
-            c0245a.fcZ = (TbImageView) view.findViewById(e.g.pb_chosen_list_image);
+            c0245a.fda = (TbImageView) view.findViewById(e.g.pb_chosen_list_image);
             view.setTag(c0245a);
         } else {
             c0245a = (C0245a) view.getTag();
@@ -122,11 +122,11 @@ public class a extends BaseAdapter {
         com.baidu.tieba.pb.b.a.d item = getItem(i);
         if (item instanceof com.baidu.tieba.pb.b.a.e) {
             com.baidu.tieba.pb.b.a.e eVar = (com.baidu.tieba.pb.b.a.e) item;
-            if (StringUtils.isNull(eVar.gbv) || "1".equals(eVar.gbv)) {
-                c0245a.fcZ.setVisibility(8);
+            if (StringUtils.isNull(eVar.gbw) || "1".equals(eVar.gbw)) {
+                c0245a.fda.setVisibility(8);
             } else {
-                c0245a.fcZ.setVisibility(0);
-                ViewGroup.LayoutParams layoutParams = c0245a.fcZ.getLayoutParams();
+                c0245a.fda.setVisibility(0);
+                ViewGroup.LayoutParams layoutParams = c0245a.fda.getLayoutParams();
                 int i2 = this.maxWidth;
                 int rW = eVar.rW(i2);
                 if (layoutParams == null) {
@@ -135,8 +135,8 @@ public class a extends BaseAdapter {
                     layoutParams.height = rW;
                     layoutParams.width = i2;
                 }
-                c0245a.fcZ.setLayoutParams(layoutParams);
-                c0245a.fcZ.startLoad(eVar.Rd(), 17, false);
+                c0245a.fda.setLayoutParams(layoutParams);
+                c0245a.fda.startLoad(eVar.Rd(), 17, false);
             }
         }
         return view;

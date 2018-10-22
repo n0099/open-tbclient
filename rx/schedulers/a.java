@@ -1,16 +1,16 @@
 package rx.schedulers;
 /* loaded from: classes2.dex */
 public class a<T> {
-    private final long iFk;
+    private final long iFl;
     private final T value;
 
     public a(long j, T t) {
         this.value = t;
-        this.iFk = j;
+        this.iFl = j;
     }
 
     public int hashCode() {
-        return (this.value == null ? 0 : this.value.hashCode()) + ((((int) (this.iFk ^ (this.iFk >>> 32))) + 31) * 31);
+        return (this.value == null ? 0 : this.value.hashCode()) + ((((int) (this.iFl ^ (this.iFl >>> 32))) + 31) * 31);
     }
 
     public boolean equals(Object obj) {
@@ -19,7 +19,7 @@ public class a<T> {
         }
         if (obj != null && getClass() == obj.getClass()) {
             a aVar = (a) obj;
-            if (this.iFk != aVar.iFk) {
+            if (this.iFl != aVar.iFl) {
                 return false;
             }
             return this.value == null ? aVar.value == null : this.value.equals(aVar.value);
@@ -28,6 +28,6 @@ public class a<T> {
     }
 
     public String toString() {
-        return "TimeInterval [intervalInMilliseconds=" + this.iFk + ", value=" + this.value + "]";
+        return "TimeInterval [intervalInMilliseconds=" + this.iFl + ", value=" + this.value + "]";
     }
 }

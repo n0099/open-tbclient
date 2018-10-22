@@ -10,27 +10,27 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class TriangleShapeView extends View {
-    private int fZh;
+    private int fZi;
     private Paint mPaint;
     private Path mPath;
 
     public TriangleShapeView(Context context) {
         super(context);
-        this.fZh = e.d.cp_bg_line_e;
+        this.fZi = e.d.cp_bg_line_e;
     }
 
     public TriangleShapeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fZh = e.d.cp_bg_line_e;
+        this.fZi = e.d.cp_bg_line_e;
     }
 
     public TriangleShapeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fZh = e.d.cp_bg_line_e;
+        this.fZi = e.d.cp_bg_line_e;
     }
 
     public void setColorId(int i) {
-        this.fZh = i;
+        this.fZi = i;
     }
 
     @Override // android.view.View
@@ -57,6 +57,6 @@ public class TriangleShapeView extends View {
         }
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(al.getColor(this.fZh));
+        this.mPaint.setColor(al.getColor(this.fZi));
     }
 }

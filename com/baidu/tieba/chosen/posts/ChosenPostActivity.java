@@ -18,8 +18,8 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Ny().addEventDelegate(this);
-        this.cUK = apv();
-        this.cUL = apw();
+        this.cUK = apw();
+        this.cUL = apx();
         if (getIntent() != null) {
             this.cUK.j(getIntent().getExtras());
         } else if (bundle != null) {
@@ -27,20 +27,20 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         } else {
             this.cUK.j(null);
         }
-        setContentView(this.cUL.aaK());
-        this.cUL.apB();
+        setContentView(this.cUL.aaL());
+        this.cUL.apC();
         this.cUL.d(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         adjustResizeForSoftInput();
     }
 
-    public ChosenPostModelController apv() {
+    public ChosenPostModelController apw() {
         if (this.cUK == null) {
             this.cUK = new ChosenPostModelController(this);
         }
         return this.cUK;
     }
 
-    public b apw() {
+    public b apx() {
         if (this.cUL == null) {
             this.cUL = new b(this);
         }
@@ -66,7 +66,7 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
                 b(bVar);
                 break;
         }
-        return apw().a(bVar) || apv().a(bVar);
+        return apx().a(bVar) || apw().a(bVar);
     }
 
     private void b(com.baidu.tbadk.mvc.c.b bVar) {
@@ -87,6 +87,6 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        apw().d(getPageContext(), i);
+        apx().d(getPageContext(), i);
     }
 }

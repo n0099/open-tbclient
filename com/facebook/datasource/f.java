@@ -9,11 +9,11 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class f<T> implements i<b<T>> {
-    private final List<i<b<T>>> hYg;
+    private final List<i<b<T>>> hYh;
 
     private f(List<i<b<T>>> list) {
         com.facebook.common.internal.g.checkArgument(!list.isEmpty(), "List of suppliers is empty!");
-        this.hYg = list;
+        this.hYh = list;
     }
 
     public static <T> f<T> ep(List<i<b<T>>> list) {
@@ -28,7 +28,7 @@ public class f<T> implements i<b<T>> {
     }
 
     public int hashCode() {
-        return this.hYg.hashCode();
+        return this.hYh.hashCode();
     }
 
     public boolean equals(Object obj) {
@@ -38,11 +38,11 @@ public class f<T> implements i<b<T>> {
         if (!(obj instanceof f)) {
             return false;
         }
-        return com.facebook.common.internal.f.equal(this.hYg, ((f) obj).hYg);
+        return com.facebook.common.internal.f.equal(this.hYh, ((f) obj).hYh);
     }
 
     public String toString() {
-        return com.facebook.common.internal.f.ao(this).n("list", this.hYg).toString();
+        return com.facebook.common.internal.f.ao(this).n("list", this.hYh).toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -51,17 +51,17 @@ public class f<T> implements i<b<T>> {
     public class a extends AbstractDataSource<T> {
         @GuardedBy("IncreasingQualityDataSource.this")
         @Nullable
-        private ArrayList<b<T>> hYl;
+        private ArrayList<b<T>> hYm;
         @GuardedBy("IncreasingQualityDataSource.this")
-        private int hYm;
+        private int hYn;
 
         public a() {
-            int size = f.this.hYg.size();
-            this.hYm = size;
-            this.hYl = new ArrayList<>(size);
+            int size = f.this.hYh.size();
+            this.hYn = size;
+            this.hYm = new ArrayList<>(size);
             for (int i = 0; i < size; i++) {
-                b<T> bVar = (b) ((i) f.this.hYg.get(i)).get();
-                this.hYl.add(bVar);
+                b<T> bVar = (b) ((i) f.this.hYh.get(i)).get();
+                this.hYm.add(bVar);
                 bVar.a(new C0316a(i), com.facebook.common.b.a.bRw());
                 if (bVar.bSe()) {
                     return;
@@ -71,15 +71,15 @@ public class f<T> implements i<b<T>> {
 
         @Nullable
         private synchronized b<T> xg(int i) {
-            return (this.hYl == null || i >= this.hYl.size()) ? null : this.hYl.get(i);
+            return (this.hYm == null || i >= this.hYm.size()) ? null : this.hYm.get(i);
         }
 
         @Nullable
         private synchronized b<T> xh(int i) {
             b<T> bVar = null;
             synchronized (this) {
-                if (this.hYl != null && i < this.hYl.size()) {
-                    bVar = this.hYl.set(i, null);
+                if (this.hYm != null && i < this.hYm.size()) {
+                    bVar = this.hYm.set(i, null);
                 }
             }
             return bVar;
@@ -87,7 +87,7 @@ public class f<T> implements i<b<T>> {
 
         @Nullable
         private synchronized b<T> bSo() {
-            return xg(this.hYm);
+            return xg(this.hYn);
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
@@ -113,8 +113,8 @@ public class f<T> implements i<b<T>> {
             int i = 0;
             synchronized (this) {
                 if (super.bSh()) {
-                    ArrayList<b<T>> arrayList = this.hYl;
-                    this.hYl = null;
+                    ArrayList<b<T>> arrayList = this.hYm;
+                    this.hYm = null;
                     if (arrayList != null) {
                         while (true) {
                             int i2 = i;
@@ -149,14 +149,14 @@ public class f<T> implements i<b<T>> {
 
         private void a(int i, b<T> bVar, boolean z) {
             synchronized (this) {
-                int i2 = this.hYm;
-                if (bVar == xg(i) && i != this.hYm) {
-                    if (bSo() == null || (z && i < this.hYm)) {
-                        this.hYm = i;
+                int i2 = this.hYn;
+                if (bVar == xg(i) && i != this.hYn) {
+                    if (bSo() == null || (z && i < this.hYn)) {
+                        this.hYn = i;
                     } else {
                         i = i2;
                     }
-                    for (int i3 = this.hYm; i3 > i; i3--) {
+                    for (int i3 = this.hYn; i3 > i; i3--) {
                         e(xh(i3));
                     }
                 }

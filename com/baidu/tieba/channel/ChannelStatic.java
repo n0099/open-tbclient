@@ -91,8 +91,8 @@ public class ChannelStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        amx();
-        aoQ();
+        amy();
+        aoR();
         ay.CU().a("vchannel://", new ay.b() { // from class: com.baidu.tieba.channel.ChannelStatic.5
             @Override // com.baidu.tbadk.core.util.ay.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
@@ -110,13 +110,13 @@ public class ChannelStatic {
         });
     }
 
-    private static void amx() {
+    private static void amy() {
         c.a(CmdConfigHttp.CMD_CHANNEL_FOLLOW, TbConfig.CMD_CHANNEL_FOLLOW, ChannelFollowHttpResponseMessage.class);
         c.a(CmdConfigHttp.CMD_CHANNEL_UNFOLLOW, TbConfig.CMD_CHANNEL_UNFOLLOW, ChannelUnFollowHttpResponseMessage.class);
         c.a(CmdConfigHttp.CMD_CHANNEL_UPDATE_PUSH, TbConfig.CMD_CHANNEL_UPDATE_PUSH, ChannelUpdatePushHttpResponseMessage.class);
     }
 
-    private static void aoQ() {
+    private static void aoR() {
         MessageManager.getInstance().registerListener(cRq);
         MessageManager.getInstance().registerListener(cRr);
         MessageManager.getInstance().registerListener(cRs);

@@ -8,13 +8,13 @@ import java.util.List;
 import java.util.TimeZone;
 /* loaded from: classes5.dex */
 public class b extends BdAsyncTask<Void, Void, List<d>> {
-    private static long hvT = 3600000;
+    private static long hvU = 3600000;
     private Context context;
-    private a hwa;
+    private a hwb;
     private int maxHeight;
     private int maxWidth;
-    private SimpleDateFormat hvV = new SimpleDateFormat("mm:ss");
-    private SimpleDateFormat hvU = new SimpleDateFormat("HH:mm:ss");
+    private SimpleDateFormat hvW = new SimpleDateFormat("mm:ss");
+    private SimpleDateFormat hvV = new SimpleDateFormat("HH:mm:ss");
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -26,12 +26,12 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
         this.maxHeight = context.getResources().getDimensionPixelSize(e.C0175e.ds220);
         this.maxWidth = this.maxHeight;
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
+        this.hvW.setTimeZone(timeZone);
         this.hvV.setTimeZone(timeZone);
-        this.hvU.setTimeZone(timeZone);
     }
 
     public void b(a aVar) {
-        this.hwa = aVar;
+        this.hwb = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -52,8 +52,8 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
     /* renamed from: z */
     public void onPostExecute(List<d> list) {
         super.onPostExecute(list);
-        if (this.hwa != null) {
-            this.hwa.dX(list);
+        if (this.hwb != null) {
+            this.hwb.dX(list);
         }
     }
 }

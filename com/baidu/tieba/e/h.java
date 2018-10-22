@@ -15,7 +15,7 @@ public class h implements com.baidu.adp.widget.ListView.h {
         return dcQ;
     }
 
-    public FeatureCardTopic asC() {
+    public FeatureCardTopic asD() {
         return this.dcR;
     }
 

@@ -130,7 +130,7 @@ public class a extends BaseAdapter {
                 return view;
             case 4:
                 View view2 = this.dfP.getView();
-                this.dfP.auJ();
+                this.dfP.auK();
                 return view2;
             default:
                 return view;
@@ -161,11 +161,11 @@ public class a extends BaseAdapter {
         }
     }
 
-    public boolean atA() {
+    public boolean atB() {
         if (this.dfP == null) {
             return false;
         }
-        return this.dfP.atA();
+        return this.dfP.atB();
     }
 
     public void onDestroy() {

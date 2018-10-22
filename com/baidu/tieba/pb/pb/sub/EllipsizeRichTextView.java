@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 /* loaded from: classes6.dex */
 public class EllipsizeRichTextView extends TextView {
-    private SpannableStringBuilder fZm;
+    private SpannableStringBuilder fZn;
 
     public EllipsizeRichTextView(Context context) {
         super(context);
@@ -24,7 +24,7 @@ public class EllipsizeRichTextView extends TextView {
     }
 
     private void bla() {
-        this.fZm = new SpannableStringBuilder();
+        this.fZn = new SpannableStringBuilder();
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -35,14 +35,14 @@ public class EllipsizeRichTextView extends TextView {
             int lineCount = getLineCount();
             int lineVisibleEnd = getLayout().getLineVisibleEnd((lineCount <= 2 ? lineCount : 2) - 1);
             if (text != null && text.length() > lineVisibleEnd) {
-                if (this.fZm == null) {
+                if (this.fZn == null) {
                     bla();
                 } else {
-                    this.fZm.clear();
+                    this.fZn.clear();
                 }
-                if (this.fZm != null) {
-                    this.fZm.append(text.subSequence(0, lineVisibleEnd));
-                    setText(this.fZm);
+                if (this.fZn != null) {
+                    this.fZn.append(text.subSequence(0, lineVisibleEnd));
+                    setText(this.fZn);
                 }
             }
         }

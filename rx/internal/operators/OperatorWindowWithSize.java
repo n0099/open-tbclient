@@ -26,17 +26,17 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
     public rx.j<? super T> call(rx.j<? super rx.d<T>> jVar) {
         if (this.skip == this.size) {
             a aVar = new a(jVar, this.size);
-            jVar.add(aVar.iAF);
+            jVar.add(aVar.iAG);
             jVar.setProducer(aVar.cbO());
             return aVar;
         } else if (this.skip > this.size) {
             WindowSkip windowSkip = new WindowSkip(jVar, this.size, this.skip);
-            jVar.add(windowSkip.iAF);
+            jVar.add(windowSkip.iAG);
             jVar.setProducer(windowSkip.cbO());
             return windowSkip;
         } else {
             WindowOverlap windowOverlap = new WindowOverlap(jVar, this.size, this.skip);
-            jVar.add(windowOverlap.iAF);
+            jVar.add(windowOverlap.iAG);
             jVar.setProducer(windowOverlap.cbO());
             return windowOverlap;
         }
@@ -46,34 +46,34 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.j<T> implements rx.functions.a {
         final rx.j<? super rx.d<T>> actual;
-        rx.subjects.c<T, T> iAG;
+        rx.subjects.c<T, T> iAH;
         int index;
         final int size;
         final AtomicInteger wip = new AtomicInteger(1);
-        final rx.k iAF = rx.subscriptions.e.j(this);
+        final rx.k iAG = rx.subscriptions.e.j(this);
 
         public a(rx.j<? super rx.d<T>> jVar, int i) {
             this.actual = jVar;
             this.size = i;
-            add(this.iAF);
+            add(this.iAG);
             request(0L);
         }
 
         @Override // rx.e
         public void onNext(T t) {
             int i = this.index;
-            UnicastSubject unicastSubject = this.iAG;
+            UnicastSubject unicastSubject = this.iAH;
             if (i == 0) {
                 this.wip.getAndIncrement();
                 unicastSubject = UnicastSubject.a(this.size, this);
-                this.iAG = unicastSubject;
+                this.iAH = unicastSubject;
                 this.actual.onNext(unicastSubject);
             }
             int i2 = i + 1;
             unicastSubject.onNext(t);
             if (i2 == this.size) {
                 this.index = 0;
-                this.iAG = null;
+                this.iAH = null;
                 unicastSubject.onCompleted();
                 return;
             }
@@ -82,9 +82,9 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            rx.subjects.c<T, T> cVar = this.iAG;
+            rx.subjects.c<T, T> cVar = this.iAH;
             if (cVar != null) {
-                this.iAG = null;
+                this.iAH = null;
                 cVar.onError(th);
             }
             this.actual.onError(th);
@@ -92,9 +92,9 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
 
         @Override // rx.e
         public void onCompleted() {
-            rx.subjects.c<T, T> cVar = this.iAG;
+            rx.subjects.c<T, T> cVar = this.iAH;
             if (cVar != null) {
-                this.iAG = null;
+                this.iAH = null;
                 cVar.onCompleted();
             }
             this.actual.onCompleted();
@@ -126,29 +126,29 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
     /* loaded from: classes2.dex */
     public static final class WindowSkip<T> extends rx.j<T> implements rx.functions.a {
         final rx.j<? super rx.d<T>> actual;
-        rx.subjects.c<T, T> iAG;
+        rx.subjects.c<T, T> iAH;
         int index;
         final int size;
         final int skip;
         final AtomicInteger wip = new AtomicInteger(1);
-        final rx.k iAF = rx.subscriptions.e.j(this);
+        final rx.k iAG = rx.subscriptions.e.j(this);
 
         public WindowSkip(rx.j<? super rx.d<T>> jVar, int i, int i2) {
             this.actual = jVar;
             this.size = i;
             this.skip = i2;
-            add(this.iAF);
+            add(this.iAG);
             request(0L);
         }
 
         @Override // rx.e
         public void onNext(T t) {
             int i = this.index;
-            UnicastSubject unicastSubject = this.iAG;
+            UnicastSubject unicastSubject = this.iAH;
             if (i == 0) {
                 this.wip.getAndIncrement();
                 unicastSubject = UnicastSubject.a(this.size, this);
-                this.iAG = unicastSubject;
+                this.iAH = unicastSubject;
                 this.actual.onNext(unicastSubject);
             }
             int i2 = i + 1;
@@ -157,7 +157,7 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
             }
             if (i2 == this.size) {
                 this.index = i2;
-                this.iAG = null;
+                this.iAH = null;
                 unicastSubject.onCompleted();
             } else if (i2 == this.skip) {
                 this.index = 0;
@@ -168,9 +168,9 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            rx.subjects.c<T, T> cVar = this.iAG;
+            rx.subjects.c<T, T> cVar = this.iAH;
             if (cVar != null) {
-                this.iAG = null;
+                this.iAH = null;
                 cVar.onError(th);
             }
             this.actual.onError(th);
@@ -178,9 +178,9 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
 
         @Override // rx.e
         public void onCompleted() {
-            rx.subjects.c<T, T> cVar = this.iAG;
+            rx.subjects.c<T, T> cVar = this.iAH;
             if (cVar != null) {
-                this.iAG = null;
+                this.iAH = null;
                 cVar.onCompleted();
             }
             this.actual.onCompleted();
@@ -228,22 +228,22 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
         final rx.j<? super rx.d<T>> actual;
         volatile boolean done;
         Throwable error;
-        int iAK;
+        int iAL;
         int index;
         final Queue<rx.subjects.c<T, T>> queue;
         final int size;
         final int skip;
         final AtomicInteger wip = new AtomicInteger(1);
-        final ArrayDeque<rx.subjects.c<T, T>> iAI = new ArrayDeque<>();
-        final AtomicInteger iAJ = new AtomicInteger();
+        final ArrayDeque<rx.subjects.c<T, T>> iAJ = new ArrayDeque<>();
+        final AtomicInteger iAK = new AtomicInteger();
         final AtomicLong requested = new AtomicLong();
-        final rx.k iAF = rx.subscriptions.e.j(this);
+        final rx.k iAG = rx.subscriptions.e.j(this);
 
         public WindowOverlap(rx.j<? super rx.d<T>> jVar, int i, int i2) {
             this.actual = jVar;
             this.size = i;
             this.skip = i2;
-            add(this.iAF);
+            add(this.iAG);
             request(0L);
             this.queue = new rx.internal.util.atomic.d(((i2 - 1) + i) / i2);
         }
@@ -251,7 +251,7 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
         @Override // rx.e
         public void onNext(T t) {
             int i = this.index;
-            ArrayDeque<rx.subjects.c<T, T>> arrayDeque = this.iAI;
+            ArrayDeque<rx.subjects.c<T, T>> arrayDeque = this.iAJ;
             if (i == 0 && !this.actual.isUnsubscribed()) {
                 this.wip.getAndIncrement();
                 UnicastSubject a = UnicastSubject.a(16, this);
@@ -259,19 +259,19 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
                 this.queue.offer(a);
                 drain();
             }
-            Iterator<rx.subjects.c<T, T>> it = this.iAI.iterator();
+            Iterator<rx.subjects.c<T, T>> it = this.iAJ.iterator();
             while (it.hasNext()) {
                 it.next().onNext(t);
             }
-            int i2 = this.iAK + 1;
+            int i2 = this.iAL + 1;
             if (i2 == this.size) {
-                this.iAK = i2 - this.skip;
+                this.iAL = i2 - this.skip;
                 rx.subjects.c<T, T> poll = arrayDeque.poll();
                 if (poll != null) {
                     poll.onCompleted();
                 }
             } else {
-                this.iAK = i2;
+                this.iAL = i2;
             }
             int i3 = i + 1;
             if (i3 == this.skip) {
@@ -283,11 +283,11 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            Iterator<rx.subjects.c<T, T>> it = this.iAI.iterator();
+            Iterator<rx.subjects.c<T, T>> it = this.iAJ.iterator();
             while (it.hasNext()) {
                 it.next().onError(th);
             }
-            this.iAI.clear();
+            this.iAJ.clear();
             this.error = th;
             this.done = true;
             drain();
@@ -295,11 +295,11 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
 
         @Override // rx.e
         public void onCompleted() {
-            Iterator<rx.subjects.c<T, T>> it = this.iAI.iterator();
+            Iterator<rx.subjects.c<T, T>> it = this.iAJ.iterator();
             while (it.hasNext()) {
                 it.next().onCompleted();
             }
-            this.iAI.clear();
+            this.iAJ.clear();
             this.done = true;
             drain();
         }
@@ -319,7 +319,7 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
         /* JADX WARN: Multi-variable type inference failed */
         void drain() {
             long j;
-            AtomicInteger atomicInteger = this.iAJ;
+            AtomicInteger atomicInteger = this.iAK;
             if (atomicInteger.getAndIncrement() == 0) {
                 rx.j<? super rx.d<T>> jVar = this.actual;
                 Queue<rx.subjects.c<T, T>> queue = this.queue;

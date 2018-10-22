@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.AbstractImageProvider;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class BlackListItemData extends AbstractImageProvider {
-    private String eEZ;
+    private String eFa;
     private long userId;
     private String userName;
     private String userNameShow;
@@ -30,11 +30,11 @@ public class BlackListItemData extends AbstractImageProvider {
     }
 
     public String aOQ() {
-        return this.eEZ;
+        return this.eFa;
     }
 
     public void pg(String str) {
-        this.eEZ = str;
+        this.eFa = str;
     }
 
     public void gH(String str) {

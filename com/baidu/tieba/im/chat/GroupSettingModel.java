@@ -10,17 +10,17 @@ import com.baidu.tieba.im.message.RequestDismissGroupMessage;
 import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 /* loaded from: classes3.dex */
 public class GroupSettingModel extends BdBaseModel<GroupSettingActivity> {
-    private RequestRemoveMembersMessage ezl;
-    private RequestDismissGroupMessage ezm;
-    private GroupSettingActivity ezn;
+    private RequestRemoveMembersMessage ezm;
+    private RequestDismissGroupMessage ezn;
+    private GroupSettingActivity ezo;
     private int flag;
     private String groupId;
     private String groupName;
 
     public GroupSettingModel(GroupSettingActivity groupSettingActivity) {
         super(groupSettingActivity.getPageContext());
-        this.ezn = null;
-        this.ezn = groupSettingActivity;
+        this.ezo = null;
+        this.ezo = groupSettingActivity;
     }
 
     public void i(String str, String str2, int i) {
@@ -49,8 +49,8 @@ public class GroupSettingModel extends BdBaseModel<GroupSettingActivity> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
-        if (this.ezl != null) {
-            this.ezl = null;
+        if (this.ezm != null) {
+            this.ezm = null;
         }
     }
 
@@ -86,23 +86,23 @@ public class GroupSettingModel extends BdBaseModel<GroupSettingActivity> {
     }
 
     public void cf(long j) {
-        this.ezl = new RequestRemoveMembersMessage();
-        this.ezl.setGroupId(j);
-        this.ezl.setUserIds(TbadkApplication.getCurrentAccountObj().getID());
-        if (this.ezn != null) {
-            this.ezn.sendMessage(this.ezl);
+        this.ezm = new RequestRemoveMembersMessage();
+        this.ezm.setGroupId(j);
+        this.ezm.setUserIds(TbadkApplication.getCurrentAccountObj().getID());
+        if (this.ezo != null) {
+            this.ezo.sendMessage(this.ezm);
         } else {
-            sendMessage(this.ezl);
+            sendMessage(this.ezm);
         }
     }
 
     public void cg(long j) {
-        this.ezm = new RequestDismissGroupMessage();
-        this.ezm.setGroupId(j);
-        if (this.ezn != null) {
-            this.ezn.sendMessage(this.ezm);
+        this.ezn = new RequestDismissGroupMessage();
+        this.ezn.setGroupId(j);
+        if (this.ezo != null) {
+            this.ezo.sendMessage(this.ezn);
         } else {
-            sendMessage(this.ezm);
+            sendMessage(this.ezn);
         }
     }
 

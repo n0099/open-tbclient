@@ -47,7 +47,7 @@ public class a<T> {
     public a(InterfaceC0182a interfaceC0182a, BaseActivity<T> baseActivity) {
         this.dya = interfaceC0182a;
         this.bwX = baseActivity;
-        ayt();
+        ayu();
     }
 
     public void lh(int i) {
@@ -62,7 +62,7 @@ public class a<T> {
         this.bwX.sendMessage(getLevelInfoReadCacheRequestMessage);
     }
 
-    private void ayt() {
+    private void ayu() {
         this.bwX.registerListener(this.dwk);
         this.bwX.registerListener(this.cVx);
     }

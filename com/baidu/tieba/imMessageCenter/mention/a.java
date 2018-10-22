@@ -17,8 +17,8 @@ public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b
     private TextView aGD;
     private HeadImageView dCV;
     private TextView dmH;
-    private ImageView eVt;
-    private TextView eVu;
+    private ImageView eVu;
+    private TextView eVv;
     private View mLine;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
@@ -26,9 +26,9 @@ public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b
         this.dCV = (HeadImageView) view.findViewById(e.g.photo);
         this.dCV.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.aGD = (TextView) view.findViewById(e.g.user_name);
-        this.eVt = (ImageView) view.findViewById(e.g.fans_reply);
+        this.eVu = (ImageView) view.findViewById(e.g.fans_reply);
         this.dmH = (TextView) view.findViewById(e.g.time);
-        this.eVu = (TextView) view.findViewById(e.g.content);
+        this.eVv = (TextView) view.findViewById(e.g.content);
         this.mLine = view.findViewById(e.g.line);
         this.dCV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.a.1
             @Override // android.view.View.OnClickListener
@@ -67,13 +67,13 @@ public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b
                 this.dCV.setImageResource(e.f.photo);
             }
             if (feedData.getReplyer().getIsMyFans() == 1) {
-                this.eVt.setVisibility(0);
+                this.eVu.setVisibility(0);
             } else {
-                this.eVt.setVisibility(8);
+                this.eVu.setVisibility(8);
             }
         }
         this.dmH.setText(ao.C(feedData.getTime()));
-        this.eVu.setText(feedData.getContent());
+        this.eVv.setText(feedData.getContent());
     }
 
     @Override // com.baidu.tieba.tbadkCore.o
@@ -81,8 +81,8 @@ public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b
         al.i(getRootView(), e.f.list_selector);
         al.j(this.mLine, e.d.cp_bg_line_b);
         al.h(this.dmH, e.d.cp_cont_d);
-        al.i(this.eVt, e.f.icon_pb_fans);
-        al.h(this.eVu, e.d.cp_cont_b);
+        al.i(this.eVu, e.f.icon_pb_fans);
+        al.h(this.eVv, e.d.cp_cont_b);
         this.dmH.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(e.f.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
         return false;
     }

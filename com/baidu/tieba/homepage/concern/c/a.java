@@ -13,7 +13,7 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes6.dex */
 public class a {
-    private final c eiV = new c();
+    private final c eiW = new c();
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         if (i != 0 && i != 1) {
@@ -65,8 +65,8 @@ public class a {
                 }
             }
         }
-        this.eiV.brA = linkedList;
-        return this.eiV;
+        this.eiW.brA = linkedList;
+        return this.eiW;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -93,7 +93,7 @@ public class a {
                     }
                 }
             }
-            this.eiV.eoJ = v.I(list) - I;
+            this.eiW.eoK = v.I(list) - I;
         }
     }
 

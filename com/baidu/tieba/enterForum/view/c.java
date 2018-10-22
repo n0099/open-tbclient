@@ -69,7 +69,7 @@ public class c extends com.baidu.tbadk.mvc.f.a<f, com.baidu.tbadk.mvc.d.b> {
             if (this.diQ.getVisibility() == 0) {
                 this.diQ.setLayoutParams(this.diR);
             }
-            if (fVar.atI() == 1) {
+            if (fVar.atJ() == 1) {
                 this.diP.setVisibility(0);
             } else {
                 this.diP.setVisibility(8);

@@ -19,9 +19,9 @@ import java.util.Iterator;
 public class f extends h {
     private String dHp;
     private final CustomMessageListener dHq;
-    private bb dSY;
-    private boolean dSZ;
-    private PraiseModel dTa;
+    private bb dSZ;
+    private boolean dTa;
+    private PraiseModel dTb;
 
     public f(FrsFragment frsFragment) {
         super(frsFragment);
@@ -38,18 +38,18 @@ public class f extends h {
                 }
             }
         };
-        this.dSf.registerListener(this.dHq);
-        this.dTa = aFq();
+        this.dSg.registerListener(this.dHq);
+        this.dTb = aFq();
     }
 
     public final PraiseModel aFq() {
-        if (this.dTa == null) {
-            this.dTa = new PraiseModel(this.dSf.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.f.1
+        if (this.dTb == null) {
+            this.dTb = new PraiseModel(this.dSg.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.f.1
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
                 public void jI(String str) {
                     int i = 1;
-                    if (f.this.dSZ) {
-                        if (f.this.dSY != null && f.this.dSY.yi().getIsLike() == 1) {
+                    if (f.this.dTa) {
+                        if (f.this.dSZ != null && f.this.dSZ.yi().getIsLike() == 1) {
                             i = 0;
                         }
                         f.this.lO(i);
@@ -59,23 +59,23 @@ public class f extends h {
 
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
                 public void Q(int i, String str) {
-                    if (f.this.dSf != null && f.this.dSf.getPageContext() != null && f.this.dSZ && !TextUtils.isEmpty(str)) {
+                    if (f.this.dSg != null && f.this.dSg.getPageContext() != null && f.this.dTa && !TextUtils.isEmpty(str)) {
                         if (AntiHelper.am(i, str)) {
-                            AntiHelper.aI(f.this.dSf.getPageContext().getPageActivity(), str);
+                            AntiHelper.aI(f.this.dSg.getPageContext().getPageActivity(), str);
                         } else {
-                            f.this.dSf.showToast(str);
+                            f.this.dSg.showToast(str);
                         }
                     }
                 }
             });
         }
-        return this.dTa;
+        return this.dTb;
     }
 
     public void lO(int i) {
         ArrayList<com.baidu.adp.widget.ListView.h> threadList;
-        l azR = this.dSf.azR();
-        if (azR != null && this.dAn != null && (threadList = azR.getThreadList()) != null) {
+        l azS = this.dSg.azS();
+        if (azS != null && this.dAn != null && (threadList = azS.getThreadList()) != null) {
             Iterator<com.baidu.adp.widget.ListView.h> it = threadList.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -84,9 +84,9 @@ public class f extends h {
                 com.baidu.adp.widget.ListView.h next = it.next();
                 if (next instanceof bb) {
                     bb bbVar = (bb) next;
-                    if (bbVar == this.dSY) {
+                    if (bbVar == this.dSZ) {
                         a(bbVar, i);
-                        this.dSY = null;
+                        this.dSZ = null;
                         break;
                     } else if (bbVar.getId() != null && bbVar.getId().equals(this.dHp)) {
                         a(bbVar, i);
@@ -95,8 +95,8 @@ public class f extends h {
                     }
                 }
             }
-            this.dAn.aAH().b(threadList, azR);
-            this.dAn.aAH().notifyDataSetChanged();
+            this.dAn.aAI().b(threadList, azS);
+            this.dAn.aAI().notifyDataSetChanged();
         }
     }
 
@@ -141,6 +141,6 @@ public class f extends h {
     }
 
     public void ha(boolean z) {
-        this.dSZ = z;
+        this.dTa = z;
     }
 }

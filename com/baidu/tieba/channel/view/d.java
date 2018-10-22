@@ -48,7 +48,7 @@ public class d extends com.baidu.adp.base.c<ChannelFansActivity> {
                     if (!com.baidu.adp.lib.util.j.kX()) {
                         d.this.cSh.showToast(e.j.neterror);
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(d.this.cSh.getPageContext().getPageActivity(), item.aph() + "", item.getUser_name())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(d.this.cSh.getPageContext().getPageActivity(), item.apj() + "", item.getUser_name())));
                     }
                 }
             }
@@ -87,7 +87,7 @@ public class d extends com.baidu.adp.base.c<ChannelFansActivity> {
         }
     }
 
-    public void apm() {
+    public void apn() {
         this.OE.completePullRefreshPostDelayed(SystemScreenshotManager.DELAY_TIME);
     }
 

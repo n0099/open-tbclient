@@ -24,25 +24,25 @@ import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
-    private d eCr;
-    private b eVf;
-    private StrangerListModel eVg;
-    private StrangerListActivity eVh;
-    private com.baidu.tbadk.core.dialog.a eVi;
-    private a.b eVj = new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.2
+    private d eCs;
+    private b eVg;
+    private StrangerListModel eVh;
+    private StrangerListActivity eVi;
+    private com.baidu.tbadk.core.dialog.a eVj;
+    private a.b eVk = new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.2
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-            StrangerListActivity.this.eVi.dismiss();
-            StrangerListActivity.this.eVg.a(StrangerListActivity.this.eCv);
+            StrangerListActivity.this.eVj.dismiss();
+            StrangerListActivity.this.eVh.a(StrangerListActivity.this.eCw);
         }
     };
-    private a.b eVk = new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.3
+    private a.b eVl = new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.3
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-            StrangerListActivity.this.eVi.dismiss();
+            StrangerListActivity.this.eVj.dismiss();
         }
     };
-    private final CustomMessageListener eCs = new CustomMessageListener(0) { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.4
+    private final CustomMessageListener eCt = new CustomMessageListener(0) { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -54,29 +54,29 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                 } else if (customResponsedMessage.getCmd() == 2016007) {
                     StrangerListActivity.this.d(customResponsedMessage);
                 } else if (customResponsedMessage.getCmd() == 2016001) {
-                    StrangerListActivity.this.eVg.setData(null, StrangerListActivity.this.eCu);
-                } else if (customResponsedMessage.getCmd() == 2016011 && StrangerListActivity.this.eVf != null && StrangerListActivity.this.eVf.aUk() != null) {
-                    StrangerListActivity.this.eVf.aUk().notifyDataSetChanged();
+                    StrangerListActivity.this.eVh.setData(null, StrangerListActivity.this.eCv);
+                } else if (customResponsedMessage.getCmd() == 2016011 && StrangerListActivity.this.eVg != null && StrangerListActivity.this.eVg.aUk() != null) {
+                    StrangerListActivity.this.eVg.aUk().notifyDataSetChanged();
                 }
             }
         }
     };
-    private com.baidu.tieba.im.chat.a.a eCu = new com.baidu.tieba.im.chat.a.a() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.5
+    private com.baidu.tieba.im.chat.a.a eCv = new com.baidu.tieba.im.chat.a.a() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.5
         @Override // com.baidu.tieba.im.chat.a.a
         public void onComplete() {
             StrangerListActivity.this.aNu();
         }
     };
-    private final com.baidu.tieba.im.chat.a.b eCv = new com.baidu.tieba.im.chat.a.b() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.6
+    private final com.baidu.tieba.im.chat.a.b eCw = new com.baidu.tieba.im.chat.a.b() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.6
         @Override // com.baidu.tieba.im.chat.a.b
         public void onPreExecute() {
-            StrangerListActivity.this.axq();
+            StrangerListActivity.this.axr();
         }
 
         @Override // com.baidu.tieba.im.chat.a.b
         public void onProgressUpdate(int i, String str, int i2) {
-            if (StrangerListActivity.this.eCr != null) {
-                StrangerListActivity.this.eCr.setPercent(i);
+            if (StrangerListActivity.this.eCs != null) {
+                StrangerListActivity.this.eCs.setPercent(i);
             }
             StrangerListActivity.this.notifyDataSetChanged();
         }
@@ -99,7 +99,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.eVh = this;
+        this.eVi = this;
         a(this);
         initData();
         registerListener();
@@ -133,39 +133,39 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     }
 
     private void registerListener() {
-        registerListener(2016004, this.eCs);
-        registerListener(2016007, this.eCs);
-        registerListener(2016001, this.eCs);
-        registerListener(2016011, this.eCs);
-        registerListener(2016002, this.eCs);
+        registerListener(2016004, this.eCt);
+        registerListener(2016007, this.eCt);
+        registerListener(2016001, this.eCt);
+        registerListener(2016011, this.eCt);
+        registerListener(2016002, this.eCt);
     }
 
     private void a(StrangerListActivity strangerListActivity) {
-        this.eVf = new b(strangerListActivity);
-        this.eVi = new com.baidu.tbadk.core.dialog.a(strangerListActivity.getPageContext().getPageActivity());
-        this.eVi.cz(e.j.sure_to_delete_all_stranger_msg);
-        this.eVi.a(e.j.confirm, this.eVj);
-        this.eVi.b(e.j.cancel, this.eVk);
-        this.eVi.b(strangerListActivity.getPageContext());
+        this.eVg = new b(strangerListActivity);
+        this.eVj = new com.baidu.tbadk.core.dialog.a(strangerListActivity.getPageContext().getPageActivity());
+        this.eVj.cz(e.j.sure_to_delete_all_stranger_msg);
+        this.eVj.a(e.j.confirm, this.eVk);
+        this.eVj.b(e.j.cancel, this.eVl);
+        this.eVj.b(strangerListActivity.getPageContext());
     }
 
     private void initData() {
-        this.eVg = new StrangerListModel(getPageContext());
+        this.eVh = new StrangerListModel(getPageContext());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        if (this.eVf != null) {
-            this.eVf.onChangeSkinType(i);
+        if (this.eVg != null) {
+            this.eVg.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         ImMessageCenterShowItemData oQ;
-        if (this.eVf != null && this.eVf.aUk() != null && (oQ = this.eVf.aUk().getItem(i)) != null) {
-            PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(this.eVh.getPageContext().getContext(), com.baidu.adp.lib.g.b.d(oQ.getFriendId(), 0L), oQ.getFriendName(), oQ.getFriendNameShow(), oQ.getFriendPortrait(), 0, 0);
+        if (this.eVg != null && this.eVg.aUk() != null && (oQ = this.eVg.aUk().getItem(i)) != null) {
+            PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(this.eVi.getPageContext().getContext(), com.baidu.adp.lib.g.b.d(oQ.getFriendId(), 0L), oQ.getFriendName(), oQ.getFriendNameShow(), oQ.getFriendPortrait(), 0, 0);
             personalChatActivityConfig.setFollowStatus(0);
             sendMessage(new CustomMessage(2002005, personalChatActivityConfig));
         }
@@ -174,18 +174,18 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         final ImMessageCenterShowItemData oQ;
-        if (this.eVf == null || this.eVf.aUk() == null || (oQ = this.eVf.aUk().getItem(i)) == null) {
+        if (this.eVg == null || this.eVg.aUk() == null || (oQ = this.eVg.aUk().getItem(i)) == null) {
             return false;
         }
-        final int size = this.eVg.getData().size();
+        final int size = this.eVh.getData().size();
         com.baidu.tbadk.coreExtra.d.a.a(getPageContext().getContext(), new b.InterfaceC0124b() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.1
             @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0124b
             public void a(com.baidu.tbadk.core.dialog.b bVar, int i2, View view2) {
                 bVar.dismiss();
                 if (size == 1) {
-                    StrangerListActivity.this.eVg.a(StrangerListActivity.this.eCv);
+                    StrangerListActivity.this.eVh.a(StrangerListActivity.this.eCw);
                 } else {
-                    StrangerListActivity.this.eVg.asyncDeleteItem(oQ, StrangerListActivity.this.eCv);
+                    StrangerListActivity.this.eVh.asyncDeleteItem(oQ, StrangerListActivity.this.eCw);
                 }
             }
         });
@@ -195,8 +195,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.eVf.aUl() && this.eVi != null) {
-            this.eVi.Au();
+        if (view == this.eVg.aUl() && this.eVj != null) {
+            this.eVj.Au();
         }
     }
 
@@ -204,8 +204,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.eVf != null && this.eVf.aUk() != null) {
-            this.eVf.aUk().notifyDataSetChanged();
+        if (this.eVg != null && this.eVg.aUk() != null) {
+            this.eVg.aUk().notifyDataSetChanged();
         }
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a("-1001", -7)));
     }
@@ -223,11 +223,11 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
             ImMessageCenterPojo data = memoryChangedMessage.getData();
             if (memoryChangedMessage.getType() == 1) {
-                if (this.eVg != null) {
-                    this.eVg.insertOrUpdate(data, this.eCu);
+                if (this.eVh != null) {
+                    this.eVh.insertOrUpdate(data, this.eCv);
                 }
-            } else if (memoryChangedMessage.getType() == 2 && this.eVg != null) {
-                this.eVg.remove(data, this.eCu);
+            } else if (memoryChangedMessage.getType() == 2 && this.eVh != null) {
+                this.eVh.remove(data, this.eCv);
             }
         }
     }
@@ -237,27 +237,27 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
             ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
             List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
-            if (responsedMemoryListMessage.getType() == 3 && this.eVg != null) {
-                this.eVg.setData(data, this.eCu);
+            if (responsedMemoryListMessage.getType() == 3 && this.eVh != null) {
+                this.eVh.setData(data, this.eCv);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void axq() {
+    public void axr() {
         RM();
-        if (this.eCr == null) {
-            this.eCr = com.baidu.tieba.im.db.e.aPc().cE(getPageContext().getPageActivity());
+        if (this.eCs == null) {
+            this.eCs = com.baidu.tieba.im.db.e.aPc().cE(getPageContext().getPageActivity());
         }
-        this.eCr.show();
-        this.eCr.setPercent(0);
+        this.eCs.show();
+        this.eCs.setPercent(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void RM() {
-        if (this.eCr != null && this.eCr.isShowing()) {
-            this.eCr.dismiss();
-            this.eCr = null;
+        if (this.eCs != null && this.eCs.isShowing()) {
+            this.eCs.dismiss();
+            this.eCs = null;
         }
         closeLoadingDialog();
         dismissAllDialog();
@@ -265,18 +265,18 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyDataSetChanged() {
-        if (this.eVf != null && this.eVf.aUk() != null) {
-            this.eVf.aUk().notifyDataSetChanged();
+        if (this.eVg != null && this.eVg.aUk() != null) {
+            this.eVg.aUk().notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aNu() {
-        if (this.eVf != null && this.eVf.aUk() != null && this.eVg != null) {
-            if (this.eVg != null && this.eVg.isEmpty()) {
+        if (this.eVg != null && this.eVg.aUk() != null && this.eVh != null) {
+            if (this.eVh != null && this.eVh.isEmpty()) {
                 finish();
             }
-            this.eVf.aUk().setData(this.eVg.getData());
+            this.eVg.aUk().setData(this.eVh.getData());
         }
     }
 }

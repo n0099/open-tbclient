@@ -1,7 +1,7 @@
 package com.baidu.tieba.videoEasterEgg.b;
 /* loaded from: classes3.dex */
 public interface a {
-    void XE();
+    void XF();
 
     void bJI();
 

@@ -6,12 +6,12 @@ import rx.d;
 import rx.internal.util.UtilityFunctions;
 /* loaded from: classes2.dex */
 public final class ao<T, U> implements d.b<T, T> {
-    final rx.functions.f<? super T, ? extends U> iuV;
+    final rx.functions.f<? super T, ? extends U> iuW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        static final ao<?, ?> iwh = new ao<>(UtilityFunctions.ccW());
+        static final ao<?, ?> iwi = new ao<>(UtilityFunctions.ccW());
     }
 
     @Override // rx.functions.f
@@ -20,21 +20,21 @@ public final class ao<T, U> implements d.b<T, T> {
     }
 
     public static <T> ao<T, T> cbT() {
-        return (ao<T, T>) a.iwh;
+        return (ao<T, T>) a.iwi;
     }
 
     public ao(rx.functions.f<? super T, ? extends U> fVar) {
-        this.iuV = fVar;
+        this.iuW = fVar;
     }
 
     /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: rx.j<T>, rx.j<? super T> */
     public rx.j<? super T> call(final rx.j<? super T> jVar) {
         return (rx.j<T>) new rx.j<T>(jVar) { // from class: rx.internal.operators.ao.1
-            Set<U> iwf = new HashSet();
+            Set<U> iwg = new HashSet();
 
             @Override // rx.e
             public void onNext(T t) {
-                if (this.iwf.add(ao.this.iuV.call(t))) {
+                if (this.iwg.add(ao.this.iuW.call(t))) {
                     jVar.onNext(t);
                 } else {
                     request(1L);
@@ -43,13 +43,13 @@ public final class ao<T, U> implements d.b<T, T> {
 
             @Override // rx.e
             public void onError(Throwable th) {
-                this.iwf = null;
+                this.iwg = null;
                 jVar.onError(th);
             }
 
             @Override // rx.e
             public void onCompleted() {
-                this.iwf = null;
+                this.iwg = null;
                 jVar.onCompleted();
             }
         };

@@ -73,7 +73,7 @@ public class b extends com.baidu.tieba.card.a<c> {
     public void a(c cVar) {
         if (cVar != null) {
             this.dEA = cVar;
-            this.dEx.startLoad(cVar.aBA(), 10, false);
+            this.dEx.startLoad(cVar.aBB(), 10, false);
             this.dEx.setRadius(l.h(getContext(), e.C0175e.tbds26));
             this.dEx.setDrawerType(1);
             this.dEx.setDrawBorder(true);
@@ -81,20 +81,20 @@ public class b extends com.baidu.tieba.card.a<c> {
             this.dEx.setBorderWidth(l.h(getContext(), e.C0175e.tbds1));
             this.dEx.setDefaultResource(e.f.transparent_bg);
             this.dEx.setDefaultBgResource(e.f.transparent_bg);
-            this.dEy.setText(cVar.aBB());
-            this.dEz.setText(cVar.aBC());
+            this.dEy.setText(cVar.aBC());
+            this.dEz.setText(cVar.aBD());
             al.h(this.dEy, e.d.cp_cont_b);
             al.h(this.dEz, e.d.cp_cont_d);
             al.i(this.bwo, e.f.ad_list_item_bg);
-            if (v.I(cVar.aBD()) > 0) {
+            if (v.I(cVar.aBE()) > 0) {
                 com.baidu.tbadk.widget.layout.e eVar = new com.baidu.tbadk.widget.layout.e(3);
                 eVar.g(1.0d);
                 this.cNn.setVisibility(0);
                 this.cNn.setFromCDN(true);
                 this.cNn.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0175e.tbds20));
                 this.cNn.setImageProcessor(eVar);
-                this.cNn.setImageMediaList(cVar.aBD());
-                if (!cVar.aBE()) {
+                this.cNn.setImageMediaList(cVar.aBE());
+                if (!cVar.aBF()) {
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, l.h(getContext(), e.C0175e.tbds16));
                     layoutParams.addRule(12);
                     this.mDivider.setLayoutParams(layoutParams);
@@ -106,7 +106,7 @@ public class b extends com.baidu.tieba.card.a<c> {
                 return;
             }
             this.cNn.setVisibility(8);
-            if (!cVar.aBE()) {
+            if (!cVar.aBF()) {
                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, l.h(getContext(), e.C0175e.tbds1));
                 layoutParams2.addRule(12);
                 this.mDivider.setLayoutParams(layoutParams2);

@@ -19,7 +19,7 @@ public class FeedAdProgressButton extends View {
     private Paint aBB;
     private float bmh;
     private int dyv;
-    private int eRp;
+    private int eRq;
     private int mProgress;
     private String mText;
     private int mTextColor;
@@ -30,7 +30,7 @@ public class FeedAdProgressButton extends View {
         this.mProgress = 0;
         this.mTextColor = -1;
         this.bmh = 10.0f;
-        this.eRp = 100;
+        this.eRq = 100;
         this.dyv = 0;
         this.strokeWidth = 0;
         init(context, attributeSet);
@@ -41,7 +41,7 @@ public class FeedAdProgressButton extends View {
         this.mProgress = 0;
         this.mTextColor = -1;
         this.bmh = 10.0f;
-        this.eRp = 100;
+        this.eRq = 100;
         this.dyv = 0;
         this.strokeWidth = 0;
         init(context, attributeSet);
@@ -55,7 +55,7 @@ public class FeedAdProgressButton extends View {
         this.strokeWidth = getResources().getDimensionPixelSize(e.C0175e.ds1);
         this.IY = obtainStyledAttributes.getInteger(e.l.feed_ad_progress_btn_foreground, color2);
         this.mTextColor = obtainStyledAttributes.getColor(e.l.feed_ad_progress_btn_textColor, color);
-        this.eRp = obtainStyledAttributes.getInteger(e.l.feed_ad_progress_btn_max, this.eRp);
+        this.eRq = obtainStyledAttributes.getInteger(e.l.feed_ad_progress_btn_max, this.eRq);
         this.mProgress = obtainStyledAttributes.getInteger(e.l.feed_ad_progress_btn_progress, 0);
         this.mText = obtainStyledAttributes.getString(e.l.feed_ad_progress_btn_text);
         this.bmh = obtainStyledAttributes.getDimension(e.l.feed_ad_progress_btn_textSize, (int) getResources().getDimension(e.C0175e.fontsize24));
@@ -79,7 +79,7 @@ public class FeedAdProgressButton extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (this.mProgress > 0) {
-            canvas.drawRoundRect(new RectF(this.strokeWidth, this.strokeWidth, ((getWidth() * this.mProgress) / this.eRp) - this.strokeWidth, getHeight() - this.strokeWidth), this.dyv, this.dyv, this.IF);
+            canvas.drawRoundRect(new RectF(this.strokeWidth, this.strokeWidth, ((getWidth() * this.mProgress) / this.eRq) - this.strokeWidth, getHeight() - this.strokeWidth), this.dyv, this.dyv, this.IF);
         }
         if (!TextUtils.isEmpty(this.mText)) {
             Paint.FontMetrics fontMetrics = this.aBB.getFontMetrics();
@@ -88,7 +88,7 @@ public class FeedAdProgressButton extends View {
     }
 
     public void setMax(int i) {
-        this.eRp = i;
+        this.eRq = i;
     }
 
     public void setText(String str) {
@@ -119,7 +119,7 @@ public class FeedAdProgressButton extends View {
     }
 
     public void setProgress(int i) {
-        if (i <= this.eRp) {
+        if (i <= this.eRq) {
             this.mProgress = i;
             this.mText = this.mProgress + "%";
             postInvalidate();
@@ -127,7 +127,7 @@ public class FeedAdProgressButton extends View {
     }
 
     public int getMax() {
-        return this.eRp;
+        return this.eRq;
     }
 
     public int getProgress() {

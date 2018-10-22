@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes3.dex */
 public class e {
-    private static final String gTK = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
+    private static final String gTL = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
     private String mAuthSid;
     private x mNetWork = null;
 
@@ -15,7 +15,7 @@ public class e {
     }
 
     public String byD() {
-        this.mNetWork = new x(gTK);
+        this.mNetWork = new x(gTL);
         this.mNetWork.x("authsid", this.mAuthSid);
         this.mNetWork.BY().CW().azb = true;
         this.mNetWork.BY().CW().mIsNeedTbs = true;
@@ -29,7 +29,7 @@ public class e {
         if (currentAccountObj != null) {
             str2 = currentAccountObj.getID();
         }
-        this.mNetWork = new x(gTK);
+        this.mNetWork = new x(gTL);
         this.mNetWork.x("user_id", str2);
         this.mNetWork.x("forum_ids", str);
         this.mNetWork.x("authsid", this.mAuthSid);

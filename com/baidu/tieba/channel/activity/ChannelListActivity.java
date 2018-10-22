@@ -18,7 +18,7 @@ public class ChannelListActivity extends BaseActivity<ChannelListActivity> {
         @Override // com.baidu.tieba.channel.model.ChannelListModel.a
         public void a(int i, String str, boolean z, e eVar) {
             ChannelListActivity.this.closeLoadingDialog();
-            ChannelListActivity.this.cRX.apm();
+            ChannelListActivity.this.cRX.apn();
             if (i == 0) {
                 ChannelListActivity.this.cRX.a(eVar);
                 return;
@@ -59,7 +59,7 @@ public class ChannelListActivity extends BaseActivity<ChannelListActivity> {
 
     private void fd() {
         this.cRW = new ChannelListModel(getPageContext(), this.mUserId);
-        this.cRW.YI();
+        this.cRW.YJ();
         this.cRW.a(this.cRY);
         this.cRW.fn(false);
     }
@@ -76,7 +76,7 @@ public class ChannelListActivity extends BaseActivity<ChannelListActivity> {
                     ChannelListActivity.this.cRW.LoadData();
                     return;
                 }
-                ChannelListActivity.this.cRX.apm();
+                ChannelListActivity.this.cRX.apn();
             }
         });
         this.cRX.startPullRefresh();

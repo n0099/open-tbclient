@@ -18,16 +18,16 @@ public class b {
     private TextView bkC;
     private TbImageView bkD;
     private ImageView bkE;
-    private LinearLayout eci;
     private LinearLayout ecj;
+    private LinearLayout eck;
     private int mSkinType = 0;
     private TextView mTitle;
     private View v;
 
     public b(TbPageContext<?> tbPageContext) {
         this.v = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(e.h.video_topic_card_item, (ViewGroup) null, false);
-        this.ecj = (LinearLayout) this.v.findViewById(e.g.layout_root);
-        this.eci = (LinearLayout) this.v.findViewById(e.g.layout_title);
+        this.eck = (LinearLayout) this.v.findViewById(e.g.layout_root);
+        this.ecj = (LinearLayout) this.v.findViewById(e.g.layout_title);
         this.mTitle = (TextView) this.v.findViewById(e.g.text_title);
         this.bkD = (TbImageView) this.v.findViewById(e.g.image_video);
         this.bkD.setDefaultResource(e.f.video_play_count_bg);
@@ -55,9 +55,9 @@ public class b {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            this.ecj.setBackgroundColor(al.getColor(this.mSkinType, e.d.cp_bg_line_d));
-            al.i(this.eci, e.f.addresslist_item_bg);
+            this.eck.setBackgroundColor(al.getColor(this.mSkinType, e.d.cp_bg_line_d));
             al.i(this.ecj, e.f.addresslist_item_bg);
+            al.i(this.eck, e.f.addresslist_item_bg);
             al.c(this.bkE, e.f.btn_icon_play_video_n);
             al.h(this.mTitle, e.d.cp_cont_f);
             this.mSkinType = i;
@@ -65,6 +65,6 @@ public class b {
     }
 
     public LinearLayout getRootView() {
-        return this.ecj;
+        return this.eck;
     }
 }

@@ -16,10 +16,10 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
 public class c {
     public static void w(k kVar) {
-        HashMap<Integer, bb> aCF;
-        if (kVar != null && kVar.aAH() != null && (aCF = kVar.aAH().aCF()) != null) {
+        HashMap<Integer, bb> aCG;
+        if (kVar != null && kVar.aAI() != null && (aCG = kVar.aAI().aCG()) != null) {
             ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
-            for (Map.Entry<Integer, bb> entry : aCF.entrySet()) {
+            for (Map.Entry<Integer, bb> entry : aCG.entrySet()) {
                 bb value = entry.getValue();
                 if (value != null && (value instanceof AdvertAppInfo)) {
                     arrayList.add((AdvertAppInfo) value);
@@ -47,7 +47,7 @@ public class c {
                 com.baidu.adp.lib.g.e.jI().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.f.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        k.this.aAx();
+                        k.this.aAy();
                     }
                 }, TimeUnit.SECONDS.toMillis(2L));
             }

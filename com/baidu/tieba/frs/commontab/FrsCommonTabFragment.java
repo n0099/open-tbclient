@@ -84,7 +84,7 @@ public class FrsCommonTabFragment extends BaseFragment implements j.b {
         super.onLazyLoad();
         if (com.baidu.adp.lib.util.j.kX()) {
             showLoadingView(this.mRootView, false, getResources().getDimensionPixelSize(e.C0175e.ds250));
-            aCb();
+            aCc();
             return;
         }
         showNetRefreshView(this.mRootView, null, true);
@@ -133,15 +133,15 @@ public class FrsCommonTabFragment extends BaseFragment implements j.b {
         }
     }
 
-    public void aCa() {
+    public void aCb() {
         if (l.lo() && this.dGS != null) {
-            this.dGS.YK();
+            this.dGS.YL();
         }
     }
 
-    private void aCb() {
+    private void aCc() {
         if (l.lo() && this.dGS != null) {
-            this.dGS.aCb();
+            this.dGS.aCc();
         }
     }
 
@@ -154,7 +154,7 @@ public class FrsCommonTabFragment extends BaseFragment implements j.b {
             } else {
                 showLoadingView(this.mRootView, false, getResources().getDimensionPixelSize(e.C0175e.ds250));
             }
-            aCb();
+            aCc();
             return;
         }
         this.dGR.cQ(false);
@@ -165,13 +165,13 @@ public class FrsCommonTabFragment extends BaseFragment implements j.b {
         if (com.baidu.adp.lib.util.j.kX()) {
             hideNetRefreshView(this.mRootView);
             showLoadingView(this.mRootView, false, getResources().getDimensionPixelSize(e.C0175e.ds250));
-            aCb();
+            aCc();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        v.aoo().fh(false);
+        v.aop().fh(false);
         super.onDestroy();
         if (this.dGR != null) {
             this.dGR.onDestroy();

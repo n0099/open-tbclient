@@ -9,7 +9,7 @@ public interface b {
 
     void Q(String str, int i);
 
-    void Wv();
+    void Ww();
 
     void h(List<com.baidu.tieba.aiapps.apps.address.c.b> list, int i);
 

@@ -13,12 +13,12 @@ import com.baidu.tieba.write.write.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c extends a {
-    private d hNo;
-    private HorizontalListView hvk;
+    private d hNp;
+    private HorizontalListView hvl;
     private View mRootView;
 
     public void a(com.baidu.tieba.write.write.c cVar) {
-        this.hNo.b(cVar);
+        this.hNp.b(cVar);
     }
 
     public c(e eVar) {
@@ -28,9 +28,9 @@ public class c extends a {
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
         this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(e.h.pic_sticker_view, (ViewGroup) null);
-        this.hvk = (HorizontalListView) this.mRootView.findViewById(e.g.horizontal_list);
-        this.hNo = new d();
-        this.hvk.setAdapter((ListAdapter) this.hNo);
+        this.hvl = (HorizontalListView) this.mRootView.findViewById(e.g.horizontal_list);
+        this.hNp = new d();
+        this.hvl.setAdapter((ListAdapter) this.hNp);
     }
 
     public View getRootView() {
@@ -43,12 +43,12 @@ public class c extends a {
 
     public void eh(List<String> list) {
         if (!v.J(list)) {
-            this.hNo.setData(list);
-            this.hNo.notifyDataSetChanged();
+            this.hNp.setData(list);
+            this.hNp.notifyDataSetChanged();
         }
     }
 
     public void bNh() {
-        this.hNo.notifyDataSetChanged();
+        this.hNp.notifyDataSetChanged();
     }
 }

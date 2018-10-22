@@ -125,7 +125,7 @@ public class t extends com.baidu.tbadk.editortools.d {
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 if (com.baidu.adp.lib.util.j.kX()) {
                     t.this.b(1, true, null);
-                    t.this.aVD.aln();
+                    t.this.aVD.alo();
                 } else {
                     t.this.aVQ.Lx();
                 }
@@ -142,7 +142,7 @@ public class t extends com.baidu.tbadk.editortools.d {
     }
 
     public void Lm() {
-        if (this.aVD.alj()) {
+        if (this.aVD.alk()) {
             if (this.aVD.bCL()) {
                 this.aVQ.a(com.baidu.tieba.tbadkCore.location.c.bCH().getLocationData());
                 return;
@@ -163,7 +163,7 @@ public class t extends com.baidu.tbadk.editortools.d {
         if (!StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble()) && KH() != null) {
             KH().b(new com.baidu.tbadk.editortools.a(2, 12, " "));
         }
-        if (!this.aVD.alj() && KH() != null) {
+        if (!this.aVD.alk() && KH() != null) {
             KH().b(new com.baidu.tbadk.editortools.a(20, 8, null));
         }
     }

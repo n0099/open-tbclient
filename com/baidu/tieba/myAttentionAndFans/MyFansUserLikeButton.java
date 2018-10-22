@@ -18,7 +18,7 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class MyFansUserLikeButton extends CommonUserLikeButton {
     private int currentPage;
-    private e fxG;
+    private e fxH;
     private com.baidu.adp.base.e mContext;
     private String uid;
 
@@ -104,7 +104,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                 }
                 if (MyFansUserLikeButton.this.aGS) {
                     if (MyFansUserLikeButton.this.mContext != null) {
-                        if (MyFansUserLikeButton.this.fxG == null) {
+                        if (MyFansUserLikeButton.this.fxH == null) {
                             com.baidu.tieba.view.a aVar = new com.baidu.tieba.view.a(MyFansUserLikeButton.this.mContext.getContext());
                             aVar.setTitleText(MyFansUserLikeButton.this.mContext.getString(e.j.confirm_unlike));
                             ArrayList arrayList = new ArrayList();
@@ -121,7 +121,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                                         } else {
                                             TiebaStatic.log(new am("c12773").ax("obj_param1", MyFansUserLikeButton.this.uid));
                                         }
-                                        g.b(MyFansUserLikeButton.this.fxG, MyFansUserLikeButton.this.mContext);
+                                        g.b(MyFansUserLikeButton.this.fxH, MyFansUserLikeButton.this.mContext);
                                     }
                                 }
                             });
@@ -129,16 +129,16 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                             aVar.a(new a.b() { // from class: com.baidu.tieba.myAttentionAndFans.MyFansUserLikeButton.1.2
                                 @Override // com.baidu.tieba.view.a.b
                                 public void onClick() {
-                                    if (MyFansUserLikeButton.this.fxG != null) {
-                                        g.b(MyFansUserLikeButton.this.fxG, MyFansUserLikeButton.this.mContext);
+                                    if (MyFansUserLikeButton.this.fxH != null) {
+                                        g.b(MyFansUserLikeButton.this.fxH, MyFansUserLikeButton.this.mContext);
                                     }
                                 }
                             });
                             aVar.eb(arrayList);
-                            MyFansUserLikeButton.this.fxG = new com.baidu.tieba.person.e(MyFansUserLikeButton.this.mContext.getPageActivity(), aVar.bKv());
-                            MyFansUserLikeButton.this.fxG.av(0.7f);
+                            MyFansUserLikeButton.this.fxH = new com.baidu.tieba.person.e(MyFansUserLikeButton.this.mContext.getPageActivity(), aVar.bKv());
+                            MyFansUserLikeButton.this.fxH.av(0.7f);
                         }
-                        g.a(MyFansUserLikeButton.this.fxG, MyFansUserLikeButton.this.mContext);
+                        g.a(MyFansUserLikeButton.this.fxH, MyFansUserLikeButton.this.mContext);
                         return;
                     }
                     return;

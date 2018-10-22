@@ -18,7 +18,7 @@ import com.baidu.tieba.view.f;
 import com.baidu.tieba.view.g;
 /* loaded from: classes3.dex */
 public class a implements f {
-    private ImageView gny;
+    private ImageView gnA;
     private ImageView gnz;
     private NavigationBar mNavigationBar;
     private UserData mUserData;
@@ -27,34 +27,34 @@ public class a implements f {
     public void a(Context context, NavigationBar navigationBar) {
         this.mNavigationBar = navigationBar;
         this.mNavigationBar.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
+        this.gnA = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.view_topbar_icon, (View.OnClickListener) null);
+        if (this.gnA.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gnA.getLayoutParams();
+            layoutParams.rightMargin = context.getResources().getDimensionPixelSize(e.C0175e.ds4);
+            this.gnA.setLayoutParams(layoutParams);
+        }
         this.gnz = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.view_topbar_icon, (View.OnClickListener) null);
         if (this.gnz.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gnz.getLayoutParams();
-            layoutParams.rightMargin = context.getResources().getDimensionPixelSize(e.C0175e.ds4);
-            this.gnz.setLayoutParams(layoutParams);
-        }
-        this.gny = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.view_topbar_icon, (View.OnClickListener) null);
-        if (this.gny.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gny.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gnz.getLayoutParams();
             layoutParams2.rightMargin = context.getResources().getDimensionPixelSize(e.C0175e.ds14);
-            this.gny.setLayoutParams(layoutParams2);
+            this.gnz.setLayoutParams(layoutParams2);
         }
         if (TbadkCoreApplication.isLogin()) {
-            this.gny.setVisibility(0);
+            this.gnz.setVisibility(0);
             return;
         }
-        this.gny.setVisibility(8);
-        if (this.gnz.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.gnz.getLayoutParams();
+        this.gnz.setVisibility(8);
+        if (this.gnA.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.gnA.getLayoutParams();
             layoutParams3.rightMargin = context.getResources().getDimensionPixelSize(e.C0175e.ds14);
-            this.gnz.setLayoutParams(layoutParams3);
+            this.gnA.setLayoutParams(layoutParams3);
         }
     }
 
     @Override // com.baidu.tieba.view.f
     public void setOnViewResponseListener(final g gVar) {
-        if (this.gny != null) {
-            this.gny.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.1
+        if (this.gnz != null) {
+            this.gnz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (j.kX()) {
@@ -66,8 +66,8 @@ public class a implements f {
                 }
             });
         }
-        if (this.gnz != null) {
-            this.gnz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.2
+        if (this.gnA != null) {
+            this.gnA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     TiebaStatic.log(new am("c12503").ax("obj_locate", "1"));
@@ -92,13 +92,13 @@ public class a implements f {
     @Override // com.baidu.tieba.view.f
     public void c(float f, boolean z) {
         float f2;
-        if (this.gny != null) {
+        if (this.gnz != null) {
             if (z) {
-                al.c(this.gny, e.f.selector_topbar_more_black);
-                al.c(this.gnz, e.f.selector_topbar_chat_black);
+                al.c(this.gnz, e.f.selector_topbar_more_black);
+                al.c(this.gnA, e.f.selector_topbar_chat_black);
             } else {
-                al.c(this.gny, e.f.selector_topbar_more_white);
-                al.c(this.gnz, e.f.selector_topbar_chat_white);
+                al.c(this.gnz, e.f.selector_topbar_more_white);
+                al.c(this.gnA, e.f.selector_topbar_chat_white);
             }
             if (f < 0.5f) {
                 f2 = 1.0f - (f * 2.0f);
@@ -106,22 +106,22 @@ public class a implements f {
                 f2 = (f * 2.0f) - 1.0f;
             }
             if (f2 >= 0.0f && f2 <= 1.0f) {
-                this.gny.setAlpha(f2);
                 this.gnz.setAlpha(f2);
+                this.gnA.setAlpha(f2);
             }
         }
     }
 
     @Override // com.baidu.tieba.view.f
     public void onChangeSkinType(int i) {
-        if (this.gny != null) {
+        if (this.gnz != null) {
             if (this.mNavigationBar.getBarBgView().getAlpha() < 0.5f) {
-                al.c(this.gny, e.f.selector_topbar_more_white);
-                al.c(this.gnz, e.f.selector_topbar_chat_white);
+                al.c(this.gnz, e.f.selector_topbar_more_white);
+                al.c(this.gnA, e.f.selector_topbar_chat_white);
                 return;
             }
-            al.c(this.gny, e.f.selector_topbar_more_black);
-            al.c(this.gnz, e.f.selector_topbar_chat_black);
+            al.c(this.gnz, e.f.selector_topbar_more_black);
+            al.c(this.gnA, e.f.selector_topbar_chat_black);
         }
     }
 

@@ -44,21 +44,21 @@ public class r extends c {
 
     @Override // com.baidu.tieba.card.c
     protected void b(com.baidu.tieba.card.data.k kVar) {
-        if (kVar != null && kVar.YA() != null) {
-            bb YA = kVar.YA();
-            o.b(YA, this.cNL);
-            if ((StringUtils.isNull(YA.getTitle()) && (YA.yt() == null || YA.yt().size() == 0)) || YA.yL() == 1) {
-                YA.g(false, true);
-                if (YA.yV() == null || StringUtils.isNull(YA.yV().toString())) {
+        if (kVar != null && kVar.YB() != null) {
+            bb YB = kVar.YB();
+            o.b(YB, this.cNL);
+            if ((StringUtils.isNull(YB.getTitle()) && (YB.yt() == null || YB.yt().size() == 0)) || YB.yL() == 1) {
+                YB.g(false, true);
+                if (YB.yV() == null || StringUtils.isNull(YB.yV().toString())) {
                     this.cNL.setVisibility(8);
                 } else {
                     this.cNL.setVisibility(0);
-                    this.cNL.setText(YA.yV());
+                    this.cNL.setText(YB.yV());
                 }
             } else {
                 this.cNL.setVisibility(0);
             }
-            this.cNM.setData(YA);
+            this.cNM.setData(YB);
         }
     }
 
@@ -71,9 +71,9 @@ public class r extends c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.card.c
-    public void anT() {
-        super.anT();
-        o.a(this.cNL, this.cKF.YA().getId(), e.d.cp_cont_b, e.d.cp_cont_d);
-        this.cNM.fZ(this.cKF.YA().getId());
+    public void anU() {
+        super.anU();
+        o.a(this.cNL, this.cKF.YB().getId(), e.d.cp_cont_b, e.d.cp_cont_d);
+        this.cNM.fZ(this.cKF.YB().getId());
     }
 }

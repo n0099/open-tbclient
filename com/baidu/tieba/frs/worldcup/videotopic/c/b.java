@@ -7,52 +7,52 @@ import com.baidu.tieba.tbadkCore.d;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class b implements a {
-    private com.baidu.tieba.frs.worldcup.videotopic.activity.a eco;
-    private com.baidu.tieba.frs.worldcup.videotopic.data.a ecp;
+    private com.baidu.tieba.frs.worldcup.videotopic.activity.a ecp;
+    private com.baidu.tieba.frs.worldcup.videotopic.data.a ecq;
 
     public b(TbPageContext tbPageContext, com.baidu.tieba.frs.worldcup.videotopic.activity.a aVar, Bundle bundle) {
-        this.eco = aVar;
-        this.ecp = new com.baidu.tieba.frs.worldcup.videotopic.data.b(tbPageContext, this, bundle);
+        this.ecp = aVar;
+        this.ecq = new com.baidu.tieba.frs.worldcup.videotopic.data.b(tbPageContext, this, bundle);
     }
 
     @Override // com.baidu.tieba.frs.worldcup.videotopic.c.a
     public void onRefresh() {
-        if (this.ecp != null) {
-            this.ecp.refresh();
+        if (this.ecq != null) {
+            this.ecq.refresh();
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.videotopic.c.a
     public void aHw() {
-        if (this.ecp != null) {
-            this.ecp.YK();
+        if (this.ecq != null) {
+            this.ecq.YL();
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.videotopic.c.a
     public void a(d.a aVar, ArrayList<h> arrayList) {
-        if (this.eco != null) {
-            this.eco.a(aVar, arrayList);
+        if (this.ecp != null) {
+            this.ecp.a(aVar, arrayList);
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.videotopic.c.a
     public boolean hasMore() {
-        if (this.ecp != null) {
-            return this.ecp.hasMore();
+        if (this.ecq != null) {
+            return this.ecq.hasMore();
         }
         return false;
     }
 
     @Override // com.baidu.tieba.frs.worldcup.videotopic.c.a
     public void onDestroy() {
-        if (this.ecp != null) {
-            this.ecp.onDestroy();
+        if (this.ecq != null) {
+            this.ecq.onDestroy();
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.videotopic.c.a
     public String getForumId() {
-        return this.ecp != null ? this.ecp.getForumId() : "";
+        return this.ecq != null ? this.ecq.getForumId() : "";
     }
 }

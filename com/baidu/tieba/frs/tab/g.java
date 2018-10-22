@@ -15,16 +15,16 @@ public class g implements a {
     private TabMenuPopView.a dEm = new TabMenuPopView.a() { // from class: com.baidu.tieba.frs.tab.g.1
         @Override // com.baidu.tieba.frs.TabMenuPopView.a
         public void a(View view, at atVar) {
-            if (g.this.dUz != null) {
-                g.this.dUz.dismissMenu();
+            if (g.this.dUA != null) {
+                g.this.dUA.dismissMenu();
             }
-            g.this.dUB.mE(atVar.dDA);
+            g.this.dUC.mE(atVar.dDA);
         }
     };
     private List<at> dGD;
-    private e.b dUB;
-    private TabMenuPopView dUC;
-    private e dUz;
+    private e dUA;
+    private e.b dUC;
+    private TabMenuPopView dUD;
     private View mContentView;
     private Context mContext;
     private View mTopLine;
@@ -33,12 +33,12 @@ public class g implements a {
     public void a(Context context, e eVar) {
         if (context != null && eVar != null) {
             this.mContext = context;
-            this.dUz = eVar;
-            this.dUB = eVar.aFH();
+            this.dUA = eVar;
+            this.dUC = eVar.aFH();
             this.mContentView = LayoutInflater.from(this.mContext).inflate(e.h.tab_menu_multline_view, (ViewGroup) null);
             this.mTopLine = this.mContentView.findViewById(e.g.top_line);
-            this.dUC = (TabMenuPopView) this.mContentView.findViewById(e.g.categorycontainer);
-            this.dUC.setOnItemClickCallBack(this.dEm);
+            this.dUD = (TabMenuPopView) this.mContentView.findViewById(e.g.categorycontainer);
+            this.dUD.setOnItemClickCallBack(this.dEm);
         }
     }
 
@@ -52,7 +52,7 @@ public class g implements a {
             atVar.isSelected = false;
             al.j(this.mContentView, e.d.cp_bg_line_d);
             al.j(this.mTopLine, e.d.cp_bg_line_b);
-            this.dUC.setData(this.dGD, atVar);
+            this.dUD.setData(this.dGD, atVar);
         }
     }
 

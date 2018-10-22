@@ -10,14 +10,14 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public abstract class a<T> extends AbstractDataSource<T> {
-    private final com.facebook.imagepipeline.g.b idX;
-    private final an ifn;
+    private final com.facebook.imagepipeline.g.b idY;
+    private final an ifo;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(ai<T> aiVar, an anVar, com.facebook.imagepipeline.g.b bVar) {
-        this.ifn = anVar;
-        this.idX = bVar;
-        this.idX.a(anVar.bXq(), this.ifn.bST(), this.ifn.getId(), this.ifn.bXt());
+        this.ifo = anVar;
+        this.idY = bVar;
+        this.idY.a(anVar.bXq(), this.ifo.bST(), this.ifo.getId(), this.ifo.bXt());
         aiVar.a(bWk(), anVar);
     }
 
@@ -48,14 +48,14 @@ public abstract class a<T> extends AbstractDataSource<T> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void d(@Nullable T t, boolean z) {
         if (super.a((a<T>) t, z) && z) {
-            this.idX.a(this.ifn.bXq(), this.ifn.getId(), this.ifn.bXt());
+            this.idY.a(this.ifo.bXq(), this.ifo.getId(), this.ifo.bXt());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void A(Throwable th) {
         if (super.t(th)) {
-            this.idX.a(this.ifn.bXq(), this.ifn.getId(), th, this.ifn.bXt());
+            this.idY.a(this.ifo.bXq(), this.ifo.getId(), th, this.ifo.bXt());
         }
     }
 
@@ -70,8 +70,8 @@ public abstract class a<T> extends AbstractDataSource<T> {
             return false;
         }
         if (!super.isFinished()) {
-            this.idX.yC(this.ifn.getId());
-            this.ifn.cancel();
+            this.idY.yC(this.ifo.getId());
+            this.ifo.cancel();
         }
         return true;
     }

@@ -11,23 +11,23 @@ import org.apache.commons.logging.LogFactory;
 /* loaded from: classes2.dex */
 public class ImageRequest {
     @Nullable
-    private final com.facebook.imagepipeline.common.c ico;
-    private final com.facebook.imagepipeline.common.d icp;
-    private final com.facebook.imagepipeline.common.a icq;
+    private final com.facebook.imagepipeline.common.c icp;
+    private final com.facebook.imagepipeline.common.d icq;
+    private final com.facebook.imagepipeline.common.a icr;
     @Nullable
-    private final com.facebook.imagepipeline.g.b idX;
-    private final boolean ieC;
-    private final RequestLevel igM;
-    private final CacheChoice iiI;
-    private final Uri iiJ;
-    private final int iiK;
+    private final com.facebook.imagepipeline.g.b idY;
+    private final boolean ieD;
+    private final RequestLevel igN;
+    private final CacheChoice iiJ;
+    private final Uri iiK;
+    private final int iiL;
     @Nullable
-    private final a iiL;
-    private File iiM;
-    private final boolean iiN;
-    private final Priority iiO;
-    private final boolean iiP;
-    private final b iid;
+    private final a iiM;
+    private File iiN;
+    private final boolean iiO;
+    private final Priority iiP;
+    private final boolean iiQ;
+    private final b iie;
 
     /* loaded from: classes2.dex */
     public enum CacheChoice {
@@ -44,117 +44,117 @@ public class ImageRequest {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ImageRequest(ImageRequestBuilder imageRequestBuilder) {
-        this.iiI = imageRequestBuilder.bYc();
-        this.iiJ = imageRequestBuilder.bYd();
-        this.iiK = E(this.iiJ);
-        this.iiL = imageRequestBuilder.bYf();
-        this.ieC = imageRequestBuilder.bVv();
-        this.iiN = imageRequestBuilder.bYp();
-        this.icq = imageRequestBuilder.bYi();
-        this.ico = imageRequestBuilder.bYg();
-        this.icp = imageRequestBuilder.bYh() == null ? com.facebook.imagepipeline.common.d.bUM() : imageRequestBuilder.bYh();
-        this.iiO = imageRequestBuilder.bYq();
-        this.igM = imageRequestBuilder.bXs();
-        this.iiP = imageRequestBuilder.bYl();
-        this.iid = imageRequestBuilder.bYn();
-        this.idX = imageRequestBuilder.bYo();
+        this.iiJ = imageRequestBuilder.bYc();
+        this.iiK = imageRequestBuilder.bYd();
+        this.iiL = E(this.iiK);
+        this.iiM = imageRequestBuilder.bYf();
+        this.ieD = imageRequestBuilder.bVv();
+        this.iiO = imageRequestBuilder.bYp();
+        this.icr = imageRequestBuilder.bYi();
+        this.icp = imageRequestBuilder.bYg();
+        this.icq = imageRequestBuilder.bYh() == null ? com.facebook.imagepipeline.common.d.bUM() : imageRequestBuilder.bYh();
+        this.iiP = imageRequestBuilder.bYq();
+        this.igN = imageRequestBuilder.bXs();
+        this.iiQ = imageRequestBuilder.bYl();
+        this.iie = imageRequestBuilder.bYn();
+        this.idY = imageRequestBuilder.bYo();
     }
 
     public CacheChoice bYc() {
-        return this.iiI;
-    }
-
-    public Uri bYd() {
         return this.iiJ;
     }
 
-    public int bYe() {
+    public Uri bYd() {
         return this.iiK;
+    }
+
+    public int bYe() {
+        return this.iiL;
     }
 
     @Nullable
     public a bYf() {
-        return this.iiL;
+        return this.iiM;
     }
 
     public int getPreferredWidth() {
-        if (this.ico != null) {
-            return this.ico.width;
+        if (this.icp != null) {
+            return this.icp.width;
         }
         return 2048;
     }
 
     public int getPreferredHeight() {
-        if (this.ico != null) {
-            return this.ico.height;
+        if (this.icp != null) {
+            return this.icp.height;
         }
         return 2048;
     }
 
     @Nullable
     public com.facebook.imagepipeline.common.c bYg() {
-        return this.ico;
-    }
-
-    public com.facebook.imagepipeline.common.d bYh() {
         return this.icp;
     }
 
-    public com.facebook.imagepipeline.common.a bYi() {
+    public com.facebook.imagepipeline.common.d bYh() {
         return this.icq;
     }
 
+    public com.facebook.imagepipeline.common.a bYi() {
+        return this.icr;
+    }
+
     public boolean bYj() {
-        return this.ieC;
+        return this.ieD;
     }
 
     public boolean bYk() {
-        return this.iiN;
-    }
-
-    public Priority bXu() {
         return this.iiO;
     }
 
-    public RequestLevel bXs() {
-        return this.igM;
-    }
-
-    public boolean bYl() {
+    public Priority bXu() {
         return this.iiP;
     }
 
+    public RequestLevel bXs() {
+        return this.igN;
+    }
+
+    public boolean bYl() {
+        return this.iiQ;
+    }
+
     public synchronized File bYm() {
-        if (this.iiM == null) {
-            this.iiM = new File(this.iiJ.getPath());
+        if (this.iiN == null) {
+            this.iiN = new File(this.iiK.getPath());
         }
-        return this.iiM;
+        return this.iiN;
     }
 
     @Nullable
     public b bYn() {
-        return this.iid;
+        return this.iie;
     }
 
     @Nullable
     public com.facebook.imagepipeline.g.b bYo() {
-        return this.idX;
+        return this.idY;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof ImageRequest) {
             ImageRequest imageRequest = (ImageRequest) obj;
-            return f.equal(this.iiJ, imageRequest.iiJ) && f.equal(this.iiI, imageRequest.iiI) && f.equal(this.iiL, imageRequest.iiL) && f.equal(this.iiM, imageRequest.iiM);
+            return f.equal(this.iiK, imageRequest.iiK) && f.equal(this.iiJ, imageRequest.iiJ) && f.equal(this.iiM, imageRequest.iiM) && f.equal(this.iiN, imageRequest.iiN);
         }
         return false;
     }
 
     public int hashCode() {
-        return f.hashCode(this.iiI, this.iiJ, this.iiL, this.iiM);
+        return f.hashCode(this.iiJ, this.iiK, this.iiM, this.iiN);
     }
 
     public String toString() {
-        return f.ao(this).n("uri", this.iiJ).n("cacheChoice", this.iiI).n("decodeOptions", this.icq).n("postprocessor", this.iid).n(LogFactory.PRIORITY_KEY, this.iiO).n("resizeOptions", this.ico).n("rotationOptions", this.icp).n("mediaVariations", this.iiL).toString();
+        return f.ao(this).n("uri", this.iiK).n("cacheChoice", this.iiJ).n("decodeOptions", this.icr).n("postprocessor", this.iie).n(LogFactory.PRIORITY_KEY, this.iiP).n("resizeOptions", this.icp).n("rotationOptions", this.icq).n("mediaVariations", this.iiM).toString();
     }
 
     /* loaded from: classes2.dex */

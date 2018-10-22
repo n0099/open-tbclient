@@ -26,13 +26,13 @@ import java.util.List;
 import tbclient.OriForumInfo;
 /* loaded from: classes6.dex */
 public class a implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
-    private ImageView dRp;
-    private TextView dRq;
-    private String dRr;
-    private View dRs;
+    private ImageView dRq;
+    private TextView dRr;
+    private String dRs;
     private View dRt;
-    private LinearLayout dRu;
-    private RelationBarView dRv;
+    private View dRu;
+    private LinearLayout dRv;
+    private RelationBarView dRw;
     private TbPageContext mContext;
     private View rootView;
     private TextView titleText;
@@ -42,7 +42,7 @@ public class a implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
         @Override // com.baidu.adp.lib.f.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             if (aVar != null) {
-                aVar.a(a.this.dRp);
+                aVar.a(a.this.dRq);
             }
         }
 
@@ -64,22 +64,22 @@ public class a implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
     public a(TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
         this.rootView = LayoutInflater.from(tbPageContext.getContext()).inflate(e.h.frs_head_image_item, (ViewGroup) null, false);
-        this.dRs = this.rootView.findViewById(e.g.frs_header_title_container);
-        this.dRp = (ImageView) this.rootView.findViewById(e.g.frs_head_image);
+        this.dRt = this.rootView.findViewById(e.g.frs_header_title_container);
+        this.dRq = (ImageView) this.rootView.findViewById(e.g.frs_head_image);
         this.titleText = (TextView) this.rootView.findViewById(e.g.frs_header_title);
-        this.dRq = (TextView) this.rootView.findViewById(e.g.frs_header_title_lable);
-        this.dRt = this.rootView.findViewById(e.g.frs_image_header_contianer);
+        this.dRr = (TextView) this.rootView.findViewById(e.g.frs_header_title_lable);
+        this.dRu = this.rootView.findViewById(e.g.frs_image_header_contianer);
         aEK();
-        this.dRt.getLayoutParams().height = aEJ();
-        this.dRt.requestLayout();
-        this.dRq.setText(tbPageContext.getString(e.j.frs_header_image_lable));
-        this.dRp.setOnClickListener(this);
-        this.dRs.setOnClickListener(this);
+        this.dRu.getLayoutParams().height = aEJ();
+        this.dRu.requestLayout();
+        this.dRr.setText(tbPageContext.getString(e.j.frs_header_image_lable));
+        this.dRq.setOnClickListener(this);
         this.dRt.setOnClickListener(this);
-        this.dRu = (LinearLayout) this.rootView.findViewById(e.g.brand_layout);
-        this.dRu.setBackgroundColor(0);
-        this.dRu.setVisibility(0);
-        this.dRv = (RelationBarView) this.rootView.findViewById(e.g.frs_brand_relation_bar_list);
+        this.dRu.setOnClickListener(this);
+        this.dRv = (LinearLayout) this.rootView.findViewById(e.g.brand_layout);
+        this.dRv.setBackgroundColor(0);
+        this.dRv.setVisibility(0);
+        this.dRw = (RelationBarView) this.rootView.findViewById(e.g.frs_brand_relation_bar_list);
     }
 
     private int aEJ() {
@@ -113,24 +113,24 @@ public class a implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void onChangeSkinType(int i) {
-        if (this.dRp != null) {
-            al.e(this.dRp, e.d.cp_bg_line_e, i);
-        }
         if (this.dRq != null) {
-            al.c(this.dRq, e.d.cp_cont_i, i);
+            al.e(this.dRq, e.d.cp_bg_line_e, i);
+        }
+        if (this.dRr != null) {
+            al.c(this.dRr, e.d.cp_cont_i, i);
         }
         if (this.titleText != null) {
             al.c(this.titleText, e.d.cp_cont_i, i);
         }
-        if (this.dRv != null) {
-            this.dRv.onChangeSkinType();
+        if (this.dRw != null) {
+            this.dRw.onChangeSkinType();
         }
     }
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void hideTitle() {
-        if (this.dRs != null) {
-            this.dRs.setVisibility(8);
+        if (this.dRt != null) {
+            this.dRt.setVisibility(8);
         }
     }
 
@@ -141,14 +141,14 @@ public class a implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
 
     @Override // com.baidu.tieba.frs.c.a.a
     public LinearLayout aEL() {
-        return this.dRu;
+        return this.dRv;
     }
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void iG(String str) {
-        if (this.dRp != null) {
+        if (this.dRq != null) {
             if (TextUtils.isEmpty(str)) {
-                this.dRp.setBackgroundResource(e.f.bg_frs_brand_head);
+                this.dRq.setBackgroundResource(e.f.bg_frs_brand_head);
             }
             c.jC().a(str, 10, this.mCallback, 0, 0, null, new Object[0]);
         }
@@ -156,35 +156,35 @@ public class a implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void setTitle(String str) {
-        if (this.titleText != null && this.dRq != null) {
+        if (this.titleText != null && this.dRr != null) {
             if (!TextUtils.isEmpty(str)) {
                 this.titleText.setText(str);
                 this.titleText.setVisibility(0);
             } else {
                 this.titleText.setVisibility(8);
             }
-            if (TextUtils.isEmpty(this.dRr)) {
-                this.dRq.setVisibility(8);
+            if (TextUtils.isEmpty(this.dRs)) {
+                this.dRr.setVisibility(8);
             } else {
-                this.dRq.setVisibility(0);
+                this.dRr.setVisibility(0);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void setSchemaUrl(String str) {
-        this.dRr = str;
+        this.dRs = str;
     }
 
     public void bM(List<OriForumInfo> list) {
-        this.dRv.setData(list);
+        this.dRw.setData(list);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!TextUtils.isEmpty(this.dRr) && this.mContext != null) {
-            TiebaStatic.log(new am("c13109").ax("obj_to", this.dRr));
-            ay.CU().a(this.mContext, new String[]{this.dRr}, true);
+        if (!TextUtils.isEmpty(this.dRs) && this.mContext != null) {
+            TiebaStatic.log(new am("c13109").ax("obj_to", this.dRs));
+            ay.CU().a(this.mContext, new String[]{this.dRs}, true);
         }
     }
 }

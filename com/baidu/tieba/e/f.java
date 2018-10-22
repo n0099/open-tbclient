@@ -15,7 +15,7 @@ public class f implements com.baidu.adp.widget.ListView.h {
         return dcM;
     }
 
-    public FeatureCardGame asA() {
+    public FeatureCardGame asB() {
         return this.dcN;
     }
 

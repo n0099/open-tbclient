@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class n {
-    private static int eFH = TbConfig.POST_IMAGE_SMALL;
-    private static int eFI = 500;
+    private static int eFI = TbConfig.POST_IMAGE_SMALL;
+    private static int eFJ = 500;
 
     public static void aPt() {
         if (!ay.jL()) {
@@ -31,14 +31,14 @@ public class n {
     }
 
     public static void pb(int i) {
-        if (i < eFI) {
-            i = eFI;
+        if (i < eFJ) {
+            i = eFJ;
         }
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_max_stranger", i);
     }
 
     private static int aPu() {
-        return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_max_stranger", eFH);
+        return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_max_stranger", eFI);
     }
 
     private static String aPv() {

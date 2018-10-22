@@ -13,8 +13,8 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class FrsH5ItemView extends FrameLayout {
-    private final LinearLayout dRm;
-    private boolean dRn;
+    private final LinearLayout dRn;
+    private boolean dRo;
     private boolean hasLoaded;
     private boolean isLoading;
     private final View mNoDataView;
@@ -36,14 +36,14 @@ public class FrsH5ItemView extends FrameLayout {
                     layoutParams.height = (l.aQ(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0175e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0175e.ds90);
                     FrsH5ItemView.this.setLayoutParams(layoutParams);
                 }
-                FrsH5ItemView.this.dRn = false;
+                FrsH5ItemView.this.dRo = false;
             }
         };
         this.mOnPageFinishedListener = new BaseWebView.c() { // from class: com.baidu.tieba.frs.h5.FrsH5ItemView.2
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
             public void onPageFinished(WebView webView, String str) {
                 FrsH5ItemView.this.isLoading = false;
-                if (!FrsH5ItemView.this.dRn) {
+                if (!FrsH5ItemView.this.dRo) {
                     FrsH5ItemView.this.aEH();
                     ViewGroup.LayoutParams layoutParams = FrsH5ItemView.this.getLayoutParams();
                     layoutParams.height = -2;
@@ -56,10 +56,10 @@ public class FrsH5ItemView extends FrameLayout {
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
             public void onReceivedError(WebView webView, int i, String str, String str2) {
                 FrsH5ItemView.this.aEI();
-                FrsH5ItemView.this.dRn = true;
+                FrsH5ItemView.this.dRo = true;
             }
         };
-        this.dRn = false;
+        this.dRo = false;
         setLayoutParams(new ViewGroup.LayoutParams(-1, (l.aQ(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0175e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0175e.ds90)));
         this.mWebView = new BaseWebView(TbadkCoreApplication.getInst());
         this.mWebView.setOnPageStartedListener(this.mOnPageStartedListener);
@@ -69,23 +69,23 @@ public class FrsH5ItemView extends FrameLayout {
         this.mNoDataView = LayoutInflater.from(context).inflate(e.h.frs_no_list_item_view, (ViewGroup) this, false);
         this.mNoDataView.setVisibility(8);
         addView(this.mNoDataView);
-        this.dRm = (LinearLayout) inflate(getContext(), e.h.custom_loading_toast, null);
+        this.dRn = (LinearLayout) inflate(getContext(), e.h.custom_loading_toast, null);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(context.getResources().getDimensionPixelSize(e.C0175e.ds220), -2);
         layoutParams.gravity = 1;
         layoutParams.topMargin = context.getResources().getDimensionPixelSize(e.C0175e.ds140);
-        addView(this.dRm, layoutParams);
+        addView(this.dRn, layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoading() {
         this.mNoDataView.setVisibility(8);
-        this.dRm.setVisibility(0);
+        this.dRn.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aEH() {
         this.mWebView.setVisibility(0);
-        this.dRm.setVisibility(8);
+        this.dRn.setVisibility(8);
         this.mNoDataView.setVisibility(8);
     }
 
@@ -95,7 +95,7 @@ public class FrsH5ItemView extends FrameLayout {
         layoutParams.height = (l.aQ(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0175e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0175e.ds90);
         setLayoutParams(layoutParams);
         this.mWebView.setVisibility(8);
-        this.dRm.setVisibility(8);
+        this.dRn.setVisibility(8);
         this.mNoDataView.setVisibility(0);
     }
 

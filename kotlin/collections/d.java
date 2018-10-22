@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
 import java.util.RandomAccess;
 /* loaded from: classes2.dex */
 public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
-    public static final a ioU = new a(null);
+    public static final a ioV = new a(null);
 
     @Override // java.util.List
     public void add(int i, E e) {
@@ -55,29 +55,29 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
     /* renamed from: kotlin.collections.d$d  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     private static final class C0357d<E> extends d<E> implements RandomAccess {
-        private int ioW;
-        private final d<E> ioX;
-        private final int ioY;
+        private int ioX;
+        private final d<E> ioY;
+        private final int ioZ;
 
         /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.collections.d<? extends E> */
         /* JADX WARN: Multi-variable type inference failed */
         public C0357d(d<? extends E> dVar, int i, int i2) {
             kotlin.jvm.internal.p.i(dVar, "list");
-            this.ioX = dVar;
-            this.ioY = i;
-            d.ioU.af(this.ioY, i2, this.ioX.size());
-            this.ioW = i2 - this.ioY;
+            this.ioY = dVar;
+            this.ioZ = i;
+            d.ioV.af(this.ioZ, i2, this.ioY.size());
+            this.ioX = i2 - this.ioZ;
         }
 
         @Override // kotlin.collections.d, java.util.List
         public E get(int i) {
-            d.ioU.ci(i, this.ioW);
-            return this.ioX.get(this.ioY + i);
+            d.ioV.ci(i, this.ioX);
+            return this.ioY.get(this.ioZ + i);
         }
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.ioW;
+            return this.ioX;
         }
     }
 
@@ -87,14 +87,14 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             return true;
         }
         if (obj instanceof List) {
-            return ioU.a(this, (Collection) obj);
+            return ioV.a(this, (Collection) obj);
         }
         return false;
     }
 
     @Override // java.util.Collection, java.util.List
     public int hashCode() {
-        return ioU.e(this);
+        return ioV.e(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -150,7 +150,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
         public c(int i) {
             super();
-            d.ioU.cj(i, d.this.size());
+            d.ioV.cj(i, d.this.size());
             setIndex(i);
         }
 

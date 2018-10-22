@@ -64,8 +64,8 @@ public abstract class c extends com.baidu.tieba.card.a<bb> implements com.baidu.
         this.cKG = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.c.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.anO() != null) {
-                    c.this.anO().a(view, c.this.aAQ);
+                if (c.this.anP() != null) {
+                    c.this.anP().a(view, c.this.aAQ);
                 }
                 c.this.fb(view == c.this.cKD);
             }
@@ -73,8 +73,8 @@ public abstract class c extends com.baidu.tieba.card.a<bb> implements com.baidu.
         this.aGk = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.c.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.anO() != null) {
-                    c.this.anO().a(view, c.this.aAQ);
+                if (c.this.anP() != null) {
+                    c.this.anP().a(view, c.this.aAQ);
                 }
             }
         };
@@ -204,8 +204,8 @@ public abstract class c extends com.baidu.tieba.card.a<bb> implements com.baidu.
             getView().setVisibility(0);
             getView().setOnClickListener(this.cKG);
         }
-        if (!anS() && o.me(this.aAQ.getId())) {
-            anT();
+        if (!anT() && o.me(this.aAQ.getId())) {
+            anU();
         }
         Q(bbVar);
         this.dJC.af(this.aAQ);
@@ -267,7 +267,7 @@ public abstract class c extends com.baidu.tieba.card.a<bb> implements com.baidu.
     public void fb(boolean z) {
         if (this.aAQ != null) {
             o.md(this.aAQ.getId());
-            anT();
+            anU();
             m zq = this.aAQ.zq();
             if (zq != null) {
                 if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
@@ -297,7 +297,7 @@ public abstract class c extends com.baidu.tieba.card.a<bb> implements com.baidu.
         }
     }
 
-    private boolean anS() {
+    private boolean anT() {
         return false;
     }
 
@@ -325,15 +325,15 @@ public abstract class c extends com.baidu.tieba.card.a<bb> implements com.baidu.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void anT() {
+    public void anU() {
         o.a(this.cKD.getGodReplyContent(), this.aAQ.getId(), e.d.cp_cont_f, e.d.cp_cont_d);
     }
 
-    public ThreadCommentAndPraiseInfoLayout aaX() {
+    public ThreadCommentAndPraiseInfoLayout aaY() {
         return this.bWf;
     }
 
-    public ThreadCommentAndPraiseInfoLayout aaY() {
+    public ThreadCommentAndPraiseInfoLayout aaZ() {
         return this.bWS.aFS;
     }
 

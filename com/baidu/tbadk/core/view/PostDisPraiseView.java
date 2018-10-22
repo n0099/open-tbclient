@@ -42,7 +42,7 @@ public class PostDisPraiseView extends PostPraiseView {
         if (this.mData == 0) {
             return 0;
         }
-        if (((PostData) this.mData).aBT() && Dz()) {
+        if (((PostData) this.mData).aBU() && Dz()) {
             ((PostData) this.mData).cw(5);
             ((PostData) this.mData).ni(false);
             ((PostData) this.mData).v(((PostData) this.mData).zH());
@@ -50,7 +50,7 @@ public class PostDisPraiseView extends PostPraiseView {
             i = 1;
         } else {
             int zK = ((PostData) this.mData).zK();
-            if ((((PostData) this.mData).aBT() && zK == 2) || zK == 1) {
+            if ((((PostData) this.mData).aBU() && zK == 2) || zK == 1) {
                 ((PostData) this.mData).v(((PostData) this.mData).zH() - 1);
             }
             ((PostData) this.mData).ni(true);

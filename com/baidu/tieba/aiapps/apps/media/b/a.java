@@ -67,7 +67,7 @@ public class a implements IAiAppLiveIoc {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        b a = b.a(paramsJSONObject, at.Xx());
+        b a = b.a(paramsJSONObject, at.Xy());
         if (interfaceC0166a != null) {
             return interfaceC0166a.a(context, a, at);
         }

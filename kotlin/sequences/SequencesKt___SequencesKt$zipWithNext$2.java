@@ -38,7 +38,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
     public final Object invoke(kotlin.coroutines.experimental.f<? super R> fVar, kotlin.coroutines.experimental.b<? super kotlin.e> bVar) {
         p.i(fVar, "$receiver");
         p.i(bVar, "continuation");
-        return ((SequencesKt___SequencesKt$zipWithNext$2) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(kotlin.e.ioQ, null);
+        return ((SequencesKt___SequencesKt$zipWithNext$2) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(kotlin.e.ioR, null);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1615=4] */
@@ -57,7 +57,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
                         obj2 = it.next();
                         break;
                     } else {
-                        return kotlin.e.ioQ;
+                        return kotlin.e.ioR;
                     }
                 } else {
                     throw th;
@@ -91,6 +91,6 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
             }
             obj2 = next;
         }
-        return kotlin.e.ioQ;
+        return kotlin.e.ioR;
     }
 }

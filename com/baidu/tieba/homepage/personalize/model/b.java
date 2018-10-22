@@ -29,7 +29,7 @@ public class b {
                 if ((hVar instanceof p) && (hVar2 instanceof p)) {
                     p pVar = (p) hVar;
                     p pVar2 = (p) hVar2;
-                    if (pVar.aoF()) {
+                    if (pVar.aoG()) {
                         pVar2.fk(false);
                         if (pVar2 instanceof com.baidu.tieba.homepage.personalize.b.c) {
                             pVar.fl(false);
@@ -49,7 +49,7 @@ public class b {
 
     private static void b(DataRes.Builder builder, List<h> list) {
         com.baidu.tieba.card.data.c cVar;
-        bb YA;
+        bb YB;
         ThreadPersonalized threadPersonalized;
         if (builder != null && list != null) {
             LongSparseArray longSparseArray = new LongSparseArray();
@@ -61,12 +61,12 @@ public class b {
             int I = v.I(list);
             for (int i = 0; i < I; i++) {
                 h hVar = (h) v.d(list, i);
-                if ((hVar instanceof com.baidu.tieba.card.data.c) && (YA = (cVar = (com.baidu.tieba.card.data.c) hVar).YA()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.g.b.d(YA.getTid(), 0L))) != null) {
+                if ((hVar instanceof com.baidu.tieba.card.data.c) && (YB = (cVar = (com.baidu.tieba.card.data.c) hVar).YB()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.g.b.d(YB.getTid(), 0L))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
                     cVar.mg(threadPersonalized.abtest_tag);
-                    if (YA.yN() != null) {
-                        cVar.c(YA.yN().is_vertical);
+                    if (YB.yN() != null) {
+                        cVar.c(YB.yN().is_vertical);
                     }
                     List<DislikeReason> list2 = threadPersonalized.dislike_resource;
                     if (list2 != null) {

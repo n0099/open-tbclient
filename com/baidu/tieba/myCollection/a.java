@@ -22,15 +22,15 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private final NavigationBar eeY;
-    private final TextView fyq;
-    private final FragmentTabHost fyr;
-    private Fragment fyt;
-    private final NoNetworkView fyu;
-    private CollectTabActivity fyv;
+    private final NavigationBar eeZ;
+    private final TextView fyr;
+    private final FragmentTabHost fys;
+    private Fragment fyu;
+    private final NoNetworkView fyv;
+    private CollectTabActivity fyw;
     private List mTabDataList;
-    private int fys = -1;
-    private boolean fyw = false;
+    private int fyt = -1;
+    private boolean fyx = false;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.myCollection.a.1
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
@@ -48,90 +48,90 @@ public class a {
     };
 
     public int bbT() {
-        return this.fys;
+        return this.fyt;
     }
 
     public Fragment bbU() {
-        return this.fyt;
+        return this.fyu;
     }
 
     @SuppressLint({"ResourceAsColor"})
     public a(CollectTabActivity collectTabActivity) {
         FrameLayout.LayoutParams layoutParams;
-        this.fyv = collectTabActivity;
-        this.fyr = (FragmentTabHost) this.fyv.findViewById(e.g.tab_host);
-        this.fyr.setup(this.fyv.getSupportFragmentManager());
-        this.fyr.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.eeY = (NavigationBar) this.fyv.findViewById(e.g.navigation_bar);
-        this.fyu = (NoNetworkView) this.fyv.findViewById(e.g.view_no_network);
-        this.eeY.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.eeY.setCenterTextTitle(this.fyv.getPageContext().getString(e.j.my_mark));
-        this.eeY.showBottomLine();
-        this.fyq = (TextView) this.eeY.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.navigation_right_button_layout, this.fyv).findViewById(e.g.right_textview);
-        this.fyq.setText(e.j.edit);
-        this.fyq.setOnClickListener(this.fyv);
-        View bottomLine = this.eeY.getBottomLine();
+        this.fyw = collectTabActivity;
+        this.fys = (FragmentTabHost) this.fyw.findViewById(e.g.tab_host);
+        this.fys.setup(this.fyw.getSupportFragmentManager());
+        this.fys.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.eeZ = (NavigationBar) this.fyw.findViewById(e.g.navigation_bar);
+        this.fyv = (NoNetworkView) this.fyw.findViewById(e.g.view_no_network);
+        this.eeZ.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.eeZ.setCenterTextTitle(this.fyw.getPageContext().getString(e.j.my_mark));
+        this.eeZ.showBottomLine();
+        this.fyr = (TextView) this.eeZ.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.navigation_right_button_layout, this.fyw).findViewById(e.g.right_textview);
+        this.fyr.setText(e.j.edit);
+        this.fyr.setOnClickListener(this.fyw);
+        View bottomLine = this.eeZ.getBottomLine();
         if (bottomLine != null) {
             if (bottomLine.getLayoutParams() instanceof FrameLayout.LayoutParams) {
                 layoutParams = (FrameLayout.LayoutParams) bottomLine.getLayoutParams();
-                layoutParams.height = (int) this.fyv.getResources().getDimension(e.C0175e.ds1);
+                layoutParams.height = (int) this.fyw.getResources().getDimension(e.C0175e.ds1);
             } else {
-                layoutParams = new FrameLayout.LayoutParams(-1, (int) this.fyv.getResources().getDimension(e.C0175e.ds1));
+                layoutParams = new FrameLayout.LayoutParams(-1, (int) this.fyw.getResources().getDimension(e.C0175e.ds1));
             }
-            bottomLine.setBackgroundColor(this.fyv.getResources().getColor(e.d.cp_cont_c));
+            bottomLine.setBackgroundColor(this.fyw.getResources().getColor(e.d.cp_cont_c));
             bottomLine.setLayoutParams(layoutParams);
         }
-        this.eeY.showBottomLine();
-        this.eeY.onChangeSkinType(this.fyv.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        this.eeZ.showBottomLine();
+        this.eeZ.onChangeSkinType(this.fyw.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public TextView bbV() {
-        return this.fyq;
+        return this.fyr;
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void jG(boolean z) {
         int i = -1;
-        if (this.fyt instanceof CollectFragment) {
-            CollectFragment collectFragment = (CollectFragment) this.fyt;
+        if (this.fyu instanceof CollectFragment) {
+            CollectFragment collectFragment = (CollectFragment) this.fyu;
             if (!collectFragment.vU()) {
                 z = false;
             }
             jH(collectFragment.vU());
             i = collectFragment.getType();
         }
-        this.fyw = z;
-        this.fyq.setText(this.fyw ? e.j.done : e.j.edit);
+        this.fyx = z;
+        this.fyr.setText(this.fyx ? e.j.done : e.j.edit);
         if (TbadkCoreApplication.getInst().getSkinType() == 2) {
-            al.b(this.fyq, e.d.navi_op_text, e.d.navi_op_text_skin);
+            al.b(this.fyr, e.d.navi_op_text, e.d.navi_op_text_skin);
         } else {
-            al.b(this.fyq, this.fyw ? e.d.cp_link_tip_a : e.d.navi_op_text, e.d.navi_op_text_skin);
+            al.b(this.fyr, this.fyx ? e.d.cp_link_tip_a : e.d.navi_op_text, e.d.navi_op_text_skin);
         }
         Bundle bundle = new Bundle();
-        bundle.putBoolean("is_edit_state", this.fyw);
+        bundle.putBoolean("is_edit_state", this.fyx);
         bundle.putInt("fragment_type", i);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2022208, bundle));
     }
 
     public boolean bbW() {
-        return this.fyw;
+        return this.fyx;
     }
 
     public void aj(ArrayList<com.baidu.tbadk.mainTab.b> arrayList) {
         if (arrayList != null && !arrayList.isEmpty()) {
             this.mTabDataList = arrayList;
-            this.fyr.reset();
+            this.fys.reset();
             for (int i = 0; i < arrayList.size(); i++) {
                 com.baidu.tbadk.mainTab.b bVar = arrayList.get(i);
                 if (bVar != null && bVar.isAvailable()) {
-                    a(bVar, (FragmentTabIndicator) bVar.bR(this.fyv.getPageContext().getPageActivity()));
+                    a(bVar, (FragmentTabIndicator) bVar.bR(this.fyw.getPageContext().getPageActivity()));
                 }
             }
-            this.fyr.cU(0);
-            this.fyr.setCurrentTab(0);
+            this.fys.cU(0);
+            this.fys.setCurrentTab(0);
             if (arrayList.size() == 1) {
-                this.fyr.getFragmentTabWidget().setVisibility(8);
+                this.fys.getFragmentTabWidget().setVisibility(8);
             }
             qY(0);
         }
@@ -143,9 +143,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void qY(int i) {
-        FragmentTabHost.b cW = this.fyr.cW(i);
-        this.fys = cW.mType;
-        this.fyt = cW.avm;
+        FragmentTabHost.b cW = this.fys.cW(i);
+        this.fyt = cW.mType;
+        this.fyu = cW.avm;
     }
 
     private void a(com.baidu.tbadk.mainTab.b bVar, FragmentTabIndicator fragmentTabIndicator) {
@@ -155,36 +155,36 @@ public class a {
             bVar2.avm = MC.aZz;
             bVar2.mType = MC.type;
             fragmentTabIndicator.setText(MC.aBc);
-            fragmentTabIndicator.setTextSize(0, this.fyv.getResources().getDimension(e.C0175e.fontsize32));
+            fragmentTabIndicator.setTextSize(0, this.fyw.getResources().getDimension(e.C0175e.fontsize32));
             fragmentTabIndicator.setTextColorResId(e.d.s_actionbar_text_color);
             fragmentTabIndicator.ea(TbadkCoreApplication.getInst().getSkinType());
             fragmentTabIndicator.setTipPosType(1);
             bVar2.avl = fragmentTabIndicator;
             bVar2.avn = bVar;
-            this.fyr.a(bVar2);
+            this.fys.a(bVar2);
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.fyr.onChangeSkinType(i);
-        if (this.fyr.getTabWrapper() != null) {
+        this.fys.onChangeSkinType(i);
+        if (this.fys.getTabWrapper() != null) {
             if (getTabCount() <= 1) {
-                this.fyr.getTabWrapper().setVisibility(8);
+                this.fys.getTabWrapper().setVisibility(8);
             } else {
-                this.fyr.getTabWrapper().setVisibility(0);
+                this.fys.getTabWrapper().setVisibility(0);
             }
         }
-        al.b(this.fyq, e.d.navi_op_text, e.d.navi_op_text_skin);
-        this.eeY.onChangeSkinType(this.fyv.getPageContext(), i);
-        this.fyu.onChangeSkinType(this.fyv.getPageContext(), i);
+        al.b(this.fyr, e.d.navi_op_text, e.d.navi_op_text_skin);
+        this.eeZ.onChangeSkinType(this.fyw.getPageContext(), i);
+        this.fyv.onChangeSkinType(this.fyw.getPageContext(), i);
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void jH(boolean z) {
-        this.fyq.setEnabled(z);
+        this.fyr.setEnabled(z);
         if (!z) {
-            this.fyq.setText(e.j.edit);
-            al.b(this.fyq, e.d.navi_op_text, e.d.navi_op_text_skin);
+            this.fyr.setText(e.j.edit);
+            al.b(this.fyr, e.d.navi_op_text, e.d.navi_op_text_skin);
         }
     }
 }

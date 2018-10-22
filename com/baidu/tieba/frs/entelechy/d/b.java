@@ -11,21 +11,21 @@ public class b extends q.a implements f {
     private g dKC;
 
     public b(g gVar) {
-        super(gVar.aDd());
-        this.dKA = new com.baidu.tieba.frs.entelechy.a.a(gVar.aDf());
-        this.dKB = new a(gVar.aDe());
+        super(gVar.aDe());
+        this.dKA = new com.baidu.tieba.frs.entelechy.a.a(gVar.aDg());
+        this.dKB = new a(gVar.aDf());
         this.dKC = gVar;
     }
 
-    public g aDl() {
+    public g aDm() {
         return this.dKC;
     }
 
-    public com.baidu.tieba.frs.entelechy.a.a aDm() {
+    public com.baidu.tieba.frs.entelechy.a.a aDn() {
         return this.dKA;
     }
 
-    public a aDn() {
+    public a aDo() {
         return this.dKB;
     }
 

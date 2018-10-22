@@ -4,15 +4,15 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.h;
 /* loaded from: classes5.dex */
 public class c implements h {
-    public static final BdUniqueId gik = BdUniqueId.gen();
-    private int gil = 0;
+    public static final BdUniqueId gil = BdUniqueId.gen();
+    private int gim = 0;
 
     public int bni() {
-        return this.gil;
+        return this.gim;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return gik;
+        return gil;
     }
 }

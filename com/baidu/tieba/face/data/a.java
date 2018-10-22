@@ -15,7 +15,7 @@ public class a {
         this.cDd = i;
     }
 
-    public int auK() {
+    public int auL() {
         return this.cyj;
     }
 
@@ -23,7 +23,7 @@ public class a {
         this.cyj = i;
     }
 
-    public List<EmotionImageData> auL() {
+    public List<EmotionImageData> auM() {
         return this.djt;
     }
 

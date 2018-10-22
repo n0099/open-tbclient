@@ -31,7 +31,6 @@ import com.baidu.searchbox.process.ipc.agent.activity.MainProcessDelegateActivit
 import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
 import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
@@ -50,7 +49,7 @@ public final class b {
     }
 
     public static String getBduss(Context context) {
-        return !Wk() ? "" : TbadkCoreApplication.getCurrentBduss();
+        return !Wl() ? "" : TbadkCoreApplication.getCurrentBduss();
     }
 
     public static String cg(Context context) {
@@ -64,12 +63,12 @@ public final class b {
     }
 
     public static String getUid(Context context) {
-        return !Wk() ? "" : TbadkCoreApplication.getCurrentAccount();
+        return !Wl() ? "" : TbadkCoreApplication.getCurrentAccount();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String getSession(Context context, String str, String str2) {
-        return !Wk() ? str2 : SapiAccountManager.getInstance().getSession(str);
+        return !Wl() ? str2 : SapiAccountManager.getInstance().getSession(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -84,11 +83,22 @@ public final class b {
     }
 
     public static String getPortraitUrl() {
-        return TextUtils.isEmpty(TbadkCoreApplication.getCurrentPortrait()) ? "" : TbConfig.PHOTO_BIG_ADDRESS + TbadkCoreApplication.getCurrentPortrait();
+        if (!TbadkCoreApplication.getInst().isMainProcess(true) || TextUtils.isEmpty(TbadkCoreApplication.getCurrentPortrait())) {
+            return "";
+        }
+        return TbConfig.PHOTO_BIG_ADDRESS + TbadkCoreApplication.getCurrentPortrait();
+    }
+
+    public static String Wk() {
+        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(TbadkCoreApplication.getInst(), e.class, null);
+        if (!callOnMainWithContentProvider.isOk() || callOnMainWithContentProvider.mResult == null) {
+            return null;
+        }
+        return callOnMainWithContentProvider.mResult.getString("result");
     }
 
     public static String ch(Context context) {
-        if (Wk()) {
+        if (Wl()) {
             return TbadkCoreApplication.getCurrentAccountNameShow();
         }
         return null;
@@ -97,7 +107,7 @@ public final class b {
     public static void a(Activity activity, final TypedCallback<Bundle> typedCallback, String... strArr) {
         Bundle bundle = new Bundle();
         bundle.putStringArray("param_tpl_list", strArr);
-        DelegateUtils.callOnMainWithActivity(activity, MainProcessDelegateActivity.class, f.class, bundle, new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.a.b.1
+        DelegateUtils.callOnMainWithActivity(activity, MainProcessDelegateActivity.class, g.class, bundle, new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.a.b.1
             @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
             public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
                 TypedCallback.this.onCallback(delegateResult.isOk() ? delegateResult.mResult : null);
@@ -106,7 +116,7 @@ public final class b {
     }
 
     public static void a(Context context, final TypedCallback<Bundle> typedCallback, @Nullable String... strArr) {
-        if (!Wk()) {
+        if (!Wl()) {
             throw new IllegalStateException("must call in MainProcess");
         }
         if (strArr == null) {
@@ -160,12 +170,12 @@ public final class b {
     }
 
     public static boolean ci(Context context) {
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, h.class, null);
+        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, i.class, null);
         return callOnMainWithContentProvider.isOk() && callOnMainWithContentProvider.mResult.getBoolean("result", false);
     }
 
     public static boolean isLogin(Context context) {
-        if (Wk()) {
+        if (Wl()) {
             return TbadkCoreApplication.isLogin();
         }
         return false;
@@ -187,7 +197,7 @@ public final class b {
         Bundle bundle = new Bundle();
         bundle.putString("key_login_source", str);
         bundle.putBoolean("key_login_force", z);
-        DelegateUtils.callOnMainWithActivity(activity, MainProcessDelegateActivity.class, i.class, bundle, new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.a.b.3
+        DelegateUtils.callOnMainWithActivity(activity, MainProcessDelegateActivity.class, j.class, bundle, new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.a.b.3
             @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
             public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
                 if (OnAiAppLoginResultListener.this != null) {
@@ -204,7 +214,7 @@ public final class b {
     }
 
     public static void login(Activity activity, String str, final OnAiAppLoginResultListener onAiAppLoginResultListener) {
-        if (!Wk()) {
+        if (!Wl()) {
             onAiAppLoginResultListener.onResult(-1);
             return;
         }
@@ -226,7 +236,7 @@ public final class b {
         Bundle bundle = new Bundle();
         bundle.putInt("key_login_mode", i);
         bundle.putString("key_login_source", str);
-        DelegateUtils.callOnMainWithActivity(activity, MainProcessDelegateActivity.class, j.class, bundle, new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.a.b.5
+        DelegateUtils.callOnMainWithActivity(activity, MainProcessDelegateActivity.class, k.class, bundle, new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.a.b.5
             @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
             public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
                 if (OnAiAppLoginResultListener.this != null) {
@@ -256,8 +266,8 @@ public final class b {
     public static void thirdLogin(Activity activity, int i, String str, OnAiAppLoginResultListener onAiAppLoginResultListener) {
     }
 
-    private static boolean Wk() {
-        return ProcessUtils.isMainProcess();
+    private static boolean Wl() {
+        return TbadkCoreApplication.getInst().isMainProcess(true);
     }
 
     public static void developerAuthentication(String str, final IAiAppAccountIoc.CheckDeveloperCallback checkDeveloperCallback) {

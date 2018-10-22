@@ -1,19 +1,19 @@
 package org.java_websocket.d;
 /* loaded from: classes2.dex */
 public class b implements a {
-    private final String irD;
+    private final String irE;
 
     public b(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        this.irD = str;
+        this.irE = str;
     }
 
     @Override // org.java_websocket.d.a
     public boolean zg(String str) {
         for (String str2 : str.replaceAll(" ", "").split(",")) {
-            if (this.irD.equals(str2)) {
+            if (this.irE.equals(str2)) {
                 return true;
             }
         }
@@ -22,7 +22,7 @@ public class b implements a {
 
     @Override // org.java_websocket.d.a
     public String cbf() {
-        return this.irD;
+        return this.irE;
     }
 
     @Override // org.java_websocket.d.a
@@ -42,10 +42,10 @@ public class b implements a {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return this.irD.equals(((b) obj).irD);
+        return this.irE.equals(((b) obj).irE);
     }
 
     public int hashCode() {
-        return this.irD.hashCode();
+        return this.irE.hashCode();
     }
 }

@@ -5,14 +5,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 import rx.b;
 /* loaded from: classes2.dex */
 public final class CompletableOnSubscribeConcatIterable implements b.a {
-    final Iterable<? extends rx.b> isX;
+    final Iterable<? extends rx.b> isY;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
     /* renamed from: c */
     public void call(rx.c cVar) {
         try {
-            Iterator<? extends rx.b> it = this.isX.iterator();
+            Iterator<? extends rx.b> it = this.isY.iterator();
             if (it == null) {
                 cVar.onSubscribe(rx.subscriptions.e.cdU());
                 cVar.onError(new NullPointerException("The iterator returned is null"));

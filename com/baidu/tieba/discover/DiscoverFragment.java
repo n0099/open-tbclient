@@ -40,9 +40,9 @@ public class DiscoverFragment extends BaseFragment implements ah {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921041 && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    DiscoverFragment.this.Zk();
-                } else {
                     DiscoverFragment.this.Zl();
+                } else {
+                    DiscoverFragment.this.Zm();
                 }
             }
         }
@@ -133,22 +133,22 @@ public class DiscoverFragment extends BaseFragment implements ah {
     }
 
     @Override // com.baidu.tieba.frs.ah
-    public void Zj() {
-    }
-
-    @Override // com.baidu.tieba.frs.ah
     public void Zk() {
-        if (this.dcS != null && !this.dcT) {
-            this.dcT = true;
-            this.dcS.asD();
-        }
     }
 
     @Override // com.baidu.tieba.frs.ah
     public void Zl() {
+        if (this.dcS != null && !this.dcT) {
+            this.dcT = true;
+            this.dcS.asE();
+        }
+    }
+
+    @Override // com.baidu.tieba.frs.ah
+    public void Zm() {
         if (this.dcS != null && this.dcT) {
             this.dcT = false;
-            this.dcS.asE();
+            this.dcS.asF();
         }
     }
 

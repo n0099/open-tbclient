@@ -19,13 +19,13 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static d eFm;
+    private static d eFn;
 
     public static d aPb() {
-        if (eFm == null) {
-            eFm = new d();
+        if (eFn == null) {
+            eFn = new d();
         }
-        return eFm;
+        return eFn;
     }
 
     public void po(String str) {

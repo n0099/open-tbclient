@@ -6,89 +6,89 @@ import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class g {
-    private PostSearchActivity gyB;
-    private a gzs;
-    private c gzt;
-    private f gzu;
+    private PostSearchActivity gyC;
+    private a gzt;
+    private c gzu;
+    private f gzv;
     private View mRootView;
 
     public g(PostSearchActivity postSearchActivity) {
-        this.gyB = postSearchActivity;
+        this.gyC = postSearchActivity;
     }
 
     public void initView() {
-        this.gyB.setContentView(e.h.post_search_activity);
-        this.mRootView = this.gyB.findViewById(e.g.search_rootview);
-        this.gzs = new a(this.gyB, this.mRootView);
-        this.gzt = new c(this.gyB, this.mRootView);
-        this.gzu = new f(this.gyB, this.mRootView);
+        this.gyC.setContentView(e.h.post_search_activity);
+        this.mRootView = this.gyC.findViewById(e.g.search_rootview);
+        this.gzt = new a(this.gyC, this.mRootView);
+        this.gzu = new c(this.gyC, this.mRootView);
+        this.gzv = new f(this.gyC, this.mRootView);
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        if (this.gzu != null) {
-            this.gzu.setOnPageChangeListener(onPageChangeListener);
+        if (this.gzv != null) {
+            this.gzv.setOnPageChangeListener(onPageChangeListener);
         }
     }
 
     public void au(ArrayList<String> arrayList) {
-        this.gzu.fB(false);
-        this.gzt.au(arrayList);
+        this.gzv.fB(false);
+        this.gzu.au(arrayList);
     }
 
     public void sN(int i) {
-        this.gzs.aGO();
+        this.gzt.aGO();
         brC();
-        this.gzs.brD();
-        this.gzu.fB(true);
-        this.gzu.sN(i);
+        this.gzt.brD();
+        this.gzv.fB(true);
+        this.gzv.sN(i);
     }
 
     public void tz(String str) {
-        this.gzs.tz(str);
+        this.gzt.tz(str);
     }
 
     public void a(int i, b bVar, boolean z) {
-        this.gzu.a(i, bVar, z);
+        this.gzv.a(i, bVar, z);
     }
 
     public boolean brH() {
-        return this.gzt.brP();
+        return this.gzu.brP();
     }
 
     public void showLoadingView() {
-        this.gzt.showLoadingView();
+        this.gzu.showLoadingView();
     }
 
     public void hideLoadingView() {
-        this.gzt.hideLoadingView();
+        this.gzu.hideLoadingView();
     }
 
     public void brO() {
-        this.gzt.brO();
+        this.gzu.brO();
     }
 
     public void brC() {
-        this.gzs.brC();
+        this.gzt.brC();
     }
 
     public void bsa() {
-        this.gzt.brN();
+        this.gzu.brN();
     }
 
     public int getCurrentTabType() {
-        return this.gzu.getCurrentTabType();
+        return this.gzv.getCurrentTabType();
     }
 
     public void onChangeSkinType(int i) {
-        this.gzs.onChangeSkinType(i);
         this.gzt.onChangeSkinType(i);
         this.gzu.onChangeSkinType(i);
-        com.baidu.tbadk.o.a.a(this.gyB.getPageContext(), this.mRootView);
+        this.gzv.onChangeSkinType(i);
+        com.baidu.tbadk.o.a.a(this.gyC.getPageContext(), this.mRootView);
     }
 
     public void onDestroy() {
-        if (this.gzs != null) {
-            this.gzs.onDestroy();
+        if (this.gzt != null) {
+            this.gzt.onDestroy();
         }
     }
 }

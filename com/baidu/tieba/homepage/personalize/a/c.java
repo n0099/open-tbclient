@@ -11,7 +11,7 @@ public class c<T extends n> extends com.baidu.tieba.card.a.a<T> implements com.b
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a.a
     /* renamed from: aKa */
-    public T aoP() {
+    public T aoQ() {
         return (T) this.cRp;
     }
 

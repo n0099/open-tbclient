@@ -39,11 +39,11 @@ public class a {
         return this.isOpen;
     }
 
-    public HashMap<String, String> atf() {
+    public HashMap<String, String> atg() {
         return this.deu;
     }
 
-    public String atg() {
+    public String ath() {
         return this.det;
     }
 }

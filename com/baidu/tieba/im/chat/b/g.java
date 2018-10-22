@@ -14,7 +14,7 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class g {
-    private static g eDc;
+    private static g eDd;
 
     private g() {
     }
@@ -22,10 +22,10 @@ public class g {
     public static synchronized g aNx() {
         g gVar;
         synchronized (g.class) {
-            if (eDc == null) {
-                eDc = new g();
+            if (eDd == null) {
+                eDd = new g();
             }
-            gVar = eDc;
+            gVar = eDd;
         }
         return gVar;
     }

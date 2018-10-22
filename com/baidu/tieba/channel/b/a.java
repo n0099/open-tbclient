@@ -22,8 +22,8 @@ public class a {
             if (view != a.this.cSN.getCancelView()) {
                 if (view != a.this.cSN.getLayerView()) {
                     if (view == a.this.cSN.getUpInfoView()) {
-                        a.this.alX();
-                        if (a.this.aoV()) {
+                        a.this.alY();
+                        if (a.this.aoW()) {
                             a.this.vO();
                         }
                         TiebaStatic.log("c11994");
@@ -31,14 +31,14 @@ public class a {
                         if (a.this.cSO != null) {
                             a.this.cSO.a(18, null, null, -1);
                         }
-                        if (a.this.aoV()) {
+                        if (a.this.aoW()) {
                             a.this.vO();
                         }
                     }
-                } else if (a.this.aoV()) {
+                } else if (a.this.aoW()) {
                     a.this.vO();
                 }
-            } else if (a.this.aoV()) {
+            } else if (a.this.aoW()) {
                 a.this.vO();
             }
         }
@@ -83,7 +83,7 @@ public class a {
         this.cRO = dVar;
     }
 
-    public boolean aoV() {
+    public boolean aoW() {
         return this.cSM != null && this.cSM.isShowing();
     }
 
@@ -94,12 +94,12 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void alX() {
-        if (this.cRO != null && this.cRO.aoZ() != null) {
-            ChannelInfo aoZ = this.cRO.aoZ();
-            String valueOf = String.valueOf(aoZ.getUserId());
+    public void alY() {
+        if (this.cRO != null && this.cRO.apa() != null) {
+            ChannelInfo apa = this.cRO.apa();
+            String valueOf = String.valueOf(apa.getUserId());
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.cSO.getPageContext().getPageActivity()).createNormalConfig(aoZ.getUserId(), !TextUtils.isEmpty(currentAccount) && currentAccount.equals(valueOf), false)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.cSO.getPageContext().getPageActivity()).createNormalConfig(apa.getUserId(), !TextUtils.isEmpty(currentAccount) && currentAccount.equals(valueOf), false)));
         }
     }
 }

@@ -61,14 +61,14 @@ public final class OperatorZip<R> implements d.b<R, rx.d<?>[]> {
     /* loaded from: classes2.dex */
     public final class a extends rx.j<rx.d[]> {
         final rx.j<? super R> child;
-        final ZipProducer<R> iBj;
+        final ZipProducer<R> iBk;
         boolean started;
         final Zip<R> zipper;
 
         public a(rx.j<? super R> jVar, Zip<R> zip, ZipProducer<R> zipProducer) {
             this.child = jVar;
             this.zipper = zip;
-            this.iBj = zipProducer;
+            this.iBk = zipProducer;
         }
 
         @Override // rx.e
@@ -92,7 +92,7 @@ public final class OperatorZip<R> implements d.b<R, rx.d<?>[]> {
                 return;
             }
             this.started = true;
-            this.zipper.start(dVarArr, this.iBj);
+            this.zipper.start(dVarArr, this.iBk);
         }
     }
 
@@ -158,7 +158,7 @@ public final class OperatorZip<R> implements d.b<R, rx.d<?>[]> {
                     boolean z2 = true;
                     int i = 0;
                     while (i < length) {
-                        rx.internal.util.h hVar = ((a) objArr[i]).iBh;
+                        rx.internal.util.h hVar = ((a) objArr[i]).iBi;
                         Object peek = hVar.peek();
                         if (peek == null) {
                             z = false;
@@ -179,7 +179,7 @@ public final class OperatorZip<R> implements d.b<R, rx.d<?>[]> {
                             atomicLong.decrementAndGet();
                             this.emitted++;
                             for (Object obj : objArr) {
-                                rx.internal.util.h hVar2 = ((a) obj).iBh;
+                                rx.internal.util.h hVar2 = ((a) obj).iBi;
                                 hVar2.poll();
                                 if (hVar2.aZ(hVar2.peek())) {
                                     eVar.onCompleted();
@@ -207,7 +207,7 @@ public final class OperatorZip<R> implements d.b<R, rx.d<?>[]> {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* loaded from: classes2.dex */
         public final class a extends rx.j {
-            final rx.internal.util.h iBh = rx.internal.util.h.ccU();
+            final rx.internal.util.h iBi = rx.internal.util.h.ccU();
 
             a() {
             }
@@ -223,7 +223,7 @@ public final class OperatorZip<R> implements d.b<R, rx.d<?>[]> {
 
             @Override // rx.e
             public void onCompleted() {
-                this.iBh.onCompleted();
+                this.iBi.onCompleted();
                 Zip.this.tick();
             }
 
@@ -235,7 +235,7 @@ public final class OperatorZip<R> implements d.b<R, rx.d<?>[]> {
             @Override // rx.e
             public void onNext(Object obj) {
                 try {
-                    this.iBh.onNext(obj);
+                    this.iBi.onNext(obj);
                 } catch (MissingBackpressureException e) {
                     onError(e);
                 }

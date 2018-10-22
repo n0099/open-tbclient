@@ -74,7 +74,7 @@ public class a extends BaseAdapter {
         com.baidu.tieba.channel.data.b item = getItem(i);
         if (item != null) {
             c0172a.cSb.setTagData(item);
-            if (item.apg() == 1) {
+            if (item.aph() == 1) {
                 c0172a.cSb.setEnabled(false);
                 al.c(c0172a.cSb, e.f.icon_choose_channel_n);
             } else {
@@ -93,7 +93,7 @@ public class a extends BaseAdapter {
             if (!TextUtils.isEmpty(item.getForumName())) {
                 c0172a.cSe.setText(item.getForumName() + "吧");
             }
-            c0172a.cSf.setText(ao.G(item.apf()) + "次播放·" + com.baidu.tieba.channel.c.c.bw(item.getCreateTime()));
+            c0172a.cSf.setText(ao.G(item.apg()) + "次播放·" + com.baidu.tieba.channel.c.c.bw(item.getCreateTime()));
         }
         this.cSa.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
         this.cSa.getLayoutMode().onModeChanged(view);
@@ -102,7 +102,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        return getItem(i).apg() != 1;
+        return getItem(i).aph() != 1;
     }
 
     /* renamed from: com.baidu.tieba.channel.a.a$a  reason: collision with other inner class name */

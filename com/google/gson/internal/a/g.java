@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public final class g implements p {
-    private final com.google.gson.internal.b ijT;
-    final boolean ilE;
+    private final com.google.gson.internal.b ijU;
+    final boolean ilF;
 
     public g(com.google.gson.internal.b bVar, boolean z) {
-        this.ijT = bVar;
-        this.ilE = z;
+        this.ijU = bVar;
+        this.ilF = z;
     }
 
     @Override // com.google.gson.p
@@ -26,18 +26,18 @@ public final class g implements p {
             return null;
         }
         Type[] b = C$Gson$Types.b(bZr, C$Gson$Types.g(bZr));
-        return new a(dVar, b[0], a(dVar, b[0]), b[1], dVar.a(com.google.gson.b.a.l(b[1])), this.ijT.b(aVar));
+        return new a(dVar, b[0], a(dVar, b[0]), b[1], dVar.a(com.google.gson.b.a.l(b[1])), this.ijU.b(aVar));
     }
 
     private o<?> a(com.google.gson.d dVar, Type type) {
-        return (type == Boolean.TYPE || type == Boolean.class) ? n.imj : dVar.a(com.google.gson.b.a.l(type));
+        return (type == Boolean.TYPE || type == Boolean.class) ? n.imk : dVar.a(com.google.gson.b.a.l(type));
     }
 
     /* loaded from: classes2.dex */
     private final class a<K, V> extends o<Map<K, V>> {
-        private final o<K> ilF;
-        private final o<V> ilG;
-        private final com.google.gson.internal.e<? extends Map<K, V>> ilq;
+        private final o<K> ilG;
+        private final o<V> ilH;
+        private final com.google.gson.internal.e<? extends Map<K, V>> ilr;
 
         @Override // com.google.gson.o
         public /* bridge */ /* synthetic */ void a(com.google.gson.stream.b bVar, Object obj) throws IOException {
@@ -45,9 +45,9 @@ public final class g implements p {
         }
 
         public a(com.google.gson.d dVar, Type type, o<K> oVar, Type type2, o<V> oVar2, com.google.gson.internal.e<? extends Map<K, V>> eVar) {
-            this.ilF = new m(dVar, oVar, type);
-            this.ilG = new m(dVar, oVar2, type2);
-            this.ilq = eVar;
+            this.ilG = new m(dVar, oVar, type);
+            this.ilH = new m(dVar, oVar2, type2);
+            this.ilr = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -59,13 +59,13 @@ public final class g implements p {
                 aVar.nextNull();
                 return null;
             }
-            Map<K, V> bYS = this.ilq.bYS();
+            Map<K, V> bYS = this.ilr.bYS();
             if (bZe == JsonToken.BEGIN_ARRAY) {
                 aVar.beginArray();
                 while (aVar.hasNext()) {
                     aVar.beginArray();
-                    K b = this.ilF.b(aVar);
-                    if (bYS.put(b, this.ilG.b(aVar)) != null) {
+                    K b = this.ilG.b(aVar);
+                    if (bYS.put(b, this.ilH.b(aVar)) != null) {
                         throw new JsonSyntaxException("duplicate key: " + b);
                     }
                     aVar.endArray();
@@ -75,9 +75,9 @@ public final class g implements p {
             }
             aVar.beginObject();
             while (aVar.hasNext()) {
-                com.google.gson.internal.d.ikF.g(aVar);
-                K b2 = this.ilF.b(aVar);
-                if (bYS.put(b2, this.ilG.b(aVar)) != null) {
+                com.google.gson.internal.d.ikG.g(aVar);
+                K b2 = this.ilG.b(aVar);
+                if (bYS.put(b2, this.ilH.b(aVar)) != null) {
                     throw new JsonSyntaxException("duplicate key: " + b2);
                 }
             }
@@ -92,11 +92,11 @@ public final class g implements p {
             int i = 0;
             if (map == null) {
                 bVar.bZp();
-            } else if (!g.this.ilE) {
+            } else if (!g.this.ilF) {
                 bVar.bZn();
                 for (Map.Entry<K, V> entry : map.entrySet()) {
                     bVar.yL(String.valueOf(entry.getKey()));
-                    this.ilG.a(bVar, entry.getValue());
+                    this.ilH.a(bVar, entry.getValue());
                 }
                 bVar.bZo();
             } else {
@@ -104,7 +104,7 @@ public final class g implements p {
                 ArrayList arrayList2 = new ArrayList(map.size());
                 boolean z = false;
                 for (Map.Entry<K, V> entry2 : map.entrySet()) {
-                    com.google.gson.i aQ = this.ilF.aQ(entry2.getKey());
+                    com.google.gson.i aQ = this.ilG.aQ(entry2.getKey());
                     arrayList.add(aQ);
                     arrayList2.add(entry2.getValue());
                     z = (aQ.bYB() || aQ.bYC()) | z;
@@ -114,7 +114,7 @@ public final class g implements p {
                     while (i < arrayList.size()) {
                         bVar.bZl();
                         com.google.gson.internal.g.b((com.google.gson.i) arrayList.get(i), bVar);
-                        this.ilG.a(bVar, arrayList2.get(i));
+                        this.ilH.a(bVar, arrayList2.get(i));
                         bVar.bZm();
                         i++;
                     }
@@ -124,7 +124,7 @@ public final class g implements p {
                 bVar.bZn();
                 while (i < arrayList.size()) {
                     bVar.yL(d((com.google.gson.i) arrayList.get(i)));
-                    this.ilG.a(bVar, arrayList2.get(i));
+                    this.ilH.a(bVar, arrayList2.get(i));
                     i++;
                 }
                 bVar.bZo();

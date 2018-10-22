@@ -9,12 +9,12 @@ import tbclient.GiftInfo;
 import tbclient.User;
 /* loaded from: classes3.dex */
 public class g extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId gpS = BdUniqueId.gen();
+    public static final BdUniqueId gpT = BdUniqueId.gen();
     public String Eg;
     public int giftNum = 0;
-    public boolean gpT;
-    public String gpU;
-    public List<com.baidu.adp.widget.ListView.h> gpV;
+    public boolean gpU;
+    public String gpV;
+    public List<com.baidu.adp.widget.ListView.h> gpW;
     public boolean mIsHost;
     public int mSex;
     public String mUid;
@@ -23,7 +23,7 @@ public class g extends com.baidu.tieba.card.data.b {
         if (user != null && !v.J(user.gift_list)) {
             this.mUid = String.valueOf(user.id);
             this.Eg = user.name;
-            this.gpU = user.name_show;
+            this.gpV = user.name_show;
             this.mSex = user.sex.intValue();
             if (this.mUid != null && this.mUid.equals(TbadkCoreApplication.getCurrentAccount())) {
                 this.mIsHost = true;
@@ -31,28 +31,28 @@ public class g extends com.baidu.tieba.card.data.b {
                 this.mIsHost = false;
             }
             if (user.sex.intValue() == 2) {
-                this.gpT = false;
+                this.gpU = false;
             } else {
-                this.gpT = true;
+                this.gpU = true;
             }
             this.giftNum = user.gift_num != null ? user.gift_num.intValue() : 0;
-            this.gpV = new ArrayList();
+            this.gpW = new ArrayList();
             for (GiftInfo giftInfo : user.gift_list) {
                 if (giftInfo != null) {
                     o oVar = new o();
                     oVar.a(giftInfo);
-                    this.gpV.add(oVar);
+                    this.gpW.add(oVar);
                 }
             }
         }
     }
 
     public boolean isValid() {
-        return !v.J(this.gpV);
+        return !v.J(this.gpW);
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return gpS;
+        return gpT;
     }
 }

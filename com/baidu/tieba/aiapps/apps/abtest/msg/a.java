@@ -28,7 +28,7 @@ public class a {
             try {
                 JSONObject jSONObject = new JSONObject(dataRes.url);
                 this.appId = jSONObject.optString("appid");
-                this.url = com.baidu.tieba.aiapps.a.t(this.appId, jSONObject.optString("url"), "9104");
+                this.url = com.baidu.tieba.aiapps.a.t(this.appId, jSONObject.optString("url"), "1191005500000000");
             } catch (JSONException e) {
                 e.printStackTrace();
             }

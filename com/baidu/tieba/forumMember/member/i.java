@@ -62,7 +62,7 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
     /* renamed from: aj */
     public k onCreateViewHolder(ViewGroup viewGroup) {
         if (this.aGV == null) {
-            Zs();
+            Zt();
         }
         return new k(LayoutInflater.from(this.mContext).inflate(e.h.forum_member_head_user_view, (ViewGroup) null), this.mClickListener);
     }
@@ -73,25 +73,25 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, j jVar, k kVar) {
         super.onFillViewHolder(i, view, viewGroup, jVar, kVar);
-        if (jVar != null && jVar.ayl() != null) {
+        if (jVar != null && jVar.aym() != null) {
             int color = al.getColor(e.d.cp_other_b);
             int color2 = al.getColor(e.d.cp_cont_b);
-            r ayl = jVar.ayl();
+            r aym = jVar.aym();
             boolean isLogin = TbadkCoreApplication.isLogin();
-            if (ayl.isLike() == 1 && isLogin) {
+            if (aym.isLike() == 1 && isLogin) {
                 kVar.dwZ.setVisibility(8);
                 kVar.dxa.setText(e.j.degree);
-                al.c(kVar.dwa, BitmapHelper.getSmallGradeResourceIdNew(ayl.byv()));
-                if (StringUtils.isNull(ayl.getLevelName())) {
+                al.c(kVar.dwa, BitmapHelper.getSmallGradeResourceIdNew(aym.byv()));
+                if (StringUtils.isNull(aym.getLevelName())) {
                     kVar.dwb.setVisibility(8);
                 } else {
-                    kVar.dwb.setText(ayl.getLevelName());
+                    kVar.dwb.setText(aym.getLevelName());
                     kVar.dwb.setVisibility(0);
                 }
             } else {
                 kVar.dwZ.setVisibility(0);
                 kVar.dxa.setText(e.j.tbtille_just_be);
-                al.c(kVar.dwa, BitmapHelper.getSmallGradeResourceIdNew(ayl.byv()));
+                al.c(kVar.dwa, BitmapHelper.getSmallGradeResourceIdNew(aym.byv()));
                 kVar.dwb.setVisibility(8);
             }
             kVar.dwZ.setTag(Integer.valueOf(i));
@@ -101,9 +101,9 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
                 kVar.dxc.setVisibility(8);
             } else {
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                SpannableString spannableString = new SpannableString(ayl.getCurScore() + "");
+                SpannableString spannableString = new SpannableString(aym.getCurScore() + "");
                 spannableString.setSpan(new ForegroundColorSpan(color), 0, spannableString.length(), 17);
-                SpannableString spannableString2 = new SpannableString("/" + ayl.getLevelupScore());
+                SpannableString spannableString2 = new SpannableString("/" + aym.getLevelupScore());
                 spannableString2.setSpan(new ForegroundColorSpan(color2), 0, spannableString2.length(), 17);
                 spannableStringBuilder.append((CharSequence) spannableString);
                 spannableStringBuilder.append((CharSequence) spannableString2);
@@ -129,7 +129,7 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
         return view;
     }
 
-    private void Zs() {
+    private void Zt() {
         if (this.mPageContext != null) {
             this.aGV = new LikeModel(this.mPageContext);
             this.aGV.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.forumMember.member.i.2

@@ -5,28 +5,28 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class t {
-    private static i gvQ = null;
-    private static boolean gvR = true;
+    private static i gvR = null;
     private static boolean gvS = true;
+    private static boolean gvT = true;
 
     private static i bqE() {
-        if (gvQ == null) {
-            gvR = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("prefs_save_paled_video", true);
+        if (gvR == null) {
+            gvS = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("prefs_save_paled_video", true);
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016479, i.class);
             if (runTask != null) {
-                gvQ = (i) runTask.getData();
+                gvR = (i) runTask.getData();
             }
         }
-        return gvQ;
+        return gvR;
     }
 
     public static String X(String str, boolean z) {
         if (z) {
-            if (gvS && bqE() != null) {
+            if (gvT && bqE() != null) {
                 return bqE().v(str, true);
             }
             return str;
-        } else if (gvS && gvR && bqE() != null) {
+        } else if (gvT && gvS && bqE() != null) {
             return bqE().jg(str);
         } else {
             return str;
@@ -53,13 +53,13 @@ public class t {
     }
 
     public static void as(Context context, String str) {
-        if (gvS && gvR && bqE() != null) {
+        if (gvT && gvS && bqE() != null) {
             bqE().as(context, str);
         }
     }
 
     public static void ji(String str) {
-        if (gvS && gvR && bqE() != null) {
+        if (gvT && gvS && bqE() != null) {
             bqE().ji(str);
         }
     }
@@ -78,10 +78,10 @@ public class t {
     }
 
     public static void mo(boolean z) {
-        gvR = z;
+        gvS = z;
     }
 
     public static void bqF() {
-        gvS = com.baidu.adp.lib.b.d.iR().aO("android_video_cache_open") == 1;
+        gvT = com.baidu.adp.lib.b.d.iR().aO("android_video_cache_open") == 1;
     }
 }

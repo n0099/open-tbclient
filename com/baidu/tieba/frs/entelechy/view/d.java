@@ -74,7 +74,7 @@ public class d extends c {
                 o.a(this.cNL, bbVar.getId(), e.d.cp_cont_b, e.d.cp_cont_d);
             }
             this.cNM.setData(this.aAQ);
-            if (this.bWf.isInFrsAllThread() && com.baidu.tieba.frs.a.ayM().ayN()) {
+            if (this.bWf.isInFrsAllThread() && com.baidu.tieba.frs.a.ayN().ayO()) {
                 this.mMaskView.setVisibility(0);
                 if (this.aAQ.zW() || this.aAQ.zX()) {
                     al.j(this.mMaskView, e.d.cp_bg_line_d);
@@ -96,8 +96,8 @@ public class d extends c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.entelechy.view.c
-    public void anT() {
-        super.anT();
+    public void anU() {
+        super.anU();
         o.a(this.cNL, this.aAQ.getId(), e.d.cp_cont_b, e.d.cp_cont_d);
         this.cNM.fZ(this.aAQ.getId());
     }

@@ -61,20 +61,20 @@ public class c extends RecyclerView.Adapter<b> {
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         private int cPU;
-        private g eck;
+        private g ecl;
 
         public a(g gVar, int i) {
-            this.eck = gVar;
+            this.ecl = gVar;
             this.cPU = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.eck != null) {
+            if (this.ecl != null) {
                 PbActivityConfig pbActivityConfig = new PbActivityConfig(c.this.mPageContext.getPageActivity());
-                pbActivityConfig.createNormalCfg(this.eck.getThreadId(), this.eck.aHp(), "frs_page");
+                pbActivityConfig.createNormalCfg(this.ecl.getThreadId(), this.ecl.aHp(), "frs_page");
                 c.this.mPageContext.sendMessage(new CustomMessage(2004001, pbActivityConfig));
-                TiebaStatic.log(new am("c13088").x("obj_locate", this.cPU).ax("obj_name", c.this.mTopicName).ax(ImageViewerConfig.FORUM_ID, c.this.mForumId).ax("obj_param1", this.eck.aHp()));
+                TiebaStatic.log(new am("c13088").x("obj_locate", this.cPU).ax("obj_name", c.this.mTopicName).ax(ImageViewerConfig.FORUM_ID, c.this.mForumId).ax("obj_param1", this.ecl.aHp()));
             }
         }
     }
@@ -91,15 +91,15 @@ public class c extends RecyclerView.Adapter<b> {
 
     /* loaded from: classes3.dex */
     public static class b extends RecyclerView.ViewHolder {
-        private com.baidu.tieba.frs.worldcup.videotopic.b.b ecm;
+        private com.baidu.tieba.frs.worldcup.videotopic.b.b ecn;
 
         public b(com.baidu.tieba.frs.worldcup.videotopic.b.b bVar) {
             super(bVar.getView());
-            this.ecm = bVar;
+            this.ecn = bVar;
         }
 
         public com.baidu.tieba.frs.worldcup.videotopic.b.b aHB() {
-            return this.ecm;
+            return this.ecn;
         }
     }
 }

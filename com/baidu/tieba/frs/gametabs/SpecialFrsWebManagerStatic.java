@@ -15,7 +15,7 @@ public class SpecialFrsWebManagerStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001616 && customResponsedMessage.getData() != null) {
                     ad adVar = (ad) customResponsedMessage.getData();
-                    for (FrsTabInfo frsTabInfo : adVar.aBq()) {
+                    for (FrsTabInfo frsTabInfo : adVar.aBr()) {
                         if (frsTabInfo.tab_id.intValue() > 100) {
                             c cVar = new c(frsTabInfo.tab_id.intValue(), frsTabInfo.tab_url);
                             adVar.b(cVar);

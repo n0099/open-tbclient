@@ -95,7 +95,7 @@ public class b {
         if (bVar != null) {
             hashMap.put("name", Boolean.valueOf(!TextUtils.isEmpty(bVar.userName)));
             hashMap.put(ISapiAccount.SAPI_ACCOUNT_PHONE, Boolean.valueOf(!TextUtils.isEmpty(bVar.bBZ)));
-            hashMap.put("region", Boolean.valueOf(!TextUtils.isEmpty(bVar.WJ())));
+            hashMap.put("region", Boolean.valueOf(!TextUtils.isEmpty(bVar.WK())));
             hashMap.put("street", Boolean.valueOf(TextUtils.isEmpty(bVar.bCe) ? false : true));
         }
         return hashMap;
@@ -193,7 +193,7 @@ public class b {
         aVar2.type = ISapiAccount.SAPI_ACCOUNT_PHONE;
         aVar2.bBY = true;
         arrayList.add(aVar2);
-        a aVar3 = new a("所在地区", bVar.WJ(), "地区选择");
+        a aVar3 = new a("所在地区", bVar.WK(), "地区选择");
         aVar3.type = "region";
         arrayList.add(aVar3);
         a aVar4 = new a("详细地址", bVar.bCe, "街道门牌信息");
@@ -206,7 +206,7 @@ public class b {
         return arrayList;
     }
 
-    private String WJ() {
+    private String WK() {
         StringBuilder sb = new StringBuilder();
         if (this.bCb != null && !TextUtils.isEmpty(this.bCb.name)) {
             sb.append(this.bCb.name);
@@ -220,15 +220,15 @@ public class b {
         return sb.toString();
     }
 
-    public String WK() {
+    public String WL() {
         StringBuilder sb = new StringBuilder();
-        sb.append(WJ());
+        sb.append(WK());
         sb.append(" " + this.bCe);
         return sb.toString();
     }
 
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.userName) || TextUtils.isEmpty(this.bBZ) || TextUtils.isEmpty(WJ()) || TextUtils.isEmpty(this.bCe) || this.bBZ.length() != 11 || !this.bBZ.startsWith("1")) ? false : true;
+        return (TextUtils.isEmpty(this.userName) || TextUtils.isEmpty(this.bBZ) || TextUtils.isEmpty(WK()) || TextUtils.isEmpty(this.bCe) || this.bBZ.length() != 11 || !this.bBZ.startsWith("1")) ? false : true;
     }
 
     public static boolean jY(String str) {
@@ -275,7 +275,7 @@ public class b {
         return Pattern.compile("[0-9]*").matcher(str).matches();
     }
 
-    public void WL() {
+    public void WM() {
         if (jY(this.bBZ)) {
             this.bCa = this.bBZ.substring(0, 3) + "*****" + this.bBZ.substring(8);
         }

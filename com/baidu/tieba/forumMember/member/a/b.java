@@ -52,7 +52,7 @@ public class b {
         this.mListView.setPullRefresh(this.mPullView);
         this.dxR = BdListViewHelper.a(this.bwX.getPageContext().getPageActivity(), this.mListView, BdListViewHelper.HeadType.DEFAULT);
         this.dxS = new a(this.bwX, this.mListView);
-        this.mListView.addAdapters(this.dxS.ays());
+        this.mListView.addAdapters(this.dxS.ayt());
     }
 
     public void showLoadingView() {
@@ -70,7 +70,7 @@ public class b {
         this.bwX.showNetRefreshView(this.mRootView, str, true);
     }
 
-    public void ZH() {
+    public void ZI() {
         this.mListView.setVisibility(0);
         this.bwX.hideNetRefreshView(this.mRootView);
     }

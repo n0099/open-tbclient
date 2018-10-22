@@ -44,7 +44,7 @@ public final class b extends AiAppsNaViewModel {
 
     public static b a(JSONObject jSONObject, @NonNull b bVar) {
         if (jSONObject == null) {
-            return Xw();
+            return Xx();
         }
         b bVar2 = new b();
         bVar2.updateFromJson(jSONObject, bVar);
@@ -62,7 +62,7 @@ public final class b extends AiAppsNaViewModel {
         return bVar2;
     }
 
-    public static b Xw() {
+    public static b Xx() {
         return new b();
     }
 }

@@ -11,7 +11,7 @@ public class a extends com.baidu.tieba.card.data.b {
         this.bIV = bbVar;
     }
 
-    public bb YA() {
+    public bb YB() {
         return this.bIV;
     }
 

@@ -39,7 +39,7 @@ public class e implements AiAppsPlayerContext {
     private boolean mDetached;
     CustomMessageListener mNetworkChangedListener;
     private String mPlayerId;
-    private b bED = b.Xw();
+    private b bED = b.Xx();
     private com.baidu.tieba.aiapps.apps.media.b.a.a bEG = new com.baidu.tieba.aiapps.apps.media.b.a.a();
     private volatile boolean bEI = false;
 
@@ -83,7 +83,7 @@ public class e implements AiAppsPlayerContext {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                    e.this.Xz();
+                    e.this.XA();
                 }
             }
         };
@@ -93,7 +93,7 @@ public class e implements AiAppsPlayerContext {
         this.bEM.getWindow().addFlags(128);
     }
 
-    public b Xx() {
+    public b Xy() {
         return this.bED;
     }
 
@@ -114,7 +114,7 @@ public class e implements AiAppsPlayerContext {
             if (this.bEE != null) {
                 resetPlayer();
             }
-            Xy();
+            Xz();
             c(this.bED);
             b(this.bED.mSrc, "", "", false);
             prepareAsync();
@@ -194,7 +194,7 @@ public class e implements AiAppsPlayerContext {
         }
     }
 
-    private void Xy() {
+    private void Xz() {
         dl(this.bED.bEv);
         hy(this.bED.bEx);
         hz(this.bED.bEy);
@@ -335,7 +335,7 @@ public class e implements AiAppsPlayerContext {
         BdLog.d("updatePlayerConfig params: " + bVar.toString());
         if (d(bVar)) {
             this.bED = bVar;
-            Xy();
+            Xz();
         }
         this.bED = bVar;
         c(this.bED);
@@ -424,7 +424,7 @@ public class e implements AiAppsPlayerContext {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Xz() {
+    public void XA() {
         String jSONString = this.bEG.toJSONString();
         if (!TextUtils.isEmpty(jSONString)) {
             BdLog.d(this.mPlayerId + " dispatchNetStatusEvent statusData: " + jSONString);

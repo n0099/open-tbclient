@@ -7,23 +7,23 @@ import java.util.Set;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class b implements k {
-    private Set<k> iFH;
-    private volatile boolean ist;
+    private Set<k> iFI;
+    private volatile boolean isu;
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.ist;
+        return this.isu;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.ist) {
+            if (!this.isu) {
                 synchronized (this) {
-                    if (!this.ist) {
-                        if (this.iFH == null) {
-                            this.iFH = new HashSet(4);
+                    if (!this.isu) {
+                        if (this.iFI == null) {
+                            this.iFI = new HashSet(4);
                         }
-                        this.iFH.add(kVar);
+                        this.iFI.add(kVar);
                         return;
                     }
                 }
@@ -33,10 +33,10 @@ public final class b implements k {
     }
 
     public void b(k kVar) {
-        if (!this.ist) {
+        if (!this.isu) {
             synchronized (this) {
-                if (!this.ist && this.iFH != null) {
-                    boolean remove = this.iFH.remove(kVar);
+                if (!this.isu && this.iFI != null) {
+                    boolean remove = this.iFI.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
                     }
@@ -47,12 +47,12 @@ public final class b implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.ist) {
+        if (!this.isu) {
             synchronized (this) {
-                if (!this.ist) {
-                    this.ist = true;
-                    Set<k> set = this.iFH;
-                    this.iFH = null;
+                if (!this.isu) {
+                    this.isu = true;
+                    Set<k> set = this.iFI;
+                    this.iFI = null;
                     k(set);
                 }
             }

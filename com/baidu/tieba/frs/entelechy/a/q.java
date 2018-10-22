@@ -9,17 +9,17 @@ import java.util.List;
 public interface q {
     void a(com.baidu.tieba.frs.d dVar);
 
-    HashMap<Integer, bb> aCF();
+    HashMap<Integer, bb> aCG();
 
-    void aCG();
-
-    int aCH();
+    void aCH();
 
     int aCI();
 
     int aCJ();
 
-    void aCK();
+    int aCK();
+
+    void aCL();
 
     void b(ArrayList<com.baidu.adp.widget.ListView.h> arrayList, com.baidu.tieba.tbadkCore.l lVar);
 

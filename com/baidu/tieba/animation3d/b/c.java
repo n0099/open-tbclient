@@ -53,7 +53,7 @@ public class c extends com.baidu.tieba.animation3d.b.a {
         this.cIL = this.IQ;
     }
 
-    private void anr() {
+    private void ans() {
         this.mHandler.removeMessages(1);
         this.mHandler.removeMessages(2);
     }
@@ -68,7 +68,7 @@ public class c extends com.baidu.tieba.animation3d.b.a {
         this.cIM = this.IQ;
         this.cIL = this.IQ;
         this.cIW = 1;
-        anr();
+        ans();
         this.mHandler.sendEmptyMessage(1);
     }
 

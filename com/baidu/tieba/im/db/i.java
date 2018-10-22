@@ -17,21 +17,21 @@ import java.util.LinkedList;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class i {
-    private static long eFB = -1;
-    private static int eFC = 0;
-    private static i eFy;
-    private a eFz = new a();
-    private b eFA = null;
+    private static long eFC = -1;
+    private static int eFD = 0;
+    private static i eFz;
+    private a eFA = new a();
+    private b eFB = null;
 
     public static i aPj() {
-        if (eFy == null) {
+        if (eFz == null) {
             synchronized (i.class) {
-                if (eFy == null) {
-                    eFy = new i();
+                if (eFz == null) {
+                    eFz = new i();
                 }
             }
         }
-        return eFy;
+        return eFz;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -45,7 +45,7 @@ public class i {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    i.aPj().eFz.removeMessages(1);
+                    i.aPj().eFA.removeMessages(1);
                     i.aPj().execute();
                     return;
                 default:
@@ -61,10 +61,10 @@ public class i {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        i.this.eFz.sendMessageDelayed(i.this.eFz.obtainMessage(1), StatisticConfig.MIN_UPLOAD_INTERVAL);
+                        i.this.eFA.sendMessageDelayed(i.this.eFA.obtainMessage(1), StatisticConfig.MIN_UPLOAD_INTERVAL);
                         return;
                     }
-                    i.this.eFz.removeMessages(1);
+                    i.this.eFA.removeMessages(1);
                     i.this.stop();
                 }
             }
@@ -73,21 +73,21 @@ public class i {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void execute() {
-        if (this.eFA != null) {
-            this.eFA.cancel();
-            this.eFA = null;
+        if (this.eFB != null) {
+            this.eFB.cancel();
+            this.eFB = null;
         }
-        this.eFA = new b();
-        this.eFA.setParallel(TiebaIMConfig.getParallel());
-        this.eFA.setPriority(4);
-        this.eFA.execute(new String[0]);
+        this.eFB = new b();
+        this.eFB.setParallel(TiebaIMConfig.getParallel());
+        this.eFB.setPriority(4);
+        this.eFB.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void stop() {
-        if (this.eFA != null) {
-            this.eFA.cancel();
-            this.eFA = null;
+        if (this.eFB != null) {
+            this.eFB.cancel();
+            this.eFB = null;
         }
     }
 
@@ -106,23 +106,23 @@ public class i {
             if (aPn == null || aPn.size() == 0) {
                 return false;
             }
-            if (i.eFB < 0) {
+            if (i.eFC < 0) {
                 try {
                     StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                    long unused = i.eFB = statFs.getAvailableBlocks() * statFs.getBlockSize();
-                    if (i.eFB > 2147483648L) {
-                        int unused2 = i.eFC = 5000;
-                    } else if (i.eFB > IjkMediaMeta.AV_CH_STEREO_RIGHT) {
-                        int unused3 = i.eFC = 3000;
+                    long unused = i.eFC = statFs.getAvailableBlocks() * statFs.getBlockSize();
+                    if (i.eFC > 2147483648L) {
+                        int unused2 = i.eFD = 5000;
+                    } else if (i.eFC > IjkMediaMeta.AV_CH_STEREO_RIGHT) {
+                        int unused3 = i.eFD = 3000;
                     } else {
-                        int unused4 = i.eFC = 1000;
+                        int unused4 = i.eFD = 1000;
                     }
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
             }
-            if (i.eFC < 1000) {
-                int unused5 = i.eFC = 1000;
+            if (i.eFD < 1000) {
+                int unused5 = i.eFD = 1000;
             }
             try {
                 h.aPh().aPi();
@@ -131,13 +131,13 @@ public class i {
                         h.aPh().endTransaction();
                         return false;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                        c.aPa().al(imMessageCenterPojo.getGid(), i.eFC);
+                        c.aPa().al(imMessageCenterPojo.getGid(), i.eFD);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                        m.aPs().al(imMessageCenterPojo.getGid(), i.eFC);
+                        m.aPs().al(imMessageCenterPojo.getGid(), i.eFD);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                        l.aPq().al(imMessageCenterPojo.getGid(), i.eFC);
+                        l.aPq().al(imMessageCenterPojo.getGid(), i.eFD);
                     } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
-                        d.aPb().al(imMessageCenterPojo.getGid(), i.eFC);
+                        d.aPb().al(imMessageCenterPojo.getGid(), i.eFD);
                     }
                 }
             } catch (Exception e2) {

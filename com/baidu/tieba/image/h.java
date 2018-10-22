@@ -14,14 +14,14 @@ import tbclient.App;
 import tbclient.GoodsInfo;
 /* loaded from: classes3.dex */
 public class h {
-    private LinkedList<f> eZa;
+    private LinkedList<f> eZb;
     private String fid = null;
-    private int eYZ = 0;
-    private AdvertAppInfo eZb = null;
+    private int eZa = 0;
+    private AdvertAppInfo eZc = null;
 
     public h() {
-        this.eZa = null;
-        this.eZa = new LinkedList<>();
+        this.eZb = null;
+        this.eZb = new LinkedList<>();
     }
 
     public void O(String str, boolean z) {
@@ -33,11 +33,11 @@ public class h {
     }
 
     public LinkedList<f> aVp() {
-        return this.eZa;
+        return this.eZb;
     }
 
     public int getImageNum() {
-        return this.eYZ;
+        return this.eZa;
     }
 
     public void a(JSONObject jSONObject, Boolean bool) {
@@ -47,7 +47,7 @@ public class h {
                 if (optJSONObject != null) {
                     this.fid = optJSONObject.optString("id");
                 }
-                this.eYZ = jSONObject.optInt("pic_amount", 0);
+                this.eZa = jSONObject.optInt("pic_amount", 0);
                 JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
                 if (optJSONArray != null) {
                     if (bool.booleanValue()) {
@@ -55,8 +55,8 @@ public class h {
                             f fVar = new f();
                             fVar.paserJson(optJSONArray.optJSONObject(i));
                             int index = fVar.getIndex();
-                            if (index >= 1 && index <= this.eYZ) {
-                                this.eZa.addLast(fVar);
+                            if (index >= 1 && index <= this.eZa) {
+                                this.eZb.addLast(fVar);
                             }
                         }
                     } else {
@@ -64,8 +64,8 @@ public class h {
                             f fVar2 = new f();
                             fVar2.paserJson(optJSONArray.getJSONObject(length));
                             int index2 = fVar2.getIndex();
-                            if (index2 >= 1 && index2 <= this.eYZ) {
-                                this.eZa.addFirst(fVar2);
+                            if (index2 >= 1 && index2 <= this.eZa) {
+                                this.eZb.addFirst(fVar2);
                             }
                         }
                     }
@@ -120,10 +120,10 @@ public class h {
             }
             builder.loc_code = optJSONObject.optString("loc_code");
             App build = builder.build(true);
-            this.eZb = new AdvertAppInfo();
-            this.eZb.a(build);
-            this.eZb.adPosition = "c0111";
-            this.eZb.als = this.fid;
+            this.eZc = new AdvertAppInfo();
+            this.eZc.a(build);
+            this.eZc.adPosition = "c0111";
+            this.eZc.als = this.fid;
         }
     }
 
@@ -157,6 +157,6 @@ public class h {
     }
 
     public AdvertAppInfo aVq() {
-        return this.eZb;
+        return this.eZc;
     }
 }

@@ -37,7 +37,7 @@ public class a {
                 Iterator it = ((AbsDelegateAdapterList) customResponsedMessage.getData()).iterator();
                 while (it.hasNext()) {
                     com.baidu.adp.widget.ListView.a aVar = (com.baidu.adp.widget.ListView.a) it.next();
-                    if ((aVar instanceof aa) && "FrsHottopicDelegateAdapter".equals(((aa) aVar).aoq()) && a.this.mAdapters != null) {
+                    if ((aVar instanceof aa) && "FrsHottopicDelegateAdapter".equals(((aa) aVar).aor()) && a.this.mAdapters != null) {
                         ((aa) aVar).a(a.this.dHg.getPageContext(), a.this.dHg.getUniqueId());
                         ((aa) aVar).setFrom("c13010");
                         a.this.mAdapters.add(aVar);

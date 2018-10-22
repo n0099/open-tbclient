@@ -15,7 +15,7 @@ public class a {
 
     /* loaded from: classes.dex */
     public interface b {
-        void ayS();
+        void ayT();
 
         void lk(int i);
 
@@ -27,11 +27,11 @@ public class a {
         this.dzo = new ArrayList<>();
     }
 
-    public static a ayM() {
+    public static a ayN() {
         return C0183a.dzr;
     }
 
-    public boolean ayN() {
+    public boolean ayO() {
         return this.dzp;
     }
 
@@ -48,7 +48,7 @@ public class a {
         }
         if (this.dzo.size() > 29) {
             if (this.dzq != null) {
-                this.dzq.ayS();
+                this.dzq.ayT();
                 return false;
             }
             return false;
@@ -60,7 +60,7 @@ public class a {
         return true;
     }
 
-    public List<bb> ayO() {
+    public List<bb> ayP() {
         return this.dzo;
     }
 
@@ -101,7 +101,7 @@ public class a {
         private static a dzr = new a();
     }
 
-    public AntiData ayP() {
+    public AntiData ayQ() {
         return this.aJw;
     }
 
@@ -141,7 +141,7 @@ public class a {
         }
     }
 
-    public boolean ayQ() {
+    public boolean ayR() {
         return this.aJw != null && this.aJw.isMultiDeleteEnable();
     }
 }

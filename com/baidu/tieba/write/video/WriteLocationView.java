@@ -24,7 +24,7 @@ public class WriteLocationView extends LocationInfoView {
     private LocationModel aVD;
     private int aVJ;
     private final LocationModel.a aVQ;
-    private final CustomMessageListener hfi;
+    private final CustomMessageListener hfj;
     private BaseActivity<?> mBaseActivity;
 
     public WriteLocationView(Context context) {
@@ -60,7 +60,7 @@ public class WriteLocationView extends LocationInfoView {
                 }
             }
         };
-        this.hfi = new CustomMessageListener(2001226) { // from class: com.baidu.tieba.write.video.WriteLocationView.5
+        this.hfj = new CustomMessageListener(2001226) { // from class: com.baidu.tieba.write.video.WriteLocationView.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -81,7 +81,7 @@ public class WriteLocationView extends LocationInfoView {
 
     public void d(BaseActivity<?> baseActivity) {
         this.mBaseActivity = baseActivity;
-        this.mBaseActivity.registerListener(this.hfi);
+        this.mBaseActivity.registerListener(this.hfj);
         this.aVD = new LocationModel(this.mBaseActivity);
         this.aVD.a(this.aVQ);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.video.WriteLocationView.1
@@ -103,11 +103,11 @@ public class WriteLocationView extends LocationInfoView {
         Lm();
     }
 
-    public boolean alj() {
+    public boolean alk() {
         if (this.aVD == null) {
             return false;
         }
-        return this.aVD.alj();
+        return this.aVD.alk();
     }
 
     public void Lj() {
@@ -126,7 +126,7 @@ public class WriteLocationView extends LocationInfoView {
     }
 
     private void Lm() {
-        if (this.aVD.alj() && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
+        if (this.aVD.alk() && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
             if (this.aVD.bCL()) {
                 d(2, true, c.bCH().getLocationData().bCD());
                 return;
@@ -145,7 +145,7 @@ public class WriteLocationView extends LocationInfoView {
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 if (j.kX()) {
                     WriteLocationView.this.d(1, true, null);
-                    WriteLocationView.this.aVD.aln();
+                    WriteLocationView.this.aVD.alo();
                 } else {
                     WriteLocationView.this.aVQ.Lx();
                 }

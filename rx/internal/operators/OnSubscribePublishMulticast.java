@@ -264,30 +264,30 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.j<T> {
-        final OnSubscribePublishMulticast<T> iui;
+        final OnSubscribePublishMulticast<T> iuj;
 
         public a(OnSubscribePublishMulticast<T> onSubscribePublishMulticast) {
-            this.iui = onSubscribePublishMulticast;
+            this.iuj = onSubscribePublishMulticast;
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            this.iui.onNext(t);
+            this.iuj.onNext(t);
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.iui.onError(th);
+            this.iuj.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.iui.onCompleted();
+            this.iuj.onCompleted();
         }
 
         @Override // rx.j
         public void setProducer(rx.f fVar) {
-            this.iui.setProducer(fVar);
+            this.iuj.setProducer(fVar);
         }
     }
 

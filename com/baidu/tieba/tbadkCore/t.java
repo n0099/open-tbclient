@@ -118,11 +118,11 @@ public class t {
     /* loaded from: classes.dex */
     public static class b extends BdAsyncTask<String, String, WriteData> {
         private final String cacheKey;
-        private final a hbW;
+        private final a hbX;
 
         public b(String str, a aVar) {
             setPriority(3);
-            this.hbW = aVar;
+            this.hbX = aVar;
             this.cacheKey = str;
         }
 
@@ -146,8 +146,8 @@ public class t {
         /* renamed from: c */
         public void onPostExecute(WriteData writeData) {
             super.onPostExecute(writeData);
-            if (this.hbW != null) {
-                this.hbW.a(writeData);
+            if (this.hbX != null) {
+                this.hbX.a(writeData);
             }
         }
     }

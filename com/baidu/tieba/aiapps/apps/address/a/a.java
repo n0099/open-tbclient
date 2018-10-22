@@ -61,7 +61,7 @@ public class a extends RecyclerView.Adapter<C0158a> {
         final com.baidu.tieba.aiapps.apps.address.c.b bVar = this.bBx.get(i);
         c0158a.aGD.setText(bVar.userName);
         c0158a.bBA.setText(bVar.bCa);
-        c0158a.bBB.setText(bVar.WK());
+        c0158a.bBB.setText(bVar.WL());
         c0158a.bBC.setVisibility(bVar.bCg ? 0 : 8);
         c0158a.bBD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.a.a.1
             @Override // android.view.View.OnClickListener

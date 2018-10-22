@@ -41,11 +41,11 @@ public class b extends com.baidu.tieba.card.data.b {
         return this.dgn;
     }
 
-    public String ayH() {
+    public String ayI() {
         return this.dyV;
     }
 
-    public String ayI() {
+    public String ayJ() {
         return this.dyU;
     }
 
@@ -57,7 +57,7 @@ public class b extends com.baidu.tieba.card.data.b {
         return this.mForumId;
     }
 
-    public String ayJ() {
+    public String ayK() {
         return this.dyD;
     }
 }

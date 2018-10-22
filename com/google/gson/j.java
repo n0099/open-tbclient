@@ -1,7 +1,7 @@
 package com.google.gson;
 /* loaded from: classes2.dex */
 public final class j extends i {
-    public static final j ikg = new j();
+    public static final j ikh = new j();
 
     public int hashCode() {
         return j.class.hashCode();

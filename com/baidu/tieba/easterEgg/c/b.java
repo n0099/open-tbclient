@@ -23,7 +23,7 @@ public class b extends k {
     public b(int i) {
         super(i);
         this.bCB = new d();
-        ath();
+        ati();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,7 +37,7 @@ public class b extends k {
         return socketMessage;
     }
 
-    private void ath() {
+    private void ati() {
         int l;
         this.dex = new SparseArray<>();
         ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();

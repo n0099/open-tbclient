@@ -29,8 +29,8 @@ public class k extends b<com.baidu.tieba.card.data.h> {
         this.aAK = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (k.this.anO() != null) {
-                    k.this.anO().a(view, null);
+                if (k.this.anP() != null) {
+                    k.this.anP().a(view, null);
                 }
             }
         };

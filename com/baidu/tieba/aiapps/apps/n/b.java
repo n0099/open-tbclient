@@ -27,27 +27,38 @@ public class b extends AiAppAction {
     }
 
     private boolean au(Context context, String str) {
+        boolean z;
         if (StringUtils.isNull(str)) {
             return false;
         }
         try {
-            String optString = new JSONObject(str).optString("path");
+            JSONObject jSONObject = new JSONObject(str);
+            String optString = jSONObject.optString("path");
             if (StringUtils.isNull(optString)) {
-                return false;
+                String optString2 = jSONObject.optString("appid");
+                if (StringUtils.isNull(optString2)) {
+                    z = false;
+                } else {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2921361, com.baidu.tieba.aiapps.a.t(optString2, "", "")));
+                    z = true;
+                }
+            } else {
+                String substring = optString.substring("/pages/frshistory/frshistory?extradata=".length());
+                if (StringUtils.isNull(substring)) {
+                    z = false;
+                } else {
+                    JSONObject jSONObject2 = new JSONObject(substring);
+                    String optString3 = jSONObject2.optString("third_app_id");
+                    String optString4 = jSONObject2.optString("third_app_name");
+                    String optString5 = jSONObject2.optString("third_app_pic");
+                    String optString6 = jSONObject2.optString("third_app_link");
+                    SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(context, 10086);
+                    selectForumActivityConfig.setAiAppsParams(optString3, optString4, optString5, null, optString6, null);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, selectForumActivityConfig));
+                    z = true;
+                }
             }
-            String substring = optString.substring("/pages/frshistory/frshistory?extradata=".length());
-            if (StringUtils.isNull(substring)) {
-                return false;
-            }
-            JSONObject jSONObject = new JSONObject(substring);
-            String optString2 = jSONObject.optString("third_app_id");
-            String optString3 = jSONObject.optString("third_app_name");
-            String optString4 = jSONObject.optString("third_app_pic");
-            String optString5 = jSONObject.optString("third_app_link");
-            SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(context, 10086);
-            selectForumActivityConfig.setAiAppsParams(optString2, optString3, optString4, null, optString5, null);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, selectForumActivityConfig));
-            return true;
+            return z;
         } catch (JSONException e) {
             return false;
         }

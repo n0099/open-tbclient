@@ -3,27 +3,27 @@ package rx.internal.util.a;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class y<E> extends aa<E> {
-    private static final long iDH;
-    private static final int iDI;
-    private static final long iDK;
+    private static final long iDI;
+    private static final int iDJ;
     private static final long iDL;
-    static final int iDx = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
-    private static final Object iDD = new Object();
+    private static final long iDM;
+    static final int iDy = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
+    private static final Object iDE = new Object();
 
     static {
-        int arrayIndexScale = ae.iDR.arrayIndexScale(Object[].class);
+        int arrayIndexScale = ae.iDS.arrayIndexScale(Object[].class);
         if (4 == arrayIndexScale) {
-            iDI = 2;
+            iDJ = 2;
         } else if (8 == arrayIndexScale) {
-            iDI = 3;
+            iDJ = 3;
         } else {
             throw new IllegalStateException("Unknown pointer size");
         }
-        iDH = ae.iDR.arrayBaseOffset(Object[].class);
+        iDI = ae.iDS.arrayBaseOffset(Object[].class);
         try {
-            iDL = ae.iDR.objectFieldOffset(ad.class.getDeclaredField("producerIndex"));
+            iDM = ae.iDS.objectFieldOffset(ad.class.getDeclaredField("producerIndex"));
             try {
-                iDK = ae.iDR.objectFieldOffset(aa.class.getDeclaredField("consumerIndex"));
+                iDL = ae.iDS.objectFieldOffset(aa.class.getDeclaredField("consumerIndex"));
             } catch (NoSuchFieldException e) {
                 InternalError internalError = new InternalError();
                 internalError.initCause(e);
@@ -40,12 +40,12 @@ public class y<E> extends aa<E> {
         int yE = h.yE(i);
         long j = yE - 1;
         E[] eArr = (E[]) new Object[yE + 1];
-        this.iDQ = eArr;
-        this.iDP = j;
+        this.iDR = eArr;
+        this.iDQ = j;
         yC(yE);
-        this.iDO = eArr;
-        this.iDN = j;
-        this.iDv = j - 1;
+        this.iDP = eArr;
+        this.iDO = j;
+        this.iDw = j - 1;
         dM(0L);
     }
 
@@ -59,16 +59,16 @@ public class y<E> extends aa<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.iDQ;
+        E[] eArr = this.iDR;
         long j = this.producerIndex;
-        long j2 = this.iDP;
+        long j2 = this.iDQ;
         long w = w(j, j2);
-        if (j < this.iDv) {
+        if (j < this.iDw) {
             return a(eArr, e, j, w);
         }
-        int i = this.iDy;
+        int i = this.iDz;
         if (b(eArr, w(i + j, j2)) == null) {
-            this.iDv = (i + j) - 1;
+            this.iDw = (i + j) - 1;
             return a(eArr, e, j, w);
         } else if (b(eArr, w(1 + j, j2)) != null) {
             return a(eArr, e, j, w);
@@ -86,11 +86,11 @@ public class y<E> extends aa<E> {
 
     private void a(E[] eArr, long j, long j2, E e, long j3) {
         E[] eArr2 = (E[]) new Object[eArr.length];
-        this.iDQ = eArr2;
-        this.iDv = (j + j3) - 1;
+        this.iDR = eArr2;
+        this.iDw = (j + j3) - 1;
         b(eArr2, j2, e);
         b(eArr, eArr2);
-        b(eArr, j2, iDD);
+        b(eArr, j2, iDE);
         dM(j + 1);
     }
 
@@ -104,12 +104,12 @@ public class y<E> extends aa<E> {
 
     @Override // java.util.Queue
     public final E poll() {
-        E[] eArr = this.iDO;
+        E[] eArr = this.iDP;
         long j = this.consumerIndex;
-        long j2 = this.iDN;
+        long j2 = this.iDO;
         long w = w(j, j2);
         E e = (E) b(eArr, w);
-        boolean z = e == iDD;
+        boolean z = e == iDE;
         if (e != null && !z) {
             b(eArr, w, (Object) null);
             dN(j + 1);
@@ -122,7 +122,7 @@ public class y<E> extends aa<E> {
     }
 
     private E a(E[] eArr, long j, long j2) {
-        this.iDO = eArr;
+        this.iDP = eArr;
         long w = w(j, j2);
         E e = (E) b(eArr, w);
         if (e == null) {
@@ -135,18 +135,18 @@ public class y<E> extends aa<E> {
 
     @Override // java.util.Queue
     public final E peek() {
-        E[] eArr = this.iDO;
+        E[] eArr = this.iDP;
         long j = this.consumerIndex;
-        long j2 = this.iDN;
+        long j2 = this.iDO;
         E e = (E) b(eArr, w(j, j2));
-        if (e == iDD) {
+        if (e == iDE) {
             return b(M(eArr), j, j2);
         }
         return e;
     }
 
     private E b(E[] eArr, long j, long j2) {
-        this.iDO = eArr;
+        this.iDP = eArr;
         return (E) b(eArr, w(j, j2));
     }
 
@@ -164,23 +164,23 @@ public class y<E> extends aa<E> {
     }
 
     private void yC(int i) {
-        this.iDy = Math.min(i / 4, iDx);
+        this.iDz = Math.min(i / 4, iDy);
     }
 
     private long cdc() {
-        return ae.iDR.getLongVolatile(this, iDL);
+        return ae.iDS.getLongVolatile(this, iDM);
     }
 
     private long cdb() {
-        return ae.iDR.getLongVolatile(this, iDK);
+        return ae.iDS.getLongVolatile(this, iDL);
     }
 
     private void dM(long j) {
-        ae.iDR.putOrderedLong(this, iDL, j);
+        ae.iDS.putOrderedLong(this, iDM, j);
     }
 
     private void dN(long j) {
-        ae.iDR.putOrderedLong(this, iDK, j);
+        ae.iDS.putOrderedLong(this, iDL, j);
     }
 
     private static long w(long j, long j2) {
@@ -188,14 +188,14 @@ public class y<E> extends aa<E> {
     }
 
     private static long dS(long j) {
-        return iDH + (j << iDI);
+        return iDI + (j << iDJ);
     }
 
     private static void b(Object[] objArr, long j, Object obj) {
-        ae.iDR.putOrderedObject(objArr, j, obj);
+        ae.iDS.putOrderedObject(objArr, j, obj);
     }
 
     private static <E> Object b(E[] eArr, long j) {
-        return ae.iDR.getObjectVolatile(eArr, j);
+        return ae.iDS.getObjectVolatile(eArr, j);
     }
 }

@@ -45,12 +45,12 @@ public class j extends com.baidu.adp.base.c<ChannelListActivity> {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 com.baidu.tieba.channel.data.f item = j.this.cUD.getItem(i);
                 if (item != null) {
-                    String apc = item.apc();
-                    if (!TextUtils.isEmpty(apc)) {
+                    String apd = item.apd();
+                    if (!TextUtils.isEmpty(apd)) {
                         if (!com.baidu.adp.lib.util.j.kX()) {
                             j.this.cSF.showToast(e.j.neterror);
                         } else {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(j.this.cSF.getActivity(), com.baidu.adp.lib.g.b.d(apc, 0L), 0)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(j.this.cSF.getActivity(), com.baidu.adp.lib.g.b.d(apd, 0L), 0)));
                         }
                     }
                 }
@@ -90,7 +90,7 @@ public class j extends com.baidu.adp.base.c<ChannelListActivity> {
         }
     }
 
-    public void apm() {
+    public void apn() {
         this.OE.completePullRefreshPostDelayed(SystemScreenshotManager.DELAY_TIME);
     }
 

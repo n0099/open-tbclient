@@ -12,25 +12,25 @@ import com.baidu.tieba.e;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes6.dex */
 public class TabItemView extends TextView {
-    private d dUn;
-    private boolean dUo;
-    private int dUp;
+    private d dUo;
+    private boolean dUp;
+    private int dUq;
     private int mState;
-    public static int dUl = 0;
-    public static int dUm = 1;
+    public static int dUm = 0;
+    public static int dUn = 1;
     public static int STATE_EXPANDED = 2;
 
     public TabItemView(Context context, d dVar, int i, boolean z) {
         super(context);
-        this.mState = dUl;
-        this.dUp = 0;
-        this.dUn = dVar;
-        this.dUo = z;
+        this.mState = dUm;
+        this.dUq = 0;
+        this.dUo = dVar;
+        this.dUp = z;
         o(context, i);
     }
 
     private void o(Context context, int i) {
-        if (this.dUo) {
+        if (this.dUp) {
             setPadding(0, l.h(getContext(), e.C0175e.tbds20), 0, 0);
             setTextSize(0, l.h(context, e.C0175e.tbds42));
         } else {
@@ -38,16 +38,16 @@ public class TabItemView extends TextView {
         }
         setSingleLine();
         setFilters(new InputFilter[]{new InputFilter.LengthFilter(i)});
-        if (this.dUn != null) {
-            setText(this.dUn.name);
+        if (this.dUo != null) {
+            setText(this.dUo.name);
         }
         DV();
     }
 
     public void setState(int i) {
-        if (this.dUn != null && this.dUn.dUk != null && this.dUn.dUk.dDE != null && this.dUn.dUk.dDE.size() > 0) {
+        if (this.dUo != null && this.dUo.dUl != null && this.dUo.dUl.dDE != null && this.dUo.dUl.dDE.size() > 0) {
             int i2 = -l.h(getContext(), e.C0175e.tbds20);
-            if (!this.dUo) {
+            if (!this.dUp) {
                 i2 = 0;
             }
             if (i == STATE_EXPANDED) {
@@ -61,14 +61,14 @@ public class TabItemView extends TextView {
             }
             setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(e.C0175e.tbds20));
         }
-        if (this.dUo) {
+        if (this.dUp) {
             al.c(this, e.d.cp_cont_b, 1);
         } else {
-            if (i == dUm || i == STATE_EXPANDED) {
-                if (this.dUp == 0) {
+            if (i == dUn || i == STATE_EXPANDED) {
+                if (this.dUq == 0) {
                     al.c(this, e.d.cp_link_tip_a, 1);
                 } else {
-                    al.c(this, this.dUp, 1);
+                    al.c(this, this.dUq, 1);
                 }
             } else {
                 al.c(this, e.d.cp_cont_f, 1);
@@ -80,10 +80,10 @@ public class TabItemView extends TextView {
     }
 
     public int getTabId() {
-        if (this.dUn == null) {
+        if (this.dUo == null) {
             return -1;
         }
-        return this.dUn.tabId;
+        return this.dUo.tabId;
     }
 
     public int getState() {
@@ -98,7 +98,7 @@ public class TabItemView extends TextView {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int spaceWidth = getSpaceWidth();
         if (spaceWidth >= 0) {
-            if (this.dUo) {
+            if (this.dUp) {
                 setPadding(0, l.h(getContext(), e.C0175e.ds16), spaceWidth, 0);
             } else {
                 setPadding(0, 0, spaceWidth, 0);
@@ -127,10 +127,10 @@ public class TabItemView extends TextView {
     }
 
     public String getUrl() {
-        if (this.dUn == null) {
+        if (this.dUo == null) {
             return null;
         }
-        return this.dUn.url;
+        return this.dUo.url;
     }
 
     public int getDrawableWidth() {
@@ -143,10 +143,10 @@ public class TabItemView extends TextView {
     }
 
     public void setForNewFrame(boolean z) {
-        this.dUo = z;
+        this.dUp = z;
     }
 
     public void setSelectItemColorResId(int i) {
-        this.dUp = i;
+        this.dUq = i;
     }
 }

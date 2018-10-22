@@ -6,27 +6,27 @@ import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes3.dex */
 public class l extends BaseAdapter {
-    private GroupAddressEditActivity eEB;
-    private String[] eEz;
+    private String[] eEA;
+    private GroupAddressEditActivity eEC;
 
     public l(GroupAddressEditActivity groupAddressEditActivity, String[] strArr) {
-        this.eEz = null;
-        this.eEB = null;
-        this.eEB = groupAddressEditActivity;
-        this.eEz = strArr;
+        this.eEA = null;
+        this.eEC = null;
+        this.eEC = groupAddressEditActivity;
+        this.eEA = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eEz != null) {
-            return this.eEz.length;
+        if (this.eEA != null) {
+            return this.eEA.length;
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return (this.eEz == null || i <= -1 || i >= this.eEz.length) ? "" : this.eEz[i];
+        return (this.eEA == null || i <= -1 || i >= this.eEA.length) ? "" : this.eEA[i];
     }
 
     @Override // android.widget.Adapter
@@ -38,13 +38,13 @@ public class l extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            aVar = new a(this.eEB);
-            view = aVar.amt();
+            aVar = new a(this.eEC);
+            view = aVar.amu();
         } else {
             aVar = (a) view.getTag();
         }
         aVar.pa(getItem(i).toString());
-        if (this.eEB.aOE() == i) {
+        if (this.eEC.aOE() == i) {
             aVar.ia(true);
         } else {
             aVar.ia(false);
@@ -54,7 +54,7 @@ public class l extends BaseAdapter {
     }
 
     private void aW(View view) {
-        this.eEB.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.eEB.getLayoutMode().onModeChanged(view);
+        this.eEC.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.eEC.getLayoutMode().onModeChanged(view);
     }
 }

@@ -5,7 +5,7 @@ import rx.d;
 import rx.g;
 /* loaded from: classes2.dex */
 public final class u<T> implements d.a<T> {
-    final rx.d<T> isL;
+    final rx.d<T> isM;
     final rx.g scheduler;
     final long time;
     final TimeUnit unit;
@@ -16,7 +16,7 @@ public final class u<T> implements d.a<T> {
     }
 
     public u(rx.d<T> dVar, long j, TimeUnit timeUnit, rx.g gVar) {
-        this.isL = dVar;
+        this.isM = dVar;
         this.time = j;
         this.unit = timeUnit;
         this.scheduler = gVar;
@@ -28,14 +28,14 @@ public final class u<T> implements d.a<T> {
         aVar.add(createWorker);
         jVar.add(aVar);
         createWorker.a(aVar, this.time, this.unit);
-        this.isL.unsafeSubscribe(aVar);
+        this.isM.unsafeSubscribe(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.j<T> implements rx.functions.a {
         final rx.j<? super T> child;
-        volatile boolean iuR;
+        volatile boolean iuS;
 
         a(rx.j<? super T> jVar) {
             this.child = jVar;
@@ -43,12 +43,12 @@ public final class u<T> implements d.a<T> {
 
         @Override // rx.functions.a
         public void call() {
-            this.iuR = true;
+            this.iuS = true;
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            if (this.iuR) {
+            if (this.iuS) {
                 this.child.onNext(t);
             }
         }

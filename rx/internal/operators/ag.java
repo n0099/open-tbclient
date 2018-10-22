@@ -7,8 +7,8 @@ import java.util.List;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class ag<T, TOpening, TClosing> implements d.b<List<T>, T> {
-    final rx.d<? extends TOpening> ivu;
-    final rx.functions.f<? super TOpening, ? extends rx.d<? extends TClosing>> ivv;
+    final rx.d<? extends TOpening> ivv;
+    final rx.functions.f<? super TOpening, ? extends rx.d<? extends TClosing>> ivw;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -16,8 +16,8 @@ public final class ag<T, TOpening, TClosing> implements d.b<List<T>, T> {
     }
 
     public ag(rx.d<? extends TOpening> dVar, rx.functions.f<? super TOpening, ? extends rx.d<? extends TClosing>> fVar) {
-        this.ivu = dVar;
-        this.ivv = fVar;
+        this.ivv = dVar;
+        this.ivw = fVar;
     }
 
     public rx.j<? super T> call(rx.j<? super List<T>> jVar) {
@@ -40,7 +40,7 @@ public final class ag<T, TOpening, TClosing> implements d.b<List<T>, T> {
         };
         jVar.add(jVar2);
         jVar.add(aVar);
-        this.ivu.unsafeSubscribe(jVar2);
+        this.ivv.unsafeSubscribe(jVar2);
         return aVar;
     }
 
@@ -49,18 +49,18 @@ public final class ag<T, TOpening, TClosing> implements d.b<List<T>, T> {
     public final class a extends rx.j<T> {
         final rx.j<? super List<T>> child;
         boolean done;
-        final List<List<T>> ivy = new LinkedList();
-        final rx.subscriptions.b ivz = new rx.subscriptions.b();
+        final List<List<T>> ivz = new LinkedList();
+        final rx.subscriptions.b ivA = new rx.subscriptions.b();
 
         public a(rx.j<? super List<T>> jVar) {
             this.child = jVar;
-            add(this.ivz);
+            add(this.ivA);
         }
 
         @Override // rx.e
         public void onNext(T t) {
             synchronized (this) {
-                for (List<T> list : this.ivy) {
+                for (List<T> list : this.ivz) {
                     list.add(t);
                 }
             }
@@ -71,7 +71,7 @@ public final class ag<T, TOpening, TClosing> implements d.b<List<T>, T> {
             synchronized (this) {
                 if (!this.done) {
                     this.done = true;
-                    this.ivy.clear();
+                    this.ivz.clear();
                     this.child.onError(th);
                     unsubscribe();
                 }
@@ -84,8 +84,8 @@ public final class ag<T, TOpening, TClosing> implements d.b<List<T>, T> {
                 synchronized (this) {
                     if (!this.done) {
                         this.done = true;
-                        LinkedList<List> linkedList = new LinkedList(this.ivy);
-                        this.ivy.clear();
+                        LinkedList<List> linkedList = new LinkedList(this.ivz);
+                        this.ivz.clear();
                         for (List list : linkedList) {
                             this.child.onNext(list);
                         }
@@ -102,13 +102,13 @@ public final class ag<T, TOpening, TClosing> implements d.b<List<T>, T> {
             final ArrayList arrayList = new ArrayList();
             synchronized (this) {
                 if (!this.done) {
-                    this.ivy.add(arrayList);
+                    this.ivz.add(arrayList);
                     try {
-                        rx.d<? extends TClosing> call = ag.this.ivv.call(topening);
+                        rx.d<? extends TClosing> call = ag.this.ivw.call(topening);
                         rx.j<TClosing> jVar = new rx.j<TClosing>() { // from class: rx.internal.operators.ag.a.1
                             @Override // rx.e
                             public void onNext(TClosing tclosing) {
-                                a.this.ivz.b(this);
+                                a.this.ivA.b(this);
                                 a.this.ey(arrayList);
                             }
 
@@ -119,11 +119,11 @@ public final class ag<T, TOpening, TClosing> implements d.b<List<T>, T> {
 
                             @Override // rx.e
                             public void onCompleted() {
-                                a.this.ivz.b(this);
+                                a.this.ivA.b(this);
                                 a.this.ey(arrayList);
                             }
                         };
-                        this.ivz.add(jVar);
+                        this.ivA.add(jVar);
                         call.unsafeSubscribe(jVar);
                     } catch (Throwable th) {
                         rx.exceptions.a.a(th, this);
@@ -136,7 +136,7 @@ public final class ag<T, TOpening, TClosing> implements d.b<List<T>, T> {
             boolean z;
             synchronized (this) {
                 if (!this.done) {
-                    Iterator<List<T>> it = this.ivy.iterator();
+                    Iterator<List<T>> it = this.ivz.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             z = false;

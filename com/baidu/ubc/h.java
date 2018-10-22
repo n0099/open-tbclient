@@ -1,13 +1,13 @@
 package com.baidu.ubc;
 /* loaded from: classes2.dex */
 class h {
-    private String hSM;
     private String hSN;
-    private int hSO;
-    private String hSP;
-    private int hSQ;
+    private String hSO;
+    private int hSP;
+    private String hSQ;
     private int hSR;
-    private String hSS;
+    private int hSS;
+    private String hST;
     private String mCategory;
     private String mId;
     private int mRate;
@@ -15,11 +15,11 @@ class h {
 
     public h(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.hSM = str2;
-        this.hSN = str3;
-        this.hSO = i;
+        this.hSN = str2;
+        this.hSO = str3;
+        this.hSP = i;
         this.mType = str4;
-        this.hSP = str5;
+        this.hSQ = str5;
     }
 
     public String getId() {
@@ -27,15 +27,15 @@ class h {
     }
 
     public String bPp() {
-        return this.hSM;
-    }
-
-    public String bPq() {
         return this.hSN;
     }
 
-    public int getTimeout() {
+    public String bPq() {
         return this.hSO;
+    }
+
+    public int getTimeout() {
+        return this.hSP;
     }
 
     public String getType() {
@@ -43,7 +43,7 @@ class h {
     }
 
     public String bPr() {
-        return this.hSP;
+        return this.hSQ;
     }
 
     public int bPs() {
@@ -63,26 +63,26 @@ class h {
     }
 
     public int bPt() {
-        return this.hSQ;
-    }
-
-    public void wN(int i) {
-        this.hSQ = i;
-    }
-
-    public int bPu() {
         return this.hSR;
     }
 
-    public void wO(int i) {
+    public void wN(int i) {
         this.hSR = i;
     }
 
-    public String getIdType() {
+    public int bPu() {
         return this.hSS;
     }
 
+    public void wO(int i) {
+        this.hSS = i;
+    }
+
+    public String getIdType() {
+        return this.hST;
+    }
+
     public void xx(String str) {
-        this.hSS = str;
+        this.hST = str;
     }
 }

@@ -4,61 +4,61 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes2.dex */
 public class q {
-    private c icd;
-    private com.facebook.common.memory.g icg;
-    private i ici;
-    private com.facebook.common.memory.j icw;
-    private final p igr;
-    private k igs;
-    private com.facebook.common.memory.a igt;
+    private c ice;
+    private com.facebook.common.memory.g ich;
+    private i icj;
+    private com.facebook.common.memory.j icx;
+    private final p igs;
+    private k igt;
+    private com.facebook.common.memory.a igu;
 
     public q(p pVar) {
-        this.igr = (p) com.facebook.common.internal.g.checkNotNull(pVar);
+        this.igs = (p) com.facebook.common.internal.g.checkNotNull(pVar);
     }
 
     public c bXh() {
-        if (this.icd == null) {
-            this.icd = new c(this.igr.bVk(), this.igr.bWY(), this.igr.bWZ());
+        if (this.ice == null) {
+            this.ice = new c(this.igs.bVk(), this.igs.bWY(), this.igs.bWZ());
         }
-        return this.icd;
+        return this.ice;
     }
 
     public i bXi() {
-        if (this.ici == null) {
-            this.ici = new i(this.igr.bVk(), this.igr.bXc());
+        if (this.icj == null) {
+            this.icj = new i(this.igs.bVk(), this.igs.bXc());
         }
-        return this.ici;
+        return this.icj;
     }
 
     public int bXj() {
-        return this.igr.bXc().igz;
+        return this.igs.bXc().igA;
     }
 
     public k bXk() {
-        if (this.igs == null) {
-            this.igs = new k(this.igr.bVk(), this.igr.bXa(), this.igr.bXb());
+        if (this.igt == null) {
+            this.igt = new k(this.igs.bVk(), this.igs.bXa(), this.igs.bXb());
         }
-        return this.igs;
+        return this.igt;
     }
 
     public com.facebook.common.memory.g bXl() {
-        if (this.icg == null) {
-            this.icg = new m(bXk(), bXm());
+        if (this.ich == null) {
+            this.ich = new m(bXk(), bXm());
         }
-        return this.icg;
+        return this.ich;
     }
 
     public com.facebook.common.memory.j bXm() {
-        if (this.icw == null) {
-            this.icw = new com.facebook.common.memory.j(bXn());
+        if (this.icx == null) {
+            this.icx = new com.facebook.common.memory.j(bXn());
         }
-        return this.icw;
+        return this.icx;
     }
 
     public com.facebook.common.memory.a bXn() {
-        if (this.igt == null) {
-            this.igt = new j(this.igr.bVk(), this.igr.bXd(), this.igr.bXe());
+        if (this.igu == null) {
+            this.igu = new j(this.igs.bVk(), this.igs.bXd(), this.igs.bXe());
         }
-        return this.igt;
+        return this.igu;
     }
 }

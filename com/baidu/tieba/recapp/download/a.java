@@ -23,10 +23,10 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private static a gDJ = new a();
+    private static a gDK = new a();
     private static DownloadData aTC = null;
     private static List<DownloadData> mTaskList = new LinkedList();
-    private C0267a gDK = null;
+    private C0267a gDL = null;
     private int max = 20;
     @SuppressLint({"HandlerLeak"})
     private Handler aTE = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.recapp.download.a.1
@@ -48,7 +48,7 @@ public class a {
     }
 
     public static a btq() {
-        return gDJ;
+        return gDK;
     }
 
     public void a(DownloadData downloadData, int i) {
@@ -113,8 +113,8 @@ public class a {
         if (aTC == null && !mTaskList.isEmpty()) {
             aTC = mTaskList.get(0);
             if (aTC != null) {
-                this.gDK = new C0267a();
-                this.gDK.execute(aTC);
+                this.gDL = new C0267a();
+                this.gDL.execute(aTC);
             }
         }
     }
@@ -126,10 +126,10 @@ public class a {
     public void t(String str, boolean z) {
         if (aTC != null && aTC.getUrl().equals(str)) {
             if (z) {
-                this.gDK.KF();
+                this.gDL.KF();
                 return;
             } else {
-                this.gDK.cancel(true);
+                this.gDL.cancel(true);
                 return;
             }
         }
@@ -172,14 +172,14 @@ public class a {
     /* renamed from: com.baidu.tieba.recapp.download.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public class C0267a extends BdAsyncTask<DownloadData, DownloadData, Integer> {
-        private b gDM = new b();
+        private b gDN = new b();
 
         C0267a() {
         }
 
         public void KF() {
-            if (this.gDM != null) {
-                this.gDM.jl();
+            if (this.gDN != null) {
+                this.gDN.jl();
             }
             cancel(true);
         }
@@ -188,7 +188,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            this.gDM.jl();
+            this.gDN.jl();
             a.aTC.setStatus(4);
             a.aTC.setStatusMsg(null);
             if (a.aTC.getCallback() != null) {
@@ -223,8 +223,8 @@ public class a {
                     file.delete();
                 }
                 if (!file.exists()) {
-                    this.gDM.setUrl(downloadDataArr[0].getUrl());
-                    if (!Boolean.valueOf(this.gDM.a(downloadDataArr[0].getId() + BaseRequestAction.SPLITE + downloadDataArr[0].getName() + ".tmp", a.this.aTE, TbConfig.NET_MSG_GETLENTH, 1, 3000)).booleanValue()) {
+                    this.gDN.setUrl(downloadDataArr[0].getUrl());
+                    if (!Boolean.valueOf(this.gDN.a(downloadDataArr[0].getId() + BaseRequestAction.SPLITE + downloadDataArr[0].getName() + ".tmp", a.this.aTE, TbConfig.NET_MSG_GETLENTH, 1, 3000)).booleanValue()) {
                         return 3;
                     }
                     File eC = l.eC(downloadDataArr[0].getId() + BaseRequestAction.SPLITE + downloadDataArr[0].getName() + ".tmp");

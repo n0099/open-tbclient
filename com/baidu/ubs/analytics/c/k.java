@@ -19,7 +19,7 @@ public final class k extends com.baidu.ubs.analytics.d.d {
     protected final void a() {
         d dVar;
         String str;
-        dVar = d.a.hTP;
+        dVar = d.a.hTQ;
         if (dVar.bQk().size() == 0) {
             com.baidu.ubs.analytics.d.b.xT(" 线程轮询  app 应该是退出了");
         }

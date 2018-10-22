@@ -98,11 +98,11 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
         return this.dpT;
     }
 
-    public void awG() {
+    public void awH() {
         this.dJR.startAnimation(getClickRotateAnimation());
     }
 
-    public void awH() {
+    public void awI() {
         this.dJR.clearAnimation();
     }
 }

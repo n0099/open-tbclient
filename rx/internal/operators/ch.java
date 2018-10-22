@@ -7,8 +7,8 @@ import rx.d;
 import rx.subjects.UnicastSubject;
 /* loaded from: classes2.dex */
 public final class ch<T, U> implements d.b<rx.d<T>, T> {
-    static final Object iAy = new Object();
-    final rx.d<U> itx;
+    static final Object iAz = new Object();
+    final rx.d<U> ity;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -16,7 +16,7 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
     }
 
     public ch(rx.d<U> dVar) {
-        this.itx = dVar;
+        this.ity = dVar;
     }
 
     public rx.j<? super T> call(rx.j<? super rx.d<T>> jVar) {
@@ -25,7 +25,7 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
         jVar.add(bVar);
         jVar.add(aVar);
         bVar.ccx();
-        this.itx.unsafeSubscribe(aVar);
+        this.ity.unsafeSubscribe(aVar);
         return bVar;
     }
 
@@ -35,9 +35,9 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
         final rx.j<? super rx.d<T>> child;
         boolean emitting;
         final Object guard = new Object();
-        rx.e<T> iAA;
-        rx.d<T> iAB;
-        List<Object> iAC;
+        rx.e<T> iAB;
+        rx.d<T> iAC;
+        List<Object> iAD;
 
         public b(rx.j<? super rx.d<T>> jVar) {
             this.child = new rx.b.f(jVar);
@@ -54,14 +54,14 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
             boolean z2 = false;
             synchronized (this.guard) {
                 if (this.emitting) {
-                    if (this.iAC == null) {
-                        this.iAC = new ArrayList();
+                    if (this.iAD == null) {
+                        this.iAD = new ArrayList();
                     }
-                    this.iAC.add(t);
+                    this.iAD.add(t);
                     return;
                 }
-                List<Object> list = this.iAC;
-                this.iAC = null;
+                List<Object> list = this.iAD;
+                this.iAD = null;
                 this.emitting = true;
                 List<Object> list2 = list;
                 boolean z3 = true;
@@ -75,8 +75,8 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
                         try {
                             synchronized (this.guard) {
                                 try {
-                                    list2 = this.iAC;
-                                    this.iAC = null;
+                                    list2 = this.iAD;
+                                    this.iAD = null;
                                     if (list2 == null) {
                                         this.emitting = false;
                                         return;
@@ -116,7 +116,7 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
         void eA(List<Object> list) {
             if (list != null) {
                 for (Object obj : list) {
-                    if (obj == ch.iAy) {
+                    if (obj == ch.iAz) {
                         ccv();
                     } else if (NotificationLite.ba(obj)) {
                         error(NotificationLite.bc(obj));
@@ -132,22 +132,22 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
         }
 
         void ccv() {
-            rx.e<T> eVar = this.iAA;
+            rx.e<T> eVar = this.iAB;
             if (eVar != null) {
                 eVar.onCompleted();
             }
             ccw();
-            this.child.onNext(this.iAB);
+            this.child.onNext(this.iAC);
         }
 
         void ccw() {
             UnicastSubject cdM = UnicastSubject.cdM();
-            this.iAA = cdM;
             this.iAB = cdM;
+            this.iAC = cdM;
         }
 
         void bl(T t) {
-            rx.e<T> eVar = this.iAA;
+            rx.e<T> eVar = this.iAB;
             if (eVar != null) {
                 eVar.onNext(t);
             }
@@ -157,10 +157,10 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
         public void onError(Throwable th) {
             synchronized (this.guard) {
                 if (this.emitting) {
-                    this.iAC = Collections.singletonList(NotificationLite.M(th));
+                    this.iAD = Collections.singletonList(NotificationLite.M(th));
                     return;
                 }
-                this.iAC = null;
+                this.iAD = null;
                 this.emitting = true;
                 error(th);
             }
@@ -170,14 +170,14 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
         public void onCompleted() {
             synchronized (this.guard) {
                 if (this.emitting) {
-                    if (this.iAC == null) {
-                        this.iAC = new ArrayList();
+                    if (this.iAD == null) {
+                        this.iAD = new ArrayList();
                     }
-                    this.iAC.add(NotificationLite.cbH());
+                    this.iAD.add(NotificationLite.cbH());
                     return;
                 }
-                List<Object> list = this.iAC;
-                this.iAC = null;
+                List<Object> list = this.iAD;
+                this.iAD = null;
                 this.emitting = true;
                 try {
                     eA(list);
@@ -193,14 +193,14 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
             boolean z2 = false;
             synchronized (this.guard) {
                 if (this.emitting) {
-                    if (this.iAC == null) {
-                        this.iAC = new ArrayList();
+                    if (this.iAD == null) {
+                        this.iAD = new ArrayList();
                     }
-                    this.iAC.add(ch.iAy);
+                    this.iAD.add(ch.iAz);
                     return;
                 }
-                List<Object> list = this.iAC;
-                this.iAC = null;
+                List<Object> list = this.iAD;
+                this.iAD = null;
                 this.emitting = true;
                 List<Object> list2 = list;
                 boolean z3 = true;
@@ -214,8 +214,8 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
                         try {
                             synchronized (this.guard) {
                                 try {
-                                    list2 = this.iAC;
-                                    this.iAC = null;
+                                    list2 = this.iAD;
+                                    this.iAD = null;
                                     if (list2 == null) {
                                         this.emitting = false;
                                         return;
@@ -251,9 +251,9 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
         }
 
         void complete() {
-            rx.e<T> eVar = this.iAA;
-            this.iAA = null;
+            rx.e<T> eVar = this.iAB;
             this.iAB = null;
+            this.iAC = null;
             if (eVar != null) {
                 eVar.onCompleted();
             }
@@ -262,9 +262,9 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
         }
 
         void error(Throwable th) {
-            rx.e<T> eVar = this.iAA;
-            this.iAA = null;
+            rx.e<T> eVar = this.iAB;
             this.iAB = null;
+            this.iAC = null;
             if (eVar != null) {
                 eVar.onError(th);
             }
@@ -276,10 +276,10 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T, U> extends rx.j<U> {
-        final b<T> iAz;
+        final b<T> iAA;
 
         public a(b<T> bVar) {
-            this.iAz = bVar;
+            this.iAA = bVar;
         }
 
         @Override // rx.j
@@ -289,17 +289,17 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
 
         @Override // rx.e
         public void onNext(U u) {
-            this.iAz.ccx();
+            this.iAA.ccx();
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.iAz.onError(th);
+            this.iAA.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.iAz.onCompleted();
+            this.iAA.onCompleted();
         }
     }
 }

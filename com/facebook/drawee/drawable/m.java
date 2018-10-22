@@ -9,20 +9,20 @@ import com.facebook.drawee.drawable.n;
 /* loaded from: classes2.dex */
 public class m extends g {
     Matrix IG;
-    n.b hZB;
-    Object iaH;
-    PointF iaI;
-    int iaf;
+    n.b hZC;
+    Object iaI;
+    PointF iaJ;
     int iag;
+    int iah;
     private Matrix mTempMatrix;
 
     public m(Drawable drawable, n.b bVar) {
         super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.iaI = null;
-        this.iaf = 0;
+        this.iaJ = null;
         this.iag = 0;
+        this.iah = 0;
         this.mTempMatrix = new Matrix();
-        this.hZB = bVar;
+        this.hZC = bVar;
     }
 
     @Override // com.facebook.drawee.drawable.g
@@ -33,24 +33,24 @@ public class m extends g {
     }
 
     public n.b bTr() {
-        return this.hZB;
+        return this.hZC;
     }
 
     public void a(n.b bVar) {
-        if (!com.facebook.common.internal.f.equal(this.hZB, bVar)) {
-            this.hZB = bVar;
-            this.iaH = null;
+        if (!com.facebook.common.internal.f.equal(this.hZC, bVar)) {
+            this.hZC = bVar;
+            this.iaI = null;
             bTn();
             invalidateSelf();
         }
     }
 
     public void a(PointF pointF) {
-        if (!com.facebook.common.internal.f.equal(this.iaI, pointF)) {
-            if (this.iaI == null) {
-                this.iaI = new PointF();
+        if (!com.facebook.common.internal.f.equal(this.iaJ, pointF)) {
+            if (this.iaJ == null) {
+                this.iaJ = new PointF();
             }
-            this.iaI.set(pointF);
+            this.iaJ.set(pointF);
             bTn();
             invalidateSelf();
         }
@@ -78,14 +78,14 @@ public class m extends g {
     private void bTm() {
         boolean z;
         boolean z2 = false;
-        if (this.hZB instanceof n.k) {
-            Object state = ((n.k) this.hZB).getState();
-            z = state == null || !state.equals(this.iaH);
-            this.iaH = state;
+        if (this.hZC instanceof n.k) {
+            Object state = ((n.k) this.hZC).getState();
+            z = state == null || !state.equals(this.iaI);
+            this.iaI = state;
         } else {
             z = false;
         }
-        if (this.iaf != getCurrent().getIntrinsicWidth() || this.iag != getCurrent().getIntrinsicHeight()) {
+        if (this.iag != getCurrent().getIntrinsicWidth() || this.iah != getCurrent().getIntrinsicHeight()) {
             z2 = true;
         }
         if (z2 || z) {
@@ -99,21 +99,21 @@ public class m extends g {
         int width = bounds.width();
         int height = bounds.height();
         int intrinsicWidth = current.getIntrinsicWidth();
-        this.iaf = intrinsicWidth;
+        this.iag = intrinsicWidth;
         int intrinsicHeight = current.getIntrinsicHeight();
-        this.iag = intrinsicHeight;
+        this.iah = intrinsicHeight;
         if (intrinsicWidth <= 0 || intrinsicHeight <= 0) {
             current.setBounds(bounds);
             this.IG = null;
         } else if (intrinsicWidth == width && intrinsicHeight == height) {
             current.setBounds(bounds);
             this.IG = null;
-        } else if (this.hZB == n.b.iaJ) {
+        } else if (this.hZC == n.b.iaK) {
             current.setBounds(bounds);
             this.IG = null;
         } else {
             current.setBounds(0, 0, intrinsicWidth, intrinsicHeight);
-            this.hZB.a(this.mTempMatrix, bounds, intrinsicWidth, intrinsicHeight, this.iaI != null ? this.iaI.x : 0.5f, this.iaI != null ? this.iaI.y : 0.5f);
+            this.hZC.a(this.mTempMatrix, bounds, intrinsicWidth, intrinsicHeight, this.iaJ != null ? this.iaJ.x : 0.5f, this.iaJ != null ? this.iaJ.y : 0.5f);
             this.IG = this.mTempMatrix;
         }
     }

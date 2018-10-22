@@ -6,8 +6,8 @@ import rx.internal.operators.NotificationLite;
 import rx.subjects.SubjectSubscriptionManager;
 /* loaded from: classes2.dex */
 public final class a<T> extends c<T, T> {
-    private static final Object[] iFm = new Object[0];
-    private final SubjectSubscriptionManager<T> iFn;
+    private static final Object[] iFn = new Object[0];
+    private final SubjectSubscriptionManager<T> iFo;
 
     public static <T> a<T> cdI() {
         return g(null, false);
@@ -32,14 +32,14 @@ public final class a<T> extends c<T, T> {
 
     protected a(d.a<T> aVar, SubjectSubscriptionManager<T> subjectSubscriptionManager) {
         super(aVar);
-        this.iFn = subjectSubscriptionManager;
+        this.iFo = subjectSubscriptionManager;
     }
 
     @Override // rx.e
     public void onCompleted() {
-        if (this.iFn.getLatest() == null || this.iFn.active) {
+        if (this.iFo.getLatest() == null || this.iFo.active) {
             Object cbH = NotificationLite.cbH();
-            for (SubjectSubscriptionManager.b<T> bVar : this.iFn.terminate(cbH)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.iFo.terminate(cbH)) {
                 bVar.bu(cbH);
             }
         }
@@ -47,10 +47,10 @@ public final class a<T> extends c<T, T> {
 
     @Override // rx.e
     public void onError(Throwable th) {
-        if (this.iFn.getLatest() == null || this.iFn.active) {
+        if (this.iFo.getLatest() == null || this.iFo.active) {
             Object M = NotificationLite.M(th);
             ArrayList arrayList = null;
-            for (SubjectSubscriptionManager.b<T> bVar : this.iFn.terminate(M)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.iFo.terminate(M)) {
                 try {
                     bVar.bu(M);
                 } catch (Throwable th2) {
@@ -66,9 +66,9 @@ public final class a<T> extends c<T, T> {
 
     @Override // rx.e
     public void onNext(T t) {
-        if (this.iFn.getLatest() == null || this.iFn.active) {
+        if (this.iFo.getLatest() == null || this.iFo.active) {
             Object aY = NotificationLite.aY(t);
-            for (SubjectSubscriptionManager.b<T> bVar : this.iFn.next(aY)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.iFo.next(aY)) {
                 bVar.bu(aY);
             }
         }
@@ -76,6 +76,6 @@ public final class a<T> extends c<T, T> {
 
     @Override // rx.subjects.c
     public boolean hasObservers() {
-        return this.iFn.observers().length > 0;
+        return this.iFo.observers().length > 0;
     }
 }

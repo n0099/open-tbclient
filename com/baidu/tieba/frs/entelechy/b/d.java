@@ -1,17 +1,17 @@
 package com.baidu.tieba.frs.entelechy.b;
 /* loaded from: classes6.dex */
 public interface d {
-    boolean aAw();
-
-    void aCS();
+    boolean aAx();
 
     void aCT();
 
     void aCU();
 
-    boolean aCV();
+    void aCV();
 
     boolean aCW();
+
+    boolean aCX();
 
     void gl(boolean z);
 

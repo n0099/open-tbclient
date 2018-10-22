@@ -4,7 +4,7 @@ import java.util.concurrent.ThreadFactory;
 import rx.internal.util.RxThreadFactory;
 /* loaded from: classes2.dex */
 public class g {
-    private static final g iEZ = new g();
+    private static final g iFa = new g();
 
     public static rx.g cdx() {
         return a(new RxThreadFactory("RxComputationScheduler-"));
@@ -57,6 +57,6 @@ public class g {
     }
 
     public static g cdD() {
-        return iEZ;
+        return iFa;
     }
 }

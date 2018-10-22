@@ -11,7 +11,7 @@ public abstract class b implements e, Closeable {
     public abstract boolean isClosed();
 
     public g bWu() {
-        return f.ifI;
+        return f.ifJ;
     }
 
     public boolean isStateful() {

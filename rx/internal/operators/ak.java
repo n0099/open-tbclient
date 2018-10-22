@@ -33,20 +33,20 @@ public final class ak<T> implements d.b<T, T> {
     /* renamed from: rx.internal.operators.ak$1  reason: invalid class name */
     /* loaded from: classes2.dex */
     public class AnonymousClass1 extends rx.j<T> {
-        final /* synthetic */ rx.subscriptions.d itz;
-        final /* synthetic */ g.a iux;
-        final a<T> ivK;
-        final rx.j<?> ivL;
-        final /* synthetic */ rx.b.f ivM;
+        final /* synthetic */ rx.subscriptions.d itA;
+        final /* synthetic */ g.a iuy;
+        final a<T> ivL;
+        final rx.j<?> ivM;
+        final /* synthetic */ rx.b.f ivN;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         AnonymousClass1(rx.j jVar, rx.subscriptions.d dVar, g.a aVar, rx.b.f fVar) {
             super(jVar);
-            this.itz = dVar;
-            this.iux = aVar;
-            this.ivM = fVar;
-            this.ivK = new a<>();
-            this.ivL = this;
+            this.itA = dVar;
+            this.iuy = aVar;
+            this.ivN = fVar;
+            this.ivL = new a<>();
+            this.ivM = this;
         }
 
         @Override // rx.j
@@ -56,25 +56,25 @@ public final class ak<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onNext(T t) {
-            final int bg = this.ivK.bg(t);
-            this.itz.g(this.iux.a(new rx.functions.a() { // from class: rx.internal.operators.ak.1.1
+            final int bg = this.ivL.bg(t);
+            this.itA.g(this.iuy.a(new rx.functions.a() { // from class: rx.internal.operators.ak.1.1
                 @Override // rx.functions.a
                 public void call() {
-                    AnonymousClass1.this.ivK.a(bg, AnonymousClass1.this.ivM, AnonymousClass1.this.ivL);
+                    AnonymousClass1.this.ivL.a(bg, AnonymousClass1.this.ivN, AnonymousClass1.this.ivM);
                 }
             }, ak.this.auk, ak.this.unit));
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.ivM.onError(th);
+            this.ivN.onError(th);
             unsubscribe();
-            this.ivK.clear();
+            this.ivL.clear();
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.ivK.a(this.ivM, this);
+            this.ivL.a(this.ivN, this);
         }
     }
 
@@ -84,7 +84,7 @@ public final class ak<T> implements d.b<T, T> {
         boolean emitting;
         boolean hasValue;
         int index;
-        boolean ivR;
+        boolean ivS;
         T value;
 
         public synchronized int bg(T t) {
@@ -106,7 +106,7 @@ public final class ak<T> implements d.b<T, T> {
                     try {
                         jVar.onNext(t);
                         synchronized (this) {
-                            if (!this.ivR) {
+                            if (!this.ivS) {
                                 this.emitting = false;
                             } else {
                                 jVar.onCompleted();
@@ -122,7 +122,7 @@ public final class ak<T> implements d.b<T, T> {
         public void a(rx.j<T> jVar, rx.j<?> jVar2) {
             synchronized (this) {
                 if (this.emitting) {
-                    this.ivR = true;
+                    this.ivS = true;
                     return;
                 }
                 T t = this.value;

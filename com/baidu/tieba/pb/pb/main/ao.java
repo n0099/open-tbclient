@@ -20,7 +20,7 @@ import com.baidu.tieba.e;
 import java.util.Locale;
 /* loaded from: classes6.dex */
 public class ao extends k<ForumData, a> implements View.OnClickListener {
-    private ForumData fTn;
+    private ForumData fTo;
     private String mThreadId;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -44,12 +44,12 @@ public class ao extends k<ForumData, a> implements View.OnClickListener {
         if (forumData == null || aVar == null || StringUtils.isNull(forumData.getName())) {
             return null;
         }
-        this.fTn = forumData;
-        aVar.fTr.setText(String.format(Locale.CHINA, this.mContext.getString(e.j.forum_number), com.baidu.tbadk.core.util.ao.N(forumData.getPost_num())));
-        aVar.fTq.setText(String.format(Locale.CHINA, this.mContext.getString(e.j.attention_number), com.baidu.tbadk.core.util.ao.N(forumData.getMember_num())));
+        this.fTo = forumData;
+        aVar.fTs.setText(String.format(Locale.CHINA, this.mContext.getString(e.j.forum_number), com.baidu.tbadk.core.util.ao.N(forumData.getPost_num())));
+        aVar.fTr.setText(String.format(Locale.CHINA, this.mContext.getString(e.j.attention_number), com.baidu.tbadk.core.util.ao.N(forumData.getMember_num())));
         aVar.getView().setOnClickListener(this);
-        aVar.dhV.setText(com.baidu.tbadk.core.util.ao.d(this.fTn.getName(), 14, "...") + this.fME.getString(e.j.forum));
-        aVar.fTp.startLoad(forumData.getImage_url(), 10, false);
+        aVar.dhV.setText(com.baidu.tbadk.core.util.ao.d(this.fTo.getName(), 14, "...") + this.fMF.getString(e.j.forum));
+        aVar.fTq.startLoad(forumData.getImage_url(), 10, false);
         a(aVar);
         TiebaStatic.log(new com.baidu.tbadk.core.util.am("c13006").ax(ImageViewerConfig.FORUM_ID, forumData.getId()).ax("tid", this.mThreadId));
         return aVar.getView();
@@ -58,24 +58,24 @@ public class ao extends k<ForumData, a> implements View.OnClickListener {
     private void a(a aVar) {
         if (aVar != null) {
             com.baidu.tbadk.core.util.al.h(aVar.dhV, e.d.cp_cont_b);
-            com.baidu.tbadk.core.util.al.h(aVar.fTq, e.d.cp_cont_j);
             com.baidu.tbadk.core.util.al.h(aVar.fTr, e.d.cp_cont_j);
+            com.baidu.tbadk.core.util.al.h(aVar.fTs, e.d.cp_cont_j);
             com.baidu.tbadk.core.util.al.i(aVar.bNv, e.f.addresslist_item_bg);
-            com.baidu.tbadk.core.util.al.c(aVar.fTo, e.f.icon_arrow12_gray60_right);
+            com.baidu.tbadk.core.util.al.c(aVar.fTp, e.f.icon_arrow12_gray60_right);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.fTn != null && this.fME != null) {
+        if (this.fTo != null && this.fMF != null) {
             bjf();
-            this.fME.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.fME).createNormalCfg(this.fTn.getName(), FrsActivityConfig.FRS_FROM_PB).setCallFrom(2)));
+            this.fMF.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.fMF).createNormalCfg(this.fTo.getName(), FrsActivityConfig.FRS_FROM_PB).setCallFrom(2)));
         }
     }
 
     private void bjf() {
-        if (this.fTn != null) {
-            com.baidu.tbadk.core.util.am ax = new com.baidu.tbadk.core.util.am("c13007").ax(ImageViewerConfig.FORUM_ID, this.fTn.getId()).ax("tid", this.mThreadId);
+        if (this.fTo != null) {
+            com.baidu.tbadk.core.util.am ax = new com.baidu.tbadk.core.util.am("c13007").ax(ImageViewerConfig.FORUM_ID, this.fTo.getId()).ax("tid", this.mThreadId);
             if (!com.baidu.tbadk.core.util.ao.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                 ax.ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, TbadkCoreApplication.getInst().getTaskId());
             }
@@ -92,18 +92,18 @@ public class ao extends k<ForumData, a> implements View.OnClickListener {
     public static class a extends q.a {
         View bNv;
         TextView dhV;
-        ImageView fTo;
-        BarImageView fTp;
-        TextView fTq;
+        ImageView fTp;
+        BarImageView fTq;
         TextView fTr;
+        TextView fTs;
 
         a(View view) {
             super(view);
             this.dhV = (TextView) view.findViewById(e.g.pb_forum_name);
-            this.fTo = (ImageView) view.findViewById(e.g.pb_goto_forum);
-            this.fTp = (BarImageView) view.findViewById(e.g.pb_forum_image);
-            this.fTq = (TextView) view.findViewById(e.g.pb_forum_attention);
-            this.fTr = (TextView) view.findViewById(e.g.pb_forum_thread_num);
+            this.fTp = (ImageView) view.findViewById(e.g.pb_goto_forum);
+            this.fTq = (BarImageView) view.findViewById(e.g.pb_forum_image);
+            this.fTr = (TextView) view.findViewById(e.g.pb_forum_attention);
+            this.fTs = (TextView) view.findViewById(e.g.pb_forum_thread_num);
             this.bNv = view.findViewById(e.g.layout_root);
         }
     }

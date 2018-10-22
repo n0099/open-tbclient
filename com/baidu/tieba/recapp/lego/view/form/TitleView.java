@@ -11,56 +11,56 @@ import com.baidu.tieba.recapp.lego.model.FormCard;
 /* loaded from: classes3.dex */
 public class TitleView extends FormItemBaseView {
     private TextView aiy;
-    private ImageView gHT;
     private ImageView gHU;
     private ImageView gHV;
     private ImageView gHW;
+    private ImageView gHX;
 
     public TitleView(Context context) {
         super(context);
         this.aiy = null;
-        this.gHT = null;
         this.gHU = null;
         this.gHV = null;
         this.gHW = null;
+        this.gHX = null;
         init();
     }
 
     public TitleView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.aiy = null;
-        this.gHT = null;
         this.gHU = null;
         this.gHV = null;
         this.gHW = null;
+        this.gHX = null;
         init();
     }
 
     public TitleView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.aiy = null;
-        this.gHT = null;
         this.gHU = null;
         this.gHV = null;
         this.gHW = null;
+        this.gHX = null;
         init();
     }
 
     private void init() {
         this.aiy = new TextView(this.mContext);
-        this.gHT = new ImageView(this.mContext);
         this.gHU = new ImageView(this.mContext);
         this.gHV = new ImageView(this.mContext);
         this.gHW = new ImageView(this.mContext);
+        this.gHX = new ImageView(this.mContext);
         btX();
-        a(this.gHV, true, 2);
-        a(this.gHW, false, 3);
-        a(this.gHT, true);
-        a(this.gHU, false);
+        a(this.gHW, true, 2);
+        a(this.gHX, false, 3);
+        a(this.gHU, true);
+        a(this.gHV, false);
     }
 
     private void btX() {
-        this.aiy.setTextSize(0, this.gHI);
+        this.aiy.setTextSize(0, this.gHJ);
         this.aiy.setTextColor(-1);
         this.aiy.setId(1);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
@@ -72,12 +72,12 @@ public class TitleView extends FormItemBaseView {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, (int) this.mResources.getDimension(e.C0175e.ds1));
         layoutParams.addRule(15);
         if (z) {
-            layoutParams.addRule(0, this.gHV.getId());
+            layoutParams.addRule(0, this.gHW.getId());
         } else {
-            layoutParams.addRule(1, this.gHW.getId());
+            layoutParams.addRule(1, this.gHX.getId());
         }
         addView(imageView, layoutParams);
-        imageView.setBackgroundColor(this.gHM);
+        imageView.setBackgroundColor(this.gHN);
     }
 
     private void a(ImageView imageView, boolean z, int i) {
@@ -91,22 +91,22 @@ public class TitleView extends FormItemBaseView {
             imageView.setImageResource(e.f.form_title_icon_right);
             layoutParams.addRule(1, this.aiy.getId());
         }
-        layoutParams.leftMargin = this.gHz;
-        layoutParams.rightMargin = this.gHz;
+        layoutParams.leftMargin = this.gHA;
+        layoutParams.rightMargin = this.gHA;
         addView(imageView, layoutParams);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
     public boolean a(FormCard.b bVar) {
         if (super.a(bVar)) {
-            this.aiy.setTextSize(0, this.gHI);
+            this.aiy.setTextSize(0, this.gHJ);
             this.aiy.setText(bVar.content);
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.gHV.getLayoutParams();
-            marginLayoutParams.leftMargin = this.gHz;
-            marginLayoutParams.rightMargin = this.gHz;
-            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.gHW.getLayoutParams();
-            marginLayoutParams2.leftMargin = this.gHz;
-            marginLayoutParams2.rightMargin = this.gHz;
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.gHW.getLayoutParams();
+            marginLayoutParams.leftMargin = this.gHA;
+            marginLayoutParams.rightMargin = this.gHA;
+            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.gHX.getLayoutParams();
+            marginLayoutParams2.leftMargin = this.gHA;
+            marginLayoutParams2.rightMargin = this.gHA;
             return true;
         }
         return false;

@@ -75,7 +75,7 @@ public class ChannelInfoGetHttpResponseMessage extends TbHttpResponsedMessage {
         hVar.ke(200);
         hVar.setTitle("萌萌哒");
         hVar.setForumId(555555);
-        this.channelHomeData.apa().add(hVar);
+        this.channelHomeData.apb().add(hVar);
         h hVar2 = new h();
         Calendar calendar2 = Calendar.getInstance();
         calendar2.set(1, 2014);
@@ -97,7 +97,7 @@ public class ChannelInfoGetHttpResponseMessage extends TbHttpResponsedMessage {
         hVar2.ke(200);
         hVar2.setTitle("萌萌哒2233333");
         hVar2.setForumId(555555);
-        this.channelHomeData.apa().add(hVar2);
+        this.channelHomeData.apb().add(hVar2);
         h hVar3 = new h();
         hVar3.setCreateTime(Calendar.getInstance().getTimeInMillis());
         hVar3.setVideoWidth(100);
@@ -115,7 +115,7 @@ public class ChannelInfoGetHttpResponseMessage extends TbHttpResponsedMessage {
         hVar3.ke(200);
         hVar3.setTitle("萌3333");
         hVar3.setForumId(555555);
-        this.channelHomeData.apa().add(hVar3);
+        this.channelHomeData.apb().add(hVar3);
         h hVar4 = new h();
         hVar4.setCreateTime(Calendar.getInstance().getTimeInMillis());
         hVar4.setVideoWidth(100);
@@ -133,7 +133,7 @@ public class ChannelInfoGetHttpResponseMessage extends TbHttpResponsedMessage {
         hVar4.ke(200);
         hVar4.setTitle("3434434434");
         hVar4.setForumId(555555);
-        this.channelHomeData.apa().add(hVar4);
+        this.channelHomeData.apb().add(hVar4);
         h hVar5 = new h();
         hVar5.setCreateTime(Calendar.getInstance().getTimeInMillis());
         hVar5.setVideoWidth(100);
@@ -151,7 +151,7 @@ public class ChannelInfoGetHttpResponseMessage extends TbHttpResponsedMessage {
         hVar5.ke(200);
         hVar5.setTitle("无敌是多么寂寞多么寂寞，无敌是多么空虚多么空虚");
         hVar5.setForumId(555555);
-        this.channelHomeData.apa().add(hVar5);
+        this.channelHomeData.apb().add(hVar5);
         h hVar6 = new h();
         Calendar calendar3 = Calendar.getInstance();
         calendar3.set(1, 2013);
@@ -173,7 +173,7 @@ public class ChannelInfoGetHttpResponseMessage extends TbHttpResponsedMessage {
         hVar6.ke(200);
         hVar6.setTitle("呵呵呵呵呵呵");
         hVar6.setForumId(555555);
-        this.channelHomeData.apa().add(hVar6);
+        this.channelHomeData.apb().add(hVar6);
         h hVar7 = new h();
         Calendar calendar4 = Calendar.getInstance();
         calendar4.set(1, 2016);
@@ -195,7 +195,7 @@ public class ChannelInfoGetHttpResponseMessage extends TbHttpResponsedMessage {
         hVar7.ke(200);
         hVar7.setTitle("good job");
         hVar7.setForumId(555555);
-        this.channelHomeData.apa().add(hVar7);
+        this.channelHomeData.apb().add(hVar7);
         h hVar8 = new h();
         hVar8.setCreateTime(Calendar.getInstance().getTimeInMillis());
         hVar8.setVideoWidth(100);
@@ -213,7 +213,7 @@ public class ChannelInfoGetHttpResponseMessage extends TbHttpResponsedMessage {
         hVar8.ke(200);
         hVar8.setTitle("哇哈哈哈哈哈哈");
         hVar8.setForumId(555555);
-        this.channelHomeData.apa().add(hVar8);
+        this.channelHomeData.apb().add(hVar8);
         this.channelHomeData.jZ(0);
         g gVar = new g();
         gVar.setHasMore(0);

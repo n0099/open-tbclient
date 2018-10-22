@@ -34,7 +34,7 @@ public class a {
         private static final a bBT = new a();
     }
 
-    public static a Wy() {
+    public static a Wz() {
         return c.bBT;
     }
 
@@ -62,7 +62,7 @@ public class a {
         a(null, bVar, linkedHashMap, "list");
     }
 
-    public List<com.baidu.tieba.aiapps.apps.address.c.b> Wz() {
+    public List<com.baidu.tieba.aiapps.apps.address.c.b> WA() {
         String readCacheData = h.readCacheData(AppRuntime.getAppContext(), "delivery_data.json");
         if (!TextUtils.isEmpty(readCacheData)) {
             try {
@@ -73,7 +73,7 @@ public class a {
         return this.bBq;
     }
 
-    public void WA() {
+    public void WB() {
         AiAppExecutorUtils.postOnIO(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.address.b.a.1
             @Override // java.lang.Runnable
             public void run() {
@@ -82,7 +82,7 @@ public class a {
         }, "saveCacheToLocal");
     }
 
-    public List<com.baidu.tieba.aiapps.apps.address.c.b> WB() {
+    public List<com.baidu.tieba.aiapps.apps.address.c.b> WC() {
         if (this.bBq == null) {
             this.bBq = new ArrayList();
         }
@@ -177,7 +177,7 @@ public class a {
         /* renamed from: v */
         public void onSuccess(String str, int i) {
             if (this.bBS != null) {
-                this.bBS.Wv();
+                this.bBS.Ww();
                 if (!TextUtils.isEmpty(str) && i == 200) {
                     try {
                         JSONObject jSONObject = new JSONObject(str);
@@ -224,7 +224,7 @@ public class a {
                                 List<com.baidu.tieba.aiapps.apps.address.c.b> kb = com.baidu.tieba.aiapps.apps.address.c.c.kb(str);
                                 a.this.bBq = kb;
                                 this.bBS.h(kb, i);
-                                a.this.WA();
+                                a.this.WB();
                                 return;
                             case 1:
                                 this.bBS.O(str, i);
@@ -253,7 +253,7 @@ public class a {
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             if (this.bBS != null) {
-                this.bBS.Wv();
+                this.bBS.Ww();
                 this.bBS.onFailure();
             }
         }
@@ -317,7 +317,7 @@ public class a {
                 break;
         }
         if (!TextUtils.isEmpty(str2)) {
-            return com.baidu.tieba.aiapps.apps.d.c.kc(com.baidu.tieba.aiapps.apps.d.c.WX() + str2);
+            return com.baidu.tieba.aiapps.apps.d.c.kc(com.baidu.tieba.aiapps.apps.d.c.WY() + str2);
         }
         return str2;
     }
@@ -326,7 +326,7 @@ public class a {
     /* loaded from: classes4.dex */
     public static class C0160a implements com.baidu.tieba.aiapps.apps.address.b.b {
         @Override // com.baidu.tieba.aiapps.apps.address.b.b
-        public void Wv() {
+        public void Ww() {
         }
 
         @Override // com.baidu.tieba.aiapps.apps.address.b.b

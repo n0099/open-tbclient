@@ -11,35 +11,35 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class d {
-    private NewSubPbActivity fZN;
-    private com.baidu.tieba.pb.pb.sub.a.b gaB;
-    private com.baidu.tieba.pb.pb.sub.a.d gaC;
-    private n gaD;
+    private NewSubPbActivity fZO;
+    private com.baidu.tieba.pb.pb.sub.a.b gaC;
+    private com.baidu.tieba.pb.pb.sub.a.d gaD;
+    private n gaE;
     private BdTypeListView mListView;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private View.OnClickListener mCommonClickListener = null;
     private boolean cVS = false;
-    private boolean gaE = true;
+    private boolean gaF = true;
 
     public d(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
-        this.fZN = newSubPbActivity;
+        this.fZO = newSubPbActivity;
         this.mListView = bdTypeListView;
     }
 
     public void initAdapters() {
-        this.gaB = new com.baidu.tieba.pb.pb.sub.a.b(this.fZN, PostData.hcV);
-        this.gaB.q(this.mCommonClickListener);
-        this.gaB.setOnAdapterItemClickListener(this.gaD);
-        this.gaB.setFromCDN(this.gaE);
-        this.mAdapters.add(this.gaB);
-        this.gaC = new com.baidu.tieba.pb.pb.sub.a.d(this.fZN, com.baidu.tieba.pb.pb.sub.b.b.gbp);
+        this.gaC = new com.baidu.tieba.pb.pb.sub.a.b(this.fZO, PostData.hcW);
+        this.gaC.q(this.mCommonClickListener);
+        this.gaC.setOnAdapterItemClickListener(this.gaE);
+        this.gaC.setFromCDN(this.gaF);
         this.mAdapters.add(this.gaC);
-        this.mAdapters.add(new com.baidu.tieba.pb.pb.sub.a.c(this.fZN, com.baidu.tieba.pb.pb.sub.b.a.gbo));
+        this.gaD = new com.baidu.tieba.pb.pb.sub.a.d(this.fZO, com.baidu.tieba.pb.pb.sub.b.b.gbq);
+        this.mAdapters.add(this.gaD);
+        this.mAdapters.add(new com.baidu.tieba.pb.pb.sub.a.c(this.fZO, com.baidu.tieba.pb.pb.sub.b.a.gbp));
         this.mListView.addAdapters(this.mAdapters);
     }
 
     public void a(bb bbVar, List<h> list) {
-        this.gaB.aa(bbVar);
+        this.gaC.aa(bbVar);
         this.mListView.setData(list);
         this.mListView.getAdapter().notifyDataSetChanged();
     }
@@ -57,15 +57,15 @@ public class d {
     }
 
     public void c(View.OnLongClickListener onLongClickListener) {
-        this.gaB.setOnLongClickListener(onLongClickListener);
+        this.gaC.setOnLongClickListener(onLongClickListener);
     }
 
     public void setOnImageClickListener(TbRichTextView.h hVar) {
-        this.gaB.setOnImageClickListener(hVar);
+        this.gaC.setOnImageClickListener(hVar);
     }
 
     public void setFromCDN(boolean z) {
-        this.gaE = z;
+        this.gaF = z;
     }
 
     public void notifyDataSetChanged() {

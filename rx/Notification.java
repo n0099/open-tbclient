@@ -1,9 +1,9 @@
 package rx;
 /* loaded from: classes2.dex */
 public final class Notification<T> {
-    private static final Notification<Void> irY = new Notification<>(Kind.OnCompleted, null, null);
-    private final Kind irW;
-    private final Throwable irX;
+    private static final Notification<Void> irZ = new Notification<>(Kind.OnCompleted, null, null);
+    private final Kind irX;
+    private final Throwable irY;
     private final T value;
 
     /* loaded from: classes2.dex */
@@ -22,17 +22,17 @@ public final class Notification<T> {
     }
 
     public static <T> Notification<T> cbm() {
-        return (Notification<T>) irY;
+        return (Notification<T>) irZ;
     }
 
     private Notification(Kind kind, T t, Throwable th) {
         this.value = t;
-        this.irX = th;
-        this.irW = kind;
+        this.irY = th;
+        this.irX = kind;
     }
 
     public Throwable cbn() {
-        return this.irX;
+        return this.irY;
     }
 
     public T getValue() {
@@ -44,11 +44,11 @@ public final class Notification<T> {
     }
 
     public boolean cbo() {
-        return cbq() && this.irX != null;
+        return cbq() && this.irY != null;
     }
 
     public Kind cbp() {
-        return this.irW;
+        return this.irX;
     }
 
     public boolean cbq() {
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.cbp() != cbp() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.irX != notification.irX && (this.irX == null || !this.irX.equals(notification.irX))))) {
+            if (notification.cbp() != cbp() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.irY != notification.irY && (this.irY == null || !this.irY.equals(notification.irY))))) {
                 z = false;
             }
             return z;

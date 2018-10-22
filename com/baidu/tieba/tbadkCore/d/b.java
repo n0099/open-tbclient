@@ -6,9 +6,9 @@ import com.baidu.searchbox.ng.ai.apps.media.recorder.RecordStatusCallback;
 import com.tencent.open.SocialConstants;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a hef;
-    private final int heg = 10;
-    private final int heh = 3000;
+    private com.baidu.adp.lib.stats.a heg;
+    private final int heh = 10;
+    private final int hei = 3000;
     public String mLogType = null;
     public boolean azD = false;
 
@@ -19,43 +19,43 @@ public class b {
     public void ac(String str, boolean z) {
         this.mLogType = str;
         this.azD = z;
-        this.hef = new com.baidu.adp.lib.stats.a("dbg");
+        this.heg = new com.baidu.adp.lib.stats.a("dbg");
         c.k(str, getNetType(), z);
     }
 
     public void start() {
-        this.hef.startTimer();
+        this.heg.startTimer();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
         e bCt;
-        if (this.hef != null && (bCt = bCt()) != null) {
+        if (this.heg != null && (bCt = bCt()) != null) {
             if (z) {
-                if (bCt.hem != null) {
-                    bCt.hem.num++;
+                if (bCt.hen != null) {
+                    bCt.hen.num++;
                     if (z2) {
-                        bCt.hem.hej += j2;
-                        bCt.hem.size += j;
+                        bCt.hen.hek += j2;
+                        bCt.hen.size += j;
                     } else {
-                        bCt.hem.hek++;
+                        bCt.hen.hel++;
                     }
                 } else {
                     return;
                 }
-            } else if (bCt.hen != null) {
-                bCt.hen.num++;
+            } else if (bCt.heo != null) {
+                bCt.heo.num++;
                 if (z2) {
-                    bCt.hen.hej += j3;
-                    bCt.hen.size += j;
+                    bCt.heo.hek += j3;
+                    bCt.heo.size += j;
                     j2 = j3;
                 } else {
-                    bCt.hen.hek++;
+                    bCt.heo.hel++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.hef = null;
+            this.heg = null;
             if (z2) {
                 c.a(bCt, 10);
             }
@@ -77,12 +77,12 @@ public class b {
 
     public void destory() {
         e bCt;
-        if (this.hef != null && (bCt = bCt()) != null && bCt.heo != null) {
-            long jM = this.hef.jM();
+        if (this.heg != null && (bCt = bCt()) != null && bCt.hep != null) {
+            long jM = this.heg.jM();
             if (jM > 3000) {
-                d dVar = bCt.heo;
-                dVar.hej = jM + dVar.hej;
-                bCt.heo.num++;
+                d dVar = bCt.hep;
+                dVar.hek = jM + dVar.hek;
+                bCt.hep.num++;
                 c.a(bCt, 10);
             }
         }

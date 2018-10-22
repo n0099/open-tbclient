@@ -25,11 +25,11 @@ public class f extends e implements com.baidu.tbadk.mvc.b.a {
         this.dgm = i;
     }
 
-    public int atH() {
+    public int atI() {
         return this.dgm;
     }
 
-    public int atI() {
+    public int atJ() {
         return this.dgp;
     }
 

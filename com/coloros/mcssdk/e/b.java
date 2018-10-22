@@ -8,12 +8,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b extends c {
-    public static final String hVm = null;
+    public static final String hVn = null;
     private String appKey;
     private String content;
-    private String hVn;
     private String hVo;
     private String hVp;
+    private String hVq;
     private String params;
     private int responseCode = -2;
     private int xE;
@@ -79,7 +79,7 @@ public class b extends c {
     }
 
     public String toString() {
-        return "type:4105,messageID:" + this.hVq + ",taskID:" + this.hVr + ",appPackage:" + this.appPackage + ",appKey:" + this.appKey + ",appSecret:" + this.hVn + ",registerID:" + this.hVo + ",sdkVersion:" + this.hVp + ",command:" + this.xE + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
+        return "type:4105,messageID:" + this.hVr + ",taskID:" + this.hVs + ",appPackage:" + this.appPackage + ",appKey:" + this.appKey + ",appSecret:" + this.hVo + ",registerID:" + this.hVp + ",sdkVersion:" + this.hVq + ",command:" + this.xE + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
     }
 
     public void wZ(int i) {
@@ -87,6 +87,6 @@ public class b extends c {
     }
 
     public void yj(String str) {
-        this.hVn = str;
+        this.hVo = str;
     }
 }

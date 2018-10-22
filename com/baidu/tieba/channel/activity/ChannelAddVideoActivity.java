@@ -50,7 +50,7 @@ public class ChannelAddVideoActivity extends BaseActivity<ChannelAddVideoActivit
         public void onScrollToBottom() {
             if (ChannelAddVideoActivity.this.cRt.isHasMore()) {
                 ChannelAddVideoActivity.this.cRt.fn(true);
-                ChannelAddVideoActivity.this.cRt.apj();
+                ChannelAddVideoActivity.this.cRt.apk();
             }
         }
     };
@@ -75,7 +75,7 @@ public class ChannelAddVideoActivity extends BaseActivity<ChannelAddVideoActivit
 
     private void fd() {
         this.cRt = new ChannelAddVideoModel(getPageContext());
-        this.cRt.YI();
+        this.cRt.YJ();
         this.cRt.a(this.cRv);
         this.cRt.a(this.cRw);
         this.cRt.fn(false);
@@ -86,7 +86,7 @@ public class ChannelAddVideoActivity extends BaseActivity<ChannelAddVideoActivit
         this.cRu.c(this.cRx);
         this.cRu.a(this.bQS);
         this.cRt.fn(false);
-        this.cRt.apj();
+        this.cRt.apk();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

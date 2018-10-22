@@ -10,9 +10,9 @@ import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class b {
-    private static volatile b htt;
-    private HashMap<String, String> hto;
-    private DownloadData htp;
+    private static volatile b htu;
+    private HashMap<String, String> htp;
+    private DownloadData htq;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -27,14 +27,14 @@ public class b {
     }
 
     public static b bHl() {
-        if (htt == null) {
+        if (htu == null) {
             synchronized (b.class) {
-                if (htt == null) {
-                    htt = new b();
+                if (htu == null) {
+                    htu = new b();
                 }
             }
         }
-        return htt;
+        return htu;
     }
 
     public String wa(String str) {
@@ -42,29 +42,29 @@ public class b {
         if (fs == null) {
             return null;
         }
-        if (this.hto == null) {
-            this.hto = new HashMap<>();
+        if (this.htp == null) {
+            this.htp = new HashMap<>();
             bHm();
-            if (this.hto.size() > 0) {
-                return this.hto.get(fs);
+            if (this.htp.size() > 0) {
+                return this.htp.get(fs);
             }
             return null;
         }
-        return this.hto.get(fs);
+        return this.htp.get(fs);
     }
 
     public void bHm() {
-        if (this.hto == null) {
-            this.hto = new HashMap<>();
+        if (this.htp == null) {
+            this.htp = new HashMap<>();
         } else {
-            this.hto.clear();
+            this.htp.clear();
         }
-        File file = new File(c.hqO);
+        File file = new File(c.hqP);
         if (file.exists()) {
             File[] listFiles = file.listFiles();
             for (File file2 : listFiles) {
                 if (file2.isFile()) {
-                    this.hto.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                    this.htp.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
                 }
             }
         }
@@ -73,10 +73,10 @@ public class b {
     public void a(String str, final String str2, final a aVar) {
         String fs;
         if (!TextUtils.isEmpty(str2) && (fs = ar.fs(str2)) != null) {
-            if (this.htp != null) {
-                d.KB().t(this.htp.getUrl(), true);
+            if (this.htq != null) {
+                d.KB().t(this.htq.getUrl(), true);
             }
-            File file = new File(c.hqO);
+            File file = new File(c.hqP);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -84,7 +84,7 @@ public class b {
             downloadData.setType(18);
             downloadData.setId(str);
             downloadData.setUrl(str2);
-            downloadData.setPath(c.hqO + fs + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+            downloadData.setPath(c.hqP + fs + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
             downloadData.setCallback(new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.editvideo.model.b.1
                 @Override // com.baidu.tbadk.download.c
                 public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -93,8 +93,8 @@ public class b {
                         if (file2.exists()) {
                             file2.delete();
                         }
-                        if (b.this.htp != null && downloadData2.getUrl().equals(b.this.htp.getUrl())) {
-                            b.this.htp = null;
+                        if (b.this.htq != null && downloadData2.getUrl().equals(b.this.htq.getUrl())) {
+                            b.this.htq = null;
                         }
                         if (aVar != null) {
                             aVar.bGw();
@@ -115,11 +115,11 @@ public class b {
                 @Override // com.baidu.tbadk.download.c
                 public void onFileDownloadSucceed(DownloadData downloadData2) {
                     if (downloadData2 != null && !StringUtils.isNull(downloadData2.getPath())) {
-                        if (b.this.htp != null && downloadData2.getUrl().equals(b.this.htp.getUrl())) {
-                            b.this.htp = null;
+                        if (b.this.htq != null && downloadData2.getUrl().equals(b.this.htq.getUrl())) {
+                            b.this.htq = null;
                         }
                         if (aVar != null) {
-                            b.this.hto.put(downloadData2.getPath().substring(c.hqO.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
+                            b.this.htp.put(downloadData2.getPath().substring(c.hqP.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
                             aVar.cM(str2, downloadData2.getPath());
                         }
                     }
@@ -131,15 +131,15 @@ public class b {
                     if (file2.exists()) {
                         file2.delete();
                     }
-                    if (b.this.htp != null && downloadData2.getUrl().equals(b.this.htp.getUrl())) {
-                        b.this.htp = null;
+                    if (b.this.htq != null && downloadData2.getUrl().equals(b.this.htq.getUrl())) {
+                        b.this.htq = null;
                     }
                     if (aVar != null) {
                         aVar.vR(str3);
                     }
                 }
             });
-            this.htp = downloadData;
+            this.htq = downloadData;
             d.KB().f(downloadData);
         }
     }

@@ -74,7 +74,7 @@ public class FrsAREntryView extends View {
         }
     }
 
-    public void aBX() {
+    public void aBY() {
         this.aZN.start();
     }
 

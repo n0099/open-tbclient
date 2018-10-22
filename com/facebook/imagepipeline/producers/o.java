@@ -3,12 +3,12 @@ package com.facebook.imagepipeline.producers;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes2.dex */
 public class o implements ai<com.facebook.imagepipeline.f.d> {
-    private final ai<com.facebook.imagepipeline.f.d> igI;
-    private final com.facebook.imagepipeline.c.l ihf;
+    private final ai<com.facebook.imagepipeline.f.d> igJ;
+    private final com.facebook.imagepipeline.c.l ihg;
 
     public o(ai<com.facebook.imagepipeline.f.d> aiVar, com.facebook.imagepipeline.c.l lVar) {
-        this.igI = aiVar;
-        this.ihf = lVar;
+        this.igJ = aiVar;
+        this.ihg = lVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
@@ -22,21 +22,21 @@ public class o implements ai<com.facebook.imagepipeline.f.d> {
             return;
         }
         if (ajVar.bXq().bYl()) {
-            jVar = new a(jVar, ajVar, this.ihf);
+            jVar = new a(jVar, ajVar, this.ihg);
         }
-        this.igI.a(jVar, ajVar);
+        this.igJ.a(jVar, ajVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a extends m<com.facebook.imagepipeline.f.d, com.facebook.imagepipeline.f.d> {
-        private final aj igT;
-        private final com.facebook.imagepipeline.c.l ihf;
+        private final aj igU;
+        private final com.facebook.imagepipeline.c.l ihg;
 
         private a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar, com.facebook.imagepipeline.c.l lVar) {
             super(jVar);
-            this.igT = ajVar;
-            this.ihf = lVar;
+            this.igU = ajVar;
+            this.ihg = lVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -44,7 +44,7 @@ public class o implements ai<com.facebook.imagepipeline.f.d> {
         /* renamed from: a */
         public void d(com.facebook.imagepipeline.f.d dVar, boolean z) {
             if (dVar != null && z) {
-                this.ihf.a(dVar, this.igT.bXq(), this.igT.bST());
+                this.ihg.a(dVar, this.igU.bXq(), this.igU.bST());
             }
             bXD().e(dVar, z);
         }

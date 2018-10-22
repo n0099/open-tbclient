@@ -77,14 +77,14 @@ public class i extends a<com.baidu.tieba.e.g> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.e.g gVar) {
-        if (gVar != null && gVar.asB() != null) {
+        if (gVar != null && gVar.asC() != null) {
             this.cMc = gVar;
-            this.cLQ.startLoad(gVar.asB().avatar, 10, false);
-            this.cLS.setText(gVar.asB().game_name);
-            this.cLT.setText(gVar.asB().title_small);
-            this.cLU.setText(String.valueOf(gVar.asB().game_score));
+            this.cLQ.startLoad(gVar.asC().avatar, 10, false);
+            this.cLS.setText(gVar.asC().game_name);
+            this.cLT.setText(gVar.asC().title_small);
+            this.cLU.setText(String.valueOf(gVar.asC().game_score));
             b(gVar);
-            this.cMb.setText(this.mContext.getResources().getString(e.j.frs_game_score_user_score_num, ao.I(gVar.asB().game_score_num)));
+            this.cMb.setText(this.mContext.getResources().getString(e.j.frs_game_score_user_score_num, ao.I(gVar.asC().game_score_num)));
         }
     }
 
@@ -95,42 +95,42 @@ public class i extends a<com.baidu.tieba.e.g> {
             al.c(this.cLY, e.f.game_comment_score_btn_small_empty_bg);
             al.c(this.cLZ, e.f.game_comment_score_btn_small_empty_bg);
             al.c(this.cMa, e.f.game_comment_score_btn_small_empty_bg);
-            if (gVar.asB().game_score > 0.0d) {
-                if (gVar.asB().game_score < 2.0d) {
+            if (gVar.asC().game_score > 0.0d) {
+                if (gVar.asC().game_score < 2.0d) {
                     al.c(this.cLW, e.f.game_comment_score_btn_small_half_bg);
-                } else if (gVar.asB().game_score == 2.0d) {
+                } else if (gVar.asC().game_score == 2.0d) {
                     al.c(this.cLW, e.f.game_comment_score_btn_small_full_bg);
-                } else if (gVar.asB().game_score < 4.0d) {
+                } else if (gVar.asC().game_score < 4.0d) {
                     al.c(this.cLW, e.f.game_comment_score_btn_small_full_bg);
                     al.c(this.cLX, e.f.game_comment_score_btn_small_half_bg);
-                } else if (gVar.asB().game_score == 4.0d) {
+                } else if (gVar.asC().game_score == 4.0d) {
                     al.c(this.cLW, e.f.game_comment_score_btn_small_full_bg);
                     al.c(this.cLX, e.f.game_comment_score_btn_small_full_bg);
-                } else if (gVar.asB().game_score < 6.0d) {
+                } else if (gVar.asC().game_score < 6.0d) {
                     al.c(this.cLW, e.f.game_comment_score_btn_small_full_bg);
                     al.c(this.cLX, e.f.game_comment_score_btn_small_full_bg);
                     al.c(this.cLY, e.f.game_comment_score_btn_small_half_bg);
-                } else if (gVar.asB().game_score == 6.0d) {
+                } else if (gVar.asC().game_score == 6.0d) {
                     al.c(this.cLW, e.f.game_comment_score_btn_small_full_bg);
                     al.c(this.cLX, e.f.game_comment_score_btn_small_full_bg);
                     al.c(this.cLY, e.f.game_comment_score_btn_small_full_bg);
-                } else if (gVar.asB().game_score < 8.0d) {
+                } else if (gVar.asC().game_score < 8.0d) {
                     al.c(this.cLW, e.f.game_comment_score_btn_small_full_bg);
                     al.c(this.cLX, e.f.game_comment_score_btn_small_full_bg);
                     al.c(this.cLY, e.f.game_comment_score_btn_small_full_bg);
                     al.c(this.cLZ, e.f.game_comment_score_btn_small_half_bg);
-                } else if (gVar.asB().game_score == 8.0d) {
+                } else if (gVar.asC().game_score == 8.0d) {
                     al.c(this.cLW, e.f.game_comment_score_btn_small_full_bg);
                     al.c(this.cLX, e.f.game_comment_score_btn_small_full_bg);
                     al.c(this.cLY, e.f.game_comment_score_btn_small_full_bg);
                     al.c(this.cLZ, e.f.game_comment_score_btn_small_full_bg);
-                } else if (gVar.asB().game_score < 10.0d) {
+                } else if (gVar.asC().game_score < 10.0d) {
                     al.c(this.cLW, e.f.game_comment_score_btn_small_full_bg);
                     al.c(this.cLX, e.f.game_comment_score_btn_small_full_bg);
                     al.c(this.cLY, e.f.game_comment_score_btn_small_full_bg);
                     al.c(this.cLZ, e.f.game_comment_score_btn_small_full_bg);
                     al.c(this.cMa, e.f.game_comment_score_btn_small_half_bg);
-                } else if (gVar.asB().game_score == 10.0d) {
+                } else if (gVar.asC().game_score == 10.0d) {
                     al.c(this.cLW, e.f.game_comment_score_btn_small_full_bg);
                     al.c(this.cLX, e.f.game_comment_score_btn_small_full_bg);
                     al.c(this.cLY, e.f.game_comment_score_btn_small_full_bg);
@@ -143,8 +143,8 @@ public class i extends a<com.baidu.tieba.e.g> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (anO() != null) {
-            anO().a(getView(), this.cMc);
+        if (anP() != null) {
+            anP().a(getView(), this.cMc);
         }
     }
 }

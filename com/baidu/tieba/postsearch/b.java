@@ -11,14 +11,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    public List<a> gyI = new ArrayList();
+    public List<a> gyJ = new ArrayList();
     public al dvH = new al();
 
     /* loaded from: classes3.dex */
     public static class a {
         public String content;
         public String fname;
-        public int gyJ;
+        public int gyK;
         public int is_floor;
         public String name;
         public String name_show;
@@ -30,7 +30,7 @@ public class b {
     }
 
     public boolean aSH() {
-        return (this.gyI == null || this.gyI.size() == 0) ? false : true;
+        return (this.gyJ == null || this.gyJ.size() == 0) ? false : true;
     }
 
     public boolean isHasMore() {
@@ -43,7 +43,7 @@ public class b {
                 this.dvH.parserJson(jSONObject.getJSONObject(SystemScreenshotManager.PAGE));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.gyI.clear();
+                    this.gyJ.clear();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
@@ -68,11 +68,11 @@ public class b {
                                 aVar.fname = optString5;
                                 aVar.tid = optLong3;
                                 aVar.is_floor = optInt;
-                                aVar.gyJ = optInt2;
+                                aVar.gyK = optInt2;
                                 aVar.name = optString2;
                                 aVar.name_show = optString;
                                 aVar.thread_type = optInt3;
-                                this.gyI.add(aVar);
+                                this.gyJ.add(aVar);
                             }
                         }
                     }

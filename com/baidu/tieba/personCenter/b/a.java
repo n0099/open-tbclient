@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a {
-    private com.baidu.tieba.personCenter.a.c giM;
-    private d giZ;
-    private com.baidu.tieba.personCenter.a.a gja;
-    private com.baidu.tieba.personCenter.a.b gjb;
-    private e gjc;
+    private com.baidu.tieba.personCenter.a.c giN;
+    private d gja;
+    private com.baidu.tieba.personCenter.a.a gjb;
+    private com.baidu.tieba.personCenter.a.b gjc;
+    private e gjd;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
@@ -26,16 +26,16 @@ public class a {
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.giZ = new d(tbPageContext, g.gjF);
-        this.gja = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.c.gjp);
-        this.gjb = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.d.gjq);
-        this.gjc = new e(tbPageContext, i.gjK);
-        this.giM = new com.baidu.tieba.personCenter.a.c(tbPageContext, f.gjE);
-        this.mAdapters.add(this.giZ);
+        this.gja = new d(tbPageContext, g.gjG);
+        this.gjb = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.c.gjq);
+        this.gjc = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.d.gjr);
+        this.gjd = new e(tbPageContext, i.gjL);
+        this.giN = new com.baidu.tieba.personCenter.a.c(tbPageContext, f.gjF);
         this.mAdapters.add(this.gja);
         this.mAdapters.add(this.gjb);
         this.mAdapters.add(this.gjc);
-        this.mAdapters.add(this.giM);
+        this.mAdapters.add(this.gjd);
+        this.mAdapters.add(this.giN);
         bdTypeListView.addAdapters(this.mAdapters);
     }
 
@@ -46,10 +46,10 @@ public class a {
     }
 
     public void bnn() {
-        this.gja.bnn();
+        this.gjb.bnn();
     }
 
     public void bno() {
-        this.gja.destroy();
+        this.gjb.destroy();
     }
 }

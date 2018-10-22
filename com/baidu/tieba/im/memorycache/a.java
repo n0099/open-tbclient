@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class a {
-    private ConcurrentHashMap<String, ImMessageCenterPojo> eMG = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, ImMessageCenterPojo> eMH = new ConcurrentHashMap<>();
 
     /* renamed from: com.baidu.tieba.im.memorycache.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -15,16 +15,16 @@ public class a {
     }
 
     public void a(InterfaceC0213a interfaceC0213a) {
-        interfaceC0213a.b(this.eMG.values().iterator());
+        interfaceC0213a.b(this.eMH.values().iterator());
     }
 
     public void aRx() {
-        this.eMG.clear();
+        this.eMH.clear();
     }
 
     public void g(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
-            this.eMG.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
+            this.eMH.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
         }
     }
 
@@ -32,10 +32,10 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.eMG.get(str);
+        return this.eMH.get(str);
     }
 
     public boolean pO(String str) {
-        return (TextUtils.isEmpty(str) || this.eMG.remove(str) == null) ? false : true;
+        return (TextUtils.isEmpty(str) || this.eMH.remove(str) == null) ? false : true;
     }
 }

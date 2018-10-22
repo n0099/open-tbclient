@@ -29,7 +29,7 @@ public class a implements a.InterfaceC0262a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                a.this.aqm();
+                a.this.aqn();
             }
         }
     };
@@ -47,7 +47,7 @@ public class a implements a.InterfaceC0262a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                a.this.aqn();
+                a.this.aqo();
             }
         }
     };
@@ -81,9 +81,9 @@ public class a implements a.InterfaceC0262a {
                 CrabSDK.init(application, "b14ed41a92769403");
             }
             this.cWR = true;
-            aqm();
-            aqo();
             aqn();
+            aqp();
+            aqo();
             CrabSDK.setChannel(TbConfig.getCurrentFrom());
             CrabSDK.setEnableLog(isDebugMode);
             if (isDebugMode) {
@@ -96,9 +96,9 @@ public class a implements a.InterfaceC0262a {
                 CrabSDK.setUploadLimitOfAnrInOneday(-1);
                 CrabSDK.setUrlRecordLimit(10);
             } else {
-                if (aqh()) {
+                if (aqi()) {
                     CrabSDK.disableBlockCatch();
-                } else if (aqj()) {
+                } else if (aqk()) {
                     CrabSDK.disableBlockCatch();
                 } else {
                     CrabSDK.disableBlockCatch();
@@ -113,24 +113,24 @@ public class a implements a.InterfaceC0262a {
             CrabSDK.setOnAnrCrashListener(new OnAnrCrashListener() { // from class: com.baidu.tieba.d.a.5
                 @Override // com.baidu.crabsdk.OnAnrCrashListener
                 public void onAnrStarted(Map map) {
-                    a.this.aqm();
-                    a.this.aqo();
+                    a.this.aqn();
+                    a.this.aqp();
                 }
 
                 @Override // com.baidu.crabsdk.OnAnrCrashListener
                 public void onCrashStarted(Thread thread, Throwable th) {
-                    a.this.aqm();
-                    a.this.aqo();
+                    a.this.aqn();
+                    a.this.aqp();
                 }
 
                 @Override // com.baidu.crabsdk.OnAnrCrashListener
                 public void onNativeCrashStarted(Error error, String str, int i) {
-                    a.this.aqm();
-                    a.this.aqo();
+                    a.this.aqn();
+                    a.this.aqp();
                 }
             });
-            aqk();
             aql();
+            aqm();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -139,31 +139,31 @@ public class a implements a.InterfaceC0262a {
         }
     }
 
-    private boolean aqh() {
+    private boolean aqi() {
         return TbConfig.getVersionType() == 2;
     }
 
-    private boolean aqi() {
+    private boolean aqj() {
         return TbConfig.getVersionType() == 1;
     }
 
-    private boolean aqj() {
+    private boolean aqk() {
         return TbConfig.getVersionType() == 3;
     }
 
-    private void aqk() {
+    private void aql() {
         if (this.cWR && this.cWS) {
             CrabSDK.disableBlockCatch();
         }
     }
 
-    private void aql() {
+    private void aqm() {
         if (this.cWR && this.cWT) {
             CrabSDK.closeAnrHandler();
         }
     }
 
-    public void aqm() {
+    public void aqn() {
         bk(TbadkCoreApplication.getInst().getCuidGalaxy2(), TbadkCoreApplication.getCurrentAccount());
     }
 
@@ -174,7 +174,7 @@ public class a implements a.InterfaceC0262a {
         }
     }
 
-    public void aqn() {
+    public void aqo() {
         if (this.cWR) {
             if (j.kY()) {
                 CrabSDK.setCollectScreenshot(true);
@@ -185,27 +185,27 @@ public class a implements a.InterfaceC0262a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aqo() {
+    public void aqp() {
         if (this.cWR) {
             HashMap hashMap = new HashMap();
-            hashMap.put("version_type", aqp());
+            hashMap.put("version_type", aqq());
             hashMap.put("version", TbConfig.getVersion());
             hashMap.put("sub_version", TbConfig.getSubVersion());
             CrabSDK.setUsersCustomKV(hashMap);
         }
     }
 
-    private String aqp() {
+    private String aqq() {
         if (BdBaseApplication.getInst().isDebugMode()) {
             return "DebugBuild";
         }
-        if (aqj()) {
+        if (aqk()) {
             return "ReleasedBuild";
         }
-        if (aqh()) {
+        if (aqi()) {
             return "GrayBuild";
         }
-        if (!aqi()) {
+        if (!aqj()) {
             return "DefaultBuild";
         }
         return "DailyBuild";

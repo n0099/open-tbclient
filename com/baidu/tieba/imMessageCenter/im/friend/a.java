@@ -18,16 +18,16 @@ public class a extends BaseAdapter {
         public void onClick(View view) {
             Object tag = view.getTag();
             if (tag != null && (tag instanceof BlackListItemData)) {
-                a.this.eTO.a(view, (BlackListItemData) tag);
+                a.this.eTP.a(view, (BlackListItemData) tag);
             }
         }
     };
-    private IMBlackListActivity eTO;
+    private IMBlackListActivity eTP;
     private ArrayList<BlackListItemData> mData;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(IMBlackListActivity iMBlackListActivity) {
-        this.eTO = iMBlackListActivity;
+        this.eTP = iMBlackListActivity;
     }
 
     public void setData(ArrayList<BlackListItemData> arrayList) {
@@ -78,13 +78,13 @@ public class a extends BaseAdapter {
 
     private C0219a aTH() {
         C0219a c0219a = new C0219a();
-        c0219a.rootView = LayoutInflater.from(this.eTO.getPageContext().getContext()).inflate(e.h.im_black_list_item, (ViewGroup) null);
-        c0219a.eTQ = (HeadImageView) c0219a.rootView.findViewById(e.g.header_view);
-        c0219a.eTQ.setIsRound(true);
+        c0219a.rootView = LayoutInflater.from(this.eTP.getPageContext().getContext()).inflate(e.h.im_black_list_item, (ViewGroup) null);
+        c0219a.eTR = (HeadImageView) c0219a.rootView.findViewById(e.g.header_view);
+        c0219a.eTR.setIsRound(true);
         c0219a.chf = (TextView) c0219a.rootView.findViewById(e.g.user_name);
-        c0219a.eTR = (Button) c0219a.rootView.findViewById(e.g.remove_button);
+        c0219a.eTS = (Button) c0219a.rootView.findViewById(e.g.remove_button);
         c0219a.rootView.setTag(c0219a);
-        c0219a.eTR.setOnClickListener(this.cmW);
+        c0219a.eTS.setOnClickListener(this.cmW);
         return c0219a;
     }
 
@@ -97,15 +97,15 @@ public class a extends BaseAdapter {
         }
         a(c0219a, blackListItemData.aOQ());
         c0219a.chf.setText(blackListItemData.IN());
-        c0219a.eTR.setTag(blackListItemData);
-        this.eTO.getLayoutMode().onModeChanged(c0219a.rootView);
+        c0219a.eTS.setTag(blackListItemData);
+        this.eTP.getLayoutMode().onModeChanged(c0219a.rootView);
         return c0219a;
     }
 
     private void a(C0219a c0219a, String str) {
         if (str != null) {
-            c0219a.eTQ.setTag(str);
-            c0219a.eTQ.startLoad(str, 12, false);
+            c0219a.eTR.setTag(str);
+            c0219a.eTR.startLoad(str, 12, false);
         }
     }
 
@@ -114,8 +114,8 @@ public class a extends BaseAdapter {
     /* loaded from: classes4.dex */
     public class C0219a {
         public TextView chf;
-        public HeadImageView eTQ;
-        public Button eTR;
+        public HeadImageView eTR;
+        public Button eTS;
         public View rootView;
 
         private C0219a() {

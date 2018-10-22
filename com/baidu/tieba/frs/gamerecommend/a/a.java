@@ -47,7 +47,7 @@ public class a {
         this.mAdapters.add(new d(this.mPageContext, com.baidu.tieba.e.c.dcE, this.mPageContext.getUniqueId(), this.mForumId));
         this.mAdapters.add(new g(this.mPageContext, com.baidu.tieba.e.f.dcM, this.mPageContext.getUniqueId(), this.mForumId));
         m mVar = new m(this.mPageContext, q.dDc, this.mPageContext.getUniqueId());
-        mVar.aCN();
+        mVar.aCO();
         mVar.setForumId(this.mForumId);
         this.mAdapters.add(mVar);
         this.mListView.addAdapters(this.mAdapters);

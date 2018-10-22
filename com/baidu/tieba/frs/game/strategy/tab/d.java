@@ -21,28 +21,28 @@ public class d extends com.baidu.tieba.frs.game.strategy.view.a {
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.a
-    public int aDu() {
+    public int aDv() {
         return this.mContentHeight;
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.a
     public View c(int i, View view, ViewGroup viewGroup) {
-        TextView aDw;
+        TextView aDx;
         if (view instanceof TextView) {
-            aDw = (TextView) view;
+            aDx = (TextView) view;
         } else {
-            aDw = aDw();
+            aDx = aDx();
         }
         com.baidu.tieba.frs.game.strategy.data.a aVar = (com.baidu.tieba.frs.game.strategy.data.a) v.d(this.dLX, i);
         if (aVar != null) {
-            aDw.setText(aVar.labelName);
+            aDx.setText(aVar.labelName);
         }
-        c(aDw, this.dLY == i);
-        return aDw;
+        c(aDx, this.dLY == i);
+        return aDx;
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.a
-    public int aDv() {
+    public int aDw() {
         return v.I(this.dLX);
     }
 
@@ -61,11 +61,11 @@ public class d extends com.baidu.tieba.frs.game.strategy.view.a {
         notifyDataSetChanged();
     }
 
-    private TextView aDw() {
+    private TextView aDx() {
         TextView textView = new TextView(this.mContext);
         textView.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(e.C0175e.fontsize26));
         textView.setGravity(17);
-        textView.setHeight(aDu());
+        textView.setHeight(aDv());
         return textView;
     }
 

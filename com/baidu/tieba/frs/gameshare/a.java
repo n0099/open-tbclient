@@ -128,9 +128,9 @@ public class a {
         this.dOw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gameshare.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                Bitmap aDN = a.this.aDN();
-                if (aDN != null && a.this.dOB != null) {
-                    a.this.dOB.n(aDN);
+                Bitmap aDO = a.this.aDO();
+                if (aDO != null && a.this.dOB != null) {
+                    a.this.dOB.n(aDO);
                 }
             }
         });
@@ -138,9 +138,9 @@ public class a {
         this.dOx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gameshare.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                Bitmap aDN = a.this.aDN();
-                if (aDN != null && a.this.dOB != null) {
-                    a.this.dOB.o(aDN);
+                Bitmap aDO = a.this.aDO();
+                if (aDO != null && a.this.dOB != null) {
+                    a.this.dOB.o(aDO);
                 }
             }
         });
@@ -148,9 +148,9 @@ public class a {
         this.dOy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gameshare.a.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                Bitmap aDN = a.this.aDN();
-                if (aDN != null && a.this.dOB != null) {
-                    a.this.dOB.p(aDN);
+                Bitmap aDO = a.this.aDO();
+                if (aDO != null && a.this.dOB != null) {
+                    a.this.dOB.p(aDO);
                 }
             }
         });
@@ -158,9 +158,9 @@ public class a {
         this.dOz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gameshare.a.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                Bitmap aDN = a.this.aDN();
-                if (aDN != null && a.this.dOB != null) {
-                    a.this.dOB.q(aDN);
+                Bitmap aDO = a.this.aDO();
+                if (aDO != null && a.this.dOB != null) {
+                    a.this.dOB.q(aDO);
                 }
             }
         });
@@ -249,12 +249,12 @@ public class a {
         }
     }
 
-    public Bitmap aDN() {
+    public Bitmap aDO() {
         this.mContentLayout.buildDrawingCache();
         return this.mContentLayout.getDrawingCache();
     }
 
-    public int aDO() {
+    public int aDP() {
         return this.bWO.getBottom();
     }
 

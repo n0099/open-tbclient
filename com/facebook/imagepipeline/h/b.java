@@ -10,8 +10,8 @@ import com.facebook.imagepipeline.common.TooManyBitmapsException;
 import com.facebook.imagepipeline.nativecode.Bitmaps;
 /* loaded from: classes2.dex */
 abstract class b implements e {
-    protected static final byte[] igF = {-1, -39};
-    private final com.facebook.imagepipeline.memory.a igG = com.facebook.imagepipeline.memory.b.bWL();
+    protected static final byte[] igG = {-1, -39};
+    private final com.facebook.imagepipeline.memory.a igH = com.facebook.imagepipeline.memory.b.bWL();
 
     abstract Bitmap a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, BitmapFactory.Options options);
 
@@ -63,11 +63,11 @@ abstract class b implements e {
     public com.facebook.common.references.a<Bitmap> S(Bitmap bitmap) {
         try {
             Bitmaps.R(bitmap);
-            if (!this.igG.M(bitmap)) {
+            if (!this.igH.M(bitmap)) {
                 bitmap.recycle();
                 throw new TooManyBitmapsException();
             }
-            return com.facebook.common.references.a.a(bitmap, this.igG.bWJ());
+            return com.facebook.common.references.a.a(bitmap, this.igH.bWJ());
         } catch (Exception e) {
             bitmap.recycle();
             throw k.r(e);

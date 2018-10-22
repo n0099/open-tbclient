@@ -3,17 +3,17 @@ package com.baidu.tieba.tbadkCore.data;
 import android.util.SparseIntArray;
 /* loaded from: classes.dex */
 public class e {
-    public static final int[] hct = {3, 8, 13};
-    public static final int[] hcu = {2, 12};
-    public static final int[] hcv = {20};
-    public static final int[] hcw = {3, 13, 23};
-    private SparseIntArray hcx = new SparseIntArray();
-    private String hcy;
-    private final int[] hcz;
+    public static final int[] hcu = {3, 8, 13};
+    public static final int[] hcv = {2, 12};
+    public static final int[] hcw = {20};
+    public static final int[] hcx = {3, 13, 23};
+    private final int[] hcA;
+    private SparseIntArray hcy = new SparseIntArray();
+    private String hcz;
 
     public e(String str, int[] iArr) {
-        this.hcz = iArr;
-        this.hcy = str;
+        this.hcA = iArr;
+        this.hcz = str;
     }
 
     public void uC(int i) {
@@ -21,12 +21,12 @@ public class e {
         if (i < 0) {
             i = 0;
         }
-        if (this.hcx != null) {
-            this.hcx.clear();
-            if (this.hcz != null) {
-                for (int i2 : this.hcz) {
+        if (this.hcy != null) {
+            this.hcy.clear();
+            if (this.hcA != null) {
+                for (int i2 : this.hcA) {
                     if (i2 >= 0) {
-                        this.hcx.append(i2 + i, i2);
+                        this.hcy.append(i2 + i, i2);
                     }
                 }
             }
@@ -38,21 +38,21 @@ public class e {
     }
 
     public void bO(int i, int i2) {
-        if (i >= 0 && i2 >= 0 && this.hcx != null) {
-            this.hcx.append(i2, i);
+        if (i >= 0 && i2 >= 0 && this.hcy != null) {
+            this.hcy.append(i2, i);
         }
     }
 
     public int uD(int i) {
-        if (i >= 0 && this.hcx != null) {
-            return this.hcx.get(i, -1);
+        if (i >= 0 && this.hcy != null) {
+            return this.hcy.get(i, -1);
         }
         return -1;
     }
 
     public void uE(int i) {
-        if (this.hcx != null) {
-            this.hcx.delete(i);
+        if (this.hcy != null) {
+            this.hcy.delete(i);
         }
     }
 }

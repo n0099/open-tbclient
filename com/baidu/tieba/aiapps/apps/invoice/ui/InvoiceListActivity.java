@@ -47,7 +47,7 @@ public class InvoiceListActivity extends TbAiAppsBaseActivity {
             if (InvoiceListActivity.this.bDI != null) {
                 InvoiceListActivity.this.removeLoadingView();
                 InvoiceListActivity.this.bDI.al(list);
-                InvoiceListActivity.this.Xp();
+                InvoiceListActivity.this.Xq();
             }
         }
 
@@ -107,7 +107,7 @@ public class InvoiceListActivity extends TbAiAppsBaseActivity {
         this.mLayoutManager = new LinearLayoutManager(this);
         this.bDH.setLayoutManager(this.mLayoutManager);
         this.bDH.setAdapter(this.bDI);
-        Xp();
+        Xq();
         this.bDI.a(new a.b() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceListActivity.1
             @Override // com.baidu.tieba.aiapps.apps.invoice.ui.a.b
             public void a(View view, InvoiceInfo invoiceInfo) {
@@ -127,14 +127,14 @@ public class InvoiceListActivity extends TbAiAppsBaseActivity {
         this.bDL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceListActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                InvoiceListActivity.this.Xs();
+                InvoiceListActivity.this.Xt();
             }
         });
-        Xq();
+        Xr();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Xp() {
+    public void Xq() {
         if (this.bCl != null) {
             this.bCl.setTitle(getString(e.j.invoice_empty_title));
             this.bCl.setIcon(e.f.empty_icon_document);
@@ -146,21 +146,21 @@ public class InvoiceListActivity extends TbAiAppsBaseActivity {
         }
     }
 
-    private void Xq() {
+    private void Xr() {
         if (ba.bI(this)) {
-            Xr();
+            Xs();
             return;
         }
         UniversalToast.makeText(this, "请先登录").showToast();
         finish();
     }
 
-    private void Xr() {
+    private void Xs() {
         showLoadingView();
         if (TextUtils.equals(this.mSource, "source_ai_app")) {
-            com.baidu.tieba.aiapps.apps.invoice.e.Xj().a(this, this.bDO, this.bDP, this.bDQ);
+            com.baidu.tieba.aiapps.apps.invoice.e.Xk().a(this, this.bDO, this.bDP, this.bDQ);
         } else {
-            com.baidu.tieba.aiapps.apps.invoice.e.Xj().a(this.bDQ);
+            com.baidu.tieba.aiapps.apps.invoice.e.Xk().a(this.bDQ);
         }
     }
 
@@ -217,7 +217,7 @@ public class InvoiceListActivity extends TbAiAppsBaseActivity {
     private void i(final InvoiceInfo invoiceInfo) {
         if (invoiceInfo != null) {
             showLoadingView();
-            com.baidu.tieba.aiapps.apps.invoice.e.Xj().a(invoiceInfo.mId, new d.InterfaceC0163d() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceListActivity.4
+            com.baidu.tieba.aiapps.apps.invoice.e.Xk().a(invoiceInfo.mId, new d.InterfaceC0163d() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceListActivity.4
                 @Override // com.baidu.tieba.aiapps.apps.invoice.d.InterfaceC0163d
                 public void aU(long j) {
                     AiAppsLog.i(ChooseInvoiceAction.MODULE_TAG, "修改默认发票成功");
@@ -262,7 +262,7 @@ public class InvoiceListActivity extends TbAiAppsBaseActivity {
     public void k(final InvoiceInfo invoiceInfo) {
         if (invoiceInfo != null) {
             showLoadingView();
-            com.baidu.tieba.aiapps.apps.invoice.e.Xj().a(invoiceInfo.mId, new d.b() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceListActivity.6
+            com.baidu.tieba.aiapps.apps.invoice.e.Xk().a(invoiceInfo.mId, new d.b() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceListActivity.6
                 @Override // com.baidu.tieba.aiapps.apps.invoice.d.b
                 public void aT(long j) {
                     AiAppsLog.i(ChooseInvoiceAction.MODULE_TAG, "删除发票成功");
@@ -272,7 +272,7 @@ public class InvoiceListActivity extends TbAiAppsBaseActivity {
                         if (invoiceInfo.mIsDefault == 1) {
                             InvoiceListActivity.this.bDI.aW(j);
                         }
-                        InvoiceListActivity.this.Xp();
+                        InvoiceListActivity.this.Xq();
                     }
                 }
 
@@ -300,7 +300,7 @@ public class InvoiceListActivity extends TbAiAppsBaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Xs() {
+    public void Xt() {
         Intent intent = new Intent(this, InvoiceEditActivity.class);
         intent.putExtra("bar_position", this.bDN);
         intent.putExtra("type", 1);
@@ -320,7 +320,7 @@ public class InvoiceListActivity extends TbAiAppsBaseActivity {
                     UniversalToast.makeText(this, e.j.invoice_toast_create_success).showToast();
                     if (this.bDI != null && invoiceInfo != null) {
                         this.bDI.m(invoiceInfo);
-                        Xp();
+                        Xq();
                         break;
                     }
                     break;

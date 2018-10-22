@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public final class f {
-    private static final Map<Class<?>, Class<?>> ile;
     private static final Map<Class<?>, Class<?>> ilf;
+    private static final Map<Class<?>, Class<?>> ilg;
 
     static {
         HashMap hashMap = new HashMap(16);
@@ -21,8 +21,8 @@ public final class f {
         a(hashMap, hashMap2, Long.TYPE, Long.class);
         a(hashMap, hashMap2, Short.TYPE, Short.class);
         a(hashMap, hashMap2, Void.TYPE, Void.class);
-        ile = Collections.unmodifiableMap(hashMap);
-        ilf = Collections.unmodifiableMap(hashMap2);
+        ilf = Collections.unmodifiableMap(hashMap);
+        ilg = Collections.unmodifiableMap(hashMap2);
     }
 
     private static void a(Map<Class<?>, Class<?>> map, Map<Class<?>, Class<?>> map2, Class<?> cls, Class<?> cls2) {
@@ -31,6 +31,6 @@ public final class f {
     }
 
     public static boolean k(Type type) {
-        return ile.containsKey(type);
+        return ilf.containsKey(type);
     }
 }

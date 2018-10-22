@@ -65,52 +65,52 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
                     al.i(qVar.dxO, e.f.frs_member_manito_bg);
                     al.i(qVar.dxP, e.f.frs_member_manito_bg);
                 }
-                int ayo = pVar.ayo();
-                if (ayo == -1) {
-                    int ayn = pVar.ayn();
-                    String G = ao.G(ayn);
-                    if (ayn > 0) {
+                int ayp = pVar.ayp();
+                if (ayp == -1) {
+                    int ayo = pVar.ayo();
+                    String G = ao.G(ayo);
+                    if (ayo > 0) {
                         qVar.dxM.setText(String.format(this.mContext.getResources().getString(e.j.tbtitle_apply_left_num_tip), G));
-                        qVar.dxO.setTag(dxB, pVar.ayq());
+                        qVar.dxO.setTag(dxB, pVar.ayr());
                         qVar.dxO.setOnClickListener(this.mClickListener);
                         qVar.dxO.setEnabled(true);
                         qVar.dxO.setClickable(true);
                     } else {
                         qVar.dxM.setText(this.mContext.getResources().getString(e.j.tbtitle_quota_is_full));
-                        qVar.dxO.setTag(dxB, pVar.ayq());
+                        qVar.dxO.setTag(dxB, pVar.ayr());
                         qVar.dxO.setOnClickListener(this.mClickListener);
                         qVar.dxO.setEnabled(false);
                         qVar.dxO.setClickable(false);
                     }
-                } else if (ayo == 0) {
+                } else if (ayp == 0) {
                     qVar.dxM.setText(this.mContext.getResources().getString(e.j.tbtitle_is_bazhu));
-                    qVar.dxO.setTag(dxB, pVar.ayq());
+                    qVar.dxO.setTag(dxB, pVar.ayr());
                     qVar.dxO.setOnClickListener(this.mClickListener);
                     qVar.dxO.setEnabled(true);
                     qVar.dxO.setClickable(true);
-                } else if (ayo == 1) {
+                } else if (ayp == 1) {
                     qVar.dxM.setText(this.mContext.getResources().getString(e.j.tbtitle_applying));
-                    qVar.dxO.setTag(dxB, pVar.ayq());
+                    qVar.dxO.setTag(dxB, pVar.ayr());
                     qVar.dxO.setOnClickListener(this.mClickListener);
                     qVar.dxO.setEnabled(true);
                     qVar.dxO.setClickable(true);
-                } else if (ayo == 2) {
+                } else if (ayp == 2) {
                     qVar.dxM.setText(this.mContext.getResources().getString(e.j.tbtitle_apply_failed));
-                    qVar.dxO.setTag(dxB, pVar.ayq());
+                    qVar.dxO.setTag(dxB, pVar.ayr());
                     qVar.dxO.setOnClickListener(this.mClickListener);
                     qVar.dxO.setEnabled(true);
                     qVar.dxO.setClickable(true);
                 } else {
                     qVar.dxM.setText(this.mContext.getResources().getString(e.j.tbtitle_quota_is_full));
-                    qVar.dxO.setTag(dxB, pVar.ayq());
+                    qVar.dxO.setTag(dxB, pVar.ayr());
                     qVar.dxO.setOnClickListener(this.mClickListener);
                     qVar.dxO.setEnabled(false);
                     qVar.dxO.setClickable(false);
                 }
-                int ayp = pVar.ayp();
-                if (ayp > 0) {
-                    qVar.dxN.setText(String.format(this.mContext.getResources().getString(e.j.apply_left_num_tip), ao.G(ayp)));
-                    qVar.dxP.setTag(dxC, pVar.ayr());
+                int ayq = pVar.ayq();
+                if (ayq > 0) {
+                    qVar.dxN.setText(String.format(this.mContext.getResources().getString(e.j.apply_left_num_tip), ao.G(ayq)));
+                    qVar.dxP.setTag(dxC, pVar.ays());
                     qVar.dxP.setOnClickListener(this.mClickListener);
                     qVar.dxP.setEnabled(true);
                     qVar.dxP.setClickable(true);

@@ -11,8 +11,8 @@ import com.baidu.tieba.personCenter.data.i;
 /* loaded from: classes5.dex */
 public class d extends com.baidu.tieba.card.a<i> {
     private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.data.a> ats;
-    private LinearLayout gkj;
-    private AutoBannerView gkk;
+    private LinearLayout gkk;
+    private AutoBannerView gkl;
     private int mSkinType;
 
     public d(TbPageContext<?> tbPageContext) {
@@ -21,34 +21,34 @@ public class d extends com.baidu.tieba.card.a<i> {
         this.ats = new com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.data.a>() { // from class: com.baidu.tieba.personCenter.view.d.1
             @Override // com.baidu.tbadk.core.flow.a.d
             public void h(int i, String str) {
-                if (d.this.gkk != null && str != null) {
-                    if (d.this.gkk.checkIndex(i)) {
+                if (d.this.gkl != null && str != null) {
+                    if (d.this.gkl.checkIndex(i)) {
                         TiebaStatic.log(new am("c13247").x("obj_locate", i).ax("obj_param1", str));
                     }
-                    d.this.gkk.Eq();
-                    d.this.gkk.or(str);
+                    d.this.gkl.Eq();
+                    d.this.gkl.or(str);
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.core.flow.a.d
             public void a(int i, com.baidu.tieba.personCenter.data.a aVar) {
-                if (d.this.gkk != null && aVar != null && aVar.aHi() != null && d.this.gkk.checkIndex(i)) {
+                if (d.this.gkl != null && aVar != null && aVar.aHi() != null && d.this.gkl.checkIndex(i)) {
                     TiebaStatic.log(new am("c13246").ax("uid", TbadkCoreApplication.getCurrentAccount()).x("obj_locate", i).ax("obj_param1", aVar.aHi()));
                 }
             }
         };
-        this.gkj = (LinearLayout) getView().findViewById(e.g.viewpager);
-        this.gkk = new AutoBannerView(this.mTbPageContext.getPageActivity());
-        this.gkk.setMarqueenTime(3000L);
-        this.gkk.getCoverFlowView().setCallback(this.ats);
+        this.gkk = (LinearLayout) getView().findViewById(e.g.viewpager);
+        this.gkl = new AutoBannerView(this.mTbPageContext.getPageActivity());
+        this.gkl.setMarqueenTime(3000L);
+        this.gkl.getCoverFlowView().setCallback(this.ats);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            if (this.gkk != null) {
-                this.gkk.onChangeSkinType(i);
+            if (this.gkl != null) {
+                this.gkl.onChangeSkinType(i);
             }
             this.mSkinType = i;
         }
@@ -63,9 +63,9 @@ public class d extends com.baidu.tieba.card.a<i> {
     @Override // com.baidu.tieba.card.a
     public void a(i iVar) {
         d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
-        if (this.gkj != null && iVar != null && iVar.gjr != null && this.gkk != null && this.gkj.getChildCount() != 1 && iVar.gjr.size() != 0) {
-            this.gkk.bV(iVar.gjr);
-            this.gkj.addView(this.gkk);
+        if (this.gkk != null && iVar != null && iVar.gjs != null && this.gkl != null && this.gkk.getChildCount() != 1 && iVar.gjs.size() != 0) {
+            this.gkl.bV(iVar.gjs);
+            this.gkk.addView(this.gkl);
         }
     }
 
@@ -75,8 +75,8 @@ public class d extends com.baidu.tieba.card.a<i> {
 
     @Override // com.baidu.tieba.card.a
     public void onDestroy() {
-        if (this.gkk != null) {
-            this.gkk.Eq();
+        if (this.gkl != null) {
+            this.gkl.Eq();
         }
     }
 }

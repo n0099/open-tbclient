@@ -97,16 +97,16 @@ public class z extends a<bb> implements com.baidu.tieba.a.e {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.aAQ != null) {
-            if (anO() != null) {
-                anO().a(view, this.aAQ, this.cPe);
+            if (anP() != null) {
+                anP().a(view, this.aAQ, this.cPe);
             }
             o.md(this.aAQ.getTid());
             o.a(this.cPd, this.aAQ.getTid(), e.d.cp_cont_b, e.d.cp_cont_d);
-            aop();
+            aoq();
         }
     }
 
-    private void aop() {
+    private void aoq() {
         if (this.aAQ != null && this.aAQ.yv() != null && this.aAQ.yv().getName_show() != null) {
             if (com.baidu.tbadk.plugins.b.cx(true) && !com.baidu.tbadk.plugins.b.Ok()) {
                 HotTopicActivityConfig createNormalConfig = new HotTopicActivityConfig(getContext()).createNormalConfig("", this.aAQ.yv().getName_show() + "", "3");

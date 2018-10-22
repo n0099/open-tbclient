@@ -5,8 +5,8 @@ import rx.d;
 /* loaded from: classes2.dex */
 public final class cl<T, U, R> implements d.b<R, T> {
     static final Object EMPTY = new Object();
-    final rx.functions.g<? super T, ? super U, ? extends R> itU;
-    final rx.d<? extends U> itx;
+    final rx.functions.g<? super T, ? super U, ? extends R> itV;
+    final rx.d<? extends U> ity;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -14,8 +14,8 @@ public final class cl<T, U, R> implements d.b<R, T> {
     }
 
     public cl(rx.d<? extends U> dVar, rx.functions.g<? super T, ? super U, ? extends R> gVar) {
-        this.itx = dVar;
-        this.itU = gVar;
+        this.ity = dVar;
+        this.itV = gVar;
     }
 
     public rx.j<? super T> call(rx.j<? super R> jVar) {
@@ -28,7 +28,7 @@ public final class cl<T, U, R> implements d.b<R, T> {
                 Object obj = atomicReference.get();
                 if (obj != cl.EMPTY) {
                     try {
-                        fVar.onNext(cl.this.itU.j(t, obj));
+                        fVar.onNext(cl.this.itV.j(t, obj));
                     } catch (Throwable th) {
                         rx.exceptions.a.a(th, this);
                     }
@@ -69,7 +69,7 @@ public final class cl<T, U, R> implements d.b<R, T> {
         };
         fVar.add(jVar2);
         fVar.add(jVar3);
-        this.itx.unsafeSubscribe(jVar3);
+        this.ity.unsafeSubscribe(jVar3);
         return jVar2;
     }
 }

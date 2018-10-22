@@ -51,8 +51,8 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
     @Override // com.baidu.tieba.channel.view.e
     /* renamed from: c */
     public void aa(com.baidu.tieba.channel.data.d dVar) {
-        if (dVar != null && dVar.aoZ() != null) {
-            this.cUj.setText(dVar.aoZ().getChannelName());
+        if (dVar != null && dVar.apa() != null) {
+            this.cUj.setText(dVar.apa().getChannelName());
             if (this.cUi != null) {
                 this.cUi.aa(dVar);
             }
@@ -72,17 +72,17 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
 
     public void C(int i, int i2, int i3) {
         D(i, i2, i3);
-        apr();
-        app();
+        aps();
         apq();
+        apr();
         if (this.cUi != null) {
-            this.cUi.b(aps(), this.mNavigationBar.getBarBgView().getAlpha());
+            this.cUi.b(apt(), this.mNavigationBar.getBarBgView().getAlpha());
         }
     }
 
-    private void app() {
+    private void apq() {
         float alpha = this.mNavigationBar.getBarBgView().getAlpha();
-        if (aps()) {
+        if (apt()) {
             this.cUj.setVisibility(0);
             al.b(this.cUj, e.d.cp_cont_b, e.d.s_navbar_title_color);
             this.cUj.setAlpha(alpha);
@@ -99,8 +99,8 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
         }
     }
 
-    private void apq() {
-        if (aps()) {
+    private void apr() {
+        if (apt()) {
             al.a(this.cTJ, e.f.icon_return_bg_s, e.f.icon_return_bg_s);
         } else {
             al.a(this.cTJ, e.f.icon_return_bg, e.f.icon_return_bg);
@@ -124,7 +124,7 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
         }
     }
 
-    private void apr() {
+    private void aps() {
         if (2 == TbadkCoreApplication.getInst().getSkinType()) {
             this.cUk = false;
         } else if (this.mNavigationBar.getBarBgView().getAlpha() < 0.5f) {
@@ -135,7 +135,7 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aps() {
+    public boolean apt() {
         return this.cUk;
     }
 
@@ -193,9 +193,9 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
         @Override // com.baidu.tieba.channel.view.e
         /* renamed from: c */
         public void aa(com.baidu.tieba.channel.data.d dVar) {
-            if (dVar != null && dVar.aoZ() != null) {
-                this.cUo = dVar.aoZ().isSubscribe();
-                b(this.cUm.aps(), this.mNavigationBar.getBarBgView().getAlpha());
+            if (dVar != null && dVar.apa() != null) {
+                this.cUo = dVar.apa().isSubscribe();
+                b(this.cUm.apt(), this.mNavigationBar.getBarBgView().getAlpha());
             }
         }
 

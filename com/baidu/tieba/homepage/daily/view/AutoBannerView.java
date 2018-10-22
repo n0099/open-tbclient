@@ -20,7 +20,7 @@ public class AutoBannerView extends RelativeLayout {
     private com.baidu.tbadk.f.a aOu;
     private final com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a> ats;
     private CoverFlowView<com.baidu.tieba.homepage.daily.b.a> dpd;
-    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a> ebB;
+    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a> ebC;
     private List<com.baidu.tieba.homepage.daily.b.a> mData;
 
     public AutoBannerView(Context context) {
@@ -28,8 +28,8 @@ public class AutoBannerView extends RelativeLayout {
         this.ats = new com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a>() { // from class: com.baidu.tieba.homepage.daily.view.AutoBannerView.2
             @Override // com.baidu.tbadk.core.flow.a.d
             public void h(int i, String str) {
-                if (AutoBannerView.this.ebB != null && AutoBannerView.this.checkIndex(i)) {
-                    AutoBannerView.this.ebB.h(i, str);
+                if (AutoBannerView.this.ebC != null && AutoBannerView.this.checkIndex(i)) {
+                    AutoBannerView.this.ebC.h(i, str);
                 }
                 AutoBannerView.this.or(str);
             }
@@ -37,8 +37,8 @@ public class AutoBannerView extends RelativeLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.core.flow.a.d
             public void a(int i, com.baidu.tieba.homepage.daily.b.a aVar) {
-                if (AutoBannerView.this.ebB != null && AutoBannerView.this.checkIndex(i)) {
-                    AutoBannerView.this.ebB.a(i, aVar);
+                if (AutoBannerView.this.ebC != null && AutoBannerView.this.checkIndex(i)) {
+                    AutoBannerView.this.ebC.a(i, aVar);
                 }
                 if (aVar == null) {
                 }
@@ -124,7 +124,7 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void setOutOnCoverViewCallback(com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a> dVar) {
-        this.ebB = dVar;
+        this.ebC = dVar;
     }
 
     public void onChangeSkinType(int i) {

@@ -23,7 +23,7 @@ import java.util.List;
 public class b {
     private f bFV;
     private PbListView bJY;
-    private g eIV;
+    private g eIW;
     private TbPageContext<?> mContext;
     private View mHeaderView;
     private BdTypeListView mListView;
@@ -101,8 +101,8 @@ public class b {
             this.bJY.setTextColor(al.getColor(e.d.cp_cont_d));
             this.bJY.dW(i);
         }
-        if (this.eIV != null) {
-            this.eIV.onChangeSkinType();
+        if (this.eIW != null) {
+            this.eIW.onChangeSkinType();
         }
         if (this.bFV != null) {
             this.bFV.onChangeSkinType();
@@ -143,26 +143,26 @@ public class b {
     }
 
     public void a(String str, View.OnClickListener onClickListener) {
-        if (this.eIV == null) {
-            this.eIV = new g(this.mContext.getPageActivity(), onClickListener);
-            this.eIV.fB(BdListViewHelper.bdY);
-            this.eIV.onChangeSkinType();
+        if (this.eIW == null) {
+            this.eIW = new g(this.mContext.getPageActivity(), onClickListener);
+            this.eIW.fB(BdListViewHelper.bdY);
+            this.eIW.onChangeSkinType();
         }
-        if (!this.eIV.Mq()) {
+        if (!this.eIW.Mq()) {
             this.mListView.setVisibility(8);
             if (StringUtils.isNull(str)) {
                 str = this.mContext.getString(e.j.invite_friend_no_data_now);
             }
-            this.eIV.setTitle(str);
-            this.eIV.c(this.mRootView, true);
-            this.eIV.My();
+            this.eIW.setTitle(str);
+            this.eIW.c(this.mRootView, true);
+            this.eIW.My();
         }
     }
 
-    public void ZH() {
-        if (this.eIV != null && this.eIV.Mq()) {
+    public void ZI() {
+        if (this.eIW != null && this.eIW.Mq()) {
             this.mListView.setVisibility(0);
-            this.eIV.ad(this.mRootView);
+            this.eIW.ad(this.mRootView);
         }
     }
 }

@@ -14,12 +14,12 @@ import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private TbCheckBox.a eUi;
-    private AtListActivity hNL;
-    private boolean hNN;
+    private TbCheckBox.a eUj;
+    private AtListActivity hNM;
+    private boolean hNO;
     private final Context mContext;
     private ArrayList<MetaData> mData;
-    private b hNM = null;
+    private b hNN = null;
     private ViewGroup mParent = null;
 
     /* loaded from: classes3.dex */
@@ -29,14 +29,14 @@ public class a extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(b bVar) {
-        this.hNM = bVar;
+        this.hNN = bVar;
     }
 
     public a(AtListActivity atListActivity, boolean z) {
-        this.hNN = true;
-        this.hNL = atListActivity;
-        this.mContext = this.hNL.getPageContext().getContext();
-        this.hNN = z;
+        this.hNO = true;
+        this.hNM = atListActivity;
+        this.mContext = this.hNM.getPageContext().getContext();
+        this.hNO = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -46,7 +46,7 @@ public class a extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(TbCheckBox.a aVar) {
-        this.eUi = aVar;
+        this.eUj = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -98,33 +98,33 @@ public class a extends BaseAdapter {
         } else {
             c0302a = (C0302a) obj;
         }
-        if (this.hNM != null) {
-            this.hNM.a(c0302a.rootView, metaData);
+        if (this.hNN != null) {
+            this.hNN.a(c0302a.rootView, metaData);
         }
         String portrait = metaData.getPortrait();
         c0302a.chf.setText(metaData.getName_show());
-        c0302a.eUl.setTagData(metaData);
-        c0302a.eTQ.setTag(portrait);
-        if (this.hNN) {
-            c0302a.eUl.setVisibility(0);
+        c0302a.eUm.setTagData(metaData);
+        c0302a.eTR.setTag(portrait);
+        if (this.hNO) {
+            c0302a.eUm.setVisibility(0);
         } else {
-            c0302a.eUl.setVisibility(8);
+            c0302a.eUm.setVisibility(8);
         }
-        c0302a.eTQ.startLoad(portrait, 12, false);
-        this.hNL.getPageContext().getLayoutMode().setNightMode(skinType == 1);
-        this.hNL.getPageContext().getLayoutMode().onModeChanged(c0302a.rootView);
+        c0302a.eTR.startLoad(portrait, 12, false);
+        this.hNM.getPageContext().getLayoutMode().setNightMode(skinType == 1);
+        this.hNM.getPageContext().getLayoutMode().onModeChanged(c0302a.rootView);
         return c0302a;
     }
 
     private C0302a bNk() {
         C0302a c0302a = new C0302a();
         c0302a.rootView = LayoutInflater.from(this.mContext).inflate(e.h.invite_friend_list_item, (ViewGroup) null);
-        c0302a.eTQ = (HeadImageView) c0302a.rootView.findViewById(e.g.photo);
-        c0302a.eTQ.setIsRound(false);
+        c0302a.eTR = (HeadImageView) c0302a.rootView.findViewById(e.g.photo);
+        c0302a.eTR.setIsRound(false);
         c0302a.chf = (TextView) c0302a.rootView.findViewById(e.g.txt_user_name);
-        c0302a.eUl = (TbCheckBox) c0302a.rootView.findViewById(e.g.ckb_select);
-        if (this.eUi != null) {
-            c0302a.eUl.setStatedChangedListener(this.eUi);
+        c0302a.eUm = (TbCheckBox) c0302a.rootView.findViewById(e.g.ckb_select);
+        if (this.eUj != null) {
+            c0302a.eUm.setStatedChangedListener(this.eUj);
         }
         c0302a.rootView.setTag(c0302a);
         return c0302a;
@@ -135,8 +135,8 @@ public class a extends BaseAdapter {
     /* loaded from: classes3.dex */
     public class C0302a {
         public TextView chf;
-        public HeadImageView eTQ;
-        public TbCheckBox eUl;
+        public HeadImageView eTR;
+        public TbCheckBox eUm;
         public View rootView;
 
         private C0302a() {

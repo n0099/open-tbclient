@@ -4,8 +4,8 @@ import rx.d;
 import rx.subjects.PublishSubject;
 /* loaded from: classes2.dex */
 public final class am<T, V> implements d.b<T, T> {
-    final rx.d<? extends T> isL;
-    final rx.functions.f<? super T, ? extends rx.d<V>> ivX;
+    final rx.d<? extends T> isM;
+    final rx.functions.f<? super T, ? extends rx.d<V>> ivY;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -13,8 +13,8 @@ public final class am<T, V> implements d.b<T, T> {
     }
 
     public am(rx.d<? extends T> dVar, rx.functions.f<? super T, ? extends rx.d<V>> fVar) {
-        this.isL = dVar;
-        this.ivX = fVar;
+        this.isM = dVar;
+        this.ivY = fVar;
     }
 
     /* JADX DEBUG: Type inference failed for r2v2. Raw type applied. Possible types: rx.j<T>, rx.j<? super T> */
@@ -39,7 +39,7 @@ public final class am<T, V> implements d.b<T, T> {
             @Override // rx.e
             public void onNext(final T t) {
                 try {
-                    cdJ.onNext(am.this.ivX.call(t).take(1).defaultIfEmpty(null).map((rx.functions.f<V, T>) new rx.functions.f<V, T>() { // from class: rx.internal.operators.am.1.1
+                    cdJ.onNext(am.this.ivY.call(t).take(1).defaultIfEmpty(null).map((rx.functions.f<V, T>) new rx.functions.f<V, T>() { // from class: rx.internal.operators.am.1.1
                         @Override // rx.functions.f
                         public T call(V v) {
                             return (T) t;

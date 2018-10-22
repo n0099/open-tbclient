@@ -11,7 +11,7 @@ import tbclient.TalkBall.AdidasAdvert;
 public interface a {
     void W(ArrayList<h> arrayList);
 
-    void YS();
+    void YT();
 
     void a(e eVar);
 

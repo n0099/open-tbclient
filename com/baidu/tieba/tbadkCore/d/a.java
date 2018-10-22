@@ -62,9 +62,9 @@ public class a {
     /* loaded from: classes.dex */
     public static class C0277a {
         private final boolean any;
-        private final am fcX;
-        private final String hed;
+        private final am fcY;
         private final String hee;
+        private final String hef;
         private final String key;
         private final String line;
         private final String page;
@@ -73,10 +73,10 @@ public class a {
             this.key = str;
             this.line = str2;
             this.page = str3;
-            this.hed = str4;
-            this.hee = str5;
+            this.hee = str4;
+            this.hef = str5;
             this.any = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.fcX = bCs();
+            this.fcY = bCs();
         }
 
         private am bCs() {
@@ -87,11 +87,11 @@ public class a {
             if (!StringUtils.isNull(this.page)) {
                 amVar = amVar.ax(SystemScreenshotManager.PAGE, this.page);
             }
-            if (!StringUtils.isNull(this.hed)) {
-                amVar = amVar.ax("locate", this.hed);
-            }
             if (!StringUtils.isNull(this.hee)) {
-                return amVar.ax(WebSocketAction.PARAM_KEY_TASK, this.hee);
+                amVar = amVar.ax("locate", this.hee);
+            }
+            if (!StringUtils.isNull(this.hef)) {
+                return amVar.ax(WebSocketAction.PARAM_KEY_TASK, this.hef);
             }
             return amVar;
         }
@@ -99,33 +99,33 @@ public class a {
         /* JADX INFO: Access modifiers changed from: private */
         public am e(String str, String str2, String str3, String str4, String str5) {
             if (!StringUtils.isNull(str)) {
-                this.fcX.ax(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
+                this.fcY.ax(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
             }
             if (!StringUtils.isNull(str2)) {
-                this.fcX.ax(VideoPlayActivityConfig.OBJ_ID, str2);
+                this.fcY.ax(VideoPlayActivityConfig.OBJ_ID, str2);
             }
             if (!StringUtils.isNull(str3)) {
-                this.fcX.ax(ImageViewerConfig.FORUM_ID, str3);
+                this.fcY.ax(ImageViewerConfig.FORUM_ID, str3);
             }
             if (!StringUtils.isNull(str4)) {
-                this.fcX.ax(ImageViewerConfig.FORUM_NAME, str4);
+                this.fcY.ax(ImageViewerConfig.FORUM_NAME, str4);
             }
             if (!StringUtils.isNull(str5)) {
-                this.fcX.ax("tid", str5);
+                this.fcY.ax("tid", str5);
             }
-            this.fcX.x("obj_cpid", 0).x("obj_good_id", 0).ax("obj_throw_type", "BY_POST").ax("client_type", "MOBILE_APP").ax("user_timestamp", String.valueOf(System.currentTimeMillis())).ax("os", HttpConstants.OS_TYPE_VALUE).ax(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE).ax("log_ver", "1.1");
-            return this.fcX;
+            this.fcY.x("obj_cpid", 0).x("obj_good_id", 0).ax("obj_throw_type", "BY_POST").ax("client_type", "MOBILE_APP").ax("user_timestamp", String.valueOf(System.currentTimeMillis())).ax("os", HttpConstants.OS_TYPE_VALUE).ax(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE).ax("log_ver", "1.1");
+            return this.fcY;
         }
 
         public C0277a cH(String str, String str2) {
             if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                this.fcX.ax(str, str2);
+                this.fcY.ax(str, str2);
             }
             return this;
         }
 
         public void save() {
-            TiebaStatic.log(this.fcX);
+            TiebaStatic.log(this.fcY);
             if (!this.any) {
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     throw new IllegalArgumentException();
@@ -135,7 +135,7 @@ public class a {
         }
 
         public void delete(String str) {
-            this.fcX.delete(str);
+            this.fcY.delete(str);
         }
     }
 }

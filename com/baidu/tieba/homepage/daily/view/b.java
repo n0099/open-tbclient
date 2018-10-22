@@ -19,23 +19,23 @@ import com.baidu.tieba.homepage.daily.b.e;
 import com.baidu.tieba.view.NoScrollGridView;
 /* loaded from: classes6.dex */
 public class b extends com.baidu.tieba.card.a<e> implements AdapterView.OnItemClickListener {
-    private TextView eko;
-    private ImageView ekp;
-    private NoScrollGridView ekq;
-    private d ekr;
+    private TextView ekp;
+    private ImageView ekq;
+    private NoScrollGridView ekr;
+    private d eks;
     private int mSkinType;
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
         View view = getView();
-        this.eko = (TextView) view.findViewById(e.g.topic_title_view);
-        this.ekp = (ImageView) view.findViewById(e.g.topic_more);
-        this.ekp.setOnClickListener(this);
-        this.ekq = (NoScrollGridView) view.findViewById(e.g.topic_gridview);
-        this.ekr = new d(tbPageContext.getPageActivity());
-        this.ekq.setAdapter((ListAdapter) this.ekr);
-        this.ekq.setOnItemClickListener(this);
+        this.ekp = (TextView) view.findViewById(e.g.topic_title_view);
+        this.ekq = (ImageView) view.findViewById(e.g.topic_more);
+        this.ekq.setOnClickListener(this);
+        this.ekr = (NoScrollGridView) view.findViewById(e.g.topic_gridview);
+        this.eks = new d(tbPageContext.getPageActivity());
+        this.ekr.setAdapter((ListAdapter) this.eks);
+        this.ekr.setOnItemClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -46,8 +46,8 @@ public class b extends com.baidu.tieba.card.a<e> implements AdapterView.OnItemCl
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.homepage.daily.b.e eVar) {
-        if (eVar != null && eVar.ejZ != null) {
-            this.ekr.setData(eVar.ejZ);
+        if (eVar != null && eVar.eka != null) {
+            this.eks.setData(eVar.eka);
             d(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -56,18 +56,18 @@ public class b extends com.baidu.tieba.card.a<e> implements AdapterView.OnItemCl
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            al.h(this.eko, e.d.cp_cont_b);
-            al.c(this.ekp, e.f.icon_arrow_gray_right_n);
+            al.h(this.ekp, e.d.cp_cont_b);
+            al.c(this.ekq, e.f.icon_arrow_gray_right_n);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.ekp) {
+        if (view == this.ekq) {
             if (com.baidu.tbadk.plugins.b.cx(true)) {
                 new HotRanklistActivityConfig(getContext()).createNormalConfig("hotforum", "all").start();
             } else {
-                String aJh = this.ekr.aJh();
+                String aJh = this.eks.aJh();
                 if (aJh != null) {
                     ay.CU().c(this.mTbPageContext, new String[]{aJh});
                 }
@@ -78,7 +78,7 @@ public class b extends com.baidu.tieba.card.a<e> implements AdapterView.OnItemCl
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        e.a item = this.ekr.getItem(i);
+        e.a item = this.eks.getItem(i);
         if (item != null) {
             if (com.baidu.tbadk.plugins.b.cx(true)) {
                 new HotTopicActivityConfig(getContext()).createNormalConfig("", item.xN(), "1").start();

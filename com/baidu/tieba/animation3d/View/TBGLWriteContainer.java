@@ -70,7 +70,7 @@ public class TBGLWriteContainer extends LinearLayout {
     @Override // android.view.View
     public void setVisibility(int i) {
         if (i == 8 && !jL(1)) {
-            anL();
+            anM();
         }
         super.setVisibility(i);
     }
@@ -165,7 +165,7 @@ public class TBGLWriteContainer extends LinearLayout {
         }
     }
 
-    public void anL() {
+    public void anM() {
         if (this.cKf != null) {
             Qv();
             int size = this.cKf.size();
@@ -200,24 +200,24 @@ public class TBGLWriteContainer extends LinearLayout {
             super(context);
             this.cKk = new ArrayList<>();
             this.mSkinType = 3;
-            anM();
+            anN();
         }
 
         public ShadeViewContainer(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
             this.cKk = new ArrayList<>();
             this.mSkinType = 3;
-            anM();
+            anN();
         }
 
         public ShadeViewContainer(Context context, AttributeSet attributeSet, int i) {
             super(context, attributeSet, i);
             this.cKk = new ArrayList<>();
             this.mSkinType = 3;
-            anM();
+            anN();
         }
 
-        public void anM() {
+        public void anN() {
             setOrientation(1);
         }
 

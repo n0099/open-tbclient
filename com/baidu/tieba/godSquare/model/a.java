@@ -7,10 +7,10 @@ public class a {
     private l<byte[]> bLr;
 
     public a() {
-        ayd();
+        aye();
     }
 
-    private void ayd() {
+    private void aye() {
         if (this.bLr == null) {
             this.bLr = com.baidu.tbadk.core.c.a.Aq().ef("tb.god_square");
         }
@@ -19,7 +19,7 @@ public class a {
     public byte[] nn(String str) {
         l.b<byte[]> bVar;
         if (str != null) {
-            ayd();
+            aye();
             bVar = this.bLr.aF(str);
         } else {
             bVar = null;
@@ -32,7 +32,7 @@ public class a {
 
     public void k(String str, byte[] bArr) {
         if (!StringUtils.isNull(str)) {
-            ayd();
+            aye();
             this.bLr.a(str, bArr, 604800000L);
         }
     }

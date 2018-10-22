@@ -37,22 +37,22 @@ public class a {
         this.mAdapters.add(this.dGQ);
         this.mAdapters.add(this.dEw);
         bdTypeRecyclerView.addAdapters(this.mAdapters);
-        aBZ();
+        aCa();
     }
 
     public void setData(ArrayList<h> arrayList) {
         this.bMI.setData(arrayList);
     }
 
-    private void aBZ() {
+    private void aCa() {
         if (this.dGO != null && !v.J(this.mAdapters)) {
             for (com.baidu.adp.widget.ListView.a aVar : this.mAdapters) {
                 if (aVar instanceof com.baidu.tieba.frs.e.c) {
                     com.baidu.tieba.frs.e.c cVar = (com.baidu.tieba.frs.e.c) aVar;
-                    if (cVar.aCM() != null) {
-                        cVar.aCM().dTC = this.dGO.dGT;
-                        cVar.aCM().dTE = this.dGO.forumId;
-                        cVar.aCM().dTF = this.dGO.tabId;
+                    if (cVar.aCN() != null) {
+                        cVar.aCN().dTD = this.dGO.dGT;
+                        cVar.aCN().dTF = this.dGO.forumId;
+                        cVar.aCN().dTG = this.dGO.tabId;
                     }
                 }
             }

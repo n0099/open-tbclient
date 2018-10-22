@@ -36,7 +36,7 @@ public class PostPraiseView extends BasePraiseView<PostData> {
     /* JADX WARN: Multi-variable type inference failed */
     public void a(PostData postData) {
         if (postData != 0) {
-            if (postData.aBT()) {
+            if (postData.aBU()) {
                 if (postData.zK() == 0 || postData.zK() == 1 || postData.zK() == 2) {
                     postData.cw(2);
                 }
@@ -65,7 +65,7 @@ public class PostPraiseView extends BasePraiseView<PostData> {
         }
         this.aBh.setText(string);
         this.aBh.setContentDescription(context.getString(this.aBc) + num);
-        if (this.mData != 0 && ((PostData) this.mData).aBT() && Dz()) {
+        if (this.mData != 0 && ((PostData) this.mData).aBU() && Dz()) {
             this.aBi.setImageDrawable(createStateDrawable(this.aBe, this.aBd));
             this.aBh.setTextColor(createColorStateList(this.aBg, this.aBf));
             return;
@@ -79,14 +79,14 @@ public class PostPraiseView extends BasePraiseView<PostData> {
         if (this.mData == 0) {
             return 0;
         }
-        if (((PostData) this.mData).aBT() && Dz()) {
+        if (((PostData) this.mData).aBU() && Dz()) {
             ((PostData) this.mData).cw(2);
             ((PostData) this.mData).ni(false);
             ((PostData) this.mData).v(((PostData) this.mData).zH() - 1);
             ((PostData) this.mData).w(((PostData) this.mData).zI());
             i = 1;
         } else {
-            if (((PostData) this.mData).aBT() && ((PostData) this.mData).zK() == 5) {
+            if (((PostData) this.mData).aBU() && ((PostData) this.mData).zK() == 5) {
                 ((PostData) this.mData).w(((PostData) this.mData).zI() - 1);
             }
             ((PostData) this.mData).ni(true);

@@ -89,11 +89,11 @@ public class f extends com.baidu.tieba.frs.h<bb, a<com.baidu.tieba.frs.entelechy
         if (bbVar != null) {
             zVar = new z();
             zVar.mLocate = lS(bbVar.zv());
-            zVar.cQb = this.dIB.dTE;
+            zVar.cQb = this.dIB.dTF;
             zVar.beh = bbVar.getTid();
-            zVar.gwy = bbVar.mRecomAbTag;
+            zVar.gwz = bbVar.mRecomAbTag;
             if (bbVar.yN() != null) {
-                zVar.gwz = bbVar.yN().video_md5;
+                zVar.gwA = bbVar.yN().video_md5;
             }
             bbVar.zs();
         }
@@ -105,12 +105,12 @@ public class f extends com.baidu.tieba.frs.h<bb, a<com.baidu.tieba.frs.entelechy
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bb bbVar, a aVar) {
-        if (aVar == null || aVar.aoP() == null) {
+        if (aVar == null || aVar.aoQ() == null) {
             return null;
         }
-        aVar.aoP().setVideoStatsData(X(bbVar));
-        aVar.aoP().a(bbVar);
-        aVar.aoP().b(this.bVT);
+        aVar.aoQ().setVideoStatsData(X(bbVar));
+        aVar.aoQ().a(bbVar);
+        aVar.aoQ().b(this.bVT);
         return aVar.getView();
     }
 
@@ -125,7 +125,7 @@ public class f extends com.baidu.tieba.frs.h<bb, a<com.baidu.tieba.frs.entelechy
     }
 
     @Override // com.baidu.tieba.frs.e.c
-    public com.baidu.tieba.frs.e.a aCM() {
+    public com.baidu.tieba.frs.e.a aCN() {
         return this.dIB;
     }
 }

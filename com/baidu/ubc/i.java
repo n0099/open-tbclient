@@ -2,7 +2,7 @@ package com.baidu.ubc;
 /* loaded from: classes2.dex */
 class i {
     private static String TAG = "ControlData";
-    private final int hST;
+    private final int hSU;
     private int mCount;
     private final String mId;
     private final int mSize;
@@ -10,21 +10,21 @@ class i {
 
     public i(String str, int i, int i2) {
         this.mId = str;
-        this.hST = i;
+        this.hSU = i;
         this.mSize = i2;
     }
 
     public boolean bPv() {
-        if (this.hST == 0 || this.mSize == 0) {
+        if (this.hSU == 0 || this.mSize == 0) {
             return false;
         }
         Long valueOf = Long.valueOf(System.currentTimeMillis());
-        if (this.mTime != 0 && (valueOf.longValue() - this.mTime) / 1000 <= this.hST && this.mCount >= this.mSize) {
+        if (this.mTime != 0 && (valueOf.longValue() - this.mTime) / 1000 <= this.hSU && this.mCount >= this.mSize) {
             return true;
         }
         if (this.mTime == 0) {
             this.mTime = valueOf.longValue();
-        } else if ((valueOf.longValue() - this.mTime) / 1000 > this.hST) {
+        } else if ((valueOf.longValue() - this.mTime) / 1000 > this.hSU) {
             this.mTime = valueOf.longValue();
             this.mCount = 0;
         }

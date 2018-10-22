@@ -24,7 +24,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class e extends BaseAdapter {
-    private static final int gzi = TbadkCoreApplication.getInst().getListItemRule().Fy();
+    private static final int gzj = TbadkCoreApplication.getInst().getListItemRule().Fy();
     private TbPageContext<?> mContext;
     private int cxY = -1;
     private List<b.a> mData = new ArrayList();
@@ -38,11 +38,11 @@ public class e extends BaseAdapter {
             return 0;
         }
         int size = this.mData.size() + list.size();
-        if (size <= gzi) {
+        if (size <= gzj) {
             this.mData.addAll(list);
             return 0;
         }
-        int i = size - gzi;
+        int i = size - gzj;
         sM(i);
         this.mData.addAll(list);
         return i;
@@ -94,11 +94,11 @@ public class e extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(e.h.post_search_list_item, (ViewGroup) null);
             a aVar = new a();
-            aVar.gzl = (TextView) view.findViewById(e.g.title_text);
-            aVar.gzm = (TextView) view.findViewById(e.g.content_text);
-            aVar.gzn = (TextView) view.findViewById(e.g.label_text);
+            aVar.gzm = (TextView) view.findViewById(e.g.title_text);
+            aVar.gzn = (TextView) view.findViewById(e.g.content_text);
+            aVar.gzo = (TextView) view.findViewById(e.g.label_text);
             aVar.cyz = (TextView) view.findViewById(e.g.user_name);
-            aVar.gzo = (TextView) view.findViewById(e.g.time_text);
+            aVar.gzp = (TextView) view.findViewById(e.g.time_text);
             view.setTag(aVar);
         }
         a aVar2 = (a) view.getTag();
@@ -108,17 +108,17 @@ public class e extends BaseAdapter {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 str = "#99260f";
             }
-            aVar2.gzl.setText(Html.fromHtml(ao.ay(aVar3.title, str)));
-            aVar2.gzm.setText(Html.fromHtml(ao.ay(aVar3.content, str)));
+            aVar2.gzm.setText(Html.fromHtml(ao.ay(aVar3.title, str)));
+            aVar2.gzn.setText(Html.fromHtml(ao.ay(aVar3.content, str)));
             aVar2.cyz.setText(aVar3.name_show);
-            aVar2.gzo.setText(ao.C(aVar3.time));
-            aVar2.gzn.setVisibility(0);
+            aVar2.gzp.setText(ao.C(aVar3.time));
+            aVar2.gzo.setVisibility(0);
             if (aVar3.is_floor == 1) {
-                aVar2.gzn.setText(e.j.floor_text);
-            } else if (aVar3.gyJ == 1) {
-                aVar2.gzn.setText(e.j.reply_post);
+                aVar2.gzo.setText(e.j.floor_text);
+            } else if (aVar3.gyK == 1) {
+                aVar2.gzo.setText(e.j.reply_post);
             } else {
-                aVar2.gzn.setVisibility(8);
+                aVar2.gzo.setVisibility(8);
             }
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.e.1
                 @Override // android.view.View.OnClickListener
@@ -154,7 +154,7 @@ public class e extends BaseAdapter {
             ax.x(MyBookrackActivityConfig.TAB_ID, this.cxY);
         }
         if (aVar != null) {
-            if (aVar.is_floor == 1 || aVar.gyJ == 1) {
+            if (aVar.is_floor == 1 || aVar.gyK == 1) {
                 ax.h(Info.kBaiduPIDKey, aVar.pid);
             } else {
                 ax.h("tid", aVar.tid);
@@ -166,10 +166,10 @@ public class e extends BaseAdapter {
     /* loaded from: classes3.dex */
     private static class a {
         TextView cyz;
-        TextView gzl;
         TextView gzm;
         TextView gzn;
         TextView gzo;
+        TextView gzp;
 
         private a() {
         }

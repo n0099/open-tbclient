@@ -6,12 +6,12 @@ import java.util.Collection;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class n {
-    private static final Object[] ipx = new Object[0];
+    private static final Object[] ipy = new Object[0];
 
     public static Object[] h(Collection<?> collection) {
         int size = collection.size();
         if (size == 0) {
-            return ipx;
+            return ipy;
         }
         Object[] objArr = new Object[size];
         Iterator<?> it = collection.iterator();

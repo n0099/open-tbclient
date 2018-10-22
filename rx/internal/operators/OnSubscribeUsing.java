@@ -5,9 +5,9 @@ import rx.d;
 /* loaded from: classes2.dex */
 public final class OnSubscribeUsing<T, Resource> implements d.a<T> {
     private final rx.functions.b<? super Resource> dispose;
-    private final rx.functions.e<Resource> ivc;
-    private final rx.functions.f<? super Resource, ? extends rx.d<? extends T>> ivd;
-    private final boolean ive;
+    private final rx.functions.e<Resource> ivd;
+    private final rx.functions.f<? super Resource, ? extends rx.d<? extends T>> ive;
+    private final boolean ivf;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -15,20 +15,20 @@ public final class OnSubscribeUsing<T, Resource> implements d.a<T> {
     }
 
     public OnSubscribeUsing(rx.functions.e<Resource> eVar, rx.functions.f<? super Resource, ? extends rx.d<? extends T>> fVar, rx.functions.b<? super Resource> bVar, boolean z) {
-        this.ivc = eVar;
-        this.ivd = fVar;
+        this.ivd = eVar;
+        this.ive = fVar;
         this.dispose = bVar;
-        this.ive = z;
+        this.ivf = z;
     }
 
     public void call(rx.j<? super T> jVar) {
         rx.d<? extends T> doAfterTerminate;
         try {
-            Resource call = this.ivc.call();
+            Resource call = this.ivd.call();
             DisposeAction disposeAction = new DisposeAction(this.dispose, call);
             jVar.add(disposeAction);
-            rx.d<? extends T> call2 = this.ivd.call(call);
-            if (this.ive) {
+            rx.d<? extends T> call2 = this.ive.call(call);
+            if (this.ivf) {
                 doAfterTerminate = call2.doOnTerminate(disposeAction);
             } else {
                 doAfterTerminate = call2.doAfterTerminate(disposeAction);

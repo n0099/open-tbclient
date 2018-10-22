@@ -9,17 +9,17 @@ import com.baidu.tieba.im.message.RequestGetGroupActivityMessage;
 /* loaded from: classes3.dex */
 public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
     private int akx;
-    private RequestGetGroupActivityMessage eJE;
-    private RequestGetGroupActivityLocalMessage eJF;
-    private RequestDelGroupActivityMessage eJG;
-    private GroupActivityActivity eJH;
-    private GroupActivityData eJI;
+    private RequestGetGroupActivityMessage eJF;
+    private RequestGetGroupActivityLocalMessage eJG;
+    private RequestDelGroupActivityMessage eJH;
+    private GroupActivityActivity eJI;
+    private GroupActivityData eJJ;
     private int mFrom;
     private long mGroupId;
 
     public GroupActivityModel(GroupActivityActivity groupActivityActivity) {
         super(groupActivityActivity.getPageContext());
-        this.eJH = groupActivityActivity;
+        this.eJI = groupActivityActivity;
     }
 
     public int aQx() {
@@ -71,8 +71,8 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
     }
 
     public void sendMessage(int i) {
-        this.eJE = pm(i);
-        this.eJH.sendMessage(this.eJE);
+        this.eJF = pm(i);
+        this.eJI.sendMessage(this.eJF);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -80,36 +80,36 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
     }
 
     public void po(int i) {
-        this.eJF = pn(i);
-        this.eJH.sendMessage(this.eJF);
+        this.eJG = pn(i);
+        this.eJI.sendMessage(this.eJG);
     }
 
     public Message<?> getLocalSendMsg() {
-        return this.eJF;
-    }
-
-    public Message<?> getSendMsg() {
-        return this.eJE;
-    }
-
-    public Message<?> aQA() {
         return this.eJG;
     }
 
+    public Message<?> getSendMsg() {
+        return this.eJF;
+    }
+
+    public Message<?> aQA() {
+        return this.eJH;
+    }
+
     public void m(long j, int i) {
-        this.eJG = new RequestDelGroupActivityMessage();
-        this.eJG.setActivityId(i);
-        this.eJG.setGroupId(j);
-        this.eJH.sendMessage(this.eJG);
+        this.eJH = new RequestDelGroupActivityMessage();
+        this.eJH.setActivityId(i);
+        this.eJH.setGroupId(j);
+        this.eJI.sendMessage(this.eJH);
     }
 
     public GroupActivityData aQB() {
-        return this.eJI;
+        return this.eJJ;
     }
 
     public void a(GroupActivityData groupActivityData) {
         if (groupActivityData != null) {
-            this.eJI = groupActivityData;
+            this.eJJ = groupActivityData;
         }
     }
 }

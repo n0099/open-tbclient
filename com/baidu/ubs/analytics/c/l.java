@@ -6,17 +6,17 @@ import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public final class l {
-    private static String hUa;
     private static String hUb;
-    private final LinkedHashMap<String, Long> hUc = new LinkedHashMap<>();
+    private static String hUc;
+    private final LinkedHashMap<String, Long> hUd = new LinkedHashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void xJ(String str) {
         if (!TextUtils.isEmpty(str)) {
-            synchronized (this.hUc) {
-                this.hUc.put(str, Long.valueOf(System.currentTimeMillis()));
-                hUa = str;
-                hUb = String.valueOf(System.currentTimeMillis());
+            synchronized (this.hUd) {
+                this.hUd.put(str, Long.valueOf(System.currentTimeMillis()));
+                hUb = str;
+                hUc = String.valueOf(System.currentTimeMillis());
             }
         }
     }
@@ -26,14 +26,14 @@ public final class l {
         d dVar;
         if (!TextUtils.isEmpty(str)) {
             final com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
-            synchronized (this.hUc) {
-                Long remove = this.hUc.remove(str);
+            synchronized (this.hUd) {
+                Long remove = this.hUd.remove(str);
                 if (remove != null) {
                     try {
                         lVar.setStartTime(String.valueOf(remove));
                         lVar.t(str);
                         lVar.z(String.valueOf(System.currentTimeMillis()));
-                        dVar = d.a.hTP;
+                        dVar = d.a.hTQ;
                         lVar.setPath(dVar.bQl());
                         lVar.x(m.bQu().I());
                     } catch (Exception e) {

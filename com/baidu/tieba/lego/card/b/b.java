@@ -10,22 +10,22 @@ public interface b {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String feB;
         public String feC;
-        public ArrayList<String> feD = new ArrayList<>();
+        public String feD;
         public ArrayList<String> feE = new ArrayList<>();
+        public ArrayList<String> feF = new ArrayList<>();
 
         public void parseFromJson(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.feB = jSONObject.optString("charge_click_url");
-                this.feC = jSONObject.optString("charge_show_url");
+                this.feC = jSONObject.optString("charge_click_url");
+                this.feD = jSONObject.optString("charge_show_url");
                 JSONArray optJSONArray = jSONObject.optJSONArray("monitor_show_url");
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         String optString = optJSONArray.optString(i);
                         if (!TextUtils.isEmpty(optString)) {
-                            this.feD.add(optString);
+                            this.feE.add(optString);
                         }
                     }
                 }
@@ -35,7 +35,7 @@ public interface b {
                     for (int i2 = 0; i2 < length2; i2++) {
                         String optString2 = optJSONArray2.optString(i2);
                         if (!TextUtils.isEmpty(optString2)) {
-                            this.feE.add(optString2);
+                            this.feF.add(optString2);
                         }
                     }
                 }

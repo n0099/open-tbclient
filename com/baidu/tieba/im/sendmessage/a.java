@@ -39,16 +39,16 @@ import java.util.Map;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a eQl = null;
-    public static volatile Long eQm = 0L;
-    public static volatile long eQn = 0;
-    private a.c eQq;
-    private VoiceSendModel eQr;
-    private WeakReference<a.InterfaceC0138a<ChatMessage>> eQs;
+    private static volatile a eQm = null;
+    public static volatile Long eQn = 0L;
+    public static volatile long eQo = 0;
+    private a.c eQr;
+    private VoiceSendModel eQs;
+    private WeakReference<a.InterfaceC0138a<ChatMessage>> eQt;
     private d mSendCallback;
-    private final LinkedList<ChatMessage> eQo = new LinkedList<>();
-    private final HashMap<String, com.baidu.tbadk.img.a<ChatMessage>> eQp = new HashMap<>();
-    VoiceSendModel.b eQt = new VoiceSendModel.b() { // from class: com.baidu.tieba.im.sendmessage.a.8
+    private final LinkedList<ChatMessage> eQp = new LinkedList<>();
+    private final HashMap<String, com.baidu.tbadk.img.a<ChatMessage>> eQq = new HashMap<>();
+    VoiceSendModel.b eQu = new VoiceSendModel.b() { // from class: com.baidu.tieba.im.sendmessage.a.8
         @Override // com.baidu.tieba.im.sendmessage.VoiceSendModel.b
         public void a(String str, ChatMessage chatMessage) {
             try {
@@ -134,9 +134,9 @@ public class a {
     }
 
     private void init() {
-        this.eQr = new VoiceSendModel(null);
-        this.eQr.a(this.eQt);
-        this.eQq = new a.c() { // from class: com.baidu.tieba.im.sendmessage.a.1
+        this.eQs = new VoiceSendModel(null);
+        this.eQs.a(this.eQu);
+        this.eQr = new a.c() { // from class: com.baidu.tieba.im.sendmessage.a.1
             @Override // com.baidu.tbadk.img.a.c
             public synchronized void a(String str, ImageUploadResult imageUploadResult) {
                 com.baidu.tbadk.img.a aVar;
@@ -146,7 +146,7 @@ public class a {
                 int i2 = 0;
                 synchronized (this) {
                     synchronized (a.class) {
-                        aVar = (com.baidu.tbadk.img.a) a.this.eQp.remove(str);
+                        aVar = (com.baidu.tbadk.img.a) a.this.eQq.remove(str);
                     }
                     if (aVar != null && (chatMessage = (ChatMessage) aVar.Mk()) != null) {
                         if (imageUploadResult == null || imageUploadResult.error_code != 0 || imageUploadResult.picInfo == null) {
@@ -287,24 +287,24 @@ public class a {
     }
 
     public void c(ChatMessage chatMessage, String str) {
-        com.baidu.tbadk.img.a<ChatMessage> aVar = this.eQp.get(str);
+        com.baidu.tbadk.img.a<ChatMessage> aVar = this.eQq.get(str);
         if (aVar == null) {
             com.baidu.tbadk.img.a<ChatMessage> aVar2 = new com.baidu.tbadk.img.a<>(str, "IM");
             aVar2.Ml();
             aVar2.I(chatMessage);
-            if (this.eQs != null && this.eQs.get() != null) {
-                aVar2.a(this.eQs.get());
+            if (this.eQt != null && this.eQt.get() != null) {
+                aVar2.a(this.eQt.get());
             }
-            aVar2.a(this.eQq);
+            aVar2.a(this.eQr);
             if (chatMessage instanceof CommonGroupChatMessage) {
                 aVar2.setGroupId(((CommonGroupChatMessage) chatMessage).getGroupId());
             } else if (chatMessage instanceof PersonalChatMessage) {
-                aVar2.setGroupId(String.valueOf(eQm));
-            } else if (chatMessage instanceof OfficialChatMessage) {
                 aVar2.setGroupId(String.valueOf(eQn));
+            } else if (chatMessage instanceof OfficialChatMessage) {
+                aVar2.setGroupId(String.valueOf(eQo));
             }
             synchronized (a.class) {
-                this.eQp.put(str, aVar2);
+                this.eQq.put(str, aVar2);
             }
             aVar = aVar2;
         }
@@ -319,14 +319,14 @@ public class a {
             chatMessage.getClientLogID();
             chatMessage.getCmd();
         }
-        this.eQr.b(voiceMsgData.getVoice_md5(), chatMessage);
+        this.eQs.b(voiceMsgData.getVoice_md5(), chatMessage);
     }
 
     public boolean n(ChatMessage chatMessage) {
-        if (this.eQp == null || chatMessage == null) {
+        if (this.eQq == null || chatMessage == null) {
             return false;
         }
-        for (Map.Entry<String, com.baidu.tbadk.img.a<ChatMessage>> entry : this.eQp.entrySet()) {
+        for (Map.Entry<String, com.baidu.tbadk.img.a<ChatMessage>> entry : this.eQq.entrySet()) {
             com.baidu.tbadk.img.a<ChatMessage> value = entry.getValue();
             if (value != null && value.Mk() != null) {
                 ChatMessage Mk = value.Mk();
@@ -334,14 +334,14 @@ public class a {
                     continue;
                 } else if (chatMessage.getCustomGroupType() == 2 || chatMessage.getCustomGroupType() == 4) {
                     if (chatMessage.getToUserId() == Mk.getToUserId()) {
-                        if (this.eQs != null && this.eQs.get() != null) {
-                            value.a(this.eQs.get());
+                        if (this.eQt != null && this.eQt.get() != null) {
+                            value.a(this.eQt.get());
                         }
                         return true;
                     }
                 } else if (chatMessage.getGroupId() != null && Mk.getGroupId() != null && chatMessage.getGroupId().equals(Mk.getGroupId())) {
-                    if (this.eQs != null && this.eQs.get() != null) {
-                        value.a(this.eQs.get());
+                    if (this.eQt != null && this.eQt.get() != null) {
+                        value.a(this.eQt.get());
                     }
                     return true;
                 }
@@ -352,20 +352,20 @@ public class a {
 
     private void o(ChatMessage chatMessage) {
         if (chatMessage != null) {
-            this.eQo.add(chatMessage);
+            this.eQp.add(chatMessage);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void p(ChatMessage chatMessage) {
-        int a = a(chatMessage, this.eQo);
+        int a = a(chatMessage, this.eQp);
         if (a >= 0) {
-            this.eQo.remove(a);
+            this.eQp.remove(a);
         }
     }
 
     public boolean q(ChatMessage chatMessage) {
-        return a(chatMessage, this.eQo) != -1;
+        return a(chatMessage, this.eQp) != -1;
     }
 
     private int a(ChatMessage chatMessage, LinkedList<ChatMessage> linkedList) {
@@ -389,22 +389,22 @@ public class a {
     }
 
     public static a aSQ() {
-        if (eQl == null) {
+        if (eQm == null) {
             synchronized (a.class) {
-                if (eQl == null) {
-                    eQl = new a();
+                if (eQm == null) {
+                    eQm = new a();
                 }
             }
         }
-        return eQl;
+        return eQm;
     }
 
     public static void cx(long j) {
-        eQm = Long.valueOf(j);
+        eQn = Long.valueOf(j);
     }
 
     public static void cy(long j) {
-        eQn = j;
+        eQo = j;
     }
 
     public void b(final String str, final c cVar) {
@@ -607,6 +607,6 @@ public class a {
     }
 
     public void setImageUploadUIProgressCallback(a.InterfaceC0138a<ChatMessage> interfaceC0138a) {
-        this.eQs = new WeakReference<>(interfaceC0138a);
+        this.eQt = new WeakReference<>(interfaceC0138a);
     }
 }

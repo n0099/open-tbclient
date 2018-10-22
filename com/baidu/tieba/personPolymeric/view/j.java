@@ -15,15 +15,15 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class j extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.m> {
     private HTypeListView bxV;
-    private com.baidu.tieba.personPolymeric.a.o gqW;
-    private View.OnClickListener grd;
+    private com.baidu.tieba.personPolymeric.a.o gqX;
+    private View.OnClickListener gre;
     private View mRootView;
     private TextView mTitleView;
     private long uid;
 
     public j(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.grd = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.j.1
+        this.gre = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.j.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 j.this.bpn();
@@ -33,7 +33,7 @@ public class j extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         this.mRootView = getView();
         this.mTitleView = (TextView) this.mRootView.findViewById(e.g.card_person_vedio_list_title);
         this.bxV = (HTypeListView) this.mRootView.findViewById(e.g.card_person_vedio_view_pager);
-        this.gqW = new com.baidu.tieba.personPolymeric.a.o(this.mTbPageContext, this.bxV);
+        this.gqX = new com.baidu.tieba.personPolymeric.a.o(this.mTbPageContext, this.bxV);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -53,14 +53,14 @@ public class j extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.personPolymeric.c.m mVar) {
-        if (mVar == null || v.J(mVar.gqb)) {
+        if (mVar == null || v.J(mVar.gqc)) {
             this.mRootView.setVisibility(8);
             return;
         }
         this.uid = mVar.uid;
         this.mTitleView.setText(e.j.video_title_str);
-        this.bxV.setData(du(mVar.gqb));
-        this.gqW.Q(this.grd);
+        this.bxV.setData(du(mVar.gqc));
+        this.gqX.Q(this.gre);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

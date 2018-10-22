@@ -12,8 +12,8 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class b extends BaseAdapter {
     private List<EmotionImageData> djt;
-    private a fWI;
-    private EmotionView.a fWJ;
+    private a fWJ;
+    private EmotionView.a fWK;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -48,14 +48,14 @@ public class b extends BaseAdapter {
         if (view == null) {
             C0249b c0249b2 = new C0249b();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(e.h.list_sug_emotion, (ViewGroup) null);
-            c0249b2.fCq = (EmotionView) view.findViewById(e.g.emotion_view);
-            c0249b2.fCq.auM();
-            c0249b2.fCq.setController(this.fWJ);
-            c0249b2.fCq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.1
+            c0249b2.fCr = (EmotionView) view.findViewById(e.g.emotion_view);
+            c0249b2.fCr.auN();
+            c0249b2.fCr.setController(this.fWK);
+            c0249b2.fCr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (b.this.fWI != null && (view2 instanceof EmotionView)) {
-                        b.this.fWI.d(((EmotionView) view2).getData());
+                    if (b.this.fWJ != null && (view2 instanceof EmotionView)) {
+                        b.this.fWJ.d(((EmotionView) view2).getData());
                     }
                 }
             });
@@ -65,23 +65,23 @@ public class b extends BaseAdapter {
             c0249b = (C0249b) view.getTag();
         }
         if (this.djt != null && i >= 0 && i < this.djt.size()) {
-            c0249b.fCq.a(this.djt.get(i));
+            c0249b.fCr.a(this.djt.get(i));
         }
         return view;
     }
 
     public void a(a aVar) {
-        this.fWI = aVar;
+        this.fWJ = aVar;
     }
 
     public void a(EmotionView.a aVar) {
-        this.fWJ = aVar;
+        this.fWK = aVar;
     }
 
     /* renamed from: com.baidu.tieba.pb.pb.main.emotion.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     static class C0249b {
-        EmotionView fCq;
+        EmotionView fCr;
 
         C0249b() {
         }

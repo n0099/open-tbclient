@@ -12,9 +12,9 @@ import android.widget.ImageView;
 /* loaded from: classes3.dex */
 public class EmotionEditLayout extends FrameLayout {
     private float djD;
-    private float ggO;
     private float ggP;
-    private long ggQ;
+    private float ggQ;
+    private long ggR;
     private ViewDragHelper mDragHelper;
 
     public EmotionEditLayout(Context context) {
@@ -55,9 +55,9 @@ public class EmotionEditLayout extends FrameLayout {
             public void onViewCaptured(View view, int i) {
                 super.onViewCaptured(view, i);
                 if (view instanceof EmotionEditText) {
-                    EmotionEditLayout.this.ggQ = System.currentTimeMillis();
-                    EmotionEditLayout.this.ggO = view.getX();
-                    EmotionEditLayout.this.ggP = view.getY();
+                    EmotionEditLayout.this.ggR = System.currentTimeMillis();
+                    EmotionEditLayout.this.ggP = view.getX();
+                    EmotionEditLayout.this.ggQ = view.getY();
                     emotionEditText.bmS();
                 }
             }
@@ -68,9 +68,9 @@ public class EmotionEditLayout extends FrameLayout {
                 if (view instanceof EmotionEditText) {
                     float x = view.getX();
                     float y = view.getY();
-                    float abs = Math.abs(x - EmotionEditLayout.this.ggO);
-                    float abs2 = Math.abs(y - EmotionEditLayout.this.ggP);
-                    if (abs < EmotionEditLayout.this.djD && abs2 < EmotionEditLayout.this.djD && System.currentTimeMillis() - EmotionEditLayout.this.ggQ < 300) {
+                    float abs = Math.abs(x - EmotionEditLayout.this.ggP);
+                    float abs2 = Math.abs(y - EmotionEditLayout.this.ggQ);
+                    if (abs < EmotionEditLayout.this.djD && abs2 < EmotionEditLayout.this.djD && System.currentTimeMillis() - EmotionEditLayout.this.ggR < 300) {
                         emotionEditText.bmT();
                     }
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);

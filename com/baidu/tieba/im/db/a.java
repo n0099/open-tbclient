@@ -19,13 +19,13 @@ import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a {
     private String HEAD;
-    private Class<? extends ChatMessage> eFi;
-    List<String> eFj = null;
+    private Class<? extends ChatMessage> eFj;
+    List<String> eFk = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(String str, Class<? extends ChatMessage> cls) {
         this.HEAD = str;
-        this.eFi = cls;
+        this.eFj = cls;
     }
 
     public int ph(String str) {
@@ -268,8 +268,8 @@ public abstract class a {
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         try {
-                            ChatMessage newInstance = this.eFi.newInstance();
-                            newInstance.setGroupId(String.valueOf(com.baidu.tieba.im.sendmessage.a.eQm));
+                            ChatMessage newInstance = this.eFj.newInstance();
+                            newInstance.setGroupId(String.valueOf(com.baidu.tieba.im.sendmessage.a.eQn));
                             newInstance.setContent(cursor.getString(cursor.getColumnIndex("content")));
                             newInstance.setTime(cursor.getLong(cursor.getColumnIndex("create_time")));
                             newInstance.setExtra(cursor.getString(cursor.getColumnIndex("ext")));
@@ -376,12 +376,12 @@ public abstract class a {
         }
         String valueOf = String.valueOf(j);
         String str = this.HEAD + valueOf;
-        if (this.eFj == null) {
-            this.eFj = aOW();
+        if (this.eFk == null) {
+            this.eFk = aOW();
         }
-        if (!this.eFj.contains(valueOf)) {
+        if (!this.eFk.contains(valueOf)) {
             pn(valueOf);
-            this.eFj.add(valueOf);
+            this.eFk.add(valueOf);
         }
         SQLiteStatement sQLiteStatement = null;
         try {
@@ -523,18 +523,18 @@ public abstract class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (this.eFj == null) {
-            this.eFj = aOW();
+        if (this.eFk == null) {
+            this.eFk = aOW();
         }
-        if (this.eFj != null && this.eFj.contains(str)) {
-            Iterator<String> it = this.eFj.iterator();
+        if (this.eFk != null && this.eFk.contains(str)) {
+            Iterator<String> it = this.eFk.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 String next = it.next();
                 if (next.equals(str)) {
-                    this.eFj.remove(next);
+                    this.eFk.remove(next);
                     break;
                 }
             }
@@ -546,18 +546,18 @@ public abstract class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (this.eFj == null) {
-            this.eFj = aOW();
+        if (this.eFk == null) {
+            this.eFk = aOW();
         }
-        if (this.eFj != null && this.eFj.contains(str)) {
-            Iterator<String> it = this.eFj.iterator();
+        if (this.eFk != null && this.eFk.contains(str)) {
+            Iterator<String> it = this.eFk.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 String next = it.next();
                 if (next.equals(str)) {
-                    this.eFj.remove(next);
+                    this.eFk.remove(next);
                     break;
                 }
             }
@@ -605,7 +605,7 @@ public abstract class a {
     }
 
     public void aOX() {
-        this.eFj = null;
+        this.eFk = null;
     }
 
     public boolean al(String str, int i) {

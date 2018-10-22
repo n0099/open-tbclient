@@ -6,39 +6,21 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes6.dex */
 public class at {
-    private PostWriteCallBackData fPq;
-    private com.baidu.tieba.write.b fWw = new com.baidu.tieba.write.b();
-    private com.baidu.tieba.write.b fWx;
-    private EditText fWy;
+    private PostWriteCallBackData fPr;
+    private EditText fWA;
+    private com.baidu.tieba.write.b fWx = new com.baidu.tieba.write.b();
+    private com.baidu.tieba.write.b fWy;
     private EditText fWz;
 
     public at() {
-        this.fWw.wf(e.d.cp_cont_i);
-        this.fWw.wg(e.d.cp_cont_h_alpha85);
-        this.fWx = new com.baidu.tieba.write.b();
         this.fWx.wf(e.d.cp_cont_i);
         this.fWx.wg(e.d.cp_cont_h_alpha85);
+        this.fWy = new com.baidu.tieba.write.b();
+        this.fWy.wf(e.d.cp_cont_i);
+        this.fWy.wg(e.d.cp_cont_h_alpha85);
     }
 
     public void lj(boolean z) {
-        if (this.fWy != null && this.fWy.getText() != null) {
-            int selectionEnd = this.fWy.getSelectionEnd();
-            SpannableStringBuilder b = this.fWw.b(this.fWy.getText());
-            if (b != null) {
-                this.fWw.ob(true);
-                this.fWy.setText(b);
-                if (z && this.fWw.bLr() >= 0) {
-                    this.fWy.requestFocus();
-                    this.fWy.setSelection(this.fWw.bLr());
-                } else {
-                    this.fWy.setSelection(selectionEnd);
-                }
-                this.fWw.oa(this.fWw.bLr() >= 0);
-            }
-        }
-    }
-
-    public void lk(boolean z) {
         if (this.fWz != null && this.fWz.getText() != null) {
             int selectionEnd = this.fWz.getSelectionEnd();
             SpannableStringBuilder b = this.fWx.b(this.fWz.getText());
@@ -56,76 +38,94 @@ public class at {
         }
     }
 
+    public void lk(boolean z) {
+        if (this.fWA != null && this.fWA.getText() != null) {
+            int selectionEnd = this.fWA.getSelectionEnd();
+            SpannableStringBuilder b = this.fWy.b(this.fWA.getText());
+            if (b != null) {
+                this.fWy.ob(true);
+                this.fWA.setText(b);
+                if (z && this.fWy.bLr() >= 0) {
+                    this.fWA.requestFocus();
+                    this.fWA.setSelection(this.fWy.bLr());
+                } else {
+                    this.fWA.setSelection(selectionEnd);
+                }
+                this.fWy.oa(this.fWy.bLr() >= 0);
+            }
+        }
+    }
+
     public void bkv() {
+        this.fWy.wJ(null);
+        this.fWy.aA(null);
+        this.fWy.oa(false);
+    }
+
+    public void bkw() {
         this.fWx.wJ(null);
         this.fWx.aA(null);
         this.fWx.oa(false);
     }
 
-    public void bkw() {
-        this.fWw.wJ(null);
-        this.fWw.aA(null);
-        this.fWw.oa(false);
-    }
-
     public void f(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
-            this.fWw.aA(postWriteCallBackData.getSensitiveWords());
-            this.fWw.wJ(postWriteCallBackData.getErrorString());
-            if (!com.baidu.tbadk.core.util.v.J(this.fWw.bLq())) {
+            this.fWx.aA(postWriteCallBackData.getSensitiveWords());
+            this.fWx.wJ(postWriteCallBackData.getErrorString());
+            if (!com.baidu.tbadk.core.util.v.J(this.fWx.bLq())) {
                 lj(true);
-                this.fPq = postWriteCallBackData;
+                this.fPr = postWriteCallBackData;
             }
         }
     }
 
     public void g(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
-            this.fWx.aA(postWriteCallBackData.getSensitiveWords());
-            this.fWx.wJ(postWriteCallBackData.getErrorString());
-            if (!com.baidu.tbadk.core.util.v.J(this.fWx.bLq())) {
+            this.fWy.aA(postWriteCallBackData.getSensitiveWords());
+            this.fWy.wJ(postWriteCallBackData.getErrorString());
+            if (!com.baidu.tbadk.core.util.v.J(this.fWy.bLq())) {
                 lk(true);
             }
         }
     }
 
     public void g(EditText editText) {
-        this.fWy = editText;
-    }
-
-    public void h(EditText editText) {
         this.fWz = editText;
     }
 
+    public void h(EditText editText) {
+        this.fWA = editText;
+    }
+
     public void onDestroy() {
-        this.fWy = null;
         this.fWz = null;
+        this.fWA = null;
     }
 
     public void onChangeSkinType() {
-        this.fWw.onChangeSkinType();
         this.fWx.onChangeSkinType();
-        if (this.fWw.bLs()) {
+        this.fWy.onChangeSkinType();
+        if (this.fWx.bLs()) {
             lj(false);
         }
-        if (this.fWx.bLs()) {
+        if (this.fWy.bLs()) {
             lk(false);
         }
     }
 
     public com.baidu.tieba.write.b bkx() {
-        return this.fWw;
-    }
-
-    public com.baidu.tieba.write.b bky() {
         return this.fWx;
     }
 
+    public com.baidu.tieba.write.b bky() {
+        return this.fWy;
+    }
+
     public EditText bkz() {
-        return this.fWz;
+        return this.fWA;
     }
 
     public PostWriteCallBackData bkA() {
-        return this.fPq;
+        return this.fPr;
     }
 }

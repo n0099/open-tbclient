@@ -9,9 +9,9 @@ import rx.internal.util.ExceptionsUtils;
 import rx.internal.util.ScalarSynchronousObservable;
 /* loaded from: classes2.dex */
 public final class e<T, R> implements d.a<R> {
-    final rx.d<? extends T> isL;
-    final rx.functions.f<? super T, ? extends rx.d<? extends R>> itl;
-    final int itm;
+    final rx.d<? extends T> isM;
+    final rx.functions.f<? super T, ? extends rx.d<? extends R>> itm;
+    final int itn;
     final int prefetch;
 
     @Override // rx.functions.b
@@ -20,16 +20,16 @@ public final class e<T, R> implements d.a<R> {
     }
 
     public e(rx.d<? extends T> dVar, rx.functions.f<? super T, ? extends rx.d<? extends R>> fVar, int i, int i2) {
-        this.isL = dVar;
-        this.itl = fVar;
+        this.isM = dVar;
+        this.itm = fVar;
         this.prefetch = i;
-        this.itm = i2;
+        this.itn = i2;
     }
 
     public void call(rx.j<? super R> jVar) {
-        final c cVar = new c(this.itm == 0 ? new rx.b.f<>(jVar) : jVar, this.itl, this.prefetch, this.itm);
+        final c cVar = new c(this.itn == 0 ? new rx.b.f<>(jVar) : jVar, this.itm, this.prefetch, this.itn);
         jVar.add(cVar);
-        jVar.add(cVar.its);
+        jVar.add(cVar.itt);
         jVar.setProducer(new rx.f() { // from class: rx.internal.operators.e.1
             @Override // rx.f
             public void request(long j) {
@@ -37,7 +37,7 @@ public final class e<T, R> implements d.a<R> {
             }
         });
         if (!jVar.isUnsubscribed()) {
-            this.isL.unsafeSubscribe(cVar);
+            this.isM.unsafeSubscribe(cVar);
         }
     }
 
@@ -47,26 +47,26 @@ public final class e<T, R> implements d.a<R> {
         volatile boolean active;
         final rx.j<? super R> actual;
         volatile boolean done;
-        final rx.functions.f<? super T, ? extends rx.d<? extends R>> itl;
-        final int itm;
-        final rx.subscriptions.d its;
+        final rx.functions.f<? super T, ? extends rx.d<? extends R>> itm;
+        final int itn;
+        final rx.subscriptions.d itt;
         final Queue<Object> queue;
-        final rx.internal.producers.a itr = new rx.internal.producers.a();
+        final rx.internal.producers.a its = new rx.internal.producers.a();
         final AtomicInteger wip = new AtomicInteger();
         final AtomicReference<Throwable> error = new AtomicReference<>();
 
         public c(rx.j<? super R> jVar, rx.functions.f<? super T, ? extends rx.d<? extends R>> fVar, int i, int i2) {
             Queue<Object> cVar;
             this.actual = jVar;
-            this.itl = fVar;
-            this.itm = i2;
+            this.itm = fVar;
+            this.itn = i2;
             if (rx.internal.util.a.ae.cdg()) {
                 cVar = new rx.internal.util.a.q<>(i);
             } else {
                 cVar = new rx.internal.util.atomic.c<>(i);
             }
             this.queue = cVar;
-            this.its = new rx.subscriptions.d();
+            this.itt = new rx.subscriptions.d();
             request(i);
         }
 
@@ -84,12 +84,12 @@ public final class e<T, R> implements d.a<R> {
         public void onError(Throwable th) {
             if (ExceptionsUtils.addThrowable(this.error, th)) {
                 this.done = true;
-                if (this.itm == 0) {
+                if (this.itn == 0) {
                     Throwable terminate = ExceptionsUtils.terminate(this.error);
                     if (!ExceptionsUtils.isTerminated(terminate)) {
                         this.actual.onError(terminate);
                     }
-                    this.its.unsubscribe();
+                    this.itt.unsubscribe();
                     return;
                 }
                 drain();
@@ -106,7 +106,7 @@ public final class e<T, R> implements d.a<R> {
 
         void dA(long j) {
             if (j > 0) {
-                this.itr.request(j);
+                this.its.request(j);
             } else if (j < 0) {
                 throw new IllegalArgumentException("n >= 0 required but it was " + j);
             }
@@ -119,7 +119,7 @@ public final class e<T, R> implements d.a<R> {
         void a(Throwable th, long j) {
             if (!ExceptionsUtils.addThrowable(this.error, th)) {
                 N(th);
-            } else if (this.itm == 0) {
+            } else if (this.itn == 0) {
                 Throwable terminate = ExceptionsUtils.terminate(this.error);
                 if (!ExceptionsUtils.isTerminated(terminate)) {
                     this.actual.onError(terminate);
@@ -127,7 +127,7 @@ public final class e<T, R> implements d.a<R> {
                 unsubscribe();
             } else {
                 if (j != 0) {
-                    this.itr.dJ(j);
+                    this.its.dJ(j);
                 }
                 this.active = false;
                 drain();
@@ -136,7 +136,7 @@ public final class e<T, R> implements d.a<R> {
 
         void dB(long j) {
             if (j != 0) {
-                this.itr.dJ(j);
+                this.its.dJ(j);
             }
             this.active = false;
             drain();
@@ -148,7 +148,7 @@ public final class e<T, R> implements d.a<R> {
 
         void drain() {
             if (this.wip.getAndIncrement() == 0) {
-                int i = this.itm;
+                int i = this.itn;
                 while (!this.actual.isUnsubscribed()) {
                     if (!this.active) {
                         if (i == 1 && this.error.get() != null) {
@@ -175,17 +175,17 @@ public final class e<T, R> implements d.a<R> {
                             }
                         } else if (!z2) {
                             try {
-                                rx.d<? extends R> call = this.itl.call((Object) NotificationLite.bb(poll));
+                                rx.d<? extends R> call = this.itm.call((Object) NotificationLite.bb(poll));
                                 if (call == null) {
                                     O(new NullPointerException("The source returned by the mapper was null"));
                                     return;
                                 } else if (call != rx.d.empty()) {
                                     if (call instanceof ScalarSynchronousObservable) {
                                         this.active = true;
-                                        this.itr.setProducer(new a(((ScalarSynchronousObservable) call).get(), this));
+                                        this.its.setProducer(new a(((ScalarSynchronousObservable) call).get(), this));
                                     } else {
                                         b bVar = new b(this);
-                                        this.its.g(bVar);
+                                        this.itt.g(bVar);
                                         if (!bVar.isUnsubscribed()) {
                                             this.active = true;
                                             call.unsafeSubscribe(bVar);
@@ -228,52 +228,52 @@ public final class e<T, R> implements d.a<R> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class b<T, R> extends rx.j<R> {
-        final c<T, R> itp;
+        final c<T, R> itq;
         long produced;
 
         public b(c<T, R> cVar) {
-            this.itp = cVar;
+            this.itq = cVar;
         }
 
         @Override // rx.j
         public void setProducer(rx.f fVar) {
-            this.itp.itr.setProducer(fVar);
+            this.itq.its.setProducer(fVar);
         }
 
         @Override // rx.e
         public void onNext(R r) {
             this.produced++;
-            this.itp.bd(r);
+            this.itq.bd(r);
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.itp.a(th, this.produced);
+            this.itq.a(th, this.produced);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.itp.dB(this.produced);
+            this.itq.dB(this.produced);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T, R> implements rx.f {
-        final c<T, R> itp;
-        boolean itq;
+        final c<T, R> itq;
+        boolean itr;
         final R value;
 
         public a(R r, c<T, R> cVar) {
             this.value = r;
-            this.itp = cVar;
+            this.itq = cVar;
         }
 
         @Override // rx.f
         public void request(long j) {
-            if (!this.itq && j > 0) {
-                this.itq = true;
-                c<T, R> cVar = this.itp;
+            if (!this.itr && j > 0) {
+                this.itr = true;
+                c<T, R> cVar = this.itq;
                 cVar.bd(this.value);
                 cVar.dB(1L);
             }

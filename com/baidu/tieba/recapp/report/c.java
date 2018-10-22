@@ -15,27 +15,27 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 /* loaded from: classes.dex */
 public class c {
-    private static c gIP;
-    private CustomMessageListener gIR = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.c.1
+    private static c gIQ;
+    private CustomMessageListener gIS = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.kX() && c.this.gIQ != null) {
-                c.this.gIQ.buh();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.kX() && c.this.gIR != null) {
+                c.this.gIR.buh();
             }
         }
     };
-    private d gIQ = new g();
+    private d gIR = new g();
 
     public static c buf() {
-        if (gIP == null) {
+        if (gIQ == null) {
             synchronized (c.class) {
-                if (gIP == null) {
-                    gIP = new c();
+                if (gIQ == null) {
+                    gIQ = new c();
                 }
             }
         }
-        return gIP;
+        return gIQ;
     }
 
     private boolean bug() {
@@ -43,15 +43,15 @@ public class c {
     }
 
     private c() {
-        MessageManager.getInstance().registerListener(this.gIR);
+        MessageManager.getInstance().registerListener(this.gIS);
     }
 
     public void a(b bVar) {
-        if (bug() && bVar != null && this.gIQ != null) {
+        if (bug() && bVar != null && this.gIR != null) {
             if (j.kX()) {
-                this.gIQ.b(bVar);
+                this.gIR.b(bVar);
             } else {
-                this.gIQ.c(bVar);
+                this.gIR.c(bVar);
             }
         }
     }

@@ -13,26 +13,26 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class f {
-    private static WeakReference<a> hfC;
-    private static a hfD;
-    private static AtomicBoolean hfE;
-    private static int hfF;
-    private static boolean hfG;
-    private static int hfH;
-    private static List<Integer> hfI;
+    private static WeakReference<a> hfD;
+    private static a hfE;
+    private static AtomicBoolean hfF;
+    private static int hfG;
+    private static boolean hfH;
+    private static int hfI;
+    private static List<Integer> hfJ;
 
     static {
         bDc();
         bDd();
-        hfE = new AtomicBoolean(false);
-        hfF = 0;
-        hfG = true;
-        hfH = 0;
-        hfI = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 3250017);
+        hfF = new AtomicBoolean(false);
+        hfG = 0;
+        hfH = true;
+        hfI = 0;
+        hfJ = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 3250017);
     }
 
     public static boolean a(int i, AuthTokenData authTokenData, a aVar) {
-        if (!hfI.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
+        if (!hfJ.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
             return false;
         }
         return a(i, authTokenData.getAuthToken(), aVar);
@@ -41,12 +41,12 @@ public class f {
     private static boolean a(int i, String str, a aVar) {
         AuthVerifyData createDataForAuthWidget;
         boolean z;
-        if (hfE.compareAndSet(false, true)) {
-            if (hfC == null || hfC.get() == null) {
+        if (hfF.compareAndSet(false, true)) {
+            if (hfD == null || hfD.get() == null) {
                 String valueOf = String.valueOf(System.currentTimeMillis());
                 if (aVar != null) {
                     aVar.setFrom(valueOf);
-                    hfC = new WeakReference<>(aVar);
+                    hfD = new WeakReference<>(aVar);
                 }
                 if (i == 3250022) {
                     createDataForAuthWidget = AuthVerifyData.createDataForModifyPwd(valueOf);
@@ -62,14 +62,14 @@ public class f {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921372, createDataForAuthWidget));
                 z = true;
             } else {
-                hfF++;
-                if (hfG && hfH < 3 && hfF > 0 && hfF / 3 == 0) {
+                hfG++;
+                if (hfH && hfI < 3 && hfG > 0 && hfG / 3 == 0) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921373));
-                    hfH++;
+                    hfI++;
                 }
                 z = false;
             }
-            hfE.set(false);
+            hfF.set(false);
             return z;
         }
         return false;
@@ -111,13 +111,13 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void reset() {
-        if (hfC != null) {
-            hfC.clear();
+        if (hfD != null) {
+            hfD.clear();
         }
-        hfC = null;
         hfD = null;
-        hfH = 0;
-        hfF = 0;
+        hfE = null;
+        hfI = 0;
+        hfG = 0;
     }
 
     public static void bDc() {
@@ -129,8 +129,8 @@ public class f {
                     Object data = customResponsedMessage.getData();
                     if (data instanceof AuthVerifyData) {
                         AuthVerifyData authVerifyData = (AuthVerifyData) data;
-                        if (f.hfC != null && f.hfC.get() != null) {
-                            a aVar = (a) f.hfC.get();
+                        if (f.hfD != null && f.hfD.get() != null) {
+                            a aVar = (a) f.hfD.get();
                             if (TextUtils.equals(aVar.from, authVerifyData.getFrom())) {
                                 aVar.b(authVerifyData.getResult());
                             }

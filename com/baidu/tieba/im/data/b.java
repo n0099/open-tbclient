@@ -6,8 +6,8 @@ import java.util.List;
 public class b {
     private String content;
     private long create_time;
-    private int eFe;
     private int eFf;
+    private int eFg;
     private String forum_id;
     private String id;
     private int level;
@@ -32,7 +32,7 @@ public class b {
     }
 
     public void oX(int i) {
-        this.eFe = i;
+        this.eFf = i;
     }
 
     public String getName() {
@@ -44,11 +44,11 @@ public class b {
     }
 
     public int aOS() {
-        return this.eFf;
+        return this.eFg;
     }
 
     public void oY(int i) {
-        this.eFf = i;
+        this.eFg = i;
     }
 
     public void setCreate_time(long j) {

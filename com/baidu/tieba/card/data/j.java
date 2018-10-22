@@ -29,7 +29,7 @@ public class j extends k {
     }
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.c
-    public bb YA() {
+    public bb YB() {
         return this.threadData;
     }
 }

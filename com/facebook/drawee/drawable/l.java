@@ -11,17 +11,17 @@ import android.graphics.drawable.Drawable;
 import java.util.Arrays;
 /* loaded from: classes2.dex */
 public class l extends Drawable implements j {
-    private final float[] iaB = new float[8];
-    final float[] iam = new float[8];
+    private final float[] iaC = new float[8];
+    final float[] ian = new float[8];
     final Paint mPaint = new Paint(1);
-    private boolean iaj = false;
+    private boolean iak = false;
     private float mBorderWidth = 0.0f;
-    private float iax = 0.0f;
+    private float iay = 0.0f;
     private int mBorderColor = 0;
     final Path mPath = new Path();
     final Path bEi = new Path();
     private int mColor = 0;
-    private final RectF iaC = new RectF();
+    private final RectF iaD = new RectF();
     private int mAlpha = 255;
 
     public l(int i) {
@@ -53,7 +53,7 @@ public class l extends Drawable implements j {
 
     @Override // com.facebook.drawee.drawable.j
     public void oE(boolean z) {
-        this.iaj = z;
+        this.iak = z;
         bTq();
         invalidateSelf();
     }
@@ -61,10 +61,10 @@ public class l extends Drawable implements j {
     @Override // com.facebook.drawee.drawable.j
     public void e(float[] fArr) {
         if (fArr == null) {
-            Arrays.fill(this.iaB, 0.0f);
+            Arrays.fill(this.iaC, 0.0f);
         } else {
             com.facebook.common.internal.g.checkArgument(fArr.length == 8, "radii should have exactly 8 values");
-            System.arraycopy(fArr, 0, this.iaB, 0, 8);
+            System.arraycopy(fArr, 0, this.iaC, 0, 8);
         }
         bTq();
         invalidateSelf();
@@ -73,7 +73,7 @@ public class l extends Drawable implements j {
     @Override // com.facebook.drawee.drawable.j
     public void setRadius(float f) {
         com.facebook.common.internal.g.checkArgument(f >= 0.0f, "radius should be non negative");
-        Arrays.fill(this.iaB, f);
+        Arrays.fill(this.iaC, f);
         bTq();
         invalidateSelf();
     }
@@ -100,8 +100,8 @@ public class l extends Drawable implements j {
 
     @Override // com.facebook.drawee.drawable.j
     public void aG(float f) {
-        if (this.iax != f) {
-            this.iax = f;
+        if (this.iay != f) {
+            this.iay = f;
             bTq();
             invalidateSelf();
         }
@@ -132,23 +132,23 @@ public class l extends Drawable implements j {
     private void bTq() {
         this.mPath.reset();
         this.bEi.reset();
-        this.iaC.set(getBounds());
-        this.iaC.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
-        if (this.iaj) {
-            this.bEi.addCircle(this.iaC.centerX(), this.iaC.centerY(), Math.min(this.iaC.width(), this.iaC.height()) / 2.0f, Path.Direction.CW);
+        this.iaD.set(getBounds());
+        this.iaD.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
+        if (this.iak) {
+            this.bEi.addCircle(this.iaD.centerX(), this.iaD.centerY(), Math.min(this.iaD.width(), this.iaD.height()) / 2.0f, Path.Direction.CW);
         } else {
-            for (int i = 0; i < this.iam.length; i++) {
-                this.iam[i] = (this.iaB[i] + this.iax) - (this.mBorderWidth / 2.0f);
+            for (int i = 0; i < this.ian.length; i++) {
+                this.ian[i] = (this.iaC[i] + this.iay) - (this.mBorderWidth / 2.0f);
             }
-            this.bEi.addRoundRect(this.iaC, this.iam, Path.Direction.CW);
+            this.bEi.addRoundRect(this.iaD, this.ian, Path.Direction.CW);
         }
-        this.iaC.inset((-this.mBorderWidth) / 2.0f, (-this.mBorderWidth) / 2.0f);
-        this.iaC.inset(this.iax, this.iax);
-        if (this.iaj) {
-            this.mPath.addCircle(this.iaC.centerX(), this.iaC.centerY(), Math.min(this.iaC.width(), this.iaC.height()) / 2.0f, Path.Direction.CW);
+        this.iaD.inset((-this.mBorderWidth) / 2.0f, (-this.mBorderWidth) / 2.0f);
+        this.iaD.inset(this.iay, this.iay);
+        if (this.iak) {
+            this.mPath.addCircle(this.iaD.centerX(), this.iaD.centerY(), Math.min(this.iaD.width(), this.iaD.height()) / 2.0f, Path.Direction.CW);
         } else {
-            this.mPath.addRoundRect(this.iaC, this.iaB, Path.Direction.CW);
+            this.mPath.addRoundRect(this.iaD, this.iaC, Path.Direction.CW);
         }
-        this.iaC.inset(-this.iax, -this.iax);
+        this.iaD.inset(-this.iay, -this.iay);
     }
 }

@@ -23,13 +23,13 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.tbadkCore.u;
 /* loaded from: classes3.dex */
 public class c implements View.OnClickListener {
-    private static final int hpL = l.h(TbadkCoreApplication.getInst(), e.C0175e.ds20);
-    private static final int hpM = l.h(TbadkCoreApplication.getInst(), e.C0175e.ds60);
-    private static final int hpN = l.h(TbadkCoreApplication.getInst(), e.C0175e.ds140);
-    private static final int hpO = l.h(TbadkCoreApplication.getInst(), e.C0175e.fontsize24);
-    private SparseArray<String> gRF;
-    private LinearLayout hpG;
-    private a hpH;
+    private static final int hpM = l.h(TbadkCoreApplication.getInst(), e.C0175e.ds20);
+    private static final int hpN = l.h(TbadkCoreApplication.getInst(), e.C0175e.ds60);
+    private static final int hpO = l.h(TbadkCoreApplication.getInst(), e.C0175e.ds140);
+    private static final int hpP = l.h(TbadkCoreApplication.getInst(), e.C0175e.fontsize24);
+    private SparseArray<String> gRG;
+    private LinearLayout hpH;
+    private a hpI;
     private Context mContext;
     private com.baidu.tbadk.coreExtra.c.d mShareItem;
 
@@ -38,21 +38,21 @@ public class c implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.hpH = aVar;
+        this.hpI = aVar;
     }
 
     public LinearLayout bFM() {
-        if (this.hpG == null) {
+        if (this.hpH == null) {
             initView();
         }
-        return this.hpG;
+        return this.hpH;
     }
 
     private void initView() {
-        this.hpG = new LinearLayout(this.mContext);
-        this.hpG.setOrientation(0);
+        this.hpH = new LinearLayout(this.mContext);
+        this.hpH.setOrientation(0);
         int h = l.h(this.mContext, e.C0175e.ds18);
-        this.hpG.setPadding(h, l.h(this.mContext, e.C0175e.ds30), h, l.h(this.mContext, e.C0175e.ds26));
+        this.hpH.setPadding(h, l.h(this.mContext, e.C0175e.ds30), h, l.h(this.mContext, e.C0175e.ds26));
         ad(e.f.icon_weixin_n, e.j.share_weixin, 4);
         ad(e.f.icon_weixin_q_n, e.j.share_weixin_timeline, 3);
         ad(e.f.icon_qq_zone_n, e.j.share_qzone, 5);
@@ -66,12 +66,12 @@ public class c implements View.OnClickListener {
         ImageView imageView = new ImageView(this.mContext);
         imageView.setScaleType(ImageView.ScaleType.CENTER);
         imageView.setId(e.g.photo);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(hpM, hpM);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(hpN, hpN);
         layoutParams.addRule(14);
-        layoutParams.bottomMargin = hpL;
+        layoutParams.bottomMargin = hpM;
         relativeLayout.addView(imageView, layoutParams);
         TextView textView = new TextView(this.mContext);
-        textView.setTextSize(0, hpO);
+        textView.setTextSize(0, hpP);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams2.addRule(3, e.g.photo);
         layoutParams2.addRule(14);
@@ -81,7 +81,7 @@ public class c implements View.OnClickListener {
         al.h(textView, e.d.cp_cont_f);
         relativeLayout.setTag(Integer.valueOf(i3));
         relativeLayout.setOnClickListener(this);
-        this.hpG.addView(relativeLayout, new LinearLayout.LayoutParams(hpN, -2));
+        this.hpH.addView(relativeLayout, new LinearLayout.LayoutParams(hpO, -2));
     }
 
     public void o(com.baidu.tbadk.coreExtra.c.d dVar) {
@@ -90,8 +90,8 @@ public class c implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.hpH != null) {
-            this.hpH.bR(view);
+        if (this.hpI != null) {
+            this.hpI.bR(view);
         }
         if (view.getTag() instanceof Integer) {
             Integer num = (Integer) view.getTag();
@@ -186,8 +186,8 @@ public class c implements View.OnClickListener {
     }
 
     private void tS(int i) {
-        if (i <= 8 && i > 0 && this.gRF != null) {
-            String str = this.gRF.get(i);
+        if (i <= 8 && i > 0 && this.gRG != null) {
+            String str = this.gRG.get(i);
             if (!ao.isEmpty(str)) {
                 l(str, new Object[0]);
             }

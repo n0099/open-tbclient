@@ -22,12 +22,12 @@ import com.baidu.tieba.frs.worldcup.talkball.b.f;
 public class a extends com.baidu.tieba.card.a<f> {
     private TextView aEP;
     private View buH;
-    private ForbidParentSwipeBackLinearLayout ecc;
-    private LinearLayout ecd;
-    private TextView ece;
-    private ImageView ecf;
-    private c ecg;
-    private f ech;
+    private ForbidParentSwipeBackLinearLayout ecd;
+    private LinearLayout ece;
+    private TextView ecf;
+    private ImageView ecg;
+    private c ech;
+    private f eci;
     private String mForumId;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -36,15 +36,15 @@ public class a extends com.baidu.tieba.card.a<f> {
         this.currentPageType = 3;
         this.mTbPageContext = tbPageContext;
         View view = getView();
-        this.ecc = (ForbidParentSwipeBackLinearLayout) view.findViewById(e.g.video_topic_root);
+        this.ecd = (ForbidParentSwipeBackLinearLayout) view.findViewById(e.g.video_topic_root);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(e.g.list);
-        this.ece = (TextView) view.findViewById(e.g.video_topic);
-        this.ecd = (LinearLayout) view.findViewById(e.g.top_view);
+        this.ecf = (TextView) view.findViewById(e.g.video_topic);
+        this.ece = (LinearLayout) view.findViewById(e.g.top_view);
         this.aEP = (TextView) view.findViewById(e.g.more);
         this.buH = view.findViewById(e.g.divider_line);
-        this.ecf = (ImageView) view.findViewById(e.g.image_go);
-        this.ecg = new c(this.mTbPageContext);
-        recyclerView.setAdapter(this.ecg);
+        this.ecg = (ImageView) view.findViewById(e.g.image_go);
+        this.ech = new c(this.mTbPageContext);
+        recyclerView.setAdapter(this.ech);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.mTbPageContext.getPageActivity(), 0, false));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
     }
@@ -53,18 +53,18 @@ public class a extends com.baidu.tieba.card.a<f> {
     @Override // com.baidu.tieba.card.a
     public void a(f fVar) {
         if (fVar != null) {
-            this.ech = fVar;
+            this.eci = fVar;
             if (ao.isEmpty(fVar.getTopicName())) {
-                this.ece.setText(e.j.frs_video_topic);
+                this.ecf.setText(e.j.frs_video_topic);
             } else {
-                this.ece.setText(fVar.getTopicName());
-                this.ecg.setTopicName(fVar.getTopicName());
+                this.ecf.setText(fVar.getTopicName());
+                this.ech.setTopicName(fVar.getTopicName());
             }
             if (fVar.aHm() != null) {
-                this.ecg.setData(fVar.aHm());
-                this.ecg.notifyDataSetChanged();
+                this.ech.setData(fVar.aHm());
+                this.ech.notifyDataSetChanged();
             }
-            this.ecc.setOnClickListener(this);
+            this.ecd.setOnClickListener(this);
             d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -72,10 +72,10 @@ public class a extends com.baidu.tieba.card.a<f> {
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            al.i(this.ecc, e.f.addresslist_item_bg);
             al.i(this.ecd, e.f.addresslist_item_bg);
-            al.i(this.ecf, e.f.icon_arrow12_gray60_right);
-            al.h(this.ece, e.d.cp_cont_f);
+            al.i(this.ece, e.f.addresslist_item_bg);
+            al.i(this.ecg, e.f.icon_arrow12_gray60_right);
+            al.h(this.ecf, e.d.cp_cont_f);
             al.h(this.aEP, e.d.cp_cont_f);
             al.j(this.buH, e.d.cp_bg_line_e);
         }
@@ -89,13 +89,13 @@ public class a extends com.baidu.tieba.card.a<f> {
 
     public void setForumId(String str) {
         this.mForumId = str;
-        this.ecg.setForumId(str);
+        this.ech.setForumId(str);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ech != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003021, new VideoTopicActivityConfig(this.mContext).createNormalCfg(this.ech.aHl().intValue(), this.ech.getTopicName(), this.mForumId)));
+        if (this.eci != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003021, new VideoTopicActivityConfig(this.mContext).createNormalCfg(this.eci.aHl().intValue(), this.eci.getTopicName(), this.mForumId)));
         }
     }
 }

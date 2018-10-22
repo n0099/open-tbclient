@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class a {
-    private static ArrayList<a> epZ = new ArrayList<>(5);
-    public int eqd;
+    private static ArrayList<a> eqa = new ArrayList<>(5);
     public int eqe;
-    int eqf;
+    public int eqf;
+    int eqg;
     public int type;
 
     private void Tm() {
-        this.eqd = 0;
         this.eqe = 0;
         this.eqf = 0;
+        this.eqg = 0;
         this.type = 0;
     }
 
@@ -22,7 +22,7 @@ class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public long aKy() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.eqd, this.eqe) : ExpandableListView.getPackedPositionForGroup(this.eqd);
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.eqe, this.eqf) : ExpandableListView.getPackedPositionForGroup(this.eqe);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -34,17 +34,17 @@ class a {
     public static a s(int i, int i2, int i3, int i4) {
         a aKz = aKz();
         aKz.type = i;
-        aKz.eqd = i2;
-        aKz.eqe = i3;
-        aKz.eqf = i4;
+        aKz.eqe = i2;
+        aKz.eqf = i3;
+        aKz.eqg = i4;
         return aKz;
     }
 
     private static a aKz() {
         a aVar;
-        synchronized (epZ) {
-            if (epZ.size() > 0) {
-                aVar = epZ.remove(0);
+        synchronized (eqa) {
+            if (eqa.size() > 0) {
+                aVar = eqa.remove(0);
                 aVar.Tm();
             } else {
                 aVar = new a();
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (epZ) {
-            if (epZ.size() < 5) {
-                epZ.add(this);
+        synchronized (eqa) {
+            if (eqa.size() < 5) {
+                eqa.add(this);
             }
         }
     }

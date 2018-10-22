@@ -10,45 +10,45 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.model.VideoHolyCardModel;
 /* loaded from: classes.dex */
 public class g {
-    private static g hrq;
-    private VideoHolyCardModel.a fvP = new VideoHolyCardModel.a() { // from class: com.baidu.tieba.video.g.2
+    private static g hrr;
+    private VideoHolyCardModel.a fvQ = new VideoHolyCardModel.a() { // from class: com.baidu.tieba.video.g.2
         @Override // com.baidu.tieba.model.VideoHolyCardModel.a
         public void onResult(boolean z) {
-            g.this.hrs = z;
+            g.this.hrt = z;
         }
     };
-    private VideoHolyCardModel hrr;
-    private boolean hrs;
+    private VideoHolyCardModel hrs;
     private boolean hrt;
+    private boolean hru;
 
     public static g bGn() {
-        if (hrq == null) {
+        if (hrr == null) {
             synchronized (g.class) {
-                if (hrq == null) {
-                    hrq = new g();
+                if (hrr == null) {
+                    hrr = new g();
                 }
             }
         }
-        return hrq;
+        return hrr;
     }
 
     public boolean bGo() {
-        return this.hrs;
+        return this.hrt;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bGp() {
-        if (this.hrr == null) {
-            this.hrr = new VideoHolyCardModel();
-            this.hrr.a(this.fvP);
+        if (this.hrs == null) {
+            this.hrs = new VideoHolyCardModel();
+            this.hrs.a(this.fvQ);
         }
-        this.hrr.baY();
+        this.hrs.baY();
     }
 
     public void dd(Context context) {
-        if (this.hrs && !this.hrt) {
+        if (this.hrt && !this.hru) {
             l.showToast(context, e.j.free_data_tips);
-            this.hrt = true;
+            this.hru = true;
         }
     }
 

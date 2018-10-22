@@ -68,16 +68,16 @@ public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieb
     @Override // com.baidu.tieba.channel.view.e
     /* renamed from: c */
     public void aa(com.baidu.tieba.channel.data.d dVar) {
-        if (dVar != null && dVar.aoZ() != null) {
-            ChannelInfo aoZ = dVar.aoZ();
+        if (dVar != null && dVar.apa() != null) {
+            ChannelInfo apa = dVar.apa();
             if (this.mIsHost) {
-                d(aoZ);
+                d(apa);
                 return;
             }
-            if (TextUtils.isEmpty(aoZ.getDescription())) {
+            if (TextUtils.isEmpty(apa.getDescription())) {
                 this.cTV.setText(this.mContext.getResources().getString(e.j.channel_home_default_desc_guest));
             } else {
-                this.cTV.setText(aoZ.getDescription());
+                this.cTV.setText(apa.getDescription());
             }
             this.cTV.setOnClickListener(null);
         }

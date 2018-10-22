@@ -57,14 +57,14 @@ public class k extends com.baidu.tieba.frs.h<bb, com.baidu.tieba.frs.entelechy.d
     /* renamed from: at */
     public com.baidu.tieba.frs.entelechy.d.b onCreateViewHolder(ViewGroup viewGroup) {
         com.baidu.tieba.frs.entelechy.view.g gVar = new com.baidu.tieba.frs.entelechy.view.g(this.mPageContext, this.mPageId);
-        com.baidu.tieba.frs.entelechy.view.f aDe = gVar.aDe();
-        if (aDe != null) {
-            aDe.j(this.mPageId);
-            aDe.b(this.bVT);
-        }
-        com.baidu.tieba.frs.entelechy.view.h aDf = gVar.aDf();
+        com.baidu.tieba.frs.entelechy.view.f aDf = gVar.aDf();
         if (aDf != null) {
             aDf.j(this.mPageId);
+            aDf.b(this.bVT);
+        }
+        com.baidu.tieba.frs.entelechy.view.h aDg = gVar.aDg();
+        if (aDg != null) {
+            aDg.j(this.mPageId);
         }
         return new com.baidu.tieba.frs.entelechy.d.b(gVar);
     }
@@ -75,14 +75,14 @@ public class k extends com.baidu.tieba.frs.h<bb, com.baidu.tieba.frs.entelechy.d
         }
         z zVar = new z();
         zVar.mLocate = bbVar.zo() ? "3" : "2";
-        zVar.cQb = this.dIB.dTE;
+        zVar.cQb = this.dIB.dTF;
         zVar.beh = bbVar.getTid();
         zVar.mSource = bbVar.mRecomSource;
-        zVar.gwv = bbVar.aqK;
-        zVar.gww = bbVar.mRecomWeight;
-        zVar.gwy = bbVar.mRecomAbTag;
+        zVar.gww = bbVar.aqK;
+        zVar.gwx = bbVar.mRecomWeight;
+        zVar.gwz = bbVar.mRecomAbTag;
         if (bbVar.yN() != null) {
-            zVar.gwz = bbVar.yN().video_md5;
+            zVar.gwA = bbVar.yN().video_md5;
         }
         return zVar;
     }
@@ -92,9 +92,9 @@ public class k extends com.baidu.tieba.frs.h<bb, com.baidu.tieba.frs.entelechy.d
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bb bbVar, com.baidu.tieba.frs.entelechy.d.b bVar) {
-        com.baidu.tieba.frs.entelechy.view.f aDk;
-        com.baidu.tieba.frs.entelechy.view.g aDl = bVar.aDl();
-        if (aDl == null || bVar == null) {
+        com.baidu.tieba.frs.entelechy.view.f aDl;
+        com.baidu.tieba.frs.entelechy.view.g aDm = bVar.aDm();
+        if (aDm == null || bVar == null) {
             return null;
         }
         com.baidu.tieba.frs.e.b.aFC().a(this.dIB, bbVar);
@@ -115,30 +115,30 @@ public class k extends com.baidu.tieba.frs.h<bb, com.baidu.tieba.frs.entelechy.d
         if (bbVar != null) {
             bbVar.zs();
             int i2 = bbVar.yN() != null ? 2 : 1;
-            aDl.show(i2);
+            aDm.show(i2);
             if (i2 == 2) {
-                a aDm = bVar.aDm();
-                if (aDm == null) {
+                a aDn = bVar.aDn();
+                if (aDn == null) {
                     return null;
                 }
-                if (aDm.aoP() instanceof com.baidu.tieba.frs.entelechy.view.h) {
-                    com.baidu.tieba.frs.entelechy.view.h hVar = (com.baidu.tieba.frs.entelechy.view.h) aDm.aoP();
+                if (aDn.aoQ() instanceof com.baidu.tieba.frs.entelechy.view.h) {
+                    com.baidu.tieba.frs.entelechy.view.h hVar = (com.baidu.tieba.frs.entelechy.view.h) aDn.aoQ();
                     if (hVar == null) {
                         return null;
                     }
                     hVar.setVideoStatsData(X(bbVar));
                     hVar.a(bbVar);
                     hVar.b(this.bVT);
-                    return aDm.getView();
+                    return aDn.getView();
                 }
             }
             if (i2 == 1) {
-                com.baidu.tieba.frs.entelechy.d.a aDn = bVar.aDn();
-                if (aDn != null && (aDk = aDn.aDk()) != null) {
-                    aDk.setFromCDN(this.mIsFromCDN);
-                    aDk.a(bbVar);
-                    aDk.gR(this.dIS);
-                    return aDn.getView();
+                com.baidu.tieba.frs.entelechy.d.a aDo = bVar.aDo();
+                if (aDo != null && (aDl = aDo.aDl()) != null) {
+                    aDl.setFromCDN(this.mIsFromCDN);
+                    aDl.a(bbVar);
+                    aDl.gR(this.dIS);
+                    return aDo.getView();
                 }
                 return null;
             }
@@ -162,7 +162,7 @@ public class k extends com.baidu.tieba.frs.h<bb, com.baidu.tieba.frs.entelechy.d
     }
 
     @Override // com.baidu.tieba.frs.e.c
-    public com.baidu.tieba.frs.e.a aCM() {
+    public com.baidu.tieba.frs.e.a aCN() {
         return this.dIB;
     }
 }

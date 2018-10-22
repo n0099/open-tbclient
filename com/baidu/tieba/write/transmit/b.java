@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private static int fCw = 3;
+    private static int fCx = 3;
     private Context mContext;
     private List<TransmitForumData> mDataList = new ArrayList();
 
@@ -61,31 +61,31 @@ public class b extends BaseAdapter {
     /* loaded from: classes3.dex */
     public static class a {
         public TextView aFu;
-        public BarImageView fCy;
-        public View hLR;
+        public BarImageView fCz;
+        public View hLS;
         public int mSkinType = 3;
 
         public a(View view) {
             if (view != null) {
                 this.aFu = (TextView) view.findViewById(e.g.transmit_forum_name);
-                this.fCy = (BarImageView) view.findViewById(e.g.forum_avatar);
-                this.hLR = view.findViewById(e.g.divider_line);
+                this.fCz = (BarImageView) view.findViewById(e.g.forum_avatar);
+                this.hLS = view.findViewById(e.g.divider_line);
             }
         }
 
         public void a(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
                 this.aFu.setText(transmitForumData.forumName);
-                this.fCy.startLoad(transmitForumData.avatar, 10, false);
+                this.fCz.startLoad(transmitForumData.avatar, 10, false);
             }
         }
 
         public void DV() {
-            if (b.fCw != this.mSkinType) {
+            if (b.fCx != this.mSkinType) {
                 al.h(this.aFu, e.d.cp_cont_b);
-                al.j(this.hLR, e.d.cp_bg_line_c);
+                al.j(this.hLS, e.d.cp_bg_line_c);
             }
-            this.mSkinType = b.fCw;
+            this.mSkinType = b.fCx;
         }
     }
 
@@ -96,9 +96,9 @@ public class b extends BaseAdapter {
     }
 
     public void onChangeSkinType(int i) {
-        if (fCw != i) {
+        if (fCx != i) {
             notifyDataSetChanged();
         }
-        fCw = i;
+        fCx = i;
     }
 }

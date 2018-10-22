@@ -6,18 +6,18 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
     private List<EmotionImageData> djt;
-    private List<String> fXe;
-    private SingleBarEmotionRecommendData fXf;
+    private List<String> fXf;
+    private SingleBarEmotionRecommendData fXg;
 
     public SingleBarEmotionRecommendData bkH() {
-        return this.fXf;
+        return this.fXg;
     }
 
     public void a(SingleBarEmotionRecommendData singleBarEmotionRecommendData) {
-        this.fXf = singleBarEmotionRecommendData;
+        this.fXg = singleBarEmotionRecommendData;
     }
 
-    public List<EmotionImageData> auL() {
+    public List<EmotionImageData> auM() {
         return this.djt;
     }
 
@@ -26,10 +26,10 @@ public class a {
     }
 
     public List<String> bkI() {
-        return this.fXe;
+        return this.fXf;
     }
 
     public void dn(List<String> list) {
-        this.fXe = list;
+        this.fXf = list;
     }
 }

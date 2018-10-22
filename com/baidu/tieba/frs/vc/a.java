@@ -13,19 +13,19 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class a implements View.OnClickListener {
-    private boolean dUU;
+    private boolean dUV;
     private PopupWindow dho;
     private View mAnchor;
     private TbPageContext mPageContext;
-    private int dUT = e.j.attention_post_update_tip;
+    private int dUU = e.j.attention_post_update_tip;
     private Handler mHandler = new Handler();
-    private Runnable dUV = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
+    private Runnable dUW = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.mPageContext != null && a.this.mAnchor != null) {
                 Activity pageActivity = a.this.mPageContext.getPageActivity();
                 int h = l.h(pageActivity, e.C0175e.ds64);
-                View g = a.this.g(pageActivity, a.this.dUT);
+                View g = a.this.g(pageActivity, a.this.dUU);
                 int[] iArr = new int[2];
                 a.this.mAnchor.getLocationInWindow(iArr);
                 int h2 = l.h(pageActivity, e.C0175e.ds32);
@@ -46,24 +46,24 @@ public class a implements View.OnClickListener {
 
     public a(TbPageContext tbPageContext, boolean z) {
         this.mPageContext = tbPageContext;
-        this.dUU = z;
+        this.dUV = z;
     }
 
     public void aQ(View view) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (this.mPageContext != null && view != null && !StringUtils.isNull(currentAccount)) {
             this.mAnchor = view;
-            if (this.dUU) {
-                this.dUT = e.j.attention_post_update_tip;
+            if (this.dUV) {
+                this.dUU = e.j.attention_post_update_tip;
                 String str = currentAccount + "frs_god_new_post_tip_count";
                 int i = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str, 0);
                 if (i >= 3) {
-                    this.dUU = false;
+                    this.dUV = false;
                     return;
                 }
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(str, i + 1);
-                this.dUU = false;
-                this.mHandler.postDelayed(this.dUV, 500L);
+                this.dUV = false;
+                this.mHandler.postDelayed(this.dUW, 500L);
             }
         }
     }

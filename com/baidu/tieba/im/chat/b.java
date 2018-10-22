@@ -15,231 +15,231 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.adp.base.c<GroupSettingActivity> {
-    private com.baidu.tbadk.core.dialog.a ezA;
-    private View ezB;
-    private b.InterfaceC0124b eze;
-    private GroupSettingActivity ezq;
-    private com.baidu.tbadk.core.dialog.b ezr;
-    private com.baidu.tbadk.core.dialog.a ezs;
-    private SettingTextSwitchView ezt;
+    private Button ezA;
+    private com.baidu.tbadk.core.dialog.a ezB;
+    private View ezC;
+    private b.InterfaceC0124b ezf;
+    private GroupSettingActivity ezr;
+    private com.baidu.tbadk.core.dialog.b ezs;
+    private com.baidu.tbadk.core.dialog.a ezt;
     private SettingTextSwitchView ezu;
-    private TbSettingTextTipView ezv;
+    private SettingTextSwitchView ezv;
     private TbSettingTextTipView ezw;
     private TbSettingTextTipView ezx;
-    private Button ezy;
+    private TbSettingTextTipView ezy;
     private Button ezz;
     private NavigationBar mNavigationBar;
     private RelativeLayout mParent;
 
     public void a(b.InterfaceC0124b interfaceC0124b) {
-        this.eze = interfaceC0124b;
+        this.ezf = interfaceC0124b;
     }
 
     public b(GroupSettingActivity groupSettingActivity) {
         super(groupSettingActivity.getPageContext());
-        this.ezq = null;
-        this.mParent = null;
         this.ezr = null;
-        this.ezt = null;
+        this.mParent = null;
+        this.ezs = null;
         this.ezu = null;
         this.ezv = null;
         this.ezw = null;
         this.ezx = null;
-        this.eze = null;
-        this.ezq = groupSettingActivity;
+        this.ezy = null;
+        this.ezf = null;
+        this.ezr = groupSettingActivity;
         initView();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onChangeSkinType(int i) {
-        this.ezt.eS(i);
         this.ezu.eS(i);
-        this.ezq.getLayoutMode().setNightMode(i == 1);
-        this.ezq.getLayoutMode().onModeChanged(this.mParent);
-        this.mNavigationBar.onChangeSkinType(this.ezq.getPageContext(), i);
-        al.i(this.ezy, e.f.big_red_button);
+        this.ezv.eS(i);
+        this.ezr.getLayoutMode().setNightMode(i == 1);
+        this.ezr.getLayoutMode().onModeChanged(this.mParent);
+        this.mNavigationBar.onChangeSkinType(this.ezr.getPageContext(), i);
         al.i(this.ezz, e.f.big_red_button);
+        al.i(this.ezA, e.f.big_red_button);
     }
 
     public View aMC() {
-        return this.ezB;
+        return this.ezC;
     }
 
     public void setGroupName(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.ezv.setText(str);
+            this.ezw.setText(str);
         }
     }
 
     private void initView() {
-        this.ezq.setContentView(e.h.group_setting_activity);
-        this.ezt = (SettingTextSwitchView) this.ezq.findViewById(e.g.sv_group_msg_notify);
-        this.ezu = (SettingTextSwitchView) this.ezq.findViewById(e.g.sv_group_add_group);
-        this.ezv = (TbSettingTextTipView) this.ezq.findViewById(e.g.tv_change_name);
-        this.ezw = (TbSettingTextTipView) this.ezq.findViewById(e.g.sv_report);
-        this.ezx = (TbSettingTextTipView) this.ezq.findViewById(e.g.sv_delete_msg);
-        this.ezy = (Button) this.ezq.findViewById(e.g.btn_dismiss);
-        this.ezz = (Button) this.ezq.findViewById(e.g.btn_quit);
-        this.mParent = (RelativeLayout) this.ezq.findViewById(e.g.parent);
-        this.mNavigationBar = (NavigationBar) this.ezq.findViewById(e.g.view_navigation_bar);
-        this.ezB = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.ezr.setContentView(e.h.group_setting_activity);
+        this.ezu = (SettingTextSwitchView) this.ezr.findViewById(e.g.sv_group_msg_notify);
+        this.ezv = (SettingTextSwitchView) this.ezr.findViewById(e.g.sv_group_add_group);
+        this.ezw = (TbSettingTextTipView) this.ezr.findViewById(e.g.tv_change_name);
+        this.ezx = (TbSettingTextTipView) this.ezr.findViewById(e.g.sv_report);
+        this.ezy = (TbSettingTextTipView) this.ezr.findViewById(e.g.sv_delete_msg);
+        this.ezz = (Button) this.ezr.findViewById(e.g.btn_dismiss);
+        this.ezA = (Button) this.ezr.findViewById(e.g.btn_quit);
+        this.mParent = (RelativeLayout) this.ezr.findViewById(e.g.parent);
+        this.mNavigationBar = (NavigationBar) this.ezr.findViewById(e.g.view_navigation_bar);
+        this.ezC = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(e.j.group_setting);
     }
 
     public void initListener() {
-        this.ezt.setSwitchStateChangeListener(this.ezq);
-        this.ezu.setSwitchStateChangeListener(this.ezq);
-        this.ezv.setOnClickListener(this.ezq);
-        this.ezw.setOnClickListener(this.ezq);
-        this.ezy.setOnClickListener(this.ezq);
-        this.ezz.setOnClickListener(this.ezq);
-        this.ezx.setOnClickListener(this.ezq);
+        this.ezu.setSwitchStateChangeListener(this.ezr);
+        this.ezv.setSwitchStateChangeListener(this.ezr);
+        this.ezw.setOnClickListener(this.ezr);
+        this.ezx.setOnClickListener(this.ezr);
+        this.ezz.setOnClickListener(this.ezr);
+        this.ezA.setOnClickListener(this.ezr);
+        this.ezy.setOnClickListener(this.ezr);
     }
 
     public TbSettingTextTipView aMD() {
-        return this.ezv;
-    }
-
-    public Button aME() {
-        return this.ezz;
-    }
-
-    public Button aMF() {
-        return this.ezy;
-    }
-
-    public TbSettingTextTipView aMG() {
         return this.ezw;
     }
 
-    public TbSettingTextTipView aMH() {
+    public Button aME() {
+        return this.ezA;
+    }
+
+    public Button aMF() {
+        return this.ezz;
+    }
+
+    public TbSettingTextTipView aMG() {
         return this.ezx;
     }
 
+    public TbSettingTextTipView aMH() {
+        return this.ezy;
+    }
+
     public void aMI() {
-        if (this.ezs == null) {
-            this.ezs = new com.baidu.tbadk.core.dialog.a(this.ezq.getPageContext().getPageActivity());
-            this.ezs.cy(e.j.inform);
-            this.ezs.cz(e.j.group_quit_alert);
-            this.ezs.aO(false);
-            this.ezs.a(e.j.alert_yes_button, this.ezq);
-            this.ezs.b(e.j.cancel, new a.b() { // from class: com.baidu.tieba.im.chat.b.1
+        if (this.ezt == null) {
+            this.ezt = new com.baidu.tbadk.core.dialog.a(this.ezr.getPageContext().getPageActivity());
+            this.ezt.cy(e.j.inform);
+            this.ezt.cz(e.j.group_quit_alert);
+            this.ezt.aO(false);
+            this.ezt.a(e.j.alert_yes_button, this.ezr);
+            this.ezt.b(e.j.cancel, new a.b() { // from class: com.baidu.tieba.im.chat.b.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
                 }
             });
-            this.ezs.b(this.ezq.getPageContext());
-            this.ezs.aP(true);
+            this.ezt.b(this.ezr.getPageContext());
+            this.ezt.aP(true);
         }
-        this.ezs.Au();
+        this.ezt.Au();
     }
 
     public com.baidu.tbadk.core.dialog.a aMJ() {
-        return this.ezs;
+        return this.ezt;
     }
 
     public void Ed() {
-        if (this.ezr == null) {
-            this.ezr = new com.baidu.tbadk.core.dialog.b(this.ezq.getPageContext().getPageActivity());
-            this.ezr.cC(e.j.group_report);
-            this.ezr.a(new CharSequence[]{new SpannableString(this.ezq.getPageContext().getString(e.j.group_report_ad)), new SpannableString(this.ezq.getPageContext().getString(e.j.group_report_sex)), new SpannableString(this.ezq.getPageContext().getString(e.j.group_report_lllegal))}, this.eze);
-            this.ezr.d(this.ezq.getPageContext());
+        if (this.ezs == null) {
+            this.ezs = new com.baidu.tbadk.core.dialog.b(this.ezr.getPageContext().getPageActivity());
+            this.ezs.cC(e.j.group_report);
+            this.ezs.a(new CharSequence[]{new SpannableString(this.ezr.getPageContext().getString(e.j.group_report_ad)), new SpannableString(this.ezr.getPageContext().getString(e.j.group_report_sex)), new SpannableString(this.ezr.getPageContext().getString(e.j.group_report_lllegal))}, this.ezf);
+            this.ezs.d(this.ezr.getPageContext());
         }
-        this.ezr.Ax();
+        this.ezs.Ax();
     }
 
     public void aMK() {
+        if (this.ezA != null) {
+            this.ezA.setVisibility(8);
+        }
+    }
+
+    public void aML() {
         if (this.ezz != null) {
             this.ezz.setVisibility(8);
         }
     }
 
-    public void aML() {
-        if (this.ezy != null) {
-            this.ezy.setVisibility(8);
-        }
-    }
-
     public void hO(boolean z) {
-        if (this.ezu != null) {
-            this.ezu.setVisibility(z ? 0 : 8);
+        if (this.ezv != null) {
+            this.ezv.setVisibility(z ? 0 : 8);
         }
     }
 
     public void hP(boolean z) {
         if (z) {
-            this.ezu.nU();
+            this.ezv.nU();
         } else {
-            this.ezu.nV();
+            this.ezv.nV();
         }
     }
 
     public void aMM() {
+        if (this.ezA != null) {
+            this.ezA.setVisibility(0);
+        }
+    }
+
+    public void aMN() {
         if (this.ezz != null) {
             this.ezz.setVisibility(0);
         }
     }
 
-    public void aMN() {
-        if (this.ezy != null) {
-            this.ezy.setVisibility(0);
-        }
-    }
-
-    public void alT() {
-        if (this.ezw != null) {
-            this.ezw.setVisibility(0);
+    public void alU() {
+        if (this.ezx != null) {
+            this.ezx.setVisibility(0);
         }
     }
 
     public void aMO() {
-        if (this.ezw != null) {
-            this.ezw.setVisibility(8);
+        if (this.ezx != null) {
+            this.ezx.setVisibility(8);
         }
     }
 
     public BdSwitchView aMP() {
-        return this.ezu.getSwitchView();
+        return this.ezv.getSwitchView();
     }
 
     public BdSwitchView aMQ() {
-        return this.ezt.getSwitchView();
+        return this.ezu.getSwitchView();
     }
 
     public void aMR() {
-        if (this.ezA == null) {
-            this.ezA = new com.baidu.tbadk.core.dialog.a(this.ezq.getPageContext().getPageActivity());
-            this.ezA.cz(e.j.group_dismiss_alert);
-            this.ezA.aO(false);
-            this.ezA.a(e.j.alert_yes_button, this.ezq);
-            this.ezA.b(e.j.cancel, new a.b() { // from class: com.baidu.tieba.im.chat.b.2
+        if (this.ezB == null) {
+            this.ezB = new com.baidu.tbadk.core.dialog.a(this.ezr.getPageContext().getPageActivity());
+            this.ezB.cz(e.j.group_dismiss_alert);
+            this.ezB.aO(false);
+            this.ezB.a(e.j.alert_yes_button, this.ezr);
+            this.ezB.b(e.j.cancel, new a.b() { // from class: com.baidu.tieba.im.chat.b.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
                 }
             });
-            this.ezA.b(this.ezq.getPageContext());
+            this.ezB.b(this.ezr.getPageContext());
         }
-        this.ezA.Au();
+        this.ezB.Au();
     }
 
     public com.baidu.tbadk.core.dialog.a aMS() {
-        return this.ezA;
+        return this.ezB;
     }
 
     public void aMT() {
-        if (this.ezA != null) {
-            this.ezA.dismiss();
-            this.ezA = null;
-        }
-        if (this.ezr != null) {
-            this.ezr.dismiss();
-            this.ezr = null;
+        if (this.ezB != null) {
+            this.ezB.dismiss();
+            this.ezB = null;
         }
         if (this.ezs != null) {
             this.ezs.dismiss();
             this.ezs = null;
+        }
+        if (this.ezt != null) {
+            this.ezt.dismiss();
+            this.ezt = null;
         }
     }
 }

@@ -82,16 +82,20 @@ public class a implements IAiAppConfigIoc {
 
             @Override // com.baidu.searchbox.http.cookie.CookieManager
             public void storeCookie(String str, List<String> list) {
-                android.webkit.CookieManager cookieManager = android.webkit.CookieManager.getInstance();
-                StringBuilder sb = new StringBuilder();
-                for (String str2 : list) {
-                    sb.append(str2).append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-                }
-                cookieManager.setCookie(str, sb.toString());
-                if (Build.VERSION.SDK_INT >= 21) {
-                    cookieManager.flush();
-                } else {
-                    CookieSyncManager.createInstance(TbadkCoreApplication.getInst()).startSync();
+                try {
+                    android.webkit.CookieManager cookieManager = android.webkit.CookieManager.getInstance();
+                    StringBuilder sb = new StringBuilder();
+                    for (String str2 : list) {
+                        sb.append(str2).append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+                    }
+                    cookieManager.setCookie(str, sb.toString());
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        cookieManager.flush();
+                    } else {
+                        CookieSyncManager.createInstance(TbadkCoreApplication.getInst()).startSync();
+                    }
+                } catch (Throwable th) {
+                    BdLog.e(th);
                 }
             }
 
@@ -104,8 +108,13 @@ public class a implements IAiAppConfigIoc {
                     }
                     return cookieManager.getCookie(str);
                 } catch (Throwable th) {
-                    BdLog.e(th);
-                    return null;
+                    try {
+                        BdLog.e(th);
+                        return null;
+                    } catch (Throwable th2) {
+                        BdLog.e(th2);
+                        return "";
+                    }
                 }
             }
         };

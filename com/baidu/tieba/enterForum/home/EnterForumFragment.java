@@ -41,8 +41,8 @@ public class EnterForumFragment extends BaseFragment {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
-                if (d.auw()) {
-                    d.aux();
+                if (d.aux()) {
+                    d.auy();
                 }
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (!StringUtils.isNull(currentAccount)) {
@@ -79,7 +79,7 @@ public class EnterForumFragment extends BaseFragment {
     private ImageView dgz;
     private NavigationBar mNavigationBar;
 
-    public ObservedChangeLinearLayout atQ() {
+    public ObservedChangeLinearLayout atR() {
         return this.dgG;
     }
 
@@ -100,7 +100,7 @@ public class EnterForumFragment extends BaseFragment {
         this.dgE.addView(this.dgx.getView(), 0);
     }
 
-    private void atR() {
+    private void atS() {
         if (this.dgH == null) {
             ((ViewStub) this.dgE.findViewById(e.g.activity_prize_stub)).inflate();
             this.dgH = (RelativeLayout) this.dgE.findViewById(e.g.activity_root_view);
@@ -140,7 +140,7 @@ public class EnterForumFragment extends BaseFragment {
         this.dgF = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.widget_nb_item_signall, new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.EnterForumFragment.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (!EnterForumFragment.this.atT()) {
+                if (!EnterForumFragment.this.atU()) {
                     if (!TbadkCoreApplication.isLogin()) {
                         ba.bH(EnterForumFragment.this.getPageContext().getPageActivity());
                     } else if (TbadkCoreApplication.getInst().appResponseToIntentClass(SignAllForumActivityConfig.class)) {
@@ -154,31 +154,31 @@ public class EnterForumFragment extends BaseFragment {
         this.dgF.setLayoutParams(layoutParams);
     }
 
-    public void atS() {
-        atU();
+    public void atT() {
+        atV();
         if (this.dgx != null) {
             this.dgx.loadData();
-            if (this.dgx.aue()) {
-                this.dgx.aud();
+            if (this.dgx.auf()) {
+                this.dgx.aue();
             }
         }
     }
 
-    public boolean atT() {
+    public boolean atU() {
         if (this.dgx != null) {
-            return this.dgx.aue();
+            return this.dgx.auf();
         }
         return false;
     }
 
-    private void atU() {
+    private void atV() {
         if (this.dgx != null) {
             this.dgx.fP(true);
         }
     }
 
-    public void atV() {
-        if (!atT()) {
+    public void atW() {
+        if (!atU()) {
             al.a(this.dgF, e.f.icon_sign_bg_s, e.f.icon_sign_bg);
         } else {
             al.a(this.dgF, e.f.icon_topbar_sign_s, e.f.icon_topbar_sign_s);
@@ -189,7 +189,7 @@ public class EnterForumFragment extends BaseFragment {
     public void onPrimary() {
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            atS();
+            atT();
             if (this.dgx != null) {
                 refreshImage(this.dgx.getView());
             }
@@ -220,7 +220,7 @@ public class EnterForumFragment extends BaseFragment {
         if (this.dgH != null) {
             com.baidu.tbadk.o.a.a(getPageContext(), this.dgH);
         }
-        atV();
+        atW();
     }
 
     @Override // android.support.v4.app.Fragment
@@ -262,7 +262,7 @@ public class EnterForumFragment extends BaseFragment {
         }
     }
 
-    public RelativeLayout atW() {
+    public RelativeLayout atX() {
         return this.dgE;
     }
 
@@ -270,10 +270,10 @@ public class EnterForumFragment extends BaseFragment {
     public void g(boolean z, String str) {
         if (z) {
             if (this.dgH == null) {
-                atR();
+                atS();
             }
             if (this.dgB == null) {
-                this.dgB = this.dgx.atZ();
+                this.dgB = this.dgx.aua();
             }
             this.dgy.setVisibility(0);
             this.dgA.setText(str);

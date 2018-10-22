@@ -56,7 +56,7 @@ public class d extends h<e, f> {
                 al.j(fVar.dividerLine, e.d.cp_bg_line_c);
                 al.c(fVar.dwH, e.d.cp_cont_c, 1);
             }
-            fVar.dwG.startLoad(eVar.ayi(), 12, false);
+            fVar.dwG.startLoad(eVar.ayj(), 12, false);
             fVar.bKH.setText(y.I(eVar.getNameShow(), 16));
             if (StringUtils.isNull(eVar.getIntro())) {
                 fVar.cSf.setText(e.j.god_intro_default);

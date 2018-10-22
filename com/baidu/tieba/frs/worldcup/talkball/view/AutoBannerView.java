@@ -26,7 +26,7 @@ public class AutoBannerView extends RelativeLayout {
     private com.baidu.tbadk.f.a aOu;
     private final d<com.baidu.tieba.frs.worldcup.talkball.b.a> ats;
     private CoverFlowView<com.baidu.tieba.frs.worldcup.talkball.b.a> dpd;
-    private d<com.baidu.tieba.frs.worldcup.talkball.b.a> ebB;
+    private d<com.baidu.tieba.frs.worldcup.talkball.b.a> ebC;
     private List<com.baidu.tieba.frs.worldcup.talkball.b.a> mData;
     private RelativeLayout mTitleLayout;
     private TextView mTitleView;
@@ -38,8 +38,8 @@ public class AutoBannerView extends RelativeLayout {
         this.ats = new d<com.baidu.tieba.frs.worldcup.talkball.b.a>() { // from class: com.baidu.tieba.frs.worldcup.talkball.view.AutoBannerView.2
             @Override // com.baidu.tbadk.core.flow.a.d
             public void h(int i, String str) {
-                if (AutoBannerView.this.ebB != null && AutoBannerView.this.checkIndex(i)) {
-                    AutoBannerView.this.ebB.h(i, str);
+                if (AutoBannerView.this.ebC != null && AutoBannerView.this.checkIndex(i)) {
+                    AutoBannerView.this.ebC.h(i, str);
                 }
                 AutoBannerView.this.or(str);
             }
@@ -47,8 +47,8 @@ public class AutoBannerView extends RelativeLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.core.flow.a.d
             public void a(int i, com.baidu.tieba.frs.worldcup.talkball.b.a aVar) {
-                if (AutoBannerView.this.ebB != null && AutoBannerView.this.checkIndex(i)) {
-                    AutoBannerView.this.ebB.a(i, aVar);
+                if (AutoBannerView.this.ebC != null && AutoBannerView.this.checkIndex(i)) {
+                    AutoBannerView.this.ebC.a(i, aVar);
                 }
                 if (aVar != null && AutoBannerView.this.mTitleView != null) {
                     AutoBannerView.this.mTitleView.setText(aVar.getTitle());
@@ -165,7 +165,7 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void setOutOnCoverViewCallback(d<com.baidu.tieba.frs.worldcup.talkball.b.a> dVar) {
-        this.ebB = dVar;
+        this.ebC = dVar;
     }
 
     public void onChangeSkinType(int i) {

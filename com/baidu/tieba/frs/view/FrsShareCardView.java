@@ -19,19 +19,19 @@ public class FrsShareCardView extends LinearLayout {
     private LinearLayout aFq;
     private TextView bKH;
     private Context context;
-    private EditText dZs;
-    private HeadImageView dZt;
-    private TextView dZu;
+    private EditText dZt;
+    private HeadImageView dZu;
     private TextView dZv;
-    private ShareFromFrsMsgData dZw;
+    private TextView dZw;
+    private ShareFromFrsMsgData dZx;
 
     public EditText getChatMsgView() {
-        return this.dZs;
+        return this.dZt;
     }
 
     public void L(String str, boolean z) {
-        if (this.dZt != null) {
-            this.dZt.startLoad(str, 15, false);
+        if (this.dZu != null) {
+            this.dZu.startLoad(str, 15, false);
         }
     }
 
@@ -48,7 +48,7 @@ public class FrsShareCardView extends LinearLayout {
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        this.dZt.setPageId(bdUniqueId);
+        this.dZu.setPageId(bdUniqueId);
     }
 
     private void cs(Context context) {
@@ -56,14 +56,14 @@ public class FrsShareCardView extends LinearLayout {
         setOrientation(1);
         this.aFq = (LinearLayout) findViewById(e.g.share_content);
         this.bKH = (TextView) findViewById(e.g.frs_card_name);
-        this.dZs = (EditText) findViewById(e.g.chat_msg);
-        this.dZt = (HeadImageView) findViewById(e.g.frs_card_img);
-        this.dZv = (TextView) findViewById(e.g.frs_card_member_num);
-        this.dZu = (TextView) findViewById(e.g.frs_card_post_num);
+        this.dZt = (EditText) findViewById(e.g.chat_msg);
+        this.dZu = (HeadImageView) findViewById(e.g.frs_card_img);
+        this.dZw = (TextView) findViewById(e.g.frs_card_member_num);
+        this.dZv = (TextView) findViewById(e.g.frs_card_post_num);
         al.c(this.bKH, e.d.cp_cont_b, 1);
-        al.c(this.dZs, e.d.cp_cont_b, 2);
-        this.dZs.setHintTextColor(al.getColor(e.d.cp_cont_e));
-        this.dZs.setPadding(context.getResources().getDimensionPixelSize(e.C0175e.ds20), 0, 0, 0);
+        al.c(this.dZt, e.d.cp_cont_b, 2);
+        this.dZt.setHintTextColor(al.getColor(e.d.cp_cont_e));
+        this.dZt.setPadding(context.getResources().getDimensionPixelSize(e.C0175e.ds20), 0, 0, 0);
         aGO();
     }
 
@@ -74,8 +74,8 @@ public class FrsShareCardView extends LinearLayout {
     }
 
     public String getLeaveMsg() {
-        if (this.dZs != null) {
-            return k.a(this.dZs.getText(), null);
+        if (this.dZt != null) {
+            return k.a(this.dZt.getText(), null);
         }
         return null;
     }
@@ -88,16 +88,16 @@ public class FrsShareCardView extends LinearLayout {
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.dZw = shareFromFrsMsgData;
+        this.dZx = shareFromFrsMsgData;
         updateUI();
     }
 
     private void updateUI() {
-        this.bKH.setText(fu(this.dZw.getName()));
-        BdLog.e("mData.getImageUrl()的图片URL" + this.dZw.getImageUrl());
-        this.dZt.startLoad(this.dZw.getImageUrl(), 15, false);
-        this.dZv.setText(ao.L(this.dZw.getMemberNum()));
-        this.dZu.setText(ao.L(this.dZw.getPostNum()));
+        this.bKH.setText(fu(this.dZx.getName()));
+        BdLog.e("mData.getImageUrl()的图片URL" + this.dZx.getImageUrl());
+        this.dZu.startLoad(this.dZx.getImageUrl(), 15, false);
+        this.dZw.setText(ao.L(this.dZx.getMemberNum()));
+        this.dZv.setText(ao.L(this.dZx.getPostNum()));
     }
 
     private String fu(String str) {

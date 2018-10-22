@@ -21,11 +21,11 @@ import java.util.concurrent.TimeUnit;
 public class PbChudianProcessBar extends RelativeLayout {
     private int bxI;
     private MediaController.MediaPlayerControl bxJ;
-    private Formatter exl;
-    private TextView geU;
+    private Formatter exm;
     private TextView geV;
-    private SeekBar geW;
-    private StringBuilder geX;
+    private TextView geW;
+    private SeekBar geX;
+    private StringBuilder geY;
     private Handler mHandler;
     private View mRootView;
     private boolean mShowing;
@@ -98,13 +98,13 @@ public class PbChudianProcessBar extends RelativeLayout {
 
     private void init(Context context) {
         this.mRootView = LayoutInflater.from(context).inflate(e.h.chudian_process_bar, (ViewGroup) this, true);
-        this.geU = (TextView) this.mRootView.findViewById(e.g.textview_cur_time);
-        this.geV = (TextView) this.mRootView.findViewById(e.g.textview_duration);
-        this.geW = (SeekBar) this.mRootView.findViewById(e.g.chudian_seek_bar);
-        this.geW.setEnabled(false);
-        this.geW.setThumb(null);
-        this.geX = new StringBuilder();
-        this.exl = new Formatter(this.geX, Locale.getDefault());
+        this.geV = (TextView) this.mRootView.findViewById(e.g.textview_cur_time);
+        this.geW = (TextView) this.mRootView.findViewById(e.g.textview_duration);
+        this.geX = (SeekBar) this.mRootView.findViewById(e.g.chudian_seek_bar);
+        this.geX.setEnabled(false);
+        this.geX.setThumb(null);
+        this.geY = new StringBuilder();
+        this.exm = new Formatter(this.geY, Locale.getDefault());
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
@@ -114,9 +114,9 @@ public class PbChudianProcessBar extends RelativeLayout {
     public void n(long j, long j2) {
         this.mShowing = false;
         this.mHandler.removeMessages(1);
-        this.geW.setProgress(0);
-        this.geU.setText(cS(j));
-        this.geV.setText(cS(j2));
+        this.geX.setProgress(0);
+        this.geV.setText(cS(j));
+        this.geW.setText(cS(j2));
     }
 
     public void bmr() {
@@ -138,29 +138,29 @@ public class PbChudianProcessBar extends RelativeLayout {
         }
         int currentPosition = this.bxJ.getCurrentPosition();
         int duration = this.bxJ.getDuration();
-        if (this.geW != null) {
+        if (this.geX != null) {
             if (duration > 0) {
-                this.geW.setProgress((int) ((ErrDef.Feature.WEIGHT * currentPosition) / duration));
+                this.geX.setProgress((int) ((ErrDef.Feature.WEIGHT * currentPosition) / duration));
             }
             this.bxJ.getBufferPercentage();
         }
-        if (this.geU != null && duration > 0) {
-            this.geU.setText(cS(currentPosition));
+        if (this.geV != null && duration > 0) {
+            this.geV.setText(cS(currentPosition));
         }
-        if (this.geV != null) {
-            this.geV.setText(cS(duration));
+        if (this.geW != null) {
+            this.geW.setText(cS(duration));
             return currentPosition;
         }
         return currentPosition;
     }
 
     private String cS(long j) {
-        this.geX.setLength(0);
+        this.geY.setLength(0);
         long seconds = TimeUnit.MILLISECONDS.toSeconds(j);
         long seconds2 = seconds % TimeUnit.MINUTES.toSeconds(1L);
         long seconds3 = (seconds / TimeUnit.MINUTES.toSeconds(1L)) % TimeUnit.HOURS.toMinutes(1L);
         long seconds4 = seconds / TimeUnit.HOURS.toSeconds(1L);
-        return seconds4 > 0 ? this.exl.format("%d:%02d:%02d", Long.valueOf(seconds4), Long.valueOf(seconds3), Long.valueOf(seconds2)).toString() : this.exl.format("%02d:%02d", Long.valueOf(seconds3), Long.valueOf(seconds2)).toString();
+        return seconds4 > 0 ? this.exm.format("%d:%02d:%02d", Long.valueOf(seconds4), Long.valueOf(seconds3), Long.valueOf(seconds2)).toString() : this.exm.format("%02d:%02d", Long.valueOf(seconds3), Long.valueOf(seconds2)).toString();
     }
 
     public void destroy() {

@@ -21,7 +21,7 @@ public class c {
         this.dfO = viewEventCenter;
     }
 
-    public ForumEditView auu() {
+    public ForumEditView auv() {
         if (this.dhH == null) {
             return null;
         }
@@ -83,7 +83,7 @@ public class c {
         ForumEditView forumEditView = this.dhH.get();
         if (forumEditView != null) {
             if (this.dhI == null) {
-                auv();
+                auw();
             }
             forumEditView.setGridAdapterIfNeeded(this.dhI);
             if (TbadkCoreApplication.getInst().getSkinType() != 2) {
@@ -95,7 +95,7 @@ public class c {
         }
     }
 
-    private void auv() {
+    private void auw() {
         this.dhI = new com.baidu.tieba.enterForum.a.b(this.mContext, com.baidu.tieba.enterForum.view.c.class, e.h.home_like_item_in_edit_grid, this.dfO);
         this.dhI.cq(false);
     }

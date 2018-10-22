@@ -58,8 +58,8 @@ import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes6.dex */
 public class PassManagerStatic {
-    private static boolean fEo = false;
-    private static SapiConfiguration fEp;
+    private static boolean fEp = false;
+    private static SapiConfiguration fEq;
 
     static {
         UE();
@@ -166,9 +166,9 @@ public class PassManagerStatic {
         SapiAccountManager.registerReceiveShareListener(new SapiAccountManager.ReceiveShareListener() { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.13
             @Override // com.baidu.sapi2.SapiAccountManager.ReceiveShareListener
             public void onReceiveShare() {
-                if (PassManagerStatic.fEp != null) {
+                if (PassManagerStatic.fEq != null) {
                     try {
-                        SapiAccountManager.getInstance().init(PassManagerStatic.fEp);
+                        SapiAccountManager.getInstance().init(PassManagerStatic.fEq);
                     } catch (Exception e) {
                         BdLog.e(e);
                     }
@@ -197,9 +197,9 @@ public class PassManagerStatic {
             builder.setRuntimeEnvironment(Domain.DOMAIN_QA.forceHttps(true));
             builder.debug(true);
         }
-        fEp = builder.build();
+        fEq = builder.build();
         try {
-            SapiAccountManager.getInstance().init(fEp);
+            SapiAccountManager.getInstance().init(fEq);
             WbSdk.install(context, new AuthInfo(context, "1511099634", "https://passport.baidu.com", "invitation_write"));
         } catch (Exception e2) {
             BdLog.e(e2);
@@ -270,13 +270,13 @@ public class PassManagerStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921332, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-                if (!PassManagerStatic.fEo) {
+                if (!PassManagerStatic.fEp) {
                     HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put(BaiduRimConstants.RIM_ID_KEY, "2100020001");
                     hashMap.put(BaiduRimConstants.TPL_INIT_KEY, "1200020868");
                     hashMap.put("appkey", "ef4b7e008deab5c6fd206d180c5967039bfa8120");
                     BaiduRIM.getInstance().initRIM(TbadkApplication.getInst().getContext(), hashMap);
-                    boolean unused = PassManagerStatic.fEo = true;
+                    boolean unused = PassManagerStatic.fEp = true;
                 }
                 return null;
             }
@@ -291,8 +291,8 @@ public class PassManagerStatic {
             public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tieba.passaccount.a> customMessage) {
                 if (customMessage != null && (customMessage.getData() instanceof com.baidu.tieba.passaccount.a)) {
                     com.baidu.tieba.passaccount.a data = customMessage.getData();
-                    if (data.fEc != null && data.fEd != null && (data.fEd instanceof SendAuth.Resp)) {
-                        PassportSDK.getInstance().handleWXLoginResp(data.fEc, ((SendAuth.Resp) data.fEd).state, ((SendAuth.Resp) data.fEd).code, data.fEd.errCode);
+                    if (data.fEd != null && data.fEe != null && (data.fEe instanceof SendAuth.Resp)) {
+                        PassportSDK.getInstance().handleWXLoginResp(data.fEd, ((SendAuth.Resp) data.fEe).state, ((SendAuth.Resp) data.fEe).code, data.fEe.errCode);
                     }
                 }
                 return null;
@@ -304,9 +304,9 @@ public class PassManagerStatic {
 
     public static void bdR() {
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            fEp.isNightMode = true;
+            fEq.isNightMode = true;
         } else {
-            fEp.isNightMode = false;
+            fEq.isNightMode = false;
         }
     }
 

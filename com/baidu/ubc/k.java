@@ -8,12 +8,12 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class k {
     private long Sv;
-    private JSONObject hSU;
-    private int hSV;
-    private String hSW;
-    private boolean hSX = false;
-    private int hSx;
-    private JSONArray hSz;
+    private JSONArray hSA;
+    private JSONObject hSV;
+    private int hSW;
+    private String hSX;
+    private boolean hSY = false;
+    private int hSy;
     private String mCategory;
     private String mContent;
     private long mEndTime;
@@ -25,9 +25,9 @@ public class k {
 
     public k(String str, int i, String str2, int i2) {
         this.mId = str;
-        this.hSx = i;
+        this.hSy = i;
         this.mContent = str2;
-        this.hSV = i2;
+        this.hSW = i2;
     }
 
     public String getId() {
@@ -39,11 +39,11 @@ public class k {
     }
 
     public int bPy() {
-        return this.hSx;
+        return this.hSy;
     }
 
     public void wQ(int i) {
-        this.hSx = i;
+        this.hSy = i;
     }
 
     public String getContent() {
@@ -55,7 +55,7 @@ public class k {
     }
 
     public JSONObject bPB() {
-        return this.hSU;
+        return this.hSV;
     }
 
     public long bPE() {
@@ -83,11 +83,11 @@ public class k {
     }
 
     public int bPz() {
-        return this.hSV;
+        return this.hSW;
     }
 
     public String bPA() {
-        return this.hSW;
+        return this.hSX;
     }
 
     public String getCategory() {
@@ -99,27 +99,27 @@ public class k {
     }
 
     public boolean bPv() {
-        return this.hSX;
+        return this.hSY;
     }
 
     public void ou(boolean z) {
-        this.hSX = z;
+        this.hSY = z;
     }
 
     public void xB(String str) {
-        this.hSW = str;
+        this.hSX = str;
     }
 
     public void bPC() {
         if (e.bPl().xr(this.mId)) {
-            this.hSW = o.bPN().XO();
+            this.hSX = o.bPN().XP();
         }
     }
 
     public void xC(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.hSz = new JSONArray(str);
+                this.hSA = new JSONArray(str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -127,6 +127,6 @@ public class k {
     }
 
     public JSONArray bPF() {
-        return this.hSz;
+        return this.hSA;
     }
 }

@@ -47,8 +47,8 @@ public abstract class c extends a<com.baidu.tieba.card.data.k> implements com.ba
         this.cKG = new View.OnClickListener() { // from class: com.baidu.tieba.card.c.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.anO() != null) {
-                    c.this.anO().a(view, c.this.cKF);
+                if (c.this.anP() != null) {
+                    c.this.anP().a(view, c.this.cKF);
                 }
                 c.this.fb(view == c.this.cKD);
             }
@@ -56,8 +56,8 @@ public abstract class c extends a<com.baidu.tieba.card.data.k> implements com.ba
         this.aGk = new View.OnClickListener() { // from class: com.baidu.tieba.card.c.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.anO() != null) {
-                    c.this.anO().a(view, c.this.cKF);
+                if (c.this.anP() != null) {
+                    c.this.anP().a(view, c.this.cKF);
                 }
             }
         };
@@ -96,13 +96,13 @@ public abstract class c extends a<com.baidu.tieba.card.data.k> implements com.ba
         this.bWf.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (c.this.anO() != null) {
-                    c.this.anO().a(view2, c.this.cKF);
+                if (c.this.anP() != null) {
+                    c.this.anP().a(view2, c.this.cKF);
                 }
                 if (c.this.cKF != null && c.this.cKF.threadData != null) {
                     o.md(c.this.cKF.threadData.getId());
-                    if (!c.this.anS()) {
-                        c.this.anT();
+                    if (!c.this.anT()) {
+                        c.this.anU();
                     }
                 }
             }
@@ -113,13 +113,13 @@ public abstract class c extends a<com.baidu.tieba.card.data.k> implements com.ba
         this.bWS.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (c.this.anO() != null) {
-                    c.this.anO().a(view2, c.this.cKF);
+                if (c.this.anP() != null) {
+                    c.this.anP().a(view2, c.this.cKF);
                 }
                 if (c.this.cKF != null && c.this.cKF.threadData != null && view2 != c.this.bWS.aFR) {
                     o.md(c.this.cKF.threadData.getId());
-                    if (!c.this.anS()) {
-                        c.this.anT();
+                    if (!c.this.anT()) {
+                        c.this.anU();
                     }
                 }
             }
@@ -160,14 +160,14 @@ public abstract class c extends a<com.baidu.tieba.card.data.k> implements com.ba
             getView().setVisibility(0);
             getView().setOnClickListener(this.cKG);
         }
-        if (this.bWq != null && this.cKF.YA() != null && kVar.threadData.yv() != null && !StringUtils.isNull(kVar.threadData.yv().getUserId())) {
+        if (this.bWq != null && this.cKF.YB() != null && kVar.threadData.yv() != null && !StringUtils.isNull(kVar.threadData.yv().getUserId())) {
             if (kVar.threadData.yv().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
                 this.bWq.setVisibility(8);
             } else {
                 this.bWq.setVisibility(0);
                 ah ahVar = new ah();
-                ahVar.setTid(this.cKF.YA().getTid());
-                ahVar.setFid(this.cKF.YA().getFid());
+                ahVar.setTid(this.cKF.YB().getTid());
+                ahVar.setFid(this.cKF.YB().getFid());
                 ahVar.a(this.cKF.anO);
                 this.bWq.setData(ahVar);
                 this.bWq.setFirstRowSingleColumn(true);
@@ -175,23 +175,23 @@ public abstract class c extends a<com.baidu.tieba.card.data.k> implements com.ba
         }
         this.bWe.setData(kVar.threadData);
         this.cKD.setData(kVar.threadData.zM());
-        if (!anS() && o.me(this.cKF.threadData.getId())) {
-            anT();
+        if (!anT() && o.me(this.cKF.threadData.getId())) {
+            anU();
         }
         this.bWe.setUserAfterClickListener(this.aGk);
-        bb YA = kVar.YA();
+        bb YB = kVar.YB();
         if (this.bWe.getHeaderImg() != null) {
             if (this.bWe.getIsSimpleThread()) {
                 this.bWe.getHeaderImg().setVisibility(8);
                 this.bWP.setVisibility(8);
-            } else if (YA.yv() == null || YA.yv().getPendantData() == null || StringUtils.isNull(YA.yv().getPendantData().xf())) {
+            } else if (YB.yv() == null || YB.yv().getPendantData() == null || StringUtils.isNull(YB.yv().getPendantData().xf())) {
                 this.bWP.setVisibility(8);
                 this.bWe.getHeaderImg().setVisibility(0);
-                this.bWe.getHeaderImg().setData(YA);
+                this.bWe.getHeaderImg().setData(YB);
             } else {
                 this.bWe.getHeaderImg().setVisibility(4);
                 this.bWP.setVisibility(0);
-                this.bWP.setData(YA);
+                this.bWP.setData(YB);
             }
         }
         b(kVar);
@@ -215,7 +215,7 @@ public abstract class c extends a<com.baidu.tieba.card.data.k> implements com.ba
         }
     }
 
-    public View anQ() {
+    public View anR() {
         return this.cKD;
     }
 
@@ -232,7 +232,7 @@ public abstract class c extends a<com.baidu.tieba.card.data.k> implements com.ba
         return null;
     }
 
-    public View anR() {
+    public View anS() {
         if (this.bWe != null) {
             return this.bWe.aFZ;
         }
@@ -242,11 +242,11 @@ public abstract class c extends a<com.baidu.tieba.card.data.k> implements com.ba
     /* JADX INFO: Access modifiers changed from: private */
     public void fb(boolean z) {
         if (this.cKF != null && this.cKF.threadData != null) {
-            if (!anS()) {
+            if (!anT()) {
                 o.md(this.cKF.threadData.getId());
-                anT();
+                anU();
             }
-            PbActivityConfig addLocateParam = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(this.cKF.threadData, null, o.yj(), 18003, true, false, false).addLocateParam(this.cKF.aoz());
+            PbActivityConfig addLocateParam = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(this.cKF.threadData, null, o.yj(), 18003, true, false, false).addLocateParam(this.cKF.aoA());
             addLocateParam.setForumId(String.valueOf(this.cKF.threadData.getFid()));
             addLocateParam.setStartFrom(this.currentPageType);
             if (z) {
@@ -257,12 +257,12 @@ public abstract class c extends a<com.baidu.tieba.card.data.k> implements com.ba
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean anS() {
+    public boolean anT() {
         return this.cKF.cQt && !this.cKF.aVo;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void anT() {
+    public void anU() {
         o.a(this.cKD.getGodReplyContent(), this.cKF.threadData.getId(), e.d.cp_cont_f, e.d.cp_cont_d);
     }
 

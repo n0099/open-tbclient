@@ -8,24 +8,24 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
     private int[] bUW;
-    private ArrayList<BaseFragment> gkE;
+    private ArrayList<BaseFragment> gkF;
 
     protected abstract BaseFragment bnL();
 
     public BasePersonInfoAdapter(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
         super(basePersonInfoActivity.getSupportFragmentManager());
-        this.gkE = new ArrayList<>();
+        this.gkF = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
         BaseFragment bnL = bnL();
         bnL.setArguments(bundle);
-        this.gkE.add(bnL);
+        this.gkF.add(bnL);
         if (!z) {
             Bundle bundle2 = new Bundle();
             bundle2.putInt("page_type", 1);
             BaseFragment bnL2 = bnL();
             bnL2.setArguments(bundle2);
-            this.gkE.add(bnL2);
+            this.gkF.add(bnL2);
             this.bUW = new int[]{0, 1};
             return;
         }
@@ -37,7 +37,7 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
         if (i >= this.bUW.length || i < 0) {
             return null;
         }
-        return this.gkE.get(i);
+        return this.gkF.get(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter

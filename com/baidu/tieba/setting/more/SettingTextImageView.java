@@ -18,7 +18,7 @@ public class SettingTextImageView extends FrameLayout {
     private LinearLayout aQi;
     private TextView aQj;
     private ImageView aQn;
-    private HeadImageView gQc;
+    private HeadImageView gQd;
     private Context mContext;
 
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
@@ -39,18 +39,18 @@ public class SettingTextImageView extends FrameLayout {
     public void eS(int i) {
         al.c(this.aQj, e.d.common_color_10039, 1);
         al.b(this.aQn, e.f.icon_arrow_gray_right_n, i);
-        this.gQc.invalidate();
+        this.gQd.invalidate();
     }
 
     public void bxb() {
-        if (this.gQc != null) {
-            this.gQc.setVisibility(8);
+        if (this.gQd != null) {
+            this.gQd.setVisibility(8);
         }
     }
 
     public void bxc() {
-        if (this.gQc != null) {
-            this.gQc.setVisibility(0);
+        if (this.gQd != null) {
+            this.gQd.setVisibility(0);
         }
     }
 
@@ -60,9 +60,9 @@ public class SettingTextImageView extends FrameLayout {
 
     public void setIcon(String str, boolean z) {
         if (z) {
-            this.gQc.startLoad(str, 26, false);
+            this.gQd.startLoad(str, 26, false);
         } else {
-            this.gQc.startLoad(str, 12, false);
+            this.gQd.startLoad(str, 12, false);
         }
     }
 
@@ -73,7 +73,7 @@ public class SettingTextImageView extends FrameLayout {
         LayoutInflater.from(this.mContext).inflate(e.h.setting_text_image_view, (ViewGroup) this, true);
         this.aQi = (LinearLayout) findViewById(e.g.container);
         this.aQj = (TextView) findViewById(e.g.text);
-        this.gQc = (HeadImageView) findViewById(e.g.icon);
+        this.gQd = (HeadImageView) findViewById(e.g.icon);
         this.aQn = (ImageView) findViewById(e.g.arrow);
     }
 

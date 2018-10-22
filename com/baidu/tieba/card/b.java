@@ -62,7 +62,7 @@ public abstract class b<T extends com.baidu.tieba.card.data.a> extends a<T> {
     }
 
     @SuppressLint({"ResourceAsColor"})
-    private void anP() {
+    private void anQ() {
         if (getFrom() != null && getFrom().equals("home")) {
             al.c(this.cKt, e.d.cp_cont_d, 1);
             this.cKz.setVisibility(8);
@@ -83,7 +83,7 @@ public abstract class b<T extends com.baidu.tieba.card.data.a> extends a<T> {
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            anP();
+            anQ();
         }
         this.mSkinType = i;
     }

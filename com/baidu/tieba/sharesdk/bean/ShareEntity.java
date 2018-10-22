@@ -39,7 +39,7 @@ public class ShareEntity implements Parcelable {
     private boolean aNZ;
     private Bundle aOb;
     private String content;
-    private int gRh;
+    private int gRi;
     private Uri imageUri;
     private String linkUrl;
     private String title;
@@ -102,11 +102,11 @@ public class ShareEntity implements Parcelable {
     }
 
     public int bxn() {
-        return this.gRh;
+        return this.gRi;
     }
 
     public void tO(int i) {
-        this.gRh = i;
+        this.gRi = i;
     }
 
     public boolean bxo() {
@@ -127,7 +127,7 @@ public class ShareEntity implements Parcelable {
         parcel.writeString(this.title);
         parcel.writeString(this.content);
         parcel.writeString(this.linkUrl);
-        parcel.writeInt(this.gRh);
+        parcel.writeInt(this.gRi);
         parcel.writeString(this.videoUrl);
         parcel.writeParcelable(this.imageUri, i);
         parcel.writeParcelable(this.aNS, i);

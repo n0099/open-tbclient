@@ -62,18 +62,18 @@ public class g extends com.baidu.tieba.frs.h<bb, com.baidu.tieba.card.a.a<com.ba
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bb bbVar, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.d> aVar) {
-        if (aVar == null || aVar.aoP() == null) {
+        if (aVar == null || aVar.aoQ() == null) {
             return null;
         }
         super.onFillViewHolder(i, view, viewGroup, bbVar, aVar);
-        if (aVar.aoP() instanceof com.baidu.tieba.a.e) {
-            aVar.aoP().setPage(this.bVS);
+        if (aVar.aoQ() instanceof com.baidu.tieba.a.e) {
+            aVar.aoQ().setPage(this.bVS);
         }
-        com.baidu.tieba.frs.g.a(aVar.aoP().aaX(), this.dzP);
-        com.baidu.tieba.frs.g.a(aVar.aoP().aaY(), this.dzP);
-        aVar.aoP().a(bbVar);
-        aVar.aoP().setForumName(this.mForumName);
-        aVar.aoP().b(this.bVP);
+        com.baidu.tieba.frs.g.a(aVar.aoQ().aaY(), this.dzP);
+        com.baidu.tieba.frs.g.a(aVar.aoQ().aaZ(), this.dzP);
+        aVar.aoQ().a(bbVar);
+        aVar.aoQ().setForumName(this.mForumName);
+        aVar.aoQ().b(this.bVP);
         com.baidu.tieba.frs.e.b.aFC().a(this.dIB, bbVar);
         if (bbVar != null) {
             bbVar.zs();
@@ -101,7 +101,7 @@ public class g extends com.baidu.tieba.frs.h<bb, com.baidu.tieba.card.a.a<com.ba
     }
 
     @Override // com.baidu.tieba.frs.e.c
-    public com.baidu.tieba.frs.e.a aCM() {
+    public com.baidu.tieba.frs.e.a aCN() {
         return this.dIB;
     }
 }

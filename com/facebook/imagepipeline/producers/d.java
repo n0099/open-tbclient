@@ -8,16 +8,16 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes2.dex */
 public class d implements aj {
-    private final Object hYY;
-    private final ImageRequest igK;
-    private final al igL;
-    private final ImageRequest.RequestLevel igM;
+    private final Object hYZ;
+    private final ImageRequest igL;
+    private final al igM;
+    private final ImageRequest.RequestLevel igN;
     @GuardedBy("this")
-    private boolean igN;
+    private boolean igO;
     @GuardedBy("this")
-    private Priority igO;
+    private Priority igP;
     @GuardedBy("this")
-    private boolean igP;
+    private boolean igQ;
     private final String mId;
     @GuardedBy("this")
     private boolean aIi = false;
@@ -25,19 +25,19 @@ public class d implements aj {
     private final List<ak> mCallbacks = new ArrayList();
 
     public d(ImageRequest imageRequest, String str, al alVar, Object obj, ImageRequest.RequestLevel requestLevel, boolean z, boolean z2, Priority priority) {
-        this.igK = imageRequest;
+        this.igL = imageRequest;
         this.mId = str;
-        this.igL = alVar;
-        this.hYY = obj;
-        this.igM = requestLevel;
-        this.igN = z;
-        this.igO = priority;
-        this.igP = z2;
+        this.igM = alVar;
+        this.hYZ = obj;
+        this.igN = requestLevel;
+        this.igO = z;
+        this.igP = priority;
+        this.igQ = z2;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public ImageRequest bXq() {
-        return this.igK;
+        return this.igL;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
@@ -47,32 +47,32 @@ public class d implements aj {
 
     @Override // com.facebook.imagepipeline.producers.aj
     public al bXr() {
-        return this.igL;
-    }
-
-    @Override // com.facebook.imagepipeline.producers.aj
-    public Object bST() {
-        return this.hYY;
-    }
-
-    @Override // com.facebook.imagepipeline.producers.aj
-    public ImageRequest.RequestLevel bXs() {
         return this.igM;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public synchronized boolean bXt() {
+    public Object bST() {
+        return this.hYZ;
+    }
+
+    @Override // com.facebook.imagepipeline.producers.aj
+    public ImageRequest.RequestLevel bXs() {
         return this.igN;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public synchronized Priority bXu() {
+    public synchronized boolean bXt() {
         return this.igO;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public synchronized boolean bXv() {
+    public synchronized Priority bXu() {
         return this.igP;
+    }
+
+    @Override // com.facebook.imagepipeline.producers.aj
+    public synchronized boolean bXv() {
+        return this.igQ;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
@@ -96,10 +96,10 @@ public class d implements aj {
     @Nullable
     public synchronized List<ak> oH(boolean z) {
         ArrayList arrayList;
-        if (z == this.igN) {
+        if (z == this.igO) {
             arrayList = null;
         } else {
-            this.igN = z;
+            this.igO = z;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
@@ -108,10 +108,10 @@ public class d implements aj {
     @Nullable
     public synchronized List<ak> a(Priority priority) {
         ArrayList arrayList;
-        if (priority == this.igO) {
+        if (priority == this.igP) {
             arrayList = null;
         } else {
-            this.igO = priority;
+            this.igP = priority;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
@@ -120,10 +120,10 @@ public class d implements aj {
     @Nullable
     public synchronized List<ak> oI(boolean z) {
         ArrayList arrayList;
-        if (z == this.igP) {
+        if (z == this.igQ) {
             arrayList = null;
         } else {
-            this.igP = z;
+            this.igQ = z;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;

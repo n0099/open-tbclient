@@ -37,7 +37,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         inflate.setLayoutParams(generateLayoutParamsByParent(viewGroup));
         a aVar = new a(inflate);
         aVar.buH = inflate.findViewById(e.g.divider_line);
-        aVar.ejO = (TextView) inflate.findViewById(e.g.daily_title);
+        aVar.ejP = (TextView) inflate.findViewById(e.g.daily_title);
         return aVar;
     }
 
@@ -58,9 +58,9 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, length, 33);
             spannableStringBuilder.setSpan(new AbsoluteSizeSpan(this.tbds34), length, length + length2, 33);
             spannableStringBuilder.setSpan(new ForegroundColorSpan(color2), length, length + length2, 33);
-            aVar.ejO.setText(spannableStringBuilder);
-            al.h(aVar.ejO, e.d.cp_cont_b);
-            al.j(aVar.ejO, e.d.cp_bg_line_d);
+            aVar.ejP.setText(spannableStringBuilder);
+            al.h(aVar.ejP, e.d.cp_cont_b);
+            al.j(aVar.ejP, e.d.cp_bg_line_d);
             if (dVar.aJe()) {
                 aVar.buH.setVisibility(0);
                 al.j(aVar.buH, e.d.cp_bg_line_e);
@@ -76,7 +76,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* loaded from: classes6.dex */
     public static class a extends q.a {
         public View buH;
-        public TextView ejO;
+        public TextView ejP;
 
         public a(View view) {
             super(view);

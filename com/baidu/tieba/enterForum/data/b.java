@@ -87,7 +87,7 @@ public class b {
         }
     }
 
-    public g atD() {
+    public g atE() {
         return this.dgf;
     }
 
@@ -99,7 +99,7 @@ public class b {
         this.dgg = jVar;
     }
 
-    public List<com.baidu.tieba.enterForum.multiConcern.b> atE() {
+    public List<com.baidu.tieba.enterForum.multiConcern.b> atF() {
         return this.dgh;
     }
 
@@ -115,7 +115,7 @@ public class b {
         return this.Jo;
     }
 
-    public boolean atF() {
+    public boolean atG() {
         return System.currentTimeMillis() / com.baidu.tbadk.data.d.aSA.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.d.aSA.longValue();
     }
 

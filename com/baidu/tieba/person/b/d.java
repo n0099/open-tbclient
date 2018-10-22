@@ -20,8 +20,8 @@ public class d extends q.a {
     public int aHp;
     public TextView aiy;
     public View cVL;
-    public e giA;
-    public HTypeListView giz;
+    public HTypeListView giA;
+    public e giB;
     public TbPageContext mPageContext;
     public View rootView;
 
@@ -32,13 +32,13 @@ public class d extends q.a {
         this.mPageContext = tbPageContext;
         this.cVL = view.findViewById(e.g.divider_view_under_photo_album);
         this.aiy = (TextView) view.findViewById(e.g.text_view_photo_album);
-        this.giz = (HTypeListView) view.findViewById(e.g.listview_photo_album);
-        this.giA = new com.baidu.tieba.person.a.e(this.mPageContext, this.giz);
+        this.giA = (HTypeListView) view.findViewById(e.g.listview_photo_album);
+        this.giB = new com.baidu.tieba.person.a.e(this.mPageContext, this.giA);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.giA.setDatas(dp(fVar.getPhotoAlbum()));
+            this.giB.setDatas(dp(fVar.getPhotoAlbum()));
         }
     }
 
@@ -59,7 +59,7 @@ public class d extends q.a {
             al.j(this.rootView, e.d.cp_bg_line_d);
             al.j(this.cVL, e.d.cp_bg_line_c);
             al.c(this.aiy, e.d.cp_cont_d, 1);
-            this.giA.notifyDataSetChanged();
+            this.giB.notifyDataSetChanged();
         }
     }
 }

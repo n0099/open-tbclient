@@ -11,7 +11,7 @@ import rx.j;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class PublishSubject<T> extends c<T, T> {
-    final PublishSubjectState<T> iFp;
+    final PublishSubjectState<T> iFq;
 
     public static <T> PublishSubject<T> cdJ() {
         return new PublishSubject<>(new PublishSubjectState());
@@ -19,27 +19,27 @@ public final class PublishSubject<T> extends c<T, T> {
 
     protected PublishSubject(PublishSubjectState<T> publishSubjectState) {
         super(publishSubjectState);
-        this.iFp = publishSubjectState;
+        this.iFq = publishSubjectState;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.iFp.onNext(t);
+        this.iFq.onNext(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.iFp.onError(th);
+        this.iFq.onError(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.iFp.onCompleted();
+        this.iFq.onCompleted();
     }
 
     @Override // rx.subjects.c
     public boolean hasObservers() {
-        return this.iFp.get().length != 0;
+        return this.iFq.get().length != 0;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

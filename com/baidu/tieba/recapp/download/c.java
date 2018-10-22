@@ -32,7 +32,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class c implements q {
     private static int awJ = 2097152;
     private final com.baidu.tbadk.core.util.a.a awD;
-    private com.baidu.tieba.recapp.download.http.c gDN = new com.baidu.tieba.recapp.download.http.c();
+    private com.baidu.tieba.recapp.download.http.c gDO = new com.baidu.tieba.recapp.download.http.c();
     private Context mContext = TbadkCoreApplication.getInst().getApp();
 
     public c(com.baidu.tbadk.core.util.a.a aVar) {
@@ -127,13 +127,13 @@ public class c implements q {
 
     @Override // com.baidu.tbadk.core.util.q
     public void ji() {
-        this.gDN.cancel();
+        this.gDO.cancel();
     }
 
     @Override // com.baidu.tbadk.core.util.q
     public void jl() {
-        if (this.gDN != null) {
-            this.gDN.jl();
+        if (this.gDO != null) {
+            this.gDO.jl();
         }
     }
 
@@ -217,13 +217,13 @@ public class c implements q {
         if (TbConfig.getDebugSwitch()) {
         }
         try {
-            if (this.gDN.isCanceled()) {
+            if (this.gDO.isCanceled()) {
                 return null;
             }
-            if (this.gDN.b(this.awD.CW().CZ().mUrl, this.awD.CW().CZ().azA, this.awD.CW().CZ().azC, 5, -1, Ch()) == null) {
+            if (this.gDO.b(this.awD.CW().CZ().mUrl, this.awD.CW().CZ().azA, this.awD.CW().CZ().azC, 5, -1, Ch()) == null) {
                 throw new BdHttpCancelException();
             }
-            com.baidu.tieba.recapp.download.http.g btz = this.gDN.btz();
+            com.baidu.tieba.recapp.download.http.g btz = this.gDO.btz();
             if (btz == null) {
                 return null;
             }
@@ -240,7 +240,7 @@ public class c implements q {
                 }
                 TiebaStatic.net(this.awD);
                 return null;
-            } else if (this.gDN.isCanceled()) {
+            } else if (this.gDO.isCanceled()) {
                 return null;
             } else {
                 str = new String(btB.Dc, IoUtils.UTF_8);
@@ -381,12 +381,12 @@ public class c implements q {
             e = e5;
             iVar = null;
         }
-        if (this.gDN.isCanceled()) {
+        if (this.gDO.isCanceled()) {
             throw new BdHttpCancelException();
         }
         long j = new Date().getTime();
-        this.gDN.b(str, z, 5, 100, -1, -1, Ch());
-        com.baidu.tieba.recapp.download.http.g btz = this.gDN.btz();
+        this.gDO.b(str, z, 5, 100, -1, -1, Ch());
+        com.baidu.tieba.recapp.download.http.g btz = this.gDO.btz();
         if (btz == null) {
             return null;
         }
@@ -563,13 +563,13 @@ public class c implements q {
         if (TbConfig.getDebugSwitch()) {
         }
         try {
-            if (this.gDN.isCanceled()) {
+            if (this.gDO.isCanceled()) {
                 return null;
             }
-            if (this.gDN.b(this.awD.CW().CZ().mUrl, this.awD.CW().CZ().azA, this.awD.CW().CZ().azC, 5, -1, Ch()) == null) {
+            if (this.gDO.b(this.awD.CW().CZ().mUrl, this.awD.CW().CZ().azA, this.awD.CW().CZ().azC, 5, -1, Ch()) == null) {
                 throw new BdHttpCancelException();
             }
-            com.baidu.tieba.recapp.download.http.g btz = this.gDN.btz();
+            com.baidu.tieba.recapp.download.http.g btz = this.gDO.btz();
             if (btz == null) {
                 return null;
             }
@@ -586,7 +586,7 @@ public class c implements q {
                 }
                 TiebaStatic.net(this.awD);
                 return null;
-            } else if (this.gDN.isCanceled()) {
+            } else if (this.gDO.isCanceled()) {
                 return null;
             } else {
                 str = new String(btB.Dc, IoUtils.UTF_8);
@@ -673,10 +673,10 @@ public class c implements q {
     @Override // com.baidu.tbadk.core.util.q
     public boolean a(String str, final Handler handler, final int i, int i2, int i3, boolean z) {
         try {
-            if (this.gDN.isCanceled()) {
+            if (this.gDO.isCanceled()) {
                 return false;
             }
-            return this.gDN.a(this.awD.CW().CZ().mUrl, (z ? new File(str) : l.eJ(str)).getAbsolutePath(), false, i2, i3, -1, -1, Ch(), new com.baidu.tieba.recapp.download.http.j() { // from class: com.baidu.tieba.recapp.download.c.1
+            return this.gDO.a(this.awD.CW().CZ().mUrl, (z ? new File(str) : l.eJ(str)).getAbsolutePath(), false, i2, i3, -1, -1, Ch(), new com.baidu.tieba.recapp.download.http.j() { // from class: com.baidu.tieba.recapp.download.c.1
                 int awL = 0;
                 int awM = 0;
                 int awN = 0;

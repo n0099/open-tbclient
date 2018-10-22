@@ -11,24 +11,24 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class PersonPolymericActivity extends BaseFragmentActivity implements VoiceManager.c {
-    private PersonPolymericFragment gnC;
+    private PersonPolymericFragment gnD;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(e.h.person_new_fragment_view);
-        this.gnC = new PersonPolymericFragment();
+        this.gnD = new PersonPolymericFragment();
         Bundle bundle2 = new Bundle();
         bundle2.putBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE, true);
-        this.gnC.setArguments(bundle2);
-        getSupportFragmentManager().beginTransaction().add(e.g.fragment_container, this.gnC).commit();
+        this.gnD.setArguments(bundle2);
+        getSupportFragmentManager().beginTransaction().add(e.g.fragment_container, this.gnD).commit();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.gnC != null) {
-            this.gnC.onChangeSkinType(i);
+        if (this.gnD != null) {
+            this.gnD.onChangeSkinType(i);
         }
     }
 
@@ -41,15 +41,15 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.gnC != null) {
-            this.gnC.onActivityResult(i, i2, intent);
+        if (this.gnD != null) {
+            this.gnD.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.gnC != null) {
-            return this.gnC.getVoiceManager();
+        if (this.gnD != null) {
+            return this.gnD.getVoiceManager();
         }
         return null;
     }

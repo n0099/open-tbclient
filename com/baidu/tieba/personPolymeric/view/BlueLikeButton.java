@@ -17,25 +17,25 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.view.userLike.b {
-    private boolean gqx;
+    private boolean gqy;
 
     public BlueLikeButton(Context context) {
         super(context);
-        this.gqx = false;
+        this.gqy = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gqx = false;
+        this.gqy = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gqx = false;
+        this.gqy = false;
     }
 
     public void bs(boolean z) {
-        this.gqx = z;
+        this.gqy = z;
         if (z) {
             setText(e.j.followed);
             setBackgroundDrawable(al.getDrawable(e.f.selector_like_button_gray_bg));
@@ -75,7 +75,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
             amVar.ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, TbadkCoreApplication.getInst().getTaskId());
             TiebaStatic.log(amVar);
         }
-        if (!this.gqx) {
+        if (!this.gqy) {
             Context context = getContext();
             if ((context instanceof Activity) && (context instanceof com.baidu.tbadk.pageStayDuration.a)) {
                 String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");
@@ -93,7 +93,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
     }
 
     public void onChangeSkinType(int i) {
-        if (this.gqx) {
+        if (this.gqy) {
             setBackgroundDrawable(al.getDrawable(e.f.selector_like_button_gray_bg));
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             al.c(this, e.d.cp_cont_e, 1);

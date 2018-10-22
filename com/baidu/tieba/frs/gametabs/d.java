@@ -28,9 +28,9 @@ public class d {
     private ImageView bUX;
     private ImageView ccE;
     private com.baidu.tieba.c.b dBU;
-    private SpecialFrsWebFragment dQF;
-    private ImageView dQG;
+    private SpecialFrsWebFragment dQG;
     private ImageView dQH;
+    private ImageView dQI;
     private NavigationBar mNavigationBar;
     private com.baidu.adp.base.e mPageContext;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.gametabs.d.1
@@ -42,11 +42,11 @@ public class d {
                 } else {
                     d.this.aEv();
                 }
-            } else if (view != d.this.dQG) {
+            } else if (view != d.this.dQH) {
                 if (d.this.dBU == null || view != d.this.dBU.getView()) {
                     if (view != d.this.bUX) {
-                        if (view == d.this.dQH) {
-                            d.this.a(d.this.dQF.m(null, null, null, null));
+                        if (view == d.this.dQI) {
+                            d.this.a(d.this.dQG.m(null, null, null, null));
                         }
                     } else if (!StringUtils.isNull(d.this.getForumId())) {
                         d.this.mPageContext.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(d.this.mPageContext.getPageActivity(), d.this.getForumId(), ForumDetailActivityConfig.FromType.FRS_GAME_LIVE)));
@@ -87,27 +87,27 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean aEu() {
-        if (this.dQF != null) {
-            return this.dQF.aEu();
+        if (this.dQG != null) {
+            return this.dQG.aEu();
         }
         return false;
     }
 
     public String getForumId() {
-        return this.dQF != null ? this.dQF.getForumId() : "";
+        return this.dQG != null ? this.dQG.getForumId() : "";
     }
 
     public String getForumName() {
-        return this.dQF != null ? this.dQF.getForumName() : "";
+        return this.dQG != null ? this.dQG.getForumName() : "";
     }
 
-    public NavigationBar aaD() {
+    public NavigationBar aaE() {
         return this.mNavigationBar;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.dQF != null && this.mNavigationBar != null) {
-            Pair<Integer, Integer> aEt = this.dQF.aEt();
+        if (this.dQG != null && this.mNavigationBar != null) {
+            Pair<Integer, Integer> aEt = this.dQG.aEt();
             if (aEt != null) {
                 this.mNavigationBar.onChangeSkinType(this.mPageContext, i);
                 al.c(this.mNavigationBar.mTextTitle, e.d.cp_cont_i, 1);
@@ -116,7 +116,7 @@ public class d {
                 com.baidu.tieba.frs.worldcup.b.a(this.mNavigationBar, aEt);
                 int i2 = e.d.select_topbar_icon_white_color_tint;
                 ap.CF().c(this.ccE, e.f.icon_topbar_return_n_svg, i2);
-                ap.CF().c(this.dQG, e.f.icon_topbar_search_n_svg, i2);
+                ap.CF().c(this.dQH, e.f.icon_topbar_search_n_svg, i2);
                 if (this.dBU != null) {
                     this.dBU.ki(i2);
                     this.dBU.onChangeSkinType(i);
@@ -128,37 +128,37 @@ public class d {
                 al.j(this.mNavigationBar.getBottomLine(), e.d.cp_bg_line_b);
                 int i3 = e.d.select_topbar_icon_color_tint;
                 ap.CF().c(this.ccE, e.f.icon_topbar_return_n_svg, i3);
-                ap.CF().c(this.dQG, e.f.icon_topbar_search_n_svg, i3);
+                ap.CF().c(this.dQH, e.f.icon_topbar_search_n_svg, i3);
                 if (this.dBU != null) {
                     this.dBU.ki(i3);
                     this.dBU.onChangeSkinType(i);
                 }
             }
             al.a(this.bUX, e.f.btn_more_selector_s, e.f.btn_more_selector);
-            al.a(this.dQH, e.f.icon_nav_share_selector, e.f.icon_nav_share_selector);
+            al.a(this.dQI, e.f.icon_nav_share_selector, e.f.icon_nav_share_selector);
         }
     }
 
     public void a(NavigationBar navigationBar, SpecialFrsWebFragment specialFrsWebFragment) {
         this.mNavigationBar = navigationBar;
-        this.dQF = specialFrsWebFragment;
+        this.dQG = specialFrsWebFragment;
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.getBarBgView().setAlpha(1.0f);
         this.mNavigationBar.setCenterTextTitle(getForumName());
         this.ccE = (ImageView) this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(e.g.widget_navi_back_button);
         this.ccE.setOnClickListener(this.mOnClickListener);
         if (aEu()) {
-            this.dQG = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.widget_nb_item_search, (View.OnClickListener) null);
-            this.dQG.setOnClickListener(this.mOnClickListener);
+            this.dQH = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.widget_nb_item_search, (View.OnClickListener) null);
+            this.dQH.setOnClickListener(this.mOnClickListener);
             if (this.dBU != null && this.dBU.getView() != null) {
                 this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.dBU.getView(), (View.OnClickListener) null);
             }
         } else {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(0, 0, l.h(this.mPageContext.getPageActivity(), e.C0175e.ds24), 0);
-            this.dQH = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.special_frs_web_navigation_share, (View.OnClickListener) null);
-            this.dQH.setLayoutParams(layoutParams);
-            this.dQH.setOnClickListener(this.mOnClickListener);
+            this.dQI = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.special_frs_web_navigation_share, (View.OnClickListener) null);
+            this.dQI.setLayoutParams(layoutParams);
+            this.dQI.setOnClickListener(this.mOnClickListener);
             this.bUX = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.widget_frs_forum_info_item, (View.OnClickListener) null);
             this.bUX.setLayoutParams(layoutParams);
             this.bUX.setOnClickListener(this.mOnClickListener);
@@ -184,8 +184,8 @@ public class d {
     }
 
     public void a(com.baidu.tbadk.coreExtra.c.d dVar) {
-        if (this.dQF != null) {
-            this.dQF.a(dVar);
+        if (this.dQG != null) {
+            this.dQG.a(dVar);
         }
     }
 
@@ -196,8 +196,8 @@ public class d {
     }
 
     public void aA(boolean z) {
-        if (this.dQH != null) {
-            this.dQH.setVisibility(z ? 0 : 8);
+        if (this.dQI != null) {
+            this.dQI.setVisibility(z ? 0 : 8);
         }
     }
 

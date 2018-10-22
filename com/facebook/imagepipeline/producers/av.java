@@ -6,30 +6,30 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class av implements ai<com.facebook.imagepipeline.f.d> {
-    private final com.facebook.common.memory.g icg;
-    private final ai<com.facebook.imagepipeline.f.d> igI;
+    private final com.facebook.common.memory.g ich;
+    private final ai<com.facebook.imagepipeline.f.d> igJ;
     private final Executor mExecutor;
 
     public av(Executor executor, com.facebook.common.memory.g gVar, ai<com.facebook.imagepipeline.f.d> aiVar) {
         this.mExecutor = (Executor) com.facebook.common.internal.g.checkNotNull(executor);
-        this.icg = (com.facebook.common.memory.g) com.facebook.common.internal.g.checkNotNull(gVar);
-        this.igI = (ai) com.facebook.common.internal.g.checkNotNull(aiVar);
+        this.ich = (com.facebook.common.memory.g) com.facebook.common.internal.g.checkNotNull(gVar);
+        this.igJ = (ai) com.facebook.common.internal.g.checkNotNull(aiVar);
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        this.igI.a(new a(jVar, ajVar), ajVar);
+        this.igJ.a(new a(jVar, ajVar), ajVar);
     }
 
     /* loaded from: classes2.dex */
     private class a extends m<com.facebook.imagepipeline.f.d, com.facebook.imagepipeline.f.d> {
-        private final aj ihl;
-        private TriState iiH;
+        private final aj ihm;
+        private TriState iiI;
 
         public a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
             super(jVar);
-            this.ihl = ajVar;
-            this.iiH = TriState.UNSET;
+            this.ihm = ajVar;
+            this.iiI = TriState.UNSET;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -37,14 +37,14 @@ public class av implements ai<com.facebook.imagepipeline.f.d> {
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
         public void d(@Nullable com.facebook.imagepipeline.f.d dVar, boolean z) {
-            if (this.iiH == TriState.UNSET && dVar != null) {
-                this.iiH = av.l(dVar);
+            if (this.iiI == TriState.UNSET && dVar != null) {
+                this.iiI = av.l(dVar);
             }
-            if (this.iiH == TriState.NO) {
+            if (this.iiI == TriState.NO) {
                 bXD().e(dVar, z);
             } else if (z) {
-                if (this.iiH == TriState.YES && dVar != null) {
-                    av.this.a(dVar, bXD(), this.ihl);
+                if (this.iiI == TriState.YES && dVar != null) {
+                    av.this.a(dVar, bXD(), this.ihm);
                 } else {
                     bXD().e(dVar, z);
                 }
@@ -62,7 +62,7 @@ public class av implements ai<com.facebook.imagepipeline.f.d> {
             @Override // com.facebook.common.b.e
             /* renamed from: bXN */
             public com.facebook.imagepipeline.f.d getResult() throws Exception {
-                com.facebook.common.memory.i bRH = av.this.icg.bRH();
+                com.facebook.common.memory.i bRH = av.this.ich.bRH();
                 try {
                     av.a(b, bRH);
                     com.facebook.common.references.a c = com.facebook.common.references.a.c(bRH.bRI());
@@ -118,7 +118,7 @@ public class av implements ai<com.facebook.imagepipeline.f.d> {
                 return TriState.NO;
             }
             return TriState.valueOf(!bXo.d(r));
-        } else if (r == com.facebook.c.c.ibV) {
+        } else if (r == com.facebook.c.c.ibW) {
             return TriState.UNSET;
         } else {
             return TriState.NO;
@@ -129,12 +129,12 @@ public class av implements ai<com.facebook.imagepipeline.f.d> {
     public static void a(com.facebook.imagepipeline.f.d dVar, com.facebook.common.memory.i iVar) throws Exception {
         InputStream inputStream = dVar.getInputStream();
         com.facebook.c.c r = com.facebook.c.d.r(inputStream);
-        if (r == com.facebook.c.b.ibQ || r == com.facebook.c.b.ibS) {
+        if (r == com.facebook.c.b.ibR || r == com.facebook.c.b.ibT) {
             com.facebook.imagepipeline.nativecode.c.bXo().a(inputStream, iVar, 80);
-            dVar.c(com.facebook.c.b.ibM);
-        } else if (r == com.facebook.c.b.ibR || r == com.facebook.c.b.ibT) {
-            com.facebook.imagepipeline.nativecode.c.bXo().g(inputStream, iVar);
             dVar.c(com.facebook.c.b.ibN);
+        } else if (r == com.facebook.c.b.ibS || r == com.facebook.c.b.ibU) {
+            com.facebook.imagepipeline.nativecode.c.bXo().g(inputStream, iVar);
+            dVar.c(com.facebook.c.b.ibO);
         } else {
             throw new IllegalArgumentException("Wrong image format");
         }

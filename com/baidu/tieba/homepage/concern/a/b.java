@@ -23,8 +23,8 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     private String bVS;
     private com.baidu.adp.lib.e.b<ConstrainImageLayout> dEO;
     private com.baidu.adp.lib.e.b<TbImageView> dEP;
-    private ad<com.baidu.tieba.homepage.concern.b.b> eio;
-    private com.baidu.tieba.homepage.concern.view.f eiq;
+    private ad<com.baidu.tieba.homepage.concern.b.b> eip;
+    private com.baidu.tieba.homepage.concern.view.f eir;
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -32,7 +32,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         this.dEO = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.concern.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: aBF */
+            /* renamed from: aBG */
             public ConstrainImageLayout jB() {
                 return new ConstrainImageLayout(b.this.mPageContext.getPageActivity());
             }
@@ -94,18 +94,18 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
                 return tbImageView;
             }
         }, 12, 0);
-        this.eio = new ad<com.baidu.tieba.homepage.concern.b.b>() { // from class: com.baidu.tieba.homepage.concern.a.b.3
+        this.eip = new ad<com.baidu.tieba.homepage.concern.b.b>() { // from class: com.baidu.tieba.homepage.concern.a.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             public void a(View view, com.baidu.tieba.homepage.concern.b.b bVar) {
-                if (view != null && b.this.eiq != null) {
+                if (view != null && b.this.eir != null) {
                     am amVar = new am("c12407");
                     amVar.h(ImageViewerConfig.FORUM_ID, bVar.dpv.getFid());
                     amVar.ax("tid", bVar.dpv.getTid());
                     amVar.x("obj_type", 1);
-                    amVar.ax(VideoPlayActivityConfig.OBJ_ID, bVar.eiP.getUserId());
-                    if ((b.this.eiq.ejh == null || view.getId() != b.this.eiq.ejh.getId()) && (b.this.eiq.bWe.getHeaderImg() == null || view.getId() != b.this.eiq.bWe.getHeaderImg().getId())) {
-                        if (b.this.eiq.ejf != null && view.getId() == b.this.eiq.ejf.getId()) {
+                    amVar.ax(VideoPlayActivityConfig.OBJ_ID, bVar.eiQ.getUserId());
+                    if ((b.this.eir.eji == null || view.getId() != b.this.eir.eji.getId()) && (b.this.eir.bWe.getHeaderImg() == null || view.getId() != b.this.eir.bWe.getHeaderImg().getId())) {
+                        if (b.this.eir.ejg != null && view.getId() == b.this.eir.ejg.getId()) {
                             amVar.x("obj_locate", 3);
                         } else {
                             amVar.x("obj_locate", 2);
@@ -126,15 +126,15 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: Y */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        this.eiq = new com.baidu.tieba.homepage.concern.view.f(this.mPageContext);
-        this.eiq.setConstrainLayoutPool(this.dEO);
-        this.eiq.setConstrainImagePool(this.dEP);
+        this.eir = new com.baidu.tieba.homepage.concern.view.f(this.mPageContext);
+        this.eir.setConstrainLayoutPool(this.dEO);
+        this.eir.setConstrainImagePool(this.dEP);
         if (this.aZt != null) {
-            this.eiq.j(this.aZt);
+            this.eir.j(this.aZt);
         }
-        this.eiq.b(this.eio);
-        this.eiq.setSingleImageRatio(0.75d);
-        return new com.baidu.tieba.card.a.a(this.eiq);
+        this.eir.b(this.eip);
+        this.eir.setSingleImageRatio(0.75d);
+        return new com.baidu.tieba.card.a.a(this.eir);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -142,16 +142,16 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.b bVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.f> aVar) {
-        if (bVar.eiP == null || aVar == null || StringUtils.isNull(bVar.eiP.getName()) || StringUtils.isNull(bVar.eiP.getUserId())) {
+        if (bVar.eiQ == null || aVar == null || StringUtils.isNull(bVar.eiQ.getName()) || StringUtils.isNull(bVar.eiQ.getUserId())) {
             return null;
         }
-        if (aVar.aoP() instanceof com.baidu.tieba.a.e) {
-            aVar.aoP().setPage(this.bVS);
+        if (aVar.aoQ() instanceof com.baidu.tieba.a.e) {
+            aVar.aoQ().setPage(this.bVS);
         }
-        aVar.aoP().a(bVar);
-        aVar.aoP().b(this.eio);
-        aVar.aoP().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        v.aoo().a(new am("c12353").h("uid", TbadkCoreApplication.getCurrentAccountId()).ax(VideoPlayActivityConfig.OBJ_ID, bVar.eiP.getUserId()).x("obj_type", 1).x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.aIU()).ax("tid", bVar.dpv.getTid()));
+        aVar.aoQ().a(bVar);
+        aVar.aoQ().b(this.eip);
+        aVar.aoQ().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        v.aop().a(new am("c12353").h("uid", TbadkCoreApplication.getCurrentAccountId()).ax(VideoPlayActivityConfig.OBJ_ID, bVar.eiQ.getUserId()).x("obj_type", 1).x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.aIU()).ax("tid", bVar.dpv.getTid()));
         return aVar.getView();
     }
 

@@ -1,27 +1,27 @@
 package com.baidu.tieba.aiapps.apps.a;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.searchbox.ng.ai.apps.setting.actions.PrivateGetUserInfoAction;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.searchbox.ng.ai.apps.util.typedbox.TypedCallback;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 /* loaded from: classes4.dex */
-class g extends ProviderDelegation {
-    g() {
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        Bundle bundle2 = new Bundle();
-        if (bundle != null && !TextUtils.isEmpty(bundle.getString("key_uid"))) {
-            SapiAccount session = SapiAccountManager.getInstance().getSession();
-            bundle2.putString("user_login_nickname_key", session.displayname);
-            bundle2.putString("user_login_portrait_key", session.getSocialPortrait());
-            bundle2.putInt(PrivateGetUserInfoAction.KEY_GENDER, TbadkCoreApplication.getCurrentAccountObj() == null ? -1 : TbadkCoreApplication.getCurrentAccountObj().getSex());
-            return bundle2;
+public class g extends ActivityDelegation {
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    protected boolean onExec() {
+        String[] stringArray = this.mParams.getStringArray("param_tpl_list");
+        if (stringArray == null || stringArray.length < 1) {
+            return true;
         }
-        return bundle2;
+        b.a((Context) getAgent(), new TypedCallback<Bundle>() { // from class: com.baidu.tieba.aiapps.apps.a.g.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.searchbox.ng.ai.apps.util.typedbox.TypedCallback
+            public void onCallback(Bundle bundle) {
+                if (bundle != null) {
+                    g.this.mResult.putAll(bundle);
+                }
+                g.this.finish();
+            }
+        }, stringArray);
+        return false;
     }
 }

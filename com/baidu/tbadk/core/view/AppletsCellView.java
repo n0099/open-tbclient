@@ -113,7 +113,7 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.art != null) {
-            if (!com.baidu.tieba.aiapps.a.u(this.art.id, this.art.link, "9103")) {
+            if (!com.baidu.tieba.aiapps.a.u(this.art.id, this.art.link, "1191003900000000")) {
                 if (!StringUtils.isNull(this.art.h5_url)) {
                     com.baidu.tbadk.browser.a.ae(getContext(), this.art.h5_url);
                 } else {

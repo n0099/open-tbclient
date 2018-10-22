@@ -49,29 +49,29 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.g gVar, com.baidu.tieba.card.a.a<a> aVar) {
-        if (gVar == null || aVar == null || aVar.aoP() == null) {
+        if (gVar == null || aVar == null || aVar.aoQ() == null) {
             return null;
         }
         TiebaStatic.log(new am("c12884"));
-        aVar.aoP().a(gVar);
-        return aVar.aoP().getView();
+        aVar.aoQ().a(gVar);
+        return aVar.aoQ().getView();
     }
 
     /* loaded from: classes6.dex */
     public static class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.personalize.data.g> {
         private ImageView aOs;
         private String bwU;
-        private TbImageView enI;
+        private TbImageView enJ;
 
         public a(TbPageContext tbPageContext, ViewGroup viewGroup) {
             super(tbPageContext, viewGroup);
-            this.enI = (TbImageView) getView().findViewById(e.g.quiz_entrance_img);
-            this.enI.setAutoChangeStyle(true);
-            this.enI.setScaleType(ImageView.ScaleType.FIT_XY);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.enI.getLayoutParams();
+            this.enJ = (TbImageView) getView().findViewById(e.g.quiz_entrance_img);
+            this.enJ.setAutoChangeStyle(true);
+            this.enJ.setScaleType(ImageView.ScaleType.FIT_XY);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.enJ.getLayoutParams();
             layoutParams.height = (int) (com.baidu.adp.lib.util.l.h(tbPageContext.getPageActivity(), e.C0175e.tbds236) * ((com.baidu.adp.lib.util.l.aO(tbPageContext.getPageActivity()) * 1.0f) / 1080.0f));
-            this.enI.setLayoutParams(layoutParams);
-            this.enI.setDefaultBgResource(e.f.pic_quiz_banner_default);
+            this.enJ.setLayoutParams(layoutParams);
+            this.enJ.setDefaultBgResource(e.f.pic_quiz_banner_default);
             this.aOs = (ImageView) getView().findViewById(e.g.close);
             this.aOs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.a.k.a.1
                 @Override // android.view.View.OnClickListener
@@ -94,12 +94,12 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.card.a
         public void a(com.baidu.tieba.homepage.personalize.data.g gVar) {
-            if (gVar.eoF >= 0 && gVar.eoE >= 0) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.enI.getLayoutParams();
-                layoutParams.height = (int) (((com.baidu.adp.lib.util.l.aO(this.mTbPageContext.getPageActivity()) * 1.0f) / gVar.eoF) * gVar.eoE);
-                this.enI.setLayoutParams(layoutParams);
+            if (gVar.eoG >= 0 && gVar.eoF >= 0) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.enJ.getLayoutParams();
+                layoutParams.height = (int) (((com.baidu.adp.lib.util.l.aO(this.mTbPageContext.getPageActivity()) * 1.0f) / gVar.eoG) * gVar.eoF);
+                this.enJ.setLayoutParams(layoutParams);
             }
-            this.enI.startLoad(gVar.imgUrl, 10, false);
+            this.enJ.startLoad(gVar.imgUrl, 10, false);
             this.bwU = gVar.akf;
             al.c(this.aOs, e.f.icon_live_close_n);
         }

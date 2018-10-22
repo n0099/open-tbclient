@@ -31,7 +31,7 @@ public class e {
     private e() {
     }
 
-    public static e Xj() {
+    public static e Xk() {
         if (bCA == null) {
             synchronized (e.class) {
                 if (bCA == null) {
@@ -44,10 +44,10 @@ public class e {
 
     public void a(InvoiceInfo invoiceInfo, final d.a aVar) {
         if (invoiceInfo != null) {
-            String Xd = com.baidu.tieba.aiapps.apps.d.c.Xd();
+            String Xe = com.baidu.tieba.aiapps.apps.d.c.Xe();
             HashMap hashMap = new HashMap();
             hashMap.put("data", this.bCB.toJson(invoiceInfo));
-            a(Xd, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.c<InvoiceInfo>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.1
+            a(Xe, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.c<InvoiceInfo>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 /* renamed from: b */
@@ -108,7 +108,7 @@ public class e {
                     }
                     HashMap hashMap = new HashMap();
                     hashMap.put("data", jSONObject.toString());
-                    e.this.a(com.baidu.tieba.aiapps.apps.d.c.Xc(), hashMap, cVar);
+                    e.this.a(com.baidu.tieba.aiapps.apps.d.c.Xd(), hashMap, cVar);
                 } else if (cVar != null) {
                     cVar.aU(AiAppsAudioPlayer.ERROR_UNKNOWN, "");
                 }
@@ -117,7 +117,7 @@ public class e {
     }
 
     public void a(d.c cVar) {
-        a(com.baidu.tieba.aiapps.apps.d.c.Xb(), (Map<String, String>) null, cVar);
+        a(com.baidu.tieba.aiapps.apps.d.c.Xc(), (Map<String, String>) null, cVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -157,10 +157,10 @@ public class e {
     }
 
     public void a(InvoiceInfo invoiceInfo, final d.e eVar) {
-        String WY = com.baidu.tieba.aiapps.apps.d.c.WY();
+        String WZ = com.baidu.tieba.aiapps.apps.d.c.WZ();
         HashMap hashMap = new HashMap();
         hashMap.put("data", this.bCB.toJson(invoiceInfo));
-        a(WY, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.c<InvoiceInfo>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.4
+        a(WZ, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.c<InvoiceInfo>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: b */
@@ -195,11 +195,11 @@ public class e {
     }
 
     public void a(final long j, final d.InterfaceC0163d interfaceC0163d) {
-        String WZ = com.baidu.tieba.aiapps.apps.d.c.WZ();
+        String Xa = com.baidu.tieba.aiapps.apps.d.c.Xa();
         com.baidu.tieba.aiapps.apps.invoice.model.b bVar = new com.baidu.tieba.aiapps.apps.invoice.model.b(j);
         HashMap hashMap = new HashMap();
         hashMap.put("data", this.bCB.toJson(bVar));
-        a(WZ, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.c>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.5
+        a(Xa, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.c>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: b */
@@ -234,11 +234,11 @@ public class e {
     }
 
     public void a(long j, final d.b bVar) {
-        String Xa = com.baidu.tieba.aiapps.apps.d.c.Xa();
+        String Xb = com.baidu.tieba.aiapps.apps.d.c.Xb();
         com.baidu.tieba.aiapps.apps.invoice.model.b bVar2 = new com.baidu.tieba.aiapps.apps.invoice.model.b(j);
         HashMap hashMap = new HashMap();
         hashMap.put("data", this.bCB.toJson(bVar2));
-        a(Xa, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.c<com.baidu.tieba.aiapps.apps.invoice.model.b>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.6
+        a(Xb, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.c<com.baidu.tieba.aiapps.apps.invoice.model.b>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: b */
