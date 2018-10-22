@@ -1,19 +1,19 @@
 package kotlin.jvm.internal;
 /* loaded from: classes2.dex */
 public final class r implements l {
-    private final String esP;
-    private final Class<?> ipw;
+    private final String esQ;
+    private final Class<?> ipx;
 
     public r(Class<?> cls, String str) {
         p.i(cls, "jClass");
         p.i(str, "moduleName");
-        this.ipw = cls;
-        this.esP = str;
+        this.ipx = cls;
+        this.esQ = str;
     }
 
     @Override // kotlin.jvm.internal.l
     public Class<?> caj() {
-        return this.ipw;
+        return this.ipx;
     }
 
     public boolean equals(Object obj) {

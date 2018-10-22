@@ -40,7 +40,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                RecentlyVisitedForumModel.this.auf();
+                RecentlyVisitedForumModel.this.aug();
             }
         }
     };
@@ -61,7 +61,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void auh();
+        void aui();
 
         void b(LinkedList<VisitedForumData> linkedList, boolean z);
 
@@ -71,7 +71,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
     public RecentlyVisitedForumModel() {
         registerTask();
         registerListener();
-        auf();
+        aug();
     }
 
     public void a(a aVar) {
@@ -113,14 +113,14 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
 
     public void onPrimary() {
         if (this.dhj != null) {
-            this.dhj.auh();
+            this.dhj.aui();
         }
         LoadData();
     }
 
     public void onPause() {
         if (!this.dhk) {
-            aug();
+            auh();
         }
     }
 
@@ -182,7 +182,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void auf() {
+    public void aug() {
         this.dhk = true;
         BdAsyncTask<Void, Void, RecentlyVisitedForumData> bdAsyncTask = new BdAsyncTask<Void, Void, RecentlyVisitedForumData>() { // from class: com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel.4
             /* JADX DEBUG: Method merged with bridge method */
@@ -232,7 +232,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
         bdAsyncTask.execute(new Void[0]);
     }
 
-    private void aug() {
+    private void auh() {
         x.a(new w<Object>() { // from class: com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel.5
             @Override // com.baidu.tbadk.util.w
             public Object doInBackground() {

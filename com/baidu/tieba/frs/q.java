@@ -60,11 +60,11 @@ public class q implements com.baidu.adp.widget.ListView.h {
         return this.dCZ;
     }
 
-    public String aAU() {
+    public String aAV() {
         return this.dDa;
     }
 
-    public boolean aAV() {
+    public boolean aAW() {
         return this.dDb;
     }
 

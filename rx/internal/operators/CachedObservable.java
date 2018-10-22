@@ -27,37 +27,37 @@ public final class CachedObservable<T> extends rx.d<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.internal.util.d implements rx.e<T> {
-        static final ReplayProducer<?>[] isO = new ReplayProducer[0];
-        final rx.d<? extends T> isL;
-        final rx.subscriptions.d isM;
-        volatile ReplayProducer<?>[] isN;
-        volatile boolean isP;
-        boolean isQ;
+        static final ReplayProducer<?>[] isP = new ReplayProducer[0];
+        final rx.d<? extends T> isM;
+        final rx.subscriptions.d isN;
+        volatile ReplayProducer<?>[] isO;
+        volatile boolean isQ;
+        boolean isR;
 
         public a(rx.d<? extends T> dVar, int i) {
             super(i);
-            this.isL = dVar;
-            this.isN = isO;
-            this.isM = new rx.subscriptions.d();
+            this.isM = dVar;
+            this.isO = isP;
+            this.isN = new rx.subscriptions.d();
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: rx.internal.operators.CachedObservable$ReplayProducer<?>[] */
         /* JADX WARN: Multi-variable type inference failed */
         public void a(ReplayProducer<T> replayProducer) {
-            synchronized (this.isM) {
-                ReplayProducer<?>[] replayProducerArr = this.isN;
+            synchronized (this.isN) {
+                ReplayProducer<?>[] replayProducerArr = this.isO;
                 int length = replayProducerArr.length;
                 ReplayProducer<?>[] replayProducerArr2 = new ReplayProducer[length + 1];
                 System.arraycopy(replayProducerArr, 0, replayProducerArr2, 0, length);
                 replayProducerArr2[length] = replayProducer;
-                this.isN = replayProducerArr2;
+                this.isO = replayProducerArr2;
             }
         }
 
         public void b(ReplayProducer<T> replayProducer) {
             int i = 0;
-            synchronized (this.isM) {
-                ReplayProducer<?>[] replayProducerArr = this.isN;
+            synchronized (this.isN) {
+                ReplayProducer<?>[] replayProducerArr = this.isO;
                 int length = replayProducerArr.length;
                 while (true) {
                     if (i >= length) {
@@ -71,13 +71,13 @@ public final class CachedObservable<T> extends rx.d<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        this.isN = isO;
+                        this.isO = isP;
                         return;
                     }
                     ReplayProducer<?>[] replayProducerArr2 = new ReplayProducer[length - 1];
                     System.arraycopy(replayProducerArr, 0, replayProducerArr2, 0, i);
                     System.arraycopy(replayProducerArr, i + 1, replayProducerArr2, i, (length - i) - 1);
-                    this.isN = replayProducerArr2;
+                    this.isO = replayProducerArr2;
                 }
             }
         }
@@ -99,14 +99,14 @@ public final class CachedObservable<T> extends rx.d<T> {
                     a.this.onCompleted();
                 }
             };
-            this.isM.g(jVar);
-            this.isL.unsafeSubscribe(jVar);
-            this.isP = true;
+            this.isN.g(jVar);
+            this.isM.unsafeSubscribe(jVar);
+            this.isQ = true;
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            if (!this.isQ) {
+            if (!this.isR) {
                 add(NotificationLite.aY(t));
                 cbE();
             }
@@ -114,26 +114,26 @@ public final class CachedObservable<T> extends rx.d<T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (!this.isQ) {
-                this.isQ = true;
+            if (!this.isR) {
+                this.isR = true;
                 add(NotificationLite.M(th));
-                this.isM.unsubscribe();
+                this.isN.unsubscribe();
                 cbE();
             }
         }
 
         @Override // rx.e
         public void onCompleted() {
-            if (!this.isQ) {
-                this.isQ = true;
+            if (!this.isR) {
+                this.isR = true;
                 add(NotificationLite.cbH());
-                this.isM.unsubscribe();
+                this.isN.unsubscribe();
                 cbE();
             }
         }
 
         void cbE() {
-            for (ReplayProducer<?> replayProducer : this.isN) {
+            for (ReplayProducer<?> replayProducer : this.isO) {
                 replayProducer.replay();
             }
         }

@@ -28,10 +28,10 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
 public class b {
-    private static volatile b fEw;
-    private a fEx;
-    private AtomicBoolean fEy = new AtomicBoolean(false);
+    private static volatile b fEx;
+    private a fEy;
     private AtomicBoolean fEz = new AtomicBoolean(false);
+    private AtomicBoolean fEA = new AtomicBoolean(false);
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -39,14 +39,14 @@ public class b {
     }
 
     public static b bdX() {
-        if (fEw == null) {
+        if (fEx == null) {
             synchronized (b.class) {
-                if (fEw == null) {
-                    fEw = new b();
+                if (fEx == null) {
+                    fEx = new b();
                 }
             }
         }
-        return fEw;
+        return fEx;
     }
 
     private b() {
@@ -120,34 +120,34 @@ public class b {
     }
 
     public void b(AuthVerifyData authVerifyData, a aVar) {
-        if (this.fEz.compareAndSet(false, true)) {
-            if (this.fEy.compareAndSet(false, true)) {
+        if (this.fEA.compareAndSet(false, true)) {
+            if (this.fEz.compareAndSet(false, true)) {
                 try {
                     a(authVerifyData, aVar);
                 } catch (Exception e) {
                     BdStatisticsManager.getInstance().error("passloaderror", 0L, (String) null, "Exception", e.toString());
-                    this.fEy.set(false);
+                    this.fEz.set(false);
                 }
             } else if (!bea()) {
                 try {
                     a(authVerifyData, aVar);
                 } catch (Exception e2) {
-                    this.fEy.set(false);
+                    this.fEz.set(false);
                 }
             }
-            this.fEz.set(false);
+            this.fEA.set(false);
         }
     }
 
     public void a(AuthVerifyData.c cVar) {
-        if (this.fEx != null) {
+        if (this.fEy != null) {
             if (cVar == null) {
                 cVar = new AuthVerifyData.c(false);
             }
-            this.fEx.b(cVar);
+            this.fEy.b(cVar);
         }
-        this.fEx = null;
-        this.fEy.set(false);
+        this.fEy = null;
+        this.fEz.set(false);
     }
 
     public void m(boolean z, String str) {
@@ -214,7 +214,7 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.fEx = aVar;
+        this.fEy = aVar;
     }
 
     public static void registerTask() {
@@ -262,16 +262,16 @@ public class b {
     /* renamed from: com.baidu.tieba.passaccount.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     static class C0239b implements a {
-        private AuthVerifyData fEB;
+        private AuthVerifyData fEC;
 
         public C0239b(AuthVerifyData authVerifyData) {
-            this.fEB = authVerifyData;
+            this.fEC = authVerifyData;
         }
 
         @Override // com.baidu.tieba.passaccount.a.b.a
         public void b(AuthVerifyData.c cVar) {
-            this.fEB.setResult(cVar);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921372, this.fEB));
+            this.fEC.setResult(cVar);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921372, this.fEC));
         }
     }
 }

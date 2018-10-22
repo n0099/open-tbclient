@@ -5,11 +5,11 @@ import com.baidu.tbadk.TbConfig;
 public class a extends Thread {
     private final String avN;
     private final String beh;
-    private final String fKf;
+    private final String fKg;
 
     public a(String str, String str2, String str3) {
         this.beh = str;
-        this.fKf = str2;
+        this.fKg = str2;
         this.avN = str3;
     }
 
@@ -18,7 +18,7 @@ public class a extends Thread {
         super.run();
         com.baidu.tbadk.core.util.x xVar = new com.baidu.tbadk.core.util.x(TbConfig.SERVER_ADDRESS + "c/s/clientcall");
         xVar.x("tid", this.beh);
-        xVar.x("phonenum", this.fKf);
+        xVar.x("phonenum", this.fKg);
         xVar.x("optype", this.avN);
         xVar.BA();
     }

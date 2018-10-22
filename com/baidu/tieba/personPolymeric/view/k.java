@@ -30,17 +30,17 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class k implements View.OnClickListener {
-    private FrameLayout grj;
-    private TbImageView grk;
+    private FrameLayout grk;
     private TbImageView grl;
-    private TextView grm;
-    private LinearLayout grn;
-    private TextView gro;
+    private TbImageView grm;
+    private TextView grn;
+    private LinearLayout gro;
     private TextView grp;
-    private LinearLayout grq;
+    private TextView grq;
     private LinearLayout grr;
     private LinearLayout grs;
-    private ImageView grt;
+    private LinearLayout grt;
+    private ImageView gru;
     private View mDividerView;
     private boolean mIsHost;
     private TbPageContext mPageContext;
@@ -49,50 +49,50 @@ public class k implements View.OnClickListener {
 
     public k(TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        initView(amt());
+        initView(amu());
     }
 
     private void initView(View view) {
-        this.grj = (FrameLayout) view.findViewById(e.g.ala_entrance_root);
-        this.grk = (TbImageView) view.findViewById(e.g.entrance_background);
-        this.grk.setAutoChangeStyle(false);
-        this.grk.setDrawerType(1);
-        this.grk.setRadius(com.baidu.adp.lib.util.l.h(this.mPageContext.getPageActivity(), e.C0175e.ds10));
-        this.grl = (TbImageView) view.findViewById(e.g.live_level_img);
+        this.grk = (FrameLayout) view.findViewById(e.g.ala_entrance_root);
+        this.grl = (TbImageView) view.findViewById(e.g.entrance_background);
         this.grl.setAutoChangeStyle(false);
         this.grl.setDrawerType(1);
         this.grl.setRadius(com.baidu.adp.lib.util.l.h(this.mPageContext.getPageActivity(), e.C0175e.ds10));
-        this.grm = (TextView) view.findViewById(e.g.live_level_text);
-        this.grn = (LinearLayout) view.findViewById(e.g.replay_root);
-        this.grp = (TextView) this.grn.findViewById(e.g.tv_replay_more);
-        this.grt = (ImageView) this.grn.findViewById(e.g.replay_more_arrow);
-        this.gro = (TextView) this.grn.findViewById(e.g.tv_replay_tile);
-        this.grq = (LinearLayout) this.grn.findViewById(e.g.replay_item_one);
-        this.grr = (LinearLayout) this.grn.findViewById(e.g.replay_item_two);
-        this.grs = (LinearLayout) this.grn.findViewById(e.g.replay_item_three);
-        g(this.grq);
+        this.grm = (TbImageView) view.findViewById(e.g.live_level_img);
+        this.grm.setAutoChangeStyle(false);
+        this.grm.setDrawerType(1);
+        this.grm.setRadius(com.baidu.adp.lib.util.l.h(this.mPageContext.getPageActivity(), e.C0175e.ds10));
+        this.grn = (TextView) view.findViewById(e.g.live_level_text);
+        this.gro = (LinearLayout) view.findViewById(e.g.replay_root);
+        this.grq = (TextView) this.gro.findViewById(e.g.tv_replay_more);
+        this.gru = (ImageView) this.gro.findViewById(e.g.replay_more_arrow);
+        this.grp = (TextView) this.gro.findViewById(e.g.tv_replay_tile);
+        this.grr = (LinearLayout) this.gro.findViewById(e.g.replay_item_one);
+        this.grs = (LinearLayout) this.gro.findViewById(e.g.replay_item_two);
+        this.grt = (LinearLayout) this.gro.findViewById(e.g.replay_item_three);
         g(this.grr);
         g(this.grs);
-        this.grj.setOnClickListener(this);
-        this.grq.setOnClickListener(this);
+        g(this.grt);
+        this.grk.setOnClickListener(this);
         this.grr.setOnClickListener(this);
         this.grs.setOnClickListener(this);
-        this.grp.setOnClickListener(this);
+        this.grt.setOnClickListener(this);
+        this.grq.setOnClickListener(this);
         this.mDividerView = view.findViewById(e.g.divider_view);
     }
 
     public void onChangeSkinType(int i) {
         al.j(this.mRootView, e.d.cp_bg_line_d);
-        al.h(this.gro, e.d.cp_cont_b);
-        al.h(this.grp, e.d.cp_cont_d);
+        al.h(this.grp, e.d.cp_cont_b);
+        al.h(this.grq, e.d.cp_cont_d);
         al.j(this.mDividerView, e.d.cp_bg_line_e);
-        al.c(this.grt, e.f.icon_mine_list_arrow);
-        h(this.grq);
+        al.c(this.gru, e.f.icon_mine_list_arrow);
         h(this.grr);
         h(this.grs);
+        h(this.grt);
     }
 
-    public View amt() {
+    public View amu() {
         if (this.mRootView == null) {
             this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(e.h.item_person_center_ala_live, (ViewGroup) null);
         }
@@ -109,56 +109,56 @@ public class k implements View.OnClickListener {
 
     private void a(AlaLiveInfoCoreData alaLiveInfoCoreData, boolean z, UserData userData) {
         if (z || alaLiveInfoCoreData == null || alaLiveInfoCoreData.liveStatus != 1 || userData == null || userData.alaUserData == null || StringUtils.isNull(alaLiveInfoCoreData.liveCover)) {
-            this.grj.setVisibility(8);
+            this.grk.setVisibility(8);
             return;
         }
-        this.grj.setVisibility(0);
-        this.grj.setTag(alaLiveInfoCoreData);
+        this.grk.setVisibility(0);
+        this.grk.setTag(alaLiveInfoCoreData);
         if (!StringUtils.isNull(alaLiveInfoCoreData.liveCover)) {
-            this.grk.startLoad(alaLiveInfoCoreData.liveCover, 10, false);
+            this.grl.startLoad(alaLiveInfoCoreData.liveCover, 10, false);
         }
         int i = userData.alaUserData.level_id;
         if (i <= 10) {
-            this.grl.setBackgroundResource(e.f.shape_ala_grade_1_green);
+            this.grm.setBackgroundResource(e.f.shape_ala_grade_1_green);
         } else if (i <= 20) {
-            this.grl.setBackgroundResource(e.f.shape_ala_grade_2_blue);
+            this.grm.setBackgroundResource(e.f.shape_ala_grade_2_blue);
         } else if (i <= 30) {
-            this.grl.setBackgroundResource(e.f.shape_ala_grade_3_yellow);
+            this.grm.setBackgroundResource(e.f.shape_ala_grade_3_yellow);
         } else if (i <= 40) {
-            this.grl.setBackgroundResource(e.f.shape_ala_grade_4_orange);
+            this.grm.setBackgroundResource(e.f.shape_ala_grade_4_orange);
         } else {
-            this.grl.setBackgroundResource(e.f.shape_ala_grade_5_purple);
+            this.grm.setBackgroundResource(e.f.shape_ala_grade_5_purple);
         }
-        this.grm.setText(ti(String.valueOf(i)));
+        this.grn.setText(ti(String.valueOf(i)));
     }
 
     private void dv(List<AlaLiveInfoCoreData> list) {
         if (v.J(list)) {
-            this.grn.setVisibility(8);
+            this.gro.setVisibility(8);
             return;
         }
-        this.grn.setVisibility(0);
-        this.grr.setVisibility(0);
+        this.gro.setVisibility(0);
         this.grs.setVisibility(0);
-        this.grq.setVisibility(0);
+        this.grt.setVisibility(0);
+        this.grr.setVisibility(0);
         int size = list.size();
         if (size >= 4) {
-            this.grp.setVisibility(0);
-            this.grt.setVisibility(0);
+            this.grq.setVisibility(0);
+            this.gru.setVisibility(0);
         } else {
-            this.grp.setVisibility(4);
-            this.grt.setVisibility(4);
+            this.grq.setVisibility(4);
+            this.gru.setVisibility(4);
         }
-        a(list.get(0), this.grq);
+        a(list.get(0), this.grr);
         if (size >= 3) {
-            a(list.get(1), this.grr);
-            a(list.get(2), this.grs);
+            a(list.get(1), this.grs);
+            a(list.get(2), this.grt);
         } else if (size >= 2) {
-            a(list.get(1), this.grr);
-            this.grs.setVisibility(4);
+            a(list.get(1), this.grs);
+            this.grt.setVisibility(4);
         } else {
-            this.grr.setVisibility(4);
             this.grs.setVisibility(4);
+            this.grt.setVisibility(4);
         }
     }
 
@@ -212,22 +212,22 @@ public class k implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.grj) {
-            if (this.grj.getTag() != null && (this.grj.getTag() instanceof AlaLiveInfoCoreData)) {
-                AlaLiveInfoCoreData alaLiveInfoCoreData = (AlaLiveInfoCoreData) this.grj.getTag();
+        if (view == this.grk) {
+            if (this.grk.getTag() != null && (this.grk.getTag() instanceof AlaLiveInfoCoreData)) {
+                AlaLiveInfoCoreData alaLiveInfoCoreData = (AlaLiveInfoCoreData) this.grk.getTag();
                 if (alaLiveInfoCoreData.liveID > 0) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921315, Long.valueOf(alaLiveInfoCoreData.liveID)));
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.mPageContext.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY, TbadkCoreApplication.getCurrentAccount(), this.mIsHost, "")));
                 TiebaStatic.log(new am("c12544"));
             }
-        } else if (view == this.grq) {
-            bI(this.grq);
         } else if (view == this.grr) {
             bI(this.grr);
         } else if (view == this.grs) {
             bI(this.grs);
-        } else if (view == this.grp) {
+        } else if (view == this.grt) {
+            bI(this.grt);
+        } else if (view == this.grq) {
             bpp();
         }
     }

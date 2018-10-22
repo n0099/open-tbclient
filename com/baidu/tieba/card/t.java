@@ -115,12 +115,12 @@ public class t extends a<CardPersonDynamicThreadData> {
         this.cKG = new View.OnClickListener() { // from class: com.baidu.tieba.card.t.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (t.this.anO() != null) {
-                    t.this.anO().a(view, t.this.cNQ);
+                if (t.this.anP() != null) {
+                    t.this.anP().a(view, t.this.cNQ);
                 }
                 if (t.this.cNQ.cQL != 60) {
                     if ((t.this.cNQ.cQL != 40 || t.this.cNQ.cQN != 2) && !t.this.cOC) {
-                        t.this.aoi();
+                        t.this.aoj();
                         return;
                     } else {
                         BdToast.b(t.this.getContext(), t.this.getContext().getString(e.j.video_check_click_msg), e.f.icon_toast_game_error).AC();
@@ -129,9 +129,9 @@ public class t extends a<CardPersonDynamicThreadData> {
                 }
                 TiebaStatic.log("c12333");
                 if (t.this.cNQ.threadData.yP().live_status != 1) {
-                    t.this.aom();
+                    t.this.aon();
                 } else {
-                    t.this.aol();
+                    t.this.aom();
                 }
             }
         };
@@ -154,21 +154,21 @@ public class t extends a<CardPersonDynamicThreadData> {
         this.cOF = new View.OnClickListener() { // from class: com.baidu.tieba.card.t.9
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ad<CardPersonDynamicThreadData> anO = t.this.anO();
-                if (anO != null) {
+                ad<CardPersonDynamicThreadData> anP = t.this.anP();
+                if (anP != null) {
                     view.setTag("1");
-                    anO.a(view, t.this.cNQ);
+                    anP.a(view, t.this.cNQ);
                 }
-                t.this.aoi();
+                t.this.aoj();
             }
         };
         this.cNq = new View.OnClickListener() { // from class: com.baidu.tieba.card.t.10
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ad<CardPersonDynamicThreadData> anO = t.this.anO();
-                if (anO != null) {
+                ad<CardPersonDynamicThreadData> anP = t.this.anP();
+                if (anP != null) {
                     view.setTag("2");
-                    anO.a(view, t.this.cNQ);
+                    anP.a(view, t.this.cNQ);
                 }
             }
         };
@@ -242,8 +242,8 @@ public class t extends a<CardPersonDynamicThreadData> {
         this.bWf.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.t.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (t.this.anO() != null) {
-                    t.this.anO().a(view, t.this.cNQ);
+                if (t.this.anP() != null) {
+                    t.this.anP().a(view, t.this.cNQ);
                 }
             }
         });
@@ -472,7 +472,7 @@ public class t extends a<CardPersonDynamicThreadData> {
                         @Override // com.baidu.tbadk.widget.layout.c
                         public void b(View view, int i2, boolean z) {
                             if (z) {
-                                t.this.aoi();
+                                t.this.aoj();
                             } else {
                                 t.this.a(view, linkedList, i2, bbVar);
                             }
@@ -503,7 +503,7 @@ public class t extends a<CardPersonDynamicThreadData> {
             this.cOy.setVisibility(8);
             this.cOx.setVisibility(8);
         }
-        aoh();
+        aoi();
         c(cardPersonDynamicThreadData);
     }
 
@@ -548,7 +548,7 @@ public class t extends a<CardPersonDynamicThreadData> {
         }
     }
 
-    private void aoh() {
+    private void aoi() {
         this.cNk.setClickable(true);
         int childCount = this.cNn.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -559,7 +559,7 @@ public class t extends a<CardPersonDynamicThreadData> {
         }
     }
 
-    public void aol() {
+    public void aom() {
         if (this.cNQ != null && this.cNQ.threadData != null && this.cNQ.threadData.yP() != null) {
             if (!com.baidu.adp.lib.util.j.kX()) {
                 com.baidu.adp.lib.util.l.showToast(this.mPageContext.getPageActivity(), e.j.no_network_guide);
@@ -578,13 +578,13 @@ public class t extends a<CardPersonDynamicThreadData> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aom() {
+    public void aon() {
         if (this.cNQ != null && this.cNQ.threadData != null && this.cNQ.threadData.yP() != null && this.cNQ.threadData.yP().share_info != null) {
             if (!isHost()) {
                 o.md(this.cNQ.threadId);
             }
             if (this.cNQ.threadData.yP().share_info.record_tid <= 0) {
-                aol();
+                aom();
                 return;
             }
             String valueOf = String.valueOf(this.cNQ.threadData.yP().share_info.record_tid);
@@ -596,7 +596,7 @@ public class t extends a<CardPersonDynamicThreadData> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aoi() {
+    public void aoj() {
         if (this.cNQ != null) {
             if (!isHost()) {
                 o.md(this.cNQ.threadId);
@@ -620,7 +620,7 @@ public class t extends a<CardPersonDynamicThreadData> {
         }
     }
 
-    private void aon() {
+    private void aoo() {
         if (this.cNQ != null && this.cNQ.threadData != null && this.cNQ.threadData.arg != null) {
             PbActivityConfig createCfgForPersonCenter = new PbActivityConfig(this.mPageContext.getPageActivity()).createCfgForPersonCenter(this.cNQ.threadData.arg.threadId, null, "person_page", 18005);
             createCfgForPersonCenter.setStartFrom(this.currentPageType);
@@ -654,7 +654,7 @@ public class t extends a<CardPersonDynamicThreadData> {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.cOy) {
-            aon();
+            aoo();
         }
     }
 

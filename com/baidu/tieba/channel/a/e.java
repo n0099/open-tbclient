@@ -47,7 +47,7 @@ public class e extends com.baidu.adp.widget.ListView.a<h, a> {
     private void a(a aVar, final h hVar, final int i) {
         aVar.cSs.setText(hVar.getTitle());
         aVar.cSr.startLoad(hVar.getThumbnailUrl(), 10, false);
-        aVar.cSu.setText(this.mContext.getResources().getString(e.j.channel_home_play_count, ao.G(hVar.apf())));
+        aVar.cSu.setText(this.mContext.getResources().getString(e.j.channel_home_play_count, ao.G(hVar.apg())));
         aVar.cSv.setText(com.baidu.tieba.channel.c.c.bw(hVar.getCreateTime()));
         aVar.cSw.setText(ao.dp(hVar.getVideoDuration() * 1000));
         if (this.mIsHost) {

@@ -437,7 +437,7 @@ public class d extends com.baidu.tbadk.editortools.d implements t.a {
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 if (j.kX()) {
                     d.this.b(1, true, null);
-                    d.this.aVD.aln();
+                    d.this.aVD.alo();
                 } else {
                     d.this.aVQ.Lx();
                 }
@@ -454,7 +454,7 @@ public class d extends com.baidu.tbadk.editortools.d implements t.a {
     }
 
     public void Lm() {
-        if (this.aVD.alj()) {
+        if (this.aVD.alk()) {
             if (this.aVD.bCL()) {
                 this.aVQ.a(com.baidu.tieba.tbadkCore.location.c.bCH().getLocationData());
                 return;
@@ -664,7 +664,7 @@ public class d extends com.baidu.tbadk.editortools.d implements t.a {
         if (!StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble()) && KH() != null) {
             KH().b(new com.baidu.tbadk.editortools.a(2, 12, " "));
         }
-        if (!this.aVD.alj() && KH() != null) {
+        if (!this.aVD.alk() && KH() != null) {
             KH().b(new com.baidu.tbadk.editortools.a(20, 8, null));
         }
         if (this.writeImagesInfo != null && this.writeImagesInfo.getChosedFiles() != null && this.writeImagesInfo.getChosedFiles().size() > 0) {
@@ -700,7 +700,7 @@ public class d extends com.baidu.tbadk.editortools.d implements t.a {
             this.aVE.getWriteData().setVideoInfo(this.mVideoInfo);
             this.aVE.nm(this.writeImagesInfo.size() > 0);
             WriteData writeData2 = this.aVE.getWriteData();
-            if (this.aVD == null || !this.aVD.alj()) {
+            if (this.aVD == null || !this.aVD.alk()) {
                 z = false;
             }
             writeData2.setHasLocationData(z);

@@ -92,7 +92,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
             x.a(new w<d>() { // from class: com.baidu.tieba.frs.gameshare.GameShareCardActivity.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.w
-                /* renamed from: aDM */
+                /* renamed from: aDN */
                 public d doInBackground() {
                     GameShareCardActivity.this.r(bitmap);
                     return GameShareCardActivity.this.m(bitmap);
@@ -115,7 +115,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
             x.a(new w<d>() { // from class: com.baidu.tieba.frs.gameshare.GameShareCardActivity.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.w
-                /* renamed from: aDM */
+                /* renamed from: aDN */
                 public d doInBackground() {
                     GameShareCardActivity.this.r(bitmap);
                     return GameShareCardActivity.this.m(bitmap);
@@ -138,7 +138,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
             x.a(new w<d>() { // from class: com.baidu.tieba.frs.gameshare.GameShareCardActivity.5
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.w
-                /* renamed from: aDM */
+                /* renamed from: aDN */
                 public d doInBackground() {
                     GameShareCardActivity.this.r(bitmap);
                     return GameShareCardActivity.this.m(bitmap);
@@ -161,7 +161,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
             x.a(new w<d>() { // from class: com.baidu.tieba.frs.gameshare.GameShareCardActivity.7
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.w
-                /* renamed from: aDM */
+                /* renamed from: aDN */
                 public d doInBackground() {
                     GameShareCardActivity.this.r(bitmap);
                     return GameShareCardActivity.this.m(bitmap);
@@ -199,7 +199,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
         paint.setTextSize(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0175e.fontsize28));
         paint.setAntiAlias(true);
         paint.setTextAlign(Paint.Align.CENTER);
-        canvas.drawText(TbadkCoreApplication.getInst().getResources().getString(e.j.game_share_slogon), bitmap.getWidth() / 2, this.dNU.aDO() + TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0175e.ds50), paint);
+        canvas.drawText(TbadkCoreApplication.getInst().getResources().getString(e.j.game_share_slogon), bitmap.getWidth() / 2, this.dNU.aDP() + TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0175e.ds50), paint);
         canvas.save(31);
         canvas.restore();
     }

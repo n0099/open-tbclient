@@ -26,9 +26,9 @@ public class a extends com.baidu.tieba.card.a<bb> {
     private TextView bkC;
     private TbImageView bkD;
     private ImageView bkE;
-    private TextView ecq;
-    private FrameLayout ecr;
-    private RelativeLayout ecs;
+    private TextView ecr;
+    private FrameLayout ecs;
+    private RelativeLayout ect;
     private int mSkinType;
     private TextView mTextTitle;
 
@@ -39,8 +39,8 @@ public class a extends com.baidu.tieba.card.a<bb> {
         this.currentPageType = 3;
         this.mTbPageContext = tbPageContext;
         View view = getView();
-        this.ecs = (RelativeLayout) view.findViewById(e.g.layout_person);
-        this.ecs.setOnClickListener(this);
+        this.ect = (RelativeLayout) view.findViewById(e.g.layout_person);
+        this.ect.setOnClickListener(this);
         this.aFX = (ClickableHeaderImageView) view.findViewById(e.g.video_page_user_header);
         this.aFX.setDefaultResource(17170445);
         this.aFX.setDefaultResource(e.f.icon_default_avatar100);
@@ -49,15 +49,15 @@ public class a extends com.baidu.tieba.card.a<bb> {
         this.aFX.setClickable(false);
         this.aFZ = (TextView) view.findViewById(e.g.video_page_user_name);
         this.mTextTitle = (TextView) view.findViewById(e.g.text_title);
-        this.ecr = (FrameLayout) view.findViewById(e.g.layout_video);
-        this.ecr.setOnClickListener(this);
+        this.ecs = (FrameLayout) view.findViewById(e.g.layout_video);
+        this.ecs.setOnClickListener(this);
         this.bkD = (TbImageView) view.findViewById(e.g.image_video);
         this.bkD.setPageId(getTag());
         this.bkD.setDefaultBgResource(e.f.pic_bg_video_frs);
         this.bkD.setGifIconSupport(false);
         this.bkE = (ImageView) view.findViewById(e.g.image_video_play);
         this.bkC = (TextView) view.findViewById(e.g.text_video_duration);
-        this.ecq = (TextView) view.findViewById(e.g.comment_number);
+        this.ecr = (TextView) view.findViewById(e.g.comment_number);
     }
 
     @Override // android.view.View.OnClickListener
@@ -69,8 +69,8 @@ public class a extends com.baidu.tieba.card.a<bb> {
     }
 
     private void aA(View view) {
-        if (anO() != null) {
-            anO().a(view, this.aAQ);
+        if (anP() != null) {
+            anP().a(view, this.aAQ);
         }
         if (this.aAQ != null) {
             PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mTbPageContext.getPageActivity()).createFromThreadCfg(this.aAQ, this.aAQ.yB(), "frs_page", 18003, true, false, false);
@@ -91,13 +91,13 @@ public class a extends com.baidu.tieba.card.a<bb> {
     public void a(bb bbVar) {
         this.aAQ = bbVar;
         if (this.aAQ == null) {
+            this.ect.setVisibility(8);
             this.ecs.setVisibility(8);
-            this.ecr.setVisibility(8);
             return;
         }
+        this.ect.setVisibility(0);
         this.ecs.setVisibility(0);
-        this.ecr.setVisibility(0);
-        aoc();
+        aod();
         this.mTextTitle.setText(this.aAQ.getTitle());
         if (this.aAQ.yv() == null || this.aAQ.yv().getPortrait() == null) {
             this.aFX.setVisibility(8);
@@ -107,28 +107,28 @@ public class a extends com.baidu.tieba.card.a<bb> {
             this.aFX.setVisibility(0);
         }
         this.bkC.setText(ao.dt(this.aAQ.yN().video_duration.intValue() * 1000));
-        this.ecq.setText(String.format(this.mTbPageContext.getString(e.j.frs_comment_number), ao.H(this.aAQ.ym())));
+        this.ecr.setText(String.format(this.mTbPageContext.getString(e.j.frs_comment_number), ao.H(this.aAQ.ym())));
         d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void aoc() {
-        if (this.bkD != null && this.ecr != null) {
+    private void aod() {
+        if (this.bkD != null && this.ecs != null) {
             if (this.aAQ != null && this.aAQ.yN() != null) {
-                this.ecr.setVisibility(0);
+                this.ecs.setVisibility(0);
                 this.bkD.setDefaultBgResource(e.f.pic_bg_video_frs);
                 this.bkD.startLoad(this.aAQ.yN().thumbnail_url, 10, false);
                 return;
             }
-            this.ecr.setVisibility(8);
+            this.ecs.setVisibility(8);
         }
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            al.i(this.ecs, e.f.addresslist_item_bg);
+            al.i(this.ect, e.f.addresslist_item_bg);
             al.c(this.bkE, e.f.btn_icon_play_video_n);
-            al.h(this.ecq, e.d.cp_cont_f);
+            al.h(this.ecr, e.d.cp_cont_f);
             al.h(this.bkC, e.d.cp_cont_i);
             al.h(this.aFZ, e.d.cp_cont_f);
             al.h(this.mTextTitle, e.d.cp_cont_g);

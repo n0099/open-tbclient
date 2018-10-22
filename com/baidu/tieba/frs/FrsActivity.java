@@ -62,7 +62,7 @@ public class FrsActivity extends BaseFragmentActivity implements UserIconBox.b, 
         if (this.dzw != null) {
             this.dzw.onDestroy();
         }
-        a.ayM().reset();
+        a.ayN().reset();
         if (!com.baidu.tbadk.core.util.ao.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
             TbadkCoreApplication.getInst().setTaskId("");
         }
@@ -140,15 +140,15 @@ public class FrsActivity extends BaseFragmentActivity implements UserIconBox.b, 
         }
     }
 
-    public FrsFragment ayX() {
+    public FrsFragment ayY() {
         if (this.dzw == null) {
             return null;
         }
-        return this.dzw.ayX();
+        return this.dzw.ayY();
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.c
-    public com.baidu.adp.lib.e.b<TbImageView> ayY() {
+    public com.baidu.adp.lib.e.b<TbImageView> ayZ() {
         if (this.dzx == null) {
             this.dzx = FrsCommonImageLayout.s(getPageContext().getPageActivity(), 12);
         }
@@ -171,17 +171,17 @@ public class FrsActivity extends BaseFragmentActivity implements UserIconBox.b, 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.support.v4.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
-        ayX().onRequestPermissionsResult(i, strArr, iArr);
+        ayY().onRequestPermissionsResult(i, strArr, iArr);
     }
 
     public void ge(boolean z) {
         if (this.dzw != null) {
-            FragmentTabHost aBg = this.dzw.aBg();
-            if (aBg != null && aBg.getFragmentTabWidget() != null) {
+            FragmentTabHost aBh = this.dzw.aBh();
+            if (aBh != null && aBh.getFragmentTabWidget() != null) {
                 if (z) {
-                    aBg.cV(2);
+                    aBh.cV(2);
                 } else {
-                    aBg.cV(4);
+                    aBh.cV(4);
                 }
             }
             this.dzw.gx(z);

@@ -13,7 +13,7 @@ import java.util.List;
 public class b extends BaseAdapter {
     private List<c> anz;
     public final ArrayList<e> biO = new ArrayList<>();
-    private e eqI;
+    private e eqJ;
     private LayoutInflater mInflater;
     private View.OnClickListener mOnClickListener;
     private int mResourceId;
@@ -21,7 +21,7 @@ public class b extends BaseAdapter {
     public b(Context context, int i, e eVar) {
         this.mInflater = LayoutInflater.from(context);
         this.mResourceId = i;
-        this.eqI = eVar;
+        this.eqJ = eVar;
     }
 
     public void setData(List<c> list) {
@@ -59,7 +59,7 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
             view = this.mInflater.inflate(this.mResourceId, viewGroup, false);
-            e aw = this.eqI.aw(view);
+            e aw = this.eqJ.aw(view);
             aw.setOnClickListener(this.mOnClickListener);
             view.setTag(aw);
             this.biO.add(aw);

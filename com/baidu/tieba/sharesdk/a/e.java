@@ -20,10 +20,10 @@ import com.sina.weibo.sdk.utils.Utility;
 /* loaded from: classes3.dex */
 public class e extends a {
     private final com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> aXF;
-    private ShareEntity gRd;
-    private com.baidu.tieba.sharesdk.b.b gRo;
-    private WbShareHandler gRp;
-    private WbShareCallback gRq;
+    private ShareEntity gRe;
+    private com.baidu.tieba.sharesdk.b.b gRp;
+    private WbShareHandler gRq;
+    private WbShareCallback gRr;
 
     public e(Activity activity, com.baidu.tieba.sharesdk.b.b bVar, WbShareCallback wbShareCallback) {
         super(activity);
@@ -34,18 +34,18 @@ public class e extends a {
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                 super.onLoaded((AnonymousClass1) aVar, str, i);
                 if (aVar == null) {
-                    e.this.a(e.this.gRd, (Bitmap) null);
+                    e.this.a(e.this.gRe, (Bitmap) null);
                     return;
                 }
-                e.this.a(e.this.gRd, aVar.os());
+                e.this.a(e.this.gRe, aVar.os());
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
             public void onCancelled(String str) {
                 super.onCancelled(str);
-                if (e.this.gRo != null) {
-                    e.this.gRo.bI(6, 3);
+                if (e.this.gRp != null) {
+                    e.this.gRp.bI(6, 3);
                 }
                 e.this.tQ(3);
             }
@@ -56,17 +56,17 @@ public class e extends a {
             BdLog.e(e);
         }
         this.context = activity;
-        this.gRo = bVar;
-        this.gRq = wbShareCallback;
-        this.gRp = new WbShareHandler(activity);
-        if (this.gRp != null) {
-            this.gRp.registerApp();
+        this.gRp = bVar;
+        this.gRr = wbShareCallback;
+        this.gRq = new WbShareHandler(activity);
+        if (this.gRq != null) {
+            this.gRq.registerApp();
         }
     }
 
     @Override // com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
-        if (shareEntity == null || this.gRp == null) {
+        if (shareEntity == null || this.gRq == null) {
             tQ(2);
             if (bVar != null) {
                 bVar.bI(6, 2);
@@ -74,23 +74,23 @@ public class e extends a {
             }
             return;
         }
-        this.gRd = shareEntity;
-        this.gRo = bVar;
+        this.gRe = shareEntity;
+        this.gRp = bVar;
         String xf = shareEntity.xf();
         if (!TextUtils.isEmpty(xf) && (xf.startsWith("http://") || xf.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
             com.baidu.adp.lib.f.c.jC().a(xf, 10, this.aXF, 0, 0, getPageId(), new Object[0]);
         } else if (h(shareEntity.getImageUri())) {
-            a(this.gRd, g(shareEntity.getImageUri()));
+            a(this.gRe, g(shareEntity.getImageUri()));
         } else {
-            a(this.gRd, bxp());
+            a(this.gRe, bxp());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ShareEntity shareEntity, Bitmap bitmap) {
-        if (this.gRd == null || this.gRp == null || !(this.context instanceof Activity)) {
-            if (this.gRo != null) {
-                this.gRo.bI(6, 2);
+        if (this.gRe == null || this.gRq == null || !(this.context instanceof Activity)) {
+            if (this.gRp != null) {
+                this.gRp.bI(6, 2);
             }
             tQ(2);
             return;
@@ -106,7 +106,7 @@ public class e extends a {
         if (a != null) {
             weiboMultiMessage.mediaObject = a;
         }
-        this.gRp.shareMessage(weiboMultiMessage, false);
+        this.gRq.shareMessage(weiboMultiMessage, false);
     }
 
     private WebpageObject a(WeiboMultiMessage weiboMultiMessage, ShareEntity shareEntity, Bitmap bitmap) {
@@ -159,12 +159,12 @@ public class e extends a {
     }
 
     private TextObject bxq() {
-        if (this.gRd == null) {
+        if (this.gRe == null) {
             return null;
         }
         TextObject textObject = new TextObject();
-        textObject.title = uy(this.gRd.getTitle());
-        textObject.text = uy(this.gRd.getContent());
+        textObject.title = uy(this.gRe.getTitle());
+        textObject.text = uy(this.gRe.getContent());
         return textObject;
     }
 
@@ -181,28 +181,28 @@ public class e extends a {
 
     @Override // com.baidu.tieba.sharesdk.a.a
     public void H(Intent intent) {
-        if (this.gRp != null && this.gRq != null) {
-            this.gRp.doResultIntent(intent, this.gRq);
+        if (this.gRq != null && this.gRr != null) {
+            this.gRq.doResultIntent(intent, this.gRr);
         }
     }
 
     public void onWbShareSuccess() {
-        if (this.gRo != null) {
-            this.gRo.bI(6, 1);
+        if (this.gRp != null) {
+            this.gRp.bI(6, 1);
         }
         tQ(1);
     }
 
     public void onWbShareCancel() {
-        if (this.gRo != null) {
-            this.gRo.bI(6, 3);
+        if (this.gRp != null) {
+            this.gRp.bI(6, 3);
         }
         tQ(3);
     }
 
     public void onWbShareFail() {
-        if (this.gRo != null) {
-            this.gRo.bI(6, 2);
+        if (this.gRp != null) {
+            this.gRp.bI(6, 2);
         }
         tQ(2);
     }

@@ -13,10 +13,10 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c ePA = null;
-    private long eAc = 0;
-    private List<Long> ePB = new ArrayList();
-    private final CustomMessageListener eOC = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.im.push.c.1
+    private static c ePB = null;
+    private long eAd = 0;
+    private List<Long> ePC = new ArrayList();
+    private final CustomMessageListener eOD = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.im.push.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -27,31 +27,31 @@ public class c {
     };
 
     private c() {
-        MessageManager.getInstance().registerListener(this.eOC);
+        MessageManager.getInstance().registerListener(this.eOD);
     }
 
     public static c aSu() {
-        if (ePA == null) {
+        if (ePB == null) {
             synchronized (c.class) {
-                if (ePA == null) {
-                    ePA = new c();
+                if (ePB == null) {
+                    ePB = new c();
                 }
             }
         }
-        return ePA;
+        return ePB;
     }
 
     public synchronized void bK(String str, String str2) {
         clear();
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             try {
-                this.eAc = com.baidu.adp.lib.g.b.d(str, 0L);
+                this.eAd = com.baidu.adp.lib.g.b.d(str, 0L);
                 try {
                     String[] split = str2.split(",");
                     if (split != null && split.length > 0) {
                         for (int i = 0; i < split.length; i++) {
                             if (!TextUtils.isEmpty(split[i])) {
-                                this.ePB.add(Long.valueOf(Long.parseLong(split[i])));
+                                this.ePC.add(Long.valueOf(Long.parseLong(split[i])));
                             }
                         }
                     }
@@ -65,22 +65,22 @@ public class c {
     }
 
     public synchronized void clear() {
-        this.eAc = 0L;
-        this.ePB.clear();
+        this.eAd = 0L;
+        this.ePC.clear();
     }
 
     public long getGid() {
-        return this.eAc;
+        return this.eAd;
     }
 
     public Long aSv() {
-        return com.baidu.tieba.im.memorycache.b.aRy().aRJ().get(this.eAc);
+        return com.baidu.tieba.im.memorycache.b.aRy().aRJ().get(this.eAd);
     }
 
     public synchronized List<Long> aSw() {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        for (Long l : this.ePB) {
+        for (Long l : this.ePC) {
             if (l != null) {
                 arrayList.add(Long.valueOf(com.baidu.tieba.im.util.d.cB(l.longValue())));
             }
@@ -89,22 +89,22 @@ public class c {
     }
 
     public synchronized void aSx() {
-        this.ePB.clear();
+        this.ePC.clear();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0061, code lost:
-        r9.ePB.add(java.lang.Long.valueOf(r12));
+        r9.ePC.add(java.lang.Long.valueOf(r12));
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void l(long j, long j2) {
-        if (this.eAc != 0 && this.eAc != j) {
-            this.ePB.clear();
-            i.a("PushIdsCacheManager", (Message<?>) null, 0, "addPushId", -1, "not equal original gid:" + j + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.eAc);
+        if (this.eAd != 0 && this.eAd != j) {
+            this.ePC.clear();
+            i.a("PushIdsCacheManager", (Message<?>) null, 0, "addPushId", -1, "not equal original gid:" + j + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.eAd);
         }
-        this.eAc = j;
-        Iterator<Long> it = this.ePB.iterator();
+        this.eAd = j;
+        Iterator<Long> it = this.ePC.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -118,15 +118,15 @@ public class c {
 
     public synchronized boolean aSy() {
         boolean z;
-        if (this.eAc > 0) {
-            z = this.ePB.size() > 0;
+        if (this.eAd > 0) {
+            z = this.ePC.size() > 0;
         }
         return z;
     }
 
     public synchronized boolean cv(long j) {
         boolean z;
-        Iterator<Long> it = this.ePB.iterator();
+        Iterator<Long> it = this.ePC.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -144,7 +144,7 @@ public class c {
     public synchronized String aSz() {
         String str;
         str = "";
-        for (Long l : this.ePB) {
+        for (Long l : this.ePC) {
             str = (l == null || l.longValue() == 0) ? str : (str + l.longValue()) + ",";
         }
         return str;

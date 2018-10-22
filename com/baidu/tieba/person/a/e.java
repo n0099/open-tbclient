@@ -11,9 +11,9 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class e {
     private HTypeListView bxV;
-    private c ghZ;
-    private b gia;
-    private a gib;
+    private c gia;
+    private b gib;
+    private a gic;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private TbPageContext mTbPageContext;
 
@@ -24,12 +24,12 @@ public class e {
     }
 
     private void initAdapters() {
-        this.ghZ = new c(this.mTbPageContext, k.axF);
-        this.gia = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.gik);
-        this.gib = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.ghJ);
-        this.mAdapters.add(this.ghZ);
+        this.gia = new c(this.mTbPageContext, k.axF);
+        this.gib = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.gil);
+        this.gic = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.ghK);
         this.mAdapters.add(this.gia);
         this.mAdapters.add(this.gib);
+        this.mAdapters.add(this.gic);
         this.bxV.addAdapters(this.mAdapters);
     }
 
@@ -46,7 +46,7 @@ public class e {
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.ghZ.u(onClickListener);
         this.gia.u(onClickListener);
+        this.gib.u(onClickListener);
     }
 }

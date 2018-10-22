@@ -19,63 +19,63 @@ import protobuf.QueryUserInfos.IconInfo;
 public class g {
     private final TextView bRu;
     private final HeadImageView dCV;
-    private final UserIconBox dYA;
-    private TbSettingTextTipView eTB;
+    private final UserIconBox dYB;
     private TbSettingTextTipView eTC;
     private TbSettingTextTipView eTD;
-    private RelativeLayout eTE;
-    private LinearLayout eTF;
-    public PersonaltalkSettingViewBlackManView eTG;
-    public PersonalTalkSettingViewSettingView eTH;
-    private final PersonalTalkSettingActivity eTx;
+    private TbSettingTextTipView eTE;
+    private RelativeLayout eTF;
+    private LinearLayout eTG;
+    public PersonaltalkSettingViewBlackManView eTH;
+    public PersonalTalkSettingViewSettingView eTI;
+    private final PersonalTalkSettingActivity eTy;
     private final TextView mName;
     private final NavigationBar mNavigationBar;
     private final View mParent;
 
     public g(PersonalTalkSettingActivity personalTalkSettingActivity) {
-        this.eTx = personalTalkSettingActivity;
-        this.eTx.setContentView(e.h.p2ptalk_setting_activity);
-        this.mParent = this.eTx.findViewById(e.g.person_talk_setting_parent);
+        this.eTy = personalTalkSettingActivity;
+        this.eTy.setContentView(e.h.p2ptalk_setting_activity);
+        this.mParent = this.eTy.findViewById(e.g.person_talk_setting_parent);
         this.mNavigationBar = (NavigationBar) this.mParent.findViewById(e.g.view_navigation_bar);
-        this.mNavigationBar.setTitleText(this.eTx.getPageContext().getString(e.j.talk_detail));
+        this.mNavigationBar.setTitleText(this.eTy.getPageContext().getString(e.j.talk_detail));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.eTG = (PersonaltalkSettingViewBlackManView) this.eTx.findViewById(e.g.black_status_view);
-        this.eTH = (PersonalTalkSettingViewSettingView) this.eTx.findViewById(e.g.setting_detail_view);
-        this.eTF = (LinearLayout) this.eTx.findViewById(e.g.user_info_lin);
-        this.eTB = (TbSettingTextTipView) this.eTx.findViewById(e.g.st_delete_talk_history);
-        this.eTC = (TbSettingTextTipView) this.eTx.findViewById(e.g.st_report);
-        this.eTD = (TbSettingTextTipView) this.eTx.findViewById(e.g.add_to_black);
-        this.eTE = (RelativeLayout) this.eTx.findViewById(e.g.remove_from_black_man);
-        this.eTB.setOnClickListener(this.eTx);
-        this.eTC.setOnClickListener(this.eTx);
-        this.eTD.setOnClickListener(this.eTx);
-        this.eTE.setOnClickListener(this.eTx);
-        this.eTF.setOnClickListener(this.eTx);
-        this.dCV = (HeadImageView) this.eTx.findViewById(e.g.photo);
+        this.eTH = (PersonaltalkSettingViewBlackManView) this.eTy.findViewById(e.g.black_status_view);
+        this.eTI = (PersonalTalkSettingViewSettingView) this.eTy.findViewById(e.g.setting_detail_view);
+        this.eTG = (LinearLayout) this.eTy.findViewById(e.g.user_info_lin);
+        this.eTC = (TbSettingTextTipView) this.eTy.findViewById(e.g.st_delete_talk_history);
+        this.eTD = (TbSettingTextTipView) this.eTy.findViewById(e.g.st_report);
+        this.eTE = (TbSettingTextTipView) this.eTy.findViewById(e.g.add_to_black);
+        this.eTF = (RelativeLayout) this.eTy.findViewById(e.g.remove_from_black_man);
+        this.eTC.setOnClickListener(this.eTy);
+        this.eTD.setOnClickListener(this.eTy);
+        this.eTE.setOnClickListener(this.eTy);
+        this.eTF.setOnClickListener(this.eTy);
+        this.eTG.setOnClickListener(this.eTy);
+        this.dCV = (HeadImageView) this.eTy.findViewById(e.g.photo);
         this.dCV.setIsRound(true);
-        this.mName = (TextView) this.eTx.findViewById(e.g.name);
-        this.dYA = (UserIconBox) this.eTx.findViewById(e.g.user_icon_box);
-        this.bRu = (TextView) this.eTx.findViewById(e.g.user_desc);
+        this.mName = (TextView) this.eTy.findViewById(e.g.name);
+        this.dYB = (UserIconBox) this.eTy.findViewById(e.g.user_icon_box);
+        this.bRu = (TextView) this.eTy.findViewById(e.g.user_desc);
     }
 
     public void onChangeSkinType(int i) {
-        this.eTx.getLayoutMode().onModeChanged(this.mParent);
-        this.mNavigationBar.onChangeSkinType(this.eTx.getPageContext(), i);
+        this.eTy.getLayoutMode().onModeChanged(this.mParent);
+        this.mNavigationBar.onChangeSkinType(this.eTy.getPageContext(), i);
     }
 
     public void i(boolean z, int i) {
         if (z) {
-            this.eTG.setSex(i);
-            this.eTG.setVisibility(0);
-            this.eTH.setVisibility(8);
+            this.eTH.setSex(i);
+            this.eTH.setVisibility(0);
+            this.eTI.setVisibility(8);
             return;
         }
-        this.eTH.setVisibility(0);
-        this.eTG.setVisibility(8);
+        this.eTI.setVisibility(0);
+        this.eTH.setVisibility(8);
     }
 
     public void iQ(boolean z) {
-        this.eTH.iQ(z);
+        this.eTI.iQ(z);
     }
 
     public void e(f fVar) {
@@ -101,7 +101,7 @@ public class g {
                 this.mName.setCompoundDrawablesWithIntrinsicBounds(0, 0, e.f.icon_pop_girl, 0);
             }
             this.bRu.setText(dataRes.intro);
-            if (this.dYA != null) {
+            if (this.dYB != null) {
                 LinkedList linkedList = new LinkedList();
                 for (IconInfo iconInfo : dataRes.iconInfo) {
                     IconData iconData = new IconData();
@@ -109,7 +109,7 @@ public class g {
                     iconData.setIcon(iconInfo.iconUrl);
                     linkedList.add(iconData);
                 }
-                this.dYA.a(linkedList, i, this.eTx.getResources().getDimensionPixelSize(e.C0175e.ds28), this.eTx.getResources().getDimensionPixelSize(e.C0175e.ds28), this.eTx.getResources().getDimensionPixelSize(e.C0175e.ds4));
+                this.dYB.a(linkedList, i, this.eTy.getResources().getDimensionPixelSize(e.C0175e.ds28), this.eTy.getResources().getDimensionPixelSize(e.C0175e.ds28), this.eTy.getResources().getDimensionPixelSize(e.C0175e.ds4));
             }
         }
     }
@@ -123,8 +123,8 @@ public class g {
     }
 
     public void a(BdSwitchView.a aVar) {
-        if (this.eTH != null) {
-            this.eTH.setSwitchStateChangeListener(aVar);
+        if (this.eTI != null) {
+            this.eTI.setSwitchStateChangeListener(aVar);
         }
     }
 }

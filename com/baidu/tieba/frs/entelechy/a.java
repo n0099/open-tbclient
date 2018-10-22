@@ -24,16 +24,16 @@ public abstract class a extends com.baidu.tieba.frs.view.b {
     protected FrsStarRankAndTaskContainer dHD;
     private int dHE = 3;
 
-    public void aCf() {
-        this.dHB = (TextView) this.dYi.findViewById(e.g.top_item_type);
+    public void aCg() {
+        this.dHB = (TextView) this.dYj.findViewById(e.g.top_item_type);
         this.dHB.setText(TbadkCoreApplication.getInst().getString(e.j.game));
-        this.dYm = new AdapterLinearLayout(this.dBO.getPageContext().getPageActivity());
-        this.dYm.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.dYm.setOrientation(1);
-        this.dYm.setPadding(0, 0, 0, l.h(this.mContext.getPageActivity(), e.C0175e.tbds16));
+        this.dYn = new AdapterLinearLayout(this.dBO.getPageContext().getPageActivity());
+        this.dYn.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+        this.dYn.setOrientation(1);
+        this.dYn.setPadding(0, 0, 0, l.h(this.mContext.getPageActivity(), e.C0175e.tbds16));
         this.dHA = new f(this.dBO);
-        this.dHA.b(this.dYY);
-        this.dYm.setAdapter(this.dHA);
+        this.dHA.b(this.dYZ);
+        this.dYn.setAdapter(this.dHA);
     }
 
     public void a(n nVar) {
@@ -42,9 +42,9 @@ public abstract class a extends com.baidu.tieba.frs.view.b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void bE(List<g> list) {
-        if (this.dBO != null && this.dBO.azR() != null && this.dHA != null) {
+        if (this.dBO != null && this.dBO.azS() != null && this.dHA != null) {
             ArrayList arrayList = new ArrayList();
-            List<h> bBj = this.dBO.azR().bBj();
+            List<h> bBj = this.dBO.azS().bBj();
             if (!v.J(list)) {
                 for (int i = 0; i < list.size(); i++) {
                     if (list.get(i).bzQ() == 1) {
@@ -59,7 +59,7 @@ public abstract class a extends com.baidu.tieba.frs.view.b {
                         arrayList.add(hVar);
                         if (((bb) hVar).yp() == 1) {
                             this.dHE = 4;
-                        } else if (this.dBO.azR().beT() != null && this.dBO.azR().beT().isShowAllTopThread == 0 && arrayList.size() >= 1) {
+                        } else if (this.dBO.azS().beT() != null && this.dBO.azS().beT().isShowAllTopThread == 0 && arrayList.size() >= 1) {
                             break;
                         }
                     }
@@ -67,14 +67,14 @@ public abstract class a extends com.baidu.tieba.frs.view.b {
             }
             if (this.dHA instanceof com.baidu.tieba.frs.e.c) {
                 f fVar = this.dHA;
-                if (fVar.aCM() != null && this.dBO.azR() != null) {
-                    if (this.dBO.azR().hai == 1) {
-                        fVar.aCM().dTC = true;
+                if (fVar.aCN() != null && this.dBO.azS() != null) {
+                    if (this.dBO.azS().haj == 1) {
+                        fVar.aCN().dTD = true;
                     } else {
-                        fVar.aCM().dTC = false;
+                        fVar.aCN().dTD = false;
                     }
-                    if (this.dBO.azR().beT() != null) {
-                        fVar.aCM().dTE = this.dBO.azR().beT().getId();
+                    if (this.dBO.azS().beT() != null) {
+                        fVar.aCN().dTF = this.dBO.azS().beT().getId();
                     }
                 }
             }
@@ -88,14 +88,14 @@ public abstract class a extends com.baidu.tieba.frs.view.b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aCg() {
+    public void aCh() {
         if (this.dHA != null) {
             this.dHA.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tieba.frs.view.b
-    public void aCh() {
+    public void aCi() {
         if (this.dHA != null) {
             this.dHA.notifyDataSetChanged();
         }

@@ -9,8 +9,8 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class e {
-    public static final SparseIntArray fev = new SparseIntArray();
-    public static final SparseArray<BdUniqueId> few = new SparseArray<>();
+    public static final SparseIntArray few = new SparseIntArray();
+    public static final SparseArray<BdUniqueId> fex = new SparseArray<>();
 
     public abstract ICardInfo a(JSONObject jSONObject, int i) throws CardParseException;
 

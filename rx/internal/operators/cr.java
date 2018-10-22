@@ -6,8 +6,8 @@ import rx.internal.operators.cq;
 import rx.internal.producers.SingleProducer;
 /* loaded from: classes2.dex */
 public final class cr<T, R> implements h.a<R> {
-    final h.a<T> iBp;
-    final d.b<? extends R, ? super T> iBv;
+    final h.a<T> iBq;
+    final d.b<? extends R, ? super T> iBw;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
@@ -16,10 +16,10 @@ public final class cr<T, R> implements h.a<R> {
         cq.a aVar = new cq.a(iVar);
         iVar.add(aVar);
         try {
-            rx.j<? super T> call = rx.c.c.b(this.iBv).call(aVar);
+            rx.j<? super T> call = rx.c.c.b(this.iBw).call(aVar);
             rx.i a2 = a(call);
             call.onStart();
-            this.iBp.call(a2);
+            this.iBq.call(a2);
         } catch (Throwable th) {
             rx.exceptions.a.a(th, iVar);
         }

@@ -48,18 +48,18 @@ public class a {
             } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(a.this.bwX.getPageContext().getPageActivity(), 25017, writeData2, postWriteCallBackData.getAccessState())));
             }
-            if (a.this.fOZ != null) {
-                a.this.fOZ.callback(z, postWriteCallBackData, vVar, writeData2, antiData);
+            if (a.this.fPa != null) {
+                a.this.fPa.callback(z, postWriteCallBackData, vVar, writeData2, antiData);
             }
         }
     };
     private BaseActivity bwX;
-    private NewWriteModel.d fOZ;
-    private GetEmotionPidModel fWQ;
-    private c fXm;
-    private EmotionImageData fXn;
-    private PbModel fXo;
-    private d fXp;
+    private NewWriteModel.d fPa;
+    private GetEmotionPidModel fWR;
+    private c fXn;
+    private EmotionImageData fXo;
+    private PbModel fXp;
+    private d fXq;
 
     public a(BaseActivity baseActivity) {
         this.bwX = baseActivity;
@@ -69,21 +69,21 @@ public class a {
 
     public void a(final EmotionImageData emotionImageData, final PbModel pbModel, final d dVar) {
         if (emotionImageData != null && dVar != null) {
-            this.fXn = emotionImageData;
-            this.fXo = pbModel;
-            this.fXp = dVar;
+            this.fXo = emotionImageData;
+            this.fXp = pbModel;
+            this.fXq = dVar;
             if (!j.kX()) {
                 this.bwX.showToast(e.j.neterror);
             } else if (a(this.bwX.getPageContext(), 11042)) {
                 if (TextUtils.isEmpty(emotionImageData.getPicId())) {
                     if (!TextUtils.isEmpty(emotionImageData.getPicUrl())) {
-                        if (this.fWQ == null) {
-                            this.fWQ = new GetEmotionPidModel();
+                        if (this.fWR == null) {
+                            this.fWR = new GetEmotionPidModel();
                         }
-                        if (this.fXm != null) {
-                            this.fXm.Lf();
+                        if (this.fXn != null) {
+                            this.fXn.Lf();
                         }
-                        this.fWQ.a(emotionImageData.getPicUrl(), new GetEmotionPidModel.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.model.a.1
+                        this.fWR.a(emotionImageData.getPicUrl(), new GetEmotionPidModel.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.model.a.1
                             @Override // com.baidu.tbadk.img.GetEmotionPidModel.a
                             public void a(com.baidu.tbadk.img.c cVar) {
                                 if (cVar != null && !TextUtils.isEmpty(cVar.picId)) {
@@ -94,8 +94,8 @@ public class a {
 
                             @Override // com.baidu.tbadk.img.GetEmotionPidModel.a
                             public void onFail(int i, String str) {
-                                if (a.this.fOZ != null) {
-                                    a.this.fOZ.callback(false, null, null, null, null);
+                                if (a.this.fPa != null) {
+                                    a.this.fPa.callback(false, null, null, null, null);
                                 }
                             }
                         });
@@ -103,8 +103,8 @@ public class a {
                     }
                     return;
                 }
-                if (this.fXm != null) {
-                    this.fXm.Lf();
+                if (this.fXn != null) {
+                    this.fXn.Lf();
                 }
                 b(emotionImageData, pbModel, dVar);
             }
@@ -131,7 +131,7 @@ public class a {
                     this.aVE.getWriteData().setVForumName("");
                 }
                 WriteData writeData = this.aVE.getWriteData();
-                if (this.aVD == null || !this.aVD.alj()) {
+                if (this.aVD == null || !this.aVD.alk()) {
                     z = false;
                 }
                 writeData.setHasLocationData(z);
@@ -163,11 +163,11 @@ public class a {
     }
 
     public void b(c cVar) {
-        this.fXm = cVar;
+        this.fXn = cVar;
     }
 
     public void c(NewWriteModel.d dVar) {
-        this.fOZ = dVar;
+        this.fPa = dVar;
     }
 
     private boolean a(TbPageContext<?> tbPageContext, int i) {
@@ -185,19 +185,19 @@ public class a {
                 if (intent != null) {
                     WriteData writeData = this.aVE != null ? this.aVE.getWriteData() : null;
                     resetData();
-                    if (this.fOZ != null) {
-                        this.fOZ.callback(true, null, null, writeData, null);
+                    if (this.fPa != null) {
+                        this.fPa.callback(true, null, null, writeData, null);
                     }
                 }
             } else if (i == 11042) {
-                a(this.fXn, this.fXo, this.fXp);
+                a(this.fXo, this.fXp, this.fXq);
             }
         }
     }
 
     public boolean cancelLoadData() {
-        if (this.fWQ != null) {
-            this.fWQ.cancelLoadData();
+        if (this.fWR != null) {
+            this.fWR.cancelLoadData();
             return true;
         }
         return true;
@@ -205,9 +205,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void resetData() {
-        this.fXn = null;
-        this.fXp = null;
         this.fXo = null;
+        this.fXq = null;
+        this.fXp = null;
         if (this.aVE != null) {
             this.aVE.setWriteData(null);
         }

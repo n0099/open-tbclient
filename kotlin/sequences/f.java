@@ -51,7 +51,7 @@ public class f extends e {
 
     /* loaded from: classes2.dex */
     public static final class a implements kotlin.sequences.c<T> {
-        final /* synthetic */ Object ipQ;
+        final /* synthetic */ Object ipR;
         final /* synthetic */ kotlin.sequences.c receiver$0;
 
         @Override // kotlin.sequences.c
@@ -64,35 +64,35 @@ public class f extends e {
 
     /* loaded from: classes2.dex */
     public static final class b implements kotlin.sequences.c<T> {
-        final /* synthetic */ Object[] ipR;
+        final /* synthetic */ Object[] ipS;
         final /* synthetic */ kotlin.sequences.c receiver$0;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            return kotlin.sequences.d.b(this.receiver$0, new SequencesKt___SequencesKt$minus$2$iterator$1(kotlin.collections.f.K(this.ipR))).iterator();
+            return kotlin.sequences.d.b(this.receiver$0, new SequencesKt___SequencesKt$minus$2$iterator$1(kotlin.collections.f.K(this.ipS))).iterator();
         }
     }
 
     /* loaded from: classes2.dex */
     public static final class c implements kotlin.sequences.c<T> {
-        final /* synthetic */ Iterable ipS;
+        final /* synthetic */ Iterable ipT;
         final /* synthetic */ kotlin.sequences.c receiver$0;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            Collection a = n.a(this.ipS);
+            Collection a = n.a(this.ipT);
             return a.isEmpty() ? this.receiver$0.iterator() : kotlin.sequences.d.b(this.receiver$0, new SequencesKt___SequencesKt$minus$3$iterator$1(a)).iterator();
         }
     }
 
     /* loaded from: classes2.dex */
     public static final class d implements kotlin.sequences.c<T> {
-        final /* synthetic */ kotlin.sequences.c ipT;
+        final /* synthetic */ kotlin.sequences.c ipU;
         final /* synthetic */ kotlin.sequences.c receiver$0;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            HashSet a = kotlin.sequences.d.a(this.ipT);
+            HashSet a = kotlin.sequences.d.a(this.ipU);
             return a.isEmpty() ? this.receiver$0.iterator() : kotlin.sequences.d.b(this.receiver$0, new SequencesKt___SequencesKt$minus$4$iterator$1(a)).iterator();
         }
     }

@@ -26,7 +26,7 @@ import com.baidu.tieba.e;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private static c hch;
+    private static c hci;
 
     /* renamed from: com.baidu.tieba.tbadkCore.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -122,8 +122,8 @@ public class a {
                         textView3.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.b.a.3.1
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                if (a.hch != null) {
-                                    a.hch.dismiss();
+                                if (a.hci != null) {
+                                    a.hci.dismiss();
                                 }
                                 MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) BaseActivity.this.getPageContext().getPageActivity(), true, 23004, "expiring");
                                 memberPayActivityConfig.setReferPageClickZone("posting_V8.9", "bubble_pop_ups_opende/renewalfee_button_V8.9");
@@ -155,7 +155,7 @@ public class a {
                 });
                 dVar.N(true);
                 dVar.P(false);
-                hch = dVar.iU();
+                hci = dVar.iU();
                 new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadkCore.b.a.4
                     @Override // java.lang.Runnable
                     public void run() {
@@ -169,15 +169,15 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void f(Activity activity, boolean z) {
-        if (hch != null) {
-            hch.n(activity);
+        if (hci != null) {
+            hci.n(activity);
         }
         if (!z) {
             new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadkCore.b.a.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.hch != null) {
-                        a.hch.dismiss();
+                    if (a.hci != null) {
+                        a.hci.dismiss();
                     }
                 }
             }, 5000L);

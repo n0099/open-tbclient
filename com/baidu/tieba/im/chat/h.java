@@ -13,10 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h {
-    private MsgLeftViewItemAdapter eAv;
-    private MsgRightViewItemAdapter eAw;
-    private MsgMidViewItemAdapter eAx;
-    private CustomMessageListener eAy;
+    private MsgLeftViewItemAdapter eAw;
+    private MsgRightViewItemAdapter eAx;
+    private MsgMidViewItemAdapter eAy;
+    private CustomMessageListener eAz;
     private List<e> mAdapters;
     private TbPageContext<MsglistActivity<?>> mContext;
     private List<ChatMessage> mData;
@@ -29,14 +29,14 @@ public class h {
     public h(TbPageContext<MsglistActivity<?>> tbPageContext, BdTypeListView bdTypeListView, int i) {
         this.mData = null;
         this.mAdapters = new ArrayList();
-        this.eAy = new CustomMessageListener(2001275) { // from class: com.baidu.tieba.im.chat.h.1
+        this.eAz = new CustomMessageListener(2001275) { // from class: com.baidu.tieba.im.chat.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
                     MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-                    if (aVar.ezM != null && aVar.context != null) {
-                        h.this.mAdapters.addAll(aVar.ezM);
+                    if (aVar.ezN != null && aVar.context != null) {
+                        h.this.mAdapters.addAll(aVar.ezN);
                         h.this.mListView.addAdapters(new ArrayList(h.this.mAdapters));
                     }
                 }
@@ -45,42 +45,42 @@ public class h {
         this.mContext = tbPageContext;
         this.mListView = bdTypeListView;
         initAdapters();
-        this.eAv.oO(i);
         this.eAw.oO(i);
+        this.eAx.oO(i);
     }
 
     private void initAdapters() {
-        this.eAv = new MsgLeftViewItemAdapter(this.mContext, ChatMessage.TYPE_MSG_LEFT);
-        this.eAv.hR(true);
-        this.eAv.hQ(true);
-        this.eAw = new MsgRightViewItemAdapter(this.mContext, ChatMessage.TYPE_MSG_RIGHT);
+        this.eAw = new MsgLeftViewItemAdapter(this.mContext, ChatMessage.TYPE_MSG_LEFT);
         this.eAw.hR(true);
         this.eAw.hQ(true);
-        this.eAx = new MsgMidViewItemAdapter(this.mContext, ChatMessage.TYPE_MSG_MID);
-        this.mAdapters.add(this.eAv);
+        this.eAx = new MsgRightViewItemAdapter(this.mContext, ChatMessage.TYPE_MSG_RIGHT);
+        this.eAx.hR(true);
+        this.eAx.hQ(true);
+        this.eAy = new MsgMidViewItemAdapter(this.mContext, ChatMessage.TYPE_MSG_MID);
         this.mAdapters.add(this.eAw);
         this.mAdapters.add(this.eAx);
+        this.mAdapters.add(this.eAy);
         initListener();
         MsgAdapterScanMessage.a aVar = new MsgAdapterScanMessage.a();
-        aVar.ezM = new ArrayList();
+        aVar.ezN = new ArrayList();
         aVar.context = this.mContext;
         MessageManager.getInstance().dispatchResponsedMessage(new MsgAdapterScanMessage(aVar));
     }
 
     private void initListener() {
-        this.eAy.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-        this.mContext.registerListener(this.eAy);
+        this.eAz.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        this.mContext.registerListener(this.eAz);
     }
 
     public void hS(boolean z) {
-        if (this.eAv != null) {
-            this.eAv.hS(z);
+        if (this.eAw != null) {
+            this.eAw.hS(z);
         }
     }
 
     public void hT(boolean z) {
-        if (this.eAw != null) {
-            this.eAw.hT(z);
+        if (this.eAx != null) {
+            this.eAx.hT(z);
         }
     }
 
@@ -141,9 +141,9 @@ public class h {
     }
 
     public void onDestory() {
-        if (this.eAy != null) {
-            MessageManager.getInstance().unRegisterListener(this.eAy);
-            this.eAy = null;
+        if (this.eAz != null) {
+            MessageManager.getInstance().unRegisterListener(this.eAz);
+            this.eAz = null;
         }
     }
 }

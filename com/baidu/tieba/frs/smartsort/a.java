@@ -12,22 +12,22 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
-    private static volatile a dTy;
-    private boolean dTw = false;
-    private final HashMap<String, ArrayList<d>> dTx = new HashMap<>();
+    private static volatile a dTz;
+    private boolean dTx = false;
+    private final HashMap<String, ArrayList<d>> dTy = new HashMap<>();
 
     private a() {
     }
 
     public static a aFt() {
-        if (dTy == null) {
+        if (dTz == null) {
             synchronized (a.class) {
-                if (dTy == null) {
-                    dTy = new a();
+                if (dTz == null) {
+                    dTz = new a();
                 }
             }
         }
-        return dTy;
+        return dTz;
     }
 
     public String aFu() {
@@ -43,7 +43,7 @@ public class a {
     public synchronized void o(String str, long j) {
         if (!TextUtils.isEmpty(str)) {
             String aFu = aFu();
-            ArrayList<d> arrayList = this.dTx.get(aFu);
+            ArrayList<d> arrayList = this.dTy.get(aFu);
             ArrayList<d> arrayList2 = arrayList == null ? new ArrayList<>() : arrayList;
             d oh = oh(str);
             boolean z = false;
@@ -80,8 +80,8 @@ public class a {
                 }
             }
             if (!v.J(arrayList2)) {
-                this.dTx.put(str, arrayList2);
-                if (!this.dTw) {
+                this.dTy.put(str, arrayList2);
+                if (!this.dTx) {
                     aFv();
                 } else {
                     oi(jSONArray.toString());
@@ -93,7 +93,7 @@ public class a {
     private synchronized d oh(String str) {
         d dVar;
         if (!TextUtils.isEmpty(str)) {
-            ArrayList<d> arrayList = this.dTx.get(aFu());
+            ArrayList<d> arrayList = this.dTy.get(aFu());
             if (arrayList != null) {
                 int i = 0;
                 while (true) {
@@ -144,9 +144,9 @@ public class a {
                     String str = (String) aFw.get("frs_smart_sort_last_time");
                     if (str != null) {
                         ArrayList oj = a.this.oj(str);
-                        a.this.dTx.put(a.this.aFu(), oj);
+                        a.this.dTy.put(a.this.aFu(), oj);
                     }
-                    a.this.dTw = true;
+                    a.this.dTx = true;
                     return null;
                 }
                 return null;

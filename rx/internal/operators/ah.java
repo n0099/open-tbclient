@@ -10,8 +10,8 @@ import rx.g;
 /* loaded from: classes2.dex */
 public final class ah<T> implements d.b<List<T>, T> {
     final int count;
-    final long ivC;
     final long ivD;
+    final long ivE;
     final rx.g scheduler;
     final TimeUnit unit;
 
@@ -21,8 +21,8 @@ public final class ah<T> implements d.b<List<T>, T> {
     }
 
     public ah(long j, long j2, TimeUnit timeUnit, int i, rx.g gVar) {
-        this.ivC = j;
-        this.ivD = j2;
+        this.ivD = j;
+        this.ivE = j2;
         this.unit = timeUnit;
         this.count = i;
         this.scheduler = gVar;
@@ -31,7 +31,7 @@ public final class ah<T> implements d.b<List<T>, T> {
     public rx.j<? super T> call(rx.j<? super List<T>> jVar) {
         g.a createWorker = this.scheduler.createWorker();
         rx.b.f fVar = new rx.b.f(jVar);
-        if (this.ivC == this.ivD) {
+        if (this.ivD == this.ivE) {
             a aVar = new a(fVar, createWorker);
             aVar.add(createWorker);
             jVar.add(aVar);
@@ -51,12 +51,12 @@ public final class ah<T> implements d.b<List<T>, T> {
     public final class b extends rx.j<T> {
         final rx.j<? super List<T>> child;
         boolean done;
-        final g.a ivE;
-        final List<List<T>> ivy = new LinkedList();
+        final g.a ivF;
+        final List<List<T>> ivz = new LinkedList();
 
         public b(rx.j<? super List<T>> jVar, g.a aVar) {
             this.child = jVar;
-            this.ivE = aVar;
+            this.ivF = aVar;
         }
 
         @Override // rx.e
@@ -64,7 +64,7 @@ public final class ah<T> implements d.b<List<T>, T> {
             LinkedList<List> linkedList = null;
             synchronized (this) {
                 if (!this.done) {
-                    Iterator<List<T>> it = this.ivy.iterator();
+                    Iterator<List<T>> it = this.ivz.iterator();
                     while (it.hasNext()) {
                         List<T> next = it.next();
                         next.add(t);
@@ -91,7 +91,7 @@ public final class ah<T> implements d.b<List<T>, T> {
             synchronized (this) {
                 if (!this.done) {
                     this.done = true;
-                    this.ivy.clear();
+                    this.ivz.clear();
                     this.child.onError(th);
                     unsubscribe();
                 }
@@ -104,8 +104,8 @@ public final class ah<T> implements d.b<List<T>, T> {
                 synchronized (this) {
                     if (!this.done) {
                         this.done = true;
-                        LinkedList<List> linkedList = new LinkedList(this.ivy);
-                        this.ivy.clear();
+                        LinkedList<List> linkedList = new LinkedList(this.ivz);
+                        this.ivz.clear();
                         for (List list : linkedList) {
                             this.child.onNext(list);
                         }
@@ -119,25 +119,25 @@ public final class ah<T> implements d.b<List<T>, T> {
         }
 
         void cbQ() {
-            this.ivE.a(new rx.functions.a() { // from class: rx.internal.operators.ah.b.1
+            this.ivF.a(new rx.functions.a() { // from class: rx.internal.operators.ah.b.1
                 @Override // rx.functions.a
                 public void call() {
                     b.this.cbR();
                 }
-            }, ah.this.ivD, ah.this.ivD, ah.this.unit);
+            }, ah.this.ivE, ah.this.ivE, ah.this.unit);
         }
 
         void cbR() {
             final ArrayList arrayList = new ArrayList();
             synchronized (this) {
                 if (!this.done) {
-                    this.ivy.add(arrayList);
-                    this.ivE.a(new rx.functions.a() { // from class: rx.internal.operators.ah.b.2
+                    this.ivz.add(arrayList);
+                    this.ivF.a(new rx.functions.a() { // from class: rx.internal.operators.ah.b.2
                         @Override // rx.functions.a
                         public void call() {
                             b.this.ez(arrayList);
                         }
-                    }, ah.this.ivC, ah.this.unit);
+                    }, ah.this.ivD, ah.this.unit);
                 }
             }
         }
@@ -146,7 +146,7 @@ public final class ah<T> implements d.b<List<T>, T> {
             boolean z;
             synchronized (this) {
                 if (!this.done) {
-                    Iterator<List<T>> it = this.ivy.iterator();
+                    Iterator<List<T>> it = this.ivz.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             z = false;
@@ -174,12 +174,12 @@ public final class ah<T> implements d.b<List<T>, T> {
     public final class a extends rx.j<T> {
         final rx.j<? super List<T>> child;
         boolean done;
-        final g.a ivE;
-        List<T> ivq = new ArrayList();
+        final g.a ivF;
+        List<T> ivr = new ArrayList();
 
         public a(rx.j<? super List<T>> jVar, g.a aVar) {
             this.child = jVar;
-            this.ivE = aVar;
+            this.ivF = aVar;
         }
 
         @Override // rx.e
@@ -187,10 +187,10 @@ public final class ah<T> implements d.b<List<T>, T> {
             List<T> list = null;
             synchronized (this) {
                 if (!this.done) {
-                    this.ivq.add(t);
-                    if (this.ivq.size() == ah.this.count) {
-                        list = this.ivq;
-                        this.ivq = new ArrayList();
+                    this.ivr.add(t);
+                    if (this.ivr.size() == ah.this.count) {
+                        list = this.ivr;
+                        this.ivr = new ArrayList();
                     }
                     if (list != null) {
                         this.child.onNext(list);
@@ -204,7 +204,7 @@ public final class ah<T> implements d.b<List<T>, T> {
             synchronized (this) {
                 if (!this.done) {
                     this.done = true;
-                    this.ivq = null;
+                    this.ivr = null;
                     this.child.onError(th);
                     unsubscribe();
                 }
@@ -214,12 +214,12 @@ public final class ah<T> implements d.b<List<T>, T> {
         @Override // rx.e
         public void onCompleted() {
             try {
-                this.ivE.unsubscribe();
+                this.ivF.unsubscribe();
                 synchronized (this) {
                     if (!this.done) {
                         this.done = true;
-                        List<T> list = this.ivq;
-                        this.ivq = null;
+                        List<T> list = this.ivr;
+                        this.ivr = null;
                         this.child.onNext(list);
                         this.child.onCompleted();
                         unsubscribe();
@@ -231,19 +231,19 @@ public final class ah<T> implements d.b<List<T>, T> {
         }
 
         void cbP() {
-            this.ivE.a(new rx.functions.a() { // from class: rx.internal.operators.ah.a.1
+            this.ivF.a(new rx.functions.a() { // from class: rx.internal.operators.ah.a.1
                 @Override // rx.functions.a
                 public void call() {
                     a.this.emit();
                 }
-            }, ah.this.ivC, ah.this.ivC, ah.this.unit);
+            }, ah.this.ivD, ah.this.ivD, ah.this.unit);
         }
 
         void emit() {
             synchronized (this) {
                 if (!this.done) {
-                    List<T> list = this.ivq;
-                    this.ivq = new ArrayList();
+                    List<T> list = this.ivr;
+                    this.ivr = new ArrayList();
                     try {
                         this.child.onNext(list);
                     } catch (Throwable th) {

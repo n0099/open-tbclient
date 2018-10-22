@@ -80,7 +80,7 @@ public class f extends a<com.baidu.tieba.e.b> {
             al.i(this.cKU, e.d.cp_bg_line_c);
             al.c(this.cKW, e.d.cp_cont_i, 1);
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.vl(this.cLa.YA().getId())) {
+            if (readThreadHistory != null && readThreadHistory.vl(this.cLa.YB().getId())) {
                 al.h(this.cKX, e.d.cp_cont_c);
             } else {
                 al.h(this.cKX, e.d.cp_cont_b);
@@ -99,40 +99,40 @@ public class f extends a<com.baidu.tieba.e.b> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.e.b bVar) {
-        if (bVar != null && bVar.YA() != null) {
+        if (bVar != null && bVar.YB() != null) {
             this.cLa = bVar;
             String str = null;
-            if (bVar.YA().zj()) {
+            if (bVar.YB().zj()) {
                 this.cKN.setVisibility(0);
                 this.cKW.setVisibility(0);
-                if (bVar.YA().yN() != null) {
-                    this.cKW.setText(ao.dt(bVar.YA().yN().video_duration.intValue() * 1000));
-                    str = bVar.YA().yN().thumbnail_url;
+                if (bVar.YB().yN() != null) {
+                    this.cKW.setText(ao.dt(bVar.YB().yN().video_duration.intValue() * 1000));
+                    str = bVar.YB().yN().thumbnail_url;
                 }
             } else {
                 this.cKN.setVisibility(8);
                 this.cKW.setVisibility(8);
-                if (bVar.YA().yG() != null && bVar.YA().yG().size() >= 1) {
-                    str = bVar.YA().yG().get(0).origin_pic;
+                if (bVar.YB().yG() != null && bVar.YB().yG().size() >= 1) {
+                    str = bVar.YB().yG().get(0).origin_pic;
                 }
             }
             this.imgThumbnail.startLoad(str, 10, false);
-            this.cKX.setText(bVar.YA().getTitle());
+            this.cKX.setText(bVar.YB().getTitle());
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.vl(bVar.YA().getId())) {
+            if (readThreadHistory != null && readThreadHistory.vl(bVar.YB().getId())) {
                 al.h(this.cKX, e.d.cp_cont_c);
             } else {
                 al.h(this.cKX, e.d.cp_cont_b);
             }
-            this.cKQ.setData(bVar.YA(), false);
-            this.cKZ.setText(ao.E(bVar.YA().yg()));
-            if ("news".equals(bVar.YA().yl())) {
+            this.cKQ.setData(bVar.YB(), false);
+            this.cKZ.setText(ao.E(bVar.YB().yg()));
+            if ("news".equals(bVar.YB().yl())) {
                 this.cKQ.setVisibility(8);
-                this.cKY.setText(this.mTbPageContext.getPageActivity().getResources().getString(e.j.person_view_num, ao.G(bVar.YA().yn())));
+                this.cKY.setText(this.mTbPageContext.getPageActivity().getResources().getString(e.j.person_view_num, ao.G(bVar.YB().yn())));
                 return;
             }
             this.cKQ.setVisibility(0);
-            p(bVar.YA());
+            p(bVar.YB());
         }
     }
 
@@ -155,8 +155,8 @@ public class f extends a<com.baidu.tieba.e.b> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (anO() != null) {
-            anO().a(getView(), this.cLa);
+        if (anP() != null) {
+            anP().a(getView(), this.cLa);
         }
     }
 }

@@ -22,57 +22,57 @@ import com.baidu.tieba.qrcode.lib.zxing.ZXingView;
 /* loaded from: classes3.dex */
 public class QRCodeScanActivity extends BaseActivity implements View.OnClickListener, a {
     private View bdE;
-    private int eZs;
-    private QRCodeView gAi;
-    private TextView gAj;
-    private b gAk;
-    private View gAl;
-    private TextView gAm;
+    private int eZt;
+    private QRCodeView gAj;
+    private TextView gAk;
+    private b gAl;
+    private View gAm;
     private TextView gAn;
+    private TextView gAo;
     private NavigationBar mNavigationBar;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        this.eZs = TbadkCoreApplication.getInst().getSkinType();
+        this.eZt = TbadkCoreApplication.getInst().getSkinType();
         super.onCreate(bundle);
         setContentView(e.h.activity_qr_code_scan);
-        this.gAi = (ZXingView) findViewById(e.g.zxingview);
-        if (this.gAi.getScanBoxView() != null) {
-            this.gAi.getScanBoxView().setToolbarHeight(UtilHelper.getStatusBarHeight());
-            this.gAi.getScanBoxView().requestLayout();
+        this.gAj = (ZXingView) findViewById(e.g.zxingview);
+        if (this.gAj.getScanBoxView() != null) {
+            this.gAj.getScanBoxView().setToolbarHeight(UtilHelper.getStatusBarHeight());
+            this.gAj.getScanBoxView().requestLayout();
         }
         this.mNavigationBar = (NavigationBar) findViewById(e.g.qrcode_navigation_bar);
-        this.gAl = findViewById(e.g.qrcode_black_error_view);
-        this.gAl.setOnClickListener(this);
-        this.gAm = (TextView) findViewById(e.g.qrcode_error_tv_not_found);
-        this.gAn = (TextView) findViewById(e.g.qrcode_error_tv_tap_to_continue);
-        this.gAj = this.mNavigationBar.setCenterTextTitle(getString(e.j.qrcode_title));
+        this.gAm = findViewById(e.g.qrcode_black_error_view);
+        this.gAm.setOnClickListener(this);
+        this.gAn = (TextView) findViewById(e.g.qrcode_error_tv_not_found);
+        this.gAo = (TextView) findViewById(e.g.qrcode_error_tv_tap_to_continue);
+        this.gAk = this.mNavigationBar.setCenterTextTitle(getString(e.j.qrcode_title));
         this.bdE = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.bdE.setOnClickListener(this);
-        this.gAk = new b(this, getPageContext());
-        this.gAi.setDelegate(this.gAk);
+        this.gAl = new b(this, getPageContext());
+        this.gAj.setDelegate(this.gAl);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        this.gAi.bsB();
-        this.gAi.bsz();
-        this.gAi.bsC();
+        this.gAj.bsB();
+        this.gAj.bsz();
+        this.gAj.bsC();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        TbadkCoreApplication.getInst().setSkinTypeValue(this.eZs);
+        TbadkCoreApplication.getInst().setSkinTypeValue(this.eZt);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
-        this.gAi.stopCamera();
+        this.gAj.stopCamera();
         super.onStop();
     }
 
@@ -80,8 +80,8 @@ public class QRCodeScanActivity extends BaseActivity implements View.OnClickList
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         TiebaStatic.log(new am("c12707"));
-        this.gAi.onDestroy();
-        this.gAk.onDestroy();
+        this.gAj.onDestroy();
+        this.gAl.onDestroy();
         super.onDestroy();
     }
 
@@ -91,10 +91,10 @@ public class QRCodeScanActivity extends BaseActivity implements View.OnClickList
         super.onChangeSkinType(i);
         this.mNavigationBar.setBackgroundResource(e.f.transparent_bg);
         this.mNavigationBar.setmBackImageViewBg(e.f.btn_sml_back_selector_s, e.f.btn_sml_back_selector_s);
-        this.gAj.setTextColor(getResources().getColor(e.d.cp_cont_i));
-        this.gAl.setBackgroundColor(getResources().getColor(e.d.black_alpha80));
-        this.gAm.setTextColor(getResources().getColor(e.d.cp_cont_g));
-        this.gAn.setTextColor(getResources().getColor(e.d.cp_cont_j));
+        this.gAk.setTextColor(getResources().getColor(e.d.cp_cont_i));
+        this.gAm.setBackgroundColor(getResources().getColor(e.d.black_alpha80));
+        this.gAn.setTextColor(getResources().getColor(e.d.cp_cont_g));
+        this.gAo.setTextColor(getResources().getColor(e.d.cp_cont_j));
         if (UtilHelper.isFlyMeOs() && !UtilHelper.isMeizuE3()) {
             TbadkCoreApplication.getInst().setSkinTypeValue(1);
         }
@@ -104,7 +104,7 @@ public class QRCodeScanActivity extends BaseActivity implements View.OnClickList
     @Override // com.baidu.tieba.qrcode.activity.a
     public void bsq() {
         bss();
-        this.gAl.setVisibility(0);
+        this.gAm.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.qrcode.activity.a
@@ -127,14 +127,14 @@ public class QRCodeScanActivity extends BaseActivity implements View.OnClickList
         aVar.a(getPageContext().getString(e.j.confirm), new a.b() { // from class: com.baidu.tieba.qrcode.activity.QRCodeScanActivity.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                QRCodeScanActivity.this.gAi.bsC();
+                QRCodeScanActivity.this.gAj.bsC();
                 aVar2.dismiss();
             }
         });
         aVar.a(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.qrcode.activity.QRCodeScanActivity.2
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                QRCodeScanActivity.this.gAi.bsC();
+                QRCodeScanActivity.this.gAj.bsC();
             }
         });
         aVar.b(getPageContext()).Au();
@@ -144,8 +144,8 @@ public class QRCodeScanActivity extends BaseActivity implements View.OnClickList
     public void onClick(View view) {
         if (view == this.bdE) {
             finish();
-        } else if (view == this.gAl) {
-            this.gAl.setVisibility(8);
+        } else if (view == this.gAm) {
+            this.gAm.setVisibility(8);
         }
     }
 
@@ -174,7 +174,7 @@ public class QRCodeScanActivity extends BaseActivity implements View.OnClickList
             WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
             writeImagesInfo.parseJson(stringExtra);
             if (writeImagesInfo.getChosedFiles() != null && writeImagesInfo.getChosedFiles().size() > 0 && (imageFileInfo = writeImagesInfo.getChosedFiles().get(0)) != null) {
-                this.gAk.tI(imageFileInfo.getFilePath());
+                this.gAl.tI(imageFileInfo.getFilePath());
             }
             writeImagesInfo.clear();
         }

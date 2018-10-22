@@ -15,14 +15,14 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private HotTopicChangeFourmActivity hLh;
+    private HotTopicChangeFourmActivity hLi;
     private final Context mContext;
     private List<HotTopicBussinessData> mData;
     private ViewGroup mParent = null;
 
     public a(HotTopicChangeFourmActivity hotTopicChangeFourmActivity) {
-        this.hLh = hotTopicChangeFourmActivity;
-        this.mContext = this.hLh.getPageContext().getContext();
+        this.hLi = hotTopicChangeFourmActivity;
+        this.mContext = this.hLi.getPageContext().getContext();
     }
 
     public void setData(List<HotTopicBussinessData> list) {
@@ -87,10 +87,10 @@ public class a extends BaseAdapter {
         } else {
             c0295a = (C0295a) obj;
         }
-        c0295a.hLj.setText(wU(hotTopicBussinessData.mForumName));
-        c0295a.hLi.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
+        c0295a.hLk.setText(wU(hotTopicBussinessData.mForumName));
+        c0295a.hLj.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
         al.i(c0295a.mRootView, e.f.select_forum_item_bg);
-        al.h(c0295a.hLj, e.d.cp_cont_b);
+        al.h(c0295a.hLk, e.d.cp_cont_b);
         al.j(c0295a.dJQ, e.d.cp_bg_line_e);
         return c0295a;
     }
@@ -99,13 +99,13 @@ public class a extends BaseAdapter {
         C0295a c0295a = new C0295a();
         c0295a.mRootView = LayoutInflater.from(this.mContext).inflate(e.h.hot_topic_change_item, (ViewGroup) null);
         al.i(c0295a.mRootView, e.f.select_forum_item_bg);
-        al.h(c0295a.hLj, e.d.cp_cont_b);
-        c0295a.hLj = (TextView) c0295a.mRootView.findViewById(e.g.fourm_tv);
+        al.h(c0295a.hLk, e.d.cp_cont_b);
+        c0295a.hLk = (TextView) c0295a.mRootView.findViewById(e.g.fourm_tv);
         c0295a.dJQ = c0295a.mRootView.findViewById(e.g.line_view);
-        c0295a.hLi = (TbImageView) c0295a.mRootView.findViewById(e.g.icon_img);
-        c0295a.hLi.setDefaultBgResource(e.d.cp_bg_line_e);
-        c0295a.hLi.setDefaultResource(e.f.transparent_bg);
-        c0295a.hLi.setDefaultErrorResource(e.f.icon_default_ba_120);
+        c0295a.hLj = (TbImageView) c0295a.mRootView.findViewById(e.g.icon_img);
+        c0295a.hLj.setDefaultBgResource(e.d.cp_bg_line_e);
+        c0295a.hLj.setDefaultResource(e.f.transparent_bg);
+        c0295a.hLj.setDefaultErrorResource(e.f.icon_default_ba_120);
         c0295a.mRootView.setTag(c0295a);
         return c0295a;
     }
@@ -115,8 +115,8 @@ public class a extends BaseAdapter {
     /* loaded from: classes3.dex */
     public class C0295a {
         public View dJQ;
-        public TbImageView hLi;
-        public TextView hLj;
+        public TbImageView hLj;
+        public TextView hLk;
         public View mRootView;
 
         private C0295a() {

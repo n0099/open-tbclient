@@ -22,30 +22,30 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class PostCategoryView extends TextView {
     private MorePopupWindow aiH;
-    private TabMenuPopView dUC;
-    private View dUr;
+    private TabMenuPopView dUD;
+    private View dUs;
     private LinearLayout dkp;
-    private boolean hNp;
-    private LinearLayout hNq;
-    private Drawable hNr;
+    private boolean hNq;
+    private LinearLayout hNr;
     private Drawable hNs;
+    private Drawable hNt;
     private Context mContext;
 
     public PostCategoryView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        this.hNp = false;
-        this.hNr = al.getDrawable(e.f.icon_title_down);
-        this.hNr.setBounds(0, 0, this.hNr.getIntrinsicWidth(), this.hNr.getIntrinsicHeight());
-        this.hNs = al.getDrawable(e.f.icon_title_up);
-        this.hNs.setBounds(0, 0, this.hNs.getIntrinsicWidth(), this.hNr.getIntrinsicHeight());
-        setCompoundDrawables(null, null, this.hNr, null);
+        this.hNq = false;
+        this.hNs = al.getDrawable(e.f.icon_title_down);
+        this.hNs.setBounds(0, 0, this.hNs.getIntrinsicWidth(), this.hNs.getIntrinsicHeight());
+        this.hNt = al.getDrawable(e.f.icon_title_up);
+        this.hNt.setBounds(0, 0, this.hNt.getIntrinsicWidth(), this.hNs.getIntrinsicHeight());
+        setCompoundDrawables(null, null, this.hNs, null);
         setPadding(0, 0, l.h(getContext(), e.C0175e.ds50), 0);
         this.dkp = (LinearLayout) LayoutInflater.from(this.mContext).inflate(e.h.pop_category, (ViewGroup) null);
-        this.hNq = (LinearLayout) this.dkp.findViewById(e.g.pop_category_layout);
-        this.dUC = (TabMenuPopView) this.hNq.findViewById(e.g.pop_category_view);
-        this.dUr = this.dkp.findViewById(e.g.pop_category_grav);
-        this.dUr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.PostCategoryView.1
+        this.hNr = (LinearLayout) this.dkp.findViewById(e.g.pop_category_layout);
+        this.dUD = (TabMenuPopView) this.hNr.findViewById(e.g.pop_category_view);
+        this.dUs = this.dkp.findViewById(e.g.pop_category_grav);
+        this.dUs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.PostCategoryView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 PostCategoryView.this.bNj();
@@ -54,21 +54,21 @@ public class PostCategoryView extends TextView {
     }
 
     public void setCategoryContainerData(List<at> list, at atVar) {
-        this.dUC.setData(list, atVar);
+        this.dUD.setData(list, atVar);
     }
 
     public void setCategoryContainerData(List<x> list, x xVar, int i) {
-        this.dUC.setData(list, xVar, i);
+        this.dUD.setData(list, xVar, i);
     }
 
     public void setCategoryContainerClickCallback(TabMenuPopView.a aVar) {
-        this.dUC.setOnItemClickCallBack(aVar);
+        this.dUD.setOnItemClickCallBack(aVar);
     }
 
     public void bNi() {
-        if (this.hNp) {
-            setCompoundDrawables(null, null, this.hNr, null);
-            this.hNp = false;
+        if (this.hNq) {
+            setCompoundDrawables(null, null, this.hNs, null);
+            this.hNq = false;
         } else {
             a(this);
             if (this.aiH != null) {
@@ -76,8 +76,8 @@ public class PostCategoryView extends TextView {
                 this.aiH.setWidthAsWidthOfDeviceScreen((Activity) this.mContext);
                 this.aiH.setHeight(-1);
                 this.aiH.showWindowInCustomPosition(0, 0);
-                setCompoundDrawables(null, null, this.hNs, null);
-                this.hNp = true;
+                setCompoundDrawables(null, null, this.hNt, null);
+                this.hNq = true;
             }
         }
         invalidate();
@@ -111,11 +111,11 @@ public class PostCategoryView extends TextView {
     public void DV() {
         al.j(this, e.d.cp_bg_line_d);
         al.c(this, e.d.cp_cont_b, 1);
-        if (this.hNq != null) {
-            al.j(this.hNq, e.d.cp_bg_line_d);
+        if (this.hNr != null) {
+            al.j(this.hNr, e.d.cp_bg_line_d);
         }
-        if (this.dUC != null) {
-            this.dUC.DV();
+        if (this.dUD != null) {
+            this.dUD.DV();
         }
     }
 

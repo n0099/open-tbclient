@@ -107,11 +107,11 @@ public class l extends com.baidu.tieba.frs.h<bb, com.baidu.tieba.card.a.a<x>> im
         if (bbVar != null && bbVar.yb()) {
             Y(bbVar);
         }
-        if (aVar == null || aVar.aoP() == null) {
+        if (aVar == null || aVar.aoQ() == null) {
             return null;
         }
-        if (aVar.aoP() instanceof com.baidu.tieba.a.e) {
-            aVar.aoP().setPage(this.bVS);
+        if (aVar.aoQ() instanceof com.baidu.tieba.a.e) {
+            aVar.aoQ().setPage(this.bVS);
         }
         super.onFillViewHolder(i, view, viewGroup, bbVar, aVar);
         bc bcVar = new bc(bbVar);
@@ -120,13 +120,13 @@ public class l extends com.baidu.tieba.frs.h<bb, com.baidu.tieba.card.a.a<x>> im
         bcVar.arx = 1;
         bcVar.ary = 3;
         bcVar.arz = 2;
-        com.baidu.tieba.frs.g.a(aVar.aoP().aaX(), this.dzP);
-        com.baidu.tieba.frs.g.a(aVar.aoP().aaY(), this.dzP);
+        com.baidu.tieba.frs.g.a(aVar.aoQ().aaY(), this.dzP);
+        com.baidu.tieba.frs.g.a(aVar.aoQ().aaZ(), this.dzP);
         if (this.dzP != null && this.dzP.beT() != null && !StringUtils.isNull(this.dzP.beT().getTopic_special_icon()) && !StringUtils.isNull(this.dzP.beT().getTopic_special_icon_right())) {
-            aVar.aoP().ai(this.dzP.beT().getTopic_special_icon(), this.dzP.beT().getTopic_special_icon_right());
+            aVar.aoQ().ai(this.dzP.beT().getTopic_special_icon(), this.dzP.beT().getTopic_special_icon_right());
         }
-        aVar.aoP().a(bcVar);
-        aVar.aoP().b(this.bVP);
+        aVar.aoQ().a(bcVar);
+        aVar.aoQ().b(this.bVP);
         com.baidu.tieba.frs.e.b.aFC().a(this.dIB, bbVar);
         if (bbVar != null) {
             bbVar.zs();
@@ -158,7 +158,7 @@ public class l extends com.baidu.tieba.frs.h<bb, com.baidu.tieba.card.a.a<x>> im
     }
 
     @Override // com.baidu.tieba.frs.e.c
-    public com.baidu.tieba.frs.e.a aCM() {
+    public com.baidu.tieba.frs.e.a aCN() {
         return this.dIB;
     }
 }

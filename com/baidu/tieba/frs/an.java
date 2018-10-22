@@ -25,19 +25,19 @@ public class an {
     private final Handler.Callback dDY = new Handler.Callback() { // from class: com.baidu.tieba.frs.an.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
-            if ((message.what == 1 || message.what == 2) && an.this.aBw()) {
+            if ((message.what == 1 || message.what == 2) && an.this.aBx()) {
                 an.this.mHandler.sendEmptyMessageDelayed(message.what, 100L);
                 return true;
             }
             switch (message.what) {
                 case 1:
-                    an.this.aBv();
+                    an.this.aBw();
                     return true;
                 case 2:
-                    an.this.aBt();
+                    an.this.aBu();
                     return true;
                 case 3:
-                    an.this.aBu();
+                    an.this.aBv();
                     return true;
                 default:
                     return false;
@@ -78,7 +78,7 @@ public class an {
     };
     private boolean dDV = UtilHelper.canUseStyleImmersiveSticky();
 
-    public com.baidu.tieba.f.b aBs() {
+    public com.baidu.tieba.f.b aBt() {
         return this.bYq;
     }
 
@@ -93,30 +93,30 @@ public class an {
     public an(Context context, k kVar, com.baidu.tieba.frs.vc.f fVar) {
         this.mContext = context;
         this.dDS = kVar;
-        this.mNavigationBar = kVar.aaD();
-        this.dDR = kVar.aAd();
+        this.mNavigationBar = kVar.aaE();
+        this.dDR = kVar.aAe();
         this.dDT = fVar;
-        Zx();
+        Zy();
         this.bYq = new com.baidu.tieba.f.b(context);
         this.bYq.a(this.bYr);
     }
 
-    public void aBt() {
+    public void aBu() {
         A(false, false);
     }
 
-    public void aBu() {
+    public void aBv() {
         A(false, true);
     }
 
     public void A(boolean z, boolean z2) {
-        if (this.dDR != null && this.dDS != null && this.dDS.aAq() != null && this.dDS.aAq().aCP()) {
+        if (this.dDR != null && this.dDS != null && this.dDS.aAr() != null && this.dDS.aAr().aCQ()) {
             z(false, true);
         }
     }
 
-    public void aBv() {
-        if (this.dDR != null && this.dDS != null && this.dDS.aAq() != null && !this.dDS.aAq().aCP()) {
+    public void aBw() {
+        if (this.dDR != null && this.dDS != null && this.dDS.aAr() != null && !this.dDS.aAr().aCQ()) {
             z(true, true);
         }
     }
@@ -139,7 +139,7 @@ public class an {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
-    public boolean aBw() {
+    public boolean aBx() {
         return aJ(this.dDR);
     }
 
@@ -166,13 +166,13 @@ public class an {
         }
     }
 
-    private void Zx() {
-        if (this.dDS != null && this.dDS.aAe() != null) {
-            View aAe = this.dDS.aAe();
-            if (this.dDV && aAe.getLayoutParams() != null) {
-                ViewGroup.LayoutParams layoutParams = aAe.getLayoutParams();
+    private void Zy() {
+        if (this.dDS != null && this.dDS.aAf() != null) {
+            View aAf = this.dDS.aAf();
+            if (this.dDV && aAf.getLayoutParams() != null) {
+                ViewGroup.LayoutParams layoutParams = aAf.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight();
-                aAe.setLayoutParams(layoutParams);
+                aAf.setLayoutParams(layoutParams);
                 gE(true);
                 return;
             }
@@ -181,12 +181,12 @@ public class an {
     }
 
     private void gE(boolean z) {
-        if (this.dDS != null && this.dDS.aAe() != null) {
-            View aAe = this.dDS.aAe();
-            if (this.dDV && z && aAe.getVisibility() != 0) {
-                aAe.setVisibility(0);
-            } else if (!z && aAe.getVisibility() != 8) {
-                aAe.setVisibility(8);
+        if (this.dDS != null && this.dDS.aAf() != null) {
+            View aAf = this.dDS.aAf();
+            if (this.dDV && z && aAf.getVisibility() != 0) {
+                aAf.setVisibility(0);
+            } else if (!z && aAf.getVisibility() != 8) {
+                aAf.setVisibility(8);
             }
         }
     }

@@ -32,7 +32,7 @@ public class aq {
             return false;
         }
         com.baidu.tieba.tbadkCore.data.h bCk = postData.bCk();
-        if (bCk.hcC) {
+        if (bCk.hcD) {
             int bBI = bCk.bBI();
             return bBI == 2 || bBI == 1 || bBI == 3;
         }

@@ -19,33 +19,33 @@ import com.baidu.tieba.personCenter.data.f;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes3.dex */
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
-    private b giI;
-    private Bundle giJ;
-    private f giK;
+    private b giJ;
+    private Bundle giK;
+    private f giL;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null && getIntent().getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE) != null) {
-            this.giJ = getIntent().getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
+            this.giK = getIntent().getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
         }
         setContentView(e.h.person_center_more_layout);
-        this.giI = new b(getPageContext(), this.giJ, new ad<f>() { // from class: com.baidu.tieba.person.more.PersonCenterMoreActivity.1
+        this.giJ = new b(getPageContext(), this.giK, new ad<f>() { // from class: com.baidu.tieba.person.more.PersonCenterMoreActivity.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             public void a(View view, f fVar) {
-                PersonCenterMoreActivity.this.giK = fVar;
-                if (PersonCenterMoreActivity.this.giK != null && !PersonCenterMoreActivity.this.ahc()) {
-                    PersonCenterMoreActivity.this.sV(PersonCenterMoreActivity.this.giK.akf);
+                PersonCenterMoreActivity.this.giL = fVar;
+                if (PersonCenterMoreActivity.this.giL != null && !PersonCenterMoreActivity.this.ahd()) {
+                    PersonCenterMoreActivity.this.sV(PersonCenterMoreActivity.this.giL.akf);
                 }
             }
         });
-        this.giI.initView();
+        this.giJ.initView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ahc() {
+    public boolean ahd() {
         Activity pageActivity = getPageContext().getPageActivity();
         com.baidu.tbadk.core.util.b.a aVar = new com.baidu.tbadk.core.util.b.a();
         aVar.Di();
@@ -56,7 +56,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         if (25040 == i && iArr[0] == 0) {
-            sV(this.giK.akf);
+            sV(this.giL.akf);
         }
     }
 
@@ -93,8 +93,8 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.giI != null) {
-            this.giI.onChangeSkinType();
+        if (this.giJ != null) {
+            this.giJ.onChangeSkinType();
         }
     }
 }

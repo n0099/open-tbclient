@@ -82,11 +82,11 @@ public class a extends c<TbTitleActivity> {
         this.dyf = (ImageView) this.mRootView.findViewById(e.g.header_level_img);
         this.dyg = (TextView) this.mRootView.findViewById(e.g.tbtitle_tip_detail2);
         this.bJX = (NoNetworkView) this.mRootView.findViewById(e.g.view_no_network);
-        ayu();
         ayv();
+        ayw();
     }
 
-    private void ayu() {
+    private void ayv() {
         String string = getPageContext().getResources().getString(e.j.tbtitle_tip_detail2);
         String string2 = getPageContext().getResources().getString(e.j.tbtitle_tip_tieba_bar);
         int length = string2.length();
@@ -174,7 +174,7 @@ public class a extends c<TbTitleActivity> {
         }
     }
 
-    private void ayv() {
+    private void ayw() {
         this.dyh.setOnClickListener(this.dxX);
         this.dyg.setOnClickListener(this.dxX);
     }
@@ -198,7 +198,7 @@ public class a extends c<TbTitleActivity> {
         this.dyc.setNetRefreshViewTopMargin(400);
     }
 
-    public void ayw() {
+    public void ayx() {
         this.bDf.setVisibility(0);
         this.dyc.hideNetRefreshView(this.mRootView);
     }
@@ -208,7 +208,7 @@ public class a extends c<TbTitleActivity> {
         this.dyc.showLoadingView(this.mRootView, true);
     }
 
-    public void ayx() {
+    public void ayy() {
         this.bDf.setVisibility(0);
         this.dyc.hideLoadingView(this.mRootView);
     }

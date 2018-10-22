@@ -11,11 +11,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class k {
-    private String fwc;
+    private String fwd;
     private boolean isSuccess = true;
-    private int gyu = 0;
-    private boolean gxF = false;
-    private List<com.baidu.tieba.m.c> gyv = new ArrayList();
+    private int gyv = 0;
+    private boolean gxG = false;
+    private List<com.baidu.tieba.m.c> gyw = new ArrayList();
 
     static {
         if (com.baidu.adp.lib.util.f.hB()) {
@@ -25,8 +25,8 @@ public class k {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
                     com.baidu.tieba.j.d.rq(g.a.bvI);
-                    com.baidu.tieba.j.d.rq(g.a.fvZ);
                     com.baidu.tieba.j.d.rq(g.a.fwa);
+                    com.baidu.tieba.j.d.rq(g.a.fwb);
                     return null;
                 }
             }.execute(new Void[0]);
@@ -34,7 +34,7 @@ public class k {
     }
 
     public k(String str) {
-        this.fwc = str;
+        this.fwd = str;
     }
 
     public void bru() {
@@ -46,23 +46,23 @@ public class k {
     }
 
     public void brw() {
-        this.gyu++;
+        this.gyv++;
     }
 
     public boolean brx() {
-        return this.gyu > 0;
+        return this.gyv > 0;
     }
 
     public void bry() {
-        this.gxF = true;
+        this.gxG = true;
     }
 
     public boolean brz() {
-        return this.gxF;
+        return this.gxG;
     }
 
     public void a(com.baidu.tieba.m.c cVar) {
-        this.gyv.add(cVar);
+        this.gyw.add(cVar);
         brB();
         b(cVar);
         brA();
@@ -79,12 +79,12 @@ public class k {
                     if (lVarArr != null && lVarArr.length == 1 && lVarArr[0] != null) {
                         l lVar = lVarArr[0];
                         synchronized ("debug") {
-                            com.baidu.tieba.j.d.a(new File(g.a.fwb + g.a.fvS + lVar.uuid + g.a.fvS + "debug"), lVar.gyy.bqV().toString() + "\n", true);
+                            com.baidu.tieba.j.d.a(new File(g.a.fwc + g.a.fvT + lVar.uuid + g.a.fvT + "debug"), lVar.gyz.bqV().toString() + "\n", true);
                         }
                     }
                     return null;
                 }
-            }.execute(new l(cVar, this.fwc));
+            }.execute(new l(cVar, this.fwd));
         }
     }
 
@@ -99,18 +99,18 @@ public class k {
                     if (eVarArr != null && eVarArr.length == 1 && eVarArr[0] != null) {
                         e eVar = eVarArr[0];
                         synchronized ("kpi") {
-                            com.baidu.tieba.j.d.a(new File(g.a.fwb + g.a.fvS + eVar.uuid + g.a.fvS + "kpi"), k.b(eVar.isSuccess, eVar.gxE, eVar.gxF).toString(), false);
+                            com.baidu.tieba.j.d.a(new File(g.a.fwc + g.a.fvT + eVar.uuid + g.a.fvT + "kpi"), k.b(eVar.isSuccess, eVar.gxF, eVar.gxG).toString(), false);
                         }
                     }
                     return null;
                 }
-            }.execute(new e(this.isSuccess, this.gyu, this.gxF, this.fwc));
+            }.execute(new e(this.isSuccess, this.gyv, this.gxG, this.fwd));
         }
     }
 
     private void brB() {
         if (com.baidu.adp.lib.util.f.hB()) {
-            File file = new File(g.a.fwb + g.a.fvS + this.fwc + g.a.fvS);
+            File file = new File(g.a.fwc + g.a.fvT + this.fwd + g.a.fvT);
             if (!file.exists()) {
                 file.mkdir();
             }
@@ -118,7 +118,7 @@ public class k {
     }
 
     public JSONObject bbr() {
-        return b(this.isSuccess, this.gyu, this.gxF);
+        return b(this.isSuccess, this.gyv, this.gxG);
     }
 
     public static final JSONObject b(boolean z, int i, boolean z2) {
@@ -137,10 +137,10 @@ public class k {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
-            if (!v.J(this.gyv)) {
-                int size = this.gyv.size();
+            if (!v.J(this.gyw)) {
+                int size = this.gyw.size();
                 for (int i = 0; i < size; i++) {
-                    jSONArray.put(this.gyv.get(i).bqV());
+                    jSONArray.put(this.gyw.get(i).bqV());
                 }
             }
             jSONObject.put("running", jSONArray);

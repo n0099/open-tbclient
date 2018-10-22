@@ -32,11 +32,11 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.e, com.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.e eVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.h> aVar) {
-        if (aVar.aoP() == null) {
+        if (aVar.aoQ() == null) {
             return null;
         }
-        aVar.aoP().a(eVar);
-        aVar.aoP().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        return aVar.aoP().getView();
+        aVar.aoQ().a(eVar);
+        aVar.aoQ().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        return aVar.aoQ().getView();
     }
 }

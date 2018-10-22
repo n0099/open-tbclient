@@ -4,8 +4,8 @@ import com.baidu.searchbox.ng.ai.apps.util.AiAppRomUtils;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class c {
-    public static final c ibV = new c(AiAppRomUtils.UNKNOWN, null);
-    private final String ibW;
+    public static final c ibW = new c(AiAppRomUtils.UNKNOWN, null);
+    private final String ibX;
     private final String mName;
 
     /* loaded from: classes2.dex */
@@ -18,7 +18,7 @@ public class c {
 
     public c(String str, @Nullable String str2) {
         this.mName = str;
-        this.ibW = str2;
+        this.ibX = str2;
     }
 
     public String toString() {

@@ -54,16 +54,16 @@ public final class ay<T> implements d.b<T, T> {
         final boolean delayError;
         Throwable error;
         volatile boolean finished;
-        final g.a ixo;
-        long ixq;
+        final g.a ixp;
+        long ixr;
         final int limit;
         final Queue<Object> queue;
         final AtomicLong requested = new AtomicLong();
-        final AtomicLong ixp = new AtomicLong();
+        final AtomicLong ixq = new AtomicLong();
 
         public a(rx.g gVar, rx.j<? super T> jVar, boolean z, int i) {
             this.child = jVar;
-            this.ixo = gVar.createWorker();
+            this.ixp = gVar.createWorker();
             this.delayError = z;
             i = i <= 0 ? rx.internal.util.h.SIZE : i;
             this.limit = i - (i >> 2);
@@ -86,7 +86,7 @@ public final class ay<T> implements d.b<T, T> {
                     }
                 }
             });
-            jVar.add(this.ixo);
+            jVar.add(this.ixp);
             jVar.add(this);
         }
 
@@ -121,15 +121,15 @@ public final class ay<T> implements d.b<T, T> {
         }
 
         protected void cch() {
-            if (this.ixp.getAndIncrement() == 0) {
-                this.ixo.a(this);
+            if (this.ixq.getAndIncrement() == 0) {
+                this.ixp.a(this);
             }
         }
 
         @Override // rx.functions.a
         public void call() {
             long j;
-            long j2 = this.ixq;
+            long j2 = this.ixr;
             Queue<Object> queue = this.queue;
             rx.j<? super T> jVar = this.child;
             long j3 = 1;
@@ -159,8 +159,8 @@ public final class ay<T> implements d.b<T, T> {
                     }
                 }
                 if (j4 != j2 || !a(this.finished, queue.isEmpty(), jVar, queue)) {
-                    this.ixq = j2;
-                    j3 = this.ixp.addAndGet(-j3);
+                    this.ixr = j2;
+                    j3 = this.ixq.addAndGet(-j3);
                 } else {
                     return;
                 }

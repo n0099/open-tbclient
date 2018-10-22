@@ -47,7 +47,7 @@ public class f implements View.OnClickListener {
     private final com.baidu.adp.framework.listener.a cWP = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.c.f.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            f.this.akj();
+            f.this.akk();
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
                 GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                 f.this.a(getMyPostHttpResponseMessage.getError(), getMyPostHttpResponseMessage.getResponseData());
@@ -105,7 +105,7 @@ public class f implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void akj() {
+    public void akk() {
         if (this.cWM != null) {
             this.cWM.bj(false);
         }
@@ -194,7 +194,7 @@ public class f implements View.OnClickListener {
             bundle.putString("tid", dVar.tid);
             bundle.putInt(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.arx);
             dVar.f(bundle);
-            e.aqa().a(new ShareDialogConfig((Context) this.mActivity, dVar, true, true));
+            e.aqb().a(new ShareDialogConfig((Context) this.mActivity, dVar, true, true));
         }
     }
 

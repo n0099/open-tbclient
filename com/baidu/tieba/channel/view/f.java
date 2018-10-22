@@ -81,7 +81,7 @@ public class f {
         this.cUe = (TextView) this.mRootView.findViewById(e.g.channel_home_header_video_count);
     }
 
-    public View amt() {
+    public View amu() {
         return this.mRootView;
     }
 
@@ -91,22 +91,22 @@ public class f {
     }
 
     public void d(com.baidu.tieba.channel.data.d dVar) {
-        if (dVar != null && dVar.aoZ() != null) {
-            ChannelInfo aoZ = dVar.aoZ();
-            if (!dVar.isHost() && !aoZ.isSubscribe()) {
-                apn();
+        if (dVar != null && dVar.apa() != null) {
+            ChannelInfo apa = dVar.apa();
+            if (!dVar.isHost() && !apa.isSubscribe()) {
+                apo();
             }
-            this.cTY.setText(this.mContext.getResources().getString(e.j.channel_subscribe_num, ao.G(aoZ.getFansCount())));
-            this.cTI.startLoad(TextUtils.isEmpty(aoZ.getChannelSmallCover()) ? aoZ.getChannelCover() : aoZ.getChannelSmallCover(), 10, this.cTI.getWidth(), this.cTI.getHeight(), false);
-            this.cTZ.startLoad(aoZ.getChannelAvatar(), 10, this.cTZ.getWidth(), this.cTZ.getHeight(), false);
-            this.cUa.setText(aoZ.getChannelName());
+            this.cTY.setText(this.mContext.getResources().getString(e.j.channel_subscribe_num, ao.G(apa.getFansCount())));
+            this.cTI.startLoad(TextUtils.isEmpty(apa.getChannelSmallCover()) ? apa.getChannelCover() : apa.getChannelSmallCover(), 10, this.cTI.getWidth(), this.cTI.getHeight(), false);
+            this.cTZ.startLoad(apa.getChannelAvatar(), 10, this.cTZ.getWidth(), this.cTZ.getHeight(), false);
+            this.cUa.setText(apa.getChannelName());
             this.cUc.aa(dVar);
             this.cUb.aa(dVar);
             f(dVar);
         }
     }
 
-    private void apn() {
+    private void apo() {
         if (!com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("is_channel_tips_have_show", false)) {
             if (this.cUg == null) {
                 this.cUg = (ViewStub) this.mRootView.findViewById(e.g.channel_home_header_tips);
@@ -128,13 +128,13 @@ public class f {
         al.i(this.aGE, e.f.icon_weiba);
     }
 
-    public int apo() {
+    public int app() {
         return this.cUd.getBottom();
     }
 
     public void e(com.baidu.tieba.channel.data.d dVar) {
         this.cUb.aa(dVar);
-        this.cTY.setText(this.mContext.getResources().getString(e.j.channel_subscribe_num, ao.G(dVar.aoZ().getFansCount())));
+        this.cTY.setText(this.mContext.getResources().getString(e.j.channel_subscribe_num, ao.G(dVar.apa().getFansCount())));
     }
 
     public void e(ChannelInfo channelInfo) {
@@ -147,11 +147,11 @@ public class f {
     }
 
     public void f(com.baidu.tieba.channel.data.d dVar) {
-        if (dVar == null || dVar.aoY() || dVar.aoZ() == null) {
+        if (dVar == null || dVar.aoZ() || dVar.apa() == null) {
             this.cUe.setVisibility(8);
             return;
         }
-        this.cUe.setText(this.mContext.getResources().getString(e.j.channel_home_video_count, Integer.valueOf(dVar.aoZ().getVideoCount())));
+        this.cUe.setText(this.mContext.getResources().getString(e.j.channel_home_video_count, Integer.valueOf(dVar.apa().getVideoCount())));
         this.cUe.setVisibility(0);
     }
 }

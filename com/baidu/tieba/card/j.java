@@ -73,7 +73,7 @@ public class j extends b<com.baidu.tieba.card.data.g> {
         this.cKA.addView(this.cMk);
         this.cMk.setSelector(e.f.list_selector_transparent);
         this.cMk.setPadding(tbPageContext.getResources().getDimensionPixelSize(e.C0175e.ds4), 0, tbPageContext.getResources().getDimensionPixelSize(e.C0175e.ds4), 0);
-        anU();
+        anV();
         if (this.cMl == null) {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < 10; i++) {
@@ -136,7 +136,7 @@ public class j extends b<com.baidu.tieba.card.data.g> {
             gVar.getDataList().clear();
             gVar.getDataList().addAll(arrayList.subList(0, 10));
         }
-        this.cMs = gVar.aoH();
+        this.cMs = gVar.aoI();
         this.stType = gVar.getStType();
         if (!h(gVar.getDataList(), this.cMo)) {
             boolean z = com.baidu.tbadk.core.util.v.I(gVar.getDataList()) != com.baidu.tbadk.core.util.v.I(this.cMo);
@@ -223,7 +223,7 @@ public class j extends b<com.baidu.tieba.card.data.g> {
         return z2;
     }
 
-    private void anU() {
+    private void anV() {
         this.aOJ = new View.OnClickListener() { // from class: com.baidu.tieba.card.j.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -234,7 +234,7 @@ public class j extends b<com.baidu.tieba.card.data.g> {
                             String valueOf = String.valueOf(view.getTag(e.g.tag_forum_id));
                             if (ao.bv(str)) {
                                 j.this.aGV.cF(str, valueOf);
-                                TiebaStatic.log(new am(j.this.biR).ax(ImageViewerConfig.FORUM_ID, valueOf).ax("obj_param3", o.aof()));
+                                TiebaStatic.log(new am(j.this.biR).ax(ImageViewerConfig.FORUM_ID, valueOf).ax("obj_param3", o.aog()));
                             }
                         }
                     } else if (view.getTag(e.g.tag_forum_name) != null) {
@@ -242,9 +242,9 @@ public class j extends b<com.baidu.tieba.card.data.g> {
                         String valueOf2 = String.valueOf(view.getTag(e.g.tag_forum_id));
                         if (ao.bv(str2)) {
                             if (view.getId() == e.g.m_forum_name_textview) {
-                                TiebaStatic.log(new am(j.this.cMr).ax(ImageViewerConfig.FORUM_ID, valueOf2).ax("obj_param3", o.aof()));
+                                TiebaStatic.log(new am(j.this.cMr).ax(ImageViewerConfig.FORUM_ID, valueOf2).ax("obj_param3", o.aog()));
                             } else {
-                                TiebaStatic.log(new am(j.this.cMq).ax(ImageViewerConfig.FORUM_ID, valueOf2).ax("obj_param3", o.aof()));
+                                TiebaStatic.log(new am(j.this.cMq).ax(ImageViewerConfig.FORUM_ID, valueOf2).ax("obj_param3", o.aog()));
                             }
                             if (!StringUtils.isNull(j.this.stType) && !StringUtils.isNull(j.this.cMs)) {
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(j.this.getView().getContext()).createCfgForpersonalized(str2, j.this.stType, j.this.cMs)));

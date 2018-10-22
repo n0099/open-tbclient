@@ -2,7 +2,7 @@ package com.baidu.tieba.pbextra.praise;
 /* loaded from: classes3.dex */
 public class a {
     private String chW;
-    private long ghd;
+    private long ghe;
     private String mPortrait;
     private String mUserId;
     private String mUserName;
@@ -12,12 +12,12 @@ public class a {
         this.mUserName = null;
         this.mPortrait = null;
         this.chW = null;
-        this.ghd = 0L;
+        this.ghe = 0L;
         this.mUserId = str;
         this.mUserName = str2;
         this.mPortrait = str3;
         this.chW = str4;
-        this.ghd = j;
+        this.ghe = j;
     }
 
     public String getUserId() {
@@ -37,6 +37,6 @@ public class a {
     }
 
     public long bmV() {
-        return this.ghd;
+        return this.ghe;
     }
 }

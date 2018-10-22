@@ -16,16 +16,16 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class StatFsHelper {
-    private static StatFsHelper hXu;
-    private static final long hXv = TimeUnit.MINUTES.toMillis(2);
+    private static StatFsHelper hXv;
+    private static final long hXw = TimeUnit.MINUTES.toMillis(2);
+    private volatile File hXA;
     @GuardedBy("lock")
-    private long hXA;
-    private volatile File hXx;
-    private volatile File hXz;
-    private volatile StatFs hXw = null;
-    private volatile StatFs hXy = null;
-    private volatile boolean hWq = false;
-    private final Lock hXB = new ReentrantLock();
+    private long hXB;
+    private volatile File hXy;
+    private volatile StatFs hXx = null;
+    private volatile StatFs hXz = null;
+    private volatile boolean hWr = false;
+    private final Lock hXC = new ReentrantLock();
 
     /* loaded from: classes2.dex */
     public enum StorageType {
@@ -36,10 +36,10 @@ public class StatFsHelper {
     public static synchronized StatFsHelper bRW() {
         StatFsHelper statFsHelper;
         synchronized (StatFsHelper.class) {
-            if (hXu == null) {
-                hXu = new StatFsHelper();
+            if (hXv == null) {
+                hXv = new StatFsHelper();
             }
-            statFsHelper = hXu;
+            statFsHelper = hXv;
         }
         return statFsHelper;
     }
@@ -48,17 +48,17 @@ public class StatFsHelper {
     }
 
     private void bRX() {
-        if (!this.hWq) {
-            this.hXB.lock();
+        if (!this.hWr) {
+            this.hXC.lock();
             try {
-                if (!this.hWq) {
-                    this.hXx = Environment.getDataDirectory();
-                    this.hXz = Environment.getExternalStorageDirectory();
+                if (!this.hWr) {
+                    this.hXy = Environment.getDataDirectory();
+                    this.hXA = Environment.getExternalStorageDirectory();
                     bRZ();
-                    this.hWq = true;
+                    this.hWr = true;
                 }
             } finally {
-                this.hXB.unlock();
+                this.hXC.unlock();
             }
         }
     }
@@ -75,7 +75,7 @@ public class StatFsHelper {
         long availableBlocks;
         bRX();
         bRY();
-        StatFs statFs = storageType == StorageType.INTERNAL ? this.hXw : this.hXy;
+        StatFs statFs = storageType == StorageType.INTERNAL ? this.hXx : this.hXz;
         if (statFs != null) {
             if (Build.VERSION.SDK_INT >= 18) {
                 blockSize = statFs.getBlockSizeLong();
@@ -90,22 +90,22 @@ public class StatFsHelper {
     }
 
     private void bRY() {
-        if (this.hXB.tryLock()) {
+        if (this.hXC.tryLock()) {
             try {
-                if (SystemClock.uptimeMillis() - this.hXA > hXv) {
+                if (SystemClock.uptimeMillis() - this.hXB > hXw) {
                     bRZ();
                 }
             } finally {
-                this.hXB.unlock();
+                this.hXC.unlock();
             }
         }
     }
 
     @GuardedBy("lock")
     private void bRZ() {
-        this.hXw = a(this.hXw, this.hXx);
-        this.hXy = a(this.hXy, this.hXz);
-        this.hXA = SystemClock.uptimeMillis();
+        this.hXx = a(this.hXx, this.hXy);
+        this.hXz = a(this.hXz, this.hXA);
+        this.hXB = SystemClock.uptimeMillis();
     }
 
     private StatFs a(@Nullable StatFs statFs, @Nullable File file) {

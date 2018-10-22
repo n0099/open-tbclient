@@ -31,7 +31,7 @@ public class e extends d {
     protected void ag(bb bbVar) {
         if (bbVar != null && !StringUtils.isNull(bbVar.getTid())) {
             if (getView() != null) {
-                getView().setOnClickListener(this.ejl);
+                getView().setOnClickListener(this.ejm);
             }
             this.cNM.setData(bbVar);
         }
@@ -39,8 +39,8 @@ public class e extends d {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.homepage.concern.view.d
-    public void anT() {
-        super.anT();
+    public void anU() {
+        super.anU();
         this.cNM.fZ(this.bIV.getId());
     }
 

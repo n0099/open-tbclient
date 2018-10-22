@@ -8,10 +8,10 @@ public class c {
     private com.baidu.adp.lib.cache.l<byte[]> bLr;
 
     public c() {
-        ayd();
+        aye();
     }
 
-    public void ayd() {
+    public void aye() {
         if (this.bLr == null) {
             this.bLr = com.baidu.tbadk.core.c.a.Aq().ef("tb.im_frsgroup");
         }
@@ -30,7 +30,7 @@ public class c {
 
     public void a(int i, String str, byte[] bArr) {
         if (!StringUtils.isNull(str)) {
-            ayd();
+            aye();
             this.bLr.a("frs_group_" + i + BaseRequestAction.SPLITE + str, bArr, 604800000L);
         }
     }

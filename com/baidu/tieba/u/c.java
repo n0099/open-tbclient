@@ -11,18 +11,18 @@ import com.baidu.tieba.u.b;
 import java.io.File;
 /* loaded from: classes.dex */
 public class c {
-    private String hDm;
+    private String hDn;
     private String mVideoPath;
     private boolean isLoading = false;
-    private b.a hDl = new b.a() { // from class: com.baidu.tieba.u.c.1
+    private b.a hDm = new b.a() { // from class: com.baidu.tieba.u.c.1
         @Override // com.baidu.tieba.u.b.a
         public void a(boolean z, String str, String str2) {
             c.this.isLoading = false;
             if (z) {
                 c.this.mVideoPath = str;
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_path", c.this.mVideoPath);
-                c.this.hDm = str2;
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_url", c.this.hDm);
+                c.this.hDn = str2;
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_url", c.this.hDn);
             }
         }
     };
@@ -45,7 +45,7 @@ public class c {
 
     private void init() {
         this.isLoading = false;
-        this.hDm = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_video_splash_url", null);
+        this.hDn = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_video_splash_url", null);
         this.mVideoPath = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_video_splash_path", null);
         MessageManager.getInstance().registerListener(this.ajQ);
     }
@@ -59,7 +59,7 @@ public class c {
 
     private void wC(String str) {
         this.isLoading = true;
-        new b(getPath(), str, this.hDl).execute(new Void[0]);
+        new b(getPath(), str, this.hDm).execute(new Void[0]);
     }
 
     public boolean bKo() {
@@ -69,8 +69,8 @@ public class c {
         if (!new File(getVideoPath()).exists()) {
             this.mVideoPath = null;
             com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_path", this.mVideoPath);
-            this.hDm = null;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_url", this.hDm);
+            this.hDn = null;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_url", this.hDn);
             return false;
         }
         return true;
@@ -85,13 +85,13 @@ public class c {
             l.x(new File(getPath()));
             this.mVideoPath = null;
             com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_path", this.mVideoPath);
-            this.hDm = null;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_url", this.hDm);
+            this.hDn = null;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_url", this.hDn);
         }
     }
 
     private boolean wD(String str) {
-        return (ao.isEmpty(str) || str.equals(this.hDm)) ? false : true;
+        return (ao.isEmpty(str) || str.equals(this.hDn)) ? false : true;
     }
 
     private String getPath() {

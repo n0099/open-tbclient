@@ -31,8 +31,8 @@ public class l extends com.baidu.tieba.frs.h<m, n> {
                 } else if (view.getId() == e.g.title_text_view) {
                     Object tag = view.getTag();
                     m mVar = ((tag instanceof Integer) && (l.this.getItem(((Integer) tag).intValue()) instanceof m)) ? (m) l.this.getItem(((Integer) tag).intValue()) : null;
-                    if (mVar != null && mVar.aym() != null) {
-                        String[] split = !StringUtils.isNull(mVar.aym().member_group_type) ? mVar.aym().member_group_type.split(BaseRequestAction.SPLITE) : null;
+                    if (mVar != null && mVar.ayn() != null) {
+                        String[] split = !StringUtils.isNull(mVar.ayn().member_group_type) ? mVar.ayn().member_group_type.split(BaseRequestAction.SPLITE) : null;
                         if (split == null || split.length != 2) {
                             str = "";
                         } else {
@@ -61,18 +61,18 @@ public class l extends com.baidu.tieba.frs.h<m, n> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, m mVar, n nVar) {
         super.onFillViewHolder(i, view, viewGroup, mVar, nVar);
-        if (mVar != null && mVar.aym() != null) {
-            MemberGroupInfo aym = mVar.aym();
-            if (aym.member_group_list != null && aym.member_group_list.size() > 0 && !StringUtils.isNull(aym.member_group_type)) {
+        if (mVar != null && mVar.ayn() != null) {
+            MemberGroupInfo ayn = mVar.ayn();
+            if (ayn.member_group_list != null && ayn.member_group_list.size() > 0 && !StringUtils.isNull(ayn.member_group_type)) {
                 nVar.mTitleView.setTag(Integer.valueOf(i));
                 String str = "";
-                String[] split = !StringUtils.isNull(aym.member_group_type) ? aym.member_group_type.split(BaseRequestAction.SPLITE) : null;
+                String[] split = !StringUtils.isNull(ayn.member_group_type) ? ayn.member_group_type.split(BaseRequestAction.SPLITE) : null;
                 if (split != null && split.length == 2) {
                     str = split[1];
                 }
-                nVar.mTitleView.setText(str + "(" + aym.member_group_num + ")");
+                nVar.mTitleView.setText(str + "(" + ayn.member_group_num + ")");
                 int i2 = 0;
-                for (BawuRoleInfoPub bawuRoleInfoPub : aym.member_group_list) {
+                for (BawuRoleInfoPub bawuRoleInfoPub : ayn.member_group_list) {
                     if (i2 > 3) {
                         break;
                     } else if (bawuRoleInfoPub != null) {

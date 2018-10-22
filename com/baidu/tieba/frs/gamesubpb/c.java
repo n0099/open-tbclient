@@ -26,11 +26,11 @@ public class c {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void aDQ();
-
         void aDR();
 
-        boolean aDS();
+        void aDS();
+
+        boolean aDT();
     }
 
     public c(BaseActivity baseActivity, View view, NavigationBar navigationBar) {
@@ -55,7 +55,7 @@ public class c {
         this.bYq.a(new a.InterfaceC0179a() { // from class: com.baidu.tieba.frs.gamesubpb.c.3
             @Override // com.baidu.tieba.f.a.InterfaceC0179a
             public void af(int i, int i2) {
-                if (c.this.dOR != null && c.this.dOR.aDS() && Math.abs(i2) > c.TOUCH_SLOP) {
+                if (c.this.dOR != null && c.this.dOR.aDT() && Math.abs(i2) > c.TOUCH_SLOP) {
                     if (c.this.dOP != null) {
                         c.this.dOP.setBackgroundResource(e.d.transparent);
                     }
@@ -65,7 +65,7 @@ public class c {
 
             @Override // com.baidu.tieba.f.a.InterfaceC0179a
             public void ag(int i, int i2) {
-                c.this.aDT();
+                c.this.aDU();
             }
 
             @Override // com.baidu.tieba.f.a.InterfaceC0179a
@@ -74,18 +74,18 @@ public class c {
         });
     }
 
-    public void aDT() {
+    public void aDU() {
         if (this.dOS && this.mNavigationBar != null && this.dOP != null && this.dOP.getVisibility() == 0) {
             this.mNavigationBar.setStatusBarVisibility(0);
             this.bwX.setExcludeHeight(0);
             if (this.dOR != null) {
-                this.dOR.aDQ();
+                this.dOR.aDR();
             }
-            this.dOP.aEa();
+            this.dOP.aEb();
         }
     }
 
-    public void aDU() {
+    public void aDV() {
         ViewGroup viewGroup;
         if (!this.dOS && (viewGroup = (ViewGroup) this.bwX.findViewById(16908290)) != null && (viewGroup.getParent() instanceof LinearLayout)) {
             this.dOP = new BlankView(this.bwX.getPageContext().getPageActivity());
@@ -100,13 +100,13 @@ public class c {
             });
             this.dOP.setScrollCallBack(new BlankView.a() { // from class: com.baidu.tieba.frs.gamesubpb.c.5
                 @Override // com.baidu.tieba.frs.gamesubpb.view.BlankView.a
-                public void aDW() {
+                public void aDX() {
                     if (c.this.dOP != null) {
                         c.this.dOP.setVisibility(8);
                     }
                     c.this.dOS = false;
                     if (c.this.dOR != null) {
-                        c.this.dOR.aDR();
+                        c.this.dOR.aDS();
                     }
                 }
             });
@@ -119,7 +119,7 @@ public class c {
         this.dOR = aVar;
     }
 
-    public boolean aDV() {
+    public boolean aDW() {
         return this.dOS;
     }
 

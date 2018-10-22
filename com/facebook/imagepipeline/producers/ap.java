@@ -1,12 +1,12 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes2.dex */
 public class ap<T> implements ai<T> {
-    private final aq iec;
-    private final ai<T> igI;
+    private final aq ied;
+    private final ai<T> igJ;
 
     public ap(ai<T> aiVar, aq aqVar) {
-        this.igI = (ai) com.facebook.common.internal.g.checkNotNull(aiVar);
-        this.iec = aqVar;
+        this.igJ = (ai) com.facebook.common.internal.g.checkNotNull(aiVar);
+        this.ied = aqVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
@@ -18,7 +18,7 @@ public class ap<T> implements ai<T> {
             @Override // com.facebook.imagepipeline.producers.ao, com.facebook.common.b.e
             public void onSuccess(T t) {
                 bXr.a(id, "BackgroundThreadHandoffProducer", null);
-                ap.this.igI.a(jVar, ajVar);
+                ap.this.igJ.a(jVar, ajVar);
             }
 
             @Override // com.facebook.imagepipeline.producers.ao, com.facebook.common.b.e
@@ -34,9 +34,9 @@ public class ap<T> implements ai<T> {
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
             public void bXx() {
                 aoVar.cancel();
-                ap.this.iec.remove(aoVar);
+                ap.this.ied.remove(aoVar);
             }
         });
-        this.iec.m(aoVar);
+        this.ied.m(aoVar);
     }
 }

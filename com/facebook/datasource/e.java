@@ -7,11 +7,11 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class e<T> implements i<b<T>> {
-    private final List<i<b<T>>> hYg;
+    private final List<i<b<T>>> hYh;
 
     private e(List<i<b<T>>> list) {
         com.facebook.common.internal.g.checkArgument(!list.isEmpty(), "List of suppliers is empty!");
-        this.hYg = list;
+        this.hYh = list;
     }
 
     public static <T> e<T> eo(List<i<b<T>>> list) {
@@ -26,7 +26,7 @@ public class e<T> implements i<b<T>> {
     }
 
     public int hashCode() {
-        return this.hYg.hashCode();
+        return this.hYh.hashCode();
     }
 
     public boolean equals(Object obj) {
@@ -36,11 +36,11 @@ public class e<T> implements i<b<T>> {
         if (!(obj instanceof e)) {
             return false;
         }
-        return com.facebook.common.internal.f.equal(this.hYg, ((e) obj).hYg);
+        return com.facebook.common.internal.f.equal(this.hYh, ((e) obj).hYh);
     }
 
     public String toString() {
-        return com.facebook.common.internal.f.ao(this).n("list", this.hYg).toString();
+        return com.facebook.common.internal.f.ao(this).n("list", this.hYh).toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -48,8 +48,8 @@ public class e<T> implements i<b<T>> {
     /* loaded from: classes2.dex */
     public class a extends AbstractDataSource<T> {
         private int mIndex = 0;
-        private b<T> hYh = null;
         private b<T> hYi = null;
+        private b<T> hYj = null;
 
         public a() {
             if (!bSm()) {
@@ -81,10 +81,10 @@ public class e<T> implements i<b<T>> {
                 if (!super.bSh()) {
                     return false;
                 }
-                b<T> bVar = this.hYh;
-                this.hYh = null;
-                b<T> bVar2 = this.hYi;
+                b<T> bVar = this.hYi;
                 this.hYi = null;
+                b<T> bVar2 = this.hYj;
+                this.hYj = null;
                 e(bVar2);
                 e(bVar);
                 return true;
@@ -105,10 +105,10 @@ public class e<T> implements i<b<T>> {
         @Nullable
         private synchronized i<b<T>> bSn() {
             i<b<T>> iVar;
-            if (isClosed() || this.mIndex >= e.this.hYg.size()) {
+            if (isClosed() || this.mIndex >= e.this.hYh.size()) {
                 iVar = null;
             } else {
-                List list = e.this.hYg;
+                List list = e.this.hYh;
                 int i = this.mIndex;
                 this.mIndex = i + 1;
                 iVar = (i) list.get(i);
@@ -121,7 +121,7 @@ public class e<T> implements i<b<T>> {
             if (isClosed()) {
                 z = false;
             } else {
-                this.hYh = bVar;
+                this.hYi = bVar;
                 z = true;
             }
             return z;
@@ -129,10 +129,10 @@ public class e<T> implements i<b<T>> {
 
         private synchronized boolean b(b<T> bVar) {
             boolean z;
-            if (isClosed() || bVar != this.hYh) {
+            if (isClosed() || bVar != this.hYi) {
                 z = false;
             } else {
-                this.hYh = null;
+                this.hYi = null;
                 z = true;
             }
             return z;
@@ -140,16 +140,16 @@ public class e<T> implements i<b<T>> {
 
         @Nullable
         private synchronized b<T> bSo() {
-            return this.hYi;
+            return this.hYj;
         }
 
         private void a(b<T> bVar, boolean z) {
             b<T> bVar2 = null;
             synchronized (this) {
-                if (bVar == this.hYh && bVar != this.hYi) {
-                    if (this.hYi == null || z) {
-                        bVar2 = this.hYi;
-                        this.hYi = bVar;
+                if (bVar == this.hYi && bVar != this.hYj) {
+                    if (this.hYj == null || z) {
+                        bVar2 = this.hYj;
+                        this.hYj = bVar;
                     }
                     e(bVar2);
                 }

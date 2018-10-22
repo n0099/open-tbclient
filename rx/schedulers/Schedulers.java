@@ -11,18 +11,18 @@ import rx.internal.schedulers.h;
 import rx.internal.schedulers.j;
 /* loaded from: classes2.dex */
 public final class Schedulers {
-    private static final AtomicReference<Schedulers> iFe = new AtomicReference<>();
-    private final g iFb;
+    private static final AtomicReference<Schedulers> iFf = new AtomicReference<>();
     private final g iFc;
     private final g iFd;
+    private final g iFe;
 
     private static Schedulers cdF() {
         Schedulers schedulers;
         while (true) {
-            schedulers = iFe.get();
+            schedulers = iFf.get();
             if (schedulers == null) {
                 schedulers = new Schedulers();
-                if (iFe.compareAndSet(null, schedulers)) {
+                if (iFf.compareAndSet(null, schedulers)) {
                     break;
                 }
                 schedulers.cdH();
@@ -37,42 +37,42 @@ public final class Schedulers {
         rx.c.g cdw = f.cdr().cdw();
         g cdA = cdw.cdA();
         if (cdA != null) {
-            this.iFb = cdA;
+            this.iFc = cdA;
         } else {
-            this.iFb = rx.c.g.cdx();
+            this.iFc = rx.c.g.cdx();
         }
         g cdB = cdw.cdB();
         if (cdB != null) {
-            this.iFc = cdB;
+            this.iFd = cdB;
         } else {
-            this.iFc = rx.c.g.cdy();
+            this.iFd = rx.c.g.cdy();
         }
         g cdC = cdw.cdC();
         if (cdC != null) {
-            this.iFd = cdC;
+            this.iFe = cdC;
         } else {
-            this.iFd = rx.c.g.cdz();
+            this.iFe = rx.c.g.cdz();
         }
     }
 
     public static g immediate() {
-        return e.iCn;
+        return e.iCo;
     }
 
     public static g trampoline() {
-        return j.iCN;
+        return j.iCO;
     }
 
     public static g newThread() {
-        return c.f(cdF().iFd);
+        return c.f(cdF().iFe);
     }
 
     public static g computation() {
-        return c.d(cdF().iFb);
+        return c.d(cdF().iFc);
     }
 
     public static g io() {
-        return c.e(cdF().iFc);
+        return c.e(cdF().iFd);
     }
 
     public static TestScheduler test() {
@@ -84,7 +84,7 @@ public final class Schedulers {
     }
 
     public static void reset() {
-        Schedulers andSet = iFe.getAndSet(null);
+        Schedulers andSet = iFf.getAndSet(null);
         if (andSet != null) {
             andSet.cdH();
         }
@@ -94,7 +94,7 @@ public final class Schedulers {
         Schedulers cdF = cdF();
         cdF.cdG();
         synchronized (cdF) {
-            d.iCk.start();
+            d.iCl.start();
         }
     }
 
@@ -102,31 +102,31 @@ public final class Schedulers {
         Schedulers cdF = cdF();
         cdF.cdH();
         synchronized (cdF) {
-            d.iCk.shutdown();
+            d.iCl.shutdown();
         }
     }
 
     synchronized void cdG() {
-        if (this.iFb instanceof h) {
-            ((h) this.iFb).start();
-        }
         if (this.iFc instanceof h) {
             ((h) this.iFc).start();
         }
         if (this.iFd instanceof h) {
             ((h) this.iFd).start();
         }
+        if (this.iFe instanceof h) {
+            ((h) this.iFe).start();
+        }
     }
 
     synchronized void cdH() {
-        if (this.iFb instanceof h) {
-            ((h) this.iFb).shutdown();
-        }
         if (this.iFc instanceof h) {
             ((h) this.iFc).shutdown();
         }
         if (this.iFd instanceof h) {
             ((h) this.iFd).shutdown();
+        }
+        if (this.iFe instanceof h) {
+            ((h) this.iFe).shutdown();
         }
     }
 }

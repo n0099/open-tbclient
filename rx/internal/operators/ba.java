@@ -4,12 +4,12 @@ import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
 /* loaded from: classes2.dex */
 public class ba<T> implements d.b<T, T> {
-    final rx.functions.b<? super T> ixA;
+    final rx.functions.b<? super T> ixB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        static final ba<Object> ixD = new ba<>();
+        static final ba<Object> ixE = new ba<>();
     }
 
     @Override // rx.functions.f
@@ -18,7 +18,7 @@ public class ba<T> implements d.b<T, T> {
     }
 
     public static <T> ba<T> ccl() {
-        return (ba<T>) a.ixD;
+        return (ba<T>) a.ixE;
     }
 
     ba() {
@@ -26,7 +26,7 @@ public class ba<T> implements d.b<T, T> {
     }
 
     public ba(rx.functions.b<? super T> bVar) {
-        this.ixA = bVar;
+        this.ixB = bVar;
     }
 
     /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: rx.j<T>, rx.j<? super T> */
@@ -70,9 +70,9 @@ public class ba<T> implements d.b<T, T> {
                     if (atomicLong.get() > 0) {
                         jVar.onNext(t);
                         atomicLong.decrementAndGet();
-                    } else if (ba.this.ixA != null) {
+                    } else if (ba.this.ixB != null) {
                         try {
-                            ba.this.ixA.call(t);
+                            ba.this.ixB.call(t);
                         } catch (Throwable th) {
                             rx.exceptions.a.a(th, this, t);
                         }

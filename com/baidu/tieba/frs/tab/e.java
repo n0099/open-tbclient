@@ -19,12 +19,12 @@ import com.baidu.tieba.frs.au;
 /* loaded from: classes6.dex */
 public class e {
     private MorePopupWindow aiH;
-    private b dUe;
-    private a dUf;
-    private au dUq;
-    private View dUr;
-    private SparseArray<com.baidu.tieba.frs.tab.a> dUs = new SparseArray<>();
-    private com.baidu.tieba.frs.tab.a dUt;
+    private b dUf;
+    private a dUg;
+    private au dUr;
+    private View dUs;
+    private SparseArray<com.baidu.tieba.frs.tab.a> dUt = new SparseArray<>();
+    private com.baidu.tieba.frs.tab.a dUu;
     private LinearLayout dkp;
     private Context mContext;
 
@@ -41,20 +41,20 @@ public class e {
     /* loaded from: classes6.dex */
     public static class c {
         public TextView bKH;
-        public ImageView dUw;
-        public View dUx;
+        public ImageView dUx;
         public View dUy;
+        public View dUz;
     }
 
     public e(Context context, b bVar, a aVar) {
         this.mContext = context;
-        this.dUe = bVar;
-        this.dUf = aVar;
+        this.dUf = bVar;
+        this.dUg = aVar;
         this.dkp = new LinearLayout(context);
         this.dkp.setOrientation(1);
         this.dkp.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        this.dUr = new View(context);
-        this.dUr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.tab.e.1
+        this.dUs = new View(context);
+        this.dUs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.tab.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 com.baidu.adp.lib.g.g.a(e.this.aiH);
@@ -80,22 +80,22 @@ public class e {
         this.aiH.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.frs.tab.e.3
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
-                if (e.this.dUf != null) {
-                    e.this.dUf.a(tabItemView);
+                if (e.this.dUg != null) {
+                    e.this.dUg.a(tabItemView);
                 }
             }
         });
     }
 
     public void a(Activity activity, View view, TabItemView tabItemView, au auVar) {
-        this.dUq = auVar;
-        this.dUt = this.dUs.get(this.dUq.dDD);
-        if (this.dUt == null) {
-            this.dUt = h.mI(this.dUq.dDD);
-            this.dUt.a(this.mContext, this);
-            this.dUs.put(this.dUq.dDD, this.dUt);
+        this.dUr = auVar;
+        this.dUu = this.dUt.get(this.dUr.dDD);
+        if (this.dUu == null) {
+            this.dUu = h.mI(this.dUr.dDD);
+            this.dUu.a(this.mContext, this);
+            this.dUt.put(this.dUr.dDD, this.dUu);
         }
-        this.dUt.setData(auVar.dDE);
+        this.dUu.setData(auVar.dDE);
         if (view instanceof HorizontalTabView) {
             HorizontalTabView horizontalTabView = (HorizontalTabView) view;
             if (horizontalTabView.getmShowMenuCallBack() != null) {
@@ -103,7 +103,7 @@ public class e {
                 horizontalTabView.getLocationInWindow(iArr);
                 l.aP(horizontalTabView.getContext());
                 int aQ = l.aQ(horizontalTabView.getContext());
-                int aFF = this.dUt.aFF();
+                int aFF = this.dUu.aFF();
                 int measuredHeight = (aQ - iArr[1]) - horizontalTabView.getMeasuredHeight();
                 if (measuredHeight < aFF) {
                     horizontalTabView.getmShowMenuCallBack().mF(aFF - measuredHeight);
@@ -111,10 +111,10 @@ public class e {
             }
         }
         this.dkp.removeAllViews();
-        this.dkp.addView(this.dUt.getView());
+        this.dkp.addView(this.dUu.getView());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        al.i(this.dUr, e.d.common_color_10050);
-        this.dkp.addView(this.dUr, layoutParams);
+        al.i(this.dUs, e.d.common_color_10050);
+        this.dkp.addView(this.dUs, layoutParams);
         a(activity, view, tabItemView);
         if (this.aiH != null) {
             this.aiH.refresh();
@@ -135,6 +135,6 @@ public class e {
     }
 
     public b aFH() {
-        return this.dUe;
+        return this.dUf;
     }
 }

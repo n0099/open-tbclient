@@ -25,13 +25,13 @@ public abstract class InvoiceBaseInfoView extends LinearLayout implements f {
     }
 
     @Override // com.baidu.tieba.aiapps.apps.invoice.f
-    public boolean Xk() {
+    public boolean Xl() {
         InvoiceInfoItemView[] invoiceInfoItemViewArr;
         if (this.bCY == null || this.bCY.length == 0) {
             return false;
         }
         for (InvoiceInfoItemView invoiceInfoItemView : this.bCY) {
-            if (invoiceInfoItemView.Xo() && TextUtils.isEmpty(invoiceInfoItemView.getContent())) {
+            if (invoiceInfoItemView.Xp() && TextUtils.isEmpty(invoiceInfoItemView.getContent())) {
                 return false;
             }
         }
@@ -39,7 +39,7 @@ public abstract class InvoiceBaseInfoView extends LinearLayout implements f {
     }
 
     @Override // com.baidu.tieba.aiapps.apps.invoice.f
-    public boolean Xl() {
+    public boolean Xm() {
         if (this.bCY == null || this.bCY.length == 0) {
             return false;
         }

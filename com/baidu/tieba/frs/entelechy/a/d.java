@@ -82,14 +82,14 @@ public class d extends com.baidu.tieba.frs.h<bb, a<Object>> implements com.baidu
         }
         z zVar = new z();
         zVar.mLocate = bbVar.zo() ? "3" : "2";
-        if (this.dIB.dTF == 501) {
+        if (this.dIB.dTG == 501) {
             zVar.mLocate = "frs_tab";
         }
-        zVar.cQb = this.dIB.dTE;
+        zVar.cQb = this.dIB.dTF;
         zVar.beh = bbVar.getTid();
-        zVar.gwy = bbVar.mRecomAbTag;
+        zVar.gwz = bbVar.mRecomAbTag;
         if (bbVar.yN() != null) {
-            zVar.gwz = bbVar.yN().video_md5;
+            zVar.gwA = bbVar.yN().video_md5;
         }
         bbVar.zs();
         return zVar;
@@ -100,23 +100,23 @@ public class d extends com.baidu.tieba.frs.h<bb, a<Object>> implements com.baidu
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bb bbVar, a aVar) {
-        if (aVar == null || aVar.aoP() == null) {
+        if (aVar == null || aVar.aoQ() == null) {
             return null;
         }
-        if (aVar.aoP() instanceof com.baidu.tieba.a.e) {
-            aVar.aoP().setPage(this.bVS);
+        if (aVar.aoQ() instanceof com.baidu.tieba.a.e) {
+            aVar.aoQ().setPage(this.bVS);
         }
-        com.baidu.tieba.frs.g.a(aVar.aoP().aaX(), this.dzP);
-        aVar.aoP().setVideoStatsData(X(bbVar));
-        aVar.aoP().a(bbVar);
-        aVar.aoP().b(this.bVT);
+        com.baidu.tieba.frs.g.a(aVar.aoQ().aaY(), this.dzP);
+        aVar.aoQ().setVideoStatsData(X(bbVar));
+        aVar.aoQ().a(bbVar);
+        aVar.aoQ().b(this.bVT);
         if (this.dzP != null) {
-            aVar.aoP().dJD = this.dzP.hbl;
+            aVar.aoQ().dJD = this.dzP.hbm;
         } else {
-            aVar.aoP().dJD = this.dGU;
+            aVar.aoQ().dJD = this.dGU;
         }
         if (this.dIB != null) {
-            aVar.aoP().dJE = this.dIB.dTF;
+            aVar.aoQ().dJE = this.dIB.dTG;
         }
         com.baidu.tieba.frs.e.b.aFC().a(this.dIB, bbVar);
         return aVar.getView();
@@ -151,7 +151,7 @@ public class d extends com.baidu.tieba.frs.h<bb, a<Object>> implements com.baidu
     }
 
     @Override // com.baidu.tieba.frs.e.c
-    public com.baidu.tieba.frs.e.a aCM() {
+    public com.baidu.tieba.frs.e.a aCN() {
         return this.dIB;
     }
 }

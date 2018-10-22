@@ -15,16 +15,16 @@ import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes4.dex */
 public class j implements com.baidu.tbadk.mvc.b.j {
     protected boolean Jo;
-    protected ArrayList<FeedData> eWz = new ArrayList<>();
-    protected al eWA = new al();
-    protected h eWB = new h();
+    protected ArrayList<FeedData> eWA = new ArrayList<>();
+    protected al eWB = new al();
+    protected h eWC = new h();
 
     public ArrayList<FeedData> aUH() {
-        return this.eWz;
+        return this.eWA;
     }
 
     public al xH() {
-        return this.eWA;
+        return this.eWB;
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
@@ -36,14 +36,14 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.eWz.add(feedData);
+                    this.eWA.add(feedData);
                     if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.I(feedData.getPraiseList()) == 0) {
-                        this.eWz.remove(feedData);
+                        this.eWA.remove(feedData);
                     }
                 }
             }
-            this.eWB.parserJson(jSONObject.optJSONObject("message"));
-            this.eWA.parserJson(jSONObject.optJSONObject(SystemScreenshotManager.PAGE));
+            this.eWC.parserJson(jSONObject.optJSONObject("message"));
+            this.eWB.parserJson(jSONObject.optJSONObject(SystemScreenshotManager.PAGE));
             this.Jo = true;
         } catch (Exception e) {
             this.Jo = false;
@@ -61,13 +61,13 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.eWz.add(feedData);
+                        this.eWA.add(feedData);
                         if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.I(feedData.getPraiseList()) == 0) {
-                            this.eWz.remove(feedData);
+                            this.eWA.remove(feedData);
                         }
                     }
                 }
-                this.eWA.a(dataRes.page);
+                this.eWB.a(dataRes.page);
                 this.Jo = true;
             } catch (Exception e) {
                 this.Jo = false;

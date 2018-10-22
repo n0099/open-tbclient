@@ -26,7 +26,7 @@ public class ae {
         }
     }
 
-    public List<com.baidu.tbadk.mainTab.b> azj() {
+    public List<com.baidu.tbadk.mainTab.b> azk() {
         return this.dzD;
     }
 

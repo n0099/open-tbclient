@@ -22,7 +22,7 @@ public class e {
     private ArrayList<com.baidu.tbadk.editortools.emotiontool.c> dfH = new ArrayList<>();
     private final List<com.baidu.tbadk.editortools.emotiontool.a> dfI = new ArrayList();
 
-    public static e atw() {
+    public static e atx() {
         return dfG;
     }
 
@@ -38,7 +38,7 @@ public class e {
         }
     }
 
-    public void atx() {
+    public void aty() {
         new a().execute(new Void[0]);
     }
 
@@ -192,8 +192,8 @@ public class e {
     }
 
     public String G(String str, boolean z) {
-        if (!d.atv().isEmpty()) {
-            List<com.baidu.tbadk.editortools.emotiontool.c> groups = d.atv().getGroups();
+        if (!d.atw().isEmpty()) {
+            List<com.baidu.tbadk.editortools.emotiontool.c> groups = d.atw().getGroups();
             if (z) {
                 for (com.baidu.tbadk.editortools.emotiontool.c cVar : groups) {
                     if (cVar.hn(str)) {
@@ -217,7 +217,7 @@ public class e {
         }
     }
 
-    public ArrayList<com.baidu.tbadk.editortools.emotiontool.c> aty() {
+    public ArrayList<com.baidu.tbadk.editortools.emotiontool.c> atz() {
         return this.dfH;
     }
 

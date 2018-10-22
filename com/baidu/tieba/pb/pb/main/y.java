@@ -11,7 +11,6 @@ import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class y extends com.baidu.tbadk.core.dialog.b {
     private View.OnClickListener dxX;
-    private TextView fRb;
     private TextView fRc;
     private TextView fRd;
     private TextView fRe;
@@ -19,47 +18,48 @@ public class y extends com.baidu.tbadk.core.dialog.b {
     private TextView fRg;
     private TextView fRh;
     private TextView fRi;
-    private boolean fRj;
+    private TextView fRj;
+    private boolean fRk;
     private TbPageContext<?> mContext;
 
     public y(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
         super(tbPageContext.getPageActivity());
-        this.fRj = false;
+        this.fRk = false;
         this.mContext = tbPageContext;
         this.dxX = onClickListener;
         createDialog();
     }
 
     public TextView biB() {
-        return this.fRb;
-    }
-
-    public TextView biC() {
         return this.fRc;
     }
 
-    public TextView biD() {
+    public TextView biC() {
         return this.fRd;
     }
 
-    public TextView biE() {
+    public TextView biD() {
         return this.fRe;
     }
 
-    public TextView biF() {
+    public TextView biE() {
         return this.fRf;
     }
 
-    public TextView biG() {
-        return this.fRi;
-    }
-
-    public TextView biH() {
+    public TextView biF() {
         return this.fRg;
     }
 
-    public TextView biI() {
+    public TextView biG() {
+        return this.fRj;
+    }
+
+    public TextView biH() {
         return this.fRh;
+    }
+
+    public TextView biI() {
+        return this.fRi;
     }
 
     private void createDialog() {
@@ -73,14 +73,14 @@ public class y extends com.baidu.tbadk.core.dialog.b {
             }
         });
         d(this.mContext);
-        this.fRi = by(cH(0));
-        this.fRb = by(cH(4));
-        this.fRc = by(cH(7));
-        this.fRd = by(cH(5));
-        this.fRe = by(cH(6));
-        this.fRf = by(cH(3));
-        this.fRg = by(cH(1));
-        this.fRh = by(cH(2));
+        this.fRj = by(cH(0));
+        this.fRc = by(cH(4));
+        this.fRd = by(cH(7));
+        this.fRe = by(cH(5));
+        this.fRf = by(cH(6));
+        this.fRg = by(cH(3));
+        this.fRh = by(cH(1));
+        this.fRi = by(cH(2));
     }
 
     public void showDialog() {
@@ -99,7 +99,7 @@ public class y extends com.baidu.tbadk.core.dialog.b {
     }
 
     public void kK(boolean z) {
-        this.fRd.setVisibility(z ? 0 : 8);
+        this.fRe.setVisibility(z ? 0 : 8);
     }
 
     public View getView() {

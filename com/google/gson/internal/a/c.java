@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public final class c extends o<Date> {
-    public static final p ilm = new p() { // from class: com.google.gson.internal.a.c.1
+    public static final p iln = new p() { // from class: com.google.gson.internal.a.c.1
         @Override // com.google.gson.p
         public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
             if (aVar.bZq() == Date.class) {
@@ -21,8 +21,8 @@ public final class c extends o<Date> {
             return null;
         }
     };
-    private final DateFormat ilr = DateFormat.getDateTimeInstance(2, 2, Locale.US);
-    private final DateFormat ils = DateFormat.getDateTimeInstance(2, 2);
+    private final DateFormat ils = DateFormat.getDateTimeInstance(2, 2, Locale.US);
+    private final DateFormat ilt = DateFormat.getDateTimeInstance(2, 2);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.o
@@ -38,10 +38,10 @@ public final class c extends o<Date> {
     private synchronized Date yK(String str) {
         Date parse;
         try {
-            parse = this.ils.parse(str);
+            parse = this.ilt.parse(str);
         } catch (ParseException e) {
             try {
-                parse = this.ilr.parse(str);
+                parse = this.ils.parse(str);
             } catch (ParseException e2) {
                 try {
                     parse = com.google.gson.internal.a.a.a.parse(str, new ParsePosition(0));
@@ -59,7 +59,7 @@ public final class c extends o<Date> {
         if (date == null) {
             bVar.bZp();
         } else {
-            bVar.yM(this.ilr.format(date));
+            bVar.yM(this.ils.format(date));
         }
     }
 }

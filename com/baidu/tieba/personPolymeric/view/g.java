@@ -10,8 +10,8 @@ import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.i> {
     private ImageView byJ;
-    private TextView eiC;
-    private String gra;
+    private TextView eiD;
+    private String grb;
     private View mRootView;
 
     public g(TbPageContext<?> tbPageContext) {
@@ -22,7 +22,7 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     private void init(View view) {
         this.mRootView = view.findViewById(e.g.card_null_polymeric_rootview);
         this.byJ = (ImageView) view.findViewById(e.g.card_null_polymeric_icon);
-        this.eiC = (TextView) view.findViewById(e.g.card_null_polymeric_txt);
+        this.eiD = (TextView) view.findViewById(e.g.card_null_polymeric_txt);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -30,7 +30,7 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mSkinType != i) {
             al.i(this.mRootView, e.d.cp_bg_line_d);
             al.c(this.byJ, e.f.emotion07);
-            al.c(this.eiC, e.d.cp_cont_c, 1);
+            al.c(this.eiD, e.d.cp_cont_c, 1);
         }
         this.mSkinType = i;
     }
@@ -51,8 +51,8 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        if (StringUtils.isNull(this.gra)) {
-            TextView textView = this.eiC;
+        if (StringUtils.isNull(this.grb)) {
+            TextView textView = this.eiD;
             String string2 = this.mContext.getString(e.j.person_polymeric_null_data);
             Object[] objArr = new Object[1];
             if (iVar.isHost) {
@@ -66,7 +66,7 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             textView.setText(String.format(string2, objArr));
             return;
         }
-        this.eiC.setText(this.gra);
+        this.eiD.setText(this.grb);
     }
 
     @Override // android.view.View.OnClickListener

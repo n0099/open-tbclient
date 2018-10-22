@@ -9,32 +9,32 @@ import java.util.Collection;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class e implements c {
-    private static final Class<?> hVB = e.class;
-    private final CacheErrorLogger hVG;
-    private final String hVQ;
-    private final com.facebook.common.internal.i<File> hVR;
-    volatile a hWs = new a(null, null);
+    private static final Class<?> hVC = e.class;
+    private final CacheErrorLogger hVH;
+    private final String hVR;
+    private final com.facebook.common.internal.i<File> hVS;
+    volatile a hWt = new a(null, null);
     private final int vx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class a {
         @Nullable
-        public final c hWt;
+        public final c hWu;
         @Nullable
-        public final File hWu;
+        public final File hWv;
 
         a(@Nullable File file, @Nullable c cVar) {
-            this.hWt = cVar;
-            this.hWu = file;
+            this.hWu = cVar;
+            this.hWv = file;
         }
     }
 
     public e(int i, com.facebook.common.internal.i<File> iVar, String str, CacheErrorLogger cacheErrorLogger) {
         this.vx = i;
-        this.hVG = cacheErrorLogger;
-        this.hVR = iVar;
-        this.hVQ = str;
+        this.hVH = cacheErrorLogger;
+        this.hVS = iVar;
+        this.hVR = str;
     }
 
     @Override // com.facebook.cache.disk.c
@@ -61,7 +61,7 @@ public class e implements c {
         try {
             bRq().bQU();
         } catch (IOException e) {
-            com.facebook.common.c.a.b(hVB, "purgeUnexpectedResources", (Throwable) e);
+            com.facebook.common.c.a.b(hVC, "purgeUnexpectedResources", (Throwable) e);
         }
     }
 
@@ -85,32 +85,32 @@ public class e implements c {
             bRs();
             bRt();
         }
-        return (c) com.facebook.common.internal.g.checkNotNull(this.hWs.hWt);
+        return (c) com.facebook.common.internal.g.checkNotNull(this.hWt.hWu);
     }
 
     private boolean bRr() {
-        a aVar = this.hWs;
-        return aVar.hWt == null || aVar.hWu == null || !aVar.hWu.exists();
+        a aVar = this.hWt;
+        return aVar.hWu == null || aVar.hWv == null || !aVar.hWv.exists();
     }
 
     void bRs() {
-        if (this.hWs.hWt != null && this.hWs.hWu != null) {
-            com.facebook.common.file.a.ab(this.hWs.hWu);
+        if (this.hWt.hWu != null && this.hWt.hWv != null) {
+            com.facebook.common.file.a.ab(this.hWt.hWv);
         }
     }
 
     private void bRt() throws IOException {
-        File file = new File(this.hVR.get(), this.hVQ);
+        File file = new File(this.hVS.get(), this.hVR);
         aa(file);
-        this.hWs = new a(file, new DefaultDiskStorage(file, this.vx, this.hVG));
+        this.hWt = new a(file, new DefaultDiskStorage(file, this.vx, this.hVH));
     }
 
     void aa(File file) throws IOException {
         try {
             FileUtils.ac(file);
-            com.facebook.common.c.a.b(hVB, "Created cache directory %s", file.getAbsolutePath());
+            com.facebook.common.c.a.b(hVC, "Created cache directory %s", file.getAbsolutePath());
         } catch (FileUtils.CreateDirectoryException e) {
-            this.hVG.a(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, hVB, "createRootDirectoryIfNecessary", e);
+            this.hVH.a(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, hVC, "createRootDirectoryIfNecessary", e);
             throw e;
         }
     }

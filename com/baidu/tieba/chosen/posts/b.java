@@ -42,7 +42,7 @@ public class b extends c<ChosenPostActivity> {
     int paddingHorizontal;
     int paddingTop;
 
-    protected k apA() {
+    protected k apB() {
         if (this.mPullView == null) {
             this.mPullView = new k(this.cUU.getPageContext());
         }
@@ -56,13 +56,13 @@ public class b extends c<ChosenPostActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View aaK() {
+    public View aaL() {
         this.mRootView = this.cUU.getLayoutInflater().inflate(e.h.chosen_post_activity, (ViewGroup) null);
         return this.mRootView;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void apB() {
+    public void apC() {
         this.paddingTop = this.cUU.getResources().getDimensionPixelSize(e.C0175e.ds108);
         this.paddingHorizontal = this.cUU.getResources().getDimensionPixelSize(e.C0175e.ds150);
         this.bzH = (NavigationBar) getView().findViewById(e.g.chosen_post_navigation_bar);
@@ -72,12 +72,12 @@ public class b extends c<ChosenPostActivity> {
         this.bTN = (NoNetworkView) getView().findViewById(e.g.view_no_network);
         this.cUW = new com.baidu.tieba.chosen.posts.a(this.cUU.getPageContext(), new Class[]{com.baidu.tieba.chosen.posts.a.c.class, com.baidu.tieba.chosen.posts.a.b.class, com.baidu.tieba.chosen.posts.a.a.class}, new int[]{e.h.chosen_picture_layout, e.h.chosen_no_picture_layout, e.h.chosen_image_text_layout}, this.cUU.Ny());
         this.cUV.setAdapter((ListAdapter) this.cUW);
-        this.mPullView = apA();
+        this.mPullView = apB();
         this.cUV.setPullRefresh(this.mPullView);
         this.mPullView.a(new j.b() { // from class: com.baidu.tieba.chosen.posts.b.1
             @Override // com.baidu.tbadk.core.view.j.b
             public void bp(boolean z) {
-                b.this.cUU.apv().fs(z);
+                b.this.cUU.apw().fs(z);
             }
         });
         this.cUV.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.chosen.posts.b.2
@@ -120,7 +120,7 @@ public class b extends c<ChosenPostActivity> {
             @Override // com.baidu.adp.widget.ListView.BdListView.f
             public void a(BdListView bdListView) {
                 if (l.lo()) {
-                    b.this.cUU.apv().apz();
+                    b.this.cUU.apw().apA();
                 } else if (b.this.cUX != null) {
                     b.this.cUX.pQ();
                     b.this.cUX.fE(e.j.no_more_msg);
@@ -133,7 +133,7 @@ public class b extends c<ChosenPostActivity> {
         this.bFV = new f(getActivity());
         this.bFV.onChangeSkinType();
         this.bFV.c(getView(), true);
-        this.cUU.apv().apy();
+        this.cUU.apw().apz();
     }
 
     public Activity getActivity() {
@@ -163,7 +163,7 @@ public class b extends c<ChosenPostActivity> {
         if (extra instanceof Long) {
             this.cUW.by(((Long) extra).longValue());
             if (this.cUW.getCount() <= 5) {
-                apC();
+                apD();
             }
         }
     }
@@ -223,20 +223,20 @@ public class b extends c<ChosenPostActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(com.baidu.tbadk.mvc.b.a aVar) {
         if (aVar instanceof com.baidu.tieba.chosen.posts.request.b) {
-            List<tinfo> apE = ((com.baidu.tieba.chosen.posts.request.b) aVar).apE();
-            if (apE != null && apE.size() > 0) {
+            List<tinfo> apF = ((com.baidu.tieba.chosen.posts.request.b) aVar).apF();
+            if (apF != null && apF.size() > 0) {
                 this.cUV.setVisibility(0);
             }
             if (this.bFV != null) {
                 this.bFV.ad(getView());
             }
             if (this.cUY) {
-                this.cUW.R(apE);
+                this.cUW.R(apF);
                 return;
             }
-            this.cUW.S(apE);
-            if (apE != null) {
-                BdToast a2 = BdToast.a(getActivity(), getActivity().getString(e.j.chosen_post_recommend, new Object[]{Integer.valueOf(apE.size())}), 0);
+            this.cUW.S(apF);
+            if (apF != null) {
+                BdToast a2 = BdToast.a(getActivity(), getActivity().getString(e.j.chosen_post_recommend, new Object[]{Integer.valueOf(apF.size())}), 0);
                 a2.cL(48);
                 a2.setOffsetY(this.paddingTop);
                 a2.cJ(this.paddingHorizontal);
@@ -246,7 +246,7 @@ public class b extends c<ChosenPostActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void apC() {
+    public void apD() {
         com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(4100, null, null, null);
         bVar.setUniqueId(this.cUU.getUniqueId());
         this.cUU.Ny().dispatchMvcEvent(bVar);
@@ -282,7 +282,7 @@ public class b extends c<ChosenPostActivity> {
         public void onClick(View view) {
             b.this.hideNetRefreshView(b.this.getView());
             b.this.bFV.c(b.this.getView(), true);
-            b.this.apC();
+            b.this.apD();
         }
     }
 

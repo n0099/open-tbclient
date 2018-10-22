@@ -67,16 +67,16 @@ public class g {
             this.dwp = false;
         }
         if (z && this.dwp) {
-            ayf();
+            ayg();
             return;
         }
-        ayg();
+        ayh();
         this.dwn.N(arrayList);
         this.dwn.a(pVar);
         this.dwn.notifyDataSetChanged();
     }
 
-    public boolean aye() {
+    public boolean ayf() {
         return this.dwp;
     }
 
@@ -88,12 +88,12 @@ public class g {
         this.dwn.notifyDataSetChanged();
     }
 
-    public void ayf() {
+    public void ayg() {
         this.OE.setVisibility(8);
         this.dwm.showNetRefreshView(this.aix, this.dwm.getPageContext().getResources().getString(e.j.no_data_text), true);
     }
 
-    public void ayg() {
+    public void ayh() {
         this.dwm.hideNetRefreshView(this.aix);
         this.OE.setVisibility(0);
     }

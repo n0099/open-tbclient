@@ -38,13 +38,13 @@ import java.util.List;
 public class SearchLocationActivity extends NavigationBarActivity {
     private BdListView OE;
     private EditText djI;
-    private LinearLayout fkA;
-    private TextView fkB;
-    private ImageView fkC;
-    private com.baidu.tieba.location.data.a fky;
-    private a fkz;
+    private a fkA;
+    private LinearLayout fkB;
+    private TextView fkC;
+    private ImageView fkD;
+    private com.baidu.tieba.location.data.a fkz;
     private InputMethodManager mInputManager;
-    private com.baidu.adp.framework.listener.a fkD = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_SUGGESTLOCSTION_BY_NAME, 303018) { // from class: com.baidu.tieba.location.selectpoi.SearchLocationActivity.1
+    private com.baidu.adp.framework.listener.a fkE = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_SUGGESTLOCSTION_BY_NAME, 303018) { // from class: com.baidu.tieba.location.selectpoi.SearchLocationActivity.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -54,13 +54,13 @@ public class SearchLocationActivity extends NavigationBarActivity {
                         return;
                     }
                     if (responsedMessage instanceof LocationSearchHttpResponsedMessage) {
-                        SearchLocationActivity.this.fky = ((LocationSearchHttpResponsedMessage) responsedMessage).getLocationData();
+                        SearchLocationActivity.this.fkz = ((LocationSearchHttpResponsedMessage) responsedMessage).getLocationData();
                     }
                     if (responsedMessage instanceof LocationSearchResponseMessage) {
-                        SearchLocationActivity.this.fky = ((LocationSearchResponseMessage) responsedMessage).getLocationData();
+                        SearchLocationActivity.this.fkz = ((LocationSearchResponseMessage) responsedMessage).getLocationData();
                     }
-                    SearchLocationActivity.this.fkz.a(SearchLocationActivity.this.fky);
-                    SearchLocationActivity.this.fkz.notifyDataSetChanged();
+                    SearchLocationActivity.this.fkA.a(SearchLocationActivity.this.fkz);
+                    SearchLocationActivity.this.fkA.notifyDataSetChanged();
                 }
             }
         }
@@ -77,13 +77,13 @@ public class SearchLocationActivity extends NavigationBarActivity {
         public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         }
     };
-    private AdapterView.OnItemClickListener fkE = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.location.selectpoi.SearchLocationActivity.6
+    private AdapterView.OnItemClickListener fkF = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.location.selectpoi.SearchLocationActivity.6
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (SearchLocationActivity.this.fkz != null && SearchLocationActivity.this.fkz.aYo()) {
+            if (SearchLocationActivity.this.fkA != null && SearchLocationActivity.this.fkA.aYo()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002013));
                 MessageManager messageManager = MessageManager.getInstance();
-                a.C0229a c0229a = (a.C0229a) SearchLocationActivity.this.fkz.getItem(i);
+                a.C0229a c0229a = (a.C0229a) SearchLocationActivity.this.fkA.getItem(i);
                 messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c0229a.getName(), c0229a.getName(), c0229a.getScreatString()));
                 SearchLocationActivity.this.finish();
             }
@@ -94,7 +94,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(this.fkD);
+        registerListener(this.fkE);
         SearchLocationActivityStatic.aYn();
         setContentView(e.h.search_location_layout);
         initUI();
@@ -112,9 +112,9 @@ public class SearchLocationActivity extends NavigationBarActivity {
                 }
             }
         });
-        this.fkA = (LinearLayout) this.bzH.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, e.h.search_location_edit_layout, (View.OnClickListener) null);
-        this.fkC = (ImageView) this.fkA.findViewById(e.g.search_bar_icon);
-        this.djI = (EditText) this.fkA.findViewById(e.g.search_location_editview);
+        this.fkB = (LinearLayout) this.bzH.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, e.h.search_location_edit_layout, (View.OnClickListener) null);
+        this.fkD = (ImageView) this.fkB.findViewById(e.g.search_bar_icon);
+        this.djI = (EditText) this.fkB.findViewById(e.g.search_location_editview);
         this.djI.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.location.selectpoi.SearchLocationActivity.3
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -127,15 +127,15 @@ public class SearchLocationActivity extends NavigationBarActivity {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (StringUtils.isNull(SearchLocationActivity.this.getInputMsg())) {
-                    SearchLocationActivity.this.fkB.setEnabled(false);
+                    SearchLocationActivity.this.fkC.setEnabled(false);
                 } else {
-                    SearchLocationActivity.this.fkB.setEnabled(true);
+                    SearchLocationActivity.this.fkC.setEnabled(true);
                 }
             }
         });
-        this.fkB = (TextView) this.fkA.findViewById(e.g.search_location_bt_search_s);
-        this.fkB.setEnabled(false);
-        this.fkB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.location.selectpoi.SearchLocationActivity.4
+        this.fkC = (TextView) this.fkB.findViewById(e.g.search_location_bt_search_s);
+        this.fkC.setEnabled(false);
+        this.fkC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.location.selectpoi.SearchLocationActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!l.lo()) {
@@ -146,20 +146,20 @@ public class SearchLocationActivity extends NavigationBarActivity {
             }
         });
         this.OE = (BdListView) findViewById(e.g.search_position_list);
-        this.fkz = new a(this);
-        this.OE.setAdapter((ListAdapter) this.fkz);
-        this.OE.setOnItemClickListener(this.fkE);
+        this.fkA = new a(this);
+        this.OE.setAdapter((ListAdapter) this.fkA);
+        this.OE.setOnItemClickListener(this.fkF);
         this.OE.setOnScrollListener(this.mOnScrollListener);
     }
 
     public void initData() {
-        this.fky = new com.baidu.tieba.location.data.a();
+        this.fkz = new com.baidu.tieba.location.data.a();
         com.baidu.tieba.tbadkCore.location.a locationData = c.bCH().getLocationData();
         if (locationData != null) {
-            this.fky.ab(b(locationData.bCE(), locationData.bCD(), locationData.bCF()));
+            this.fkz.ab(b(locationData.bCE(), locationData.bCD(), locationData.bCF()));
         }
-        this.fkz.a(this.fky);
-        this.fkz.notifyDataSetChanged();
+        this.fkA.a(this.fkz);
+        this.fkA.notifyDataSetChanged();
     }
 
     private ArrayList<a.C0229a> b(List<a.C0279a> list, String str, String str2) {
@@ -211,9 +211,9 @@ public class SearchLocationActivity extends NavigationBarActivity {
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        al.i(this.fkB, e.f.s_navbar_button_bg);
-        al.c(this.fkC, e.f.icon_search_ba);
-        al.c(this.fkB, e.d.search_location_button_color, 3);
+        al.i(this.fkC, e.f.s_navbar_button_bg);
+        al.c(this.fkD, e.f.icon_search_ba);
+        al.c(this.fkC, e.d.search_location_button_color, 3);
         if (i == 1) {
             this.djI.setTextColor(getResources().getColor(e.d.cp_cont_b_1));
             this.djI.setHintTextColor(getResources().getColor(e.d.cp_cont_e_1));
@@ -221,6 +221,6 @@ public class SearchLocationActivity extends NavigationBarActivity {
             this.djI.setTextColor(getResources().getColor(e.d.cp_cont_b));
             this.djI.setHintTextColor(getResources().getColor(e.d.cp_cont_e));
         }
-        this.fkz.notifyDataSetChanged();
+        this.fkA.notifyDataSetChanged();
     }
 }

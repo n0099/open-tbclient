@@ -18,13 +18,13 @@ import java.util.regex.Pattern;
 public class k {
     private String c;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern hcP = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern hcQ = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String hcN = null;
-    private SpannableStringBuilder hcO = null;
-    private boolean hcM = false;
+    private String hcO = null;
+    private SpannableStringBuilder hcP = null;
+    private boolean hcN = false;
 
     public static boolean bP(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
@@ -47,15 +47,15 @@ public class k {
     }
 
     public SpannableStringBuilder bBM() {
-        return this.hcO;
+        return this.hcP;
     }
 
     public SpannableStringBuilder b(SpannableString spannableString) {
-        if (this.hcO == null) {
-            this.hcO = new SpannableStringBuilder();
+        if (this.hcP == null) {
+            this.hcP = new SpannableStringBuilder();
         }
-        this.hcO.append((CharSequence) spannableString);
-        return this.hcO;
+        this.hcP.append((CharSequence) spannableString);
+        return this.hcP;
     }
 
     public SpannableString cY(Context context) {
@@ -81,7 +81,7 @@ public class k {
                                 e.printStackTrace();
                             }
                         }
-                        Matcher matcher2 = k.hcP.matcher(k.this.link);
+                        Matcher matcher2 = k.hcQ.matcher(k.this.link);
                         if (matcher2.find()) {
                             try {
                                 String group2 = matcher2.group();

@@ -9,22 +9,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<b> hfa = new ArrayList<>();
+    private ArrayList<b> hfb = new ArrayList<>();
 
     public void a(b bVar) {
         if (bVar != null) {
-            this.hfa.add(bVar);
+            this.hfb.add(bVar);
         }
     }
 
     public void b(b bVar) {
         if (bVar != null) {
-            this.hfa.remove(bVar);
+            this.hfb.remove(bVar);
         }
     }
 
     public void bCC() {
-        this.hfa.clear();
+        this.hfb.clear();
     }
 
     public boolean b(String str, JsPromptResult jsPromptResult) {
@@ -46,8 +46,8 @@ public class a {
     }
 
     private boolean b(String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if (v.I(this.hfa) > 0) {
-            Iterator<b> it = this.hfa.iterator();
+        if (v.I(this.hfb) > 0) {
+            Iterator<b> it = this.hfb.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && next.dealJsInterface(str, str2, str3, jsPromptResult)) {

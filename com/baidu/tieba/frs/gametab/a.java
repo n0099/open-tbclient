@@ -13,7 +13,7 @@ public class a {
         return this.tabId;
     }
 
-    public boolean aEj() {
+    public boolean aEk() {
         return 1 == this.dPR;
     }
 }

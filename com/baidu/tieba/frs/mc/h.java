@@ -8,21 +8,21 @@ public class h {
     protected final k dAn;
     protected final FrsModelController dAx;
     protected final com.baidu.tieba.frs.vc.f dAy;
-    protected final FrsFragment dSf;
-    protected final com.baidu.tieba.frs.vc.j dTc;
-    protected final an dTd;
-    protected final c dTe;
+    protected final FrsFragment dSg;
+    protected final com.baidu.tieba.frs.vc.j dTd;
+    protected final an dTe;
+    protected final c dTf;
 
     public h(FrsFragment frsFragment) {
         if (frsFragment == null) {
             throw new NullPointerException("FrsActivity is NullPointerException");
         }
-        this.dSf = frsFragment;
-        this.dAy = this.dSf.azx();
-        this.dAn = this.dSf.azA();
-        this.dTc = this.dSf.azy();
-        this.dAx = this.dSf.azv();
-        this.dTd = this.dSf.azz();
-        this.dTe = this.dSf.azw();
+        this.dSg = frsFragment;
+        this.dAy = this.dSg.azy();
+        this.dAn = this.dSg.azB();
+        this.dTd = this.dSg.azz();
+        this.dAx = this.dSg.azw();
+        this.dTe = this.dSg.azA();
+        this.dTf = this.dSg.azx();
     }
 }

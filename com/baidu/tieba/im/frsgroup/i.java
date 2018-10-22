@@ -14,58 +14,58 @@ public class i extends q.a {
     private String aDs;
     private String aDt;
     public TextView asR;
-    public TextView eHA;
-    public TbImageView eHz;
+    public TbImageView eHA;
+    public TextView eHB;
     public TextView mTitleView;
 
     public i(View view, View.OnClickListener onClickListener) {
         super(view);
-        this.eHz = (TbImageView) view.findViewById(e.g.net_refresh_image);
+        this.eHA = (TbImageView) view.findViewById(e.g.net_refresh_image);
         this.asR = (TextView) view.findViewById(e.g.net_refresh_desc);
         this.mTitleView = (TextView) view.findViewById(e.g.net_refresh_title);
-        this.eHA = (TextView) view.findViewById(e.g.net_refresh_button);
-        this.eHA.setOnClickListener(onClickListener);
+        this.eHB = (TextView) view.findViewById(e.g.net_refresh_button);
+        this.eHB.setOnClickListener(onClickListener);
     }
 
     public void a(NoDataViewFactory.ImgType imgType, String str, String str2, String str3) {
         al.c(this.asR, e.d.cp_cont_d, 1);
         al.c(this.mTitleView, e.d.cp_cont_b, 1);
-        al.c(this.eHA, e.d.cp_cont_g, 1);
-        al.i(this.eHA, e.f.btn_appdownload);
+        al.c(this.eHB, e.d.cp_cont_g, 1);
+        al.i(this.eHB, e.f.btn_appdownload);
         this.asR.setText(str);
         this.mTitleView.setText(str2);
-        this.eHA.setText(str3);
+        this.eHB.setText(str3);
         fB(0);
         pg(com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.ds30));
         if (imgType == NoDataViewFactory.ImgType.WEBVIEW) {
-            this.eHz.setImageBitmap(al.m17do(e.f.pic_emotion08));
+            this.eHA.setImageBitmap(al.m17do(e.f.pic_emotion08));
         } else if (imgType == NoDataViewFactory.ImgType.NODATA) {
-            this.eHz.setImageBitmap(al.m17do(e.f.no_data_image));
+            this.eHA.setImageBitmap(al.m17do(e.f.no_data_image));
         } else {
             d(imgType);
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                this.eHz.startLoad(this.aDt, 29, false);
+                this.eHA.startLoad(this.aDt, 29, false);
             } else {
-                this.eHz.startLoad(this.aDs, 29, false);
+                this.eHA.startLoad(this.aDs, 29, false);
             }
         }
     }
 
     public void fB(int i) {
-        ViewGroup.LayoutParams layoutParams = this.eHz.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.eHA.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i;
-            this.eHz.setLayoutParams(marginLayoutParams);
+            this.eHA.setLayoutParams(marginLayoutParams);
         }
     }
 
     public void pg(int i) {
-        ViewGroup.LayoutParams layoutParams = this.eHA.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.eHB.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.bottomMargin = i;
-            this.eHA.setLayoutParams(marginLayoutParams);
+            this.eHB.setLayoutParams(marginLayoutParams);
         }
     }
 

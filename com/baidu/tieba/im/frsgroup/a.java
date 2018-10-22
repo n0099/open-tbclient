@@ -58,8 +58,8 @@ public class a extends com.baidu.tieba.frs.h<GroupPermData, b> {
         bVar.rootView.setTag(Integer.valueOf(i));
         al.i(bVar.rootView, e.f.frs_group_item_bg);
         al.j(bVar.dxf, e.d.cp_bg_line_c);
-        al.c(bVar.eGK, e.d.cp_cont_b, 1);
-        bVar.eGK.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(e.f.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
+        al.c(bVar.eGL, e.d.cp_cont_b, 1);
+        bVar.eGL.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(e.f.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
         al.i(bVar.divider, e.d.cp_bg_line_b);
         return view;
     }

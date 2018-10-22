@@ -10,10 +10,10 @@ import com.baidu.tieba.tbadkCore.location.c;
 import tbclient.AppPosInfo;
 /* loaded from: classes.dex */
 public class a {
-    private static a gIt;
+    private static a gIu;
     private long AG;
-    private String gIr;
-    private String gIs = b.getInstance().getString("asp_shown_info", "");
+    private String gIs;
+    private String gIt = b.getInstance().getString("asp_shown_info", "");
     private String latitude;
     private String longitude;
 
@@ -21,14 +21,14 @@ public class a {
     }
 
     public static a bua() {
-        if (gIt == null) {
+        if (gIu == null) {
             synchronized (c.class) {
-                if (gIt == null) {
-                    gIt = new a();
+                if (gIu == null) {
+                    gIu = new a();
                 }
             }
         }
-        return gIt;
+        return gIu;
     }
 
     public void pb(String str) {
@@ -44,27 +44,27 @@ public class a {
     }
 
     private String bub() {
-        if (TextUtils.isEmpty(this.gIr)) {
+        if (TextUtils.isEmpty(this.gIs)) {
             WifiInfo connectionInfo = ((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo();
             if (connectionInfo != null) {
-                this.gIr = connectionInfo.getBSSID();
+                this.gIs = connectionInfo.getBSSID();
             } else {
-                this.gIr = "";
+                this.gIs = "";
             }
         }
-        return this.gIr;
+        return this.gIs;
     }
 
     public void ue(String str) {
-        this.gIr = str;
-    }
-
-    public void uf(String str) {
         this.gIs = str;
     }
 
+    public void uf(String str) {
+        this.gIt = str;
+    }
+
     public void buc() {
-        b.getInstance().putString("asp_shown_info", this.gIs);
+        b.getInstance().putString("asp_shown_info", this.gIt);
     }
 
     public AppPosInfo bud() {
@@ -75,7 +75,7 @@ public class a {
         builder.longitude = this.longitude;
         builder.addr_timestamp = Long.valueOf(this.AG);
         builder.coordinate_type = "bd09ll";
-        builder.asp_shown_info = this.gIs;
+        builder.asp_shown_info = this.gIt;
         return builder.build(false);
     }
 }

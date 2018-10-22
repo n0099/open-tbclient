@@ -12,7 +12,7 @@ public class z {
     public String cQb;
     public String gwA;
     public String gwB;
-    public String gwv;
+    public String gwC;
     public String gww;
     public String gwx;
     public String gwy;
@@ -42,35 +42,35 @@ public class z {
             } else {
                 amVar.x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 0);
             }
-            if (!StringUtils.isNull(this.gwv)) {
-                amVar.ax("obj_param1", this.gwv);
+            if (!StringUtils.isNull(this.gww)) {
+                amVar.ax("obj_param1", this.gww);
             } else {
                 amVar.x("obj_param1", 0);
             }
-            if (!StringUtils.isNull(this.gww)) {
-                amVar.ax("obj_param2", this.gww);
-            }
             if (!StringUtils.isNull(this.gwx)) {
-                amVar.ax("obj_param3", this.gwx);
+                amVar.ax("obj_param2", this.gwx);
+            }
+            if (!StringUtils.isNull(this.gwy)) {
+                amVar.ax("obj_param3", this.gwy);
             }
             if (!StringUtils.isNull(this.amT)) {
                 amVar.ax(VideoPlayActivityConfig.OBJ_ID, this.amT);
             }
-            if (!StringUtils.isNull(this.gwy)) {
-                amVar.ax("ab_tag", this.gwy);
+            if (!StringUtils.isNull(this.gwz)) {
+                amVar.ax("ab_tag", this.gwz);
             } else {
                 amVar.x("ab_tag", 0);
             }
-            if (!StringUtils.isNull(this.gwA)) {
-                amVar.ax("topic_type", this.gwA);
+            if (!StringUtils.isNull(this.gwB)) {
+                amVar.ax("topic_type", this.gwB);
             }
             if (!StringUtils.isNull(this.mExtra)) {
                 amVar.ax("extra", this.mExtra);
             } else {
                 amVar.x("extra", 0);
             }
-            if (!StringUtils.isNull(this.gwB)) {
-                amVar.ax("is_vertical", this.gwB);
+            if (!StringUtils.isNull(this.gwC)) {
+                amVar.ax("is_vertical", this.gwC);
             }
         }
         return amVar;
@@ -84,13 +84,13 @@ public class z {
         zVar.cQb = this.cQb;
         zVar.mUid = this.mUid;
         zVar.mSource = this.mSource;
-        zVar.gwv = this.gwv;
         zVar.gww = this.gww;
         zVar.gwx = this.gwx;
-        zVar.amT = this.amT;
         zVar.gwy = this.gwy;
+        zVar.amT = this.amT;
         zVar.gwz = this.gwz;
         zVar.gwA = this.gwA;
+        zVar.gwB = this.gwB;
         return zVar;
     }
 }

@@ -58,16 +58,16 @@ public class m extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
         this.aGk = new View.OnClickListener() { // from class: com.baidu.tieba.card.m.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (m.this.anO() != null) {
-                    m.this.anO().a(view, m.this.cMD);
+                if (m.this.anP() != null) {
+                    m.this.anP().a(view, m.this.cMD);
                 }
             }
         };
         this.aEh = new View.OnClickListener() { // from class: com.baidu.tieba.card.m.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (m.this.anO() != null) {
-                    m.this.anO().a(view, m.this.cMD);
+                if (m.this.anP() != null) {
+                    m.this.anP().a(view, m.this.cMD);
                 }
             }
         };
@@ -173,23 +173,23 @@ public class m extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
     }
 
     private void refreshView() {
-        if (this.cMD == null || this.cMD.YA() == null) {
+        if (this.cMD == null || this.cMD.YB() == null) {
             this.cME.setVisibility(8);
             return;
         }
         this.cME.setVisibility(0);
-        this.bWe.setData(this.cMD.YA());
+        this.bWe.setData(this.cMD.YB());
         this.bWe.setUserAfterClickListener(this.aGk);
         if (this.bWe.getHeaderImg() != null) {
-            this.bWe.getHeaderImg().setData(this.cMD.YA());
+            this.bWe.getHeaderImg().setData(this.cMD.YB());
         }
-        this.cMD.YA().zf();
-        this.mTextTitle.setText(new SpannableStringBuilder(this.cMD.YA().yV()));
+        this.cMD.YB().zf();
+        this.mTextTitle.setText(new SpannableStringBuilder(this.cMD.YB().yV()));
         this.bkK.setText(String.format(this.mContext.getResources().getString(e.j.ala_audience_count_prefix), ao.N(this.cMD.threadData.yP().audience_count)));
-        if (this.bWq != null && this.cMD.YA() != null) {
+        if (this.bWq != null && this.cMD.YB() != null) {
             ah ahVar = new ah();
-            ahVar.setTid(this.cMD.YA().getTid());
-            ahVar.setFid(this.cMD.YA().getFid());
+            ahVar.setTid(this.cMD.YB().getTid());
+            ahVar.setFid(this.cMD.YB().getFid());
             ahVar.a(this.cMD.anO);
             this.bWq.setData(ahVar);
             this.bWq.setFirstRowSingleColumn(true);
@@ -201,14 +201,14 @@ public class m extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
         } else {
             al.c(this.mTextTitle, e.d.cp_cont_b, 1);
         }
-        anV();
+        anW();
         this.cMH.startPlayAnimation();
     }
 
-    public void anV() {
-        if (com.baidu.tbadk.core.i.ws().ww() && this.cMD != null && this.cMD.YA() != null && this.cMD.YA().yP() != null) {
+    public void anW() {
+        if (com.baidu.tbadk.core.i.ws().ww() && this.cMD != null && this.cMD.YB() != null && this.cMD.YB().yP() != null) {
             this.bkD.setDefaultBgResource(e.f.pic_bg_video_frs);
-            this.bkD.startLoad(this.cMD.YA().yP().cover, 10, false);
+            this.bkD.startLoad(this.cMD.YB().yP().cover, 10, false);
             this.cMF.setVisibility(0);
             return;
         }
@@ -229,14 +229,14 @@ public class m extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
     }
 
     private void ax(View view) {
-        if (anO() != null) {
-            anO().a(view, this.cMD);
+        if (anP() != null) {
+            anP().a(view, this.cMD);
         }
-        if (this.cMD != null && this.cMD.YA() != null && this.cMD.YA().yP() != null) {
+        if (this.cMD != null && this.cMD.YB() != null && this.cMD.YB().yP() != null) {
             o.md(this.cMD.threadData.getId());
             o.a(this.mTextTitle, this.cMD.threadData.getId(), e.d.cp_cont_b, e.d.cp_cont_d);
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(this.cMD.YA().yP());
+            alaLiveInfoCoreData.fillWithInfoData(this.cMD.YB().yP());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.mContext.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_HOME_REC_PLAY, "", false, "")));
         }
     }

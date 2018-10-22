@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes3.dex */
 public class c {
-    private AdvertAppInfo eYr;
+    private AdvertAppInfo eYs;
     private Context mContext;
     private String mForumId;
     private String mPostId;
@@ -19,17 +19,17 @@ public class c {
     }
 
     public void d(AdvertAppInfo advertAppInfo) {
-        this.eYr = advertAppInfo;
+        this.eYs = advertAppInfo;
     }
 
     public void aVe() {
         qk(AiAppsUBCStatistic.TYPE_CLICK);
-        com.baidu.tieba.recapp.report.c.buf().a(com.baidu.tieba.recapp.report.f.c(this.eYr, 2, 0));
+        com.baidu.tieba.recapp.report.c.buf().a(com.baidu.tieba.recapp.report.f.c(this.eYs, 2, 0));
     }
 
     public void aVf() {
         qk("show");
-        com.baidu.tieba.recapp.report.c.buf().a(com.baidu.tieba.recapp.report.f.c(this.eYr, 3, 0));
+        com.baidu.tieba.recapp.report.c.buf().a(com.baidu.tieba.recapp.report.f.c(this.eYs, 3, 0));
     }
 
     public void aVg() {
@@ -40,6 +40,6 @@ public class c {
     }
 
     public void qk(String str) {
-        com.baidu.tbadk.distribute.a.Ku().a(this.eYr, this.mForumId, com.baidu.adp.lib.g.b.d(this.mPostId, 0L), "PB", str, 1);
+        com.baidu.tbadk.distribute.a.Ku().a(this.eYs, this.mForumId, com.baidu.adp.lib.g.b.d(this.mPostId, 0L), "PB", str, 1);
     }
 }

@@ -12,21 +12,21 @@ import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 /* loaded from: classes3.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     private NewWriteModel aVE;
-    private b hIA;
-    private a hIB;
-    private AccessState hIC;
+    private b hIB;
+    private a hIC;
+    private AccessState hID;
     private WriteData mWriteData;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.hIA = new b(this);
+        this.hIB = new b(this);
         Intent intent = getIntent();
         if (intent != null) {
-            this.hIC = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
+            this.hID = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
             this.mWriteData = (WriteData) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_WRITE_DATA);
-            if (this.mWriteData == null || this.hIC == null) {
+            if (this.mWriteData == null || this.hID == null) {
                 finish();
                 return;
             }
@@ -35,9 +35,9 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
             if (this.mWriteData.getWriteImagesInfo() != null) {
                 this.aVE.nm(this.mWriteData.getWriteImagesInfo().size() > 0);
             }
-            this.hIB = new a(this.hIA, this.aVE);
-            this.hIA.c(this.hIB);
-            this.hIB.al(bLB());
+            this.hIC = new a(this.hIB, this.aVE);
+            this.hIB.c(this.hIC);
+            this.hIC.al(bLB());
         }
     }
 
@@ -55,14 +55,14 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.hIA.onDestory();
+        this.hIB.onDestory();
     }
 
     public String bLB() {
-        if (this.hIC == null || this.hIC.getUserInfo() == null) {
+        if (this.hID == null || this.hID.getUserInfo() == null) {
             return null;
         }
-        return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.hIC.getToken(), this.hIC.getType(), this.hIC.getUserInfo().strMobile, this.hIC.getUserInfo().strEmail);
+        return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.hID.getToken(), this.hID.getType(), this.hID.getUserInfo().strMobile, this.hID.getUserInfo().strEmail);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

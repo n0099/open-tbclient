@@ -98,7 +98,7 @@ public class e extends a<com.baidu.tieba.e.a> {
             al.i(getView(), e.d.cp_bg_line_d);
             al.i(this.cKU, e.d.cp_bg_line_c);
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.vl(this.cKV.YA().getId())) {
+            if (readThreadHistory != null && readThreadHistory.vl(this.cKV.YB().getId())) {
                 al.c(this.cKK, e.d.cp_cont_c, 1);
             } else {
                 al.c(this.cKK, e.d.cp_cont_b, 1);
@@ -119,35 +119,35 @@ public class e extends a<com.baidu.tieba.e.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.e.a aVar) {
-        if (aVar != null && aVar.YA() != null) {
+        if (aVar != null && aVar.YB() != null) {
             this.cKV = aVar;
             String str = null;
-            if (aVar.YA().zj()) {
+            if (aVar.YB().zj()) {
                 this.cKN.setVisibility(0);
                 this.cKO.setVisibility(0);
-                if (aVar.YA().yN() != null) {
-                    this.cKO.setText(ao.dt(aVar.YA().yN().video_duration.intValue() * 1000));
-                    str = aVar.YA().yN().thumbnail_url;
+                if (aVar.YB().yN() != null) {
+                    this.cKO.setText(ao.dt(aVar.YB().yN().video_duration.intValue() * 1000));
+                    str = aVar.YB().yN().thumbnail_url;
                 }
             } else {
                 this.cKN.setVisibility(8);
                 this.cKO.setVisibility(4);
-                if (aVar.YA().yG() != null && aVar.YA().yG().size() >= 1) {
-                    str = aVar.YA().yG().get(0).origin_pic;
+                if (aVar.YB().yG() != null && aVar.YB().yG().size() >= 1) {
+                    str = aVar.YB().yG().get(0).origin_pic;
                 }
             }
             this.cKM.startLoad(str, 10, false);
-            this.cKK.setText(aVar.YA().getTitle());
+            this.cKK.setText(aVar.YB().getTitle());
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.vl(aVar.YA().getId())) {
+            if (readThreadHistory != null && readThreadHistory.vl(aVar.YB().getId())) {
                 al.h(this.cKK, e.d.cp_cont_c);
             } else {
                 al.h(this.cKK, e.d.cp_cont_b);
             }
-            this.cKQ.setData(aVar.YA(), false);
-            p(aVar.YA());
-            this.cKS.setText(ao.E(aVar.YA().yg()));
-            if ("guide".equals(aVar.YA().yl())) {
+            this.cKQ.setData(aVar.YB(), false);
+            p(aVar.YB());
+            this.cKS.setText(ao.E(aVar.YB().yg()));
+            if ("guide".equals(aVar.YB().yl())) {
                 this.cKT.setVisibility(0);
             } else {
                 this.cKT.setVisibility(8);
@@ -160,8 +160,8 @@ public class e extends a<com.baidu.tieba.e.a> {
         if (view == this.cKT) {
             TiebaStatic.log(new am("c13047").x("obj_locate", 4).ax(ImageViewerConfig.FORUM_ID, this.mForumId));
             FrsGameStrategyActivity.k(this.mTbPageContext.getPageActivity(), this.mForumId, this.mForumName);
-        } else if (anO() != null) {
-            anO().a(getView(), this.cKV);
+        } else if (anP() != null) {
+            anP().a(getView(), this.cKV);
         }
     }
 

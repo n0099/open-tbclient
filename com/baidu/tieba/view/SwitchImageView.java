@@ -6,7 +6,7 @@ import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 /* loaded from: classes.dex */
 public class SwitchImageView extends AppCompatImageView {
-    private int hFy;
+    private int hFA;
     private int hFz;
     private int mCurrentState;
 
@@ -27,22 +27,22 @@ public class SwitchImageView extends AppCompatImageView {
 
     private void init() {
         this.mCurrentState = 0;
-        this.hFy = 0;
         this.hFz = 0;
+        this.hFA = 0;
     }
 
     public void setStateImage(int i, int i2) {
-        this.hFy = i;
-        this.hFz = i2;
+        this.hFz = i;
+        this.hFA = i2;
     }
 
     public void setState(int i) {
         if (i == 0) {
             this.mCurrentState = 0;
-            setImageResource(this.hFy);
+            setImageResource(this.hFz);
         } else if (i == 1) {
             this.mCurrentState = 1;
-            setImageResource(this.hFz);
+            setImageResource(this.hFA);
         }
     }
 

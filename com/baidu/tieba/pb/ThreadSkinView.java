@@ -17,8 +17,8 @@ import com.baidu.tieba.tbadkCore.d.a;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo fFI;
-    private a.C0277a fFJ;
+    private SkinInfo fFJ;
+    private a.C0277a fFK;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -46,16 +46,16 @@ public class ThreadSkinView extends TbImageView {
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.fFI != skinInfo && c0277a != null) {
-            this.fFJ = c0277a;
-            this.fFJ.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-            this.fFJ.cH(VideoPlayActivityConfig.OBJ_ID, skinInfo.obj_id);
-            this.fFJ.cH("obj_url", skinInfo.url);
-            this.fFJ.cH("obj_name", skinInfo.monitor_id);
-            this.fFJ.cH(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
-            this.fFJ.save();
+        if (this.fFJ != skinInfo && c0277a != null) {
+            this.fFK = c0277a;
+            this.fFK.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+            this.fFK.cH(VideoPlayActivityConfig.OBJ_ID, skinInfo.obj_id);
+            this.fFK.cH("obj_url", skinInfo.url);
+            this.fFK.cH("obj_name", skinInfo.monitor_id);
+            this.fFK.cH(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
+            this.fFK.save();
         }
-        this.fFI = skinInfo;
+        this.fFJ = skinInfo;
         int aO = l.aO(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = aO;
@@ -82,13 +82,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.fFI != null && !StringUtils.isNull(this.fFI.url)) {
-            if (this.fFJ != null) {
-                this.fFJ.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-                this.fFJ.cH(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
-                this.fFJ.save();
+        if (this.fFJ != null && !StringUtils.isNull(this.fFJ.url)) {
+            if (this.fFK != null) {
+                this.fFK.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+                this.fFK.cH(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
+                this.fFK.save();
             }
-            ay.CU().c(this.mTbPageContext, new String[]{this.fFI.url});
+            ay.CU().c(this.mTbPageContext, new String[]{this.fFJ.url});
         }
     }
 }

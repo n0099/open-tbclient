@@ -20,19 +20,19 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public abstract class a<V extends g, D extends IBaseDialogData> implements f {
     private DialogInterface.OnCancelListener asd;
     private AlertDialog asf;
-    protected V fIQ;
-    protected D fIR;
+    protected V fIR;
+    protected D fIS;
     protected Context mContext;
     private DialogInterface.OnKeyListener mOnKeyListener;
     protected TbPageContext mPageContext;
     private int arT = -1;
-    private boolean fIP = true;
+    private boolean fIQ = true;
 
     public a(TbPageContext tbPageContext, V v, D d) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.fIQ = v;
-        this.fIR = d;
+        this.fIR = v;
+        this.fIS = d;
         a(d);
     }
 
@@ -43,8 +43,8 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
             return;
         }
         this.asf = new AlertDialog.Builder(this.mContext).create();
-        this.asf.setCanceledOnTouchOutside(ael());
-        this.asf.setCancelable(aem());
+        this.asf.setCanceledOnTouchOutside(aem());
+        this.asf.setCancelable(aen());
         this.asf.setOnKeyListener(this.mOnKeyListener);
         if (this.asd != null) {
             this.asf.setOnCancelListener(this.asd);
@@ -71,9 +71,9 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
             }
             attributes.height = -2;
             window.setAttributes(attributes);
-            window.setContentView(this.fIQ.getViewGroup());
+            window.setContentView(this.fIR.getViewGroup());
             final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            ba.a(this.fIQ.getViewGroup(), false, new ba.a() { // from class: com.baidu.tieba.pb.interactionpopupwindow.a.1
+            ba.a(this.fIR.getViewGroup(), false, new ba.a() { // from class: com.baidu.tieba.pb.interactionpopupwindow.a.1
                 @Override // com.baidu.tbadk.core.util.ba.a
                 public boolean H(View view) {
                     if (view instanceof EditText) {
@@ -110,8 +110,8 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
     }
 
     public void a(D d) {
-        if (this.fIQ != null) {
-            this.fIQ.a(d);
+        if (this.fIR != null) {
+            this.fIR.a(d);
         }
     }
 }

@@ -24,22 +24,22 @@ import tbclient.User;
 /* loaded from: classes3.dex */
 public class b {
     private BaseActivity bwX;
-    private a egt;
-    private boolean egu;
-    private LongSparseArray<MetaData> egw;
+    private a egu;
+    private boolean egv;
+    private LongSparseArray<MetaData> egx;
     private int pn = 0;
     public List<h> dwM = new ArrayList();
-    public int egv = 1;
+    public int egw = 1;
     private com.baidu.adp.framework.listener.a cVx = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_HOT_GOD, 309315) { // from class: com.baidu.tieba.godSquare.model.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (b.this.egt != null) {
+            if (b.this.egu != null) {
                 if (responsedMessage instanceof GodSquareHttpResponsedMsg) {
                     GodSquareHttpResponsedMsg godSquareHttpResponsedMsg = (GodSquareHttpResponsedMsg) responsedMessage;
-                    b.this.egt.a(b.this.a(godSquareHttpResponsedMsg.getResult()), b.this.egu, godSquareHttpResponsedMsg.getHasMore(), godSquareHttpResponsedMsg.getErrorString());
+                    b.this.egu.a(b.this.a(godSquareHttpResponsedMsg.getResult()), b.this.egv, godSquareHttpResponsedMsg.getHasMore(), godSquareHttpResponsedMsg.getErrorString());
                 } else if (responsedMessage instanceof GodSquareSocketResponsedMsg) {
                     GodSquareSocketResponsedMsg godSquareSocketResponsedMsg = (GodSquareSocketResponsedMsg) responsedMessage;
-                    b.this.egt.a(b.this.a(godSquareSocketResponsedMsg.getResult()), b.this.egu, godSquareSocketResponsedMsg.getHasMore(), godSquareSocketResponsedMsg.getErrorString());
+                    b.this.egu.a(b.this.a(godSquareSocketResponsedMsg.getResult()), b.this.egv, godSquareSocketResponsedMsg.getHasMore(), godSquareSocketResponsedMsg.getErrorString());
                 }
             }
         }
@@ -48,7 +48,7 @@ public class b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (b.this.egt != null) {
+            if (b.this.egu != null) {
                 if (!(customResponsedMessage instanceof GodSquareCacheResponsedMsg)) {
                     b.this.nw(1);
                     return;
@@ -57,7 +57,7 @@ public class b {
                 if (godSquareCacheResponsedMsg.getResult() == null || v.J(godSquareCacheResponsedMsg.getResult().user_list)) {
                     b.this.nw(1);
                 } else {
-                    b.this.egt.a(b.this.a(godSquareCacheResponsedMsg.getResult()), b.this.egu, true, godSquareCacheResponsedMsg.getErrorString());
+                    b.this.egu.a(b.this.a(godSquareCacheResponsedMsg.getResult()), b.this.egv, true, godSquareCacheResponsedMsg.getErrorString());
                 }
             }
         }
@@ -69,14 +69,14 @@ public class b {
     }
 
     public b(a aVar, BaseActivity baseActivity) {
-        this.egt = aVar;
+        this.egu = aVar;
         this.bwX = baseActivity;
         registerListener();
     }
 
     public void update() {
-        this.egv = 1;
-        this.egu = true;
+        this.egw = 1;
+        this.egv = true;
         if (j.kM()) {
             nw(1);
         } else {
@@ -84,8 +84,8 @@ public class b {
         }
     }
 
-    public void YK() {
-        this.egu = false;
+    public void YL() {
+        this.egv = false;
         nw(this.pn + 1);
     }
 
@@ -125,9 +125,9 @@ public class b {
         cf(dataRes.user_list);
         ArrayList arrayList2 = new ArrayList();
         ArrayList arrayList3 = new ArrayList();
-        if (!v.J(dataRes.recommend_uid_list) && this.egu) {
+        if (!v.J(dataRes.recommend_uid_list) && this.egv) {
             for (Long l : dataRes.recommend_uid_list) {
-                if (l != null && (metaData2 = this.egw.get(l.longValue())) != null) {
+                if (l != null && (metaData2 = this.egx.get(l.longValue())) != null) {
                     f fVar = new f();
                     fVar.apx = metaData2;
                     fVar.type = 1;
@@ -144,16 +144,16 @@ public class b {
         }
         if (!v.J(dataRes.hot_uid_list)) {
             for (Long l2 : dataRes.hot_uid_list) {
-                if (l2 != null && (metaData = this.egw.get(l2.longValue())) != null) {
+                if (l2 != null && (metaData = this.egx.get(l2.longValue())) != null) {
                     f fVar2 = new f();
                     fVar2.apx = metaData;
                     fVar2.type = 0;
-                    fVar2.rank = this.egv;
+                    fVar2.rank = this.egw;
                     arrayList3.add(fVar2);
-                    this.egv++;
+                    this.egw++;
                 }
             }
-            if (this.bwX != null && !v.J(arrayList3) && this.egu) {
+            if (this.bwX != null && !v.J(arrayList3) && this.egv) {
                 com.baidu.tieba.card.divider.b bVar2 = new com.baidu.tieba.card.divider.b();
                 bVar2.title = this.bwX.getResources().getString(e.j.hot_god);
                 if (v.J(arrayList2)) {
@@ -169,18 +169,18 @@ public class b {
     }
 
     private void cf(List<User> list) {
-        if (this.egw == null) {
-            this.egw = new LongSparseArray<>();
+        if (this.egx == null) {
+            this.egx = new LongSparseArray<>();
         }
         for (User user : list) {
             f fVar = new f();
             fVar.apx = new MetaData();
             fVar.apx.parserProtobuf(user);
-            this.egw.put(user.id.longValue(), fVar.apx);
+            this.egx.put(user.id.longValue(), fVar.apx);
         }
     }
 
     public boolean ca(long j) {
-        return (this.egw == null || this.egw.get(j) == null) ? false : true;
+        return (this.egx == null || this.egx.get(j) == null) ? false : true;
     }
 }

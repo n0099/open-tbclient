@@ -42,7 +42,7 @@ public class f implements a {
             this.mDatas.addAll(list);
             this.mListView.setData(this.mDatas);
             if (z && list.size() > 0 && this.dFE && j.kY()) {
-                aBS();
+                aBT();
                 list.get(0).autoPlay = true;
             }
         }
@@ -127,11 +127,11 @@ public class f implements a {
         }
     }
 
-    public int aBQ() {
+    public int aBR() {
         return this.dFF;
     }
 
-    public void aBR() {
+    public void aBS() {
         if (!v.J(this.mDatas)) {
             Iterator<com.baidu.adp.widget.ListView.h> it = this.mDatas.iterator();
             while (it.hasNext()) {
@@ -142,11 +142,11 @@ public class f implements a {
 
     @Override // com.baidu.tieba.frs.aggregation.a
     public void cancel() {
-        aBS();
+        aBT();
     }
 
-    private void aBS() {
-        aBR();
+    private void aBT() {
+        aBS();
         this.dFF = 0;
         pC();
     }

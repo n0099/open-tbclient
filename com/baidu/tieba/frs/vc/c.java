@@ -12,23 +12,23 @@ import tbclient.PopInfo;
 /* loaded from: classes6.dex */
 public class c {
     private final FrsFragment dBO;
-    private a dVj;
+    private a dVk;
 
     public c(FrsFragment frsFragment) {
         this.dBO = frsFragment;
     }
 
     public void refresh() {
-        if (TbadkCoreApplication.isLogin() && this.dBO != null && this.dBO.azR() != null && this.dBO.azR().beT() != null && !StringUtils.isNull(this.dBO.azR().beT().getName()) && this.dBO.azR().haT != null && aFR() && this.dVj == null) {
-            this.dVj = new a();
-            this.dVj.execute(new Void[0]);
+        if (TbadkCoreApplication.isLogin() && this.dBO != null && this.dBO.azS() != null && this.dBO.azS().beT() != null && !StringUtils.isNull(this.dBO.azS().beT().getName()) && this.dBO.azS().haU != null && aFR() && this.dVk == null) {
+            this.dVk = new a();
+            this.dVk.execute(new Void[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean aFR() {
-        PopInfo popInfo = this.dBO.azR().haT;
-        return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.dBO.azR().haT.if_pop.intValue() == 0) ? false : true;
+        PopInfo popInfo = this.dBO.azS().haU;
+        return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.dBO.azS().haU.if_pop.intValue() == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -42,7 +42,7 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(Void... voidArr) {
             l<String> eg = com.baidu.tbadk.core.c.a.Aq().eg("tb.enter_frs_dialog_list");
-            String encode = URLEncoder.encode(c.this.dBO.azR().beT().getName());
+            String encode = URLEncoder.encode(c.this.dBO.azS().beT().getName());
             if (eg.get(encode) == null) {
                 eg.e(encode, "1");
                 return true;
@@ -55,7 +55,7 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             if (bool.booleanValue() && c.this.aFR() && c.this.dBO.isAdded()) {
-                final PopInfo popInfo = c.this.dBO.azR().haT;
+                final PopInfo popInfo = c.this.dBO.azS().haU;
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(c.this.dBO.getActivity());
                 aVar.ei(popInfo.title);
                 aVar.ej(popInfo.v_title);

@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private static Boolean hfx = true;
     private static Boolean hfy = true;
+    private static Boolean hfz = true;
 
     public static void ve(String str) {
         an(13, str);
@@ -192,7 +192,7 @@ public class a {
     }
 
     public static void h(Boolean bool) {
-        hfx = bool;
+        hfy = bool;
     }
 
     public static void Hh() {

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class d extends BaseAdapter {
     private final String dAf;
-    private boolean fkS = true;
+    private boolean fkT = true;
     private final Context mContext;
     private ArrayList<String> mData;
 
@@ -28,7 +28,7 @@ public class d extends BaseAdapter {
     }
 
     public void jo(boolean z) {
-        this.fkS = z;
+        this.fkT = z;
     }
 
     @Override // android.widget.Adapter
@@ -69,7 +69,7 @@ public class d extends BaseAdapter {
         Object item = getItem(i);
         if (item != null) {
             String str = (String) item;
-            if (this.fkS) {
+            if (this.fkT) {
                 aVar.aFu.setText(str.concat(this.dAf));
             } else {
                 aVar.aFu.setText(str);

@@ -51,7 +51,7 @@ public class VideoAggregationPraiseView extends BasePraiseView<com.baidu.tieba.f
     /* JADX WARN: Multi-variable type inference failed */
     public void a(com.baidu.tieba.frs.aggregation.g gVar) {
         if (gVar != 0) {
-            if (gVar.aBT()) {
+            if (gVar.aBU()) {
                 if (gVar.zK() == 0 || gVar.zK() == 1) {
                     gVar.cw(2);
                 }
@@ -77,7 +77,7 @@ public class VideoAggregationPraiseView extends BasePraiseView<com.baidu.tieba.f
         }
         this.aBh.setText(string);
         this.aBh.setContentDescription(context.getString(this.aBc) + num);
-        if (((com.baidu.tieba.frs.aggregation.g) this.mData).aBT() && Dz()) {
+        if (((com.baidu.tieba.frs.aggregation.g) this.mData).aBU() && Dz()) {
             this.aBi.setImageDrawable(createStateDrawable(this.aBe, this.aBd));
             this.aBh.setTextColor(createColorStateList(this.aBg, this.aBf));
             return;
@@ -91,14 +91,14 @@ public class VideoAggregationPraiseView extends BasePraiseView<com.baidu.tieba.f
         if (this.mData == 0) {
             return 0;
         }
-        if (((com.baidu.tieba.frs.aggregation.g) this.mData).aBT() && Dz()) {
+        if (((com.baidu.tieba.frs.aggregation.g) this.mData).aBU() && Dz()) {
             ((com.baidu.tieba.frs.aggregation.g) this.mData).cw(2);
             ((com.baidu.tieba.frs.aggregation.g) this.mData).cu(0);
             ((com.baidu.tieba.frs.aggregation.g) this.mData).v(((com.baidu.tieba.frs.aggregation.g) this.mData).zH() - 1);
             ((com.baidu.tieba.frs.aggregation.g) this.mData).w(((com.baidu.tieba.frs.aggregation.g) this.mData).zI());
             i = 1;
         } else {
-            if (((com.baidu.tieba.frs.aggregation.g) this.mData).aBT() && ((com.baidu.tieba.frs.aggregation.g) this.mData).zK() == 5) {
+            if (((com.baidu.tieba.frs.aggregation.g) this.mData).aBU() && ((com.baidu.tieba.frs.aggregation.g) this.mData).zK() == 5) {
                 ((com.baidu.tieba.frs.aggregation.g) this.mData).w(((com.baidu.tieba.frs.aggregation.g) this.mData).zI() - 1);
             }
             ((com.baidu.tieba.frs.aggregation.g) this.mData).cu(1);

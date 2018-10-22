@@ -26,10 +26,10 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.g gVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.e> aVar) {
-        if (aVar == null || aVar.aoP() == null || gVar == null) {
+        if (aVar == null || aVar.aoQ() == null || gVar == null) {
             return null;
         }
-        aVar.aoP().a(gVar);
-        return aVar.aoP().getView();
+        aVar.aoQ().a(gVar);
+        return aVar.aoQ().getView();
     }
 }

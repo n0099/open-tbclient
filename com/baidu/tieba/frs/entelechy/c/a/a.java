@@ -37,7 +37,7 @@ public class a {
     private View.OnClickListener dJw = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.c.a.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!com.baidu.tieba.frs.a.ayM().ayN()) {
+            if (!com.baidu.tieba.frs.a.ayN().ayO()) {
                 if (!j.kM()) {
                     a.this.dBO.showToast(e.j.neterror);
                 } else if (!v.J(a.this.dJs)) {
@@ -58,13 +58,13 @@ public class a {
                 bVar.dismiss();
                 return;
             }
-            x xVar = (x) v.d(a.this.dJt.aDb(), i);
+            x xVar = (x) v.d(a.this.dJt.aDc(), i);
             if (xVar != null) {
                 if (a.this.dJu != xVar.dDA) {
                     a.this.dJv = true;
                     a.this.nK(xVar.name);
-                    if (a.this.dBO.azv() != null) {
-                        a.this.dBO.azv().mu(a.this.dJu);
+                    if (a.this.dBO.azw() != null) {
+                        a.this.dBO.azw().mu(a.this.dJu);
                         a.this.dJu = xVar.dDA;
                         bVar.dismiss();
                         if (a.this.dJu != 7) {
@@ -73,11 +73,11 @@ public class a {
                         } else {
                             com.baidu.tieba.tbadkCore.util.e.bCZ();
                         }
-                        if (a.this.dBO.azv() != null && a.this.dBO.azA() != null) {
-                            a.this.dBO.azv().mt(xVar.dDA);
-                            a.this.dBO.azA().startPullRefresh();
-                            a.this.dBO.azv().gZ(true);
-                            a.this.aCY();
+                        if (a.this.dBO.azw() != null && a.this.dBO.azB() != null) {
+                            a.this.dBO.azw().mt(xVar.dDA);
+                            a.this.dBO.azB().startPullRefresh();
+                            a.this.dBO.azw().gZ(true);
+                            a.this.aCZ();
                             return;
                         }
                         return;
@@ -96,7 +96,7 @@ public class a {
         this.cQb = str;
     }
 
-    public TextView aCX() {
+    public TextView aCY() {
         return this.dJq;
     }
 
@@ -110,7 +110,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aCY() {
+    public void aCZ() {
         am amVar = new am("c11437");
         amVar.x("obj_type", this.dJu);
         amVar.ax(ImageViewerConfig.FORUM_ID, this.cQb);
@@ -143,9 +143,9 @@ public class a {
 
     public void setData(List<FrsTabInfo> list, int i) {
         if (v.J(list)) {
+            aDb();
+        } else if (this.dBO != null && this.dBO.azw() != null && this.dBO.azw().aFf()) {
             aDa();
-        } else if (this.dBO != null && this.dBO.azv() != null && this.dBO.azv().aFf()) {
-            aCZ();
             ArrayList arrayList = new ArrayList(list);
             Iterator<FrsTabInfo> it = arrayList.iterator();
             while (it.hasNext()) {
@@ -174,7 +174,7 @@ public class a {
                 lU(i);
             }
         } else {
-            aDa();
+            aDb();
         }
     }
 
@@ -187,8 +187,8 @@ public class a {
             if (xVar3 != null) {
                 lT(xVar3.dDA);
                 nK(xVar3.name);
-                if (this.dBO != null && this.dBO.azv() != null) {
-                    this.dBO.azv().mt(xVar3.dDA);
+                if (this.dBO != null && this.dBO.azw() != null) {
+                    this.dBO.azw().mt(xVar3.dDA);
                     return;
                 }
                 return;
@@ -222,15 +222,15 @@ public class a {
             if (xVar4 != null) {
                 lT(xVar4.dDA);
                 nK(xVar4.name);
-                if (this.dBO != null && this.dBO.azv() != null) {
-                    this.dBO.azv().mt(xVar4.dDA);
+                if (this.dBO != null && this.dBO.azw() != null) {
+                    this.dBO.azw().mt(xVar4.dDA);
                 }
             }
         } else if (xVar != null) {
             lT(xVar.dDA);
             nK(xVar.name);
-            if (this.dBO != null && this.dBO.azv() != null) {
-                this.dBO.azv().mt(xVar.dDA);
+            if (this.dBO != null && this.dBO.azw() != null) {
+                this.dBO.azw().mt(xVar.dDA);
             }
         }
     }
@@ -246,13 +246,13 @@ public class a {
         return true;
     }
 
-    private void aCZ() {
+    private void aDa() {
         if (this.dJq != null) {
             this.dJq.setVisibility(0);
         }
     }
 
-    private void aDa() {
+    private void aDb() {
         if (this.dJq != null) {
             this.dJq.setVisibility(8);
         }

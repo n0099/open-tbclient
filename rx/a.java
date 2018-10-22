@@ -3,10 +3,10 @@ package rx;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes2.dex */
 public final class a {
-    public static final d irH = c.irN;
-    public static final d irI = irH;
-    public static final d irJ = b.irM;
-    public static final d irK = C0363a.irL;
+    public static final d irI = c.irO;
+    public static final d irJ = irI;
+    public static final d irK = b.irN;
+    public static final d irL = C0363a.irM;
 
     /* loaded from: classes2.dex */
     public interface d {
@@ -15,7 +15,7 @@ public final class a {
 
     /* loaded from: classes2.dex */
     static final class b implements d {
-        static final b irM = new b();
+        static final b irN = new b();
 
         private b() {
         }
@@ -29,7 +29,7 @@ public final class a {
     /* renamed from: rx.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     static final class C0363a implements d {
-        static final C0363a irL = new C0363a();
+        static final C0363a irM = new C0363a();
 
         private C0363a() {
         }
@@ -42,7 +42,7 @@ public final class a {
 
     /* loaded from: classes2.dex */
     static final class c implements d {
-        static final c irN = new c();
+        static final c irO = new c();
 
         private c() {
         }

@@ -15,10 +15,10 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class a {
     private final String WU;
-    private final long hfT;
-    private final int hfU;
+    private final long hfU;
     private final int hfV;
-    private e hfW;
+    private final int hfW;
+    private e hfX;
     protected final String mFileName;
 
     public abstract d b(ArrayList<Integer> arrayList, String str, int i);
@@ -29,20 +29,20 @@ public abstract class a {
 
     public a(String str, int i, int i2, long j, String str2) {
         this.mFileName = str;
-        this.hfV = i2;
-        this.hfT = j;
+        this.hfW = i2;
+        this.hfU = j;
         this.WU = str2;
-        this.hfU = i;
+        this.hfV = i;
     }
 
     public void a(e eVar) {
-        this.hfW = eVar;
+        this.hfX = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void uT(int i) {
-        if (this.hfW != null) {
-            this.hfW.ax(i / 100.0f);
+        if (this.hfX != null) {
+            this.hfX.ax(i / 100.0f);
         }
     }
 
@@ -59,9 +59,9 @@ public abstract class a {
         } else {
             x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
             xVar.x("chunk_no", String.valueOf(i));
-            xVar.x("chunk_sum", String.valueOf(this.hfV));
+            xVar.x("chunk_sum", String.valueOf(this.hfW));
             xVar.x("chunk_size", String.valueOf(a.length));
-            xVar.x("video_size", String.valueOf(this.hfT));
+            xVar.x("video_size", String.valueOf(this.hfU));
             xVar.x("video_md5", this.WU);
             xVar.x("video_len", String.valueOf(j));
             xVar.x("tbs", TbadkCoreApplication.getInst().getTbs());
@@ -94,15 +94,15 @@ public abstract class a {
         if (randomAccessFile == null || i < 0) {
             return null;
         }
-        if (i == this.hfV) {
-            i2 = (int) (this.hfT - ((i - 1) * this.hfU));
+        if (i == this.hfW) {
+            i2 = (int) (this.hfU - ((i - 1) * this.hfV));
         } else {
-            i2 = this.hfU;
+            i2 = this.hfV;
         }
         byte[] bArr = new byte[i2];
         try {
             synchronized (randomAccessFile) {
-                randomAccessFile.seek((i - 1) * this.hfU);
+                randomAccessFile.seek((i - 1) * this.hfV);
                 r3 = randomAccessFile.read(bArr, 0, i2) != -1;
             }
         } catch (IOException e) {

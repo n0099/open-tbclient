@@ -10,9 +10,9 @@ import com.baidu.tieba.play.QuickVideoView;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class b implements e {
-    private boolean fwT = false;
     private boolean fwU = false;
-    private e.a fwV;
+    private boolean fwV = false;
+    private e.a fwW;
     private String mLocalPath;
 
     public b(String str) {
@@ -21,15 +21,15 @@ public class b implements e {
 
     @Override // com.baidu.tieba.j.e
     public void a(e.a aVar) {
-        this.fwV = aVar;
+        this.fwW = aVar;
     }
 
     @Override // com.baidu.tieba.j.e
     public void baZ() {
         if (f.Ix()) {
             if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.gJ(this.mLocalPath)) {
-                if (this.fwV != null) {
-                    this.fwV.qT(2);
+                if (this.fwW != null) {
+                    this.fwW.qT(2);
                     return;
                 }
                 return;
@@ -38,11 +38,11 @@ public class b implements e {
                 @Override // com.baidu.tieba.k.a.b
                 public void qX(int i) {
                     if (i == 1) {
-                        b.this.fwT = true;
+                        b.this.fwU = true;
                         b.this.bbC();
                     }
-                    if (b.this.fwV != null) {
-                        b.this.fwV.qT(i);
+                    if (b.this.fwW != null) {
+                        b.this.fwW.qT(i);
                     }
                 }
             });
@@ -53,8 +53,8 @@ public class b implements e {
     public void bbC() {
         if (f.Ix()) {
             if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.gJ(this.mLocalPath)) {
-                if (this.fwV != null) {
-                    this.fwV.onChange(false);
+                if (this.fwW != null) {
+                    this.fwW.onChange(false);
                     return;
                 }
                 return;
@@ -62,11 +62,11 @@ public class b implements e {
             a.a(this.mLocalPath, this.mLocalPath + "_moov_head_suffix", new a.InterfaceC0224a() { // from class: com.baidu.tieba.k.b.2
                 @Override // com.baidu.tieba.k.a.InterfaceC0224a
                 public void jD(boolean z) {
-                    if (b.this.fwT && z) {
-                        b.this.fwU = true;
+                    if (b.this.fwU && z) {
+                        b.this.fwV = true;
                     }
-                    if (b.this.fwV != null) {
-                        b.this.fwV.onChange(z);
+                    if (b.this.fwW != null) {
+                        b.this.fwW.onChange(z);
                     }
                 }
             });
@@ -76,9 +76,9 @@ public class b implements e {
     @Override // com.baidu.tieba.j.e
     public void bba() {
         if (f.Ix()) {
-            if (StringUtils.isNull(this.mLocalPath) || !new File(this.mLocalPath).exists() || !new File(this.mLocalPath + "_moov_head_suffix").exists() || !this.fwT || !this.fwU) {
-                if (this.fwV != null) {
-                    this.fwV.jB(false);
+            if (StringUtils.isNull(this.mLocalPath) || !new File(this.mLocalPath).exists() || !new File(this.mLocalPath + "_moov_head_suffix").exists() || !this.fwU || !this.fwV) {
+                if (this.fwW != null) {
+                    this.fwW.jB(false);
                     return;
                 }
                 return;
@@ -99,8 +99,8 @@ public class b implements e {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(Boolean bool) {
                     super.onPostExecute((AnonymousClass3) bool);
-                    if (b.this.fwV != null) {
-                        b.this.fwV.jB(bool.booleanValue());
+                    if (b.this.fwW != null) {
+                        b.this.fwW.jB(bool.booleanValue());
                     }
                 }
             }.execute(this.mLocalPath);
@@ -110,8 +110,8 @@ public class b implements e {
     @Override // com.baidu.tieba.j.e
     public void bbb() {
         if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.gJ(this.mLocalPath)) {
-            if (this.fwV != null) {
-                this.fwV.qT(2);
+            if (this.fwW != null) {
+                this.fwW.qT(2);
                 return;
             }
             return;
@@ -150,15 +150,15 @@ public class b implements e {
                 if (cVarArr != null && cVarArr.length == 1 && cVarArr[0] != null) {
                     c cVar = cVarArr[0];
                     if (cVar.type == 1) {
-                        if (b.this.fwV != null) {
-                            b.this.fwV.qT(cVar.value);
+                        if (b.this.fwW != null) {
+                            b.this.fwW.qT(cVar.value);
                         }
                     } else if (cVar.type == 2) {
-                        if (b.this.fwV != null) {
-                            b.this.fwV.onChange(cVar.value == 1);
+                        if (b.this.fwW != null) {
+                            b.this.fwW.onChange(cVar.value == 1);
                         }
-                    } else if (cVar.type == 3 && b.this.fwV != null) {
-                        b.this.fwV.jB(cVar.value == 1);
+                    } else if (cVar.type == 3 && b.this.fwW != null) {
+                        b.this.fwW.jB(cVar.value == 1);
                     }
                 }
             }

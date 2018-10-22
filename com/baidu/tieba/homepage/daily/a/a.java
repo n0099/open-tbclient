@@ -10,11 +10,11 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
     private m dHV;
-    private e ejH;
-    private d ejI;
-    private c ejJ;
-    private b ejK;
-    private f ejL;
+    private e ejI;
+    private d ejJ;
+    private c ejK;
+    private b ejL;
+    private f ejM;
     private List<com.baidu.adp.widget.ListView.a> mAdapters;
     private TbPageContext mPageContext;
 
@@ -27,16 +27,16 @@ public class a {
 
     private void initAdapters() {
         this.mAdapters = new ArrayList();
-        this.ejH = new e(this.mPageContext, com.baidu.tieba.homepage.daily.b.e.ejY);
-        this.ejI = new d(this.mPageContext, com.baidu.tieba.homepage.daily.b.d.ejU);
-        this.ejJ = new c(this.mPageContext, com.baidu.tieba.homepage.daily.b.c.ejS);
-        this.ejK = new b(this.mPageContext, bb.aoS);
-        this.ejL = new f(this.mPageContext, bb.aoV);
-        this.mAdapters.add(this.ejH);
+        this.ejI = new e(this.mPageContext, com.baidu.tieba.homepage.daily.b.e.ejZ);
+        this.ejJ = new d(this.mPageContext, com.baidu.tieba.homepage.daily.b.d.ejV);
+        this.ejK = new c(this.mPageContext, com.baidu.tieba.homepage.daily.b.c.ejT);
+        this.ejL = new b(this.mPageContext, bb.aoS);
+        this.ejM = new f(this.mPageContext, bb.aoV);
         this.mAdapters.add(this.ejI);
         this.mAdapters.add(this.ejJ);
         this.mAdapters.add(this.ejK);
         this.mAdapters.add(this.ejL);
+        this.mAdapters.add(this.ejM);
     }
 
     public void notifyDataSetChanged() {

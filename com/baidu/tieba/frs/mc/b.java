@@ -9,8 +9,8 @@ import com.baidu.tieba.tbadkCore.l;
 import com.baidu.tieba.tbadkCore.r;
 /* loaded from: classes6.dex */
 public class b extends h {
-    public final com.baidu.adp.base.d dSc;
     public final com.baidu.adp.base.d dSd;
+    public final com.baidu.adp.base.d dSe;
     private final CustomMessageListener dwS;
 
     public b(FrsFragment frsFragment) {
@@ -24,7 +24,7 @@ public class b extends h {
                 }
             }
         };
-        this.dSc = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.mc.b.2
+        this.dSd = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.mc.b.2
             @Override // com.baidu.adp.base.d
             public void m(Object obj) {
                 if (obj instanceof Boolean) {
@@ -32,7 +32,7 @@ public class b extends h {
                 }
             }
         };
-        this.dSd = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.mc.b.3
+        this.dSe = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.mc.b.3
             @Override // com.baidu.adp.base.d
             public void m(Object obj) {
                 boolean z = false;
@@ -40,7 +40,7 @@ public class b extends h {
                     z = ((Boolean) obj).booleanValue();
                 }
                 if (!z) {
-                    b.this.dSf.refresh();
+                    b.this.dSg.refresh();
                 }
             }
         };
@@ -50,37 +50,37 @@ public class b extends h {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(r rVar) {
         if (rVar != null) {
-            l azR = this.dSf.azR();
-            if (this.dAx != null && this.dAy != null && this.dAn != null && azR != null && azR.beT() != null && rVar.getFid() != null) {
+            l azS = this.dSg.azS();
+            if (this.dAx != null && this.dAy != null && this.dAn != null && azS != null && azS.beT() != null && rVar.getFid() != null) {
                 boolean z = rVar.isLike() == 1;
-                if (rVar.getFid().equals(azR.beT().getId())) {
-                    azR.beT().setLike(rVar.isLike());
+                if (rVar.getFid().equals(azS.beT().getId())) {
+                    azS.beT().setLike(rVar.isLike());
                     if (!StringUtils.isNULL(rVar.getLevelName())) {
-                        azR.beT().setLevelName(rVar.getLevelName());
+                        azS.beT().setLevelName(rVar.getLevelName());
                     }
                     if (rVar.byv() >= 0) {
-                        azR.beT().setUser_level(rVar.byv());
+                        azS.beT().setUser_level(rVar.byv());
                     }
                     if (z) {
-                        this.dAy.a(azR, false);
-                        TbadkCoreApplication.getInst().addLikeForum(this.dSf.getForumName());
+                        this.dAy.a(azS, false);
+                        TbadkCoreApplication.getInst().addLikeForum(this.dSg.getForumName());
                         return;
                     }
-                    com.baidu.tieba.tbadkCore.c.bzN().ab(this.dSf.getForumName(), false);
-                    azR.beT().setLike(0);
+                    com.baidu.tieba.tbadkCore.c.bzN().ab(this.dSg.getForumName(), false);
+                    azS.beT().setLike(0);
                     this.dAy.aGd();
-                    TbadkCoreApplication.getInst().delLikeForum(this.dSf.getForumName());
+                    TbadkCoreApplication.getInst().delLikeForum(this.dSg.getForumName());
                     return;
                 }
                 if (rVar.isLike() == 1) {
-                    azR.uO(rVar.getFid());
-                    this.dAy.h(azR);
-                    this.dTc.a(azR, this.dAx.aFk());
+                    azS.uO(rVar.getFid());
+                    this.dAy.h(azS);
+                    this.dTd.a(azS, this.dAx.aFk());
                 }
-                if (azR.beT().getBannerListData() != null) {
-                    azR.beT().getBannerListData().setFeedForumLiked(rVar.getFid(), rVar.isLike());
+                if (azS.beT().getBannerListData() != null) {
+                    azS.beT().getBannerListData().setFeedForumLiked(rVar.getFid(), rVar.isLike());
                 }
-                this.dAn.aAx();
+                this.dAn.aAy();
             }
         }
     }

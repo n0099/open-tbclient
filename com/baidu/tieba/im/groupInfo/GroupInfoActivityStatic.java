@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.ay;
 public class GroupInfoActivityStatic {
     static {
         aIu();
-        azb();
+        azc();
     }
 
     private static void aIu() {
@@ -35,7 +35,7 @@ public class GroupInfoActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void azb() {
+    private static void azc() {
         ay.CU().a(new ay.a() { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivityStatic.2
             @Override // com.baidu.tbadk.core.util.ay.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {

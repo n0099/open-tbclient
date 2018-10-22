@@ -158,7 +158,7 @@ public class VideoAggregationModel extends BdBaseModel {
         }
     }
 
-    public void aBU() {
+    public void aBV() {
         this.mPn = 0;
         LoadData();
     }

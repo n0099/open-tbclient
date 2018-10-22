@@ -6,39 +6,39 @@ import tbclient.SimpleUser;
 public class a {
     private int aSS;
     private int aSV;
-    private int gMp;
     private int gMq;
-    private boolean gMr;
-    private int gMs;
-    private SimpleUser gMt;
-    private int gMu;
+    private int gMr;
+    private boolean gMs;
+    private int gMt;
+    private SimpleUser gMu;
+    private int gMv;
 
     public boolean buQ() {
         com.baidu.tbadk.core.sharedPref.b bVar = com.baidu.tbadk.core.sharedPref.b.getInstance();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        this.gMp = bVar.getInt("post" + currentAccount, 0);
-        this.gMq = bVar.getInt("like" + currentAccount, 0);
+        this.gMq = bVar.getInt("post" + currentAccount, 0);
+        this.gMr = bVar.getInt("like" + currentAccount, 0);
         this.aSS = bVar.getInt("group" + currentAccount, 0);
         this.aSV = bVar.getInt("live" + currentAccount, 0);
-        this.gMs = bVar.getInt("reply" + currentAccount, 1);
-        this.gMr = TbadkCoreApplication.getInst().getLocationShared();
-        return (this.gMp == 0 && this.gMq == 0 && this.aSS == 0 && this.aSV == 0 && this.gMs == 1) ? false : true;
+        this.gMt = bVar.getInt("reply" + currentAccount, 1);
+        this.gMs = TbadkCoreApplication.getInst().getLocationShared();
+        return (this.gMq == 0 && this.gMr == 0 && this.aSS == 0 && this.aSV == 0 && this.gMt == 1) ? false : true;
     }
 
     public void b(a aVar) {
         if (aVar != null) {
-            this.gMp = aVar.gMp;
             this.gMq = aVar.gMq;
-            this.aSS = aVar.aSS;
             this.gMr = aVar.gMr;
-            this.aSV = aVar.aSV;
-            this.gMu = aVar.gMu;
+            this.aSS = aVar.aSS;
             this.gMs = aVar.gMs;
+            this.aSV = aVar.aSV;
+            this.gMv = aVar.gMv;
+            this.gMt = aVar.gMt;
         }
     }
 
     public int buR() {
-        return this.gMp;
+        return this.gMq;
     }
 
     public void aP(String str, int i) {
@@ -48,25 +48,25 @@ public class a {
     public void buS() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         com.baidu.tbadk.core.sharedPref.b bVar = com.baidu.tbadk.core.sharedPref.b.getInstance();
-        bVar.putInt("post" + currentAccount, this.gMp);
-        bVar.putInt("like" + currentAccount, this.gMq);
+        bVar.putInt("post" + currentAccount, this.gMq);
+        bVar.putInt("like" + currentAccount, this.gMr);
         bVar.putInt("group" + currentAccount, this.aSS);
         bVar.putInt("live" + currentAccount, this.aSV);
-        bVar.putInt("reply" + currentAccount, this.gMs);
-        TbadkCoreApplication.getInst().setLocationShared(this.gMr);
+        bVar.putInt("reply" + currentAccount, this.gMt);
+        TbadkCoreApplication.getInst().setLocationShared(this.gMs);
     }
 
     public void tw(int i) {
-        this.gMp = i;
+        this.gMq = i;
     }
 
     public int buT() {
-        return this.gMq;
+        return this.gMr;
     }
 
     public void tx(int i) {
         if (i <= 3 && i >= 1) {
-            this.gMq = i;
+            this.gMr = i;
         }
     }
 
@@ -91,41 +91,41 @@ public class a {
     }
 
     public boolean buV() {
-        return this.gMr;
+        return this.gMs;
     }
 
     public void tA(int i) {
         switch (i) {
             case 1:
-                this.gMr = true;
+                this.gMs = true;
                 return;
             default:
-                this.gMr = false;
+                this.gMs = false;
                 return;
         }
     }
 
     public SimpleUser UP() {
-        return this.gMt;
+        return this.gMu;
     }
 
     public void b(SimpleUser simpleUser) {
-        this.gMt = simpleUser;
+        this.gMu = simpleUser;
     }
 
     public void tB(int i) {
-        this.gMu = i;
+        this.gMv = i;
     }
 
     public void tC(int i) {
         if (i == 0) {
-            this.gMs = 1;
+            this.gMt = 1;
         } else {
-            this.gMs = i;
+            this.gMt = i;
         }
     }
 
     public int buW() {
-        return this.gMs;
+        return this.gMt;
     }
 }

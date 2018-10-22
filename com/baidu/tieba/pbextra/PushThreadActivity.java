@@ -28,11 +28,11 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class PushThreadActivity extends BaseActivity {
     private PushStatusData aqv;
-    private int gej;
-    private PushTypeData gek;
-    private TextView gel;
-    private ImageButton gem;
-    private HttpMessageListener gen = new HttpMessageListener(CmdConfigHttp.PB_PUSH_THREAD_HTTP_CMD) { // from class: com.baidu.tieba.pbextra.PushThreadActivity.1
+    private int gek;
+    private PushTypeData gel;
+    private TextView gem;
+    private ImageButton gen;
+    private HttpMessageListener gep = new HttpMessageListener(CmdConfigHttp.PB_PUSH_THREAD_HTTP_CMD) { // from class: com.baidu.tieba.pbextra.PushThreadActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -40,7 +40,7 @@ public class PushThreadActivity extends BaseActivity {
                 if (httpResponsedMessage.hasError()) {
                     PushThreadActivity.this.showToast(e.j.neterror);
                 } else if (httpResponsedMessage instanceof PbPushHttpResponseMessage) {
-                    if (PushThreadActivity.this.gej == ((PbPushHttpResponseMessage) httpResponsedMessage).getPushType()) {
+                    if (PushThreadActivity.this.gek == ((PbPushHttpResponseMessage) httpResponsedMessage).getPushType()) {
                         PushThreadActivity.this.setResult(-1, new Intent());
                     } else {
                         PushThreadActivity.this.showToast(e.j.neterror);
@@ -62,8 +62,8 @@ public class PushThreadActivity extends BaseActivity {
         setActivityBgTransparent();
         initData();
         initUI();
-        this.gen.setSelfListener(true);
-        registerListener(this.gen);
+        this.gep.setSelfListener(true);
+        registerListener(this.gep);
     }
 
     private void initData() {
@@ -80,13 +80,13 @@ public class PushThreadActivity extends BaseActivity {
         this.mGridView = (GridView) findViewById(e.g.gv_push);
         this.mGridView.setAdapter((ListAdapter) new a());
         this.mGridView.setOnItemClickListener(this);
-        this.gel = (TextView) findViewById(e.g.push_commit);
-        al.i(this.gel, e.f.push_commit_selector);
-        al.h(this.gel, e.d.cp_cont_i);
-        this.gel.setOnClickListener(this);
-        this.gem = (ImageButton) findViewById(e.g.ib_close);
-        al.i(this.gem, e.f.push_close_selector);
+        this.gem = (TextView) findViewById(e.g.push_commit);
+        al.i(this.gem, e.f.push_commit_selector);
+        al.h(this.gem, e.d.cp_cont_i);
         this.gem.setOnClickListener(this);
+        this.gen = (ImageButton) findViewById(e.g.ib_close);
+        al.i(this.gen, e.f.push_close_selector);
+        this.gen.setOnClickListener(this);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -103,7 +103,7 @@ public class PushThreadActivity extends BaseActivity {
     /* loaded from: classes3.dex */
     public class a extends BaseAdapter {
         public a() {
-            PushThreadActivity.this.gej = 0;
+            PushThreadActivity.this.gek = 0;
         }
 
         @Override // android.widget.Adapter
@@ -131,7 +131,7 @@ public class PushThreadActivity extends BaseActivity {
             if (pushTypeData != null) {
                 tbImageView.startLoad(pushTypeData.getIcon(), 10, false);
                 textView.setText(pushTypeData.getName());
-                if (pushTypeData.getType() == PushThreadActivity.this.gej) {
+                if (pushTypeData.getType() == PushThreadActivity.this.gek) {
                     al.c(imageView, e.f.bg_choose_ok);
                     al.h(textView, e.d.cp_other_b);
                 } else {
@@ -148,30 +148,30 @@ public class PushThreadActivity extends BaseActivity {
         View childAt;
         ImageView imageView = (ImageView) view.findViewById(e.g.iv_item_hint);
         TextView textView = (TextView) view.findViewById(e.g.tv_item_title);
-        this.gel.setEnabled(true);
+        this.gem.setEnabled(true);
         PushTypeData pushTypeData = (PushTypeData) v.d(this.mPushTypeDatas, i);
         if (pushTypeData != null) {
-            if (this.gej == pushTypeData.getType()) {
+            if (this.gek == pushTypeData.getType()) {
                 imageView.setImageDrawable(null);
                 al.h(textView, e.d.cp_cont_b);
-                this.gej = -1;
+                this.gek = -1;
                 return;
             }
-            if (this.gek != null && (childAt = adapterView.getChildAt(v.a(this.mPushTypeDatas, this.gek))) != null) {
+            if (this.gel != null && (childAt = adapterView.getChildAt(v.a(this.mPushTypeDatas, this.gel))) != null) {
                 ((ImageView) childAt.findViewById(e.g.iv_item_hint)).setImageDrawable(null);
                 al.h((TextView) childAt.findViewById(e.g.tv_item_title), e.d.cp_cont_b);
             }
             al.c(imageView, e.f.bg_choose_ok);
             al.h(textView, e.d.cp_other_b);
-            this.gej = pushTypeData.getType();
-            this.gek = pushTypeData;
+            this.gek = pushTypeData.getType();
+            this.gel = pushTypeData;
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gel) {
-            if (this.gej == 0) {
+        if (view == this.gem) {
+            if (this.gek == 0) {
                 showToast(e.j.select_category);
                 return;
             }
@@ -179,8 +179,8 @@ public class PushThreadActivity extends BaseActivity {
             long longExtra2 = getIntent().getLongExtra("thread_id", 0L);
             long longExtra3 = getIntent().getLongExtra("user_id", 0L);
             showLoadingDialog("");
-            sendMessage(new PbPushRequestMessage(longExtra, longExtra2, this.gej, longExtra3));
-        } else if (view == this.gem) {
+            sendMessage(new PbPushRequestMessage(longExtra, longExtra2, this.gek, longExtra3));
+        } else if (view == this.gen) {
             finish();
         }
     }

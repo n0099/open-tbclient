@@ -24,14 +24,14 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     private CustomMessageListener biT;
     private CustomMessageListener biU;
     private TextView dvn;
-    private TextView gqC;
     private TextView gqD;
     private TextView gqE;
     private TextView gqF;
-    private BarImageView gqG;
-    private TextView gqH;
+    private TextView gqG;
+    private BarImageView gqH;
     private TextView gqI;
-    private com.baidu.tieba.personPolymeric.c.b gqJ;
+    private TextView gqJ;
+    private com.baidu.tieba.personPolymeric.c.b gqK;
     private boolean isHost;
     private View mRootView;
 
@@ -45,9 +45,9 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
                     Object data = customResponsedMessage.getData();
                     if (data instanceof com.baidu.tieba.tbadkCore.writeModel.a) {
                         com.baidu.tieba.tbadkCore.writeModel.a aVar = (com.baidu.tieba.tbadkCore.writeModel.a) data;
-                        if (aVar.forumId == b.this.gqJ.forumId) {
+                        if (aVar.forumId == b.this.gqK.forumId) {
                             if (aVar.isSuccess) {
-                                b.this.gqJ.isAttention = true;
+                                b.this.gqK.isAttention = true;
                                 b.this.dvn.setVisibility(0);
                                 b.this.lZ(true);
                                 com.baidu.adp.lib.util.l.showToast(b.this.mContext, e.j.attention_success);
@@ -67,11 +67,11 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && !b.this.isHost) {
                     Object data = customResponsedMessage.getData();
-                    if ((data instanceof com.baidu.tieba.tbadkCore.writeModel.a) && ((com.baidu.tieba.tbadkCore.writeModel.a) data).forumId == b.this.gqJ.forumId) {
+                    if ((data instanceof com.baidu.tieba.tbadkCore.writeModel.a) && ((com.baidu.tieba.tbadkCore.writeModel.a) data).forumId == b.this.gqK.forumId) {
                         if (((com.baidu.tieba.tbadkCore.writeModel.a) data).isSuccess) {
-                            b.this.gqJ.isAttention = false;
+                            b.this.gqK.isAttention = false;
                             b.this.dvn.setVisibility(0);
-                            b.this.lZ(b.this.gqJ.isAttention);
+                            b.this.lZ(b.this.gqK.isAttention);
                             com.baidu.adp.lib.util.l.showToast(b.this.mContext, e.j.unlike_success);
                             return;
                         }
@@ -89,13 +89,13 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
 
     private void init(View view) {
         this.mRootView = view.findViewById(e.g.card_polymeric_attention_bar_rootview);
-        this.gqC = (TextView) view.findViewById(e.g.card_polymeric_attention_bar_day);
-        this.gqD = (TextView) view.findViewById(e.g.card_polymeric_attention_bar_month);
-        this.gqE = (TextView) view.findViewById(e.g.card_polymeric_attention_sex);
-        this.gqF = (TextView) view.findViewById(e.g.card_polymeric_attention_bar_des);
-        this.gqG = (BarImageView) view.findViewById(e.g.card_polymeric_attention_icon);
-        this.gqH = (TextView) view.findViewById(e.g.card_polymeric_attention_bar_name);
-        this.gqI = (TextView) view.findViewById(e.g.card_polymeric_attention_post_num);
+        this.gqD = (TextView) view.findViewById(e.g.card_polymeric_attention_bar_day);
+        this.gqE = (TextView) view.findViewById(e.g.card_polymeric_attention_bar_month);
+        this.gqF = (TextView) view.findViewById(e.g.card_polymeric_attention_sex);
+        this.gqG = (TextView) view.findViewById(e.g.card_polymeric_attention_bar_des);
+        this.gqH = (BarImageView) view.findViewById(e.g.card_polymeric_attention_icon);
+        this.gqI = (TextView) view.findViewById(e.g.card_polymeric_attention_bar_name);
+        this.gqJ = (TextView) view.findViewById(e.g.card_polymeric_attention_post_num);
         this.dvn = (TextView) view.findViewById(e.g.card_polymeric_attention_btn);
         this.mRootView.setOnClickListener(this);
         this.dvn.setOnClickListener(this);
@@ -107,14 +107,14 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     public void d(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
             al.i(this.mRootView, e.f.item_person_header_attention_bg_selector);
-            al.c(this.gqC, e.d.cp_cont_f, 1);
             al.c(this.gqD, e.d.cp_cont_f, 1);
             al.c(this.gqE, e.d.cp_cont_f, 1);
             al.c(this.gqF, e.d.cp_cont_f, 1);
-            al.c(this.gqH, e.d.cp_cont_b, 1);
-            al.c(this.gqI, e.d.cp_cont_c, 1);
-            if (this.gqJ != null) {
-                lZ(this.gqJ.isAttention);
+            al.c(this.gqG, e.d.cp_cont_f, 1);
+            al.c(this.gqI, e.d.cp_cont_b, 1);
+            al.c(this.gqJ, e.d.cp_cont_c, 1);
+            if (this.gqK != null) {
+                lZ(this.gqK.isAttention);
             }
         }
         this.mSkinType = i;
@@ -136,27 +136,27 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        this.gqJ = bVar;
+        this.gqK = bVar;
         this.isHost = bVar.isHost;
-        this.gqC.setVisibility(bVar.cQW ? 0 : 4);
         this.gqD.setVisibility(bVar.cQW ? 0 : 4);
-        this.gqC.setText(bVar.cQQ);
-        this.gqD.setText(bVar.cQP);
-        TextView textView = this.gqE;
+        this.gqE.setVisibility(bVar.cQW ? 0 : 4);
+        this.gqD.setText(bVar.cQQ);
+        this.gqE.setText(bVar.cQP);
+        TextView textView = this.gqF;
         if (bVar.isHost) {
             string = this.mContext.getString(e.j.me);
         } else {
             string = bVar.sex == 2 ? this.mContext.getString(e.j.she) : this.mContext.getString(e.j.he);
         }
         textView.setText(string);
-        this.gqG.startLoad(bVar.avatar, 10, false);
-        String str = bVar.gpK;
+        this.gqH.startLoad(bVar.avatar, 10, false);
+        String str = bVar.gpL;
         if (y.is(str) > 10) {
             str = y.o(str, 0, 10) + "...";
         }
-        this.gqH.setText(String.format(this.mContext.getString(e.j.person_polymeric_bar_suffix), str));
-        String M = ao.M(bVar.gpL);
-        this.gqI.setText(bVar.isHost ? String.format(this.mContext.getString(e.j.person_polymeric_attention_post_host), M, ao.M(bVar.postNum)) : String.format(this.mContext.getString(e.j.person_polymeric_attention_post_guess), M));
+        this.gqI.setText(String.format(this.mContext.getString(e.j.person_polymeric_bar_suffix), str));
+        String M = ao.M(bVar.gpM);
+        this.gqJ.setText(bVar.isHost ? String.format(this.mContext.getString(e.j.person_polymeric_attention_post_host), M, ao.M(bVar.postNum)) : String.format(this.mContext.getString(e.j.person_polymeric_attention_post_guess), M));
         if (bVar.isAttention || bVar.isHost) {
             this.dvn.setVisibility(8);
             return;
@@ -171,13 +171,13 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             if (!this.isHost) {
                 TiebaStatic.log(new am("c11595"));
             }
-            this.mTbPageContext.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.mContext).createNormalCfg(this.gqJ.gpK, "")));
+            this.mTbPageContext.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.mContext).createNormalCfg(this.gqK.gpL, "")));
         } else if (this.dvn == view) {
             TiebaStatic.log(new am("c11596"));
             if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
                 ba.bH(this.mContext);
-            } else if (ao.bv(this.gqJ.gpK) && !this.gqJ.isAttention) {
-                this.aGV.cF(this.gqJ.gpK, String.valueOf(this.gqJ.forumId));
+            } else if (ao.bv(this.gqK.gpL) && !this.gqK.isAttention) {
+                this.aGV.cF(this.gqK.gpL, String.valueOf(this.gqK.forumId));
             }
         }
     }

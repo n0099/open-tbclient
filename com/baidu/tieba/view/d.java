@@ -29,40 +29,40 @@ import com.baidu.tieba.e;
 /* loaded from: classes5.dex */
 public class d implements f {
     private com.baidu.tbadk.core.util.b.a buX;
-    private PopupWindow fYQ;
-    private RelativeLayout hEs;
-    private ImageView hEt;
-    public ImageView hEu;
-    private RelativeLayout hEv;
-    private ImageView hEw;
-    public ImageView hEx;
-    private View hEy;
-    private ImageView hEz;
+    private PopupWindow fYR;
+    private ImageView hEA;
+    private RelativeLayout hEt;
+    private ImageView hEu;
+    public ImageView hEv;
+    private RelativeLayout hEw;
+    private ImageView hEx;
+    public ImageView hEy;
+    private View hEz;
     private Context mContext;
     private int mFrom;
     private NavigationBar mNavigationBar;
-    private int hEr = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(e.C0175e.ds28);
-    private boolean hEA = false;
+    private int hEs = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(e.C0175e.ds28);
+    private boolean hEB = false;
     private Handler mHandler = new Handler();
-    private Runnable fYV = new Runnable() { // from class: com.baidu.tieba.view.d.4
+    private Runnable fYW = new Runnable() { // from class: com.baidu.tieba.view.d.4
         @Override // java.lang.Runnable
         public void run() {
-            ImageView imageView = d.this.hEw;
+            ImageView imageView = d.this.hEx;
             if (imageView != null) {
-                com.baidu.adp.lib.g.g.showPopupWindowAsDropDown(d.this.fYQ, imageView);
+                com.baidu.adp.lib.g.g.showPopupWindowAsDropDown(d.this.fYR, imageView);
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("show_person_tab_feedback_tips", true);
-                d.this.hEA = true;
-                d.this.mHandler.postDelayed(d.this.fYW, 3000L);
+                d.this.hEB = true;
+                d.this.mHandler.postDelayed(d.this.fYX, 3000L);
             }
         }
     };
-    private Runnable fYW = new Runnable() { // from class: com.baidu.tieba.view.d.5
+    private Runnable fYX = new Runnable() { // from class: com.baidu.tieba.view.d.5
         @Override // java.lang.Runnable
         public void run() {
             d.this.bkY();
         }
     };
-    private View.OnClickListener fYX = new View.OnClickListener() { // from class: com.baidu.tieba.view.d.6
+    private View.OnClickListener fYY = new View.OnClickListener() { // from class: com.baidu.tieba.view.d.6
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             d.this.bkX();
@@ -77,36 +77,36 @@ public class d implements f {
     public void a(Context context, NavigationBar navigationBar) {
         this.mContext = context;
         this.mNavigationBar = navigationBar;
-        this.hEs = (RelativeLayout) LayoutInflater.from(context).inflate(e.h.item_person_host_navigation_dressup, (ViewGroup) null);
-        this.hEt = (ImageView) this.hEs.findViewById(e.g.person_navigation_dressup_img);
-        this.hEu = (ImageView) this.hEs.findViewById(e.g.person_navigation_dressup_red_tip);
-        this.hEv = (RelativeLayout) LayoutInflater.from(context).inflate(e.h.item_person_host_navigation_setting, (ViewGroup) null);
-        this.hEw = (ImageView) this.hEv.findViewById(e.g.person_navigation_setting_img);
-        this.hEx = (ImageView) this.hEv.findViewById(e.g.person_navigation_setting_red_tip);
-        this.hEy = LayoutInflater.from(this.mContext).inflate(e.h.item_person_host_navigation_scan, (ViewGroup) null);
-        this.hEz = (ImageView) this.hEy.findViewById(e.g.person_navigation_scan_img);
+        this.hEt = (RelativeLayout) LayoutInflater.from(context).inflate(e.h.item_person_host_navigation_dressup, (ViewGroup) null);
+        this.hEu = (ImageView) this.hEt.findViewById(e.g.person_navigation_dressup_img);
+        this.hEv = (ImageView) this.hEt.findViewById(e.g.person_navigation_dressup_red_tip);
+        this.hEw = (RelativeLayout) LayoutInflater.from(context).inflate(e.h.item_person_host_navigation_setting, (ViewGroup) null);
+        this.hEx = (ImageView) this.hEw.findViewById(e.g.person_navigation_setting_img);
+        this.hEy = (ImageView) this.hEw.findViewById(e.g.person_navigation_setting_red_tip);
+        this.hEz = LayoutInflater.from(this.mContext).inflate(e.h.item_person_host_navigation_scan, (ViewGroup) null);
+        this.hEA = (ImageView) this.hEz.findViewById(e.g.person_navigation_scan_img);
     }
 
     @Override // com.baidu.tieba.view.f
     public void box() {
         this.mNavigationBar.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
         if (this.mFrom == 1) {
-            if (this.hEs != null && this.hEs.getParent() == null) {
-                this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.hEs, (View.OnClickListener) null);
+            if (this.hEt != null && this.hEt.getParent() == null) {
+                this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.hEt, (View.OnClickListener) null);
             }
-            if (this.hEv != null && this.hEv.getParent() == null) {
-                this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.hEv, (View.OnClickListener) null);
+            if (this.hEw != null && this.hEw.getParent() == null) {
+                this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.hEw, (View.OnClickListener) null);
             }
-            if (this.hEy != null && this.hEy.getParent() == null) {
-                this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.hEy, (View.OnClickListener) null);
+            if (this.hEz != null && this.hEz.getParent() == null) {
+                this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.hEz, (View.OnClickListener) null);
             }
         }
     }
 
     @Override // com.baidu.tieba.view.f
     public void setOnViewResponseListener(g gVar) {
-        if (this.hEs != null) {
-            this.hEs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.d.1
+        if (this.hEt != null) {
+            this.hEt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.d.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (d.this.mFrom == 1) {
@@ -124,8 +124,8 @@ public class d implements f {
                 }
             });
         }
-        if (this.hEv != null) {
-            this.hEv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.d.2
+        if (this.hEw != null) {
+            this.hEw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.d.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (d.this.mFrom == 1) {
@@ -145,8 +145,8 @@ public class d implements f {
                 }
             });
         }
-        if (this.hEy != null) {
-            this.hEy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.d.3
+        if (this.hEz != null) {
+            this.hEz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.d.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (d.this.mContext instanceof Activity) {
@@ -176,58 +176,58 @@ public class d implements f {
 
     @Override // com.baidu.tieba.view.f
     public void C(int i, boolean z) {
-        if (i == 5 && this.hEx != null) {
-            this.hEx.setVisibility(z ? 0 : 8);
-        } else if (i == 6 && this.hEu != null) {
-            this.hEu.setVisibility(z ? 0 : 8);
+        if (i == 5 && this.hEy != null) {
+            this.hEy.setVisibility(z ? 0 : 8);
+        } else if (i == 6 && this.hEv != null) {
+            this.hEv.setVisibility(z ? 0 : 8);
         }
     }
 
     @Override // com.baidu.tieba.view.f
     public void onChangeSkinType(int i) {
-        if (this.hEt != null) {
+        if (this.hEu != null) {
             if (2 == i) {
-                al.a(this.hEt, e.f.icon_person_dressup_s, e.f.icon_person_dressup);
+                al.a(this.hEu, e.f.icon_person_dressup_s, e.f.icon_person_dressup);
             } else if (this.mNavigationBar.getBarBgView().getAlpha() < 0.5f) {
-                al.a(this.hEt, e.f.icon_person_dressup, e.f.icon_person_dressup);
+                al.a(this.hEu, e.f.icon_person_dressup, e.f.icon_person_dressup);
             } else {
-                al.a(this.hEt, e.f.icon_person_dressup_s, e.f.icon_person_dressup_s);
+                al.a(this.hEu, e.f.icon_person_dressup_s, e.f.icon_person_dressup_s);
             }
-            if (this.hEu != null) {
-                al.c(this.hEu, e.f.icon_news_down_bar_one);
+            if (this.hEv != null) {
+                al.c(this.hEv, e.f.icon_news_down_bar_one);
             }
         }
-        if (this.hEw != null) {
+        if (this.hEx != null) {
             if (2 == i) {
-                al.a(this.hEw, e.f.icon_home_setting_s, e.f.icon_home_setting_w);
+                al.a(this.hEx, e.f.icon_home_setting_s, e.f.icon_home_setting_w);
             } else if (this.mNavigationBar.getBarBgView().getAlpha() < 0.5f) {
-                al.a(this.hEw, e.f.icon_home_setting_w, e.f.icon_home_setting_w);
+                al.a(this.hEx, e.f.icon_home_setting_w, e.f.icon_home_setting_w);
             } else {
-                al.a(this.hEw, e.f.icon_home_setting_s, e.f.icon_home_setting_s);
+                al.a(this.hEx, e.f.icon_home_setting_s, e.f.icon_home_setting_s);
             }
-            if (this.hEx != null) {
-                al.c(this.hEx, e.f.icon_news_down_bar_one);
+            if (this.hEy != null) {
+                al.c(this.hEy, e.f.icon_news_down_bar_one);
             }
         }
-        al.c(this.hEz, e.f.selector_top_bar_scan);
+        al.c(this.hEA, e.f.selector_top_bar_scan);
     }
 
     @Override // com.baidu.tieba.view.f
     public void c(float f, boolean z) {
         float f2;
         if (z) {
-            if (this.hEt != null) {
-                al.a(this.hEt, e.f.icon_person_dressup_s, e.f.icon_person_dressup_s);
+            if (this.hEu != null) {
+                al.a(this.hEu, e.f.icon_person_dressup_s, e.f.icon_person_dressup_s);
             }
-            if (this.hEw != null) {
-                al.a(this.hEw, e.f.icon_home_setting_s, e.f.icon_home_setting_s);
+            if (this.hEx != null) {
+                al.a(this.hEx, e.f.icon_home_setting_s, e.f.icon_home_setting_s);
             }
         } else {
-            if (this.hEt != null) {
-                al.a(this.hEt, e.f.icon_person_dressup, e.f.icon_person_dressup);
+            if (this.hEu != null) {
+                al.a(this.hEu, e.f.icon_person_dressup, e.f.icon_person_dressup);
             }
-            if (this.hEw != null) {
-                al.a(this.hEw, e.f.icon_home_setting_w, e.f.icon_home_setting_w);
+            if (this.hEx != null) {
+                al.a(this.hEx, e.f.icon_home_setting_w, e.f.icon_home_setting_w);
             }
         }
         if (f < 0.5f) {
@@ -236,19 +236,19 @@ public class d implements f {
             f2 = (f * 2.0f) - 1.0f;
         }
         if (f2 >= 0.0f && f2 <= 1.0f) {
-            if (this.hEt != null) {
-                this.hEt.setAlpha(f2);
+            if (this.hEu != null) {
+                this.hEu.setAlpha(f2);
             }
-            if (this.hEw != null) {
-                this.hEw.setAlpha(f2);
+            if (this.hEx != null) {
+                this.hEx.setAlpha(f2);
             }
         }
     }
 
     public void bpb() {
-        if (!this.hEA) {
-            this.hEA = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("show_person_tab_feedback_tips", false);
-            if (!this.hEA) {
+        if (!this.hEB) {
+            this.hEB = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("show_person_tab_feedback_tips", false);
+            if (!this.hEB) {
                 View inflate = LayoutInflater.from(this.mContext).inflate(e.h.tips_blue_right_up, (ViewGroup) null);
                 View findViewById = inflate.findViewById(e.g.arrow_up);
                 TextView textView = (TextView) inflate.findViewById(e.g.tips);
@@ -256,23 +256,23 @@ public class d implements f {
                 layoutParams.gravity = 5;
                 layoutParams.rightMargin = l.h(this.mContext, e.C0175e.ds32);
                 textView.setText(e.j.person_tab_feedback_tips);
-                textView.setOnClickListener(this.fYX);
-                this.fYQ = new PopupWindow(inflate, -2, -2);
-                this.mHandler.removeCallbacks(this.fYV);
-                this.mHandler.postDelayed(this.fYV, 100L);
+                textView.setOnClickListener(this.fYY);
+                this.fYR = new PopupWindow(inflate, -2, -2);
+                this.mHandler.removeCallbacks(this.fYW);
+                this.mHandler.postDelayed(this.fYW, 100L);
             }
         }
     }
 
     public void bkX() {
-        this.mHandler.removeCallbacks(this.fYV);
         this.mHandler.removeCallbacks(this.fYW);
+        this.mHandler.removeCallbacks(this.fYX);
         bkY();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bkY() {
-        com.baidu.adp.lib.g.g.a(this.fYQ);
+        com.baidu.adp.lib.g.g.a(this.fYR);
     }
 
     @Override // com.baidu.tieba.view.f

@@ -14,6 +14,7 @@ import android.webkit.CookieSyncManager;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.browser.BrowserType;
@@ -40,8 +41,8 @@ import java.util.Map;
 /* loaded from: classes4.dex */
 public class a implements IAiAppAccountIoc {
     private static String bAZ = " swan/1.6";
-    private String bBa = null;
-    private final List<AiAppAccountStatusChangedListener> bBb = new LinkedList();
+    private final List<AiAppAccountStatusChangedListener> bBa = new LinkedList();
+    private String bBb = null;
 
     public a() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2005016) { // from class: com.baidu.tieba.aiapps.apps.a.a.1
@@ -49,8 +50,8 @@ public class a implements IAiAppAccountIoc {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 boolean isNULL = StringUtils.isNULL(a.this.getUid(TbadkCoreApplication.getInst()));
-                synchronized (a.this.bBb) {
-                    for (AiAppAccountStatusChangedListener aiAppAccountStatusChangedListener : a.this.bBb) {
+                synchronized (a.this.bBa) {
+                    for (AiAppAccountStatusChangedListener aiAppAccountStatusChangedListener : a.this.bBa) {
                         aiAppAccountStatusChangedListener.onLoginStatusChanged(isNULL, !isNULL);
                     }
                 }
@@ -117,7 +118,7 @@ public class a implements IAiAppAccountIoc {
                 bundle.putString(key, value);
             }
         }
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, e.class, bundle);
+        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, f.class, bundle);
         HashMap hashMap = new HashMap(map);
         if (callOnMainWithContentProvider.isOk()) {
             for (String str : callOnMainWithContentProvider.mResult.keySet()) {
@@ -142,7 +143,7 @@ public class a implements IAiAppAccountIoc {
         if (!TextUtils.isEmpty(str)) {
             Bundle bundle2 = new Bundle();
             bundle2.putString("key_uid", str);
-            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, g.class, bundle2);
+            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, h.class, bundle2);
             return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult : bundle;
         }
         return bundle;
@@ -174,15 +175,15 @@ public class a implements IAiAppAccountIoc {
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppAccountIoc
     public String getEnCuid() {
-        if (this.bBa == null && !StringUtils.isNULL(getUid(TbadkCoreApplication.getInst()))) {
-            this.bBa = new String(Base64Encoder.B64Encode(getCuid(TbadkCoreApplication.getInst()).getBytes()));
+        if (this.bBb == null && !StringUtils.isNULL(getUid(TbadkCoreApplication.getInst()))) {
+            this.bBb = new String(Base64Encoder.B64Encode(getCuid(TbadkCoreApplication.getInst()).getBytes()));
         }
-        return this.bBa;
+        return this.bBb;
     }
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppAccountIoc
     public String getPortraitUrl() {
-        return b.getPortraitUrl();
+        return TbadkCoreApplication.getInst().isMainProcess(true) ? b.getPortraitUrl() : b.Wk();
     }
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppAccountIoc
@@ -217,22 +218,26 @@ public class a implements IAiAppAccountIoc {
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppAccountIoc
     public void setCookieManualWithBdussOperate(String str, String str2, boolean z, String str3) {
-        CookieManager.getInstance().setCookie(str, str2);
-        if (z) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                CookieManager.getInstance().flush();
-            } else {
-                CookieSyncManager.createInstance(TbadkCoreApplication.getInst()).sync();
+        try {
+            CookieManager.getInstance().setCookie(str, str2);
+            if (z) {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    CookieManager.getInstance().flush();
+                } else {
+                    CookieSyncManager.createInstance(TbadkCoreApplication.getInst()).sync();
+                }
             }
+        } catch (Throwable th) {
+            BdLog.e(th);
         }
     }
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppAccountIoc
     public void addLoginStatusChangedListener(AiAppAccountStatusChangedListener aiAppAccountStatusChangedListener) {
         if (aiAppAccountStatusChangedListener != null) {
-            synchronized (this.bBb) {
-                if (!this.bBb.contains(aiAppAccountStatusChangedListener)) {
-                    this.bBb.add(aiAppAccountStatusChangedListener);
+            synchronized (this.bBa) {
+                if (!this.bBa.contains(aiAppAccountStatusChangedListener)) {
+                    this.bBa.add(aiAppAccountStatusChangedListener);
                 }
             }
         }
@@ -265,7 +270,7 @@ public class a implements IAiAppAccountIoc {
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppAccountIoc
     public String getModel() {
-        return com.baidu.tieba.aiapps.apps.d.c.WW();
+        return com.baidu.tieba.aiapps.apps.d.c.WX();
     }
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppAccountIoc

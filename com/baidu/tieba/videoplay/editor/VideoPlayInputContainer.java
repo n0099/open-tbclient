@@ -38,7 +38,7 @@ public class VideoPlayInputContainer extends LinearLayout implements l {
     private boolean aVu;
     private boolean aVv;
     private int aVw;
-    private ImageView hDg;
+    private ImageView hDh;
     private View mBottomLine;
     private TextView mSendView;
 
@@ -75,10 +75,10 @@ public class VideoPlayInputContainer extends LinearLayout implements l {
     }
 
     private void dg(Context context) {
-        this.hDg = new ImageView(context);
-        this.hDg.setEnabled(true);
-        this.hDg.setPadding(0, 0, com.baidu.adp.lib.util.l.h(context, e.C0175e.tbds30), com.baidu.adp.lib.util.l.h(context, e.C0175e.tbds24));
-        this.hDg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.videoplay.editor.VideoPlayInputContainer.1
+        this.hDh = new ImageView(context);
+        this.hDh.setEnabled(true);
+        this.hDh.setPadding(0, 0, com.baidu.adp.lib.util.l.h(context, e.C0175e.tbds30), com.baidu.adp.lib.util.l.h(context, e.C0175e.tbds24));
+        this.hDh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.videoplay.editor.VideoPlayInputContainer.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 VideoPlayInputContainer.this.b(new com.baidu.tbadk.editortools.a(1, 5, null));
@@ -86,7 +86,7 @@ public class VideoPlayInputContainer extends LinearLayout implements l {
         });
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 80;
-        this.aVZ.addView(this.hDg, layoutParams);
+        this.aVZ.addView(this.hDh, layoutParams);
     }
 
     private void bQ(Context context) {
@@ -311,7 +311,7 @@ public class VideoPlayInputContainer extends LinearLayout implements l {
             this.aVV.setHintTextColor(al.getColor(i, e.d.cp_cont_d));
         }
         bKk();
-        al.c(this.hDg, e.f.pbeditor_face_button);
+        al.c(this.hDh, e.f.pbeditor_face_button);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

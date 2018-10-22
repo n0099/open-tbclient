@@ -29,16 +29,16 @@ import java.util.List;
 public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
     private CustomViewPager avd;
     private NoNetworkView dgC;
-    private FragmentTabWidget eIP;
-    private boolean eIR;
+    private FragmentTabWidget eIQ;
+    private boolean eIS;
     private String mForumId;
     private String mForumName;
     private NavigationBar mNavigationBar;
     private View mRootView;
-    private List<c> eIQ = new ArrayList();
-    private List<FragmentTabIndicator> eIS = new ArrayList();
+    private List<c> eIR = new ArrayList();
+    private List<FragmentTabIndicator> eIT = new ArrayList();
     private int mCurrentTabIndex = -1;
-    private al eIT = new al() { // from class: com.baidu.tieba.im.frsgroup.view.FrsGroupActivity.1
+    private al eIU = new al() { // from class: com.baidu.tieba.im.frsgroup.view.FrsGroupActivity.1
         @Override // com.baidu.tieba.frs.al
         public void a(int i, int i2, ar arVar, ArrayList<h> arrayList) {
             FrsGroupActivity.this.aQk();
@@ -67,7 +67,7 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
         });
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.dgC = (NoNetworkView) findViewById(e.g.view_no_network);
-        this.eIP = (FragmentTabWidget) findViewById(e.g.tab_widget);
+        this.eIQ = (FragmentTabWidget) findViewById(e.g.tab_widget);
         this.avd = (CustomViewPager) findViewById(e.g.fragment_pager);
         k(bundle);
         aQl();
@@ -79,7 +79,7 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         if (j.kM()) {
-            this.eIQ.get(0).ayj();
+            this.eIR.get(0).ayk();
             aQj();
         }
     }
@@ -89,8 +89,8 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         this.dgC.onChangeSkinType(getPageContext(), i);
-        this.eIP.onChangeSkinType(i);
-        for (c cVar : this.eIQ) {
+        this.eIQ.onChangeSkinType(i);
+        for (c cVar : this.eIR) {
             cVar.onChangeSkinType(i);
         }
     }
@@ -99,25 +99,25 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        for (c cVar : this.eIQ) {
+        for (c cVar : this.eIR) {
             cVar.onDestroy();
         }
     }
 
     private void initViewPager() {
-        if (this.eIR) {
-            this.eIS.add(pD(getResources().getString(e.j.frsgroup_recommend)));
+        if (this.eIS) {
+            this.eIT.add(pD(getResources().getString(e.j.frsgroup_recommend)));
         }
-        this.eIS.add(pD(getResources().getString(e.j.frsgroup_hot)));
-        this.eIS.add(pD(getResources().getString(e.j.frsgroup_official)));
-        for (FragmentTabIndicator fragmentTabIndicator : this.eIS) {
-            this.eIP.addView(fragmentTabIndicator);
+        this.eIT.add(pD(getResources().getString(e.j.frsgroup_hot)));
+        this.eIT.add(pD(getResources().getString(e.j.frsgroup_official)));
+        for (FragmentTabIndicator fragmentTabIndicator : this.eIT) {
+            this.eIQ.addView(fragmentTabIndicator);
         }
-        this.eIP.setShouldDrawIndicatorLine(true);
+        this.eIQ.setShouldDrawIndicatorLine(true);
         this.avd.setAdapter(new a());
-        this.eIP.setCurrentTab(0, true, false);
+        this.eIQ.setCurrentTab(0, true, false);
         this.avd.setCurrentItem(0);
-        this.eIP.setTabSelectionListener(new FragmentTabWidget.a() { // from class: com.baidu.tieba.im.frsgroup.view.FrsGroupActivity.3
+        this.eIQ.setTabSelectionListener(new FragmentTabWidget.a() { // from class: com.baidu.tieba.im.frsgroup.view.FrsGroupActivity.3
             @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.a
             public void onTabSelectionChanged(int i, boolean z) {
                 FrsGroupActivity.this.avd.setCurrentItem(i);
@@ -126,12 +126,12 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
         this.avd.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.im.frsgroup.view.FrsGroupActivity.4
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
-                FrsGroupActivity.this.eIP.d(i, f);
+                FrsGroupActivity.this.eIQ.d(i, f);
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
-                FrsGroupActivity.this.eIP.setCurrentTab(i, true, false);
+                FrsGroupActivity.this.eIQ.setCurrentTab(i, true, false);
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -153,26 +153,26 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
         super.onSaveInstanceState(bundle);
         bundle.putString("forum_id", this.mForumId);
         bundle.putString("forum_name", this.mForumName);
-        bundle.putBoolean(IntentConfig.SHOW_RECOMMEND, this.eIR);
+        bundle.putBoolean(IntentConfig.SHOW_RECOMMEND, this.eIS);
     }
 
     private void aQj() {
         this.avd.setVisibility(4);
-        this.eIP.setVisibility(4);
+        this.eIQ.setVisibility(4);
         showLoadingView(this.mRootView, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aQk() {
         this.avd.setVisibility(0);
-        this.eIP.setVisibility(0);
+        this.eIQ.setVisibility(0);
         hideLoadingView(this.mRootView);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void nu(String str) {
         this.avd.setVisibility(8);
-        this.eIP.setVisibility(8);
+        this.eIQ.setVisibility(8);
         setNetRefreshViewTopMargin(BdListViewHelper.bdY);
         showNetRefreshView(this.mRootView, str, true);
     }
@@ -182,34 +182,34 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
             if (getIntent() != null) {
                 this.mForumId = getIntent().getStringExtra("forum_id");
                 this.mForumName = getIntent().getStringExtra("forum_name");
-                this.eIR = getIntent().getBooleanExtra(FrsGroupActivityConfig.SHOW_RECOMMEND_GROUP, false);
+                this.eIS = getIntent().getBooleanExtra(FrsGroupActivityConfig.SHOW_RECOMMEND_GROUP, false);
                 return;
             }
             return;
         }
         this.mForumId = bundle.getString("forum_id", "");
         this.mForumName = bundle.getString("forum_name", "");
-        this.eIR = bundle.getBoolean(FrsGroupActivityConfig.SHOW_RECOMMEND_GROUP, false);
+        this.eIS = bundle.getBoolean(FrsGroupActivityConfig.SHOW_RECOMMEND_GROUP, false);
     }
 
     private void aQl() {
-        if (this.eIR) {
+        if (this.eIS) {
             c pj = pj(1);
-            pj.b(this.eIT);
-            this.eIQ.add(pj);
+            pj.b(this.eIU);
+            this.eIR.add(pj);
         }
         c pj2 = pj(2);
-        if (!this.eIR) {
-            pj2.b(this.eIT);
+        if (!this.eIS) {
+            pj2.b(this.eIU);
         }
-        this.eIQ.add(pj2);
-        this.eIQ.add(pj(3));
+        this.eIR.add(pj2);
+        this.eIR.add(pj(3));
     }
 
     private c pj(int i) {
         c cVar = new c(getPageContext());
         cVar.f(i, this.mForumId, this.mForumName);
-        cVar.cG(new com.baidu.tieba.im.frsgroup.view.a.a(this).ays());
+        cVar.cG(new com.baidu.tieba.im.frsgroup.view.a.a(this).ayt());
         cVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         this.dgC.a(cVar);
         return cVar;
@@ -223,7 +223,7 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
 
         @Override // android.support.v4.view.PagerAdapter
         public Object instantiateItem(ViewGroup viewGroup, int i) {
-            c cVar = (c) v.d(FrsGroupActivity.this.eIQ, i);
+            c cVar = (c) v.d(FrsGroupActivity.this.eIR, i);
             if (cVar == null) {
                 return new View(FrsGroupActivity.this.getActivity());
             }
@@ -238,7 +238,7 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
             super.setPrimaryItem(viewGroup, i, obj);
             if (FrsGroupActivity.this.mCurrentTabIndex != i) {
                 FrsGroupActivity.this.mCurrentTabIndex = i;
-                ((c) FrsGroupActivity.this.eIQ.get(FrsGroupActivity.this.mCurrentTabIndex)).ayj();
+                ((c) FrsGroupActivity.this.eIR.get(FrsGroupActivity.this.mCurrentTabIndex)).ayk();
             }
         }
 
@@ -249,7 +249,7 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
 
         @Override // android.support.v4.view.PagerAdapter
         public int getCount() {
-            return FrsGroupActivity.this.eIQ.size();
+            return FrsGroupActivity.this.eIR.size();
         }
 
         @Override // android.support.v4.view.PagerAdapter

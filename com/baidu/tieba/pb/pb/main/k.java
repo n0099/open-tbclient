@@ -13,9 +13,9 @@ import java.lang.ref.SoftReference;
 /* loaded from: classes6.dex */
 public abstract class k<T, V extends q.a> extends com.baidu.adp.widget.ListView.a<T, V> {
     protected com.baidu.adp.widget.ListView.j dzR;
-    private SparseArray<SoftReference<Drawable>> fJa;
-    private SparseIntArray fJb;
-    protected PbActivity fME;
+    private SparseArray<SoftReference<Drawable>> fJb;
+    private SparseIntArray fJc;
+    protected PbActivity fMF;
     protected boolean mIsFromCDN;
     protected int mSkinType;
 
@@ -24,14 +24,14 @@ public abstract class k<T, V extends q.a> extends com.baidu.adp.widget.ListView.
         super(pbActivity == null ? null : pbActivity.getPageContext().getPageActivity(), bdUniqueId);
         this.mSkinType = 3;
         this.mIsFromCDN = false;
-        this.fJa = new SparseArray<>();
-        this.fJb = new SparseIntArray();
+        this.fJb = new SparseArray<>();
+        this.fJc = new SparseIntArray();
         ap(pbActivity);
     }
 
     public void ap(PbActivity pbActivity) {
         if (pbActivity != null) {
-            this.fME = pbActivity;
+            this.fMF = pbActivity;
             this.mContext = pbActivity.getActivity();
         }
     }
@@ -50,10 +50,10 @@ public abstract class k<T, V extends q.a> extends com.baidu.adp.widget.ListView.
 
     /* JADX INFO: Access modifiers changed from: protected */
     public int getDimensionPixelSize(int i) {
-        int i2 = this.fJb.get(i, -1);
+        int i2 = this.fJc.get(i, -1);
         if (i2 == -1) {
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
-            this.fJb.put(i, dimensionPixelSize);
+            this.fJc.put(i, dimensionPixelSize);
             return dimensionPixelSize;
         }
         return i2;

@@ -97,7 +97,7 @@ public class c {
         }
     }
 
-    public void amg() {
+    public void amh() {
         this.dBZ.setVisibility(0);
     }
 
@@ -118,33 +118,33 @@ public class c {
         this.dBZ.setSelection(i);
     }
 
-    public a aCe() {
+    public a aCf() {
         return this.dHy;
     }
 
-    public RelativeLayout aAI() {
+    public RelativeLayout aAJ() {
         return this.bwo;
     }
 
-    public View aBH() {
+    public View aBI() {
         return this.bMJ;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ZI() {
+    public void ZJ() {
         this.dBZ.setNextPage(this.bJY);
         this.bJY.dX(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.bJY.DO();
     }
 
-    public void ZJ() {
+    public void ZK() {
         this.dBZ.setNextPage(this.bJY);
         this.bJY.dX(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.bJY.DP();
         this.bJY.setText(this.dHg.getResources().getString(e.j.list_no_more));
     }
 
-    public void ZK() {
+    public void ZL() {
         this.dBZ.setNextPage(null);
     }
 
@@ -156,7 +156,7 @@ public class c {
         this.bMJ.setRefreshing(true);
     }
 
-    public void aAx() {
+    public void aAy() {
         if (this.dHy != null) {
             this.dHy.notifyDataSetChanged();
         }

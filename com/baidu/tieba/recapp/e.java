@@ -17,30 +17,30 @@ import java.util.Set;
 /* loaded from: classes3.dex */
 public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
     private n brm;
-    private com.baidu.adp.widget.ListView.a dQK;
-    private com.baidu.adp.widget.ListView.a enX;
-    private com.baidu.tieba.InjectPlugin.a.c gCP;
-    private com.baidu.adp.widget.ListView.a gCT;
+    private com.baidu.adp.widget.ListView.a dQL;
+    private com.baidu.adp.widget.ListView.a enY;
+    private com.baidu.tieba.InjectPlugin.a.c gCQ;
     private com.baidu.adp.widget.ListView.a gCU;
     private com.baidu.adp.widget.ListView.a gCV;
     private com.baidu.adp.widget.ListView.a gCW;
     private com.baidu.adp.widget.ListView.a gCX;
+    private com.baidu.adp.widget.ListView.a gCY;
     private List<Object> mOriginDatas;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.InjectPlugin.a.a
     /* renamed from: b */
     public void Q(com.baidu.tieba.InjectPlugin.a.c cVar) {
-        this.gCP = cVar;
-        if (this.gCP != null && (this.gCP.Sy() instanceof n)) {
-            this.brm = (n) this.gCP.Sy();
-            this.dQK = new com.baidu.tieba.recapp.b.e(this.brm, AdvertAppInfo.akK);
-            this.enX = new com.baidu.tieba.recapp.b.g(this.brm, AdvertAppInfo.akT);
-            this.gCT = new com.baidu.tieba.recapp.b.g(this.brm, AdvertAppInfo.akU);
-            this.gCU = new com.baidu.tieba.recapp.b.g(this.brm, AdvertAppInfo.akV);
-            this.gCV = new com.baidu.tieba.recapp.b.g(this.brm, AdvertAppInfo.akW);
-            this.gCW = new com.baidu.tieba.recapp.b.g(this.brm, AdvertAppInfo.akX);
-            this.gCX = new com.baidu.tieba.recapp.b.g(this.brm, AdvertAppInfo.akY);
+        this.gCQ = cVar;
+        if (this.gCQ != null && (this.gCQ.Sy() instanceof n)) {
+            this.brm = (n) this.gCQ.Sy();
+            this.dQL = new com.baidu.tieba.recapp.b.e(this.brm, AdvertAppInfo.akK);
+            this.enY = new com.baidu.tieba.recapp.b.g(this.brm, AdvertAppInfo.akT);
+            this.gCU = new com.baidu.tieba.recapp.b.g(this.brm, AdvertAppInfo.akU);
+            this.gCV = new com.baidu.tieba.recapp.b.g(this.brm, AdvertAppInfo.akV);
+            this.gCW = new com.baidu.tieba.recapp.b.g(this.brm, AdvertAppInfo.akW);
+            this.gCX = new com.baidu.tieba.recapp.b.g(this.brm, AdvertAppInfo.akX);
+            this.gCY = new com.baidu.tieba.recapp.b.g(this.brm, AdvertAppInfo.akY);
         }
     }
 
@@ -301,19 +301,19 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
             AdvertAppInfo advertAppInfo = (AdvertAppInfo) obj;
             BdUniqueId type = advertAppInfo.getType();
             if (type == AdvertAppInfo.akT) {
-                aVar = this.enX;
+                aVar = this.enY;
             } else if (type == AdvertAppInfo.akK) {
-                aVar = this.dQK;
+                aVar = this.dQL;
             } else if (type == AdvertAppInfo.akU) {
-                aVar = this.gCT;
-            } else if (type == AdvertAppInfo.akV) {
                 aVar = this.gCU;
-            } else if (type == AdvertAppInfo.akW) {
+            } else if (type == AdvertAppInfo.akV) {
                 aVar = this.gCV;
-            } else if (type == AdvertAppInfo.akX) {
+            } else if (type == AdvertAppInfo.akW) {
                 aVar = this.gCW;
+            } else if (type == AdvertAppInfo.akX) {
+                aVar = this.gCX;
             } else {
-                aVar = type == AdvertAppInfo.akY ? this.gCX : null;
+                aVar = type == AdvertAppInfo.akY ? this.gCY : null;
             }
             if (aVar != null) {
                 return aVar.getView(i, view, viewGroup, advertAppInfo);
@@ -329,19 +329,19 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
         if (obj instanceof AdvertAppInfo) {
             BdUniqueId type = ((AdvertAppInfo) obj).getType();
             if (type == AdvertAppInfo.akT) {
-                aVar = this.enX;
+                aVar = this.enY;
             } else if (type == AdvertAppInfo.akK) {
-                aVar = this.dQK;
+                aVar = this.dQL;
             } else if (type == AdvertAppInfo.akU) {
-                aVar = this.gCT;
-            } else if (type == AdvertAppInfo.akV) {
                 aVar = this.gCU;
-            } else if (type == AdvertAppInfo.akW) {
+            } else if (type == AdvertAppInfo.akV) {
                 aVar = this.gCV;
-            } else if (type == AdvertAppInfo.akX) {
+            } else if (type == AdvertAppInfo.akW) {
                 aVar = this.gCW;
+            } else if (type == AdvertAppInfo.akX) {
+                aVar = this.gCX;
             } else {
-                aVar = type == AdvertAppInfo.akY ? this.gCX : null;
+                aVar = type == AdvertAppInfo.akY ? this.gCY : null;
             }
             if (aVar != null) {
                 return aVar.onCreateViewHolder(viewGroup, obj);
@@ -357,21 +357,21 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
         if (obj instanceof AdvertAppInfo) {
             BdUniqueId type = ((AdvertAppInfo) obj).getType();
             if (type == AdvertAppInfo.akT) {
-                aVar2 = this.enX;
+                aVar2 = this.enY;
             } else if (type == AdvertAppInfo.akK) {
-                aVar2 = this.dQK;
+                aVar2 = this.dQL;
             } else if (type == AdvertAppInfo.akU) {
-                aVar2 = this.gCT;
-            } else if (type == AdvertAppInfo.akV) {
                 aVar2 = this.gCU;
-            } else if (type == AdvertAppInfo.akW) {
+            } else if (type == AdvertAppInfo.akV) {
                 aVar2 = this.gCV;
-            } else if (type == AdvertAppInfo.akX) {
+            } else if (type == AdvertAppInfo.akW) {
                 aVar2 = this.gCW;
+            } else if (type == AdvertAppInfo.akX) {
+                aVar2 = this.gCX;
             } else if (type != AdvertAppInfo.akY) {
                 aVar2 = null;
             } else {
-                aVar2 = this.gCX;
+                aVar2 = this.gCY;
             }
             if (aVar2 != null) {
                 aVar2.onFillViewHolder(i, viewGroup, aVar, obj);

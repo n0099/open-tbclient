@@ -12,7 +12,7 @@ public class HotSearchInfoData extends OrmObject {
     private long mId;
     private String mName;
 
-    public String atG() {
+    public String atH() {
         return this.dgk;
     }
 

@@ -18,83 +18,83 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    private boolean ekH;
-    private b fzm = null;
-    private c fzn = null;
-    private C0235a fzo = null;
-    private int fzq = 0;
+    private boolean ekI;
+    private b fzn = null;
+    private c fzo = null;
+    private C0235a fzp = null;
     private int fzr = 0;
-    protected d fzs = null;
-    private ArrayList<MarkData> fzp = new ArrayList<>();
+    private int fzs = 0;
+    protected d fzt = null;
+    private ArrayList<MarkData> fzq = new ArrayList<>();
 
     static /* synthetic */ int c(a aVar) {
-        int i = aVar.fzr;
-        aVar.fzr = i - 1;
+        int i = aVar.fzs;
+        aVar.fzs = i - 1;
         return i;
     }
 
     public a() {
-        this.ekH = false;
-        this.ekH = true;
+        this.ekI = false;
+        this.ekI = true;
     }
 
     public int getOffset() {
-        if (this.fzp == null) {
+        if (this.fzq == null) {
             return 0;
         }
-        return this.fzp.size();
+        return this.fzq.size();
     }
 
     public int bcr() {
-        return this.fzr;
+        return this.fzs;
     }
 
     public void rb(int i) {
-        this.fzr = i;
+        this.fzs = i;
     }
 
     public boolean hasMore() {
-        return this.fzq >= 20;
+        return this.fzr >= 20;
     }
 
     public void reset() {
+        this.fzs = 0;
         this.fzr = 0;
-        this.fzq = 0;
-        this.ekH = true;
+        this.ekI = true;
     }
 
     public boolean isFirst() {
-        return this.ekH;
+        return this.ekI;
     }
 
     public ArrayList<MarkData> bcs() {
-        return this.fzp;
+        return this.fzq;
     }
 
     public void al(ArrayList<MarkData> arrayList) {
-        this.fzp = arrayList;
+        this.fzq = arrayList;
     }
 
     public void am(ArrayList<MarkData> arrayList) {
-        if (this.fzp != null && arrayList != null) {
-            this.fzp.addAll(arrayList);
+        if (this.fzq != null && arrayList != null) {
+            this.fzq.addAll(arrayList);
             bcw();
         }
     }
 
     public void f(MarkData markData) {
-        this.fzp.add(markData);
+        this.fzq.add(markData);
     }
 
     public int getCount() {
-        if (this.fzp == null) {
+        if (this.fzq == null) {
             return 0;
         }
-        return this.fzp.size();
+        return this.fzq.size();
     }
 
     public int bct() {
-        return this.fzq;
+        return this.fzr;
     }
 
     public void bcu() {
@@ -107,19 +107,19 @@ public class a {
     public String bs(int i, int i2) {
         JSONArray jSONArray;
         int i3;
-        if (this.fzp == null) {
+        if (this.fzq == null) {
             return null;
         }
-        if (i >= this.fzp.size()) {
-            i2 -= (i - this.fzp.size()) - 1;
-            i = this.fzp.size() - 1;
+        if (i >= this.fzq.size()) {
+            i2 -= (i - this.fzq.size()) - 1;
+            i = this.fzq.size() - 1;
         }
         JSONArray jSONArray2 = new JSONArray();
         int i4 = 0;
         int i5 = i;
         while (i5 >= 0 && i5 > i - i2) {
             try {
-                JSONObject json = this.fzp.get(i5).toJson();
+                JSONObject json = this.fzq.get(i5).toJson();
                 if (json == null || i4 < 0) {
                     i3 = i4;
                 } else {
@@ -177,7 +177,7 @@ public class a {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     MarkData markData = new MarkData();
                     markData.paserJson(optJSONArray.getJSONObject(i));
-                    this.fzp.add(markData);
+                    this.fzq.add(markData);
                 }
             }
         } catch (Exception e) {
@@ -190,28 +190,28 @@ public class a {
     }
 
     public void a(Boolean bool, boolean z) {
-        if (this.fzm != null) {
-            this.fzm.cancel();
+        if (this.fzn != null) {
+            this.fzn.cancel();
         }
-        this.fzm = new b(getOffset());
-        this.fzm.setPriority(3);
-        this.fzm.execute(bool, Boolean.valueOf(z));
+        this.fzn = new b(getOffset());
+        this.fzn.setPriority(3);
+        this.fzn.execute(bool, Boolean.valueOf(z));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class b extends BdAsyncTask<Boolean, String, a> {
-        private com.baidu.tieba.myCollection.baseEditMark.c fzt;
+        private com.baidu.tieba.myCollection.baseEditMark.c fzu;
         private int offset;
         private x mNetWork = null;
         private String data = null;
-        Boolean fzv = false;
+        Boolean fzw = false;
 
         public b(int i) {
             this.offset = 0;
-            this.fzt = null;
+            this.fzu = null;
             this.offset = i;
-            this.fzt = new com.baidu.tieba.myCollection.baseEditMark.c();
+            this.fzu = new com.baidu.tieba.myCollection.baseEditMark.c();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -224,41 +224,41 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public a doInBackground(Boolean... boolArr) {
-            this.fzv = boolArr[0];
+            this.fzw = boolArr[0];
             boolean booleanValue = (boolArr.length < 2 || boolArr[1] == null) ? true : boolArr[1].booleanValue();
             a aVar = new a();
-            if (this.fzv.booleanValue() && booleanValue) {
+            if (this.fzw.booleanValue() && booleanValue) {
                 l<String> eg = com.baidu.tbadk.core.c.a.Aq().eg("tb.my_bookmarks");
                 if (eg != null) {
                     publishProgress(eg.get(TbadkCoreApplication.getCurrentAccount()));
                 }
-                if (a.this.fzp == null) {
-                    a.this.fzp = new ArrayList();
+                if (a.this.fzq == null) {
+                    a.this.fzq = new ArrayList();
                 } else {
-                    a.this.fzp.clear();
+                    a.this.fzq.clear();
                 }
-                a.this.fzq = 0;
+                a.this.fzr = 0;
             }
             this.mNetWork = new x(TbConfig.SERVER_ADDRESS + TbConfig.MARK_GETSTORE);
             this.mNetWork.x("user_id", TbadkCoreApplication.getCurrentAccount());
-            if (a.this.ekH) {
+            if (a.this.ekI) {
                 this.mNetWork.x("offset", String.valueOf(0));
             } else {
                 this.mNetWork.x("offset", String.valueOf(this.offset));
             }
             this.mNetWork.x("rn", String.valueOf(20));
             this.data = this.mNetWork.BA();
-            this.fzt.parserJson(this.data);
+            this.fzu.parserJson(this.data);
             if (this.mNetWork.BY().CX().isRequestSuccess()) {
                 aVar.rK(this.data);
                 if (this.offset == 0) {
-                    if (a.this.fzp == null) {
-                        a.this.fzp = new ArrayList();
+                    if (a.this.fzq == null) {
+                        a.this.fzq = new ArrayList();
                     } else {
-                        a.this.fzp.clear();
+                        a.this.fzq.clear();
                     }
-                    a.this.fzq = 0;
-                    if (this.fzv.booleanValue()) {
+                    a.this.fzr = 0;
+                    if (this.fzw.booleanValue()) {
                         mZ(this.data);
                     }
                 }
@@ -284,7 +284,7 @@ public class a {
             ArrayList<MarkData> arrayList = new ArrayList<>();
             if (str != null) {
                 arrayList = a.this.rL(str);
-                if (this.fzv.booleanValue()) {
+                if (this.fzw.booleanValue()) {
                     a.this.al(arrayList);
                 } else {
                     a.this.am(arrayList);
@@ -293,7 +293,7 @@ public class a {
                 a.this.al(arrayList);
             }
             if (!v.J(arrayList)) {
-                a.this.fzs.callback(0, null, true);
+                a.this.fzt.callback(0, null, true);
             }
         }
 
@@ -303,7 +303,7 @@ public class a {
             if (this.mNetWork != null) {
                 this.mNetWork.ji();
             }
-            a.this.fzm = null;
+            a.this.fzn = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -315,12 +315,12 @@ public class a {
             if (aVar == null) {
                 aVar = new a();
             }
-            if (this.fzt != null) {
-                com.baidu.tbadk.core.d.a.a("collection", 0L, 0, "collection_thread_list_result", this.fzt.getErrorCode(), this.fzt.getErrorString(), new Object[0]);
+            if (this.fzu != null) {
+                com.baidu.tbadk.core.d.a.a("collection", 0L, 0, "collection_thread_list_result", this.fzu.getErrorCode(), this.fzu.getErrorString(), new Object[0]);
             }
-            a.this.fzq = aVar.getCount();
+            a.this.fzr = aVar.getCount();
             ArrayList<MarkData> bcs = aVar.bcs();
-            if (this.fzv.booleanValue()) {
+            if (this.fzw.booleanValue()) {
                 if (bcs != null && bcs.size() != 0) {
                     a.this.al(bcs);
                 }
@@ -338,44 +338,44 @@ public class a {
                 }
                 i2 = i;
             }
-            if (a.this.fzs != null) {
+            if (a.this.fzt != null) {
                 String str = null;
                 if (this.mNetWork.BY().CX().isRequestSuccess()) {
-                    if (this.fzt.getErrorCode() != 0) {
-                        str = this.fzt.getErrorString();
+                    if (this.fzu.getErrorCode() != 0) {
+                        str = this.fzu.getErrorString();
                     }
-                    a.this.fzs.callback(0, str, false);
+                    a.this.fzt.callback(0, str, false);
                 } else {
-                    a.this.fzs.callback(3, this.mNetWork.getErrorString());
+                    a.this.fzt.callback(3, this.mNetWork.getErrorString());
                 }
             }
-            a.this.ekH = false;
+            a.this.ekI = false;
         }
     }
 
     public void startSync() {
-        if (this.fzn != null) {
-            this.fzn.cancel();
+        if (this.fzo != null) {
+            this.fzo.cancel();
         }
-        this.fzn = new c();
-        this.fzn.setPriority(2);
-        this.fzn.execute(new a[0]);
+        this.fzo = new c();
+        this.fzo.setPriority(2);
+        this.fzo.execute(new a[0]);
     }
 
     /* loaded from: classes3.dex */
     private class c extends BdAsyncTask<a, Integer, Boolean> {
-        private com.baidu.tieba.myCollection.baseEditMark.c fzt;
+        private com.baidu.tieba.myCollection.baseEditMark.c fzu;
         private x mNetWork;
 
         private c() {
             this.mNetWork = null;
-            this.fzt = null;
+            this.fzu = null;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            this.fzt = new com.baidu.tieba.myCollection.baseEditMark.c();
+            this.fzu = new com.baidu.tieba.myCollection.baseEditMark.c();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -396,8 +396,8 @@ public class a {
                     String bs = aVar.bs(bcv, 20);
                     this.mNetWork.p(new ArrayList<>());
                     this.mNetWork.x("data", bs);
-                    this.fzt.parserJson(this.mNetWork.BA());
-                    if (!this.mNetWork.BY().CX().isRequestSuccess() || this.fzt.getErrorCode() != 0) {
+                    this.fzu.parserJson(this.mNetWork.BA());
+                    if (!this.mNetWork.BY().CX().isRequestSuccess() || this.fzu.getErrorCode() != 0) {
                         break;
                     }
                     bcv -= 20;
@@ -419,9 +419,9 @@ public class a {
             if (this.mNetWork != null) {
                 this.mNetWork.ji();
             }
-            a.this.fzn = null;
-            if (a.this.fzs != null) {
-                a.this.fzs.callback(1, false, null, false);
+            a.this.fzo = null;
+            if (a.this.fzt != null) {
+                a.this.fzt.callback(1, false, null, false);
             }
         }
 
@@ -431,33 +431,33 @@ public class a {
         public void onPostExecute(Boolean bool) {
             String str;
             boolean z;
-            a.this.fzn = null;
+            a.this.fzo = null;
             if (bool.booleanValue()) {
                 str = null;
                 z = false;
             } else if (this.mNetWork.BY().CX().isRequestSuccess()) {
-                str = this.fzt.getErrorString();
+                str = this.fzu.getErrorString();
                 z = false;
             } else {
                 str = null;
                 z = true;
             }
-            if (a.this.fzs != null) {
-                a.this.fzs.callback(1, bool, str, Boolean.valueOf(z));
+            if (a.this.fzt != null) {
+                a.this.fzt.callback(1, bool, str, Boolean.valueOf(z));
             }
         }
     }
 
     public boolean rc(int i) {
-        if (this.fzo != null) {
-            this.fzo.cancel();
+        if (this.fzp != null) {
+            this.fzp.cancel();
         }
-        if (i >= this.fzp.size() || this.fzp.get(i) == null || this.fzp.get(i).getId() == null) {
+        if (i >= this.fzq.size() || this.fzq.get(i) == null || this.fzq.get(i).getId() == null) {
             return false;
         }
-        this.fzo = new C0235a(this.fzp.get(i).getId(), i, this.fzp.get(i).getForumId());
-        this.fzo.setPriority(2);
-        this.fzo.execute(new Boolean[0]);
+        this.fzp = new C0235a(this.fzq.get(i).getId(), i, this.fzq.get(i).getForumId());
+        this.fzp.setPriority(2);
+        this.fzp.execute(new Boolean[0]);
         return true;
     }
 
@@ -465,7 +465,7 @@ public class a {
     /* loaded from: classes3.dex */
     private class C0235a extends BdAsyncTask<Boolean, Integer, Boolean> {
         private String fid;
-        private com.baidu.tieba.myCollection.baseEditMark.c fzt;
+        private com.baidu.tieba.myCollection.baseEditMark.c fzu;
         private x mNetWork = null;
         private int pos;
         private String tid;
@@ -474,11 +474,11 @@ public class a {
             this.tid = null;
             this.fid = null;
             this.pos = 0;
-            this.fzt = null;
+            this.fzu = null;
             this.tid = str;
             this.pos = i;
             this.fid = str2;
-            this.fzt = new com.baidu.tieba.myCollection.baseEditMark.c();
+            this.fzu = new com.baidu.tieba.myCollection.baseEditMark.c();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -490,8 +490,8 @@ public class a {
             this.mNetWork.x("user_id", TbadkCoreApplication.getCurrentAccount());
             this.mNetWork.x("tid", this.tid);
             this.mNetWork.x(ImageViewerConfig.FORUM_ID, this.fid);
-            this.fzt.parserJson(this.mNetWork.BA());
-            return this.mNetWork.BY().CX().isRequestSuccess() && this.fzt.getErrorCode() == 0;
+            this.fzu.parserJson(this.mNetWork.BA());
+            return this.mNetWork.BY().CX().isRequestSuccess() && this.fzu.getErrorCode() == 0;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -500,9 +500,9 @@ public class a {
             if (this.mNetWork != null) {
                 this.mNetWork.ji();
             }
-            a.this.fzo = null;
-            if (a.this.fzs != null) {
-                a.this.fzs.callback(2, false, null);
+            a.this.fzp = null;
+            if (a.this.fzt != null) {
+                a.this.fzt.callback(2, false, null);
             }
         }
 
@@ -511,19 +511,19 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             String str = null;
-            a.this.fzo = null;
+            a.this.fzp = null;
             if (bool.booleanValue()) {
-                if (this.pos < a.this.fzp.size()) {
-                    a.this.fzp.remove(this.pos);
+                if (this.pos < a.this.fzq.size()) {
+                    a.this.fzq.remove(this.pos);
                     a.c(a.this);
                 }
             } else if (this.mNetWork.BY().CX().isRequestSuccess()) {
-                str = this.fzt.getErrorString();
+                str = this.fzu.getErrorString();
             } else {
                 str = this.mNetWork.getErrorString();
             }
-            if (a.this.fzs != null) {
-                a.this.fzs.callback(2, bool, str);
+            if (a.this.fzt != null) {
+                a.this.fzt.callback(2, bool, str);
             }
         }
     }
@@ -537,25 +537,25 @@ public class a {
     }
 
     public void onDestroy() {
-        if (this.fzm != null) {
-            this.fzm.cancel();
-        }
         if (this.fzn != null) {
             this.fzn.cancel();
         }
         if (this.fzo != null) {
             this.fzo.cancel();
         }
+        if (this.fzp != null) {
+            this.fzp.cancel();
+        }
     }
 
     public void a(d dVar) {
-        this.fzs = dVar;
+        this.fzt = dVar;
     }
 
     private void bcw() {
-        if (this.fzp != null) {
+        if (this.fzq != null) {
             HashSet hashSet = new HashSet();
-            Iterator<MarkData> it = this.fzp.iterator();
+            Iterator<MarkData> it = this.fzq.iterator();
             while (it.hasNext()) {
                 MarkData next = it.next();
                 String id = next.getId();
@@ -569,8 +569,8 @@ public class a {
     }
 
     private void aJ(String str, int i) {
-        if (this.fzp != null && v.I(this.fzp) > 0) {
-            Iterator<MarkData> it = this.fzp.iterator();
+        if (this.fzq != null && v.I(this.fzq) > 0) {
+            Iterator<MarkData> it = this.fzq.iterator();
             while (it.hasNext()) {
                 MarkData next = it.next();
                 if (next != null && next.getId().equals(str)) {

@@ -9,7 +9,7 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
     private a dHF;
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.b aCi() {
+    public com.baidu.tieba.frs.entelechy.b.b aCj() {
         return new d();
     }
 
@@ -19,7 +19,7 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
             return null;
         }
         this.dHF = new c(frsFragment, null, null, i);
-        this.dHF.a(frsFragment.azs());
+        this.dHF.a(frsFragment.azt());
         return this.dHF;
     }
 
@@ -32,7 +32,7 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
     @Override // com.baidu.tieba.frs.entelechy.b.a
     /* renamed from: a */
     public com.baidu.tieba.frs.vc.d c(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
-        if (frsFragment.azT()) {
+        if (frsFragment.azU()) {
             return null;
         }
         return new com.baidu.tieba.frs.vc.d(frsFragment, noPressedRelativeLayout);
@@ -43,7 +43,7 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
         return new com.baidu.tieba.frs.vc.b(frsFragment, noPressedRelativeLayout);
     }
 
-    public c aCj() {
+    public c aCk() {
         if (this.dHF instanceof c) {
             return (c) this.dHF;
         }

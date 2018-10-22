@@ -65,14 +65,14 @@ public class a {
 
     public void setData(List<h> list, boolean z) {
         if (z) {
-            YY();
+            YZ();
         } else {
-            YX();
+            YY();
         }
         this.dNR.setData(list);
     }
 
-    private void YX() {
+    private void YY() {
         if (this.bJY != null) {
             if (this.bJY.getView().getParent() == null) {
                 this.mListView.setNextPage(this.bJY);
@@ -82,7 +82,7 @@ public class a {
         }
     }
 
-    private void YY() {
+    private void YZ() {
         if (this.bJY != null) {
             if (this.bJY.getView().getParent() == null) {
                 this.mListView.setNextPage(this.bJY);
@@ -92,7 +92,7 @@ public class a {
         }
     }
 
-    public void Zi() {
+    public void Zj() {
         this.mListView.setNextPage(null);
     }
 
@@ -108,7 +108,7 @@ public class a {
         this.mPullView.a(bVar);
     }
 
-    public void ZF() {
+    public void ZG() {
         if (this.mListView != null && com.baidu.adp.lib.util.j.kX()) {
             this.mListView.startPullRefresh();
         }
@@ -118,11 +118,11 @@ public class a {
         return this.mRootView;
     }
 
-    public FrameLayout aDL() {
+    public FrameLayout aDM() {
         return this.dNS;
     }
 
-    public NavigationBar aaD() {
+    public NavigationBar aaE() {
         return this.mNavigationBar;
     }
 

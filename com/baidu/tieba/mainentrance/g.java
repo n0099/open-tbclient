@@ -17,8 +17,8 @@ import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class g {
     private View aix;
-    private TextView flt;
-    private View flu;
+    private TextView flu;
+    private View flv;
     private TbPageContext<?> mContext;
     private TableLayout mTableLayout;
 
@@ -28,20 +28,20 @@ public class g {
 
     public View oG() {
         this.aix = LayoutInflater.from(this.mContext.getPageActivity()).inflate(e.h.search_topic, (ViewGroup) null);
-        this.flu = this.aix.findViewById(e.g.titleTopDivider);
-        this.flu.setVisibility(0);
+        this.flv = this.aix.findViewById(e.g.titleTopDivider);
+        this.flv.setVisibility(0);
         this.mTableLayout = (TableLayout) this.aix.findViewById(e.g.search_topic_layout);
-        this.flt = (TextView) this.aix.findViewById(e.g.square_search_fourm_header_text);
-        this.flt.setText(this.mContext.getResources().getString(e.j.hot_topic_title));
+        this.flu = (TextView) this.aix.findViewById(e.g.square_search_fourm_header_text);
+        this.flu.setText(this.mContext.getResources().getString(e.j.hot_topic_title));
         return this.aix;
     }
 
     public void setTitleText(String str) {
-        if (this.flt != null) {
+        if (this.flu != null) {
             if (!StringUtils.isNull(str)) {
-                this.flt.setText(str);
+                this.flu.setText(str);
             } else {
-                this.flt.setText(this.mContext.getResources().getString(e.j.hot_topic_title));
+                this.flu.setText(this.mContext.getResources().getString(e.j.hot_topic_title));
             }
         }
     }
@@ -50,7 +50,7 @@ public class g {
         this.mTableLayout.removeAllViews();
         this.aix.setVisibility(8);
         this.mTableLayout.setVisibility(8);
-        this.flt.setVisibility(8);
+        this.flu.setVisibility(8);
     }
 
     public View a(c cVar, int i) {
@@ -139,13 +139,13 @@ public class g {
     }
 
     public void jp(boolean z) {
-        this.flu.setVisibility(z ? 0 : 8);
+        this.flv.setVisibility(z ? 0 : 8);
     }
 
     public void show() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         this.aix.setVisibility(0);
         this.mTableLayout.setVisibility(0);
-        this.flt.setVisibility(0);
+        this.flu.setVisibility(0);
     }
 }

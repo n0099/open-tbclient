@@ -5,29 +5,29 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class c implements org.aspectj.lang.b {
     Object[] args;
-    Object iql;
     Object iqm;
-    a.InterfaceC0360a iqn;
+    Object iqn;
+    a.InterfaceC0360a iqo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static class a implements a.InterfaceC0360a {
-        String iqo;
-        org.aspectj.lang.c iqp;
-        org.aspectj.lang.reflect.d iqq;
+        String iqp;
+        org.aspectj.lang.c iqq;
+        org.aspectj.lang.reflect.d iqr;
 
         public a(String str, org.aspectj.lang.c cVar, org.aspectj.lang.reflect.d dVar) {
-            this.iqo = str;
-            this.iqp = cVar;
-            this.iqq = dVar;
+            this.iqp = str;
+            this.iqq = cVar;
+            this.iqr = dVar;
         }
 
         public String cay() {
-            return this.iqo;
+            return this.iqp;
         }
 
         public org.aspectj.lang.c caz() {
-            return this.iqp;
+            return this.iqq;
         }
 
         String a(h hVar) {
@@ -40,23 +40,23 @@ public class c implements org.aspectj.lang.b {
         }
 
         public final String toString() {
-            return a(h.iqI);
+            return a(h.iqJ);
         }
     }
 
     public c(a.InterfaceC0360a interfaceC0360a, Object obj, Object obj2, Object[] objArr) {
-        this.iqn = interfaceC0360a;
-        this.iql = obj;
-        this.iqm = obj2;
+        this.iqo = interfaceC0360a;
+        this.iqm = obj;
+        this.iqn = obj2;
         this.args = objArr;
     }
 
     @Override // org.aspectj.lang.a
     public Object getTarget() {
-        return this.iqm;
+        return this.iqn;
     }
 
     public final String toString() {
-        return this.iqn.toString();
+        return this.iqo.toString();
     }
 }

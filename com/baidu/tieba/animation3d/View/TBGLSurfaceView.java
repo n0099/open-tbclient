@@ -81,7 +81,7 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     protected void finalize() throws Throwable {
         try {
             if (this.cJU != null) {
-                this.cJU.anF();
+                this.cJU.anG();
             }
         } finally {
             super.finalize();
@@ -113,7 +113,7 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     }
 
     public void setRenderer(m mVar) {
-        ans();
+        ant();
         if (this.cJV == null) {
             this.cJV = new n(true);
         }
@@ -129,17 +129,17 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     }
 
     public void setEGLContextFactory(f fVar) {
-        ans();
+        ant();
         this.cJW = fVar;
     }
 
     public void setEGLWindowSurfaceFactory(g gVar) {
-        ans();
+        ant();
         this.cJX = gVar;
     }
 
     public void setEGLConfigChooser(e eVar) {
-        ans();
+        ant();
         this.cJV = eVar;
     }
 
@@ -152,7 +152,7 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     }
 
     public void setEGLContextClientVersion(int i2) {
-        ans();
+        ant();
         this.cJi = i2;
     }
 
@@ -166,7 +166,7 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        this.cJU.anE();
+        this.cJU.anF();
     }
 
     @Override // android.view.SurfaceHolder.Callback
@@ -196,7 +196,7 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     @Override // android.view.SurfaceView, android.view.View
     protected void onDetachedFromWindow() {
         if (this.cJU != null) {
-            this.cJU.anF();
+            this.cJU.anG();
         }
         this.mDetached = true;
         super.onDetachedFromWindow();
@@ -387,7 +387,7 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             this.cJp = null;
         }
 
-        public boolean anu() {
+        public boolean anv() {
             if (this.cJn == null) {
                 throw new RuntimeException("egl not initialized");
             }
@@ -397,7 +397,7 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             if (this.cJq == null) {
                 throw new RuntimeException("mEglConfig not initialized");
             }
-            any();
+            anz();
             TBGLSurfaceView tBGLSurfaceView = this.cKa.get();
             if (tBGLSurfaceView != null) {
                 this.cJp = tBGLSurfaceView.cJX.createWindowSurface(this.cJn, this.cJo, this.cJq, tBGLSurfaceView.getHolder());
@@ -417,7 +417,7 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             }
         }
 
-        GL anv() {
+        GL anw() {
             l lVar;
             GL gl = this.cJr.getGL();
             TBGLSurfaceView tBGLSurfaceView = this.cKa.get();
@@ -442,18 +442,18 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             return gl;
         }
 
-        public int anw() {
+        public int anx() {
             if (this.cJn.eglSwapBuffers(this.cJo, this.cJp)) {
                 return 12288;
             }
             return this.cJn.eglGetError();
         }
 
-        public void anx() {
-            any();
+        public void any() {
+            anz();
         }
 
-        private void any() {
+        private void anz() {
             if (this.cJp != null && this.cJp != EGL10.EGL_NO_SURFACE) {
                 this.cJn.eglMakeCurrent(this.cJo, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_CONTEXT);
                 TBGLSurfaceView tBGLSurfaceView = this.cKa.get();
@@ -528,7 +528,7 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             setName("GLThread " + getId());
             try {
                 try {
-                    anB();
+                    anC();
                     TBGLSurfaceView.cJT.a(this);
                 } catch (Exception e) {
                     af.Cm().bc(false);
@@ -540,14 +540,14 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             }
         }
 
-        private void anz() {
+        private void anA() {
             if (this.cJz) {
                 this.cJz = false;
-                this.cKb.anx();
+                this.cKb.any();
             }
         }
 
-        private void anA() {
+        private void anB() {
             if (this.cJy) {
                 this.cKb.finish();
                 this.cJy = false;
@@ -557,7 +557,7 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1399=4] */
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-        private void anB() throws InterruptedException {
+        private void anC() throws InterruptedException {
             boolean z;
             int i;
             Runnable remove;
@@ -607,31 +607,31 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
                                     z9 = false;
                                 }
                                 if (this.cJB) {
-                                    anz();
                                     anA();
+                                    anB();
                                     this.cJB = false;
                                     z16 = true;
                                 }
                                 if (z19) {
-                                    anz();
                                     anA();
+                                    anB();
                                     z19 = false;
                                 }
                                 if (z9 && this.cJz) {
-                                    anz();
+                                    anA();
                                 }
                                 if (z9 && this.cJy) {
                                     TBGLSurfaceView tBGLSurfaceView = this.cKa.get();
-                                    if (!(tBGLSurfaceView == null ? false : tBGLSurfaceView.cJj) || TBGLSurfaceView.cJT.anH()) {
-                                        anA();
+                                    if (!(tBGLSurfaceView == null ? false : tBGLSurfaceView.cJj) || TBGLSurfaceView.cJT.anI()) {
+                                        anB();
                                     }
                                 }
-                                if (z9 && TBGLSurfaceView.cJT.anI()) {
+                                if (z9 && TBGLSurfaceView.cJT.anJ()) {
                                     this.cKb.finish();
                                 }
                                 if (!this.cJv && !this.cJx) {
                                     if (this.cJz) {
-                                        anz();
+                                        anA();
                                     }
                                     this.cJx = true;
                                     this.cJw = false;
@@ -647,7 +647,7 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
                                     this.cJE = true;
                                     TBGLSurfaceView.cJT.notifyAll();
                                 }
-                                if (anD()) {
+                                if (anE()) {
                                     if (!this.cJy) {
                                         if (z16) {
                                             z16 = false;
@@ -721,8 +721,8 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
                             }
                         }
                         synchronized (TBGLSurfaceView.cJT) {
-                            anz();
                             anA();
+                            anB();
                         }
                         return;
                     }
@@ -742,7 +742,7 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
                     } else {
                         if (!z2) {
                             z8 = z2;
-                        } else if (this.cKb.anu()) {
+                        } else if (this.cKb.anv()) {
                             synchronized (TBGLSurfaceView.cJT) {
                                 this.cJA = true;
                                 TBGLSurfaceView.cJT.notifyAll();
@@ -767,7 +767,7 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
                             z22 = z25;
                         }
                         if (z3) {
-                            GL10 gl103 = (GL10) this.cKb.anv();
+                            GL10 gl103 = (GL10) this.cKb.anw();
                             TBGLSurfaceView.cJT.b(gl103);
                             z3 = false;
                             gl10 = gl103;
@@ -792,15 +792,15 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
                         if (tBGLSurfaceView4 != null) {
                             tBGLSurfaceView4.cJc.onDrawFrame(gl10);
                         }
-                        int anw = this.cKb.anw();
-                        switch (anw) {
+                        int anx = this.cKb.anx();
+                        switch (anx) {
                             case 12288:
                                 break;
                             case Statistics.kTypeWhiteScreen /* 12302 */:
                                 z4 = true;
                                 break;
                             default:
-                                h.g("GLThread", "eglSwapBuffers", anw);
+                                h.g("GLThread", "eglSwapBuffers", anx);
                                 synchronized (TBGLSurfaceView.cJT) {
                                     this.cJw = true;
                                     TBGLSurfaceView.cJT.notifyAll();
@@ -823,19 +823,19 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
                     }
                 } catch (Throwable th) {
                     synchronized (TBGLSurfaceView.cJT) {
-                        anz();
                         anA();
+                        anB();
                         throw th;
                     }
                 }
             }
         }
 
-        public boolean anC() {
-            return this.cJy && this.cJz && anD();
+        public boolean anD() {
+            return this.cJy && this.cJz && anE();
         }
 
-        private boolean anD() {
+        private boolean anE() {
             return !this.mPaused && this.cJv && !this.cJw && this.mWidth > 0 && this.mHeight > 0 && (this.cJD || this.cJC == 1);
         }
 
@@ -858,7 +858,7 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             return i;
         }
 
-        public void anE() {
+        public void anF() {
             synchronized (TBGLSurfaceView.cJT) {
                 this.cJv = true;
                 this.cJA = false;
@@ -895,7 +895,7 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
                 this.cJD = true;
                 this.cJE = false;
                 TBGLSurfaceView.cJT.notifyAll();
-                while (!this.cJt && !this.mPaused && !this.cJE && anC()) {
+                while (!this.cJt && !this.mPaused && !this.cJE && anD()) {
                     try {
                         TBGLSurfaceView.cJT.wait();
                     } catch (InterruptedException e) {
@@ -905,7 +905,7 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             }
         }
 
-        public void anF() {
+        public void anG() {
             synchronized (TBGLSurfaceView.cJT) {
                 this.cJs = true;
                 TBGLSurfaceView.cJT.notifyAll();
@@ -919,7 +919,7 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             }
         }
 
-        public void anG() {
+        public void anH() {
             this.cJB = true;
             TBGLSurfaceView.cJT.notifyAll();
         }
@@ -963,7 +963,7 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         }
     }
 
-    private void ans() {
+    private void ant() {
         if (this.cJU != null) {
             throw new IllegalStateException("setRenderer has already been called for this instance.");
         }
@@ -997,12 +997,12 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
                 notifyAll();
                 return true;
             }
-            anJ();
+            anK();
             if (this.cJL) {
                 return true;
             }
             if (this.cKc != null) {
-                this.cKc.anG();
+                this.cKc.anH();
             }
             return false;
         }
@@ -1014,19 +1014,19 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             notifyAll();
         }
 
-        public synchronized boolean anH() {
+        public synchronized boolean anI() {
             return this.cJM;
         }
 
-        public synchronized boolean anI() {
-            anJ();
+        public synchronized boolean anJ() {
+            anK();
             return !this.cJL;
         }
 
         public synchronized void b(GL10 gl10) {
             synchronized (this) {
                 if (!this.cJK) {
-                    anJ();
+                    anK();
                     String glGetString = gl10.glGetString(7937);
                     if (this.cJJ < 131072) {
                         this.cJL = !glGetString.startsWith("Q3Dimension MSM7500 ");
@@ -1038,7 +1038,7 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             }
         }
 
-        private void anJ() {
+        private void anK() {
             if (!this.cJI) {
                 this.cJL = true;
                 this.cJI = true;

@@ -82,7 +82,7 @@ public class InvoiceInfoItemView extends RelativeLayout {
         }
     }
 
-    public boolean Xo() {
+    public boolean Xp() {
         return this.bDC;
     }
 

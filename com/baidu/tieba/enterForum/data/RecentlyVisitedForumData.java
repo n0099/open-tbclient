@@ -27,11 +27,11 @@ public class RecentlyVisitedForumData extends OrmObject {
                 this.mForumData.remove(visitedForumData2);
             }
             this.mForumData.addFirst(visitedForumData);
-            atL();
+            atM();
         }
     }
 
-    private void atL() {
+    private void atM() {
         if (this.mForumData != null) {
             while (this.mForumData.size() > 20) {
                 this.mForumData.removeLast();
@@ -69,7 +69,7 @@ public class RecentlyVisitedForumData extends OrmObject {
         if (linkedList != null && linkedList.size() != 0) {
             this.mForumData.clear();
             this.mForumData.addAll(linkedList);
-            atL();
+            atM();
         }
     }
 
@@ -82,7 +82,7 @@ public class RecentlyVisitedForumData extends OrmObject {
                     this.mForumData.addLast(next);
                 }
             }
-            atL();
+            atM();
         }
     }
 

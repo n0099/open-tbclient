@@ -68,8 +68,8 @@ public class x extends a<bc> implements com.baidu.tieba.a.e {
         this.aGk = new View.OnClickListener() { // from class: com.baidu.tieba.card.x.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (x.this.anO() != null) {
-                    x.this.anO().a(view, x.this.cOU);
+                if (x.this.anP() != null) {
+                    x.this.anP().a(view, x.this.cOU);
                 }
             }
         };
@@ -77,8 +77,8 @@ public class x extends a<bc> implements com.baidu.tieba.a.e {
             @Override // com.baidu.tieba.card.OriginalThreadCardView.a
             public void a(OriginalThreadInfo originalThreadInfo) {
                 if (x.this.cOU != null && x.this.cOU.threadData != null) {
-                    if (x.this.anO() != null) {
-                        x.this.anO().a(x.this.cOy, x.this.cOU);
+                    if (x.this.anP() != null) {
+                        x.this.anP().a(x.this.cOy, x.this.cOU);
                     }
                     String id = x.this.cOU.threadData.getId();
                     o.md(id);
@@ -125,8 +125,8 @@ public class x extends a<bc> implements com.baidu.tieba.a.e {
         this.bWf.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.x.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (x.this.anO() != null) {
-                    x.this.anO().a(view2, x.this.cOU);
+                if (x.this.anP() != null) {
+                    x.this.anP().a(view2, x.this.cOU);
                 }
                 if (x.this.cOU != null && x.this.cOU.threadData != null) {
                     o.md(x.this.cOU.threadData.getId());
@@ -140,8 +140,8 @@ public class x extends a<bc> implements com.baidu.tieba.a.e {
         this.bWS.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.x.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (x.this.anO() != null) {
-                    x.this.anO().a(view2, x.this.cOU);
+                if (x.this.anP() != null) {
+                    x.this.anP().a(view2, x.this.cOU);
                 }
                 if (view2 != x.this.bWS.aFR && x.this.cOU != null && x.this.cOU.threadData != null) {
                     o.md(x.this.cOU.threadData.getId());
@@ -281,7 +281,7 @@ public class x extends a<bc> implements com.baidu.tieba.a.e {
         setPageUniqueId(getTag());
         d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         mf(bbVar.getId());
-        if (this.bWf.isInFrsAllThread() && com.baidu.tieba.frs.a.ayM().ayN()) {
+        if (this.bWf.isInFrsAllThread() && com.baidu.tieba.frs.a.ayN().ayO()) {
             this.mMaskView.setVisibility(0);
             if (bbVar.zW() || bbVar.zX()) {
                 al.j(this.mMaskView, e.d.cp_bg_line_d);
@@ -340,11 +340,11 @@ public class x extends a<bc> implements com.baidu.tieba.a.e {
         }
     }
 
-    public ThreadCommentAndPraiseInfoLayout aaX() {
+    public ThreadCommentAndPraiseInfoLayout aaY() {
         return this.bWf;
     }
 
-    public ThreadCommentAndPraiseInfoLayout aaY() {
+    public ThreadCommentAndPraiseInfoLayout aaZ() {
         return this.bWS.aFS;
     }
 
@@ -362,7 +362,7 @@ public class x extends a<bc> implements com.baidu.tieba.a.e {
         this.aGm = z;
     }
 
-    private void aoi() {
+    private void aoj() {
         if (this.cOU != null && this.cOU.threadData != null) {
             bb bbVar = this.cOU.threadData;
             o.md(bbVar.getId());
@@ -404,11 +404,11 @@ public class x extends a<bc> implements com.baidu.tieba.a.e {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (anO() != null) {
-            anO().a(view, this.cOU);
+        if (anP() != null) {
+            anP().a(view, this.cOU);
         }
         if (view == getView()) {
-            aoi();
+            aoj();
         }
     }
 
@@ -419,7 +419,7 @@ public class x extends a<bc> implements com.baidu.tieba.a.e {
         return null;
     }
 
-    public View anR() {
+    public View anS() {
         if (this.bWe != null) {
             return this.bWe.aFZ;
         }

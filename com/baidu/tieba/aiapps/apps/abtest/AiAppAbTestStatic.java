@@ -70,22 +70,26 @@ public class AiAppAbTestStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.aiapps.apps.abtest.AiAppAbTestStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(final CustomMessage<String> customMessage) {
-                Activity fX;
-                if (customMessage != null && !StringUtils.isNULL(customMessage.getData()) && (fX = com.baidu.adp.base.a.fW().fX()) != null) {
-                    if (Build.VERSION.SDK_INT <= 21) {
-                        l.showToast(fX, e.j.ai_apps_not_support);
+                if (customMessage != null && !StringUtils.isNULL(customMessage.getData())) {
+                    Activity fX = com.baidu.adp.base.a.fW().fX();
+                    if (fX != null) {
+                        if (Build.VERSION.SDK_INT <= 21) {
+                            l.showToast(fX, e.j.ai_apps_not_support);
+                            return null;
+                        }
+                        com.baidu.tbadk.core.util.b.a aVar = new com.baidu.tbadk.core.util.b.a();
+                        aVar.Di();
+                        aVar.c(fX, "android.permission.WRITE_EXTERNAL_STORAGE");
+                        aVar.a(new a.InterfaceC0126a() { // from class: com.baidu.tieba.aiapps.apps.abtest.AiAppAbTestStatic.3.1
+                            @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0126a
+                            public void Dj() {
+                                SchemeRouter.invokeSchemeForInner(TbadkCoreApplication.getInst(), Uri.parse((String) customMessage.getData()));
+                            }
+                        });
+                        aVar.z(fX);
                         return null;
                     }
-                    com.baidu.tbadk.core.util.b.a aVar = new com.baidu.tbadk.core.util.b.a();
-                    aVar.Di();
-                    aVar.c(fX, "android.permission.WRITE_EXTERNAL_STORAGE");
-                    aVar.a(new a.InterfaceC0126a() { // from class: com.baidu.tieba.aiapps.apps.abtest.AiAppAbTestStatic.3.1
-                        @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0126a
-                        public void Dj() {
-                            SchemeRouter.invokeSchemeForInner(TbadkCoreApplication.getInst(), Uri.parse((String) customMessage.getData()));
-                        }
-                    });
-                    aVar.z(fX);
+                    SchemeRouter.invokeSchemeForInner(TbadkCoreApplication.getInst(), Uri.parse(customMessage.getData()));
                     return null;
                 }
                 return null;

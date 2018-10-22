@@ -8,10 +8,10 @@ public class d {
     private l<byte[]> bLr;
 
     public d() {
-        ayd();
+        aye();
     }
 
-    public void ayd() {
+    public void aye() {
         if (this.bLr == null) {
             this.bLr = com.baidu.tbadk.core.c.a.Aq().ef("tb.bawu_team_info");
         }
@@ -27,7 +27,7 @@ public class d {
 
     public void k(String str, byte[] bArr) {
         if (!StringUtils.isNull(str)) {
-            ayd();
+            aye();
             this.bLr.a(str, bArr, TbConfig.MILLS_7DAYS);
         }
     }

@@ -6,25 +6,25 @@ import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class g implements f.a {
-    private f.b dXu;
-    private VideoMiddleModel dXv;
-    private VideoSerializeVideoThreadInfo dXw;
-    private VideoMiddleModel.a dXx = new VideoMiddleModel.a() { // from class: com.baidu.tieba.frs.videomiddlepage.g.1
+    private f.b dXv;
+    private VideoMiddleModel dXw;
+    private VideoSerializeVideoThreadInfo dXx;
+    private VideoMiddleModel.a dXy = new VideoMiddleModel.a() { // from class: com.baidu.tieba.frs.videomiddlepage.g.1
         @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.a
         public void i(List<com.baidu.tieba.card.data.b> list, boolean z) {
-            if (g.this.dXu != null) {
-                g.this.dXu.hideLoadingView();
+            if (g.this.dXv != null) {
+                g.this.dXv.hideLoadingView();
                 g.this.mHasMore = z;
-                g.this.dXu.c(list, z, false);
+                g.this.dXv.c(list, z, false);
             }
         }
 
         @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.a
         public void nH(String str) {
-            if (g.this.dXu != null) {
-                g.this.dXu.hideLoadingView();
-                g.this.dXu.showMsg(str);
-                g.this.dXu.LP();
+            if (g.this.dXv != null) {
+                g.this.dXv.hideLoadingView();
+                g.this.dXv.showMsg(str);
+                g.this.dXv.LP();
             }
         }
     };
@@ -36,16 +36,16 @@ public class g implements f.a {
 
     public g(f.b bVar) {
         if (bVar instanceof VideoMiddlePageFragment) {
-            this.dXu = bVar;
-            this.dXu.a(this);
-            this.dXv = new VideoMiddleModel(((VideoMiddlePageFragment) bVar).getPageContext(), this.dXx);
+            this.dXv = bVar;
+            this.dXv.a(this);
+            this.dXw = new VideoMiddleModel(((VideoMiddlePageFragment) bVar).getPageContext(), this.dXy);
         }
     }
 
     public void aGA() {
-        if (this.dXv != null) {
-            this.dXv.setFrom(this.mFrom);
-            this.dXv.LoadData();
+        if (this.dXw != null) {
+            this.dXw.setFrom(this.mFrom);
+            this.dXw.LoadData();
         }
     }
 
@@ -53,51 +53,51 @@ public class g implements f.a {
         this.mFrom = str;
     }
 
-    public void YK() {
-        if (this.dXv != null && this.mHasMore) {
-            this.dXv.setFrom(this.mFrom);
-            this.dXv.LoadData();
+    public void YL() {
+        if (this.dXw != null && this.mHasMore) {
+            this.dXw.setFrom(this.mFrom);
+            this.dXw.LoadData();
         }
     }
 
     public void setId(String str) {
         this.mId = str;
-        if (this.dXv != null) {
-            this.dXv.setId(this.mId);
+        if (this.dXw != null) {
+            this.dXw.setId(this.mId);
         }
     }
 
     public void nG(String str) {
         this.st_type = str;
-        if (this.dXv != null) {
-            this.dXv.nG(str);
+        if (this.dXw != null) {
+            this.dXw.nG(str);
         }
     }
 
     public void setLocation(String str) {
         this.yuelaou_locate = str;
-        if (this.dXv != null) {
-            this.dXv.setLocation(str);
+        if (this.dXw != null) {
+            this.dXw.setLocation(str);
         }
     }
 
     public void a(VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo) {
-        this.dXw = videoSerializeVideoThreadInfo;
+        this.dXx = videoSerializeVideoThreadInfo;
     }
 
     public VideoSerializeVideoThreadInfo aGB() {
-        return this.dXw;
+        return this.dXx;
     }
 
-    public void aBV() {
-        if (this.dXv != null) {
-            this.dXv.cancelLoadData();
+    public void aBW() {
+        if (this.dXw != null) {
+            this.dXw.cancelLoadData();
         }
     }
 
     public int getPageNum() {
-        if (this.dXv != null) {
-            return this.dXv.getPageNum();
+        if (this.dXw != null) {
+            return this.dXw.getPageNum();
         }
         return 0;
     }

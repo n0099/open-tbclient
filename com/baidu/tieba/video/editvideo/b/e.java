@@ -9,32 +9,32 @@ import java.nio.ByteBuffer;
 @TargetApi(18)
 /* loaded from: classes5.dex */
 class e {
-    private final MediaMuxer htb;
-    private volatile boolean htd;
+    private final MediaMuxer htc;
     private volatile boolean hte;
-    private int htc = 2;
+    private volatile boolean htf;
+    private int htd = 2;
     private boolean mIsStarted = false;
 
     public e(String str) throws IOException {
-        this.htb = new MediaMuxer(str, 0);
+        this.htc = new MediaMuxer(str, 0);
     }
 
     public void bHc() {
-        this.htd = true;
+        this.hte = true;
     }
 
     public void bHd() {
-        this.hte = true;
+        this.htf = true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized boolean start() {
         boolean z;
-        if (!this.hte || !this.htd) {
+        if (!this.htf || !this.hte) {
             z = false;
         } else {
-            if (this.htc > 0 && this.hte && this.htd) {
-                this.htb.start();
+            if (this.htd > 0 && this.htf && this.hte) {
+                this.htc.start();
                 this.mIsStarted = true;
                 notifyAll();
             }
@@ -45,10 +45,10 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void stop() {
-        if (this.htc > 0) {
+        if (this.htd > 0) {
             try {
-                this.htb.stop();
-                this.htb.release();
+                this.htc.stop();
+                this.htc.release();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -61,13 +61,13 @@ class e {
         if (this.mIsStarted) {
             throw new IllegalStateException("muxer already started");
         }
-        return this.htb.addTrack(mediaFormat);
+        return this.htc.addTrack(mediaFormat);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void writeSampleData(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
         if (this.mIsStarted) {
-            this.htb.writeSampleData(i, byteBuffer, bufferInfo);
+            this.htc.writeSampleData(i, byteBuffer, bufferInfo);
         }
     }
 

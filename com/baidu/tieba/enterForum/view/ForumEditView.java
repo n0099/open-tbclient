@@ -37,14 +37,14 @@ public class ForumEditView extends LinearLayout {
 
     public void setColumnTypeAndRefeshView() {
         if (this.diM == null) {
-            auG();
+            auH();
         }
         if (this.diM.getParent() == null) {
             addView(this.diM);
         }
     }
 
-    private void auG() {
+    private void auH() {
         this.diM = new DragGridView(getContext());
         this.diM.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
         this.diM.setNumColumns(2);

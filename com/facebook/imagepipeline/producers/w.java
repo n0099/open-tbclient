@@ -15,11 +15,11 @@ import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class w extends y implements at<com.facebook.imagepipeline.f.d> {
     private final ContentResolver mContentResolver;
-    private static final Class<?> hVB = w.class;
+    private static final Class<?> hVC = w.class;
     private static final String[] PROJECTION = {"_id", "_data"};
-    private static final String[] ihD = {"_data"};
-    private static final Rect ihE = new Rect(0, 0, 512, 384);
-    private static final Rect ihF = new Rect(0, 0, 96, 96);
+    private static final String[] ihE = {"_data"};
+    private static final Rect ihF = new Rect(0, 0, 512, 384);
+    private static final Rect ihG = new Rect(0, 0, 96, 96);
 
     public w(Executor executor, com.facebook.common.memory.g gVar, ContentResolver contentResolver) {
         super(executor, gVar);
@@ -28,7 +28,7 @@ public class w extends y implements at<com.facebook.imagepipeline.f.d> {
 
     @Override // com.facebook.imagepipeline.producers.at
     public boolean a(com.facebook.imagepipeline.common.c cVar) {
-        return au.a(ihE.width(), ihE.height(), cVar);
+        return au.a(ihF.width(), ihF.height(), cVar);
     }
 
     @Override // com.facebook.imagepipeline.producers.y
@@ -72,7 +72,7 @@ public class w extends y implements at<com.facebook.imagepipeline.f.d> {
         int b = b(cVar);
         if (b != 0) {
             try {
-                cursor = MediaStore.Images.Thumbnails.queryMiniThumbnail(this.mContentResolver, i, b, ihD);
+                cursor = MediaStore.Images.Thumbnails.queryMiniThumbnail(this.mContentResolver, i, b, ihE);
                 if (cursor != null) {
                     try {
                         cursor.moveToFirst();
@@ -107,10 +107,10 @@ public class w extends y implements at<com.facebook.imagepipeline.f.d> {
     }
 
     private static int b(com.facebook.imagepipeline.common.c cVar) {
-        if (au.a(ihF.width(), ihF.height(), cVar)) {
+        if (au.a(ihG.width(), ihG.height(), cVar)) {
             return 3;
         }
-        if (au.a(ihE.width(), ihE.height(), cVar)) {
+        if (au.a(ihF.width(), ihF.height(), cVar)) {
             return 1;
         }
         return 0;
@@ -133,7 +133,7 @@ public class w extends y implements at<com.facebook.imagepipeline.f.d> {
             try {
                 return com.facebook.d.b.xZ(new ExifInterface(str).getAttributeInt("Orientation", 1));
             } catch (IOException e) {
-                com.facebook.common.c.a.b(hVB, e, "Unable to retrieve thumbnail rotation for %s", str);
+                com.facebook.common.c.a.b(hVC, e, "Unable to retrieve thumbnail rotation for %s", str);
                 return 0;
             }
         }

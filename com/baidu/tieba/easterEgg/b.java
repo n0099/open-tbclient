@@ -43,7 +43,7 @@ public class b {
             @Override // java.lang.Runnable
             public void run() {
                 b.this.handler.removeCallbacksAndMessages(null);
-                b.this.atb();
+                b.this.atc();
             }
         };
         this.dej = new com.baidu.tieba.tbadkCore.e.a();
@@ -51,7 +51,7 @@ public class b {
         this.dek = new ActivityLifeCycleListener();
     }
 
-    public static b ata() {
+    public static b atb() {
         return a.deo;
     }
 
@@ -91,7 +91,7 @@ public class b {
                         try {
                             b.this.mz(str);
                         } catch (Throwable th) {
-                            b.this.atb();
+                            b.this.atc();
                         }
                     }
                 }, 1000L);
@@ -99,7 +99,7 @@ public class b {
             }
             if (this.dei != null && this.dei.isShowing()) {
                 if (this.dei.getContentView() == null || this.dei.getContentView().getContext() != fX) {
-                    atb();
+                    atc();
                 } else {
                     return;
                 }
@@ -118,7 +118,7 @@ public class b {
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
                 public void onReceivedError(WebView webView, int i, String str2, String str3) {
                     b.this.handler.removeCallbacksAndMessages(null);
-                    b.this.atb();
+                    b.this.atc();
                 }
             });
             baseWebView.setBackgroundColor(0);
@@ -138,7 +138,7 @@ public class b {
                             try {
                                 b.this.bn(str, str2);
                             } catch (Throwable th) {
-                                b.this.atb();
+                                b.this.atc();
                             }
                         }
                     }, 1000L);
@@ -157,7 +157,7 @@ public class b {
                         if (!ao.isEmpty(str2) && (view.getContext() instanceof TbPageContextSupport)) {
                             ay.CU().c(((TbPageContextSupport) view.getContext()).getPageContext(), new String[]{str2});
                         } else {
-                            b.this.atb();
+                            b.this.atc();
                         }
                     }
                 });
@@ -169,12 +169,12 @@ public class b {
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        b.this.atb();
+                        b.this.atc();
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationCancel(Animator animator) {
-                        b.this.atb();
+                        b.this.atc();
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
@@ -187,7 +187,7 @@ public class b {
         }
     }
 
-    public void atb() {
+    public void atc() {
         if (this.dei != null && this.dei.isShowing()) {
             try {
                 this.dei.dismiss();

@@ -31,10 +31,10 @@ public class a extends BaseAdapter {
     private b aVc = new b();
     private EditorTools aTJ = null;
     private int aVf = 13;
-    private int hNe = 6;
-    private boolean hNf = false;
+    private int hNf = 6;
+    private boolean hNg = false;
     private LinkedList<ImageFileInfo> chosedFiles = null;
-    private InterfaceC0299a hNg = new InterfaceC0299a() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.1
+    private InterfaceC0299a hNh = new InterfaceC0299a() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.1
         @Override // com.baidu.tieba.write.view.PhotoLiveView.a.InterfaceC0299a
         public void wz(int i) {
             if (a.this.chosedFiles != null) {
@@ -74,7 +74,7 @@ public class a extends BaseAdapter {
     public void bNc() {
         if (this.chosedFiles == null || this.chosedFiles.size() == 0) {
             bNd();
-        } else if (this.chosedFiles.size() < this.hNe) {
+        } else if (this.chosedFiles.size() < this.hNf) {
             if (this.chosedFiles.size() <= 0 || !this.chosedFiles.get(this.chosedFiles.size() - 1).getFilePath().startsWith("android.resource://")) {
                 bNd();
             }
@@ -241,8 +241,8 @@ public class a extends BaseAdapter {
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (a.this.hNg != null) {
-                    a.this.hNg.wz(i);
+                if (a.this.hNh != null) {
+                    a.this.hNh.wz(i);
                 }
             }
         });
@@ -250,6 +250,6 @@ public class a extends BaseAdapter {
     }
 
     public void wy(int i) {
-        this.hNe = i;
+        this.hNf = i;
     }
 }

@@ -10,8 +10,8 @@ import rx.exceptions.MissingBackpressureException;
 import rx.internal.subscriptions.CancellableSubscription;
 /* loaded from: classes2.dex */
 public final class OnSubscribeFromEmitter<T> implements d.a<T> {
-    final rx.functions.b<Emitter<T>> itM;
-    final Emitter.BackpressureMode itN;
+    final rx.functions.b<Emitter<T>> itN;
+    final Emitter.BackpressureMode itO;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -19,13 +19,13 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
     }
 
     public OnSubscribeFromEmitter(rx.functions.b<Emitter<T>> bVar, Emitter.BackpressureMode backpressureMode) {
-        this.itM = bVar;
-        this.itN = backpressureMode;
+        this.itN = bVar;
+        this.itO = backpressureMode;
     }
 
     public void call(rx.j<? super T> jVar) {
         BaseEmitter latestEmitter;
-        switch (this.itN) {
+        switch (this.itO) {
             case NONE:
                 latestEmitter = new NoneEmitter(jVar);
                 break;
@@ -44,7 +44,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
         }
         jVar.add(latestEmitter);
         jVar.setProducer(latestEmitter);
-        this.itM.call(latestEmitter);
+        this.itN.call(latestEmitter);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

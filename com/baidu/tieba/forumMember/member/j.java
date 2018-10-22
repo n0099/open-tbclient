@@ -14,7 +14,7 @@ public class j implements com.baidu.adp.widget.ListView.h {
         return dwX;
     }
 
-    public r ayl() {
+    public r aym() {
         return this.dwY;
     }
 

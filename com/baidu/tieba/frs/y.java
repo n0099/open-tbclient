@@ -9,7 +9,7 @@ public class y {
     private y() {
     }
 
-    public static y aBj() {
+    public static y aBk() {
         return dDC;
     }
 

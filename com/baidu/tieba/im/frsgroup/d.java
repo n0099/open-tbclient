@@ -23,39 +23,39 @@ import java.util.Set;
 public class d implements ai {
     private BdUniqueId aZt;
     private al dwP;
-    private GroupPermData eGL;
     private GroupPermData eGM;
     private GroupPermData eGN;
+    private GroupPermData eGO;
     private String forumId;
     private String forumName;
     private int rn;
-    private List<GroupInfoData> eGO = new ArrayList();
     private List<GroupInfoData> eGP = new ArrayList();
     private List<GroupInfoData> eGQ = new ArrayList();
-    private int eGR = 0;
+    private List<GroupInfoData> eGR = new ArrayList();
     private int eGS = 0;
     private int eGT = 0;
     private int eGU = 0;
     private int eGV = 0;
     private int eGW = 0;
-    private boolean eGX = false;
+    private int eGX = 0;
     private boolean eGY = false;
     private boolean eGZ = false;
-    private boolean eHa = true;
+    private boolean eHa = false;
     private boolean eHb = true;
     private boolean eHc = true;
-    private FrsGroupRequestMessage eHd = new FrsGroupRequestMessage();
-    private FrsGroupReadCacheRequestMessage eHe = new FrsGroupReadCacheRequestMessage();
+    private boolean eHd = true;
+    private FrsGroupRequestMessage eHe = new FrsGroupRequestMessage();
+    private FrsGroupReadCacheRequestMessage eHf = new FrsGroupReadCacheRequestMessage();
     private boolean brE = true;
     private int awU = 1;
-    private Set<Long> eHf = new HashSet();
-    private com.baidu.adp.framework.listener.c eHg = new com.baidu.adp.framework.listener.c(103002) { // from class: com.baidu.tieba.im.frsgroup.d.1
+    private Set<Long> eHg = new HashSet();
+    private com.baidu.adp.framework.listener.c eHh = new com.baidu.adp.framework.listener.c(103002) { // from class: com.baidu.tieba.im.frsgroup.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage instanceof FrsGroupSocketResponseMessage) {
                 FrsGroupSocketResponseMessage frsGroupSocketResponseMessage = (FrsGroupSocketResponseMessage) socketResponsedMessage;
-                int type = d.this.eHd.getType();
+                int type = d.this.eHe.getType();
                 if (socketResponsedMessage.getError() != 0) {
                     d.this.pc(type);
                     if (com.baidu.adp.lib.util.j.kX()) {
@@ -64,7 +64,7 @@ public class d implements ai {
                     }
                     return;
                 }
-                boolean z = frsGroupSocketResponseMessage.getGroups() != null && frsGroupSocketResponseMessage.getGroups().size() >= d.this.eHd.getRn();
+                boolean z = frsGroupSocketResponseMessage.getGroups() != null && frsGroupSocketResponseMessage.getGroups().size() >= d.this.eHe.getRn();
                 GroupPermData groupPerm = frsGroupSocketResponseMessage.getGroupPerm();
                 if (groupPerm != null && groupPerm.getForumId() == null) {
                     groupPerm.setForumId(d.this.forumId);
@@ -84,20 +84,20 @@ public class d implements ai {
                 arVar.dEd = false;
                 arVar.isLocal = false;
                 if (type == 3) {
-                    arVar.pn = d.this.eGT;
-                    d.this.eGZ = z;
-                    d.this.eGN = frsGroupSocketResponseMessage.getGroupPerm();
-                    d.this.eHc = false;
+                    arVar.pn = d.this.eGU;
+                    d.this.eHa = z;
+                    d.this.eGO = frsGroupSocketResponseMessage.getGroupPerm();
+                    d.this.eHd = false;
                 } else if (type == 1) {
-                    arVar.pn = d.this.eGR;
-                    d.this.eGX = z;
-                    d.this.eGL = frsGroupSocketResponseMessage.getGroupPerm();
-                    d.this.eHa = false;
-                } else {
                     arVar.pn = d.this.eGS;
                     d.this.eGY = z;
                     d.this.eGM = frsGroupSocketResponseMessage.getGroupPerm();
                     d.this.eHb = false;
+                } else {
+                    arVar.pn = d.this.eGT;
+                    d.this.eGZ = z;
+                    d.this.eGN = frsGroupSocketResponseMessage.getGroupPerm();
+                    d.this.eHc = false;
                 }
                 if (a == null || a.size() <= 0) {
                     d.this.b(TbadkCoreApplication.isLogin(), frsGroupSocketResponseMessage.getGroupPerm());
@@ -114,7 +114,7 @@ public class d implements ai {
             ArrayList<com.baidu.adp.widget.ListView.h> a;
             if (customResponsedMessage instanceof FrsGroupReadCacheResponseMessage) {
                 FrsGroupReadCacheResponseMessage frsGroupReadCacheResponseMessage = (FrsGroupReadCacheResponseMessage) customResponsedMessage;
-                int type = d.this.eHe.getType();
+                int type = d.this.eHf.getType();
                 ar arVar = new ar();
                 arVar.errCode = customResponsedMessage.getError();
                 arVar.errMsg = customResponsedMessage.getErrorString();
@@ -124,14 +124,14 @@ public class d implements ai {
                 arVar.hasMore = false;
                 arVar.pn = -1;
                 if (type == 3) {
-                    d.this.eGN = frsGroupReadCacheResponseMessage.getGroupPerm();
-                    d.this.eGQ = frsGroupReadCacheResponseMessage.getGroups();
+                    d.this.eGO = frsGroupReadCacheResponseMessage.getGroupPerm();
+                    d.this.eGR = frsGroupReadCacheResponseMessage.getGroups();
                 } else if (type == 1) {
-                    d.this.eGL = frsGroupReadCacheResponseMessage.getGroupPerm();
-                    d.this.eGO = frsGroupReadCacheResponseMessage.getGroups();
-                } else {
                     d.this.eGM = frsGroupReadCacheResponseMessage.getGroupPerm();
                     d.this.eGP = frsGroupReadCacheResponseMessage.getGroups();
+                } else {
+                    d.this.eGN = frsGroupReadCacheResponseMessage.getGroupPerm();
+                    d.this.eGQ = frsGroupReadCacheResponseMessage.getGroups();
                 }
                 if (d.this.dwP != null && (a = d.this.a(frsGroupReadCacheResponseMessage.getGroupPerm(), frsGroupReadCacheResponseMessage.getGroups(), type)) != null && a.size() > 0) {
                     d.this.dwP.a(4, type, arVar, a);
@@ -153,7 +153,7 @@ public class d implements ai {
         frsGroupRequestMessage.setForumId(this.forumId);
         frsGroupRequestMessage.setType(i);
         frsGroupRequestMessage.setOffset(i2);
-        this.eHd = frsGroupRequestMessage;
+        this.eHe = frsGroupRequestMessage;
         MessageManager.getInstance().sendMessage(frsGroupRequestMessage);
     }
 
@@ -164,7 +164,7 @@ public class d implements ai {
         }
         frsGroupReadCacheRequestMessage.setType(i);
         frsGroupReadCacheRequestMessage.setForumName(this.forumName);
-        this.eHe = frsGroupReadCacheRequestMessage;
+        this.eHf = frsGroupReadCacheRequestMessage;
         MessageManager.getInstance().sendMessage(frsGroupReadCacheRequestMessage);
     }
 
@@ -177,20 +177,20 @@ public class d implements ai {
         arVar.dEd = false;
         arVar.errCode = 0;
         if (i == 1) {
-            groupPermData = this.eGL;
-            list = this.eGO;
-            arVar.pn = this.eGR;
-            arVar.hasMore = this.eGX;
-        } else if (i == 2) {
             groupPermData = this.eGM;
             list = this.eGP;
             arVar.pn = this.eGS;
             arVar.hasMore = this.eGY;
-        } else if (i == 3) {
+        } else if (i == 2) {
             groupPermData = this.eGN;
             list = this.eGQ;
             arVar.pn = this.eGT;
             arVar.hasMore = this.eGZ;
+        } else if (i == 3) {
+            groupPermData = this.eGO;
+            list = this.eGR;
+            arVar.pn = this.eGU;
+            arVar.hasMore = this.eHa;
         } else {
             groupPermData = null;
         }
@@ -208,17 +208,17 @@ public class d implements ai {
     /* JADX INFO: Access modifiers changed from: private */
     public ArrayList<com.baidu.adp.widget.ListView.h> a(boolean z, int i, GroupPermData groupPermData, List<GroupInfoData> list) {
         if (i == 1) {
-            this.eGO = a(z, this.eGO, list);
-            this.eGL = groupPermData;
-            return a(this.eGL, this.eGO, i);
+            this.eGP = a(z, this.eGP, list);
+            this.eGM = groupPermData;
+            return a(this.eGM, this.eGP, i);
         } else if (i == 3) {
+            this.eGO = groupPermData;
+            this.eGR = a(z, this.eGR, list);
+            return a(this.eGO, this.eGR, i);
+        } else {
             this.eGN = groupPermData;
             this.eGQ = a(z, this.eGQ, list);
             return a(this.eGN, this.eGQ, i);
-        } else {
-            this.eGM = groupPermData;
-            this.eGP = a(z, this.eGP, list);
-            return a(this.eGM, this.eGP, i);
         }
     }
 
@@ -241,9 +241,9 @@ public class d implements ai {
             return null;
         }
         ArrayList<com.baidu.adp.widget.ListView.h> arrayList = new ArrayList<>();
-        this.eHf.clear();
+        this.eHg.clear();
         for (GroupInfoData groupInfoData : list) {
-            if (groupInfoData != null && this.eHf.add(Long.valueOf(groupInfoData.getGroupId()))) {
+            if (groupInfoData != null && this.eHg.add(Long.valueOf(groupInfoData.getGroupId()))) {
                 if (i == 3) {
                     groupInfoData.setGrade(0);
                 }
@@ -271,13 +271,13 @@ public class d implements ai {
 
     private boolean pd(int i) {
         if (i == 1) {
-            return this.eHa;
-        }
-        if (i == 2) {
             return this.eHb;
         }
-        if (i == 3) {
+        if (i == 2) {
             return this.eHc;
+        }
+        if (i == 3) {
+            return this.eHd;
         }
         return true;
     }
@@ -319,13 +319,13 @@ public class d implements ai {
 
     private boolean pe(int i) {
         if (i == 1) {
-            return this.eGX;
-        }
-        if (i == 2) {
             return this.eGY;
         }
-        if (i == 3) {
+        if (i == 2) {
             return this.eGZ;
+        }
+        if (i == 3) {
+            return this.eHa;
         }
         return false;
     }
@@ -348,11 +348,11 @@ public class d implements ai {
                     this.rn = 20;
                 }
                 if (i2 == 1) {
-                    i3 = this.eGR;
-                } else if (i2 == 2) {
                     i3 = this.eGS;
+                } else if (i2 == 2) {
+                    i3 = this.eGT;
                 } else {
-                    i3 = i2 == 3 ? this.eGT : 0;
+                    i3 = i2 == 3 ? this.eGU : 0;
                 }
                 int a = a(i2, this.rn, i3, aoVar);
                 if (a < 0) {
@@ -374,16 +374,16 @@ public class d implements ai {
         }
         if (aoVar.pn == -1) {
             if (i == 1) {
-                this.eGU = 0;
-                this.eGR = 1;
-                return 0;
-            } else if (i == 2) {
                 this.eGV = 0;
                 this.eGS = 1;
                 return 0;
-            } else if (i == 3) {
+            } else if (i == 2) {
                 this.eGW = 0;
                 this.eGT = 1;
+                return 0;
+            } else if (i == 3) {
+                this.eGX = 0;
+                this.eGU = 1;
                 return 0;
             } else {
                 return 0;
@@ -392,19 +392,19 @@ public class d implements ai {
             return -1;
         } else {
             if (i == 1) {
-                this.eGU += i2;
-                int i4 = this.eGU;
-                this.eGR = aoVar.pn;
+                this.eGV += i2;
+                int i4 = this.eGV;
+                this.eGS = aoVar.pn;
                 return i4;
             } else if (i == 2) {
-                this.eGV += i2;
-                int i5 = this.eGV;
-                this.eGS = aoVar.pn;
+                this.eGW += i2;
+                int i5 = this.eGW;
+                this.eGT = aoVar.pn;
                 return i5;
             } else if (i == 3) {
-                this.eGW += i2;
-                int i6 = this.eGW;
-                this.eGT = aoVar.pn;
+                this.eGX += i2;
+                int i6 = this.eGX;
+                this.eGU = aoVar.pn;
                 return i6;
             } else {
                 return 0;
@@ -422,12 +422,12 @@ public class d implements ai {
         com.baidu.tieba.tbadkCore.a.a.a(103002, FrsGroupSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.b(2001204, j.class);
         if (this.aZt != null) {
-            this.eHg.setTag(this.aZt);
-            this.eHg.setSelfListener(true);
+            this.eHh.setTag(this.aZt);
+            this.eHh.setSelfListener(true);
             this.dwk.setTag(this.aZt);
             this.dwk.setSelfListener(true);
         }
-        MessageManager.getInstance().registerListener(this.eHg);
+        MessageManager.getInstance().registerListener(this.eHh);
         MessageManager.getInstance().registerListener(this.dwk);
     }
 
@@ -438,8 +438,8 @@ public class d implements ai {
     }
 
     @Override // com.baidu.tieba.frs.ai
-    public void aaU() {
-        MessageManager.getInstance().unRegisterListener(this.eHg);
+    public void aaV() {
+        MessageManager.getInstance().unRegisterListener(this.eHh);
         MessageManager.getInstance().unRegisterListener(this.dwk);
     }
 }

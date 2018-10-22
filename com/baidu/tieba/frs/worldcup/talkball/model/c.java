@@ -15,11 +15,11 @@ import tbclient.TalkBall.TalkBallResIdl;
 /* loaded from: classes3.dex */
 public class c implements com.baidu.tbadk.mvc.b.c {
     private int cSW;
-    private long ebq;
-    private List<com.baidu.tieba.frs.worldcup.talkball.b.a> ebt;
-    private AdidasAdvert ebu;
-    private e ebv;
-    private m ebw;
+    private long ebr;
+    private List<com.baidu.tieba.frs.worldcup.talkball.b.a> ebu;
+    private AdidasAdvert ebv;
+    private e ebw;
+    private m ebx;
     private List<com.baidu.tieba.frs.worldcup.talkball.b.b> mThreadList;
 
     @Override // com.baidu.tbadk.mvc.b.j
@@ -42,24 +42,24 @@ public class c implements com.baidu.tbadk.mvc.b.c {
                     }
                 }
             }
-            this.ebt = new ArrayList();
+            this.ebu = new ArrayList();
             List<BannerImage> list2 = dataRes.banner_images;
             if (list2 != null) {
                 for (BannerImage bannerImage : list2) {
                     if (bannerImage != null && !TextUtils.isEmpty(bannerImage.img_url)) {
                         com.baidu.tieba.frs.worldcup.talkball.b.a aVar = new com.baidu.tieba.frs.worldcup.talkball.b.a();
                         aVar.a(bannerImage);
-                        this.ebt.add(aVar);
+                        this.ebu.add(aVar);
                     }
                 }
             }
-            this.ebu = dataRes.adidas_advert;
+            this.ebv = dataRes.adidas_advert;
             this.cSW = dataRes.has_more.intValue();
-            this.ebq = dataRes.last_thread_id.longValue();
-            this.ebv = new e();
-            this.ebv.a(dataRes.guessing_competition);
-            this.ebw = new m();
-            this.ebw.a(dataRes.redpacketrain);
+            this.ebr = dataRes.last_thread_id.longValue();
+            this.ebw = new e();
+            this.ebw.a(dataRes.guessing_competition);
+            this.ebx = new m();
+            this.ebx.a(dataRes.redpacketrain);
         }
     }
 
@@ -68,27 +68,27 @@ public class c implements com.baidu.tbadk.mvc.b.c {
     }
 
     public List<com.baidu.tieba.frs.worldcup.talkball.b.a> aHr() {
-        return this.ebt;
+        return this.ebu;
     }
 
-    public int auK() {
+    public int auL() {
         return this.cSW;
     }
 
     public long aHs() {
-        return this.ebq;
+        return this.ebr;
     }
 
     public e aHt() {
-        return this.ebv;
+        return this.ebw;
     }
 
     public AdidasAdvert aHu() {
-        return this.ebu;
+        return this.ebv;
     }
 
     public m aHv() {
-        return this.ebw;
+        return this.ebx;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d

@@ -9,7 +9,7 @@ public class v {
     private static v cOQ;
     private List<am> bGa;
 
-    public static v aoo() {
+    public static v aop() {
         if (cOQ == null) {
             synchronized (v.class) {
                 if (cOQ == null) {
@@ -63,7 +63,7 @@ public class v {
         }
     }
 
-    public void XX() {
+    public void XY() {
         if (com.baidu.tbadk.core.util.v.I(this.bGa) != 0) {
             for (am amVar : this.bGa) {
                 if (amVar != null) {

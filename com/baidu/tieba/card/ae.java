@@ -83,7 +83,7 @@ public class ae extends com.baidu.tieba.person.e {
                     switch (ae.this.cNV.getLoadDataMode()) {
                         case 0:
                             ForumManageModel.b bVar = (ForumManageModel.b) obj;
-                            if (bVar == null || bVar.hfo != 0) {
+                            if (bVar == null || bVar.hfp != 0) {
                                 com.baidu.adp.lib.util.l.showToast(ae.this.mContext, ae.this.getString(e.j.delete_fail, new Object[0]));
                                 return;
                             } else if (bVar.HV) {
@@ -91,7 +91,7 @@ public class ae extends com.baidu.tieba.person.e {
                                 com.baidu.adp.lib.util.l.showToast(ae.this.mContext, e.j.delete_success);
                                 return;
                             } else {
-                                String string = !TextUtils.isEmpty(bVar.hfq) ? bVar.hfq : ae.this.getString(e.j.delete_fail, new Object[0]);
+                                String string = !TextUtils.isEmpty(bVar.hfr) ? bVar.hfr : ae.this.getString(e.j.delete_fail, new Object[0]);
                                 if (bVar.mErrCode == 1211066) {
                                     if (ae.this.cPo == null) {
                                         ae.this.cPo = new com.baidu.tbadk.core.dialog.a(ae.this.mPageContext.getPageActivity());
@@ -119,10 +119,10 @@ public class ae extends com.baidu.tieba.person.e {
                                 com.baidu.adp.lib.util.l.showToast(ae.this.mContext, ae.this.getString(e.j.mute_fail, new Object[0]));
                                 return;
                             } else if (dVar.HV) {
-                                com.baidu.adp.lib.util.l.showToast(ae.this.mContext, !TextUtils.isEmpty(dVar.hfq) ? dVar.hfq : ae.this.getString(e.j.mute_success, new Object[0]));
+                                com.baidu.adp.lib.util.l.showToast(ae.this.mContext, !TextUtils.isEmpty(dVar.hfr) ? dVar.hfr : ae.this.getString(e.j.mute_success, new Object[0]));
                                 return;
                             } else {
-                                com.baidu.adp.lib.util.l.showToast(ae.this.mContext, !TextUtils.isEmpty(dVar.hfq) ? dVar.hfq : ae.this.getString(e.j.mute_fail, new Object[0]));
+                                com.baidu.adp.lib.util.l.showToast(ae.this.mContext, !TextUtils.isEmpty(dVar.hfr) ? dVar.hfr : ae.this.getString(e.j.mute_fail, new Object[0]));
                                 return;
                             }
                         case 2:
@@ -137,7 +137,7 @@ public class ae extends com.baidu.tieba.person.e {
                                 com.baidu.adp.lib.util.l.showToast(ae.this.mContext, ae.this.getString(e.j.operation_failed, new Object[0]));
                                 return;
                             } else {
-                                ae.this.F(gVar.hft);
+                                ae.this.F(gVar.hfu);
                                 return;
                             }
                         default:
@@ -149,7 +149,7 @@ public class ae extends com.baidu.tieba.person.e {
         this.cPv = new a.d() { // from class: com.baidu.tieba.card.ae.8
             @Override // com.baidu.tieba.view.a.d
             public void hp(int i) {
-                ae.this.aor();
+                ae.this.aos();
                 if (!com.baidu.adp.lib.util.j.kX()) {
                     com.baidu.adp.lib.util.l.showToast(ae.this.mContext, e.j.network_not_available);
                     return;
@@ -157,19 +157,19 @@ public class ae extends com.baidu.tieba.person.e {
                 if (i == 1) {
                     if (ae.this.bIV != null && ae.this.bIV.yv() != null) {
                         if (UtilHelper.isCurrentAccount(ae.this.bIV.yv().getUserId())) {
-                            ae.this.aou();
+                            ae.this.aov();
                         } else {
                             ae.this.jR(1);
                         }
                     }
                 } else if (i == 2) {
-                    ae.this.aov();
-                } else if (i == 3) {
                     ae.this.aow();
+                } else if (i == 3) {
+                    ae.this.aox();
                 } else if (i == 4) {
                     ae.this.A(ae.this.cPr, true);
                 } else if (i == 5) {
-                    ae.this.aox();
+                    ae.this.aoy();
                 }
                 ae.this.jS(i);
             }
@@ -209,11 +209,11 @@ public class ae extends com.baidu.tieba.person.e {
             if (!UtilHelper.isCurrentAccount(str)) {
                 this.cPq.add(new a.C0292a(2, getString(e.j.thread_forbid, new Object[0]), this.cPn));
             }
-            if (com.baidu.tieba.frs.g.azo()) {
+            if (com.baidu.tieba.frs.g.azp()) {
                 this.cPq.add(new a.C0292a(3, getString(this.bIV.yq() == 1 ? e.j.cancel_top : e.j.top, new Object[0]), this.cPn));
                 this.cPq.add(new a.C0292a(4, getString(this.bIV.yr() == 1 ? e.j.cancel_good : e.j.commit_good, new Object[0]), this.cPn));
             }
-            if (com.baidu.tieba.frs.a.ayM().ayQ() && this.aFr) {
+            if (com.baidu.tieba.frs.a.ayN().ayR() && this.aFr) {
                 this.cPq.add(new a.C0292a(5, getString(e.j.multi_delete, new Object[0]), this.cPn));
             }
             this.cPn.eb(this.cPq);
@@ -234,24 +234,24 @@ public class ae extends com.baidu.tieba.person.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aor() {
+    public void aos() {
         com.baidu.adp.lib.g.g.b(this, this.mPageContext);
     }
 
-    public void aos() {
+    public void aot() {
         if (this.cNO != null && this.cNO.isShowing()) {
             this.cNO.dismiss();
         }
     }
 
-    public void aot() {
+    public void aou() {
         if (this.cPp != null && this.cPp.isShowing()) {
             this.cPp.dismiss();
         }
     }
 
-    public void aou() {
-        aos();
+    public void aov() {
+        aot();
         if (this.mPageContext != null) {
             if (this.cNO == null) {
                 this.cNO = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
@@ -286,11 +286,11 @@ public class ae extends com.baidu.tieba.person.e {
 
     public void jR(int i) {
         if (this.mPageContext != null) {
-            com.baidu.tieba.NEGFeedBack.e eVar = new com.baidu.tieba.NEGFeedBack.e(this.mPageContext, this.cPn.ajw());
-            AntiData ayP = com.baidu.tieba.frs.a.ayM().ayP();
+            com.baidu.tieba.NEGFeedBack.e eVar = new com.baidu.tieba.NEGFeedBack.e(this.mPageContext, this.cPn.ajx());
+            AntiData ayQ = com.baidu.tieba.frs.a.ayN().ayQ();
             SparseArray<String> sparseArray = new SparseArray<>();
-            if (ayP != null && ayP.getDelThreadInfoList() != null) {
-                List<DeleteThreadInfo> delThreadInfoList = ayP.getDelThreadInfoList();
+            if (ayQ != null && ayQ.getDelThreadInfoList() != null) {
+                List<DeleteThreadInfo> delThreadInfoList = ayQ.getDelThreadInfoList();
                 for (int i2 = 0; i2 < delThreadInfoList.size(); i2++) {
                     if (!TextUtils.isEmpty(delThreadInfoList.get(i2).text_info)) {
                         sparseArray.put(delThreadInfoList.get(i2).text_id, delThreadInfoList.get(i2).text_info);
@@ -298,15 +298,15 @@ public class ae extends com.baidu.tieba.person.e {
                 }
             }
             JSONArray jSONArray = new JSONArray();
-            List<bb> ayO = com.baidu.tieba.frs.a.ayM().ayO();
-            for (int i3 = 0; i3 < ayO.size(); i3++) {
-                jSONArray.put(ayO.get(i3).getTid());
+            List<bb> ayP = com.baidu.tieba.frs.a.ayN().ayP();
+            for (int i3 = 0; i3 < ayP.size(); i3++) {
+                jSONArray.put(ayP.get(i3).getTid());
             }
             ah ahVar = new ah();
             ahVar.a(sparseArray);
             ahVar.cb(i);
             ahVar.h(jSONArray);
-            ahVar.setFid(com.baidu.tieba.frs.a.ayM().getForumId());
+            ahVar.setFid(com.baidu.tieba.frs.a.ayN().getForumId());
             eVar.setData(ahVar);
             eVar.setDefaultReasonArray(new String[]{getContext().getString(e.j.delete_thread_reason_1), getContext().getString(e.j.delete_thread_reason_2), getContext().getString(e.j.delete_thread_reason_3), getContext().getString(e.j.delete_thread_reason_4), getContext().getString(e.j.delete_thread_reason_5)});
             eVar.iN("1");
@@ -408,22 +408,22 @@ public class ae extends com.baidu.tieba.person.e {
             String str = "";
             if (i == 2) {
                 this.bIV.cq(1);
-                str = Y(gVar.hfq, e.j.operation_success);
+                str = Y(gVar.hfr, e.j.operation_success);
             } else if (i == 3) {
                 this.bIV.cq(0);
-                str = Y(gVar.hfq, e.j.operation_success);
+                str = Y(gVar.hfr, e.j.operation_success);
             } else if (i == 4) {
                 this.bIV.cp(1);
-                str = Y(gVar.hfq, e.j.top_success);
+                str = Y(gVar.hfr, e.j.top_success);
             } else if (i == 5) {
                 this.bIV.cp(0);
-                str = Y(gVar.hfq, e.j.operation_success);
+                str = Y(gVar.hfr, e.j.operation_success);
             }
             ForumManageModel.e eVar = new ForumManageModel.e();
             eVar.threadId = this.bIV.getId();
             eVar.forumName = this.bIV.yB();
             eVar.forumId = String.valueOf(this.bIV.getFid());
-            eVar.hfr = i;
+            eVar.hfs = i;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921316, eVar));
             if (TextUtils.isEmpty(str)) {
                 str = getString(e.j.operation_success, new Object[0]);
@@ -431,8 +431,8 @@ public class ae extends com.baidu.tieba.person.e {
             com.baidu.adp.lib.util.l.showToast(this.mContext, str);
             return;
         }
-        if (gVar != null && !TextUtils.isEmpty(gVar.hfq)) {
-            string = gVar.hfq;
+        if (gVar != null && !TextUtils.isEmpty(gVar.hfr)) {
+            string = gVar.hfr;
         } else {
             string = getString(e.j.operation_failed, new Object[0]);
         }
@@ -462,7 +462,7 @@ public class ae extends com.baidu.tieba.person.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aov() {
+    public void aow() {
         if (this.mContext != null && this.bIV != null && this.bIV.yv() != null) {
             String userId = this.bIV.yv().getUserId();
             String userName = this.bIV.yv().getUserName();
@@ -506,7 +506,7 @@ public class ae extends com.baidu.tieba.person.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aow() {
+    public void aox() {
         int i;
         if (this.bIV != null && this.cNV != null) {
             if (this.bIV.yq() == 1) {
@@ -521,15 +521,15 @@ public class ae extends com.baidu.tieba.person.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aox() {
-        com.baidu.tieba.frs.a.ayM().v(true, false);
+    public void aoy() {
+        com.baidu.tieba.frs.a.ayN().v(true, false);
         TiebaStatic.log(new am("c13125").ax("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 
     public void dismissAllDialog() {
-        aos();
         aot();
-        aor();
+        aou();
+        aos();
     }
 
     public void destory() {

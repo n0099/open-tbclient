@@ -10,21 +10,21 @@ import kotlin.reflect.KParameter;
 import kotlin.reflect.KVisibility;
 /* loaded from: classes2.dex */
 public abstract class CallableReference implements Serializable, kotlin.reflect.b {
-    public static final Object NO_RECEIVER = NoReceiver.ipv;
-    private transient kotlin.reflect.b ipu;
+    public static final Object NO_RECEIVER = NoReceiver.ipw;
+    private transient kotlin.reflect.b ipv;
     protected final Object receiver;
 
     protected abstract kotlin.reflect.b computeReflected();
 
     /* loaded from: classes2.dex */
     private static class NoReceiver implements Serializable {
-        private static final NoReceiver ipv = new NoReceiver();
+        private static final NoReceiver ipw = new NoReceiver();
 
         private NoReceiver() {
         }
 
         private Object readResolve() throws ObjectStreamException {
-            return ipv;
+            return ipw;
         }
     }
 
@@ -42,10 +42,10 @@ public abstract class CallableReference implements Serializable, kotlin.reflect.
     }
 
     public kotlin.reflect.b compute() {
-        kotlin.reflect.b bVar = this.ipu;
+        kotlin.reflect.b bVar = this.ipv;
         if (bVar == null) {
             kotlin.reflect.b computeReflected = computeReflected();
-            this.ipu = computeReflected;
+            this.ipv = computeReflected;
             return computeReflected;
         }
         return bVar;

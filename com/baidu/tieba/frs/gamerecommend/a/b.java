@@ -41,12 +41,12 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.a, com.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.a aVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.e> aVar2) {
-        if (aVar2.aoP() == null) {
+        if (aVar2.aoQ() == null) {
             return null;
         }
-        aVar2.aoP().a(aVar);
-        aVar2.aoP().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar2.aoP().b(new ad<com.baidu.tieba.e.a>() { // from class: com.baidu.tieba.frs.gamerecommend.a.b.1
+        aVar2.aoQ().a(aVar);
+        aVar2.aoQ().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar2.aoQ().b(new ad<com.baidu.tieba.e.a>() { // from class: com.baidu.tieba.frs.gamerecommend.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             /* renamed from: b */
@@ -55,16 +55,16 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.a, com.
                 b.this.a(view2, aVar3);
             }
         });
-        return aVar2.aoP().getView();
+        return aVar2.aoQ().getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, com.baidu.tieba.e.a aVar) {
-        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(aVar.YA(), null, o.yj(), 18003, true, false, false);
-        createFromThreadCfg.setForumId(String.valueOf(aVar.YA().getFid()));
-        createFromThreadCfg.setForumName(aVar.YA().yB());
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(aVar.YB(), null, o.yj(), 18003, true, false, false);
+        createFromThreadCfg.setForumId(String.valueOf(aVar.YB().getFid()));
+        createFromThreadCfg.setForumName(aVar.YB().yB());
         createFromThreadCfg.setStartFrom(0);
-        o.md(aVar.YA().getTid());
+        o.md(aVar.YB().getTid());
         this.mPageContext.sendMessage(new CustomMessage(2004001, createFromThreadCfg));
         if (this.vf != null) {
             this.vf.a(view, aVar);

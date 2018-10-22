@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.x;
 import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
 public class b {
-    private static final String fGc = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
+    private static final String fGd = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
@@ -26,14 +26,14 @@ public class b {
 
     /* loaded from: classes6.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        private WeakReference<InterfaceC0244b> fGb;
-        private String fGd;
+        private WeakReference<InterfaceC0244b> fGc;
         private String fGe;
+        private String fGf;
 
         public a(String str, String str2, InterfaceC0244b interfaceC0244b) {
-            this.fGd = str;
-            this.fGe = str2;
-            this.fGb = new WeakReference<>(interfaceC0244b);
+            this.fGe = str;
+            this.fGf = str2;
+            this.fGc = new WeakReference<>(interfaceC0244b);
             setPriority(3);
         }
 
@@ -42,9 +42,9 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: A */
         public ForbidTplData doInBackground(String... strArr) {
-            x xVar = new x(b.fGc);
-            xVar.x("forum_id", this.fGd);
-            xVar.x("user_id", this.fGe);
+            x xVar = new x(b.fGd);
+            xVar.x("forum_id", this.fGe);
+            xVar.x("user_id", this.fGf);
             String BA = xVar.BA();
             if (xVar.BY().CX().isRequestSuccess()) {
                 try {
@@ -68,7 +68,7 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            InterfaceC0244b interfaceC0244b = this.fGb.get();
+            InterfaceC0244b interfaceC0244b = this.fGc.get();
             if (interfaceC0244b != null) {
                 if (forbidTplData.error.errno == 0 && ao.isEmpty(forbidTplData.error.errMsg)) {
                     interfaceC0244b.a(forbidTplData);

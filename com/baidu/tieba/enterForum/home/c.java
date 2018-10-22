@@ -67,7 +67,7 @@ public class c {
                 this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.c.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        c.this.aui();
+                        c.this.auj();
                     }
                 });
             }
@@ -80,7 +80,7 @@ public class c {
         }
     }
 
-    public void aui() {
+    public void auj() {
         if (this.dho != null) {
             g.a(this.dho);
         }

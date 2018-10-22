@@ -18,58 +18,58 @@ import com.baidu.tieba.tbadkCore.d;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class b implements a {
-    private com.baidu.tieba.frs.worldcup.talkball.activity.a ebx;
-    private com.baidu.tieba.frs.worldcup.talkball.model.a eby;
+    private com.baidu.tieba.frs.worldcup.talkball.activity.a eby;
+    private com.baidu.tieba.frs.worldcup.talkball.model.a ebz;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, com.baidu.tieba.frs.worldcup.talkball.activity.a aVar, Bundle bundle) {
         this.mPageContext = tbPageContext;
-        this.ebx = aVar;
-        this.eby = new com.baidu.tieba.frs.worldcup.talkball.model.b(this.mPageContext, this, bundle);
+        this.eby = aVar;
+        this.ebz = new com.baidu.tieba.frs.worldcup.talkball.model.b(this.mPageContext, this, bundle);
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.c.a
     public void onRefresh() {
-        if (this.eby != null) {
-            this.eby.refresh();
+        if (this.ebz != null) {
+            this.ebz.refresh();
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.c.a
     public void aHw() {
-        if (this.eby != null) {
-            this.eby.YK();
+        if (this.ebz != null) {
+            this.ebz.YL();
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.c.a
     public void a(d.a aVar, ArrayList<h> arrayList, c cVar) {
-        if (this.ebx != null) {
-            this.ebx.YS();
-            if (this.ebx.d(aVar) && cVar != null) {
-                this.ebx.bU(cVar.aHr());
-                this.ebx.a(cVar.aHu());
-                this.ebx.a(cVar.aHt());
-                this.ebx.c(cVar.aHv());
-                this.ebx.W(arrayList);
+        if (this.eby != null) {
+            this.eby.YT();
+            if (this.eby.d(aVar) && cVar != null) {
+                this.eby.bU(cVar.aHr());
+                this.eby.a(cVar.aHu());
+                this.eby.a(cVar.aHt());
+                this.eby.c(cVar.aHv());
+                this.eby.W(arrayList);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.c.a
     public boolean hasMore() {
-        if (this.eby != null) {
-            return this.eby.hasMore();
+        if (this.ebz != null) {
+            return this.ebz.hasMore();
         }
         return false;
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.c.a
     public void aHx() {
-        if (this.eby != null) {
-            TiebaStatic.log(new am("c12402").ax(ImageViewerConfig.FORUM_ID, this.eby.getForumId()).ax("uid", TbadkCoreApplication.getCurrentAccount()).ax(ImageViewerConfig.FORUM_NAME, this.eby.getForumName()));
-            if (!StringUtils.isNull(this.eby.getForumName())) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PostSearchActivityConfig(this.mPageContext.getPageActivity(), this.eby.getForumName(), this.eby.getForumId())));
+        if (this.ebz != null) {
+            TiebaStatic.log(new am("c12402").ax(ImageViewerConfig.FORUM_ID, this.ebz.getForumId()).ax("uid", TbadkCoreApplication.getCurrentAccount()).ax(ImageViewerConfig.FORUM_NAME, this.ebz.getForumName()));
+            if (!StringUtils.isNull(this.ebz.getForumName())) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PostSearchActivityConfig(this.mPageContext.getPageActivity(), this.ebz.getForumName(), this.ebz.getForumId())));
             }
         }
     }
@@ -84,13 +84,13 @@ public class b implements a {
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.c.a
     public void onDestroy() {
-        if (this.eby != null) {
-            this.eby.onDestroy();
+        if (this.ebz != null) {
+            this.ebz.onDestroy();
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.c.a
     public String getForumId() {
-        return this.eby != null ? this.eby.getForumId() : "";
+        return this.ebz != null ? this.ebz.getForumId() : "";
     }
 }

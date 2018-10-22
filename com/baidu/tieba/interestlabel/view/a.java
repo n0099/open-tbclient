@@ -12,66 +12,66 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a implements View.OnClickListener {
-    private TextView fbA;
-    private int fbB;
+    private ImageView fbA;
+    private TextView fbB;
     private int fbC;
     private int fbD;
-    private ViewGroup fbu;
-    private TextView fbv;
+    private int fbE;
+    private ViewGroup fbv;
     private TextView fbw;
-    private ImageView fbx;
-    private TextView fby;
-    private ImageView fbz;
+    private TextView fbx;
+    private ImageView fby;
+    private TextView fbz;
 
     public a(Context context) {
-        this.fbu = (ViewGroup) LayoutInflater.from(context).inflate(e.h.label_recommend_header, (ViewGroup) null);
-        this.fbv = (TextView) this.fbu.findViewById(e.g.choose_like_label);
-        this.fbw = (TextView) this.fbu.findViewById(e.g.recommend_interest_thread);
-        this.fbx = (ImageView) this.fbu.findViewById(e.g.male_icon);
-        this.fby = (TextView) this.fbu.findViewById(e.g.male_text);
-        this.fbz = (ImageView) this.fbu.findViewById(e.g.female_icon);
-        this.fbA = (TextView) this.fbu.findViewById(e.g.female_text);
-        this.fbx.setOnClickListener(this);
-        this.fbz.setOnClickListener(this);
+        this.fbv = (ViewGroup) LayoutInflater.from(context).inflate(e.h.label_recommend_header, (ViewGroup) null);
+        this.fbw = (TextView) this.fbv.findViewById(e.g.choose_like_label);
+        this.fbx = (TextView) this.fbv.findViewById(e.g.recommend_interest_thread);
+        this.fby = (ImageView) this.fbv.findViewById(e.g.male_icon);
+        this.fbz = (TextView) this.fbv.findViewById(e.g.male_text);
+        this.fbA = (ImageView) this.fbv.findViewById(e.g.female_icon);
+        this.fbB = (TextView) this.fbv.findViewById(e.g.female_text);
+        this.fby.setOnClickListener(this);
+        this.fbA.setOnClickListener(this);
         onChangeSkinType();
     }
 
     private void onChangeSkinType() {
-        al.h(this.fbv, e.d.cp_cont_b);
-        al.h(this.fbw, e.d.cp_cont_d);
-        al.c(this.fbx, e.f.img_lable_boy_n);
-        al.h(this.fby, e.d.cp_cont_d);
-        al.c(this.fbz, e.f.img_lable_girl_n);
-        al.h(this.fbA, e.d.cp_cont_d);
+        al.h(this.fbw, e.d.cp_cont_b);
+        al.h(this.fbx, e.d.cp_cont_d);
+        al.c(this.fby, e.f.img_lable_boy_n);
+        al.h(this.fbz, e.d.cp_cont_d);
+        al.c(this.fbA, e.f.img_lable_girl_n);
+        al.h(this.fbB, e.d.cp_cont_d);
     }
 
     public void setData(List<com.baidu.tieba.interestlabel.b.a> list) {
         if (v.I(list) == 2) {
-            this.fbB = list.get(0).labelId;
-            this.fbC = list.get(1).labelId;
+            this.fbC = list.get(0).labelId;
+            this.fbD = list.get(1).labelId;
         }
     }
 
     public ViewGroup aVT() {
-        return this.fbu;
+        return this.fbv;
     }
 
     public int aVU() {
-        return this.fbD;
+        return this.fbE;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
-        if (view == this.fbx) {
+        if (view == this.fby) {
             z = true;
         } else {
-            z = view == this.fbz ? false : false;
+            z = view == this.fbA ? false : false;
         }
-        this.fbD = z ? this.fbB : this.fbC;
-        al.c(this.fbx, z ? e.f.img_lable_boy_s : e.f.img_lable_boy_n);
-        al.h(this.fby, z ? e.d.cp_link_tip_a : e.d.cp_cont_d);
-        al.c(this.fbz, z ? e.f.img_lable_girl_n : e.f.img_lable_girl_s);
-        al.h(this.fbA, z ? e.d.cp_cont_d : e.d.cp_cont_h);
+        this.fbE = z ? this.fbC : this.fbD;
+        al.c(this.fby, z ? e.f.img_lable_boy_s : e.f.img_lable_boy_n);
+        al.h(this.fbz, z ? e.d.cp_link_tip_a : e.d.cp_cont_d);
+        al.c(this.fbA, z ? e.f.img_lable_girl_n : e.f.img_lable_girl_s);
+        al.h(this.fbB, z ? e.d.cp_cont_d : e.d.cp_cont_h);
     }
 }

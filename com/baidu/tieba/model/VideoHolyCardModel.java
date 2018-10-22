@@ -13,14 +13,14 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.message.VideoHolyCardResponseMessage;
 /* loaded from: classes.dex */
 public class VideoHolyCardModel extends BdBaseModel {
-    private a fvP;
-    private long fvQ;
+    private a fvQ;
+    private long fvR;
     private HttpMessageListener mHttpMessageListener = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_HOLY_CARD) { // from class: com.baidu.tieba.model.VideoHolyCardModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if ((httpResponsedMessage instanceof VideoHolyCardResponseMessage) && VideoHolyCardModel.this.fvP != null) {
-                VideoHolyCardModel.this.fvP.onResult(((VideoHolyCardResponseMessage) httpResponsedMessage).isVideoHolyCard);
+            if ((httpResponsedMessage instanceof VideoHolyCardResponseMessage) && VideoHolyCardModel.this.fvQ != null) {
+                VideoHolyCardModel.this.fvQ.onResult(((VideoHolyCardResponseMessage) httpResponsedMessage).isVideoHolyCard);
             }
         }
     };
@@ -52,11 +52,11 @@ public class VideoHolyCardModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.fvP = aVar;
+        this.fvQ = aVar;
     }
 
     public void baY() {
-        if (System.currentTimeMillis() - this.fvQ > 200) {
+        if (System.currentTimeMillis() - this.fvR > 200) {
             String clientIP = UtilHelper.getClientIP();
             String str = AiAppRomUtils.UNKNOWN;
             int networkOperator = UtilHelper.getNetworkOperator();
@@ -71,7 +71,7 @@ public class VideoHolyCardModel extends BdBaseModel {
             httpMessage.addParam("localip", clientIP);
             httpMessage.addParam("network", str);
             MessageManager.getInstance().sendMessage(httpMessage);
-            this.fvQ = System.currentTimeMillis();
+            this.fvR = System.currentTimeMillis();
         }
     }
 }

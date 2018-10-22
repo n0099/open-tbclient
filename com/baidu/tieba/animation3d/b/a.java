@@ -75,16 +75,16 @@ public class a implements TBGLSurfaceView.m {
         gl10.glTexCoordPointer(2, 5132, 0, this.cIA);
         gl10.glTranslatef(this.cIK, this.cIL, this.cIM);
         if (this.cIP != null && this.cIP.size() != 0 && (peek = this.cIP.peek()) != null) {
-            if (peek.ank() == 2) {
+            if (peek.anl() == 2) {
                 peek.e(this.cIK, this.cIL, this.cIM, this.cIN);
                 this.cIP.poll();
-            } else if (peek.ank() == -1) {
-                if (!peek.anj()) {
+            } else if (peek.anl() == -1) {
+                if (!peek.ank()) {
                     peek.jG(2);
                 } else {
                     peek.jG(0);
                 }
-            } else if (peek.ank() == 0) {
+            } else if (peek.anl() == 0) {
                 peek.b(this.cIK, this.cIL, this.cIM, this.cIN);
                 float g = peek.g(this.cIK, this.cIL, this.cIM, this.cIN);
                 float h = peek.h(this.cIK, this.cIL, this.cIM, this.cIN);
@@ -93,7 +93,7 @@ public class a implements TBGLSurfaceView.m {
                 this.cIL = h;
                 this.cIM = i;
                 peek.jG(1);
-            } else if (peek.ank() == 1) {
+            } else if (peek.anl() == 1) {
                 if (peek.c(this.cIK, this.cIL, this.cIM, this.cIN)) {
                     peek.jG(2);
                 } else {
@@ -139,12 +139,12 @@ public class a implements TBGLSurfaceView.m {
         if (this.cIO != null && this.cIO.size() != 0) {
             com.baidu.tieba.animation3d.a.b peek2 = this.cIO.peek();
             if (peek2 != null) {
-                if (peek2.ank() == 2) {
+                if (peek2.anl() == 2) {
                     peek2.e(this.cIB, this.cIC, this.cID, this.cIN);
                     this.cIO.poll();
                     return;
-                } else if (peek2.ank() == -1) {
-                    if (!peek2.anj()) {
+                } else if (peek2.anl() == -1) {
+                    if (!peek2.ank()) {
                         peek2.jG(2);
                         return;
                     } else {
@@ -152,12 +152,12 @@ public class a implements TBGLSurfaceView.m {
                         return;
                     }
                 } else {
-                    if (peek2.ank() == 0) {
+                    if (peek2.anl() == 0) {
                         peek2.b(this.cIB, this.cIC, this.cID, this.cIN);
                         double f = peek2.f(this.cIB, this.cIC, this.cID, this.cIN);
                         peek2.jG(1);
                         d = f;
-                    } else if (peek2.ank() == 1) {
+                    } else if (peek2.anl() == 1) {
                         if (peek2.c(this.cIB, this.cIC, this.cID, this.cIN)) {
                             peek2.jG(2);
                             return;
@@ -166,12 +166,12 @@ public class a implements TBGLSurfaceView.m {
                             d = peek2.f(this.cIB, this.cIC, this.cID, this.cIN);
                         }
                     }
-                    anl();
+                    anm();
                     d2 = d;
                 }
             }
             d = 0.0d;
-            anl();
+            anm();
             d2 = d;
         }
         this.cIB = (float) (this.cIB + d2);
@@ -231,16 +231,16 @@ public class a implements TBGLSurfaceView.m {
         gl10.glTexParameterf(3553, 10240, 9729.0f);
     }
 
-    public void anl() {
+    public void anm() {
         this.cIN++;
     }
 
-    public boolean anm() {
+    public boolean ann() {
         this.cIN = 0;
         return true;
     }
 
-    public void ann() {
+    public void ano() {
         this.cIB = 0.0f;
         this.cIC = 0.0f;
         this.cID = 0.0f;
@@ -249,8 +249,8 @@ public class a implements TBGLSurfaceView.m {
     public void Df() {
         this.cIP.clear();
         this.cIO.clear();
-        anm();
         ann();
+        ano();
     }
 
     public void a(Bitmap bitmap, Bitmap bitmap2, Bitmap bitmap3, Bitmap bitmap4, Bitmap bitmap5, Bitmap bitmap6) {

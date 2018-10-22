@@ -17,14 +17,14 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes5.dex */
 public class b {
-    private static b hiO;
-    private ClientConfigModel hiM;
-    private a hiN;
-    private boolean hiP = false;
+    private static b hiP;
+    private ClientConfigModel hiN;
+    private a hiO;
+    private boolean hiQ = false;
     private final com.baidu.tbadk.clientConfig.a ajc = new com.baidu.tbadk.clientConfig.a() { // from class: com.baidu.tieba.tblauncher.alarmRemind.b.1
         @Override // com.baidu.tbadk.clientConfig.a
         public void G(Object obj) {
-            b.this.hiP = false;
+            b.this.hiQ = false;
             if (obj != null && (obj instanceof DataRes)) {
                 DataRes dataRes = (DataRes) obj;
                 if (dataRes.local_dialog != null) {
@@ -42,7 +42,7 @@ public class b {
 
         @Override // com.baidu.tbadk.clientConfig.a
         public void onError(String str) {
-            b.this.hiP = false;
+            b.this.hiQ = false;
         }
     };
     CustomMessageListener mNetworkChangedListener = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.tblauncher.alarmRemind.b.2
@@ -66,25 +66,25 @@ public class b {
     };
 
     public static b bEl() {
-        if (hiO == null) {
+        if (hiP == null) {
             synchronized (b.class) {
-                if (hiO == null) {
-                    hiO = new b();
+                if (hiP == null) {
+                    hiP = new b();
                 }
             }
         }
-        return hiO;
+        return hiP;
     }
 
     private b() {
     }
 
     public void e(BaseFragmentActivity baseFragmentActivity) {
-        this.hiN = new a();
-        baseFragmentActivity.registerListener(this.hiN);
+        this.hiO = new a();
+        baseFragmentActivity.registerListener(this.hiO);
         baseFragmentActivity.registerListener(this.mNetworkChangedListener);
         baseFragmentActivity.registerListener(this.bLU);
-        this.hiM = new ClientConfigModel(baseFragmentActivity, this.ajc);
+        this.hiN = new ClientConfigModel(baseFragmentActivity, this.ajc);
         com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("tieba_last_active_time", System.currentTimeMillis());
         if (bEn()) {
             nu(true);
@@ -120,9 +120,9 @@ public class b {
     }
 
     private void bEo() {
-        if (this.hiM != null && !this.hiP) {
-            this.hiP = true;
-            this.hiM.dF("local_dialog");
+        if (this.hiN != null && !this.hiQ) {
+            this.hiQ = true;
+            this.hiN.dF("local_dialog");
         }
     }
 

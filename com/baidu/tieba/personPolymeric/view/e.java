@@ -17,7 +17,7 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.g> {
     private HTypeListView bxV;
-    private com.baidu.tieba.personPolymeric.a.o gqW;
+    private com.baidu.tieba.personPolymeric.a.o gqX;
     private View mDividerView;
     private TbPageContext mPageContext;
     private View mRootView;
@@ -30,7 +30,7 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         this.mDividerView = this.mRootView.findViewById(e.g.divider_view);
         this.mTitle = (TextView) this.mRootView.findViewById(e.g.gift_title);
         this.bxV = (HTypeListView) this.mRootView.findViewById(e.g.gift_horizontal_list);
-        this.gqW = new com.baidu.tieba.personPolymeric.a.o(this.mPageContext, this.bxV);
+        this.gqX = new com.baidu.tieba.personPolymeric.a.o(this.mPageContext, this.bxV);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -58,13 +58,13 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
                 e.this.b(gVar);
             }
         };
-        this.gqW.P(onClickListener);
+        this.gqX.P(onClickListener);
         this.mRootView.setOnClickListener(onClickListener);
-        this.gqW.Q(onClickListener);
-        this.bxV.setData(du(gVar.gpV));
+        this.gqX.Q(onClickListener);
+        this.bxV.setData(du(gVar.gpW));
         if (gVar.mIsHost) {
             this.mTitle.setText(e.j.gift_received_by_me);
-        } else if (gVar.gpT) {
+        } else if (gVar.gpU) {
             this.mTitle.setText(e.j.gift_received_by_him);
         } else {
             this.mTitle.setText(e.j.gift_received_by_her);
@@ -77,7 +77,7 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
             this.mPageContext.showToast(e.j.gift_load_fail);
         } else if (ba.bI(this.mPageContext.getPageActivity())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), gVar.mUid, gVar.Eg, gVar.gpU, gVar.mSex)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), gVar.mUid, gVar.Eg, gVar.gpV, gVar.mSex)));
         }
     }
 

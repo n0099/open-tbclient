@@ -13,7 +13,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 /* loaded from: classes4.dex */
 public class i {
-    private static i eWw = null;
+    private static i eWx = null;
     private final HttpMessageListener axH = new HttpMessageListener(CmdConfigHttp.MSG_REMINDER_CMD) { // from class: com.baidu.tieba.imMessageCenter.mention.i.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -40,13 +40,13 @@ public class i {
             }
         }
     };
-    private long eWx = 0;
+    private long eWy = 0;
     private final Handler mHandler = new Handler() { // from class: com.baidu.tieba.imMessageCenter.mention.i.2
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 1) {
                 int i = message.arg1;
-                i.this.eWx = System.currentTimeMillis();
+                i.this.eWy = System.currentTimeMillis();
                 boolean z = !MessageManager.getInstance().getSocketClient().isValid();
                 if (i == 2 || (z && com.baidu.adp.lib.util.j.kX())) {
                     i.this.aUG();
@@ -66,10 +66,10 @@ public class i {
     public static synchronized i aUF() {
         i iVar;
         synchronized (i.class) {
-            if (eWw == null) {
-                eWw = new i();
+            if (eWx == null) {
+                eWx = new i();
             }
-            iVar = eWw;
+            iVar = eWx;
         }
         return iVar;
     }
@@ -84,7 +84,7 @@ public class i {
     }
 
     public void restart() {
-        this.eWx = 0L;
+        this.eWy = 0L;
         destroy();
         start();
     }
@@ -92,7 +92,7 @@ public class i {
     public void start() {
         int i;
         long j;
-        long currentTimeMillis = System.currentTimeMillis() - this.eWx;
+        long currentTimeMillis = System.currentTimeMillis() - this.eWy;
         long j2 = currentTimeMillis > 0 ? currentTimeMillis : 0L;
         if (j2 >= KeepJobService.JOB_CHECK_PERIODIC) {
             i = 2;
@@ -102,7 +102,7 @@ public class i {
             j = KeepJobService.JOB_CHECK_PERIODIC - j2;
         }
         j(i, j);
-        this.eWx = System.currentTimeMillis();
+        this.eWy = System.currentTimeMillis();
     }
 
     public void destroy() {

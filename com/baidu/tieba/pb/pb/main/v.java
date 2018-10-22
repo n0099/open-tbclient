@@ -30,7 +30,7 @@ public class v extends k<com.baidu.tieba.pb.data.a, w> implements View.OnClickLi
         if (wVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (wVar.mSkinType != skinType) {
-                com.baidu.tbadk.o.a.a(this.fME.getPageContext(), wVar.getView());
+                com.baidu.tbadk.o.a.a(this.fMF.getPageContext(), wVar.getView());
             }
             wVar.mSkinType = skinType;
         }
@@ -43,17 +43,17 @@ public class v extends k<com.baidu.tieba.pb.data.a, w> implements View.OnClickLi
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.a aVar, w wVar) {
         super.onFillViewHolder(i, view, viewGroup, aVar, wVar);
         a(wVar);
+        wVar.fPD.setOnClickListener(this);
         wVar.fPC.setOnClickListener(this);
-        wVar.fPB.setOnClickListener(this);
+        wVar.fPD.setTag(aVar);
         wVar.fPC.setTag(aVar);
-        wVar.fPB.setTag(aVar);
         if (aVar != null) {
-            wVar.fPA.startLoad(aVar.getPortrait(), 28, false);
+            wVar.fPB.startLoad(aVar.getPortrait(), 28, false);
             wVar.chf.setText(aVar.getUserName());
-            wVar.eBj.setText(aVar.beO());
+            wVar.eBk.setText(aVar.beO());
             wVar.text.setText(aVar.getText());
-            wVar.fPB.startLoad(aVar.getPicUrl(), 10, false);
-            wVar.fPC.setText(aVar.beP());
+            wVar.fPC.startLoad(aVar.getPicUrl(), 10, false);
+            wVar.fPD.setText(aVar.beP());
         }
         return view;
     }
@@ -65,7 +65,7 @@ public class v extends k<com.baidu.tieba.pb.data.a, w> implements View.OnClickLi
         if ((view.getTag() instanceof com.baidu.tieba.pb.data.a) && ba.bI(this.mContext)) {
             String beQ = ((com.baidu.tieba.pb.data.a) view.getTag()).beQ();
             if (!StringUtils.isNull(beQ)) {
-                ay.CU().c(this.fME.getPageContext(), new String[]{beQ});
+                ay.CU().c(this.fMF.getPageContext(), new String[]{beQ});
             }
         }
     }

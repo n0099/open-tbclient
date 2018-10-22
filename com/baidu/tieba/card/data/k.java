@@ -59,7 +59,7 @@ public class k extends c {
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bb YA() {
+    public bb YB() {
         if (this.threadData == null) {
             return this.threadData;
         }
@@ -70,44 +70,44 @@ public class k extends c {
         return this.threadData;
     }
 
-    public boolean aoI() {
+    public boolean aoJ() {
         return (this.threadData == null || v.I(this.threadData.yK()) == 0) ? false : true;
     }
 
-    public am aoJ() {
-        bb YA;
+    public am aoK() {
+        bb YB;
         if (this.cQs) {
             am amVar = new am("c11003");
-            if (YA() != null && (YA = YA()) != null) {
-                amVar.ax("tid", YA.getTid());
-                if (YA.yv() != null) {
-                    amVar.x("ab_type", YA.yv().hadConcerned() ? 1 : 0);
+            if (YB() != null && (YB = YB()) != null) {
+                amVar.ax("tid", YB.getTid());
+                if (YB.yv() != null) {
+                    amVar.x("ab_type", YB.yv().hadConcerned() ? 1 : 0);
                 }
             }
             return amVar;
-        } else if (aoI()) {
+        } else if (aoJ()) {
             am mi = mi(cQk);
-            if (mi != null && YA() != null) {
-                bb YA2 = YA();
-                mi.x("obj_name", YA2.zM() != null && (YA2.zM().bCd() != null || YA2.zM().QS() != null) ? 1 : 0);
-                if (YA2.yv() != null) {
-                    mi.x("ab_type", YA2.yv().hadConcerned() ? 1 : 0);
+            if (mi != null && YB() != null) {
+                bb YB2 = YB();
+                mi.x("obj_name", YB2.zM() != null && (YB2.zM().bCd() != null || YB2.zM().QS() != null) ? 1 : 0);
+                if (YB2.yv() != null) {
+                    mi.x("ab_type", YB2.yv().hadConcerned() ? 1 : 0);
                 }
             }
             return mi;
         } else {
             am mi2 = mi(cQf);
             if (mi2 != null) {
-                mi2.ax("ab_tag", aoA()).ax("ab_action", "show");
-                if (YA() != null) {
-                    bb YA3 = YA();
-                    boolean z = (YA3.zM() == null || (YA3.zM().bCd() == null && YA3.zM().QS() == null)) ? false : true;
+                mi2.ax("ab_tag", aoB()).ax("ab_action", "show");
+                if (YB() != null) {
+                    bb YB3 = YB();
+                    boolean z = (YB3.zM() == null || (YB3.zM().bCd() == null && YB3.zM().QS() == null)) ? false : true;
                     mi2.x("obj_name", z ? 1 : 0);
-                    if (z && YA3.zM().bCd() != null && YA3.zM().bCd().QK() != null && YA3.zM().bCd().QK().size() > 0) {
-                        mi2.x("obj_to", YA3.zM().hdA ? 2 : 1);
+                    if (z && YB3.zM().bCd() != null && YB3.zM().bCd().QK() != null && YB3.zM().bCd().QK().size() > 0) {
+                        mi2.x("obj_to", YB3.zM().hdB ? 2 : 1);
                     }
-                    if (YA3.yv() != null) {
-                        mi2.x("ab_type", YA3.yv().hadConcerned() ? 1 : 0);
+                    if (YB3.yv() != null) {
+                        mi2.x("ab_type", YB3.yv().hadConcerned() ? 1 : 0);
                     }
                 }
             }
@@ -128,7 +128,7 @@ public class k extends c {
             }
             amVar.x("obj_type", i);
             amVar.ax(VideoPlayActivityConfig.OBJ_ID, this.threadData.yv().getUserId());
-            amVar.x("obj_param1", aoE() ? 2 : 1);
+            amVar.x("obj_param1", aoF() ? 2 : 1);
         }
         return amVar;
     }
@@ -136,13 +136,13 @@ public class k extends c {
     public am ml(String str) {
         am mi = mi(str);
         if (mi != null) {
-            mi.ax("ab_tag", aoA()).ax("ab_action", "show");
-            if (YA() != null) {
-                bb YA = YA();
-                boolean z = (YA.zM() == null || (YA.zM().bCd() == null && YA.zM().QS() == null)) ? false : true;
+            mi.ax("ab_tag", aoB()).ax("ab_action", "show");
+            if (YB() != null) {
+                bb YB = YB();
+                boolean z = (YB.zM() == null || (YB.zM().bCd() == null && YB.zM().QS() == null)) ? false : true;
                 mi.x("obj_name", z ? 1 : 0);
-                if (z && YA.zM().bCd() != null && YA.zM().bCd().QK() != null && YA.zM().bCd().QK().size() > 0) {
-                    mi.x("obj_to", YA.zM().hdA ? 2 : 1);
+                if (z && YB.zM().bCd() != null && YB.zM().bCd().QK() != null && YB.zM().bCd().QK().size() > 0) {
+                    mi.x("obj_to", YB.zM().hdB ? 2 : 1);
                 }
             }
         }
@@ -152,60 +152,60 @@ public class k extends c {
     public am mm(String str) {
         am mi = mi(str);
         if (mi != null) {
-            mi.ax("ab_tag", aoA()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
-        }
-        return mi;
-    }
-
-    public am aoK() {
-        if (aoI()) {
-            return mi(cQl);
-        }
-        am mi = mi(cQg);
-        if (mi != null) {
-            mi.ax("ab_tag", aoA()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
-            return mi;
+            mi.ax("ab_tag", aoB()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
         }
         return mi;
     }
 
     public am aoL() {
-        if (aoI()) {
-            return mi(cQm);
+        if (aoJ()) {
+            return mi(cQl);
         }
-        am Z = Z(cQh, 0);
-        if (Z != null) {
-            Z.ax("ab_tag", aoA()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
-            return Z;
-        }
-        return Z;
-    }
-
-    public am aoM() {
-        if (aoI()) {
-            return mi(cQn);
-        }
-        am mi = mi(cQi);
+        am mi = mi(cQg);
         if (mi != null) {
-            mi.ax("ab_tag", aoA()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
+            mi.ax("ab_tag", aoB()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
             return mi;
         }
         return mi;
     }
 
-    public am aoN() {
-        if (aoI()) {
-            return mi(cQo);
+    public am aoM() {
+        if (aoJ()) {
+            return mi(cQm);
         }
-        am mi = mi(cQj);
+        am Z = Z(cQh, 0);
+        if (Z != null) {
+            Z.ax("ab_tag", aoB()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
+            return Z;
+        }
+        return Z;
+    }
+
+    public am aoN() {
+        if (aoJ()) {
+            return mi(cQn);
+        }
+        am mi = mi(cQi);
         if (mi != null) {
-            mi.ax("ab_tag", aoA()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
+            mi.ax("ab_tag", aoB()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
             return mi;
         }
         return mi;
     }
 
     public am aoO() {
+        if (aoJ()) {
+            return mi(cQo);
+        }
+        am mi = mi(cQj);
+        if (mi != null) {
+            mi.ax("ab_tag", aoB()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
+            return mi;
+        }
+        return mi;
+    }
+
+    public am aoP() {
         return mi(cQp);
     }
 

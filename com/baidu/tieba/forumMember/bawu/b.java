@@ -9,11 +9,11 @@ public class b implements i {
     private String dvV;
 
     @Override // com.baidu.tieba.forumMember.bawu.i
-    public int aya() {
+    public int ayb() {
         return 1;
     }
 
-    public ArrayList<BawuRoleInfoPub> ayb() {
+    public ArrayList<BawuRoleInfoPub> ayc() {
         return this.dvT;
     }
 
@@ -29,7 +29,7 @@ public class b implements i {
         this.dvU = z;
     }
 
-    public String ayc() {
+    public String ayd() {
         return this.dvV;
     }
 

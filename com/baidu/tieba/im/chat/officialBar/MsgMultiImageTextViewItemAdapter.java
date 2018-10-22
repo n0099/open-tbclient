@@ -29,9 +29,9 @@ public class MsgMultiImageTextViewItemAdapter extends com.baidu.tieba.im.chat.e<
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgMultiImageTextView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
         MsgMultiImageTextView aMY = aVar.aMY();
-        aMY.setOnItemViewLongClickListener(this.ezH);
+        aMY.setOnItemViewLongClickListener(this.ezI);
         aMY.setPosition(i);
-        aMY.ci(this.ezN);
+        aMY.ci(this.ezO);
         aMY.ch(chatMessage.getCacheData().getLastMsgTime());
         aMY.a(this.mPageContext, chatMessage, viewGroup);
         this.mPageContext.getLayoutMode().setNightMode(false);

@@ -9,19 +9,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 class n {
-    private int hTa;
-    private String hTb;
-    private JSONObject hTc;
-    private List<h> hTd = new ArrayList();
+    private int hTb;
+    private String hTc;
+    private JSONObject hTd;
+    private List<h> hTe = new ArrayList();
     private int mThreshold;
 
     public n(String str, JSONObject jSONObject) {
-        this.hTb = str;
-        this.hTc = jSONObject;
+        this.hTc = str;
+        this.hTd = jSONObject;
     }
 
     public String bPG() {
-        return this.hTb;
+        return this.hTc;
     }
 
     public int getThreshold() {
@@ -29,18 +29,18 @@ class n {
     }
 
     public int bPH() {
-        return this.hTa;
+        return this.hTb;
     }
 
     public List<h> bPI() {
-        return this.hTd;
+        return this.hTe;
     }
 
     public boolean bPJ() {
         try {
-            JSONObject jSONObject = this.hTc;
+            JSONObject jSONObject = this.hTd;
             this.mThreshold = jSONObject.getInt("threshold");
-            this.hTa = jSONObject.getInt("timeup");
+            this.hTb = jSONObject.getInt("timeup");
             JSONArray jSONArray = new JSONArray(jSONObject.getString("item"));
             int length = jSONArray.length();
             for (int i = 0; i < length; i++) {
@@ -68,7 +68,7 @@ class n {
                     if (jSONObject2.has("idtype")) {
                         hVar.xx(jSONObject2.getString("idtype"));
                     }
-                    this.hTd.add(hVar);
+                    this.hTe.add(hVar);
                 }
             }
             return true;

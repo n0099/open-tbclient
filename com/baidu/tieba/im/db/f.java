@@ -338,12 +338,12 @@ public class f extends SQLiteOpenHelper {
                 sQLiteDatabase.setTransactionSuccessful();
                 try {
                     sQLiteDatabase.beginTransaction();
-                    g.eFw.put(TbadkCoreApplication.getCurrentAccount() + ".db", sQLiteDatabase);
+                    g.eFx.put(TbadkCoreApplication.getCurrentAccount() + ".db", sQLiteDatabase);
                     k.aPp();
                     sQLiteDatabase.setTransactionSuccessful();
                 } finally {
                     sQLiteDatabase.endTransaction();
-                    g.eFw.remove(TbadkCoreApplication.getCurrentAccount() + ".db");
+                    g.eFx.remove(TbadkCoreApplication.getCurrentAccount() + ".db");
                 }
             } finally {
                 sQLiteDatabase.endTransaction();

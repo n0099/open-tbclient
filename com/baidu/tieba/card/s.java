@@ -82,7 +82,7 @@ public class s {
                 s.this.cNU.a(s.this.cNW);
                 s.this.cNU.LoadData();
             }
-            s.this.aoj();
+            s.this.aok();
         }
     };
     private a.c cNY = new a.c() { // from class: com.baidu.tieba.card.s.6
@@ -93,10 +93,10 @@ public class s {
                 return;
             }
             if (s.this.cNQ != null && s.this.cNV != null) {
-                s.this.aok();
+                s.this.aol();
                 s.this.cNO.Au();
             }
-            s.this.aoj();
+            s.this.aok();
         }
     };
     private com.baidu.adp.base.d cNZ = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.card.s.7
@@ -109,8 +109,8 @@ public class s {
                     if (s.this.cNQ != null && !ao.isEmpty(s.this.cNQ.threadId)) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016557, s.this.cNQ.threadId));
                     }
-                } else if (!ao.isEmpty(bVar.hfq)) {
-                    com.baidu.adp.lib.util.l.showToast(s.this.mContext, bVar.hfq);
+                } else if (!ao.isEmpty(bVar.hfr)) {
+                    com.baidu.adp.lib.util.l.showToast(s.this.mContext, bVar.hfr);
                 } else {
                     com.baidu.adp.lib.util.l.showToast(s.this.mContext, e.j.delete_fail);
                 }
@@ -156,7 +156,7 @@ public class s {
             this.cNN.a(new a.b() { // from class: com.baidu.tieba.card.s.1
                 @Override // com.baidu.tieba.view.a.b
                 public void onClick() {
-                    s.this.aoj();
+                    s.this.aok();
                 }
             });
             this.cNN.eb(this.cNR);
@@ -185,14 +185,14 @@ public class s {
         }
     }
 
-    public void aoj() {
+    public void aok() {
         if (this.aiP != null && this.aiP.isShowing()) {
             this.aiP.dismiss();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aok() {
+    public void aol() {
         if (this.cNO == null) {
             this.cNO = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
             this.cNO.cz(e.j.del_thread_confirm);

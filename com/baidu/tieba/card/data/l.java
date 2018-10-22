@@ -40,7 +40,7 @@ public class l extends c implements com.baidu.tbadk.core.util.e.a {
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bb YA() {
+    public bb YB() {
         if (this.bIj == null) {
             return this.bIj;
         }
@@ -57,7 +57,7 @@ public class l extends c implements com.baidu.tbadk.core.util.e.a {
             amVar.h(ImageViewerConfig.FORUM_ID, this.bIj.getFid());
             amVar.ax("tid", this.bIj.getTid());
             amVar.x("obj_type", 2);
-            amVar.x("obj_param1", aoE() ? 2 : 1);
+            amVar.x("obj_param1", aoF() ? 2 : 1);
             if (this.bIj.yv() != null) {
                 amVar.ax(VideoPlayActivityConfig.OBJ_ID, this.bIj.yv().getUserId());
             }
@@ -65,13 +65,13 @@ public class l extends c implements com.baidu.tbadk.core.util.e.a {
         return amVar;
     }
 
-    public am aoJ() {
+    public am aoK() {
         am w = w(cQy, true);
-        if (w != null && YA() != null) {
-            bb YA = YA();
-            w.x("obj_name", YA.zM() != null && (YA.zM().bCd() != null || YA.zM().QS() != null) ? 1 : 0);
-            if (YA.yv() != null) {
-                w.x("ab_type", YA.yv().hadConcerned() ? 1 : 0);
+        if (w != null && YB() != null) {
+            bb YB = YB();
+            w.x("obj_name", YB.zM() != null && (YB.zM().bCd() != null || YB.zM().QS() != null) ? 1 : 0);
+            if (YB.yv() != null) {
+                w.x("ab_type", YB.yv().hadConcerned() ? 1 : 0);
             }
         }
         return w;
@@ -81,7 +81,7 @@ public class l extends c implements com.baidu.tbadk.core.util.e.a {
         return (bbVar.zy() == null || bbVar.zy().channelId <= 0) ? w(cQz, true) : w(cQA, true);
     }
 
-    public am aoL() {
+    public am aoM() {
         return w(cQx, true);
     }
 

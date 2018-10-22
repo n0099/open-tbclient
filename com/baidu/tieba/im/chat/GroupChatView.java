@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class GroupChatView extends CommonGroupMsglistView {
-    protected TextView eyW;
-    protected ImageView eyX;
-    private GroupChatActivity eyY;
+    protected TextView eyX;
+    protected ImageView eyY;
+    private GroupChatActivity eyZ;
 
     public GroupChatView(MsglistActivity msglistActivity, boolean z) {
         super(msglistActivity, z);
@@ -23,15 +23,15 @@ public class GroupChatView extends CommonGroupMsglistView {
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
     public void initHeader(TalkableActivity talkableActivity, boolean z) {
         super.initHeader(talkableActivity, z);
-        this.eyY = (GroupChatActivity) talkableActivity;
+        this.eyZ = (GroupChatActivity) talkableActivity;
         String string = talkableActivity.getPageContext().getString(e.j.msglist_groupinfo);
         if (string != null) {
             String stringExtra = talkableActivity.getIntent().getStringExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID);
             this.mBtnGroupInfo = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.group_info_btn, talkableActivity);
-            this.eyW = (TextView) this.mBtnGroupInfo.findViewById(e.g.group_info_btn_txt);
-            this.eyW.setText(string);
-            this.eyX = (ImageView) this.mBtnGroupInfo.findViewById(e.g.red_dot);
-            this.eyX.setVisibility(8);
+            this.eyX = (TextView) this.mBtnGroupInfo.findViewById(e.g.group_info_btn_txt);
+            this.eyX.setText(string);
+            this.eyY = (ImageView) this.mBtnGroupInfo.findViewById(e.g.red_dot);
+            this.eyY.setVisibility(8);
             if (!StringUtils.isNull(stringExtra) && stringExtra.equals(TbadkApplication.getCurrentAccount())) {
                 aMz();
             }
@@ -46,19 +46,19 @@ public class GroupChatView extends CommonGroupMsglistView {
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.eyW != null) {
-            al.c(this.eyW, e.d.cp_cont_b, 1);
+        if (this.eyX != null) {
+            al.c(this.eyX, e.d.cp_cont_b, 1);
         }
     }
 
     public void aMz() {
         if (!com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("has_shown_group_btn_dot", false)) {
-            this.eyX.setVisibility(0);
+            this.eyY.setVisibility(0);
         }
     }
 
     public void aMA() {
-        this.eyX.setVisibility(8);
+        this.eyY.setVisibility(8);
         com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("has_shown_group_btn_dot", true);
     }
 }

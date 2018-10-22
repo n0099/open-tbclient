@@ -31,8 +31,8 @@ public class VideoMiddleModel extends BdBaseModel {
     public static final String TYPE_CALL_FROM_INDEX = "client_index";
     public static final String TYPE_CALL_FROM_OTHER = "client_other";
     private final HttpMessageListener dFW;
-    private a dWR;
-    private String dWS;
+    private a dWS;
+    private String dWT;
     private String mFrom;
     private String mId;
     private boolean mIsLoading;
@@ -56,13 +56,13 @@ public class VideoMiddleModel extends BdBaseModel {
 
     public VideoMiddleModel(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.dWS = "client_other";
+        this.dWT = "client_other";
         this.dFW = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_MIDDLE_AGGREGATION) { // from class: com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003378 || !(httpResponsedMessage instanceof VideoMiddleDataResponseMessage)) {
-                    VideoMiddleModel.this.dWR.nH(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR);
+                    VideoMiddleModel.this.dWS.nH(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR);
                     return;
                 }
                 VideoMiddleModel.this.mIsLoading = false;
@@ -72,15 +72,15 @@ public class VideoMiddleModel extends BdBaseModel {
                     if (TextUtils.isEmpty(errorString)) {
                         errorString = TbadkCoreApplication.getInst().getResources().getString(e.j.error_unkown_try_again);
                     }
-                    VideoMiddleModel.this.dWR.nH(errorString);
+                    VideoMiddleModel.this.dWS.nH(errorString);
                     return;
                 }
                 TbSingleton.getInstance().clearVideoRecord();
-                VideoMiddleModel.this.dWR.i(((VideoMiddleDataResponseMessage) httpResponsedMessage).mDataList, ((VideoMiddleDataResponseMessage) httpResponsedMessage).mHasMore);
+                VideoMiddleModel.this.dWS.i(((VideoMiddleDataResponseMessage) httpResponsedMessage).mDataList, ((VideoMiddleDataResponseMessage) httpResponsedMessage).mHasMore);
             }
         };
         this.mPageContext = tbPageContext;
-        this.dWR = aVar;
+        this.dWS = aVar;
         registerTask();
         this.dFW.setTag(getUniqueId());
         this.dFW.setSelfListener(true);
@@ -152,13 +152,13 @@ public class VideoMiddleModel extends BdBaseModel {
         httpMessage.addParam(Config.PACKAGE_NAME, i);
         httpMessage.addParam("user_view_data", aGy());
         if ("frs".equals(this.mFrom)) {
-            this.dWS = "client_frs";
+            this.dWT = "client_frs";
         } else if ("index".equals(this.mFrom)) {
-            this.dWS = "client_index";
+            this.dWT = "client_index";
         } else {
-            this.dWS = "client_other";
+            this.dWT = "client_other";
         }
-        httpMessage.addParam(IntentConfig.CALL_FROM, this.dWS);
+        httpMessage.addParam(IntentConfig.CALL_FROM, this.dWT);
         sendMessage(httpMessage);
         return true;
     }

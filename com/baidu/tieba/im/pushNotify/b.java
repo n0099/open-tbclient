@@ -19,10 +19,10 @@ import java.util.ArrayList;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class b {
-    private static b ePF = null;
-    private String ePH;
-    private ArrayList<CustomMessageListener> ePG = new ArrayList<>();
-    private c eyR = new c(202006) { // from class: com.baidu.tieba.im.pushNotify.b.1
+    private static b ePG = null;
+    private String ePI;
+    private ArrayList<CustomMessageListener> ePH = new ArrayList<>();
+    private c eyS = new c(202006) { // from class: com.baidu.tieba.im.pushNotify.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -40,7 +40,7 @@ public class b {
             }
         }
     };
-    private CustomMessageListener ePI = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.pushNotify.b.2
+    private CustomMessageListener ePJ = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.pushNotify.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -57,10 +57,10 @@ public class b {
     public static synchronized b aSB() {
         b bVar;
         synchronized (b.class) {
-            if (ePF == null) {
-                ePF = new b();
+            if (ePG == null) {
+                ePG = new b();
             }
-            bVar = ePF;
+            bVar = ePG;
         }
         return bVar;
     }
@@ -73,8 +73,8 @@ public class b {
     }
 
     private void aSC() {
-        MessageManager.getInstance().registerListener(this.eyR);
-        MessageManager.getInstance().registerListener(2016014, this.ePI);
+        MessageManager.getInstance().registerListener(this.eyS);
+        MessageManager.getInstance().registerListener(2016014, this.ePJ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -117,10 +117,10 @@ public class b {
     }
 
     public String aSD() {
-        return this.ePH;
+        return this.ePI;
     }
 
     public void pQ(String str) {
-        this.ePH = str;
+        this.ePI = str;
     }
 }

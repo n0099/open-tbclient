@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.view.TbCheckBox;
 public class b extends h implements TbCheckBox.b {
     private boolean cSQ = false;
 
-    public boolean aoW() {
+    public boolean aoX() {
         return this.cSQ;
     }
 

@@ -6,11 +6,11 @@ import java.util.Map;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration, R> implements d.a<R> {
-    final rx.d<TLeft> itQ;
-    final rx.d<TRight> itR;
-    final rx.functions.g<TLeft, TRight, R> itU;
-    final rx.functions.f<TLeft, rx.d<TLeftDuration>> iua;
-    final rx.functions.f<TRight, rx.d<TRightDuration>> iub;
+    final rx.d<TLeft> itR;
+    final rx.d<TRight> itS;
+    final rx.functions.g<TLeft, TRight, R> itV;
+    final rx.functions.f<TLeft, rx.d<TLeftDuration>> iub;
+    final rx.functions.f<TRight, rx.d<TRightDuration>> iuc;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -18,11 +18,11 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
     }
 
     public OnSubscribeJoin(rx.d<TLeft> dVar, rx.d<TRight> dVar2, rx.functions.f<TLeft, rx.d<TLeftDuration>> fVar, rx.functions.f<TRight, rx.d<TRightDuration>> fVar2, rx.functions.g<TLeft, TRight, R> gVar) {
-        this.itQ = dVar;
-        this.itR = dVar2;
-        this.iua = fVar;
-        this.iub = fVar2;
-        this.itU = gVar;
+        this.itR = dVar;
+        this.itS = dVar2;
+        this.iub = fVar;
+        this.iuc = fVar2;
+        this.itV = gVar;
     }
 
     public void call(rx.j<? super R> jVar) {
@@ -55,8 +55,8 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
             b bVar = new b();
             this.group.add(aVar);
             this.group.add(bVar);
-            OnSubscribeJoin.this.itQ.unsafeSubscribe(aVar);
-            OnSubscribeJoin.this.itR.unsafeSubscribe(bVar);
+            OnSubscribeJoin.this.itR.unsafeSubscribe(aVar);
+            OnSubscribeJoin.this.itS.unsafeSubscribe(bVar);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -96,7 +96,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 try {
                     C0367a c0367a = new C0367a(i);
                     ResultSink.this.group.add(c0367a);
-                    OnSubscribeJoin.this.iua.call(tleft).unsafeSubscribe(c0367a);
+                    OnSubscribeJoin.this.iub.call(tleft).unsafeSubscribe(c0367a);
                     ArrayList<Object> arrayList = new ArrayList();
                     synchronized (ResultSink.this) {
                         for (Map.Entry<Integer, TRight> entry : ResultSink.this.rightMap.entrySet()) {
@@ -106,7 +106,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                         }
                     }
                     for (Object obj : arrayList) {
-                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.itU.j(tleft, obj));
+                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.itV.j(tleft, obj));
                     }
                 } catch (Throwable th) {
                     rx.exceptions.a.a(th, this);
@@ -140,7 +140,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
             /* loaded from: classes2.dex */
             final class C0367a extends rx.j<TLeftDuration> {
                 final int id;
-                boolean itq = true;
+                boolean itr = true;
 
                 public C0367a(int i) {
                     this.id = i;
@@ -158,8 +158,8 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
 
                 @Override // rx.e
                 public void onCompleted() {
-                    if (this.itq) {
-                        this.itq = false;
+                    if (this.itr) {
+                        this.itr = false;
                         a.this.a(this.id, this);
                     }
                 }
@@ -204,7 +204,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 try {
                     a aVar = new a(i);
                     ResultSink.this.group.add(aVar);
-                    OnSubscribeJoin.this.iub.call(tright).unsafeSubscribe(aVar);
+                    OnSubscribeJoin.this.iuc.call(tright).unsafeSubscribe(aVar);
                     ArrayList<Object> arrayList = new ArrayList();
                     synchronized (ResultSink.this) {
                         for (Map.Entry<Integer, TLeft> entry : ResultSink.this.leftMap().entrySet()) {
@@ -214,7 +214,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                         }
                     }
                     for (Object obj : arrayList) {
-                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.itU.j(obj, tright));
+                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.itV.j(obj, tright));
                     }
                 } catch (Throwable th) {
                     rx.exceptions.a.a(th, this);
@@ -247,7 +247,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
             /* loaded from: classes2.dex */
             final class a extends rx.j<TRightDuration> {
                 final int id;
-                boolean itq = true;
+                boolean itr = true;
 
                 public a(int i) {
                     this.id = i;
@@ -265,8 +265,8 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
 
                 @Override // rx.e
                 public void onCompleted() {
-                    if (this.itq) {
-                        this.itq = false;
+                    if (this.itr) {
+                        this.itr = false;
                         b.this.a(this.id, this);
                     }
                 }

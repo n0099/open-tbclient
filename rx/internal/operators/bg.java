@@ -3,10 +3,10 @@ package rx.internal.operators;
 import rx.internal.util.UtilityFunctions;
 /* loaded from: classes2.dex */
 public final class bg {
-    static final Object iyQ = new Object();
+    static final Object iyR = new Object();
 
     static <T> rx.d<Object> l(rx.d<T> dVar) {
-        return rx.d.concat(dVar, rx.d.just(iyQ));
+        return rx.d.concat(dVar, rx.d.just(iyR));
     }
 
     public static <T> rx.d<Boolean> sequenceEqual(rx.d<? extends T> dVar, rx.d<? extends T> dVar2, final rx.functions.g<? super T, ? super T, Boolean> gVar) {
@@ -15,8 +15,8 @@ public final class bg {
             @Override // rx.functions.g
             /* renamed from: k */
             public Boolean j(Object obj, Object obj2) {
-                boolean z = obj == bg.iyQ;
-                boolean z2 = obj2 == bg.iyQ;
+                boolean z = obj == bg.iyR;
+                boolean z2 = obj2 == bg.iyR;
                 if (z && z2) {
                     return true;
                 }

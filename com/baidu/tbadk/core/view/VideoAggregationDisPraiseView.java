@@ -41,7 +41,7 @@ public class VideoAggregationDisPraiseView extends VideoAggregationPraiseView {
         if (this.mData == 0) {
             return 0;
         }
-        if (((com.baidu.tieba.frs.aggregation.g) this.mData).aBT() && Dz()) {
+        if (((com.baidu.tieba.frs.aggregation.g) this.mData).aBU() && Dz()) {
             ((com.baidu.tieba.frs.aggregation.g) this.mData).cw(5);
             ((com.baidu.tieba.frs.aggregation.g) this.mData).cu(0);
             ((com.baidu.tieba.frs.aggregation.g) this.mData).v(((com.baidu.tieba.frs.aggregation.g) this.mData).zH());
@@ -49,7 +49,7 @@ public class VideoAggregationDisPraiseView extends VideoAggregationPraiseView {
             i = 1;
         } else {
             int zK = ((com.baidu.tieba.frs.aggregation.g) this.mData).zK();
-            if ((((com.baidu.tieba.frs.aggregation.g) this.mData).aBT() && zK == 2) || zK == 1) {
+            if ((((com.baidu.tieba.frs.aggregation.g) this.mData).aBU() && zK == 2) || zK == 1) {
                 ((com.baidu.tieba.frs.aggregation.g) this.mData).v(((com.baidu.tieba.frs.aggregation.g) this.mData).zH() - 1);
             }
             ((com.baidu.tieba.frs.aggregation.g) this.mData).cu(1);

@@ -1,24 +1,13 @@
 package com.baidu.tieba.aiapps.apps.a;
 
 import android.os.Bundle;
-import android.text.TextUtils;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import java.util.Set;
 /* loaded from: classes4.dex */
-class e extends ProviderDelegation {
-    e() {
-    }
-
+public class e extends ProviderDelegation {
     @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
     public Bundle execCall(Bundle bundle) {
-        Set<String> keySet = bundle.keySet();
         Bundle bundle2 = new Bundle();
-        for (String str : keySet) {
-            if (!TextUtils.isEmpty(str)) {
-                String string = bundle.getString(str, "");
-                bundle2.putString(str, b.getSession(getAgent().getContext(), str, TextUtils.isEmpty(string) ? "" : string));
-            }
-        }
+        bundle2.putString("result", b.getPortraitUrl());
         return bundle2;
     }
 }

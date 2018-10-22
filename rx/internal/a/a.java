@@ -5,10 +5,10 @@ import rx.f;
 import rx.j;
 /* loaded from: classes2.dex */
 public class a<T> extends j<T> implements rx.b.a<T> {
-    private final h<T> isG;
+    private final h<T> isH;
 
     public a(h<T> hVar) {
-        this.isG = hVar;
+        this.isH = hVar;
     }
 
     public static <T> a<T> dy(long j) {
@@ -20,30 +20,30 @@ public class a<T> extends j<T> implements rx.b.a<T> {
 
     @Override // rx.j
     public void onStart() {
-        this.isG.onStart();
+        this.isH.onStart();
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.isG.onCompleted();
+        this.isH.onCompleted();
     }
 
     @Override // rx.j
     public void setProducer(f fVar) {
-        this.isG.setProducer(fVar);
+        this.isH.setProducer(fVar);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.isG.onError(th);
+        this.isH.onError(th);
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.isG.onNext(t);
+        this.isH.onNext(t);
     }
 
     public String toString() {
-        return this.isG.toString();
+        return this.isH.toString();
     }
 }

@@ -18,7 +18,7 @@ import tbclient.User;
 /* loaded from: classes6.dex */
 public class c {
     public static final Wire WIRE = new Wire(new Class[0]);
-    private static c gZy;
+    private static c gZz;
     private com.baidu.adp.lib.cache.l<byte[]> bLr;
     private i responseData = null;
 
@@ -28,14 +28,14 @@ public class c {
     }
 
     public static c bzN() {
-        if (gZy == null) {
+        if (gZz == null) {
             synchronized (c.class) {
-                if (gZy == null) {
-                    gZy = new c();
+                if (gZz == null) {
+                    gZz = new c();
                 }
             }
         }
-        return gZy;
+        return gZz;
     }
 
     public long bzO() {
@@ -52,8 +52,8 @@ public class c {
             if (bArr != null && bArr.length > 0) {
                 this.responseData = new i();
                 this.responseData.N(bArr);
-                if (this.responseData.fHy != null && this.responseData.fHy.getFrsBannerData() != null) {
-                    this.responseData.fHy.getFrsBannerData().amW = false;
+                if (this.responseData.fHz != null && this.responseData.fHz.getFrsBannerData() != null) {
+                    this.responseData.fHz.getFrsBannerData().amW = false;
                 }
                 return true;
             }

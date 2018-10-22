@@ -5,9 +5,9 @@ import tbclient.RedpacketRain;
 /* loaded from: classes.dex */
 public class m {
     private String bwU;
-    private String hdR;
-    private List<String> hdS;
-    private String hdT;
+    private String hdS;
+    private List<String> hdT;
+    private String hdU;
     private long mEndTime;
     private long mStartTime;
     private int mType;
@@ -17,9 +17,9 @@ public class m {
             this.mStartTime = redpacketRain.start_time.longValue() * 1000;
             this.mEndTime = redpacketRain.end_time.longValue() * 1000;
             this.bwU = redpacketRain.jump_url;
-            this.hdR = redpacketRain.float_url;
-            this.hdS = redpacketRain.dynamic_img;
-            this.hdT = redpacketRain.activity_id;
+            this.hdS = redpacketRain.float_url;
+            this.hdT = redpacketRain.dynamic_img;
+            this.hdU = redpacketRain.activity_id;
             this.mType = redpacketRain.show_type.intValue();
         }
     }
@@ -37,15 +37,15 @@ public class m {
     }
 
     public String bCo() {
-        return this.hdR;
-    }
-
-    public List<String> bCp() {
         return this.hdS;
     }
 
-    public String bCq() {
+    public List<String> bCp() {
         return this.hdT;
+    }
+
+    public String bCq() {
+        return this.hdU;
     }
 
     public void setStartTime(long j) {
@@ -61,15 +61,15 @@ public class m {
     }
 
     public void uZ(String str) {
-        this.hdR = str;
+        this.hdS = str;
     }
 
     public void dL(List<String> list) {
-        this.hdS = list;
+        this.hdT = list;
     }
 
     public void va(String str) {
-        this.hdT = str;
+        this.hdU = str;
     }
 
     public int getType() {

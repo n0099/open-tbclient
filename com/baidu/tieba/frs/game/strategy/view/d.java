@@ -56,35 +56,35 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.frs.game.strategy.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.frs.game.strategy.data.b bVar) {
-        if (bVar != null && bVar.YA() != null) {
-            bb YA = bVar.YA();
-            this.mTitle.setText(YA.getTitle());
+        if (bVar != null && bVar.YB() != null) {
+            bb YB = bVar.YB();
+            this.mTitle.setText(YB.getTitle());
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.vl(YA.getId())) {
+            if (readThreadHistory != null && readThreadHistory.vl(YB.getId())) {
                 al.h(this.mTitle, e.d.cp_cont_c);
             } else {
                 al.h(this.mTitle, e.d.cp_cont_b);
             }
-            String G = ao.G(YA.yn());
-            String E = ao.E(YA.yg());
+            String G = ao.G(YB.yn());
+            String E = ao.E(YB.yg());
             if (!StringUtils.isNull(G) && !StringUtils.isNull(E)) {
                 this.dMp.setText(String.format(this.mContext.getString(e.j.frs_game_strategy_scan_info), G, E));
             }
             String str = null;
-            if (YA.getThreadType() == 40) {
+            if (YB.getThreadType() == 40) {
                 this.cPh.setVisibility(0);
-                if (YA.yN() != null) {
-                    str = YA.yN().thumbnail_url;
+                if (YB.yN() != null) {
+                    str = YB.yN().thumbnail_url;
                 }
             } else {
                 this.cPh.setVisibility(8);
-                if (YA.yG() != null && YA.yG().size() >= 1) {
-                    str = YA.yG().get(0).getOriginalUrl();
+                if (YB.yG() != null && YB.yG().size() >= 1) {
+                    str = YB.yG().get(0).getOriginalUrl();
                 }
             }
             this.dMo.startLoad(str, 10, false);
-            if (!StringUtils.isNull(YA.yl())) {
-                this.dMq.setText(YA.yl());
+            if (!StringUtils.isNull(YB.yl())) {
+                this.dMq.setText(YB.yl());
                 this.dMq.setVisibility(0);
                 return;
             }

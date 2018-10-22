@@ -33,63 +33,63 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
     /* loaded from: classes3.dex */
     public static class a {
         private boolean dsj;
-        private boolean eLQ;
-        private GroupData eOc;
-        private List<MemberData> eOd;
-        private List<PhotoUrlData> eOe;
-        private int eOf;
+        private boolean eLR;
+        private GroupData eOd;
+        private List<MemberData> eOe;
+        private List<PhotoUrlData> eOf;
         private int eOg;
-        private boolean eOh;
+        private int eOh;
         private boolean eOi;
-        private GroupActivityData eOj;
+        private boolean eOj;
+        private GroupActivityData eOk;
         private boolean isMemGroup;
 
         public GroupActivityData aRN() {
-            return this.eOj;
+            return this.eOk;
         }
 
         public void a(GroupActivityData groupActivityData) {
-            this.eOj = groupActivityData;
+            this.eOk = groupActivityData;
         }
 
         public GroupData getGroup() {
-            return this.eOc;
-        }
-
-        public void setGroup(GroupData groupData) {
-            this.eOc = groupData;
-        }
-
-        public List<MemberData> aRO() {
             return this.eOd;
         }
 
-        public void cI(List<MemberData> list) {
-            this.eOd = list;
+        public void setGroup(GroupData groupData) {
+            this.eOd = groupData;
         }
 
-        public List<PhotoUrlData> aRP() {
+        public List<MemberData> aRO() {
             return this.eOe;
         }
 
-        public void cJ(List<PhotoUrlData> list) {
+        public void cI(List<MemberData> list) {
             this.eOe = list;
         }
 
-        public int aRQ() {
+        public List<PhotoUrlData> aRP() {
             return this.eOf;
         }
 
-        public void pv(int i) {
-            this.eOf = i;
+        public void cJ(List<PhotoUrlData> list) {
+            this.eOf = list;
         }
 
-        public int aRR() {
+        public int aRQ() {
             return this.eOg;
         }
 
-        public void pw(int i) {
+        public void pv(int i) {
             this.eOg = i;
+        }
+
+        public int aRR() {
+            return this.eOh;
+        }
+
+        public void pw(int i) {
+            this.eOh = i;
         }
 
         public boolean aRS() {
@@ -101,15 +101,15 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
         }
 
         public boolean aRT() {
-            return this.eLQ;
+            return this.eLR;
         }
 
         public void iD(boolean z) {
-            this.eLQ = z;
+            this.eLR = z;
         }
 
         public void iE(boolean z) {
-            this.eOh = z;
+            this.eOi = z;
         }
 
         public boolean isMemGroup() {
@@ -121,11 +121,11 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
         }
 
         public boolean aRU() {
-            return this.eOi;
+            return this.eOj;
         }
 
         public void iF(boolean z) {
-            this.eOi = z;
+            this.eOj = z;
         }
     }
 

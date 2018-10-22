@@ -4,19 +4,19 @@ import java.security.AccessController;
 import java.security.PrivilegedAction;
 /* loaded from: classes2.dex */
 public final class g {
-    private static final int iDd = ccR();
-    private static final boolean iDe;
+    private static final int iDe = ccR();
+    private static final boolean iDf;
 
     static {
-        iDe = iDd != 0;
+        iDf = iDe != 0;
     }
 
     public static boolean ccP() {
-        return iDe;
+        return iDf;
     }
 
     public static int ccQ() {
-        return iDd;
+        return iDe;
     }
 
     private static int ccR() {

@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 public class PbLandscapeListView extends BdTypeListView {
     private float dea;
     private float deb;
-    private final int fPD;
-    private a fPE;
-    private b fPF;
+    private final int fPE;
+    private a fPF;
+    private b fPG;
     private boolean isLandscape;
     private Handler mHandler;
     private Handler.Callback mHandlerCallback;
@@ -34,13 +34,13 @@ public class PbLandscapeListView extends BdTypeListView {
         public float Oq;
         public float cZC;
         public float cZD;
-        public int fPH;
         public int fPI;
+        public int fPJ;
     }
 
     public PbLandscapeListView(Context context) {
         super(context);
-        this.fPD = com.baidu.adp.lib.util.l.aO(TbadkCoreApplication.getInst().getContext()) / 3;
+        this.fPE = com.baidu.adp.lib.util.l.aO(TbadkCoreApplication.getInst().getContext()) / 3;
         this.isLandscape = false;
         this.mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.pb.pb.main.PbLandscapeListView.1
             @Override // android.os.Handler.Callback
@@ -49,8 +49,8 @@ public class PbLandscapeListView extends BdTypeListView {
                     c cVar = (c) message.obj;
                     switch (message.what) {
                         case 0:
-                            if (PbLandscapeListView.this.fPF != null) {
-                                PbLandscapeListView.this.fPF.b(cVar.fPH, cVar.fPI, cVar.Oq, cVar.cZC, cVar.Om, cVar.cZD);
+                            if (PbLandscapeListView.this.fPG != null) {
+                                PbLandscapeListView.this.fPG.b(cVar.fPI, cVar.fPJ, cVar.Oq, cVar.cZC, cVar.Om, cVar.cZD);
                             }
                             return true;
                         default:
@@ -65,7 +65,7 @@ public class PbLandscapeListView extends BdTypeListView {
 
     public PbLandscapeListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fPD = com.baidu.adp.lib.util.l.aO(TbadkCoreApplication.getInst().getContext()) / 3;
+        this.fPE = com.baidu.adp.lib.util.l.aO(TbadkCoreApplication.getInst().getContext()) / 3;
         this.isLandscape = false;
         this.mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.pb.pb.main.PbLandscapeListView.1
             @Override // android.os.Handler.Callback
@@ -74,8 +74,8 @@ public class PbLandscapeListView extends BdTypeListView {
                     c cVar = (c) message.obj;
                     switch (message.what) {
                         case 0:
-                            if (PbLandscapeListView.this.fPF != null) {
-                                PbLandscapeListView.this.fPF.b(cVar.fPH, cVar.fPI, cVar.Oq, cVar.cZC, cVar.Om, cVar.cZD);
+                            if (PbLandscapeListView.this.fPG != null) {
+                                PbLandscapeListView.this.fPG.b(cVar.fPI, cVar.fPJ, cVar.Oq, cVar.cZC, cVar.Om, cVar.cZD);
                             }
                             return true;
                         default:
@@ -90,7 +90,7 @@ public class PbLandscapeListView extends BdTypeListView {
 
     public PbLandscapeListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fPD = com.baidu.adp.lib.util.l.aO(TbadkCoreApplication.getInst().getContext()) / 3;
+        this.fPE = com.baidu.adp.lib.util.l.aO(TbadkCoreApplication.getInst().getContext()) / 3;
         this.isLandscape = false;
         this.mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.pb.pb.main.PbLandscapeListView.1
             @Override // android.os.Handler.Callback
@@ -99,8 +99,8 @@ public class PbLandscapeListView extends BdTypeListView {
                     c cVar = (c) message.obj;
                     switch (message.what) {
                         case 0:
-                            if (PbLandscapeListView.this.fPF != null) {
-                                PbLandscapeListView.this.fPF.b(cVar.fPH, cVar.fPI, cVar.Oq, cVar.cZC, cVar.Om, cVar.cZD);
+                            if (PbLandscapeListView.this.fPG != null) {
+                                PbLandscapeListView.this.fPG.b(cVar.fPI, cVar.fPJ, cVar.Oq, cVar.cZC, cVar.Om, cVar.cZD);
                             }
                             return true;
                         default:
@@ -118,11 +118,11 @@ public class PbLandscapeListView extends BdTypeListView {
     }
 
     public void setOnLayoutListener(a aVar) {
-        this.fPE = aVar;
+        this.fPF = aVar;
     }
 
     public void setListViewDragListener(b bVar) {
-        this.fPF = bVar;
+        this.fPG = bVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -135,11 +135,11 @@ public class PbLandscapeListView extends BdTypeListView {
             case 1:
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
-                if (this.fPF != null) {
+                if (this.fPG != null) {
                     int i = (int) (rawX - this.dea);
                     int i2 = (int) (rawY - this.deb);
                     int abs = Math.abs(i);
-                    if (abs > this.fPD && abs > Math.abs(i2)) {
+                    if (abs > this.fPE && abs > Math.abs(i2)) {
                         a(i, i2, this.dea, this.deb, rawX, rawY);
                         return false;
                     }
@@ -171,8 +171,8 @@ public class PbLandscapeListView extends BdTypeListView {
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.fPE != null) {
-            this.fPE.bhM();
+        if (this.fPF != null) {
+            this.fPF.bhM();
         }
     }
 
@@ -182,8 +182,8 @@ public class PbLandscapeListView extends BdTypeListView {
             Message message = new Message();
             message.what = 0;
             c cVar = new c();
-            cVar.fPH = i;
-            cVar.fPI = i2;
+            cVar.fPI = i;
+            cVar.fPJ = i2;
             cVar.Oq = f;
             cVar.Om = f2;
             cVar.cZC = f3;

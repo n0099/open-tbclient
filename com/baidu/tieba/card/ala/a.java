@@ -17,8 +17,8 @@ public class a implements f {
     private boolean cMQ = false;
     private j.a cNb = new j.a() { // from class: com.baidu.tieba.card.ala.a.1
         @Override // com.baidu.tieba.play.j.a
-        public void aoe() {
-            a.this.anX();
+        public void aof() {
+            a.this.anY();
         }
     };
     private AlaInfoData cPQ;
@@ -77,7 +77,7 @@ public class a implements f {
     public void stopPlay() {
         if (this.bWh != null && this.bWh.getVideoView() != null) {
             this.bWh.getVideoView().stopPlayback();
-            this.bWh.YS();
+            this.bWh.YT();
             if (this.bJO != null) {
                 this.bJO.stop();
             }
@@ -110,7 +110,7 @@ public class a implements f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void anX() {
+    public void anY() {
         if (this.bIV == null || this.bIV.yN() == null) {
         }
     }

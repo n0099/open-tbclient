@@ -17,21 +17,21 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements View.OnClickListener {
     private LinearLayout dsy;
-    private TextView eVu;
-    private List<AppData> gDi;
+    private TextView eVv;
+    private List<AppData> gDj;
     private TextView mTitle;
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == e.g.ad_debug_copy) {
-            a.bg(this.eVu.getText().toString());
+            a.bg(this.eVv.getText().toString());
             showToast("已复制到系统剪贴板");
             return;
         }
         int indexOfChild = this.dsy.indexOfChild(view);
-        if (indexOfChild >= 0 && indexOfChild < this.gDi.size()) {
+        if (indexOfChild >= 0 && indexOfChild < this.gDj.size()) {
             this.mTitle.setText("AD" + indexOfChild);
-            a(this.gDi.get(indexOfChild));
+            a(this.gDj.get(indexOfChild));
         }
     }
 
@@ -41,17 +41,17 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
         super.onCreate(bundle);
         setContentView(e.h.ad_debug_layout);
         this.mTitle = (TextView) findViewById(e.g.ad_debug_label_data);
-        this.eVu = (TextView) findViewById(e.g.ad_debug_content);
+        this.eVv = (TextView) findViewById(e.g.ad_debug_content);
         this.dsy = (LinearLayout) findViewById(e.g.ad_debug_item_container);
         ((TextView) findViewById(e.g.ad_debug_copy)).setOnClickListener(this);
-        this.eVu.setMovementMethod(new ScrollingMovementMethod());
-        this.eVu.setText("没刷到广告~ 换个姿势试试！");
-        this.gDi = r.btk().bti();
+        this.eVv.setMovementMethod(new ScrollingMovementMethod());
+        this.eVv.setText("没刷到广告~ 换个姿势试试！");
+        this.gDj = r.btk().bti();
         btn();
     }
 
     private void btn() {
-        if (this.gDi.size() == 0) {
+        if (this.gDj.size() == 0) {
             TextView bto = bto();
             bto.setOnClickListener(null);
             bto.setText("No AD");
@@ -61,10 +61,10 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 != this.gDi.size()) {
+            if (i2 != this.gDj.size()) {
                 TextView bto2 = bto();
                 bto2.setText("AD" + i2);
-                AppData appData = this.gDi.get(i2);
+                AppData appData = this.gDj.get(i2);
                 if (appData.mDiscardReason > 0) {
                     al.i(bto2, e.f.btn_all_red);
                 } else {
@@ -93,7 +93,7 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
     private void a(AppData appData) {
         String str;
         if (appData == null) {
-            this.eVu.setText("数据格式错误");
+            this.eVv.setText("数据格式错误");
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -101,7 +101,7 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
             try {
                 String str2 = new String();
                 if (appData.mDiscardReason > 0) {
-                    String str3 = com.baidu.tieba.recapp.report.e.gIT.get(Integer.valueOf(appData.mDiscardReason));
+                    String str3 = com.baidu.tieba.recapp.report.e.gIU.get(Integer.valueOf(appData.mDiscardReason));
                     if (TextUtils.isEmpty(str3)) {
                         str3 = "未知原因";
                     }
@@ -115,7 +115,7 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
                     optJSONObject.put("lego_card", new JSONObject(optString));
                     jSONObject.put("goods", optJSONObject);
                 }
-                this.eVu.setText(str + jSONObject.toString(4));
+                this.eVv.setText(str + jSONObject.toString(4));
             } catch (Exception e) {
                 e.printStackTrace();
             }

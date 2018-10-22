@@ -11,12 +11,12 @@ import com.tencent.tauth.IUiListener;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class c extends b {
-    private IUiListener gRj;
-    private final com.baidu.adp.lib.f.b<f.a> gRk;
+    private IUiListener gRk;
+    private final com.baidu.adp.lib.f.b<f.a> gRl;
 
     public c(Context context) {
         super(context);
-        this.gRk = new com.baidu.adp.lib.f.b<f.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
+        this.gRl = new com.baidu.adp.lib.f.b<f.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
@@ -36,12 +36,12 @@ public class c extends b {
                 c.this.tQ(3);
             }
         };
-        this.gRc = 4;
+        this.gRd = 4;
     }
 
     @Override // com.baidu.tieba.sharesdk.a.b, com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
-        if (shareEntity == null || this.gRi == null) {
+        if (shareEntity == null || this.gRj == null) {
             tQ(2);
             if (bVar != null) {
                 bVar.bI(0, 2);
@@ -52,7 +52,7 @@ public class c extends b {
                 bVar.bI(0, 2);
             }
         } else {
-            this.gRj = new b.a(bVar);
+            this.gRk = new b.a(bVar);
             if (shareEntity.bxo()) {
                 a(shareEntity);
             } else {
@@ -65,7 +65,7 @@ public class c extends b {
         if (h(shareEntity.getImageUri())) {
             ux(shareEntity.getImageUri().getPath());
         } else {
-            com.baidu.adp.lib.f.c.jC().a(shareEntity.xf(), 34, this.gRk, 0, 0, getPageId(), new Object[0]);
+            com.baidu.adp.lib.f.c.jC().a(shareEntity.xf(), 34, this.gRl, 0, 0, getPageId(), new Object[0]);
         }
     }
 
@@ -75,8 +75,8 @@ public class c extends b {
         bundle.putString("imageLocalUrl", str);
         bundle.putInt("req_type", 5);
         bundle.putInt("cflag", 1);
-        if (this.gRj != null) {
-            this.gRi.shareToQQ((Activity) this.context, bundle, this.gRj);
+        if (this.gRk != null) {
+            this.gRj.shareToQQ((Activity) this.context, bundle, this.gRk);
         }
     }
 
@@ -91,8 +91,8 @@ public class c extends b {
             arrayList.add(shareEntity.xf());
         }
         bundle.putStringArrayList("imageUrl", arrayList);
-        if (this.gRj != null) {
-            this.gRi.shareToQzone((Activity) this.context, bundle, this.gRj);
+        if (this.gRk != null) {
+            this.gRj.shareToQzone((Activity) this.context, bundle, this.gRk);
         }
     }
 }

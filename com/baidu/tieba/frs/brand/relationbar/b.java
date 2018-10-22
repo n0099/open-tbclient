@@ -11,7 +11,7 @@ public class b<T extends View> extends RecyclerView.ViewHolder {
         this.dGK = t;
     }
 
-    public T aBY() {
+    public T aBZ() {
         return this.dGK;
     }
 }

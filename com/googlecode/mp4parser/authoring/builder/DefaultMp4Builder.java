@@ -337,8 +337,8 @@ public class DefaultMp4Builder implements Mp4Builder {
 
     /* loaded from: classes5.dex */
     private class a implements Box {
-        List<List<Sample>> inL;
-        long inM;
+        List<List<Sample>> inM;
+        long inN;
         Container parent;
         List<Track> tracks;
 
@@ -362,8 +362,8 @@ public class DefaultMp4Builder implements Mp4Builder {
         }
 
         private a(Movie movie, Map<Track, int[]> map, long j) {
-            this.inL = new ArrayList();
-            this.inM = j;
+            this.inM = new ArrayList();
+            this.inN = j;
             this.tracks = movie.getTracks();
             int i = 0;
             while (true) {
@@ -375,7 +375,7 @@ public class DefaultMp4Builder implements Mp4Builder {
                         for (int i3 = 0; i3 < i2; i3++) {
                             j2 += iArr[i3];
                         }
-                        this.inL.add(DefaultMp4Builder.this.track2Sample.get(track).subList(CastUtils.l2i(j2), CastUtils.l2i(j2 + iArr[i2])));
+                        this.inM.add(DefaultMp4Builder.this.track2Sample.get(track).subList(CastUtils.l2i(j2), CastUtils.l2i(j2 + iArr[i2])));
                     }
                     i = i2 + 1;
                 } else {
@@ -407,7 +407,7 @@ public class DefaultMp4Builder implements Mp4Builder {
 
         @Override // com.coremedia.iso.boxes.Box
         public long getSize() {
-            return 16 + this.inM;
+            return 16 + this.inN;
         }
 
         private boolean dw(long j) {
@@ -431,7 +431,7 @@ public class DefaultMp4Builder implements Mp4Builder {
             }
             allocate.rewind();
             writableByteChannel.write(allocate);
-            for (List<Sample> list : this.inL) {
+            for (List<Sample> list : this.inM) {
                 for (Sample sample : list) {
                     sample.writeTo(writableByteChannel);
                 }

@@ -3,11 +3,11 @@ package kotlin.b;
 /* loaded from: classes2.dex */
 public class f extends e {
     public static final a cl(int i, int i2) {
-        return a.ipC.ai(i, i2, -1);
+        return a.ipD.ai(i, i2, -1);
     }
 
     public static final c cm(int i, int i2) {
-        return i2 <= Integer.MIN_VALUE ? c.ipG.cau() : new c(i, i2 - 1);
+        return i2 <= Integer.MIN_VALUE ? c.ipH.cau() : new c(i, i2 - 1);
     }
 
     public static final int cn(int i, int i2) {

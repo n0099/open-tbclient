@@ -12,20 +12,20 @@ import com.baidu.tieba.myCollection.message.RequestQueryCollectUpdateNumMessage;
 import com.baidu.tieba.myCollection.message.ResponseQueryCollectUpdateNumMessage;
 /* loaded from: classes3.dex */
 public class a {
-    private static a fzH;
-    private long eWx = 0;
+    private static a fzI;
+    private long eWy = 0;
     @SuppressLint({"HandlerLeak"})
     private final Handler mHandler = new Handler() { // from class: com.baidu.tieba.myCollection.runing.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 1) {
-                a.this.eWx = System.currentTimeMillis();
+                a.this.eWy = System.currentTimeMillis();
                 MessageManager.getInstance().sendMessage(new RequestQueryCollectUpdateNumMessage());
                 a.this.mHandler.sendMessageDelayed(a.this.mHandler.obtainMessage(1), 1800000L);
             }
         }
     };
-    private final c eyR = new c(303005) { // from class: com.baidu.tieba.myCollection.runing.a.2
+    private final c eyS = new c(303005) { // from class: com.baidu.tieba.myCollection.runing.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -37,39 +37,39 @@ public class a {
 
     static {
         com.baidu.tieba.tbadkCore.a.a.a(303005, ResponseQueryCollectUpdateNumMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
-        fzH = null;
+        fzI = null;
     }
 
     public static synchronized a bcA() {
         a aVar;
         synchronized (a.class) {
-            if (fzH == null) {
-                fzH = new a();
+            if (fzI == null) {
+                fzI = new a();
             }
-            aVar = fzH;
+            aVar = fzI;
         }
         return aVar;
     }
 
     public a() {
-        MessageManager.getInstance().registerListener(this.eyR);
+        MessageManager.getInstance().registerListener(this.eyS);
     }
 
     public void restart() {
-        this.eWx = 0L;
+        this.eWy = 0L;
         destroy();
         start();
     }
 
     public void start() {
-        long currentTimeMillis = System.currentTimeMillis() - this.eWx;
+        long currentTimeMillis = System.currentTimeMillis() - this.eWy;
         long j = currentTimeMillis > 0 ? currentTimeMillis : 0L;
         if (j >= 1800000) {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), ErrDef.Feature.WEIGHT);
         } else {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 1800000 - j);
         }
-        this.eWx = System.currentTimeMillis();
+        this.eWy = System.currentTimeMillis();
     }
 
     public void destroy() {

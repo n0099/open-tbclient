@@ -4,14 +4,14 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes2.dex */
 public class p {
-    private final com.facebook.common.memory.c iep;
-    private final r igk;
-    private final s igl;
-    private final r igm;
+    private final com.facebook.common.memory.c ieq;
+    private final r igl;
+    private final s igm;
     private final r ign;
-    private final s igo;
-    private final r igp;
-    private final s igq;
+    private final r igo;
+    private final s igp;
+    private final r igq;
+    private final s igr;
 
     private p(a aVar) {
         r rVar;
@@ -22,86 +22,86 @@ public class p {
         s sVar2;
         r rVar4;
         s sVar3;
-        if (aVar.igk == null) {
+        if (aVar.igl == null) {
             rVar = e.bWQ();
         } else {
-            rVar = aVar.igk;
+            rVar = aVar.igl;
         }
-        this.igk = rVar;
-        if (aVar.igl == null) {
+        this.igl = rVar;
+        if (aVar.igm == null) {
             sVar = n.bWV();
         } else {
-            sVar = aVar.igl;
+            sVar = aVar.igm;
         }
-        this.igl = sVar;
-        if (aVar.igm == null) {
+        this.igm = sVar;
+        if (aVar.ign == null) {
             rVar2 = g.bWQ();
         } else {
-            rVar2 = aVar.igm;
+            rVar2 = aVar.ign;
         }
-        this.igm = rVar2;
-        if (aVar.iep == null) {
+        this.ign = rVar2;
+        if (aVar.ieq == null) {
             cVar = com.facebook.common.memory.d.bRE();
         } else {
-            cVar = aVar.iep;
+            cVar = aVar.ieq;
         }
-        this.iep = cVar;
-        if (aVar.ign == null) {
+        this.ieq = cVar;
+        if (aVar.igo == null) {
             rVar3 = h.bWQ();
         } else {
-            rVar3 = aVar.ign;
+            rVar3 = aVar.igo;
         }
-        this.ign = rVar3;
-        if (aVar.igo == null) {
+        this.igo = rVar3;
+        if (aVar.igp == null) {
             sVar2 = n.bWV();
         } else {
-            sVar2 = aVar.igo;
+            sVar2 = aVar.igp;
         }
-        this.igo = sVar2;
-        if (aVar.igp == null) {
+        this.igp = sVar2;
+        if (aVar.igq == null) {
             rVar4 = f.bWQ();
         } else {
-            rVar4 = aVar.igp;
+            rVar4 = aVar.igq;
         }
-        this.igp = rVar4;
-        if (aVar.igq == null) {
+        this.igq = rVar4;
+        if (aVar.igr == null) {
             sVar3 = n.bWV();
         } else {
-            sVar3 = aVar.igq;
+            sVar3 = aVar.igr;
         }
-        this.igq = sVar3;
+        this.igr = sVar3;
     }
 
     public r bWY() {
-        return this.igk;
-    }
-
-    public s bWZ() {
         return this.igl;
     }
 
-    public com.facebook.common.memory.c bVk() {
-        return this.iep;
-    }
-
-    public r bXa() {
-        return this.ign;
-    }
-
-    public s bXb() {
-        return this.igo;
-    }
-
-    public r bXc() {
+    public s bWZ() {
         return this.igm;
     }
 
-    public r bXd() {
+    public com.facebook.common.memory.c bVk() {
+        return this.ieq;
+    }
+
+    public r bXa() {
+        return this.igo;
+    }
+
+    public s bXb() {
         return this.igp;
     }
 
-    public s bXe() {
+    public r bXc() {
+        return this.ign;
+    }
+
+    public r bXd() {
         return this.igq;
+    }
+
+    public s bXe() {
+        return this.igr;
     }
 
     public static a bXf() {
@@ -110,14 +110,14 @@ public class p {
 
     /* loaded from: classes2.dex */
     public static class a {
-        private com.facebook.common.memory.c iep;
-        private r igk;
-        private s igl;
-        private r igm;
+        private com.facebook.common.memory.c ieq;
+        private r igl;
+        private s igm;
         private r ign;
-        private s igo;
-        private r igp;
-        private s igq;
+        private r igo;
+        private s igp;
+        private r igq;
+        private s igr;
 
         private a() {
         }

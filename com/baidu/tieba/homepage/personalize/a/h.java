@@ -18,33 +18,33 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     private NEGFeedBackView.a bsM;
     private com.baidu.tieba.card.data.k cKF;
     private x dIU;
-    private ad eio;
+    private ad eip;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.bsM = null;
-        this.eio = new ad<bc>() { // from class: com.baidu.tieba.homepage.personalize.a.h.1
+        this.eip = new ad<bc>() { // from class: com.baidu.tieba.homepage.personalize.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             public void a(View view, bc bcVar) {
                 com.baidu.tieba.card.data.k kVar = h.this.cKF;
-                v.aoo().dy(true);
-                if (view != null && h.this.dIU != null && h.this.dIU.getView() != null && kVar != null && kVar.YA() != null && !StringUtils.isNull(kVar.YA().getTid())) {
+                v.aop().dy(true);
+                if (view != null && h.this.dIU != null && h.this.dIU.getView() != null && kVar != null && kVar.YB() != null && !StringUtils.isNull(kVar.YB().getTid())) {
                     if (view.getId() != h.this.dIU.getView().getId()) {
                         if (h.this.dIU.getHeaderImg() == null || view.getId() != h.this.dIU.getHeaderImg().getId()) {
-                            if (h.this.dIU.anR() == null || view.getId() != h.this.dIU.anR().getId()) {
+                            if (h.this.dIU.anS() == null || view.getId() != h.this.dIU.anS().getId()) {
                                 if (h.this.dIU.bWS != null && h.this.dIU.bWS.aFR != null && view.getId() == h.this.dIU.bWS.aFR.getId()) {
-                                    TiebaStatic.log(kVar.aoL());
+                                    TiebaStatic.log(kVar.aoM());
                                     return;
                                 }
                                 return;
                             }
-                            TiebaStatic.log(kVar.aoM());
+                            TiebaStatic.log(kVar.aoN());
                             return;
                         }
-                        TiebaStatic.log(kVar.aoM());
+                        TiebaStatic.log(kVar.aoN());
                         return;
                     }
                     TiebaStatic.log(kVar.mp("c12642"));
@@ -72,7 +72,7 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             this.dIU.cOy.cPl = 2;
         }
         this.dIU.j(this.aZt);
-        this.dIU.b(this.eio);
+        this.dIU.b(this.eip);
         return new com.baidu.tieba.card.a.a<>(this.dIU);
     }
 
@@ -81,25 +81,25 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, com.baidu.tieba.card.a.a<x> aVar) {
-        if (kVar == null || kVar.YA() == null || aVar == null || aVar.aoP() == null) {
+        if (kVar == null || kVar.YB() == null || aVar == null || aVar.aoQ() == null) {
             return null;
         }
         this.cKF = kVar;
         kVar.jT(i + 1);
-        v.aoo().a(kVar.mo("c12641"));
+        v.aop().a(kVar.mo("c12641"));
         if (kVar.anO != null && kVar.anO.size() > 0) {
-            kVar.YA().a(kVar.anO);
+            kVar.YB().a(kVar.anO);
         }
-        bc bcVar = new bc(kVar.YA());
+        bc bcVar = new bc(kVar.YB());
         bcVar.stType = "personalize_page";
         bcVar.arw = 1;
         bcVar.arx = 3;
         bcVar.arz = 1;
-        aVar.aoP().a(this.bsM);
-        if (aVar.aoP() instanceof com.baidu.tieba.a.e) {
-            aVar.aoP().setPage(this.bVS);
+        aVar.aoQ().a(this.bsM);
+        if (aVar.aoQ() instanceof com.baidu.tieba.a.e) {
+            aVar.aoQ().setPage(this.bVS);
         }
-        aVar.aoP().a(bcVar);
+        aVar.aoQ().a(bcVar);
         return aVar.getView();
     }
 

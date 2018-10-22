@@ -8,10 +8,10 @@ public class a {
     private l<byte[]> bLr;
 
     public a() {
-        ayd();
+        aye();
     }
 
-    private void ayd() {
+    private void aye() {
         if (this.bLr == null) {
             this.bLr = com.baidu.tbadk.core.c.a.Aq().ef("tb.tbtiel_level_info");
         }
@@ -27,7 +27,7 @@ public class a {
 
     public void k(String str, byte[] bArr) {
         if (!StringUtils.isNull(str)) {
-            ayd();
+            aye();
             this.bLr.a(str, bArr, TbConfig.MILLS_7DAYS);
         }
     }

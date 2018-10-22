@@ -45,7 +45,7 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<i, 
                 this.needCache = frsRequestData.isNeedCache();
                 this.mCategoryId = frsRequestData.getCategoryId();
                 this.hasNetworkError = hasError();
-                this.mSortType = frsRequestData.aaI();
+                this.mSortType = frsRequestData.aaJ();
                 this.mIsGood = frsRequestData.getIsGood();
                 this.mLoadType = frsRequestData.getLoadType();
             }
@@ -82,9 +82,9 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<i, 
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && this.responseData != null && this.needCache && this.responseData.beT() != null) {
-            int aaI = this.responseData.aaI();
-            String d = c.bzN().d(this.responseData.beT().getName(), aaI, this.mIsGood, this.mCategoryId);
-            if (aaI == 3) {
+            int aaJ = this.responseData.aaJ();
+            String d = c.bzN().d(this.responseData.beT().getName(), aaJ, this.mIsGood, this.mCategoryId);
+            if (aaJ == 3) {
                 c.bzN().o(d, bArr);
             } else {
                 c.bzN().c(d, bArr, true);

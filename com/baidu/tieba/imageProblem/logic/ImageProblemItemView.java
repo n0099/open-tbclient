@@ -19,8 +19,8 @@ public class ImageProblemItemView extends FrameLayout {
     protected TextView aQj;
     protected TextView aQk;
     protected ImageView aQn;
-    protected LinearLayout faA;
-    protected TextView faB;
+    protected LinearLayout faB;
+    protected TextView faC;
     protected Context mContext;
 
     public ImageProblemItemView(Context context, AttributeSet attributeSet) {
@@ -68,19 +68,19 @@ public class ImageProblemItemView extends FrameLayout {
 
     public void setHelpText(String str) {
         if (TextUtils.isEmpty(str)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.faA.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.faB.getLayoutParams();
             layoutParams.bottomMargin = (int) getResources().getDimension(e.C0175e.ds26);
-            this.faA.setLayoutParams(layoutParams);
-            this.faB.setText("");
-            this.faB.setVisibility(8);
+            this.faB.setLayoutParams(layoutParams);
+            this.faC.setText("");
+            this.faC.setVisibility(8);
             return;
         }
-        this.faA.setVisibility(0);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.faA.getLayoutParams();
-        layoutParams2.bottomMargin = (int) getResources().getDimension(e.C0175e.ds10);
-        this.faA.setLayoutParams(layoutParams2);
-        this.faB.setText(str);
         this.faB.setVisibility(0);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.faB.getLayoutParams();
+        layoutParams2.bottomMargin = (int) getResources().getDimension(e.C0175e.ds10);
+        this.faB.setLayoutParams(layoutParams2);
+        this.faC.setText(str);
+        this.faC.setVisibility(0);
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -120,8 +120,8 @@ public class ImageProblemItemView extends FrameLayout {
         this.aQj = (TextView) findViewById(e.g.text);
         this.aQk = (TextView) findViewById(e.g.tip);
         this.aQn = (ImageView) findViewById(e.g.arrow2);
-        this.faA = (LinearLayout) findViewById(e.g.ll_container);
-        this.faB = (TextView) findViewById(e.g.tv_help);
+        this.faB = (LinearLayout) findViewById(e.g.ll_container);
+        this.faC = (TextView) findViewById(e.g.tv_help);
     }
 
     protected void c(AttributeSet attributeSet) {

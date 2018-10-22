@@ -41,11 +41,11 @@ public class ChannelMoreView extends LinearLayout {
         this.cUH.setOnClickListener(this.mClickListener);
         this.cUF.setOnClickListener(this.mClickListener);
         this.cUG.setOnClickListener(this.mClickListener);
-        if (this.cRO != null && this.cRO.aoZ() != null) {
-            ChannelInfo aoZ = this.cRO.aoZ();
-            if (aoZ.isSubscribe()) {
+        if (this.cRO != null && this.cRO.apa() != null) {
+            ChannelInfo apa = this.cRO.apa();
+            if (apa.isSubscribe()) {
                 this.cUG.setVisibility(0);
-                if (aoZ.isPushOpen()) {
+                if (apa.isPushOpen()) {
                     this.cUG.setText(getContext().getResources().getString(e.j.channel_push_switch_close));
                     return;
                 } else {

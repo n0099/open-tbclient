@@ -9,7 +9,7 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
 public class m extends a {
     public static String HEAD = "tb_private_msg_";
-    private static a eFF;
+    private static a eFG;
 
     private m() {
         super("tb_private_msg_", PersonalChatMessage.class);
@@ -18,10 +18,10 @@ public class m extends a {
     public static synchronized m aPs() {
         m mVar;
         synchronized (m.class) {
-            if (eFF == null) {
-                eFF = new m();
+            if (eFG == null) {
+                eFG = new m();
             }
-            mVar = (m) eFF;
+            mVar = (m) eFG;
         }
         return mVar;
     }

@@ -12,8 +12,8 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
-    private RequestGroupLocModel eRq;
-    private a eRr;
+    private RequestGroupLocModel eRr;
+    private a eRs;
     private double longitude = 0.0d;
     private double latitude = 0.0d;
     private BdUniqueId unique_id = null;
@@ -25,39 +25,39 @@ public class b {
                     if (address != null) {
                         b.this.latitude = address.getLatitude();
                         b.this.longitude = address.getLongitude();
-                        b.this.eRq.setLat(String.valueOf(address.getLatitude()));
-                        b.this.eRq.setLng(String.valueOf(address.getLongitude()));
-                        b.this.eRq.setGroupId(0L);
-                        b.this.eRq.sendMessage();
+                        b.this.eRr.setLat(String.valueOf(address.getLatitude()));
+                        b.this.eRr.setLng(String.valueOf(address.getLongitude()));
+                        b.this.eRr.setGroupId(0L);
+                        b.this.eRr.sendMessage();
                         return;
                     }
                     return;
                 case 1:
                 case 2:
                 case 3:
-                    b.this.eRr.aNZ();
+                    b.this.eRs.aNZ();
                     return;
                 case 4:
                 case 5:
-                    b.this.eRr.aNY();
+                    b.this.eRs.aNY();
                     return;
                 default:
                     return;
             }
         }
     };
-    private final com.baidu.adp.framework.listener.c eRs = new com.baidu.adp.framework.listener.c(103010) { // from class: com.baidu.tieba.im.util.b.2
+    private final com.baidu.adp.framework.listener.c eRt = new com.baidu.adp.framework.listener.c(103010) { // from class: com.baidu.tieba.im.util.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 103010) {
-                b.this.eRr.aNY();
+                b.this.eRs.aNY();
             } else if (!(socketResponsedMessage instanceof ResponseRequestGroupLocMessage)) {
-                b.this.eRr.aNY();
+                b.this.eRs.aNY();
             } else {
                 ResponseRequestGroupLocMessage responseRequestGroupLocMessage = (ResponseRequestGroupLocMessage) socketResponsedMessage;
                 if (responseRequestGroupLocMessage.getError() != 0) {
-                    b.this.eRr.aNY();
+                    b.this.eRs.aNY();
                     return;
                 }
                 Iterator<String> iteraotrOfBusinessAreaList = responseRequestGroupLocMessage.getIteraotrOfBusinessAreaList();
@@ -67,9 +67,9 @@ public class b {
                 }
                 String position = responseRequestGroupLocMessage.getPosition();
                 if ((position == null || position.equals("")) && arrayList.size() < 1) {
-                    b.this.eRr.aNY();
+                    b.this.eRs.aNY();
                 } else {
-                    b.this.eRr.a(position, arrayList, b.this.latitude, b.this.longitude);
+                    b.this.eRs.a(position, arrayList, b.this.latitude, b.this.longitude);
                 }
             }
         }
@@ -85,17 +85,17 @@ public class b {
     }
 
     public b(a aVar) {
-        this.eRq = null;
         this.eRr = null;
-        this.eRq = new RequestGroupLocModel();
-        this.eRr = aVar;
-        this.eRs.setTag(this.unique_id);
-        MessageManager.getInstance().registerListener(this.eRs);
+        this.eRs = null;
+        this.eRr = new RequestGroupLocModel();
+        this.eRs = aVar;
+        this.eRt.setTag(this.unique_id);
+        MessageManager.getInstance().registerListener(this.eRt);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
         this.unique_id = bdUniqueId;
-        this.eRq.setUniqueId(bdUniqueId);
+        this.eRr.setUniqueId(bdUniqueId);
     }
 
     public void Qc() {
@@ -103,7 +103,7 @@ public class b {
     }
 
     public void cancelLoad() {
-        this.eRq.cancelMessage();
-        MessageManager.getInstance().unRegisterListener(this.eRs);
+        this.eRr.cancelMessage();
+        MessageManager.getInstance().unRegisterListener(this.eRt);
     }
 }

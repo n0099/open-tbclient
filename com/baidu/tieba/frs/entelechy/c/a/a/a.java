@@ -48,7 +48,7 @@ public class a extends b {
         }
     }
 
-    public List<x> aDb() {
+    public List<x> aDc() {
         return this.mDatas;
     }
 

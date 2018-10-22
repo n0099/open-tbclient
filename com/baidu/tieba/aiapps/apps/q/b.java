@@ -61,7 +61,7 @@ public class b implements e {
                 if (b.this.bFu != null) {
                     proxy = b.this.bFu.proxy();
                 } else {
-                    proxy = b.this.XJ().proxy();
+                    proxy = b.this.XK().proxy();
                 }
                 if (proxy == null) {
                     return null;
@@ -69,19 +69,19 @@ public class b implements e {
                 InetSocketAddress inetSocketAddress = (InetSocketAddress) proxy.address();
                 return new HttpHost(inetSocketAddress.getHostName(), inetSocketAddress.getPort());
             } else if (str.equals(CoreConnectionPNames.CONNECTION_TIMEOUT)) {
-                int connectTimeoutMillis = b.this.XJ().connectTimeoutMillis();
+                int connectTimeoutMillis = b.this.XK().connectTimeoutMillis();
                 if (b.this.bFu != null) {
                     connectTimeoutMillis = b.this.bFu.connectTimeoutMillis();
                 }
                 return Integer.valueOf(connectTimeoutMillis);
             } else if (str.equals(CoreConnectionPNames.SO_TIMEOUT)) {
-                int readTimeoutMillis = b.this.XJ().readTimeoutMillis();
+                int readTimeoutMillis = b.this.XK().readTimeoutMillis();
                 if (b.this.bFu != null) {
                     readTimeoutMillis = b.this.bFu.readTimeoutMillis();
                 }
                 return Integer.valueOf(readTimeoutMillis);
             } else if (str.equals(ClientPNames.HANDLE_REDIRECTS)) {
-                boolean followRedirects = b.this.XJ().followRedirects();
+                boolean followRedirects = b.this.XK().followRedirects();
                 if (b.this.bFu != null) {
                     followRedirects = b.this.bFu.followRedirects();
                 }
@@ -104,15 +104,15 @@ public class b implements e {
                 if (httpHost != null) {
                     proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(httpHost.getHostName(), httpHost.getPort()));
                 }
-                b.this.XK().proxy(proxy);
+                b.this.XL().proxy(proxy);
             } else if (str.equals(CoreConnectionPNames.CONNECTION_TIMEOUT)) {
-                b.this.XK().connectTimeout(((Integer) obj).intValue(), TimeUnit.MILLISECONDS);
+                b.this.XL().connectTimeout(((Integer) obj).intValue(), TimeUnit.MILLISECONDS);
             } else if (str.equals(CoreConnectionPNames.SO_TIMEOUT)) {
                 int intValue = ((Integer) obj).intValue();
-                b.this.XK().readTimeout(intValue, TimeUnit.MILLISECONDS).writeTimeout(intValue, TimeUnit.MILLISECONDS);
+                b.this.XL().readTimeout(intValue, TimeUnit.MILLISECONDS).writeTimeout(intValue, TimeUnit.MILLISECONDS);
             } else if (str.equals(ClientPNames.HANDLE_REDIRECTS)) {
                 boolean booleanValue = ((Boolean) obj).booleanValue();
-                b.this.XK().followRedirects(booleanValue).followSslRedirects(booleanValue);
+                b.this.XL().followRedirects(booleanValue).followSslRedirects(booleanValue);
             } else if (str.equals(CoreProtocolPNames.USER_AGENT)) {
                 b.this.userAgent = (String) obj;
             } else {
@@ -133,21 +133,21 @@ public class b implements e {
     };
 
     public b() {
-        XI();
+        XJ();
     }
 
-    protected void XI() {
+    protected void XJ() {
         this.client = HttpManager.getDefault(AppRuntime.getAppContext()).getOkHttpClient();
     }
 
-    protected OkHttpClient XJ() {
+    protected OkHttpClient XK() {
         return this.client;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public OkHttpClient.Builder XK() {
+    public OkHttpClient.Builder XL() {
         if (this.bFt == null) {
-            this.bFt = XJ().newBuilder();
+            this.bFt = XK().newBuilder();
         }
         return this.bFt;
     }
@@ -243,7 +243,7 @@ public class b implements e {
     public void close() {
     }
 
-    public void XL() throws IOException {
+    public void XM() throws IOException {
     }
 
     @Override // org.apache.http.client.HttpClient
@@ -274,10 +274,10 @@ public class b implements e {
     @Override // org.apache.http.client.HttpClient
     public HttpResponse execute(HttpHost httpHost, HttpRequest httpRequest, HttpContext httpContext) throws IOException {
         Call newCall;
-        XL();
+        XM();
         Request a2 = a(httpRequest);
         if (this.bFt == null) {
-            newCall = XJ().newCall(a2);
+            newCall = XK().newCall(a2);
         } else {
             this.bFu = this.bFt.build();
             newCall = this.bFu.newCall(a2);

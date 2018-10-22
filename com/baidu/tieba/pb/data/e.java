@@ -83,24 +83,24 @@ public class e {
     }
 
     public static void a(PostData postData, PbActivity.c cVar) {
-        if (postData != null && postData.bCd() != null && postData.bCd().QK() != null && cVar != null && cVar.fMy != null && cVar.fMz != null && postData.bCd().QK().size() != 0) {
-            String str = (String) v.d(cVar.fMy, cVar.index);
+        if (postData != null && postData.bCd() != null && postData.bCd().QK() != null && cVar != null && cVar.fMz != null && cVar.fMA != null && postData.bCd().QK().size() != 0) {
+            String str = (String) v.d(cVar.fMz, cVar.index);
             if (!StringUtils.isNull(str)) {
-                cVar.fMy = new ArrayList<>();
-                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = cVar.fMz;
-                cVar.fMz = new ConcurrentHashMap<>();
+                cVar.fMz = new ArrayList<>();
+                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = cVar.fMA;
+                cVar.fMA = new ConcurrentHashMap<>();
                 Iterator<TbRichTextData> it = postData.bCd().QK().iterator();
                 while (it.hasNext()) {
                     TbRichTextData next = it.next();
                     if (next != null && next.getType() == 8) {
                         String b = b(next);
                         if (!StringUtils.isNull(b) && concurrentHashMap.get(b) != null) {
-                            cVar.fMy.add(b);
-                            cVar.fMz.put(b, concurrentHashMap.get(b));
+                            cVar.fMz.add(b);
+                            cVar.fMA.put(b, concurrentHashMap.get(b));
                         }
                     }
                 }
-                cVar.index = v.a(cVar.fMy, str);
+                cVar.index = v.a(cVar.fMz, str);
             }
         }
     }

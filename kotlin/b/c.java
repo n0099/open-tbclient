@@ -3,8 +3,8 @@ package kotlin.b;
 import kotlin.jvm.internal.o;
 /* loaded from: classes2.dex */
 public final class c extends kotlin.b.a {
-    public static final a ipG = new a(null);
-    private static final c ipF = new c(1, 0);
+    public static final a ipH = new a(null);
+    private static final c ipG = new c(1, 0);
 
     public c(int i, int i2) {
         super(i, i2, 1);
@@ -51,7 +51,7 @@ public final class c extends kotlin.b.a {
         }
 
         public final c cau() {
-            return c.ipF;
+            return c.ipG;
         }
     }
 }

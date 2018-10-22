@@ -9,9 +9,9 @@ import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.j> implements View.OnClickListener {
     private View bHt;
-    private com.baidu.tieba.personPolymeric.b.b gnL;
-    private TextView grb;
-    private ImageView grc;
+    private com.baidu.tieba.personPolymeric.b.b gnM;
+    private TextView grc;
+    private ImageView grd;
     private TextView mHint;
     private View mRootView;
 
@@ -23,10 +23,10 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     private void init(View view) {
         this.mRootView = view.findViewById(e.g.card_privacy_setting_rootview);
         this.bHt = view.findViewById(e.g.top_divider_line);
-        this.grc = (ImageView) view.findViewById(e.g.lock_img);
-        this.grb = (TextView) view.findViewById(e.g.one_public_tv);
+        this.grd = (ImageView) view.findViewById(e.g.lock_img);
+        this.grc = (TextView) view.findViewById(e.g.one_public_tv);
         this.mHint = (TextView) view.findViewById(e.g.card_hint_txt);
-        this.grb.setOnClickListener(this);
+        this.grc.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -35,8 +35,8 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             al.i(this.mRootView, e.d.cp_bg_line_d);
             al.i(this.bHt, e.d.cp_bg_line_e);
             al.c(this.mHint, e.d.cp_cont_d, 1);
-            al.c(this.grc, e.f.pic_pop_key);
-            al.c(this.grb, e.d.cp_link_tip_c, 1);
+            al.c(this.grd, e.f.pic_pop_key);
+            al.c(this.grc, e.d.cp_link_tip_c, 1);
         }
         this.mSkinType = i;
     }
@@ -66,13 +66,13 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     }
 
     public void b(com.baidu.tieba.personPolymeric.b.b bVar) {
-        this.gnL = bVar;
+        this.gnM = bVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view != null && this.gnL != null && view == this.grb) {
-            this.gnL.bow();
+        if (view != null && this.gnM != null && view == this.grc) {
+            this.gnM.bow();
         }
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.tieba.b.d<f, com.baidu.tieba.person.b.d> {
-    private View.OnClickListener ghY;
+    private View.OnClickListener ghZ;
     private TbPageContext mPageContext;
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -22,7 +22,7 @@ public class d extends com.baidu.tieba.b.d<f, com.baidu.tieba.person.b.d> {
     /* renamed from: by */
     public com.baidu.tieba.person.b.d onCreateViewHolder(ViewGroup viewGroup) {
         com.baidu.tieba.person.b.d dVar = new com.baidu.tieba.person.b.d(LayoutInflater.from(this.mContext).inflate(e.h.person_info_user_pics_layout, viewGroup, false), this.mPageContext);
-        dVar.giA.setItemOnclickListener(this.ghY);
+        dVar.giB.setItemOnclickListener(this.ghZ);
         return dVar;
     }
 
@@ -39,6 +39,6 @@ public class d extends com.baidu.tieba.b.d<f, com.baidu.tieba.person.b.d> {
     }
 
     public void M(View.OnClickListener onClickListener) {
-        this.ghY = onClickListener;
+        this.ghZ = onClickListener;
     }
 }

@@ -1,18 +1,18 @@
 package com.baidu.ubs.analytics.c;
 /* loaded from: classes6.dex */
 public final class e {
-    private static final e hTQ = new e();
-    private l hTR = new l();
+    private static final e hTR = new e();
+    private l hTS = new l();
 
     public static e bQn() {
-        return hTQ;
+        return hTR;
     }
 
     public final void xJ(String str) {
-        this.hTR.xJ(str);
+        this.hTS.xJ(str);
     }
 
     public final void xK(String str) {
-        this.hTR.xK(str);
+        this.hTS.xK(str);
     }
 }

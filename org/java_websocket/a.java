@@ -62,14 +62,14 @@ public abstract class a extends b {
         cancelConnectionLostTimer();
         this.connectionLostTimer = new Timer("WebSocketTimer");
         this.connectionLostTimerTask = new TimerTask() { // from class: org.java_websocket.a.1
-            private ArrayList<WebSocket> iqK = new ArrayList<>();
+            private ArrayList<WebSocket> iqL = new ArrayList<>();
 
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
-                this.iqK.clear();
-                this.iqK.addAll(a.this.getConnections());
+                this.iqL.clear();
+                this.iqL.addAll(a.this.getConnections());
                 long currentTimeMillis = System.currentTimeMillis() - (a.this.connectionLostTimeout * TbConfig.POST_IMAGE_SMALL);
-                Iterator<WebSocket> it = this.iqK.iterator();
+                Iterator<WebSocket> it = this.iqL.iterator();
                 while (it.hasNext()) {
                     WebSocket next = it.next();
                     if (next instanceof c) {
@@ -86,7 +86,7 @@ public abstract class a extends b {
                         }
                     }
                 }
-                this.iqK.clear();
+                this.iqL.clear();
             }
         };
         this.connectionLostTimer.scheduleAtFixedRate(this.connectionLostTimerTask, this.connectionLostTimeout * 1000, this.connectionLostTimeout * 1000);

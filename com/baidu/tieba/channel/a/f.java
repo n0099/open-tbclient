@@ -65,11 +65,11 @@ public class f extends BaseAdapter {
         }
         com.baidu.tieba.channel.data.f item = getItem(i);
         if (item != null) {
-            if (!TextUtils.isEmpty(item.ape())) {
-                aVar.cSG.startLoad(item.ape(), 10, false);
+            if (!TextUtils.isEmpty(item.apf())) {
+                aVar.cSG.startLoad(item.apf(), 10, false);
             }
-            if (!TextUtils.isEmpty(item.apd())) {
-                aVar.cSH.setText(item.apd());
+            if (!TextUtils.isEmpty(item.ape())) {
+                aVar.cSH.setText(item.ape());
             }
             if (!TextUtils.isEmpty(item.getDescription())) {
                 aVar.cSI.setText(item.getDescription());

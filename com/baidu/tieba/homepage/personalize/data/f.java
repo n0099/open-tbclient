@@ -11,15 +11,15 @@ import tbclient.Personalized.CardGod;
 import tbclient.User;
 /* loaded from: classes6.dex */
 public class f extends h implements p {
-    private CardGod eoD;
+    private CardGod eoE;
 
     public void a(CardGod cardGod) {
         if (cardGod != null) {
-            this.eoD = cardGod;
-            this.mGroupTitle = this.eoD.card_title;
-            if (!v.J(this.eoD.gods)) {
+            this.eoE = cardGod;
+            this.mGroupTitle = this.eoE.card_title;
+            if (!v.J(this.eoE.gods)) {
                 int i = 0;
-                Iterator<User> it = this.eoD.gods.iterator();
+                Iterator<User> it = this.eoE.gods.iterator();
                 while (true) {
                     int i2 = i;
                     if (it.hasNext()) {
@@ -52,14 +52,14 @@ public class f extends h implements p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        if (this.eoD == null || this.eoD.position == null) {
+        if (this.eoE == null || this.eoE.position == null) {
             return 0;
         }
-        return this.eoD.position.intValue();
+        return this.eoE.position.intValue();
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean aoF() {
+    public boolean aoG() {
         return true;
     }
 

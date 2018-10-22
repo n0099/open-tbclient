@@ -28,7 +28,7 @@ public class d extends com.baidu.tieba.pb.pb.sub.a.a<com.baidu.tieba.pb.pb.sub.b
     @Override // com.baidu.tieba.pb.pb.sub.a.a, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.pb.sub.b.b bVar, a aVar) {
-        ((a) this.viewholder).gbn.setText(String.format(TbadkApplication.getInst().getString(e.j.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.getReplyNum())));
+        ((a) this.viewholder).gbo.setText(String.format(TbadkApplication.getInst().getString(e.j.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.getReplyNum())));
         ((a) this.viewholder).onChangeSkinType();
         return aVar.getView();
     }
@@ -36,21 +36,21 @@ public class d extends com.baidu.tieba.pb.pb.sub.a.a<com.baidu.tieba.pb.pb.sub.b
     /* loaded from: classes6.dex */
     public static class a extends q.a {
         private View cNG;
-        private TextView gbn;
+        private TextView gbo;
         private int mSkinType;
 
         public a(View view) {
             super(view);
             this.mSkinType = 3;
-            this.gbn = (TextView) view.findViewById(e.g.floor_reply_text);
+            this.gbo = (TextView) view.findViewById(e.g.floor_reply_text);
             this.cNG = view.findViewById(e.g.floor_reply_top_line);
         }
 
         public void onChangeSkinType() {
             if (this.mSkinType != TbadkApplication.getInst().getSkinType()) {
-                al.h(this.gbn, e.d.cp_cont_b);
+                al.h(this.gbo, e.d.cp_cont_b);
                 al.j(this.cNG, e.d.cp_bg_line_e);
-                al.j(this.gbn, e.d.cp_bg_line_d);
+                al.j(this.gbo, e.d.cp_bg_line_d);
             }
             this.mSkinType = TbadkApplication.getInst().getSkinType();
         }

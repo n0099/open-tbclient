@@ -19,36 +19,36 @@ public class e implements com.baidu.tieba.frs.aggregation.a, com.baidu.tieba.leg
     private String amT;
     private BdTypeRecyclerView bMI;
     private boolean dFE;
-    private b dWD;
-    private d dWZ;
-    private com.baidu.afd.a.b dXa;
-    private com.baidu.adp.widget.ListView.a dXb;
-    RecyclerView.SmoothScroller dXd;
+    private b dWE;
+    private d dXa;
+    private com.baidu.afd.a.b dXb;
+    private com.baidu.adp.widget.ListView.a dXc;
+    RecyclerView.SmoothScroller dXe;
     private TbPageContext mContext;
     private String mFrom;
     private List<h> mDatas = new ArrayList();
     private final List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private int dFF = -1;
-    private int dXc = -1;
+    private int dXd = -1;
 
     public e(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, b bVar, boolean z, String str, String str2) {
         this.dFE = false;
         this.mContext = tbPageContext;
         this.bMI = bdTypeRecyclerView;
         this.dFE = z;
-        this.dWD = bVar;
+        this.dWE = bVar;
         this.mFrom = str;
         this.amT = str2;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.dWZ = new d(this.mContext, this, this.dWD, this.dFE, this.mFrom, this.amT, this);
-        this.dXa = new com.baidu.afd.a.b(this.mContext, com.baidu.afd.b.RG, this, this.dWD, this);
-        this.dXb = new com.baidu.afd.a.c(this.mContext, com.baidu.afd.b.RF);
-        this.mAdapters.add(this.dWZ);
-        this.mAdapters.add(this.dXb);
+        this.dXa = new d(this.mContext, this, this.dWE, this.dFE, this.mFrom, this.amT, this);
+        this.dXb = new com.baidu.afd.a.b(this.mContext, com.baidu.afd.b.RG, this, this.dWE, this);
+        this.dXc = new com.baidu.afd.a.c(this.mContext, com.baidu.afd.b.RF);
         this.mAdapters.add(this.dXa);
+        this.mAdapters.add(this.dXc);
+        this.mAdapters.add(this.dXb);
         this.bMI.addAdapters(this.mAdapters);
     }
 
@@ -58,7 +58,7 @@ public class e implements com.baidu.tieba.frs.aggregation.a, com.baidu.tieba.leg
             this.mDatas.addAll(list);
             this.bMI.setDataWithPartChange(this.mDatas, size, list.size());
             if (list.size() > 0 && this.dFE && z) {
-                aBS();
+                aBT();
                 if (list.get(0) instanceof com.baidu.tieba.lego.card.view.h) {
                     com.baidu.tieba.lego.card.view.h hVar = (com.baidu.tieba.lego.card.view.h) list.get(0);
                     hVar.setAutoPlay(true);
@@ -69,7 +69,7 @@ public class e implements com.baidu.tieba.frs.aggregation.a, com.baidu.tieba.leg
                     }
                 }
             }
-            int i = this.dFF != -1 ? this.dFF : this.dXc;
+            int i = this.dFF != -1 ? this.dFF : this.dXd;
             if (this.mDatas.size() > i && !z && i != -1 && (this.mDatas.get(i) instanceof com.baidu.tieba.lego.card.view.h)) {
                 com.baidu.tieba.lego.card.view.h hVar2 = (com.baidu.tieba.lego.card.view.h) this.mDatas.get(i);
                 hVar2.setAutoPlay(true);
@@ -99,30 +99,30 @@ public class e implements com.baidu.tieba.frs.aggregation.a, com.baidu.tieba.leg
     }
 
     public void onDestroy() {
-        this.dWZ.onDestroy();
-        this.dXa.onDestory();
+        this.dXa.onDestroy();
+        this.dXb.onDestory();
     }
 
     public boolean pE() {
-        return this.dWZ.pE() || this.dXa.pE();
+        return this.dXa.pE() || this.dXb.pE();
     }
 
     public void pC() {
-        this.dWZ.pC();
         this.dXa.pC();
+        this.dXb.pC();
     }
 
     public void pD() {
-        this.dWZ.pD();
         this.dXa.pD();
+        this.dXb.pD();
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        this.dWZ.onConfigurationChanged(configuration);
+        this.dXa.onConfigurationChanged(configuration);
     }
 
     public boolean lM(int i) {
-        return this.dWZ.lM(i);
+        return this.dXa.lM(i);
     }
 
     @Override // com.baidu.tieba.frs.aggregation.a
@@ -130,11 +130,11 @@ public class e implements com.baidu.tieba.frs.aggregation.a, com.baidu.tieba.leg
         mY(i);
     }
 
-    public int aBQ() {
+    public int aBR() {
         return this.dFF;
     }
 
-    public void aBR() {
+    public void aBS() {
         if (!v.J(this.mDatas)) {
             for (h hVar : this.mDatas) {
                 if (hVar instanceof com.baidu.tieba.lego.card.view.h) {
@@ -148,19 +148,19 @@ public class e implements com.baidu.tieba.frs.aggregation.a, com.baidu.tieba.leg
 
     @Override // com.baidu.tieba.frs.aggregation.a
     public void cancel() {
-        aBS();
+        aBT();
     }
 
-    private void aBS() {
-        aBR();
+    private void aBT() {
+        aBS();
         this.dFF = 0;
-        this.dXc = -1;
+        this.dXd = -1;
         pC();
     }
 
     public void mY(int i) {
         this.dFF = i;
-        this.dXc = i;
+        this.dXd = i;
         if (!v.J(this.mDatas) && this.bMI != null) {
             for (h hVar : this.mDatas) {
                 if (hVar instanceof com.baidu.tieba.lego.card.view.h) {
@@ -180,8 +180,8 @@ public class e implements com.baidu.tieba.frs.aggregation.a, com.baidu.tieba.leg
                     } else {
                         hVar2.setWaitConfirm(true);
                     }
-                    if (this.dXd == null) {
-                        this.dXd = new LinearSmoothScroller(this.mContext.getContext()) { // from class: com.baidu.tieba.frs.videomiddlepage.e.1
+                    if (this.dXe == null) {
+                        this.dXe = new LinearSmoothScroller(this.mContext.getContext()) { // from class: com.baidu.tieba.frs.videomiddlepage.e.1
                             @Override // android.support.v7.widget.LinearSmoothScroller
                             public int calculateDtToFit(int i3, int i4, int i5, int i6, int i7) {
                                 return (((i6 - i5) / 5) + i5) - (((i4 - i3) / 5) + i3);
@@ -198,8 +198,8 @@ public class e implements com.baidu.tieba.frs.aggregation.a, com.baidu.tieba.leg
                             }
                         };
                     }
-                    this.dXd.setTargetPosition(mZ + this.bMI.getHeaderViewsCount() + i);
-                    this.bMI.getLayoutManager().startSmoothScroll(this.dXd);
+                    this.dXe.setTargetPosition(mZ + this.bMI.getHeaderViewsCount() + i);
+                    this.bMI.getLayoutManager().startSmoothScroll(this.dXe);
                     notifyDataSetChanged();
                 }
             } else if (this.dFF == this.mDatas.size() - 1 && (this.mDatas.get(this.dFF) instanceof com.baidu.tieba.lego.card.view.h)) {
@@ -253,7 +253,7 @@ public class e implements com.baidu.tieba.frs.aggregation.a, com.baidu.tieba.leg
     public void nb(int i) {
         if (this.dFF != i || this.Sg == null || !this.Sg.isPlaying()) {
             this.dFF = i;
-            this.dXc = i;
+            this.dXd = i;
             if (!v.J(this.mDatas) && this.bMI != null) {
                 for (h hVar : this.mDatas) {
                     if (hVar instanceof com.baidu.tieba.lego.card.view.h) {
@@ -285,6 +285,6 @@ public class e implements com.baidu.tieba.frs.aggregation.a, com.baidu.tieba.leg
     }
 
     public void hi(boolean z) {
-        this.dWZ.hi(z);
+        this.dXa.hi(z);
     }
 }

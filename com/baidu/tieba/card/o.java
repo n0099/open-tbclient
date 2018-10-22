@@ -26,7 +26,7 @@ public class o {
         return (StringUtils.isNull(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.vl(str)) ? false : true;
     }
 
-    public static String aof() {
+    public static String aog() {
         return String.valueOf(System.currentTimeMillis() / 1000);
     }
 

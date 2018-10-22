@@ -10,8 +10,8 @@ public final class i<E> extends m<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.ipc;
-        long j = this.iDJ;
+        E[] eArr = this.ipd;
+        long j = this.iDK;
         long cdc = cdc();
         long dO = dO(cdc);
         if (b(eArr, dO) != null) {
@@ -44,7 +44,7 @@ public final class i<E> extends m<E> {
             }
         } while (!v(cdb, 1 + cdb));
         long dO = dO(cdb);
-        E[] eArr = this.ipc;
+        E[] eArr = this.ipd;
         E a = a(eArr, dO);
         b(eArr, dO, null);
         return a;

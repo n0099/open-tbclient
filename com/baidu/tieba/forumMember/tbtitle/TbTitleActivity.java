@@ -41,16 +41,16 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
                     TbTitleActivity.this.dxV.li(b.l(TbTitleActivity.this.mForumId, 0));
                     return;
                 }
+                TbTitleActivity.this.dxU.ayy();
                 TbTitleActivity.this.dxU.ayx();
-                TbTitleActivity.this.dxU.ayw();
                 TbTitleActivity.this.dxU.a(dataRes);
                 TbTitleActivity.this.dxU.bA(dataRes.level_info);
             } else if (i != 0 || dataRes == null) {
-                TbTitleActivity.this.dxU.ayx();
+                TbTitleActivity.this.dxU.ayy();
                 TbTitleActivity.this.dxU.nu(str);
             } else {
+                TbTitleActivity.this.dxU.ayy();
                 TbTitleActivity.this.dxU.ayx();
-                TbTitleActivity.this.dxU.ayw();
                 TbTitleActivity.this.dxU.a(dataRes);
                 TbTitleActivity.this.dxU.bA(dataRes.level_info);
             }
@@ -126,7 +126,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         super.onCreate(bundle);
         this.dxU = new com.baidu.tieba.forumMember.tbtitle.a.a(this, this.dxX);
         this.dxU.h(this.dxY);
-        Zs();
+        Zt();
         this.dxV = new com.baidu.tieba.forumMember.tbtitle.model.a<>(this.dxW, this);
         Intent intent = getIntent();
         if (intent != null) {
@@ -158,7 +158,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         MessageManager.getInstance().dispatchResponsedMessage(new SettingChangeMessage(2));
     }
 
-    private void Zs() {
+    private void Zt() {
         this.aGV = new LikeModel(getPageContext());
         this.aGV.setLoadDataCallBack(this.aHa);
     }

@@ -11,7 +11,7 @@ public class p extends com.baidu.tieba.card.data.b {
         return dCW;
     }
 
-    public long aAT() {
+    public long aAU() {
         return this.dCX;
     }
 

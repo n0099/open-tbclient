@@ -144,11 +144,11 @@ public class MP3TrackImpl extends AbstractTrack {
     public class a {
         int bitRate;
         int channelCount;
-        int inV;
         int inW;
         int inX;
-        int iom;
+        int inY;
         int ion;
+        int ioo;
         int layer;
         int padding;
         int sampleRate;
@@ -193,29 +193,29 @@ public class MP3TrackImpl extends AbstractTrack {
         if (bitReaderBuffer.readBits(11) != 2047) {
             throw new IOException("Expected Start Word 0x7ff");
         }
-        aVar.inW = bitReaderBuffer.readBits(2);
-        if (aVar.inW != 3) {
+        aVar.inX = bitReaderBuffer.readBits(2);
+        if (aVar.inX != 3) {
             throw new IOException("Expected MPEG Version 1 (ISO/IEC 11172-3)");
         }
         aVar.layer = bitReaderBuffer.readBits(2);
         if (aVar.layer != 1) {
             throw new IOException("Expected Layer III");
         }
-        aVar.inX = bitReaderBuffer.readBits(1);
-        aVar.iom = bitReaderBuffer.readBits(4);
-        aVar.bitRate = BIT_RATE[aVar.iom];
+        aVar.inY = bitReaderBuffer.readBits(1);
+        aVar.ion = bitReaderBuffer.readBits(4);
+        aVar.bitRate = BIT_RATE[aVar.ion];
         if (aVar.bitRate == 0) {
             throw new IOException("Unexpected (free/bad) bit rate");
         }
-        aVar.inV = bitReaderBuffer.readBits(2);
-        aVar.sampleRate = SAMPLE_RATE[aVar.inV];
+        aVar.inW = bitReaderBuffer.readBits(2);
+        aVar.sampleRate = SAMPLE_RATE[aVar.inW];
         if (aVar.sampleRate == 0) {
             throw new IOException("Unexpected (reserved) sample rate frequency");
         }
         aVar.padding = bitReaderBuffer.readBits(1);
         bitReaderBuffer.readBits(1);
-        aVar.ion = bitReaderBuffer.readBits(2);
-        aVar.channelCount = aVar.ion == 3 ? 1 : 2;
+        aVar.ioo = bitReaderBuffer.readBits(2);
+        aVar.channelCount = aVar.ioo == 3 ? 1 : 2;
         return aVar;
     }
 

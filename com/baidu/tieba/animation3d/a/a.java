@@ -7,7 +7,7 @@ public abstract class a {
 
     public abstract void e(float f, float f2, float f3, int i);
 
-    public boolean anj() {
+    public boolean ank() {
         return true;
     }
 
@@ -17,7 +17,7 @@ public abstract class a {
     public void d(float f, float f2, float f3, int i) {
     }
 
-    public int ank() {
+    public int anl() {
         return this.cIx;
     }
 

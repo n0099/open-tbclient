@@ -16,9 +16,9 @@ import tbclient.Personalized.ThreadPersonalized;
 import tbclient.ThreadInfo;
 /* loaded from: classes6.dex */
 public class a {
-    private int eoG = 0;
-    private com.baidu.tieba.homepage.personalize.b.d eoH = new com.baidu.tieba.homepage.personalize.b.d();
-    private final c eiV = new c();
+    private int eoH = 0;
+    private com.baidu.tieba.homepage.personalize.b.d eoI = new com.baidu.tieba.homepage.personalize.b.d();
+    private final c eiW = new c();
     private final int bLq = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("home_page_max_thread_count", 300);
 
     public int aKj() {
@@ -43,10 +43,10 @@ public class a {
         List<p> b = d.b(builder);
         ck(b);
         List<h> m = m(builder.thread_list, b);
-        this.eoH.cn(m);
+        this.eoI.cn(m);
         b.a(builder, m);
-        this.eiV.brA = m;
-        return this.eiV;
+        this.eiW.brA = m;
+        return this.eiW;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -64,7 +64,7 @@ public class a {
     }
 
     private void c(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
-        d.a(z, builder, builder2, i, this.eoG);
+        d.a(z, builder, builder2, i, this.eoH);
     }
 
     private void a(boolean z, List<ThreadInfo> list, List<ThreadInfo> list2, int i) {
@@ -91,7 +91,7 @@ public class a {
                 }
             } else {
                 for (int I2 = v.I(list2) - 1; I2 >= 0; I2--) {
-                    this.eoH.a(z, I2, list, list2);
+                    this.eoI.a(z, I2, list, list2);
                     ThreadInfo threadInfo3 = (ThreadInfo) v.d(list2, I2);
                     if (threadInfo3 != null && !TextUtils.isEmpty(threadInfo3.lego_card)) {
                         if (!hashSet2.contains(threadInfo3.lego_card)) {
@@ -103,8 +103,8 @@ public class a {
                 }
             }
             int I3 = v.I(list);
-            this.eiV.eoJ = I3 - I;
-            this.eoG = I3 - I;
+            this.eiW.eoK = I3 - I;
+            this.eoH = I3 - I;
         }
     }
 

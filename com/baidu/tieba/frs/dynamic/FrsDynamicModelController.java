@@ -37,7 +37,7 @@ public class FrsDynamicModelController extends BdBaseModel implements NetModel.b
         this.mForumId = j;
     }
 
-    public boolean aCc() {
+    public boolean aCd() {
         this.dHo = new b();
         this.dHu.lastThreadId = 0L;
         a(this.dHu, 3);
@@ -107,11 +107,11 @@ public class FrsDynamicModelController extends BdBaseModel implements NetModel.b
             if (this.dHw == null) {
                 this.dHw = new d.a();
             }
-            this.dHw.gZz = mvcHttpResponsedMessage.getError() < -13 || mvcHttpResponsedMessage.getError() > -10;
+            this.dHw.gZA = mvcHttpResponsedMessage.getError() < -13 || mvcHttpResponsedMessage.getError() > -10;
             this.dHw.isSuccess = mvcHttpResponsedMessage.hasError() ? false : true;
             this.dHw.errorCode = mvcHttpResponsedMessage.getError();
             this.dHw.errorMsg = mvcHttpResponsedMessage.getErrorString();
-            this.dHw.gZA = mvcHttpResponsedMessage.getDownSize();
+            this.dHw.gZB = mvcHttpResponsedMessage.getDownSize();
             a(mvcHttpResponsedMessage.getData());
             this.mErrorCode = mvcHttpResponsedMessage.getError();
             this.mErrorString = mvcHttpResponsedMessage.getErrorString();
@@ -124,11 +124,11 @@ public class FrsDynamicModelController extends BdBaseModel implements NetModel.b
             if (this.dHw == null) {
                 this.dHw = new d.a();
             }
-            this.dHw.gZz = mvcSocketResponsedMessage.getError() < -13 || mvcSocketResponsedMessage.getError() > -10;
+            this.dHw.gZA = mvcSocketResponsedMessage.getError() < -13 || mvcSocketResponsedMessage.getError() > -10;
             this.dHw.isSuccess = mvcSocketResponsedMessage.hasError() ? false : true;
             this.dHw.errorCode = mvcSocketResponsedMessage.getError();
             this.dHw.errorMsg = mvcSocketResponsedMessage.getErrorString();
-            this.dHw.gZA = mvcSocketResponsedMessage.getDownSize();
+            this.dHw.gZB = mvcSocketResponsedMessage.getDownSize();
             a(mvcSocketResponsedMessage.getData());
             this.mErrorCode = mvcSocketResponsedMessage.getError();
             this.mErrorString = mvcSocketResponsedMessage.getErrorString();
@@ -139,7 +139,7 @@ public class FrsDynamicModelController extends BdBaseModel implements NetModel.b
         return this.mType;
     }
 
-    public b aCd() {
+    public b aCe() {
         return this.dHo;
     }
 

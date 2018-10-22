@@ -35,7 +35,7 @@ public class l extends h<m, n> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, m mVar, n nVar) {
         super.onFillViewHolder(i, view, viewGroup, mVar, nVar);
-        if (mVar.aAS() == 6) {
+        if (mVar.aAT() == 6) {
             nVar.dCT.setText(e.j.attention_no_post_tip);
         } else {
             nVar.dCT.setText(e.j.no_data_text);

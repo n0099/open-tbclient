@@ -28,14 +28,14 @@ public class a {
     }
 
     public void a(int i, d dVar, boolean z) {
-        Location aqg;
+        Location aqh;
         if (dVar != null) {
             if (!j.kX()) {
                 l.showToast(TbadkCoreApplication.getInst().getContext(), e.j.share_on_no_network);
                 return;
             }
-            if (z && (aqg = aqg()) != null) {
-                dVar.aNS = aqg;
+            if (z && (aqh = aqh()) != null) {
+                dVar.aNS = aqh;
             }
             com.baidu.tbadk.coreExtra.c.e eVar = new com.baidu.tbadk.coreExtra.c.e(this.mContext, null);
             if (i == 3) {
@@ -115,7 +115,7 @@ public class a {
         TiebaStatic.eventStat(this.mContext, "pb_new_share", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
     }
 
-    private Location aqg() {
+    private Location aqh() {
         if (ab.bB(this.mContext)) {
             LocationManager locationManager = (LocationManager) this.mContext.getSystemService(Headers.LOCATION);
             Criteria criteria = new Criteria();

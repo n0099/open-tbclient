@@ -1,7 +1,7 @@
 package rx.internal.util;
 /* loaded from: classes2.dex */
 public final class f<T> {
-    T[] iDc;
+    T[] iDd;
     final float loadFactor;
     int mask;
     int maxSize;
@@ -16,12 +16,12 @@ public final class f<T> {
         int yE = rx.internal.util.a.h.yE(i);
         this.mask = yE - 1;
         this.maxSize = (int) (yE * f);
-        this.iDc = (T[]) new Object[yE];
+        this.iDd = (T[]) new Object[yE];
     }
 
     public boolean add(T t) {
         T t2;
-        T[] tArr = this.iDc;
+        T[] tArr = this.iDd;
         int i = this.mask;
         int yA = yA(t.hashCode()) & i;
         T t3 = tArr[yA];
@@ -48,7 +48,7 @@ public final class f<T> {
 
     public boolean remove(T t) {
         T t2;
-        T[] tArr = this.iDc;
+        T[] tArr = this.iDd;
         int i = this.mask;
         int yA = yA(t.hashCode()) & i;
         T t3 = tArr[yA];
@@ -98,11 +98,11 @@ public final class f<T> {
 
     public void terminate() {
         this.size = 0;
-        this.iDc = (T[]) new Object[0];
+        this.iDd = (T[]) new Object[0];
     }
 
     void rehash() {
-        T[] tArr = this.iDc;
+        T[] tArr = this.iDd;
         int length = tArr.length;
         int i = length << 1;
         int i2 = i - 1;
@@ -126,7 +126,7 @@ public final class f<T> {
             } else {
                 this.mask = i2;
                 this.maxSize = (int) (i * this.loadFactor);
-                this.iDc = tArr2;
+                this.iDd = tArr2;
                 return;
             }
         }
@@ -142,6 +142,6 @@ public final class f<T> {
     }
 
     public T[] ccO() {
-        return this.iDc;
+        return this.iDd;
     }
 }

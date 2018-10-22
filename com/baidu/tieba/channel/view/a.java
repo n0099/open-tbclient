@@ -64,7 +64,7 @@ public class a extends com.baidu.adp.base.c<ChannelAddVideoActivity> {
                 List<com.baidu.tieba.channel.data.b> data = a.this.cTz.getData();
                 ArrayList arrayList = new ArrayList();
                 for (com.baidu.tieba.channel.data.b bVar : data) {
-                    if (bVar.aoW()) {
+                    if (bVar.aoX()) {
                         arrayList.add(Long.valueOf(bVar.getThreadId()));
                     }
                 }
@@ -77,9 +77,9 @@ public class a extends com.baidu.adp.base.c<ChannelAddVideoActivity> {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 com.baidu.tieba.channel.data.b item = a.this.cTz.getItem(i);
                 if (item != null) {
-                    item.fm(!item.aoW());
+                    item.fm(!item.aoX());
                     a.this.cTz.notifyDataSetChanged();
-                    if (item.aoW()) {
+                    if (item.aoX()) {
                         a.d(a.this);
                     } else {
                         a.e(a.this);

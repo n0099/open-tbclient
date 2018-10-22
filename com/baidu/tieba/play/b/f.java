@@ -28,13 +28,13 @@ public class f {
     /* loaded from: classes.dex */
     private static class a {
         public final String error;
-        public final String gwX;
+        public final String gwY;
         public final String uuid;
 
         public a(String str, String str2, String str3) {
             this.uuid = str;
             this.error = str2;
-            this.gwX = str3;
+            this.gwY = str3;
         }
 
         public JSONObject bqX() {
@@ -42,7 +42,7 @@ public class f {
             try {
                 jSONObject.put("uuid", this.uuid);
                 jSONObject.put(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, this.error);
-                jSONObject.put("sub_error", this.gwX);
+                jSONObject.put("sub_error", this.gwY);
             } catch (Exception e) {
                 e.printStackTrace();
             }

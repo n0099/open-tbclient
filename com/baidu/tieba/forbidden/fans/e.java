@@ -20,7 +20,7 @@ public class e {
     public interface a {
         void a(int i, String str, boolean z, int i2, long j);
 
-        void axV();
+        void axW();
     }
 
     public e(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -64,9 +64,9 @@ public class e {
                 public void onClick() {
                     e.this.aiP.dismiss();
                     if (e.this.dvR != null) {
-                        e.this.dvR.axV();
+                        e.this.dvR.axW();
                     }
-                    e.this.dvP.axZ();
+                    e.this.dvP.aya();
                 }
             });
             arrayList.add(c0292a);

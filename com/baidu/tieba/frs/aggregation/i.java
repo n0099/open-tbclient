@@ -67,19 +67,19 @@ public class i {
         }
     }
 
-    public void aBU() {
+    public void aBV() {
         if (this.dGb != null) {
-            this.dGb.aBU();
+            this.dGb.aBV();
         }
     }
 
-    public void aBW() {
+    public void aBX() {
         if (this.dGb != null && this.mHasMore) {
             this.dGb.LoadData();
         }
     }
 
-    public void aBV() {
+    public void aBW() {
         if (this.dGb != null) {
             this.dGb.cancelLoadData();
         }

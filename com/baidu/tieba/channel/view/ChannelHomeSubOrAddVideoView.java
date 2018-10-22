@@ -88,8 +88,8 @@ public class ChannelHomeSubOrAddVideoView extends FrameLayout implements e<com.b
         @Override // com.baidu.tieba.channel.view.e
         /* renamed from: c */
         public void aa(com.baidu.tieba.channel.data.d dVar) {
-            if (dVar != null && dVar.aoZ() != null) {
-                this.cUu = dVar.aoZ().isSubscribe();
+            if (dVar != null && dVar.apa() != null) {
+                this.cUu = dVar.apa().isSubscribe();
                 if (this.cUu) {
                     this.cUt.setText(this.mContext.getResources().getString(e.j.channel_is_subscribed));
                 } else {

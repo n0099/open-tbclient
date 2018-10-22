@@ -41,7 +41,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         this.dEO = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.personalize.a.d.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: aBF */
+            /* renamed from: aBG */
             public ConstrainImageLayout jB() {
                 return new ConstrainImageLayout(d.this.mPageContext.getPageActivity());
             }
@@ -124,19 +124,19 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, com.baidu.tieba.card.a.a<y> aVar) {
-        if (aVar == null || aVar.aoP() == null) {
+        if (aVar == null || aVar.aoQ() == null) {
             return null;
         }
-        if (kVar != null && kVar.YA() != null) {
+        if (kVar != null && kVar.YB() != null) {
             w wVar = new w();
             wVar.bIr = i + 1;
             wVar.source = kVar.getSource();
             wVar.weight = kVar.getWeight();
-            wVar.cOR = kVar.aoA();
-            v.aoo().a(a("c13023", kVar.YA(), wVar));
-            aVar.aoP().a(wVar);
-            aVar.aoP().b(this.dID);
-            aVar.aoP().a(kVar.YA());
+            wVar.cOR = kVar.aoB();
+            v.aop().a(a("c13023", kVar.YB(), wVar));
+            aVar.aoQ().a(wVar);
+            aVar.aoQ().b(this.dID);
+            aVar.aoQ().a(kVar.YB());
         }
         return aVar.getView();
     }
@@ -146,7 +146,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         if (StringUtils.isNull(str) || bbVar == null || wVar == null) {
             return null;
         }
-        am ax = new am(str).ax(ImageViewerConfig.FORUM_ID, String.valueOf(bbVar.getFid())).ax("tid", String.valueOf(bbVar.getTid())).x("obj_locate", wVar.bIr).ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, wVar.source).ax("obj_param1", wVar.weight).ax("ab_tag", wVar.cOR).ax("obj_param3", o.aof());
+        am ax = new am(str).ax(ImageViewerConfig.FORUM_ID, String.valueOf(bbVar.getFid())).ax("tid", String.valueOf(bbVar.getTid())).x("obj_locate", wVar.bIr).ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, wVar.source).ax("obj_param1", wVar.weight).ax("ab_tag", wVar.cOR).ax("obj_param3", o.aog());
         if (bbVar.yv() != null) {
             ax.ax("obj_name", bbVar.yv().getName_show());
             return ax;

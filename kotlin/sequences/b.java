@@ -7,13 +7,13 @@ import kotlin.jvm.internal.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public final class b<T> implements c<T> {
-    private final kotlin.jvm.a.a<T> ipN;
-    private final kotlin.jvm.a.b<T, T> ipO;
+    private final kotlin.jvm.a.a<T> ipO;
+    private final kotlin.jvm.a.b<T, T> ipP;
 
     /* loaded from: classes2.dex */
     public static final class a implements Iterator<T> {
         private T Gz;
-        private int ipL = -2;
+        private int ipM = -2;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -26,10 +26,10 @@ public final class b<T> implements c<T> {
 
         private final void cav() {
             T t;
-            if (this.ipL == -2) {
-                t = (T) b.this.ipN.invoke();
+            if (this.ipM == -2) {
+                t = (T) b.this.ipO.invoke();
             } else {
-                kotlin.jvm.a.b bVar = b.this.ipO;
+                kotlin.jvm.a.b bVar = b.this.ipP;
                 T t2 = this.Gz;
                 if (t2 == null) {
                     p.cal();
@@ -37,31 +37,31 @@ public final class b<T> implements c<T> {
                 t = (T) bVar.invoke(t2);
             }
             this.Gz = t;
-            this.ipL = this.Gz == null ? 0 : 1;
+            this.ipM = this.Gz == null ? 0 : 1;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.ipL < 0) {
+            if (this.ipM < 0) {
                 cav();
             }
-            if (this.ipL == 0) {
+            if (this.ipM == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.Gz;
             if (t == null) {
                 throw new TypeCastException("null cannot be cast to non-null type T");
             }
-            this.ipL = -1;
+            this.ipM = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.ipL < 0) {
+            if (this.ipM < 0) {
                 cav();
             }
-            return this.ipL == 1;
+            return this.ipM == 1;
         }
     }
 
@@ -71,8 +71,8 @@ public final class b<T> implements c<T> {
     public b(kotlin.jvm.a.a<? extends T> aVar, kotlin.jvm.a.b<? super T, ? extends T> bVar) {
         p.i(aVar, "getInitialValue");
         p.i(bVar, "getNextValue");
-        this.ipN = aVar;
-        this.ipO = bVar;
+        this.ipO = aVar;
+        this.ipP = bVar;
     }
 
     @Override // kotlin.sequences.c

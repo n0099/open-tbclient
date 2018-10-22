@@ -6,29 +6,29 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
     private Fragment[] bKx;
-    private String hIV;
     private String hIW;
-    private AlbumActivity hIX;
-    private String[] hIY;
-    private ImageListFragment hIZ;
-    private AlbumImageBrowseFragment hJa;
+    private String hIX;
+    private AlbumActivity hIY;
+    private String[] hIZ;
+    private ImageListFragment hJa;
+    private AlbumImageBrowseFragment hJb;
 
     public a(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext());
-        this.hIV = "tag_image";
-        this.hIW = "tag_b_image";
-        this.hIX = albumActivity;
+        this.hIW = "tag_image";
+        this.hIX = "tag_b_image";
+        this.hIY = albumActivity;
     }
 
     public void aGz() {
         this.bKx = new Fragment[2];
-        this.hIY = new String[2];
-        this.hIZ = new ImageListFragment();
-        this.bKx[0] = this.hIZ;
-        this.hIY[0] = this.hIV;
-        this.hJa = new AlbumImageBrowseFragment();
-        this.bKx[1] = this.hJa;
-        this.hIY[1] = this.hIW;
+        this.hIZ = new String[2];
+        this.hJa = new ImageListFragment();
+        this.bKx[0] = this.hJa;
+        this.hIZ[0] = this.hIW;
+        this.hJb = new AlbumImageBrowseFragment();
+        this.bKx[1] = this.hJb;
+        this.hIZ[1] = this.hIX;
     }
 
     public Fragment wl(int i) {
@@ -42,7 +42,7 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.hIY[i];
+        return this.hIZ[i];
     }
 
     public void onChangeSkinType(int i) {
@@ -61,10 +61,10 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
     }
 
     public TbCameraView bLP() {
-        if (this.hIZ == null) {
+        if (this.hJa == null) {
             return null;
         }
-        return this.hIZ.bLP();
+        return this.hJa.bLP();
     }
 
     public void stopCamera() {
@@ -81,68 +81,68 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
             bLP.setVisibility(0);
             bLP.oj(false);
         }
-        if (this.hIZ != null && this.hIZ.bMn() != null) {
-            this.hIZ.bMn().bMs();
+        if (this.hJa != null && this.hJa.bMn() != null) {
+            this.hJa.bMn().bMs();
         }
     }
 
     public View bLQ() {
-        if (this.hIZ == null) {
-            return null;
-        }
-        return this.hIZ.bwq();
-    }
-
-    public View bLR() {
-        if (this.hIZ == null) {
-            return null;
-        }
-        return this.hIZ.bMm();
-    }
-
-    public View bLS() {
         if (this.hJa == null) {
             return null;
         }
         return this.hJa.bwq();
     }
 
-    public View bLT() {
+    public View bLR() {
         if (this.hJa == null) {
             return null;
         }
-        return this.hJa.bLY();
+        return this.hJa.bMm();
+    }
+
+    public View bLS() {
+        if (this.hJb == null) {
+            return null;
+        }
+        return this.hJb.bwq();
+    }
+
+    public View bLT() {
+        if (this.hJb == null) {
+            return null;
+        }
+        return this.hJb.bLY();
     }
 
     public View bLU() {
+        if (this.hJb == null) {
+            return null;
+        }
+        return this.hJb.bLU();
+    }
+
+    public View bLV() {
         if (this.hJa == null) {
             return null;
         }
         return this.hJa.bLU();
     }
 
-    public View bLV() {
-        if (this.hIZ == null) {
-            return null;
-        }
-        return this.hIZ.bLU();
-    }
-
     public void onDestroy() {
     }
 
     public void of(boolean z) {
+        if (this.hJb != null) {
+            this.hJb.of(z);
+        }
         if (this.hJa != null) {
             this.hJa.of(z);
-        }
-        if (this.hIZ != null) {
-            this.hIZ.of(z);
         }
     }
 
     public void a(i iVar) {
-        if (this.hIZ != null) {
-            this.hIZ.a(iVar);
+        if (this.hJa != null) {
+            this.hJa.a(iVar);
         }
     }
 }

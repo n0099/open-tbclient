@@ -105,14 +105,14 @@ public class b {
     }
 
     public static void a(com.baidu.tieba.card.data.d dVar) {
-        if (dVar != null && dVar.aoG() != null && dVar.aoG().advertAppContext != null && !dVar.aoG().advertAppContext.RQ) {
-            dVar.aoG().page = dVar.aoG().advertAppContext.page;
-            com.baidu.tbadk.distribute.a.Ku().a(dVar.aoG(), "", 0L, dVar.aoG().page, "show", dVar.aoG().advertAppContext.pn);
-            com.baidu.tieba.recapp.report.b d = com.baidu.tieba.recapp.report.f.d(dVar.aoG(), 3, dVar.aoG().advertAppContext.pn);
-            d.uh(dVar.aoG().advertAppContext.extensionInfo);
+        if (dVar != null && dVar.aoH() != null && dVar.aoH().advertAppContext != null && !dVar.aoH().advertAppContext.RQ) {
+            dVar.aoH().page = dVar.aoH().advertAppContext.page;
+            com.baidu.tbadk.distribute.a.Ku().a(dVar.aoH(), "", 0L, dVar.aoH().page, "show", dVar.aoH().advertAppContext.pn);
+            com.baidu.tieba.recapp.report.b d = com.baidu.tieba.recapp.report.f.d(dVar.aoH(), 3, dVar.aoH().advertAppContext.pn);
+            d.uh(dVar.aoH().advertAppContext.extensionInfo);
             com.baidu.tieba.recapp.report.c.buf().a(d);
-            com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.e(dVar.aoG()));
-            dVar.aoG().advertAppContext.RQ = true;
+            com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.e(dVar.aoH()));
+            dVar.aoH().advertAppContext.RQ = true;
         }
     }
 }

@@ -5,7 +5,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class j implements f {
-    private static j icX = null;
+    private static j icY = null;
 
     protected j() {
     }
@@ -13,10 +13,10 @@ public class j implements f {
     public static synchronized j bUp() {
         j jVar;
         synchronized (j.class) {
-            if (icX == null) {
-                icX = new j();
+            if (icY == null) {
+                icY = new j();
             }
-            jVar = icX;
+            jVar = icY;
         }
         return jVar;
     }

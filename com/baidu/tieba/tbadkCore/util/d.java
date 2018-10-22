@@ -6,7 +6,7 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
     protected volatile int aAv;
-    protected volatile HashMap<Long, Integer> hfA = new HashMap<>();
+    protected volatile HashMap<Long, Integer> hfB = new HashMap<>();
     private volatile int mWeight = 0;
 
     public d(int i) {
@@ -17,11 +17,11 @@ public class d {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.hfA.size() >= this.aAv) {
+                if (this.hfB.size() >= this.aAv) {
                     bCY();
                 }
                 this.mWeight++;
-                this.hfA.put(valueOf, Integer.valueOf(this.mWeight));
+                this.hfB.put(valueOf, Integer.valueOf(this.mWeight));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -34,7 +34,7 @@ public class d {
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.hfA.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.hfB.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     int intValue = entry.getValue().intValue();
                     l = entry.getKey();
@@ -47,9 +47,9 @@ public class d {
                 l2 = l;
             }
             if (l2 != null) {
-                this.hfA.remove(l2);
+                this.hfB.remove(l2);
             } else {
-                this.hfA.clear();
+                this.hfB.clear();
             }
         }
     }
@@ -59,7 +59,7 @@ public class d {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                z = this.hfA.get(valueOf) != null;
+                z = this.hfB.get(valueOf) != null;
             }
             return z;
         } catch (Exception e) {
@@ -70,7 +70,7 @@ public class d {
 
     public boolean vm(String str) {
         try {
-            return this.hfA.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.hfB.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
@@ -79,7 +79,7 @@ public class d {
 
     public void bCX() {
         synchronized (this) {
-            this.hfA.clear();
+            this.hfB.clear();
         }
     }
 }

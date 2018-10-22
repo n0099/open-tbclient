@@ -52,7 +52,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.kX()) {
                 if (VideoAggregationFragment.this.mNoDataView != null) {
-                    VideoAggregationFragment.this.dFS.aBU();
+                    VideoAggregationFragment.this.dFS.aBV();
                 } else if (j.kZ() && VideoAggregationFragment.this.dFR != null && VideoAggregationFragment.this.dFR.pE()) {
                     VideoAggregationFragment.this.getPageContext().showToast(e.j.video_mobile_play_tips);
                 }
@@ -96,7 +96,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         this.dFS.setFrom(this.mFrom);
         this.dFS.nG(this.st_type);
         this.dFS.setLocation(this.yuelaou_locate);
-        this.dFS.aBU();
+        this.dFS.aBV();
         registerListener(this.mNetworkChangedMessageListener);
         registerListener(this.mAttentionListener);
     }
@@ -111,7 +111,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         super.onViewCreated(view, bundle);
         this.mRootView = (FrameLayout) view.findViewById(e.g.container);
         this.mNavigationBar = (NavigationBar) view.findViewById(e.g.navigation_bar);
-        axv();
+        axw();
         this.bJX = (NoNetworkView) view.findViewById(e.g.no_network_view);
         if (!j.kX()) {
             this.bJX.setVisibility(0);
@@ -122,7 +122,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         this.mPullView.a(new j.b() { // from class: com.baidu.tieba.frs.aggregation.VideoAggregationFragment.1
             @Override // com.baidu.tbadk.core.view.j.b
             public void bp(boolean z) {
-                VideoAggregationFragment.this.dFS.aBU();
+                VideoAggregationFragment.this.dFS.aBV();
             }
         });
         this.mPullView.setTag(getUniqueId());
@@ -137,15 +137,15 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
                 if (i == 0 && absListView.getLastVisiblePosition() > absListView.getCount() - 2 && absListView.getFirstVisiblePosition() != 0) {
-                    VideoAggregationFragment.this.dFS.aBW();
+                    VideoAggregationFragment.this.dFS.aBX();
                 }
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
                 if (VideoAggregationFragment.this.dFR != null) {
-                    if (i > VideoAggregationFragment.this.dFR.aBQ() || i + i2 < VideoAggregationFragment.this.dFR.aBQ()) {
-                        VideoAggregationFragment.this.dFR.aBR();
+                    if (i > VideoAggregationFragment.this.dFR.aBR() || i + i2 < VideoAggregationFragment.this.dFR.aBR()) {
+                        VideoAggregationFragment.this.dFR.aBS();
                     }
                 }
             }
@@ -161,7 +161,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         VideoAggregationFragment.this.hideNoDataView();
-                        VideoAggregationFragment.this.dFS.aBU();
+                        VideoAggregationFragment.this.dFS.aBV();
                     }
                 })));
             } else {
@@ -181,7 +181,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         }
     }
 
-    private void axv() {
+    private void axw() {
         if (VideoAggregationActivityConfig.TYPE_FROM_FRS.equals(this.mFrom)) {
             this.mNavigationBar.setCenterTextTitle(getPageContext().getString(e.j.video_aggregation_title));
         } else {
@@ -247,7 +247,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     public void onDestroy() {
         super.onDestroy();
         if (this.dFS != null) {
-            this.dFS.aBV();
+            this.dFS.aBW();
         }
         if (this.dFR != null) {
             this.dFR.onDestroy();

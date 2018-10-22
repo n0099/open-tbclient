@@ -108,7 +108,7 @@ public class f {
         AppData bBP = lVar.bBP();
         b bVar = new b();
         bVar.uh(bBP.ext_info);
-        if (lVar.hcS) {
+        if (lVar.hcT) {
             bVar.th(-1);
             bVar.setPageNumber(-1);
         } else {

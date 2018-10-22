@@ -13,26 +13,26 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class b {
-    public static final n.b iaX = n.b.iaO;
     public static final n.b iaY = n.b.iaP;
-    private RoundingParams iaT;
-    private int iaZ;
-    private float iba;
-    private Drawable ibb;
+    public static final n.b iaZ = n.b.iaQ;
+    private RoundingParams iaU;
+    private int iba;
+    private float ibb;
+    private Drawable ibc;
     @Nullable
-    private n.b ibc;
-    private Drawable ibd;
-    private n.b ibe;
-    private Drawable ibf;
-    private n.b ibg;
-    private Drawable ibh;
-    private n.b ibi;
+    private n.b ibd;
+    private Drawable ibe;
+    private n.b ibf;
+    private Drawable ibg;
+    private n.b ibh;
+    private Drawable ibi;
     private n.b ibj;
-    private Matrix ibk;
-    private PointF ibl;
-    private ColorFilter ibm;
-    private List<Drawable> ibn;
-    private Drawable ibo;
+    private n.b ibk;
+    private Matrix ibl;
+    private PointF ibm;
+    private ColorFilter ibn;
+    private List<Drawable> ibo;
+    private Drawable ibp;
     private Drawable mBackground;
     private Resources mResources;
 
@@ -42,24 +42,24 @@ public class b {
     }
 
     private void init() {
-        this.iaZ = 300;
-        this.iba = 0.0f;
-        this.ibb = null;
-        this.ibc = iaX;
-        this.ibd = null;
-        this.ibe = iaX;
-        this.ibf = null;
-        this.ibg = iaX;
-        this.ibh = null;
-        this.ibi = iaX;
+        this.iba = 300;
+        this.ibb = 0.0f;
+        this.ibc = null;
+        this.ibd = iaY;
+        this.ibe = null;
+        this.ibf = iaY;
+        this.ibg = null;
+        this.ibh = iaY;
+        this.ibi = null;
         this.ibj = iaY;
-        this.ibk = null;
+        this.ibk = iaZ;
         this.ibl = null;
         this.ibm = null;
-        this.mBackground = null;
         this.ibn = null;
+        this.mBackground = null;
         this.ibo = null;
-        this.iaT = null;
+        this.ibp = null;
+        this.iaU = null;
     }
 
     public Resources getResources() {
@@ -67,127 +67,127 @@ public class b {
     }
 
     public b xr(int i) {
-        this.iaZ = i;
+        this.iba = i;
         return this;
     }
 
     public int bTv() {
-        return this.iaZ;
+        return this.iba;
     }
 
     public b aH(float f) {
-        this.iba = f;
+        this.ibb = f;
         return this;
     }
 
     public float bTw() {
-        return this.iba;
+        return this.ibb;
     }
 
     public b m(@Nullable Drawable drawable) {
-        this.ibb = drawable;
+        this.ibc = drawable;
         return this;
     }
 
     @Nullable
     public Drawable bTx() {
-        return this.ibb;
+        return this.ibc;
     }
 
     public b c(@Nullable n.b bVar) {
-        this.ibc = bVar;
+        this.ibd = bVar;
         return this;
     }
 
     @Nullable
     public n.b bTy() {
-        return this.ibc;
+        return this.ibd;
     }
 
     public b n(@Nullable Drawable drawable) {
-        this.ibd = drawable;
+        this.ibe = drawable;
         return this;
     }
 
     @Nullable
     public Drawable bTz() {
-        return this.ibd;
+        return this.ibe;
     }
 
     public b d(@Nullable n.b bVar) {
-        this.ibe = bVar;
+        this.ibf = bVar;
         return this;
     }
 
     @Nullable
     public n.b bTA() {
-        return this.ibe;
+        return this.ibf;
     }
 
     public b o(@Nullable Drawable drawable) {
-        this.ibf = drawable;
+        this.ibg = drawable;
         return this;
     }
 
     @Nullable
     public Drawable bTB() {
-        return this.ibf;
+        return this.ibg;
     }
 
     public b e(@Nullable n.b bVar) {
-        this.ibg = bVar;
+        this.ibh = bVar;
         return this;
     }
 
     @Nullable
     public n.b bTC() {
-        return this.ibg;
+        return this.ibh;
     }
 
     public b p(@Nullable Drawable drawable) {
-        this.ibh = drawable;
+        this.ibi = drawable;
         return this;
     }
 
     @Nullable
     public Drawable bTD() {
-        return this.ibh;
+        return this.ibi;
     }
 
     public b f(@Nullable n.b bVar) {
-        this.ibi = bVar;
+        this.ibj = bVar;
         return this;
     }
 
     @Nullable
     public n.b bTE() {
-        return this.ibi;
+        return this.ibj;
     }
 
     public b g(@Nullable n.b bVar) {
-        this.ibj = bVar;
-        this.ibk = null;
+        this.ibk = bVar;
+        this.ibl = null;
         return this;
     }
 
     @Nullable
     public n.b bTF() {
-        return this.ibj;
-    }
-
-    @Nullable
-    public Matrix bTG() {
         return this.ibk;
     }
 
     @Nullable
-    public PointF bTH() {
+    public Matrix bTG() {
         return this.ibl;
     }
 
     @Nullable
-    public ColorFilter bTI() {
+    public PointF bTH() {
         return this.ibm;
+    }
+
+    @Nullable
+    public ColorFilter bTI() {
+        return this.ibn;
     }
 
     public b q(@Nullable Drawable drawable) {
@@ -202,47 +202,47 @@ public class b {
 
     public b r(@Nullable Drawable drawable) {
         if (drawable == null) {
-            this.ibn = null;
+            this.ibo = null;
         } else {
-            this.ibn = Arrays.asList(drawable);
+            this.ibo = Arrays.asList(drawable);
         }
         return this;
     }
 
     @Nullable
     public List<Drawable> bTJ() {
-        return this.ibn;
+        return this.ibo;
     }
 
     public b s(@Nullable Drawable drawable) {
         if (drawable == null) {
-            this.ibo = null;
+            this.ibp = null;
         } else {
             StateListDrawable stateListDrawable = new StateListDrawable();
             stateListDrawable.addState(new int[]{16842919}, drawable);
-            this.ibo = stateListDrawable;
+            this.ibp = stateListDrawable;
         }
         return this;
     }
 
     @Nullable
     public Drawable bTK() {
-        return this.ibo;
+        return this.ibp;
     }
 
     public b b(@Nullable RoundingParams roundingParams) {
-        this.iaT = roundingParams;
+        this.iaU = roundingParams;
         return this;
     }
 
     @Nullable
     public RoundingParams bTL() {
-        return this.iaT;
+        return this.iaU;
     }
 
     private void validate() {
-        if (this.ibn != null) {
-            for (Drawable drawable : this.ibn) {
+        if (this.ibo != null) {
+            for (Drawable drawable : this.ibo) {
                 g.checkNotNull(drawable);
             }
         }

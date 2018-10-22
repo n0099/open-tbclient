@@ -31,7 +31,7 @@ public class a {
             if ((customResponsedMessage.getData() instanceof PostData) && a.this.aAI != null && !TextUtils.isEmpty(a.this.aAI.getId()) && (postData = (PostData) customResponsedMessage.getData()) != null && a.this.aAI.getId().equals(postData.getId())) {
                 a.this.aAI.v(postData.zH());
                 a.this.aAI.w(postData.zI());
-                a.this.aAI.ni(postData.aBT());
+                a.this.aAI.ni(postData.aBU());
                 a.this.aAI.cw(postData.zK());
                 a.this.updateUI();
             }

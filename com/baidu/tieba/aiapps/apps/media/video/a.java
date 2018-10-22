@@ -34,12 +34,12 @@ public class a implements IAiAppVideoIoc {
             AiAppsPlayerManager.addPlayerContext(aVar);
             L = aVar;
         }
-        b a = b.a(optParamsAsJo, L.XA());
+        b a = b.a(optParamsAsJo, L.XB());
         a(context, L, a);
-        b XA = L.XA();
+        b XB = L.XB();
         L.a(a);
         if (a.isAutoPlay()) {
-            if (!TextUtils.equals(XA.mSrc, a.mSrc)) {
+            if (!TextUtils.equals(XB.mSrc, a.mSrc)) {
                 if (L.bpH()) {
                     L.stopPlay();
                     L.bpy();
@@ -70,10 +70,10 @@ public class a implements IAiAppVideoIoc {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        b a = b.a(optParamsAsJo, L.XA());
-        b XA = L.XA();
+        b a = b.a(optParamsAsJo, L.XB());
+        b XB = L.XB();
         L.a(a);
-        if (!TextUtils.equals(XA.mSrc, a.mSrc)) {
+        if (!TextUtils.equals(XB.mSrc, a.mSrc)) {
             if (L.bpH()) {
                 L.stopPlay();
             }
@@ -97,9 +97,9 @@ public class a implements IAiAppVideoIoc {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        b a = b.a(optParamsAsJo, L.XA());
-        b XA = L.XA();
-        if (L.hasStart() && TextUtils.equals(a.mSrc, XA.mSrc)) {
+        b a = b.a(optParamsAsJo, L.XB());
+        b XB = L.XB();
+        if (L.hasStart() && TextUtils.equals(a.mSrc, XB.mSrc)) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }
@@ -142,7 +142,7 @@ public class a implements IAiAppVideoIoc {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        L.getVideoView().seekTo(b.a(optParamsAsJo, L.XA()).mPos);
+        L.getVideoView().seekTo(b.a(optParamsAsJo, L.XB()).mPos);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
     }

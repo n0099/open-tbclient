@@ -239,7 +239,7 @@ public class a implements ag {
         } else {
             this.dIs.setVisibility(8);
         }
-        aDo();
+        aDp();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -292,12 +292,12 @@ public class a implements ag {
     @Override // com.baidu.tieba.frs.ag
     public void changeSkinType(int i) {
         if (this.mSkinType != i) {
-            aDo();
+            aDp();
         }
         this.mSkinType = i;
     }
 
-    private void aDo() {
+    private void aDp() {
         al.j(this.dKS, e.d.cp_bg_line_d);
         al.j(this.dKQ, e.d.cp_bg_line_b);
         al.j(this.dKW, e.d.cp_bg_line_d);

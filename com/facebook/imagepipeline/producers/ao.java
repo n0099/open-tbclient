@@ -4,40 +4,40 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public abstract class ao<T> extends com.facebook.common.b.e<T> {
     private final String ZM;
-    private final al igL;
-    private final j<T> ihe;
-    private final String iip;
+    private final al igM;
+    private final j<T> ihf;
+    private final String iiq;
 
     @Override // com.facebook.common.b.e
     protected abstract void an(T t);
 
     public ao(j<T> jVar, al alVar, String str, String str2) {
-        this.ihe = jVar;
-        this.igL = alVar;
-        this.iip = str;
+        this.ihf = jVar;
+        this.igM = alVar;
+        this.iiq = str;
         this.ZM = str2;
-        this.igL.cX(this.ZM, this.iip);
+        this.igM.cX(this.ZM, this.iiq);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.e
     public void onSuccess(T t) {
-        this.igL.a(this.ZM, this.iip, this.igL.yD(this.ZM) ? aM(t) : null);
-        this.ihe.e(t, true);
+        this.igM.a(this.ZM, this.iiq, this.igM.yD(this.ZM) ? aM(t) : null);
+        this.ihf.e(t, true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.e
     public void j(Exception exc) {
-        this.igL.a(this.ZM, this.iip, exc, this.igL.yD(this.ZM) ? l(exc) : null);
-        this.ihe.B(exc);
+        this.igM.a(this.ZM, this.iiq, exc, this.igM.yD(this.ZM) ? l(exc) : null);
+        this.ihf.B(exc);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.e
     public void bRy() {
-        this.igL.b(this.ZM, this.iip, this.igL.yD(this.ZM) ? bYa() : null);
-        this.ihe.bRy();
+        this.igM.b(this.ZM, this.iiq, this.igM.yD(this.ZM) ? bYa() : null);
+        this.ihf.bRy();
     }
 
     protected Map<String, String> aM(T t) {

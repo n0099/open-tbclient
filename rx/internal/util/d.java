@@ -4,39 +4,39 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class d {
-    final int iCX;
-    Object[] iCY;
+    final int iCY;
     Object[] iCZ;
-    int iDa;
+    Object[] iDa;
+    int iDb;
     volatile int size;
 
     public d(int i) {
-        this.iCX = i;
+        this.iCY = i;
     }
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.iCY = new Object[this.iCX + 1];
-            this.iCZ = this.iCY;
-            this.iCY[0] = obj;
-            this.iDa = 1;
+            this.iCZ = new Object[this.iCY + 1];
+            this.iDa = this.iCZ;
+            this.iCZ[0] = obj;
+            this.iDb = 1;
             this.size = 1;
-        } else if (this.iDa == this.iCX) {
-            Object[] objArr = new Object[this.iCX + 1];
+        } else if (this.iDb == this.iCY) {
+            Object[] objArr = new Object[this.iCY + 1];
             objArr[0] = obj;
-            this.iCZ[this.iCX] = objArr;
-            this.iCZ = objArr;
-            this.iDa = 1;
+            this.iDa[this.iCY] = objArr;
+            this.iDa = objArr;
+            this.iDb = 1;
             this.size++;
         } else {
-            this.iCZ[this.iDa] = obj;
-            this.iDa++;
+            this.iDa[this.iDb] = obj;
+            this.iDb++;
             this.size++;
         }
     }
 
     public Object[] ccM() {
-        return this.iCY;
+        return this.iCZ;
     }
 
     public int size() {
@@ -44,7 +44,7 @@ public class d {
     }
 
     List<Object> ccN() {
-        int i = this.iCX;
+        int i = this.iCY;
         int i2 = this.size;
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;

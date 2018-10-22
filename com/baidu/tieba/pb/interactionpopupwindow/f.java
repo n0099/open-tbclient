@@ -6,9 +6,9 @@ import com.baidu.tieba.pb.interactionpopupwindow.g;
 public interface f<V extends g, D extends IBaseDialogData> {
     int At();
 
-    boolean ael();
-
     boolean aem();
+
+    boolean aen();
 
     void dismiss();
 

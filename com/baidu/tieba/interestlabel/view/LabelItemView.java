@@ -18,9 +18,9 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class LabelItemView extends LinearLayout {
-    private boolean fbr;
-    private int fbs;
+    private boolean fbs;
     private int fbt;
+    private int fbu;
     private Paint mPaint;
 
     public LabelItemView(Context context) {
@@ -45,7 +45,7 @@ public class LabelItemView extends LinearLayout {
         this.mPaint.setStyle(Paint.Style.STROKE);
         this.mPaint.setColor(al.getColor(e.d.cp_bg_line_c));
         this.mPaint.setStrokeWidth(1.0f);
-        this.fbt = l.h(getContext(), e.C0175e.ds46);
+        this.fbu = l.h(getContext(), e.C0175e.ds46);
         for (int i = 0; i < 3; i++) {
             addView(aVS());
         }
@@ -53,9 +53,9 @@ public class LabelItemView extends LinearLayout {
 
     public void setData(List<com.baidu.tieba.interestlabel.b.a> list, boolean z) {
         if (!v.J(list)) {
-            this.fbr = z;
-            this.fbs = Math.min(list.size(), 3);
-            for (int i = 0; i < this.fbs; i++) {
+            this.fbs = z;
+            this.fbt = Math.min(list.size(), 3);
+            for (int i = 0; i < this.fbt; i++) {
                 com.baidu.tieba.interestlabel.b.a aVar = list.get(i);
                 if (aVar != null && (getChildAt(i) instanceof TextView)) {
                     TextView textView = (TextView) getChildAt(i);
@@ -71,7 +71,7 @@ public class LabelItemView extends LinearLayout {
                     textView.setTag(aVar);
                 }
             }
-            for (int i2 = this.fbs; i2 < getChildCount(); i2++) {
+            for (int i2 = this.fbt; i2 < getChildCount(); i2++) {
                 View childAt = getChildAt(i2);
                 if (childAt != null) {
                     childAt.setVisibility(8);
@@ -104,13 +104,13 @@ public class LabelItemView extends LinearLayout {
         int i = 1;
         while (true) {
             int i2 = i;
-            if (i2 >= this.fbs) {
+            if (i2 >= this.fbt) {
                 break;
             }
-            canvas.drawLine(width * i2, (height - this.fbt) / 2, (width * i2) + 1, (this.fbt + height) / 2, this.mPaint);
+            canvas.drawLine(width * i2, (height - this.fbu) / 2, (width * i2) + 1, (this.fbu + height) / 2, this.mPaint);
             i = i2 + 1;
         }
-        if (!this.fbr) {
+        if (!this.fbs) {
             canvas.drawLine(0.0f, height - 1, getWidth(), height, this.mPaint);
         }
     }

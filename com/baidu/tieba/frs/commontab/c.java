@@ -36,7 +36,7 @@ public class c implements NetModel.b<FrsCommonTabRequestData, d> {
         }
     }
 
-    public void aCb() {
+    public void aCc() {
         if (!this.dHd.DU()) {
             this.mPn = 1;
             this.dHe = true;
@@ -45,7 +45,7 @@ public class c implements NetModel.b<FrsCommonTabRequestData, d> {
         }
     }
 
-    public void YK() {
+    public void YL() {
         if (!this.dHd.DU()) {
             this.mPn++;
             this.dHe = false;

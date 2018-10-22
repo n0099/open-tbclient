@@ -30,7 +30,7 @@ public class a extends com.baidu.tieba.card.data.b {
         this.mType = dyQ;
     }
 
-    public ArrayList<String> ayG() {
+    public ArrayList<String> ayH() {
         return this.dyT;
     }
 }

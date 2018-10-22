@@ -13,15 +13,15 @@ import com.baidu.tieba.im.data.GroupInfoData;
 public class f extends q.a {
     public int aHp;
     public View dividerLine;
-    public GroupImageView eHj;
-    public TextView eHk;
+    public GroupImageView eHk;
     public TextView eHl;
     public TextView eHm;
     public TextView eHn;
-    public ImageView eHo;
+    public TextView eHo;
     public ImageView eHp;
     public ImageView eHq;
-    public ImageView[] eHr;
+    public ImageView eHr;
+    public ImageView[] eHs;
     public View rootView;
 
     public f(View view, View.OnClickListener onClickListener) {
@@ -29,41 +29,41 @@ public class f extends q.a {
         this.aHp = 3;
         this.rootView = view;
         this.rootView.setOnClickListener(onClickListener);
-        this.eHj = (GroupImageView) view.findViewById(e.g.item_head);
-        this.eHk = (TextView) view.findViewById(e.g.item_group_name);
-        this.eHl = (TextView) view.findViewById(e.g.item_group_meizi);
-        this.eHm = (TextView) view.findViewById(e.g.item_group_num);
-        this.eHn = (TextView) view.findViewById(e.g.item_introduce);
-        this.eHo = (ImageView) view.findViewById(e.g.item_grade1);
-        this.eHp = (ImageView) view.findViewById(e.g.item_grade2);
-        this.eHq = (ImageView) view.findViewById(e.g.item_grade3);
+        this.eHk = (GroupImageView) view.findViewById(e.g.item_head);
+        this.eHl = (TextView) view.findViewById(e.g.item_group_name);
+        this.eHm = (TextView) view.findViewById(e.g.item_group_meizi);
+        this.eHn = (TextView) view.findViewById(e.g.item_group_num);
+        this.eHo = (TextView) view.findViewById(e.g.item_introduce);
+        this.eHp = (ImageView) view.findViewById(e.g.item_grade1);
+        this.eHq = (ImageView) view.findViewById(e.g.item_grade2);
+        this.eHr = (ImageView) view.findViewById(e.g.item_grade3);
         this.dividerLine = view.findViewById(e.g.divider_line);
-        this.eHr = new ImageView[4];
-        this.eHr[1] = this.eHo;
-        this.eHr[2] = this.eHp;
-        this.eHr[3] = this.eHq;
+        this.eHs = new ImageView[4];
+        this.eHs[1] = this.eHp;
+        this.eHs[2] = this.eHq;
+        this.eHs[3] = this.eHr;
     }
 
     public void a(GroupInfoData groupInfoData) {
         if (groupInfoData != null) {
-            this.eHj.setTag(null);
-            this.eHj.setDrawBorder(true);
-            this.eHj.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+            this.eHk.setTag(null);
+            this.eHk.setDrawBorder(true);
+            this.eHk.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
             String portrait = groupInfoData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
-                this.eHj.setTag(portrait);
-                this.eHj.startLoad(portrait, 10, false);
+                this.eHk.setTag(portrait);
+                this.eHk.startLoad(portrait, 10, false);
             }
-            this.eHk.setText(groupInfoData.getName());
-            this.eHl.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
-            this.eHm.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
-            this.eHn.setText(groupInfoData.getIntro().trim());
-            a(this.eHr, groupInfoData.getGrade());
+            this.eHl.setText(groupInfoData.getName());
+            this.eHm.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
+            this.eHn.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
+            this.eHo.setText(groupInfoData.getIntro().trim());
+            a(this.eHs, groupInfoData.getGrade());
             if (groupInfoData.isMemGroup()) {
-                al.c(this.eHk, e.d.common_color_10009, 1);
-                al.c(this.eHo, e.f.icon_vip_grade_big_small_s);
+                al.c(this.eHl, e.d.common_color_10009, 1);
                 al.c(this.eHp, e.f.icon_vip_grade_big_small_s);
                 al.c(this.eHq, e.f.icon_vip_grade_big_small_s);
+                al.c(this.eHr, e.f.icon_vip_grade_big_small_s);
             }
         }
     }

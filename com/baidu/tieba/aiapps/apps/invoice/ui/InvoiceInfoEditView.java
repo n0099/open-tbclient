@@ -72,7 +72,7 @@ public class InvoiceInfoEditView extends FrameLayout implements f {
                     InvoiceInfoEditView.this.bDn.setDisplayedChild(1);
                 }
                 if (InvoiceInfoEditView.this.bDs != null) {
-                    InvoiceInfoEditView.this.bDs.Xi();
+                    InvoiceInfoEditView.this.bDs.Xj();
                 }
             }
         };
@@ -92,7 +92,7 @@ public class InvoiceInfoEditView extends FrameLayout implements f {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                InvoiceInfoEditView.this.Xn();
+                InvoiceInfoEditView.this.Xo();
             }
         };
         this.bDp.setTextChangedListener(this.bDq);
@@ -105,20 +105,20 @@ public class InvoiceInfoEditView extends FrameLayout implements f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Xn() {
+    public void Xo() {
         if (this.bDs != null) {
-            if (Xk()) {
-                this.bDs.Xg();
-            } else {
+            if (Xl()) {
                 this.bDs.Xh();
+            } else {
+                this.bDs.Xi();
             }
         }
     }
 
     @Override // com.baidu.tieba.aiapps.apps.invoice.f
-    public boolean Xk() {
+    public boolean Xl() {
         f currentInvoiceView = getCurrentInvoiceView();
-        return currentInvoiceView != null && currentInvoiceView.Xk();
+        return currentInvoiceView != null && currentInvoiceView.Xl();
     }
 
     @Override // com.baidu.tieba.aiapps.apps.invoice.f
@@ -143,9 +143,9 @@ public class InvoiceInfoEditView extends FrameLayout implements f {
     }
 
     @Override // com.baidu.tieba.aiapps.apps.invoice.f
-    public boolean Xl() {
+    public boolean Xm() {
         f currentInvoiceView = getCurrentInvoiceView();
-        return currentInvoiceView != null && currentInvoiceView.Xl();
+        return currentInvoiceView != null && currentInvoiceView.Xm();
     }
 
     private f getCurrentInvoiceView() {

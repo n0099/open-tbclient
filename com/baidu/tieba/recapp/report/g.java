@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g implements d {
-    private TbHttpMessageTask gIU;
+    private TbHttpMessageTask gIV;
     private HttpMessageListener cFV = new HttpMessageListener(CmdConfigHttp.CMD_AD_UPLOAD) { // from class: com.baidu.tieba.recapp.report.g.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -29,7 +29,7 @@ public class g implements d {
             }
         }
     };
-    private ArrayList<b> gIV = new ArrayList<>();
+    private ArrayList<b> gIW = new ArrayList<>();
 
     public g() {
         aZD();
@@ -37,10 +37,10 @@ public class g implements d {
     }
 
     private void aZD() {
-        this.gIU = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "https://als.baidu.com/clog/clog");
-        this.gIU.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        this.gIU.setIsNeedAddCommenParam(true);
-        this.gIU.setResponsedClass(JsonHttpResponsedMessage.class);
+        this.gIV = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "https://als.baidu.com/clog/clog");
+        this.gIV.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        this.gIV.setIsNeedAddCommenParam(true);
+        this.gIV.setResponsedClass(JsonHttpResponsedMessage.class);
     }
 
     @Override // com.baidu.tieba.recapp.report.d
@@ -48,7 +48,7 @@ public class g implements d {
         if (bVar != null) {
             com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
             if (!(adAdSense == null || adAdSense.Fd())) {
-                this.gIU.setUrl("http://als.baidu.com/clog/clog");
+                this.gIV.setUrl("http://als.baidu.com/clog/clog");
             }
             d(bVar);
             bui();
@@ -68,9 +68,9 @@ public class g implements d {
     }
 
     private void bui() {
-        if (v.I(this.gIV) > 0) {
-            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.gIV), this.gIU);
-            this.gIV.clear();
+        if (v.I(this.gIW) > 0) {
+            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.gIW), this.gIV);
+            this.gIW.clear();
         }
     }
 
@@ -87,10 +87,10 @@ public class g implements d {
 
     private void d(b bVar) {
         if (bVar != null) {
-            if (v.I(this.gIV) >= 20) {
-                this.gIV.remove(0);
+            if (v.I(this.gIW) >= 20) {
+                this.gIW.remove(0);
             }
-            this.gIV.add(bVar);
+            this.gIW.add(bVar);
         }
     }
 }

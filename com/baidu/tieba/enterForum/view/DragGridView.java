@@ -62,18 +62,18 @@ public class DragGridView extends GridView implements AdapterView.OnItemLongClic
     public boolean onTouchEvent(MotionEvent motionEvent) {
         this.dia = (int) motionEvent.getRawX();
         this.dib = (int) motionEvent.getRawY();
-        if (com.baidu.tieba.enterForum.model.a.auj().isDragging()) {
+        if (com.baidu.tieba.enterForum.model.a.auk().isDragging()) {
             switch (motionEvent.getAction()) {
                 case 1:
                 case 3:
                     e.jI().removeCallbacks(this.mScrollRunnable);
-                    com.baidu.tieba.enterForum.model.a.auj().aum();
+                    com.baidu.tieba.enterForum.model.a.auk().aun();
                     this.dic.kD(-1);
                     this.dic.notifyDataChanged();
                     break;
                 case 2:
                     this.mOffset = com.baidu.tieba.enterForum.model.b.b(motionEvent.getY(), this.did, getHeight());
-                    com.baidu.tieba.enterForum.model.a.auj().aE(this.dia, this.dib - this.mOffset);
+                    com.baidu.tieba.enterForum.model.a.auk().aE(this.dia, this.dib - this.mOffset);
                     aG((int) motionEvent.getX(), ((int) motionEvent.getY()) - this.mOffset);
                     break;
             }
@@ -86,7 +86,7 @@ public class DragGridView extends GridView implements AdapterView.OnItemLongClic
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         TiebaStatic.eventStat(getContext(), "list_drag_order", null);
         this.dhZ = i;
-        com.baidu.tieba.enterForum.model.a.auj().a(getContext(), view, this.dia, this.dib);
+        com.baidu.tieba.enterForum.model.a.auk().a(getContext(), view, this.dia, this.dib);
         this.dic.kD(i);
         this.dic.notifyDataChanged();
         this.did = view.getHeight();

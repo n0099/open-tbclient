@@ -28,7 +28,7 @@ public class b {
         return this.mRootView;
     }
 
-    public ImageView apQ() {
+    public ImageView apR() {
         return this.cVX;
     }
 

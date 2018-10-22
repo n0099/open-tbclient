@@ -11,13 +11,13 @@ import com.baidu.tbadk.util.x;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class d extends a {
-    private static d eQU = new d();
+    private static d eQV = new d();
 
     private d() {
     }
 
     public static d aSV() {
-        return eQU;
+        return eQV;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,8 +29,8 @@ public class d extends a {
             return null;
         }
         String str3 = str + "@" + str2;
-        synchronized (this.eQN) {
-            ChatSetting chatSetting = this.eQN.get(str3);
+        synchronized (this.eQO) {
+            ChatSetting chatSetting = this.eQO.get(str3);
             officialSettingItemData = (chatSetting == null || !(chatSetting instanceof OfficialSettingItemData)) ? null : (OfficialSettingItemData) chatSetting;
         }
         if (officialSettingItemData == null) {
@@ -76,8 +76,8 @@ public class d extends a {
             l<String> aSS = aSS();
             String str = myUid + "@" + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(officialSettingItemData);
-            synchronized (this.eQN) {
-                this.eQN.put(str, officialSettingItemData);
+            synchronized (this.eQO) {
+                this.eQO.put(str, officialSettingItemData);
             }
             aSS.e(str, jsonStrWithObject);
         }
@@ -96,8 +96,8 @@ public class d extends a {
                 return;
             }
             final String str = myUid + "@" + toUid;
-            synchronized (this.eQN) {
-                this.eQN.put(str, officialSettingItemData);
+            synchronized (this.eQO) {
+                this.eQO.put(str, officialSettingItemData);
             }
             x.b(new w<Void>() { // from class: com.baidu.tieba.im.settingcache.d.1
                 /* JADX DEBUG: Method merged with bridge method */

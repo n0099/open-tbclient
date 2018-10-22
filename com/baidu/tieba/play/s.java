@@ -1,17 +1,17 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public class s {
-    private int fDd = 0;
-    private int gvO = 0;
+    private int fDe = 0;
+    private int gvP = 0;
     private boolean dHa = false;
-    private boolean gvP = true;
+    private boolean gvQ = true;
 
     public int bqA() {
-        return this.fDd;
+        return this.fDe;
     }
 
     public int bqB() {
-        return this.gvO;
+        return this.gvP;
     }
 
     public boolean bqC() {
@@ -19,16 +19,16 @@ public class s {
     }
 
     public boolean bqD() {
-        return this.gvP;
+        return this.gvQ;
     }
 
     public void h(int i, int i2, boolean z) {
-        this.fDd = i;
-        this.gvO = i2;
+        this.fDe = i;
+        this.gvP = i2;
         this.dHa = z;
     }
 
     public void jk(boolean z) {
-        this.gvP = z;
+        this.gvQ = z;
     }
 }

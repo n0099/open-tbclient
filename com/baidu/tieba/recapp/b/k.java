@@ -23,20 +23,20 @@ import java.util.concurrent.TimeUnit;
 public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore.data.l, l> implements m {
     private CustomMessageListener bnX;
     protected BaseActivity bwX;
-    private CustomMessageListener erU;
-    private boolean gDE;
-    private CustomMessageListener gDF;
-    protected WeakReference<l> gDG;
+    private CustomMessageListener erV;
+    private boolean gDF;
+    private CustomMessageListener gDG;
+    protected WeakReference<l> gDH;
     private boolean mIsFromCDN;
 
     public k(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.gDE = true;
-        this.erU = new CustomMessageListener(2004013) { // from class: com.baidu.tieba.recapp.b.k.1
+        this.gDF = true;
+        this.erV = new CustomMessageListener(2004013) { // from class: com.baidu.tieba.recapp.b.k.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (k.this.viewholder != null && k.this.gDE) {
+                if (k.this.viewholder != null && k.this.gDF) {
                     int playStatus = ((l) k.this.viewholder).getPlayStatus();
                     if (((l) k.this.viewholder).cX(k.this.mContext)) {
                         if (playStatus == -1) {
@@ -55,7 +55,7 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
                 k.this.aXe();
             }
         };
-        this.gDF = new CustomMessageListener(2004020) { // from class: com.baidu.tieba.recapp.b.k.3
+        this.gDG = new CustomMessageListener(2004020) { // from class: com.baidu.tieba.recapp.b.k.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -64,10 +64,10 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
                 }
             }
         };
-        this.gDG = null;
+        this.gDH = null;
         this.bwX = baseActivity;
-        this.bwX.registerListener(this.erU);
-        this.bwX.registerListener(this.gDF);
+        this.bwX.registerListener(this.erV);
+        this.bwX.registerListener(this.gDG);
         this.bwX.registerListener(this.bnX);
     }
 
@@ -148,12 +148,12 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
         this.bwX.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
         this.bwX.getLayoutMode().onModeChanged(view);
         com.baidu.tbadk.core.data.b.a(lVar);
-        if (!lVar.hcT) {
+        if (!lVar.hcU) {
             com.baidu.tbadk.distribute.a.Ku().a(lVar.px(), lVar.forumId, lVar.threadId, lVar.bBS(), "show", lVar.pageNumber);
-            lVar.hcT = true;
+            lVar.hcU = true;
         }
         if (lVar != null) {
-            com.baidu.tbadk.distribute.a.aTh = lVar.dRk;
+            com.baidu.tbadk.distribute.a.aTh = lVar.dRl;
         }
         final AdvertAppInfo px = lVar.px();
         if (px.advertAppContext == null) {
@@ -206,8 +206,8 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
                 com.baidu.tieba.recapp.download.g.a(k.this.bwX.getPageContext().getPageActivity(), advertAppInfo, i3, k.this.b(advertAppInfo, str));
             }
         });
-        if (this.gDG == null || this.gDG.get() != lVar2) {
-            this.gDG = new WeakReference<>(lVar2);
+        if (this.gDH == null || this.gDH.get() != lVar2) {
+            this.gDH = new WeakReference<>(lVar2);
         }
         aXe();
         return view;
@@ -257,8 +257,8 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
     }
 
     public void aXe() {
-        l lVar = this.gDG != null ? this.gDG.get() : null;
-        if (lVar != null && !(lVar.dRz instanceof CriusAdCardView)) {
+        l lVar = this.gDH != null ? this.gDH.get() : null;
+        if (lVar != null && !(lVar.dRA instanceof CriusAdCardView)) {
             lVar.aXe();
         }
     }

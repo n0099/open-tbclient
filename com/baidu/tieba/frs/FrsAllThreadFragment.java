@@ -32,16 +32,16 @@ public class FrsAllThreadFragment extends BaseFragment implements aj {
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void azk() {
+    public void azl() {
         if (this.dzF != null) {
             this.dzF.scrollToPosition(0);
         }
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void ZF() {
+    public void ZG() {
         if (this.bMJ != null) {
-            azk();
+            azl();
             this.bMJ.setRefreshing(true);
         }
     }

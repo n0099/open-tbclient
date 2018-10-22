@@ -42,7 +42,7 @@ public class b {
                     b.this.bJY.setOnClickListener(null);
                     if (b.this.hasMore) {
                         b.this.bJY.showLoading();
-                        b.this.dGO.aCa();
+                        b.this.dGO.aCb();
                         return;
                     }
                     b.this.bJY.setText(b.this.dGO.getResources().getString(e.j.list_has_no_more));
@@ -62,7 +62,7 @@ public class b {
                 if (b.this.dCs != null) {
                     b.this.dCs.b(b.this.bMI.getFirstVisiblePosition(), b.this.bMI.getLastVisiblePosition(), this.dHa, true);
                 }
-                v.aoo().fh(true);
+                v.aop().fh(true);
             }
         }
 

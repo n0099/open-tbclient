@@ -9,15 +9,15 @@ import tbclient.Personalized.LiveAnswer;
 public class g extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     public String akf;
-    public int eoE;
     public int eoF;
+    public int eoG;
     public String imgUrl;
 
     public void a(LiveAnswer liveAnswer) {
         if (liveAnswer != null) {
             this.imgUrl = liveAnswer.banner_url;
-            this.eoE = liveAnswer.banner_high.intValue();
-            this.eoF = liveAnswer.banner_width.intValue();
+            this.eoF = liveAnswer.banner_high.intValue();
+            this.eoG = liveAnswer.banner_width.intValue();
             this.akf = liveAnswer.jump_url;
         }
     }
@@ -30,9 +30,9 @@ public class g extends com.baidu.tieba.card.data.b {
     public String toString() {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("img_width", this.eoF);
+            jSONObject.put("img_width", this.eoG);
             jSONObject.put(BigdayActivityConfig.IMG_URL, this.imgUrl);
-            jSONObject.put("img_height", this.eoE);
+            jSONObject.put("img_height", this.eoF);
             jSONObject.put(BigdayActivityConfig.JUMP_URL, this.akf);
             return jSONObject.toString();
         } catch (JSONException e) {

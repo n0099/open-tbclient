@@ -10,14 +10,14 @@ import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.h> {
     private TbImageView asX;
-    private View gqZ;
+    private View gra;
     private View mRootView;
 
     public f(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.mRootView = getView();
         this.asX = (TbImageView) this.mRootView.findViewById(e.g.center_image);
-        this.gqZ = this.mRootView.findViewById(e.g.more_view_container);
+        this.gra = this.mRootView.findViewById(e.g.more_view_container);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -40,7 +40,7 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (hVar == null) {
             this.mRootView.setVisibility(8);
         }
-        ViewGroup.LayoutParams layoutParams = this.gqZ.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.gra.getLayoutParams();
         if (layoutParams != null) {
             if (layoutParams.width > 0) {
                 layoutParams.width = hVar.width;
@@ -49,7 +49,7 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
                 layoutParams.height = hVar.height;
             }
         }
-        this.gqZ.setLayoutParams(layoutParams);
+        this.gra.setLayoutParams(layoutParams);
         this.mRootView.setVisibility(0);
         d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }

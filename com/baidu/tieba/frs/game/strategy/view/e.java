@@ -74,7 +74,7 @@ public class e {
         return this.mRootView;
     }
 
-    public NavigationBar aaD() {
+    public NavigationBar aaE() {
         return this.mNavigationBar;
     }
 
@@ -107,9 +107,9 @@ public class e {
         this.dMt.onDestory();
     }
 
-    public void ZF() {
+    public void ZG() {
         if (this.dMt != null) {
-            this.dMt.ZF();
+            this.dMt.ZG();
         }
     }
 }

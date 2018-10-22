@@ -39,7 +39,7 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
     private CacheModel.a<com.baidu.tieba.chosen.posts.request.b> cUR;
     private com.baidu.adp.framework.listener.a cUS;
 
-    private void apx() {
+    private void apy() {
         SocketMessageTask socketMessageTask = new SocketMessageTask(307007);
         socketMessageTask.x(true);
         socketMessageTask.setResponsedClass(UnlikeSocketReponse.class);
@@ -47,7 +47,7 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
         MessageManager.getInstance().registerTask(socketMessageTask);
     }
 
-    private void amx() {
+    private void amy() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, com.baidu.tieba.tbadkCore.a.a.aT(TbConfig.HOT_THREAD_UNLIKE, 307007));
         tbHttpMessageTask.setResponsedClass(UnlikeHttpResponse.class);
@@ -75,7 +75,7 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
                     bVar2.setUniqueId(ChosenPostModelController.this.getUniqueId());
                     ChosenPostModelController.this.cUM.Ny().dispatchMvcEvent(bVar2);
                 }
-                ChosenPostModelController.this.cUQ.apD();
+                ChosenPostModelController.this.cUQ.apE();
                 ChosenPostModelController.this.cUN.Nj();
             }
 
@@ -98,8 +98,8 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
             }
         };
         this.cUM = chosenPostActivity;
-        amx();
-        apx();
+        amy();
+        apy();
         registerListener(this.cUS);
     }
 
@@ -124,17 +124,17 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean apy() {
+    public boolean apz() {
         this.cUO.MU();
         return true;
     }
 
     protected boolean a(com.baidu.tieba.chosen.posts.request.a aVar, com.baidu.tieba.chosen.posts.request.b bVar) {
-        this.cUM.apw().a(bVar);
+        this.cUM.apx().a(bVar);
         if (bVar != null) {
             this.cUP.cm(false);
             this.cUP.cn(false);
-            this.cUM.apw().b(this.cUP);
+            this.cUM.apx().b(this.cUP);
             return true;
         }
         return true;
@@ -151,21 +151,21 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean fs(boolean z) {
         this.cUP.cm(true);
-        this.cUM.apw().b(this.cUP);
+        this.cUM.apx().b(this.cUP);
         ft(true);
-        this.cUQ.apD();
+        this.cUQ.apE();
         this.cUN.Nj();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean apz() {
-        this.cUQ.apD();
+    public boolean apA() {
+        this.cUQ.apE();
         this.cUN.Nj();
         this.cUP.cn(true);
         this.cUP.cp(true);
         ft(false);
-        this.cUM.apw().b(this.cUP);
+        this.cUM.apx().b(this.cUP);
         return true;
     }
 
@@ -201,7 +201,7 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             this.cUM.a(errorData);
-            this.cUM.apw().a(errorData);
+            this.cUM.apx().a(errorData);
         }
     }
 
@@ -226,7 +226,7 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             this.cUM.a(errorData);
-            this.cUM.apw().a(errorData);
+            this.cUM.apx().a(errorData);
         }
     }
 

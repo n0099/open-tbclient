@@ -9,7 +9,7 @@ import tbclient.UserBfbInfo;
 /* loaded from: classes3.dex */
 public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     com.baidu.adp.framework.listener.a cVx;
-    private a egP;
+    private a egQ;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -25,8 +25,8 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
                     if ((responsedMessage instanceof BfbInfoHttpResponseMessage) || (responsedMessage instanceof BfbInfoSocketResponseMessage)) {
                         UserBfbInfo userBfbInfo = null;
                         if (responsedMessage.getError() != 0) {
-                            if (BfbInfoModel.this.egP != null) {
-                                BfbInfoModel.this.egP.a(responsedMessage.getError(), responsedMessage.getErrorString(), null);
+                            if (BfbInfoModel.this.egQ != null) {
+                                BfbInfoModel.this.egQ.a(responsedMessage.getError(), responsedMessage.getErrorString(), null);
                                 return;
                             }
                             return;
@@ -36,15 +36,15 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
                         } else if (responsedMessage instanceof BfbInfoSocketResponseMessage) {
                             userBfbInfo = ((BfbInfoSocketResponseMessage) responsedMessage).getBfbInfo();
                         }
-                        if (BfbInfoModel.this.egP != null) {
-                            BfbInfoModel.this.egP.a(responsedMessage.getError(), responsedMessage.getErrorString(), userBfbInfo);
+                        if (BfbInfoModel.this.egQ != null) {
+                            BfbInfoModel.this.egQ.a(responsedMessage.getError(), responsedMessage.getErrorString(), userBfbInfo);
                         }
                     }
                 }
             }
         };
         aIy();
-        amU();
+        amV();
     }
 
     private void aIy() {
@@ -52,7 +52,7 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
         com.baidu.tieba.tbadkCore.a.a.a(309366, CmdConfigHttp.CMD_GET_BFB_INFO, TbConfig.GET_BFB_INFO, BfbInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    private void amU() {
+    private void amV() {
         registerListener(this.cVx);
     }
 
@@ -68,7 +68,7 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     }
 
     public void a(a aVar) {
-        this.egP = aVar;
+        this.egQ = aVar;
     }
 
     public void aIz() {

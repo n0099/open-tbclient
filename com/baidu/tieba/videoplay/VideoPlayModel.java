@@ -21,11 +21,11 @@ public class VideoPlayModel extends BdBaseModel {
     public static final String TYPE_CALL_FROM_FRS = "client_frs";
     public static final String TYPE_CALL_FROM_INDEX = "client_index";
     public static final String TYPE_CALL_FROM_OTHER = "client_other";
-    private String dWS;
-    private VideoPlayActivity hCL;
-    private a hCM;
-    private VideoItemData hCN;
-    private HttpMessageListener hCO;
+    private String dWT;
+    private VideoPlayActivity hCM;
+    private a hCN;
+    private VideoItemData hCO;
+    private HttpMessageListener hCP;
     private String mFrom;
     private String mLocate;
     private int mPn;
@@ -46,8 +46,8 @@ public class VideoPlayModel extends BdBaseModel {
 
     public VideoPlayModel(VideoPlayActivity videoPlayActivity) {
         super(videoPlayActivity.getPageContext());
-        this.dWS = "client_other";
-        this.hCO = new HttpMessageListener(CmdConfigHttp.CMD_GET_NANI_VIDEO) { // from class: com.baidu.tieba.videoplay.VideoPlayModel.1
+        this.dWT = "client_other";
+        this.hCP = new HttpMessageListener(CmdConfigHttp.CMD_GET_NANI_VIDEO) { // from class: com.baidu.tieba.videoplay.VideoPlayModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -55,11 +55,11 @@ public class VideoPlayModel extends BdBaseModel {
                     ResponseGetNaniVideoMessage responseGetNaniVideoMessage = (ResponseGetNaniVideoMessage) httpResponsedMessage;
                     if (responseGetNaniVideoMessage.getError() == 0) {
                         TbSingleton.getInstance().clearVideoRecord();
-                        if (VideoPlayModel.this.hCM != null) {
+                        if (VideoPlayModel.this.hCN != null) {
                             if (VideoPlayModel.this.mPn == 1) {
-                                VideoPlayModel.this.hCM.q(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
+                                VideoPlayModel.this.hCN.q(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
                             } else {
-                                VideoPlayModel.this.hCM.r(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
+                                VideoPlayModel.this.hCN.r(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
                             }
                         }
                         VideoPlayModel.c(VideoPlayModel.this);
@@ -67,8 +67,8 @@ public class VideoPlayModel extends BdBaseModel {
                 }
             }
         };
-        this.hCL = videoPlayActivity;
-        registerListener(this.hCO);
+        this.hCM = videoPlayActivity;
+        registerListener(this.hCP);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -86,7 +86,7 @@ public class VideoPlayModel extends BdBaseModel {
         if (videoItemData != null) {
             this.mStType = str;
             this.mLocate = str2;
-            this.hCN = videoItemData;
+            this.hCO = videoItemData;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_NANI_VIDEO);
             httpMessage.addParam("tid", videoItemData.thread_id);
             httpMessage.addParam("st_type", str);
@@ -95,21 +95,21 @@ public class VideoPlayModel extends BdBaseModel {
             httpMessage.addParam(Config.PACKAGE_NAME, this.mPn);
             httpMessage.addParam("user_view_data", aGy());
             if ("frs".equals(this.mFrom)) {
-                this.dWS = "client_frs";
+                this.dWT = "client_frs";
             } else if ("index".equals(this.mFrom)) {
-                this.dWS = "client_index";
+                this.dWT = "client_index";
             } else {
-                this.dWS = "client_other";
+                this.dWT = "client_other";
             }
-            httpMessage.addParam(IntentConfig.CALL_FROM, this.dWS);
+            httpMessage.addParam(IntentConfig.CALL_FROM, this.dWT);
             sendMessage(httpMessage);
         }
     }
 
-    public void YK() {
-        if (this.hCN != null) {
+    public void YL() {
+        if (this.hCO != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_NANI_VIDEO);
-            httpMessage.addParam("tid", this.hCN.thread_id);
+            httpMessage.addParam("tid", this.hCO.thread_id);
             httpMessage.addParam("st_type", this.mStType);
             httpMessage.addParam("yuelaou_locate", this.mLocate);
             httpMessage.addParam("is_vertical", "1");
@@ -146,6 +146,6 @@ public class VideoPlayModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.hCM = aVar;
+        this.hCN = aVar;
     }
 }

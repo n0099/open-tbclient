@@ -60,20 +60,20 @@ public class a implements e<com.baidu.adp.widget.ImageView.a> {
             return null;
         }
         com.baidu.adp.widget.ImageView.a aVar5 = null;
-        ArrayList<com.baidu.tbadk.editortools.emotiontool.c> aty = com.baidu.tieba.emotion.editortool.e.atw().aty();
-        if (com.baidu.tieba.emotion.editortool.e.atw().mC(valueOf2) && valueOf3.booleanValue() && !new File(com.baidu.tieba.emotion.editortool.e.atw().H(valueOf2, true)).exists()) {
+        ArrayList<com.baidu.tbadk.editortools.emotiontool.c> atz = com.baidu.tieba.emotion.editortool.e.atx().atz();
+        if (com.baidu.tieba.emotion.editortool.e.atx().mC(valueOf2) && valueOf3.booleanValue() && !new File(com.baidu.tieba.emotion.editortool.e.atx().H(valueOf2, true)).exists()) {
             valueOf3 = false;
         }
         boolean booleanValue = valueOf3.booleanValue();
-        if (com.baidu.tieba.emotion.editortool.e.atw().mE(valueOf2) && valueOf3.booleanValue()) {
-            String H = com.baidu.tieba.emotion.editortool.e.atw().H(valueOf2, true);
-            valueOf = com.baidu.tieba.emotion.editortool.e.atw().mD(valueOf2);
+        if (com.baidu.tieba.emotion.editortool.e.atx().mE(valueOf2) && valueOf3.booleanValue()) {
+            String H = com.baidu.tieba.emotion.editortool.e.atx().H(valueOf2, true);
+            valueOf = com.baidu.tieba.emotion.editortool.e.atx().mD(valueOf2);
             if (!new File(l.FH + "/" + TbConfig.getTempDirName() + "/.emotions/" + valueOf + "/" + H).exists()) {
                 valueOf3 = false;
                 str3 = valueOf;
                 if (!valueOf3.booleanValue()) {
-                    String H2 = com.baidu.tieba.emotion.editortool.e.atw().H(valueOf2, true);
-                    Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = aty.iterator();
+                    String H2 = com.baidu.tieba.emotion.editortool.e.atx().H(valueOf2, true);
+                    Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = atz.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             aVar4 = null;
@@ -93,9 +93,9 @@ public class a implements e<com.baidu.adp.widget.ImageView.a> {
                     }
                     return aVar4;
                 }
-                String H3 = com.baidu.tieba.emotion.editortool.e.atw().H(valueOf2, false);
-                String replaceFirst = (booleanValue && com.baidu.tieba.emotion.editortool.e.atw().mE(valueOf2)) ? H3.replaceFirst("s_", "d_") : H3;
-                Iterator<com.baidu.tbadk.editortools.emotiontool.c> it2 = aty.iterator();
+                String H3 = com.baidu.tieba.emotion.editortool.e.atx().H(valueOf2, false);
+                String replaceFirst = (booleanValue && com.baidu.tieba.emotion.editortool.e.atx().mE(valueOf2)) ? H3.replaceFirst("s_", "d_") : H3;
+                Iterator<com.baidu.tbadk.editortools.emotiontool.c> it2 = atz.iterator();
                 while (true) {
                     if (!it2.hasNext()) {
                         aVar2 = aVar5;
@@ -144,7 +144,7 @@ public class a implements e<com.baidu.adp.widget.ImageView.a> {
             return null;
         }
         synchronized (BitmapHelper.lockForSyncImageDecoder) {
-            String H = com.baidu.tieba.emotion.editortool.e.atw().H(valueOf2, valueOf3.booleanValue());
+            String H = com.baidu.tieba.emotion.editortool.e.atx().H(valueOf2, valueOf3.booleanValue());
             String str3 = ".emotions/" + valueOf;
             if (valueOf3.booleanValue()) {
                 com.baidu.adp.lib.Disk.ops.a aVar3 = new com.baidu.adp.lib.Disk.ops.a(str3, H, DiskFileOperate.Action.WRITE);
@@ -159,7 +159,7 @@ public class a implements e<com.baidu.adp.widget.ImageView.a> {
                     eVar.f(aVar3);
                     aVar.Ds = eVar;
                 }
-                Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = com.baidu.tieba.emotion.editortool.e.atw().aty().iterator();
+                Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = com.baidu.tieba.emotion.editortool.e.atx().atz().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         aVar2 = null;

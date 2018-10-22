@@ -7,21 +7,21 @@ import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 /* loaded from: classes3.dex */
 public class c {
     private com.baidu.tieba.play.c dFk;
-    private g dWO;
-    private com.baidu.tieba.frs.aggregation.g dWP;
-    private ValueAnimator dWQ;
+    private g dWP;
+    private com.baidu.tieba.frs.aggregation.g dWQ;
+    private ValueAnimator dWR;
     private View rootView;
 
     public void a(g gVar) {
-        this.dWO = gVar;
+        this.dWP = gVar;
     }
 
     public com.baidu.tieba.frs.aggregation.g aGx() {
-        if (this.dWP == null) {
-            this.dWP = new com.baidu.tieba.frs.aggregation.g();
+        if (this.dWQ == null) {
+            this.dWQ = new com.baidu.tieba.frs.aggregation.g();
         }
-        a(this.dWP, this.dWO.aGB());
-        return this.dWP;
+        a(this.dWQ, this.dWP.aGB());
+        return this.dWQ;
     }
 
     private void a(com.baidu.tieba.frs.aggregation.g gVar, VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo) {
@@ -70,7 +70,7 @@ public class c {
         }
     }
 
-    public void aBK() {
+    public void aBL() {
         if (this.dFk != null) {
             this.dFk.destroy();
             this.dFk = null;
@@ -78,13 +78,13 @@ public class c {
     }
 
     public void onDestroy() {
-        if (this.dWQ != null) {
-            this.dWQ.cancel();
-            this.dWQ = null;
+        if (this.dWR != null) {
+            this.dWR.cancel();
+            this.dWR = null;
         }
         if (this.rootView != null) {
             this.rootView.clearAnimation();
         }
-        aBK();
+        aBL();
     }
 }

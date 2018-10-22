@@ -21,7 +21,7 @@ public class c extends com.baidu.tieba.card.b<s> {
     private View.OnClickListener aAK;
     private com.baidu.tieba.horizonalList.widget.b cMl;
     private HListView cMu;
-    public t dZq;
+    public t dZr;
     private List<com.baidu.tieba.horizonalList.widget.c> mItemList;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -29,8 +29,8 @@ public class c extends com.baidu.tieba.card.b<s> {
         this.aAK = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.anO() != null) {
-                    c.this.anO().a(view, null);
+                if (c.this.anP() != null) {
+                    c.this.anP().a(view, null);
                 }
             }
         };
@@ -38,8 +38,8 @@ public class c extends com.baidu.tieba.card.b<s> {
         this.cMu.setHeaderDividersEnabled(false);
         this.cMu.setFooterDividersEnabled(false);
         this.cMu.setSelector(e.f.list_selector_transparent);
-        this.dZq = new t(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(e.h.frs_school_recommend_user, (ViewGroup) null), tbPageContext, bdUniqueId);
-        this.cMl = new com.baidu.tieba.horizonalList.widget.b(getContext(), e.h.frs_school_recommend_user, this.dZq);
+        this.dZr = new t(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(e.h.frs_school_recommend_user, (ViewGroup) null), tbPageContext, bdUniqueId);
+        this.cMl = new com.baidu.tieba.horizonalList.widget.b(getContext(), e.h.frs_school_recommend_user, this.dZr);
         this.cMl.setOnClickListener(this.aAK);
         this.cMu.setAdapter((ListAdapter) this.cMl);
         this.cKA.addView(this.cMu);

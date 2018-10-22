@@ -44,7 +44,7 @@ import com.baidu.tieba.im.groupInfo.GroupImageActivity;
 import com.baidu.tieba.im.updategroup.UpdateGroupActivity;
 /* loaded from: classes3.dex */
 public class GroupActivityStatic {
-    public static final BdUniqueId egM = BdUniqueId.gen();
+    public static final BdUniqueId egN = BdUniqueId.gen();
 
     static {
         TbadkApplication.getInst().RegisterIntent(GroupSettingActivityConfig.class, GroupSettingActivity.class);
@@ -78,7 +78,7 @@ public class GroupActivityStatic {
     }
 
     private static void aIv() {
-        ab.aBk().lH(4);
+        ab.aBl().lH(4);
         MessageManager.getInstance().registerListener(new CustomMessageListener(2003008) { // from class: com.baidu.tieba.group.GroupActivityStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -87,7 +87,7 @@ public class GroupActivityStatic {
                     AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
                     absDelegateAdapterList.add(new e(null, GroupInfoData.TYPE_FRS_GROUP));
                     absDelegateAdapterList.add(new com.baidu.tieba.im.frsgroup.a(null, GroupPermData.TYPE_FRS_CREATE_GROUP));
-                    absDelegateAdapterList.add(new g(null, h.eHt));
+                    absDelegateAdapterList.add(new g(null, h.eHu));
                 }
             }
         });
@@ -97,7 +97,7 @@ public class GroupActivityStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof aa)) {
                     d dVar = new d();
-                    dVar.setTag(GroupActivityStatic.egM);
+                    dVar.setTag(GroupActivityStatic.egN);
                     ((aa) customResponsedMessage.getData()).a(4, dVar);
                 }
             }

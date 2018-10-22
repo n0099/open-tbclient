@@ -27,7 +27,7 @@ public class e implements h {
         this.userId = str;
     }
 
-    public String ayi() {
+    public String ayj() {
         return this.dwF;
     }
 

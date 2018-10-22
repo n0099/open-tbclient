@@ -9,10 +9,10 @@ import java.lang.reflect.Type;
 import java.util.Collection;
 /* loaded from: classes2.dex */
 public final class b implements p {
-    private final com.google.gson.internal.b ijT;
+    private final com.google.gson.internal.b ijU;
 
     public b(com.google.gson.internal.b bVar) {
-        this.ijT = bVar;
+        this.ijU = bVar;
     }
 
     @Override // com.google.gson.p
@@ -23,13 +23,13 @@ public final class b implements p {
             return null;
         }
         Type a2 = C$Gson$Types.a(bZr, (Class<?>) bZq);
-        return new a(dVar, a2, dVar.a(com.google.gson.b.a.l(a2)), this.ijT.b(aVar));
+        return new a(dVar, a2, dVar.a(com.google.gson.b.a.l(a2)), this.ijU.b(aVar));
     }
 
     /* loaded from: classes2.dex */
     private static final class a<E> extends o<Collection<E>> {
-        private final o<E> ilp;
-        private final com.google.gson.internal.e<? extends Collection<E>> ilq;
+        private final o<E> ilq;
+        private final com.google.gson.internal.e<? extends Collection<E>> ilr;
 
         @Override // com.google.gson.o
         public /* bridge */ /* synthetic */ void a(com.google.gson.stream.b bVar, Object obj) throws IOException {
@@ -37,8 +37,8 @@ public final class b implements p {
         }
 
         public a(com.google.gson.d dVar, Type type, o<E> oVar, com.google.gson.internal.e<? extends Collection<E>> eVar) {
-            this.ilp = new m(dVar, oVar, type);
-            this.ilq = eVar;
+            this.ilq = new m(dVar, oVar, type);
+            this.ilr = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -49,10 +49,10 @@ public final class b implements p {
                 aVar.nextNull();
                 return null;
             }
-            Collection<E> bYS = this.ilq.bYS();
+            Collection<E> bYS = this.ilr.bYS();
             aVar.beginArray();
             while (aVar.hasNext()) {
-                bYS.add(this.ilp.b(aVar));
+                bYS.add(this.ilq.b(aVar));
             }
             aVar.endArray();
             return bYS;
@@ -65,7 +65,7 @@ public final class b implements p {
             }
             bVar.bZl();
             for (E e : collection) {
-                this.ilp.a(bVar, e);
+                this.ilq.a(bVar, e);
             }
             bVar.bZm();
         }

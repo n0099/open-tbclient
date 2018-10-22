@@ -11,11 +11,11 @@ public class f {
     private String follow_time;
     private String user_id;
 
-    public String apc() {
+    public String apd() {
         return this.cSV;
     }
 
-    public String apd() {
+    public String ape() {
         return this.channel_name;
     }
 
@@ -23,7 +23,7 @@ public class f {
         return this.description;
     }
 
-    public String ape() {
+    public String apf() {
         return this.channel_avatar;
     }
 

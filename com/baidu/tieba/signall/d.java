@@ -14,11 +14,11 @@ public class d implements ae {
     private String forumName;
     private boolean gTA;
     private boolean gTB;
-    private int gTC;
-    private int gTv;
+    private boolean gTC;
+    private int gTD;
     private int gTw;
     private int gTx;
-    private boolean gTy;
+    private int gTy;
     private boolean gTz;
 
     public int getForumId() {
@@ -34,7 +34,7 @@ public class d implements ae {
     }
 
     public int byt() {
-        return this.gTv;
+        return this.gTw;
     }
 
     public int byu() {
@@ -46,15 +46,15 @@ public class d implements ae {
     }
 
     public int byw() {
-        return this.gTw;
-    }
-
-    public int byx() {
         return this.gTx;
     }
 
+    public int byx() {
+        return this.gTy;
+    }
+
     public void uf(int i) {
-        this.gTv = i;
+        this.gTw = i;
     }
 
     public void ug(int i) {
@@ -65,38 +65,38 @@ public class d implements ae {
         this.cZc = i;
     }
 
-    public boolean Zu() {
-        return this.gTy;
+    public boolean Zv() {
+        return this.gTz;
     }
 
     public void mS(boolean z) {
-        this.gTy = z;
-        this.gTv = 1;
+        this.gTz = z;
+        this.gTw = 1;
     }
 
     public boolean byy() {
-        return this.gTA;
-    }
-
-    public void mT(boolean z) {
-        this.gTA = z;
-        this.gTv = 0;
-    }
-
-    public boolean byz() {
         return this.gTB;
     }
 
-    public void mU(boolean z) {
+    public void mT(boolean z) {
         this.gTB = z;
+        this.gTw = 0;
     }
 
-    public int byA() {
+    public boolean byz() {
         return this.gTC;
     }
 
+    public void mU(boolean z) {
+        this.gTC = z;
+    }
+
+    public int byA() {
+        return this.gTD;
+    }
+
     public void ui(int i) {
-        this.gTC = i;
+        this.gTD = i;
     }
 
     public void setErrorMsg(String str) {
@@ -104,11 +104,11 @@ public class d implements ae {
     }
 
     public boolean byB() {
-        return this.gTz;
+        return this.gTA;
     }
 
     public void mV(boolean z) {
-        this.gTz = z;
+        this.gTA = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -116,14 +116,14 @@ public class d implements ae {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString("avatar");
-            this.gTv = jSONObject.optInt("is_sign_in");
+            this.gTw = jSONObject.optInt("is_sign_in");
             this.bMu = jSONObject.optInt("cont_sign_num");
             this.cZc = jSONObject.optInt("user_level");
-            this.gTw = jSONObject.optInt("user_exp");
-            this.gTx = jSONObject.optInt("need_exp");
-            if (this.gTv != 0) {
-                this.gTy = true;
-                this.gTA = false;
+            this.gTx = jSONObject.optInt("user_exp");
+            this.gTy = jSONObject.optInt("need_exp");
+            if (this.gTw != 0) {
+                this.gTz = true;
+                this.gTB = false;
             }
         }
     }

@@ -23,23 +23,23 @@ import tbclient.FrsPage.RecmForumInfo;
 public class a extends com.baidu.tbadk.k.a {
     protected TbImageView aZd;
     protected TextView aZe;
-    private BdListView dXK;
-    private C0195a dXL;
-    private TextView dXM;
+    private BdListView dXL;
+    private C0195a dXM;
+    private TextView dXN;
     private View mDivider;
     private com.baidu.adp.base.e mPageContext;
     private TextView mTitleView;
 
     /* loaded from: classes6.dex */
     public static class b {
-        public TextView dXQ;
         public TextView dXR;
         public TextView dXS;
-        public ImageView dXT;
-        public TbImageView dXU;
-        public TextView dXV;
+        public TextView dXT;
+        public ImageView dXU;
+        public TbImageView dXV;
         public TextView dXW;
-        public ImageView dXX;
+        public TextView dXX;
+        public ImageView dXY;
         public View divider;
         public View rootView;
     }
@@ -50,10 +50,10 @@ public class a extends com.baidu.tbadk.k.a {
         this.aZd = (TbImageView) this.aYV.findViewById(e.g.net_refresh_image);
         this.aZe = (TextView) this.aYV.findViewById(e.g.net_refresh_desc);
         this.mDivider = this.aYV.findViewById(e.g.divider);
-        this.dXK = (BdListView) this.aYV.findViewById(e.g.recommend_bar_listview);
+        this.dXL = (BdListView) this.aYV.findViewById(e.g.recommend_bar_listview);
         this.aYV.setOnClickListener(null);
         this.mTitleView = (TextView) this.aYV.findViewById(e.g.content_title);
-        this.dXM = (TextView) this.aYV.findViewById(e.g.local_tip_tv);
+        this.dXN = (TextView) this.aYV.findViewById(e.g.local_tip_tv);
     }
 
     public void hU(String str) {
@@ -67,8 +67,8 @@ public class a extends com.baidu.tbadk.k.a {
 
     public void bS(List<RecmForumInfo> list) {
         if (list != null) {
-            this.dXL = new C0195a(list);
-            this.dXK.setAdapter((ListAdapter) this.dXL);
+            this.dXM = new C0195a(list);
+            this.dXL.setAdapter((ListAdapter) this.dXM);
         }
     }
 
@@ -94,9 +94,9 @@ public class a extends com.baidu.tbadk.k.a {
             al.j(this.aYV, e.d.cp_bg_line_d);
             al.j(this.mDivider, e.d.cp_bg_line_c);
             al.b(this.mTitleView, e.d.cp_cont_d, 1, skinType);
-            al.b(this.dXM, e.d.cp_cont_f, 1, skinType);
-            if (this.dXL != null) {
-                this.dXL.notifyDataSetChanged();
+            al.b(this.dXN, e.d.cp_cont_f, 1, skinType);
+            if (this.dXM != null) {
+                this.dXM.notifyDataSetChanged();
             }
         }
     }
@@ -104,22 +104,22 @@ public class a extends com.baidu.tbadk.k.a {
     /* renamed from: com.baidu.tieba.frs.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public class C0195a extends BaseAdapter {
-        private List<RecmForumInfo> dXN;
+        private List<RecmForumInfo> dXO;
 
         public C0195a(List<RecmForumInfo> list) {
-            this.dXN = list;
+            this.dXO = list;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            return this.dXN.size();
+            return this.dXO.size();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
         /* renamed from: nd */
         public RecmForumInfo getItem(int i) {
-            return this.dXN.get(i);
+            return this.dXO.get(i);
         }
 
         @Override // android.widget.Adapter
@@ -134,25 +134,25 @@ public class a extends com.baidu.tbadk.k.a {
                 view = LayoutInflater.from(a.this.mPageContext.getPageActivity()).inflate(e.h.recommend_view, (ViewGroup) null);
                 b bVar2 = new b();
                 bVar2.rootView = view.findViewById(e.g.root_view);
-                bVar2.dXQ = (TextView) view.findViewById(e.g.forum_name);
-                bVar2.dXS = (TextView) view.findViewById(e.g.follow_tv);
-                bVar2.dXR = (TextView) view.findViewById(e.g.thread_tv);
-                bVar2.dXT = (ImageView) view.findViewById(e.g.arrow_item_img);
-                bVar2.dXU = (TbImageView) view.findViewById(e.g.headview);
-                bVar2.dXV = (TextView) view.findViewById(e.g.follow_title);
-                bVar2.dXW = (TextView) view.findViewById(e.g.thread_title);
+                bVar2.dXR = (TextView) view.findViewById(e.g.forum_name);
+                bVar2.dXT = (TextView) view.findViewById(e.g.follow_tv);
+                bVar2.dXS = (TextView) view.findViewById(e.g.thread_tv);
+                bVar2.dXU = (ImageView) view.findViewById(e.g.arrow_item_img);
+                bVar2.dXV = (TbImageView) view.findViewById(e.g.headview);
+                bVar2.dXW = (TextView) view.findViewById(e.g.follow_title);
+                bVar2.dXX = (TextView) view.findViewById(e.g.thread_title);
                 bVar2.divider = view.findViewById(e.g.divider_line);
-                bVar2.dXX = (ImageView) view.findViewById(e.g.content_img);
+                bVar2.dXY = (ImageView) view.findViewById(e.g.content_img);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
                 bVar = (b) view.getTag();
             }
             if (getItem(i) != null) {
-                bVar.dXQ.setText(ao.d(getItem(i).forum_name, 14, "..."));
-                bVar.dXU.startLoad(getItem(i).avatar, 10, false);
-                bVar.dXS.setText(ao.G(getItem(i).member_count.intValue()));
-                bVar.dXR.setText(ao.G(getItem(i).post_num.intValue()));
+                bVar.dXR.setText(ao.d(getItem(i).forum_name, 14, "..."));
+                bVar.dXV.startLoad(getItem(i).avatar, 10, false);
+                bVar.dXT.setText(ao.G(getItem(i).member_count.intValue()));
+                bVar.dXS.setText(ao.G(getItem(i).post_num.intValue()));
                 bVar.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
@@ -161,15 +161,15 @@ public class a extends com.baidu.tbadk.k.a {
                         }
                     }
                 });
-                al.h(bVar.dXQ, e.d.cp_cont_b);
+                al.h(bVar.dXR, e.d.cp_cont_b);
+                al.h(bVar.dXT, e.d.cp_cont_d);
                 al.h(bVar.dXS, e.d.cp_cont_d);
-                al.h(bVar.dXR, e.d.cp_cont_d);
+                al.h(bVar.dXX, e.d.cp_cont_d);
                 al.h(bVar.dXW, e.d.cp_cont_d);
-                al.h(bVar.dXV, e.d.cp_cont_d);
                 al.i(bVar.divider, e.d.cp_bg_line_c);
-                al.c(bVar.dXT, e.f.icon_arrow_gray_right_n);
+                al.c(bVar.dXU, e.f.icon_arrow_gray_right_n);
                 al.i(view, e.f.addresslist_item_bg);
-                al.i(bVar.dXX, e.f.picture_content_frame);
+                al.i(bVar.dXY, e.f.picture_content_frame);
             }
             return view;
         }

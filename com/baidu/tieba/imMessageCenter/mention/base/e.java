@@ -12,11 +12,11 @@ import java.util.List;
 public class e {
     private BdTypeRecyclerView bMI;
     private ArrayList<h> deX;
-    private b eXX;
     private b eXY;
     private b eXZ;
     private b eYa;
     private b eYb;
+    private b eYc;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new LinkedList();
 
     public e(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
@@ -27,16 +27,16 @@ public class e {
     }
 
     private void p(TbPageContext tbPageContext) {
-        this.eXX = new b(tbPageContext, a.eXF);
         this.eXY = new b(tbPageContext, a.eXG);
-        this.eXZ = new b(tbPageContext, a.eXJ);
-        this.eYa = new b(tbPageContext, a.eXI);
-        this.eYb = new b(tbPageContext, a.eXH);
-        this.mAdapters.add(this.eXX);
+        this.eXZ = new b(tbPageContext, a.eXH);
+        this.eYa = new b(tbPageContext, a.eXK);
+        this.eYb = new b(tbPageContext, a.eXJ);
+        this.eYc = new b(tbPageContext, a.eXI);
         this.mAdapters.add(this.eXY);
         this.mAdapters.add(this.eXZ);
         this.mAdapters.add(this.eYa);
         this.mAdapters.add(this.eYb);
+        this.mAdapters.add(this.eYc);
         this.bMI.addAdapters(this.mAdapters);
     }
 
@@ -63,8 +63,8 @@ public class e {
     }
 
     public void e(ad adVar) {
+        this.eYc.e(adVar);
         this.eYb.e(adVar);
         this.eYa.e(adVar);
-        this.eXZ.e(adVar);
     }
 }

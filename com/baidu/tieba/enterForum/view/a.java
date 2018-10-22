@@ -64,7 +64,7 @@ public class a {
         this.cTy.setLayoutParams(new AbsListView.LayoutParams(-1, l.h(this.dif.getActivity(), e.C0175e.ds0)));
     }
 
-    public View atZ() {
+    public View aua() {
         this.dih.kJ(l.h(this.dif.getPageContext().getPageActivity(), e.C0175e.ds20));
         return BdListViewHelper.a(this.dif.getPageContext().getPageActivity(), this.cwi, BdListViewHelper.HeadType.TIP);
     }
@@ -112,30 +112,30 @@ public class a {
         this.dii.b(fVar);
     }
 
-    public boolean aue() {
+    public boolean auf() {
         return this.dik;
     }
 
-    public BdListView auz() {
+    public BdListView auA() {
         return this.cwi;
     }
 
-    public void auA() {
+    public void auB() {
         bm(this.dii.getDataList());
     }
 
     public void kH(final int i) {
         this.dik = true;
-        if (this.dii.auu() == null) {
+        if (this.dii.auv() == null) {
             this.dii.createView();
-            this.dii.auu().setVisibility(8);
+            this.dii.auv().setVisibility(8);
         }
-        ForumEditView auu = this.dii.auu();
-        auu.onChangeSkinType(this.dif.getPageContext());
-        if (auu.getParent() == null && this.dif.atW() != null) {
-            new RelativeLayout.LayoutParams(-1, -1).addRule(3, this.dif.atQ().getId());
-            this.dif.atQ().addView(auu);
-            this.dif.atV();
+        ForumEditView auv = this.dii.auv();
+        auv.onChangeSkinType(this.dif.getPageContext());
+        if (auv.getParent() == null && this.dif.atX() != null) {
+            new RelativeLayout.LayoutParams(-1, -1).addRule(3, this.dif.atR().getId());
+            this.dif.atR().addView(auv);
+            this.dif.atW();
         }
         this.dii.bj(this.dil);
         com.baidu.adp.lib.g.e.jI().post(new Runnable() { // from class: com.baidu.tieba.enterForum.view.a.2
@@ -145,8 +145,8 @@ public class a {
                 com.baidu.adp.lib.g.e.jI().post(new Runnable() { // from class: com.baidu.tieba.enterForum.view.a.2.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (a.this.dii.auu() != null) {
-                            a.this.dii.auu().setVisibility(0);
+                        if (a.this.dii.auv() != null) {
+                            a.this.dii.auv().setVisibility(0);
                             a.this.cwi.setVisibility(8);
                         }
                     }
@@ -155,40 +155,40 @@ public class a {
         });
     }
 
-    public boolean atA() {
+    public boolean atB() {
         if (this.dig != null) {
-            return this.dig.atA();
+            return this.dig.atB();
         }
         return false;
     }
 
-    public void auB() {
+    public void auC() {
         this.dik = false;
         this.cwi.setVisibility(0);
-        if (this.dii.auu() != null && this.dif.atQ() != null) {
-            this.dif.atQ().removeView(this.dii.auu());
-            this.dii.auu().setVisibility(8);
+        if (this.dii.auv() != null && this.dif.atR() != null) {
+            this.dif.atR().removeView(this.dii.auv());
+            this.dii.auv().setVisibility(8);
         }
-        this.dif.atV();
+        this.dif.atW();
     }
 
-    public void auC() {
+    public void auD() {
         this.dik = true;
         this.cwi.setVisibility(8);
-        if (this.dii.auu() != null) {
-            this.dii.auu().setVisibility(0);
+        if (this.dii.auv() != null) {
+            this.dii.auv().setVisibility(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void kI(int i) {
-        if (this.dii.auu() != null && this.cwi != null && this.cwi.getChildCount() > 0) {
+        if (this.dii.auv() != null && this.cwi != null && this.cwi.getChildCount() > 0) {
             int firstVisiblePosition = (this.cwi.getFirstVisiblePosition() * 2) - 1;
             if (firstVisiblePosition < 0) {
                 firstVisiblePosition = 0;
             }
             View childAt = this.cwi.getChildAt(0);
-            this.dii.auu().setSelectionFromTop(firstVisiblePosition, childAt != null ? childAt.getTop() : 0);
+            this.dii.auv().setSelectionFromTop(firstVisiblePosition, childAt != null ? childAt.getTop() : 0);
         }
     }
 
@@ -200,11 +200,11 @@ public class a {
         this.cwi.completePullRefreshPostDelayed(SystemScreenshotManager.DELAY_TIME);
     }
 
-    public List<f> auD() {
+    public List<f> auE() {
         return this.dil;
     }
 
-    public List<f> auE() {
+    public List<f> auF() {
         List<f> dataList = this.dii.getDataList();
         f fVar = (f) v.d(dataList, 0);
         if (fVar != null && fVar.getType() == 1) {
@@ -270,7 +270,7 @@ public class a {
             this.cwi.setVisibility(8);
             return;
         }
-        auB();
+        auC();
         this.dih.setVisibility(0);
     }
 
@@ -288,10 +288,10 @@ public class a {
         if (this.dih != null) {
             this.dih.onChangeSkinType(this.dif.getPageContext());
         }
-        if (this.dii.auu() != null && this.dii.auu().getVisibility() == 0) {
+        if (this.dii.auv() != null && this.dii.auv().getVisibility() == 0) {
             this.dii.onChangeSkinType(this.dif.getPageContext());
         }
-        if (this.dij.auy() != null) {
+        if (this.dij.auz() != null) {
             this.dij.onChangeSkinType();
         }
     }
@@ -306,13 +306,13 @@ public class a {
         }
     }
 
-    public void auF() {
+    public void auG() {
         if (TbadkCoreApplication.getCurrentAccount() == null && com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("enter_forum_login_tip", true)) {
             if (this.dim == null) {
                 this.dim = new CommonTipView(this.dif.getActivity());
             }
             this.dim.setText(e.j.enter_forum_login_tip);
-            this.dim.show(this.dif.atQ(), TbadkCoreApplication.getInst().getSkinType());
+            this.dim.show(this.dif.atR(), TbadkCoreApplication.getInst().getSkinType());
             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("enter_forum_login_tip", false);
         }
     }

@@ -9,10 +9,10 @@ public class d {
     private com.baidu.adp.lib.cache.l<byte[]> bLr;
 
     public d() {
-        ayd();
+        aye();
     }
 
-    public void ayd() {
+    public void aye() {
         if (this.bLr == null) {
             this.bLr = com.baidu.tbadk.core.c.a.Aq().ef("tb.forum_member_info");
         }
@@ -32,7 +32,7 @@ public class d {
     public void k(String str, byte[] bArr) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!StringUtils.isNull(str)) {
-            ayd();
+            aye();
             this.bLr.a(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
         }
     }

@@ -28,23 +28,23 @@ import java.util.ArrayList;
 public class d implements View.OnClickListener, a {
     private LinearLayout aFq;
     private AlertDialog asf;
-    private TextView gRx;
-    private View hpP;
+    private TextView gRy;
     private View hpQ;
-    private FlexibleHorizontalScrollView hpR;
+    private View hpR;
     private FlexibleHorizontalScrollView hpS;
-    private b hpT;
-    private c hpU;
-    private boolean hpV;
+    private FlexibleHorizontalScrollView hpT;
+    private b hpU;
+    private c hpV;
+    private boolean hpW;
     private Context mContext;
     private DialogInterface.OnDismissListener mOnDismissListener;
     private com.baidu.tbadk.coreExtra.c.d mShareItem;
     private TextView mTitle;
-    private static final int hpW = l.h(TbadkCoreApplication.getInst(), e.C0175e.ds90);
-    private static final int hpX = l.h(TbadkCoreApplication.getInst(), e.C0175e.ds96);
+    private static final int hpX = l.h(TbadkCoreApplication.getInst(), e.C0175e.ds90);
+    private static final int hpY = l.h(TbadkCoreApplication.getInst(), e.C0175e.ds96);
     private static final int bPz = l.h(TbadkCoreApplication.getInst(), e.C0175e.ds32);
-    private static final int hpY = l.h(TbadkCoreApplication.getInst(), e.C0175e.ds50);
-    private static final int hpZ = l.h(TbadkCoreApplication.getInst(), e.C0175e.fontsize24);
+    private static final int hpZ = l.h(TbadkCoreApplication.getInst(), e.C0175e.ds50);
+    private static final int hqa = l.h(TbadkCoreApplication.getInst(), e.C0175e.fontsize24);
     private static final int dyt = l.h(TbadkCoreApplication.getInst(), e.C0175e.ds1);
 
     public d(Context context) {
@@ -52,21 +52,12 @@ public class d implements View.OnClickListener, a {
         this.aFq = new LinearLayout(context);
         this.aFq.setOrientation(1);
         this.mTitle = new TextView(context);
-        this.mTitle.setTextSize(0, hpZ);
-        this.mTitle.setPadding(hpY, 0, hpY, 0);
+        this.mTitle.setTextSize(0, hqa);
+        this.mTitle.setPadding(hpZ, 0, hpZ, 0);
         this.mTitle.setGravity(17);
         this.mTitle.setText(e.j.transmit_share_add_experience);
-        this.mTitle.setLayoutParams(new LinearLayout.LayoutParams(-1, hpW));
+        this.mTitle.setLayoutParams(new LinearLayout.LayoutParams(-1, hpX));
         this.aFq.addView(this.mTitle);
-        this.hpP = new View(this.mContext);
-        this.hpP.setLayoutParams(new LinearLayout.LayoutParams(-1, dyt));
-        this.aFq.addView(this.hpP);
-        this.hpR = new FlexibleHorizontalScrollView(this.mContext);
-        this.hpR.setFillViewport(true);
-        this.hpR.setHorizontalScrollBarEnabled(false);
-        this.hpR.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        this.hpR.setVerticalScrollBarEnabled(false);
-        this.aFq.addView(this.hpR);
         this.hpQ = new View(this.mContext);
         this.hpQ.setLayoutParams(new LinearLayout.LayoutParams(-1, dyt));
         this.aFq.addView(this.hpQ);
@@ -76,24 +67,33 @@ public class d implements View.OnClickListener, a {
         this.hpS.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         this.hpS.setVerticalScrollBarEnabled(false);
         this.aFq.addView(this.hpS);
-        this.gRx = new TextView(context);
-        this.gRx.setTextSize(0, bPz);
-        this.gRx.setGravity(17);
-        this.gRx.setText(e.j.cancel);
-        this.gRx.setLayoutParams(new LinearLayout.LayoutParams(-1, hpX));
-        this.gRx.setOnClickListener(this);
-        this.aFq.addView(this.gRx);
-        this.hpT = new b(context);
-        this.hpU = new c(context);
-        this.hpT.a(this);
+        this.hpR = new View(this.mContext);
+        this.hpR.setLayoutParams(new LinearLayout.LayoutParams(-1, dyt));
+        this.aFq.addView(this.hpR);
+        this.hpT = new FlexibleHorizontalScrollView(this.mContext);
+        this.hpT.setFillViewport(true);
+        this.hpT.setHorizontalScrollBarEnabled(false);
+        this.hpT.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        this.hpT.setVerticalScrollBarEnabled(false);
+        this.aFq.addView(this.hpT);
+        this.gRy = new TextView(context);
+        this.gRy.setTextSize(0, bPz);
+        this.gRy.setGravity(17);
+        this.gRy.setText(e.j.cancel);
+        this.gRy.setLayoutParams(new LinearLayout.LayoutParams(-1, hpY));
+        this.gRy.setOnClickListener(this);
+        this.aFq.addView(this.gRy);
+        this.hpU = new b(context);
+        this.hpV = new c(context);
         this.hpU.a(this);
+        this.hpV.a(this);
     }
 
     public void a(ArrayList<TransmitForumData> arrayList, com.baidu.tbadk.coreExtra.c.d dVar, int i) {
         this.mShareItem = dVar;
-        this.hpT.a(dVar, arrayList, i);
+        this.hpU.a(dVar, arrayList, i);
         if (this.mShareItem.aOc) {
-            this.hpU.o(dVar);
+            this.hpV.o(dVar);
         }
     }
 
@@ -102,7 +102,7 @@ public class d implements View.OnClickListener, a {
     }
 
     public void nC(boolean z) {
-        this.hpV = z;
+        this.hpW = z;
     }
 
     public void show() {
@@ -117,8 +117,8 @@ public class d implements View.OnClickListener, a {
                     d.this.mOnDismissListener.onDismiss(dialogInterface);
                 }
                 MessageManager.getInstance().unRegisterTask(2001450);
-                if (d.this.hpT != null) {
-                    d.this.hpT.release();
+                if (d.this.hpU != null) {
+                    d.this.hpU.release();
                 }
             }
         });
@@ -130,22 +130,22 @@ public class d implements View.OnClickListener, a {
         window.setGravity(80);
         window.setLayout(-1, -2);
         window.setContentView(this.aFq);
-        aaS();
+        aaT();
     }
 
     private void bFN() {
-        if (this.hpV) {
-            this.hpR.addView(this.hpT.getView());
-            this.hpR.setVisibility(0);
-            this.hpP.setVisibility(0);
-        } else {
-            this.hpR.setVisibility(8);
-            this.hpP.setVisibility(8);
-        }
-        if (this.mShareItem.aOc) {
-            this.hpS.addView(this.hpU.bFM());
+        if (this.hpW) {
+            this.hpS.addView(this.hpU.getView());
+            this.hpS.setVisibility(0);
+            this.hpQ.setVisibility(0);
         } else {
             this.hpS.setVisibility(8);
+            this.hpQ.setVisibility(8);
+        }
+        if (this.mShareItem.aOc) {
+            this.hpT.addView(this.hpV.bFM());
+        } else {
+            this.hpT.setVisibility(8);
         }
     }
 
@@ -164,13 +164,13 @@ public class d implements View.OnClickListener, a {
         } else {
             this.mTitle.setText(e.j.transmit_share_not_include_outer);
         }
-        al.j(this.hpP, e.d.cp_bg_line_b);
         al.j(this.hpQ, e.d.cp_bg_line_b);
-        al.c(this.gRx, e.d.cp_cont_b, 1);
-        al.i(this.gRx, e.f.dialog_share_cancel_button_bg_selector);
+        al.j(this.hpR, e.d.cp_bg_line_b);
+        al.c(this.gRy, e.d.cp_cont_b, 1);
+        al.i(this.gRy, e.f.dialog_share_cancel_button_bg_selector);
     }
 
-    private void aaS() {
+    private void aaT() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001450, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.r.d.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
@@ -193,7 +193,7 @@ public class d implements View.OnClickListener, a {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gRx) {
+        if (view == this.gRy) {
             l("share_cancel", new Object[0]);
             dismiss();
         }

@@ -17,7 +17,7 @@ public class c {
     private Map<d, List<d>> bBW = new HashMap();
     private boolean isInited;
 
-    public static c WD() {
+    public static c WE() {
         if (bBX == null) {
             synchronized (c.class) {
                 if (bBX == null) {
@@ -29,23 +29,23 @@ public class c {
     }
 
     public void initData() {
-        l(WI());
+        l(WJ());
         this.isInited = true;
     }
 
-    public boolean WE() {
+    public boolean WF() {
         return this.isInited;
     }
 
-    public List<d> WF() {
+    public List<d> WG() {
         return this.bBU;
     }
 
-    public Map<d, List<d>> WG() {
+    public Map<d, List<d>> WH() {
         return this.bBV;
     }
 
-    public Map<d, List<d>> WH() {
+    public Map<d, List<d>> WI() {
         return this.bBW;
     }
 
@@ -59,10 +59,10 @@ public class c {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                     if (optJSONObject != null && (K = d.K(optJSONObject)) != null) {
                         this.bBU.add(K);
-                        if (K.WM()) {
+                        if (K.WN()) {
                             this.bBV.put(K, K.act);
                             for (d dVar : K.act) {
-                                if (dVar.WM()) {
+                                if (dVar.WN()) {
                                     this.bBW.put(dVar, dVar.act);
                                 }
                             }
@@ -76,7 +76,7 @@ public class c {
         }
     }
 
-    private JSONArray WI() {
+    private JSONArray WJ() {
         try {
             InputStream open = AppRuntime.getAppContext().getAssets().open("aiapps/pickerRegion.js");
             byte[] bArr = new byte[open.available()];

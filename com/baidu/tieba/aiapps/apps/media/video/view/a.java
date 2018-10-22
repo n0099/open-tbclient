@@ -37,7 +37,7 @@ public class a extends c implements AiAppsPlayerContext {
         AiAppsPlayerManager.addPlayerContext(this);
         a(new c.InterfaceC0258c() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.1
             @Override // com.baidu.tieba.play.c.InterfaceC0258c
-            public void XC() {
+            public void XD() {
                 if (!a.this.isFullScreen) {
                     a.this.isFullScreen = true;
                     if (a.this.mContainer != null) {
@@ -53,7 +53,7 @@ public class a extends c implements AiAppsPlayerContext {
                         viewGroup.addView(a.this.bpT());
                         a.this.dm(true);
                         if (bpH) {
-                            a.this.ffU.postDelayed(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.1.1
+                            a.this.ffV.postDelayed(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     a.this.aXE();
@@ -65,7 +65,7 @@ public class a extends c implements AiAppsPlayerContext {
             }
 
             @Override // com.baidu.tieba.play.c.InterfaceC0258c
-            public void XD() {
+            public void XE() {
                 if (a.this.isFullScreen) {
                     a.this.isFullScreen = false;
                     if (a.this.mContainer != null) {
@@ -84,7 +84,7 @@ public class a extends c implements AiAppsPlayerContext {
                         }
                         a.this.dm(false);
                         if (bpH) {
-                            a.this.ffU.postDelayed(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.1.2
+                            a.this.ffV.postDelayed(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.1.2
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     a.this.aXE();
@@ -115,7 +115,7 @@ public class a extends c implements AiAppsPlayerContext {
             }
 
             @Override // com.baidu.tieba.play.c.n
-            public void XE() {
+            public void XF() {
                 a.this.bFi = false;
             }
 
@@ -131,7 +131,7 @@ public class a extends c implements AiAppsPlayerContext {
             }
 
             @Override // com.baidu.tieba.play.c.n
-            public void XF() {
+            public void XG() {
                 com.baidu.tieba.aiapps.apps.media.video.c.a(a.this.getPlayerId(), a.this.getSlaveId(), "play", new JSONObject());
                 a.this.bFi = true;
             }
@@ -150,13 +150,13 @@ public class a extends c implements AiAppsPlayerContext {
         mb(false);
     }
 
-    public b XA() {
+    public b XB() {
         return this.bFe;
     }
 
     public void a(b bVar) {
         this.bFe = bVar;
-        XB();
+        XC();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -186,7 +186,7 @@ public class a extends c implements AiAppsPlayerContext {
         com.baidu.tieba.aiapps.apps.media.video.c.a(getPlayerId(), getSlaveId(), "fullscreenchange", jSONObject);
     }
 
-    private void XB() {
+    private void XC() {
         if (this.bFe.bES) {
             setVolume(0);
         }
@@ -311,7 +311,7 @@ public class a extends c implements AiAppsPlayerContext {
     public void aW(String str, String str2) {
         if (!j.kM()) {
             aKH();
-            e.jI().removeCallbacks(this.fgH);
+            e.jI().removeCallbacks(this.fgI);
             this.cPF.setVisibility(0);
             return;
         }

@@ -3,5 +3,5 @@ package com.baidu.tieba.frs.e;
 public interface c {
     public static final a dIB = new a();
 
-    a aCM();
+    a aCN();
 }

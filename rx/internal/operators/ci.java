@@ -7,8 +7,8 @@ import rx.d;
 import rx.subjects.UnicastSubject;
 /* loaded from: classes2.dex */
 public final class ci<T, U> implements d.b<rx.d<T>, T> {
-    static final Object iAy = new Object();
-    final rx.functions.e<? extends rx.d<? extends U>> iAD;
+    static final Object iAz = new Object();
+    final rx.functions.e<? extends rx.d<? extends U>> iAE;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -16,11 +16,11 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
     }
 
     public ci(rx.functions.e<? extends rx.d<? extends U>> eVar) {
-        this.iAD = eVar;
+        this.iAE = eVar;
     }
 
     public rx.j<? super T> call(rx.j<? super rx.d<T>> jVar) {
-        b bVar = new b(jVar, this.iAD);
+        b bVar = new b(jVar, this.iAE);
         jVar.add(bVar);
         bVar.ccx();
         return bVar;
@@ -31,16 +31,16 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
     public static final class b<T, U> extends rx.j<T> {
         final rx.j<? super rx.d<T>> child;
         boolean emitting;
-        rx.e<T> iAA;
-        rx.d<T> iAB;
-        List<Object> iAC;
-        final rx.functions.e<? extends rx.d<? extends U>> iAD;
+        rx.e<T> iAB;
+        rx.d<T> iAC;
+        List<Object> iAD;
+        final rx.functions.e<? extends rx.d<? extends U>> iAE;
         final Object guard = new Object();
         final rx.subscriptions.d serial = new rx.subscriptions.d();
 
         public b(rx.j<? super rx.d<T>> jVar, rx.functions.e<? extends rx.d<? extends U>> eVar) {
             this.child = new rx.b.f(jVar);
-            this.iAD = eVar;
+            this.iAE = eVar;
             add(this.serial);
         }
 
@@ -55,14 +55,14 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
             boolean z2 = false;
             synchronized (this.guard) {
                 if (this.emitting) {
-                    if (this.iAC == null) {
-                        this.iAC = new ArrayList();
+                    if (this.iAD == null) {
+                        this.iAD = new ArrayList();
                     }
-                    this.iAC.add(t);
+                    this.iAD.add(t);
                     return;
                 }
-                List<Object> list = this.iAC;
-                this.iAC = null;
+                List<Object> list = this.iAD;
+                this.iAD = null;
                 this.emitting = true;
                 List<Object> list2 = list;
                 boolean z3 = true;
@@ -76,8 +76,8 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
                         try {
                             synchronized (this.guard) {
                                 try {
-                                    list2 = this.iAC;
-                                    this.iAC = null;
+                                    list2 = this.iAD;
+                                    this.iAD = null;
                                     if (list2 == null) {
                                         this.emitting = false;
                                         return;
@@ -117,7 +117,7 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
         void eA(List<Object> list) {
             if (list != null) {
                 for (Object obj : list) {
-                    if (obj == ci.iAy) {
+                    if (obj == ci.iAz) {
                         ccv();
                     } else if (NotificationLite.ba(obj)) {
                         error(NotificationLite.bc(obj));
@@ -133,20 +133,20 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
         }
 
         void ccv() {
-            rx.e<T> eVar = this.iAA;
+            rx.e<T> eVar = this.iAB;
             if (eVar != null) {
                 eVar.onCompleted();
             }
             ccw();
-            this.child.onNext(this.iAB);
+            this.child.onNext(this.iAC);
         }
 
         void ccw() {
             UnicastSubject cdM = UnicastSubject.cdM();
-            this.iAA = cdM;
             this.iAB = cdM;
+            this.iAC = cdM;
             try {
-                rx.d<? extends U> call = this.iAD.call();
+                rx.d<? extends U> call = this.iAE.call();
                 a aVar = new a(this);
                 this.serial.g(aVar);
                 call.unsafeSubscribe(aVar);
@@ -157,7 +157,7 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
         }
 
         void bl(T t) {
-            rx.e<T> eVar = this.iAA;
+            rx.e<T> eVar = this.iAB;
             if (eVar != null) {
                 eVar.onNext(t);
             }
@@ -167,10 +167,10 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
         public void onError(Throwable th) {
             synchronized (this.guard) {
                 if (this.emitting) {
-                    this.iAC = Collections.singletonList(NotificationLite.M(th));
+                    this.iAD = Collections.singletonList(NotificationLite.M(th));
                     return;
                 }
-                this.iAC = null;
+                this.iAD = null;
                 this.emitting = true;
                 error(th);
             }
@@ -180,14 +180,14 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
         public void onCompleted() {
             synchronized (this.guard) {
                 if (this.emitting) {
-                    if (this.iAC == null) {
-                        this.iAC = new ArrayList();
+                    if (this.iAD == null) {
+                        this.iAD = new ArrayList();
                     }
-                    this.iAC.add(NotificationLite.cbH());
+                    this.iAD.add(NotificationLite.cbH());
                     return;
                 }
-                List<Object> list = this.iAC;
-                this.iAC = null;
+                List<Object> list = this.iAD;
+                this.iAD = null;
                 this.emitting = true;
                 try {
                     eA(list);
@@ -203,14 +203,14 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
             boolean z2 = false;
             synchronized (this.guard) {
                 if (this.emitting) {
-                    if (this.iAC == null) {
-                        this.iAC = new ArrayList();
+                    if (this.iAD == null) {
+                        this.iAD = new ArrayList();
                     }
-                    this.iAC.add(ci.iAy);
+                    this.iAD.add(ci.iAz);
                     return;
                 }
-                List<Object> list = this.iAC;
-                this.iAC = null;
+                List<Object> list = this.iAD;
+                this.iAD = null;
                 this.emitting = true;
                 List<Object> list2 = list;
                 boolean z3 = true;
@@ -224,8 +224,8 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
                         try {
                             synchronized (this.guard) {
                                 try {
-                                    list2 = this.iAC;
-                                    this.iAC = null;
+                                    list2 = this.iAD;
+                                    this.iAD = null;
                                     if (list2 == null) {
                                         this.emitting = false;
                                         return;
@@ -261,9 +261,9 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
         }
 
         void complete() {
-            rx.e<T> eVar = this.iAA;
-            this.iAA = null;
+            rx.e<T> eVar = this.iAB;
             this.iAB = null;
+            this.iAC = null;
             if (eVar != null) {
                 eVar.onCompleted();
             }
@@ -272,9 +272,9 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
         }
 
         void error(Throwable th) {
-            rx.e<T> eVar = this.iAA;
-            this.iAA = null;
+            rx.e<T> eVar = this.iAB;
             this.iAB = null;
+            this.iAC = null;
             if (eVar != null) {
                 eVar.onError(th);
             }
@@ -287,10 +287,10 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
     /* loaded from: classes2.dex */
     public static final class a<T, U> extends rx.j<U> {
         boolean done;
-        final b<T, U> iAE;
+        final b<T, U> iAF;
 
         public a(b<T, U> bVar) {
-            this.iAE = bVar;
+            this.iAF = bVar;
         }
 
         @Override // rx.j
@@ -302,20 +302,20 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
         public void onNext(U u) {
             if (!this.done) {
                 this.done = true;
-                this.iAE.ccx();
+                this.iAF.ccx();
             }
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.iAE.onError(th);
+            this.iAF.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
             if (!this.done) {
                 this.done = true;
-                this.iAE.onCompleted();
+                this.iAF.onCompleted();
             }
         }
     }

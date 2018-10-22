@@ -7,9 +7,9 @@ import android.os.SystemClock;
 /* loaded from: classes2.dex */
 public class b extends g implements Runnable {
     private int Es;
-    private boolean hZQ;
-    float hZR;
-    private boolean hZS;
+    private boolean hZR;
+    float hZS;
+    private boolean hZT;
 
     public b(Drawable drawable, int i) {
         this(drawable, i, true);
@@ -17,10 +17,10 @@ public class b extends g implements Runnable {
 
     public b(Drawable drawable, int i, boolean z) {
         super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.hZR = 0.0f;
-        this.hZS = false;
+        this.hZS = 0.0f;
+        this.hZT = false;
         this.Es = i;
-        this.hZQ = z;
+        this.hZR = z;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
@@ -29,9 +29,9 @@ public class b extends g implements Runnable {
         Rect bounds = getBounds();
         int i = bounds.right - bounds.left;
         int i2 = bounds.bottom - bounds.top;
-        float f = this.hZR;
-        if (!this.hZQ) {
-            f = 360.0f - this.hZR;
+        float f = this.hZS;
+        if (!this.hZR) {
+            f = 360.0f - this.hZS;
         }
         canvas.rotate(f, (i / 2) + bounds.left, bounds.top + (i2 / 2));
         super.draw(canvas);
@@ -41,14 +41,14 @@ public class b extends g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.hZS = false;
-        this.hZR += bTg();
+        this.hZT = false;
+        this.hZS += bTg();
         invalidateSelf();
     }
 
     private void bTf() {
-        if (!this.hZS) {
-            this.hZS = true;
+        if (!this.hZT) {
+            this.hZT = true;
             scheduleSelf(this, SystemClock.uptimeMillis() + 20);
         }
     }

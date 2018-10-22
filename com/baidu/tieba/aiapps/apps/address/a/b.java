@@ -80,8 +80,8 @@ public class b extends BaseAdapter implements a.InterfaceC0161a {
         this.bBI = aVar;
     }
 
-    public boolean Wo() {
-        return Wx();
+    public boolean Wp() {
+        return Wy();
     }
 
     @Override // android.widget.Adapter
@@ -116,7 +116,7 @@ public class b extends BaseAdapter implements a.InterfaceC0161a {
                 public void onClick(View view2) {
                     com.baidu.tieba.aiapps.apps.address.view.a aVar = new com.baidu.tieba.aiapps.apps.address.view.a(b.this.mContext);
                     aVar.a(b.this);
-                    aVar.WP();
+                    aVar.WQ();
                 }
             });
             this.bBG = editText;
@@ -198,7 +198,7 @@ public class b extends BaseAdapter implements a.InterfaceC0161a {
                     if (!TextUtils.equals(valueOf, "zipcode")) {
                         b.this.bBK.put(valueOf, true);
                     }
-                    if (b.this.Ww() && b.this.Wx()) {
+                    if (b.this.Wx() && b.this.Wy()) {
                         b.this.bBI.db(false);
                     }
                 } else if (!TextUtils.equals(valueOf, "zipcode")) {
@@ -210,7 +210,7 @@ public class b extends BaseAdapter implements a.InterfaceC0161a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Ww() {
+    public boolean Wx() {
         for (Boolean bool : this.bBK.values()) {
             if (!bool.booleanValue()) {
                 return false;
@@ -220,7 +220,7 @@ public class b extends BaseAdapter implements a.InterfaceC0161a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Wx() {
+    public boolean Wy() {
         for (Boolean bool : this.bBJ.values()) {
             if (bool.booleanValue()) {
                 return true;

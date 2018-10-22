@@ -9,7 +9,7 @@ public final class ax<T> implements d.b<Notification<T>, T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        static final ax<Object> iwX = new ax<>();
+        static final ax<Object> iwY = new ax<>();
     }
 
     @Override // rx.functions.f
@@ -18,7 +18,7 @@ public final class ax<T> implements d.b<Notification<T>, T> {
     }
 
     public static <T> ax<T> cbZ() {
-        return (ax<T>) a.iwX;
+        return (ax<T>) a.iwY;
     }
 
     ax() {
@@ -42,8 +42,8 @@ public final class ax<T> implements d.b<Notification<T>, T> {
     /* loaded from: classes2.dex */
     public static class b<T> extends rx.j<T> {
         private final rx.j<? super Notification<T>> child;
-        private volatile Notification<T> iwY;
-        private boolean iwZ;
+        private volatile Notification<T> iwZ;
+        private boolean ixa;
         private boolean missed;
         private final AtomicLong requested = new AtomicLong();
 
@@ -64,13 +64,13 @@ public final class ax<T> implements d.b<Notification<T>, T> {
 
         @Override // rx.e
         public void onCompleted() {
-            this.iwY = Notification.cbm();
+            this.iwZ = Notification.cbm();
             drain();
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.iwY = Notification.H(th);
+            this.iwZ = Notification.H(th);
             rx.c.c.onError(th);
             drain();
         }
@@ -94,15 +94,15 @@ public final class ax<T> implements d.b<Notification<T>, T> {
 
         private void drain() {
             synchronized (this) {
-                if (this.iwZ) {
+                if (this.ixa) {
                     this.missed = true;
                     return;
                 }
                 AtomicLong atomicLong = this.requested;
                 while (!this.child.isUnsubscribed()) {
-                    Notification<T> notification = this.iwY;
+                    Notification<T> notification = this.iwZ;
                     if (notification != null && atomicLong.get() > 0) {
-                        this.iwY = null;
+                        this.iwZ = null;
                         this.child.onNext(notification);
                         if (!this.child.isUnsubscribed()) {
                             this.child.onCompleted();
@@ -112,7 +112,7 @@ public final class ax<T> implements d.b<Notification<T>, T> {
                     }
                     synchronized (this) {
                         if (!this.missed) {
-                            this.iwZ = false;
+                            this.ixa = false;
                             return;
                         }
                     }

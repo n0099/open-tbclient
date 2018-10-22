@@ -7,11 +7,11 @@ import android.view.ViewConfiguration;
 public class a {
     float bSx;
     float bSy;
-    InterfaceC0318a ibu;
-    final float ibv;
-    boolean ibw;
+    InterfaceC0318a ibv;
+    final float ibw;
     boolean ibx;
-    long iby;
+    boolean iby;
+    long ibz;
 
     /* renamed from: com.facebook.drawee.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -20,7 +20,7 @@ public class a {
     }
 
     public a(Context context) {
-        this.ibv = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.ibw = ViewConfiguration.get(context).getScaledTouchSlop();
         init();
     }
 
@@ -29,51 +29,51 @@ public class a {
     }
 
     public void init() {
-        this.ibu = null;
+        this.ibv = null;
         reset();
     }
 
     public void reset() {
-        this.ibw = false;
         this.ibx = false;
+        this.iby = false;
     }
 
     public void a(InterfaceC0318a interfaceC0318a) {
-        this.ibu = interfaceC0318a;
+        this.ibv = interfaceC0318a;
     }
 
     public boolean bTU() {
-        return this.ibw;
+        return this.ibx;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.ibw = true;
                 this.ibx = true;
-                this.iby = motionEvent.getEventTime();
+                this.iby = true;
+                this.ibz = motionEvent.getEventTime();
                 this.bSx = motionEvent.getX();
                 this.bSy = motionEvent.getY();
                 break;
             case 1:
-                this.ibw = false;
-                if (Math.abs(motionEvent.getX() - this.bSx) > this.ibv || Math.abs(motionEvent.getY() - this.bSy) > this.ibv) {
-                    this.ibx = false;
-                }
-                if (this.ibx && motionEvent.getEventTime() - this.iby <= ViewConfiguration.getLongPressTimeout() && this.ibu != null) {
-                    this.ibu.bSR();
-                }
                 this.ibx = false;
+                if (Math.abs(motionEvent.getX() - this.bSx) > this.ibw || Math.abs(motionEvent.getY() - this.bSy) > this.ibw) {
+                    this.iby = false;
+                }
+                if (this.iby && motionEvent.getEventTime() - this.ibz <= ViewConfiguration.getLongPressTimeout() && this.ibv != null) {
+                    this.ibv.bSR();
+                }
+                this.iby = false;
                 break;
             case 2:
-                if (Math.abs(motionEvent.getX() - this.bSx) > this.ibv || Math.abs(motionEvent.getY() - this.bSy) > this.ibv) {
-                    this.ibx = false;
+                if (Math.abs(motionEvent.getX() - this.bSx) > this.ibw || Math.abs(motionEvent.getY() - this.bSy) > this.ibw) {
+                    this.iby = false;
                     break;
                 }
                 break;
             case 3:
-                this.ibw = false;
                 this.ibx = false;
+                this.iby = false;
                 break;
         }
         return true;

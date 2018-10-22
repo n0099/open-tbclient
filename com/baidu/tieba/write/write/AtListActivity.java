@@ -48,40 +48,40 @@ import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class AtListActivity extends BaseActivity<AtListActivity> implements AdapterView.OnItemClickListener, a.b {
     private NoNetworkView dgC;
-    private LinearLayout eUr;
-    private Button eUs;
-    private View eUw;
+    private ImageView eUA;
+    private LinearLayout eUs;
+    private Button eUt;
     private View eUx;
-    private ImageView eUz;
-    private TextView hND;
+    private View eUy;
     private TextView hNE;
-    private AtSelectFriendList hNw;
+    private TextView hNF;
+    private AtSelectFriendList hNx;
     private View mListFooter;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
-    protected ArrayList<MetaData> hNv = new ArrayList<>();
+    protected ArrayList<MetaData> hNw = new ArrayList<>();
     private EditText mEditText = null;
     private TextView bwH = null;
     private BdListView OE = null;
     private final Handler mHandler = new Handler();
-    private a hNx = null;
-    private b hNy = null;
-    private com.baidu.tieba.write.model.b hNz = null;
-    private com.baidu.tieba.write.write.a hNA = null;
-    private String hNB = null;
+    private a hNy = null;
+    private b hNz = null;
+    private com.baidu.tieba.write.model.b hNA = null;
+    private com.baidu.tieba.write.write.a hNB = null;
+    private String hNC = null;
     private ProgressBar mProgress = null;
     private RelativeLayout mParent = null;
-    private View hNC = null;
-    private final int hNF = 5;
-    private boolean hNG = true;
-    private boolean hNH = false;
-    private final Runnable hNI = new Runnable() { // from class: com.baidu.tieba.write.write.AtListActivity.1
+    private View hND = null;
+    private final int hNG = 5;
+    private boolean hNH = true;
+    private boolean hNI = false;
+    private final Runnable hNJ = new Runnable() { // from class: com.baidu.tieba.write.write.AtListActivity.1
         @Override // java.lang.Runnable
         public void run() {
             AtListActivity.this.xd(com.baidu.adp.lib.util.k.a(AtListActivity.this.mEditText.getText(), ""));
         }
     };
-    private NoNetworkView.a hla = new NoNetworkView.a() { // from class: com.baidu.tieba.write.write.AtListActivity.6
+    private NoNetworkView.a hlb = new NoNetworkView.a() { // from class: com.baidu.tieba.write.write.AtListActivity.6
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void bn(boolean z) {
             if (z) {
@@ -112,13 +112,13 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
         }
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         this.dgC.onChangeSkinType(getPageContext(), i);
-        this.hNA.notifyDataSetChanged();
+        this.hNB.notifyDataSetChanged();
         al.getColor(e.d.common_color_10221);
         al.i(this.mListFooter, e.f.invite_friend_list_item_bg_color);
-        al.i(this.eUs, e.f.post_button_bg);
-        al.c(this.eUs, e.d.cp_cont_i, 3);
-        al.a(this.eUz, e.f.icon_search_bg_s, e.f.icon_search_bg);
-        al.h(this.hNE, e.d.navi_back_text_color);
+        al.i(this.eUt, e.f.post_button_bg);
+        al.c(this.eUt, e.d.cp_cont_i, 3);
+        al.a(this.eUA, e.f.icon_search_bg_s, e.f.icon_search_bg);
+        al.h(this.hNF, e.d.navi_back_text_color);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -140,17 +140,17 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
             this.OE.setVisibility(8);
             this.mNoDataView.setVisibility(0);
             this.mNoDataView.setTextOption(NoDataViewFactory.d.dO(e.j.no_chat_friends));
-            this.eUr.setVisibility(8);
+            this.eUs.setVisibility(8);
         } else if (i == 1) {
             this.OE.setVisibility(8);
             this.mNoDataView.setVisibility(0);
             this.mNoDataView.setTextOption(NoDataViewFactory.d.dO(e.j.no_search_friends));
-            this.eUr.setVisibility(8);
+            this.eUs.setVisibility(8);
         } else if (i == 0) {
             this.OE.setVisibility(0);
             this.mNoDataView.setVisibility(8);
-            if (this.hNG) {
-                this.eUr.setVisibility(0);
+            if (this.hNH) {
+                this.eUs.setVisibility(0);
             }
         }
     }
@@ -158,26 +158,26 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         super.onItemClick(adapterView, view, i, j);
-        MetaData item = this.hNA.getItem(i);
+        MetaData item = this.hNB.getItem(i);
         if (item != null) {
-            if (this.hNG) {
-                if (this.hNx == null && this.hNy == null) {
+            if (this.hNH) {
+                if (this.hNy == null && this.hNz == null) {
                     if (item.isChecked()) {
                         e(item);
-                    } else if (5 <= this.hNw.getItemLength()) {
+                    } else if (5 <= this.hNx.getItemLength()) {
                         showToastWithIcon(String.format(getPageContext().getString(e.j.invite_friend_exceed_max_count), 5), e.f.icon_toast_game_error);
                         return;
                     } else {
                         d(item);
                     }
                     item.setChecked(item.isChecked() ? false : true);
-                    this.hNA.notifyDataSetChanged();
+                    this.hNB.notifyDataSetChanged();
                     return;
                 }
                 return;
             }
             l.a(getPageContext().getPageActivity(), this.mEditText);
-            if (this.hNH) {
+            if (this.hNI) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this, item.getUserIdLong(), item.getUserName(), item.getName_show(), item.getPortrait(), item.getGender(), item.getIsMyFriend())));
                 TiebaStatic.log(new am("c12930").h(VideoPlayActivityConfig.OBJ_ID, item.getUserIdLong()));
             }
@@ -196,13 +196,13 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.hNx != null) {
-            this.hNx.cancel();
-        }
         if (this.hNy != null) {
             this.hNy.cancel();
         }
-        this.mHandler.removeCallbacks(this.hNI);
+        if (this.hNz != null) {
+            this.hNz.cancel();
+        }
+        this.mHandler.removeCallbacks(this.hNJ);
         if (this.mProgress != null) {
             this.mProgress.setVisibility(8);
         }
@@ -212,7 +212,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
     private void initUI() {
         this.mParent = (RelativeLayout) findViewById(e.g.parent);
         this.mNoDataView = NoDataViewFactory.a(getPageContext().getContext(), this.mParent, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.h(getActivity(), e.C0175e.ds320)), NoDataViewFactory.d.dO(e.j.no_chat_friends), null, true);
-        this.hNC = findViewById(e.g.at_candidate_border);
+        this.hND = findViewById(e.g.at_candidate_border);
         this.mNoDataView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.write.write.AtListActivity.7
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -223,20 +223,20 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
                 return false;
             }
         });
-        axv();
+        axw();
         this.dgC = (NoNetworkView) findViewById(e.g.view_no_network);
-        this.dgC.a(this.hla);
+        this.dgC.a(this.hlb);
         this.mProgress = (ProgressBar) findViewById(e.g.progress);
         this.OE = (BdListView) findViewById(e.g.list);
-        this.hNA = new com.baidu.tieba.write.write.a(this, this.hNG);
-        this.hNA.a(this);
-        this.hNA.a(new TbCheckBox.a() { // from class: com.baidu.tieba.write.write.AtListActivity.8
+        this.hNB = new com.baidu.tieba.write.write.a(this, this.hNH);
+        this.hNB.a(this);
+        this.hNB.a(new TbCheckBox.a() { // from class: com.baidu.tieba.write.write.AtListActivity.8
             @Override // com.baidu.tbadk.core.view.TbCheckBox.a
             public void a(TbCheckBox tbCheckBox, boolean z, Object obj) {
                 if (obj != null && (obj instanceof MetaData)) {
                     if (!z) {
                         AtListActivity.this.e((MetaData) obj);
-                    } else if (5 <= AtListActivity.this.hNw.getItemLength()) {
+                    } else if (5 <= AtListActivity.this.hNx.getItemLength()) {
                         AtListActivity.this.showToastWithIcon(String.format(AtListActivity.this.getPageContext().getString(e.j.invite_friend_exceed_max_count), 5), e.f.icon_toast_game_error);
                         tbCheckBox.setChecked(false);
                         ((MetaData) obj).setChecked(false);
@@ -246,7 +246,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
                 }
             }
         });
-        this.OE.setAdapter((ListAdapter) this.hNA);
+        this.OE.setAdapter((ListAdapter) this.hNB);
         this.OE.setOnItemClickListener(this);
         this.OE.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.write.write.AtListActivity.9
             @Override // android.view.View.OnTouchListener
@@ -262,14 +262,14 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
             ((View) this.mEditText.getParent()).setFocusable(true);
             ((View) this.mEditText.getParent()).setFocusableInTouchMode(true);
         }
-        this.eUr = (LinearLayout) this.mParent.findViewById(e.g.invite_candidate);
-        this.eUs = (Button) this.mParent.findViewById(e.g.button_send);
-        this.eUs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AtListActivity.10
+        this.eUs = (LinearLayout) this.mParent.findViewById(e.g.invite_candidate);
+        this.eUt = (Button) this.mParent.findViewById(e.g.button_send);
+        this.eUt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AtListActivity.10
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Intent intent = new Intent();
                 Bundle bundle = new Bundle();
-                bundle.putStringArrayList("name_show", AtListActivity.this.hNw.getDataList());
+                bundle.putStringArrayList("name_show", AtListActivity.this.hNx.getDataList());
                 intent.putExtras(bundle);
                 l.a(AtListActivity.this.getPageContext().getPageActivity(), AtListActivity.this.mEditText);
                 AtListActivity.this.setResult(-1, intent);
@@ -277,9 +277,9 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
             }
         });
         pK(0);
-        this.hNw = (AtSelectFriendList) this.mParent.findViewById(e.g.candidate_list);
-        this.hNw.setMaxCount(5);
-        this.hNw.setItemOPerationHandler(new AtSelectFriendList.a() { // from class: com.baidu.tieba.write.write.AtListActivity.11
+        this.hNx = (AtSelectFriendList) this.mParent.findViewById(e.g.candidate_list);
+        this.hNx.setMaxCount(5);
+        this.hNx.setItemOPerationHandler(new AtSelectFriendList.a() { // from class: com.baidu.tieba.write.write.AtListActivity.11
             @Override // com.baidu.tieba.write.write.AtSelectFriendList.a
             public void b(View view, Object obj) {
                 if (obj != null) {
@@ -298,16 +298,16 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
         aUa();
     }
 
-    private void axv() {
+    private void axw() {
         this.mNavigationBar = (NavigationBar) findViewById(e.g.view_navigation_bar);
-        this.hNE = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(e.j.cancel), new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AtListActivity.12
+        this.hNF = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(e.j.cancel), new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AtListActivity.12
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AtListActivity.this.eUw != null && AtListActivity.this.eUw.getVisibility() == 0) {
+                if (AtListActivity.this.eUx != null && AtListActivity.this.eUx.getVisibility() == 0) {
                     l.a(AtListActivity.this.getPageContext().getPageActivity(), AtListActivity.this.mEditText);
-                    AtListActivity.this.eUw.setVisibility(8);
-                    AtListActivity.this.hND.setVisibility(0);
-                    AtListActivity.this.eUx.setVisibility(0);
+                    AtListActivity.this.eUx.setVisibility(8);
+                    AtListActivity.this.hNE.setVisibility(0);
+                    AtListActivity.this.eUy.setVisibility(0);
                     AtListActivity.this.mEditText.getText().clear();
                     return;
                 }
@@ -315,28 +315,28 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
                 AtListActivity.this.finish();
             }
         });
-        this.hND = this.mNavigationBar.setCenterTextTitle(getPageContext().getString(e.j.select_friend));
-        this.eUx = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.add_new_friend_text, new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AtListActivity.13
+        this.hNE = this.mNavigationBar.setCenterTextTitle(getPageContext().getString(e.j.select_friend));
+        this.eUy = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.add_new_friend_text, new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AtListActivity.13
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AtListActivity.this.hND.setVisibility(8);
-                AtListActivity.this.eUx.setVisibility(8);
-                AtListActivity.this.eUw.setVisibility(0);
+                AtListActivity.this.hNE.setVisibility(8);
+                AtListActivity.this.eUy.setVisibility(8);
+                AtListActivity.this.eUx.setVisibility(0);
                 AtListActivity.this.mEditText.requestFocus();
             }
         });
-        this.eUz = (ImageView) this.eUx.findViewById(e.g.new_friend_search);
-        this.eUw = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, e.h.navigationbar_search_edit, (View.OnClickListener) null);
-        this.eUw.setVisibility(8);
-        this.mEditText = (EditText) this.eUw.findViewById(e.g.search_bar_edit);
+        this.eUA = (ImageView) this.eUy.findViewById(e.g.new_friend_search);
+        this.eUx = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, e.h.navigationbar_search_edit, (View.OnClickListener) null);
+        this.eUx.setVisibility(8);
+        this.mEditText = (EditText) this.eUx.findViewById(e.g.search_bar_edit);
         this.mEditText.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.write.AtListActivity.2
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 String a2 = com.baidu.adp.lib.util.k.a(editable, null);
                 if (a2 != null) {
-                    if (!a2.equals(AtListActivity.this.hNB)) {
-                        AtListActivity.this.mHandler.removeCallbacks(AtListActivity.this.hNI);
-                        AtListActivity.this.mHandler.postDelayed(AtListActivity.this.hNI, 300L);
+                    if (!a2.equals(AtListActivity.this.hNC)) {
+                        AtListActivity.this.mHandler.removeCallbacks(AtListActivity.this.hNJ);
+                        AtListActivity.this.mHandler.postDelayed(AtListActivity.this.hNJ, 300L);
                     }
                     if (a2.length() > 0) {
                         AtListActivity.this.bwH.setVisibility(0);
@@ -348,7 +348,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
 
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                AtListActivity.this.hNB = com.baidu.adp.lib.util.k.a(charSequence, null);
+                AtListActivity.this.hNC = com.baidu.adp.lib.util.k.a(charSequence, null);
             }
 
             @Override // android.text.TextWatcher
@@ -395,13 +395,13 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
     /* JADX INFO: Access modifiers changed from: private */
     public void xd(String str) {
         if (!isFinishing()) {
-            this.hNA.setData(null);
-            if (this.hNx != null) {
-                this.hNx.cancel();
+            this.hNB.setData(null);
+            if (this.hNy != null) {
+                this.hNy.cancel();
             }
             if (str == null || str.length() == 0) {
-                if (this.hNz.bME() != null) {
-                    ArrayList<MetaData> bMv = this.hNz.bME().bMv();
+                if (this.hNA.bME() != null) {
+                    ArrayList<MetaData> bMv = this.hNA.bME().bMv();
                     Iterator<MetaData> it = bMv.iterator();
                     while (it.hasNext()) {
                         it.next().setChecked(false);
@@ -411,46 +411,46 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
                     } else {
                         wA(1);
                     }
-                    this.hNA.setData(bMv);
+                    this.hNB.setData(bMv);
                 } else {
-                    this.hNA.setData(null);
-                    if (this.hNy == null) {
-                        this.hNy = new b();
-                        this.hNy.setPriority(3);
-                        this.hNy.execute("");
+                    this.hNB.setData(null);
+                    if (this.hNz == null) {
+                        this.hNz = new b();
+                        this.hNz.setPriority(3);
+                        this.hNz.execute("");
                     }
                 }
             } else {
-                this.hNx = new a();
-                this.hNx.setPriority(2);
-                this.hNx.execute(str);
-                if (this.hNy == null && this.hNz.bME() == null) {
-                    this.hNy = new b();
-                    this.hNy.setPriority(3);
-                    this.hNy.execute("");
+                this.hNy = new a();
+                this.hNy.setPriority(2);
+                this.hNy.execute(str);
+                if (this.hNz == null && this.hNA.bME() == null) {
+                    this.hNz = new b();
+                    this.hNz.setPriority(3);
+                    this.hNz.execute("");
                 }
             }
-            this.hNA.notifyDataSetInvalidated();
+            this.hNB.notifyDataSetInvalidated();
             this.OE.setSelection(0);
         }
     }
 
     private void initData(Bundle bundle) {
-        this.hNz = new com.baidu.tieba.write.model.b();
+        this.hNA = new com.baidu.tieba.write.model.b();
         if (bundle != null) {
-            this.hNG = bundle.getBoolean(IntentConfig.IS_NEED_MULTIPLE);
-            this.hNH = bundle.getBoolean(AtListActivityConfig.IS_FOR_CHAT, false);
+            this.hNH = bundle.getBoolean(IntentConfig.IS_NEED_MULTIPLE);
+            this.hNI = bundle.getBoolean(AtListActivityConfig.IS_FOR_CHAT, false);
             return;
         }
-        this.hNG = getIntent().getBooleanExtra(IntentConfig.IS_NEED_MULTIPLE, true);
-        this.hNH = getIntent().getBooleanExtra(AtListActivityConfig.IS_FOR_CHAT, false);
+        this.hNH = getIntent().getBooleanExtra(IntentConfig.IS_NEED_MULTIPLE, true);
+        this.hNI = getIntent().getBooleanExtra(AtListActivityConfig.IS_FOR_CHAT, false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(MetaData metaData) {
         if (metaData != null) {
-            this.hNw.f(metaData);
-            pK(this.hNw.getItemLength());
+            this.hNx.f(metaData);
+            pK(this.hNx.getItemLength());
             aUb();
         }
     }
@@ -458,33 +458,33 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
     /* JADX INFO: Access modifiers changed from: private */
     public void e(MetaData metaData) {
         if (metaData != null) {
-            this.hNw.h(metaData);
-            pK(this.hNw.getItemLength());
+            this.hNx.h(metaData);
+            pK(this.hNx.getItemLength());
             aUb();
         }
     }
 
     private void aUb() {
-        if (this.hNw.getItemLength() > 0) {
-            this.eUs.setEnabled(true);
+        if (this.hNx.getItemLength() > 0) {
+            this.eUt.setEnabled(true);
         } else {
-            this.eUs.setEnabled(false);
+            this.eUt.setEnabled(false);
         }
     }
 
     private void pK(int i) {
-        this.eUs.setText(String.format(getPageContext().getString(e.j.at_friend_candidate_send), Integer.valueOf(i), 5));
+        this.eUt.setText(String.format(getPageContext().getString(e.j.at_friend_candidate_send), Integer.valueOf(i), 5));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<String, Integer, com.baidu.tieba.write.a.c> {
-        private String hNK;
+        private String hNL;
         private x mNetwork;
 
         private a() {
             this.mNetwork = null;
-            this.hNK = null;
+            this.hNL = null;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -496,8 +496,8 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            AtListActivity.this.hNx = null;
-            this.hNK = null;
+            AtListActivity.this.hNy = null;
+            this.hNL = null;
             AtListActivity.this.mProgress.setVisibility(8);
             super.cancel(true);
         }
@@ -507,15 +507,15 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: G */
         public com.baidu.tieba.write.a.c doInBackground(String... strArr) {
-            this.hNK = strArr[0];
+            this.hNL = strArr[0];
             this.mNetwork = new x();
-            if (this.hNK == null || this.hNK.length() <= 0) {
+            if (this.hNL == null || this.hNL.length() <= 0) {
                 return null;
             }
             this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + "c/u/follow/sug");
             this.mNetwork.x("uid", TbadkCoreApplication.getCurrentAccount());
-            this.mNetwork.x("q", this.hNK);
-            if (AtListActivity.this.hNH) {
+            this.mNetwork.x("q", this.hNL);
+            if (AtListActivity.this.hNI) {
                 this.mNetwork.x("from", "1");
             } else {
                 this.mNetwork.x("from", "0");
@@ -525,7 +525,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
                 return null;
             }
             com.baidu.tieba.write.a.c cVar = new com.baidu.tieba.write.a.c();
-            cVar.a(BA, AtListActivity.this.hNz.bME());
+            cVar.a(BA, AtListActivity.this.hNA.bME());
             return cVar;
         }
 
@@ -534,17 +534,17 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(com.baidu.tieba.write.a.c cVar) {
-            AtListActivity.this.hNx = null;
+            AtListActivity.this.hNy = null;
             AtListActivity.this.mProgress.setVisibility(8);
-            if (this.mNetwork.BY().CX().isRequestSuccess() && this.hNK != null && com.baidu.adp.lib.util.k.a(AtListActivity.this.mEditText.getText(), "").equals(this.hNK)) {
+            if (this.mNetwork.BY().CX().isRequestSuccess() && this.hNL != null && com.baidu.adp.lib.util.k.a(AtListActivity.this.mEditText.getText(), "").equals(this.hNL)) {
                 if (cVar == null || cVar.bMx().isEmpty()) {
                     AtListActivity.this.wA(1);
                 } else {
                     AtListActivity.this.wA(0);
                 }
-                AtListActivity.this.hNz.a(cVar);
-                AtListActivity.this.hNA.setData(cVar.bMx());
-                AtListActivity.this.hNA.notifyDataSetInvalidated();
+                AtListActivity.this.hNA.a(cVar);
+                AtListActivity.this.hNB.setData(cVar.bMx());
+                AtListActivity.this.hNB.notifyDataSetInvalidated();
                 AtListActivity.this.OE.setSelection(0);
             } else {
                 AtListActivity.this.showToast(this.mNetwork.getErrorString());
@@ -574,7 +574,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
             if (this.mNetwork != null) {
                 this.mNetwork.ji();
             }
-            AtListActivity.this.hNy = null;
+            AtListActivity.this.hNz = null;
             AtListActivity.this.mProgress.setVisibility(8);
             super.cancel(true);
         }
@@ -586,7 +586,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
         public com.baidu.tieba.write.a.b doInBackground(String... strArr) {
             this.mNetwork = new x();
             this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + "c/u/follow/list");
-            if (AtListActivity.this.hNH) {
+            if (AtListActivity.this.hNI) {
                 this.mNetwork.x("from", "1");
             } else {
                 this.mNetwork.x("from", "0");
@@ -605,21 +605,21 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(com.baidu.tieba.write.a.b bVar) {
-            AtListActivity.this.hNy = null;
+            AtListActivity.this.hNz = null;
             AtListActivity.this.mProgress.setVisibility(8);
-            if (AtListActivity.this.eUr != null && AtListActivity.this.eUr.getVisibility() == 0) {
-                AtListActivity.this.hNC.setVisibility(0);
+            if (AtListActivity.this.eUs != null && AtListActivity.this.eUs.getVisibility() == 0) {
+                AtListActivity.this.hND.setVisibility(0);
             }
             if (this.mNetwork.BY().CX().isRequestSuccess()) {
-                AtListActivity.this.hNz.a(bVar);
-                if (AtListActivity.this.hNA != null) {
+                AtListActivity.this.hNA.a(bVar);
+                if (AtListActivity.this.hNB != null) {
                     if (com.baidu.adp.lib.util.k.a(AtListActivity.this.mEditText.getText(), "").length() != 0) {
-                        if (AtListActivity.this.hNz.bMF() != null) {
+                        if (AtListActivity.this.hNA.bMF() != null) {
                             if (bVar != null && bVar.bMw() != null && !bVar.bMw().isEmpty()) {
                                 AtListActivity.this.wA(2);
                             }
-                            AtListActivity.this.hNz.bMF().v(bVar.bMw());
-                            AtListActivity.this.hNA.notifyDataSetInvalidated();
+                            AtListActivity.this.hNA.bMF().v(bVar.bMw());
+                            AtListActivity.this.hNB.notifyDataSetInvalidated();
                         }
                     } else {
                         if (bVar == null || bVar.bMv() == null || !bVar.bMv().isEmpty()) {
@@ -627,9 +627,9 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
                         } else {
                             AtListActivity.this.wA(2);
                         }
-                        AtListActivity.this.hNv = bVar.bMv();
-                        AtListActivity.this.hNA.setData(AtListActivity.this.hNv);
-                        AtListActivity.this.hNA.notifyDataSetInvalidated();
+                        AtListActivity.this.hNw = bVar.bMv();
+                        AtListActivity.this.hNB.setData(AtListActivity.this.hNw);
+                        AtListActivity.this.hNB.notifyDataSetInvalidated();
                         AtListActivity.this.OE.setSelection(0);
                     }
                 } else {
@@ -645,7 +645,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
     @Override // com.baidu.tieba.write.write.a.b
     public void a(View view, MetaData metaData) {
         if (metaData != null) {
-            this.hNw.g(metaData);
+            this.hNx.g(metaData);
         }
     }
 

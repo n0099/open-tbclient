@@ -19,20 +19,20 @@ import tbclient.AgreeList;
 import tbclient.AgreeMe.AgreeMeResIdl;
 /* loaded from: classes4.dex */
 public class b {
-    private a eXB;
-    private ArrayList<h> eXC;
+    private a eXC;
+    private ArrayList<h> eXD;
     public boolean hasMore;
     private BdUniqueId uniqueId;
-    private boolean eXz = false;
-    private long eXA = 0;
-    private com.baidu.adp.framework.listener.a eXD = new com.baidu.adp.framework.listener.a(CmdConfigHttp.AGREE_ME_HTTP_CMD, 309593) { // from class: com.baidu.tieba.imMessageCenter.mention.agree.b.1
+    private boolean eXA = false;
+    private long eXB = 0;
+    private com.baidu.adp.framework.listener.a eXE = new com.baidu.adp.framework.listener.a(CmdConfigHttp.AGREE_ME_HTTP_CMD, 309593) { // from class: com.baidu.tieba.imMessageCenter.mention.agree.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z = false;
             if (responsedMessage != null) {
                 if (responsedMessage.hasError()) {
-                    if (b.this.eXB != null) {
-                        b.this.eXB.nh(responsedMessage.getErrorString());
+                    if (b.this.eXC != null) {
+                        b.this.eXC.nh(responsedMessage.getErrorString());
                         return;
                     }
                     return;
@@ -68,8 +68,8 @@ public class b {
     public b(TbPageContext tbPageContext, a aVar) {
         if (tbPageContext != null) {
             this.uniqueId = tbPageContext.getUniqueId();
-            tbPageContext.registerListener(this.eXD);
-            this.eXB = aVar;
+            tbPageContext.registerListener(this.eXE);
+            this.eXC = aVar;
         }
     }
 
@@ -78,12 +78,12 @@ public class b {
         wH();
     }
 
-    public void aCb() {
-        this.eXA = 0L;
+    public void aCc() {
+        this.eXB = 0L;
         wH();
     }
 
-    public void YK() {
+    public void YL() {
         wH();
     }
 
@@ -132,48 +132,48 @@ public class b {
 
     private void wH() {
         AgreeMeRequestMessage agreeMeRequestMessage = new AgreeMeRequestMessage();
-        agreeMeRequestMessage.id = this.eXA;
+        agreeMeRequestMessage.id = this.eXB;
         agreeMeRequestMessage.setTag(this.uniqueId);
         MessageManager.getInstance().sendMessage(agreeMeRequestMessage);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> arrayList) {
-        if (!this.eXz) {
-            if (v.J(this.eXC)) {
-                this.eXC = new ArrayList<>();
+        if (!this.eXA) {
+            if (v.J(this.eXD)) {
+                this.eXD = new ArrayList<>();
             } else {
-                this.eXC.clear();
+                this.eXD.clear();
             }
-            this.eXC.addAll(arrayList);
-            h hVar = (h) v.d(this.eXC, this.eXC.size() - 1);
+            this.eXD.addAll(arrayList);
+            h hVar = (h) v.d(this.eXD, this.eXD.size() - 1);
             if (hVar instanceof com.baidu.tieba.imMessageCenter.mention.base.a) {
-                this.eXA = ((com.baidu.tieba.imMessageCenter.mention.base.a) hVar).getMsgId();
+                this.eXB = ((com.baidu.tieba.imMessageCenter.mention.base.a) hVar).getMsgId();
             }
-            if (this.eXB != null && !v.J(this.eXC)) {
-                this.eXB.O(this.eXC);
+            if (this.eXC != null && !v.J(this.eXD)) {
+                this.eXC.O(this.eXD);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> arrayList, boolean z) {
-        this.eXz = true;
-        if (v.J(this.eXC)) {
-            this.eXC = new ArrayList<>();
+        this.eXA = true;
+        if (v.J(this.eXD)) {
+            this.eXD = new ArrayList<>();
         }
         if (!z) {
-            this.eXC.addAll(arrayList);
+            this.eXD.addAll(arrayList);
         } else {
-            this.eXC.clear();
-            this.eXC.addAll(0, arrayList);
+            this.eXD.clear();
+            this.eXD.addAll(0, arrayList);
         }
-        h hVar = (h) v.d(this.eXC, this.eXC.size() - 1);
+        h hVar = (h) v.d(this.eXD, this.eXD.size() - 1);
         if (hVar instanceof com.baidu.tieba.imMessageCenter.mention.base.a) {
-            this.eXA = ((com.baidu.tieba.imMessageCenter.mention.base.a) hVar).getMsgId();
+            this.eXB = ((com.baidu.tieba.imMessageCenter.mention.base.a) hVar).getMsgId();
         }
-        if (this.eXB != null) {
-            this.eXB.O(this.eXC);
+        if (this.eXC != null) {
+            this.eXC.O(this.eXD);
         }
     }
 }

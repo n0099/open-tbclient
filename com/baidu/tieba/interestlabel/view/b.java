@@ -17,25 +17,25 @@ import java.util.List;
 public class b {
     private BdListView OE;
     private NoNetworkView bJX;
-    private View elC;
-    private LabelRecommendActivity fbE;
-    private TextView fbF;
+    private View elD;
+    private LabelRecommendActivity fbF;
     private TextView fbG;
-    private com.baidu.tieba.interestlabel.a.a fbH;
-    private a fbI;
+    private TextView fbH;
+    private com.baidu.tieba.interestlabel.a.a fbI;
+    private a fbJ;
     private View.OnClickListener mOnClickListener;
     private ViewGroup mRootView;
     private List<com.baidu.tieba.interestlabel.b.a> mDataList = new ArrayList();
-    private List<Integer> fbJ = new ArrayList();
-    private View.OnClickListener fbK = new View.OnClickListener() { // from class: com.baidu.tieba.interestlabel.view.b.1
+    private List<Integer> fbK = new ArrayList();
+    private View.OnClickListener fbL = new View.OnClickListener() { // from class: com.baidu.tieba.interestlabel.view.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getTag() instanceof com.baidu.tieba.interestlabel.b.a) {
                 Integer valueOf = Integer.valueOf(((com.baidu.tieba.interestlabel.b.a) view.getTag()).labelId);
-                if (b.this.fbJ.contains(valueOf)) {
-                    b.this.fbJ.remove(valueOf);
+                if (b.this.fbK.contains(valueOf)) {
+                    b.this.fbK.remove(valueOf);
                 } else {
-                    b.this.fbJ.add(valueOf);
+                    b.this.fbK.add(valueOf);
                 }
                 b.this.aVX();
             }
@@ -44,47 +44,47 @@ public class b {
 
     public b(LabelRecommendActivity labelRecommendActivity) {
         if (labelRecommendActivity != null) {
-            this.fbE = labelRecommendActivity;
+            this.fbF = labelRecommendActivity;
             initView();
         }
     }
 
     private void initView() {
-        this.fbE.setContentView(e.h.activity_label_recommend);
-        this.mRootView = (ViewGroup) this.fbE.findViewById(e.g.view_root);
-        this.elC = this.fbE.findViewById(e.g.statebar_view);
-        this.fbF = (TextView) this.fbE.findViewById(e.g.skip);
-        this.bJX = (NoNetworkView) this.fbE.findViewById(e.g.view_no_network);
-        this.fbG = (TextView) this.fbE.findViewById(e.g.sub_label);
+        this.fbF.setContentView(e.h.activity_label_recommend);
+        this.mRootView = (ViewGroup) this.fbF.findViewById(e.g.view_root);
+        this.elD = this.fbF.findViewById(e.g.statebar_view);
+        this.fbG = (TextView) this.fbF.findViewById(e.g.skip);
+        this.bJX = (NoNetworkView) this.fbF.findViewById(e.g.view_no_network);
+        this.fbH = (TextView) this.fbF.findViewById(e.g.sub_label);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.elC.getLayoutParams().height = UtilHelper.getStatusBarHeight();
+            this.elD.getLayoutParams().height = UtilHelper.getStatusBarHeight();
         }
         bq(0, 0);
-        this.OE = (BdListView) this.fbE.findViewById(e.g.listview);
-        this.fbH = new com.baidu.tieba.interestlabel.a.a(this.fbE.getPageContext().getPageActivity());
-        this.fbH.setOnClickListener(this.fbK);
-        this.fbI = new a(this.fbE.getPageContext().getPageActivity());
-        this.OE.addHeaderView(this.fbI.aVT());
-        this.OE.setAdapter((ListAdapter) this.fbH);
+        this.OE = (BdListView) this.fbF.findViewById(e.g.listview);
+        this.fbI = new com.baidu.tieba.interestlabel.a.a(this.fbF.getPageContext().getPageActivity());
+        this.fbI.setOnClickListener(this.fbL);
+        this.fbJ = new a(this.fbF.getPageContext().getPageActivity());
+        this.OE.addHeaderView(this.fbJ.aVT());
+        this.OE.setAdapter((ListAdapter) this.fbI);
         onChangeSkinType();
     }
 
     private void onChangeSkinType() {
-        al.h(this.fbF, e.d.cp_cont_d);
-        al.h(this.fbG, e.f.color_sub_lable_selector);
-        al.i(this.fbG, e.f.bule_bg_commen_label_button);
-        this.bJX.onChangeSkinType(this.fbE.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        al.h(this.fbG, e.d.cp_cont_d);
+        al.h(this.fbH, e.f.color_sub_lable_selector);
+        al.i(this.fbH, e.f.bule_bg_commen_label_button);
+        this.bJX.onChangeSkinType(this.fbF.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
     }
 
     private void bq(int i, int i2) {
-        this.fbG.setEnabled(i > 0);
-        this.fbG.setText(this.fbE.getString(e.j.start_tieba, new Object[]{Integer.valueOf(i), Integer.valueOf(i2)}));
-        this.fbG.setOnClickListener(i > 0 ? this.mOnClickListener : null);
+        this.fbH.setEnabled(i > 0);
+        this.fbH.setText(this.fbF.getString(e.j.start_tieba, new Object[]{Integer.valueOf(i), Integer.valueOf(i2)}));
+        this.fbH.setOnClickListener(i > 0 ? this.mOnClickListener : null);
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
         this.mOnClickListener = onClickListener;
-        this.fbF.setOnClickListener(onClickListener);
+        this.fbG.setOnClickListener(onClickListener);
     }
 
     public View getRootView() {
@@ -92,11 +92,11 @@ public class b {
     }
 
     public View aVV() {
-        return this.fbF;
+        return this.fbG;
     }
 
     public View aVW() {
-        return this.fbG;
+        return this.fbH;
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
@@ -108,8 +108,8 @@ public class b {
             }
             this.mDataList.clear();
             this.mDataList.addAll(bVar.aVN());
-            this.fbI.setData(bVar.aVM());
-            this.fbH.setData(this.mDataList);
+            this.fbJ.setData(bVar.aVM());
+            this.fbI.setData(this.mDataList);
             this.OE.setVisibility(0);
             bq(0, this.mDataList.size());
         }
@@ -119,16 +119,16 @@ public class b {
     public void aVX() {
         for (com.baidu.tieba.interestlabel.b.a aVar : this.mDataList) {
             if (aVar != null) {
-                aVar.isFollow = this.fbJ.contains(Integer.valueOf(aVar.labelId));
+                aVar.isFollow = this.fbK.contains(Integer.valueOf(aVar.labelId));
             }
         }
-        this.fbH.setData(this.mDataList);
-        bq(this.fbJ.size(), this.mDataList.size());
+        this.fbI.setData(this.mDataList);
+        bq(this.fbK.size(), this.mDataList.size());
     }
 
     public List<Integer> aVY() {
-        ArrayList arrayList = new ArrayList(this.fbJ);
-        arrayList.add(0, Integer.valueOf(this.fbI.aVU()));
+        ArrayList arrayList = new ArrayList(this.fbK);
+        arrayList.add(0, Integer.valueOf(this.fbJ.aVU()));
         return arrayList;
     }
 }

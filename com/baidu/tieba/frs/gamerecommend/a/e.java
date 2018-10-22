@@ -34,12 +34,12 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.d, com.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.d dVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.g> aVar) {
-        if (aVar.aoP() == null) {
+        if (aVar.aoQ() == null) {
             return null;
         }
-        aVar.aoP().a(dVar);
-        aVar.aoP().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar.aoP().a(new g.a() { // from class: com.baidu.tieba.frs.gamerecommend.a.e.1
+        aVar.aoQ().a(dVar);
+        aVar.aoQ().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.aoQ().a(new g.a() { // from class: com.baidu.tieba.frs.gamerecommend.a.e.1
             @Override // com.baidu.tieba.card.g.a
             public void b(View view2, com.baidu.tieba.card.data.b bVar) {
                 if (e.this.vf != null) {
@@ -47,7 +47,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.d, com.
                 }
             }
         });
-        return aVar.aoP().getView();
+        return aVar.aoQ().getView();
     }
 
     public void d(ad adVar) {

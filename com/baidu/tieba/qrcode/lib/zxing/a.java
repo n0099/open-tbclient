@@ -15,7 +15,7 @@ import java.util.EnumMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class a {
-    public static final Map<DecodeHintType, Object> gBJ = new EnumMap(DecodeHintType.class);
+    public static final Map<DecodeHintType, Object> gBK = new EnumMap(DecodeHintType.class);
 
     static {
         ArrayList arrayList = new ArrayList();
@@ -23,9 +23,9 @@ public class a {
         arrayList.add(BarcodeFormat.AZTEC);
         arrayList.add(BarcodeFormat.DATA_MATRIX);
         arrayList.add(BarcodeFormat.PDF_417);
-        gBJ.put(DecodeHintType.TRY_HARDER, BarcodeFormat.QR_CODE);
-        gBJ.put(DecodeHintType.POSSIBLE_FORMATS, arrayList);
-        gBJ.put(DecodeHintType.CHARACTER_SET, IoUtils.UTF_8);
+        gBK.put(DecodeHintType.TRY_HARDER, BarcodeFormat.QR_CODE);
+        gBK.put(DecodeHintType.POSSIBLE_FORMATS, arrayList);
+        gBK.put(DecodeHintType.CHARACTER_SET, IoUtils.UTF_8);
     }
 
     public static String tK(String str) {
@@ -41,14 +41,14 @@ public class a {
             bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
             RGBLuminanceSource rGBLuminanceSource2 = new RGBLuminanceSource(width, height, iArr);
             try {
-                return new MultiFormatReader().decode(new BinaryBitmap(new HybridBinarizer(rGBLuminanceSource2)), gBJ).getText();
+                return new MultiFormatReader().decode(new BinaryBitmap(new HybridBinarizer(rGBLuminanceSource2)), gBK).getText();
             } catch (Exception e) {
                 e = e;
                 rGBLuminanceSource = rGBLuminanceSource2;
                 e.printStackTrace();
                 if (rGBLuminanceSource != null) {
                     try {
-                        return new MultiFormatReader().decode(new BinaryBitmap(new GlobalHistogramBinarizer(rGBLuminanceSource)), gBJ).getText();
+                        return new MultiFormatReader().decode(new BinaryBitmap(new GlobalHistogramBinarizer(rGBLuminanceSource)), gBK).getText();
                     } catch (Throwable th) {
                         th.printStackTrace();
                         return null;

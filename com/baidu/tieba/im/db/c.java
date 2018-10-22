@@ -18,7 +18,7 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c eFl;
+    private static c eFm;
 
     private c() {
     }
@@ -26,10 +26,10 @@ public class c {
     public static synchronized c aPa() {
         c cVar;
         synchronized (c.class) {
-            if (eFl == null) {
-                eFl = new c();
+            if (eFm == null) {
+                eFm = new c();
             }
-            cVar = eFl;
+            cVar = eFm;
         }
         return cVar;
     }

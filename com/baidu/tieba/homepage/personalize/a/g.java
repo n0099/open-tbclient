@@ -17,7 +17,7 @@ import com.baidu.tieba.e;
 public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.h, com.baidu.tieba.card.a.a<com.baidu.tieba.card.k>> {
     public BdUniqueId aZt;
     private ad<com.baidu.tieba.card.data.h> dFB;
-    private com.baidu.tieba.card.k enA;
+    private com.baidu.tieba.card.k enB;
     private TbPageContext<?> mPageContext;
 
     public g(TbPageContext<?> tbPageContext) {
@@ -26,9 +26,9 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             public void a(View view, com.baidu.tieba.card.data.h hVar) {
-                if (view != null && g.this.enA != null && g.this.enA.cMv != null && g.this.enA.cMv.cMz != null && g.this.enA.cMv.cMx != null && g.this.enA.cMv.getView() != null) {
-                    if (view.getId() != g.this.enA.cMv.cMz.getId() || !(view.getTag() instanceof MetaData)) {
-                        if ((view.getId() == g.this.enA.cMv.getView().getId() || view.getId() == g.this.enA.cMv.cMx.getId()) && (view.getTag(e.g.rec_god_item_root) instanceof String)) {
+                if (view != null && g.this.enB != null && g.this.enB.cMv != null && g.this.enB.cMv.cMz != null && g.this.enB.cMv.cMx != null && g.this.enB.cMv.getView() != null) {
+                    if (view.getId() != g.this.enB.cMv.cMz.getId() || !(view.getTag() instanceof MetaData)) {
+                        if ((view.getId() == g.this.enB.cMv.getView().getId() || view.getId() == g.this.enB.cMv.cMx.getId()) && (view.getTag(e.g.rec_god_item_root) instanceof String)) {
                             TiebaStatic.log(new am("c11005").ax(VideoPlayActivityConfig.OBJ_ID, (String) view.getTag(e.g.rec_god_item_root)));
                         }
                     } else if (!StringUtils.isNull(((MetaData) view.getTag()).getUserId())) {
@@ -45,8 +45,8 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: Y */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        this.enA = new com.baidu.tieba.card.k(this.mPageContext, this.aZt);
-        return new com.baidu.tieba.card.a.a(this.enA);
+        this.enB = new com.baidu.tieba.card.k(this.mPageContext, this.aZt);
+        return new com.baidu.tieba.card.a.a(this.enB);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,17 +54,17 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.h hVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.k> aVar) {
-        this.enA = aVar.aoP();
-        aVar.aoP().a(hVar);
-        aVar.aoP().b(this.dFB);
-        aVar.aoP().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        v.aoo().a(new am("c11006"));
+        this.enB = aVar.aoQ();
+        aVar.aoQ().a(hVar);
+        aVar.aoQ().b(this.dFB);
+        aVar.aoQ().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        v.aop().a(new am("c11006"));
         return aVar.getView();
     }
 
     public void nV(int i) {
-        if (this.enA != null) {
-            this.enA.d(this.mPageContext, i);
+        if (this.enB != null) {
+            this.enB.d(this.mPageContext, i);
         }
     }
 }

@@ -11,8 +11,8 @@ import java.lang.ref.WeakReference;
 public class CountDownTextView extends TextView {
     private int bAH;
     private Runnable bAJ;
-    private b gKI;
-    private boolean gKJ;
+    private b gKJ;
+    private boolean gKK;
     private Handler mHandler;
 
     /* loaded from: classes3.dex */
@@ -23,8 +23,8 @@ public class CountDownTextView extends TextView {
     public CountDownTextView(Context context) {
         super(context);
         this.mHandler = null;
-        this.gKI = null;
-        this.gKJ = true;
+        this.gKJ = null;
+        this.gKK = true;
         but();
     }
 
@@ -36,16 +36,16 @@ public class CountDownTextView extends TextView {
     public CountDownTextView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mHandler = null;
-        this.gKI = null;
-        this.gKJ = true;
+        this.gKJ = null;
+        this.gKK = true;
         but();
     }
 
     public CountDownTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mHandler = null;
-        this.gKI = null;
-        this.gKJ = true;
+        this.gKJ = null;
+        this.gKK = true;
         but();
     }
 
@@ -58,11 +58,11 @@ public class CountDownTextView extends TextView {
     }
 
     public void setTimeoutListener(b bVar) {
-        this.gKI = bVar;
+        this.gKJ = bVar;
     }
 
     public void setEnableTimeoutListener(boolean z) {
-        this.gKJ = z;
+        this.gKK = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -87,8 +87,8 @@ public class CountDownTextView extends TextView {
     public void hm(int i) {
         if (i > 0) {
             if (this.bAH == 0) {
-                if (this.gKI != null && this.gKJ && getVisibility() == 0) {
-                    this.gKI.al(this);
+                if (this.gKJ != null && this.gKK && getVisibility() == 0) {
+                    this.gKJ.al(this);
                 }
                 setText(String.valueOf(this.bAH));
                 this.mHandler.removeCallbacksAndMessages(null);

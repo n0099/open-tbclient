@@ -24,9 +24,9 @@ public class AddExperiencedModel extends BdBaseModel {
     public static int MAX_ADD_NORMAL = 3;
     public static String USELESS_FORUM_ID = "24981790";
     private HttpMessageListener axH;
-    private a gQX;
-    private ContriInfo gQY;
-    private Runnable gQZ;
+    private a gQY;
+    private ContriInfo gQZ;
+    private Runnable gRa;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -35,11 +35,11 @@ public class AddExperiencedModel extends BdBaseModel {
 
     public AddExperiencedModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.gQZ = new Runnable() { // from class: com.baidu.tieba.share.AddExperiencedModel.1
+        this.gRa = new Runnable() { // from class: com.baidu.tieba.share.AddExperiencedModel.1
             @Override // java.lang.Runnable
             public void run() {
-                if (AddExperiencedModel.this.gQX != null) {
-                    AddExperiencedModel.this.gQX.b(AddExperiencedModel.this.gQY);
+                if (AddExperiencedModel.this.gQY != null) {
+                    AddExperiencedModel.this.gQY.b(AddExperiencedModel.this.gQZ);
                 }
             }
         };
@@ -48,8 +48,8 @@ public class AddExperiencedModel extends BdBaseModel {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AddExperiencedResponseMessage)) {
-                    AddExperiencedModel.this.gQY = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
-                    e.jI().postDelayed(AddExperiencedModel.this.gQZ, SystemScreenshotManager.DELAY_TIME);
+                    AddExperiencedModel.this.gQZ = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
+                    e.jI().postDelayed(AddExperiencedModel.this.gRa, SystemScreenshotManager.DELAY_TIME);
                 }
             }
         };
@@ -124,10 +124,10 @@ public class AddExperiencedModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.gQX = aVar;
+        this.gQY = aVar;
     }
 
     public void onDestroy() {
-        e.jI().removeCallbacks(this.gQZ);
+        e.jI().removeCallbacks(this.gRa);
     }
 }

@@ -44,8 +44,8 @@ public class a {
                 a(aVar);
             }
             this.mData.clear();
-            aDJ();
             aDK();
+            aDL();
             b(aVar);
         }
     }
@@ -107,7 +107,7 @@ public class a {
         }
     }
 
-    private void aDJ() {
+    private void aDK() {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -131,7 +131,7 @@ public class a {
         }
     }
 
-    private void aDK() {
+    private void aDL() {
         if (this.dNQ != null && this.dNQ.length > 0) {
             for (int i = 0; i < this.dNQ.length; i++) {
                 Object obj = this.dNQ[i];

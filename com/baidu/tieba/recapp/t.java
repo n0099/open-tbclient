@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class t implements o {
-    private List<AppData> gDi;
+    private List<AppData> gDj;
 
     @Override // com.baidu.tieba.recapp.o
     public com.baidu.adp.widget.ListView.a<?, ?> a(n nVar, BdUniqueId bdUniqueId) {
@@ -79,14 +79,14 @@ public class t implements o {
 
     @Override // com.baidu.tieba.recapp.o
     public List<AppData> bti() {
-        if (this.gDi == null) {
-            this.gDi = new ArrayList();
+        if (this.gDj == null) {
+            this.gDj = new ArrayList();
         }
-        return this.gDi;
+        return this.gDj;
     }
 
     @Override // com.baidu.tieba.recapp.o
     public void btj() {
-        AdDebugService.updateFloatView(this.gDi != null ? StringUtils.string(Integer.valueOf(this.gDi.size())) : "0");
+        AdDebugService.updateFloatView(this.gDj != null ? StringUtils.string(Integer.valueOf(this.gDj.size())) : "0");
     }
 }

@@ -8,22 +8,22 @@ import android.widget.ScrollView;
 /* loaded from: classes.dex */
 public class EditorScrollView extends ScrollView {
     private boolean djB;
-    private int fYm;
-    private ViewTreeObserver.OnScrollChangedListener fYn;
+    private int fYn;
+    private ViewTreeObserver.OnScrollChangedListener fYo;
 
     public EditorScrollView(Context context) {
         super(context);
-        this.fYm = 50;
+        this.fYn = 50;
     }
 
     public EditorScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fYm = 50;
+        this.fYn = 50;
     }
 
     public EditorScrollView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fYm = 50;
+        this.fYn = 50;
     }
 
     @Override // android.widget.ScrollView, android.view.View
@@ -44,12 +44,12 @@ public class EditorScrollView extends ScrollView {
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.fYn != null && this.djB && Math.abs(i3 - i2) >= this.fYm) {
-            this.fYn.onScrollChanged();
+        if (this.fYo != null && this.djB && Math.abs(i3 - i2) >= this.fYn) {
+            this.fYo.onScrollChanged();
         }
     }
 
     public void setListener(ViewTreeObserver.OnScrollChangedListener onScrollChangedListener) {
-        this.fYn = onScrollChangedListener;
+        this.fYo = onScrollChangedListener;
     }
 }

@@ -12,23 +12,23 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class ac implements ai<com.facebook.imagepipeline.f.d> {
-    private final com.facebook.imagepipeline.c.e idn;
     private final com.facebook.imagepipeline.c.e ido;
-    private final com.facebook.imagepipeline.c.f idp;
+    private final com.facebook.imagepipeline.c.e idp;
+    private final com.facebook.imagepipeline.c.f idq;
     @Nullable
-    private com.facebook.imagepipeline.c.q ieG;
-    private final com.facebook.imagepipeline.c.r ieV;
-    private final ai<com.facebook.imagepipeline.f.d> igI;
-    private final com.facebook.imagepipeline.c.l ihf;
+    private com.facebook.imagepipeline.c.q ieH;
+    private final com.facebook.imagepipeline.c.r ieW;
+    private final ai<com.facebook.imagepipeline.f.d> igJ;
+    private final com.facebook.imagepipeline.c.l ihg;
 
     public ac(com.facebook.imagepipeline.c.e eVar, com.facebook.imagepipeline.c.e eVar2, com.facebook.imagepipeline.c.f fVar, com.facebook.imagepipeline.c.r rVar, @Nullable com.facebook.imagepipeline.c.q qVar, com.facebook.imagepipeline.c.l lVar, ai<com.facebook.imagepipeline.f.d> aiVar) {
-        this.idn = eVar;
-        this.ido = eVar2;
-        this.idp = fVar;
-        this.ieV = rVar;
-        this.ieG = qVar;
-        this.ihf = lVar;
-        this.igI = aiVar;
+        this.ido = eVar;
+        this.idp = eVar2;
+        this.idq = fVar;
+        this.ieW = rVar;
+        this.ieH = qVar;
+        this.ihg = lVar;
+        this.igJ = aiVar;
     }
 
     /* JADX DEBUG: Type inference failed for r9v0. Raw type applied. Possible types: bolts.f<com.facebook.imagepipeline.request.a, java.lang.Object>, bolts.f<com.facebook.imagepipeline.request.a, TContinuationResult> */
@@ -44,11 +44,11 @@ public class ac implements ai<com.facebook.imagepipeline.f.d> {
             return;
         }
         if (bYf == null) {
-            if (this.ieG == null) {
+            if (this.ieH == null) {
                 mediaId = null;
                 str = null;
             } else {
-                mediaId = this.ieG.v(bXq.bYd());
+                mediaId = this.ieH.v(bXq.bYd());
                 str = "id_extractor";
             }
         } else {
@@ -64,7 +64,7 @@ public class ac implements ai<com.facebook.imagepipeline.f.d> {
         if (bYf != null && bYf.bYs() > 0) {
             a(jVar, ajVar, bXq, bYf, bYg, atomicBoolean);
         } else {
-            this.ieV.a(mediaId, com.facebook.imagepipeline.request.a.yI(mediaId).oK(bYf != null && bYf.bYt()).yJ(str)).a(new bolts.f<com.facebook.imagepipeline.request.a, Object>() { // from class: com.facebook.imagepipeline.producers.ac.1
+            this.ieW.a(mediaId, com.facebook.imagepipeline.request.a.yI(mediaId).oK(bYf != null && bYf.bYt()).yJ(str)).a(new bolts.f<com.facebook.imagepipeline.request.a, Object>() { // from class: com.facebook.imagepipeline.producers.ac.1
                 @Override // bolts.f
                 public Object a(bolts.g<com.facebook.imagepipeline.request.a> gVar) throws Exception {
                     bolts.g a2;
@@ -100,13 +100,13 @@ public class ac implements ai<com.facebook.imagepipeline.f.d> {
     public bolts.g a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar, ImageRequest imageRequest, com.facebook.imagepipeline.request.a aVar, List<a.b> list, int i, AtomicBoolean atomicBoolean) {
         ImageRequest.CacheChoice bYc;
         a.b bVar = list.get(i);
-        com.facebook.cache.common.b a2 = this.idp.a(imageRequest, bVar.getUri(), ajVar.bST());
+        com.facebook.cache.common.b a2 = this.idq.a(imageRequest, bVar.getUri(), ajVar.bST());
         if (bVar.bYc() == null) {
             bYc = imageRequest.bYc();
         } else {
             bYc = bVar.bYc();
         }
-        return (bYc == ImageRequest.CacheChoice.SMALL ? this.ido : this.idn).a(a2, atomicBoolean).a(b(jVar, ajVar, imageRequest, aVar, list, i, atomicBoolean));
+        return (bYc == ImageRequest.CacheChoice.SMALL ? this.idp : this.ido).a(a2, atomicBoolean).a(b(jVar, ajVar, imageRequest, aVar, list, i, atomicBoolean));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -159,12 +159,12 @@ public class ac implements ai<com.facebook.imagepipeline.f.d> {
     }
 
     private void e(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        this.igI.a(jVar, ajVar);
+        this.igJ.a(jVar, ajVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar, String str) {
-        this.igI.a(new a(jVar, ajVar, str), ajVar);
+        this.igJ.a(new a(jVar, ajVar, str), ajVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -194,12 +194,12 @@ public class ac implements ai<com.facebook.imagepipeline.f.d> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public class a extends m<com.facebook.imagepipeline.f.d, com.facebook.imagepipeline.f.d> {
-        private final aj igT;
+        private final aj igU;
         private final String mMediaId;
 
         public a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar, String str) {
             super(jVar);
-            this.igT = ajVar;
+            this.igU = ajVar;
             this.mMediaId = str;
         }
 
@@ -215,9 +215,9 @@ public class ac implements ai<com.facebook.imagepipeline.f.d> {
         }
 
         private void j(com.facebook.imagepipeline.f.d dVar) {
-            ImageRequest bXq = this.igT.bXq();
+            ImageRequest bXq = this.igU.bXq();
             if (bXq.bYl() && this.mMediaId != null) {
-                ac.this.ieV.a(this.mMediaId, ac.this.ihf.a(bXq, dVar), ac.this.idp.c(bXq, this.igT.bST()), dVar);
+                ac.this.ieW.a(this.mMediaId, ac.this.ihg.a(bXq, dVar), ac.this.idq.c(bXq, this.igU.bST()), dVar);
             }
         }
     }
@@ -225,18 +225,18 @@ public class ac implements ai<com.facebook.imagepipeline.f.d> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class b implements Comparator<a.b> {
-        private final com.facebook.imagepipeline.common.c ico;
+        private final com.facebook.imagepipeline.common.c icp;
 
         b(com.facebook.imagepipeline.common.c cVar) {
-            this.ico = cVar;
+            this.icp = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(a.b bVar, a.b bVar2) {
-            boolean a = ac.a(bVar, this.ico);
-            boolean a2 = ac.a(bVar2, this.ico);
+            boolean a = ac.a(bVar, this.icp);
+            boolean a2 = ac.a(bVar2, this.icp);
             if (a && a2) {
                 return bVar.getWidth() - bVar2.getWidth();
             }

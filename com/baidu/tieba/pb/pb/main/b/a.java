@@ -23,9 +23,9 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class a {
-    private static final String fXT = d.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon";
-    private final com.baidu.tieba.pb.pb.a fXU;
-    public final View.OnClickListener eaj = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.1
+    private static final String fXU = d.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon";
+    private final com.baidu.tieba.pb.pb.a fXV;
+    public final View.OnClickListener eak = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             String str;
@@ -64,30 +64,30 @@ public class a {
             if (view.getTag(e.g.tag_nick_name_activity) != null && (view.getTag(e.g.tag_nick_name_activity) instanceof String)) {
                 String str4 = (String) view.getTag(e.g.tag_nick_name_activity);
                 if (!TextUtils.isEmpty(str4) && ba.bI(TbadkCoreApplication.getInst())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(a.this.fXU.getPageContext().getPageActivity(), null, str4, true)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(a.this.fXV.getPageContext().getPageActivity(), null, str4, true)));
                     return;
                 }
             }
             String str5 = view.getTag(e.g.tag_virtual_user_url) instanceof String ? (String) view.getTag(e.g.tag_virtual_user_url) : null;
             if (str5 != null) {
                 if (ba.bI(TbadkCoreApplication.getInst())) {
-                    ay.CU().c(a.this.fXU.getPageContext(), new String[]{str5});
+                    ay.CU().c(a.this.fXV.getPageContext(), new String[]{str5});
                 }
             } else if (str3 != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(a.this.fXU.getPageContext().getPageActivity(), str3, str2, a.this.fXU.bfR(), AddFriendActivityConfig.TYPE_PB_HEAD)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(a.this.fXV.getPageContext().getPageActivity(), str3, str2, a.this.fXV.bfR(), AddFriendActivityConfig.TYPE_PB_HEAD)));
             }
         }
     };
-    public final View.OnClickListener fXV = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.2
+    public final View.OnClickListener fXW = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getTag(e.g.tag_user_id) instanceof String) {
-                com.baidu.tbadk.browser.a.a(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(e.j.user_icon_web_view_title), a.fXT + "?user_id=" + ((String) view.getTag(e.g.tag_user_id)), true, true, true);
+                com.baidu.tbadk.browser.a.a(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(e.j.user_icon_web_view_title), a.fXU + "?user_id=" + ((String) view.getTag(e.g.tag_user_id)), true, true, true);
                 TiebaStatic.log(new am("c10134").x("obj_type", 2));
             }
         }
     };
-    public final View.OnClickListener fXW = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.3
+    public final View.OnClickListener fXX = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (ba.bI(TbadkCoreApplication.getInst())) {
@@ -96,20 +96,20 @@ public class a {
                     str = (String) view.getTag();
                 }
                 if (str != null) {
-                    ay.CU().c(a.this.fXU.getPageContext(), new String[]{str});
+                    ay.CU().c(a.this.fXV.getPageContext(), new String[]{str});
                 }
-                TiebaStatic.eventStat(a.this.fXU.getPageContext().getPageActivity(), "consume_2", AiAppsUBCStatistic.TYPE_CLICK, 1, new Object[0]);
+                TiebaStatic.eventStat(a.this.fXV.getPageContext().getPageActivity(), "consume_2", AiAppsUBCStatistic.TYPE_CLICK, 1, new Object[0]);
             }
         }
     };
-    public final TbRichTextView.g fXX = new TbRichTextView.g() { // from class: com.baidu.tieba.pb.pb.main.b.a.4
+    public final TbRichTextView.g fXY = new TbRichTextView.g() { // from class: com.baidu.tieba.pb.pb.main.b.a.4
         @Override // com.baidu.tbadk.widget.richText.TbRichTextView.g
         public void a(View view, String str, String str2, String str3, String str4, String str5, String str6, int i, int i2) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2902011, new EmotionImageActivityConfig(a.this.fXU.getPageContext().getPageActivity(), str, str2, str3, str4, str5, str6, 1, i, i2)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2902011, new EmotionImageActivityConfig(a.this.fXV.getPageContext().getPageActivity(), str, str2, str3, str4, str5, str6, 1, i, i2)));
         }
     };
 
     public a(com.baidu.tieba.pb.pb.a aVar) {
-        this.fXU = aVar;
+        this.fXV = aVar;
     }
 }

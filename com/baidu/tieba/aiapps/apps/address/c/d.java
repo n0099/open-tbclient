@@ -46,7 +46,7 @@ public class d {
         }
     }
 
-    public boolean WM() {
+    public boolean WN() {
         return this.act.size() > 0;
     }
 

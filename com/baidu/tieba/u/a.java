@@ -16,8 +16,8 @@ public class a {
             }
         }
     };
-    private long hDi;
-    private w hDj;
+    private long hDj;
+    private w hDk;
     private long mEndTime;
     private long mInterval;
     private long mStartTime;
@@ -28,7 +28,7 @@ public class a {
 
     private void init() {
         bKm();
-        this.hDi = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_video_splash_last_show_time", 0L);
+        this.hDj = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_video_splash_last_show_time", 0L);
         MessageManager.getInstance().registerListener(this.ajQ);
     }
 
@@ -45,22 +45,22 @@ public class a {
     }
 
     private boolean l(Date date) {
-        return date != null && date.getTime() - this.hDi >= this.mInterval;
+        return date != null && date.getTime() - this.hDj >= this.mInterval;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bKm() {
-        if (this.hDj == null) {
-            this.hDj = new w();
+        if (this.hDk == null) {
+            this.hDk = new w();
         }
-        this.hDj.parseJson(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_video_splash_config", ""));
-        this.mStartTime = this.hDj.FJ();
-        this.mEndTime = this.hDj.FK();
-        this.mInterval = this.hDj.FL();
+        this.hDk.parseJson(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_video_splash_config", ""));
+        this.mStartTime = this.hDk.FJ();
+        this.mEndTime = this.hDk.FK();
+        this.mInterval = this.hDk.FL();
     }
 
     public void dk(long j) {
-        this.hDi = j;
+        this.hDj = j;
         com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("key_video_splash_last_show_time", j);
     }
 }

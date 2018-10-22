@@ -18,7 +18,7 @@ public class ChannelFansActivity extends BaseActivity<ChannelFansActivity> {
         @Override // com.baidu.tieba.channel.model.ChannelFansListModel.a
         public void a(int i, String str, boolean z, c cVar) {
             ChannelFansActivity.this.closeLoadingDialog();
-            ChannelFansActivity.this.cRF.apm();
+            ChannelFansActivity.this.cRF.apn();
             if (i == 0) {
                 ChannelFansActivity.this.cRF.a(cVar);
                 return;
@@ -59,7 +59,7 @@ public class ChannelFansActivity extends BaseActivity<ChannelFansActivity> {
 
     private void fd() {
         this.cRE = new ChannelFansListModel(getPageContext(), this.channelId);
-        this.cRE.YI();
+        this.cRE.YJ();
         this.cRE.a(this.cRG);
         this.cRE.fn(false);
     }
@@ -76,7 +76,7 @@ public class ChannelFansActivity extends BaseActivity<ChannelFansActivity> {
                     ChannelFansActivity.this.cRE.LoadData();
                     return;
                 }
-                ChannelFansActivity.this.cRF.apm();
+                ChannelFansActivity.this.cRF.apn();
             }
         });
         this.cRF.startPullRefresh();

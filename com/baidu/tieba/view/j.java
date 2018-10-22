@@ -21,14 +21,14 @@ public class j {
     private RadioButton dMC;
     private RadioButton dMD;
     private RadioButton dME;
-    private Context hDK;
-    private LinearLayout hDL;
-    private View hDM;
-    private TextView hDN;
-    private d hES;
-    private b hET;
-    private e hEU;
-    private LinearLayout hEV;
+    private Context hDL;
+    private LinearLayout hDM;
+    private View hDN;
+    private TextView hDO;
+    private d hET;
+    private b hEU;
+    private e hEV;
+    private LinearLayout hEW;
     private List<a> mItems;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.view.j.1
         @Override // android.view.View.OnClickListener
@@ -64,8 +64,8 @@ public class j {
                 j.this.dMD.setChecked(true);
                 j.this.mScore = 5;
             }
-            if (j.this.hEU != null) {
-                j.this.hEU.sX(j.this.mScore);
+            if (j.this.hEV != null) {
+                j.this.hEV.sX(j.this.mScore);
             }
         }
     };
@@ -95,13 +95,13 @@ public class j {
 
     public j(Context context) {
         if (context != null) {
-            this.hDK = context;
+            this.hDL = context;
             this.view = LayoutInflater.from(context).inflate(e.h.rate_list_dialog_view, (ViewGroup) null);
-            this.hDL = (LinearLayout) this.view.findViewById(e.g.content_view);
+            this.hDM = (LinearLayout) this.view.findViewById(e.g.content_view);
             this.aiy = (TextView) this.view.findViewById(e.g.title);
-            this.hDM = this.view.findViewById(e.g.title_divide_line);
+            this.hDN = this.view.findViewById(e.g.title_divide_line);
             this.mItems = new ArrayList();
-            this.hDN = (TextView) this.view.findViewById(e.g.dialog_bottom_cancel_button);
+            this.hDO = (TextView) this.view.findViewById(e.g.dialog_bottom_cancel_button);
             this.dMA = (RadioButton) this.view.findViewById(e.g.comment_grade_1);
             this.dMA.setOnClickListener(this.mOnClickListener);
             this.dMB = (RadioButton) this.view.findViewById(e.g.comment_grade_2);
@@ -112,16 +112,16 @@ public class j {
             this.dMD.setOnClickListener(this.mOnClickListener);
             this.dME = (RadioButton) this.view.findViewById(e.g.comment_grade_5);
             this.dME.setOnClickListener(this.mOnClickListener);
-            this.hEV = (LinearLayout) this.view.findViewById(e.g.comment_grade);
+            this.hEW = (LinearLayout) this.view.findViewById(e.g.comment_grade);
         }
     }
 
     public Context getContext() {
-        return this.hDK;
+        return this.hDL;
     }
 
-    public ViewGroup ajw() {
-        return this.hDL;
+    public ViewGroup ajx() {
+        return this.hDM;
     }
 
     public void setTitleText(String str) {
@@ -179,11 +179,11 @@ public class j {
     }
 
     public void vY(int i) {
-        this.hEV.setVisibility(i);
+        this.hEW.setVisibility(i);
     }
 
     public void y(int i, int i2, int i3, int i4) {
-        this.hEV.setPadding(i, i2, i3, i4);
+        this.hEW.setPadding(i, i2, i3, i4);
     }
 
     public void setTitlePadding(int i, int i2, int i3, int i4) {
@@ -191,24 +191,24 @@ public class j {
     }
 
     public void setTitleSize(int i) {
-        this.aiy.setTextSize(0, l.h(this.hDK, i));
+        this.aiy.setTextSize(0, l.h(this.hDL, i));
     }
 
     public d bKy() {
-        return this.hES;
+        return this.hET;
     }
 
     public void eb(List<a> list) {
         if (list != null) {
             this.mItems = list;
-            this.hDL.removeAllViews();
+            this.hDM.removeAllViews();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < list.size()) {
                     a aVar = list.get(i2);
                     if (aVar != null) {
-                        this.hDL.addView(aVar.getView());
+                        this.hDM.addView(aVar.getView());
                     }
                     i = i2 + 1;
                 } else {
@@ -219,24 +219,24 @@ public class j {
     }
 
     public void a(b bVar) {
-        this.hET = bVar;
+        this.hEU = bVar;
     }
 
     public void a(e eVar) {
-        this.hEU = eVar;
+        this.hEV = eVar;
     }
 
     public void vZ(int i) {
-        this.hDN.setVisibility(i);
+        this.hDO.setVisibility(i);
     }
 
     public void onChangeSkinType() {
         al.j(this.aiy, e.d.cp_bg_line_d);
         al.h(this.aiy, e.d.cp_cont_j);
-        al.j(this.hDM, e.d.cp_bg_line_c);
-        al.i(this.hDN, e.f.bg_bottom_up_list_dialog_item);
-        al.h(this.hDN, e.d.cp_cont_f);
-        al.i(this.hEV, e.f.bg_bottom_up_list_dialog_item);
+        al.j(this.hDN, e.d.cp_bg_line_c);
+        al.i(this.hDO, e.f.bg_bottom_up_list_dialog_item);
+        al.h(this.hDO, e.d.cp_cont_f);
+        al.i(this.hEW, e.f.bg_bottom_up_list_dialog_item);
         if (this.mItems != null) {
             for (a aVar : this.mItems) {
                 aVar.onChangeSkinType();
@@ -250,11 +250,11 @@ public class j {
         } else {
             this.aiy.setVisibility(8);
         }
-        if (this.hET != null) {
-            this.hDN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.j.2
+        if (this.hEU != null) {
+            this.hDO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.j.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    j.this.hET.onClick();
+                    j.this.hEU.onClick();
                 }
             });
         }
@@ -264,24 +264,24 @@ public class j {
 
     /* loaded from: classes.dex */
     public static class a {
-        private View ejg;
-        private j hEX;
-        private c hEY;
+        private View ejh;
+        private j hEY;
+        private c hEZ;
         private String mText;
         private TextView mTextView;
         private View mView;
         private int mTextColor = e.f.person_more_pop_cancel_text_selector;
-        private int hDS = e.f.person_more_pop_item_bg_selector;
-        private int hDT = 17;
-        private boolean hDV = true;
+        private int hDT = e.f.person_more_pop_item_bg_selector;
+        private int hDU = 17;
+        private boolean hDW = true;
         private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.view.j.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.hEY != null) {
-                    a.this.hEY.onClick();
+                if (a.this.hEZ != null) {
+                    a.this.hEZ.onClick();
                 }
-                if (a.this.hEX != null && a.this.hEX.bKy() != null) {
-                    a.this.hEX.bKy().hp(a.this.mId);
+                if (a.this.hEY != null && a.this.hEY.bKy() != null) {
+                    a.this.hEY.bKy().hp(a.this.mId);
                 }
             }
         };
@@ -289,7 +289,7 @@ public class j {
 
         public a(String str, j jVar) {
             this.mText = str;
-            this.hEX = jVar;
+            this.hEY = jVar;
             initView();
             initListener();
         }
@@ -299,27 +299,27 @@ public class j {
         }
 
         public void a(c cVar) {
-            this.hEY = cVar;
+            this.hEZ = cVar;
             initListener();
         }
 
         public void onChangeSkinType() {
             al.i(this.mTextView, e.f.bg_bottom_up_list_dialog_item);
             al.h(this.mTextView, e.d.cp_cont_f);
-            al.j(this.ejg, e.d.cp_bg_line_c);
+            al.j(this.ejh, e.d.cp_bg_line_c);
         }
 
         private void initView() {
-            if (this.hEX != null && this.hEX.getContext() != null) {
-                this.mView = LayoutInflater.from(this.hEX.getContext()).inflate(e.h.bottom_up_list_dialog_item, this.hEX.ajw(), false);
+            if (this.hEY != null && this.hEY.getContext() != null) {
+                this.mView = LayoutInflater.from(this.hEY.getContext()).inflate(e.h.bottom_up_list_dialog_item, this.hEY.ajx(), false);
                 this.mTextView = (TextView) this.mView.findViewById(e.g.item_view);
                 this.mTextView.setText(this.mText);
-                this.mTextView.setGravity(this.hDT);
-                this.ejg = this.mView.findViewById(e.g.divider_line);
-                if (this.hDV) {
-                    this.ejg.setVisibility(0);
+                this.mTextView.setGravity(this.hDU);
+                this.ejh = this.mView.findViewById(e.g.divider_line);
+                if (this.hDW) {
+                    this.ejh.setVisibility(0);
                 } else {
-                    this.ejg.setVisibility(8);
+                    this.ejh.setVisibility(8);
                 }
                 onChangeSkinType();
             }

@@ -24,17 +24,17 @@ public final class br<T> implements d.b<T, T> {
     public class AnonymousClass1 extends rx.j<T> {
         boolean completed;
         int count;
-        final /* synthetic */ rx.j ity;
+        final /* synthetic */ rx.j itz;
 
         AnonymousClass1(rx.j jVar) {
-            this.ity = jVar;
+            this.itz = jVar;
         }
 
         @Override // rx.e
         public void onCompleted() {
             if (!this.completed) {
                 this.completed = true;
-                this.ity.onCompleted();
+                this.itz.onCompleted();
             }
         }
 
@@ -43,7 +43,7 @@ public final class br<T> implements d.b<T, T> {
             if (!this.completed) {
                 this.completed = true;
                 try {
-                    this.ity.onError(th);
+                    this.itz.onError(th);
                 } finally {
                     unsubscribe();
                 }
@@ -59,11 +59,11 @@ public final class br<T> implements d.b<T, T> {
             this.count = i + 1;
             if (i < br.this.limit) {
                 boolean z = this.count == br.this.limit;
-                this.ity.onNext(t);
+                this.itz.onNext(t);
                 if (z && !this.completed) {
                     this.completed = true;
                     try {
-                        this.ity.onCompleted();
+                        this.itz.onCompleted();
                     } finally {
                         unsubscribe();
                     }
@@ -73,7 +73,7 @@ public final class br<T> implements d.b<T, T> {
 
         @Override // rx.j
         public void setProducer(final rx.f fVar) {
-            this.ity.setProducer(new rx.f() { // from class: rx.internal.operators.br.1.1
+            this.itz.setProducer(new rx.f() { // from class: rx.internal.operators.br.1.1
                 final AtomicLong requested = new AtomicLong(0);
 
                 @Override // rx.f

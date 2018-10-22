@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.x;
 import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
 public class a {
-    private static final String fFZ = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+    private static final String fGa = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
 
     /* loaded from: classes6.dex */
     public interface b {
@@ -32,8 +32,8 @@ public class a {
         private String HO;
         private String aNA;
         private String aNE;
-        private String fGa;
-        private WeakReference<b> fGb;
+        private String fGb;
+        private WeakReference<b> fGc;
         private String mForumId;
         private String mForumName;
         private String mPostId;
@@ -45,12 +45,12 @@ public class a {
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mUserName = str4;
-            this.fGa = str6;
+            this.fGb = str6;
             this.aNE = str8;
             this.aNA = str9;
             this.HO = str7;
             this.mPostId = str5;
-            this.fGb = new WeakReference<>(bVar);
+            this.fGc = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -59,8 +59,8 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: z */
         public ForbidResultData doInBackground(String... strArr) {
-            x xVar = new x(a.fFZ);
-            xVar.x("day", this.fGa);
+            x xVar = new x(a.fGa);
+            xVar.x("day", this.fGb);
             xVar.x("un", this.mUserName);
             xVar.x(ImageViewerConfig.FORUM_ID, this.mForumId);
             xVar.x("word", this.mForumName);
@@ -94,7 +94,7 @@ public class a {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.fGb.get();
+            b bVar = this.fGc.get();
             if (bVar != null) {
                 if (forbidResultData.error_code == 0 && ao.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);

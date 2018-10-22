@@ -18,9 +18,9 @@ import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActivity> {
     public NavigationBar mNavigationBar;
-    private String ehd = null;
+    private String ehe = null;
     private TextView mTextView = null;
-    private TextView ehr = null;
+    private TextView ehs = null;
     LinearLayout aDZ = null;
 
     public static void ax(Context context, String str) {
@@ -41,9 +41,9 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
     }
 
     private void initData() {
-        this.ehd = getIntent().getStringExtra("barname");
-        if (this.ehd == null) {
-            this.ehd = "";
+        this.ehe = getIntent().getStringExtra("barname");
+        if (this.ehe == null) {
+            this.ehe = "";
         }
     }
 
@@ -59,7 +59,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getPageContext().getString(e.j.create_bar));
         this.mTextView = (TextView) findViewById(e.g.text);
-        this.ehr = (TextView) findViewById(e.g.text_more);
+        this.ehs = (TextView) findViewById(e.g.text_more);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -71,10 +71,10 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         boolean jL = new p().jL();
         String string = jL ? getPageContext().getString(e.j.create_bar_new_tip) : getPageContext().getString(e.j.create_bar_info1);
         int length = string.length();
-        SpannableString spannableString = new SpannableString(jL ? string + this.ehd + getPageContext().getString(e.j.create_bar_new_tip2) : string + this.ehd + getPageContext().getString(e.j.create_bar_info2));
-        spannableString.setSpan(new ForegroundColorSpan(al.getColor(e.d.common_color_10252)), length, this.ehd.length() + length, 33);
+        SpannableString spannableString = new SpannableString(jL ? string + this.ehe + getPageContext().getString(e.j.create_bar_new_tip2) : string + this.ehe + getPageContext().getString(e.j.create_bar_info2));
+        spannableString.setSpan(new ForegroundColorSpan(al.getColor(e.d.common_color_10252)), length, this.ehe.length() + length, 33);
         this.mTextView.setText(spannableString);
-        this.ehr.setVisibility(jL ? 0 : 8);
+        this.ehs.setVisibility(jL ? 0 : 8);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 }

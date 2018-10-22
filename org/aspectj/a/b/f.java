@@ -4,16 +4,16 @@ import java.lang.ref.SoftReference;
 import java.util.StringTokenizer;
 /* loaded from: classes5.dex */
 abstract class f implements org.aspectj.lang.c {
-    int ikv;
-    ClassLoader iqh = null;
-    String iqr;
-    Class iqs;
-    a iqt;
-    private String iqu;
+    int ikw;
+    ClassLoader iqi = null;
+    String iqs;
+    Class iqt;
+    a iqu;
+    private String iqv;
     String name;
     private static boolean dde = true;
     static String[] EMPTY_STRING_ARRAY = new String[0];
-    static Class[] iqv = new Class[0];
+    static Class[] iqw = new Class[0];
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
@@ -27,44 +27,44 @@ abstract class f implements org.aspectj.lang.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(int i, String str, Class cls) {
-        this.ikv = -1;
-        this.ikv = i;
+        this.ikw = -1;
+        this.ikw = i;
         this.name = str;
-        this.iqs = cls;
+        this.iqt = cls;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(h hVar) {
         String str = null;
         if (dde) {
-            if (this.iqt == null) {
+            if (this.iqu == null) {
                 try {
-                    this.iqt = new b();
+                    this.iqu = new b();
                 } catch (Throwable th) {
                     dde = false;
                 }
             } else {
-                str = this.iqt.yt(hVar.iqG);
+                str = this.iqu.yt(hVar.iqH);
             }
         }
         if (str == null) {
             str = b(hVar);
         }
         if (dde) {
-            this.iqt.set(hVar.iqG, str);
+            this.iqu.set(hVar.iqH, str);
         }
         return str;
     }
 
     public final String toString() {
-        return a(h.iqI);
+        return a(h.iqJ);
     }
 
     public int getModifiers() {
-        if (this.ikv == -1) {
-            this.ikv = yq(0);
+        if (this.ikw == -1) {
+            this.ikw = yq(0);
         }
-        return this.ikv;
+        return this.ikw;
     }
 
     public String getName() {
@@ -75,42 +75,42 @@ abstract class f implements org.aspectj.lang.c {
     }
 
     public Class caA() {
+        if (this.iqt == null) {
+            this.iqt = yr(2);
+        }
+        return this.iqt;
+    }
+
+    public String caB() {
         if (this.iqs == null) {
-            this.iqs = yr(2);
+            this.iqs = caA().getName();
         }
         return this.iqs;
     }
 
-    public String caB() {
-        if (this.iqr == null) {
-            this.iqr = caA().getName();
-        }
-        return this.iqr;
-    }
-
     private ClassLoader caC() {
-        if (this.iqh == null) {
-            this.iqh = getClass().getClassLoader();
+        if (this.iqi == null) {
+            this.iqi = getClass().getClassLoader();
         }
-        return this.iqh;
+        return this.iqi;
     }
 
     String yp(int i) {
         int i2 = 0;
-        int indexOf = this.iqu.indexOf(45);
+        int indexOf = this.iqv.indexOf(45);
         while (true) {
             int i3 = i - 1;
             if (i <= 0) {
                 break;
             }
             i2 = indexOf + 1;
-            indexOf = this.iqu.indexOf(45, i2);
+            indexOf = this.iqv.indexOf(45, i2);
             i = i3;
         }
         if (indexOf == -1) {
-            indexOf = this.iqu.length();
+            indexOf = this.iqv.length();
         }
-        return this.iqu.substring(i2, indexOf);
+        return this.iqv.substring(i2, indexOf);
     }
 
     int yq(int i) {
@@ -136,7 +136,7 @@ abstract class f implements org.aspectj.lang.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static final class b implements a {
-        private SoftReference iqw;
+        private SoftReference iqx;
 
         public b() {
             caE();
@@ -161,12 +161,12 @@ abstract class f implements org.aspectj.lang.c {
         }
 
         private String[] caD() {
-            return (String[]) this.iqw.get();
+            return (String[]) this.iqx.get();
         }
 
         private String[] caE() {
             String[] strArr = new String[3];
-            this.iqw = new SoftReference(strArr);
+            this.iqx = new SoftReference(strArr);
             return strArr;
         }
     }

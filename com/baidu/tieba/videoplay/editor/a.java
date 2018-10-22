@@ -33,8 +33,8 @@ public class a extends d {
     private String aVB;
     private NewWriteModel aVE;
     private final NewWriteModel.d aVS;
-    private com.baidu.tieba.write.b fZG;
-    private InterfaceC0291a hDc;
+    private com.baidu.tieba.write.b fZH;
+    private InterfaceC0291a hDd;
     private TbPageContext<?> mContext;
     private String mForumId;
     private String mForumName;
@@ -60,14 +60,14 @@ public class a extends d {
                     if (a.this.KH() != null) {
                         a.this.KH().hide();
                     }
-                    if (a.this.hDc != null) {
-                        a.this.hDc.nT(false);
+                    if (a.this.hDd != null) {
+                        a.this.hDd.nT(false);
                     }
                     WriteData writeData2 = writeData == null ? a.this.aVE.getWriteData() : writeData;
                     if (z) {
-                        a.this.fZG.wJ(null);
-                        a.this.fZG.aA(null);
-                        a.this.fZG.oa(false);
+                        a.this.fZH.wJ(null);
+                        a.this.fZH.aA(null);
+                        a.this.fZH.oa(false);
                         a.this.bKi();
                         a.this.resetData();
                         if (writeData2 != null) {
@@ -96,9 +96,9 @@ public class a extends d {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(a.this.mContext.getPageActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_REG, writeData2, postWriteCallBackData.getAccessState())));
                     } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 220015) {
                         a.this.wB(postWriteCallBackData.getErrorString());
-                        a.this.fZG.aA(postWriteCallBackData.getSensitiveWords());
-                        a.this.fZG.wJ(postWriteCallBackData.getErrorString());
-                        if (!com.baidu.tbadk.core.util.v.J(a.this.fZG.bLq())) {
+                        a.this.fZH.aA(postWriteCallBackData.getSensitiveWords());
+                        a.this.fZH.wJ(postWriteCallBackData.getErrorString());
+                        if (!com.baidu.tbadk.core.util.v.J(a.this.fZH.bLq())) {
                             a.this.lx(true);
                         }
                     } else if (postWriteCallBackData != null && (postWriteCallBackData.getErrorCode() == 230277 || postWriteCallBackData.getErrorCode() == 230278 || postWriteCallBackData.getErrorCode() == 340016 || postWriteCallBackData.getErrorCode() == 1990032 || AntiHelper.uL(postWriteCallBackData.getErrorCode()))) {
@@ -120,18 +120,18 @@ public class a extends d {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                if (a.this.fZG != null) {
-                    if (!a.this.fZG.bLt()) {
+                if (a.this.fZH != null) {
+                    if (!a.this.fZH.bLt()) {
                         a.this.lx(false);
                     }
-                    a.this.fZG.ob(false);
+                    a.this.fZH.ob(false);
                 }
             }
         };
         editorTools.bY(true);
-        this.fZG = new com.baidu.tieba.write.b();
-        this.fZG.wg(e.d.cp_cont_h_alpha85);
-        this.fZG.wf(e.d.cp_cont_i);
+        this.fZH = new com.baidu.tieba.write.b();
+        this.fZH.wg(e.d.cp_cont_h_alpha85);
+        this.fZH.wf(e.d.cp_cont_i);
     }
 
     public void setContext(TbPageContext<?> tbPageContext) {
@@ -187,8 +187,8 @@ public class a extends d {
             KH().b(new com.baidu.tbadk.editortools.a(4, -1, ""));
             KH().hide();
         }
-        if (this.hDc != null) {
-            this.hDc.nT(true);
+        if (this.hDd != null) {
+            this.hDd.nT(true);
         }
     }
 
@@ -243,17 +243,17 @@ public class a extends d {
         if (KH() != null && (KH().fi(28) instanceof c) && ((c) KH().fi(28)).getInputView() != null && ((c) KH().fi(28)).getInputView().getText() != null) {
             EditText inputView = ((c) KH().fi(28)).getInputView();
             int selectionEnd = inputView.getSelectionEnd();
-            SpannableStringBuilder b = this.fZG.b(inputView.getText());
+            SpannableStringBuilder b = this.fZH.b(inputView.getText());
             if (b != null) {
-                this.fZG.ob(true);
+                this.fZH.ob(true);
                 inputView.setText(b);
-                if (z && this.fZG.bLr() >= 0) {
+                if (z && this.fZH.bLr() >= 0) {
                     inputView.requestFocus();
-                    inputView.setSelection(this.fZG.bLr());
+                    inputView.setSelection(this.fZH.bLr());
                 } else {
                     inputView.setSelection(selectionEnd);
                 }
-                this.fZG.oa(this.fZG.bLr() >= 0);
+                this.fZH.oa(this.fZH.bLr() >= 0);
             }
         }
     }
@@ -266,7 +266,7 @@ public class a extends d {
     }
 
     public void a(InterfaceC0291a interfaceC0291a) {
-        this.hDc = interfaceC0291a;
+        this.hDd = interfaceC0291a;
     }
 
     public void bKj() {

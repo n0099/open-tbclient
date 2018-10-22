@@ -32,7 +32,7 @@ public class ad {
         return false;
     }
 
-    public List<FrsTabInfo> aBq() {
+    public List<FrsTabInfo> aBr() {
         return this.dzC;
     }
 
@@ -47,7 +47,7 @@ public class ad {
         }
     }
 
-    public void aBr() {
+    public void aBs() {
         boolean z;
         LinkedList linkedList = new LinkedList();
         LinkedList linkedList2 = new LinkedList();
@@ -82,7 +82,7 @@ public class ad {
         return this.mContext;
     }
 
-    public List<com.baidu.tbadk.mainTab.b> azj() {
+    public List<com.baidu.tbadk.mainTab.b> azk() {
         return this.dzD;
     }
 

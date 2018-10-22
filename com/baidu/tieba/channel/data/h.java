@@ -56,7 +56,7 @@ public class h implements com.baidu.adp.widget.ListView.h {
         this.title = str;
     }
 
-    public int apf() {
+    public int apg() {
         return this.bnr;
     }
 
@@ -124,7 +124,7 @@ public class h implements com.baidu.adp.widget.ListView.h {
         this.createTime = j;
     }
 
-    public int apg() {
+    public int aph() {
         return this.cTe;
     }
 

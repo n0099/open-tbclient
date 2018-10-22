@@ -100,7 +100,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 createElement3.setAttribute("MaxWidth", Long.toString(aVar.width));
                 createElement3.setAttribute("MaxHeight", Long.toString(aVar.height));
                 createElement3.setAttribute("CodecPrivateData", aVar.codecPrivateData);
-                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.inK));
+                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.inL));
                 createElement2.appendChild(createElement3);
             }
             for (int i2 = 0; i2 < this.videoFragmentsDurations.length; i2++) {
@@ -462,7 +462,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
             aVar.fourCC = "AVC1";
             aVar.width = visualSampleEntry.getWidth();
             aVar.height = visualSampleEntry.getHeight();
-            aVar.inK = avcConfigurationBox.getLengthSizeMinusOne() + 1;
+            aVar.inL = avcConfigurationBox.getLengthSizeMinusOne() + 1;
             return aVar;
         }
         throw new InternalError("I don't know how to handle video of type " + getFormat(visualSampleEntry));
@@ -494,43 +494,43 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public class a {
-        private byte inG;
         private byte inH;
-        private EC3SpecificBox.Entry inI;
+        private byte inI;
+        private EC3SpecificBox.Entry inJ;
 
         public a(byte b, byte b2, EC3SpecificBox.Entry entry) {
-            this.inG = b;
-            this.inH = b2;
-            this.inI = entry;
+            this.inH = b;
+            this.inI = b2;
+            this.inJ = entry;
         }
 
         public byte bZI() {
-            return this.inG;
-        }
-
-        public byte bZJ() {
             return this.inH;
         }
 
+        public byte bZJ() {
+            return this.inI;
+        }
+
         public a bZK() {
-            switch (this.inI.chan_loc) {
+            switch (this.inJ.chan_loc) {
                 case 0:
-                    this.inG = (byte) (this.inG | 3);
+                    this.inH = (byte) (this.inH | 3);
                     break;
                 case 1:
-                    this.inG = (byte) (this.inG | 12);
+                    this.inH = (byte) (this.inH | 12);
                     break;
                 case 2:
-                    this.inH = (byte) (this.inH | 128);
+                    this.inI = (byte) (this.inI | 128);
                     break;
                 case 3:
-                    this.inH = (byte) (this.inH | 8);
+                    this.inI = (byte) (this.inI | 8);
                     break;
                 case 6:
-                    this.inH = (byte) (this.inH | 5);
+                    this.inI = (byte) (this.inI | 5);
                     break;
                 case 7:
-                    this.inH = (byte) (this.inH | 2);
+                    this.inI = (byte) (this.inI | 2);
                     break;
             }
             return this;

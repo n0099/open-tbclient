@@ -6,19 +6,19 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes6.dex */
 final class f {
-    private static f hTD;
-    private static SQLiteOpenHelper hTE;
-    private AtomicInteger hTF = new AtomicInteger();
-    private SQLiteDatabase hTG;
+    private static f hTE;
+    private static SQLiteOpenHelper hTF;
+    private AtomicInteger hTG = new AtomicInteger();
+    private SQLiteDatabase hTH;
 
     f() {
     }
 
     private static synchronized void b(Context context) {
         synchronized (f.class) {
-            if (hTD == null) {
-                hTD = new f();
-                hTE = new d(context);
+            if (hTE == null) {
+                hTE = new f();
+                hTF = new d(context);
             }
         }
     }
@@ -26,19 +26,19 @@ final class f {
     public static synchronized f bQh() {
         f fVar;
         synchronized (f.class) {
-            if (hTD == null) {
+            if (hTE == null) {
                 b(com.baidu.ubs.analytics.d.bQf().getContext());
             }
-            fVar = hTD;
+            fVar = hTE;
         }
         return fVar;
     }
 
     public final synchronized SQLiteDatabase getDatabase() {
-        if (this.hTF.incrementAndGet() == 1) {
+        if (this.hTG.incrementAndGet() == 1) {
             com.baidu.ubs.analytics.d.b.xS("***************新建立了 一个数据库的实例****************");
-            this.hTG = hTE.getWritableDatabase();
+            this.hTH = hTF.getWritableDatabase();
         }
-        return this.hTG;
+        return this.hTH;
     }
 }

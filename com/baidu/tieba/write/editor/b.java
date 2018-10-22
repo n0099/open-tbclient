@@ -24,9 +24,9 @@ public class b extends k {
         }
     }
 
-    public void aui() {
+    public void auj() {
         if (this.aTV instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.aTV).aui();
+            ((EditorInfoContainer) this.aTV).auj();
         }
     }
 

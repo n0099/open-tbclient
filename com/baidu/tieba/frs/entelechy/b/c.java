@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs.entelechy.b;
 /* loaded from: classes6.dex */
 public interface c {
-    boolean aCP();
-
-    void aCQ();
+    boolean aCQ();
 
     void aCR();
+
+    void aCS();
 
     void gQ(boolean z);
 

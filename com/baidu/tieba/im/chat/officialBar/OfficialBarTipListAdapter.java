@@ -32,13 +32,13 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.eAZ.setTag(null);
-        aVar.eAZ.setDrawBorder(true);
-        aVar.eAZ.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
-        aVar.eAZ.setDefaultResource(e.f.icon_default_ba_120);
+        aVar.eBa.setTag(null);
+        aVar.eBa.setDrawBorder(true);
+        aVar.eBa.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+        aVar.eBa.setDefaultResource(e.f.icon_default_ba_120);
         if (!TextUtils.isEmpty(imMessageCenterShowItemData.getFriendPortrait())) {
-            aVar.eAZ.setTag(imMessageCenterShowItemData.getFriendPortrait());
-            aVar.eAZ.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
+            aVar.eBa.setTag(imMessageCenterShowItemData.getFriendPortrait());
+            aVar.eBa.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
         }
     }
 
@@ -54,14 +54,14 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void a(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.eBa.setText(this.mContext.getString(e.j.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
+        aVar.eBb.setText(this.mContext.getString(e.j.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
         if (imMessageCenterShowItemData.getUserType() == 1) {
             BitmapDrawable bitmapDrawable = (BitmapDrawable) al.getDrawable(e.f.icon_v);
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-            aVar.eBa.setCompoundDrawables(null, null, bitmapDrawable, null);
-            aVar.eBa.setCompoundDrawablePadding(l.dip2px(this.mContext, this.mContext.getResources().getDimension(e.C0175e.ds8)));
+            aVar.eBb.setCompoundDrawables(null, null, bitmapDrawable, null);
+            aVar.eBb.setCompoundDrawablePadding(l.dip2px(this.mContext, this.mContext.getResources().getDimension(e.C0175e.ds8)));
             return;
         }
-        aVar.eBa.setCompoundDrawables(null, null, null, null);
+        aVar.eBb.setCompoundDrawables(null, null, null, null);
     }
 }

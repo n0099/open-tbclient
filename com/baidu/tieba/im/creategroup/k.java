@@ -15,10 +15,10 @@ public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
     TextView bdD;
     private View bdE;
     TbPageContext<GroupAddressEditActivity> dlY;
-    l eEA;
-    private boolean eEw;
-    private TextView eEy;
-    private String[] eEz;
+    private String[] eEA;
+    l eEB;
+    private boolean eEx;
+    private TextView eEz;
     NavigationBar mNavigationBar;
     View mParent;
 
@@ -38,12 +38,12 @@ public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
         this.bdD = null;
         this.bdE = null;
         this.OE = null;
-        this.eEy = null;
         this.eEz = null;
-        this.eEw = false;
         this.eEA = null;
-        this.eEz = strArr;
-        this.eEw = z;
+        this.eEx = false;
+        this.eEB = null;
+        this.eEA = strArr;
+        this.eEx = z;
         b(tbPageContext.getOrignalPage());
         a(tbPageContext.getOrignalPage());
     }
@@ -58,17 +58,17 @@ public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
         groupAddressEditActivity.setContentView(e.h.group_address_activity);
         this.mParent = groupAddressEditActivity.findViewById(e.g.parent);
         this.OE = (BdListView) groupAddressEditActivity.findViewById(e.g.lv_address);
-        this.eEA = new l(groupAddressEditActivity, this.eEz);
-        this.OE.setAdapter((ListAdapter) this.eEA);
+        this.eEB = new l(groupAddressEditActivity, this.eEA);
+        this.OE.setAdapter((ListAdapter) this.eEB);
         this.OE.setOnItemClickListener(groupAddressEditActivity);
-        this.eEy = (TextView) groupAddressEditActivity.findViewById(e.g.address_title_poslist);
-        if (this.eEz == null || this.eEz.length < 1) {
+        this.eEz = (TextView) groupAddressEditActivity.findViewById(e.g.address_title_poslist);
+        if (this.eEA == null || this.eEA.length < 1) {
             this.OE.setVisibility(8);
-            this.eEy.setText(e.j.address_locate_noaddresslist);
+            this.eEz.setText(e.j.address_locate_noaddresslist);
         }
         SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) groupAddressEditActivity.findViewById(e.g.address_showorhidden);
         settingTextSwitchView.setSwitchStateChangeListener(groupAddressEditActivity);
-        if (this.eEw) {
+        if (this.eEx) {
             settingTextSwitchView.nU();
         } else {
             settingTextSwitchView.nV();
@@ -81,7 +81,7 @@ public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
     }
 
     public void aOG() {
-        this.eEA.notifyDataSetChanged();
+        this.eEB.notifyDataSetChanged();
     }
 
     public void onChangeSkinType(int i) {

@@ -20,20 +20,20 @@ public class CoreSearchRequestStatic {
     private static EnterForumModel dgs;
 
     static {
-        atM();
         atN();
+        atO();
     }
 
-    private static void atM() {
+    private static void atN() {
         com.baidu.tieba.tbadkCore.d.c.bCu();
         if (dgs == null) {
             dgs = new EnterForumModel(null);
             dgs.a(new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.CoreSearchRequestStatic.1
                 @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
                 public void a(EnterForumModel.a aVar) {
-                    g atD = aVar.dhG.atD();
+                    g atE = aVar.dhG.atE();
                     ArrayList arrayList = new ArrayList();
-                    Iterator<f> it = atD.atJ().iterator();
+                    Iterator<f> it = atE.atK().iterator();
                     while (it.hasNext()) {
                         arrayList.add(it.next().getName());
                     }
@@ -69,7 +69,7 @@ public class CoreSearchRequestStatic {
         });
     }
 
-    public static void atN() {
+    public static void atO() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2016562, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.enterForum.home.CoreSearchRequestStatic.4
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.tieba.c.a> run(CustomMessage<Object> customMessage) {

@@ -27,10 +27,10 @@ public class g {
 
     public g(Context context) {
         this.mContext = context;
-        aDB();
+        aDC();
     }
 
-    private void aDB() {
+    private void aDC() {
         this.dMx = new TextView(this.mContext);
         this.dMx.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(e.C0175e.fontsize24));
         al.i(this.dMx, e.d.common_color_10260);
@@ -56,7 +56,7 @@ public class g {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (g.this.dMx != null) {
-                    g.this.aBx();
+                    g.this.aBy();
                 }
             }
 
@@ -70,7 +70,7 @@ public class g {
         });
     }
 
-    public void aBx() {
+    public void aBy() {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
@@ -91,11 +91,11 @@ public class g {
         return this.dMx != null && this.dMx.getVisibility() == 0;
     }
 
-    public TextView aDC() {
+    public TextView aDD() {
         return this.dMx;
     }
 
-    public void aDD() {
+    public void aDE() {
         this.mHandler.removeCallbacks(this.mHideRunnable);
         this.mHandler.postDelayed(this.mHideRunnable, SystemScreenshotManager.DELAY_TIME);
     }

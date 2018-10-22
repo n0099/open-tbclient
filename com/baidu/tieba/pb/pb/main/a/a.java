@@ -17,13 +17,13 @@ import java.util.LinkedList;
 /* loaded from: classes6.dex */
 public class a extends k<i, C0248a> {
     private View.OnClickListener aEg;
-    private b fWC;
-    private final LinkedList<C0248a> fWD;
+    private b fWD;
+    private final LinkedList<C0248a> fWE;
 
     public a(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
-        this.fWD = new LinkedList<>();
-        this.fWC = new b(this.fME);
+        this.fWE = new LinkedList<>();
+        this.fWD = new b(this.fMF);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,7 +31,7 @@ public class a extends k<i, C0248a> {
     /* renamed from: bq */
     public C0248a onCreateViewHolder(ViewGroup viewGroup) {
         C0248a c0248a = new C0248a(LayoutInflater.from(this.mContext).inflate(e.h.layout_pb_thread_praise_item, viewGroup, false));
-        this.fWD.add(c0248a);
+        this.fWE.add(c0248a);
         return c0248a;
     }
 
@@ -41,9 +41,9 @@ public class a extends k<i, C0248a> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, i iVar, C0248a c0248a) {
         super.onFillViewHolder(i, view, viewGroup, iVar, c0248a);
         if (iVar != null && c0248a != null) {
-            c0248a.fWE.setOnClickOutListener(this.aEg);
-            c0248a.fWE.setPostId(getPostId());
-            c0248a.fWE.setForumId(getForumId());
+            c0248a.fWF.setOnClickOutListener(this.aEg);
+            c0248a.fWF.setPostId(getPostId());
+            c0248a.fWF.setForumId(getForumId());
             c0248a.a(iVar);
         }
         return view;
@@ -51,27 +51,27 @@ public class a extends k<i, C0248a> {
 
     public void onDestroy() {
         bkC();
-        if (this.fWC != null) {
-            this.fWC.onDestroy();
+        if (this.fWD != null) {
+            this.fWD.onDestroy();
         }
     }
 
     private void bkC() {
-        Iterator<C0248a> it = this.fWD.iterator();
+        Iterator<C0248a> it = this.fWE.iterator();
         while (it.hasNext()) {
             C0248a next = it.next();
-            if (next != null && next.fWE != null) {
-                next.fWE.onDestroy();
+            if (next != null && next.fWF != null) {
+                next.fWF.onDestroy();
             }
         }
     }
 
     public void fX(String str) {
-        Iterator<C0248a> it = this.fWD.iterator();
+        Iterator<C0248a> it = this.fWE.iterator();
         while (it.hasNext()) {
             C0248a next = it.next();
-            if (next != null && next.fWE != null) {
-                next.fWE.fX(str);
+            if (next != null && next.fWF != null) {
+                next.fWF.fX(str);
             }
         }
     }
@@ -82,14 +82,14 @@ public class a extends k<i, C0248a> {
     }
 
     private String getForumId() {
-        return this.fME.bga() != null ? this.fME.bga().getForumId() : "";
+        return this.fMF.bga() != null ? this.fMF.bga().getForumId() : "";
     }
 
     private bb bkD() {
-        if (this.fME.bga() == null || this.fME.bga().getPbData() == null) {
+        if (this.fMF.bga() == null || this.fMF.bga().getPbData() == null) {
             return null;
         }
-        return this.fME.bga().getPbData().beV();
+        return this.fMF.bga().getPbData().beV();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -99,29 +99,29 @@ public class a extends k<i, C0248a> {
     /* renamed from: com.baidu.tieba.pb.pb.main.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public static class C0248a extends q.a {
-        public View eoN;
-        public PbThreadCommentAndPraiseInfoLayout fWE;
+        public View eoO;
+        public PbThreadCommentAndPraiseInfoLayout fWF;
 
         public C0248a(View view) {
             super(view);
             if (view != null) {
-                this.fWE = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(e.g.card_bottom_func_layout);
-                this.eoN = view.findViewById(e.g.bottom_divider_line);
-                this.eoN.setVisibility(0);
+                this.fWF = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(e.g.card_bottom_func_layout);
+                this.eoO = view.findViewById(e.g.bottom_divider_line);
+                this.eoO.setVisibility(0);
             }
         }
 
         public void a(i iVar) {
             if (iVar != null && iVar.bIV != null) {
-                this.fWE.setData(iVar.bIV);
-                this.eoN.setVisibility(iVar.bfA() ? 0 : 8);
+                this.fWF.setData(iVar.bIV);
+                this.eoO.setVisibility(iVar.bfA() ? 0 : 8);
             }
             onChangeSkinType();
         }
 
         public void onChangeSkinType() {
-            al.j(this.eoN, e.d.cp_bg_line_e);
-            this.fWE.onChangeSkinType();
+            al.j(this.eoO, e.d.cp_bg_line_e);
+            this.fWF.onChangeSkinType();
         }
     }
 }

@@ -4,7 +4,7 @@ import java.util.ListIterator;
 import java.util.NoSuchElementException;
 /* loaded from: classes2.dex */
 public final class v implements ListIterator {
-    public static final v ipb = new v();
+    public static final v ipc = new v();
 
     @Override // java.util.ListIterator
     public /* synthetic */ void add(Object obj) {

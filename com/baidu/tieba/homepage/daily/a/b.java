@@ -21,7 +21,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bb, com.baidu.tieba.card.
     private ad<bb> bVT;
     private com.baidu.adp.lib.e.b<ConstrainImageLayout> dEO;
     private com.baidu.adp.lib.e.b<TbImageView> dEP;
-    private com.baidu.tieba.homepage.daily.view.a ejM;
+    private com.baidu.tieba.homepage.daily.view.a ejN;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -30,7 +30,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bb, com.baidu.tieba.card.
         this.dEO = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.daily.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: aBF */
+            /* renamed from: aBG */
             public ConstrainImageLayout jB() {
                 return new ConstrainImageLayout(b.this.mPageContext.getPageActivity());
             }
@@ -96,15 +96,15 @@ public class b extends com.baidu.adp.widget.ListView.a<bb, com.baidu.tieba.card.
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             public void a(View view, bb bbVar) {
-                if (view != null && bbVar != null && b.this.ejM != null && b.this.ejM.getView() != null) {
+                if (view != null && bbVar != null && b.this.ejN != null && b.this.ejN.getView() != null) {
                     am amVar = new am("c13175");
                     amVar.x("obj_type", 1);
                     amVar.ax("tid", bbVar.getTid());
                     amVar.h(ImageViewerConfig.FORUM_ID, bbVar.getFid());
                     int i = 2;
-                    if (view.getId() == b.this.ejM.aJj() || view.getId() == b.this.ejM.aJk()) {
+                    if (view.getId() == b.this.ejN.aJj() || view.getId() == b.this.ejN.aJk()) {
                         i = 1;
-                    } else if (view.getId() == b.this.ejM.aJl()) {
+                    } else if (view.getId() == b.this.ejN.aJl()) {
                         i = 3;
                     }
                     amVar.x("obj_locate", i);
@@ -120,16 +120,16 @@ public class b extends com.baidu.adp.widget.ListView.a<bb, com.baidu.tieba.card.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: Y */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.a> onCreateViewHolder(ViewGroup viewGroup) {
-        this.ejM = new com.baidu.tieba.homepage.daily.view.a(this.mPageContext);
-        this.ejM.setSingleImageRatio(0.75d);
-        this.ejM.setTag(this.mPageId);
-        this.ejM.setConstrainLayoutPool(this.dEO);
-        this.ejM.setConstrainImagePool(this.dEP);
-        this.ejM.setShareReportFrom(7);
-        this.ejM.nB(11);
-        this.ejM.setStType(o.yj());
-        this.ejM.currentPageType = 16;
-        return new com.baidu.tieba.card.a.a<>(this.ejM);
+        this.ejN = new com.baidu.tieba.homepage.daily.view.a(this.mPageContext);
+        this.ejN.setSingleImageRatio(0.75d);
+        this.ejN.setTag(this.mPageId);
+        this.ejN.setConstrainLayoutPool(this.dEO);
+        this.ejN.setConstrainImagePool(this.dEP);
+        this.ejN.setShareReportFrom(7);
+        this.ejN.nB(11);
+        this.ejN.setStType(o.yj());
+        this.ejN.currentPageType = 16;
+        return new com.baidu.tieba.card.a.a<>(this.ejN);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -137,16 +137,16 @@ public class b extends com.baidu.adp.widget.ListView.a<bb, com.baidu.tieba.card.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bb bbVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.a> aVar) {
-        if (bbVar == null || aVar == null || aVar.aoP() == null) {
+        if (bbVar == null || aVar == null || aVar.aoQ() == null) {
             return null;
         }
         am amVar = new am("c13176");
         amVar.x("obj_type", 1);
         amVar.ax("tid", bbVar.getTid());
         amVar.h(ImageViewerConfig.FORUM_ID, bbVar.getFid());
-        v.aoo().a(amVar);
-        aVar.aoP().b(this.bVT);
-        aVar.aoP().a(bbVar);
+        v.aop().a(amVar);
+        aVar.aoQ().b(this.bVT);
+        aVar.aoQ().a(bbVar);
         return aVar.getView();
     }
 }

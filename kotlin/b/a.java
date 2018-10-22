@@ -4,26 +4,26 @@ import kotlin.collections.y;
 import kotlin.jvm.internal.o;
 /* loaded from: classes2.dex */
 public class a implements Iterable<Integer> {
-    public static final C0356a ipC = new C0356a(null);
-    private final int ipA;
+    public static final C0356a ipD = new C0356a(null);
     private final int ipB;
+    private final int ipC;
     private final int step;
 
     public a(int i, int i2, int i3) {
         if (i3 == 0) {
             throw new IllegalArgumentException("Step must be non-zero");
         }
-        this.ipA = i;
-        this.ipB = kotlin.internal.a.ah(i, i2, i3);
+        this.ipB = i;
+        this.ipC = kotlin.internal.a.ah(i, i2, i3);
         this.step = i3;
     }
 
     public final int getFirst() {
-        return this.ipA;
+        return this.ipB;
     }
 
     public final int getLast() {
-        return this.ipB;
+        return this.ipC;
     }
 
     public final int cap() {
@@ -34,26 +34,26 @@ public class a implements Iterable<Integer> {
     @Override // java.lang.Iterable
     /* renamed from: caq */
     public y iterator() {
-        return new b(this.ipA, this.ipB, this.step);
+        return new b(this.ipB, this.ipC, this.step);
     }
 
     public boolean isEmpty() {
-        return this.step > 0 ? this.ipA > this.ipB : this.ipA < this.ipB;
+        return this.step > 0 ? this.ipB > this.ipC : this.ipB < this.ipC;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.ipA == ((a) obj).ipA && this.ipB == ((a) obj).ipB && this.step == ((a) obj).step));
+        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.ipB == ((a) obj).ipB && this.ipC == ((a) obj).ipC && this.step == ((a) obj).step));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (((this.ipA * 31) + this.ipB) * 31) + this.step;
+        return (((this.ipB * 31) + this.ipC) * 31) + this.step;
     }
 
     public String toString() {
-        return this.step > 0 ? "" + this.ipA + ".." + this.ipB + " step " + this.step : "" + this.ipA + " downTo " + this.ipB + " step " + (-this.step);
+        return this.step > 0 ? "" + this.ipB + ".." + this.ipC + " step " + this.step : "" + this.ipB + " downTo " + this.ipC + " step " + (-this.step);
     }
 
     /* renamed from: kotlin.b.a$a  reason: collision with other inner class name */

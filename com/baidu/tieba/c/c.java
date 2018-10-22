@@ -49,7 +49,7 @@ public class c {
         this.mFrom = i;
         this.cWb.setCallback(new FloatingAnimationView.a() { // from class: com.baidu.tieba.c.c.4
             @Override // com.baidu.tieba.view.FloatingAnimationView.a
-            public void apV() {
+            public void apW() {
                 if (c.this.cWc != null && !ao.isEmpty(c.this.cWc.UL())) {
                     TiebaStatic.log(new am("c12913").x("obj_locate", 2).x("obj_type", c.this.mFrom));
                     if (c.this.cWc.getType() == 2) {
@@ -61,8 +61,8 @@ public class c {
             }
 
             @Override // com.baidu.tieba.view.FloatingAnimationView.a
-            public void apW() {
-                c.this.apU();
+            public void apX() {
+                c.this.apV();
                 c.this.onDestroy();
                 c.this.cWb.setVisibility(8);
                 TiebaStatic.log(new am("c12913").x("obj_locate", 3).x("obj_type", c.this.mFrom));
@@ -78,15 +78,15 @@ public class c {
             }
             this.cWc = mVar;
             if (this.cWc.getType() == 1) {
-                apR();
-            } else if (this.cWc.getType() == 2) {
                 apS();
+            } else if (this.cWc.getType() == 2) {
+                apT();
             }
-            apT();
+            apU();
         }
     }
 
-    private void apR() {
+    private void apS() {
         String lastId = getLastId();
         if (this.cWc == null || lastId.equals(this.cWc.bCq()) || ao.isEmpty(this.cWc.UL()) || ao.isEmpty(this.cWc.bCo())) {
             this.cWb.setVisibility(8);
@@ -105,7 +105,7 @@ public class c {
         }
     }
 
-    private void apS() {
+    private void apT() {
         String lastId = getLastId();
         if (this.cWc == null || lastId.equals(this.cWc.bCq()) || ao.isEmpty(this.cWc.UL()) || ao.isEmpty(this.cWc.bCo())) {
             this.cWb.setVisibility(8);
@@ -117,7 +117,7 @@ public class c {
         com.baidu.adp.lib.g.e.jI().postDelayed(this.cWf, UtilHelper.getNextDayMorning() - System.currentTimeMillis());
     }
 
-    public void apT() {
+    public void apU() {
         if (this.cWb != null && this.cWc != null) {
             if (getLastId().equals(this.cWc.bCq())) {
                 this.cWb.setVisibility(8);
@@ -147,7 +147,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void apU() {
+    public void apV() {
         String str;
         if (this.cWc != null) {
             int type = this.cWc.getType();

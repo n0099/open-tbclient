@@ -7,9 +7,9 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import java.io.IOException;
 /* loaded from: classes5.dex */
 public class MusicPlayer {
-    private static MusicPlayer hrP = null;
-    private MediaPlayer hrO;
-    private MusicPlayerState hrQ = MusicPlayerState.WAIT;
+    private static MusicPlayer hrQ = null;
+    private MediaPlayer hrP;
+    private MusicPlayerState hrR = MusicPlayerState.WAIT;
 
     /* loaded from: classes5.dex */
     public enum MusicPlayerState {
@@ -32,38 +32,38 @@ public class MusicPlayer {
     public static synchronized MusicPlayer bGz() {
         MusicPlayer musicPlayer;
         synchronized (MusicPlayer.class) {
-            if (hrP == null) {
-                hrP = new MusicPlayer();
+            if (hrQ == null) {
+                hrQ = new MusicPlayer();
             }
-            musicPlayer = hrP;
+            musicPlayer = hrQ;
         }
         return musicPlayer;
     }
 
     public void a(String str, final CloudMusicData.MusicTagList.MusicList musicList, a aVar) {
-        if (this.hrQ != MusicPlayerState.PAUSE) {
-            if (this.hrO == null) {
-                this.hrO = new MediaPlayer();
-                this.hrO.setAudioStreamType(3);
+        if (this.hrR != MusicPlayerState.PAUSE) {
+            if (this.hrP == null) {
+                this.hrP = new MediaPlayer();
+                this.hrP.setAudioStreamType(3);
             }
             try {
-                this.hrO.reset();
-                this.hrO.setDataSource(str);
-                this.hrO.prepare();
-                this.hrQ = MusicPlayerState.WAIT;
-                this.hrO.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.cloudmusic.MusicPlayer.1
+                this.hrP.reset();
+                this.hrP.setDataSource(str);
+                this.hrP.prepare();
+                this.hrR = MusicPlayerState.WAIT;
+                this.hrP.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.cloudmusic.MusicPlayer.1
                     @Override // android.media.MediaPlayer.OnPreparedListener
                     public void onPrepared(MediaPlayer mediaPlayer) {
                         com.baidu.tieba.video.cloudmusic.data.a.bGC().a(musicList);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921307));
-                        MusicPlayer.this.hrO.setLooping(true);
-                        MusicPlayer.this.hrO.start();
-                        MusicPlayer.this.hrQ = MusicPlayerState.PREPARED;
+                        MusicPlayer.this.hrP.setLooping(true);
+                        MusicPlayer.this.hrP.start();
+                        MusicPlayer.this.hrR = MusicPlayerState.PREPARED;
                     }
                 });
             } catch (IOException e) {
                 e.printStackTrace();
-                this.hrQ = MusicPlayerState.ERROR;
+                this.hrR = MusicPlayerState.ERROR;
                 if (aVar != null) {
                     aVar.bGx();
                 }
@@ -72,27 +72,27 @@ public class MusicPlayer {
     }
 
     public void bGA() {
-        if (this.hrO != null && this.hrO.isPlaying()) {
-            this.hrO.pause();
+        if (this.hrP != null && this.hrP.isPlaying()) {
+            this.hrP.pause();
         }
-        this.hrQ = MusicPlayerState.PAUSE;
+        this.hrR = MusicPlayerState.PAUSE;
     }
 
     public void bGB() {
-        if (this.hrO != null) {
-            this.hrO.start();
-            this.hrO.seekTo(0);
+        if (this.hrP != null) {
+            this.hrP.start();
+            this.hrP.seekTo(0);
         }
-        this.hrQ = MusicPlayerState.RESUME;
+        this.hrR = MusicPlayerState.RESUME;
     }
 
     public void Tu() {
-        if (this.hrO != null) {
-            if (this.hrO.isPlaying()) {
-                this.hrO.stop();
+        if (this.hrP != null) {
+            if (this.hrP.isPlaying()) {
+                this.hrP.stop();
             }
-            this.hrO.release();
-            this.hrO = null;
+            this.hrP.release();
+            this.hrP = null;
         }
     }
 }

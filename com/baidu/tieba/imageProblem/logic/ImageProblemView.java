@@ -13,29 +13,29 @@ import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class ImageProblemView extends c {
     private ScrollView bDf;
-    ImageProblemActivity faC;
-    private Button faD;
+    ImageProblemActivity faD;
+    private Button faE;
     private LinearLayout mLayout;
     private NavigationBar mNavigationBar;
     private View mParent;
 
     public ImageProblemView(ImageProblemActivity imageProblemActivity, ImageProblemAssistant imageProblemAssistant) {
         super(imageProblemActivity.getPageContext());
-        this.faC = imageProblemActivity;
-        this.faC.setContentView(e.h.image_problem_activity);
-        this.mParent = this.faC.findViewById(e.g.parent);
-        this.mNavigationBar = (NavigationBar) this.faC.findViewById(e.g.view_navigation_bar);
+        this.faD = imageProblemActivity;
+        this.faD.setContentView(e.h.image_problem_activity);
+        this.mParent = this.faD.findViewById(e.g.parent);
+        this.mNavigationBar = (NavigationBar) this.faD.findViewById(e.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.faC.getPageContext().getString(e.j.image_problem));
-        this.bDf = (ScrollView) this.faC.findViewById(e.g.scrollView);
-        this.faD = (Button) this.faC.findViewById(e.g.check_btn);
-        this.faD.setOnClickListener(imageProblemActivity);
-        this.mLayout = new LinearLayout(this.faC.getPageContext().getPageActivity());
+        this.mNavigationBar.setTitleText(this.faD.getPageContext().getString(e.j.image_problem));
+        this.bDf = (ScrollView) this.faD.findViewById(e.g.scrollView);
+        this.faE = (Button) this.faD.findViewById(e.g.check_btn);
+        this.faE.setOnClickListener(imageProblemActivity);
+        this.mLayout = new LinearLayout(this.faD.getPageContext().getPageActivity());
         this.mLayout.setOrientation(1);
         this.bDf.addView(this.mLayout);
         Iterator<ImageProblemAssistant.TestTask> it = imageProblemAssistant.taskList.iterator();
         while (it.hasNext()) {
-            ImageProblemItemView imageProblemItemView = new ImageProblemItemView(this.faC.getPageContext().getPageActivity());
+            ImageProblemItemView imageProblemItemView = new ImageProblemItemView(this.faD.getPageContext().getPageActivity());
             imageProblemItemView.hideArrow();
             imageProblemItemView.setText(it.next().title);
             this.mLayout.addView(imageProblemItemView);
@@ -43,7 +43,7 @@ public class ImageProblemView extends c {
     }
 
     public Button getCheckButton() {
-        return this.faD;
+        return this.faE;
     }
 
     public void start() {
@@ -93,7 +93,7 @@ public class ImageProblemView extends c {
                     imageProblemItemView.setHelpText("");
                     imageProblemItemView.setArrowImg(e.f.icon_diagnose_ok);
                 } else {
-                    imageProblemItemView.setHelpText(arrayList.get(i2).fay);
+                    imageProblemItemView.setHelpText(arrayList.get(i2).faz);
                     imageProblemItemView.setArrowImg(e.f.icon_error);
                 }
             }
@@ -107,8 +107,8 @@ public class ImageProblemView extends c {
     }
 
     public void onChangeSkinType(int i) {
-        this.faC.getLayoutMode().setNightMode(i == 1);
-        this.faC.getLayoutMode().onModeChanged(this.mParent);
+        this.faD.getLayoutMode().setNightMode(i == 1);
+        this.faD.getLayoutMode().onModeChanged(this.mParent);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 }

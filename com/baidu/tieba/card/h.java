@@ -64,33 +64,33 @@ public class h extends a<com.baidu.tieba.e.e> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.e.e eVar) {
-        if (eVar != null && eVar.asz() != null) {
-            if (!TextUtils.isEmpty(eVar.asz().title)) {
-                this.cLG.setText(eVar.asz().title);
+        if (eVar != null && eVar.asA() != null) {
+            if (!TextUtils.isEmpty(eVar.asA().title)) {
+                this.cLG.setText(eVar.asA().title);
             }
             this.cLH.setVisibility(8);
             this.cLI.setVisibility(8);
             this.cLJ.setVisibility(8);
             this.cLK.setVisibility(8);
-            if (eVar.asz().sub_nodes.size() >= 1) {
+            if (eVar.asA().sub_nodes.size() >= 1) {
                 this.cLH.setVisibility(0);
-                this.cLH.setTag(eVar.asz().sub_nodes.get(0).url);
-                this.cLH.setText(eVar.asz().sub_nodes.get(0).title);
+                this.cLH.setTag(eVar.asA().sub_nodes.get(0).url);
+                this.cLH.setText(eVar.asA().sub_nodes.get(0).title);
             }
-            if (eVar.asz().sub_nodes.size() >= 2) {
+            if (eVar.asA().sub_nodes.size() >= 2) {
                 this.cLI.setVisibility(0);
-                this.cLI.setTag(eVar.asz().sub_nodes.get(1).url);
-                this.cLI.setText(eVar.asz().sub_nodes.get(1).title);
+                this.cLI.setTag(eVar.asA().sub_nodes.get(1).url);
+                this.cLI.setText(eVar.asA().sub_nodes.get(1).title);
             }
-            if (eVar.asz().sub_nodes.size() >= 3) {
+            if (eVar.asA().sub_nodes.size() >= 3) {
                 this.cLJ.setVisibility(0);
-                this.cLJ.setTag(eVar.asz().sub_nodes.get(2).url);
-                this.cLJ.setText(eVar.asz().sub_nodes.get(2).title);
+                this.cLJ.setTag(eVar.asA().sub_nodes.get(2).url);
+                this.cLJ.setText(eVar.asA().sub_nodes.get(2).title);
             }
-            if (eVar.asz().sub_nodes.size() >= 4) {
+            if (eVar.asA().sub_nodes.size() >= 4) {
                 this.cLK.setVisibility(0);
-                this.cLK.setTag(eVar.asz().sub_nodes.get(3).url);
-                this.cLK.setText(eVar.asz().sub_nodes.get(3).title);
+                this.cLK.setTag(eVar.asA().sub_nodes.get(3).url);
+                this.cLK.setText(eVar.asA().sub_nodes.get(3).title);
             }
         }
     }

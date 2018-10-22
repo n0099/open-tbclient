@@ -29,10 +29,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b implements View.OnClickListener {
-    private List<TransmitForumData> gwZ;
-    private LinearLayout hpG;
-    private com.baidu.tieba.r.a hpH;
-    private CustomMessageListener hpI = new CustomMessageListener(2016563) { // from class: com.baidu.tieba.r.b.1
+    private List<TransmitForumData> gxa;
+    private LinearLayout hpH;
+    private com.baidu.tieba.r.a hpI;
+    private CustomMessageListener hpJ = new CustomMessageListener(2016563) { // from class: com.baidu.tieba.r.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -40,7 +40,7 @@ public class b implements View.OnClickListener {
                 b.this.mForumList = (ArrayList) customResponsedMessage.getData();
                 int I = v.I(b.this.mForumList);
                 if (I > 0) {
-                    b.this.gwZ = b.this.mForumList.subList(0, Math.min(6, I));
+                    b.this.gxa = b.this.mForumList.subList(0, Math.min(6, I));
                 }
                 b.this.updateView();
             }
@@ -53,7 +53,7 @@ public class b implements View.OnClickListener {
 
     public b(Context context) {
         this.mContext = context;
-        MessageManager.getInstance().registerListener(this.hpI);
+        MessageManager.getInstance().registerListener(this.hpJ);
     }
 
     public void a(com.baidu.tbadk.coreExtra.c.d dVar, ArrayList<TransmitForumData> arrayList, int i) {
@@ -62,31 +62,31 @@ public class b implements View.OnClickListener {
         this.mPrivateThread = i;
         int I = v.I(arrayList);
         if (I > 0) {
-            this.gwZ = arrayList.subList(0, Math.min(6, I));
+            this.gxa = arrayList.subList(0, Math.min(6, I));
         }
     }
 
     public void a(com.baidu.tieba.r.a aVar) {
-        this.hpH = aVar;
+        this.hpI = aVar;
     }
 
     public View getView() {
-        if (this.hpG == null) {
-            this.hpG = new LinearLayout(this.mContext);
-            this.hpG.setOrientation(0);
+        if (this.hpH == null) {
+            this.hpH = new LinearLayout(this.mContext);
+            this.hpH.setOrientation(0);
             int h = l.h(this.mContext, e.C0175e.ds18);
-            this.hpG.setPadding(h, l.h(this.mContext, e.C0175e.ds32), h, l.h(this.mContext, e.C0175e.ds26));
+            this.hpH.setPadding(h, l.h(this.mContext, e.C0175e.ds32), h, l.h(this.mContext, e.C0175e.ds26));
             bFH();
             bFI();
             bFJ();
         }
-        return this.hpG;
+        return this.hpH;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateView() {
-        if (this.hpG != null) {
-            this.hpG.removeAllViews();
+        if (this.hpH != null) {
+            this.hpH.removeAllViews();
             bFH();
             bFI();
             bFJ();
@@ -98,22 +98,22 @@ public class b implements View.OnClickListener {
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         bFK.bdT.startLoad(currentAccountInfo != null ? currentAccountInfo.getPortrait() : null, 12, false);
         bFK.bKH.setText(e.j.my_homepage);
-        bFK.hpK.setTag(100);
-        bFK.hpK.setOnClickListener(this);
-        this.hpG.addView(bFK.hpK);
+        bFK.hpL.setTag(100);
+        bFK.hpL.setOnClickListener(this);
+        this.hpH.addView(bFK.hpL);
     }
 
     private void bFI() {
-        int I = v.I(this.gwZ);
+        int I = v.I(this.gxa);
         for (int i = 0; i < I; i++) {
-            TransmitForumData transmitForumData = this.gwZ.get(i);
+            TransmitForumData transmitForumData = this.gxa.get(i);
             if (transmitForumData != null) {
                 a bFK = bFK();
                 bFK.bdT.startLoad(transmitForumData.avatar, 10, false);
                 bFK.bKH.setText(transmitForumData.forumName);
-                bFK.hpK.setTag(transmitForumData);
-                bFK.hpK.setOnClickListener(this);
-                this.hpG.addView(bFK.hpK);
+                bFK.hpL.setTag(transmitForumData);
+                bFK.hpL.setOnClickListener(this);
+                this.hpH.addView(bFK.hpL);
             }
         }
     }
@@ -123,15 +123,15 @@ public class b implements View.OnClickListener {
         al.c(bFK.bdT, e.f.icon_share_more_ba);
         al.j(bFK.bdT, e.d.cp_bg_line_d);
         bFK.bKH.setText(e.j.more_forums);
-        bFK.hpK.setTag(200);
-        bFK.hpK.setOnClickListener(this);
-        this.hpG.addView(bFK.hpK);
+        bFK.hpL.setTag(200);
+        bFK.hpL.setOnClickListener(this);
+        this.hpH.addView(bFK.hpL);
     }
 
     private a bFK() {
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(e.h.share_dialog_forum_item, (ViewGroup) this.hpG, false);
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(e.h.share_dialog_forum_item, (ViewGroup) this.hpH, false);
         a aVar = new a();
-        aVar.hpK = viewGroup;
+        aVar.hpL = viewGroup;
         aVar.bdT = (TbImageView) viewGroup.findViewById(e.g.photo);
         aVar.bKH = (TextView) viewGroup.findViewById(e.g.name);
         al.h(aVar.bKH, e.d.cp_cont_f);
@@ -140,8 +140,8 @@ public class b implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.hpH != null) {
-            this.hpH.bR(view);
+        if (this.hpI != null) {
+            this.hpI.bR(view);
         }
         if (!j.kX()) {
             l.showToast(TbadkCoreApplication.getInst().getContext(), e.j.share_on_no_network);
@@ -195,7 +195,7 @@ public class b implements View.OnClickListener {
     }
 
     public void release() {
-        MessageManager.getInstance().unRegisterListener(this.hpI);
+        MessageManager.getInstance().unRegisterListener(this.hpJ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -203,7 +203,7 @@ public class b implements View.OnClickListener {
     public static class a {
         public TextView bKH;
         public TbImageView bdT;
-        public ViewGroup hpK;
+        public ViewGroup hpL;
 
         private a() {
         }

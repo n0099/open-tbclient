@@ -11,7 +11,7 @@ public class e extends com.baidu.tieba.card.data.b {
         this.dcL = featureCardHot;
     }
 
-    public FeatureCardHot asz() {
+    public FeatureCardHot asA() {
         return this.dcL;
     }
 

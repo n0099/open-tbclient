@@ -98,7 +98,7 @@ public class i {
                 }
                 dVar.forumName = decode.substring(length);
                 try {
-                    dVar.dUG = data.getQueryParameter("from");
+                    dVar.dUH = data.getQueryParameter("from");
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -150,13 +150,13 @@ public class i {
                     frsFragment.showToast(e.j.sdcard_permission_denied_advert_for_camera);
                 }
             } else if (i == 25040) {
-                com.baidu.tieba.frs.entelechy.c aCj = frsFragment.azX().aCj();
-                String wY = aCj.wY();
-                String aCA = aCj.aCA();
+                com.baidu.tieba.frs.entelechy.c aCk = frsFragment.azY().aCk();
+                String wY = aCk.wY();
+                String aCB = aCk.aCB();
                 if (iArr[0] == 0 && strArr[0].equals("android.permission.WRITE_EXTERNAL_STORAGE")) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921334, wY));
                 } else {
-                    ay.CU().c(frsFragment.getPageContext(), new String[]{aCA});
+                    ay.CU().c(frsFragment.getPageContext(), new String[]{aCB});
                 }
             }
         }

@@ -26,13 +26,13 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class g {
     BaseFragmentActivity bym;
-    public BdListView dTo;
+    public BdListView dTp;
     private View dxR;
-    private e fyH;
-    private com.baidu.tbadk.core.dialog.a fyI = null;
-    a.b fyJ = null;
-    private boolean fyK = false;
-    private a fzj;
+    private e fyI;
+    private com.baidu.tbadk.core.dialog.a fyJ = null;
+    a.b fyK = null;
+    private boolean fyL = false;
+    private a fzk;
     private NoDataView mNoDataView;
     private RelativeLayout mParent;
     private ProgressBar mProgressBar;
@@ -40,40 +40,40 @@ public class g {
 
     public g(ThreadFragment threadFragment, View view) {
         this.bym = null;
-        this.dTo = null;
+        this.dTp = null;
         this.dxR = null;
         this.mNoDataView = null;
-        this.fyH = null;
+        this.fyI = null;
         this.mParent = null;
         this.mProgressBar = null;
         this.bym = threadFragment.getBaseFragmentActivity();
         this.mProgressBar = (ProgressBar) view.findViewById(e.g.progress);
         this.mParent = (RelativeLayout) view.findViewById(e.g.parent);
         this.mNoDataView = NoDataViewFactory.a(this.bym.getPageContext().getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.h(this.bym.getPageContext().getPageActivity(), e.C0175e.ds222)), NoDataViewFactory.d.G(e.j.mark_nodata, e.j.mark_nodata_2), null);
-        this.fyH = new e(threadFragment.getPageContext());
-        this.fyH.notifyDataSetChanged();
+        this.fyI = new e(threadFragment.getPageContext());
+        this.fyI.notifyDataSetChanged();
         this.mPullView = new k(threadFragment.getPageContext());
-        this.dTo = (BdListView) view.findViewById(e.g.list);
-        this.dTo.setPullRefresh(this.mPullView);
+        this.dTp = (BdListView) view.findViewById(e.g.list);
+        this.dTp.setPullRefresh(this.mPullView);
         this.mPullView.a(threadFragment);
         this.dxR = new TextView(this.bym.getActivity());
         this.dxR.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.h(this.bym.getActivity(), e.C0175e.ds88)));
-        this.dTo.addHeaderView(this.dxR, 0);
-        this.dTo.setAdapter((ListAdapter) this.fyH);
-        this.dTo.setOnSrollToBottomListener(threadFragment);
-        this.dTo.setOnItemClickListener(threadFragment);
-        this.fyH.A(threadFragment);
-        this.fyH.B(threadFragment);
-        this.fyH.C(threadFragment);
+        this.dTp.addHeaderView(this.dxR, 0);
+        this.dTp.setAdapter((ListAdapter) this.fyI);
+        this.dTp.setOnSrollToBottomListener(threadFragment);
+        this.dTp.setOnItemClickListener(threadFragment);
+        this.fyI.A(threadFragment);
+        this.fyI.B(threadFragment);
+        this.fyI.C(threadFragment);
     }
 
     public void c(a.b bVar) {
-        this.fyJ = bVar;
+        this.fyK = bVar;
     }
 
     public void jL(boolean z) {
-        this.fyH.cY(z);
-        this.fyH.notifyDataSetChanged();
+        this.fyI.cY(z);
+        this.fyI.notifyDataSetChanged();
     }
 
     public int jM(boolean z) {
@@ -90,11 +90,11 @@ public class g {
 
     public void startRefresh(int i) {
         if (i == 0) {
-            this.dTo.startPullRefresh();
+            this.dTp.startPullRefresh();
             return;
         }
-        this.fyH.setRefreshing(true);
-        this.fyH.notifyDataSetChanged();
+        this.fyI.setRefreshing(true);
+        this.fyI.notifyDataSetChanged();
     }
 
     public void aEH() {
@@ -102,7 +102,7 @@ public class g {
     }
 
     public void a(String str, com.baidu.tieba.myCollection.baseEditMark.a aVar, boolean z) {
-        this.fyH.setRefreshing(true);
+        this.fyI.setRefreshing(true);
         if (str != null) {
             this.bym.showToast(str);
         }
@@ -110,17 +110,17 @@ public class g {
             if (aVar.bct() != 0 || z || aVar.getCount() <= 0) {
             }
             if (aVar.bct() < 20) {
-                this.fyH.setHasMore(false);
-                this.fyH.jK(true);
+                this.fyI.setHasMore(false);
+                this.fyI.jK(true);
             } else {
-                this.fyH.setHasMore(true);
-                this.fyH.jK(true);
+                this.fyI.setHasMore(true);
+                this.fyI.jK(true);
             }
-            this.fyH.setData(aVar.bcs());
+            this.fyI.setData(aVar.bcs());
             a(aVar, z);
         }
-        this.fyH.setRefreshing(false);
-        this.fyH.notifyDataSetChanged();
+        this.fyI.setRefreshing(false);
+        this.fyI.notifyDataSetChanged();
         if (isPullRefreshing()) {
             cm(false);
         }
@@ -131,8 +131,8 @@ public class g {
             showNoDataView();
         } else if (aVar.getCount() > 0) {
             this.mNoDataView.setVisibility(8);
-            this.dTo.removeHeaderView(this.mNoDataView);
-            this.fyH.notifyDataSetChanged();
+            this.dTp.removeHeaderView(this.mNoDataView);
+            this.fyI.notifyDataSetChanged();
         } else if (aVar.getCount() == 0 && !z) {
             showNoDataView();
         }
@@ -140,8 +140,8 @@ public class g {
 
     public void showNoDataView() {
         this.mNoDataView.e(this.bym.getPageContext());
-        this.dTo.removeHeaderView(this.mNoDataView);
-        this.dTo.addHeaderView(this.mNoDataView);
+        this.dTp.removeHeaderView(this.mNoDataView);
+        this.dTp.addHeaderView(this.mNoDataView);
         this.mNoDataView.setVisibility(0);
     }
 
@@ -159,25 +159,25 @@ public class g {
         if (z2) {
             bch();
         }
-        this.fyH.notifyDataSetChanged();
+        this.fyI.notifyDataSetChanged();
     }
 
-    public void avc() {
+    public void avd() {
         this.mProgressBar.setVisibility(0);
     }
 
     /* loaded from: classes3.dex */
     private static class a implements Runnable {
-        com.baidu.tieba.myCollection.baseEditMark.a fzl;
+        com.baidu.tieba.myCollection.baseEditMark.a fzm;
 
         public a(com.baidu.tieba.myCollection.baseEditMark.a aVar) {
-            this.fzl = aVar;
+            this.fzm = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.fzl != null) {
-                this.fzl.e(true);
+            if (this.fzm != null) {
+                this.fzm.e(true);
             }
         }
     }
@@ -189,19 +189,19 @@ public class g {
                 this.mProgressBar.setVisibility(8);
                 return;
             }
-            this.fyH.setData(aVar.bcs());
+            this.fyI.setData(aVar.bcs());
             if (aVar.bcs().size() == 0) {
-                if (this.fzj == null) {
-                    this.fzj = new a(aVar);
+                if (this.fzk == null) {
+                    this.fzk = new a(aVar);
                 } else {
-                    com.baidu.adp.lib.g.e.jI().removeCallbacks(this.fzj);
+                    com.baidu.adp.lib.g.e.jI().removeCallbacks(this.fzk);
                 }
-                com.baidu.adp.lib.g.e.jI().postDelayed(this.fzj, 600L);
+                com.baidu.adp.lib.g.e.jI().postDelayed(this.fzk, 600L);
             }
         } else {
             this.bym.showToast(str);
         }
-        this.fyH.jK(false);
+        this.fyI.jK(false);
         this.mProgressBar.setVisibility(8);
     }
 
@@ -212,27 +212,27 @@ public class g {
     }
 
     public void ak(ArrayList<MarkData> arrayList) {
-        this.fyH.setData(arrayList);
+        this.fyI.setData(arrayList);
     }
 
     private void bch() {
-        if (this.fyI == null) {
-            this.fyI = new com.baidu.tbadk.core.dialog.a(this.bym.getPageContext().getPageActivity());
-            this.fyI.ei(this.bym.getPageContext().getString(e.j.sync_mark_fail));
-            this.fyI.ej(this.bym.getPageContext().getString(e.j.neterror));
-            if (this.fyJ != null) {
-                this.fyI.a(this.bym.getPageContext().getString(e.j.retry_rightnow), this.fyJ);
+        if (this.fyJ == null) {
+            this.fyJ = new com.baidu.tbadk.core.dialog.a(this.bym.getPageContext().getPageActivity());
+            this.fyJ.ei(this.bym.getPageContext().getString(e.j.sync_mark_fail));
+            this.fyJ.ej(this.bym.getPageContext().getString(e.j.neterror));
+            if (this.fyK != null) {
+                this.fyJ.a(this.bym.getPageContext().getString(e.j.retry_rightnow), this.fyK);
             }
-            this.fyI.b(this.bym.getPageContext().getString(e.j.confirm), new a.b() { // from class: com.baidu.tieba.myCollection.g.1
+            this.fyJ.b(this.bym.getPageContext().getString(e.j.confirm), new a.b() { // from class: com.baidu.tieba.myCollection.g.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
                 }
             });
-            this.fyI.b(this.bym.getPageContext());
-            this.fyI.aP(true);
+            this.fyJ.b(this.bym.getPageContext());
+            this.fyJ.aP(true);
         }
-        this.fyI.Au();
+        this.fyJ.Au();
     }
 
     public void onChangeSkinType(int i) {
@@ -248,34 +248,34 @@ public class g {
     }
 
     public void bci() {
-        this.fyH.notifyDataSetChanged();
+        this.fyI.notifyDataSetChanged();
     }
 
     public void onDestroy() {
-        if (this.fyI != null) {
-            this.fyI.dismiss();
-            this.fyI = null;
+        if (this.fyJ != null) {
+            this.fyJ.dismiss();
+            this.fyJ = null;
         }
         if (this.mProgressBar != null) {
             this.mProgressBar.setVisibility(8);
         }
-        if (this.fzj != null) {
-            com.baidu.adp.lib.g.e.jI().removeCallbacks(this.fzj);
+        if (this.fzk != null) {
+            com.baidu.adp.lib.g.e.jI().removeCallbacks(this.fzk);
         }
     }
 
     public void completePullRefresh() {
-        if (this.dTo != null) {
-            this.dTo.completePullRefreshPostDelayed(SystemScreenshotManager.DELAY_TIME);
+        if (this.dTp != null) {
+            this.dTp.completePullRefreshPostDelayed(SystemScreenshotManager.DELAY_TIME);
         }
     }
 
     public boolean isPullRefreshing() {
-        return this.fyK;
+        return this.fyL;
     }
 
     public void cm(boolean z) {
-        this.fyK = z;
+        this.fyL = z;
     }
 
     public void gb(boolean z) {

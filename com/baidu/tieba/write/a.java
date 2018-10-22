@@ -12,12 +12,12 @@ import tbclient.SimpleForum;
 /* loaded from: classes3.dex */
 public class a implements com.baidu.tieba.c.a {
     private a.InterfaceC0170a dhf;
-    private com.baidu.tieba.write.transmit.model.a hHw;
-    private List<SimpleForum> hHx;
-    private boolean hHy;
+    private com.baidu.tieba.write.transmit.model.a hHx;
+    private List<SimpleForum> hHy;
+    private boolean hHz;
     private int mPrivateThread;
     private ArrayList<TransmitForumData> cip = new ArrayList<>();
-    private a.InterfaceC0296a hHz = new a.InterfaceC0296a() { // from class: com.baidu.tieba.write.a.1
+    private a.InterfaceC0296a hHA = new a.InterfaceC0296a() { // from class: com.baidu.tieba.write.a.1
         @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0296a
         public void onError() {
             a.this.bLp();
@@ -25,24 +25,24 @@ public class a implements com.baidu.tieba.c.a {
 
         @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0296a
         public void h(List<SimpleForum> list, int i) {
-            a.this.hHx = list;
+            a.this.hHy = list;
             a.this.mPrivateThread = i;
-            a.this.aqe();
+            a.this.aqf();
         }
     };
 
     public a() {
         BdUniqueId gen = BdUniqueId.gen();
-        this.hHw = new com.baidu.tieba.write.transmit.model.a(gen);
-        this.hHw.a(this.hHz);
-        this.hHw.setRequestId(gen);
+        this.hHx = new com.baidu.tieba.write.transmit.model.a(gen);
+        this.hHx.a(this.hHA);
+        this.hHx.setRequestId(gen);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aqe() {
+    public void aqf() {
         this.cip.clear();
-        if (v.I(this.hHx) > 0) {
-            for (SimpleForum simpleForum : this.hHx) {
+        if (v.I(this.hHy) > 0) {
+            for (SimpleForum simpleForum : this.hHy) {
                 if (simpleForum != null && simpleForum.id != null && simpleForum.id.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
                     this.cip.add(new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar));
                 }
@@ -55,21 +55,21 @@ public class a implements com.baidu.tieba.c.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bLp() {
-        if (!this.hHy) {
+        if (!this.hHz) {
             if (this.dhf != null) {
                 this.dhf.a(null, false, 2, 0);
             }
-            this.hHy = true;
+            this.hHz = true;
         }
     }
 
     @Override // com.baidu.tieba.c.a
-    public void apP() {
-        if (this.dhf != null && this.hHw != null) {
-            this.hHy = false;
-            this.hHw.setThreadTitle(null);
-            this.hHw.setThreadContent(null);
-            this.hHw.loadData();
+    public void apQ() {
+        if (this.dhf != null && this.hHx != null) {
+            this.hHz = false;
+            this.hHx.setThreadTitle(null);
+            this.hHx.setThreadContent(null);
+            this.hHx.loadData();
         }
     }
 
