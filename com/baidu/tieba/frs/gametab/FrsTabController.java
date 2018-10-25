@@ -64,6 +64,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.FrsTabInfo;
+import tbclient.SmartApp;
 /* loaded from: classes6.dex */
 public class FrsTabController implements VoiceManager.c, com.baidu.tieba.InjectPlugin.a.b, FrsCommonImageLayout.c {
     public static final String dPT = FrsFragment.class.getSimpleName();
@@ -193,10 +194,13 @@ public class FrsTabController implements VoiceManager.c, com.baidu.tieba.InjectP
                     FrsTabController.this.dPW.showToast(FrsTabController.this.dPW.getString(e.j.neterror));
                 } else if ((FrsTabController.this.ayY().azS().hbo == null || FrsTabController.this.ayY().azS().hbo.size() != 1) && (FrsTabController.this.ayY().azS().hbo != null || FrsTabController.this.ayY().azS().hbp == null)) {
                     FrsTabController.this.dQd.setCurrentItem(1);
-                } else if (!com.baidu.tieba.aiapps.a.u(FrsTabController.this.ayY().azS().hbp.id, FrsTabController.this.ayY().azS().hbp.link, "9101")) {
-                    FrsTabController.this.dQd.setCurrentItem(1);
                 } else {
-                    TiebaStatic.log(new am("c13274").ax(ImageViewerConfig.FORUM_ID, FrsTabController.this.ayY().getForumId()).ax("uid", TbadkCoreApplication.getCurrentAccount()).ax("obj_name", FrsTabController.this.ayY().azS().hbp.name).ax(VideoPlayActivityConfig.OBJ_ID, FrsTabController.this.ayY().azS().hbp.id).ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "frs_Bside"));
+                    SmartApp smartApp = FrsTabController.this.ayY().azS().hbp;
+                    if (smartApp == null || !com.baidu.tieba.aiapps.a.u(smartApp.id, smartApp.link, "9101")) {
+                        FrsTabController.this.dQd.setCurrentItem(1);
+                    } else {
+                        TiebaStatic.log(new am("c13274").ax(ImageViewerConfig.FORUM_ID, FrsTabController.this.ayY().getForumId()).ax("uid", TbadkCoreApplication.getCurrentAccount()).ax("obj_name", FrsTabController.this.ayY().azS().hbp.name).ax(VideoPlayActivityConfig.OBJ_ID, FrsTabController.this.ayY().azS().hbp.id).ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "frs_Bside"));
+                    }
                 }
             }
         }
@@ -268,6 +272,7 @@ public class FrsTabController implements VoiceManager.c, com.baidu.tieba.InjectP
 
         @Override // com.baidu.tieba.frs.FrsBaseViewPager.a
         public boolean azn() {
+            SmartApp smartApp;
             if (FrsTabController.this.dQd.getCurrentItem() == 0) {
                 if (FrsTabController.this.dQf && FrsTabController.this.dQg) {
                     FrsTabController.this.dQd.setmDisallowSlip(false);
@@ -279,7 +284,7 @@ public class FrsTabController implements VoiceManager.c, com.baidu.tieba.InjectP
             } else {
                 FrsTabController.this.dQd.setmDisallowSlip(true);
             }
-            if (((FrsTabController.this.ayY().azS().hbo == null || FrsTabController.this.ayY().azS().hbo.size() != 1) && (FrsTabController.this.ayY().azS().hbo != null || FrsTabController.this.ayY().azS().hbp == null)) || !com.baidu.tieba.aiapps.a.u(FrsTabController.this.ayY().azS().hbp.id, FrsTabController.this.ayY().azS().hbp.link, "9101")) {
+            if (((FrsTabController.this.ayY().azS().hbo == null || FrsTabController.this.ayY().azS().hbo.size() != 1) && (FrsTabController.this.ayY().azS().hbo != null || FrsTabController.this.ayY().azS().hbp == null)) || (smartApp = FrsTabController.this.ayY().azS().hbp) == null || !com.baidu.tieba.aiapps.a.u(smartApp.id, smartApp.link, "9101")) {
                 return true;
             }
             TiebaStatic.log(new am("c13274").ax(ImageViewerConfig.FORUM_ID, FrsTabController.this.ayY().getForumId()).ax("uid", TbadkCoreApplication.getCurrentAccount()).ax("obj_name", FrsTabController.this.ayY().azS().hbp.name).ax(VideoPlayActivityConfig.OBJ_ID, FrsTabController.this.ayY().azS().hbp.id).ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "frs_Bside"));
@@ -296,7 +301,8 @@ public class FrsTabController implements VoiceManager.c, com.baidu.tieba.InjectP
             if (!j.kX()) {
                 this.dPX.od(ayY().getForumId());
             } else if ((ayY().azS().hbo != null && ayY().azS().hbo.size() == 1) || (ayY().azS().hbo == null && ayY().azS().hbp != null)) {
-                if (!com.baidu.tieba.aiapps.a.u(ayY().azS().hbp.id, ayY().azS().hbp.link, "9101")) {
+                SmartApp smartApp = ayY().azS().hbp;
+                if (smartApp != null && !com.baidu.tieba.aiapps.a.u(smartApp.id, smartApp.link, "9101")) {
                     String str = null;
                     if (ayY().azS() != null && ayY().azS().hbp != null) {
                         str = ayY().azS().hbp.h5_url;

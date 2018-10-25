@@ -84,8 +84,6 @@ public class FrsTabHostFragment extends BaseFragment {
             this.mRootView.setClipToPadding(false);
             this.mRootView.addView(this.mTabHost);
             this.mTabHost.setOnTabSelectionListener(aAY());
-        } else {
-            this.mTabHost.reset();
         }
         return this.mRootView;
     }
