@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public final class e extends com.google.gson.stream.a {
-    private static final Reader ilu = new Reader() { // from class: com.google.gson.internal.a.e.1
+    private static final Reader inf = new Reader() { // from class: com.google.gson.internal.a.e.1
         @Override // java.io.Reader
         public int read(char[] cArr, int i, int i2) throws IOException {
             throw new AssertionError();
@@ -18,27 +18,27 @@ public final class e extends com.google.gson.stream.a {
             throw new AssertionError();
         }
     };
-    private static final Object ilv = new Object();
-    private Object[] ilw;
-    private int ilx;
-    private String[] ily;
-    private int[] ilz;
+    private static final Object ing = new Object();
+    private Object[] inh;
+    private int ini;
+    private String[] inj;
+    private int[] ink;
 
     @Override // com.google.gson.stream.a
     public void beginArray() throws IOException {
         a(JsonToken.BEGIN_ARRAY);
-        push(((com.google.gson.f) bZf()).iterator());
-        this.ilz[this.ilx - 1] = 0;
+        push(((com.google.gson.f) bYC()).iterator());
+        this.ink[this.ini - 1] = 0;
     }
 
     @Override // com.google.gson.stream.a
     public void endArray() throws IOException {
         a(JsonToken.END_ARRAY);
-        bZg();
-        bZg();
-        if (this.ilx > 0) {
-            int[] iArr = this.ilz;
-            int i = this.ilx - 1;
+        bYD();
+        bYD();
+        if (this.ini > 0) {
+            int[] iArr = this.ink;
+            int i = this.ini - 1;
             iArr[i] = iArr[i] + 1;
         }
     }
@@ -46,66 +46,66 @@ public final class e extends com.google.gson.stream.a {
     @Override // com.google.gson.stream.a
     public void beginObject() throws IOException {
         a(JsonToken.BEGIN_OBJECT);
-        push(((com.google.gson.k) bZf()).entrySet().iterator());
+        push(((com.google.gson.k) bYC()).entrySet().iterator());
     }
 
     @Override // com.google.gson.stream.a
     public void endObject() throws IOException {
         a(JsonToken.END_OBJECT);
-        bZg();
-        bZg();
-        if (this.ilx > 0) {
-            int[] iArr = this.ilz;
-            int i = this.ilx - 1;
+        bYD();
+        bYD();
+        if (this.ini > 0) {
+            int[] iArr = this.ink;
+            int i = this.ini - 1;
             iArr[i] = iArr[i] + 1;
         }
     }
 
     @Override // com.google.gson.stream.a
     public boolean hasNext() throws IOException {
-        JsonToken bZe = bZe();
-        return (bZe == JsonToken.END_OBJECT || bZe == JsonToken.END_ARRAY) ? false : true;
+        JsonToken bYB = bYB();
+        return (bYB == JsonToken.END_OBJECT || bYB == JsonToken.END_ARRAY) ? false : true;
     }
 
     @Override // com.google.gson.stream.a
-    public JsonToken bZe() throws IOException {
-        if (this.ilx == 0) {
+    public JsonToken bYB() throws IOException {
+        if (this.ini == 0) {
             return JsonToken.END_DOCUMENT;
         }
-        Object bZf = bZf();
-        if (bZf instanceof Iterator) {
-            boolean z = this.ilw[this.ilx - 2] instanceof com.google.gson.k;
-            Iterator it = (Iterator) bZf;
+        Object bYC = bYC();
+        if (bYC instanceof Iterator) {
+            boolean z = this.inh[this.ini - 2] instanceof com.google.gson.k;
+            Iterator it = (Iterator) bYC;
             if (!it.hasNext()) {
                 return z ? JsonToken.END_OBJECT : JsonToken.END_ARRAY;
             } else if (z) {
                 return JsonToken.NAME;
             } else {
                 push(it.next());
-                return bZe();
+                return bYB();
             }
-        } else if (bZf instanceof com.google.gson.k) {
+        } else if (bYC instanceof com.google.gson.k) {
             return JsonToken.BEGIN_OBJECT;
         } else {
-            if (bZf instanceof com.google.gson.f) {
+            if (bYC instanceof com.google.gson.f) {
                 return JsonToken.BEGIN_ARRAY;
             }
-            if (bZf instanceof com.google.gson.l) {
-                com.google.gson.l lVar = (com.google.gson.l) bZf;
-                if (lVar.bYL()) {
+            if (bYC instanceof com.google.gson.l) {
+                com.google.gson.l lVar = (com.google.gson.l) bYC;
+                if (lVar.bYi()) {
                     return JsonToken.STRING;
                 }
-                if (lVar.bYJ()) {
+                if (lVar.bYg()) {
                     return JsonToken.BOOLEAN;
                 }
-                if (lVar.bYK()) {
+                if (lVar.bYh()) {
                     return JsonToken.NUMBER;
                 }
                 throw new AssertionError();
-            } else if (bZf instanceof com.google.gson.j) {
+            } else if (bYC instanceof com.google.gson.j) {
                 return JsonToken.NULL;
             } else {
-                if (bZf == ilv) {
+                if (bYC == ing) {
                     throw new IllegalStateException("JsonReader is closed");
                 }
                 throw new AssertionError();
@@ -113,57 +113,57 @@ public final class e extends com.google.gson.stream.a {
         }
     }
 
-    private Object bZf() {
-        return this.ilw[this.ilx - 1];
+    private Object bYC() {
+        return this.inh[this.ini - 1];
     }
 
-    private Object bZg() {
-        Object[] objArr = this.ilw;
-        int i = this.ilx - 1;
-        this.ilx = i;
+    private Object bYD() {
+        Object[] objArr = this.inh;
+        int i = this.ini - 1;
+        this.ini = i;
         Object obj = objArr[i];
-        this.ilw[this.ilx] = null;
+        this.inh[this.ini] = null;
         return obj;
     }
 
     private void a(JsonToken jsonToken) throws IOException {
-        if (bZe() != jsonToken) {
-            throw new IllegalStateException("Expected " + jsonToken + " but was " + bZe() + bZi());
+        if (bYB() != jsonToken) {
+            throw new IllegalStateException("Expected " + jsonToken + " but was " + bYB() + bYF());
         }
     }
 
     @Override // com.google.gson.stream.a
     public String nextName() throws IOException {
         a(JsonToken.NAME);
-        Map.Entry entry = (Map.Entry) ((Iterator) bZf()).next();
+        Map.Entry entry = (Map.Entry) ((Iterator) bYC()).next();
         String str = (String) entry.getKey();
-        this.ily[this.ilx - 1] = str;
+        this.inj[this.ini - 1] = str;
         push(entry.getValue());
         return str;
     }
 
     @Override // com.google.gson.stream.a
     public String nextString() throws IOException {
-        JsonToken bZe = bZe();
-        if (bZe != JsonToken.STRING && bZe != JsonToken.NUMBER) {
-            throw new IllegalStateException("Expected " + JsonToken.STRING + " but was " + bZe + bZi());
+        JsonToken bYB = bYB();
+        if (bYB != JsonToken.STRING && bYB != JsonToken.NUMBER) {
+            throw new IllegalStateException("Expected " + JsonToken.STRING + " but was " + bYB + bYF());
         }
-        String bYA = ((com.google.gson.l) bZg()).bYA();
-        if (this.ilx > 0) {
-            int[] iArr = this.ilz;
-            int i = this.ilx - 1;
+        String bXX = ((com.google.gson.l) bYD()).bXX();
+        if (this.ini > 0) {
+            int[] iArr = this.ink;
+            int i = this.ini - 1;
             iArr[i] = iArr[i] + 1;
         }
-        return bYA;
+        return bXX;
     }
 
     @Override // com.google.gson.stream.a
     public boolean nextBoolean() throws IOException {
         a(JsonToken.BOOLEAN);
-        boolean asBoolean = ((com.google.gson.l) bZg()).getAsBoolean();
-        if (this.ilx > 0) {
-            int[] iArr = this.ilz;
-            int i = this.ilx - 1;
+        boolean asBoolean = ((com.google.gson.l) bYD()).getAsBoolean();
+        if (this.ini > 0) {
+            int[] iArr = this.ink;
+            int i = this.ini - 1;
             iArr[i] = iArr[i] + 1;
         }
         return asBoolean;
@@ -172,28 +172,28 @@ public final class e extends com.google.gson.stream.a {
     @Override // com.google.gson.stream.a
     public void nextNull() throws IOException {
         a(JsonToken.NULL);
-        bZg();
-        if (this.ilx > 0) {
-            int[] iArr = this.ilz;
-            int i = this.ilx - 1;
+        bYD();
+        if (this.ini > 0) {
+            int[] iArr = this.ink;
+            int i = this.ini - 1;
             iArr[i] = iArr[i] + 1;
         }
     }
 
     @Override // com.google.gson.stream.a
     public double nextDouble() throws IOException {
-        JsonToken bZe = bZe();
-        if (bZe != JsonToken.NUMBER && bZe != JsonToken.STRING) {
-            throw new IllegalStateException("Expected " + JsonToken.NUMBER + " but was " + bZe + bZi());
+        JsonToken bYB = bYB();
+        if (bYB != JsonToken.NUMBER && bYB != JsonToken.STRING) {
+            throw new IllegalStateException("Expected " + JsonToken.NUMBER + " but was " + bYB + bYF());
         }
-        double asDouble = ((com.google.gson.l) bZf()).getAsDouble();
+        double asDouble = ((com.google.gson.l) bYC()).getAsDouble();
         if (!isLenient() && (Double.isNaN(asDouble) || Double.isInfinite(asDouble))) {
             throw new NumberFormatException("JSON forbids NaN and infinities: " + asDouble);
         }
-        bZg();
-        if (this.ilx > 0) {
-            int[] iArr = this.ilz;
-            int i = this.ilx - 1;
+        bYD();
+        if (this.ini > 0) {
+            int[] iArr = this.ink;
+            int i = this.ini - 1;
             iArr[i] = iArr[i] + 1;
         }
         return asDouble;
@@ -201,15 +201,15 @@ public final class e extends com.google.gson.stream.a {
 
     @Override // com.google.gson.stream.a
     public long nextLong() throws IOException {
-        JsonToken bZe = bZe();
-        if (bZe != JsonToken.NUMBER && bZe != JsonToken.STRING) {
-            throw new IllegalStateException("Expected " + JsonToken.NUMBER + " but was " + bZe + bZi());
+        JsonToken bYB = bYB();
+        if (bYB != JsonToken.NUMBER && bYB != JsonToken.STRING) {
+            throw new IllegalStateException("Expected " + JsonToken.NUMBER + " but was " + bYB + bYF());
         }
-        long asLong = ((com.google.gson.l) bZf()).getAsLong();
-        bZg();
-        if (this.ilx > 0) {
-            int[] iArr = this.ilz;
-            int i = this.ilx - 1;
+        long asLong = ((com.google.gson.l) bYC()).getAsLong();
+        bYD();
+        if (this.ini > 0) {
+            int[] iArr = this.ink;
+            int i = this.ini - 1;
             iArr[i] = iArr[i] + 1;
         }
         return asLong;
@@ -217,15 +217,15 @@ public final class e extends com.google.gson.stream.a {
 
     @Override // com.google.gson.stream.a
     public int nextInt() throws IOException {
-        JsonToken bZe = bZe();
-        if (bZe != JsonToken.NUMBER && bZe != JsonToken.STRING) {
-            throw new IllegalStateException("Expected " + JsonToken.NUMBER + " but was " + bZe + bZi());
+        JsonToken bYB = bYB();
+        if (bYB != JsonToken.NUMBER && bYB != JsonToken.STRING) {
+            throw new IllegalStateException("Expected " + JsonToken.NUMBER + " but was " + bYB + bYF());
         }
-        int asInt = ((com.google.gson.l) bZf()).getAsInt();
-        bZg();
-        if (this.ilx > 0) {
-            int[] iArr = this.ilz;
-            int i = this.ilx - 1;
+        int asInt = ((com.google.gson.l) bYC()).getAsInt();
+        bYD();
+        if (this.ini > 0) {
+            int[] iArr = this.ink;
+            int i = this.ini - 1;
             iArr[i] = iArr[i] + 1;
         }
         return asInt;
@@ -233,21 +233,21 @@ public final class e extends com.google.gson.stream.a {
 
     @Override // com.google.gson.stream.a, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.ilw = new Object[]{ilv};
-        this.ilx = 1;
+        this.inh = new Object[]{ing};
+        this.ini = 1;
     }
 
     @Override // com.google.gson.stream.a
     public void skipValue() throws IOException {
-        if (bZe() == JsonToken.NAME) {
+        if (bYB() == JsonToken.NAME) {
             nextName();
-            this.ily[this.ilx - 2] = "null";
+            this.inj[this.ini - 2] = "null";
         } else {
-            bZg();
-            this.ily[this.ilx - 1] = "null";
+            bYD();
+            this.inj[this.ini - 1] = "null";
         }
-        int[] iArr = this.ilz;
-        int i = this.ilx - 1;
+        int[] iArr = this.ink;
+        int i = this.ini - 1;
         iArr[i] = iArr[i] + 1;
     }
 
@@ -256,28 +256,28 @@ public final class e extends com.google.gson.stream.a {
         return getClass().getSimpleName();
     }
 
-    public void bZh() throws IOException {
+    public void bYE() throws IOException {
         a(JsonToken.NAME);
-        Map.Entry entry = (Map.Entry) ((Iterator) bZf()).next();
+        Map.Entry entry = (Map.Entry) ((Iterator) bYC()).next();
         push(entry.getValue());
         push(new com.google.gson.l((String) entry.getKey()));
     }
 
     private void push(Object obj) {
-        if (this.ilx == this.ilw.length) {
-            Object[] objArr = new Object[this.ilx * 2];
-            int[] iArr = new int[this.ilx * 2];
-            String[] strArr = new String[this.ilx * 2];
-            System.arraycopy(this.ilw, 0, objArr, 0, this.ilx);
-            System.arraycopy(this.ilz, 0, iArr, 0, this.ilx);
-            System.arraycopy(this.ily, 0, strArr, 0, this.ilx);
-            this.ilw = objArr;
-            this.ilz = iArr;
-            this.ily = strArr;
+        if (this.ini == this.inh.length) {
+            Object[] objArr = new Object[this.ini * 2];
+            int[] iArr = new int[this.ini * 2];
+            String[] strArr = new String[this.ini * 2];
+            System.arraycopy(this.inh, 0, objArr, 0, this.ini);
+            System.arraycopy(this.ink, 0, iArr, 0, this.ini);
+            System.arraycopy(this.inj, 0, strArr, 0, this.ini);
+            this.inh = objArr;
+            this.ink = iArr;
+            this.inj = strArr;
         }
-        Object[] objArr2 = this.ilw;
-        int i = this.ilx;
-        this.ilx = i + 1;
+        Object[] objArr2 = this.inh;
+        int i = this.ini;
+        this.ini = i + 1;
         objArr2[i] = obj;
     }
 
@@ -285,18 +285,18 @@ public final class e extends com.google.gson.stream.a {
     public String getPath() {
         StringBuilder append = new StringBuilder().append('$');
         int i = 0;
-        while (i < this.ilx) {
-            if (this.ilw[i] instanceof com.google.gson.f) {
+        while (i < this.ini) {
+            if (this.inh[i] instanceof com.google.gson.f) {
                 i++;
-                if (this.ilw[i] instanceof Iterator) {
-                    append.append('[').append(this.ilz[i]).append(']');
+                if (this.inh[i] instanceof Iterator) {
+                    append.append('[').append(this.ink[i]).append(']');
                 }
-            } else if (this.ilw[i] instanceof com.google.gson.k) {
+            } else if (this.inh[i] instanceof com.google.gson.k) {
                 i++;
-                if (this.ilw[i] instanceof Iterator) {
+                if (this.inh[i] instanceof Iterator) {
                     append.append('.');
-                    if (this.ily[i] != null) {
-                        append.append(this.ily[i]);
+                    if (this.inj[i] != null) {
+                        append.append(this.inj[i]);
                     }
                 }
             }
@@ -305,7 +305,7 @@ public final class e extends com.google.gson.stream.a {
         return append.toString();
     }
 
-    private String bZi() {
+    private String bYF() {
         return " at path " + getPath();
     }
 }

@@ -58,39 +58,39 @@ public final class g implements Runnable {
                 int abs = Math.abs(new Random().nextInt());
                 cn.jiguang.d.h.a.a.a(abs);
                 cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(AudioParams.DEFAULT_AUDIO_BUFFER_SIZE);
-                bVar.l(0);
-                bVar.k(16);
-                bVar.k(0);
-                bVar.h(f);
-                bVar.g(abs);
-                bVar.h(0L);
-                bVar.f(a2.getBytes());
-                bVar.f(str.getBytes());
-                bVar.f(b.getBytes());
-                bVar.k(0);
-                bVar.f(c.getBytes());
+                bVar.C(0);
+                bVar.B(16);
+                bVar.B(0);
+                bVar.j(f);
+                bVar.i(abs);
+                bVar.j(0L);
+                bVar.e(a2.getBytes());
+                bVar.e(str.getBytes());
+                bVar.e(b.getBytes());
+                bVar.B(0);
+                bVar.e(c.getBytes());
                 cn.jiguang.d.d.i.bX().d();
-                bVar.k(c2);
-                bVar.f(m.getBytes());
+                bVar.B(c2);
+                bVar.e(m.getBytes());
                 bVar.l(bVar.current(), 0);
                 byte[] a3 = cn.jiguang.d.e.a.a.b.a(bVar.toByteArray(), 0);
                 if (a3 == null) {
                     z = false;
-                } else if (cn.jiguang.d.g.c.cg().ch().j(a3) != 0) {
+                } else if (cn.jiguang.d.g.c.cg().ch().i(a3) != 0) {
                     z = false;
                 } else {
-                    cn.jiguang.d.g.d o = cn.jiguang.d.g.c.cg().ch().o(HttpConstants.HTTP_CONNECT_TIMEOUT);
-                    if (o.a() != 0) {
-                        cn.jiguang.e.c.c("ConnectingHelper", "Register failed - recv msg failed with error code:" + o.a() + ",msg:" + o.c());
+                    cn.jiguang.d.g.d F = cn.jiguang.d.g.c.cg().ch().F(HttpConstants.HTTP_CONNECT_TIMEOUT);
+                    if (F.a() != 0) {
+                        cn.jiguang.e.c.c("ConnectingHelper", "Register failed - recv msg failed with error code:" + F.a() + ",msg:" + F.c());
                         z = false;
                     } else {
-                        cn.jiguang.api.h h = cn.jiguang.d.e.a.a.a.h(o.ce().array());
-                        if (h == null) {
+                        cn.jiguang.api.h g = cn.jiguang.d.e.a.a.a.g(F.ce().array());
+                        if (g == null) {
                             z = false;
-                        } else if (h.getCommand() != 0) {
+                        } else if (g.getCommand() != 0) {
                             z = false;
                         } else {
-                            cn.jiguang.d.e.a.f fVar = (cn.jiguang.d.e.a.f) h;
+                            cn.jiguang.d.e.a.f fVar = (cn.jiguang.d.e.a.f) g;
                             int i3 = fVar.code;
                             cn.jiguang.d.a.a.a(context, i3);
                             d.bO().b(i3);
@@ -168,48 +168,48 @@ public final class g implements Runnable {
                     long f2 = cn.jiguang.d.a.a.f();
                     long j6 = d;
                     cn.jiguang.api.a.b bVar2 = new cn.jiguang.api.a.b(AudioParams.DEFAULT_AUDIO_BUFFER_SIZE);
-                    bVar2.l(0);
-                    bVar2.k(21);
-                    bVar2.k(1);
-                    bVar2.h(f2);
-                    bVar2.g(0L);
-                    bVar2.h(c4);
-                    bVar2.k(97);
-                    bVar2.k(0);
-                    bVar2.l(0);
-                    bVar2.f(b3.getBytes());
-                    bVar2.g(d4);
-                    bVar2.g(d2);
-                    bVar2.g(d3);
-                    bVar2.g(j6);
-                    bVar2.g(d5);
-                    bVar2.f(b4.getBytes());
-                    bVar2.k(0);
-                    bVar2.k(d6);
-                    bVar2.k(an);
-                    bVar2.k(a5);
-                    bVar2.f(i4.getBytes());
-                    bVar2.f(e.getBytes());
-                    bVar2.f(upperCase.getBytes());
-                    bVar2.f(m2.getBytes());
+                    bVar2.C(0);
+                    bVar2.B(21);
+                    bVar2.B(1);
+                    bVar2.j(f2);
+                    bVar2.i(0L);
+                    bVar2.j(c4);
+                    bVar2.B(97);
+                    bVar2.B(0);
+                    bVar2.C(0);
+                    bVar2.e(b3.getBytes());
+                    bVar2.i(d4);
+                    bVar2.i(d2);
+                    bVar2.i(d3);
+                    bVar2.i(j6);
+                    bVar2.i(d5);
+                    bVar2.e(b4.getBytes());
+                    bVar2.B(0);
+                    bVar2.B(d6);
+                    bVar2.B(an);
+                    bVar2.B(a5);
+                    bVar2.e(i4.getBytes());
+                    bVar2.e(e.getBytes());
+                    bVar2.e(upperCase.getBytes());
+                    bVar2.e(m2.getBytes());
                     bVar2.l(bVar2.current(), 0);
                     byte[] a6 = cn.jiguang.d.e.a.a.b.a(bVar2.toByteArray(), 1);
                     if (a6 == null || a6.length <= 0) {
                         i2 = -1;
-                    } else if (cn.jiguang.d.g.c.cg().ch().j(a6) != 0) {
+                    } else if (cn.jiguang.d.g.c.cg().ch().i(a6) != 0) {
                         i2 = -1;
                     } else {
-                        cn.jiguang.d.g.d o2 = cn.jiguang.d.g.c.cg().ch().o(HttpConstants.HTTP_CONNECT_TIMEOUT);
-                        if (o2.a() != 0) {
-                            cn.jiguang.e.c.c("ConnectingHelper", "Login failed - recv msg failed wit error code:" + o2.a() + ",msg:" + o2.c());
+                        cn.jiguang.d.g.d F2 = cn.jiguang.d.g.c.cg().ch().F(HttpConstants.HTTP_CONNECT_TIMEOUT);
+                        if (F2.a() != 0) {
+                            cn.jiguang.e.c.c("ConnectingHelper", "Login failed - recv msg failed wit error code:" + F2.a() + ",msg:" + F2.c());
                             i2 = -1;
                         } else {
-                            cn.jiguang.api.h h2 = cn.jiguang.d.e.a.a.a.h(o2.ce().array());
-                            if (h2 == null) {
+                            cn.jiguang.api.h g2 = cn.jiguang.d.e.a.a.a.g(F2.ce().array());
+                            if (g2 == null) {
                                 cn.jiguang.e.c.c("ConnectingHelper", "Login failed - unknown command");
                                 i2 = -1;
-                            } else if (h2 instanceof cn.jiguang.d.e.a.e) {
-                                cn.jiguang.d.e.a.e eVar = (cn.jiguang.d.e.a.e) h2;
+                            } else if (g2 instanceof cn.jiguang.d.e.a.e) {
+                                cn.jiguang.d.e.a.e eVar = (cn.jiguang.d.e.a.e) g2;
                                 int i5 = eVar.code;
                                 d.bO().a(i5);
                                 if (i5 == 0) {
@@ -349,12 +349,12 @@ public final class g implements Runnable {
         do {
             if (!this.e) {
                 cn.jiguang.e.c.a("NetworkingClient", "Network listening...");
-                cn.jiguang.d.g.d o = cn.jiguang.d.g.c.cg().ch().o(0);
-                if (o != null) {
-                    if (o.a() != 0) {
-                        cn.jiguang.e.c.a("NetworkingClient", " recv failed with error code:" + o.a() + ",msg:" + o.c() + ",No Break!!");
+                cn.jiguang.d.g.d F = cn.jiguang.d.g.c.cg().ch().F(0);
+                if (F != null) {
+                    if (F.a() != 0) {
+                        cn.jiguang.e.c.a("NetworkingClient", " recv failed with error code:" + F.a() + ",msg:" + F.c() + ",No Break!!");
                     } else {
-                        ByteBuffer ce = o.ce();
+                        ByteBuffer ce = F.ce();
                         int length = ce.array().length;
                         byte[] bArr = new byte[length];
                         System.arraycopy(ce.array(), 0, bArr, 0, length);

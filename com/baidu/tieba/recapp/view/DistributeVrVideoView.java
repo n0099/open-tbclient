@@ -28,33 +28,33 @@ import java.util.concurrent.TimeUnit;
 import tbclient.VideoInfo;
 /* loaded from: classes3.dex */
 public class DistributeVrVideoView extends RelativeLayout implements i, IVrPlayView {
-    private View aix;
-    private View dlx;
-    private TbImageView gGp;
-    private ImageView gGq;
-    private View gJZ;
-    private boolean gKa;
-    private DistributeVrPlayController gKv;
-    private GLTextureView gKw;
-    private TbImageView gKx;
-    private VideoInfo gcn;
+    private View ajk;
+    private TbImageView gHQ;
+    private ImageView gHR;
+    private boolean gLA;
+    private DistributeVrPlayController gLU;
+    private GLTextureView gLV;
+    private TbImageView gLW;
+    private View gLz;
+    private VideoInfo gdK;
     private Context mContext;
     private TextView mErrorTip;
     private Handler mHandler;
+    private View mLoadingView;
     private TbPageContext<?> mPageContext;
 
     public DistributeVrVideoView(Context context) {
         super(context);
-        this.aix = null;
-        this.gKa = false;
+        this.ajk = null;
+        this.gLA = false;
         this.mContext = null;
-        this.gKw = null;
+        this.gLV = null;
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.recapp.view.DistributeVrVideoView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case MsgField.IMSG_DEVICE_NOT_SUPPORT /* 30001 */:
-                        if (!DistributeVrVideoView.this.gKa || DistributeVrVideoView.this.gJZ == null || DistributeVrVideoView.this.gJZ.getParent() != null) {
+                        if (!DistributeVrVideoView.this.gLA || DistributeVrVideoView.this.gLz == null || DistributeVrVideoView.this.gLz.getParent() != null) {
                             DistributeVrVideoView.this.mHandler.sendEmptyMessageDelayed(MsgField.IMSG_DEVICE_NOT_SUPPORT, TimeUnit.SECONDS.toMillis(1L));
                             return;
                         } else {
@@ -71,16 +71,16 @@ public class DistributeVrVideoView extends RelativeLayout implements i, IVrPlayV
 
     public DistributeVrVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aix = null;
-        this.gKa = false;
+        this.ajk = null;
+        this.gLA = false;
         this.mContext = null;
-        this.gKw = null;
+        this.gLV = null;
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.recapp.view.DistributeVrVideoView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case MsgField.IMSG_DEVICE_NOT_SUPPORT /* 30001 */:
-                        if (!DistributeVrVideoView.this.gKa || DistributeVrVideoView.this.gJZ == null || DistributeVrVideoView.this.gJZ.getParent() != null) {
+                        if (!DistributeVrVideoView.this.gLA || DistributeVrVideoView.this.gLz == null || DistributeVrVideoView.this.gLz.getParent() != null) {
                             DistributeVrVideoView.this.mHandler.sendEmptyMessageDelayed(MsgField.IMSG_DEVICE_NOT_SUPPORT, TimeUnit.SECONDS.toMillis(1L));
                             return;
                         } else {
@@ -97,16 +97,16 @@ public class DistributeVrVideoView extends RelativeLayout implements i, IVrPlayV
 
     public DistributeVrVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aix = null;
-        this.gKa = false;
+        this.ajk = null;
+        this.gLA = false;
         this.mContext = null;
-        this.gKw = null;
+        this.gLV = null;
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.recapp.view.DistributeVrVideoView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case MsgField.IMSG_DEVICE_NOT_SUPPORT /* 30001 */:
-                        if (!DistributeVrVideoView.this.gKa || DistributeVrVideoView.this.gJZ == null || DistributeVrVideoView.this.gJZ.getParent() != null) {
+                        if (!DistributeVrVideoView.this.gLA || DistributeVrVideoView.this.gLz == null || DistributeVrVideoView.this.gLz.getParent() != null) {
                             DistributeVrVideoView.this.mHandler.sendEmptyMessageDelayed(MsgField.IMSG_DEVICE_NOT_SUPPORT, TimeUnit.SECONDS.toMillis(1L));
                             return;
                         } else {
@@ -122,70 +122,70 @@ public class DistributeVrVideoView extends RelativeLayout implements i, IVrPlayV
     }
 
     private void init(Context context) {
-        this.aix = LayoutInflater.from(context).inflate(e.h.distribute_vr_video_view, (ViewGroup) this, true);
+        this.ajk = LayoutInflater.from(context).inflate(e.h.distribute_vr_video_view, (ViewGroup) this, true);
         this.mContext = context;
-        this.gKw = this.aix.findViewById(e.g.ad_gl_view);
-        this.gGp = (TbImageView) this.aix.findViewById(e.g.ad_thumbnail);
-        this.gGq = (ImageView) this.aix.findViewById(e.g.ad_play_button);
-        this.dlx = this.aix.findViewById(e.g.ad_loading_view);
-        this.mErrorTip = (TextView) this.aix.findViewById(e.g.ad_error_tips);
-        this.gKx = (TbImageView) this.aix.findViewById(e.g.ad_brand);
+        this.gLV = this.ajk.findViewById(e.g.ad_gl_view);
+        this.gHQ = (TbImageView) this.ajk.findViewById(e.g.ad_thumbnail);
+        this.gHR = (ImageView) this.ajk.findViewById(e.g.ad_play_button);
+        this.mLoadingView = this.ajk.findViewById(e.g.ad_loading_view);
+        this.mErrorTip = (TextView) this.ajk.findViewById(e.g.ad_error_tips);
+        this.gLW = (TbImageView) this.ajk.findViewById(e.g.ad_brand);
     }
 
     public void setData(TbPageContext<?> tbPageContext, d dVar) {
-        if (this.gKw != null && tbPageContext != null && dVar != null && dVar.cQa != null && dVar.cQa.aln != null) {
-            this.gcn = dVar.cQa.aln.alF;
-            if (this.gcn != null && !ao.isEmpty(this.gcn.video_url) && this.gKv == null) {
+        if (this.gLV != null && tbPageContext != null && dVar != null && dVar.cRg != null && dVar.cRg.ama != null) {
+            this.gdK = dVar.cRg.ama.ams;
+            if (this.gdK != null && !ao.isEmpty(this.gdK.video_url) && this.gLU == null) {
                 this.mPageContext = tbPageContext;
-                this.gKv = new DistributeVrPlayController(this);
-                ViewGroup.LayoutParams layoutParams = this.aix.getLayoutParams();
+                this.gLU = new DistributeVrPlayController(this);
+                ViewGroup.LayoutParams layoutParams = this.ajk.getLayoutParams();
                 if (layoutParams != null) {
-                    layoutParams.width = l.aO(this.mContext) - l.h(this.mContext, e.C0175e.ds164);
+                    layoutParams.width = l.aO(this.mContext) - l.h(this.mContext, e.C0200e.ds164);
                     layoutParams.height = layoutParams.width;
-                    this.aix.setLayoutParams(layoutParams);
+                    this.ajk.setLayoutParams(layoutParams);
                 }
-                this.gGp.startLoad(this.gcn.thumbnail_url, 10, false);
-                if (!ao.isEmpty(dVar.cQa.aln.alH)) {
-                    this.gKx.startLoad(dVar.cQa.aln.alH, 10, false);
+                this.gHQ.startLoad(this.gdK.thumbnail_url, 10, false);
+                if (!ao.isEmpty(dVar.cRg.ama.amu)) {
+                    this.gLW.startLoad(dVar.cRg.ama.amu, 10, false);
                 } else {
-                    this.gKx.setVisibility(8);
+                    this.gLW.setVisibility(8);
                 }
-                ViewGroup.LayoutParams layoutParams2 = this.gKx.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams2 = this.gLW.getLayoutParams();
                 if (layoutParams2 != null) {
-                    float f = dVar.cQa.aln.alI;
-                    layoutParams2.height = l.h(this.mContext, e.C0175e.ds60);
+                    float f = dVar.cRg.ama.amv;
+                    layoutParams2.height = l.h(this.mContext, e.C0200e.ds60);
                     layoutParams2.width = f > 0.0f ? (int) (f * layoutParams2.height) : layoutParams2.height;
-                    this.gKx.setLayoutParams(layoutParams2);
+                    this.gLW.setLayoutParams(layoutParams2);
                 }
             }
         }
     }
 
     public void setData(TbPageContext<?> tbPageContext, AdCard adCard, int i) {
-        if (this.gKw != null && tbPageContext != null && adCard != null && adCard.vrVideoInfo != null) {
+        if (this.gLV != null && tbPageContext != null && adCard != null && adCard.vrVideoInfo != null) {
             AdCard.g gVar = adCard.vrVideoInfo;
-            this.gcn = gVar.videoInfo;
-            if (this.gcn != null && !ao.isEmpty(this.gcn.video_url) && this.gKv == null) {
+            this.gdK = gVar.videoInfo;
+            if (this.gdK != null && !ao.isEmpty(this.gdK.video_url) && this.gLU == null) {
                 this.mPageContext = tbPageContext;
-                this.gKv = new DistributeVrPlayController(this);
-                ViewGroup.LayoutParams layoutParams = this.aix.getLayoutParams();
+                this.gLU = new DistributeVrPlayController(this);
+                ViewGroup.LayoutParams layoutParams = this.ajk.getLayoutParams();
                 if (layoutParams != null) {
                     layoutParams.width = i;
                     layoutParams.height = layoutParams.width;
-                    this.aix.setLayoutParams(layoutParams);
+                    this.ajk.setLayoutParams(layoutParams);
                 }
-                this.gGp.startLoad(this.gcn.thumbnail_url, 10, false);
-                if (!ao.isEmpty(gVar.alH)) {
-                    this.gKx.startLoad(gVar.alH, 10, false);
+                this.gHQ.startLoad(this.gdK.thumbnail_url, 10, false);
+                if (!ao.isEmpty(gVar.amu)) {
+                    this.gLW.startLoad(gVar.amu, 10, false);
                 } else {
-                    this.gKx.setVisibility(8);
+                    this.gLW.setVisibility(8);
                 }
-                ViewGroup.LayoutParams layoutParams2 = this.gKx.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams2 = this.gLW.getLayoutParams();
                 if (layoutParams2 != null) {
-                    float f = gVar.alI;
-                    layoutParams2.height = l.h(this.mContext, e.C0175e.ds60);
+                    float f = gVar.amv;
+                    layoutParams2.height = l.h(this.mContext, e.C0200e.ds60);
                     layoutParams2.width = f > 0.0f ? (int) (f * layoutParams2.height) : layoutParams2.height;
-                    this.gKx.setLayoutParams(layoutParams2);
+                    this.gLW.setLayoutParams(layoutParams2);
                 }
             }
         }
@@ -193,30 +193,30 @@ public class DistributeVrVideoView extends RelativeLayout implements i, IVrPlayV
 
     @Override // com.baidu.tieba.recapp.view.IVrPlayView
     public GLTextureView getGLView() {
-        return this.gKw;
+        return this.gLV;
     }
 
     @Override // com.baidu.tieba.recapp.view.IVrPlayView
     public void loading() {
         this.mErrorTip.setVisibility(8);
-        this.dlx.setVisibility(0);
-        this.gGq.setVisibility(0);
+        this.mLoadingView.setVisibility(0);
+        this.gHR.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.recapp.view.IVrPlayView
     public void error() {
-        this.gGq.setVisibility(8);
-        this.dlx.setVisibility(8);
+        this.gHR.setVisibility(8);
+        this.mLoadingView.setVisibility(8);
         this.mErrorTip.setVisibility(0);
-        this.gGp.setVisibility(0);
+        this.gHQ.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.recapp.view.IVrPlayView
     public void play() {
-        this.gGq.setVisibility(8);
-        this.dlx.setVisibility(8);
+        this.gHR.setVisibility(8);
+        this.mLoadingView.setVisibility(8);
         this.mErrorTip.setVisibility(8);
-        this.gGp.setVisibility(8);
+        this.gHQ.setVisibility(8);
     }
 
     @Override // com.baidu.tieba.recapp.view.IVrPlayView
@@ -225,18 +225,18 @@ public class DistributeVrVideoView extends RelativeLayout implements i, IVrPlayV
 
     @Override // com.baidu.tieba.recapp.view.IVrPlayView
     public void onDestroy() {
-        this.dlx.setVisibility(8);
+        this.mLoadingView.setVisibility(8);
         this.mErrorTip.setVisibility(8);
-        this.gGp.setVisibility(0);
-        this.gGq.setVisibility(0);
+        this.gHQ.setVisibility(0);
+        this.gHR.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.recapp.view.IVrPlayView
     public void complete() {
         this.mErrorTip.setVisibility(8);
-        this.dlx.setVisibility(8);
-        this.gGq.setVisibility(0);
-        this.gGp.setVisibility(0);
+        this.mLoadingView.setVisibility(8);
+        this.gHR.setVisibility(0);
+        this.gHQ.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.recapp.view.IVrPlayView
@@ -270,39 +270,39 @@ public class DistributeVrVideoView extends RelativeLayout implements i, IVrPlayV
 
     @Override // com.baidu.tieba.recapp.i
     public boolean isPlayStarted() {
-        if (this.gKv == null) {
+        if (this.gLU == null) {
             return false;
         }
-        int playStatus = this.gKv.getPlayStatus();
+        int playStatus = this.gLU.getPlayStatus();
         return playStatus == 0 || playStatus == 1;
     }
 
     @Override // com.baidu.tieba.recapp.i
     public boolean isPlaying() {
-        if (this.gKv == null) {
+        if (this.gLU == null) {
             return false;
         }
-        return this.gKv.getPlayStatus() == 1;
+        return this.gLU.getPlayStatus() == 1;
     }
 
     @Override // com.baidu.tieba.recapp.i
     public void startPlay() {
-        if (bmp() && this.gcn != null && this.gKv != null) {
+        if (blL() && this.gdK != null && this.gLU != null) {
             this.mHandler.removeMessages(MsgField.IMSG_DEVICE_NOT_SUPPORT);
             this.mHandler.sendEmptyMessage(MsgField.IMSG_DEVICE_NOT_SUPPORT);
-            this.gKv.startPlay(this.gcn.video_url);
+            this.gLU.startPlay(this.gdK.video_url);
         }
     }
 
-    private boolean bmp() {
-        return q.bmp();
+    private boolean blL() {
+        return q.blL();
     }
 
     @Override // com.baidu.tieba.recapp.i
     public void stopPlay() {
         this.mHandler.removeMessages(MsgField.IMSG_DEVICE_NOT_SUPPORT);
-        if (this.gKv != null) {
-            this.gKv.stopPlay();
+        if (this.gLU != null) {
+            this.gLU.stopPlay();
         }
     }
 
@@ -313,31 +313,31 @@ public class DistributeVrVideoView extends RelativeLayout implements i, IVrPlayV
 
     @Override // com.baidu.tieba.recapp.i
     public String getPlayUrl() {
-        return this.gcn == null ? "" : this.gcn.video_url;
+        return this.gdK == null ? "" : this.gdK.video_url;
     }
 
     @Override // com.baidu.tieba.recapp.i
     public long getCurrentPosition() {
-        if (this.gKv == null) {
+        if (this.gLU == null) {
             return 0L;
         }
-        return this.gKv.getCurrentPos();
+        return this.gLU.getCurrentPos();
     }
 
     @Override // com.baidu.tieba.recapp.i
     public void release() {
         this.mHandler.removeMessages(MsgField.IMSG_DEVICE_NOT_SUPPORT);
-        if (this.gKv != null) {
-            this.gKv.destroy();
+        if (this.gLU != null) {
+            this.gLU.destroy();
         }
     }
 
     @Override // com.baidu.tieba.recapp.i
     public int getPlayStatus() {
-        if (this.gKv == null) {
+        if (this.gLU == null) {
             return -2;
         }
-        return this.gKv.getPlayStatus();
+        return this.gLU.getPlayStatus();
     }
 
     @Override // com.baidu.tieba.recapp.i
@@ -347,8 +347,8 @@ public class DistributeVrVideoView extends RelativeLayout implements i, IVrPlayV
 
     public void setHolderView(View view) {
         if (view != null) {
-            this.gJZ = view;
-            this.gKa = true;
+            this.gLz = view;
+            this.gLA = true;
         }
     }
 }

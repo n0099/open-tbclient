@@ -48,7 +48,7 @@ public class KuangFloatingViewController {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Class<?> intentClass;
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof IntentConfig) && (intentClass = ah.Cv().getIntentClass(((IntentConfig) customResponsedMessage.getData()).getClass())) != null) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof IntentConfig) && (intentClass = ah.CC().getIntentClass(((IntentConfig) customResponsedMessage.getData()).getClass())) != null) {
                 if (intentClass.getName().contains(KuangFloatingViewController.WRITE_PACKAGE) || intentClass.getName().contains(KuangFloatingViewController.STORY_PACKAGE)) {
                     KuangFloatingViewController.this.hideFloatingView();
                 }
@@ -77,6 +77,7 @@ public class KuangFloatingViewController {
                     TiebaStatic.log(new am("c12264").x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 1));
                     Intent launchIntentForPackage = TbadkCoreApplication.getInst().getPackageManager().getLaunchIntentForPackage(GlobalConstants.SEARCHBOX_PACKAGE_NAME);
                     if (launchIntentForPackage != null) {
+                        launchIntentForPackage.addFlags(268435456);
                         TbadkCoreApplication.getInst().startActivity(launchIntentForPackage);
                         TiebaStatic.log(new am("C12265").x("obj_type", 1));
                     }
@@ -97,11 +98,11 @@ public class KuangFloatingViewController {
 
     public void showFloatingView() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        layoutParams.type = b.vs(2002);
+        layoutParams.type = b.vL(2002);
         layoutParams.flags = 65800;
         layoutParams.format = -3;
         layoutParams.x = 0;
-        layoutParams.y = l.h(TbadkCoreApplication.getInst(), e.C0175e.ds260) + UtilHelper.getStatusBarHeight();
+        layoutParams.y = l.h(TbadkCoreApplication.getInst(), e.C0200e.ds260) + UtilHelper.getStatusBarHeight();
         layoutParams.width = -2;
         layoutParams.height = -2;
         layoutParams.gravity = 51;

@@ -13,8 +13,8 @@ public final class a {
     public static int U = 2000;
     public static int V = 1;
     static a Xh = null;
-    private long Xc;
-    private long Xd;
+    private long W;
+    private long X;
     private long Xe;
     private StringBuilder Xf = new StringBuilder();
     public ArrayList<String> Xg = new ArrayList<>();
@@ -46,7 +46,7 @@ public final class a {
         return U * 0.6f;
     }
 
-    public static a ri() {
+    public static a rg() {
         if (Xh == null) {
             synchronized (a.class) {
                 if (Xh == null) {
@@ -58,8 +58,8 @@ public final class a {
     }
 
     public final a a(long j, long j2, long j3, long j4) {
-        this.Xc = j2 - j;
-        this.Xd = j4 - j3;
+        this.W = j2 - j;
+        this.X = j4 - j3;
         this.Xe = j;
         this.Z = j2;
         return this;
@@ -69,8 +69,8 @@ public final class a {
         HashMap hashMap = new HashMap();
         long j = this.Xe;
         long j2 = this.Z;
-        long j3 = this.Xc;
-        long j4 = this.Xd;
+        long j3 = this.W;
+        long j4 = this.X;
         String f = f();
         if (TextUtils.isEmpty(f)) {
             return null;

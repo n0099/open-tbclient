@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes.dex */
 public class aw {
-    public String aoC;
-    public String aoD;
+    public String apq;
+    public String apr;
     public String title;
 }

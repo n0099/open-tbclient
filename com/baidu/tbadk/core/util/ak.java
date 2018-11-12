@@ -14,11 +14,11 @@ import java.io.File;
 public class ak {
     public static void b(TbPageContext<?> tbPageContext) {
         try {
-            if (!l.hB()) {
+            if (!l.hA()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(l.Bw());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(l.BD());
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(l.Bw());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(l.BD());
                 }
             } else {
                 File eI = l.eI("camera.jpg");
@@ -39,18 +39,18 @@ public class ak {
 
     public static void a(TbPageContext<?> tbPageContext, String str) {
         try {
-            if (!l.hB()) {
+            if (!l.hA()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(l.Bw());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(l.BD());
                     return;
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(l.Bw());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(l.BD());
                     return;
                 } else {
                     return;
                 }
             }
-            String str2 = l.FH + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR;
+            String str2 = l.FL + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR;
             boolean z = false;
             if (l.ez(str2)) {
                 File file = new File(str2 + "/" + str);

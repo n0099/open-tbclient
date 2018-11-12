@@ -14,43 +14,43 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class EntelechyPullUpRefreshView extends LinearLayout {
-    private View dJQ;
-    private TbImageView dJR;
-    private boolean dJS;
-    private Animation dpT;
+    private View dKU;
+    private TbImageView dKV;
+    private boolean dKW;
+    private Animation dqX;
     private int mIconId;
     private int mSkinType;
 
     public EntelechyPullUpRefreshView(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.dpT = null;
+        this.dqX = null;
         this.mIconId = e.f.icon_frs_reload;
-        this.dJS = false;
+        this.dKW = false;
         d(context, null);
     }
 
     public EntelechyPullUpRefreshView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.dpT = null;
+        this.dqX = null;
         this.mIconId = e.f.icon_frs_reload;
-        this.dJS = false;
+        this.dKW = false;
         d(context, attributeSet);
     }
 
     public EntelechyPullUpRefreshView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.dpT = null;
+        this.dqX = null;
         this.mIconId = e.f.icon_frs_reload;
-        this.dJS = false;
+        this.dKW = false;
         d(context, attributeSet);
     }
 
     public void setIconResource(int i) {
         this.mIconId = i;
-        al.c(this.dJR, this.mIconId);
+        al.c(this.dKV, this.mIconId);
     }
 
     public void d(Context context, AttributeSet attributeSet) {
@@ -58,51 +58,51 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
             if (attributeSet != null) {
                 TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, e.l.EntelechyPullUpRefreshView);
                 this.mIconId = obtainStyledAttributes.getResourceId(e.l.EntelechyPullUpRefreshView_tb_pull_up_icon, e.f.icon_frs_reload);
-                this.dJS = obtainStyledAttributes.getBoolean(e.l.EntelechyPullUpRefreshView_tb_pull_show_top_line, false);
+                this.dKW = obtainStyledAttributes.getBoolean(e.l.EntelechyPullUpRefreshView_tb_pull_show_top_line, false);
                 obtainStyledAttributes.recycle();
             }
             setOrientation(1);
             setGravity(1);
             al.i(this, e.d.cp_bg_line_d_alpha98);
-            if (this.dJS) {
-                this.dJQ = new View(context);
-                this.dJQ.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) context.getResources().getDimension(e.C0175e.ds1)));
-                al.i(this.dJQ, e.d.cp_bg_line_b);
-                addView(this.dJQ);
+            if (this.dKW) {
+                this.dKU = new View(context);
+                this.dKU.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) context.getResources().getDimension(e.C0200e.ds1)));
+                al.i(this.dKU, e.d.cp_bg_line_b);
+                addView(this.dKU);
             }
-            this.dJR = new TbImageView(context);
-            int h = l.h(getContext(), e.C0175e.ds48);
+            this.dKV = new TbImageView(context);
+            int h = l.h(getContext(), e.C0200e.ds48);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(h, h);
-            layoutParams.topMargin = l.h(getContext(), e.C0175e.ds20);
-            this.dJR.setLayoutParams(layoutParams);
-            al.c(this.dJR, this.mIconId);
-            addView(this.dJR);
+            layoutParams.topMargin = l.h(getContext(), e.C0200e.ds20);
+            this.dKV.setLayoutParams(layoutParams);
+            al.c(this.dKV, this.mIconId);
+            addView(this.dKV);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            al.i(this.dJQ, e.d.cp_bg_line_b);
-            al.c(this.dJR, this.mIconId);
+            al.i(this.dKU, e.d.cp_bg_line_b);
+            al.c(this.dKV, this.mIconId);
             al.i(this, e.d.cp_bg_line_d_alpha98);
             this.mSkinType = i;
         }
     }
 
     private Animation getClickRotateAnimation() {
-        if (this.dpT == null) {
-            this.dpT = AnimationUtils.loadAnimation(getContext(), e.a.refresh_rotate);
-            this.dpT.setInterpolator(new LinearInterpolator());
-            this.dpT.setFillAfter(true);
+        if (this.dqX == null) {
+            this.dqX = AnimationUtils.loadAnimation(getContext(), e.a.refresh_rotate);
+            this.dqX.setInterpolator(new LinearInterpolator());
+            this.dqX.setFillAfter(true);
         }
-        return this.dpT;
+        return this.dqX;
     }
 
-    public void awH() {
-        this.dJR.startAnimation(getClickRotateAnimation());
+    public void awf() {
+        this.dKV.startAnimation(getClickRotateAnimation());
     }
 
-    public void awI() {
-        this.dJR.clearAnimation();
+    public void awg() {
+        this.dKV.clearAnimation();
     }
 }

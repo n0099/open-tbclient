@@ -83,7 +83,7 @@ public class e {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public Layer j(long j) {
+    public Layer l(long j) {
         return this.nB.get(j);
     }
 
@@ -106,21 +106,21 @@ public class e {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public int cE() {
+    public int cD() {
         return this.nM;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public long cF() {
+    public long cE() {
         return this.nG;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public long cG() {
+    public long cF() {
         return this.nH;
     }
 
-    public List<Layer> cH() {
+    public List<Layer> cG() {
         return this.nC;
     }
 
@@ -130,23 +130,23 @@ public class e {
         return this.nx.get(str);
     }
 
-    public SparseArrayCompat<com.airbnb.lottie.model.g> cI() {
+    public SparseArrayCompat<com.airbnb.lottie.model.g> cH() {
         return this.nA;
     }
 
-    public Map<String, com.airbnb.lottie.model.f> cJ() {
+    public Map<String, com.airbnb.lottie.model.f> cI() {
         return this.nz;
     }
 
-    public Map<String, g> cK() {
+    public Map<String, g> cJ() {
         return this.ny;
     }
 
-    public float cL() {
+    public float cK() {
         return (((float) getDuration()) * this.nI) / 1000.0f;
     }
 
-    public float cM() {
+    public float cL() {
         return this.nJ;
     }
 
@@ -231,7 +231,7 @@ public class e {
                 int length = optJSONArray.length();
                 for (int i2 = 0; i2 < length; i2++) {
                     Layer C = Layer.a.C(optJSONArray.optJSONObject(i2), eVar);
-                    if (C.eQ() == Layer.LayerType.Image) {
+                    if (C.eP() == Layer.LayerType.Image) {
                         i++;
                     }
                     a(eVar.nC, eVar.nB, C);

@@ -18,7 +18,6 @@ import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.browser.sailor.a.n;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.baidu.searchbox.ng.ai.apps.canvas.action.draw.DaScale;
 import com.baidu.webkit.internal.daemon.ZeusThreadPoolUtil;
 import com.baidu.webkit.sdk.Log;
 import java.io.File;
@@ -40,7 +39,7 @@ public final class a {
         nVar.a(aVar);
         nVar.cy("device_info");
         final com.baidu.browser.sailor.util.d dVar = new com.baidu.browser.sailor.util.d();
-        Context appContext = com.baidu.browser.sailor.b.a.qR().getAppContext();
+        Context appContext = com.baidu.browser.sailor.b.a.qP().getAppContext();
         final c cVar = new c(nVar);
         final Context applicationContext = appContext.getApplicationContext();
         final JSONObject jSONObject = new JSONObject();
@@ -76,7 +75,7 @@ public final class a {
                 try {
                     try {
                         jSONObject3.put("level", intent.getIntExtra("level", -1));
-                        jSONObject3.put(DaScale.ACTION_TYPE, intent.getIntExtra(DaScale.ACTION_TYPE, -1));
+                        jSONObject3.put("scale", intent.getIntExtra("scale", -1));
                         jSONObject.put("battery", jSONObject3);
                         applicationContext.unregisterReceiver(this);
                         if (cVar != null) {
@@ -111,7 +110,7 @@ public final class a {
         String str3;
         n nVar = new n(str, str2);
         nVar.a(aVar);
-        ConnectivityManager connectivityManager = (ConnectivityManager) com.baidu.browser.sailor.b.a.qR().getAppContext().getSystemService("connectivity");
+        ConnectivityManager connectivityManager = (ConnectivityManager) com.baidu.browser.sailor.b.a.qP().getAppContext().getSystemService("connectivity");
         if (connectivityManager == null) {
             nVar.c("net_result", "lightapp.device.CONNECT_UNKNOWN", false);
             return;
@@ -145,7 +144,7 @@ public final class a {
         if (a == null) {
             a = new d();
         }
-        com.baidu.browser.sailor.b.a.qR().getAppContext().registerReceiver(a, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        com.baidu.browser.sailor.b.a.qP().getAppContext().registerReceiver(a, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
     }
 
     public static void d(String str, String str2, n.a aVar) {
@@ -160,16 +159,16 @@ public final class a {
             nVar.cA("not start yet");
             return;
         }
-        com.baidu.browser.sailor.b.a.qR().getAppContext().unregisterReceiver(a);
+        com.baidu.browser.sailor.b.a.qP().getAppContext().unregisterReceiver(a);
         a = null;
-        nVar.qQ();
+        nVar.qO();
     }
 
     public static void e(String str, String str2, n.a aVar) {
         n nVar = new n(str, str2);
         nVar.a(aVar);
         final com.baidu.browser.sailor.util.d dVar = new com.baidu.browser.sailor.util.d();
-        Context appContext = com.baidu.browser.sailor.b.a.qR().getAppContext();
+        Context appContext = com.baidu.browser.sailor.b.a.qP().getAppContext();
         final e eVar = new e(nVar);
         final Context applicationContext = appContext.getApplicationContext();
         applicationContext.registerReceiver(new BroadcastReceiver() { // from class: com.baidu.browser.sailor.util.BdDeviceInfo$2
@@ -179,7 +178,7 @@ public final class a {
                 try {
                     try {
                         jSONObject.put("level", intent.getIntExtra("level", -1));
-                        jSONObject.put(DaScale.ACTION_TYPE, intent.getIntExtra(DaScale.ACTION_TYPE, -1));
+                        jSONObject.put("scale", intent.getIntExtra("scale", -1));
                         jSONObject.put("plugged", intent.getIntExtra("plugged", 0));
                         applicationContext.unregisterReceiver(this);
                         if (eVar != null) {

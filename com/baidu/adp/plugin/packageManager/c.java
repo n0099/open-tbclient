@@ -11,19 +11,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c KP;
-    private ArrayList<String> KF = new ArrayList<>();
-    private a KQ;
+    private static volatile c KS;
+    private ArrayList<String> KI = new ArrayList<>();
+    private a KT;
 
-    public static c nb() {
-        if (KP == null) {
+    public static c mZ() {
+        if (KS == null) {
             synchronized (c.class) {
-                if (KP == null) {
-                    KP = new c();
+                if (KS == null) {
+                    KS = new c();
                 }
             }
         }
-        return KP;
+        return KS;
     }
 
     private c() {
@@ -32,7 +32,7 @@ public class c {
     public void a(PluginSetting pluginSetting) {
         boolean z;
         if (pluginSetting != null && !TextUtils.isEmpty(pluginSetting.packageName)) {
-            Iterator<String> it = this.KF.iterator();
+            Iterator<String> it = this.KI.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -45,17 +45,17 @@ public class c {
                 }
             }
             if (!z) {
-                this.KF.add(pluginSetting.packageName);
+                this.KI.add(pluginSetting.packageName);
             }
-            mX();
+            mV();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mX() {
-        if (this.KF.size() > 0 && this.KQ == null) {
-            this.KQ = new a(this.KF.get(0));
-            this.KQ.execute(new String[0]);
+    public void mV() {
+        if (this.KI.size() > 0 && this.KT == null) {
+            this.KT = new a(this.KI.get(0));
+            this.KT.execute(new String[0]);
         }
     }
 
@@ -83,36 +83,36 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            c.this.KQ = null;
-            if (c.this.KF.size() > 0) {
-                Iterator it = c.this.KF.iterator();
+            c.this.KT = null;
+            if (c.this.KI.size() > 0) {
+                Iterator it = c.this.KI.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String str = (String) it.next();
                     if (str != null && str.equals(this.packageName)) {
-                        c.this.KF.remove(str);
+                        c.this.KI.remove(str);
                         break;
                     }
                 }
             }
-            c.this.mX();
+            c.this.mV();
         }
 
         private void bR(String str) {
             File[] listFiles;
-            File nQ = Util.nQ();
+            File nO = Util.nO();
             String cr = Util.cr(str);
-            if (nQ != null && nQ.exists() && (listFiles = nQ.listFiles()) != null) {
+            if (nO != null && nO.exists() && (listFiles = nO.listFiles()) != null) {
                 int length = listFiles.length;
                 for (int i = 0; i < length; i++) {
                     if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(cr)) {
                         try {
                             f.q(listFiles[i]);
-                            com.baidu.adp.plugin.b.a.mQ().f("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());
+                            com.baidu.adp.plugin.b.a.mO().f("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());
                         } catch (Throwable th) {
-                            com.baidu.adp.plugin.b.a.mQ().g("plugin_del_temp", "deltmp_fail", str, listFiles[i].getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.getMessage());
+                            com.baidu.adp.plugin.b.a.mO().g("plugin_del_temp", "deltmp_fail", str, listFiles[i].getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.getMessage());
                         }
                     }
                 }

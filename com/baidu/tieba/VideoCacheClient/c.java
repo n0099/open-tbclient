@@ -3,11 +3,11 @@ package com.baidu.tieba.VideoCacheClient;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes6.dex */
 public class c {
-    public static final String bvI = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
-    public static final String bvJ = bvI + "/.tieba_video_cache";
-    public static final String yM = bvJ + "/v2";
-    public static final String bvK = yM + "/";
-    public static final String bvL = yM + "/files";
-    public static final String bvM = bvL + "/";
-    public static final String bvN = bvK + "server_port";
+    public static final String bwt = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
+    public static final String bwu = bwt + "/.tieba_video_cache";
+    public static final String yP = bwu + "/v2";
+    public static final String bwv = yP + "/";
+    public static final String bww = yP + "/files";
+    public static final String bwx = bww + "/";
+    public static final String bwy = bwv + "server_port";
 }

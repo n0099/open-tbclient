@@ -1,67 +1,68 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes6.dex */
 public class h {
-    private String ahr;
-    private String bvC;
-    private boolean bvD;
-    private long bvE = -1;
-    private long bvF = -1;
-    private long bvG = 0;
-    private long bvH = 0;
+    private String aie;
+    private String bwn;
+    private boolean bwo;
+    private long bwp = -1;
+    private long bwq = -1;
+    private long bwr = 0;
+    private long bws = 0;
 
-    public String TX() {
-        return this.bvC;
+    public String Ug() {
+        return this.bwn;
     }
 
-    public void iZ(String str) {
-        this.bvC = str;
+    public void jb(String str) {
+        this.bwn = str;
     }
 
-    public String TY() {
-        return this.ahr;
+    public String Uh() {
+        return this.aie;
     }
 
-    public void ja(String str) {
-        this.ahr = str;
+    public void jc(String str) {
+        this.aie = str;
     }
 
-    public boolean TZ() {
-        return this.bvD;
+    public boolean Ui() {
+        return this.bwo;
     }
 
-    public void cX(boolean z) {
-        this.bvD = z;
+    /* renamed from: do  reason: not valid java name */
+    public void m18do(boolean z) {
+        this.bwo = z;
     }
 
-    public long Ua() {
-        return this.bvE;
-    }
-
-    public void aJ(long j) {
-        this.bvE = j;
-    }
-
-    public long Ub() {
-        return this.bvF;
-    }
-
-    public void aK(long j) {
-        this.bvF = j;
-    }
-
-    public long getTotalLength() {
-        return this.bvG;
-    }
-
-    public void ac(long j) {
-        this.bvG = j;
+    public long Uj() {
+        return this.bwp;
     }
 
     public void aL(long j) {
-        this.bvH = j;
+        this.bwp = j;
     }
 
-    public long Uc() {
-        return this.bvH;
+    public long Uk() {
+        return this.bwq;
+    }
+
+    public void aM(long j) {
+        this.bwq = j;
+    }
+
+    public long getTotalLength() {
+        return this.bwr;
+    }
+
+    public void ae(long j) {
+        this.bwr = j;
+    }
+
+    public void aN(long j) {
+        this.bws = j;
+    }
+
+    public long Ul() {
+        return this.bws;
     }
 }

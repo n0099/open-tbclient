@@ -5,8 +5,8 @@ import rx.d;
 /* loaded from: classes2.dex */
 public final class OperatorElementAt<T> implements d.b<T, T> {
     final int index;
-    final boolean iwy;
-    final T iwz;
+    final boolean iyi;
+    final T iyj;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -26,8 +26,8 @@ public final class OperatorElementAt<T> implements d.b<T, T> {
             throw new IndexOutOfBoundsException(i + " is out of bounds");
         }
         this.index = i;
-        this.iwz = t;
-        this.iwy = z;
+        this.iyj = t;
+        this.iyi = z;
     }
 
     public rx.j<? super T> call(final rx.j<? super T> jVar) {
@@ -53,8 +53,8 @@ public final class OperatorElementAt<T> implements d.b<T, T> {
             @Override // rx.e
             public void onCompleted() {
                 if (this.currentIndex <= OperatorElementAt.this.index) {
-                    if (OperatorElementAt.this.iwy) {
-                        jVar.onNext(OperatorElementAt.this.iwz);
+                    if (OperatorElementAt.this.iyi) {
+                        jVar.onNext(OperatorElementAt.this.iyj);
                         jVar.onCompleted();
                         return;
                     }

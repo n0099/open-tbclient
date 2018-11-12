@@ -58,6 +58,7 @@ import com.baidu.sapi2.utils.enums.Language;
 import com.baidu.sapi2.utils.enums.RegistMode;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.searchbox.ng.ai.apps.aps.AiAppsApsUtils;
+import com.baidu.searchbox.ng.ai.apps.impl.map.model.element.MarkerModel;
 import com.baidu.webkit.internal.ETAG;
 import com.tencent.open.SocialConstants;
 import com.tencent.open.SocialOperation;
@@ -148,7 +149,7 @@ public final class SapiAccountService implements ISAccountService {
         String l;
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("adapter", "3"));
-        arrayList.add(new BasicNameValuePair("wapsec", "center"));
+        arrayList.add(new BasicNameValuePair("wapsec", MarkerModel.SubBase.CENTER));
         if (this.b.accountCenterRealAutnen) {
             arrayList.add(new BasicNameValuePair("realName", "1"));
         } else {
@@ -299,7 +300,7 @@ public final class SapiAccountService implements ISAccountService {
         }
         if (z) {
             arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_ACT, "bind"));
-            arrayList.add(new BasicNameValuePair("wapsec", "center"));
+            arrayList.add(new BasicNameValuePair("wapsec", MarkerModel.SubBase.CENTER));
             arrayList.add(new BasicNameValuePair("adapter", "3"));
             if (TextUtils.isEmpty(str)) {
                 str = this.b.environment.getWap(SapiUtils.getDefaultHttpsEnabled()) + SapiEnv.ACCOUNT_CENTER_ACCOUNT_BIND + "?" + j() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
@@ -321,7 +322,7 @@ public final class SapiAccountService implements ISAccountService {
         arrayList.add(new BasicNameValuePair("mkey", str2));
         arrayList.add(new BasicNameValuePair("code", str));
         if (z) {
-            arrayList.add(new BasicNameValuePair("wapsec", "center"));
+            arrayList.add(new BasicNameValuePair("wapsec", MarkerModel.SubBase.CENTER));
             arrayList.add(new BasicNameValuePair("adapter", "3"));
         }
         arrayList.add(new BasicNameValuePair("appid", this.b.wxAppID));

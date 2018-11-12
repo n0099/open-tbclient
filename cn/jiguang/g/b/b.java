@@ -15,7 +15,7 @@ public final class b {
         }
         for (Map.Entry<String, Serializable> entry : aVar.a()) {
             String key = entry.getKey();
-            Serializable a = a(sharedPreferences, key, a.a(entry.getValue()));
+            Serializable a = a(sharedPreferences, key, a.b(entry.getValue()));
             if (a != null) {
                 aVar2.a(key, a);
             }
@@ -73,7 +73,7 @@ public final class b {
 
     public static <T extends Serializable> T a(SharedPreferences sharedPreferences, String str, T t) {
         try {
-            T t2 = (T) a(sharedPreferences, str, a.a(t));
+            T t2 = (T) a(sharedPreferences, str, a.b(t));
             return t2 == null ? t : t2;
         } catch (Throwable th) {
             cn.jiguang.e.c.c("SpHelper", th.getMessage(), th);

@@ -4,14 +4,14 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.tieba.frs.entelechy.view.f;
 /* loaded from: classes3.dex */
 public class a extends q.a {
-    private f dKz;
+    private f dLD;
 
     public a(f fVar) {
         super(fVar.getView());
-        this.dKz = fVar;
+        this.dLD = fVar;
     }
 
-    public f aDl() {
-        return this.dKz;
+    public f aCF() {
+        return this.dLD;
     }
 }

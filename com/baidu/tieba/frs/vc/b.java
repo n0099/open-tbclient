@@ -18,214 +18,214 @@ import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.entelechy.view.EntelechyPullUpRefreshView;
 /* loaded from: classes6.dex */
 public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs.tab.c {
-    private FrsFragment dBO;
-    private NoPressedRelativeLayout dUZ;
-    private Animation dVb;
-    private Animation dVc;
-    private LinearLayout dVf;
-    private EntelechyPullUpRefreshView dVg;
-    private EntelechyPullUpRefreshView dVh;
-    private TbImageView dVa = null;
+    private FrsFragment dDf;
+    private NoPressedRelativeLayout dWf;
+    private Animation dWh;
+    private Animation dWi;
+    private LinearLayout dWl;
+    private EntelechyPullUpRefreshView dWm;
+    private EntelechyPullUpRefreshView dWn;
+    private TbImageView dWg = null;
     private int mSkinType = 3;
-    private boolean dVd = false;
-    private float dVe = 360.0f;
+    private boolean dWj = false;
+    private float dWk = 360.0f;
     private boolean isShow = true;
-    private View.OnClickListener dVi = new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.b.1
+    private View.OnClickListener dWo = new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.dBO != null) {
-                if (view == b.this.dVg) {
-                    TiebaStatic.eventStat(b.this.dBO.getPageContext().getPageActivity(), "frs_refresh", "frsclick", 1, new Object[0]);
-                    if (!b.this.dBO.azT() && b.this.dBO.azB() != null) {
-                        TiebaStatic.log(new am("c11752").ax(ImageViewerConfig.FORUM_ID, b.this.dBO.getFid()).ax("obj_locate", "3"));
-                        b.this.dBO.azB().startPullRefresh();
+            if (b.this.dDf != null) {
+                if (view == b.this.dWm) {
+                    TiebaStatic.eventStat(b.this.dDf.getPageContext().getPageActivity(), "frs_refresh", "frsclick", 1, new Object[0]);
+                    if (!b.this.dDf.azq() && b.this.dDf.ayY() != null) {
+                        TiebaStatic.log(new am("c11752").ax(ImageViewerConfig.FORUM_ID, b.this.dDf.getFid()).ax("obj_locate", "3"));
+                        b.this.dDf.ayY().startPullRefresh();
                     }
-                } else if (view == b.this.dVh && b.this.dBO.azB() != null && b.this.dBO.azB().getListView() != null) {
-                    b.this.dBO.azB().getListView().smoothScrollToPosition(0);
+                } else if (view == b.this.dWn && b.this.dDf.ayY() != null && b.this.dDf.ayY().getListView() != null) {
+                    b.this.dDf.ayY().getListView().smoothScrollToPosition(0);
                 }
             }
         }
     };
 
     public b(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
-        this.dVf = null;
-        this.dVg = null;
-        this.dVh = null;
-        this.dBO = frsFragment;
-        this.dUZ = noPressedRelativeLayout;
-        aFM();
-        this.dVf = (LinearLayout) this.dUZ.findViewById(e.g.frs_stick_bottom_holder);
-        this.dVh = (EntelechyPullUpRefreshView) this.dUZ.findViewById(e.g.frs_stick_bottom_goto_top);
-        this.dVg = (EntelechyPullUpRefreshView) this.dUZ.findViewById(e.g.frs_stick_bottom_reload);
-        this.dVh.setOnClickListener(this.dVi);
-        this.dVg.setOnClickListener(this.dVi);
+        this.dWl = null;
+        this.dWm = null;
+        this.dWn = null;
+        this.dDf = frsFragment;
+        this.dWf = noPressedRelativeLayout;
+        aFi();
+        this.dWl = (LinearLayout) this.dWf.findViewById(e.g.frs_stick_bottom_holder);
+        this.dWn = (EntelechyPullUpRefreshView) this.dWf.findViewById(e.g.frs_stick_bottom_goto_top);
+        this.dWm = (EntelechyPullUpRefreshView) this.dWf.findViewById(e.g.frs_stick_bottom_reload);
+        this.dWn.setOnClickListener(this.dWo);
+        this.dWm.setOnClickListener(this.dWo);
         onChangeSkinType(this.mSkinType);
     }
 
-    private void aFM() {
-        this.dVa = new TbImageView(this.dBO.getPageContext().getPageActivity());
-        int h = l.h(this.dBO.getPageContext().getPageActivity(), e.C0175e.ds68);
+    private void aFi() {
+        this.dWg = new TbImageView(this.dDf.getPageContext().getPageActivity());
+        int h = l.h(this.dDf.getPageContext().getPageActivity(), e.C0200e.ds68);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(h, h);
         layoutParams.addRule(10);
         layoutParams.addRule(14);
         layoutParams.topMargin = h;
-        this.dVa.setLayoutParams(layoutParams);
-        this.dUZ.addView(this.dVa);
-        this.dVa.setVisibility(8);
+        this.dWg.setLayoutParams(layoutParams);
+        this.dWf.addView(this.dWg);
+        this.dWg.setVisibility(8);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.c
-    public void z(boolean z, boolean z2) {
-        if (!this.dVd) {
+    public void B(boolean z, boolean z2) {
+        if (!this.dWj) {
             this.isShow = z;
             if (z) {
                 if (z2) {
-                    aFP();
+                    aFl();
                 } else {
-                    this.dVf.setVisibility(0);
+                    this.dWl.setVisibility(0);
                 }
             } else if (z2) {
-                aFQ();
+                aFm();
             } else {
-                this.dVf.setVisibility(8);
+                this.dWl.setVisibility(8);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.c
-    public boolean aCQ() {
-        if (this.dVg == null) {
+    public boolean aCk() {
+        if (this.dWm == null) {
             return false;
         }
         return this.isShow;
     }
 
-    private void aFN() {
-        if (this.dBO.isAdded()) {
-            this.dVb = AnimationUtils.loadAnimation(this.dBO.getPageContext().getPageActivity(), e.a.frs_pull_up_refresh_out);
-            this.dVb.setAnimationListener(new a(this.dVf));
+    private void aFj() {
+        if (this.dDf.isAdded()) {
+            this.dWh = AnimationUtils.loadAnimation(this.dDf.getPageContext().getPageActivity(), e.a.frs_pull_up_refresh_out);
+            this.dWh.setAnimationListener(new a(this.dWl));
         }
     }
 
-    private void aFO() {
-        if (this.dBO.isAdded()) {
-            this.dVc = AnimationUtils.loadAnimation(this.dBO.getPageContext().getPageActivity(), e.a.frs_pull_up_refresh_in);
-            this.dVc.setAnimationListener(new animation.Animation$AnimationListenerC0193b(this.dVf));
+    private void aFk() {
+        if (this.dDf.isAdded()) {
+            this.dWi = AnimationUtils.loadAnimation(this.dDf.getPageContext().getPageActivity(), e.a.frs_pull_up_refresh_in);
+            this.dWi.setAnimationListener(new animation.Animation$AnimationListenerC0218b(this.dWl));
         }
     }
 
-    private void aFP() {
-        cx();
-        if (this.dVc == null) {
-            aFO();
+    private void aFl() {
+        cancelAnimation();
+        if (this.dWi == null) {
+            aFk();
         }
-        if (this.dVc != null) {
-            this.dVf.setVisibility(0);
-            this.dVf.startAnimation(this.dVc);
-        }
-    }
-
-    private void cx() {
-        if (this.dVf != null) {
-            this.dVf.clearAnimation();
+        if (this.dWi != null) {
+            this.dWl.setVisibility(0);
+            this.dWl.startAnimation(this.dWi);
         }
     }
 
-    private boolean aJ(View view) {
+    private void cancelAnimation() {
+        if (this.dWl != null) {
+            this.dWl.clearAnimation();
+        }
+    }
+
+    private boolean aL(View view) {
         Animation animation;
         return (view == null || (animation = view.getAnimation()) == null || !animation.hasStarted() || animation.hasEnded()) ? false : true;
     }
 
-    private void aFQ() {
-        cx();
-        if (this.dVb == null) {
-            aFN();
+    private void aFm() {
+        cancelAnimation();
+        if (this.dWh == null) {
+            aFj();
         }
-        if (this.dVb != null) {
-            this.dVf.startAnimation(this.dVb);
-        }
-    }
-
-    @Override // com.baidu.tieba.frs.entelechy.b.c
-    public void aCS() {
-        if (this.dVg != null && !aJ(this.dVg)) {
-            this.dVg.awI();
+        if (this.dWh != null) {
+            this.dWl.startAnimation(this.dWh);
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.c
-    public void aCR() {
-        if (this.dVg != null && !aJ(this.dVg)) {
-            this.dVg.awH();
+    public void aCm() {
+        if (this.dWm != null && !aL(this.dWm)) {
+            this.dWm.awg();
+        }
+    }
+
+    @Override // com.baidu.tieba.frs.entelechy.b.c
+    public void aCl() {
+        if (this.dWm != null && !aL(this.dWm)) {
+            this.dWm.awf();
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.c
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.dVg != null) {
-                this.dVg.onChangeSkinType(i);
+            if (this.dWm != null) {
+                this.dWm.onChangeSkinType(i);
             }
-            if (this.dVh != null) {
-                this.dVh.onChangeSkinType(i);
+            if (this.dWn != null) {
+                this.dWn.onChangeSkinType(i);
             }
             this.mSkinType = i;
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.c
-    public void gQ(boolean z) {
-        this.dVd = z;
-        if (this.dVg != null) {
+    public void gZ(boolean z) {
+        this.dWj = z;
+        if (this.dWm != null) {
             if (z) {
-                if (this.dVf != null && this.dVf.getVisibility() == 0) {
-                    aFQ();
+                if (this.dWl != null && this.dWl.getVisibility() == 0) {
+                    aFm();
                     return;
                 }
                 return;
             }
-            aFP();
+            aFl();
         }
     }
 
     @Override // com.baidu.tieba.frs.tab.c
     public void M(float f) {
-        if (this.dVa != null) {
-            if (!this.dVa.isShown()) {
-                this.dVa.setVisibility(0);
-                al.c(this.dVa, e.f.icon_pop_refresh);
+        if (this.dWg != null) {
+            if (!this.dWg.isShown()) {
+                this.dWg.setVisibility(0);
+                al.c(this.dWg, e.f.icon_pop_refresh);
             }
-            if (this.dVa.getAnimation() != null) {
-                this.dVa.clearAnimation();
+            if (this.dWg.getAnimation() != null) {
+                this.dWg.clearAnimation();
             }
-            RotateAnimation rotateAnimation = new RotateAnimation(this.dVe, f, 1, 0.5f, 1, 0.5f);
+            RotateAnimation rotateAnimation = new RotateAnimation(this.dWk, f, 1, 0.5f, 1, 0.5f);
             rotateAnimation.setFillBefore(true);
             rotateAnimation.setFillAfter(true);
-            this.dVa.startAnimation(rotateAnimation);
-            this.dVe = f;
+            this.dWg.startAnimation(rotateAnimation);
+            this.dWk = f;
         }
     }
 
     @Override // com.baidu.tieba.frs.tab.c
-    public void aFG() {
-        if (this.dVa != null) {
-            this.dVa.clearAnimation();
-            this.dVa.setImageDrawable(null);
-            this.dVa.setVisibility(8);
+    public void aFc() {
+        if (this.dWg != null) {
+            this.dWg.clearAnimation();
+            this.dWg.setImageDrawable(null);
+            this.dWg.setVisibility(8);
         }
     }
 
     @Override // com.baidu.tieba.frs.tab.c
-    public void oE() {
-        if (this.dVa != null && this.dBO != null && this.dBO.getPageContext() != null) {
-            if (!this.dVa.isShown()) {
-                this.dVa.setVisibility(0);
-                al.c(this.dVa, e.f.icon_pop_refresh);
+    public void oC() {
+        if (this.dWg != null && this.dDf != null && this.dDf.getPageContext() != null) {
+            if (!this.dWg.isShown()) {
+                this.dWg.setVisibility(0);
+                al.c(this.dWg, e.f.icon_pop_refresh);
             }
-            if (this.dVa.getAnimation() != null) {
-                this.dVa.clearAnimation();
+            if (this.dWg.getAnimation() != null) {
+                this.dWg.clearAnimation();
             }
-            this.dVa.startAnimation((RotateAnimation) AnimationUtils.loadAnimation(this.dBO.getPageContext().getPageActivity(), e.a.center_head_rotate));
+            this.dWg.startAnimation((RotateAnimation) AnimationUtils.loadAnimation(this.dDf.getPageContext().getPageActivity(), e.a.center_head_rotate));
         }
     }
 
@@ -260,10 +260,10 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.vc.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class animation.Animation$AnimationListenerC0193b implements Animation.AnimationListener {
+    public static class animation.Animation$AnimationListenerC0218b implements Animation.AnimationListener {
         View view;
 
-        public animation.Animation$AnimationListenerC0193b(View view) {
+        public animation.Animation$AnimationListenerC0218b(View view) {
             this.view = view;
         }
 

@@ -13,11 +13,11 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes5.dex */
 public class KeywordsBox extends AbstractFullBox {
     public static final String TYPE = "kywd";
-    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_4 = null;
     private String[] keywords;
     private String language;
 

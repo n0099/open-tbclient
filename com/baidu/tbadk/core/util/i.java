@@ -44,7 +44,7 @@ public class i {
         }
     }
 
-    public static void Bv() {
+    public static void BC() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.i.1
             @Override // java.lang.Runnable
             public void run() {

@@ -19,16 +19,16 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class c {
-    private static View.OnClickListener ahx = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
+    private static View.OnClickListener aik = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null && view.getTag() != null && (view.getTag() instanceof a)) {
-                if (!j.kX()) {
+                if (!j.kV()) {
                     l.showToast(view.getContext(), e.j.no_network_guide);
                     return;
                 }
                 a aVar = (a) view.getTag();
-                AlaUserInfoData alaUserInfoData = aVar.aht;
+                AlaUserInfoData alaUserInfoData = aVar.aig;
                 if (alaUserInfoData != null) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                     if (alaUserInfoData.anchor_live != 0) {
@@ -59,8 +59,8 @@ public class c {
                                 TiebaStatic.log(new am("c11855").ax("uid", currentAccount).h("click_uid", alaUserInfoData.ala_id).x("live_status", alaUserInfoData.live_status));
                             }
                             TiebaStatic.log(new am("c12542"));
-                            if (aVar.ahu && !StringUtils.isNull(alaUserInfoData.sex)) {
-                                BdToast.b(view.getContext(), String.format(view.getContext().getString(e.j.person_privacy_toast), alaUserInfoData.sex), e.f.icon_toast_game_error).AC();
+                            if (aVar.aih && !StringUtils.isNull(alaUserInfoData.sex)) {
+                                BdToast.b(view.getContext(), String.format(view.getContext().getString(e.j.person_privacy_toast), alaUserInfoData.sex), e.f.icon_toast_game_error).AJ();
                                 return;
                             }
                             break;
@@ -77,12 +77,12 @@ public class c {
         }
     };
 
-    public static TextView bp(Context context) {
+    public static TextView bn(Context context) {
         if (context == null || MessageManager.getInstance().findTask(2911003) == null) {
             return null;
         }
         TextView textView = (TextView) LayoutInflater.from(context).inflate(e.h.ala_tail_view_layout, (ViewGroup) null);
-        textView.setOnClickListener(ahx);
+        textView.setOnClickListener(aik);
         return textView;
     }
 }

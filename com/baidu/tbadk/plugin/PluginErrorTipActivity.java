@@ -1,5 +1,6 @@
 package com.baidu.tbadk.plugin;
 
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
@@ -19,11 +20,11 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity> {
-    private View aIE;
-    private TextView bcN;
-    private TextView bcO;
-    private TextView bcP;
-    private PluginStatus bcQ;
+    private View aJu;
+    private TextView bdA;
+    private TextView bdB;
+    private TextView bdC;
+    private PluginStatus bdD;
     private NavigationBar mNavigationBar;
 
     public static final void a(Context context, PluginStatus pluginStatus) {
@@ -32,6 +33,9 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
             String jsonStrWithObject = PluginStatus.jsonStrWithObject(pluginStatus);
             if (jsonStrWithObject != null) {
                 intent.putExtra(PluginStatus.class.getName(), jsonStrWithObject);
+                if (!(context instanceof Activity) && intent != null) {
+                    intent.addFlags(268435456);
+                }
                 context.startActivity(intent);
             }
         }
@@ -42,11 +46,11 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null) {
-            this.bcQ = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
+            this.bdD = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
         } else {
-            this.bcQ = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
+            this.bdD = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
         }
-        if (this.bcQ == null) {
+        if (this.bdD == null) {
             finish();
             return;
         }
@@ -56,27 +60,27 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
 
     protected void initUI() {
         this.mNavigationBar = (NavigationBar) findViewById(e.g.view_navigation_bar);
-        this.aIE = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
-        this.aIE.setOnClickListener(this);
+        this.aJu = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
+        this.aJu.setOnClickListener(this);
         this.mNavigationBar.setTitleText(e.j.pluginstatus_tip_title);
-        this.bcN = (TextView) findViewById(e.g.plugin_error_tip_msg);
-        this.bcO = (TextView) findViewById(e.g.plugin_error_tip_resolve);
-        this.bcP = (TextView) findViewById(e.g.plugin_error_btn);
-        this.bcP.setOnClickListener(this);
-        this.bcN.setText(this.bcQ.getErrorMsg());
-        this.bcO.setText(this.bcQ.nL());
-        if (this.bcQ.getErrorCode() == 5 || this.bcQ.getErrorCode() == 1 || this.bcQ.getErrorCode() == 100) {
-            this.bcP.setText(e.j.pluginstatus_btn_restartapp);
-            this.bcP.setVisibility(0);
+        this.bdA = (TextView) findViewById(e.g.plugin_error_tip_msg);
+        this.bdB = (TextView) findViewById(e.g.plugin_error_tip_resolve);
+        this.bdC = (TextView) findViewById(e.g.plugin_error_btn);
+        this.bdC.setOnClickListener(this);
+        this.bdA.setText(this.bdD.getErrorMsg());
+        this.bdB.setText(this.bdD.nJ());
+        if (this.bdD.getErrorCode() == 5 || this.bdD.getErrorCode() == 1 || this.bdD.getErrorCode() == 100) {
+            this.bdC.setText(e.j.pluginstatus_btn_restartapp);
+            this.bdC.setVisibility(0);
             return;
         }
-        this.bcP.setVisibility(8);
+        this.bdC.setVisibility(8);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.bcQ);
+        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.bdD);
         if (jsonStrWithObject != null) {
             bundle.putString(PluginStatus.class.getName(), jsonStrWithObject);
         }
@@ -84,14 +88,14 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.aIE) {
+        if (view == this.aJu) {
             finish();
-        } else if (view == this.bcP) {
-            if (this.bcQ != null && this.bcQ.getErrorCode() == 100) {
-                com.baidu.adp.plugin.b.a.mQ().aa(true);
+        } else if (view == this.bdC) {
+            if (this.bdD != null && this.bdD.getErrorCode() == 100) {
+                com.baidu.adp.plugin.b.a.mO().ao(true);
             }
             showLoadingDialog(getResources().getString(e.j.waiting));
-            com.baidu.adp.lib.g.e.jI().postDelayed(new Runnable() { // from class: com.baidu.tbadk.plugin.PluginErrorTipActivity.1
+            com.baidu.adp.lib.g.e.jG().postDelayed(new Runnable() { // from class: com.baidu.tbadk.plugin.PluginErrorTipActivity.1
                 @Override // java.lang.Runnable
                 public void run() {
                     HashSet hashSet = new HashSet(10);

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.SparseArray;
 import com.baidu.browser.sailor.a.n;
-import com.baidu.searchbox.ng.ai.apps.canvas.action.draw.DaScale;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public final class d extends BroadcastReceiver {
@@ -15,10 +14,10 @@ public final class d extends BroadcastReceiver {
         sparseArray = a.b;
         n nVar = (n) sparseArray.get(10);
         int intExtra = intent.getIntExtra("level", -1);
-        int intExtra2 = intent.getIntExtra(DaScale.ACTION_TYPE, -1);
+        int intExtra2 = intent.getIntExtra("scale", -1);
         int intExtra3 = intent.getIntExtra("plugged", 0);
         nVar.addField("level", String.valueOf(intExtra2 != 0 ? intExtra / intExtra2 : 0.0f));
         nVar.addField("plugged", String.valueOf(intExtra3 != 0));
-        nVar.qQ();
+        nVar.qO();
     }
 }

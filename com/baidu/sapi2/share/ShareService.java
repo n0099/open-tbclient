@@ -197,7 +197,7 @@ public final class ShareService extends Service {
             bundle.putString("RELOGIN_CREDENTIALS", b.a(a, c.getReloginCredentials().toString()));
         }
         bundle.putSerializable("RUNTIME_ENVIRONMENT", SapiAccountManager.getInstance().getSapiConfiguration().environment);
-        bundle.putInt(ShareCallPacking.EXTRA_SDK_VERSION, SapiAccountManager.VERSION_CODE);
+        bundle.putInt(ShareCallPacking.EXTRA_SDK_VERSION, 202);
         if (SapiContext.getInstance(a).shareLivingunameEnable()) {
             bundle.putString("FACE_LOGIN_UID", SapiContext.getInstance(a).getFaceLoginUid());
             bundle.putString("V2_FACE_LOGIN_UIDS_TIMES", SapiContext.getInstance(a).getV2FaceLivingUnames());

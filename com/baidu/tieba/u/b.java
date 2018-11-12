@@ -9,7 +9,7 @@ import java.io.File;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, String> {
     public static final String FILE_SEP = File.separator;
-    private a hDm;
+    private a hEW;
     private String mPath;
     private String mUrl;
 
@@ -21,7 +21,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public b(String str, String str2, a aVar) {
         this.mPath = str;
         this.mUrl = str2;
-        this.hDm = aVar;
+        this.hEW = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,9 +39,9 @@ public class b extends BdAsyncTask<Void, Void, String> {
             file.delete();
         }
         e eVar = new e();
-        eVar.jr().setUrl(this.mUrl);
+        eVar.jp().setUrl(this.mUrl);
         if (new com.baidu.adp.lib.network.http.c(eVar).a(str, null, 3, 3000, -1, -1, true, true)) {
-            return bKn();
+            return bJM();
         }
         return "";
     }
@@ -50,16 +50,16 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.hDm != null) {
+        if (this.hEW != null) {
             if (!ao.isEmpty(str)) {
-                this.hDm.a(true, str, this.mUrl);
+                this.hEW.a(true, str, this.mUrl);
             } else {
-                this.hDm.a(false, null, null);
+                this.hEW.a(false, null, null);
             }
         }
     }
 
-    private String bKn() {
+    private String bJM() {
         File file = new File(this.mPath + FILE_SEP + "videosplash.temp");
         File file2 = new File(this.mPath + FILE_SEP + (s.bC(this.mUrl) + ".mp4"));
         if (file2.exists()) {

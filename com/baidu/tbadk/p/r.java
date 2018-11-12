@@ -1,10 +1,10 @@
 package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
 public class r extends j {
-    private static r bdw = new r();
+    private static r bek = new r();
 
-    public static boolean Oo() {
-        return bdw.jL();
+    public static boolean Ox() {
+        return bek.jJ();
     }
 
     @Override // com.baidu.tbadk.p.j, com.baidu.adp.lib.b.a
@@ -14,7 +14,7 @@ public class r extends j {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.p.j, com.baidu.adp.lib.b.a
-    public int iI() {
-        return super.iI();
+    public int iH() {
+        return super.iH();
     }
 }

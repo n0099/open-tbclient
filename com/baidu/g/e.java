@@ -12,7 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e {
-    public static String xH(String str) {
+    public static String xM(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "process";
         }
@@ -105,7 +105,7 @@ public class e {
         return str2;
     }
 
-    public static JSONObject xI(String str) {
+    public static JSONObject xN(String str) {
         if (TextUtils.isEmpty(str)) {
             return new JSONObject();
         }

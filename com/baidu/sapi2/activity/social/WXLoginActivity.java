@@ -3,7 +3,7 @@ package com.baidu.sapi2.activity.social;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
-import com.baidu.e.a.a.a.a;
+import com.baidu.d.a.a.a.a;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.activity.AccountCenterActivity;
 import com.baidu.sapi2.activity.BaseActivity;

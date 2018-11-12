@@ -2,17 +2,22 @@ package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
 public class ag extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void Z(int i) {
+    protected void aq(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "switch_login_passv6";
+        return "android_pass_login_sms_enable";
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] iH() {
-        return null;
+    protected String[] iG() {
+        return new String[0];
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int iH() {
+        return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -22,11 +27,6 @@ public class ag extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int iJ() {
-        return 1;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int iK() {
         return 10;
     }
 }

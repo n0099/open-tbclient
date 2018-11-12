@@ -5,7 +5,6 @@ import android.opengl.GLES20;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.baiduarsdk.gpuimage.graphics.Drawable2d;
-import com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsNaViewModel;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
 import java.util.LinkedList;
@@ -66,8 +65,8 @@ public class g {
         if (this.m == 0) {
             throw new RuntimeException("Unable to create program");
         }
-        this.n = GLES20.glGetAttribLocation(this.m, AiAppsNaViewModel.KEY_POSITION);
-        com.baidu.baiduarsdk.gpuimage.graphics.a.b(this.n, AiAppsNaViewModel.KEY_POSITION);
+        this.n = GLES20.glGetAttribLocation(this.m, "position");
+        com.baidu.baiduarsdk.gpuimage.graphics.a.b(this.n, "position");
         this.o = GLES20.glGetAttribLocation(this.m, "inputTextureCoordinate");
         com.baidu.baiduarsdk.gpuimage.graphics.a.b(this.o, "inputTextureCoordinate");
         this.d = GLES20.glGetUniformLocation(this.m, "uMVPMatrix");

@@ -7,13 +7,13 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class k {
-    private long Sv;
-    private JSONArray hSA;
-    private JSONObject hSV;
-    private int hSW;
-    private String hSX;
-    private boolean hSY = false;
-    private int hSy;
+    private long Sx;
+    private JSONObject hUF;
+    private int hUG;
+    private String hUH;
+    private boolean hUI = false;
+    private int hUi;
+    private JSONArray hUk;
     private String mCategory;
     private String mContent;
     private long mEndTime;
@@ -25,9 +25,9 @@ public class k {
 
     public k(String str, int i, String str2, int i2) {
         this.mId = str;
-        this.hSy = i;
+        this.hUi = i;
         this.mContent = str2;
-        this.hSW = i2;
+        this.hUG = i2;
     }
 
     public String getId() {
@@ -38,12 +38,12 @@ public class k {
         this.mId = str;
     }
 
-    public int bPy() {
-        return this.hSy;
+    public int bOX() {
+        return this.hUi;
     }
 
-    public void wQ(int i) {
-        this.hSy = i;
+    public void xj(int i) {
+        this.hUi = i;
     }
 
     public String getContent() {
@@ -54,16 +54,16 @@ public class k {
         this.mContent = str;
     }
 
-    public JSONObject bPB() {
-        return this.hSV;
+    public JSONObject bPa() {
+        return this.hUF;
     }
 
-    public long bPE() {
-        return this.Sv;
+    public long bPd() {
+        return this.Sx;
     }
 
-    public void dl(long j) {
-        this.Sv = j;
+    public void dg(long j) {
+        this.Sx = j;
     }
 
     public long getEndTime() {
@@ -78,16 +78,16 @@ public class k {
         return this.mState;
     }
 
-    public void xA(String str) {
+    public void xF(String str) {
         this.mState = str;
     }
 
-    public int bPz() {
-        return this.hSW;
+    public int bOY() {
+        return this.hUG;
     }
 
-    public String bPA() {
-        return this.hSX;
+    public String bOZ() {
+        return this.hUH;
     }
 
     public String getCategory() {
@@ -98,35 +98,35 @@ public class k {
         this.mCategory = str;
     }
 
-    public boolean bPv() {
-        return this.hSY;
+    public boolean bOU() {
+        return this.hUI;
     }
 
-    public void ou(boolean z) {
-        this.hSY = z;
+    public void oI(boolean z) {
+        this.hUI = z;
     }
 
-    public void xB(String str) {
-        this.hSX = str;
+    public void xG(String str) {
+        this.hUH = str;
     }
 
-    public void bPC() {
-        if (e.bPl().xr(this.mId)) {
-            this.hSX = o.bPN().XP();
+    public void bPb() {
+        if (e.bOK().xw(this.mId)) {
+            this.hUH = o.bPm().XZ();
         }
     }
 
-    public void xC(String str) {
+    public void xH(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.hSA = new JSONArray(str);
+                this.hUk = new JSONArray(str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public JSONArray bPF() {
-        return this.hSA;
+    public JSONArray bPe() {
+        return this.hUk;
     }
 }

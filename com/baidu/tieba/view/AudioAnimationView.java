@@ -14,17 +14,17 @@ import com.baidu.tieba.e;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class AudioAnimationView extends View {
-    private int Tm;
-    private int Tn;
-    private boolean To;
-    private boolean Tp;
-    private int Tq;
-    private int Tr;
-    private int[] Tt;
-    private int Tu;
-    private int Tv;
-    private final Runnable Tw;
-    private Rect[] hDB;
+    private int To;
+    private int Tp;
+    private boolean Tq;
+    private boolean Tr;
+    private int Ts;
+    private int Tt;
+    private int[] Tv;
+    private int Tw;
+    private int Tx;
+    private final Runnable Ty;
+    private Rect[] hFl;
     private Paint mPaint;
     private int mSkinType;
     private Random random;
@@ -33,80 +33,80 @@ public class AudioAnimationView extends View {
         super(context);
         this.mSkinType = 3;
         this.random = new Random();
-        this.Tm = 0;
-        this.Tn = 8;
-        this.To = false;
-        this.Tp = true;
-        this.Tt = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.Tu = l.h(TbadkCoreApplication.getInst(), e.C0175e.ds4);
-        this.Tv = e.d.cp_link_tip_a;
-        this.Tw = new Runnable() { // from class: com.baidu.tieba.view.AudioAnimationView.1
+        this.To = 0;
+        this.Tp = 8;
+        this.Tq = false;
+        this.Tr = true;
+        this.Tv = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
+        this.Tw = l.h(TbadkCoreApplication.getInst(), e.C0200e.ds4);
+        this.Tx = e.d.cp_link_tip_a;
+        this.Ty = new Runnable() { // from class: com.baidu.tieba.view.AudioAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
-                AudioAnimationView.this.pU();
+                AudioAnimationView.this.pS();
             }
         };
         initPaint();
-        pU();
+        pS();
     }
 
     public AudioAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
         this.random = new Random();
-        this.Tm = 0;
-        this.Tn = 8;
-        this.To = false;
-        this.Tp = true;
-        this.Tt = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.Tu = l.h(TbadkCoreApplication.getInst(), e.C0175e.ds4);
-        this.Tv = e.d.cp_link_tip_a;
-        this.Tw = new Runnable() { // from class: com.baidu.tieba.view.AudioAnimationView.1
+        this.To = 0;
+        this.Tp = 8;
+        this.Tq = false;
+        this.Tr = true;
+        this.Tv = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
+        this.Tw = l.h(TbadkCoreApplication.getInst(), e.C0200e.ds4);
+        this.Tx = e.d.cp_link_tip_a;
+        this.Ty = new Runnable() { // from class: com.baidu.tieba.view.AudioAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
-                AudioAnimationView.this.pU();
+                AudioAnimationView.this.pS();
             }
         };
         initPaint();
-        pU();
+        pS();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pU() {
-        if (this.To) {
+    public void pS() {
+        if (this.Tq) {
             invalidate();
         }
-        com.baidu.adp.lib.g.e.jI().removeCallbacks(this.Tw);
-        if (!this.Tp) {
-            com.baidu.adp.lib.g.e.jI().postDelayed(this.Tw, 250L);
+        com.baidu.adp.lib.g.e.jG().removeCallbacks(this.Ty);
+        if (!this.Tr) {
+            com.baidu.adp.lib.g.e.jG().postDelayed(this.Ty, 250L);
         }
     }
 
     @Override // android.view.View
     @SuppressLint({"DrawAllocation"})
     protected void onMeasure(int i, int i2) {
-        if (this.Tm > 0) {
+        if (this.To > 0) {
             int mode = View.MeasureSpec.getMode(i);
-            this.Tq = this.Tu * ((this.Tm * 2) - 1);
-            this.Tn = this.Tm;
-            i = View.MeasureSpec.makeMeasureSpec(this.Tq, mode);
+            this.Ts = this.Tw * ((this.To * 2) - 1);
+            this.Tp = this.To;
+            i = View.MeasureSpec.makeMeasureSpec(this.Ts, mode);
         }
         super.onMeasure(i, i2);
-        this.Tr = getMeasuredHeight();
-        this.Tq = getMeasuredWidth();
-        if (this.Tm <= 0) {
-            this.Tn = (this.Tq / this.Tu) / 2;
+        this.Tt = getMeasuredHeight();
+        this.Ts = getMeasuredWidth();
+        if (this.To <= 0) {
+            this.Tp = (this.Ts / this.Tw) / 2;
         }
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.To) {
-            for (int i = 0; i < this.Tn; i++) {
-                pV();
-                if (i < this.hDB.length) {
-                    canvas.drawRect(this.hDB[i], this.mPaint);
+        if (this.Tq) {
+            for (int i = 0; i < this.Tp; i++) {
+                pT();
+                if (i < this.hFl.length) {
+                    canvas.drawRect(this.hFl[i], this.mPaint);
                 }
             }
         }
@@ -117,42 +117,42 @@ public class AudioAnimationView extends View {
         this.mPaint.setDither(true);
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(al.getColor(this.Tv));
+        this.mPaint.setColor(al.getColor(this.Tx));
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType && this.mPaint != null) {
-            this.mPaint.setColor(al.getColor(this.Tv));
+            this.mPaint.setColor(al.getColor(this.Tx));
             invalidate();
             this.mSkinType = i;
         }
     }
 
-    private void pV() {
+    private void pT() {
         int nextInt;
-        if (this.hDB == null || this.hDB.length != this.Tn) {
-            this.hDB = new Rect[this.Tn];
+        if (this.hFl == null || this.hFl.length != this.Tp) {
+            this.hFl = new Rect[this.Tp];
         }
-        for (int i = 0; i < this.Tn; i++) {
-            int i2 = this.Tu * i * 2;
-            if (this.Tp) {
-                nextInt = (int) ((1.0d - (this.Tt[i % 22] / 10.0d)) * this.Tr);
+        for (int i = 0; i < this.Tp; i++) {
+            int i2 = this.Tw * i * 2;
+            if (this.Tr) {
+                nextInt = (int) ((1.0d - (this.Tv[i % 22] / 10.0d)) * this.Tt);
             } else {
-                nextInt = this.Tr > 0 ? this.random.nextInt(this.Tr) : 0;
+                nextInt = this.Tt > 0 ? this.random.nextInt(this.Tt) : 0;
             }
-            int i3 = this.Tu + i2;
-            int i4 = this.Tr;
-            if (this.hDB[i] == null) {
-                this.hDB[i] = new Rect(i2, nextInt, i3, i4);
+            int i3 = this.Tw + i2;
+            int i4 = this.Tt;
+            if (this.hFl[i] == null) {
+                this.hFl[i] = new Rect(i2, nextInt, i3, i4);
             } else {
-                this.hDB[i].set(i2, nextInt, i3, i4);
+                this.hFl[i].set(i2, nextInt, i3, i4);
             }
         }
     }
 
     public void setColumnWidth(int i) {
         if (i > 0) {
-            this.Tu = i;
+            this.Tw = i;
         }
     }
 
@@ -160,30 +160,30 @@ public class AudioAnimationView extends View {
         if (this.mPaint != null) {
             this.mPaint.setColor(al.getColor(i));
         }
-        this.Tv = i;
+        this.Tx = i;
     }
 
     public void start() {
-        this.To = true;
-        this.Tp = false;
-        pU();
+        this.Tq = true;
+        this.Tr = false;
+        pS();
     }
 
     public void setCertainColumnCount(int i) {
         if (i != 0) {
-            this.Tm = i;
+            this.To = i;
         }
     }
 
-    public void pW() {
-        this.To = true;
-        this.Tp = true;
-        pU();
+    public void pU() {
+        this.Tq = true;
+        this.Tr = true;
+        pS();
     }
 
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.adp.lib.g.e.jI().removeCallbacks(this.Tw);
+        com.baidu.adp.lib.g.e.jG().removeCallbacks(this.Ty);
     }
 }

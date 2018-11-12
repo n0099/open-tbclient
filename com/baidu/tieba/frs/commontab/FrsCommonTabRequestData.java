@@ -16,12 +16,12 @@ public class FrsCommonTabRequestData extends OrmObject implements h {
     public int tabId;
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> MO() {
+    public HashMap<String, Object> MX() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object cl(boolean z) {
+    public Object cC(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.tab_id = Integer.valueOf(this.tabId);
         builder.forum_id = Long.valueOf(this.fid);

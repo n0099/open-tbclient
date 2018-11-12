@@ -105,7 +105,7 @@ public class PagesRoute {
         CheckPagesCallback checkPagesCallback;
         if (bundle != null) {
             bundle.setClassLoader(getClass().getClassLoader());
-            SubPackageAPSInfo subPackageAPSInfo = (SubPackageAPSInfo) bundle.getParcelable(AiAppsMessengerClient.MSG_BUNDLE_DATA_KEY);
+            SubPackageAPSInfo subPackageAPSInfo = (SubPackageAPSInfo) bundle.getParcelable("ai_apps_data");
             if (subPackageAPSInfo != null && (checkPagesCallback = this.mCheckPagesResultHashMap.get(subPackageAPSInfo.mCallbackKey)) != null) {
                 AiApp aiApp = AiApp.get();
                 if (aiApp != null) {
@@ -121,7 +121,7 @@ public class PagesRoute {
         CheckPagesCallback checkPagesCallback;
         if (bundle != null) {
             bundle.setClassLoader(getClass().getClassLoader());
-            SubPackageAPSInfo subPackageAPSInfo = (SubPackageAPSInfo) bundle.getParcelable(AiAppsMessengerClient.MSG_BUNDLE_DATA_KEY);
+            SubPackageAPSInfo subPackageAPSInfo = (SubPackageAPSInfo) bundle.getParcelable("ai_apps_data");
             if (subPackageAPSInfo != null && (checkPagesCallback = this.mCheckPagesResultHashMap.get(subPackageAPSInfo.mCallbackKey)) != null) {
                 checkPagesCallback.failed(subPackageAPSInfo.mResultCode);
                 this.mCheckPagesResultHashMap.remove(subPackageAPSInfo.mCallbackKey);

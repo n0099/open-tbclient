@@ -13,7 +13,7 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes6.dex */
 public class a {
-    private final c eiW = new c();
+    private final c ekq = new c();
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         if (i != 0 && i != 1) {
@@ -40,7 +40,7 @@ public class a {
                 } else if (l.S(bbVar)) {
                     l lVar = new l(bbVar);
                     lVar.tid = bbVar.getTid();
-                    lVar.jU(concernData.source.intValue());
+                    lVar.kn(concernData.source.intValue());
                     if (lVar.isValid()) {
                         linkedList.add(lVar);
                     }
@@ -48,7 +48,7 @@ public class a {
                     j jVar = new j(bbVar);
                     if (jVar != null) {
                         jVar.tid = bbVar.getTid();
-                        jVar.mh("3");
+                        jVar.mi("3");
                     }
                     if (jVar != null && jVar.isValid()) {
                         linkedList.add(jVar);
@@ -56,17 +56,17 @@ public class a {
                 } else {
                     k kVar2 = new k();
                     kVar2.threadData = bbVar;
-                    kVar2.mh(kVar2.threadData.isLinkThread() ? "4" : "1");
+                    kVar2.mi(kVar2.threadData.isLinkThread() ? "4" : "1");
                     kVar2.isLinkThread = false;
-                    kVar2.jU(concernData.source.intValue());
+                    kVar2.kn(concernData.source.intValue());
                     if (kVar2.threadData != null && kVar2.isValid() && !StringUtils.isNull(kVar2.threadData.getId()) && !"0".equals(kVar2.threadData.getTid())) {
                         linkedList.add(kVar2);
                     }
                 }
             }
         }
-        this.eiW.brA = linkedList;
-        return this.eiW;
+        this.ekq.bsm = linkedList;
+        return this.ekq;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -77,7 +77,7 @@ public class a {
 
     private void a(boolean z, List<ConcernData> list, List<ConcernData> list2, int i) {
         if (list != null && list2 != null) {
-            int I = v.I(list);
+            int H = v.H(list);
             if (i == 1) {
                 for (ConcernData concernData : list2) {
                     if (concernData != null && concernData.thread_list.tid != null) {
@@ -86,14 +86,14 @@ public class a {
                 }
             } else {
                 list.clear();
-                for (int I2 = v.I(list2) - 1; I2 >= 0; I2--) {
-                    ConcernData concernData2 = (ConcernData) v.d(list2, I2);
+                for (int H2 = v.H(list2) - 1; H2 >= 0; H2--) {
+                    ConcernData concernData2 = (ConcernData) v.d(list2, H2);
                     if (concernData2 != null && concernData2.thread_list.tid != null) {
                         list.add(0, concernData2);
                     }
                 }
             }
-            this.eiW.eoK = v.I(list) - I;
+            this.ekq.eqd = v.H(list) - H;
         }
     }
 

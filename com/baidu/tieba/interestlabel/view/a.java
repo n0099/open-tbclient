@@ -12,66 +12,66 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a implements View.OnClickListener {
-    private ImageView fbA;
-    private TextView fbB;
-    private int fbC;
-    private int fbD;
-    private int fbE;
-    private ViewGroup fbv;
-    private TextView fbw;
-    private TextView fbx;
-    private ImageView fby;
-    private TextView fbz;
+    private ViewGroup fcP;
+    private TextView fcQ;
+    private TextView fcR;
+    private ImageView fcS;
+    private TextView fcT;
+    private ImageView fcU;
+    private TextView fcV;
+    private int fcW;
+    private int fcX;
+    private int fcY;
 
     public a(Context context) {
-        this.fbv = (ViewGroup) LayoutInflater.from(context).inflate(e.h.label_recommend_header, (ViewGroup) null);
-        this.fbw = (TextView) this.fbv.findViewById(e.g.choose_like_label);
-        this.fbx = (TextView) this.fbv.findViewById(e.g.recommend_interest_thread);
-        this.fby = (ImageView) this.fbv.findViewById(e.g.male_icon);
-        this.fbz = (TextView) this.fbv.findViewById(e.g.male_text);
-        this.fbA = (ImageView) this.fbv.findViewById(e.g.female_icon);
-        this.fbB = (TextView) this.fbv.findViewById(e.g.female_text);
-        this.fby.setOnClickListener(this);
-        this.fbA.setOnClickListener(this);
+        this.fcP = (ViewGroup) LayoutInflater.from(context).inflate(e.h.label_recommend_header, (ViewGroup) null);
+        this.fcQ = (TextView) this.fcP.findViewById(e.g.choose_like_label);
+        this.fcR = (TextView) this.fcP.findViewById(e.g.recommend_interest_thread);
+        this.fcS = (ImageView) this.fcP.findViewById(e.g.male_icon);
+        this.fcT = (TextView) this.fcP.findViewById(e.g.male_text);
+        this.fcU = (ImageView) this.fcP.findViewById(e.g.female_icon);
+        this.fcV = (TextView) this.fcP.findViewById(e.g.female_text);
+        this.fcS.setOnClickListener(this);
+        this.fcU.setOnClickListener(this);
         onChangeSkinType();
     }
 
     private void onChangeSkinType() {
-        al.h(this.fbw, e.d.cp_cont_b);
-        al.h(this.fbx, e.d.cp_cont_d);
-        al.c(this.fby, e.f.img_lable_boy_n);
-        al.h(this.fbz, e.d.cp_cont_d);
-        al.c(this.fbA, e.f.img_lable_girl_n);
-        al.h(this.fbB, e.d.cp_cont_d);
+        al.h(this.fcQ, e.d.cp_cont_b);
+        al.h(this.fcR, e.d.cp_cont_d);
+        al.c(this.fcS, e.f.img_lable_boy_n);
+        al.h(this.fcT, e.d.cp_cont_d);
+        al.c(this.fcU, e.f.img_lable_girl_n);
+        al.h(this.fcV, e.d.cp_cont_d);
     }
 
     public void setData(List<com.baidu.tieba.interestlabel.b.a> list) {
-        if (v.I(list) == 2) {
-            this.fbC = list.get(0).labelId;
-            this.fbD = list.get(1).labelId;
+        if (v.H(list) == 2) {
+            this.fcW = list.get(0).labelId;
+            this.fcX = list.get(1).labelId;
         }
     }
 
-    public ViewGroup aVT() {
-        return this.fbv;
+    public ViewGroup aVq() {
+        return this.fcP;
     }
 
-    public int aVU() {
-        return this.fbE;
+    public int aVr() {
+        return this.fcY;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
-        if (view == this.fby) {
+        if (view == this.fcS) {
             z = true;
         } else {
-            z = view == this.fbA ? false : false;
+            z = view == this.fcU ? false : false;
         }
-        this.fbE = z ? this.fbC : this.fbD;
-        al.c(this.fby, z ? e.f.img_lable_boy_s : e.f.img_lable_boy_n);
-        al.h(this.fbz, z ? e.d.cp_link_tip_a : e.d.cp_cont_d);
-        al.c(this.fbA, z ? e.f.img_lable_girl_n : e.f.img_lable_girl_s);
-        al.h(this.fbB, z ? e.d.cp_cont_d : e.d.cp_cont_h);
+        this.fcY = z ? this.fcW : this.fcX;
+        al.c(this.fcS, z ? e.f.img_lable_boy_s : e.f.img_lable_boy_n);
+        al.h(this.fcT, z ? e.d.cp_link_tip_a : e.d.cp_cont_d);
+        al.c(this.fcU, z ? e.f.img_lable_girl_n : e.f.img_lable_girl_s);
+        al.h(this.fcV, z ? e.d.cp_cont_d : e.d.cp_cont_h);
     }
 }

@@ -19,12 +19,12 @@ public class c extends BaseAdapter {
 
     /* loaded from: classes4.dex */
     public static class a {
-        public TbImageView dhU;
-        public TextView dhV;
-        public TextView dhW;
-        public TextView dhX;
-        public View dhY;
+        public TbImageView diZ;
         public View dividerLine;
+        public TextView dja;
+        public TextView djb;
+        public TextView djc;
+        public View djd;
     }
 
     public c(Context context) {
@@ -37,12 +37,12 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return v.I(this.mDatas);
+        return v.H(this.mDatas);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: kG */
+    /* renamed from: kY */
     public b getItem(int i) {
         return (b) v.d(this.mDatas, i);
     }
@@ -63,28 +63,28 @@ public class c extends BaseAdapter {
         } else {
             View inflate = LayoutInflater.from(this.mContext).inflate(e.h.item_recommend_forum_by_tag, viewGroup, false);
             aVar = new a();
-            aVar.dhU = (TbImageView) inflate.findViewById(e.g.imageview_forum);
-            aVar.dhV = (TextView) inflate.findViewById(e.g.textview_forum_name);
-            aVar.dhW = (TextView) inflate.findViewById(e.g.textview_forum_concern_count);
-            aVar.dhX = (TextView) inflate.findViewById(e.g.textview_forum_thread_count);
-            aVar.dhY = inflate.findViewById(e.g.view_check_state);
+            aVar.diZ = (TbImageView) inflate.findViewById(e.g.imageview_forum);
+            aVar.dja = (TextView) inflate.findViewById(e.g.textview_forum_name);
+            aVar.djb = (TextView) inflate.findViewById(e.g.textview_forum_concern_count);
+            aVar.djc = (TextView) inflate.findViewById(e.g.textview_forum_thread_count);
+            aVar.djd = inflate.findViewById(e.g.view_check_state);
             aVar.dividerLine = inflate.findViewById(e.g.view_bottom_line);
             inflate.setTag(aVar);
             view2 = inflate;
         }
         if (item != null) {
-            aVar.dhU.startLoad(item.avatar, 10, false);
-            aVar.dhV.setText(item.forumName);
-            aVar.dhW.setText(String.format(this.mContext.getString(e.j.concern), ao.G(item.followNum)));
-            aVar.dhX.setText(String.format(this.mContext.getString(e.j.forum_thread_number), ao.G(item.threadNum)));
+            aVar.diZ.startLoad(item.avatar, 10, false);
+            aVar.dja.setText(item.forumName);
+            aVar.djb.setText(String.format(this.mContext.getString(e.j.concern), ao.I(item.followNum)));
+            aVar.djc.setText(String.format(this.mContext.getString(e.j.forum_thread_number), ao.I(item.threadNum)));
             if (item.isSelected) {
-                al.i(aVar.dhY, e.f.icon_list_confirm_s);
+                al.i(aVar.djd, e.f.icon_list_confirm_s);
             } else {
-                al.i(aVar.dhY, e.f.icon_jinba_confirm_n);
+                al.i(aVar.djd, e.f.icon_jinba_confirm_n);
             }
-            al.h(aVar.dhV, e.d.cp_cont_b);
-            al.h(aVar.dhW, e.d.cp_cont_f);
-            al.h(aVar.dhX, e.d.cp_cont_f);
+            al.h(aVar.dja, e.d.cp_cont_b);
+            al.h(aVar.djb, e.d.cp_cont_f);
+            al.h(aVar.djc, e.d.cp_cont_f);
             al.j(aVar.dividerLine, e.d.cp_bg_line_c);
         }
         return view2;

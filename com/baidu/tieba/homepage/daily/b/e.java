@@ -8,16 +8,16 @@ import java.util.List;
 import tbclient.DailyTopic;
 /* loaded from: classes6.dex */
 public class e extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId ejZ = BdUniqueId.gen();
-    public List<a> eka;
+    public static final BdUniqueId elt = BdUniqueId.gen();
+    public List<a> elu;
 
-    public static e ch(List<DailyTopic> list) {
-        if (v.J(list)) {
+    public static e cf(List<DailyTopic> list) {
+        if (v.I(list)) {
             return null;
         }
         e eVar = new e();
         ArrayList arrayList = new ArrayList();
-        eVar.eka = arrayList;
+        eVar.elu = arrayList;
         int i = 0;
         Iterator<DailyTopic> it = list.iterator();
         while (true) {
@@ -43,43 +43,43 @@ public class e extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return ejZ;
+        return elt;
     }
 
     /* loaded from: classes6.dex */
     public static class a {
-        private String ebm;
-        private String ekb;
-        private String ekc;
-        private String ekd;
-        private String eke;
+        private String ecG;
+        private String elv;
+        private String elw;
+        private String elx;
+        private String ely;
 
         public void a(DailyTopic dailyTopic) {
-            this.ekb = dailyTopic.topic_pic;
-            this.ebm = dailyTopic.topic_title;
-            this.ekc = dailyTopic.topic_abstract;
-            this.ekd = dailyTopic.topic_url;
-            this.eke = dailyTopic.topic_rank_url;
+            this.elv = dailyTopic.topic_pic;
+            this.ecG = dailyTopic.topic_title;
+            this.elw = dailyTopic.topic_abstract;
+            this.elx = dailyTopic.topic_url;
+            this.ely = dailyTopic.topic_rank_url;
         }
 
-        public String aJf() {
-            return this.ekb;
+        public String aID() {
+            return this.elv;
         }
 
-        public String xN() {
-            return this.ebm;
+        public String xU() {
+            return this.ecG;
         }
 
-        public String aJg() {
-            return this.ekc;
+        public String aIE() {
+            return this.elw;
         }
 
-        public String zV() {
-            return this.ekd;
+        public String Ac() {
+            return this.elx;
         }
 
-        public String aJh() {
-            return this.eke;
+        public String aIF() {
+            return this.ely;
         }
     }
 }

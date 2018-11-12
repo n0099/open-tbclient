@@ -141,7 +141,7 @@ public final class a {
         public void run() {
             if (!this.a.isEmpty()) {
                 try {
-                    a.q.context.bindService((Intent) this.a.get(0), new ServiceConnection() { // from class: com.baidu.sapi2.share.a.1.1
+                    if (!a.q.context.bindService((Intent) this.a.get(0), new ServiceConnection() { // from class: com.baidu.sapi2.share.a.1.1
                         @Override // android.content.ServiceConnection
                         public void onServiceConnected(ComponentName componentName, final IBinder iBinder) {
                             AnonymousClass1.this.b.post(new Runnable() { // from class: com.baidu.sapi2.share.a.1.1.1
@@ -183,7 +183,14 @@ public final class a {
                         @Override // android.content.ServiceConnection
                         public void onServiceDisconnected(ComponentName componentName) {
                         }
-                    }, 1);
+                    }, 1)) {
+                        this.a.remove(0);
+                        if (!this.a.isEmpty()) {
+                            this.b.post(this);
+                        } else {
+                            this.e.quit();
+                        }
+                    }
                 } catch (Throwable th) {
                     Log.e(th);
                 }
@@ -224,7 +231,7 @@ public final class a {
         public void run() {
             if (!this.a.isEmpty()) {
                 try {
-                    a.q.context.bindService((Intent) this.a.get(0), new ServiceConnection() { // from class: com.baidu.sapi2.share.a.2.1
+                    if (!a.q.context.bindService((Intent) this.a.get(0), new ServiceConnection() { // from class: com.baidu.sapi2.share.a.2.1
                         @Override // android.content.ServiceConnection
                         public void onServiceConnected(ComponentName componentName, final IBinder iBinder) {
                             AnonymousClass2.this.b.post(new Runnable() { // from class: com.baidu.sapi2.share.a.2.1.1
@@ -262,7 +269,14 @@ public final class a {
                         @Override // android.content.ServiceConnection
                         public void onServiceDisconnected(ComponentName componentName) {
                         }
-                    }, 1);
+                    }, 1)) {
+                        this.a.remove(0);
+                        if (!this.a.isEmpty()) {
+                            this.b.post(this);
+                        } else {
+                            this.d.quit();
+                        }
+                    }
                 } catch (Throwable th) {
                     Log.e(th);
                 }
@@ -317,7 +331,7 @@ public final class a {
                         hashMap.put("num", this.a.size() + "");
                         StatService.onEvent("share_silent_account", hashMap, false);
                     }
-                    a.q.context.bindService((Intent) this.a.get(0), new ServiceConnection() { // from class: com.baidu.sapi2.share.a.3.1
+                    if (!a.q.context.bindService((Intent) this.a.get(0), new ServiceConnection() { // from class: com.baidu.sapi2.share.a.3.1
                         @Override // android.content.ServiceConnection
                         public void onServiceConnected(ComponentName componentName, final IBinder iBinder) {
                             AnonymousClass3.this.c.post(new Runnable() { // from class: com.baidu.sapi2.share.a.3.1.1
@@ -373,7 +387,14 @@ public final class a {
                         @Override // android.content.ServiceConnection
                         public void onServiceDisconnected(ComponentName componentName) {
                         }
-                    }, 1);
+                    }, 1)) {
+                        this.a.remove(0);
+                        if (!this.a.isEmpty() && a.r.getShareAccounts().size() < 5) {
+                            this.c.post(this);
+                        } else {
+                            this.d.quit();
+                        }
+                    }
                 } catch (Throwable th) {
                     Log.e(th);
                 }
@@ -432,7 +453,7 @@ public final class a {
         bundle.putString("PKG", q.context.getPackageName());
         bundle.putParcelable(b, shareModel);
         bundle.putSerializable(d, q.environment);
-        bundle.putInt("SDK_VERSION", SapiAccountManager.VERSION_CODE);
+        bundle.putInt("SDK_VERSION", 202);
         obtain.writeBundle(bundle);
         return obtain;
     }

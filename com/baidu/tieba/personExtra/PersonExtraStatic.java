@@ -25,16 +25,16 @@ public class PersonExtraStatic {
         TbadkCoreApplication.getInst().RegisterIntent(PersonImageActivityConfig.class, PersonImageActivity.class);
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(107129);
         bVar.setResponsedClass(ResponseGetLivableForumList.class);
-        bVar.y(false);
+        bVar.M(false);
         bVar.setParallel(TiebaIMConfig.getParallel());
         MessageManager.getInstance().registerTask(bVar);
         TbadkCoreApplication.getInst().RegisterIntent(PersonChangeActivityConfig.class, PersonChangeActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(EditNickNameActivityConfig.class, EditNickNameActivity.class);
-        Yo();
+        Yy();
     }
 
-    private static void Yo() {
-        ay.CU().a(new ay.a() { // from class: com.baidu.tieba.personExtra.PersonExtraStatic.1
+    private static void Yy() {
+        ay.Db().a(new ay.a() { // from class: com.baidu.tieba.personExtra.PersonExtraStatic.1
             @Override // com.baidu.tbadk.core.util.ay.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0 || strArr[0] == null) {

@@ -13,6 +13,6 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
     @Override // com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterListAdapter, com.baidu.tieba.im.chat.a.c
     public void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         super.g(aVar, imMessageCenterShowItemData);
-        aVar.eBa.setIsRound(true);
+        aVar.eCt.setIsRound(true);
     }
 }

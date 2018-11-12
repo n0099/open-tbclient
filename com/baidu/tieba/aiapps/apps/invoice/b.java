@@ -18,6 +18,6 @@ public class b {
         }
     }
 
-    public static void cj(Context context) {
+    public static void cg(Context context) {
     }
 }

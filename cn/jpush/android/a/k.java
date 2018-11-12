@@ -18,15 +18,15 @@ public final class k {
         long uid = cn.jiguang.api.e.getUid();
         int sid = cn.jiguang.api.e.getSid();
         cn.jiguang.api.a.b bVar2 = new cn.jiguang.api.a.b(AudioParams.DEFAULT_AUDIO_BUFFER_SIZE);
-        bVar2.l(0);
-        bVar2.k(1);
-        bVar2.k(4);
-        bVar2.h(longValue);
-        bVar2.g(sid);
-        bVar2.h(uid);
-        bVar2.l(0);
-        bVar2.k((byte) a);
-        bVar2.h(b);
+        bVar2.C(0);
+        bVar2.B(1);
+        bVar2.B(4);
+        bVar2.j(longValue);
+        bVar2.i(sid);
+        bVar2.j(uid);
+        bVar2.C(0);
+        bVar2.B((byte) a);
+        bVar2.j(b);
         bVar2.l(bVar2.current(), 0);
         cn.jiguang.api.e.a(cn.jpush.android.a.e, cn.jpush.android.a.a, 4, bVar2.toByteArray());
         long b2 = bVar.b();
@@ -55,7 +55,7 @@ public final class k {
                     case 20:
                         return n.a(context, substring, 0, -1L);
                     default:
-                        cn.jiguang.api.e.j(a2);
+                        cn.jiguang.api.e.A(a2);
                         break;
                 }
                 return hVar.getRid().longValue();

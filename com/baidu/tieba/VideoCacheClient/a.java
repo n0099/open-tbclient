@@ -2,6 +2,7 @@ package com.baidu.tieba.VideoCacheClient;
 
 import com.baidu.ar.util.IoUtils;
 import com.baidu.ar.util.SystemInfoUtil;
+import com.baidu.mapapi.UIMsg;
 import com.baidu.searchbox.ng.ai.apps.network.NetworkDef;
 import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -21,12 +22,12 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes6.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a bvX;
+    private static a bwI;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
     private boolean mNeedFinish = false;
     private byte[] mBuffer = new byte[1024];
-    private Runnable aZb = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
+    private Runnable aZO = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
         @Override // java.lang.Runnable
         public void run() {
             Socket socket;
@@ -45,13 +46,13 @@ public class a {
                     }
                 }
                 if (!a.this.mNeedFinish) {
-                    String Ui = a.this.Ui();
-                    if (Ui != null && !Ui.isEmpty()) {
-                        File file = new File(c.bvM + b.je(Ui) + "/header_downloaded");
+                    String Ur = a.this.Ur();
+                    if (Ur != null && !Ur.isEmpty()) {
+                        File file = new File(c.bwx + b.jg(Ur) + "/header_downloaded");
                         if (file.exists()) {
-                            d.log(a.TAG, "header exists " + Ui);
+                            d.log(a.TAG, "header exists " + Ur);
                         } else {
-                            d.log(a.TAG, "client preload start: " + Ui);
+                            d.log(a.TAG, "client preload start: " + Ur);
                             long j2 = 0;
                             int i2 = 0;
                             int i3 = 0;
@@ -70,12 +71,12 @@ public class a {
                                 BufferedReader bufferedReader2 = null;
                                 InputStream inputStream = null;
                                 try {
-                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(Ui);
-                                    int port = b.Uj().getPort();
+                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(Ur);
+                                    int port = b.Us().getPort();
                                     socket = new Socket();
                                     try {
-                                        socket.connect(new InetSocketAddress(NetworkDef.IP_LOOPBACK, port), 5000);
-                                        socket.setSoTimeout(5000);
+                                        socket.connect(new InetSocketAddress(NetworkDef.IP_LOOPBACK, port), UIMsg.m_AppUI.MSG_APP_GPS);
+                                        socket.setSoTimeout(UIMsg.m_AppUI.MSG_APP_GPS);
                                         outputStreamWriter = new OutputStreamWriter(socket.getOutputStream(), IoUtils.UTF_8);
                                         try {
                                             outputStreamWriter.write("GET " + str + " HTTP/1.1\r\n");
@@ -129,7 +130,7 @@ public class a {
                                                 }
                                             } while (!"".equals(readLine));
                                             inputStream = socket.getInputStream();
-                                            d.log(a.TAG, "client preload check1: " + Ui);
+                                            d.log(a.TAG, "client preload check1: " + Ur);
                                             int i4 = i2;
                                             while (true) {
                                                 try {
@@ -148,7 +149,7 @@ public class a {
                                                 }
                                             }
                                             try {
-                                                d.log(a.TAG, "client preload check2: " + Ui);
+                                                d.log(a.TAG, "client preload check2: " + Ur);
                                                 if (!file.exists()) {
                                                     if (file.getParentFile() != null && !file.getParentFile().exists()) {
                                                         file.getParentFile().mkdirs();
@@ -177,7 +178,7 @@ public class a {
                                                 }
                                             } catch (Exception e13) {
                                                 e = e13;
-                                                TiebaStatic.log(new am("c12027").ax("errormsg", "预加载文件失败").ax(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, e.getMessage()).ax("url", Ui));
+                                                TiebaStatic.log(new am("c12027").ax("errormsg", "预加载文件失败").ax(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, e.getMessage()).ax("url", Ur));
                                                 e.printStackTrace();
                                                 try {
                                                     outputStreamWriter.close();
@@ -237,7 +238,7 @@ public class a {
                                 i2 = i;
                                 j2 = j;
                             }
-                            d.log(a.TAG, "client preload end: " + Ui);
+                            d.log(a.TAG, "client preload end: " + Ur);
                         }
                     }
                 } else {
@@ -246,29 +247,29 @@ public class a {
             }
         }
     };
-    private Thread mThread = new Thread(this.aZb);
+    private Thread mThread = new Thread(this.aZO);
 
     private a() {
         this.mThread.start();
     }
 
-    public static a Uh() {
-        if (bvX == null) {
+    public static a Uq() {
+        if (bwI == null) {
             synchronized (a.class) {
-                if (bvX == null) {
-                    bvX = new a();
+                if (bwI == null) {
+                    bwI = new a();
                 }
             }
         }
-        return bvX;
+        return bwI;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized String Ui() {
+    public synchronized String Ur() {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 
-    public synchronized void jf(String str) {
+    public synchronized void jh(String str) {
         this.mUrlList.clear();
         this.mUrlList.add(str);
         synchronized (this.mLock) {

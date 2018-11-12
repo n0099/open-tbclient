@@ -44,8 +44,8 @@ public class BaseRequestAction extends AiAppAction {
     public static final String SPLITE = "_";
     public static final String TEMP_FILE_PATH = "tempFilePath";
     protected ConcurrentHashMap<String, Long> mHashMap;
-    protected static final Set<String> ILLEGAL_HOSTS = h.J(NetworkDef.LOCALHOST, NetworkDef.IP_LOOPBACK);
-    public static final Set<String> ILLEGAL_HEADERS = h.J("REFERER", "USER-AGENT");
+    protected static final Set<String> ILLEGAL_HOSTS = h.K(NetworkDef.LOCALHOST, NetworkDef.IP_LOOPBACK);
+    public static final Set<String> ILLEGAL_HEADERS = h.K("REFERER", "USER-AGENT");
 
     public BaseRequestAction(UnitedSchemeAiAppDispatcher unitedSchemeAiAppDispatcher, String str) {
         super(unitedSchemeAiAppDispatcher, str);

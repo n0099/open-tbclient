@@ -28,14 +28,14 @@ public class b {
         this.mAppContext = context.getApplicationContext();
     }
 
-    public synchronized a so() {
+    public synchronized a sl() {
         Class<?> cls;
         if (this.aaE == null && com.baidu.b.a.h.b.isMainProcess()) {
             try {
                 try {
-                    ApplicationInfo sp = sp();
-                    if (sp != null && sp.metaData != null) {
-                        String string = sp.metaData.getString("dynamic.download.callback.statistic");
+                    ApplicationInfo sm = sm();
+                    if (sm != null && sm.metaData != null) {
+                        String string = sm.metaData.getString("dynamic.download.callback.statistic");
                         if (!TextUtils.isEmpty(string) && (cls = Class.forName(string)) != null) {
                             this.aaE = (a) cls.newInstance();
                         }
@@ -61,7 +61,7 @@ public class b {
         return this.aaE;
     }
 
-    private static ApplicationInfo sp() {
+    private static ApplicationInfo sm() {
         synchronized (b.class) {
             if (Zl == null) {
                 try {

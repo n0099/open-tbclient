@@ -14,20 +14,20 @@ public class Static {
                 if (customResponsedMessage instanceof HistoryMessage) {
                     HistoryMessage historyMessage = (HistoryMessage) customResponsedMessage;
                     if (historyMessage.Activity != null) {
-                        PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(historyMessage.Activity.getPageContext());
+                        PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(historyMessage.Activity);
                         a aVar = new a();
                         aVar.setThreadId(historyMessage.threadId);
                         aVar.setForumName(historyMessage.forumName);
-                        aVar.rM(historyMessage.threadName);
-                        aVar.rN(historyMessage.postID);
-                        aVar.jP(historyMessage.isHostOnly);
-                        aVar.jQ(historyMessage.isSquence);
+                        aVar.rN(historyMessage.threadName);
+                        aVar.rO(historyMessage.postID);
+                        aVar.jZ(historyMessage.isHostOnly);
+                        aVar.ka(historyMessage.isSquence);
                         aVar.setThreadType(historyMessage.threadType);
                         aVar.setCartoonId(historyMessage.cartoonId);
                         aVar.setChapterId(historyMessage.chapterId);
                         aVar.setIsShareThread(historyMessage.isShareThread);
                         aVar.setManga(historyMessage.isManga);
-                        aVar.rO(historyMessage.liveId);
+                        aVar.rP(historyMessage.liveId);
                         aVar.setUserName(historyMessage.userName);
                         aVar.setDescription(historyMessage.description);
                         pbHistoryCacheModel.a((PbHistoryCacheModel) aVar);

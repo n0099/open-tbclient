@@ -22,11 +22,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class OfficialSecondMenuPopupWindow extends RelativeLayout {
-    private int eRM;
-    private a eRN;
-    private int eRO;
-    private int eRP;
-    private b eRQ;
+    private int eTe;
+    private a eTf;
+    private int eTg;
+    private int eTh;
+    private b eTi;
     private Context mContext;
     private int mMaxWidth;
     private int mMinWidth;
@@ -38,7 +38,7 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
     }
 
     public void setOnItemClickListener(b bVar) {
-        this.eRQ = bVar;
+        this.eTi = bVar;
     }
 
     public OfficialSecondMenuPopupWindow(Context context) {
@@ -47,12 +47,12 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
         addView(m(new ArrayList<>(), -2));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 80;
-        layoutParams.bottomMargin = e.r(this.mContext, e.C0175e.ds14);
+        layoutParams.bottomMargin = e.r(this.mContext, e.C0200e.ds14);
         setLayoutParams(layoutParams);
         setBackgroundResource(e.f.bg_bottombar_meun_float);
-        this.eRM = com.baidu.tieba.im.util.e.r(this.mContext, e.C0175e.ds36);
-        this.mMinWidth = com.baidu.tieba.im.util.e.r(this.mContext, e.C0175e.ds200);
-        this.mMaxWidth = com.baidu.tieba.im.util.e.r(this.mContext, e.C0175e.ds504);
+        this.eTe = com.baidu.tieba.im.util.e.r(this.mContext, e.C0200e.ds36);
+        this.mMinWidth = com.baidu.tieba.im.util.e.r(this.mContext, e.C0200e.ds200);
+        this.mMaxWidth = com.baidu.tieba.im.util.e.r(this.mContext, e.C0200e.ds504);
     }
 
     private ListView m(List<com.baidu.tieba.im.data.b> list, int i) {
@@ -61,16 +61,16 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
         listView.setCacheColorHint(this.mContext.getResources().getColor(17170445));
         listView.setDivider(null);
         listView.setDividerHeight(0);
-        this.eRN = new a(this.mContext, list);
-        listView.setAdapter((ListAdapter) this.eRN);
+        this.eTf = new a(this.mContext, list);
+        listView.setAdapter((ListAdapter) this.eTf);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.im.view.OfficialSecondMenuPopupWindow.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-                Object item = OfficialSecondMenuPopupWindow.this.eRN.getItem(i2);
+                Object item = OfficialSecondMenuPopupWindow.this.eTf.getItem(i2);
                 if (item instanceof com.baidu.tieba.im.data.b) {
                     com.baidu.tieba.im.data.b bVar = (com.baidu.tieba.im.data.b) item;
-                    if (OfficialSecondMenuPopupWindow.this.eRQ != null) {
-                        OfficialSecondMenuPopupWindow.this.eRQ.a(OfficialSecondMenuPopupWindow.this.eRO, bVar);
+                    if (OfficialSecondMenuPopupWindow.this.eTi != null) {
+                        OfficialSecondMenuPopupWindow.this.eTi.a(OfficialSecondMenuPopupWindow.this.eTg, bVar);
                     }
                 }
             }
@@ -80,18 +80,18 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
 
     public void setData(int i, int i2, List<com.baidu.tieba.im.data.b> list) {
         if (list != null) {
-            this.eRP = i;
-            this.eRO = i2;
-            this.mWidth = cL(list);
+            this.eTh = i;
+            this.eTg = i2;
+            this.mWidth = cJ(list);
             removeAllViews();
             addView(m(list, this.mWidth));
         }
     }
 
-    private int cL(List<com.baidu.tieba.im.data.b> list) {
+    private int cJ(List<com.baidu.tieba.im.data.b> list) {
         Paint paint = new Paint(1);
         paint.setColor(this.mContext.getResources().getColor(17170443));
-        paint.setTextSize(com.baidu.tieba.im.util.e.r(this.mContext, e.C0175e.ds32));
+        paint.setTextSize(com.baidu.tieba.im.util.e.r(this.mContext, e.C0200e.ds32));
         int i = 0;
         float f = 0.0f;
         while (true) {
@@ -103,40 +103,40 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                 }
                 i = i2 + 1;
             } else {
-                return (int) Math.min(Math.max((this.eRM * 2) + f, this.mMinWidth), this.mMaxWidth);
+                return (int) Math.min(Math.max((this.eTe * 2) + f, this.mMinWidth), this.mMaxWidth);
             }
         }
     }
 
-    public void aI(View view) {
+    public void aK(View view) {
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) getLayoutParams();
         if (layoutParams != null) {
             int[] iArr = new int[2];
             view.getLocationOnScreen(iArr);
             int width = (iArr == null || iArr.length != 2) ? 0 : (iArr[0] + (view.getWidth() / 2)) - (this.mWidth / 2);
-            if (this.eRO == this.eRP - 1) {
-                width = ((iArr[0] + view.getWidth()) - com.baidu.tieba.im.util.e.r(this.mContext, e.C0175e.ds20)) - this.mWidth;
+            if (this.eTg == this.eTh - 1) {
+                width = ((iArr[0] + view.getWidth()) - com.baidu.tieba.im.util.e.r(this.mContext, e.C0200e.ds20)) - this.mWidth;
             }
             if (width <= 0) {
-                width = com.baidu.tieba.im.util.e.r(this.mContext, e.C0175e.ds20);
+                width = com.baidu.tieba.im.util.e.r(this.mContext, e.C0200e.ds20);
             }
             layoutParams.leftMargin = width;
             setLayoutParams(layoutParams);
             setVisibility(0);
-            iJ(true);
+            iS(true);
         }
     }
 
-    public void awl() {
+    public void avJ() {
         setVisibility(8);
-        iJ(false);
+        iS(false);
     }
 
-    public void aTn() {
+    public void aSK() {
         setVisibility(8);
     }
 
-    public void iJ(boolean z) {
+    public void iS(boolean z) {
         if (z) {
             startAnimation(AnimationUtils.loadAnimation(this.mContext, e.a.sub_menu_up));
         } else {
@@ -147,27 +147,27 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class a extends BaseAdapter {
-        private List<com.baidu.tieba.im.data.b> eRS;
+        private List<com.baidu.tieba.im.data.b> eTk;
         private Context mContext;
 
         public a(Context context, List<com.baidu.tieba.im.data.b> list) {
             this.mContext = context;
-            this.eRS = list;
+            this.eTk = list;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (this.eRS == null) {
+            if (this.eTk == null) {
                 return 0;
             }
-            return (this.eRS.size() * 2) - 1;
+            return (this.eTk.size() * 2) - 1;
         }
 
         @Override // android.widget.Adapter
         public Object getItem(int i) {
             int itemId = (int) getItemId(i);
-            if (this.eRS != null && itemId >= 0 && itemId < this.eRS.size()) {
-                return this.eRS.get(itemId);
+            if (this.eTk != null && itemId >= 0 && itemId < this.eTk.size()) {
+                return this.eTk.get(itemId);
             }
             return null;
         }
@@ -196,48 +196,48 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
             int itemViewType = getItemViewType(i);
             View view2 = view;
             if (view == null) {
-                C0216a c0216a = new C0216a();
+                C0242a c0242a = new C0242a();
                 if (itemViewType == 0) {
                     TextView textView = new TextView(this.mContext);
-                    textView.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.tieba.im.util.e.r(this.mContext, e.C0175e.ds96)));
-                    textView.setTextSize(0, com.baidu.tieba.im.util.e.r(this.mContext, e.C0175e.ds32));
+                    textView.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.tieba.im.util.e.r(this.mContext, e.C0200e.ds96)));
+                    textView.setTextSize(0, com.baidu.tieba.im.util.e.r(this.mContext, e.C0200e.ds32));
                     textView.setTextColor(this.mContext.getResources().getColor(e.d.cp_cont_b));
                     textView.setGravity(17);
                     textView.setBackgroundResource(e.f.official_bar_menu_text_bg);
                     textView.setSingleLine();
                     textView.setEllipsize(TextUtils.TruncateAt.END);
-                    c0216a.eRT = textView;
+                    c0242a.eTl = textView;
                     linearLayout = textView;
                 } else {
                     linearLayout = view;
                     if (itemViewType == 1) {
                         LinearLayout linearLayout2 = new LinearLayout(this.mContext);
-                        linearLayout2.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.tieba.im.util.e.r(this.mContext, e.C0175e.ds1)));
+                        linearLayout2.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.tieba.im.util.e.r(this.mContext, e.C0200e.ds1)));
                         ImageView imageView = new ImageView(this.mContext);
                         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-                        layoutParams.setMargins(com.baidu.tieba.im.util.e.r(this.mContext, e.C0175e.ds30), 0, com.baidu.tieba.im.util.e.r(this.mContext, e.C0175e.ds30), 0);
+                        layoutParams.setMargins(com.baidu.tieba.im.util.e.r(this.mContext, e.C0200e.ds30), 0, com.baidu.tieba.im.util.e.r(this.mContext, e.C0200e.ds30), 0);
                         imageView.setLayoutParams(layoutParams);
                         imageView.setBackgroundColor(this.mContext.getResources().getColor(e.d.cp_bg_line_b));
                         linearLayout2.addView(imageView);
                         linearLayout = linearLayout2;
                     }
                 }
-                linearLayout.setTag(c0216a);
+                linearLayout.setTag(c0242a);
                 view2 = linearLayout;
             }
-            C0216a c0216a2 = (C0216a) view2.getTag();
+            C0242a c0242a2 = (C0242a) view2.getTag();
             if (itemViewType == 0) {
-                c0216a2.eRT.setText(((com.baidu.tieba.im.data.b) getItem(i)).getName());
+                c0242a2.eTl.setText(((com.baidu.tieba.im.data.b) getItem(i)).getName());
             }
             return view2;
         }
 
         /* renamed from: com.baidu.tieba.im.view.OfficialSecondMenuPopupWindow$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        class C0216a {
-            TextView eRT;
+        class C0242a {
+            TextView eTl;
 
-            C0216a() {
+            C0242a() {
             }
         }
     }

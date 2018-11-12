@@ -16,7 +16,7 @@ public class MsgMultiImageTextViewItemAdapter extends com.baidu.tieba.im.chat.e<
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ba */
+    /* renamed from: bb */
     public e.a<MsgMultiImageTextView> onCreateViewHolder(ViewGroup viewGroup) {
         MsgMultiImageTextView msgMultiImageTextView = new MsgMultiImageTextView(this.mPageContext);
         return new a(msgMultiImageTextView.gb(), msgMultiImageTextView);
@@ -28,15 +28,15 @@ public class MsgMultiImageTextViewItemAdapter extends com.baidu.tieba.im.chat.e<
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgMultiImageTextView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgMultiImageTextView aMY = aVar.aMY();
-        aMY.setOnItemViewLongClickListener(this.ezI);
-        aMY.setPosition(i);
-        aMY.ci(this.ezO);
-        aMY.ch(chatMessage.getCacheData().getLastMsgTime());
-        aMY.a(this.mPageContext, chatMessage, viewGroup);
+        MsgMultiImageTextView aMw = aVar.aMw();
+        aMw.setOnItemViewLongClickListener(this.eBb);
+        aMw.setPosition(i);
+        aMw.cd(this.eBh);
+        aMw.cc(chatMessage.getCacheData().getLastMsgTime());
+        aMw.a(this.mPageContext, chatMessage, viewGroup);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
-        com.baidu.tieba.im.b.a.aSY().a(chatMessage, this.mPageContext.getPageActivity());
+        com.baidu.tieba.im.b.a.aSv().a(chatMessage, this.mPageContext.getPageActivity());
         return view;
     }
 

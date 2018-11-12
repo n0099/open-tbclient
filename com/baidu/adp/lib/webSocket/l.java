@@ -1,79 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
-    private int HX;
-    private int HY;
-    private boolean HZ;
-    private String Hp;
-    private boolean Ia;
+    private String Ht;
     private int Ib;
     private int Ic;
     private boolean Id;
     private boolean Ie;
+    private int If;
+    private int Ig;
+    private boolean Ih;
+    private boolean Ii;
 
     public l() {
-        this.Hp = null;
-        this.HX = 32768;
-        this.HY = 131072;
-        this.HZ = false;
-        this.Ia = true;
-        this.Ib = 30000;
-        this.Ic = 30000;
-        this.Id = true;
+        this.Ht = null;
+        this.Ib = 32768;
+        this.Ic = 131072;
+        this.Id = false;
         this.Ie = true;
-        this.Hp = null;
+        this.If = 30000;
+        this.Ig = 30000;
+        this.Ih = true;
+        this.Ii = true;
+        this.Ht = null;
     }
 
     public l(l lVar) {
-        this.Hp = null;
-        this.HX = lVar.HX;
-        this.HY = lVar.HY;
-        this.HZ = lVar.HZ;
-        this.Ia = lVar.Ia;
+        this.Ht = null;
         this.Ib = lVar.Ib;
         this.Ic = lVar.Ic;
         this.Id = lVar.Id;
         this.Ie = lVar.Ie;
-        this.Hp = lVar.Hp;
+        this.If = lVar.If;
+        this.Ig = lVar.Ig;
+        this.Ih = lVar.Ih;
+        this.Ii = lVar.Ii;
+        this.Ht = lVar.Ht;
     }
 
-    public boolean lV() {
-        return this.HZ;
-    }
-
-    public int lW() {
-        return this.HX;
-    }
-
-    public int lX() {
-        return this.HY;
-    }
-
-    public boolean getTcpNoDelay() {
-        return this.Ia;
-    }
-
-    public int lY() {
-        return this.Ib;
-    }
-
-    public int lZ() {
-        return this.Ic;
-    }
-
-    public boolean ma() {
+    public boolean lT() {
         return this.Id;
     }
 
-    public boolean mb() {
+    public int lU() {
+        return this.Ib;
+    }
+
+    public int lV() {
+        return this.Ic;
+    }
+
+    public boolean getTcpNoDelay() {
         return this.Ie;
     }
 
-    public String mc() {
-        return this.Hp;
+    public int lW() {
+        return this.If;
+    }
+
+    public int lX() {
+        return this.Ig;
+    }
+
+    public boolean lY() {
+        return this.Ih;
+    }
+
+    public boolean lZ() {
+        return this.Ii;
+    }
+
+    public String ma() {
+        return this.Ht;
     }
 
     public void bF(String str) {
-        this.Hp = str;
+        this.Ht = str;
     }
 }

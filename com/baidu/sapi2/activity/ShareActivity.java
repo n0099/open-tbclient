@@ -14,7 +14,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.ar.constants.HttpConstants;
-import com.baidu.e.a.a;
+import com.baidu.d.a.a;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccount;
@@ -190,7 +190,7 @@ public class ShareActivity extends Activity {
             SapiAccount currentAccount = SapiContext.getInstance(this).getCurrentAccount();
             currentAccount.app = SapiUtils.getAppName(this);
             bundle.putParcelable(SHARE_ACCOUNT, currentAccount);
-            bundle.putInt(ShareCallPacking.EXTRA_SDK_VERSION, SapiAccountManager.VERSION_CODE);
+            bundle.putInt(ShareCallPacking.EXTRA_SDK_VERSION, 202);
             bundle.putString("PKG", getPackageName());
             if (SapiContext.getInstance(this).shareLivingunameEnable()) {
                 bundle.putString("FACE_LOGIN_UID", SapiContext.getInstance(this).getFaceLoginUid());

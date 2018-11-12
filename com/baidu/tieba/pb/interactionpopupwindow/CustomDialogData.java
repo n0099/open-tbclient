@@ -1,6 +1,5 @@
 package com.baidu.tieba.pb.interactionpopupwindow;
 
-import com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsNaViewModel;
 import com.baidu.searchbox.ng.ai.apps.network.NetworkDef;
 import java.io.Serializable;
 import org.json.JSONArray;
@@ -58,7 +57,7 @@ public class CustomDialogData implements IBaseDialogData {
                 button.text = optJSONObject2.optString("text");
                 button.action = optJSONObject2.optString("action");
                 button.image = optJSONObject2.optString("image");
-                if (optJSONObject2.optString(AiAppsNaViewModel.KEY_POSITION).equals("left")) {
+                if (optJSONObject2.optString("position").equals("left")) {
                     customDialogData.leftButton = button;
                 } else {
                     customDialogData.rightButton = button;

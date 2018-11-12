@@ -26,7 +26,7 @@ import java.io.InputStream;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
-    private static a Xa = null;
+    private static a Xc = null;
     protected String a;
     protected String b;
     protected String c;
@@ -229,7 +229,7 @@ public class a {
         if (!TextUtils.isEmpty(sdkVersionName)) {
             a(sb, "sdk", sdkVersionName);
         }
-        String cuid = com.baidu.browser.sailor.b.a.qR().getCuid();
+        String cuid = com.baidu.browser.sailor.b.a.qP().getCuid();
         String b = !TextUtils.isEmpty(cuid) ? c.b(cuid) : "";
         if (!TextUtils.isEmpty(b)) {
             a(sb, "cuid", b);
@@ -264,7 +264,7 @@ public class a {
             sb.append(ETAG.EQUAL);
             sb.append(a);
         }
-        if (!com.baidu.browser.sailor.util.a.qX()) {
+        if (!com.baidu.browser.sailor.util.a.qV()) {
             sb.append(ETAG.ITEM_SEPARATOR);
             sb.append("nozeus");
             sb.append(ETAG.EQUAL);
@@ -317,48 +317,48 @@ public class a {
         }
     }
 
-    public static a rh() {
-        if (Xa == null) {
+    public static a rf() {
+        if (Xc == null) {
             synchronized (a.class) {
-                if (Xa == null) {
-                    Xa = new a();
+                if (Xc == null) {
+                    Xc = new a();
                 }
             }
         }
-        return Xa;
+        return Xc;
     }
 
     protected final void b() {
         String GetCloudSettingsValue;
         boolean z = true;
-        if (com.baidu.browser.sailor.a.qq().getAppContext() != null) {
+        if (com.baidu.browser.sailor.a.qo().getAppContext() != null) {
             String zeusVersionName = WebKitFactory.getZeusVersionName();
             if (WebKitFactory.getCurEngine() == 1) {
                 if (a(zeusVersionName, this.b)) {
                     Log.d(EngineManager.LOG_TAG, "start download update zeus");
-                    BdZeusDownloadHelper.bc(com.baidu.browser.sailor.a.qq().getAppContext()).W(this.a, this.c);
+                    BdZeusDownloadHelper.bc(com.baidu.browser.sailor.a.qo().getAppContext()).W(this.a, this.c);
                     return;
                 }
                 return;
             }
-            String packageName = com.baidu.browser.sailor.a.qq().getAppContext().getPackageName();
+            String packageName = com.baidu.browser.sailor.a.qo().getAppContext().getPackageName();
             if (packageName == null || !packageName.equalsIgnoreCase("com.baidu.searchbox.lite")) {
                 z = false;
             }
             if (z) {
                 try {
-                    float qp = com.baidu.browser.core.util.a.qp() / 1024.0f;
-                    if (qp < (TextUtils.isEmpty(WebSettingsGlobalBlink.GetCloudSettingsValue("update_zeus_mem_size_mb")) ? 1024 : Integer.valueOf(GetCloudSettingsValue).intValue())) {
+                    float qn = com.baidu.browser.core.util.a.qn() / 1024.0f;
+                    if (qn < (TextUtils.isEmpty(WebSettingsGlobalBlink.GetCloudSettingsValue("update_zeus_mem_size_mb")) ? 1024 : Integer.valueOf(GetCloudSettingsValue).intValue())) {
                         return;
                     }
-                    com.baidu.browser.sailor.b.a.qS().b("MemMbSize", String.valueOf(qp));
+                    com.baidu.browser.sailor.b.a.qQ().b("MemMbSize", String.valueOf(qn));
                 } catch (Exception e) {
                 }
             }
-            com.baidu.browser.sailor.b.a.qS().b("download-webkit-start", String.valueOf(System.currentTimeMillis()));
-            com.baidu.browser.sailor.b.a.qS().a();
+            com.baidu.browser.sailor.b.a.qQ().b("download-webkit-start", String.valueOf(System.currentTimeMillis()));
+            com.baidu.browser.sailor.b.a.qQ().a();
             Log.d(EngineManager.LOG_TAG, "start download zeus");
-            BdZeusDownloadHelper.bc(com.baidu.browser.sailor.a.qq().getAppContext()).W(this.a, this.c);
+            BdZeusDownloadHelper.bc(com.baidu.browser.sailor.a.qo().getAppContext()).W(this.a, this.c);
         }
     }
 }

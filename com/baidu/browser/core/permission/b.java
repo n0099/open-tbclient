@@ -13,10 +13,10 @@ public class b {
             return false;
         }
         try {
-            return com.baidu.f.a.a.checkPermissionGranted(context, "android.permission.CAMERA");
+            return com.baidu.e.a.a.checkPermissionGranted(context, "android.permission.CAMERA");
         } catch (Throwable th) {
             BdLog.e(TAG, th);
-            return !com.baidu.f.a.uf();
+            return !com.baidu.e.a.up();
         }
     }
 
@@ -25,10 +25,10 @@ public class b {
             return false;
         }
         try {
-            boolean z = com.baidu.f.a.a.checkPermissionGranted(context, "android.permission.CALL_PHONE") || com.baidu.f.a.a.checkPermissionGranted(context, "android.permission.MODIFY_PHONE_STATE") || com.baidu.f.a.a.checkPermissionGranted(context, "android.permission.READ_PHONE_STATE") || com.baidu.f.a.a.checkPermissionGranted(context, "android.permission.PROCESS_OUTGOING_CALLS");
+            boolean z = com.baidu.e.a.a.checkPermissionGranted(context, "android.permission.CALL_PHONE") || com.baidu.e.a.a.checkPermissionGranted(context, "android.permission.MODIFY_PHONE_STATE") || com.baidu.e.a.a.checkPermissionGranted(context, "android.permission.READ_PHONE_STATE") || com.baidu.e.a.a.checkPermissionGranted(context, "android.permission.PROCESS_OUTGOING_CALLS");
             if (Build.VERSION.SDK_INT >= 16) {
                 if (!z) {
-                    if (!com.baidu.f.a.a.checkPermissionGranted(context, "android.permission.READ_CALL_LOG")) {
+                    if (!com.baidu.e.a.a.checkPermissionGranted(context, "android.permission.READ_CALL_LOG")) {
                         return false;
                     }
                 }
@@ -37,7 +37,7 @@ public class b {
             return z;
         } catch (Throwable th) {
             BdLog.e(TAG, th);
-            return !com.baidu.f.a.uf();
+            return !com.baidu.e.a.up();
         }
     }
 

@@ -25,7 +25,7 @@ public class a {
                     if (a(excContent)) {
                         c a = f.a(tbPageContext, excContent);
                         if (a != null) {
-                            if (a.blQ()) {
+                            if (a.blm()) {
                                 if (gVar2 != null) {
                                     this.list.add(gVar2);
                                 }
@@ -33,7 +33,7 @@ public class a {
                                 gVar = null;
                             } else {
                                 gVar = gVar2 == null ? new g() : gVar2;
-                                gVar.g(a.blP());
+                                gVar.g(a.bll());
                             }
                         }
                     } else {

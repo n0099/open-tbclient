@@ -1,6 +1,5 @@
 package com.baidu.fsg.base.restnet.http;
 
-import com.baidu.webkit.sdk.LoadErrorCode;
 import okhttp3.internal.http.StatusLine;
 /* loaded from: classes6.dex */
 public enum HttpStatus {
@@ -64,8 +63,8 @@ public enum HttpStatus {
     HTTP_VERSION_NOT_SUPPORTED(505, "HTTP Version not supported"),
     VARIANT_ALSO_NEGOTIATES(506, "Variant Also Negotiates"),
     INSUFFICIENT_STORAGE(507, "Insufficient Storage"),
-    LOOP_DETECTED(LoadErrorCode.MSG_ERROR_NATIVE_LIB_DIR, "Loop Detected"),
-    BANDWIDTH_LIMIT_EXCEEDED(LoadErrorCode.MSG_EXPAND_LIB_DIR_FAIL, "Bandwidth Limit Exceeded"),
+    LOOP_DETECTED(508, "Loop Detected"),
+    BANDWIDTH_LIMIT_EXCEEDED(509, "Bandwidth Limit Exceeded"),
     NOT_EXTENDED(510, "Not Extended"),
     NETWORK_AUTHENTICATION_REQUIRED(511, "Network Authentication Required");
     

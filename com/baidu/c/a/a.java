@@ -11,15 +11,15 @@ public class a {
     private static boolean aaG;
 
     public static void init(Context context) {
-        aaF = h.kK().n("criusbase", 2);
-        aaG = h.kK().n("crius", 2);
+        aaF = h.kI().n("criusbase", 2);
+        aaG = h.kI().n("crius", 2);
     }
 
     public static void a(b bVar) {
-        com.baidu.c.a.b.a.sq().b(bVar);
+        com.baidu.c.a.b.a.sn().b(bVar);
     }
 
     public static void a(c cVar) {
-        d.sr().b(cVar);
+        d.so().b(cVar);
     }
 }

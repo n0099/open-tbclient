@@ -6,7 +6,7 @@ import com.baidu.tieba.e;
 public class j extends k {
     public j(Context context) {
         super((String) null, 23, 0);
-        this.aUI = e.f.selector_more_tool_btn;
-        this.aUN = new int[]{32};
+        this.aVy = e.f.selector_more_tool_btn;
+        this.aVD = new int[]{32};
     }
 }

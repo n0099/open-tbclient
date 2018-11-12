@@ -19,7 +19,7 @@ public class a {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         b bVar = new b();
                         bVar.parserJson(optJSONArray.getJSONObject(i));
-                        bVar.fm(false);
+                        bVar.fx(false);
                         this.mItems.add(bVar);
                     }
                 }

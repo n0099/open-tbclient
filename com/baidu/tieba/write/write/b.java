@@ -15,7 +15,7 @@ import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class b {
     private String Zm;
-    private ArrayList<String> hHC;
+    private ArrayList<String> hJm;
 
     public void i(EditText editText) {
         Editable text;
@@ -32,10 +32,10 @@ public class b {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !v.J(this.hHC)) {
+        if (spannable != null && !v.I(this.hJm)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.hHC.iterator();
+                Iterator<String> it = this.hJm.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -84,7 +84,7 @@ public class b {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (v.J(bLq())) {
+        if (v.I(bKP())) {
             return false;
         }
         return j(editText) || j(editText2);
@@ -106,19 +106,19 @@ public class b {
         }
     }
 
-    public void aA(ArrayList<String> arrayList) {
-        this.hHC = arrayList;
+    public void az(ArrayList<String> arrayList) {
+        this.hJm = arrayList;
     }
 
-    public ArrayList<String> bLq() {
-        return this.hHC;
+    public ArrayList<String> bKP() {
+        return this.hJm;
     }
 
-    public void wJ(String str) {
+    public void wO(String str) {
         this.Zm = str;
     }
 
-    public String bLu() {
+    public String bKT() {
         return this.Zm;
     }
 }

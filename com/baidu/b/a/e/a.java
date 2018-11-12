@@ -44,7 +44,7 @@ public class a {
                 }
                 sContext = context;
                 com.baidu.b.a.f.e.a.a(HttpManager.newHttpManager(sContext), cookieManager);
-                b.ax(z);
+                b.aL(z);
             }
         }
     }
@@ -75,7 +75,7 @@ public class a {
                             }
                         }
                         for (String str2 : hashMap.keySet()) {
-                            com.baidu.b.a.f.e.a.a(str2, a.n(a.p((List) hashMap.get(str2))), a.o(a.p((List) hashMap.get(str2))), a.a(a.p((List) hashMap.get(str2)), a.rJ(), z), a.s((List) hashMap.get(str2)));
+                            com.baidu.b.a.f.e.a.a(str2, a.n(a.p((List) hashMap.get(str2))), a.o(a.p((List) hashMap.get(str2))), a.a(a.p((List) hashMap.get(str2)), a.rG(), z), a.s((List) hashMap.get(str2)));
                         }
                     }
                 }).start();
@@ -88,13 +88,13 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String rJ() {
+    public static String rG() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("cpu_model", e.sj());
-            jSONObject.put("cpu_feature", e.sk());
-            jSONObject.put("free_space", e.sl());
-            jSONObject.put("whole_space", e.sm());
+            jSONObject.put("cpu_model", e.sg());
+            jSONObject.put("cpu_feature", e.sh());
+            jSONObject.put("free_space", e.si());
+            jSONObject.put("whole_space", e.sj());
         } catch (JSONException e) {
             Log.e("lib-dynamic", "getEnvStr, e=" + e.getLocalizedMessage());
         }
@@ -131,7 +131,7 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("product_id", "1");
-            jSONObject.put(com.baidu.fsg.face.base.b.c.c, e.si());
+            jSONObject.put(com.baidu.fsg.face.base.b.c.c, e.sf());
             jSONObject.put("env", new JSONObject(str));
             StringBuilder sb = new StringBuilder();
             for (c cVar : list) {
@@ -340,11 +340,11 @@ public class a {
                 Iterator it2;
                 Iterator it3;
                 if (i == 200) {
-                    com.baidu.b.a.f.a.a cU = a.cU(str);
-                    if (cU != null) {
-                        if (!a.a(cU)) {
-                            int errorCode = cU.getErrorCode();
-                            String errorMessage = cU.getErrorMessage();
+                    com.baidu.b.a.f.a.a cS = a.cS(str);
+                    if (cS != null) {
+                        if (!a.a(cS)) {
+                            int errorCode = cS.getErrorCode();
+                            String errorMessage = cS.getErrorMessage();
                             if (errorCode != 0) {
                                 for (com.baidu.b.a.b.a.a aVar : list) {
                                     aVar.onFetchError(new com.baidu.b.a.b.b.a(SubPackageAPSInfo.RESULT_APS_NO_PACKAGE, errorMessage, a.C0056a.C0057a.YP));
@@ -355,13 +355,13 @@ public class a {
                                     if (list.iterator().hasNext()) {
                                         str2 = str3 + ((com.baidu.b.a.b.a.a) it.next()).getChannelId() + ",";
                                     } else {
-                                        g.sn().b(SubPackageAPSInfo.RESULT_APS_NO_PACKAGE, errorMessage, str3);
+                                        g.sk().b(SubPackageAPSInfo.RESULT_APS_NO_PACKAGE, errorMessage, str3);
                                         return;
                                     }
                                 }
                             }
                         }
-                        com.baidu.b.a.c.c.a.a(cU, a.r(list));
+                        com.baidu.b.a.c.c.a.a(cS, a.r(list));
                         com.baidu.b.a.f.b.a.w(a.q(list));
                         return;
                     }
@@ -379,7 +379,7 @@ public class a {
                         if (list.iterator().hasNext()) {
                             str4 = str5 + ((com.baidu.b.a.b.a.a) it2.next()).getChannelId() + ",";
                         } else {
-                            g.sn().b(SubPackageAPSInfo.RESULT_APS_DOWNLOAD_ERROR, "metadata : parse response error - ,errmsg:" + jSONObject.toString(), str5);
+                            g.sk().b(SubPackageAPSInfo.RESULT_APS_DOWNLOAD_ERROR, "metadata : parse response error - ,errmsg:" + jSONObject.toString(), str5);
                             return;
                         }
                     }
@@ -393,7 +393,7 @@ public class a {
                         if (list.iterator().hasNext()) {
                             str6 = str7 + ((com.baidu.b.a.b.a.a) it3.next()).getChannelId() + ",";
                         } else {
-                            g.sn().b(2105, "metadata : network error. http code=" + i, str7);
+                            g.sk().b(2105, "metadata : network error. http code=" + i, str7);
                             return;
                         }
                     }
@@ -412,7 +412,7 @@ public class a {
                     if (list.iterator().hasNext()) {
                         str = str2 + ((com.baidu.b.a.b.a.a) it.next()).getChannelId() + ",";
                     } else {
-                        g.sn().b(2101, exc.getMessage(), str2);
+                        g.sk().b(2101, exc.getMessage(), str2);
                         return;
                     }
                 }
@@ -421,15 +421,15 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static com.baidu.b.a.f.a.a cU(String str) {
-        com.baidu.b.a.f.a.a cW;
-        if (TextUtils.isEmpty(str) || (cW = com.baidu.b.a.f.a.a.cW(str)) == null) {
+    public static com.baidu.b.a.f.a.a cS(String str) {
+        com.baidu.b.a.f.a.a cU;
+        if (TextUtils.isEmpty(str) || (cU = com.baidu.b.a.f.a.a.cU(str)) == null) {
             return null;
         }
-        if (a(cW) && (cW.rK() == null || cW.rL() == null)) {
+        if (a(cU) && (cU.rH() == null || cU.rI() == null)) {
             return null;
         }
-        return cW;
+        return cU;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

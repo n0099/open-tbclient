@@ -5,8 +5,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class e extends c.a {
-    private final int gwW;
-    private final int gwX;
+    private final int gyx;
+    private final int gyy;
     private final String ip;
     private final int times;
     private final int type;
@@ -15,26 +15,26 @@ public class e extends c.a {
     public e(int i, int i2, int i3, int i4, int i5, String str, int i6) {
         super(i);
         this.type = i2;
-        this.gwW = i3;
+        this.gyx = i3;
         this.what = i4;
-        this.gwX = i5;
+        this.gyy = i5;
         this.ip = str;
         this.times = i6;
     }
 
     @Override // com.baidu.tieba.m.c.a, com.baidu.tieba.m.c
-    public JSONObject bqV() {
-        JSONObject bqV = super.bqV();
+    public JSONObject bqr() {
+        JSONObject bqr = super.bqr();
         try {
             JSONArray jSONArray = new JSONArray();
             jSONArray.put(new JSONObject().put("retry_type", this.type));
-            jSONArray.put(new JSONObject().put("error_msg", b.b(this.gwW, this.what, this.gwX, 0L).toString()));
+            jSONArray.put(new JSONObject().put("error_msg", b.c(this.gyx, this.what, this.gyy, 0L).toString()));
             jSONArray.put(new JSONObject().put("retry_ip", this.ip));
             jSONArray.put(new JSONObject().put("retry_error_times", this.times));
-            bqV.put("ext", jSONArray);
+            bqr.put("ext", jSONArray);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return bqV;
+        return bqr;
     }
 }

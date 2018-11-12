@@ -7,14 +7,14 @@ import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes2.dex */
 public abstract class k {
-    private static final HashMap<String, k> agM = new HashMap<>();
-    private static final ConcurrentHashMap<String, a> agN = new ConcurrentHashMap<>();
+    private static final HashMap<String, k> ahz = new HashMap<>();
+    private static final ConcurrentHashMap<String, a> ahA = new ConcurrentHashMap<>();
 
-    public abstract IBinder uq();
+    public abstract IBinder uA();
 
     /* loaded from: classes2.dex */
     private static class a {
-        public IBinder agO;
+        public IBinder ahB;
         public boolean exported;
 
         private a() {
@@ -24,17 +24,17 @@ public abstract class k {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static IBinder getService(String str) {
-        k kVar = agM.get(str);
+        k kVar = ahz.get(str);
         if (kVar != null) {
-            kVar.ur();
-            return kVar.uq();
+            kVar.uB();
+            return kVar.uA();
         }
-        a aVar = agN.get(str);
+        a aVar = ahA.get(str);
         if (aVar != null) {
             if (!aVar.exported && Binder.getCallingUid() != Process.myUid()) {
                 throw new SecurityException();
             }
-            return aVar.agO;
+            return aVar.ahB;
         }
         return null;
     }
@@ -44,7 +44,7 @@ public abstract class k {
         if (Binder.getCallingUid() != Process.myUid()) {
             throw new SecurityException();
         }
-        return agN.remove(str) != null;
+        return ahA.remove(str) != null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -52,16 +52,16 @@ public abstract class k {
         if (Binder.getCallingUid() != Process.myUid()) {
             throw new SecurityException();
         }
-        if (agM.get(str) != null) {
+        if (ahz.get(str) != null) {
             throw new IllegalArgumentException();
         }
         a aVar = new a();
-        aVar.agO = iBinder;
+        aVar.ahB = iBinder;
         aVar.exported = z;
-        agN.put(str, aVar);
+        ahA.put(str, aVar);
     }
 
-    public void ur() {
+    public void uB() {
         if (Binder.getCallingUid() != Process.myUid()) {
             throw new SecurityException();
         }

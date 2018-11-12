@@ -14,9 +14,9 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.homepage.HomePageStatic;
 /* loaded from: classes6.dex */
 public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickListener {
-    private ImageView ejs;
-    private TextView ejt;
-    private TextView eju;
+    private ImageView ekM;
+    private TextView ekN;
+    private TextView ekO;
     private Context mContext;
 
     public ConcernNotLoginLayout(Context context) {
@@ -37,24 +37,24 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(e.h.concern_not_login_layout, (ViewGroup) this, true);
         this.mContext = context;
-        this.ejs = (ImageView) inflate.findViewById(e.g.iv_concern_not_login_emotion_pic);
-        this.ejt = (TextView) inflate.findViewById(e.g.tv_concern_you_not_login);
-        this.eju = (TextView) inflate.findViewById(e.g.tv_concern_login_and_see_more);
-        this.eju.setOnClickListener(this);
+        this.ekM = (ImageView) inflate.findViewById(e.g.iv_concern_not_login_emotion_pic);
+        this.ekN = (TextView) inflate.findViewById(e.g.tv_concern_you_not_login);
+        this.ekO = (TextView) inflate.findViewById(e.g.tv_concern_login_and_see_more);
+        this.ekO.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == e.g.tv_concern_login_and_see_more) {
-            ba.bI(this.mContext);
-            HomePageStatic.ehC = true;
+            ba.bG(this.mContext);
+            HomePageStatic.eiW = true;
         }
     }
 
     public void onChangeSkinType(int i) {
-        al.c(this.ejs, e.f.pic_jinba_login);
-        al.h(this.ejt, e.d.cp_cont_b);
-        al.h(this.eju, e.d.cp_cont_i);
-        al.i(this.eju, e.f.btn_all_blue);
+        al.c(this.ekM, e.f.pic_jinba_login);
+        al.h(this.ekN, e.d.cp_cont_b);
+        al.h(this.ekO, e.d.cp_cont_i);
+        al.i(this.ekO, e.f.btn_all_blue);
     }
 }

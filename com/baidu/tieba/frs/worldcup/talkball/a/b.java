@@ -16,54 +16,54 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
-    private p dGP;
-    private m dHV;
-    private i dHi;
-    private e dIf;
-    private TalkBallFragment eaW;
-    private i eaX;
-    private d eaY;
-    private com.baidu.tieba.frs.entelechy.a.d eaZ;
+    private m dIZ;
+    private i dIf;
+    private p dIh;
+    private e dJj;
+    private TalkBallFragment ecq;
+    private i ecr;
+    private d ecs;
+    private com.baidu.tieba.frs.entelechy.a.d ect;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new LinkedList();
 
     public b(TalkBallFragment talkBallFragment, m mVar) {
-        this.eaW = talkBallFragment;
-        this.dHV = mVar;
+        this.ecq = talkBallFragment;
+        this.dIZ = mVar;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.eaX = new i(this.eaW.getPageContext(), bb.aoS, this.eaW.getUniqueId());
-        this.eaY = new d(this.eaW.getPageContext(), f.ebh, this.eaW.getUniqueId());
-        this.dIf = new e(this.eaW.getPageContext(), bb.apb, this.eaW.getUniqueId());
-        this.dGP = new p(this.eaW.getPageContext(), bb.aoV, this.eaW.getUniqueId());
-        this.eaZ = new com.baidu.tieba.frs.entelechy.a.d(this.eaW.getPageContext(), bb.apa, this.eaW.getUniqueId());
-        this.dHi = new i(this.eaW.getPageContext(), bb.aoU, this.eaW.getUniqueId());
-        this.eaX.setVoiceManager(this.eaW.getVoiceManager());
-        this.dHi.setVoiceManager(this.eaW.getVoiceManager());
-        this.mAdapters.add(new l(this.eaW.getPageContext(), com.baidu.tieba.frs.m.dCR));
-        this.mAdapters.add(this.eaX);
-        this.mAdapters.add(this.eaY);
-        this.mAdapters.add(this.dGP);
+        this.ecr = new i(this.ecq.getPageContext(), bb.apG, this.ecq.getUniqueId());
+        this.ecs = new d(this.ecq.getPageContext(), f.ecB, this.ecq.getUniqueId());
+        this.dJj = new e(this.ecq.getPageContext(), bb.apP, this.ecq.getUniqueId());
+        this.dIh = new p(this.ecq.getPageContext(), bb.apJ, this.ecq.getUniqueId());
+        this.ect = new com.baidu.tieba.frs.entelechy.a.d(this.ecq.getPageContext(), bb.apO, this.ecq.getUniqueId());
+        this.dIf = new i(this.ecq.getPageContext(), bb.apI, this.ecq.getUniqueId());
+        this.ecr.setVoiceManager(this.ecq.getVoiceManager());
+        this.dIf.setVoiceManager(this.ecq.getVoiceManager());
+        this.mAdapters.add(new l(this.ecq.getPageContext(), com.baidu.tieba.frs.m.dEh));
+        this.mAdapters.add(this.ecr);
+        this.mAdapters.add(this.ecs);
+        this.mAdapters.add(this.dIh);
+        this.mAdapters.add(this.dJj);
+        this.mAdapters.add(this.ect);
         this.mAdapters.add(this.dIf);
-        this.mAdapters.add(this.eaZ);
-        this.mAdapters.add(this.dHi);
-        this.dHV.addAdapters(this.mAdapters);
+        this.dIZ.addAdapters(this.mAdapters);
     }
 
     public void setData(ArrayList<h> arrayList) {
-        aHb();
-        this.eaY.setForumId(this.eaW.getForumId());
-        this.dHV.setData(arrayList);
+        aGz();
+        this.ecs.setForumId(this.ecq.getForumId());
+        this.dIZ.setData(arrayList);
     }
 
-    private void aHb() {
-        c.a(this.eaW.getForumId(), 1, this.eaX, this.dGP, this.dIf, this.dHi, this.eaZ);
+    private void aGz() {
+        c.a(this.ecq.getForumId(), 1, this.ecr, this.dIh, this.dJj, this.dIf, this.ect);
     }
 
     public void notifyDataSetChanged() {
-        if (this.dHV.getListAdapter() != null) {
-            this.dHV.getListAdapter().notifyDataSetChanged();
+        if (this.dIZ.getListAdapter() != null) {
+            this.dIZ.getListAdapter().notifyDataSetChanged();
         }
     }
 

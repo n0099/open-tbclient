@@ -32,6 +32,7 @@ public class SyncService extends Service {
         if (TbadkCoreApplication.getKeepLiveSwitch(this)) {
             try {
                 if (Build.VERSION.SDK_INT >= 23) {
+                    com.baidu.tbadk.lcs.a.b(0, 0, 0, 1, 5);
                     BdSocketLinkService.startService(false, "restart");
                 } else {
                     GuardServiceObserver.startNativeServiceForUnder23(this);
@@ -43,6 +44,7 @@ public class SyncService extends Service {
                 }
                 return;
             } catch (Throwable th2) {
+                com.baidu.tbadk.lcs.a.b(0, 0, 0, 1, 5);
                 BdSocketLinkService.startService(false, "restart");
                 return;
             }

@@ -6,14 +6,14 @@ import java.util.Map;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes2.dex */
 public class ab {
-    private static final Class<?> hVC = ab.class;
+    private static final Class<?> hXm = ab.class;
     @GuardedBy("this")
     private Map<com.facebook.cache.common.b, com.facebook.imagepipeline.f.d> mMap = new HashMap();
 
     private ab() {
     }
 
-    public static ab bUA() {
+    public static ab bTV() {
         return new ab();
     }
 
@@ -21,7 +21,7 @@ public class ab {
         com.facebook.common.internal.g.checkNotNull(bVar);
         com.facebook.common.internal.g.checkArgument(com.facebook.imagepipeline.f.d.f(dVar));
         com.facebook.imagepipeline.f.d.e(this.mMap.put(bVar, com.facebook.imagepipeline.f.d.b(dVar)));
-        bUB();
+        bTW();
     }
 
     public synchronized boolean d(com.facebook.cache.common.b bVar, com.facebook.imagepipeline.f.d dVar) {
@@ -33,18 +33,18 @@ public class ab {
         if (dVar2 == null) {
             z = false;
         } else {
-            com.facebook.common.references.a<PooledByteBuffer> bWy = dVar2.bWy();
-            com.facebook.common.references.a<PooledByteBuffer> bWy2 = dVar.bWy();
-            if (bWy != null && bWy2 != null && bWy.get() == bWy2.get()) {
+            com.facebook.common.references.a<PooledByteBuffer> bVT = dVar2.bVT();
+            com.facebook.common.references.a<PooledByteBuffer> bVT2 = dVar.bVT();
+            if (bVT != null && bVT2 != null && bVT.get() == bVT2.get()) {
                 this.mMap.remove(bVar);
-                com.facebook.common.references.a.c((com.facebook.common.references.a<?>) bWy2);
-                com.facebook.common.references.a.c((com.facebook.common.references.a<?>) bWy);
+                com.facebook.common.references.a.c((com.facebook.common.references.a<?>) bVT2);
+                com.facebook.common.references.a.c((com.facebook.common.references.a<?>) bVT);
                 com.facebook.imagepipeline.f.d.e(dVar2);
-                bUB();
+                bTW();
                 z = true;
             } else {
-                com.facebook.common.references.a.c((com.facebook.common.references.a<?>) bWy2);
-                com.facebook.common.references.a.c((com.facebook.common.references.a<?>) bWy);
+                com.facebook.common.references.a.c((com.facebook.common.references.a<?>) bVT2);
+                com.facebook.common.references.a.c((com.facebook.common.references.a<?>) bVT);
                 com.facebook.imagepipeline.f.d.e(dVar2);
                 z = false;
             }
@@ -60,7 +60,7 @@ public class ab {
             synchronized (dVar) {
                 if (!com.facebook.imagepipeline.f.d.f(dVar)) {
                     this.mMap.remove(bVar);
-                    com.facebook.common.c.a.d(hVC, "Found closed reference %d for key %s (%d)", Integer.valueOf(System.identityHashCode(dVar)), bVar.getUriString(), Integer.valueOf(System.identityHashCode(bVar)));
+                    com.facebook.common.c.a.d(hXm, "Found closed reference %d for key %s (%d)", Integer.valueOf(System.identityHashCode(dVar)), bVar.getUriString(), Integer.valueOf(System.identityHashCode(bVar)));
                     dVar = null;
                 } else {
                     dVar = com.facebook.imagepipeline.f.d.b(dVar);
@@ -80,7 +80,7 @@ public class ab {
                     z = true;
                 } else {
                     this.mMap.remove(bVar);
-                    com.facebook.common.c.a.d(hVC, "Found closed reference %d for key %s (%d)", Integer.valueOf(System.identityHashCode(dVar)), bVar.getUriString(), Integer.valueOf(System.identityHashCode(bVar)));
+                    com.facebook.common.c.a.d(hXm, "Found closed reference %d for key %s (%d)", Integer.valueOf(System.identityHashCode(dVar)), bVar.getUriString(), Integer.valueOf(System.identityHashCode(bVar)));
                     z = false;
                 }
             }
@@ -90,7 +90,7 @@ public class ab {
         return z;
     }
 
-    private synchronized void bUB() {
-        com.facebook.common.c.a.a(hVC, "Count = %d", Integer.valueOf(this.mMap.size()));
+    private synchronized void bTW() {
+        com.facebook.common.c.a.a(hXm, "Count = %d", Integer.valueOf(this.mMap.size()));
     }
 }

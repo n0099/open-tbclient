@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import android.app.Activity;
 import android.graphics.Rect;
+import android.os.Build;
 import android.view.View;
 import com.compatible.menukey.MenuKeyUtils;
 /* loaded from: classes.dex */
@@ -20,5 +21,18 @@ public class az {
         rect.bottom -= dip2px;
         rect.top += i;
         return rect;
+    }
+
+    public static int[] z(Activity activity) {
+        View findViewById;
+        int[] iArr = {activity.getWindow().getDecorView().getWidth(), activity.getWindow().getDecorView().getHeight()};
+        if (Build.VERSION.SDK_INT > 21 && (findViewById = activity.getWindow().getDecorView().findViewById(16908336)) != null && findViewById.getVisibility() == 0) {
+            if (iArr[0] > iArr[1]) {
+                iArr[0] = iArr[0] - findViewById.getWidth();
+            } else {
+                iArr[1] = iArr[1] - findViewById.getHeight();
+            }
+        }
+        return iArr;
     }
 }

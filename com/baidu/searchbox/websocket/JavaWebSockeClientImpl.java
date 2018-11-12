@@ -28,12 +28,12 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         JavaWebSockeClientImpl$connect$1 javaWebSockeClientImpl$connect$12;
         JavaWebSockeClientImpl javaWebSockeClientImpl;
         final WebSocketRequest webSocketRequest2;
-        ArrayList aU;
+        ArrayList aT;
         final IWebSocketListener iWebSocketListener2;
         final URI uri;
         org.java_websocket.drafts.a aVar4;
-        p.i(webSocketRequest, "request");
-        p.i(iWebSocketListener, "listener");
+        p.h((Object) webSocketRequest, "request");
+        p.h((Object) iWebSocketListener, "listener");
         URI create = URI.create(webSocketRequest.getUrl());
         List emptyList = n.emptyList();
         List<String> protocols = webSocketRequest.getProtocols();
@@ -44,7 +44,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
             javaWebSockeClientImpl$connect$12 = javaWebSockeClientImpl$connect$1;
             javaWebSockeClientImpl = this;
             webSocketRequest2 = webSocketRequest;
-            aU = n.aU(new b(""));
+            aT = n.aT(new b(""));
             iWebSocketListener2 = iWebSocketListener;
             uri = create;
             aVar4 = aVar;
@@ -60,23 +60,23 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
             javaWebSockeClientImpl$connect$12 = javaWebSockeClientImpl$connect$1;
             javaWebSockeClientImpl = this;
             webSocketRequest2 = webSocketRequest;
-            aU = arrayList;
+            aT = arrayList;
             iWebSocketListener2 = iWebSocketListener;
             uri = create;
             aVar4 = aVar;
         }
-        new org.java_websocket.drafts.a(list, aU);
+        new org.java_websocket.drafts.a(list, aT);
         final org.java_websocket.drafts.a aVar5 = aVar4;
         final Map<String, String> headers = webSocketRequest.getHeaders();
         new a(uri, aVar5, headers) { // from class: com.baidu.searchbox.websocket.JavaWebSockeClientImpl$connect$1
             @Override // org.java_websocket.a.a
             public void onOpen(h hVar) {
-                Iterator<String> cbe;
+                Iterator<String> caB;
                 HashMap hashMap = new HashMap();
-                if (hVar != null && (cbe = hVar.cbe()) != null) {
-                    while (cbe.hasNext()) {
-                        String next = cbe.next();
-                        hashMap.put(next, hVar.ze(next));
+                if (hVar != null && (caB = hVar.caB()) != null) {
+                    while (caB.hasNext()) {
+                        String next = caB.next();
+                        hashMap.put(next, hVar.zj(next));
                     }
                 }
                 IWebSocketListener.this.onOpen(hashMap);
@@ -96,56 +96,56 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
 
             @Override // org.java_websocket.a.a
             public void onMessage(String str2) {
-                p.i(str2, "p0");
+                p.h((Object) str2, "p0");
                 IWebSocketListener.this.onMessage(str2);
             }
 
             @Override // org.java_websocket.a.a
             public void onMessage(ByteBuffer byteBuffer) {
-                p.i(byteBuffer, "bytes");
+                p.h((Object) byteBuffer, "bytes");
                 IWebSocketListener.this.onMessage(byteBuffer);
             }
 
             @Override // org.java_websocket.a.a
             public void onError(Exception exc) {
-                p.i(exc, "p0");
+                p.h((Object) exc, "p0");
                 IWebSocketListener.this.onError(exc, null);
             }
         };
         javaWebSockeClientImpl.webSocketClient = javaWebSockeClientImpl$connect$12;
         a aVar6 = this.webSocketClient;
         if (aVar6 == null) {
-            p.yT("webSocketClient");
+            p.yY("webSocketClient");
         }
         aVar6.connect();
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketClient
     public void close(int i, String str) {
-        p.i(str, WebSocketAction.PARAM_KEY_REASON);
+        p.h((Object) str, WebSocketAction.PARAM_KEY_REASON);
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            p.yT("webSocketClient");
+            p.yY("webSocketClient");
         }
         aVar.close();
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketClient
     public void send(String str) {
-        p.i(str, "message");
+        p.h((Object) str, "message");
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            p.yT("webSocketClient");
+            p.yY("webSocketClient");
         }
         aVar.send(str);
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketClient
     public void send(ByteBuffer byteBuffer) {
-        p.i(byteBuffer, "data");
+        p.h((Object) byteBuffer, "data");
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            p.yT("webSocketClient");
+            p.yY("webSocketClient");
         }
         aVar.send(byteBuffer);
     }

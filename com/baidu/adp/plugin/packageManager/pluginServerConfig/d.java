@@ -7,32 +7,32 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class d {
-    private static volatile d Lq;
-    private PluginNetConfigInfos Lr = new PluginNetConfigInfos();
-    private b Ls;
+    private static volatile d Lt;
+    private PluginNetConfigInfos Lu = new PluginNetConfigInfos();
+    private b Lv;
 
-    public static d nz() {
-        if (Lq == null) {
+    public static d nx() {
+        if (Lt == null) {
             synchronized (d.class) {
-                if (Lq == null) {
-                    Lq = new d();
+                if (Lt == null) {
+                    Lt = new d();
                 }
             }
         }
-        return Lq;
+        return Lt;
     }
 
     public void a(PluginSettings pluginSettings, boolean z, final a aVar) {
         c c = c(pluginSettings);
-        if (this.Ls != null) {
-            this.Ls.a(z, c, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
+        if (this.Lv != null) {
+            this.Lv.a(z, c, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
                 @Override // com.baidu.adp.plugin.packageManager.pluginServerConfig.a
                 public void a(boolean z2, c cVar, PluginNetConfigInfos pluginNetConfigInfos) {
                     if (z2) {
-                        d.this.Lr = pluginNetConfigInfos;
+                        d.this.Lu = pluginNetConfigInfos;
                     }
                     if (aVar != null) {
-                        aVar.a(z2, cVar, d.this.Lr);
+                        aVar.a(z2, cVar, d.this.Lu);
                     }
                 }
             });
@@ -54,11 +54,11 @@ public class d {
         return cVar;
     }
 
-    public PluginNetConfigInfos nA() {
-        return this.Lr;
+    public PluginNetConfigInfos ny() {
+        return this.Lu;
     }
 
     public void a(b bVar) {
-        this.Ls = bVar;
+        this.Lv = bVar;
     }
 }

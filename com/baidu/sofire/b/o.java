@@ -1,115 +1,167 @@
 package com.baidu.sofire.b;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.os.Build;
 import android.text.TextUtils;
-import android.util.Base64;
 import com.baidu.mobstat.Config;
-import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
-import com.baidu.sofire.ac.U;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import java.security.PublicKey;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
+import com.tencent.connect.common.Constants;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes.dex */
 public final class o {
-    public static Map<String, String> a = new HashMap();
+    private static final String[] a = {"0", "1", "2", "3", "4", "5", Constants.VIA_SHARE_TYPE_INFO, "7", Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "9", Config.APP_VERSION_CODE, "b", "c", "d", "e", "f"};
 
-    public static void a(Context context) {
+    /* JADX WARN: Code restructure failed: missing block: B:0:?, code lost:
+        r4 = r4;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private static String a(byte b) {
+        int i;
+        if (b < 0) {
+            i = b + 256;
+        }
+        return a[i / 16] + a[i % 16];
+    }
+
+    public static String a(byte[] bArr) {
+        StringBuffer stringBuffer = new StringBuffer();
+        for (byte b : bArr) {
+            stringBuffer.append(a(b));
+        }
+        return stringBuffer.toString();
+    }
+
+    public static String a(String str) {
+        String str2;
+        String str3 = null;
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
         try {
-            String str = e.a() + "p/1/prt";
-            JSONObject jSONObject = new JSONObject();
-            String packageName = context.getPackageName();
-            jSONObject.put(PushConstants.URI_PACKAGE_NAME, packageName);
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(packageName, 64);
-            if (packageInfo != null) {
-                PublicKey a2 = e.a(packageInfo, packageInfo.applicationInfo.sourceDir);
-                if (a2 != null) {
-                    byte[] encoded = a2.getEncoded();
-                    if (encoded != null) {
-                        e.a(context, encoded);
-                        jSONObject.put("sm", n.a(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", "")));
-                    }
-                } else {
-                    jSONObject.put("sm", "");
-                }
-            } else {
-                jSONObject.put("sm", "");
-            }
-            String a3 = h.a(context, str, jSONObject.toString(), false, false);
-            new StringBuilder().append(a3);
-            JSONObject jSONObject2 = new JSONObject(a3);
-            JSONArray optJSONArray = jSONObject2.optJSONArray("product");
-            long optLong = jSONObject2.optLong(Config.PLATFORM_TYPE);
-            if (optJSONArray != null && optLong > 0) {
-                new com.baidu.sofire.e(context).a(optJSONArray.toString(), optLong);
-            }
-            if (optLong > 0) {
-                e.h(context);
-            }
+            str2 = new String(str);
         } catch (Throwable th) {
+            th = th;
+        }
+        try {
+            return a(MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5).digest(str2.getBytes()));
+        } catch (Throwable th2) {
+            str3 = str2;
+            th = th2;
             e.a(th);
+            return str3;
         }
     }
 
-    public static void b(Context context) {
+    public static String b(byte[] bArr) {
+        if (bArr == null || bArr.length <= 0) {
+            return null;
+        }
         try {
-            a.clear();
-            String a2 = new com.baidu.sofire.e(context).a();
-            if (!TextUtils.isEmpty(a2)) {
-                JSONArray jSONArray = new JSONArray(a2);
-                HashMap hashMap = new HashMap();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    String optString = optJSONObject.optString("p");
-                    String optString2 = optJSONObject.optString("s");
-                    new StringBuilder("167:").append(optString).append(BaseRequestAction.SPLITE).append(optString2);
-                    hashMap.put(optString, optString2);
-                }
-                for (PackageInfo packageInfo : context.getPackageManager().getInstalledPackages(64)) {
-                    String str = packageInfo.packageName;
-                    if (hashMap.keySet().contains(str) && !str.equals(context.getPackageName())) {
-                        String str2 = (String) hashMap.get(str);
-                        PublicKey a3 = e.a(packageInfo, packageInfo.applicationInfo.sourceDir);
-                        new StringBuilder("194:").append(a3 == null);
-                        if (a3 != null) {
-                            byte[] encoded = a3.getEncoded();
-                            new StringBuilder("197:").append(encoded == null);
-                            if (encoded != null) {
-                                e.a(context, encoded);
-                                String a4 = n.a(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", ""));
-                                if (!TextUtils.isEmpty(a4) && a4.equals(str2)) {
-                                    JSONObject jSONObject = new JSONObject();
-                                    jSONObject.put(PushConstants.URI_PACKAGE_NAME, str);
-                                    jSONObject.put("av", packageInfo.versionName);
-                                    jSONObject.put("sm", a4);
-                                    jSONObject.put("dm", Build.MODEL);
-                                    jSONObject.put("al", String.valueOf(Build.VERSION.SDK_INT));
-                                    a.put(str, jSONObject.toString());
-                                }
+            return a(MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5).digest(bArr));
+        } catch (Throwable th) {
+            e.a(th);
+            return null;
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    public static String a(File file) {
+        FileInputStream fileInputStream;
+        String str = null;
+        if (file != null && file.exists()) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
+                fileInputStream = new FileInputStream(file);
+                try {
+                    byte[] bArr = new byte[8192];
+                    while (true) {
+                        int read = fileInputStream.read(bArr);
+                        if (read == -1) {
+                            break;
+                        }
+                        messageDigest.update(bArr, 0, read);
+                    }
+                    str = c(messageDigest.digest());
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException e) {
+                            e.a(e);
+                        }
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    try {
+                        e.a(th);
+                        return str;
+                    } finally {
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException e2) {
+                                e.a(e2);
                             }
                         }
                     }
                 }
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream = null;
             }
-        } catch (Throwable th) {
-            e.a(th);
+        }
+        return str;
+    }
+
+    public static String c(byte[] bArr) {
+        char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        char[] cArr2 = new char[bArr.length * 2];
+        for (int i = 0; i < bArr.length; i++) {
+            byte b = bArr[i];
+            cArr2[i * 2] = cArr[(b >>> 4) & 15];
+            cArr2[(i * 2) + 1] = cArr[b & 15];
+        }
+        return new String(cArr2);
+    }
+
+    public static String a(byte[] bArr, boolean z) {
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
+            messageDigest.reset();
+            messageDigest.update(bArr);
+            return a(messageDigest.digest(), "", z);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    public static void a(Context context, Intent intent) {
-        try {
-            String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
-            if (!intent.getBooleanExtra("android.intent.extra.REPLACING", false) && a.containsKey(schemeSpecificPart)) {
-                a.remove(schemeSpecificPart);
-                new U(context, 4, false).start();
+    public static String a(byte[] bArr, String str, boolean z) {
+        StringBuilder sb = new StringBuilder();
+        for (byte b : bArr) {
+            String hexString = Integer.toHexString(b & 255);
+            if (z) {
+                hexString = hexString.toUpperCase();
             }
+            if (hexString.length() == 1) {
+                sb.append("0");
+            }
+            sb.append(hexString).append(str);
+        }
+        return sb.toString();
+    }
+
+    public static byte[] d(byte[] bArr) {
+        if (bArr == null || bArr.length <= 0) {
+            return null;
+        }
+        try {
+            return MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5).digest(bArr);
         } catch (Throwable th) {
             e.a(th);
+            return null;
         }
     }
 }

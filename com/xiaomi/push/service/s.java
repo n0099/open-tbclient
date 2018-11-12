@@ -8,7 +8,6 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
-import com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsNaViewModel;
 import com.tencent.connect.common.Constants;
 import com.xiaomi.push.service.ac;
 import com.xiaomi.push.service.ak;
@@ -182,7 +181,7 @@ public class s {
             if (m != null && m.b() != null) {
                 com.xiaomi.channel.commonutils.logger.b.a(String.format("receive a message, appid=%1$s, msgid= %2$s", a.h(), m.b()));
             }
-            if (m != null && (s = m.s()) != null && s.containsKey(AiAppsNaViewModel.KEY_HIDDEN) && "true".equalsIgnoreCase(s.get(AiAppsNaViewModel.KEY_HIDDEN))) {
+            if (m != null && (s = m.s()) != null && s.containsKey("hide") && "true".equalsIgnoreCase(s.get("hide"))) {
                 c(xMPushService, a);
                 return;
             }

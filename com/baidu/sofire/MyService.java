@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import android.text.TextUtils;
-import com.baidu.sofire.b.t;
+import com.baidu.sofire.b.r;
 import com.baidu.sofire.core.ApkInfo;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
@@ -23,13 +23,13 @@ public class MyService extends Service {
         }
         this.a++;
         final String stringExtra = intent.getStringExtra("from_plugin_package");
-        new StringBuilder("PPP(service) try do action ").append(intent.toString()).append(" ").append(stringExtra);
-        t.a().a.execute(new Runnable() { // from class: com.baidu.sofire.MyService.1
+        b.a("PPP(service) try do action " + intent.getAction() + " " + stringExtra);
+        r.a().a(new Runnable() { // from class: com.baidu.sofire.MyService.1
             @Override // java.lang.Runnable
-            public final void run() {
+            public void run() {
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
-                    new StringBuilder("PPP(service) do action ").append(intent.toString()).append(" ").append(stringExtra);
+                    b.a("PPP(service) do action " + intent.getAction() + " " + stringExtra);
                     if ("s".equals(intent.getStringExtra("t"))) {
                         String stringExtra2 = intent.getStringExtra("c");
                         Intent intent2 = new Intent();
@@ -37,65 +37,68 @@ public class MyService extends Service {
                         intent2.putExtra("c", stringExtra2);
                         a.a(MyService.this.getApplicationContext(), intent2);
                     }
-                    new StringBuilder("p:=").append(stringExtra);
+                    b.a("p:=" + stringExtra);
                     if (TextUtils.isEmpty(stringExtra)) {
-                        MyService.a(MyService.this);
+                        MyService.this.a();
                     } else if (MyService.this.getPackageName().equals(stringExtra)) {
-                        MyService.a(MyService.this, MyService.this.getClassLoader(), intent);
-                        MyService.a(MyService.this);
+                        MyService.this.a(MyService.this.getClassLoader(), intent);
+                        MyService.this.a();
                     } else {
-                        com.baidu.sofire.core.e a = com.baidu.sofire.core.e.a();
+                        com.baidu.sofire.core.g a = com.baidu.sofire.core.g.a();
                         if (a == null) {
-                            MyService.a(MyService.this);
+                            MyService.this.a();
                             return;
                         }
                         ApkInfo d = a.d(stringExtra);
-                        new StringBuilder("i=").append(d);
+                        b.a("i=" + d);
                         if (d == null) {
-                            MyService.a(MyService.this);
+                            MyService.this.a();
                             return;
                         }
-                        MyService.a(MyService.this, d.classLoader, intent);
-                        new StringBuilder("PPP(service) after action ").append(((float) (System.currentTimeMillis() - currentTimeMillis)) / 1000.0f).append(intent.toString()).append(" ").append(stringExtra);
-                        MyService.a(MyService.this);
+                        MyService.this.a(d.classLoader, intent);
+                        b.a("PPP(service) after action " + (((float) (System.currentTimeMillis() - currentTimeMillis)) / 1000.0f) + intent.toString() + " " + stringExtra);
+                        MyService.this.a();
                     }
                 } catch (Throwable th2) {
                     com.baidu.sofire.b.e.a(th2);
-                    MyService.a(MyService.this);
+                    MyService.this.a();
                 }
             }
         });
         return super.onStartCommand(intent, i, i2);
     }
 
-    @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        return null;
-    }
-
-    static /* synthetic */ void a(MyService myService) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
         try {
-            myService.a--;
-            if (myService.a <= 0) {
-                myService.a = 0;
-                myService.stopSelf();
+            this.a--;
+            if (this.a <= 0) {
+                this.a = 0;
+                b.a("MyService call stopSelf");
+                stopSelf();
             }
         } catch (Throwable th) {
             com.baidu.sofire.b.e.a(th);
         }
     }
 
-    static /* synthetic */ void a(MyService myService, ClassLoader classLoader, Intent intent) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(ClassLoader classLoader, Intent intent) {
         try {
             String stringExtra = intent.getStringExtra("target_class");
             Class<?> loadClass = classLoader.loadClass(stringExtra);
             Object newInstance = loadClass.newInstance();
-            new StringBuilder().append(stringExtra).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(newInstance);
+            b.a("targetClass=" + stringExtra + Constants.ACCEPT_TIME_SEPARATOR_SERVER + newInstance);
             String stringExtra2 = intent.getStringExtra("target_method");
-            new StringBuilder().append(stringExtra2);
-            loadClass.getDeclaredMethod(stringExtra2, Context.class, Intent.class).invoke(newInstance, myService.getApplicationContext(), intent);
+            b.a("targetMethod=" + stringExtra2);
+            loadClass.getDeclaredMethod(stringExtra2, Context.class, Intent.class).invoke(newInstance, getApplicationContext(), intent);
         } catch (Throwable th) {
-            th.getMessage();
+            b.a(th.getMessage(), th);
         }
+    }
+
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        return null;
     }
 }

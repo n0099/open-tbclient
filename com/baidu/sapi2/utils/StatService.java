@@ -55,15 +55,11 @@ public final class StatService {
         onEvent(str, String.valueOf(System.currentTimeMillis()), map, z, false);
     }
 
-    public static void onEvent(final String str, final String str2, Map<String, String> map, boolean z, boolean z2) {
+    public static void onEvent(String str, String str2, Map<String, String> map, boolean z, boolean z2) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 ISAccountManager isAccountManager = ServiceManager.getInstance().getIsAccountManager();
-                final SapiConfiguration confignation = isAccountManager.getConfignation();
-                if (z && !z2) {
-                    map.put("v", str2);
-                    SapiContext.getInstance(confignation.context).addStatItemV2(str, str2, map);
-                }
+                SapiConfiguration confignation = isAccountManager.getConfignation();
                 if (SapiUtils.hasActiveNetwork(confignation.context)) {
                     HashMap hashMap = new HashMap();
                     hashMap.putAll(a);
@@ -76,9 +72,7 @@ public final class StatService {
                     if (!TextUtils.isEmpty(confignation.clientId)) {
                         hashMap.put("cuid", confignation.clientId);
                     }
-                    if (!z2) {
-                        hashMap.put("v", str2);
-                    }
+                    hashMap.put("v", str2);
                     if (map != null) {
                         for (Map.Entry<String, String> entry : map.entrySet()) {
                             if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {
@@ -90,7 +84,6 @@ public final class StatService {
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
                         public void onSuccess(int i, String str3) {
-                            SapiContext.getInstance(confignation.context).removeStatItemV2(str, str2);
                         }
                     });
                 }
@@ -115,24 +108,6 @@ public final class StatService {
         map.put("source", "native");
         map.put("data_source", "client");
         onEvent("auto_statistic", map);
-    }
-
-    public static void replay() {
-        try {
-            SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
-            Map<String, Map<String, String>> statItemsV1 = SapiContext.getInstance(confignation.context).getStatItemsV1();
-            if (!statItemsV1.isEmpty()) {
-                for (Map.Entry<String, Map<String, String>> entry : statItemsV1.entrySet()) {
-                    onEvent(entry.getKey(), String.valueOf(System.currentTimeMillis()), entry.getValue(), true, true);
-                }
-                SapiContext.getInstance(confignation.context).clearStatItemV1();
-            }
-            for (StatModel statModel : SapiContext.getInstance(confignation.context).getStatItemsV2()) {
-                onEvent(statModel.name, statModel.time, statModel.extraMap, true, true);
-            }
-        } catch (Throwable th) {
-            Log.e(th);
-        }
     }
 
     /* loaded from: classes.dex */

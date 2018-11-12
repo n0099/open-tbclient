@@ -14,9 +14,9 @@ import com.baidu.adp.R;
 import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 /* loaded from: classes.dex */
 public class IndicatorView extends View {
-    private boolean NP;
-    private float NQ;
-    private final f NR;
+    private boolean NT;
+    private float NU;
+    private final f NV;
     private int mCount;
     private Drawable mDrawable;
     private float mPosition;
@@ -33,7 +33,7 @@ public class IndicatorView extends View {
 
     public IndicatorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.NR = new a();
+        this.NV = new a();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.IndicatorView);
         this.mSpacing = obtainStyledAttributes.getDimensionPixelSize(R.styleable.IndicatorView_spacing, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
         this.mCount = obtainStyledAttributes.getInteger(R.styleable.IndicatorView_count, 0);
@@ -45,21 +45,21 @@ public class IndicatorView extends View {
         if (this.mSelector != null) {
             this.mSelector.setBounds(0, 0, this.mSelector.getIntrinsicWidth(), this.mSelector.getIntrinsicHeight());
         }
-        this.NP = obtainStyledAttributes.getBoolean(R.styleable.IndicatorView_autoHide, false);
+        this.NT = obtainStyledAttributes.getBoolean(R.styleable.IndicatorView_autoHide, false);
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        this.NR.measure(i, i2);
+        this.NV.measure(i, i2);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        this.NR.draw(canvas);
+        this.NV.draw(canvas);
     }
 
     public void setAutoHide(boolean z) {
-        this.NP = z;
+        this.NT = z;
     }
 
     public void setDrawable(Drawable drawable) {
@@ -114,16 +114,16 @@ public class IndicatorView extends View {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a implements f {
-        private final int NT;
-        private long NU;
-        private long NV;
-        private int NW;
-        private float NX;
-        private boolean NY;
-        private final HandlerC0027a NZ = new HandlerC0027a();
+        private final int NW;
+        private long NX;
+        private long NY;
+        private int NZ;
+        private float Oa;
+        private boolean Ob;
+        private final HandlerC0027a Oc = new HandlerC0027a();
 
         a() {
-            this.NT = (int) ((IndicatorView.this.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
+            this.NW = (int) ((IndicatorView.this.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
         }
 
         @Override // com.baidu.adp.widget.f
@@ -134,10 +134,10 @@ public class IndicatorView extends View {
                 return;
             }
             IndicatorView.this.setWillNotDraw(false);
-            IndicatorView.this.setMeasuredDimension(aQ(i), aR(i2));
+            IndicatorView.this.setMeasuredDimension(measureWidth(i), measureHeight(i2));
         }
 
-        private int aQ(int i) {
+        private int measureWidth(int i) {
             int i2 = i & (-1073741824);
             int i3 = 1073741823 & i;
             int max = (IndicatorView.this.mSpacing * (IndicatorView.this.mCount - 1)) + (Math.max(IndicatorView.this.mDrawable.getIntrinsicWidth(), IndicatorView.this.mSelector.getIntrinsicWidth()) * IndicatorView.this.mCount);
@@ -161,7 +161,7 @@ public class IndicatorView extends View {
             }
         }
 
-        private int aR(int i) {
+        private int measureHeight(int i) {
             int i2 = i & (-1073741824);
             int i3 = 1073741823 & i;
             int max = Math.max(IndicatorView.this.mDrawable.getIntrinsicHeight(), IndicatorView.this.mSelector.getIntrinsicHeight());
@@ -216,45 +216,45 @@ public class IndicatorView extends View {
         }
 
         @Override // com.baidu.adp.widget.f
-        public void aS(int i) {
-            if (IndicatorView.this.NQ <= IndicatorView.this.mPosition) {
-                if (IndicatorView.this.NQ < IndicatorView.this.mPosition) {
-                    this.NW = -this.NT;
+        public void bh(int i) {
+            if (IndicatorView.this.NU <= IndicatorView.this.mPosition) {
+                if (IndicatorView.this.NU < IndicatorView.this.mPosition) {
+                    this.NZ = -this.NW;
                 } else {
                     return;
                 }
             } else {
-                this.NW = this.NT;
+                this.NZ = this.NW;
             }
-            this.NX = IndicatorView.this.mPosition;
-            this.NU = SystemClock.uptimeMillis();
-            this.NV = this.NU + 16;
-            this.NZ.removeMessages(1000);
-            this.NZ.sendEmptyMessageAtTime(1000, this.NV);
+            this.Oa = IndicatorView.this.mPosition;
+            this.NX = SystemClock.uptimeMillis();
+            this.NY = this.NX + 16;
+            this.Oc.removeMessages(1000);
+            this.Oc.sendEmptyMessageAtTime(1000, this.NY);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void compute() {
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.NX = ((((float) (uptimeMillis - this.NU)) / 1000.0f) * this.NW) + this.NX;
-            this.NU = uptimeMillis;
-            this.NV = this.NU + 16;
-            if (this.NW < 0) {
-                if (this.NX < IndicatorView.this.NQ) {
-                    IndicatorView.this.mPosition = IndicatorView.this.NQ;
-                    this.NY = false;
+            this.Oa = ((((float) (uptimeMillis - this.NX)) / 1000.0f) * this.NZ) + this.Oa;
+            this.NX = uptimeMillis;
+            this.NY = this.NX + 16;
+            if (this.NZ < 0) {
+                if (this.Oa < IndicatorView.this.NU) {
+                    IndicatorView.this.mPosition = IndicatorView.this.NU;
+                    this.Ob = false;
                 } else {
-                    IndicatorView.this.mPosition = this.NX;
-                    this.NZ.removeMessages(1000);
-                    this.NZ.sendEmptyMessageAtTime(1000, this.NV);
+                    IndicatorView.this.mPosition = this.Oa;
+                    this.Oc.removeMessages(1000);
+                    this.Oc.sendEmptyMessageAtTime(1000, this.NY);
                 }
-            } else if (this.NX > IndicatorView.this.NQ) {
-                IndicatorView.this.mPosition = IndicatorView.this.NQ;
-                this.NY = false;
+            } else if (this.Oa > IndicatorView.this.NU) {
+                IndicatorView.this.mPosition = IndicatorView.this.NU;
+                this.Ob = false;
             } else {
-                IndicatorView.this.mPosition = this.NX;
-                this.NZ.removeMessages(1000);
-                this.NZ.sendEmptyMessageAtTime(1000, this.NV);
+                IndicatorView.this.mPosition = this.Oa;
+                this.Oc.removeMessages(1000);
+                this.Oc.sendEmptyMessageAtTime(1000, this.NY);
             }
             IndicatorView.this.invalidate();
         }

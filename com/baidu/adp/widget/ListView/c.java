@@ -11,18 +11,18 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     private Context mContext;
     private View mView = null;
     private boolean mEnable = true;
-    private int Ow = 0;
     private int Ox = 0;
+    private int Oy = 0;
 
-    public abstract void ah(boolean z);
+    public abstract void av(boolean z);
 
-    public abstract void ai(boolean z);
+    public abstract void aw(boolean z);
 
-    public abstract void aj(boolean z);
+    public abstract void ax(boolean z);
 
-    public abstract View oG();
+    public abstract View oE();
 
-    public abstract void oH();
+    public abstract void oF();
 
     public abstract void refreshing();
 
@@ -43,13 +43,13 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public final View getView() {
         if (this.mView == null) {
-            this.mView = oG();
+            this.mView = oE();
             if (this.mView == null) {
                 throw new IllegalStateException("BdIListPullView getView is null");
             }
             A(this.mView);
-            this.Ow = this.mView.getMeasuredHeight();
-            this.Ox = this.mView.getMeasuredWidth();
+            this.Ox = this.mView.getMeasuredHeight();
+            this.Oy = this.mView.getMeasuredWidth();
         }
         return this.mView;
     }
@@ -84,13 +84,13 @@ public abstract class c implements BdSwipeRefreshLayout.b {
         view.measure(childMeasureSpec, makeMeasureSpec);
     }
 
-    public int oI() {
-        return this.Ow;
+    public int oG() {
+        return this.Ox;
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onPullToRefresh() {
-        ah(false);
+        av(false);
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
@@ -101,25 +101,25 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onRefreshing() {
         refreshing();
-        aj(true);
+        ax(true);
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public void oJ() {
-        oH();
+    public void oH() {
+        oF();
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onFinish() {
-        ai(true);
+        aw(true);
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public void k(float f, float f2) {
+    public void n(float f, float f2) {
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public long oK() {
+    public long oI() {
         return 0L;
     }
 }

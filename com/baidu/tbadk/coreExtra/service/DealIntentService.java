@@ -164,7 +164,7 @@ public class DealIntentService extends BdBaseService {
             ax.x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i);
             TiebaStatic.log(ax);
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                eM(i2);
+                fa(i2);
             }
             String string = this.intent.getExtras().getString("stat");
             if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(stringExtra)) {
@@ -172,7 +172,7 @@ public class DealIntentService extends BdBaseService {
             }
             if (com.baidu.adp.base.a.fW().fX() != null) {
                 if (5 == this.intent.getIntExtra("class", -1)) {
-                    if (com.baidu.adp.base.a.fW().fX().getClass().getName().equalsIgnoreCase(b.Bh())) {
+                    if (com.baidu.adp.base.a.fW().fX().getClass().getName().equalsIgnoreCase(b.Bo())) {
                         this.intent.putExtra("class", 5);
                     } else {
                         this.intent.putExtra("class", 21);
@@ -186,7 +186,7 @@ public class DealIntentService extends BdBaseService {
                 TiebaStatic.eventStat(DealIntentService.this, "open_push", IntentConfig.START, 1, new Object[0]);
             }
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                eL(i2);
+                eZ(i2);
             }
             return DealIntentService.ACTION_ON_POST_START;
         }
@@ -210,7 +210,7 @@ public class DealIntentService extends BdBaseService {
             DealIntentService.this.stopSelf();
         }
 
-        private void eL(int i) {
+        private void eZ(int i) {
             switch (i) {
                 case 0:
                 case 1:
@@ -226,7 +226,7 @@ public class DealIntentService extends BdBaseService {
             }
         }
 
-        private void eM(int i) {
+        private void fa(int i) {
             switch (i) {
                 case 6:
                     TiebaStatic.eventStat(DealIntentService.this, "notify_to_pk_before", AiAppsUBCStatistic.TYPE_CLICK);

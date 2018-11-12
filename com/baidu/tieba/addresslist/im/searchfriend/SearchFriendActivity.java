@@ -31,19 +31,18 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> implements UserIconBox.b {
-    private View byq;
-    private a bzG;
-    private NavigationBar bzH;
-    private View bzI;
-    private a.InterfaceC0157a bzJ = new a.InterfaceC0157a() { // from class: com.baidu.tieba.addresslist.im.searchfriend.SearchFriendActivity.1
-        @Override // com.baidu.tieba.addresslist.im.searchfriend.a.InterfaceC0157a
-        public void jJ(String str) {
+    private a bAr;
+    private NavigationBar bAs;
+    private View bAt;
+    private a.InterfaceC0181a bAu = new a.InterfaceC0181a() { // from class: com.baidu.tieba.addresslist.im.searchfriend.SearchFriendActivity.1
+        @Override // com.baidu.tieba.addresslist.im.searchfriend.a.InterfaceC0181a
+        public void jL(String str) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SEARCH_FRIEND_CMD);
             httpMessage.addParam("search_key", str);
             SearchFriendActivity.this.sendMessage(httpMessage);
         }
     };
-    private CustomMessageListener bzK = new CustomMessageListener(2001265) { // from class: com.baidu.tieba.addresslist.im.searchfriend.SearchFriendActivity.2
+    private CustomMessageListener bAv = new CustomMessageListener(2001265) { // from class: com.baidu.tieba.addresslist.im.searchfriend.SearchFriendActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -69,12 +68,12 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
             }
         }
     };
-    private final HttpMessageListener bzL = new HttpMessageListener(CmdConfigHttp.SEARCH_FRIEND_CMD) { // from class: com.baidu.tieba.addresslist.im.searchfriend.SearchFriendActivity.3
+    private final HttpMessageListener bAw = new HttpMessageListener(CmdConfigHttp.SEARCH_FRIEND_CMD) { // from class: com.baidu.tieba.addresslist.im.searchfriend.SearchFriendActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001521) {
-                SearchFriendActivity.this.bzG.da(true);
+                SearchFriendActivity.this.bAr.dr(true);
                 int statusCode = httpResponsedMessage.getStatusCode();
                 int error = httpResponsedMessage.getError();
                 if (httpResponsedMessage instanceof ResponseSearchFriendMessage) {
@@ -82,7 +81,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                     if (statusCode == 200 && error == 0 && responseSearchFriendMessage.getSearchFriendResult() != null) {
                         List<SearchFriendResult.UserInfo> userInfo = responseSearchFriendMessage.getSearchFriendResult().getUserInfo();
                         if (userInfo != null && userInfo.size() > 0) {
-                            SearchFriendActivity.this.bzG.jK(null);
+                            SearchFriendActivity.this.bAr.jM(null);
                             SearchFriendResult.UserInfo userInfo2 = userInfo.get(0);
                             if (userInfo2 == null) {
                                 SearchFriendActivity.this.showToast(SearchFriendActivity.this.getPageContext().getString(e.j.neterror));
@@ -102,13 +101,14 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
             }
         }
     };
+    private View bzb;
 
-    private void Vs() {
+    private void VB() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SEARCH_FRIEND_CMD, TbConfig.SERVER_ADDRESS + TbConfig.SEARCH_FRIEND);
         tbHttpMessageTask.setResponsedClass(ResponseSearchFriendMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        registerListener(this.bzL);
+        registerListener(this.bAw);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -116,57 +116,57 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(e.h.activity_search_friend);
-        this.byq = findViewById(e.g.new_search_friend_root_view);
+        this.bzb = findViewById(e.g.new_search_friend_root_view);
         View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.im.searchfriend.SearchFriendActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                SearchFriendActivity.this.bzG.Vu();
+                SearchFriendActivity.this.bAr.VD();
             }
         };
-        this.byq.setOnClickListener(onClickListener);
-        this.bzH = (NavigationBar) findViewById(e.g.new_search_friend_navigation_bar);
-        this.bzH.setTitleText(e.j.find_new_friend);
-        this.bzH.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.im.searchfriend.SearchFriendActivity.5
+        this.bzb.setOnClickListener(onClickListener);
+        this.bAs = (NavigationBar) findViewById(e.g.new_search_friend_navigation_bar);
+        this.bAs.setTitleText(e.j.find_new_friend);
+        this.bAs.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.im.searchfriend.SearchFriendActivity.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 SearchFriendActivity.this.finish();
             }
         });
-        this.bzI = findViewById(e.g.new_search_friend_search_container);
-        this.bzG = new a(getPageContext(), this.bzI);
-        this.bzI.setOnClickListener(onClickListener);
-        this.bzG.a(this.bzJ);
+        this.bAt = findViewById(e.g.new_search_friend_search_container);
+        this.bAr = new a(getPageContext(), this.bAt);
+        this.bAt.setOnClickListener(onClickListener);
+        this.bAr.a(this.bAu);
         TiebaStatic.log("add_new");
-        registerListener(this.bzK);
-        Vs();
+        registerListener(this.bAv);
+        VB();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.bzH.onChangeSkinType(getPageContext(), i);
-        this.bzG.dW(i);
-        getLayoutMode().onModeChanged(this.bzI);
-        getLayoutMode().onModeChanged(this.byq);
+        this.bAs.onChangeSkinType(getPageContext(), i);
+        this.bAr.ek(i);
+        getLayoutMode().onModeChanged(this.bAt);
+        getLayoutMode().onModeChanged(this.bzb);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.bzG.Vt();
+        this.bAr.VC();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.view.UserIconBox.b
     /* renamed from: getListView */
-    public ListView Eg() {
+    public ListView Eq() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.b
-    public b<TbImageView> Eh() {
+    public b<TbImageView> Er() {
         return UserIconBox.l(getPageContext().getPageActivity(), 8);
     }
 }

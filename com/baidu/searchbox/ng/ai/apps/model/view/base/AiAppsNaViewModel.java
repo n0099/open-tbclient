@@ -65,10 +65,10 @@ public class AiAppsNaViewModel implements IModel {
             this.id = jSONObject.optString(this.mViewIdKey);
             this.slaveId = jSONObject.optString("slaveId");
             this.parentId = jSONObject.optString(KEY_PARENT_ID);
-            this.hidden = jSONObject.optBoolean(KEY_HIDDEN, false);
+            this.hidden = jSONObject.optBoolean("hide", false);
             this.gesture = TextUtils.equals(jSONObject.optString(KEY_GESTURE), "1");
             this.callback = jSONObject.optString("cb");
-            JSONObject optJSONObject = jSONObject.optJSONObject(KEY_POSITION);
+            JSONObject optJSONObject = jSONObject.optJSONObject("position");
             if (optJSONObject != null) {
                 this.position = new AiAppsRectPosition();
                 this.position.setLeft(AiAppsUIUtils.dp2px(getFloat(optJSONObject, "left", 0.0f)));
@@ -84,14 +84,14 @@ public class AiAppsNaViewModel implements IModel {
             this.id = jSONObject.optString(this.mViewIdKey, aiAppsNaViewModel.id);
             this.slaveId = jSONObject.optString("slaveId", aiAppsNaViewModel.slaveId);
             this.parentId = jSONObject.optString(KEY_PARENT_ID, aiAppsNaViewModel.parentId);
-            this.hidden = jSONObject.optBoolean(KEY_HIDDEN, aiAppsNaViewModel.hidden);
+            this.hidden = jSONObject.optBoolean("hide", aiAppsNaViewModel.hidden);
             this.callback = jSONObject.optString("cb", aiAppsNaViewModel.callback);
             this.gesture = TextUtils.equals(jSONObject.optString(KEY_GESTURE, aiAppsNaViewModel.gesture ? "1" : "0"), "1");
             this.position = aiAppsNaViewModel.position;
             if (this.position == null) {
                 this.position = new AiAppsRectPosition();
             }
-            JSONObject optJSONObject = jSONObject.optJSONObject(KEY_POSITION);
+            JSONObject optJSONObject = jSONObject.optJSONObject("position");
             if (optJSONObject != null) {
                 this.position.setLeft(AiAppsUIUtils.dp2px(getFloat(optJSONObject, "left", this.position.left)));
                 this.position.setTop(AiAppsUIUtils.dp2px(getFloat(optJSONObject, POSITION_KEY_TOP, this.position.top)));

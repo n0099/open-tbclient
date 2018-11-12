@@ -4,9 +4,9 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.FrsPage.StarEnter;
 /* loaded from: classes6.dex */
 public class g implements com.baidu.adp.widget.ListView.h {
-    private int fIn;
-    private String gZW;
-    private int gZX;
+    private int fJL;
+    private String hbt;
+    private int hbu;
     private String icon;
     private String obj_id;
     private int time;
@@ -15,20 +15,20 @@ public class g implements com.baidu.adp.widget.ListView.h {
     private String url;
     private int weight;
 
-    public int bzQ() {
-        return this.gZX;
+    public int bzm() {
+        return this.hbu;
     }
 
-    public void un(int i) {
-        this.gZX = i;
+    public void uG(int i) {
+        this.hbu = i;
     }
 
-    public int bzR() {
-        return this.fIn;
+    public int bzn() {
+        return this.fJL;
     }
 
-    public void uo(int i) {
-        this.fIn = i;
+    public void uH(int i) {
+        this.fJL = i;
     }
 
     public String getIcon() {
@@ -39,7 +39,7 @@ public class g implements com.baidu.adp.widget.ListView.h {
         this.icon = str;
     }
 
-    public void up(int i) {
+    public void uI(int i) {
         this.weight = i;
     }
 
@@ -51,7 +51,7 @@ public class g implements com.baidu.adp.widget.ListView.h {
         this.title = str;
     }
 
-    public void uq(int i) {
+    public void uJ(int i) {
         this.type = i;
     }
 
@@ -67,25 +67,25 @@ public class g implements com.baidu.adp.widget.ListView.h {
         this.time = i;
     }
 
-    public String bzS() {
+    public String bzo() {
         return this.obj_id;
     }
 
-    public String bzT() {
-        return this.gZW;
+    public String bzp() {
+        return this.hbt;
     }
 
     public void a(StarEnter starEnter) {
         setIcon(starEnter.icon);
         setTime(starEnter.time.intValue());
         setTitle(starEnter.title);
-        uq(starEnter.type.intValue());
+        uJ(starEnter.type.intValue());
         setUrl(starEnter.url);
-        up(starEnter.weight.intValue());
-        uo(starEnter.rank_num.intValue());
-        un(starEnter.bazhu_mark.intValue());
+        uI(starEnter.weight.intValue());
+        uH(starEnter.rank_num.intValue());
+        uG(starEnter.bazhu_mark.intValue());
         this.obj_id = starEnter.obj_id;
-        this.gZW = starEnter.text;
+        this.hbt = starEnter.text;
     }
 
     @Override // com.baidu.adp.widget.ListView.h

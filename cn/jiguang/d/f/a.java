@@ -433,16 +433,16 @@ public final class a {
                     long parseLong3 = Long.parseLong(optString5);
                     int sid = e.getSid();
                     cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(AudioParams.DEFAULT_AUDIO_BUFFER_SIZE);
-                    bVar.l(0);
-                    bVar.k(2);
-                    bVar.k(4);
-                    bVar.h(parseLong3);
-                    bVar.g(sid);
-                    bVar.h(parseLong);
-                    bVar.l(0);
-                    bVar.k(0);
-                    bVar.h(parseLong2);
-                    bVar.f(optString4.getBytes());
+                    bVar.C(0);
+                    bVar.B(2);
+                    bVar.B(4);
+                    bVar.j(parseLong3);
+                    bVar.i(sid);
+                    bVar.j(parseLong);
+                    bVar.C(0);
+                    bVar.B(0);
+                    bVar.j(parseLong2);
+                    bVar.e(optString4.getBytes());
                     bVar.l(bVar.current(), 0);
                     e.a(context, cn.jiguang.d.a.a, 4, bVar.toByteArray());
                 } else if (optString7.equals("1") && !TextUtils.isEmpty(optString6)) {
@@ -503,18 +503,18 @@ public final class a {
             return;
         }
         try {
-            cn.jiguang.d.e.a.d i = cn.jiguang.d.e.a.a.a.i(bArr);
-            if (i.cd().a() != 3) {
+            cn.jiguang.d.e.a.d h = cn.jiguang.d.e.a.a.a.h(bArr);
+            if (h.cd().a() != 3) {
                 return;
             }
-            ByteBuffer ce = i.ce();
+            ByteBuffer ce = h.ce();
             ce.get();
             long j2 = ce.getLong();
-            String i2 = cn.jiguang.api.a.c.i(ce);
-            if (TextUtils.isEmpty(i2)) {
+            String i = cn.jiguang.api.a.c.i(ce);
+            if (TextUtils.isEmpty(i)) {
                 return;
             }
-            LineNumberReader lineNumberReader = new LineNumberReader(new StringReader(i2));
+            LineNumberReader lineNumberReader = new LineNumberReader(new StringReader(i));
             String readLine = lineNumberReader.readLine();
             if (TextUtils.isEmpty(readLine)) {
                 return;
@@ -526,11 +526,11 @@ public final class a {
             if (!e(context) || d.ae(context) == 1) {
                 a(context, e.getUid());
             } else if (!cn.jiguang.g.a.i(context, readLine)) {
-                a(context, i.cd().c());
+                a(context, h.cd().c());
                 a(context, readLine);
             } else {
                 String encodeToString = Base64.encodeToString(bArr, 10);
-                Long cc = i.cd().cc();
+                Long cc = h.cd().cc();
                 HashMap hashMap = new HashMap();
                 hashMap.put("ktm", encodeToString);
                 hashMap.put("ktp", cn.jiguang.d.h.a.a.b());
@@ -551,13 +551,13 @@ public final class a {
                             intent.putExtra("data", a3.toString());
                             context.startActivity(intent);
                         } else {
-                            a(context, i.cd().c());
+                            a(context, h.cd().c());
                         }
                     } else {
-                        a(context, i.cd().c());
+                        a(context, h.cd().c());
                     }
                 } else if (a2.equals("-4")) {
-                    a(context, i.cd().c());
+                    a(context, h.cd().c());
                 } else {
                     a2.equals("0");
                 }

@@ -70,7 +70,7 @@ public class b {
         com.baidu.b.a.c.a.a aVar = new com.baidu.b.a.c.a.a();
         aVar.packageName = optString;
         aVar.Zo = optLong;
-        aVar.Ky = optInt;
+        aVar.KC = optInt;
         aVar.errMsg = optString2;
         aVar.Zm = optString3;
         return aVar;

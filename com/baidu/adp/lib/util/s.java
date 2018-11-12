@@ -11,14 +11,14 @@ public class s {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
             messageDigest.update(bArr);
-            return u(messageDigest.digest());
+            return t(messageDigest.digest());
         } catch (Exception e) {
             BdLog.e(e);
             return null;
         }
     }
 
-    public static String u(byte[] bArr) {
+    public static String t(byte[] bArr) {
         if (bArr == null) {
             return null;
         }
@@ -43,7 +43,7 @@ public class s {
                     }
                     messageDigest.update(bArr, 0, read);
                 }
-                str = u(messageDigest.digest());
+                str = t(messageDigest.digest());
             } catch (Exception e) {
                 BdLog.e(e.toString());
             } finally {

@@ -8,11 +8,11 @@ import java.util.ArrayList;
 public interface a {
     void a(d.a aVar, ArrayList<h> arrayList, c cVar);
 
-    void aHw();
+    void aGU();
 
-    void aHx();
+    void aGV();
 
-    void aHy();
+    void aGW();
 
     String getForumId();
 

@@ -65,7 +65,7 @@ public final class WebSocketAction extends AiAppAction {
     @Override // com.baidu.searchbox.ng.ai.apps.scheme.actions.AiAppAction
     public boolean handleSubAction(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, AiApp aiApp) {
         boolean handleSend;
-        p.i(unitedSchemeEntity, "entity");
+        p.h((Object) unitedSchemeEntity, "entity");
         if (aiApp == null) {
             AiAppsLog.e(MODULE_TAG, "param is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal aiApp");
@@ -122,8 +122,8 @@ public final class WebSocketAction extends AiAppAction {
         try {
             try {
                 WebSocketManager webSocketManager = WebSocketManager.INSTANCE;
-                p.h((Object) string, "taskId");
-                p.h((Object) optString, PARAM_KEY_REASON);
+                p.g(string, "taskId");
+                p.g(optString, PARAM_KEY_REASON);
                 webSocketManager.close(string, optInt, optString);
                 aiApp.getWebSocket().detachTask(string);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
@@ -132,13 +132,13 @@ public final class WebSocketAction extends AiAppAction {
                 AiAppsLog.e(MODULE_TAG, e.getMessage());
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, e.getMessage());
                 AiAppWebSocket webSocket = aiApp.getWebSocket();
-                p.h((Object) string, "taskId");
+                p.g(string, "taskId");
                 webSocket.detachTask(string);
                 return false;
             }
         } catch (Throwable th) {
             AiAppWebSocket webSocket2 = aiApp.getWebSocket();
-            p.h((Object) string, "taskId");
+            p.g(string, "taskId");
             webSocket2.detachTask(string);
             throw th;
         }
@@ -156,13 +156,13 @@ public final class WebSocketAction extends AiAppAction {
             if (jSONObject.optString(PARAM_KEY_DATA_TYPE, "string").equals(DATA_TYPE_ARRAY_BUFFER)) {
                 ByteBuffer wrap = ByteBuffer.wrap(Base64.decode(string2, 2));
                 WebSocketManager webSocketManager = WebSocketManager.INSTANCE;
-                p.h((Object) string, "taskId");
-                p.h((Object) wrap, "buffer");
+                p.g(string, "taskId");
+                p.g(wrap, "buffer");
                 webSocketManager.send(string, wrap);
             } else {
                 WebSocketManager webSocketManager2 = WebSocketManager.INSTANCE;
-                p.h((Object) string, "taskId");
-                p.h((Object) string2, "data");
+                p.g(string, "taskId");
+                p.g(string2, "data");
                 webSocketManager2.send(string, string2);
             }
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
@@ -191,7 +191,7 @@ public final class WebSocketAction extends AiAppAction {
             jSONObject3.put(PARAM_KEY_ERRNO, "1");
         } else {
             WebSocketRequest fromJSON = WebSocketRequest.Companion.fromJSON(jSONObject);
-            p.h((Object) jSONObject2, "cb");
+            p.g(jSONObject2, "cb");
             try {
                 WebSocketTask connect = WebSocketManager.INSTANCE.connect(fromJSON, createWebSocketListener(jSONObject2, callbackHandler));
                 jSONObject3.put(PARAM_KEY_ERRNO, "0");
@@ -216,7 +216,7 @@ public final class WebSocketAction extends AiAppAction {
         return new IWebSocketListener() { // from class: com.baidu.searchbox.ng.ai.apps.network.WebSocketAction$createWebSocketListener$1
             @Override // com.baidu.searchbox.websocket.IWebSocketListener
             public void onOpen(Map<String, String> map) {
-                p.i(map, "headers");
+                p.h((Object) map, "headers");
                 JSONObject jSONObject2 = new JSONObject(map);
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("header", jSONObject2);
@@ -232,7 +232,7 @@ public final class WebSocketAction extends AiAppAction {
 
             @Override // com.baidu.searchbox.websocket.IWebSocketListener
             public void onMessage(String str) {
-                p.i(str, "message");
+                p.h((Object) str, "message");
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("data", str);
                 jSONObject2.put(WebSocketAction.PARAM_KEY_DATA_TYPE, "string");
@@ -248,7 +248,7 @@ public final class WebSocketAction extends AiAppAction {
 
             @Override // com.baidu.searchbox.websocket.IWebSocketListener
             public void onMessage(ByteBuffer byteBuffer) {
-                p.i(byteBuffer, "message");
+                p.h((Object) byteBuffer, "message");
                 byte[] bArr = new byte[byteBuffer.remaining()];
                 byteBuffer.get(bArr);
                 String encodeToString = Base64.encodeToString(bArr, 2);
@@ -291,7 +291,7 @@ public final class WebSocketAction extends AiAppAction {
             public void onError(Throwable th, JSONObject jSONObject2) {
                 AiApp aiApp;
                 AiAppWebSocket webSocket;
-                p.i(th, "t");
+                p.h((Object) th, "t");
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("errMsg", th.getMessage());
                 JSONObject jSONObject4 = new JSONObject();

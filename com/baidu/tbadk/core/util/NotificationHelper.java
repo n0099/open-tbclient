@@ -156,7 +156,7 @@ public class NotificationHelper {
             if (Build.VERSION.SDK_INT < 26) {
                 builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), PRIMARY_CHANNEL);
             } else {
-                builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), switchData.awZ ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2);
+                builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), switchData.axM ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2);
             }
             builder.setContentTitle(str).setContentText(str2).setTicker(str3);
             processNotificationIcon(builder);
@@ -171,11 +171,11 @@ public class NotificationHelper {
         }
         if (notif_excption != null) {
             notif_excption.defaults = -1;
-            if (!switchData.axa) {
+            if (!switchData.axN) {
                 notif_excption.defaults &= -3;
             }
             notif_excption.audioStreamType = 1;
-            if (!switchData.awZ) {
+            if (!switchData.axM) {
                 notif_excption.defaults &= -2;
             }
             if (z) {
@@ -183,7 +183,7 @@ public class NotificationHelper {
             } else {
                 notif_excption.flags |= 16;
             }
-            if (switchData.axb) {
+            if (switchData.axO) {
                 notif_excption.defaults &= -5;
                 notif_excption.ledARGB = -16776961;
                 notif_excption.ledOnMS = 400;
@@ -216,32 +216,32 @@ public class NotificationHelper {
 
     private static a getSwitchData(Context context) {
         a aVar = new a();
-        if (!com.baidu.tbadk.coreExtra.messageCenter.a.GB() && com.baidu.tbadk.coreExtra.messageCenter.a.GA()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.a.GN() && com.baidu.tbadk.coreExtra.messageCenter.a.GM()) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= 5000) {
                 AudioManager audioManager = (AudioManager) context.getSystemService("audio");
                 boolean z = audioManager.getRingerMode() == 0;
                 boolean z2 = audioManager.getRingerMode() == 1;
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.Hg().Hp()) {
-                    aVar.awZ = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.Hs().HB()) {
+                    aVar.axM = true;
                     if (z || z2) {
-                        aVar.awZ = false;
+                        aVar.axM = false;
                     }
                 }
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.Hg().Hs()) {
-                    aVar.axa = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.Hs().HE()) {
+                    aVar.axN = true;
                     if (z) {
-                        aVar.axa = false;
+                        aVar.axN = false;
                     }
                     if (z2) {
-                        aVar.axa = true;
+                        aVar.axN = true;
                     }
                 }
                 TbadkCoreApplication.getInst().setLastNotifyTime(currentTimeMillis);
             }
         }
-        if (com.baidu.tbadk.coreExtra.messageCenter.c.Hg().Hq()) {
-            aVar.axb = true;
+        if (com.baidu.tbadk.coreExtra.messageCenter.c.Hs().HC()) {
+            aVar.axO = true;
         }
         return aVar;
     }
@@ -278,14 +278,14 @@ public class NotificationHelper {
         try {
             NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
             if (Build.VERSION.SDK_INT >= 26) {
-                NotificationChannel notificationChannel = new NotificationChannel(aVar.awZ ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2, com.baidu.adp.lib.voice.h.getString(e.j.notify_channel_primary), 3);
+                NotificationChannel notificationChannel = new NotificationChannel(aVar.axM ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2, com.baidu.adp.lib.voice.h.getString(e.j.notify_channel_primary), 3);
                 notificationChannel.setLightColor(-16776961);
                 notificationChannel.setLockscreenVisibility(0);
-                notificationChannel.enableVibration(aVar.axa);
-                if (!aVar.awZ) {
+                notificationChannel.enableVibration(aVar.axN);
+                if (!aVar.axM) {
                     notificationChannel.setSound(null, null);
                 }
-                notificationChannel.enableLights(aVar.axb);
+                notificationChannel.enableLights(aVar.axO);
                 notificationManager.createNotificationChannel(notificationChannel);
             }
             if (notification == null || notificationManager == null) {
@@ -306,9 +306,9 @@ public class NotificationHelper {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        boolean awZ = false;
-        boolean axa = false;
-        boolean axb = false;
+        boolean axM = false;
+        boolean axN = false;
+        boolean axO = false;
 
         a() {
         }

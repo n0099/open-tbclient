@@ -19,8 +19,8 @@ public class g {
             return false;
         }
         try {
-            PublicKey v = u.v(com.baidu.adp.lib.util.c.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
-            if (v == null) {
+            PublicKey u = u.u(com.baidu.adp.lib.util.c.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
+            if (u == null) {
                 TiebaStatic.log(new am("c10836").ax("obj_type", "publicKeyCode is null").ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;
             }
@@ -29,7 +29,7 @@ public class g {
                 TiebaStatic.log(new am("c10836").ax("obj_type", "server_data is null").ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;
             }
-            byte[] b = u.b((Key) v, decodeHex);
+            byte[] b = u.b((Key) u, decodeHex);
             if (b == null || b.length <= 0) {
                 TiebaStatic.log(new am("c10836").ax("obj_type", "des is null").ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;

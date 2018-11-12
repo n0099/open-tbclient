@@ -15,14 +15,14 @@ public final class g {
     public static i h(com.google.gson.stream.a aVar) throws JsonParseException {
         boolean z = true;
         try {
-            aVar.bZe();
+            aVar.bYB();
             z = false;
-            return n.inc.b(aVar);
+            return n.ioN.b(aVar);
         } catch (MalformedJsonException e) {
             throw new JsonSyntaxException(e);
         } catch (EOFException e2) {
             if (z) {
-                return j.ikh;
+                return j.ilR;
             }
             throw new JsonSyntaxException(e2);
         } catch (IOException e3) {
@@ -33,7 +33,7 @@ public final class g {
     }
 
     public static void b(i iVar, com.google.gson.stream.b bVar) throws IOException {
-        n.inc.a(bVar, iVar);
+        n.ioN.a(bVar, iVar);
     }
 
     public static Writer a(Appendable appendable) {
@@ -42,22 +42,22 @@ public final class g {
 
     /* loaded from: classes2.dex */
     private static final class a extends Writer {
-        private final Appendable ilh;
-        private final C0326a ili = new C0326a();
+        private final Appendable imS;
+        private final C0354a imT = new C0354a();
 
         a(Appendable appendable) {
-            this.ilh = appendable;
+            this.imS = appendable;
         }
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) throws IOException {
-            this.ili.chars = cArr;
-            this.ilh.append(this.ili, i, i + i2);
+            this.imT.chars = cArr;
+            this.imS.append(this.imT, i, i + i2);
         }
 
         @Override // java.io.Writer
         public void write(int i) throws IOException {
-            this.ilh.append((char) i);
+            this.imS.append((char) i);
         }
 
         @Override // java.io.Writer, java.io.Flushable
@@ -70,10 +70,10 @@ public final class g {
 
         /* renamed from: com.google.gson.internal.g$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        static class C0326a implements CharSequence {
+        static class C0354a implements CharSequence {
             char[] chars;
 
-            C0326a() {
+            C0354a() {
             }
 
             @Override // java.lang.CharSequence

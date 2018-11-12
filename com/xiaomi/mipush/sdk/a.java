@@ -8,12 +8,12 @@ import com.baidu.searchbox.ng.ai.apps.event.message.AiAppsLifecycleMessage;
 public class a {
     private static a a;
     private Context b;
-    private C0349a c;
+    private C0377a c;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.xiaomi.mipush.sdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0349a {
+    public class C0377a {
         public String a;
         public String b;
         public String c;
@@ -25,7 +25,7 @@ public class a {
         public boolean i;
         public int j;
 
-        private C0349a() {
+        private C0377a() {
             this.h = true;
             this.i = false;
             this.j = 1;
@@ -109,7 +109,7 @@ public class a {
     }
 
     private void o() {
-        this.c = new C0349a();
+        this.c = new C0377a();
         SharedPreferences j = j();
         this.c.a = j.getString(AiAppsLifecycleMessage.APP_ID_KEY, null);
         this.c.b = j.getString("appToken", null);

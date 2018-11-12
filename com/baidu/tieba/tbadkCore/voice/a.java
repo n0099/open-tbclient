@@ -10,9 +10,9 @@ public interface a {
 
     void ct(String str);
 
-    void pS();
+    void pQ();
 
-    boolean pT();
+    boolean pR();
 
     void release();
 

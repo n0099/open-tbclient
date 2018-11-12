@@ -17,9 +17,9 @@ public class n implements d, i, k, a.InterfaceC0009a {
     private final com.airbnb.lottie.f nh;
     private final com.airbnb.lottie.model.layer.a pq;
     private final com.airbnb.lottie.a.b.a<Float, Float> pr;
-    private final com.airbnb.lottie.a.b.a<Float, Float> pt;
-    private final com.airbnb.lottie.a.b.p pu;
-    private c pv;
+    private final com.airbnb.lottie.a.b.a<Float, Float> pu;
+    private final com.airbnb.lottie.a.b.p pv;
+    private c pw;
     private final Matrix matrix = new Matrix();
     private final Path oy = new Path();
 
@@ -27,20 +27,20 @@ public class n implements d, i, k, a.InterfaceC0009a {
         this.nh = fVar;
         this.pq = aVar;
         this.name = gVar.getName();
-        this.pr = gVar.ey().dH();
+        this.pr = gVar.ex().dG();
         aVar.a(this.pr);
         this.pr.b(this);
-        this.pt = gVar.ez().dH();
-        aVar.a(this.pt);
-        this.pt.b(this);
-        this.pu = gVar.eA().dZ();
-        this.pu.a(aVar);
-        this.pu.a(this);
+        this.pu = gVar.ey().dG();
+        aVar.a(this.pu);
+        this.pu.b(this);
+        this.pv = gVar.ez().dY();
+        this.pv.a(aVar);
+        this.pv.a(this);
     }
 
     @Override // com.airbnb.lottie.a.a.i
     public void a(ListIterator<b> listIterator) {
-        if (this.pv == null) {
+        if (this.pw == null) {
             while (listIterator.hasPrevious() && listIterator.previous() != this) {
             }
             ArrayList arrayList = new ArrayList();
@@ -49,7 +49,7 @@ public class n implements d, i, k, a.InterfaceC0009a {
                 listIterator.remove();
             }
             Collections.reverse(arrayList);
-            this.pv = new c(this.nh, this.pq, "Repeater", arrayList, null);
+            this.pw = new c(this.nh, this.pq, "Repeater", arrayList, null);
         }
     }
 
@@ -60,17 +60,17 @@ public class n implements d, i, k, a.InterfaceC0009a {
 
     @Override // com.airbnb.lottie.a.a.b
     public void b(List<b> list, List<b> list2) {
-        this.pv.b(list, list2);
+        this.pw.b(list, list2);
     }
 
     @Override // com.airbnb.lottie.a.a.k
     public Path getPath() {
-        Path path = this.pv.getPath();
+        Path path = this.pw.getPath();
         this.oy.reset();
         float floatValue = this.pr.getValue().floatValue();
-        float floatValue2 = this.pt.getValue().floatValue();
+        float floatValue2 = this.pu.getValue().floatValue();
         for (int i = ((int) floatValue) - 1; i >= 0; i--) {
-            this.matrix.set(this.pu.h(i + floatValue2));
+            this.matrix.set(this.pv.h(i + floatValue2));
             this.oy.addPath(path, this.matrix);
         }
         return this.oy;
@@ -79,28 +79,28 @@ public class n implements d, i, k, a.InterfaceC0009a {
     @Override // com.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
         float floatValue = this.pr.getValue().floatValue();
-        float floatValue2 = this.pt.getValue().floatValue();
-        float floatValue3 = this.pu.dA().getValue().floatValue() / 100.0f;
-        float floatValue4 = this.pu.dB().getValue().floatValue() / 100.0f;
+        float floatValue2 = this.pu.getValue().floatValue();
+        float floatValue3 = this.pv.dz().getValue().floatValue() / 100.0f;
+        float floatValue4 = this.pv.dA().getValue().floatValue() / 100.0f;
         for (int i2 = ((int) floatValue) - 1; i2 >= 0; i2--) {
             this.matrix.set(matrix);
-            this.matrix.preConcat(this.pu.h(i2 + floatValue2));
-            this.pv.a(canvas, this.matrix, (int) (i * com.airbnb.lottie.c.e.lerp(floatValue3, floatValue4, i2 / floatValue)));
+            this.matrix.preConcat(this.pv.h(i2 + floatValue2));
+            this.pw.a(canvas, this.matrix, (int) (i * com.airbnb.lottie.c.e.lerp(floatValue3, floatValue4, i2 / floatValue)));
         }
     }
 
     @Override // com.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
-        this.pv.a(rectF, matrix);
+        this.pw.a(rectF, matrix);
     }
 
     @Override // com.airbnb.lottie.a.a.d
     public void b(@Nullable String str, @Nullable String str2, @Nullable ColorFilter colorFilter) {
-        this.pv.b(str, str2, colorFilter);
+        this.pw.b(str, str2, colorFilter);
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0009a
-    public void de() {
+    public void dd() {
         this.nh.invalidateSelf();
     }
 }

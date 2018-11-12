@@ -1,32 +1,20 @@
 package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
-public class at extends com.baidu.adp.lib.b.a {
-    @Override // com.baidu.adp.lib.b.a
-    protected void Z(int i) {
+public class at extends j {
+    private static at bep = new at();
+
+    public static boolean Ox() {
+        return bep.jJ();
     }
 
-    @Override // com.baidu.adp.lib.b.a
+    @Override // com.baidu.tbadk.p.j, com.baidu.adp.lib.b.a
     protected String getName() {
-        return "forum_mask_stat";
+        return "android_custom_offline_web_cache";
     }
 
-    @Override // com.baidu.adp.lib.b.a
-    protected String[] iH() {
-        return null;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int iI() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int iJ() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int iK() {
-        return 10;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.p.j, com.baidu.adp.lib.b.a
+    public int iH() {
+        return super.iH();
     }
 }

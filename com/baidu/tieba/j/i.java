@@ -7,39 +7,41 @@ public interface i {
 
     void a(b bVar);
 
-    void bbg();
+    void a(String str, long j, long j2, long j3, long j4, long j5, String str2, int i);
 
-    void bbh();
+    void baD();
 
-    void bbi();
+    void baE();
 
-    void bbj();
+    void baF();
 
-    void bbk();
+    void baG();
 
-    void bbl();
+    void baH();
 
-    String bbm();
+    void baI();
 
-    String bbn();
+    String baJ();
+
+    String baK();
 
     void f(int i, int i2, String str);
 
-    void jC(boolean z);
-
-    void qU(int i);
-
-    void qV(int i);
+    void jM(boolean z);
 
     void rA(String str);
 
-    String rB(String str);
+    void rB(String str);
 
-    boolean rC(String str);
+    String rC(String str);
 
-    void rD(String str);
+    boolean rD(String str);
+
+    void rE(String str);
 
     void report();
 
-    void rz(String str);
+    void rn(int i);
+
+    void ro(int i);
 }

@@ -12,12 +12,12 @@ import android.widget.TextView;
 import com.baidu.tieba.e;
 /* loaded from: classes4.dex */
 public class InvoiceListItemView extends FrameLayout {
-    private PartingLineView bDW;
-    private View bDX;
-    private ImageView bDY;
-    private TextView bDZ;
-    private ImageView bEa;
-    private TextView bEb;
+    private PartingLineView bEI;
+    private View bEJ;
+    private ImageView bEK;
+    private TextView bEL;
+    private ImageView bEM;
+    private TextView bEN;
     private Context mContext;
     private View mTopView;
 
@@ -31,47 +31,47 @@ public class InvoiceListItemView extends FrameLayout {
 
     public InvoiceListItemView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        bJ(context);
+        initView(context);
     }
 
-    private void bJ(Context context) {
+    private void initView(Context context) {
         this.mContext = context;
         LayoutInflater.from(context).inflate(e.h.invoice_item_view, (ViewGroup) this, true);
-        this.bDW = (PartingLineView) findViewById(e.g.parting_line_view);
-        this.bDW.setBgNormalColor(e.d.invoice_bg_normal_color);
-        this.bDW.setBgPressedColor(e.d.invoice_bg_pressed_color);
-        this.bDW.setBorderColor(e.d.invoice_bg_border_color);
-        this.bDW.setDividerLineColor(e.d.invoice_bg_divider_line_color);
-        this.bDX = LayoutInflater.from(context).inflate(e.h.invoice_item_bottom_view, (ViewGroup) null);
-        this.bDY = (ImageView) this.bDX.findViewById(e.g.invoice_current_use_img);
-        this.bDZ = (TextView) this.bDX.findViewById(e.g.invoice_current_use_txt);
-        this.bEa = (ImageView) this.bDX.findViewById(e.g.invoice_edit_img);
-        this.bEb = (TextView) this.bDX.findViewById(e.g.invoice_edit);
-        this.bDY.setImageDrawable(getResources().getDrawable(e.f.invoice_default_select));
-        this.bDZ.setTextColor(getResources().getColor(e.d.invoice_bottom_text));
-        this.bEa.setImageDrawable(getResources().getDrawable(e.f.invoice_edit_img));
-        this.bEb.setTextColor(getResources().getColor(e.d.invoice_bottom_text));
-        this.bDY.setVisibility(4);
-        this.bDZ.setVisibility(4);
+        this.bEI = (PartingLineView) findViewById(e.g.parting_line_view);
+        this.bEI.setBgNormalColor(e.d.invoice_bg_normal_color);
+        this.bEI.setBgPressedColor(e.d.invoice_bg_pressed_color);
+        this.bEI.setBorderColor(e.d.invoice_bg_border_color);
+        this.bEI.setDividerLineColor(e.d.invoice_bg_divider_line_color);
+        this.bEJ = LayoutInflater.from(context).inflate(e.h.invoice_item_bottom_view, (ViewGroup) null);
+        this.bEK = (ImageView) this.bEJ.findViewById(e.g.invoice_current_use_img);
+        this.bEL = (TextView) this.bEJ.findViewById(e.g.invoice_current_use_txt);
+        this.bEM = (ImageView) this.bEJ.findViewById(e.g.invoice_edit_img);
+        this.bEN = (TextView) this.bEJ.findViewById(e.g.invoice_edit);
+        this.bEK.setImageDrawable(getResources().getDrawable(e.f.invoice_default_select));
+        this.bEL.setTextColor(getResources().getColor(e.d.invoice_bottom_text));
+        this.bEM.setImageDrawable(getResources().getDrawable(e.f.invoice_edit_img));
+        this.bEN.setTextColor(getResources().getColor(e.d.invoice_bottom_text));
+        this.bEK.setVisibility(4);
+        this.bEL.setVisibility(4);
         setClickable(true);
     }
 
-    public void Xv() {
+    public void XF() {
         this.mTopView = LayoutInflater.from(this.mContext).inflate(e.h.invoice_item_top_company_view, (ViewGroup) null);
         ((TextView) this.mTopView.findViewById(e.g.invoice_company_title_txt)).setTextColor(getResources().getColor(e.d.invoice_top_title_color));
         ((TextView) this.mTopView.findViewById(e.g.tax_number_txt)).setTextColor(getResources().getColor(e.d.invoice_top_tax_number_color));
         ((CommonTagView) this.mTopView.findViewById(e.g.common_tag_company)).setTextColor(getResources().getColor(e.d.invoice_top_tag_color));
-        if (this.bDW != null) {
-            this.bDW.setContentView(this.mTopView, this.bDX);
+        if (this.bEI != null) {
+            this.bEI.setContentView(this.mTopView, this.bEJ);
         }
     }
 
-    public void Xw() {
+    public void XG() {
         this.mTopView = LayoutInflater.from(this.mContext).inflate(e.h.invoice_item_top_personage_view, (ViewGroup) null);
         ((TextView) this.mTopView.findViewById(e.g.invoice_personal_title_txt)).setTextColor(getResources().getColor(e.d.invoice_top_title_color));
         ((CommonTagView) this.mTopView.findViewById(e.g.invoice_personal_tag)).setTextColor(getResources().getColor(e.d.invoice_top_tag_color));
-        if (this.bDW != null) {
-            this.bDW.setContentView(this.mTopView, this.bDX);
+        if (this.bEI != null) {
+            this.bEI.setContentView(this.mTopView, this.bEJ);
         }
     }
 
@@ -97,11 +97,11 @@ public class InvoiceListItemView extends FrameLayout {
 
     public void setEditClickListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            if (this.bEb != null) {
-                this.bEb.setOnClickListener(onClickListener);
+            if (this.bEN != null) {
+                this.bEN.setOnClickListener(onClickListener);
             }
-            if (this.bEa != null) {
-                this.bEa.setOnClickListener(onClickListener);
+            if (this.bEM != null) {
+                this.bEM.setOnClickListener(onClickListener);
             }
         }
     }
@@ -112,25 +112,25 @@ public class InvoiceListItemView extends FrameLayout {
         }
     }
 
-    public void di(boolean z) {
+    public void dz(boolean z) {
         int i = z ? 0 : 4;
-        if (this.bDY != null) {
-            this.bDY.setVisibility(i);
+        if (this.bEK != null) {
+            this.bEK.setVisibility(i);
         }
-        if (this.bDZ != null) {
-            this.bDZ.setVisibility(i);
+        if (this.bEL != null) {
+            this.bEL.setVisibility(i);
         }
     }
 
     @Override // android.view.View
     public void setPressed(boolean z) {
-        dj(z);
+        dA(z);
         super.setPressed(z);
     }
 
-    private void dj(boolean z) {
-        if (this.bDW != null) {
-            this.bDW.dk(z);
+    private void dA(boolean z) {
+        if (this.bEI != null) {
+            this.bEI.dB(z);
         }
     }
 }

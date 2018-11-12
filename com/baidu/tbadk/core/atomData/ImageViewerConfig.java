@@ -21,8 +21,11 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String FIXED_COUNT_IN_TITLE = "fixed_count_in_title";
     public static final String FORUM_ID = "fid";
     public static final String FORUM_NAME = "fname";
+    public static final String FROM_CONCERN = "concern";
     public static final String FROM_DISCOVER_BEAUTY = "discover_beauty";
     public static final String FROM_FRS = "frs";
+    public static final String FROM_HOME = "index";
+    public static final String FROM_OTHER = "other";
     public static final String FROM_PB = "pb";
     public static final String IMAGE_DATA_LIST = "image_data_list";
     public static final String INDEX = "index";

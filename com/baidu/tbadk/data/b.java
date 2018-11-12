@@ -1,6 +1,9 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.e;
@@ -10,7 +13,7 @@ import tbclient.AlaLiveInfo;
 import tbclient.BannerFollowLive;
 /* loaded from: classes.dex */
 public class b implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId aSw = BdUniqueId.gen();
+    public static final BdUniqueId aTm = BdUniqueId.gen();
     private List<com.baidu.adp.widget.ListView.h> mList;
 
     public List<com.baidu.adp.widget.ListView.h> getList() {
@@ -25,8 +28,8 @@ public class b implements com.baidu.adp.widget.ListView.h {
                 this.mList.clear();
             }
             List<AlaLiveInfo> list = bannerFollowLive.ala_live_list;
-            if (!v.J(list)) {
-                Kd();
+            if (!v.I(list)) {
+                Kp();
                 for (AlaLiveInfo alaLiveInfo : list) {
                     if (alaLiveInfo != null) {
                         a aVar = new a();
@@ -38,16 +41,23 @@ public class b implements com.baidu.adp.widget.ListView.h {
         }
     }
 
-    private void Kd() {
+    private void Kp() {
+        String string;
         a aVar = new a();
-        aVar.aSt = -100;
-        aVar.aSu = TbadkCoreApplication.getInst().getResources().getString(e.j.ala_follow_live_enter_live_square_txt);
-        aVar.aSv = e.f.icon_follow_live_recommend;
+        aVar.aTj = -100;
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2911008, String.class);
+        if (runTask != null && !StringUtils.isNull((String) runTask.getData())) {
+            string = (String) runTask.getData();
+        } else {
+            string = TbadkCoreApplication.getInst().getResources().getString(e.j.ala_follow_live_enter_live_square_txt);
+        }
+        aVar.aTk = string;
+        aVar.aTl = e.f.icon_follow_live_recommend;
         this.mList.add(aVar);
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return aSw;
+        return aTm;
     }
 }

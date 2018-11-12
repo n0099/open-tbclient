@@ -23,7 +23,7 @@ public final class ca<T> extends cb<T> {
                 return aVar.a(new rx.functions.a() { // from class: rx.internal.operators.ca.1.1
                     @Override // rx.functions.a
                     public void call() {
-                        cVar.dI(l.longValue());
+                        cVar.dD(l.longValue());
                     }
                 }, j, timeUnit);
             }
@@ -39,7 +39,7 @@ public final class ca<T> extends cb<T> {
                 return aVar.a(new rx.functions.a() { // from class: rx.internal.operators.ca.2.1
                     @Override // rx.functions.a
                     public void call() {
-                        cVar.dI(l.longValue());
+                        cVar.dD(l.longValue());
                     }
                 }, j, timeUnit);
             }

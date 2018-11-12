@@ -8,17 +8,17 @@ import java.util.Properties;
 /* loaded from: classes.dex */
 public final class r {
     public static boolean isEMUI() {
-        return q("ro.build.version.emui", "ro.build.hw_emui_api_level");
+        return s("ro.build.version.emui", "ro.build.hw_emui_api_level");
     }
 
-    private static boolean q(String... strArr) {
+    private static boolean s(String... strArr) {
         if (strArr == null || strArr.length == 0) {
             return false;
         }
         try {
-            a OK = a.OK();
+            a OT = a.OT();
             for (String str : strArr) {
-                if (OK.getProperty(str) != null) {
+                if (OT.getProperty(str) != null) {
                     return true;
                 }
             }
@@ -31,26 +31,26 @@ public final class r {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static final class a {
-        private static a beq;
-        private final Properties ber = new Properties();
+        private static a bff;
+        private final Properties bfg = new Properties();
 
         private a() throws IOException {
-            this.ber.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
+            this.bfg.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
         }
 
-        public static a OK() throws IOException {
-            if (beq == null) {
+        public static a OT() throws IOException {
+            if (bff == null) {
                 synchronized (a.class) {
-                    if (beq == null) {
-                        beq = new a();
+                    if (bff == null) {
+                        bff = new a();
                     }
                 }
             }
-            return beq;
+            return bff;
         }
 
         public String getProperty(String str) {
-            return this.ber.getProperty(str);
+            return this.bfg.getProperty(str);
         }
     }
 }

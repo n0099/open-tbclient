@@ -10,21 +10,27 @@ import com.baidu.ar.util.IoUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.ng.ai.apps.util.AiAppDateTimeUtil;
 import com.baidu.sofire.ac.F;
+import com.baidu.sofire.b;
 import com.baidu.sofire.e;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     private static a a;
-    private C0116a b;
+    private C0140a b;
     private e c;
     private SQLiteDatabase d;
     private Context e;
 
     private a(Context context) {
         this.e = context;
-        this.b = new C0116a(context);
+        this.b = new C0140a(context);
         this.c = new e(context);
+        d();
+    }
+
+    private void d() {
         try {
             this.d = this.b.getWritableDatabase();
         } catch (Throwable th) {
@@ -43,7 +49,7 @@ public final class a {
         return aVar;
     }
 
-    public final long a(com.baidu.sofire.rp.c.a aVar) {
+    public long a(com.baidu.sofire.rp.c.a aVar) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("b", aVar.b);
         contentValues.put("c", Integer.valueOf(aVar.c));
@@ -68,7 +74,7 @@ public final class a {
         }
     }
 
-    public final long a(String str) {
+    public long a(String str) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("b", str);
         try {
@@ -85,7 +91,7 @@ public final class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final boolean b(String str) {
+    public boolean b(String str) {
         Cursor cursor;
         boolean z;
         try {
@@ -141,84 +147,59 @@ public final class a {
         }
     }
 
-    private int b(int i) {
+    public int a(int i) {
         try {
-            return this.d.delete("r", "a=?", new String[]{String.valueOf(i)});
+            return this.d.delete("r", "a=?", new String[]{i + ""});
         } catch (Throwable th) {
             com.baidu.sofire.b.e.a(th);
             return -1;
         }
     }
 
-    public final int a(List<Integer> list) {
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, IGET, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    public int a(List<Integer> list) {
         try {
             this.d.beginTransaction();
             for (Integer num : list) {
-                b(num.intValue());
+                a(num.intValue());
             }
             this.d.setTransactionSuccessful();
-            try {
-                this.d.endTransaction();
-                return -1;
-            } catch (Exception e) {
-                com.baidu.sofire.b.e.a(e);
-                return -1;
-            }
         } catch (Throwable th) {
             try {
                 com.baidu.sofire.b.e.a(th);
                 try {
-                    return -1;
-                } catch (Exception e2) {
-                    return -1;
+                    this.d.endTransaction();
+                } catch (Exception e) {
+                    com.baidu.sofire.b.e.a(e);
                 }
             } finally {
                 try {
                     this.d.endTransaction();
-                } catch (Exception e22) {
-                    com.baidu.sofire.b.e.a(e22);
+                } catch (Exception e2) {
+                    com.baidu.sofire.b.e.a(e2);
                 }
             }
         }
+        return -1;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [265=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x0172 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x0169 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r1v1 */
-    /* JADX WARN: Type inference failed for: r1v14 */
-    /* JADX WARN: Type inference failed for: r1v15 */
-    /* JADX WARN: Type inference failed for: r1v2 */
-    /* JADX WARN: Type inference failed for: r1v4, types: [android.database.Cursor] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x01e0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final List<com.baidu.sofire.rp.c.a> a(int i) {
-        String str;
-        ?? r1;
+    public List<com.baidu.sofire.rp.c.a> b(int i) {
         Cursor cursor;
-        String str2;
+        String str;
         ArrayList arrayList = new ArrayList();
         long currentTimeMillis = System.currentTimeMillis();
         e eVar = new e(this.e);
-        int i2 = eVar.e.getInt("re_net_wt", 3) * 3600000;
-        if (i == 2) {
-            str = "(d <= (" + currentTimeMillis + "-e*3600000) or e=0 )";
-            r1 = "-e*3600000) or e=0 )";
-        } else {
-            str = "(d <= (" + currentTimeMillis + "-e*3600000) or e=0 ) and (g!=2 or d<=" + (currentTimeMillis - i2) + ")";
-            r1 = ")";
-        }
+        String str2 = i == 2 ? "(d <= (" + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + "e*3600000) or e=0 )" : "(d <= (" + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + "e*3600000) or e=0 ) and (g!=2 or d<=" + (currentTimeMillis - (eVar.T() * 3600000)) + ")";
         try {
-            try {
-                if (i == 2) {
-                    cursor = this.d.query("r", null, str, null, null, null, "d desc", Integer.toString(100));
-                } else {
-                    cursor = this.d.query("r", null, str, null, null, null, "d desc", Integer.toString(eVar.e.getInt("up_nu_li", 100)));
-                }
-                if (cursor != null) {
-                    while (cursor.moveToNext()) {
+            cursor = i == 2 ? this.d.query("r", null, str2, null, null, null, "d desc", Integer.toString(100)) : this.d.query("r", null, str2, null, null, null, "d desc", Integer.toString(eVar.V()));
+            if (cursor != null) {
+                while (cursor.moveToNext()) {
+                    try {
                         try {
                             com.baidu.sofire.rp.c.a aVar = new com.baidu.sofire.rp.c.a();
                             aVar.a = cursor.getInt(cursor.getColumnIndex(Config.APP_VERSION_CODE));
@@ -232,12 +213,12 @@ public final class a {
                             aVar.j = cursor.getString(cursor.getColumnIndex("j"));
                             String string = cursor.getString(cursor.getColumnIndex("h"));
                             try {
-                                str2 = new String(F.getInstance().ad(Base64.decode(string, 0), "xVOTuxgN3lkRN2v4".getBytes(IoUtils.UTF_8)));
+                                str = new String(F.getInstance().ad(Base64.decode(string, 0), "xVOTuxgN3lkRN2v4".getBytes(IoUtils.UTF_8)));
                             } catch (Exception e) {
                                 com.baidu.sofire.b.e.a(e);
-                                str2 = string;
+                                str = string;
                             }
-                            aVar.d = str2;
+                            aVar.d = str;
                             arrayList.add(aVar);
                         } catch (Exception e2) {
                             e = e2;
@@ -251,33 +232,33 @@ public final class a {
                             }
                             return arrayList;
                         }
+                    } catch (Throwable th) {
+                        th = th;
+                        if (cursor != null) {
+                            try {
+                                cursor.close();
+                            } catch (Exception e4) {
+                                com.baidu.sofire.b.e.a(e4);
+                            }
+                        }
+                        throw th;
                     }
                 }
-                if (cursor != null) {
-                    try {
-                        cursor.close();
-                    } catch (Exception e4) {
-                        com.baidu.sofire.b.e.a(e4);
-                    }
+            }
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                } catch (Exception e5) {
+                    com.baidu.sofire.b.e.a(e5);
                 }
-            } catch (Throwable th) {
-                th = th;
-                if (r1 != 0) {
-                    try {
-                        r1.close();
-                    } catch (Exception e5) {
-                        com.baidu.sofire.b.e.a(e5);
-                    }
-                }
-                throw th;
             }
         } catch (Exception e6) {
             e = e6;
             cursor = null;
         } catch (Throwable th2) {
             th = th2;
-            r1 = 0;
-            if (r1 != 0) {
+            cursor = null;
+            if (cursor != null) {
             }
             throw th;
         }
@@ -289,7 +270,7 @@ public final class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final List<com.baidu.sofire.rp.c.a> a() {
+    public List<com.baidu.sofire.rp.c.a> a() {
         Cursor cursor;
         String str;
         ArrayList arrayList = new ArrayList();
@@ -364,27 +345,39 @@ public final class a {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [389=4] */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x0155 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x0195 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x018c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r1v1 */
+    /* JADX WARN: Type inference failed for: r1v20, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r1v3, types: [android.database.Cursor] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final List<com.baidu.sofire.rp.c.a> a(boolean z, int i) {
-        long currentTimeMillis;
-        Cursor cursor;
+    public List<com.baidu.sofire.rp.c.a> a(boolean z, int i) {
         String str;
+        ?? r1;
+        Cursor cursor;
+        String str2;
         ArrayList arrayList = new ArrayList();
-        String str2 = z ? "(d < (" + System.currentTimeMillis() + "-f*3600000) and f!= 0)" : "d<=" + (currentTimeMillis - 259200000);
+        long currentTimeMillis = System.currentTimeMillis();
+        if (z) {
+            r1 = "!= 0)";
+            str = "(d < (" + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + "f*3600000) and f!= 0)";
+        } else {
+            str = "d<=" + (currentTimeMillis - 259200000);
+        }
         try {
-            if (i == 2) {
-                cursor = this.d.query("r", null, str2, null, null, null, "d desc", null);
-            } else {
-                int i2 = new e(this.e).e.getInt("up_nu_li", 100);
-                new StringBuilder("sj-trigger report 3g limit").append(Integer.toString(i2));
-                cursor = this.d.query("r", null, str2, null, null, null, "d desc", Integer.toString(i2));
-            }
-            if (cursor != null) {
-                while (cursor.moveToNext()) {
-                    try {
+            try {
+                if (i == 2) {
+                    cursor = this.d.query("r", null, str, null, null, null, "d desc", null);
+                } else {
+                    int V = new e(this.e).V();
+                    b.a("sj-trigger report 3g limit" + Integer.toString(V));
+                    cursor = this.d.query("r", null, str, null, null, null, "d desc", Integer.toString(V));
+                }
+                if (cursor != null) {
+                    while (cursor.moveToNext()) {
                         try {
                             com.baidu.sofire.rp.c.a aVar = new com.baidu.sofire.rp.c.a();
                             aVar.a = cursor.getInt(cursor.getColumnIndex(Config.APP_VERSION_CODE));
@@ -398,12 +391,12 @@ public final class a {
                             aVar.j = cursor.getString(cursor.getColumnIndex("j"));
                             String string = cursor.getString(cursor.getColumnIndex("h"));
                             try {
-                                str = new String(F.getInstance().ad(Base64.decode(string, 0), "xVOTuxgN3lkRN2v4".getBytes(IoUtils.UTF_8)));
+                                str2 = new String(F.getInstance().ad(Base64.decode(string, 0), "xVOTuxgN3lkRN2v4".getBytes(IoUtils.UTF_8)));
                             } catch (Exception e) {
                                 com.baidu.sofire.b.e.a(e);
-                                str = string;
+                                str2 = string;
                             }
-                            aVar.d = str;
+                            aVar.d = str2;
                             arrayList.add(aVar);
                         } catch (Exception e2) {
                             e = e2;
@@ -417,33 +410,33 @@ public final class a {
                             }
                             return arrayList;
                         }
-                    } catch (Throwable th) {
-                        th = th;
-                        if (cursor != null) {
-                            try {
-                                cursor.close();
-                            } catch (Exception e4) {
-                                com.baidu.sofire.b.e.a(e4);
-                            }
-                        }
-                        throw th;
                     }
                 }
-            }
-            if (cursor != null) {
-                try {
-                    cursor.close();
-                } catch (Exception e5) {
-                    com.baidu.sofire.b.e.a(e5);
+                if (cursor != null) {
+                    try {
+                        cursor.close();
+                    } catch (Exception e4) {
+                        com.baidu.sofire.b.e.a(e4);
+                    }
                 }
+            } catch (Throwable th) {
+                th = th;
+                if (r1 != 0) {
+                    try {
+                        r1.close();
+                    } catch (Exception e5) {
+                        com.baidu.sofire.b.e.a(e5);
+                    }
+                }
+                throw th;
             }
         } catch (Exception e6) {
             e = e6;
             cursor = null;
         } catch (Throwable th2) {
             th = th2;
-            cursor = null;
-            if (cursor != null) {
+            r1 = 0;
+            if (r1 != 0) {
             }
             throw th;
         }
@@ -456,7 +449,7 @@ public final class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final int b() {
+    public int b() {
         Cursor cursor;
         Cursor cursor2;
         int count;
@@ -517,32 +510,33 @@ public final class a {
         }
     }
 
-    public final int c() {
+    public int c() {
         e eVar = new e(this.e);
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            return this.d.delete("r", "(d <= ? or (d < (" + currentTimeMillis + "-f*3600000) and f!= 0)) and b != '1001001'and i != 5 ", new String[]{String.valueOf(currentTimeMillis - (eVar.e.getInt("re_net_over", 7) * AiAppDateTimeUtil.TIME_DAY_MILLISECOND))});
+            return this.d.delete("r", "(d <= ? or (d < (" + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + "f*3600000) and f!= 0)) and b != '1001001'and i != 5 ", new String[]{String.valueOf(currentTimeMillis - (eVar.U() * AiAppDateTimeUtil.TIME_DAY_MILLISECOND))});
         } catch (Exception e) {
             com.baidu.sofire.b.e.a(e);
             return -1;
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sofire.rp.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    class C0116a extends SQLiteOpenHelper {
-        public C0116a(Context context) {
+    public class C0140a extends SQLiteOpenHelper {
+        public C0140a(Context context) {
             super(context, "d.db", (SQLiteDatabase.CursorFactory) null, 3);
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
-        public final void onCreate(SQLiteDatabase sQLiteDatabase) {
+        public void onCreate(SQLiteDatabase sQLiteDatabase) {
             sQLiteDatabase.execSQL("create table if not exists r(a integer primary key autoincrement, b text, c integer, e integer,f integer,h text, g integer, i integer, j text, d long);");
             sQLiteDatabase.execSQL("create table if not exists c(a integer primary key autoincrement, b text); ");
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
-        public final void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             if (i <= 1) {
                 sQLiteDatabase.execSQL("alter table r add i integer default 0;");
             }

@@ -10,34 +10,34 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
 
     protected abstract void initView();
 
-    protected abstract boolean p(Bundle bundle);
+    protected abstract boolean s(Bundle bundle);
 
     @Override // com.baidu.tieba.im.chat.d
-    public void aMU() {
-        aMw();
+    public void aMs() {
+        aLU();
     }
 
-    public void aMw() {
+    public void aLU() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (!p(bundle)) {
+        if (!s(bundle)) {
             finish();
             return;
         }
         initView();
         adjustResizeForSoftInput(e.d.common_color_10022, false);
-        if (this.eAJ != null) {
-            this.eAJ.setImageUploadUIProgressCallback(this.eAO);
+        if (this.eCc != null) {
+            this.eCc.setImageUploadUIProgressCallback(this.eCh);
         }
-        aNa();
+        aMy();
         if (a((d) this)) {
             loadDraft();
-            aMu();
-            j.eAH = com.baidu.tbadk.util.i.OA();
+            aLS();
+            j.eCa = com.baidu.tbadk.util.i.OJ();
         }
     }
 
@@ -45,17 +45,17 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.eAJ != null) {
-            this.eAJ.onDestroy();
+        if (this.eCc != null) {
+            this.eCc.onDestroy();
         }
         setIntent(intent);
-        if (!p(null)) {
+        if (!s(null)) {
             finish();
             return;
         }
         initView();
         adjustResizeForSoftInput(e.d.common_color_10022, false);
-        aNa();
+        aMy();
         if (a((d) this)) {
             loadDraft();
         }
@@ -65,8 +65,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.eAI != null) {
-            this.eAI.onChangeSkinType(i);
+        if (this.eCb != null) {
+            this.eCb.onChangeSkinType(i);
         }
     }
 
@@ -74,37 +74,37 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.eAI != null) {
-            this.eAI.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            aMr();
+        if (this.eCb != null) {
+            this.eCb.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            aLP();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aMr() {
+    public void aLP() {
         if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
-            this.eAI.showReceiver();
+            this.eCb.showReceiver();
         } else {
-            this.eAI.closeReceiver();
+            this.eCb.closeReceiver();
         }
     }
 
     protected boolean loadDraft() {
-        return this.eAJ.loadDraft();
+        return this.eCc.loadDraft();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        aMv();
+        aLT();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aMu() {
+    public void aLS() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aMv() {
+    public void aLT() {
     }
 }

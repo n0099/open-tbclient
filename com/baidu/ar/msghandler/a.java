@@ -204,7 +204,7 @@ public class a extends com.baidu.baiduarsdk.b.a {
                     TrackStateMachine.getInstance().processEvent(TrackStateMachine.EVENT.TRACK_IMU_CLOSE);
                     return;
                 }
-            case ArBridge.MessageType.MSG_TYPE_OPEN_URL /* 1301 */:
+            case 1301:
                 a(hashMap);
                 return;
             case 1801:

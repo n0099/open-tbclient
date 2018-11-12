@@ -11,7 +11,7 @@ public final class c {
     public String processor = "";
     public String features = "";
 
-    public static c sh() {
+    public static c se() {
         if (aaA != null) {
             return aaA;
         }

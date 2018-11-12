@@ -16,94 +16,94 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class b {
-    private View Ok;
-    private View dCt;
-    private a fLC;
-    private Animator fYa;
-    private Animator fYb;
-    private ValueAnimator fYc;
-    private ValueAnimator fYd;
-    private AnimatorSet fYe;
-    private AnimatorSet fYf;
-    private View fYg;
-    private View fYh;
-    private int fYi = UtilHelper.getLightStatusBarHeight();
-    private boolean fYj = false;
-    private boolean aQX = false;
-    private int bew = 0;
-    private boolean fYk = false;
-    private boolean fVD = false;
-    private boolean fYl = false;
-    private boolean bex = false;
-    private boolean dDW = true;
-    private final Handler.Callback dDY = new Handler.Callback() { // from class: com.baidu.tieba.pb.pb.main.b.b.1
+    private View On;
+    private View dDK;
+    private a fNb;
+    private Animator fZA;
+    private ValueAnimator fZB;
+    private ValueAnimator fZC;
+    private AnimatorSet fZD;
+    private AnimatorSet fZE;
+    private View fZF;
+    private View fZG;
+    private Animator fZz;
+    private int fZH = UtilHelper.getLightStatusBarHeight();
+    private boolean fZI = false;
+    private boolean aRN = false;
+    private int bfj = 0;
+    private boolean fZJ = false;
+    private boolean fXc = false;
+    private boolean fZK = false;
+    private boolean bfk = false;
+    private boolean dFm = true;
+    private final Handler.Callback dFo = new Handler.Callback() { // from class: com.baidu.tieba.pb.pb.main.b.b.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
-            if ((message.what == 1 || message.what == 2) && b.this.aBx()) {
+            if ((message.what == 1 || message.what == 2) && b.this.aAU()) {
                 b.this.mHandler.sendEmptyMessageDelayed(message.what, 100L);
                 return true;
             }
             switch (message.what) {
                 case 1:
-                    b.this.aBw();
+                    b.this.aAT();
                     return true;
                 case 2:
-                    b.this.aBu();
+                    b.this.aAR();
                     return true;
                 case 3:
-                    b.this.aBv();
+                    b.this.aAS();
                     return true;
                 default:
                     return false;
             }
         }
     };
-    private final Handler mHandler = new Handler(this.dDY);
-    private boolean dDV = UtilHelper.canUseStyleImmersiveSticky();
+    private final Handler mHandler = new Handler(this.dFo);
+    private boolean dFl = UtilHelper.canUseStyleImmersiveSticky();
 
     /* loaded from: classes6.dex */
     public interface a {
-        void kx(boolean z);
+        void kI(boolean z);
     }
 
     public void a(a aVar) {
-        this.fLC = aVar;
+        this.fNb = aVar;
     }
 
-    public void gC(boolean z) {
-        this.bex = z;
+    public void gM(boolean z) {
+        this.bfk = z;
     }
 
     public b(Context context, View view, View view2, View view3) {
-        this.fYg = view;
-        this.dCt = view2;
-        this.Ok = view3;
-        this.fYh = this.Ok.findViewById(e.g.sticky_view);
-        Zy();
-        gE(false);
+        this.fZF = view;
+        this.dDK = view2;
+        this.On = view3;
+        this.fZG = this.On.findViewById(e.g.sticky_view);
+        ZI();
+        gO(false);
     }
 
-    private void bkJ() {
-        this.fYa = ObjectAnimator.ofFloat(this.fYg, "translationY", (-this.fYg.getMeasuredHeight()) + this.Ok.getMeasuredHeight());
-        this.fYa.setInterpolator(new LinearInterpolator());
-        this.fYa.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.pb.main.b.b.2
+    private void bkg() {
+        this.fZz = ObjectAnimator.ofFloat(this.fZF, "translationY", (-this.fZF.getMeasuredHeight()) + this.On.getMeasuredHeight());
+        this.fZz.setInterpolator(new LinearInterpolator());
+        this.fZz.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.pb.main.b.b.2
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (b.this.fYg != null) {
-                    b.this.fYg.clearAnimation();
-                    if (b.this.fYl) {
-                        b.this.gE(false);
+                if (b.this.fZF != null) {
+                    b.this.fZF.clearAnimation();
+                    if (b.this.fZK) {
+                        b.this.gO(false);
                     } else {
-                        b.this.gE(true);
+                        b.this.gO(true);
                     }
-                    if (b.this.fLC != null) {
-                        b.this.fLC.kx(false);
+                    if (b.this.fNb != null) {
+                        b.this.fNb.kI(false);
                     }
-                    b.this.Ok.clearAnimation();
+                    b.this.On.clearAnimation();
                 }
             }
 
@@ -115,27 +115,27 @@ public class b {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.fYd = ValueAnimator.ofInt(0, this.fYi);
-        this.fYd.setInterpolator(new LinearInterpolator());
-        this.fYd.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.pb.main.b.b.3
+        this.fZC = ValueAnimator.ofInt(0, this.fZH);
+        this.fZC.setInterpolator(new LinearInterpolator());
+        this.fZC.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.pb.main.b.b.3
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                ViewGroup.LayoutParams layoutParams = b.this.fYh.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = b.this.fZG.getLayoutParams();
                 if (layoutParams != null) {
                     layoutParams.height = 0;
-                    b.this.fYh.setLayoutParams(layoutParams);
+                    b.this.fZG.setLayoutParams(layoutParams);
                 }
-                b.this.fYh.setVisibility(0);
+                b.this.fZG.setVisibility(0);
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                ViewGroup.LayoutParams layoutParams = b.this.fYh.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = b.this.fZG.getLayoutParams();
                 if (layoutParams != null) {
-                    layoutParams.height = b.this.fYi;
-                    b.this.fYh.setLayoutParams(layoutParams);
+                    layoutParams.height = b.this.fZH;
+                    b.this.fZG.setLayoutParams(layoutParams);
                 }
-                b.this.fYh.setVisibility(0);
+                b.this.fZG.setVisibility(0);
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -146,39 +146,39 @@ public class b {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.fYd.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.pb.main.b.b.4
+        this.fZC.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.pb.main.b.b.4
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (valueAnimator != null && (valueAnimator.getAnimatedValue() instanceof Integer)) {
                     Integer num = (Integer) valueAnimator.getAnimatedValue();
-                    ViewGroup.LayoutParams layoutParams = b.this.fYh.getLayoutParams();
+                    ViewGroup.LayoutParams layoutParams = b.this.fZG.getLayoutParams();
                     if (layoutParams != null) {
                         layoutParams.height = num.intValue();
-                        b.this.fYh.setLayoutParams(layoutParams);
+                        b.this.fZG.setLayoutParams(layoutParams);
                     }
                 }
             }
         });
-        this.fYf = new AnimatorSet();
-        this.fYf.play(this.fYa).with(this.fYd);
+        this.fZE = new AnimatorSet();
+        this.fZE.play(this.fZz).with(this.fZC);
     }
 
-    private void bkK() {
-        this.fYb = ObjectAnimator.ofFloat(this.fYg, "translationY", 0.0f);
-        this.fYb.setInterpolator(new LinearInterpolator());
-        this.fYb.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.pb.main.b.b.5
+    private void bkh() {
+        this.fZA = ObjectAnimator.ofFloat(this.fZF, "translationY", 0.0f);
+        this.fZA.setInterpolator(new LinearInterpolator());
+        this.fZA.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.pb.main.b.b.5
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (b.this.fYg != null) {
-                    b.this.fYg.clearAnimation();
-                    b.this.fYg.setVisibility(0);
-                    b.this.gE(false);
-                    if (b.this.fLC != null) {
-                        b.this.fLC.kx(true);
+                if (b.this.fZF != null) {
+                    b.this.fZF.clearAnimation();
+                    b.this.fZF.setVisibility(0);
+                    b.this.gO(false);
+                    if (b.this.fNb != null) {
+                        b.this.fNb.kI(true);
                     }
                 }
             }
@@ -191,26 +191,26 @@ public class b {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.fYc = ValueAnimator.ofInt(this.fYi, 0);
-        this.fYc.setInterpolator(new LinearInterpolator());
-        this.fYc.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.pb.main.b.b.6
+        this.fZB = ValueAnimator.ofInt(this.fZH, 0);
+        this.fZB.setInterpolator(new LinearInterpolator());
+        this.fZB.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.pb.main.b.b.6
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                b.this.fYh.setVisibility(0);
-                ViewGroup.LayoutParams layoutParams = b.this.fYh.getLayoutParams();
+                b.this.fZG.setVisibility(0);
+                ViewGroup.LayoutParams layoutParams = b.this.fZG.getLayoutParams();
                 if (layoutParams != null) {
-                    layoutParams.height = b.this.fYi;
-                    b.this.fYh.setLayoutParams(layoutParams);
+                    layoutParams.height = b.this.fZH;
+                    b.this.fZG.setLayoutParams(layoutParams);
                 }
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                b.this.fYh.setVisibility(8);
-                ViewGroup.LayoutParams layoutParams = b.this.fYh.getLayoutParams();
+                b.this.fZG.setVisibility(8);
+                ViewGroup.LayoutParams layoutParams = b.this.fZG.getLayoutParams();
                 if (layoutParams != null) {
                     layoutParams.height = 0;
-                    b.this.fYh.setLayoutParams(layoutParams);
+                    b.this.fZG.setLayoutParams(layoutParams);
                 }
             }
 
@@ -222,161 +222,161 @@ public class b {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.fYc.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.pb.main.b.b.7
+        this.fZB.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.pb.main.b.b.7
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (valueAnimator != null && (valueAnimator.getAnimatedValue() instanceof Integer)) {
                     Integer num = (Integer) valueAnimator.getAnimatedValue();
-                    ViewGroup.LayoutParams layoutParams = b.this.fYh.getLayoutParams();
+                    ViewGroup.LayoutParams layoutParams = b.this.fZG.getLayoutParams();
                     if (layoutParams != null) {
                         layoutParams.height = num.intValue();
-                        b.this.fYh.setLayoutParams(layoutParams);
+                        b.this.fZG.setLayoutParams(layoutParams);
                     }
                 }
             }
         });
-        this.fYe = new AnimatorSet();
-        this.fYe.play(this.fYb).with(this.fYc);
+        this.fZD = new AnimatorSet();
+        this.fZD.play(this.fZA).with(this.fZB);
     }
 
-    public void aBu() {
-        A(false, false);
+    public void aAR() {
+        C(false, false);
     }
 
-    public void aBv() {
-        A(false, true);
+    public void aAS() {
+        C(false, true);
     }
 
-    public void A(boolean z, boolean z2) {
-        if (this.fYg != null && this.fYg.getY() == 0.0f && !aBx()) {
+    public void C(boolean z, boolean z2) {
+        if (this.fZF != null && this.fZF.getY() == 0.0f && !aAU()) {
             if (z2) {
-                this.fYg.setVisibility(8);
-                if (this.fYl) {
-                    gE(false);
+                this.fZF.setVisibility(8);
+                if (this.fZK) {
+                    gO(false);
                     return;
                 } else {
-                    gE(true);
+                    gO(true);
                     return;
                 }
             }
-            this.fYg.setVisibility(0);
-            if (this.fYf == null) {
-                bkJ();
+            this.fZF.setVisibility(0);
+            if (this.fZE == null) {
+                bkg();
             }
-            if (this.fYf != null) {
-                this.fYf.cancel();
-                this.fYf.setDuration(300L).start();
-            }
-        }
-    }
-
-    public void aBw() {
-        if (this.fYg != null && this.fYg.getY() < 0.0f && !aBx()) {
-            this.fYg.setVisibility(0);
-            if (this.fYe == null) {
-                bkK();
-            }
-            if (this.fYe != null) {
-                this.fYe.cancel();
-                this.fYe.setDuration(300L).start();
+            if (this.fZE != null) {
+                this.fZE.cancel();
+                this.fZE.setDuration(300L).start();
             }
         }
     }
 
-    public void OL() {
+    public void aAT() {
+        if (this.fZF != null && this.fZF.getY() < 0.0f && !aAU()) {
+            this.fZF.setVisibility(0);
+            if (this.fZD == null) {
+                bkh();
+            }
+            if (this.fZD != null) {
+                this.fZD.cancel();
+                this.fZD.setDuration(300L).start();
+            }
+        }
+    }
+
+    public void OU() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void OM() {
+    public void OV() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
         }
     }
 
-    public void ON() {
+    public void OW() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
-    public boolean aBx() {
-        return (this.fYe != null && this.fYe.isRunning()) || (this.fYf != null && this.fYf.isRunning());
+    public boolean aAU() {
+        return (this.fZD != null && this.fZD.isRunning()) || (this.fZE != null && this.fZE.isRunning());
     }
 
     public void hideFloatingView() {
-        if (this.dDW) {
-            if (this.aQX) {
-                gE(true);
-            } else if (this.fYg != null && !this.fYk && !this.fVD && bkL()) {
+        if (this.dFm) {
+            if (this.aRN) {
+                gO(true);
+            } else if (this.fZF != null && !this.fZJ && !this.fXc && bki()) {
                 Log.i("PbView", "hideFloatingView: startDragDown");
-                OM();
+                OV();
             }
         }
     }
 
     public void showFloatingView() {
-        if (this.dDW) {
-            if (this.aQX) {
-                gE(true);
-            } else if (this.fYg != null && !bkL()) {
+        if (this.dFm) {
+            if (this.aRN) {
+                gO(true);
+            } else if (this.fZF != null && !bki()) {
                 Log.i("PbView", "showFloatingView: startDragUp");
-                OL();
+                OU();
             }
         }
     }
 
-    public boolean bkL() {
-        return this.fYg.getVisibility() == 0 && this.fYg.getY() >= 0.0f;
+    public boolean bki() {
+        return this.fZF.getVisibility() == 0 && this.fZF.getY() >= 0.0f;
     }
 
-    public void ln(boolean z) {
-        this.fYk = z;
+    public void ly(boolean z) {
+        this.fZJ = z;
     }
 
-    public void lo(boolean z) {
-        this.fVD = z;
+    public void lz(boolean z) {
+        this.fXc = z;
     }
 
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        if (this.dDW && this.fYg != null && !this.fYk && !this.fVD && this.fYj) {
-            if (i > this.bew && bkL()) {
+        if (this.dFm && this.fZF != null && !this.fZJ && !this.fXc && this.fZI) {
+            if (i > this.bfj && bki()) {
                 Log.i("PbView", "onScroll hideFloatingView");
                 hideFloatingView();
-            } else if (i < this.bew && !bkL()) {
+            } else if (i < this.bfj && !bki()) {
                 Log.i("PbView", "onScroll showFloatingView");
                 showFloatingView();
             }
-            this.bew = i;
+            this.bfj = i;
         }
     }
 
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 1) {
-            this.fYj = true;
+            this.fZI = true;
         } else if (i == 0) {
-            this.fYj = false;
+            this.fZI = false;
         }
-        if (this.dDW && !this.fYk && !this.fVD) {
-            if (this.aQX) {
-                gE(true);
+        if (this.dFm && !this.fZJ && !this.fXc) {
+            if (this.aRN) {
+                gO(true);
             } else if (absListView != null && i == 0) {
                 int firstVisiblePosition = absListView.getFirstVisiblePosition();
-                if (firstVisiblePosition > this.bew) {
-                    OM();
+                if (firstVisiblePosition > this.bfj) {
+                    OV();
                     Log.i("PbView", "onScrollStateChanged startDragDown: firstVisibleItem > mLastFirstVisibleItem");
-                } else if (firstVisiblePosition < this.bew) {
+                } else if (firstVisiblePosition < this.bfj) {
                     Log.i("PbView", "onScrollStateChanged startDragUp: firstVisibleItem < mLastFirstVisibleItem");
-                    OL();
-                } else if (firstVisiblePosition == this.bew) {
-                    if (firstVisiblePosition == 0 || !this.bex || a(absListView)) {
+                    OU();
+                } else if (firstVisiblePosition == this.bfj) {
+                    if (firstVisiblePosition == 0 || !this.bfk || a(absListView)) {
                         Log.i("PbView", "onScrollStateChanged startDragUp: firstVisibleItem == 0");
-                        OL();
+                        OU();
                         return;
                     }
                     Log.i("PbView", "onScrollStateChanged startDragDown:");
-                    OM();
+                    OV();
                 }
             }
         }
@@ -389,26 +389,26 @@ public class b {
         return true;
     }
 
-    private void Zy() {
-        if (this.dCt != null) {
-            if (this.dDV && this.dCt.getLayoutParams() != null) {
-                ViewGroup.LayoutParams layoutParams = this.dCt.getLayoutParams();
+    private void ZI() {
+        if (this.dDK != null) {
+            if (this.dFl && this.dDK.getLayoutParams() != null) {
+                ViewGroup.LayoutParams layoutParams = this.dDK.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight();
-                this.dCt.setLayoutParams(layoutParams);
-                gE(true);
+                this.dDK.setLayoutParams(layoutParams);
+                gO(true);
                 return;
             }
-            gE(false);
+            gO(false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gE(boolean z) {
-        if (this.dCt != null) {
-            if (this.dDV && z && this.dCt.getVisibility() != 0) {
-                this.dCt.setVisibility(0);
-            } else if (!z && this.dCt.getVisibility() != 8) {
-                this.dCt.setVisibility(8);
+    public void gO(boolean z) {
+        if (this.dDK != null) {
+            if (this.dFl && z && this.dDK.getVisibility() != 0) {
+                this.dDK.setVisibility(0);
+            } else if (!z && this.dDK.getVisibility() != 8) {
+                this.dDK.setVisibility(8);
             }
         }
     }

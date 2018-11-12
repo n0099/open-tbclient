@@ -16,45 +16,45 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class TBGLWriteContainer extends LinearLayout {
-    private boolean cKd;
-    private List<Runnable> cKe;
-    private ArrayList<TBGLWriteView> cKf;
-    private ShadeViewContainer cKg;
+    private boolean cLj;
+    private List<Runnable> cLk;
+    private ArrayList<TBGLWriteView> cLl;
+    private ShadeViewContainer cLm;
     private Handler handler;
     private Context mContext;
 
     public TBGLWriteContainer(Context context) {
         super(context);
-        this.cKd = false;
+        this.cLj = false;
         this.handler = new Handler();
-        this.cKe = new ArrayList();
-        this.cKf = new ArrayList<>();
+        this.cLk = new ArrayList();
+        this.cLl = new ArrayList<>();
         this.mContext = null;
         this.mContext = context;
     }
 
     public TBGLWriteContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cKd = false;
+        this.cLj = false;
         this.handler = new Handler();
-        this.cKe = new ArrayList();
-        this.cKf = new ArrayList<>();
+        this.cLk = new ArrayList();
+        this.cLl = new ArrayList<>();
         this.mContext = null;
         this.mContext = context;
     }
 
     public TBGLWriteContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cKd = false;
+        this.cLj = false;
         this.handler = new Handler();
-        this.cKe = new ArrayList();
-        this.cKf = new ArrayList<>();
+        this.cLk = new ArrayList();
+        this.cLl = new ArrayList<>();
         this.mContext = null;
         this.mContext = context;
     }
 
     public void setShadeViewContainer(ShadeViewContainer shadeViewContainer) {
-        this.cKg = shadeViewContainer;
+        this.cLm = shadeViewContainer;
     }
 
     private void a(TBGLWriteView tBGLWriteView, boolean z) {
@@ -69,34 +69,34 @@ public class TBGLWriteContainer extends LinearLayout {
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        if (i == 8 && !jL(1)) {
-            anM();
+        if (i == 8 && !ke(1)) {
+            ann();
         }
         super.setVisibility(i);
     }
 
     public void setWriteViewList(ArrayList<TBGLWriteView> arrayList) {
         boolean z;
-        if (!v.J(arrayList)) {
-            if (arrayList.get(0) != v.d(this.cKf, 0) || getChildCount() <= 1) {
+        if (!v.I(arrayList)) {
+            if (arrayList.get(0) != v.d(this.cLl, 0) || getChildCount() <= 1) {
                 z = true;
             } else {
                 removeViews(0, getChildCount() - 1);
                 z = false;
             }
-            this.cKf = arrayList;
-            int size = this.cKf.size();
-            if (this.cKg != null) {
-                this.cKg.setShadeCount(size);
+            this.cLl = arrayList;
+            int size = this.cLl.size();
+            if (this.cLm != null) {
+                this.cLm.setShadeCount(size);
             }
             for (final int i = 0; i < size; i++) {
-                final TBGLWriteView tBGLWriteView = this.cKf.get(i);
+                final TBGLWriteView tBGLWriteView = this.cLl.get(i);
                 if (tBGLWriteView != null) {
                     if (i != 0) {
                         tBGLWriteView.setRotateRadius((-1.5f) - i);
                         tBGLWriteView.setWriteEndCallBack(new c.a() { // from class: com.baidu.tieba.animation3d.View.TBGLWriteContainer.1
                             @Override // com.baidu.tieba.animation3d.b.c.a
-                            public void eY(boolean z2) {
+                            public void fj(boolean z2) {
                                 if (z2) {
                                     tBGLWriteView.setVisibility(8);
                                     tBGLWriteView.setClickable(false);
@@ -104,8 +104,8 @@ public class TBGLWriteContainer extends LinearLayout {
                                 }
                                 tBGLWriteView.setVisibility(0);
                                 tBGLWriteView.setClickable(true);
-                                if (TBGLWriteContainer.this.cKg != null) {
-                                    TBGLWriteContainer.this.cKg.setShadeImageViewIsShow(i, true);
+                                if (TBGLWriteContainer.this.cLm != null) {
+                                    TBGLWriteContainer.this.cLm.setShadeImageViewIsShow(i, true);
                                 }
                             }
                         });
@@ -114,8 +114,8 @@ public class TBGLWriteContainer extends LinearLayout {
                     } else {
                         tBGLWriteView.setRotateRadius(0.0f);
                         a(tBGLWriteView, true);
-                        if (this.cKg != null) {
-                            this.cKg.setShadeImageViewIsShow(0, true);
+                        if (this.cLm != null) {
+                            this.cLm.setShadeImageViewIsShow(0, true);
                         }
                     }
                     if (i != 0 || z) {
@@ -126,22 +126,22 @@ public class TBGLWriteContainer extends LinearLayout {
         }
     }
 
-    public void Qv() {
-        for (Runnable runnable : this.cKe) {
+    public void QE() {
+        for (Runnable runnable : this.cLk) {
             if (runnable != null) {
                 this.handler.removeCallbacks(runnable);
             }
         }
     }
 
-    public boolean jL(int i) {
+    public boolean ke(int i) {
         boolean z;
-        Iterator<TBGLWriteView> it = this.cKf.iterator();
+        Iterator<TBGLWriteView> it = this.cLl.iterator();
         boolean z2 = true;
         while (it.hasNext()) {
             TBGLWriteView next = it.next();
             if (next != null) {
-                z = next.jL(i) && z2;
+                z = next.ke(i) && z2;
                 if (!z) {
                     return z;
                 }
@@ -154,8 +154,8 @@ public class TBGLWriteContainer extends LinearLayout {
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        if (onClickListener != null && this.cKf != null) {
-            Iterator<TBGLWriteView> it = this.cKf.iterator();
+        if (onClickListener != null && this.cLl != null) {
+            Iterator<TBGLWriteView> it = this.cLl.iterator();
             while (it.hasNext()) {
                 TBGLWriteView next = it.next();
                 if (next != null) {
@@ -165,77 +165,77 @@ public class TBGLWriteContainer extends LinearLayout {
         }
     }
 
-    public void anM() {
-        if (this.cKf != null) {
-            Qv();
-            int size = this.cKf.size();
+    public void ann() {
+        if (this.cLl != null) {
+            QE();
+            int size = this.cLl.size();
             for (int i = 0; i < size; i++) {
-                TBGLWriteView tBGLWriteView = this.cKf.get(i);
+                TBGLWriteView tBGLWriteView = this.cLl.get(i);
                 if (tBGLWriteView != null) {
-                    if (this.cKg != null) {
+                    if (this.cLm != null) {
                         if (i == 0) {
-                            this.cKg.setShadeImageViewIsShow(i, true);
+                            this.cLm.setShadeImageViewIsShow(i, true);
                         } else {
-                            this.cKg.setShadeImageViewIsShow(i, false);
+                            this.cLm.setShadeImageViewIsShow(i, false);
                             tBGLWriteView.setClickable(false);
                         }
                     }
-                    tBGLWriteView.Df();
+                    tBGLWriteView.Dm();
                 }
             }
-            this.cKd = false;
+            this.cLj = false;
         }
     }
 
     public void setIsNeedIgnoreParentTouch(boolean z) {
-        this.cKd = z;
+        this.cLj = z;
     }
 
     /* loaded from: classes.dex */
     public static class ShadeViewContainer extends LinearLayout {
-        ArrayList<TbImageView> cKk;
+        ArrayList<TbImageView> cLq;
         private int mSkinType;
 
         public ShadeViewContainer(Context context) {
             super(context);
-            this.cKk = new ArrayList<>();
+            this.cLq = new ArrayList<>();
             this.mSkinType = 3;
-            anN();
+            ano();
         }
 
         public ShadeViewContainer(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
-            this.cKk = new ArrayList<>();
+            this.cLq = new ArrayList<>();
             this.mSkinType = 3;
-            anN();
+            ano();
         }
 
         public ShadeViewContainer(Context context, AttributeSet attributeSet, int i) {
             super(context, attributeSet, i);
-            this.cKk = new ArrayList<>();
+            this.cLq = new ArrayList<>();
             this.mSkinType = 3;
-            anN();
+            ano();
         }
 
-        public void anN() {
+        public void ano() {
             setOrientation(1);
         }
 
         public void setShadeCount(int i) {
             if (i <= 0) {
-                this.cKk.clear();
+                this.cLq.clear();
                 removeAllViews();
                 return;
             }
-            int size = i - this.cKk.size();
+            int size = i - this.cLq.size();
             if (size > 0) {
                 while (true) {
                     int i2 = size - 1;
                     if (size > 0) {
-                        TbImageView co = co(getContext());
-                        co.setVisibility(8);
-                        addView(co, 0);
-                        this.cKk.add(co);
+                        TbImageView cj = cj(getContext());
+                        cj.setVisibility(8);
+                        addView(cj, 0);
+                        this.cLq.add(cj);
                         size = i2;
                     } else {
                         return;
@@ -245,9 +245,9 @@ public class TBGLWriteContainer extends LinearLayout {
                 while (true) {
                     int i3 = size + 1;
                     if (size < 0) {
-                        if (this.cKk.size() > 0) {
-                            removeView(this.cKk.get(0));
-                            this.cKk.remove(0);
+                        if (this.cLq.size() > 0) {
+                            removeView(this.cLq.get(0));
+                            this.cLq.remove(0);
                             size = i3;
                         } else {
                             size = i3;
@@ -259,16 +259,16 @@ public class TBGLWriteContainer extends LinearLayout {
             }
         }
 
-        private TbImageView co(Context context) {
+        private TbImageView cj(Context context) {
             TbImageView tbImageView = new TbImageView(context);
-            int h = l.h(context, e.C0175e.ds124);
+            int h = l.h(context, e.C0200e.ds124);
             tbImageView.setLayoutParams(new LinearLayout.LayoutParams(h, h));
             tbImageView.setImageResource(e.f.write_shade);
             return tbImageView;
         }
 
         public void setShadeImageViewIsShow(int i, boolean z) {
-            ImageView imageView = (ImageView) v.d(this.cKk, i);
+            ImageView imageView = (ImageView) v.d(this.cLq, i);
             if (imageView != null) {
                 if (z) {
                     imageView.setVisibility(0);

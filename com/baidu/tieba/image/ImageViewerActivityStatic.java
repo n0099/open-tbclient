@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.p.z;
+import com.baidu.tbadk.p.aa;
 /* loaded from: classes3.dex */
 public class ImageViewerActivityStatic {
     static {
@@ -15,7 +15,7 @@ public class ImageViewerActivityStatic {
             public CustomResponsedMessage<?> run(CustomMessage<ImageViewerConfig> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {
                     ImageViewerConfig data = customMessage.getData();
-                    if (z.jL()) {
+                    if (aa.jJ()) {
                         data.setIsIdentifyImage(true);
                     } else {
                         data.setIsIdentifyImage(false);

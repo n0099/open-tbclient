@@ -14,68 +14,68 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class a extends q.a {
-    private TextView aGD;
-    private View aXN;
-    private View aXO;
-    private HeadImageView aXP;
-    private ImageView aXQ;
+    private TextView aHt;
+    private View aYB;
+    private View aYC;
+    private HeadImageView aYD;
+    private ImageView aYE;
     private TbPageContext mPageContext;
 
     public a(View view, TbPageContext tbPageContext) {
         super(view);
         this.mPageContext = tbPageContext;
-        this.aXN = view.findViewById(e.g.ala_follow_left_space);
-        this.aXO = view.findViewById(e.g.ala_follow_right_space);
-        this.aXP = (HeadImageView) view.findViewById(e.g.ala_follow_head_img);
-        this.aXP.setDefaultResource(e.f.icon_default_avatar100_bg);
-        this.aXP.setIsRound(true);
-        this.aXP.setAutoChangeStyle(false);
-        this.aXP.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.aXQ = (ImageView) view.findViewById(e.g.ala_follow_living_img);
-        this.aGD = (TextView) view.findViewById(e.g.ala_follow_user_name);
+        this.aYB = view.findViewById(e.g.ala_follow_left_space);
+        this.aYC = view.findViewById(e.g.ala_follow_right_space);
+        this.aYD = (HeadImageView) view.findViewById(e.g.ala_follow_head_img);
+        this.aYD.setDefaultResource(e.f.icon_default_avatar100_bg);
+        this.aYD.setIsRound(true);
+        this.aYD.setAutoChangeStyle(false);
+        this.aYD.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.aYE = (ImageView) view.findViewById(e.g.ala_follow_living_img);
+        this.aHt = (TextView) view.findViewById(e.g.ala_follow_user_name);
     }
 
     public void a(int i, com.baidu.tbadk.data.a aVar) {
         if (aVar != null) {
-            this.aXP.setImageDrawable(null);
-            if (aVar.aSt == -100) {
-                if (aVar.aSv > 0) {
-                    al.c(this.aXP, aVar.aSv);
+            this.aYD.setImageDrawable(null);
+            if (aVar.aTj == -100) {
+                if (aVar.aTl > 0) {
+                    al.c(this.aYD, aVar.aTl);
                 } else {
-                    al.c(this.aXP, e.f.icon_default_avatar100_bg);
+                    al.c(this.aYD, e.f.icon_default_avatar100_bg);
                 }
-                this.aXP.setDrawBorder(false);
-                if (!TextUtils.isEmpty(aVar.aSu)) {
-                    this.aGD.setText(aVar.aSu);
+                this.aYD.setDrawBorder(false);
+                if (!TextUtils.isEmpty(aVar.aTk)) {
+                    this.aHt.setText(aVar.aTk);
                 }
-                this.aXQ.setVisibility(8);
-                this.aXO.getLayoutParams().width = this.mPageContext.getPageActivity().getResources().getDimensionPixelSize(e.C0175e.tbds44);
+                this.aYE.setVisibility(8);
+                this.aYC.getLayoutParams().width = this.mPageContext.getPageActivity().getResources().getDimensionPixelSize(e.C0200e.tbds44);
                 TiebaStatic.log("c12678");
             } else {
-                if (aVar.aSs != null) {
-                    this.aXP.startLoad(aVar.aSs.liveCover, 10, false);
-                    this.aXP.setDrawBorder(true);
-                    this.aXP.setBorderWidth(1);
-                    this.aXP.setBorderColor(this.mPageContext.getPageActivity().getResources().getColor(e.d.black_alpha15));
-                    String str = aVar.aSs.userName;
+                if (aVar.aTi != null) {
+                    this.aYD.startLoad(aVar.aTi.liveCover, 10, false);
+                    this.aYD.setDrawBorder(true);
+                    this.aYD.setBorderWidth(1);
+                    this.aYD.setBorderColor(this.mPageContext.getPageActivity().getResources().getColor(e.d.black_alpha15));
+                    String str = aVar.aTi.userName;
                     if (!TextUtils.isEmpty(str)) {
                         if (k.bz(str) > 8) {
                             str = ao.d(str, 8, "...");
                         }
-                        this.aGD.setText(str);
+                        this.aHt.setText(str);
                     }
                 }
-                this.aXQ.setVisibility(0);
-                this.aXO.getLayoutParams().width = this.mPageContext.getPageActivity().getResources().getDimensionPixelSize(e.C0175e.tbds26);
+                this.aYE.setVisibility(0);
+                this.aYC.getLayoutParams().width = this.mPageContext.getPageActivity().getResources().getDimensionPixelSize(e.C0200e.tbds26);
                 TiebaStatic.log("c12676");
             }
             if (i == 0) {
-                this.aXN.setVisibility(0);
+                this.aYB.setVisibility(0);
             } else {
-                this.aXN.setVisibility(8);
+                this.aYB.setVisibility(8);
             }
-            al.c(this.aXQ, e.f.btn_story_live);
-            al.h(this.aGD, e.d.cp_cont_f);
+            al.c(this.aYE, e.f.btn_story_live);
+            al.h(this.aHt, e.d.cp_cont_f);
         }
     }
 }

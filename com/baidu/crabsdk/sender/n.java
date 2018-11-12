@@ -54,16 +54,16 @@ public final class n {
                     httpURLConnection3.setRequestProperty(HTTP.USER_AGENT, d.a(str2, (String) null));
                 } else {
                     com.baidu.crabsdk.c.a.cI("*** apiType != Block ***");
-                    String cR = e.cR(str3);
-                    if (cR.startsWith("NoEncrypt_")) {
+                    String l = e.l(str3);
+                    if (l.startsWith("NoEncrypt_")) {
                         httpURLConnection3.setRequestProperty("EncryptType", "RSA-AES2");
-                        cR = cR.substring(10);
-                        com.baidu.crabsdk.c.a.cI("real rsaAesKey is: " + cR);
+                        l = l.substring(10);
+                        com.baidu.crabsdk.c.a.cI("real rsaAesKey is: " + l);
                     } else {
                         httpURLConnection3.setRequestProperty("EncryptType", "RSA-AES");
                     }
-                    httpURLConnection3.setRequestProperty("EncryptData", cR);
-                    httpURLConnection3.setRequestProperty(HTTP.USER_AGENT, d.a(str2, e.cQ(str3)));
+                    httpURLConnection3.setRequestProperty("EncryptData", l);
+                    httpURLConnection3.setRequestProperty(HTTP.USER_AGENT, d.a(str2, e.j(str3)));
                 }
                 httpURLConnection3.setConnectTimeout(3000);
                 httpURLConnection3.setReadTimeout(3000);

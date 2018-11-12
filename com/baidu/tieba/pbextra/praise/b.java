@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class b {
-    private View bBF;
-    private HeadImageView ghf;
-    private TextView ghg;
-    private TextView ghh;
-    private ImageView ghi;
+    private View bCr;
+    private HeadImageView giC;
+    private TextView giD;
+    private TextView giE;
+    private ImageView giF;
 
-    public static b c(Context context, View view) {
+    public static b d(Context context, View view) {
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
             return new b(context);
         }
@@ -25,28 +25,28 @@ public class b {
     }
 
     private b(Context context) {
-        this.bBF = null;
-        this.ghf = null;
-        this.ghg = null;
-        this.ghh = null;
-        this.ghi = null;
-        this.bBF = LayoutInflater.from(context).inflate(e.h.zan_list_item, (ViewGroup) null);
-        this.ghf = (HeadImageView) this.bBF.findViewById(e.g.zan_list_item_head);
-        this.ghg = (TextView) this.bBF.findViewById(e.g.zan_list_item_name);
-        this.ghh = (TextView) this.bBF.findViewById(e.g.zan_list_item_time);
-        this.ghi = (ImageView) this.bBF.findViewById(e.g.zan_list_item_line_bottom);
-        this.ghi.setVisibility(0);
-        this.bBF.setTag(this);
+        this.bCr = null;
+        this.giC = null;
+        this.giD = null;
+        this.giE = null;
+        this.giF = null;
+        this.bCr = LayoutInflater.from(context).inflate(e.h.zan_list_item, (ViewGroup) null);
+        this.giC = (HeadImageView) this.bCr.findViewById(e.g.zan_list_item_head);
+        this.giD = (TextView) this.bCr.findViewById(e.g.zan_list_item_name);
+        this.giE = (TextView) this.bCr.findViewById(e.g.zan_list_item_time);
+        this.giF = (ImageView) this.bCr.findViewById(e.g.zan_list_item_line_bottom);
+        this.giF.setVisibility(0);
+        this.bCr.setTag(this);
     }
 
     public View getView() {
-        return this.bBF;
+        return this.bCr;
     }
 
     public void a(String str, String str2, long j, boolean z) {
-        this.ghg.setText(str);
-        this.ghf.setImageDrawable(null);
-        this.ghh.setText(ao.C(j));
-        this.ghf.startLoad(str2, 28, false);
+        this.giD.setText(str);
+        this.giC.setImageDrawable(null);
+        this.giE.setText(ao.E(j));
+        this.giC.startLoad(str2, 28, false);
     }
 }

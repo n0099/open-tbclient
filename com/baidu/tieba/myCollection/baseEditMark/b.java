@@ -6,55 +6,55 @@ import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tbadk.baseEditMark.a {
-    private MarkModel fzx;
+    private MarkModel fAU;
 
     public b(BaseActivity baseActivity) {
-        this.fzx = null;
-        this.fzx = new MarkModel(baseActivity);
+        this.fAU = null;
+        this.fAU = new MarkModel(baseActivity);
     }
 
     public b(BaseFragmentActivity baseFragmentActivity) {
-        this.fzx = null;
-        this.fzx = new MarkModel(baseFragmentActivity);
+        this.fAU = null;
+        this.fAU = new MarkModel(baseFragmentActivity);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void ay(boolean z) {
-        this.fzx.ay(z);
+    public void aO(boolean z) {
+        this.fAU.aO(z);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public String vb() {
-        return this.fzx.vb();
+    public String vl() {
+        return this.fAU.vl();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void a(a.InterfaceC0120a interfaceC0120a) {
-        this.fzx.a(interfaceC0120a);
+    public void a(a.InterfaceC0144a interfaceC0144a) {
+        this.fAU.a(interfaceC0144a);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void vd() {
-        this.fzx.vd();
+    public void vn() {
+        this.fAU.vn();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void ve() {
-        this.fzx.ve();
+    public void vo() {
+        this.fAU.vo();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public MarkData vf() {
-        return this.fzx.vf();
+    public MarkData vp() {
+        return this.fAU.vp();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(MarkData markData) {
-        this.fzx.a(markData);
+        this.fAU.a(markData);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public boolean vc() {
-        return this.fzx.vc();
+    public boolean vm() {
+        return this.fAU.vm();
     }
 }

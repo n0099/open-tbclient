@@ -203,6 +203,9 @@ public class ServiceProxy extends MAService implements c {
     public void proxyStartActivity(Intent intent) {
         Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
         if (plugin2 != null && plugin2.remapStartActivityIntent(intent)) {
+            if (intent != null) {
+                intent.addFlags(268435456);
+            }
             super.startActivity(intent);
         }
     }
@@ -227,6 +230,9 @@ public class ServiceProxy extends MAService implements c {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public void startActivity(Intent intent) {
+        if (intent != null) {
+            intent.addFlags(268435456);
+        }
         if (this.mEntity != null) {
             this.mEntity.startActivity(intent);
         } else {

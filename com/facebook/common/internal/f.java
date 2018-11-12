@@ -14,7 +14,7 @@ public final class f {
         return Arrays.hashCode(objArr);
     }
 
-    public static a ao(Object obj) {
+    public static a an(Object obj) {
         return new a(q(obj.getClass()));
     }
 
@@ -30,14 +30,14 @@ public final class f {
     /* loaded from: classes2.dex */
     public static final class a {
         private final String className;
-        private C0312a hWL;
-        private C0312a hWM;
-        private boolean hWN;
+        private C0340a hYv;
+        private C0340a hYw;
+        private boolean hYx;
 
         private a(String str) {
-            this.hWL = new C0312a();
-            this.hWM = this.hWL;
-            this.hWN = false;
+            this.hYv = new C0340a();
+            this.hYw = this.hYv;
+            this.hYx = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -54,45 +54,45 @@ public final class f {
         }
 
         public String toString() {
-            boolean z = this.hWN;
+            boolean z = this.hYx;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0312a c0312a = this.hWL.hWO; c0312a != null; c0312a = c0312a.hWO) {
-                if (!z || c0312a.value != null) {
+            for (C0340a c0340a = this.hYv.hYy; c0340a != null; c0340a = c0340a.hYy) {
+                if (!z || c0340a.value != null) {
                     append.append(str);
                     str = ", ";
-                    if (c0312a.name != null) {
-                        append.append(c0312a.name).append('=');
+                    if (c0340a.name != null) {
+                        append.append(c0340a.name).append('=');
                     }
-                    append.append(c0312a.value);
+                    append.append(c0340a.value);
                 }
             }
             return append.append('}').toString();
         }
 
-        private C0312a bRA() {
-            C0312a c0312a = new C0312a();
-            this.hWM.hWO = c0312a;
-            this.hWM = c0312a;
-            return c0312a;
+        private C0340a bQV() {
+            C0340a c0340a = new C0340a();
+            this.hYw.hYy = c0340a;
+            this.hYw = c0340a;
+            return c0340a;
         }
 
         private a o(String str, @Nullable Object obj) {
-            C0312a bRA = bRA();
-            bRA.value = obj;
-            bRA.name = (String) g.checkNotNull(str);
+            C0340a bQV = bQV();
+            bQV.value = obj;
+            bQV.name = (String) g.checkNotNull(str);
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static final class C0312a {
-            C0312a hWO;
+        public static final class C0340a {
+            C0340a hYy;
             String name;
             Object value;
 
-            private C0312a() {
+            private C0340a() {
             }
         }
     }

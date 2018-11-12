@@ -18,13 +18,13 @@ public class MsgActivityViewItemAdapter extends e<MsgActivityView> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgActivityView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgActivityView aMY = aVar.aMY();
-        aMY.setPosition(i);
-        aMY.setData(chatMessage);
-        aMY.a(this.ezH);
-        aMY.setOnItemViewLongClickListener(this.ezI);
-        aMY.ci(this.ezO);
-        aMY.ch(chatMessage.getCacheData().getLastMsgTime());
+        MsgActivityView aMw = aVar.aMw();
+        aMw.setPosition(i);
+        aMw.setData(chatMessage);
+        aMw.a(this.eBa);
+        aMw.setOnItemViewLongClickListener(this.eBb);
+        aMw.cd(this.eBh);
+        aMw.cc(chatMessage.getCacheData().getLastMsgTime());
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
@@ -33,7 +33,7 @@ public class MsgActivityViewItemAdapter extends e<MsgActivityView> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ba */
+    /* renamed from: bb */
     public e.a<MsgActivityView> onCreateViewHolder(ViewGroup viewGroup) {
         MsgActivityView msgActivityView = new MsgActivityView(this.mPageContext);
         return new a(msgActivityView.gb(), msgActivityView);

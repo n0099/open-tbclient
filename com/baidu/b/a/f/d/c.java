@@ -6,7 +6,7 @@ public class c {
     private static c ZY;
     private SparseArray<Class<?>> mStateArray = new SparseArray<>();
 
-    public static synchronized c rO() {
+    public static synchronized c rL() {
         c cVar;
         synchronized (c.class) {
             if (ZY == null) {
@@ -27,7 +27,7 @@ public class c {
         this.mStateArray.put(com.baidu.b.a.f.d.b.d.aau, com.baidu.b.a.f.d.b.d.class);
     }
 
-    private synchronized com.baidu.b.a.f.d.b.f br(int i) {
+    private synchronized com.baidu.b.a.f.d.b.f bG(int i) {
         com.baidu.b.a.f.d.b.f fVar;
         if (i < 0) {
             fVar = null;
@@ -58,15 +58,15 @@ public class c {
     }
 
     public boolean c(f fVar) {
-        com.baidu.b.a.f.d.b.f br = br(fVar.rP().type);
+        com.baidu.b.a.f.d.b.f bG = bG(fVar.rM().type);
         boolean z = true;
-        while (br != null) {
-            br.m(fVar);
-            z = br.rY();
+        while (bG != null) {
+            bG.m(fVar);
+            z = bG.rV();
             if (z) {
-                br = br(br.rZ());
+                bG = bG(bG.rW());
             } else {
-                br = br(br.sa());
+                bG = bG(bG.rX());
             }
         }
         return z;

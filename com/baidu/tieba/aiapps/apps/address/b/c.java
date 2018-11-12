@@ -11,45 +11,45 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    private static volatile c bBX;
-    private List<d> bBU = new ArrayList();
-    private Map<d, List<d>> bBV = new HashMap();
-    private Map<d, List<d>> bBW = new HashMap();
+    private static volatile c bCJ;
+    private List<d> bCG = new ArrayList();
+    private Map<d, List<d>> bCH = new HashMap();
+    private Map<d, List<d>> bCI = new HashMap();
     private boolean isInited;
 
-    public static c WE() {
-        if (bBX == null) {
+    public static c WO() {
+        if (bCJ == null) {
             synchronized (c.class) {
-                if (bBX == null) {
-                    bBX = new c();
+                if (bCJ == null) {
+                    bCJ = new c();
                 }
             }
         }
-        return bBX;
+        return bCJ;
     }
 
     public void initData() {
-        l(WJ());
+        n(WT());
         this.isInited = true;
     }
 
-    public boolean WF() {
+    public boolean WP() {
         return this.isInited;
     }
 
-    public List<d> WG() {
-        return this.bBU;
+    public List<d> WQ() {
+        return this.bCG;
     }
 
-    public Map<d, List<d>> WH() {
-        return this.bBV;
+    public Map<d, List<d>> WR() {
+        return this.bCH;
     }
 
-    public Map<d, List<d>> WI() {
-        return this.bBW;
+    public Map<d, List<d>> WS() {
+        return this.bCI;
     }
 
-    private void l(JSONArray jSONArray) {
+    private void n(JSONArray jSONArray) {
         d K;
         if (jSONArray != null && jSONArray.length() > 0) {
             int i = 0;
@@ -58,12 +58,12 @@ public class c {
                 if (i2 < jSONArray.length()) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                     if (optJSONObject != null && (K = d.K(optJSONObject)) != null) {
-                        this.bBU.add(K);
-                        if (K.WN()) {
-                            this.bBV.put(K, K.act);
-                            for (d dVar : K.act) {
-                                if (dVar.WN()) {
-                                    this.bBW.put(dVar, dVar.act);
+                        this.bCG.add(K);
+                        if (K.WX()) {
+                            this.bCH.put(K, K.acq);
+                            for (d dVar : K.acq) {
+                                if (dVar.WX()) {
+                                    this.bCI.put(dVar, dVar.acq);
                                 }
                             }
                         }
@@ -76,7 +76,7 @@ public class c {
         }
     }
 
-    private JSONArray WJ() {
+    private JSONArray WT() {
         try {
             InputStream open = AppRuntime.getAppContext().getAssets().open("aiapps/pickerRegion.js");
             byte[] bArr = new byte[open.available()];

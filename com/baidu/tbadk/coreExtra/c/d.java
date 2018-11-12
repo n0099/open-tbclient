@@ -15,66 +15,66 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class d {
-    public static final String aOf = l.FH + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
-    public String aNQ;
-    public String aNU;
-    public String aNV;
-    public int aNY;
-    private Bundle aOb;
-    public int arx;
+    public static final String aOV = l.FL + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
+    public String aOG;
+    public String aOK;
+    public String aOL;
+    public int aOO;
+    private Bundle aOR;
+    public int ask;
     public String fid;
     public OriginalThreadInfo originalThreadInfo;
     public String tid;
     public String uid;
-    public boolean aNH = false;
-    public boolean aNI = false;
-    public boolean aNJ = false;
-    public boolean aNK = false;
-    public boolean aNL = false;
-    public boolean aNM = false;
-    public boolean aNN = false;
-    public boolean aNO = false;
-    public String aNP = "";
-    public int aNW = 0;
-    public int aNX = 3;
-    public boolean aNZ = false;
-    public boolean aOc = true;
-    public boolean aOd = true;
-    public boolean aOe = true;
+    public boolean aOx = false;
+    public boolean aOy = false;
+    public boolean aOz = false;
+    public boolean aOA = false;
+    public boolean aOB = false;
+    public boolean aOC = false;
+    public boolean aOD = false;
+    public boolean aOE = false;
+    public String aOF = "";
+    public int aOM = 0;
+    public int aON = 3;
+    public boolean aOP = false;
+    public boolean aOS = true;
+    public boolean aOT = true;
+    public boolean aOU = true;
     public String title = null;
     public String content = null;
     public String linkUrl = null;
-    public String aNR = null;
+    public String aOH = null;
     public Uri imageUri = null;
-    public Location aNS = null;
-    private WeakReference<Bitmap> aOa = null;
-    public String aNT = null;
+    public Location aOI = null;
+    private WeakReference<Bitmap> aOQ = null;
+    public String aOJ = null;
     public String extData = null;
 
-    public Bundle IQ() {
-        return this.aOb;
+    public Bundle Jc() {
+        return this.aOR;
     }
 
-    public void f(Bundle bundle) {
-        this.aOb = bundle;
+    public void i(Bundle bundle) {
+        this.aOR = bundle;
     }
 
-    public Bitmap IR() {
+    public Bitmap Jd() {
         Bitmap bitmap;
-        if (this.aOa == null || (bitmap = this.aOa.get()) == null || bitmap.isRecycled()) {
+        if (this.aOQ == null || (bitmap = this.aOQ.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         return bitmap;
     }
 
     public void g(Bitmap bitmap) {
-        this.aOa = new WeakReference<>(bitmap);
+        this.aOQ = new WeakReference<>(bitmap);
     }
 
-    public byte[] IS() {
+    public byte[] Je() {
         Bitmap bitmap;
         byte[] bArr;
-        if (this.aOa == null || (bitmap = this.aOa.get()) == null || bitmap.isRecycled()) {
+        if (this.aOQ == null || (bitmap = this.aOQ.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -92,16 +92,16 @@ public class d {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [197=4, 198=4, 200=4, 201=4] */
-    public void IT() {
+    public void Jf() {
         FileOutputStream fileOutputStream = null;
-        if (this.aOa == null) {
+        if (this.aOQ == null) {
             return;
         }
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
-                if (l.hB()) {
-                    File file = new File(aOf);
+                if (l.hA()) {
+                    File file = new File(aOV);
                     if (file.exists()) {
                         file.delete();
                     }
@@ -109,14 +109,14 @@ public class d {
                     if (parentFile != null && !parentFile.exists()) {
                         parentFile.mkdirs();
                     }
-                    byte[] IS = IS();
-                    if (IS != null) {
+                    byte[] Je = Je();
+                    if (Je != null) {
                         FileOutputStream fileOutputStream3 = new FileOutputStream(file);
                         try {
-                            fileOutputStream3.write(IS);
+                            fileOutputStream3.write(Je);
                             fileOutputStream3.close();
                             this.imageUri = Uri.fromFile(file);
-                            this.aOa = null;
+                            this.aOQ = null;
                             if (fileOutputStream3 != null) {
                                 try {
                                     fileOutputStream3.close();

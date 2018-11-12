@@ -6,15 +6,15 @@ import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class h implements Runnable {
-    final /* synthetic */ c Wf;
-    final /* synthetic */ String Wg;
-    final /* synthetic */ String Wh;
+    final /* synthetic */ c Wh;
+    final /* synthetic */ String Wi;
+    final /* synthetic */ String Wj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(c cVar, String str, String str2) {
-        this.Wf = cVar;
-        this.Wg = str;
-        this.Wh = str2;
+        this.Wh = cVar;
+        this.Wi = str;
+        this.Wj = str2;
     }
 
     @Override // java.lang.Runnable
@@ -35,55 +35,55 @@ public class h implements Runnable {
         File file10;
         File file11;
         File file12;
-        n nVar = new n(this.Wg, this.Wh);
-        nVar.a(this.Wf);
-        mediaRecorder = this.Wf.VY;
+        n nVar = new n(this.Wi, this.Wj);
+        nVar.a(this.Wh);
+        mediaRecorder = this.Wh.Wa;
         if (mediaRecorder != null) {
-            file = this.Wf.Wa;
+            file = this.Wh.Wc;
             if (file != null) {
-                file2 = this.Wf.Wa;
+                file2 = this.Wh.Wc;
                 if (file2.exists()) {
-                    mediaRecorder2 = this.Wf.VY;
+                    mediaRecorder2 = this.Wh.Wa;
                     mediaRecorder2.stop();
-                    mediaRecorder3 = this.Wf.VY;
+                    mediaRecorder3 = this.Wh.Wa;
                     mediaRecorder3.reset();
-                    mediaRecorder4 = this.Wf.VY;
+                    mediaRecorder4 = this.Wh.Wa;
                     mediaRecorder4.release();
-                    file3 = this.Wf.VZ;
+                    file3 = this.Wh.Wb;
                     if (file3 != null) {
-                        file11 = this.Wf.VZ;
+                        file11 = this.Wh.Wb;
                         if (file11.exists()) {
-                            file12 = this.Wf.VZ;
+                            file12 = this.Wh.Wb;
                             file12.delete();
                         }
                     }
-                    c cVar = this.Wf;
-                    file4 = this.Wf.Wa;
-                    cVar.VZ = file4;
-                    this.Wf.Wa = null;
-                    this.Wf.VY = null;
-                    nVar.as(true);
-                    file5 = this.Wf.VZ;
+                    c cVar = this.Wh;
+                    file4 = this.Wh.Wc;
+                    cVar.Wb = file4;
+                    this.Wh.Wc = null;
+                    this.Wh.Wa = null;
+                    nVar.aG(true);
+                    file5 = this.Wh.Wb;
                     nVar.addField("path", file5.getAbsolutePath());
-                    file6 = this.Wf.VZ;
+                    file6 = this.Wh.Wb;
                     nVar.addField("record_length", String.valueOf(file6.length()));
-                    file7 = this.Wf.VZ;
+                    file7 = this.Wh.Wb;
                     nVar.addField("fullPath", file7.getAbsolutePath());
-                    file8 = this.Wf.VZ;
+                    file8 = this.Wh.Wb;
                     nVar.addField("name", file8.getName());
-                    file9 = this.Wf.VZ;
+                    file9 = this.Wh.Wb;
                     nVar.addField(ChooseVideoAction.CB_KEY_SIZE, String.valueOf(file9.length()));
-                    file10 = this.Wf.VZ;
+                    file10 = this.Wh.Wb;
                     nVar.addField("lastModified", String.valueOf(file10.lastModified()));
                     nVar.addField("type", "audio/amr");
                     nVar.addField("height", "0");
                     nVar.addField("width", "0");
                     nVar.addField("duration", "0");
-                    nVar.qP();
+                    nVar.qN();
                 }
             }
         }
-        nVar.as(false);
-        nVar.qP();
+        nVar.aG(false);
+        nVar.qN();
     }
 }

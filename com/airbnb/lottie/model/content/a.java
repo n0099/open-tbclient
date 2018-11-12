@@ -7,15 +7,15 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements b {
     private final String name;
-    private final m<PointF, PointF> qP;
-    private final com.airbnb.lottie.model.a.f qX;
-    private final boolean qY;
+    private final m<PointF, PointF> qQ;
+    private final com.airbnb.lottie.model.a.f qY;
+    private final boolean qZ;
 
     private a(String str, m<PointF, PointF> mVar, com.airbnb.lottie.model.a.f fVar, boolean z) {
         this.name = str;
-        this.qP = mVar;
-        this.qX = fVar;
-        this.qY = z;
+        this.qQ = mVar;
+        this.qY = fVar;
+        this.qZ = z;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -37,15 +37,15 @@ public class a implements b {
         return this.name;
     }
 
-    public m<PointF, PointF> dT() {
-        return this.qP;
+    public m<PointF, PointF> dS() {
+        return this.qQ;
     }
 
-    public com.airbnb.lottie.model.a.f ed() {
-        return this.qX;
+    public com.airbnb.lottie.model.a.f ec() {
+        return this.qY;
     }
 
     public boolean isReversed() {
-        return this.qY;
+        return this.qZ;
     }
 }

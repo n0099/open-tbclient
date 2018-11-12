@@ -17,8 +17,8 @@ import java.util.Iterator;
 public class b extends RecyclerView.Adapter<a> {
     private ArrayList<com.baidu.tieba.forbidden.fans.a> fansList;
     private Context mContext;
-    private View.OnClickListener dvC = null;
-    private View.OnClickListener cCH = null;
+    private View.OnClickListener dwU = null;
+    private View.OnClickListener cDP = null;
 
     public b(Context context) {
         this.mContext = context;
@@ -35,24 +35,24 @@ public class b extends RecyclerView.Adapter<a> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(a aVar, int i) {
-        com.baidu.tieba.forbidden.fans.a la;
-        if (aVar != null && (la = la(i)) != null) {
-            aVar.dvE.startLoad(la.portrait, 12, false);
-            aVar.dvF.setText(la.nameShow);
-            aVar.dvG.setOnClickListener(this.dvC);
-            aVar.dvG.setTag(la);
-            aVar.dvD.setOnClickListener(this.cCH);
-            aVar.dvD.setTag(la);
+        com.baidu.tieba.forbidden.fans.a ls;
+        if (aVar != null && (ls = ls(i)) != null) {
+            aVar.dwW.startLoad(ls.portrait, 12, false);
+            aVar.dwX.setText(ls.nameShow);
+            aVar.dwY.setOnClickListener(this.dwU);
+            aVar.dwY.setTag(ls);
+            aVar.dwV.setOnClickListener(this.cDP);
+            aVar.dwV.setTag(ls);
             a(aVar);
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return v.I(this.fansList);
+        return v.H(this.fansList);
     }
 
-    private com.baidu.tieba.forbidden.fans.a la(int i) {
+    private com.baidu.tieba.forbidden.fans.a ls(int i) {
         return (com.baidu.tieba.forbidden.fans.a) v.d(this.fansList, i);
     }
 
@@ -64,8 +64,8 @@ public class b extends RecyclerView.Adapter<a> {
         return this.fansList;
     }
 
-    public boolean bN(long j) {
-        if (j == 0 || v.J(this.fansList)) {
+    public boolean bJ(long j) {
+        if (j == 0 || v.I(this.fansList)) {
             return false;
         }
         Iterator<com.baidu.tieba.forbidden.fans.a> it = this.fansList.iterator();
@@ -79,43 +79,43 @@ public class b extends RecyclerView.Adapter<a> {
         return false;
     }
 
-    public boolean axX() {
-        return v.J(this.fansList);
+    public boolean axu() {
+        return v.I(this.fansList);
     }
 
     /* loaded from: classes3.dex */
     public static class a extends RecyclerView.ViewHolder {
         public View dividerLine;
-        public View dvD;
-        public ClickableHeaderImageView dvE;
-        public TextView dvF;
-        public TextView dvG;
+        public View dwV;
+        public ClickableHeaderImageView dwW;
+        public TextView dwX;
+        public TextView dwY;
 
         public a(View view) {
             super(view);
-            this.dvD = view.findViewById(e.g.container_forbidden_item);
-            this.dvE = (ClickableHeaderImageView) view.findViewById(e.g.view_fans_photo);
-            this.dvE.setRadius(l.h(view.getContext(), e.C0175e.ds90));
-            this.dvE.setAutoChangeStyle(true);
-            this.dvE.setClickable(false);
-            this.dvF = (TextView) view.findViewById(e.g.view_fans_name);
-            this.dvG = (TextView) view.findViewById(e.g.view_fans_remove);
+            this.dwV = view.findViewById(e.g.container_forbidden_item);
+            this.dwW = (ClickableHeaderImageView) view.findViewById(e.g.view_fans_photo);
+            this.dwW.setRadius(l.h(view.getContext(), e.C0200e.ds90));
+            this.dwW.setAutoChangeStyle(true);
+            this.dwW.setClickable(false);
+            this.dwX = (TextView) view.findViewById(e.g.view_fans_name);
+            this.dwY = (TextView) view.findViewById(e.g.view_fans_remove);
             this.dividerLine = view.findViewById(e.g.line_divider);
         }
     }
 
     private void a(a aVar) {
-        al.h(aVar.dvF, e.d.cp_cont_b);
+        al.h(aVar.dwX, e.d.cp_cont_b);
         al.j(aVar.dividerLine, e.d.cp_bg_line_b);
-        al.h(aVar.dvG, e.d.btn_color_remove);
-        al.i(aVar.dvG, e.f.btn_transparent_focus_border_bg);
+        al.h(aVar.dwY, e.d.btn_color_remove);
+        al.i(aVar.dwY, e.f.btn_transparent_focus_border_bg);
     }
 
-    public void o(View.OnClickListener onClickListener) {
-        this.dvC = onClickListener;
+    public void q(View.OnClickListener onClickListener) {
+        this.dwU = onClickListener;
     }
 
-    public void i(View.OnClickListener onClickListener) {
-        this.cCH = onClickListener;
+    public void j(View.OnClickListener onClickListener) {
+        this.cDP = onClickListener;
     }
 }

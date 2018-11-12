@@ -12,77 +12,77 @@ import com.baidu.tieba.im.data.ValidateItemData;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.adp.base.c<ValidateActivity> {
-    private View eKq;
-    private ProgressBar eMB;
-    private ValidateActivity eRC;
-    private ImageView eRI;
-    private BdListView eRJ;
-    private a eRK;
+    private View eLI;
+    private ProgressBar eNT;
+    private ValidateActivity eSU;
+    private ImageView eTa;
+    private BdListView eTb;
+    private a eTc;
     private NavigationBar mNavigationBar;
 
     public c(ValidateActivity validateActivity) {
         super(validateActivity.getPageContext());
-        this.eRC = validateActivity;
+        this.eSU = validateActivity;
         initView();
-        this.eRK = new a(this.eRC);
-        this.eRJ.setAdapter((ListAdapter) this.eRK);
-        this.eRJ.setOnSrollToBottomListener(this.eRC);
+        this.eTc = new a(this.eSU);
+        this.eTb.setAdapter((ListAdapter) this.eTc);
+        this.eTb.setOnSrollToBottomListener(this.eSU);
     }
 
     void initView() {
-        this.eKq = View.inflate(this.eRC.getPageContext().getPageActivity(), e.h.validate_activity, null);
-        this.eRC.setContentView(this.eKq);
-        this.mNavigationBar = (NavigationBar) this.eRC.findViewById(e.g.view_navigation_bar);
-        this.mNavigationBar.setTitleText(this.eRC.getPageContext().getString(e.j.validate));
+        this.eLI = View.inflate(this.eSU.getPageContext().getPageActivity(), e.h.validate_activity, null);
+        this.eSU.setContentView(this.eLI);
+        this.mNavigationBar = (NavigationBar) this.eSU.findViewById(e.g.view_navigation_bar);
+        this.mNavigationBar.setTitleText(this.eSU.getPageContext().getString(e.j.validate));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.eRC.finish();
+                c.this.eSU.finish();
             }
         });
-        this.eRJ = (BdListView) this.eKq.findViewById(e.g.validate_list);
-        this.eMB = (ProgressBar) this.eKq.findViewById(e.g.pro_load);
-        iz(false);
+        this.eTb = (BdListView) this.eLI.findViewById(e.g.validate_list);
+        this.eNT = (ProgressBar) this.eLI.findViewById(e.g.pro_load);
+        iI(false);
     }
 
     @Override // com.baidu.adp.base.c
     public void destroy() {
         super.destroy();
-        if (this.eRK != null) {
-            this.eRK.destroy();
-            this.eRK = null;
+        if (this.eTc != null) {
+            this.eTc.destroy();
+            this.eTc = null;
         }
-        this.eRC = null;
+        this.eSU = null;
     }
 
     public void setData(List<ValidateItemData> list) {
-        if (this.eRK != null) {
-            this.eRK.setData(list);
+        if (this.eTc != null) {
+            this.eTc.setData(list);
         }
     }
 
-    public void iz(boolean z) {
-        this.eMB.setVisibility(z ? 0 : 8);
+    public void iI(boolean z) {
+        this.eNT.setVisibility(z ? 0 : 8);
     }
 
     public void onChangeSkinType(int i) {
-        this.eRC.getLayoutMode().setNightMode(i == 1);
-        this.eRC.getLayoutMode().onModeChanged(this.eKq);
-        this.mNavigationBar.onChangeSkinType(this.eRC.getPageContext(), i);
+        this.eSU.getLayoutMode().setNightMode(i == 1);
+        this.eSU.getLayoutMode().onModeChanged(this.eLI);
+        this.mNavigationBar.onChangeSkinType(this.eSU.getPageContext(), i);
         if (i == 1) {
-            this.eRJ.setDivider(new ColorDrawable(this.eRC.getResources().getColor(e.d.common_color_10179)));
-            this.eRJ.setDividerHeight(this.eRC.getResources().getDimensionPixelSize(e.C0175e.ds2));
+            this.eTb.setDivider(new ColorDrawable(this.eSU.getResources().getColor(e.d.common_color_10179)));
+            this.eTb.setDividerHeight(this.eSU.getResources().getDimensionPixelSize(e.C0200e.ds2));
             return;
         }
-        this.eRJ.setDivider(new ColorDrawable(this.eRC.getResources().getColor(e.d.common_color_10241)));
-        this.eRJ.setDividerHeight(this.eRC.getResources().getDimensionPixelSize(e.C0175e.ds2));
+        this.eTb.setDivider(new ColorDrawable(this.eSU.getResources().getColor(e.d.common_color_10241)));
+        this.eTb.setDividerHeight(this.eSU.getResources().getDimensionPixelSize(e.C0200e.ds2));
     }
 
-    public ImageView aTl() {
-        return this.eRI;
+    public ImageView aSI() {
+        return this.eTa;
     }
 
-    public a aTm() {
-        return this.eRK;
+    public a aSJ() {
+        return this.eTc;
     }
 }

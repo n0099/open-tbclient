@@ -17,7 +17,6 @@ import com.baidu.ar.representation.c;
 import com.baidu.ar.util.ARFileUtils;
 import com.baidu.ar.util.ARLog;
 import com.baidu.ar.util.Constants;
-import com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsNaViewModel;
 import com.coremedia.iso.boxes.TrackReferenceTypeBox;
 import java.io.File;
 import java.util.ArrayList;
@@ -407,8 +406,8 @@ public final class ParserJson {
             if (jSONObject.has("place_type")) {
                 eVar.a(jSONObject.getInt("place_type"));
             }
-            if (jSONObject.has(AiAppsNaViewModel.KEY_POSITION)) {
-                eVar.b(jSONObject.getString(AiAppsNaViewModel.KEY_POSITION));
+            if (jSONObject.has("position")) {
+                eVar.b(jSONObject.getString("position"));
             }
             if (jSONObject.has("distance")) {
                 eVar.b(jSONObject.getInt("distance"));

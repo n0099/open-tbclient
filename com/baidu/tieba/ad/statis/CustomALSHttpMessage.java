@@ -22,7 +22,7 @@ public class CustomALSHttpMessage extends HttpMessage {
         addParam("productId", "2");
         addParam("_os_version", Build.VERSION.RELEASE);
         addParam("_os_type", "ANDROID");
-        addParam(ETAG.KEY_NET_TYPE, String.valueOf(j.ld()));
+        addParam(ETAG.KEY_NET_TYPE, String.valueOf(j.lb()));
         this.mUIHandler = new Handler(Looper.getMainLooper());
     }
 

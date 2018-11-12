@@ -15,8 +15,8 @@ import tbclient.GameForumGuideTab.GameForumSubTab;
 import tbclient.ThreadInfo;
 /* loaded from: classes3.dex */
 public class a {
-    public static List<e> bI(List<GameForumSubTab> list) {
-        if (v.J(list)) {
+    public static List<e> bG(List<GameForumSubTab> list) {
+        if (v.I(list)) {
             return null;
         }
         ArrayList arrayList = new ArrayList(list.size());
@@ -34,8 +34,8 @@ public class a {
         return arrayList;
     }
 
-    public static List<h> bJ(List<ThreadInfo> list) {
-        if (v.J(list)) {
+    public static List<h> bH(List<ThreadInfo> list) {
+        if (v.I(list)) {
             return null;
         }
         LinkedList linkedList = new LinkedList();
@@ -50,10 +50,10 @@ public class a {
             bVar.aa(bbVar);
             bbVar.a(list.get(i2));
             bbVar.setCurrentPage(3);
-            bbVar.zf();
-            if (!TextUtils.isEmpty(bbVar.zp())) {
+            bbVar.zm();
+            if (!TextUtils.isEmpty(bbVar.zw())) {
                 ab abVar = new ab();
-                abVar.dP(bbVar.zp());
+                abVar.dP(bbVar.zw());
                 linkedList.add(abVar);
             } else {
                 linkedList.add(bVar);

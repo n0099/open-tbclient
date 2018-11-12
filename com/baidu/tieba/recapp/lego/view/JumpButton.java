@@ -26,11 +26,11 @@ public class JumpButton extends TextView {
     private void init() {
         al.i(this, e.f.btn_focus_border_bg);
         al.c(this, e.d.btn_forum_focus_color, 1);
-        int h = l.h(getContext(), e.C0175e.ds144);
-        int h2 = l.h(getContext(), e.C0175e.ds50);
+        int h = l.h(getContext(), e.C0200e.ds144);
+        int h2 = l.h(getContext(), e.C0200e.ds50);
         setWidth(h);
         setHeight(h2);
         setGravity(17);
-        setTextSize(0, l.h(getContext(), e.C0175e.fontsize24));
+        setTextSize(0, l.h(getContext(), e.C0200e.fontsize24));
     }
 }

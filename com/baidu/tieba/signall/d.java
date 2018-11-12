@@ -7,19 +7,19 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class d implements ae {
     private String avatar;
-    private int bMu;
-    private int cZc;
+    private int bNf;
+    private int dah;
     private String errorMsg;
     private int forumId;
     private String forumName;
-    private boolean gTA;
-    private boolean gTB;
-    private boolean gTC;
-    private int gTD;
-    private int gTw;
-    private int gTx;
-    private int gTy;
-    private boolean gTz;
+    private int gUW;
+    private int gUX;
+    private int gUY;
+    private boolean gUZ;
+    private boolean gVa;
+    private boolean gVb;
+    private boolean gVc;
+    private int gVd;
 
     public int getForumId() {
         return this.forumId;
@@ -33,82 +33,82 @@ public class d implements ae {
         return this.avatar;
     }
 
-    public int byt() {
-        return this.gTw;
+    public int bxP() {
+        return this.gUW;
     }
 
-    public int byu() {
-        return this.bMu;
+    public int bxQ() {
+        return this.bNf;
     }
 
-    public int byv() {
-        return this.cZc;
+    public int bxR() {
+        return this.dah;
     }
 
-    public int byw() {
-        return this.gTx;
+    public int bxS() {
+        return this.gUX;
     }
 
-    public int byx() {
-        return this.gTy;
+    public int bxT() {
+        return this.gUY;
     }
 
-    public void uf(int i) {
-        this.gTw = i;
+    public void uy(int i) {
+        this.gUW = i;
     }
 
-    public void ug(int i) {
-        this.bMu = i;
+    public void uz(int i) {
+        this.bNf = i;
     }
 
-    public void uh(int i) {
-        this.cZc = i;
+    public void uA(int i) {
+        this.dah = i;
     }
 
-    public boolean Zv() {
-        return this.gTz;
+    public boolean ZF() {
+        return this.gUZ;
     }
 
-    public void mS(boolean z) {
-        this.gTz = z;
-        this.gTw = 1;
+    public void nd(boolean z) {
+        this.gUZ = z;
+        this.gUW = 1;
     }
 
-    public boolean byy() {
-        return this.gTB;
+    public boolean bxU() {
+        return this.gVb;
     }
 
-    public void mT(boolean z) {
-        this.gTB = z;
-        this.gTw = 0;
+    public void ne(boolean z) {
+        this.gVb = z;
+        this.gUW = 0;
     }
 
-    public boolean byz() {
-        return this.gTC;
+    public boolean bxV() {
+        return this.gVc;
     }
 
-    public void mU(boolean z) {
-        this.gTC = z;
+    public void nf(boolean z) {
+        this.gVc = z;
     }
 
-    public int byA() {
-        return this.gTD;
+    public int bxW() {
+        return this.gVd;
     }
 
-    public void ui(int i) {
-        this.gTD = i;
+    public void uB(int i) {
+        this.gVd = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean byB() {
-        return this.gTA;
+    public boolean bxX() {
+        return this.gVa;
     }
 
-    public void mV(boolean z) {
-        this.gTA = z;
+    public void ng(boolean z) {
+        this.gVa = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -116,14 +116,14 @@ public class d implements ae {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString("avatar");
-            this.gTw = jSONObject.optInt("is_sign_in");
-            this.bMu = jSONObject.optInt("cont_sign_num");
-            this.cZc = jSONObject.optInt("user_level");
-            this.gTx = jSONObject.optInt("user_exp");
-            this.gTy = jSONObject.optInt("need_exp");
-            if (this.gTw != 0) {
-                this.gTz = true;
-                this.gTB = false;
+            this.gUW = jSONObject.optInt("is_sign_in");
+            this.bNf = jSONObject.optInt("cont_sign_num");
+            this.dah = jSONObject.optInt("user_level");
+            this.gUX = jSONObject.optInt("user_exp");
+            this.gUY = jSONObject.optInt("need_exp");
+            if (this.gUW != 0) {
+                this.gUZ = true;
+                this.gVb = false;
             }
         }
     }

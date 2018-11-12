@@ -11,11 +11,13 @@ import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 /* loaded from: classes.dex */
-public final class b {
+public class b {
     public static void a(Context context, boolean z) {
         long currentTimeMillis;
         try {
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
+            long I = 3600000 * eVar.I();
+            com.baidu.sofire.b.a("sjh-alarm gap " + eVar.I());
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
             Intent intent = new Intent("com.baidu.action.SOFIRE.VIEW");
             intent.setClass(context, MyService.class);
@@ -27,19 +29,17 @@ public final class b {
             intent.putExtra("target_method", "handleWork");
             intent.putExtra("from", 6);
             PendingIntent service = PendingIntent.getService(context, 1000, intent, 134217728);
-            if (!z) {
-                currentTimeMillis = ((System.currentTimeMillis() + 86400000) - KeepJobService.JOB_CHECK_PERIODIC) + ((long) (1200000.0d * Math.random()));
-                eVar.c.putLong("npuct", currentTimeMillis);
-                eVar.c.commit();
-            } else {
-                currentTimeMillis = eVar.a.getLong("npuct", 0L);
+            if (z) {
+                currentTimeMillis = eVar.a();
                 if (currentTimeMillis <= 0) {
-                    currentTimeMillis = System.currentTimeMillis() + 86400000;
-                    eVar.c.putLong("npuct", currentTimeMillis);
-                    eVar.c.commit();
+                    currentTimeMillis = System.currentTimeMillis() + I;
+                    eVar.a(currentTimeMillis);
                 }
+            } else {
+                currentTimeMillis = ((System.currentTimeMillis() + I) - KeepJobService.JOB_CHECK_PERIODIC) + ((long) (1200000.0d * Math.random()));
+                eVar.a(currentTimeMillis);
             }
-            new StringBuilder("b=").append(z).append(", n=").append(currentTimeMillis).append(", t=86400000, c=").append(System.currentTimeMillis());
+            com.baidu.sofire.b.a("b=" + z + ", n=" + currentTimeMillis + ", t=" + I + ", c=" + System.currentTimeMillis());
             alarmManager.cancel(service);
             alarmManager.set(0, currentTimeMillis, service);
         } catch (Throwable th) {
@@ -73,31 +73,11 @@ public final class b {
                     break;
             }
             long currentTimeMillis = j + System.currentTimeMillis();
-            new StringBuilder("n=").append(currentTimeMillis).append(", c=").append(System.currentTimeMillis());
+            com.baidu.sofire.b.a("n=" + currentTimeMillis + ", c=" + System.currentTimeMillis());
             alarmManager.cancel(service);
             if (!z) {
                 alarmManager.set(0, currentTimeMillis, service);
             }
-        } catch (Throwable th) {
-            e.a(th);
-        }
-    }
-
-    public static void a(Context context) {
-        try {
-            AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
-            Intent intent = new Intent("com.baidu.action.SOFIRE.VIEW");
-            intent.setClass(context, MyService.class);
-            intent.setPackage(context.getPackageName());
-            intent.addCategory("com.baidu.category.SOFIRE");
-            intent.addCategory("android.intent.category.DEFAULT");
-            intent.putExtra("from_plugin_package", context.getPackageName());
-            intent.putExtra("target_class", U.class.getCanonicalName());
-            intent.putExtra("target_method", "handleUploadPidChange");
-            PendingIntent service = PendingIntent.getService(context, 1002, intent, 134217728);
-            long currentTimeMillis = System.currentTimeMillis() + 86400000;
-            alarmManager.cancel(service);
-            alarmManager.set(0, currentTimeMillis, service);
         } catch (Throwable th) {
             e.a(th);
         }

@@ -13,7 +13,7 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class c {
-    public static void d(Context context, View view) {
+    public static void e(Context context, View view) {
         Toast toast = new Toast(context);
         toast.setView(view);
         toast.setGravity(17, 0, 0);
@@ -36,21 +36,21 @@ public class c {
             textView2.setText(str2);
             textView3.setText(str3);
         }
-        d(context, inflate);
+        e(context, inflate);
     }
 
     public static void a(x xVar, WriteData writeData) {
         if (writeData != null && writeData.isHasLocationData()) {
             xVar.x("is_location", "2");
-            Address R = com.baidu.adp.lib.d.a.iX().R(false);
-            if (R != null) {
-                xVar.x("lat", String.valueOf(R.getLatitude()));
-                xVar.x("lng", String.valueOf(R.getLongitude()));
+            Address af = com.baidu.adp.lib.d.a.iW().af(false);
+            if (af != null) {
+                xVar.x("lat", String.valueOf(af.getLatitude()));
+                xVar.x("lng", String.valueOf(af.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bCH().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bCc().getLocationData();
             if (locationData != null) {
-                xVar.x("name", locationData.bCD());
-                xVar.x("sn", locationData.bCF());
+                xVar.x("name", locationData.bBZ());
+                xVar.x("sn", locationData.bCb());
             }
         }
     }

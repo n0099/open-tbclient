@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.IntentFilter;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.base.network.Apn;
-import com.baidu.sapi2.base.utils.AlarmerUtil;
 import com.baidu.sapi2.base.utils.DateTimeUtil;
 import com.baidu.sapi2.base.utils.NetworkUtil;
 import com.baidu.sapi2.passhost.hostsdk.service.c;
@@ -32,15 +31,15 @@ public class a extends IEventCenterService {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sapi2.passhost.hostsdk.service.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0094a {
+    public static class C0117a {
         public static a a = new a();
 
-        private C0094a() {
+        private C0117a() {
         }
     }
 
     public static a a() {
-        return C0094a.a;
+        return C0117a.a;
     }
 
     public void a(boolean z) {
@@ -53,14 +52,7 @@ public class a extends IEventCenterService {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(TimingReceiver.b);
             this.j = new TimingReceiver();
-            if (this.m) {
-                AlarmerUtil.addAlarm(context, TimingReceiver.b, 7, 1);
-            } else {
-                AlarmerUtil.addAlarm(context, TimingReceiver.a, 10, 1);
-                intentFilter.addAction(TimingReceiver.a);
-                intentFilter.addAction("android.intent.action.SCREEN_OFF");
-                intentFilter.addAction("android.intent.action.SCREEN_ON");
-                intentFilter.addAction("android.intent.action.USER_PRESENT");
+            if (!this.m) {
                 b.a().a(this.n);
             }
             context.registerReceiver(this.j, intentFilter);

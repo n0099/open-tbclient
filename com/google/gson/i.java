@@ -4,38 +4,38 @@ import java.io.IOException;
 import java.io.StringWriter;
 /* loaded from: classes2.dex */
 public abstract class i {
-    public boolean bYB() {
+    public boolean bXY() {
         return this instanceof f;
     }
 
-    public boolean bYC() {
+    public boolean bXZ() {
         return this instanceof k;
     }
 
-    public boolean bYD() {
+    public boolean bYa() {
         return this instanceof l;
     }
 
-    public boolean bYE() {
+    public boolean bYb() {
         return this instanceof j;
     }
 
-    public k bYF() {
-        if (bYC()) {
+    public k bYc() {
+        if (bXZ()) {
             return (k) this;
         }
         throw new IllegalStateException("Not a JSON Object: " + this);
     }
 
-    public f bYG() {
-        if (bYB()) {
+    public f bYd() {
+        if (bXY()) {
             return (f) this;
         }
         throw new IllegalStateException("This is not a JSON Array.");
     }
 
-    public l bYH() {
-        if (bYD()) {
+    public l bYe() {
+        if (bYa()) {
             return (l) this;
         }
         throw new IllegalStateException("This is not a JSON Primitive.");
@@ -45,15 +45,15 @@ public abstract class i {
         throw new UnsupportedOperationException(getClass().getSimpleName());
     }
 
-    Boolean bYI() {
+    Boolean bYf() {
         throw new UnsupportedOperationException(getClass().getSimpleName());
     }
 
-    public Number bYz() {
+    public Number bXW() {
         throw new UnsupportedOperationException(getClass().getSimpleName());
     }
 
-    public String bYA() {
+    public String bXX() {
         throw new UnsupportedOperationException(getClass().getSimpleName());
     }
 

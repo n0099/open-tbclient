@@ -12,7 +12,7 @@ final class StringsKt__IndentKt$getIndentFunction$1 extends Lambda implements ko
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.b
     public final String invoke(String str) {
-        kotlin.jvm.internal.p.i(str, "line");
+        kotlin.jvm.internal.p.h((Object) str, "line");
         return str;
     }
 }

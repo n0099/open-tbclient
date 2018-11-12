@@ -7,13 +7,13 @@ import java.io.File;
 import java.io.FileOutputStream;
 /* loaded from: classes2.dex */
 public final class BdLog {
-    private static FileOutputStream Vg;
+    private static FileOutputStream Vi;
     private static boolean sDebug = true;
-    private static boolean Vh = false;
+    private static boolean Vj = false;
     private static String mFolderName = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
-    private static String Vi = mFolderName + "baiduliulanqi_log.txt";
-    private static String Vj = mFolderName + "baiduliulanqi_lasttime_log.txt";
-    private static boolean Vk = false;
+    private static String Vk = mFolderName + "baiduliulanqi_log.txt";
+    private static String Vl = mFolderName + "baiduliulanqi_lasttime_log.txt";
+    private static boolean Vm = false;
 
     /* loaded from: classes2.dex */
     private enum LogLevel {
@@ -84,7 +84,7 @@ public final class BdLog {
                     break;
                 }
         }
-        if (Vh) {
+        if (Vj) {
             T(str, str2);
         }
     }
@@ -96,11 +96,11 @@ public final class BdLog {
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                if (Vg == null) {
-                    Vg = new FileOutputStream(Vi);
+                if (Vi == null) {
+                    Vi = new FileOutputStream(Vk);
                 }
-                Vg.write((str + " : " + str2).getBytes("UTF-8"));
-                Vg.write("\n".getBytes());
+                Vi.write((str + " : " + str2).getBytes("UTF-8"));
+                Vi.write("\n".getBytes());
             } catch (Exception e) {
                 e.printStackTrace();
             }

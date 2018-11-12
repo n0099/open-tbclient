@@ -10,32 +10,32 @@ import com.baidu.tbadk.core.util.v;
 /* loaded from: classes6.dex */
 public class k extends c {
     public bb threadData;
-    public static String cQf = "";
-    public static String cQg = "";
-    public static String cQh = "";
-    public static String cQi = "";
-    public static String cQj = "";
-    public static String cQk = "";
-    public static String cQl = "";
-    public static String cQm = "";
-    public static String cQn = "";
-    public static String cQo = "";
-    public static String cQp = "";
+    public static String cRl = "";
+    public static String cRm = "";
+    public static String cRn = "";
+    public static String cRo = "";
+    public static String cRp = "";
+    public static String cRq = "";
+    public static String cRr = "";
+    public static String cRs = "";
+    public static String cRt = "";
+    public static String cRu = "";
+    public static String cRv = "";
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId cQq = BdUniqueId.gen();
-    public static final BdUniqueId aoT = BdUniqueId.gen();
-    public static final BdUniqueId aoZ = BdUniqueId.gen();
-    public static final BdUniqueId cQr = BdUniqueId.gen();
-    public boolean cQs = false;
+    public static final BdUniqueId cRw = BdUniqueId.gen();
+    public static final BdUniqueId apH = BdUniqueId.gen();
+    public static final BdUniqueId apN = BdUniqueId.gen();
+    public static final BdUniqueId cRx = BdUniqueId.gen();
+    public boolean cRy = false;
     public boolean isLinkThread = false;
-    public boolean cQt = false;
-    public boolean aVo = true;
+    public boolean cRz = false;
+    public boolean aWe = true;
 
     public static boolean S(bb bbVar) {
         if (bbVar == null) {
             return false;
         }
-        return bbVar.getType() == bb.aoS || bbVar.getType() == bb.aoU || bbVar.getType() == bb.aoT || bbVar.getType() == bb.aoZ || bbVar.getType() == bb.apb;
+        return bbVar.getType() == bb.apG || bbVar.getType() == bb.apI || bbVar.getType() == bb.apH || bbVar.getType() == bb.apN || bbVar.getType() == bb.apP;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
@@ -43,79 +43,79 @@ public class k extends c {
         if (this.threadData == null) {
             return TYPE;
         }
-        if (this.cQs) {
-            return cQq;
+        if (this.cRy) {
+            return cRw;
         }
         if (this.isLinkThread) {
-            return aoT;
+            return apH;
         }
         if (this.threadData.isShareThread) {
-            return aoZ;
+            return apN;
         }
-        if (this.threadData.getType() == bb.apb) {
-            return cQr;
+        if (this.threadData.getType() == bb.apP) {
+            return cRx;
         }
         return TYPE;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bb YB() {
+    public bb YL() {
         if (this.threadData == null) {
             return this.threadData;
         }
-        if (this.threadData.yk() == 5) {
+        if (this.threadData.yr() == 5) {
             return this.threadData;
         }
         this.threadData.setResource(1);
         return this.threadData;
     }
 
-    public boolean aoJ() {
-        return (this.threadData == null || v.I(this.threadData.yK()) == 0) ? false : true;
+    public boolean aok() {
+        return (this.threadData == null || v.H(this.threadData.yR()) == 0) ? false : true;
     }
 
-    public am aoK() {
-        bb YB;
-        if (this.cQs) {
+    public am aol() {
+        bb YL;
+        if (this.cRy) {
             am amVar = new am("c11003");
-            if (YB() != null && (YB = YB()) != null) {
-                amVar.ax("tid", YB.getTid());
-                if (YB.yv() != null) {
-                    amVar.x("ab_type", YB.yv().hadConcerned() ? 1 : 0);
+            if (YL() != null && (YL = YL()) != null) {
+                amVar.ax("tid", YL.getTid());
+                if (YL.yC() != null) {
+                    amVar.x("ab_type", YL.yC().hadConcerned() ? 1 : 0);
                 }
             }
             return amVar;
-        } else if (aoJ()) {
-            am mi = mi(cQk);
-            if (mi != null && YB() != null) {
-                bb YB2 = YB();
-                mi.x("obj_name", YB2.zM() != null && (YB2.zM().bCd() != null || YB2.zM().QS() != null) ? 1 : 0);
-                if (YB2.yv() != null) {
-                    mi.x("ab_type", YB2.yv().hadConcerned() ? 1 : 0);
+        } else if (aok()) {
+            am mj = mj(cRq);
+            if (mj != null && YL() != null) {
+                bb YL2 = YL();
+                mj.x("obj_name", YL2.zT() != null && (YL2.zT().bBz() != null || YL2.zT().Rb() != null) ? 1 : 0);
+                if (YL2.yC() != null) {
+                    mj.x("ab_type", YL2.yC().hadConcerned() ? 1 : 0);
                 }
             }
-            return mi;
+            return mj;
         } else {
-            am mi2 = mi(cQf);
-            if (mi2 != null) {
-                mi2.ax("ab_tag", aoB()).ax("ab_action", "show");
-                if (YB() != null) {
-                    bb YB3 = YB();
-                    boolean z = (YB3.zM() == null || (YB3.zM().bCd() == null && YB3.zM().QS() == null)) ? false : true;
-                    mi2.x("obj_name", z ? 1 : 0);
-                    if (z && YB3.zM().bCd() != null && YB3.zM().bCd().QK() != null && YB3.zM().bCd().QK().size() > 0) {
-                        mi2.x("obj_to", YB3.zM().hdB ? 2 : 1);
+            am mj2 = mj(cRl);
+            if (mj2 != null) {
+                mj2.ax("ab_tag", aoc()).ax("ab_action", "show");
+                if (YL() != null) {
+                    bb YL3 = YL();
+                    boolean z = (YL3.zT() == null || (YL3.zT().bBz() == null && YL3.zT().Rb() == null)) ? false : true;
+                    mj2.x("obj_name", z ? 1 : 0);
+                    if (z && YL3.zT().bBz() != null && YL3.zT().bBz().QT() != null && YL3.zT().bBz().QT().size() > 0) {
+                        mj2.x("obj_to", YL3.zT().heY ? 2 : 1);
                     }
-                    if (YB3.yv() != null) {
-                        mi2.x("ab_type", YB3.yv().hadConcerned() ? 1 : 0);
+                    if (YL3.yC() != null) {
+                        mj2.x("ab_type", YL3.yC().hadConcerned() ? 1 : 0);
                     }
                 }
             }
-            return mi2;
+            return mj2;
         }
     }
 
-    public am mk(String str) {
+    public am ml(String str) {
         int i;
         am amVar = new am(str);
         if (amVar != null && this.threadData != null) {
@@ -127,101 +127,101 @@ public class k extends c {
                 i = this.threadData.isShareThread ? 5 : 1;
             }
             amVar.x("obj_type", i);
-            amVar.ax(VideoPlayActivityConfig.OBJ_ID, this.threadData.yv().getUserId());
-            amVar.x("obj_param1", aoF() ? 2 : 1);
+            amVar.ax(VideoPlayActivityConfig.OBJ_ID, this.threadData.yC().getUserId());
+            amVar.x("obj_param1", aog() ? 2 : 1);
         }
         return amVar;
     }
 
-    public am ml(String str) {
-        am mi = mi(str);
-        if (mi != null) {
-            mi.ax("ab_tag", aoB()).ax("ab_action", "show");
-            if (YB() != null) {
-                bb YB = YB();
-                boolean z = (YB.zM() == null || (YB.zM().bCd() == null && YB.zM().QS() == null)) ? false : true;
-                mi.x("obj_name", z ? 1 : 0);
-                if (z && YB.zM().bCd() != null && YB.zM().bCd().QK() != null && YB.zM().bCd().QK().size() > 0) {
-                    mi.x("obj_to", YB.zM().hdB ? 2 : 1);
+    public am mm(String str) {
+        am mj = mj(str);
+        if (mj != null) {
+            mj.ax("ab_tag", aoc()).ax("ab_action", "show");
+            if (YL() != null) {
+                bb YL = YL();
+                boolean z = (YL.zT() == null || (YL.zT().bBz() == null && YL.zT().Rb() == null)) ? false : true;
+                mj.x("obj_name", z ? 1 : 0);
+                if (z && YL.zT().bBz() != null && YL.zT().bBz().QT() != null && YL.zT().bBz().QT().size() > 0) {
+                    mj.x("obj_to", YL.zT().heY ? 2 : 1);
                 }
             }
         }
-        return mi;
+        return mj;
     }
 
-    public am mm(String str) {
-        am mi = mi(str);
-        if (mi != null) {
-            mi.ax("ab_tag", aoB()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
+    public am mn(String str) {
+        am mj = mj(str);
+        if (mj != null) {
+            mj.ax("ab_tag", aoc()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
         }
-        return mi;
+        return mj;
     }
 
-    public am aoL() {
-        if (aoJ()) {
-            return mi(cQl);
+    public am aom() {
+        if (aok()) {
+            return mj(cRr);
         }
-        am mi = mi(cQg);
-        if (mi != null) {
-            mi.ax("ab_tag", aoB()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
-            return mi;
+        am mj = mj(cRm);
+        if (mj != null) {
+            mj.ax("ab_tag", aoc()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
+            return mj;
         }
-        return mi;
+        return mj;
     }
 
-    public am aoM() {
-        if (aoJ()) {
-            return mi(cQm);
+    public am aon() {
+        if (aok()) {
+            return mj(cRs);
         }
-        am Z = Z(cQh, 0);
+        am Z = Z(cRn, 0);
         if (Z != null) {
-            Z.ax("ab_tag", aoB()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
+            Z.ax("ab_tag", aoc()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
             return Z;
         }
         return Z;
     }
 
-    public am aoN() {
-        if (aoJ()) {
-            return mi(cQn);
+    public am aoo() {
+        if (aok()) {
+            return mj(cRt);
         }
-        am mi = mi(cQi);
-        if (mi != null) {
-            mi.ax("ab_tag", aoB()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
-            return mi;
+        am mj = mj(cRo);
+        if (mj != null) {
+            mj.ax("ab_tag", aoc()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
+            return mj;
         }
-        return mi;
+        return mj;
     }
 
-    public am aoO() {
-        if (aoJ()) {
-            return mi(cQo);
+    public am aop() {
+        if (aok()) {
+            return mj(cRu);
         }
-        am mi = mi(cQj);
-        if (mi != null) {
-            mi.ax("ab_tag", aoB()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
-            return mi;
+        am mj = mj(cRp);
+        if (mj != null) {
+            mj.ax("ab_tag", aoc()).ax("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
+            return mj;
         }
-        return mi;
+        return mj;
     }
 
-    public am aoP() {
-        return mi(cQp);
-    }
-
-    public am mn(String str) {
-        return mi(str);
+    public am aoq() {
+        return mj(cRv);
     }
 
     public am mo(String str) {
-        am mi = mi(str);
-        if (this.threadData != null && this.threadData.yv() != null) {
-            mi.x("ab_type", this.threadData.yv().hadConcerned() ? 1 : 0);
-        }
-        return mi;
+        return mj(str);
     }
 
     public am mp(String str) {
-        return mi(str);
+        am mj = mj(str);
+        if (this.threadData != null && this.threadData.yC() != null) {
+            mj.x("ab_type", this.threadData.yC().hadConcerned() ? 1 : 0);
+        }
+        return mj;
+    }
+
+    public am mq(String str) {
+        return mj(str);
     }
 }

@@ -7,18 +7,18 @@ import tbclient.Personalized.CardForum;
 import tbclient.Personalized.PersonalForum;
 /* loaded from: classes6.dex */
 public class b extends com.baidu.tieba.card.data.g implements p {
-    private CardForum eox;
+    private CardForum epQ;
 
     public void a(CardForum cardForum) {
         if (cardForum != null) {
-            this.eox = cardForum;
+            this.epQ = cardForum;
             this.mGroupTitle = cardForum.card_title;
             if (cardForum.position != null) {
-                setYuelaouLocate(aoI() + cardForum.position.intValue());
+                setYuelaouLocate(aoj() + cardForum.position.intValue());
             } else {
-                setYuelaouLocate(aoI() + 0);
+                setYuelaouLocate(aoj() + 0);
             }
-            if (v.I(cardForum.forum_list) > 0) {
+            if (v.H(cardForum.forum_list) > 0) {
                 for (PersonalForum personalForum : cardForum.forum_list) {
                     if (personalForum != null && !TextUtils.isEmpty(personalForum.forum_name) && personalForum.forum_id.longValue() > 0) {
                         com.baidu.tieba.card.data.e eVar = new com.baidu.tieba.card.data.e();
@@ -35,35 +35,35 @@ public class b extends com.baidu.tieba.card.data.g implements p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        if (this.eox != null) {
-            return this.eox.position.intValue();
+        if (this.epQ != null) {
+            return this.epQ.position.intValue();
         }
         return 0;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean aoG() {
+    public boolean aoh() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void fk(boolean z) {
+    public void fv(boolean z) {
         this.showTopDivider = z;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void fl(boolean z) {
+    public void fw(boolean z) {
         this.showBottomDivider = z;
     }
 
-    public boolean VG() {
-        if (v.I(getDataList()) > 0) {
+    public boolean VP() {
+        if (v.H(getDataList()) > 0) {
             return true;
         }
         return false;
     }
 
-    public static boolean nW(int i) {
+    public static boolean oo(int i) {
         return i == 1;
     }
 }

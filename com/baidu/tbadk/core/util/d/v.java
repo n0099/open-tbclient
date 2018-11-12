@@ -8,18 +8,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ar;
 /* loaded from: classes.dex */
 public class v extends a {
-    private boolean aAb;
+    private boolean aAQ;
     private int procType;
 
     public v(boolean z, int i) {
-        this.aAb = true;
+        this.aAQ = true;
         this.procType = 0;
-        this.aAb = z;
+        this.aAQ = z;
         this.procType = i;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int Dm() {
+    public int Dt() {
         return this.procType;
     }
 
@@ -35,16 +35,16 @@ public class v extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
-        return this.aAb;
+        return this.aAQ;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Dk() {
+    public boolean Dr() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Dl() {
+    public boolean Ds() {
         return false;
     }
 
@@ -53,30 +53,30 @@ public class v extends a {
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
         com.baidu.adp.widget.ImageView.a aVar2;
-        com.baidu.adp.lib.stats.a jD = com.baidu.tbadk.core.util.s.jD();
-        jD.startTimer();
+        com.baidu.adp.lib.stats.a jB = com.baidu.tbadk.core.util.s.jB();
+        jB.startTimer();
         byte[] bArr = new byte[0];
         com.baidu.adp.lib.Disk.ops.c fI = fI(ar.fs(str2));
         if (fI == null) {
             return null;
         }
         fI.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-        fI.D(true);
-        fI.E(false);
-        fI.q((Object) bArr);
-        fI.F(false);
+        fI.R(true);
+        fI.S(false);
+        fI.q(bArr);
+        fI.T(false);
         if (aVar != null) {
             e eVar = new e();
             eVar.f(fI);
-            aVar.Ds = eVar;
+            aVar.Dw = eVar;
         }
-        boolean kY = com.baidu.adp.lib.util.j.kY();
-        if (!com.baidu.adp.lib.Disk.d.hC().c(fI)) {
-            com.baidu.tbadk.core.util.s.a(jD, str2, false, jD.jM(), kY);
+        boolean kW = com.baidu.adp.lib.util.j.kW();
+        if (!com.baidu.adp.lib.Disk.d.hB().c(fI)) {
+            com.baidu.tbadk.core.util.s.a(jB, str2, false, jB.jK(), kW);
             return null;
         }
         int i3 = 2000;
-        if (kY) {
+        if (kW) {
             i3 = 300;
         }
         synchronized (bArr) {
@@ -91,10 +91,10 @@ public class v extends a {
             aVar2 = a(fI, str2, i, i2);
         }
         if (aVar2 != null) {
-            com.baidu.tbadk.core.util.s.a(jD, str2, true, jD.jM(), kY);
+            com.baidu.tbadk.core.util.s.a(jB, str2, true, jB.jK(), kW);
             return aVar2;
         }
-        com.baidu.tbadk.core.util.s.a(jD, str2, false, jD.jM(), kY);
+        com.baidu.tbadk.core.util.s.a(jB, str2, false, jB.jK(), kW);
         return aVar2;
     }
 
@@ -104,15 +104,15 @@ public class v extends a {
             aVar2 = new com.baidu.adp.widget.ImageView.a(bitmap, z, str, rect);
             com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ar.fs(str2), DiskFileOperate.Action.WRITE);
             cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-            cVar.D(true);
+            cVar.R(true);
             cVar.setData(bArr);
-            cVar.I(z);
-            cVar.F(false);
-            com.baidu.adp.lib.Disk.d.hC().c(cVar);
+            cVar.W(z);
+            cVar.T(false);
+            com.baidu.adp.lib.Disk.d.hB().c(cVar);
             if (aVar != null) {
                 e eVar = new e();
                 eVar.f(cVar);
-                aVar.Ds = eVar;
+                aVar.Dw = eVar;
             }
         }
         return aVar2;

@@ -23,7 +23,7 @@ import java.text.SimpleDateFormat;
 import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
 public final class c {
-    private static SimpleDateFormat WJ = null;
+    private static SimpleDateFormat WL = null;
     private static final String a;
     private static final Pattern b;
     private static Handler c;
@@ -120,14 +120,14 @@ public final class c {
 
     public static void a(Runnable runnable) {
         if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-            qZ().post(runnable);
+            qX().post(runnable);
         } else {
             runnable.run();
         }
     }
 
     public static void a(Runnable runnable, long j) {
-        qZ().postDelayed(runnable, j);
+        qX().postDelayed(runnable, j);
     }
 
     public static boolean a() {
@@ -224,7 +224,7 @@ public final class c {
         return false;
     }
 
-    private static Handler qZ() {
+    private static Handler qX() {
         synchronized (c.class) {
             if (c == null) {
                 c = new Handler(Looper.getMainLooper());

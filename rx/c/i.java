@@ -1,12 +1,12 @@
 package rx.c;
 /* loaded from: classes2.dex */
 final class i extends h {
-    private static final i iFb = new i();
+    private static final i iGL = new i();
 
     private i() {
     }
 
-    public static h cdE() {
-        return iFb;
+    public static h cdb() {
+        return iGL;
     }
 }

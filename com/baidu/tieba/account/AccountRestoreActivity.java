@@ -30,7 +30,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
     private com.baidu.tieba.tbadkCore.e.b jsPromptInterface = new com.baidu.tieba.tbadkCore.e.b() { // from class: com.baidu.tieba.account.AccountRestoreActivity.1
         @Override // com.baidu.tieba.tbadkCore.e.b
         public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
-            if (TextUtils.equals(AccountRestoreActivity.JS_PROMPT_INTERFACE_NAME, str) && TextUtils.equals(AccountRestoreActivity.JS_PROMPT_ACCOUNT_METHOD_EXIT, str2)) {
+            if (TextUtils.equals(AccountRestoreActivity.JS_PROMPT_INTERFACE_NAME, str) && TextUtils.equals("exit", str2)) {
                 jsPromptResult.confirm();
                 AccountRestoreActivity.this.exitPage();
                 return true;

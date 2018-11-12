@@ -6,6 +6,7 @@ import android.support.annotation.FloatRange;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
+import com.baidu.mapapi.map.WeightedLatLng;
 /* loaded from: classes2.dex */
 public final class ColorUtils {
     private static final int MIN_ALPHA_SEARCH_MAX_ITERATIONS = 10;
@@ -38,7 +39,7 @@ public final class ColorUtils {
         return (((i * 255) * i2) + ((i3 * i4) * (255 - i2))) / (i5 * 255);
     }
 
-    @FloatRange(from = 0.0d, to = 1.0d)
+    @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     public static double calculateLuminance(@ColorInt int i) {
         double[] tempDouble3Array = getTempDouble3Array();
         colorToXYZ(i, tempDouble3Array);

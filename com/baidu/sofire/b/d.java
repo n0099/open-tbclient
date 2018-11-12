@@ -7,18 +7,17 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.security.PublicKey;
 import java.security.cert.Certificate;
-import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 /* loaded from: classes.dex */
-public final class d {
+public class d {
     private static Certificate[] a(JarFile jarFile, JarEntry jarEntry, byte[] bArr) {
         try {
             BufferedInputStream bufferedInputStream = new BufferedInputStream(jarFile.getInputStream(jarEntry));
             do {
-            } while (bufferedInputStream.read(bArr, 0, 8192) != -1);
+            } while (bufferedInputStream.read(bArr, 0, bArr.length) != -1);
             bufferedInputStream.close();
             if (jarEntry != null) {
                 return jarEntry.getCertificates();
@@ -36,7 +35,7 @@ public final class d {
         }
     }
 
-    public static PublicKey a(Signature signature) throws CertificateException {
+    public static PublicKey a(Signature signature) {
         CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(signature.toByteArray());
         Certificate generateCertificate = certificateFactory.generateCertificate(byteArrayInputStream);
@@ -64,9 +63,8 @@ public final class d {
                     if (a == null) {
                         jarFile.close();
                         return null;
-                    } else if (certificateArr == null) {
-                        certificateArr = a;
-                    } else {
+                    }
+                    if (certificateArr != null) {
                         for (int i = 0; i < certificateArr.length; i++) {
                             int i2 = 0;
                             while (true) {
@@ -87,8 +85,9 @@ public final class d {
                                 return null;
                             }
                         }
-                        continue;
+                        a = certificateArr;
                     }
+                    certificateArr = a;
                 }
             }
             jarFile.close();

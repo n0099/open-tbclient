@@ -9,10 +9,10 @@ import tbclient.PbTopAgreePost;
 import tbclient.Post;
 /* loaded from: classes6.dex */
 public class k {
-    private boolean fII;
+    private boolean fKg;
     public String forum_top_list;
-    public final List<PostData> fIG = new ArrayList();
-    public final List<Long> fIH = new ArrayList();
+    public final List<PostData> fKe = new ArrayList();
+    public final List<Long> fKf = new ArrayList();
     private int count = 0;
 
     public int getCount() {
@@ -23,28 +23,28 @@ public class k {
         this.count = i;
     }
 
-    public void kk(boolean z) {
-        this.fII = z;
+    public void ku(boolean z) {
+        this.fKg = z;
     }
 
     public void a(Context context, PbTopAgreePost pbTopAgreePost) {
         if (pbTopAgreePost.post_list != null && pbTopAgreePost.post_list.size() > 0) {
             for (Post post : pbTopAgreePost.post_list) {
                 PostData postData = new PostData();
-                postData.hdC = 102;
-                postData.kk(this.fII);
+                postData.heZ = 102;
+                postData.ku(this.fKg);
                 postData.a(post, context);
-                this.fIG.add(postData);
+                this.fKe.add(postData);
             }
         }
-        if (!v.J(this.fIG)) {
-            this.fIG.get(0).hdD = true;
-            setCount(this.fIG.size());
+        if (!v.I(this.fKe)) {
+            this.fKe.get(0).hfa = true;
+            setCount(this.fKe.size());
         }
         List<Long> list = pbTopAgreePost.post_id_list;
         if (list != null && list.size() > 0) {
             for (Long l : pbTopAgreePost.post_id_list) {
-                this.fIH.add(l);
+                this.fKf.add(l);
             }
         }
         this.forum_top_list = pbTopAgreePost.forum_top_list;

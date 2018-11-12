@@ -19,6 +19,7 @@ import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import com.baidu.ar.util.IoUtils;
+import com.baidu.searchbox.ng.ai.apps.impl.map.model.OpenLocationModel;
 /* loaded from: classes3.dex */
 public class MediaViewActivity extends Activity {
     public WebView a;
@@ -85,7 +86,7 @@ public class MediaViewActivity extends Activity {
                         }
                     }
                     intent4.setData(Uri.parse("sms:" + substring));
-                    intent4.putExtra("address", substring);
+                    intent4.putExtra(OpenLocationModel.ADDRESS, substring);
                     intent4.setType("vnd.android-dir/mms-sms");
                     MediaViewActivity.this.startActivity(intent4);
                 } catch (ActivityNotFoundException e4) {

@@ -6,25 +6,25 @@ import java.util.regex.Matcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public final class i implements h {
-    private final MatchResult ipY;
-    private final f ipZ;
-    private final Matcher iqa;
-    private final CharSequence iqb;
+    private final MatchResult irI;
+    private final f irJ;
+    private final Matcher irK;
+    private final CharSequence irL;
 
     public i(Matcher matcher, CharSequence charSequence) {
-        kotlin.jvm.internal.p.i(matcher, "matcher");
-        kotlin.jvm.internal.p.i(charSequence, "input");
-        this.iqa = matcher;
-        this.iqb = charSequence;
-        this.ipY = this.iqa.toMatchResult();
-        this.ipZ = new a();
+        kotlin.jvm.internal.p.h((Object) matcher, "matcher");
+        kotlin.jvm.internal.p.h((Object) charSequence, "input");
+        this.irK = matcher;
+        this.irL = charSequence;
+        this.irI = this.irK.toMatchResult();
+        this.irJ = new a();
     }
 
     @Override // kotlin.text.h
-    public kotlin.b.c caw() {
+    public kotlin.b.c bZT() {
         kotlin.b.c a2;
-        MatchResult matchResult = this.ipY;
-        kotlin.jvm.internal.p.h((Object) matchResult, "matchResult");
+        MatchResult matchResult = this.irI;
+        kotlin.jvm.internal.p.g(matchResult, "matchResult");
         a2 = j.a(matchResult);
         return a2;
     }
@@ -49,7 +49,7 @@ public final class i implements h {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return i.this.ipY.groupCount() + 1;
+            return i.this.irI.groupCount() + 1;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -59,17 +59,17 @@ public final class i implements h {
 
         @Override // java.util.Collection, java.lang.Iterable
         public Iterator<e> iterator() {
-            return kotlin.sequences.d.c(kotlin.collections.n.d(kotlin.collections.n.f(this)), new MatcherMatchResult$groups$1$iterator$1(this)).iterator();
+            return kotlin.sequences.d.c(kotlin.collections.n.d(kotlin.collections.n.i(this)), new MatcherMatchResult$groups$1$iterator$1(this)).iterator();
         }
 
-        public e ym(int i) {
+        public e yF(int i) {
             kotlin.b.c a;
-            MatchResult matchResult = i.this.ipY;
-            kotlin.jvm.internal.p.h((Object) matchResult, "matchResult");
+            MatchResult matchResult = i.this.irI;
+            kotlin.jvm.internal.p.g(matchResult, "matchResult");
             a = j.a(matchResult, i);
-            if (a.car().intValue() >= 0) {
-                String group = i.this.ipY.group(i);
-                kotlin.jvm.internal.p.h((Object) group, "matchResult.group(index)");
+            if (a.bZO().intValue() >= 0) {
+                String group = i.this.irI.group(i);
+                kotlin.jvm.internal.p.g(group, "matchResult.group(index)");
                 return new e(group, a);
             }
             return null;
@@ -77,11 +77,11 @@ public final class i implements h {
     }
 
     @Override // kotlin.text.h
-    public h cax() {
+    public h bZU() {
         h a2;
-        int end = (this.ipY.end() == this.ipY.start() ? 1 : 0) + this.ipY.end();
-        if (end <= this.iqb.length()) {
-            a2 = j.a(this.iqa, end, this.iqb);
+        int end = (this.irI.end() == this.irI.start() ? 1 : 0) + this.irI.end();
+        if (end <= this.irL.length()) {
+            a2 = j.a(this.irK, end, this.irL);
             return a2;
         }
         return null;

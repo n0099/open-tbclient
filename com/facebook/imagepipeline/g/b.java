@@ -10,5 +10,5 @@ public interface b extends al {
 
     void a(ImageRequest imageRequest, String str, boolean z);
 
-    void yC(String str);
+    void yH(String str);
 }

@@ -4,29 +4,29 @@ import android.text.InputFilter;
 import android.text.Spanned;
 /* loaded from: classes3.dex */
 public class a implements InputFilter {
-    private int eRq;
+    private int eSI;
 
     public a(int i) {
-        this.eRq = i;
+        this.eSI = i;
     }
 
     @Override // android.text.InputFilter
     public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
         int i5 = i4 - i3;
-        int length = this.eRq - (spanned.length() - i5);
+        int length = this.eSI - (spanned.length() - i5);
         String obj = spanned.toString();
-        int is = f.is(obj);
+        int it = f.it(obj);
         if (i5 > 0) {
             int i6 = i3;
             while (i6 < i5 + i3 && obj.length() < i6) {
-                int d = is - f.d(obj.charAt(i6));
+                int d = it - f.d(obj.charAt(i6));
                 i6++;
-                is = d;
+                it = d;
             }
         } else {
-            is += f.is(charSequence.toString());
+            it += f.it(charSequence.toString());
         }
-        if (is > this.eRq || length <= 0) {
+        if (it > this.eSI || length <= 0) {
             return "";
         }
         if (length >= i2 - i) {

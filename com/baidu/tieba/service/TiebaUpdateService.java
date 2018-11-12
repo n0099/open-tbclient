@@ -233,8 +233,8 @@ public class TiebaUpdateService extends BdBaseService {
                         if (valueOf.booleanValue()) {
                             bool = valueOf;
                             break;
-                        } else if (this.mNetWork.Cc() != -2) {
-                            if (!this.mNetWork.BY().CX().jj()) {
+                        } else if (this.mNetWork.Cj() != -2) {
+                            if (!this.mNetWork.Cf().De().jh()) {
                                 try {
                                     Thread.sleep(ErrDef.Feature.WEIGHT);
                                 } catch (Exception e2) {
@@ -285,7 +285,7 @@ public class TiebaUpdateService extends BdBaseService {
             TiebaUpdateService.this.mDowndMainApkTask = null;
             this.mCanceled = true;
             if (this.mNetWork != null) {
-                this.mNetWork.ji();
+                this.mNetWork.jg();
             }
         }
 
@@ -341,11 +341,11 @@ public class TiebaUpdateService extends BdBaseService {
                     bool2 = Boolean.valueOf(this.mNetWork.a(TiebaUpdateService.this.mOtherApkFileName + ".tmp", TiebaUpdateService.this.mOtherApkHandler, 0));
                     if (bool2.booleanValue()) {
                         break;
-                    } else if (this.mNetWork.Cc() == -2) {
+                    } else if (this.mNetWork.Cj() == -2) {
                         bool = bool2;
                         break;
                     } else {
-                        if (!this.mNetWork.BY().CX().jj()) {
+                        if (!this.mNetWork.Cf().De().jh()) {
                             try {
                                 Thread.sleep(ErrDef.Feature.WEIGHT);
                             } catch (Exception e2) {
@@ -386,7 +386,7 @@ public class TiebaUpdateService extends BdBaseService {
             TiebaUpdateService.this.mDowndOtherApkTask = null;
             this.mCanceled = true;
             if (this.mNetWork != null) {
-                this.mNetWork.ji();
+                this.mNetWork.jg();
             }
             if (!TiebaUpdateService.this.mHasTieba && !TiebaUpdateService.this.mHasAs) {
                 boolean unused = TiebaUpdateService.sHasStart = false;

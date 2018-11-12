@@ -7,13 +7,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class TbCdnIpListData {
-    public ArrayList<ArrayList<String>> eZU;
-    public int eZS = 0;
+    public ArrayList<ArrayList<String>> fbo;
+    public int fbm = 0;
     public String errorString = null;
     public String imageUrl = null;
-    public String eZT = null;
-    boolean eZV = false;
-    public String eZW = null;
+    public String fbn = null;
+    boolean fbp = false;
+    public String fbq = null;
 
     public void parseJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
@@ -21,19 +21,19 @@ public class TbCdnIpListData {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR);
                 if (optJSONObject != null) {
-                    this.eZS = optJSONObject.optInt("errorno");
+                    this.fbm = optJSONObject.optInt("errorno");
                     this.errorString = optJSONObject.optString("errmsg");
                 }
                 if (1 == jSONObject.optInt("cdn_switch")) {
-                    this.eZV = true;
+                    this.fbp = true;
                 } else {
-                    this.eZV = false;
+                    this.fbp = false;
                 }
-                this.eZW = jSONObject.optString("cdn_domain");
+                this.fbq = jSONObject.optString("cdn_domain");
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
                 if (optJSONObject2 != null) {
                     this.imageUrl = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
-                    this.eZT = optJSONObject2.optString("img_md5");
+                    this.fbn = optJSONObject2.optString("img_md5");
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
                 if (optJSONArray2 != null) {
@@ -56,7 +56,7 @@ public class TbCdnIpListData {
                         }
                     }
                     if (arrayList.size() > 0) {
-                        this.eZU = arrayList;
+                        this.fbo = arrayList;
                     }
                 }
             } catch (Exception e) {

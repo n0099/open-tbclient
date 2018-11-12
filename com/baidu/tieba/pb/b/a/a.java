@@ -9,11 +9,11 @@ import com.baidu.tbadk.imageManager.a;
 import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes3.dex */
 public class a implements c {
-    private ExcContent gbr;
-    private SpannableString gbs;
+    private ExcContent gcN;
+    private SpannableString gcO;
 
     public a(ExcContent excContent) {
-        this.gbr = excContent;
+        this.gcN = excContent;
     }
 
     @Override // com.baidu.tieba.pb.b.a.d
@@ -22,31 +22,31 @@ public class a implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence blP() {
-        return b(this.gbr);
+    public CharSequence bll() {
+        return b(this.gcN);
     }
 
     private SpannableString b(ExcContent excContent) {
         String str;
-        int hk;
-        a.C0137a hJ;
-        if (this.gbs == null && (hk = TbFaceManager.Md().hk((str = excContent.text))) != 0) {
-            String str2 = "#(" + TbFaceManager.Md().hm(str) + ")";
-            this.gbs = new SpannableString(str2 + " ");
-            com.baidu.tbadk.widget.richText.b bVar = new com.baidu.tbadk.widget.richText.b(TbadkCoreApplication.getInst().getContext(), hk);
-            if (TbFaceManager.Md().hJ(str) != null) {
-                int width = (int) (hJ.getWidth() * 0.6d);
+        int hl;
+        a.C0161a hK;
+        if (this.gcO == null && (hl = TbFaceManager.Mp().hl((str = excContent.text))) != 0) {
+            String str2 = "#(" + TbFaceManager.Mp().hn(str) + ")";
+            this.gcO = new SpannableString(str2 + " ");
+            com.baidu.tbadk.widget.richText.b bVar = new com.baidu.tbadk.widget.richText.b(TbadkCoreApplication.getInst().getContext(), hl);
+            if (TbFaceManager.Mp().hK(str) != null) {
+                int width = (int) (hK.getWidth() * 0.6d);
                 bVar.setBounds(new Rect(0, 0, width, width));
             } else {
                 bVar.setBounds(new Rect(0, 0, 0, 0));
             }
-            this.gbs.setSpan(new ImageSpan(bVar, 0), 0, str2.length(), 33);
+            this.gcO.setSpan(new ImageSpan(bVar, 0), 0, str2.length(), 33);
         }
-        return this.gbs;
+        return this.gcO;
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean blQ() {
+    public boolean blm() {
         return false;
     }
 }

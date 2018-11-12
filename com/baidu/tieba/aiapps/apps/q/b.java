@@ -48,20 +48,20 @@ import org.apache.http.protocol.HTTP;
 import org.apache.http.protocol.HttpContext;
 /* loaded from: classes4.dex */
 public class b implements e {
-    private static final MediaType bFs = MediaType.parse("application/octet-stream");
+    private static final MediaType bGe = MediaType.parse("application/octet-stream");
     private OkHttpClient client;
     private String userAgent;
-    private OkHttpClient.Builder bFt = null;
-    private OkHttpClient bFu = null;
+    private OkHttpClient.Builder bGf = null;
+    private OkHttpClient bGg = null;
     private final HttpParams params = new AbstractHttpParams() { // from class: com.baidu.tieba.aiapps.apps.q.b.1
         @Override // org.apache.http.params.HttpParams
         public Object getParameter(String str) {
             Proxy proxy;
             if (str.equals(ConnRoutePNames.DEFAULT_PROXY)) {
-                if (b.this.bFu != null) {
-                    proxy = b.this.bFu.proxy();
+                if (b.this.bGg != null) {
+                    proxy = b.this.bGg.proxy();
                 } else {
-                    proxy = b.this.XK().proxy();
+                    proxy = b.this.XU().proxy();
                 }
                 if (proxy == null) {
                     return null;
@@ -69,21 +69,21 @@ public class b implements e {
                 InetSocketAddress inetSocketAddress = (InetSocketAddress) proxy.address();
                 return new HttpHost(inetSocketAddress.getHostName(), inetSocketAddress.getPort());
             } else if (str.equals(CoreConnectionPNames.CONNECTION_TIMEOUT)) {
-                int connectTimeoutMillis = b.this.XK().connectTimeoutMillis();
-                if (b.this.bFu != null) {
-                    connectTimeoutMillis = b.this.bFu.connectTimeoutMillis();
+                int connectTimeoutMillis = b.this.XU().connectTimeoutMillis();
+                if (b.this.bGg != null) {
+                    connectTimeoutMillis = b.this.bGg.connectTimeoutMillis();
                 }
                 return Integer.valueOf(connectTimeoutMillis);
             } else if (str.equals(CoreConnectionPNames.SO_TIMEOUT)) {
-                int readTimeoutMillis = b.this.XK().readTimeoutMillis();
-                if (b.this.bFu != null) {
-                    readTimeoutMillis = b.this.bFu.readTimeoutMillis();
+                int readTimeoutMillis = b.this.XU().readTimeoutMillis();
+                if (b.this.bGg != null) {
+                    readTimeoutMillis = b.this.bGg.readTimeoutMillis();
                 }
                 return Integer.valueOf(readTimeoutMillis);
             } else if (str.equals(ClientPNames.HANDLE_REDIRECTS)) {
-                boolean followRedirects = b.this.XK().followRedirects();
-                if (b.this.bFu != null) {
-                    followRedirects = b.this.bFu.followRedirects();
+                boolean followRedirects = b.this.XU().followRedirects();
+                if (b.this.bGg != null) {
+                    followRedirects = b.this.bGg.followRedirects();
                 }
                 return Boolean.valueOf(followRedirects);
             } else if (str.equals(CoreProtocolPNames.USER_AGENT)) {
@@ -104,15 +104,15 @@ public class b implements e {
                 if (httpHost != null) {
                     proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(httpHost.getHostName(), httpHost.getPort()));
                 }
-                b.this.XL().proxy(proxy);
+                b.this.XV().proxy(proxy);
             } else if (str.equals(CoreConnectionPNames.CONNECTION_TIMEOUT)) {
-                b.this.XL().connectTimeout(((Integer) obj).intValue(), TimeUnit.MILLISECONDS);
+                b.this.XV().connectTimeout(((Integer) obj).intValue(), TimeUnit.MILLISECONDS);
             } else if (str.equals(CoreConnectionPNames.SO_TIMEOUT)) {
                 int intValue = ((Integer) obj).intValue();
-                b.this.XL().readTimeout(intValue, TimeUnit.MILLISECONDS).writeTimeout(intValue, TimeUnit.MILLISECONDS);
+                b.this.XV().readTimeout(intValue, TimeUnit.MILLISECONDS).writeTimeout(intValue, TimeUnit.MILLISECONDS);
             } else if (str.equals(ClientPNames.HANDLE_REDIRECTS)) {
                 boolean booleanValue = ((Boolean) obj).booleanValue();
-                b.this.XL().followRedirects(booleanValue).followSslRedirects(booleanValue);
+                b.this.XV().followRedirects(booleanValue).followSslRedirects(booleanValue);
             } else if (str.equals(CoreProtocolPNames.USER_AGENT)) {
                 b.this.userAgent = (String) obj;
             } else {
@@ -133,23 +133,23 @@ public class b implements e {
     };
 
     public b() {
-        XJ();
+        XT();
     }
 
-    protected void XJ() {
+    protected void XT() {
         this.client = HttpManager.getDefault(AppRuntime.getAppContext()).getOkHttpClient();
     }
 
-    protected OkHttpClient XK() {
+    protected OkHttpClient XU() {
         return this.client;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public OkHttpClient.Builder XL() {
-        if (this.bFt == null) {
-            this.bFt = XK().newBuilder();
+    public OkHttpClient.Builder XV() {
+        if (this.bGf == null) {
+            this.bGf = XU().newBuilder();
         }
-        return this.bFt;
+        return this.bGf;
     }
 
     private Request a(HttpRequest httpRequest) {
@@ -243,7 +243,7 @@ public class b implements e {
     public void close() {
     }
 
-    public void XM() throws IOException {
+    public void XW() throws IOException {
     }
 
     @Override // org.apache.http.client.HttpClient
@@ -274,13 +274,13 @@ public class b implements e {
     @Override // org.apache.http.client.HttpClient
     public HttpResponse execute(HttpHost httpHost, HttpRequest httpRequest, HttpContext httpContext) throws IOException {
         Call newCall;
-        XM();
+        XW();
         Request a2 = a(httpRequest);
-        if (this.bFt == null) {
-            newCall = XK().newCall(a2);
+        if (this.bGf == null) {
+            newCall = XU().newCall(a2);
         } else {
-            this.bFu = this.bFt.build();
-            newCall = this.bFu.newCall(a2);
+            this.bGg = this.bGf.build();
+            newCall = this.bGg.newCall(a2);
         }
         return a(newCall.execute());
     }
@@ -320,15 +320,15 @@ public class b implements e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static final class a extends RequestBody {
-        private final HttpEntity bFw;
+        private final HttpEntity bGi;
         private final MediaType mediaType;
 
         a(HttpEntity httpEntity, String str) {
-            this.bFw = httpEntity;
+            this.bGi = httpEntity;
             if (str != null) {
                 this.mediaType = MediaType.parse(str);
             } else if (httpEntity.getContentType() == null) {
-                this.mediaType = b.bFs;
+                this.mediaType = b.bGe;
             } else {
                 this.mediaType = MediaType.parse(httpEntity.getContentType().getValue());
             }
@@ -336,7 +336,7 @@ public class b implements e {
 
         @Override // okhttp3.RequestBody
         public long contentLength() {
-            return this.bFw.getContentLength();
+            return this.bGi.getContentLength();
         }
 
         @Override // okhttp3.RequestBody
@@ -346,7 +346,7 @@ public class b implements e {
 
         @Override // okhttp3.RequestBody
         public void writeTo(BufferedSink bufferedSink) throws IOException {
-            this.bFw.writeTo(bufferedSink.outputStream());
+            this.bGi.writeTo(bufferedSink.outputStream());
         }
     }
 }

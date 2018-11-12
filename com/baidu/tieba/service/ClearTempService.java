@@ -48,10 +48,10 @@ public class ClearTempService extends BdBaseService {
                     public void run() {
                         super.run();
                         try {
-                            File file = new File(l.FH + "/" + TbConfig.getTempDirName() + "/image");
-                            File file2 = new File(l.FH + "/" + TbConfig.getTempDirName() + "/share");
-                            File file3 = new File(l.FH + "/" + TbConfig.getTempDirName() + "/voice");
-                            File file4 = new File(l.FH + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_ALA_IM_RECORD_DIR_NAME);
+                            File file = new File(l.FL + "/" + TbConfig.getTempDirName() + "/image");
+                            File file2 = new File(l.FL + "/" + TbConfig.getTempDirName() + "/share");
+                            File file3 = new File(l.FL + "/" + TbConfig.getTempDirName() + "/voice");
+                            File file4 = new File(l.FL + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_ALA_IM_RECORD_DIR_NAME);
                             ClearTempService.this.deleteCache(file, false);
                             ClearTempService.this.deleteDir(file2);
                             ClearTempService.this.deleteDir(file3);
@@ -99,7 +99,7 @@ public class ClearTempService extends BdBaseService {
     }
 
     private void deleteImageCacheByName() {
-        String str = l.FH + "/" + TbConfig.getTempDirName() + "/image";
+        String str = l.FL + "/" + TbConfig.getTempDirName() + "/image";
         for (int i = 0; i < 20; i++) {
             File file = new File(str + "/" + i);
             if (file.exists() && file.isDirectory()) {

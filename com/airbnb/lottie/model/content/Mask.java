@@ -6,9 +6,9 @@ import com.baidu.mobstat.Config;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class Mask {
-    private final com.airbnb.lottie.model.a.d qS;
-    private final MaskMode ro;
-    private final com.airbnb.lottie.model.a.h rp;
+    private final com.airbnb.lottie.model.a.d qT;
+    private final MaskMode rp;
+    private final com.airbnb.lottie.model.a.h rq;
 
     /* loaded from: classes2.dex */
     public enum MaskMode {
@@ -19,9 +19,9 @@ public class Mask {
     }
 
     private Mask(MaskMode maskMode, com.airbnb.lottie.model.a.h hVar, com.airbnb.lottie.model.a.d dVar) {
-        this.ro = maskMode;
-        this.rp = hVar;
-        this.qS = dVar;
+        this.rp = maskMode;
+        this.rq = hVar;
+        this.qT = dVar;
     }
 
     /* loaded from: classes2.dex */
@@ -68,15 +68,15 @@ public class Mask {
         }
     }
 
-    public MaskMode eo() {
-        return this.ro;
-    }
-
-    public com.airbnb.lottie.model.a.h ep() {
+    public MaskMode en() {
         return this.rp;
     }
 
-    public com.airbnb.lottie.model.a.d dW() {
-        return this.qS;
+    public com.airbnb.lottie.model.a.h eo() {
+        return this.rq;
+    }
+
+    public com.airbnb.lottie.model.a.d dV() {
+        return this.qT;
     }
 }

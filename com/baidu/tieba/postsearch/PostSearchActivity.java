@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 /* loaded from: classes3.dex */
 public class PostSearchActivity extends BaseFragmentActivity {
-    public String dyD;
-    private g gyG;
-    private d gyH;
+    public String dzU;
+    private g gAh;
+    private d gAi;
     public String mForumId;
     public String mForumName;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.postsearch.PostSearchActivity.1
@@ -23,7 +23,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            PostSearchActivity.this.sH(i);
+            PostSearchActivity.this.ta(i);
         }
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -35,58 +35,58 @@ public class PostSearchActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gyG = new g(this);
-        this.gyG.initView();
-        this.gyG.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.gyH = new d(this);
+        this.gAh = new g(this);
+        this.gAh.initView();
+        this.gAh.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.gAi = new d(this);
         initData();
     }
 
-    public void tA(String str) {
-        this.dyD = str;
-        this.gyG.sN(1);
-        this.gyH.brW();
-        this.gyG.showLoadingView();
+    public void startSearch(String str) {
+        this.dzU = str;
+        this.gAh.tg(1);
+        this.gAi.brs();
+        this.gAh.showLoadingView();
     }
 
-    public void tz(String str) {
-        this.gyG.tz(str);
+    public void tE(String str) {
+        this.gAh.tE(str);
     }
 
-    public void brG() {
-        this.gyG.au(this.gyH.gze);
+    public void brc() {
+        this.gAh.at(this.gAi.gAF);
     }
 
     public void a(int i, b bVar, boolean z) {
-        if (i == 1 && (bVar == null || !bVar.aSH())) {
-            this.gyG.hideLoadingView();
-            this.gyG.bsa();
+        if (i == 1 && (bVar == null || !bVar.aSe())) {
+            this.gAh.hideLoadingView();
+            this.gAh.brw();
             return;
         }
-        this.gyG.hideLoadingView();
-        this.gyG.brO();
-        this.gyG.a(i, bVar, z);
+        this.gAh.hideLoadingView();
+        this.gAh.brk();
+        this.gAh.a(i, bVar, z);
     }
 
-    public boolean brH() {
-        return this.gyG.brH();
+    public boolean brd() {
+        return this.gAh.brd();
     }
 
-    public void brC() {
-        this.gyG.brC();
+    public void bqY() {
+        this.gAh.bqY();
     }
 
-    public d brI() {
-        return this.gyH;
+    public d bre() {
+        return this.gAi;
     }
 
-    public g brJ() {
-        return this.gyG;
+    public g brf() {
+        return this.gAh;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.gyG.onChangeSkinType(i);
+        this.gAh.onChangeSkinType(i);
     }
 
     private void initData() {
@@ -95,20 +95,20 @@ public class PostSearchActivity extends BaseFragmentActivity {
             this.mForumName = intent.getStringExtra("forum_name");
             this.mForumId = intent.getStringExtra("forum_id");
         }
-        this.gyH.brT();
+        this.gAi.brp();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.gyG != null) {
-            this.gyG.onDestroy();
+        if (this.gAh != null) {
+            this.gAh.onDestroy();
         }
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sH(int i) {
+    public void ta(int i) {
         int i2 = 0;
         switch (i) {
             case 0:

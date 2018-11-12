@@ -27,30 +27,30 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class a {
-    private final C0304a hRM;
+    private final C0332a hTw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
-        this.hRM = new C0304a(context, "bdbehavior.db");
+        this.hTw = new C0332a(context, "bdbehavior.db");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(j jVar) {
         if (jVar != null && !TextUtils.isEmpty(jVar.getId())) {
             final ContentValues contentValues = new ContentValues();
-            contentValues.put("flowhandle", Integer.valueOf(jVar.bPy()));
+            contentValues.put("flowhandle", Integer.valueOf(jVar.bOX()));
             contentValues.put("eventid", jVar.getId());
             contentValues.put("begintime", Long.valueOf(jVar.getTime()));
-            if (jVar.bPB() != null) {
-                contentValues.put("content", jVar.bPB().toString());
+            if (jVar.bPa() != null) {
+                contentValues.put("content", jVar.bPa().toString());
             } else {
                 contentValues.put("content", jVar.getContent());
             }
-            contentValues.put("reserve1", jVar.bPA());
+            contentValues.put("reserve1", jVar.bOZ());
             if (!TextUtils.isEmpty(jVar.getCategory())) {
                 contentValues.put("reserve2", jVar.getCategory());
             }
-            if (jVar.bPv()) {
+            if (jVar.bOU()) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("ctr", "1");
@@ -59,9 +59,9 @@ public class a {
                     e.printStackTrace();
                 }
             }
-            final String bPx = jVar.bPx();
+            final String bOW = jVar.bOW();
             final String id = jVar.getId();
-            final int bPy = jVar.bPy();
+            final int bOX = jVar.bOX();
             new b() { // from class: com.baidu.ubc.a.1
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -70,14 +70,14 @@ public class a {
 
                 @Override // com.baidu.ubc.a.b
                 protected boolean performTransaction(SQLiteDatabase sQLiteDatabase) {
-                    return a.this.a(bPx, id, bPy, sQLiteDatabase) && sQLiteDatabase.insert(NotificationCompat.CATEGORY_EVENT, null, contentValues) != -1;
+                    return a.this.a(bOW, id, bOX, sQLiteDatabase) && sQLiteDatabase.insert(NotificationCompat.CATEGORY_EVENT, null, contentValues) != -1;
                 }
-            }.run(this.hRM.getWritableDatabase());
+            }.run(this.hTw.getWritableDatabase());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void el(final List<j> list) {
+    public void ej(final List<j> list) {
         if (list != null && list.size() != 0) {
             new b() { // from class: com.baidu.ubc.a.6
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -89,21 +89,21 @@ public class a {
                 protected boolean performTransaction(SQLiteDatabase sQLiteDatabase) {
                     boolean z = true;
                     for (j jVar : list) {
-                        if (!TextUtils.isEmpty(jVar.getId()) && a.this.a(jVar.bPx(), jVar.getId(), jVar.bPy(), sQLiteDatabase)) {
+                        if (!TextUtils.isEmpty(jVar.getId()) && a.this.a(jVar.bOW(), jVar.getId(), jVar.bOX(), sQLiteDatabase)) {
                             ContentValues contentValues = new ContentValues();
-                            contentValues.put("flowhandle", Integer.valueOf(jVar.bPy()));
+                            contentValues.put("flowhandle", Integer.valueOf(jVar.bOX()));
                             contentValues.put("eventid", jVar.getId());
                             contentValues.put("begintime", Long.valueOf(jVar.getTime()));
                             if (!TextUtils.isEmpty(jVar.getContent())) {
                                 contentValues.put("content", jVar.getContent());
-                            } else if (jVar.bPB() != null && !TextUtils.isEmpty(jVar.bPB().toString())) {
-                                contentValues.put("content", jVar.bPB().toString());
+                            } else if (jVar.bPa() != null && !TextUtils.isEmpty(jVar.bPa().toString())) {
+                                contentValues.put("content", jVar.bPa().toString());
                             }
-                            contentValues.put("reserve1", jVar.bPA());
+                            contentValues.put("reserve1", jVar.bOZ());
                             if (!TextUtils.isEmpty(jVar.getCategory())) {
                                 contentValues.put("reserve2", jVar.getCategory());
                             }
-                            if (jVar.bPv()) {
+                            if (jVar.bOU()) {
                                 JSONObject jSONObject = new JSONObject();
                                 try {
                                     jSONObject.put("ctr", "1");
@@ -117,7 +117,7 @@ public class a {
                     }
                     return z;
                 }
-            }.run(this.hRM.getWritableDatabase());
+            }.run(this.hTw.getWritableDatabase());
         }
     }
 
@@ -175,23 +175,23 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(k kVar) {
         if (kVar != null && !TextUtils.isEmpty(kVar.getId())) {
-            SQLiteDatabase writableDatabase = this.hRM.getWritableDatabase();
+            SQLiteDatabase writableDatabase = this.hTw.getWritableDatabase();
             final ContentValues contentValues = new ContentValues();
             contentValues.put("flowid", kVar.getId());
-            contentValues.put("flowhandle", Integer.valueOf(kVar.bPy()));
+            contentValues.put("flowhandle", Integer.valueOf(kVar.bOX()));
             contentValues.put("state", kVar.getState());
-            contentValues.put("begintime", Long.valueOf(kVar.bPE()));
-            if (kVar.bPB() != null) {
-                contentValues.put("content", kVar.bPB().toString());
+            contentValues.put("begintime", Long.valueOf(kVar.bPd()));
+            if (kVar.bPa() != null) {
+                contentValues.put("content", kVar.bPa().toString());
             } else {
                 contentValues.put("content", kVar.getContent());
             }
-            contentValues.put("option", Integer.valueOf(kVar.bPz()));
-            contentValues.put("reserve1", kVar.bPA());
+            contentValues.put("option", Integer.valueOf(kVar.bOY()));
+            contentValues.put("reserve1", kVar.bOZ());
             if (!TextUtils.isEmpty(kVar.getCategory())) {
                 contentValues.put("reserve2", kVar.getCategory());
             }
-            if (kVar.bPv()) {
+            if (kVar.bOU()) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("ctr", "1");
@@ -232,7 +232,7 @@ public class a {
                 protected boolean performTransaction(SQLiteDatabase sQLiteDatabase) {
                     return sQLiteDatabase.update("flow", contentValues, sb2, null) == 1;
                 }
-            }.run(this.hRM.getWritableDatabase());
+            }.run(this.hTw.getWritableDatabase());
         }
     }
 
@@ -258,7 +258,7 @@ public class a {
                 protected boolean performTransaction(SQLiteDatabase sQLiteDatabase) {
                     return sQLiteDatabase.update("flow", contentValues, sb2, null) == 1;
                 }
-            }.run(this.hRM.getWritableDatabase());
+            }.run(this.hTw.getWritableDatabase());
         }
     }
 
@@ -280,12 +280,12 @@ public class a {
                     sQLiteDatabase.delete(NotificationCompat.CATEGORY_EVENT, "flowhandle = " + i, null);
                     return true;
                 }
-            }.run(this.hRM.getWritableDatabase());
+            }.run(this.hTw.getWritableDatabase());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bOX() {
+    public void bOw() {
         new b() { // from class: com.baidu.ubc.a.11
             /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [704=4] */
             /* JADX WARN: Removed duplicated region for block: B:38:0x016c  */
@@ -297,7 +297,7 @@ public class a {
                 Cursor cursor;
                 Cursor cursor2;
                 Cursor cursor3 = null;
-                long currentTimeMillis = System.currentTimeMillis() - e.bPl().bPn();
+                long currentTimeMillis = System.currentTimeMillis() - e.bOK().bOM();
                 int delete = sQLiteDatabase.delete("flow", "endtime < " + currentTimeMillis, null);
                 if (delete > 0) {
                     JSONObject jSONObject = new JSONObject();
@@ -374,17 +374,17 @@ public class a {
                     th = th3;
                 }
                 if (arrayList.size() != 0) {
-                    String aC = a.this.aC(arrayList);
+                    String aB = a.this.aB(arrayList);
                     StringBuilder sb2 = new StringBuilder();
-                    sb2.append("flowhandle").append(" in (").append(aC).append(")");
+                    sb2.append("flowhandle").append(" in (").append(aB).append(")");
                     sQLiteDatabase.delete("flow", sb2.toString(), null);
                     sQLiteDatabase.delete(NotificationCompat.CATEGORY_EVENT, sb2.toString(), null);
                 }
                 return true;
             }
-        }.run(this.hRM.getWritableDatabase());
-        xk("flow");
-        xk(NotificationCompat.CATEGORY_EVENT);
+        }.run(this.hTw.getWritableDatabase());
+        xp("flow");
+        xp(NotificationCompat.CATEGORY_EVENT);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x0068  */
@@ -392,12 +392,12 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void xk(final String str) {
+    private void xp(final String str) {
         Cursor cursor;
         RuntimeException runtimeException;
         Cursor cursor2 = null;
         final int i = 0;
-        SQLiteDatabase writableDatabase = this.hRM.getWritableDatabase();
+        SQLiteDatabase writableDatabase = this.hTw.getWritableDatabase();
         StringBuilder sb = new StringBuilder();
         sb.append("SELECT COUNT(*), MIN(").append("_id").append("), MAX(").append("_id").append(") FROM ").append(str);
         try {
@@ -407,7 +407,7 @@ public class a {
                     try {
                         if (rawQuery.getCount() > 0) {
                             rawQuery.moveToFirst();
-                            if (rawQuery.getInt(0) > e.bPl().bPo()) {
+                            if (rawQuery.getInt(0) > e.bOK().bON()) {
                                 i = (rawQuery.getInt(1) + rawQuery.getInt(2)) / 2;
                             }
                         }
@@ -465,7 +465,7 @@ public class a {
         Throwable th;
         Cursor cursor;
         RuntimeException e;
-        ?? readableDatabase = this.hRM.getReadableDatabase();
+        ?? readableDatabase = this.hTw.getReadableDatabase();
         Cursor cursor2 = null;
         StringBuilder sb = new StringBuilder();
         sb.append("SELECT * FROM ").append("config");
@@ -554,7 +554,7 @@ public class a {
     public void f(SparseArray<ArrayList> sparseArray) {
         int i;
         Cursor cursor = null;
-        SQLiteDatabase readableDatabase = this.hRM.getReadableDatabase();
+        SQLiteDatabase readableDatabase = this.hTw.getReadableDatabase();
         StringBuilder sb = new StringBuilder();
         sb.append("SELECT ").append("eventid").append(" , ").append("type").append(" , ").append("cycle").append(" FROM ").append("config").append(" WHERE ").append("switch").append("=\"").append("1").append("\"");
         try {
@@ -645,7 +645,7 @@ public class a {
         try {
             try {
                 try {
-                    cursor2 = this.hRM.getReadableDatabase().rawQuery(str, null);
+                    cursor2 = this.hTw.getReadableDatabase().rawQuery(str, null);
                     if (cursor2 != null) {
                         try {
                             if (cursor2.getCount() > 0) {
@@ -668,33 +668,33 @@ public class a {
                                         if ("2".equals(cursor2.getString(columnIndex3)) || (Math.abs(cursor2.getLong(columnIndex4) - System.currentTimeMillis()) > 86400000 && (cursor2.getInt(columnIndex7) & 4) != 0)) {
                                             k kVar = new k();
                                             kVar.setId(cursor2.getString(columnIndex));
-                                            kVar.wQ(cursor2.getInt(columnIndex2));
-                                            kVar.dl(cursor2.getLong(columnIndex4));
+                                            kVar.xj(cursor2.getInt(columnIndex2));
+                                            kVar.dg(cursor2.getLong(columnIndex4));
                                             kVar.setEndTime(cursor2.getLong(columnIndex5));
                                             long endTime = (kVar.getEndTime() <= 0 || kVar.getEndTime() <= j2) ? j2 : kVar.getEndTime();
                                             try {
-                                                if (kVar.bPE() > 0 && kVar.bPE() < j3) {
-                                                    j3 = kVar.bPE();
+                                                if (kVar.bPd() > 0 && kVar.bPd() < j3) {
+                                                    j3 = kVar.bPd();
                                                 }
                                                 kVar.setContent(cursor2.getString(columnIndex6));
-                                                kVar.xB(cursor2.getString(columnIndex8));
+                                                kVar.xG(cursor2.getString(columnIndex8));
                                                 if (!TextUtils.isEmpty(cursor2.getString(columnIndex9))) {
                                                     kVar.setCategory(cursor2.getString(columnIndex9));
                                                 }
                                                 if (columnIndex10 >= 0 && !TextUtils.isEmpty(cursor2.getString(columnIndex10))) {
-                                                    kVar.xC(cursor2.getString(columnIndex10));
+                                                    kVar.xH(cursor2.getString(columnIndex10));
                                                 }
                                                 if (!TextUtils.isEmpty(cursor2.getString(columnIndex11))) {
                                                     try {
                                                         if (new JSONObject(cursor2.getString(columnIndex11)).has("ctr")) {
-                                                            kVar.ou(true);
+                                                            kVar.oI(true);
                                                         }
                                                     } catch (JSONException e) {
                                                         e.printStackTrace();
                                                     }
                                                 }
                                                 arrayList.add(kVar);
-                                                tVar.ca(kVar.bPy(), Integer.parseInt(kVar.getId()));
+                                                tVar.ce(kVar.bOX(), Integer.parseInt(kVar.getId()));
                                                 j2 = endTime;
                                                 j = j3;
                                             } catch (SQLiteFullException e2) {
@@ -703,7 +703,7 @@ public class a {
                                                 com.baidu.g.a.h(cursor2);
                                                 if (arrayList.size() > 0) {
                                                 }
-                                                tVar.o(j, j2);
+                                                tVar.n(j, j2);
                                                 return i;
                                             } catch (RuntimeException e3) {
                                                 j2 = endTime;
@@ -715,7 +715,7 @@ public class a {
                                                     com.baidu.g.a.h(cursor);
                                                     if (arrayList.size() > 0) {
                                                     }
-                                                    tVar.o(j, j2);
+                                                    tVar.n(j, j2);
                                                     return i;
                                                 } catch (Throwable th) {
                                                     th = th;
@@ -757,7 +757,7 @@ public class a {
             if (arrayList.size() > 0) {
                 b(arrayList, tVar);
             }
-            tVar.o(j, j2);
+            tVar.n(j, j2);
             return i;
         } catch (Throwable th2) {
             th = th2;
@@ -769,37 +769,37 @@ public class a {
     private void b(ArrayList<k> arrayList, t tVar) {
         Cursor cursor;
         Cursor cursor2 = null;
-        SQLiteDatabase readableDatabase = this.hRM.getReadableDatabase();
+        SQLiteDatabase readableDatabase = this.hTw.getReadableDatabase();
         try {
             Iterator<k> it = arrayList.iterator();
             while (it.hasNext()) {
                 k next = it.next();
-                if (next.bPy() >= 0) {
+                if (next.bOX() >= 0) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("id", next.getId());
-                    jSONObject.put(LogBuilder.KEY_START_TIME, Long.toString(next.bPE()));
+                    jSONObject.put(LogBuilder.KEY_START_TIME, Long.toString(next.bPd()));
                     jSONObject.put(LogBuilder.KEY_END_TIME, Long.toString(next.getEndTime()));
                     jSONObject.put("type", "1");
                     if (!TextUtils.isEmpty(next.getContent())) {
                         jSONObject.put("content", next.getContent());
                     }
-                    if (!TextUtils.isEmpty(next.bPA())) {
-                        jSONObject.put("abtest", next.bPA());
-                        tVar.xG("1");
+                    if (!TextUtils.isEmpty(next.bOZ())) {
+                        jSONObject.put("abtest", next.bOZ());
+                        tVar.xL("1");
                     }
                     if (!TextUtils.isEmpty(next.getCategory())) {
                         jSONObject.put("c", next.getCategory());
                     }
-                    if (next.bPF() != null) {
-                        jSONObject.put("part", next.bPF());
+                    if (next.bPe() != null) {
+                        jSONObject.put("part", next.bPe());
                     }
-                    if (next.bPv()) {
+                    if (next.bOU()) {
                         jSONObject.put("of", "1");
                     }
-                    jSONObject.put("idtype", e.bPl().xw(next.getId()));
+                    jSONObject.put("idtype", e.bOK().xB(next.getId()));
                     JSONArray jSONArray = new JSONArray();
                     StringBuilder sb = new StringBuilder(256);
-                    sb.append("SELECT ").append("eventid").append(" , ").append("begintime").append(" , ").append("content").append(" FROM ").append(NotificationCompat.CATEGORY_EVENT).append(" WHERE ").append("flowhandle").append(" = ").append(next.bPy());
+                    sb.append("SELECT ").append("eventid").append(" , ").append("begintime").append(" , ").append("content").append(" FROM ").append(NotificationCompat.CATEGORY_EVENT).append(" WHERE ").append("flowhandle").append(" = ").append(next.bOX());
                     try {
                         cursor2 = readableDatabase.rawQuery(sb.toString(), null);
                         if (cursor2 != null && cursor2.getCount() > 0) {
@@ -847,7 +847,7 @@ public class a {
         long j2 = 0;
         try {
             try {
-                Cursor rawQuery = this.hRM.getReadableDatabase().rawQuery(str, null);
+                Cursor rawQuery = this.hTw.getReadableDatabase().rawQuery(str, null);
                 if (rawQuery != null) {
                     try {
                         if (rawQuery.getCount() > 0) {
@@ -878,7 +878,7 @@ public class a {
                                 }
                                 if (!TextUtils.isEmpty(rawQuery.getString(columnIndex4))) {
                                     jSONObject.put("abtest", rawQuery.getString(columnIndex4));
-                                    tVar.xG("1");
+                                    tVar.xL("1");
                                 }
                                 if (!TextUtils.isEmpty(rawQuery.getString(columnIndex5))) {
                                     jSONObject.put("c", rawQuery.getString(columnIndex5));
@@ -886,9 +886,9 @@ public class a {
                                 if (!TextUtils.isEmpty(rawQuery.getString(columnIndex6)) && new JSONObject(rawQuery.getString(columnIndex6)).has("ctr")) {
                                     jSONObject.put("of", "1");
                                 }
-                                jSONObject.put("idtype", e.bPl().xw(string));
+                                jSONObject.put("idtype", e.bOK().xB(string));
                                 tVar.ay(jSONObject);
-                                tVar.xF(rawQuery.getString(columnIndex));
+                                tVar.xK(rawQuery.getString(columnIndex));
                             } while (rawQuery.moveToNext());
                             i = 1;
                         }
@@ -898,7 +898,7 @@ public class a {
                         try {
                             runtimeException.printStackTrace();
                             com.baidu.g.a.h(cursor);
-                            tVar.o(j, j2);
+                            tVar.n(j, j2);
                             return i;
                         } catch (Throwable th) {
                             th = th;
@@ -922,7 +922,7 @@ public class a {
             com.baidu.g.a.h(cursor2);
             throw th;
         }
-        tVar.o(j, j2);
+        tVar.n(j, j2);
         return i;
     }
 
@@ -951,7 +951,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void em(final List<h> list) {
+    public void ek(final List<h> list) {
         if (list != null && list.size() != 0) {
             new b() { // from class: com.baidu.ubc.a.13
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -965,20 +965,20 @@ public class a {
                         ContentValues contentValues = new ContentValues();
                         contentValues.put("eventid", hVar.getId());
                         contentValues.put("type", hVar.getType());
-                        if ("1".equals(hVar.bPq())) {
+                        if ("1".equals(hVar.bOP())) {
                             contentValues.put("cycle", (Integer) 0);
                         } else {
                             contentValues.put("cycle", Integer.valueOf(hVar.getTimeout()));
                         }
-                        contentValues.put("switch", hVar.bPp());
-                        contentValues.put("reserve1", hVar.bPr());
+                        contentValues.put("switch", hVar.bOO());
+                        contentValues.put("reserve1", hVar.bOQ());
                         if (!TextUtils.isEmpty(hVar.getCategory())) {
                             contentValues.put("reserve2", hVar.getCategory());
                         }
-                        contentValues.put("sample", Integer.valueOf(hVar.bPs()));
-                        if (hVar.bPt() != 0 && hVar.bPu() != 0) {
-                            contentValues.put("recordrule", Integer.valueOf(hVar.bPt()));
-                            contentValues.put("uploadrule", Integer.valueOf(hVar.bPu()));
+                        contentValues.put("sample", Integer.valueOf(hVar.bOR()));
+                        if (hVar.bOS() != 0 && hVar.bOT() != 0) {
+                            contentValues.put("recordrule", Integer.valueOf(hVar.bOS()));
+                            contentValues.put("uploadrule", Integer.valueOf(hVar.bOT()));
                         }
                         if (TextUtils.equals(hVar.getIdType(), "1")) {
                             JSONObject jSONObject = new JSONObject();
@@ -993,7 +993,7 @@ public class a {
                     }
                     return true;
                 }
-            }.run(this.hRM.getWritableDatabase());
+            }.run(this.hTw.getWritableDatabase());
         }
     }
 
@@ -1016,17 +1016,17 @@ public class a {
                     for (int i = 0; i < size; i++) {
                         arrayList2.add(Integer.valueOf(sparseArray.keyAt(i)));
                     }
-                    String aC = a.this.aC(arrayList2);
+                    String aB = a.this.aB(arrayList2);
                     StringBuilder sb = new StringBuilder();
-                    sb.append("flowhandle").append(" in (").append(aC).append(")");
-                    p.xE("delete flow table flow count:" + sQLiteDatabase.delete("flow", sb.toString(), null));
-                    p.xE("delete flow table event count:" + sQLiteDatabase.delete(NotificationCompat.CATEGORY_EVENT, sb.toString(), null));
+                    sb.append("flowhandle").append(" in (").append(aB).append(")");
+                    p.xJ("delete flow table flow count:" + sQLiteDatabase.delete("flow", sb.toString(), null));
+                    p.xJ("delete flow table event count:" + sQLiteDatabase.delete(NotificationCompat.CATEGORY_EVENT, sb.toString(), null));
                 }
                 if (arrayList != null && arrayList.size() > 0) {
-                    String aC2 = a.this.aC(arrayList);
+                    String aB2 = a.this.aB(arrayList);
                     StringBuilder sb2 = new StringBuilder();
-                    sb2.append("eventid").append(" in (").append(aC2).append(")").append(" AND ").append("flowhandle").append(" = ").append(-1);
-                    p.xE("delete event table event count:" + sQLiteDatabase.delete(NotificationCompat.CATEGORY_EVENT, sb2.toString(), null));
+                    sb2.append("eventid").append(" in (").append(aB2).append(")").append(" AND ").append("flowhandle").append(" = ").append(-1);
+                    p.xJ("delete event table event count:" + sQLiteDatabase.delete(NotificationCompat.CATEGORY_EVENT, sb2.toString(), null));
                 }
                 if ((sparseArray != null && sparseArray.size() > 0) || (arrayList != null && arrayList.size() > 0)) {
                     ContentValues contentValues = new ContentValues();
@@ -1035,16 +1035,16 @@ public class a {
                     contentValues.put("reserve1", z ? "1" : "0");
                     sQLiteDatabase.insert("file", null, contentValues);
                 }
-                p.xE("delete total time:" + (System.currentTimeMillis() - this.beginTime));
+                p.xJ("delete total time:" + (System.currentTimeMillis() - this.beginTime));
                 return true;
             }
         };
-        bVar.run(this.hRM.getWritableDatabase());
+        bVar.run(this.hTw.getWritableDatabase());
         return bVar.isTransactionSuccess();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void xl(final String str) {
+    public void xq(final String str) {
         new b() { // from class: com.baidu.ubc.a.3
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -1058,11 +1058,11 @@ public class a {
                 sQLiteDatabase.delete("file", sb.toString(), null);
                 return true;
             }
-        }.run(this.hRM.getWritableDatabase());
+        }.run(this.hTw.getWritableDatabase());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void xm(final String str) {
+    public void xr(final String str) {
         new b() { // from class: com.baidu.ubc.a.4
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -1078,11 +1078,11 @@ public class a {
                 sQLiteDatabase.update("file", contentValues, sb.toString(), null);
                 return true;
             }
-        }.run(this.hRM.getWritableDatabase());
+        }.run(this.hTw.getWritableDatabase());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bOY() {
+    public void bOx() {
         new b() { // from class: com.baidu.ubc.a.5
             @Override // com.baidu.ubc.a.b
             protected boolean performTransaction(SQLiteDatabase sQLiteDatabase) {
@@ -1091,11 +1091,11 @@ public class a {
                 sQLiteDatabase.update("file", contentValues, null, null);
                 return true;
             }
-        }.run(this.hRM.getWritableDatabase());
+        }.run(this.hTw.getWritableDatabase());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String aC(ArrayList arrayList) {
+    public String aB(ArrayList arrayList) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < arrayList.size(); i++) {
             if (i > 0) {
@@ -1106,24 +1106,24 @@ public class a {
         return sb.toString();
     }
 
-    final long bOZ() {
-        return this.hRM.bOZ();
+    final long bOy() {
+        return this.hTw.bOy();
     }
 
-    final long bPa() {
-        return this.hRM.bPa();
+    final long bOz() {
+        return this.hTw.bOz();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.ubc.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0304a extends SQLiteOpenHelper {
-        private String hSa;
+    public static class C0332a extends SQLiteOpenHelper {
+        private String hTK;
         private Context mContext;
 
-        C0304a(Context context, String str) {
+        C0332a(Context context, String str) {
             super(context.getApplicationContext(), str, (SQLiteDatabase.CursorFactory) null, 5);
-            this.hSa = str;
+            this.hTK = str;
             this.mContext = context.getApplicationContext();
         }
 
@@ -1133,7 +1133,7 @@ public class a {
             sQLiteDatabase.execSQL("CREATE TABLE flow (_id INTEGER PRIMARY KEY AUTOINCREMENT,flowid TEXT,flowhandle INTEGER,state TEXT,begintime LONG,endtime LONG,content TEXT,option INTEGER,reserve1 TEXT,reserve2 TEXT,slot TEXT,extend TEXT );");
             sQLiteDatabase.execSQL("CREATE TABLE config (eventid TEXT PRIMARY KEY,type TEXT,recordrule TEXT,uploadrule TEXT,cycle INTEGER,switch TEXT,sample INTEGER,reserve1 TEXT,reserve2 TEXT,extend TEXT);");
             sQLiteDatabase.execSQL("CREATE TABLE file (filename TEXT PRIMARY KEY,state TEXT,reserve1 TEXT,reserve2 TEXT);");
-            s.bPQ().putString("ubc_version_md5", "0");
+            s.bPp().putString("ubc_version_md5", "0");
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
@@ -1199,9 +1199,9 @@ public class a {
                 sQLiteDatabase = super.getReadableDatabase();
             } catch (Exception e) {
                 e.printStackTrace();
-                if (new File(this.mContext.getDatabasePath(this.hSa).getPath()).delete()) {
+                if (new File(this.mContext.getDatabasePath(this.hTK).getPath()).delete()) {
                     sQLiteDatabase = super.getReadableDatabase();
-                    s.bPQ().putString("ubc_version_md5", "0");
+                    s.bPp().putString("ubc_version_md5", "0");
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("type", "delDB");
@@ -1222,44 +1222,44 @@ public class a {
                 sQLiteDatabase = super.getWritableDatabase();
             } catch (Exception e) {
                 e.printStackTrace();
-                if (new File(this.mContext.getDatabasePath(this.hSa).getPath()).delete()) {
+                if (new File(this.mContext.getDatabasePath(this.hTK).getPath()).delete()) {
                     sQLiteDatabase = super.getWritableDatabase();
-                    s.bPQ().putString("ubc_version_md5", "0");
+                    s.bPp().putString("ubc_version_md5", "0");
                     o.onEvent(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "delDB");
                 }
             }
             return sQLiteDatabase;
         }
 
-        long bOZ() {
-            return new File(this.mContext.getDatabasePath(this.hSa).getPath()).length();
+        long bOy() {
+            return new File(this.mContext.getDatabasePath(this.hTK).getPath()).length();
         }
 
-        long bPa() {
-            return new File(this.mContext.getDatabasePath(this.hSa).getPath() + "-journal").length();
+        long bOz() {
+            return new File(this.mContext.getDatabasePath(this.hTK).getPath() + "-journal").length();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public abstract class b {
-        private boolean hSb;
+        private boolean hTL;
 
         protected abstract boolean performTransaction(SQLiteDatabase sQLiteDatabase);
 
         private b() {
-            this.hSb = false;
+            this.hTL = false;
         }
 
         public void run(SQLiteDatabase sQLiteDatabase) {
             if (sQLiteDatabase != null) {
-                this.hSb = false;
+                this.hTL = false;
                 sQLiteDatabase.beginTransaction();
                 try {
                     try {
                         if (performTransaction(sQLiteDatabase)) {
                             sQLiteDatabase.setTransactionSuccessful();
-                            this.hSb = true;
+                            this.hTL = true;
                         }
                         try {
                             sQLiteDatabase.endTransaction();
@@ -1269,8 +1269,8 @@ public class a {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("type", "DBError");
-                            jSONObject.put("db_size", a.this.bOZ());
-                            jSONObject.put("db_log_size", a.this.bPa());
+                            jSONObject.put("db_size", a.this.bOy());
+                            jSONObject.put("db_log_size", a.this.bOz());
                             jSONObject.put(com.baidu.fsg.base.statistics.b.k, Log.getStackTraceString(e2));
                         } catch (JSONException e3) {
                             e3.printStackTrace();
@@ -1292,7 +1292,7 @@ public class a {
         }
 
         protected boolean isTransactionSuccess() {
-            return this.hSb;
+            return this.hTL;
         }
     }
 }

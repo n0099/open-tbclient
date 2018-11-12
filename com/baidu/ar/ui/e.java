@@ -34,7 +34,7 @@ public class e extends c implements r {
         @Override // com.baidu.ar.ui.k
         public void a(int i, Object obj) {
             switch (i) {
-                case MsgField.IMSG_CLOUDAR_TOAST_ERROR /* 1403 */:
+                case 1403:
                     e.this.d((String) obj);
                     return;
                 case MsgField.IMSG_CLORD_ID_START /* 1807 */:

@@ -9,22 +9,22 @@ import com.baidu.tieba.card.o;
 import com.baidu.tieba.card.v;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.b, com.baidu.tieba.card.a.a<com.baidu.tieba.card.j>> {
-    private BdUniqueId aZt;
-    private com.baidu.tieba.card.j enq;
+    private BdUniqueId bag;
+    private com.baidu.tieba.card.j eoK;
     private TbPageContext<?> mPageContext;
 
     public a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.personalize.data.d.eoy);
+        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.personalize.data.d.epR);
         this.mPageContext = tbPageContext;
-        this.enq = new com.baidu.tieba.card.j(this.mPageContext);
-        this.enq.k("c10714", "c10739", "c10712", "c10738");
-        this.enq.setFrom("home");
+        this.eoK = new com.baidu.tieba.card.j(this.mPageContext);
+        this.eoK.k("c10714", "c10739", "c10712", "c10738");
+        this.eoK.setFrom("home");
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.aZt = bdUniqueId;
-        if (this.enq != null) {
-            this.enq.h(this.aZt);
+        this.bag = bdUniqueId;
+        if (this.eoK != null) {
+            this.eoK.h(this.bag);
         }
     }
 
@@ -33,30 +33,30 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.b bVar, com.baidu.tieba.card.a.a aVar) {
-        if (aVar.aoQ() == null) {
+        if (aVar.aor() == null) {
             return null;
         }
-        aVar.aoQ().a(bVar);
-        v.aop().a(new am("c10714").ax("obj_param3", o.aog()));
+        aVar.aor().a(bVar);
+        v.anQ().a(new am("c10714").ax("obj_param3", o.anH()));
         return aVar.getView();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: Y */
+    /* renamed from: Z */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        if (this.enq == null) {
-            this.enq = new com.baidu.tieba.card.j(this.mPageContext);
-            this.enq.h(this.aZt);
-            this.enq.k("c10714", "c10739", "c10712", "c10738");
+        if (this.eoK == null) {
+            this.eoK = new com.baidu.tieba.card.j(this.mPageContext);
+            this.eoK.h(this.bag);
+            this.eoK.k("c10714", "c10739", "c10712", "c10738");
         }
-        return new com.baidu.tieba.card.a.a(this.enq);
+        return new com.baidu.tieba.card.a.a(this.eoK);
     }
 
     public void onChangeSkinType(int i) {
-        if (this.enq != null) {
-            this.enq.d(this.mPageContext, i);
+        if (this.eoK != null) {
+            this.eoK.d(this.mPageContext, i);
         }
     }
 }

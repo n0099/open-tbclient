@@ -8,18 +8,18 @@ import android.util.SparseArray;
 import java.io.ByteArrayOutputStream;
 /* loaded from: classes.dex */
 public class d {
-    private static d FE = null;
+    private static d FI = null;
     private volatile SparseArray<Bitmap> mBitmapHash = new SparseArray<>();
     private Context mContext = null;
-    private Bitmap.Config FF = Bitmap.Config.RGB_565;
+    private Bitmap.Config FJ = Bitmap.Config.RGB_565;
 
-    public static synchronized d kG() {
+    public static synchronized d kE() {
         d dVar;
         synchronized (d.class) {
-            if (FE == null) {
-                FE = new d();
+            if (FI == null) {
+                FI = new d();
             }
-            dVar = FE;
+            dVar = FI;
         }
         return dVar;
     }
@@ -48,7 +48,7 @@ public class d {
         }
     }
 
-    public Bitmap a(Bitmap bitmap, int i, int i2) {
+    public Bitmap b(Bitmap bitmap, int i, int i2) {
         float f;
         if (i <= 0 || i2 < 0 || bitmap == null || bitmap.isRecycled()) {
             return null;

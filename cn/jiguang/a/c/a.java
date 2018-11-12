@@ -115,16 +115,16 @@ public final class a {
         long f = cn.jiguang.d.a.a.f();
         int a3 = cn.jiguang.d.a.d.a();
         cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(AudioParams.DEFAULT_AUDIO_BUFFER_SIZE);
-        bVar.l(0);
-        bVar.k(1);
-        bVar.k(25);
-        bVar.h(f);
-        bVar.g(a3);
-        bVar.h(c2);
-        bVar.l(0);
-        bVar.h(a);
+        bVar.C(0);
+        bVar.B(1);
+        bVar.B(25);
+        bVar.j(f);
+        bVar.i(a3);
+        bVar.j(c2);
+        bVar.C(0);
+        bVar.j(a);
         if (a2 != null) {
-            bVar.f(a2.getBytes());
+            bVar.e(a2.getBytes());
         }
         bVar.l(bVar.current(), 0);
         byte[] a4 = cn.jiguang.d.e.a.a.b.a(bVar.toByteArray(), 1);
@@ -132,7 +132,7 @@ public final class a {
             cn.jiguang.e.c.c("CtrlMessageProcessor", "reportCtrlReceived to report received failed - " + a);
             c = 65535;
         } else {
-            if (cn.jiguang.d.g.c.cg().ch().j(a4) != 0) {
+            if (cn.jiguang.d.g.c.cg().ch().i(a4) != 0) {
                 cn.jiguang.e.c.c("CtrlMessageProcessor", "Failed to report received - " + a);
             }
             c = 0;

@@ -6,10 +6,10 @@ import java.io.InputStream;
 /* loaded from: classes2.dex */
 public final class e extends b<InputStream> {
     private final com.airbnb.lottie.h ng;
-    private final Resources qs;
+    private final Resources qt;
 
     public e(Resources resources, com.airbnb.lottie.h hVar) {
-        this.qs = resources;
+        this.qt = resources;
         this.ng = hVar;
     }
 
@@ -18,7 +18,7 @@ public final class e extends b<InputStream> {
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public com.airbnb.lottie.e doInBackground(InputStream... inputStreamArr) {
-        return e.a.a(this.qs, inputStreamArr[0]);
+        return e.a.a(this.qt, inputStreamArr[0]);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

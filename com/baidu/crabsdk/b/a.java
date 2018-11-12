@@ -44,7 +44,7 @@ public final class a {
         if (XP) {
             XP = false;
             XQ = System.currentTimeMillis();
-            if (com.baidu.crabsdk.c.c.rv() >= 14) {
+            if (com.baidu.crabsdk.c.c.rs() >= 14) {
                 application.registerActivityLifecycleCallbacks(new b());
             }
         }
@@ -70,13 +70,13 @@ public final class a {
     }
 
     public static void doActivityStart(Activity activity) {
-        if (com.baidu.crabsdk.c.c.rv() < 14) {
+        if (com.baidu.crabsdk.c.c.rs() < 14) {
             a(activity);
         }
     }
 
     public static void doActivityStop(Activity activity) {
-        if (com.baidu.crabsdk.c.c.rv() < 14) {
+        if (com.baidu.crabsdk.c.c.rs() < 14) {
             b(activity);
         }
     }
@@ -99,11 +99,11 @@ public final class a {
         return XM == null ? "N/A" : XM.getClass().getName();
     }
 
-    public static long ro() {
+    public static long rm() {
         return XQ;
     }
 
-    public static byte[] rp() {
+    public static byte[] rn() {
         if (XM == null) {
             return new byte[0];
         }

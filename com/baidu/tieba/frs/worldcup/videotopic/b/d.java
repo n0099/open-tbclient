@@ -22,7 +22,7 @@ public class d extends h<f, a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aH */
+    /* renamed from: aI */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         return new a(new com.baidu.tieba.frs.worldcup.videotopic.b.a(this.mPageContext, this.mPageId));
     }
@@ -33,23 +33,23 @@ public class d extends h<f, a> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, f fVar, a aVar) {
         super.onFillViewHolder(i, view, viewGroup, fVar, aVar);
-        if (aVar == null || aVar.eco == null) {
+        if (aVar == null || aVar.edI == null) {
             return null;
         }
         if (fVar != null) {
-            aVar.eco.setForumId(this.mForumId);
-            aVar.eco.a(fVar);
+            aVar.edI.setForumId(this.mForumId);
+            aVar.edI.a(fVar);
         }
         return aVar.getView();
     }
 
     /* loaded from: classes3.dex */
     public static class a extends q.a {
-        private com.baidu.tieba.frs.worldcup.videotopic.b.a eco;
+        private com.baidu.tieba.frs.worldcup.videotopic.b.a edI;
 
         public a(com.baidu.tieba.frs.worldcup.videotopic.b.a aVar) {
             super(aVar.getView());
-            this.eco = aVar;
+            this.edI = aVar;
         }
     }
 

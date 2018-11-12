@@ -1,640 +1,587 @@
 package com.baidu.location.b;
 
-import android.annotation.TargetApi;
-import android.content.Context;
-import android.location.GnssStatus;
-import android.location.GpsSatellite;
-import android.location.GpsStatus;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.net.http.Headers;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
-import com.baidu.location.BDLocation;
+import android.content.SharedPreferences;
+import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.location.Jni;
-import com.baidu.location.a.n;
-import com.baidu.location.a.p;
-import com.baidu.location.d.g;
-import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import com.baidu.location.g.g;
+import java.io.File;
+import java.io.RandomAccessFile;
+import java.util.HashMap;
 import java.util.Locale;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class d {
-    private int A;
-    private int B;
-    private Location aeD;
-    private GpsStatus aeG;
-    private a aeH;
-    private Context d;
-    private boolean k;
-    private static d aeB = null;
-    private static int m = 0;
+    private static d aes = null;
+    private static final String k = com.baidu.location.g.f.a + "/conlts.dat";
+    private static int l = -1;
+    private static int m = -1;
     private static int n = 0;
-    private static String u = null;
-    private static double aeK = 100.0d;
-    private static String D = "";
-    private final long a = 1000;
-    private final long b = 9000;
-    private LocationManager aeC = null;
-    private c aeE = null;
-    private C0083d aeF = null;
-    private b aeI = null;
-    private long o = 0;
-    private boolean p = false;
-    private boolean q = false;
-    private String r = null;
-    private boolean s = false;
-    private long t = 0;
-    private Handler aeJ = null;
-    private final int w = 1;
-    private final int x = 2;
-    private final int y = 3;
-    private final int z = 4;
-    private long aeL = 0;
-    private ArrayList<ArrayList<Float>> aeM = new ArrayList<>();
+    private a aet = null;
+    public boolean a = true;
+    public boolean b = true;
+    public boolean c = false;
+    public boolean d = true;
+    public boolean e = true;
+    public boolean f = true;
+    public boolean g = true;
+    public boolean h = false;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    @TargetApi(24)
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
-    public class a extends GnssStatus.Callback {
-        private a() {
+    public class a extends com.baidu.location.g.e {
+        String a = null;
+        boolean b = false;
+        boolean c = false;
+
+        public a() {
+            this.k = new HashMap();
         }
 
-        @Override // android.location.GnssStatus.Callback
-        public void onFirstFix(int i) {
+        @Override // com.baidu.location.g.e
+        public void a() {
+            this.h = g.c();
+            this.i = 2;
+            String encode = Jni.encode(this.a);
+            this.a = null;
+            if (this.b) {
+                this.k.put("qt", "grid");
+            } else {
+                this.k.put("qt", "conf");
+            }
+            this.k.put("req", encode);
         }
 
-        @Override // android.location.GnssStatus.Callback
-        public void onSatelliteStatusChanged(GnssStatus gnssStatus) {
-            int i = 0;
-            if (d.this.aeC == null) {
+        public void a(String str, boolean z) {
+            if (this.c) {
                 return;
             }
-            int satelliteCount = gnssStatus.getSatelliteCount();
-            d.this.aeM.clear();
-            int i2 = 0;
-            for (int i3 = 0; i3 < satelliteCount; i3++) {
-                ArrayList arrayList = new ArrayList();
-                if (gnssStatus.usedInFix(i3)) {
-                    i2++;
-                    if (gnssStatus.getConstellationType(i3) == 1) {
-                        i++;
-                        arrayList.add(Float.valueOf(gnssStatus.getCn0DbHz(i3)));
-                        arrayList.add(Float.valueOf(0.0f));
-                        arrayList.add(Float.valueOf(gnssStatus.getAzimuthDegrees(i3)));
-                        arrayList.add(Float.valueOf(gnssStatus.getElevationDegrees(i3)));
-                        arrayList.add(Float.valueOf(1.0f));
-                    }
-                    d.this.aeM.add(arrayList);
-                }
-            }
-            int unused = d.m = i2;
-            int unused2 = d.n = i;
-        }
-
-        @Override // android.location.GnssStatus.Callback
-        public void onStarted() {
-        }
-
-        @Override // android.location.GnssStatus.Callback
-        public void onStopped() {
-            d.this.d((Location) null);
-            d.this.b(false);
-            int unused = d.m = 0;
-            int unused2 = d.n = 0;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
-    public class b implements GpsStatus.Listener {
-        long a;
-        private long c;
-        private final int d;
-        private boolean e;
-        private List<String> f;
-        private String g;
-        private String h;
-        private String i;
-        private long j;
-
-        private b() {
-            this.a = 0L;
-            this.c = 0L;
-            this.d = 400;
-            this.e = false;
-            this.f = new ArrayList();
-            this.g = null;
-            this.h = null;
-            this.i = null;
-            this.j = 0L;
-        }
-
-        @Override // android.location.GpsStatus.Listener
-        public void onGpsStatusChanged(int i) {
-            int i2 = 0;
-            if (d.this.aeC == null) {
-                return;
-            }
-            switch (i) {
-                case 2:
-                    d.this.d((Location) null);
-                    d.this.b(false);
-                    int unused = d.m = 0;
-                    int unused2 = d.n = 0;
-                    return;
-                case 3:
-                default:
-                    return;
-                case 4:
-                    if (d.this.q) {
-                        try {
-                            if (d.this.aeG == null) {
-                                d.this.aeG = d.this.aeC.getGpsStatus(null);
-                            } else {
-                                d.this.aeC.getGpsStatus(d.this.aeG);
-                            }
-                            d.this.A = 0;
-                            d.this.B = 0;
-                            double d = 0.0d;
-                            d.this.aeM.clear();
-                            int i3 = 0;
-                            for (GpsSatellite gpsSatellite : d.this.aeG.getSatellites()) {
-                                ArrayList arrayList = new ArrayList();
-                                new ArrayList();
-                                if (gpsSatellite.usedInFix()) {
-                                    i3++;
-                                    if (gpsSatellite.getPrn() <= 65) {
-                                        i2++;
-                                        d += gpsSatellite.getSnr();
-                                        arrayList.add(Float.valueOf(0.0f));
-                                        arrayList.add(Float.valueOf(gpsSatellite.getSnr()));
-                                        arrayList.add(Float.valueOf(gpsSatellite.getAzimuth()));
-                                        arrayList.add(Float.valueOf(gpsSatellite.getElevation()));
-                                        arrayList.add(Float.valueOf(1.0f));
-                                    }
-                                    d.this.aeM.add(arrayList);
-                                    if (gpsSatellite.getSnr() >= g.H) {
-                                        d.f(d.this);
-                                    }
-                                }
-                            }
-                            if (i2 > 0) {
-                                int unused3 = d.n = i2;
-                                double unused4 = d.aeK = d / i2;
-                            }
-                            if (i3 > 0) {
-                                this.j = System.currentTimeMillis();
-                                int unused5 = d.m = i3;
-                                return;
-                            } else if (System.currentTimeMillis() - this.j > 100) {
-                                this.j = System.currentTimeMillis();
-                                int unused6 = d.m = i3;
-                                return;
-                            } else {
-                                return;
-                            }
-                        } catch (Exception e) {
-                            return;
-                        }
-                    }
-                    return;
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
-    public class c implements LocationListener {
-        private c() {
-        }
-
-        @Override // android.location.LocationListener
-        public void onLocationChanged(Location location) {
-            d.this.t = System.currentTimeMillis();
-            d.this.b(true);
-            d.this.d(location);
-            d.this.p = false;
-        }
-
-        @Override // android.location.LocationListener
-        public void onProviderDisabled(String str) {
-            d.this.d((Location) null);
-            d.this.b(false);
-        }
-
-        @Override // android.location.LocationListener
-        public void onProviderEnabled(String str) {
-        }
-
-        @Override // android.location.LocationListener
-        public void onStatusChanged(String str, int i, Bundle bundle) {
-            switch (i) {
-                case 0:
-                    d.this.d((Location) null);
-                    d.this.b(false);
-                    return;
-                case 1:
-                    d.this.o = System.currentTimeMillis();
-                    d.this.p = true;
-                    d.this.b(false);
-                    return;
-                case 2:
-                    d.this.p = false;
-                    return;
-                default:
-                    return;
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: com.baidu.location.b.d$d  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C0083d implements LocationListener {
-        private long b;
-
-        private C0083d() {
-            this.b = 0L;
-        }
-
-        @Override // android.location.LocationListener
-        public void onLocationChanged(Location location) {
-            if (!d.this.q && location != null && location.getProvider() == "gps" && System.currentTimeMillis() - this.b >= ErrDef.Feature.WEIGHT && p.a(location, false)) {
-                this.b = System.currentTimeMillis();
-                d.this.aeJ.sendMessage(d.this.aeJ.obtainMessage(4, location));
+            this.c = true;
+            this.a = str;
+            this.b = z;
+            if (z) {
+                a(true, "loc.map.baidu.com");
+            } else {
+                b(g.f);
             }
         }
 
-        @Override // android.location.LocationListener
-        public void onProviderDisabled(String str) {
-        }
-
-        @Override // android.location.LocationListener
-        public void onProviderEnabled(String str) {
-        }
-
-        @Override // android.location.LocationListener
-        public void onStatusChanged(String str, int i, Bundle bundle) {
+        @Override // com.baidu.location.g.e
+        public void a(boolean z) {
+            if (!z || this.j == null) {
+                d.this.b((String) null);
+            } else if (this.b) {
+                d.this.a(this.m);
+            } else {
+                d.this.b(this.j);
+            }
+            if (this.k != null) {
+                this.k.clear();
+            }
+            this.c = false;
         }
     }
 
     private d() {
-        this.k = false;
-        if (Build.VERSION.SDK_INT >= 24) {
-            try {
-                Class.forName("android.location.GnssStatus");
-                this.k = true;
-            } catch (ClassNotFoundException e) {
-                this.k = false;
+    }
+
+    private void a(int i) {
+        this.a = (i & 1) == 1;
+        this.b = (i & 2) == 2;
+        this.c = (i & 4) == 4;
+        this.d = (i & 8) == 8;
+        this.f = (i & 65536) == 65536;
+        this.g = (i & 131072) == 131072;
+        if ((i & 16) == 16) {
+            this.e = false;
+        }
+    }
+
+    private void a(JSONObject jSONObject) {
+        boolean z = false;
+        if (jSONObject == null) {
+            return;
+        }
+        try {
+            if (!jSONObject.has("ipen") || jSONObject.getInt("ipen") != 0) {
+                z = true;
             }
+            int i = jSONObject.has("ipvt") ? jSONObject.getInt("ipvt") : 14400000;
+            int i2 = jSONObject.has("ipvn") ? jSONObject.getInt("ipvn") : 10;
+            SharedPreferences.Editor edit = com.baidu.location.f.getServiceContext().getSharedPreferences("MapCoreServicePre", 0).edit();
+            edit.putBoolean("ipLocInfoUpload", z);
+            edit.putInt("ipValidTime", i);
+            edit.putInt("ipLocInfoUploadTimesPerDay", i2);
+            edit.commit();
+        } catch (Exception e) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, Location location) {
-        if (location == null) {
-            return;
-        }
-        String str2 = str + com.baidu.location.a.a.ti().c();
-        boolean e = f.tH().e();
-        n.b(new com.baidu.location.b.a(com.baidu.location.b.b.tA().tB()));
-        n.a(System.currentTimeMillis());
-        n.a(new Location(location));
-        n.a(str2);
-        if (e) {
-            return;
-        }
-        p.a(n.tw(), null, n.tx(), str2);
-    }
-
-    public static boolean a(Location location, Location location2, boolean z) {
-        if (location == location2) {
-            return false;
-        }
-        if (location == null || location2 == null) {
-            return true;
-        }
-        float speed = location2.getSpeed();
-        if (!z || ((g.v != 3 && com.baidu.location.d.d.tO().b(location2.getLongitude(), location2.getLatitude())) || speed >= 5.0f)) {
-            float distanceTo = location2.distanceTo(location);
-            return speed > g.afq ? distanceTo > g.afs : speed > g.K ? distanceTo > g.afr : distanceTo > 5.0f;
-        }
-        return true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(boolean z) {
-        this.s = z;
-        if (!z || !i()) {
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d(Location location) {
-        this.aeJ.sendMessage(this.aeJ.obtainMessage(1, location));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void e(Location location) {
-        Location location2;
-        if (location == null) {
-            this.aeD = null;
-            return;
-        }
-        int i = m;
-        if (i == 0) {
+    public void a(byte[] bArr) {
+        int i = 0;
+        if (bArr != null) {
             try {
-                i = location.getExtras().getInt("satellites");
+                if (bArr.length < 640) {
+                    g.x = false;
+                    g.u = g.s + 0.025d;
+                    g.t = g.ade - 0.025d;
+                    i = 1;
+                } else {
+                    g.x = true;
+                    g.t = Double.longBitsToDouble(((bArr[7] & 255) << 56) | ((bArr[6] & 255) << 48) | ((bArr[5] & 255) << 40) | ((bArr[4] & 255) << 32) | ((bArr[3] & 255) << 24) | ((bArr[2] & 255) << 16) | ((bArr[1] & 255) << 8) | (bArr[0] & 255));
+                    g.u = Double.longBitsToDouble(((bArr[15] & 255) << 56) | ((bArr[14] & 255) << 48) | ((bArr[13] & 255) << 40) | ((bArr[12] & 255) << 32) | ((bArr[11] & 255) << 24) | ((bArr[10] & 255) << 16) | ((bArr[9] & 255) << 8) | (bArr[8] & 255));
+                    g.agd = new byte[625];
+                    while (i < 625) {
+                        g.agd[i] = bArr[i + 16];
+                        i++;
+                    }
+                    i = 1;
+                }
             } catch (Exception e) {
+                return;
             }
         }
-        if (i != 0 || g.l) {
-            this.aeD = location;
-            int i2 = m;
-            if (this.aeD == null) {
-                this.r = null;
-                location2 = null;
-            } else {
-                Location location3 = new Location(this.aeD);
-                long currentTimeMillis = System.currentTimeMillis();
-                this.aeD.setTime(currentTimeMillis);
-                float speed = (float) (this.aeD.getSpeed() * 3.6d);
-                if (!this.aeD.hasSpeed()) {
-                    speed = -1.0f;
-                }
-                if (i2 == 0) {
-                    try {
-                        i2 = this.aeD.getExtras().getInt("satellites");
-                    } catch (Exception e2) {
-                    }
-                }
-                this.r = String.format(Locale.CHINA, "&ll=%.5f|%.5f&s=%.1f&d=%.1f&ll_n=%d&ll_t=%d", Double.valueOf(this.aeD.getLongitude()), Double.valueOf(this.aeD.getLatitude()), Float.valueOf(speed), Float.valueOf(this.aeD.getBearing()), Integer.valueOf(i2), Long.valueOf(currentTimeMillis));
-                location2 = location3;
-            }
-            if (i() && this.aeD != null) {
-                D = j();
-                com.baidu.location.a.a.ti().a(f());
-                if (m > 2 && p.a(this.aeD, true)) {
-                    boolean e3 = f.tH().e();
-                    n.b(new com.baidu.location.b.a(com.baidu.location.b.b.tA().tB()));
-                    n.a(System.currentTimeMillis());
-                    n.a(new Location(this.aeD));
-                    n.a(com.baidu.location.a.a.ti().c());
-                    if (!e3) {
-                        p.a(n.tw(), null, n.tx(), com.baidu.location.a.a.ti().c());
-                    }
-                }
-            }
-            try {
-                com.baidu.location.a.e.tm().f(this.aeD);
-            } catch (Exception e4) {
-            }
-            if (location2 != null) {
-                com.baidu.location.a.d.tl().a(location2);
-            }
+        if (i != 0) {
+            g();
         }
     }
 
-    static /* synthetic */ int f(d dVar) {
-        int i = dVar.B;
-        dVar.B = i + 1;
-        return i;
-    }
-
-    public static String g(Location location) {
-        if (location == null) {
-            return null;
-        }
-        float speed = (float) (location.getSpeed() * 3.6d);
-        if (!location.hasSpeed()) {
-            speed = -1.0f;
-        }
-        return String.format(Locale.CHINA, "&ll=%.5f|%.5f&s=%.1f&d=%.1f&ll_r=%d&ll_n=%d&ll_h=%.2f&ll_t=%d&ll_sn=%d|%d&ll_snr=%.1f", Double.valueOf(location.getLongitude()), Double.valueOf(location.getLatitude()), Float.valueOf(speed), Float.valueOf(location.hasBearing() ? location.getBearing() : -1.0f), Integer.valueOf((int) (location.hasAccuracy() ? location.getAccuracy() : -1.0f)), Integer.valueOf(m), Double.valueOf(location.hasAltitude() ? location.getAltitude() : 555.0d), Long.valueOf(location.getTime() / 1000), Integer.valueOf(m), Integer.valueOf(n), Double.valueOf(aeK));
-    }
-
-    public static String h(Location location) {
-        String g = g(location);
-        return g != null ? g + "&g_tp=0" : g;
-    }
-
-    public static String i(Location location) {
-        String g = g(location);
-        return g != null ? g + u : g;
-    }
-
-    private String j() {
-        StringBuilder sb = new StringBuilder();
-        if (this.aeM.size() > 32 || this.aeM.size() == 0) {
-            return sb.toString();
-        }
-        Iterator<ArrayList<Float>> it = this.aeM.iterator();
+    private boolean a(String str) {
         boolean z = true;
-        while (it.hasNext()) {
-            ArrayList<Float> next = it.next();
-            if (next.size() == 5) {
-                if (z) {
-                    z = false;
-                } else {
-                    sb.append("|");
-                }
-                sb.append(String.format("%.1f;", next.get(0)));
-                sb.append(String.format("%.1f;", next.get(2)));
-                sb.append(String.format("%.0f;", next.get(2)));
-                sb.append(String.format("%.0f;", next.get(3)));
-                sb.append(String.format("%.0f", next.get(4)));
-            }
-        }
-        return sb.toString();
-    }
-
-    public static synchronized d tF() {
-        d dVar;
-        synchronized (d.class) {
-            if (aeB == null) {
-                aeB = new d();
-            }
-            dVar = aeB;
-        }
-        return dVar;
-    }
-
-    public void a(boolean z) {
-        if (z) {
-            c();
-        } else {
-            d();
-        }
-    }
-
-    public synchronized void b() {
-        if (com.baidu.location.f.isServing) {
-            this.d = com.baidu.location.f.getServiceContext();
+        if (str != null) {
             try {
-                this.aeC = (LocationManager) this.d.getSystemService(Headers.LOCATION);
-                if (this.k) {
-                    this.aeH = new a();
-                    this.aeC.registerGnssStatusCallback(this.aeH);
-                } else {
-                    this.aeI = new b();
-                    this.aeC.addGpsStatusListener(this.aeI);
+                JSONObject jSONObject = new JSONObject(str);
+                if (jSONObject.has("ipconf")) {
+                    try {
+                        a(jSONObject.getJSONObject("ipconf"));
+                    } catch (Exception e) {
+                    }
                 }
-                this.aeF = new C0083d();
-                this.aeC.requestLocationUpdates("passive", 9000L, 0.0f, this.aeF);
-            } catch (Exception e) {
-            }
-            this.aeJ = new Handler() { // from class: com.baidu.location.b.d.1
-                @Override // android.os.Handler
-                public void handleMessage(Message message) {
-                    if (com.baidu.location.f.isServing) {
-                        switch (message.what) {
-                            case 1:
-                                d.this.e((Location) message.obj);
-                                return;
-                            case 2:
-                            default:
-                                return;
-                            case 3:
-                                d.this.a("&og=1", (Location) message.obj);
-                                return;
-                            case 4:
-                                d.this.a("&og=2", (Location) message.obj);
-                                return;
+                int parseInt = Integer.parseInt(jSONObject.getString("ver"));
+                if (parseInt > g.y) {
+                    g.y = parseInt;
+                    if (jSONObject.has("gps")) {
+                        String[] split = jSONObject.getString("gps").split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
+                        if (split.length > 10) {
+                            if (split[0] != null && !split[0].equals("")) {
+                                g.z = Float.parseFloat(split[0]);
+                            }
+                            if (split[1] != null && !split[1].equals("")) {
+                                g.agf = Float.parseFloat(split[1]);
+                            }
+                            if (split[2] != null && !split[2].equals("")) {
+                                g.agg = Float.parseFloat(split[2]);
+                            }
+                            if (split[3] != null && !split[3].equals("")) {
+                                g.C = Float.parseFloat(split[3]);
+                            }
+                            if (split[4] != null && !split[4].equals("")) {
+                                g.D = Integer.parseInt(split[4]);
+                            }
+                            if (split[5] != null && !split[5].equals("")) {
+                                g.E = Integer.parseInt(split[5]);
+                            }
+                            if (split[6] != null && !split[6].equals("")) {
+                                g.F = Integer.parseInt(split[6]);
+                            }
+                            if (split[7] != null && !split[7].equals("")) {
+                                g.G = Integer.parseInt(split[7]);
+                            }
+                            if (split[8] != null && !split[8].equals("")) {
+                                g.H = Integer.parseInt(split[8]);
+                            }
+                            if (split[9] != null && !split[9].equals("")) {
+                                g.I = Integer.parseInt(split[9]);
+                            }
+                            if (split[10] != null && !split[10].equals("")) {
+                                g.J = Integer.parseInt(split[10]);
+                            }
                         }
                     }
+                    if (jSONObject.has("up")) {
+                        String[] split2 = jSONObject.getString("up").split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
+                        if (split2.length > 3) {
+                            if (split2[0] != null && !split2[0].equals("")) {
+                                g.K = Float.parseFloat(split2[0]);
+                            }
+                            if (split2[1] != null && !split2[1].equals("")) {
+                                g.agh = Float.parseFloat(split2[1]);
+                            }
+                            if (split2[2] != null && !split2[2].equals("")) {
+                                g.agi = Float.parseFloat(split2[2]);
+                            }
+                            if (split2[3] != null && !split2[3].equals("")) {
+                                g.agj = Float.parseFloat(split2[3]);
+                            }
+                        }
+                    }
+                    if (jSONObject.has("wf")) {
+                        String[] split3 = jSONObject.getString("wf").split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
+                        if (split3.length > 3) {
+                            if (split3[0] != null && !split3[0].equals("")) {
+                                g.O = Integer.parseInt(split3[0]);
+                            }
+                            if (split3[1] != null && !split3[1].equals("")) {
+                                g.agk = Float.parseFloat(split3[1]);
+                            }
+                            if (split3[2] != null && !split3[2].equals("")) {
+                                g.Q = Integer.parseInt(split3[2]);
+                            }
+                            if (split3[3] != null && !split3[3].equals("")) {
+                                g.agl = Float.parseFloat(split3[3]);
+                            }
+                        }
+                    }
+                    if (jSONObject.has("ab")) {
+                        String[] split4 = jSONObject.getString("ab").split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
+                        if (split4.length > 3) {
+                            if (split4[0] != null && !split4[0].equals("")) {
+                                g.agm = Float.parseFloat(split4[0]);
+                            }
+                            if (split4[1] != null && !split4[1].equals("")) {
+                                g.agn = Float.parseFloat(split4[1]);
+                            }
+                            if (split4[2] != null && !split4[2].equals("")) {
+                                g.U = Integer.parseInt(split4[2]);
+                            }
+                            if (split4[3] != null && !split4[3].equals("")) {
+                                g.V = Integer.parseInt(split4[3]);
+                            }
+                        }
+                    }
+                    if (jSONObject.has("zxd")) {
+                        String[] split5 = jSONObject.getString("zxd").split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
+                        if (split5.length > 4) {
+                            if (split5[0] != null && !split5[0].equals("")) {
+                                g.agt = Float.parseFloat(split5[0]);
+                            }
+                            if (split5[1] != null && !split5[1].equals("")) {
+                                g.agu = Float.parseFloat(split5[1]);
+                            }
+                            if (split5[2] != null && !split5[2].equals("")) {
+                                g.at = Integer.parseInt(split5[2]);
+                            }
+                            if (split5[3] != null && !split5[3].equals("")) {
+                                g.au = Integer.parseInt(split5[3]);
+                            }
+                            if (split5[4] != null && !split5[4].equals("")) {
+                                g.av = Integer.parseInt(split5[4]);
+                            }
+                        }
+                    }
+                    if (jSONObject.has("gpc")) {
+                        String[] split6 = jSONObject.getString("gpc").split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
+                        if (split6.length > 5) {
+                            if (split6[0] != null && !split6[0].equals("")) {
+                                if (Integer.parseInt(split6[0]) > 0) {
+                                    g.aa = true;
+                                } else {
+                                    g.aa = false;
+                                }
+                            }
+                            if (split6[1] != null && !split6[1].equals("")) {
+                                if (Integer.parseInt(split6[1]) > 0) {
+                                    g.ab = true;
+                                } else {
+                                    g.ab = false;
+                                }
+                            }
+                            if (split6[2] != null && !split6[2].equals("")) {
+                                g.ac = Integer.parseInt(split6[2]);
+                            }
+                            if (split6[3] != null && !split6[3].equals("")) {
+                                g.ae = Integer.parseInt(split6[3]);
+                            }
+                            if (split6[4] != null && !split6[4].equals("")) {
+                                int parseInt2 = Integer.parseInt(split6[4]);
+                                if (parseInt2 > 0) {
+                                    g.ak = parseInt2;
+                                    g.agp = g.ak * 1000 * 60;
+                                    g.al = g.agp >> 2;
+                                } else {
+                                    g.p = false;
+                                }
+                            }
+                            if (split6[5] != null && !split6[5].equals("")) {
+                                g.an = Integer.parseInt(split6[5]);
+                            }
+                        }
+                    }
+                    if (jSONObject.has("shak")) {
+                        String[] split7 = jSONObject.getString("shak").split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
+                        if (split7.length > 2) {
+                            if (split7[0] != null && !split7[0].equals("")) {
+                                g.ao = Integer.parseInt(split7[0]);
+                            }
+                            if (split7[1] != null && !split7[1].equals("")) {
+                                g.ap = Integer.parseInt(split7[1]);
+                            }
+                            if (split7[2] != null && !split7[2].equals("")) {
+                                g.ags = Float.parseFloat(split7[2]);
+                            }
+                        }
+                    }
+                    if (jSONObject.has("dmx")) {
+                        g.am = jSONObject.getInt("dmx");
+                    }
+                    return z;
                 }
-            };
+            } catch (Exception e2) {
+                return false;
+            }
         }
+        z = false;
+        return z;
+    }
+
+    private void b(int i) {
+        File file = new File(k);
+        if (!file.exists()) {
+            i();
+        }
+        try {
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+            randomAccessFile.seek(4L);
+            int readInt = randomAccessFile.readInt();
+            int readInt2 = randomAccessFile.readInt();
+            randomAccessFile.seek((readInt * n) + 128);
+            byte[] bytes = (com.baidu.location.g.b.d + (char) 0).getBytes();
+            randomAccessFile.writeInt(bytes.length);
+            randomAccessFile.write(bytes, 0, bytes.length);
+            randomAccessFile.writeInt(i);
+            if (readInt2 == n) {
+                randomAccessFile.seek(8L);
+                randomAccessFile.writeInt(readInt2 + 1);
+            }
+            randomAccessFile.close();
+        } catch (Exception e) {
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(String str) {
+        int i;
+        m = -1;
+        if (str != null) {
+            try {
+                if (a(str)) {
+                    f();
+                }
+            } catch (Exception e) {
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                if (jSONObject.has("ctr")) {
+                    m = Integer.parseInt(jSONObject.getString("ctr"));
+                }
+            } catch (Exception e2) {
+            }
+            try {
+                j();
+                if (m != -1) {
+                    i = m;
+                    b(m);
+                } else {
+                    i = l != -1 ? l : -1;
+                }
+                if (i != -1) {
+                    a(i);
+                }
+            } catch (Exception e3) {
+            }
+        }
+    }
+
+    private void e() {
+        String str = "&ver=" + g.y + "&usr=" + com.baidu.location.g.b.tW().b() + "&app=" + com.baidu.location.g.b.d + "&prod=" + com.baidu.location.g.b.e;
+        if (this.aet == null) {
+            this.aet = new a();
+        }
+        this.aet.a(str, false);
+    }
+
+    private void f() {
+        String str = com.baidu.location.g.f.a + "/config.dat";
+        byte[] bytes = String.format(Locale.CHINA, "{\"ver\":\"%d\",\"gps\":\"%.1f|%.1f|%.1f|%.1f|%d|%d|%d|%d|%d|%d|%d\",\"up\":\"%.1f|%.1f|%.1f|%.1f\",\"wf\":\"%d|%.1f|%d|%.1f\",\"ab\":\"%.2f|%.2f|%d|%d\",\"gpc\":\"%d|%d|%d|%d|%d|%d\",\"zxd\":\"%.1f|%.1f|%d|%d|%d\",\"shak\":\"%d|%d|%.1f\",\"dmx\":%d}", Integer.valueOf(g.y), Float.valueOf(g.z), Float.valueOf(g.agf), Float.valueOf(g.agg), Float.valueOf(g.C), Integer.valueOf(g.D), Integer.valueOf(g.E), Integer.valueOf(g.F), Integer.valueOf(g.G), Integer.valueOf(g.H), Integer.valueOf(g.I), Integer.valueOf(g.J), Float.valueOf(g.K), Float.valueOf(g.agh), Float.valueOf(g.agi), Float.valueOf(g.agj), Integer.valueOf(g.O), Float.valueOf(g.agk), Integer.valueOf(g.Q), Float.valueOf(g.agl), Float.valueOf(g.agm), Float.valueOf(g.agn), Integer.valueOf(g.U), Integer.valueOf(g.V), Integer.valueOf(g.aa ? 1 : 0), Integer.valueOf(g.ab ? 1 : 0), Integer.valueOf(g.ac), Integer.valueOf(g.ae), Long.valueOf(g.ak), Integer.valueOf(g.an), Float.valueOf(g.agt), Float.valueOf(g.agu), Integer.valueOf(g.at), Integer.valueOf(g.au), Integer.valueOf(g.av), Integer.valueOf(g.ao), Integer.valueOf(g.ap), Float.valueOf(g.ags), Integer.valueOf(g.am)).getBytes();
+        try {
+            File file = new File(str);
+            if (!file.exists()) {
+                File file2 = new File(com.baidu.location.g.f.a);
+                if (!file2.exists()) {
+                    file2.mkdirs();
+                }
+                if (!file.createNewFile()) {
+                    return;
+                }
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+                randomAccessFile.seek(0L);
+                randomAccessFile.writeBoolean(false);
+                randomAccessFile.writeBoolean(false);
+                randomAccessFile.close();
+            }
+            RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
+            randomAccessFile2.seek(0L);
+            randomAccessFile2.writeBoolean(true);
+            randomAccessFile2.seek(2L);
+            randomAccessFile2.writeInt(bytes.length);
+            randomAccessFile2.write(bytes);
+            randomAccessFile2.close();
+        } catch (Exception e) {
+        }
+    }
+
+    private void g() {
+        try {
+            File file = new File(com.baidu.location.g.f.a + "/config.dat");
+            if (!file.exists()) {
+                File file2 = new File(com.baidu.location.g.f.a);
+                if (!file2.exists()) {
+                    file2.mkdirs();
+                }
+                if (!file.createNewFile()) {
+                    return;
+                }
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+                randomAccessFile.seek(0L);
+                randomAccessFile.writeBoolean(false);
+                randomAccessFile.writeBoolean(false);
+                randomAccessFile.close();
+            }
+            RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
+            randomAccessFile2.seek(1L);
+            randomAccessFile2.writeBoolean(true);
+            randomAccessFile2.seek(1024L);
+            randomAccessFile2.writeDouble(g.t);
+            randomAccessFile2.writeDouble(g.u);
+            randomAccessFile2.writeBoolean(g.x);
+            if (g.x && g.agd != null) {
+                randomAccessFile2.write(g.agd);
+            }
+            randomAccessFile2.close();
+        } catch (Exception e) {
+        }
+    }
+
+    private void h() {
+        try {
+            File file = new File(com.baidu.location.g.f.a + "/config.dat");
+            if (file.exists()) {
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+                if (randomAccessFile.readBoolean()) {
+                    randomAccessFile.seek(2L);
+                    int readInt = randomAccessFile.readInt();
+                    byte[] bArr = new byte[readInt];
+                    randomAccessFile.read(bArr, 0, readInt);
+                    a(new String(bArr));
+                }
+                randomAccessFile.seek(1L);
+                if (randomAccessFile.readBoolean()) {
+                    randomAccessFile.seek(1024L);
+                    g.t = randomAccessFile.readDouble();
+                    g.u = randomAccessFile.readDouble();
+                    g.x = randomAccessFile.readBoolean();
+                    if (g.x) {
+                        g.agd = new byte[625];
+                        randomAccessFile.read(g.agd, 0, 625);
+                    }
+                }
+                randomAccessFile.close();
+            }
+        } catch (Exception e) {
+        }
+        if (!g.p || com.baidu.location.f.isServing) {
+        }
+    }
+
+    private void i() {
+        try {
+            File file = new File(k);
+            if (file.exists()) {
+                return;
+            }
+            File file2 = new File(com.baidu.location.g.f.a);
+            if (!file2.exists()) {
+                file2.mkdirs();
+            }
+            if (!file.createNewFile()) {
+                file = null;
+            }
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+            randomAccessFile.seek(0L);
+            randomAccessFile.writeInt(0);
+            randomAccessFile.writeInt(128);
+            randomAccessFile.writeInt(0);
+            randomAccessFile.close();
+        } catch (Exception e) {
+        }
+    }
+
+    private void j() {
+        int i = 0;
+        try {
+            File file = new File(k);
+            if (file.exists()) {
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+                randomAccessFile.seek(4L);
+                int readInt = randomAccessFile.readInt();
+                if (readInt > 3000) {
+                    randomAccessFile.close();
+                    n = 0;
+                    i();
+                    return;
+                }
+                int readInt2 = randomAccessFile.readInt();
+                randomAccessFile.seek(128L);
+                byte[] bArr = new byte[readInt];
+                while (true) {
+                    if (i >= readInt2) {
+                        break;
+                    }
+                    randomAccessFile.seek((readInt * i) + 128);
+                    int readInt3 = randomAccessFile.readInt();
+                    if (readInt3 > 0 && readInt3 < readInt) {
+                        randomAccessFile.read(bArr, 0, readInt3);
+                        if (bArr[readInt3 - 1] == 0) {
+                            String str = new String(bArr, 0, readInt3 - 1);
+                            com.baidu.location.g.b.tW();
+                            if (str.equals(com.baidu.location.g.b.d)) {
+                                l = randomAccessFile.readInt();
+                                n = i;
+                                break;
+                            }
+                        } else {
+                            continue;
+                        }
+                    }
+                    i++;
+                }
+                if (i == readInt2) {
+                    n = readInt2;
+                }
+                randomAccessFile.close();
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    public static d tx() {
+        if (aes == null) {
+            aes = new d();
+        }
+        return aes;
+    }
+
+    public void b() {
+        h();
     }
 
     public void c() {
-        Log.d(com.baidu.location.d.a.a, "start gps...");
-        if (this.q) {
-            return;
-        }
-        try {
-            this.aeE = new c();
-            try {
-                this.aeC.sendExtraCommand("gps", "force_xtra_injection", new Bundle());
-            } catch (Exception e) {
-            }
-            this.aeC.requestLocationUpdates("gps", 1000L, 0.0f, this.aeE);
-            this.aeL = System.currentTimeMillis();
-            this.q = true;
-        } catch (Exception e2) {
-        }
     }
 
     public void d() {
-        if (this.q) {
-            if (this.aeC != null) {
-                try {
-                    if (this.aeE != null) {
-                        this.aeC.removeUpdates(this.aeE);
-                    }
-                } catch (Exception e) {
-                }
-            }
-            g.d = 0;
-            g.v = 0;
-            this.aeE = null;
-            this.q = false;
-            b(false);
+        if (System.currentTimeMillis() - com.baidu.location.g.c.tX().d() > 604800000) {
+            com.baidu.location.g.c.tX().c(System.currentTimeMillis());
+            e();
         }
-    }
-
-    public synchronized void e() {
-        d();
-        if (this.aeC != null) {
-            try {
-                if (this.aeI != null) {
-                    this.aeC.removeGpsStatusListener(this.aeI);
-                }
-                if (this.k && this.aeH != null) {
-                    this.aeC.unregisterGnssStatusCallback(this.aeH);
-                }
-                this.aeC.removeUpdates(this.aeF);
-            } catch (Exception e) {
-            }
-            this.aeI = null;
-            this.aeC = null;
-        }
-    }
-
-    public String f() {
-        double[] dArr;
-        boolean z;
-        if (this.aeD != null) {
-            String str = "{\"result\":{\"time\":\"" + g.a() + "\",\"error\":\"61\"},\"content\":{\"point\":{\"x\":\"%f\",\"y\":\"%f\"},\"radius\":\"%d\",\"d\":\"%f\",\"s\":\"%f\",\"n\":\"%d\"";
-            int accuracy = (int) (this.aeD.hasAccuracy() ? this.aeD.getAccuracy() : 10.0f);
-            float speed = (float) (this.aeD.getSpeed() * 3.6d);
-            if (!this.aeD.hasSpeed()) {
-                speed = -1.0f;
-            }
-            double[] dArr2 = new double[2];
-            if (com.baidu.location.d.d.tO().b(this.aeD.getLongitude(), this.aeD.getLatitude())) {
-                double[] coorEncrypt = Jni.coorEncrypt(this.aeD.getLongitude(), this.aeD.getLatitude(), BDLocation.BDLOCATION_WGS84_TO_GCJ02);
-                if (coorEncrypt[0] > 0.0d || coorEncrypt[1] > 0.0d) {
-                    dArr = coorEncrypt;
-                    z = true;
-                } else {
-                    coorEncrypt[0] = this.aeD.getLongitude();
-                    coorEncrypt[1] = this.aeD.getLatitude();
-                    dArr = coorEncrypt;
-                    z = true;
-                }
-            } else {
-                dArr2[0] = this.aeD.getLongitude();
-                dArr2[1] = this.aeD.getLatitude();
-                dArr = dArr2;
-                z = false;
-            }
-            String format = String.format(Locale.CHINA, str, Double.valueOf(dArr[0]), Double.valueOf(dArr[1]), Integer.valueOf(accuracy), Float.valueOf(this.aeD.getBearing()), Float.valueOf(speed), Integer.valueOf(m));
-            if (!z) {
-                format = format + ",\"in_cn\":\"0\"";
-            }
-            return this.aeD.hasAltitude() ? format + String.format(Locale.CHINA, ",\"h\":%.2f}}", Double.valueOf(this.aeD.getAltitude())) : format + "}}";
-        }
-        return null;
-    }
-
-    public boolean h() {
-        try {
-            if (this.aeD != null && this.aeD.getLatitude() != 0.0d && this.aeD.getLongitude() != 0.0d) {
-                if (m > 2) {
-                    return true;
-                }
-                if (this.aeD.getExtras().getInt("satellites", 3) > 2) {
-                    return true;
-                }
-            }
-            return false;
-        } catch (Exception e) {
-            return (this.aeD == null || this.aeD.getLatitude() == 0.0d || this.aeD.getLongitude() == 0.0d) ? false : true;
-        }
-    }
-
-    public boolean i() {
-        if (h() && System.currentTimeMillis() - this.t <= ErrDef.Feature.WEIGHT) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (!this.p || currentTimeMillis - this.o >= 3000) {
-                return this.s;
-            }
-            return true;
-        }
-        return false;
-    }
-
-    public Location tG() {
-        if (this.aeD != null && Math.abs(System.currentTimeMillis() - this.aeD.getTime()) <= 60000) {
-            return this.aeD;
-        }
-        return null;
     }
 }

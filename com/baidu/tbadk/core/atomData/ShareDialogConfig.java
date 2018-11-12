@@ -18,6 +18,7 @@ public class ShareDialogConfig extends IntentConfig {
     public boolean isLandscape;
     public boolean isSetCopyLink;
     public boolean isSupportNightMode;
+    private boolean mAlaLiveRoomShare;
     public ArrayList<TransmitForumData> mForumList;
     public boolean mIsAlaLive;
     public boolean mIsShowTransmitShare;
@@ -85,6 +86,14 @@ public class ShareDialogConfig extends IntentConfig {
 
     public void setCopyLinkListener(View.OnClickListener onClickListener) {
         this.copyLinkListener = onClickListener;
+    }
+
+    public boolean isAlaLiveRoomShare() {
+        return this.mAlaLiveRoomShare;
+    }
+
+    public void setAlaLiveRoomShare(boolean z) {
+        this.mAlaLiveRoomShare = z;
     }
 
     public void setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {

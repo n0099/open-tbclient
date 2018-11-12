@@ -14,7 +14,7 @@ public final class c {
     private static PackageManager Yu;
 
     public static void a(SharedPreferences.Editor editor, boolean z) {
-        if (rv() < 9 || z) {
+        if (rs() < 9 || z) {
             editor.commit();
         } else {
             editor.apply();
@@ -66,11 +66,11 @@ public final class c {
         return stackTrace.length > 0 ? stackTrace[0].toString() : "N/A";
     }
 
-    public static String i(long j) {
+    public static String k(long j) {
         return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / 1000000 > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
     }
 
-    public static int rv() {
+    public static int rs() {
         try {
             return Build.VERSION.class.getField("SDK_INT").getInt(null);
         } catch (Exception e) {
@@ -78,7 +78,7 @@ public final class c {
         }
     }
 
-    public static String rw() {
+    public static String rt() {
         return new SimpleDateFormat(AiAppDateTimeUtil.DAY_FORMAT).format(new Date(System.currentTimeMillis()));
     }
 }

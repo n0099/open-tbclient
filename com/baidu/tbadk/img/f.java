@@ -20,16 +20,16 @@ import java.io.RandomAccessFile;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class f {
-    private a aYM;
-    private Object aYN;
-    private e aYO;
+    private a aZA;
+    private Object aZB;
+    private e aZC;
     private int bigHeight;
     private int bigWidth;
     private String from;
     private boolean isCancelled;
     private int smallHeight;
     private int smallWidth;
-    private int aYL = 512000;
+    private int aZz = 512000;
     private String groupId = "1";
     private x mNetwork = null;
 
@@ -50,17 +50,17 @@ public class f {
     }
 
     public void a(a aVar, Object obj) {
-        this.aYM = aVar;
-        this.aYN = obj;
+        this.aZA = aVar;
+        this.aZB = obj;
         if (aVar != null) {
-            this.aYL = 10240;
+            this.aZz = 10240;
         }
     }
 
     public void cancel() {
         this.isCancelled = true;
         if (this.mNetwork != null) {
-            this.mNetwork.ji();
+            this.mNetwork.jg();
         }
     }
 
@@ -136,10 +136,10 @@ public class f {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.aYO == null) {
-            this.aYO = new e();
+        if (this.aZC == null) {
+            this.aZC = new e();
         }
-        return c(this.aYO.c(imageFileInfo, z), z, z2);
+        return c(this.aZC.c(imageFileInfo, z), z, z2);
     }
 
     public ImageUploadResult d(ImageFileInfo imageFileInfo, boolean z) {
@@ -293,8 +293,8 @@ public class f {
                         imageUploadResult2 = imageUploadResult5;
                         randomAccessFile2 = null;
                     } else {
-                        String str2 = i + this.aYL;
-                        long j2 = length % ((long) this.aYL) == 0 ? length / this.aYL : (length / this.aYL) + 1;
+                        String str2 = i + this.aZz;
+                        long j2 = length % ((long) this.aZz) == 0 ? length / this.aZz : (length / this.aZz) + 1;
                         sb.append("|chunkNo=");
                         sb.append(j2);
                         randomAccessFile2 = new RandomAccessFile(str, "r");
@@ -328,14 +328,14 @@ public class f {
                                                 bArr = null;
                                             } else {
                                                 if (i4 < j2) {
-                                                    i5 = this.aYL;
+                                                    i5 = this.aZz;
                                                 } else if (i4 == j2) {
-                                                    i5 = (int) (length - (this.aYL * (j2 - 1)));
+                                                    i5 = (int) (length - (this.aZz * (j2 - 1)));
                                                 }
                                                 if (bArr2 == null || bArr2.length != i5) {
                                                     bArr2 = new byte[i5];
                                                 }
-                                                randomAccessFile2.seek(this.aYL * (i4 - 1));
+                                                randomAccessFile2.seek(this.aZz * (i4 - 1));
                                                 randomAccessFile2.read(bArr2, 0, i5);
                                                 bArr = bArr2;
                                             }
@@ -366,22 +366,22 @@ public class f {
                                                 this.mNetwork.x("saveOrigin", "0");
                                             }
                                             if (z2) {
-                                                int wu = i.ws().wu();
-                                                if (wu != 0) {
-                                                    this.mNetwork.x("pic_water_type", String.valueOf(wu));
+                                                int wC = i.wA().wC();
+                                                if (wC != 0) {
+                                                    this.mNetwork.x("pic_water_type", String.valueOf(wC));
                                                 }
                                                 String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
-                                                if (!StringUtils.isNull(currentAccountName) && wu == 1) {
+                                                if (!StringUtils.isNull(currentAccountName) && wC == 1) {
                                                     this.mNetwork.x("user_name", currentAccountName);
                                                 }
-                                                String wv = i.ws().wv();
-                                                if (!StringUtils.isNull(wv) && wu == 2) {
-                                                    this.mNetwork.x("forum_name", wv);
+                                                String wD = i.wA().wD();
+                                                if (!StringUtils.isNull(wD) && wC == 2) {
+                                                    this.mNetwork.x("forum_name", wD);
                                                 }
                                             }
-                                            String BD = this.mNetwork.BD();
-                                            imageUploadResult3 = ImageUploadResult.parser(BD);
-                                            if (BD == null || imageUploadResult3 == null) {
+                                            String BK = this.mNetwork.BK();
+                                            imageUploadResult3 = ImageUploadResult.parser(BK);
+                                            if (BK == null || imageUploadResult3 == null) {
                                                 break;
                                             }
                                             try {
@@ -391,9 +391,9 @@ public class f {
                                                 if (imageUploadResult3.error_code != ImageUploadResult.CHUNK_ERROR) {
                                                     int i6 = i4 + 1;
                                                     long j4 = j3 + i5;
-                                                    long j5 = i6 > 1 ? j4 + ((i6 - 1) * this.aYL) : j4;
-                                                    if (this.aYM != null) {
-                                                        this.aYM.a(str, this.aYN, j5, length);
+                                                    long j5 = i6 > 1 ? j4 + ((i6 - 1) * this.aZz) : j4;
+                                                    if (this.aZA != null) {
+                                                        this.aZA.a(str, this.aZB, j5, length);
                                                     }
                                                     i2 = i6;
                                                     j = j4;

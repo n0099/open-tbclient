@@ -14,6 +14,7 @@ import android.support.annotation.RestrictTo;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.graphics.drawable.DrawableWrapper;
 import android.util.Log;
+import com.baidu.searchbox.ng.ai.apps.impl.map.model.element.MarkerModel;
 import com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsNaViewModel;
 import java.lang.reflect.Field;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
@@ -67,7 +68,7 @@ public class DrawableUtils {
                                 }
                                 break;
                             case 108511772:
-                                if (name.equals("right")) {
+                                if (name.equals(MarkerModel.SubBase.RIGHT)) {
                                     c = 2;
                                     break;
                                 }

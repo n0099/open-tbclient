@@ -36,7 +36,7 @@ public class b {
         }
     }
 
-    public static int oq(String str) {
+    public static int or(String str) {
         try {
             return Color.parseColor(str);
         } catch (Exception e) {
@@ -53,10 +53,10 @@ public class b {
                 return tabSkin;
             }
         }
-        return nh(i);
+        return nz(i);
     }
 
-    public static TabSkin nh(int i) {
+    public static TabSkin nz(int i) {
         TabSkin.Builder builder = new TabSkin.Builder();
         builder.tab_id = Integer.valueOf(i);
         builder.icon = "";

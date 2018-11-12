@@ -5,22 +5,22 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class p {
-    public static String GF = AiAppDateTimeUtil.TIME_FORMAT;
-    public static HashMap<String, String> GG = new HashMap<>();
+    public static String GJ = AiAppDateTimeUtil.TIME_FORMAT;
+    public static HashMap<String, String> GK = new HashMap<>();
 
     static {
-        GG.put("java.lang.String", "java.lang.String");
-        GG.put("java.lang.Integer", "java.lang.Integer");
-        GG.put("java.lang.Double", "java.lang.Double");
-        GG.put("java.lang.Float", "java.lang.Float");
-        GG.put("java.lang.Boolean", "java.lang.Boolean");
-        GG.put("java.lang.Character", "java.lang.Character");
-        GG.put("java.lang.Short", "java.lang.Short");
-        GG.put("java.lang.Long", "java.lang.Long");
-        GG.put("java.lang.Byte", "java.lang.Byte");
-        GG.put("java.util.Date", "java.util.Date");
-        GG.put("java.lang.Integer", "java.lang.Integer");
-        GG.put("java.lang.Integer", "java.lang.Integer");
+        GK.put("java.lang.String", "java.lang.String");
+        GK.put("java.lang.Integer", "java.lang.Integer");
+        GK.put("java.lang.Double", "java.lang.Double");
+        GK.put("java.lang.Float", "java.lang.Float");
+        GK.put("java.lang.Boolean", "java.lang.Boolean");
+        GK.put("java.lang.Character", "java.lang.Character");
+        GK.put("java.lang.Short", "java.lang.Short");
+        GK.put("java.lang.Long", "java.lang.Long");
+        GK.put("java.lang.Byte", "java.lang.Byte");
+        GK.put("java.util.Date", "java.util.Date");
+        GK.put("java.lang.Integer", "java.lang.Integer");
+        GK.put("java.lang.Integer", "java.lang.Integer");
     }
 
     public static Object a(Object obj, Field field) {

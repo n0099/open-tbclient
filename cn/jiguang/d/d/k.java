@@ -20,14 +20,14 @@ public final class k {
                     cn.jiguang.h.b bVar = new cn.jiguang.h.b(str);
                     bVar.setConnectTimeout(30000);
                     bVar.setReadTimeout(30000);
-                    bVar.j(true);
-                    bVar.k(true);
+                    bVar.y(true);
+                    bVar.z(true);
                     bVar.setUseCaches(false);
                     String a2 = cn.jiguang.d.h.a.a.a();
                     byte[] a3 = cn.jiguang.d.h.a.a.a(a, a2, i2 == 2 ? "0102030405060708" : "iop203040506aPk!");
                     bVar.i(a3);
                     bVar.setRequestProperty(HTTP.CONTENT_LEN, String.valueOf(a3.length));
-                    bVar.m(true);
+                    bVar.B(true);
                     if (mb == null) {
                         try {
                             String cerTificate = Protocol.getCerTificate();
@@ -44,13 +44,13 @@ public final class k {
                     bVar.setRequestProperty("Accept-Encoding", "gzip");
                     bVar.setRequestProperty("X-App-Key", cn.jiguang.d.a.b(context));
                     if (i2 == 2) {
-                        bVar.n(true);
-                        bVar.o(true);
-                        bVar.l(true);
+                        bVar.C(true);
+                        bVar.D(true);
+                        bVar.A(true);
                         bVar.setRequestProperty(AUTH.WWW_AUTH_RESP, aa.a(a2));
                     } else {
-                        bVar.n(false);
-                        bVar.o(false);
+                        bVar.C(false);
+                        bVar.D(false);
                         bVar.setRequestProperty(AUTH.WWW_AUTH_RESP, "Basic " + aa.a(cn.jiguang.g.a.a(a3), a2));
                     }
                     bVar.setRequestProperty("Charset", "UTF-8");

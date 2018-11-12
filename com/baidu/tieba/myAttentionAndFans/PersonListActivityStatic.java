@@ -20,22 +20,22 @@ public class PersonListActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(PersonListActivityConfig.class, PersonListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(MyForbiddenFansActivityConfig.class, MyForbiddenFansActivity.class);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2902120));
-        azf();
+        ayC();
     }
 
-    public static void azf() {
-        com.baidu.tbadk.ala.b.uL().a(5, new e() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
+    public static void ayC() {
+        com.baidu.tbadk.ala.b.uV().a(5, new e() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
             @Override // com.baidu.tbadk.ala.e
             public View createView(Context context) {
-                TextView bp = com.baidu.tbadk.ala.c.bp(context);
-                if (bp != null) {
+                TextView bn = com.baidu.tbadk.ala.c.bn(context);
+                if (bn != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    al.h(bp, e.d.cp_link_tip_a);
-                    layoutParams.setMargins(l.h(context, e.C0175e.ds8), 0, l.h(context, e.C0175e.ds8), 0);
+                    al.h(bn, e.d.cp_link_tip_a);
+                    layoutParams.setMargins(l.h(context, e.C0200e.ds8), 0, l.h(context, e.C0200e.ds8), 0);
                     layoutParams.gravity = 16;
-                    bp.setLayoutParams(layoutParams);
+                    bn.setLayoutParams(layoutParams);
                 }
-                return bp;
+                return bn;
             }
         });
     }

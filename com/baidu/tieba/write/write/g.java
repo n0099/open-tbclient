@@ -17,39 +17,39 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.write.write.f;
 /* loaded from: classes3.dex */
 public class g {
-    private WriteImageGridView hQi;
-    private f hQj;
+    private WriteImageGridView hRS;
+    private f hRT;
     private TbPageContext<WriteActivity> mContext;
     private WriteImagesInfo mWriteImagesInfo;
-    private com.baidu.tbadk.img.b aVc = new com.baidu.tbadk.img.b();
+    private com.baidu.tbadk.img.b aVS = new com.baidu.tbadk.img.b();
     private String mFrom = "write";
     private String mForumId = "";
-    private f.a hQk = new f.a() { // from class: com.baidu.tieba.write.write.g.1
+    private f.a hRU = new f.a() { // from class: com.baidu.tieba.write.write.g.1
         @Override // com.baidu.tieba.write.write.f.a
-        public void wz(int i) {
+        public void wS(int i) {
             if (g.this.mWriteImagesInfo != null && g.this.mWriteImagesInfo.getChosedFiles() != null && i >= 0 && i < g.this.mWriteImagesInfo.getChosedFiles().size()) {
                 ImageFileInfo remove = g.this.mWriteImagesInfo.getChosedFiles().remove(i);
                 if (remove.isTempFile()) {
-                    com.baidu.adp.lib.Disk.d.hC().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
+                    com.baidu.adp.lib.Disk.d.hB().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
                 }
-                g.this.hQj.a(g.this.mWriteImagesInfo);
-                g.this.hQj.notifyDataSetChanged();
-                if (v.J(g.this.mWriteImagesInfo.getChosedFiles()) && g.this.mContext.getOrignalPage() != 0) {
-                    ((WriteActivity) g.this.mContext.getOrignalPage()).bxO();
+                g.this.hRT.a(g.this.mWriteImagesInfo);
+                g.this.hRT.notifyDataSetChanged();
+                if (v.I(g.this.mWriteImagesInfo.getChosedFiles()) && g.this.mContext.getOrignalPage() != 0) {
+                    ((WriteActivity) g.this.mContext.getOrignalPage()).bxk();
                 }
             }
         }
 
         @Override // com.baidu.tieba.write.write.f.a
-        public void wG(int i) {
-            int I;
-            if (g.this.mWriteImagesInfo != null && (I = v.I(g.this.mWriteImagesInfo.getChosedFiles())) != 0 && i >= 0 && i < I) {
+        public void wZ(int i) {
+            int H;
+            if (g.this.mWriteImagesInfo != null && (H = v.H(g.this.mWriteImagesInfo.getChosedFiles())) != 0 && i >= 0 && i < H) {
                 g.this.mContext.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(g.this.mContext.getPageActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_THROUGH_SERVER, g.this.mWriteImagesInfo, i)));
             }
         }
 
         @Override // com.baidu.tieba.write.write.f.a
-        public void bOp() {
+        public void bNO() {
             if (g.this.mWriteImagesInfo != null) {
                 AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) g.this.mContext.getPageActivity(), g.this.mWriteImagesInfo.toJsonString(), true, true);
                 albumActivityConfig.getIntent().putExtra("forum_id", g.this.mForumId);
@@ -63,24 +63,24 @@ public class g {
 
     public g(TbPageContext<WriteActivity> tbPageContext, View view) {
         this.mContext = tbPageContext;
-        this.hQi = (WriteImageGridView) view.findViewById(e.g.write_image_grid_view);
-        this.hQj = new f(view.getContext(), this.aVc, null, this.hQk);
-        this.hQi.setAdapter((ListAdapter) this.hQj);
+        this.hRS = (WriteImageGridView) view.findViewById(e.g.write_image_grid_view);
+        this.hRT = new f(view.getContext(), this.aVS, null, this.hRU);
+        this.hRS.setAdapter((ListAdapter) this.hRT);
     }
 
     public void a(WriteImagesInfo writeImagesInfo, String str, String str2) {
         this.mFrom = str;
         this.mForumId = str2;
         this.mWriteImagesInfo = writeImagesInfo;
-        this.hQj.a(this.mWriteImagesInfo);
-        this.hQj.notifyDataSetChanged();
+        this.hRT.a(this.mWriteImagesInfo);
+        this.hRT.notifyDataSetChanged();
     }
 
     public void destroy() {
-        this.aVc.Mo();
+        this.aVS.MA();
     }
 
-    public void oi(boolean z) {
-        this.hQj.oi(z);
+    public void ow(boolean z) {
+        this.hRT.ow(z);
     }
 }

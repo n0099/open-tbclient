@@ -20,7 +20,7 @@ public class PbNewLocationInfoView extends TextView {
         setMaxEms(8);
         setSingleLine(true);
         setEllipsize(TextUtils.TruncateAt.END);
-        setTextSize(0, l.h(context, e.C0175e.ds24));
+        setTextSize(0, l.h(context, e.C0200e.ds24));
         setState(0, null);
     }
 

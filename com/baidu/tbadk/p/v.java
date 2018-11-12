@@ -1,32 +1,14 @@
 package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
-public class v extends com.baidu.adp.lib.b.a {
-    @Override // com.baidu.adp.lib.b.a
-    protected void Z(int i) {
+public class v extends j {
+    private static final v bem = new v();
+
+    public static boolean Oy() {
+        return bem.jJ();
     }
 
-    @Override // com.baidu.adp.lib.b.a
+    @Override // com.baidu.tbadk.p.j, com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_game_enter_switch";
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected String[] iH() {
-        return new String[0];
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int iI() {
-        return 1;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int iJ() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int iK() {
-        return 10;
+        return "is_auto_play_forumheadvideo";
     }
 }

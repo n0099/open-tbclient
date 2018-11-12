@@ -13,14 +13,14 @@ import com.baidu.tieba.card.ad;
 import com.baidu.tieba.card.o;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, com.baidu.tieba.card.a.a<com.baidu.tieba.card.f>> {
-    private com.baidu.tieba.card.f dNf;
+    private com.baidu.tieba.card.f dOi;
     private String mForumId;
     private TbPageContext<?> mPageContext;
-    private ad vf;
+    private ad vh;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.b.dcD);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.b.ddJ);
         this.mPageContext = tbPageContext;
         this.mForumId = str;
     }
@@ -28,10 +28,10 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, com.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: Y */
+    /* renamed from: Z */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.f> onCreateViewHolder(ViewGroup viewGroup) {
-        this.dNf = new com.baidu.tieba.card.f(this.mPageContext);
-        return new com.baidu.tieba.card.a.a<>(this.dNf);
+        this.dOi = new com.baidu.tieba.card.f(this.mPageContext);
+        return new com.baidu.tieba.card.a.a<>(this.dOi);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,12 +39,12 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, com.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.b bVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.f> aVar) {
-        if (aVar.aoQ() == null) {
+        if (aVar.aor() == null) {
             return null;
         }
-        aVar.aoQ().a(bVar);
-        aVar.aoQ().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar.aoQ().b(new ad<com.baidu.tieba.e.b>() { // from class: com.baidu.tieba.frs.gamerecommend.a.c.1
+        aVar.aor().a(bVar);
+        aVar.aor().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.aor().b(new ad<com.baidu.tieba.e.b>() { // from class: com.baidu.tieba.frs.gamerecommend.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             /* renamed from: b */
@@ -53,23 +53,23 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, com.
                 c.this.a(view2, bVar2);
             }
         });
-        return aVar.aoQ().getView();
+        return aVar.aor().getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, com.baidu.tieba.e.b bVar) {
-        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(bVar.YB(), null, o.yj(), 18003, true, false, false);
-        createFromThreadCfg.setForumId(String.valueOf(bVar.YB().getFid()));
-        createFromThreadCfg.setForumName(bVar.YB().yB());
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(bVar.YL(), null, o.yq(), 18003, true, false, false);
+        createFromThreadCfg.setForumId(String.valueOf(bVar.YL().getFid()));
+        createFromThreadCfg.setForumName(bVar.YL().yI());
         createFromThreadCfg.setStartFrom(0);
-        o.md(bVar.YB().getTid());
+        o.me(bVar.YL().getTid());
         this.mPageContext.sendMessage(new CustomMessage(2004001, createFromThreadCfg));
-        if (this.vf != null) {
-            this.vf.a(view, bVar);
+        if (this.vh != null) {
+            this.vh.a(view, bVar);
         }
     }
 
     public void d(ad adVar) {
-        this.vf = adVar;
+        this.vh = adVar;
     }
 }

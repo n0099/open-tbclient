@@ -1,13 +1,12 @@
 package com.baidu.location;
 
 import android.annotation.SuppressLint;
-import android.app.Notification;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
-import com.baidu.location.c.a;
-import com.baidu.location.d.g;
+import com.baidu.location.f.a;
+import com.baidu.location.g.g;
 import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import dalvik.system.DexClassLoader;
 import java.io.File;
@@ -47,7 +46,7 @@ public class f extends Service {
     }
 
     public static float getFrameVersion() {
-        return 7.42f;
+        return 7.8f;
     }
 
     public static String getJarFileName() {
@@ -106,20 +105,6 @@ public class f extends Service {
 
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
-        if (intent != null) {
-            try {
-                int intExtra = intent.getIntExtra("command", 0);
-                if (intExtra == 1) {
-                    startForeground(intent.getIntExtra("id", 0), (Notification) intent.getParcelableExtra("notification"));
-                    isStartedServing = true;
-                } else if (intExtra == 2) {
-                    stopForeground(intent.getBooleanExtra("removenotify", true));
-                    isStartedServing = false;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
         return this.c.onStartCommand(intent, i, i2);
     }
 

@@ -6,12 +6,12 @@ public class g extends f {
     public static int aau = 11;
 
     @Override // com.baidu.b.a.f.d.b.f
-    public boolean rY() {
-        com.baidu.b.a.c.a.a rP = this.aag.rP();
-        if (rP.Zw > 0 && !TextUtils.isEmpty(rP.filePath) && rP.Zx == rP.Zw && com.baidu.b.a.h.e.g(rP.filePath, rP.Zx) && com.baidu.b.a.h.e.af(rP.filePath, rP.md5)) {
-            this.aag.bs(11);
+    public boolean rV() {
+        com.baidu.b.a.c.a.a rM = this.aag.rM();
+        if (rM.Zw > 0 && !TextUtils.isEmpty(rM.filePath) && rM.Zx == rM.Zw && com.baidu.b.a.h.e.g(rM.filePath, rM.Zx) && com.baidu.b.a.h.e.af(rM.filePath, rM.md5)) {
+            this.aag.bH(11);
             return false;
         }
-        return sd();
+        return sa();
     }
 }

@@ -19,11 +19,11 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     private float mAspectRatio;
     private b<DH> mDraweeHolder;
     private boolean mInitialised;
-    private final a.C0321a mMeasureSpec;
+    private final a.C0349a mMeasureSpec;
 
     public DraweeView(Context context) {
         super(context);
-        this.mMeasureSpec = new a.C0321a();
+        this.mMeasureSpec = new a.C0349a();
         this.mAspectRatio = 0.0f;
         this.mInitialised = false;
         init(context);
@@ -31,7 +31,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
 
     public DraweeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mMeasureSpec = new a.C0321a();
+        this.mMeasureSpec = new a.C0349a();
         this.mAspectRatio = 0.0f;
         this.mInitialised = false;
         init(context);
@@ -39,7 +39,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
 
     public DraweeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mMeasureSpec = new a.C0321a();
+        this.mMeasureSpec = new a.C0349a();
         this.mAspectRatio = 0.0f;
         this.mInitialised = false;
         init(context);
@@ -48,7 +48,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     @TargetApi(21)
     public DraweeView(Context context, AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
-        this.mMeasureSpec = new a.C0321a();
+        this.mMeasureSpec = new a.C0349a();
         this.mAspectRatio = 0.0f;
         this.mInitialised = false;
         init(context);
@@ -198,6 +198,6 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
 
     @Override // android.view.View
     public String toString() {
-        return f.ao(this).n("holder", this.mDraweeHolder != null ? this.mDraweeHolder.toString() : "<no holder set>").toString();
+        return f.an(this).n("holder", this.mDraweeHolder != null ? this.mDraweeHolder.toString() : "<no holder set>").toString();
     }
 }

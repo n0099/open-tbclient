@@ -57,11 +57,11 @@ public class b {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        gu(str2);
+                        gv(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        gu(str2);
+                        gv(str2);
                     }
                 }
             }
@@ -69,21 +69,21 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HC() {
+    public void HO() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
         }
     }
 
-    public String HD() {
+    public String HP() {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void gu(String str) {
-        String HD = HD();
-        if (!TextUtils.equals(HD, str) || !isFileExist(HD)) {
-            W(str, HD);
+    public void gv(String str) {
+        String HP = HP();
+        if (!TextUtils.equals(HP, str) || !isFileExist(HP)) {
+            W(str, HP);
         }
     }
 
@@ -93,7 +93,7 @@ public class b {
     }
 
     private void W(String str, String str2) {
-        if (j.kY()) {
+        if (j.kW()) {
             new a(str, ar.fs(str), str2).execute(new String[0]);
         }
     }
@@ -101,15 +101,15 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private final String aMl;
-        private final String aMm;
+        private final String aNb;
+        private final String aNc;
         private final String mFile;
         private x mNetWork = null;
 
         public a(String str, String str2, String str3) {
-            this.aMl = str;
+            this.aNb = str;
             this.mFile = str2;
-            this.aMm = str3;
+            this.aNc = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -118,11 +118,11 @@ public class b {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.mNetWork = new x(this.aMl);
+                this.mNetWork = new x(this.aNb);
                 bool = Boolean.valueOf(this.mNetWork.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(l.i(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.aMl) && !this.aMl.equals(this.aMm)) {
-                        l.eU(ar.fs(this.aMm));
+                    if (!StringUtils.isNull(l.i(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.aNb) && !this.aNb.equals(this.aNc)) {
+                        l.eU(ar.fs(this.aNc));
                     }
                 } else {
                     l.eU(this.mFile + ".tmp");
@@ -138,7 +138,7 @@ public class b {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
             if (bool != null && bool.booleanValue()) {
-                new b().HC();
+                new b().HO();
             }
         }
     }

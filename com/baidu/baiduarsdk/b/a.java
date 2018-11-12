@@ -242,7 +242,7 @@ public class a implements ArBridge.d {
             case 1401:
                 b(hashMap);
                 return;
-            case ArBridge.MessageType.MSG_TYPE_VIBERATOR /* 1501 */:
+            case 1501:
                 a(hashMap);
                 return;
             default:

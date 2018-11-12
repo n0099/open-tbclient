@@ -8,15 +8,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b extends c {
-    public static final String hVn = null;
+    public static final String hWX = null;
     private String appKey;
     private String content;
-    private String hVo;
-    private String hVp;
-    private String hVq;
+    private String hWY;
+    private String hWZ;
+    private String hXa;
     private String params;
     private int responseCode = -2;
-    private int xE;
+    private int xH;
 
     public static List<e> r(String str, String str2, String str3, String str4) {
         ArrayList arrayList;
@@ -32,7 +32,7 @@ public class b extends c {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
                     e eVar = new e();
                     eVar.setContent(jSONObject.getString(str4));
-                    eVar.yn(jSONObject.getString(str3));
+                    eVar.ys(jSONObject.getString(str3));
                     arrayList.add(eVar);
                 } catch (JSONException e2) {
                     e = e2;
@@ -49,8 +49,12 @@ public class b extends c {
         return arrayList;
     }
 
+    public void H(int i) {
+        this.responseCode = i;
+    }
+
     public int getCommand() {
-        return this.xE;
+        return this.xH;
     }
 
     public String getContent() {
@@ -66,10 +70,6 @@ public class b extends c {
         return 4105;
     }
 
-    public void q(int i) {
-        this.responseCode = i;
-    }
-
     public void setAppKey(String str) {
         this.appKey = str;
     }
@@ -79,14 +79,14 @@ public class b extends c {
     }
 
     public String toString() {
-        return "type:4105,messageID:" + this.hVr + ",taskID:" + this.hVs + ",appPackage:" + this.appPackage + ",appKey:" + this.appKey + ",appSecret:" + this.hVo + ",registerID:" + this.hVp + ",sdkVersion:" + this.hVq + ",command:" + this.xE + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
+        return "type:4105,messageID:" + this.hXb + ",taskID:" + this.hXc + ",appPackage:" + this.appPackage + ",appKey:" + this.appKey + ",appSecret:" + this.hWY + ",registerID:" + this.hWZ + ",sdkVersion:" + this.hXa + ",command:" + this.xH + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
     }
 
-    public void wZ(int i) {
-        this.xE = i;
+    public void xs(int i) {
+        this.xH = i;
     }
 
-    public void yj(String str) {
-        this.hVo = str;
+    public void yo(String str) {
+        this.hWY = str;
     }
 }

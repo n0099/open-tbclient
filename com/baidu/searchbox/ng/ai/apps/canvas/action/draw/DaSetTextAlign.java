@@ -3,6 +3,7 @@ package com.baidu.searchbox.ng.ai.apps.canvas.action.draw;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.text.TextUtils;
+import com.baidu.searchbox.ng.ai.apps.impl.map.model.element.MarkerModel;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class DaSetTextAlign extends AbsDrawAction {
@@ -16,9 +17,9 @@ public class DaSetTextAlign extends AbsDrawAction {
                 String optString = jSONArray.optString(0);
                 if (TextUtils.equals(optString, "left")) {
                     this.mAlign = Paint.Align.LEFT;
-                } else if (TextUtils.equals(optString, "center")) {
+                } else if (TextUtils.equals(optString, MarkerModel.SubBase.CENTER)) {
                     this.mAlign = Paint.Align.CENTER;
-                } else if (TextUtils.equals(optString, "right")) {
+                } else if (TextUtils.equals(optString, MarkerModel.SubBase.RIGHT)) {
                     this.mAlign = Paint.Align.RIGHT;
                 }
             }

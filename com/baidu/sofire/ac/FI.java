@@ -3,6 +3,7 @@ package com.baidu.sofire.ac;
 import android.content.Context;
 import android.content.IntentFilter;
 import android.util.Pair;
+import java.util.Map;
 /* loaded from: classes.dex */
 public interface FI {
     byte[] ad(byte[] bArr, byte[] bArr2);
@@ -14,6 +15,8 @@ public interface FI {
     void cm(String str, String str2, String str3, Callback callback, Class<?>[] clsArr, Object... objArr);
 
     Pair<Integer, Object> cmsi(int i, String str, Class<?>[] clsArr, Object... objArr);
+
+    Map<Integer, String> gpd();
 
     String gs(String str);
 

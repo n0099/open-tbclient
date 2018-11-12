@@ -64,13 +64,13 @@ public final class b {
         };
         textView.setOnClickListener(onClickListener);
         textView2.setOnClickListener(onClickListener);
-        if (!StringUtils.isNull(aVar.Wh())) {
-            tbImageView.startLoad(aVar.Wh(), 10, false);
+        if (!StringUtils.isNull(aVar.Wr())) {
+            tbImageView.startLoad(aVar.Wr(), 10, false);
         } else {
             tbImageView.setImageResource(e.f.toastpic);
         }
-        textView.setText(aVar.Wi());
-        textView2.setText(aVar.Wj());
+        textView.setText(aVar.Ws());
+        textView2.setText(aVar.Wt());
         textView3.setText(aVar.getTitle());
         textView4.setText(aVar.getTips());
         ColorDrawable colorDrawable = new ColorDrawable();

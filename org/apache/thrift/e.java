@@ -7,7 +7,7 @@ public class e {
     private final org.apache.thrift.transport.c b;
 
     public e() {
-        this(new a.C0359a());
+        this(new a.C0387a());
     }
 
     public e(org.apache.thrift.protocol.g gVar) {

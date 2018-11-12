@@ -20,7 +20,7 @@ import com.baidu.tieba.e;
 import java.util.Locale;
 /* loaded from: classes6.dex */
 public class ao extends k<ForumData, a> implements View.OnClickListener {
-    private ForumData fTo;
+    private ForumData fUN;
     private String mThreadId;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -31,7 +31,7 @@ public class ao extends k<ForumData, a> implements View.OnClickListener {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bp */
+    /* renamed from: bq */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         return new a(LayoutInflater.from(this.mContext).inflate(e.h.view_main_thread_forum_item, viewGroup, false));
     }
@@ -44,12 +44,12 @@ public class ao extends k<ForumData, a> implements View.OnClickListener {
         if (forumData == null || aVar == null || StringUtils.isNull(forumData.getName())) {
             return null;
         }
-        this.fTo = forumData;
-        aVar.fTs.setText(String.format(Locale.CHINA, this.mContext.getString(e.j.forum_number), com.baidu.tbadk.core.util.ao.N(forumData.getPost_num())));
-        aVar.fTr.setText(String.format(Locale.CHINA, this.mContext.getString(e.j.attention_number), com.baidu.tbadk.core.util.ao.N(forumData.getMember_num())));
+        this.fUN = forumData;
+        aVar.fUR.setText(String.format(Locale.CHINA, this.mContext.getString(e.j.forum_number), com.baidu.tbadk.core.util.ao.P(forumData.getPost_num())));
+        aVar.fUQ.setText(String.format(Locale.CHINA, this.mContext.getString(e.j.attention_number), com.baidu.tbadk.core.util.ao.P(forumData.getMember_num())));
         aVar.getView().setOnClickListener(this);
-        aVar.dhV.setText(com.baidu.tbadk.core.util.ao.d(this.fTo.getName(), 14, "...") + this.fMF.getString(e.j.forum));
-        aVar.fTq.startLoad(forumData.getImage_url(), 10, false);
+        aVar.dja.setText(com.baidu.tbadk.core.util.ao.d(this.fUN.getName(), 14, "...") + this.fOe.getString(e.j.forum));
+        aVar.fUP.startLoad(forumData.getImage_url(), 10, false);
         a(aVar);
         TiebaStatic.log(new com.baidu.tbadk.core.util.am("c13006").ax(ImageViewerConfig.FORUM_ID, forumData.getId()).ax("tid", this.mThreadId));
         return aVar.getView();
@@ -57,25 +57,25 @@ public class ao extends k<ForumData, a> implements View.OnClickListener {
 
     private void a(a aVar) {
         if (aVar != null) {
-            com.baidu.tbadk.core.util.al.h(aVar.dhV, e.d.cp_cont_b);
-            com.baidu.tbadk.core.util.al.h(aVar.fTr, e.d.cp_cont_j);
-            com.baidu.tbadk.core.util.al.h(aVar.fTs, e.d.cp_cont_j);
-            com.baidu.tbadk.core.util.al.i(aVar.bNv, e.f.addresslist_item_bg);
-            com.baidu.tbadk.core.util.al.c(aVar.fTp, e.f.icon_arrow12_gray60_right);
+            com.baidu.tbadk.core.util.al.h(aVar.dja, e.d.cp_cont_b);
+            com.baidu.tbadk.core.util.al.h(aVar.fUQ, e.d.cp_cont_j);
+            com.baidu.tbadk.core.util.al.h(aVar.fUR, e.d.cp_cont_j);
+            com.baidu.tbadk.core.util.al.i(aVar.bOg, e.f.addresslist_item_bg);
+            com.baidu.tbadk.core.util.al.c(aVar.fUO, e.f.icon_arrow12_gray60_right);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.fTo != null && this.fMF != null) {
-            bjf();
-            this.fMF.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.fMF).createNormalCfg(this.fTo.getName(), FrsActivityConfig.FRS_FROM_PB).setCallFrom(2)));
+        if (this.fUN != null && this.fOe != null) {
+            biC();
+            this.fOe.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.fOe).createNormalCfg(this.fUN.getName(), FrsActivityConfig.FRS_FROM_PB).setCallFrom(2)));
         }
     }
 
-    private void bjf() {
-        if (this.fTo != null) {
-            com.baidu.tbadk.core.util.am ax = new com.baidu.tbadk.core.util.am("c13007").ax(ImageViewerConfig.FORUM_ID, this.fTo.getId()).ax("tid", this.mThreadId);
+    private void biC() {
+        if (this.fUN != null) {
+            com.baidu.tbadk.core.util.am ax = new com.baidu.tbadk.core.util.am("c13007").ax(ImageViewerConfig.FORUM_ID, this.fUN.getId()).ax("tid", this.mThreadId);
             if (!com.baidu.tbadk.core.util.ao.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                 ax.ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, TbadkCoreApplication.getInst().getTaskId());
             }
@@ -90,21 +90,21 @@ public class ao extends k<ForumData, a> implements View.OnClickListener {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static class a extends q.a {
-        View bNv;
-        TextView dhV;
-        ImageView fTp;
-        BarImageView fTq;
-        TextView fTr;
-        TextView fTs;
+        View bOg;
+        TextView dja;
+        ImageView fUO;
+        BarImageView fUP;
+        TextView fUQ;
+        TextView fUR;
 
         a(View view) {
             super(view);
-            this.dhV = (TextView) view.findViewById(e.g.pb_forum_name);
-            this.fTp = (ImageView) view.findViewById(e.g.pb_goto_forum);
-            this.fTq = (BarImageView) view.findViewById(e.g.pb_forum_image);
-            this.fTr = (TextView) view.findViewById(e.g.pb_forum_attention);
-            this.fTs = (TextView) view.findViewById(e.g.pb_forum_thread_num);
-            this.bNv = view.findViewById(e.g.layout_root);
+            this.dja = (TextView) view.findViewById(e.g.pb_forum_name);
+            this.fUO = (ImageView) view.findViewById(e.g.pb_goto_forum);
+            this.fUP = (BarImageView) view.findViewById(e.g.pb_forum_image);
+            this.fUQ = (TextView) view.findViewById(e.g.pb_forum_attention);
+            this.fUR = (TextView) view.findViewById(e.g.pb_forum_thread_num);
+            this.bOg = view.findViewById(e.g.layout_root);
         }
     }
 }

@@ -8,7 +8,7 @@ import kotlin.jvm.internal.p;
 /* loaded from: classes2.dex */
 public final class SafePublicationLazyImpl<T> implements Serializable, kotlin.a<T> {
     public static final a Companion = new a(null);
-    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> ioP = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
+    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> iqz = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
     private volatile Object _value;
 
     /* renamed from: final  reason: not valid java name */
@@ -16,19 +16,19 @@ public final class SafePublicationLazyImpl<T> implements Serializable, kotlin.a<
     private volatile kotlin.jvm.a.a<? extends T> initializer;
 
     public SafePublicationLazyImpl(kotlin.jvm.a.a<? extends T> aVar) {
-        p.i(aVar, "initializer");
+        p.h((Object) aVar, "initializer");
         this.initializer = aVar;
-        this._value = d.ioQ;
-        this.f1final = d.ioQ;
+        this._value = d.iqA;
+        this.f1final = d.iqA;
     }
 
     public T getValue() {
         T t = (T) this._value;
-        if (t == d.ioQ) {
+        if (t == d.iqA) {
             kotlin.jvm.a.a<? extends T> aVar = this.initializer;
             if (aVar != null) {
                 T invoke = aVar.invoke();
-                if (Companion.bZW().compareAndSet(this, d.ioQ, invoke)) {
+                if (Companion.bZt().compareAndSet(this, d.iqA, invoke)) {
                     this.initializer = null;
                     return invoke;
                 }
@@ -39,7 +39,7 @@ public final class SafePublicationLazyImpl<T> implements Serializable, kotlin.a<
     }
 
     public boolean isInitialized() {
-        return this._value != d.ioQ;
+        return this._value != d.iqA;
     }
 
     public String toString() {
@@ -60,8 +60,8 @@ public final class SafePublicationLazyImpl<T> implements Serializable, kotlin.a<
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> bZW() {
-            return SafePublicationLazyImpl.ioP;
+        public final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> bZt() {
+            return SafePublicationLazyImpl.iqz;
         }
     }
 }

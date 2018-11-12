@@ -14,27 +14,27 @@ import java.util.HashMap;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a KA = null;
-    private HashMap<String, ArrayList<Message<?>>> Kz = null;
+    private static volatile a KE = null;
+    private HashMap<String, ArrayList<Message<?>>> KD = null;
 
-    public static a mT() {
-        if (KA == null) {
+    public static a mR() {
+        if (KE == null) {
             synchronized (a.class) {
-                if (KA == null) {
-                    KA = new a();
+                if (KE == null) {
+                    KE = new a();
                 }
             }
         }
-        return KA;
+        return KE;
     }
 
     public void init() {
-        this.Kz = new HashMap<>();
-        mV();
-        mU();
+        this.KD = new HashMap<>();
+        mT();
+        mS();
     }
 
-    private void mU() {
+    private void mS() {
         MessageManager.getInstance().registerListener(2000997, new CustomMessageListener(0) { // from class: com.baidu.adp.plugin.c.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -43,36 +43,36 @@ public class a {
                 ArrayList arrayList;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000997 && (data = customResponsedMessage.getData()) != null && (data instanceof PluginLoadedMessage.a)) {
                     PluginLoadedMessage.a aVar = (PluginLoadedMessage.a) data;
-                    if (aVar.Ky == 0 && a.this.Kz.size() > 0 && (arrayList = (ArrayList) a.this.Kz.get(aVar.Kx)) != null && arrayList.size() > 0) {
+                    if (aVar.KC == 0 && a.this.KD.size() > 0 && (arrayList = (ArrayList) a.this.KD.get(aVar.KA)) != null && arrayList.size() > 0) {
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
                             MessageManager.getInstance().sendMessage((Message) it.next());
                         }
                     }
-                    a.this.Kz.remove(aVar.Kx);
+                    a.this.KD.remove(aVar.KA);
                 }
             }
         });
     }
 
-    private void mV() {
+    private void mT() {
         MessageManager.getInstance().setNotFindTaskListener(new b<Message<?>>() { // from class: com.baidu.adp.plugin.c.a.2
             @Override // com.baidu.adp.framework.listener.b
             public boolean a(Message<?> message) {
                 if (message == null) {
                     return false;
                 }
-                String aJ = c.nF().aJ(message.getCmd());
-                if (TextUtils.isEmpty(aJ) || c.nF().ck(aJ)) {
+                String ba = c.nD().ba(message.getCmd());
+                if (TextUtils.isEmpty(ba) || c.nD().ck(ba)) {
                     return false;
                 }
-                if (!PluginCenter.getInstance().hasInstance(aJ)) {
-                    a.this.a(aJ, message);
-                    return PluginCenter.getInstance().launch(aJ).Jo;
-                } else if (PluginCenter.getInstance().isLoaded(aJ)) {
+                if (!PluginCenter.getInstance().hasInstance(ba)) {
+                    a.this.a(ba, message);
+                    return PluginCenter.getInstance().launch(ba).Jr;
+                } else if (PluginCenter.getInstance().isLoaded(ba)) {
                     return false;
                 } else {
-                    a.this.a(aJ, message);
+                    a.this.a(ba, message);
                     return true;
                 }
             }
@@ -82,10 +82,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, Message<?> message) {
         if (!TextUtils.isEmpty(str) && message != null) {
-            ArrayList<Message<?>> arrayList = this.Kz.get(str);
+            ArrayList<Message<?>> arrayList = this.KD.get(str);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.Kz.put(str, arrayList);
+                this.KD.put(str, arrayList);
             }
             arrayList.add(message);
         }

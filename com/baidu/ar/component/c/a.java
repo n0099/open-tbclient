@@ -2,7 +2,6 @@ package com.baidu.ar.component.c;
 
 import android.content.Context;
 import com.baidu.ar.ARController;
-import com.baidu.ar.msghandler.ComponentMessageType;
 import com.baidu.ar.tts.TTSCallback;
 import com.baidu.ar.tts.TTSManager;
 import com.baidu.baiduarsdk.util.MsgParamsUtil;
@@ -79,7 +78,7 @@ public class a {
                 case 2007:
                     b();
                     return;
-                case ComponentMessageType.MSG_TYPE_TTS_RESUME /* 2008 */:
+                case 2008:
                     c();
                     return;
                 default:

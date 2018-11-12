@@ -6,134 +6,134 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private static b aie = null;
-    private static a aif = null;
-    private static boolean aig = false;
-    private static String aih = "";
-    private static transient List<String> aii = new ArrayList(5);
+    private static b aiR = null;
+    private static a aiS = null;
+    private static boolean aiT = false;
+    private static String aiU = "";
+    private static transient List<String> aiV = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (aif == null) {
+        if (aiS == null) {
             synchronized (a.class) {
-                if (aif == null) {
-                    aif = new a();
-                    aie = b.c(baseFragmentActivity);
+                if (aiS == null) {
+                    aiS = new a();
+                    aiR = b.c(baseFragmentActivity);
                 }
             }
-        } else if (aie != null) {
-            aie.setContext(baseFragmentActivity.getPageContext());
+        } else if (aiR != null) {
+            aiR.setContext(baseFragmentActivity.getPageContext());
         }
-        if (aig && aie != null) {
-            aie.vp();
-            aie.vq();
-            aig = false;
+        if (aiT && aiR != null) {
+            aiR.vz();
+            aiR.vA();
+            aiT = false;
         }
-        return aif;
+        return aiS;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        vl();
+        vv();
         if (z) {
-            vg();
+            vq();
         }
         if (z2) {
-            vh();
+            vr();
         }
-        az(z3);
+        aP(z3);
         a(aVar);
     }
 
-    public void vg() {
-        vl();
-        if (aie != null) {
-            aie.vp();
-            aig = false;
+    public void vq() {
+        vv();
+        if (aiR != null) {
+            aiR.vz();
+            aiT = false;
         }
     }
 
-    public void vh() {
-        vl();
-        if (aie != null) {
-            aie.vq();
-            aig = false;
+    public void vr() {
+        vv();
+        if (aiR != null) {
+            aiR.vA();
+            aiT = false;
         }
     }
 
-    public void az(boolean z) {
-        vl();
-        if (aie != null) {
-            aie.az(z);
+    public void aP(boolean z) {
+        vv();
+        if (aiR != null) {
+            aiR.aP(z);
         }
     }
 
     public void a(b.a aVar) {
-        vl();
-        if (aie != null) {
-            aie.c(aVar);
+        vv();
+        if (aiR != null) {
+            aiR.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        vl();
-        if (aie != null) {
-            if (aie.vm()) {
-                aie.c(aVar);
+        vv();
+        if (aiR != null) {
+            if (aiR.vw()) {
+                aiR.c(aVar);
             }
-            aie.vo();
+            aiR.vy();
         }
     }
 
     public void a(int i, b.a aVar) {
-        vl();
-        if (aie != null) {
-            if (aie.vm()) {
-                aie.c(aVar);
+        vv();
+        if (aiR != null) {
+            if (aiR.vw()) {
+                aiR.c(aVar);
             }
-            aie.bx(i);
+            aiR.bM(i);
         }
     }
 
-    public void vi() {
-        vl();
-        if (aie != null) {
-            aie.vi();
-            aig = true;
+    public void vs() {
+        vv();
+        if (aiR != null) {
+            aiR.vs();
+            aiT = true;
         }
     }
 
-    public void vj() {
-        vl();
-        if (aie != null) {
-            aie.vj();
+    public void vt() {
+        vv();
+        if (aiR != null) {
+            aiR.vt();
         }
     }
 
-    public void vk() {
-        vl();
-        vj();
-        vi();
+    public void vu() {
+        vv();
+        vt();
+        vs();
     }
 
-    private void vl() {
-        if (aie == null) {
+    private void vv() {
+        if (aiR == null) {
         }
     }
 
     public static void resetAll() {
         try {
-            if (aie != null) {
-                if (aif != null) {
-                    aif.vk();
+            if (aiR != null) {
+                if (aiS != null) {
+                    aiS.vu();
                 }
-                aie.vn();
-                aie.vr();
-                aie = null;
+                aiR.vx();
+                aiR.vB();
+                aiR = null;
             }
-            if (aif != null) {
-                aif = null;
+            if (aiS != null) {
+                aiS = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

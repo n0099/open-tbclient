@@ -20,10 +20,10 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     protected q.a onCreateViewHolder(ViewGroup viewGroup) {
         Context context = viewGroup.getContext();
-        int h = l.h(context, e.C0175e.tbds16);
-        int h2 = l.h(context, e.C0175e.tbds32);
-        int h3 = l.h(context, e.C0175e.tbds42);
-        int h4 = l.h(context, e.C0175e.tbds44);
+        int h = l.h(context, e.C0200e.tbds16);
+        int h2 = l.h(context, e.C0200e.tbds32);
+        int h3 = l.h(context, e.C0200e.tbds42);
+        int h4 = l.h(context, e.C0200e.tbds44);
         TextView textView = new TextView(context);
         ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
         textView.setPadding(h4, h, h4, h2);
@@ -39,7 +39,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.daily.b.c cVar, q.a aVar) {
         if ((aVar.getView() instanceof TextView) && cVar != null) {
             TextView textView = (TextView) aVar.getView();
-            textView.setText(cVar.aJb());
+            textView.setText(cVar.aIz());
             al.h(textView, e.d.cp_cont_j);
             al.j(textView, e.d.cp_bg_line_e);
         }

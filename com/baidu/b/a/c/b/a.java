@@ -27,7 +27,7 @@ public class a {
     private a() {
     }
 
-    public static a rG() {
+    public static a rD() {
         if (Zz == null) {
             synchronized (a.class) {
                 if (Zz == null) {
@@ -384,14 +384,14 @@ public class a {
 
         @Override // android.database.sqlite.SQLiteOpenHelper
         public void onCreate(SQLiteDatabase sQLiteDatabase) {
-            sQLiteDatabase.execSQL(rI());
+            sQLiteDatabase.execSQL(rF());
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
         public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         }
 
-        private String rI() {
+        private String rF() {
             return "CREATE TABLE file(_id INTEGER PRIMARY KEY,channel_id TEXT NOT NULL,channel_name TEXT NOT NULL," + ETAG.KEY_PACKAGE_NAME + " TEXT NOT NULL,name TEXT NOT NULL,version LONG,update_version LONG,min_host_version TEXT,max_host_version TEXT,download_url TEXT,type INTEGER DEFAULT 0," + ARResourceKey.HTTP_AR_MD5 + " TEXT," + ChooseVideoAction.CB_KEY_SIZE + " TEXT,download_option INTEGER DEFAULT 0,wifi INTEGER DEFAULT 0,rollback INTEGER DEFAULT 0,extra_server TEXT,extra_local TEXT,file_path TEXT,total_size LONG,current_size LONG,create_time LONG,update_time LONG);";
         }
     }

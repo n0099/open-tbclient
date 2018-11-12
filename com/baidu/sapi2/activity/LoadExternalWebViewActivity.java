@@ -3,7 +3,7 @@ package com.baidu.sapi2.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.e.a.a;
+import com.baidu.d.a.a;
 import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.PassportViewManager;

@@ -32,7 +32,7 @@ public final class ay<T> implements d.b<T, T> {
         return jVar;
     }
 
-    public static <T> d.b<T, T> yy(final int i) {
+    public static <T> d.b<T, T> yR(final int i) {
         return new d.b<T, T>() { // from class: rx.internal.operators.ay.1
             @Override // rx.functions.f
             public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -54,20 +54,20 @@ public final class ay<T> implements d.b<T, T> {
         final boolean delayError;
         Throwable error;
         volatile boolean finished;
-        final g.a ixp;
-        long ixr;
+        final g.a iyZ;
+        long izb;
         final int limit;
         final Queue<Object> queue;
         final AtomicLong requested = new AtomicLong();
-        final AtomicLong ixq = new AtomicLong();
+        final AtomicLong iza = new AtomicLong();
 
         public a(rx.g gVar, rx.j<? super T> jVar, boolean z, int i) {
             this.child = jVar;
-            this.ixp = gVar.createWorker();
+            this.iyZ = gVar.createWorker();
             this.delayError = z;
             i = i <= 0 ? rx.internal.util.h.SIZE : i;
             this.limit = i - (i >> 2);
-            if (rx.internal.util.a.ae.cdg()) {
+            if (rx.internal.util.a.ae.ccD()) {
                 this.queue = new rx.internal.util.a.q(i);
             } else {
                 this.queue = new rx.internal.util.atomic.c(i);
@@ -82,21 +82,21 @@ public final class ay<T> implements d.b<T, T> {
                 public void request(long j) {
                     if (j > 0) {
                         rx.internal.operators.a.a(a.this.requested, j);
-                        a.this.cch();
+                        a.this.cbE();
                     }
                 }
             });
-            jVar.add(this.ixp);
+            jVar.add(this.iyZ);
             jVar.add(this);
         }
 
         @Override // rx.e
         public void onNext(T t) {
             if (!isUnsubscribed() && !this.finished) {
-                if (!this.queue.offer(NotificationLite.aY(t))) {
+                if (!this.queue.offer(NotificationLite.aX(t))) {
                     onError(new MissingBackpressureException());
                 } else {
-                    cch();
+                    cbE();
                 }
             }
         }
@@ -105,7 +105,7 @@ public final class ay<T> implements d.b<T, T> {
         public void onCompleted() {
             if (!isUnsubscribed() && !this.finished) {
                 this.finished = true;
-                cch();
+                cbE();
             }
         }
 
@@ -117,19 +117,19 @@ public final class ay<T> implements d.b<T, T> {
             }
             this.error = th;
             this.finished = true;
-            cch();
+            cbE();
         }
 
-        protected void cch() {
-            if (this.ixq.getAndIncrement() == 0) {
-                this.ixp.a(this);
+        protected void cbE() {
+            if (this.iza.getAndIncrement() == 0) {
+                this.iyZ.a(this);
             }
         }
 
         @Override // rx.functions.a
         public void call() {
             long j;
-            long j2 = this.ixr;
+            long j2 = this.izb;
             Queue<Object> queue = this.queue;
             rx.j<? super T> jVar = this.child;
             long j3 = 1;
@@ -143,7 +143,7 @@ public final class ay<T> implements d.b<T, T> {
                         if (z2) {
                             break;
                         }
-                        jVar.onNext((Object) NotificationLite.bb(poll));
+                        jVar.onNext((Object) NotificationLite.ba(poll));
                         long j5 = j2 + 1;
                         if (j5 == this.limit) {
                             j = rx.internal.operators.a.b(this.requested, j5);
@@ -159,8 +159,8 @@ public final class ay<T> implements d.b<T, T> {
                     }
                 }
                 if (j4 != j2 || !a(this.finished, queue.isEmpty(), jVar, queue)) {
-                    this.ixr = j2;
-                    j3 = this.ixq.addAndGet(-j3);
+                    this.izb = j2;
+                    j3 = this.iza.addAndGet(-j3);
                 } else {
                     return;
                 }

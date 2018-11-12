@@ -11,16 +11,16 @@ import java.util.Date;
 @SuppressLint({"SimpleDateFormat"})
 /* loaded from: classes.dex */
 public class k {
-    protected static SimpleDateFormat Gd = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    protected static SimpleDateFormat Ge = new SimpleDateFormat("yyyy年");
-    protected static SimpleDateFormat Gf = new SimpleDateFormat("HH:mm");
-    protected static SimpleDateFormat Gg = new SimpleDateFormat("M月d日");
-    protected static SimpleDateFormat Gh = new SimpleDateFormat("M月d日 HH:mm");
-    protected static SimpleDateFormat Gi = new SimpleDateFormat(AiAppDateTimeUtil.DATE_FORMAT);
-    protected static SimpleDateFormat Gj = new SimpleDateFormat("yyyy-MM-dd E");
-    protected static SimpleDateFormat Gk = new SimpleDateFormat("yy-M-d");
-    protected static SimpleDateFormat Gl = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-    protected static SimpleDateFormat Gm = new SimpleDateFormat("MM-dd");
+    protected static SimpleDateFormat Gh = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    protected static SimpleDateFormat Gi = new SimpleDateFormat("yyyy年");
+    protected static SimpleDateFormat Gj = new SimpleDateFormat("HH:mm");
+    protected static SimpleDateFormat Gk = new SimpleDateFormat("M月d日");
+    protected static SimpleDateFormat Gl = new SimpleDateFormat("M月d日 HH:mm");
+    protected static SimpleDateFormat Gm = new SimpleDateFormat(AiAppDateTimeUtil.DATE_FORMAT);
+    protected static SimpleDateFormat Gn = new SimpleDateFormat("yyyy-MM-dd E");
+    protected static SimpleDateFormat Go = new SimpleDateFormat("yy-M-d");
+    protected static SimpleDateFormat Gp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+    protected static SimpleDateFormat Gq = new SimpleDateFormat("MM-dd");
 
     public static String a(CharSequence charSequence, String str) {
         if (charSequence instanceof String) {
@@ -31,32 +31,32 @@ public class k {
 
     public static String a(Date date) {
         String format;
-        synchronized (Gh) {
-            format = Gh.format(date);
+        synchronized (Gl) {
+            format = Gl.format(date);
         }
         return format;
     }
 
     public static String b(Date date) {
         String format;
-        synchronized (Gf) {
-            format = Gf.format(date);
+        synchronized (Gj) {
+            format = Gj.format(date);
         }
         return format;
     }
 
     public static String c(Date date) {
         String format;
-        synchronized (Gg) {
-            format = Gg.format(date);
+        synchronized (Gk) {
+            format = Gk.format(date);
         }
         return format;
     }
 
     public static String d(Date date) {
         String format;
-        synchronized (Gi) {
-            format = Gi.format(date);
+        synchronized (Gm) {
+            format = Gm.format(date);
         }
         return format;
     }

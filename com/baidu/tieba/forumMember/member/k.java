@@ -9,38 +9,38 @@ import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class k extends q.a {
-    public TextView dwZ;
-    public ImageView dwa;
-    public TextView dwb;
-    public TextView dxa;
-    public TextView dxb;
-    public LinearLayout dxc;
-    public TextView dxd;
-    public NoPressedLinearLayout dxe;
-    public View dxf;
-    public View dxg;
-    public View dxh;
-    public TextView dxi;
-    public TextView dxj;
+    public ImageView dxs;
+    public TextView dxt;
+    public TextView dyA;
+    public TextView dyB;
+    public TextView dyr;
+    public TextView dys;
+    public TextView dyt;
+    public LinearLayout dyu;
+    public TextView dyv;
+    public NoPressedLinearLayout dyw;
+    public View dyx;
+    public View dyy;
+    public View dyz;
     public View mDivider;
 
     public k(View view, View.OnClickListener onClickListener) {
         super(view);
-        this.dwZ = (TextView) view.findViewById(e.g.like_btn);
-        this.dxa = (TextView) view.findViewById(e.g.lever_tip_view);
-        this.dwa = (ImageView) view.findViewById(e.g.header_level_img);
-        this.dwb = (TextView) view.findViewById(e.g.user_level_name);
-        this.dxb = (TextView) view.findViewById(e.g.detail_tip_view);
+        this.dyr = (TextView) view.findViewById(e.g.like_btn);
+        this.dys = (TextView) view.findViewById(e.g.lever_tip_view);
+        this.dxs = (ImageView) view.findViewById(e.g.header_level_img);
+        this.dxt = (TextView) view.findViewById(e.g.user_level_name);
+        this.dyt = (TextView) view.findViewById(e.g.detail_tip_view);
         this.mDivider = view.findViewById(e.g.header_divider_line2);
-        this.dxc = (LinearLayout) view.findViewById(e.g.view_experience_score);
-        this.dxd = (TextView) view.findViewById(e.g.tip_experience_score);
-        this.dxe = (NoPressedLinearLayout) view.findViewById(e.g.root_forum_member_header);
-        this.dxf = view.findViewById(e.g.divider_top);
-        this.dxg = view.findViewById(e.g.header_divider_line1);
-        this.dxh = view.findViewById(e.g.header_divider_line3);
-        this.dxi = (TextView) view.findViewById(e.g.tip_in_forum);
-        this.dxj = (TextView) view.findViewById(e.g.tip_experience);
-        this.dwZ.setOnClickListener(onClickListener);
-        this.dxb.setOnClickListener(onClickListener);
+        this.dyu = (LinearLayout) view.findViewById(e.g.view_experience_score);
+        this.dyv = (TextView) view.findViewById(e.g.tip_experience_score);
+        this.dyw = (NoPressedLinearLayout) view.findViewById(e.g.root_forum_member_header);
+        this.dyx = view.findViewById(e.g.divider_top);
+        this.dyy = view.findViewById(e.g.header_divider_line1);
+        this.dyz = view.findViewById(e.g.header_divider_line3);
+        this.dyA = (TextView) view.findViewById(e.g.tip_in_forum);
+        this.dyB = (TextView) view.findViewById(e.g.tip_experience);
+        this.dyr.setOnClickListener(onClickListener);
+        this.dyt.setOnClickListener(onClickListener);
     }
 }

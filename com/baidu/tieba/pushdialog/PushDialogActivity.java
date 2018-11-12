@@ -38,36 +38,36 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 /* loaded from: classes3.dex */
 public class PushDialogActivity extends BaseActivity<PushDialogActivity> implements e {
-    private com.baidu.adp.lib.e.b<ImageView> bnu;
-    private com.baidu.adp.lib.e.b<TextView> bnv;
-    private com.baidu.adp.lib.e.b<View> bnw;
-    private com.baidu.adp.lib.e.b<LinearLayout> bnx;
-    private com.baidu.adp.lib.e.b<RelativeLayout> bny;
-    private com.baidu.adp.lib.e.b<GifView> bnz;
-    private com.baidu.tieba.t.a dXp;
-    private HomeWatcherReceiver gzA;
-    private c gzw;
-    private a gzx;
-    private com.baidu.tieba.ueg.b gzy;
-    private boolean gzz = false;
-    private String gzB = "push_dialog";
+    private com.baidu.adp.lib.e.b<ImageView> bog;
+    private com.baidu.adp.lib.e.b<TextView> boh;
+    private com.baidu.adp.lib.e.b<View> boi;
+    private com.baidu.adp.lib.e.b<LinearLayout> boj;
+    private com.baidu.adp.lib.e.b<RelativeLayout> bok;
+    private com.baidu.adp.lib.e.b<GifView> bol;
+    private com.baidu.tieba.t.a dYD;
+    private c gAX;
+    private a gAY;
+    private com.baidu.tieba.ueg.b gAZ;
+    private HomeWatcherReceiver gBb;
+    private boolean gBa = false;
+    private String gBc = "push_dialog";
     private CustomMessageListener mNetworkChangedListener = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.kX() && PushDialogActivity.this.gzw != null) {
-                PushDialogActivity.this.gzw.bsk();
+            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.kV() && PushDialogActivity.this.gAX != null) {
+                PushDialogActivity.this.gAX.brG();
             }
         }
     };
-    private CustomMessageListener bQJ = new CustomMessageListener(2001115) { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.2
+    private CustomMessageListener bRt = new CustomMessageListener(2001115) { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Message<?> message;
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(PushDialogActivity.this.getPageContext().getUniqueId()) && !updateAttentionMessage.getData().Jo) {
+                if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(PushDialogActivity.this.getPageContext().getUniqueId()) && !updateAttentionMessage.getData().Jr) {
                     com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(PushDialogActivity.this);
                     aVar.ej(PushDialogActivity.this.getString(e.j.push_dialog_attention_failed));
                     aVar.b(e.j.confirm, new a.b() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.2.1
@@ -78,7 +78,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                             }
                         }
                     });
-                    aVar.b(PushDialogActivity.this.getPageContext()).Au();
+                    aVar.b(PushDialogActivity.this.getPageContext()).AB();
                 }
             }
         }
@@ -87,14 +87,14 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        this.gzB += "_1";
-        TiebaStatic.eventStat(this, "push_dialog", this.gzB);
+        this.gBc += "_1";
+        TiebaStatic.eventStat(this, "push_dialog", this.gBc);
         super.onCreate(bundle);
-        this.dXp = com.baidu.tieba.screenlocknotify.a.buG().gLD;
-        if (this.gzy == null) {
-            this.gzy = new com.baidu.tieba.ueg.b();
+        this.dYD = com.baidu.tieba.screenlocknotify.a.buc().gNc;
+        if (this.gAZ == null) {
+            this.gAZ = new com.baidu.tieba.ueg.b();
         }
-        this.gzy.nD(true);
+        this.gAZ.nR(true);
         setSwipeBackEnabled(false);
         setActivityBgTransparent();
         Window window = getWindow();
@@ -102,24 +102,24 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             window.addFlags(524288);
         }
         getWindow().getDecorView().setDrawingCacheEnabled(false);
-        this.gzw = new c(this, e.h.activtiy_push_dialog);
-        this.gzx = new a(this);
-        this.gzx.loadData();
+        this.gAX = new c(this, e.h.activtiy_push_dialog);
+        this.gAY = new a(this);
+        this.gAY.loadData();
         registerListener(this.mNetworkChangedListener);
-        this.gzA = new HomeWatcherReceiver();
+        this.gBb = new HomeWatcherReceiver();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.CLOSE_SYSTEM_DIALOGS");
-        registerReceiver(this.gzA, intentFilter);
-        registerListener(this.bQJ);
+        registerReceiver(this.gBb, intentFilter);
+        registerListener(this.bRt);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
-        this.gzB += "_2";
-        TiebaStatic.eventStat(this, "push_dialog", this.gzB);
+        this.gBc += "_2";
+        TiebaStatic.eventStat(this, "push_dialog", this.gBc);
         super.onResume();
-        this.gzw.onResume();
+        this.gAX.onResume();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -133,49 +133,49 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     }
 
     public void a(boolean z, com.baidu.tieba.pushdialog.data.a aVar) {
-        this.gzB += "_3";
-        TiebaStatic.eventStat(this, "push_dialog", this.gzB);
-        this.gzz = true;
+        this.gBc += "_3";
+        TiebaStatic.eventStat(this, "push_dialog", this.gBc);
+        this.gBa = true;
         if (!z || aVar == null) {
             finish();
-        } else if (this.gzw != null) {
-            this.gzw.a(aVar);
+        } else if (this.gAX != null) {
+            this.gAX.a(aVar);
             TiebaStatic.log(new am("c13197").ax("tid", getTid()));
-            TiebaStatic.log(new am("c13196").x("obj_type", 2).x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.gzx.getTaskId() != 0 ? 2 : 1).ax("tid", getTid()));
+            TiebaStatic.log(new am("c13196").x("obj_type", 2).x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.gAY.getTaskId() != 0 ? 2 : 1).ax("tid", getTid()));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
-        this.gzB += "_4";
-        TiebaStatic.eventStat(this, "push_dialog", this.gzB);
+        this.gBc += "_4";
+        TiebaStatic.eventStat(this, "push_dialog", this.gBc);
         super.onPause();
-        this.gzw.onPause();
+        this.gAX.onPause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        this.gzB += "_5";
-        TiebaStatic.eventStat(this, "push_dialog", this.gzB);
-        if (!this.gzz) {
-            PushDialogActivityConfig pushDialogActivityConfig = new PushDialogActivityConfig(this, this.gzx.getTaskId(), this.gzx.getTid());
+        this.gBc += "_5";
+        TiebaStatic.eventStat(this, "push_dialog", this.gBc);
+        if (!this.gBa) {
+            PushDialogActivityConfig pushDialogActivityConfig = new PushDialogActivityConfig(this, this.gAY.getTaskId(), this.gAY.getTid());
             pushDialogActivityConfig.getIntent().putExtra("need_show_lock", false);
             sendMessage(new CustomMessage(2002001, pushDialogActivityConfig));
         }
         super.onDestroy();
-        this.gzw.onDestroy();
-        if (this.gzA != null) {
-            unregisterReceiver(this.gzA);
+        this.gAX.onDestroy();
+        if (this.gBb != null) {
+            unregisterReceiver(this.gBb);
         }
-        if (this.gzy != null) {
-            this.gzy.nD(false);
+        if (this.gAZ != null) {
+            this.gAZ.nR(false);
         }
     }
 
-    public com.baidu.tieba.t.a bsb() {
-        return this.dXp;
+    public com.baidu.tieba.t.a brx() {
+        return this.dYD;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.pageStayDuration.a
@@ -189,22 +189,22 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     }
 
     @Override // com.baidu.tbadk.widget.richText.e
-    public int Rr() {
+    public int RA() {
         return e.g.push_dialog_content;
     }
 
     @Override // com.baidu.tbadk.widget.richText.e
-    public com.baidu.adp.lib.e.b<ImageView> Rs() {
-        if (this.bnu == null) {
-            this.bnu = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ImageView>() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.3
+    public com.baidu.adp.lib.e.b<ImageView> RB() {
+        if (this.bog == null) {
+            this.bog = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ImageView>() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.e.c
-                /* renamed from: als */
-                public ImageView jB() {
+                /* renamed from: akN */
+                public ImageView jz() {
                     ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(PushDialogActivity.this);
-                    boolean ww = i.ws().ww();
+                    boolean wE = i.wA().wE();
                     foreDrawableImageView.setDefaultBg(al.getDrawable(e.d.common_color_10220));
-                    if (ww) {
+                    if (wE) {
                         foreDrawableImageView.setAdjustViewBounds(false);
                         foreDrawableImageView.setInterceptOnClick(false);
                     } else {
@@ -238,7 +238,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                     if (imageView instanceof TbImageView) {
                         TbImageView tbImageView = (TbImageView) imageView;
                         tbImageView.setTag(null);
-                        if (i.ws().ww()) {
+                        if (i.wA().wE()) {
                             tbImageView.setAdjustViewBounds(false);
                             tbImageView.setInterceptOnClick(false);
                         } else {
@@ -269,25 +269,25 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 }
             }, 8, 0);
         }
-        return this.bnu;
+        return this.bog;
     }
 
     @Override // com.baidu.tbadk.widget.richText.e
-    public com.baidu.adp.lib.e.b<TextView> Rt() {
-        if (this.bnv == null) {
-            this.bnv = TbRichTextView.n(this, 8);
+    public com.baidu.adp.lib.e.b<TextView> RC() {
+        if (this.boh == null) {
+            this.boh = TbRichTextView.n(this, 8);
         }
-        return this.bnv;
+        return this.boh;
     }
 
     @Override // com.baidu.tbadk.widget.richText.e
-    public com.baidu.adp.lib.e.b<GifView> Ru() {
-        if (this.bnz == null) {
-            this.bnz = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<GifView>() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.4
+    public com.baidu.adp.lib.e.b<GifView> RD() {
+        if (this.bol == null) {
+            this.bol = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<GifView>() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.4
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.e.c
-                /* renamed from: bhf */
-                public GifView jB() {
+                /* renamed from: bgC */
+                public GifView jz() {
                     return new GifView(PushDialogActivity.this);
                 }
 
@@ -311,63 +311,63 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 public GifView w(GifView gifView) {
                     gifView.release();
                     gifView.setImageDrawable(null);
-                    gifView.Mb();
+                    gifView.Mn();
                     gifView.setBackgroundDrawable(null);
                     return gifView;
                 }
             }, 20, 0);
         }
-        return this.bnz;
+        return this.bol;
     }
 
     @Override // com.baidu.tbadk.widget.richText.e
-    public com.baidu.adp.lib.e.b<View> Rv() {
-        if (this.bnw == null) {
-            this.bnw = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<View>() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.5
+    public com.baidu.adp.lib.e.b<View> RE() {
+        if (this.boi == null) {
+            this.boi = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<View>() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.5
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.e.c
-                /* renamed from: bhg */
-                public View jB() {
+                /* renamed from: bgD */
+                public View jz() {
                     PlayVoiceBntNew playVoiceBntNew = new PlayVoiceBntNew(PushDialogActivity.this, PlayVoiceBntNew.PLAY_TYPE.NORMAL);
-                    playVoiceBntNew.setPlayTimeTextView(e.C0175e.fontsize28);
+                    playVoiceBntNew.setPlayTimeTextView(e.C0200e.fontsize28);
                     return playVoiceBntNew;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.e.c
-                /* renamed from: bv */
+                /* renamed from: bx */
                 public void u(View view) {
                     ((PlayVoiceBntNew) view).reset();
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.e.c
-                /* renamed from: bw */
+                /* renamed from: by */
                 public View v(View view) {
-                    ((PlayVoiceBntNew) view).bDm();
+                    ((PlayVoiceBntNew) view).bCH();
                     return view;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.e.c
-                /* renamed from: bx */
+                /* renamed from: bz */
                 public View w(View view) {
                     ((PlayVoiceBntNew) view).reset();
                     return view;
                 }
             }, 8, 0);
         }
-        return this.bnw;
+        return this.boi;
     }
 
     @Override // com.baidu.tbadk.widget.richText.e
-    public com.baidu.adp.lib.e.b<LinearLayout> Rw() {
-        if (this.bnx == null) {
-            this.bnx = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<LinearLayout>() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.6
+    public com.baidu.adp.lib.e.b<LinearLayout> RF() {
+        if (this.boj == null) {
+            this.boj = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<LinearLayout>() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.6
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.e.c
-                /* renamed from: bhi */
-                public LinearLayout jB() {
+                /* renamed from: bgF */
+                public LinearLayout jz() {
                     LinearLayout linearLayout = new LinearLayout(PushDialogActivity.this);
                     linearLayout.setId(e.g.pb_text_voice_layout);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
@@ -402,16 +402,16 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 }
             }, 15, 0);
         }
-        return this.bnx;
+        return this.boj;
     }
 
     @Override // com.baidu.tbadk.widget.richText.e
-    public com.baidu.adp.lib.e.b<RelativeLayout> Rx() {
-        this.bny = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<RelativeLayout>() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.7
+    public com.baidu.adp.lib.e.b<RelativeLayout> RG() {
+        this.bok = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<RelativeLayout>() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: bhh */
-            public RelativeLayout jB() {
+            /* renamed from: bgE */
+            public RelativeLayout jz() {
                 return new RelativeLayout(PushDialogActivity.this);
             }
 
@@ -435,15 +435,24 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 return relativeLayout;
             }
         }, 10, 0);
-        return this.bny;
+        return this.bok;
     }
 
     @Override // com.baidu.tbadk.widget.richText.e
-    public void am(Context context, String str) {
+    public void ak(Context context, String str) {
     }
 
     @Override // com.baidu.tbadk.widget.richText.e
     public void e(Context context, String str, boolean z) {
+    }
+
+    @Override // com.baidu.tbadk.widget.richText.e
+    public void al(Context context, String str) {
+        finish();
+    }
+
+    @Override // com.baidu.tbadk.widget.richText.e
+    public void am(Context context, String str) {
     }
 
     @Override // com.baidu.tbadk.widget.richText.e
@@ -452,20 +461,11 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     }
 
     @Override // com.baidu.tbadk.widget.richText.e
-    public void ao(Context context, String str) {
-    }
-
-    @Override // com.baidu.tbadk.widget.richText.e
-    public void ap(Context context, String str) {
-        finish();
-    }
-
-    @Override // com.baidu.tbadk.widget.richText.e
     public void i(Context context, String str, String str2) {
     }
 
     @Override // com.baidu.tbadk.widget.richText.e
-    public void aq(Context context, String str) {
+    public void ao(Context context, String str) {
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
@@ -478,10 +478,10 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     }
 
     public String getTid() {
-        if (this.gzx == null) {
+        if (this.gAY == null) {
             return null;
         }
-        return this.gzx.getTid();
+        return this.gAY.getTid();
     }
 
     /* loaded from: classes3.dex */

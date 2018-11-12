@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.data;
 public class az {
     protected String img_url = null;
     protected String link = null;
-    protected String aoN = null;
+    protected String apB = null;
 
-    public String xf() {
+    public String xn() {
         return this.img_url;
     }
 
@@ -21,11 +21,11 @@ public class az {
         this.link = str;
     }
 
-    public String xW() {
-        return this.aoN;
+    public String yd() {
+        return this.apB;
     }
 
     public void dS(String str) {
-        this.aoN = str;
+        this.apB = str;
     }
 }

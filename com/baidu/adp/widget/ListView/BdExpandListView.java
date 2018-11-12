@@ -12,95 +12,95 @@ import android.widget.Scroller;
 import com.baidu.adp.R;
 /* loaded from: classes.dex */
 public class BdExpandListView extends BdListView {
-    private View Ok;
-    private int Ol;
-    private float Om;
-    private float On;
-    private b Oo;
-    private boolean Op;
-    private float Oq;
-    private float Or;
-    private final int Os;
+    private View On;
+    private int Oo;
+    private float Op;
+    private b Oq;
+    private boolean Or;
+    private float Os;
     private final int Ot;
-    public a Ou;
+    private final int Ou;
+    public a Ov;
     private final Context mContext;
     private final Scroller mScroller;
+    private float startX;
+    private float startY;
 
     /* loaded from: classes.dex */
     public interface a {
         void N(float f);
 
-        void oF();
+        void oD();
 
         void onRefresh();
     }
 
     public BdExpandListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Op = false;
+        this.Or = false;
         this.mContext = context;
         this.mScroller = new Scroller(this.mContext);
-        this.Os = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.Ot = ViewConfiguration.get(context).getScaledTouchSlop();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ExpandListView);
-        this.Ot = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ExpandListView_expandDistance, 0);
+        this.Ou = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ExpandListView_expandDistance, 0);
         obtainStyledAttributes.recycle();
     }
 
     public void setExpandView(View view, int i) {
-        this.Ok = view;
-        this.Ol = i;
+        this.On = view;
+        this.Oo = i;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         int action = motionEvent.getAction();
         if (this.mScroller.isFinished()) {
-            this.On = motionEvent.getY();
+            this.Op = motionEvent.getY();
             switch (action) {
                 case 0:
-                    int height = this.Ok.getHeight();
-                    this.Om = this.On;
-                    this.Oq = this.Or;
-                    this.Oo = new b(0, height, 0, this.Ot + height);
+                    int height = this.On.getHeight();
+                    this.startY = this.Op;
+                    this.startX = this.Os;
+                    this.Oq = new b(0, height, 0, this.Ou + height);
                     break;
                 case 1:
                 case 3:
-                    if (this.Op) {
-                        oD();
+                    if (this.Or) {
+                        oB();
                     } else {
-                        this.Ou.oF();
+                        this.Ov.oD();
                     }
                     new Handler().postDelayed(new Runnable() { // from class: com.baidu.adp.widget.ListView.BdExpandListView.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            BdExpandListView.this.Ok.setLayoutParams(new AbsListView.LayoutParams(BdExpandListView.this.Ok.getWidth(), BdExpandListView.this.Ol));
+                            BdExpandListView.this.On.setLayoutParams(new AbsListView.LayoutParams(BdExpandListView.this.On.getWidth(), BdExpandListView.this.Oo));
                             BdExpandListView.this.invalidate();
                         }
                     }, 200L);
                     break;
                 case 2:
-                    float f = this.Or - this.Oq;
-                    float f2 = this.On - this.Om;
-                    this.Oq = this.Or;
-                    if (this.Ok.getParent() == this && this.Oo != null && this.Ok.isShown() && this.Ok.getTop() >= 0 && Math.abs(f2) >= this.Os && Math.abs(f) < this.Os) {
-                        int O = this.Oo.O(this.On - this.Om);
-                        if (O > this.Oo.startY && O <= this.Oo.endY) {
-                            this.Op = true;
-                            this.Ok.setLayoutParams(new AbsListView.LayoutParams(this.Ok.getWidth(), O));
-                            M(O - this.Oo.startY);
+                    float f = this.Os - this.startX;
+                    float f2 = this.Op - this.startY;
+                    this.startX = this.Os;
+                    if (this.On.getParent() == this && this.Oq != null && this.On.isShown() && this.On.getTop() >= 0 && Math.abs(f2) >= this.Ot && Math.abs(f) < this.Ot) {
+                        int O = this.Oq.O(this.Op - this.startY);
+                        if (O > this.Oq.startY && O <= this.Oq.endY) {
+                            this.Or = true;
+                            this.On.setLayoutParams(new AbsListView.LayoutParams(this.On.getWidth(), O));
+                            M(O - this.Oq.startY);
                             break;
-                        } else if (O <= this.Oo.startY) {
-                            this.Op = false;
+                        } else if (O <= this.Oq.startY) {
+                            this.Or = false;
                             break;
-                        } else if (O > this.Oo.endY) {
-                            this.Op = true;
+                        } else if (O > this.Oq.endY) {
+                            this.Or = true;
                             break;
                         } else {
-                            this.Op = false;
+                            this.Or = false;
                             break;
                         }
                     } else {
-                        this.Op = false;
+                        this.Or = false;
                         break;
                     }
                     break;
@@ -112,7 +112,7 @@ public class BdExpandListView extends BdListView {
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.Op) {
+        if (this.Or) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
@@ -120,46 +120,46 @@ public class BdExpandListView extends BdListView {
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.Op) {
+        if (this.Or) {
             return true;
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    public void oD() {
-        if (this.Oo != null) {
-            if (this.Ok.getHeight() >= this.Oo.endY - (this.Ot / 2)) {
-                oE();
+    public void oB() {
+        if (this.Oq != null) {
+            if (this.On.getHeight() >= this.Oq.endY - (this.Ou / 2)) {
+                oC();
             } else {
-                this.Ou.oF();
+                this.Ov.oD();
             }
-            this.mScroller.startScroll(0, this.Ok.getHeight(), 0, this.Oo.startY - this.Ok.getHeight(), 200);
+            this.mScroller.startScroll(0, this.On.getHeight(), 0, this.Oq.startY - this.On.getHeight(), 200);
             invalidate();
-            this.Op = false;
+            this.Or = false;
         }
     }
 
-    public void oE() {
-        if (this.Ou != null) {
-            this.Ou.onRefresh();
+    public void oC() {
+        if (this.Ov != null) {
+            this.Ov.onRefresh();
         }
     }
 
     public void setExpandListRefreshListener(a aVar) {
-        this.Ou = aVar;
+        this.Ov = aVar;
     }
 
     @Override // android.view.View
     public void computeScroll() {
         if (this.mScroller.computeScrollOffset()) {
-            this.Ok.setLayoutParams(new AbsListView.LayoutParams(this.Ok.getWidth(), this.mScroller.getCurrY()));
+            this.On.setLayoutParams(new AbsListView.LayoutParams(this.On.getWidth(), this.mScroller.getCurrY()));
             return;
         }
         super.computeScroll();
     }
 
     private void M(float f) {
-        this.Ou.N(360.0f - ((f * 360.0f) / this.Ot));
+        this.Ov.N(360.0f - ((f * 360.0f) / this.Ou));
     }
 
     /* loaded from: classes.dex */

@@ -17,15 +17,15 @@ public class FrsFeedAdStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static List<c> Y(List<h> list) {
+    public static List<c> X(List<h> list) {
         ArrayList arrayList = new ArrayList();
         for (h hVar : list) {
             c cVar = new c();
             if (hVar instanceof bb) {
                 bb bbVar = (bb) hVar;
-                if (bbVar.yq() == 1) {
+                if (bbVar.yx() == 1) {
                     cVar.setThreadType(1);
-                } else if (bbVar.yq() == 0) {
+                } else if (bbVar.yx() == 0) {
                     cVar.setThreadType(2);
                 } else {
                     cVar.setThreadType(4);
@@ -33,8 +33,8 @@ public class FrsFeedAdStatic {
                 cVar.P(hVar);
             } else if (hVar instanceof b) {
                 cVar.setThreadType(3);
-                cVar.gP(((b) hVar).Sv());
-                cVar.P(((b) hVar).Su());
+                cVar.hd(((b) hVar).SE());
+                cVar.P(((b) hVar).SD());
             } else {
                 cVar.setThreadType(4);
                 cVar.P(hVar);
@@ -45,7 +45,7 @@ public class FrsFeedAdStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static List<h> Z(List<c> list) {
+    public static List<h> Y(List<c> list) {
         if (list == null || list.isEmpty()) {
             return null;
         }
@@ -53,11 +53,11 @@ public class FrsFeedAdStatic {
         for (c cVar : list) {
             if (cVar.getThreadType() == 3) {
                 b bVar = new b();
-                bVar.P(cVar.Su());
-                bVar.gP(cVar.Sv());
+                bVar.P(cVar.SD());
+                bVar.hd(cVar.SE());
                 arrayList.add(bVar);
-            } else if (cVar.Su() instanceof h) {
-                arrayList.add((h) cVar.Su());
+            } else if (cVar.SD() instanceof h) {
+                arrayList.add((h) cVar.SD());
             }
         }
         return arrayList;
@@ -73,47 +73,47 @@ public class FrsFeedAdStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             com.baidu.tieba.InjectPlugin.b.b bVar;
-            com.baidu.tieba.InjectPlugin.a.b SB;
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.InjectPlugin.b.b) && (SB = (bVar = (com.baidu.tieba.InjectPlugin.b.b) customResponsedMessage.getData()).SB()) != null && (SB instanceof n)) {
-                n nVar = (n) SB;
-                com.baidu.tieba.InjectPlugin.a.a gQ = SB.gQ(1);
-                if (gQ == null) {
-                    com.baidu.tieba.InjectPlugin.a.d gR = e.SA().gR(1);
-                    if (gR != null) {
-                        gQ = gR.Sz();
-                        SB.a(1, gQ);
-                        gQ.Q(new com.baidu.tieba.InjectPlugin.a.c(nVar));
+            com.baidu.tieba.InjectPlugin.a.b SK;
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.InjectPlugin.b.b) && (SK = (bVar = (com.baidu.tieba.InjectPlugin.b.b) customResponsedMessage.getData()).SK()) != null && (SK instanceof n)) {
+                n nVar = (n) SK;
+                com.baidu.tieba.InjectPlugin.a.a he = SK.he(1);
+                if (he == null) {
+                    com.baidu.tieba.InjectPlugin.a.d hf = e.SJ().hf(1);
+                    if (hf != null) {
+                        he = hf.SI();
+                        SK.a(1, he);
+                        he.init(new com.baidu.tieba.InjectPlugin.a.c(nVar));
                     } else {
                         return;
                     }
                 }
-                com.baidu.tieba.InjectPlugin.a.a aVar = gQ;
+                com.baidu.tieba.InjectPlugin.a.a aVar = he;
                 if (aVar instanceof d) {
                     d dVar = (d) aVar;
-                    if (bVar.SC() == 1) {
-                        List list = (List) bVar.SF();
-                        b.X(dVar.Sx());
-                        for (BdUniqueId bdUniqueId : b.Sw()) {
+                    if (bVar.SL() == 1) {
+                        List list = (List) bVar.SO();
+                        b.W(dVar.SG());
+                        for (BdUniqueId bdUniqueId : b.SF()) {
                             com.baidu.tieba.InjectPlugin.FrsFeedAd.a aVar2 = new com.baidu.tieba.InjectPlugin.FrsFeedAd.a(nVar, bdUniqueId);
                             aVar2.setPageContext(nVar.getTbPageContext());
                             list.add(aVar2);
                         }
-                    } else if (bVar.SC() == 2) {
-                        dVar.aa(bVar.SG());
-                    } else if (bVar.SC() == 3) {
+                    } else if (bVar.SL() == 2) {
+                        dVar.Z(bVar.SP());
+                    } else if (bVar.SL() == 3) {
                         List<h> threadList = bVar.getThreadList();
-                        List<c> Y = FrsFeedAdStatic.Y(threadList);
-                        if (bVar.SI()) {
-                            dVar.a(Y, FrsFeedAdStatic.Y(bVar.SH()), bVar.isRefresh(), bVar.SJ());
+                        List<c> X = FrsFeedAdStatic.X(threadList);
+                        if (bVar.SR()) {
+                            dVar.a(X, FrsFeedAdStatic.X(bVar.SQ()), bVar.isRefresh(), bVar.SS());
                         } else {
-                            dVar.g(Y, bVar.SJ());
+                            dVar.g(X, bVar.SS());
                         }
                         threadList.clear();
-                        threadList.addAll(FrsFeedAdStatic.Z(Y));
-                    } else if (bVar.SC() == 4) {
+                        threadList.addAll(FrsFeedAdStatic.Y(X));
+                    } else if (bVar.SL() == 4) {
                         dVar.changeSkinType(bVar.getSkinType());
-                    } else if (bVar.SC() == 5) {
-                        dVar.a(FrsFeedAdStatic.Y(bVar.getThreadList()), bVar.getForumId(), bVar.SL(), bVar.SM(), bVar.SN(), bVar.SK(), bVar.getPageNum());
+                    } else if (bVar.SL() == 5) {
+                        dVar.a(FrsFeedAdStatic.X(bVar.getThreadList()), bVar.getForumId(), bVar.SU(), bVar.SV(), bVar.SW(), bVar.ST(), bVar.getPageNum());
                     }
                 }
             }

@@ -1,0 +1,74 @@
+package com.baidu.tieba.passaccount.app;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.coreExtra.data.AuthVerifyData;
+import com.baidu.tbadk.p.t;
+import com.baidu.tieba.e;
+import com.baidu.tieba.passaccount.a.b;
+import com.baidu.tieba.passaccount.a.c;
+/* loaded from: classes6.dex */
+public class RemindActivity extends BaseActivity<RemindActivity> {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(e.h.remind_activity_layout);
+        ((NavigationBar) findViewById(e.g.view_navigation_bar)).addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        ((Button) findViewById(e.g.remind_button)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                c.bdD().b(new c.a() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.1.1
+                    @Override // com.baidu.tieba.passaccount.a.c.a
+                    public void b(boolean z, boolean z2, String str) {
+                        b.bdw().n(z2, str);
+                        RemindActivity.this.finishActivity(true);
+                    }
+
+                    @Override // com.baidu.tieba.passaccount.a.c.a
+                    public void l(boolean z, String str) {
+                        b.bdw().n(z, str);
+                        RemindActivity.this.finishActivity(true);
+                    }
+
+                    @Override // com.baidu.tieba.passaccount.a.c.a
+                    public void onUnavailable() {
+                        b.bdw().n(false, null);
+                    }
+
+                    @Override // com.baidu.tieba.passaccount.a.c.a
+                    public void onFail() {
+                        b.bdw().n(false, null);
+                    }
+                });
+            }
+        });
+        findViewById(e.g.feed_back_container).setVisibility(t.jJ() ? 0 : 8);
+        ((TextView) findViewById(e.g.feed_back_text)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.2
+            /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.passaccount.app.RemindActivity */
+            /* JADX WARN: Multi-variable type inference failed */
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                ay.Db().a(RemindActivity.this.getPageContext(), new String[]{TbConfig.URL_FEED_BACK}, true);
+            }
+        });
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    public void finish() {
+        finishActivity(false);
+    }
+
+    public void finishActivity(boolean z) {
+        super.finish();
+        if (!z) {
+            b.bdw().a((AuthVerifyData.c) null);
+        }
+    }
+}

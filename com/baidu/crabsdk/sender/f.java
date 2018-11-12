@@ -232,7 +232,7 @@ public final class f {
         }
     }
 
-    public static byte[] cS(String str) {
+    public static byte[] cQ(String str) {
         ByteArrayOutputStream byteArrayOutputStream;
         FileInputStream fileInputStream;
         Throwable th;
@@ -321,7 +321,7 @@ public final class f {
         return bArr;
     }
 
-    public static String cT(String str) {
+    public static String cR(String str) {
         if (str == null) {
             return "";
         }
@@ -353,7 +353,7 @@ public final class f {
         if (map == null) {
             return "";
         }
-        if (map.containsKey("screenshot") && map.get("screenshot") != null && com.baidu.crabsdk.c.c.rv() > 7) {
+        if (map.containsKey("screenshot") && map.get("screenshot") != null && com.baidu.crabsdk.c.c.rs() > 7) {
             map.put("screenshot", Base64.encodeToString((byte[]) map.get("screenshot"), 0));
         }
         JSONObject jSONObject = new JSONObject();

@@ -80,17 +80,17 @@ public final class d {
         short bY = cn.jiguang.d.d.i.bX().bY();
         long longValue = valueOf.longValue();
         cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(AudioParams.DEFAULT_AUDIO_BUFFER_SIZE);
-        bVar.l(0);
-        bVar.k(4);
-        bVar.k(2);
-        bVar.h(longValue);
-        bVar.g(a);
-        bVar.h(c);
-        bVar.k(bY);
+        bVar.C(0);
+        bVar.B(4);
+        bVar.B(2);
+        bVar.j(longValue);
+        bVar.i(a);
+        bVar.j(c);
+        bVar.B(bY);
         bVar.l(bVar.current(), 0);
         byte[] a2 = cn.jiguang.d.e.a.a.b.a(bVar.toByteArray(), 1);
         if (a2 != null) {
-            cn.jiguang.d.g.c.cg().ch().j(a2);
+            cn.jiguang.d.g.c.cg().ch().i(a2);
         } else {
             cn.jiguang.e.c.c("JiguangTcpManager", "send hb failed:sendData is null");
         }

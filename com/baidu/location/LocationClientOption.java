@@ -58,7 +58,7 @@ public final class LocationClientOption {
         this.disableLocCache = true;
         this.enableSimulateGps = false;
         this.serviceName = "com.baidu.location.service_v2.9";
-        this.isIgnoreCacheException = false;
+        this.isIgnoreCacheException = true;
         this.isIgnoreKillProcess = true;
         this.mIsNeedDeviceDirect = false;
         this.isNeedAptag = false;
@@ -86,7 +86,7 @@ public final class LocationClientOption {
         this.disableLocCache = true;
         this.enableSimulateGps = false;
         this.serviceName = "com.baidu.location.service_v2.9";
-        this.isIgnoreCacheException = false;
+        this.isIgnoreCacheException = true;
         this.isIgnoreKillProcess = true;
         this.mIsNeedDeviceDirect = false;
         this.isNeedAptag = false;

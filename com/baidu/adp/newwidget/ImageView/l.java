@@ -7,27 +7,27 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes.dex */
 public class l extends k {
-    private boolean IR;
+    private boolean IU;
     private Rect mRect;
     private Path oy;
 
     private void d(Rect rect) {
         boolean z = false;
         if (rect != null) {
-            if (this.oy == null || this.IR != this.mArgs.IR) {
+            if (this.oy == null || this.IU != this.mArgs.IU) {
                 z = true;
             }
             if (this.mRect == null || !this.mRect.contains(rect)) {
                 z = true;
             }
-            this.IR = this.mArgs.IR;
+            this.IU = this.mArgs.IU;
             if (z) {
                 this.mRect = rect;
                 this.oy = new Path();
-                if (this.IR) {
+                if (this.IU) {
                     this.oy.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
                 } else {
-                    this.oy.addRoundRect(new RectF(rect), this.mArgs.IQ, this.mArgs.IQ, Path.Direction.CCW);
+                    this.oy.addRoundRect(new RectF(rect), this.mArgs.mRadius, this.mArgs.mRadius, Path.Direction.CCW);
                 }
                 this.oy.close();
             }

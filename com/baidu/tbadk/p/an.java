@@ -1,20 +1,36 @@
 package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
-public class an extends j {
-    private static an bdA = new an();
-
-    public static boolean Oo() {
-        return bdA.jL();
+public class an extends com.baidu.adp.lib.b.a {
+    @Override // com.baidu.adp.lib.b.a
+    protected void aq(int i) {
     }
 
-    @Override // com.baidu.tbadk.p.j, com.baidu.adp.lib.b.a
+    @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "pb_reply_switch";
+        return "nickname_activity";
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.p.j, com.baidu.adp.lib.b.a
-    public int iI() {
-        return super.iI();
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] iG() {
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int iH() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int iI() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int iJ() {
+        return 10;
+    }
+
+    public static boolean jJ() {
+        return com.baidu.adp.lib.b.d.iQ().aO("nickname_activity") == 1;
     }
 }

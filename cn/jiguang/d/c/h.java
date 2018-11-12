@@ -53,6 +53,41 @@ public final class h implements Cloneable {
         return hVar;
     }
 
+    public final l[] D(int i) {
+        m[] mVarArr;
+        boolean z;
+        if (this.lN[1] == null) {
+            return lP;
+        }
+        LinkedList linkedList = new LinkedList();
+        if (this.lN[1] == null) {
+            mVarArr = lO;
+        } else {
+            List list = this.lN[1];
+            mVarArr = (m[]) list.toArray(new m[list.size()]);
+        }
+        HashSet hashSet = new HashSet();
+        for (int i2 = 0; i2 < mVarArr.length; i2++) {
+            j b = mVarArr[i2].b();
+            if (hashSet.contains(b)) {
+                for (int size = linkedList.size() - 1; size >= 0; size--) {
+                    l lVar = (l) linkedList.get(size);
+                    if (lVar.b().d() == mVarArr[i2].d() && lVar.b().e() == mVarArr[i2].e() && lVar.b().b().equals(b)) {
+                        lVar.a(mVarArr[i2]);
+                        z = false;
+                        break;
+                    }
+                }
+            }
+            z = true;
+            if (z) {
+                linkedList.add(new l(mVarArr[i2]));
+                hashSet.add(b);
+            }
+        }
+        return (l[]) linkedList.toArray(new l[linkedList.size()]);
+    }
+
     public final byte[] b(int i) {
         int i2;
         int i3;
@@ -131,40 +166,5 @@ public final class h implements Cloneable {
         hVar.lM = (g) this.lM.clone();
         hVar.c = this.c;
         return hVar;
-    }
-
-    public final l[] m(int i) {
-        m[] mVarArr;
-        boolean z;
-        if (this.lN[1] == null) {
-            return lP;
-        }
-        LinkedList linkedList = new LinkedList();
-        if (this.lN[1] == null) {
-            mVarArr = lO;
-        } else {
-            List list = this.lN[1];
-            mVarArr = (m[]) list.toArray(new m[list.size()]);
-        }
-        HashSet hashSet = new HashSet();
-        for (int i2 = 0; i2 < mVarArr.length; i2++) {
-            j b = mVarArr[i2].b();
-            if (hashSet.contains(b)) {
-                for (int size = linkedList.size() - 1; size >= 0; size--) {
-                    l lVar = (l) linkedList.get(size);
-                    if (lVar.b().d() == mVarArr[i2].d() && lVar.b().e() == mVarArr[i2].e() && lVar.b().b().equals(b)) {
-                        lVar.a(mVarArr[i2]);
-                        z = false;
-                        break;
-                    }
-                }
-            }
-            z = true;
-            if (z) {
-                linkedList.add(new l(mVarArr[i2]));
-                hashSet.add(b);
-            }
-        }
-        return (l[]) linkedList.toArray(new l[linkedList.size()]);
     }
 }

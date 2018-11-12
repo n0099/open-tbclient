@@ -10,18 +10,15 @@ import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class HeadImageView extends TbClipImageView {
-    private int aCi;
-    private int aCj;
-    public boolean aCk;
-    public boolean aCl;
-    protected int aCm;
-    private Drawable aCn;
-    private int aCo;
-    private float aCp;
-    private float aCq;
+    private int aCX;
+    private int aCY;
+    private boolean aCZ;
+    private int aDa;
+    private int aDb;
+    private float aDc;
+    private float aDd;
     private String fid;
     private int height;
-    public boolean isBigV;
     private int mDefaultBgId;
     private int mDefaultId;
     private Paint mPaint;
@@ -41,13 +38,10 @@ public class HeadImageView extends TbClipImageView {
 
     public HeadImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aCi = 0;
-        this.aCj = 0;
-        this.aCk = false;
-        this.isBigV = false;
-        this.aCl = false;
-        this.aCm = 0;
-        this.aCn = null;
+        this.aCX = 0;
+        this.aCY = 0;
+        this.aCZ = false;
+        this.aDa = 0;
         this.user_id = null;
         this.user_name = null;
         this.fid = null;
@@ -55,12 +49,12 @@ public class HeadImageView extends TbClipImageView {
         this.mUrl = null;
         this.mDefaultId = e.f.transparent_bg;
         this.mDefaultBgId = e.d.cp_bg_line_e;
-        this.aCo = e.f.pic_v_avatar;
+        this.aDb = e.f.pic_v_avatar;
         init();
     }
 
     private void init() {
-        this.aCj = com.baidu.adp.lib.util.l.h(getContext(), e.C0175e.tbds42);
+        this.aCY = com.baidu.adp.lib.util.l.h(getContext(), e.C0200e.tbds42);
         setDrawerType(1);
         setGifIconSupport(false);
         setDrawBorder(true);
@@ -120,8 +114,8 @@ public class HeadImageView extends TbClipImageView {
     public void startLogPerf() {
         if (!this.canLogPerf) {
             this.canLogPerf = true;
-        } else if (this.mPerfLog != null && this.mPerfLog.bbz) {
-            this.mPerfLog.NS();
+        } else if (this.mPerfLog != null && this.mPerfLog.bcm) {
+            this.mPerfLog.Ob();
         }
     }
 
@@ -129,95 +123,62 @@ public class HeadImageView extends TbClipImageView {
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         if (canvas != null) {
-            if (this.aCm != 0) {
-                this.mPaint.setColor(this.aCm);
-                canvas.drawCircle(this.aCp, this.aCq, this.aCp, this.mPaint);
+            if (this.aDa != 0) {
+                this.mPaint.setColor(this.aDa);
+                canvas.drawCircle(this.aDc, this.aDd, this.aDc, this.mPaint);
             }
             g(canvas);
-            if (this.aCk && !this.isBigV) {
-                Drawable drawable = this.aCn == null ? al.getDrawable(e.f.pic_v_avatar) : this.aCn;
-                if (drawable != null) {
-                    if (this.aCk) {
-                        drawable.setBounds((this.width - this.aCj) - this.aCi, (this.height - this.aCj) - this.aCi, this.width - this.aCi, this.height - this.aCi);
-                    }
-                    drawable.draw(canvas);
-                }
-            }
         }
     }
 
+    public void setGodIconResId(int i) {
+        this.aDb = i;
+    }
+
     public void setGodIconWidth(int i) {
-        this.aCk = true;
-        if (i < 0) {
-            this.aCk = false;
-            this.aCj = 0;
-        } else {
-            this.aCj = com.baidu.adp.lib.util.l.h(getContext(), i);
-        }
-        if (this.aCj < 0) {
-            this.aCj = 0;
-            this.aCk = false;
+        if (i > 0) {
+            this.aCY = com.baidu.adp.lib.util.l.h(getContext(), i);
         }
         invalidate();
     }
 
     public void setGodIconMargin(int i) {
-        this.aCk = true;
         setIsRound(true);
         if (i > 0) {
-            this.aCi = com.baidu.adp.lib.util.l.h(getContext(), i);
-        }
-        if (i < 0) {
-            this.aCk = false;
+            this.aCX = com.baidu.adp.lib.util.l.h(getContext(), i);
         }
         invalidate();
     }
 
     public void setIsGod(boolean z) {
+        this.aCZ = z;
         if (z) {
             setGodIconMargin(0);
             return;
         }
-        this.aCk = false;
         setIsRound(true);
-        this.aCi = 0;
+        this.aCX = 0;
         invalidate();
     }
 
-    public void setMaskColor(int i) {
-        this.aCm = i;
-    }
-
-    public void setCustomGodIcon(Drawable drawable) {
-        this.aCn = drawable;
-    }
-
     public void setIsBigV(boolean z) {
-        this.isBigV = z;
+        this.aCZ = z;
     }
 
     public void setShowV(boolean z) {
-        this.aCl = z;
+        this.aCZ = z;
+    }
+
+    public void setMaskColor(int i) {
+        this.aDa = i;
     }
 
     public void g(Canvas canvas) {
         Drawable drawable;
-        if (this.aCl && (drawable = al.getDrawable(this.aCo)) != null) {
-            drawable.setBounds((this.width - this.aCj) - this.aCi, (this.height - this.aCj) - this.aCi, this.width - this.aCi, this.height - this.aCi);
+        if (this.aCZ && this.aCY > 0 && (drawable = al.getDrawable(this.aDb)) != null) {
+            drawable.setBounds((this.width - this.aCY) - this.aCX, (this.height - this.aCY) - this.aCX, this.width - this.aCX, this.height - this.aCX);
             drawable.draw(canvas);
         }
-    }
-
-    public void setIconMargin(int i) {
-        this.aCi = i;
-    }
-
-    public void setIconWidth(int i) {
-        this.aCj = i;
-    }
-
-    public void setCustomBigViewIconId(int i) {
-        this.aCo = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -226,7 +187,7 @@ public class HeadImageView extends TbClipImageView {
         super.onSizeChanged(i, i2, i3, i4);
         this.width = getWidth();
         this.height = getHeight();
-        this.aCp = this.width / 2.0f;
-        this.aCq = this.height / 2.0f;
+        this.aDc = this.width / 2.0f;
+        this.aDd = this.height / 2.0f;
     }
 }

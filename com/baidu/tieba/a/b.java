@@ -3,18 +3,18 @@ package com.baidu.tieba.a;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class b {
-    private HashMap<Integer, Integer> bwi = new HashMap<>();
+    private HashMap<Integer, Integer> bwT = new HashMap<>();
 
-    public int hb(int i) {
-        if (this.bwi != null && this.bwi.containsKey(Integer.valueOf(i))) {
-            return this.bwi.get(Integer.valueOf(i)).intValue();
+    public int ho(int i) {
+        if (this.bwT != null && this.bwT.containsKey(Integer.valueOf(i))) {
+            return this.bwT.get(Integer.valueOf(i)).intValue();
         }
         return 0;
     }
 
     public void put(int i, int i2) {
-        if (this.bwi != null) {
-            this.bwi.put(Integer.valueOf(i), Integer.valueOf(i2));
+        if (this.bwT != null) {
+            this.bwT.put(Integer.valueOf(i), Integer.valueOf(i2));
         }
     }
 }

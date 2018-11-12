@@ -4,10 +4,10 @@ import java.util.List;
 import tbclient.RedpacketRain;
 /* loaded from: classes.dex */
 public class m {
-    private String bwU;
-    private String hdS;
-    private List<String> hdT;
-    private String hdU;
+    private String bxF;
+    private String hfp;
+    private List<String> hfq;
+    private String hfr;
     private long mEndTime;
     private long mStartTime;
     private int mType;
@@ -16,10 +16,10 @@ public class m {
         if (redpacketRain != null) {
             this.mStartTime = redpacketRain.start_time.longValue() * 1000;
             this.mEndTime = redpacketRain.end_time.longValue() * 1000;
-            this.bwU = redpacketRain.jump_url;
-            this.hdS = redpacketRain.float_url;
-            this.hdT = redpacketRain.dynamic_img;
-            this.hdU = redpacketRain.activity_id;
+            this.bxF = redpacketRain.jump_url;
+            this.hfp = redpacketRain.float_url;
+            this.hfq = redpacketRain.dynamic_img;
+            this.hfr = redpacketRain.activity_id;
             this.mType = redpacketRain.show_type.intValue();
         }
     }
@@ -32,20 +32,20 @@ public class m {
         return this.mEndTime;
     }
 
-    public String UL() {
-        return this.bwU;
+    public String UU() {
+        return this.bxF;
     }
 
-    public String bCo() {
-        return this.hdS;
+    public String bBK() {
+        return this.hfp;
     }
 
-    public List<String> bCp() {
-        return this.hdT;
+    public List<String> bBL() {
+        return this.hfq;
     }
 
-    public String bCq() {
-        return this.hdU;
+    public String bBM() {
+        return this.hfr;
     }
 
     public void setStartTime(long j) {
@@ -56,20 +56,20 @@ public class m {
         this.mEndTime = j;
     }
 
-    public void uY(String str) {
-        this.bwU = str;
+    public void vd(String str) {
+        this.bxF = str;
     }
 
-    public void uZ(String str) {
-        this.hdS = str;
+    public void ve(String str) {
+        this.hfp = str;
     }
 
-    public void dL(List<String> list) {
-        this.hdT = list;
+    public void dJ(List<String> list) {
+        this.hfq = list;
     }
 
-    public void va(String str) {
-        this.hdU = str;
+    public void vf(String str) {
+        this.hfr = str;
     }
 
     public int getType() {

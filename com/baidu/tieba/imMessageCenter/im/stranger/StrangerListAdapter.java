@@ -14,7 +14,7 @@ public class StrangerListAdapter extends c {
     @Override // com.baidu.tieba.im.chat.a.c
     protected BasicNameValuePair a(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
         int i2 = 0;
-        if (!com.baidu.tbadk.coreExtra.messageCenter.c.Hg().Ho()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.c.Hs().HA()) {
             str = "";
             i = 0;
         }
@@ -28,10 +28,10 @@ public class StrangerListAdapter extends c {
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.eBa.setDrawBorder(true);
-        aVar.eBa.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+        aVar.eCt.setDrawBorder(true);
+        aVar.eCt.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
         if (!TextUtils.isEmpty(imMessageCenterShowItemData.getFriendPortrait())) {
-            aVar.eBa.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 12, false);
+            aVar.eCt.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 12, false);
         }
     }
 

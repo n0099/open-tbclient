@@ -1,22 +1,33 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
-import org.json.JSONObject;
+import android.support.v7.widget.ActivityChooserView;
 /* loaded from: classes.dex */
 public class q {
-    private int aJS;
-    private String link;
-    private String title;
+    private int aKF;
+    private int aKG;
+    private int aKH;
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null && jSONObject != null) {
-            this.aJS = jSONObject.optInt("offline");
-            this.title = jSONObject.optString("title");
-            this.link = jSONObject.optString(SelectForumActivityConfig.KEY_SHARE_LINK);
-            if (!TextUtils.isEmpty(this.link)) {
-                this.link = this.link.replaceFirst("webview:", "http://");
-            }
-        }
+    public int FK() {
+        return this.aKF == 0 ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : this.aKF;
+    }
+
+    public void gl(String str) {
+        this.aKF = com.baidu.adp.lib.g.b.l(str, 0);
+    }
+
+    public int FL() {
+        return this.aKG;
+    }
+
+    public void gm(String str) {
+        this.aKG = com.baidu.adp.lib.g.b.l(str, 0);
+    }
+
+    public int FM() {
+        return this.aKH;
+    }
+
+    public void gn(String str) {
+        this.aKH = com.baidu.adp.lib.g.b.l(str, 0);
     }
 }

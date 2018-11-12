@@ -3,7 +3,7 @@ package com.baidu.b.a.g;
 public class a {
     static c aaz;
 
-    public static c se() {
+    public static c sb() {
         return aaz;
     }
 }

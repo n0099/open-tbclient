@@ -86,18 +86,17 @@ public class a {
         return i;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sapi2.passhost.framework.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0091a {
+    private static class C0114a {
         public static a a = new a();
 
-        private C0091a() {
+        private C0114a() {
         }
     }
 
     public static a a() {
-        return C0091a.a;
+        return C0114a.a;
     }
 
     a() {

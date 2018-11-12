@@ -15,20 +15,20 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public final class i implements p {
-    private final com.google.gson.internal.b ijU;
-    private final com.google.gson.internal.c ijV;
-    private final d ikc;
-    private final com.google.gson.c ilK;
+    private final com.google.gson.internal.b ilE;
+    private final com.google.gson.internal.c ilF;
+    private final d ilM;
+    private final com.google.gson.c inw;
 
     public i(com.google.gson.internal.b bVar, com.google.gson.c cVar, com.google.gson.internal.c cVar2, d dVar) {
-        this.ijU = bVar;
-        this.ilK = cVar;
-        this.ijV = cVar2;
-        this.ikc = dVar;
+        this.ilE = bVar;
+        this.inw = cVar;
+        this.ilF = cVar2;
+        this.ilM = dVar;
     }
 
     public boolean a(Field field, boolean z) {
-        return a(field, z, this.ijV);
+        return a(field, z, this.ilF);
     }
 
     static boolean a(Field field, boolean z, com.google.gson.internal.c cVar) {
@@ -38,16 +38,16 @@ public final class i implements p {
     private List<String> a(Field field) {
         com.google.gson.a.c cVar = (com.google.gson.a.c) field.getAnnotation(com.google.gson.a.c.class);
         if (cVar == null) {
-            return Collections.singletonList(this.ilK.translateName(field));
+            return Collections.singletonList(this.inw.translateName(field));
         }
         String value = cVar.value();
-        String[] bYQ = cVar.bYQ();
-        if (bYQ.length == 0) {
+        String[] bYn = cVar.bYn();
+        if (bYn.length == 0) {
             return Collections.singletonList(value);
         }
-        ArrayList arrayList = new ArrayList(bYQ.length + 1);
+        ArrayList arrayList = new ArrayList(bYn.length + 1);
         arrayList.add(value);
-        for (String str : bYQ) {
+        for (String str : bYn) {
             arrayList.add(str);
         }
         return arrayList;
@@ -55,19 +55,19 @@ public final class i implements p {
 
     @Override // com.google.gson.p
     public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-        Class<? super T> bZq = aVar.bZq();
-        if (!Object.class.isAssignableFrom(bZq)) {
+        Class<? super T> bYN = aVar.bYN();
+        if (!Object.class.isAssignableFrom(bYN)) {
             return null;
         }
-        return new a(this.ijU.b(aVar), a(dVar, (com.google.gson.b.a<?>) aVar, (Class<?>) bZq));
+        return new a(this.ilE.b(aVar), a(dVar, (com.google.gson.b.a<?>) aVar, (Class<?>) bYN));
     }
 
     private b a(final com.google.gson.d dVar, final Field field, String str, final com.google.gson.b.a<?> aVar, boolean z, boolean z2) {
-        final boolean k = com.google.gson.internal.f.k(aVar.bZq());
+        final boolean k = com.google.gson.internal.f.k(aVar.bYN());
         com.google.gson.a.b bVar = (com.google.gson.a.b) field.getAnnotation(com.google.gson.a.b.class);
         final o<?> oVar = null;
         if (bVar != null) {
-            oVar = this.ikc.a(this.ijU, dVar, aVar, bVar);
+            oVar = this.ilM.a(this.ilE, dVar, aVar, bVar);
         }
         final boolean z3 = oVar != null;
         if (oVar == null) {
@@ -76,7 +76,7 @@ public final class i implements p {
         return new b(str, z, z2) { // from class: com.google.gson.internal.a.i.1
             @Override // com.google.gson.internal.a.i.b
             void a(com.google.gson.stream.b bVar2, Object obj) throws IOException, IllegalAccessException {
-                (z3 ? oVar : new m(dVar, oVar, aVar.bZr())).a(bVar2, field.get(obj));
+                (z3 ? oVar : new m(dVar, oVar, aVar.bYO())).a(bVar2, field.get(obj));
             }
 
             @Override // com.google.gson.internal.a.i.b
@@ -88,8 +88,8 @@ public final class i implements p {
             }
 
             @Override // com.google.gson.internal.a.i.b
-            public boolean aS(Object obj) throws IOException, IllegalAccessException {
-                return this.ilT && field.get(obj) != obj;
+            public boolean aR(Object obj) throws IOException, IllegalAccessException {
+                return this.inF && field.get(obj) != obj;
             }
         };
     }
@@ -100,14 +100,14 @@ public final class i implements p {
         if (cls.isInterface()) {
             return linkedHashMap;
         }
-        Type bZr = aVar.bZr();
+        Type bYO = aVar.bYO();
         while (cls != Object.class) {
             for (Field field : cls.getDeclaredFields()) {
                 boolean a2 = a(field, true);
                 boolean a3 = a(field, false);
                 if (a2 || a3) {
                     field.setAccessible(true);
-                    Type a4 = C$Gson$Types.a(aVar.bZr(), cls, field.getGenericType());
+                    Type a4 = C$Gson$Types.a(aVar.bYO(), cls, field.getGenericType());
                     List<String> a5 = a(field);
                     b bVar = null;
                     int i = 0;
@@ -124,12 +124,12 @@ public final class i implements p {
                         bVar = bVar2;
                     }
                     if (bVar != null) {
-                        throw new IllegalArgumentException(bZr + " declares multiple JSON fields named " + bVar.name);
+                        throw new IllegalArgumentException(bYO + " declares multiple JSON fields named " + bVar.name);
                     }
                 }
             }
-            aVar = com.google.gson.b.a.l(C$Gson$Types.a(aVar.bZr(), cls, cls.getGenericSuperclass()));
-            cls = aVar.bZq();
+            aVar = com.google.gson.b.a.l(C$Gson$Types.a(aVar.bYO(), cls, cls.getGenericSuperclass()));
+            cls = aVar.bYN();
         }
         return linkedHashMap;
     }
@@ -137,52 +137,52 @@ public final class i implements p {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static abstract class b {
-        final boolean ilT;
-        final boolean ilU;
+        final boolean inF;
+        final boolean inG;
         final String name;
 
         abstract void a(com.google.gson.stream.a aVar, Object obj) throws IOException, IllegalAccessException;
 
         abstract void a(com.google.gson.stream.b bVar, Object obj) throws IOException, IllegalAccessException;
 
-        abstract boolean aS(Object obj) throws IOException, IllegalAccessException;
+        abstract boolean aR(Object obj) throws IOException, IllegalAccessException;
 
         protected b(String str, boolean z, boolean z2) {
             this.name = str;
-            this.ilT = z;
-            this.ilU = z2;
+            this.inF = z;
+            this.inG = z2;
         }
     }
 
     /* loaded from: classes2.dex */
     public static final class a<T> extends o<T> {
-        private final Map<String, b> ilS;
-        private final com.google.gson.internal.e<T> ilr;
+        private final Map<String, b> inE;
+        private final com.google.gson.internal.e<T> inc;
 
         a(com.google.gson.internal.e<T> eVar, Map<String, b> map) {
-            this.ilr = eVar;
-            this.ilS = map;
+            this.inc = eVar;
+            this.inE = map;
         }
 
         @Override // com.google.gson.o
         public T b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.bZe() == JsonToken.NULL) {
+            if (aVar.bYB() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
-            T bYS = this.ilr.bYS();
+            T bYp = this.inc.bYp();
             try {
                 aVar.beginObject();
                 while (aVar.hasNext()) {
-                    b bVar = this.ilS.get(aVar.nextName());
-                    if (bVar == null || !bVar.ilU) {
+                    b bVar = this.inE.get(aVar.nextName());
+                    if (bVar == null || !bVar.inG) {
                         aVar.skipValue();
                     } else {
-                        bVar.a(aVar, bYS);
+                        bVar.a(aVar, bYp);
                     }
                 }
                 aVar.endObject();
-                return bYS;
+                return bYp;
             } catch (IllegalAccessException e) {
                 throw new AssertionError(e);
             } catch (IllegalStateException e2) {
@@ -193,18 +193,18 @@ public final class i implements p {
         @Override // com.google.gson.o
         public void a(com.google.gson.stream.b bVar, T t) throws IOException {
             if (t == null) {
-                bVar.bZp();
+                bVar.bYM();
                 return;
             }
-            bVar.bZn();
+            bVar.bYK();
             try {
-                for (b bVar2 : this.ilS.values()) {
-                    if (bVar2.aS(t)) {
-                        bVar.yL(bVar2.name);
+                for (b bVar2 : this.inE.values()) {
+                    if (bVar2.aR(t)) {
+                        bVar.yQ(bVar2.name);
                         bVar2.a(bVar, t);
                     }
                 }
-                bVar.bZo();
+                bVar.bYL();
             } catch (IllegalAccessException e) {
                 throw new AssertionError(e);
             }

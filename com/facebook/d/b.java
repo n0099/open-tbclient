@@ -1,14 +1,13 @@
 package com.facebook.d;
 
-import com.baidu.sapi2.SapiAccountManager;
 import com.facebook.common.internal.g;
 import java.io.IOException;
 import java.io.InputStream;
 import org.apache.http.HttpStatus;
 /* loaded from: classes2.dex */
 public class b {
-    public static int xZ(int i) {
-        return d.xZ(i);
+    public static int ys(int i) {
+        return d.ys(i);
     }
 
     public static int v(InputStream inputStream) {
@@ -30,7 +29,7 @@ public class b {
             while (i2 == 255) {
                 i2 = c.a(inputStream, 1, false);
             }
-            if ((i == 192 && ya(i2)) || i2 == i) {
+            if ((i == 192 && yt(i2)) || i2 == i) {
                 return true;
             }
             if (i2 != 216 && i2 != 1) {
@@ -43,14 +42,14 @@ public class b {
         return false;
     }
 
-    private static boolean ya(int i) {
+    private static boolean yt(int i) {
         switch (i) {
             case 192:
             case 193:
             case 194:
             case 195:
             case 197:
-            case SapiAccountManager.VERSION_CODE /* 198 */:
+            case 198:
             case 199:
             case 201:
             case 202:

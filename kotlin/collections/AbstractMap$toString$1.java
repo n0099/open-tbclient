@@ -18,7 +18,7 @@ final class AbstractMap$toString$1 extends Lambda implements kotlin.jvm.a.b<Map.
     @Override // kotlin.jvm.a.b
     public final String invoke(Map.Entry<? extends K, ? extends V> entry) {
         String b;
-        kotlin.jvm.internal.p.i(entry, AdvanceSetting.NETWORK_TYPE);
+        kotlin.jvm.internal.p.h((Object) entry, AdvanceSetting.NETWORK_TYPE);
         b = this.this$0.b(entry);
         return b;
     }

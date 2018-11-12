@@ -21,7 +21,7 @@ public class c {
 
     public c() {
         this.mKey = "kf1t9tsczk16vc8z";
-        this.mKey = wD();
+        this.mKey = wL();
     }
 
     private byte[] c(Key key, byte[] bArr) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
@@ -60,7 +60,7 @@ public class c {
         return com.baidu.adp.lib.util.c.encodeBytes(jSONArray.toString().getBytes("UTF-8"));
     }
 
-    private String wD() {
+    private String wL() {
         Random random = new Random();
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i < 16; i++) {

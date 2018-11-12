@@ -8,7 +8,7 @@ public class b {
         return sDebug;
     }
 
-    public static void ax(boolean z) {
+    public static void aL(boolean z) {
         sIsMainProcess = z;
     }
 

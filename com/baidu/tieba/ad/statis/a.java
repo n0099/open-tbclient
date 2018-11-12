@@ -6,12 +6,12 @@ public class a implements com.baidu.tieba.p.a {
 
     /* renamed from: com.baidu.tieba.ad.statis.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static class C0152a {
-        private static a bxU = new a();
+    private static class C0176a {
+        private static a byF = new a();
     }
 
-    public static a UY() {
-        return C0152a.bxU;
+    public static a Vh() {
+        return C0176a.byF;
     }
 
     @Override // com.baidu.tieba.p.a

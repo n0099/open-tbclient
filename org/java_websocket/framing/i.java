@@ -9,9 +9,9 @@ public class i extends e {
     }
 
     @Override // org.java_websocket.framing.e, org.java_websocket.framing.f
-    public void caV() throws InvalidDataException {
-        super.caV();
-        if (!org.java_websocket.e.c.v(caX())) {
+    public void cas() throws InvalidDataException {
+        super.cas();
+        if (!org.java_websocket.e.c.v(cau())) {
             throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
         }
     }

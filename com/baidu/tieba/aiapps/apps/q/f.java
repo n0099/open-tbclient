@@ -9,22 +9,22 @@ public class f implements l {
     private Context mContext = AppRuntime.getAppContext();
 
     @Override // com.baidu.ubc.l
-    public m XO() {
+    public m XY() {
         return new a(this.mContext);
     }
 
     @Override // com.baidu.ubc.l
-    public String XP() {
+    public String XZ() {
         return "";
     }
 
     @Override // com.baidu.ubc.l
-    public boolean kl(String str) {
+    public boolean kn(String str) {
         return false;
     }
 
     @Override // com.baidu.ubc.l
-    public boolean XQ() {
+    public boolean Ya() {
         return com.baidu.ubc.f.DEBUG;
     }
 }

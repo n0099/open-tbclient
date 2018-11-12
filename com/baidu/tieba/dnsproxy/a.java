@@ -7,35 +7,35 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Random;
 /* loaded from: classes3.dex */
 public class a {
-    private static final String[] dcY = {"119.75.222.62", "119.75.222.63"};
-    private static final String[] dcZ = {"111.13.100.247", "117.185.16.61"};
-    private static final String[] dda = {"111.206.37.190"};
-    private static final String[] ddb = {"115.239.211.146", "180.97.33.196"};
+    private static final String[] dee = {"119.75.222.62", "119.75.222.63"};
+    private static final String[] def = {"111.13.100.247", "117.185.16.61"};
+    private static final String[] deg = {"111.206.37.190"};
+    private static final String[] deh = {"115.239.211.146", "180.97.33.196"};
     private volatile String imsi;
     private volatile int operator;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String asG() {
-        asH();
-        if (j.kY()) {
-            return ddb[new Random().nextInt(ddb.length)];
+    public String asf() {
+        asg();
+        if (j.kW()) {
+            return deh[new Random().nextInt(deh.length)];
         }
-        if (j.kZ()) {
+        if (j.kX()) {
             if (this.operator == 1) {
-                return dcY[new Random().nextInt(dcY.length)];
+                return dee[new Random().nextInt(dee.length)];
             }
             if (this.operator == 2) {
-                return dcZ[new Random().nextInt(dcZ.length)];
+                return def[new Random().nextInt(def.length)];
             }
             if (this.operator == 3) {
-                return dda[new Random().nextInt(dda.length)];
+                return deg[new Random().nextInt(deg.length)];
             }
             return "119.75.222.62";
         }
         return "119.75.222.62";
     }
 
-    protected void asH() {
+    protected void asg() {
         this.imsi = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSubscriberId();
         this.operator = 0;
         if (this.imsi != null) {

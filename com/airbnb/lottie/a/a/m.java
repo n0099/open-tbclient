@@ -23,9 +23,9 @@ public class m implements k, a.InterfaceC0009a {
     public m(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, com.airbnb.lottie.model.content.f fVar2) {
         this.name = fVar2.getName();
         this.nh = fVar;
-        this.oM = fVar2.dT().dH();
-        this.oL = fVar2.ed().dH();
-        this.pp = fVar2.ex().dH();
+        this.oM = fVar2.dS().dG();
+        this.oL = fVar2.ec().dG();
+        this.pp = fVar2.ew().dG();
         aVar.a(this.oM);
         aVar.a(this.oL);
         aVar.a(this.pp);
@@ -40,7 +40,7 @@ public class m implements k, a.InterfaceC0009a {
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0009a
-    public void de() {
+    public void dd() {
         invalidate();
     }
 
@@ -56,7 +56,7 @@ public class m implements k, a.InterfaceC0009a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof q) && ((q) bVar).dn() == ShapeTrimPath.Type.Simultaneously) {
+                if ((bVar instanceof q) && ((q) bVar).dm() == ShapeTrimPath.Type.Simultaneously) {
                     this.oH = (q) bVar;
                     this.oH.a(this);
                 }

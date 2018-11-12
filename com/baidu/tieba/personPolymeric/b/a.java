@@ -11,17 +11,21 @@ public interface a {
 
     void b(BaseFragment baseFragment);
 
-    f boF();
+    f boa();
 
-    void boG();
+    void bob();
 
-    void gj(boolean z);
+    void gt(boolean z);
 
-    void lS(boolean z);
+    void md(boolean z);
 
     void onChangeSkinType(int i);
 
     void onDestroy();
 
     void onResume();
+
+    void ti(String str);
+
+    void tj(String str);
 }

@@ -52,24 +52,24 @@ public class f extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(e.h.dialog_rich_bdlist_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.asQ = (TextView) view.findViewById(e.g.text_tip);
-            aVar2.asR = (TextView) view.findViewById(e.g.text_desc);
-            aVar2.asS = (CheckBox) view.findViewById(e.g.checked_icon);
+            aVar2.atD = (TextView) view.findViewById(e.g.text_tip);
+            aVar2.atE = (TextView) view.findViewById(e.g.text_desc);
+            aVar2.atF = (CheckBox) view.findViewById(e.g.checked_icon);
             aVar2.divider = view.findViewById(e.g.line);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.asQ.setText(gVar.getTip());
+        aVar.atD.setText(gVar.getTip());
         if (StringUtils.isNull(gVar.getDesc())) {
-            aVar.asR.setVisibility(8);
+            aVar.atE.setVisibility(8);
         } else {
-            aVar.asR.setText(gVar.getDesc());
-            aVar.asR.setVisibility(0);
+            aVar.atE.setText(gVar.getDesc());
+            aVar.atE.setVisibility(0);
         }
-        aVar.asS.setChecked(gVar.isChecked());
-        aVar.asS.setButtonDrawable(gVar.isChecked() ? al.getDrawable(e.f.icon_set_list_ok_s) : new ColorDrawable(e.d.common_color_10022));
-        if (cO(i)) {
+        aVar.atF.setChecked(gVar.isChecked());
+        aVar.atF.setButtonDrawable(gVar.isChecked() ? al.getDrawable(e.f.icon_set_list_ok_s) : new ColorDrawable(e.d.common_color_10022));
+        if (dc(i)) {
             aVar.divider.setVisibility(8);
             al.i(view, e.f.dialog_single_button_bg_selector);
         } else {
@@ -82,15 +82,15 @@ public class f extends BaseAdapter {
         return view;
     }
 
-    private boolean cO(int i) {
+    private boolean dc(int i) {
         return this.mData != null && i == this.mData.size() + (-1);
     }
 
     /* loaded from: classes.dex */
     private class a {
-        TextView asQ;
-        TextView asR;
-        CheckBox asS;
+        TextView atD;
+        TextView atE;
+        CheckBox atF;
         View divider;
 
         private a() {

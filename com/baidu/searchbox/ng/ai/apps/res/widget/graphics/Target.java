@@ -1,6 +1,7 @@
 package com.baidu.searchbox.ng.ai.apps.res.widget.graphics;
 
 import android.support.annotation.FloatRange;
+import com.baidu.mapapi.map.WeightedLatLng;
 /* loaded from: classes2.dex */
 public final class Target {
     public static final Target DARK_MUTED;
@@ -74,32 +75,32 @@ public final class Target {
         System.arraycopy(target.mWeights, 0, this.mWeights, 0, this.mWeights.length);
     }
 
-    @FloatRange(from = 0.0d, to = 1.0d)
+    @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     public float getMinimumSaturation() {
         return this.mSaturationTargets[0];
     }
 
-    @FloatRange(from = 0.0d, to = 1.0d)
+    @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     public float getTargetSaturation() {
         return this.mSaturationTargets[1];
     }
 
-    @FloatRange(from = 0.0d, to = 1.0d)
+    @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     public float getMaximumSaturation() {
         return this.mSaturationTargets[2];
     }
 
-    @FloatRange(from = 0.0d, to = 1.0d)
+    @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     public float getMinimumLightness() {
         return this.mLightnessTargets[0];
     }
 
-    @FloatRange(from = 0.0d, to = 1.0d)
+    @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     public float getTargetLightness() {
         return this.mLightnessTargets[1];
     }
 
-    @FloatRange(from = 0.0d, to = 1.0d)
+    @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     public float getMaximumLightness() {
         return this.mLightnessTargets[2];
     }

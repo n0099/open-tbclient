@@ -23,73 +23,73 @@ import tbclient.FrsPage.StarRank;
 import tbclient.FrsPage.StarTaskInfo;
 /* loaded from: classes6.dex */
 public class d {
-    private TbImageView asX;
-    private AlertDialog asf;
-    private View bCm;
-    private a dZA;
-    private TextView dZB;
-    private StarRank dZC;
-    private View dZD;
-    private TextView dZE;
-    private TextView dZF;
-    private TextView dZG;
-    private View dZy;
-    private ListView dZz;
+    private AlertDialog asS;
+    private TbImageView atK;
+    private View bCY;
+    private View eaR;
+    private ListView eaS;
+    private a eaT;
+    private TextView eaU;
+    private StarRank eaV;
+    private View eaW;
+    private TextView eaX;
+    private TextView eaY;
+    private TextView eaZ;
     private Context mContext;
 
     public void a(Context context, StarRank starRank) {
         this.mContext = context;
         if (this.mContext instanceof Activity) {
-            this.dZC = starRank;
-            if (starRank != null && !v.J(this.dZC.user_task_info)) {
-                this.dZy = LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(e.h.frs_star_bottom_dialog_view, (ViewGroup) null);
-                this.dZD = this.dZy.findViewById(e.g.outer_bg);
-                this.bCm = this.dZy.findViewById(e.g.divider_line);
-                this.dZE = (TextView) this.dZy.findViewById(e.g.jump_title);
-                this.dZF = (TextView) this.dZy.findViewById(e.g.task_title);
-                this.asX = (TbImageView) this.dZy.findViewById(e.g.pic_show);
-                this.dZG = (TextView) this.dZy.findViewById(e.g.know_view);
-                this.dZz = (ListView) this.dZy.findViewById(e.g.rank_listview);
-                this.dZB = (TextView) this.dZy.findViewById(e.g.know_view);
-                this.dZB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.d.1
+            this.eaV = starRank;
+            if (starRank != null && !v.I(this.eaV.user_task_info)) {
+                this.eaR = LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(e.h.frs_star_bottom_dialog_view, (ViewGroup) null);
+                this.eaW = this.eaR.findViewById(e.g.outer_bg);
+                this.bCY = this.eaR.findViewById(e.g.divider_line);
+                this.eaX = (TextView) this.eaR.findViewById(e.g.jump_title);
+                this.eaY = (TextView) this.eaR.findViewById(e.g.task_title);
+                this.atK = (TbImageView) this.eaR.findViewById(e.g.pic_show);
+                this.eaZ = (TextView) this.eaR.findViewById(e.g.know_view);
+                this.eaS = (ListView) this.eaR.findViewById(e.g.rank_listview);
+                this.eaU = (TextView) this.eaR.findViewById(e.g.know_view);
+                this.eaU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.d.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        d.this.aGP();
+                        d.this.aGn();
                     }
                 });
-                this.dZA = new a(this.mContext);
-                this.dZA.setData(this.dZC.user_task_info);
-                this.dZz.setAdapter((ListAdapter) this.dZA);
-                this.dZE.setText(this.dZC.user_current_score_notice);
-                aGP();
-                this.asf = new AlertDialog.Builder(this.mContext).create();
-                this.asf.setCanceledOnTouchOutside(true);
-                g.a(this.asf, (Activity) this.mContext);
-                Window window = this.asf.getWindow();
+                this.eaT = new a(this.mContext);
+                this.eaT.setData(this.eaV.user_task_info);
+                this.eaS.setAdapter((ListAdapter) this.eaT);
+                this.eaX.setText(this.eaV.user_current_score_notice);
+                aGn();
+                this.asS = new AlertDialog.Builder(this.mContext).create();
+                this.asS.setCanceledOnTouchOutside(true);
+                g.a(this.asS, (Activity) this.mContext);
+                Window window = this.asS.getWindow();
                 window.setWindowAnimations(e.k.share_dialog_style);
                 window.setGravity(80);
                 window.setLayout(-1, -2);
-                window.setContentView(this.dZy);
-                aGQ();
+                window.setContentView(this.eaR);
+                aGo();
             }
         }
     }
 
-    public void aGP() {
-        if (this.asf != null && this.asf.isShowing()) {
-            this.asf.dismiss();
+    public void aGn() {
+        if (this.asS != null && this.asS.isShowing()) {
+            this.asS.dismiss();
         }
     }
 
-    public void aGQ() {
-        al.c(this.asX, e.f.pic_frs_idol_mission);
-        al.i(this.dZD, e.d.cp_bg_line_d);
-        al.j(this.bCm, e.d.cp_bg_line_e);
-        al.i(this.dZG, e.f.frs_star_btn_selector);
-        al.c(this.dZG, e.d.cp_cont_i, 1);
-        al.c(this.dZE, e.d.cp_cont_b, 1);
-        al.c(this.dZF, e.d.cp_cont_d, 1);
-        this.dZA.notifyDataSetChanged();
+    public void aGo() {
+        al.c(this.atK, e.f.pic_frs_idol_mission);
+        al.i(this.eaW, e.d.cp_bg_line_d);
+        al.j(this.bCY, e.d.cp_bg_line_e);
+        al.i(this.eaZ, e.f.frs_star_btn_selector);
+        al.c(this.eaZ, e.d.cp_cont_i, 1);
+        al.c(this.eaX, e.d.cp_cont_b, 1);
+        al.c(this.eaY, e.d.cp_cont_d, 1);
+        this.eaT.notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -103,7 +103,7 @@ public class d {
         }
 
         void setData(List<StarTaskInfo> list) {
-            if (!v.J(list)) {
+            if (!v.I(list)) {
                 this.data.clear();
                 this.data.addAll(list);
                 notifyDataSetChanged();
@@ -112,7 +112,7 @@ public class d {
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (v.J(this.data)) {
+            if (v.I(this.data)) {
                 return 0;
             }
             return this.data.size();
@@ -120,7 +120,7 @@ public class d {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
-        /* renamed from: ng */
+        /* renamed from: ny */
         public StarTaskInfo getItem(int i) {
             return (StarTaskInfo) v.d(this.data, i);
         }
@@ -136,10 +136,10 @@ public class d {
             if (view == null) {
                 view = LayoutInflater.from(this.mContext).inflate(e.h.frs_item_bottom_view, viewGroup, false);
                 b bVar2 = new b();
-                bVar2.dZI = (TextView) view.findViewById(e.g.task_name);
-                bVar2.dZK = (TextView) view.findViewById(e.g.desc);
-                bVar2.dZJ = (TextView) view.findViewById(e.g.score_desc);
-                bVar2.dZL = (TextView) view.findViewById(e.g.status_text);
+                bVar2.ebb = (TextView) view.findViewById(e.g.task_name);
+                bVar2.ebd = (TextView) view.findViewById(e.g.desc);
+                bVar2.ebc = (TextView) view.findViewById(e.g.score_desc);
+                bVar2.ebe = (TextView) view.findViewById(e.g.status_text);
                 bVar2.divider = view.findViewById(e.g.bottom_divider_line);
                 view.setTag(bVar2);
                 bVar = bVar2;
@@ -150,20 +150,20 @@ public class d {
             if (item == null) {
                 return null;
             }
-            bVar.dZI.setText(item.task_title);
-            bVar.dZK.setText(item.task_desc);
-            bVar.dZJ.setText(item.task_score_desc);
+            bVar.ebb.setText(item.task_title);
+            bVar.ebd.setText(item.task_desc);
+            bVar.ebc.setText(item.task_score_desc);
             if (item.task_status.intValue() == 1) {
-                bVar.dZL.setText(e.j.task_done);
-                al.h(bVar.dZL, e.d.cp_cont_d);
+                bVar.ebe.setText(e.j.task_done);
+                al.h(bVar.ebe, e.d.cp_cont_d);
             } else {
-                bVar.dZL.setText(e.j.task_not_done);
-                al.h(bVar.dZL, e.d.cp_cont_b);
+                bVar.ebe.setText(e.j.task_not_done);
+                al.h(bVar.ebe, e.d.cp_cont_b);
             }
             bVar.divider.setVisibility(i == getCount() + (-1) ? 8 : 0);
-            al.h(bVar.dZI, e.d.cp_cont_b);
-            al.h(bVar.dZK, e.d.cp_cont_d);
-            al.h(bVar.dZJ, e.d.cp_cont_h);
+            al.h(bVar.ebb, e.d.cp_cont_b);
+            al.h(bVar.ebd, e.d.cp_cont_d);
+            al.h(bVar.ebc, e.d.cp_cont_h);
             al.j(bVar.divider, e.d.cp_bg_line_c);
             return view;
         }
@@ -171,11 +171,11 @@ public class d {
 
     /* loaded from: classes6.dex */
     private static class b {
-        TextView dZI;
-        TextView dZJ;
-        TextView dZK;
-        TextView dZL;
         View divider;
+        TextView ebb;
+        TextView ebc;
+        TextView ebd;
+        TextView ebe;
 
         private b() {
         }

@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
+import com.baidu.mapapi.UIMsg;
 import com.baidu.webkit.internal.Statistics;
 import com.coloros.mcssdk.c.d;
 import java.util.List;
@@ -22,13 +23,13 @@ public class PushService extends Service implements com.coloros.mcssdk.d.a {
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
         List<com.coloros.mcssdk.e.c> j = com.coloros.mcssdk.a.c.j(getApplicationContext(), intent);
-        List<com.coloros.mcssdk.b.c> bQJ = a.bQK().bQJ();
-        if (j == null || j.size() == 0 || bQJ == null || bQJ.size() == 0) {
+        List<com.coloros.mcssdk.b.c> bQe = a.bQf().bQe();
+        if (j == null || j.size() == 0 || bQe == null || bQe.size() == 0) {
             return super.onStartCommand(intent, i, i2);
         }
         for (com.coloros.mcssdk.e.c cVar : j) {
             if (cVar != null) {
-                for (com.coloros.mcssdk.b.c cVar2 : bQJ) {
+                for (com.coloros.mcssdk.b.c cVar2 : bQe) {
                     if (cVar2 != null) {
                         try {
                             cVar2.a(getApplicationContext(), cVar, this);
@@ -48,19 +49,19 @@ public class PushService extends Service implements com.coloros.mcssdk.d.a {
 
     @Override // com.coloros.mcssdk.d.a
     public void processMessage(Context context, com.coloros.mcssdk.e.b bVar) {
-        if (a.bQK().bQL() == null) {
+        if (a.bQf().bQg() == null) {
             return;
         }
         switch (bVar.getCommand()) {
-            case 12289:
-                a.bQK().bQL().onRegister(bVar.getResponseCode(), bVar.getContent());
+            case UIMsg.k_event.MV_MAP_CACHEMANAGE /* 12289 */:
+                a.bQf().bQg().onRegister(bVar.getResponseCode(), bVar.getContent());
                 if (bVar.getResponseCode() == 0) {
-                    a.bQK().yf(bVar.getContent());
+                    a.bQf().yk(bVar.getContent());
                     return;
                 }
                 return;
             case 12290:
-                a.bQK().bQL().onUnRegister(bVar.getResponseCode());
+                a.bQf().bQg().onUnRegister(bVar.getResponseCode());
                 return;
             case 12291:
             case 12299:
@@ -72,40 +73,40 @@ public class PushService extends Service implements com.coloros.mcssdk.d.a {
             default:
                 return;
             case 12292:
-                a.bQK().bQL().onSetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
+                a.bQf().bQg().onSetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
                 return;
             case 12293:
-                a.bQK().bQL().onGetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
+                a.bQf().bQg().onGetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
                 return;
             case 12294:
-                a.bQK().bQL().onUnsetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
+                a.bQf().bQg().onUnsetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
                 return;
             case 12295:
-                a.bQK().bQL().onSetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
+                a.bQf().bQg().onSetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
                 return;
             case 12296:
-                a.bQK().bQL().onGetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
+                a.bQf().bQg().onGetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
                 return;
             case 12297:
-                a.bQK().bQL().onUnsetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
+                a.bQf().bQg().onUnsetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
                 return;
             case 12298:
-                a.bQK().bQL().onSetPushTime(bVar.getResponseCode(), bVar.getContent());
+                a.bQf().bQg().onSetPushTime(bVar.getResponseCode(), bVar.getContent());
                 return;
             case 12301:
-                a.bQK().bQL().onSetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
+                a.bQf().bQg().onSetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
                 return;
             case Statistics.kTypeWhiteScreen /* 12302 */:
-                a.bQK().bQL().onGetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
+                a.bQf().bQg().onGetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
                 return;
             case 12303:
-                a.bQK().bQL().onUnsetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
+                a.bQf().bQg().onUnsetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
                 return;
             case 12306:
-                a.bQK().bQL().onGetPushStatus(bVar.getResponseCode(), d.a(bVar.getContent()));
+                a.bQf().bQg().onGetPushStatus(bVar.getResponseCode(), d.a(bVar.getContent()));
                 return;
             case 12309:
-                a.bQK().bQL().onGetNotificationStatus(bVar.getResponseCode(), d.a(bVar.getContent()));
+                a.bQf().bQg().onGetNotificationStatus(bVar.getResponseCode(), d.a(bVar.getContent()));
                 return;
         }
     }

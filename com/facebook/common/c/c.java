@@ -1,7 +1,7 @@
 package com.facebook.common.c;
 /* loaded from: classes2.dex */
 public interface c {
-    void cW(String str, String str2);
+    void cV(String str, String str2);
 
     void d(String str, String str2);
 

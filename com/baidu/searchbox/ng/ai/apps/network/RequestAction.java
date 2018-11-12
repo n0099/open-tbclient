@@ -32,8 +32,8 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class RequestAction extends BaseRequestAction implements NetworkDef {
     private static final String ACTION_TYPE = "/swan/request";
-    private static final Set<String> AVAILABLE_DATA_TYPE = h.J(NetworkDef.DataType.JSON, "string");
-    private static final Set<String> AVAILABLE_METHOD = h.J("OPTIONS", "GET", "HEAD", "POST", "PUT", "DELETE", "TRACE", NetworkDef.Http.Method.CONNECT);
+    private static final Set<String> AVAILABLE_DATA_TYPE = h.K(NetworkDef.DataType.JSON, "string");
+    private static final Set<String> AVAILABLE_METHOD = h.K("OPTIONS", "GET", "HEAD", "POST", "PUT", "DELETE", "TRACE", NetworkDef.Http.Method.CONNECT);
 
     public RequestAction(UnitedSchemeAiAppDispatcher unitedSchemeAiAppDispatcher) {
         super(unitedSchemeAiAppDispatcher, ACTION_TYPE);

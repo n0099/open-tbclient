@@ -28,9 +28,9 @@ public class WhiteListData extends LinkedList<String> {
 
     public void saveJson(JSONArray jSONArray) {
         if (jSONArray == null) {
-            go(null);
+            gp(null);
         } else {
-            go(jSONArray.toString());
+            gp(jSONArray.toString());
         }
     }
 
@@ -58,7 +58,7 @@ public class WhiteListData extends LinkedList<String> {
         return false;
     }
 
-    private void go(String str) {
+    private void gp(String str) {
         com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_white_list", str);
     }
 

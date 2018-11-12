@@ -3,8 +3,8 @@ package com.baidu.adp.plugin.util;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class f implements Comparable<f> {
-    int Mh;
-    int Mi;
+    int Mk;
+    int Ml;
     int mDay;
     int mMinute;
     int mMonth;
@@ -14,13 +14,13 @@ public class f implements Comparable<f> {
         this.mYear = i;
         this.mMonth = i2;
         this.mDay = i3;
-        this.Mh = i4;
+        this.Mk = i4;
         this.mMinute = i5;
-        this.Mi = i6;
+        this.Ml = i6;
     }
 
     public String toString() {
-        return this.mYear + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mMonth + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mDay + " " + this.Mh + ":" + this.mMinute + ":" + this.Mi;
+        return this.mYear + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mMonth + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mDay + " " + this.Mk + ":" + this.mMinute + ":" + this.Ml;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,16 +41,16 @@ public class f implements Comparable<f> {
                 if (this.mDay - fVar.mDay < 0) {
                     return -1;
                 }
-                if (this.Mh - fVar.Mh <= 0) {
-                    if (this.Mh - fVar.Mh < 0) {
+                if (this.Mk - fVar.Mk <= 0) {
+                    if (this.Mk - fVar.Mk < 0) {
                         return -1;
                     }
                     if (this.mMinute - fVar.mMinute <= 0) {
                         if (this.mMinute - fVar.mMinute < 0) {
                             return -1;
                         }
-                        if (this.Mi - fVar.Mi <= 0) {
-                            return this.Mi - fVar.Mi < 0 ? -1 : 0;
+                        if (this.Ml - fVar.Ml <= 0) {
+                            return this.Ml - fVar.Ml < 0 ? -1 : 0;
                         }
                         return 1;
                     }

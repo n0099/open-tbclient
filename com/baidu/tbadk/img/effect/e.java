@@ -7,14 +7,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class e extends b {
-    private int aYS = 0;
+    private int aZG = 0;
 
     @Override // com.baidu.tbadk.img.effect.b
     public String getActionName() {
         return DaRotate.ACTION_TYPE;
     }
 
-    public static ImageOperation fz(int i) {
+    public static ImageOperation fN(int i) {
         ImageOperation imageOperation = new ImageOperation();
         imageOperation.actionName = DaRotate.ACTION_TYPE;
         imageOperation.actionParam = String.valueOf(i);
@@ -24,7 +24,7 @@ public class e extends b {
     @Override // com.baidu.tbadk.img.effect.b
     public void setParams(String str) {
         if (str != null) {
-            this.aYS = Integer.parseInt(str);
+            this.aZG = Integer.parseInt(str);
         }
     }
 
@@ -33,18 +33,18 @@ public class e extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.Me().fy(BitmapHelper.getBitmapSize(bitmap) * 2);
-        if (this.aYS == 0 || this.aYS == 1) {
-            return BitmapHelper.rotateBitmap(bitmap, this.aYS);
+        com.baidu.tbadk.imageManager.c.Mq().fM(BitmapHelper.getBitmapSize(bitmap) * 2);
+        if (this.aZG == 0 || this.aZG == 1) {
+            return BitmapHelper.rotateBitmap(bitmap, this.aZG);
         }
-        if (this.aYS == 2 || this.aYS == 3) {
-            return BitmapHelper.reversalBitmap(bitmap, this.aYS);
+        if (this.aZG == 2 || this.aZG == 3) {
+            return BitmapHelper.reversalBitmap(bitmap, this.aZG);
         }
         return bitmap;
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap hT(String str) throws Exception {
+    public Bitmap hU(String str) throws Exception {
         int max = Math.max(l.aO(TbadkCoreApplication.getInst().getApp()), l.aQ(TbadkCoreApplication.getInst().getApp()));
         return b(BitmapHelper.loadResizedBitmap(str, max, max), true);
     }

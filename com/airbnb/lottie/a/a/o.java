@@ -13,18 +13,18 @@ public class o implements k, a.InterfaceC0009a {
     private q oH;
     private boolean oO;
     private final Path oy = new Path();
-    private final com.airbnb.lottie.a.b.a<?, Path> pw;
+    private final com.airbnb.lottie.a.b.a<?, Path> px;
 
     public o(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, com.airbnb.lottie.model.content.k kVar) {
         this.name = kVar.getName();
         this.nh = fVar;
-        this.pw = kVar.eE().dH();
-        aVar.a(this.pw);
-        this.pw.b(this);
+        this.px = kVar.eD().dG();
+        aVar.a(this.px);
+        this.px.b(this);
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0009a
-    public void de() {
+    public void dd() {
         invalidate();
     }
 
@@ -40,7 +40,7 @@ public class o implements k, a.InterfaceC0009a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof q) && ((q) bVar).dn() == ShapeTrimPath.Type.Simultaneously) {
+                if ((bVar instanceof q) && ((q) bVar).dm() == ShapeTrimPath.Type.Simultaneously) {
                     this.oH = (q) bVar;
                     this.oH.a(this);
                 }
@@ -57,7 +57,7 @@ public class o implements k, a.InterfaceC0009a {
             return this.oy;
         }
         this.oy.reset();
-        this.oy.set(this.pw.getValue());
+        this.oy.set(this.px.getValue());
         this.oy.setFillType(Path.FillType.EVEN_ODD);
         com.airbnb.lottie.c.f.a(this.oy, this.oH);
         this.oO = true;

@@ -26,8 +26,8 @@ public class k {
     private com.baidu.b.a.f.d.a.b aao = new com.baidu.b.a.f.d.a.b(this.aan);
     private b aap = new b() { // from class: com.baidu.b.a.f.d.k.2
         @Override // com.baidu.b.a.f.d.k.b
-        public Runnable aw(boolean z) {
-            return k.this.av(z);
+        public Runnable aK(boolean z) {
+            return k.this.aJ(z);
         }
     };
     private h<f> aai = new h<>();
@@ -36,7 +36,7 @@ public class k {
 
     /* loaded from: classes2.dex */
     public interface b {
-        Runnable aw(boolean z);
+        Runnable aK(boolean z);
     }
 
     public void c(com.baidu.b.a.f.d.a.a aVar) {
@@ -61,10 +61,10 @@ public class k {
 
         @Override // java.lang.Runnable
         public void run() {
-            Runnable aw;
-            while (!this.aam.get() && (aw = this.aas.aw(true)) != null && (aw instanceof f)) {
+            Runnable aK;
+            while (!this.aam.get() && (aK = this.aas.aK(true)) != null && (aK instanceof f)) {
                 try {
-                    l((f) aw);
+                    l((f) aK);
                 } catch (Throwable th) {
                     if (com.baidu.b.a.h.b.isDebug()) {
                         Log.e("ThreadQueue", "runTask error:" + th.toString());
@@ -102,11 +102,11 @@ public class k {
         }
     }
 
-    public synchronized Runnable av(boolean z) {
+    public synchronized Runnable aJ(boolean z) {
         f fVar;
         if (this.aai != null) {
             if (z) {
-                fVar = this.aai.rW();
+                fVar = this.aai.rT();
             } else {
                 fVar = this.aai.get();
             }
@@ -143,7 +143,7 @@ public class k {
             if (this.aal == null || !this.aal.d(fVar)) {
                 i = 0;
             } else {
-                this.aal.at(true);
+                this.aal.aH(true);
                 i = 1;
             }
             if (this.aai.contains(fVar)) {

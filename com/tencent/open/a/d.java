@@ -17,7 +17,7 @@ public class d {
 
     /* renamed from: com.tencent.open.a.d$d  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C0341d {
+    public static final class C0369d {
         @SuppressLint({"SimpleDateFormat"})
         public static SimpleDateFormat a(String str) {
             return new SimpleDateFormat(str);

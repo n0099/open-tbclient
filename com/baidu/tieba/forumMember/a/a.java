@@ -17,7 +17,7 @@ public class a extends h<b, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: af */
+    /* renamed from: ag */
     public c onCreateViewHolder(ViewGroup viewGroup) {
         return new c(LayoutInflater.from(this.mContext).inflate(e.h.manito_item_header, (ViewGroup) null));
     }
@@ -32,9 +32,9 @@ public class a extends h<b, c> {
             al.j(cVar.getView(), e.d.cp_bg_line_d);
             al.j(cVar.dividerLine, e.d.cp_bg_line_b);
             al.c(cVar.title, e.d.cp_cont_c, 1);
-            al.j(cVar.dhN, e.d.cp_bg_line_c);
+            al.j(cVar.diS, e.d.cp_bg_line_c);
         }
-        cVar.title.setText(String.format(this.mContext.getResources().getString(e.j.forum_manito_num), Integer.valueOf(bVar.ayi())));
+        cVar.title.setText(String.format(this.mContext.getResources().getString(e.j.forum_manito_num), Integer.valueOf(bVar.axF())));
         cVar.mSkinType = this.mSkinType;
         return view;
     }

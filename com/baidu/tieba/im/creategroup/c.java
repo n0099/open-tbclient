@@ -3,17 +3,17 @@ package com.baidu.tieba.im.creategroup;
 import android.app.Activity;
 /* loaded from: classes3.dex */
 public class c {
-    public static String eDr = "pic_found_address";
-    public static String eDs = "pic_found_recommend";
-    public static String eDt = "pic_didian";
-    public static String eDu = "pic_found_name";
-    public static String eDv = "pic_benba";
+    public static String eEK = "pic_found_address";
+    public static String eEL = "pic_found_recommend";
+    public static String eEM = "pic_didian";
+    public static String eEN = "pic_found_name";
+    public static String eEO = "pic_benba";
 
     public static String a(Activity activity, String str, boolean z) {
-        return z ? com.baidu.tbadk.util.c.Ow().m18if(str + "_1.png") : com.baidu.tbadk.util.c.Ow().m18if(str + ".png");
+        return z ? com.baidu.tbadk.util.c.OF().ig(str + "_1.png") : com.baidu.tbadk.util.c.OF().ig(str + ".png");
     }
 
     public static void b(Activity activity, String str, boolean z) {
-        com.baidu.adp.lib.f.c.jC().a(a(activity, str, z), 29, null, 0, 0, null, new Object[0]);
+        com.baidu.adp.lib.f.c.jA().a(a(activity, str, z), 29, null, 0, 0, null, new Object[0]);
     }
 }

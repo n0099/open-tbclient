@@ -38,7 +38,7 @@ public enum CharDirectionality {
 
     /* loaded from: classes2.dex */
     public static final class a {
-        static final /* synthetic */ kotlin.reflect.j[] ipl = {kotlin.jvm.internal.s.a(new PropertyReference1Impl(kotlin.jvm.internal.s.C(a.class), "directionalityMap", "getDirectionalityMap()Ljava/util/Map;"))};
+        static final /* synthetic */ kotlin.reflect.j[] iqV = {kotlin.jvm.internal.s.a(new PropertyReference1Impl(kotlin.jvm.internal.s.C(a.class), "directionalityMap", "getDirectionalityMap()Ljava/util/Map;"))};
 
         private a() {
         }

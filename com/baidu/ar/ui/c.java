@@ -347,15 +347,15 @@ public abstract class c implements View.OnClickListener, com.baidu.ar.c.c, Orien
             System.currentTimeMillis();
         }
         switch (i) {
-            case MsgField.IMSG_SO_LOAD_SUCCESS /* 1201 */:
+            case 1201:
                 e("so load success");
                 return;
             case MsgField.IMSG_SO_LOAD_FAILED /* 1202 */:
                 e("so load failed");
                 return;
             case 1401:
-            case MsgField.IMSG_RECGAR_NETWORT_ERROR /* 1402 */:
-            case MsgField.IMSG_CLOUDAR_TOAST_ERROR /* 1403 */:
+            case 1402:
+            case 1403:
             case MsgField.IMSG_ON_DEVICE_IR_START /* 1806 */:
             case MsgField.IMSG_CLORD_ID_START /* 1807 */:
             case MsgField.IMSG_TRACK_MODEL_APPEAR /* 1809 */:

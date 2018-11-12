@@ -4,41 +4,41 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 /* loaded from: classes2.dex */
 public class a implements e {
-    private final Executor idR;
-    private final Executor idS;
-    private final Executor idT;
-    private final Executor idU;
+    private final Executor ifB;
+    private final Executor ifC;
+    private final Executor ifD;
+    private final Executor ifE;
 
     public a(int i) {
         k kVar = new k(10);
-        this.idR = Executors.newFixedThreadPool(2);
-        this.idS = Executors.newFixedThreadPool(i, kVar);
-        this.idT = Executors.newFixedThreadPool(i, kVar);
-        this.idU = Executors.newFixedThreadPool(1, kVar);
+        this.ifB = Executors.newFixedThreadPool(2);
+        this.ifC = Executors.newFixedThreadPool(i, kVar);
+        this.ifD = Executors.newFixedThreadPool(i, kVar);
+        this.ifE = Executors.newFixedThreadPool(1, kVar);
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor bUS() {
-        return this.idR;
+    public Executor bUn() {
+        return this.ifB;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor bUT() {
-        return this.idR;
+    public Executor bUo() {
+        return this.ifB;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor bUU() {
-        return this.idS;
+    public Executor bUp() {
+        return this.ifC;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor bUV() {
-        return this.idT;
+    public Executor bUq() {
+        return this.ifD;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor bUW() {
-        return this.idU;
+    public Executor bUr() {
+        return this.ifE;
     }
 }

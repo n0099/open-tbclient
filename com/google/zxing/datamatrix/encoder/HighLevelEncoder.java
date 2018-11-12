@@ -1,6 +1,7 @@
 package com.google.zxing.datamatrix.encoder;
 
 import android.support.v7.widget.ActivityChooserView;
+import com.baidu.mapapi.UIMsg;
 import com.google.zxing.Dimension;
 import java.util.Arrays;
 /* loaded from: classes3.dex */
@@ -32,7 +33,7 @@ public final class HighLevelEncoder {
     private static char randomize253State(char c, int i) {
         int i2 = ((i * 149) % 253) + 1 + c;
         if (i2 > 254) {
-            i2 -= 254;
+            i2 += UIMsg.m_AppUI.V_WM_LISTLISTUPDATE;
         }
         return (char) i2;
     }

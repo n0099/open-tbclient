@@ -6,15 +6,15 @@ import com.baidu.tbadk.TbConfig;
 import java.io.File;
 /* loaded from: classes.dex */
 public class an {
-    private static an axY;
+    private static an ayL;
 
-    public static synchronized an CA() {
+    public static synchronized an CH() {
         an anVar;
         synchronized (an.class) {
-            if (axY == null) {
-                axY = new an();
+            if (ayL == null) {
+                ayL = new an();
             }
-            anVar = axY;
+            anVar = ayL;
         }
         return anVar;
     }
@@ -52,7 +52,7 @@ public class an {
     }
 
     public boolean copyFile(String str, String str2) {
-        String str3 = l.FH + "/" + TbConfig.getTempDirName() + "/";
+        String str3 = l.FL + "/" + TbConfig.getTempDirName() + "/";
         if (!l.ez(str3)) {
             l.eW(str3);
         }
@@ -86,13 +86,13 @@ public class an {
         }
     }
 
-    public void CB() {
-        A(new File(l.FH + "/" + TbConfig.getTempDirName() + "/image"));
-        A(new File(l.FH + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
+    public void CI() {
+        A(new File(l.FL + "/" + TbConfig.getTempDirName() + "/image"));
+        A(new File(l.FL + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
     }
 
-    public void CC() {
-        B(new File(l.FH + "/" + TbConfig.getTempDirName() + "/" + l.cY(3)));
+    public void CJ() {
+        B(new File(l.FL + "/" + TbConfig.getTempDirName() + "/" + l.dm(3)));
     }
 
     private void B(File file) {

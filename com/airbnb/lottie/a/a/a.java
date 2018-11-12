@@ -34,17 +34,17 @@ public abstract class a implements d, a.InterfaceC0009a {
         this.paint.setStyle(Paint.Style.STROKE);
         this.paint.setStrokeCap(cap);
         this.paint.setStrokeJoin(join);
-        this.oD = dVar.dH();
-        this.oC = bVar.dH();
+        this.oD = dVar.dG();
+        this.oC = bVar.dG();
         if (bVar2 == null) {
             this.oF = null;
         } else {
-            this.oF = bVar2.dH();
+            this.oF = bVar2.dG();
         }
         this.oE = new ArrayList(list.size());
         this.oB = new float[list.size()];
         for (int i = 0; i < list.size(); i++) {
-            this.oE.add(list.get(i).dH());
+            this.oE.add(list.get(i).dG());
         }
         aVar.a(this.oD);
         aVar.a(this.oC);
@@ -65,7 +65,7 @@ public abstract class a implements d, a.InterfaceC0009a {
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0009a
-    public void de() {
+    public void dd() {
         this.nh.invalidateSelf();
     }
 
@@ -77,7 +77,7 @@ public abstract class a implements d, a.InterfaceC0009a {
         while (size >= 0) {
             b bVar = list.get(size);
             size--;
-            qVar = ((bVar instanceof q) && ((q) bVar).dn() == ShapeTrimPath.Type.Individually) ? (q) bVar : qVar;
+            qVar = ((bVar instanceof q) && ((q) bVar).dm() == ShapeTrimPath.Type.Individually) ? (q) bVar : qVar;
         }
         if (qVar != null) {
             qVar.a(this);
@@ -86,7 +86,7 @@ public abstract class a implements d, a.InterfaceC0009a {
         C0008a c0008a2 = null;
         while (size2 >= 0) {
             b bVar2 = list2.get(size2);
-            if ((bVar2 instanceof q) && ((q) bVar2).dn() == ShapeTrimPath.Type.Individually) {
+            if ((bVar2 instanceof q) && ((q) bVar2).dm() == ShapeTrimPath.Type.Individually) {
                 if (c0008a2 != null) {
                     this.oA.add(c0008a2);
                 }
@@ -163,9 +163,9 @@ public abstract class a implements d, a.InterfaceC0009a {
             }
             length = this.ox.getLength() + f;
         }
-        float floatValue = (c0008a.oH.dq().getValue().floatValue() * f) / 360.0f;
-        float floatValue2 = ((c0008a.oH.m6do().getValue().floatValue() * f) / 100.0f) + floatValue;
-        float floatValue3 = ((c0008a.oH.dp().getValue().floatValue() * f) / 100.0f) + floatValue;
+        float floatValue = (c0008a.oH.dp().getValue().floatValue() * f) / 360.0f;
+        float floatValue2 = ((c0008a.oH.dn().getValue().floatValue() * f) / 100.0f) + floatValue;
+        float floatValue3 = ((c0008a.oH.m6do().getValue().floatValue() * f) / 100.0f) + floatValue;
         int size2 = c0008a.oG.size() - 1;
         float f2 = 0.0f;
         while (size2 >= 0) {

@@ -9,7 +9,6 @@ import com.baidu.searchbox.ng.ai.apps.contact.ContactParams;
 import com.baidu.searchbox.ng.ai.apps.runtime.AiApp;
 import com.baidu.searchbox.ng.ai.apps.scheme.UnitedSchemeAiAppDispatcher;
 import com.baidu.searchbox.ng.ai.apps.scheme.actions.AiAppAction;
-import com.baidu.searchbox.ng.ai.apps.system.bluetooth.utils.AiAppsBluetoothConstants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -104,7 +103,7 @@ public class SetPhoneContactAction extends AiAppAction {
         try {
             context.startActivity(intent);
             if (!TextUtils.isEmpty(this.callback)) {
-                callbackHandler.handleSchemeDispatchCallback(this.callback, UnitedSchemeUtility.wrapCallbackParams(0, AiAppsBluetoothConstants.ERROR_OK).toString());
+                callbackHandler.handleSchemeDispatchCallback(this.callback, UnitedSchemeUtility.wrapCallbackParams(0, "ok").toString());
             }
         } catch (Exception e) {
             if (!TextUtils.isEmpty(this.callback)) {

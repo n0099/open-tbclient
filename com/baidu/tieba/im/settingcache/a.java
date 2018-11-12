@@ -12,20 +12,20 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected HashMap<String, ChatSetting> eQO = new HashMap<>();
+    protected HashMap<String, ChatSetting> eSg = new HashMap<>();
 
     public abstract void a(ChatSetting chatSetting);
 
     public abstract void a(ChatSetting chatSetting, h<Void> hVar);
 
-    protected abstract l<String> aSS();
+    protected abstract l<String> aSp();
 
     public abstract ChatSetting bM(String str, String str2);
 
     public void p(Class<? extends ChatSetting> cls) {
         String str;
-        synchronized (this.eQO) {
-            this.eQO.clear();
+        synchronized (this.eSg) {
+            this.eSg.clear();
         }
         String str2 = "";
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
@@ -33,14 +33,14 @@ public abstract class a {
         }
         if (str2 != null && str2.length() != 0) {
             String str3 = str2 + "@";
-            synchronized (this.eQO) {
-                l<String> aSS = aSS();
-                List<l.b<String>> b = r.b(aSS);
+            synchronized (this.eSg) {
+                l<String> aSp = aSp();
+                List<l.b<String>> b = r.b(aSp);
                 if (b != null) {
                     for (l.b<String> bVar : b) {
                         String str4 = bVar.key;
-                        if (str4 != null && str4.startsWith(str3) && (str = aSS.get(str4)) != null) {
-                            this.eQO.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
+                        if (str4 != null && str4.startsWith(str3) && (str = aSp.get(str4)) != null) {
+                            this.eSg.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
                         }
                     }
                 }

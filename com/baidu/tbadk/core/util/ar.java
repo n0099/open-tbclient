@@ -41,7 +41,7 @@ public class ar {
         }
     }
 
-    public static String E(byte[] bArr) {
+    public static String D(byte[] bArr) {
         int i = 0;
         try {
             MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);

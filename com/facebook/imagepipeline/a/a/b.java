@@ -5,7 +5,8 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes2.dex */
 public interface b {
-    d bUb();
+    d bTw();
 
-    a dt(Context context);
+    /* renamed from: do  reason: not valid java name */
+    a m23do(Context context);
 }

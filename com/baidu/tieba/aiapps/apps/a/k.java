@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import kotlin.jvm.internal.o;
 /* loaded from: classes4.dex */
 public final class k extends ActivityDelegation implements OnAiAppLoginResultListener {
-    public static final a bBh = new a(null);
+    public static final a bBT = new a(null);
     private static final String RESULT_CODE = "result_code";
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     protected boolean onExec() {
         if (b.isLogin(getAgent())) {
-            this.mResult.putInt(bBh.Wn(), 0);
+            this.mResult.putInt(bBT.Wx(), 0);
             finish();
             return true;
         }
@@ -22,7 +22,7 @@ public final class k extends ActivityDelegation implements OnAiAppLoginResultLis
 
     @Override // com.baidu.searchbox.ng.ai.apps.account.OnAiAppLoginResultListener
     public void onResult(int i) {
-        this.mResult.putInt(bBh.Wn(), i);
+        this.mResult.putInt(bBT.Wx(), i);
         finish();
     }
 
@@ -35,7 +35,7 @@ public final class k extends ActivityDelegation implements OnAiAppLoginResultLis
             this();
         }
 
-        public final String Wn() {
+        public final String Wx() {
             return k.RESULT_CODE;
         }
     }

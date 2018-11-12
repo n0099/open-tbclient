@@ -13,14 +13,14 @@ import android.view.ViewGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class MaskView extends ViewGroup {
-    private boolean BL;
-    private final RectF BR;
-    private final RectF BS;
-    private final RectF BT;
-    private final Paint BU;
-    private final Path BV;
-    private boolean BW;
+    private boolean BO;
+    private final RectF BU;
+    private final RectF BV;
+    private final RectF BW;
     private final Paint BX;
+    private final Path BY;
+    private boolean BZ;
+    private final Paint Ca;
     private final Paint mPaint;
 
     public MaskView(Context context) {
@@ -33,23 +33,23 @@ public class MaskView extends ViewGroup {
 
     public MaskView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.BR = new RectF();
-        this.BS = new RectF();
-        this.BT = new RectF();
-        this.BU = new Paint();
-        this.BV = new Path();
-        this.BL = false;
+        this.BU = new RectF();
+        this.BV = new RectF();
+        this.BW = new RectF();
         this.BX = new Paint();
+        this.BY = new Path();
+        this.BO = false;
+        this.Ca = new Paint();
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.BX.setColor(SupportMenu.CATEGORY_MASK);
-        this.BX.setStrokeWidth(10.0f);
+        this.Ca.setColor(SupportMenu.CATEGORY_MASK);
+        this.Ca.setStrokeWidth(10.0f);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         setFocusable(true);
         setFocusableInTouchMode(true);
         requestFocus();
-        this.BV.setFillType(Path.FillType.EVEN_ODD);
-        iV();
+        this.BY.setFillType(Path.FillType.EVEN_ODD);
+        iU();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -67,9 +67,9 @@ public class MaskView extends ViewGroup {
         int i3 = i & 1073741823;
         int i4 = i2 & 1073741823;
         setMeasuredDimension(i3, i4);
-        if (!this.BW) {
-            this.BS.set(0.0f, 0.0f, i3, i4);
-            iV();
+        if (!this.BZ) {
+            this.BV.set(0.0f, 0.0f, i3, i4);
+            iU();
         }
         int childCount = getChildCount();
         for (int i5 = 0; i5 < childCount; i5++) {
@@ -92,62 +92,62 @@ public class MaskView extends ViewGroup {
         for (int i5 = 0; i5 < childCount; i5++) {
             View childAt = getChildAt(i5);
             if (childAt != null && (aVar = (a) childAt.getLayoutParams()) != null) {
-                switch (aVar.BY) {
+                switch (aVar.Cb) {
                     case 1:
-                        this.BT.right = this.BR.left;
-                        this.BT.left = this.BT.right - childAt.getMeasuredWidth();
-                        b(childAt, this.BT, aVar.BZ);
+                        this.BW.right = this.BU.left;
+                        this.BW.left = this.BW.right - childAt.getMeasuredWidth();
+                        b(childAt, this.BW, aVar.Cc);
                         break;
                     case 2:
-                        this.BT.bottom = this.BR.top;
-                        this.BT.top = this.BT.bottom - childAt.getMeasuredHeight();
-                        a(childAt, this.BT, aVar.BZ);
+                        this.BW.bottom = this.BU.top;
+                        this.BW.top = this.BW.bottom - childAt.getMeasuredHeight();
+                        a(childAt, this.BW, aVar.Cc);
                         break;
                     case 3:
-                        this.BT.left = this.BR.right;
-                        this.BT.right = this.BT.left + childAt.getMeasuredWidth();
-                        b(childAt, this.BT, aVar.BZ);
+                        this.BW.left = this.BU.right;
+                        this.BW.right = this.BW.left + childAt.getMeasuredWidth();
+                        b(childAt, this.BW, aVar.Cc);
                         break;
                     case 4:
-                        this.BT.top = this.BR.bottom;
-                        this.BT.bottom = this.BT.top + childAt.getMeasuredHeight();
-                        a(childAt, this.BT, aVar.BZ);
+                        this.BW.top = this.BU.bottom;
+                        this.BW.bottom = this.BW.top + childAt.getMeasuredHeight();
+                        a(childAt, this.BW, aVar.Cc);
                         break;
                     case 5:
-                        this.BT.left = (((int) this.BR.width()) - childAt.getMeasuredWidth()) >> 1;
-                        this.BT.top = (((int) this.BR.height()) - childAt.getMeasuredHeight()) >> 1;
-                        this.BT.right = (((int) this.BR.width()) + childAt.getMeasuredWidth()) >> 1;
-                        this.BT.bottom = (((int) this.BR.height()) + childAt.getMeasuredHeight()) >> 1;
-                        this.BT.offset(this.BR.left, this.BR.top);
+                        this.BW.left = (((int) this.BU.width()) - childAt.getMeasuredWidth()) >> 1;
+                        this.BW.top = (((int) this.BU.height()) - childAt.getMeasuredHeight()) >> 1;
+                        this.BW.right = (((int) this.BU.width()) + childAt.getMeasuredWidth()) >> 1;
+                        this.BW.bottom = (((int) this.BU.height()) + childAt.getMeasuredHeight()) >> 1;
+                        this.BW.offset(this.BU.left, this.BU.top);
                         break;
                 }
-                if (this.BL) {
-                    this.BT.offset(aVar.Ca, aVar.Cb);
+                if (this.BO) {
+                    this.BW.offset(aVar.Cd, aVar.Ce);
                 } else {
-                    this.BT.offset((int) ((aVar.Ca * f) + 0.5f), (int) ((aVar.Cb * f) + 0.5f));
+                    this.BW.offset((int) ((aVar.Cd * f) + 0.5f), (int) ((aVar.Ce * f) + 0.5f));
                 }
-                childAt.layout((int) this.BT.left, (int) this.BT.top, (int) this.BT.right, (int) this.BT.bottom);
+                childAt.layout((int) this.BW.left, (int) this.BW.top, (int) this.BW.right, (int) this.BW.bottom);
             }
         }
     }
 
-    public void M(boolean z) {
-        this.BL = z;
+    public void aa(boolean z) {
+        this.BO = z;
     }
 
     private void a(View view, RectF rectF, int i) {
         switch (i) {
             case 16:
-                rectF.left = this.BR.left;
+                rectF.left = this.BU.left;
                 rectF.right = rectF.left + view.getMeasuredWidth();
                 return;
             case 32:
-                rectF.left = (this.BR.width() - view.getMeasuredWidth()) / 2.0f;
-                rectF.right = (this.BR.width() + view.getMeasuredWidth()) / 2.0f;
-                rectF.offset(this.BR.left, 0.0f);
+                rectF.left = (this.BU.width() - view.getMeasuredWidth()) / 2.0f;
+                rectF.right = (this.BU.width() + view.getMeasuredWidth()) / 2.0f;
+                rectF.offset(this.BU.left, 0.0f);
                 return;
             case 48:
-                rectF.right = this.BR.right;
+                rectF.right = this.BU.right;
                 rectF.left = rectF.right - view.getMeasuredWidth();
                 return;
             default:
@@ -158,59 +158,59 @@ public class MaskView extends ViewGroup {
     private void b(View view, RectF rectF, int i) {
         switch (i) {
             case 16:
-                rectF.top = this.BR.top;
+                rectF.top = this.BU.top;
                 rectF.bottom = rectF.top + view.getMeasuredHeight();
                 return;
             case 32:
-                rectF.top = (this.BR.width() - view.getMeasuredHeight()) / 2.0f;
-                rectF.bottom = (this.BR.width() + view.getMeasuredHeight()) / 2.0f;
-                rectF.offset(0.0f, this.BR.top);
+                rectF.top = (this.BU.width() - view.getMeasuredHeight()) / 2.0f;
+                rectF.bottom = (this.BU.width() + view.getMeasuredHeight()) / 2.0f;
+                rectF.offset(0.0f, this.BU.top);
                 return;
             case 48:
-                rectF.bottom = this.BR.bottom;
-                rectF.top = this.BR.bottom - view.getMeasuredHeight();
+                rectF.bottom = this.BU.bottom;
+                rectF.top = this.BU.bottom - view.getMeasuredHeight();
                 return;
             default:
                 return;
         }
     }
 
-    private void iV() {
-        this.BV.reset();
-        this.BV.addRect(this.BR, Path.Direction.CW);
-        this.BV.addRect(this.BS, Path.Direction.CW);
+    private void iU() {
+        this.BY.reset();
+        this.BY.addRect(this.BU, Path.Direction.CW);
+        this.BY.addRect(this.BV, Path.Direction.CW);
     }
 
     public void b(Rect rect) {
-        this.BR.set(rect);
-        iV();
+        this.BU.set(rect);
+        iU();
         invalidate();
     }
 
     public void c(Rect rect) {
-        this.BS.set(rect);
-        iV();
-        this.BW = true;
+        this.BV.set(rect);
+        iU();
+        this.BZ = true;
         invalidate();
     }
 
-    public void ah(int i) {
-        this.BU.setAlpha(i);
+    public void ay(int i) {
+        this.BX.setAlpha(i);
         invalidate();
     }
 
-    public void ai(int i) {
-        this.BU.setColor(i);
+    public void az(int i) {
+        this.BX.setColor(i);
         invalidate();
     }
 
-    public void Q(boolean z) {
+    public void ae(boolean z) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: iW */
+    /* renamed from: iV */
     public a generateDefaultLayoutParams() {
         return new a(-2, -2);
     }
@@ -219,7 +219,7 @@ public class MaskView extends ViewGroup {
     protected void dispatchDraw(Canvas canvas) {
         long drawingTime = getDrawingTime();
         canvas.save();
-        canvas.drawRect(this.BS, this.BU);
+        canvas.drawRect(this.BV, this.BX);
         canvas.restore();
         for (int i = 0; i < getChildCount(); i++) {
             try {
@@ -233,17 +233,17 @@ public class MaskView extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a extends ViewGroup.LayoutParams {
-        public int BY;
-        public int BZ;
-        public int Ca;
         public int Cb;
+        public int Cc;
+        public int Cd;
+        public int Ce;
 
         public a(int i, int i2) {
             super(i, i2);
-            this.BY = 4;
-            this.BZ = 32;
-            this.Ca = 0;
-            this.Cb = 0;
+            this.Cb = 4;
+            this.Cc = 32;
+            this.Cd = 0;
+            this.Ce = 0;
         }
     }
 }

@@ -10,36 +10,36 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes.dex */
 public class f extends k {
-    private boolean IR;
-    private final Paint Jc = new Paint();
-    private final Paint Jd = new Paint();
+    private boolean IU;
+    private final Paint Jf = new Paint();
+    private final Paint Jg = new Paint();
     private Rect mRect;
     private Path oy;
 
     public f() {
-        this.Jc.setColor(-16777216);
-        this.Jc.setStyle(Paint.Style.FILL);
-        this.Jc.setAntiAlias(true);
-        this.Jd.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        this.Jf.setColor(-16777216);
+        this.Jf.setStyle(Paint.Style.FILL);
+        this.Jf.setAntiAlias(true);
+        this.Jg.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
     }
 
     private void d(Rect rect) {
         boolean z = false;
         if (rect != null) {
-            if (this.oy == null || this.IR != this.mArgs.IR) {
+            if (this.oy == null || this.IU != this.mArgs.IU) {
                 z = true;
             }
             if (this.mRect == null || !this.mRect.contains(rect)) {
                 z = true;
             }
-            this.IR = this.mArgs.IR;
+            this.IU = this.mArgs.IU;
             if (z) {
                 this.mRect = rect;
                 this.oy = new Path();
-                if (this.IR) {
+                if (this.IU) {
                     this.oy.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
                 } else {
-                    this.oy.addRoundRect(new RectF(rect), this.mArgs.IQ, this.mArgs.IQ, Path.Direction.CCW);
+                    this.oy.addRoundRect(new RectF(rect), this.mArgs.mRadius, this.mArgs.mRadius, Path.Direction.CCW);
                 }
                 this.oy.close();
             }

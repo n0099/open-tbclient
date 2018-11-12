@@ -17,7 +17,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: Y */
+    /* renamed from: Z */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.b> onCreateViewHolder(ViewGroup viewGroup) {
         com.baidu.tieba.homepage.daily.view.b bVar = new com.baidu.tieba.homepage.daily.view.b(this.mPageContext);
         bVar.setTag(this.mPageId);
@@ -29,10 +29,10 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.daily.b.e eVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.b> aVar) {
-        if (eVar == null || aVar == null || aVar.aoQ() == null) {
+        if (eVar == null || aVar == null || aVar.aor() == null) {
             return null;
         }
-        aVar.aoQ().a(eVar);
+        aVar.aor().a(eVar);
         return aVar.getView();
     }
 }

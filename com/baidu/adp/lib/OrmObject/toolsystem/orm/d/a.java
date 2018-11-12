@@ -12,74 +12,74 @@ import java.util.Set;
 /* loaded from: classes.dex */
 public class a {
     public static final List<Object> a(c cVar, int i) {
-        Class<?> ia = cVar.ia();
-        if (ia == List.class || ia == ArrayList.class) {
+        Class<?> hZ = cVar.hZ();
+        if (hZ == List.class || hZ == ArrayList.class) {
             return new ArrayList(i);
         }
-        Object a = com.baidu.adp.lib.OrmObject.a.a.a(ia, i);
-        if (a == null) {
-            a = com.baidu.adp.lib.OrmObject.a.a.g(ia);
+        Object b = com.baidu.adp.lib.OrmObject.a.a.b(hZ, i);
+        if (b == null) {
+            b = com.baidu.adp.lib.OrmObject.a.a.g(hZ);
         }
-        if (!(a instanceof List)) {
+        if (!(b instanceof List)) {
             return null;
         }
-        return (List) a;
+        return (List) b;
     }
 
     public static final Set<Object> b(c cVar, int i) {
-        Class<?> ia = cVar.ia();
-        if (ia == Set.class) {
+        Class<?> hZ = cVar.hZ();
+        if (hZ == Set.class) {
             return new HashSet();
         }
-        Object a = com.baidu.adp.lib.OrmObject.a.a.a(ia, i);
-        if (a == null) {
-            a = com.baidu.adp.lib.OrmObject.a.a.g(ia);
+        Object b = com.baidu.adp.lib.OrmObject.a.a.b(hZ, i);
+        if (b == null) {
+            b = com.baidu.adp.lib.OrmObject.a.a.g(hZ);
         }
-        if (!(a instanceof Set)) {
+        if (!(b instanceof Set)) {
             return null;
         }
-        return (Set) a;
+        return (Set) b;
     }
 
     public static final Queue<Object> c(c cVar, int i) {
-        Class<?> ia = cVar.ia();
-        if (ia == Queue.class) {
+        Class<?> hZ = cVar.hZ();
+        if (hZ == Queue.class) {
             return new LinkedList();
         }
-        Object a = com.baidu.adp.lib.OrmObject.a.a.a(ia, i);
-        if (a == null) {
-            a = com.baidu.adp.lib.OrmObject.a.a.g(ia);
+        Object b = com.baidu.adp.lib.OrmObject.a.a.b(hZ, i);
+        if (b == null) {
+            b = com.baidu.adp.lib.OrmObject.a.a.g(hZ);
         }
-        if (!(a instanceof Queue)) {
+        if (!(b instanceof Queue)) {
             return null;
         }
-        return (Queue) a;
+        return (Queue) b;
     }
 
     public static final Map<String, Object> d(c cVar, int i) {
-        Class<?> ia = cVar.ia();
-        Type[] hZ = cVar.hZ();
-        if (com.baidu.adp.lib.OrmObject.a.a.d(ia, Map.class)) {
-            if (hZ != null && hZ.length >= 2 && hZ[0] == String.class) {
-                if (ia == Map.class) {
+        Class<?> hZ = cVar.hZ();
+        Type[] hY = cVar.hY();
+        if (com.baidu.adp.lib.OrmObject.a.a.d(hZ, Map.class)) {
+            if (hY != null && hY.length >= 2 && hY[0] == String.class) {
+                if (hZ == Map.class) {
                     return new HashMap(i);
                 }
-                Object a = com.baidu.adp.lib.OrmObject.a.a.a(ia, i);
-                if (a == null) {
-                    a = com.baidu.adp.lib.OrmObject.a.a.g(ia);
+                Object b = com.baidu.adp.lib.OrmObject.a.a.b(hZ, i);
+                if (b == null) {
+                    b = com.baidu.adp.lib.OrmObject.a.a.g(hZ);
                 }
-                if (a instanceof Map) {
-                    return (Map) a;
+                if (b instanceof Map) {
+                    return (Map) b;
                 }
-            } else if (ia == Map.class) {
+            } else if (hZ == Map.class) {
                 return new HashMap(i);
             } else {
-                Object a2 = com.baidu.adp.lib.OrmObject.a.a.a(ia, i);
-                if (a2 == null) {
-                    a2 = com.baidu.adp.lib.OrmObject.a.a.g(ia);
+                Object b2 = com.baidu.adp.lib.OrmObject.a.a.b(hZ, i);
+                if (b2 == null) {
+                    b2 = com.baidu.adp.lib.OrmObject.a.a.g(hZ);
                 }
-                if (a2 instanceof Map) {
-                    return (Map) a2;
+                if (b2 instanceof Map) {
+                    return (Map) b2;
                 }
             }
             return null;

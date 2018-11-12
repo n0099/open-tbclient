@@ -40,9 +40,9 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class a implements IAiAppAccountIoc {
-    private static String bAZ = " swan/1.6";
-    private final List<AiAppAccountStatusChangedListener> bBa = new LinkedList();
-    private String bBb = null;
+    private static String bBL = " swan/1.6";
+    private final List<AiAppAccountStatusChangedListener> bBM = new LinkedList();
+    private String bBN = null;
 
     public a() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2005016) { // from class: com.baidu.tieba.aiapps.apps.a.a.1
@@ -50,8 +50,8 @@ public class a implements IAiAppAccountIoc {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 boolean isNULL = StringUtils.isNULL(a.this.getUid(TbadkCoreApplication.getInst()));
-                synchronized (a.this.bBa) {
-                    for (AiAppAccountStatusChangedListener aiAppAccountStatusChangedListener : a.this.bBa) {
+                synchronized (a.this.bBM) {
+                    for (AiAppAccountStatusChangedListener aiAppAccountStatusChangedListener : a.this.bBM) {
                         aiAppAccountStatusChangedListener.onLoginStatusChanged(isNULL, !isNULL);
                     }
                 }
@@ -97,12 +97,12 @@ public class a implements IAiAppAccountIoc {
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppAccountIoc
     public boolean isLogin(Context context) {
-        return TbadkCoreApplication.getInst().isMainProcess(true) ? b.isLogin(context) : b.ci(context);
+        return TbadkCoreApplication.getInst().isMainProcess(true) ? b.isLogin(context) : b.cf(context);
     }
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppAccountIoc
     public String getBduss(Context context) {
-        return TbadkCoreApplication.getInst().isMainProcess(true) ? b.getBduss(context) : b.cf(context);
+        return TbadkCoreApplication.getInst().isMainProcess(true) ? b.getBduss(context) : b.cc(context);
     }
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppAccountIoc
@@ -165,7 +165,7 @@ public class a implements IAiAppAccountIoc {
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppAccountIoc
     public String getUid(Context context) {
-        return TbadkCoreApplication.getInst().isMainProcess(true) ? b.getUid(context) : b.cg(context);
+        return TbadkCoreApplication.getInst().isMainProcess(true) ? b.getUid(context) : b.cd(context);
     }
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppAccountIoc
@@ -175,15 +175,15 @@ public class a implements IAiAppAccountIoc {
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppAccountIoc
     public String getEnCuid() {
-        if (this.bBb == null && !StringUtils.isNULL(getUid(TbadkCoreApplication.getInst()))) {
-            this.bBb = new String(Base64Encoder.B64Encode(getCuid(TbadkCoreApplication.getInst()).getBytes()));
+        if (this.bBN == null && !StringUtils.isNULL(getUid(TbadkCoreApplication.getInst()))) {
+            this.bBN = new String(Base64Encoder.B64Encode(getCuid(TbadkCoreApplication.getInst()).getBytes()));
         }
-        return this.bBb;
+        return this.bBN;
     }
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppAccountIoc
     public String getPortraitUrl() {
-        return TbadkCoreApplication.getInst().isMainProcess(true) ? b.getPortraitUrl() : b.Wk();
+        return TbadkCoreApplication.getInst().isMainProcess(true) ? b.getPortraitUrl() : b.Wu();
     }
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppAccountIoc
@@ -198,7 +198,7 @@ public class a implements IAiAppAccountIoc {
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppAccountIoc
     public String processUrl(String str) {
-        return com.baidu.tieba.aiapps.apps.d.c.kc(str);
+        return com.baidu.tieba.aiapps.apps.d.c.ke(str);
     }
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppAccountIoc
@@ -235,9 +235,9 @@ public class a implements IAiAppAccountIoc {
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppAccountIoc
     public void addLoginStatusChangedListener(AiAppAccountStatusChangedListener aiAppAccountStatusChangedListener) {
         if (aiAppAccountStatusChangedListener != null) {
-            synchronized (this.bBa) {
-                if (!this.bBa.contains(aiAppAccountStatusChangedListener)) {
-                    this.bBa.add(aiAppAccountStatusChangedListener);
+            synchronized (this.bBM) {
+                if (!this.bBM.contains(aiAppAccountStatusChangedListener)) {
+                    this.bBM.add(aiAppAccountStatusChangedListener);
                 }
             }
         }
@@ -270,7 +270,7 @@ public class a implements IAiAppAccountIoc {
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppAccountIoc
     public String getModel() {
-        return com.baidu.tieba.aiapps.apps.d.c.WX();
+        return com.baidu.tieba.aiapps.apps.d.c.Xh();
     }
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppAccountIoc
@@ -295,7 +295,7 @@ public class a implements IAiAppAccountIoc {
                 case AI_APPS_SLAVE:
                 case AI_APPS_WEBVIEW:
                 case AI_APPS_ADLANDING:
-                    str = str + bAZ;
+                    str = str + bBL;
                     break;
             }
             String str2 = "host/" + com.baidu.tieba.aiapps.apps.d.b.getHostName();

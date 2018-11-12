@@ -19,20 +19,20 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class h {
-    private static h FJ = null;
+    private static h FN = null;
 
-    public static h kK() {
+    public static h kI() {
         h hVar;
-        if (FJ == null) {
+        if (FN == null) {
             synchronized (h.class) {
-                if (FJ == null) {
-                    FJ = new h();
+                if (FN == null) {
+                    FN = new h();
                 }
-                hVar = FJ;
+                hVar = FN;
             }
             return hVar;
         }
-        return FJ;
+        return FN;
     }
 
     public boolean a(String str, int i, i iVar) {
@@ -289,24 +289,24 @@ public class h {
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<Object, Object, Object> {
-        String FK;
-        String FL;
-        StringBuilder FM;
-        i FN;
-        boolean FO = false;
+        String FO;
+        String FP;
+        StringBuilder FQ;
+        i FR;
+        boolean FT = false;
 
         public a(String str, String str2, StringBuilder sb, i iVar) {
-            this.FK = str;
-            this.FL = str2;
-            this.FM = sb;
-            this.FN = iVar;
+            this.FO = str;
+            this.FP = str2;
+            this.FQ = sb;
+            this.FR = iVar;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         protected Object doInBackground(Object... objArr) {
-            this.FO = h.this.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.FK, this.FM);
-            if (!this.FO) {
-                h.this.a(this.FL, "".getBytes(), this.FM);
+            this.FT = h.this.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.FO, this.FQ);
+            if (!this.FT) {
+                h.this.a(this.FP, "".getBytes(), this.FQ);
                 return null;
             }
             return null;
@@ -315,11 +315,11 @@ public class h {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         protected void onPostExecute(Object obj) {
             super.onPostExecute(obj);
-            if (this.FM.length() > 0) {
-                BdStatisticsManager.getInstance().error("so", "load_" + this.FK + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.FM.toString(), new Object[0]);
+            if (this.FQ.length() > 0) {
+                BdStatisticsManager.getInstance().error("so", "load_" + this.FO + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.FQ.toString(), new Object[0]);
             }
-            if (this.FN != null) {
-                this.FN.A(this.FO);
+            if (this.FR != null) {
+                this.FR.O(this.FT);
             }
         }
     }

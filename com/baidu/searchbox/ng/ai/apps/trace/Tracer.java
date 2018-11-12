@@ -51,13 +51,13 @@ public final class Tracer implements ITracer, IndexDef {
     public Tracer regCallback(Callback callback, Index<?>... indexArr) {
         if (callback != null) {
             synchronized (this.mIndexPool) {
-                HashSet keySet = isEmptyArray(indexArr) ? this.mIndexPool.keySet() : h.J(indexArr);
+                HashSet keySet = isEmptyArray(indexArr) ? this.mIndexPool.keySet() : h.K(indexArr);
                 for (Index<?> index : keySet) {
                     if (index != null) {
                         requireCallbacks(index).add(callback);
                     }
                 }
-                notifyCallbacks(h.J(callback), keySet);
+                notifyCallbacks(h.K(callback), keySet);
             }
         }
         return this;
@@ -76,7 +76,7 @@ public final class Tracer implements ITracer, IndexDef {
     public Tracer unRegCallback(Callback callback, Index<?>... indexArr) {
         if (callback != null) {
             synchronized (this.mIndexPool) {
-                for (Index<?> index : isEmptyArray(indexArr) ? this.mIndexPool.keySet() : h.J(indexArr)) {
+                for (Index<?> index : isEmptyArray(indexArr) ? this.mIndexPool.keySet() : h.K(indexArr)) {
                     if (index != null) {
                         requireCallbacks(index).remove(callback);
                     }
@@ -92,7 +92,7 @@ public final class Tracer implements ITracer, IndexDef {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Tracer notifyCallbacks(Index<?>... indexArr) {
-        return notifyCallbacks(h.J(indexArr));
+        return notifyCallbacks(h.K(indexArr));
     }
 
     protected Tracer notifyCallbacks(Set<Index<?>> set) {

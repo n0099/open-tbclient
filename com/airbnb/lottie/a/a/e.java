@@ -21,8 +21,8 @@ public class e implements k, a.InterfaceC0009a {
     public e(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, com.airbnb.lottie.model.content.a aVar2) {
         this.name = aVar2.getName();
         this.nh = fVar;
-        this.oL = aVar2.ed().dH();
-        this.oM = aVar2.dT().dH();
+        this.oL = aVar2.ec().dG();
+        this.oM = aVar2.dS().dG();
         this.oN = aVar2;
         aVar.a(this.oL);
         aVar.a(this.oM);
@@ -31,7 +31,7 @@ public class e implements k, a.InterfaceC0009a {
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0009a
-    public void de() {
+    public void dd() {
         invalidate();
     }
 
@@ -47,7 +47,7 @@ public class e implements k, a.InterfaceC0009a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof q) && ((q) bVar).dn() == ShapeTrimPath.Type.Simultaneously) {
+                if ((bVar instanceof q) && ((q) bVar).dm() == ShapeTrimPath.Type.Simultaneously) {
                     this.oH = (q) bVar;
                     this.oH.a(this);
                 }

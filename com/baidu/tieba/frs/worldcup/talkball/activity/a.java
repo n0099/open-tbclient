@@ -9,15 +9,15 @@ import java.util.List;
 import tbclient.TalkBall.AdidasAdvert;
 /* loaded from: classes3.dex */
 public interface a {
-    void W(ArrayList<h> arrayList);
+    void V(ArrayList<h> arrayList);
 
-    void YT();
+    void Zd();
 
     void a(e eVar);
 
     void a(AdidasAdvert adidasAdvert);
 
-    void bU(List<com.baidu.tieba.frs.worldcup.talkball.b.a> list);
+    void bS(List<com.baidu.tieba.frs.worldcup.talkball.b.a> list);
 
     void c(m mVar);
 

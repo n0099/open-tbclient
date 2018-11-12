@@ -15,44 +15,44 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
-    private c giO;
-    private List<h> giP;
-    private PersonMoreData giQ;
+    private c gkk;
+    private List<h> gkl;
+    private PersonMoreData gkm;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, Bundle bundle, ad<f> adVar) {
         this.mPageContext = tbPageContext;
-        this.giO = new c(tbPageContext);
-        this.giO.b(adVar);
+        this.gkk = new c(tbPageContext);
+        this.gkk.b(adVar);
         if (bundle != null && (OrmObject.objectWithBundle(bundle, PersonMoreData.class) instanceof PersonMoreData)) {
-            this.giQ = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
+            this.gkm = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
         }
     }
 
     public void initView() {
         this.mPageContext.getPageActivity().setContentView(e.h.person_center_more_layout);
-        this.giO.initView(this.mPageContext.getPageActivity().findViewById(e.g.person_more_layout));
-        bnl();
-        this.giO.setData(this.giP);
+        this.gkk.initView(this.mPageContext.getPageActivity().findViewById(e.g.person_more_layout));
+        bmG();
+        this.gkk.setData(this.gkl);
     }
 
     public void onChangeSkinType() {
-        if (this.giO != null) {
-            this.giO.onChangeSkinType();
+        if (this.gkk != null) {
+            this.gkk.onChangeSkinType();
         }
     }
 
-    private void bnl() {
-        this.giP = new ArrayList();
-        if (this.giQ != null && !v.J(this.giQ.mUrlMaps)) {
-            for (PersonMoreItemData personMoreItemData : this.giQ.mUrlMaps) {
+    private void bmG() {
+        this.gkl = new ArrayList();
+        if (this.gkm != null && !v.I(this.gkm.mUrlMaps)) {
+            for (PersonMoreItemData personMoreItemData : this.gkm.mUrlMaps) {
                 if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
                     f fVar = new f();
                     fVar.title = personMoreItemData.mName;
                     fVar.type = 36;
-                    fVar.akf = personMoreItemData.mUrl;
+                    fVar.akS = personMoreItemData.mUrl;
                     fVar.itemId = personMoreItemData.mId;
-                    this.giP.add(fVar);
+                    this.gkl.add(fVar);
                 }
             }
         }

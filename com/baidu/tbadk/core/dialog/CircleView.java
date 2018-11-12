@@ -9,12 +9,12 @@ import android.view.View;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class CircleView extends View {
-    private static int asK = 360;
-    private static int asL = 100;
-    private int asM;
-    private Paint asN;
-    private Paint asO;
-    private RectF asP;
+    private static int atx = 360;
+    private static int aty = 100;
+    private Paint atA;
+    private Paint atB;
+    private RectF atC;
+    private int atz;
     private int mLineWidth;
     private int mValue;
     private int mWidth;
@@ -43,25 +43,25 @@ public class CircleView extends View {
     }
 
     public void init() {
-        this.mWidth = getResources().getDimensionPixelSize(e.C0175e.ds100);
-        this.mLineWidth = getResources().getDimensionPixelSize(e.C0175e.ds4);
-        this.asM = getResources().getDimensionPixelSize(e.C0175e.ds2);
-        this.asN = new Paint();
-        this.asN.setStrokeWidth(this.mLineWidth);
-        this.asN.setColor(getResources().getColor(e.d.cp_cont_g));
-        this.asN.setStyle(Paint.Style.STROKE);
-        this.asN.setAntiAlias(true);
-        this.asO = new Paint();
-        this.asO.setStrokeWidth(this.asM);
-        this.asO.setColor(getResources().getColor(e.d.common_color_10042));
-        this.asO.setStyle(Paint.Style.STROKE);
-        this.asO.setAntiAlias(true);
-        this.asP = new RectF(this.mLineWidth, this.mLineWidth, this.mWidth + this.mLineWidth, this.mWidth + this.mLineWidth);
+        this.mWidth = getResources().getDimensionPixelSize(e.C0200e.ds100);
+        this.mLineWidth = getResources().getDimensionPixelSize(e.C0200e.ds4);
+        this.atz = getResources().getDimensionPixelSize(e.C0200e.ds2);
+        this.atA = new Paint();
+        this.atA.setStrokeWidth(this.mLineWidth);
+        this.atA.setColor(getResources().getColor(e.d.cp_cont_g));
+        this.atA.setStyle(Paint.Style.STROKE);
+        this.atA.setAntiAlias(true);
+        this.atB = new Paint();
+        this.atB.setStrokeWidth(this.atz);
+        this.atB.setColor(getResources().getColor(e.d.common_color_10042));
+        this.atB.setStyle(Paint.Style.STROKE);
+        this.atB.setAntiAlias(true);
+        this.atC = new RectF(this.mLineWidth, this.mLineWidth, this.mWidth + this.mLineWidth, this.mWidth + this.mLineWidth);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.asP, 0.0f, asK, false, this.asO);
-        canvas.drawArc(this.asP, 270.0f, (asK * this.mValue) / asL, false, this.asN);
+        canvas.drawArc(this.atC, 0.0f, atx, false, this.atB);
+        canvas.drawArc(this.atC, 270.0f, (atx * this.mValue) / aty, false, this.atA);
     }
 }

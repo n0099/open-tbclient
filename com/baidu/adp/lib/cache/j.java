@@ -3,59 +3,59 @@ package com.baidu.adp.lib.cache;
 import com.baidu.adp.lib.cache.e;
 /* loaded from: classes.dex */
 public class j<T> extends d<T> {
-    protected final c<T> AN;
+    protected final c<T> AQ;
 
     public j(c<T> cVar, e eVar, boolean z) {
         super(eVar, z);
-        this.AN = cVar;
+        this.AQ = cVar;
     }
 
     @Override // com.baidu.adp.lib.cache.d
     public g<T> az(String str) {
-        return this.AN.au(str);
+        return this.AQ.au(str);
     }
 
     @Override // com.baidu.adp.lib.cache.d
     public void c(g<T> gVar) {
-        this.AN.b(gVar);
+        this.AQ.b(gVar);
     }
 
     @Override // com.baidu.adp.lib.cache.d
     public void aA(String str) {
-        this.AN.av(str);
+        this.AQ.av(str);
     }
 
     @Override // com.baidu.adp.lib.cache.d
     protected void aB(String str) {
-        this.AN.f(str, true);
+        this.AQ.f(str, true);
     }
 
     @Override // com.baidu.adp.lib.cache.k
     public void aD(String str) {
-        this.AN.aw(str);
+        this.AQ.aw(str);
     }
 
     @Override // com.baidu.adp.lib.cache.k
     public void aE(final String str) {
-        if (this.AB instanceof e.b) {
-            com.baidu.adp.lib.g.h.jJ().d(new Runnable() { // from class: com.baidu.adp.lib.cache.j.1
+        if (this.AE instanceof e.b) {
+            com.baidu.adp.lib.g.h.jH().d(new Runnable() { // from class: com.baidu.adp.lib.cache.j.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    j.this.AN.ay(str);
+                    j.this.AQ.ay(str);
                 }
             });
         }
-        if (this.AB instanceof e.a) {
-            com.baidu.adp.lib.g.h.jJ().d(new Runnable() { // from class: com.baidu.adp.lib.cache.j.2
+        if (this.AE instanceof e.a) {
+            com.baidu.adp.lib.g.h.jH().d(new Runnable() { // from class: com.baidu.adp.lib.cache.j.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    j.this.AN.ax(str);
+                    j.this.AQ.ax(str);
                 }
             });
         }
     }
 
-    public c<T> iy() {
-        return this.AN;
+    public c<T> ix() {
+        return this.AQ;
     }
 }

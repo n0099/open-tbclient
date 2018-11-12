@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 final class b {
-    private static final Pattern gAu = Pattern.compile(",");
-    private Point gAv;
-    private Point gAw;
-    private Point gAx;
+    private static final Pattern gBV = Pattern.compile(",");
+    private Point gBW;
+    private Point gBX;
+    private Point gBY;
     private final Context mContext;
 
     public b(Context context) {
@@ -27,20 +27,20 @@ final class b {
         if (c(camera)) {
             parameters.setFocusMode("auto");
         }
-        this.gAv = a.cV(this.mContext);
+        this.gBW = a.cQ(this.mContext);
         Point point = new Point();
-        point.x = this.gAv.x;
-        point.y = this.gAv.y;
-        int cU = a.cU(this.mContext);
-        if (cU == 0) {
-            point.x = this.gAv.y;
-            point.y = this.gAv.x;
+        point.x = this.gBW.x;
+        point.y = this.gBW.y;
+        int cP = a.cP(this.mContext);
+        if (cP == 0) {
+            point.x = this.gBW.y;
+            point.y = this.gBW.x;
         }
-        this.gAx = a(parameters, point);
-        if (cU == 0) {
-            this.gAw = new Point(this.gAx.y, this.gAx.x);
+        this.gBY = a(parameters, point);
+        if (cP == 0) {
+            this.gBX = new Point(this.gBY.y, this.gBY.x);
         } else {
-            this.gAw = this.gAx;
+            this.gBX = this.gBY;
         }
     }
 
@@ -48,15 +48,15 @@ final class b {
         return a(camera.getParameters().getSupportedFocusModes(), "auto") != null;
     }
 
-    public Point bsv() {
-        return this.gAw;
+    public Point brR() {
+        return this.gBX;
     }
 
     public void d(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        parameters.setPreviewSize(this.gAx.x, this.gAx.y);
+        parameters.setPreviewSize(this.gBY.x, this.gBY.y);
         a(parameters);
-        camera.setDisplayOrientation(bsw());
+        camera.setDisplayOrientation(brS());
         camera.setParameters(parameters);
     }
 
@@ -71,7 +71,7 @@ final class b {
         return null;
     }
 
-    public int bsw() {
+    public int brS() {
         int i;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(0, cameraInfo);
@@ -147,7 +147,7 @@ final class b {
     }
 
     private static int c(CharSequence charSequence, int i) {
-        String[] split = gAu.split(charSequence);
+        String[] split = gBV.split(charSequence);
         int length = split.length;
         int i2 = 0;
         int i3 = 0;

@@ -8,32 +8,32 @@ import java.util.Set;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class a implements b {
-    private final List<b> ifM;
+    private final List<b> ihw;
 
     public a(Set<b> set) {
-        this.ifM = new ArrayList(set.size());
+        this.ihw = new ArrayList(set.size());
         for (b bVar : set) {
             if (bVar != null) {
-                this.ifM.add(bVar);
+                this.ihw.add(bVar);
             }
         }
     }
 
     public a(b... bVarArr) {
-        this.ifM = new ArrayList(bVarArr.length);
+        this.ihw = new ArrayList(bVarArr.length);
         for (b bVar : bVarArr) {
             if (bVar != null) {
-                this.ifM.add(bVar);
+                this.ihw.add(bVar);
             }
         }
     }
 
     @Override // com.facebook.imagepipeline.g.b
     public void a(ImageRequest imageRequest, Object obj, String str, boolean z) {
-        int size = this.ifM.size();
+        int size = this.ihw.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.ifM.get(i).a(imageRequest, obj, str, z);
+                this.ihw.get(i).a(imageRequest, obj, str, z);
             } catch (Exception e) {
                 g("InternalListener exception in onRequestStart", e);
             }
@@ -41,11 +41,11 @@ public class a implements b {
     }
 
     @Override // com.facebook.imagepipeline.producers.al
-    public void cX(String str, String str2) {
-        int size = this.ifM.size();
+    public void cW(String str, String str2) {
+        int size = this.ihw.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.ifM.get(i).cX(str, str2);
+                this.ihw.get(i).cW(str, str2);
             } catch (Exception e) {
                 g("InternalListener exception in onProducerStart", e);
             }
@@ -54,10 +54,10 @@ public class a implements b {
 
     @Override // com.facebook.imagepipeline.producers.al
     public void a(String str, String str2, @Nullable Map<String, String> map) {
-        int size = this.ifM.size();
+        int size = this.ihw.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.ifM.get(i).a(str, str2, map);
+                this.ihw.get(i).a(str, str2, map);
             } catch (Exception e) {
                 g("InternalListener exception in onProducerFinishWithSuccess", e);
             }
@@ -66,10 +66,10 @@ public class a implements b {
 
     @Override // com.facebook.imagepipeline.producers.al
     public void a(String str, String str2, Throwable th, @Nullable Map<String, String> map) {
-        int size = this.ifM.size();
+        int size = this.ihw.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.ifM.get(i).a(str, str2, th, map);
+                this.ihw.get(i).a(str, str2, th, map);
             } catch (Exception e) {
                 g("InternalListener exception in onProducerFinishWithFailure", e);
             }
@@ -78,10 +78,10 @@ public class a implements b {
 
     @Override // com.facebook.imagepipeline.producers.al
     public void b(String str, String str2, @Nullable Map<String, String> map) {
-        int size = this.ifM.size();
+        int size = this.ihw.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.ifM.get(i).b(str, str2, map);
+                this.ihw.get(i).b(str, str2, map);
             } catch (Exception e) {
                 g("InternalListener exception in onProducerFinishWithCancellation", e);
             }
@@ -90,10 +90,10 @@ public class a implements b {
 
     @Override // com.facebook.imagepipeline.producers.al
     public void S(String str, String str2, String str3) {
-        int size = this.ifM.size();
+        int size = this.ihw.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.ifM.get(i).S(str, str2, str3);
+                this.ihw.get(i).S(str, str2, str3);
             } catch (Exception e) {
                 g("InternalListener exception in onIntermediateChunkStart", e);
             }
@@ -102,10 +102,10 @@ public class a implements b {
 
     @Override // com.facebook.imagepipeline.g.b
     public void a(ImageRequest imageRequest, String str, boolean z) {
-        int size = this.ifM.size();
+        int size = this.ihw.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.ifM.get(i).a(imageRequest, str, z);
+                this.ihw.get(i).a(imageRequest, str, z);
             } catch (Exception e) {
                 g("InternalListener exception in onRequestSuccess", e);
             }
@@ -114,10 +114,10 @@ public class a implements b {
 
     @Override // com.facebook.imagepipeline.g.b
     public void a(ImageRequest imageRequest, String str, Throwable th, boolean z) {
-        int size = this.ifM.size();
+        int size = this.ihw.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.ifM.get(i).a(imageRequest, str, th, z);
+                this.ihw.get(i).a(imageRequest, str, th, z);
             } catch (Exception e) {
                 g("InternalListener exception in onRequestFailure", e);
             }
@@ -125,11 +125,11 @@ public class a implements b {
     }
 
     @Override // com.facebook.imagepipeline.g.b
-    public void yC(String str) {
-        int size = this.ifM.size();
+    public void yH(String str) {
+        int size = this.ihw.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.ifM.get(i).yC(str);
+                this.ihw.get(i).yH(str);
             } catch (Exception e) {
                 g("InternalListener exception in onRequestCancellation", e);
             }
@@ -137,10 +137,10 @@ public class a implements b {
     }
 
     @Override // com.facebook.imagepipeline.producers.al
-    public boolean yD(String str) {
-        int size = this.ifM.size();
+    public boolean yI(String str) {
+        int size = this.ihw.size();
         for (int i = 0; i < size; i++) {
-            if (this.ifM.get(i).yD(str)) {
+            if (this.ihw.get(i).yI(str)) {
                 return true;
             }
         }

@@ -6,11 +6,11 @@ public final class j {
     private static k Xv = new k("loop");
     private static k Xw = new k("writelog");
 
-    public static Handler rm() {
+    public static Handler rk() {
         return Xv.getHandler();
     }
 
-    public static Handler rn() {
+    public static Handler rl() {
         return Xw.getHandler();
     }
 }

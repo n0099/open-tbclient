@@ -24,16 +24,16 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: av */
+    /* renamed from: aw */
     public o onCreateViewHolder(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(e.h.frs_video_activity_item, (ViewGroup) null);
         o oVar = new o(inflate);
-        al.h(oVar.bNW, e.d.cp_cont_b);
-        al.h(oVar.dJi, e.d.cp_cont_h);
-        al.c(oVar.dJh, e.f.icon_news_list_prompt);
-        al.c(oVar.dJj, e.f.icon_index_category_arrow_r);
-        al.j(oVar.dJk, e.d.cp_bg_line_b);
-        al.j(oVar.dJl, e.d.cp_bg_line_b);
+        al.h(oVar.bOH, e.d.cp_cont_b);
+        al.h(oVar.dKm, e.d.cp_cont_h);
+        al.c(oVar.dKl, e.f.icon_news_list_prompt);
+        al.c(oVar.dKn, e.f.icon_index_category_arrow_r);
+        al.j(oVar.dKo, e.d.cp_bg_line_b);
+        al.j(oVar.dKp, e.d.cp_bg_line_b);
         al.i(inflate, e.f.home_thread_card_item_bg);
         return oVar;
     }
@@ -52,20 +52,20 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
                 TiebaStatic.log(new am("c12587").ax(ImageViewerConfig.FORUM_ID, n.this.mForumId));
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("frs_video_activity_tip" + n.this.mForumId, System.currentTimeMillis());
                 if (kVar != null && !StringUtils.isNull(kVar.url)) {
-                    com.baidu.tbadk.browser.a.ag(n.this.mContext, kVar.url);
+                    com.baidu.tbadk.browser.a.ae(n.this.mContext, kVar.url);
                 }
             }
         });
-        oVar.bNW.setText(kVar != null ? kVar.text : "");
-        if (bU(com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("frs_video_activity_tip" + this.mForumId, 0L))) {
-            oVar.dJh.setVisibility(0);
+        oVar.bOH.setText(kVar != null ? kVar.text : "");
+        if (bP(com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("frs_video_activity_tip" + this.mForumId, 0L))) {
+            oVar.dKl.setVisibility(0);
         } else {
-            oVar.dJh.setVisibility(8);
+            oVar.dKl.setVisibility(8);
         }
         return oVar.getView();
     }
 
-    private boolean bU(long j) {
+    private boolean bP(long j) {
         if (j == 0) {
             return true;
         }

@@ -246,7 +246,10 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
     public void release() throws RemoteException {
         if (this.mMediaPlayer != null) {
             if (!this.mPlayerReuseEnable) {
-                this.mMediaPlayer.stop();
+                try {
+                    this.mMediaPlayer.reset();
+                } catch (Throwable th) {
+                }
                 this.mMediaPlayer.release();
             }
             if (this.mContext instanceof a) {

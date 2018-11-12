@@ -1,7 +1,7 @@
 package com.baidu.sapi2.activity;
 
 import android.os.Bundle;
-import com.baidu.e.a.a;
+import com.baidu.d.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiWebView;

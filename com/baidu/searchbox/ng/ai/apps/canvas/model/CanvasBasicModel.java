@@ -26,7 +26,7 @@ public class CanvasBasicModel extends AiAppsNaViewModel {
     @Override // com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsNaViewModel, com.baidu.searchbox.ng.ai.apps.model.IModel
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
-        this.hidden = TextUtils.equals(jSONObject.optString(AiAppsNaViewModel.KEY_HIDDEN), "1") || jSONObject.optBoolean(AiAppsNaViewModel.KEY_HIDDEN);
+        this.hidden = TextUtils.equals(jSONObject.optString("hide"), "1") || jSONObject.optBoolean("hide");
         this.disableScroll = !TextUtils.equals(jSONObject.optString(CANVAS_DISABLE_SCROLL), "0");
         this.gesture = TextUtils.equals(jSONObject.optString(AiAppsNaViewModel.KEY_GESTURE), "0") ? false : true;
     }

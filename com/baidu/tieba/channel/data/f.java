@@ -3,7 +3,7 @@ package com.baidu.tieba.channel.data;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f {
-    private String cSV;
+    private String cUb;
     private String channel_avatar;
     private String channel_name;
     private String create_time;
@@ -11,11 +11,11 @@ public class f {
     private String follow_time;
     private String user_id;
 
-    public String apd() {
-        return this.cSV;
+    public String aoE() {
+        return this.cUb;
     }
 
-    public String ape() {
+    public String aoF() {
         return this.channel_name;
     }
 
@@ -23,12 +23,12 @@ public class f {
         return this.description;
     }
 
-    public String apf() {
+    public String aoG() {
         return this.channel_avatar;
     }
 
     public void parserJson(JSONObject jSONObject) {
-        this.cSV = jSONObject.optString("channel_id");
+        this.cUb = jSONObject.optString("channel_id");
         this.channel_name = jSONObject.optString("channel_name");
         this.description = jSONObject.optString("description");
         this.channel_avatar = jSONObject.optString("channel_avatar");

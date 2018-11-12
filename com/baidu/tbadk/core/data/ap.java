@@ -7,34 +7,34 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ap {
-    private ArrayList<UserData> aok = new ArrayList<>();
-    private ArrayList<UserData> aol = new ArrayList<>();
-    private al aom = new al();
-    private int aon = 0;
-    private int aoo = 0;
+    private ArrayList<UserData> aoX = new ArrayList<>();
+    private ArrayList<UserData> aoY = new ArrayList<>();
+    private al aoZ = new al();
+    private int apa = 0;
+    private int apb = 0;
 
     public void a(al alVar) {
-        this.aom = alVar;
+        this.aoZ = alVar;
     }
 
-    public al xH() {
-        return this.aom;
+    public al xO() {
+        return this.aoZ;
     }
 
-    public ArrayList<UserData> xI() {
-        return this.aok;
+    public ArrayList<UserData> xP() {
+        return this.aoX;
     }
 
-    public ArrayList<UserData> xJ() {
-        return this.aol;
+    public ArrayList<UserData> xQ() {
+        return this.aoY;
     }
 
-    public int xK() {
-        return this.aon;
+    public int xR() {
+        return this.apa;
     }
 
-    public int xL() {
-        return this.aoo;
+    public int xS() {
+        return this.apb;
     }
 
     public void parserJson(String str) {
@@ -55,7 +55,7 @@ public class ap {
                         UserData userData = new UserData();
                         userData.parserJson(optJSONArray.getJSONObject(i));
                         userData.mAttentionType = 2;
-                        this.aok.add(userData);
+                        this.aoX.add(userData);
                     }
                 }
                 if (optJSONArray2 != null) {
@@ -63,12 +63,12 @@ public class ap {
                         UserData userData2 = new UserData();
                         userData2.parserJson(optJSONArray2.getJSONObject(i2));
                         userData2.mAttentionType = 1;
-                        this.aol.add(userData2);
+                        this.aoY.add(userData2);
                     }
                 }
-                this.aom.parserJson(jSONObject.optJSONObject(SystemScreenshotManager.PAGE));
-                this.aon = jSONObject.optInt("tafriendnum", 0);
-                this.aoo = jSONObject.optInt("commonfriendnum", 0);
+                this.aoZ.parserJson(jSONObject.optJSONObject(SystemScreenshotManager.PAGE));
+                this.apa = jSONObject.optInt("tafriendnum", 0);
+                this.apb = jSONObject.optInt("commonfriendnum", 0);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

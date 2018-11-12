@@ -1,5 +1,5 @@
 package com.baidu.adp.lib.util;
 /* loaded from: classes.dex */
 public abstract class i {
-    public abstract void A(boolean z);
+    public abstract void O(boolean z);
 }

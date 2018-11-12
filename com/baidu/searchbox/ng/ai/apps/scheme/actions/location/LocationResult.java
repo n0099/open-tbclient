@@ -1,6 +1,7 @@
 package com.baidu.searchbox.ng.ai.apps.scheme.actions.location;
 
 import android.util.Log;
+import com.baidu.searchbox.ng.ai.apps.impl.map.model.element.CoordinateModel;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -52,8 +53,8 @@ public class LocationResult {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("coorType", this.coorType);
-            jSONObject.put("longitude", this.longitude);
-            jSONObject.put("latitude", this.latitude);
+            jSONObject.put(CoordinateModel.LONGITUDE, this.longitude);
+            jSONObject.put(CoordinateModel.LATITUDE, this.latitude);
             jSONObject.put("speed", this.speed);
             jSONObject.put("accuracy", this.accuracy);
             jSONObject.put("altitude", this.altitude);

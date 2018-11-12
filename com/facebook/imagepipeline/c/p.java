@@ -3,33 +3,33 @@ package com.facebook.imagepipeline.c;
 import com.android.internal.util.Predicate;
 /* loaded from: classes2.dex */
 public class p<K, V> implements t<K, V> {
-    private final t<K, V> icZ;
-    private final v ida;
+    private final t<K, V> ieM;
+    private final v ieN;
 
     public p(t<K, V> tVar, v vVar) {
-        this.icZ = tVar;
-        this.ida = vVar;
+        this.ieM = tVar;
+        this.ieN = vVar;
     }
 
     @Override // com.facebook.imagepipeline.c.t
-    public com.facebook.common.references.a<V> aH(K k) {
-        com.facebook.common.references.a<V> aH = this.icZ.aH(k);
-        if (aH == null) {
-            this.ida.bUd();
+    public com.facebook.common.references.a<V> aG(K k) {
+        com.facebook.common.references.a<V> aG = this.ieM.aG(k);
+        if (aG == null) {
+            this.ieN.bTy();
         } else {
-            this.ida.aE(k);
+            this.ieN.aD(k);
         }
-        return aH;
+        return aG;
     }
 
     @Override // com.facebook.imagepipeline.c.t
     public com.facebook.common.references.a<V> a(K k, com.facebook.common.references.a<V> aVar) {
-        this.ida.bUe();
-        return this.icZ.a(k, aVar);
+        this.ieN.bTz();
+        return this.ieM.a(k, aVar);
     }
 
     @Override // com.facebook.imagepipeline.c.t
     public boolean b(Predicate<K> predicate) {
-        return this.icZ.b(predicate);
+        return this.ieM.b(predicate);
     }
 }

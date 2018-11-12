@@ -10,11 +10,11 @@ import java.nio.ByteBuffer;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes5.dex */
 public class a {
-    private c iiZ;
-    private MediaCodec ija;
-    private int ijb;
-    private boolean ijc;
+    private c ikJ;
+    private int ikK;
+    private boolean ikL;
     private MediaCodec.BufferInfo mBufferInfo = new MediaCodec.BufferInfo();
+    private MediaCodec mEncoder;
 
     public a(c cVar) {
         MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", 48000, 1);
@@ -22,15 +22,15 @@ public class a {
         createAudioFormat.setInteger("channel-mask", 16);
         createAudioFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, 128000);
         try {
-            this.ija = MediaCodec.createEncoderByType("audio/mp4a-latm");
+            this.mEncoder = MediaCodec.createEncoderByType("audio/mp4a-latm");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        this.ija.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
-        this.ija.start();
-        this.ijb = -1;
-        this.ijc = false;
-        this.iiZ = cVar;
+        this.mEncoder.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
+        this.mEncoder.start();
+        this.ikK = -1;
+        this.ikL = false;
+        this.ikJ = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -41,15 +41,15 @@ public class a {
     */
     public void c(ByteBuffer byteBuffer, int i, long j) throws Exception {
         int dequeueInputBuffer;
-        ByteBuffer[] inputBuffers = this.ija.getInputBuffers();
+        ByteBuffer[] inputBuffers = this.mEncoder.getInputBuffers();
         while (true) {
-            dequeueInputBuffer = this.ija.dequeueInputBuffer(ErrDef.Feature.WEIGHT);
+            dequeueInputBuffer = this.mEncoder.dequeueInputBuffer(ErrDef.Feature.WEIGHT);
             if (dequeueInputBuffer < 0) {
                 break;
             }
             if (dequeueInputBuffer == -1) {
             }
-            dequeueInputBuffer = this.ija.dequeueInputBuffer(ErrDef.Feature.WEIGHT);
+            dequeueInputBuffer = this.mEncoder.dequeueInputBuffer(ErrDef.Feature.WEIGHT);
             if (dequeueInputBuffer < 0) {
             }
         }
@@ -59,38 +59,38 @@ public class a {
             byteBuffer2.put(byteBuffer);
         }
         if (i <= 0) {
-            this.ija.queueInputBuffer(dequeueInputBuffer, 0, 0, j, 4);
+            this.mEncoder.queueInputBuffer(dequeueInputBuffer, 0, 0, j, 4);
         } else {
-            this.ija.queueInputBuffer(dequeueInputBuffer, 0, i, j, 0);
+            this.mEncoder.queueInputBuffer(dequeueInputBuffer, 0, i, j, 0);
         }
     }
 
-    public void bYw() throws Exception {
-        ByteBuffer[] outputBuffers = this.ija.getOutputBuffers();
+    public void bXR() throws Exception {
+        ByteBuffer[] outputBuffers = this.mEncoder.getOutputBuffers();
         while (true) {
-            int dequeueOutputBuffer = this.ija.dequeueOutputBuffer(this.mBufferInfo, ErrDef.Feature.WEIGHT);
+            int dequeueOutputBuffer = this.mEncoder.dequeueOutputBuffer(this.mBufferInfo, ErrDef.Feature.WEIGHT);
             if (dequeueOutputBuffer != -1) {
                 if (dequeueOutputBuffer == -3) {
-                    outputBuffers = this.ija.getOutputBuffers();
+                    outputBuffers = this.mEncoder.getOutputBuffers();
                 } else if (dequeueOutputBuffer == -2) {
-                    if (this.ijc) {
+                    if (this.ikL) {
                         throw new RuntimeException("format changed twice");
                     }
-                    MediaFormat outputFormat = this.ija.getOutputFormat();
+                    MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                     Log.d("AudioEncoder", "encoder output format changed: " + outputFormat);
-                    this.ijb = this.iiZ.addTrack(outputFormat);
-                    if (!this.iiZ.start()) {
-                        synchronized (this.iiZ) {
-                            while (!this.iiZ.isStarted()) {
+                    this.ikK = this.ikJ.addTrack(outputFormat);
+                    if (!this.ikJ.start()) {
+                        synchronized (this.ikJ) {
+                            while (!this.ikJ.isStarted()) {
                                 try {
-                                    this.iiZ.wait(100L);
+                                    this.ikJ.wait(100L);
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
                             }
                         }
                     }
-                    this.ijc = true;
+                    this.ikL = true;
                 } else if (dequeueOutputBuffer < 0) {
                     Log.w("AudioEncoder", "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
                 } else {
@@ -102,14 +102,14 @@ public class a {
                         this.mBufferInfo.size = 0;
                     }
                     if (this.mBufferInfo.size != 0) {
-                        if (!this.ijc) {
+                        if (!this.ikL) {
                             throw new RuntimeException("muxer hasn't started");
                         }
                         byteBuffer.position(this.mBufferInfo.offset);
                         byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                        this.iiZ.writeSampleData(this.ijb, byteBuffer, this.mBufferInfo);
+                        this.ikJ.writeSampleData(this.ikK, byteBuffer, this.mBufferInfo);
                     }
-                    this.ija.releaseOutputBuffer(dequeueOutputBuffer, false);
+                    this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
                     if ((this.mBufferInfo.flags & 4) != 0) {
                         return;
                     }
@@ -122,14 +122,14 @@ public class a {
 
     public void release() {
         try {
-            if (this.ija != null) {
-                this.ija.stop();
-                this.ija.release();
-                this.ija = null;
+            if (this.mEncoder != null) {
+                this.mEncoder.stop();
+                this.mEncoder.release();
+                this.mEncoder = null;
             }
-            if (this.iiZ != null) {
-                this.iiZ.stop();
-                this.iiZ = null;
+            if (this.ikJ != null) {
+                this.ikJ.stop();
+                this.ikJ = null;
             }
         } catch (Exception e) {
             e.printStackTrace();

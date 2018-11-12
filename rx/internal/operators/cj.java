@@ -8,8 +8,8 @@ import rx.d;
 import rx.subjects.UnicastSubject;
 /* loaded from: classes2.dex */
 public final class cj<T, U, V> implements d.b<rx.d<T>, T> {
-    final rx.d<? extends U> iAM;
-    final rx.functions.f<? super U, ? extends rx.d<? extends V>> iAN;
+    final rx.d<? extends U> iCw;
+    final rx.functions.f<? super U, ? extends rx.d<? extends V>> iCx;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -17,8 +17,8 @@ public final class cj<T, U, V> implements d.b<rx.d<T>, T> {
     }
 
     public cj(rx.d<? extends U> dVar, rx.functions.f<? super U, ? extends rx.d<? extends V>> fVar) {
-        this.iAM = dVar;
-        this.iAN = fVar;
+        this.iCw = dVar;
+        this.iCx = fVar;
     }
 
     public rx.j<? super T> call(rx.j<? super rx.d<T>> jVar) {
@@ -33,7 +33,7 @@ public final class cj<T, U, V> implements d.b<rx.d<T>, T> {
 
             @Override // rx.e
             public void onNext(U u) {
-                bVar2.bm(u);
+                bVar2.bl(u);
             }
 
             @Override // rx.e
@@ -48,19 +48,19 @@ public final class cj<T, U, V> implements d.b<rx.d<T>, T> {
         };
         bVar.add(bVar2);
         bVar.add(jVar2);
-        this.iAM.unsafeSubscribe(jVar2);
+        this.iCw.unsafeSubscribe(jVar2);
         return bVar2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T> {
-        final rx.e<T> iAB;
-        final rx.d<T> iAC;
+        final rx.e<T> iCl;
+        final rx.d<T> iCm;
 
         public a(rx.e<T> eVar, rx.d<T> dVar) {
-            this.iAB = new rx.b.e(eVar);
-            this.iAC = dVar;
+            this.iCl = new rx.b.e(eVar);
+            this.iCm = dVar;
         }
     }
 
@@ -69,13 +69,13 @@ public final class cj<T, U, V> implements d.b<rx.d<T>, T> {
     public final class b extends rx.j<T> {
         final rx.j<? super rx.d<T>> child;
         boolean done;
-        final rx.subscriptions.b iAQ;
+        final rx.subscriptions.b iCA;
         final Object guard = new Object();
-        final List<a<T>> ivz = new LinkedList();
+        final List<a<T>> ixj = new LinkedList();
 
         public b(rx.j<? super rx.d<T>> jVar, rx.subscriptions.b bVar) {
             this.child = new rx.b.f(jVar);
-            this.iAQ = bVar;
+            this.iCA = bVar;
         }
 
         @Override // rx.j
@@ -87,8 +87,8 @@ public final class cj<T, U, V> implements d.b<rx.d<T>, T> {
         public void onNext(T t) {
             synchronized (this.guard) {
                 if (!this.done) {
-                    for (a aVar : new ArrayList(this.ivz)) {
-                        aVar.iAB.onNext(t);
+                    for (a aVar : new ArrayList(this.ixj)) {
+                        aVar.iCl.onNext(t);
                     }
                 }
             }
@@ -100,16 +100,16 @@ public final class cj<T, U, V> implements d.b<rx.d<T>, T> {
                 synchronized (this.guard) {
                     if (!this.done) {
                         this.done = true;
-                        ArrayList<a> arrayList = new ArrayList(this.ivz);
-                        this.ivz.clear();
+                        ArrayList<a> arrayList = new ArrayList(this.ixj);
+                        this.ixj.clear();
                         for (a aVar : arrayList) {
-                            aVar.iAB.onError(th);
+                            aVar.iCl.onError(th);
                         }
                         this.child.onError(th);
                     }
                 }
             } finally {
-                this.iAQ.unsubscribe();
+                this.iCA.unsubscribe();
             }
         }
 
@@ -119,29 +119,29 @@ public final class cj<T, U, V> implements d.b<rx.d<T>, T> {
                 synchronized (this.guard) {
                     if (!this.done) {
                         this.done = true;
-                        ArrayList<a> arrayList = new ArrayList(this.ivz);
-                        this.ivz.clear();
+                        ArrayList<a> arrayList = new ArrayList(this.ixj);
+                        this.ixj.clear();
                         for (a aVar : arrayList) {
-                            aVar.iAB.onCompleted();
+                            aVar.iCl.onCompleted();
                         }
                         this.child.onCompleted();
                     }
                 }
             } finally {
-                this.iAQ.unsubscribe();
+                this.iCA.unsubscribe();
             }
         }
 
-        void bm(U u) {
-            final a<T> ccy = ccy();
+        void bl(U u) {
+            final a<T> cbV = cbV();
             synchronized (this.guard) {
                 if (!this.done) {
-                    this.ivz.add(ccy);
-                    this.child.onNext(ccy.iAC);
+                    this.ixj.add(cbV);
+                    this.child.onNext(cbV.iCm);
                     try {
-                        rx.d<? extends V> call = cj.this.iAN.call(u);
+                        rx.d<? extends V> call = cj.this.iCx.call(u);
                         rx.j<V> jVar = new rx.j<V>() { // from class: rx.internal.operators.cj.b.1
-                            boolean itr = true;
+                            boolean ivb = true;
 
                             @Override // rx.e
                             public void onNext(V v) {
@@ -155,14 +155,14 @@ public final class cj<T, U, V> implements d.b<rx.d<T>, T> {
 
                             @Override // rx.e
                             public void onCompleted() {
-                                if (this.itr) {
-                                    this.itr = false;
-                                    b.this.a(ccy);
-                                    b.this.iAQ.b(this);
+                                if (this.ivb) {
+                                    this.ivb = false;
+                                    b.this.a(cbV);
+                                    b.this.iCA.b(this);
                                 }
                             }
                         };
-                        this.iAQ.add(jVar);
+                        this.iCA.add(jVar);
                         call.unsafeSubscribe(jVar);
                     } catch (Throwable th) {
                         onError(th);
@@ -175,7 +175,7 @@ public final class cj<T, U, V> implements d.b<rx.d<T>, T> {
             boolean z;
             synchronized (this.guard) {
                 if (!this.done) {
-                    Iterator<a<T>> it = this.ivz.iterator();
+                    Iterator<a<T>> it = this.ixj.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             z = false;
@@ -187,15 +187,15 @@ public final class cj<T, U, V> implements d.b<rx.d<T>, T> {
                         }
                     }
                     if (z) {
-                        aVar.iAB.onCompleted();
+                        aVar.iCl.onCompleted();
                     }
                 }
             }
         }
 
-        a<T> ccy() {
-            UnicastSubject cdM = UnicastSubject.cdM();
-            return new a<>(cdM, cdM);
+        a<T> cbV() {
+            UnicastSubject cdj = UnicastSubject.cdj();
+            return new a<>(cdj, cdj);
         }
     }
 }

@@ -1,20 +1,23 @@
 package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
 public class aj extends com.baidu.adp.lib.b.a {
-    public static final String[] bdz = {"cn.jingling.lib"};
-
     @Override // com.baidu.adp.lib.b.a
-    protected void Z(int i) {
+    protected void aq(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "motu_sdk";
+        return "android_message_can_friend_chat";
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] iH() {
-        return bdz;
+    protected String[] iG() {
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int iH() {
+        return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -24,11 +27,6 @@ public class aj extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int iJ() {
-        return 1;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int iK() {
         return 10;
     }
 }

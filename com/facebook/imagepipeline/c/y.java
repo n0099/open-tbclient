@@ -5,7 +5,7 @@ import com.facebook.imagepipeline.request.a;
 /* loaded from: classes2.dex */
 public class y implements r {
     @Override // com.facebook.imagepipeline.c.r
-    public bolts.g<com.facebook.imagepipeline.request.a> a(String str, a.C0324a c0324a) {
+    public bolts.g<com.facebook.imagepipeline.request.a> a(String str, a.C0352a c0352a) {
         return bolts.g.f((Object) null);
     }
 

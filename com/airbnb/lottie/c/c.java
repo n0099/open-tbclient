@@ -2,78 +2,79 @@ package com.airbnb.lottie.c;
 
 import android.animation.ValueAnimator;
 import android.support.annotation.FloatRange;
+import com.baidu.mapapi.map.WeightedLatLng;
 /* loaded from: classes2.dex */
 public class c extends ValueAnimator {
-    private long sL;
-    private boolean sK = false;
+    private long sN;
+    private boolean sM = false;
     private float speed = 1.0f;
-    @FloatRange(from = 0.0d, to = 1.0d)
+    @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     private float value = 0.0f;
-    @FloatRange(from = 0.0d, to = 1.0d)
-    private float sM = 0.0f;
-    @FloatRange(from = 0.0d, to = 1.0d)
-    private float sN = 1.0f;
+    @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
+    private float sO = 0.0f;
+    @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
+    private float sP = 1.0f;
 
     public c() {
         setInterpolator(null);
         addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.airbnb.lottie.c.c.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (!c.this.sK) {
+                if (!c.this.sM) {
                     c.this.value = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 }
             }
         });
-        eZ();
+        eY();
     }
 
-    public void cR() {
-        this.sK = true;
+    public void cQ() {
+        this.sM = true;
     }
 
-    public void k(long j) {
-        this.sL = j;
-        eZ();
+    public void m(long j) {
+        this.sN = j;
+        eY();
     }
 
     public void l(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        float clamp = e.clamp(f, this.sM, this.sN);
+        float clamp = e.clamp(f, this.sO, this.sP);
         this.value = clamp;
-        float abs = (isReversed() ? this.sN - clamp : clamp - this.sM) / Math.abs(this.sN - this.sM);
+        float abs = (isReversed() ? this.sP - clamp : clamp - this.sO) / Math.abs(this.sP - this.sO);
         if (getDuration() > 0) {
             setCurrentPlayTime(abs * ((float) getDuration()));
         }
     }
 
-    public float eY() {
+    public float eX() {
         return this.value;
     }
 
-    public void g(@FloatRange(from = 0.0d, to = 1.0d) float f, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
-        this.sM = f;
-        this.sN = f2;
-        eZ();
+    public void j(@FloatRange(from = 0.0d, to = 1.0d) float f, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
+        this.sO = f;
+        this.sP = f2;
+        eY();
     }
 
     public void m(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        if (f >= this.sN) {
+        if (f >= this.sP) {
             throw new IllegalArgumentException("Min value must be smaller then max value.");
         }
-        this.sM = f;
-        eZ();
+        this.sO = f;
+        eY();
     }
 
     public void n(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        if (f <= this.sM) {
+        if (f <= this.sO) {
             throw new IllegalArgumentException("Max value must be greater than min value.");
         }
-        this.sN = f;
-        eZ();
+        this.sP = f;
+        eY();
     }
 
     public void setSpeed(float f) {
         this.speed = f;
-        eZ();
+        eY();
     }
 
     public float getSpeed() {
@@ -82,10 +83,10 @@ public class c extends ValueAnimator {
 
     public void cv() {
         start();
-        l(isReversed() ? this.sN : this.sM);
+        l(isReversed() ? this.sP : this.sO);
     }
 
-    public void cy() {
+    public void cx() {
         float f = this.value;
         cancel();
         l(f);
@@ -93,10 +94,10 @@ public class c extends ValueAnimator {
 
     public void cw() {
         float f = this.value;
-        if (isReversed() && this.value == this.sM) {
-            f = this.sN;
-        } else if (!isReversed() && this.value == this.sN) {
-            f = this.sM;
+        if (isReversed() && this.value == this.sO) {
+            f = this.sP;
+        } else if (!isReversed() && this.value == this.sP) {
+            f = this.sO;
         }
         start();
         l(f);
@@ -106,11 +107,11 @@ public class c extends ValueAnimator {
         return this.speed < 0.0f;
     }
 
-    private void eZ() {
-        setDuration((((float) this.sL) * (this.sN - this.sM)) / Math.abs(this.speed));
+    private void eY() {
+        setDuration((((float) this.sN) * (this.sP - this.sO)) / Math.abs(this.speed));
         float[] fArr = new float[2];
-        fArr[0] = this.speed < 0.0f ? this.sN : this.sM;
-        fArr[1] = this.speed < 0.0f ? this.sM : this.sN;
+        fArr[0] = this.speed < 0.0f ? this.sP : this.sO;
+        fArr[1] = this.speed < 0.0f ? this.sO : this.sP;
         setFloatValues(fArr);
         l(this.value);
     }

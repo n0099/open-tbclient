@@ -9,7 +9,7 @@ import java.io.File;
 /* loaded from: classes.dex */
 public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a> {
     @Override // com.baidu.adp.lib.f.e
-    public boolean jF() {
+    public boolean jD() {
         return true;
     }
 
@@ -17,8 +17,8 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(fN(str), com.baidu.tbadk.imageManager.c.Me().hO(fN(str)), i, i2);
-        if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.os() == null || checkIsValidPicMemoryCache.os().isRecycled()) {
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(fN(str), com.baidu.tbadk.imageManager.c.Mq().hP(fN(str)), i, i2);
+        if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.oq() == null || checkIsValidPicMemoryCache.oq().isRecycled()) {
             return null;
         }
         return checkIsValidPicMemoryCache;
@@ -38,9 +38,9 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     public void a(String str, Object obj, int i, int i2, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.ImageView.a)) {
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
-            aVar.aN(i);
-            aVar.aO(i2);
-            com.baidu.tbadk.imageManager.c.Me().c(fN(str), aVar);
+            aVar.be(i);
+            aVar.bf(i2);
+            com.baidu.tbadk.imageManager.c.Mq().c(fN(str), aVar);
         }
     }
 
@@ -52,12 +52,12 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public BdAsyncTaskParallel jG() {
+    public BdAsyncTaskParallel jE() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public int jH() {
+    public int jF() {
         return 1;
     }
 

@@ -65,7 +65,7 @@ public class AiAppAnimateViewAction extends AbsAiAppWidgetAction {
             return false;
         }
         LottieAnimationView lottieAnimationView = new LottieAnimationView(context);
-        lottieAnimationView.s(animateConcreteModel.loop);
+        lottieAnimationView.G(animateConcreteModel.loop);
         lottieAnimationView.setAnimation(sdCardPath);
         if (animateConcreteModel.style != null) {
             lottieAnimationView.a(new PorterDuffColorFilter(Color.parseColor(animateConcreteModel.style.bgColor), PorterDuff.Mode.ADD));
@@ -120,9 +120,9 @@ public class AiAppAnimateViewAction extends AbsAiAppWidgetAction {
         if (TextUtils.equals(str2, "play")) {
             lottieAnimationView.cw();
         } else if (TextUtils.equals(str2, "pause")) {
-            lottieAnimationView.cy();
-        } else if (TextUtils.equals(str2, IntentConfig.STOP)) {
             lottieAnimationView.cx();
+        } else if (TextUtils.equals(str2, IntentConfig.STOP)) {
+            lottieAnimationView.cancelAnimation();
             lottieAnimationView.setProgress(0.0f);
         }
         boolean updateView = findNAViewContainer.updateView(animateConcreteModel);
@@ -210,7 +210,7 @@ public class AiAppAnimateViewAction extends AbsAiAppWidgetAction {
                 JSONObject optJSONObject = jSONObject.optJSONObject("style");
                 if (optJSONObject != null) {
                     this.style = new AnimStyle();
-                    this.style.bgColor = optJSONObject.optString(ANIM_STYLE_BG_COLOR);
+                    this.style.bgColor = optJSONObject.optString("bgColor");
                     this.style.opacity = (float) optJSONObject.optDouble("opacity");
                 }
             }

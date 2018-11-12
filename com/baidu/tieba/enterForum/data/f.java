@@ -5,10 +5,10 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.ForumRecommend.LikeForum;
 /* loaded from: classes4.dex */
 public class f extends e implements com.baidu.tbadk.mvc.b.a {
-    private int dgm;
-    private String dgn;
-    private int dgo;
-    private int dgp;
+    private int dhr;
+    private String dhs;
+    private int dht;
+    private int dhu;
     private String mId;
     private int mLevel;
     private String mName;
@@ -21,16 +21,16 @@ public class f extends e implements com.baidu.tbadk.mvc.b.a {
         return this.mName;
     }
 
-    public void kE(int i) {
-        this.dgm = i;
+    public void kW(int i) {
+        this.dhr = i;
     }
 
-    public int atI() {
-        return this.dgm;
+    public int ath() {
+        return this.dhr;
     }
 
-    public int atJ() {
-        return this.dgp;
+    public int ati() {
+        return this.dhu;
     }
 
     public void setLevel(int i) {
@@ -42,7 +42,7 @@ public class f extends e implements com.baidu.tbadk.mvc.b.a {
     }
 
     public String getAvatar() {
-        return this.dgn;
+        return this.dhs;
     }
 
     public void a(LikeForum likeForum) {
@@ -56,11 +56,11 @@ public class f extends e implements com.baidu.tbadk.mvc.b.a {
             try {
                 this.mId = String.valueOf(likeForum.forum_id);
                 this.mName = likeForum.forum_name;
-                this.dgm = likeForum.is_sign.intValue();
+                this.dhr = likeForum.is_sign.intValue();
                 this.mLevel = likeForum.level_id.intValue();
-                this.dgn = likeForum.avatar;
-                this.dgo = likeForum.is_liveforum.intValue();
-                this.dgp = likeForum.is_brand_forum.intValue();
+                this.dhs = likeForum.avatar;
+                this.dht = likeForum.is_liveforum.intValue();
+                this.dhu = likeForum.is_brand_forum.intValue();
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

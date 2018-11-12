@@ -1,0 +1,17 @@
+package com.baidu.tbadk.lcs;
+
+import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import org.json.JSONObject;
+/* loaded from: classes.dex */
+public class LCSStatisticsResponseMessage extends JsonHttpResponsedMessage {
+    public LCSStatisticsResponseMessage(int i) {
+        super(i);
+    }
+
+    @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+        if (jSONObject != null) {
+            jSONObject.toString();
+        }
+    }
+}

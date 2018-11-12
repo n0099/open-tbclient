@@ -23,14 +23,14 @@ final class i {
         this.d = str;
     }
 
+    private static Integer E(int i) {
+        return (i < 0 || i >= lQ.length) ? Integer.valueOf(i) : lQ[i];
+    }
+
     private void d(int i) {
         if (i < 0 || i > this.g) {
             throw new IllegalArgumentException(this.d + " " + i + "is out of range");
         }
-    }
-
-    private static Integer n(int i) {
-        return (i < 0 || i >= lQ.length) ? Integer.valueOf(i) : lQ[i];
     }
 
     public final void a(int i) {
@@ -39,14 +39,14 @@ final class i {
 
     public final void a(int i, String str) {
         d(i);
-        Integer n = n(i);
+        Integer E = E(i);
         if (this.e == 2) {
             str = str.toUpperCase();
         } else if (this.e == 3) {
             str = str.toLowerCase();
         }
-        this.b.put(str, n);
-        this.c.put(n, str);
+        this.b.put(str, E);
+        this.c.put(E, str);
     }
 
     public final void a(boolean z) {
@@ -55,7 +55,7 @@ final class i {
 
     public final String b(int i) {
         d(i);
-        String str = (String) this.c.get(n(i));
+        String str = (String) this.c.get(E(i));
         if (str != null) {
             return str;
         }

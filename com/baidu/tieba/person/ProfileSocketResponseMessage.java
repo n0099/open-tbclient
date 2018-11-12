@@ -188,7 +188,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
                     this.liveInfoData = new AlaLiveInfoCoreData();
                     this.liveInfoData.parserProtoBuf(profileResIdl.data.ala_live_info);
                 }
-                if (!v.J(profileResIdl.data.ala_live_record)) {
+                if (!v.I(profileResIdl.data.ala_live_record)) {
                     this.liveReplayData = new ArrayList();
                     for (AlaLiveInfo alaLiveInfo : profileResIdl.data.ala_live_record) {
                         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
@@ -208,15 +208,15 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
         l<String> ak;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.ucCardData != null && (ak = com.baidu.tbadk.core.c.a.Aq().ak("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
-            List<g.a> list = this.ucCardData.ghX;
-            if (v.I(list) > 4) {
+        if (this.ucCardData != null && (ak = com.baidu.tbadk.core.c.a.Ax().ak("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
+            List<g.a> list = this.ucCardData.gju;
+            if (v.H(list) > 4) {
                 list.get(4).timeStamp = 8L;
                 for (g.a aVar : list) {
                     if (aVar.timeStamp > com.baidu.adp.lib.g.b.d(ak.get(aVar.title), 0L)) {
-                        aVar.ghY = true;
+                        aVar.gjv = true;
                     } else {
-                        aVar.ghY = false;
+                        aVar.gjv = false;
                     }
                 }
             }
@@ -226,7 +226,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        l<byte[]> aj = com.baidu.tbadk.core.c.a.Aq().aj("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        l<byte[]> aj = com.baidu.tbadk.core.c.a.Ax().aj("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
             aj.e(PROFILE_CACHE_KEY, bArr);
         }

@@ -42,7 +42,7 @@ public abstract class i {
                     byte[] a = cn.jiguang.d.d.g.a(datagramSocket, datagramPacket);
                     long currentTimeMillis2 = (System.currentTimeMillis() - currentTimeMillis) / 1000;
                     cn.jiguang.d.a.a.a(currentTimeMillis);
-                    cn.jiguang.d.b.j L = cn.jiguang.d.d.g.L(new String(cn.jiguang.d.b.a.d.g(a).b));
+                    cn.jiguang.d.b.j L = cn.jiguang.d.d.g.L(new String(cn.jiguang.d.b.a.d.f(a).b));
                     if (L == null) {
                         throw new cn.jiguang.d.b.a.e(5, "Can not parse sis info from host: " + hostAddress);
                     }

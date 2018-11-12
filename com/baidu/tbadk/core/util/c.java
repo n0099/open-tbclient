@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class c {
-    public static void Br() {
+    public static void By() {
         com.baidu.adp.base.a.b mainDBDatabaseManager;
         if (TbadkCoreApplication.getCurrentAccount() != null && (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) != null) {
             mainDBDatabaseManager.f("delete from chunk_upload_data where strftime('%s','now') - time > 48 * 3600 and account=?", new String[]{TbadkCoreApplication.getCurrentAccount()});
@@ -22,23 +22,23 @@ public class c {
         }
     }
 
-    public static boolean a(com.baidu.tbadk.coreExtra.data.j jVar) {
+    public static boolean a(com.baidu.tbadk.coreExtra.data.k kVar) {
         if (TbadkCoreApplication.getCurrentAccount() == null) {
             return false;
         }
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         Date date = new Date();
-        if (jVar == null || mainDBDatabaseManager == null) {
+        if (kVar == null || mainDBDatabaseManager == null) {
             return false;
         }
-        mainDBDatabaseManager.f("delete from chunk_upload_data where md5=? and account=?", new String[]{jVar.Fq(), TbadkCoreApplication.getCurrentAccount()});
-        return mainDBDatabaseManager.f("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{jVar.Fq(), Long.valueOf(jVar.getTotalLength()), Integer.valueOf(jVar.Fr()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
+        mainDBDatabaseManager.f("delete from chunk_upload_data where md5=? and account=?", new String[]{kVar.FC(), TbadkCoreApplication.getCurrentAccount()});
+        return mainDBDatabaseManager.f("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{kVar.FC(), Long.valueOf(kVar.getTotalLength()), Integer.valueOf(kVar.FD()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
     }
 
-    public static com.baidu.tbadk.coreExtra.data.j ex(String str) {
+    public static com.baidu.tbadk.coreExtra.data.k ex(String str) {
         Cursor cursor;
         Exception e;
-        com.baidu.tbadk.coreExtra.data.j jVar;
+        com.baidu.tbadk.coreExtra.data.k kVar;
         if (TbadkCoreApplication.getCurrentAccount() == null) {
             return null;
         }
@@ -48,23 +48,23 @@ public class c {
             try {
                 try {
                     if (cursor.moveToFirst()) {
-                        jVar = new com.baidu.tbadk.coreExtra.data.j();
+                        kVar = new com.baidu.tbadk.coreExtra.data.k();
                         try {
-                            jVar.gi(str);
-                            jVar.eo(cursor.getInt(3));
-                            jVar.ac(cursor.getLong(2));
+                            kVar.gj(str);
+                            kVar.eC(cursor.getInt(3));
+                            kVar.ae(cursor.getLong(2));
                         } catch (Exception e2) {
                             e = e2;
                             mainDBDatabaseManager.a(e, "getChunkUploadDataByMd5");
                             com.baidu.adp.lib.g.a.e(cursor);
-                            return jVar;
+                            return kVar;
                         }
                     } else {
-                        jVar = null;
+                        kVar = null;
                     }
                     com.baidu.adp.lib.g.a.e(cursor);
                 } catch (Exception e3) {
-                    jVar = null;
+                    kVar = null;
                     e = e3;
                 }
             } catch (Throwable th) {
@@ -75,11 +75,11 @@ public class c {
         } catch (Exception e4) {
             cursor = null;
             e = e4;
-            jVar = null;
+            kVar = null;
         } catch (Throwable th2) {
             th = th2;
             cursor = null;
         }
-        return jVar;
+        return kVar;
     }
 }

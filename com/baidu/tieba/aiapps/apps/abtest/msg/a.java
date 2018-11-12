@@ -10,14 +10,14 @@ import tbclient.decrypt.DataRes;
 public class a {
     private static final String DEFAULT_TITLE = TbadkCoreApplication.getInst().getString(e.j.tb_token);
     private static final String DEFAULT_TIPS = TbadkCoreApplication.getInst().getString(e.j.tb_ai_apps_tips);
-    private static final String bAV = TbadkCoreApplication.getInst().getString(e.j.cancel);
-    private static final String bAW = TbadkCoreApplication.getInst().getString(e.j.check_immediately);
+    private static final String bBH = TbadkCoreApplication.getInst().getString(e.j.cancel);
+    private static final String bBI = TbadkCoreApplication.getInst().getString(e.j.check_immediately);
     private String title = "";
     private String img = "";
     private String tips = "";
     private String url = "";
-    private String bAX = "";
-    private String bAY = "";
+    private String bBJ = "";
+    private String bBK = "";
     public String appId = "";
 
     public void a(DataRes dataRes) {
@@ -33,15 +33,15 @@ public class a {
                 e.printStackTrace();
             }
         }
-        this.bAX = StringUtils.isNull(dataRes.btn_sure) ? bAW : dataRes.btn_sure;
-        this.bAY = StringUtils.isNull(dataRes.btn_cancel) ? bAV : dataRes.btn_cancel;
+        this.bBJ = StringUtils.isNull(dataRes.btn_sure) ? bBI : dataRes.btn_sure;
+        this.bBK = StringUtils.isNull(dataRes.btn_cancel) ? bBH : dataRes.btn_cancel;
     }
 
     public String getTitle() {
         return this.title;
     }
 
-    public String Wh() {
+    public String Wr() {
         return this.img;
     }
 
@@ -53,11 +53,11 @@ public class a {
         return this.url;
     }
 
-    public String Wi() {
-        return this.bAX;
+    public String Ws() {
+        return this.bBJ;
     }
 
-    public String Wj() {
-        return this.bAY;
+    public String Wt() {
+        return this.bBK;
     }
 }

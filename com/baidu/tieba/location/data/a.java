@@ -6,11 +6,11 @@ import tbclient.GetSuggestionByAddrName.DataRes;
 import tbclient.Lbs;
 /* loaded from: classes3.dex */
 public class a {
-    private ArrayList<C0229a> fkv = new ArrayList<>();
+    private ArrayList<C0255a> flN = new ArrayList<>();
 
     /* renamed from: com.baidu.tieba.location.data.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0229a {
+    public static class C0255a {
         private String lat;
         private String lng;
         private String name;
@@ -37,26 +37,26 @@ public class a {
             return this.screatString;
         }
 
-        public void qI(String str) {
+        public void qJ(String str) {
             this.screatString = str;
         }
     }
 
-    public ArrayList<C0229a> aYk() {
-        return this.fkv;
+    public ArrayList<C0255a> aXH() {
+        return this.flN;
     }
 
-    public void ab(ArrayList<C0229a> arrayList) {
-        this.fkv = arrayList;
+    public void aa(ArrayList<C0255a> arrayList) {
+        this.flN = arrayList;
     }
 
     public void a(DataRes dataRes) {
         List<Lbs> list = dataRes.poi_info;
         if (list != null && !list.isEmpty()) {
             for (Lbs lbs : list) {
-                C0229a c0229a = new C0229a();
-                c0229a.b(lbs);
-                this.fkv.add(c0229a);
+                C0255a c0255a = new C0255a();
+                c0255a.b(lbs);
+                this.flN.add(c0255a);
             }
         }
     }

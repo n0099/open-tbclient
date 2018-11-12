@@ -68,16 +68,16 @@ public final class f {
                 short command2 = (short) gVar.getCommand();
                 String a = ((cn.jpush.a.c) gVar).a();
                 cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(AudioParams.DEFAULT_AUDIO_BUFFER_SIZE);
-                bVar.l(0);
-                bVar.k((short) gVar.getVersion());
-                bVar.k(command2);
-                bVar.h(longValue);
-                bVar.g(sid);
-                bVar.h(uid);
+                bVar.C(0);
+                bVar.B((short) gVar.getVersion());
+                bVar.B(command2);
+                bVar.j(longValue);
+                bVar.i(sid);
+                bVar.j(uid);
                 if (command2 == 10) {
-                    bVar.f(appKey.getBytes());
+                    bVar.e(appKey.getBytes());
                 }
-                bVar.f(a.getBytes());
+                bVar.e(a.getBytes());
                 bVar.l(bVar.current(), 0);
                 cn.jiguang.api.e.b(this.a, cn.jpush.android.a.a, HttpConstants.HTTP_CONNECT_TIMEOUT, bVar.toByteArray());
                 return;

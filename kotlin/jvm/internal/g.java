@@ -13,7 +13,7 @@ final class g<T> implements Iterator<T> {
     }
 
     public g(T[] tArr) {
-        p.i(tArr, com.baidu.fsg.base.statistics.b.j);
+        p.h((Object) tArr, com.baidu.fsg.base.statistics.b.j);
         this.array = tArr;
     }
 

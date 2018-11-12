@@ -11,7 +11,6 @@ import com.baidu.searchbox.ng.ai.apps.console.AiAppsLog;
 import com.baidu.searchbox.ng.ai.apps.lifecycle.AiAppsController;
 import com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsNaViewModel;
 import com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsRectPosition;
-import com.baidu.searchbox.ng.ai.apps.performance.AiAppActionErrorCode;
 import com.baidu.searchbox.ng.ai.apps.permission.AiAppsPermission;
 import com.baidu.searchbox.ng.ai.apps.runtime.AiApp;
 import com.baidu.searchbox.ng.ai.apps.scheme.UnitedSchemeAiAppDispatcher;
@@ -46,7 +45,7 @@ public class CameraUpdateAction extends AbsCameraAction {
                     CameraUpdateAction.this.handleAuthorized(context, unitedSchemeEntity, callbackHandler, cameraAttrModel);
                     return;
                 }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, (int) AiAppActionErrorCode.Accredit.CAMERA_USER_DENY);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 200101);
                 AiAppsLog.e("AiAppCamera", "camera authorize failure");
             }
         });
@@ -71,7 +70,7 @@ public class CameraUpdateAction extends AbsCameraAction {
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                 boolean z = false;
                 if (i != 1) {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, (int) AiAppActionErrorCode.Accredit.CAMERA_SYSTEM_DENY);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 200102);
                     AiAppsLog.e("AiAppCamera", "handleAuthorized end, failure");
                     return;
                 }
@@ -91,7 +90,7 @@ public class CameraUpdateAction extends AbsCameraAction {
                     CameraUpdateAction.this.callback(unitedSchemeEntity, callbackHandler, CameraUpdateAction.this.executionInstruction(cameraAttrModel));
                     return;
                 }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, (int) AiAppActionErrorCode.Accredit.CAMERA_SYSTEM_DENY);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 200102);
                 AiAppsLog.e("AiAppCamera", "user want not authorize");
             }
         });

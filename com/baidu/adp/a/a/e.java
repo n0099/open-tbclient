@@ -7,23 +7,23 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a implements Runnable {
-    private int vM;
-    private a vN;
+    private int vO;
+    private a vP;
 
     public a gk() throws IOException {
         a aVar = new a();
-        aVar.vP = ag("/proc/uid_stat/" + this.vM + "/tcp_rcv");
-        aVar.vQ = ag("/proc/uid_stat/" + this.vM + "/tcp_snd");
-        aVar.vO = d.c(aVar.vP + aVar.vQ);
+        aVar.vR = ag("/proc/uid_stat/" + this.vO + "/tcp_rcv");
+        aVar.vS = ag("/proc/uid_stat/" + this.vO + "/tcp_snd");
+        aVar.vQ = d.c(aVar.vR + aVar.vS);
         return aVar;
     }
 
     public a gl() throws IOException {
         a gk = gk();
-        this.vN.vP = d.c(gk.vP - d.gj().vP);
-        this.vN.vQ = d.c(gk.vQ - d.gj().vQ);
-        this.vN.vO = d.c(gk.vO - d.gj().vO);
-        return this.vN;
+        this.vP.vR = d.c(gk.vR - d.gj().vR);
+        this.vP.vS = d.c(gk.vS - d.gj().vS);
+        this.vP.vQ = d.c(gk.vQ - d.gj().vQ);
+        return this.vP;
     }
 
     public double ag(String str) {
@@ -72,9 +72,9 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
 
     /* loaded from: classes.dex */
     public class a {
-        double vO = 0.0d;
-        double vP = 0.0d;
         double vQ = 0.0d;
+        double vR = 0.0d;
+        double vS = 0.0d;
 
         public a() {
         }

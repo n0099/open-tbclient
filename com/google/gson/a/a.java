@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 /* loaded from: classes2.dex */
 public @interface a {
-    boolean bYN() default true;
+    boolean bYk() default true;
 
-    boolean bYO() default true;
+    boolean bYl() default true;
 }

@@ -13,11 +13,11 @@ import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.adp.base.c<OfficialBarHistoryActivity> {
-    private View aix;
-    private BdListView dTp;
-    private NavigationBar eBZ;
-    private d eCa;
-    private View eCb;
+    private View ajk;
+    private BdListView dUv;
+    private NavigationBar eDs;
+    private d eDt;
+    private View eDu;
     private BaseActivity mContext;
     private NoDataView mNoDataView;
 
@@ -28,48 +28,48 @@ public class e extends com.baidu.adp.base.c<OfficialBarHistoryActivity> {
     }
 
     private void initView() {
-        this.aix = View.inflate(this.mContext.getPageContext().getContext(), e.h.official_bar_history_activity, null);
-        this.mContext.getPageContext().getPageActivity().setContentView(this.aix);
-        this.eBZ = (NavigationBar) this.aix.findViewById(e.g.view_navigation_bar);
-        this.eBZ.setTitleText(e.j.officical_bar_info_history);
-        this.eBZ.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.dTp = (BdListView) this.aix.findViewById(e.g.bar_history_list);
-        this.eCa = new d(this.mContext, this.mContext.getPageContext().getContext());
-        this.dTp.setAdapter((ListAdapter) this.eCa);
-        this.eCb = View.inflate(this.mContext.getPageContext().getContext(), e.h.official_bar_history_item_occupy, null);
-        this.dTp.addHeaderView(this.eCb);
-        this.dTp.addFooterView(this.eCb);
+        this.ajk = View.inflate(this.mContext.getPageContext().getContext(), e.h.official_bar_history_activity, null);
+        this.mContext.getPageContext().getPageActivity().setContentView(this.ajk);
+        this.eDs = (NavigationBar) this.ajk.findViewById(e.g.view_navigation_bar);
+        this.eDs.setTitleText(e.j.officical_bar_info_history);
+        this.eDs.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.dUv = (BdListView) this.ajk.findViewById(e.g.bar_history_list);
+        this.eDt = new d(this.mContext, this.mContext.getPageContext().getContext());
+        this.dUv.setAdapter((ListAdapter) this.eDt);
+        this.eDu = View.inflate(this.mContext.getPageContext().getContext(), e.h.official_bar_history_item_occupy, null);
+        this.dUv.addHeaderView(this.eDu);
+        this.dUv.addFooterView(this.eDu);
     }
 
     public void setData(List<ResponseHistoryMessage.a> list) {
-        this.eCa.setData(list);
-        cr(list);
+        this.eDt.setData(list);
+        cp(list);
     }
 
     public void onChangeSkinType(int i) {
         this.mContext.getLayoutMode().setNightMode(i == 1);
-        this.mContext.getLayoutMode().onModeChanged(this.aix);
-        this.eBZ.onChangeSkinType(this.mContext.getPageContext(), i);
+        this.mContext.getLayoutMode().onModeChanged(this.ajk);
+        this.eDs.onChangeSkinType(this.mContext.getPageContext(), i);
     }
 
     public void d(BdListView.e eVar) {
-        this.dTp.setOnSrollToBottomListener(eVar);
+        this.dUv.setOnSrollToBottomListener(eVar);
     }
 
-    public boolean aNm() {
-        return this.eCa.getCount() != 0 && this.dTp.getLastVisiblePosition() - this.dTp.getHeaderViewsCount() < this.eCa.getCount() + (-1);
+    public boolean aMJ() {
+        return this.eDt.getCount() != 0 && this.dUv.getLastVisiblePosition() - this.dUv.getHeaderViewsCount() < this.eDt.getCount() + (-1);
     }
 
-    public void cr(List<ResponseHistoryMessage.a> list) {
+    public void cp(List<ResponseHistoryMessage.a> list) {
         if (list != null && list.size() > 0 && this.mNoDataView != null) {
             this.mNoDataView.setVisibility(8);
         }
     }
 
-    public void cs(List<ResponseHistoryMessage.a> list) {
+    public void cq(List<ResponseHistoryMessage.a> list) {
         if (list == null || list.size() == 0) {
             if (this.mNoDataView == null) {
-                this.mNoDataView = NoDataViewFactory.a(this.mContext.getPageContext().getPageActivity(), this.aix, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 400), NoDataViewFactory.d.dO(e.j.no_data_text), null);
+                this.mNoDataView = NoDataViewFactory.a(this.mContext.getPageContext().getPageActivity(), this.ajk, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 400), NoDataViewFactory.d.ec(e.j.no_data_text), null);
             }
             this.mNoDataView.onChangeSkinType(this.mContext.getPageContext(), TbadkApplication.getInst().getSkinType());
             this.mNoDataView.setVisibility(0);

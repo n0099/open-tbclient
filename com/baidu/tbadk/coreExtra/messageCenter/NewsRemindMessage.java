@@ -8,14 +8,14 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     /* loaded from: classes.dex */
     public class a {
         private int msgCount = 0;
-        private boolean aLA = false;
-        private int aLV = 0;
-        private int aLW = 0;
-        private int aLX = 0;
-        private int aLY = 0;
-        private boolean aLC = false;
-        private int aLZ = 0;
-        private boolean aMa = false;
+        private boolean aMq = false;
+        private int aML = 0;
+        private int aMM = 0;
+        private int aMN = 0;
+        private int aMO = 0;
+        private boolean aMs = false;
+        private int aMP = 0;
+        private boolean aMQ = false;
 
         public a() {
         }
@@ -35,66 +35,66 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     }
 
     public boolean hasMsgRemind() {
-        return this.mData.aLA;
+        return this.mData.aMq;
     }
 
     public void setHasMsgRemind(boolean z) {
-        this.mData.aLA = z;
+        this.mData.aMq = z;
     }
 
     public int getMsgAgreeCount() {
-        return this.mData.aLV;
+        return this.mData.aML;
     }
 
     public void setMsgAgreeCount(int i) {
-        this.mData.aLV = i;
+        this.mData.aML = i;
     }
 
     public int getMsgReplyCount() {
-        return this.mData.aLW;
+        return this.mData.aMM;
     }
 
     public void setMsgReplyCount(int i) {
-        this.mData.aLW = i;
+        this.mData.aMM = i;
     }
 
     public int getMsgAtCount() {
-        return this.mData.aLX;
+        return this.mData.aMN;
     }
 
     public void setMsgAtCount(int i) {
-        this.mData.aLX = i;
+        this.mData.aMN = i;
     }
 
     public int getChatCount() {
-        return this.mData.aLY;
+        return this.mData.aMO;
     }
 
     public void setChatCount(int i) {
-        this.mData.aLY = i;
+        this.mData.aMO = i;
     }
 
     public boolean hasChatRemind() {
-        return this.mData.aLC;
+        return this.mData.aMs;
     }
 
     public void setHasChatRemind(boolean z) {
-        this.mData.aLC = z;
+        this.mData.aMs = z;
     }
 
     public int getNotificationCount() {
-        return this.mData.aLZ;
+        return this.mData.aMP;
     }
 
     public void setNotificationCount(int i) {
-        this.mData.aLZ = i;
+        this.mData.aMP = i;
     }
 
     public boolean hasNotificationRemind() {
-        return this.mData.aMa;
+        return this.mData.aMQ;
     }
 
     public void setHasNotificationRemind(boolean z) {
-        this.mData.aMa = z;
+        this.mData.aMQ = z;
     }
 }

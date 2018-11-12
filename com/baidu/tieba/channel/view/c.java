@@ -23,70 +23,70 @@ import com.baidu.tieba.channel.data.ChannelInfo;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class c implements View.OnClickListener {
-    private NoNetworkView bJX;
-    private ChannelEditActivity cTH;
-    private TbImageView cTI;
-    private ImageView cTJ;
-    private TextView cTK;
-    private TextView cTL;
-    private HeadImageView cTM;
-    private TextView cTN;
-    private TextView cTO;
-    private EditText cTP;
-    private TextView cTQ;
+    private NoNetworkView bKI;
+    private ChannelEditActivity cUN;
+    private TbImageView cUO;
+    private ImageView cUP;
+    private TextView cUQ;
+    private TextView cUR;
+    private HeadImageView cUS;
+    private TextView cUT;
+    private TextView cUU;
+    private EditText cUV;
+    private TextView cUW;
     private Context mContext;
     private NavigationBar mNavigationBar;
     private View mRootView;
     private final WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
-    private com.baidu.tbadk.core.dialog.a cTR = null;
+    private com.baidu.tbadk.core.dialog.a cUX = null;
 
     public c(ChannelEditActivity channelEditActivity) {
-        this.cTH = channelEditActivity;
-        this.cTH.setIsAddSwipeBackLayout(true);
-        this.cTH.setSwipeBackEnabled(true);
-        this.cTH.setUseStyleImmersiveSticky(true);
-        this.mContext = this.cTH.getPageContext().getPageActivity();
+        this.cUN = channelEditActivity;
+        this.cUN.setIsAddSwipeBackLayout(true);
+        this.cUN.setSwipeBackEnabled(true);
+        this.cUN.setUseStyleImmersiveSticky(true);
+        this.mContext = this.cUN.getPageContext().getPageActivity();
         initViews();
     }
 
     public void initViews() {
-        this.cTH.setContentView(e.h.channel_edit_layout);
-        this.mRootView = this.cTH.findViewById(e.g.channel_edit_rootview);
+        this.cUN.setContentView(e.h.channel_edit_layout);
+        this.mRootView = this.cUN.findViewById(e.g.channel_edit_rootview);
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(e.g.channel_edit_navigation_bar);
         this.mNavigationBar.showBottomLine(false);
         this.mNavigationBar.getBarBgView().setVisibility(8);
         this.mNavigationBar.getTopCoverBgView().setVisibility(0);
-        this.cTJ = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, e.h.channel_home_nav_right_item, (View.OnClickListener) null);
-        this.cTJ.setOnClickListener(this);
-        this.cTK = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.adp.lib.voice.h.getString(e.j.channel_navigation_bar_save));
-        this.cTK.setTextSize(0, this.mContext.getResources().getDimension(e.C0175e.ds28));
-        this.cTK.setOnClickListener(this);
-        this.bJX = (NoNetworkView) this.mRootView.findViewById(e.g.channel_edit_no_network_view);
-        this.cTI = (TbImageView) this.mRootView.findViewById(e.g.channel_edit_top_bg);
-        this.cTI.setDefaultErrorResource(e.f.bg_avatar_weiba_head);
-        this.cTI.setDefaultBgResource(e.f.bg_avatar_weiba_head);
-        this.cTI.setOnClickListener(this);
-        this.cTL = (TextView) this.mRootView.findViewById(e.g.channel_edit_channel_cover);
-        this.cTL.setOnClickListener(this);
-        this.cTM = (HeadImageView) this.mRootView.findViewById(e.g.channel_show_channel_img);
-        this.cTM.setIsRound(false);
-        this.cTM.setRadius(0);
-        this.cTM.setDrawBorder(true);
-        this.cTM.setBorderWidth(this.mContext.getResources().getDimensionPixelSize(e.C0175e.ds1));
-        this.cTM.setBorderColor(this.mContext.getResources().getColor(e.d.white_alpha40));
-        this.cTM.setDefaultErrorResource(e.f.avatar_channel_poto_defaul160);
-        this.cTM.setOnClickListener(this);
-        this.cTN = (TextView) this.mRootView.findViewById(e.g.channel_edit_channel_avatar);
-        this.cTN.setOnClickListener(this);
-        this.cTO = (TextView) this.mRootView.findViewById(e.g.channel_edit_channel_name);
-        this.cTP = (EditText) this.mRootView.findViewById(e.g.channel_edit_channel_desc);
-        this.cTQ = (TextView) this.mRootView.findViewById(e.g.channel_desc_text_number);
-        this.cTP.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.channel.view.c.1
+        this.cUP = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, e.h.channel_home_nav_right_item, (View.OnClickListener) null);
+        this.cUP.setOnClickListener(this);
+        this.cUQ = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.adp.lib.voice.h.getString(e.j.channel_navigation_bar_save));
+        this.cUQ.setTextSize(0, this.mContext.getResources().getDimension(e.C0200e.ds28));
+        this.cUQ.setOnClickListener(this);
+        this.bKI = (NoNetworkView) this.mRootView.findViewById(e.g.channel_edit_no_network_view);
+        this.cUO = (TbImageView) this.mRootView.findViewById(e.g.channel_edit_top_bg);
+        this.cUO.setDefaultErrorResource(e.f.bg_avatar_weiba_head);
+        this.cUO.setDefaultBgResource(e.f.bg_avatar_weiba_head);
+        this.cUO.setOnClickListener(this);
+        this.cUR = (TextView) this.mRootView.findViewById(e.g.channel_edit_channel_cover);
+        this.cUR.setOnClickListener(this);
+        this.cUS = (HeadImageView) this.mRootView.findViewById(e.g.channel_show_channel_img);
+        this.cUS.setIsRound(false);
+        this.cUS.setRadius(0);
+        this.cUS.setDrawBorder(true);
+        this.cUS.setBorderWidth(this.mContext.getResources().getDimensionPixelSize(e.C0200e.ds1));
+        this.cUS.setBorderColor(this.mContext.getResources().getColor(e.d.white_alpha40));
+        this.cUS.setDefaultErrorResource(e.f.avatar_channel_poto_defaul160);
+        this.cUS.setOnClickListener(this);
+        this.cUT = (TextView) this.mRootView.findViewById(e.g.channel_edit_channel_avatar);
+        this.cUT.setOnClickListener(this);
+        this.cUU = (TextView) this.mRootView.findViewById(e.g.channel_edit_channel_name);
+        this.cUV = (EditText) this.mRootView.findViewById(e.g.channel_edit_channel_desc);
+        this.cUW = (TextView) this.mRootView.findViewById(e.g.channel_desc_text_number);
+        this.cUV.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.channel.view.c.1
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 String replaceAll = editable.toString().replaceAll("\\s*", "");
                 BdLog.d(editable.toString());
-                if (!replaceAll.equals(c.this.cTH.aoU().getDescription())) {
+                if (!replaceAll.equals(c.this.cUN.aov().getDescription())) {
                     ChannelEditActivity.isChanged = true;
                 }
             }
@@ -97,15 +97,15 @@ public class c implements View.OnClickListener {
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (c.this.cTP.getText() != null) {
-                    c.this.cTQ.setText(c.this.mContext.getResources().getString(e.j.channel_desc_text_num, Integer.valueOf(c.this.cTP.getText().length())));
+                if (c.this.cUV.getText() != null) {
+                    c.this.cUW.setText(c.this.mContext.getResources().getString(e.j.channel_desc_text_num, Integer.valueOf(c.this.cUV.getText().length())));
                     if (charSequence != null) {
                         String charSequence2 = charSequence.toString();
                         if (charSequence2.contains("\n")) {
-                            c.this.cTP.setText(charSequence2.replaceAll("\\n", ""));
-                            EditText editText = c.this.cTP;
-                            if (i > c.this.cTP.getText().length()) {
-                                i = c.this.cTP.getText().length();
+                            c.this.cUV.setText(charSequence2.replaceAll("\\n", ""));
+                            EditText editText = c.this.cUV;
+                            if (i > c.this.cUV.getText().length()) {
+                                i = c.this.cUV.getText().length();
                             }
                             editText.setSelection(i);
                         }
@@ -117,64 +117,64 @@ public class c implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.cTL || view == this.cTI) {
+        if (view == this.cUR || view == this.cUO) {
             AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(this.mContext, this.writeImagesInfo.toJsonString());
             albumActivityConfig.setRequestCode(25007);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
-        } else if (view == this.cTN || view == this.cTM) {
+        } else if (view == this.cUT || view == this.cUS) {
             AlbumActivityConfig albumActivityConfig2 = new AlbumActivityConfig(this.mContext, this.writeImagesInfo.toJsonString());
             albumActivityConfig2.setRequestCode(25006);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig2));
-        } else if (view == this.cTJ) {
+        } else if (view == this.cUP) {
             if (ChannelEditActivity.isChanged) {
-                this.cTR = new com.baidu.tbadk.core.dialog.a(this.cTH.getActivity());
-                this.cTR.ej(com.baidu.adp.lib.voice.h.getString(e.j.channel_save_info));
-                this.cTR.a(this.mContext.getString(e.j.alert_yes_button), new a.b() { // from class: com.baidu.tieba.channel.view.c.2
+                this.cUX = new com.baidu.tbadk.core.dialog.a(this.cUN.getActivity());
+                this.cUX.ej(com.baidu.adp.lib.voice.h.getString(e.j.channel_save_info));
+                this.cUX.a(this.mContext.getString(e.j.alert_yes_button), new a.b() { // from class: com.baidu.tieba.channel.view.c.2
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                         aVar.dismiss();
-                        c.this.cTH.aoT();
+                        c.this.cUN.aou();
                     }
                 });
-                this.cTR.b(this.mContext.getString(e.j.cancel), new a.b() { // from class: com.baidu.tieba.channel.view.c.3
+                this.cUX.b(this.mContext.getString(e.j.cancel), new a.b() { // from class: com.baidu.tieba.channel.view.c.3
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                         aVar.dismiss();
-                        c.this.cTH.finish();
+                        c.this.cUN.finish();
                     }
                 });
-                this.cTR.b(this.cTH.getPageContext());
-                this.cTR.Au();
+                this.cUX.b(this.cUN.getPageContext());
+                this.cUX.AB();
                 return;
             }
-            this.cTH.finish();
-        } else if (view == this.cTK) {
-            this.cTH.aoT();
+            this.cUN.finish();
+        } else if (view == this.cUQ) {
+            this.cUN.aou();
         }
     }
 
     public String getDescription() {
-        return this.cTP.getText().toString();
+        return this.cUV.getText().toString();
     }
 
     public void c(ChannelInfo channelInfo) {
         if (channelInfo != null) {
-            this.cTI.startLoad(channelInfo.getChannelCover(), 10, this.cTI.getWidth(), this.cTI.getHeight(), false);
-            this.cTM.startLoad(channelInfo.getChannelAvatar(), 10, this.cTM.getWidth(), this.cTM.getHeight(), false);
-            this.cTO.setText(channelInfo.getChannelName());
-            this.cTP.setText(channelInfo.getDescription());
+            this.cUO.startLoad(channelInfo.getChannelCover(), 10, this.cUO.getWidth(), this.cUO.getHeight(), false);
+            this.cUS.startLoad(channelInfo.getChannelAvatar(), 10, this.cUS.getWidth(), this.cUS.getHeight(), false);
+            this.cUU.setText(channelInfo.getChannelName());
+            this.cUV.setText(channelInfo.getDescription());
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.cTH.getLayoutMode().setNightMode(i == 1);
-        this.cTH.getLayoutMode().onModeChanged(this.mRootView);
-        this.mNavigationBar.onChangeSkinType(this.cTH.getPageContext(), i);
-        this.bJX.onChangeSkinType(this.cTH.getPageContext(), i);
+        this.cUN.getLayoutMode().setNightMode(i == 1);
+        this.cUN.getLayoutMode().onModeChanged(this.mRootView);
+        this.mNavigationBar.onChangeSkinType(this.cUN.getPageContext(), i);
+        this.bKI.onChangeSkinType(this.cUN.getPageContext(), i);
         this.mNavigationBar.getBackground().mutate().setAlpha(0);
-        al.a(this.cTJ, e.f.icon_return_bg, e.f.icon_return_bg);
-        al.c(this.cTK, e.d.cp_cont_g, 1);
-        this.cTM.setBorderColor(al.getColor(e.d.cp_bg_line_a_alpha80));
+        al.a(this.cUP, e.f.icon_return_bg, e.f.icon_return_bg);
+        al.c(this.cUQ, e.d.cp_cont_g, 1);
+        this.cUS.setBorderColor(al.getColor(e.d.cp_bg_line_a_alpha80));
     }
 
     public void onResume() {

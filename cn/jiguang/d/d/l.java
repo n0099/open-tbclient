@@ -40,11 +40,11 @@ public final class l {
                 byte[] byteArray = bundle.getByteArray(IntentConfig.DATAS);
                 if (byteArray != null) {
                     byte[] a = cn.jiguang.d.e.a.a.b.a(cn.jiguang.d.a.d.a(), 0L, byteArray);
-                    if (cn.jiguang.d.g.c.cg().ch().j(cn.jiguang.d.e.a.a.b.a(a, 1)) == 6026) {
+                    if (cn.jiguang.d.g.c.cg().ch().i(cn.jiguang.d.e.a.a.b.a(a, 1)) == 6026) {
                         int i = bundle.getInt(IntentConfig.CMD);
                         String string = bundle.getString("sdktype");
-                        cn.jiguang.g.a.m(a);
-                        e.bU().a(lVar.b, string, cn.jiguang.g.a.m(a), i, 6026);
+                        cn.jiguang.g.a.l(a);
+                        e.bU().a(lVar.b, string, cn.jiguang.g.a.l(a), i, 6026);
                     }
                 }
             } else if ("intent.RTC".equals(str)) {

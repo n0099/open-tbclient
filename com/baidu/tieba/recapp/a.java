@@ -13,37 +13,37 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.recapp.view.IVrPlayView;
 /* loaded from: classes3.dex */
 public abstract class a {
-    public MediaPlayer.OnPreparedListener btP;
-    public MediaPlayer.OnErrorListener btT;
-    public a.InterfaceC0151a bxz;
-    public IVrPlayView gCv;
-    public com.b.a.g gCw;
-    public com.baidu.tieba.ad.play.a gCx;
-    public MediaPlayer.OnCompletionListener gCy;
-    public a.b gCz;
+    public MediaPlayer.OnPreparedListener buC;
+    public MediaPlayer.OnErrorListener buG;
+    public a.InterfaceC0175a byk;
+    public IVrPlayView gDW;
+    public com.b.a.g gDX;
+    public com.baidu.tieba.ad.play.a gDY;
+    public MediaPlayer.OnCompletionListener gDZ;
+    public a.b gEa;
     public TbPageContext<?> mContext;
     public int mStatus = -1;
     public String mVideoPath;
 
     public a(IVrPlayView iVrPlayView) {
-        this.gCv = iVrPlayView;
-        this.mContext = this.gCv.getPageContext();
-        bsT();
+        this.gDW = iVrPlayView;
+        this.mContext = this.gDW.getPageContext();
+        bsp();
         initListener();
     }
 
-    private void bsT() {
+    private void bsp() {
         if (this.mStatus == -1) {
-            this.gCw = com.b.a.g.h(this.mContext.getPageActivity()).a(new g.f() { // from class: com.baidu.tieba.recapp.a.2
+            this.gDX = com.b.a.g.h(this.mContext.getPageActivity()).a(new g.f() { // from class: com.baidu.tieba.recapp.a.2
                 public void b(Surface surface) {
-                    a.this.gCx = new com.baidu.tieba.ad.play.a(surface);
-                    a.this.gCv.setPlayer(a.this.gCx);
+                    a.this.gDY = new com.baidu.tieba.ad.play.a(surface);
+                    a.this.gDW.setPlayer(a.this.gDY);
                 }
-            }).w(3).b(new g.d() { // from class: com.baidu.tieba.recapp.a.1
+            }).N(3).b(new g.d() { // from class: com.baidu.tieba.recapp.a.1
                 public void k(MotionEvent motionEvent) {
                 }
-            }).b(this.gCv.getGLView());
-            this.gCw.onResume(this.mContext.getPageActivity());
+            }).b(this.gDW.getGLView());
+            this.gDX.onResume(this.mContext.getPageActivity());
         }
     }
 
@@ -62,13 +62,13 @@ public abstract class a {
     }
 
     public void playVideo() {
-        if (this.gCx != null && !StringUtils.isNull(this.mVideoPath)) {
-            this.gCx.a(this.bxz);
-            this.gCx.setVideoPath(this.mVideoPath);
-            this.gCx.start();
-            this.gCx.a(this.btP);
-            this.gCx.setOnErrorListener(this.btT);
-            this.gCx.a(this.gCy);
+        if (this.gDY != null && !StringUtils.isNull(this.mVideoPath)) {
+            this.gDY.a(this.byk);
+            this.gDY.setVideoPath(this.mVideoPath);
+            this.gDY.start();
+            this.gDY.a(this.buC);
+            this.gDY.setOnErrorListener(this.buG);
+            this.gDY.a(this.gDZ);
             this.mStatus = 0;
         }
     }
@@ -80,10 +80,10 @@ public abstract class a {
     }
 
     public void stopPlay() {
-        if (this.mStatus != -1 && this.gCx != null) {
-            this.gCx.seekTo(0);
-            this.gCx.onDestroy();
-            this.gCv.onDestroy();
+        if (this.mStatus != -1 && this.gDY != null) {
+            this.gDY.seekTo(0);
+            this.gDY.onDestroy();
+            this.gDW.onDestroy();
             this.mStatus = -1;
             finishStopPlay();
         }
@@ -93,14 +93,14 @@ public abstract class a {
     }
 
     public void destroy() {
-        this.gCv.onDestroy();
-        if (this.gCx != null && this.mStatus != -1) {
-            this.gCx.onDestroy();
-            this.gCx = null;
+        this.gDW.onDestroy();
+        if (this.gDY != null && this.mStatus != -1) {
+            this.gDY.onDestroy();
+            this.gDY = null;
         }
-        if (this.gCw != null) {
-            this.gCw.onDestroy();
-            this.gCw = null;
+        if (this.gDX != null) {
+            this.gDX.onDestroy();
+            this.gDX = null;
         }
         this.mStatus = -1;
     }
@@ -114,9 +114,9 @@ public abstract class a {
     }
 
     public long getCurrentPos() {
-        if (this.gCx == null) {
+        if (this.gDY == null) {
             return 0L;
         }
-        return this.gCx.getCurrentPosition();
+        return this.gDY.getCurrentPosition();
     }
 }

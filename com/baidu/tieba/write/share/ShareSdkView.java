@@ -20,22 +20,22 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class ShareSdkView extends LinearLayout implements View.OnClickListener {
-    private HeadImageView aAX;
-    private TextView aAY;
-    private TbImageView dGG;
-    private TextView hLA;
-    private int hLB;
-    private int hLC;
-    private int hLD;
-    private int hLE;
-    private int hLF;
-    private int hLG;
-    private a hLH;
-    private TextView hLv;
-    private View hLw;
-    private EditText hLx;
-    private View hLy;
-    private View hLz;
+    private HeadImageView aBM;
+    private TextView aBN;
+    private TbImageView dHV;
+    private TextView hNf;
+    private View hNg;
+    private EditText hNh;
+    private View hNi;
+    private View hNj;
+    private TextView hNk;
+    private int hNl;
+    private int hNm;
+    private int hNn;
+    private int hNo;
+    private int hNp;
+    private int hNq;
+    private a hNr;
     private TextView mCancelView;
     private TextView mContentView;
     private View mRootView;
@@ -43,7 +43,7 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void wV(String str);
+        void xa(String str);
     }
 
     public ShareSdkView(Context context) {
@@ -69,34 +69,34 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
         setGravity(16);
         LayoutInflater.from(context).inflate(e.h.share_sdk_view, (ViewGroup) this, true);
         this.mRootView = findViewById(e.g.share_sdk_content_root);
-        this.hLv = (TextView) findViewById(e.g.share_sdk_forum);
-        this.hLw = findViewById(e.g.share_sdk_content_container);
-        this.aAX = (HeadImageView) findViewById(e.g.share_sdk_appicon);
-        this.aAY = (TextView) findViewById(e.g.share_sdk_appname);
+        this.hNf = (TextView) findViewById(e.g.share_sdk_forum);
+        this.hNg = findViewById(e.g.share_sdk_content_container);
+        this.aBM = (HeadImageView) findViewById(e.g.share_sdk_appicon);
+        this.aBN = (TextView) findViewById(e.g.share_sdk_appname);
         this.mContentView = (TextView) findViewById(e.g.share_sdk_content);
-        this.dGG = (TbImageView) findViewById(e.g.share_sdk_img);
-        this.hLx = (EditText) findViewById(e.g.share_sdk_edit);
-        this.hLy = findViewById(e.g.share_sdk_content_line);
+        this.dHV = (TbImageView) findViewById(e.g.share_sdk_img);
+        this.hNh = (EditText) findViewById(e.g.share_sdk_edit);
+        this.hNi = findViewById(e.g.share_sdk_content_line);
         this.mCancelView = (TextView) findViewById(e.g.share_sdk_cancel);
-        this.hLz = findViewById(e.g.share_sdk_action_line);
-        this.hLA = (TextView) findViewById(e.g.share_sdk_share);
+        this.hNj = findViewById(e.g.share_sdk_action_line);
+        this.hNk = (TextView) findViewById(e.g.share_sdk_share);
         setOnClickListener(this);
         this.mCancelView.setOnClickListener(this);
-        this.hLA.setOnClickListener(this);
-        this.aAX.setIsRound(true);
-        this.aAX.setIsPreDrawBorder(true);
-        this.aAX.setDrawBorder(true);
-        this.aAX.setBorderWidth(l.h(context, e.C0175e.tbds1));
-        this.aAX.setDefaultResource(e.d.cp_bg_line_e);
-        this.aAX.setRadius(l.h(context, e.C0175e.ds70));
-        this.dGG.setDefaultBgResource(e.f.pic_share_default_applets);
-        this.hLB = (l.aO(getContext()) - l.h(getContext(), e.C0175e.tbds516)) / l.h(getContext(), e.C0175e.tbds45);
-        this.hLE = l.h(getContext(), e.C0175e.tbds27);
-        this.hLF = l.h(getContext(), e.C0175e.tbds11);
-        this.hLG = l.h(getContext(), e.C0175e.tbds36);
-        this.hLC = this.hLE;
-        this.hLD = this.hLE;
-        this.hLx.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.share.ShareSdkView.1
+        this.hNk.setOnClickListener(this);
+        this.aBM.setIsRound(true);
+        this.aBM.setIsPreDrawBorder(true);
+        this.aBM.setDrawBorder(true);
+        this.aBM.setBorderWidth(l.h(context, e.C0200e.tbds1));
+        this.aBM.setDefaultResource(e.d.cp_bg_line_e);
+        this.aBM.setRadius(l.h(context, e.C0200e.ds70));
+        this.dHV.setDefaultBgResource(e.f.pic_share_default_applets);
+        this.hNl = (l.aO(getContext()) - l.h(getContext(), e.C0200e.tbds516)) / l.h(getContext(), e.C0200e.tbds45);
+        this.hNo = l.h(getContext(), e.C0200e.tbds27);
+        this.hNp = l.h(getContext(), e.C0200e.tbds11);
+        this.hNq = l.h(getContext(), e.C0200e.tbds36);
+        this.hNm = this.hNo;
+        this.hNn = this.hNo;
+        this.hNh.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.share.ShareSdkView.1
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -107,22 +107,22 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                if (editable.length() > ShareSdkView.this.hLB * 2) {
-                    if (ShareSdkView.this.hLC != 0) {
-                        ShareSdkView.this.hLC = 0;
-                        ShareSdkView.this.hLD = ShareSdkView.this.hLF;
-                        ShareSdkView.this.hLx.setPadding(ShareSdkView.this.hLG, ShareSdkView.this.hLC, ShareSdkView.this.hLG, ShareSdkView.this.hLD);
+                if (editable.length() > ShareSdkView.this.hNl * 2) {
+                    if (ShareSdkView.this.hNm != 0) {
+                        ShareSdkView.this.hNm = 0;
+                        ShareSdkView.this.hNn = ShareSdkView.this.hNp;
+                        ShareSdkView.this.hNh.setPadding(ShareSdkView.this.hNq, ShareSdkView.this.hNm, ShareSdkView.this.hNq, ShareSdkView.this.hNn);
                     }
-                } else if (editable.length() > ShareSdkView.this.hLB) {
-                    if (ShareSdkView.this.hLC != ShareSdkView.this.hLF) {
-                        ShareSdkView.this.hLC = ShareSdkView.this.hLF;
-                        ShareSdkView.this.hLD = ShareSdkView.this.hLF;
-                        ShareSdkView.this.hLx.setPadding(ShareSdkView.this.hLG, ShareSdkView.this.hLC, ShareSdkView.this.hLG, ShareSdkView.this.hLD);
+                } else if (editable.length() > ShareSdkView.this.hNl) {
+                    if (ShareSdkView.this.hNm != ShareSdkView.this.hNp) {
+                        ShareSdkView.this.hNm = ShareSdkView.this.hNp;
+                        ShareSdkView.this.hNn = ShareSdkView.this.hNp;
+                        ShareSdkView.this.hNh.setPadding(ShareSdkView.this.hNq, ShareSdkView.this.hNm, ShareSdkView.this.hNq, ShareSdkView.this.hNn);
                     }
-                } else if (ShareSdkView.this.hLC != ShareSdkView.this.hLE) {
-                    ShareSdkView.this.hLC = ShareSdkView.this.hLE;
-                    ShareSdkView.this.hLD = ShareSdkView.this.hLE;
-                    ShareSdkView.this.hLx.setPadding(ShareSdkView.this.hLG, ShareSdkView.this.hLC, ShareSdkView.this.hLG, ShareSdkView.this.hLD);
+                } else if (ShareSdkView.this.hNm != ShareSdkView.this.hNo) {
+                    ShareSdkView.this.hNm = ShareSdkView.this.hNo;
+                    ShareSdkView.this.hNn = ShareSdkView.this.hNo;
+                    ShareSdkView.this.hNh.setPadding(ShareSdkView.this.hNq, ShareSdkView.this.hNm, ShareSdkView.this.hNq, ShareSdkView.this.hNn);
                 }
             }
         });
@@ -130,7 +130,7 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
     }
 
     public void setOnShareListener(a aVar) {
-        this.hLH = aVar;
+        this.hNr = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -139,10 +139,10 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
             if (getParent() != null) {
                 ((ViewGroup) getParent()).removeView(this);
             }
-        } else if (view == this.hLA && ba.bI(getContext())) {
-            String obj = this.hLx.getText().toString();
-            if (this.hLH != null) {
-                this.hLH.wV(obj);
+        } else if (view == this.hNk && ba.bG(getContext())) {
+            String obj = this.hNh.getText().toString();
+            if (this.hNr != null) {
+                this.hNr.xa(obj);
             }
             if (getParent() != null) {
                 ((ViewGroup) getParent()).removeView(this);
@@ -155,32 +155,32 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
             ((ViewGroup) getParent()).removeView(this);
             return;
         }
-        this.hLv.setText(String.format(getResources().getString(e.j.share_sdk_forum), cVar.hLq));
-        this.aAX.startLoad(cVar.hLp, 10, false);
-        this.aAY.setText(cVar.appName);
+        this.hNf.setText(String.format(getResources().getString(e.j.share_sdk_forum), cVar.hNa));
+        this.aBM.startLoad(cVar.hMZ, 10, false);
+        this.aBN.setText(cVar.appName);
         if (StringUtils.isNull(cVar.content)) {
             this.mContentView.setVisibility(8);
         } else {
             this.mContentView.setText(cVar.content);
         }
-        this.dGG.setEvent(new TbImageView.a() { // from class: com.baidu.tieba.write.share.ShareSdkView.2
+        this.dHV.setEvent(new TbImageView.a() { // from class: com.baidu.tieba.write.share.ShareSdkView.2
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void r(String str, boolean z) {
-                ViewGroup.LayoutParams layoutParams = ShareSdkView.this.dGG.getLayoutParams();
-                layoutParams.height = ((l.aO(ShareSdkView.this.getContext()) - l.h(ShareSdkView.this.getContext(), e.C0175e.tbds408)) * 9) / 16;
-                ShareSdkView.this.dGG.setLayoutParams(layoutParams);
+                ViewGroup.LayoutParams layoutParams = ShareSdkView.this.dHV.getLayoutParams();
+                layoutParams.height = ((l.aO(ShareSdkView.this.getContext()) - l.h(ShareSdkView.this.getContext(), e.C0200e.tbds408)) * 9) / 16;
+                ShareSdkView.this.dHV.setLayoutParams(layoutParams);
             }
 
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void onCancel() {
             }
         });
-        this.dGG.startLoad(cVar.imageUrl, 42, false);
+        this.dHV.startLoad(cVar.imageUrl, 42, false);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
-        this.hLH = null;
+        this.hNr = null;
         super.onDetachedFromWindow();
     }
 
@@ -190,20 +190,20 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
             this.mSkinType = skinType;
             al.j(this, e.d.black_alpha30);
             al.i(this.mRootView, e.f.share_sdk_bg);
-            al.h(this.hLv, e.d.cp_cont_b);
-            al.j(this.hLw, e.d.cp_bg_line_e);
-            this.aAX.setBorderColor(al.getColor(e.d.cp_cont_g));
-            this.aAX.setIsNight(this.mSkinType == 1);
-            al.h(this.aAY, e.d.cp_cont_f);
+            al.h(this.hNf, e.d.cp_cont_b);
+            al.j(this.hNg, e.d.cp_bg_line_e);
+            this.aBM.setBorderColor(al.getColor(e.d.cp_cont_g));
+            this.aBM.setIsNight(this.mSkinType == 1);
+            al.h(this.aBN, e.d.cp_cont_f);
             al.h(this.mContentView, e.d.cp_cont_b);
-            this.dGG.setIsNight(this.mSkinType == 1);
-            this.hLx.setHintTextColor(al.getColor(e.d.cp_cont_e));
-            this.hLx.setTextColor(al.getColor(e.d.cp_cont_b));
-            al.i(this.hLx, e.f.share_sdk_input_shape_bg);
-            al.j(this.hLy, e.d.cp_bg_line_c);
+            this.dHV.setIsNight(this.mSkinType == 1);
+            this.hNh.setHintTextColor(al.getColor(e.d.cp_cont_e));
+            this.hNh.setTextColor(al.getColor(e.d.cp_cont_b));
+            al.i(this.hNh, e.f.share_sdk_input_shape_bg);
+            al.j(this.hNi, e.d.cp_bg_line_c);
             al.h(this.mCancelView, e.d.cp_cont_b);
-            al.j(this.hLz, e.d.cp_bg_line_c);
-            al.h(this.hLA, e.d.cp_link_tip_a);
+            al.j(this.hNj, e.d.cp_bg_line_c);
+            al.h(this.hNk, e.d.cp_link_tip_a);
         }
     }
 }

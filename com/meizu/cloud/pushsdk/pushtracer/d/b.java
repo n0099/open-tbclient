@@ -4,6 +4,7 @@ import android.content.Context;
 import android.location.Location;
 import android.os.Build;
 import com.baidu.ar.constants.HttpConstants;
+import com.baidu.searchbox.ng.ai.apps.impl.map.model.element.CoordinateModel;
 import com.meizu.cloud.pushsdk.pushtracer.utils.d;
 import java.util.HashMap;
 import java.util.Map;
@@ -81,8 +82,8 @@ public class b {
             com.meizu.cloud.pushsdk.pushtracer.utils.b.a(a, "Location information not available.", new Object[0]);
             return;
         }
-        a("latitude", Double.valueOf(c.getLatitude()));
-        a("longitude", Double.valueOf(c.getLongitude()));
+        a(CoordinateModel.LATITUDE, Double.valueOf(c.getLatitude()));
+        a(CoordinateModel.LONGITUDE, Double.valueOf(c.getLongitude()));
         a("altitude", Double.valueOf(c.getAltitude()));
         a("latitudeLongitudeAccuracy", Float.valueOf(c.getAccuracy()));
         a("speed", Float.valueOf(c.getSpeed()));

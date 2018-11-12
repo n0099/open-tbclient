@@ -15,7 +15,7 @@ import com.baidu.tieba.e;
 import java.io.File;
 /* loaded from: classes.dex */
 public class u {
-    public static final void aF(Context context, String str) {
+    public static final void aD(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             com.baidu.adp.lib.util.l.showToast(context, e.j.download_error);
             return;
@@ -38,14 +38,14 @@ public class u {
         }
     }
 
-    public static boolean L(Activity activity) {
+    public static boolean O(Activity activity) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
-        boolean bE = ab.bE(activity);
+        boolean bC = ab.bC(activity);
         if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
             return false;
         }
-        return bE;
+        return bC;
     }
 }

@@ -12,42 +12,42 @@ import com.baidu.tbadk.core.i;
 import com.baidu.tbadk.core.util.al;
 /* loaded from: classes.dex */
 public class ForeDrawableImageView extends TbImageView {
-    private Drawable bfK;
-    private String bfL;
-    private int bfM;
-    private Paint bfN;
+    private Drawable bgx;
+    private String bgy;
+    private int bgz;
+    private Paint textPaint;
 
     public ForeDrawableImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bfN = new Paint();
+        this.textPaint = new Paint();
     }
 
     public ForeDrawableImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bfN = new Paint();
+        this.textPaint = new Paint();
     }
 
     public ForeDrawableImageView(Context context) {
         super(context);
-        this.bfN = new Paint();
+        this.textPaint = new Paint();
     }
 
     public void setNoImageBottomTextSize(float f) {
         if (f > 0.0f) {
-            this.bfN.setTextSize(f);
+            this.textPaint.setTextSize(f);
         }
     }
 
     public void setNoImageBottomTextColor(int i) {
-        this.bfN.setColor(al.getColor(i));
+        this.textPaint.setColor(al.getColor(i));
     }
 
     public void setNoImageBottomText(String str) {
-        this.bfL = str;
+        this.bgy = str;
     }
 
     public void setNoImageBottomTextPadding(int i) {
-        this.bfM = i;
+        this.bgz = i;
     }
 
     public void setForegroundDrawable(int i) {
@@ -55,9 +55,9 @@ public class ForeDrawableImageView extends TbImageView {
     }
 
     public void setForegroundDrawable(Drawable drawable) {
-        this.bfK = drawable;
-        if (this.bfK != null) {
-            this.bfK.setBounds(0, 0, this.bfK.getIntrinsicHeight(), this.bfK.getMinimumWidth());
+        this.bgx = drawable;
+        if (this.bgx != null) {
+            this.bgx.setBounds(0, 0, this.bgx.getIntrinsicHeight(), this.bgx.getMinimumWidth());
         }
         invalidate();
     }
@@ -65,7 +65,7 @@ public class ForeDrawableImageView extends TbImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void drawableStateChanged() {
         super.drawableStateChanged();
-        if (this.bfK != null && this.bfK.isStateful() && this.bfK.setState(getDrawableState())) {
+        if (this.bgx != null && this.bgx.isStateful() && this.bgx.setState(getDrawableState())) {
             invalidate();
         }
     }
@@ -75,7 +75,7 @@ public class ForeDrawableImageView extends TbImageView {
     public void onDraw(Canvas canvas) {
         int i;
         super.onDraw(canvas);
-        if (this.bfK != null) {
+        if (this.bgx != null) {
             canvas.save();
             ViewParent parent = getParent();
             if (!(parent instanceof View)) {
@@ -87,20 +87,20 @@ public class ForeDrawableImageView extends TbImageView {
             if (width <= i) {
                 i = width;
             }
-            int intrinsicWidth = this.bfK.getIntrinsicWidth();
-            int intrinsicHeight = this.bfK.getIntrinsicHeight();
+            int intrinsicWidth = this.bgx.getIntrinsicWidth();
+            int intrinsicHeight = this.bgx.getIntrinsicHeight();
             int i2 = (i / 2) - (intrinsicWidth / 2);
             int height = (getHeight() / 2) - (intrinsicHeight / 2);
             canvas.translate(i2, height);
-            this.bfK.draw(canvas);
+            this.bgx.draw(canvas);
             canvas.restore();
             a(canvas, i2 + (intrinsicWidth / 2), height + intrinsicHeight);
         }
     }
 
     private void a(Canvas canvas, int i, int i2) {
-        if (!StringUtils.isNull(this.bfL) && !i.ws().ww()) {
-            canvas.drawText(this.bfL, (int) (i - (this.bfN.measureText(this.bfL) / 2.0f)), this.bfM + i2, this.bfN);
+        if (!StringUtils.isNull(this.bgy) && !i.wA().wE()) {
+            canvas.drawText(this.bgy, (int) (i - (this.textPaint.measureText(this.bgy) / 2.0f)), this.bgz + i2, this.textPaint);
         }
     }
 }

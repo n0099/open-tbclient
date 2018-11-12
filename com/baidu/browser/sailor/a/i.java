@@ -5,17 +5,17 @@ import android.util.SparseArray;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class i implements Runnable {
-    final /* synthetic */ c Wf;
-    final /* synthetic */ n Wj;
-    final /* synthetic */ String Wk;
+    final /* synthetic */ c Wh;
+    final /* synthetic */ n Wl;
+    final /* synthetic */ String Wm;
     final /* synthetic */ String val$type;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(c cVar, String str, n nVar, String str2) {
-        this.Wf = cVar;
+        this.Wh = cVar;
         this.val$type = str;
-        this.Wj = nVar;
-        this.Wk = str2;
+        this.Wl = nVar;
+        this.Wm = str2;
     }
 
     @Override // java.lang.Runnable
@@ -31,31 +31,31 @@ public class i implements Runnable {
         MediaPlayer mediaPlayer5;
         try {
             if ("lightapp.device.AUDIO_TYPE.PLAY".equals(this.val$type)) {
-                sparseArray4 = this.Wf.Wd;
-                sparseArray4.put(4, this.Wj);
-                mediaPlayer3 = this.Wf.Wb;
+                sparseArray4 = this.Wh.Wf;
+                sparseArray4.put(4, this.Wl);
+                mediaPlayer3 = this.Wh.Wd;
                 if (mediaPlayer3 != null) {
-                    mediaPlayer5 = this.Wf.Wb;
+                    mediaPlayer5 = this.Wh.Wd;
                     mediaPlayer5.stop();
                 }
-                this.Wf.cx(this.Wk);
-                mediaPlayer4 = this.Wf.Wb;
+                this.Wh.cx(this.Wm);
+                mediaPlayer4 = this.Wh.Wd;
                 mediaPlayer4.start();
             } else if ("lightapp.device.AUDIO_TYPE.STOP".equals(this.val$type)) {
-                sparseArray2 = this.Wf.Wd;
-                sparseArray2.put(4, this.Wj);
-                this.Wf.qN();
-                mediaPlayer = this.Wf.Wb;
+                sparseArray2 = this.Wh.Wf;
+                sparseArray2.put(4, this.Wl);
+                this.Wh.qL();
+                mediaPlayer = this.Wh.Wd;
                 if (mediaPlayer.isPlaying()) {
-                    mediaPlayer2 = this.Wf.Wb;
+                    mediaPlayer2 = this.Wh.Wd;
                     mediaPlayer2.stop();
                 }
-                sparseArray3 = this.Wf.Wd;
+                sparseArray3 = this.Wh.Wf;
                 ((n) sparseArray3.get(4)).l("", true);
             }
         } catch (IllegalStateException e) {
-            this.Wj.bo(1);
-            sparseArray = this.Wf.Wd;
+            this.Wl.bD(1);
+            sparseArray = this.Wh.Wf;
             sparseArray.remove(4);
             e.printStackTrace();
         }

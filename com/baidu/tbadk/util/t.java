@@ -7,53 +7,53 @@ import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 /* loaded from: classes.dex */
 public class t {
-    private View bev;
-    private int bew;
-    private boolean bex;
+    private View bfi;
+    private int bfj;
+    private boolean bfk;
     private final Handler mHandler;
 
-    public void OL() {
+    public void OU() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void OM() {
+    public void OV() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
         }
     }
 
-    public void ON() {
+    public void OW() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
-    public void cz(boolean z) {
-        if (this.bev != null) {
-            if (z || this.bev.getVisibility() != 8) {
-                OM();
+    public void cQ(boolean z) {
+        if (this.bfi != null) {
+            if (z || this.bfi.getVisibility() != 8) {
+                OV();
             }
         }
     }
 
-    public void cA(boolean z) {
-        if (this.bev != null) {
-            if (z || this.bev.getVisibility() != 0) {
-                OL();
+    public void cR(boolean z) {
+        if (this.bfi != null) {
+            if (z || this.bfi.getVisibility() != 0) {
+                OU();
             }
         }
     }
 
     public void onScroll(int i, int i2) {
-        if (this.bev != null) {
-            if (i != 0 && i2 > i && this.bev.getVisibility() != 8) {
-                cz(false);
-            } else if ((i == 0 || i2 < i) && this.bev.getVisibility() != 0) {
-                cA(false);
+        if (this.bfi != null) {
+            if (i != 0 && i2 > i && this.bfi.getVisibility() != 8) {
+                cQ(false);
+            } else if ((i == 0 || i2 < i) && this.bfi.getVisibility() != 0) {
+                cR(false);
             }
-            this.bew = i;
+            this.bfj = i;
         }
     }
 
@@ -67,15 +67,15 @@ public class t {
             } else {
                 return;
             }
-            if (firstVisiblePosition > this.bew) {
-                cz(true);
-            } else if (firstVisiblePosition < this.bew) {
-                cA(true);
-            } else if (firstVisiblePosition == this.bew) {
-                if (firstVisiblePosition == 0 || !this.bex) {
-                    cA(true);
+            if (firstVisiblePosition > this.bfj) {
+                cQ(true);
+            } else if (firstVisiblePosition < this.bfj) {
+                cR(true);
+            } else if (firstVisiblePosition == this.bfj) {
+                if (firstVisiblePosition == 0 || !this.bfk) {
+                    cR(true);
                 } else {
-                    cz(true);
+                    cQ(true);
                 }
             }
         }

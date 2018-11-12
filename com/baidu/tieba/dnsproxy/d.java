@@ -7,17 +7,17 @@ import com.baidu.searchbox.ng.ai.apps.network.WebSocketAction;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes3.dex */
 public class d {
-    private static volatile d ddf = null;
+    private static volatile d del = null;
 
-    public static final d asJ() {
-        if (ddf == null) {
+    public static final d asi() {
+        if (del == null) {
             synchronized (d.class) {
-                if (ddf == null) {
-                    ddf = new d();
+                if (del == null) {
+                    del = new d();
                 }
             }
         }
-        return ddf;
+        return del;
     }
 
     private d() {

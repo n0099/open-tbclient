@@ -32,21 +32,21 @@ public class PbFullScreenEditorInputView extends EditText {
         setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
     }
 
-    public void b(com.baidu.tbadk.coreExtra.data.o oVar) {
-        if (com.baidu.tieba.face.a.mG(getText().toString()) >= 10) {
-            com.baidu.tbadk.core.util.e.Bs().showToast(e.j.too_many_face);
+    public void b(com.baidu.tbadk.coreExtra.data.p pVar) {
+        if (com.baidu.tieba.face.a.mH(getText().toString()) >= 10) {
+            com.baidu.tbadk.core.util.e.Bz().showToast(e.j.too_many_face);
         } else {
-            com.baidu.tieba.face.b.b(getContext(), oVar, this);
+            com.baidu.tieba.face.b.b(getContext(), pVar, this);
         }
     }
 
-    public void hq(String str) {
+    public void hr(String str) {
         if (!StringUtils.isNull(str)) {
             getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
         }
     }
 
-    public void ao(ArrayList<String> arrayList) {
+    public void an(ArrayList<String> arrayList) {
         if (arrayList != null && arrayList.size() != 0) {
             StringBuilder sb = new StringBuilder();
             int i = 0;

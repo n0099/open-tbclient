@@ -10,22 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private a atR = null;
+    private a auE = null;
 
     /* loaded from: classes.dex */
     private static final class c {
-        private static final g aud = new g();
+        private static final g auQ = new g();
     }
 
-    public static g AR() {
-        return c.aud;
+    public static g AY() {
+        return c.auQ;
     }
 
     public void a(int i, j jVar) {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
-                this.atR = new a(i, jVar);
-                this.atR.AT();
+                this.auE = new a(i, jVar);
+                this.auE.Ba();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -35,12 +35,12 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b implements InvocationHandler {
-        protected a atR;
-        private final List<Long> aub = new ArrayList(240);
-        private final List<Integer> auc = new ArrayList(15);
+        protected a auE;
+        private final List<Long> auO = new ArrayList(240);
+        private final List<Integer> auP = new ArrayList(15);
 
         public b(a aVar) {
-            this.atR = aVar;
+            this.auE = aVar;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -63,15 +63,15 @@ public class g {
         }
 
         private void doFrame(long j) {
-            this.aub.add(Long.valueOf(j));
-            this.atR.AT();
+            this.auO.add(Long.valueOf(j));
+            this.auE.Ba();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.atR = null;
-            this.aub.clear();
-            this.auc.clear();
+            this.auE = null;
+            this.auO.clear();
+            this.auP.clear();
         }
     }
 
@@ -79,41 +79,41 @@ public class g {
     /* loaded from: classes.dex */
     public static class a {
         private final int MAX_FRAME_COUNT;
-        private final Class<?> atS;
-        private final Object atT;
-        private final Class<?> atU;
-        private final Method atV;
-        private final Object atW;
-        private final Method atX;
-        private final b atY;
-        private final j atZ;
+        private final Class<?> auF;
+        private final Object auG;
+        private final Class<?> auH;
+        private final Method auI;
+        private final Object auJ;
+        private final Method auK;
+        private final b auL;
+        private final j auM;
         private int index;
 
         private a(int i, j jVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
             this.index = 0;
-            this.atU = Class.forName("android.view.Choreographer");
-            this.atS = Class.forName("android.view.Choreographer$FrameCallback");
-            this.atY = new b(this);
-            this.atT = Proxy.newProxyInstance(this.atS.getClassLoader(), new Class[]{this.atS}, this.atY);
-            this.atV = this.atU.getMethod("getInstance", new Class[0]);
-            this.atW = this.atV.invoke(null, new Object[0]);
-            this.atX = this.atU.getMethod("postFrameCallback", this.atS);
+            this.auH = Class.forName("android.view.Choreographer");
+            this.auF = Class.forName("android.view.Choreographer$FrameCallback");
+            this.auL = new b(this);
+            this.auG = Proxy.newProxyInstance(this.auF.getClassLoader(), new Class[]{this.auF}, this.auL);
+            this.auI = this.auH.getMethod("getInstance", new Class[0]);
+            this.auJ = this.auI.invoke(null, new Object[0]);
+            this.auK = this.auH.getMethod("postFrameCallback", this.auF);
             this.MAX_FRAME_COUNT = i <= 0 ? 16 : i;
-            this.atZ = jVar;
+            this.auM = jVar;
         }
 
-        private void AS() throws InvocationTargetException, IllegalAccessException {
-            this.atX.invoke(this.atW, this.atT);
+        private void AZ() throws InvocationTargetException, IllegalAccessException {
+            this.auK.invoke(this.auJ, this.auG);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void AT() {
+        public void Ba() {
             if (this.index >= this.MAX_FRAME_COUNT) {
-                com.baidu.adp.lib.g.e.jI().post(new Runnable() { // from class: com.baidu.tbadk.core.hybrid.g.a.1
+                com.baidu.adp.lib.g.e.jG().post(new Runnable() { // from class: com.baidu.tbadk.core.hybrid.g.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.atZ.G(a.this.AV());
-                        a.this.atY.destroy();
+                        a.this.auM.F(a.this.Bc());
+                        a.this.auL.destroy();
                         a.this.destroy();
                     }
                 });
@@ -121,31 +121,31 @@ public class g {
             }
             this.index++;
             try {
-                AS();
+                AZ();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
         }
 
-        private List<Long> AU() {
-            return this.atY.aub;
+        private List<Long> Bb() {
+            return this.auL.auO;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.atY.destroy();
+            this.auL.destroy();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public List<Long> AV() {
+        public List<Long> Bc() {
             ArrayList arrayList = new ArrayList(24);
-            List<Long> AU = AU();
-            int size = AU.size();
+            List<Long> Bb = Bb();
+            int size = Bb.size();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < size - 1) {
-                    arrayList.add(Long.valueOf(AU.get(i2 + 1).longValue() - AU.get(i2).longValue()));
+                    arrayList.add(Long.valueOf(Bb.get(i2 + 1).longValue() - Bb.get(i2).longValue()));
                     i = i2 + 1;
                 } else {
                     return arrayList;

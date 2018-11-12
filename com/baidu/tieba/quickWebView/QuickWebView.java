@@ -16,7 +16,7 @@ import android.widget.ProgressBar;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tbadk.p.as;
+import com.baidu.tbadk.p.at;
 import com.baidu.tieba.e;
 import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
 import com.baidu.webkit.internal.ETAG;
@@ -28,37 +28,37 @@ import java.util.Iterator;
 /* loaded from: classes.dex */
 public class QuickWebView extends BaseWebView {
     private static String TAG = QuickWebView.class.getSimpleName();
-    private b gBM;
-    private boolean gBN;
-    private boolean gBO;
-    private int gBP;
-    private ObjectAnimator gBQ;
-    private ObjectAnimator gBR;
-    private BaseWebView.e gBS;
+    private b gDn;
+    private boolean gDo;
+    private boolean gDp;
+    private int gDq;
+    private ObjectAnimator gDr;
+    private ObjectAnimator gDs;
+    private BaseWebView.e gDt;
     private Context mContext;
     private Drawable mDrawable;
     private ProgressBar mProgressBar;
 
     public QuickWebView(Context context) {
         super(context);
-        this.gBN = false;
-        this.gBS = new BaseWebView.e() { // from class: com.baidu.tieba.quickWebView.QuickWebView.1
+        this.gDo = false;
+        this.gDt = new BaseWebView.e() { // from class: com.baidu.tieba.quickWebView.QuickWebView.1
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
             public void onProgressChanged(WebView webView, int i) {
                 if (QuickWebView.this.mProgressBar != null) {
-                    if (QuickWebView.this.gBN) {
+                    if (QuickWebView.this.gDo) {
                         QuickWebView.this.mProgressBar.setVisibility(8);
                         return;
                     }
-                    QuickWebView.this.gBP = QuickWebView.this.mProgressBar.getProgress();
-                    if (i < 100 || QuickWebView.this.gBO) {
+                    QuickWebView.this.gDq = QuickWebView.this.mProgressBar.getProgress();
+                    if (i < 100 || QuickWebView.this.gDp) {
                         QuickWebView.this.mProgressBar.setVisibility(0);
-                        QuickWebView.this.sV(i);
+                        QuickWebView.this.to(i);
                         return;
                     }
-                    QuickWebView.this.gBO = true;
+                    QuickWebView.this.gDp = true;
                     QuickWebView.this.mProgressBar.setProgress(i);
-                    QuickWebView.this.sW(QuickWebView.this.mProgressBar.getProgress());
+                    QuickWebView.this.tp(QuickWebView.this.mProgressBar.getProgress());
                 }
             }
         };
@@ -67,24 +67,24 @@ public class QuickWebView extends BaseWebView {
 
     public QuickWebView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gBN = false;
-        this.gBS = new BaseWebView.e() { // from class: com.baidu.tieba.quickWebView.QuickWebView.1
+        this.gDo = false;
+        this.gDt = new BaseWebView.e() { // from class: com.baidu.tieba.quickWebView.QuickWebView.1
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
             public void onProgressChanged(WebView webView, int i) {
                 if (QuickWebView.this.mProgressBar != null) {
-                    if (QuickWebView.this.gBN) {
+                    if (QuickWebView.this.gDo) {
                         QuickWebView.this.mProgressBar.setVisibility(8);
                         return;
                     }
-                    QuickWebView.this.gBP = QuickWebView.this.mProgressBar.getProgress();
-                    if (i < 100 || QuickWebView.this.gBO) {
+                    QuickWebView.this.gDq = QuickWebView.this.mProgressBar.getProgress();
+                    if (i < 100 || QuickWebView.this.gDp) {
                         QuickWebView.this.mProgressBar.setVisibility(0);
-                        QuickWebView.this.sV(i);
+                        QuickWebView.this.to(i);
                         return;
                     }
-                    QuickWebView.this.gBO = true;
+                    QuickWebView.this.gDp = true;
                     QuickWebView.this.mProgressBar.setProgress(i);
-                    QuickWebView.this.sW(QuickWebView.this.mProgressBar.getProgress());
+                    QuickWebView.this.tp(QuickWebView.this.mProgressBar.getProgress());
                 }
             }
         };
@@ -94,22 +94,22 @@ public class QuickWebView extends BaseWebView {
     private void init(Context context) {
         this.mContext = context;
         initCommonJsBridge(context);
-        this.gBM = new b(this);
-        this.mJsBridge.a(new a(context, this.gBM));
+        this.gDn = new b(this);
+        this.mJsBridge.a(new a(context, this.gDn));
     }
 
-    public void mu(boolean z) {
+    public void mF(boolean z) {
         if (z) {
-            cW(this.mContext);
+            cR(this.mContext);
         }
     }
 
-    private void cW(Context context) {
+    private void cR(Context context) {
         this.mProgressBar = new ProgressBar(context, null, 16842872);
-        this.mProgressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, (int) context.getResources().getDimension(e.C0175e.ds5), 0, 0));
+        this.mProgressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, (int) context.getResources().getDimension(e.C0200e.ds5), 0, 0));
         this.mProgressBar.setProgressDrawable(getProgressDrawable());
         addView(this.mProgressBar);
-        setOnProgressChangedListener(this.gBS);
+        setOnProgressChangedListener(this.gDt);
     }
 
     private Drawable getProgressDrawable() {
@@ -120,42 +120,42 @@ public class QuickWebView extends BaseWebView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sV(int i) {
-        if (this.gBQ != null) {
-            this.gBQ.cancel();
-            this.gBQ = null;
+    public void to(int i) {
+        if (this.gDr != null) {
+            this.gDr.cancel();
+            this.gDr = null;
         }
-        this.gBQ = ObjectAnimator.ofInt(this.mProgressBar, "progress", this.gBP, i);
-        this.gBQ.setDuration(100L);
-        this.gBQ.setInterpolator(new DecelerateInterpolator());
-        this.gBQ.start();
+        this.gDr = ObjectAnimator.ofInt(this.mProgressBar, "progress", this.gDq, i);
+        this.gDr.setDuration(100L);
+        this.gDr.setInterpolator(new DecelerateInterpolator());
+        this.gDr.start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sW(final int i) {
-        if (this.gBR != null) {
-            this.gBR.cancel();
-            this.gBR = null;
+    public void tp(final int i) {
+        if (this.gDs != null) {
+            this.gDs.cancel();
+            this.gDs = null;
         }
-        this.gBR = ObjectAnimator.ofFloat(this.mProgressBar, "alpha", 1.0f, 0.0f);
-        this.gBR.setDuration(150L);
-        this.gBR.setInterpolator(new DecelerateInterpolator());
-        this.gBR.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.quickWebView.QuickWebView.2
+        this.gDs = ObjectAnimator.ofFloat(this.mProgressBar, "alpha", 1.0f, 0.0f);
+        this.gDs.setDuration(150L);
+        this.gDs.setInterpolator(new DecelerateInterpolator());
+        this.gDs.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.quickWebView.QuickWebView.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 QuickWebView.this.mProgressBar.setProgress((int) ((valueAnimator.getAnimatedFraction() * (100 - i)) + i));
             }
         });
-        this.gBR.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.quickWebView.QuickWebView.3
+        this.gDs.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.quickWebView.QuickWebView.3
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 QuickWebView.this.mProgressBar.setProgress(0);
                 QuickWebView.this.mProgressBar.setVisibility(8);
                 QuickWebView.this.mProgressBar.setAlpha(1.0f);
-                QuickWebView.this.gBO = false;
+                QuickWebView.this.gDp = false;
             }
         });
-        this.gBR.start();
+        this.gDs.start();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:13:0x004d, code lost:
@@ -168,10 +168,10 @@ public class QuickWebView extends BaseWebView {
     public void loadUrl(String str) {
         if (!StringUtils.isNull(str)) {
             if (!str.contains("javascript:")) {
-                this.gBN = false;
+                this.gDo = false;
                 String str2 = str + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "_webview_time=" + System.currentTimeMillis();
-                if (as.Oo()) {
-                    str = tM(str2);
+                if (at.Ox()) {
+                    str = tQ(str2);
                 }
                 str = str2;
             }
@@ -180,10 +180,10 @@ public class QuickWebView extends BaseWebView {
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:73:0x01d1 -> B:6:0x001d). Please submit an issue!!! */
-    private String tM(String str) {
+    private String tQ(String str) {
         URL url;
         String path;
-        com.baidu.tieba.quickWebView.data.a tP;
+        com.baidu.tieba.quickWebView.data.a tT;
         boolean z;
         String[] split;
         String str2 = null;
@@ -191,11 +191,11 @@ public class QuickWebView extends BaseWebView {
         try {
             url = new URL(str);
             path = url.getPath();
-            tP = d.bsR().tP(path);
+            tT = d.bsn().tT(path);
         } catch (MalformedURLException e) {
         }
-        if (tP != null && !tP.gCm) {
-            String cacheDir = c.bsL().getCacheDir();
+        if (tT != null && !tT.gDN) {
+            String cacheDir = c.bsh().getCacheDir();
             String str3 = cacheDir + path + ".html";
             File file = new File(str3);
             if (!str3.contains("/android_asset/") && !file.exists()) {
@@ -211,7 +211,7 @@ public class QuickWebView extends BaseWebView {
             } catch (MalformedURLException e2) {
                 str2 = str4;
             }
-            if (tP.gCl != null && tP.gCl.size() != 0) {
+            if (tT.gDM != null && tT.gDM.size() != 0) {
                 if (!TextUtils.isEmpty(query) && (split = query.split(ETAG.ITEM_SEPARATOR)) != null) {
                     for (String str5 : split) {
                         String[] split2 = str5.split(ETAG.EQUAL);
@@ -222,7 +222,7 @@ public class QuickWebView extends BaseWebView {
                 }
                 hashMap.put("{client_version}", TbConfig.getVersion());
                 hashMap.put("{client_type}", "2");
-                Iterator<String> it = tP.gCl.iterator();
+                Iterator<String> it = tT.gDM.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     StringBuilder sb = new StringBuilder();
@@ -269,8 +269,8 @@ public class QuickWebView extends BaseWebView {
                     quickWebViewBridgeData.type = "get";
                     quickWebViewBridgeData.url = next;
                     quickWebViewBridgeData.begin = System.currentTimeMillis();
-                    if (this.gBM != null) {
-                        this.gBM.a(quickWebViewBridgeData, null);
+                    if (this.gDn != null) {
+                        this.gDn.a(quickWebViewBridgeData, null);
                     }
                 }
                 str2 = str4;
@@ -284,26 +284,26 @@ public class QuickWebView extends BaseWebView {
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView, android.webkit.WebView
     public void destroy() {
         super.destroy();
-        if (this.gBM != null) {
-            this.gBM.onDestory();
-            this.gBM = null;
+        if (this.gDn != null) {
+            this.gDn.onDestory();
+            this.gDn = null;
         }
-        this.gBS = null;
+        this.gDt = null;
         setOnProgressChangedListener(null);
-        if (this.gBQ != null) {
-            this.gBQ.cancel();
-            this.gBQ = null;
+        if (this.gDr != null) {
+            this.gDr.cancel();
+            this.gDr = null;
         }
-        if (this.gBR != null) {
-            this.gBR.cancel();
-            this.gBR = null;
+        if (this.gDs != null) {
+            this.gDs.cancel();
+            this.gDs = null;
         }
         this.mProgressBar = null;
     }
 
     @Override // android.webkit.WebView
     public void goBack() {
-        this.gBN = true;
+        this.gDo = true;
         super.goBack();
     }
 

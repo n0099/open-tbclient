@@ -144,7 +144,7 @@ public class ARController implements IDuMix {
             Log.e(b, "loadLocalSO PerformanceTest PerformanceTest.getMaxFrameRate = " + PerformanceTest.getMaxFrameRate());
             this.d.a(PerformanceTest.getMaxFrameRate());
         }
-        d.a((int) MsgField.IMSG_SO_LOAD_SUCCESS, MsgField.SMSG_SO_LOAD_SUCCESS);
+        d.a(1201, MsgField.SMSG_SO_LOAD_SUCCESS);
         com.baidu.ar.resloader.b.b();
     }
 
@@ -320,7 +320,7 @@ public class ARController implements IDuMix {
                 if (ARController.this.n != null) {
                     ARController.this.n.a();
                 }
-                com.baidu.ar.base.d.a((int) MsgField.IMSG_SO_LOAD_SUCCESS, MsgField.SMSG_SO_LOAD_SUCCESS);
+                com.baidu.ar.base.d.a(1201, MsgField.SMSG_SO_LOAD_SUCCESS);
             }
         });
         this.e.setOnARResourceRequestListener(new RequestController.b() { // from class: com.baidu.ar.ARController.4
@@ -819,7 +819,7 @@ public class ARController implements IDuMix {
                 }
                 ARController.this.b();
                 ARController.this.e();
-                com.baidu.ar.base.d.a((int) MsgField.IMSG_SO_LOAD_SUCCESS, MsgField.SMSG_SO_LOAD_SUCCESS);
+                com.baidu.ar.base.d.a(1201, MsgField.SMSG_SO_LOAD_SUCCESS);
             }
         });
         this.e.setOnARResourceRequestListener(new RequestController.b() { // from class: com.baidu.ar.ARController.8

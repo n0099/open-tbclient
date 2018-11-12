@@ -1,31 +1,109 @@
 package com.baidu.location.b;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import com.tencent.connect.common.Constants;
 /* loaded from: classes6.dex */
-public final class c {
-    public static String a(int i) {
-        if (f.i()) {
-            return "WIFI";
+public class c {
+    private static c aer = null;
+    private boolean a = false;
+    private String b = null;
+    private a aeq = null;
+    private int e = -1;
+
+    /* loaded from: classes6.dex */
+    public class a extends BroadcastReceiver {
+        public a() {
         }
-        switch (i) {
-            case 1:
-            case 2:
-            case 4:
-            case 7:
-            case 11:
-                return "2G";
-            case 3:
-            case 5:
-            case 6:
-            case 8:
-            case 9:
-            case 10:
-            case 12:
-            case 14:
-            case 15:
-                return "3G";
-            case 13:
-                return "4G";
-            default:
-                return "unknown";
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            try {
+                if (intent.getAction().equals("android.intent.action.BATTERY_CHANGED")) {
+                    c.this.a = false;
+                    int intExtra = intent.getIntExtra("status", 0);
+                    int intExtra2 = intent.getIntExtra("plugged", 0);
+                    int intExtra3 = intent.getIntExtra("level", -1);
+                    int intExtra4 = intent.getIntExtra("scale", -1);
+                    if (intExtra3 <= 0 || intExtra4 <= 0) {
+                        c.this.e = -1;
+                    } else {
+                        c.this.e = (intExtra3 * 100) / intExtra4;
+                    }
+                    switch (intExtra) {
+                        case 2:
+                            c.this.b = "4";
+                            break;
+                        case 3:
+                        case 4:
+                            c.this.b = "3";
+                            break;
+                        default:
+                            c.this.b = null;
+                            break;
+                    }
+                    switch (intExtra2) {
+                        case 1:
+                            c.this.b = Constants.VIA_SHARE_TYPE_INFO;
+                            c.this.a = true;
+                            return;
+                        case 2:
+                            c.this.b = "5";
+                            c.this.a = true;
+                            return;
+                        default:
+                            return;
+                    }
+                }
+            } catch (Exception e) {
+                c.this.b = null;
+            }
         }
+    }
+
+    private c() {
+    }
+
+    public static synchronized c tw() {
+        c cVar;
+        synchronized (c.class) {
+            if (aer == null) {
+                aer = new c();
+            }
+            cVar = aer;
+        }
+        return cVar;
+    }
+
+    public void b() {
+        this.aeq = new a();
+        try {
+            com.baidu.location.f.getServiceContext().registerReceiver(this.aeq, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        } catch (Exception e) {
+        }
+    }
+
+    public void c() {
+        if (this.aeq != null) {
+            try {
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.aeq);
+            } catch (Exception e) {
+            }
+        }
+        this.aeq = null;
+    }
+
+    public String d() {
+        return this.b;
+    }
+
+    public boolean e() {
+        return this.a;
+    }
+
+    public int f() {
+        return this.e;
     }
 }

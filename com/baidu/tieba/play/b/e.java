@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 /* loaded from: classes.dex */
 public class e {
-    public static void sD(int i) {
+    public static void sW(int i) {
         int i2;
         if (i == -100) {
             i2 = 0;
@@ -20,7 +20,7 @@ public class e {
         TiebaStatic.log(new am("c12493").x("obj_type", i2));
     }
 
-    public static void sE(int i) {
+    public static void sX(int i) {
         int i2;
         int i3 = 2;
         if (i == -100) {
@@ -39,21 +39,21 @@ public class e {
                 i3 = 4;
             }
         }
-        TiebaStatic.log(new am("c12029").x("obj_type", i2).x("obj_param1", j.kY() ? 0 : 1).x("obj_param2", i3));
+        TiebaStatic.log(new am("c12029").x("obj_type", i2).x("obj_param1", j.kW() ? 0 : 1).x("obj_param2", i3));
     }
 
-    public static void tu(String str) {
+    public static void tz(String str) {
         TiebaStatic.log(new am("c12026").ax("tid", str));
     }
 
-    public static void sF(int i) {
+    public static void sY(int i) {
         int i2;
         if (i == -100) {
             i2 = 0;
         } else {
             i2 = i == -200 ? 1 : 2;
         }
-        TiebaStatic.log(new am("c12494").x("obj_type", i2).x("obj_param1", j.kY() ? 0 : 1));
+        TiebaStatic.log(new am("c12494").x("obj_type", i2).x("obj_param1", j.kW() ? 0 : 1));
     }
 
     public static void a(Uri uri, String str) {
@@ -169,7 +169,7 @@ public class e {
         }
     }
 
-    public static void bD(int i, int i2) {
+    public static void bF(int i, int i2) {
         switch (i2) {
             case -10040:
                 TiebaStatic.log(new am("c12511").x("obj_locate", 6));

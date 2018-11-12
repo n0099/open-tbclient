@@ -4,18 +4,18 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
 public class q implements com.baidu.tbadk.core.flow.a.a {
-    private String amB;
-    private String amC;
-    private String amD;
-    private String amE;
-    private boolean amF;
+    private String ano;
+    private String anp;
+    private String anq;
+    private String anr;
+    private boolean ans;
     private String mTitle;
     private String tagNameUrl;
     private float tagRatio;
 
     public q(String str, String str2, String str3) {
-        this.amB = str;
-        this.amC = str2;
+        this.ano = str;
+        this.anp = str2;
         this.mTitle = str3;
     }
 
@@ -24,51 +24,51 @@ public class q implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.amB;
+        return this.ano;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String xa() {
-        return this.amC;
+    public String xi() {
+        return this.anp;
     }
 
     public String getImageUrl() {
-        return this.amB;
+        return this.ano;
     }
 
     public void setImageUrl(String str) {
-        this.amB = str;
+        this.ano = str;
     }
 
     public String getLinkUrl() {
-        return this.amC;
+        return this.anp;
     }
 
     public void setLinkUrl(String str) {
-        this.amC = str;
+        this.anp = str;
     }
 
     public String getTitle() {
         return this.mTitle;
     }
 
-    public String xb() {
+    public String xj() {
         return this.tagNameUrl;
     }
 
-    public float xc() {
+    public float xk() {
         return this.tagRatio;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: xd */
+    /* renamed from: xl */
     public q clone() {
         q qVar = new q();
-        qVar.amB = this.amB;
-        qVar.amC = this.amC;
+        qVar.ano = this.ano;
+        qVar.anp = this.anp;
         qVar.mTitle = this.mTitle;
-        qVar.amD = this.amD;
-        qVar.amE = this.amE;
+        qVar.anq = this.anq;
+        qVar.anr = this.anr;
         qVar.tagNameUrl = this.tagNameUrl;
         qVar.tagRatio = this.tagRatio;
         return qVar;
@@ -76,8 +76,8 @@ public class q implements com.baidu.tbadk.core.flow.a.a {
 
     public void b(HeadImgs headImgs) {
         if (headImgs != null) {
-            this.amB = headImgs.img_url;
-            this.amC = headImgs.pc_url;
+            this.ano = headImgs.img_url;
+            this.anp = headImgs.pc_url;
             this.tagNameUrl = headImgs.tag_name_url;
             String str = headImgs.tag_name_wh;
             if (str != null) {
@@ -96,19 +96,19 @@ public class q implements com.baidu.tbadk.core.flow.a.a {
                 this.mTitle = headImgs.title.trim();
             }
             if (headImgs.subtitle != null) {
-                this.amD = headImgs.subtitle.trim();
+                this.anq = headImgs.subtitle.trim();
             }
             if (headImgs.btn_text != null) {
-                this.amE = headImgs.btn_text.trim();
+                this.anr = headImgs.btn_text.trim();
             }
         }
     }
 
-    public boolean xe() {
-        return this.amF;
+    public boolean xm() {
+        return this.ans;
     }
 
-    public void aH(boolean z) {
-        this.amF = z;
+    public void aX(boolean z) {
+        this.ans = z;
     }
 }

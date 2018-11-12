@@ -7,10 +7,10 @@ import android.graphics.RectF;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public abstract class j extends b {
-    private a Ji;
-    protected Path Jg = new Path();
-    protected Paint Jh = null;
-    protected boolean Jj = false;
+    private a Jl;
+    protected Path Jj = new Path();
+    protected Paint Jk = null;
+    protected boolean Jm = false;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -23,42 +23,42 @@ public abstract class j extends b {
     public void a(c cVar, ImageView imageView, ImageView.ScaleType scaleType) {
         Path a2;
         super.a(cVar, imageView, scaleType);
-        if (this.Ji != null && (a2 = this.Ji.a(mj())) != null) {
-            this.Jg.set(a2);
-            if (this.Jh == null) {
-                this.Jh = new Paint();
-                this.Jh.setStyle(Paint.Style.STROKE);
-                this.Jh.setAntiAlias(true);
-                this.Jh.setColor(637534208);
-                this.Jh.setDither(true);
-                this.Jh.setStrokeWidth(2.0f);
+        if (this.Jl != null && (a2 = this.Jl.a(mh())) != null) {
+            this.Jj.set(a2);
+            if (this.Jk == null) {
+                this.Jk = new Paint();
+                this.Jk.setStyle(Paint.Style.STROKE);
+                this.Jk.setAntiAlias(true);
+                this.Jk.setColor(637534208);
+                this.Jk.setDither(true);
+                this.Jk.setStrokeWidth(2.0f);
             }
-            mo();
+            mm();
         }
     }
 
     @Override // com.baidu.adp.newwidget.ImageView.a
     public void a(Canvas canvas, c cVar, ImageView imageView) {
         super.a(canvas, cVar, imageView);
-        if (this.Jj) {
-            canvas.drawPath(this.Jg, this.Jh);
-            if (this.Ji != null) {
-                this.Ji.e(canvas);
+        if (this.Jm) {
+            canvas.drawPath(this.Jj, this.Jk);
+            if (this.Jl != null) {
+                this.Jl.e(canvas);
             }
         }
     }
 
-    public void mo() {
+    public void mm() {
     }
 
-    public void mp() {
+    public void mn() {
     }
 
     public void a(a aVar) {
-        this.Ji = aVar;
+        this.Jl = aVar;
     }
 
-    public void Z(boolean z) {
-        this.Jj = z;
+    public void an(boolean z) {
+        this.Jm = z;
     }
 }

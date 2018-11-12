@@ -6,9 +6,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class f {
-    private static f beb = new f();
-    private b bec;
-    private a bed;
+    private static f beQ = new f();
+    private b beR;
+    private a beS;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,22 +18,22 @@ public class f {
     private f() {
     }
 
-    public static f Oy() {
-        return beb;
+    public static f OH() {
+        return beQ;
     }
 
     public void a(a aVar) {
-        this.bed = aVar;
-        if (this.bec != null) {
-            this.bec.cancel();
+        this.beS = aVar;
+        if (this.beR != null) {
+            this.beR.cancel();
         }
-        this.bec = new b();
-        this.bec.setPriority(4);
-        this.bec.execute(new String[0]);
+        this.beR = new b();
+        this.beR.setPriority(4);
+        this.beR.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Oz() {
+    public boolean OI() {
         int i;
         long j = 0;
         byte[] eR = com.baidu.tbadk.core.util.l.eR(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
@@ -69,15 +69,15 @@ public class f {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(f.this.Oz());
+            return Boolean.valueOf(f.this.OI());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (f.this.bed != null && bool != null) {
-                f.this.bed.onResult(bool.booleanValue());
+            if (f.this.beS != null && bool != null) {
+                f.this.beS.onResult(bool.booleanValue());
             }
         }
     }

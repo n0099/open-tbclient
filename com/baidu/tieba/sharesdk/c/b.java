@@ -36,17 +36,17 @@ public class b {
             TiebaStatic.log(amVar);
             return;
         }
-        Bundle IQ = shareEntity.IQ();
-        if (IQ != null && (i2 = IQ.getInt("obj_param1")) != 0) {
+        Bundle Jc = shareEntity.Jc();
+        if (Jc != null && (i2 = Jc.getInt("obj_param1")) != 0) {
             amVar.x("obj_param1", i2);
             if (i2 == 2) {
-                amVar.ax(ImageViewerConfig.FORUM_ID, IQ.getString(ImageViewerConfig.FORUM_ID));
+                amVar.ax(ImageViewerConfig.FORUM_ID, Jc.getString(ImageViewerConfig.FORUM_ID));
             } else if (i2 == 3) {
-                int i4 = IQ.getInt("obj_type");
+                int i4 = Jc.getInt("obj_type");
                 if (i4 != 0) {
                     amVar.x("obj_type", i4);
                 }
-                amVar.ax("tid", IQ.getString("tid")).ax(ImageViewerConfig.FORUM_ID, IQ.getString(ImageViewerConfig.FORUM_ID));
+                amVar.ax("tid", Jc.getString("tid")).ax(ImageViewerConfig.FORUM_ID, Jc.getString(ImageViewerConfig.FORUM_ID));
             }
         }
         TiebaStatic.log(amVar);
@@ -79,11 +79,11 @@ public class b {
             TiebaStatic.log(amVar);
             return;
         }
-        Bundle IQ = shareEntity.IQ();
-        if (IQ != null) {
-            amVar.ax("tid", IQ.getString("tid"));
-            amVar.ax("uid", IQ.getString("uid"));
-            amVar.ax(ImageViewerConfig.FORUM_ID, IQ.getString(ImageViewerConfig.FORUM_ID));
+        Bundle Jc = shareEntity.Jc();
+        if (Jc != null) {
+            amVar.ax("tid", Jc.getString("tid"));
+            amVar.ax("uid", Jc.getString("uid"));
+            amVar.ax(ImageViewerConfig.FORUM_ID, Jc.getString(ImageViewerConfig.FORUM_ID));
         }
         TiebaStatic.log(amVar);
     }

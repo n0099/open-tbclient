@@ -7,12 +7,12 @@ public abstract class c {
 
     protected abstract void b(d dVar);
 
-    protected abstract d bN(Context context);
+    protected abstract d bK(Context context);
 
-    public d bM(Context context) {
-        d bN = bN(context);
-        a(bN);
-        b(bN);
-        return bN;
+    public d bJ(Context context) {
+        d bK = bK(context);
+        a(bK);
+        b(bK);
+        return bK;
     }
 }

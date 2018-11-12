@@ -1,34 +1,34 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public class s {
-    private int fDe = 0;
-    private int gvP = 0;
-    private boolean dHa = false;
-    private boolean gvQ = true;
+    private int fEB = 0;
+    private int gxq = 0;
+    private boolean dIw = false;
+    private boolean gxr = true;
 
-    public int bqA() {
-        return this.fDe;
+    public int bpW() {
+        return this.fEB;
     }
 
-    public int bqB() {
-        return this.gvP;
+    public int bpX() {
+        return this.gxq;
     }
 
-    public boolean bqC() {
-        return this.dHa;
+    public boolean bpY() {
+        return this.dIw;
     }
 
-    public boolean bqD() {
-        return this.gvQ;
+    public boolean bpZ() {
+        return this.gxr;
     }
 
-    public void h(int i, int i2, boolean z) {
-        this.fDe = i;
-        this.gvP = i2;
-        this.dHa = z;
+    public void i(int i, int i2, boolean z) {
+        this.fEB = i;
+        this.gxq = i2;
+        this.dIw = z;
     }
 
-    public void jk(boolean z) {
-        this.gvQ = z;
+    public void ju(boolean z) {
+        this.gxr = z;
     }
 }

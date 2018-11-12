@@ -9,29 +9,29 @@ import com.baidu.adp.lib.util.e;
 import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
 public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
-    private int biI;
-    private int biJ;
-    private float biK;
-    private ValueAnimator biL;
+    private int bjt;
+    private int bju;
+    private float bjv;
+    private ValueAnimator bjw;
     private float mRatio;
     private int mScreenWidth;
     private float mStartX;
 
     public FlexibleHorizontalScrollView(Context context) {
         super(context);
-        this.biI = BaseActivity.SHOW_SOFT_KEYBOARD_DELAY;
-        this.biK = 0.0f;
+        this.bjt = BaseActivity.SHOW_SOFT_KEYBOARD_DELAY;
+        this.bjv = 0.0f;
     }
 
     public FlexibleHorizontalScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.biI = BaseActivity.SHOW_SOFT_KEYBOARD_DELAY;
-        this.biK = 0.0f;
+        this.bjt = BaseActivity.SHOW_SOFT_KEYBOARD_DELAY;
+        this.bjv = 0.0f;
     }
 
     @Override // android.view.View
     protected boolean overScrollBy(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, boolean z) {
-        this.biJ = i5;
+        this.bju = i5;
         return super.overScrollBy(i, i2, i3, i4, i5, i6, i7, i8, z);
     }
 
@@ -40,26 +40,26 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
         int i = 0;
         int scrollX = getScrollX();
         float x = getX();
-        if (scrollX > 0 && scrollX < this.biJ && x == 0.0f) {
+        if (scrollX > 0 && scrollX < this.bju && x == 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
         int action = motionEvent.getAction() & 255;
-        int i2 = this.biI;
+        int i2 = this.bjt;
         initIfNecessary();
         switch (action) {
             case 0:
-                if (this.biL.isRunning()) {
-                    this.biL.cancel();
+                if (this.bjw.isRunning()) {
+                    this.bjw.cancel();
                 }
                 this.mStartX = motionEvent.getRawX();
                 break;
             case 1:
             case 3:
                 if (x != 0.0f) {
-                    this.biK = 0.0f;
+                    this.bjv = 0.0f;
                     this.mStartX = 0.0f;
-                    this.biL.setFloatValues(x, 0.0f);
-                    this.biL.start();
+                    this.bjw.setFloatValues(x, 0.0f);
+                    this.bjw.start();
                     return true;
                 }
                 break;
@@ -69,28 +69,28 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
                     this.mStartX = motionEvent.getRawX();
                     return true;
                 }
-                if (this.biK * rawX < 0.0f) {
-                    this.biK += rawX;
+                if (this.bjv * rawX < 0.0f) {
+                    this.bjv += rawX;
                 } else {
-                    this.biK += rawX * this.mRatio;
+                    this.bjv += rawX * this.mRatio;
                 }
                 this.mStartX = motionEvent.getRawX();
                 if (scrollX == 0) {
                     i = 1;
-                } else if (scrollX == this.biJ) {
+                } else if (scrollX == this.bju) {
                     i = -1;
                 }
                 if (i != 0) {
-                    if (i * this.biK > i2) {
-                        this.biK = i * i2;
+                    if (i * this.bjv > i2) {
+                        this.bjv = i * i2;
                         this.mStartX = motionEvent.getRawX();
-                    } else if (i * this.biK < 0.0f) {
-                        this.biK = 0.0f;
+                    } else if (i * this.bjv < 0.0f) {
+                        this.bjv = 0.0f;
                         this.mStartX = motionEvent.getRawX();
                         setX(0.0f);
                         return super.onTouchEvent(motionEvent);
                     }
-                    setX(this.biK);
+                    setX(this.bjv);
                     return true;
                 }
                 break;
@@ -99,11 +99,11 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
     }
 
     private void initIfNecessary() {
-        if (this.biL == null) {
-            this.biL = new ValueAnimator();
-            this.biL.setDuration(200L);
-            this.biL.setInterpolator(new DecelerateInterpolator());
-            this.biL.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.widget.horizonalScrollListView.FlexibleHorizontalScrollView.1
+        if (this.bjw == null) {
+            this.bjw = new ValueAnimator();
+            this.bjw.setDuration(200L);
+            this.bjw.setInterpolator(new DecelerateInterpolator());
+            this.bjw.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.widget.horizonalScrollListView.FlexibleHorizontalScrollView.1
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     FlexibleHorizontalScrollView.this.setX(((Float) valueAnimator.getAnimatedValue()).floatValue());
@@ -113,14 +113,14 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
         if (this.mScreenWidth == 0) {
             setOverScrollMode(2);
             this.mScreenWidth = e.aO(getContext());
-            this.mRatio = (1.0f * this.biI) / this.mScreenWidth;
+            this.mRatio = (1.0f * this.bjt) / this.mScreenWidth;
         }
     }
 
     public void setMaxOverScrollDistance(int i) {
         if (i > 0) {
-            this.biI = i;
-            this.mRatio = (1.0f * this.biI) / this.mScreenWidth;
+            this.bjt = i;
+            this.mRatio = (1.0f * this.bjt) / this.mScreenWidth;
         }
     }
 }

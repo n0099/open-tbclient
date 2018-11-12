@@ -1,37 +1,21 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.searchbox.ng.ai.apps.aps.AiAppsApsUtils;
+import com.baidu.webkit.internal.ETAG;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class h {
-    private final int aJt;
-    private final int aJu;
-    private final boolean aJv;
-    private final TbPageContext<?> mContext;
+    private String appId = "";
+    private String appName = "";
+    private String packageName = "";
+    private boolean aKh = false;
 
-    public h(TbPageContext<?> tbPageContext, int i, int i2, boolean z) {
-        this.mContext = tbPageContext;
-        this.aJt = i;
-        this.aJu = i2;
-        this.aJv = z;
-    }
-
-    public h(TbPageContext<?> tbPageContext, int i, int i2) {
-        this(tbPageContext, i, i2, false);
-    }
-
-    public TbPageContext<?> Fm() {
-        return this.mContext;
-    }
-
-    public int Fn() {
-        return this.aJt;
-    }
-
-    public int Fo() {
-        return this.aJu;
-    }
-
-    public boolean isAvailable() {
-        return this.mContext != null && this.aJt > 0 && this.aJu > 0;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.appId = jSONObject.optString(HttpConstants.HTTP_APP_ID, "");
+            this.appName = jSONObject.optString(AiAppsApsUtils.APP_NAME, "");
+            this.packageName = jSONObject.optString(ETAG.KEY_PACKAGE_NAME, "");
+        }
     }
 }

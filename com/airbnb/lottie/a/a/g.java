@@ -37,25 +37,25 @@ public class g implements d, a.InterfaceC0009a {
     public g(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, com.airbnb.lottie.model.content.d dVar) {
         this.name = dVar.getName();
         this.nh = fVar;
-        this.oU = dVar.ef();
+        this.oU = dVar.ee();
         this.oy.setFillType(dVar.getFillType());
-        this.oX = (int) (fVar.cU().getDuration() / 32);
-        this.oP = dVar.eg().dH();
+        this.oX = (int) (fVar.cT().getDuration() / 32);
+        this.oP = dVar.ef().dG();
         this.oP.b(this);
         aVar.a(this.oP);
-        this.oD = dVar.dW().dH();
+        this.oD = dVar.dV().dG();
         this.oD.b(this);
         aVar.a(this.oD);
-        this.oV = dVar.eh().dH();
+        this.oV = dVar.eg().dG();
         this.oV.b(this);
         aVar.a(this.oV);
-        this.oW = dVar.ei().dH();
+        this.oW = dVar.eh().dG();
         this.oW.b(this);
         aVar.a(this.oW);
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0009a
-    public void de() {
+    public void dd() {
         this.nh.invalidateSelf();
     }
 
@@ -78,7 +78,7 @@ public class g implements d, a.InterfaceC0009a {
 
     @Override // com.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
-        Shader di;
+        Shader dh;
         com.airbnb.lottie.d.beginSection("GradientFillContent#draw");
         this.oy.reset();
         for (int i2 = 0; i2 < this.oG.size(); i2++) {
@@ -86,13 +86,13 @@ public class g implements d, a.InterfaceC0009a {
         }
         this.oy.computeBounds(this.oT, false);
         if (this.oU == GradientType.Linear) {
-            di = dh();
+            dh = dg();
         } else {
-            di = di();
+            dh = dh();
         }
         this.oS.set(matrix);
-        di.setLocalMatrix(this.oS);
-        this.paint.setShader(di);
+        dh.setLocalMatrix(this.oS);
+        this.paint.setShader(dh);
         this.paint.setAlpha((int) (((this.oD.getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f));
         canvas.drawPath(this.oy, this.paint);
         com.airbnb.lottie.d.U("GradientFillContent#draw");
@@ -117,39 +117,39 @@ public class g implements d, a.InterfaceC0009a {
         return this.name;
     }
 
-    private LinearGradient dh() {
-        int dj = dj();
-        LinearGradient linearGradient = this.oQ.get(dj);
+    private LinearGradient dg() {
+        int di = di();
+        LinearGradient linearGradient = this.oQ.get(di);
         if (linearGradient == null) {
             PointF value = this.oV.getValue();
             PointF value2 = this.oW.getValue();
             com.airbnb.lottie.model.content.c value3 = this.oP.getValue();
-            LinearGradient linearGradient2 = new LinearGradient(value.x, value.y, value2.x, value2.y, value3.getColors(), value3.ee(), Shader.TileMode.CLAMP);
-            this.oQ.put(dj, linearGradient2);
+            LinearGradient linearGradient2 = new LinearGradient(value.x, value.y, value2.x, value2.y, value3.getColors(), value3.ed(), Shader.TileMode.CLAMP);
+            this.oQ.put(di, linearGradient2);
             return linearGradient2;
         }
         return linearGradient;
     }
 
-    private RadialGradient di() {
-        int dj = dj();
-        RadialGradient radialGradient = this.oR.get(dj);
+    private RadialGradient dh() {
+        int di = di();
+        RadialGradient radialGradient = this.oR.get(di);
         if (radialGradient == null) {
             PointF value = this.oV.getValue();
             PointF value2 = this.oW.getValue();
             com.airbnb.lottie.model.content.c value3 = this.oP.getValue();
             int[] colors = value3.getColors();
-            float[] ee = value3.ee();
+            float[] ed = value3.ed();
             float f = value.x;
             float f2 = value.y;
-            RadialGradient radialGradient2 = new RadialGradient(f, f2, (float) Math.hypot(value2.x - f, value2.y - f2), colors, ee, Shader.TileMode.CLAMP);
-            this.oR.put(dj, radialGradient2);
+            RadialGradient radialGradient2 = new RadialGradient(f, f2, (float) Math.hypot(value2.x - f, value2.y - f2), colors, ed, Shader.TileMode.CLAMP);
+            this.oR.put(di, radialGradient2);
             return radialGradient2;
         }
         return radialGradient;
     }
 
-    private int dj() {
+    private int di() {
         int round = Math.round(this.oV.getProgress() * this.oX);
         int round2 = Math.round(this.oW.getProgress() * this.oX);
         int round3 = Math.round(this.oP.getProgress() * this.oX);

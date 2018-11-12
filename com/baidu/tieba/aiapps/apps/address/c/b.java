@@ -11,14 +11,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
-    public String bBZ;
-    public String bCa;
-    public d bCb;
-    public d bCc;
-    public d bCd;
-    public String bCe;
-    public String bCf;
-    public boolean bCg;
+    public String bCL;
+    public String bCM;
+    public d bCN;
+    public d bCO;
+    public d bCP;
+    public String bCQ;
+    public String bCR;
+    public boolean bCS;
     public String id;
     public String userName;
 
@@ -29,23 +29,23 @@ public class b {
         b bVar = new b();
         bVar.id = jSONObject.optString("id");
         bVar.userName = jSONObject.optString("name");
-        bVar.bBZ = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_PHONE);
-        bVar.bCa = jSONObject.optString("phone_cipher");
+        bVar.bCL = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_PHONE);
+        bVar.bCM = jSONObject.optString("phone_cipher");
         JSONObject optJSONObject = jSONObject.optJSONObject("l1");
         if (optJSONObject != null) {
-            bVar.bCb = d.K(optJSONObject);
+            bVar.bCN = d.K(optJSONObject);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("l2");
         if (optJSONObject2 != null) {
-            bVar.bCc = d.K(optJSONObject2);
+            bVar.bCO = d.K(optJSONObject2);
         }
         JSONObject optJSONObject3 = jSONObject.optJSONObject("l3");
         if (optJSONObject3 != null) {
-            bVar.bCd = d.K(optJSONObject3);
+            bVar.bCP = d.K(optJSONObject3);
         }
-        bVar.bCe = jSONObject.optString("street");
-        bVar.bCf = jSONObject.optString("zipcode");
-        bVar.bCg = TextUtils.equals(jSONObject.optString("default"), "1");
+        bVar.bCQ = jSONObject.optString("street");
+        bVar.bCR = jSONObject.optString("zipcode");
+        bVar.bCS = TextUtils.equals(jSONObject.optString("default"), "1");
         return bVar;
     }
 
@@ -61,30 +61,30 @@ public class b {
             bVar.userName = String.valueOf(map.get("name"));
         }
         if (map.containsKey(ISapiAccount.SAPI_ACCOUNT_PHONE)) {
-            bVar.bBZ = String.valueOf(map.get(ISapiAccount.SAPI_ACCOUNT_PHONE));
+            bVar.bCL = String.valueOf(map.get(ISapiAccount.SAPI_ACCOUNT_PHONE));
         }
         if (map.containsKey("street")) {
-            bVar.bCe = String.valueOf(map.get("street"));
+            bVar.bCQ = String.valueOf(map.get("street"));
         }
         if (map.containsKey("zipcode")) {
-            bVar.bCf = String.valueOf(map.get("zipcode"));
+            bVar.bCR = String.valueOf(map.get("zipcode"));
         }
         if (map.containsKey("l1")) {
             Object obj = map.get("l1");
             if (obj instanceof d) {
-                bVar.bCb = (d) obj;
+                bVar.bCN = (d) obj;
             }
         }
         if (map.containsKey("l2")) {
             Object obj2 = map.get("l2");
             if (obj2 instanceof d) {
-                bVar.bCc = (d) obj2;
+                bVar.bCO = (d) obj2;
             }
         }
         if (map.containsKey("l3")) {
             Object obj3 = map.get("l3");
             if (obj3 instanceof d) {
-                bVar.bCd = (d) obj3;
+                bVar.bCP = (d) obj3;
             }
         }
         return bVar;
@@ -94,9 +94,9 @@ public class b {
         HashMap hashMap = new HashMap(4);
         if (bVar != null) {
             hashMap.put("name", Boolean.valueOf(!TextUtils.isEmpty(bVar.userName)));
-            hashMap.put(ISapiAccount.SAPI_ACCOUNT_PHONE, Boolean.valueOf(!TextUtils.isEmpty(bVar.bBZ)));
-            hashMap.put("region", Boolean.valueOf(!TextUtils.isEmpty(bVar.WK())));
-            hashMap.put("street", Boolean.valueOf(TextUtils.isEmpty(bVar.bCe) ? false : true));
+            hashMap.put(ISapiAccount.SAPI_ACCOUNT_PHONE, Boolean.valueOf(!TextUtils.isEmpty(bVar.bCL)));
+            hashMap.put("region", Boolean.valueOf(!TextUtils.isEmpty(bVar.WU())));
+            hashMap.put("street", Boolean.valueOf(TextUtils.isEmpty(bVar.bCQ) ? false : true));
         }
         return hashMap;
     }
@@ -113,31 +113,31 @@ public class b {
             if (!TextUtils.isEmpty(bVar.userName)) {
                 jSONObject.put("name", bVar.userName);
             }
-            if (!TextUtils.isEmpty(bVar.bBZ)) {
-                jSONObject.put(ISapiAccount.SAPI_ACCOUNT_PHONE, bVar.bBZ);
+            if (!TextUtils.isEmpty(bVar.bCL)) {
+                jSONObject.put(ISapiAccount.SAPI_ACCOUNT_PHONE, bVar.bCL);
             }
-            if (!TextUtils.isEmpty(bVar.bCa)) {
-                jSONObject.put("phone_cipher", bVar.bCa);
+            if (!TextUtils.isEmpty(bVar.bCM)) {
+                jSONObject.put("phone_cipher", bVar.bCM);
             }
-            JSONObject a = d.a(bVar.bCb);
+            JSONObject a = d.a(bVar.bCN);
             if (a != null) {
                 jSONObject.put("l1", a);
             }
-            JSONObject a2 = d.a(bVar.bCc);
+            JSONObject a2 = d.a(bVar.bCO);
             if (a2 != null) {
                 jSONObject.put("l2", a2);
             }
-            JSONObject a3 = d.a(bVar.bCd);
+            JSONObject a3 = d.a(bVar.bCP);
             if (a3 != null) {
                 jSONObject.put("l3", a3);
             }
-            if (!TextUtils.isEmpty(bVar.bCe)) {
-                jSONObject.put("street", bVar.bCe);
+            if (!TextUtils.isEmpty(bVar.bCQ)) {
+                jSONObject.put("street", bVar.bCQ);
             }
-            if (!TextUtils.isEmpty(bVar.bCf)) {
-                jSONObject.put("zipcode", bVar.bCf);
+            if (!TextUtils.isEmpty(bVar.bCR)) {
+                jSONObject.put("zipcode", bVar.bCR);
             }
-            jSONObject.put("default", bVar.bCg);
+            jSONObject.put("default", bVar.bCS);
             return jSONObject;
         } catch (JSONException e) {
             return null;
@@ -153,26 +153,26 @@ public class b {
             if (!TextUtils.isEmpty(bVar.userName)) {
                 jSONObject.put("userName", bVar.userName);
             }
-            if (!TextUtils.isEmpty(bVar.bCf)) {
-                jSONObject.put("postalCode", bVar.bCf);
+            if (!TextUtils.isEmpty(bVar.bCR)) {
+                jSONObject.put("postalCode", bVar.bCR);
             }
-            if (bVar.bCb != null && !TextUtils.isEmpty(bVar.bCb.name)) {
-                jSONObject.put("provinceName", bVar.bCb.name);
+            if (bVar.bCN != null && !TextUtils.isEmpty(bVar.bCN.name)) {
+                jSONObject.put("provinceName", bVar.bCN.name);
             }
-            if (bVar.bCc != null && !TextUtils.isEmpty(bVar.bCc.name)) {
-                jSONObject.put("cityName", bVar.bCc.name);
+            if (bVar.bCO != null && !TextUtils.isEmpty(bVar.bCO.name)) {
+                jSONObject.put("cityName", bVar.bCO.name);
             }
-            if (bVar.bCd != null && !TextUtils.isEmpty(bVar.bCd.name)) {
-                jSONObject.put("countyName", bVar.bCd.name);
+            if (bVar.bCP != null && !TextUtils.isEmpty(bVar.bCP.name)) {
+                jSONObject.put("countyName", bVar.bCP.name);
             }
-            if (bVar.bCd != null && !TextUtils.isEmpty(bVar.bCd.code)) {
-                jSONObject.put("nationalCode", bVar.bCd.code);
+            if (bVar.bCP != null && !TextUtils.isEmpty(bVar.bCP.code)) {
+                jSONObject.put("nationalCode", bVar.bCP.code);
             }
-            if (!TextUtils.isEmpty(bVar.bCe)) {
-                jSONObject.put("detailInfo", bVar.bCe);
+            if (!TextUtils.isEmpty(bVar.bCQ)) {
+                jSONObject.put("detailInfo", bVar.bCQ);
             }
-            if (!TextUtils.isEmpty(bVar.bBZ)) {
-                jSONObject.put("telNumber", bVar.bBZ);
+            if (!TextUtils.isEmpty(bVar.bCL)) {
+                jSONObject.put("telNumber", bVar.bCL);
                 return jSONObject;
             }
             return jSONObject;
@@ -189,51 +189,51 @@ public class b {
         a aVar = new a("收货人", bVar.userName, "姓名");
         aVar.type = "name";
         arrayList.add(aVar);
-        a aVar2 = new a("联系电话", bVar.bBZ, "手机号码或座机");
+        a aVar2 = new a("联系电话", bVar.bCL, "手机号码或座机");
         aVar2.type = ISapiAccount.SAPI_ACCOUNT_PHONE;
-        aVar2.bBY = true;
+        aVar2.bCK = true;
         arrayList.add(aVar2);
-        a aVar3 = new a("所在地区", bVar.WK(), "地区选择");
+        a aVar3 = new a("所在地区", bVar.WU(), "地区选择");
         aVar3.type = "region";
         arrayList.add(aVar3);
-        a aVar4 = new a("详细地址", bVar.bCe, "街道门牌信息");
+        a aVar4 = new a("详细地址", bVar.bCQ, "街道门牌信息");
         aVar4.type = "street";
         arrayList.add(aVar4);
-        a aVar5 = new a("邮政编码", bVar.bCf, "邮政编码");
+        a aVar5 = new a("邮政编码", bVar.bCR, "邮政编码");
         aVar5.type = "zipcode";
-        aVar5.bBY = true;
+        aVar5.bCK = true;
         arrayList.add(aVar5);
         return arrayList;
     }
 
-    private String WK() {
+    private String WU() {
         StringBuilder sb = new StringBuilder();
-        if (this.bCb != null && !TextUtils.isEmpty(this.bCb.name)) {
-            sb.append(this.bCb.name);
+        if (this.bCN != null && !TextUtils.isEmpty(this.bCN.name)) {
+            sb.append(this.bCN.name);
         }
-        if (this.bCc != null && !TextUtils.isEmpty(this.bCc.name)) {
-            sb.append(" " + this.bCc.name);
+        if (this.bCO != null && !TextUtils.isEmpty(this.bCO.name)) {
+            sb.append(" " + this.bCO.name);
         }
-        if (this.bCd != null && !TextUtils.isEmpty(this.bCd.name)) {
-            sb.append(" " + this.bCd.name);
+        if (this.bCP != null && !TextUtils.isEmpty(this.bCP.name)) {
+            sb.append(" " + this.bCP.name);
         }
         return sb.toString();
     }
 
-    public String WL() {
+    public String WV() {
         StringBuilder sb = new StringBuilder();
-        sb.append(WK());
-        sb.append(" " + this.bCe);
+        sb.append(WU());
+        sb.append(" " + this.bCQ);
         return sb.toString();
     }
 
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.userName) || TextUtils.isEmpty(this.bBZ) || TextUtils.isEmpty(WK()) || TextUtils.isEmpty(this.bCe) || this.bBZ.length() != 11 || !this.bBZ.startsWith("1")) ? false : true;
+        return (TextUtils.isEmpty(this.userName) || TextUtils.isEmpty(this.bCL) || TextUtils.isEmpty(WU()) || TextUtils.isEmpty(this.bCQ) || this.bCL.length() != 11 || !this.bCL.startsWith("1")) ? false : true;
     }
 
-    public static boolean jY(String str) {
+    public static boolean ka(String str) {
         if (!TextUtils.isEmpty(str) && str.length() == 11 && str.startsWith("1")) {
-            return ka(str);
+            return kc(str);
         }
         return false;
     }
@@ -243,41 +243,41 @@ public class b {
             if (!TextUtils.isEmpty(bVar.userName)) {
                 this.userName = bVar.userName;
             }
-            if (!TextUtils.isEmpty(bVar.bBZ)) {
-                this.bBZ = bVar.bBZ;
+            if (!TextUtils.isEmpty(bVar.bCL)) {
+                this.bCL = bVar.bCL;
             }
-            if (!TextUtils.isEmpty(bVar.bCa)) {
-                this.bCa = bVar.bCa;
+            if (!TextUtils.isEmpty(bVar.bCM)) {
+                this.bCM = bVar.bCM;
             }
-            if (!TextUtils.isEmpty(bVar.bCe)) {
-                this.bCe = bVar.bCe;
+            if (!TextUtils.isEmpty(bVar.bCQ)) {
+                this.bCQ = bVar.bCQ;
             }
-            if (!TextUtils.isEmpty(bVar.bCf)) {
-                this.bCf = bVar.bCf;
+            if (!TextUtils.isEmpty(bVar.bCR)) {
+                this.bCR = bVar.bCR;
             }
-            if (bVar.bCb != null && bVar.bCb.isValid()) {
-                this.bCb = bVar.bCb;
+            if (bVar.bCN != null && bVar.bCN.isValid()) {
+                this.bCN = bVar.bCN;
             }
-            if (bVar.bCc != null && bVar.bCc.isValid()) {
-                this.bCc = bVar.bCc;
+            if (bVar.bCO != null && bVar.bCO.isValid()) {
+                this.bCO = bVar.bCO;
             }
-            if (bVar.bCd != null && bVar.bCd.isValid()) {
-                this.bCd = bVar.bCd;
+            if (bVar.bCP != null && bVar.bCP.isValid()) {
+                this.bCP = bVar.bCP;
             }
         }
     }
 
-    public static boolean jZ(String str) {
-        return str.length() == 6 && ka(str);
+    public static boolean kb(String str) {
+        return str.length() == 6 && kc(str);
     }
 
-    public static boolean ka(String str) {
+    public static boolean kc(String str) {
         return Pattern.compile("[0-9]*").matcher(str).matches();
     }
 
-    public void WM() {
-        if (jY(this.bBZ)) {
-            this.bCa = this.bBZ.substring(0, 3) + "*****" + this.bBZ.substring(8);
+    public void WW() {
+        if (ka(this.bCL)) {
+            this.bCM = this.bCL.substring(0, 3) + "*****" + this.bCL.substring(8);
         }
     }
 }

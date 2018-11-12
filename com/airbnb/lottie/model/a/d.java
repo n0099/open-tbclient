@@ -17,21 +17,21 @@ public class d extends o<Integer, Integer> {
     }
 
     @Override // com.airbnb.lottie.model.a.m
-    public com.airbnb.lottie.a.b.a<Integer, Integer> dH() {
-        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.pR) : new com.airbnb.lottie.a.b.e(this.pD);
+    public com.airbnb.lottie.a.b.a<Integer, Integer> dG() {
+        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.pS) : new com.airbnb.lottie.a.b.e(this.pE);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.model.a.o
-    /* renamed from: dL */
-    public Integer dJ() {
-        return (Integer) this.pR;
+    /* renamed from: dK */
+    public Integer dI() {
+        return (Integer) this.pS;
     }
 
     /* loaded from: classes2.dex */
     public static final class a {
         /* JADX INFO: Access modifiers changed from: package-private */
-        public static d dM() {
+        public static d dL() {
             return new d();
         }
 
@@ -39,15 +39,15 @@ public class d extends o<Integer, Integer> {
             if (jSONObject != null && jSONObject.has(Config.EVENT_HEAT_X)) {
                 eVar.V("Lottie doesn't support expressions.");
             }
-            n.a eb = n.a(jSONObject, 1.0f, eVar, b.qD).eb();
-            return new d(eb.pD, (Integer) eb.pR);
+            n.a ea = n.a(jSONObject, 1.0f, eVar, b.qE).ea();
+            return new d(ea.pE, (Integer) ea.pS);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class b implements m.a<Integer> {
-        private static final b qD = new b();
+        private static final b qE = new b();
 
         private b() {
         }

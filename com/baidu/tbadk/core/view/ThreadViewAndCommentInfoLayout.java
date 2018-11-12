@@ -13,40 +13,40 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class ThreadViewAndCommentInfoLayout extends LinearLayout {
-    private TextView aEJ;
-    private TextView aGr;
-    private boolean aGs;
-    private boolean aGt;
-    private boolean aGu;
-    private boolean aGv;
-    private boolean aGw;
-    public int ary;
+    private TextView aFz;
+    private TextView aHh;
+    private boolean aHi;
+    private boolean aHj;
+    private boolean aHk;
+    private boolean aHl;
+    private boolean aHm;
+    public int asl;
     private Context mContext;
 
     public ThreadViewAndCommentInfoLayout(Context context) {
         super(context);
-        this.aGs = false;
-        this.aGt = false;
-        this.aGu = false;
-        this.aGv = false;
-        this.aGw = false;
+        this.aHi = false;
+        this.aHj = false;
+        this.aHk = false;
+        this.aHl = false;
+        this.aHm = false;
         init(context);
     }
 
     public ThreadViewAndCommentInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aGs = false;
-        this.aGt = false;
-        this.aGu = false;
-        this.aGv = false;
-        this.aGw = false;
+        this.aHi = false;
+        this.aHj = false;
+        this.aHk = false;
+        this.aHl = false;
+        this.aHm = false;
         init(context);
     }
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(e.h.thread_comment_and_view_info_layout, (ViewGroup) this, true);
-        this.aGr = (TextView) inflate.findViewById(e.g.thread_view_num);
-        this.aEJ = (TextView) inflate.findViewById(e.g.thread_comment_num);
+        this.aHh = (TextView) inflate.findViewById(e.g.thread_view_num);
+        this.aFz = (TextView) inflate.findViewById(e.g.thread_comment_num);
         this.mContext = context;
     }
 
@@ -64,70 +64,70 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
     }
 
     private void u(bb bbVar) {
-        if (this.aGr != null && bbVar != null && this.aGu && bbVar.yP() != null && bbVar.zC()) {
-            this.aGr.setVisibility(0);
-            this.aGr.setText(String.format(this.mContext.getString(e.j.person_view_item_live_watch_num), ao.G(bbVar.yP().audience_count)));
+        if (this.aHh != null && bbVar != null && this.aHk && bbVar.yW() != null && bbVar.zJ()) {
+            this.aHh.setVisibility(0);
+            this.aHh.setText(String.format(this.mContext.getString(e.j.person_view_item_live_watch_num), ao.I(bbVar.yW().audience_count)));
         }
     }
 
     private void v(bb bbVar) {
-        if (this.aGr != null && bbVar != null && this.aGs) {
-            if (bbVar.yn() >= 0) {
-                this.aGr.setVisibility(0);
-                this.aGr.setText(String.format(this.mContext.getString(e.j.person_view_num), ao.G(bbVar.yn())));
+        if (this.aHh != null && bbVar != null && this.aHi) {
+            if (bbVar.yu() >= 0) {
+                this.aHh.setVisibility(0);
+                this.aHh.setText(String.format(this.mContext.getString(e.j.person_view_num), ao.I(bbVar.yu())));
                 return;
             }
-            this.aGr.setVisibility(8);
+            this.aHh.setVisibility(8);
         }
     }
 
     private void w(bb bbVar) {
-        if (this.aEJ != null && bbVar != null && this.aGt) {
-            if (bbVar.ym() >= 0) {
-                this.aEJ.setVisibility(0);
-                this.aEJ.setText(String.format(this.mContext.getString(e.j.comment_num_tip), ao.G(bbVar.ym())));
+        if (this.aFz != null && bbVar != null && this.aHj) {
+            if (bbVar.yt() >= 0) {
+                this.aFz.setVisibility(0);
+                this.aFz.setText(String.format(this.mContext.getString(e.j.comment_num_tip), ao.I(bbVar.yt())));
                 return;
             }
-            this.aEJ.setVisibility(8);
+            this.aFz.setVisibility(8);
         }
     }
 
     private void x(bb bbVar) {
-        if (this.aEJ != null && bbVar != null && this.aGv && bbVar.zC()) {
-            this.aEJ.setVisibility(0);
-            this.aEJ.setText(String.format(this.mContext.getString(e.j.person_view_item_live_zan_num), ao.G(bbVar.zH())));
+        if (this.aFz != null && bbVar != null && this.aHl && bbVar.zJ()) {
+            this.aFz.setVisibility(0);
+            this.aFz.setText(String.format(this.mContext.getString(e.j.person_view_item_live_zan_num), ao.I(bbVar.zO())));
         }
     }
 
     private void h(bb bbVar) {
-        if (this.aEJ != null && bbVar != null && this.aGw && bbVar.zC()) {
-            this.aEJ.setVisibility(0);
-            this.aEJ.setText(String.format(this.mContext.getString(e.j.person_view_item_live_share_num), ao.G((bbVar.yP() == null || bbVar.yP().share_info == null) ? 0 : bbVar.yP().share_info.share_count)));
+        if (this.aFz != null && bbVar != null && this.aHm && bbVar.zJ()) {
+            this.aFz.setVisibility(0);
+            this.aFz.setText(String.format(this.mContext.getString(e.j.person_view_item_live_share_num), ao.I((bbVar.yW() == null || bbVar.yW().share_info == null) ? 0 : bbVar.yW().share_info.share_count)));
         }
     }
 
     public void setIsShowReadNum(boolean z) {
-        this.aGs = z;
+        this.aHi = z;
     }
 
     public void setIsShowReplayNum(boolean z) {
-        this.aGt = z;
+        this.aHj = z;
     }
 
     public void setIsShowAudienceNum(boolean z) {
-        this.aGu = z;
+        this.aHk = z;
     }
 
     public void setIsShowZanNum(boolean z) {
-        this.aGv = z;
+        this.aHl = z;
     }
 
     public void setIsShowShareNum(boolean z) {
-        this.aGw = z;
+        this.aHm = z;
     }
 
     public void onChangeSkinType() {
-        al.h(this.aGr, e.d.cp_cont_d);
-        al.h(this.aEJ, e.d.cp_cont_d);
+        al.h(this.aHh, e.d.cp_cont_d);
+        al.h(this.aFz, e.d.cp_cont_d);
     }
 }

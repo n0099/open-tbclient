@@ -7,9 +7,9 @@ public interface b {
 
     void a(boolean z, int i, boolean z2);
 
-    void c(View.OnClickListener onClickListener);
+    void d(View.OnClickListener onClickListener);
 
     void d(boolean z, int i);
 
-    void ec(int i);
+    void eq(int i);
 }

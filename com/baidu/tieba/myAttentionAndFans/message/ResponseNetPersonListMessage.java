@@ -65,7 +65,7 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
                         z = false;
                     }
                     String str = new String(bArr);
-                    l<String> eg = a.Aq().eg("tb.my_pages");
+                    l<String> eg = a.Ax().eg("tb.my_pages");
                     if (eg != null) {
                         eg.a((z ? "personal_followme" : "personal_myfollow") + BaseRequestAction.SPLITE + map.get("id"), str, 604800000L);
                     }

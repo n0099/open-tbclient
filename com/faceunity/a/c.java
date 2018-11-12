@@ -8,21 +8,21 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
 public class c {
-    private final MediaMuxer htc;
-    private int htd = 2;
-    private int iji = 0;
+    private final MediaMuxer huL;
+    private int huM = 2;
+    private int ikR = 0;
     private boolean mIsStarted = false;
 
     public c(String str) throws IOException {
-        this.htc = new MediaMuxer(str, 0);
+        this.huL = new MediaMuxer(str, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized boolean start() {
         Log.v("MediaMuxerWrapper", "start:");
-        this.iji++;
-        if (this.htd > 0 && this.iji == this.htd) {
-            this.htc.start();
+        this.ikR++;
+        if (this.huM > 0 && this.ikR == this.huM) {
+            this.huL.start();
             this.mIsStarted = true;
             notifyAll();
             Log.v("MediaMuxerWrapper", "MediaMuxer started:");
@@ -32,11 +32,11 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void stop() {
-        Log.v("MediaMuxerWrapper", "stop:mStatredCount=" + this.iji);
-        this.iji--;
-        if (this.htd > 0 && this.iji <= 0) {
-            this.htc.stop();
-            this.htc.release();
+        Log.v("MediaMuxerWrapper", "stop:mStatredCount=" + this.ikR);
+        this.ikR--;
+        if (this.huM > 0 && this.ikR <= 0) {
+            this.huL.stop();
+            this.huL.release();
             this.mIsStarted = false;
             Log.v("MediaMuxerWrapper", "MediaMuxer stopped:");
         }
@@ -48,15 +48,15 @@ public class c {
         if (this.mIsStarted) {
             throw new IllegalStateException("muxer already started");
         }
-        addTrack = this.htc.addTrack(mediaFormat);
-        Log.i("MediaMuxerWrapper", "addTrack:trackNum=" + this.htd + ",trackIx=" + addTrack + ",format=" + mediaFormat);
+        addTrack = this.huL.addTrack(mediaFormat);
+        Log.i("MediaMuxerWrapper", "addTrack:trackNum=" + this.huM + ",trackIx=" + addTrack + ",format=" + mediaFormat);
         return addTrack;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void writeSampleData(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
-        if (this.iji > 0) {
-            this.htc.writeSampleData(i, byteBuffer, bufferInfo);
+        if (this.ikR > 0) {
+            this.huL.writeSampleData(i, byteBuffer, bufferInfo);
         }
     }
 

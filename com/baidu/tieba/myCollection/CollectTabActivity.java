@@ -18,8 +18,8 @@ import com.baidu.tieba.e;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
-    private a fyo;
-    private CustomMessageListener fyp = new CustomMessageListener(2022209) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
+    private a fzL;
+    private CustomMessageListener fzM = new CustomMessageListener(2022209) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -27,8 +27,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 Bundle bundle = (Bundle) customResponsedMessage.getData();
                 boolean z = bundle.getBoolean("is_enable_edit", true);
                 int i = bundle.getInt("fragment_type", -1);
-                if (i != -1 && i == CollectTabActivity.this.fyo.bbT()) {
-                    CollectTabActivity.this.fyo.jH(z);
+                if (i != -1 && i == CollectTabActivity.this.fzL.bbs()) {
+                    CollectTabActivity.this.fzL.jR(z);
                 }
             }
         }
@@ -39,37 +39,37 @@ public class CollectTabActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(e.h.collect_tab_activity);
-        this.fyo = new a(this);
-        registerListener(this.fyp);
-        bbS();
+        this.fzL = new a(this);
+        registerListener(this.fzM);
+        bbr();
         U(getIntent());
     }
 
-    protected void bbS() {
+    protected void bbr() {
         com.baidu.tbadk.collectTab.a aVar = new com.baidu.tbadk.collectTab.a(getPageContext().getPageActivity());
         ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
         aVar.a(threadDelegateStatic);
         if (aVar.getContext() != null) {
-            com.baidu.tbadk.mainTab.c MC = threadDelegateStatic.MC();
-            if (MC != null) {
-                MC.aZz.setArguments(new Bundle());
+            com.baidu.tbadk.mainTab.c ML = threadDelegateStatic.ML();
+            if (ML != null) {
+                ML.bam.setArguments(new Bundle());
             } else {
                 return;
             }
         }
-        this.fyo.aj(aVar.getList());
+        this.fzL.ai(aVar.getList());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
         super.changeSkinType(i);
-        this.fyo.onChangeSkinType(i);
+        this.fzL.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fyo.bbV()) {
-            this.fyo.jG(!this.fyo.bbW());
+        if (view == this.fzL.bbu()) {
+            this.fzL.jQ(!this.fzL.bbv());
         }
     }
 
@@ -77,8 +77,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        b.bbX().jI(true);
-        b.bbX().jJ(false);
+        b.bbw().jS(true);
+        b.bbw().jT(false);
         NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
     }
 
@@ -86,16 +86,16 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        b.bbX().jI(false);
+        b.bbw().jS(false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        Fragment bbU = this.fyo.bbU();
-        if (bbU != null) {
-            bbU.onActivityResult(i, i2, intent);
+        Fragment bbt = this.fzL.bbt();
+        if (bbt != null) {
+            bbt.onActivityResult(i, i2, intent);
         }
     }
 

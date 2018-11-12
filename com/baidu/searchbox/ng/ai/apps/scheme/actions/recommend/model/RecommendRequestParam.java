@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.ng.ai.apps.impl.map.model.element.CoordinateModel;
 import com.baidu.searchbox.ng.ai.apps.ioc.AiAppsRuntime;
 import com.baidu.searchbox.ng.ai.apps.runtime.AiApp;
 import com.baidu.searchbox.ng.ai.apps.scheme.actions.recommend.utils.AiAppsRecommendUtils;
@@ -109,8 +110,8 @@ public class RecommendRequestParam {
             jSONObject2.put("mac", this.device.mac);
             jSONObject.put(Config.DEVICE_PART, jSONObject2);
             jSONObject3.put("coord_type", this.userinfo.coordType);
-            jSONObject3.put("latitude", this.userinfo.latitude);
-            jSONObject3.put("longitude", this.userinfo.longitude);
+            jSONObject3.put(CoordinateModel.LATITUDE, this.userinfo.latitude);
+            jSONObject3.put(CoordinateModel.LONGITUDE, this.userinfo.longitude);
             jSONObject.put("userinfo", jSONObject3);
             jSONObject4.put("network", this.network.network);
             jSONObject4.put("operator", this.network.operator);

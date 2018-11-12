@@ -9,40 +9,40 @@ import tbclient.RecomTopicInfo;
 import tbclient.RecomTopicList;
 /* loaded from: classes6.dex */
 public class au {
-    private String aov;
-    private List<a> aow = new ArrayList();
+    private String api;
+    private List<a> apj = new ArrayList();
 
-    public String xN() {
-        return StringUtils.isNull(this.aov) ? TbadkCoreApplication.getInst().getString(e.j.hot_topic_card_title) : this.aov;
+    public String xU() {
+        return StringUtils.isNull(this.api) ? TbadkCoreApplication.getInst().getString(e.j.hot_topic_card_title) : this.api;
     }
 
-    public com.baidu.tieba.card.data.n xO() {
+    public com.baidu.tieba.card.data.n xV() {
         com.baidu.tieba.card.data.n nVar = new com.baidu.tieba.card.data.n();
         ArrayList arrayList = null;
-        nVar.cQG = xN();
-        if (this.aow != null) {
+        nVar.cRM = xU();
+        if (this.apj != null) {
             ArrayList arrayList2 = new ArrayList();
-            for (a aVar : this.aow) {
+            for (a aVar : this.apj) {
                 if (aVar != null) {
-                    arrayList2.add(aVar.xQ());
+                    arrayList2.add(aVar.xX());
                 }
             }
             arrayList = arrayList2;
         }
-        nVar.cQH = arrayList;
+        nVar.cRN = arrayList;
         return nVar;
     }
 
     public void a(RecomTopicInfo recomTopicInfo) {
         if (recomTopicInfo != null) {
-            this.aov = recomTopicInfo.recom_title;
-            if (com.baidu.tbadk.core.util.v.I(recomTopicInfo.topic_list) > 0) {
+            this.api = recomTopicInfo.recom_title;
+            if (com.baidu.tbadk.core.util.v.H(recomTopicInfo.topic_list) > 0) {
                 for (RecomTopicList recomTopicList : recomTopicInfo.topic_list) {
                     if (recomTopicList != null) {
                         a aVar = new a();
                         aVar.a(recomTopicList);
                         if (!a(aVar)) {
-                            this.aow.add(aVar);
+                            this.apj.add(aVar);
                         }
                     }
                 }
@@ -51,45 +51,45 @@ public class au {
     }
 
     private boolean a(a aVar) {
-        return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.xP() <= 0;
+        return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.xW() <= 0;
     }
 
     /* loaded from: classes6.dex */
     public static class a {
-        private String aoA;
-        private String aoB;
-        private long aox;
-        private String aoy;
-        private long aoz;
+        private long apk;
+        private String apl;
+        private long apm;
+        private String apn;
+        private String apo;
         private int tag;
         private int type;
 
-        public long xP() {
-            return this.aox;
+        public long xW() {
+            return this.apk;
         }
 
         public String getTopicName() {
-            return this.aoy;
+            return this.apl;
         }
 
         public void a(RecomTopicList recomTopicList) {
             if (recomTopicList != null) {
-                this.aox = recomTopicList.topic_id.longValue();
-                this.aoy = recomTopicList.topic_name;
+                this.apk = recomTopicList.topic_id.longValue();
+                this.apl = recomTopicList.topic_name;
                 this.type = recomTopicList.type.intValue();
-                this.aoz = recomTopicList.discuss_num.longValue();
+                this.apm = recomTopicList.discuss_num.longValue();
                 this.tag = recomTopicList.tag.intValue();
-                this.aoA = recomTopicList.topic_desc;
-                this.aoB = recomTopicList.topic_pic;
+                this.apn = recomTopicList.topic_desc;
+                this.apo = recomTopicList.topic_pic;
             }
         }
 
-        public com.baidu.tieba.card.data.m xQ() {
+        public com.baidu.tieba.card.data.m xX() {
             com.baidu.tieba.card.data.m mVar = new com.baidu.tieba.card.data.m();
             mVar.tag = this.tag;
-            mVar.desc = this.aoA;
-            mVar.aox = this.aox;
-            mVar.aoy = this.aoy;
+            mVar.desc = this.apn;
+            mVar.apk = this.apk;
+            mVar.apl = this.apl;
             return mVar;
         }
     }

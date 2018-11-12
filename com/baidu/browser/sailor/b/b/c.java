@@ -6,16 +6,16 @@ import com.baidu.browser.sailor.util.d;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 final class c implements d.a {
-    final /* synthetic */ n WG;
+    final /* synthetic */ n WI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(n nVar) {
-        this.WG = nVar;
+        this.WI = nVar;
     }
 
     @Override // com.baidu.browser.sailor.util.d.a
     public final void a(JSONObject jSONObject) {
         String jSONObject2 = jSONObject.toString();
-        this.WG.c(null, jSONObject2, !TextUtils.isEmpty(jSONObject2));
+        this.WI.c(null, jSONObject2, !TextUtils.isEmpty(jSONObject2));
     }
 }

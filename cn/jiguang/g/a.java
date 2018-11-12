@@ -575,12 +575,12 @@ public final class a {
             }
             if (b(context, DaemonService.class) == null) {
                 cn.jiguang.e.c.c("AndroidUtil", "AndroidManifest.xml missing required service: " + DaemonService.class.getCanonicalName());
-                cn.jiguang.api.e.h(false);
+                cn.jiguang.api.e.w(false);
             } else if (a(context, cn.jiguang.api.e.bC(), true)) {
-                cn.jiguang.api.e.h(true);
+                cn.jiguang.api.e.w(true);
             } else {
                 cn.jiguang.e.c.c("AndroidUtil", "AndroidManifest.xml missing intent filter for DaemonService: " + cn.jiguang.api.e.bC());
-                cn.jiguang.api.e.h(false);
+                cn.jiguang.api.e.w(false);
             }
             if (!cn.jiguang.d.a.d.i(context)) {
                 cn.jiguang.d.b.a.a(context, true);
@@ -1088,6 +1088,18 @@ public final class a {
         }
     }
 
+    public static long l(byte[] bArr) {
+        long j = 0;
+        if (bArr != null && bArr.length >= 6) {
+            int i = 0;
+            while (i < 8) {
+                i++;
+                j = (bArr[i + 4] & 255) + (j << 8);
+            }
+        }
+        return j;
+    }
+
     private static String l(Context context, String str) {
         if (c() && a(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
             if (Build.VERSION.SDK_INT < 23) {
@@ -1106,18 +1118,6 @@ public final class a {
             ((AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(PendingIntent.getBroadcast(context, 0, new Intent(context, AlarmReceiver.class), 0));
         } catch (Exception e2) {
         }
-    }
-
-    public static long m(byte[] bArr) {
-        long j = 0;
-        if (bArr != null && bArr.length >= 6) {
-            int i = 0;
-            while (i < 8) {
-                i++;
-                j = (bArr[i + 4] & 255) + (j << 8);
-            }
-        }
-        return j;
     }
 
     public static void m(Context context) {

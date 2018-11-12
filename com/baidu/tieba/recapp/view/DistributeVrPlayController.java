@@ -6,32 +6,32 @@ import com.baidu.tieba.ad.play.a;
 import com.baidu.tieba.recapp.a;
 /* loaded from: classes3.dex */
 public class DistributeVrPlayController extends a {
-    private boolean gKt;
+    private boolean gLS;
 
     public DistributeVrPlayController(IVrPlayView iVrPlayView) {
         super(iVrPlayView);
-        this.gKt = true;
+        this.gLS = true;
     }
 
     @Override // com.baidu.tieba.recapp.a
     public void initListener() {
-        this.bxz = new a.InterfaceC0151a() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.1
-            @Override // com.baidu.tieba.ad.play.a.InterfaceC0151a
+        this.byk = new a.InterfaceC0175a() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.1
+            @Override // com.baidu.tieba.ad.play.a.InterfaceC0175a
             public void onLoading() {
-                DistributeVrPlayController.this.gCv.loading();
+                DistributeVrPlayController.this.gDW.loading();
             }
 
-            @Override // com.baidu.tieba.ad.play.a.InterfaceC0151a
+            @Override // com.baidu.tieba.ad.play.a.InterfaceC0175a
             public void onPlay() {
-                if (DistributeVrPlayController.this.gKt) {
-                    DistributeVrPlayController.this.gKt = false;
-                    DistributeVrPlayController.this.gCv.showPanoramaPrompt();
+                if (DistributeVrPlayController.this.gLS) {
+                    DistributeVrPlayController.this.gLS = false;
+                    DistributeVrPlayController.this.gDW.showPanoramaPrompt();
                 }
-                DistributeVrPlayController.this.gCv.play();
+                DistributeVrPlayController.this.gDW.play();
                 DistributeVrPlayController.this.mStatus = 1;
             }
         };
-        this.btP = new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.2
+        this.buC = new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.2
             @Override // android.media.MediaPlayer.OnPreparedListener
             public void onPrepared(MediaPlayer mediaPlayer) {
                 if (mediaPlayer != null) {
@@ -39,26 +39,26 @@ public class DistributeVrPlayController extends a {
                 }
             }
         };
-        this.gCy = new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.3
+        this.gDZ = new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.3
             @Override // android.media.MediaPlayer.OnCompletionListener
             public void onCompletion(MediaPlayer mediaPlayer) {
                 DistributeVrPlayController.this.stopPlay();
-                DistributeVrPlayController.this.gCv.complete();
+                DistributeVrPlayController.this.gDW.complete();
             }
         };
-        this.gCz = new a.b() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.4
+        this.gEa = new a.b() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.4
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                DistributeVrPlayController.this.gCv.loading();
+                DistributeVrPlayController.this.gDW.loading();
                 DistributeVrPlayController.this.playVideo();
                 aVar.dismiss();
             }
         };
-        this.btT = new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.5
+        this.buG = new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.5
             @Override // android.media.MediaPlayer.OnErrorListener
             public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
                 DistributeVrPlayController.this.stopPlay();
-                DistributeVrPlayController.this.gCv.error();
+                DistributeVrPlayController.this.gDW.error();
                 return true;
             }
         };

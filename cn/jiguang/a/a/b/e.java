@@ -44,7 +44,7 @@ public final class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ boolean b(double d, double d2) {
+    public static /* synthetic */ boolean a(double d, double d2) {
         return d > -90.0d && d < 90.0d && d2 > -180.0d && d2 < 180.0d;
     }
 

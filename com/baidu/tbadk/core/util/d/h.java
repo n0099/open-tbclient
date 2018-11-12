@@ -14,16 +14,16 @@ public class h extends a {
         this.procType = 0;
         this.procType = i;
         if (z) {
-            this.width = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(e.C0175e.ds176);
+            this.width = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(e.C0200e.ds176);
             this.height = this.width;
             return;
         }
-        this.width = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(e.C0175e.ds184);
-        this.height = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(e.C0175e.ds184);
+        this.width = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(e.C0200e.ds184);
+        this.height = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(e.C0200e.ds184);
     }
 
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
-    public boolean jF() {
+    public boolean jD() {
         return true;
     }
 
@@ -43,17 +43,17 @@ public class h extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Dk() {
+    public boolean Dr() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Dl() {
+    public boolean Ds() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int Dm() {
+    public int Dt() {
         return this.procType;
     }
 }

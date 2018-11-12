@@ -11,8 +11,8 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class k implements SensorEventListener {
     private static Object a = new Object();
-    private static k aed = null;
-    private SensorManager aee;
+    private static k adS = null;
+    private SensorManager adT;
     private float[] c;
     private int d = 0;
     private List<Float> e = new ArrayList();
@@ -23,10 +23,10 @@ public class k implements SensorEventListener {
     public k() {
         this.h = false;
         try {
-            if (this.aee == null) {
-                this.aee = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
+            if (this.adT == null) {
+                this.adT = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
             }
-            if (this.aee.getDefaultSensor(6) != null) {
+            if (this.adT.getDefaultSensor(6) != null) {
                 this.h = true;
             }
         } catch (Exception e) {
@@ -34,52 +34,18 @@ public class k implements SensorEventListener {
         }
     }
 
-    public static k tt() {
+    public static k tl() {
         k kVar;
         synchronized (a) {
-            if (aed == null) {
-                aed = new k();
+            if (adS == null) {
+                adS = new k();
             }
-            kVar = aed;
+            kVar = adS;
         }
         return kVar;
     }
 
-    public void b() {
-        Sensor defaultSensor;
-        if (this.h && !this.g) {
-            try {
-                this.d = 0;
-                this.e.clear();
-                this.f.clear();
-                if (this.aee == null) {
-                    this.aee = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
-                }
-                if (this.aee != null && (defaultSensor = this.aee.getDefaultSensor(6)) != null) {
-                    this.aee.registerListener(this, defaultSensor, 2);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            this.g = true;
-        }
-    }
-
-    public void c() {
-        if (this.g) {
-            try {
-                if (this.aee != null) {
-                    this.aee.unregisterListener(this);
-                    this.aee = null;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            this.g = false;
-        }
-    }
-
-    public float d() {
+    public float b() {
         float f;
         synchronized (this.f) {
             if (Math.abs(((int) (System.currentTimeMillis() / 1000)) - this.d) > 5 || this.f.size() <= 0) {

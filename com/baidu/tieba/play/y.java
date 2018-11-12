@@ -8,47 +8,47 @@ import com.baidu.tbadk.BaseActivity;
 import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public class y {
-    private static y gwt = null;
-    private LinkedHashMap<String, Integer> gwu = new LinkedHashMap<>(BaseActivity.SHOW_SOFT_KEYBOARD_DELAY, 0.75f, true);
-    private CustomMessageListener bLU = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.play.y.1
+    private static y gxU = null;
+    private LinkedHashMap<String, Integer> gxV = new LinkedHashMap<>(BaseActivity.SHOW_SOFT_KEYBOARD_DELAY, 0.75f, true);
+    private CustomMessageListener bMF = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.play.y.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                y.this.gwu.clear();
+                y.this.gxV.clear();
             }
         }
     };
 
     private y() {
-        MessageManager.getInstance().registerListener(this.bLU);
+        MessageManager.getInstance().registerListener(this.bMF);
     }
 
-    public static y bqO() {
-        if (gwt == null) {
+    public static y bqk() {
+        if (gxU == null) {
             synchronized (y.class) {
-                if (gwt == null) {
-                    gwt = new y();
+                if (gxU == null) {
+                    gxU = new y();
                 }
             }
         }
-        return gwt;
+        return gxU;
     }
 
     public void aM(String str, int i) {
-        if (i != 0 || !this.gwu.containsKey(str)) {
-            this.gwu.put(str, Integer.valueOf(i));
+        if (i != 0 || !this.gxV.containsKey(str)) {
+            this.gxV.put(str, Integer.valueOf(i));
         }
     }
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.gwu.remove(str);
+            this.gxV.remove(str);
         }
     }
 
-    public int tp(String str) {
-        Integer num = this.gwu.get(str);
+    public int tu(String str) {
+        Integer num = this.gxV.get(str);
         if (num != null) {
             return num.intValue();
         }
@@ -56,6 +56,6 @@ public class y {
     }
 
     public void clear() {
-        this.gwu.clear();
+        this.gxV.clear();
     }
 }

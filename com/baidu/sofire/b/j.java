@@ -1,13 +1,25 @@
 package com.baidu.sofire.b;
 
-import java.io.IOException;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 /* loaded from: classes.dex */
 public abstract class j {
-    public static void a(InputStream inputStream, OutputStream outputStream) throws IOException {
+    public static byte[] a(byte[] bArr) {
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        a(byteArrayInputStream, byteArrayOutputStream);
+        byte[] byteArray = byteArrayOutputStream.toByteArray();
+        byteArrayOutputStream.flush();
+        byteArrayOutputStream.close();
+        byteArrayInputStream.close();
+        return byteArray;
+    }
+
+    public static void a(InputStream inputStream, OutputStream outputStream) {
         GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
         byte[] bArr = new byte[2048];
         while (true) {
@@ -23,7 +35,18 @@ public abstract class j {
         }
     }
 
-    public static void b(InputStream inputStream, OutputStream outputStream) throws IOException {
+    public static byte[] b(byte[] bArr) {
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        b(byteArrayInputStream, byteArrayOutputStream);
+        byte[] byteArray = byteArrayOutputStream.toByteArray();
+        byteArrayOutputStream.flush();
+        byteArrayOutputStream.close();
+        byteArrayInputStream.close();
+        return byteArray;
+    }
+
+    public static void b(InputStream inputStream, OutputStream outputStream) {
         GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
         byte[] bArr = new byte[2048];
         while (true) {

@@ -22,18 +22,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class b extends BaseAdapter implements a.InterfaceC0161a {
-    private EditText bBG;
-    private a bBI;
+public class b extends BaseAdapter implements a.InterfaceC0186a {
+    private EditText bCs;
+    private a bCu;
     private Context mContext;
     private List<com.baidu.tieba.aiapps.apps.address.c.a> mDataList;
-    private Map<String, Object> bBH = new HashMap();
-    private Map<String, Boolean> bBJ = new HashMap(5);
-    private Map<String, Boolean> bBK = new HashMap(4);
+    private Map<String, Object> bCt = new HashMap();
+    private Map<String, Boolean> bCv = new HashMap(5);
+    private Map<String, Boolean> bCw = new HashMap(4);
 
     /* loaded from: classes4.dex */
     public interface a {
-        void db(boolean z);
+        void ds(boolean z);
     }
 
     public b(Context context) {
@@ -52,17 +52,17 @@ public class b extends BaseAdapter implements a.InterfaceC0161a {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: hs */
+    /* renamed from: hF */
     public com.baidu.tieba.aiapps.apps.address.c.a getItem(int i) {
         return this.mDataList.get(i);
     }
 
     public void l(Map<String, Boolean> map) {
-        this.bBK = map;
+        this.bCw = map;
     }
 
     public void m(Map<String, Boolean> map) {
-        this.bBJ = map;
+        this.bCv = map;
     }
 
     public void setData(List<com.baidu.tieba.aiapps.apps.address.c.a> list) {
@@ -77,11 +77,11 @@ public class b extends BaseAdapter implements a.InterfaceC0161a {
     }
 
     public void setDeliveryEditChangedListener(a aVar) {
-        this.bBI = aVar;
+        this.bCu = aVar;
     }
 
-    public boolean Wp() {
-        return Wy();
+    public boolean Wz() {
+        return WI();
     }
 
     @Override // android.widget.Adapter
@@ -97,17 +97,17 @@ public class b extends BaseAdapter implements a.InterfaceC0161a {
             cVar = (c) view.getTag();
         }
         a(cVar);
-        TextView textView = cVar.bBN;
-        EditText editText = cVar.bBO;
-        ImageView imageView = cVar.bBP;
+        TextView textView = cVar.bCz;
+        EditText editText = cVar.bCA;
+        ImageView imageView = cVar.bCB;
         textView.setText(item.label);
         editText.setText(item.content);
         editText.setHint(item.hint);
         editText.setTag(item.type);
-        if (item.bBY) {
+        if (item.bCK) {
             editText.setInputType(2);
         }
-        editText.addTextChangedListener(new C0159b(editText));
+        editText.addTextChangedListener(new C0184b(editText));
         if (TextUtils.equals(item.type, "region")) {
             editText.setFocusable(false);
             imageView.setVisibility(0);
@@ -116,10 +116,10 @@ public class b extends BaseAdapter implements a.InterfaceC0161a {
                 public void onClick(View view2) {
                     com.baidu.tieba.aiapps.apps.address.view.a aVar = new com.baidu.tieba.aiapps.apps.address.view.a(b.this.mContext);
                     aVar.a(b.this);
-                    aVar.WQ();
+                    aVar.Xa();
                 }
             });
-            this.bBG = editText;
+            this.bCs = editText;
         }
         return view;
     }
@@ -128,39 +128,39 @@ public class b extends BaseAdapter implements a.InterfaceC0161a {
         if (!AiAppNightModeHelper.getNightModeSwitcherState()) {
             return;
         }
-        cVar.bBF.setBackgroundColor(Color.parseColor("#191919"));
-        cVar.bBN.setTextColor(Color.parseColor("#4D4D4D"));
-        cVar.bBO.setTextColor(Color.parseColor("#666666"));
-        cVar.bBO.setHintTextColor(Color.parseColor("#333333"));
-        cVar.bBQ.setBackgroundColor(Color.parseColor("#222222"));
+        cVar.bCr.setBackgroundColor(Color.parseColor("#191919"));
+        cVar.bCz.setTextColor(Color.parseColor("#4D4D4D"));
+        cVar.bCA.setTextColor(Color.parseColor("#666666"));
+        cVar.bCA.setHintTextColor(Color.parseColor("#333333"));
+        cVar.bCC.setBackgroundColor(Color.parseColor("#222222"));
     }
 
-    @Override // com.baidu.tieba.aiapps.apps.address.view.a.InterfaceC0161a
-    public void am(List<d> list) {
+    @Override // com.baidu.tieba.aiapps.apps.address.view.a.InterfaceC0186a
+    public void al(List<d> list) {
         if (list != null && list.size() == 3) {
-            this.bBG.setTag(e.g.region_province, list.get(0));
-            this.bBG.setTag(e.g.region_city, list.get(1));
-            this.bBG.setTag(e.g.region_county, list.get(2));
-            String ao = d.ao(list);
-            if (this.bBG != null) {
-                this.bBG.setText(ao);
+            this.bCs.setTag(e.g.region_province, list.get(0));
+            this.bCs.setTag(e.g.region_city, list.get(1));
+            this.bCs.setTag(e.g.region_county, list.get(2));
+            String an = d.an(list);
+            if (this.bCs != null) {
+                this.bCs.setText(an);
             }
         }
     }
 
     public Map<String, Object> getDeliveryEditData() {
-        return this.bBH;
+        return this.bCt;
     }
 
     /* renamed from: com.baidu.tieba.aiapps.apps.address.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private class C0159b implements TextWatcher {
-        private String bBM;
+    private class C0184b implements TextWatcher {
+        private String bCy;
         private EditText mEditText;
 
-        public C0159b(EditText editText) {
+        public C0184b(EditText editText) {
             this.mEditText = editText;
-            this.bBM = this.mEditText.getText().toString();
+            this.bCy = this.mEditText.getText().toString();
         }
 
         @Override // android.text.TextWatcher
@@ -175,43 +175,43 @@ public class b extends BaseAdapter implements a.InterfaceC0161a {
         public void afterTextChanged(Editable editable) {
             String valueOf = String.valueOf(this.mEditText.getTag());
             if (!TextUtils.isEmpty(valueOf)) {
-                if (TextUtils.equals(editable.toString(), this.bBM)) {
-                    b.this.bBJ.put(valueOf, false);
+                if (TextUtils.equals(editable.toString(), this.bCy)) {
+                    b.this.bCv.put(valueOf, false);
                 } else {
-                    b.this.bBJ.put(valueOf, true);
+                    b.this.bCv.put(valueOf, true);
                 }
                 if (editable != null && !TextUtils.isEmpty(editable.toString())) {
                     String obj = editable.toString();
-                    if (!TextUtils.equals(valueOf, "region") || b.this.bBG == null) {
-                        b.this.bBH.put(valueOf, obj);
+                    if (!TextUtils.equals(valueOf, "region") || b.this.bCs == null) {
+                        b.this.bCt.put(valueOf, obj);
                     } else {
-                        d ht = b.this.ht(e.g.region_province);
-                        if (ht != null) {
-                            b.this.bBH.put("l1", ht);
+                        d hG = b.this.hG(e.g.region_province);
+                        if (hG != null) {
+                            b.this.bCt.put("l1", hG);
                         }
-                        d ht2 = b.this.ht(e.g.region_city);
-                        if (ht2 != null) {
-                            b.this.bBH.put("l2", ht2);
+                        d hG2 = b.this.hG(e.g.region_city);
+                        if (hG2 != null) {
+                            b.this.bCt.put("l2", hG2);
                         }
-                        b.this.bBH.put("l3", b.this.ht(e.g.region_county));
+                        b.this.bCt.put("l3", b.this.hG(e.g.region_county));
                     }
                     if (!TextUtils.equals(valueOf, "zipcode")) {
-                        b.this.bBK.put(valueOf, true);
+                        b.this.bCw.put(valueOf, true);
                     }
-                    if (b.this.Wx() && b.this.Wy()) {
-                        b.this.bBI.db(false);
+                    if (b.this.WH() && b.this.WI()) {
+                        b.this.bCu.ds(false);
                     }
                 } else if (!TextUtils.equals(valueOf, "zipcode")) {
-                    b.this.bBK.put(valueOf, false);
-                    b.this.bBI.db(true);
+                    b.this.bCw.put(valueOf, false);
+                    b.this.bCu.ds(true);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Wx() {
-        for (Boolean bool : this.bBK.values()) {
+    public boolean WH() {
+        for (Boolean bool : this.bCw.values()) {
             if (!bool.booleanValue()) {
                 return false;
             }
@@ -220,8 +220,8 @@ public class b extends BaseAdapter implements a.InterfaceC0161a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Wy() {
-        for (Boolean bool : this.bBJ.values()) {
+    public boolean WI() {
+        for (Boolean bool : this.bCv.values()) {
             if (bool.booleanValue()) {
                 return true;
             }
@@ -230,9 +230,9 @@ public class b extends BaseAdapter implements a.InterfaceC0161a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public d ht(int i) {
+    public d hG(int i) {
         Object tag;
-        if (this.bBG == null || (tag = this.bBG.getTag(i)) == null || !(tag instanceof d)) {
+        if (this.bCs == null || (tag = this.bCs.getTag(i)) == null || !(tag instanceof d)) {
             return null;
         }
         return (d) tag;
@@ -241,18 +241,18 @@ public class b extends BaseAdapter implements a.InterfaceC0161a {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public class c {
-        private View bBF;
-        private TextView bBN;
-        private EditText bBO;
-        private ImageView bBP;
-        private View bBQ;
+        private EditText bCA;
+        private ImageView bCB;
+        private View bCC;
+        private View bCr;
+        private TextView bCz;
 
         public c(View view) {
-            this.bBF = view;
-            this.bBN = (TextView) view.findViewById(e.g.delivery_label);
-            this.bBO = (EditText) view.findViewById(e.g.delivery_content);
-            this.bBP = (ImageView) view.findViewById(e.g.delivery_arrow);
-            this.bBQ = view.findViewById(e.g.delivery_highlight_line);
+            this.bCr = view;
+            this.bCz = (TextView) view.findViewById(e.g.delivery_label);
+            this.bCA = (EditText) view.findViewById(e.g.delivery_content);
+            this.bCB = (ImageView) view.findViewById(e.g.delivery_arrow);
+            this.bCC = view.findViewById(e.g.delivery_highlight_line);
         }
     }
 }

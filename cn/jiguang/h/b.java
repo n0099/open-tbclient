@@ -26,6 +26,22 @@ public class b {
         this.a = str;
     }
 
+    public void A(boolean z) {
+        this.l = z;
+    }
+
+    public void B(boolean z) {
+        this.n = z;
+    }
+
+    public void C(boolean z) {
+        this.j = z;
+    }
+
+    public void D(boolean z) {
+        this.k = z;
+    }
+
     public void a(e eVar) {
         this.mO = eVar;
     }
@@ -87,30 +103,6 @@ public class b {
         this.f = obj;
     }
 
-    public void j(boolean z) {
-        this.g = z;
-    }
-
-    public void k(boolean z) {
-        this.h = z;
-    }
-
-    public void l(boolean z) {
-        this.l = z;
-    }
-
-    public void m(boolean z) {
-        this.n = z;
-    }
-
-    public void n(boolean z) {
-        this.j = z;
-    }
-
-    public void o(boolean z) {
-        this.k = z;
-    }
-
     public void setConnectTimeout(int i) {
         if (i < 0) {
             throw new IllegalArgumentException("timeout can not be negative");
@@ -131,5 +123,13 @@ public class b {
 
     public void setUseCaches(boolean z) {
         this.i = z;
+    }
+
+    public void y(boolean z) {
+        this.g = z;
+    }
+
+    public void z(boolean z) {
+        this.h = z;
     }
 }

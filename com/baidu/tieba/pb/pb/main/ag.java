@@ -16,9 +16,9 @@ public class ag extends k<ad, af> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bm */
+    /* renamed from: bn */
     public af onCreateViewHolder(ViewGroup viewGroup) {
-        return new af(this.fMF.getPageContext(), LayoutInflater.from(this.mContext).inflate(e.h.pb_page_news, viewGroup, false));
+        return new af(this.fOe.getPageContext(), LayoutInflater.from(this.mContext).inflate(e.h.pb_page_news, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -9,11 +9,11 @@ import com.baidu.tieba.recapp.s;
 import com.baidu.tieba.recapp.widget.CountDownTextView;
 /* loaded from: classes3.dex */
 public class c extends e {
-    private TextView aGD;
-    private HeadImageView eeO;
-    private TextView gJd;
-    private CountDownTextView gJh;
-    private boolean gJi;
+    private TextView aHt;
+    private HeadImageView egi;
+    private TextView gKE;
+    private CountDownTextView gKI;
+    private boolean gKJ;
 
     public c(View view, String str) {
         super(view, str);
@@ -21,50 +21,50 @@ public class c extends e {
     }
 
     private void init() {
-        this.eeO = (HeadImageView) tm(e.g.user_portrait);
-        this.eeO.setDefaultResource(e.f.icon_default_avatar100);
-        this.eeO.setDefaultErrorResource(e.f.icon_default_avatar100);
-        this.eeO.setDefaultBgResource(e.d.cp_bg_line_e);
-        this.eeO.setIsRound(true);
-        this.aGD = (TextView) tm(e.g.user_name);
-        this.gJh = (CountDownTextView) tm(e.g.count_down_text);
-        this.gJd = (TextView) tm(e.g.action);
+        this.egi = (HeadImageView) tF(e.g.user_portrait);
+        this.egi.setDefaultResource(e.f.icon_default_avatar100);
+        this.egi.setDefaultErrorResource(e.f.icon_default_avatar100);
+        this.egi.setDefaultBgResource(e.d.cp_bg_line_e);
+        this.egi.setIsRound(true);
+        this.aHt = (TextView) tF(e.g.user_name);
+        this.gKI = (CountDownTextView) tF(e.g.count_down_text);
+        this.gKE = (TextView) tF(e.g.action);
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void a(final AdCard.f fVar) {
         super.a(fVar);
-        this.eeO.startLoad(fVar.gEx, 10, false);
-        this.aGD.setText(fVar.userName);
-        this.gJd.setText(fVar.buttonText);
+        this.egi.startLoad(fVar.gFY, 10, false);
+        this.aHt.setText(fVar.userName);
+        this.gKE.setText(fVar.buttonText);
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.e.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                s.aG(c.this.mRootView.getContext(), fVar.scheme);
-                if (c.this.gJm != null) {
-                    c.this.gJm.tg(302);
-                    com.baidu.tieba.recapp.report.c.buf().a(c.this.gJm);
+                s.aE(c.this.mRootView.getContext(), fVar.scheme);
+                if (c.this.gKM != null) {
+                    c.this.gKM.tz(302);
+                    com.baidu.tieba.recapp.report.c.btB().a(c.this.gKM);
                 }
-                if (c.this.gJo != null) {
-                    com.baidu.tieba.lego.card.b.c.a(c.this.gJo);
+                if (c.this.gKO != null) {
+                    com.baidu.tieba.lego.card.b.c.a(c.this.gKO);
                 }
-                c.this.my(false);
+                c.this.mJ(false);
             }
         });
-        this.gJh.update(fVar.count);
+        this.gKI.update(fVar.count);
         onChangeSkinType();
     }
 
     @Override // com.baidu.tieba.recapp.e.e
-    public void buj() {
-        super.buj();
-        this.gJh.startCountDown();
+    public void btF() {
+        super.btF();
+        this.gKI.startCountDown();
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void setTimeoutListener(CountDownTextView.b bVar) {
         super.setTimeoutListener(bVar);
-        this.gJh.setTimeoutListener(bVar);
+        this.gKI.setTimeoutListener(bVar);
     }
 
     @Override // com.baidu.tieba.recapp.e.e
@@ -72,10 +72,10 @@ public class c extends e {
     }
 
     @Override // com.baidu.tieba.recapp.e.e
-    public void my(boolean z) {
-        this.gJi = z;
-        if (this.gJh != null) {
-            this.gJh.setEnableTimeoutListener(this.gJi);
+    public void mJ(boolean z) {
+        this.gKJ = z;
+        if (this.gKI != null) {
+            this.gKI.setEnableTimeoutListener(this.gKJ);
         }
     }
 }

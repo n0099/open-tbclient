@@ -22,9 +22,9 @@ import com.tencent.connect.common.Constants;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f {
-    private e hLJ;
+    private e hNt;
     private BdUniqueId mPageId;
-    private String yU = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
+    private String yX = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
 
     public f(BdUniqueId bdUniqueId) {
         this.mPageId = bdUniqueId;
@@ -37,7 +37,7 @@ public class f {
     }
 
     public void a(e eVar) {
-        this.hLJ = eVar;
+        this.hNt = eVar;
     }
 
     /* loaded from: classes3.dex */
@@ -56,9 +56,9 @@ public class f {
                 return null;
             }
             com.baidu.adp.lib.Disk.ops.c cVar2 = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ar.fs(cVar.imageUrl + 42), DiskFileOperate.Action.READ);
-            cVar2.D(true);
-            cVar2.E(false);
-            ImageUploadResult c = new com.baidu.tbadk.img.f(null).c(cS(cVar2.hL(), cVar2.getName()), true, false);
+            cVar2.R(true);
+            cVar2.S(false);
+            ImageUploadResult c = new com.baidu.tbadk.img.f(null).c(cS(cVar2.hK(), cVar2.getName()), true, false);
             if (c != null && c.picInfo != null) {
                 if (c.picInfo.originPic != null && !StringUtils.isNull(c.picInfo.originPic.picUrl)) {
                     str = c.picInfo.originPic.picUrl;
@@ -69,11 +69,11 @@ public class f {
                 }
             }
             if (StringUtils.isNull(str)) {
-                str = cVar.hLr;
+                str = cVar.hNb;
             }
             x xVar = new x();
             xVar.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
-            xVar.BY().CW().mIsNeedTbs = true;
+            xVar.Cf().Dd().mIsNeedTbs = true;
             xVar.x("anonymous", "1");
             xVar.x("can_no_forum", "0");
             xVar.x("is_feedback", "0");
@@ -81,43 +81,43 @@ public class f {
                 xVar.x("vcode_tag", Constants.VIA_REPORT_TYPE_SET_AVATAR);
             }
             xVar.x("new_vcode", "1");
-            xVar.x("content", cVar.Jq);
+            xVar.x("content", cVar.Jt);
             xVar.x(ImageViewerConfig.FORUM_ID, cVar.forumId);
-            xVar.x("kw", cVar.hLq);
+            xVar.x("kw", cVar.hNa);
             xVar.x("is_hide", "0");
             xVar.x(IntentConfig.CALL_FROM, "2");
-            xVar.x("title", cVar.Jq);
+            xVar.x("title", cVar.Jt);
             xVar.x("is_ntitle", "1");
             xVar.x("st_type", "notitle");
             xVar.x("is_location", "2");
-            Address R = com.baidu.adp.lib.d.a.iX().R(false);
-            if (R != null && TbadkCoreApplication.getInst().getIsLocationOn() && !TbConfig.getPositionPagerId().equals(cVar.forumId)) {
-                xVar.x("lbs", String.valueOf(R.getLatitude()) + "," + String.valueOf(R.getLongitude()));
-                xVar.x("lat", String.valueOf(R.getLatitude()));
-                xVar.x("lng", String.valueOf(R.getLongitude()));
+            Address af = com.baidu.adp.lib.d.a.iW().af(false);
+            if (af != null && TbadkCoreApplication.getInst().getIsLocationOn() && !TbConfig.getPositionPagerId().equals(cVar.forumId)) {
+                xVar.x("lbs", String.valueOf(af.getLatitude()) + "," + String.valueOf(af.getLongitude()));
+                xVar.x("lat", String.valueOf(af.getLatitude()));
+                xVar.x("lng", String.valueOf(af.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bCH().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bCc().getLocationData();
             if (locationData != null) {
-                xVar.x("name", locationData.bCD());
-                xVar.x("sn", locationData.bCF());
+                xVar.x("name", locationData.bBZ());
+                xVar.x("sn", locationData.bCb());
             }
             xVar.x("is_link_thread", "0");
             if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
                 xVar.x("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
             }
             xVar.x("tbopen_app_key", cVar.appKey);
-            xVar.x("tbopen_app_icon", cVar.hLp);
+            xVar.x("tbopen_app_icon", cVar.hMZ);
             xVar.x("tbopen_app_name", cVar.appName);
             xVar.x("share_abstract", cVar.content);
             xVar.x("share_image", str);
             xVar.x("share_h5_url", cVar.linkUrl);
-            xVar.x("share_swan_app_key", cVar.hLo);
-            xVar.x("share_swan_path", cVar.hLs);
-            String BA = xVar.BA();
+            xVar.x("share_swan_app_key", cVar.hMY);
+            xVar.x("share_swan_path", cVar.hNc);
+            String BH = xVar.BH();
             d dVar = new d();
             try {
-                JSONObject jSONObject = new JSONObject(BA);
-                dVar.hLu = jSONObject.optString("msg");
+                JSONObject jSONObject = new JSONObject(BH);
+                dVar.hNe = jSONObject.optString("msg");
                 dVar.preMsg = jSONObject.optString("pre_msg");
                 dVar.fid = cVar.forumId;
                 dVar.tid = jSONObject.optString("tid");
@@ -126,19 +126,19 @@ public class f {
             } catch (Exception e) {
             }
             ErrorData errorData = new ErrorData();
-            if (xVar.BY().CX().isRequestSuccess()) {
-                errorData.parserJson(BA);
+            if (xVar.Cf().De().isRequestSuccess()) {
+                errorData.parserJson(BH);
             } else {
-                errorData.setError_code(xVar.Cb() ? xVar.Cc() : xVar.Cd());
+                errorData.setError_code(xVar.Ci() ? xVar.Cj() : xVar.Ck());
                 errorData.setError_msg(xVar.getErrorString());
             }
-            if (errorData.error_code != 0 && !j.kX()) {
+            if (errorData.error_code != 0 && !j.kV()) {
                 errorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(e.j.neterror));
             }
-            dVar.hLt = errorData;
+            dVar.hNd = errorData;
             AntiData antiData = new AntiData();
             try {
-                antiData.parserJson(new JSONObject(BA).optJSONObject("anti_stat"));
+                antiData.parserJson(new JSONObject(BH).optJSONObject("anti_stat"));
             } catch (Exception e2) {
             }
             dVar.antiData = antiData;
@@ -146,9 +146,9 @@ public class f {
         }
 
         public String cS(String str, String str2) {
-            String str3 = f.this.yU + str2;
+            String str3 = f.this.yX + str2;
             if (str != null) {
-                return f.this.yU + str + "/" + str2;
+                return f.this.yX + str + "/" + str2;
             }
             return str3;
         }
@@ -158,8 +158,8 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(d dVar) {
-            if (f.this.hLJ != null) {
-                f.this.hLJ.a(dVar);
+            if (f.this.hNt != null) {
+                f.this.hNt.a(dVar);
             }
         }
     }

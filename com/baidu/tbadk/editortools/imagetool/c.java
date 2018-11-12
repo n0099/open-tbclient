@@ -42,7 +42,7 @@ public class c {
         imageView.setClickable(true);
         imageView.setContentDescription(context.getString(e.j.add));
         int dip2px = com.baidu.adp.lib.util.l.dip2px(context, 3.0f);
-        imageView.setPadding(dip2px, com.baidu.adp.lib.util.l.dip2px(context, 1.0f) + context.getResources().getDimensionPixelSize(e.C0175e.ds30) + dip2px, context.getResources().getDimensionPixelSize(e.C0175e.ds32) + dip2px, dip2px);
+        imageView.setPadding(dip2px, com.baidu.adp.lib.util.l.dip2px(context, 1.0f) + context.getResources().getDimensionPixelSize(e.C0200e.ds30) + dip2px, context.getResources().getDimensionPixelSize(e.C0200e.ds32) + dip2px, dip2px);
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.imagetool.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {

@@ -9,7 +9,7 @@ public interface k<T> {
 
     void aE(String str);
 
-    e ir();
+    e iq();
 
     T s(String str, String str2);
 

@@ -11,6 +11,6 @@ public class a implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(2001265, f.Vx().Vz());
+        return new CustomResponsedMessage<>(2001265, f.VG().VI());
     }
 }

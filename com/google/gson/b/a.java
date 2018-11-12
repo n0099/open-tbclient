@@ -6,22 +6,20 @@ import java.lang.reflect.Type;
 /* loaded from: classes2.dex */
 public class a<T> {
     final int hashCode;
-    final Type imd;
-
-    /* renamed from: int  reason: not valid java name */
-    final Class<? super T> f0int;
+    final Type inP;
+    final Class<? super T> ipd;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a() {
-        this.imd = A(getClass());
-        this.f0int = (Class<? super T>) C$Gson$Types.g(this.imd);
-        this.hashCode = this.imd.hashCode();
+        this.inP = A(getClass());
+        this.ipd = (Class<? super T>) C$Gson$Types.g(this.inP);
+        this.hashCode = this.inP.hashCode();
     }
 
     a(Type type) {
-        this.imd = C$Gson$Types.f((Type) com.google.gson.internal.a.checkNotNull(type));
-        this.f0int = (Class<? super T>) C$Gson$Types.g(this.imd);
-        this.hashCode = this.imd.hashCode();
+        this.inP = C$Gson$Types.f((Type) com.google.gson.internal.a.checkNotNull(type));
+        this.ipd = (Class<? super T>) C$Gson$Types.g(this.inP);
+        this.hashCode = this.inP.hashCode();
     }
 
     static Type A(Class<?> cls) {
@@ -32,12 +30,12 @@ public class a<T> {
         return C$Gson$Types.f(((ParameterizedType) genericSuperclass).getActualTypeArguments()[0]);
     }
 
-    public final Class<? super T> bZq() {
-        return this.f0int;
+    public final Class<? super T> bYN() {
+        return this.ipd;
     }
 
-    public final Type bZr() {
-        return this.imd;
+    public final Type bYO() {
+        return this.inP;
     }
 
     public final int hashCode() {
@@ -45,11 +43,11 @@ public class a<T> {
     }
 
     public final boolean equals(Object obj) {
-        return (obj instanceof a) && C$Gson$Types.a(this.imd, ((a) obj).imd);
+        return (obj instanceof a) && C$Gson$Types.a(this.inP, ((a) obj).inP);
     }
 
     public final String toString() {
-        return C$Gson$Types.h(this.imd);
+        return C$Gson$Types.h(this.inP);
     }
 
     public static a<?> l(Type type) {

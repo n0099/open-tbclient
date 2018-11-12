@@ -7,7 +7,7 @@ public class CoderException extends Exception {
     private final int mErrorCode;
 
     public CoderException(int i) {
-        super(h.Q(i));
+        super(h.ah(i));
         this.mErrorCode = i;
     }
 

@@ -6,24 +6,24 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class a {
-    private int dXD = -1;
-    private long dXE = -1;
-    private int dXA = b.getInstance().getInt("nani_key_download_show_position", 3);
-    private Set<Integer> dXB = new HashSet();
-    private Set<String> dXC = new HashSet();
+    private int dYR = -1;
+    private long dYS = -1;
+    private int dYO = b.getInstance().getInt("nani_key_download_show_position", 3);
+    private Set<Integer> dYP = new HashSet();
+    private Set<String> dYQ = new HashSet();
 
-    public void R(int i, String str) {
-        this.dXC.add(str);
-        if (this.dXD < 0 && this.dXA == this.dXC.size()) {
-            this.dXD = i;
+    public void N(int i, String str) {
+        this.dYQ.add(str);
+        if (this.dYR < 0 && this.dYO == this.dYQ.size()) {
+            this.dYR = i;
         }
     }
 
-    public int aGC() {
-        return this.dXD;
+    public int aGa() {
+        return this.dYR;
     }
 
-    public boolean hj(boolean z) {
+    public boolean ht(boolean z) {
         boolean z2 = b.getInstance().getBoolean("nani_key_is_show_download_nani_panel", true);
         boolean z3 = b.getInstance().getBoolean("nani_key_is_activate_app", false);
         String string = b.getInstance().getString("nani_key_download_link_url", null);
@@ -34,15 +34,15 @@ public class a {
             case 1:
                 return true;
             case 2:
-                return hk(z);
+                return hu(z);
             case 3:
-                return hl(z);
+                return hv(z);
             default:
                 return false;
         }
     }
 
-    private boolean hk(boolean z) {
+    private boolean hu(boolean z) {
         long j;
         if (z) {
             j = b.getInstance().getLong("key_vertical_shown_time", -1L);
@@ -52,7 +52,7 @@ public class a {
         return j <= 0 || System.currentTimeMillis() - j >= 86400000;
     }
 
-    private boolean hl(boolean z) {
+    private boolean hv(boolean z) {
         long j;
         if (z) {
             j = b.getInstance().getLong("key_vertical_shown_time", -1L);
@@ -65,14 +65,14 @@ public class a {
         return false;
     }
 
-    public void bV(long j) {
-        this.dXE = j;
+    public void bQ(long j) {
+        this.dYS = j;
     }
 
-    public void aGD() {
+    public void aGb() {
         int i = b.getInstance().getInt("nani_key_download_show_rate", 2);
-        if (this.dXE > 0 && i != 1) {
-            b.getInstance().putLong("key_horizontal_shown_time", this.dXE);
+        if (this.dYS > 0 && i != 1) {
+            b.getInstance().putLong("key_horizontal_shown_time", this.dYS);
         }
     }
 }

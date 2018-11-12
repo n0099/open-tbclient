@@ -15,43 +15,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private LabelSettingView fbh;
-    private List<com.baidu.tieba.interestlabel.b.a> fbj;
-    private List<Integer> fbk = new ArrayList();
+    private LabelSettingView fcB;
+    private List<com.baidu.tieba.interestlabel.b.a> fcD;
+    private List<Integer> fcE = new ArrayList();
     private com.baidu.tieba.interestlabel.b.b mLabelDataSet;
 
     public b(LabelSettingView labelSettingView) {
-        this.fbh = labelSettingView;
+        this.fcB = labelSettingView;
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && !v.J(bVar.aVN())) {
+        if (bVar != null && !v.I(bVar.aVk())) {
             this.mLabelDataSet = bVar;
-            this.fbj = bVar.aVN();
-            if (!v.J(bVar.aVO())) {
-                this.fbk = new ArrayList(bVar.aVO());
+            this.fcD = bVar.aVk();
+            if (!v.I(bVar.aVl())) {
+                this.fcE = new ArrayList(bVar.aVl());
             }
         }
     }
 
-    public List<Integer> aVK() {
-        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.aVO();
+    public List<Integer> aVh() {
+        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.aVl();
     }
 
-    public List<Integer> aVL() {
-        return this.fbk;
+    public List<Integer> aVi() {
+        return this.fcE;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return v.I(this.fbj);
+        return v.H(this.fcD);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: pW */
+    /* renamed from: qp */
     public com.baidu.tieba.interestlabel.b.a getItem(int i) {
-        return (com.baidu.tieba.interestlabel.b.a) v.d(this.fbj, i);
+        return (com.baidu.tieba.interestlabel.b.a) v.d(this.fcD, i);
     }
 
     @Override // android.widget.Adapter
@@ -65,20 +65,20 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0223b c0223b;
+        C0249b c0249b;
         View view2;
         if (view == null) {
-            view2 = LayoutInflater.from(this.fbh.getContext()).inflate(e.h.item_label_layout, (ViewGroup) null);
-            C0223b c0223b2 = new C0223b();
-            c0223b2.fbm = (TextView) view2;
-            view2.setTag(c0223b2);
-            c0223b = c0223b2;
+            view2 = LayoutInflater.from(this.fcB.getContext()).inflate(e.h.item_label_layout, (ViewGroup) null);
+            C0249b c0249b2 = new C0249b();
+            c0249b2.fcG = (TextView) view2;
+            view2.setTag(c0249b2);
+            c0249b = c0249b2;
         } else {
-            c0223b = (C0223b) view.getTag();
+            c0249b = (C0249b) view.getTag();
             view2 = view;
         }
-        c0223b.fbm.setOnClickListener(new a(i));
-        a(c0223b.fbm, getItem(i));
+        c0249b.fcG.setOnClickListener(new a(i));
+        a(c0249b.fcG, getItem(i));
         return view2;
     }
 
@@ -104,10 +104,10 @@ public class b extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.interestlabel.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    class C0223b {
-        TextView fbm;
+    class C0249b {
+        TextView fcG;
 
-        C0223b() {
+        C0249b() {
         }
     }
 
@@ -128,12 +128,12 @@ public class b extends BaseAdapter {
                     b.this.a((TextView) view, item);
                 }
                 if (item.isFollow) {
-                    b.this.fbk.add(Integer.valueOf(item.labelId));
+                    b.this.fcE.add(Integer.valueOf(item.labelId));
                 } else {
-                    b.this.fbk.remove(Integer.valueOf(item.labelId));
+                    b.this.fcE.remove(Integer.valueOf(item.labelId));
                 }
-                if (b.this.fbh != null) {
-                    b.this.fbh.jb(v.I(b.this.fbk) > 0);
+                if (b.this.fcB != null) {
+                    b.this.fcB.jl(v.H(b.this.fcE) > 0);
                 }
             }
         }

@@ -19,38 +19,38 @@ public class ShareEntity implements Parcelable {
             shareEntity.setTitle(parcel.readString());
             shareEntity.setContent(parcel.readString());
             shareEntity.setLinkUrl(parcel.readString());
-            shareEntity.tO(parcel.readInt());
+            shareEntity.uh(parcel.readInt());
             shareEntity.setVideoUrl(parcel.readString());
             shareEntity.setImageUri((Uri) parcel.readParcelable(Uri.class.getClassLoader()));
             shareEntity.setLocation((Location) parcel.readParcelable(Location.class.getClassLoader()));
-            shareEntity.f(parcel.readBundle());
-            shareEntity.mO(parcel.readInt() != 0);
+            shareEntity.i(parcel.readBundle());
+            shareEntity.mZ(parcel.readInt() != 0);
             return shareEntity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: tP */
+        /* renamed from: ui */
         public ShareEntity[] newArray(int i) {
             return new ShareEntity[i];
         }
     };
-    private Location aNS;
-    private boolean aNZ;
-    private Bundle aOb;
+    private Location aOI;
+    private boolean aOP;
+    private Bundle aOR;
     private String content;
-    private int gRi;
+    private int gSG;
     private Uri imageUri;
     private String linkUrl;
     private String title;
     private String videoUrl;
 
-    public void f(Bundle bundle) {
-        this.aOb = bundle;
+    public void i(Bundle bundle) {
+        this.aOR = bundle;
     }
 
-    public Bundle IQ() {
-        return this.aOb;
+    public Bundle Jc() {
+        return this.aOR;
     }
 
     public String getVideoUrl() {
@@ -85,7 +85,7 @@ public class ShareEntity implements Parcelable {
         this.linkUrl = str;
     }
 
-    public String xf() {
+    public String xn() {
         return this.imageUri == null ? "" : this.imageUri.toString();
     }
 
@@ -98,23 +98,23 @@ public class ShareEntity implements Parcelable {
     }
 
     public void setLocation(Location location) {
-        this.aNS = location;
+        this.aOI = location;
     }
 
-    public int bxn() {
-        return this.gRi;
+    public int bwJ() {
+        return this.gSG;
     }
 
-    public void tO(int i) {
-        this.gRi = i;
+    public void uh(int i) {
+        this.gSG = i;
     }
 
-    public boolean bxo() {
-        return this.aNZ;
+    public boolean bwK() {
+        return this.aOP;
     }
 
-    public void mO(boolean z) {
-        this.aNZ = z;
+    public void mZ(boolean z) {
+        this.aOP = z;
     }
 
     @Override // android.os.Parcelable
@@ -127,11 +127,11 @@ public class ShareEntity implements Parcelable {
         parcel.writeString(this.title);
         parcel.writeString(this.content);
         parcel.writeString(this.linkUrl);
-        parcel.writeInt(this.gRi);
+        parcel.writeInt(this.gSG);
         parcel.writeString(this.videoUrl);
         parcel.writeParcelable(this.imageUri, i);
-        parcel.writeParcelable(this.aNS, i);
-        parcel.writeBundle(this.aOb);
-        parcel.writeInt(this.aNZ ? 1 : 0);
+        parcel.writeParcelable(this.aOI, i);
+        parcel.writeBundle(this.aOR);
+        parcel.writeInt(this.aOP ? 1 : 0);
     }
 }

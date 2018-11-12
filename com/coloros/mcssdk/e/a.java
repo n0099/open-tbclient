@@ -1,31 +1,29 @@
 package com.coloros.mcssdk.e;
 
-import android.support.v4.view.InputDeviceCompat;
 import android.text.TextUtils;
 /* loaded from: classes3.dex */
 public class a extends c {
     String content;
-    long hVg;
-    long hVh;
-    int hVi;
-    String hVk;
+    long hWQ;
+    long hWR;
+    int hWS;
+    String hWU;
     String title;
-    String hVj = "08:00-22:00";
-    int hVl = 0;
-    int hVm = 0;
+    String hWT = "08:00-22:00";
+    int hWV = 0;
+    int hWW = 0;
 
-    /* renamed from: do  reason: not valid java name */
-    public void m24do(long j) {
-        this.hVg = j;
+    public void dj(long j) {
+        this.hWQ = j;
     }
 
-    public void dp(long j) {
-        this.hVh = j;
+    public void dk(long j) {
+        this.hWR = j;
     }
 
     @Override // com.coloros.mcssdk.e.c
     public int getType() {
-        return InputDeviceCompat.SOURCE_TOUCHSCREEN;
+        return 4098;
     }
 
     public void setContent(String str) {
@@ -38,42 +36,42 @@ public class a extends c {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("messageID:" + this.hVr);
-        sb.append(",taskID:" + this.hVs);
+        sb.append("messageID:" + this.hXb);
+        sb.append(",taskID:" + this.hXc);
         sb.append(",appPackage:" + this.appPackage);
         sb.append(",title:" + this.title);
-        sb.append(",rule:" + this.hVk);
+        sb.append(",rule:" + this.hWU);
         sb.append(",content:" + this.content);
-        sb.append(",balanceTime:" + this.hVi);
-        sb.append(",startTime:" + this.hVg);
-        sb.append(",endTime:" + this.hVh);
-        sb.append(",balanceTime:" + this.hVi);
-        sb.append(",timeRanges:" + this.hVj);
-        sb.append(",forcedDelivery:" + this.hVl);
-        sb.append(",distinctBycontent:" + this.hVm);
+        sb.append(",balanceTime:" + this.hWS);
+        sb.append(",startTime:" + this.hWQ);
+        sb.append(",endTime:" + this.hWR);
+        sb.append(",balanceTime:" + this.hWS);
+        sb.append(",timeRanges:" + this.hWT);
+        sb.append(",forcedDelivery:" + this.hWV);
+        sb.append(",distinctBycontent:" + this.hWW);
         return sb.toString();
     }
 
-    public void wW(int i) {
-        this.hVi = i;
+    public void xp(int i) {
+        this.hWS = i;
     }
 
-    public void wX(int i) {
-        this.hVl = i;
+    public void xq(int i) {
+        this.hWV = i;
     }
 
-    public void wY(int i) {
-        this.hVm = i;
+    public void xr(int i) {
+        this.hWW = i;
     }
 
-    public void yh(String str) {
+    public void ym(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.hVj = str;
+        this.hWT = str;
     }
 
-    public void yi(String str) {
-        this.hVk = str;
+    public void yn(String str) {
+        this.hWU = str;
     }
 }

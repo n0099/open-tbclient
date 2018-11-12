@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.media.ExifInterface;
 import android.text.TextUtils;
 import com.baidu.searchbox.ng.ai.apps.console.AiAppsLog;
+import com.baidu.searchbox.ng.ai.apps.impl.map.model.element.MarkerModel;
 import com.baidu.searchbox.ng.ai.apps.runtime.AiApp;
 import com.baidu.searchbox.ng.ai.apps.scheme.UnitedSchemeAiAppDispatcher;
 import com.baidu.searchbox.ng.ai.apps.storage.PathType;
@@ -94,7 +95,7 @@ public class GetImageInfoAction extends AiAppAction {
             case 7:
                 return "right-mirrored";
             case 8:
-                return "right";
+                return MarkerModel.SubBase.RIGHT;
             default:
                 return "";
         }

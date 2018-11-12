@@ -1,5 +1,6 @@
 package com.google.zxing.client.result;
 
+import com.baidu.mapapi.UIMsg;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import java.util.regex.Pattern;
@@ -99,7 +100,7 @@ public final class VINResultParser extends ResultParser {
             return (c - '1') + 2001;
         }
         if (c >= 'A' && c <= 'D') {
-            return (c - 'A') + 2010;
+            return (c - 'A') + UIMsg.m_AppUI.V_WM_PERMCHECK;
         }
         throw new IllegalArgumentException();
     }

@@ -3,7 +3,7 @@ package com.baidu.browser.sailor;
 import com.baidu.webkit.sdk.WebSettings;
 /* loaded from: classes2.dex */
 public class g {
-    private WebSettings VD;
+    private WebSettings VF;
 
     /* loaded from: classes2.dex */
     protected class a implements j {
@@ -12,150 +12,150 @@ public class g {
         }
 
         @Override // com.baidu.browser.sailor.j
-        public synchronized void ar(boolean z) {
-            g.this.VD.setPlayVideoInFullScreenMode(z);
+        public synchronized void aF(boolean z) {
+            g.this.VF.setPlayVideoInFullScreenMode(z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public g(WebSettings webSettings) {
-        this.VD = webSettings;
+        this.VF = webSettings;
     }
 
-    public void ap(boolean z) {
-        if (this.VD != null) {
-            this.VD.setBackForwardAnimationEnable(z);
+    public void aD(boolean z) {
+        if (this.VF != null) {
+            this.VF.setBackForwardAnimationEnable(z);
         }
     }
 
-    public void aq(boolean z) {
-        this.VD.setEnableJsPrompt(z);
+    public void aE(boolean z) {
+        this.VF.setEnableJsPrompt(z);
     }
 
     public void cv(String str) {
-        this.VD.setWebViewFrameName(str);
+        this.VF.setWebViewFrameName(str);
     }
 
     public synchronized String getUserAgentString() {
-        return this.VD.getUserAgentString();
+        return this.VF.getUserAgentString();
     }
 
-    public boolean qx() {
-        if (this.VD != null) {
-            return this.VD.getBackForwardAnimationEnable();
+    public boolean qv() {
+        if (this.VF != null) {
+            return this.VF.getBackForwardAnimationEnable();
         }
         return false;
     }
 
-    public String qy() {
-        return this.VD.getWebViewFrameName();
+    public String qw() {
+        return this.VF.getWebViewFrameName();
     }
 
     public void setAllowUniversalAccessFromFileURLs(boolean z) {
-        if (this.VD != null) {
-            this.VD.setAllowUniversalAccessFromFileURLs(z);
+        if (this.VF != null) {
+            this.VF.setAllowUniversalAccessFromFileURLs(z);
         }
     }
 
     public synchronized void setAppCacheEnabled(boolean z) {
-        this.VD.setAppCacheEnabled(z);
+        this.VF.setAppCacheEnabled(z);
     }
 
     public synchronized void setAppCachePath(String str) {
-        this.VD.setAppCachePath(str);
+        this.VF.setAppCachePath(str);
     }
 
     public void setBuiltInZoomControls(boolean z) {
-        if (this.VD != null) {
-            this.VD.setBuiltInZoomControls(z);
+        if (this.VF != null) {
+            this.VF.setBuiltInZoomControls(z);
         }
     }
 
     public synchronized void setDatabaseEnabled(boolean z) {
-        this.VD.setDatabaseEnabled(z);
+        this.VF.setDatabaseEnabled(z);
     }
 
     public synchronized void setDatabasePath(String str) {
-        this.VD.setDatabasePath(str);
+        this.VF.setDatabasePath(str);
     }
 
     public void setDisplayZoomControls(boolean z) {
-        if (this.VD != null) {
-            this.VD.setDisplayZoomControls(z);
+        if (this.VF != null) {
+            this.VF.setDisplayZoomControls(z);
         }
     }
 
     public synchronized void setDomStorageEnabled(boolean z) {
-        this.VD.setDomStorageEnabled(z);
+        this.VF.setDomStorageEnabled(z);
     }
 
     public synchronized void setGeolocationDatabasePath(String str) {
-        this.VD.setGeolocationDatabasePath(str);
+        this.VF.setGeolocationDatabasePath(str);
     }
 
     public synchronized void setJavaScriptEnabled(boolean z) {
-        if (this.VD != null) {
-            this.VD.setJavaScriptEnabled(z);
+        if (this.VF != null) {
+            this.VF.setJavaScriptEnabled(z);
         }
     }
 
     public void setLightTouchEnabled(boolean z) {
-        this.VD.setLightTouchEnabled(z);
+        this.VF.setLightTouchEnabled(z);
     }
 
     public void setLoadWithOverviewMode(boolean z) {
-        this.VD.setLoadWithOverviewMode(z);
+        this.VF.setLoadWithOverviewMode(z);
     }
 
     public synchronized void setLoadsImagesAutomatically(boolean z) {
-        if (this.VD != null) {
-            this.VD.setLoadsImagesAutomatically(z);
+        if (this.VF != null) {
+            this.VF.setLoadsImagesAutomatically(z);
         }
     }
 
     public void setMediaPlaybackRequiresUserGesture(boolean z) {
-        if (this.VD != null) {
-            this.VD.setMediaPlaybackRequiresUserGesture(z);
+        if (this.VF != null) {
+            this.VF.setMediaPlaybackRequiresUserGesture(z);
         }
     }
 
     public void setMixedContentMode(int i) {
-        if (this.VD != null) {
-            this.VD.setMixedContentMode(i);
+        if (this.VF != null) {
+            this.VF.setMixedContentMode(i);
         }
     }
 
     public void setNeedInitialFocus(boolean z) {
-        this.VD.setNeedInitialFocus(z);
+        this.VF.setNeedInitialFocus(z);
     }
 
     public synchronized void setPageCacheCapacity(int i) {
-        this.VD.setPageCacheCapacity(i);
+        this.VF.setPageCacheCapacity(i);
     }
 
     public synchronized void setPluginState(WebSettings.PluginState pluginState) {
-        this.VD.setPluginState(pluginState);
+        this.VF.setPluginState(pluginState);
     }
 
     public synchronized void setSupportMultipleWindows(boolean z) {
-        this.VD.setSupportMultipleWindows(z);
+        this.VF.setSupportMultipleWindows(z);
     }
 
     public void setSupportZoom(boolean z) {
-        if (this.VD != null) {
-            this.VD.setSupportZoom(z);
+        if (this.VF != null) {
+            this.VF.setSupportZoom(z);
         }
     }
 
     public synchronized void setTextZoom(int i) {
-        this.VD.setTextZoom(i);
+        this.VF.setTextZoom(i);
     }
 
     public synchronized void setUseWideViewPort(boolean z) {
-        this.VD.setUseWideViewPort(z);
+        this.VF.setUseWideViewPort(z);
     }
 
     public synchronized void setUserAgentString(String str) {
-        this.VD.setUserAgentString(str);
+        this.VF.setUserAgentString(str);
     }
 }

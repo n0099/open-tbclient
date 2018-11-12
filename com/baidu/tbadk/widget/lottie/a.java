@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.d.m;
 /* loaded from: classes.dex */
 public class a implements c {
-    public static final String blg = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
-    private m blh;
-    private boolean bli = false;
+    public static final String blR = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
+    private m blS;
+    private boolean blT = false;
     private String mPath;
 
     @Override // com.airbnb.lottie.c
@@ -20,24 +20,24 @@ public class a implements c {
         if (ao.isEmpty(this.mPath)) {
             return null;
         }
-        String str = this.mPath + gVar.cY().replace("/", "") + "/" + gVar.getFileName();
-        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.f.c.jC().a(str, 36, new Object[0]);
+        String str = this.mPath + gVar.cX().replace("/", "") + "/" + gVar.getFileName();
+        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.f.c.jA().a(str, 36, new Object[0]);
         if (aVar == null && getFristLoadInternal()) {
-            if (this.blh == null) {
-                this.blh = new m();
+            if (this.blS == null) {
+                this.blS = new m();
             }
-            aVar = this.blh.m(str, 0, 0);
+            aVar = this.blS.m(str, 0, 0);
         }
-        if (aVar != null && aVar.os() != null) {
-            Bitmap os = aVar.os();
+        if (aVar != null && aVar.oq() != null) {
+            Bitmap oq = aVar.oq();
             try {
-                return os.copy(os.getConfig(), false);
+                return oq.copy(oq.getConfig(), false);
             } catch (OutOfMemoryError e) {
                 TbadkCoreApplication.getInst().onAppMemoryLow();
                 BdLog.e(e);
             }
         }
-        com.baidu.adp.lib.f.c.jC().a(str, 36, null, null);
+        com.baidu.adp.lib.f.c.jA().a(str, 36, null, null);
         return null;
     }
 
@@ -46,14 +46,14 @@ public class a implements c {
     }
 
     public static String getAnimationPath() {
-        return blg + "/" + TbConfig.getTempDirName() + "/animation/";
+        return blR + "/" + TbConfig.getTempDirName() + "/animation/";
     }
 
     public void setFirstLoadInternal(boolean z) {
-        this.bli = z;
+        this.blT = z;
     }
 
     public boolean getFristLoadInternal() {
-        return this.bli;
+        return this.blT;
     }
 }

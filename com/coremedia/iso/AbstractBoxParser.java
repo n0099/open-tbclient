@@ -14,7 +14,7 @@ public abstract class AbstractBoxParser implements BoxParser {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // java.lang.ThreadLocal
-        /* renamed from: bQP */
+        /* renamed from: bQk */
         public ByteBuffer initialValue() {
             return ByteBuffer.allocate(32);
         }

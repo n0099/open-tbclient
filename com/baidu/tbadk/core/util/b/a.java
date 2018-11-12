@@ -14,14 +14,14 @@ import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<String> azU = new ArrayList<>();
-    private b azV;
-    private InterfaceC0126a azW;
+    private ArrayList<String> aAJ = new ArrayList<>();
+    private b aAK;
+    private InterfaceC0150a aAL;
 
     /* renamed from: com.baidu.tbadk.core.util.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0126a {
-        void Dj();
+    public interface InterfaceC0150a {
+        void Dq();
     }
 
     /* loaded from: classes.dex */
@@ -32,27 +32,27 @@ public class a {
     }
 
     public void a(b bVar) {
-        this.azV = bVar;
+        this.aAK = bVar;
     }
 
-    public void Di() {
-        if (this.azU != null) {
-            this.azU.clear();
+    public void Dp() {
+        if (this.aAJ != null) {
+            this.aAJ.clear();
         }
     }
 
     public void c(Activity activity, String str) {
         if (!TextUtils.isEmpty(str) && !d(activity, str)) {
-            this.azU.add(str);
+            this.aAJ.add(str);
         }
     }
 
-    public boolean z(Activity activity) {
-        if (!com.baidu.f.a.uf()) {
-            Dj();
+    public boolean A(Activity activity) {
+        if (!com.baidu.e.a.up()) {
+            Dq();
             return false;
-        } else if (v.J(this.azU)) {
-            Dj();
+        } else if (v.I(this.aAJ)) {
+            Dq();
             return false;
         } else {
             if (activity instanceof BaseFragmentActivity) {
@@ -60,7 +60,7 @@ public class a {
             } else if (activity instanceof BaseActivity) {
                 ((BaseActivity) activity).setCurrentPermissionJudgePolicy(this);
             }
-            A(activity);
+            B(activity);
             return true;
         }
     }
@@ -69,17 +69,17 @@ public class a {
         if (activity == null) {
             return false;
         }
-        return com.baidu.f.a.a.checkPermissionGranted(activity, str);
+        return com.baidu.e.a.a.checkPermissionGranted(activity, str);
     }
 
     public boolean e(final Activity activity, final String str) {
-        if (com.baidu.f.a.a.shouldShowRequestPermissionRationale(activity, str)) {
+        if (com.baidu.e.a.a.shouldShowRequestPermissionRationale(activity, str)) {
             return true;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
-        aVar.aP(false);
-        aVar.cy(e.j.request_permission_default_title);
-        aVar.cz(fF(str));
+        aVar.bf(false);
+        aVar.cM(e.j.request_permission_default_title);
+        aVar.cN(fF(str));
         aVar.a(e.j.isopen, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -89,27 +89,27 @@ public class a {
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
                 intent.setData(Uri.fromParts("package", activity.getPackageName(), null));
                 activity.startActivity(intent);
-                if (a.this.azV != null) {
-                    a.this.azV.fH(str);
+                if (a.this.aAK != null) {
+                    a.this.aAK.fH(str);
                 }
             }
         }).b(e.j.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                if (a.this.azV != null) {
-                    a.this.azV.fG(str);
+                if (a.this.aAK != null) {
+                    a.this.aAK.fG(str);
                 }
             }
         }).b(i.aK(activity));
-        aVar.Au();
+        aVar.AB();
         return false;
     }
 
-    private void A(Activity activity) {
+    private void B(Activity activity) {
         if (activity != null) {
             try {
-                com.baidu.f.a.a.requestPermissions(activity, (String[]) this.azU.toArray(new String[this.azU.size()]), 25040);
+                com.baidu.e.a.a.requestPermissions(activity, (String[]) this.aAJ.toArray(new String[this.aAJ.size()]), 25040);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -144,13 +144,13 @@ public class a {
         return e.j.request_permission_default_text;
     }
 
-    public void a(InterfaceC0126a interfaceC0126a) {
-        this.azW = interfaceC0126a;
+    public void a(InterfaceC0150a interfaceC0150a) {
+        this.aAL = interfaceC0150a;
     }
 
-    public void Dj() {
-        if (this.azW != null) {
-            this.azW.Dj();
+    public void Dq() {
+        if (this.aAL != null) {
+            this.aAL.Dq();
         }
     }
 }

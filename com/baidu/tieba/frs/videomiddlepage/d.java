@@ -16,42 +16,42 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.aggregation.g, com.baidu.tieba.card.a.a<a>> {
-    private List<a> Sh;
-    private com.baidu.tieba.lego.card.view.f Si;
-    private String amT;
-    private boolean dFA;
-    private ad<com.baidu.tieba.frs.aggregation.g> dFB;
-    private boolean dFy;
-    private com.baidu.tieba.frs.aggregation.a dFz;
-    private b dWE;
-    private com.baidu.tieba.frs.videomiddlepage.controller.a dWF;
-    private a dWW;
-    private boolean dWX;
-    private boolean dWY;
+    private List<a> Sj;
+    private com.baidu.tieba.lego.card.view.f Sk;
+    private String anG;
+    private boolean dGN;
+    private com.baidu.tieba.frs.aggregation.a dGO;
+    private boolean dGP;
+    private ad<com.baidu.tieba.frs.aggregation.g> dGQ;
+    private b dXR;
+    private com.baidu.tieba.frs.videomiddlepage.controller.a dXS;
+    private a dYj;
+    private boolean dYk;
+    private boolean dYl;
     private String mFrom;
     private Handler mHandler;
     private TbPageContext mPageContext;
 
     public d(TbPageContext<?> tbPageContext, com.baidu.tieba.frs.aggregation.a aVar, b bVar, boolean z, String str, String str2, com.baidu.tieba.lego.card.view.f fVar) {
-        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.frs.aggregation.g.dFG);
-        this.Sh = new ArrayList();
+        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.frs.aggregation.g.dGV);
+        this.Sj = new ArrayList();
         this.mHandler = new Handler();
-        this.dWX = true;
-        this.dFB = new ad<com.baidu.tieba.frs.aggregation.g>() { // from class: com.baidu.tieba.frs.videomiddlepage.d.1
+        this.dYk = true;
+        this.dGQ = new ad<com.baidu.tieba.frs.aggregation.g>() { // from class: com.baidu.tieba.frs.videomiddlepage.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             public void a(View view, com.baidu.tieba.frs.aggregation.g gVar) {
                 if (view != null && gVar != null) {
                     if ((view.getId() == e.g.video_container || view.getId() == e.g.video_agg_container || view.getId() == e.g.mobile_network_play) && view.getTag() != null && (view.getTag() instanceof a)) {
                         a aVar2 = (a) view.getTag();
-                        if (d.this.dWW != null && d.this.dWW != aVar2 && (view.getId() == e.g.video_container || view.getId() == e.g.mobile_network_play)) {
-                            d.this.dWW.aBK();
+                        if (d.this.dYj != null && d.this.dYj != aVar2 && (view.getId() == e.g.video_container || view.getId() == e.g.mobile_network_play)) {
+                            d.this.dYj.aBh();
                         }
-                        if (d.this.dWW != aVar2) {
-                            d.this.dWW = aVar2;
+                        if (d.this.dYj != aVar2) {
+                            d.this.dYj = aVar2;
                         }
-                        if (d.this.dWW != null) {
-                            d.this.dWW.he(d.this.dWX);
+                        if (d.this.dYj != null) {
+                            d.this.dYj.ho(d.this.dYk);
                         }
                     }
                     if (view.getId() == e.g.title) {
@@ -101,29 +101,29 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.aggre
             }
         };
         this.mPageContext = tbPageContext;
-        this.dFz = aVar;
-        this.dFA = z;
-        this.dWE = bVar;
+        this.dGO = aVar;
+        this.dGP = z;
+        this.dXR = bVar;
         this.mFrom = str;
-        this.dWF = new com.baidu.tieba.frs.videomiddlepage.controller.a();
-        this.amT = str2;
-        this.Si = fVar;
+        this.dXS = new com.baidu.tieba.frs.videomiddlepage.controller.a();
+        this.anG = str2;
+        this.Sk = fVar;
     }
 
-    public void hi(boolean z) {
-        this.dWY = z;
+    public void hs(boolean z) {
+        this.dYl = z;
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.dWW != null) {
-            this.dFy = true;
-            this.dWW.onConfigurationChanged(configuration);
+        if (this.dYj != null) {
+            this.dGN = true;
+            this.dYj.onConfigurationChanged(configuration);
             if (configuration.orientation == 1) {
                 this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.videomiddlepage.d.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (d.this.dFy) {
-                            d.this.dFy = false;
+                        if (d.this.dGN) {
+                            d.this.dGN = false;
                         }
                     }
                 }, 500L);
@@ -134,14 +134,14 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.aggre
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: Y */
+    /* renamed from: Z */
     public com.baidu.tieba.card.a.a<a> onCreateViewHolder(ViewGroup viewGroup) {
-        a aVar = new a(this.mPageContext, this.dFA, this.mFrom, this.amT);
-        if (this.dWF.hj(false)) {
-            aVar.dWF = this.dWF;
+        a aVar = new a(this.mPageContext, this.dGP, this.mFrom, this.anG);
+        if (this.dXS.ht(false)) {
+            aVar.dXS = this.dXS;
         }
-        aVar.b(this.dFB);
-        this.Sh.add(aVar);
+        aVar.b(this.dGQ);
+        this.Sj.add(aVar);
         return new com.baidu.tieba.card.a.a<>(aVar);
     }
 
@@ -153,59 +153,59 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.aggre
         if (gVar == null || aVar == null) {
             return null;
         }
-        if (!this.dWY) {
-            if (!this.dFy) {
-                aVar.aoQ().a(gVar, i, this.dFz);
+        if (!this.dYl) {
+            if (!this.dGN) {
+                aVar.aor().a(gVar, i, this.dGO);
                 i trigger = gVar.getTrigger();
                 if (trigger != null) {
-                    trigger.pA();
+                    trigger.py();
                 }
-                aVar.aoQ().mPosition = i;
-                aVar.aoQ().setOnVideoContainerForegroundClickListener(this.dWE);
+                aVar.aor().mPosition = i;
+                aVar.aor().setOnVideoContainerForegroundClickListener(this.dXR);
             } else {
-                aVar.aoQ().c(gVar, i, this.dFz);
+                aVar.aor().c(gVar, i, this.dGO);
             }
         }
-        if (aVar.aoQ() instanceof com.baidu.tieba.lego.card.view.g) {
-            aVar.aoQ().setCurrentPlayCallBack(this.Si);
+        if (aVar.aor() instanceof com.baidu.tieba.lego.card.view.g) {
+            aVar.aor().setCurrentPlayCallBack(this.Sk);
         }
         return aVar.getView();
     }
 
-    public boolean pE() {
-        if (this.dWW != null) {
-            return this.dWW.isPlaying();
+    public boolean pC() {
+        if (this.dYj != null) {
+            return this.dYj.isPlaying();
         }
         return false;
     }
 
-    public void pC() {
-        if (this.dWW != null) {
-            this.dWW.aBJ();
+    public void pA() {
+        if (this.dYj != null) {
+            this.dYj.aBg();
         }
     }
 
-    public void pD() {
-        if (this.dWW != null) {
-            this.dWW.aBK();
+    public void pB() {
+        if (this.dYj != null) {
+            this.dYj.aBh();
         }
     }
 
     public void onDestroy() {
-        if (this.dWF != null) {
-            this.dWF.aGD();
+        if (this.dXS != null) {
+            this.dXS.aGb();
         }
-        for (a aVar : this.Sh) {
+        for (a aVar : this.Sj) {
             if (aVar != null) {
                 aVar.onDestroy();
             }
         }
     }
 
-    public boolean lM(int i) {
-        if (this.dWW == null) {
+    public boolean me(int i) {
+        if (this.dYj == null) {
             return false;
         }
-        return this.dWW.lM(i);
+        return this.dYj.me(i);
     }
 }

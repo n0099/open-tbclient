@@ -29,8 +29,8 @@ public final class m implements Runnable {
         DataOutputStream dataOutputStream2 = null;
         try {
             try {
-                String rA = d.rA();
-                com.baidu.crabsdk.c.a.cI("sync json is " + rA);
+                String rx2 = d.rx();
+                com.baidu.crabsdk.c.a.cI("sync json is " + rx2);
                 httpURLConnection = (HttpURLConnection) new URL(com.baidu.crabsdk.a.c()).openConnection();
                 try {
                     httpURLConnection.setRequestMethod("POST");
@@ -43,7 +43,7 @@ public final class m implements Runnable {
                     httpURLConnection.setReadTimeout(3000);
                     dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
                     try {
-                        dataOutputStream.writeBytes(rA);
+                        dataOutputStream.writeBytes(rx2);
                         dataOutputStream.flush();
                         dataOutputStream.close();
                         if (httpURLConnection.getResponseCode() == 200) {

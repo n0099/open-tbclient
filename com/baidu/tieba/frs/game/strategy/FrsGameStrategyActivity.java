@@ -1,5 +1,6 @@
 package com.baidu.tieba.frs.game.strategy;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,6 +30,9 @@ public class FrsGameStrategyActivity extends BaseFragmentActivity {
         Intent intent = new Intent(context, FrsGameStrategyActivity.class);
         intent.putExtra(ImageViewerConfig.FORUM_ID, str);
         intent.putExtra("name", str2);
+        if (!(context instanceof Activity)) {
+            intent.addFlags(268435456);
+        }
         context.startActivity(intent);
     }
 

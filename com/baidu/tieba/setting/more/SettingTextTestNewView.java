@@ -15,7 +15,7 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
     public SettingTextTestNewView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         hideArrow();
-        g(0, 0, l.h(context, e.C0175e.ds30), 0);
+        g(0, 0, l.h(context, e.C0200e.ds30), 0);
     }
 
     public void refresh() {
@@ -26,14 +26,14 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             z = true;
         }
         if (z) {
-            this.aQk.setText("new");
-            this.aQk.setTextAppearance(this.mContext, z2 ? e.k.setting_version_prompt_text_1 : e.k.setting_version_prompt_text);
-            al.i(this.aQk, e.f.icon_news_text_prompt);
+            this.aRa.setText("new");
+            this.aRa.setTextAppearance(this.mContext, z2 ? e.k.setting_version_prompt_text_1 : e.k.setting_version_prompt_text);
+            al.i(this.aRa, e.f.icon_news_text_prompt);
             return;
         }
         String version = TbConfig.getVersion();
-        this.aQk.setText((TbConfig.getVersionType() != 1 || ao.isEmpty(TbConfig.getSubVersion())) ? version : version + "." + TbConfig.getSubVersion());
-        this.aQk.setBackgroundDrawable(null);
-        this.aQk.setTextAppearance(this.mContext, z2 ? e.k.setting_version_text_1 : e.k.setting_version_text);
+        this.aRa.setText((TbConfig.getVersionType() != 1 || ao.isEmpty(TbConfig.getSubVersion())) ? version : version + "." + TbConfig.getSubVersion());
+        this.aRa.setBackgroundDrawable(null);
+        this.aRa.setTextAppearance(this.mContext, z2 ? e.k.setting_version_text_1 : e.k.setting_version_text);
     }
 }

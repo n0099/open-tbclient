@@ -9,6 +9,6 @@ public final class q {
         long blockCount = statFs.getBlockCount() * statFs.getBlockSize();
         StatFs statFs2 = new StatFs(Environment.getDataDirectory().getPath());
         long availableBlocks = statFs2.getAvailableBlocks() * statFs2.getBlockSize();
-        return "Total: " + com.baidu.crabsdk.c.c.i(blockCount) + " Used: " + com.baidu.crabsdk.c.c.i(blockCount - availableBlocks) + " Free: " + com.baidu.crabsdk.c.c.i(availableBlocks);
+        return "Total: " + com.baidu.crabsdk.c.c.k(blockCount) + " Used: " + com.baidu.crabsdk.c.c.k(blockCount - availableBlocks) + " Free: " + com.baidu.crabsdk.c.c.k(availableBlocks);
     }
 }

@@ -35,13 +35,13 @@ public final class a {
 
     public static boolean b(Context context, byte[] bArr) {
         try {
-            d i = i(bArr);
-            if (i != null) {
+            d h = h(bArr);
+            if (h != null) {
                 long c = cn.jiguang.d.a.d.c(context);
-                long j = i.cd().f;
+                long j = h.cd().f;
                 if (c == 0 || j == 0 || c == j) {
                     cn.jiguang.d.d.e.bU();
-                    cn.jiguang.d.d.e.a(context, i.cd(), i.ce());
+                    cn.jiguang.d.d.e.a(context, h.cd(), h.ce());
                 } else {
                     cn.jiguang.d.f.a.cf().a(context, j, bArr);
                 }
@@ -82,15 +82,15 @@ public final class a {
         return new d(cVar, wrap);
     }
 
-    public static h h(byte[] bArr) {
-        d i = i(bArr);
-        if (i != null) {
-            return a(i.cd(), i.ce());
+    public static h g(byte[] bArr) {
+        d h = h(bArr);
+        if (h != null) {
+            return a(h.cd(), h.ce());
         }
         return null;
     }
 
-    public static d i(byte[] bArr) {
+    public static d h(byte[] bArr) {
         ByteBuffer wrap;
         if (bArr.length < 20) {
             cn.jiguang.e.c.c("JCommands", "Error: received body-length short than common head-length, return null");

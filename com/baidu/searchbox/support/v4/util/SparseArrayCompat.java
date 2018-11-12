@@ -26,7 +26,7 @@ public class SparseArrayCompat<E> implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public SparseArrayCompat<E> m13clone() {
+    public SparseArrayCompat<E> m12clone() {
         try {
             SparseArrayCompat<E> sparseArrayCompat = (SparseArrayCompat) super.clone();
             try {

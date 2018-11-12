@@ -147,7 +147,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        c.jC().d(this.mId);
+        c.jA().d(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
         a.fW().m(getPageContext().getPageActivity());
     }
@@ -156,7 +156,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onPause() {
         super.onPause();
-        c.jC().e(this.mId);
+        c.jA().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 

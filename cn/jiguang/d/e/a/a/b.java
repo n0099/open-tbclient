@@ -17,12 +17,12 @@ public final class b {
 
     public static byte[] a(long j, int i, long j2, String str, long[] jArr) {
         cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(AudioParams.DEFAULT_AUDIO_BUFFER_SIZE);
-        bVar.l(0);
-        bVar.k(0);
-        bVar.k(30);
-        bVar.h(j);
-        bVar.g(i);
-        bVar.h(j2);
+        bVar.C(0);
+        bVar.B(0);
+        bVar.B(30);
+        bVar.j(j);
+        bVar.i(i);
+        bVar.j(j2);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("device_id", str);
@@ -34,7 +34,7 @@ public final class b {
                 }
             }
             jSONObject.put("uids", jSONArray);
-            bVar.f(jSONObject.toString().getBytes());
+            bVar.e(jSONObject.toString().getBytes());
             bVar.l(bVar.current(), 0);
             return bVar.toByteArray();
         } catch (Throwable th) {
@@ -53,12 +53,12 @@ public final class b {
 
     public static byte[] b(long j, int i, long j2, String str, long[] jArr) {
         cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(AudioParams.DEFAULT_AUDIO_BUFFER_SIZE);
-        bVar.l(0);
-        bVar.k(0);
-        bVar.k(32);
-        bVar.h(j);
-        bVar.g(i);
-        bVar.h(j2);
+        bVar.C(0);
+        bVar.B(0);
+        bVar.B(32);
+        bVar.j(j);
+        bVar.i(i);
+        bVar.j(j2);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("device_id", str);
@@ -67,7 +67,7 @@ public final class b {
                 jSONArray.put(jArr[0]);
             }
             jSONObject.put("uids", jSONArray);
-            bVar.f(jSONObject.toString().getBytes());
+            bVar.e(jSONObject.toString().getBytes());
             bVar.l(bVar.current(), 0);
             return bVar.toByteArray();
         } catch (Throwable th) {

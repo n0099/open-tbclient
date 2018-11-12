@@ -16,6 +16,6 @@ public class a {
     }
 
     public static void a(String str, Map<String, String> map, Map<String, String> map2, Map<String, String> map3, ResponseCallback<String> responseCallback) {
-        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) aax.postFormRequest().url(com.baidu.b.a.g.a.se().c(str, map))).addHeaders(map2)).addParams(map3).cookieManager(aay)).build().executeAsync(responseCallback);
+        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) aax.postFormRequest().url(com.baidu.b.a.g.a.sb().c(str, map))).addHeaders(map2)).addParams(map3).cookieManager(aay)).build().executeAsync(responseCallback);
     }
 }
