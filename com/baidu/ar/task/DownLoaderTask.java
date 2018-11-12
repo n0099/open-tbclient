@@ -231,7 +231,7 @@ public class DownLoaderTask extends AsyncTask<String, Integer, String> {
                 if (TextUtils.isEmpty(b)) {
                     d.a((int) MsgField.MSG_STAT_FIRST_LOAD_FILE_MANAGE_FAILURE);
                 } else {
-                    d.a((int) MsgField.MSG_STAT_FIRST_LOAD_FILE_MANAGE_SUCCESS);
+                    d.a(9001);
                 }
                 a();
                 return ArResourceUtils.generateResult(b);
@@ -297,7 +297,7 @@ public class DownLoaderTask extends AsyncTask<String, Integer, String> {
                             if (TextUtils.isEmpty(b2)) {
                                 d.a((int) MsgField.MSG_STAT_FIRST_LOAD_FILE_MANAGE_FAILURE);
                             } else {
-                                d.a((int) MsgField.MSG_STAT_FIRST_LOAD_FILE_MANAGE_SUCCESS);
+                                d.a(9001);
                             }
                             a();
                             return ArResourceUtils.generateResult(b2);

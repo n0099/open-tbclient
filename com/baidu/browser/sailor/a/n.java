@@ -7,11 +7,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class n {
-    private String Wn;
-    private String Wo;
-    private JSONObject Wp = new JSONObject();
-    private a Wq;
-    private HashMap<String, String> Wr;
+    private String Wp;
+    private String Wq;
+    private JSONObject Wr = new JSONObject();
+    private a Ws;
+    private HashMap<String, String> Wt;
     private String mParam;
 
     /* loaded from: classes2.dex */
@@ -20,34 +20,34 @@ public class n {
     }
 
     public n(String str, String str2) {
-        this.Wn = str;
-        this.Wo = str2;
+        this.Wp = str;
+        this.Wq = str2;
     }
 
     public void a(a aVar) {
-        this.Wq = aVar;
+        this.Ws = aVar;
+    }
+
+    public void aG(boolean z) {
+        setResult(z ? 0 : 1);
     }
 
     public void addField(String str, String str2) {
         try {
-            this.Wp.put(str, str2);
+            this.Wr.put(str, str2);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public void as(boolean z) {
-        setResult(z ? 0 : 1);
-    }
-
-    public void bo(int i) {
+    public void bD(int i) {
         try {
-            this.Wp.put("error_code", i);
+            this.Wr.put("error_code", i);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         setResult(i == 0 ? 0 : 1);
-        qP();
+        qN();
     }
 
     public void c(String str, String str2, boolean z) {
@@ -56,8 +56,8 @@ public class n {
         } else {
             addField(str, str2);
         }
-        as(z);
-        qP();
+        aG(z);
+        qN();
     }
 
     public void cA(String str) {
@@ -75,47 +75,47 @@ public class n {
     }
 
     public void l(String str, boolean z) {
-        as(z);
+        aG(z);
         if (z) {
             if (str == null) {
                 str = "";
             }
             cz(str);
         }
-        qP();
+        qN();
     }
 
     public void notifyCallback(String str, String str2) {
-        if (this.Wq != null) {
-            this.Wq.V(str, str2);
+        if (this.Ws != null) {
+            this.Ws.V(str, str2);
         }
     }
 
-    public HashMap<String, String> qO() {
-        if (this.Wr == null) {
-            this.Wr = new HashMap<>();
+    public HashMap<String, String> qM() {
+        if (this.Wt == null) {
+            this.Wt = new HashMap<>();
         }
-        return this.Wr;
+        return this.Wt;
     }
 
-    public void qP() {
+    public void qN() {
         int i = 0;
         try {
-            i = this.Wp.getInt("result");
+            i = this.Wr.getInt("result");
         } catch (JSONException e) {
             Log.e("BdLightappKernalCallback", "result must be set befor notify!!!");
         }
-        notifyCallback(i == 0 ? this.Wn : this.Wo, this.Wp.toString());
+        notifyCallback(i == 0 ? this.Wp : this.Wq, this.Wr.toString());
     }
 
-    public void qQ() {
-        as(true);
-        qP();
+    public void qO() {
+        aG(true);
+        qN();
     }
 
     public void setResult(int i) {
         try {
-            this.Wp.put("result", i);
+            this.Wr.put("result", i);
         } catch (JSONException e) {
             e.printStackTrace();
         }

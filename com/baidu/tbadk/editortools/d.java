@@ -1,13 +1,13 @@
 package com.baidu.tbadk.editortools;
 /* loaded from: classes.dex */
 public abstract class d {
-    private EditorTools aTJ;
+    private EditorTools aUz;
 
     public d(EditorTools editorTools) {
-        this.aTJ = editorTools;
+        this.aUz = editorTools;
     }
 
-    public EditorTools KH() {
-        return this.aTJ;
+    public EditorTools KT() {
+        return this.aUz;
     }
 }

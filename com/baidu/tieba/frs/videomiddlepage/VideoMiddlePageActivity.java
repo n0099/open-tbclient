@@ -15,7 +15,7 @@ import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class VideoMiddlePageActivity extends BaseFragmentActivity {
-    private VideoMiddlePageFragment dWV;
+    private VideoMiddlePageFragment dYi;
     private String mFrom;
     private String mId;
 
@@ -31,7 +31,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         Intent intent = getIntent();
         this.mId = intent.getStringExtra("PARAM_FID");
         this.mFrom = intent.getStringExtra("PARAM_FROM");
-        aGz();
+        aFX();
         am amVar = new am("c12664");
         if (!StringUtils.isNull(this.mFrom)) {
             amVar.ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mFrom);
@@ -39,7 +39,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         TiebaStatic.log(amVar);
     }
 
-    private void aGz() {
+    private void aFX() {
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         if (supportFragmentManager != null && !supportFragmentManager.isDestroyed()) {
             VideoMiddlePageFragment videoMiddlePageFragment = (VideoMiddlePageFragment) supportFragmentManager.findFragmentByTag(VideoMiddlePageFragment.class.getCanonicalName());
@@ -47,7 +47,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
                 videoMiddlePageFragment = VideoMiddlePageFragment.bC(this.mFrom, this.mId);
                 supportFragmentManager.beginTransaction().add(e.g.video_middle_page_container, videoMiddlePageFragment, VideoMiddlePageFragment.class.getCanonicalName()).commitAllowingStateLoss();
             }
-            this.dWV = videoMiddlePageFragment;
+            this.dYi = videoMiddlePageFragment;
         }
     }
 
@@ -76,10 +76,10 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent == null || this.dWV == null) {
+        if (keyEvent == null || this.dYi == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        if (this.dWV.lM(i)) {
+        if (this.dYi.me(i)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -102,8 +102,8 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
             } else if ("frs".equals(this.mFrom)) {
                 arrayList.add("a006");
             }
-            pageStayDurationItem.V(arrayList);
-            pageStayDurationItem.bbb = "0";
+            pageStayDurationItem.U(arrayList);
+            pageStayDurationItem.bbO = "0";
         }
         return pageStayDurationItem;
     }

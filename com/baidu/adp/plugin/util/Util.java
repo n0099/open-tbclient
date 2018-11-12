@@ -26,7 +26,7 @@ public final class Util {
         GREATER
     }
 
-    public static boolean nP() {
+    public static boolean nN() {
         try {
             String property = System.getProperty("java.vm.version");
             if (property != null) {
@@ -60,17 +60,17 @@ public final class Util {
         return ((short) ((bArr[i + 1] << 8) | (bArr[i] & 255))) & 65535;
     }
 
-    public static final boolean r(long j) {
-        long nR = nR();
+    public static final boolean t(long j) {
+        long nP = nP();
         if (j <= 0) {
-            return nR <= 0 || nR >= 31457280;
+            return nP <= 0 || nP >= 31457280;
         }
         int i = 10;
         if (Build.VERSION.SDK_INT < 19) {
             i = 6;
         }
         long j2 = i * j;
-        return (j2 <= 31457280 ? j2 : 31457280L) < nR;
+        return (j2 <= 31457280 ? j2 : 31457280L) < nP;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE] complete} */
@@ -205,14 +205,14 @@ public final class Util {
     }
 
     public static File cq(String str) {
-        PluginSetting bT = PluginPackageManager.nd().bT(str);
+        PluginSetting bT = PluginPackageManager.nb().bT(str);
         if (bT == null || bT.apkPath == null || bT.apkPath.length() <= ".apk".length()) {
             return null;
         }
         return new File(bT.apkPath.substring(0, bT.apkPath.length() - ".apk".length()));
     }
 
-    public static File nQ() {
+    public static File nO() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -346,10 +346,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return nQ() + File.separator + e(pluginSetting);
+        return nO() + File.separator + e(pluginSetting);
     }
 
-    public static long nR() {
+    public static long nP() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();

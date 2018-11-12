@@ -5,27 +5,27 @@ import com.baidu.tieba.frs.aggregation.VideoAggregationModel;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class i {
-    private VideoAggregationModel.a dFU = new VideoAggregationModel.a() { // from class: com.baidu.tieba.frs.aggregation.i.1
+    private VideoAggregationModel.a dHj = new VideoAggregationModel.a() { // from class: com.baidu.tieba.frs.aggregation.i.1
         @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.a
         public void d(List<g> list, boolean z, boolean z2) {
-            if (i.this.dGa != null) {
-                i.this.dGa.hideLoadingView();
+            if (i.this.dHp != null) {
+                i.this.dHp.hideLoadingView();
                 i.this.mHasMore = z2;
-                i.this.dGa.c(list, z, z2);
+                i.this.dHp.c(list, z, z2);
             }
         }
 
         @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.a
-        public void nH(String str) {
-            if (i.this.dGa != null) {
-                i.this.dGa.hideLoadingView();
-                i.this.dGa.showMsg(str);
-                i.this.dGa.LP();
+        public void nI(String str) {
+            if (i.this.dHp != null) {
+                i.this.dHp.hideLoadingView();
+                i.this.dHp.showMsg(str);
+                i.this.dHp.Mb();
             }
         }
     };
-    private d dGa;
-    private VideoAggregationModel dGb;
+    private d dHp;
+    private VideoAggregationModel dHq;
     private String mFrom;
     private boolean mHasMore;
     private String mId;
@@ -35,53 +35,53 @@ public class i {
 
     public i(TbPageContext tbPageContext, d dVar) {
         this.mPageContext = tbPageContext;
-        this.dGa = dVar;
-        this.dGb = new VideoAggregationModel(tbPageContext, this.dFU);
+        this.dHp = dVar;
+        this.dHq = new VideoAggregationModel(tbPageContext, this.dHj);
     }
 
     public void setId(String str) {
         this.mId = str;
-        if (this.dGb != null) {
-            this.dGb.setId(this.mId);
+        if (this.dHq != null) {
+            this.dHq.setId(this.mId);
         }
     }
 
     public void setFrom(String str) {
         this.mFrom = str;
-        if (this.dGb != null) {
-            this.dGb.setFrom(str);
+        if (this.dHq != null) {
+            this.dHq.setFrom(str);
         }
     }
 
-    public void nG(String str) {
+    public void nH(String str) {
         this.st_type = str;
-        if (this.dGb != null) {
-            this.dGb.nG(str);
+        if (this.dHq != null) {
+            this.dHq.nH(str);
         }
     }
 
     public void setLocation(String str) {
         this.yuelaou_locate = str;
-        if (this.dGb != null) {
-            this.dGb.setLocation(str);
+        if (this.dHq != null) {
+            this.dHq.setLocation(str);
         }
     }
 
-    public void aBV() {
-        if (this.dGb != null) {
-            this.dGb.aBV();
+    public void aBs() {
+        if (this.dHq != null) {
+            this.dHq.aBs();
         }
     }
 
-    public void aBX() {
-        if (this.dGb != null && this.mHasMore) {
-            this.dGb.LoadData();
+    public void aBu() {
+        if (this.dHq != null && this.mHasMore) {
+            this.dHq.LoadData();
         }
     }
 
-    public void aBW() {
-        if (this.dGb != null) {
-            this.dGb.cancelLoadData();
+    public void aBt() {
+        if (this.dHq != null) {
+            this.dHq.cancelLoadData();
         }
     }
 }

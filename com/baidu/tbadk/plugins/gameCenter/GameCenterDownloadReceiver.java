@@ -8,9 +8,9 @@ import com.baidu.adp.lib.util.BdLog;
 public class GameCenterDownloadReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        if (a.Om() != null) {
+        if (a.Ov() != null) {
             try {
-                a.Om().onReceive(context, intent);
+                a.Ov().onReceive(context, intent);
             } catch (Throwable th) {
                 BdLog.e(th);
             }

@@ -14,43 +14,43 @@ import java.util.Date;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
-    private long ahe;
+    private long ahR;
     private TbPageContext mPageContext;
-    private CustomMessageListener ahf = new CustomMessageListener(2001371) { // from class: com.baidu.tbadk.BdToken.c.1
+    private CustomMessageListener ahS = new CustomMessageListener(2001371) { // from class: com.baidu.tbadk.BdToken.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                c.this.uC();
+                c.this.uM();
             }
         }
     };
-    private d ahd = new d();
+    private d ahQ = new d();
 
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        MessageManager.getInstance().registerListener(this.ahf);
-        uC();
-        this.ahe = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_redpacket_pop_last_time", 0L);
+        MessageManager.getInstance().registerListener(this.ahS);
+        uM();
+        this.ahR = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_redpacket_pop_last_time", 0L);
     }
 
     public void check() {
-        if (uA() && uB()) {
+        if (uK() && uL()) {
             showWindow();
         }
     }
 
-    private boolean uA() {
+    private boolean uK() {
         Date date = new Date();
-        return date.getTime() >= this.ahd.uD() && date.getTime() <= this.ahd.uE();
+        return date.getTime() >= this.ahQ.uN() && date.getTime() <= this.ahQ.uO();
     }
 
-    private boolean uB() {
-        if (v.J(this.ahd.uF())) {
+    private boolean uL() {
+        if (v.I(this.ahQ.uP())) {
             return false;
         }
         Date date = new Date();
-        Iterator<e> it = this.ahd.uF().iterator();
+        Iterator<e> it = this.ahQ.uP().iterator();
         while (it.hasNext()) {
             e next = it.next();
             if (date.getTime() >= next.getStartTime() && date.getTime() <= next.getEndTime() && !a(next)) {
@@ -61,24 +61,24 @@ public class c {
     }
 
     private boolean a(e eVar) {
-        return eVar != null && this.ahe >= eVar.getStartTime() && this.ahe <= eVar.getEndTime();
+        return eVar != null && this.ahR >= eVar.getStartTime() && this.ahR <= eVar.getEndTime();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uC() {
-        this.ahd.parseJson(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_redpacket_pop", ""));
+    public void uM() {
+        this.ahQ.parseJson(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_redpacket_pop", ""));
     }
 
     private void showWindow() {
-        if (!ao.isEmpty(this.ahd.getUrl())) {
-            this.ahe = System.currentTimeMillis();
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("key_redpacket_pop_last_time", this.ahe);
+        if (!ao.isEmpty(this.ahQ.getUrl())) {
+            this.ahR = System.currentTimeMillis();
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("key_redpacket_pop_last_time", this.ahR);
             TiebaStatic.log(new am("c13083"));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.mPageContext.getPageActivity(), "", this.ahd.getUrl() + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE, true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.mPageContext.getPageActivity(), "", this.ahQ.getUrl() + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE, true)));
         }
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.ahf);
+        MessageManager.getInstance().unRegisterListener(this.ahS);
     }
 }

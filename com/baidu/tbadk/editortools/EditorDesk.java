@@ -12,48 +12,48 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class EditorDesk extends FrameLayout {
-    private LinkedList<g> aTW;
-    private LinkedList<l> aTX;
-    private l aTY;
-    private boolean aTZ;
-    private boolean aUa;
-    private EditorTools aUb;
-    private Runnable aUc;
+    private LinkedList<g> aUM;
+    private LinkedList<l> aUN;
+    private l aUO;
+    private boolean aUP;
+    private boolean aUQ;
+    private EditorTools aUR;
+    private Runnable aUS;
     private int mBgColor;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public EditorDesk(Context context, EditorTools editorTools) {
         super(context);
         this.mBgColor = e.d.cp_bg_line_d;
-        this.aTY = null;
-        this.aTZ = true;
-        this.aUa = false;
-        this.aUc = new Runnable() { // from class: com.baidu.tbadk.editortools.EditorDesk.1
+        this.aUO = null;
+        this.aUP = true;
+        this.aUQ = false;
+        this.aUS = new Runnable() { // from class: com.baidu.tbadk.editortools.EditorDesk.1
             @Override // java.lang.Runnable
             public void run() {
-                if (EditorDesk.this.aTY != null) {
-                    EditorDesk.this.aTY.pQ();
+                if (EditorDesk.this.aUO != null) {
+                    EditorDesk.this.aUO.pO();
                 }
             }
         };
-        this.aTW = new LinkedList<>();
-        this.aTX = new LinkedList<>();
-        this.aUb = editorTools;
+        this.aUM = new LinkedList<>();
+        this.aUN = new LinkedList<>();
+        this.aUR = editorTools;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(g gVar) {
-        this.aTW.add(gVar);
+        this.aUM.add(gVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(l lVar) {
-        this.aTX.add(lVar);
+        this.aUN.add(lVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void KI() {
-        Iterator<l> it = this.aTX.iterator();
+    public void KU() {
+        Iterator<l> it = this.aUN.iterator();
         while (it.hasNext()) {
             l next = it.next();
             if (next.getToolId() == 2) {
@@ -62,7 +62,7 @@ public class EditorDesk extends FrameLayout {
             if (next instanceof View) {
                 View view = (View) next;
                 view.setVisibility(8);
-                addView(view, -1, getContext().getResources().getDimensionPixelSize(e.C0175e.ds460));
+                addView(view, -1, getContext().getResources().getDimensionPixelSize(e.C0200e.ds460));
             }
             next.init();
         }
@@ -71,41 +71,41 @@ public class EditorDesk extends FrameLayout {
 
     private void b(l lVar) {
         if (lVar instanceof MoreDeskView) {
-            ((MoreDeskView) lVar).j(this.aTW);
+            ((MoreDeskView) lVar).j(this.aUM);
             lVar.init();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void clear() {
-        this.aTY = null;
-        this.aTW.clear();
-        this.aTX.clear();
+        this.aUO = null;
+        this.aUM.clear();
+        this.aUN.clear();
     }
 
-    protected void pQ() {
+    protected void pO() {
         setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void hide() {
-        if (this.aTY != null) {
-            this.aTY.hide();
+        if (this.aUO != null) {
+            this.aUO.hide();
         }
-        this.aTY = null;
+        this.aUO = null;
         setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void fd(int i) {
-        if (fh(i)) {
-            if (KL()) {
-                this.aTZ = true;
+    public void fr(int i) {
+        if (fv(i)) {
+            if (KX()) {
+                this.aUP = true;
             } else {
-                this.aTZ = false;
+                this.aUP = false;
             }
-            boolean z = this.aUa;
-            Iterator<l> it = this.aTX.iterator();
+            boolean z = this.aUQ;
+            Iterator<l> it = this.aUN.iterator();
             while (it.hasNext()) {
                 l next = it.next();
                 if (!z && TbadkCoreApplication.getInst().isKeyboardHeightCanUsed() && (next instanceof View)) {
@@ -113,31 +113,31 @@ public class EditorDesk extends FrameLayout {
                     FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
                     layoutParams.height = TbadkCoreApplication.getInst().getKeyboardHeight();
                     view.setLayoutParams(layoutParams);
-                    this.aUa = true;
+                    this.aUQ = true;
                 }
                 if (next.getToolId() == i) {
-                    this.aTY = next;
-                    if (this.aTZ) {
-                        next.pQ();
+                    this.aUO = next;
+                    if (this.aUP) {
+                        next.pO();
                     }
                 } else {
                     next.hide();
                 }
             }
-            if (!this.aTZ && (getContext() instanceof Activity)) {
-                if (this.aUb != null) {
-                    this.aUb.KP();
+            if (!this.aUP && (getContext() instanceof Activity)) {
+                if (this.aUR != null) {
+                    this.aUR.Lb();
                 } else {
-                    com.baidu.adp.lib.util.l.a(getContext(), ((Activity) getContext()).getCurrentFocus());
+                    com.baidu.adp.lib.util.l.b(getContext(), ((Activity) getContext()).getCurrentFocus());
                 }
-                com.baidu.adp.lib.g.e.jI().postDelayed(this.aUc, 250L);
+                com.baidu.adp.lib.g.e.jG().postDelayed(this.aUS, 250L);
             }
-            pQ();
+            pO();
         }
     }
 
-    private boolean fh(int i) {
-        Iterator<l> it = this.aTX.iterator();
+    private boolean fv(int i) {
+        Iterator<l> it = this.aUN.iterator();
         while (it.hasNext()) {
             if (it.next().getToolId() == i) {
                 return true;
@@ -146,8 +146,8 @@ public class EditorDesk extends FrameLayout {
         return false;
     }
 
-    public g ff(int i) {
-        Iterator<g> it = this.aTW.iterator();
+    public g ft(int i) {
+        Iterator<g> it = this.aUM.iterator();
         while (it.hasNext()) {
             g next = it.next();
             if (next.getToolId() == i) {
@@ -161,11 +161,11 @@ public class EditorDesk extends FrameLayout {
         if (this.mBgColor > 0) {
             al.e(this, this.mBgColor, i);
         }
-        Iterator<g> it = this.aTW.iterator();
+        Iterator<g> it = this.aUM.iterator();
         while (it.hasNext()) {
             it.next().onChangeSkinType(i);
         }
-        Iterator<l> it2 = this.aTX.iterator();
+        Iterator<l> it2 = this.aUN.iterator();
         while (it2.hasNext()) {
             l next = it2.next();
             if (next != null) {
@@ -174,12 +174,12 @@ public class EditorDesk extends FrameLayout {
         }
     }
 
-    public boolean KK() {
-        return getVisibility() == 0 && KL();
+    public boolean KW() {
+        return getVisibility() == 0 && KX();
     }
 
-    private boolean KL() {
-        Iterator<l> it = this.aTX.iterator();
+    private boolean KX() {
+        Iterator<l> it = this.aUN.iterator();
         while (it.hasNext()) {
             if (((View) it.next()).getVisibility() == 0) {
                 return true;
@@ -196,14 +196,14 @@ public class EditorDesk extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
         if (z) {
-            bu(true);
+            bL(true);
         }
         super.requestDisallowInterceptTouchEvent(false);
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        bu(true);
+        bL(true);
         return super.onInterceptTouchEvent(motionEvent);
     }
 
@@ -212,7 +212,7 @@ public class EditorDesk extends FrameLayout {
         return true;
     }
 
-    private void bu(boolean z) {
+    private void bL(boolean z) {
         if (getParent() != null) {
             getParent().requestDisallowInterceptTouchEvent(z);
         }

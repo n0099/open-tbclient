@@ -143,7 +143,7 @@ public class FatalErrorService extends BdBaseService {
                                     if (!TextUtils.isEmpty(str2) && !"0".equals(str2)) {
                                         this.mNetwork.x(FatalErrorService.ERROR_TYPE_KEY, str2);
                                     }
-                                    this.mNetwork.BD();
+                                    this.mNetwork.BK();
                                     if (byteArrayOutputStream2 != null) {
                                         byteArrayOutputStream2.close();
                                         byteArrayOutputStream3 = null;
@@ -179,7 +179,7 @@ public class FatalErrorService extends BdBaseService {
                                         fileInputStream2 = fileInputStream;
                                     }
                                     try {
-                                        if (this.mNetwork.BY().CX().isRequestSuccess()) {
+                                        if (this.mNetwork.Cf().De().isRequestSuccess()) {
                                             if (z2) {
                                                 N(file);
                                             }
@@ -386,7 +386,7 @@ public class FatalErrorService extends BdBaseService {
             try {
                 a(l.eE(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
                 a(l.eE(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
-                buP();
+                bul();
                 if (!TbConfig.getVersion().equals(b.getInstance().getString("native_crash_dump_version", ""))) {
                     b.getInstance().putString("native_crash_dump_version", TbConfig.getVersion());
                     z = false;
@@ -410,7 +410,7 @@ public class FatalErrorService extends BdBaseService {
             }
         }
 
-        private void buP() {
+        private void bul() {
             File eE = l.eE(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_ALERT_FILE);
             if (eE != null) {
                 try {
@@ -447,7 +447,7 @@ public class FatalErrorService extends BdBaseService {
                         fileWriter = new FileWriter(file, true);
                         try {
                             fileWriter.append("\n##TIEBA_NATIVE##\n");
-                            a(fileWriter, ao.CD(), null);
+                            a(fileWriter, ao.CK(), null);
                             a(fileWriter, "version", TbConfig.getVersion());
                             a(fileWriter, "model", Build.MODEL);
                             a(fileWriter, "android_version", Build.VERSION.RELEASE);
@@ -496,7 +496,7 @@ public class FatalErrorService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             if (this.mNetwork != null) {
-                this.mNetwork.ji();
+                this.mNetwork.jg();
             }
             FatalErrorService.this.mTask = null;
             super.cancel(true);

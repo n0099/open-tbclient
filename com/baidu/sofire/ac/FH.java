@@ -3,9 +3,9 @@ package com.baidu.sofire.ac;
 import android.content.Context;
 import android.util.Pair;
 import com.baidu.sofire.a.a;
-import com.baidu.sofire.b.e;
 import com.baidu.sofire.core.ApkInfo;
-import com.baidu.sofire.core.c;
+import com.baidu.sofire.core.e;
+import com.baidu.sofire.core.g;
 import java.util.List;
 /* loaded from: classes.dex */
 public class FH {
@@ -31,19 +31,7 @@ public class FH {
     }
 
     public static Pair<Integer, Object> callSync(int i, String str, Class<?>[] clsArr, Object... objArr) {
-        Pair<Integer, Object> a;
-        try {
-            c a2 = c.a();
-            if (a2 == null) {
-                a = new Pair<>(3, null);
-            } else {
-                a = a2.a(i, str, clsArr, objArr);
-            }
-            return a;
-        } catch (Throwable th) {
-            e.a(th);
-            return new Pair<>(3, null);
-        }
+        return e.a(i, str, clsArr, objArr);
     }
 
     public static boolean call(int i, String str, Callback callback) {
@@ -58,6 +46,21 @@ public class FH {
         return e.a(i, str, callback, clsArr, objArr);
     }
 
+    public static boolean isInitSuc(int i) {
+        ApkInfo a;
+        g a2;
+        try {
+            a a3 = a.a();
+            if (a3 == null || (a = a3.a(i)) == null || a.initStatus != 1 || (a2 = g.a()) == null) {
+                return false;
+            }
+            return a2.d(a.packageName) != null;
+        } catch (Throwable th) {
+            com.baidu.sofire.b.e.a(th);
+            return false;
+        }
+    }
+
     public static Object getPInfo(int i, int i2) {
         switch (i2) {
             case 1:
@@ -65,7 +68,7 @@ public class FH {
                     return "";
                 }
                 try {
-                    com.baidu.sofire.core.e a = com.baidu.sofire.core.e.a();
+                    g a = g.a();
                     if (a == null) {
                         return "";
                     }
@@ -83,7 +86,7 @@ public class FH {
                     }
                     return "";
                 } catch (Throwable th) {
-                    e.a(th);
+                    com.baidu.sofire.b.e.a(th);
                     return "";
                 }
             default:
@@ -92,32 +95,18 @@ public class FH {
     }
 
     public static String getVersion(Context context) {
-        return "3.1.3.2";
+        return "3.1.8";
+    }
+
+    public static String gzfi(Context context, String str, int i, String str2) {
+        return e.a(context, str, i, str2);
     }
 
     public static String gzfi(Context context, String str, int i) {
-        if (i != 0) {
-            call(1, "ice", new Class[]{String.class, Integer.TYPE}, str, Integer.valueOf(i));
-        }
-        return e.m(context);
+        return e.a(context, str, i, (String) null);
     }
 
     public static String gz(Context context) {
-        return e.m(context);
-    }
-
-    public static boolean isInitSuc(int i) {
-        ApkInfo a;
-        com.baidu.sofire.core.e a2;
-        try {
-            a aVar = a.d;
-            if (aVar == null || (a = aVar.a(i)) == null || a.initStatus != 1 || (a2 = com.baidu.sofire.core.e.a()) == null) {
-                return false;
-            }
-            return a2.d(a.packageName) != null;
-        } catch (Throwable th) {
-            e.a(th);
-            return false;
-        }
+        return e.a(context);
     }
 }

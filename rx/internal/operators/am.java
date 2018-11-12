@@ -4,8 +4,8 @@ import rx.d;
 import rx.subjects.PublishSubject;
 /* loaded from: classes2.dex */
 public final class am<T, V> implements d.b<T, T> {
-    final rx.d<? extends T> isM;
-    final rx.functions.f<? super T, ? extends rx.d<V>> ivY;
+    final rx.d<? extends T> iuw;
+    final rx.functions.f<? super T, ? extends rx.d<V>> ixI;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -13,19 +13,19 @@ public final class am<T, V> implements d.b<T, T> {
     }
 
     public am(rx.d<? extends T> dVar, rx.functions.f<? super T, ? extends rx.d<V>> fVar) {
-        this.isM = dVar;
-        this.ivY = fVar;
+        this.iuw = dVar;
+        this.ixI = fVar;
     }
 
     /* JADX DEBUG: Type inference failed for r2v2. Raw type applied. Possible types: rx.j<T>, rx.j<? super T> */
     public rx.j<? super T> call(rx.j<? super T> jVar) {
         final rx.b.f fVar = new rx.b.f(jVar);
-        final PublishSubject cdJ = PublishSubject.cdJ();
-        jVar.add(rx.d.merge(cdJ).unsafeSubscribe(rx.b.g.a(fVar)));
+        final PublishSubject cdg = PublishSubject.cdg();
+        jVar.add(rx.d.merge(cdg).unsafeSubscribe(rx.b.g.a(fVar)));
         return (rx.j<T>) new rx.j<T>(jVar) { // from class: rx.internal.operators.am.1
             @Override // rx.e
             public void onCompleted() {
-                cdJ.onCompleted();
+                cdg.onCompleted();
             }
 
             @Override // rx.e
@@ -39,7 +39,7 @@ public final class am<T, V> implements d.b<T, T> {
             @Override // rx.e
             public void onNext(final T t) {
                 try {
-                    cdJ.onNext(am.this.ivY.call(t).take(1).defaultIfEmpty(null).map((rx.functions.f<V, T>) new rx.functions.f<V, T>() { // from class: rx.internal.operators.am.1.1
+                    cdg.onNext(am.this.ixI.call(t).take(1).defaultIfEmpty(null).map((rx.functions.f<V, T>) new rx.functions.f<V, T>() { // from class: rx.internal.operators.am.1.1
                         @Override // rx.functions.f
                         public T call(V v) {
                             return (T) t;

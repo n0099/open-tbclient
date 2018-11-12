@@ -1,28 +1,28 @@
 package rx.internal.util;
 /* loaded from: classes2.dex */
 public final class c<T> extends rx.j<T> {
-    final rx.functions.b<Throwable> iBu;
-    final rx.functions.b<? super T> iCV;
-    final rx.functions.a iCW;
+    final rx.functions.b<Throwable> iDe;
+    final rx.functions.b<? super T> iEF;
+    final rx.functions.a iEG;
 
     public c(rx.functions.b<? super T> bVar, rx.functions.b<Throwable> bVar2, rx.functions.a aVar) {
-        this.iCV = bVar;
-        this.iBu = bVar2;
-        this.iCW = aVar;
+        this.iEF = bVar;
+        this.iDe = bVar2;
+        this.iEG = aVar;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.iCV.call(t);
+        this.iEF.call(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.iBu.call(th);
+        this.iDe.call(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.iCW.call();
+        this.iEG.call();
     }
 }

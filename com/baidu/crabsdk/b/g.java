@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import com.baidu.searchbox.ng.ai.apps.canvas.action.draw.DaScale;
 /* loaded from: classes6.dex */
 public final class g {
     private static Intent Yc;
@@ -23,7 +22,7 @@ public final class g {
 
     public static String f(Context context) {
         Object[] objArr;
-        if (com.baidu.crabsdk.c.c.rv() < 5) {
+        if (com.baidu.crabsdk.c.c.rs() < 5) {
             return "N/A";
         }
         StringBuilder sb = new StringBuilder();
@@ -48,7 +47,7 @@ public final class g {
             return "N/A";
         }
         try {
-            return ((int) ((Yc.getIntExtra("level", 0) * 100.0f) / Yc.getIntExtra(DaScale.ACTION_TYPE, 100))) + "%";
+            return ((int) ((Yc.getIntExtra("level", 0) * 100.0f) / Yc.getIntExtra("scale", 100))) + "%";
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.f("Get Battery Error!", e);
             return "N/A";

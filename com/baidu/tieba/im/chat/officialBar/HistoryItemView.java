@@ -13,10 +13,10 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 /* loaded from: classes3.dex */
 public class HistoryItemView extends LinearLayout {
-    LinearLayout aDZ;
-    TbRichTextView eBj;
-    TextView eBk;
-    ChatImageWithTailView eBl;
+    LinearLayout aEP;
+    TbRichTextView eCC;
+    TextView eCD;
+    ChatImageWithTailView eCE;
     Context mContext;
 
     public HistoryItemView(Context context) {
@@ -36,31 +36,31 @@ public class HistoryItemView extends LinearLayout {
         LayoutInflater.from(this.mContext).inflate(e.h.official_history_item, (ViewGroup) this, true);
         setClickable(false);
         setFocusable(false);
-        this.aDZ = (LinearLayout) findViewById(e.g.history_container);
-        this.eBk = (TextView) findViewById(e.g.history_send_time);
-        this.eBj = (TbRichTextView) findViewById(e.g.history_txt);
-        this.eBl = (ChatImageWithTailView) findViewById(e.g.history_pic);
-        al.i(this.aDZ, e.f.selector_history_multi_single_bg);
-        al.c(this.eBk, e.d.common_color_10067, 1);
-        this.eBj.setTextColor(al.getColor(e.d.cp_cont_c));
-        this.eBl.setIsSupportNight(true);
+        this.aEP = (LinearLayout) findViewById(e.g.history_container);
+        this.eCD = (TextView) findViewById(e.g.history_send_time);
+        this.eCC = (TbRichTextView) findViewById(e.g.history_txt);
+        this.eCE = (ChatImageWithTailView) findViewById(e.g.history_pic);
+        al.i(this.aEP, e.f.selector_history_multi_single_bg);
+        al.c(this.eCD, e.d.common_color_10067, 1);
+        this.eCC.setTextColor(al.getColor(e.d.cp_cont_c));
+        this.eCE.setIsSupportNight(true);
     }
 
     public void setTime(String str) {
-        this.eBk.setText(str);
+        this.eCD.setText(str);
     }
 
     public TbRichTextView getRichTextView() {
-        return this.eBj;
+        return this.eCC;
     }
 
     public ChatImageWithTailView getImageView() {
-        return this.eBl;
+        return this.eCE;
     }
 
-    public void ba(View view) {
-        this.aDZ.setBackgroundDrawable(null);
-        this.aDZ.removeAllViews();
-        this.aDZ.addView(view);
+    public void bc(View view) {
+        this.aEP.setBackgroundDrawable(null);
+        this.aEP.removeAllViews();
+        this.aEP.addView(view);
     }
 }

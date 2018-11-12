@@ -14,12 +14,12 @@ import tbclient.TalkBall.DataRes;
 import tbclient.TalkBall.TalkBallResIdl;
 /* loaded from: classes3.dex */
 public class c implements com.baidu.tbadk.mvc.b.c {
-    private int cSW;
-    private long ebr;
-    private List<com.baidu.tieba.frs.worldcup.talkball.b.a> ebu;
-    private AdidasAdvert ebv;
-    private e ebw;
-    private m ebx;
+    private int cUc;
+    private long ecL;
+    private List<com.baidu.tieba.frs.worldcup.talkball.b.a> ecO;
+    private AdidasAdvert ecP;
+    private e ecQ;
+    private m ecR;
     private List<com.baidu.tieba.frs.worldcup.talkball.b.b> mThreadList;
 
     @Override // com.baidu.tbadk.mvc.b.j
@@ -37,29 +37,29 @@ public class c implements com.baidu.tbadk.mvc.b.c {
                 for (CardInfo cardInfo : list) {
                     com.baidu.tieba.frs.worldcup.talkball.b.b bVar = new com.baidu.tieba.frs.worldcup.talkball.b.b();
                     bVar.a(cardInfo);
-                    if (!bVar.aHd() || bVar.aHc() == null || bVar.aHc().aHm() == null || !bVar.aHc().aHm().isEmpty()) {
+                    if (!bVar.aGB() || bVar.aGA() == null || bVar.aGA().aGK() == null || !bVar.aGA().aGK().isEmpty()) {
                         this.mThreadList.add(bVar);
                     }
                 }
             }
-            this.ebu = new ArrayList();
+            this.ecO = new ArrayList();
             List<BannerImage> list2 = dataRes.banner_images;
             if (list2 != null) {
                 for (BannerImage bannerImage : list2) {
                     if (bannerImage != null && !TextUtils.isEmpty(bannerImage.img_url)) {
                         com.baidu.tieba.frs.worldcup.talkball.b.a aVar = new com.baidu.tieba.frs.worldcup.talkball.b.a();
                         aVar.a(bannerImage);
-                        this.ebu.add(aVar);
+                        this.ecO.add(aVar);
                     }
                 }
             }
-            this.ebv = dataRes.adidas_advert;
-            this.cSW = dataRes.has_more.intValue();
-            this.ebr = dataRes.last_thread_id.longValue();
-            this.ebw = new e();
-            this.ebw.a(dataRes.guessing_competition);
-            this.ebx = new m();
-            this.ebx.a(dataRes.redpacketrain);
+            this.ecP = dataRes.adidas_advert;
+            this.cUc = dataRes.has_more.intValue();
+            this.ecL = dataRes.last_thread_id.longValue();
+            this.ecQ = new e();
+            this.ecQ.a(dataRes.guessing_competition);
+            this.ecR = new m();
+            this.ecR.a(dataRes.redpacketrain);
         }
     }
 
@@ -67,28 +67,28 @@ public class c implements com.baidu.tbadk.mvc.b.c {
         return this.mThreadList;
     }
 
-    public List<com.baidu.tieba.frs.worldcup.talkball.b.a> aHr() {
-        return this.ebu;
+    public List<com.baidu.tieba.frs.worldcup.talkball.b.a> aGP() {
+        return this.ecO;
     }
 
-    public int auL() {
-        return this.cSW;
+    public int auj() {
+        return this.cUc;
     }
 
-    public long aHs() {
-        return this.ebr;
+    public long aGQ() {
+        return this.ecL;
     }
 
-    public e aHt() {
-        return this.ebw;
+    public e aGR() {
+        return this.ecQ;
     }
 
-    public AdidasAdvert aHu() {
-        return this.ebv;
+    public AdidasAdvert aGS() {
+        return this.ecP;
     }
 
-    public m aHv() {
-        return this.ebx;
+    public m aGT() {
+        return this.ecR;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
@@ -97,7 +97,7 @@ public class c implements com.baidu.tbadk.mvc.b.c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] MK() {
+    public byte[] MT() {
         return new byte[0];
     }
 
@@ -106,7 +106,7 @@ public class c implements com.baidu.tbadk.mvc.b.c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public boolean G(byte[] bArr) {
+    public boolean F(byte[] bArr) {
         return false;
     }
 }

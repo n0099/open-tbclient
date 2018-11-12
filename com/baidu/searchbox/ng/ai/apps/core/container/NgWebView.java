@@ -188,7 +188,7 @@ public class NgWebView extends BdSailorWebView implements CallbackHandler, Slide
         if (currentWebView == null) {
             return false;
         }
-        if (a.qX()) {
+        if (a.qV()) {
             return currentWebView.canScrollVertically(i);
         }
         return currentWebView.getWebView() != null && currentWebView.getWebView().canScrollVertically(i);

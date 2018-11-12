@@ -169,9 +169,9 @@ public final class l {
         try {
             ActivityManager.MemoryInfo memoryInfo2 = new ActivityManager.MemoryInfo();
             Yg.getMemoryInfo(memoryInfo2);
-            sb.append("isLowMem: ").append(memoryInfo2.lowMemory ? "yes" : AiAppNetworkUtils.NETWORK_TYPE_CELL_UN_CONNECTED).append("\navailMem: ").append(com.baidu.crabsdk.c.c.i(memoryInfo2.availMem)).append("\nthreshold: ").append(com.baidu.crabsdk.c.c.i(memoryInfo2.threshold)).append("\n");
-            if (com.baidu.crabsdk.c.c.rv() >= 5 && (memoryInfo = Yg.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
-                sb.append("totalPrivateDirty: ").append(com.baidu.crabsdk.c.c.i(memoryInfo.getTotalPrivateDirty() * 1024)).append("\ntotalPss: ").append(com.baidu.crabsdk.c.c.i(memoryInfo.getTotalPss() * 1024)).append("\ntotalSharedDirty: ").append(com.baidu.crabsdk.c.c.i(memoryInfo.getTotalSharedDirty() * 1024)).append("\n");
+            sb.append("isLowMem: ").append(memoryInfo2.lowMemory ? "yes" : AiAppNetworkUtils.NETWORK_TYPE_CELL_UN_CONNECTED).append("\navailMem: ").append(com.baidu.crabsdk.c.c.k(memoryInfo2.availMem)).append("\nthreshold: ").append(com.baidu.crabsdk.c.c.k(memoryInfo2.threshold)).append("\n");
+            if (com.baidu.crabsdk.c.c.rs() >= 5 && (memoryInfo = Yg.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
+                sb.append("totalPrivateDirty: ").append(com.baidu.crabsdk.c.c.k(memoryInfo.getTotalPrivateDirty() * 1024)).append("\ntotalPss: ").append(com.baidu.crabsdk.c.c.k(memoryInfo.getTotalPss() * 1024)).append("\ntotalSharedDirty: ").append(com.baidu.crabsdk.c.c.k(memoryInfo.getTotalSharedDirty() * 1024)).append("\n");
             }
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.f("getMemInfo error!!!", e);

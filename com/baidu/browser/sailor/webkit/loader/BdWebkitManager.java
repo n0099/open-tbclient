@@ -13,11 +13,11 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class BdWebkitManager {
     private static final String LOG_TAG = BdWebkitManager.class.getName();
-    private static int WP = b.Vt;
-    private static int WQ = b.Vt;
-    private boolean WR = true;
-    private List<IWebkitLoaderListener> WN = new ArrayList();
-    private com.baidu.browser.sailor.webkit.loader.a WO = new com.baidu.browser.sailor.webkit.loader.a();
+    private static int WR = b.Vv;
+    private static int WS = b.Vv;
+    private boolean WT = true;
+    private List<IWebkitLoaderListener> WP = new ArrayList();
+    private com.baidu.browser.sailor.webkit.loader.a WQ = new com.baidu.browser.sailor.webkit.loader.a();
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -35,7 +35,7 @@ public class BdWebkitManager {
             jSONObject.put("error_code", loadErrorCode.getInt());
             jSONObject.put("error_reason", loadErrorCode.getString());
             String str = ARCameraAttr.FlashType.FLASH_OFF;
-            if (com.baidu.browser.sailor.util.a.qX()) {
+            if (com.baidu.browser.sailor.util.a.qV()) {
                 str = ARCameraAttr.FlashType.FLASH_ON;
             }
             jSONObject.put("t5_integration", str);
@@ -50,8 +50,8 @@ public class BdWebkitManager {
     public void a(byte b, LoadErrorCode loadErrorCode) {
         String a2 = a(loadErrorCode);
         Log.d(LOG_TAG, a2);
-        if (this.WN != null) {
-            for (IWebkitLoaderListener iWebkitLoaderListener : this.WN) {
+        if (this.WP != null) {
+            for (IWebkitLoaderListener iWebkitLoaderListener : this.WP) {
                 iWebkitLoaderListener.onInstallZeusSDKFailed(b, a2);
             }
         }
@@ -60,9 +60,9 @@ public class BdWebkitManager {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Context context, String str, byte b) {
         ArrayList<IWebkitLoaderListener> arrayList;
-        if (this.WN != null) {
+        if (this.WP != null) {
             synchronized (this) {
-                arrayList = new ArrayList(this.WN);
+                arrayList = new ArrayList(this.WP);
             }
             for (IWebkitLoaderListener iWebkitLoaderListener : arrayList) {
                 iWebkitLoaderListener.onInstallZeusSDKSuccess(b);
@@ -72,46 +72,46 @@ public class BdWebkitManager {
 
     public void a(IWebkitLoaderListener iWebkitLoaderListener) {
         synchronized (this) {
-            this.WN.add(iWebkitLoaderListener);
+            this.WP.add(iWebkitLoaderListener);
         }
     }
 
     public void a(String str, boolean z, Class<? extends CrashCallback> cls) {
         boolean z2;
-        this.WR = z;
-        com.baidu.browser.sailor.webkit.loader.a aVar = this.WO;
-        Context appContext = com.baidu.browser.sailor.b.a.qR().getAppContext();
-        int i = WP;
+        this.WT = z;
+        com.baidu.browser.sailor.webkit.loader.a aVar = this.WQ;
+        Context appContext = com.baidu.browser.sailor.b.a.qP().getAppContext();
+        int i = WR;
         if (!z || (a.b != i && a.c != i)) {
-            if (com.baidu.browser.sailor.util.a.qX()) {
+            if (com.baidu.browser.sailor.util.a.qV()) {
                 return;
             }
             com.baidu.browser.sailor.webkit.loader.a.a(appContext, z, i);
-            if (com.baidu.browser.sailor.util.a.qX()) {
-                com.baidu.browser.sailor.b.a.qS().a("init-webkit", "success");
-                com.baidu.browser.sailor.b.a.qT().onLoadZeusSDKSuccess();
+            if (com.baidu.browser.sailor.util.a.qV()) {
+                com.baidu.browser.sailor.b.a.qQ().a("init-webkit", "success");
+                com.baidu.browser.sailor.b.a.qR().onLoadZeusSDKSuccess();
                 return;
             }
             LoadErrorCode loadErrorCode = WebKitFactory.getLoadErrorCode();
             aVar.b(loadErrorCode);
             com.baidu.browser.sailor.webkit.loader.a.c(loadErrorCode);
-            com.baidu.browser.sailor.b.a.qT().onLoadSysSDKSuccess();
+            com.baidu.browser.sailor.b.a.qR().onLoadSysSDKSuccess();
             return;
         }
         if (cls != null) {
             WebKitFactory.setCrashCallback(appContext, cls);
         }
-        WebKitFactory.init(appContext, str, com.baidu.browser.sailor.b.a.qR().getCuid());
+        WebKitFactory.init(appContext, str, com.baidu.browser.sailor.b.a.qP().getCuid());
         WebKitFactory.setApkLibLoadType(z);
-        WebKitFactory.setEmulator(com.baidu.browser.sailor.util.a.qY());
+        WebKitFactory.setEmulator(com.baidu.browser.sailor.util.a.qW());
         if (!WebKitFactory.isZeusSupported()) {
             aVar.b(new LoadErrorCode(99, "not support"));
-            com.baidu.browser.sailor.b.a.qS().a("init-webkit", "notSupport");
-            com.baidu.browser.sailor.b.a.qS().e = false;
+            com.baidu.browser.sailor.b.a.qQ().a("init-webkit", "notSupport");
+            com.baidu.browser.sailor.b.a.qQ().e = false;
             return;
         }
         if (a.c == i) {
-            com.baidu.browser.sailor.b.a.qS().a("emulator-check", "emulator:" + com.baidu.browser.sailor.util.a.qY());
+            com.baidu.browser.sailor.b.a.qQ().a("emulator-check", "emulator:" + com.baidu.browser.sailor.util.a.qW());
             z2 = WebKitFactory.setEngine(1);
             Log.d(com.baidu.browser.sailor.webkit.loader.a.a, "zeus version = " + WebKitFactory.getZeusVersionName());
         } else {
@@ -121,28 +121,28 @@ public class BdWebkitManager {
             LoadErrorCode loadErrorCode2 = WebKitFactory.getLoadErrorCode();
             aVar.b(loadErrorCode2);
             com.baidu.browser.sailor.webkit.loader.a.c(loadErrorCode2);
-            com.baidu.browser.sailor.b.a.qS().e = false;
+            com.baidu.browser.sailor.b.a.qQ().e = false;
             return;
         }
         Log.d(com.baidu.browser.sailor.webkit.loader.a.a, "zeus version = " + WebKitFactory.getZeusVersionName());
         Log.d(com.baidu.browser.sailor.webkit.loader.a.a, "sdk version = " + WebKitFactory.getSdkVersionName());
-        com.baidu.browser.sailor.b.a.qT().onLoadZeusSDKSuccess();
-        com.baidu.browser.sailor.b.a.qS().a("init-webkit", "success");
-        com.baidu.browser.sailor.b.a.qS().e = true;
+        com.baidu.browser.sailor.b.a.qR().onLoadZeusSDKSuccess();
+        com.baidu.browser.sailor.b.a.qQ().a("init-webkit", "success");
+        com.baidu.browser.sailor.b.a.qQ().e = true;
     }
 
     public void b(IWebkitLoaderListener iWebkitLoaderListener) {
         synchronized (this) {
-            if (this.WN.contains(iWebkitLoaderListener)) {
-                this.WN.remove(iWebkitLoaderListener);
+            if (this.WP.contains(iWebkitLoaderListener)) {
+                this.WP.remove(iWebkitLoaderListener);
             }
         }
     }
 
     public void cE(String str) {
-        com.baidu.browser.sailor.webkit.loader.a aVar = this.WO;
-        com.baidu.browser.sailor.b.a.qR().getAppContext();
-        int i = WP;
+        com.baidu.browser.sailor.webkit.loader.a aVar = this.WQ;
+        com.baidu.browser.sailor.b.a.qP().getAppContext();
+        int i = WR;
         if (str != null) {
             aVar.b = (byte) 0;
             if (a.c == i) {
@@ -160,8 +160,8 @@ public class BdWebkitManager {
     }
 
     void onLoadSysSDKSuccess() {
-        if (this.WN != null) {
-            for (IWebkitLoaderListener iWebkitLoaderListener : this.WN) {
+        if (this.WP != null) {
+            for (IWebkitLoaderListener iWebkitLoaderListener : this.WP) {
                 iWebkitLoaderListener.onLoadSysSDKSuccess();
             }
         }
@@ -169,25 +169,25 @@ public class BdWebkitManager {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void onLoadZeusSDKSuccess() {
-        for (IWebkitLoaderListener iWebkitLoaderListener : this.WN) {
+        for (IWebkitLoaderListener iWebkitLoaderListener : this.WP) {
             iWebkitLoaderListener.onLoadZeusSDKSuccess();
         }
     }
 
-    public void rb() {
-        WP = WQ;
+    public void qZ() {
+        WR = WS;
     }
 
-    public void rc() {
-        WP = a.a;
+    public void ra() {
+        WR = a.a;
     }
 
-    public boolean rd() {
-        return this.WR;
+    public boolean rb() {
+        return this.WT;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int re() {
-        return WP;
+    public int rc() {
+        return WR;
     }
 }

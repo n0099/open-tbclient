@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.x;
 import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
 public class a {
-    private static final String fGa = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+    private static final String fHy = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
 
     /* loaded from: classes6.dex */
     public interface b {
@@ -23,58 +23,58 @@ public class a {
     }
 
     public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
-        new C0243a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
+        new C0270a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
     }
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private static class C0243a extends BdAsyncTask<String, Object, ForbidResultData> {
-        private String HO;
-        private String aNA;
-        private String aNE;
-        private String fGb;
-        private WeakReference<b> fGc;
+    private static class C0270a extends BdAsyncTask<String, Object, ForbidResultData> {
+        private String HS;
+        private String aOq;
+        private String aOu;
+        private WeakReference<b> fHA;
+        private String fHz;
         private String mForumId;
         private String mForumName;
         private String mPostId;
         private String mThreadId;
         private String mUserName;
 
-        public C0243a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
+        public C0270a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
             this.mForumId = str;
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mUserName = str4;
-            this.fGb = str6;
-            this.aNE = str8;
-            this.aNA = str9;
-            this.HO = str7;
+            this.fHz = str6;
+            this.aOu = str8;
+            this.aOq = str9;
+            this.HS = str7;
             this.mPostId = str5;
-            this.fGc = new WeakReference<>(bVar);
+            this.fHA = new WeakReference<>(bVar);
             setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: z */
+        /* renamed from: B */
         public ForbidResultData doInBackground(String... strArr) {
-            x xVar = new x(a.fGa);
-            xVar.x("day", this.fGb);
+            x xVar = new x(a.fHy);
+            xVar.x("day", this.fHz);
             xVar.x("un", this.mUserName);
             xVar.x(ImageViewerConfig.FORUM_ID, this.mForumId);
             xVar.x("word", this.mForumName);
             xVar.x("z", this.mThreadId);
-            xVar.x(WebSocketAction.PARAM_KEY_REASON, this.HO);
+            xVar.x(WebSocketAction.PARAM_KEY_REASON, this.HS);
             xVar.x("ntn", "banid");
             xVar.x("post_id", this.mPostId);
-            xVar.x("nick_name", this.aNE);
-            xVar.x(IntentConfig.PORTRAIT, this.aNA);
-            xVar.BY().CW().mIsNeedTbs = true;
-            String BA = xVar.BA();
-            if (xVar.BY().CX().isRequestSuccess()) {
+            xVar.x("nick_name", this.aOu);
+            xVar.x(IntentConfig.PORTRAIT, this.aOq);
+            xVar.Cf().Dd().mIsNeedTbs = true;
+            String BH = xVar.BH();
+            if (xVar.Cf().De().isRequestSuccess()) {
                 try {
-                    return (ForbidResultData) OrmObject.objectWithJsonStr(BA, ForbidResultData.class);
+                    return (ForbidResultData) OrmObject.objectWithJsonStr(BH, ForbidResultData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     ForbidResultData forbidResultData = new ForbidResultData();
@@ -83,7 +83,7 @@ public class a {
                 }
             }
             ForbidResultData forbidResultData2 = new ForbidResultData();
-            forbidResultData2.error_code = xVar.Cc();
+            forbidResultData2.error_code = xVar.Cj();
             forbidResultData2.error_msg = xVar.getErrorString();
             return forbidResultData2;
         }
@@ -94,7 +94,7 @@ public class a {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.fGc.get();
+            b bVar = this.fHA.get();
             if (bVar != null) {
                 if (forbidResultData.error_code == 0 && ao.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);

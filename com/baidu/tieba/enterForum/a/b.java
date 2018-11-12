@@ -8,23 +8,23 @@ import com.baidu.tieba.enterForum.data.f;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tbadk.mvc.f.d<f, com.baidu.tbadk.mvc.d.b, com.baidu.tieba.enterForum.view.c> implements c {
-    private int dfS;
+    private int dgX;
 
     public b(TbPageContext<?> tbPageContext, Class<com.baidu.tieba.enterForum.view.c> cls, int i, ViewEventCenter viewEventCenter) {
         super(tbPageContext, cls, i, viewEventCenter);
-        this.dfS = -1;
+        this.dgX = -1;
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void aC(int i, int i2) {
+    public void aE(int i, int i2) {
         List<f> dataList = getDataList();
         com.baidu.tieba.enterForum.model.b.d(dataList, i, i2);
-        S(dataList);
+        R(dataList);
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void kD(int i) {
-        this.dfS = i;
+    public void kV(int i) {
+        this.dgX = i;
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
@@ -33,12 +33,12 @@ public class b extends com.baidu.tbadk.mvc.f.d<f, com.baidu.tbadk.mvc.d.b, com.b
     }
 
     @Override // com.baidu.tbadk.mvc.f.c
-    public void S(List<f> list) {
+    public void R(List<f> list) {
         if (list != null) {
             if (list.size() >= 1 && list.get(0) != null && list.get(0).getType() == 1) {
-                super.S(list);
+                super.R(list);
             } else {
-                super.S(list);
+                super.R(list);
             }
         }
     }
@@ -47,7 +47,7 @@ public class b extends com.baidu.tbadk.mvc.f.d<f, com.baidu.tbadk.mvc.d.b, com.b
     public View getView(int i, View view, ViewGroup viewGroup) {
         View view2 = super.getView(i, view, viewGroup);
         if (view2 != null) {
-            if (i == this.dfS) {
+            if (i == this.dgX) {
                 view2.setVisibility(4);
             } else {
                 view2.setVisibility(0);

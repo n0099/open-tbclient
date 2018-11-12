@@ -4,25 +4,25 @@ import com.facebook.cache.common.CacheEventListener;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class i implements com.facebook.cache.common.a {
-    private static final Object hWw = new Object();
-    private static i hWx;
-    private static int hWy;
-    private String hVN;
-    private long hWA;
-    private long hWB;
-    private long hWC;
-    private IOException hWD;
-    private CacheEventListener.EvictionReason hWE;
-    private i hWF;
-    private com.facebook.cache.common.b hWz;
+    private static final Object hYg = new Object();
+    private static i hYh;
+    private static int hYi;
+    private String hXx;
+    private com.facebook.cache.common.b hYj;
+    private long hYk;
+    private long hYl;
+    private long hYm;
+    private IOException hYn;
+    private CacheEventListener.EvictionReason hYo;
+    private i hYp;
 
-    public static i bRu() {
-        synchronized (hWw) {
-            if (hWx != null) {
-                i iVar = hWx;
-                hWx = iVar.hWF;
-                iVar.hWF = null;
-                hWy--;
+    public static i bQP() {
+        synchronized (hYg) {
+            if (hYh != null) {
+                i iVar = hYh;
+                hYh = iVar.hYp;
+                iVar.hYp = null;
+                hYi--;
                 return iVar;
             }
             return new i();
@@ -33,60 +33,60 @@ public class i implements com.facebook.cache.common.a {
     }
 
     public i g(com.facebook.cache.common.b bVar) {
-        this.hWz = bVar;
+        this.hYj = bVar;
         return this;
     }
 
-    public i yt(String str) {
-        this.hVN = str;
+    public i yy(String str) {
+        this.hXx = str;
         return this;
     }
 
-    public i dq(long j) {
-        this.hWA = j;
+    public i dl(long j) {
+        this.hYk = j;
         return this;
     }
 
-    public i dr(long j) {
-        this.hWC = j;
+    public i dm(long j) {
+        this.hYm = j;
         return this;
     }
 
-    public i ds(long j) {
-        this.hWB = j;
+    public i dn(long j) {
+        this.hYl = j;
         return this;
     }
 
     public i a(IOException iOException) {
-        this.hWD = iOException;
+        this.hYn = iOException;
         return this;
     }
 
     public i a(CacheEventListener.EvictionReason evictionReason) {
-        this.hWE = evictionReason;
+        this.hYo = evictionReason;
         return this;
     }
 
     public void recycle() {
-        synchronized (hWw) {
-            if (hWy < 5) {
+        synchronized (hYg) {
+            if (hYi < 5) {
                 reset();
-                hWy++;
-                if (hWx != null) {
-                    this.hWF = hWx;
+                hYi++;
+                if (hYh != null) {
+                    this.hYp = hYh;
                 }
-                hWx = this;
+                hYh = this;
             }
         }
     }
 
     private void reset() {
-        this.hWz = null;
-        this.hVN = null;
-        this.hWA = 0L;
-        this.hWB = 0L;
-        this.hWC = 0L;
-        this.hWD = null;
-        this.hWE = null;
+        this.hYj = null;
+        this.hXx = null;
+        this.hYk = 0L;
+        this.hYl = 0L;
+        this.hYm = 0L;
+        this.hYn = null;
+        this.hYo = null;
     }
 }

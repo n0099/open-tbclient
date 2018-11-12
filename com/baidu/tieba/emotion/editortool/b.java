@@ -4,34 +4,34 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes5.dex */
 public class b {
     private int column;
-    private int dfA;
-    private com.baidu.tbadk.editortools.emotiontool.c dfB;
-    private int dfC;
-    private int dfD;
-    private EmotionGroupType dfy;
-    private int dfz;
+    private EmotionGroupType dgD;
+    private int dgE;
+    private int dgF;
+    private com.baidu.tbadk.editortools.emotiontool.c dgG;
+    private int dgH;
+    private int dgI;
     private int endIndex;
     private int index;
     private int row;
     private int startIndex;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.dfB = cVar;
+        this.dgG = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c ato() {
-        return this.dfB;
+    public com.baidu.tbadk.editortools.emotiontool.c asN() {
+        return this.dgG;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.dfy = emotionGroupType;
+        this.dgD = emotionGroupType;
     }
 
-    public EmotionGroupType atp() {
-        return this.dfy;
+    public EmotionGroupType asO() {
+        return this.dgD;
     }
 
-    public void fs(int i) {
+    public void fG(int i) {
         this.row = i;
     }
 
@@ -39,43 +39,43 @@ public class b {
         return this.row;
     }
 
-    public void fr(int i) {
+    public void fF(int i) {
         this.column = i;
     }
 
-    public int atq() {
+    public int asP() {
         return this.column;
     }
 
-    public void ky(int i) {
-        this.dfD = i;
+    public void kQ(int i) {
+        this.dgI = i;
     }
 
-    public int atr() {
-        return this.dfD;
+    public int asQ() {
+        return this.dgI;
     }
 
-    public void kz(int i) {
-        this.dfC = i;
+    public void kR(int i) {
+        this.dgH = i;
     }
 
-    public int ats() {
-        return this.dfC;
+    public int asR() {
+        return this.dgH;
     }
 
-    public void kA(int i) {
-        this.dfz = i;
+    public void kS(int i) {
+        this.dgE = i;
     }
 
-    public int att() {
-        return this.dfz;
+    public int asS() {
+        return this.dgE;
     }
 
-    public void kB(int i) {
+    public void kT(int i) {
         this.startIndex = i;
     }
 
-    public int atu() {
+    public int asT() {
         return this.startIndex;
     }
 
@@ -91,11 +91,11 @@ public class b {
         return this.index;
     }
 
-    public void kC(int i) {
-        this.dfA = i;
+    public void kU(int i) {
+        this.dgF = i;
     }
 
-    public int atv() {
-        return this.dfA;
+    public int asU() {
+        return this.dgF;
     }
 }

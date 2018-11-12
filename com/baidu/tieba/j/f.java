@@ -17,11 +17,11 @@ public interface f {
 
     void k(String str, int i, String str2);
 
-    void rt(String str);
-
     void ru(String str);
 
-    boolean rv(String str);
+    void rv(String str);
 
     boolean rw(String str);
+
+    boolean rx(String str);
 }

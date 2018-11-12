@@ -15,12 +15,12 @@ import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class ShareStatic {
     static {
-        bxk();
-        bxl();
-        bxm();
+        bwG();
+        bwH();
+        bwI();
     }
 
-    private static void bxk() {
+    private static void bwG() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001445, new CustomMessageTask.CustomRunnable<com.baidu.tbadk.coreExtra.c.c>() { // from class: com.baidu.tieba.sharesdk.ShareStatic.1
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -32,41 +32,43 @@ public class ShareStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bxl() {
+    private static void bwH() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001276, new CustomMessageTask.CustomRunnable<ShareDialogConfig>() { // from class: com.baidu.tieba.sharesdk.ShareStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ShareDialogConfig> customMessage) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof ShareDialogConfig)) {
                     ShareDialogConfig data = customMessage.getData();
                     if (data.mIsShowTransmitShare) {
+                        ShareStatic.c(data);
+                    } else if (data.isAlaLiveRoomShare()) {
                         ShareStatic.b(data);
                     } else {
-                        com.baidu.tieba.sharesdk.d.a aVar = new com.baidu.tieba.sharesdk.d.a(data.getContext(), data.isLandscape, data.hideMode);
-                        aVar.a(data.shareItem, data.showLocation);
+                        com.baidu.tieba.sharesdk.d.b bVar = new com.baidu.tieba.sharesdk.d.b(data.getContext(), data.isLandscape, data.hideMode);
+                        bVar.a(data.shareItem, data.showLocation);
                         if (data.mtjStatistics != null) {
-                            aVar.e(data.mtjStatistics);
+                            bVar.e(data.mtjStatistics);
                         }
-                        aVar.setIsCopyLink(data.isCopyLink);
+                        bVar.setIsCopyLink(data.isCopyLink);
                         if (data.copyLinkListener != null) {
-                            aVar.setCopyLinkListener(data.copyLinkListener);
+                            bVar.setCopyLinkListener(data.copyLinkListener);
                         }
                         if (data.onDismissListener != null) {
-                            aVar.b(data.onDismissListener);
+                            bVar.b(data.onDismissListener);
                         }
-                        aVar.setOnCancelListener(data.onCancelListener);
+                        bVar.setOnCancelListener(data.onCancelListener);
                         if (data.textViewList != null && data.textViewList.size() > 0) {
                             Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = data.textViewList.iterator();
                             while (it.hasNext()) {
                                 Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
-                                TextView bK = aVar.bK(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue());
+                                TextView bO = bVar.bO(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue());
                                 if (data.isInsertBack) {
-                                    aVar.a(bK, aVar.bxw(), (View.OnClickListener) ((Pair) next.second).second);
+                                    bVar.a(bO, bVar.bwR(), (View.OnClickListener) ((Pair) next.second).second);
                                 } else {
-                                    aVar.b(bK, (View.OnClickListener) ((Pair) next.second).second);
+                                    bVar.c(bO, (View.OnClickListener) ((Pair) next.second).second);
                                 }
                             }
                         }
-                        aVar.show();
+                        bVar.show();
                     }
                 }
                 return null;
@@ -76,7 +78,32 @@ public class ShareStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bxm() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void b(ShareDialogConfig shareDialogConfig) {
+        com.baidu.tieba.sharesdk.d.a aVar = new com.baidu.tieba.sharesdk.d.a(shareDialogConfig.getContext(), shareDialogConfig.isLandscape, shareDialogConfig.hideMode);
+        aVar.a(shareDialogConfig.shareItem, shareDialogConfig.showLocation);
+        if (shareDialogConfig.copyLinkListener != null) {
+            aVar.setCopyLinkListener(shareDialogConfig.copyLinkListener);
+        }
+        if (shareDialogConfig.onDismissListener != null) {
+            aVar.b(shareDialogConfig.onDismissListener);
+        }
+        if (shareDialogConfig.textViewList != null && shareDialogConfig.textViewList.size() > 0) {
+            Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = shareDialogConfig.textViewList.iterator();
+            while (it.hasNext()) {
+                Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
+                View bM = aVar.bM(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue());
+                if (shareDialogConfig.isInsertBack) {
+                    aVar.a(bM, aVar.bwR(), (View.OnClickListener) ((Pair) next.second).second);
+                } else {
+                    aVar.b(bM, (View.OnClickListener) ((Pair) next.second).second);
+                }
+            }
+        }
+        aVar.show();
+    }
+
+    private static void bwI() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2016567, new CustomMessageTask.CustomRunnable<d>() { // from class: com.baidu.tieba.sharesdk.ShareStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<d> customMessage) {
@@ -94,9 +121,9 @@ public class ShareStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void b(ShareDialogConfig shareDialogConfig) {
+    public static void c(ShareDialogConfig shareDialogConfig) {
         com.baidu.tieba.r.d dVar = new com.baidu.tieba.r.d(shareDialogConfig.getContext());
-        dVar.nC(TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive);
+        dVar.nQ(TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive);
         dVar.a(shareDialogConfig.mForumList, shareDialogConfig.shareItem, shareDialogConfig.mPrivateThread);
         dVar.setOnDismissListener(shareDialogConfig.onDismissListener);
         dVar.show();

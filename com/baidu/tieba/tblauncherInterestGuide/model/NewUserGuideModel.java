@@ -16,10 +16,10 @@ import java.lang.ref.WeakReference;
 public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
     public static final int LIMIT = 100;
     public static final int OFFSET = 0;
-    private static final String hjQ = TbConfig.SERVER_ADDRESS + "c/s/gettaglist";
-    private boolean hjR;
-    private InterestFrsData hjS;
-    private a hjT;
+    private static final String hlA = TbConfig.SERVER_ADDRESS + "c/s/gettaglist";
+    private boolean hlB;
+    private InterestFrsData hlC;
+    private a hlD;
 
     /* loaded from: classes3.dex */
     public interface b {
@@ -32,30 +32,30 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         super(baseFragmentActivity.getPageContext());
     }
 
-    public boolean bEy() {
-        return this.hjR;
+    public boolean bDX() {
+        return this.hlB;
     }
 
-    public void nx(boolean z) {
-        this.hjR = z;
+    public void nL(boolean z) {
+        this.hlB = z;
     }
 
-    public InterestFrsData bEz() {
-        return this.hjS;
+    public InterestFrsData bDY() {
+        return this.hlC;
     }
 
     public void e(InterestFrsData interestFrsData) {
-        this.hjS = interestFrsData;
+        this.hlC = interestFrsData;
     }
 
     public void a(int i, int i2, int i3, b bVar) {
-        this.hjT = new a(i, i2, i3, bVar);
-        this.hjT.execute(new Void[0]);
+        this.hlD = new a(i, i2, i3, bVar);
+        this.hlD.execute(new Void[0]);
     }
 
-    public void bEA() {
-        if (this.hjT != null) {
-            this.hjT.cancel();
+    public void bDZ() {
+        if (this.hlD != null) {
+            this.hlD.cancel();
         }
     }
 
@@ -72,7 +72,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class a extends BdAsyncTask<Void, Void, InterestFrsData> {
-        private WeakReference<b> fGc;
+        private WeakReference<b> fHA;
         private int limit;
         private int offset;
         private int userType;
@@ -81,7 +81,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
             this.userType = i;
             this.offset = i2;
             this.limit = i3;
-            this.fGc = new WeakReference<>(bVar);
+            this.fHA = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -90,14 +90,14 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: n */
         public InterestFrsData doInBackground(Void... voidArr) {
-            x xVar = new x(NewUserGuideModel.hjQ);
+            x xVar = new x(NewUserGuideModel.hlA);
             xVar.x("user_type", String.valueOf(this.userType));
             xVar.x("offset", String.valueOf(this.offset));
             xVar.x("limit", String.valueOf(this.limit));
-            String BA = xVar.BA();
-            if (xVar.BY().CX().isRequestSuccess()) {
+            String BH = xVar.BH();
+            if (xVar.Cf().De().isRequestSuccess()) {
                 try {
-                    return (InterestFrsData) OrmObject.objectWithJsonStr(BA, InterestFrsData.class);
+                    return (InterestFrsData) OrmObject.objectWithJsonStr(BH, InterestFrsData.class);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     InterestFrsData interestFrsData = new InterestFrsData();
@@ -107,7 +107,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
                 }
             }
             InterestFrsData interestFrsData2 = new InterestFrsData();
-            interestFrsData2.setErrno(xVar.Cc() == 0 ? -1001 : xVar.Cc());
+            interestFrsData2.setErrno(xVar.Cj() == 0 ? -1001 : xVar.Cj());
             interestFrsData2.setErrmsg(xVar.getErrorString());
             return interestFrsData2;
         }
@@ -118,7 +118,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         /* renamed from: f */
         public void onPostExecute(InterestFrsData interestFrsData) {
             super.onPostExecute(interestFrsData);
-            b bVar = this.fGc.get();
+            b bVar = this.fHA.get();
             if (bVar != null) {
                 if (interestFrsData.getErrno() == 0) {
                     bVar.a(interestFrsData);

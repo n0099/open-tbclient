@@ -16,33 +16,33 @@ public final class a {
         /* renamed from: com.baidu.b.a.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
         public static final class C0057a {
-            public static final String YN = e.bt(a.C0058a.META_ERROR_NETWORK);
-            public static final String YO = e.bt(a.C0058a.META_ERROR_CONNECTION);
-            public static final String YP = e.bt(a.C0058a.META_ERROR_PARAMS);
-            public static final String YQ = e.bt(a.C0058a.META_ERROR_RESPONSE);
-            public static final String YR = e.bt(a.C0058a.DOWNLOAD_SUCCESS);
-            public static final String YS = e.bt(a.C0058a.DOWNLOAD_ERROR_NETWORK);
-            public static final String YT = e.bt(a.C0058a.DOWNLOAD_ERROR_MD5);
-            public static final String YU = e.bt(a.C0058a.DOWNLOAD_ERROR_PATH);
-            public static final String YV = e.bt(a.C0058a.DOWNLOAD_ERROR_CREATEFILE);
-            public static final String YW = e.bt(a.C0058a.DOWNLOAD_ERROR_NOSPACE);
-            public static final String YX = e.bt(a.C0058a.DOWNLOAD_ERROR_NETWROK_CHANGE);
-            public static final String YY = e.bt(a.C0058a.DOWNLOAD_ERROR_WRITE);
-            public static final String YZ = e.bt(a.C0058a.DOWNLOAD_PAUSED);
-            public static final String Za = e.bt(a.C0058a.DOWNLOAD_RESUMED);
-            public static final String Zb = e.bt(a.C0058a.DOWNLOAD_CANCELED);
-            public static final String Zc = e.bt(a.C0058a.DOWNLOAD_ERROR_DUPLICATED);
-            public static final String Zd = e.bt(a.C0058a.DOWNLOAD_ERROR_NETWROK_LIMIT);
-            public static final String Ze = e.bt(a.C0058a.DOWNLOAD_ERROR_MISS_PARAM);
-            public static final String Zf = e.bt(a.C0058a.INSTALL_SUCCESS);
-            public static final String Zg = e.bt(a.C0058a.INSTALL_ERROR);
+            public static final String YN = e.bI(a.C0058a.META_ERROR_NETWORK);
+            public static final String YO = e.bI(a.C0058a.META_ERROR_CONNECTION);
+            public static final String YP = e.bI(a.C0058a.META_ERROR_PARAMS);
+            public static final String YQ = e.bI(a.C0058a.META_ERROR_RESPONSE);
+            public static final String YR = e.bI(a.C0058a.DOWNLOAD_SUCCESS);
+            public static final String YS = e.bI(a.C0058a.DOWNLOAD_ERROR_NETWORK);
+            public static final String YT = e.bI(a.C0058a.DOWNLOAD_ERROR_MD5);
+            public static final String YU = e.bI(a.C0058a.DOWNLOAD_ERROR_PATH);
+            public static final String YV = e.bI(a.C0058a.DOWNLOAD_ERROR_CREATEFILE);
+            public static final String YW = e.bI(a.C0058a.DOWNLOAD_ERROR_NOSPACE);
+            public static final String YX = e.bI(a.C0058a.DOWNLOAD_ERROR_NETWROK_CHANGE);
+            public static final String YY = e.bI(a.C0058a.DOWNLOAD_ERROR_WRITE);
+            public static final String YZ = e.bI(a.C0058a.DOWNLOAD_PAUSED);
+            public static final String Za = e.bI(a.C0058a.DOWNLOAD_RESUMED);
+            public static final String Zb = e.bI(a.C0058a.DOWNLOAD_CANCELED);
+            public static final String Zc = e.bI(a.C0058a.DOWNLOAD_ERROR_DUPLICATED);
+            public static final String Zd = e.bI(a.C0058a.DOWNLOAD_ERROR_NETWROK_LIMIT);
+            public static final String Ze = e.bI(a.C0058a.DOWNLOAD_ERROR_MISS_PARAM);
+            public static final String Zf = e.bI(a.C0058a.INSTALL_SUCCESS);
+            public static final String Zg = e.bI(a.C0058a.INSTALL_ERROR);
         }
     }
 
     /* loaded from: classes2.dex */
     public static final class b {
-        public static final String Zh = com.baidu.b.a.g.a.se().sf() + "&action=";
-        public static final String Zi = com.baidu.b.a.g.a.se().sg() + "&action=";
+        public static final String Zh = com.baidu.b.a.g.a.sb().sc() + "&action=";
+        public static final String Zi = com.baidu.b.a.g.a.sb().sd() + "&action=";
         public static final String Zj = Zh + "api";
         public static final String Zk = Zi + "api";
     }

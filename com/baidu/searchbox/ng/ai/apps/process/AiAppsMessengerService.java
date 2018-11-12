@@ -118,7 +118,7 @@ public final class AiAppsMessengerService extends Service {
                             bundle.setClassLoader(getClass().getClassLoader());
                             aiAppsClientObject.mProcessId = message.arg1;
                             aiAppsClientObject.mAppId = bundle.getString(AiAppsMessengerClient.MSG_BUNDLE_APP_ID_KEY);
-                            aiAppsClientObject.mSwanCoreVersion = (SwanCoreVersion) bundle.getParcelable(AiAppsMessengerClient.MSG_BUNDLE_DATA_KEY);
+                            aiAppsClientObject.mSwanCoreVersion = (SwanCoreVersion) bundle.getParcelable("ai_apps_data");
                             aiAppsClientObject.mMessenger = message.replyTo;
                             try {
                                 aiAppsMessengerService.mClientsMap.put(Integer.valueOf(message.arg1), aiAppsClientObject);
@@ -148,7 +148,7 @@ public final class AiAppsMessengerService extends Service {
                     case 6:
                         Bundle bundle3 = (Bundle) message.obj;
                         bundle3.setClassLoader(getClass().getClassLoader());
-                        GetSubPackageHelper.processGetSubPackageMessage((SubPackageAPSInfo) bundle3.getParcelable(AiAppsMessengerClient.MSG_BUNDLE_DATA_KEY), message.arg1);
+                        GetSubPackageHelper.processGetSubPackageMessage((SubPackageAPSInfo) bundle3.getParcelable("ai_apps_data"), message.arg1);
                         return;
                     case 7:
                         Bundle bundle4 = (Bundle) message.obj;
@@ -160,7 +160,7 @@ public final class AiAppsMessengerService extends Service {
                     case 8:
                         Bundle bundle5 = (Bundle) message.obj;
                         if (bundle5 != null) {
-                            String string = bundle5.getString(AiAppsMessengerClient.MSG_BUNDLE_DATA_KEY, "");
+                            String string = bundle5.getString("ai_apps_data", "");
                             if (!TextUtils.isEmpty(string) && (purger = AiAppEnv.get().getPurger()) != null) {
                                 purger.deleteAiApp(string);
                                 return;
@@ -241,7 +241,7 @@ public final class AiAppsMessengerService extends Service {
             AiAppsClientObject aiAppsClientObject = this.mClientsMap.get(Integer.valueOf(intValue));
             if (aiAppsClientObject != null && (messenger = aiAppsClientObject.mMessenger) != null) {
                 Bundle generateMessageData = generateMessageData(i);
-                generateMessageData.putString(AiAppsMessengerClient.MSG_BUNDLE_DATA_KEY, str);
+                generateMessageData.putString("ai_apps_data", str);
                 try {
                     messenger.send(Message.obtain(null, i, generateMessageData));
                 } catch (RemoteException e) {

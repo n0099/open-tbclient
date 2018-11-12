@@ -79,7 +79,7 @@ public class a<T> {
         return this.subType;
     }
 
-    public T aTo() {
+    public T aSL() {
         return this.payload;
     }
 }

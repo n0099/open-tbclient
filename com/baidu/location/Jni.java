@@ -1,4 +1,6 @@
 package com.baidu.location;
+
+import com.baidu.android.common.so.SoLoader;
 /* loaded from: classes6.dex */
 public class Jni {
     private static int a = 0;
@@ -15,7 +17,11 @@ public class Jni {
     static {
         j = false;
         try {
-            System.loadLibrary("locSDK7b");
+            if (f.getServiceContext() != null) {
+                SoLoader.load(f.getServiceContext(), "liblocSDK7b.so");
+            } else {
+                System.loadLibrary("locSDK7b");
+            }
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
             j = true;

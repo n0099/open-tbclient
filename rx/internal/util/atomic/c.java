@@ -5,10 +5,10 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes2.dex */
 public final class c<E> extends a<E> {
-    private static final Integer iDv = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
+    private static final Integer iFf = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
     final AtomicLong consumerIndex;
-    long iDw;
-    final int iDx;
+    long iFg;
+    final int iFh;
     final AtomicLong producerIndex;
 
     @Override // rx.internal.util.atomic.a, java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
@@ -25,7 +25,7 @@ public final class c<E> extends a<E> {
         super(i);
         this.producerIndex = new AtomicLong();
         this.consumerIndex = new AtomicLong();
-        this.iDx = Math.min(i / 4, iDv.intValue());
+        this.iFh = Math.min(i / 4, iFf.intValue());
     }
 
     @Override // java.util.Queue
@@ -33,73 +33,73 @@ public final class c<E> extends a<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        AtomicReferenceArray<E> atomicReferenceArray = this.iDs;
+        AtomicReferenceArray<E> atomicReferenceArray = this.iFc;
         int i = this.mask;
         long j = this.producerIndex.get();
         int t = t(j, i);
-        if (j >= this.iDw) {
-            int i2 = this.iDx;
+        if (j >= this.iFg) {
+            int i2 = this.iFh;
             if (a(atomicReferenceArray, t(i2 + j, i)) == null) {
-                this.iDw = i2 + j;
+                this.iFg = i2 + j;
             } else if (a(atomicReferenceArray, t) != null) {
                 return false;
             }
         }
         a(atomicReferenceArray, t, e);
-        dM(1 + j);
+        dH(1 + j);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
         long j = this.consumerIndex.get();
-        int dL = dL(j);
-        AtomicReferenceArray<E> atomicReferenceArray = this.iDs;
-        E a = a(atomicReferenceArray, dL);
+        int dG = dG(j);
+        AtomicReferenceArray<E> atomicReferenceArray = this.iFc;
+        E a = a(atomicReferenceArray, dG);
         if (a == null) {
             return null;
         }
-        a(atomicReferenceArray, dL, null);
-        dN(j + 1);
+        a(atomicReferenceArray, dG, null);
+        dI(j + 1);
         return a;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        return yB(dL(this.consumerIndex.get()));
+        return yU(dG(this.consumerIndex.get()));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long cdb = cdb();
+        long ccy = ccy();
         while (true) {
-            long cdc = cdc();
-            long cdb2 = cdb();
-            if (cdb == cdb2) {
-                return (int) (cdc - cdb2);
+            long ccz = ccz();
+            long ccy2 = ccy();
+            if (ccy == ccy2) {
+                return (int) (ccz - ccy2);
             }
-            cdb = cdb2;
+            ccy = ccy2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return cdc() == cdb();
+        return ccz() == ccy();
     }
 
-    private void dM(long j) {
+    private void dH(long j) {
         this.producerIndex.lazySet(j);
     }
 
-    private void dN(long j) {
+    private void dI(long j) {
         this.consumerIndex.lazySet(j);
     }
 
-    private long cdb() {
+    private long ccy() {
         return this.consumerIndex.get();
     }
 
-    private long cdc() {
+    private long ccz() {
         return this.producerIndex.get();
     }
 }

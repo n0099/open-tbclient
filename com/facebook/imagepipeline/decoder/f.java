@@ -6,13 +6,13 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class f implements d {
-    private final b ifB;
+    private final b ihl;
 
     /* loaded from: classes2.dex */
     public interface b {
-        List<Integer> bWr();
+        List<Integer> bVM();
 
-        int bWs();
+        int bVN();
     }
 
     /* loaded from: classes2.dex */
@@ -21,12 +21,12 @@ public class f implements d {
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public List<Integer> bWr() {
+        public List<Integer> bVM() {
             return Collections.EMPTY_LIST;
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public int bWs() {
+        public int bVN() {
             return 0;
         }
     }
@@ -36,23 +36,23 @@ public class f implements d {
     }
 
     public f(b bVar) {
-        this.ifB = (b) g.checkNotNull(bVar);
+        this.ihl = (b) g.checkNotNull(bVar);
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
-    public int xv(int i) {
-        List<Integer> bWr = this.ifB.bWr();
-        if (bWr == null || bWr.isEmpty()) {
+    public int xO(int i) {
+        List<Integer> bVM = this.ihl.bVM();
+        if (bVM == null || bVM.isEmpty()) {
             return i + 1;
         }
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < bWr.size()) {
-                if (bWr.get(i3).intValue() <= i) {
+            if (i3 < bVM.size()) {
+                if (bVM.get(i3).intValue() <= i) {
                     i2 = i3 + 1;
                 } else {
-                    return bWr.get(i3).intValue();
+                    return bVM.get(i3).intValue();
                 }
             } else {
                 return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
@@ -61,7 +61,7 @@ public class f implements d {
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
-    public com.facebook.imagepipeline.f.g xw(int i) {
-        return com.facebook.imagepipeline.f.f.e(i, i >= this.ifB.bWs(), false);
+    public com.facebook.imagepipeline.f.g xP(int i) {
+        return com.facebook.imagepipeline.f.f.e(i, i >= this.ihl.bVN(), false);
     }
 }

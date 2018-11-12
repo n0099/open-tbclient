@@ -136,6 +136,7 @@ public class CmdConfigHttp {
     public static final int CMD_HTTP_GET_YINJI = 1001533;
     public static final int CMD_HTTP_SMART_APP = 1003420;
     public static final int CMD_INCREASE_FORUM_ACCESS_COUNT = 1003150;
+    public static final int CMD_LCS_STATISTICS = 1003422;
     public static final int CMD_MANGA_CHAPTER_ALL = 1003087;
     public static final int CMD_MANGA_CHAPTER_DETAIL = 1003086;
     public static final int CMD_MANGA_OFFLINE_RESOURCE = 1003091;

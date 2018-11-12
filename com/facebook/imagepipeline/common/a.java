@@ -6,31 +6,31 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes2.dex */
 public class a {
-    private static final a idx = bUD().bUL();
-    public final boolean idA;
-    public final boolean idB;
-    public final boolean idC;
-    public final Bitmap.Config idD;
+    private static final a ifh = bTY().bUg();
+    public final int ifi;
+    public final boolean ifj;
+    public final boolean ifk;
+    public final boolean ifl;
+    public final boolean ifm;
+    public final Bitmap.Config ifn;
     @Nullable
-    public final com.facebook.imagepipeline.decoder.b idE;
-    public final int idy;
-    public final boolean idz;
+    public final com.facebook.imagepipeline.decoder.b ifo;
 
     public a(b bVar) {
-        this.idy = bVar.bUE();
-        this.idz = bVar.bUF();
-        this.idA = bVar.bUG();
-        this.idB = bVar.bUH();
-        this.idC = bVar.bUJ();
-        this.idD = bVar.bUK();
-        this.idE = bVar.bUI();
+        this.ifi = bVar.bTZ();
+        this.ifj = bVar.bUa();
+        this.ifk = bVar.bUb();
+        this.ifl = bVar.bUc();
+        this.ifm = bVar.bUe();
+        this.ifn = bVar.bUf();
+        this.ifo = bVar.bUd();
     }
 
-    public static a bUC() {
-        return idx;
+    public static a bTX() {
+        return ifh;
     }
 
-    public static b bUD() {
+    public static b bTY() {
         return new b();
     }
 
@@ -42,14 +42,14 @@ public class a {
             return false;
         }
         a aVar = (a) obj;
-        return this.idz == aVar.idz && this.idA == aVar.idA && this.idB == aVar.idB && this.idC == aVar.idC && this.idD == aVar.idD && this.idE == aVar.idE;
+        return this.ifj == aVar.ifj && this.ifk == aVar.ifk && this.ifl == aVar.ifl && this.ifm == aVar.ifm && this.ifn == aVar.ifn && this.ifo == aVar.ifo;
     }
 
     public int hashCode() {
-        return (((((((this.idB ? 1 : 0) + (((this.idA ? 1 : 0) + (((this.idz ? 1 : 0) + (this.idy * 31)) * 31)) * 31)) * 31) + (this.idC ? 1 : 0)) * 31) + this.idD.ordinal()) * 31) + (this.idE != null ? this.idE.hashCode() : 0);
+        return (((((((this.ifl ? 1 : 0) + (((this.ifk ? 1 : 0) + (((this.ifj ? 1 : 0) + (this.ifi * 31)) * 31)) * 31)) * 31) + (this.ifm ? 1 : 0)) * 31) + this.ifn.ordinal()) * 31) + (this.ifo != null ? this.ifo.hashCode() : 0);
     }
 
     public String toString() {
-        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.idy), Boolean.valueOf(this.idz), Boolean.valueOf(this.idA), Boolean.valueOf(this.idB), Boolean.valueOf(this.idC), this.idD.name(), this.idE);
+        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.ifi), Boolean.valueOf(this.ifj), Boolean.valueOf(this.ifk), Boolean.valueOf(this.ifl), Boolean.valueOf(this.ifm), this.ifn.name(), this.ifo);
     }
 }

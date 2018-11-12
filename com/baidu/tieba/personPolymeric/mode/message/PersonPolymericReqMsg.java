@@ -45,7 +45,7 @@ public class PersonPolymericReqMsg extends NetMessage {
         builder.pn = Integer.valueOf(this.pn);
         builder.scr_w = Integer.valueOf(l.aO(TbadkCoreApplication.getInst().getApp()));
         builder.scr_h = Integer.valueOf(l.aQ(TbadkCoreApplication.getInst().getApp()));
-        builder.q_type = Integer.valueOf(i.ws().getViewImageQuality());
+        builder.q_type = Integer.valueOf(i.wA().getViewImageQuality());
         builder.scr_dip = Double.valueOf(l.aR(TbadkCoreApplication.getInst().getApp()));
         if (z) {
             p.bindCommonParamsToProtobufData(builder, true);

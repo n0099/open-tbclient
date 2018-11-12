@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk.core.view.userLike.b {
-    private TranslateAnimation fYB;
-    private ObjectAnimator fYC;
+    private TranslateAnimation gaa;
+    private ObjectAnimator gab;
 
     public PbNavbarUserConcernView(Context context) {
         super(context);
@@ -40,7 +40,7 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void ec(int i) {
+    public void eq(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
@@ -58,11 +58,11 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
             setVisibility(0);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         } else if (z) {
-            if (this.fYB == null) {
-                this.fYB = new TranslateAnimation(0.0f, -getMeasuredWidth(), 0.0f, 0.0f);
-                this.fYB.setDuration(300L);
-                this.fYB.setFillAfter(true);
-                this.fYB.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbNavbarUserConcernView.1
+            if (this.gaa == null) {
+                this.gaa = new TranslateAnimation(0.0f, -getMeasuredWidth(), 0.0f, 0.0f);
+                this.gaa.setDuration(300L);
+                this.gaa.setFillAfter(true);
+                this.gaa.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbNavbarUserConcernView.1
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
                     }
@@ -77,20 +77,20 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
                     }
                 });
             }
-            startAnimation(this.fYB);
+            startAnimation(this.gaa);
         } else {
-            if (this.fYC == null) {
-                this.fYC = ObjectAnimator.ofFloat(this, "translationX", 0.0f, -30.0f);
-                this.fYC.setDuration(200L);
-                this.fYC.setRepeatCount(1);
-                this.fYC.setRepeatMode(2);
+            if (this.gab == null) {
+                this.gab = ObjectAnimator.ofFloat(this, "translationX", 0.0f, -30.0f);
+                this.gab.setDuration(200L);
+                this.gab.setRepeatCount(1);
+                this.gab.setRepeatMode(2);
             }
-            this.fYC.start();
+            this.gab.start();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void c(View.OnClickListener onClickListener) {
+    public void d(View.OnClickListener onClickListener) {
         setOnClickListener(onClickListener);
     }
 

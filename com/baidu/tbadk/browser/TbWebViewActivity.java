@@ -238,7 +238,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             TbWebChromeClient tbWebChromeClient = new TbWebChromeClient(this);
             tbWebChromeClient.setOnJsPromptCallback(this.jsCallback);
             this.mWebView.setWebChromeClient(tbWebChromeClient);
-            com.baidu.tieba.q.c.bEK().trackWebView(this, this.mWebView, tbWebChromeClient);
+            com.baidu.tieba.q.c.bEj().trackWebView(this, this.mWebView, tbWebChromeClient);
             if (this.mEnableJs) {
                 addJavascriptInterface();
             }
@@ -250,11 +250,11 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 a2.a(new n(a2) { // from class: com.baidu.tbadk.browser.TbWebViewActivity.8
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.tbadk.core.hybrid.n
-                    public String vC() {
+                    public String vM() {
                         return "TBHY_COMMON_Performance";
                     }
 
-                    @o(Bb = false, value = "trackFPS")
+                    @o(Bi = false, value = "trackFPS")
                     private void trackFPS() {
                     }
                 });
@@ -264,11 +264,11 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 a2.a(new n(a2) { // from class: com.baidu.tbadk.browser.TbWebViewActivity.9
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.tbadk.core.hybrid.n
-                    public String vC() {
+                    public String vM() {
                         return "TBHY_COMMON_Share";
                     }
 
-                    @o(Bb = false, value = "share")
+                    @o(Bi = false, value = "share")
                     private void share(JSONObject jSONObject) {
                         if (jSONObject != null) {
                             String optString = jSONObject.optString("title");
@@ -281,7 +281,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                                 TbWebViewActivity.this.mBid = optString5;
                             }
                             final com.baidu.tbadk.coreExtra.c.d createShareContent = TbWebViewActivity.this.createShareContent(optString, optString4, optString2, optString3);
-                            com.baidu.adp.lib.g.e.jI().post(new Runnable() { // from class: com.baidu.tbadk.browser.TbWebViewActivity.9.1
+                            com.baidu.adp.lib.g.e.jG().post(new Runnable() { // from class: com.baidu.tbadk.browser.TbWebViewActivity.9.1
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     TbWebViewActivity.this.mView.a(createShareContent);
@@ -293,11 +293,11 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 a2.a(new n(a2) { // from class: com.baidu.tbadk.browser.TbWebViewActivity.10
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.tbadk.core.hybrid.n
-                    public String vC() {
+                    public String vM() {
                         return "TBHY_COMMON_UISwitch";
                     }
 
-                    @o(Bb = false, value = "viewHideSwitch")
+                    @o(Bi = false, value = "viewHideSwitch")
                     private void viewHideSwitch(JSONObject jSONObject) {
                         if (jSONObject != null) {
                             String optString = jSONObject.optJSONObject("share").optString("value");
@@ -306,18 +306,18 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                             } else if ("0".equals(optString)) {
                                 TbWebViewActivity.this.mShowShareItem = false;
                             }
-                            TbWebViewActivity.this.mView.aA(TbWebViewActivity.this.mShowShareItem);
+                            TbWebViewActivity.this.mView.aQ(TbWebViewActivity.this.mShowShareItem);
                         }
                     }
                 });
                 a2.a(new n(a2) { // from class: com.baidu.tbadk.browser.TbWebViewActivity.11
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.tbadk.core.hybrid.n
-                    public String vC() {
+                    public String vM() {
                         return "TBHY_COMMON_GAME_COMMENT";
                     }
 
-                    @o(Bb = false, value = "gameComment")
+                    @o(Bi = false, value = "gameComment")
                     private void goToGameComment(JSONObject jSONObject) {
                         if (jSONObject != null) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsGameCommentActivityConfig(TbWebViewActivity.this.getPageContext().getPageActivity(), jSONObject.optInt(PaddleController.SDK_TO_LUA_GESTURE_RESULT_SCORE), jSONObject.optInt("forum_id"))));
@@ -327,13 +327,13 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 a2.a(new n(a2) { // from class: com.baidu.tbadk.browser.TbWebViewActivity.12
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.tbadk.core.hybrid.n
-                    public String vC() {
+                    public String vM() {
                         return "TBHY_COMMON_COMMENT_FLOOR";
                     }
 
-                    @o(Bb = false, value = "enterCommentFloor")
+                    @o(Bi = false, value = "enterCommentFloor")
                     private void goToFrsGameSubPbActivity(JSONObject jSONObject) {
-                        if (jSONObject != null && ba.bI(TbWebViewActivity.this.getPageContext().getPageActivity())) {
+                        if (jSONObject != null && ba.bG(TbWebViewActivity.this.getPageContext().getPageActivity())) {
                             String optString = jSONObject.optString("forum_id");
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsGameSubPbActivityConfig(TbWebViewActivity.this.getPageContext().getPageActivity(), com.baidu.adp.lib.g.b.l(optString, 0), jSONObject.optString("comment_id"))));
                         }
@@ -523,12 +523,12 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.bCC();
+            this.jsBridge.bBY();
         }
         if (this.mWebView != null) {
             this.mWebView.getSettings().setBuiltInZoomControls(true);
             this.mWebView.setVisibility(8);
-            com.baidu.adp.lib.g.e.jI().postDelayed(new Runnable() { // from class: com.baidu.tbadk.browser.TbWebViewActivity.13
+            com.baidu.adp.lib.g.e.jG().postDelayed(new Runnable() { // from class: com.baidu.tbadk.browser.TbWebViewActivity.13
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
@@ -567,7 +567,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 } else {
                     TbWebViewActivity.this.mView.setNavBarVisibility(TbWebViewActivity.this.mIsShowNavBar);
                 }
-                TbWebViewActivity.this.mView.aA(TbWebViewActivity.this.isNeedShowShareItem());
+                TbWebViewActivity.this.mView.aQ(TbWebViewActivity.this.isNeedShowShareItem());
                 TbWebViewActivity.this.hideProgressBar();
                 TbWebViewActivity.this.stopLoadTimer();
             }
@@ -600,7 +600,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            int b = ay.CU().b(TbWebViewActivity.this.getPageContext(), new String[]{str, TbWebViewActivity.this.mUrl});
+            int b = ay.Db().b(TbWebViewActivity.this.getPageContext(), new String[]{str, TbWebViewActivity.this.mUrl});
             if (b == 1) {
                 TbWebViewActivity.this.finish();
                 return true;
@@ -613,7 +613,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                     TbWebViewActivity.this.runOnUiThread(new Runnable() { // from class: com.baidu.tbadk.browser.TbWebViewActivity.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            TbWebViewActivity.this.mView.vQ();
+                            TbWebViewActivity.this.mView.vY();
                         }
                     });
                 }
@@ -650,7 +650,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void initCookie() {
-        com.baidu.tbadk.browser.a.bq(getApplicationContext());
+        com.baidu.tbadk.browser.a.bo(getApplicationContext());
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
@@ -766,7 +766,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void showRightShareIcon() {
         if (this.mView != null) {
-            this.mView.vH();
+            this.mView.vR();
         }
     }
 
@@ -776,7 +776,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             try {
                 JSONObject jSONObject = new JSONObject(this.mShareParams);
                 final com.baidu.tbadk.coreExtra.c.d createShareContent = createShareContent(jSONObject.optString("title"), jSONObject.optString("url"), jSONObject.optString("desc"), jSONObject.optString(SocialConstants.PARAM_IMG_URL));
-                com.baidu.adp.lib.g.e.jI().post(new Runnable() { // from class: com.baidu.tbadk.browser.TbWebViewActivity.5
+                com.baidu.adp.lib.g.e.jG().post(new Runnable() { // from class: com.baidu.tbadk.browser.TbWebViewActivity.5
                     @Override // java.lang.Runnable
                     public void run() {
                         TbWebViewActivity.this.mView.a(createShareContent);

@@ -12,12 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class l {
-    public static final String hzM;
-    private HashMap<String, String> htp;
-    private List<DownloadData> hzN;
-    private a hzO;
-    private String hzP;
-    private com.baidu.tbadk.download.c hzQ = new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.record.l.1
+    public static final String hBw;
+    private com.baidu.tbadk.download.c hBA = new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.record.l.1
         @Override // com.baidu.tbadk.download.c
         public void onFileUpdateProgress(DownloadData downloadData) {
             if (downloadData.getStatus() == 4) {
@@ -26,8 +22,8 @@ public class l {
                     file.delete();
                 }
                 l.this.v(downloadData);
-                if (l.this.hzO != null && l.this.hzP.equals(downloadData.getUrl())) {
-                    l.this.hzO.bGw();
+                if (l.this.hBy != null && l.this.hBz.equals(downloadData.getUrl())) {
+                    l.this.hBy.bFV();
                 }
             }
         }
@@ -44,11 +40,11 @@ public class l {
 
         @Override // com.baidu.tbadk.download.c
         public void onFileDownloadSucceed(DownloadData downloadData) {
-            if (downloadData != null && !StringUtils.isNull(downloadData.getPath()) && !StringUtils.isNull(l.hzM)) {
+            if (downloadData != null && !StringUtils.isNull(downloadData.getPath()) && !StringUtils.isNull(l.hBw)) {
                 l.this.v(downloadData);
-                if (l.this.hzO != null && l.this.hzP.equals(downloadData.getUrl())) {
-                    l.this.htp.put(downloadData.getPath().substring(l.hzM.length() + 1, downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
-                    l.this.hzO.cM(l.this.hzP, downloadData.getPath());
+                if (l.this.hBy != null && l.this.hBz.equals(downloadData.getUrl())) {
+                    l.this.huY.put(downloadData.getPath().substring(l.hBw.length() + 1, downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+                    l.this.hBy.cM(l.this.hBz, downloadData.getPath());
                 }
             }
         }
@@ -60,91 +56,95 @@ public class l {
                 file.delete();
             }
             l.this.v(downloadData);
-            if (l.this.hzO != null && l.this.hzP.equals(downloadData.getUrl())) {
-                l.this.hzO.vR(str);
+            if (l.this.hBy != null && l.this.hBz.equals(downloadData.getUrl())) {
+                l.this.hBy.vW(str);
             }
         }
     };
+    private List<DownloadData> hBx;
+    private a hBy;
+    private String hBz;
+    private HashMap<String, String> huY;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void bGw();
+        void bFV();
 
         void cM(String str, String str2);
 
-        void vR(String str);
+        void vW(String str);
     }
 
     static {
-        hzM = TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers") != null ? TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers").getPath() : "";
+        hBw = TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers") != null ? TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers").getPath() : "";
     }
 
-    public String wo(String str) {
+    public String wt(String str) {
         String fs = ar.fs(str);
         if (fs == null) {
             return null;
         }
-        if (this.htp == null) {
-            this.htp = new HashMap<>();
-            bJr();
+        if (this.huY == null) {
+            this.huY = new HashMap<>();
+            bIQ();
         }
-        return this.htp.get(fs);
+        return this.huY.get(fs);
     }
 
-    public void bJr() {
-        if (!StringUtils.isNull(hzM)) {
-            if (this.htp == null) {
-                this.htp = new HashMap<>();
+    public void bIQ() {
+        if (!StringUtils.isNull(hBw)) {
+            if (this.huY == null) {
+                this.huY = new HashMap<>();
             } else {
-                this.htp.clear();
+                this.huY.clear();
             }
-            File file = new File(hzM);
+            File file = new File(hBw);
             if (file.exists()) {
                 File[] listFiles = file.listFiles();
                 for (File file2 : listFiles) {
                     if (file2.isFile()) {
-                        this.htp.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                        this.huY.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
                     }
                 }
             }
         }
     }
 
-    public void wp(String str) {
-        if (TextUtils.isEmpty(str) || StringUtils.isNull(hzM)) {
-            if (this.hzO != null) {
-                this.hzO.vR("");
+    public void wu(String str) {
+        if (TextUtils.isEmpty(str) || StringUtils.isNull(hBw)) {
+            if (this.hBy != null) {
+                this.hBy.vW("");
                 return;
             }
             return;
         }
         String fs = ar.fs(str);
         if (fs != null) {
-            File file = new File(hzM);
+            File file = new File(hBw);
             if (!file.exists()) {
                 file.mkdirs();
             }
             String str2 = "." + str.substring(str.lastIndexOf(".") + 1);
-            if (this.hzN == null) {
-                this.hzN = new ArrayList();
+            if (this.hBx == null) {
+                this.hBx = new ArrayList();
             }
-            if (!wq(str)) {
+            if (!wv(str)) {
                 DownloadData downloadData = new DownloadData();
                 downloadData.setType(10);
                 downloadData.setUrl(str);
-                downloadData.setPath(hzM + "/" + fs + str2);
-                downloadData.setCallback(this.hzQ);
-                this.hzN.add(downloadData);
-                com.baidu.tbadk.download.d.KB().f(downloadData);
+                downloadData.setPath(hBw + "/" + fs + str2);
+                downloadData.setCallback(this.hBA);
+                this.hBx.add(downloadData);
+                com.baidu.tbadk.download.d.KN().f(downloadData);
             }
         }
     }
 
-    private boolean wq(String str) {
-        if (v.J(this.hzN) || str == null) {
+    private boolean wv(String str) {
+        if (v.I(this.hBx) || str == null) {
             return false;
         }
-        for (DownloadData downloadData : this.hzN) {
+        for (DownloadData downloadData : this.hBx) {
             if (downloadData != null && str.equals(downloadData.getUrl())) {
                 return true;
             }
@@ -155,32 +155,32 @@ public class l {
     /* JADX INFO: Access modifiers changed from: private */
     public void v(DownloadData downloadData) {
         int i;
-        if (!v.J(this.hzN) && downloadData != null) {
+        if (!v.I(this.hBx) && downloadData != null) {
             int i2 = 0;
             while (true) {
                 i = i2;
-                if (i >= this.hzN.size()) {
+                if (i >= this.hBx.size()) {
                     i = -1;
                     break;
-                } else if (this.hzN.get(i) != null && this.hzN.get(i).getUrl() != null && this.hzN.get(i).getUrl().equals(downloadData.getUrl())) {
+                } else if (this.hBx.get(i) != null && this.hBx.get(i).getUrl() != null && this.hBx.get(i).getUrl().equals(downloadData.getUrl())) {
                     break;
                 } else {
                     i2 = i + 1;
                 }
             }
-            this.hzN.remove(i);
+            this.hBx.remove(i);
         }
     }
 
     public void a(a aVar) {
-        this.hzO = aVar;
+        this.hBy = aVar;
     }
 
-    public void wr(String str) {
+    public void ww(String str) {
         if (str == null) {
-            this.hzP = "";
+            this.hBz = "";
         } else {
-            this.hzP = str;
+            this.hBz = str;
         }
     }
 }

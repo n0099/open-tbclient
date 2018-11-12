@@ -92,7 +92,7 @@ public final class h {
                 cn.jiguang.e.c.c("RequestCacheManager", "sendCommandWithLoggedIn failed:sendData is null");
             } else if (g.a.get() == 0) {
                 cn.jiguang.e.c.c("RequestCacheManager", "sendCommandWithLoggedIn failed: tcp not connect");
-            } else if (cn.jiguang.d.g.c.cg().ch().j(a) == 6026) {
+            } else if (cn.jiguang.d.g.c.cg().ch().i(a) == 6026) {
                 c(iVar);
                 b(iVar);
                 cn.jiguang.d.d.e.bU().a(this.e, iVar.f, iVar.c, iVar.e, 6026);

@@ -4,15 +4,15 @@ import android.media.MediaPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class j implements Runnable {
-    final /* synthetic */ c Wf;
-    final /* synthetic */ n Wj;
-    final /* synthetic */ int Wl;
+    final /* synthetic */ c Wh;
+    final /* synthetic */ n Wl;
+    final /* synthetic */ int Wn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(c cVar, int i, n nVar) {
-        this.Wf = cVar;
-        this.Wl = i;
-        this.Wj = nVar;
+        this.Wh = cVar;
+        this.Wn = i;
+        this.Wl = nVar;
     }
 
     @Override // java.lang.Runnable
@@ -20,22 +20,22 @@ public class j implements Runnable {
         MediaPlayer mediaPlayer;
         MediaPlayer mediaPlayer2;
         MediaPlayer mediaPlayer3;
-        mediaPlayer = this.Wf.Wb;
+        mediaPlayer = this.Wh.Wd;
         if (mediaPlayer == null) {
-            this.Wj.cA("AudioSeekTo Not palying Audio");
+            this.Wl.cA("AudioSeekTo Not palying Audio");
             return;
         }
         try {
-            mediaPlayer2 = this.Wf.Wb;
+            mediaPlayer2 = this.Wh.Wd;
             if (mediaPlayer2.isPlaying()) {
-                mediaPlayer3 = this.Wf.Wb;
-                mediaPlayer3.seekTo(this.Wl);
-                this.Wj.c("AudioSeekTo", "true", true);
+                mediaPlayer3 = this.Wh.Wd;
+                mediaPlayer3.seekTo(this.Wn);
+                this.Wl.c("AudioSeekTo", "true", true);
             } else {
-                this.Wj.cA("AudioSeekTo Not palying Audio");
+                this.Wl.cA("AudioSeekTo Not palying Audio");
             }
         } catch (IllegalStateException e) {
-            this.Wj.cA(e.getMessage());
+            this.Wl.cA(e.getMessage());
         }
     }
 }

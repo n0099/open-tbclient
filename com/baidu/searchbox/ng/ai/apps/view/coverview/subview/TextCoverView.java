@@ -102,7 +102,7 @@ public class TextCoverView extends TextView implements ICoverView {
             String optString = jSONObject.optString(TEXT_ALIGN);
             switch (optString.hashCode()) {
                 case -1364013995:
-                    if (optString.equals(TEXT_ALIGN_CENTER)) {
+                    if (optString.equals("center")) {
                         c = 1;
                         break;
                     }
@@ -116,7 +116,7 @@ public class TextCoverView extends TextView implements ICoverView {
                     c = 65535;
                     break;
                 case 108511772:
-                    if (optString.equals(TEXT_ALIGN_RIGHT)) {
+                    if (optString.equals("right")) {
                         c = 0;
                         break;
                     }

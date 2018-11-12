@@ -17,12 +17,12 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
 public class a extends d {
-    private long hww;
+    private long hyf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(String str) {
         super(str);
-        this.hww = 88200L;
+        this.hyf = 88200L;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:106:0x0253 A[SYNTHETIC] */
@@ -34,7 +34,7 @@ public class a extends d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void wl(String str) {
+    public void wq(String str) {
         FileOutputStream fileOutputStream;
         FileInputStream fileInputStream;
         int i;
@@ -56,8 +56,8 @@ public class a extends d {
             if (this.channelCount == 0) {
                 this.channelCount = 1;
             }
-            this.hww = (this.sampleRate * 16) / 8;
-            fileInputStream = new FileInputStream(this.hwB);
+            this.hyf = (this.sampleRate * 16) / 8;
+            fileInputStream = new FileInputStream(this.hyk);
             try {
                 fileOutputStream = new FileOutputStream(str);
             } catch (Exception e) {
@@ -75,10 +75,10 @@ public class a extends d {
             fileInputStream = null;
         }
         try {
-            MediaCodec bIb = bIb();
-            bIb.start();
-            ByteBuffer[] inputBuffers = bIb.getInputBuffers();
-            ByteBuffer[] outputBuffers = bIb.getOutputBuffers();
+            MediaCodec bHA = bHA();
+            bHA.start();
+            ByteBuffer[] inputBuffers = bHA.getInputBuffers();
+            ByteBuffer[] outputBuffers = bHA.getOutputBuffers();
             MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
             long j3 = 0;
             long j4 = 0;
@@ -90,7 +90,7 @@ public class a extends d {
             byte[] bArr2 = new byte[4096];
             boolean z6 = false;
             while (!z4) {
-                if (z5 || (dequeueInputBuffer = bIb.dequeueInputBuffer(ErrDef.Feature.WEIGHT)) < 0) {
+                if (z5 || (dequeueInputBuffer = bHA.dequeueInputBuffer(ErrDef.Feature.WEIGHT)) < 0) {
                     i = i4;
                     bArr = bArr2;
                     z = z6;
@@ -110,7 +110,7 @@ public class a extends d {
                         z3 = i3 == -1 ? true : z6;
                     }
                     if (z3) {
-                        bIb.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                        bHA.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
                         i2 = i3;
                         bArr = bArr3;
                         z = z3;
@@ -121,20 +121,20 @@ public class a extends d {
                     } else {
                         byteBuffer.put(bArr3, 0, i3);
                         int i7 = i4 + i3;
-                        bIb.queueInputBuffer(dequeueInputBuffer, 0, i3, j4, 0);
+                        bHA.queueInputBuffer(dequeueInputBuffer, 0, i3, j4, 0);
                         i = i7;
                         i2 = i3;
                         bArr = bArr3;
                         z = z3;
-                        j = (long) ((1000000.0d * (i7 / 2.0d)) / this.hww);
+                        j = (long) ((1000000.0d * (i7 / 2.0d)) / this.hyf);
                         z2 = z5;
                     }
                 }
-                int dequeueOutputBuffer = bIb.dequeueOutputBuffer(bufferInfo, ErrDef.Feature.WEIGHT);
+                int dequeueOutputBuffer = bHA.dequeueOutputBuffer(bufferInfo, ErrDef.Feature.WEIGHT);
                 if (dequeueOutputBuffer >= 0) {
                     if ((bufferInfo.flags & 2) != 0) {
                         BdLog.i("audio encoder: codec config buffer");
-                        bIb.releaseOutputBuffer(dequeueOutputBuffer, false);
+                        bHA.releaseOutputBuffer(dequeueOutputBuffer, false);
                         i5 = i2;
                         bArr2 = bArr;
                         j4 = j;
@@ -157,7 +157,7 @@ public class a extends d {
                                 byteBuffer2.get(bArr4, 7, i8);
                                 fileOutputStream.write(bArr4, 0, bArr4.length);
                                 BdLog.i(bArr4.length + " bytes written.");
-                                bIb.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                bHA.releaseOutputBuffer(dequeueOutputBuffer, false);
                                 if ((bufferInfo.flags & 4) == 0) {
                                     j4 = j;
                                     z4 = true;
@@ -181,7 +181,7 @@ public class a extends d {
                             }
                         }
                         j2 = j3;
-                        bIb.releaseOutputBuffer(dequeueOutputBuffer, false);
+                        bHA.releaseOutputBuffer(dequeueOutputBuffer, false);
                         if ((bufferInfo.flags & 4) == 0) {
                         }
                     }
@@ -189,12 +189,12 @@ public class a extends d {
                     bArr2 = bArr;
                     j4 = j;
                     z5 = z2;
-                    byteBufferArr = bIb.getOutputBuffers();
+                    byteBufferArr = bHA.getOutputBuffers();
                     i5 = i2;
                     i4 = i;
                     z6 = z;
                 } else if (dequeueOutputBuffer == -2) {
-                    BdLog.i("format change : " + bIb.getOutputFormat());
+                    BdLog.i("format change : " + bHA.getOutputFormat());
                     i5 = i2;
                     bArr2 = bArr;
                     j4 = j;
@@ -267,7 +267,7 @@ public class a extends d {
     }
 
     @TargetApi(16)
-    private MediaCodec bIb() throws IOException {
+    private MediaCodec bHA() throws IOException {
         MediaCodec createEncoderByType = MediaCodec.createEncoderByType("audio/mp4a-latm");
         MediaFormat mediaFormat = new MediaFormat();
         mediaFormat.setString(IMediaFormat.KEY_MIME, "audio/mp4a-latm");

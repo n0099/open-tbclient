@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    public static final List<String> igB = Collections.unmodifiableList(new ArrayList());
+    public static final List<String> iil = Collections.unmodifiableList(new ArrayList());
 
     public static void load() {
         try {

@@ -16,69 +16,69 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.adp.base.c<AboutActivity> {
-    private SettingTextTestNewView gNA;
-    private ImageView gNB;
-    private TbSettingTextTipView gNC;
-    private TbSettingTextTipView gND;
-    private TbSettingTextTipView gNE;
-    private TbSettingTextTipView gNF;
-    protected TextView gNG;
-    private ProgressBar gNH;
-    private AboutActivity gNx;
-    private RelativeLayout gNy;
-    private TextView gNz;
+    private AboutActivity gOW;
+    private RelativeLayout gOX;
+    private TextView gOY;
+    private SettingTextTestNewView gOZ;
+    private ImageView gPa;
+    private TbSettingTextTipView gPb;
+    private TbSettingTextTipView gPc;
+    private TbSettingTextTipView gPd;
+    private TbSettingTextTipView gPe;
+    protected TextView gPf;
+    private ProgressBar gPg;
     private NavigationBar mNavigationBar;
 
     public a(AboutActivity aboutActivity, c cVar) {
         super(aboutActivity.getPageContext());
-        this.gNx = aboutActivity;
-        Jh();
+        this.gOW = aboutActivity;
+        Jt();
         a(cVar);
     }
 
-    public void bvo() {
-        if (this.gNH != null) {
-            this.gNH.setVisibility(0);
+    public void buK() {
+        if (this.gPg != null) {
+            this.gPg.setVisibility(0);
         }
     }
 
-    public void aFG() {
-        if (this.gNH != null) {
-            this.gNH.setVisibility(8);
+    public void aFc() {
+        if (this.gPg != null) {
+            this.gPg.setVisibility(8);
         }
     }
 
-    private void Jh() {
-        this.gNx.setContentView(e.h.about_activity);
-        this.gNy = (RelativeLayout) this.gNx.findViewById(e.g.parent);
-        this.gNB = (ImageView) this.gNx.findViewById(e.g.image_logo);
-        this.mNavigationBar = (NavigationBar) this.gNx.findViewById(e.g.view_navigation_bar);
+    private void Jt() {
+        this.gOW.setContentView(e.h.about_activity);
+        this.gOX = (RelativeLayout) this.gOW.findViewById(e.g.parent);
+        this.gPa = (ImageView) this.gOW.findViewById(e.g.image_logo);
+        this.mNavigationBar = (NavigationBar) this.gOW.findViewById(e.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.gNx.getPageContext().getString(e.j.version_info));
-        this.gNz = (TextView) this.gNx.findViewById(e.g.text_versioninfo);
-        this.gNA = (SettingTextTestNewView) this.gNx.findViewById(e.g.about_version_update);
-        this.gNC = (TbSettingTextTipView) this.gNx.findViewById(e.g.about_guide);
-        this.gNC.hideArrow();
-        this.gND = (TbSettingTextTipView) this.gNx.findViewById(e.g.tieba_protocol_text);
-        this.gND.hideArrow();
-        this.gNE = (TbSettingTextTipView) this.gNx.findViewById(e.g.tieba_privacy_text);
-        this.gNE.hideArrow();
-        this.gNF = (TbSettingTextTipView) this.gNx.findViewById(e.g.tieba_tdou_use_introduce);
-        this.gNF.hideArrow();
-        this.gNH = (ProgressBar) this.gNx.findViewById(e.g.about_progress);
+        this.mNavigationBar.setTitleText(this.gOW.getPageContext().getString(e.j.version_info));
+        this.gOY = (TextView) this.gOW.findViewById(e.g.text_versioninfo);
+        this.gOZ = (SettingTextTestNewView) this.gOW.findViewById(e.g.about_version_update);
+        this.gPb = (TbSettingTextTipView) this.gOW.findViewById(e.g.about_guide);
+        this.gPb.hideArrow();
+        this.gPc = (TbSettingTextTipView) this.gOW.findViewById(e.g.tieba_protocol_text);
+        this.gPc.hideArrow();
+        this.gPd = (TbSettingTextTipView) this.gOW.findViewById(e.g.tieba_privacy_text);
+        this.gPd.hideArrow();
+        this.gPe = (TbSettingTextTipView) this.gOW.findViewById(e.g.tieba_tdou_use_introduce);
+        this.gPe.hideArrow();
+        this.gPg = (ProgressBar) this.gOW.findViewById(e.g.about_progress);
         String version = TbConfig.getVersion();
         if (TbConfig.getVersionType() == 1 && !ao.isEmpty(TbConfig.getSubVersion())) {
             version = version + "." + TbConfig.getSubVersion();
         }
-        this.gNz.setText(this.gNx.getPageContext().getString(TbadkCoreApplication.getInst().getApplicationInfo().labelRes) + this.gNx.getPageContext().getString(e.j.setting_version_text) + " " + version);
-        this.gNG = (TextView) this.gNx.findViewById(e.g.text_version_protoco);
-        eS(TbadkCoreApplication.getInst().getSkinType());
+        this.gOY.setText(this.gOW.getPageContext().getString(TbadkCoreApplication.getInst().getApplicationInfo().labelRes) + this.gOW.getPageContext().getString(e.j.setting_version_text) + " " + version);
+        this.gPf = (TextView) this.gOW.findViewById(e.g.text_version_protoco);
+        fg(TbadkCoreApplication.getInst().getSkinType());
         if (MessageManager.getInstance().findTask(2015001) == null) {
-            this.gNC.setVisibility(8);
-            this.gNx.findViewById(e.g.line_about_guide).setVisibility(8);
+            this.gPb.setVisibility(8);
+            this.gOW.findViewById(e.g.line_about_guide).setVisibility(8);
         }
         if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("debug_plugin_switcher", false)) {
-            tH(0);
+            ua(0);
         }
     }
 
@@ -90,49 +90,49 @@ public class a extends com.baidu.adp.base.c<AboutActivity> {
             /* JADX WARN: Multi-variable type inference failed */
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == a.this.gND) {
-                    ay.CU().c(a.this.gNx.getPageContext(), new String[]{"http://tieba.baidu.com/tb/eula_mobile.html"});
-                } else if (view == a.this.gNE) {
-                    ay.CU().a(a.this.gNx.getPageContext(), new String[]{"http://tieba.baidu.com/tb/cms/client/wise_secretright.html"}, true);
-                } else if (view == a.this.gNF) {
-                    ay.CU().c(a.this.gNx.getPageContext(), new String[]{"https://tieba.baidu.com/tb/tdou_mobile.html"});
-                } else if (view != a.this.gNA) {
-                    if (view != a.this.gNC) {
-                        if (view == a.this.gNB) {
-                            cVar.tG(4);
+                if (view == a.this.gPc) {
+                    ay.Db().c(a.this.gOW.getPageContext(), new String[]{"http://tieba.baidu.com/tb/eula_mobile.html"});
+                } else if (view == a.this.gPd) {
+                    ay.Db().a(a.this.gOW.getPageContext(), new String[]{"http://tieba.baidu.com/tb/cms/client/wise_secretright.html"}, true);
+                } else if (view == a.this.gPe) {
+                    ay.Db().c(a.this.gOW.getPageContext(), new String[]{"https://tieba.baidu.com/tb/tdou_mobile.html"});
+                } else if (view != a.this.gOZ) {
+                    if (view != a.this.gPb) {
+                        if (view == a.this.gPa) {
+                            cVar.tZ(4);
                             return;
                         }
                         return;
                     }
-                    cVar.tG(2);
+                    cVar.tZ(2);
                 } else {
-                    cVar.tG(1);
+                    cVar.tZ(1);
                 }
             }
         };
-        this.gNA.setOnClickListener(onClickListener);
-        this.gNC.setOnClickListener(onClickListener);
-        this.gND.setOnClickListener(onClickListener);
-        this.gNE.setOnClickListener(onClickListener);
-        this.gNF.setOnClickListener(onClickListener);
-        this.gNB.setOnClickListener(onClickListener);
+        this.gOZ.setOnClickListener(onClickListener);
+        this.gPb.setOnClickListener(onClickListener);
+        this.gPc.setOnClickListener(onClickListener);
+        this.gPd.setOnClickListener(onClickListener);
+        this.gPe.setOnClickListener(onClickListener);
+        this.gPa.setOnClickListener(onClickListener);
     }
 
-    private void tH(int i) {
-        this.gNx.findViewById(e.g.line0).setVisibility(i);
+    private void ua(int i) {
+        this.gOW.findViewById(e.g.line0).setVisibility(i);
     }
 
-    public void bvp() {
-        if (this.gNA != null) {
-            this.gNA.refresh();
+    public void buL() {
+        if (this.gOZ != null) {
+            this.gOZ.refresh();
         }
     }
 
-    public void eS(int i) {
-        al.j(this.gNy, e.d.cp_bg_line_d);
+    public void fg(int i) {
+        al.j(this.gOX, e.d.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.gNx.getLayoutMode().setNightMode(i == 1);
-        this.gNx.getLayoutMode().onModeChanged(this.gNy);
-        bvp();
+        this.gOW.getLayoutMode().setNightMode(i == 1);
+        this.gOW.getLayoutMode().onModeChanged(this.gOX);
+        buL();
     }
 }

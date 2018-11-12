@@ -9,7 +9,7 @@ public abstract class b {
 
     public abstract void cd(String str);
 
-    public abstract List<BdFileDownloadData> nw();
+    public abstract List<BdFileDownloadData> nu();
 
     public void h(BdFileDownloadData bdFileDownloadData) {
         a(bdFileDownloadData, 1);

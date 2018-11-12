@@ -11,10 +11,10 @@ public class a implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null || !(customMessage instanceof GodSquareCacheRequestMsg)) {
             return null;
         }
-        byte[] nn = new com.baidu.tieba.godSquare.model.a().nn(((GodSquareCacheRequestMsg) customMessage).cacheKey);
+        byte[] no = new com.baidu.tieba.godSquare.model.a().no(((GodSquareCacheRequestMsg) customMessage).cacheKey);
         GodSquareCacheResponsedMsg godSquareCacheResponsedMsg = new GodSquareCacheResponsedMsg();
         try {
-            godSquareCacheResponsedMsg.decodeInBackGround(2016446, nn);
+            godSquareCacheResponsedMsg.decodeInBackGround(2016446, no);
             return godSquareCacheResponsedMsg;
         } catch (Exception e) {
             e.printStackTrace();

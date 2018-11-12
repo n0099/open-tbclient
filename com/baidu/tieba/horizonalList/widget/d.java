@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class d implements Filterable, WrapperListAdapter {
-    static final ArrayList<HListView.b> eqK = new ArrayList<>();
-    boolean OB;
+    static final ArrayList<HListView.b> ese = new ArrayList<>();
+    boolean OC;
     private final ListAdapter mAdapter;
     ArrayList<HListView.b> mFooterViewInfos;
     ArrayList<HListView.b> mHeaderViewInfos;
@@ -23,16 +23,16 @@ public class d implements Filterable, WrapperListAdapter {
         this.mAdapter = listAdapter;
         this.mIsFilterable = listAdapter instanceof Filterable;
         if (arrayList == null) {
-            this.mHeaderViewInfos = eqK;
+            this.mHeaderViewInfos = ese;
         } else {
             this.mHeaderViewInfos = arrayList;
         }
         if (arrayList2 == null) {
-            this.mFooterViewInfos = eqK;
+            this.mFooterViewInfos = ese;
         } else {
             this.mFooterViewInfos = arrayList2;
         }
-        this.OB = e(this.mHeaderViewInfos) && e(this.mFooterViewInfos);
+        this.OC = e(this.mHeaderViewInfos) && e(this.mFooterViewInfos);
     }
 
     public int getHeadersCount() {
@@ -68,7 +68,7 @@ public class d implements Filterable, WrapperListAdapter {
                 if (e(this.mHeaderViewInfos) && e(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.OB = z;
+                this.OC = z;
                 return true;
             }
         }
@@ -83,7 +83,7 @@ public class d implements Filterable, WrapperListAdapter {
                 if (e(this.mHeaderViewInfos) && e(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.OB = z;
+                this.OC = z;
                 return true;
             }
         }
@@ -98,7 +98,7 @@ public class d implements Filterable, WrapperListAdapter {
     @Override // android.widget.ListAdapter
     public boolean areAllItemsEnabled() {
         if (this.mAdapter != null) {
-            return this.OB && this.mAdapter.areAllItemsEnabled();
+            return this.OC && this.mAdapter.areAllItemsEnabled();
         }
         return true;
     }

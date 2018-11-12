@@ -39,7 +39,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
             setError(threadListResIdl.error.errorno.intValue());
             setErrorString(threadListResIdl.error.usermsg);
             if (getError() == 0 && threadListResIdl.data != null) {
-                if (v.I(threadListResIdl.data.user_list) > 0) {
+                if (v.H(threadListResIdl.data.user_list) > 0) {
                     this.userMap = new HashMap<>();
                     List<User> list = threadListResIdl.data.user_list;
                     if (list != null) {
@@ -55,7 +55,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                 }
                 Message<?> orginalMessage2 = getOrginalMessage();
                 boolean isBrandForum = (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) ? false : ((LoadMoreRequestMessage) orginalMessage2.getExtra()).isBrandForum();
-                if (v.I(threadListResIdl.data.thread_list) > 0) {
+                if (v.H(threadListResIdl.data.thread_list) > 0) {
                     this.threadList = new ArrayList<>();
                     List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
                     if (list2 != null) {
@@ -64,11 +64,11 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             bbVar.setUserMap(this.userMap);
                             bbVar.a(list2.get(i3));
                             bbVar.setCurrentPage(3);
-                            bbVar.zf();
-                            bbVar.arq = isBrandForum;
-                            if (!TextUtils.isEmpty(bbVar.zp())) {
+                            bbVar.zm();
+                            bbVar.asd = isBrandForum;
+                            if (!TextUtils.isEmpty(bbVar.zw())) {
                                 ab abVar = new ab();
-                                abVar.dP(bbVar.zp());
+                                abVar.dP(bbVar.zw());
                                 this.threadList.add(abVar);
                             } else {
                                 this.threadList.add(bbVar);

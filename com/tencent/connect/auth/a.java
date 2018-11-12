@@ -215,8 +215,8 @@ public class a extends Dialog {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.tencent.connect.auth.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0334a extends WebViewClient {
-        private C0334a() {
+    public class C0362a extends WebViewClient {
+        private C0362a() {
         }
 
         @Override // android.webkit.WebViewClient
@@ -306,7 +306,7 @@ public class a extends Dialog {
             super.onReceivedError(webView, i, str, str2);
             f.c("openSDK_LOG.AuthDialog", "-->onReceivedError, errorCode: " + i + " | description: " + str);
             if (!j.b(a.this.k)) {
-                a.this.b.onError(new UiError(MsgField.MSG_STAT_FIRST_LOAD_FILE_MANAGE_SUCCESS, "当前网络不可用，请稍后重试！", str2));
+                a.this.b.onError(new UiError(9001, "当前网络不可用，请稍后重试！", str2));
                 a.this.dismiss();
             } else if (!a.this.o.startsWith("http://qzs.qq.com/open/mobile/login/qzsjump.html?")) {
                 long elapsedRealtime = SystemClock.elapsedRealtime() - a.this.q;
@@ -471,7 +471,7 @@ public class a extends Dialog {
     private void d() {
         this.j.setVerticalScrollBarEnabled(false);
         this.j.setHorizontalScrollBarEnabled(false);
-        this.j.setWebViewClient(new C0334a());
+        this.j.setWebViewClient(new C0362a());
         this.j.setWebChromeClient(new WebChromeClient());
         this.j.clearFormData();
         this.j.clearSslPreferences();

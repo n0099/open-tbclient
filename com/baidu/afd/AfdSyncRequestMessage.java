@@ -32,15 +32,15 @@ public class AfdSyncRequestMessage extends HttpMessage {
         setUserAgent("bdtb for Android " + TbConfig.getVersion());
         addParam(Info.kBaiduPIDKey, "1517888290046");
         addParam("ac", "1");
-        addParam("ft", gVar.ps());
+        addParam("ft", gVar.pq());
         addParam("ext", getExt(gVar));
-        addParam("flr", String.valueOf(gVar.pu()));
-        addParam("fc", String.valueOf(gVar.pu()));
+        addParam("flr", String.valueOf(gVar.ps()));
+        addParam("fc", String.valueOf(gVar.ps()));
     }
 
     private static String getExt(g gVar) {
         JSONArray jSONArray = new JSONArray();
-        for (Map.Entry<String, String> entry : gVar.pv().entrySet()) {
+        for (Map.Entry<String, String> entry : gVar.pt().entrySet()) {
             jSONArray.put(create(entry.getKey(), entry.getValue()));
         }
         return jSONArray.toString();
@@ -57,7 +57,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
         addParam("android_id", androidId());
         addParam("ot", "2");
         addParam(Config.EXCEPTION_CRASH_TYPE, "2");
-        addParam("nt", String.valueOf(com.baidu.adp.lib.util.j.ld()));
+        addParam("nt", String.valueOf(com.baidu.adp.lib.util.j.lb()));
         addParam("uid", SapiAccountManager.getInstance().getSession("uid"));
         addParam("is_https", 1);
     }

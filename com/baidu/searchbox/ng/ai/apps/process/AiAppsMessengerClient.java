@@ -112,7 +112,7 @@ public final class AiAppsMessengerClient {
             obtain.arg1 = this.mBindInfo.processId;
             Bundle bundle = new Bundle();
             if (!TextUtils.isEmpty(str)) {
-                bundle.putString(MSG_BUNDLE_DATA_KEY, str);
+                bundle.putString("ai_apps_data", str);
             }
             bundle.putString(MSG_BUNDLE_APP_ID_KEY, this.mBindInfo.appId);
             obtain.obj = bundle;
@@ -130,7 +130,7 @@ public final class AiAppsMessengerClient {
             obtain.arg1 = this.mBindInfo.processId;
             Bundle bundle = new Bundle();
             if (aiAppsIPCData != null) {
-                bundle.putParcelable(MSG_BUNDLE_DATA_KEY, aiAppsIPCData);
+                bundle.putParcelable("ai_apps_data", aiAppsIPCData);
             }
             bundle.putString(MSG_BUNDLE_APP_ID_KEY, this.mBindInfo.appId);
             obtain.obj = bundle;

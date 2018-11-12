@@ -12,15 +12,15 @@ import org.json.JSONObject;
 public class n<T> {
     private final com.airbnb.lottie.e np;
     @Nullable
-    private final JSONObject qV;
-    private final m.a<T> qW;
+    private final JSONObject qW;
+    private final m.a<T> qX;
     private final float scale;
 
     private n(@Nullable JSONObject jSONObject, float f, com.airbnb.lottie.e eVar, m.a<T> aVar) {
-        this.qV = jSONObject;
+        this.qW = jSONObject;
         this.scale = f;
         this.np = eVar;
-        this.qW = aVar;
+        this.qX = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,16 +29,16 @@ public class n<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a<T> eb() {
-        List<com.airbnb.lottie.a.a<T>> ec = ec();
-        return new a<>(ec, h(ec));
+    public a<T> ea() {
+        List<com.airbnb.lottie.a.a<T>> eb = eb();
+        return new a<>(eb, h(eb));
     }
 
-    private List<com.airbnb.lottie.a.a<T>> ec() {
-        if (this.qV != null) {
-            Object opt = this.qV.opt(Config.APP_KEY);
+    private List<com.airbnb.lottie.a.a<T>> eb() {
+        if (this.qW != null) {
+            Object opt = this.qW.opt(Config.APP_KEY);
             if (j(opt)) {
-                return a.C0007a.a((JSONArray) opt, this.np, this.scale, this.qW);
+                return a.C0007a.a((JSONArray) opt, this.np, this.scale, this.qX);
             }
             return Collections.emptyList();
         }
@@ -47,11 +47,11 @@ public class n<T> {
 
     @Nullable
     private T h(List<com.airbnb.lottie.a.a<T>> list) {
-        if (this.qV != null) {
+        if (this.qW != null) {
             if (!list.isEmpty()) {
                 return list.get(0).on;
             }
-            return this.qW.b(this.qV.opt(Config.APP_KEY), this.scale);
+            return this.qX.b(this.qW.opt(Config.APP_KEY), this.scale);
         }
         return null;
     }
@@ -67,13 +67,13 @@ public class n<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class a<T> {
-        final List<com.airbnb.lottie.a.a<T>> pD;
+        final List<com.airbnb.lottie.a.a<T>> pE;
         @Nullable
-        final T pR;
+        final T pS;
 
         a(List<com.airbnb.lottie.a.a<T>> list, @Nullable T t) {
-            this.pD = list;
-            this.pR = t;
+            this.pE = list;
+            this.pS = t;
         }
     }
 }

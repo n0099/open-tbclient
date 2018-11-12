@@ -5,16 +5,16 @@ import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    private static final HashMap<String, e> fiY = new HashMap<>();
-    public long fiW;
-    public int fiX;
+    private static final HashMap<String, e> fkr = new HashMap<>();
+    public long fkp;
+    public int fkq;
     public String itemId = "";
     public String params;
     public int rn;
     public String tag_name;
 
     public void refresh() {
-        fiY.put(this.fiW + BaseRequestAction.SPLITE + (TextUtils.isEmpty(this.itemId) ? "" : this.itemId), this);
+        fkr.put(this.fkp + BaseRequestAction.SPLITE + (TextUtils.isEmpty(this.itemId) ? "" : this.itemId), this);
     }
 
     public static e o(long j, String str) {
@@ -22,6 +22,6 @@ public class e {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        return fiY.get(append.append(str).toString());
+        return fkr.get(append.append(str).toString());
     }
 }

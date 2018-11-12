@@ -8,28 +8,28 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class l extends a {
     public static String HEAD = "tb_oficial_msg_";
-    private static a eFG;
+    private static a eGZ;
 
     private l() {
         super("tb_oficial_msg_", OfficialChatMessage.class);
     }
 
-    public static synchronized l aPq() {
+    public static synchronized l aON() {
         l lVar;
         synchronized (l.class) {
-            if (eFG == null) {
-                eFG = new l();
+            if (eGZ == null) {
+                eGZ = new l();
             }
-            lVar = (l) eFG;
+            lVar = (l) eGZ;
         }
         return lVar;
     }
 
-    public static List<String> aPr() {
+    public static List<String> aOO() {
         Cursor cursor = null;
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = h.aPh().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time ASC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
+            cursor = h.aOE().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time ASC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     arrayList.add(cursor.getString(cursor.getColumnIndex("gid")));

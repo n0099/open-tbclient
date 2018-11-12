@@ -3,13 +3,13 @@ package com.facebook.imagepipeline.b;
 import android.graphics.Bitmap;
 /* loaded from: classes2.dex */
 public class g implements com.facebook.common.references.c<Bitmap> {
-    private static g icm;
+    private static g idZ;
 
-    public static g bUc() {
-        if (icm == null) {
-            icm = new g();
+    public static g bTx() {
+        if (idZ == null) {
+            idZ = new g();
         }
-        return icm;
+        return idZ;
     }
 
     private g() {

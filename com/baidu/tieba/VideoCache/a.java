@@ -4,55 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private List<d> buZ = new ArrayList();
-    private long bva = 0;
+    private List<d> bvK = new ArrayList();
+    private long bvL = 0;
 
-    public List<d> TJ() {
-        return this.buZ;
+    public List<d> TS() {
+        return this.bvK;
     }
 
-    public long TK() {
-        return this.bva;
+    public long TT() {
+        return this.bvL;
     }
 
     public void a(d dVar) {
-        if (this.buZ != null) {
-            this.buZ.add(dVar);
+        if (this.bvK != null) {
+            this.bvK.add(dVar);
             if (dVar != null) {
-                this.bva += dVar.TT();
+                this.bvL += dVar.Uc();
             }
         }
     }
 
     public void b(d dVar) {
-        if (this.buZ != null) {
-            this.buZ.remove(dVar);
+        if (this.bvK != null) {
+            this.bvK.remove(dVar);
             if (dVar != null) {
-                this.bva -= dVar.TT();
+                this.bvL -= dVar.Uc();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.buZ != null) {
-            d dVar = this.buZ.get(i);
+        if (this.bvK != null) {
+            d dVar = this.bvK.get(i);
             if (dVar != null) {
-                this.bva -= dVar.TT();
+                this.bvL -= dVar.Uc();
             }
-            this.buZ.remove(i);
+            this.bvK.remove(i);
         }
     }
 
-    public int TL() {
-        if (this.buZ != null) {
-            return this.buZ.size();
+    public int TU() {
+        if (this.bvK != null) {
+            return this.bvK.size();
         }
         return 0;
     }
 
-    public d gW(int i) {
-        if (this.buZ != null) {
-            return this.buZ.get(i);
+    public d hj(int i) {
+        if (this.bvK != null) {
+            return this.bvK.get(i);
         }
         return null;
     }

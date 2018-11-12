@@ -128,7 +128,7 @@ public class d {
                 }
             }
             int responseCode = httpURLConnection.getResponseCode();
-            cVar.q(responseCode);
+            cVar.H(responseCode);
             try {
                 inputStream3 = httpURLConnection.getInputStream();
             } catch (Throwable th4) {
@@ -160,7 +160,7 @@ public class d {
                     cVar.R(new String(bArr, "UTF-8"));
                 }
                 if (httpURLConnection != null) {
-                    cVar.q(httpURLConnection.getResponseCode());
+                    cVar.H(httpURLConnection.getResponseCode());
                     cVar.m("expires", httpURLConnection.getHeaderField("Expires"));
                     cVar.m(Headers.CACHE_CONTROL, httpURLConnection.getHeaderField("Cache-Control"));
                 }
@@ -172,7 +172,7 @@ public class d {
             } catch (MalformedURLException e5) {
                 inputStream2 = inputStream3;
                 try {
-                    cVar.q(3004);
+                    cVar.H(3004);
                     cVar.R("MalformedURLException");
                     f.a((Closeable) inputStream2);
                     f.a((Closeable) inputStream4);
@@ -192,16 +192,16 @@ public class d {
                 }
             } catch (IOException e6) {
                 e = e6;
-                cVar.q(2998);
+                cVar.H(2998);
                 cVar.R("网络错误");
                 if (e instanceof SocketTimeoutException) {
-                    cVar.q(3001);
+                    cVar.H(3001);
                     cVar.R("请求超时");
                 } else if (e instanceof UnknownHostException) {
-                    cVar.q(3003);
+                    cVar.H(3003);
                     cVar.R("域名无效");
                 } else if (e instanceof SSLHandshakeException) {
-                    cVar.q(ComponentMessageType.MSG_TYPE_LOGO_START);
+                    cVar.H(ComponentMessageType.MSG_TYPE_LOGO_START);
                     cVar.R("SSL失败");
                 }
                 f.a((Closeable) inputStream3);
@@ -212,7 +212,7 @@ public class d {
                 return cVar;
             } catch (Exception e7) {
                 e = e7;
-                cVar.q(ComponentMessageType.MSG_TYPE_LOGO_STOP);
+                cVar.H(ComponentMessageType.MSG_TYPE_LOGO_STOP);
                 cVar.R("UNKnow execption" + e.getMessage());
                 f.a((Closeable) inputStream3);
                 f.a((Closeable) inputStream4);
@@ -221,7 +221,7 @@ public class d {
                 }
                 return cVar;
             } catch (StackOverflowError e8) {
-                cVar.q(ComponentMessageType.MSG_TYPE_LOGO_HIT);
+                cVar.H(ComponentMessageType.MSG_TYPE_LOGO_HIT);
                 cVar.R("StackOverflowError");
                 f.a((Closeable) inputStream3);
                 f.a((Closeable) inputStream4);

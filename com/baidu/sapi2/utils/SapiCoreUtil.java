@@ -49,22 +49,27 @@ public class SapiCoreUtil {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [130=4] */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v7, resolved type: java.lang.String */
+    /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:25:0x00c6  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0114  */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0118  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x010c  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x0110  */
+    /* JADX WARN: Type inference failed for: r5v0, types: [java.lang.Process] */
+    /* JADX WARN: Type inference failed for: r5v16 */
+    /* JADX WARN: Type inference failed for: r5v17 */
     @TargetApi(4)
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static boolean chmodFile(Context context, File file) {
         Process process;
-        String str = null;
+        String str = 0;
         try {
-            Runtime runtime = Runtime.getRuntime();
-            String packageName = context.getPackageName();
-            process = null;
-            while (!packageName.equals(file.getName())) {
-                try {
+            try {
+                Runtime runtime = Runtime.getRuntime();
+                String packageName = context.getPackageName();
+                process = null;
+                while (!packageName.equals(file.getName())) {
                     try {
                         process = file.isDirectory() ? runtime.exec("chmod 701 " + file) : runtime.exec("chmod 664 " + file);
                         file = file.getParentFile();
@@ -77,39 +82,38 @@ public class SapiCoreUtil {
                         if (r0 != 0) {
                         }
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    if (process != null) {
-                        process.destroy();
+                }
+                String parseExecutePer = parseExecutePer(getExecResult(context.getApplicationInfo().dataDir));
+                if (TextUtils.isEmpty(parseExecutePer)) {
+                    parseExecutePer = "701";
+                    str = "chmod 701 " + file;
+                } else if (parseExecutePer.substring(2, 3).equals("0")) {
+                    str = "chmod " + parseExecutePer.substring(0, 2) + "1 " + file;
+                }
+                Log.e(TAG, "chmodFile", "command", str, "originPer", parseExecutePer);
+                if (str != 0) {
+                    process = runtime.exec(str);
+                    if (TextUtils.isEmpty(SapiContext.getInstance(context).getPackageDirExecutePer())) {
+                        SapiContext.getInstance(context).setPackageDirExecutePer(parseExecutePer);
                     }
-                    throw th;
                 }
-            }
-            String parseExecutePer = parseExecutePer(getExecResult(context.getApplicationInfo().dataDir));
-            if (TextUtils.isEmpty(parseExecutePer)) {
-                parseExecutePer = "701";
-                str = "chmod 701 " + file;
-            } else if (parseExecutePer.substring(2, 3).equals("0")) {
-                str = "chmod " + parseExecutePer.substring(0, 2) + "1 " + file;
-            }
-            Log.e(TAG, "chmodFile", "command", str, "originPer", parseExecutePer);
-            if (str != null) {
-                process = runtime.exec(str);
-                if (TextUtils.isEmpty(SapiContext.getInstance(context).getPackageDirExecutePer())) {
-                    SapiContext.getInstance(context).setPackageDirExecutePer(parseExecutePer);
+                r0 = process != null ? process.waitFor() : -1;
+                if (process != null) {
+                    process.destroy();
                 }
-            }
-            r0 = process != null ? process.waitFor() : -1;
-            if (process != null) {
-                process.destroy();
+            } catch (Throwable th) {
+                th = th;
+                if (0 != 0) {
+                    str.destroy();
+                }
+                throw th;
             }
         } catch (Exception e2) {
             e = e2;
             process = null;
         } catch (Throwable th2) {
             th = th2;
-            process = null;
-            if (process != null) {
+            if (0 != 0) {
             }
             throw th;
         }

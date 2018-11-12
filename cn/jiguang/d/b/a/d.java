@@ -52,7 +52,7 @@ public final class d {
             if (M == null) {
                 return -1;
             }
-            byte[] bArr2 = g(cn.jiguang.d.d.g.a(datagramSocket, new DatagramPacket(bArr, bArr.length, M, i))).b;
+            byte[] bArr2 = f(cn.jiguang.d.d.g.a(datagramSocket, new DatagramPacket(bArr, bArr.length, M, i))).b;
             if (bArr2 == null || bArr2.length == 0) {
                 throw new Exception("byte could not be empty");
             }
@@ -98,7 +98,7 @@ public final class d {
         return this.lo;
     }
 
-    public static b g(byte[] bArr) {
+    public static b f(byte[] bArr) {
         if (bArr == null || bArr.length == 0) {
             throw new e(3, "response is empty!");
         }

@@ -10,13 +10,13 @@ import com.baidu.tbadk.util.x;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class b extends a {
-    private static b eQQ = new b();
+    private static b eSi = new b();
 
     private b() {
     }
 
-    public static b aST() {
-        return eQQ;
+    public static b aSq() {
+        return eSi;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,8 +28,8 @@ public class b extends a {
             return null;
         }
         String str3 = str + "@" + str2;
-        synchronized (this.eQO) {
-            ChatSetting chatSetting = this.eQO.get(str3);
+        synchronized (this.eSg) {
+            ChatSetting chatSetting = this.eSg.get(str3);
             groupSettingItemData = chatSetting instanceof GroupSettingItemData ? (GroupSettingItemData) chatSetting : null;
         }
         if (groupSettingItemData == null) {
@@ -43,7 +43,7 @@ public class b extends a {
         return groupSettingItemData;
     }
 
-    public void aOZ() {
+    public void aOw() {
         super.p(GroupSettingItemData.class);
     }
 
@@ -82,8 +82,8 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> aSS() {
-        return com.baidu.tbadk.core.c.a.Aq().eg("tb.im_group_setting");
+    protected l<String> aSp() {
+        return com.baidu.tbadk.core.c.a.Ax().eg("tb.im_group_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -98,13 +98,13 @@ public class b extends a {
                 }
                 return;
             }
-            l<String> aSS = aSS();
+            l<String> aSp = aSp();
             String str = uid + "@" + gid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
-            synchronized (this.eQO) {
-                this.eQO.put(str, groupSettingItemData);
+            synchronized (this.eSg) {
+                this.eSg.put(str, groupSettingItemData);
             }
-            aSS.e(str, jsonStrWithObject);
+            aSp.e(str, jsonStrWithObject);
         }
     }
 
@@ -121,15 +121,15 @@ public class b extends a {
                 return;
             }
             final String str = uid + "@" + gid;
-            synchronized (this.eQO) {
-                this.eQO.put(str, groupSettingItemData);
+            synchronized (this.eSg) {
+                this.eSg.put(str, groupSettingItemData);
             }
             x.b(new w<Void>() { // from class: com.baidu.tieba.im.settingcache.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.w
-                /* renamed from: Vh */
+                /* renamed from: Vq */
                 public Void doInBackground() {
-                    b.this.aSS().e(str, OrmObject.jsonStrWithObject(groupSettingItemData));
+                    b.this.aSp().e(str, OrmObject.jsonStrWithObject(groupSettingItemData));
                     return null;
                 }
             }, hVar);
@@ -139,15 +139,15 @@ public class b extends a {
     public void b(String str, String str2, h<Void> hVar) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             final String str3 = str + "@" + str2;
-            synchronized (this.eQO) {
-                this.eQO.remove(str3);
+            synchronized (this.eSg) {
+                this.eSg.remove(str3);
             }
             x.b(new w<Void>() { // from class: com.baidu.tieba.im.settingcache.b.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.w
-                /* renamed from: Vh */
+                /* renamed from: Vq */
                 public Void doInBackground() {
-                    b.this.aSS().remove(str3);
+                    b.this.aSp().remove(str3);
                     return null;
                 }
             }, hVar);

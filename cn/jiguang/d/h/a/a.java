@@ -62,7 +62,7 @@ public final class a {
             }
             byte[] k = k("DFA84B10B7ACDD25", HTTP.ASCII);
             Cipher cipher = Cipher.getInstance(SapiEnv.SHARE_AES_MODE);
-            cipher.init(1, new SecretKeySpec(k, SapiEnv.SHARE_ALGORITHM), l(k));
+            cipher.init(1, new SecretKeySpec(k, SapiEnv.SHARE_ALGORITHM), k(k));
             return Base64.encodeToString(cipher.doFinal(str.getBytes()), 2);
         } catch (Exception e) {
             return "";
@@ -77,7 +77,7 @@ public final class a {
             if (str2.length() == 16) {
                 byte[] k = k(str2, HTTP.ASCII);
                 Cipher cipher = Cipher.getInstance(SapiEnv.SHARE_AES_MODE);
-                cipher.init(2, new SecretKeySpec(k, SapiEnv.SHARE_ALGORITHM), l(k));
+                cipher.init(2, new SecretKeySpec(k, SapiEnv.SHARE_ALGORITHM), k(k));
                 try {
                     return new String(cipher.doFinal(Base64.decode(str, 2)));
                 } catch (Exception e) {
@@ -111,9 +111,9 @@ public final class a {
         System.arraycopy(bArr, 24, bArr4, 0, length);
         String str = "";
         if (i == 1) {
-            str = i(d.c(null));
+            str = k(d.c(null));
         } else if (i == 0) {
-            str = i(b);
+            str = k(b);
         }
         try {
             byte[] a2 = a(str, bArr4);
@@ -143,7 +143,7 @@ public final class a {
         }
         byte[] k = k(str, IoUtils.UTF_8);
         Cipher cipher = Cipher.getInstance(SapiEnv.SHARE_AES_MODE);
-        cipher.init(1, new SecretKeySpec(k, SapiEnv.SHARE_ALGORITHM), l(str2.getBytes(IoUtils.UTF_8)));
+        cipher.init(1, new SecretKeySpec(k, SapiEnv.SHARE_ALGORITHM), k(str2.getBytes(IoUtils.UTF_8)));
         return cipher.doFinal(bArr);
     }
 
@@ -170,7 +170,7 @@ public final class a {
         return Math.abs(new SecureRandom().nextInt()) & 16777215;
     }
 
-    private static String i(long j) {
+    private static String k(long j) {
         long j2;
         String valueOf = String.valueOf(j);
         int length = valueOf.length();
@@ -214,6 +214,15 @@ public final class a {
         return a2;
     }
 
+    private static IvParameterSpec k(byte[] bArr) {
+        try {
+            return (IvParameterSpec) cn.jiguang.f.a.a(IvParameterSpec.class, new Object[]{bArr}, new Class[]{byte[].class});
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     private static byte[] k(String str, String str2) {
         byte[] bArr = new byte[str.length()];
         byte[] bytes = str.substring(0, str.length() / 2).getBytes(str2);
@@ -221,14 +230,5 @@ public final class a {
         System.arraycopy(bytes, 0, bArr, 0, bytes.length);
         System.arraycopy(bytes2, 0, bArr, bytes.length, bytes2.length);
         return bArr;
-    }
-
-    private static IvParameterSpec l(byte[] bArr) {
-        try {
-            return (IvParameterSpec) cn.jiguang.f.a.a(IvParameterSpec.class, new Object[]{bArr}, new Class[]{byte[].class});
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
     }
 }

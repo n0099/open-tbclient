@@ -12,57 +12,57 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public final class ShareThreadView extends LinearLayout {
-    private LinearLayout aFq;
-    private TextView dZK;
-    private EditText dZt;
-    private TbImageView ewT;
+    private LinearLayout aGg;
+    private EditText eaM;
+    private TextView ebd;
+    private TbImageView eyo;
     private TextView title;
 
     public EditText getChatMsgView() {
-        return this.dZt;
+        return this.eaM;
     }
 
     public void L(String str, boolean z) {
-        if (this.ewT != null) {
-            this.ewT.startLoad(str, z ? 17 : 18, false);
+        if (this.eyo != null) {
+            this.eyo.startLoad(str, z ? 17 : 18, false);
         }
     }
 
     public ShareThreadView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        cs(context);
+        cn(context);
     }
 
     public ShareThreadView(Context context) {
         super(context);
-        cs(context);
+        cn(context);
     }
 
-    private void cs(Context context) {
+    private void cn(Context context) {
         LayoutInflater.from(context).inflate(e.h.thread_to_group_share_view, this);
         setOrientation(1);
-        this.aFq = (LinearLayout) findViewById(e.g.share_content);
+        this.aGg = (LinearLayout) findViewById(e.g.share_content);
         this.title = (TextView) findViewById(e.g.share_title_view);
         al.c(this.title, e.d.cp_cont_b, 1);
-        this.dZt = (EditText) findViewById(e.g.chat_msg);
-        this.ewT = (TbImageView) findViewById(e.g.chat_group_img);
-        this.dZK = (TextView) findViewById(e.g.chat_group_desc);
-        al.c(this.dZt, e.d.cp_cont_b, 2);
-        al.c(this.dZK, e.d.cp_cont_f, 1);
-        this.dZt.setHintTextColor(al.getColor(e.d.cp_cont_e));
-        this.dZt.setPadding(context.getResources().getDimensionPixelSize(e.C0175e.ds20), 0, 0, 0);
-        aGO();
+        this.eaM = (EditText) findViewById(e.g.chat_msg);
+        this.eyo = (TbImageView) findViewById(e.g.chat_group_img);
+        this.ebd = (TextView) findViewById(e.g.chat_group_desc);
+        al.c(this.eaM, e.d.cp_cont_b, 2);
+        al.c(this.ebd, e.d.cp_cont_f, 1);
+        this.eaM.setHintTextColor(al.getColor(e.d.cp_cont_e));
+        this.eaM.setPadding(context.getResources().getDimensionPixelSize(e.C0200e.ds20), 0, 0, 0);
+        aGm();
     }
 
-    public void aGO() {
-        this.aFq.setFocusable(true);
-        this.aFq.setFocusableInTouchMode(true);
-        this.aFq.requestFocus();
+    public void aGm() {
+        this.aGg.setFocusable(true);
+        this.aGg.setFocusableInTouchMode(true);
+        this.aGg.requestFocus();
     }
 
     public void setDesc(String str) {
-        if (this.dZK != null) {
-            this.dZK.setText(str);
+        if (this.ebd != null) {
+            this.ebd.setText(str);
         }
     }
 
@@ -73,8 +73,8 @@ public final class ShareThreadView extends LinearLayout {
     }
 
     public String getLeaveMsg() {
-        if (this.dZt != null) {
-            return k.a(this.dZt.getText(), null);
+        if (this.eaM != null) {
+            return k.a(this.eaM.getText(), null);
         }
         return null;
     }

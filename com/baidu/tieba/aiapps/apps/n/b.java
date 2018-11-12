@@ -21,12 +21,12 @@ public class b extends AiAppAction {
 
     @Override // com.baidu.searchbox.ng.ai.apps.scheme.actions.AiAppAction
     public boolean handle(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
-        au(context, unitedSchemeEntity.getParam("params"));
+        as(context, unitedSchemeEntity.getParam("params"));
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }
 
-    private boolean au(Context context, String str) {
+    private boolean as(Context context, String str) {
         boolean z;
         if (StringUtils.isNull(str)) {
             return false;

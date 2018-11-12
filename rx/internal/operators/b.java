@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public abstract class b<T, R> extends rx.j<T> {
     protected final rx.j<? super R> actual;
     protected boolean hasValue;
-    final AtomicInteger isZ = new AtomicInteger();
+    final AtomicInteger iuJ = new AtomicInteger();
     protected R value;
 
     public b(rx.j<? super R> jVar) {
@@ -36,35 +36,35 @@ public abstract class b<T, R> extends rx.j<T> {
     public final void complete(R r) {
         rx.j<? super R> jVar = this.actual;
         do {
-            int i = this.isZ.get();
+            int i = this.iuJ.get();
             if (i != 2 && i != 3 && !jVar.isUnsubscribed()) {
                 if (i == 1) {
                     jVar.onNext(r);
                     if (!jVar.isUnsubscribed()) {
                         jVar.onCompleted();
                     }
-                    this.isZ.lazySet(3);
+                    this.iuJ.lazySet(3);
                     return;
                 }
                 this.value = r;
             } else {
                 return;
             }
-        } while (!this.isZ.compareAndSet(0, 2));
+        } while (!this.iuJ.compareAndSet(0, 2));
     }
 
     /* JADX DEBUG: Type inference failed for r1v4. Raw type applied. Possible types: R, ? super R */
-    final void dz(long j) {
+    final void du(long j) {
         if (j < 0) {
             throw new IllegalArgumentException("n >= 0 required but it was " + j);
         }
         if (j != 0) {
             rx.j<? super R> jVar = this.actual;
             do {
-                int i = this.isZ.get();
+                int i = this.iuJ.get();
                 if (i != 1 && i != 3 && !jVar.isUnsubscribed()) {
                     if (i == 2) {
-                        if (this.isZ.compareAndSet(2, 3)) {
+                        if (this.iuJ.compareAndSet(2, 3)) {
                             jVar.onNext((R) this.value);
                             if (!jVar.isUnsubscribed()) {
                                 jVar.onCompleted();
@@ -77,7 +77,7 @@ public abstract class b<T, R> extends rx.j<T> {
                 } else {
                     return;
                 }
-            } while (!this.isZ.compareAndSet(0, 1));
+            } while (!this.iuJ.compareAndSet(0, 1));
         }
     }
 
@@ -87,11 +87,11 @@ public abstract class b<T, R> extends rx.j<T> {
     }
 
     public final void c(rx.d<? extends T> dVar) {
-        cbG();
+        cbd();
         dVar.unsafeSubscribe(this);
     }
 
-    final void cbG() {
+    final void cbd() {
         rx.j<? super R> jVar = this.actual;
         jVar.add(this);
         jVar.setProducer(new a(this));
@@ -100,15 +100,15 @@ public abstract class b<T, R> extends rx.j<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a implements rx.f {
-        final b<?, ?> ita;
+        final b<?, ?> iuK;
 
         public a(b<?, ?> bVar) {
-            this.ita = bVar;
+            this.iuK = bVar;
         }
 
         @Override // rx.f
         public void request(long j) {
-            this.ita.dz(j);
+            this.iuK.du(j);
         }
     }
 }

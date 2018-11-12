@@ -5,12 +5,12 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 /* loaded from: classes2.dex */
 public class b implements c {
-    public static final b hWR = new b();
-    private String hWS = "unknown";
-    private int hWT = 5;
+    public static final b hYB = new b();
+    private String hYC = "unknown";
+    private int hYD = 5;
 
-    public static b bRD() {
-        return hWR;
+    public static b bQY() {
+        return hYB;
     }
 
     private b() {
@@ -18,7 +18,7 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public boolean isLoggable(int i) {
-        return this.hWT <= i;
+        return this.hYD <= i;
     }
 
     @Override // com.facebook.common.c.c
@@ -57,7 +57,7 @@ public class b implements c {
     }
 
     @Override // com.facebook.common.c.c
-    public void cW(String str, String str2) {
+    public void cV(String str, String str2) {
         m(6, str, str2);
     }
 
@@ -67,16 +67,16 @@ public class b implements c {
     }
 
     private void m(int i, String str, String str2) {
-        Log.println(i, yu(str), str2);
+        Log.println(i, yz(str), str2);
     }
 
     private void b(int i, String str, String str2, Throwable th) {
-        Log.println(i, yu(str), j(str2, th));
+        Log.println(i, yz(str), j(str2, th));
     }
 
-    private String yu(String str) {
-        if (this.hWS != null) {
-            return this.hWS + ":" + str;
+    private String yz(String str) {
+        if (this.hYC != null) {
+            return this.hYC + ":" + str;
         }
         return str;
     }

@@ -78,10 +78,10 @@ public class a implements m {
     private AbstractHttpEntity O(JSONObject jSONObject) {
         UrlEncodedFormEntity urlEncodedFormEntity;
         ArrayList arrayList = new ArrayList();
-        byte[] I = c.I(jSONObject.toString().getBytes());
-        I[0] = 117;
-        I[1] = 123;
-        arrayList.add(new BasicNameValuePair("data", Base64.encodeToString(I, 0)));
+        byte[] H = c.H(jSONObject.toString().getBytes());
+        H[0] = 117;
+        H[1] = 123;
+        arrayList.add(new BasicNameValuePair("data", Base64.encodeToString(H, 0)));
         try {
             urlEncodedFormEntity = new UrlEncodedFormEntity(arrayList, IoUtils.UTF_8);
             try {

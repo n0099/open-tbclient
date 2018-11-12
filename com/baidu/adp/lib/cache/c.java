@@ -7,13 +7,13 @@ import com.baidu.adp.lib.cache.e;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public abstract class c<T> {
-    protected final com.baidu.adp.base.a.b As;
-    protected String At;
-    protected e.b Au;
-    protected e.a Av;
-    protected int Aw;
-    protected LinkedList<String> Ax = new LinkedList<>();
-    private Object Ay = new Object();
+    protected LinkedList<String> AA = new LinkedList<>();
+    private Object AB = new Object();
+    protected final com.baidu.adp.base.a.b Av;
+    protected String Aw;
+    protected e.b Ax;
+    protected e.a Ay;
+    protected int Az;
 
     protected abstract ContentValues a(g<T> gVar);
 
@@ -27,27 +27,27 @@ public abstract class c<T> {
 
     public abstract Cursor d(SQLiteDatabase sQLiteDatabase, String str);
 
-    public abstract int im();
+    public abstract int il();
 
     public c(com.baidu.adp.base.a.b bVar) {
-        this.As = bVar;
+        this.Av = bVar;
     }
 
     public void a(e eVar, String str) {
-        this.At = str;
+        this.Aw = str;
         if (eVar instanceof e.b) {
-            this.Au = (e.b) eVar;
+            this.Ax = (e.b) eVar;
         }
         if (eVar instanceof e.a) {
-            this.Av = (e.a) eVar;
+            this.Ay = (e.a) eVar;
         }
     }
 
     public g<T> au(String str) {
         try {
-            return c(this.As.ge(), str);
+            return c(this.Av.ge(), str);
         } catch (Throwable th) {
-            this.As.a(th, "get");
+            this.Av.a(th, "get");
             return null;
         }
     }
@@ -55,34 +55,34 @@ public abstract class c<T> {
     public void b(g<T> gVar) {
         String e;
         try {
-            synchronized (this.Ay) {
-                this.Ax.remove(gVar.AE);
+            synchronized (this.AB) {
+                this.AA.remove(gVar.AH);
             }
             ContentValues a = a(gVar);
-            SQLiteDatabase ge = this.As.ge();
-            if (ge.update(this.At, a, "m_key = ?", new String[]{gVar.AE}) == 0) {
-                ge.insert(this.At, null, a);
-                if (this.Av != null) {
-                    in();
+            SQLiteDatabase ge = this.Av.ge();
+            if (ge.update(this.Aw, a, "m_key = ?", new String[]{gVar.AH}) == 0) {
+                ge.insert(this.Aw, null, a);
+                if (this.Ay != null) {
+                    im();
                 }
             }
-            if (this.Au != null && (e = this.Au.e(gVar)) != null) {
+            if (this.Ax != null && (e = this.Ax.e(gVar)) != null) {
                 av(e);
             }
         } catch (Throwable th) {
-            this.As.a(th, "addOrUpdateTextCacheItem");
+            this.Av.a(th, "addOrUpdateTextCacheItem");
         }
     }
 
-    protected void in() {
-        if (this.Av != null) {
-            this.Aw++;
-            if (this.Aw >= ((int) Math.min(this.Av.getMaxSize() * 0.2d, 5.0d))) {
-                this.Aw = 0;
-                com.baidu.adp.lib.g.h.jJ().d(new Runnable() { // from class: com.baidu.adp.lib.cache.c.1
+    protected void im() {
+        if (this.Ay != null) {
+            this.Az++;
+            if (this.Az >= ((int) Math.min(this.Ay.getMaxSize() * 0.2d, 5.0d))) {
+                this.Az = 0;
+                com.baidu.adp.lib.g.h.jH().d(new Runnable() { // from class: com.baidu.adp.lib.cache.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.ip();
+                        c.this.in();
                     }
                 });
             }
@@ -91,112 +91,112 @@ public abstract class c<T> {
 
     public int av(String str) {
         try {
-            return this.As.ge().delete(this.At, "m_key = ?", new String[]{str});
+            return this.Av.ge().delete(this.Aw, "m_key = ?", new String[]{str});
         } catch (Throwable th) {
-            this.As.a(th, "deleteCacheItem");
+            this.Av.a(th, "deleteCacheItem");
             return 0;
         }
     }
 
     public void aw(String str) {
-        this.Aw = 0;
-        synchronized (this.Ay) {
-            this.Ax.clear();
+        this.Az = 0;
+        synchronized (this.AB) {
+            this.AA.clear();
         }
         if (at(str)) {
-            BdCacheService.iz().iA().aI(str);
+            BdCacheService.iy().iz().aI(str);
         }
     }
 
     public synchronized void f(String str, boolean z) {
-        synchronized (this.Ay) {
-            if (!this.Ax.contains(str)) {
-                this.Ax.addLast(str);
+        synchronized (this.AB) {
+            if (!this.AA.contains(str)) {
+                this.AA.addLast(str);
                 if (z) {
-                    in();
+                    im();
                 }
             }
         }
     }
 
     public void ax(String str) {
-        if (this.Av != null) {
+        if (this.Ay != null) {
             Cursor cursor = null;
             try {
-                this.Av.it();
-                cursor = d(this.As.ge(), str);
+                this.Ay.is();
+                cursor = d(this.Av.ge(), str);
                 while (cursor.moveToNext()) {
                     g<?> gVar = new g<>();
-                    gVar.AE = cursor.getString(cursor.getColumnIndex("m_key"));
-                    gVar.AG = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                    gVar.AH = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
-                    gVar.AI = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    String d = this.Av.d(gVar);
+                    gVar.AH = cursor.getString(cursor.getColumnIndex("m_key"));
+                    gVar.AJ = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    gVar.AK = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
+                    gVar.AM = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                    String d = this.Ay.d(gVar);
                     if (d != null) {
                         f(d, false);
                     }
                 }
-                ip();
+                in();
             } catch (Throwable th) {
                 try {
-                    this.As.a(th, "performEvict");
+                    this.Av.a(th, "performEvict");
                 } finally {
                     com.baidu.adp.lib.g.a.e(cursor);
-                    this.Av.iu();
+                    this.Ay.it();
                 }
             }
         }
     }
 
     public void ay(String str) {
-        if (this.Au != null) {
+        if (this.Ax != null) {
             Cursor cursor = null;
             try {
-                this.Au.iv();
-                cursor = d(this.As.ge(), str);
+                this.Ax.iu();
+                cursor = d(this.Av.ge(), str);
                 while (cursor.moveToNext()) {
                     g<?> gVar = new g<>();
-                    gVar.AE = cursor.getString(cursor.getColumnIndex("m_key"));
-                    gVar.AG = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                    gVar.AH = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
-                    gVar.AI = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    String f = this.Au.f(gVar);
+                    gVar.AH = cursor.getString(cursor.getColumnIndex("m_key"));
+                    gVar.AJ = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    gVar.AK = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
+                    gVar.AM = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                    String f = this.Ax.f(gVar);
                     if (f != null) {
                         f(f, false);
                     }
                 }
-                ip();
+                in();
             } catch (Throwable th) {
                 try {
-                    this.As.a(th, "performPump");
+                    this.Av.a(th, "performPump");
                 } finally {
                     com.baidu.adp.lib.g.a.e(cursor);
-                    this.Au.iw();
+                    this.Ax.iv();
                 }
             }
         }
     }
 
-    protected void ip() {
+    protected void in() {
         String removeFirst;
-        if (!this.Ax.isEmpty()) {
-            SQLiteDatabase ge = this.As.ge();
+        if (!this.AA.isEmpty()) {
+            SQLiteDatabase ge = this.Av.ge();
             ge.beginTransaction();
             while (true) {
                 try {
-                    synchronized (this.Ay) {
-                        if (!this.Ax.isEmpty()) {
-                            removeFirst = this.Ax.removeFirst();
+                    synchronized (this.AB) {
+                        if (!this.AA.isEmpty()) {
+                            removeFirst = this.AA.removeFirst();
                         } else {
                             ge.setTransactionSuccessful();
-                            this.Aw = 0;
+                            this.Az = 0;
                             return;
                         }
                     }
-                    ge.delete(this.At, "m_key = ?", new String[]{String.valueOf(removeFirst)});
+                    ge.delete(this.Aw, "m_key = ?", new String[]{String.valueOf(removeFirst)});
                 } catch (Throwable th) {
                     try {
-                        this.As.a(th, "performCleanup");
+                        this.Av.a(th, "performCleanup");
                         return;
                     } finally {
                         ge.endTransaction();
@@ -206,7 +206,7 @@ public abstract class c<T> {
         }
     }
 
-    public com.baidu.adp.base.a.b iq() {
-        return this.As;
+    public com.baidu.adp.base.a.b ip() {
+        return this.Av;
     }
 }

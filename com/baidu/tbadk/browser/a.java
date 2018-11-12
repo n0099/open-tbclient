@@ -28,7 +28,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static String aio;
+    public static String ajb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String ah(String str, String str2) {
@@ -45,10 +45,10 @@ public class a {
     }
 
     public static void dr(String str) {
-        aio = str;
+        ajb = str;
     }
 
-    public static void ae(Context context, String str) {
+    public static void ac(Context context, String str) {
         b(context, true, str);
     }
 
@@ -77,7 +77,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        vw();
+        vG();
         try {
             if (!StringUtils.isNull(str2)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
@@ -92,7 +92,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7) {
-        vw();
+        vG();
         try {
             if (!StringUtils.isNull(str2)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3, z6);
@@ -104,8 +104,8 @@ public class a {
         }
     }
 
-    public static void af(Context context, String str) {
-        vw();
+    public static void ad(Context context, String str) {
+        vG();
         try {
             if (!StringUtils.isNull(str)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, "", appendVersionCode(appendCuidParam(str)), true, true, true, false);
@@ -118,11 +118,11 @@ public class a {
         }
     }
 
-    public static void ag(Context context, String str) {
-        ae(context, str);
+    public static void ae(Context context, String str) {
+        ac(context, str);
     }
 
-    public static void ah(Context context, String str) {
+    public static void af(Context context, String str) {
         String appendVersionCode = appendVersionCode(appendCuidParam(str));
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
@@ -184,7 +184,7 @@ public class a {
         return (ao.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
-    public static void bq(Context context) {
+    public static void bo(Context context) {
         CookieManager cookieManager = null;
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
@@ -194,7 +194,7 @@ public class a {
         }
         if (cookieManager != null) {
             cookieManager.setAcceptCookie(true);
-            if (com.baidu.tbadk.core.a.a.wx().dJ(TbadkCoreApplication.getCurrentBduss()) != null) {
+            if (com.baidu.tbadk.core.a.a.wF().dJ(TbadkCoreApplication.getCurrentBduss()) != null) {
                 String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(c)) {
@@ -203,9 +203,6 @@ public class a {
                 }
             } else {
                 try {
-                    String cookie = cookieManager.getCookie("https://passport.baidu.com");
-                    String cookie2 = cookieManager.getCookie("https://wappass.baidu.com");
-                    String cookie3 = cookieManager.getCookie("https://nsclick.baidu.com");
                     if (Build.VERSION.SDK_INT >= 21) {
                         cookieManager.removeAllCookies(null);
                         CookieManager.getInstance().flush();
@@ -213,15 +210,6 @@ public class a {
                         cookieManager.removeAllCookie();
                         CookieSyncManager.createInstance(context);
                         CookieSyncManager.getInstance().sync();
-                    }
-                    if (!StringUtils.isNull(cookie)) {
-                        cookieManager.setCookie("https://passport.baidu.com", cookie);
-                    }
-                    if (!StringUtils.isNull(cookie2)) {
-                        cookieManager.setCookie("https://wappass.baidu.com", cookie2);
-                    }
-                    if (!StringUtils.isNull(cookie3)) {
-                        cookieManager.setCookie("https://nsclick.baidu.com", cookie3);
                     }
                 } catch (Exception e) {
                     BdLog.e(e);
@@ -248,7 +236,7 @@ public class a {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void vw() {
+    private static void vG() {
         new ag("open_webview", true).start();
     }
 }

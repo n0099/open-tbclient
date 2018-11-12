@@ -23,8 +23,8 @@ import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPushActivity> implements BdSwitchView.a {
-    private BdListView dTp = null;
-    private a gQr = null;
+    private BdListView dUv = null;
+    private a gRP = null;
     private ArrayList<OfficialAccountPushInfo> list;
     private NavigationBar mNavigationBar;
     private NoNetworkView mNetworkView;
@@ -36,34 +36,34 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(e.h.official_account_push_activity);
-        aaS();
-        Uz();
-        Uy();
+        abc();
+        UI();
+        UH();
     }
 
-    private void Uy() {
-        if (!j.kX() && v.J(this.list)) {
-            bxi();
-        } else if (v.J(this.list)) {
-            aEI();
-        } else if (this.gQr == null) {
-            this.gQr = new a(getPageContext());
-            this.gQr.setData(this.list);
-            this.dTp.setAdapter((ListAdapter) this.gQr);
-            this.gQr.setSwitchStateChangeListener(this);
+    private void UH() {
+        if (!j.kV() && v.I(this.list)) {
+            bwE();
+        } else if (v.I(this.list)) {
+            aEe();
+        } else if (this.gRP == null) {
+            this.gRP = new a(getPageContext());
+            this.gRP.setData(this.list);
+            this.dUv.setAdapter((ListAdapter) this.gRP);
+            this.gRP.setSwitchStateChangeListener(this);
         } else {
-            this.gQr.setData(this.list);
-            this.gQr.notifyDataSetChanged();
+            this.gRP.setData(this.list);
+            this.gRP.notifyDataSetChanged();
         }
     }
 
-    private void Uz() {
+    private void UI() {
         this.mRootView = (ViewGroup) findViewById(e.g.official_account_push_container);
         this.mNavigationBar = (NavigationBar) findViewById(e.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_CENTER, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setCenterTextTitle(getPageContext().getString(e.j.offical_account_push_msg));
-        this.dTp = (BdListView) findViewById(e.g.list);
-        this.mNoDataView = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.ds120)), NoDataViewFactory.d.dO(e.j.no_data_text), null);
+        this.dUv = (BdListView) findViewById(e.g.list);
+        this.mNoDataView = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.h(TbadkCoreApplication.getInst().getContext(), e.C0200e.ds120)), NoDataViewFactory.d.ec(e.j.no_data_text), null);
         this.mNoDataView.setVisibility(0);
         this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(e.g.no_network);
     }
@@ -77,24 +77,24 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         this.mNetworkView.onChangeSkinType(getPageContext(), i);
     }
 
-    private void aaS() {
+    private void abc() {
         Intent intent = getIntent();
         if (intent != null) {
             this.list = intent.getParcelableArrayListExtra(OfficialAccountPushActivityConfig.OFFICIAL_LIST);
         }
     }
 
-    public void aEI() {
-        this.dTp.setVisibility(8);
+    public void aEe() {
+        this.dUv.setVisibility(8);
         this.mNoDataView.setVisibility(0);
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.dO(e.j.no_data_text));
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.ec(e.j.no_data_text));
         al.j(this.mRootView, e.d.cp_bg_line_d);
     }
 
-    public void bxi() {
-        this.dTp.setVisibility(8);
+    public void bwE() {
+        this.dUv.setVisibility(8);
         this.mNoDataView.setVisibility(0);
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.dO(e.j.refresh_view_title_text));
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.ec(e.j.refresh_view_title_text));
         al.j(this.mRootView, e.d.cp_bg_line_d);
     }
 
@@ -122,21 +122,21 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     }
 
     private void d(boolean z, long j) {
-        if (this.list != null && this.gQr != null) {
-            if (!j.kX()) {
-                this.gQr.notifyDataSetChanged();
+        if (this.list != null && this.gRP != null) {
+            if (!j.kV()) {
+                this.gRP.notifyDataSetChanged();
                 return;
             }
             for (int i = 0; i < this.list.size(); i++) {
                 if (this.list.get(i).uid == j) {
                     if (z) {
-                        this.list.get(i).gQu = 1;
+                        this.list.get(i).gRS = 1;
                     } else {
-                        this.list.get(i).gQu = 0;
+                        this.list.get(i).gRS = 0;
                     }
                 }
             }
-            this.gQr.notifyDataSetChanged();
+            this.gRP.notifyDataSetChanged();
         }
     }
 

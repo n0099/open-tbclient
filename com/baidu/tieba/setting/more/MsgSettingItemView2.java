@@ -11,7 +11,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class MsgSettingItemView2 extends LinearLayout {
-    private CheckBox gPX;
+    private CheckBox gRw;
     private View mBottomLine;
 
     public MsgSettingItemView2(Context context) {
@@ -27,7 +27,7 @@ public class MsgSettingItemView2 extends LinearLayout {
     public void init(Context context) {
         setOrientation(1);
         LayoutInflater.from(context).inflate(e.h.msg_setting_item_view2, (ViewGroup) this, true);
-        this.gPX = (CheckBox) findViewById(e.g.setting_check_view);
+        this.gRw = (CheckBox) findViewById(e.g.setting_check_view);
         this.mBottomLine = findViewById(e.g.bottom_line_ll);
     }
 
@@ -35,12 +35,12 @@ public class MsgSettingItemView2 extends LinearLayout {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.gPX.setText(str);
+        this.gRw.setText(str);
     }
 
     public void setText(int i) {
         if (i != 0) {
-            this.gPX.setText(i);
+            this.gRw.setText(i);
         }
     }
 
@@ -53,6 +53,6 @@ public class MsgSettingItemView2 extends LinearLayout {
     }
 
     public CheckBox getSwitchView() {
-        return this.gPX;
+        return this.gRw;
     }
 }

@@ -1,13 +1,13 @@
 package com.baidu.ubc;
 /* loaded from: classes2.dex */
 class h {
-    private String hSN;
-    private String hSO;
-    private int hSP;
-    private String hSQ;
-    private int hSR;
-    private int hSS;
-    private String hST;
+    private String hUA;
+    private int hUB;
+    private int hUC;
+    private String hUD;
+    private String hUx;
+    private String hUy;
+    private int hUz;
     private String mCategory;
     private String mId;
     private int mRate;
@@ -15,42 +15,42 @@ class h {
 
     public h(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.hSN = str2;
-        this.hSO = str3;
-        this.hSP = i;
+        this.hUx = str2;
+        this.hUy = str3;
+        this.hUz = i;
         this.mType = str4;
-        this.hSQ = str5;
+        this.hUA = str5;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String bPp() {
-        return this.hSN;
+    public String bOO() {
+        return this.hUx;
     }
 
-    public String bPq() {
-        return this.hSO;
+    public String bOP() {
+        return this.hUy;
     }
 
     public int getTimeout() {
-        return this.hSP;
+        return this.hUz;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String bPr() {
-        return this.hSQ;
+    public String bOQ() {
+        return this.hUA;
     }
 
-    public int bPs() {
+    public int bOR() {
         return this.mRate;
     }
 
-    public void wM(int i) {
+    public void xf(int i) {
         this.mRate = i;
     }
 
@@ -62,27 +62,27 @@ class h {
         this.mCategory = str;
     }
 
-    public int bPt() {
-        return this.hSR;
+    public int bOS() {
+        return this.hUB;
     }
 
-    public void wN(int i) {
-        this.hSR = i;
+    public void xg(int i) {
+        this.hUB = i;
     }
 
-    public int bPu() {
-        return this.hSS;
+    public int bOT() {
+        return this.hUC;
     }
 
-    public void wO(int i) {
-        this.hSS = i;
+    public void xh(int i) {
+        this.hUC = i;
     }
 
     public String getIdType() {
-        return this.hST;
+        return this.hUD;
     }
 
-    public void xx(String str) {
-        this.hST = str;
+    public void xC(String str) {
+        this.hUD = str;
     }
 }

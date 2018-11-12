@@ -19,11 +19,11 @@ import com.baidu.webkit.sdk.WebChromeClient;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class b {
-    private String VR;
-    private ValueCallback<Uri[]> VS;
-    private WebChromeClient.FileChooserParams VT;
-    private boolean VU;
-    private boolean VV = false;
+    private String VT;
+    private ValueCallback<Uri[]> VU;
+    private WebChromeClient.FileChooserParams VV;
+    private boolean VW;
+    private boolean VX = false;
     private Activity mActivity;
     private ValueCallback<Uri> mUploadMessage;
 
@@ -40,17 +40,17 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     @SuppressLint({"NewApi"})
-    public Intent qF() {
+    public Intent qD() {
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath() + File.separator + "browser-photos");
         file.mkdirs();
-        this.VR = file.getAbsolutePath() + File.separator + System.currentTimeMillis() + ".jpg";
+        this.VT = file.getAbsolutePath() + File.separator + System.currentTimeMillis() + ".jpg";
         if (Build.VERSION.SDK_INT >= 24) {
             ContentValues contentValues = new ContentValues(1);
-            contentValues.put("_data", this.VR);
-            intent.putExtra("output", com.baidu.browser.sailor.a.qq().getAppContext().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues));
+            contentValues.put("_data", this.VT);
+            intent.putExtra("output", com.baidu.browser.sailor.a.qo().getAppContext().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues));
         } else {
-            intent.putExtra("output", Uri.fromFile(new File(this.VR)));
+            intent.putExtra("output", Uri.fromFile(new File(this.VT)));
         }
         if (Build.VERSION.SDK_INT >= 19) {
             intent.setFlags(3);
@@ -59,18 +59,18 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Intent qH() {
+    public Intent qF() {
         if (com.baidu.browser.core.permission.b.aX(this.mActivity)) {
             return new Intent("android.media.action.VIDEO_CAPTURE");
         }
         Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
         intent.putExtra(IntentConfig.REQUEST_CODE, 4099);
         intent.putExtra("permissions", new String[]{"android.permission.CAMERA"});
-        com.baidu.browser.core.permission.a.qo().a(4099, new d(this));
+        com.baidu.browser.core.permission.a.qm().a(4099, new d(this));
         return intent;
     }
 
-    private Intent qI() {
+    private Intent qG() {
         return new Intent("android.provider.MediaStore.RECORD_SOUND");
     }
 
@@ -78,11 +78,11 @@ public class b {
         if (str == null || str2 == null) {
             return false;
         }
-        this.VR = null;
+        this.VT = null;
         if (str2.equals("image/*")) {
             if (str.equals("camera")) {
                 try {
-                    return a(qG(), 11);
+                    return a(qE(), 11);
                 } catch (Exception e) {
                     Log.printStackTrace(e);
                 }
@@ -94,7 +94,7 @@ public class b {
                 }
             } else {
                 try {
-                    Intent a = a(qG());
+                    Intent a = a(qE());
                     a.putExtra("android.intent.extra.INTENT", cw("image/*"));
                     return a(a, 11);
                 } catch (Exception e3) {
@@ -104,7 +104,7 @@ public class b {
         } else if (str2.equals("video/*")) {
             if (str.equals("camcorder")) {
                 try {
-                    return a(qH(), 11);
+                    return a(qF(), 11);
                 } catch (Exception e4) {
                     Log.printStackTrace(e4);
                 }
@@ -116,7 +116,7 @@ public class b {
                 }
             } else {
                 try {
-                    Intent a2 = a(qH());
+                    Intent a2 = a(qF());
                     a2.putExtra("android.intent.extra.INTENT", cw("video/*"));
                     return a(a2, 11);
                 } catch (Exception e6) {
@@ -126,7 +126,7 @@ public class b {
         } else if (str2.equals("audio/*")) {
             if (str.equals("microphone")) {
                 try {
-                    return a(qI(), 11);
+                    return a(qG(), 11);
                 } catch (Exception e7) {
                     Log.printStackTrace(e7);
                 }
@@ -138,7 +138,7 @@ public class b {
                 }
             } else {
                 try {
-                    Intent a3 = a(qI());
+                    Intent a3 = a(qG());
                     a3.putExtra("android.intent.extra.INTENT", cw("audio/*"));
                     return a(a3, 11);
                 } catch (Exception e9) {
@@ -147,7 +147,7 @@ public class b {
             }
         }
         try {
-            return a(qE(), 11);
+            return a(qC(), 11);
         } catch (Exception e10) {
             Log.printStackTrace(e10);
             return false;
@@ -160,12 +160,12 @@ public class b {
             return true;
         } catch (ActivityNotFoundException e) {
             try {
-                this.VU = true;
-                this.mActivity.startActivityForResult(qE(), i);
+                this.VW = true;
+                this.mActivity.startActivityForResult(qC(), i);
                 return true;
             } catch (ActivityNotFoundException e2) {
                 Log.printStackTrace(e);
-                qJ();
+                qH();
                 return false;
             }
         }
@@ -173,20 +173,20 @@ public class b {
 
     public boolean a(ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
         Intent intent;
-        this.VS = valueCallback;
-        this.VT = fileChooserParams;
+        this.VU = valueCallback;
+        this.VV = fileChooserParams;
         String str = "*/*";
-        String[] acceptTypes = this.VT.getAcceptTypes();
+        String[] acceptTypes = this.VV.getAcceptTypes();
         if (acceptTypes != null && acceptTypes.length > 0) {
             str = acceptTypes[0];
         }
         Intent[] intentArr = null;
         if (str.equals("image/*")) {
-            intentArr = new Intent[]{qG()};
+            intentArr = new Intent[]{qE()};
         } else if (str.equals("video/*")) {
-            intentArr = new Intent[]{qH()};
+            intentArr = new Intent[]{qF()};
         } else if (str.equals("audio/*")) {
-            intentArr = new Intent[]{qI()};
+            intentArr = new Intent[]{qG()};
         }
         if (intentArr != null && intentArr.length > 0) {
             if (fileChooserParams.isCaptureEnabled() && intentArr.length == 1) {
@@ -207,7 +207,7 @@ public class b {
             }
         }
         try {
-            return a(qE(), 11);
+            return a(qC(), 11);
         } catch (Exception e2) {
             Log.printStackTrace(e2);
             return false;
@@ -252,35 +252,35 @@ public class b {
     }
 
     @SuppressLint({"NewApi"})
-    public Intent qE() {
+    public Intent qC() {
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType("*/*");
-        Intent a = a(qG(), qH(), qI());
+        Intent a = a(qE(), qF(), qG());
         a.putExtra("android.intent.extra.INTENT", intent);
-        if (Build.VERSION.SDK_INT >= 21 && this.VT != null) {
-            a.putExtra("android.intent.extra.INTENT", this.VT.createIntent());
+        if (Build.VERSION.SDK_INT >= 21 && this.VV != null) {
+            a.putExtra("android.intent.extra.INTENT", this.VV.createIntent());
         }
         return a;
     }
 
-    public Intent qG() {
+    public Intent qE() {
         if (com.baidu.browser.core.permission.b.aX(this.mActivity)) {
-            return qF();
+            return qD();
         }
         Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
         intent.putExtra(IntentConfig.REQUEST_CODE, 4099);
         intent.putExtra("permissions", new String[]{"android.permission.CAMERA"});
-        com.baidu.browser.core.permission.a.qo().a(4099, new c(this));
+        com.baidu.browser.core.permission.a.qm().a(4099, new c(this));
         return intent;
     }
 
-    public void qJ() {
+    public void qH() {
         if (this.mUploadMessage != null) {
             this.mUploadMessage.onReceiveValue(null);
         }
-        if (this.VS != null) {
-            this.VS.onReceiveValue(null);
+        if (this.VU != null) {
+            this.VU.onReceiveValue(null);
         }
     }
 }

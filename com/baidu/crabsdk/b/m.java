@@ -10,8 +10,12 @@ public final class m {
     private static long Yj = StatisticConfig.MIN_UPLOAD_INTERVAL;
 
     public static void C() {
-        Yi.putInt("used_count", rr() + 1);
+        Yi.putInt("used_count", D() + 1);
         com.baidu.crabsdk.c.c.a(Yi, false);
+    }
+
+    public static int D() {
+        return Yh.getInt("used_count", 0);
     }
 
     public static void clear() {
@@ -53,9 +57,5 @@ public final class m {
             C();
             com.baidu.crabsdk.sender.h.n(context);
         }
-    }
-
-    public static int rr() {
-        return Yh.getInt("used_count", 0);
     }
 }

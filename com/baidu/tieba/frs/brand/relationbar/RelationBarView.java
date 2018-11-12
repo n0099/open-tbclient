@@ -18,7 +18,7 @@ import java.util.List;
 import tbclient.OriForumInfo;
 /* loaded from: classes6.dex */
 public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
-    private a dGL;
+    private a dIa;
     private RecyclerView mRecyclerView;
     private int mSkinType;
     private TextView mTitleView;
@@ -46,22 +46,22 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
         setOrientation(1);
         this.mTitleView = (TextView) findViewById(e.g.frs_brand_bar_title);
         this.mRecyclerView = (RecyclerView) findViewById(e.g.frs_brand_bar_list);
-        this.dGL = new a(context);
-        this.mRecyclerView.setAdapter(this.dGL);
+        this.dIa = new a(context);
+        this.mRecyclerView.setAdapter(this.dIa);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
         this.mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        this.mRecyclerView.addItemDecoration(new c(l.h(context, e.C0175e.tbds44), l.h(context, e.C0175e.tbds22), l.h(context, e.C0175e.tbds44)));
+        this.mRecyclerView.addItemDecoration(new c(l.h(context, e.C0200e.tbds44), l.h(context, e.C0200e.tbds22), l.h(context, e.C0200e.tbds44)));
         onChangeSkinType();
     }
 
     public void setData(List<OriForumInfo> list) {
-        if (v.J(list)) {
+        if (v.I(list)) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.dGL.setData(list);
-        this.dGL.notifyDataSetChanged();
+        this.dIa.setData(list);
+        this.dIa.notifyDataSetChanged();
     }
 
     public void onChangeSkinType() {
@@ -70,7 +70,7 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
             this.mSkinType = skinType;
             al.j(this, e.d.cp_bg_line_e);
             al.h(this.mTitleView, e.d.cp_cont_f);
-            this.dGL.notifyDataSetChanged();
+            this.dIa.notifyDataSetChanged();
         }
     }
 }

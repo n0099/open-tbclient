@@ -3,47 +3,47 @@ package com.baidu.tbadk.core.data;
 import tbclient.FrsPage.ForumBookInfo;
 /* loaded from: classes6.dex */
 public class p {
-    private long amA;
-    private int amc;
-    private String amo;
-    private String amp;
-    private String amq;
-    private String amr;
-    private String ams;
-    private String amt;
-    private String amu;
-    private long amv;
-    private long amw;
-    private long amx;
-    private long amy;
-    private long amz;
+    private int amP;
+    private String anb;
+    private String anc;
+    private String and;
+    private String ane;
+    private String anf;
+    private String ang;
+    private String anh;
+    private long ani;
+    private long anj;
+    private long ank;
+    private long anl;
+    private long anm;
+    private long ann;
     private String author;
 
-    public String wY() {
-        return this.amo;
+    public String xg() {
+        return this.anb;
     }
 
-    public int wZ() {
-        return this.amc;
+    public int xh() {
+        return this.amP;
     }
 
     public void a(ForumBookInfo forumBookInfo) {
         if (forumBookInfo != null) {
-            this.amo = forumBookInfo.book_id;
-            this.amc = forumBookInfo.book_type.intValue();
-            this.amp = forumBookInfo.book_title;
-            this.amq = forumBookInfo.book_cover;
+            this.anb = forumBookInfo.book_id;
+            this.amP = forumBookInfo.book_type.intValue();
+            this.anc = forumBookInfo.book_title;
+            this.and = forumBookInfo.book_cover;
             this.author = forumBookInfo.author;
-            this.amr = forumBookInfo.forum_pic;
-            this.ams = forumBookInfo.show_chapter_id;
-            this.amt = forumBookInfo.show_chapter_no;
-            this.amu = forumBookInfo.show_chapter_title;
-            this.amv = forumBookInfo.history_page_id.longValue();
-            this.amw = forumBookInfo.history_paragraph_id.longValue();
-            this.amx = forumBookInfo.history_word_id.longValue();
-            this.amy = forumBookInfo.history_percent.longValue();
-            this.amz = forumBookInfo.show_page_id.longValue();
-            this.amA = forumBookInfo.show_paragraph_id.longValue();
+            this.ane = forumBookInfo.forum_pic;
+            this.anf = forumBookInfo.show_chapter_id;
+            this.ang = forumBookInfo.show_chapter_no;
+            this.anh = forumBookInfo.show_chapter_title;
+            this.ani = forumBookInfo.history_page_id.longValue();
+            this.anj = forumBookInfo.history_paragraph_id.longValue();
+            this.ank = forumBookInfo.history_word_id.longValue();
+            this.anl = forumBookInfo.history_percent.longValue();
+            this.anm = forumBookInfo.show_page_id.longValue();
+            this.ann = forumBookInfo.show_paragraph_id.longValue();
         }
     }
 }

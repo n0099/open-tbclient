@@ -1,34 +1,33 @@
 package com.baidu.sofire.rp;
 
 import android.content.Context;
-import android.provider.Settings;
 import android.text.TextUtils;
 import com.baidu.sofire.b.g;
 import com.baidu.sofire.e;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     public static String a(Context context) {
         String str;
         Throwable th;
+        e eVar;
         try {
-            e eVar = new e(context);
-            str = eVar.b.getString("rpiiem", "");
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    str = g.d(context);
-                    if (!TextUtils.isEmpty(str)) {
-                        eVar.d.putString("rpiiem", str);
-                        eVar.d.commit();
-                    }
+            eVar = new e(context);
+            str = eVar.x();
+        } catch (Throwable th2) {
+            str = "";
+            th = th2;
+        }
+        try {
+            if (TextUtils.isEmpty(str)) {
+                str = g.e(context);
+                if (!TextUtils.isEmpty(str)) {
+                    eVar.d(str);
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                com.baidu.sofire.b.e.a(th);
-                return str;
             }
         } catch (Throwable th3) {
-            str = "";
             th = th3;
+            com.baidu.sofire.b.e.a(th);
+            return str;
         }
         return str;
     }
@@ -36,26 +35,25 @@ public final class a {
     public static String b(Context context) {
         String str;
         Throwable th;
+        e eVar;
         try {
-            e eVar = new e(context);
-            str = eVar.b.getString("rpandid", "");
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    String string = Settings.Secure.getString(context.getContentResolver(), "android_id");
-                    str = TextUtils.isEmpty(string) ? "" : string;
-                    if (!TextUtils.isEmpty(str)) {
-                        eVar.d.putString("rpandid", str);
-                        eVar.d.commit();
-                    }
+            eVar = new e(context);
+            str = eVar.y();
+        } catch (Throwable th2) {
+            str = "";
+            th = th2;
+        }
+        try {
+            if (TextUtils.isEmpty(str)) {
+                str = g.f(context);
+                if (!TextUtils.isEmpty(str)) {
+                    eVar.e(str);
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                com.baidu.sofire.b.e.a(th);
-                return str;
             }
         } catch (Throwable th3) {
-            str = "";
             th = th3;
+            com.baidu.sofire.b.e.a(th);
+            return str;
         }
         return str;
     }
@@ -63,25 +61,25 @@ public final class a {
     public static String c(Context context) {
         String str;
         Throwable th;
+        e eVar;
         try {
-            e eVar = new e(context);
-            str = eVar.b.getString("rpmacadd", "");
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    str = g.a();
-                    if (!TextUtils.isEmpty(str)) {
-                        eVar.d.putString("rpmacadd", str);
-                        eVar.d.commit();
-                    }
+            eVar = new e(context);
+            str = eVar.z();
+        } catch (Throwable th2) {
+            str = "";
+            th = th2;
+        }
+        try {
+            if (TextUtils.isEmpty(str)) {
+                str = g.f();
+                if (!TextUtils.isEmpty(str)) {
+                    eVar.f(str);
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                com.baidu.sofire.b.e.a(th);
-                return str;
             }
         } catch (Throwable th3) {
-            str = "";
             th = th3;
+            com.baidu.sofire.b.e.a(th);
+            return str;
         }
         return str;
     }

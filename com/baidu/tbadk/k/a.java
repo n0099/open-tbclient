@@ -4,45 +4,45 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class a {
-    protected View aYV;
-    private boolean aYW;
+    protected View attachedView;
+    private boolean isAttached;
 
     public a(View view) {
-        this.aYV = view;
+        this.attachedView = view;
     }
 
-    public boolean Mq() {
-        return this.aYW;
+    public boolean isViewAttached() {
+        return this.isAttached;
     }
 
-    public void c(View view, boolean z) {
-        if (view != null && this.aYV != null && this.aYV.getParent() == null) {
-            this.aYW = true;
-            d.ae(view).a(view, this.aYV, z);
-            Mr();
+    public void attachView(View view, boolean z) {
+        if (view != null && this.attachedView != null && this.attachedView.getParent() == null) {
+            this.isAttached = true;
+            d.ad(view).a(view, this.attachedView, z);
+            onViewAttached();
         }
     }
 
-    public void ad(View view) {
-        if (view != null && this.aYV != null && this.aYV.getParent() != null && (view instanceof ViewGroup)) {
+    public void dettachView(View view) {
+        if (view != null && this.attachedView != null && this.attachedView.getParent() != null && (view instanceof ViewGroup)) {
             try {
-                Ms();
-                ((ViewGroup) view).removeView(this.aYV);
-                this.aYW = false;
+                onViewDettached();
+                ((ViewGroup) view).removeView(this.attachedView);
+                this.isAttached = false;
             } catch (Exception e) {
             }
         }
     }
 
     public void attachView(View view) {
-        c(view, false);
+        attachView(view, false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Mr() {
+    public void onViewAttached() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Ms() {
+    public void onViewDettached() {
     }
 }

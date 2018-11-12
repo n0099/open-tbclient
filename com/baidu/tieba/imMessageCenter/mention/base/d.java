@@ -12,7 +12,7 @@ public class d extends RecyclerView.ItemDecoration {
 
     public d() {
         if (this.dividerHeight <= 0) {
-            this.dividerHeight = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0175e.tbds16);
+            this.dividerHeight = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0200e.tbds16);
         }
     }
 

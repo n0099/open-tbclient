@@ -2,21 +2,21 @@ package com.baidu.browser.sailor.feature.b;
 
 import android.app.Activity;
 import android.content.Intent;
-import com.baidu.f.a.a;
+import com.baidu.e.a.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public final class d implements a.InterfaceC0073a {
-    final /* synthetic */ b VW;
+    final /* synthetic */ b VY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.VW = bVar;
+        this.VY = bVar;
     }
 
-    @Override // com.baidu.f.a.a.InterfaceC0073a
+    @Override // com.baidu.e.a.a.InterfaceC0073a
     public final void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Activity activity;
-        Intent qH;
+        Intent qF;
         if (i == 4099) {
             boolean z = iArr.length != 0;
             for (int i2 : iArr) {
@@ -25,12 +25,12 @@ public final class d implements a.InterfaceC0073a {
                 }
             }
             if (z) {
-                this.VW.VV = true;
-                activity = this.VW.mActivity;
-                qH = this.VW.qH();
-                activity.startActivityForResult(qH, 11);
+                this.VY.VX = true;
+                activity = this.VY.mActivity;
+                qF = this.VY.qF();
+                activity.startActivityForResult(qF, 11);
             }
-            com.baidu.browser.core.permission.a.qo().bm(4099);
+            com.baidu.browser.core.permission.a.qm().bB(4099);
         }
     }
 }

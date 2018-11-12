@@ -12,77 +12,77 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class h {
     private boolean closed;
-    private PointF qE;
-    private final List<com.airbnb.lottie.model.c> rA;
+    private PointF qF;
+    private final List<com.airbnb.lottie.model.c> rB;
 
     private h(PointF pointF, boolean z, List<com.airbnb.lottie.model.c> list) {
-        this.rA = new ArrayList();
-        this.qE = pointF;
+        this.rB = new ArrayList();
+        this.qF = pointF;
         this.closed = z;
-        this.rA.addAll(list);
+        this.rB.addAll(list);
     }
 
     public h() {
-        this.rA = new ArrayList();
+        this.rB = new ArrayList();
     }
 
-    private void f(float f, float f2) {
-        if (this.qE == null) {
-            this.qE = new PointF();
+    private void i(float f, float f2) {
+        if (this.qF == null) {
+            this.qF = new PointF();
         }
-        this.qE.set(f, f2);
+        this.qF.set(f, f2);
     }
 
-    public PointF eB() {
-        return this.qE;
+    public PointF eA() {
+        return this.qF;
     }
 
     public boolean isClosed() {
         return this.closed;
     }
 
-    public List<com.airbnb.lottie.model.c> eC() {
-        return this.rA;
+    public List<com.airbnb.lottie.model.c> eB() {
+        return this.rB;
     }
 
     public void a(h hVar, h hVar2, @FloatRange(from = 0.0d, to = 1.0d) float f) {
-        if (this.qE == null) {
-            this.qE = new PointF();
+        if (this.qF == null) {
+            this.qF = new PointF();
         }
         this.closed = hVar.isClosed() || hVar2.isClosed();
-        if (!this.rA.isEmpty() && this.rA.size() != hVar.eC().size() && this.rA.size() != hVar2.eC().size()) {
-            throw new IllegalStateException("Curves must have the same number of control points. This: " + eC().size() + "\tShape 1: " + hVar.eC().size() + "\tShape 2: " + hVar2.eC().size());
+        if (!this.rB.isEmpty() && this.rB.size() != hVar.eB().size() && this.rB.size() != hVar2.eB().size()) {
+            throw new IllegalStateException("Curves must have the same number of control points. This: " + eB().size() + "\tShape 1: " + hVar.eB().size() + "\tShape 2: " + hVar2.eB().size());
         }
-        if (this.rA.isEmpty()) {
-            for (int size = hVar.eC().size() - 1; size >= 0; size--) {
-                this.rA.add(new com.airbnb.lottie.model.c());
+        if (this.rB.isEmpty()) {
+            for (int size = hVar.eB().size() - 1; size >= 0; size--) {
+                this.rB.add(new com.airbnb.lottie.model.c());
             }
         }
-        PointF eB = hVar.eB();
-        PointF eB2 = hVar2.eB();
-        f(com.airbnb.lottie.c.e.lerp(eB.x, eB2.x, f), com.airbnb.lottie.c.e.lerp(eB.y, eB2.y, f));
-        for (int size2 = this.rA.size() - 1; size2 >= 0; size2--) {
-            com.airbnb.lottie.model.c cVar = hVar.eC().get(size2);
-            com.airbnb.lottie.model.c cVar2 = hVar2.eC().get(size2);
+        PointF eA = hVar.eA();
+        PointF eA2 = hVar2.eA();
+        i(com.airbnb.lottie.c.e.lerp(eA.x, eA2.x, f), com.airbnb.lottie.c.e.lerp(eA.y, eA2.y, f));
+        for (int size2 = this.rB.size() - 1; size2 >= 0; size2--) {
+            com.airbnb.lottie.model.c cVar = hVar.eB().get(size2);
+            com.airbnb.lottie.model.c cVar2 = hVar2.eB().get(size2);
+            PointF dB = cVar.dB();
             PointF dC = cVar.dC();
             PointF dD = cVar.dD();
-            PointF dE = cVar.dE();
+            PointF dB2 = cVar2.dB();
             PointF dC2 = cVar2.dC();
             PointF dD2 = cVar2.dD();
-            PointF dE2 = cVar2.dE();
-            this.rA.get(size2).c(com.airbnb.lottie.c.e.lerp(dC.x, dC2.x, f), com.airbnb.lottie.c.e.lerp(dC.y, dC2.y, f));
-            this.rA.get(size2).d(com.airbnb.lottie.c.e.lerp(dD.x, dD2.x, f), com.airbnb.lottie.c.e.lerp(dD.y, dD2.y, f));
-            this.rA.get(size2).e(com.airbnb.lottie.c.e.lerp(dE.x, dE2.x, f), com.airbnb.lottie.c.e.lerp(dE.y, dE2.y, f));
+            this.rB.get(size2).f(com.airbnb.lottie.c.e.lerp(dB.x, dB2.x, f), com.airbnb.lottie.c.e.lerp(dB.y, dB2.y, f));
+            this.rB.get(size2).g(com.airbnb.lottie.c.e.lerp(dC.x, dC2.x, f), com.airbnb.lottie.c.e.lerp(dC.y, dC2.y, f));
+            this.rB.get(size2).h(com.airbnb.lottie.c.e.lerp(dD.x, dD2.x, f), com.airbnb.lottie.c.e.lerp(dD.y, dD2.y, f));
         }
     }
 
     public String toString() {
-        return "ShapeData{numCurves=" + this.rA.size() + "closed=" + this.closed + '}';
+        return "ShapeData{numCurves=" + this.rB.size() + "closed=" + this.closed + '}';
     }
 
     /* loaded from: classes2.dex */
     public static class a implements m.a<h> {
-        public static final a rB = new a();
+        public static final a rC = new a();
 
         private a() {
         }

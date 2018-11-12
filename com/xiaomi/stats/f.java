@@ -24,17 +24,17 @@ public class f {
         static final f a = new f();
     }
 
-    private com.xiaomi.push.thrift.b a(a.C0346a c0346a) {
-        if (c0346a.a == 0) {
-            if (c0346a.c instanceof com.xiaomi.push.thrift.b) {
-                return (com.xiaomi.push.thrift.b) c0346a.c;
+    private com.xiaomi.push.thrift.b a(a.C0374a c0374a) {
+        if (c0374a.a == 0) {
+            if (c0374a.c instanceof com.xiaomi.push.thrift.b) {
+                return (com.xiaomi.push.thrift.b) c0374a.c;
             }
             return null;
         }
         com.xiaomi.push.thrift.b f = f();
         f.a(com.xiaomi.push.thrift.a.CHANNEL_STATS_COUNTER.a());
-        f.c(c0346a.a);
-        f.c(c0346a.b);
+        f.c(c0374a.a);
+        f.c(c0374a.b);
         return f;
     }
 
@@ -54,7 +54,7 @@ public class f {
             cVar.b(a2);
         } catch (org.apache.thrift.f e) {
         }
-        LinkedList<a.C0346a> c = this.f.c();
+        LinkedList<a.C0374a> c = this.f.c();
         while (c.size() > 0) {
             try {
                 com.xiaomi.push.thrift.b a3 = a(c.getLast());

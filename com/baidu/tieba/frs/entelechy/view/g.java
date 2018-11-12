@@ -6,49 +6,49 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public class g {
-    private f dKh;
-    private h dKi;
+    private f dLl;
+    private h dLm;
     private TbPageContext<?> pageContext;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        this.dKh = new f(tbPageContext, bdUniqueId);
-        this.dKi = new h(tbPageContext, bdUniqueId);
+        this.dLl = new f(tbPageContext, bdUniqueId);
+        this.dLm = new h(tbPageContext, bdUniqueId);
         this.pageContext = tbPageContext;
         show(-1);
     }
 
-    public View aDe() {
-        if (this.dKh == null || this.dKi == null) {
+    public View aCy() {
+        if (this.dLl == null || this.dLm == null) {
             return null;
         }
         FrameLayout frameLayout = new FrameLayout(this.pageContext.getPageActivity());
-        frameLayout.addView(this.dKh.getView());
-        frameLayout.addView(this.dKi.getView());
+        frameLayout.addView(this.dLl.getView());
+        frameLayout.addView(this.dLm.getView());
         return frameLayout;
     }
 
-    public f aDf() {
-        return this.dKh;
+    public f aCz() {
+        return this.dLl;
     }
 
-    public h aDg() {
-        return this.dKi;
+    public h aCA() {
+        return this.dLm;
     }
 
     public void show(int i) {
-        if (this.dKh != null && this.dKi != null) {
+        if (this.dLl != null && this.dLm != null) {
             switch (i) {
                 case 1:
-                    this.dKh.setVisibility(0);
-                    this.dKi.setVisibility(8);
+                    this.dLl.setVisibility(0);
+                    this.dLm.setVisibility(8);
                     return;
                 case 2:
-                    this.dKh.setVisibility(8);
-                    this.dKi.setVisibility(0);
+                    this.dLl.setVisibility(8);
+                    this.dLm.setVisibility(0);
                     return;
                 default:
-                    this.dKh.setVisibility(8);
-                    this.dKi.setVisibility(8);
+                    this.dLl.setVisibility(8);
+                    this.dLm.setVisibility(8);
                     return;
             }
         }

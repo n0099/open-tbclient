@@ -55,9 +55,9 @@ public class j implements i, k {
     @Override // com.airbnb.lottie.a.a.k
     public Path getPath() {
         this.oy.reset();
-        switch (this.pa.eq()) {
+        switch (this.pa.ep()) {
             case Merge:
-                dk();
+                dj();
                 break;
             case Add:
                 a(Path.Op.UNION);
@@ -80,7 +80,7 @@ public class j implements i, k {
         return this.name;
     }
 
-    private void dk() {
+    private void dj() {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -105,10 +105,10 @@ public class j implements i, k {
             }
             k kVar = this.oJ.get(i);
             if (kVar instanceof c) {
-                List<k> df = ((c) kVar).df();
-                for (int size2 = df.size() - 1; size2 >= 0; size2--) {
-                    Path path = df.get(size2).getPath();
-                    path.transform(((c) kVar).dg());
+                List<k> de = ((c) kVar).de();
+                for (int size2 = de.size() - 1; size2 >= 0; size2--) {
+                    Path path = de.get(size2).getPath();
+                    path.transform(((c) kVar).df());
                     this.oZ.addPath(path);
                 }
             } else {
@@ -118,10 +118,10 @@ public class j implements i, k {
         }
         k kVar2 = this.oJ.get(0);
         if (kVar2 instanceof c) {
-            List<k> df2 = ((c) kVar2).df();
-            for (int i2 = 0; i2 < df2.size(); i2++) {
-                Path path2 = df2.get(i2).getPath();
-                path2.transform(((c) kVar2).dg());
+            List<k> de2 = ((c) kVar2).de();
+            for (int i2 = 0; i2 < de2.size(); i2++) {
+                Path path2 = de2.get(i2).getPath();
+                path2.transform(((c) kVar2).df());
                 this.oY.addPath(path2);
             }
         } else {

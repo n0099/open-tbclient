@@ -93,7 +93,7 @@ public class CoverViewHelper {
         int i;
         int i2 = 0;
         try {
-            i = Color.parseColor(jSONObject.optString(BACK_GROUND));
+            i = Color.parseColor(jSONObject.optString("bgColor"));
         } catch (Exception e) {
             AiAppsLog.e("CoverView", "bgColor occurs exception", e);
             i = 0;

@@ -8,24 +8,24 @@ import org.json.JSONObject;
 import tbclient.FrsPage.Banner;
 /* loaded from: classes.dex */
 public class v {
-    private int amQ;
-    private String amR;
-    private int amS;
-    private String amT;
-    public String amU;
-    public float amV;
-    public boolean amW = true;
+    private int anD;
+    private String anE;
+    private int anF;
+    private String anG;
+    public String anH;
+    public float anI;
+    public boolean anJ = true;
     private String mDesc;
     private String mTagName;
     private int mType;
     private String mValue;
 
-    public int xg() {
-        return this.amQ;
+    public int xo() {
+        return this.anD;
     }
 
-    public String xh() {
-        return this.amR;
+    public String xp() {
+        return this.anE;
     }
 
     public String getValue() {
@@ -36,22 +36,22 @@ public class v {
         return this.mType;
     }
 
-    public String xi() {
-        return this.amT;
+    public String xq() {
+        return this.anG;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.amQ = jSONObject.optInt("bannerType");
-                this.amR = jSONObject.optString("bannerUrl");
+                this.anD = jSONObject.optInt("bannerType");
+                this.anE = jSONObject.optString("bannerUrl");
                 this.mValue = jSONObject.optString("value");
                 this.mType = jSONObject.optInt("type");
                 this.mDesc = jSONObject.optString("desc");
-                this.amS = jSONObject.optInt("template_id");
-                this.amT = jSONObject.optString(VideoPlayActivityConfig.OBJ_ID);
+                this.anF = jSONObject.optInt("template_id");
+                this.anG = jSONObject.optString(VideoPlayActivityConfig.OBJ_ID);
                 this.mTagName = jSONObject.optString("tag_name");
-                this.amU = jSONObject.optString("tag_name_url");
+                this.anH = jSONObject.optString("tag_name_url");
                 dO(jSONObject.optString("tag_name_wh"));
             } catch (Exception e) {
                 BdLog.e(e.toString());
@@ -61,15 +61,15 @@ public class v {
 
     public void a(Banner banner) {
         if (banner != null) {
-            this.amQ = banner.banner_type.intValue();
-            this.amR = banner.banner_url;
+            this.anD = banner.banner_type.intValue();
+            this.anE = banner.banner_url;
             this.mValue = banner.value;
             this.mType = banner.type.intValue();
             this.mDesc = banner.desc;
-            this.amS = banner.template_id.intValue();
-            this.amT = banner.obj_id;
+            this.anF = banner.template_id.intValue();
+            this.anG = banner.obj_id;
             this.mTagName = banner.tag_name;
-            this.amU = banner.tag_name_url;
+            this.anH = banner.tag_name_url;
             dO(banner.tag_name_wh);
         }
     }
@@ -82,7 +82,7 @@ public class v {
                     int l = com.baidu.adp.lib.g.b.l(split[0], 1);
                     int l2 = com.baidu.adp.lib.g.b.l(split[1], 1);
                     if (l2 != 0) {
-                        this.amV = l / l2;
+                        this.anI = l / l2;
                     }
                 }
             } catch (Exception e) {
@@ -95,6 +95,6 @@ public class v {
         if (StringUtils.isNull(this.mValue)) {
             return false;
         }
-        return this.mType == 1 ? this.amQ == 1 || this.amQ == 4 || this.amQ == 2 || this.amQ == 3 : this.mType == 2 && !StringUtils.isNull(this.mDesc);
+        return this.mType == 1 ? this.anD == 1 || this.anD == 4 || this.anD == 2 || this.anD == 3 : this.mType == 2 && !StringUtils.isNull(this.mDesc);
     }
 }

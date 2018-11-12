@@ -4,12 +4,12 @@ import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
 /* loaded from: classes2.dex */
 public class ba<T> implements d.b<T, T> {
-    final rx.functions.b<? super T> ixB;
+    final rx.functions.b<? super T> izl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        static final ba<Object> ixE = new ba<>();
+        static final ba<Object> izo = new ba<>();
     }
 
     @Override // rx.functions.f
@@ -17,8 +17,8 @@ public class ba<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> ba<T> ccl() {
-        return (ba<T>) a.ixE;
+    public static <T> ba<T> cbI() {
+        return (ba<T>) a.izo;
     }
 
     ba() {
@@ -26,7 +26,7 @@ public class ba<T> implements d.b<T, T> {
     }
 
     public ba(rx.functions.b<? super T> bVar) {
-        this.ixB = bVar;
+        this.izl = bVar;
     }
 
     /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: rx.j<T>, rx.j<? super T> */
@@ -70,9 +70,9 @@ public class ba<T> implements d.b<T, T> {
                     if (atomicLong.get() > 0) {
                         jVar.onNext(t);
                         atomicLong.decrementAndGet();
-                    } else if (ba.this.ixB != null) {
+                    } else if (ba.this.izl != null) {
                         try {
-                            ba.this.ixB.call(t);
+                            ba.this.izl.call(t);
                         } catch (Throwable th) {
                             rx.exceptions.a.a(th, this, t);
                         }

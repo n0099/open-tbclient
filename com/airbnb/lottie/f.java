@@ -17,6 +17,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import com.airbnb.lottie.model.layer.Layer;
+import com.baidu.mapapi.map.WeightedLatLng;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -59,24 +60,24 @@ public class f extends Drawable implements Drawable.Callback {
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (f.this.nW != null) {
-                    f.this.nW.setProgress(f.this.nN.eY());
+                    f.this.nW.setProgress(f.this.nN.eX());
                 }
             }
         });
     }
 
-    public boolean cN() {
+    public boolean cM() {
         return this.nV;
     }
 
-    public void p(boolean z) {
+    public void E(boolean z) {
         if (Build.VERSION.SDK_INT < 19) {
             Log.w(TAG, "Merge paths are not supported pre-Kit Kat.");
             return;
         }
         this.nV = z;
         if (this.np != null) {
-            cO();
+            cN();
         }
     }
 
@@ -99,14 +100,14 @@ public class f extends Drawable implements Drawable.Callback {
         if (this.np == eVar) {
             return false;
         }
-        cQ();
-        this.np = eVar;
-        cO();
-        this.nN.k(eVar.getDuration());
-        setProgress(this.nN.eY());
-        setScale(this.scale);
-        cV();
         cP();
+        this.np = eVar;
+        cN();
+        this.nN.m(eVar.getDuration());
+        setProgress(this.nN.eX());
+        setScale(this.scale);
+        cU();
+        cO();
         Iterator it = new ArrayList(this.nP).iterator();
         while (it.hasNext()) {
             ((b) it.next()).i(eVar);
@@ -132,11 +133,11 @@ public class f extends Drawable implements Drawable.Callback {
         return null;
     }
 
-    private void cO() {
-        this.nW = new com.airbnb.lottie.model.layer.b(this, Layer.a.k(this.np), this.np.cH(), this.np);
+    private void cN() {
+        this.nW = new com.airbnb.lottie.model.layer.b(this, Layer.a.k(this.np), this.np.cG(), this.np);
     }
 
-    private void cP() {
+    private void cO() {
         if (this.nW != null) {
             for (a aVar : this.nO) {
                 this.nW.b(aVar.oc, aVar.od, aVar.oe);
@@ -144,7 +145,7 @@ public class f extends Drawable implements Drawable.Callback {
         }
     }
 
-    public void cQ() {
+    public void cP() {
         ct();
         if (this.nN.isRunning()) {
             this.nN.cancel();
@@ -266,7 +267,7 @@ public class f extends Drawable implements Drawable.Callback {
                 }
             });
         } else {
-            setMinProgress(i / this.np.cL());
+            setMinProgress(i / this.np.cK());
         }
     }
 
@@ -283,7 +284,7 @@ public class f extends Drawable implements Drawable.Callback {
                 }
             });
         } else {
-            setMaxProgress(i / this.np.cL());
+            setMaxProgress(i / this.np.cK());
         }
     }
 
@@ -300,12 +301,12 @@ public class f extends Drawable implements Drawable.Callback {
                 }
             });
         } else {
-            this.nN.g(i / this.np.cL(), i2 / this.np.cL());
+            this.nN.j(i / this.np.cK(), i2 / this.np.cK());
         }
     }
 
     public void setMinAndMaxProgress(@FloatRange(from = 0.0d, to = 1.0d) float f, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
-        this.nN.g(f, f2);
+        this.nN.j(f, f2);
     }
 
     public void setSpeed(float f) {
@@ -337,7 +338,7 @@ public class f extends Drawable implements Drawable.Callback {
                 }
             });
         } else {
-            setProgress(i / this.np.cL());
+            setProgress(i / this.np.cK());
         }
     }
 
@@ -345,7 +346,7 @@ public class f extends Drawable implements Drawable.Callback {
         if (this.np == null) {
             return 0;
         }
-        return (int) (getProgress() * this.np.cL());
+        return (int) (getProgress() * this.np.cK());
     }
 
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
@@ -355,7 +356,7 @@ public class f extends Drawable implements Drawable.Callback {
         }
     }
 
-    public void s(boolean z) {
+    public void G(boolean z) {
         this.nN.setRepeatCount(z ? -1 : 0);
     }
 
@@ -368,13 +369,13 @@ public class f extends Drawable implements Drawable.Callback {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void cR() {
-        this.nN.cR();
+    public void cQ() {
+        this.nN.cQ();
     }
 
     public void setScale(float f) {
         this.scale = f;
-        cV();
+        cU();
     }
 
     public void setImageAssetDelegate(c cVar) {
@@ -396,42 +397,42 @@ public class f extends Drawable implements Drawable.Callback {
     }
 
     @Nullable
-    public l cS() {
+    public l cR() {
         return this.nU;
     }
 
-    public boolean cT() {
-        return this.nU == null && this.np.cI().size() > 0;
+    public boolean cS() {
+        return this.nU == null && this.np.cH().size() > 0;
     }
 
     public float getScale() {
         return this.scale;
     }
 
-    public e cU() {
+    public e cT() {
         return this.np;
     }
 
-    private void cV() {
+    private void cU() {
         if (this.np != null) {
             float scale = getScale();
             setBounds(0, 0, (int) (this.np.getBounds().width() * scale), (int) (scale * this.np.getBounds().height()));
         }
     }
 
-    public void cx() {
+    public void cancelAnimation() {
         this.nP.clear();
         this.nN.cancel();
     }
 
-    public void cy() {
+    public void cx() {
         this.nP.clear();
-        this.nN.cy();
+        this.nN.cx();
     }
 
-    @FloatRange(from = 0.0d, to = 1.0d)
+    @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     public float getProgress() {
-        return this.nN.eY();
+        return this.nN.eX();
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -452,14 +453,14 @@ public class f extends Drawable implements Drawable.Callback {
 
     @Nullable
     public Bitmap Y(String str) {
-        com.airbnb.lottie.b.b cW = cW();
-        if (cW != null) {
-            return cW.ac(str);
+        com.airbnb.lottie.b.b cV = cV();
+        if (cV != null) {
+            return cV.ac(str);
         }
         return null;
     }
 
-    private com.airbnb.lottie.b.b cW() {
+    private com.airbnb.lottie.b.b cV() {
         if (getCallback() == null) {
             return null;
         }
@@ -468,21 +469,21 @@ public class f extends Drawable implements Drawable.Callback {
             this.nQ = null;
         }
         if (this.nQ == null) {
-            this.nQ = new com.airbnb.lottie.b.b(getCallback(), this.nw, this.nR, this.np.cK());
+            this.nQ = new com.airbnb.lottie.b.b(getCallback(), this.nw, this.nR, this.np.cJ());
         }
         return this.nQ;
     }
 
     @Nullable
     public Typeface n(String str, String str2) {
-        com.airbnb.lottie.b.a cX = cX();
-        if (cX != null) {
-            return cX.n(str, str2);
+        com.airbnb.lottie.b.a cW = cW();
+        if (cW != null) {
+            return cW.n(str, str2);
         }
         return null;
     }
 
-    private com.airbnb.lottie.b.a cX() {
+    private com.airbnb.lottie.b.a cW() {
         if (getCallback() == null) {
             return null;
         }

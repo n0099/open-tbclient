@@ -10,79 +10,79 @@ public final class i<E> extends m<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.ipd;
-        long j = this.iDK;
-        long cdc = cdc();
-        long dO = dO(cdc);
-        if (b(eArr, dO) != null) {
-            if (cdc - cdb() > j) {
+        E[] eArr = this.iqN;
+        long j = this.iFu;
+        long ccz = ccz();
+        long dJ = dJ(ccz);
+        if (b(eArr, dJ) != null) {
+            if (ccz - ccy() > j) {
                 return false;
             }
             do {
-            } while (b(eArr, dO) != null);
-            a(eArr, dO, e);
-            dQ(1 + cdc);
+            } while (b(eArr, dJ) != null);
+            a(eArr, dJ, e);
+            dL(1 + ccz);
             return true;
         }
-        a(eArr, dO, e);
-        dQ(1 + cdc);
+        a(eArr, dJ, e);
+        dL(1 + ccz);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long cdb;
-        long cdf = cdf();
+        long ccy;
+        long ccC = ccC();
         do {
-            cdb = cdb();
-            if (cdb >= cdf) {
-                long cdc = cdc();
-                if (cdb >= cdc) {
+            ccy = ccy();
+            if (ccy >= ccC) {
+                long ccz = ccz();
+                if (ccy >= ccz) {
                     return null;
                 }
-                dR(cdc);
+                dM(ccz);
             }
-        } while (!v(cdb, 1 + cdb));
-        long dO = dO(cdb);
-        E[] eArr = this.ipd;
-        E a = a(eArr, dO);
-        b(eArr, dO, null);
+        } while (!u(ccy, 1 + ccy));
+        long dJ = dJ(ccy);
+        E[] eArr = this.iqN;
+        E a = a(eArr, dJ);
+        b(eArr, dJ, null);
         return a;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        E dP;
-        long cdf = cdf();
+        E dK;
+        long ccC = ccC();
         do {
-            long cdb = cdb();
-            if (cdb >= cdf) {
-                long cdc = cdc();
-                if (cdb >= cdc) {
+            long ccy = ccy();
+            if (ccy >= ccC) {
+                long ccz = ccz();
+                if (ccy >= ccz) {
                     return null;
                 }
-                dR(cdc);
+                dM(ccz);
             }
-            dP = dP(dO(cdb));
-        } while (dP == null);
-        return dP;
+            dK = dK(dJ(ccy));
+        } while (dK == null);
+        return dK;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long cdb = cdb();
+        long ccy = ccy();
         while (true) {
-            long cdc = cdc();
-            long cdb2 = cdb();
-            if (cdb == cdb2) {
-                return (int) (cdc - cdb2);
+            long ccz = ccz();
+            long ccy2 = ccy();
+            if (ccy == ccy2) {
+                return (int) (ccz - ccy2);
             }
-            cdb = cdb2;
+            ccy = ccy2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return cdb() == cdc();
+        return ccy() == ccz();
     }
 }

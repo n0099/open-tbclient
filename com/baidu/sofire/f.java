@@ -4,7 +4,7 @@ import android.app.Activity;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
-public final class f {
+public class f {
     public static boolean a(Activity activity, Activity activity2) {
         Field[] declaredFields;
         if (activity == null || activity2 == null) {
@@ -53,7 +53,7 @@ public final class f {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static Method b(Class<?> cls, String str, Class<?>... clsArr) throws NoSuchMethodException {
+    public static Method a(Class<?> cls, String str, Class<?>... clsArr) {
         Method declaredMethod;
         try {
             declaredMethod = cls.getMethod(str, clsArr);
@@ -76,11 +76,11 @@ public final class f {
         throw new NoSuchMethodException();
     }
 
-    public static Method a(Class<?> cls, String str, Class<?>... clsArr) {
+    public static Method b(Class<?> cls, String str, Class<?>... clsArr) {
         Method method;
         Throwable th;
         try {
-            method = b(cls, str, clsArr);
+            method = a(cls, str, clsArr);
         } catch (Throwable th2) {
             method = null;
             th = th2;
@@ -102,7 +102,7 @@ public final class f {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static Field b(Class<?> cls, String str) throws NoSuchFieldException {
+    public static Field a(Class<?> cls, String str) {
         Field declaredField;
         try {
             declaredField = cls.getField(str);
@@ -125,9 +125,9 @@ public final class f {
         throw new NoSuchFieldException();
     }
 
-    public static Field a(Class<?> cls, String str) {
+    public static Field b(Class<?> cls, String str) {
         try {
-            return b(cls, str);
+            return a(cls, str);
         } catch (NoSuchFieldException e) {
             com.baidu.sofire.b.e.a(e);
             return null;

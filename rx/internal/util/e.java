@@ -1,24 +1,24 @@
 package rx.internal.util;
 /* loaded from: classes2.dex */
 public final class e<T> extends rx.j<T> {
-    final rx.e<? super T> iDc;
+    final rx.e<? super T> iEM;
 
     public e(rx.e<? super T> eVar) {
-        this.iDc = eVar;
+        this.iEM = eVar;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.iDc.onNext(t);
+        this.iEM.onNext(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.iDc.onError(th);
+        this.iEM.onError(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.iDc.onCompleted();
+        this.iEM.onCompleted();
     }
 }

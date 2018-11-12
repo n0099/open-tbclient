@@ -13,61 +13,61 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes2.dex */
 public class d implements Closeable {
-    private int iaj;
+    private int ibT;
     @Nullable
-    private final com.facebook.common.references.a<PooledByteBuffer> ifE;
+    private final com.facebook.common.references.a<PooledByteBuffer> iho;
     @Nullable
-    private final i<FileInputStream> ifF;
-    private com.facebook.c.c ifG;
-    private int ifH;
+    private final i<FileInputStream> ihp;
+    private com.facebook.c.c ihq;
+    private int ihr;
     @Nullable
-    private com.facebook.cache.common.b ifI;
+    private com.facebook.cache.common.b ihs;
     private int mHeight;
     private int mSampleSize;
     private int mWidth;
 
     public d(com.facebook.common.references.a<PooledByteBuffer> aVar) {
-        this.ifG = com.facebook.c.c.ibW;
-        this.iaj = -1;
+        this.ihq = com.facebook.c.c.idJ;
+        this.ibT = -1;
         this.mWidth = -1;
         this.mHeight = -1;
         this.mSampleSize = 1;
-        this.ifH = -1;
+        this.ihr = -1;
         com.facebook.common.internal.g.checkArgument(com.facebook.common.references.a.a(aVar));
-        this.ifE = aVar.clone();
-        this.ifF = null;
+        this.iho = aVar.clone();
+        this.ihp = null;
     }
 
     public d(i<FileInputStream> iVar) {
-        this.ifG = com.facebook.c.c.ibW;
-        this.iaj = -1;
+        this.ihq = com.facebook.c.c.idJ;
+        this.ibT = -1;
         this.mWidth = -1;
         this.mHeight = -1;
         this.mSampleSize = 1;
-        this.ifH = -1;
+        this.ihr = -1;
         com.facebook.common.internal.g.checkNotNull(iVar);
-        this.ifE = null;
-        this.ifF = iVar;
+        this.iho = null;
+        this.ihp = iVar;
     }
 
     public d(i<FileInputStream> iVar, int i) {
         this(iVar);
-        this.ifH = i;
+        this.ihr = i;
     }
 
     public static d b(d dVar) {
         if (dVar != null) {
-            return dVar.bWx();
+            return dVar.bVS();
         }
         return null;
     }
 
-    public d bWx() {
+    public d bVS() {
         d dVar;
-        if (this.ifF != null) {
-            dVar = new d(this.ifF, this.ifH);
+        if (this.ihp != null) {
+            dVar = new d(this.ihp, this.ihr);
         } else {
-            com.facebook.common.references.a b = com.facebook.common.references.a.b(this.ifE);
+            com.facebook.common.references.a b = com.facebook.common.references.a.b(this.iho);
             if (b == null) {
                 dVar = null;
             } else {
@@ -86,26 +86,26 @@ public class d implements Closeable {
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        com.facebook.common.references.a.c((com.facebook.common.references.a<?>) this.ifE);
+        com.facebook.common.references.a.c((com.facebook.common.references.a<?>) this.iho);
     }
 
     public synchronized boolean isValid() {
         boolean z;
-        if (!com.facebook.common.references.a.a(this.ifE)) {
-            z = this.ifF != null;
+        if (!com.facebook.common.references.a.a(this.iho)) {
+            z = this.ihp != null;
         }
         return z;
     }
 
-    public com.facebook.common.references.a<PooledByteBuffer> bWy() {
-        return com.facebook.common.references.a.b(this.ifE);
+    public com.facebook.common.references.a<PooledByteBuffer> bVT() {
+        return com.facebook.common.references.a.b(this.iho);
     }
 
     public InputStream getInputStream() {
-        if (this.ifF != null) {
-            return this.ifF.get();
+        if (this.ihp != null) {
+            return this.ihp.get();
         }
-        com.facebook.common.references.a b = com.facebook.common.references.a.b(this.ifE);
+        com.facebook.common.references.a b = com.facebook.common.references.a.b(this.iho);
         if (b != null) {
             try {
                 return new h((PooledByteBuffer) b.get());
@@ -117,7 +117,7 @@ public class d implements Closeable {
     }
 
     public void c(com.facebook.c.c cVar) {
-        this.ifG = cVar;
+        this.ihq = cVar;
     }
 
     public void setHeight(int i) {
@@ -128,8 +128,8 @@ public class d implements Closeable {
         this.mWidth = i;
     }
 
-    public void xz(int i) {
-        this.iaj = i;
+    public void xS(int i) {
+        this.ibT = i;
     }
 
     public void setSampleSize(int i) {
@@ -137,15 +137,15 @@ public class d implements Closeable {
     }
 
     public void t(@Nullable com.facebook.cache.common.b bVar) {
-        this.ifI = bVar;
+        this.ihs = bVar;
     }
 
-    public com.facebook.c.c bWz() {
-        return this.ifG;
+    public com.facebook.c.c bVU() {
+        return this.ihq;
     }
 
-    public int bWw() {
-        return this.iaj;
+    public int bVR() {
+        return this.ibT;
     }
 
     public int getWidth() {
@@ -161,43 +161,43 @@ public class d implements Closeable {
     }
 
     @Nullable
-    public com.facebook.cache.common.b bWA() {
-        return this.ifI;
+    public com.facebook.cache.common.b bVV() {
+        return this.ihs;
     }
 
-    public boolean xA(int i) {
-        if (this.ifG == com.facebook.c.b.ibN && this.ifF == null) {
-            com.facebook.common.internal.g.checkNotNull(this.ifE);
-            PooledByteBuffer pooledByteBuffer = this.ifE.get();
-            return pooledByteBuffer.xd(i + (-2)) == -1 && pooledByteBuffer.xd(i + (-1)) == -39;
+    public boolean xT(int i) {
+        if (this.ihq == com.facebook.c.b.idA && this.ihp == null) {
+            com.facebook.common.internal.g.checkNotNull(this.iho);
+            PooledByteBuffer pooledByteBuffer = this.iho.get();
+            return pooledByteBuffer.xw(i + (-2)) == -1 && pooledByteBuffer.xw(i + (-1)) == -39;
         }
         return true;
     }
 
     public int getSize() {
-        return (this.ifE == null || this.ifE.get() == null) ? this.ifH : this.ifE.get().size();
+        return (this.iho == null || this.iho.get() == null) ? this.ihr : this.iho.get().size();
     }
 
-    public void bWB() {
-        Pair<Integer, Integer> bWD;
+    public void bVW() {
+        Pair<Integer, Integer> bVY;
         com.facebook.c.c r = com.facebook.c.d.r(getInputStream());
-        this.ifG = r;
+        this.ihq = r;
         if (com.facebook.c.b.a(r)) {
-            bWD = bWC();
+            bVY = bVX();
         } else {
-            bWD = bWD();
+            bVY = bVY();
         }
-        if (r == com.facebook.c.b.ibN && this.iaj == -1) {
-            if (bWD != null) {
-                this.iaj = com.facebook.d.b.xZ(com.facebook.d.b.v(getInputStream()));
+        if (r == com.facebook.c.b.idA && this.ibT == -1) {
+            if (bVY != null) {
+                this.ibT = com.facebook.d.b.ys(com.facebook.d.b.v(getInputStream()));
                 return;
             }
             return;
         }
-        this.iaj = 0;
+        this.ibT = 0;
     }
 
-    private Pair<Integer, Integer> bWC() {
+    private Pair<Integer, Integer> bVX() {
         Pair<Integer, Integer> x = com.facebook.d.e.x(getInputStream());
         if (x != null) {
             this.mWidth = ((Integer) x.first).intValue();
@@ -206,7 +206,7 @@ public class d implements Closeable {
         return x;
     }
 
-    private Pair<Integer, Integer> bWD() {
+    private Pair<Integer, Integer> bVY() {
         InputStream inputStream = null;
         try {
             inputStream = getInputStream();
@@ -227,17 +227,17 @@ public class d implements Closeable {
     }
 
     public void c(d dVar) {
-        this.ifG = dVar.bWz();
+        this.ihq = dVar.bVU();
         this.mWidth = dVar.getWidth();
         this.mHeight = dVar.getHeight();
-        this.iaj = dVar.bWw();
+        this.ibT = dVar.bVR();
         this.mSampleSize = dVar.getSampleSize();
-        this.ifH = dVar.getSize();
-        this.ifI = dVar.bWA();
+        this.ihr = dVar.getSize();
+        this.ihs = dVar.bVV();
     }
 
     public static boolean d(d dVar) {
-        return dVar.iaj >= 0 && dVar.mWidth >= 0 && dVar.mHeight >= 0;
+        return dVar.ibT >= 0 && dVar.mWidth >= 0 && dVar.mHeight >= 0;
     }
 
     public static void e(@Nullable d dVar) {

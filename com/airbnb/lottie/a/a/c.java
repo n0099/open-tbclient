@@ -70,7 +70,7 @@ public class c implements d, k, a.InterfaceC0009a {
         this.nh = fVar;
         this.oI = list;
         if (lVar != null) {
-            this.oK = lVar.dZ();
+            this.oK = lVar.dY();
             this.oK.a(aVar);
             this.oK.a(this);
         }
@@ -87,7 +87,7 @@ public class c implements d, k, a.InterfaceC0009a {
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0009a
-    public void de() {
+    public void dd() {
         this.nh.invalidateSelf();
     }
 
@@ -130,7 +130,7 @@ public class c implements d, k, a.InterfaceC0009a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<k> df() {
+    public List<k> de() {
         if (this.oJ == null) {
             this.oJ = new ArrayList();
             int i = 0;
@@ -150,7 +150,7 @@ public class c implements d, k, a.InterfaceC0009a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Matrix dg() {
+    public Matrix df() {
         if (this.oK != null) {
             return this.oK.getMatrix();
         }
@@ -179,7 +179,7 @@ public class c implements d, k, a.InterfaceC0009a {
         this.matrix.set(matrix);
         if (this.oK != null) {
             this.matrix.preConcat(this.oK.getMatrix());
-            i = (int) ((((this.oK.dz().getValue().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
+            i = (int) ((((this.oK.dy().getValue().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
         }
         for (int size = this.oI.size() - 1; size >= 0; size--) {
             b bVar = this.oI.get(size);

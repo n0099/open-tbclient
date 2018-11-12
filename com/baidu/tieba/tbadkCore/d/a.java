@@ -19,32 +19,32 @@ public class a {
 
     /* loaded from: classes.dex */
     public static class b {
-        public String beh;
-        public int cPU;
+        public String beV;
+        public int cRa;
         public String mPid;
     }
 
-    public static C0277a b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
-        C0277a c0277a = new C0277a(str, str2, str3, str4, str5);
-        c0277a.e(str6, str7, str8, str9, str10);
-        return c0277a;
+    public static C0305a b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
+        C0305a c0305a = new C0305a(str, str2, str3, str4, str5);
+        c0305a.e(str6, str7, str8, str9, str10);
+        return c0305a;
     }
 
-    public static C0277a f(String str, String str2, String str3, String str4, String str5, String str6) {
-        C0277a c0277a = new C0277a("ad_tpoint", "PT", str, str2, "tpoint");
-        c0277a.e(null, null, str3, str4, str5);
+    public static C0305a f(String str, String str2, String str3, String str4, String str5, String str6) {
+        C0305a c0305a = new C0305a("ad_tpoint", "PT", str, str2, "tpoint");
+        c0305a.e(null, null, str3, str4, str5);
         if (!ao.isEmpty(str6)) {
-            c0277a.cH("obj_ref", str6);
+            c0305a.cH("obj_ref", str6);
         }
-        return c0277a;
+        return c0305a;
     }
 
     @Deprecated
     public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        C0277a c0277a = new C0277a("ad_tpoint", "PT", str, "c0122", "ad_plat");
-        c0277a.e(str2, str7, str3, str4, str5);
-        c0277a.cH("obj_url", str6);
-        c0277a.save();
+        C0305a c0305a = new C0305a("ad_tpoint", "PT", str, "c0122", "ad_plat");
+        c0305a.e(str2, str7, str3, str4, str5);
+        c0305a.cH("obj_url", str6);
+        c0305a.save();
     }
 
     @Deprecated
@@ -60,26 +60,26 @@ public class a {
 
     /* renamed from: com.baidu.tieba.tbadkCore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0277a {
-        private final boolean any;
-        private final am fcY;
-        private final String hee;
-        private final String hef;
+    public static class C0305a {
+        private final boolean aol;
+        private final am fes;
+        private final String hfB;
+        private final String hfC;
         private final String key;
         private final String line;
         private final String page;
 
-        private C0277a(String str, String str2, String str3, String str4, String str5) {
+        private C0305a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
             this.line = str2;
             this.page = str3;
-            this.hee = str4;
-            this.hef = str5;
-            this.any = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.fcY = bCs();
+            this.hfB = str4;
+            this.hfC = str5;
+            this.aol = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
+            this.fes = bBO();
         }
 
-        private am bCs() {
+        private am bBO() {
             am amVar = new am(this.key);
             if (!StringUtils.isNull(this.line)) {
                 amVar = amVar.ax("line", this.line);
@@ -87,11 +87,11 @@ public class a {
             if (!StringUtils.isNull(this.page)) {
                 amVar = amVar.ax(SystemScreenshotManager.PAGE, this.page);
             }
-            if (!StringUtils.isNull(this.hee)) {
-                amVar = amVar.ax("locate", this.hee);
+            if (!StringUtils.isNull(this.hfB)) {
+                amVar = amVar.ax("locate", this.hfB);
             }
-            if (!StringUtils.isNull(this.hef)) {
-                return amVar.ax(WebSocketAction.PARAM_KEY_TASK, this.hef);
+            if (!StringUtils.isNull(this.hfC)) {
+                return amVar.ax(WebSocketAction.PARAM_KEY_TASK, this.hfC);
             }
             return amVar;
         }
@@ -99,34 +99,34 @@ public class a {
         /* JADX INFO: Access modifiers changed from: private */
         public am e(String str, String str2, String str3, String str4, String str5) {
             if (!StringUtils.isNull(str)) {
-                this.fcY.ax(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
+                this.fes.ax(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
             }
             if (!StringUtils.isNull(str2)) {
-                this.fcY.ax(VideoPlayActivityConfig.OBJ_ID, str2);
+                this.fes.ax(VideoPlayActivityConfig.OBJ_ID, str2);
             }
             if (!StringUtils.isNull(str3)) {
-                this.fcY.ax(ImageViewerConfig.FORUM_ID, str3);
+                this.fes.ax(ImageViewerConfig.FORUM_ID, str3);
             }
             if (!StringUtils.isNull(str4)) {
-                this.fcY.ax(ImageViewerConfig.FORUM_NAME, str4);
+                this.fes.ax(ImageViewerConfig.FORUM_NAME, str4);
             }
             if (!StringUtils.isNull(str5)) {
-                this.fcY.ax("tid", str5);
+                this.fes.ax("tid", str5);
             }
-            this.fcY.x("obj_cpid", 0).x("obj_good_id", 0).ax("obj_throw_type", "BY_POST").ax("client_type", "MOBILE_APP").ax("user_timestamp", String.valueOf(System.currentTimeMillis())).ax("os", HttpConstants.OS_TYPE_VALUE).ax(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE).ax("log_ver", "1.1");
-            return this.fcY;
+            this.fes.x("obj_cpid", 0).x("obj_good_id", 0).ax("obj_throw_type", "BY_POST").ax("client_type", "MOBILE_APP").ax("user_timestamp", String.valueOf(System.currentTimeMillis())).ax("os", HttpConstants.OS_TYPE_VALUE).ax(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE).ax("log_ver", "1.1");
+            return this.fes;
         }
 
-        public C0277a cH(String str, String str2) {
+        public C0305a cH(String str, String str2) {
             if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                this.fcY.ax(str, str2);
+                this.fes.ax(str, str2);
             }
             return this;
         }
 
         public void save() {
-            TiebaStatic.log(this.fcY);
-            if (!this.any) {
+            TiebaStatic.log(this.fes);
+            if (!this.aol) {
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     throw new IllegalArgumentException();
                 }
@@ -135,7 +135,7 @@ public class a {
         }
 
         public void delete(String str) {
-            this.fcY.delete(str);
+            this.fes.delete(str);
         }
     }
 }

@@ -8,11 +8,11 @@ import rx.internal.util.RxThreadFactory;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class b extends rx.g implements h {
-    static final int iBT;
-    static final c iBU;
-    static final C0382b iBV;
-    final ThreadFactory iBF;
-    final AtomicReference<C0382b> iBG = new AtomicReference<>(iBV);
+    static final int iDD;
+    static final c iDE;
+    static final C0410b iDF;
+    final ThreadFactory iDp;
+    final AtomicReference<C0410b> iDq = new AtomicReference<>(iDF);
 
     static {
         int intValue = Integer.getInteger("rx.scheduler.max-computation-threads", 0).intValue();
@@ -20,123 +20,123 @@ public final class b extends rx.g implements h {
         if (intValue <= 0 || intValue > availableProcessors) {
             intValue = availableProcessors;
         }
-        iBT = intValue;
-        iBU = new c(RxThreadFactory.NONE);
-        iBU.unsubscribe();
-        iBV = new C0382b(null, 0);
+        iDD = intValue;
+        iDE = new c(RxThreadFactory.NONE);
+        iDE.unsubscribe();
+        iDF = new C0410b(null, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: rx.internal.schedulers.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0382b {
-        final int iCb;
-        final c[] iCc;
+    public static final class C0410b {
+        final int iDL;
+        final c[] iDM;
         long n;
 
-        C0382b(ThreadFactory threadFactory, int i) {
-            this.iCb = i;
-            this.iCc = new c[i];
+        C0410b(ThreadFactory threadFactory, int i) {
+            this.iDL = i;
+            this.iDM = new c[i];
             for (int i2 = 0; i2 < i; i2++) {
-                this.iCc[i2] = new c(threadFactory);
+                this.iDM[i2] = new c(threadFactory);
             }
         }
 
-        public c ccI() {
-            int i = this.iCb;
+        public c ccf() {
+            int i = this.iDL;
             if (i == 0) {
-                return b.iBU;
+                return b.iDE;
             }
-            c[] cVarArr = this.iCc;
+            c[] cVarArr = this.iDM;
             long j = this.n;
             this.n = 1 + j;
             return cVarArr[(int) (j % i)];
         }
 
         public void shutdown() {
-            for (c cVar : this.iCc) {
+            for (c cVar : this.iDM) {
                 cVar.unsubscribe();
             }
         }
     }
 
     public b(ThreadFactory threadFactory) {
-        this.iBF = threadFactory;
+        this.iDp = threadFactory;
         start();
     }
 
     @Override // rx.g
     public g.a createWorker() {
-        return new a(this.iBG.get().ccI());
+        return new a(this.iDq.get().ccf());
     }
 
     @Override // rx.internal.schedulers.h
     public void start() {
-        C0382b c0382b = new C0382b(this.iBF, iBT);
-        if (!this.iBG.compareAndSet(iBV, c0382b)) {
-            c0382b.shutdown();
+        C0410b c0410b = new C0410b(this.iDp, iDD);
+        if (!this.iDq.compareAndSet(iDF, c0410b)) {
+            c0410b.shutdown();
         }
     }
 
     @Override // rx.internal.schedulers.h
     public void shutdown() {
-        C0382b c0382b;
+        C0410b c0410b;
         do {
-            c0382b = this.iBG.get();
-            if (c0382b == iBV) {
+            c0410b = this.iDq.get();
+            if (c0410b == iDF) {
                 return;
             }
-        } while (!this.iBG.compareAndSet(c0382b, iBV));
-        c0382b.shutdown();
+        } while (!this.iDq.compareAndSet(c0410b, iDF));
+        c0410b.shutdown();
     }
 
     public k e(rx.functions.a aVar) {
-        return this.iBG.get().ccI().b(aVar, -1L, TimeUnit.NANOSECONDS);
+        return this.iDq.get().ccf().b(aVar, -1L, TimeUnit.NANOSECONDS);
     }
 
     /* loaded from: classes2.dex */
     static final class a extends g.a {
-        private final rx.internal.util.j iBW = new rx.internal.util.j();
-        private final rx.subscriptions.b iBX = new rx.subscriptions.b();
-        private final rx.internal.util.j iBY = new rx.internal.util.j(this.iBW, this.iBX);
-        private final c iBZ;
+        private final rx.internal.util.j iDG = new rx.internal.util.j();
+        private final rx.subscriptions.b iDH = new rx.subscriptions.b();
+        private final rx.internal.util.j iDI = new rx.internal.util.j(this.iDG, this.iDH);
+        private final c iDJ;
 
         a(c cVar) {
-            this.iBZ = cVar;
+            this.iDJ = cVar;
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.iBY.unsubscribe();
+            this.iDI.unsubscribe();
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.iBY.isUnsubscribed();
+            return this.iDI.isUnsubscribed();
         }
 
         @Override // rx.g.a
         public k a(final rx.functions.a aVar) {
-            return isUnsubscribed() ? rx.subscriptions.e.cdU() : this.iBZ.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.1
+            return isUnsubscribed() ? rx.subscriptions.e.cdr() : this.iDJ.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.1
                 @Override // rx.functions.a
                 public void call() {
                     if (!a.this.isUnsubscribed()) {
                         aVar.call();
                     }
                 }
-            }, 0L, (TimeUnit) null, this.iBW);
+            }, 0L, (TimeUnit) null, this.iDG);
         }
 
         @Override // rx.g.a
         public k a(final rx.functions.a aVar, long j, TimeUnit timeUnit) {
-            return isUnsubscribed() ? rx.subscriptions.e.cdU() : this.iBZ.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.2
+            return isUnsubscribed() ? rx.subscriptions.e.cdr() : this.iDJ.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.2
                 @Override // rx.functions.a
                 public void call() {
                     if (!a.this.isUnsubscribed()) {
                         aVar.call();
                     }
                 }
-            }, j, timeUnit, this.iBX);
+            }, j, timeUnit, this.iDH);
         }
     }
 

@@ -16,22 +16,22 @@ import com.baidu.tieba.tbadkCore.l;
 public class e {
     private static ShareFromFrsMsgData f(l lVar) {
         ShareFromFrsMsgData shareFromFrsMsgData = new ShareFromFrsMsgData();
-        shareFromFrsMsgData.setImageUrl(lVar.beT().getImage_url());
-        shareFromFrsMsgData.setName(lVar.beT().getName());
-        shareFromFrsMsgData.setMemberNum(lVar.beT().getMember_num());
-        shareFromFrsMsgData.setPostNum(lVar.beT().getPost_num());
-        shareFromFrsMsgData.setContent(lVar.beT().getSlogan());
+        shareFromFrsMsgData.setImageUrl(lVar.ber().getImage_url());
+        shareFromFrsMsgData.setName(lVar.ber().getName());
+        shareFromFrsMsgData.setMemberNum(lVar.ber().getMember_num());
+        shareFromFrsMsgData.setPostNum(lVar.ber().getPost_num());
+        shareFromFrsMsgData.setContent(lVar.ber().getSlogan());
         return shareFromFrsMsgData;
     }
 
     public static void a(final FrsFragment frsFragment, l lVar, final long j, final String str, final long j2) {
-        if (lVar != null && lVar.beT() != null) {
+        if (lVar != null && lVar.ber() != null) {
             final ShareFromFrsMsgData f = f(lVar);
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(frsFragment.getPageContext().getPageActivity());
             final FrsShareCardView frsShareCardView = new FrsShareCardView(frsFragment.getPageContext().getPageActivity());
             frsShareCardView.setPageId(frsFragment.getUniqueId());
             frsShareCardView.setData(f);
-            aVar.cB(1);
+            aVar.cP(1);
             aVar.G(frsShareCardView);
             aVar.a(e.j.share, new a.b() { // from class: com.baidu.tieba.frs.f.e.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
@@ -48,8 +48,8 @@ public class e {
                     aVar2.dismiss();
                 }
             });
-            aVar.aP(true);
-            aVar.b(frsFragment.getPageContext()).Au();
+            aVar.bf(true);
+            aVar.b(frsFragment.getPageContext()).AB();
             if (!k.isEmpty(f.getImageUrl())) {
                 frsShareCardView.L(f.getImageUrl(), false);
             }

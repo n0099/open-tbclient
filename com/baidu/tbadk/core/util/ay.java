@@ -15,12 +15,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class ay {
-    private static ay ayK = new ay() { // from class: com.baidu.tbadk.core.util.ay.1
-    };
-    private static final Pattern ayN = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private final ConcurrentHashMap<String, b> ayL;
-    private c ayM;
+    private final ConcurrentHashMap<String, b> azy;
+    private c azz;
     private final List<a> mListeners;
+    private static ay azx = new ay() { // from class: com.baidu.tbadk.core.util.ay.1
+    };
+    private static final Pattern azA = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -43,13 +43,13 @@ public class ay {
 
     private ay() {
         this.mListeners = new LinkedList();
-        this.ayL = new ConcurrentHashMap<>();
-        this.ayM = null;
+        this.azy = new ConcurrentHashMap<>();
+        this.azz = null;
     }
 
-    public static SpannableString aj(Context context, String str) {
+    public static SpannableString ah(Context context, String str) {
         int start;
-        Matcher matcher = ayN.matcher(str);
+        Matcher matcher = azA.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             String group = matcher.group();
@@ -63,15 +63,15 @@ public class ay {
         return spannableString;
     }
 
-    public static ay CU() {
-        return ayK;
+    public static ay Db() {
+        return azx;
     }
 
     public void a(final a aVar) {
-        if (com.baidu.adp.lib.util.l.ln()) {
+        if (com.baidu.adp.lib.util.l.ll()) {
             b(aVar);
         } else {
-            com.baidu.adp.lib.g.e.jI().post(new Runnable() { // from class: com.baidu.tbadk.core.util.ay.2
+            com.baidu.adp.lib.g.e.jG().post(new Runnable() { // from class: com.baidu.tbadk.core.util.ay.2
                 @Override // java.lang.Runnable
                 public void run() {
                     ay.this.b(aVar);
@@ -88,7 +88,7 @@ public class ay {
     }
 
     public void a(c cVar) {
-        this.ayM = cVar;
+        this.azz = cVar;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
@@ -101,7 +101,7 @@ public class ay {
             return 3;
         }
         String str = strArr[0];
-        b bVar = this.ayL.get(fz(str));
+        b bVar = this.azy.get(fz(str));
         if (bVar != null) {
             bVar.a(tbPageContext, fy(fx(str)));
             return 0;
@@ -121,7 +121,7 @@ public class ay {
             return false;
         }
         String str2 = strArr[0];
-        b bVar = this.ayL.get(fz(str2));
+        b bVar = this.azy.get(fz(str2));
         if (bVar != null) {
             bVar.a(tbPageContext, fy(fx(str2)));
             return true;
@@ -138,7 +138,7 @@ public class ay {
                 break;
             }
         }
-        if (!z3 && this.ayM != null) {
+        if (!z3 && this.azz != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -243,8 +243,8 @@ public class ay {
     }
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
-        if (ayN.matcher(str2).find()) {
-            this.ayM.a(tbPageContext, str, str2, z, dVar, z2);
+        if (azA.matcher(str2).find()) {
+            this.azz.a(tbPageContext, str, str2, z, dVar, z2);
         }
     }
 
@@ -252,12 +252,12 @@ public class ay {
         if (!StringUtils.isNull(str) && bVar != null) {
             String fz = fz(str);
             if (!StringUtils.isNull(fz)) {
-                this.ayL.put(fz, bVar);
+                this.azy.put(fz, bVar);
             }
         }
     }
 
     public boolean fA(String str) {
-        return ayN.matcher(str).find();
+        return azA.matcher(str).find();
     }
 }

@@ -6,8 +6,8 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private a fIO;
-    private View fIP;
+    private a fKm;
+    private View fKn;
     private GestureDetector mGestureDetector = new GestureDetector(TbadkCoreApplication.getInst(), this);
 
     /* loaded from: classes.dex */
@@ -20,12 +20,12 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     }
 
     public c(a aVar) {
-        this.fIO = aVar;
+        this.fKm = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.fIP = view;
+        this.fKn = view;
         if (this.mGestureDetector != null) {
             return this.mGestureDetector.onTouchEvent(motionEvent);
         }
@@ -62,29 +62,29 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.fIO != null) {
-            return this.fIO.a(this.fIP, motionEvent);
+        if (this.fKm != null) {
+            return this.fKm.a(this.fKn, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.fIO != null) {
-            return this.fIO.b(this.fIP, motionEvent);
+        if (this.fKm != null) {
+            return this.fKm.b(this.fKn, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.fIO != null) {
-            return this.fIO.c(this.fIP, motionEvent);
+        if (this.fKm != null) {
+            return this.fKm.c(this.fKn, motionEvent);
         }
         return false;
     }
 
-    public void bo(View view) {
-        this.fIP = view;
+    public void bq(View view) {
+        this.fKn = view;
     }
 }

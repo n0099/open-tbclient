@@ -8,73 +8,73 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class m {
-    private static String bci = "tb_perfor_samllflow_time";
-    private static volatile m bcl;
-    private long bck;
-    private boolean bcg = false;
-    private long bcj = 86400;
-    private long bch = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(bci, 0);
+    private static String bcV = "tb_perfor_samllflow_time";
+    private static volatile m bcY;
+    private long bcX;
+    private boolean bcT = false;
+    private long bcW = 86400;
+    private long bcU = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(bcV, 0);
 
-    public static m NX() {
-        if (bcl == null) {
+    public static m Og() {
+        if (bcY == null) {
             synchronized (m.class) {
-                if (bcl == null) {
-                    bcl = new m();
+                if (bcY == null) {
+                    bcY = new m();
                 }
             }
         }
-        return bcl;
+        return bcY;
     }
 
     private m() {
-        this.bck = 0L;
-        this.bck = this.bcj;
+        this.bcX = 0L;
+        this.bcX = this.bcW;
     }
 
-    public boolean NY() {
-        if (!this.bcg || (System.currentTimeMillis() - this.bch) / 1000 <= this.bck) {
-            return this.bcg;
+    public boolean Oh() {
+        if (!this.bcT || (System.currentTimeMillis() - this.bcU) / 1000 <= this.bcX) {
+            return this.bcT;
         }
         return false;
     }
 
-    public void cu(boolean z) {
+    public void cL(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.bch || currentTimeMillis - this.bch >= this.bck) {
-                this.bch = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(bci, this.bch);
+            if (0 == this.bcU || currentTimeMillis - this.bcU >= this.bcX) {
+                this.bcU = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(bcV, this.bcU);
             }
         } else {
-            this.bch = 0L;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(bci, this.bch);
+            this.bcU = 0L;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(bcV, this.bcU);
         }
-        this.bcg = z;
+        this.bcT = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            n.Oc().Od();
+            n.Ol().Om();
         }
     }
 
     public String getNetType() {
-        if (!com.baidu.adp.lib.util.j.kX()) {
+        if (!com.baidu.adp.lib.util.j.kV()) {
             return "N";
         }
-        if (com.baidu.adp.lib.util.j.kY()) {
+        if (com.baidu.adp.lib.util.j.kW()) {
             return "WIFI";
         }
-        if (com.baidu.adp.lib.util.j.la()) {
+        if (com.baidu.adp.lib.util.j.kY()) {
             return "4G";
         }
-        if (com.baidu.adp.lib.util.j.lb()) {
+        if (com.baidu.adp.lib.util.j.kZ()) {
             return "3G";
         }
-        if (!com.baidu.adp.lib.util.j.lc()) {
+        if (!com.baidu.adp.lib.util.j.la()) {
             return "N";
         }
         return "2G";
     }
 
-    public static String fI(int i) {
+    public static String fW(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -87,7 +87,7 @@ public class m {
         return "WIFI";
     }
 
-    public long NZ() {
+    public long Oi() {
         try {
             Runtime runtime = Runtime.getRuntime();
             return (runtime.totalMemory() - runtime.freeMemory()) / PlaybackStateCompat.ACTION_SET_CAPTIONING_ENABLED;
@@ -97,8 +97,8 @@ public class m {
         }
     }
 
-    public l fJ(int i) {
-        if (NY()) {
+    public l fX(int i) {
+        if (Oh()) {
             switch (i) {
                 case 1000:
                     o oVar = new o();
@@ -128,9 +128,9 @@ public class m {
         return null;
     }
 
-    public void ai(long j) {
+    public void ak(long j) {
         if (j > 0) {
-            this.bck = j;
+            this.bcX = j;
         }
     }
 
@@ -143,7 +143,7 @@ public class m {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int Oa() {
+    public int Oj() {
         BufferedReader bufferedReader;
         Process process;
         Process process2;

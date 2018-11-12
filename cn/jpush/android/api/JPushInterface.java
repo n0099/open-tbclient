@@ -4,7 +4,6 @@ import android.app.Application;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.view.InputDeviceCompat;
 import android.text.TextUtils;
 import cn.jiguang.api.i;
 import cn.jpush.android.a.g;
@@ -209,7 +208,7 @@ public class JPushInterface {
     public static void init(Context context) {
         f.a("JPushInterface", "action:init - sdkVersion:" + ServiceInterface.a() + ", buildId:416");
         a(context);
-        cn.jiguang.api.e.b(context, (int) InputDeviceCompat.SOURCE_TOUCHSCREEN, (Bundle) null);
+        cn.jiguang.api.e.b(context, 4098, (Bundle) null);
         if (cn.jpush.android.a.a(context)) {
             if (cn.jiguang.api.e.bv() && !cn.jpush.android.d.a.a(context)) {
                 f.a("JPushInterface", "检测到当前没有网络。长连接将在有网络时自动继续建立。");

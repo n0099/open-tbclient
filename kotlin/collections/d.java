@@ -1,5 +1,6 @@
 package kotlin.collections;
 
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.NoSuchElementException;
 import java.util.RandomAccess;
 /* loaded from: classes2.dex */
 public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
-    public static final a ioV = new a(null);
+    public static final a iqF = new a(null);
 
     @Override // java.util.List
     public void add(int i, E e) {
@@ -49,35 +50,35 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
     @Override // java.util.List
     public List<E> subList(int i, int i2) {
-        return new C0357d(this, i, i2);
+        return new C0385d(this, i, i2);
     }
 
     /* renamed from: kotlin.collections.d$d  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static final class C0357d<E> extends d<E> implements RandomAccess {
-        private int ioX;
-        private final d<E> ioY;
-        private final int ioZ;
+    private static final class C0385d<E> extends d<E> implements RandomAccess {
+        private int iqH;
+        private final d<E> iqI;
+        private final int iqJ;
 
         /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.collections.d<? extends E> */
         /* JADX WARN: Multi-variable type inference failed */
-        public C0357d(d<? extends E> dVar, int i, int i2) {
-            kotlin.jvm.internal.p.i(dVar, "list");
-            this.ioY = dVar;
-            this.ioZ = i;
-            d.ioV.af(this.ioZ, i2, this.ioY.size());
-            this.ioX = i2 - this.ioZ;
+        public C0385d(d<? extends E> dVar, int i, int i2) {
+            kotlin.jvm.internal.p.h((Object) dVar, "list");
+            this.iqI = dVar;
+            this.iqJ = i;
+            d.iqF.af(this.iqJ, i2, this.iqI.size());
+            this.iqH = i2 - this.iqJ;
         }
 
         @Override // kotlin.collections.d, java.util.List
         public E get(int i) {
-            d.ioV.ci(i, this.ioX);
-            return this.ioY.get(this.ioZ + i);
+            d.iqF.cl(i, this.iqH);
+            return this.iqI.get(this.iqJ + i);
         }
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.ioX;
+            return this.iqH;
         }
     }
 
@@ -87,14 +88,14 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             return true;
         }
         if (obj instanceof List) {
-            return ioV.a(this, (Collection) obj);
+            return iqF.a(this, (Collection) obj);
         }
         return false;
     }
 
     @Override // java.util.Collection, java.util.List
     public int hashCode() {
-        return ioV.e(this);
+        return iqF.h(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -150,7 +151,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
         public c(int i) {
             super();
-            d.ioV.cj(i, d.this.size());
+            d.iqF.cm(i, d.this.size());
             setIndex(i);
         }
 
@@ -189,13 +190,13 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             this();
         }
 
-        public final void ci(int i, int i2) {
+        public final void cl(int i, int i2) {
             if (i < 0 || i >= i2) {
                 throw new IndexOutOfBoundsException("index: " + i + ", size: " + i2);
             }
         }
 
-        public final void cj(int i, int i2) {
+        public final void cm(int i, int i2) {
             if (i < 0 || i > i2) {
                 throw new IndexOutOfBoundsException("index: " + i + ", size: " + i2);
             }
@@ -210,8 +211,8 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             }
         }
 
-        public final int e(Collection<?> collection) {
-            kotlin.jvm.internal.p.i(collection, "c");
+        public final int h(Collection<?> collection) {
+            kotlin.jvm.internal.p.h((Object) collection, "c");
             int i = 1;
             Iterator<?> it = collection.iterator();
             while (it.hasNext()) {
@@ -222,8 +223,8 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
         }
 
         public final boolean a(Collection<?> collection, Collection<?> collection2) {
-            kotlin.jvm.internal.p.i(collection, "c");
-            kotlin.jvm.internal.p.i(collection2, "other");
+            kotlin.jvm.internal.p.h((Object) collection, "c");
+            kotlin.jvm.internal.p.h((Object) collection2, ImageViewerConfig.FROM_OTHER);
             if (collection.size() != collection2.size()) {
                 return false;
             }

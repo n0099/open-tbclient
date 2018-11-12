@@ -4,7 +4,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.a;
 /* loaded from: classes2.dex */
 public interface r {
-    bolts.g<com.facebook.imagepipeline.request.a> a(String str, a.C0324a c0324a);
+    bolts.g<com.facebook.imagepipeline.request.a> a(String str, a.C0352a c0352a);
 
     void a(String str, ImageRequest.CacheChoice cacheChoice, com.facebook.cache.common.b bVar, com.facebook.imagepipeline.f.d dVar);
 }

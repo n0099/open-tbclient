@@ -41,7 +41,7 @@ public class a implements NoProGuard {
     @c("rollback")
     public int rollback = 0;
     @c("errno")
-    public int Ky = -1;
+    public int KC = -1;
     public int type = 0;
     public String filePath = "";
     public byte[] fileData = null;
@@ -96,7 +96,7 @@ public class a implements NoProGuard {
             jSONObject.put("ext", this.Zr == null ? "" : this.Zr);
             jSONObject.put("wifi", this.Zs);
             jSONObject.put("rollback", this.rollback);
-            jSONObject.put("errno", this.Ky);
+            jSONObject.put("errno", this.KC);
             jSONObject.put("errmsg", this.errMsg == null ? "" : this.errMsg);
             jSONObject.put("tipmsg", this.Zm == null ? "" : this.Zm);
         } catch (JSONException e) {
@@ -118,7 +118,7 @@ public class a implements NoProGuard {
         sb.append(",maxHostVersion:" + this.Zq);
         sb.append(",wifi:" + this.Zs);
         sb.append(",rollback:" + this.rollback);
-        sb.append(",errNo:" + this.Ky);
+        sb.append(",errNo:" + this.KC);
         sb.append(",errMsg:" + this.errMsg);
         sb.append(",tipMsg:" + this.Zm);
         sb.append(",channelId:" + this.channelId);

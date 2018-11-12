@@ -20,22 +20,22 @@ import com.baidu.tieba.card.v;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class e extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.b>> implements com.baidu.tieba.a.f {
-    public BdUniqueId aZt;
-    private String bVS;
-    private com.baidu.adp.lib.e.b<ConstrainImageLayout> dEO;
-    private com.baidu.adp.lib.e.b<TbImageView> dEP;
-    private ad eip;
-    private com.baidu.tieba.homepage.concern.view.b eix;
-    private ad<k> eiy;
+    private String bWE;
+    public BdUniqueId bag;
+    private com.baidu.adp.lib.e.b<ConstrainImageLayout> dGe;
+    private com.baidu.adp.lib.e.b<TbImageView> dGf;
+    private ad ejJ;
+    private com.baidu.tieba.homepage.concern.view.b ejR;
+    private ad<k> ejS;
     private TbPageContext<?> mPageContext;
 
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.dEO = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.concern.a.e.1
+        this.dGe = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.concern.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: aBG */
-            public ConstrainImageLayout jB() {
+            /* renamed from: aBd */
+            public ConstrainImageLayout jz() {
                 return new ConstrainImageLayout(e.this.mPageContext.getPageActivity());
             }
 
@@ -60,15 +60,15 @@ public class e extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.dEP = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tieba.homepage.concern.a.e.2
+        this.dGf = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tieba.homepage.concern.a.e.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: Ef */
-            public TbImageView jB() {
+            /* renamed from: Ep */
+            public TbImageView jz() {
                 TbImageView tbImageView = new TbImageView(e.this.mPageContext.getPageActivity());
                 tbImageView.setDrawBorder(true);
                 tbImageView.setBorderColor(al.getColor(e.d.common_color_10264));
-                tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0175e.ds1));
+                tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0200e.ds1));
                 return tbImageView;
             }
 
@@ -96,32 +96,32 @@ public class e extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
                 return tbImageView;
             }
         }, 12, 0);
-        this.eip = new ad<k>() { // from class: com.baidu.tieba.homepage.concern.a.e.3
+        this.ejJ = new ad<k>() { // from class: com.baidu.tieba.homepage.concern.a.e.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             public void a(View view, k kVar) {
-                if (view != null && e.this.eix != null && e.this.eix.getView() != null && kVar != null && kVar.YB() != null && !StringUtils.isNull(kVar.YB().getTid())) {
+                if (view != null && e.this.ejR != null && e.this.ejR.getView() != null && kVar != null && kVar.YL() != null && !StringUtils.isNull(kVar.YL().getTid())) {
                     am amVar = new am("c12352");
-                    if ((e.this.eix.getHeaderImg() != null && view.getId() == e.this.eix.getHeaderImg().getId()) || (e.this.eix.anS() != null && view.getId() == e.this.eix.anS().getId())) {
+                    if ((e.this.ejR.getHeaderImg() != null && view.getId() == e.this.ejR.getHeaderImg().getId()) || (e.this.ejR.ant() != null && view.getId() == e.this.ejR.ant().getId())) {
                         amVar.x("obj_locate", 1);
                     } else {
                         amVar.x("obj_locate", 2);
                     }
-                    amVar.ax("obj_type", kVar.aoC());
+                    amVar.ax("obj_type", kVar.aod());
                     amVar.ax("tid", kVar.threadData.getTid());
                     amVar.h(ImageViewerConfig.FORUM_ID, kVar.threadData.getFid());
                     amVar.ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1");
-                    amVar.x("obj_param1", kVar.aoF() ? 2 : 1);
+                    amVar.x("obj_param1", kVar.aog() ? 2 : 1);
                     TiebaStatic.log(amVar);
                 }
             }
         };
-        this.eiy = new ad<k>() { // from class: com.baidu.tieba.homepage.concern.a.e.5
+        this.ejS = new ad<k>() { // from class: com.baidu.tieba.homepage.concern.a.e.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             public void a(View view, k kVar) {
-                if (kVar != null && kVar.YB() != null) {
-                    o.md(kVar.YB().getTid());
+                if (kVar != null && kVar.YL() != null) {
+                    o.me(kVar.YL().getTid());
                 }
             }
         };
@@ -131,15 +131,15 @@ public class e extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: Y */
+    /* renamed from: Z */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.b> onCreateViewHolder(ViewGroup viewGroup) {
         final com.baidu.tieba.homepage.concern.view.b bVar = new com.baidu.tieba.homepage.concern.view.b(this.mPageContext);
         bVar.setSingleImageRatio(0.75d);
-        bVar.setConstrainLayoutPool(this.dEO);
-        bVar.setConstrainImagePool(this.dEP);
-        bVar.b(this.eiy);
-        if (this.aZt != null) {
-            bVar.j(this.aZt);
+        bVar.setConstrainLayoutPool(this.dGe);
+        bVar.setConstrainImagePool(this.dGf);
+        bVar.b(this.ejS);
+        if (this.bag != null) {
+            bVar.j(this.bag);
         }
         if (!isPreloadSizeReady(1) || !isPreloadSizeReady(2)) {
             bVar.setPreloadSizeReadyCallback(new com.baidu.adp.widget.a.b() { // from class: com.baidu.tieba.homepage.concern.a.e.4
@@ -152,8 +152,8 @@ public class e extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
                 }
             });
         }
-        this.eix = bVar;
-        return new com.baidu.tieba.card.a.a<>(this.eix);
+        this.ejR = bVar;
+        return new com.baidu.tieba.card.a.a<>(this.ejR);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -161,21 +161,21 @@ public class e extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, k kVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.b> aVar) {
-        if (kVar == null || aVar == null || aVar.aoQ() == null) {
+        if (kVar == null || aVar == null || aVar.aor() == null) {
             return null;
         }
-        kVar.jT(i + 1);
-        v.aop().a(kVar.mk("c12351"));
-        if (aVar.aoQ() instanceof com.baidu.tieba.a.e) {
-            aVar.aoQ().setPage(this.bVS);
+        kVar.km(i + 1);
+        v.anQ().a(kVar.ml("c12351"));
+        if (aVar.aor() instanceof com.baidu.tieba.a.e) {
+            aVar.aor().setPage(this.bWE);
         }
-        aVar.aoQ().a(kVar);
-        aVar.aoQ().b(this.eip);
+        aVar.aor().a(kVar);
+        aVar.aor().b(this.ejJ);
         return aVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void jq(String str) {
-        this.bVS = str;
+    public void js(String str) {
+        this.bWE = str;
     }
 }

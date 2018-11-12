@@ -9,28 +9,28 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class h {
-    private static h eFy;
+    private static h eGR;
 
-    public static h aPh() {
-        if (eFy == null) {
+    public static h aOE() {
+        if (eGR == null) {
             synchronized (h.class) {
-                if (eFy == null) {
-                    eFy = new h();
+                if (eGR == null) {
+                    eGR = new h();
                 }
             }
         }
-        return eFy;
+        return eGR;
     }
 
-    public void aPi() {
-        SQLiteDatabase aPf = g.aPf();
-        if (aPf != null) {
-            if (aPf.inTransaction()) {
+    public void aOF() {
+        SQLiteDatabase aOC = g.aOC();
+        if (aOC != null) {
+            if (aOC.inTransaction()) {
                 BdLog.e("there is exist transaction");
                 return;
             }
             try {
-                aPf.beginTransaction();
+                aOC.beginTransaction();
                 BdLog.i("db.beginTransaction");
             } catch (Exception e) {
                 TiebaStatic.printDBExceptionLog(e, "startTransaction", new Object[0]);
@@ -40,13 +40,13 @@ public class h {
     }
 
     public void endTransaction() {
-        SQLiteDatabase aPf = g.aPf();
-        if (aPf != null) {
+        SQLiteDatabase aOC = g.aOC();
+        if (aOC != null) {
             BdLog.i("begin commit transaction");
-            if (aPf.inTransaction()) {
+            if (aOC.inTransaction()) {
                 try {
-                    aPf.setTransactionSuccessful();
-                    aPf.endTransaction();
+                    aOC.setTransactionSuccessful();
+                    aOC.endTransaction();
                     return;
                 } catch (Exception e) {
                     TiebaStatic.printDBExceptionLog(e, "endTransaction", new Object[0]);
@@ -58,13 +58,13 @@ public class h {
         }
     }
 
-    public boolean pw(String str) {
-        SQLiteDatabase aPf = g.aPf();
-        if (aPf == null) {
+    public boolean px(String str) {
+        SQLiteDatabase aOC = g.aOC();
+        if (aOC == null) {
             return false;
         }
         try {
-            aPf.execSQL(str);
+            aOC.execSQL(str);
             return true;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -73,12 +73,12 @@ public class h {
     }
 
     public Cursor rawQuery(String str, String[] strArr) {
-        SQLiteDatabase aPf = g.aPf();
-        if (aPf == null) {
+        SQLiteDatabase aOC = g.aOC();
+        if (aOC == null) {
             return null;
         }
         try {
-            return aPf.rawQuery(str, strArr);
+            return aOC.rawQuery(str, strArr);
         } catch (Exception e) {
             BdLog.e(e.getMessage() + str);
             return null;
@@ -86,12 +86,12 @@ public class h {
     }
 
     public boolean a(String str, String str2, String[] strArr) {
-        SQLiteDatabase aPf = g.aPf();
-        if (aPf == null || TextUtils.isEmpty(str)) {
+        SQLiteDatabase aOC = g.aOC();
+        if (aOC == null || TextUtils.isEmpty(str)) {
             return false;
         }
         try {
-            return aPf.delete(str, str2, strArr) > 0;
+            return aOC.delete(str, str2, strArr) > 0;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
@@ -99,12 +99,12 @@ public class h {
     }
 
     public int update(String str, ContentValues contentValues, String str2, String[] strArr) {
-        SQLiteDatabase aPf = g.aPf();
-        if (aPf == null || TextUtils.isEmpty(str)) {
+        SQLiteDatabase aOC = g.aOC();
+        if (aOC == null || TextUtils.isEmpty(str)) {
             return -1;
         }
         try {
-            return aPf.update(str, contentValues, str2, strArr);
+            return aOC.update(str, contentValues, str2, strArr);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return -1;
@@ -124,12 +124,12 @@ public class h {
     }
 
     public long insert(String str, String str2, ContentValues contentValues) {
-        SQLiteDatabase aPf = g.aPf();
-        if (aPf == null || TextUtils.isEmpty(str)) {
+        SQLiteDatabase aOC = g.aOC();
+        if (aOC == null || TextUtils.isEmpty(str)) {
             return -1L;
         }
         try {
-            return aPf.insert(str, str2, contentValues);
+            return aOC.insert(str, str2, contentValues);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return -1L;
@@ -137,12 +137,12 @@ public class h {
     }
 
     public SQLiteStatement compileStatement(String str) {
-        SQLiteDatabase aPf;
-        if (TextUtils.isEmpty(str) || (aPf = g.aPf()) == null) {
+        SQLiteDatabase aOC;
+        if (TextUtils.isEmpty(str) || (aOC = g.aOC()) == null) {
             return null;
         }
         try {
-            return aPf.compileStatement(str);
+            return aOC.compileStatement(str);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return null;

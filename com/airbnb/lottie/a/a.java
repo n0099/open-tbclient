@@ -60,30 +60,30 @@ public class a<T> {
         this.ot = f2;
     }
 
-    public float cZ() {
+    public float cY() {
         if (this.ou == Float.MIN_VALUE) {
-            this.ou = (this.or - ((float) this.np.cF())) / this.np.cL();
+            this.ou = (this.or - ((float) this.np.cE())) / this.np.cK();
         }
         return this.ou;
     }
 
-    public float da() {
+    public float cZ() {
         if (this.ov == Float.MIN_VALUE) {
             if (this.ot == null) {
                 this.ov = 1.0f;
             } else {
-                this.ov = cZ() + ((this.ot.floatValue() - this.or) / this.np.cL());
+                this.ov = cY() + ((this.ot.floatValue() - this.or) / this.np.cK());
             }
         }
         return this.ov;
     }
 
-    public boolean db() {
+    public boolean da() {
         return this.oq == null;
     }
 
     public boolean g(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        return f >= cZ() && f < da();
+        return f >= cY() && f < cZ();
     }
 
     public String toString() {
@@ -95,7 +95,7 @@ public class a<T> {
     public static class C0007a {
         private static SparseArrayCompat<WeakReference<Interpolator>> ow;
 
-        private static SparseArrayCompat<WeakReference<Interpolator>> dd() {
+        private static SparseArrayCompat<WeakReference<Interpolator>> dc() {
             if (ow == null) {
                 ow = new SparseArrayCompat<>();
             }
@@ -103,10 +103,10 @@ public class a<T> {
         }
 
         @Nullable
-        private static WeakReference<Interpolator> s(int i) {
+        private static WeakReference<Interpolator> J(int i) {
             WeakReference<Interpolator> weakReference;
             synchronized (C0007a.class) {
-                weakReference = dd().get(i);
+                weakReference = dc().get(i);
             }
             return weakReference;
         }
@@ -156,9 +156,9 @@ public class a<T> {
                     pointF.x = com.airbnb.lottie.c.e.clamp(pointF.x, -f, f);
                     pointF.y = com.airbnb.lottie.c.e.clamp(pointF.y, -100.0f, 100.0f);
                     int c = f.c(pointF2.x, pointF2.y, pointF.x, pointF.y);
-                    WeakReference<Interpolator> s = s(c);
-                    interpolator2 = s != null ? s.get() : null;
-                    if (s == null || interpolator2 == null) {
+                    WeakReference<Interpolator> J = J(c);
+                    interpolator2 = J != null ? J.get() : null;
+                    if (J == null || interpolator2 == null) {
                         interpolator2 = PathInterpolatorCompat.create(pointF2.x / f, pointF2.y / f, pointF.x / f, pointF.y / f);
                         try {
                             a(c, new WeakReference(interpolator2));

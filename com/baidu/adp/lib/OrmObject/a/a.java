@@ -41,7 +41,7 @@ public class a {
         return obj;
     }
 
-    public static final Object a(Class<?> cls, int i) {
+    public static final Object b(Class<?> cls, int i) {
         Object obj = null;
         try {
             Constructor<?>[] declaredConstructors = cls.getDeclaredConstructors();

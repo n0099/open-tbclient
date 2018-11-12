@@ -16,12 +16,12 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    public i gnP;
-    public j gyA;
-    private b gyB;
+    public j gAb;
+    private b gAc;
+    public i gpo;
     private BdTypeListView mListView;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
-    private ArrayList<h> cip = new ArrayList<>();
+    private ArrayList<h> ciz = new ArrayList<>();
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         this.mListView = bdTypeListView;
@@ -29,20 +29,20 @@ public class a {
     }
 
     private void p(TbPageContext<?> tbPageContext) {
-        this.gnP = new i(tbPageContext);
-        this.gyA = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.gpZ);
-        this.gyB = new d(tbPageContext, this, tbPageContext.getUniqueId());
-        this.gyA.a(this.gyB);
-        this.mAdapters.add(this.gnP);
-        this.mAdapters.add(this.gyA);
+        this.gpo = new i(tbPageContext);
+        this.gAb = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.gry);
+        this.gAc = new d(tbPageContext, this, tbPageContext.getUniqueId());
+        this.gAb.a(this.gAc);
+        this.mAdapters.add(this.gpo);
+        this.mAdapters.add(this.gAb);
         this.mListView.addAdapters(this.mAdapters);
     }
 
     public void C(ArrayList<h> arrayList) {
         if (arrayList != null && this.mListView != null) {
-            this.cip.clear();
-            this.cip.addAll(arrayList);
-            this.mListView.setData(this.cip);
+            this.ciz.clear();
+            this.ciz.addAll(arrayList);
+            this.mListView.setData(this.ciz);
         }
     }
 
@@ -58,15 +58,15 @@ public class a {
         }
     }
 
-    public boolean ty(String str) {
+    public boolean tD(String str) {
         boolean z;
         if (ao.isEmpty(str)) {
             return false;
         }
-        if (this.mListView == null || this.cip == null) {
+        if (this.mListView == null || this.ciz == null) {
             return false;
         }
-        Iterator<h> it = this.cip.iterator();
+        Iterator<h> it = this.ciz.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -80,8 +80,8 @@ public class a {
             }
         }
         if (z) {
-            this.cip = PersonPostModel.mergeDynamicThreadByTime(this.cip);
-            this.mListView.setData(this.cip);
+            this.ciz = PersonPostModel.mergeDynamicThreadByTime(this.ciz);
+            this.mListView.setData(this.ciz);
             notifyDataSetChanged();
             return z;
         }

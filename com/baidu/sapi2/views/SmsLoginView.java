@@ -24,7 +24,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.baidu.e.a.a;
+import com.baidu.d.a.a;
 import com.baidu.sapi2.EnhancedService;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;

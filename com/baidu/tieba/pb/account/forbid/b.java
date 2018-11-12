@@ -10,45 +10,45 @@ import com.baidu.tbadk.core.util.x;
 import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
 public class b {
-    private static final String fGd = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
+    private static final String fHB = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0244b {
+    public interface InterfaceC0271b {
         void a(ForbidTplData forbidTplData);
 
         void b(ForbidTplData forbidTplData);
     }
 
-    public static void a(String str, String str2, InterfaceC0244b interfaceC0244b) {
-        new a(str, str2, interfaceC0244b).execute(new String[0]);
+    public static void a(String str, String str2, InterfaceC0271b interfaceC0271b) {
+        new a(str, str2, interfaceC0271b).execute(new String[0]);
     }
 
     /* loaded from: classes6.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        private WeakReference<InterfaceC0244b> fGc;
-        private String fGe;
-        private String fGf;
+        private WeakReference<InterfaceC0271b> fHA;
+        private String fHC;
+        private String fHD;
 
-        public a(String str, String str2, InterfaceC0244b interfaceC0244b) {
-            this.fGe = str;
-            this.fGf = str2;
-            this.fGc = new WeakReference<>(interfaceC0244b);
+        public a(String str, String str2, InterfaceC0271b interfaceC0271b) {
+            this.fHC = str;
+            this.fHD = str2;
+            this.fHA = new WeakReference<>(interfaceC0271b);
             setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: A */
+        /* renamed from: C */
         public ForbidTplData doInBackground(String... strArr) {
-            x xVar = new x(b.fGd);
-            xVar.x("forum_id", this.fGe);
-            xVar.x("user_id", this.fGf);
-            String BA = xVar.BA();
-            if (xVar.BY().CX().isRequestSuccess()) {
+            x xVar = new x(b.fHB);
+            xVar.x("forum_id", this.fHC);
+            xVar.x("user_id", this.fHD);
+            String BH = xVar.BH();
+            if (xVar.Cf().De().isRequestSuccess()) {
                 try {
-                    return (ForbidTplData) OrmObject.objectWithJsonStr(BA, ForbidTplData.class);
+                    return (ForbidTplData) OrmObject.objectWithJsonStr(BH, ForbidTplData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     ForbidTplData forbidTplData = new ForbidTplData();
@@ -57,7 +57,7 @@ public class b {
                 }
             }
             ForbidTplData forbidTplData2 = new ForbidTplData();
-            forbidTplData2.error.errno = xVar.Cc();
+            forbidTplData2.error.errno = xVar.Cj();
             forbidTplData2.error.errMsg = xVar.getErrorString();
             return forbidTplData2;
         }
@@ -68,12 +68,12 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            InterfaceC0244b interfaceC0244b = this.fGc.get();
-            if (interfaceC0244b != null) {
+            InterfaceC0271b interfaceC0271b = this.fHA.get();
+            if (interfaceC0271b != null) {
                 if (forbidTplData.error.errno == 0 && ao.isEmpty(forbidTplData.error.errMsg)) {
-                    interfaceC0244b.a(forbidTplData);
+                    interfaceC0271b.a(forbidTplData);
                 } else {
-                    interfaceC0244b.b(forbidTplData);
+                    interfaceC0271b.b(forbidTplData);
                 }
             }
         }

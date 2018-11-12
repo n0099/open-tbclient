@@ -9,21 +9,21 @@ import java.util.List;
 public interface q {
     void a(com.baidu.tieba.frs.d dVar);
 
-    HashMap<Integer, bb> aCG();
+    HashMap<Integer, bb> aCa();
 
-    void aCH();
+    void aCb();
 
-    int aCI();
+    int aCc();
 
-    int aCJ();
+    int aCd();
 
-    int aCK();
+    int aCe();
 
-    void aCL();
+    void aCf();
 
     void b(ArrayList<com.baidu.adp.widget.ListView.h> arrayList, com.baidu.tieba.tbadkCore.l lVar);
 
-    void gP(boolean z);
+    void gY(boolean z);
 
     List<com.baidu.adp.widget.ListView.h> getDatas();
 

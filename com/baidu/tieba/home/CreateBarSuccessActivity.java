@@ -1,5 +1,6 @@
 package com.baidu.tieba.home;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,15 +19,18 @@ import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActivity> {
     public NavigationBar mNavigationBar;
-    private String ehe = null;
+    private String eiy = null;
     private TextView mTextView = null;
-    private TextView ehs = null;
-    LinearLayout aDZ = null;
+    private TextView eiM = null;
+    LinearLayout aEP = null;
 
-    public static void ax(Context context, String str) {
+    public static void av(Context context, String str) {
         if (str != null && str.length() > 0) {
             Intent intent = new Intent(context, CreateBarSuccessActivity.class);
             intent.putExtra("barname", str);
+            if (!(context instanceof Activity)) {
+                intent.addFlags(268435456);
+            }
             context.startActivity(intent);
         }
     }
@@ -37,18 +41,18 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         super.onCreate(bundle);
         setContentView(e.h.create_bar_success_activity);
         initData();
-        aIF();
+        aId();
     }
 
     private void initData() {
-        this.ehe = getIntent().getStringExtra("barname");
-        if (this.ehe == null) {
-            this.ehe = "";
+        this.eiy = getIntent().getStringExtra("barname");
+        if (this.eiy == null) {
+            this.eiy = "";
         }
     }
 
-    private void aIF() {
-        this.aDZ = (LinearLayout) findViewById(e.g.container);
+    private void aId() {
+        this.aEP = (LinearLayout) findViewById(e.g.container);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(e.g.title);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
             ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();
@@ -59,7 +63,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getPageContext().getString(e.j.create_bar));
         this.mTextView = (TextView) findViewById(e.g.text);
-        this.ehs = (TextView) findViewById(e.g.text_more);
+        this.eiM = (TextView) findViewById(e.g.text_more);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -67,14 +71,14 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().setNightMode(i == 1);
-        getLayoutMode().onModeChanged(this.aDZ);
-        boolean jL = new p().jL();
-        String string = jL ? getPageContext().getString(e.j.create_bar_new_tip) : getPageContext().getString(e.j.create_bar_info1);
+        getLayoutMode().onModeChanged(this.aEP);
+        boolean jJ = new p().jJ();
+        String string = jJ ? getPageContext().getString(e.j.create_bar_new_tip) : getPageContext().getString(e.j.create_bar_info1);
         int length = string.length();
-        SpannableString spannableString = new SpannableString(jL ? string + this.ehe + getPageContext().getString(e.j.create_bar_new_tip2) : string + this.ehe + getPageContext().getString(e.j.create_bar_info2));
-        spannableString.setSpan(new ForegroundColorSpan(al.getColor(e.d.common_color_10252)), length, this.ehe.length() + length, 33);
+        SpannableString spannableString = new SpannableString(jJ ? string + this.eiy + getPageContext().getString(e.j.create_bar_new_tip2) : string + this.eiy + getPageContext().getString(e.j.create_bar_info2));
+        spannableString.setSpan(new ForegroundColorSpan(al.getColor(e.d.common_color_10252)), length, this.eiy.length() + length, 33);
         this.mTextView.setText(spannableString);
-        this.ehs.setVisibility(jL ? 0 : 8);
+        this.eiM.setVisibility(jJ ? 0 : 8);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 }

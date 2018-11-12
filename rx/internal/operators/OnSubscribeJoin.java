@@ -6,11 +6,11 @@ import java.util.Map;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration, R> implements d.a<R> {
-    final rx.d<TLeft> itR;
-    final rx.d<TRight> itS;
-    final rx.functions.g<TLeft, TRight, R> itV;
-    final rx.functions.f<TLeft, rx.d<TLeftDuration>> iub;
-    final rx.functions.f<TRight, rx.d<TRightDuration>> iuc;
+    final rx.d<TLeft> ivB;
+    final rx.d<TRight> ivC;
+    final rx.functions.g<TLeft, TRight, R> ivF;
+    final rx.functions.f<TLeft, rx.d<TLeftDuration>> ivL;
+    final rx.functions.f<TRight, rx.d<TRightDuration>> ivM;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -18,11 +18,11 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
     }
 
     public OnSubscribeJoin(rx.d<TLeft> dVar, rx.d<TRight> dVar2, rx.functions.f<TLeft, rx.d<TLeftDuration>> fVar, rx.functions.f<TRight, rx.d<TRightDuration>> fVar2, rx.functions.g<TLeft, TRight, R> gVar) {
-        this.itR = dVar;
-        this.itS = dVar2;
-        this.iub = fVar;
-        this.iuc = fVar2;
-        this.itV = gVar;
+        this.ivB = dVar;
+        this.ivC = dVar2;
+        this.ivL = fVar;
+        this.ivM = fVar2;
+        this.ivF = gVar;
     }
 
     public void call(rx.j<? super R> jVar) {
@@ -55,8 +55,8 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
             b bVar = new b();
             this.group.add(aVar);
             this.group.add(bVar);
-            OnSubscribeJoin.this.itR.unsafeSubscribe(aVar);
-            OnSubscribeJoin.this.itS.unsafeSubscribe(bVar);
+            OnSubscribeJoin.this.ivB.unsafeSubscribe(aVar);
+            OnSubscribeJoin.this.ivC.unsafeSubscribe(bVar);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -94,9 +94,9 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                     i2 = ResultSink.this.rightId;
                 }
                 try {
-                    C0367a c0367a = new C0367a(i);
-                    ResultSink.this.group.add(c0367a);
-                    OnSubscribeJoin.this.iub.call(tleft).unsafeSubscribe(c0367a);
+                    C0395a c0395a = new C0395a(i);
+                    ResultSink.this.group.add(c0395a);
+                    OnSubscribeJoin.this.ivL.call(tleft).unsafeSubscribe(c0395a);
                     ArrayList<Object> arrayList = new ArrayList();
                     synchronized (ResultSink.this) {
                         for (Map.Entry<Integer, TRight> entry : ResultSink.this.rightMap.entrySet()) {
@@ -106,7 +106,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                         }
                     }
                     for (Object obj : arrayList) {
-                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.itV.j(tleft, obj));
+                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.ivF.j(tleft, obj));
                     }
                 } catch (Throwable th) {
                     rx.exceptions.a.a(th, this);
@@ -138,11 +138,11 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
 
             /* renamed from: rx.internal.operators.OnSubscribeJoin$ResultSink$a$a  reason: collision with other inner class name */
             /* loaded from: classes2.dex */
-            final class C0367a extends rx.j<TLeftDuration> {
+            final class C0395a extends rx.j<TLeftDuration> {
                 final int id;
-                boolean itr = true;
+                boolean ivb = true;
 
-                public C0367a(int i) {
+                public C0395a(int i) {
                     this.id = i;
                 }
 
@@ -158,8 +158,8 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
 
                 @Override // rx.e
                 public void onCompleted() {
-                    if (this.itr) {
-                        this.itr = false;
+                    if (this.ivb) {
+                        this.ivb = false;
                         a.this.a(this.id, this);
                     }
                 }
@@ -204,7 +204,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 try {
                     a aVar = new a(i);
                     ResultSink.this.group.add(aVar);
-                    OnSubscribeJoin.this.iuc.call(tright).unsafeSubscribe(aVar);
+                    OnSubscribeJoin.this.ivM.call(tright).unsafeSubscribe(aVar);
                     ArrayList<Object> arrayList = new ArrayList();
                     synchronized (ResultSink.this) {
                         for (Map.Entry<Integer, TLeft> entry : ResultSink.this.leftMap().entrySet()) {
@@ -214,7 +214,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                         }
                     }
                     for (Object obj : arrayList) {
-                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.itV.j(obj, tright));
+                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.ivF.j(obj, tright));
                     }
                 } catch (Throwable th) {
                     rx.exceptions.a.a(th, this);
@@ -247,7 +247,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
             /* loaded from: classes2.dex */
             final class a extends rx.j<TRightDuration> {
                 final int id;
-                boolean itr = true;
+                boolean ivb = true;
 
                 public a(int i) {
                     this.id = i;
@@ -265,8 +265,8 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
 
                 @Override // rx.e
                 public void onCompleted() {
-                    if (this.itr) {
-                        this.itr = false;
+                    if (this.ivb) {
+                        this.ivb = false;
                         b.this.a(this.id, this);
                     }
                 }

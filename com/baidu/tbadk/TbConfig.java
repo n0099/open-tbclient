@@ -229,6 +229,7 @@ public class TbConfig {
     public static final String IN_PV_ADDRESS = "c/s/inpv";
     public static final String JUMP_TO_NEW_USER_CHOOSE_BAR = "c/u/user/getuserlike";
     public static final boolean LBSSWITCH = true;
+    public static final String LCS_STATISTICS_URL = "c/s/lcslog";
     public static final String LIKE_ADDRESS = "c/c/forum/like";
     public static final int LIVE_IMAGE_MAX_COUNT = 6;
     public static final String LOAD_REG_PV_ADDRESS = "c/s/pv";
@@ -552,18 +553,18 @@ public class TbConfig {
     public static String ADD_MSG_RECORD = "c/b/commit/addMsgRecord";
     public static String COMMIT_GRAFFITI = "c/c/graffiti/commit";
     public static boolean COULD_UPDATE = true;
-    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds56);
-    public static final int VALUE_COMMON_FONT_SIZE_BIG = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds52);
-    public static final int VALUE_COMMON_FONT_SIZE_MID = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds48);
-    public static final int VALUE_COMMON_FONT_SIZE_SMALL = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds42);
-    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds52);
-    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds48);
-    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds44);
-    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds38);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_XLAGER = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds72);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_BIG = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds68);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_MID = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds64);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_SMALL = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds56);
+    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = l.h(TbadkCoreApplication.getInst().getContext(), e.C0200e.tbds56);
+    public static final int VALUE_COMMON_FONT_SIZE_BIG = l.h(TbadkCoreApplication.getInst().getContext(), e.C0200e.tbds52);
+    public static final int VALUE_COMMON_FONT_SIZE_MID = l.h(TbadkCoreApplication.getInst().getContext(), e.C0200e.tbds48);
+    public static final int VALUE_COMMON_FONT_SIZE_SMALL = l.h(TbadkCoreApplication.getInst().getContext(), e.C0200e.tbds42);
+    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.h(TbadkCoreApplication.getInst().getContext(), e.C0200e.tbds52);
+    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.h(TbadkCoreApplication.getInst().getContext(), e.C0200e.tbds48);
+    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.h(TbadkCoreApplication.getInst().getContext(), e.C0200e.tbds44);
+    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = l.h(TbadkCoreApplication.getInst().getContext(), e.C0200e.tbds38);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_XLAGER = l.h(TbadkCoreApplication.getInst().getContext(), e.C0200e.tbds72);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_BIG = l.h(TbadkCoreApplication.getInst().getContext(), e.C0200e.tbds68);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_MID = l.h(TbadkCoreApplication.getInst().getContext(), e.C0200e.tbds64);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_SMALL = l.h(TbadkCoreApplication.getInst().getContext(), e.C0200e.tbds56);
     private static int MAX_PHOTO_MEMORY_CACHE = 30;
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
     public static boolean IS_CHECK_OFFICAL_APPLICATION = true;
@@ -701,7 +702,7 @@ public class TbConfig {
             i = 30;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.Me().fv(i);
+            c.Mq().fJ(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

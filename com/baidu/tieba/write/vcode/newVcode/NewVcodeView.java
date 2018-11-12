@@ -19,7 +19,7 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.write.vcode.newVcode.a.b;
 /* loaded from: classes3.dex */
 public class NewVcodeView {
-    private b hMj;
+    private b hNT;
     private BaseActivity mContext;
     private float mRatio;
     private BaseWebView mWebView = null;
@@ -46,7 +46,7 @@ public class NewVcodeView {
     }
 
     public void setPresenter(b bVar) {
-        this.hMj = bVar;
+        this.hNT = bVar;
         this.onPageFinishHasBeenCalled = false;
     }
 
@@ -64,7 +64,7 @@ public class NewVcodeView {
         this.mBlackBackLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NewVcodeView.this.hMj.onPostThreadCancle();
+                NewVcodeView.this.hNT.onPostThreadCancle();
                 NewVcodeView.this.mContext.finish();
             }
         });
@@ -72,7 +72,7 @@ public class NewVcodeView {
         this.mPostThreadLoadingText = (TextView) this.mPostThreadLoadingView.findViewById(e.g.custom_loading_text);
         this.mPostThreadLoadingText.setText(newVcodeActivity.getResources().getString(e.j.sending));
         this.mVcodeToast = new g();
-        this.mVcodeToast.aCM = 1000L;
+        this.mVcodeToast.aDC = 1000L;
         if (this.mWebView == null) {
             try {
                 this.mWebView = (BaseWebView) newVcodeActivity.findViewById(e.g.new_vcode_webview);
@@ -89,13 +89,13 @@ public class NewVcodeView {
                         }
                         if (!NewVcodeView.this.onPageFinishHasBeenCalled) {
                             NewVcodeView.this.onPageFinishHasBeenCalled = true;
-                            com.baidu.adp.lib.g.e.jI().postDelayed(NewVcodeView.this.mShowWebViewRunnable, 500L);
-                            if (NewVcodeView.this.hMj != null) {
-                                NewVcodeView.this.hMj.onPageFinished(webView, str);
+                            com.baidu.adp.lib.g.e.jG().postDelayed(NewVcodeView.this.mShowWebViewRunnable, 500L);
+                            if (NewVcodeView.this.hNT != null) {
+                                NewVcodeView.this.hNT.onPageFinished(webView, str);
                             }
                         }
-                        if (NewVcodeView.this.hMj != null) {
-                            return NewVcodeView.this.hMj.onUrlLoad(webView, str);
+                        if (NewVcodeView.this.hNT != null) {
+                            return NewVcodeView.this.hNT.onUrlLoad(webView, str);
                         }
                         return false;
                     }
@@ -104,8 +104,8 @@ public class NewVcodeView {
                     public void onPageFinished(WebView webView, String str) {
                         super.onPageFinished(webView, str);
                         NewVcodeView.this.onPageFinishHasBeenCalled = true;
-                        if (NewVcodeView.this.hMj != null) {
-                            NewVcodeView.this.hMj.onPageFinished(webView, str);
+                        if (NewVcodeView.this.hNT != null) {
+                            NewVcodeView.this.hNT.onPageFinished(webView, str);
                         }
                     }
 
@@ -156,7 +156,7 @@ public class NewVcodeView {
     }
 
     public void onDestory() {
-        com.baidu.adp.lib.g.e.jI().removeCallbacks(this.mShowWebViewRunnable);
+        com.baidu.adp.lib.g.e.jG().removeCallbacks(this.mShowWebViewRunnable);
     }
 
     public BaseActivity getContext() {
@@ -176,7 +176,7 @@ public class NewVcodeView {
     }
 
     public void showWebViewDelay(int i) {
-        com.baidu.adp.lib.g.e.jI().postDelayed(this.mShowWebViewRunnable, i);
+        com.baidu.adp.lib.g.e.jG().postDelayed(this.mShowWebViewRunnable, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -190,6 +190,6 @@ public class NewVcodeView {
                 }
             });
         }
-        this.mWebLoadingDialog.bj(z);
+        this.mWebLoadingDialog.bz(z);
     }
 }

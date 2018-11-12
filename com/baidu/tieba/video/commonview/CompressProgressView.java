@@ -9,10 +9,10 @@ import android.view.View;
 import com.baidu.tieba.e;
 /* loaded from: classes5.dex */
 public class CompressProgressView extends View {
-    private int asM;
-    private Paint asN;
-    private Paint asO;
-    private RectF asP;
+    private Paint atA;
+    private Paint atB;
+    private RectF atC;
+    private int atz;
     private int mLineWidth;
     private int mValue;
     private int mWidth;
@@ -43,25 +43,25 @@ public class CompressProgressView extends View {
     }
 
     public void init() {
-        this.mWidth = getResources().getDimensionPixelSize(e.C0175e.ds100);
-        this.mLineWidth = getResources().getDimensionPixelSize(e.C0175e.ds4);
-        this.asM = getResources().getDimensionPixelSize(e.C0175e.ds2);
-        this.asN = new Paint();
-        this.asN.setStrokeWidth(this.mLineWidth);
-        this.asN.setColor(getResources().getColor(e.d.cp_bg_line_d));
-        this.asN.setStyle(Paint.Style.STROKE);
-        this.asN.setAntiAlias(true);
-        this.asO = new Paint();
-        this.asO.setStrokeWidth(this.asM);
-        this.asO.setColor(getResources().getColor(e.d.cp_cont_i_alpha40));
-        this.asO.setStyle(Paint.Style.STROKE);
-        this.asO.setAntiAlias(true);
-        this.asP = new RectF(this.mLineWidth, this.mLineWidth, this.mWidth + this.mLineWidth, this.mWidth + this.mLineWidth);
+        this.mWidth = getResources().getDimensionPixelSize(e.C0200e.ds100);
+        this.mLineWidth = getResources().getDimensionPixelSize(e.C0200e.ds4);
+        this.atz = getResources().getDimensionPixelSize(e.C0200e.ds2);
+        this.atA = new Paint();
+        this.atA.setStrokeWidth(this.mLineWidth);
+        this.atA.setColor(getResources().getColor(e.d.cp_bg_line_d));
+        this.atA.setStyle(Paint.Style.STROKE);
+        this.atA.setAntiAlias(true);
+        this.atB = new Paint();
+        this.atB.setStrokeWidth(this.atz);
+        this.atB.setColor(getResources().getColor(e.d.cp_cont_i_alpha40));
+        this.atB.setStyle(Paint.Style.STROKE);
+        this.atB.setAntiAlias(true);
+        this.atC = new RectF(this.mLineWidth, this.mLineWidth, this.mWidth + this.mLineWidth, this.mWidth + this.mLineWidth);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.asP, 270.0f, 360.0f, false, this.asO);
-        canvas.drawArc(this.asP, 270.0f, (this.mValue * 360) / 100, false, this.asN);
+        canvas.drawArc(this.atC, 270.0f, 360.0f, false, this.atB);
+        canvas.drawArc(this.atC, 270.0f, (this.mValue * 360) / 100, false, this.atA);
     }
 }

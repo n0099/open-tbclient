@@ -20,7 +20,7 @@ public class TalkBallRequestData extends OrmObject implements e, h {
     private Integer scr_w;
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object cl(boolean z) {
+    public Object cC(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.scr_w = this.scr_w;
         builder.scr_h = this.scr_h;
@@ -56,7 +56,7 @@ public class TalkBallRequestData extends OrmObject implements e, h {
         this.forum_name = str;
     }
 
-    public void e(Long l) {
+    public void f(Long l) {
         this.last_thread_id = l;
     }
 
@@ -72,12 +72,12 @@ public class TalkBallRequestData extends OrmObject implements e, h {
         return this.requestType;
     }
 
-    public void nk(int i) {
+    public void nC(int i) {
         this.requestType = i;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean MM() {
+    public boolean MV() {
         return false;
     }
 
@@ -92,12 +92,12 @@ public class TalkBallRequestData extends OrmObject implements e, h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String ML() {
+    public String MU() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> MO() {
+    public HashMap<String, Object> MX() {
         return null;
     }
 }

@@ -6,13 +6,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.e, com.baidu.tieba.card.a.a<com.baidu.tieba.card.h>> {
-    private com.baidu.tieba.card.h dNp;
+    private com.baidu.tieba.card.h dOs;
     private String mForumId;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.e.dcK);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.e.ddQ);
         this.mPageContext = tbPageContext;
         this.mForumId = str;
     }
@@ -20,11 +20,11 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.e, com.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: Y */
+    /* renamed from: Z */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.h> onCreateViewHolder(ViewGroup viewGroup) {
-        this.dNp = new com.baidu.tieba.card.h(this.mPageContext);
-        this.dNp.setForumId(this.mForumId);
-        return new com.baidu.tieba.card.a.a<>(this.dNp);
+        this.dOs = new com.baidu.tieba.card.h(this.mPageContext);
+        this.dOs.setForumId(this.mForumId);
+        return new com.baidu.tieba.card.a.a<>(this.dOs);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,11 +32,11 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.e, com.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.e eVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.h> aVar) {
-        if (aVar.aoQ() == null) {
+        if (aVar.aor() == null) {
             return null;
         }
-        aVar.aoQ().a(eVar);
-        aVar.aoQ().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        return aVar.aoQ().getView();
+        aVar.aor().a(eVar);
+        aVar.aor().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        return aVar.aor().getView();
     }
 }

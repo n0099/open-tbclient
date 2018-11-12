@@ -303,7 +303,7 @@ public class TextAreaSecondaryParser {
         String str3 = textAreaStatusInfo.mTextAlign;
         switch (str3.hashCode()) {
             case -1364013995:
-                if (str3.equals(TEXT_ALIGN_CENTER)) {
+                if (str3.equals("center")) {
                     z4 = true;
                     break;
                 }
@@ -317,7 +317,7 @@ public class TextAreaSecondaryParser {
                 z4 = true;
                 break;
             case 108511772:
-                if (str3.equals(TEXT_ALIGN_RIGHT)) {
+                if (str3.equals("right")) {
                     z4 = true;
                     break;
                 }

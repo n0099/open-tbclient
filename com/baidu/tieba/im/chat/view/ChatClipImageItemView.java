@@ -19,10 +19,10 @@ import com.baidu.tieba.e;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class ChatClipImageItemView extends TbImageView implements j.a {
-    private final Path Jg;
-    public j eDe;
-    private boolean eDf;
-    private a eDg;
+    private final Path Jj;
+    public j eEx;
+    private boolean eEy;
+    private a eEz;
     private boolean isLeft;
     public int position;
 
@@ -43,9 +43,9 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         super(context, attributeSet, i);
         this.isLeft = true;
         this.position = 0;
-        this.Jg = new Path();
-        this.eDf = true;
-        this.eDg = null;
+        this.Jj = new Path();
+        this.eEy = true;
+        this.eEz = null;
         b(context, attributeSet, i);
     }
 
@@ -78,20 +78,20 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
             }
         }
         if (z) {
-            this.eDe = new g();
+            this.eEx = new g();
         } else {
-            this.eDe = new m();
+            this.eEx = new m();
         }
-        this.mArgs.IZ = true;
-        this.eDe.a(this);
-        this.mDrawer = this.eDe;
+        this.mArgs.Jc = true;
+        this.eEx.a(this);
+        this.mDrawer = this.eEx;
         this.mDrawer.a(this.mArgs);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        this.eDe.mp();
+        this.eEx.mn();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -99,12 +99,12 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
     public void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
         if (i != 0) {
-            this.eDe.mp();
-        } else if (!this.eDf) {
-            this.eDe.mo();
+            this.eEx.mn();
+        } else if (!this.eEy) {
+            this.eEx.mm();
             invalidate();
         } else {
-            this.eDf = false;
+            this.eEy = false;
         }
     }
 
@@ -116,9 +116,9 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         this.isLeft = z;
     }
 
-    public void aNy() {
-        this.eDe.mo();
-        this.eDe.Z(true);
+    public void aMV() {
+        this.eEx.mm();
+        this.eEx.an(true);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
@@ -126,19 +126,19 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         boolean z = false;
         com.baidu.adp.widget.ImageView.a bdImage = super.getBdImage();
         boolean z2 = (getDrawable() == null || !(getDrawable() instanceof BitmapDrawable) || ((BitmapDrawable) getDrawable()).getBitmap() == null) ? false : true;
-        boolean z3 = bdImage != null && bdImage.ot();
-        j jVar = this.eDe;
+        boolean z3 = bdImage != null && bdImage.or();
+        j jVar = this.eEx;
         if (z3 || z2) {
             z = true;
         }
-        jVar.Z(z);
+        jVar.an(z);
         return bdImage;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
     public com.baidu.adp.widget.ImageView.a getDefaultBdImage() {
-        this.eDe.Z(false);
+        this.eEx.an(false);
         return super.getDefaultBdImage();
     }
 
@@ -149,9 +149,9 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         }
         float width = rectF.width();
         float height = rectF.height();
-        this.Jg.reset();
-        this.Jg.set(e(width, height, 1.0f));
-        return this.Jg;
+        this.Jj.reset();
+        this.Jj.set(e(width, height, 1.0f));
+        return this.Jj;
     }
 
     private Path e(float f, float f2, float f3) {
@@ -203,15 +203,15 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.eDg == null) {
+        if (this.eEz == null) {
             al.e(this, e.d.cp_bg_line_c, 0);
         } else {
-            this.eDg.y(canvas);
+            this.eEz.y(canvas);
         }
         super.onDraw(canvas);
     }
 
     public void setOnDrawCallback(a aVar) {
-        this.eDg = aVar;
+        this.eEz = aVar;
     }
 }

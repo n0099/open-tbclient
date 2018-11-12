@@ -10,7 +10,7 @@ public class d extends k {
     }
 
     @Override // com.baidu.tbadk.core.view.j, com.baidu.adp.widget.ListView.c
-    public View oG() {
-        return super.oG();
+    public View oE() {
+        return super.oE();
     }
 }

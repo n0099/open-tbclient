@@ -83,9 +83,9 @@ import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.sapi2.utils.enums.RegistMode;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.searchbox.ng.ai.apps.impl.map.model.element.MarkerModel;
 import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import com.baidu.searchbox.ng.ai.apps.setting.oauth.ScopeInfo;
-import com.baidu.searchbox.ng.ai.apps.system.bluetooth.utils.AiAppsBluetoothConstants;
 import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import com.baidu.webkit.internal.ETAG;
@@ -660,11 +660,16 @@ public final class SapiWebView extends WebView {
             removeJavascriptInterface("accessibility");
             removeJavascriptInterface("accessibilityTraversal");
         }
+        getSettings().setAllowFileAccess(false);
+        if (Build.VERSION.SDK_INT >= 16) {
+            getSettings().setAllowFileAccessFromFileURLs(false);
+            getSettings().setAllowUniversalAccessFromFileURLs(false);
+        }
         setWebViewClient(new AnonymousClass2());
         setWebChromeClient(new WebChromeClient() { // from class: com.baidu.sapi2.SapiWebView.3
             @Override // android.webkit.WebChromeClient
             public boolean onJsAlert(WebView webView, String str, String str2, final JsResult jsResult) {
-                AlertDialog.Builder positiveButton = new AlertDialog.Builder(SapiWebView.this.getContext()).setTitle("JavaScript Message").setMessage(str2).setPositiveButton(AiAppsBluetoothConstants.ERROR_OK, new DialogInterface.OnClickListener() { // from class: com.baidu.sapi2.SapiWebView.3.1
+                AlertDialog.Builder positiveButton = new AlertDialog.Builder(SapiWebView.this.getContext()).setTitle("JavaScript Message").setMessage(str2).setPositiveButton("ok", new DialogInterface.OnClickListener() { // from class: com.baidu.sapi2.SapiWebView.3.1
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i2) {
                         jsResult.confirm();
@@ -1092,7 +1097,7 @@ public final class SapiWebView extends WebView {
             } else {
                 SapiWebView.this.au = false;
             }
-            if ((str.contains(parse.getHost() + parse.getPath()) || str.contains(parse2.getHost() + parse2.getPath()) || str.contains(parse3.getHost() + parse3.getPath())) && !"center".equals(Uri.parse(str).getQueryParameter("wapsec"))) {
+            if ((str.contains(parse.getHost() + parse.getPath()) || str.contains(parse2.getHost() + parse2.getPath()) || str.contains(parse3.getHost() + parse3.getPath())) && !MarkerModel.SubBase.CENTER.equals(Uri.parse(str).getQueryParameter("wapsec"))) {
                 SapiWebView.this.loadUrl("javascript:prompt(JSON.stringify({'action':{'name': 'authorized_response', 'params': [document.body.innerHTML, '1', 'prompt_on_cancel']}}));");
             }
             if (str.contains(SapiAccountManager.getInstance().getAccountService().h())) {
@@ -1183,7 +1188,7 @@ public final class SapiWebView extends WebView {
     }
 
     public String getUaInfo() {
-        String encode = URLEncoder.encode("Sapi_8.7.5.1.2_Android_" + SapiUtils.getAppName(getContext()) + BaseRequestAction.SPLITE + SapiUtils.getVersionName(getContext()) + BaseRequestAction.SPLITE + (!TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : "") + BaseRequestAction.SPLITE + (!TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "") + "_Sapi");
+        String encode = URLEncoder.encode("Sapi_8.7.5.1.6_Android_" + SapiUtils.getAppName(getContext()) + BaseRequestAction.SPLITE + SapiUtils.getVersionName(getContext()) + BaseRequestAction.SPLITE + (!TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : "") + BaseRequestAction.SPLITE + (!TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "") + "_Sapi");
         if (n() && !TextUtils.isEmpty(this.I.userAgent)) {
             return encode + " " + this.I.userAgent;
         }
@@ -2356,7 +2361,7 @@ public final class SapiWebView extends WebView {
         return sapiAccountResponse2;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2841=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2847=4] */
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static SocialResponse b(String str, Context context) {
@@ -2459,7 +2464,7 @@ public final class SapiWebView extends WebView {
                                         socialResponse = socialResponse2;
                                         break;
                                     } else if (name.equalsIgnoreCase("wapsec")) {
-                                        socialResponse2.accountCenterFlag = "center".equals(newPullParser.nextText());
+                                        socialResponse2.accountCenterFlag = MarkerModel.SubBase.CENTER.equals(newPullParser.nextText());
                                         socialResponse = socialResponse2;
                                         break;
                                     } else if (name.equalsIgnoreCase("next_url_related")) {
@@ -2897,7 +2902,7 @@ public final class SapiWebView extends WebView {
                     try {
                         JSONObject jSONObject = new JSONObject((String) new XiaomiOAuthorize().callOpenApi(SapiWebView.this.getContext(), SapiWebView.this.I.xiaomiAppID.longValue(), "/user/profile", xiaomiOAuthResults.getAccessToken(), xiaomiOAuthResults.getMacKey(), xiaomiOAuthResults.getMacAlgorithm()).getResult());
                         String optString = jSONObject.optString("result");
-                        if (AiAppsBluetoothConstants.ERROR_OK.equals(optString)) {
+                        if ("ok".equals(optString)) {
                             str2 = jSONObject.getJSONObject("data").optString("userId");
                         } else if (AiAppsTouchHelper.TouchEventName.TOUCH_ERROR.equals(optString)) {
                             Log.e(jSONObject.optString("description") + "(" + jSONObject.optString("code") + ")", new Object[0]);
@@ -2917,7 +2922,7 @@ public final class SapiWebView extends WebView {
                     try {
                         JSONObject jSONObject2 = new JSONObject((String) new XiaomiOAuthorize().callOpenApi(SapiWebView.this.getContext(), SapiWebView.this.I.xiaomiAppID.longValue(), "/user/phone", xiaomiOAuthResults.getAccessToken(), xiaomiOAuthResults.getMacKey(), xiaomiOAuthResults.getMacAlgorithm()).getResult());
                         String optString2 = jSONObject2.optString("result");
-                        if (AiAppsBluetoothConstants.ERROR_OK.equals(optString2)) {
+                        if ("ok".equals(optString2)) {
                             str3 = jSONObject2.getJSONObject("data").optString(ISapiAccount.SAPI_ACCOUNT_PHONE);
                         } else if (AiAppsTouchHelper.TouchEventName.TOUCH_ERROR.equals(optString2)) {
                             Log.e(jSONObject2.optString("description") + "(" + jSONObject2.optString("code") + ")", new Object[0]);
@@ -3626,7 +3631,7 @@ public final class SapiWebView extends WebView {
                 if (!str4.equals(md5)) {
                     str3 = "&passAppHash=" + MD5Util.toMd5(str.getBytes(), false);
                 } else {
-                    str3 = (TextUtils.isEmpty(version) ? "" : "" + ETAG.ITEM_SEPARATOR + "passAppVersion=" + version) + "&passAppHash=" + SapiCache.c(getContext(), c2).hash;
+                    str3 = (TextUtils.isEmpty(version) ? "" : "&passAppVersion=" + version) + "&passAppHash=" + SapiCache.c(getContext(), c2).hash;
                 }
             }
             return split[0] + str3 + "#" + split[1];

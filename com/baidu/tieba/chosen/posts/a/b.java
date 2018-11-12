@@ -16,21 +16,21 @@ import com.baidu.tieba.e;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
-    private TextView aZe;
-    private TextView aiy;
-    private TextView cVd;
-    private TextView cVe;
-    private TextView cVi;
-    private LinearLayout cVj;
+    private TextView aZR;
+    private TextView ajl;
+    private TextView cWj;
+    private TextView cWk;
+    private TextView cWo;
+    private LinearLayout cWp;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aiy = (TextView) view.findViewById(e.g.chosen_no_picture_title);
-        this.cVd = (TextView) view.findViewById(e.g.chosen_no_picture_praise);
-        this.cVe = (TextView) view.findViewById(e.g.chosen_no_picture_comment);
-        this.cVi = (TextView) view.findViewById(e.g.chosen_no_picture_head);
-        this.aZe = (TextView) view.findViewById(e.g.chosen_no_picture_sub);
-        this.cVj = (LinearLayout) view.findViewById(e.g.chosen_no_picture_comment_line);
+        this.ajl = (TextView) view.findViewById(e.g.chosen_no_picture_title);
+        this.cWj = (TextView) view.findViewById(e.g.chosen_no_picture_praise);
+        this.cWk = (TextView) view.findViewById(e.g.chosen_no_picture_comment);
+        this.cWo = (TextView) view.findViewById(e.g.chosen_no_picture_head);
+        this.aZR = (TextView) view.findViewById(e.g.chosen_no_picture_sub);
+        this.cWp = (LinearLayout) view.findViewById(e.g.chosen_no_picture_comment_line);
     }
 
     @Override // com.baidu.tieba.tbadkCore.o
@@ -47,18 +47,18 @@ public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
     public void L(final tinfo tinfoVar) {
         super.L(tinfoVar);
         if (StringUtils.isNull(tinfoVar.title)) {
-            this.cVi.setVisibility(8);
+            this.cWo.setVisibility(8);
         } else {
-            this.cVi.setVisibility(0);
-            this.cVi.setText(tinfoVar.title);
+            this.cWo.setVisibility(0);
+            this.cWo.setText(tinfoVar.title);
         }
         if (StringUtils.isNull(tinfoVar.forum_name)) {
-            this.cVj.setVisibility(8);
+            this.cWp.setVisibility(8);
         } else {
-            this.cVj.setVisibility(0);
-            this.aiy.setVisibility(0);
-            this.aiy.setText(UtilHelper.getFixedText(getContext().getString(e.j.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-            this.aiy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.b.1
+            this.cWp.setVisibility(0);
+            this.ajl.setVisibility(0);
+            this.ajl.setText(UtilHelper.getFixedText(getContext().getString(e.j.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
+            this.ajl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     String str = tinfoVar.forum_name;
@@ -69,23 +69,23 @@ public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
                 }
             });
             if (tinfoVar.zan_num == null) {
-                this.cVd.setVisibility(8);
+                this.cWj.setVisibility(8);
             } else {
-                this.cVd.setVisibility(0);
-                this.cVd.setText(tinfoVar.zan_num + "");
+                this.cWj.setVisibility(0);
+                this.cWj.setText(tinfoVar.zan_num + "");
             }
             if (tinfoVar.reply_num == null) {
-                this.cVe.setVisibility(8);
+                this.cWk.setVisibility(8);
             } else {
-                this.cVe.setVisibility(0);
-                this.cVe.setText(tinfoVar.reply_num + "");
+                this.cWk.setVisibility(0);
+                this.cWk.setText(tinfoVar.reply_num + "");
             }
         }
         if (StringUtils.isNull(tinfoVar._abstract)) {
-            this.aZe.setVisibility(8);
+            this.aZR.setVisibility(8);
             return;
         }
-        this.aZe.setVisibility(0);
-        this.aZe.setText(tinfoVar._abstract);
+        this.aZR.setVisibility(0);
+        this.aZR.setText(tinfoVar._abstract);
     }
 }

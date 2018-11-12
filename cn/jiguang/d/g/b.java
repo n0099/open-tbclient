@@ -12,7 +12,7 @@ import java.util.Iterator;
 public final class b extends a {
     private ByteBuffer mq = ByteBuffer.allocate(8192);
 
-    private boolean k(byte[] bArr) {
+    private boolean j(byte[] bArr) {
         try {
             if (b() && bArr != null && bArr.length > 0) {
                 int write = this.mo.write(ByteBuffer.wrap(bArr));
@@ -24,6 +24,63 @@ public final class b extends a {
             a();
             return false;
         }
+    }
+
+    @Override // cn.jiguang.d.g.a
+    public final d F(int i) {
+        ByteBuffer G;
+        if (b()) {
+            int c = c();
+            if (c <= 0 || (G = G(c)) == null) {
+                int i2 = 1048576;
+                while (b() && this.c < i2) {
+                    try {
+                        if ((i > 0 ? this.mp.select(i) : this.mp.select()) != 0) {
+                            Iterator<SelectionKey> it = this.mp.selectedKeys().iterator();
+                            while (it.hasNext()) {
+                                SelectionKey next = it.next();
+                                SocketChannel socketChannel = (SocketChannel) next.channel();
+                                if (next.isReadable()) {
+                                    int read = socketChannel.read(this.mq);
+                                    if (read < 0) {
+                                        return new d(-996, "read len < 0:" + read);
+                                    }
+                                    this.mq.flip();
+                                    int limit = this.mq.limit();
+                                    if (this.a.remaining() < limit) {
+                                        return new d(-996, "the total buf remaining less than readLen,remaining:" + this.a.remaining() + ",readLen:" + limit);
+                                    }
+                                    this.a.put(this.mq);
+                                    this.c += limit;
+                                    this.mq.compact();
+                                    i2 = this.c >= 20 ? c() : i2;
+                                } else {
+                                    next.isWritable();
+                                }
+                                it.remove();
+                            }
+                            continue;
+                        } else if (i > 0) {
+                            return new d(-994, "recv time out");
+                        }
+                    } catch (Throwable th) {
+                        d dVar = new d(-997, th.getMessage());
+                        if (th instanceof SocketTimeoutException) {
+                            dVar.a(-994);
+                            return dVar;
+                        }
+                        return dVar;
+                    }
+                }
+                if (i2 == 1048576) {
+                    return new d(-997, "recv empty data or tcp has close");
+                }
+                ByteBuffer G2 = G(i2);
+                return G2 != null ? new d(0, G2) : new d(-1001, "parse error");
+            }
+            return new d(0, G);
+        }
+        return new d(-991, "recv error,the connect is invalid");
     }
 
     @Override // cn.jiguang.d.g.a
@@ -73,70 +130,13 @@ public final class b extends a {
     }
 
     @Override // cn.jiguang.d.g.a
-    public final int j(byte[] bArr) {
+    public final int i(byte[] bArr) {
         if (bArr == null) {
             return 103;
         }
         if (bArr.length >= 8128) {
             return 6026;
         }
-        return k(bArr) ? 0 : 103;
-    }
-
-    @Override // cn.jiguang.d.g.a
-    public final d o(int i) {
-        ByteBuffer p;
-        if (b()) {
-            int c = c();
-            if (c <= 0 || (p = p(c)) == null) {
-                int i2 = 1048576;
-                while (b() && this.c < i2) {
-                    try {
-                        if ((i > 0 ? this.mp.select(i) : this.mp.select()) != 0) {
-                            Iterator<SelectionKey> it = this.mp.selectedKeys().iterator();
-                            while (it.hasNext()) {
-                                SelectionKey next = it.next();
-                                SocketChannel socketChannel = (SocketChannel) next.channel();
-                                if (next.isReadable()) {
-                                    int read = socketChannel.read(this.mq);
-                                    if (read < 0) {
-                                        return new d(-996, "read len < 0:" + read);
-                                    }
-                                    this.mq.flip();
-                                    int limit = this.mq.limit();
-                                    if (this.a.remaining() < limit) {
-                                        return new d(-996, "the total buf remaining less than readLen,remaining:" + this.a.remaining() + ",readLen:" + limit);
-                                    }
-                                    this.a.put(this.mq);
-                                    this.c += limit;
-                                    this.mq.compact();
-                                    i2 = this.c >= 20 ? c() : i2;
-                                } else {
-                                    next.isWritable();
-                                }
-                                it.remove();
-                            }
-                            continue;
-                        } else if (i > 0) {
-                            return new d(-994, "recv time out");
-                        }
-                    } catch (Throwable th) {
-                        d dVar = new d(-997, th.getMessage());
-                        if (th instanceof SocketTimeoutException) {
-                            dVar.a(-994);
-                            return dVar;
-                        }
-                        return dVar;
-                    }
-                }
-                if (i2 == 1048576) {
-                    return new d(-997, "recv empty data or tcp has close");
-                }
-                ByteBuffer p2 = p(i2);
-                return p2 != null ? new d(0, p2) : new d(-1001, "parse error");
-            }
-            return new d(0, p);
-        }
-        return new d(-991, "recv error,the connect is invalid");
+        return j(bArr) ? 0 : 103;
     }
 }

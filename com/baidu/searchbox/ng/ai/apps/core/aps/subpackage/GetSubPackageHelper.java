@@ -11,7 +11,6 @@ import com.baidu.searchbox.ng.ai.apps.database.subpackage.SubPackageInfoHelper;
 import com.baidu.searchbox.ng.ai.apps.install.AiAppsBundleHelper;
 import com.baidu.searchbox.ng.ai.apps.install.subpackage.SubPackageAPSInfo;
 import com.baidu.searchbox.ng.ai.apps.ioc.AiAppsRuntime;
-import com.baidu.searchbox.ng.ai.apps.process.AiAppsMessengerClient;
 import com.baidu.searchbox.ng.ai.apps.process.AiAppsMessengerService;
 import com.baidu.searchbox.ng.ai.apps.util.AiAppJSONUtils;
 import com.baidu.searchbox.ng.ai.apps.util.AiAppSignChecker;
@@ -36,7 +35,7 @@ public class GetSubPackageHelper {
             }
             subPackageAPSInfo.mResultCode = 2101;
             Bundle bundle = new Bundle();
-            bundle.putParcelable(AiAppsMessengerClient.MSG_BUNDLE_DATA_KEY, subPackageAPSInfo);
+            bundle.putParcelable("ai_apps_data", subPackageAPSInfo);
             AiAppsMessengerService.getServiceObject().sendMessageToClient(subPackageAPSInfo.mAiAppProcessId, 104, bundle);
         }
     }
@@ -55,7 +54,7 @@ public class GetSubPackageHelper {
         if (subPackageAPSInfo != null) {
             subPackageAPSInfo.mResultCode = i;
             Bundle bundle = new Bundle();
-            bundle.putParcelable(AiAppsMessengerClient.MSG_BUNDLE_DATA_KEY, subPackageAPSInfo);
+            bundle.putParcelable("ai_apps_data", subPackageAPSInfo);
             AiAppsMessengerService.getServiceObject().sendMessageToClient(subPackageAPSInfo.mAiAppProcessId, 104, bundle);
         }
     }
@@ -64,7 +63,7 @@ public class GetSubPackageHelper {
         if (subPackageAPSInfo != null) {
             subPackageAPSInfo.mResultCode = 2100;
             Bundle bundle = new Bundle();
-            bundle.putParcelable(AiAppsMessengerClient.MSG_BUNDLE_DATA_KEY, subPackageAPSInfo);
+            bundle.putParcelable("ai_apps_data", subPackageAPSInfo);
             AiAppsMessengerService.getServiceObject().sendMessageToClient(subPackageAPSInfo.mAiAppProcessId, 105, bundle);
         }
     }

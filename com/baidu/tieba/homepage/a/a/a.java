@@ -48,12 +48,12 @@ public class a implements b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] MK() {
+    public byte[] MT() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public boolean G(byte[] bArr) {
+    public boolean F(byte[] bArr) {
         try {
             a((ExcFrsPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcFrsPageResIdl.class));
             return true;

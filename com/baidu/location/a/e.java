@@ -1,320 +1,797 @@
 package com.baidu.location.a;
 
+import android.app.ActivityManager;
+import android.content.Context;
 import android.location.Location;
+import android.net.http.Headers;
+import android.os.Handler;
+import com.baidu.ar.util.IoUtils;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.location.Jni;
+import com.baidu.mobstat.Config;
+import com.baidu.searchbox.ng.ai.apps.ar.model.ARCameraAttr;
+import com.baidu.searchbox.ng.ai.apps.scheme.actions.UploadFileAction;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import java.io.BufferedOutputStream;
+import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.RandomAccessFile;
-import java.util.Locale;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Random;
+import java.util.UUID;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class e {
-    private String p;
-    private boolean q = true;
-    private static e ady = null;
-    private static String b = "Temp_in.dat";
-    private static File c = new File(com.baidu.location.d.f.a, b);
-    private static StringBuffer adz = null;
-    private static boolean e = true;
-    private static int f = 0;
-    private static int g = 0;
-    private static long h = 0;
-    private static long i = 0;
-    private static long j = 0;
-    private static double k = 0.0d;
-    private static double l = 0.0d;
-    private static int m = 0;
-    private static int n = 0;
-    private static int o = 0;
+    private static e adc = null;
+    public static String f = "0";
+    private Handler adl;
+    private int k = 1;
+    private double l = 0.699999988079071d;
+    private String m = "3G|4G";
+    private int n = 1;
+    private int o = 307200;
+    private int p = 15;
+    private int q = 1;
+    private double ade = 3.5d;
+    private double s = 3.0d;
+    private double t = 0.5d;
+    private int u = 300;
+    private int v = 60;
+    private int w = 0;
+    private int x = 60;
+    private int y = 0;
+    private long z = 0;
+    private a adf = null;
+    private boolean B = false;
+    private boolean C = false;
+    private int D = 0;
+    private float adg = 0.0f;
+    private float adh = 0.0f;
+    private long G = 0;
+    private int H = 500;
+    long a = 0;
+    Location adi = null;
+    Location adj = null;
+    StringBuilder adk = null;
+    long e = 0;
+    private byte[] adm = new byte[4];
+    private byte[] adn = null;
+    private int L = 0;
+    private List<Byte> M = null;
+    private boolean N = false;
+    int g = 0;
+    double h = 116.22345545d;
+    double ado = 40.245667323d;
 
-    private e(String str) {
-        this.p = null;
-        if (str == null) {
-            str = "";
-        } else if (str.length() > 100) {
-            str = str.substring(0, 100);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes6.dex */
+    public class a extends com.baidu.location.g.e {
+        String a = null;
+
+        public a() {
+            this.k = new HashMap();
         }
-        this.p = str;
+
+        @Override // com.baidu.location.g.e
+        public void a() {
+            this.h = "http://loc.map.baidu.com/cc.php";
+            String encode = Jni.encode(this.a);
+            this.a = null;
+            this.k.put("q", encode);
+        }
+
+        public void a(String str) {
+            this.a = str;
+            e();
+        }
+
+        @Override // com.baidu.location.g.e
+        public void a(boolean z) {
+            if (z && this.j != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(this.j);
+                    jSONObject.put("prod", com.baidu.location.g.b.d);
+                    jSONObject.put(Config.DEVICE_UPTIME, System.currentTimeMillis());
+                    e.this.e(jSONObject.toString());
+                } catch (Exception e) {
+                }
+            }
+            if (this.k != null) {
+                this.k.clear();
+            }
+        }
     }
 
-    private String a(int i2) {
-        if (c.exists()) {
-            try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(c, "rw");
-                randomAccessFile.seek(0L);
-                int readInt = randomAccessFile.readInt();
-                if (!a(readInt, randomAccessFile.readInt(), randomAccessFile.readInt())) {
-                    randomAccessFile.close();
-                    d();
-                    return null;
-                } else if (i2 == 0 || i2 == readInt + 1) {
-                    randomAccessFile.close();
-                    return null;
-                } else {
-                    long j2 = 12 + 0 + ((i2 - 1) * 1024);
-                    randomAccessFile.seek(j2);
-                    int readInt2 = randomAccessFile.readInt();
-                    byte[] bArr = new byte[readInt2];
-                    randomAccessFile.seek(j2 + 4);
-                    for (int i3 = 0; i3 < readInt2; i3++) {
-                        bArr[i3] = randomAccessFile.readByte();
+    private e() {
+        this.adl = null;
+        this.adl = new Handler();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public String a(File file, String str) {
+        String uuid = UUID.randomUUID().toString();
+        try {
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+            httpURLConnection.setReadTimeout(10000);
+            httpURLConnection.setConnectTimeout(10000);
+            httpURLConnection.setDoInput(true);
+            httpURLConnection.setDoOutput(true);
+            httpURLConnection.setUseCaches(false);
+            httpURLConnection.setRequestMethod("POST");
+            httpURLConnection.setRequestProperty("Charset", IoUtils.UTF_8);
+            httpURLConnection.setRequestProperty(Headers.CONN_DIRECTIVE, "close");
+            httpURLConnection.setRequestProperty("Content-Type", UploadFileAction.PARAMS_UPLOADFILE_CONTENT_TYPE + ";boundary=" + uuid);
+            if (file != null && file.exists()) {
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
+                StringBuffer stringBuffer = new StringBuffer();
+                stringBuffer.append("--");
+                stringBuffer.append(uuid);
+                stringBuffer.append(SystemInfoUtil.LINE_END);
+                stringBuffer.append("Content-Disposition: form-data; name=\"location_dat\"; filename=\"" + file.getName() + "\"" + SystemInfoUtil.LINE_END);
+                stringBuffer.append("Content-Type: application/octet-stream; charset=utf-8" + SystemInfoUtil.LINE_END);
+                stringBuffer.append(SystemInfoUtil.LINE_END);
+                dataOutputStream.write(stringBuffer.toString().getBytes());
+                FileInputStream fileInputStream = new FileInputStream(file);
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    int read = fileInputStream.read(bArr);
+                    if (read == -1) {
+                        break;
                     }
-                    randomAccessFile.close();
-                    return new String(bArr);
+                    dataOutputStream.write(bArr, 0, read);
                 }
-            } catch (IOException e2) {
-                return null;
+                fileInputStream.close();
+                dataOutputStream.write(SystemInfoUtil.LINE_END.getBytes());
+                dataOutputStream.write(("--" + uuid + "--" + SystemInfoUtil.LINE_END).getBytes());
+                dataOutputStream.flush();
+                dataOutputStream.close();
+                int responseCode = httpURLConnection.getResponseCode();
+                outputStream.close();
+                httpURLConnection.disconnect();
+                this.y += 400;
+                c(this.y);
+                if (responseCode == 200) {
+                    return "1";
+                }
             }
+        } catch (MalformedURLException e) {
+        } catch (IOException e2) {
         }
-        return null;
+        return "0";
     }
 
-    private static boolean a(int i2, int i3, int i4) {
-        if (i2 < 0 || i2 > com.baidu.location.d.g.ae) {
-            return false;
-        }
-        if (i3 < 0 || i3 > i2 + 1) {
-            return false;
-        }
-        return i4 >= 1 && i4 <= i2 + 1 && i4 <= com.baidu.location.d.g.ae;
-    }
-
-    private boolean a(Location location, int i2, int i3) {
-        if (location != null && com.baidu.location.d.g.aa && this.q) {
-            if (com.baidu.location.d.g.ac < 5) {
-                com.baidu.location.d.g.ac = 5;
-            } else if (com.baidu.location.d.g.ac > 1000) {
-                com.baidu.location.d.g.ac = 1000;
-            }
-            if (com.baidu.location.d.g.ad < 5) {
-                com.baidu.location.d.g.ad = 5;
-            } else if (com.baidu.location.d.g.ad > 3600) {
-                com.baidu.location.d.g.ad = 3600;
-            }
-            double longitude = location.getLongitude();
-            double latitude = location.getLatitude();
-            long time = location.getTime() / 1000;
-            if (e) {
-                f = 1;
-                adz = new StringBuffer("");
-                adz.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
-                g = adz.length();
-                h = time;
-                k = longitude;
-                l = latitude;
-                i = (long) Math.floor((longitude * 100000.0d) + 0.5d);
-                j = (long) Math.floor((latitude * 100000.0d) + 0.5d);
-                e = false;
-                return true;
-            }
-            float[] fArr = new float[1];
-            Location.distanceBetween(latitude, longitude, l, k, fArr);
-            long j2 = time - h;
-            if (fArr[0] >= com.baidu.location.d.g.ac || j2 >= com.baidu.location.d.g.ad) {
-                if (adz == null) {
-                    f++;
-                    g = 0;
-                    adz = new StringBuffer("");
-                    adz.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
-                    g = adz.length();
-                    h = time;
-                    k = longitude;
-                    l = latitude;
-                    i = (long) Math.floor((longitude * 100000.0d) + 0.5d);
-                    j = (long) Math.floor((latitude * 100000.0d) + 0.5d);
-                } else {
-                    k = longitude;
-                    l = latitude;
-                    long floor = (long) Math.floor((longitude * 100000.0d) + 0.5d);
-                    long floor2 = (long) Math.floor((latitude * 100000.0d) + 0.5d);
-                    m = (int) (time - h);
-                    n = (int) (floor - i);
-                    o = (int) (floor2 - j);
-                    adz.append(String.format(Locale.CHINA, "%d,%d,%d|", Integer.valueOf(m), Integer.valueOf(n), Integer.valueOf(o)));
-                    g = adz.length();
-                    h = time;
-                    i = floor;
-                    j = floor2;
-                }
-                if (g + 15 > 750) {
-                    a(adz.toString());
-                    adz = null;
-                }
-                if (f >= com.baidu.location.d.g.ae) {
-                    this.q = false;
-                }
-                return true;
-            }
-            return false;
-        }
-        return false;
-    }
-
-    private boolean a(String str) {
-        if (str == null || !str.startsWith("&nr")) {
-            return false;
-        }
-        if (c.exists() || d()) {
-            try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(c, "rw");
-                randomAccessFile.seek(0L);
-                int readInt = randomAccessFile.readInt();
-                int readInt2 = randomAccessFile.readInt();
-                int readInt3 = randomAccessFile.readInt();
-                if (!a(readInt, readInt2, readInt3)) {
-                    randomAccessFile.close();
-                    d();
-                    return false;
-                }
-                if (com.baidu.location.d.g.ab) {
-                    if (readInt == com.baidu.location.d.g.ae) {
-                        if (str.equals(a(readInt3 == 1 ? com.baidu.location.d.g.ae : readInt3 - 1))) {
-                            randomAccessFile.close();
-                            return false;
+    private boolean a(String str, Context context) {
+        boolean z;
+        boolean z2 = false;
+        try {
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
+            if (runningAppProcesses != null) {
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                    if (runningAppProcessInfo.processName.equals(str)) {
+                        int i = runningAppProcessInfo.importance;
+                        if (i == 200 || i == 100) {
+                            z = true;
+                            z2 = z;
                         }
-                    } else if (readInt3 > 1 && str.equals(a(readInt3 - 1))) {
-                        randomAccessFile.close();
-                        return false;
                     }
+                    z = z2;
+                    z2 = z;
                 }
-                randomAccessFile.seek(((readInt3 - 1) * 1024) + 12 + 0);
-                if (str.length() > 750) {
-                    randomAccessFile.close();
-                    return false;
-                }
-                String encode = Jni.encode(str);
-                int length = encode.length();
-                if (length > 1020) {
-                    randomAccessFile.close();
-                    return false;
-                }
-                randomAccessFile.writeInt(length);
-                randomAccessFile.writeBytes(encode);
-                if (readInt == 0) {
-                    randomAccessFile.seek(0L);
-                    randomAccessFile.writeInt(1);
-                    randomAccessFile.writeInt(1);
-                    randomAccessFile.writeInt(2);
-                } else if (readInt < com.baidu.location.d.g.ae - 1) {
-                    randomAccessFile.seek(0L);
-                    randomAccessFile.writeInt(readInt + 1);
-                    randomAccessFile.seek(8L);
-                    randomAccessFile.writeInt(readInt + 2);
-                } else if (readInt == com.baidu.location.d.g.ae - 1) {
-                    randomAccessFile.seek(0L);
-                    randomAccessFile.writeInt(com.baidu.location.d.g.ae);
-                    if (readInt2 == 0 || readInt2 == 1) {
-                        randomAccessFile.writeInt(2);
-                    }
-                    randomAccessFile.seek(8L);
-                    randomAccessFile.writeInt(1);
-                } else if (readInt3 == readInt2) {
-                    int i2 = readInt3 == com.baidu.location.d.g.ae ? 1 : readInt3 + 1;
-                    int i3 = i2 == com.baidu.location.d.g.ae ? 1 : i2 + 1;
-                    randomAccessFile.seek(4L);
-                    randomAccessFile.writeInt(i3);
-                    randomAccessFile.writeInt(i2);
-                } else {
-                    int i4 = readInt3 == com.baidu.location.d.g.ae ? 1 : readInt3 + 1;
-                    if (i4 == readInt2) {
-                        int i5 = i4 == com.baidu.location.d.g.ae ? 1 : i4 + 1;
-                        randomAccessFile.seek(4L);
-                        randomAccessFile.writeInt(i5);
-                    }
-                    randomAccessFile.seek(8L);
-                    randomAccessFile.writeInt(i4);
-                }
-                randomAccessFile.close();
-                return true;
-            } catch (IOException e2) {
-                return false;
             }
+        } catch (Exception e) {
         }
-        return false;
+        return z2;
     }
 
-    public static String b() {
-        if (c != null && c.exists()) {
-            try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(c, "rw");
-                randomAccessFile.seek(0L);
-                int readInt = randomAccessFile.readInt();
-                int readInt2 = randomAccessFile.readInt();
-                int readInt3 = randomAccessFile.readInt();
-                if (!a(readInt, readInt2, readInt3)) {
-                    randomAccessFile.close();
-                    d();
-                    return null;
-                } else if (readInt2 == 0 || readInt2 == readInt3) {
-                    randomAccessFile.close();
-                    return null;
-                } else {
-                    long j2 = 0 + ((readInt2 - 1) * 1024) + 12;
-                    randomAccessFile.seek(j2);
-                    int readInt4 = randomAccessFile.readInt();
-                    byte[] bArr = new byte[readInt4];
-                    randomAccessFile.seek(j2 + 4);
-                    for (int i2 = 0; i2 < readInt4; i2++) {
-                        bArr[i2] = randomAccessFile.readByte();
-                    }
-                    String str = new String(bArr);
-                    int i3 = readInt < com.baidu.location.d.g.ae ? readInt2 + 1 : readInt2 == com.baidu.location.d.g.ae ? 1 : readInt2 + 1;
-                    randomAccessFile.seek(4L);
-                    randomAccessFile.writeInt(i3);
-                    randomAccessFile.close();
-                    return str;
-                }
-            } catch (IOException e2) {
-                return null;
-            }
-        }
-        return null;
+    private byte[] a(int i) {
+        return new byte[]{(byte) (i & 255), (byte) ((65280 & i) >> 8), (byte) ((16711680 & i) >> 16), (byte) (((-16777216) & i) >> 24)};
     }
 
-    private static void c() {
-        e = true;
-        adz = null;
-        f = 0;
-        g = 0;
-        h = 0L;
-        i = 0L;
-        j = 0L;
-        k = 0.0d;
-        l = 0.0d;
-        m = 0;
-        n = 0;
-        o = 0;
+    private byte[] a(String str) {
+        int i = 0;
+        if (str == null) {
+            return null;
+        }
+        byte[] bytes = str.getBytes();
+        byte nextInt = (byte) new Random().nextInt(255);
+        byte nextInt2 = (byte) new Random().nextInt(255);
+        byte[] bArr = new byte[bytes.length + 2];
+        int length = bytes.length;
+        int i2 = 0;
+        while (i < length) {
+            bArr[i2] = (byte) (bytes[i] ^ nextInt);
+            i++;
+            i2++;
+        }
+        int i3 = i2 + 1;
+        bArr[i2] = nextInt;
+        int i4 = i3 + 1;
+        bArr[i3] = nextInt2;
+        return bArr;
     }
 
-    private static boolean d() {
-        if (c.exists()) {
-            c.delete();
+    private String b(String str) {
+        Calendar calendar = Calendar.getInstance();
+        return String.format(str, Integer.valueOf(calendar.get(1)), Integer.valueOf(calendar.get(2) + 1), Integer.valueOf(calendar.get(5)));
+    }
+
+    private void b(int i) {
+        byte[] a2 = a(i);
+        for (int i2 = 0; i2 < 4; i2++) {
+            this.M.add(Byte.valueOf(a2[i2]));
         }
-        if (!c.getParentFile().exists()) {
-            c.getParentFile().mkdirs();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(Location location) {
+        c(location);
+        h();
+    }
+
+    private void c() {
+        if (this.N) {
+            return;
+        }
+        this.N = true;
+        d(com.baidu.location.g.b.d);
+        j();
+        d();
+    }
+
+    private void c(int i) {
+        if (i == 0) {
+            return;
         }
         try {
-            c.createNewFile();
-            RandomAccessFile randomAccessFile = new RandomAccessFile(c, "rw");
-            randomAccessFile.seek(0L);
-            randomAccessFile.writeInt(0);
-            randomAccessFile.writeInt(0);
-            randomAccessFile.writeInt(1);
-            randomAccessFile.close();
+            File file = new File(com.baidu.location.g.f.a + "/grtcf.dat");
+            if (!file.exists()) {
+                File file2 = new File(com.baidu.location.g.f.a);
+                if (!file2.exists()) {
+                    file2.mkdirs();
+                }
+                if (!file.createNewFile()) {
+                    return;
+                }
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+                randomAccessFile.seek(2L);
+                randomAccessFile.writeInt(0);
+                randomAccessFile.seek(8L);
+                byte[] bytes = "1980_01_01:0".getBytes();
+                randomAccessFile.writeInt(bytes.length);
+                randomAccessFile.write(bytes);
+                randomAccessFile.seek(200L);
+                randomAccessFile.writeBoolean(false);
+                randomAccessFile.seek(800L);
+                randomAccessFile.writeBoolean(false);
+                randomAccessFile.close();
+            }
+            RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
+            randomAccessFile2.seek(8L);
+            byte[] bytes2 = (b("%d_%02d_%02d") + ":" + i).getBytes();
+            randomAccessFile2.writeInt(bytes2.length);
+            randomAccessFile2.write(bytes2);
+            randomAccessFile2.close();
+        } catch (Exception e) {
+        }
+    }
+
+    private void c(Location location) {
+        if (System.currentTimeMillis() - this.a < this.H || location == null) {
+            return;
+        }
+        if (location != null && location.hasSpeed() && location.getSpeed() > this.adg) {
+            this.adg = location.getSpeed();
+        }
+        try {
+            if (this.M == null) {
+                this.M = new ArrayList();
+                i();
+                d(location);
+            } else {
+                e(location);
+            }
+        } catch (Exception e) {
+        }
+        this.L++;
+    }
+
+    private void c(String str) {
+        if (str != null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                if (jSONObject.has(ARCameraAttr.FlashType.FLASH_ON)) {
+                    this.k = jSONObject.getInt(ARCameraAttr.FlashType.FLASH_ON);
+                }
+                if (jSONObject.has("bash")) {
+                    this.l = jSONObject.getDouble("bash");
+                }
+                if (jSONObject.has("net")) {
+                    this.m = jSONObject.getString("net");
+                }
+                if (jSONObject.has("tcon")) {
+                    this.n = jSONObject.getInt("tcon");
+                }
+                if (jSONObject.has("tcsh")) {
+                    this.o = jSONObject.getInt("tcsh");
+                }
+                if (jSONObject.has("per")) {
+                    this.p = jSONObject.getInt("per");
+                }
+                if (jSONObject.has("chdron")) {
+                    this.q = jSONObject.getInt("chdron");
+                }
+                if (jSONObject.has("spsh")) {
+                    this.ade = jSONObject.getDouble("spsh");
+                }
+                if (jSONObject.has("acsh")) {
+                    this.s = jSONObject.getDouble("acsh");
+                }
+                if (jSONObject.has("stspsh")) {
+                    this.t = jSONObject.getDouble("stspsh");
+                }
+                if (jSONObject.has("drstsh")) {
+                    this.u = jSONObject.getInt("drstsh");
+                }
+                if (jSONObject.has("stper")) {
+                    this.v = jSONObject.getInt("stper");
+                }
+                if (jSONObject.has("nondron")) {
+                    this.w = jSONObject.getInt("nondron");
+                }
+                if (jSONObject.has("nondrper")) {
+                    this.x = jSONObject.getInt("nondrper");
+                }
+                if (jSONObject.has(Config.DEVICE_UPTIME)) {
+                    this.z = jSONObject.getLong(Config.DEVICE_UPTIME);
+                }
+                k();
+            } catch (JSONException e) {
+            }
+        }
+    }
+
+    private void d() {
+        String[] split = (0 == 0 ? "7.8.0" : null).split("\\.");
+        int length = split.length;
+        this.adm[0] = 0;
+        this.adm[1] = 0;
+        this.adm[2] = 0;
+        this.adm[3] = 0;
+        if (length >= 4) {
+            length = 4;
+        }
+        for (int i = 0; i < length; i++) {
+            try {
+                this.adm[i] = (byte) (Integer.valueOf(split[i]).intValue() & 255);
+            } catch (Exception e) {
+            }
+        }
+        this.adn = a(com.baidu.location.g.b.d + ":" + com.baidu.location.g.b.tW().b);
+    }
+
+    private void d(Location location) {
+        this.e = System.currentTimeMillis();
+        b((int) (location.getTime() / 1000));
+        b((int) (location.getLongitude() * 1000000.0d));
+        b((int) (location.getLatitude() * 1000000.0d));
+        char c = location.hasBearing() ? (char) 0 : (char) 1;
+        char c2 = location.hasSpeed() ? (char) 0 : (char) 1;
+        if (c > 0) {
+            this.M.add((byte) 32);
+        } else {
+            this.M.add(Byte.valueOf((byte) (((byte) (((int) (location.getBearing() / 15.0f)) & 255)) & (-33))));
+        }
+        if (c2 > 0) {
+            this.M.add(Byte.MIN_VALUE);
+        } else {
+            this.M.add(Byte.valueOf((byte) (((byte) (((int) ((location.getSpeed() * 3.6d) / 4.0d)) & 255)) & Byte.MAX_VALUE)));
+        }
+        this.adi = location;
+    }
+
+    private void d(String str) {
+        int i = 1;
+        try {
+            File file = new File(com.baidu.location.g.f.a + "/grtcf.dat");
+            if (file.exists()) {
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+                randomAccessFile.seek(2L);
+                int readInt = randomAccessFile.readInt();
+                randomAccessFile.seek(8L);
+                int readInt2 = randomAccessFile.readInt();
+                byte[] bArr = new byte[readInt2];
+                randomAccessFile.read(bArr, 0, readInt2);
+                String str2 = new String(bArr);
+                if (str2.contains(b("%d_%02d_%02d")) && str2.contains(":")) {
+                    try {
+                        String[] split = str2.split(":");
+                        if (split.length > 1) {
+                            this.y = Integer.valueOf(split[1]).intValue();
+                        }
+                    } catch (Exception e) {
+                    }
+                }
+                while (true) {
+                    if (i > readInt) {
+                        break;
+                    }
+                    randomAccessFile.seek(i * 2048);
+                    int readInt3 = randomAccessFile.readInt();
+                    byte[] bArr2 = new byte[readInt3];
+                    randomAccessFile.read(bArr2, 0, readInt3);
+                    String str3 = new String(bArr2);
+                    if (str != null && str3.contains(str)) {
+                        c(str3);
+                        break;
+                    }
+                    i++;
+                }
+                randomAccessFile.close();
+            }
+        } catch (Exception e2) {
+        }
+    }
+
+    private void e(Location location) {
+        if (location == null) {
+            return;
+        }
+        int longitude = (int) ((location.getLongitude() - this.adi.getLongitude()) * 1000000.0d);
+        int latitude = (int) ((location.getLatitude() - this.adi.getLatitude()) * 1000000.0d);
+        char c = location.hasBearing() ? (char) 0 : (char) 1;
+        char c2 = location.hasSpeed() ? (char) 0 : (char) 1;
+        char c3 = longitude > 0 ? (char) 0 : (char) 1;
+        int abs = Math.abs(longitude);
+        char c4 = latitude > 0 ? (char) 0 : (char) 1;
+        int abs2 = Math.abs(latitude);
+        if (this.L > 1) {
+            this.adj = null;
+            this.adj = this.adi;
+        }
+        this.adi = location;
+        if (this.adi != null && this.adj != null && this.adi.getTime() > this.adj.getTime() && this.adi.getTime() - this.adj.getTime() < 5000) {
+            long time = this.adi.getTime() - this.adj.getTime();
+            float[] fArr = new float[2];
+            Location.distanceBetween(this.adi.getAltitude(), this.adi.getLongitude(), this.adj.getLatitude(), this.adj.getLongitude(), fArr);
+            double speed = (2.0f * (fArr[0] - (this.adj.getSpeed() * ((float) time)))) / ((float) (time * time));
+            if (speed > this.adh) {
+                this.adh = (float) speed;
+            }
+        }
+        this.M.add(Byte.valueOf((byte) (abs & 255)));
+        this.M.add(Byte.valueOf((byte) ((65280 & abs) >> 8)));
+        this.M.add(Byte.valueOf((byte) (abs2 & 255)));
+        this.M.add(Byte.valueOf((byte) ((65280 & abs2) >> 8)));
+        if (c > 0) {
+            byte b = c4 > 0 ? (byte) 96 : (byte) 32;
+            if (c3 > 0) {
+                b = (byte) (b | Byte.MIN_VALUE);
+            }
+            this.M.add(Byte.valueOf(b));
+        } else {
+            byte bearing = (byte) (((byte) (((int) (location.getBearing() / 15.0f)) & 255)) & 31);
+            if (c4 > 0) {
+                bearing = (byte) (bearing | 64);
+            }
+            if (c3 > 0) {
+                bearing = (byte) (bearing | Byte.MIN_VALUE);
+            }
+            this.M.add(Byte.valueOf(bearing));
+        }
+        if (c2 > 0) {
+            this.M.add(Byte.MIN_VALUE);
+        } else {
+            this.M.add(Byte.valueOf((byte) (((byte) (((int) ((location.getSpeed() * 3.6d) / 4.0d)) & 255)) & Byte.MAX_VALUE)));
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void e(String str) {
+        try {
+            File file = new File(com.baidu.location.g.f.a + "/grtcf.dat");
+            if (!file.exists()) {
+                File file2 = new File(com.baidu.location.g.f.a);
+                if (!file2.exists()) {
+                    file2.mkdirs();
+                }
+                if (!file.createNewFile()) {
+                    return;
+                }
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+                randomAccessFile.seek(2L);
+                randomAccessFile.writeInt(0);
+                randomAccessFile.seek(8L);
+                byte[] bytes = "1980_01_01:0".getBytes();
+                randomAccessFile.writeInt(bytes.length);
+                randomAccessFile.write(bytes);
+                randomAccessFile.seek(200L);
+                randomAccessFile.writeBoolean(false);
+                randomAccessFile.seek(800L);
+                randomAccessFile.writeBoolean(false);
+                randomAccessFile.close();
+            }
+            RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
+            randomAccessFile2.seek(2L);
+            int readInt = randomAccessFile2.readInt();
+            int i = 1;
+            while (i <= readInt) {
+                randomAccessFile2.seek(i * 2048);
+                int readInt2 = randomAccessFile2.readInt();
+                byte[] bArr = new byte[readInt2];
+                randomAccessFile2.read(bArr, 0, readInt2);
+                if (new String(bArr).contains(com.baidu.location.g.b.d)) {
+                    break;
+                }
+                i++;
+            }
+            if (i >= readInt) {
+                randomAccessFile2.seek(2L);
+                randomAccessFile2.writeInt(i);
+            }
+            randomAccessFile2.seek(i * 2048);
+            byte[] bytes2 = str.getBytes();
+            randomAccessFile2.writeInt(bytes2.length);
+            randomAccessFile2.write(bytes2);
+            randomAccessFile2.close();
+        } catch (Exception e) {
+        }
+    }
+
+    private boolean e() {
+        RandomAccessFile randomAccessFile;
+        FileChannel fileChannel;
+        FileLock fileLock = null;
+        FileChannel fileChannel2 = null;
+        FileLock fileLock2 = null;
+        boolean z = false;
+        try {
+            File file = new File(com.baidu.location.g.g.g() + File.separator + "gflk.dat");
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            if (0 == 0) {
+                randomAccessFile = new RandomAccessFile(file, "rw");
+                try {
+                    fileChannel = randomAccessFile.getChannel();
+                    try {
+                        fileLock = fileChannel.tryLock();
+                    } catch (Exception e) {
+                        z = true;
+                    } catch (Throwable th) {
+                        th = th;
+                        if (0 != 0) {
+                            try {
+                                fileLock2.release();
+                            } catch (Exception e2) {
+                                throw th;
+                            }
+                        }
+                        if (fileChannel != null) {
+                            fileChannel.close();
+                        }
+                        if (randomAccessFile != null) {
+                            randomAccessFile.close();
+                        }
+                        throw th;
+                    }
+                } catch (Exception e3) {
+                    if (0 != 0) {
+                        try {
+                            fileLock2.release();
+                        } catch (Exception e4) {
+                        }
+                    }
+                    if (0 != 0) {
+                        fileChannel2.close();
+                    }
+                    if (randomAccessFile != null) {
+                        randomAccessFile.close();
+                    }
+                    return z;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileChannel = null;
+                }
+            } else {
+                randomAccessFile = null;
+                fileChannel = null;
+            }
+            if (fileLock != null) {
+                try {
+                    fileLock.release();
+                } catch (Exception e5) {
+                }
+            }
+            if (fileChannel != null) {
+                fileChannel.close();
+            }
+            if (randomAccessFile != null) {
+                randomAccessFile.close();
+            }
+        } catch (Exception e6) {
+            randomAccessFile = null;
+        } catch (Throwable th3) {
+            th = th3;
+            randomAccessFile = null;
+            fileChannel = null;
+        }
+        return z;
+    }
+
+    private boolean f() {
+        if (this.B) {
+            if (!this.C) {
+                if (this.adg < this.t) {
+                    this.C = true;
+                    this.D = 0;
+                    this.D += this.p;
+                    return true;
+                }
+                return true;
+            } else if (this.adg >= this.t) {
+                this.D = 0;
+                this.C = false;
+                return true;
+            } else {
+                this.D += this.p;
+                if (this.D <= this.u || System.currentTimeMillis() - this.G > this.v * 1000) {
+                    return true;
+                }
+            }
+        } else if (this.adg >= this.ade || this.adh >= this.s) {
+            this.B = true;
+            return true;
+        } else if (this.w == 1 && System.currentTimeMillis() - this.G > this.x * 1000) {
+            return true;
+        }
+        return false;
+    }
+
+    private void g() {
+        this.M = null;
+        this.e = 0L;
+        this.L = 0;
+        this.adi = null;
+        this.adj = null;
+        this.adg = 0.0f;
+        this.adh = 0.0f;
+    }
+
+    /* JADX WARN: Type inference failed for: r0v6, types: [com.baidu.location.a.e$2] */
+    private void h() {
+        if (this.e == 0 || System.currentTimeMillis() - this.e < this.p * 1000) {
+            return;
+        }
+        if (com.baidu.location.f.getServiceContext().getSharedPreferences("loc_navi_mode", 4).getBoolean("is_navi_on", false)) {
+            g();
+        } else if (this.n == 1 && !f()) {
+            g();
+        } else {
+            if (com.baidu.location.g.b.d.equals("com.ubercab.driver")) {
+                if (e()) {
+                    g();
+                    return;
+                }
+            } else if (!a(com.baidu.location.g.b.d, com.baidu.location.f.getServiceContext())) {
+                g();
+                return;
+            }
+            if (this.M != null) {
+                int size = this.M.size();
+                this.M.set(0, Byte.valueOf((byte) (size & 255)));
+                this.M.set(1, Byte.valueOf((byte) ((65280 & size) >> 8)));
+                this.M.set(3, Byte.valueOf((byte) (this.L & 255)));
+                byte[] bArr = new byte[size];
+                for (int i = 0; i < size; i++) {
+                    bArr[i] = this.M.get(i).byteValue();
+                }
+                File file = new File(com.baidu.location.g.g.i(), "baidu/tempdata");
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                if (file.exists()) {
+                    File file2 = new File(file, "intime.dat");
+                    if (file2.exists()) {
+                        file2.delete();
+                    }
+                    try {
+                        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file2));
+                        bufferedOutputStream.write(bArr);
+                        bufferedOutputStream.flush();
+                        bufferedOutputStream.close();
+                        new Thread() { // from class: com.baidu.location.a.e.2
+                            @Override // java.lang.Thread, java.lang.Runnable
+                            public void run() {
+                                e.this.a(new File(com.baidu.location.g.g.i() + "/baidu/tempdata", "intime.dat"), "http://itsdata.map.baidu.com/long-conn-gps/sdk.php");
+                            }
+                        }.start();
+                    } catch (Exception e) {
+                    }
+                }
+                g();
+                this.G = System.currentTimeMillis();
+            }
+        }
+    }
+
+    private void i() {
+        this.M.add((byte) 0);
+        this.M.add((byte) 0);
+        if (f.equals("0")) {
+            this.M.add((byte) -82);
+        } else {
+            this.M.add((byte) -66);
+        }
+        this.M.add((byte) 0);
+        this.M.add(Byte.valueOf(this.adm[0]));
+        this.M.add(Byte.valueOf(this.adm[1]));
+        this.M.add(Byte.valueOf(this.adm[2]));
+        this.M.add(Byte.valueOf(this.adm[3]));
+        int length = this.adn.length;
+        this.M.add(Byte.valueOf((byte) ((length + 1) & 255)));
+        for (int i = 0; i < length; i++) {
+            this.M.add(Byte.valueOf(this.adn[i]));
+        }
+    }
+
+    private void j() {
+        if (System.currentTimeMillis() - this.z > 86400000) {
+            if (this.adf == null) {
+                this.adf = new a();
+            }
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append(com.baidu.location.g.b.tW().a(false));
+            stringBuffer.append(com.baidu.location.a.a.tc().c());
+            this.adf.a(stringBuffer.toString());
+        }
+        k();
+    }
+
+    private void k() {
+    }
+
+    public static e tg() {
+        if (adc == null) {
+            adc = new e();
+        }
+        return adc;
+    }
+
+    public void a(final Location location) {
+        if (!this.N) {
             c();
-            return c.exists();
-        } catch (IOException e2) {
-            return false;
+        }
+        boolean z = ((double) com.baidu.location.b.c.tw().f()) < this.l * 100.0d;
+        if (this.k == 1 && z && this.m.contains(com.baidu.location.e.c.a(com.baidu.location.e.b.tM().e()))) {
+            if (this.n != 1 || this.y <= this.o) {
+                this.adl.post(new Runnable() { // from class: com.baidu.location.a.e.1
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        e.this.b(location);
+                    }
+                });
+            }
         }
     }
 
-    public static e tm() {
-        if (ady == null) {
-            ady = new e(com.baidu.location.d.b.tM().c());
+    public void b() {
+        if (this.N) {
+            this.N = false;
+            g();
         }
-        return ady;
-    }
-
-    public boolean f(Location location) {
-        return a(location, com.baidu.location.d.g.ac, com.baidu.location.d.g.ad);
     }
 }

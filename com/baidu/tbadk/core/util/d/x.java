@@ -23,17 +23,17 @@ public class x extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Dk() {
+    public boolean Dr() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Dl() {
+    public boolean Ds() {
         return true;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int Dm() {
+    public int Dt() {
         return this.procType;
     }
 }

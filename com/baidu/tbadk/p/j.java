@@ -5,31 +5,31 @@ public abstract class j extends com.baidu.adp.lib.b.a {
     protected abstract String getName();
 
     @Override // com.baidu.adp.lib.b.a
-    protected void Z(int i) {
+    protected void aq(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] iH() {
+    protected String[] iG() {
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.b.a
-    public int iI() {
+    public int iH() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int iJ() {
+    protected int iI() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int iK() {
+    protected int iJ() {
         return 10;
     }
 
-    public boolean jL() {
-        return com.baidu.adp.lib.b.d.iR().aO(getName()) == iI();
+    public boolean jJ() {
+        return com.baidu.adp.lib.b.d.iQ().aO(getName()) == iH();
     }
 }

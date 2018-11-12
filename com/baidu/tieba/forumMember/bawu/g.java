@@ -17,14 +17,14 @@ import com.baidu.tieba.forumMember.member.p;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class g {
-    private BdListView OE;
-    private com.baidu.tbadk.coreExtra.view.a aIC;
-    private View aix;
-    private BawuTeamInfoActivity dwm;
-    private h dwn;
-    private NoNetworkView dwo;
-    private boolean dwp = false;
-    private h.b dwq;
+    private BdListView OF;
+    private com.baidu.tbadk.coreExtra.view.a aJs;
+    private View ajk;
+    private BawuTeamInfoActivity dxE;
+    private h dxF;
+    private NoNetworkView dxG;
+    private boolean dxH = false;
+    private h.b dxI;
     private NavigationBar mNavigationBar;
     private View mParent;
 
@@ -33,88 +33,88 @@ public class g {
     }
 
     public g(BawuTeamInfoActivity bawuTeamInfoActivity) {
-        this.dwm = bawuTeamInfoActivity;
-        this.aix = LayoutInflater.from(this.dwm.getPageContext().getPageActivity()).inflate(e.h.bawu_team_info_activity_layout, (ViewGroup) null);
-        this.dwm.setContentView(this.aix);
-        this.mParent = this.aix.findViewById(e.g.root_bawu_team_info);
-        this.mNavigationBar = (NavigationBar) this.aix.findViewById(e.g.view_navigation_bar);
-        this.mNavigationBar.setCenterTextTitle(this.dwm.getString(e.j.bawu_manager_team));
+        this.dxE = bawuTeamInfoActivity;
+        this.ajk = LayoutInflater.from(this.dxE.getPageContext().getPageActivity()).inflate(e.h.bawu_team_info_activity_layout, (ViewGroup) null);
+        this.dxE.setContentView(this.ajk);
+        this.mParent = this.ajk.findViewById(e.g.root_bawu_team_info);
+        this.mNavigationBar = (NavigationBar) this.ajk.findViewById(e.g.view_navigation_bar);
+        this.mNavigationBar.setCenterTextTitle(this.dxE.getString(e.j.bawu_manager_team));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.showBottomLine();
-        this.dwo = (NoNetworkView) this.aix.findViewById(e.g.view_no_network);
-        this.OE = (BdListView) this.aix.findViewById(e.g.listview_bawu_team_info);
-        this.dwn = new h(this.dwm.getPageContext());
-        this.OE.setAdapter((ListAdapter) this.dwn);
-        this.dwq = new h.b() { // from class: com.baidu.tieba.forumMember.bawu.g.1
+        this.dxG = (NoNetworkView) this.ajk.findViewById(e.g.view_no_network);
+        this.OF = (BdListView) this.ajk.findViewById(e.g.listview_bawu_team_info);
+        this.dxF = new h(this.dxE.getPageContext());
+        this.OF.setAdapter((ListAdapter) this.dxF);
+        this.dxI = new h.b() { // from class: com.baidu.tieba.forumMember.bawu.g.1
             /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivity */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // com.baidu.tieba.forumMember.bawu.h.b
-            public void no(String str) {
+            public void np(String str) {
                 if (!TbadkCoreApplication.isLogin() || !StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
-                    ay.CU().c(g.this.dwm.getPageContext(), new String[]{str});
+                    ay.Db().c(g.this.dxE.getPageContext(), new String[]{str});
                 } else {
                     g.this.i(TbadkCoreApplication.getCurrentAccountInfo());
                 }
             }
         };
-        this.dwn.a(this.dwq);
+        this.dxF.a(this.dxI);
     }
 
     public void a(ArrayList<i> arrayList, p pVar, boolean z) {
         if (arrayList == null || arrayList.size() <= 0) {
-            this.dwp = true;
+            this.dxH = true;
         } else {
-            this.dwp = false;
+            this.dxH = false;
         }
-        if (z && this.dwp) {
-            ayg();
+        if (z && this.dxH) {
+            axD();
             return;
         }
-        ayh();
-        this.dwn.N(arrayList);
-        this.dwn.a(pVar);
-        this.dwn.notifyDataSetChanged();
+        axE();
+        this.dxF.N(arrayList);
+        this.dxF.a(pVar);
+        this.dxF.notifyDataSetChanged();
     }
 
-    public boolean ayf() {
-        return this.dwp;
+    public boolean axC() {
+        return this.dxH;
     }
 
     public void onChangeSkinType(int i) {
-        this.dwm.getLayoutMode().setNightMode(i == 1);
-        this.dwm.getLayoutMode().onModeChanged(this.aix);
-        this.mNavigationBar.onChangeSkinType(this.dwm.getPageContext(), i);
-        this.dwo.onChangeSkinType(this.dwm.getPageContext(), i);
-        this.dwn.notifyDataSetChanged();
+        this.dxE.getLayoutMode().setNightMode(i == 1);
+        this.dxE.getLayoutMode().onModeChanged(this.ajk);
+        this.mNavigationBar.onChangeSkinType(this.dxE.getPageContext(), i);
+        this.dxG.onChangeSkinType(this.dxE.getPageContext(), i);
+        this.dxF.notifyDataSetChanged();
     }
 
-    public void ayg() {
-        this.OE.setVisibility(8);
-        this.dwm.showNetRefreshView(this.aix, this.dwm.getPageContext().getResources().getString(e.j.no_data_text), true);
+    public void axD() {
+        this.OF.setVisibility(8);
+        this.dxE.showNetRefreshView(this.ajk, this.dxE.getPageContext().getResources().getString(e.j.no_data_text), true);
     }
 
-    public void ayh() {
-        this.dwm.hideNetRefreshView(this.aix);
-        this.OE.setVisibility(0);
+    public void axE() {
+        this.dxE.hideNetRefreshView(this.ajk);
+        this.OF.setVisibility(0);
     }
 
     public void f(NoNetworkView.a aVar) {
-        this.dwo.a(aVar);
+        this.dxG.a(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i(AccountData accountData) {
-        if (this.aIC == null) {
-            this.aIC = new com.baidu.tbadk.coreExtra.view.a(this.dwm);
+        if (this.aJs == null) {
+            this.aJs = new com.baidu.tbadk.coreExtra.view.a(this.dxE);
         }
-        this.aIC.Je();
-        this.aIC.setAccountData(accountData);
-        this.aIC.eP(1);
+        this.aJs.Jq();
+        this.aJs.setAccountData(accountData);
+        this.aJs.fd(1);
     }
 
     public void onDestroy() {
-        if (this.aIC != null) {
-            this.aIC.onDestroy();
+        if (this.aJs != null) {
+            this.aJs.onDestroy();
         }
     }
 }

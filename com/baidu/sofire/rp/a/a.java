@@ -3,7 +3,7 @@ package com.baidu.sofire.rp.a;
 import com.baidu.sofire.b.e;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     public String a;
     public String b;
     public String c;
@@ -40,11 +40,11 @@ public final class a {
         }
     }
 
-    public final int hashCode() {
+    public int hashCode() {
         return (((this.e == null ? 0 : this.e.hashCode()) + (((this.d == null ? 0 : this.d.hashCode()) + 31) * 31)) * 31) + (this.b != null ? this.b.hashCode() : 0);
     }
 
-    public final boolean equals(Object obj) {
+    public boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }

@@ -2,35 +2,36 @@ package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
 public class ac extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void Z(int i) {
-    }
-
-    @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_is_full_screen";
+        return "android_immersive_switch";
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] iH() {
-        return new String[0];
+    protected String[] iG() {
+        return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int iI() {
+    protected int iH() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int iJ() {
+    protected int iI() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int iK() {
+    protected int iJ() {
         return 10;
     }
 
-    public static boolean jL() {
-        return com.baidu.adp.lib.b.d.iR().aO("android_is_full_screen") == 1;
+    @Override // com.baidu.adp.lib.b.a
+    protected void aq(int i) {
+        if (i == 1) {
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("switch_immersive_sticky_status", true);
+        } else {
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("switch_immersive_sticky_status", false);
+        }
     }
 }

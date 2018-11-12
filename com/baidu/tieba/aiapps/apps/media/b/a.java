@@ -20,7 +20,7 @@ public class a implements IAiAppLiveIoc {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.aiapps.apps.media.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0166a {
+    public interface InterfaceC0191a {
         boolean a(Context context, b bVar, e eVar);
     }
 
@@ -38,7 +38,7 @@ public class a implements IAiAppLiveIoc {
         return jSONObject;
     }
 
-    private e at(Context context, String str) {
+    private e ar(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -52,7 +52,7 @@ public class a implements IAiAppLiveIoc {
         return null;
     }
 
-    private boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp, InterfaceC0166a interfaceC0166a) {
+    private boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp, InterfaceC0191a interfaceC0191a) {
         JSONObject paramsJSONObject = getParamsJSONObject(unitedSchemeEntity.getParam("params"));
         if (paramsJSONObject == null) {
             AiAppsLog.e("Live", "object is null");
@@ -61,42 +61,42 @@ public class a implements IAiAppLiveIoc {
         }
         String optString = paramsJSONObject.optString("liveId");
         BdLog.d("parseEntity  playerID " + optString);
-        e at = at(context, optString);
-        if (at == null) {
+        e ar = ar(context, optString);
+        if (ar == null) {
             AiAppsLog.e("Live", "livePlayer is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        b a = b.a(paramsJSONObject, at.Xy());
-        if (interfaceC0166a != null) {
-            return interfaceC0166a.a(context, a, at);
+        b a = b.a(paramsJSONObject, ar.XI());
+        if (interfaceC0191a != null) {
+            return interfaceC0191a.a(context, a, ar);
         }
         return false;
     }
 
     private boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
-        return a(context, unitedSchemeEntity, callbackHandler, aiApp, new InterfaceC0166a() { // from class: com.baidu.tieba.aiapps.apps.media.b.a.1
-            @Override // com.baidu.tieba.aiapps.apps.media.b.a.InterfaceC0166a
+        return a(context, unitedSchemeEntity, callbackHandler, aiApp, new InterfaceC0191a() { // from class: com.baidu.tieba.aiapps.apps.media.b.a.1
+            @Override // com.baidu.tieba.aiapps.apps.media.b.a.InterfaceC0191a
             public boolean a(Context context2, b bVar, e eVar) {
-                eVar.f(bVar.bEB, bVar.mDirection);
+                eVar.f(bVar.bFn, bVar.mDirection);
                 return true;
             }
         });
     }
 
     private boolean b(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
-        return a(context, unitedSchemeEntity, callbackHandler, aiApp, new InterfaceC0166a() { // from class: com.baidu.tieba.aiapps.apps.media.b.a.2
-            @Override // com.baidu.tieba.aiapps.apps.media.b.a.InterfaceC0166a
+        return a(context, unitedSchemeEntity, callbackHandler, aiApp, new InterfaceC0191a() { // from class: com.baidu.tieba.aiapps.apps.media.b.a.2
+            @Override // com.baidu.tieba.aiapps.apps.media.b.a.InterfaceC0191a
             public boolean a(Context context2, b bVar, e eVar) {
-                eVar.dl(bVar.bEv);
+                eVar.dC(bVar.bFh);
                 return true;
             }
         });
     }
 
     private boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
-        return a(context, unitedSchemeEntity, callbackHandler, aiApp, new InterfaceC0166a() { // from class: com.baidu.tieba.aiapps.apps.media.b.a.3
-            @Override // com.baidu.tieba.aiapps.apps.media.b.a.InterfaceC0166a
+        return a(context, unitedSchemeEntity, callbackHandler, aiApp, new InterfaceC0191a() { // from class: com.baidu.tieba.aiapps.apps.media.b.a.3
+            @Override // com.baidu.tieba.aiapps.apps.media.b.a.InterfaceC0191a
             public boolean a(Context context2, b bVar, e eVar) {
                 eVar.stop();
                 return true;
@@ -105,8 +105,8 @@ public class a implements IAiAppLiveIoc {
     }
 
     private boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
-        return a(context, unitedSchemeEntity, callbackHandler, aiApp, new InterfaceC0166a() { // from class: com.baidu.tieba.aiapps.apps.media.b.a.4
-            @Override // com.baidu.tieba.aiapps.apps.media.b.a.InterfaceC0166a
+        return a(context, unitedSchemeEntity, callbackHandler, aiApp, new InterfaceC0191a() { // from class: com.baidu.tieba.aiapps.apps.media.b.a.4
+            @Override // com.baidu.tieba.aiapps.apps.media.b.a.InterfaceC0191a
             public boolean a(Context context2, b bVar, e eVar) {
                 eVar.start();
                 return false;
@@ -115,8 +115,8 @@ public class a implements IAiAppLiveIoc {
     }
 
     private boolean e(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
-        return a(context, unitedSchemeEntity, callbackHandler, aiApp, new InterfaceC0166a() { // from class: com.baidu.tieba.aiapps.apps.media.b.a.5
-            @Override // com.baidu.tieba.aiapps.apps.media.b.a.InterfaceC0166a
+        return a(context, unitedSchemeEntity, callbackHandler, aiApp, new InterfaceC0191a() { // from class: com.baidu.tieba.aiapps.apps.media.b.a.5
+            @Override // com.baidu.tieba.aiapps.apps.media.b.a.InterfaceC0191a
             public boolean a(Context context2, b bVar, e eVar) {
                 eVar.e(bVar);
                 if (bVar.hidden && eVar.isPlaying()) {
@@ -129,8 +129,8 @@ public class a implements IAiAppLiveIoc {
     }
 
     private boolean f(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
-        return a(context, unitedSchemeEntity, callbackHandler, aiApp, new InterfaceC0166a() { // from class: com.baidu.tieba.aiapps.apps.media.b.a.6
-            @Override // com.baidu.tieba.aiapps.apps.media.b.a.InterfaceC0166a
+        return a(context, unitedSchemeEntity, callbackHandler, aiApp, new InterfaceC0191a() { // from class: com.baidu.tieba.aiapps.apps.media.b.a.6
+            @Override // com.baidu.tieba.aiapps.apps.media.b.a.InterfaceC0191a
             public boolean a(Context context2, b bVar, e eVar) {
                 eVar.a(bVar);
                 return true;

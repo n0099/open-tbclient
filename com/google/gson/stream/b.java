@@ -7,41 +7,41 @@ import java.io.IOException;
 import java.io.Writer;
 /* loaded from: classes2.dex */
 public class b implements Closeable, Flushable {
-    private static final String[] inD = new String[128];
-    private static final String[] inE;
-    private boolean ijX;
-    private boolean ijY;
-    private boolean ikb;
-    private String inF;
-    private String inG;
+    private static final String[] ipn = new String[128];
+    private static final String[] ipo;
+    private boolean ilH;
+    private boolean ilI;
+    private boolean ilL;
+    private String ipp;
+    private String ipq;
     private final Writer out;
     private String separator;
-    private int[] inC = new int[32];
-    private int ilx = 0;
+    private int[] ipm = new int[32];
+    private int ini = 0;
 
     static {
         for (int i = 0; i <= 31; i++) {
-            inD[i] = String.format("\\u%04x", Integer.valueOf(i));
+            ipn[i] = String.format("\\u%04x", Integer.valueOf(i));
         }
-        inD[34] = "\\\"";
-        inD[92] = "\\\\";
-        inD[9] = "\\t";
-        inD[8] = "\\b";
-        inD[10] = "\\n";
-        inD[13] = "\\r";
-        inD[12] = "\\f";
-        inE = (String[]) inD.clone();
-        inE[60] = "\\u003c";
-        inE[62] = "\\u003e";
-        inE[38] = "\\u0026";
-        inE[61] = "\\u003d";
-        inE[39] = "\\u0027";
+        ipn[34] = "\\\"";
+        ipn[92] = "\\\\";
+        ipn[9] = "\\t";
+        ipn[8] = "\\b";
+        ipn[10] = "\\n";
+        ipn[13] = "\\r";
+        ipn[12] = "\\f";
+        ipo = (String[]) ipn.clone();
+        ipo[60] = "\\u003c";
+        ipo[62] = "\\u003e";
+        ipo[38] = "\\u0026";
+        ipo[61] = "\\u003d";
+        ipo[39] = "\\u0027";
     }
 
     public b(Writer writer) {
-        ye(6);
+        yx(6);
         this.separator = ":";
-        this.ijX = true;
+        this.ilH = true;
         if (writer == null) {
             throw new NullPointerException("out == null");
         }
@@ -50,188 +50,188 @@ public class b implements Closeable, Flushable {
 
     public final void setIndent(String str) {
         if (str.length() == 0) {
-            this.inF = null;
+            this.ipp = null;
             this.separator = ":";
             return;
         }
-        this.inF = str;
+        this.ipp = str;
         this.separator = ": ";
     }
 
     public final void setLenient(boolean z) {
-        this.ikb = z;
+        this.ilL = z;
     }
 
     public boolean isLenient() {
-        return this.ikb;
+        return this.ilL;
     }
 
-    public final void oQ(boolean z) {
-        this.ijY = z;
+    public final void pd(boolean z) {
+        this.ilI = z;
     }
 
-    public final boolean bZB() {
-        return this.ijY;
+    public final boolean bYY() {
+        return this.ilI;
     }
 
-    public final void oR(boolean z) {
-        this.ijX = z;
+    public final void pe(boolean z) {
+        this.ilH = z;
     }
 
-    public final boolean bZC() {
-        return this.ijX;
+    public final boolean bYZ() {
+        return this.ilH;
     }
 
-    public b bZl() throws IOException {
-        bZE();
-        return au(1, "[");
+    public b bYI() throws IOException {
+        bZb();
+        return aq(1, "[");
     }
 
-    public b bZm() throws IOException {
+    public b bYJ() throws IOException {
         return k(1, 2, "]");
     }
 
-    public b bZn() throws IOException {
-        bZE();
-        return au(3, "{");
+    public b bYK() throws IOException {
+        bZb();
+        return aq(3, "{");
     }
 
-    public b bZo() throws IOException {
+    public b bYL() throws IOException {
         return k(3, 5, "}");
     }
 
-    private b au(int i, String str) throws IOException {
-        bZH();
-        ye(i);
+    private b aq(int i, String str) throws IOException {
+        bZe();
+        yx(i);
         this.out.write(str);
         return this;
     }
 
     private b k(int i, int i2, String str) throws IOException {
-        int bZD = bZD();
-        if (bZD != i2 && bZD != i) {
+        int bZa = bZa();
+        if (bZa != i2 && bZa != i) {
             throw new IllegalStateException("Nesting problem.");
         }
-        if (this.inG != null) {
-            throw new IllegalStateException("Dangling name: " + this.inG);
+        if (this.ipq != null) {
+            throw new IllegalStateException("Dangling name: " + this.ipq);
         }
-        this.ilx--;
-        if (bZD == i2) {
-            bZF();
+        this.ini--;
+        if (bZa == i2) {
+            bZc();
         }
         this.out.write(str);
         return this;
     }
 
-    private void ye(int i) {
-        if (this.ilx == this.inC.length) {
-            int[] iArr = new int[this.ilx * 2];
-            System.arraycopy(this.inC, 0, iArr, 0, this.ilx);
-            this.inC = iArr;
+    private void yx(int i) {
+        if (this.ini == this.ipm.length) {
+            int[] iArr = new int[this.ini * 2];
+            System.arraycopy(this.ipm, 0, iArr, 0, this.ini);
+            this.ipm = iArr;
         }
-        int[] iArr2 = this.inC;
-        int i2 = this.ilx;
-        this.ilx = i2 + 1;
+        int[] iArr2 = this.ipm;
+        int i2 = this.ini;
+        this.ini = i2 + 1;
         iArr2[i2] = i;
     }
 
-    private int bZD() {
-        if (this.ilx == 0) {
+    private int bZa() {
+        if (this.ini == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
-        return this.inC[this.ilx - 1];
+        return this.ipm[this.ini - 1];
     }
 
-    private void yg(int i) {
-        this.inC[this.ilx - 1] = i;
+    private void yz(int i) {
+        this.ipm[this.ini - 1] = i;
     }
 
-    public b yL(String str) throws IOException {
+    public b yQ(String str) throws IOException {
         if (str == null) {
             throw new NullPointerException("name == null");
         }
-        if (this.inG != null) {
+        if (this.ipq != null) {
             throw new IllegalStateException();
         }
-        if (this.ilx == 0) {
+        if (this.ini == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
-        this.inG = str;
+        this.ipq = str;
         return this;
     }
 
-    private void bZE() throws IOException {
-        if (this.inG != null) {
-            bZG();
-            yP(this.inG);
-            this.inG = null;
+    private void bZb() throws IOException {
+        if (this.ipq != null) {
+            bZd();
+            yU(this.ipq);
+            this.ipq = null;
         }
     }
 
-    public b yM(String str) throws IOException {
+    public b yR(String str) throws IOException {
         if (str == null) {
-            return bZp();
+            return bYM();
         }
-        bZE();
-        bZH();
-        yP(str);
+        bZb();
+        bZe();
+        yU(str);
         return this;
     }
 
-    public b bZp() throws IOException {
-        if (this.inG != null) {
-            if (this.ijX) {
-                bZE();
+    public b bYM() throws IOException {
+        if (this.ipq != null) {
+            if (this.ilH) {
+                bZb();
             } else {
-                this.inG = null;
+                this.ipq = null;
                 return this;
             }
         }
-        bZH();
+        bZe();
         this.out.write("null");
         return this;
     }
 
-    public b oO(boolean z) throws IOException {
-        bZE();
-        bZH();
+    public b pb(boolean z) throws IOException {
+        bZb();
+        bZe();
         this.out.write(z ? "true" : ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE);
         return this;
     }
 
     public b k(Boolean bool) throws IOException {
         if (bool == null) {
-            return bZp();
+            return bYM();
         }
-        bZE();
-        bZH();
+        bZb();
+        bZe();
         this.out.write(bool.booleanValue() ? "true" : ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE);
         return this;
     }
 
-    public b dv(long j) throws IOException {
-        bZE();
-        bZH();
+    public b dq(long j) throws IOException {
+        bZb();
+        bZe();
         this.out.write(Long.toString(j));
         return this;
     }
 
     public b b(Number number) throws IOException {
         if (number == null) {
-            return bZp();
+            return bYM();
         }
-        bZE();
+        bZb();
         String obj = number.toString();
-        if (!this.ikb && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals("NaN"))) {
+        if (!this.ilL && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals("NaN"))) {
             throw new IllegalArgumentException("Numeric values must be finite, but was " + number);
         }
-        bZH();
+        bZe();
         this.out.append((CharSequence) obj);
         return this;
     }
 
     public void flush() throws IOException {
-        if (this.ilx == 0) {
+        if (this.ini == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
         this.out.flush();
@@ -240,22 +240,22 @@ public class b implements Closeable, Flushable {
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         this.out.close();
-        int i = this.ilx;
-        if (i > 1 || (i == 1 && this.inC[i - 1] != 7)) {
+        int i = this.ini;
+        if (i > 1 || (i == 1 && this.ipm[i - 1] != 7)) {
             throw new IOException("Incomplete document");
         }
-        this.ilx = 0;
+        this.ini = 0;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:17:0x0032  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void yP(String str) throws IOException {
+    private void yU(String str) throws IOException {
         int i;
         String str2;
         int i2 = 0;
-        String[] strArr = this.ijY ? inE : inD;
+        String[] strArr = this.ilI ? ipo : ipn;
         this.out.write("\"");
         int length = str.length();
         for (i = 0; i < length; i = i + 1) {
@@ -286,37 +286,37 @@ public class b implements Closeable, Flushable {
         this.out.write("\"");
     }
 
-    private void bZF() throws IOException {
-        if (this.inF != null) {
+    private void bZc() throws IOException {
+        if (this.ipp != null) {
             this.out.write("\n");
-            int i = this.ilx;
+            int i = this.ini;
             for (int i2 = 1; i2 < i; i2++) {
-                this.out.write(this.inF);
+                this.out.write(this.ipp);
             }
         }
     }
 
-    private void bZG() throws IOException {
-        int bZD = bZD();
-        if (bZD == 5) {
+    private void bZd() throws IOException {
+        int bZa = bZa();
+        if (bZa == 5) {
             this.out.write(44);
-        } else if (bZD != 3) {
+        } else if (bZa != 3) {
             throw new IllegalStateException("Nesting problem.");
         }
-        bZF();
-        yg(4);
+        bZc();
+        yz(4);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private void bZH() throws IOException {
-        switch (bZD()) {
+    private void bZe() throws IOException {
+        switch (bZa()) {
             case 1:
-                yg(2);
-                bZF();
+                yz(2);
+                bZc();
                 return;
             case 2:
                 this.out.append(',');
-                bZF();
+                bZc();
                 return;
             case 3:
             case 5:
@@ -324,16 +324,16 @@ public class b implements Closeable, Flushable {
                 throw new IllegalStateException("Nesting problem.");
             case 4:
                 this.out.append((CharSequence) this.separator);
-                yg(5);
+                yz(5);
                 return;
             case 6:
                 break;
             case 7:
-                if (!this.ikb) {
+                if (!this.ilL) {
                     throw new IllegalStateException("JSON must have only one top-level value.");
                 }
                 break;
         }
-        yg(7);
+        yz(7);
     }
 }

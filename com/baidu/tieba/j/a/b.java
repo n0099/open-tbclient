@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.f;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class b extends a<com.baidu.tieba.play.b.d> {
-    private boolean fwE;
+    private boolean fyb;
 
     public b(String str) {
         super(str);
-        this.fwE = f.hB();
+        this.fyb = f.hA();
     }
 
     @Override // com.baidu.tieba.j.a.c
@@ -20,19 +20,19 @@ public class b extends a<com.baidu.tieba.play.b.d> {
     @Override // com.baidu.tieba.j.a.a
     public void a(com.baidu.tieba.play.b.d dVar) {
         super.a((b) dVar);
-        if (bbA() && this.fwE) {
-            bbB();
+        if (baZ() && this.fyb) {
+            bba();
         }
     }
 
-    private boolean bbA() {
+    private boolean baZ() {
         return this.list != null && this.list.size() > 30;
     }
 
     @Override // com.baidu.tieba.j.a.c
-    public void bbB() {
+    public void bba() {
         if (this.list != null && this.list.size() != 0) {
-            cZ(new ArrayList(this.list));
+            cX(new ArrayList(this.list));
             this.list.clear();
         }
     }

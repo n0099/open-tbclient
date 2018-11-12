@@ -38,7 +38,7 @@ public class OriginalThreadInfo extends OrmObject implements Serializable {
 
     public void parser(OriginThreadInfo originThreadInfo) {
         if (originThreadInfo == null) {
-            xx();
+            xF();
             return;
         }
         this.forumName = originThreadInfo.fname;
@@ -46,7 +46,7 @@ public class OriginalThreadInfo extends OrmObject implements Serializable {
         this.threadId = originThreadInfo.tid;
         this.title = originThreadInfo.title;
         this.threadType = originThreadInfo.thread_type.intValue();
-        if (!com.baidu.tbadk.core.util.v.J(originThreadInfo.media)) {
+        if (!com.baidu.tbadk.core.util.v.I(originThreadInfo.media)) {
             this.mediaList = new ArrayList();
             for (Media media : originThreadInfo.media) {
                 if (media != null) {
@@ -58,7 +58,7 @@ public class OriginalThreadInfo extends OrmObject implements Serializable {
         } else {
             this.mediaList = null;
         }
-        if (!com.baidu.tbadk.core.util.v.J(originThreadInfo._abstract)) {
+        if (!com.baidu.tbadk.core.util.v.I(originThreadInfo._abstract)) {
             this.abstractList = new ArrayList();
             for (Abstract r0 : originThreadInfo._abstract) {
                 if (r0 != null) {
@@ -82,7 +82,7 @@ public class OriginalThreadInfo extends OrmObject implements Serializable {
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject == null) {
-            xx();
+            xF();
             return;
         }
         try {
@@ -134,11 +134,11 @@ public class OriginalThreadInfo extends OrmObject implements Serializable {
         if (bbVar == null) {
             return null;
         }
-        if (bbVar.arg != null) {
-            return bbVar.arg;
+        if (bbVar.arT != null) {
+            return bbVar.arT;
         }
         OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
-        originalThreadInfo.forumName = bbVar.yB();
+        originalThreadInfo.forumName = bbVar.yI();
         originalThreadInfo.forumId = bbVar.getFid();
         originalThreadInfo.threadId = bbVar.getTid();
         originalThreadInfo.title = bbVar.getTitle();
@@ -152,24 +152,24 @@ public class OriginalThreadInfo extends OrmObject implements Serializable {
         MediaData mediaData = new MediaData();
         arrayList2.add(mediaData);
         originalThreadInfo.mediaList = arrayList2;
-        if (bbVar.isLinkThread() && bbVar.zN() != null) {
-            ad zN = bbVar.zN();
-            originalThreadInfo.title = zN.xn();
-            abstractData.text = zN.xo();
-            mediaData.setPic(zN.xp());
-        } else if (bbVar.zm() && bbVar.yc() != null) {
-            mediaData.setPic(bbVar.yc().getThreadImgUrl());
-        } else if (com.baidu.tbadk.core.util.v.I(bbVar.yG()) > 0) {
-            originalThreadInfo.mediaList = bbVar.yG();
-        } else if (bbVar.yN() != null && !StringUtils.isNull(bbVar.yN().thumbnail_url)) {
-            mediaData.setPic(bbVar.yN().thumbnail_url);
+        if (bbVar.isLinkThread() && bbVar.zU() != null) {
+            ad zU = bbVar.zU();
+            originalThreadInfo.title = zU.xv();
+            abstractData.text = zU.xw();
+            mediaData.setPic(zU.xx());
+        } else if (bbVar.zt() && bbVar.yj() != null) {
+            mediaData.setPic(bbVar.yj().getThreadImgUrl());
+        } else if (com.baidu.tbadk.core.util.v.H(bbVar.yN()) > 0) {
+            originalThreadInfo.mediaList = bbVar.yN();
+        } else if (bbVar.yU() != null && !StringUtils.isNull(bbVar.yU().thumbnail_url)) {
+            mediaData.setPic(bbVar.yU().thumbnail_url);
         }
-        originalThreadInfo.alaInfoData = bbVar.yP();
+        originalThreadInfo.alaInfoData = bbVar.yW();
         originalThreadInfo.setShowData();
         return originalThreadInfo;
     }
 
-    private void xx() {
+    private void xF() {
         this.showType = 0;
         this.showText = TbadkCoreApplication.getInst().getString(e.j.original_thread_default_txt);
         this.showPicUrl = null;

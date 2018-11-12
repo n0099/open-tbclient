@@ -1,6 +1,5 @@
 package cn.jiguang.d.h;
 
-import com.baidu.searchbox.ng.ai.apps.canvas.action.draw.DaScale;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -15,7 +14,7 @@ public final class b {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("level", this.a);
-            jSONObject.put(DaScale.ACTION_TYPE, this.b);
+            jSONObject.put("scale", this.b);
             jSONObject.put("status", this.c);
             jSONObject.put("voltage", this.d);
             jSONObject.put("temperature", this.e);

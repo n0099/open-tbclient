@@ -5,13 +5,13 @@ import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
 /* loaded from: classes2.dex */
 public final class c {
-    private boolean Vu = false;
-    private boolean Vv = true;
     private boolean Vw = false;
     private boolean Vx = true;
-    private boolean Vy = true;
+    private boolean Vy = false;
     private boolean Vz = true;
     private boolean VA = true;
+    private boolean VB = true;
+    private boolean VC = true;
 
     private void k(String str, boolean z) {
         try {
@@ -25,18 +25,18 @@ public final class c {
         }
     }
 
-    public final void an(boolean z) {
+    public final void aB(boolean z) {
         k(WebViewFactoryProvider.SETTING_JS_ENABLE_ON_FILE_SCHEMA, z);
     }
 
-    public final void ao(boolean z) {
-        int networkType = com.baidu.browser.sailor.b.a.qR().getNetworkType();
+    public final void aC(boolean z) {
+        int networkType = com.baidu.browser.sailor.b.a.qP().getNetworkType();
         if (networkType == 1 || -1 == networkType) {
-            this.Vx = false;
+            this.Vz = false;
             k(WebViewFactoryProvider.SETTING_SAVE_FLOW, false);
             return;
         }
-        this.Vx = z;
+        this.Vz = z;
         k(WebViewFactoryProvider.SETTING_SAVE_FLOW, z);
     }
 }

@@ -13,17 +13,17 @@ public class Configuration implements Parcelable {
         public Configuration createFromParcel(Parcel parcel) {
             Configuration configuration = new Configuration();
             configuration.mAlpha = parcel.readInt();
-            configuration.Bz = parcel.readInt();
-            configuration.BA = parcel.readInt();
-            configuration.BB = parcel.readInt();
-            configuration.BC = parcel.readByte() == 1;
-            configuration.BD = parcel.readByte() == 1;
+            configuration.BC = parcel.readInt();
+            configuration.BD = parcel.readInt();
+            configuration.BE = parcel.readInt();
+            configuration.BF = parcel.readByte() == 1;
+            configuration.BG = parcel.readByte() == 1;
             return configuration;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: ae */
+        /* renamed from: av */
         public Configuration[] newArray(int i) {
             return new Configuration[i];
         }
@@ -31,14 +31,14 @@ public class Configuration implements Parcelable {
     boolean mOutsideTouchable;
     View mTargetView = null;
     int mAlpha = 255;
-    int Bz = -1;
-    int BA = -1;
-    int BB = 17170444;
-    boolean BC = true;
-    boolean BD = false;
-    boolean BE = false;
-    int BF = -1;
-    int BG = -1;
+    int BC = -1;
+    int BD = -1;
+    int BE = 17170444;
+    boolean BF = true;
+    boolean BG = false;
+    boolean BH = false;
+    int BI = -1;
+    int BJ = -1;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -48,10 +48,10 @@ public class Configuration implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(this.mAlpha);
-        parcel.writeInt(this.Bz);
-        parcel.writeInt(this.BA);
-        parcel.writeInt(this.BB);
-        parcel.writeByte((byte) (this.BC ? 1 : 0));
-        parcel.writeByte((byte) (this.BD ? 1 : 0));
+        parcel.writeInt(this.BC);
+        parcel.writeInt(this.BD);
+        parcel.writeInt(this.BE);
+        parcel.writeByte((byte) (this.BF ? 1 : 0));
+        parcel.writeByte((byte) (this.BG ? 1 : 0));
     }
 }

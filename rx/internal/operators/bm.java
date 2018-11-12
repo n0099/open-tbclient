@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class bm<T, U> implements d.b<T, T> {
-    final rx.d<U> ity;
+    final rx.d<U> ivi;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -12,7 +12,7 @@ public final class bm<T, U> implements d.b<T, T> {
     }
 
     public bm(rx.d<U> dVar) {
-        this.ity = dVar;
+        this.ivi = dVar;
     }
 
     /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: rx.j<T>, rx.j<? super T> */
@@ -38,7 +38,7 @@ public final class bm<T, U> implements d.b<T, T> {
             }
         };
         jVar.add(jVar2);
-        this.ity.unsafeSubscribe(jVar2);
+        this.ivi.unsafeSubscribe(jVar2);
         return (rx.j<T>) new rx.j<T>(jVar) { // from class: rx.internal.operators.bm.2
             @Override // rx.e
             public void onNext(T t) {

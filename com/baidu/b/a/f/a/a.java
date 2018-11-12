@@ -32,11 +32,11 @@ public class a {
         return this.mErrorCode;
     }
 
-    public JSONObject rK() {
+    public JSONObject rH() {
         return this.ZN;
     }
 
-    public JSONObject rL() {
+    public JSONObject rI() {
         return this.ZO;
     }
 
@@ -56,7 +56,7 @@ public class a {
         this.ZM = str;
     }
 
-    public static a cW(String str) {
+    public static a cU(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

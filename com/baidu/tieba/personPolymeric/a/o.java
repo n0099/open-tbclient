@@ -7,29 +7,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class o {
-    private com.baidu.tieba.person.a.a gic;
-    private f gnZ;
-    private l goa;
-    private g gob;
+    private com.baidu.tieba.person.a.a gjz;
+    private g gpA;
+    private f gpy;
+    private l gpz;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
 
     public o(TbPageContext tbPageContext, HTypeListView hTypeListView) {
-        this.gnZ = new f(tbPageContext, com.baidu.tieba.personPolymeric.c.o.gqe);
-        this.goa = new l(tbPageContext);
-        this.gob = new g(tbPageContext, com.baidu.tieba.personPolymeric.c.h.gpX);
-        this.gic = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.ghK);
-        this.mAdapters.add(this.gnZ);
-        this.mAdapters.add(this.goa);
-        this.mAdapters.add(this.gob);
-        this.mAdapters.add(this.gic);
+        this.gpy = new f(tbPageContext, com.baidu.tieba.personPolymeric.c.o.grD);
+        this.gpz = new l(tbPageContext);
+        this.gpA = new g(tbPageContext, com.baidu.tieba.personPolymeric.c.h.grw);
+        this.gjz = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.gjh);
+        this.mAdapters.add(this.gpy);
+        this.mAdapters.add(this.gpz);
+        this.mAdapters.add(this.gpA);
+        this.mAdapters.add(this.gjz);
         hTypeListView.addAdapters(this.mAdapters);
     }
 
-    public void P(View.OnClickListener onClickListener) {
-        this.gnZ.setOnClickListener(onClickListener);
+    public void R(View.OnClickListener onClickListener) {
+        this.gpy.setOnClickListener(onClickListener);
     }
 
-    public void Q(View.OnClickListener onClickListener) {
-        this.gob.setOnClickListener(onClickListener);
+    public void S(View.OnClickListener onClickListener) {
+        this.gpA.setOnClickListener(onClickListener);
     }
 }

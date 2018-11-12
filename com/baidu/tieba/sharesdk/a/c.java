@@ -11,49 +11,49 @@ import com.tencent.tauth.IUiListener;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class c extends b {
-    private IUiListener gRk;
-    private final com.baidu.adp.lib.f.b<f.a> gRl;
+    private IUiListener gSI;
+    private final com.baidu.adp.lib.f.b<f.a> gSJ;
 
     public c(Context context) {
         super(context);
-        this.gRl = new com.baidu.adp.lib.f.b<f.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
+        this.gSJ = new com.baidu.adp.lib.f.b<f.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
             /* renamed from: a */
             public void onLoaded(f.a aVar, String str, int i) {
                 super.onLoaded(aVar, str, i);
-                if (aVar == null || aVar.aAg == null || TextUtils.isEmpty(aVar.path)) {
-                    c.this.tQ(2);
+                if (aVar == null || aVar.aAV == null || TextUtils.isEmpty(aVar.path)) {
+                    c.this.uj(2);
                 }
-                c.this.ux(aVar.path);
+                c.this.uB(aVar.path);
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
             public void onCancelled(String str) {
                 super.onCancelled(str);
-                c.this.tQ(3);
+                c.this.uj(3);
             }
         };
-        this.gRd = 4;
+        this.gSB = 4;
     }
 
     @Override // com.baidu.tieba.sharesdk.a.b, com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
-        if (shareEntity == null || this.gRj == null) {
-            tQ(2);
+        if (shareEntity == null || this.gSH == null) {
+            uj(2);
             if (bVar != null) {
-                bVar.bI(0, 2);
+                bVar.bK(0, 2);
             }
         } else if (this.context == null || !(this.context instanceof Activity)) {
-            tQ(2);
+            uj(2);
             if (bVar != null) {
-                bVar.bI(0, 2);
+                bVar.bK(0, 2);
             }
         } else {
-            this.gRk = new b.a(bVar);
-            if (shareEntity.bxo()) {
+            this.gSI = new b.a(bVar);
+            if (shareEntity.bwK()) {
                 a(shareEntity);
             } else {
                 b(shareEntity);
@@ -63,20 +63,20 @@ public class c extends b {
 
     private void a(ShareEntity shareEntity) {
         if (h(shareEntity.getImageUri())) {
-            ux(shareEntity.getImageUri().getPath());
+            uB(shareEntity.getImageUri().getPath());
         } else {
-            com.baidu.adp.lib.f.c.jC().a(shareEntity.xf(), 34, this.gRl, 0, 0, getPageId(), new Object[0]);
+            com.baidu.adp.lib.f.c.jA().a(shareEntity.xn(), 34, this.gSJ, 0, 0, getPageId(), new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ux(String str) {
+    public void uB(String str) {
         Bundle bundle = new Bundle();
         bundle.putString("imageLocalUrl", str);
         bundle.putInt("req_type", 5);
         bundle.putInt("cflag", 1);
-        if (this.gRk != null) {
-            this.gRj.shareToQQ((Activity) this.context, bundle, this.gRk);
+        if (this.gSI != null) {
+            this.gSH.shareToQQ((Activity) this.context, bundle, this.gSI);
         }
     }
 
@@ -87,12 +87,12 @@ public class c extends b {
         bundle.putString("summary", shareEntity.getContent());
         bundle.putString("targetUrl", shareEntity.getLinkUrl());
         ArrayList<String> arrayList = new ArrayList<>();
-        if (!TextUtils.isEmpty(shareEntity.xf())) {
-            arrayList.add(shareEntity.xf());
+        if (!TextUtils.isEmpty(shareEntity.xn())) {
+            arrayList.add(shareEntity.xn());
         }
         bundle.putStringArrayList("imageUrl", arrayList);
-        if (this.gRk != null) {
-            this.gRj.shareToQzone((Activity) this.context, bundle, this.gRk);
+        if (this.gSI != null) {
+            this.gSH.shareToQzone((Activity) this.context, bundle, this.gSI);
         }
     }
 }

@@ -20,36 +20,36 @@ import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class f {
-    private a ahO;
+    private a aiB;
     private final Context mContext;
-    private final String ahC = TbConfig.getTempDirName();
-    private int ahP = 0;
-    private String[] ahQ = {"bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
-    private String[] ahR = {"_id", "_data", "title", "mime_type", "_display_name", "duration", "datetaken", "date_modified", "date_added"};
-    private String[] ahS = {"video_id", "_data", "width", "height"};
-    private HashMap<String, com.baidu.tbadk.album.a> ahT = new HashMap<>();
+    private final String aip = TbConfig.getTempDirName();
+    private int aiC = 0;
+    private String[] aiD = {"bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
+    private String[] aiE = {"_id", "_data", "title", "mime_type", "_display_name", "duration", "datetaken", "date_modified", "date_added"};
+    private String[] aiF = {"video_id", "_data", "width", "height"};
+    private HashMap<String, com.baidu.tbadk.album.a> aiG = new HashMap<>();
 
     public f(Context context) {
         this.mContext = context;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public g uU() {
-        this.ahT.clear();
+    public g ve() {
+        this.aiG.clear();
         g gVar = new g();
         List<ImageFileInfo> imageList = getImageList();
         List<VideoFileInfo> list = null;
-        if (this.ahP != 2) {
-            list = uV();
+        if (this.aiC != 2) {
+            list = vf();
         }
         ArrayList arrayList = new ArrayList();
-        if (!v.J(imageList)) {
+        if (!v.I(imageList)) {
             arrayList.addAll(imageList);
         }
-        if (!v.J(list)) {
+        if (!v.I(list)) {
             arrayList.addAll(list);
         }
-        if (!v.J(arrayList)) {
+        if (!v.I(arrayList)) {
             Collections.sort(arrayList, new Comparator<MediaFileInfo>() { // from class: com.baidu.tbadk.album.f.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
@@ -63,20 +63,20 @@ public class f {
                 }
             });
         }
-        ArrayList arrayList2 = new ArrayList(this.ahT.values());
-        if (!v.J(arrayList2)) {
+        ArrayList arrayList2 = new ArrayList(this.aiG.values());
+        if (!v.I(arrayList2)) {
             Collections.sort(arrayList2, new Comparator<com.baidu.tbadk.album.a>() { // from class: com.baidu.tbadk.album.f.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
                 /* renamed from: a */
                 public int compare(com.baidu.tbadk.album.a aVar, com.baidu.tbadk.album.a aVar2) {
-                    if (f.this.ahC.equals(aVar.getName())) {
+                    if (f.this.aip.equals(aVar.getName())) {
                         return -1;
                     }
-                    if (f.this.ahC.equals(aVar2.getName())) {
+                    if (f.this.aip.equals(aVar2.getName())) {
                         return 1;
                     }
-                    long sortTime = aVar2.uO().getSortTime() - aVar.uO().getSortTime();
+                    long sortTime = aVar2.uY().getSortTime() - aVar.uY().getSortTime();
                     if (sortTime == 0) {
                         return 0;
                     }
@@ -84,9 +84,9 @@ public class f {
                 }
             });
         }
-        gVar.ahW = arrayList2;
-        gVar.ahY = list;
-        gVar.ahX = arrayList;
+        gVar.aiJ = arrayList2;
+        gVar.aiL = list;
+        gVar.aiK = arrayList;
         return gVar;
     }
 
@@ -111,7 +111,7 @@ public class f {
         }
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = this.mContext.getContentResolver().query(uri, this.ahQ, "mime_type like 'image/%'", null, "date_added DESC");
+            cursor = this.mContext.getContentResolver().query(uri, this.aiD, "mime_type like 'image/%'", null, "date_added DESC");
         } catch (Exception e) {
             BdLog.detailException(e);
         } finally {
@@ -134,35 +134,35 @@ public class f {
                 imageFileInfo.setAlbumnId(string);
                 imageFileInfo.setFilePath(string3);
                 imageFileInfo.setIsGif(endsWith);
-                imageFileInfo.setModifyTime(ao.V(j2));
+                imageFileInfo.setModifyTime(ao.X(j2));
                 imageFileInfo.setSortTime(j);
                 arrayList.add(imageFileInfo);
-                com.baidu.tbadk.album.a aVar2 = this.ahT.get(string);
+                com.baidu.tbadk.album.a aVar2 = this.aiG.get(string);
                 if (aVar2 == null) {
                     com.baidu.tbadk.album.a aVar3 = new com.baidu.tbadk.album.a();
-                    this.ahT.put(string, aVar3);
+                    this.aiG.put(string, aVar3);
                     aVar = aVar3;
                 } else {
                     aVar = aVar2;
                 }
                 aVar.dn(string);
                 aVar.setName(string2);
-                aVar.uN();
-                if (aVar.uO() == null) {
+                aVar.uX();
+                if (aVar.uY() == null) {
                     aVar.a(imageFileInfo);
                 }
-                List<MediaFileInfo> uQ = aVar.uQ();
-                if (aVar.uQ() == null) {
-                    uQ = new ArrayList<>();
-                    aVar.y(uQ);
+                List<MediaFileInfo> va = aVar.va();
+                if (aVar.va() == null) {
+                    va = new ArrayList<>();
+                    aVar.x(va);
                 }
-                uQ.add(imageFileInfo);
+                va.add(imageFileInfo);
             }
         } while (cursor.moveToNext());
         return arrayList;
     }
 
-    private List<VideoFileInfo> uV() {
+    private List<VideoFileInfo> vf() {
         Cursor cursor;
         ArrayList arrayList = new ArrayList();
         if (this.mContext == null) {
@@ -172,7 +172,7 @@ public class f {
         HashSet hashSet = new HashSet();
         Cursor cursor2 = null;
         try {
-            cursor = contentResolver.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, this.ahR, null, null, "date_added DESC");
+            cursor = contentResolver.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, this.aiE, null, null, "date_added DESC");
             if (cursor != null) {
                 try {
                     if (cursor.moveToFirst()) {
@@ -226,37 +226,37 @@ public class f {
         if (eVar == null) {
             return false;
         }
-        uW();
-        this.ahP = i;
-        this.ahO = new a(eVar);
-        this.ahO.setPriority(3);
-        this.ahO.execute(new Object[0]);
+        vg();
+        this.aiC = i;
+        this.aiB = new a(eVar);
+        this.aiB.setPriority(3);
+        this.aiB.execute(new Object[0]);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public class a extends BdAsyncTask<Object, Integer, g> {
-        private final e ahV;
+        private final e aiI;
 
         public a(e eVar) {
-            this.ahV = eVar;
+            this.aiI = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: l */
+        /* renamed from: m */
         public g doInBackground(Object... objArr) {
-            return f.this.uU();
+            return f.this.ve();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            if (this.ahV != null) {
-                this.ahV.onPreLoad();
+            if (this.aiI != null) {
+                this.aiI.onPreLoad();
             }
         }
 
@@ -266,16 +266,16 @@ public class f {
         /* renamed from: b */
         public void onPostExecute(g gVar) {
             super.onPostExecute(gVar);
-            if (this.ahV != null) {
-                this.ahV.a(gVar);
+            if (this.aiI != null) {
+                this.aiI.a(gVar);
             }
         }
     }
 
-    public void uW() {
-        if (this.ahO != null) {
-            this.ahO.cancel();
-            this.ahO = null;
+    public void vg() {
+        if (this.aiB != null) {
+            this.aiB.cancel();
+            this.aiB = null;
         }
     }
 }

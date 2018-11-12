@@ -1,13 +1,31 @@
 package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
 public class bm extends com.baidu.adp.lib.b.a {
+    public static final String[] beq = {"com.baidu.tieba.voice"};
+
     @Override // com.baidu.adp.lib.b.a
-    protected void Z(int i) {
+    protected void aq(int i) {
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected void initData() {
+        this.mName = "voice";
+        this.Bn = beq;
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "baidu_wallet_enable";
+        return "voice";
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] iG() {
+        return beq;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int iH() {
+        return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -17,16 +35,6 @@ public class bm extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int iJ() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected String[] iH() {
-        return null;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int iK() {
         return 10;
     }
 }

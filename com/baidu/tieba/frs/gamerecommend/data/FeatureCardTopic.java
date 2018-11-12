@@ -11,6 +11,6 @@ public class FeatureCardTopic extends OrmObject {
     public Integer type;
 
     public boolean isValid() {
-        return !v.J(this.sub_nodes);
+        return !v.I(this.sub_nodes);
     }
 }

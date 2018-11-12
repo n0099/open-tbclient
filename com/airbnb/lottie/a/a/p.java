@@ -11,9 +11,9 @@ public class p extends a {
     private final com.airbnb.lottie.a.b.a<Integer, Integer> oP;
 
     public p(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, ShapeStroke shapeStroke) {
-        super(fVar, aVar, shapeStroke.ek().toPaintCap(), shapeStroke.el().toPaintJoin(), shapeStroke.dW(), shapeStroke.ej(), shapeStroke.em(), shapeStroke.en());
+        super(fVar, aVar, shapeStroke.ej().toPaintCap(), shapeStroke.ek().toPaintJoin(), shapeStroke.dV(), shapeStroke.ei(), shapeStroke.el(), shapeStroke.em());
         this.name = shapeStroke.getName();
-        this.oP = shapeStroke.eD().dH();
+        this.oP = shapeStroke.eC().dG();
         this.oP.b(this);
         aVar.a(this.oP);
     }

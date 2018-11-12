@@ -21,6 +21,7 @@ import android.util.SparseArray;
 import android.view.View;
 import com.airbnb.lottie.e;
 import com.airbnb.lottie.j;
+import com.baidu.mapapi.map.WeightedLatLng;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
@@ -130,10 +131,10 @@ public class LottieAnimationView extends AppCompatImageView {
             this.nh.cv();
             this.autoPlay = true;
         }
-        this.nh.s(obtainStyledAttributes.getBoolean(j.a.LottieAnimationView_lottie_loop, false));
+        this.nh.G(obtainStyledAttributes.getBoolean(j.a.LottieAnimationView_lottie_loop, false));
         setImageAssetsFolder(obtainStyledAttributes.getString(j.a.LottieAnimationView_lottie_imageAssetsFolder));
         setProgress(obtainStyledAttributes.getFloat(j.a.LottieAnimationView_lottie_progress, 0.0f));
-        p(obtainStyledAttributes.getBoolean(j.a.LottieAnimationView_lottie_enableMergePathsForKitKatAndAbove, false));
+        E(obtainStyledAttributes.getBoolean(j.a.LottieAnimationView_lottie_enableMergePathsForKitKatAndAbove, false));
         if (obtainStyledAttributes.hasValue(j.a.LottieAnimationView_lottie_colorFilter)) {
             a(new k(obtainStyledAttributes.getColor(j.a.LottieAnimationView_lottie_colorFilter, 0)));
         }
@@ -142,9 +143,9 @@ public class LottieAnimationView extends AppCompatImageView {
         }
         obtainStyledAttributes.recycle();
         if (com.airbnb.lottie.c.f.az(getContext()) == 0.0f) {
-            this.nh.cR();
+            this.nh.cQ();
         }
-        cz();
+        cy();
     }
 
     @Override // android.support.v7.widget.AppCompatImageView, android.widget.ImageView
@@ -212,7 +213,7 @@ public class LottieAnimationView extends AppCompatImageView {
             setAnimation(this.nk);
         }
         setProgress(savedState.progress);
-        s(savedState.nv);
+        G(savedState.nv);
         if (savedState.nu) {
             cv();
         }
@@ -230,7 +231,7 @@ public class LottieAnimationView extends AppCompatImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         if (isAnimating()) {
-            cx();
+            cancelAnimation();
             this.nl = true;
         }
         ct();
@@ -244,13 +245,13 @@ public class LottieAnimationView extends AppCompatImageView {
         }
     }
 
-    public void p(boolean z) {
-        this.nh.p(z);
+    public void E(boolean z) {
+        this.nh.E(z);
     }
 
-    public void q(boolean z) {
+    public void F(boolean z) {
         this.nm = z;
-        cz();
+        cy();
     }
 
     public void setAnimation(@RawRes int i) {
@@ -270,7 +271,7 @@ public class LottieAnimationView extends AppCompatImageView {
             setComposition(nc.get(i));
             return;
         }
-        this.nh.cx();
+        this.nh.cancelAnimation();
         cu();
         this.nn = e.a.a(getContext(), i, new h() { // from class: com.airbnb.lottie.LottieAnimationView.2
             @Override // com.airbnb.lottie.h
@@ -302,7 +303,7 @@ public class LottieAnimationView extends AppCompatImageView {
             setComposition(ne.get(str));
             return;
         }
-        this.nh.cx();
+        this.nh.cancelAnimation();
         cu();
         this.nn = e.a.a(getContext(), str, new h() { // from class: com.airbnb.lottie.LottieAnimationView.3
             @Override // com.airbnb.lottie.h
@@ -332,7 +333,7 @@ public class LottieAnimationView extends AppCompatImageView {
     public void setComposition(@NonNull e eVar) {
         this.nh.setCallback(this);
         boolean h = this.nh.h(eVar);
-        cz();
+        cy();
         if (h) {
             setImageDrawable(null);
             setImageDrawable(this.nh);
@@ -343,12 +344,12 @@ public class LottieAnimationView extends AppCompatImageView {
 
     public void cv() {
         this.nh.cv();
-        cz();
+        cy();
     }
 
     public void cw() {
         this.nh.cw();
-        cz();
+        cy();
     }
 
     public void setMinFrame(int i) {
@@ -395,8 +396,8 @@ public class LottieAnimationView extends AppCompatImageView {
         this.nh.b(animatorListener);
     }
 
-    public void s(boolean z) {
-        this.nh.s(z);
+    public void G(boolean z) {
+        this.nh.G(z);
     }
 
     public boolean isAnimating() {
@@ -436,14 +437,14 @@ public class LottieAnimationView extends AppCompatImageView {
         return this.nh.getScale();
     }
 
-    public void cx() {
-        this.nh.cx();
-        cz();
+    public void cancelAnimation() {
+        this.nh.cancelAnimation();
+        cy();
     }
 
-    public void cy() {
-        this.nh.cy();
-        cz();
+    public void cx() {
+        this.nh.cx();
+        cy();
     }
 
     public void setFrame(int i) {
@@ -458,7 +459,7 @@ public class LottieAnimationView extends AppCompatImageView {
         this.nh.setProgress(f);
     }
 
-    @FloatRange(from = 0.0d, to = 1.0d)
+    @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     public float getProgress() {
         return this.nh.getProgress();
     }
@@ -479,7 +480,7 @@ public class LottieAnimationView extends AppCompatImageView {
         return this.nh.getPerformanceTracker();
     }
 
-    private void cz() {
+    private void cy() {
         setLayerType(this.nm && this.nh.isAnimating() ? 2 : 1, null);
     }
 
@@ -496,7 +497,7 @@ public class LottieAnimationView extends AppCompatImageView {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: r */
+            /* renamed from: I */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }

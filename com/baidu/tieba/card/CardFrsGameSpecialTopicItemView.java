@@ -19,13 +19,13 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class CardFrsGameSpecialTopicItemView extends LinearLayout {
-    private View cLD;
-    private View cLE;
-    private RelativeLayout cMd;
-    private TbImageView cMe;
-    private TextView cMf;
-    private TextView cMg;
-    private TextView cMh;
+    private View cMJ;
+    private View cMK;
+    private RelativeLayout cNj;
+    private TbImageView cNk;
+    private TextView cNl;
+    private TextView cNm;
+    private TextView cNn;
     private String mForumId;
     public int mSkinType;
 
@@ -49,18 +49,18 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(e.h.card_frs_game_special_topic_view_item, (ViewGroup) this, true);
-        this.cMd = (RelativeLayout) findViewById(e.g.card_frs_game_special_topic_layout);
-        this.cMe = (TbImageView) findViewById(e.g.card_frs_game_special_topic_img);
-        this.cMf = (TextView) findViewById(e.g.card_frs_game_special_topic_title);
-        this.cMg = (TextView) findViewById(e.g.card_frs_game_special_topic_dsc);
-        this.cMh = (TextView) findViewById(e.g.card_frs_game_special_topic_update_time);
-        this.cLD = findViewById(e.g.divider_line_1);
-        this.cLE = findViewById(e.g.divider_line_2);
-        int dimensionPixelSize = context.getResources().getDimensionPixelSize(e.C0175e.tbds170) * 2;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cMd.getLayoutParams();
+        this.cNj = (RelativeLayout) findViewById(e.g.card_frs_game_special_topic_layout);
+        this.cNk = (TbImageView) findViewById(e.g.card_frs_game_special_topic_img);
+        this.cNl = (TextView) findViewById(e.g.card_frs_game_special_topic_title);
+        this.cNm = (TextView) findViewById(e.g.card_frs_game_special_topic_dsc);
+        this.cNn = (TextView) findViewById(e.g.card_frs_game_special_topic_update_time);
+        this.cMJ = findViewById(e.g.divider_line_1);
+        this.cMK = findViewById(e.g.divider_line_2);
+        int dimensionPixelSize = context.getResources().getDimensionPixelSize(e.C0200e.tbds170) * 2;
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cNj.getLayoutParams();
         layoutParams.width = (dimensionPixelSize * 21) / 9;
         layoutParams.height = dimensionPixelSize;
-        this.cMd.setLayoutParams(layoutParams);
+        this.cNj.setLayoutParams(layoutParams);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -70,7 +70,7 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
             public void onClick(View view) {
                 if (view.getTag() instanceof String) {
                     TiebaStatic.log(new am("c13047").x("obj_locate", 5).ax(ImageViewerConfig.FORUM_ID, CardFrsGameSpecialTopicItemView.this.mForumId));
-                    ay.CU().a((TbPageContext) com.baidu.adp.base.i.aK(CardFrsGameSpecialTopicItemView.this.getContext()), new String[]{(String) view.getTag()}, true);
+                    ay.Db().a((TbPageContext) com.baidu.adp.base.i.aK(CardFrsGameSpecialTopicItemView.this.getContext()), new String[]{(String) view.getTag()}, true);
                 }
             }
         });
@@ -81,29 +81,29 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
     }
 
     public TbImageView getSpecialTopicPicView() {
-        return this.cMe;
+        return this.cNk;
     }
 
     public TextView getSpecialTopicNameView() {
-        return this.cMf;
+        return this.cNl;
     }
 
     public TextView getSpecialTopicUpdateTimeView() {
-        return this.cMh;
+        return this.cNn;
     }
 
     public TextView getSpecialTopicDscView() {
-        return this.cMg;
+        return this.cNm;
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            al.i(this.cLD, e.d.cp_bg_line_e);
-            al.i(this.cLE, e.d.cp_bg_line_e);
-            al.c(this.cMf, e.d.cp_cont_i, 1);
-            al.c(this.cMg, e.d.cp_cont_i_alpha80, 1);
-            al.c(this.cMh, e.d.cp_cont_i_alpha80, 1);
+            al.i(this.cMJ, e.d.cp_bg_line_e);
+            al.i(this.cMK, e.d.cp_bg_line_e);
+            al.c(this.cNl, e.d.cp_cont_i, 1);
+            al.c(this.cNm, e.d.cp_cont_i_alpha80, 1);
+            al.c(this.cNn, e.d.cp_cont_i_alpha80, 1);
         }
     }
 }

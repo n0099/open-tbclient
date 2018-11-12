@@ -14,75 +14,75 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e implements b {
     private final String name;
-    private final com.airbnb.lottie.model.a.d qS;
-    private final GradientType rb;
-    private final com.airbnb.lottie.model.a.c rd;
-    private final com.airbnb.lottie.model.a.f re;
+    private final com.airbnb.lottie.model.a.d qT;
+    private final GradientType rc;
+    private final com.airbnb.lottie.model.a.c re;
     private final com.airbnb.lottie.model.a.f rf;
-    private final com.airbnb.lottie.model.a.b ri;
-    private final ShapeStroke.LineCapType rj;
-    private final ShapeStroke.LineJoinType rk;
-    private final List<com.airbnb.lottie.model.a.b> rl;
+    private final com.airbnb.lottie.model.a.f rg;
+    private final com.airbnb.lottie.model.a.b rj;
+    private final ShapeStroke.LineCapType rk;
+    private final ShapeStroke.LineJoinType rl;
+    private final List<com.airbnb.lottie.model.a.b> rm;
     @Nullable
-    private final com.airbnb.lottie.model.a.b rm;
+    private final com.airbnb.lottie.model.a.b ro;
 
     private e(String str, GradientType gradientType, com.airbnb.lottie.model.a.c cVar, com.airbnb.lottie.model.a.d dVar, com.airbnb.lottie.model.a.f fVar, com.airbnb.lottie.model.a.f fVar2, com.airbnb.lottie.model.a.b bVar, ShapeStroke.LineCapType lineCapType, ShapeStroke.LineJoinType lineJoinType, List<com.airbnb.lottie.model.a.b> list, @Nullable com.airbnb.lottie.model.a.b bVar2) {
         this.name = str;
-        this.rb = gradientType;
-        this.rd = cVar;
-        this.qS = dVar;
-        this.re = fVar;
-        this.rf = fVar2;
-        this.ri = bVar;
-        this.rj = lineCapType;
-        this.rk = lineJoinType;
-        this.rl = list;
-        this.rm = bVar2;
+        this.rc = gradientType;
+        this.re = cVar;
+        this.qT = dVar;
+        this.rf = fVar;
+        this.rg = fVar2;
+        this.rj = bVar;
+        this.rk = lineCapType;
+        this.rl = lineJoinType;
+        this.rm = list;
+        this.ro = bVar2;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public GradientType ef() {
-        return this.rb;
+    public GradientType ee() {
+        return this.rc;
     }
 
-    public com.airbnb.lottie.model.a.c eg() {
-        return this.rd;
-    }
-
-    public com.airbnb.lottie.model.a.d dW() {
-        return this.qS;
-    }
-
-    public com.airbnb.lottie.model.a.f eh() {
+    public com.airbnb.lottie.model.a.c ef() {
         return this.re;
     }
 
-    public com.airbnb.lottie.model.a.f ei() {
+    public com.airbnb.lottie.model.a.d dV() {
+        return this.qT;
+    }
+
+    public com.airbnb.lottie.model.a.f eg() {
         return this.rf;
     }
 
-    public com.airbnb.lottie.model.a.b ej() {
-        return this.ri;
+    public com.airbnb.lottie.model.a.f eh() {
+        return this.rg;
     }
 
-    public ShapeStroke.LineCapType ek() {
+    public com.airbnb.lottie.model.a.b ei() {
         return this.rj;
     }
 
-    public ShapeStroke.LineJoinType el() {
+    public ShapeStroke.LineCapType ej() {
         return this.rk;
     }
 
-    public List<com.airbnb.lottie.model.a.b> em() {
+    public ShapeStroke.LineJoinType ek() {
         return this.rl;
     }
 
-    @Nullable
-    public com.airbnb.lottie.model.a.b en() {
+    public List<com.airbnb.lottie.model.a.b> el() {
         return this.rm;
+    }
+
+    @Nullable
+    public com.airbnb.lottie.model.a.b em() {
+        return this.ro;
     }
 
     @Override // com.airbnb.lottie.model.content.b

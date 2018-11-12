@@ -138,7 +138,7 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
             return createCallBackMsg(10001, AiAppsBluetoothConstants.ERROR_NOT_AVAILABLE);
         } else if (this.mIsOpen) {
             AiAppsLog.w(MODULE_TAG, "openAdapter -- hasOpen");
-            return createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK);
+            return createCallBackMsg(0, "ok");
         } else {
             this.mHasReportDevices = new ConcurrentHashMap();
             this.mNotReportDevices = new ConcurrentHashMap();
@@ -146,7 +146,7 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
             registerBluetoothActionReceiver();
             this.mIsOpen = true;
             AiAppsLog.i(MODULE_TAG, "openAdapter -- open success");
-            return createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK);
+            return createCallBackMsg(0, "ok");
         }
     }
 
@@ -155,10 +155,10 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
     public JSONObject closeBluetoothAdapter() {
         if (!this.mIsOpen) {
             AiAppsLog.w(MODULE_TAG, "closeAdapter -- is not open");
-            return createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK);
+            return createCallBackMsg(0, "ok");
         }
         unRegisterBluetoothActionReceiver();
-        JSONObject createCallBackMsg = createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK);
+        JSONObject createCallBackMsg = createCallBackMsg(0, "ok");
         realRelease();
         AiAppsLog.i(MODULE_TAG, "closeAdapter --- close success");
         return createCallBackMsg;
@@ -170,7 +170,7 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
             AiAppsLog.w(MODULE_TAG, "getAdapterState -- is not open");
             return createCallBackMsg(10000, AiAppsBluetoothConstants.ERROR_NOT_INIT);
         }
-        JSONObject createCallBackMsg = createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK);
+        JSONObject createCallBackMsg = createCallBackMsg(0, "ok");
         try {
             createCallBackMsg.putOpt(KEY_DISCOVERING, Boolean.valueOf(this.mIsDiscovery));
             createCallBackMsg.putOpt(KEY_AVAILABLE, Boolean.valueOf(isAdapterAvailable()));
@@ -232,7 +232,7 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
                     AiAppsBluetoothManager.this.mBluetoothLeScanner.startScan(arrayList, new ScanSettings.Builder().build(), AiAppsBluetoothManager.this.getScanCallback(true, z, i));
                 }
             });
-            return createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK);
+            return createCallBackMsg(0, "ok");
         }
         startDiscoveryOnIO(new Runnable() { // from class: com.baidu.searchbox.ng.ai.apps.system.bluetooth.manager.AiAppsBluetoothManager.4
             @Override // java.lang.Runnable
@@ -241,7 +241,7 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
                 AiAppsBluetoothManager.this.mBluetoothLeScanner.startScan(AiAppsBluetoothManager.this.getScanCallback(true, z, i));
             }
         });
-        return createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK);
+        return createCallBackMsg(0, "ok");
     }
 
     private void startDiscoveryOnIO(Runnable runnable) {
@@ -333,7 +333,7 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
                 AiAppsBluetoothManager.this.mBluetoothAdapter.startLeScan(uuidArr, AiAppsBluetoothManager.this.getLeScanCallback(true, z, i));
             }
         });
-        return createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK);
+        return createCallBackMsg(0, "ok");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -357,7 +357,7 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
             }
             if (System.currentTimeMillis() - this.mLastReportDeviceFoundTime >= i && this.mNotReportDevices != null && this.mNotReportDevices.size() != 0) {
                 this.mLastReportDeviceFoundTime = System.currentTimeMillis();
-                JSONObject createCallBackMsg = createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK);
+                JSONObject createCallBackMsg = createCallBackMsg(0, "ok");
                 JSONArray jSONArray = new JSONArray();
                 for (Map.Entry<String, BluetoothDeviceData> entry : this.mNotReportDevices.entrySet()) {
                     if ((entry.getValue() instanceof BluetoothDeviceData) && (entry.getKey() instanceof String)) {
@@ -410,7 +410,7 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
             return createCallBackMsg(10001, AiAppsBluetoothConstants.ERROR_NOT_AVAILABLE);
         } else if (!this.mIsDiscovery) {
             AiAppsLog.w(MODULE_TAG, "stop discovery -- is not discovery");
-            return createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK);
+            return createCallBackMsg(0, "ok");
         } else {
             if (APIUtils.hasLollipop()) {
                 if (this.mBluetoothLeScanner != null) {
@@ -420,7 +420,7 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
                         reportStateChangeMsg();
                     }
                     this.mBluetoothLeScanner.stopScan(getScanCallback(false, true, 0));
-                    return createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK);
+                    return createCallBackMsg(0, "ok");
                 }
             } else if (this.mBluetoothAdapter != null) {
                 AiAppsLog.i(MODULE_TAG, "stop discovery -- stop success");
@@ -429,7 +429,7 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
                     reportStateChangeMsg();
                 }
                 this.mBluetoothAdapter.stopLeScan(getLeScanCallback(false, true, 0));
-                return createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK);
+                return createCallBackMsg(0, "ok");
             }
             return createCallBackMsg(AiAppsBluetoothConstants.ERROR_SYSTEM_ERROR_CODE, AiAppsBluetoothConstants.ERROR_SYSTEM_ERROR);
         }
@@ -441,7 +441,7 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
             AiAppsLog.w(MODULE_TAG, "get Devices -- is not open");
             return createCallBackMsg(10000, AiAppsBluetoothConstants.ERROR_NOT_INIT);
         }
-        JSONObject createCallBackMsg = createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK);
+        JSONObject createCallBackMsg = createCallBackMsg(0, "ok");
         if (this.mHasReportDevices != null && (createCallBackMsg = addDeviceJson(createCallBackMsg, this.mHasReportDevices)) == null) {
             return createCallBackMsg(AiAppsBluetoothConstants.ERROR_SYSTEM_ERROR_CODE, AiAppsBluetoothConstants.ERROR_SYSTEM_ERROR);
         }
@@ -486,7 +486,7 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
             AiAppsLog.w(MODULE_TAG, "get connected ble -- connect device is null");
             return createCallBackMsg(10002, AiAppsBluetoothConstants.ERROR_NO_DEVICE);
         } else {
-            JSONObject createCallBackMsg = createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK);
+            JSONObject createCallBackMsg = createCallBackMsg(0, "ok");
             try {
                 JSONArray jSONArray = new JSONArray();
                 if (this.mConnectDevices == null) {
@@ -565,7 +565,7 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
                         if (AiAppsBluetoothManager.this.mBluetoothStatusCallback != null && AiAppsBluetoothManager.this.mIsOpen) {
                             AiAppsLog.i(AiAppsBluetoothManager.MODULE_TAG, "onConnectionStateChange -- connected");
                             AiAppsBluetoothManager.this.reportConnectionStateChangeMsg(str, true);
-                            AiAppsBluetoothManager.this.mBluetoothStatusCallback.dispatchCallback(AiAppsBluetoothManager.this.mBluetoothStatusCallback.createBLEConnectionCallback, AiAppsBluetoothManager.this.createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK));
+                            AiAppsBluetoothManager.this.mBluetoothStatusCallback.dispatchCallback(AiAppsBluetoothManager.this.mBluetoothStatusCallback.createBLEConnectionCallback, AiAppsBluetoothManager.this.createCallBackMsg(0, "ok"));
                         }
                     }
                 }
@@ -582,7 +582,7 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
                 public void onCharacteristicWrite(BluetoothGatt bluetoothGatt, BluetoothGattCharacteristic bluetoothGattCharacteristic, int i) {
                     if (i == 0) {
                         if (AiAppsBluetoothManager.this.mBluetoothStatusCallback != null) {
-                            AiAppsBluetoothManager.this.mBluetoothStatusCallback.dispatchCallback(AiAppsBluetoothManager.this.mBluetoothStatusCallback.writeBLECharacteristicValueCallback, AiAppsBluetoothManager.this.createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK));
+                            AiAppsBluetoothManager.this.mBluetoothStatusCallback.dispatchCallback(AiAppsBluetoothManager.this.mBluetoothStatusCallback.writeBLECharacteristicValueCallback, AiAppsBluetoothManager.this.createCallBackMsg(0, "ok"));
                         }
                     } else if (AiAppsBluetoothManager.this.mBluetoothStatusCallback != null) {
                         AiAppsBluetoothManager.this.mBluetoothStatusCallback.dispatchCallback(AiAppsBluetoothManager.this.mBluetoothStatusCallback.writeBLECharacteristicValueCallback, AiAppsBluetoothManager.this.createCallBackMsg(AiAppsBluetoothConstants.ERROR_SYSTEM_ERROR_CODE, AiAppsBluetoothConstants.ERROR_SYSTEM_ERROR));
@@ -635,7 +635,7 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
             AiAppsLog.i(MODULE_TAG, "close connection --- success");
             bluetoothGatt.close();
             this.mConnectDevices.remove(bluetoothDeviceData);
-            return createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK);
+            return createCallBackMsg(0, "ok");
         }
     }
 
@@ -658,7 +658,7 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
                 AiAppsLog.w(MODULE_TAG, "get ble services --- none gatt");
                 return createCallBackMsg(10002, AiAppsBluetoothConstants.ERROR_NO_DEVICE);
             }
-            JSONObject createCallBackMsg = createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK);
+            JSONObject createCallBackMsg = createCallBackMsg(0, "ok");
             try {
                 JSONArray jSONArray = new JSONArray();
                 List<ParcelUuid> list = deviceDataByDeviceId.serviceUuids;
@@ -721,7 +721,7 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
                 AiAppsLog.w(MODULE_TAG, "get characteristics --- no services");
                 return createCallBackMsg(10004, AiAppsBluetoothConstants.ERROR_NO_SERVICE);
             }
-            JSONObject createCallBackMsg = createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK);
+            JSONObject createCallBackMsg = createCallBackMsg(0, "ok");
             try {
                 JSONArray jSONArray = new JSONArray();
                 List<BluetoothGattCharacteristic> characteristics = service.getCharacteristics();
@@ -813,7 +813,7 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
             }
             AiAppsLog.i(MODULE_TAG, "read characteristics --- read success");
             bluetoothGatt.readCharacteristic(characteristic);
-            return createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK);
+            return createCallBackMsg(0, "ok");
         }
     }
 
@@ -880,7 +880,7 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
             bluetoothGatt.writeCharacteristic(characteristic);
             AiAppsLog.i(MODULE_TAG, "write characteristics --- write success");
             if (this.mBluetoothStatusCallback != null) {
-                this.mBluetoothStatusCallback.dispatchCallback(this.mBluetoothStatusCallback.writeBLECharacteristicValueCallback, createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK));
+                this.mBluetoothStatusCallback.dispatchCallback(this.mBluetoothStatusCallback.writeBLECharacteristicValueCallback, createCallBackMsg(0, "ok"));
             }
         }
     }
@@ -936,7 +936,7 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
                     }
                 }
                 AiAppsLog.i(MODULE_TAG, "notify characteristics --- success");
-                return createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK);
+                return createCallBackMsg(0, "ok");
             } else {
                 AiAppsLog.i(MODULE_TAG, "notify characteristics --- fail");
                 return createCallBackMsg(AiAppsBluetoothConstants.ERROR_PROPERTY_NOT_SUPPORT_CODE, AiAppsBluetoothConstants.ERROR_PROPERTY_NOT_SUPPORT);
@@ -1024,7 +1024,7 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void reportStateChangeMsg() {
         if (this.mIsOpen && this.mBluetoothStatusCallback != null) {
-            JSONObject createCallBackMsg = createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK);
+            JSONObject createCallBackMsg = createCallBackMsg(0, "ok");
             try {
                 createCallBackMsg.put(KEY_AVAILABLE, isAdapterAvailable());
                 createCallBackMsg.put(KEY_DISCOVERING, this.mIsDiscovery);
@@ -1066,7 +1066,7 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
 
     private void reportCharacteristicValueChangeMsg(String str, String str2, String str3, String str4) {
         if (this.mIsOpen && this.mBluetoothStatusCallback != null) {
-            JSONObject createCallBackMsg = createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK);
+            JSONObject createCallBackMsg = createCallBackMsg(0, "ok");
             try {
                 createCallBackMsg.put("deviceId", str);
                 createCallBackMsg.put(AiAppsBluetoothConstants.KEY_SERVICE_ID, str2);
@@ -1082,7 +1082,7 @@ public class AiAppsBluetoothManager implements IBluetoothManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void reportConnectionStateChangeMsg(String str, boolean z) {
         if (this.mIsOpen && this.mBluetoothStatusCallback != null) {
-            JSONObject createCallBackMsg = createCallBackMsg(0, AiAppsBluetoothConstants.ERROR_OK);
+            JSONObject createCallBackMsg = createCallBackMsg(0, "ok");
             try {
                 createCallBackMsg.put("deviceId", str);
                 createCallBackMsg.put(AiAppsBluetoothConstants.KEY_CONNECTED, z);

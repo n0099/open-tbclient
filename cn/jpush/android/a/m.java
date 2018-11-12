@@ -35,7 +35,7 @@ public final class m {
         a.put(PointerIconCompat.TYPE_TOP_LEFT_DIAGONAL_DOUBLE_ARROW, "User clicked call action");
         a.put(PointerIconCompat.TYPE_ZOOM_IN, "The Message show in the status bar");
         a.put(PointerIconCompat.TYPE_ZOOM_OUT, "Click applist and show the Message");
-        a.put(PointerIconCompat.TYPE_GRAB, "Down image failed");
+        a.put(1020, "Down image failed");
         a.put(1021, "Down html failed");
         a.put(ArBridge.MessageType.MSG_TYPE_VIDEO_PLAY_RES, "Down Message failed");
         a.put(ArBridge.MessageType.MSG_TYPE_VIDEO_PLAY_FINISH, "Discard the message because it is not in the push time");

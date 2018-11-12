@@ -3,5 +3,5 @@ package org.java_websocket.c;
 public interface i extends c, h {
     void j(short s);
 
-    void zd(String str);
+    void zi(String str);
 }

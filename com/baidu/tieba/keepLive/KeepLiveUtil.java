@@ -8,6 +8,7 @@ import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.lcs.a;
 import com.baidu.tieba.keepLive.nativekeepalive.GuardServiceObserver;
 import com.baidu.tieba.keepLive.startActivity.ScreenBroadcastListener;
 import com.baidu.tieba.keepLive.startActivity.ScreenManager;
@@ -43,6 +44,7 @@ public class KeepLiveUtil {
                             KeepLiveUtil.mKeepLiveContext = context2;
                         }
                         if (Build.VERSION.SDK_INT >= 23) {
+                            a.b(0, 0, 0, 1, 5);
                             BdSocketLinkService.startService(false, "restart");
                         } else {
                             GuardServiceObserver.startNativeServiceForUnder23(context2);

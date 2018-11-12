@@ -16,8 +16,8 @@ import java.io.IOException;
 import java.util.Map;
 /* loaded from: classes5.dex */
 public class ScalableVideoView extends TextureView implements MediaPlayer.OnVideoSizeChangedListener, TextureView.SurfaceTextureListener {
-    protected MediaPlayer Wb;
-    protected ScalableType htI;
+    protected MediaPlayer Wd;
+    protected ScalableType hvr;
 
     public ScalableVideoView(Context context) {
         this(context, null);
@@ -30,11 +30,11 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     public ScalableVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes;
-        this.htI = ScalableType.NONE;
+        this.hvr = ScalableType.NONE;
         if (attributeSet != null && (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, e.l.videoScaleStyle, 0, 0)) != null) {
             int i2 = obtainStyledAttributes.getInt(e.l.videoScaleStyle_videoScalableType, ScalableType.NONE.ordinal());
             obtainStyledAttributes.recycle();
-            this.htI = ScalableType.values()[i2];
+            this.hvr = ScalableType.values()[i2];
         }
     }
 
@@ -42,8 +42,8 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
         try {
             Surface surface = new Surface(surfaceTexture);
-            if (this.Wb != null) {
-                this.Wb.setSurface(surface);
+            if (this.Wd != null) {
+                this.Wd.setSurface(surface);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -66,7 +66,7 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.Wb != null) {
+        if (this.Wd != null) {
             if (isPlaying()) {
                 stop();
             }
@@ -76,20 +76,20 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
 
     @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
     public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
-        Y(i, i2);
+        Z(i, i2);
     }
 
-    private void Y(int i, int i2) {
+    private void Z(int i, int i2) {
         Matrix a;
-        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.htI)) != null) {
+        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.hvr)) != null) {
             setTransform(a);
         }
     }
 
-    private void VV() {
-        if (this.Wb == null) {
-            this.Wb = new MediaPlayer();
-            this.Wb.setOnVideoSizeChangedListener(this);
+    private void We() {
+        if (this.Wd == null) {
+            this.Wd = new MediaPlayer();
+            this.Wd.setOnVideoSizeChangedListener(this);
             setSurfaceTextureListener(this);
             return;
         }
@@ -110,142 +110,142 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     }
 
     public void setDataSource(String str) throws IOException {
-        VV();
-        this.Wb.setDataSource(str);
+        We();
+        this.Wd.setDataSource(str);
     }
 
     public void setDataSource(Context context, Uri uri, Map<String, String> map) throws IOException {
-        VV();
-        this.Wb.setDataSource(context, uri, map);
+        We();
+        this.Wd.setDataSource(context, uri, map);
     }
 
     public void setDataSource(Context context, Uri uri) throws IOException {
-        VV();
-        this.Wb.setDataSource(context, uri);
+        We();
+        this.Wd.setDataSource(context, uri);
     }
 
     public void setDataSource(FileDescriptor fileDescriptor, long j, long j2) throws IOException {
-        VV();
-        this.Wb.setDataSource(fileDescriptor, j, j2);
+        We();
+        this.Wd.setDataSource(fileDescriptor, j, j2);
     }
 
     public void setDataSource(FileDescriptor fileDescriptor) throws IOException {
-        VV();
-        this.Wb.setDataSource(fileDescriptor);
+        We();
+        this.Wd.setDataSource(fileDescriptor);
     }
 
     public void setScalableType(ScalableType scalableType) {
-        this.htI = scalableType;
-        Y(getVideoWidth(), getVideoHeight());
+        this.hvr = scalableType;
+        Z(getVideoWidth(), getVideoHeight());
     }
 
     public void c(MediaPlayer.OnPreparedListener onPreparedListener) throws IOException, IllegalStateException {
-        if (this.Wb != null) {
-            this.Wb.setOnPreparedListener(onPreparedListener);
-            this.Wb.prepare();
+        if (this.Wd != null) {
+            this.Wd.setOnPreparedListener(onPreparedListener);
+            this.Wd.prepare();
         }
     }
 
     public void setOnErrorListener(MediaPlayer.OnErrorListener onErrorListener) {
-        if (this.Wb != null) {
-            this.Wb.setOnErrorListener(onErrorListener);
+        if (this.Wd != null) {
+            this.Wd.setOnErrorListener(onErrorListener);
         }
     }
 
     public void setOnCompletionListener(MediaPlayer.OnCompletionListener onCompletionListener) {
-        if (this.Wb != null) {
-            this.Wb.setOnCompletionListener(onCompletionListener);
+        if (this.Wd != null) {
+            this.Wd.setOnCompletionListener(onCompletionListener);
         }
     }
 
     public void setOnInfoListener(MediaPlayer.OnInfoListener onInfoListener) {
-        if (this.Wb != null) {
-            this.Wb.setOnInfoListener(onInfoListener);
+        if (this.Wd != null) {
+            this.Wd.setOnInfoListener(onInfoListener);
         }
     }
 
     public int getCurrentPosition() {
-        if (this.Wb == null) {
+        if (this.Wd == null) {
             return 0;
         }
-        return this.Wb.getCurrentPosition();
+        return this.Wd.getCurrentPosition();
     }
 
     public int getDuration() {
-        if (this.Wb == null) {
+        if (this.Wd == null) {
             return 0;
         }
-        return this.Wb.getDuration();
+        return this.Wd.getDuration();
     }
 
     public int getVideoHeight() {
-        if (this.Wb == null) {
+        if (this.Wd == null) {
             return 0;
         }
-        return this.Wb.getVideoHeight();
+        return this.Wd.getVideoHeight();
     }
 
     public int getVideoWidth() {
-        if (this.Wb == null) {
+        if (this.Wd == null) {
             return 0;
         }
-        return this.Wb.getVideoWidth();
+        return this.Wd.getVideoWidth();
     }
 
     public boolean isPlaying() {
-        if (this.Wb == null) {
+        if (this.Wd == null) {
             return false;
         }
-        return this.Wb.isPlaying();
+        return this.Wd.isPlaying();
     }
 
     public void pause() {
-        if (this.Wb != null) {
-            this.Wb.pause();
+        if (this.Wd != null) {
+            this.Wd.pause();
         }
     }
 
     public void seekTo(int i) {
-        if (this.Wb != null) {
-            this.Wb.seekTo(i);
+        if (this.Wd != null) {
+            this.Wd.seekTo(i);
         }
     }
 
     public void setLooping(boolean z) {
-        if (this.Wb != null) {
-            this.Wb.setLooping(z);
+        if (this.Wd != null) {
+            this.Wd.setLooping(z);
         }
     }
 
     public void setVolume(float f, float f2) {
-        if (this.Wb != null) {
-            this.Wb.setVolume(f, f2);
+        if (this.Wd != null) {
+            this.Wd.setVolume(f, f2);
         }
     }
 
     public void start() {
-        if (this.Wb != null) {
-            this.Wb.start();
+        if (this.Wd != null) {
+            this.Wd.start();
         }
     }
 
     public void stop() {
-        if (this.Wb != null) {
-            this.Wb.stop();
+        if (this.Wd != null) {
+            this.Wd.stop();
         }
     }
 
     public void reset() {
-        if (this.Wb != null) {
-            this.Wb.reset();
+        if (this.Wd != null) {
+            this.Wd.reset();
         }
     }
 
     public void release() {
         reset();
-        if (this.Wb != null) {
-            this.Wb.release();
-            this.Wb = null;
+        if (this.Wd != null) {
+            this.Wd.release();
+            this.Wd = null;
         }
     }
 }

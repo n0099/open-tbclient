@@ -6,66 +6,66 @@ import android.widget.FrameLayout;
 import com.baidu.adp.widget.IndicatorView;
 /* loaded from: classes.dex */
 public class c {
-    private int atA;
-    private int atB;
-    private int atx;
-    private int aty;
-    private int atz;
+    private int auk;
+    private int aul;
+    private int aum;
+    private int aun;
+    private int auo;
     private int gravity;
 
     public final void setGravity(int i) {
         this.gravity = i;
     }
 
-    public final void cQ(int i) {
-        this.atx = i;
+    public final void de(int i) {
+        this.auk = i;
     }
 
-    public int AN() {
-        return this.atx;
+    public int AU() {
+        return this.auk;
     }
 
-    public int AO() {
-        return this.aty;
+    public int AV() {
+        return this.aul;
     }
 
-    public final void cR(int i) {
-        this.aty = i;
+    public final void df(int i) {
+        this.aul = i;
     }
 
     public final void setSpacing(int i) {
-        this.atz = i;
+        this.aum = i;
     }
 
-    public final void cS(int i) {
-        this.atA = i;
+    public final void dg(int i) {
+        this.aun = i;
     }
 
-    public void cT(int i) {
-        this.atB = i;
+    public void dh(int i) {
+        this.auo = i;
     }
 
     public void g(IndicatorView indicatorView) {
         Resources resources;
         if (indicatorView != null && (resources = indicatorView.getResources()) != null) {
-            if (this.atz > 0) {
-                indicatorView.setSpacing(resources.getDimensionPixelSize(this.atz));
+            if (this.aum > 0) {
+                indicatorView.setSpacing(resources.getDimensionPixelSize(this.aum));
             }
-            if (this.atx > 0) {
-                indicatorView.setDrawable(resources.getDrawable(this.atx));
+            if (this.auk > 0) {
+                indicatorView.setDrawable(resources.getDrawable(this.auk));
             }
-            if (this.aty > 0) {
-                indicatorView.setSelector(resources.getDrawable(this.aty));
+            if (this.aul > 0) {
+                indicatorView.setSelector(resources.getDrawable(this.aul));
             }
             ViewGroup.LayoutParams layoutParams = indicatorView.getLayoutParams();
             if (layoutParams instanceof FrameLayout.LayoutParams) {
                 FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
                 layoutParams2.gravity = this.gravity;
-                if (this.atA > 0) {
-                    layoutParams2.bottomMargin = resources.getDimensionPixelSize(this.atA);
+                if (this.aun > 0) {
+                    layoutParams2.bottomMargin = resources.getDimensionPixelSize(this.aun);
                 }
-                if (this.atB > 0) {
-                    layoutParams2.rightMargin = resources.getDimensionPixelSize(this.atB);
+                if (this.auo > 0) {
+                    layoutParams2.rightMargin = resources.getDimensionPixelSize(this.auo);
                 }
                 indicatorView.setLayoutParams(layoutParams);
             }

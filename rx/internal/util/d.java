@@ -4,58 +4,58 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class d {
-    final int iCY;
-    Object[] iCZ;
-    Object[] iDa;
-    int iDb;
+    final int iEI;
+    Object[] iEJ;
+    Object[] iEK;
+    int iEL;
     volatile int size;
 
     public d(int i) {
-        this.iCY = i;
+        this.iEI = i;
     }
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.iCZ = new Object[this.iCY + 1];
-            this.iDa = this.iCZ;
-            this.iCZ[0] = obj;
-            this.iDb = 1;
+            this.iEJ = new Object[this.iEI + 1];
+            this.iEK = this.iEJ;
+            this.iEJ[0] = obj;
+            this.iEL = 1;
             this.size = 1;
-        } else if (this.iDb == this.iCY) {
-            Object[] objArr = new Object[this.iCY + 1];
+        } else if (this.iEL == this.iEI) {
+            Object[] objArr = new Object[this.iEI + 1];
             objArr[0] = obj;
-            this.iDa[this.iCY] = objArr;
-            this.iDa = objArr;
-            this.iDb = 1;
+            this.iEK[this.iEI] = objArr;
+            this.iEK = objArr;
+            this.iEL = 1;
             this.size++;
         } else {
-            this.iDa[this.iDb] = obj;
-            this.iDb++;
+            this.iEK[this.iEL] = obj;
+            this.iEL++;
             this.size++;
         }
     }
 
-    public Object[] ccM() {
-        return this.iCZ;
+    public Object[] ccj() {
+        return this.iEJ;
     }
 
     public int size() {
         return this.size;
     }
 
-    List<Object> ccN() {
-        int i = this.iCY;
+    List<Object> cck() {
+        int i = this.iEI;
         int i2 = this.size;
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;
-        Object[] ccM = ccM();
+        Object[] ccj = ccj();
         int i4 = 0;
         while (i3 < i2) {
-            arrayList.add(ccM[i4]);
+            arrayList.add(ccj[i4]);
             i3++;
             i4++;
             if (i4 == i) {
-                ccM = (Object[]) ccM[i];
+                ccj = (Object[]) ccj[i];
                 i4 = 0;
             }
         }
@@ -63,6 +63,6 @@ public class d {
     }
 
     public String toString() {
-        return ccN().toString();
+        return cck().toString();
     }
 }

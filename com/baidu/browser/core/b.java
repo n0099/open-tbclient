@@ -9,29 +9,29 @@ import java.util.HashMap;
 @SuppressLint({"NewApi"})
 /* loaded from: classes2.dex */
 public final class b {
-    private static b UH;
-    private LongSparseArray<WeakReference<Bitmap>> UI = new LongSparseArray<>();
+    private static b UJ;
+    private LongSparseArray<WeakReference<Bitmap>> UK = new LongSparseArray<>();
     private Context mContext;
     private static final String LOG_TAG = b.class.getSimpleName();
-    private static HashMap<String, com.baidu.browser.core.util.c<String, Integer>> UJ = new HashMap<>();
+    private static HashMap<String, com.baidu.browser.core.util.c<String, Integer>> UL = new HashMap<>();
 
     private b() {
     }
 
-    public static synchronized b qi() {
+    public static synchronized b qg() {
         b bVar;
         synchronized (b.class) {
-            if (UH == null) {
-                UH = new b();
+            if (UJ == null) {
+                UJ = new b();
             }
-            bVar = UH;
+            bVar = UJ;
         }
         return bVar;
     }
 
     private Context getContext() {
         if (this.mContext == null) {
-            this.mContext = BdCore.qh().getContext();
+            this.mContext = BdCore.qf().getContext();
         }
         if (this.mContext == null) {
             throw new RuntimeException("context is null!");
@@ -43,10 +43,10 @@ public final class b {
     public static int R(String str, String str2) {
         com.baidu.browser.core.util.c<String, Integer> cVar;
         S(str2, str);
-        com.baidu.browser.core.util.c<String, Integer> cVar2 = UJ.get(str);
+        com.baidu.browser.core.util.c<String, Integer> cVar2 = UL.get(str);
         if (cVar2 == null) {
             com.baidu.browser.core.util.c<String, Integer> cVar3 = new com.baidu.browser.core.util.c<>(100);
-            UJ.put(str, cVar3);
+            UL.put(str, cVar3);
             cVar = cVar3;
         } else {
             cVar = cVar2;
@@ -54,7 +54,7 @@ public final class b {
         Integer num = cVar.get(str2);
         if (num == null) {
             try {
-                int identifier = qi().getContext().getResources().getIdentifier(str2, str, qi().getContext().getPackageName());
+                int identifier = qg().getContext().getResources().getIdentifier(str2, str, qg().getContext().getPackageName());
                 cVar.put(str2, Integer.valueOf(identifier));
                 return identifier;
             } catch (Error e) {

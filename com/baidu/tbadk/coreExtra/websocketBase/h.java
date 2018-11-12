@@ -14,6 +14,7 @@ public class h extends j {
     /* renamed from: d */
     public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage != null && socketResponsedMessage.getError() == 110004 && socketResponsedMessage.getCmd() != 1001) {
+            com.baidu.tbadk.lcs.a.b(0, 0, 0, 1, 11);
             BdSocketLinkService.startService(true, "be server kicked off");
         }
         return socketResponsedMessage;

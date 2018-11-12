@@ -11,61 +11,61 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class i extends q.a {
-    private String aDs;
-    private String aDt;
-    public TextView asR;
-    public TbImageView eHA;
-    public TextView eHB;
+    private String aEi;
+    private String aEj;
+    public TextView atE;
+    public TbImageView eIS;
+    public TextView eIT;
     public TextView mTitleView;
 
     public i(View view, View.OnClickListener onClickListener) {
         super(view);
-        this.eHA = (TbImageView) view.findViewById(e.g.net_refresh_image);
-        this.asR = (TextView) view.findViewById(e.g.net_refresh_desc);
+        this.eIS = (TbImageView) view.findViewById(e.g.net_refresh_image);
+        this.atE = (TextView) view.findViewById(e.g.net_refresh_desc);
         this.mTitleView = (TextView) view.findViewById(e.g.net_refresh_title);
-        this.eHB = (TextView) view.findViewById(e.g.net_refresh_button);
-        this.eHB.setOnClickListener(onClickListener);
+        this.eIT = (TextView) view.findViewById(e.g.net_refresh_button);
+        this.eIT.setOnClickListener(onClickListener);
     }
 
     public void a(NoDataViewFactory.ImgType imgType, String str, String str2, String str3) {
-        al.c(this.asR, e.d.cp_cont_d, 1);
+        al.c(this.atE, e.d.cp_cont_d, 1);
         al.c(this.mTitleView, e.d.cp_cont_b, 1);
-        al.c(this.eHB, e.d.cp_cont_g, 1);
-        al.i(this.eHB, e.f.btn_appdownload);
-        this.asR.setText(str);
+        al.c(this.eIT, e.d.cp_cont_g, 1);
+        al.i(this.eIT, e.f.btn_appdownload);
+        this.atE.setText(str);
         this.mTitleView.setText(str2);
-        this.eHB.setText(str3);
-        fB(0);
-        pg(com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.ds30));
+        this.eIT.setText(str3);
+        fP(0);
+        pz(com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), e.C0200e.ds30));
         if (imgType == NoDataViewFactory.ImgType.WEBVIEW) {
-            this.eHA.setImageBitmap(al.m17do(e.f.pic_emotion08));
+            this.eIS.setImageBitmap(al.dC(e.f.pic_emotion08));
         } else if (imgType == NoDataViewFactory.ImgType.NODATA) {
-            this.eHA.setImageBitmap(al.m17do(e.f.no_data_image));
+            this.eIS.setImageBitmap(al.dC(e.f.no_data_image));
         } else {
             d(imgType);
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                this.eHA.startLoad(this.aDt, 29, false);
+                this.eIS.startLoad(this.aEj, 29, false);
             } else {
-                this.eHA.startLoad(this.aDs, 29, false);
+                this.eIS.startLoad(this.aEi, 29, false);
             }
         }
     }
 
-    public void fB(int i) {
-        ViewGroup.LayoutParams layoutParams = this.eHA.getLayoutParams();
+    public void fP(int i) {
+        ViewGroup.LayoutParams layoutParams = this.eIS.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i;
-            this.eHA.setLayoutParams(marginLayoutParams);
+            this.eIS.setLayoutParams(marginLayoutParams);
         }
     }
 
-    public void pg(int i) {
-        ViewGroup.LayoutParams layoutParams = this.eHB.getLayoutParams();
+    public void pz(int i) {
+        ViewGroup.LayoutParams layoutParams = this.eIT.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.bottomMargin = i;
-            this.eHB.setLayoutParams(marginLayoutParams);
+            this.eIT.setLayoutParams(marginLayoutParams);
         }
     }
 
@@ -73,32 +73,32 @@ public class i extends q.a {
         if (imgType != null) {
             switch (imgType) {
                 case CREATE:
-                    this.aDs = com.baidu.tbadk.util.c.Ow().m18if("pic_emotion03.png");
-                    this.aDt = com.baidu.tbadk.util.c.Ow().m18if("pic_emotion03_1.png");
+                    this.aEi = com.baidu.tbadk.util.c.OF().ig("pic_emotion03.png");
+                    this.aEj = com.baidu.tbadk.util.c.OF().ig("pic_emotion03_1.png");
                     return;
                 case NODATA:
-                    this.aDs = com.baidu.tbadk.util.c.Ow().m18if("pic_emotion05.png");
-                    this.aDt = com.baidu.tbadk.util.c.Ow().m18if("pic_emotion05_1.png");
+                    this.aEi = com.baidu.tbadk.util.c.OF().ig("pic_emotion05.png");
+                    this.aEj = com.baidu.tbadk.util.c.OF().ig("pic_emotion05_1.png");
                     return;
                 case FINDBAR:
-                    this.aDs = com.baidu.tbadk.util.c.Ow().m18if("pic_emotion01.png");
-                    this.aDt = com.baidu.tbadk.util.c.Ow().m18if("pic_emotion01_1.png");
+                    this.aEi = com.baidu.tbadk.util.c.OF().ig("pic_emotion01.png");
+                    this.aEj = com.baidu.tbadk.util.c.OF().ig("pic_emotion01_1.png");
                     return;
                 case EMOTION:
-                    this.aDs = com.baidu.tbadk.util.c.Ow().m18if("pic_emotion02.png");
-                    this.aDt = com.baidu.tbadk.util.c.Ow().m18if("pic_emotion02_1.png");
+                    this.aEi = com.baidu.tbadk.util.c.OF().ig("pic_emotion02.png");
+                    this.aEj = com.baidu.tbadk.util.c.OF().ig("pic_emotion02_1.png");
                     return;
                 case GIFT:
-                    this.aDs = com.baidu.tbadk.util.c.Ow().m18if("pic_emotion07.png");
-                    this.aDt = com.baidu.tbadk.util.c.Ow().m18if("pic_emotion07_1.png");
+                    this.aEi = com.baidu.tbadk.util.c.OF().ig("pic_emotion07.png");
+                    this.aEj = com.baidu.tbadk.util.c.OF().ig("pic_emotion07_1.png");
                     return;
                 case SINGALL:
-                    this.aDs = com.baidu.tbadk.util.c.Ow().m18if("pic_emotion06.png");
-                    this.aDt = com.baidu.tbadk.util.c.Ow().m18if("pic_emotion06_1.png");
+                    this.aEi = com.baidu.tbadk.util.c.OF().ig("pic_emotion06.png");
+                    this.aEj = com.baidu.tbadk.util.c.OF().ig("pic_emotion06_1.png");
                     return;
                 case WEBVIEW:
-                    this.aDs = com.baidu.tbadk.util.c.Ow().m18if("pic_emotion08.png");
-                    this.aDt = com.baidu.tbadk.util.c.Ow().m18if("pic_emotion08_1.png");
+                    this.aEi = com.baidu.tbadk.util.c.OF().ig("pic_emotion08.png");
+                    this.aEj = com.baidu.tbadk.util.c.OF().ig("pic_emotion08_1.png");
                     return;
                 default:
                     return;

@@ -11,12 +11,12 @@ public class a {
 
     /* renamed from: com.baidu.tieba.write.editor.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0293a {
-        void wt(int i);
+    public interface InterfaceC0321a {
+        void wM(int i);
     }
 
-    public static void a(final String str, final int i, final InterfaceC0293a interfaceC0293a) {
-        if (!StringUtils.isNull(str) && interfaceC0293a != null) {
+    public static void a(final String str, final int i, final InterfaceC0321a interfaceC0321a) {
+        if (!StringUtils.isNull(str) && interfaceC0321a != null) {
             final String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!StringUtils.isNull(currentAccount)) {
                 x.a(new w<Integer>() { // from class: com.baidu.tieba.write.editor.a.1
@@ -25,7 +25,7 @@ public class a {
                     @Override // com.baidu.tbadk.util.w
                     public Integer doInBackground() {
                         int i2 = i;
-                        l<String> eg = com.baidu.tbadk.core.c.a.Aq().eg("tb.write_privacy_state_space" + currentAccount);
+                        l<String> eg = com.baidu.tbadk.core.c.a.Ax().eg("tb.write_privacy_state_space" + currentAccount);
                         if (eg != null) {
                             i2 = com.baidu.adp.lib.g.b.l(eg.get(str), i);
                         }
@@ -36,8 +36,8 @@ public class a {
                     @Override // com.baidu.tbadk.util.h
                     /* renamed from: n */
                     public void onReturnDataInUI(Integer num) {
-                        if (InterfaceC0293a.this != null) {
-                            InterfaceC0293a.this.wt(num.intValue());
+                        if (InterfaceC0321a.this != null) {
+                            InterfaceC0321a.this.wM(num.intValue());
                         }
                     }
                 });
@@ -49,7 +49,7 @@ public class a {
         l<String> eg;
         if (!StringUtils.isNull(str)) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (!StringUtils.isNull(currentAccount) && (eg = com.baidu.tbadk.core.c.a.Aq().eg("tb.write_privacy_state_space" + currentAccount)) != null) {
+            if (!StringUtils.isNull(currentAccount) && (eg = com.baidu.tbadk.core.c.a.Ax().eg("tb.write_privacy_state_space" + currentAccount)) != null) {
                 eg.f(str, String.valueOf(i));
             }
         }

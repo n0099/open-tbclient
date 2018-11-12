@@ -16,7 +16,7 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class a {
-    private C0130a aMj;
+    private C0154a aMZ;
     private com.baidu.adp.base.d mLoadDataCallBack;
     private TbPageContext mPageContext;
 
@@ -33,25 +33,25 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
-        if (this.aMj == null) {
-            this.aMj = new C0130a();
-            this.aMj.setPriority(2);
-            this.aMj.bL(z);
-            this.aMj.setPortrait(str);
-            this.aMj.setToUid(str2);
-            this.aMj.setIsGod(z2);
-            this.aMj.setFrom(str3);
-            this.aMj.setPageId(bdUniqueId);
-            this.aMj.setForumId(str4);
-            this.aMj.setInLive(str5);
-            this.aMj.execute(new Integer[0]);
+        if (this.aMZ == null) {
+            this.aMZ = new C0154a();
+            this.aMZ.setPriority(2);
+            this.aMZ.cc(z);
+            this.aMZ.setPortrait(str);
+            this.aMZ.setToUid(str2);
+            this.aMZ.setIsGod(z2);
+            this.aMZ.setFrom(str3);
+            this.aMZ.setPageId(bdUniqueId);
+            this.aMZ.setForumId(str4);
+            this.aMZ.setInLive(str5);
+            this.aMZ.execute(new Integer[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tbadk.coreExtra.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0130a extends BdAsyncTask<Integer, Integer, String> {
+    public class C0154a extends BdAsyncTask<Integer, Integer, String> {
         private String authSid;
         private String forumId;
         private String from;
@@ -65,7 +65,7 @@ public class a {
         private String toUid;
         private AuthTokenData tokenData;
 
-        private C0130a() {
+        private C0154a() {
             this.mNetwork = null;
             this.isGod = false;
             this.from = "0";
@@ -82,7 +82,7 @@ public class a {
             this.toUid = str;
         }
 
-        public void bL(boolean z) {
+        public void cc(boolean z) {
             this.isAttention = z;
         }
 
@@ -118,7 +118,7 @@ public class a {
                     this.mNetwork = new x();
                     if (this.isAttention) {
                         this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.FOLLOW_ADDRESS);
-                        this.mNetwork.bb(true);
+                        this.mNetwork.br(true);
                     } else {
                         this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.UNFOLLOW_ADDRESS);
                     }
@@ -131,10 +131,10 @@ public class a {
                     }
                     this.mNetwork.x("in_live", this.inLive);
                     this.mNetwork.x("authsid", this.authSid);
-                    this.mNetwork.BY().CW().mIsNeedTbs = true;
-                    String BA = this.mNetwork.BA();
-                    this.tokenData = AuthTokenData.parse(BA);
-                    return BA;
+                    this.mNetwork.Cf().Dd().mIsNeedTbs = true;
+                    String BH = this.mNetwork.BH();
+                    this.tokenData = AuthTokenData.parse(BH);
+                    return BH;
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -146,20 +146,20 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((C0130a) str);
-            a.this.aMj = null;
+            super.onPostExecute((C0154a) str);
+            a.this.aMZ = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.Jo = this.mNetwork.BY().CX().isRequestSuccess();
+                aVar.Jr = this.mNetwork.Cf().De().isRequestSuccess();
                 aVar.errorString = this.mNetwork.getErrorString();
                 aVar.isAttention = this.isAttention;
                 aVar.toUid = this.toUid;
                 aVar.isGod = this.isGod;
                 aVar.s(str, this.showToastAfterAttentionSuc);
-                if (this.mNetwork.BY().CX().isRequestSuccess()) {
-                    aVar.aLc = null;
+                if (this.mNetwork.Cf().De().isRequestSuccess()) {
+                    aVar.aLS = null;
                 }
-                if (!AntiHelper.e(a.this.getContext(), this.mNetwork.Cc(), aVar.aLb)) {
+                if (!AntiHelper.e(a.this.getContext(), this.mNetwork.Cj(), aVar.aLR)) {
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
                     updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.pageId));
                     MessageManager.getInstance().dispatchResponsedMessageToUI(updateAttentionMessage);
@@ -171,12 +171,12 @@ public class a {
         public void cancel() {
             super.cancel(true);
             if (this.mNetwork != null) {
-                this.mNetwork.ji();
+                this.mNetwork.jg();
                 this.mNetwork = null;
             }
-            if (a.this.aMj != null) {
-                a.this.aMj.cancel();
-                a.this.aMj = null;
+            if (a.this.aMZ != null) {
+                a.this.aMZ.cancel();
+                a.this.aMZ = null;
             }
             if (a.this.mLoadDataCallBack != null) {
                 a.this.mLoadDataCallBack.m(false);
@@ -192,8 +192,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.aMj != null) {
-            this.aMj.cancel();
+        if (this.aMZ != null) {
+            this.aMZ.cancel();
         }
     }
 }

@@ -23,22 +23,22 @@ public class f implements d, a.InterfaceC0009a {
     public f(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, com.airbnb.lottie.model.content.i iVar) {
         this.name = iVar.getName();
         this.nh = fVar;
-        if (iVar.eD() == null || iVar.dW() == null) {
+        if (iVar.eC() == null || iVar.dV() == null) {
             this.oP = null;
             this.oD = null;
             return;
         }
         this.oy.setFillType(iVar.getFillType());
-        this.oP = iVar.eD().dH();
+        this.oP = iVar.eC().dG();
         this.oP.b(this);
         aVar.a(this.oP);
-        this.oD = iVar.dW().dH();
+        this.oD = iVar.dV().dG();
         this.oD.b(this);
         aVar.a(this.oD);
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0009a
-    public void de() {
+    public void dd() {
         this.nh.invalidateSelf();
     }
 

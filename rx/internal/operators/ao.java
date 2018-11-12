@@ -6,12 +6,12 @@ import rx.d;
 import rx.internal.util.UtilityFunctions;
 /* loaded from: classes2.dex */
 public final class ao<T, U> implements d.b<T, T> {
-    final rx.functions.f<? super T, ? extends U> iuW;
+    final rx.functions.f<? super T, ? extends U> iwG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        static final ao<?, ?> iwi = new ao<>(UtilityFunctions.ccW());
+        static final ao<?, ?> ixS = new ao<>(UtilityFunctions.cct());
     }
 
     @Override // rx.functions.f
@@ -19,22 +19,22 @@ public final class ao<T, U> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> ao<T, T> cbT() {
-        return (ao<T, T>) a.iwi;
+    public static <T> ao<T, T> cbq() {
+        return (ao<T, T>) a.ixS;
     }
 
     public ao(rx.functions.f<? super T, ? extends U> fVar) {
-        this.iuW = fVar;
+        this.iwG = fVar;
     }
 
     /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: rx.j<T>, rx.j<? super T> */
     public rx.j<? super T> call(final rx.j<? super T> jVar) {
         return (rx.j<T>) new rx.j<T>(jVar) { // from class: rx.internal.operators.ao.1
-            Set<U> iwg = new HashSet();
+            Set<U> ixQ = new HashSet();
 
             @Override // rx.e
             public void onNext(T t) {
-                if (this.iwg.add(ao.this.iuW.call(t))) {
+                if (this.ixQ.add(ao.this.iwG.call(t))) {
                     jVar.onNext(t);
                 } else {
                     request(1L);
@@ -43,13 +43,13 @@ public final class ao<T, U> implements d.b<T, T> {
 
             @Override // rx.e
             public void onError(Throwable th) {
-                this.iwg = null;
+                this.ixQ = null;
                 jVar.onError(th);
             }
 
             @Override // rx.e
             public void onCompleted() {
-                this.iwg = null;
+                this.ixQ = null;
                 jVar.onCompleted();
             }
         };

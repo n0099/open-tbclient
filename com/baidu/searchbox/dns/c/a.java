@@ -1,7 +1,6 @@
 package com.baidu.searchbox.dns.c;
 
 import android.text.TextUtils;
-import com.baidu.searchbox.ng.ai.apps.system.bluetooth.utils.AiAppsBluetoothConstants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.model.ReportUserInfoModel;
 /* loaded from: classes2.dex */
@@ -30,7 +29,7 @@ public class a {
 
     /* renamed from: com.baidu.searchbox.dns.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0103a {
+    public static class C0126a {
         private final com.baidu.searchbox.dns.d.a r;
         private final com.baidu.searchbox.dns.d.a.a t;
         private final long u;
@@ -38,7 +37,7 @@ public class a {
         private String w;
         private long x;
 
-        public C0103a(long j, com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2) {
+        public C0126a(long j, com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2) {
             this.v = -1;
             this.x = -1L;
             this.u = j;
@@ -58,7 +57,7 @@ public class a {
             if (TextUtils.isEmpty(this.w)) {
                 return new a(this.r, null, 1005);
             }
-            if (this.w.equals(AiAppsBluetoothConstants.ERROR_OK)) {
+            if (this.w.equals("ok")) {
                 if (this.v >= 0 && this.x > 0) {
                     if (this.u - this.x > this.v) {
                         return new a(this.r, null, 1003);

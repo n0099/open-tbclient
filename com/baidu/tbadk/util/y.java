@@ -15,7 +15,7 @@ public class y {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public static int is(String str) {
+    public static int it(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -30,7 +30,7 @@ public class y {
         return i;
     }
 
-    public static int it(String str) {
+    public static int iu(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -41,13 +41,13 @@ public class y {
             if (substring.length() >= 2) {
                 i += 2;
             } else {
-                i += is(substring);
+                i += it(substring);
             }
         }
         return i;
     }
 
-    public static int iu(String str) {
+    public static int iv(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -67,7 +67,7 @@ public class y {
         String str2 = str;
         while (i2 <= codePointCount) {
             String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-            if (iu(substring) > i) {
+            if (iv(substring) > i) {
                 break;
             }
             i2++;
@@ -80,7 +80,7 @@ public class y {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (is(str) > i) {
+        if (it(str) > i) {
             return o(str, 0, i - 2) + "...";
         }
         return str;
@@ -152,7 +152,7 @@ public class y {
         String str2 = str;
         while (i2 <= codePointCount) {
             String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-            if (it(substring) > i) {
+            if (iu(substring) > i) {
                 break;
             }
             i2++;

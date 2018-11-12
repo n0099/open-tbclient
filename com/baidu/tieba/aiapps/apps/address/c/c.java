@@ -8,7 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    public static List<b> kb(String str) {
+    public static List<b> kd(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -16,7 +16,7 @@ public class c {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
             if (optJSONObject != null) {
-                return m(optJSONObject.optJSONArray("list"));
+                return o(optJSONObject.optJSONArray("list"));
             }
             return arrayList;
         } catch (JSONException e) {
@@ -24,7 +24,7 @@ public class c {
         }
     }
 
-    public static JSONArray an(List<b> list) {
+    public static JSONArray am(List<b> list) {
         JSONArray jSONArray = new JSONArray();
         if (list != null) {
             int i = 0;
@@ -43,7 +43,7 @@ public class c {
         return jSONArray;
     }
 
-    public static List<b> m(JSONArray jSONArray) {
+    public static List<b> o(JSONArray jSONArray) {
         if (jSONArray == null) {
             return null;
         }

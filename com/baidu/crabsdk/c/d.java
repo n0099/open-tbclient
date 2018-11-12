@@ -84,7 +84,7 @@ public final class d {
     public static String cM(String str) {
         byte[] bArr = null;
         try {
-            Key cL = cL(rx());
+            Key cL = cL(ru());
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
             int blockSize = cipher.getBlockSize();
             byte[] bytes = str.getBytes();
@@ -94,7 +94,7 @@ public final class d {
             }
             byte[] bArr2 = new byte[length];
             System.arraycopy(bytes, 0, bArr2, 0, bytes.length);
-            cipher.init(1, cL, new IvParameterSpec(ry().getBytes()));
+            cipher.init(1, cL, new IvParameterSpec(rv().getBytes()));
             bArr = cipher.doFinal(bArr2);
         } catch (Exception e) {
             e.printStackTrace();
@@ -104,9 +104,9 @@ public final class d {
 
     public static String cN(String str) {
         try {
-            Key cL = cL(rx());
+            Key cL = cL(ru());
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
-            cipher.init(2, cL, new IvParameterSpec(ry().getBytes()));
+            cipher.init(2, cL, new IvParameterSpec(rv().getBytes()));
             return new String(cipher.doFinal(Base64.decode(str, 0))).trim();
         } catch (Exception e) {
             e.printStackTrace();
@@ -114,7 +114,7 @@ public final class d {
         }
     }
 
-    private static String rx() {
+    private static String ru() {
         Random random = new Random();
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(a("W", false));
@@ -127,7 +127,7 @@ public final class d {
         return stringBuffer.toString();
     }
 
-    private static String ry() {
+    private static String rv() {
         StringBuilder sb = new StringBuilder();
         for (int i = 1; i < 9; i++) {
             sb.append(String.valueOf(i));

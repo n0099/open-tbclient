@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import com.baidu.appsearchlib.Info;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.location.Address;
-import com.baidu.location.d.g;
+import com.baidu.location.g.g;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
@@ -925,8 +925,10 @@ public final class BDLocation implements Parcelable {
     }
 
     public void setAltitude(double d) {
-        this.f = d;
-        this.e = true;
+        if (d < 9999.0d) {
+            this.f = d;
+            this.e = true;
+        }
     }
 
     public void setBuildingID(String str) {

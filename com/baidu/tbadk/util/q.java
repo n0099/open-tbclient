@@ -12,29 +12,29 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class q {
-    private static final byte[] ben = new byte[1];
-    private static q beo = null;
+    private static final byte[] bfc = new byte[1];
+    private static q bfd = null;
     private CustomMessageListener mNetworkChangedListener;
 
-    public static q OH() {
-        if (beo == null) {
-            synchronized (ben) {
-                if (beo == null) {
-                    beo = new q();
+    public static q OQ() {
+        if (bfd == null) {
+            synchronized (bfc) {
+                if (bfd == null) {
+                    bfd = new q();
                 }
             }
         }
-        return beo;
+        return bfd;
     }
 
     private q() {
         com.baidu.adp.lib.util.j.init();
     }
 
-    public void uY() {
+    public void vi() {
         try {
             if (this.mNetworkChangedListener == null) {
-                this.mNetworkChangedListener = OI();
+                this.mNetworkChangedListener = OR();
                 MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
             }
         } catch (Exception e) {
@@ -43,31 +43,31 @@ public class q {
         }
     }
 
-    private CustomMessageListener OI() {
+    private CustomMessageListener OR() {
         return new CustomMessageListener(2000994) { // from class: com.baidu.tbadk.util.q.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                    q.this.OJ();
+                    q.this.OS();
                 }
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void OJ() {
+    public void OS() {
         try {
-            boolean kX = com.baidu.adp.lib.util.j.kX();
-            if (kX) {
-                if (com.baidu.adp.lib.util.j.kY()) {
-                    aq.CG().be(true);
-                    com.baidu.tieba.recapp.d.a.bua().ue(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
-                } else if (com.baidu.adp.lib.util.j.kZ()) {
-                    aq.CG().be(false);
+            boolean kV = com.baidu.adp.lib.util.j.kV();
+            if (kV) {
+                if (com.baidu.adp.lib.util.j.kW()) {
+                    aq.CN().bu(true);
+                    com.baidu.tieba.recapp.d.a.btw().ui(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
+                } else if (com.baidu.adp.lib.util.j.kX()) {
+                    aq.CN().bu(false);
                 }
             }
-            NoNetworkView.setIsHasNetwork(kX);
+            NoNetworkView.setIsHasNetwork(kV);
             CompatibleUtile.dealWebView(null);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());

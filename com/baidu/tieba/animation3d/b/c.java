@@ -5,21 +5,21 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tieba.animation3d.b.a {
-    private float IQ;
-    private int cIW;
-    private a cIX;
+    private int cKc;
+    private a cKd;
     private Handler mHandler;
+    private float mRadius;
 
     /* loaded from: classes.dex */
     public interface a {
-        void eY(boolean z);
+        void fj(boolean z);
     }
 
     public c(Context context) {
         super(context);
-        this.IQ = 0.0f;
-        this.cIW = 1;
-        this.cIX = null;
+        this.mRadius = 0.0f;
+        this.cKc = 1;
+        this.cKd = null;
         initHandler();
     }
 
@@ -29,14 +29,14 @@ public class c extends com.baidu.tieba.animation3d.b.a {
             public boolean handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (c.this.cIX != null) {
-                            c.this.cIX.eY(true);
+                        if (c.this.cKd != null) {
+                            c.this.cKd.fj(true);
                             return true;
                         }
                         return true;
                     case 2:
-                        if (c.this.cIX != null) {
-                            c.this.cIX.eY(false);
+                        if (c.this.cKd != null) {
+                            c.this.cKd.fj(false);
                             return true;
                         }
                         return true;
@@ -48,31 +48,31 @@ public class c extends com.baidu.tieba.animation3d.b.a {
     }
 
     public void setRotateRadius(float f) {
-        this.IQ = f;
-        this.cIM = this.IQ;
-        this.cIL = this.IQ;
+        this.mRadius = f;
+        this.cJS = this.mRadius;
+        this.cJR = this.mRadius;
     }
 
-    private void ans() {
+    private void amS() {
         this.mHandler.removeMessages(1);
         this.mHandler.removeMessages(2);
     }
 
     public int getViewStatus() {
-        return this.cIW;
+        return this.cKc;
     }
 
     @Override // com.baidu.tieba.animation3d.b.a
-    public void Df() {
-        super.Df();
-        this.cIM = this.IQ;
-        this.cIL = this.IQ;
-        this.cIW = 1;
-        ans();
+    public void Dm() {
+        super.Dm();
+        this.cJS = this.mRadius;
+        this.cJR = this.mRadius;
+        this.cKc = 1;
+        amS();
         this.mHandler.sendEmptyMessage(1);
     }
 
     public void setWriteEndCallBack(a aVar) {
-        this.cIX = aVar;
+        this.cKd = aVar;
     }
 }

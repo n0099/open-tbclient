@@ -329,7 +329,7 @@ public class LoadErrorCode {
                 try {
                     JSONArray jSONArray = new JSONArray();
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("error_code", LoadErrorCode.MSG_STATISTICS_INTERN_ERROR);
+                    jSONObject.put("error_code", 514);
                     jSONObject.put(KEY_ERROR_REASON, sb.toString());
                     jSONObject.put(KEY_ERROR_CNT, 1);
                     jSONArray.put(jSONObject);

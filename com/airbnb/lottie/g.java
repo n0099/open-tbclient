@@ -34,7 +34,7 @@ public class g {
         return this.fileName;
     }
 
-    public String cY() {
+    public String cX() {
         return this.of;
     }
 }

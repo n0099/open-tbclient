@@ -21,7 +21,7 @@ public final class c {
             int i = 0;
             for (Map.Entry<String, Serializable> entry : aVar.a()) {
                 strArr[i] = entry.getKey();
-                strArr2[i] = String.valueOf(a.a(entry.getValue()));
+                strArr2[i] = String.valueOf(a.b(entry.getValue()));
                 i++;
             }
             cursor = contentResolver.query(Uri.parse(str), strArr, null, strArr2, null);
@@ -56,7 +56,7 @@ public final class c {
             cursor.moveToFirst();
             String string = cursor.getString(i);
             if (string != null) {
-                switch (a.a(t)) {
+                switch (a.b(t)) {
                     case 0:
                         t2 = string;
                         break;
@@ -90,7 +90,7 @@ public final class c {
     public static boolean b(ContentResolver contentResolver, String str, a aVar) {
         ContentValues contentValues = new ContentValues();
         for (Map.Entry<String, Serializable> entry : aVar.a()) {
-            switch (a.a(entry.getValue())) {
+            switch (a.b(entry.getValue())) {
                 case 0:
                     contentValues.put(entry.getKey(), (String) null);
                     break;

@@ -10,61 +10,61 @@ import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class b {
-    private static volatile b htu;
-    private HashMap<String, String> htp;
-    private DownloadData htq;
+    private static volatile b hvd;
+    private HashMap<String, String> huY;
+    private DownloadData huZ;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void bGw();
+        void bFV();
 
         void cM(String str, String str2);
 
-        void vR(String str);
+        void vW(String str);
     }
 
     private b() {
     }
 
-    public static b bHl() {
-        if (htu == null) {
+    public static b bGK() {
+        if (hvd == null) {
             synchronized (b.class) {
-                if (htu == null) {
-                    htu = new b();
+                if (hvd == null) {
+                    hvd = new b();
                 }
             }
         }
-        return htu;
+        return hvd;
     }
 
-    public String wa(String str) {
+    public String wf(String str) {
         String fs = ar.fs(str);
         if (fs == null) {
             return null;
         }
-        if (this.htp == null) {
-            this.htp = new HashMap<>();
-            bHm();
-            if (this.htp.size() > 0) {
-                return this.htp.get(fs);
+        if (this.huY == null) {
+            this.huY = new HashMap<>();
+            bGL();
+            if (this.huY.size() > 0) {
+                return this.huY.get(fs);
             }
             return null;
         }
-        return this.htp.get(fs);
+        return this.huY.get(fs);
     }
 
-    public void bHm() {
-        if (this.htp == null) {
-            this.htp = new HashMap<>();
+    public void bGL() {
+        if (this.huY == null) {
+            this.huY = new HashMap<>();
         } else {
-            this.htp.clear();
+            this.huY.clear();
         }
-        File file = new File(c.hqP);
+        File file = new File(c.hsy);
         if (file.exists()) {
             File[] listFiles = file.listFiles();
             for (File file2 : listFiles) {
                 if (file2.isFile()) {
-                    this.htp.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                    this.huY.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
                 }
             }
         }
@@ -73,10 +73,10 @@ public class b {
     public void a(String str, final String str2, final a aVar) {
         String fs;
         if (!TextUtils.isEmpty(str2) && (fs = ar.fs(str2)) != null) {
-            if (this.htq != null) {
-                d.KB().t(this.htq.getUrl(), true);
+            if (this.huZ != null) {
+                d.KN().t(this.huZ.getUrl(), true);
             }
-            File file = new File(c.hqP);
+            File file = new File(c.hsy);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -84,7 +84,7 @@ public class b {
             downloadData.setType(18);
             downloadData.setId(str);
             downloadData.setUrl(str2);
-            downloadData.setPath(c.hqP + fs + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+            downloadData.setPath(c.hsy + fs + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
             downloadData.setCallback(new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.editvideo.model.b.1
                 @Override // com.baidu.tbadk.download.c
                 public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -93,11 +93,11 @@ public class b {
                         if (file2.exists()) {
                             file2.delete();
                         }
-                        if (b.this.htq != null && downloadData2.getUrl().equals(b.this.htq.getUrl())) {
-                            b.this.htq = null;
+                        if (b.this.huZ != null && downloadData2.getUrl().equals(b.this.huZ.getUrl())) {
+                            b.this.huZ = null;
                         }
                         if (aVar != null) {
-                            aVar.bGw();
+                            aVar.bFV();
                         }
                     }
                 }
@@ -115,11 +115,11 @@ public class b {
                 @Override // com.baidu.tbadk.download.c
                 public void onFileDownloadSucceed(DownloadData downloadData2) {
                     if (downloadData2 != null && !StringUtils.isNull(downloadData2.getPath())) {
-                        if (b.this.htq != null && downloadData2.getUrl().equals(b.this.htq.getUrl())) {
-                            b.this.htq = null;
+                        if (b.this.huZ != null && downloadData2.getUrl().equals(b.this.huZ.getUrl())) {
+                            b.this.huZ = null;
                         }
                         if (aVar != null) {
-                            b.this.htp.put(downloadData2.getPath().substring(c.hqP.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
+                            b.this.huY.put(downloadData2.getPath().substring(c.hsy.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
                             aVar.cM(str2, downloadData2.getPath());
                         }
                     }
@@ -131,16 +131,16 @@ public class b {
                     if (file2.exists()) {
                         file2.delete();
                     }
-                    if (b.this.htq != null && downloadData2.getUrl().equals(b.this.htq.getUrl())) {
-                        b.this.htq = null;
+                    if (b.this.huZ != null && downloadData2.getUrl().equals(b.this.huZ.getUrl())) {
+                        b.this.huZ = null;
                     }
                     if (aVar != null) {
-                        aVar.vR(str3);
+                        aVar.vW(str3);
                     }
                 }
             });
-            this.htq = downloadData;
-            d.KB().f(downloadData);
+            this.huZ = downloadData;
+            d.KN().f(downloadData);
         }
     }
 }

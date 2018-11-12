@@ -16,8 +16,8 @@ import com.baidu.tieba.frs.entelechy.a.p;
 /* loaded from: classes6.dex */
 public class c {
     public static void a(bb bbVar, String str, int i) {
-        if (bbVar != null && !TextUtils.isEmpty(str) && bbVar.zR()) {
-            TiebaStatic.log(new am("c13020").ax(ImageViewerConfig.FORUM_ID, str).ax("obj_name", bbVar.zP()).ax("tid", bbVar.getTid()).x("obj_locate", i));
+        if (bbVar != null && !TextUtils.isEmpty(str) && bbVar.zY()) {
+            TiebaStatic.log(new am("c13020").ax(ImageViewerConfig.FORUM_ID, str).ax("obj_name", bbVar.zW()).ax("tid", bbVar.getTid()).x("obj_locate", i));
         }
     }
 
@@ -48,12 +48,12 @@ public class c {
 
     /* loaded from: classes6.dex */
     public static class a extends ad<bb> {
-        private int eaz;
+        private int ebT;
         private String mForumId;
 
         public a(String str, int i) {
             this.mForumId = str;
-            this.eaz = i;
+            this.ebT = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,19 +61,19 @@ public class c {
         public void a(View view, bb bbVar, Object obj) {
             if (view != null && bbVar != null && (obj instanceof BdUniqueId)) {
                 BdUniqueId bdUniqueId = (BdUniqueId) obj;
-                if (bb.aoS.getId() == bdUniqueId.getId()) {
-                    c.b(bbVar, this.mForumId, this.eaz);
-                } else if (bb.aoV.getId() == bdUniqueId.getId()) {
-                    c.b(bbVar, this.mForumId, this.eaz);
-                } else if (bb.apb.getId() == bdUniqueId.getId()) {
-                    c.b(bbVar, this.mForumId, this.eaz);
-                    if (this.eaz == 1) {
+                if (bb.apG.getId() == bdUniqueId.getId()) {
+                    c.b(bbVar, this.mForumId, this.ebT);
+                } else if (bb.apJ.getId() == bdUniqueId.getId()) {
+                    c.b(bbVar, this.mForumId, this.ebT);
+                } else if (bb.apP.getId() == bdUniqueId.getId()) {
+                    c.b(bbVar, this.mForumId, this.ebT);
+                    if (this.ebT == 1) {
                         c.a(bbVar, this.mForumId, 2);
                     }
-                } else if (bb.apa.getId() == bdUniqueId.getId()) {
-                    c.b(bbVar, this.mForumId, this.eaz);
-                } else if (bb.aoU.getId() == bdUniqueId.getId()) {
-                    c.b(bbVar, this.mForumId, this.eaz);
+                } else if (bb.apO.getId() == bdUniqueId.getId()) {
+                    c.b(bbVar, this.mForumId, this.ebT);
+                } else if (bb.apI.getId() == bdUniqueId.getId()) {
+                    c.b(bbVar, this.mForumId, this.ebT);
                 }
             }
         }

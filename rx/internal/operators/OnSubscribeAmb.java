@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class OnSubscribeAmb<T> implements d.a<T> {
-    final Iterable<? extends rx.d<? extends T>> isY;
+    final Iterable<? extends rx.d<? extends T>> iuI;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -105,18 +105,18 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.j<T> {
-        private final Selection<T> itf;
-        private boolean itg;
+        private final Selection<T> iuP;
+        private boolean iuQ;
         private final rx.j<? super T> subscriber;
 
         a(long j, rx.j<? super T> jVar, Selection<T> selection) {
             this.subscriber = jVar;
-            this.itf = selection;
+            this.iuP = selection;
             request(j);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void dA(long j) {
+        public void dv(long j) {
             request(j);
         }
 
@@ -142,18 +142,18 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
         }
 
         private boolean isSelected() {
-            if (this.itg) {
+            if (this.iuQ) {
                 return true;
             }
-            if (this.itf.get() == this) {
-                this.itg = true;
+            if (this.iuP.get() == this) {
+                this.iuQ = true;
                 return true;
-            } else if (this.itf.compareAndSet(null, this)) {
-                this.itf.unsubscribeOthers(this);
-                this.itg = true;
+            } else if (this.iuP.compareAndSet(null, this)) {
+                this.iuP.unsubscribeOthers(this);
+                this.iuQ = true;
                 return true;
             } else {
-                this.itf.unsubscribeLosers();
+                this.iuP.unsubscribeLosers();
                 return false;
             }
         }
@@ -185,7 +185,7 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
     }
 
     private OnSubscribeAmb(Iterable<? extends rx.d<? extends T>> iterable) {
-        this.isY = iterable;
+        this.iuI = iterable;
     }
 
     public void call(rx.j<? super T> jVar) {
@@ -197,10 +197,10 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
                 if (aVar != null) {
                     aVar.unsubscribe();
                 }
-                OnSubscribeAmb.j(selection.ambSubscribers);
+                OnSubscribeAmb.m(selection.ambSubscribers);
             }
         }));
-        for (rx.d<? extends T> dVar : this.isY) {
+        for (rx.d<? extends T> dVar : this.iuI) {
             if (jVar.isUnsubscribed()) {
                 break;
             }
@@ -214,30 +214,30 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
             dVar.unsafeSubscribe(aVar);
         }
         if (jVar.isUnsubscribed()) {
-            j(selection.ambSubscribers);
+            m(selection.ambSubscribers);
         }
         jVar.setProducer(new rx.f() { // from class: rx.internal.operators.OnSubscribeAmb.2
             @Override // rx.f
             public void request(long j) {
                 a<T> aVar3 = selection.get();
                 if (aVar3 != null) {
-                    aVar3.dA(j);
+                    aVar3.dv(j);
                     return;
                 }
                 for (a<T> aVar4 : selection.ambSubscribers) {
                     if (!aVar4.isUnsubscribed()) {
                         if (selection.get() == aVar4) {
-                            aVar4.dA(j);
+                            aVar4.dv(j);
                             return;
                         }
-                        aVar4.dA(j);
+                        aVar4.dv(j);
                     }
                 }
             }
         });
     }
 
-    static <T> void j(Collection<a<T>> collection) {
+    static <T> void m(Collection<a<T>> collection) {
         if (!collection.isEmpty()) {
             for (a<T> aVar : collection) {
                 aVar.unsubscribe();

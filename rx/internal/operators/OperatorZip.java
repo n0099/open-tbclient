@@ -61,14 +61,14 @@ public final class OperatorZip<R> implements d.b<R, rx.d<?>[]> {
     /* loaded from: classes2.dex */
     public final class a extends rx.j<rx.d[]> {
         final rx.j<? super R> child;
-        final ZipProducer<R> iBk;
+        final ZipProducer<R> iCU;
         boolean started;
         final Zip<R> zipper;
 
         public a(rx.j<? super R> jVar, Zip<R> zip, ZipProducer<R> zipProducer) {
             this.child = jVar;
             this.zipper = zip;
-            this.iBk = zipProducer;
+            this.iCU = zipProducer;
         }
 
         @Override // rx.e
@@ -92,7 +92,7 @@ public final class OperatorZip<R> implements d.b<R, rx.d<?>[]> {
                 return;
             }
             this.started = true;
-            this.zipper.start(dVarArr, this.iBk);
+            this.zipper.start(dVarArr, this.iCU);
         }
     }
 
@@ -158,16 +158,16 @@ public final class OperatorZip<R> implements d.b<R, rx.d<?>[]> {
                     boolean z2 = true;
                     int i = 0;
                     while (i < length) {
-                        rx.internal.util.h hVar = ((a) objArr[i]).iBi;
+                        rx.internal.util.h hVar = ((a) objArr[i]).iCS;
                         Object peek = hVar.peek();
                         if (peek == null) {
                             z = false;
-                        } else if (hVar.aZ(peek)) {
+                        } else if (hVar.aY(peek)) {
                             eVar.onCompleted();
                             this.childSubscription.unsubscribe();
                             return;
                         } else {
-                            objArr2[i] = hVar.bb(peek);
+                            objArr2[i] = hVar.ba(peek);
                             z = z2;
                         }
                         i++;
@@ -179,9 +179,9 @@ public final class OperatorZip<R> implements d.b<R, rx.d<?>[]> {
                             atomicLong.decrementAndGet();
                             this.emitted++;
                             for (Object obj : objArr) {
-                                rx.internal.util.h hVar2 = ((a) obj).iBi;
+                                rx.internal.util.h hVar2 = ((a) obj).iCS;
                                 hVar2.poll();
-                                if (hVar2.aZ(hVar2.peek())) {
+                                if (hVar2.aY(hVar2.peek())) {
                                     eVar.onCompleted();
                                     this.childSubscription.unsubscribe();
                                     return;
@@ -189,7 +189,7 @@ public final class OperatorZip<R> implements d.b<R, rx.d<?>[]> {
                             }
                             if (this.emitted > THRESHOLD) {
                                 for (Object obj2 : objArr) {
-                                    ((a) obj2).dA(this.emitted);
+                                    ((a) obj2).dv(this.emitted);
                                 }
                                 this.emitted = 0;
                             }
@@ -207,7 +207,7 @@ public final class OperatorZip<R> implements d.b<R, rx.d<?>[]> {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* loaded from: classes2.dex */
         public final class a extends rx.j {
-            final rx.internal.util.h iBi = rx.internal.util.h.ccU();
+            final rx.internal.util.h iCS = rx.internal.util.h.ccr();
 
             a() {
             }
@@ -217,13 +217,13 @@ public final class OperatorZip<R> implements d.b<R, rx.d<?>[]> {
                 request(rx.internal.util.h.SIZE);
             }
 
-            public void dA(long j) {
+            public void dv(long j) {
                 request(j);
             }
 
             @Override // rx.e
             public void onCompleted() {
-                this.iBi.onCompleted();
+                this.iCS.onCompleted();
                 Zip.this.tick();
             }
 
@@ -235,7 +235,7 @@ public final class OperatorZip<R> implements d.b<R, rx.d<?>[]> {
             @Override // rx.e
             public void onNext(Object obj) {
                 try {
-                    this.iBi.onNext(obj);
+                    this.iCS.onNext(obj);
                 } catch (MissingBackpressureException e) {
                     onError(e);
                 }

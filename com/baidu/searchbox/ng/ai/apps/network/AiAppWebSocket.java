@@ -31,7 +31,7 @@ public final class AiAppWebSocket {
     }
 
     public final void attachTask(WebSocketTask webSocketTask) {
-        p.i(webSocketTask, WebSocketAction.PARAM_KEY_TASK);
+        p.h((Object) webSocketTask, WebSocketAction.PARAM_KEY_TASK);
         if (this.tasks == null) {
             this.tasks = new LinkedHashSet();
         }
@@ -42,7 +42,7 @@ public final class AiAppWebSocket {
     }
 
     public final void detachTask(String str) {
-        p.i(str, "taskId");
+        p.h((Object) str, "taskId");
         Set<String> set = this.tasks;
         if (set != null) {
             set.remove(str);

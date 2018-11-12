@@ -44,13 +44,13 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                         }
                         TiebaStatic.log(new am("c11703").x("obj_type", 2).ax("task_id", str).ax("obj_to", str2).x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i));
                         if (!TextUtils.isEmpty(str2) && (str2.startsWith(HttpHost.DEFAULT_SCHEME_NAME) || str2.startsWith("https"))) {
-                            ay.CU().c(getPageContext(), new String[]{str2});
+                            ay.Db().c(getPageContext(), new String[]{str2});
                         }
                     }
                     i = 0;
                     TiebaStatic.log(new am("c11703").x("obj_type", 2).ax("task_id", str).ax("obj_to", str2).x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i));
                     if (!TextUtils.isEmpty(str2)) {
-                        ay.CU().c(getPageContext(), new String[]{str2});
+                        ay.Db().c(getPageContext(), new String[]{str2});
                     }
                 }
             }

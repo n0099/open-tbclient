@@ -18,65 +18,65 @@ import com.baidu.tieba.tbadkCore.d;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class b implements a {
-    private com.baidu.tieba.frs.worldcup.talkball.activity.a eby;
-    private com.baidu.tieba.frs.worldcup.talkball.model.a ebz;
+    private com.baidu.tieba.frs.worldcup.talkball.activity.a ecS;
+    private com.baidu.tieba.frs.worldcup.talkball.model.a ecT;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, com.baidu.tieba.frs.worldcup.talkball.activity.a aVar, Bundle bundle) {
         this.mPageContext = tbPageContext;
-        this.eby = aVar;
-        this.ebz = new com.baidu.tieba.frs.worldcup.talkball.model.b(this.mPageContext, this, bundle);
+        this.ecS = aVar;
+        this.ecT = new com.baidu.tieba.frs.worldcup.talkball.model.b(this.mPageContext, this, bundle);
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.c.a
     public void onRefresh() {
-        if (this.ebz != null) {
-            this.ebz.refresh();
+        if (this.ecT != null) {
+            this.ecT.refresh();
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.c.a
-    public void aHw() {
-        if (this.ebz != null) {
-            this.ebz.YL();
+    public void aGU() {
+        if (this.ecT != null) {
+            this.ecT.YV();
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.c.a
     public void a(d.a aVar, ArrayList<h> arrayList, c cVar) {
-        if (this.eby != null) {
-            this.eby.YT();
-            if (this.eby.d(aVar) && cVar != null) {
-                this.eby.bU(cVar.aHr());
-                this.eby.a(cVar.aHu());
-                this.eby.a(cVar.aHt());
-                this.eby.c(cVar.aHv());
-                this.eby.W(arrayList);
+        if (this.ecS != null) {
+            this.ecS.Zd();
+            if (this.ecS.d(aVar) && cVar != null) {
+                this.ecS.bS(cVar.aGP());
+                this.ecS.a(cVar.aGS());
+                this.ecS.a(cVar.aGR());
+                this.ecS.c(cVar.aGT());
+                this.ecS.V(arrayList);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.c.a
     public boolean hasMore() {
-        if (this.ebz != null) {
-            return this.ebz.hasMore();
+        if (this.ecT != null) {
+            return this.ecT.hasMore();
         }
         return false;
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.c.a
-    public void aHx() {
-        if (this.ebz != null) {
-            TiebaStatic.log(new am("c12402").ax(ImageViewerConfig.FORUM_ID, this.ebz.getForumId()).ax("uid", TbadkCoreApplication.getCurrentAccount()).ax(ImageViewerConfig.FORUM_NAME, this.ebz.getForumName()));
-            if (!StringUtils.isNull(this.ebz.getForumName())) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PostSearchActivityConfig(this.mPageContext.getPageActivity(), this.ebz.getForumName(), this.ebz.getForumId())));
+    public void aGV() {
+        if (this.ecT != null) {
+            TiebaStatic.log(new am("c12402").ax(ImageViewerConfig.FORUM_ID, this.ecT.getForumId()).ax("uid", TbadkCoreApplication.getCurrentAccount()).ax(ImageViewerConfig.FORUM_NAME, this.ecT.getForumName()));
+            if (!StringUtils.isNull(this.ecT.getForumName())) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PostSearchActivityConfig(this.mPageContext.getPageActivity(), this.ecT.getForumName(), this.ecT.getForumId())));
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.c.a
-    public void aHy() {
-        if (ba.bI(this.mPageContext.getPageActivity())) {
+    public void aGW() {
+        if (ba.bG(this.mPageContext.getPageActivity())) {
             TiebaStatic.log(new am("c12924").x("obj_locate", 2));
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MessageCenterActivityConfig(this.mPageContext.getPageActivity())));
         }
@@ -84,13 +84,13 @@ public class b implements a {
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.c.a
     public void onDestroy() {
-        if (this.ebz != null) {
-            this.ebz.onDestroy();
+        if (this.ecT != null) {
+            this.ecT.onDestroy();
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.c.a
     public String getForumId() {
-        return this.ebz != null ? this.ebz.getForumId() : "";
+        return this.ecT != null ? this.ecT.getForumId() : "";
     }
 }

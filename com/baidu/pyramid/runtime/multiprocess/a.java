@@ -15,11 +15,11 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = i.DEBUG;
-    private static volatile int agD = 0;
+    private static volatile int ahq = 0;
     private static volatile String sProcessName;
 
-    public static int ug() {
-        int i = agD;
+    public static int uq() {
+        int i = ahq;
         if (i == 0) {
             String processName = getProcessName();
             String packageName = g.getAppContext().getPackageName();
@@ -28,13 +28,13 @@ public class a {
             } else {
                 i |= 4;
             }
-            agD = i;
+            ahq = i;
         }
         return i;
     }
 
-    public static boolean uh() {
-        return (ug() & 2) != 0;
+    public static boolean ur() {
+        return (uq() & 2) != 0;
     }
 
     public static String getProcessName() {
@@ -44,7 +44,7 @@ public class a {
                 str = sProcessName;
                 if (str == null) {
                     Context appContext = g.getAppContext();
-                    str = uj();
+                    str = ut();
                     if (str == null && (str = getProcessNameFromAm(appContext)) == null) {
                         str = appContext.getPackageName();
                     }
@@ -55,7 +55,7 @@ public class a {
         return str;
     }
 
-    public static int ui() {
+    public static int us() {
         Context appContext = g.getAppContext();
         int myPid = Process.myPid();
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) appContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
@@ -89,7 +89,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String uj() {
+    private static String ut() {
         BufferedReader bufferedReader;
         Exception exc;
         String str;

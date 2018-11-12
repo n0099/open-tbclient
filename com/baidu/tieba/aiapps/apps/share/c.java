@@ -21,7 +21,7 @@ public class c extends ActivityDelegation implements IAiAppsSocialShareIoc.OnSha
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onAttachedToWindow() {
-        XH();
+        XR();
         String string = this.mParams.getString("options");
         String string2 = this.mParams.getString("successCallback");
         this.errorCallback = this.mParams.getString("errorCallback");
@@ -30,20 +30,20 @@ public class c extends ActivityDelegation implements IAiAppsSocialShareIoc.OnSha
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onSelfFinish() {
-        XI();
+        XS();
     }
 
-    private void XH() {
+    private void XR() {
     }
 
-    private void XI() {
+    private void XS() {
     }
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppsSocialShareIoc.OnShareResultListener
     public void notify(String str, String str2) {
         this.mResult.putString("callBack", str);
         this.mResult.putString("info", str2);
-        XI();
+        XS();
         finish();
     }
 

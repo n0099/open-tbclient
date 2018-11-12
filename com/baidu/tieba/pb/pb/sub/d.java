@@ -11,61 +11,61 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class d {
-    private NewSubPbActivity fZO;
-    private com.baidu.tieba.pb.pb.sub.a.b gaC;
-    private com.baidu.tieba.pb.pb.sub.a.d gaD;
-    private n gaE;
+    private com.baidu.tieba.pb.pb.sub.a.b gbY;
+    private com.baidu.tieba.pb.pb.sub.a.d gbZ;
+    private NewSubPbActivity gbk;
+    private n gca;
     private BdTypeListView mListView;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private View.OnClickListener mCommonClickListener = null;
-    private boolean cVS = false;
-    private boolean gaF = true;
+    private boolean cWY = false;
+    private boolean gcb = true;
 
     public d(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
-        this.fZO = newSubPbActivity;
+        this.gbk = newSubPbActivity;
         this.mListView = bdTypeListView;
     }
 
     public void initAdapters() {
-        this.gaC = new com.baidu.tieba.pb.pb.sub.a.b(this.fZO, PostData.hcW);
-        this.gaC.q(this.mCommonClickListener);
-        this.gaC.setOnAdapterItemClickListener(this.gaE);
-        this.gaC.setFromCDN(this.gaF);
-        this.mAdapters.add(this.gaC);
-        this.gaD = new com.baidu.tieba.pb.pb.sub.a.d(this.fZO, com.baidu.tieba.pb.pb.sub.b.b.gbq);
-        this.mAdapters.add(this.gaD);
-        this.mAdapters.add(new com.baidu.tieba.pb.pb.sub.a.c(this.fZO, com.baidu.tieba.pb.pb.sub.b.a.gbp));
+        this.gbY = new com.baidu.tieba.pb.pb.sub.a.b(this.gbk, PostData.het);
+        this.gbY.s(this.mCommonClickListener);
+        this.gbY.setOnAdapterItemClickListener(this.gca);
+        this.gbY.setFromCDN(this.gcb);
+        this.mAdapters.add(this.gbY);
+        this.gbZ = new com.baidu.tieba.pb.pb.sub.a.d(this.gbk, com.baidu.tieba.pb.pb.sub.b.b.gcM);
+        this.mAdapters.add(this.gbZ);
+        this.mAdapters.add(new com.baidu.tieba.pb.pb.sub.a.c(this.gbk, com.baidu.tieba.pb.pb.sub.b.a.gcL));
         this.mListView.addAdapters(this.mAdapters);
     }
 
     public void a(bb bbVar, List<h> list) {
-        this.gaC.aa(bbVar);
+        this.gbY.aa(bbVar);
         this.mListView.setData(list);
         this.mListView.getAdapter().notifyDataSetChanged();
     }
 
     public boolean hasMoreData() {
-        return this.cVS;
+        return this.cWY;
     }
 
     public void setHasMoreData(boolean z) {
-        this.cVS = z;
+        this.cWY = z;
     }
 
-    public void q(View.OnClickListener onClickListener) {
+    public void s(View.OnClickListener onClickListener) {
         this.mCommonClickListener = onClickListener;
     }
 
     public void c(View.OnLongClickListener onLongClickListener) {
-        this.gaC.setOnLongClickListener(onLongClickListener);
+        this.gbY.setOnLongClickListener(onLongClickListener);
     }
 
     public void setOnImageClickListener(TbRichTextView.h hVar) {
-        this.gaC.setOnImageClickListener(hVar);
+        this.gbY.setOnImageClickListener(hVar);
     }
 
     public void setFromCDN(boolean z) {
-        this.gaF = z;
+        this.gcb = z;
     }
 
     public void notifyDataSetChanged() {

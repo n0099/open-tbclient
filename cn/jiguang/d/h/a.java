@@ -3,7 +3,6 @@ package cn.jiguang.d.h;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import com.baidu.searchbox.ng.ai.apps.canvas.action.draw.DaScale;
 /* loaded from: classes3.dex */
 public final class a {
     public static b am(Context context) {
@@ -12,7 +11,7 @@ public final class a {
             Intent registerReceiver = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
             if (registerReceiver != null) {
                 bVar.a = registerReceiver.getIntExtra("level", -1);
-                bVar.b = registerReceiver.getIntExtra(DaScale.ACTION_TYPE, -1);
+                bVar.b = registerReceiver.getIntExtra("scale", -1);
                 switch (registerReceiver.getIntExtra("status", -1)) {
                     case 1:
                         bVar.c = 0;

@@ -16,7 +16,7 @@ public class GodRecommendModel extends BdBaseModel {
         super(tbPageContext);
     }
 
-    public void oz(String str) {
+    public void oA(String str) {
         if (!this.mIsLoading) {
             GodRecommendRequestMessage godRecommendRequestMessage = new GodRecommendRequestMessage();
             godRecommendRequestMessage.userId = str;
@@ -25,7 +25,7 @@ public class GodRecommendModel extends BdBaseModel {
         }
     }
 
-    public void aIi() {
+    public void aHG() {
         this.mIsLoading = false;
     }
 

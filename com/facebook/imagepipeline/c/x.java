@@ -1,24 +1,24 @@
 package com.facebook.imagepipeline.c;
 /* loaded from: classes2.dex */
 public class x implements o {
-    private static x idn = null;
+    private static x ieZ = null;
 
     private x() {
     }
 
-    public static synchronized x bUz() {
+    public static synchronized x bTU() {
         x xVar;
         synchronized (x.class) {
-            if (idn == null) {
-                idn = new x();
+            if (ieZ == null) {
+                ieZ = new x();
             }
-            xVar = idn;
+            xVar = ieZ;
         }
         return xVar;
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void bUq() {
+    public void bTL() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
@@ -26,11 +26,11 @@ public class x implements o {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void bUr() {
+    public void bTM() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void bUs() {
+    public void bTN() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
@@ -38,7 +38,7 @@ public class x implements o {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void bUt() {
+    public void bTO() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
@@ -46,19 +46,19 @@ public class x implements o {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void bUu() {
+    public void bTP() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void bUv() {
+    public void bTQ() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void bUw() {
+    public void bTR() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void bUx() {
+    public void bTS() {
     }
 
     @Override // com.facebook.imagepipeline.c.o

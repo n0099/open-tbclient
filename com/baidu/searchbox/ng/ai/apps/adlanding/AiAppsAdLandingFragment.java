@@ -25,7 +25,7 @@ import org.apache.http.HttpHost;
 /* loaded from: classes2.dex */
 public class AiAppsAdLandingFragment extends AiAppsBaseFragment implements AdLandingWebViewListener {
     private static final boolean DEBUG = false;
-    private static final Set<String> LEGAL_SCHEMES = h.J(HttpHost.DEFAULT_SCHEME_NAME, "https", "tel", "sms");
+    private static final Set<String> LEGAL_SCHEMES = h.K(HttpHost.DEFAULT_SCHEME_NAME, "https", "tel", "sms");
     private static final String PARAM_URL_KEY = "params_url";
     public static final String TAG = "AiAppsAdLandingFragment";
     private Activity mActivity;

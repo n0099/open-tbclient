@@ -12,9 +12,9 @@ import java.util.Iterator;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class a {
-    boolean DU;
-    private ArrayList<BasicNameValuePair> DV;
-    private StringBuilder DW;
+    boolean DY;
+    private ArrayList<BasicNameValuePair> DZ;
+    private StringBuilder Ea;
     public long logID;
     private long mStartTime;
     public String mType;
@@ -23,11 +23,11 @@ public class a {
     public a(String str) {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.DU = false;
+        this.DY = false;
         this.mType = null;
-        this.DW = new StringBuilder(100);
+        this.Ea = new StringBuilder(100);
         this.mType = str;
-        this.DU = false;
+        this.DY = false;
         this.logID = -1L;
         this.sequenceID = -1L;
     }
@@ -35,27 +35,27 @@ public class a {
     public a() {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.DU = false;
+        this.DY = false;
         this.mType = null;
-        this.DW = new StringBuilder(100);
+        this.Ea = new StringBuilder(100);
     }
 
     public void c(Object obj, Object obj2) {
         if (obj != null && obj2 != null) {
-            if (this.DV == null) {
-                this.DV = new ArrayList<>();
+            if (this.DZ == null) {
+                this.DZ = new ArrayList<>();
             }
-            this.DV.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+            this.DZ.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder(200);
-        if (this.DW.length() > 0) {
-            sb.append((CharSequence) this.DW);
+        if (this.Ea.length() > 0) {
+            sb.append((CharSequence) this.Ea);
         }
-        if (this.DV != null) {
-            Iterator<BasicNameValuePair> it = this.DV.iterator();
+        if (this.DZ != null) {
+            Iterator<BasicNameValuePair> it = this.DZ.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
@@ -91,16 +91,16 @@ public class a {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
-            if (this.DW.length() > 0) {
-                this.DW.append('&');
+            if (this.Ea.length() > 0) {
+                this.Ea.append('&');
             }
-            this.DW.append(str);
-            this.DW.append(ETAG.EQUAL);
+            this.Ea.append(str);
+            this.Ea.append(ETAG.EQUAL);
             try {
-                this.DW.append(URLEncoder.encode(aW(str2), IoUtils.UTF_8));
+                this.Ea.append(URLEncoder.encode(aW(str2), IoUtils.UTF_8));
             } catch (Throwable th) {
                 BdLog.e(th);
-                this.DW.append(aW(str2));
+                this.Ea.append(aW(str2));
             }
         }
     }
@@ -109,7 +109,7 @@ public class a {
         this.mStartTime = System.currentTimeMillis();
     }
 
-    public long jM() {
+    public long jK() {
         return System.currentTimeMillis() - this.mStartTime;
     }
 

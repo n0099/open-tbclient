@@ -5,94 +5,94 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
-    private int aJb;
-    private long aJc;
-    private long aJd;
-    private String aJe;
-    private int aIY = 1;
-    private int aJa = 0;
-    private int aJf = 0;
-    private int aJg = 1;
-    private int aJh = 0;
-    private int aJi = 0;
-    private int aJj = 300;
-    private int aJk = 1;
-    public int aJl = 4;
-    public int aJm = 4;
-    public int aJn = 7;
-    private f aIZ = new f();
+    private int aJR;
+    private long aJS;
+    private long aJT;
+    private String aJU;
+    private int aJO = 1;
+    private int aJQ = 0;
+    private int aJV = 0;
+    private int aJW = 1;
+    private int aJX = 0;
+    private int aJY = 0;
+    private int aJZ = 300;
+    private int aKa = 1;
+    public int aKb = 4;
+    public int aKc = 4;
+    public int aKd = 7;
+    private g aJP = new g();
 
     public void parserJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
-            this.aIY = jSONObject.optInt("als_control", 1);
-            this.aJa = jSONObject.optInt("not_use_lego_patch", 0);
-            this.aJg = jSONObject.optInt("ad_video_not_autoplay", 1);
-            this.aJi = jSONObject.optInt("lp_video_not_autoplay", 0);
-            this.aIZ.parserJson(jSONObject);
+            this.aJO = jSONObject.optInt("als_control", 1);
+            this.aJQ = jSONObject.optInt("not_use_lego_patch", 0);
+            this.aJW = jSONObject.optInt("ad_video_not_autoplay", 1);
+            this.aJY = jSONObject.optInt("lp_video_not_autoplay", 0);
+            this.aJP.parserJson(jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("log_feed_control");
             if (optJSONObject != null) {
-                this.aJb = optJSONObject.optInt("log_feed_switch", 0);
-                this.aJc = optJSONObject.optLong("start_time", -1L);
-                this.aJd = optJSONObject.optLong("end_time", -1L);
-                this.aJe = optJSONObject.optString("ext_info");
+                this.aJR = optJSONObject.optInt("log_feed_switch", 0);
+                this.aJS = optJSONObject.optLong("start_time", -1L);
+                this.aJT = optJSONObject.optLong("end_time", -1L);
+                this.aJU = optJSONObject.optString("ext_info");
             }
-            this.aJf = jSONObject.optInt("ad_collect_switch", 0);
+            this.aJV = jSONObject.optInt("ad_collect_switch", 0);
             JSONObject optJSONObject2 = jSONObject.optJSONObject("splash");
             if (optJSONObject2 != null) {
-                this.aJj = optJSONObject2.optInt(AiAppsBluetoothConstants.KEY_INTERVAL, 300);
+                this.aJZ = optJSONObject2.optInt(AiAppsBluetoothConstants.KEY_INTERVAL, 300);
             }
-            this.aJk = jSONObject.optInt("video_page_style", 1);
-            this.aJh = jSONObject.optInt("ad_download_lib", 0);
+            this.aKa = jSONObject.optInt("video_page_style", 1);
+            this.aJX = jSONObject.optInt("ad_download_lib", 0);
             JSONObject optJSONObject3 = jSONObject.optJSONObject("afd_sync_config");
             if (optJSONObject3 != null) {
-                this.aJl = optJSONObject3.optInt("first_floor");
-                this.aJm = optJSONObject3.optInt("prefetch_step");
-                this.aJn = optJSONObject3.optInt("step");
+                this.aKb = optJSONObject3.optInt("first_floor");
+                this.aKc = optJSONObject3.optInt("prefetch_step");
+                this.aKd = optJSONObject3.optInt("step");
             }
         }
     }
 
-    public f Fc() {
-        return this.aIZ;
+    public g Fn() {
+        return this.aJP;
     }
 
-    public boolean Fd() {
-        return this.aIY > 0;
+    public boolean Fo() {
+        return this.aJO > 0;
     }
 
-    public boolean Fe() {
-        if (this.aJb == 1) {
+    public boolean Fp() {
+        if (this.aJR == 1) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            return this.aJc < currentTimeMillis && currentTimeMillis < this.aJd;
+            return this.aJS < currentTimeMillis && currentTimeMillis < this.aJT;
         }
         return false;
     }
 
-    public boolean Ff() {
-        return this.aJg == 1;
+    public boolean Fq() {
+        return this.aJW == 1;
     }
 
-    public boolean Fg() {
-        return this.aJi == 1;
+    public boolean Fr() {
+        return this.aJY == 1;
     }
 
-    public String Fh() {
-        return this.aJe;
+    public String Fs() {
+        return this.aJU;
     }
 
-    public boolean Fi() {
-        return this.aJf == 1;
+    public boolean Ft() {
+        return this.aJV == 1;
     }
 
-    public int Fj() {
-        return this.aJj;
+    public int Fu() {
+        return this.aJZ;
     }
 
-    public int Fk() {
-        return this.aJk;
+    public int Fv() {
+        return this.aKa;
     }
 
-    public boolean Fl() {
-        return this.aJh == 0;
+    public boolean Fw() {
+        return this.aJX == 0;
     }
 }

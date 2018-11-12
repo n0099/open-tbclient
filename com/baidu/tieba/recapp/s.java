@@ -28,9 +28,9 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.alc;
-        if (StringUtils.isNull(str) && advertAppInfo.aln != null) {
-            str = advertAppInfo.aln.userName;
+        String str = advertAppInfo.alQ;
+        if (StringUtils.isNull(str) && advertAppInfo.ama != null) {
+            str = advertAppInfo.ama.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -46,20 +46,20 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.Ku().b(advertAppInfo);
-        String str2 = advertAppInfo.alc;
+        com.baidu.tbadk.distribute.a.KG().b(advertAppInfo);
+        String str2 = advertAppInfo.alQ;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.d.btr().a(advertAppInfo.alg, advertAppInfo.alf, str2, i, com.baidu.tieba.recapp.download.d.tU(advertAppInfo.alg).intValue(), null, true, false, true, advertAppInfo.aln.userPortrait, downloadStaticsData, advertAppInfo.aln.userName);
+        com.baidu.tieba.recapp.download.d.bsN().a(advertAppInfo.alU, advertAppInfo.alT, str2, i, com.baidu.tieba.recapp.download.d.tY(advertAppInfo.alU).intValue(), null, true, false, true, advertAppInfo.ama.userPortrait, downloadStaticsData, advertAppInfo.ama.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.d.btr().j(advertAppInfo.alf, advertAppInfo.alg, true);
+        com.baidu.tieba.recapp.download.d.bsN().j(advertAppInfo.alT, advertAppInfo.alU, true);
     }
 
-    public static final void aF(Context context, String str) {
+    public static final void aD(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             com.baidu.adp.lib.util.l.showToast(context, e.j.download_error);
             return;
@@ -99,15 +99,15 @@ public class s {
         return false;
     }
 
-    public static boolean L(Activity activity) {
+    public static boolean O(Activity activity) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
-        boolean bE = ab.bE(activity);
+        boolean bC = ab.bC(activity);
         if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
             return false;
         }
-        return bE;
+        return bC;
     }
 
     public static void a(String str, TbImageView tbImageView, float f, int i) {
@@ -168,11 +168,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.btk().sendFRS(z, str, str2, str3, list, str4);
+        r.bsG().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.btk().a(z, str, str2, str3, str4, list, str5);
+        r.bsG().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int e(TbPageContext tbPageContext, String str) {
@@ -191,41 +191,41 @@ public class s {
 
     private static boolean f(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        h bth = r.btk().bth();
-        if (bth == null) {
+        h bsD = r.bsG().bsD();
+        if (bsD == null) {
             return false;
         }
-        if (bth.ju(str)) {
-            bth.a(tbPageContext.getPageActivity(), strArr, true);
+        if (bsD.jw(str)) {
+            bsD.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return bth.d(tbPageContext.getPageActivity(), strArr);
+        return bsD.d(tbPageContext.getPageActivity(), strArr);
     }
 
-    public static int aG(Context context, String str) {
+    public static int aE(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             return 0;
         }
         if (!str.startsWith("tieba://deeplink?")) {
-            return aH(context, str) ? 3 : 0;
+            return aF(context, str) ? 3 : 0;
         }
         Uri parse = Uri.parse(str);
         if (c(context, Uri.parse(parse.getQueryParameter("jump")))) {
             return 1;
         }
-        return aH(context, parse.getQueryParameter("wap")) ? 2 : 0;
+        return aF(context, parse.getQueryParameter("wap")) ? 2 : 0;
     }
 
-    private static boolean aH(Context context, String str) {
+    private static boolean aF(Context context, String str) {
         String[] strArr = {str};
-        h bth = r.btk().bth();
-        if (bth == null) {
+        h bsD = r.bsG().bsD();
+        if (bsD == null) {
             return false;
         }
-        if (bth.ju(str)) {
-            bth.a(context, strArr, true);
+        if (bsD.jw(str)) {
+            bsD.a(context, strArr, true);
             return true;
         }
-        return bth.d(context, strArr);
+        return bsD.d(context, strArr);
     }
 }

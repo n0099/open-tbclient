@@ -15,272 +15,272 @@ import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
-    private TextView bdD;
-    private View bdE;
-    private int eDl;
-    private String eEE;
-    private String eEF;
-    private a.b eEJ;
-    private a.b eEK;
-    private GroupAddressLocateActivity eEN;
-    private View eEO;
-    private TextView eEP;
-    private ImageView eEQ;
-    private TextView eER;
-    private View eES;
-    private TextView eET;
-    private ImageView eEU;
-    private BdListView eEV;
-    private AnimationDrawable eEW;
-    private SettingTextSwitchView eEX;
-    private m eEY;
-    private com.baidu.tieba.im.util.b eEl;
-    private String eEt;
-    private String eEu;
-    private boolean eEx;
+    private TextView ber;
+    private View bes;
+    private int eEE;
+    private com.baidu.tieba.im.util.b eFE;
+    private String eFM;
+    private String eFN;
+    private boolean eFQ;
+    private String eFX;
+    private String eFY;
+    private a.b eGc;
+    private a.b eGd;
+    private GroupAddressLocateActivity eGg;
+    private View eGh;
+    private TextView eGi;
+    private ImageView eGj;
+    private TextView eGk;
+    private View eGl;
+    private TextView eGm;
+    private ImageView eGn;
+    private BdListView eGo;
+    private AnimationDrawable eGp;
+    private SettingTextSwitchView eGq;
+    private m eGr;
     private NavigationBar mNavigationBar;
     private View mParent;
 
     public n(GroupAddressLocateActivity groupAddressLocateActivity, String str, String str2, boolean z) {
         super(groupAddressLocateActivity.getPageContext());
-        this.eDl = 3;
+        this.eEE = 3;
         this.mNavigationBar = null;
         this.mParent = null;
-        this.eEN = null;
-        this.bdD = null;
-        this.bdE = null;
-        this.eEO = null;
-        this.eEP = null;
-        this.eEQ = null;
-        this.eER = null;
-        this.eES = null;
-        this.eET = null;
-        this.eEU = null;
-        this.eEV = null;
-        this.eEW = null;
-        this.eEX = null;
-        this.eEE = "";
-        this.eEF = "";
-        this.eEx = false;
-        this.eEY = null;
-        this.eEl = null;
-        this.eEt = "";
-        this.eEu = "";
-        this.eEK = null;
-        this.eEJ = null;
-        this.eEE = str;
-        this.eEF = str2;
-        this.eEx = z;
+        this.eGg = null;
+        this.ber = null;
+        this.bes = null;
+        this.eGh = null;
+        this.eGi = null;
+        this.eGj = null;
+        this.eGk = null;
+        this.eGl = null;
+        this.eGm = null;
+        this.eGn = null;
+        this.eGo = null;
+        this.eGp = null;
+        this.eGq = null;
+        this.eFX = "";
+        this.eFY = "";
+        this.eFQ = false;
+        this.eGr = null;
+        this.eFE = null;
+        this.eFM = "";
+        this.eFN = "";
+        this.eGd = null;
+        this.eGc = null;
+        this.eFX = str;
+        this.eFY = str2;
+        this.eFQ = z;
         b(groupAddressLocateActivity);
         c(groupAddressLocateActivity);
         initData();
     }
 
-    public void aOt() {
-        this.eEl.Qc();
+    public void aNQ() {
+        this.eFE.Ql();
     }
 
-    public void aOu() {
-        if (this.eEl != null) {
-            this.eEl.cancelLoad();
-            this.eEl = null;
+    public void aNR() {
+        if (this.eFE != null) {
+            this.eFE.cancelLoad();
+            this.eFE = null;
         }
     }
 
-    public void aOJ() {
-        this.eEQ.setVisibility(8);
+    public void aOg() {
+        this.eGj.setVisibility(8);
     }
 
-    public void aOK() {
-        this.eEQ.setVisibility(0);
+    public void aOh() {
+        this.eGj.setVisibility(0);
     }
 
-    public void aOG() {
-        if (this.eEY != null) {
-            this.eEY.notifyDataSetChanged();
+    public void aOd() {
+        if (this.eGr != null) {
+            this.eGr.notifyDataSetChanged();
         }
     }
 
     private void b(GroupAddressLocateActivity groupAddressLocateActivity) {
-        this.eEN = groupAddressLocateActivity;
+        this.eGg = groupAddressLocateActivity;
         groupAddressLocateActivity.setContentView(e.h.group_address_locate_activity);
         this.mParent = groupAddressLocateActivity.findViewById(e.g.parent);
         TextView textView = (TextView) groupAddressLocateActivity.findViewById(e.g.address_content_currentpos);
-        this.eEP = (TextView) groupAddressLocateActivity.findViewById(e.g.address_title_currentpos);
-        this.eEO = groupAddressLocateActivity.findViewById(e.g.address_content_container);
-        this.eEO.setOnClickListener(this.eEN);
-        this.eEQ = (ImageView) groupAddressLocateActivity.findViewById(e.g.group_address_currentpos_content_arrow);
+        this.eGi = (TextView) groupAddressLocateActivity.findViewById(e.g.address_title_currentpos);
+        this.eGh = groupAddressLocateActivity.findViewById(e.g.address_content_container);
+        this.eGh.setOnClickListener(this.eGg);
+        this.eGj = (ImageView) groupAddressLocateActivity.findViewById(e.g.group_address_currentpos_content_arrow);
         StringBuffer stringBuffer = new StringBuffer();
-        if (!TextUtils.isEmpty(this.eEE)) {
-            stringBuffer.append(this.eEE);
+        if (!TextUtils.isEmpty(this.eFX)) {
+            stringBuffer.append(this.eFX);
         }
-        if (!TextUtils.isEmpty(this.eEF)) {
-            stringBuffer.append(this.eEF);
+        if (!TextUtils.isEmpty(this.eFY)) {
+            stringBuffer.append(this.eFY);
         }
         String stringBuffer2 = stringBuffer.toString();
         if (stringBuffer2 != null && !stringBuffer2.equals("")) {
-            this.eEO.setVisibility(0);
-            this.eEP.setVisibility(0);
+            this.eGh.setVisibility(0);
+            this.eGi.setVisibility(0);
             textView.setText(stringBuffer2);
         } else {
-            this.eEO.setVisibility(8);
-            this.eEP.setVisibility(8);
+            this.eGh.setVisibility(8);
+            this.eGi.setVisibility(8);
         }
-        this.eES = groupAddressLocateActivity.findViewById(e.g.group_address_locate_locatearea_layout);
-        this.eES.setOnClickListener(this.eEN);
-        this.eET = (TextView) groupAddressLocateActivity.findViewById(e.g.group_address_locate_locatearea_textview);
-        this.eEU = (ImageView) groupAddressLocateActivity.findViewById(e.g.group_address_locate_locatearea_rightarrow);
-        this.eEU.setVisibility(8);
-        this.eER = (TextView) groupAddressLocateActivity.findViewById(e.g.address_title_poslist);
-        this.eEV = (BdListView) groupAddressLocateActivity.findViewById(e.g.group_address_locate_addresslist_listview);
-        this.eEV.setOnItemClickListener(this.eEN);
-        this.eEX = (SettingTextSwitchView) groupAddressLocateActivity.findViewById(e.g.address_showorhidden);
-        if (this.eEx) {
-            this.eEX.nU();
+        this.eGl = groupAddressLocateActivity.findViewById(e.g.group_address_locate_locatearea_layout);
+        this.eGl.setOnClickListener(this.eGg);
+        this.eGm = (TextView) groupAddressLocateActivity.findViewById(e.g.group_address_locate_locatearea_textview);
+        this.eGn = (ImageView) groupAddressLocateActivity.findViewById(e.g.group_address_locate_locatearea_rightarrow);
+        this.eGn.setVisibility(8);
+        this.eGk = (TextView) groupAddressLocateActivity.findViewById(e.g.address_title_poslist);
+        this.eGo = (BdListView) groupAddressLocateActivity.findViewById(e.g.group_address_locate_addresslist_listview);
+        this.eGo.setOnItemClickListener(this.eGg);
+        this.eGq = (SettingTextSwitchView) groupAddressLocateActivity.findViewById(e.g.address_showorhidden);
+        if (this.eFQ) {
+            this.eGq.nS();
         } else {
-            this.eEX.nV();
+            this.eGq.nT();
         }
-        this.eEX.setSwitchStateChangeListener(this.eEN);
+        this.eGq.setSwitchStateChangeListener(this.eGg);
         this.mNavigationBar = (NavigationBar) groupAddressLocateActivity.findViewById(e.g.view_navigation_bar);
         this.mNavigationBar.setTitleText(groupAddressLocateActivity.getResources().getString(e.j.group_address_edit));
         this.mNavigationBar.setSystemClickable(false);
-        this.bdE = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.bdD = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupAddressLocateActivity.getResources().getString(e.j.save));
+        this.bes = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.ber = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupAddressLocateActivity.getResources().getString(e.j.save));
     }
 
     private void c(GroupAddressLocateActivity groupAddressLocateActivity) {
-        this.bdE.setOnClickListener(groupAddressLocateActivity);
-        this.bdD.setOnClickListener(groupAddressLocateActivity);
+        this.bes.setOnClickListener(groupAddressLocateActivity);
+        this.ber.setOnClickListener(groupAddressLocateActivity);
     }
 
     private void initData() {
-        this.eEl = new com.baidu.tieba.im.util.b(this.eEN);
-        this.eEl.setUniqueId(this.eEN.getUniqueId());
-        aOt();
+        this.eFE = new com.baidu.tieba.im.util.b(this.eGg);
+        this.eFE.setUniqueId(this.eGg.getUniqueId());
+        aNQ();
     }
 
-    public void aOL() {
-        this.eER.setText(e.j.address_pos_list);
-        this.eET.setText(e.j.location_loading);
-        this.eEU.setVisibility(8);
-        this.eDl = 3;
-        aON();
+    public void aOi() {
+        this.eGk.setText(e.j.address_pos_list);
+        this.eGm.setText(e.j.location_loading);
+        this.eGn.setVisibility(8);
+        this.eEE = 3;
+        aOk();
     }
 
-    public void aOM() {
-        this.eER.setText(e.j.address_locate_noaddresslist);
-        this.eET.setText(e.j.address_locate_failed_tryagain);
-        this.eEU.setVisibility(0);
-        this.eDl = 2;
-        aON();
+    public void aOj() {
+        this.eGk.setText(e.j.address_locate_noaddresslist);
+        this.eGm.setText(e.j.address_locate_failed_tryagain);
+        this.eGn.setVisibility(0);
+        this.eEE = 2;
+        aOk();
     }
 
-    public void w(String[] strArr) {
-        this.eES.setVisibility(8);
+    public void y(String[] strArr) {
+        this.eGl.setVisibility(8);
         if (strArr != null && strArr.length > 0) {
-            this.eER.setText(e.j.address_pos_list);
-            this.eEY = new m(this.eEN, strArr);
-            this.eEV.setAdapter((ListAdapter) this.eEY);
-            this.eEV.setVisibility(0);
+            this.eGk.setText(e.j.address_pos_list);
+            this.eGr = new m(this.eGg, strArr);
+            this.eGo.setAdapter((ListAdapter) this.eGr);
+            this.eGo.setVisibility(0);
         } else {
-            this.eER.setText(e.j.address_locate_noaddresslist);
+            this.eGk.setText(e.j.address_locate_noaddresslist);
         }
-        aON();
+        aOk();
     }
 
-    public void aNE() {
-        this.eER.setText(e.j.address_pos_list);
-        this.eET.setText(e.j.address_locate_failed_opengps);
-        this.eEU.setVisibility(0);
-        this.eDl = 1;
-        aON();
+    public void aNb() {
+        this.eGk.setText(e.j.address_pos_list);
+        this.eGm.setText(e.j.address_locate_failed_opengps);
+        this.eGn.setVisibility(0);
+        this.eEE = 1;
+        aOk();
     }
 
     public void onResume() {
-        Drawable[] compoundDrawables = this.eET.getCompoundDrawables();
+        Drawable[] compoundDrawables = this.eGm.getCompoundDrawables();
         if (compoundDrawables != null && compoundDrawables.length > 0 && (compoundDrawables[0] instanceof AnimationDrawable)) {
-            this.eEW = (AnimationDrawable) compoundDrawables[0];
-            aON();
+            this.eGp = (AnimationDrawable) compoundDrawables[0];
+            aOk();
         }
     }
 
-    private void aON() {
-        if (this.eEW != null) {
-            if (this.eDl == 3) {
-                this.eEW.start();
+    private void aOk() {
+        if (this.eGp != null) {
+            if (this.eEE == 3) {
+                this.eGp.start();
                 return;
             }
-            this.eEW.stop();
-            this.eEW.selectDrawable(0);
+            this.eGp.stop();
+            this.eGp.selectDrawable(0);
         }
-    }
-
-    public void pb(String str) {
-        this.eEt = str;
     }
 
     public void pc(String str) {
-        this.eEu = str;
+        this.eFM = str;
     }
 
-    public View aOF() {
-        return this.bdD;
+    public void pd(String str) {
+        this.eFN = str;
+    }
+
+    public View aOc() {
+        return this.ber;
     }
 
     public View getBackButton() {
-        return this.bdE;
+        return this.bes;
     }
 
-    public View aOO() {
-        return this.eEO;
+    public View aOl() {
+        return this.eGh;
     }
 
-    public View aOP() {
-        return this.eES;
+    public View aOm() {
+        return this.eGl;
     }
 
-    public int aNC() {
-        return this.eDl;
+    public int aMZ() {
+        return this.eEE;
     }
 
     public void a(a.b bVar) {
-        this.eEK = bVar;
+        this.eGd = bVar;
     }
 
     public void b(a.b bVar) {
-        this.eEJ = bVar;
+        this.eGc = bVar;
     }
 
     public void showDialog() {
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eEN.getPageContext().getPageActivity());
-        aVar.aO(false);
-        aVar.cz(e.j.group_update_alert_save);
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eGg.getPageContext().getPageActivity());
+        aVar.be(false);
+        aVar.cN(e.j.group_update_alert_save);
         aVar.a(e.j.group_update_canel, new a.b() { // from class: com.baidu.tieba.im.creategroup.n.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                if (n.this.eEK != null) {
-                    n.this.eEK.onClick(aVar2);
+                if (n.this.eGd != null) {
+                    n.this.eGd.onClick(aVar2);
                 }
             }
         });
         aVar.b(e.j.group_update_done, new a.b() { // from class: com.baidu.tieba.im.creategroup.n.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                if (n.this.eEJ != null) {
-                    n.this.eEJ.onClick(aVar2);
+                if (n.this.eGc != null) {
+                    n.this.eGc.onClick(aVar2);
                 }
             }
         });
-        aVar.b(this.eEN.getPageContext());
-        aVar.Au();
+        aVar.b(this.eGg.getPageContext());
+        aVar.AB();
     }
 
     public void onChangeSkinType(int i) {
-        this.eEN.getLayoutMode().setNightMode(i == 1);
-        this.eEN.getLayoutMode().onModeChanged(this.mParent);
+        this.eGg.getLayoutMode().setNightMode(i == 1);
+        this.eGg.getLayoutMode().onModeChanged(this.mParent);
         al.f(this.mParent, i);
         this.mNavigationBar.onChangeSkinType(this.mContext, i);
         al.j(this.mParent, e.d.common_color_10041);
-        al.c(this.bdD, e.d.cp_cont_f, 1);
+        al.c(this.ber, e.d.cp_cont_f, 1);
     }
 }

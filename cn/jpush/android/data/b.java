@@ -1,7 +1,6 @@
 package cn.jpush.android.data;
 
 import android.content.Context;
-import android.support.v4.view.PointerIconCompat;
 import android.text.TextUtils;
 import cn.jpush.android.a.i;
 import java.io.Serializable;
@@ -69,7 +68,7 @@ public abstract class b implements Serializable {
                     z2 = false;
                 }
             } else {
-                cn.jpush.android.a.e.a(str2, PointerIconCompat.TYPE_GRAB, cn.jpush.android.d.a.a(context, str3), context);
+                cn.jpush.android.a.e.a(str2, 1020, cn.jpush.android.d.a.a(context, str3), context);
                 z2 = false;
             }
         }

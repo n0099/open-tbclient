@@ -20,16 +20,16 @@ public class j extends k {
         return bbVar != null && bbVar.getThreadType() == 49;
     }
 
-    public am mj(String str) {
-        am mk = mk(str);
-        mk.delete("obj_type");
-        mk.delete("obj_type");
-        mk.x("obj_type", 3);
-        return mk;
+    public am mk(String str) {
+        am ml = ml(str);
+        ml.delete("obj_type");
+        ml.delete("obj_type");
+        ml.x("obj_type", 3);
+        return ml;
     }
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.c
-    public bb YB() {
+    public bb YL() {
         return this.threadData;
     }
 }

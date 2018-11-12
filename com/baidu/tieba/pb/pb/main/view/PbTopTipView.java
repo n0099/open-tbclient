@@ -17,9 +17,9 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.f.a;
 /* loaded from: classes6.dex */
 public class PbTopTipView extends TextView {
-    private com.baidu.tieba.f.b bYq;
-    private a.InterfaceC0179a bYr;
-    private Animation crJ;
+    private Animation crQ;
+    private com.baidu.tieba.f.b crR;
+    private a.InterfaceC0204a crS;
     private int mDuration;
     private Runnable mHideTipRunnable;
     private boolean mIsShowing;
@@ -35,20 +35,20 @@ public class PbTopTipView extends TextView {
                 PbTopTipView.this.hideTip();
             }
         };
-        this.bYr = new a.InterfaceC0179a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
-            @Override // com.baidu.tieba.f.a.InterfaceC0179a
-            public void af(int i, int i2) {
+        this.crS = new a.InterfaceC0204a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
+            @Override // com.baidu.tieba.f.a.InterfaceC0204a
+            public void ap(int i, int i2) {
             }
 
-            @Override // com.baidu.tieba.f.a.InterfaceC0179a
-            public void ag(int i, int i2) {
+            @Override // com.baidu.tieba.f.a.InterfaceC0204a
+            public void aq(int i, int i2) {
                 if (ag(i2) && PbTopTipView.this.mIsShowing) {
                     PbTopTipView.this.hideTip();
                 }
             }
 
-            @Override // com.baidu.tieba.f.a.InterfaceC0179a
-            public void ah(int i, int i2) {
+            @Override // com.baidu.tieba.f.a.InterfaceC0204a
+            public void ar(int i, int i2) {
             }
 
             private boolean ag(float f) {
@@ -76,20 +76,20 @@ public class PbTopTipView extends TextView {
                 PbTopTipView.this.hideTip();
             }
         };
-        this.bYr = new a.InterfaceC0179a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
-            @Override // com.baidu.tieba.f.a.InterfaceC0179a
-            public void af(int i, int i2) {
+        this.crS = new a.InterfaceC0204a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
+            @Override // com.baidu.tieba.f.a.InterfaceC0204a
+            public void ap(int i, int i2) {
             }
 
-            @Override // com.baidu.tieba.f.a.InterfaceC0179a
-            public void ag(int i, int i2) {
+            @Override // com.baidu.tieba.f.a.InterfaceC0204a
+            public void aq(int i, int i2) {
                 if (ag(i2) && PbTopTipView.this.mIsShowing) {
                     PbTopTipView.this.hideTip();
                 }
             }
 
-            @Override // com.baidu.tieba.f.a.InterfaceC0179a
-            public void ah(int i, int i2) {
+            @Override // com.baidu.tieba.f.a.InterfaceC0204a
+            public void ar(int i, int i2) {
             }
 
             private boolean ag(float f) {
@@ -117,20 +117,20 @@ public class PbTopTipView extends TextView {
                 PbTopTipView.this.hideTip();
             }
         };
-        this.bYr = new a.InterfaceC0179a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
-            @Override // com.baidu.tieba.f.a.InterfaceC0179a
-            public void af(int i2, int i22) {
+        this.crS = new a.InterfaceC0204a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
+            @Override // com.baidu.tieba.f.a.InterfaceC0204a
+            public void ap(int i2, int i22) {
             }
 
-            @Override // com.baidu.tieba.f.a.InterfaceC0179a
-            public void ag(int i2, int i22) {
+            @Override // com.baidu.tieba.f.a.InterfaceC0204a
+            public void aq(int i2, int i22) {
                 if (ag(i22) && PbTopTipView.this.mIsShowing) {
                     PbTopTipView.this.hideTip();
                 }
             }
 
-            @Override // com.baidu.tieba.f.a.InterfaceC0179a
-            public void ah(int i2, int i22) {
+            @Override // com.baidu.tieba.f.a.InterfaceC0204a
+            public void ar(int i2, int i22) {
             }
 
             private boolean ag(float f) {
@@ -150,18 +150,18 @@ public class PbTopTipView extends TextView {
     }
 
     private void init() {
-        this.bYq = new com.baidu.tieba.f.b(getContext());
-        this.bYq.a(this.bYr);
+        this.crR = new com.baidu.tieba.f.b(getContext());
+        this.crR.a(this.crS);
         setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.3
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                return PbTopTipView.this.bYq.onTouchEvent(motionEvent);
+                return PbTopTipView.this.crR.onTouchEvent(motionEvent);
             }
         });
         setupPaddings();
-        this.crJ = AnimationUtils.loadAnimation(getContext(), e.a.push_top_in);
+        this.crQ = AnimationUtils.loadAnimation(getContext(), e.a.push_top_in);
         this.mTipOutAnimation = AnimationUtils.loadAnimation(getContext(), e.a.push_top_out);
-        setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0175e.fontsize30));
+        setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0200e.fontsize30));
         this.mTipOutAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.4
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
@@ -171,15 +171,15 @@ public class PbTopTipView extends TextView {
             public void onAnimationEnd(Animation animation) {
                 PbTopTipView.this.onDestroy();
                 PbTopTipView.this.setVisibility(8);
-                com.baidu.adp.lib.g.e.jI().postDelayed(PbTopTipView.this.mRunnable, 600L);
+                com.baidu.adp.lib.g.e.jG().postDelayed(PbTopTipView.this.mRunnable, 600L);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.crJ.setDuration(400L);
-        this.crJ.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.5
+        this.crQ.setDuration(400L);
+        this.crQ.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.5
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -198,9 +198,9 @@ public class PbTopTipView extends TextView {
     }
 
     public void setupPaddings() {
-        int dimensionPixelOffset = getContext().getResources().getDimensionPixelOffset(e.C0175e.ds30);
+        int dimensionPixelOffset = getContext().getResources().getDimensionPixelOffset(e.C0200e.ds30);
         int statusBarHeight = (UtilHelper.canUseStyleImmersiveSticky() && UtilHelper.getRealScreenOrientation(getContext()) == 1) ? UtilHelper.getStatusBarHeight() + dimensionPixelOffset : dimensionPixelOffset;
-        int dimensionPixelOffset2 = getContext().getResources().getDimensionPixelOffset(e.C0175e.ds34);
+        int dimensionPixelOffset2 = getContext().getResources().getDimensionPixelOffset(e.C0200e.ds34);
         setPadding(dimensionPixelOffset2, statusBarHeight, dimensionPixelOffset2, dimensionPixelOffset);
     }
 
@@ -234,7 +234,7 @@ public class PbTopTipView extends TextView {
             layoutParams.addRule(10);
             relativeLayout.addView(this, layoutParams);
             onChangeSkinType(i);
-            startAnimation(this.crJ);
+            startAnimation(this.crQ);
             this.mIsShowing = true;
         }
     }
@@ -256,6 +256,6 @@ public class PbTopTipView extends TextView {
     public void onDestroy() {
         removeCallbacks(this.mHideTipRunnable);
         clearAnimation();
-        com.baidu.adp.lib.g.e.jI().removeCallbacks(this.mRunnable);
+        com.baidu.adp.lib.g.e.jG().removeCallbacks(this.mRunnable);
     }
 }

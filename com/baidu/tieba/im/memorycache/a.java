@@ -6,36 +6,36 @@ import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class a {
-    private ConcurrentHashMap<String, ImMessageCenterPojo> eMH = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, ImMessageCenterPojo> eNZ = new ConcurrentHashMap<>();
 
     /* renamed from: com.baidu.tieba.im.memorycache.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0213a {
+    public interface InterfaceC0239a {
         void b(Iterator<ImMessageCenterPojo> it);
     }
 
-    public void a(InterfaceC0213a interfaceC0213a) {
-        interfaceC0213a.b(this.eMH.values().iterator());
+    public void a(InterfaceC0239a interfaceC0239a) {
+        interfaceC0239a.b(this.eNZ.values().iterator());
     }
 
-    public void aRx() {
-        this.eMH.clear();
+    public void aQU() {
+        this.eNZ.clear();
     }
 
     public void g(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
-            this.eMH.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
+            this.eNZ.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
         }
     }
 
-    public ImMessageCenterPojo pN(String str) {
+    public ImMessageCenterPojo pO(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.eMH.get(str);
+        return this.eNZ.get(str);
     }
 
-    public boolean pO(String str) {
-        return (TextUtils.isEmpty(str) || this.eMH.remove(str) == null) ? false : true;
+    public boolean pP(String str) {
+        return (TextUtils.isEmpty(str) || this.eNZ.remove(str) == null) ? false : true;
     }
 }

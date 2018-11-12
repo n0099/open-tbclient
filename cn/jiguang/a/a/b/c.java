@@ -33,7 +33,7 @@ public final class c {
         try {
             double latitude = location.getLatitude();
             double longitude = location.getLongitude();
-            if (e.b(latitude, longitude)) {
+            if (e.a(latitude, longitude)) {
                 this.kD = new e(latitude, longitude, location.getAltitude(), location.getBearing(), location.getAccuracy(), str, cn.jiguang.d.a.a.a(location.getTime()), z);
                 if (this.kD != null && (f = this.kD.f()) != null) {
                     cn.jiguang.d.a.d.b(f.toString());

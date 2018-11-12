@@ -4,14 +4,14 @@ public class as {
 
     /* loaded from: classes.dex */
     public static class a {
-        public static int ayx = 1;
-        public static int ayy = 2;
-        public static int ayz = 3;
-        public static int ayA = 4;
-        public static int ayB = 5;
-        public static int ayC = 6;
-        public static int ayD = 7;
-        public static int ayE = 8;
-        public static int ayF = 9;
+        public static int azk = 1;
+        public static int azl = 2;
+        public static int azm = 3;
+        public static int azn = 4;
+        public static int azo = 5;
+        public static int azp = 6;
+        public static int azq = 7;
+        public static int azr = 8;
+        public static int azs = 9;
     }
 }

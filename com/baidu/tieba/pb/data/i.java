@@ -5,40 +5,40 @@ import com.baidu.tbadk.core.data.bb;
 import tbclient.PbPage.DataRes;
 /* loaded from: classes6.dex */
 public class i implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId fIw = BdUniqueId.gen();
-    public bb bIV;
-    private boolean fIx = false;
-    private boolean fIy = false;
-    private int fIz = 1;
+    public static final BdUniqueId fJU = BdUniqueId.gen();
+    public bb bJG;
+    private boolean fJV = false;
+    private boolean fJW = false;
+    private int fJX = 1;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return fIw;
+        return fJU;
     }
 
     public void b(DataRes dataRes) {
         boolean z = true;
         if (dataRes != null && dataRes.thread != null) {
-            this.fIx = (dataRes.thread.origin_thread_info == null || dataRes.thread.origin_thread_info.is_deleted.intValue() != 1) ? false : false;
+            this.fJV = (dataRes.thread.origin_thread_info == null || dataRes.thread.origin_thread_info.is_deleted.intValue() != 1) ? false : false;
         }
     }
 
-    public int zK() {
-        if (this.bIV != null) {
-            return this.bIV.zK();
+    public int zR() {
+        if (this.bJG != null) {
+            return this.bJG.zR();
         }
         return 0;
     }
 
-    public boolean bfz() {
-        return this.bIV != null && this.bIV.zJ() == 1;
+    public boolean beX() {
+        return this.bJG != null && this.bJG.zQ() == 1;
     }
 
-    public void kj(boolean z) {
-        this.fIy = z;
+    public void kt(boolean z) {
+        this.fJW = z;
     }
 
-    public boolean bfA() {
-        return this.fIy;
+    public boolean beY() {
+        return this.fJW;
     }
 }

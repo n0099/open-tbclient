@@ -12,6 +12,22 @@ public abstract class a {
     protected ByteBuffer a = ByteBuffer.allocate(AudioParams.DEFAULT_AUDIO_BUFFER_SIZE);
     protected boolean e = false;
 
+    public abstract d F(int i);
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final ByteBuffer G(int i) {
+        if (this.c >= i) {
+            this.c -= i;
+            byte[] bArr = new byte[i];
+            this.a.flip();
+            this.a.get(bArr, 0, i);
+            ByteBuffer wrap = ByteBuffer.wrap(bArr);
+            this.a.compact();
+            return wrap;
+        }
+        return null;
+    }
+
     public int a(String str, int i) {
         if (this.a == null) {
             this.a = ByteBuffer.allocate(AudioParams.DEFAULT_AUDIO_BUFFER_SIZE);
@@ -47,21 +63,5 @@ public abstract class a {
         return i;
     }
 
-    public abstract int j(byte[] bArr);
-
-    public abstract d o(int i);
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final ByteBuffer p(int i) {
-        if (this.c >= i) {
-            this.c -= i;
-            byte[] bArr = new byte[i];
-            this.a.flip();
-            this.a.get(bArr, 0, i);
-            ByteBuffer wrap = ByteBuffer.wrap(bArr);
-            this.a.compact();
-            return wrap;
-        }
-        return null;
-    }
+    public abstract int i(byte[] bArr);
 }

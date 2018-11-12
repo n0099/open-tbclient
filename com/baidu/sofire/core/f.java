@@ -1,47 +1,55 @@
 package com.baidu.sofire.core;
 
-import android.content.IntentFilter;
-import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
+import dalvik.system.DexClassLoader;
 /* loaded from: classes.dex */
-public final class f {
-    public String a;
-    public String b;
-    public String c;
-    public IntentFilter d;
-
-    public f(String str, IntentFilter intentFilter, String str2, String str3) {
-        this.a = str;
-        this.d = intentFilter;
-        this.b = str2;
-        this.c = str3;
+public class f extends DexClassLoader {
+    public f(String str, String str2, String str3, ClassLoader classLoader) {
+        super(str, str2, str3, classLoader);
     }
 
-    public final boolean a(f fVar) {
-        if (fVar != null) {
+    @Override // java.lang.ClassLoader
+    protected Class<?> loadClass(String str, boolean z) {
+        Class<?> cls;
+        Class<?> findLoadedClass = findLoadedClass(str);
+        if (findLoadedClass == null) {
             try {
-                if (!TextUtils.isEmpty(fVar.a) && !TextUtils.isEmpty(fVar.b) && !TextUtils.isEmpty(fVar.c)) {
-                    if (fVar.a.equals(this.a) && fVar.b.equals(this.b) && fVar.c.equals(this.c)) {
-                        if (fVar.d == null || this.d == null) {
-                            return true;
-                        }
-                        return this.d == fVar.d;
-                    }
-                    return false;
-                }
+                cls = findClass(str);
             } catch (Throwable th) {
-                com.baidu.sofire.b.e.a(th);
-                return false;
+                cls = findLoadedClass;
+            }
+            if (cls == null) {
+                try {
+                    findLoadedClass = getParent() != null ? getParent().loadClass(str) : (Class) getClass().getDeclaredMethod("findBootstrapClassOrNull", String.class).invoke(this, str);
+                } catch (Throwable th2) {
+                    com.baidu.sofire.b.e.a(th2);
+                }
+            }
+            findLoadedClass = cls;
+        }
+        if (z) {
+            resolveClass(findLoadedClass);
+        }
+        if (findLoadedClass == null) {
+            try {
+                return super.loadClass(str, z);
+            } catch (Throwable th3) {
+                com.baidu.sofire.b.e.a(th3);
+                return findLoadedClass;
             }
         }
-        return false;
+        return findLoadedClass;
     }
 
-    public final String toString() {
-        try {
-            return "PluginloaderIntentFilter:" + this.a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.b + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.c + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.d;
-        } catch (Throwable th) {
-            return "";
+    public Class<?> a(String str) {
+        Class<?> findLoadedClass = findLoadedClass(str);
+        if (findLoadedClass == null) {
+            try {
+                return findClass(str);
+            } catch (Throwable th) {
+                com.baidu.sofire.b.e.a(th);
+                return findLoadedClass;
+            }
         }
+        return findLoadedClass;
     }
 }

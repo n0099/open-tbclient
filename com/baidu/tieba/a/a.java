@@ -5,40 +5,40 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class a {
-    private HashMap<String, b> bwf = new HashMap<>();
-    private ArrayList<Integer> bwg;
-    private c bwh;
+    private HashMap<String, b> bwQ = new HashMap<>();
+    private ArrayList<Integer> bwR;
+    private c bwS;
 
     public a(c cVar, ArrayList<Integer> arrayList) {
-        this.bwg = arrayList;
-        this.bwh = cVar;
+        this.bwR = arrayList;
+        this.bwS = cVar;
     }
 
     public int M(String str, int i) {
-        if (this.bwf == null || ao.isEmpty(str) || this.bwg == null || !this.bwg.contains(Integer.valueOf(i))) {
+        if (this.bwQ == null || ao.isEmpty(str) || this.bwR == null || !this.bwR.contains(Integer.valueOf(i))) {
             return 0;
         }
-        if (!this.bwf.containsKey(str)) {
-            jo(str);
+        if (!this.bwQ.containsKey(str)) {
+            jq(str);
         }
-        b bVar = this.bwf.get(str);
+        b bVar = this.bwQ.get(str);
         if (bVar == null) {
             return 0;
         }
-        return bVar.hb(i);
+        return bVar.ho(i);
     }
 
-    public void jo(String str) {
-        if (this.bwf != null && !ao.isEmpty(str) && this.bwh != null) {
-            if (this.bwf.containsKey(str)) {
-                b bVar = this.bwf.get(str);
-                this.bwh.a(this.bwg, bVar);
-                this.bwf.put(str, bVar);
+    public void jq(String str) {
+        if (this.bwQ != null && !ao.isEmpty(str) && this.bwS != null) {
+            if (this.bwQ.containsKey(str)) {
+                b bVar = this.bwQ.get(str);
+                this.bwS.a(this.bwR, bVar);
+                this.bwQ.put(str, bVar);
                 return;
             }
             b bVar2 = new b();
-            this.bwh.a(this.bwg, bVar2);
-            this.bwf.put(str, bVar2);
+            this.bwS.a(this.bwR, bVar2);
+            this.bwQ.put(str, bVar2);
         }
     }
 }

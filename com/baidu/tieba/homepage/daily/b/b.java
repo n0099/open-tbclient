@@ -8,41 +8,41 @@ import java.util.List;
 import tbclient.GodBanner;
 /* loaded from: classes6.dex */
 public class b {
-    private List<a> ejS;
+    private List<a> elm;
     private List<h> mDataList = new ArrayList();
 
-    public List<a> aJa() {
-        return this.ejS;
+    public List<a> aIy() {
+        return this.elm;
     }
 
     public List<h> getDataList() {
         return this.mDataList;
     }
 
-    public List<a> cg(List<GodBanner> list) {
-        if (this.ejS == null) {
-            this.ejS = new ArrayList();
+    public List<a> ce(List<GodBanner> list) {
+        if (this.elm == null) {
+            this.elm = new ArrayList();
         }
-        this.ejS.clear();
-        if (v.J(list)) {
+        this.elm.clear();
+        if (v.I(list)) {
             return null;
         }
         for (GodBanner godBanner : list) {
             if (godBanner != null && !StringUtils.isNull(godBanner.pic_url)) {
                 a aVar = new a();
                 aVar.dR(godBanner.pic_url);
-                aVar.oF(godBanner.link_url);
+                aVar.oG(godBanner.link_url);
                 aVar.setTitle(godBanner.intro);
-                this.ejS.add(aVar);
-                if (v.I(this.ejS) == 5) {
+                this.elm.add(aVar);
+                if (v.H(this.elm) == 5) {
                     break;
                 }
             }
         }
-        return this.ejS;
+        return this.elm;
     }
 
-    public boolean Nx() {
-        return v.J(this.ejS) && v.J(this.mDataList);
+    public boolean NG() {
+        return v.I(this.elm) && v.I(this.mDataList);
     }
 }

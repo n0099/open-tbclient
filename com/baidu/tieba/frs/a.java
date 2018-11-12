@@ -7,38 +7,38 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private AntiData aJw;
-    private final ArrayList<bb> dzo;
-    private boolean dzp;
-    private b dzq;
+    private AntiData aKm;
+    private final ArrayList<bb> dAF;
+    private boolean dAG;
+    private b dAH;
     private String forumId;
 
     /* loaded from: classes.dex */
     public interface b {
-        void ayT();
+        void ayq();
 
-        void lk(int i);
+        void lC(int i);
 
-        void w(boolean z, boolean z2);
+        void y(boolean z, boolean z2);
     }
 
     private a() {
-        this.dzp = false;
-        this.dzo = new ArrayList<>();
+        this.dAG = false;
+        this.dAF = new ArrayList<>();
     }
 
-    public static a ayN() {
-        return C0183a.dzr;
+    public static a ayk() {
+        return C0208a.dAI;
     }
 
-    public boolean ayO() {
-        return this.dzp;
+    public boolean ayl() {
+        return this.dAG;
     }
 
-    public void v(boolean z, boolean z2) {
-        this.dzp = z;
-        if (this.dzq != null) {
-            this.dzq.w(this.dzp, z2);
+    public void x(boolean z, boolean z2) {
+        this.dAG = z;
+        if (this.dAH != null) {
+            this.dAH.y(this.dAG, z2);
         }
     }
 
@@ -46,67 +46,67 @@ public class a {
         if (bbVar == null) {
             return false;
         }
-        if (this.dzo.size() > 29) {
-            if (this.dzq != null) {
-                this.dzq.ayT();
+        if (this.dAF.size() > 29) {
+            if (this.dAH != null) {
+                this.dAH.ayq();
                 return false;
             }
             return false;
         }
-        this.dzo.add(bbVar);
-        if (this.dzq != null) {
-            this.dzq.lk(this.dzo.size());
+        this.dAF.add(bbVar);
+        if (this.dAH != null) {
+            this.dAH.lC(this.dAF.size());
         }
         return true;
     }
 
-    public List<bb> ayP() {
-        return this.dzo;
+    public List<bb> aym() {
+        return this.dAF;
     }
 
     public void W(bb bbVar) {
-        this.dzo.remove(bbVar);
-        if (this.dzq != null) {
-            this.dzq.lk(this.dzo.size());
+        this.dAF.remove(bbVar);
+        if (this.dAH != null) {
+            this.dAH.lC(this.dAF.size());
         }
     }
 
     public void clearData() {
-        Iterator<bb> it = this.dzo.iterator();
+        Iterator<bb> it = this.dAF.iterator();
         while (it.hasNext()) {
             bb next = it.next();
             if (next != null) {
-                next.aM(false);
+                next.bc(false);
             }
         }
-        this.dzo.clear();
-        if (this.dzq != null) {
-            this.dzq.lk(0);
+        this.dAF.clear();
+        if (this.dAH != null) {
+            this.dAH.lC(0);
         }
     }
 
     public void reset() {
-        v(false, false);
+        x(false, false);
         clearData();
     }
 
     public void a(b bVar) {
-        this.dzq = bVar;
+        this.dAH = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0183a {
-        private static a dzr = new a();
+    public static class C0208a {
+        private static a dAI = new a();
     }
 
-    public AntiData ayQ() {
-        return this.aJw;
+    public AntiData ayn() {
+        return this.aKm;
     }
 
     public void b(AntiData antiData) {
-        this.aJw = antiData;
+        this.aKm = antiData;
     }
 
     public String getForumId() {
@@ -117,9 +117,9 @@ public class a {
         this.forumId = str;
     }
 
-    public void bB(List<String> list) {
-        if (!com.baidu.tbadk.core.util.v.J(list) && !com.baidu.tbadk.core.util.v.J(this.dzo)) {
-            Iterator<bb> it = this.dzo.iterator();
+    public void bz(List<String> list) {
+        if (!com.baidu.tbadk.core.util.v.I(list) && !com.baidu.tbadk.core.util.v.I(this.dAF)) {
+            Iterator<bb> it = this.dAF.iterator();
             while (it.hasNext()) {
                 bb next = it.next();
                 int i = 0;
@@ -135,13 +135,13 @@ public class a {
                     }
                 }
             }
-            if (this.dzq != null) {
-                this.dzq.lk(this.dzo.size());
+            if (this.dAH != null) {
+                this.dAH.lC(this.dAF.size());
             }
         }
     }
 
-    public boolean ayR() {
-        return this.aJw != null && this.aJw.isMultiDeleteEnable();
+    public boolean ayo() {
+        return this.aKm != null && this.aKm.isMultiDeleteEnable();
     }
 }

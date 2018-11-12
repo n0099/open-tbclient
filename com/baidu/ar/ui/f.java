@@ -136,7 +136,7 @@ public class f {
                 case 2005:
                 case 2006:
                 case 2007:
-                case ComponentMessageType.MSG_TYPE_TTS_RESUME /* 2008 */:
+                case 2008:
                     if (this.f == null) {
                         this.f = com.baidu.ar.component.c.a.a(this.d, this.c);
                     }

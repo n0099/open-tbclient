@@ -1,6 +1,7 @@
 package com.baidu.mobstat;
 
 import android.text.TextUtils;
+import com.baidu.mapapi.UIMsg;
 import com.baidu.searchbox.ng.ai.apps.network.WebSocketAction;
 import java.io.IOException;
 import java.net.Socket;
@@ -50,7 +51,7 @@ public class aq {
     public aq(URI uri, a aVar) throws c {
         this.a = aVar;
         try {
-            this.b = new b(uri, 5000, uri.toString().startsWith("wss://") ? c() : null);
+            this.b = new b(uri, UIMsg.m_AppUI.MSG_APP_GPS, uri.toString().startsWith("wss://") ? c() : null);
             this.b.c();
         } catch (InterruptedException e) {
             throw new c(e);

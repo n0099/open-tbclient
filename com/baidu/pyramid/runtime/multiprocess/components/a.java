@@ -19,9 +19,9 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public abstract class a {
-    private ContentProvider agP;
-    private final int agQ;
-    public final int agR;
+    private ContentProvider ahC;
+    private final int ahD;
+    public final int ahE;
 
     public abstract int a(int i, Uri uri, ContentValues contentValues, String str, String[] strArr);
 
@@ -38,21 +38,21 @@ public abstract class a {
     public abstract boolean onCreate();
 
     public a(int i, int i2) {
-        this.agQ = i;
-        this.agR = i2;
+        this.ahD = i;
+        this.ahE = i2;
     }
 
-    public final int us() {
-        return this.agQ;
+    public final int uC() {
+        return this.ahD;
     }
 
-    public final int ut() {
-        return this.agR;
+    public final int uD() {
+        return this.ahE;
     }
 
     public void a(ContentProvider contentProvider) {
-        if (this.agP == null) {
-            this.agP = contentProvider;
+        if (this.ahC == null) {
+            this.ahC = contentProvider;
         }
     }
 
@@ -70,7 +70,7 @@ public abstract class a {
         return a(i, uri, strArr, str, strArr2, str2);
     }
 
-    public boolean a(String str, String str2, Bundle bundle) {
+    public boolean b(String str, String str2, Bundle bundle) {
         return false;
     }
 
@@ -90,7 +90,7 @@ public abstract class a {
         int size = arrayList.size();
         ContentProviderResult[] contentProviderResultArr = new ContentProviderResult[size];
         for (int i = 0; i < size; i++) {
-            contentProviderResultArr[i] = arrayList.get(i).apply(this.agP, contentProviderResultArr, i);
+            contentProviderResultArr[i] = arrayList.get(i).apply(this.ahC, contentProviderResultArr, i);
         }
         return contentProviderResultArr;
     }

@@ -10,39 +10,39 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class PbLongPressTipView extends LinearLayout {
-    private ImageView aCR;
-    private LinearLayout aFq;
+    private ImageView aDH;
+    private LinearLayout aGg;
     private Context context;
-    private TextView dma;
-    private TextView fYy;
+    private TextView dne;
+    private TextView fZX;
 
     public PbLongPressTipView(Context context) {
         super(context);
         this.context = context;
-        cs(context);
+        cn(context);
     }
 
     public PbLongPressTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.context = context;
-        cs(context);
+        cn(context);
     }
 
     public PbLongPressTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.context = context;
-        cs(context);
+        cn(context);
     }
 
-    private void cs(Context context) {
+    private void cn(Context context) {
         LayoutInflater.from(context).inflate(e.h.pb_long_press_tip_view, this);
         setOrientation(1);
-        this.aFq = (LinearLayout) findViewById(e.g.pb_long_tip_content);
-        this.aCR = (ImageView) findViewById(e.g.pb_long_tip_image);
-        this.dma = (TextView) findViewById(e.g.long_hint_title);
-        this.fYy = (TextView) findViewById(e.g.long_hint_text);
-        al.c(this.dma, e.d.cp_cont_b, 1);
-        al.c(this.fYy, e.d.common_color_10037, 1);
-        al.c(this.aCR, e.f.pic_pb_popup_longpress);
+        this.aGg = (LinearLayout) findViewById(e.g.pb_long_tip_content);
+        this.aDH = (ImageView) findViewById(e.g.pb_long_tip_image);
+        this.dne = (TextView) findViewById(e.g.long_hint_title);
+        this.fZX = (TextView) findViewById(e.g.long_hint_text);
+        al.c(this.dne, e.d.cp_cont_b, 1);
+        al.c(this.fZX, e.d.common_color_10037, 1);
+        al.c(this.aDH, e.f.pic_pb_popup_longpress);
     }
 }

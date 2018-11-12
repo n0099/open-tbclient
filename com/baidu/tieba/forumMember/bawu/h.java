@@ -13,42 +13,42 @@ import com.baidu.tieba.forumMember.member.p;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class h extends BaseAdapter {
-    private int cqH;
-    private b dwq;
-    private ArrayList<i> dws = new ArrayList<>();
-    private p dwt;
-    private int dwu;
+    private int cqL;
+    private b dxI;
+    private ArrayList<i> dxK = new ArrayList<>();
+    private p dxL;
+    private int dxM;
     private TbPageContext<?> mContext;
 
     /* loaded from: classes3.dex */
     public interface b {
-        void no(String str);
+        void np(String str);
     }
 
     public h(TbPageContext<?> tbPageContext) {
-        this.cqH = 0;
-        this.dwu = 0;
+        this.cqL = 0;
+        this.dxM = 0;
         this.mContext = tbPageContext;
-        this.cqH = l.h(tbPageContext.getPageActivity(), e.C0175e.ds24);
-        this.dwu = l.h(tbPageContext.getPageActivity(), e.C0175e.ds30);
+        this.cqL = l.h(tbPageContext.getPageActivity(), e.C0200e.ds24);
+        this.dxM = l.h(tbPageContext.getPageActivity(), e.C0200e.ds30);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dws != null) {
-            return this.dws.size();
+        if (this.dxK != null) {
+            return this.dxK.size();
         }
         return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: lb */
+    /* renamed from: lt */
     public i getItem(int i) {
-        if (this.dws == null || i >= this.dws.size()) {
+        if (this.dxK == null || i >= this.dxK.size()) {
             return null;
         }
-        return this.dws.get(i);
+        return this.dxK.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -58,7 +58,7 @@ public class h extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return getItem(i).ayb();
+        return getItem(i).axy();
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -86,92 +86,92 @@ public class h extends BaseAdapter {
         } else if (getItemViewType(i) == 1) {
             if (view != null && (view.getTag() instanceof c)) {
                 c cVar2 = (c) view.getTag();
-                cVar2.dwx.setVisibility(0);
-                cVar2.dwy.setVisibility(8);
-                cVar2.dwz.setVisibility(8);
-                cVar2.dwA.setVisibility(8);
+                cVar2.dxP.setVisibility(0);
+                cVar2.dxQ.setVisibility(8);
+                cVar2.dxR.setVisibility(8);
+                cVar2.dxS.setVisibility(8);
                 cVar = cVar2;
             } else {
                 view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(e.h.bawu_item_member, viewGroup, false);
                 c cVar3 = new c();
-                cVar3.dww = (RelativeLayout) view.findViewById(e.g.bawu_item_member_root);
-                cVar3.dwx = (BawuMemberInfoView) view.findViewById(e.g.left_member);
-                cVar3.dwy = (BawuMemberInfoView) view.findViewById(e.g.right_member);
-                cVar3.dwz = (BawuManagerApplyInfoView) view.findViewById(e.g.left_manager_apply);
-                cVar3.dwA = (BawuManagerApplyInfoView) view.findViewById(e.g.right_manager_apply);
+                cVar3.dxO = (RelativeLayout) view.findViewById(e.g.bawu_item_member_root);
+                cVar3.dxP = (BawuMemberInfoView) view.findViewById(e.g.left_member);
+                cVar3.dxQ = (BawuMemberInfoView) view.findViewById(e.g.right_member);
+                cVar3.dxR = (BawuManagerApplyInfoView) view.findViewById(e.g.left_manager_apply);
+                cVar3.dxS = (BawuManagerApplyInfoView) view.findViewById(e.g.right_manager_apply);
                 view.setTag(cVar3);
                 cVar = cVar3;
             }
             com.baidu.tieba.forumMember.bawu.b bVar = (com.baidu.tieba.forumMember.bawu.b) getItem(i);
-            if (bVar != null && bVar.ayc() != null && bVar.ayc().size() > 0) {
+            if (bVar != null && bVar.axz() != null && bVar.axz().size() > 0) {
                 if (bVar.isLast()) {
-                    cVar.dww.setPadding(this.cqH, 0, this.cqH, this.dwu);
-                    if (this.dwt != null && !this.dwt.isEmpty()) {
-                        if (bVar.ayc().size() == 2) {
-                            if (bVar.ayd().equals(this.mContext.getResources().getString(e.j.bawu_member_bazhu_tip))) {
-                                cVar.dwA.setVisibility(8);
-                                cVar.dwz.setVisibility(0);
-                                cVar.dwz.aa(this.mContext.getResources().getString(e.j.tip_manager_apply), this.dwt.ayo());
-                                cVar.dwz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.1
+                    cVar.dxO.setPadding(this.cqL, 0, this.cqL, this.dxM);
+                    if (this.dxL != null && !this.dxL.isEmpty()) {
+                        if (bVar.axz().size() == 2) {
+                            if (bVar.axA().equals(this.mContext.getResources().getString(e.j.bawu_member_bazhu_tip))) {
+                                cVar.dxS.setVisibility(8);
+                                cVar.dxR.setVisibility(0);
+                                cVar.dxR.aa(this.mContext.getResources().getString(e.j.tip_manager_apply), this.dxL.axL());
+                                cVar.dxR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.1
                                     @Override // android.view.View.OnClickListener
                                     public void onClick(View view2) {
-                                        if (h.this.dwq != null) {
-                                            h.this.dwq.no(h.this.dwt.ayr());
+                                        if (h.this.dxI != null) {
+                                            h.this.dxI.np(h.this.dxL.axO());
                                         }
                                     }
                                 });
-                            } else if (bVar.ayd().equals(this.mContext.getResources().getString(e.j.bawu_member_xbazhu_tip))) {
-                                cVar.dwA.setVisibility(8);
-                                cVar.dwz.setVisibility(0);
-                                cVar.dwz.aa(this.mContext.getResources().getString(e.j.tip_assist_apply), this.dwt.ayq());
-                                cVar.dwz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.2
+                            } else if (bVar.axA().equals(this.mContext.getResources().getString(e.j.bawu_member_xbazhu_tip))) {
+                                cVar.dxS.setVisibility(8);
+                                cVar.dxR.setVisibility(0);
+                                cVar.dxR.aa(this.mContext.getResources().getString(e.j.tip_assist_apply), this.dxL.axN());
+                                cVar.dxR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.2
                                     @Override // android.view.View.OnClickListener
                                     public void onClick(View view2) {
-                                        if (h.this.dwq != null) {
-                                            h.this.dwq.no(h.this.dwt.ays());
+                                        if (h.this.dxI != null) {
+                                            h.this.dxI.np(h.this.dxL.axP());
                                         }
                                     }
                                 });
                             }
-                        } else if (bVar.ayd().equals(this.mContext.getResources().getString(e.j.bawu_member_bazhu_tip))) {
-                            cVar.dwy.setVisibility(8);
-                            cVar.dwA.setVisibility(0);
-                            cVar.dwz.setVisibility(8);
-                            cVar.dwA.aa(this.mContext.getResources().getString(e.j.tip_manager_apply), this.dwt.ayo());
-                            cVar.dwA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.3
+                        } else if (bVar.axA().equals(this.mContext.getResources().getString(e.j.bawu_member_bazhu_tip))) {
+                            cVar.dxQ.setVisibility(8);
+                            cVar.dxS.setVisibility(0);
+                            cVar.dxR.setVisibility(8);
+                            cVar.dxS.aa(this.mContext.getResources().getString(e.j.tip_manager_apply), this.dxL.axL());
+                            cVar.dxS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.3
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view2) {
-                                    if (h.this.dwq != null) {
-                                        h.this.dwq.no(h.this.dwt.ayr());
+                                    if (h.this.dxI != null) {
+                                        h.this.dxI.np(h.this.dxL.axO());
                                     }
                                 }
                             });
-                        } else if (bVar.ayd().equals(this.mContext.getResources().getString(e.j.bawu_member_xbazhu_tip))) {
-                            cVar.dwy.setVisibility(8);
-                            cVar.dwA.setVisibility(0);
-                            cVar.dwz.setVisibility(8);
-                            cVar.dwA.aa(this.mContext.getResources().getString(e.j.tip_assist_apply), this.dwt.ayq());
-                            cVar.dwA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.4
+                        } else if (bVar.axA().equals(this.mContext.getResources().getString(e.j.bawu_member_xbazhu_tip))) {
+                            cVar.dxQ.setVisibility(8);
+                            cVar.dxS.setVisibility(0);
+                            cVar.dxR.setVisibility(8);
+                            cVar.dxS.aa(this.mContext.getResources().getString(e.j.tip_assist_apply), this.dxL.axN());
+                            cVar.dxS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.4
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view2) {
-                                    if (h.this.dwq != null) {
-                                        h.this.dwq.no(h.this.dwt.ays());
+                                    if (h.this.dxI != null) {
+                                        h.this.dxI.np(h.this.dxL.axP());
                                     }
                                 }
                             });
                         }
                     }
                 } else {
-                    cVar.dww.setPadding(this.cqH, 0, this.cqH, 0);
-                    cVar.dwz.setVisibility(8);
-                    cVar.dwA.setVisibility(8);
+                    cVar.dxO.setPadding(this.cqL, 0, this.cqL, 0);
+                    cVar.dxR.setVisibility(8);
+                    cVar.dxS.setVisibility(8);
                 }
-                cVar.dwx.a(bVar.ayc().get(0));
-                if (bVar.ayc().size() >= 2) {
-                    cVar.dwy.a(bVar.ayc().get(1));
-                    cVar.dwy.setVisibility(0);
+                cVar.dxP.a(bVar.axz().get(0));
+                if (bVar.axz().size() >= 2) {
+                    cVar.dxQ.a(bVar.axz().get(1));
+                    cVar.dxQ.setVisibility(0);
                 } else {
-                    cVar.dwy.setVisibility(8);
+                    cVar.dxQ.setVisibility(8);
                 }
                 this.mContext.getLayoutMode().onModeChanged(view);
             }
@@ -190,24 +190,24 @@ public class h extends BaseAdapter {
     }
 
     public void N(ArrayList<i> arrayList) {
-        this.dws = arrayList;
+        this.dxK = arrayList;
     }
 
     public void a(p pVar) {
-        this.dwt = pVar;
+        this.dxL = pVar;
     }
 
     public void a(b bVar) {
-        this.dwq = bVar;
+        this.dxI = bVar;
     }
 
     /* loaded from: classes3.dex */
     public class c {
-        BawuManagerApplyInfoView dwA;
-        RelativeLayout dww;
-        BawuMemberInfoView dwx;
-        BawuMemberInfoView dwy;
-        BawuManagerApplyInfoView dwz;
+        RelativeLayout dxO;
+        BawuMemberInfoView dxP;
+        BawuMemberInfoView dxQ;
+        BawuManagerApplyInfoView dxR;
+        BawuManagerApplyInfoView dxS;
 
         public c() {
         }

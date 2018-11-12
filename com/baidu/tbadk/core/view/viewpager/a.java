@@ -9,27 +9,27 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class a extends q.a {
-    public int aHp;
-    public RelativeLayout aHt;
-    public TextView aHu;
-    public IndicatorView aHv;
-    public View aHw;
-    public BdBaseViewPager aHx;
+    public int aIf;
+    public RelativeLayout aIj;
+    public TextView aIk;
+    public IndicatorView aIl;
+    public View aIm;
+    public BdBaseViewPager aIn;
     public TextView title;
 
     public a(View view, Context context) {
         super(view);
-        this.aHp = 3;
+        this.aIf = 3;
         this.title = null;
-        this.aHu = null;
-        this.aHv = null;
-        this.aHw = null;
-        this.aHx = null;
-        this.aHt = (RelativeLayout) view.findViewById(e.g.top_area);
+        this.aIk = null;
+        this.aIl = null;
+        this.aIm = null;
+        this.aIn = null;
+        this.aIj = (RelativeLayout) view.findViewById(e.g.top_area);
         this.title = (TextView) view.findViewById(e.g.theme_title);
-        this.aHu = (TextView) view.findViewById(e.g.more_textview);
-        this.aHv = (IndicatorView) view.findViewById(e.g.tab_indicator);
-        this.aHw = view.findViewById(e.g.bottom_divider_line);
-        this.aHx = (BdBaseViewPager) view.findViewById(e.g.bd_base_view_pager);
+        this.aIk = (TextView) view.findViewById(e.g.more_textview);
+        this.aIl = (IndicatorView) view.findViewById(e.g.tab_indicator);
+        this.aIm = view.findViewById(e.g.bottom_divider_line);
+        this.aIn = (BdBaseViewPager) view.findViewById(e.g.bd_base_view_pager);
     }
 }

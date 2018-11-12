@@ -12,49 +12,49 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class e {
-    private static e hqv = new e();
-    private List<String> hqt = new ArrayList();
-    private List<String> hqu = new ArrayList();
+    private static e hse = new e();
+    private List<String> hsc = new ArrayList();
+    private List<String> hsd = new ArrayList();
     private String mCurrentFileName;
 
     private e() {
-        if (f.hB()) {
-            bFV();
+        if (f.hA()) {
+            bFu();
         }
     }
 
-    private void bFV() {
+    private void bFu() {
         new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.s.e.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
-                com.baidu.tieba.j.d.rq(c.a.bvI);
-                com.baidu.tieba.j.d.rq(c.a.fvU);
-                com.baidu.tieba.j.d.rq(c.a.fvV);
-                com.baidu.tieba.j.d.rq(c.a.fvX);
-                com.baidu.tieba.j.d.rq(c.a.fvY);
+                com.baidu.tieba.j.d.rr(c.a.bwt);
+                com.baidu.tieba.j.d.rr(c.a.fxj);
+                com.baidu.tieba.j.d.rr(c.a.fxk);
+                com.baidu.tieba.j.d.rr(c.a.fxm);
+                com.baidu.tieba.j.d.rr(c.a.fxn);
                 return null;
             }
         }.execute(new Void[0]);
     }
 
-    public static e bFW() {
-        return hqv;
+    public static e bFv() {
+        return hse;
     }
 
-    public void bFR() {
-        if (f.hB()) {
+    public void bFq() {
+        if (f.hA()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.s.e.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    List vL = e.vL(c.a.fvW);
-                    if (vL != null) {
-                        int size = vL.size();
+                    List vQ = e.vQ(c.a.fxl);
+                    if (vQ != null) {
+                        int size = vQ.size();
                         for (int i = 0; i < size; i++) {
-                            e.this.a((d) vL.get(i));
+                            e.this.a((d) vQ.get(i));
                         }
                     }
                     return null;
@@ -64,7 +64,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static List<d> vL(String str) {
+    public static List<d> vQ(String str) {
         File[] listFiles;
         ArrayList arrayList = null;
         if (!StringUtils.isNull(str)) {
@@ -73,14 +73,14 @@ public class e {
                 int length = listFiles.length;
                 arrayList = new ArrayList(length);
                 for (int i = 0; i < length; i++) {
-                    arrayList.add(new d(vM(com.baidu.tieba.j.d.H(listFiles[i])), listFiles[i].getAbsolutePath()));
+                    arrayList.add(new d(vR(com.baidu.tieba.j.d.H(listFiles[i])), listFiles[i].getAbsolutePath()));
                 }
             }
         }
         return arrayList;
     }
 
-    private static List<String> vM(String str) {
+    private static List<String> vR(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -97,32 +97,32 @@ public class e {
 
     public synchronized void b(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
-            this.hqt.add(jSONObject.toString());
-            String bbx = bbx();
-            if (f.hB()) {
-                i(jSONObject, bbx);
+            this.hsc.add(jSONObject.toString());
+            String baW = baW();
+            if (f.hA()) {
+                j(jSONObject, baW);
             }
-            if (this.hqt.size() >= com.baidu.tbadk.coreExtra.model.f.Iw() || z) {
-                a(new d(this.hqt, bbx));
-                this.hqt.clear();
+            if (this.hsc.size() >= com.baidu.tbadk.coreExtra.model.f.II() || z) {
+                a(new d(this.hsc, baW));
+                this.hsc.clear();
                 this.mCurrentFileName = null;
             }
         }
     }
 
-    private String bbx() {
+    private String baW() {
         if (StringUtils.isNull(this.mCurrentFileName)) {
-            if (f.hB()) {
+            if (f.hA()) {
                 this.mCurrentFileName = String.valueOf(System.currentTimeMillis());
             } else {
                 return null;
             }
         }
-        return c.a.fvW + this.mCurrentFileName;
+        return c.a.fxl + this.mCurrentFileName;
     }
 
-    private void i(JSONObject jSONObject, String str) {
-        if (!StringUtils.isNull(str) && f.hB()) {
+    private void j(JSONObject jSONObject, String str) {
+        if (!StringUtils.isNull(str) && f.hA()) {
             new BdAsyncTask<String, Void, Void>() { // from class: com.baidu.tieba.s.e.3
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
@@ -140,7 +140,7 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized boolean cK(String str, String str2) {
         boolean g;
-        if (this.hqu.contains(str)) {
+        if (this.hsd.contains(str)) {
             g = false;
         } else {
             File file = new File(str);
@@ -170,9 +170,9 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void b(d dVar) {
         try {
-            if (c.g(c.dT(dVar.hqr), TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.hqs)) {
-                l.deleteFile(new File(dVar.hqs));
-                this.hqu.add(dVar.hqs);
+            if (c.g(c.dR(dVar.hsa), TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.hsb)) {
+                l.deleteFile(new File(dVar.hsb));
+                this.hsd.add(dVar.hsb);
             }
         } catch (Exception e) {
             e.printStackTrace();

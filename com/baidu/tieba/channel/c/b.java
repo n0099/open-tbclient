@@ -12,20 +12,20 @@ public class b {
     public static void a(BaseActivity baseActivity, final h hVar, final int i, final com.baidu.tieba.channel.view.b bVar) {
         String string;
         if (hVar != null) {
-            if (hVar.yW()) {
+            if (hVar.zd()) {
                 string = baseActivity.getResources().getString(e.j.channel_cancle_set_top);
             } else {
                 string = baseActivity.getResources().getString(e.j.channel_set_top_and_cancle_another);
             }
             String[] strArr = {string, baseActivity.getResources().getString(e.j.channel_remove)};
             com.baidu.tbadk.core.dialog.b bVar2 = new com.baidu.tbadk.core.dialog.b(baseActivity.getPageContext().getPageActivity());
-            bVar2.a(strArr, new b.InterfaceC0124b() { // from class: com.baidu.tieba.channel.c.b.1
-                @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0124b
+            bVar2.a(strArr, new b.InterfaceC0148b() { // from class: com.baidu.tieba.channel.c.b.1
+                @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0148b
                 public void a(com.baidu.tbadk.core.dialog.b bVar3, int i2, View view) {
                     switch (i2) {
                         case 0:
                             if (com.baidu.tieba.channel.view.b.this != null) {
-                                com.baidu.tieba.channel.view.b.this.a(hVar.yW() ? 13 : 14, view, hVar, i);
+                                com.baidu.tieba.channel.view.b.this.a(hVar.zd() ? 13 : 14, view, hVar, i);
                                 break;
                             }
                             break;
@@ -40,14 +40,14 @@ public class b {
                 }
             });
             bVar2.d(baseActivity.getPageContext());
-            bVar2.Ax();
+            bVar2.AE();
         }
     }
 
     public static void a(final BaseActivity baseActivity, boolean z, final boolean z2, final com.baidu.tieba.channel.view.b bVar) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(baseActivity.getPageContext().getPageActivity());
         if (z) {
-            aVar.cz(e.j.channel_close_push_message);
+            aVar.cN(e.j.channel_close_push_message);
             aVar.a(e.j.confirm, new a.b() { // from class: com.baidu.tieba.channel.c.b.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -64,7 +64,7 @@ public class b {
                 }
             });
         } else {
-            aVar.cz(e.j.channel_open_push_message);
+            aVar.cN(e.j.channel_open_push_message);
             aVar.a(e.j.need_channel_push, new a.b() { // from class: com.baidu.tieba.channel.c.b.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -85,6 +85,6 @@ public class b {
             });
         }
         aVar.b(baseActivity.getPageContext());
-        aVar.Au();
+        aVar.AB();
     }
 }

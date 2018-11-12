@@ -3,7 +3,7 @@ package rx.internal.operators;
 import rx.d;
 /* loaded from: classes2.dex */
 public class as<T> implements d.b<T, T> {
-    private final rx.functions.a iws;
+    private final rx.functions.a iyc;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -11,11 +11,11 @@ public class as<T> implements d.b<T, T> {
     }
 
     public as(rx.functions.a aVar) {
-        this.iws = aVar;
+        this.iyc = aVar;
     }
 
     public rx.j<? super T> call(rx.j<? super T> jVar) {
-        this.iws.call();
+        this.iyc.call();
         return rx.b.g.b(jVar);
     }
 }

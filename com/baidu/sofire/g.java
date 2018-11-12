@@ -3,10 +3,16 @@ package com.baidu.sofire;
 import android.content.Context;
 import android.content.SharedPreferences;
 /* loaded from: classes.dex */
-public final class g {
-    public SharedPreferences a;
-    public SharedPreferences.Editor b;
+public class g {
+    private SharedPreferences a;
+    private SharedPreferences.Editor b;
     private Context c;
+
+    public void a(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+        if (this.a != null) {
+            this.a.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        }
+    }
 
     public g(Context context) {
         try {
@@ -16,5 +22,18 @@ public final class g {
         } catch (Throwable th) {
             com.baidu.sofire.b.e.a(th);
         }
+    }
+
+    public String a() {
+        return this.a.getString("xytk", "");
+    }
+
+    public String b() {
+        return this.a.getString("xytk_m", "");
+    }
+
+    public void a(String str) {
+        this.b.putString("xytk_m", str);
+        this.b.commit();
     }
 }

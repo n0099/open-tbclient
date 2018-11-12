@@ -9,9 +9,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class g {
-    private final List<com.airbnb.lottie.model.content.j> qu;
-    private final char qv;
-    private final String qw;
+    private final List<com.airbnb.lottie.model.content.j> qv;
+    private final char qw;
+    private final String qx;
     private final int size;
     private final String style;
     private final double width;
@@ -21,16 +21,16 @@ public class g {
     }
 
     g(List<com.airbnb.lottie.model.content.j> list, char c, int i, double d, String str, String str2) {
-        this.qu = list;
-        this.qv = c;
+        this.qv = list;
+        this.qw = c;
         this.size = i;
         this.width = d;
         this.style = str;
-        this.qw = str2;
+        this.qx = str2;
     }
 
-    public List<com.airbnb.lottie.model.content.j> dG() {
-        return this.qu;
+    public List<com.airbnb.lottie.model.content.j> dF() {
+        return this.qv;
     }
 
     public double getWidth() {
@@ -66,6 +66,6 @@ public class g {
     }
 
     public int hashCode() {
-        return a(this.qv, this.qw, this.style);
+        return a(this.qw, this.qx, this.style);
     }
 }

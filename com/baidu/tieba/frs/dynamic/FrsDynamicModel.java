@@ -7,42 +7,38 @@ import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
 /* loaded from: classes6.dex */
-public class FrsDynamicModel<T> extends NetAutoModel<FrsDynamicRequestData, b, T> {
+public class FrsDynamicModel<T> extends NetAutoModel<FrsDynamicRequestData, a, T> {
     public FrsDynamicModel(TbPageContext<T> tbPageContext, FrsDynamicRequestData frsDynamicRequestData) {
         super(tbPageContext, frsDynamicRequestData);
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<b> getResponseDataClass() {
-        return b.class;
+    protected Class<a> getResponseDataClass() {
+        return a.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int Nf() {
+    protected int No() {
         return CmdConfigHttp.CMD_FRS_DYNAMIC;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int Ng() {
+    protected int Np() {
         return 309602;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String Nh() {
+    protected String Nq() {
         return TbConfig.FRS_DYNAMIC_ADDRESS;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> Nd() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> Nm() {
         return FrsDynamicHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> Ne() {
+    protected Class<? extends MvcSocketResponsedMessage> Nn() {
         return FrsDynamicSocketResponsedMessage.class;
-    }
-
-    public void a(FrsDynamicRequestData frsDynamicRequestData) {
-        this.bak = frsDynamicRequestData;
     }
 }

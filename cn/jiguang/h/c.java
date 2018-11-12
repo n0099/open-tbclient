@@ -26,6 +26,10 @@ public class c {
         this.c = new HashMap();
     }
 
+    public void H(int i) {
+        this.h = i;
+    }
+
     public void R(String str) {
         this.b = str;
     }
@@ -42,10 +46,6 @@ public class c {
         if (this.c != null) {
             this.c.put(str, str2);
         }
-    }
-
-    public void q(int i) {
-        this.h = i;
     }
 
     public String toString() {

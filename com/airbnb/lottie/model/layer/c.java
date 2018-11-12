@@ -13,15 +13,15 @@ import android.support.annotation.Nullable;
 public class c extends a {
     private final float density;
     private final Paint paint;
-    private final Rect sg;
-    private final Rect sh;
+    private final Rect si;
+    private final Rect sj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.airbnb.lottie.f fVar, Layer layer, float f) {
         super(fVar, layer);
         this.paint = new Paint(3);
-        this.sg = new Rect();
-        this.sh = new Rect();
+        this.si = new Rect();
+        this.sj = new Rect();
         this.density = f;
     }
 
@@ -32,9 +32,9 @@ public class c extends a {
             this.paint.setAlpha(i);
             canvas.save();
             canvas.concat(matrix);
-            this.sg.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            this.sh.set(0, 0, (int) (bitmap.getWidth() * this.density), (int) (bitmap.getHeight() * this.density));
-            canvas.drawBitmap(bitmap, this.sg, this.sh, this.paint);
+            this.si.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            this.sj.set(0, 0, (int) (bitmap.getWidth() * this.density), (int) (bitmap.getHeight() * this.density));
+            canvas.drawBitmap(bitmap, this.si, this.sj, this.paint);
             canvas.restore();
         }
     }
@@ -45,13 +45,13 @@ public class c extends a {
         Bitmap bitmap = getBitmap();
         if (bitmap != null) {
             rectF.set(rectF.left, rectF.top, Math.min(rectF.right, bitmap.getWidth()), Math.min(rectF.bottom, bitmap.getHeight()));
-            this.rR.mapRect(rectF);
+            this.rS.mapRect(rectF);
         }
     }
 
     @Nullable
     private Bitmap getBitmap() {
-        return this.nh.Y(this.rS.getRefId());
+        return this.nh.Y(this.rT.getRefId());
     }
 
     @Override // com.airbnb.lottie.model.layer.a, com.airbnb.lottie.a.a.d

@@ -1,7 +1,7 @@
 package com.baidu.sofire.rp;
 
 import android.content.Context;
-import android.os.Message;
+import com.baidu.sofire.b;
 import com.baidu.sofire.b.e;
 import com.baidu.sofire.b.f;
 /* loaded from: classes.dex */
@@ -34,6 +34,7 @@ public class Report {
 
     public void s(String str) {
         try {
+            b.a("send log : " + str);
             e.b(this.b, str);
         } catch (Throwable th) {
             e.a(th);
@@ -42,11 +43,8 @@ public class Report {
 
     public void sr(String str) {
         try {
-            f a2 = f.a(this.b);
-            Message message = new Message();
-            message.what = 11;
-            message.obj = str;
-            a2.a.a.sendMessage(message);
+            b.a("send log : " + str);
+            f.a(this.b).a(str);
         } catch (Throwable th) {
             e.a(th);
         }
@@ -54,7 +52,7 @@ public class Report {
 
     public void r(boolean z) {
         try {
-            f.a(this.b).a();
+            f.a(this.b).a(z);
         } catch (Throwable th) {
             e.a(th);
         }
@@ -70,10 +68,7 @@ public class Report {
 
     public void n() {
         try {
-            f a2 = f.a(this.b);
-            Message message = new Message();
-            message.what = 6;
-            a2.a.a.sendMessage(message);
+            f.a(this.b).d();
         } catch (Throwable th) {
             e.a(th);
         }
@@ -81,10 +76,7 @@ public class Report {
 
     public void fr() {
         try {
-            f a2 = f.a(this.b);
-            Message message = new Message();
-            message.what = 9;
-            a2.a.a.sendMessage(message);
+            f.a(this.b).e();
         } catch (Throwable th) {
             e.a(th);
         }

@@ -90,9 +90,9 @@ public final class d {
             if (z) {
                 map.put("screenshot", new byte[0]);
             } else if (com.baidu.crabsdk.a.m) {
-                byte[] rp = com.baidu.crabsdk.b.a.rp();
-                com.baidu.crabsdk.c.a.cI("截图大小：" + (rp.length / 1024) + "KB");
-                map.put("screenshot", rp);
+                byte[] rn = com.baidu.crabsdk.b.a.rn();
+                com.baidu.crabsdk.c.a.cI("截图大小：" + (rn.length / 1024) + "KB");
+                map.put("screenshot", rn);
             } else {
                 map.put("screenshot", new byte[0]);
             }
@@ -141,7 +141,7 @@ public final class d {
             long blockCount = statFs.getBlockCount() * statFs.getBlockSize();
             StatFs statFs2 = new StatFs(Environment.getExternalStorageDirectory().getPath());
             long availableBlocks = statFs2.getAvailableBlocks() * statFs2.getBlockSize();
-            str = "Total: " + com.baidu.crabsdk.c.c.i(blockCount) + " Used: " + com.baidu.crabsdk.c.c.i(blockCount - availableBlocks) + " Free: " + com.baidu.crabsdk.c.c.i(availableBlocks);
+            str = "Total: " + com.baidu.crabsdk.c.c.k(blockCount) + " Used: " + com.baidu.crabsdk.c.c.k(blockCount - availableBlocks) + " Free: " + com.baidu.crabsdk.c.c.k(availableBlocks);
         } catch (Exception e) {
             str = "N/A";
             e.printStackTrace();
@@ -166,7 +166,7 @@ public final class d {
         hashMap.put("pageHistory", com.baidu.crabsdk.b.a.p());
         hashMap.put("activitySteps", com.baidu.crabsdk.b.d.u());
         if (t.R()) {
-            hashMap.put("urlRecord", t.ru());
+            hashMap.put("urlRecord", t.rr());
         }
         if (com.baidu.crabsdk.c.c.g(context, "android.permission.ACCESS_NETWORK_STATE")) {
             hashMap.put("networkInfo", com.baidu.crabsdk.b.n.E());
@@ -182,7 +182,7 @@ public final class d {
         hashMap.put("batVN", "7.3.4");
         hashMap.put("nativeVN", CrabSDK.NDK_VERSION);
         hashMap.put("developerName", com.baidu.crabsdk.a.a);
-        hashMap.put("isRoot", Integer.valueOf(p.rs()));
+        hashMap.put("isRoot", Integer.valueOf(p.rp()));
         hashMap.put("pkgName", o.G());
         hashMap.put("appLabel", o.H());
         if (TextUtils.isEmpty(com.baidu.crabsdk.a.o)) {
@@ -195,8 +195,8 @@ public final class d {
         hashMap.put("brand", Build.BRAND);
         hashMap.put("os", "Android");
         hashMap.put("osVN", Build.VERSION.RELEASE);
-        hashMap.put("osVC", Integer.valueOf(com.baidu.crabsdk.c.c.rv()));
-        hashMap.put("startupTime", Long.valueOf(com.baidu.crabsdk.b.a.ro()));
+        hashMap.put("osVC", Integer.valueOf(com.baidu.crabsdk.c.c.rs()));
+        hashMap.put("startupTime", Long.valueOf(com.baidu.crabsdk.b.a.rm()));
         hashMap.put("curPage", com.baidu.crabsdk.b.a.q());
         hashMap.put("locale", com.baidu.crabsdk.b.i.y());
         hashMap.put("allThreadStacks", r.M());
@@ -225,7 +225,7 @@ public final class d {
         jSONObject.put("batVN", "7.3.4");
         jSONObject.put("nativeVN", CrabSDK.NDK_VERSION);
         jSONObject.put("developerName", com.baidu.crabsdk.a.a);
-        jSONObject.put("isRoot", p.rs());
+        jSONObject.put("isRoot", p.rp());
         jSONObject.put("pkgName", o.G());
         jSONObject.put("appLabel", o.H());
         if (TextUtils.isEmpty(com.baidu.crabsdk.a.o)) {
@@ -238,7 +238,7 @@ public final class d {
         jSONObject.put("brand", Build.BRAND);
         jSONObject.put("os", "Android");
         jSONObject.put("osVN", Build.VERSION.RELEASE);
-        jSONObject.put("osVC", com.baidu.crabsdk.c.c.rv());
+        jSONObject.put("osVC", com.baidu.crabsdk.c.c.rs());
         jSONObject.put("CUID", com.baidu.crabsdk.b.h.g(context));
         jSONObject.put("channel", com.baidu.crabsdk.a.b);
         jSONObject.put("cpuabi", Build.CPU_ABI);
@@ -269,7 +269,7 @@ public final class d {
         jSONObject.put("javaLine", "N/A");
         jSONObject.put("errorTrace", "N/A");
         jSONObject.put("dump", str);
-        jSONObject.put("soLibs", f.cT(context.getApplicationInfo().nativeLibraryDir));
+        jSONObject.put("soLibs", f.cR(context.getApplicationInfo().nativeLibraryDir));
         if (com.baidu.crabsdk.a.L) {
             jSONObject.put("filter", 2);
         } else {
@@ -278,7 +278,7 @@ public final class d {
         return jSONObject;
     }
 
-    public static String rA() {
+    public static String rx() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("os", HttpConstants.OS_TYPE_VALUE);
@@ -292,7 +292,7 @@ public final class d {
             jSONObject.put("pkgName", com.baidu.crabsdk.a.d);
             jSONObject.put("sdkVN", "7.3.4");
             jSONObject.put("ndkVN", CrabSDK.NDK_VERSION);
-            jSONObject.put("appUsedCount", String.valueOf(com.baidu.crabsdk.b.m.rr()));
+            jSONObject.put("appUsedCount", String.valueOf(com.baidu.crabsdk.b.m.D()));
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

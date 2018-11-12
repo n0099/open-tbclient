@@ -42,10 +42,10 @@ public final class t {
     }
 
     public static boolean R() {
-        return ru().length() > 0;
+        return rr().length() > 0;
     }
 
-    public static String ru() {
+    public static String rr() {
         return Yp.size() > 0 ? new JSONArray((Collection) Yp).toString() : "";
     }
 
@@ -91,7 +91,7 @@ public final class t {
                                 arrayList.add(Yq);
                                 com.baidu.crabsdk.c.a.cI("title:" + E.getTitle() + "; url:" + Yq);
                                 Yp.add(arrayList);
-                                com.baidu.crabsdk.c.a.cI("###### jsonArray.toString() : " + ru());
+                                com.baidu.crabsdk.c.a.cI("###### jsonArray.toString() : " + rr());
                                 return;
                             }
                             return;

@@ -14,15 +14,15 @@ import java.io.OutputStream;
 import java.nio.channels.FileChannel;
 /* loaded from: classes.dex */
 public class f {
-    private static String FG = "baidu";
-    public static final File FH = Environment.getExternalStorageDirectory();
-    private static final char FI = File.separatorChar;
+    private static String FK = "baidu";
+    public static final File FL = Environment.getExternalStorageDirectory();
+    private static final char FM = File.separatorChar;
 
-    public static boolean hB() {
+    public static boolean hA() {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
-    public static int kH() {
+    public static int kF() {
         String externalStorageState = Environment.getExternalStorageState();
         if (externalStorageState.equals("mounted")) {
             return 0;
@@ -38,21 +38,21 @@ public class f {
 
     public static String bi(String str) {
         if (str != null) {
-            return FH + "/" + FG + "/" + str + "/";
+            return FL + "/" + FK + "/" + str + "/";
         }
-        return FH + "/" + FG + "/";
+        return FL + "/" + FK + "/";
     }
 
     public static String A(String str, String str2) {
         if (str != null) {
-            return FH + "/" + FG + "/" + str + "/" + str2;
+            return FL + "/" + FK + "/" + str + "/" + str2;
         }
-        return FH + "/" + FG + "/" + str2;
+        return FL + "/" + FK + "/" + str2;
     }
 
-    public static boolean kI() {
+    public static boolean kG() {
         try {
-            StatFs statFs = new StatFs(FH.getPath());
+            StatFs statFs = new StatFs(FL.getPath());
             return ((((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / 1024) / 1024 > 2;
         } catch (Exception e) {
             return false;
@@ -65,7 +65,7 @@ public class f {
 
     public static boolean bk(String str) {
         String bi = bi(str);
-        if (hB()) {
+        if (hA()) {
             File file = new File(bi);
             return file.exists() || file.mkdirs();
         }
@@ -574,7 +574,7 @@ public class f {
         if (file == null) {
             throw new NullPointerException("File must not be null");
         }
-        if (kJ()) {
+        if (kH()) {
             return false;
         }
         if (file.getParent() != null) {
@@ -583,8 +583,8 @@ public class f {
         return !file.getCanonicalFile().equals(file.getAbsoluteFile());
     }
 
-    static boolean kJ() {
-        return FI == '\\';
+    static boolean kH() {
+        return FM == '\\';
     }
 
     public static void t(File file) throws IOException {

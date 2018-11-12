@@ -11,12 +11,12 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public boolean Jo;
-        public JSONObject aKZ;
-        public boolean aLa;
-        public String aLb;
-        public BlockPopInfoData aLc;
-        public c ayY;
+        public boolean Jr;
+        public JSONObject aLP;
+        public boolean aLQ;
+        public String aLR;
+        public BlockPopInfoData aLS;
+        public c azN;
         public String errorString;
         public boolean isAttention;
         public String showMsg;
@@ -30,7 +30,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (str != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    this.aKZ = jSONObject;
+                    this.aLP = jSONObject;
                     JSONObject optJSONObject = jSONObject.optJSONObject("info");
                     if (optJSONObject != null) {
                         this.status = jSONObject.optInt("status");
@@ -50,16 +50,16 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
 
         private void D(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.aLb = jSONObject.optString("block_dealurl");
+                this.aLR = jSONObject.optString("block_dealurl");
                 String optString = jSONObject.optString("block_content");
                 String optString2 = jSONObject.optString("block_confirm");
                 String optString3 = jSONObject.optString("block_cancel");
-                if (!ao.isEmpty(optString) && !ao.isEmpty(this.aLb) && !ao.isEmpty(optString2) && !ao.isEmpty(optString3)) {
-                    this.aLc = new BlockPopInfoData();
-                    this.aLc.block_info = optString;
-                    this.aLc.ahead_url = this.aLb;
-                    this.aLc.ahead_info = optString2;
-                    this.aLc.ok_info = optString3;
+                if (!ao.isEmpty(optString) && !ao.isEmpty(this.aLR) && !ao.isEmpty(optString2) && !ao.isEmpty(optString3)) {
+                    this.aLS = new BlockPopInfoData();
+                    this.aLS.block_info = optString;
+                    this.aLS.ahead_url = this.aLR;
+                    this.aLS.ahead_info = optString2;
+                    this.aLS.ok_info = optString3;
                 }
             }
         }
@@ -73,7 +73,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().Jo;
+        return getData().Jr;
     }
 
     public boolean isAttention() {

@@ -1,21 +1,25 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.searchbox.ng.ai.apps.aps.AiAppsApsUtils;
-import com.baidu.webkit.internal.ETAG;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
-    private String appId = "";
-    private String appName = "";
-    private String packageName = "";
-    private boolean aJr = false;
+    private List<h> aKg = new ArrayList();
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.appId = jSONObject.optString(HttpConstants.HTTP_APP_ID, "");
-            this.appName = jSONObject.optString(AiAppsApsUtils.APP_NAME, "");
-            this.packageName = jSONObject.optString(ETAG.KEY_PACKAGE_NAME, "");
+    public void parserJson(JSONObject jSONObject) throws JSONException {
+        JSONArray optJSONArray;
+        if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("applist")) != null && optJSONArray.length() != 0) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                if (jSONObject2 != null) {
+                    h hVar = new h();
+                    hVar.parserJson(jSONObject2);
+                    this.aKg.add(hVar);
+                }
+            }
         }
     }
 }

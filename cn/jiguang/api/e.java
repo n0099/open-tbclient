@@ -15,6 +15,10 @@ import org.json.JSONObject;
 public class e {
     public static String a = "cn.jpush.android.intent.DaemonService";
 
+    public static void A(int i) {
+        cn.jiguang.a.c.a.a(i);
+    }
+
     public static void F(String str) {
         cn.jiguang.d.h.i.a(str, 4, -1);
     }
@@ -152,10 +156,6 @@ public class e {
         return cn.jiguang.d.a.d.d();
     }
 
-    public static JSONObject c(JSONObject jSONObject, String str) {
-        return aa.a(cn.jiguang.d.a.d, jSONObject, str);
-    }
-
     public static void c(Context context, String str, Bundle bundle) {
         try {
             bundle.putString("sdktype", str);
@@ -167,6 +167,10 @@ public class e {
 
     public static void c(String str, Class<? extends c> cls) {
         cn.jiguang.d.d.e.b(str, cls.getName());
+    }
+
+    public static JSONObject d(JSONObject jSONObject, String str) {
+        return aa.a(cn.jiguang.d.a.d, jSONObject, str);
     }
 
     public static void d(Context context, int i) {
@@ -213,16 +217,8 @@ public class e {
         return 0L;
     }
 
-    public static void h(boolean z) {
-        cn.jiguang.d.i.f.ck().cl().a(z);
-    }
-
     public static void initCrashHandler(Context context) {
         a("SDK_MAIN", new cn.jiguang.d.c(context, 2), new int[0]);
-    }
-
-    public static void j(int i) {
-        cn.jiguang.a.c.a.a(i);
     }
 
     public static void onFragmentPause(Context context, String str) {
@@ -310,5 +306,9 @@ public class e {
 
     public static void stopCrashHandler(Context context) {
         a("SDK_MAIN", new cn.jiguang.d.c(context, 3), new int[0]);
+    }
+
+    public static void w(boolean z) {
+        cn.jiguang.d.i.f.ck().cl().a(z);
     }
 }

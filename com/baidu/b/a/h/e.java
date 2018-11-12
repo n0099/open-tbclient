@@ -29,7 +29,7 @@ public class e {
         return activeNetworkInfo != null && activeNetworkInfo.isAvailable() && activeNetworkInfo.getType() == 1;
     }
 
-    public static String si() {
+    public static String sf() {
         Application application = AppRuntime.getApplication();
         try {
             return application.getPackageManager().getPackageInfo(application.getPackageName(), 64).versionName;
@@ -85,25 +85,25 @@ public class e {
         return ((ByteArrayOutputStream) outputStream).toByteArray();
     }
 
-    public static String sj() {
-        return c.sh().processor;
+    public static String sg() {
+        return c.se().processor;
     }
 
-    public static String sk() {
-        return c.sh().features;
+    public static String sh() {
+        return c.se().features;
     }
 
-    public static String sl() {
+    public static String si() {
         long availableInternalMemorySize = (j.getAvailableInternalMemorySize() / 1024) * 1024;
         return availableInternalMemorySize < 0 ? String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED) : String.valueOf(availableInternalMemorySize);
     }
 
-    public static String sm() {
+    public static String sj() {
         long totalInternalMemorySize = (j.getTotalInternalMemorySize() / 1024) * 1024;
         return totalInternalMemorySize < 0 ? String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED) : String.valueOf(totalInternalMemorySize);
     }
 
-    public static String bt(int i) {
+    public static String bI(int i) {
         return AppRuntime.getApplication().getResources().getString(i);
     }
 

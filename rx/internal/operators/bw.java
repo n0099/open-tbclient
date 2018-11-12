@@ -3,7 +3,7 @@ package rx.internal.operators;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class bw<T> implements d.b<T, T> {
-    final rx.functions.f<? super T, Boolean> izP;
+    final rx.functions.f<? super T, Boolean> iBz;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -11,7 +11,7 @@ public final class bw<T> implements d.b<T, T> {
     }
 
     public bw(rx.functions.f<? super T, Boolean> fVar) {
-        this.izP = fVar;
+        this.iBz = fVar;
     }
 
     public rx.j<? super T> call(rx.j<? super T> jVar) {
@@ -20,7 +20,7 @@ public final class bw<T> implements d.b<T, T> {
         jVar.setProducer(new rx.f() { // from class: rx.internal.operators.bw.1
             @Override // rx.f
             public void request(long j) {
-                aVar.dz(j);
+                aVar.du(j);
             }
         });
         return aVar;
@@ -40,7 +40,7 @@ public final class bw<T> implements d.b<T, T> {
         public void onNext(T t) {
             this.child.onNext(t);
             try {
-                if (bw.this.izP.call(t).booleanValue()) {
+                if (bw.this.iBz.call(t).booleanValue()) {
                     this.done = true;
                     this.child.onCompleted();
                     unsubscribe();
@@ -66,7 +66,7 @@ public final class bw<T> implements d.b<T, T> {
             }
         }
 
-        void dz(long j) {
+        void du(long j) {
             request(j);
         }
     }

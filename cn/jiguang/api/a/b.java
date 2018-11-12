@@ -31,6 +31,26 @@ public class b {
         this.a = bArr;
     }
 
+    public void B(int i) {
+        a(1);
+        byte[] bArr = this.a;
+        int i2 = this.b;
+        this.b = i2 + 1;
+        bArr[i2] = (byte) (i & 255);
+    }
+
+    public void C(int i) {
+        a(2);
+        byte[] bArr = this.a;
+        int i2 = this.b;
+        this.b = i2 + 1;
+        bArr[i2] = (byte) ((i >>> 8) & 255);
+        byte[] bArr2 = this.a;
+        int i3 = this.b;
+        this.b = i3 + 1;
+        bArr2[i3] = (byte) (i & 255);
+    }
+
     public void b(long j, int i) {
         if (i > this.b - 4) {
             throw new IllegalArgumentException("cannot write past end of data");
@@ -64,12 +84,12 @@ public class b {
         return this.b;
     }
 
-    public void f(byte[] bArr) {
-        l(bArr.length);
+    public void e(byte[] bArr) {
+        C(bArr.length);
         writeByteArray(bArr, 0, bArr.length);
     }
 
-    public void g(long j) {
+    public void i(long j) {
         a(4);
         byte[] bArr = this.a;
         int i = this.b;
@@ -89,7 +109,7 @@ public class b {
         bArr4[i4] = (byte) (j & 255);
     }
 
-    public void h(long j) {
+    public void j(long j) {
         a(8);
         byte[] bArr = this.a;
         int i = this.b;
@@ -125,31 +145,11 @@ public class b {
         bArr8[i8] = (byte) (j & 255);
     }
 
-    public void k(int i) {
-        a(1);
-        byte[] bArr = this.a;
-        int i2 = this.b;
-        this.b = i2 + 1;
-        bArr[i2] = (byte) (i & 255);
-    }
-
     public void k(int i, int i2) {
         if (i2 > this.b - 1) {
             throw new IllegalArgumentException("cannot write past end of data");
         }
         this.a[i2] = (byte) (i & 255);
-    }
-
-    public void l(int i) {
-        a(2);
-        byte[] bArr = this.a;
-        int i2 = this.b;
-        this.b = i2 + 1;
-        bArr[i2] = (byte) ((i >>> 8) & 255);
-        byte[] bArr2 = this.a;
-        int i3 = this.b;
-        this.b = i3 + 1;
-        bArr2[i3] = (byte) (i & 255);
     }
 
     public void l(int i, int i2) {

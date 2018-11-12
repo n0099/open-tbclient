@@ -3,9 +3,9 @@ package com.baidu.tbadk.e;
 public interface a {
     void dp(String str);
 
-    void tZ();
+    void uj();
 
-    void vs();
+    void vC();
 
-    void vt();
+    void vD();
 }

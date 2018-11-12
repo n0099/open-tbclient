@@ -12,25 +12,25 @@ public class e {
 
     public static void a(h hVar, Path path) {
         path.reset();
-        PointF eB = hVar.eB();
-        path.moveTo(eB.x, eB.y);
-        PointF pointF = new PointF(eB.x, eB.y);
+        PointF eA = hVar.eA();
+        path.moveTo(eA.x, eA.y);
+        PointF pointF = new PointF(eA.x, eA.y);
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= hVar.eC().size()) {
+            if (i2 >= hVar.eB().size()) {
                 break;
             }
-            com.airbnb.lottie.model.c cVar = hVar.eC().get(i2);
+            com.airbnb.lottie.model.c cVar = hVar.eB().get(i2);
+            PointF dB = cVar.dB();
             PointF dC = cVar.dC();
             PointF dD = cVar.dD();
-            PointF dE = cVar.dE();
-            if (dC.equals(pointF) && dD.equals(dE)) {
-                path.lineTo(dE.x, dE.y);
+            if (dB.equals(pointF) && dC.equals(dD)) {
+                path.lineTo(dD.x, dD.y);
             } else {
-                path.cubicTo(dC.x, dC.y, dD.x, dD.y, dE.x, dE.y);
+                path.cubicTo(dB.x, dB.y, dC.x, dC.y, dD.x, dD.y);
             }
-            pointF.set(dE.x, dE.y);
+            pointF.set(dD.x, dD.y);
             i = i2 + 1;
         }
         if (hVar.isClosed()) {
@@ -42,7 +42,7 @@ public class e {
         return ((f2 - f) * f3) + f;
     }
 
-    public static double a(double d, double d2, @FloatRange(from = 0.0d, to = 1.0d) double d3) {
+    public static double b(double d, double d2, @FloatRange(from = 0.0d, to = 1.0d) double d3) {
         return ((d2 - d) * d3) + d;
     }
 
@@ -50,7 +50,7 @@ public class e {
         return (int) (i + ((i2 - i) * f));
     }
 
-    public static int h(float f, float f2) {
+    public static int k(float f, float f2) {
         return floorMod((int) f, (int) f2);
     }
 

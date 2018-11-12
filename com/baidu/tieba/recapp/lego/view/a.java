@@ -11,75 +11,75 @@ import com.baidu.tieba.recapp.i;
 import com.baidu.tieba.recapp.view.IVrPlayView;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tieba.recapp.a {
-    private boolean gGi;
-    private boolean gGj;
-    private long gGk;
+    private boolean gHJ;
+    private boolean gHK;
+    private long gHL;
     public boolean isPrepared;
     private int mDuration;
 
     public a(IVrPlayView iVrPlayView) {
         super(iVrPlayView);
-        this.gGi = false;
-        this.gGj = false;
-        this.gGk = 0L;
+        this.gHJ = false;
+        this.gHK = false;
+        this.gHL = 0L;
         this.isPrepared = false;
     }
 
     @Override // com.baidu.tieba.recapp.a
     public void initListener() {
-        this.bxz = new a.InterfaceC0151a() { // from class: com.baidu.tieba.recapp.lego.view.a.1
-            @Override // com.baidu.tieba.ad.play.a.InterfaceC0151a
+        this.byk = new a.InterfaceC0175a() { // from class: com.baidu.tieba.recapp.lego.view.a.1
+            @Override // com.baidu.tieba.ad.play.a.InterfaceC0175a
             public void onLoading() {
-                a.this.gCv.loading();
+                a.this.gDW.loading();
             }
 
-            @Override // com.baidu.tieba.ad.play.a.InterfaceC0151a
+            @Override // com.baidu.tieba.ad.play.a.InterfaceC0175a
             public void onPlay() {
-                a.this.gCv.play();
+                a.this.gDW.play();
                 a.this.mStatus = 1;
             }
         };
-        this.btP = new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.recapp.lego.view.a.2
+        this.buC = new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.recapp.lego.view.a.2
             @Override // android.media.MediaPlayer.OnPreparedListener
             public void onPrepared(MediaPlayer mediaPlayer) {
-                if (mediaPlayer != null && a.this.gCx != null) {
-                    a.this.mDuration = a.this.gCx.getDuration();
-                    a.this.gCv.setSeekBarTime(0, a.this.mDuration);
-                    if (a.this.btG() > 0) {
-                        mediaPlayer.seekTo((int) a.this.btG());
-                        a.this.qp(0);
+                if (mediaPlayer != null && a.this.gDY != null) {
+                    a.this.mDuration = a.this.gDY.getDuration();
+                    a.this.gDW.setSeekBarTime(0, a.this.mDuration);
+                    if (a.this.btc() > 0) {
+                        mediaPlayer.seekTo((int) a.this.btc());
+                        a.this.qI(0);
                     }
-                    a.this.gCv.play();
+                    a.this.gDW.play();
                     a.this.isPrepared = true;
                 }
             }
         };
-        this.gCy = new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.recapp.lego.view.a.3
+        this.gDZ = new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.recapp.lego.view.a.3
             @Override // android.media.MediaPlayer.OnCompletionListener
             public void onCompletion(MediaPlayer mediaPlayer) {
                 a.this.stopPlay();
-                a.this.gCv.complete();
-                a.this.gCv.setSeekBarTime(0, a.this.mDuration);
+                a.this.gDW.complete();
+                a.this.gDW.setSeekBarTime(0, a.this.mDuration);
             }
         };
-        this.gCz = new a.b() { // from class: com.baidu.tieba.recapp.lego.view.a.4
+        this.gEa = new a.b() { // from class: com.baidu.tieba.recapp.lego.view.a.4
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                a.this.gGj = true;
-                a.this.gCv.play();
+                a.this.gHK = true;
+                a.this.gDW.play();
                 a.this.playVideo();
                 aVar.dismiss();
             }
         };
-        this.btT = new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.recapp.lego.view.a.5
+        this.buG = new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.recapp.lego.view.a.5
             @Override // android.media.MediaPlayer.OnErrorListener
             public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
                 a.this.stopPlay();
-                a.this.gCv.error();
+                a.this.gDW.error();
                 return true;
             }
         };
-        this.gCv.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.recapp.lego.view.a.6
+        this.gDW.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.recapp.lego.view.a.6
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
             }
@@ -90,36 +90,36 @@ public class a extends com.baidu.tieba.recapp.a {
 
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onStopTrackingTouch(SeekBar seekBar) {
-                if (a.this.gCx != null && !a.this.gCx.isPlaying()) {
-                    a.this.gCv.play();
-                    a.this.gCx.start();
+                if (a.this.gDY != null && !a.this.gDY.isPlaying()) {
+                    a.this.gDW.play();
+                    a.this.gDY.start();
                 }
             }
         });
-        this.gCv.setClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.a.7
+        this.gDW.setClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.a.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getId() == e.g.error_tips) {
-                    if (a.this.gCx != null) {
-                        a.this.gCx.reset();
+                    if (a.this.gDY != null) {
+                        a.this.gDY.reset();
                     }
-                    if (a.this.gCv != null) {
-                        a.this.gCv.buffer();
+                    if (a.this.gDW != null) {
+                        a.this.gDW.buffer();
                     }
-                } else if ((view.getId() == e.g.play_icon || view.getId() == e.g.replay) && a.this.gCx != null && a.this.gCv != null) {
-                    if (a.this.gCx.isPlaying()) {
-                        a.this.gCx.pause();
-                        a.this.gCv.pause();
-                        a.this.gGi = true;
+                } else if ((view.getId() == e.g.play_icon || view.getId() == e.g.replay) && a.this.gDY != null && a.this.gDW != null) {
+                    if (a.this.gDY.isPlaying()) {
+                        a.this.gDY.pause();
+                        a.this.gDW.pause();
+                        a.this.gHJ = true;
                         return;
                     }
                     if (a.this.isPrepared) {
-                        a.this.gCv.play();
-                        a.this.gCx.start();
-                    } else if (a.this.gCv instanceof i) {
-                        ((i) a.this.gCv).startPlay();
+                        a.this.gDW.play();
+                        a.this.gDY.start();
+                    } else if (a.this.gDW instanceof i) {
+                        ((i) a.this.gDW).startPlay();
                     }
-                    a.this.gGi = false;
+                    a.this.gHJ = false;
                 }
             }
         });
@@ -132,38 +132,38 @@ public class a extends com.baidu.tieba.recapp.a {
 
     @Override // com.baidu.tieba.recapp.a
     public void playVideo() {
-        if (!j.kZ()) {
-            this.gGj = true;
-            this.gCv.buffer();
+        if (!j.kX()) {
+            this.gHK = true;
+            this.gDW.buffer();
             super.playVideo();
             return;
         }
-        this.gGj = false;
+        this.gHK = false;
         showDialog();
     }
 
     @Override // com.baidu.tieba.recapp.a
     public void pausePlay() {
-        this.gCv.pause();
-        if (this.gCx != null) {
-            this.gCx.pause();
+        this.gDW.pause();
+        if (this.gDY != null) {
+            this.gDY.pause();
         }
-        if (this.gCw != null) {
-            this.gCw.onPause(this.mContext.getPageActivity());
+        if (this.gDX != null) {
+            this.gDX.onPause(this.mContext.getPageActivity());
         }
     }
 
     @Override // com.baidu.tieba.recapp.a
     public void continuePlay() {
-        if (!this.gGi && this.gGj) {
-            if (this.gCx != null && !this.gCx.isPlaying() && this.isPrepared) {
-                this.gCv.play();
-                this.gCx.start();
-            } else if (this.gCv instanceof i) {
-                ((i) this.gCv).startPlay();
+        if (!this.gHJ && this.gHK) {
+            if (this.gDY != null && !this.gDY.isPlaying() && this.isPrepared) {
+                this.gDW.play();
+                this.gDY.start();
+            } else if (this.gDW instanceof i) {
+                ((i) this.gDW).startPlay();
             }
-            if (this.gCw != null) {
-                this.gCw.onResume(this.mContext.getPageActivity());
+            if (this.gDX != null) {
+                this.gDX.onResume(this.mContext.getPageActivity());
             }
         }
     }
@@ -183,32 +183,32 @@ public class a extends com.baidu.tieba.recapp.a {
         super.destroy();
     }
 
-    public long btG() {
-        return this.gGk;
+    public long btc() {
+        return this.gHL;
     }
 
-    public void btH() {
-        this.gGk = getCurrentPos();
+    public void btd() {
+        this.gHL = getCurrentPos();
     }
 
-    public void qp(int i) {
-        this.gGk = i;
+    public void qI(int i) {
+        this.gHL = i;
     }
 
     private void showDialog() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
-        aVar.cy(e.j.confirm_title);
+        aVar.cM(e.j.confirm_title);
         aVar.ej(this.mContext.getPageActivity().getResources().getString(e.j.now_is_not_wifi));
-        aVar.a(this.mContext.getPageActivity().getResources().getString(e.j.confirm), this.gCz);
+        aVar.a(this.mContext.getPageActivity().getResources().getString(e.j.confirm), this.gEa);
         aVar.b(this.mContext.getPageActivity().getResources().getString(e.j.cancel), new a.b() { // from class: com.baidu.tieba.recapp.lego.view.a.8
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 a.this.mContext.getPageActivity().finish();
             }
         });
-        aVar.aO(false);
-        aVar.aP(false);
+        aVar.be(false);
+        aVar.bf(false);
         aVar.b(this.mContext);
-        aVar.Au();
+        aVar.AB();
     }
 }

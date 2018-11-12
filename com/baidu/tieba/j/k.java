@@ -7,31 +7,32 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.util.aa;
+import com.baidu.tieba.play.QuickVideoView;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes.dex */
 public class k {
     private static final String TAG = k.class.getName();
-    private long fwA;
-    private long fwB;
-    private boolean fwC;
+    private long fxX;
+    private long fxY;
+    private boolean fxZ;
 
-    public void bbu() {
-        this.fwC = true;
-        this.fwA = SystemClock.elapsedRealtime();
+    public void baT() {
+        this.fxZ = true;
+        this.fxX = SystemClock.elapsedRealtime();
     }
 
-    public void bbv() {
-        this.fwB = SystemClock.elapsedRealtime();
+    public void baU() {
+        this.fxY = SystemClock.elapsedRealtime();
     }
 
-    public void a(String str, long j, long j2, String str2) {
-        if (this.fwC) {
-            this.fwC = false;
+    public void a(String str, long j, long j2, String str2, QuickVideoView quickVideoView) {
+        if (this.fxZ) {
+            this.fxZ = false;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            long j3 = this.fwB - this.fwA;
-            long j4 = elapsedRealtime - this.fwB;
-            long j5 = elapsedRealtime - this.fwA;
-            if (com.baidu.adp.lib.util.j.ld() == 2 || j3 <= 17500) {
+            long j3 = this.fxY - this.fxX;
+            long j4 = elapsedRealtime - this.fxY;
+            long j5 = elapsedRealtime - this.fxX;
+            if (com.baidu.adp.lib.util.j.lb() == 2 || j3 <= 17500) {
                 am amVar = new am("c13171");
                 amVar.ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, str2);
                 amVar.h("obj_param1", j3);
@@ -39,17 +40,20 @@ public class k {
                 amVar.h("obj_param3", j5);
                 amVar.h("obj_duration", j2);
                 amVar.h("resource_id", j);
-                amVar.x("ptype", com.baidu.adp.lib.util.j.ld());
+                amVar.x("ptype", com.baidu.adp.lib.util.j.lb());
                 amVar.ax("tid", str);
                 amVar.ax("cuid", TbadkCoreApplication.getInst().getCuid());
-                amVar.x(VideoPlayActivityConfig.OBJ_ID, aa.fN(rF(str2)) ? 1 : 0);
+                amVar.x(VideoPlayActivityConfig.OBJ_ID, aa.gb(rG(str2)) ? 1 : 0);
                 amVar.h(ETAG.KEY_TIME_STAMP, System.currentTimeMillis());
                 TiebaStatic.log(amVar);
+                if (quickVideoView != null) {
+                    quickVideoView.a(str2, j3, j4, j5, j2, j, str, aa.gb(rG(str2)) ? 1 : 0);
+                }
             }
         }
     }
 
-    private int rF(String str) {
+    private int rG(String str) {
         if ("frs".equals(str)) {
             return 2;
         }

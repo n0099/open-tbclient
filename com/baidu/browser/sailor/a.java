@@ -14,71 +14,71 @@ import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 /* loaded from: classes2.dex */
 public class a {
     public static final String LOG_TAG = a.class.getSimpleName();
-    protected static a Vo;
-    private BdSailorClient Vp;
-    private c Vq;
-    private boolean Vr = false;
-    private BdSailorWebView Vs;
+    protected static a Vq;
+    private BdSailorClient Vr;
+    private c Vs;
+    private boolean Vt = false;
+    private BdSailorWebView Vu;
 
     protected a() {
         Log.d(LOG_TAG, "BdSailor::BdSailor");
-        this.Vp = new BdSailorClient();
+        this.Vr = new BdSailorClient();
     }
 
     private void cu(String str) {
         com.baidu.browser.sailor.feature.a cC;
-        if (TextUtils.isEmpty(str) || (cC = com.baidu.browser.sailor.b.a.qR().cC(str)) == null) {
+        if (TextUtils.isEmpty(str) || (cC = com.baidu.browser.sailor.b.a.qP().cC(str)) == null) {
             return;
         }
         cC.enable();
     }
 
-    public static synchronized a qq() {
+    public static synchronized a qo() {
         a aVar;
         synchronized (a.class) {
-            if (Vo == null) {
-                Vo = new a();
+            if (Vq == null) {
+                Vq = new a();
             }
-            aVar = Vo;
+            aVar = Vq;
         }
         return aVar;
     }
 
-    private void qu() {
+    private void qs() {
     }
 
     public void a(NetworkInfo networkInfo) {
         if (networkInfo != null && networkInfo.getState() == NetworkInfo.State.CONNECTED) {
-            com.baidu.browser.sailor.b.a.qR().bp(networkInfo.getType());
+            com.baidu.browser.sailor.b.a.qP().bE(networkInfo.getType());
         }
         NetWorkUtils.onNetWorkChanged(getAppContext(), networkInfo);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdSailorWebView bdSailorWebView) {
-        this.Vs = bdSailorWebView;
+        this.Vu = bdSailorWebView;
     }
 
     public void a(IWebkitLoaderListener iWebkitLoaderListener) {
-        com.baidu.browser.sailor.b.a.qT().a(iWebkitLoaderListener);
+        com.baidu.browser.sailor.b.a.qR().a(iWebkitLoaderListener);
     }
 
-    public void am(boolean z) {
+    public void aA(boolean z) {
         if (z) {
-            com.baidu.browser.sailor.b.a.qT().rb();
+            com.baidu.browser.sailor.b.a.qR().qZ();
         } else {
-            com.baidu.browser.sailor.b.a.qT().rc();
+            com.baidu.browser.sailor.b.a.qR().ra();
         }
     }
 
     public void b(IWebkitLoaderListener iWebkitLoaderListener) {
-        com.baidu.browser.sailor.b.a.qT().b(iWebkitLoaderListener);
+        com.baidu.browser.sailor.b.a.qR().b(iWebkitLoaderListener);
     }
 
     public void disableFeature(String str) {
         com.baidu.browser.sailor.feature.a cC;
         WebViewFactory.getProvider().disableFeature(str);
-        if (TextUtils.isEmpty(str) || (cC = com.baidu.browser.sailor.b.a.qR().cC(str)) == null) {
+        if (TextUtils.isEmpty(str) || (cC = com.baidu.browser.sailor.b.a.qP().cC(str)) == null) {
             return;
         }
         cC.disable();
@@ -87,76 +87,76 @@ public class a {
     public void enableFeature(String str) {
         com.baidu.browser.sailor.feature.a cC;
         WebViewFactory.getProvider().enableFeature(str);
-        if (TextUtils.isEmpty(str) || (cC = com.baidu.browser.sailor.b.a.qR().cC(str)) == null) {
+        if (TextUtils.isEmpty(str) || (cC = com.baidu.browser.sailor.b.a.qP().cC(str)) == null) {
             return;
         }
         cC.enable();
     }
 
     public Context getAppContext() {
-        return com.baidu.browser.sailor.b.a.qR().getAppContext();
+        return com.baidu.browser.sailor.b.a.qP().getAppContext();
     }
 
     public boolean init(Context context, String str) {
-        if (!this.Vr) {
+        if (!this.Vt) {
             Log.d(LOG_TAG, "BdSailor::init");
             if (context == null) {
                 throw new RuntimeException("BdSailor::init aContext must not be null.");
             }
-            boolean init = com.baidu.browser.sailor.b.a.qR().init(context.getApplicationContext(), str);
+            boolean init = com.baidu.browser.sailor.b.a.qP().init(context.getApplicationContext(), str);
             cu("SSL");
             cu("UPLOAD");
             cu("LIGHT_APP");
-            qu();
-            this.Vr = init;
+            qs();
+            this.Vt = init;
         }
-        return this.Vr;
+        return this.Vt;
     }
 
     public boolean init(Context context, String str, String str2) {
         boolean init = init(context, str);
-        String cuid = CommonParam.getCUID(com.baidu.browser.sailor.b.a.qR().getAppContext());
-        com.baidu.browser.sailor.b.a qR = com.baidu.browser.sailor.b.a.qR();
+        String cuid = CommonParam.getCUID(com.baidu.browser.sailor.b.a.qP().getAppContext());
+        com.baidu.browser.sailor.b.a qP = com.baidu.browser.sailor.b.a.qP();
         if (TextUtils.isEmpty(str2)) {
             str2 = cuid;
         }
-        qR.setCuid(str2);
+        qP.setCuid(str2);
         return init;
     }
 
     public void j(String str, boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         ZeusPerformanceTiming.initWebkitStart();
-        com.baidu.browser.sailor.b.a.qR().a(str, z, (Class<? extends CrashCallback>) null);
+        com.baidu.browser.sailor.b.a.qP().a(str, z, (Class<? extends CrashCallback>) null);
         ZeusPerformanceTiming.initWebkitEnd();
         Log.d(GlobalConstants.LOG_PER_TAG, "initWebkit =  : " + (System.currentTimeMillis() - currentTimeMillis));
         Log.d(GlobalConstants.LOG_PER_TAG, ZeusPerformanceTiming.getZeusInitTiming());
     }
 
-    public boolean qr() {
-        return this.Vr;
+    public boolean qp() {
+        return this.Vt;
     }
 
-    public boolean qs() {
-        return this.Vr && com.baidu.browser.sailor.b.a.qR().qs();
+    public boolean qq() {
+        return this.Vt && com.baidu.browser.sailor.b.a.qP().qq();
     }
 
-    public synchronized c qt() {
-        if (this.Vq == null) {
-            this.Vq = new c();
+    public synchronized c qr() {
+        if (this.Vs == null) {
+            this.Vs = new c();
         }
-        return this.Vq;
+        return this.Vs;
     }
 
-    public BdSailorClient qv() {
-        if (this.Vp == null) {
+    public BdSailorClient qt() {
+        if (this.Vr == null) {
             Log.e(LOG_TAG, "SailorClient can not be NULL!");
             return new BdSailorClient();
         }
-        return this.Vp;
+        return this.Vr;
     }
 
-    public BdSailorWebView qw() {
-        return this.Vs;
+    public BdSailorWebView qu() {
+        return this.Vu;
     }
 }

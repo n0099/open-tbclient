@@ -18,7 +18,7 @@ public class j implements g.a {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void x(byte[] bArr) {
+    public void w(byte[] bArr) {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
@@ -30,7 +30,7 @@ public class j implements g.a {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void lG() {
+    public void lE() {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a

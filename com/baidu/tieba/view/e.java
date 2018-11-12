@@ -3,7 +3,7 @@ package com.baidu.tieba.view;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes5.dex */
 public interface e {
-    void nW(boolean z);
+    void ok(boolean z);
 
     void onChangeSkinType(int i);
 

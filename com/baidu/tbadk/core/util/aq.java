@@ -3,91 +3,91 @@ package com.baidu.tbadk.core.util;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class aq {
-    private static aq ays = null;
-    private boolean ayt = false;
-    private boolean ayu = false;
-    private int ayv = TbConfig.POST_IMAGE_SMALL;
-    private String ayw = String.valueOf(45);
+    private static aq azf = null;
+    private boolean azg = false;
+    private boolean azh = false;
+    private int azi = TbConfig.POST_IMAGE_SMALL;
+    private String azj = String.valueOf(45);
 
-    public static aq CG() {
-        if (ays == null) {
+    public static aq CN() {
+        if (azf == null) {
             synchronized (aq.class) {
-                ays = new aq();
+                azf = new aq();
             }
         }
-        return ays;
+        return azf;
     }
 
     public aq() {
-        CJ();
-        CH();
-    }
-
-    private void CH() {
+        CQ();
         CO();
-        CP();
-        CQ();
     }
 
-    public void bd(boolean z) {
-        this.ayu = z;
+    private void CO() {
+        CV();
+        CW();
+        CX();
     }
 
-    public boolean CI() {
-        return this.ayu;
+    public void bt(boolean z) {
+        this.azh = z;
     }
 
-    public void be(boolean z) {
-        this.ayt = z;
-        CH();
+    public boolean CP() {
+        return this.azh;
     }
 
-    private void CJ() {
-        this.ayt = com.baidu.adp.lib.util.j.kY();
+    public void bu(boolean z) {
+        this.azg = z;
+        CO();
     }
 
-    public boolean CK() {
-        return this.ayt;
+    private void CQ() {
+        this.azg = com.baidu.adp.lib.util.j.kW();
     }
 
-    public String CL() {
-        return this.ayw;
+    public boolean CR() {
+        return this.azg;
     }
 
-    public int CM() {
-        CQ();
-        return this.ayv;
+    public String CS() {
+        return this.azj;
     }
 
-    public int CN() {
+    public int CT() {
+        CX();
+        return this.azi;
+    }
+
+    public int CU() {
         return TbConfig.POST_IMAGE_HIGHT_LIMIT;
     }
 
-    public void CO() {
+    public void CV() {
         boolean z = true;
-        if (com.baidu.tbadk.core.i.ws().getViewImageQuality() != 0 ? com.baidu.tbadk.core.i.ws().getViewImageQuality() != 1 : !this.ayt) {
+        if (com.baidu.tbadk.core.i.wA().getViewImageQuality() != 0 ? com.baidu.tbadk.core.i.wA().getViewImageQuality() != 1 : !this.azg) {
             z = false;
         }
-        bd(z);
+        bt(z);
     }
 
-    public void CP() {
+    public void CW() {
         String valueOf = String.valueOf(45);
-        if (com.baidu.tbadk.core.i.ws().getViewImageQuality() == 0) {
-            if (CK()) {
+        if (com.baidu.tbadk.core.i.wA().getViewImageQuality() == 0) {
+            if (CR()) {
                 valueOf = String.valueOf(80);
             }
-        } else if (com.baidu.tbadk.core.i.ws().getViewImageQuality() == 1) {
+        } else if (com.baidu.tbadk.core.i.wA().getViewImageQuality() == 1) {
             valueOf = String.valueOf(80);
         }
-        this.ayw = valueOf;
+        this.azj = valueOf;
     }
 
-    public void CQ() {
+    public void CX() {
         int i = 2000;
-        switch (com.baidu.tbadk.core.i.ws().wt()) {
+        switch (com.baidu.tbadk.core.i.wA().wB()) {
             case 0:
-                if (!CK()) {
+                if (!CR()) {
                     i = 1500;
                     break;
                 }
@@ -104,10 +104,10 @@ public class aq {
                 i = 1800;
                 break;
         }
-        this.ayv = i;
+        this.azi = i;
     }
 
-    public static boolean CR() {
-        return l.hB() && com.baidu.adp.gif.c.hA();
+    public static boolean CY() {
+        return l.hA() && com.baidu.adp.gif.c.hz();
     }
 }

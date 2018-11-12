@@ -8,13 +8,13 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class q extends q.a {
-    public View ass;
-    public TextView dxK;
-    public TextView dxL;
-    public TextView dxM;
-    public TextView dxN;
-    public RelativeLayout dxO;
-    public RelativeLayout dxP;
+    public View atf;
+    public TextView dzc;
+    public TextView dzd;
+    public TextView dze;
+    public TextView dzf;
+    public RelativeLayout dzg;
+    public RelativeLayout dzh;
     public LinearLayout mRootLayout;
     public int mSkinType;
 
@@ -22,12 +22,12 @@ public class q extends q.a {
         super(view);
         this.mSkinType = 3;
         this.mRootLayout = (LinearLayout) view.findViewById(e.g.root_member_manager_apply);
-        this.ass = view.findViewById(e.g.manager_apply_line);
-        this.dxK = (TextView) view.findViewById(e.g.manager_apply_tip);
-        this.dxL = (TextView) view.findViewById(e.g.assist_apply_tip);
-        this.dxM = (TextView) view.findViewById(e.g.manager_left_tv);
-        this.dxN = (TextView) view.findViewById(e.g.assist_left_tv);
-        this.dxO = (RelativeLayout) view.findViewById(e.g.manager_apply_layout);
-        this.dxP = (RelativeLayout) view.findViewById(e.g.assist_apply_layout);
+        this.atf = view.findViewById(e.g.manager_apply_line);
+        this.dzc = (TextView) view.findViewById(e.g.manager_apply_tip);
+        this.dzd = (TextView) view.findViewById(e.g.assist_apply_tip);
+        this.dze = (TextView) view.findViewById(e.g.manager_left_tv);
+        this.dzf = (TextView) view.findViewById(e.g.assist_left_tv);
+        this.dzg = (RelativeLayout) view.findViewById(e.g.manager_apply_layout);
+        this.dzh = (RelativeLayout) view.findViewById(e.g.assist_apply_layout);
     }
 }

@@ -4,10 +4,10 @@ import java.util.NoSuchElementException;
 import rx.h;
 /* loaded from: classes2.dex */
 public class t<T> implements h.a<T> {
-    private final rx.d<T> iuM;
+    private final rx.d<T> iww;
 
     public t(rx.d<T> dVar) {
-        this.iuM = dVar;
+        this.iww = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -15,9 +15,9 @@ public class t<T> implements h.a<T> {
     /* renamed from: b */
     public void call(final rx.i<? super T> iVar) {
         rx.j<T> jVar = new rx.j<T>() { // from class: rx.internal.operators.t.1
-            private boolean iuN;
-            private boolean iuO;
-            private T iuP;
+            private boolean iwx;
+            private boolean iwy;
+            private T iwz;
 
             @Override // rx.j
             public void onStart() {
@@ -26,9 +26,9 @@ public class t<T> implements h.a<T> {
 
             @Override // rx.e
             public void onCompleted() {
-                if (!this.iuN) {
-                    if (this.iuO) {
-                        iVar.onSuccess(this.iuP);
+                if (!this.iwx) {
+                    if (this.iwy) {
+                        iVar.onSuccess(this.iwz);
                     } else {
                         iVar.onError(new NoSuchElementException("Observable emitted no items"));
                     }
@@ -43,18 +43,18 @@ public class t<T> implements h.a<T> {
 
             @Override // rx.e
             public void onNext(T t) {
-                if (this.iuO) {
-                    this.iuN = true;
+                if (this.iwy) {
+                    this.iwx = true;
                     iVar.onError(new IllegalArgumentException("Observable emitted too many elements"));
                     unsubscribe();
                     return;
                 }
-                this.iuO = true;
-                this.iuP = t;
+                this.iwy = true;
+                this.iwz = t;
             }
         };
         iVar.add(jVar);
-        this.iuM.unsafeSubscribe(jVar);
+        this.iww.unsafeSubscribe(jVar);
     }
 
     public static <T> t<T> g(rx.d<T> dVar) {

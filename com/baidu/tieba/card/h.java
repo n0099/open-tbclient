@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class h extends a<com.baidu.tieba.e.e> {
-    private View cLD;
-    private View cLE;
-    private TextView cLG;
-    private TextView cLH;
-    private TextView cLI;
-    private TextView cLJ;
-    private TextView cLK;
+    private View cMJ;
+    private View cMK;
+    private TextView cMM;
+    private TextView cMN;
+    private TextView cMO;
+    private TextView cMP;
+    private TextView cMQ;
     private String mForumId;
 
     public h(TbPageContext<?> tbPageContext) {
@@ -27,17 +27,17 @@ public class h extends a<com.baidu.tieba.e.e> {
     }
 
     private void init(View view) {
-        this.cLG = (TextView) view.findViewById(e.g.card_frs_game_hot_title);
-        this.cLH = (TextView) view.findViewById(e.g.card_frs_game_hot_topic_1);
-        this.cLI = (TextView) view.findViewById(e.g.card_frs_game_hot_topic_2);
-        this.cLJ = (TextView) view.findViewById(e.g.card_frs_game_hot_topic_3);
-        this.cLK = (TextView) view.findViewById(e.g.card_frs_game_hot_topic_4);
-        this.cLH.setOnClickListener(this);
-        this.cLI.setOnClickListener(this);
-        this.cLJ.setOnClickListener(this);
-        this.cLK.setOnClickListener(this);
-        this.cLD = view.findViewById(e.g.divider_line_1);
-        this.cLE = view.findViewById(e.g.divider_line_2);
+        this.cMM = (TextView) view.findViewById(e.g.card_frs_game_hot_title);
+        this.cMN = (TextView) view.findViewById(e.g.card_frs_game_hot_topic_1);
+        this.cMO = (TextView) view.findViewById(e.g.card_frs_game_hot_topic_2);
+        this.cMP = (TextView) view.findViewById(e.g.card_frs_game_hot_topic_3);
+        this.cMQ = (TextView) view.findViewById(e.g.card_frs_game_hot_topic_4);
+        this.cMN.setOnClickListener(this);
+        this.cMO.setOnClickListener(this);
+        this.cMP.setOnClickListener(this);
+        this.cMQ.setOnClickListener(this);
+        this.cMJ = view.findViewById(e.g.divider_line_1);
+        this.cMK = view.findViewById(e.g.divider_line_2);
     }
 
     public void setForumId(String str) {
@@ -47,13 +47,13 @@ public class h extends a<com.baidu.tieba.e.e> {
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         al.i(getView(), e.d.cp_bg_line_d);
-        al.i(this.cLD, e.d.cp_bg_line_e);
-        al.i(this.cLE, e.d.cp_bg_line_e);
-        al.c(this.cLG, e.d.cp_cont_f, 1);
-        al.c(this.cLH, e.d.cp_cont_b, 1);
-        al.c(this.cLI, e.d.cp_cont_b, 1);
-        al.c(this.cLJ, e.d.cp_cont_b, 1);
-        al.c(this.cLK, e.d.cp_cont_b, 1);
+        al.i(this.cMJ, e.d.cp_bg_line_e);
+        al.i(this.cMK, e.d.cp_bg_line_e);
+        al.c(this.cMM, e.d.cp_cont_f, 1);
+        al.c(this.cMN, e.d.cp_cont_b, 1);
+        al.c(this.cMO, e.d.cp_cont_b, 1);
+        al.c(this.cMP, e.d.cp_cont_b, 1);
+        al.c(this.cMQ, e.d.cp_cont_b, 1);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -64,42 +64,42 @@ public class h extends a<com.baidu.tieba.e.e> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.e.e eVar) {
-        if (eVar != null && eVar.asA() != null) {
-            if (!TextUtils.isEmpty(eVar.asA().title)) {
-                this.cLG.setText(eVar.asA().title);
+        if (eVar != null && eVar.arZ() != null) {
+            if (!TextUtils.isEmpty(eVar.arZ().title)) {
+                this.cMM.setText(eVar.arZ().title);
             }
-            this.cLH.setVisibility(8);
-            this.cLI.setVisibility(8);
-            this.cLJ.setVisibility(8);
-            this.cLK.setVisibility(8);
-            if (eVar.asA().sub_nodes.size() >= 1) {
-                this.cLH.setVisibility(0);
-                this.cLH.setTag(eVar.asA().sub_nodes.get(0).url);
-                this.cLH.setText(eVar.asA().sub_nodes.get(0).title);
+            this.cMN.setVisibility(8);
+            this.cMO.setVisibility(8);
+            this.cMP.setVisibility(8);
+            this.cMQ.setVisibility(8);
+            if (eVar.arZ().sub_nodes.size() >= 1) {
+                this.cMN.setVisibility(0);
+                this.cMN.setTag(eVar.arZ().sub_nodes.get(0).url);
+                this.cMN.setText(eVar.arZ().sub_nodes.get(0).title);
             }
-            if (eVar.asA().sub_nodes.size() >= 2) {
-                this.cLI.setVisibility(0);
-                this.cLI.setTag(eVar.asA().sub_nodes.get(1).url);
-                this.cLI.setText(eVar.asA().sub_nodes.get(1).title);
+            if (eVar.arZ().sub_nodes.size() >= 2) {
+                this.cMO.setVisibility(0);
+                this.cMO.setTag(eVar.arZ().sub_nodes.get(1).url);
+                this.cMO.setText(eVar.arZ().sub_nodes.get(1).title);
             }
-            if (eVar.asA().sub_nodes.size() >= 3) {
-                this.cLJ.setVisibility(0);
-                this.cLJ.setTag(eVar.asA().sub_nodes.get(2).url);
-                this.cLJ.setText(eVar.asA().sub_nodes.get(2).title);
+            if (eVar.arZ().sub_nodes.size() >= 3) {
+                this.cMP.setVisibility(0);
+                this.cMP.setTag(eVar.arZ().sub_nodes.get(2).url);
+                this.cMP.setText(eVar.arZ().sub_nodes.get(2).title);
             }
-            if (eVar.asA().sub_nodes.size() >= 4) {
-                this.cLK.setVisibility(0);
-                this.cLK.setTag(eVar.asA().sub_nodes.get(3).url);
-                this.cLK.setText(eVar.asA().sub_nodes.get(3).title);
+            if (eVar.arZ().sub_nodes.size() >= 4) {
+                this.cMQ.setVisibility(0);
+                this.cMQ.setTag(eVar.arZ().sub_nodes.get(3).url);
+                this.cMQ.setText(eVar.arZ().sub_nodes.get(3).title);
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.cLH || view == this.cLI || view == this.cLJ || view == this.cLK) {
+        if (view == this.cMN || view == this.cMO || view == this.cMP || view == this.cMQ) {
             TiebaStatic.log(new am("c13047").x("obj_locate", 8).ax(ImageViewerConfig.FORUM_ID, this.mForumId));
-            ay.CU().a((TbPageContext) com.baidu.adp.base.i.aK(this.mTbPageContext.getPageActivity()), new String[]{(String) view.getTag()}, true);
+            ay.Db().a((TbPageContext) com.baidu.adp.base.i.aK(this.mTbPageContext.getPageActivity()), new String[]{(String) view.getTag()}, true);
         }
     }
 }

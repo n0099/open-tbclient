@@ -14,129 +14,129 @@ import com.baidu.tieba.im.data.UpdatesItemData;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.adp.base.b<UpdatesActivity> {
-    private TextView aDo;
-    private UpdatesActivity eMo;
-    private View eMp;
-    private HeadImageView eMq;
-    private TextView eMr;
-    private TextView eMs;
-    private TextView eMt;
-    private ImageView eMu;
-    private RelativeLayout eMv;
-    private RelativeLayout eMw;
-    private UpdatesItemData eMx;
+    private TextView aEe;
+    private UpdatesActivity eNG;
+    private View eNH;
+    private HeadImageView eNI;
+    private TextView eNJ;
+    private TextView eNK;
+    private TextView eNL;
+    private ImageView eNM;
+    private RelativeLayout eNN;
+    private RelativeLayout eNO;
+    private UpdatesItemData eNP;
 
     public b(UpdatesActivity updatesActivity) {
         super(updatesActivity.getPageContext(), e.h.updates_item);
-        this.eMo = updatesActivity;
+        this.eNG = updatesActivity;
         initView();
     }
 
     void initView() {
-        this.eMp = this.vm.findViewById(e.g.root_view);
-        this.eMq = (HeadImageView) this.eMp.findViewById(e.g.iv_head);
-        this.eMr = (TextView) this.eMp.findViewById(e.g.tv_group_name);
-        this.eMs = (TextView) this.eMp.findViewById(e.g.tv_content);
-        this.aDo = (TextView) this.eMp.findViewById(e.g.tv_title);
-        this.eMt = (TextView) this.eMp.findViewById(e.g.tv_time);
-        this.eMu = (ImageView) this.eMp.findViewById(e.g.cb_select);
-        this.eMv = (RelativeLayout) this.eMp.findViewById(e.g.layout_body);
-        this.eMw = (RelativeLayout) this.eMp.findViewById(e.g.layout_title);
-        this.eMq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.1
+        this.eNH = this.vo.findViewById(e.g.root_view);
+        this.eNI = (HeadImageView) this.eNH.findViewById(e.g.iv_head);
+        this.eNJ = (TextView) this.eNH.findViewById(e.g.tv_group_name);
+        this.eNK = (TextView) this.eNH.findViewById(e.g.tv_content);
+        this.aEe = (TextView) this.eNH.findViewById(e.g.tv_title);
+        this.eNL = (TextView) this.eNH.findViewById(e.g.tv_time);
+        this.eNM = (ImageView) this.eNH.findViewById(e.g.cb_select);
+        this.eNN = (RelativeLayout) this.eNH.findViewById(e.g.layout_body);
+        this.eNO = (RelativeLayout) this.eNH.findViewById(e.g.layout_title);
+        this.eNI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
             }
         });
-        this.eMv.setClickable(true);
-        this.eMv.setLongClickable(true);
-        this.eMw.setClickable(true);
-        this.eMw.setLongClickable(true);
-        this.eMv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.2
+        this.eNN.setClickable(true);
+        this.eNN.setLongClickable(true);
+        this.eNO.setClickable(true);
+        this.eNO.setLongClickable(true);
+        this.eNN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.eMo.ayO()) {
-                    b.this.eMu.performClick();
+                if (b.this.eNG.ayl()) {
+                    b.this.eNM.performClick();
                 } else {
-                    b.this.eMo.a(b.this.eMp, 101, 0, 0L, b.this.eMx);
+                    b.this.eNG.a(b.this.eNH, 101, 0, 0L, b.this.eNP);
                 }
             }
         });
-        this.eMv.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.3
+        this.eNN.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.3
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                b.this.eMo.b(b.this.eMp, 200, 0, 0L, b.this.eMx);
+                b.this.eNG.b(b.this.eNH, 200, 0, 0L, b.this.eNP);
                 return true;
             }
         });
-        this.eMw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.4
+        this.eNO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.eMo.a(b.this.eMp, 101, 0, 0L, b.this.eMx);
+                b.this.eNG.a(b.this.eNH, 101, 0, 0L, b.this.eNP);
             }
         });
-        this.eMw.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.5
+        this.eNO.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.5
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                b.this.eMo.b(b.this.eMp, 200, 0, 0L, b.this.eMx);
+                b.this.eNG.b(b.this.eNH, 200, 0, 0L, b.this.eNP);
                 return true;
             }
         });
-        this.eMu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.6
+        this.eNM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 view.setSelected(!view.isSelected());
-                b.this.eMo.a(view, view.isSelected(), b.this.eMx);
+                b.this.eNG.a(view, view.isSelected(), b.this.eNP);
             }
         });
     }
 
     public void refresh() {
-        if (this.eMx != null) {
-            if (this.eMo.ayO()) {
-                this.eMu.setVisibility(0);
+        if (this.eNP != null) {
+            if (this.eNG.ayl()) {
+                this.eNM.setVisibility(0);
             } else {
-                this.eMu.setVisibility(8);
-                this.eMv.setSelected(false);
+                this.eNM.setVisibility(8);
+                this.eNN.setSelected(false);
             }
-            String groupHeadUrl = this.eMx.getGroupHeadUrl();
+            String groupHeadUrl = this.eNP.getGroupHeadUrl();
             if (!TextUtils.isEmpty(groupHeadUrl)) {
-                this.eMq.setTag(groupHeadUrl);
-                this.eMq.startLoad(groupHeadUrl, 10, false);
+                this.eNI.setTag(groupHeadUrl);
+                this.eNI.startLoad(groupHeadUrl, 10, false);
             } else {
-                this.eMq.setTag(null);
+                this.eNI.setTag(null);
             }
-            this.eMq.setClickable(false);
-            if (!TextUtils.isEmpty(this.eMx.getTitle())) {
-                this.aDo.setText(this.eMx.getTitle());
+            this.eNI.setClickable(false);
+            if (!TextUtils.isEmpty(this.eNP.getTitle())) {
+                this.aEe.setText(this.eNP.getTitle());
             } else {
-                this.aDo.setText(this.eMo.getPageContext().getString(e.j.inform));
+                this.aEe.setText(this.eNG.getPageContext().getString(e.j.inform));
             }
             Date date = new Date();
-            date.setTime(this.eMx.getTime());
-            this.eMt.setText(ao.g(date));
-            if (!TextUtils.isEmpty(this.eMx.getContent())) {
-                this.eMs.setText(this.eMx.getContent());
+            date.setTime(this.eNP.getTime());
+            this.eNL.setText(ao.g(date));
+            if (!TextUtils.isEmpty(this.eNP.getContent())) {
+                this.eNK.setText(this.eNP.getContent());
             } else {
-                this.eMs.setText("");
+                this.eNK.setText("");
             }
-            if (!TextUtils.isEmpty(this.eMx.getGroupName())) {
-                this.eMr.setText(this.eMx.getGroupName());
+            if (!TextUtils.isEmpty(this.eNP.getGroupName())) {
+                this.eNJ.setText(this.eNP.getGroupName());
             } else {
-                this.eMr.setText("");
+                this.eNJ.setText("");
             }
-            int paddingLeft = this.eMv.getPaddingLeft();
-            int paddingTop = this.eMv.getPaddingTop();
-            int paddingRight = this.eMv.getPaddingRight();
-            int paddingBottom = this.eMv.getPaddingBottom();
-            this.eMo.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-            this.eMo.getLayoutMode().onModeChanged(this.vm);
-            this.eMu.setSelected(this.eMx.isSelected());
-            if (this.eMx.isSelected() && this.eMo.ayO()) {
-                al.i(this.eMv, e.f.bg_information_down_s);
+            int paddingLeft = this.eNN.getPaddingLeft();
+            int paddingTop = this.eNN.getPaddingTop();
+            int paddingRight = this.eNN.getPaddingRight();
+            int paddingBottom = this.eNN.getPaddingBottom();
+            this.eNG.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+            this.eNG.getLayoutMode().onModeChanged(this.vo);
+            this.eNM.setSelected(this.eNP.isSelected());
+            if (this.eNP.isSelected() && this.eNG.ayl()) {
+                al.i(this.eNN, e.f.bg_information_down_s);
             } else {
-                al.i(this.eMv, e.f.selector_group_updates_bottom_bg);
+                al.i(this.eNN, e.f.selector_group_updates_bottom_bg);
             }
-            this.eMv.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+            this.eNN.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
         }
     }
 
@@ -146,6 +146,6 @@ public class b extends com.baidu.adp.base.b<UpdatesActivity> {
     }
 
     public void c(UpdatesItemData updatesItemData) {
-        this.eMx = updatesItemData;
+        this.eNP = updatesItemData;
     }
 }

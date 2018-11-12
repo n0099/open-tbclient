@@ -8,35 +8,35 @@ import java.util.List;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class j implements k {
-    private List<k> iDr;
-    private volatile boolean isu;
+    private List<k> iFb;
+    private volatile boolean iue;
 
     public j() {
     }
 
     public j(k... kVarArr) {
-        this.iDr = new LinkedList(Arrays.asList(kVarArr));
+        this.iFb = new LinkedList(Arrays.asList(kVarArr));
     }
 
     public j(k kVar) {
-        this.iDr = new LinkedList();
-        this.iDr.add(kVar);
+        this.iFb = new LinkedList();
+        this.iFb.add(kVar);
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.isu;
+        return this.iue;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.isu) {
+            if (!this.iue) {
                 synchronized (this) {
-                    if (!this.isu) {
-                        List list = this.iDr;
+                    if (!this.iue) {
+                        List list = this.iFb;
                         if (list == null) {
                             list = new LinkedList();
-                            this.iDr = list;
+                            this.iFb = list;
                         }
                         list.add(kVar);
                         return;
@@ -48,10 +48,10 @@ public final class j implements k {
     }
 
     public void b(k kVar) {
-        if (!this.isu) {
+        if (!this.iue) {
             synchronized (this) {
-                List<k> list = this.iDr;
-                if (!this.isu && list != null) {
+                List<k> list = this.iFb;
+                if (!this.iue && list != null) {
                     boolean remove = list.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
@@ -63,19 +63,19 @@ public final class j implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.isu) {
+        if (!this.iue) {
             synchronized (this) {
-                if (!this.isu) {
-                    this.isu = true;
-                    List<k> list = this.iDr;
-                    this.iDr = null;
-                    k(list);
+                if (!this.iue) {
+                    this.iue = true;
+                    List<k> list = this.iFb;
+                    this.iFb = null;
+                    n(list);
                 }
             }
         }
     }
 
-    private static void k(Collection<k> collection) {
+    private static void n(Collection<k> collection) {
         if (collection != null) {
             ArrayList arrayList = null;
             for (k kVar : collection) {
@@ -87,7 +87,7 @@ public final class j implements k {
                     arrayList = arrayList2;
                 }
             }
-            rx.exceptions.a.ex(arrayList);
+            rx.exceptions.a.ev(arrayList);
         }
     }
 }

@@ -17,19 +17,19 @@ public class d extends FileObserver {
             this.b = str2;
             this.c = i;
             this.d = context;
-            new StringBuilder("f=").append(this.a).append(", e=").append(new File(this.a).exists()).append(", b=").append(this.b);
+            b.a("f=" + this.a + ", e=" + new File(this.a).exists() + ", b=" + this.b);
         } catch (Throwable th) {
             com.baidu.sofire.b.e.a(th);
         }
     }
 
-    public final boolean a() {
+    public boolean a() {
         try {
             File file = new File(this.b);
-            if (file.exists()) {
-                return file.delete();
+            if (file == null || !file.exists()) {
+                return false;
             }
-            return false;
+            return file.delete();
         } catch (Throwable th) {
             com.baidu.sofire.b.e.a(th);
             return false;
@@ -50,17 +50,19 @@ public class d extends FileObserver {
                 try {
                     new Thread() { // from class: com.baidu.sofire.d.1
                         @Override // java.lang.Thread, java.lang.Runnable
-                        public final void run() {
+                        public void run() {
                             try {
                                 super.run();
+                                b.a("target event!");
                                 synchronized (d.class) {
-                                    if (!com.baidu.sofire.b.e.a(d.this.a)) {
+                                    if (!com.baidu.sofire.b.e.c(d.this.a)) {
+                                        b.a("do copyFile!!!");
                                         com.baidu.sofire.b.e.b(d.this.b, d.this.a);
                                         com.baidu.sofire.b.e.a(d.this.a, true);
                                         c.a(new File(d.this.a));
                                         c.a(d.this.d, d.this.c, new File(d.this.a), new File(d.this.b));
-                                        new StringBuilder().append(d.this.a.toString());
-                                        com.baidu.sofire.a.a.a(d.this.d).b(d.this.c, -1);
+                                        b.a("update delete status to -1" + d.this.a.toString());
+                                        com.baidu.sofire.a.a.a(d.this.d).d(d.this.c, -1);
                                     }
                                 }
                             } catch (Throwable th) {

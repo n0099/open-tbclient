@@ -4,8 +4,8 @@ import java.util.NoSuchElementException;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class q<T> implements d.a<T> {
-    final rx.d<T> isM;
-    final rx.functions.g<T, T, T> iuD;
+    final rx.d<T> iuw;
+    final rx.functions.g<T, T, T> iwn;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -13,20 +13,20 @@ public final class q<T> implements d.a<T> {
     }
 
     public q(rx.d<T> dVar, rx.functions.g<T, T, T> gVar) {
-        this.isM = dVar;
-        this.iuD = gVar;
+        this.iuw = dVar;
+        this.iwn = gVar;
     }
 
     public void call(rx.j<? super T> jVar) {
-        final a aVar = new a(jVar, this.iuD);
+        final a aVar = new a(jVar, this.iwn);
         jVar.add(aVar);
         jVar.setProducer(new rx.f() { // from class: rx.internal.operators.q.1
             @Override // rx.f
             public void request(long j) {
-                aVar.dz(j);
+                aVar.du(j);
             }
         });
-        this.isM.unsafeSubscribe(aVar);
+        this.iuw.unsafeSubscribe(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,12 +35,12 @@ public final class q<T> implements d.a<T> {
         static final Object EMPTY = new Object();
         final rx.j<? super T> actual;
         boolean done;
-        final rx.functions.g<T, T, T> iuD;
+        final rx.functions.g<T, T, T> iwn;
         T value = (T) EMPTY;
 
         public a(rx.j<? super T> jVar, rx.functions.g<T, T, T> gVar) {
             this.actual = jVar;
-            this.iuD = gVar;
+            this.iwn = gVar;
             request(0L);
         }
 
@@ -53,7 +53,7 @@ public final class q<T> implements d.a<T> {
                     return;
                 }
                 try {
-                    this.value = this.iuD.j(t2, t);
+                    this.value = this.iwn.j(t2, t);
                 } catch (Throwable th) {
                     rx.exceptions.a.J(th);
                     unsubscribe();
@@ -86,7 +86,7 @@ public final class q<T> implements d.a<T> {
             }
         }
 
-        void dz(long j) {
+        void du(long j) {
             if (j < 0) {
                 throw new IllegalArgumentException("n >= 0 required but it was " + j);
             }

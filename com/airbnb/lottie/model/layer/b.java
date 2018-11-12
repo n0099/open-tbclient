@@ -14,24 +14,24 @@ public class b extends a {
     private final List<a> nC;
     private final RectF rect;
     @Nullable
-    private final com.airbnb.lottie.a.b.a<Float, Float> sc;
-    private final RectF se;
+    private final com.airbnb.lottie.a.b.a<Float, Float> sf;
+    private final RectF sg;
 
     public b(com.airbnb.lottie.f fVar, Layer layer, List<Layer> list, com.airbnb.lottie.e eVar) {
         super(fVar, layer);
         a aVar;
         this.nC = new ArrayList();
         this.rect = new RectF();
-        this.se = new RectF();
-        com.airbnb.lottie.model.a.b eX = layer.eX();
-        if (eX != null) {
-            this.sc = eX.dH();
-            a(this.sc);
-            this.sc.b(this);
+        this.sg = new RectF();
+        com.airbnb.lottie.model.a.b eW = layer.eW();
+        if (eW != null) {
+            this.sf = eW.dG();
+            a(this.sf);
+            this.sf.b(this);
         } else {
-            this.sc = null;
+            this.sf = null;
         }
-        LongSparseArray longSparseArray = new LongSparseArray(eVar.cH().size());
+        LongSparseArray longSparseArray = new LongSparseArray(eVar.cG().size());
         int size = list.size() - 1;
         a aVar2 = null;
         while (size >= 0) {
@@ -39,13 +39,13 @@ public class b extends a {
             if (a == null) {
                 aVar = aVar2;
             } else {
-                longSparseArray.put(a.eH().getId(), a);
+                longSparseArray.put(a.eG().getId(), a);
                 if (aVar2 != null) {
                     aVar2.b(a);
                     aVar = null;
                 } else {
                     this.nC.add(0, a);
-                    switch (r0.eR()) {
+                    switch (r0.eQ()) {
                         case Add:
                         case Invert:
                             aVar = a;
@@ -61,7 +61,7 @@ public class b extends a {
         }
         for (int i = 0; i < longSparseArray.size(); i++) {
             a aVar3 = (a) longSparseArray.get(longSparseArray.keyAt(i));
-            a aVar4 = (a) longSparseArray.get(aVar3.eH().eS());
+            a aVar4 = (a) longSparseArray.get(aVar3.eG().eR());
             if (aVar4 != null) {
                 aVar3.c(aVar4);
             }
@@ -72,12 +72,12 @@ public class b extends a {
     void b(Canvas canvas, Matrix matrix, int i) {
         com.airbnb.lottie.d.beginSection("CompositionLayer#draw");
         canvas.save();
-        this.se.set(0.0f, 0.0f, this.rS.eO(), this.rS.eP());
-        matrix.mapRect(this.se);
+        this.sg.set(0.0f, 0.0f, this.rT.eN(), this.rT.eO());
+        matrix.mapRect(this.sg);
         for (int size = this.nC.size() - 1; size >= 0; size--) {
             boolean z = true;
-            if (!this.se.isEmpty()) {
-                z = canvas.clipRect(this.se);
+            if (!this.sg.isEmpty()) {
+                z = canvas.clipRect(this.sg);
             }
             if (z) {
                 this.nC.get(size).a(canvas, matrix, i);
@@ -92,7 +92,7 @@ public class b extends a {
         super.a(rectF, matrix);
         this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
         for (int size = this.nC.size() - 1; size >= 0; size--) {
-            this.nC.get(size).a(this.rect, this.rR);
+            this.nC.get(size).a(this.rect, this.rS);
             if (rectF.isEmpty()) {
                 rectF.set(this.rect);
             } else {
@@ -104,15 +104,15 @@ public class b extends a {
     @Override // com.airbnb.lottie.model.layer.a
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         super.setProgress(f);
-        if (this.sc != null) {
-            f = (this.sc.getValue().floatValue() * 1000.0f) / ((float) this.nh.cU().getDuration());
+        if (this.sf != null) {
+            f = (this.sf.getValue().floatValue() * 1000.0f) / ((float) this.nh.cT().getDuration());
         }
-        if (this.rS.eM() != 0.0f) {
-            f /= this.rS.eM();
+        if (this.rT.eL() != 0.0f) {
+            f /= this.rT.eL();
         }
-        float cZ = f - this.rS.cZ();
+        float cY = f - this.rT.cY();
         for (int size = this.nC.size() - 1; size >= 0; size--) {
-            this.nC.get(size).setProgress(cZ);
+            this.nC.get(size).setProgress(cY);
         }
     }
 
@@ -123,7 +123,7 @@ public class b extends a {
             int i2 = i;
             if (i2 < this.nC.size()) {
                 a aVar = this.nC.get(i2);
-                String name = aVar.eH().getName();
+                String name = aVar.eG().getName();
                 if (str == null) {
                     aVar.b((String) null, (String) null, colorFilter);
                 } else if (name.equals(str)) {

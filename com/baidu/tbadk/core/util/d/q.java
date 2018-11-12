@@ -31,12 +31,12 @@ public class q extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Dk() {
+    public boolean Dr() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Dl() {
+    public boolean Ds() {
         return false;
     }
 
@@ -50,13 +50,13 @@ public class q extends a {
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a hO = com.baidu.tbadk.imageManager.c.Me().hO(str);
-        if (hO != null) {
-            hO.NF.NH = "memory";
-            hO.NF.NI = 0L;
-            hO.NF.NJ = true;
+        com.baidu.adp.widget.ImageView.a hP = com.baidu.tbadk.imageManager.c.Mq().hP(str);
+        if (hP != null) {
+            hP.NI.NK = "memory";
+            hP.NI.NL = 0L;
+            hP.NI.NM = true;
         }
-        return hO;
+        return hP;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -66,7 +66,7 @@ public class q extends a {
             return null;
         }
         com.baidu.adp.lib.Disk.ops.b bVar = (com.baidu.adp.lib.Disk.ops.b) cVar;
-        cVar.q(cVar.getData());
+        cVar.p(cVar.getData());
         Bitmap bitmap = cVar.getBitmap();
         if (bitmap != null) {
             return new com.baidu.adp.widget.ImageView.a(bitmap, false, str, bVar.getRect());
@@ -92,12 +92,12 @@ public class q extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    protected Bitmap b(Bitmap bitmap, int i, int i2) {
+    protected Bitmap c(Bitmap bitmap, int i, int i2) {
         return bitmap;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int Dm() {
+    public int Dt() {
         return this.procType;
     }
 }

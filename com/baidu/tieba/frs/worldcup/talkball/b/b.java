@@ -4,34 +4,34 @@ import com.baidu.tbadk.core.data.bb;
 import tbclient.TalkBall.CardInfo;
 /* loaded from: classes3.dex */
 public class b {
-    private bb bIV;
-    private f ebb;
-    private boolean ebc = false;
+    private bb bJG;
+    private f ecv;
+    private boolean ecw = false;
 
     public void a(CardInfo cardInfo) {
         if (cardInfo != null) {
             if (cardInfo.thread_info != null) {
-                this.bIV = new bb();
-                this.bIV.a(cardInfo.thread_info);
-                this.ebc = false;
+                this.bJG = new bb();
+                this.bJG.a(cardInfo.thread_info);
+                this.ecw = false;
             }
             if (cardInfo.insert_floor != null) {
-                this.ebb = new f();
-                this.ebb.a(cardInfo.insert_floor);
-                this.ebc = true;
+                this.ecv = new f();
+                this.ecv.a(cardInfo.insert_floor);
+                this.ecw = true;
             }
         }
     }
 
-    public bb YB() {
-        return this.bIV;
+    public bb YL() {
+        return this.bJG;
     }
 
-    public f aHc() {
-        return this.ebb;
+    public f aGA() {
+        return this.ecv;
     }
 
-    public boolean aHd() {
-        return this.ebc;
+    public boolean aGB() {
+        return this.ecw;
     }
 }

@@ -47,7 +47,7 @@ public class d {
         }
     }
 
-    public static void rq(String str) {
+    public static void rr(String str) {
         if (!StringUtils.isNull(str)) {
             File file = new File(str);
             if (!file.exists()) {
@@ -95,7 +95,7 @@ public class d {
         return sb.toString();
     }
 
-    public static JSONArray rr(String str) {
+    public static JSONArray rs(String str) {
         JSONArray jSONArray = new JSONArray();
         if (StringUtils.isNull(str)) {
             return jSONArray;
@@ -130,9 +130,9 @@ public class d {
         }
     }
 
-    public static void rs(String str) {
+    public static void rt(String str) {
         if (!StringUtils.isNull(str)) {
-            com.baidu.tbadk.core.util.l.x(new File(g.a.fwc + g.a.fvT + str));
+            com.baidu.tbadk.core.util.l.x(new File(g.a.fxr + g.a.fxi + str));
         }
     }
 }

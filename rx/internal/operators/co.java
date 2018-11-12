@@ -5,15 +5,15 @@ import rx.g;
 import rx.h;
 /* loaded from: classes2.dex */
 public final class co<T> implements h.a<T> {
-    final h.a<T> iBq;
-    final long ivT;
+    final h.a<T> iDa;
+    final long ixD;
     final rx.g scheduler;
     final TimeUnit unit;
 
     public co(h.a<T> aVar, long j, TimeUnit timeUnit, rx.g gVar) {
-        this.iBq = aVar;
+        this.iDa = aVar;
         this.scheduler = gVar;
-        this.ivT = j;
+        this.ixD = j;
         this.unit = timeUnit;
     }
 
@@ -22,10 +22,10 @@ public final class co<T> implements h.a<T> {
     /* renamed from: b */
     public void call(rx.i<? super T> iVar) {
         g.a createWorker = this.scheduler.createWorker();
-        a aVar = new a(iVar, createWorker, this.ivT, this.unit);
+        a aVar = new a(iVar, createWorker, this.ixD, this.unit);
         iVar.add(createWorker);
         iVar.add(aVar);
-        this.iBq.call(aVar);
+        this.iDa.call(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -33,28 +33,28 @@ public final class co<T> implements h.a<T> {
     public static final class a<T> extends rx.i<T> implements rx.functions.a {
         final rx.i<? super T> actual;
         Throwable error;
-        final g.a iBr;
-        final long ivT;
+        final g.a iDb;
+        final long ixD;
         final TimeUnit unit;
         T value;
 
         public a(rx.i<? super T> iVar, g.a aVar, long j, TimeUnit timeUnit) {
             this.actual = iVar;
-            this.iBr = aVar;
-            this.ivT = j;
+            this.iDb = aVar;
+            this.ixD = j;
             this.unit = timeUnit;
         }
 
         @Override // rx.i
         public void onSuccess(T t) {
             this.value = t;
-            this.iBr.a(this, this.ivT, this.unit);
+            this.iDb.a(this, this.ixD, this.unit);
         }
 
         @Override // rx.i
         public void onError(Throwable th) {
             this.error = th;
-            this.iBr.a(this, this.ivT, this.unit);
+            this.iDb.a(this, this.ixD, this.unit);
         }
 
         @Override // rx.functions.a
@@ -70,7 +70,7 @@ public final class co<T> implements h.a<T> {
                     this.actual.onSuccess(t);
                 }
             } finally {
-                this.iBr.unsubscribe();
+                this.iDb.unsubscribe();
             }
         }
     }

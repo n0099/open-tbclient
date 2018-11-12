@@ -205,7 +205,7 @@ public class NavigationBar extends RelativeLayout {
 
     private void init(Context context, AttributeSet attributeSet) {
         boolean z;
-        this.mFixedNavHeight = com.baidu.adp.lib.util.l.h(getContext(), e.C0175e.ds88);
+        this.mFixedNavHeight = com.baidu.adp.lib.util.l.h(getContext(), e.C0200e.ds88);
         this.mCurrentActivity = (Activity) context;
         this.mRootView = LayoutInflater.from(context).inflate(e.h.widget_navigation_bar, (ViewGroup) this, true);
         this.mContentLayout = (FrameLayout) this.mRootView.findViewById(e.g.navigation_bar_content_layout);
@@ -315,7 +315,7 @@ public class NavigationBar extends RelativeLayout {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void initPadding() {
-        setPadding(com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(e.C0175e.ds0)), com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(e.C0175e.ds0)), com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(e.C0175e.ds0)), com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(e.C0175e.ds0)));
+        setPadding(com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(e.C0200e.ds0)), com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(e.C0200e.ds0)), com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(e.C0200e.ds0)), com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(e.C0200e.ds0)));
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
@@ -323,7 +323,7 @@ public class NavigationBar extends RelativeLayout {
         int i3;
         if (this.isFixedHeight) {
             int mode = View.MeasureSpec.getMode(i2);
-            int h = com.baidu.adp.lib.util.l.h(getContext(), e.C0175e.ds88);
+            int h = com.baidu.adp.lib.util.l.h(getContext(), e.C0200e.ds88);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mContentLayout.getLayoutParams();
             if (Math.abs(layoutParams.topMargin) > this.mContentLayout.getHeight()) {
                 if (layoutParams.topMargin >= 0) {
@@ -477,7 +477,7 @@ public class NavigationBar extends RelativeLayout {
         TextView textView = (TextView) getViewFromLayoutFile(e.h.widget_nb_item_create_group);
         if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-            int dimension = (int) getResources().getDimension(e.C0175e.ds16);
+            int dimension = (int) getResources().getDimension(e.C0200e.ds16);
             layoutParams.setMargins(0, dimension, dimension, dimension);
             textView.setLayoutParams(layoutParams);
         }
@@ -493,7 +493,7 @@ public class NavigationBar extends RelativeLayout {
         button.setText(str);
         if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-            int dimension = (int) getResources().getDimension(e.C0175e.ds16);
+            int dimension = (int) getResources().getDimension(e.C0200e.ds16);
             layoutParams.setMargins(0, dimension, dimension, dimension);
             button.setLayoutParams(layoutParams);
         }
@@ -515,7 +515,7 @@ public class NavigationBar extends RelativeLayout {
         textView.setText(str);
         if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-            int dimension = (int) getResources().getDimension(e.C0175e.ds20);
+            int dimension = (int) getResources().getDimension(e.C0200e.ds20);
             if (z) {
                 layoutParams.setMargins(dimension, dimension, dimension, dimension);
             } else {
@@ -524,7 +524,7 @@ public class NavigationBar extends RelativeLayout {
             textView.setLayoutParams(layoutParams);
         } else if (ControlAlign.HORIZONTAL_LEFT == controlAlign) {
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -1);
-            int dimension2 = (int) getResources().getDimension(e.C0175e.ds20);
+            int dimension2 = (int) getResources().getDimension(e.C0200e.ds20);
             if (z) {
                 layoutParams2.setMargins(dimension2, dimension2, dimension2, dimension2);
             } else {
@@ -587,7 +587,7 @@ public class NavigationBar extends RelativeLayout {
     public void onChangeSkinType(com.baidu.adp.base.e<?> eVar, int i) {
         BitmapDrawable bitmapDrawable;
         if (this.isAutoNight) {
-            bitmapDrawable = new BitmapDrawable(al.dn(e.f.s_navbar_bg));
+            bitmapDrawable = new BitmapDrawable(al.dB(e.f.s_navbar_bg));
         } else {
             bitmapDrawable = new BitmapDrawable(al.y(e.f.s_navbar_bg, i));
         }

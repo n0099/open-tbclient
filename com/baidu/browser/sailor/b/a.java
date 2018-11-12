@@ -27,23 +27,23 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes2.dex */
 public final class a {
-    private static a Ws;
-    private C0065a WC;
-    private HashMap<String, com.baidu.browser.sailor.feature.a> WD;
-    private com.baidu.browser.sailor.b.a.a Wu;
-    private BdWebkitManager Wv;
-    private String Ww;
+    private static a Wu;
+    private C0065a WE;
+    private HashMap<String, com.baidu.browser.sailor.feature.a> WF;
+    private com.baidu.browser.sailor.b.a.a Ww;
+    private BdWebkitManager Wx;
+    private String Wy;
     private Context mContext;
     private String mCuid;
     private Handler mHandler;
     public static final String TAG = a.class.getName();
-    private static SoftReference<String> Wt = null;
-    private boolean Wx = true;
-    private boolean Wy = false;
-    private boolean Wz = false;
+    private static SoftReference<String> Wv = null;
+    private boolean Wz = true;
     private boolean WA = false;
-    private int WB = -1;
-    private boolean UG = false;
+    private boolean WB = false;
+    private boolean WC = false;
+    private int WD = -1;
+    private boolean UI = false;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.browser.sailor.b.a$a  reason: collision with other inner class name */
@@ -62,26 +62,26 @@ public final class a {
             if (action == null || !action.equals("android.net.conn.CONNECTIVITY_CHANGE")) {
                 return;
             }
-            com.baidu.browser.sailor.a.qq().a(((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo());
+            com.baidu.browser.sailor.a.qo().a(((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo());
         }
     }
 
     private a() {
         Log.d(TAG, "BdSailorPlatform");
-        this.Wu = new com.baidu.browser.sailor.b.a.a();
-        this.Wv = new BdWebkitManager();
-        this.WD = new HashMap<>(4);
+        this.Ww = new com.baidu.browser.sailor.b.a.a();
+        this.Wx = new BdWebkitManager();
+        this.WF = new HashMap<>(4);
     }
 
     private void a(com.baidu.browser.sailor.feature.a aVar) {
         if (aVar != null) {
-            this.WD.put(aVar.getName(), aVar);
+            this.WF.put(aVar.getName(), aVar);
         }
     }
 
     public static boolean a(Activity activity, ValueCallback<Uri> valueCallback) {
         com.baidu.browser.sailor.feature.b.a aVar;
-        com.baidu.browser.sailor.feature.a cC = qR().cC("UPLOAD");
+        com.baidu.browser.sailor.feature.a cC = qP().cC("UPLOAD");
         if (cC == null || !cC.isEnable() || (aVar = (com.baidu.browser.sailor.feature.b.a) cC) == null || activity == null) {
             valueCallback.onReceiveValue(null);
             return false;
@@ -90,7 +90,7 @@ public final class a {
     }
 
     public static boolean a(Activity activity, ValueCallback<Uri> valueCallback, String str) {
-        com.baidu.browser.sailor.feature.a cC = qR().cC("UPLOAD");
+        com.baidu.browser.sailor.feature.a cC = qP().cC("UPLOAD");
         if (cC == null || !cC.isEnable()) {
             valueCallback.onReceiveValue(null);
         } else {
@@ -103,7 +103,7 @@ public final class a {
     }
 
     public static boolean a(Activity activity, ValueCallback<Uri> valueCallback, String str, String str2) {
-        com.baidu.browser.sailor.feature.a cC = qR().cC("UPLOAD");
+        com.baidu.browser.sailor.feature.a cC = qP().cC("UPLOAD");
         if (cC == null || !cC.isEnable()) {
             valueCallback.onReceiveValue(null);
         } else {
@@ -120,7 +120,7 @@ public final class a {
     }
 
     public static boolean b(Activity activity, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
-        com.baidu.browser.sailor.feature.a cC = qR().cC("UPLOAD");
+        com.baidu.browser.sailor.feature.a cC = qP().cC("UPLOAD");
         if (cC == null || !cC.isEnable()) {
             valueCallback.onReceiveValue(null);
         } else {
@@ -130,6 +130,13 @@ public final class a {
             }
         }
         return false;
+    }
+
+    private void bF(int i) {
+        this.WD = i;
+        if (1 == i || -1 == i) {
+            com.baidu.browser.sailor.a.qo().qr().aC(false);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -167,19 +174,12 @@ public final class a {
     }
 
     private void bb(Context context) {
-        if (this.UG) {
+        if (this.UI) {
             return;
         }
         a(new com.baidu.browser.sailor.feature.b.a(context));
         a(new com.baidu.browser.sailor.feature.a.b(context));
-        this.UG = true;
-    }
-
-    private void bq(int i) {
-        this.WB = i;
-        if (1 == i || -1 == i) {
-            com.baidu.browser.sailor.a.qq().qt().ao(false);
-        }
+        this.UI = true;
     }
 
     private boolean cB(String str) {
@@ -193,58 +193,58 @@ public final class a {
         return true;
     }
 
-    public static synchronized a qR() {
+    public static synchronized a qP() {
         a aVar;
         synchronized (a.class) {
-            if (Ws == null) {
-                Ws = new a();
+            if (Wu == null) {
+                Wu = new a();
             }
-            aVar = Ws;
+            aVar = Wu;
         }
         return aVar;
     }
 
-    public static com.baidu.browser.sailor.b.a.a qS() {
-        return qR().Wu;
+    public static com.baidu.browser.sailor.b.a.a qQ() {
+        return qP().Ww;
     }
 
-    public static BdWebkitManager qT() {
-        return qR().Wv;
+    public static BdWebkitManager qR() {
+        return qP().Wx;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qU() {
+    public void qS() {
         if (getAppContext() == null) {
             return;
         }
         if (!com.baidu.browser.core.permission.b.aY(getAppContext())) {
             com.baidu.browser.sailor.util.c.a(new e(this), 500L);
-        } else if (this.WC == null) {
-            this.WC = new C0065a(this, (byte) 0);
+        } else if (this.WE == null) {
+            this.WE = new C0065a(this, (byte) 0);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            getAppContext().registerReceiver(this.WC, intentFilter);
+            getAppContext().registerReceiver(this.WE, intentFilter);
         }
     }
 
     public final void a(String str, boolean z, Class<? extends CrashCallback> cls) {
         String packageName;
-        if (!this.Wy) {
+        if (!this.WA) {
             Log.d(TAG, "initWebkit");
             WebKitFactory.setKernelSessionId(String.valueOf(System.currentTimeMillis()));
-            if (this.Wv != null) {
-                this.Wv.a(str, z, cls);
+            if (this.Wx != null) {
+                this.Wx.a(str, z, cls);
             }
             long currentTimeMillis = System.currentTimeMillis();
-            com.baidu.browser.sailor.webkit.a ra = com.baidu.browser.sailor.webkit.a.ra();
+            com.baidu.browser.sailor.webkit.a qY = com.baidu.browser.sailor.webkit.a.qY();
             Context appContext = getAppContext();
-            if (ra.b == null) {
-                ra.b = appContext.getApplicationContext();
+            if (qY.b == null) {
+                qY.b = appContext.getApplicationContext();
                 Log.d(com.baidu.browser.sailor.webkit.a.a, "in BdWebViewSingleton, init");
             }
-            this.Wy = true;
+            this.WA = true;
             Log.d("tangxianding", "[START] BdWebViewSingleton init time = " + (System.currentTimeMillis() - currentTimeMillis));
-            qU();
+            qS();
             int i = z ? 10 : 3;
             boolean z2 = z;
             if (this.mContext != null && (packageName = this.mContext.getApplicationContext().getPackageName()) != null && packageName.equalsIgnoreCase("com.baidu.searchbox.lite")) {
@@ -257,12 +257,12 @@ public final class a {
         com.baidu.browser.sailor.util.c.a(new d(this), 5000L);
     }
 
-    public final void bp(int i) {
-        bq(i);
+    public final void bE(int i) {
+        bF(i);
     }
 
     public final com.baidu.browser.sailor.feature.a cC(String str) {
-        com.baidu.browser.sailor.feature.a aVar = this.WD.get(str);
+        com.baidu.browser.sailor.feature.a aVar = this.WF.get(str);
         if (aVar instanceof com.baidu.browser.sailor.feature.a) {
             return aVar;
         }
@@ -281,7 +281,7 @@ public final class a {
     }
 
     public final int getNetworkType() {
-        return this.WB;
+        return this.WD;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x006f  */
@@ -297,7 +297,7 @@ public final class a {
             str = "sailor";
         }
         if (context != null) {
-            this.Ww = str;
+            this.Wy = str;
             try {
                 if (context.getFilesDir() == null) {
                     new File(context.getApplicationContext().getFilesDir() + "/").mkdirs();
@@ -308,7 +308,7 @@ public final class a {
             if (context.getFilesDir() != null) {
                 z = cB(filesDir.getAbsolutePath() + str);
                 bb(context);
-                BdCore.qh().init(context, false);
+                BdCore.qf().init(context, false);
                 if (this.mHandler == null) {
                     this.mHandler = new b(this, Looper.getMainLooper());
                 }
@@ -317,14 +317,14 @@ public final class a {
         }
         z = false;
         bb(context);
-        BdCore.qh().init(context, false);
+        BdCore.qf().init(context, false);
         if (this.mHandler == null) {
         }
         return z;
     }
 
-    public final boolean qs() {
-        return this.Wy;
+    public final boolean qq() {
+        return this.WA;
     }
 
     public final void setCuid(String str) {

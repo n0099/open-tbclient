@@ -19,7 +19,7 @@ public class ApkInfo {
     public int duration;
     public Context hostContext;
     public int initStatus;
-    public List<f> intentFilters;
+    public List<h> intentFilters;
     public int isOnce;
     public int key;
     public String libPath;

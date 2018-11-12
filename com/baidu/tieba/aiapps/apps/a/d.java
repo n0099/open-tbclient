@@ -30,10 +30,10 @@ public final class d extends ProviderDelegation {
                         case 70690926:
                             if (str.equals("nickname")) {
                                 ProcessDelegateBaseProvider agent = getAgent();
-                                p.h((Object) agent, "agent");
-                                String ch = b.ch(agent.getContext());
-                                if (ch != null) {
-                                    bundle2.putString(str, ch);
+                                p.g(agent, "agent");
+                                String ce = b.ce(agent.getContext());
+                                if (ce != null) {
+                                    bundle2.putString(str, ce);
                                     break;
                                 } else {
                                     break;

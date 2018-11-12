@@ -10,30 +10,30 @@ import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
-    protected boolean aZP;
+    protected boolean baD;
 
     public TbFragmentTabIndicator(Context context) {
         super(context);
-        this.aZP = false;
+        this.baD = false;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aZP = false;
+        this.baD = false;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aZP = false;
+        this.baD = false;
     }
 
-    public void ea(int i) {
+    public void eo(int i) {
     }
 
     public void setCheckDescriptionText(boolean z) {
     }
 
-    public void ck(boolean z) {
+    public void cB(boolean z) {
     }
 
     public View getContentTv() {
@@ -49,7 +49,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void b(String str, a aVar) {
     }
 
-    public a hV(String str) {
+    public a hW(String str) {
         return null;
     }
 
@@ -89,32 +89,32 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void aI(String str, String str2) {
     }
 
-    public void MD() {
+    public void MM() {
     }
 
     public void setAnimationResId(int i) {
     }
 
     public void setIsContentSelectBold(boolean z) {
-        this.aZP = z;
+        this.baD = z;
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        public int Ca;
-        public int aZR;
-        public TbFragmentTabIndicator aZT;
+        public int Cd;
+        public int baF;
+        public TbFragmentTabIndicator baH;
         public View view;
-        public boolean aZQ = true;
-        public int aZS = e.d.common_color_10225;
+        public boolean baE = true;
+        public int baG = e.d.common_color_10225;
 
-        public void ea(int i) {
-            if (this.aZR != 0) {
-                al.i(this.view, this.aZR);
+        public void eo(int i) {
+            if (this.baF != 0) {
+                al.i(this.view, this.baF);
             }
             if (this.view instanceof TextView) {
-                if (this.aZS != 0) {
-                    al.c(this.view, this.aZS, 1);
+                if (this.baG != 0) {
+                    al.c(this.view, this.baG, 1);
                 }
                 int a = a((TextView) this.view);
                 if (a > 0 && a < 10) {

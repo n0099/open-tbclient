@@ -11,7 +11,6 @@ import com.baidu.searchbox.ng.ai.apps.console.AiAppsLog;
 import com.baidu.searchbox.ng.ai.apps.lifecycle.AiAppsController;
 import com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsNaViewModel;
 import com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsRectPosition;
-import com.baidu.searchbox.ng.ai.apps.performance.AiAppActionErrorCode;
 import com.baidu.searchbox.ng.ai.apps.permission.AiAppsPermission;
 import com.baidu.searchbox.ng.ai.apps.runtime.AiApp;
 import com.baidu.searchbox.ng.ai.apps.scheme.UnitedSchemeAiAppDispatcher;
@@ -49,7 +48,7 @@ public class CameraInsertAction extends AbsCameraAction {
                     CameraInsertAction.this.handleAuthorized(context, unitedSchemeEntity, callbackHandler, cameraAttrModel);
                     return;
                 }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, (int) AiAppActionErrorCode.Accredit.CAMERA_USER_DENY);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 200101);
                 CameraInsertAction.this.mContainer.removeView();
                 AiAppsLog.e("AiAppCamera", "camera authorize failure");
             }
@@ -75,7 +74,7 @@ public class CameraInsertAction extends AbsCameraAction {
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                 boolean z = false;
                 if (i != 1) {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, (int) AiAppActionErrorCode.Accredit.CAMERA_SYSTEM_DENY);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 200102);
                     CameraInsertAction.this.mContainer.removeView();
                     AiAppsLog.e("AiAppCamera", "handleAuthorized end, failure");
                     return;
@@ -96,7 +95,7 @@ public class CameraInsertAction extends AbsCameraAction {
                     CameraInsertAction.this.callback(unitedSchemeEntity, callbackHandler, CameraInsertAction.this.executionInstruction(context, cameraAttrModel));
                     return;
                 }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, (int) AiAppActionErrorCode.Accredit.CAMERA_SYSTEM_DENY);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 200102);
                 CameraInsertAction.this.mContainer.removeView();
                 AiAppsLog.e("AiAppCamera", "user want not authorize");
             }

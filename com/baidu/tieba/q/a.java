@@ -7,12 +7,12 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static a hjV;
-    private InterfaceC0262a hjW = bEC();
+    private static a hlF;
+    private InterfaceC0290a hlG = bEb();
 
     /* renamed from: com.baidu.tieba.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0262a {
+    public interface InterfaceC0290a {
         void b(Application application);
 
         void behaviorRecordEvent(MotionEvent motionEvent, Activity activity);
@@ -22,53 +22,53 @@ public class a {
         void onResume(Activity activity);
     }
 
-    private boolean bEB() {
+    private boolean bEa() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("pref_key_crab_sdk_enable", 1) == 1;
     }
 
     private a() {
     }
 
-    private InterfaceC0262a bEC() {
+    private InterfaceC0290a bEb() {
         CustomResponsedMessage runTask;
-        if (!bEB() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0262a.class)) == null) {
+        if (!bEa() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0290a.class)) == null) {
             return null;
         }
-        return (InterfaceC0262a) runTask.getData();
+        return (InterfaceC0290a) runTask.getData();
     }
 
-    public static a bED() {
-        if (hjV == null) {
+    public static a bEc() {
+        if (hlF == null) {
             synchronized (a.class) {
-                if (hjV == null) {
-                    hjV = new a();
+                if (hlF == null) {
+                    hlF = new a();
                 }
             }
         }
-        return hjV;
+        return hlF;
     }
 
     public void b(Application application) {
-        if (this.hjW != null) {
-            this.hjW.b(application);
+        if (this.hlG != null) {
+            this.hlG.b(application);
         }
     }
 
     public void onPause(Activity activity) {
-        if (this.hjW != null) {
-            this.hjW.onPause(activity);
+        if (this.hlG != null) {
+            this.hlG.onPause(activity);
         }
     }
 
     public void onResume(Activity activity) {
-        if (this.hjW != null) {
-            this.hjW.onResume(activity);
+        if (this.hlG != null) {
+            this.hlG.onResume(activity);
         }
     }
 
     public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
-        if (this.hjW != null) {
-            this.hjW.behaviorRecordEvent(motionEvent, activity);
+        if (this.hlG != null) {
+            this.hlG.behaviorRecordEvent(motionEvent, activity);
         }
     }
 }

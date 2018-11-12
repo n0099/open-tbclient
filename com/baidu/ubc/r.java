@@ -23,53 +23,53 @@ public class r {
     }
 
     public void o(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.uh()) {
-            if (o.bPN() != null || !TextUtils.isEmpty(str)) {
-                d.bPk().m(str, str2, i);
+        if (com.baidu.pyramid.runtime.multiprocess.a.ur()) {
+            if (o.bPm() != null || !TextUtils.isEmpty(str)) {
+                d.bOJ().m(str, str2, i);
                 return;
             }
             return;
         }
         try {
-            bPO().ubcOnEvent(str, str2, i);
+            bPn().ubcOnEvent(str, str2, i);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
     public void b(String str, JSONObject jSONObject, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.uh()) {
-            if (o.bPN() != null || !TextUtils.isEmpty(str)) {
-                d.bPk().a(str, jSONObject, i);
+        if (com.baidu.pyramid.runtime.multiprocess.a.ur()) {
+            if (o.bPm() != null || !TextUtils.isEmpty(str)) {
+                d.bOJ().a(str, jSONObject, i);
                 return;
             }
             return;
         }
         try {
-            bPO().ubcOnEvent(str, jSONObject.toString(), i);
+            bPn().ubcOnEvent(str, jSONObject.toString(), i);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
     public Flow n(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.uh()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.ur()) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return d.bPk().n(str, str2, i);
+            return d.bOJ().n(str, str2, i);
         }
         return p(str, str2, i);
     }
 
-    private IRemoteUBCService bPO() throws RemoteException {
-        return o.bPO();
+    private IRemoteUBCService bPn() throws RemoteException {
+        return o.bPn();
     }
 
     private Flow p(String str, String str2, int i) {
         Flow flow;
         try {
-            flow = bPO().ubcBeginFlow(str, str2, i);
+            flow = bPn().ubcBeginFlow(str, str2, i);
         } catch (RemoteException e) {
             e.printStackTrace();
             flow = null;

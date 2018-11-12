@@ -19,7 +19,7 @@ public class d {
         this.lastTime = jSONObject.optLong(FaceLoginModel.KEY_LAST_LOGIN_TIME);
     }
 
-    public JSONObject aFB() {
+    public JSONObject aEX() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("forum_name", this.forumName);

@@ -4,22 +4,22 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class a implements k {
-    static final rx.functions.a iFH = new rx.functions.a() { // from class: rx.subscriptions.a.1
+    static final rx.functions.a iHr = new rx.functions.a() { // from class: rx.subscriptions.a.1
         @Override // rx.functions.a
         public void call() {
         }
     };
-    final AtomicReference<rx.functions.a> iFG;
+    final AtomicReference<rx.functions.a> iHq;
 
     public a() {
-        this.iFG = new AtomicReference<>();
+        this.iHq = new AtomicReference<>();
     }
 
     private a(rx.functions.a aVar) {
-        this.iFG = new AtomicReference<>(aVar);
+        this.iHq = new AtomicReference<>(aVar);
     }
 
-    public static a cdN() {
+    public static a cdk() {
         return new a();
     }
 
@@ -29,13 +29,13 @@ public final class a implements k {
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.iFG.get() == iFH;
+        return this.iHq.get() == iHr;
     }
 
     @Override // rx.k
     public void unsubscribe() {
         rx.functions.a andSet;
-        if (this.iFG.get() != iFH && (andSet = this.iFG.getAndSet(iFH)) != null && andSet != iFH) {
+        if (this.iHq.get() != iHr && (andSet = this.iHq.getAndSet(iHr)) != null && andSet != iHr) {
             andSet.call();
         }
     }

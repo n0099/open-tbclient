@@ -1,9 +1,9 @@
 package com.baidu.tbadk.pay;
 /* loaded from: classes6.dex */
 public interface a {
-    void NH();
+    void NQ();
 
-    void NI();
+    void NR();
 
     void onError(String str);
 }

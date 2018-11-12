@@ -22,11 +22,11 @@ import tbclient.FrsPage.AgreeBanner;
 import tbclient.SimpleUser;
 /* loaded from: classes6.dex */
 public class FrsHeaderPraiseView extends RelativeLayout {
-    private View dJT;
-    private View dJU;
-    private TextView dJV;
-    private FrameLayout dJW;
-    private ImageView dJX;
+    private View dKX;
+    private View dKY;
+    private TextView dKZ;
+    private FrameLayout dLa;
+    private ImageView dLb;
 
     public FrsHeaderPraiseView(Context context) {
         this(context, null);
@@ -43,20 +43,20 @@ public class FrsHeaderPraiseView extends RelativeLayout {
     }
 
     private void initView() {
-        this.dJT = findViewById(e.g.divider_top);
-        this.dJU = findViewById(e.g.divider_bottom);
-        this.dJV = (TextView) findViewById(e.g.frs_praise_title);
-        this.dJW = (FrameLayout) findViewById(e.g.frs_praise_portrait);
-        this.dJX = (ImageView) findViewById(e.g.frs_praise_more);
-        al.c(this.dJX, e.f.icon_arrow_more_gray_n);
+        this.dKX = findViewById(e.g.divider_top);
+        this.dKY = findViewById(e.g.divider_bottom);
+        this.dKZ = (TextView) findViewById(e.g.frs_praise_title);
+        this.dLa = (FrameLayout) findViewById(e.g.frs_praise_portrait);
+        this.dLb = (ImageView) findViewById(e.g.frs_praise_more);
+        al.c(this.dLb, e.f.icon_arrow_more_gray_n);
     }
 
     public void changeSkinType(int i) {
         al.i(this, e.f.home_thread_card_item_bg);
-        al.j(this.dJT, e.d.cp_bg_line_c);
-        al.j(this.dJU, e.d.cp_bg_line_e);
-        al.h(this.dJV, e.d.cp_cont_b);
-        al.c(this.dJX, e.f.icon_arrow_more_gray_n);
+        al.j(this.dKX, e.d.cp_bg_line_c);
+        al.j(this.dKY, e.d.cp_bg_line_e);
+        al.h(this.dKZ, e.d.cp_cont_b);
+        al.c(this.dLb, e.f.icon_arrow_more_gray_n);
     }
 
     public void setData(final AgreeBanner agreeBanner) {
@@ -65,9 +65,9 @@ public class FrsHeaderPraiseView extends RelativeLayout {
             return;
         }
         setVisibility(0);
-        this.dJV.setText(agreeBanner.text);
+        this.dKZ.setText(agreeBanner.text);
         List<SimpleUser> list = agreeBanner.top_agree_user;
-        this.dJW.removeAllViews();
+        this.dLa.removeAllViews();
         if (list != null) {
             ArrayList arrayList = new ArrayList();
             if (list.size() > 5) {
@@ -77,21 +77,21 @@ public class FrsHeaderPraiseView extends RelativeLayout {
             } else {
                 arrayList.addAll(list);
             }
-            for (int size = arrayList.size() - 1; size >= 0 && this.dJW.getChildCount() != 5; size--) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getResources().getDimensionPixelSize(e.C0175e.ds40), getResources().getDimensionPixelSize(e.C0175e.ds40));
+            for (int size = arrayList.size() - 1; size >= 0 && this.dLa.getChildCount() != 5; size--) {
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getResources().getDimensionPixelSize(e.C0200e.ds40), getResources().getDimensionPixelSize(e.C0200e.ds40));
                 HeadImageView headImageView = new HeadImageView(getContext());
                 headImageView.setDefaultResource(17170445);
                 headImageView.setDefaultErrorResource(e.f.icon_default_avatar100);
                 headImageView.setDefaultBgResource(e.d.cp_bg_line_e);
                 headImageView.setIsRound(true);
                 headImageView.setBorderColor(al.getColor(e.d.cp_bg_line_d));
-                headImageView.setBorderWidth(l.h(getContext(), e.C0175e.ds2));
+                headImageView.setBorderWidth(l.h(getContext(), e.C0200e.ds2));
                 headImageView.startLoad(((SimpleUser) arrayList.get(size)).portrait, 12, false);
                 if (size != arrayList.size() - 1) {
-                    layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(e.C0175e.ds40)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(e.C0175e.ds8));
+                    layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(e.C0200e.ds40)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(e.C0200e.ds8));
                 }
                 layoutParams.gravity = 5;
-                this.dJW.addView(headImageView, layoutParams);
+                this.dLa.addView(headImageView, layoutParams);
             }
         }
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.FrsHeaderPraiseView.1

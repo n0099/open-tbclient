@@ -9,21 +9,21 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.frs.h;
 /* loaded from: classes3.dex */
 public class c extends h<com.baidu.tieba.tbadkCore.h, d> {
-    private boolean dIn;
-    protected a dLh;
+    private boolean dJr;
+    protected a dMl;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         super(tbPageContext, bdUniqueId);
-        this.dIn = z;
+        this.dJr = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ay */
+    /* renamed from: az */
     public d onCreateViewHolder(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(e.h.frs_feed_item_layout, (ViewGroup) null);
-        this.dLh = new a(this.mPageContext, inflate, 2, this.dIn, this.mPageId);
+        this.dMl = new a(this.mPageContext, inflate, 2, this.dJr, this.mPageId);
         return new d(inflate);
     }
 
@@ -34,7 +34,7 @@ public class c extends h<com.baidu.tieba.tbadkCore.h, d> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.h hVar, d dVar) {
         super.onFillViewHolder(i, view, viewGroup, hVar, dVar);
         if (hVar != null) {
-            this.dLh.e(hVar.getForumId(), hVar.bzU());
+            this.dMl.e(hVar.getForumId(), hVar.bzq());
         }
         return view;
     }

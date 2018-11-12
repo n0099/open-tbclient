@@ -6,88 +6,88 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes3.dex */
 class b {
-    private int gfZ;
-    private int gga;
-    private byte[] ggb;
-    private int ggc;
-    private int ggd;
-    private int gge;
-    int ggf;
-    int ggh;
-    int ggo;
-    int ggp;
-    int ggq;
-    int ggu;
-    int ggg = 12;
-    int ggi = 4096;
-    int[] ggj = new int[5003];
-    int[] ggk = new int[5003];
-    int ggl = 5003;
-    int ggm = 0;
-    boolean ggn = false;
-    int ggr = 0;
-    int ggs = 0;
-    int[] ggt = {0, 1, 3, 7, 15, 31, 63, 127, 255, 511, ArBridge.MessageType.MSG_TYPE_VIDEO_PAUSE, 2047, 4095, 8191, 16383, 32767, SupportMenu.USER_MASK};
-    byte[] ggv = new byte[256];
+    private int ghA;
+    int ghB;
+    int ghD;
+    int ghK;
+    int ghL;
+    int ghM;
+    int ghQ;
+    private int ghv;
+    private int ghw;
+    private byte[] ghx;
+    private int ghy;
+    private int ghz;
+    int ghC = 12;
+    int ghE = 4096;
+    int[] ghF = new int[5003];
+    int[] ghG = new int[5003];
+    int ghH = 5003;
+    int ghI = 0;
+    boolean ghJ = false;
+    int ghN = 0;
+    int ghO = 0;
+    int[] ghP = {0, 1, 3, 7, 15, 31, 63, 127, 255, 511, ArBridge.MessageType.MSG_TYPE_VIDEO_PAUSE, 2047, 4095, 8191, 16383, 32767, SupportMenu.USER_MASK};
+    byte[] ghR = new byte[256];
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(int i, int i2, byte[] bArr, int i3) {
-        this.gfZ = i;
-        this.gga = i2;
-        this.ggb = bArr;
-        this.ggc = Math.max(2, i3);
+        this.ghv = i;
+        this.ghw = i2;
+        this.ghx = bArr;
+        this.ghy = Math.max(2, i3);
     }
 
     void a(byte b, OutputStream outputStream) throws IOException {
-        byte[] bArr = this.ggv;
-        int i = this.ggu;
-        this.ggu = i + 1;
+        byte[] bArr = this.ghR;
+        int i = this.ghQ;
+        this.ghQ = i + 1;
         bArr[i] = b;
-        if (this.ggu >= 254) {
+        if (this.ghQ >= 254) {
             g(outputStream);
         }
     }
 
     void f(OutputStream outputStream) throws IOException {
-        se(this.ggl);
-        this.ggm = this.ggp + 2;
-        this.ggn = true;
-        b(this.ggp, outputStream);
+        sx(this.ghH);
+        this.ghI = this.ghL + 2;
+        this.ghJ = true;
+        b(this.ghL, outputStream);
     }
 
-    void se(int i) {
+    void sx(int i) {
         for (int i2 = 0; i2 < i; i2++) {
-            this.ggj[i2] = -1;
+            this.ghF[i2] = -1;
         }
     }
 
     void a(int i, OutputStream outputStream) throws IOException {
         int i2 = 0;
-        this.ggo = i;
-        this.ggn = false;
-        this.ggf = this.ggo;
-        this.ggh = sf(this.ggf);
-        this.ggp = 1 << (i - 1);
-        this.ggq = this.ggp + 1;
-        this.ggm = this.ggp + 2;
-        this.ggu = 0;
-        int bmJ = bmJ();
-        for (int i3 = this.ggl; i3 < 65536; i3 *= 2) {
+        this.ghK = i;
+        this.ghJ = false;
+        this.ghB = this.ghK;
+        this.ghD = sy(this.ghB);
+        this.ghL = 1 << (i - 1);
+        this.ghM = this.ghL + 1;
+        this.ghI = this.ghL + 2;
+        this.ghQ = 0;
+        int bmf = bmf();
+        for (int i3 = this.ghH; i3 < 65536; i3 *= 2) {
             i2++;
         }
         int i4 = 8 - i2;
-        int i5 = this.ggl;
-        se(i5);
-        b(this.ggp, outputStream);
+        int i5 = this.ghH;
+        sx(i5);
+        b(this.ghL, outputStream);
         while (true) {
-            int bmJ2 = bmJ();
-            if (bmJ2 != -1) {
-                int i6 = (bmJ2 << this.ggg) + bmJ;
-                int i7 = (bmJ2 << i4) ^ bmJ;
-                if (this.ggj[i7] == i6) {
-                    bmJ = this.ggk[i7];
+            int bmf2 = bmf();
+            if (bmf2 != -1) {
+                int i6 = (bmf2 << this.ghC) + bmf;
+                int i7 = (bmf2 << i4) ^ bmf;
+                if (this.ghF[i7] == i6) {
+                    bmf = this.ghG[i7];
                 } else {
-                    if (this.ggj[i7] >= 0) {
+                    if (this.ghF[i7] >= 0) {
                         int i8 = i5 - i7;
                         if (i7 == 0) {
                             i8 = 1;
@@ -97,28 +97,28 @@ class b {
                             if (i7 < 0) {
                                 i7 += i5;
                             }
-                            if (this.ggj[i7] == i6) {
-                                bmJ = this.ggk[i7];
+                            if (this.ghF[i7] == i6) {
+                                bmf = this.ghG[i7];
                                 break;
                             }
-                        } while (this.ggj[i7] >= 0);
+                        } while (this.ghF[i7] >= 0);
                     }
-                    b(bmJ, outputStream);
-                    if (this.ggm < this.ggi) {
-                        int[] iArr = this.ggk;
-                        int i9 = this.ggm;
-                        this.ggm = i9 + 1;
+                    b(bmf, outputStream);
+                    if (this.ghI < this.ghE) {
+                        int[] iArr = this.ghG;
+                        int i9 = this.ghI;
+                        this.ghI = i9 + 1;
                         iArr[i7] = i9;
-                        this.ggj[i7] = i6;
-                        bmJ = bmJ2;
+                        this.ghF[i7] = i6;
+                        bmf = bmf2;
                     } else {
                         f(outputStream);
-                        bmJ = bmJ2;
+                        bmf = bmf2;
                     }
                 }
             } else {
-                b(bmJ, outputStream);
-                b(this.ggq, outputStream);
+                b(bmf, outputStream);
+                b(this.ghM, outputStream);
                 return;
             }
         }
@@ -126,69 +126,69 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void encode(OutputStream outputStream) throws IOException {
-        outputStream.write(this.ggc);
-        this.ggd = this.gfZ * this.gga;
-        this.gge = 0;
-        a(this.ggc + 1, outputStream);
+        outputStream.write(this.ghy);
+        this.ghz = this.ghv * this.ghw;
+        this.ghA = 0;
+        a(this.ghy + 1, outputStream);
         outputStream.write(0);
     }
 
     void g(OutputStream outputStream) throws IOException {
-        if (this.ggu > 0) {
-            outputStream.write(this.ggu);
-            outputStream.write(this.ggv, 0, this.ggu);
-            this.ggu = 0;
+        if (this.ghQ > 0) {
+            outputStream.write(this.ghQ);
+            outputStream.write(this.ghR, 0, this.ghQ);
+            this.ghQ = 0;
         }
     }
 
-    final int sf(int i) {
+    final int sy(int i) {
         return (1 << i) - 1;
     }
 
-    private int bmJ() {
-        if (this.ggd == 0) {
+    private int bmf() {
+        if (this.ghz == 0) {
             return -1;
         }
-        this.ggd--;
-        byte[] bArr = this.ggb;
-        int i = this.gge;
-        this.gge = i + 1;
+        this.ghz--;
+        byte[] bArr = this.ghx;
+        int i = this.ghA;
+        this.ghA = i + 1;
         return bArr[i] & 255;
     }
 
     void b(int i, OutputStream outputStream) throws IOException {
-        this.ggr &= this.ggt[this.ggs];
-        if (this.ggs > 0) {
-            this.ggr |= i << this.ggs;
+        this.ghN &= this.ghP[this.ghO];
+        if (this.ghO > 0) {
+            this.ghN |= i << this.ghO;
         } else {
-            this.ggr = i;
+            this.ghN = i;
         }
-        this.ggs += this.ggf;
-        while (this.ggs >= 8) {
-            a((byte) (this.ggr & 255), outputStream);
-            this.ggr >>= 8;
-            this.ggs -= 8;
+        this.ghO += this.ghB;
+        while (this.ghO >= 8) {
+            a((byte) (this.ghN & 255), outputStream);
+            this.ghN >>= 8;
+            this.ghO -= 8;
         }
-        if (this.ggm > this.ggh || this.ggn) {
-            if (this.ggn) {
-                int i2 = this.ggo;
-                this.ggf = i2;
-                this.ggh = sf(i2);
-                this.ggn = false;
+        if (this.ghI > this.ghD || this.ghJ) {
+            if (this.ghJ) {
+                int i2 = this.ghK;
+                this.ghB = i2;
+                this.ghD = sy(i2);
+                this.ghJ = false;
             } else {
-                this.ggf++;
-                if (this.ggf == this.ggg) {
-                    this.ggh = this.ggi;
+                this.ghB++;
+                if (this.ghB == this.ghC) {
+                    this.ghD = this.ghE;
                 } else {
-                    this.ggh = sf(this.ggf);
+                    this.ghD = sy(this.ghB);
                 }
             }
         }
-        if (i == this.ggq) {
-            while (this.ggs > 0) {
-                a((byte) (this.ggr & 255), outputStream);
-                this.ggr >>= 8;
-                this.ggs -= 8;
+        if (i == this.ghM) {
+            while (this.ghO > 0) {
+                a((byte) (this.ghN & 255), outputStream);
+                this.ghN >>= 8;
+                this.ghO -= 8;
             }
             g(outputStream);
         }

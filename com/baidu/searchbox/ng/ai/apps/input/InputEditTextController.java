@@ -279,7 +279,7 @@ public class InputEditTextController {
         String str4 = createInputInfo.textAlign;
         switch (str4.hashCode()) {
             case -1364013995:
-                if (str4.equals(TEXT_ALIGN_CENTER)) {
+                if (str4.equals("center")) {
                     c2 = 2;
                     break;
                 }
@@ -291,7 +291,7 @@ public class InputEditTextController {
                 }
                 break;
             case 108511772:
-                if (str4.equals(TEXT_ALIGN_RIGHT)) {
+                if (str4.equals("right")) {
                     c2 = 1;
                     break;
                 }

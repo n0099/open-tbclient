@@ -56,7 +56,7 @@ public class a implements IAiAppLocationIoc {
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppLocationIoc
     public void requestLocation(final String str, boolean z, boolean z2, final IAiAppLocationIoc.LocationListener locationListener) {
         if (locationListener != null) {
-            com.baidu.adp.lib.d.a.iX().a(!z, z2, new a.InterfaceC0017a() { // from class: com.baidu.tieba.aiapps.apps.i.a.2
+            com.baidu.adp.lib.d.a.iW().a(!z, z2, new a.InterfaceC0017a() { // from class: com.baidu.tieba.aiapps.apps.i.a.2
                 @Override // com.baidu.adp.lib.d.a.InterfaceC0017a
                 public void b(int i, String str2, Address address) {
                     if ("bd09ll".equals(str)) {

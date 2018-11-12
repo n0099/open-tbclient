@@ -18,7 +18,7 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
     @Override // com.baidu.tieba.im.chat.a.c
     protected BasicNameValuePair a(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
         int i2 = 0;
-        if (!com.baidu.tbadk.coreExtra.messageCenter.c.Hg().HA()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.c.Hs().HM()) {
             str = "";
             i = 0;
         }
@@ -32,13 +32,13 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.eBa.setTag(null);
-        aVar.eBa.setDrawBorder(true);
-        aVar.eBa.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
-        aVar.eBa.setDefaultResource(e.f.icon_default_ba_120);
+        aVar.eCt.setTag(null);
+        aVar.eCt.setDrawBorder(true);
+        aVar.eCt.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+        aVar.eCt.setDefaultResource(e.f.icon_default_ba_120);
         if (!TextUtils.isEmpty(imMessageCenterShowItemData.getFriendPortrait())) {
-            aVar.eBa.setTag(imMessageCenterShowItemData.getFriendPortrait());
-            aVar.eBa.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
+            aVar.eCt.setTag(imMessageCenterShowItemData.getFriendPortrait());
+            aVar.eCt.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
         }
     }
 
@@ -54,14 +54,14 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void a(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.eBb.setText(this.mContext.getString(e.j.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
+        aVar.eCu.setText(this.mContext.getString(e.j.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
         if (imMessageCenterShowItemData.getUserType() == 1) {
             BitmapDrawable bitmapDrawable = (BitmapDrawable) al.getDrawable(e.f.icon_v);
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-            aVar.eBb.setCompoundDrawables(null, null, bitmapDrawable, null);
-            aVar.eBb.setCompoundDrawablePadding(l.dip2px(this.mContext, this.mContext.getResources().getDimension(e.C0175e.ds8)));
+            aVar.eCu.setCompoundDrawables(null, null, bitmapDrawable, null);
+            aVar.eCu.setCompoundDrawablePadding(l.dip2px(this.mContext, this.mContext.getResources().getDimension(e.C0200e.ds8)));
             return;
         }
-        aVar.eBb.setCompoundDrawables(null, null, null, null);
+        aVar.eCu.setCompoundDrawables(null, null, null, null);
     }
 }

@@ -21,7 +21,7 @@ public class d implements j {
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             this.hasMore = dataRes.has_more.intValue() == 1;
-            if (!v.J(dataRes.user_list)) {
+            if (!v.I(dataRes.user_list)) {
                 for (User user : dataRes.user_list) {
                     if (user != null) {
                         MetaData metaData = new MetaData();
@@ -33,15 +33,15 @@ public class d implements j {
                     }
                 }
             }
-            if (!v.J(dataRes.general_list)) {
+            if (!v.I(dataRes.general_list)) {
                 for (ThreadInfo threadInfo : dataRes.general_list) {
                     if (threadInfo != null) {
                         bb bbVar = new bb();
                         bbVar.setUserMap(this.userMap);
                         bbVar.a(threadInfo);
                         bbVar.setCurrentPage(3);
-                        bbVar.zf();
-                        if (bbVar.getType() == bb.aoV || bbVar.getType() == bb.apa) {
+                        bbVar.zm();
+                        if (bbVar.getType() == bb.apJ || bbVar.getType() == bb.apO) {
                             this.threadList.add(bbVar);
                         }
                     }

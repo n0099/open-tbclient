@@ -6,9 +6,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes2.dex */
 public class b {
-    static final byte[] hXK = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, 101, 102};
+    static final byte[] hZu = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, 101, 102};
 
-    public static String U(byte[] bArr) {
+    public static String T(byte[] bArr) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_SHA1);
             messageDigest.update(bArr, 0, bArr.length);

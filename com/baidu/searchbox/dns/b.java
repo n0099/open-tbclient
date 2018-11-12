@@ -16,7 +16,7 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        com.baidu.searchbox.dns.c.a i4 = new a.C0103a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.m().c(str, false), com.baidu.searchbox.dns.a.a.e().c(str)).i();
+        com.baidu.searchbox.dns.c.a i4 = new a.C0126a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.m().c(str, false), com.baidu.searchbox.dns.a.a.e().c(str)).i();
         com.baidu.searchbox.dns.d.a g = i4.g();
         com.baidu.searchbox.dns.d.a.a f = i4.f();
         int h = i4.h();

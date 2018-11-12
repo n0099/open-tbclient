@@ -1,26 +1,71 @@
 package com.baidu.sofire;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
 /* loaded from: classes.dex */
-public final class b {
-    public static boolean a = false;
+public class b {
+    public static int a = -1;
+    private static int c = 0;
+    static ThreadLocal<StringBuilder> b = new ThreadLocal<>();
+
+    public static void a(String str) {
+    }
+
+    public static void b(String str) {
+    }
+
+    public static void a(String str, Throwable th) {
+    }
 
     public static String a(Throwable th) {
+        StringWriter stringWriter;
+        if (th == null) {
+            return "";
+        }
         for (Throwable th2 = th; th2 != null; th2 = th2.getCause()) {
-            if (th2 instanceof UnknownHostException) {
+            try {
+                if (th2 instanceof UnknownHostException) {
+                    return "";
+                }
+            } catch (Throwable th3) {
+                com.baidu.sofire.b.e.a(th3);
                 return "";
             }
         }
-        StringWriter stringWriter = new StringWriter();
-        th.printStackTrace(new PrintWriter(stringWriter));
-        return stringWriter.toString();
+        try {
+            stringWriter = new StringWriter();
+            try {
+                th.printStackTrace(new PrintWriter(stringWriter));
+                String stringWriter2 = stringWriter.toString();
+                if (stringWriter != null) {
+                    try {
+                        stringWriter.close();
+                        return stringWriter2;
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        return stringWriter2;
+                    }
+                }
+                return stringWriter2;
+            } catch (Throwable th4) {
+                th = th4;
+                if (stringWriter != null) {
+                    try {
+                        stringWriter.close();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+        } catch (Throwable th5) {
+            th = th5;
+            stringWriter = null;
+        }
     }
 
     public static void b(Throwable th) {
-        if (a) {
-            th.printStackTrace();
-        }
     }
 }

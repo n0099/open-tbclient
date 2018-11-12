@@ -95,10 +95,10 @@ public class SearchFlow {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void sendUBCData() {
-        Flow xD;
-        if (!TextUtils.equals(this.mSource, "8003") && (xD = o.xD(this.mUbcId)) != null) {
+        Flow xI;
+        if (!TextUtils.equals(this.mSource, "8003") && (xI = o.xI(this.mUbcId)) != null) {
             for (SearchFlowEvent searchFlowEvent : this.mEventPool.values()) {
-                xD.d(searchFlowEvent.id, searchFlowEvent.extData, searchFlowEvent.timestamp);
+                xI.e(searchFlowEvent.id, searchFlowEvent.extData, searchFlowEvent.timestamp);
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -116,8 +116,8 @@ public class SearchFlow {
                 jSONObject.put("ext", jSONObject2);
             } catch (JSONException e) {
             }
-            xD.xy(jSONObject.toString());
-            xD.end();
+            xI.xD(jSONObject.toString());
+            xI.end();
         }
     }
 

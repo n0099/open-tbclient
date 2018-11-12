@@ -42,7 +42,7 @@ public abstract class a<E> implements Collection<E> {
 
     @Override // java.util.Collection
     public boolean containsAll(Collection<? extends Object> collection) {
-        kotlin.jvm.internal.p.i(collection, "elements");
+        kotlin.jvm.internal.p.h((Object) collection, "elements");
         Collection<? extends Object> collection2 = collection;
         if (collection2.isEmpty()) {
             return true;
@@ -68,16 +68,16 @@ public abstract class a<E> implements Collection<E> {
 
     @Override // java.util.Collection
     public Object[] toArray() {
-        Object[] h = kotlin.jvm.internal.n.h(this);
-        kotlin.jvm.internal.p.h((Object) h, "kotlin.jvm.internal.Coll…Array.toArray(collection)");
-        return h;
+        Object[] k = kotlin.jvm.internal.n.k(this);
+        kotlin.jvm.internal.p.g(k, "kotlin.jvm.internal.Coll…Array.toArray(collection)");
+        return k;
     }
 
     @Override // java.util.Collection
     public <T> T[] toArray(T[] tArr) {
-        kotlin.jvm.internal.p.i(tArr, com.baidu.fsg.base.statistics.b.j);
+        kotlin.jvm.internal.p.h((Object) tArr, com.baidu.fsg.base.statistics.b.j);
         T[] tArr2 = (T[]) kotlin.jvm.internal.n.a(this, tArr);
-        kotlin.jvm.internal.p.h((Object) tArr2, "kotlin.jvm.internal.Coll…oArray(collection, array)");
+        kotlin.jvm.internal.p.g(tArr2, "kotlin.jvm.internal.Coll…oArray(collection, array)");
         return tArr2;
     }
 

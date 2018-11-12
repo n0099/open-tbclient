@@ -1,9 +1,9 @@
 package rx;
 /* loaded from: classes2.dex */
 public final class Notification<T> {
-    private static final Notification<Void> irZ = new Notification<>(Kind.OnCompleted, null, null);
-    private final Kind irX;
-    private final Throwable irY;
+    private static final Notification<Void> itJ = new Notification<>(Kind.OnCompleted, null, null);
+    private final Kind itH;
+    private final Throwable itI;
     private final T value;
 
     /* loaded from: classes2.dex */
@@ -13,7 +13,7 @@ public final class Notification<T> {
         OnCompleted
     }
 
-    public static <T> Notification<T> aV(T t) {
+    public static <T> Notification<T> aU(T t) {
         return new Notification<>(Kind.OnNext, t, null);
     }
 
@@ -21,18 +21,18 @@ public final class Notification<T> {
         return new Notification<>(Kind.OnError, null, th);
     }
 
-    public static <T> Notification<T> cbm() {
-        return (Notification<T>) irZ;
+    public static <T> Notification<T> caJ() {
+        return (Notification<T>) itJ;
     }
 
     private Notification(Kind kind, T t, Throwable th) {
         this.value = t;
-        this.irY = th;
-        this.irX = kind;
+        this.itI = th;
+        this.itH = kind;
     }
 
-    public Throwable cbn() {
-        return this.irY;
+    public Throwable caK() {
+        return this.itI;
     }
 
     public T getValue() {
@@ -40,48 +40,48 @@ public final class Notification<T> {
     }
 
     public boolean hasValue() {
-        return cbs() && this.value != null;
+        return caP() && this.value != null;
     }
 
-    public boolean cbo() {
-        return cbq() && this.irY != null;
+    public boolean caL() {
+        return caN() && this.itI != null;
     }
 
-    public Kind cbp() {
-        return this.irX;
+    public Kind caM() {
+        return this.itH;
     }
 
-    public boolean cbq() {
-        return cbp() == Kind.OnError;
+    public boolean caN() {
+        return caM() == Kind.OnError;
     }
 
-    public boolean cbr() {
-        return cbp() == Kind.OnCompleted;
+    public boolean caO() {
+        return caM() == Kind.OnCompleted;
     }
 
-    public boolean cbs() {
-        return cbp() == Kind.OnNext;
+    public boolean caP() {
+        return caM() == Kind.OnNext;
     }
 
     public String toString() {
-        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(cbp());
+        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(caM());
         if (hasValue()) {
             append.append(' ').append(getValue());
         }
-        if (cbo()) {
-            append.append(' ').append(cbn().getMessage());
+        if (caL()) {
+            append.append(' ').append(caK().getMessage());
         }
         append.append(']');
         return append.toString();
     }
 
     public int hashCode() {
-        int hashCode = cbp().hashCode();
+        int hashCode = caM().hashCode();
         if (hasValue()) {
             hashCode = (hashCode * 31) + getValue().hashCode();
         }
-        if (cbo()) {
-            return (hashCode * 31) + cbn().hashCode();
+        if (caL()) {
+            return (hashCode * 31) + caK().hashCode();
         }
         return hashCode;
     }
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.cbp() != cbp() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.irY != notification.irY && (this.irY == null || !this.irY.equals(notification.irY))))) {
+            if (notification.caM() != caM() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.itI != notification.itI && (this.itI == null || !this.itI.equals(notification.itI))))) {
                 z = false;
             }
             return z;

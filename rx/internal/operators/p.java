@@ -8,7 +8,7 @@ import rx.g;
 import rx.schedulers.Schedulers;
 /* loaded from: classes2.dex */
 public final class p<T> implements d.a<T> {
-    static final rx.functions.f<rx.d<? extends Notification<?>>, rx.d<?>> iun = new rx.functions.f<rx.d<? extends Notification<?>>, rx.d<?>>() { // from class: rx.internal.operators.p.1
+    static final rx.functions.f<rx.d<? extends Notification<?>>, rx.d<?>> ivX = new rx.functions.f<rx.d<? extends Notification<?>>, rx.d<?>>() { // from class: rx.internal.operators.p.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: rx.d<R>, rx.d<?> */
         @Override // rx.functions.f
@@ -19,15 +19,15 @@ public final class p<T> implements d.a<T> {
                 @Override // rx.functions.f
                 /* renamed from: a */
                 public Notification<?> call(Notification<?> notification) {
-                    return Notification.aV(null);
+                    return Notification.aU(null);
                 }
             });
         }
     };
-    final rx.d<T> isM;
-    private final rx.functions.f<? super rx.d<? extends Notification<?>>, ? extends rx.d<?>> iuk;
-    final boolean iul;
-    final boolean ium;
+    final rx.d<T> iuw;
+    private final rx.functions.f<? super rx.d<? extends Notification<?>>, ? extends rx.d<?>> ivU;
+    final boolean ivV;
+    final boolean ivW;
     private final rx.g scheduler;
 
     @Override // rx.functions.b
@@ -57,7 +57,7 @@ public final class p<T> implements d.a<T> {
                     if (a.this.count != 0) {
                         this.num++;
                         if (this.num <= a.this.count) {
-                            return Notification.aV(Integer.valueOf(this.num));
+                            return Notification.aU(Integer.valueOf(this.num));
                         }
                         return notification;
                     }
@@ -68,7 +68,7 @@ public final class p<T> implements d.a<T> {
     }
 
     public static <T> rx.d<T> d(rx.d<T> dVar) {
-        return a(dVar, iun);
+        return a(dVar, ivX);
     }
 
     public static <T> rx.d<T> a(rx.d<T> dVar, long j) {
@@ -91,7 +91,7 @@ public final class p<T> implements d.a<T> {
     }
 
     public static <T> rx.d<T> a(rx.d<T> dVar, rx.g gVar) {
-        return b(dVar, iun, gVar);
+        return b(dVar, ivX, gVar);
     }
 
     public static <T> rx.d<T> b(rx.d<T> dVar, long j) {
@@ -117,10 +117,10 @@ public final class p<T> implements d.a<T> {
     }
 
     private p(rx.d<T> dVar, rx.functions.f<? super rx.d<? extends Notification<?>>, ? extends rx.d<?>> fVar, boolean z, boolean z2, rx.g gVar) {
-        this.isM = dVar;
-        this.iuk = fVar;
-        this.iul = z;
-        this.ium = z2;
+        this.iuw = dVar;
+        this.ivU = fVar;
+        this.ivV = z;
+        this.ivW = z2;
         this.scheduler = gVar;
     }
 
@@ -131,8 +131,8 @@ public final class p<T> implements d.a<T> {
         jVar.add(createWorker);
         final rx.subscriptions.d dVar = new rx.subscriptions.d();
         jVar.add(dVar);
-        final rx.subjects.b<T, T> serialized = rx.subjects.a.cdI().toSerialized();
-        serialized.subscribe((rx.j) rx.b.g.cdn());
+        final rx.subjects.b<T, T> serialized = rx.subjects.a.cdf().toSerialized();
+        serialized.subscribe((rx.j) rx.b.g.ccK());
         final rx.internal.producers.a aVar = new rx.internal.producers.a();
         final rx.functions.a aVar2 = new rx.functions.a() { // from class: rx.internal.operators.p.2
             @Override // rx.functions.a
@@ -146,7 +146,7 @@ public final class p<T> implements d.a<T> {
                             if (!this.done) {
                                 this.done = true;
                                 unsubscribe();
-                                serialized.onNext(Notification.cbm());
+                                serialized.onNext(Notification.caJ());
                             }
                         }
 
@@ -163,12 +163,12 @@ public final class p<T> implements d.a<T> {
                         public void onNext(T t) {
                             if (!this.done) {
                                 jVar.onNext(t);
-                                cbJ();
-                                aVar.dJ(1L);
+                                cbg();
+                                aVar.dE(1L);
                             }
                         }
 
-                        private void cbJ() {
+                        private void cbg() {
                             long j;
                             do {
                                 j = atomicLong.get();
@@ -184,11 +184,11 @@ public final class p<T> implements d.a<T> {
                         }
                     };
                     dVar.g(jVar2);
-                    p.this.isM.unsafeSubscribe(jVar2);
+                    p.this.iuw.unsafeSubscribe(jVar2);
                 }
             }
         };
-        final rx.d<?> call = this.iuk.call(serialized.lift(new d.b<Notification<?>, Notification<?>>() { // from class: rx.internal.operators.p.3
+        final rx.d<?> call = this.ivU.call(serialized.lift(new d.b<Notification<?>, Notification<?>>() { // from class: rx.internal.operators.p.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
             public rx.j<? super Notification<?>> call(final rx.j<? super Notification<?>> jVar2) {
@@ -207,10 +207,10 @@ public final class p<T> implements d.a<T> {
                     @Override // rx.e
                     /* renamed from: b */
                     public void onNext(Notification<?> notification) {
-                        if (notification.cbr() && p.this.iul) {
+                        if (notification.caO() && p.this.ivV) {
                             jVar2.onCompleted();
-                        } else if (notification.cbq() && p.this.ium) {
-                            jVar2.onError(notification.cbn());
+                        } else if (notification.caN() && p.this.ivW) {
+                            jVar2.onError(notification.caK());
                         } else {
                             jVar2.onNext(notification);
                         }

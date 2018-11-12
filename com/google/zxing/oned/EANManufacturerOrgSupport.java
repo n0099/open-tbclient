@@ -2,10 +2,11 @@ package com.google.zxing.oned;
 
 import com.baidu.ar.external.ARCallback;
 import com.baidu.ar.util.MsgConstants;
+import com.baidu.lbsapi.auth.LBSAuthManager;
+import com.baidu.mapapi.UIMsg;
 import com.baidu.searchbox.ng.ai.apps.animator.AiAppsLoadingAnimator;
 import com.baidu.searchbox.ng.ai.apps.core.slave.AiAppsSlavePool;
 import com.baidu.tieba.recapp.lego.model.FormCard;
-import com.baidu.webkit.sdk.LoadErrorCode;
 import com.google.zxing.client.result.ExpandedProductParsedResult;
 import java.util.ArrayList;
 import java.util.List;
@@ -66,8 +67,8 @@ final class EANManufacturerOrgSupport {
             add(new int[]{487}, "KZ");
             add(new int[]{489}, "HK");
             add(new int[]{490, 499}, "JP");
-            add(new int[]{500, LoadErrorCode.MSG_EXPAND_LIB_DIR_FAIL}, "GB");
-            add(new int[]{520}, "GR");
+            add(new int[]{500, 509}, "GB");
+            add(new int[]{UIMsg.m_AppUI.MSG_PLACEFIELD_RELOAD}, "GR");
             add(new int[]{528}, ExpandedProductParsedResult.POUND);
             add(new int[]{529}, "CY");
             add(new int[]{531}, "MK");
@@ -80,7 +81,7 @@ final class EANManufacturerOrgSupport {
             add(new int[]{590}, "PL");
             add(new int[]{594}, "RO");
             add(new int[]{599}, "HU");
-            add(new int[]{AiAppsSlavePool.PRELOAD_NEXT_DELAY_MS, 601}, "ZA");
+            add(new int[]{AiAppsSlavePool.PRELOAD_NEXT_DELAY_MS, LBSAuthManager.CODE_UNAUTHENTICATE}, "ZA");
             add(new int[]{603}, "GH");
             add(new int[]{608}, "BH");
             add(new int[]{609}, "MU");

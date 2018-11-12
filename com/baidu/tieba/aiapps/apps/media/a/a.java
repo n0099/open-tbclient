@@ -27,9 +27,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a implements IAiAppImageIoc {
-    private static BroadcastReceiver bEs = null;
-    ChooseImageAction.OnImageChooseResultCallback bEq;
-    CustomMessageListener bEr = new CustomMessageListener(2921365) { // from class: com.baidu.tieba.aiapps.apps.media.a.a.2
+    private static BroadcastReceiver bFe = null;
+    ChooseImageAction.OnImageChooseResultCallback bFc;
+    CustomMessageListener bFd = new CustomMessageListener(2921365) { // from class: com.baidu.tieba.aiapps.apps.media.a.a.2
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Removed duplicated region for block: B:10:0x0016  */
         /* JADX WARN: Removed duplicated region for block: B:28:0x0086  */
@@ -48,7 +48,7 @@ public class a implements IAiAppImageIoc {
                         WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
                         writeImagesInfo.parseJson(stringExtra);
                         writeImagesInfo.updateQuality();
-                        if (a.this.bEq != null) {
+                        if (a.this.bFc != null) {
                             ArrayList arrayList = new ArrayList();
                             LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
                             if (chosedFiles != null && chosedFiles.size() > 0) {
@@ -57,19 +57,19 @@ public class a implements IAiAppImageIoc {
                                         arrayList.add(imageFileInfo.getFilePath());
                                     }
                                 }
-                                a.this.bEq.onResult(true, "suc", arrayList);
+                                a.this.bFc.onResult(true, "suc", arrayList);
                             } else {
-                                a.this.bEq.onResult(false, AiAppsUBCStatistic.VALUE_CANCEL, null);
+                                a.this.bFc.onResult(false, AiAppsUBCStatistic.VALUE_CANCEL, null);
                             }
                         }
-                    } else if (a.this.bEq != null) {
-                        a.this.bEq.onResult(false, AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, null);
+                    } else if (a.this.bFc != null) {
+                        a.this.bFc.onResult(false, AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, null);
                     }
-                    e.jI().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.2.1
+                    e.jG().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.2.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.bEq = null;
-                            MessageManager.getInstance().unRegisterListener(a.this.bEr);
+                            a.this.bFc = null;
+                            MessageManager.getInstance().unRegisterListener(a.this.bFd);
                         }
                     });
                 }
@@ -77,11 +77,11 @@ public class a implements IAiAppImageIoc {
             intent = null;
             if (intent == null) {
             }
-            e.jI().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.2.1
+            e.jG().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.2.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.bEq = null;
-                    MessageManager.getInstance().unRegisterListener(a.this.bEr);
+                    a.this.bFc = null;
+                    MessageManager.getInstance().unRegisterListener(a.this.bFd);
                 }
             });
         }
@@ -110,7 +110,7 @@ public class a implements IAiAppImageIoc {
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppImageIoc
     public void chooseImage(Context context, int i, ChooseImageAction.OnImageChooseResultCallback onImageChooseResultCallback) {
-        this.bEq = onImageChooseResultCallback;
+        this.bFc = onImageChooseResultCallback;
         if (i < 1) {
             i = 1;
         }
@@ -125,8 +125,8 @@ public class a implements IAiAppImageIoc {
         albumActivityConfig.getIntent().putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, AlbumActivityConfig.FROM_AIAPPS);
         albumActivityConfig.setRequestCode(IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_CHECK);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
-        if (bEs == null) {
-            bEs = new BroadcastReceiver() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.1
+        if (bFe == null) {
+            bFe = new BroadcastReceiver() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.1
                 @Override // android.content.BroadcastReceiver
                 public void onReceive(Context context2, Intent intent) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921365, intent));
@@ -134,8 +134,8 @@ public class a implements IAiAppImageIoc {
             };
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(AlbumActivityConfig.ACTION_SELECT_IMAGE_RESULT);
-            TbadkCoreApplication.getInst().registerReceiver(bEs, intentFilter);
+            TbadkCoreApplication.getInst().registerReceiver(bFe, intentFilter);
         }
-        MessageManager.getInstance().registerListener(this.bEr);
+        MessageManager.getInstance().registerListener(this.bFd);
     }
 }

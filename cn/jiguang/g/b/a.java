@@ -11,7 +11,22 @@ import java.util.Set;
 public final class a {
     private HashMap<String, Serializable> a = new HashMap<>(5);
 
-    public static int a(Serializable serializable) {
+    public static HashSet<String> a(SharedPreferences sharedPreferences, String str) {
+        Set<String> stringSet;
+        if (Build.VERSION.SDK_INT < 11 || (stringSet = sharedPreferences.getStringSet(str, null)) == null) {
+            return null;
+        }
+        if (stringSet instanceof HashSet) {
+            return (HashSet) stringSet;
+        }
+        HashSet<String> hashSet = new HashSet<>();
+        for (String str2 : stringSet) {
+            hashSet.add(str2);
+        }
+        return hashSet;
+    }
+
+    public static int b(Serializable serializable) {
         if (serializable == null) {
             return 0;
         }
@@ -31,21 +46,6 @@ public final class a {
             return 5;
         }
         return serializable instanceof HashSet ? 6 : 0;
-    }
-
-    public static HashSet<String> a(SharedPreferences sharedPreferences, String str) {
-        Set<String> stringSet;
-        if (Build.VERSION.SDK_INT < 11 || (stringSet = sharedPreferences.getStringSet(str, null)) == null) {
-            return null;
-        }
-        if (stringSet instanceof HashSet) {
-            return (HashSet) stringSet;
-        }
-        HashSet<String> hashSet = new HashSet<>();
-        for (String str2 : stringSet) {
-            hashSet.add(str2);
-        }
-        return hashSet;
     }
 
     public final a a(String str, Serializable serializable) {

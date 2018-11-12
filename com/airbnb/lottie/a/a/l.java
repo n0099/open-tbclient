@@ -29,15 +29,15 @@ public class l implements k, a.InterfaceC0009a {
     public l(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, PolystarShape polystarShape) {
         this.nh = fVar;
         this.name = polystarShape.getName();
-        this.pe = polystarShape.er();
-        this.pf = polystarShape.es().dH();
-        this.oM = polystarShape.dT().dH();
-        this.pg = polystarShape.dV().dH();
-        this.pi = polystarShape.eu().dH();
-        this.pl = polystarShape.ew().dH();
+        this.pe = polystarShape.eq();
+        this.pf = polystarShape.er().dG();
+        this.oM = polystarShape.dS().dG();
+        this.pg = polystarShape.dU().dG();
+        this.pi = polystarShape.et().dG();
+        this.pl = polystarShape.ev().dG();
         if (this.pe == PolystarShape.Type.Star) {
-            this.ph = polystarShape.et().dH();
-            this.pj = polystarShape.ev().dH();
+            this.ph = polystarShape.es().dG();
+            this.pj = polystarShape.eu().dG();
         } else {
             this.ph = null;
             this.pj = null;
@@ -63,7 +63,7 @@ public class l implements k, a.InterfaceC0009a {
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0009a
-    public void de() {
+    public void dd() {
         invalidate();
     }
 
@@ -79,7 +79,7 @@ public class l implements k, a.InterfaceC0009a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof q) && ((q) bVar).dn() == ShapeTrimPath.Type.Simultaneously) {
+                if ((bVar instanceof q) && ((q) bVar).dm() == ShapeTrimPath.Type.Simultaneously) {
                     this.oH = (q) bVar;
                     this.oH.a(this);
                 }
@@ -98,10 +98,10 @@ public class l implements k, a.InterfaceC0009a {
         this.oy.reset();
         switch (this.pe) {
             case Star:
-                dl();
+                dk();
                 break;
             case Polygon:
-                dm();
+                dl();
                 break;
         }
         this.oy.close();
@@ -115,7 +115,7 @@ public class l implements k, a.InterfaceC0009a {
         return this.name;
     }
 
-    private void dl() {
+    private void dk() {
         float f;
         double d;
         float f2;
@@ -224,7 +224,7 @@ public class l implements k, a.InterfaceC0009a {
         }
     }
 
-    private void dm() {
+    private void dl() {
         int floor = (int) Math.floor(this.pf.getValue().floatValue());
         double radians = Math.toRadians((this.pg == null ? 0.0d : this.pg.getValue().floatValue()) - 90.0d);
         float f = (float) (6.283185307179586d / floor);

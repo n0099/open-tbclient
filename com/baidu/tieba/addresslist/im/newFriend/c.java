@@ -18,10 +18,10 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.adp.base.c<NewFriendsActivity> {
-    private View aix;
-    private NewFriendsActivity bzw;
-    private BdListView bzx;
-    private a bzy;
+    private View ajk;
+    private NewFriendsActivity bAh;
+    private BdListView bAi;
+    private a bAj;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
     private k mPullView;
@@ -29,30 +29,30 @@ public class c extends com.baidu.adp.base.c<NewFriendsActivity> {
 
     public c(NewFriendsActivity newFriendsActivity) {
         super(newFriendsActivity.getPageContext());
-        this.bzw = newFriendsActivity;
-        this.aix = this.bzw.findViewById(e.g.new_friend_activity);
-        this.mNavigationBar = (NavigationBar) this.bzw.findViewById(e.g.view_navigation_bar);
-        this.mNavigationBar.setTitleText(this.bzw.getPageContext().getString(e.j.new_friends));
+        this.bAh = newFriendsActivity;
+        this.ajk = this.bAh.findViewById(e.g.new_friend_activity);
+        this.mNavigationBar = (NavigationBar) this.bAh.findViewById(e.g.view_navigation_bar);
+        this.mNavigationBar.setTitleText(this.bAh.getPageContext().getString(e.j.new_friends));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mSearchButton = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.add_new_friend_text, this.bzw).findViewById(e.g.new_friend_search);
+        this.mSearchButton = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.add_new_friend_text, this.bAh).findViewById(e.g.new_friend_search);
         al.a(this.mSearchButton, e.f.icon_search_bg_s, e.f.icon_search_bg);
-        this.bzx = (BdListView) this.bzw.findViewById(e.g.new_friend_listview);
-        this.bzy = new a(this.bzw);
-        this.bzx.setAdapter((ListAdapter) this.bzy);
-        this.bzx.setOnItemClickListener(this.bzw);
-        this.bzx.setOnItemLongClickListener(this.bzw);
+        this.bAi = (BdListView) this.bAh.findViewById(e.g.new_friend_listview);
+        this.bAj = new a(this.bAh);
+        this.bAi.setAdapter((ListAdapter) this.bAj);
+        this.bAi.setOnItemClickListener(this.bAh);
+        this.bAi.setOnItemLongClickListener(this.bAh);
         this.mPullView = new k(newFriendsActivity.getPageContext());
-        this.bzx.setPullRefresh(this.mPullView);
-        BdListViewHelper.a(this.bzw.getActivity(), this.bzx, BdListViewHelper.HeadType.DEFAULT);
-        this.mNoDataView = NoDataViewFactory.a(this.bzw.getPageContext().getPageActivity(), this.aix, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.h(this.bzw.getActivity(), e.C0175e.ds320)), NoDataViewFactory.d.dO(e.j.no_new_friend_hint), null);
+        this.bAi.setPullRefresh(this.mPullView);
+        BdListViewHelper.a(this.bAh.getActivity(), this.bAi, BdListViewHelper.HeadType.DEFAULT);
+        this.mNoDataView = NoDataViewFactory.a(this.bAh.getPageContext().getPageActivity(), this.ajk, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.h(this.bAh.getActivity(), e.C0200e.ds320)), NoDataViewFactory.d.ec(e.j.no_new_friend_hint), null);
     }
 
     public void startPullRefresh() {
-        this.bzx.startPullRefresh();
+        this.bAi.startPullRefresh();
     }
 
     public void completePullRefresh() {
-        this.bzx.completePullRefreshPostDelayed(SystemScreenshotManager.DELAY_TIME);
+        this.bAi.completePullRefreshPostDelayed(SystemScreenshotManager.DELAY_TIME);
     }
 
     public void a(j.b bVar) {
@@ -60,35 +60,35 @@ public class c extends com.baidu.adp.base.c<NewFriendsActivity> {
     }
 
     public void a(a.b bVar) {
-        this.bzy.a(bVar);
+        this.bAj.a(bVar);
     }
 
     public void a(com.baidu.tbadk.core.c cVar, int i) {
         cVar.setNightMode(i == 1);
-        this.mNavigationBar.onChangeSkinType(this.bzw.getPageContext(), i);
-        this.mPullView.dW(i);
-        cVar.onModeChanged(this.aix);
-        this.mNoDataView.onChangeSkinType(this.bzw.getPageContext(), i);
+        this.mNavigationBar.onChangeSkinType(this.bAh.getPageContext(), i);
+        this.mPullView.ek(i);
+        cVar.onModeChanged(this.ajk);
+        this.mNoDataView.onChangeSkinType(this.bAh.getPageContext(), i);
         al.a(this.mSearchButton, e.f.icon_search_bg_s, e.f.icon_search_bg);
     }
 
     public void setData(List<com.baidu.tieba.im.data.a> list) {
-        this.bzx.setEmptyView(this.mNoDataView);
-        this.bzy.setData(list);
-        this.bzy.notifyDataSetChanged();
+        this.bAi.setEmptyView(this.mNoDataView);
+        this.bAj.setData(list);
+        this.bAj.notifyDataSetChanged();
     }
 
     public void a(com.baidu.tieba.im.data.a aVar) {
-        this.bzy.a(aVar);
-        this.bzy.notifyDataSetChanged();
+        this.bAj.a(aVar);
+        this.bAj.notifyDataSetChanged();
     }
 
-    public void ah(List<com.baidu.tieba.im.data.a> list) {
-        this.bzy.ah(list);
-        this.bzy.notifyDataSetChanged();
+    public void ag(List<com.baidu.tieba.im.data.a> list) {
+        this.bAj.ag(list);
+        this.bAj.notifyDataSetChanged();
     }
 
-    public a Vq() {
-        return this.bzy;
+    public a Vz() {
+        return this.bAj;
     }
 }

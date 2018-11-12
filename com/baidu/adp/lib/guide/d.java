@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private a BM;
-    private boolean BP;
-    private List<b> BQ = new ArrayList();
-    private Configuration BH = new Configuration();
+    private a BP;
+    private boolean BS;
+    private List<b> BT = new ArrayList();
+    private Configuration BK = new Configuration();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -17,85 +17,85 @@ public class d {
         void onShown();
     }
 
-    public d af(int i) {
-        if (this.BP) {
+    public d aw(int i) {
+        if (this.BS) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (i < 0 || i > 255) {
             throw new BuildException("Illegal alpha value, should between [0-255]");
         }
-        this.BH.mAlpha = i;
+        this.BK.mAlpha = i;
         return this;
     }
 
     public d y(View view) {
-        if (this.BP) {
+        if (this.BS) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (view == null) {
             throw new BuildException("Illegal view.");
         }
-        this.BH.mTargetView = view;
+        this.BK.mTargetView = view;
         return this;
     }
 
-    public d ag(int i) {
-        if (this.BP) {
+    public d ax(int i) {
+        if (this.BS) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (i <= 0) {
             throw new BuildException("Illegal view id.");
         }
-        this.BH.BA = i;
+        this.BK.BD = i;
         return this;
     }
 
-    public d N(boolean z) {
-        if (this.BP) {
+    public d ab(boolean z) {
+        if (this.BS) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.BH.BC = z;
+        this.BK.BF = z;
         return this;
     }
 
-    public d O(boolean z) {
-        if (this.BP) {
+    public d ac(boolean z) {
+        if (this.BS) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.BH.BD = z;
+        this.BK.BG = z;
         return this;
     }
 
     public d a(b bVar) {
-        if (this.BP) {
+        if (this.BS) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.BQ.add(bVar);
+        this.BT.add(bVar);
         return this;
     }
 
     public d b(a aVar) {
-        if (this.BP) {
+        if (this.BS) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.BM = aVar;
+        this.BP = aVar;
         return this;
     }
 
-    public d P(boolean z) {
-        this.BH.mOutsideTouchable = z;
+    public d ad(boolean z) {
+        this.BK.mOutsideTouchable = z;
         return this;
     }
 
-    public c iU() {
+    public c iT() {
         c cVar = new c();
-        cVar.a((b[]) this.BQ.toArray(new b[this.BQ.size()]));
-        cVar.a(this.BH);
-        cVar.a(this.BM);
-        this.BQ = null;
-        this.BH = null;
-        this.BM = null;
-        this.BP = true;
+        cVar.a((b[]) this.BT.toArray(new b[this.BT.size()]));
+        cVar.a(this.BK);
+        cVar.a(this.BP);
+        this.BT = null;
+        this.BK = null;
+        this.BP = null;
+        this.BS = true;
         return cVar;
     }
 }

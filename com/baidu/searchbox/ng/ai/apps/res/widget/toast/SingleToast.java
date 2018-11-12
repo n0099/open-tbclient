@@ -279,7 +279,7 @@ final class SingleToast {
         final LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(R.layout.aiapps_left_icon_clickable_toast_view, (ViewGroup) null);
         linearLayout.setBackground(resources.getDrawable(R.drawable.aiapps_clickable_toast_view_bg));
         linearLayout.setClickable(true);
-        ((SimpleDraweeView) linearLayout.findViewById(R.id.gif_toast_left_icon)).setController(c.bSu().oD(true).t(uri).bTd());
+        ((SimpleDraweeView) linearLayout.findViewById(R.id.gif_toast_left_icon)).setController(c.bRP().oR(true).t(uri).bSy());
         if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.gif_toast_info_view)) != null) {
             textView.setTextColor(resources.getColor(R.color.aiapps_white_text));
             textView.setText(charSequence);
@@ -497,7 +497,7 @@ final class SingleToast {
         if (uri != null) {
             simpleDraweeView.setImageURI(uri);
             if (i != 1) {
-                simpleDraweeView.getHierarchy().a(new RoundingParams().oG(false));
+                simpleDraweeView.getHierarchy().a(new RoundingParams().oU(false));
             }
         } else {
             simpleDraweeView.setVisibility(8);

@@ -43,21 +43,21 @@ public class SignStatic {
                     x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
                     xVar.x("kw", name);
                     xVar.x(ImageViewerConfig.FORUM_ID, id);
-                    xVar.BY().CW().mIsNeedTbs = true;
-                    xVar.bb(true);
-                    String BA = xVar.BA();
-                    if (xVar.Cb()) {
-                        if (xVar.BY().CX().isRequestSuccess()) {
+                    xVar.Cf().Dd().mIsNeedTbs = true;
+                    xVar.br(true);
+                    String BH = xVar.BH();
+                    if (xVar.Ci()) {
+                        if (xVar.Cf().De().isRequestSuccess()) {
                             signData = new SignData();
-                            signData.parserJson(BA);
+                            signData.parserJson(BH);
                             signData.forumId = id;
                             signData.forumName = name;
                         } else {
-                            if (!ao.isEmpty(BA)) {
-                                JSONObject jSONObject = new JSONObject(BA);
-                                if (AntiHelper.uL(xVar.Cc()) || "199901".equals(jSONObject.optString("error_code"))) {
+                            if (!ao.isEmpty(BH)) {
+                                JSONObject jSONObject = new JSONObject(BH);
+                                if (AntiHelper.ve(xVar.Cj()) || "199901".equals(jSONObject.optString("error_code"))) {
                                     signData = new SignData();
-                                    signData.parserJson(BA);
+                                    signData.parserJson(BH);
                                     signData.is_signed = 1;
                                     signData.count_sign_num = 1;
                                     signData.sign_bonus_point = 0;
@@ -65,7 +65,7 @@ public class SignStatic {
                                     signData.forumName = name;
                                 }
                             }
-                            signMessage.mSignErrorCode = xVar.Cc();
+                            signMessage.mSignErrorCode = xVar.Cj();
                             signMessage.mSignErrorString = xVar.getErrorString();
                         }
                         signMessage.signData = signData;

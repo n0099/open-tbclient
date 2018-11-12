@@ -11,7 +11,6 @@ import com.baidu.searchbox.ng.ai.apps.ar.model.ARCameraAttr;
 import com.baidu.searchbox.ng.ai.apps.ar.view.ARCameraView;
 import com.baidu.searchbox.ng.ai.apps.lifecycle.AiAppsController;
 import com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsRectPosition;
-import com.baidu.searchbox.ng.ai.apps.performance.AiAppActionErrorCode;
 import com.baidu.searchbox.ng.ai.apps.permission.AiAppsPermission;
 import com.baidu.searchbox.ng.ai.apps.runtime.AiApp;
 import com.baidu.searchbox.ng.ai.apps.scheme.UnitedSchemeAiAppDispatcher;
@@ -50,7 +49,7 @@ public class ARCameraInsertAction extends AbsARAction {
                     ARCameraInsertAction.this.handleAuthorized(context, unitedSchemeEntity, callbackHandler, parseData2);
                     return;
                 }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, (int) AiAppActionErrorCode.Accredit.CAMERA_USER_DENY);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 200101);
                 ARCameraInsertAction.this.mContainer.removeView();
             }
         });
@@ -68,7 +67,7 @@ public class ARCameraInsertAction extends AbsARAction {
                 public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                     boolean z = false;
                     if (i != 1) {
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, (int) AiAppActionErrorCode.Accredit.CAMERA_SYSTEM_DENY);
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 200102);
                         ARCameraInsertAction.this.mContainer.removeView();
                         return;
                     }
@@ -88,7 +87,7 @@ public class ARCameraInsertAction extends AbsARAction {
                         ARCameraInsertAction.this.callback(unitedSchemeEntity, callbackHandler, ARCameraInsertAction.this.executionInstruction(bdWebViewBySlaveId, aRCameraAttr));
                         return;
                     }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, (int) AiAppActionErrorCode.Accredit.CAMERA_SYSTEM_DENY);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 200102);
                     ARCameraInsertAction.this.mContainer.removeView();
                 }
             });

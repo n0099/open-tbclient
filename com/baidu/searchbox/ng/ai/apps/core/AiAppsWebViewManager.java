@@ -205,9 +205,9 @@ public abstract class AiAppsWebViewManager implements NgWebView.OnCommonEventHan
         this.mContext = context;
         this.mNgWebView = new NgWebView(context);
         if (AiAppsRuntime.getConfigRuntime().disableJsPromptS()) {
-            this.mNgWebView.getSettings().aq(false);
+            this.mNgWebView.getSettings().aE(false);
         }
-        if (this.mConfig.isBgTransparentMode && a.qX()) {
+        if (this.mConfig.isBgTransparentMode && a.qV()) {
             this.mNgWebView.setBackgroundColor(0);
         }
         this.mNgWebView.setScrollBarStyle(0);
@@ -377,10 +377,10 @@ public abstract class AiAppsWebViewManager implements NgWebView.OnCommonEventHan
         settings.setSupportMultipleWindows(false);
         settings.setMediaPlaybackRequiresUserGesture(false);
         settings.setTextZoom(100);
-        settingsExt.ar(false);
-        com.baidu.browser.sailor.a.qq().enableFeature("GEO");
-        com.baidu.browser.sailor.a.qq().enableFeature("ADBLOCK");
-        com.baidu.browser.sailor.a.qq().disableFeature("SSL");
+        settingsExt.aF(false);
+        com.baidu.browser.sailor.a.qo().enableFeature("GEO");
+        com.baidu.browser.sailor.a.qo().enableFeature("ADBLOCK");
+        com.baidu.browser.sailor.a.qo().disableFeature("SSL");
         settings.setDatabaseEnabled(true);
         settings.setDomStorageEnabled(true);
         settings.setAppCacheEnabled(true);

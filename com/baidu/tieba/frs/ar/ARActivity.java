@@ -20,8 +20,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ARActivity extends BaseFragmentActivity {
-    private ARFragment dGd;
-    private FrsArShareModel dGe;
+    private ARFragment dHs;
+    private FrsArShareModel dHt;
     private String forumName;
     private String shareTitle;
 
@@ -50,16 +50,16 @@ public class ARActivity extends BaseFragmentActivity {
                 e.printStackTrace();
             }
             bundle2.putString(ARConfigKey.AR_VALUE, jSONObject.toString());
-            if (this.dGd != null) {
-                this.dGd.release();
-                this.dGd = null;
+            if (this.dHs != null) {
+                this.dHs.release();
+                this.dHs = null;
             }
-            this.dGd = new ARFragment();
-            this.dGd.setArguments(bundle2);
-            this.dGd.setARCallbackClient(new ARCallbackClient() { // from class: com.baidu.tieba.frs.ar.ARActivity.1
+            this.dHs = new ARFragment();
+            this.dHs.setArguments(bundle2);
+            this.dHs.setARCallbackClient(new ARCallbackClient() { // from class: com.baidu.tieba.frs.ar.ARActivity.1
                 @Override // com.baidu.ar.external.ARCallbackClient
                 public void openUrl(String str) {
-                    a.ag(ARActivity.this, str);
+                    a.ae(ARActivity.this, str);
                 }
 
                 @Override // com.baidu.ar.external.ARCallbackClient
@@ -70,35 +70,35 @@ public class ARActivity extends BaseFragmentActivity {
                 public void share(String str, String str2, String str3, String str4, int i) {
                     if (i == 1) {
                         ARActivity.this.showLoadingView(ARActivity.this.getActivityRootView());
-                        if (ARActivity.this.dGe == null) {
-                            ARActivity.this.dGe = new FrsArShareModel(ARActivity.this.getPageContext(), new FrsArShareModel.a() { // from class: com.baidu.tieba.frs.ar.ARActivity.1.1
+                        if (ARActivity.this.dHt == null) {
+                            ARActivity.this.dHt = new FrsArShareModel(ARActivity.this.getPageContext(), new FrsArShareModel.a() { // from class: com.baidu.tieba.frs.ar.ARActivity.1.1
                                 @Override // com.baidu.tieba.frs.ar.model.FrsArShareModel.a
-                                public void nI(String str5) {
+                                public void nJ(String str5) {
                                     d dVar = new d();
                                     dVar.title = ARActivity.this.shareTitle;
                                     dVar.content = ARActivity.this.getString(e.j.frs_ar_share_content);
                                     dVar.linkUrl = str5;
-                                    dVar.aNR = str5;
+                                    dVar.aOH = str5;
                                     MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig(ARActivity.this.getPageContext().getPageActivity(), dVar, false)));
                                 }
 
                                 @Override // com.baidu.tieba.frs.ar.model.FrsArShareModel.a
-                                public void nH(String str5) {
+                                public void nI(String str5) {
                                 }
                             }, ARActivity.this.forumName, str4, str4);
                         }
-                        ARActivity.this.dGe.LoadData();
+                        ARActivity.this.dHt.LoadData();
                         return;
                     }
                     d dVar = new d();
                     dVar.title = ARActivity.this.shareTitle;
                     dVar.content = ARActivity.this.getString(e.j.frs_ar_share_content);
                     dVar.linkUrl = str3;
-                    dVar.aNR = str3;
+                    dVar.aOH = str3;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig(ARActivity.this.getPageContext().getPageActivity(), dVar, false)));
                 }
             });
-            beginTransaction.replace(e.g.bdar_id_fragment_container, this.dGd);
+            beginTransaction.replace(e.g.bdar_id_fragment_container, this.dHs);
             beginTransaction.commitAllowingStateLoss();
         }
     }
@@ -107,8 +107,8 @@ public class ARActivity extends BaseFragmentActivity {
     public void onBackPressed() {
         getSupportFragmentManager();
         boolean z = false;
-        if (this.dGd != null) {
-            z = this.dGd.onFragmentBackPressed();
+        if (this.dHs != null) {
+            z = this.dHs.onFragmentBackPressed();
         }
         if (!z) {
             super.onBackPressed();

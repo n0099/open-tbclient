@@ -15,7 +15,7 @@ public class e<INFO> implements c<INFO> {
         this.mListeners.add(cVar);
     }
 
-    public synchronized void bTe() {
+    public synchronized void bSz() {
         this.mListeners.clear();
     }
 

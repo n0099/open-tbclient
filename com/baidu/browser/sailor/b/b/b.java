@@ -13,7 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 final class b implements Runnable {
-    final /* synthetic */ n WF;
+    final /* synthetic */ n WH;
     final /* synthetic */ String a;
     final /* synthetic */ String b;
     final /* synthetic */ String d;
@@ -23,7 +23,7 @@ final class b implements Runnable {
     public b(String str, String str2, n nVar, String str3, String str4) {
         this.a = str;
         this.b = str2;
-        this.WF = nVar;
+        this.WH = nVar;
         this.d = str3;
         this.e = str4;
     }
@@ -44,15 +44,15 @@ final class b implements Runnable {
                                     String string = jSONObject2.getString(RimArmor.KEY);
                                     String string2 = jSONObject2.getString("value");
                                     if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2)) {
-                                        fVar.WI.append((CharSequence) ("--" + fVar.a)).append((CharSequence) SystemInfoUtil.LINE_END);
-                                        fVar.WI.append((CharSequence) ("Content-Disposition: form-data; name=\"" + string + "\"")).append((CharSequence) SystemInfoUtil.LINE_END);
-                                        fVar.WI.append((CharSequence) ("Content-Type: text/plain; charset=" + fVar.b)).append((CharSequence) SystemInfoUtil.LINE_END);
-                                        fVar.WI.append((CharSequence) SystemInfoUtil.LINE_END);
-                                        fVar.WI.append((CharSequence) string2).append((CharSequence) SystemInfoUtil.LINE_END);
-                                        fVar.WI.flush();
+                                        fVar.WK.append((CharSequence) ("--" + fVar.a)).append((CharSequence) SystemInfoUtil.LINE_END);
+                                        fVar.WK.append((CharSequence) ("Content-Disposition: form-data; name=\"" + string + "\"")).append((CharSequence) SystemInfoUtil.LINE_END);
+                                        fVar.WK.append((CharSequence) ("Content-Type: text/plain; charset=" + fVar.b)).append((CharSequence) SystemInfoUtil.LINE_END);
+                                        fVar.WK.append((CharSequence) SystemInfoUtil.LINE_END);
+                                        fVar.WK.append((CharSequence) string2).append((CharSequence) SystemInfoUtil.LINE_END);
+                                        fVar.WK.flush();
                                     }
                                 } catch (JSONException e) {
-                                    this.WF.bo(1);
+                                    this.WH.bD(1);
                                     Log.d("BdWebappNativeAbility", e.getMessage());
                                 }
                             }
@@ -65,10 +65,10 @@ final class b implements Runnable {
                                 String string4 = jSONObject3.getString("value");
                                 if (!TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string4)) {
                                     File file = new File(string4);
-                                    if (com.baidu.browser.sailor.feature.a.d.a(com.baidu.browser.sailor.b.a.qR().getAppContext().getCacheDir(), file)) {
+                                    if (com.baidu.browser.sailor.feature.a.d.a(com.baidu.browser.sailor.b.a.qP().getAppContext().getCacheDir(), file)) {
                                         fVar.a(string3, file);
                                     } else if (!com.baidu.browser.sailor.util.c.a(this.e, file)) {
-                                        this.WF.bo(4);
+                                        this.WH.bD(4);
                                         return;
                                     } else {
                                         fVar.a(string3, file);
@@ -77,11 +77,11 @@ final class b implements Runnable {
                             }
                         }
                     } catch (JSONException e2) {
-                        this.WF.bo(1);
+                        this.WH.bD(1);
                         e2.printStackTrace();
                     }
                 } catch (IOException e3) {
-                    this.WF.bo(1);
+                    this.WH.bD(1);
                     e3.printStackTrace();
                 }
             }
@@ -90,27 +90,27 @@ final class b implements Runnable {
                     try {
                         String str = fVar.a().get(0);
                         if (str != null) {
-                            this.WF.as(true);
-                            this.WF.addField("response", str);
+                            this.WH.aG(true);
+                            this.WH.addField("response", str);
                         }
-                        this.WF.qP();
+                        this.WH.qN();
                     } catch (IllegalStateException e4) {
-                        this.WF.bo(1);
+                        this.WH.bD(1);
                         e4.printStackTrace();
                     }
                 } catch (IllegalStateException e5) {
-                    this.WF.bo(2);
+                    this.WH.bD(2);
                     e5.printStackTrace();
                 }
             } catch (UnsupportedEncodingException e6) {
-                this.WF.bo(1);
+                this.WH.bD(1);
                 e6.printStackTrace();
             } catch (IOException e7) {
-                this.WF.bo(1);
+                this.WH.bD(1);
                 e7.printStackTrace();
             }
         } catch (IOException e8) {
-            this.WF.bo(2);
+            this.WH.bD(2);
             e8.printStackTrace();
         }
     }

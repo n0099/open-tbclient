@@ -6,10 +6,10 @@ import android.os.Message;
 /* loaded from: classes2.dex */
 public class BdWorkThread extends HandlerThread {
     private static final String LOG_TAG = BdWorkThread.class.getSimpleName();
-    private a UO;
-    private Message UQ;
-    private volatile Status UR;
-    private long US;
+    private a UR;
+    private Message US;
+    private volatile Status UT;
+    private long UU;
     private long mInterval;
     private final Object mLock;
     private Handler mPrivateHandler;
@@ -27,14 +27,14 @@ public class BdWorkThread extends HandlerThread {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void h(Message message);
+        void j(Message message);
 
-        void qk();
+        void qi();
     }
 
-    public void f(Message message) {
-        if (System.currentTimeMillis() - this.US > this.mInterval) {
-            this.UR = Status.WORKING;
+    public void h(Message message) {
+        if (System.currentTimeMillis() - this.UU > this.mInterval) {
+            this.UT = Status.WORKING;
             this.mPrivateHandler.removeMessages(1);
             this.mPrivateHandler.removeMessages(2);
             this.mPrivateHandler.obtainMessage(1, message).sendToTarget();
@@ -50,10 +50,10 @@ public class BdWorkThread extends HandlerThread {
                     public void handleMessage(Message message) {
                         switch (message.what) {
                             case 1:
-                                BdWorkThread.this.g((Message) message.obj);
+                                BdWorkThread.this.i((Message) message.obj);
                                 return;
                             case 2:
-                                BdWorkThread.this.qj();
+                                BdWorkThread.this.qh();
                                 return;
                             default:
                                 return;
@@ -61,24 +61,24 @@ public class BdWorkThread extends HandlerThread {
                     }
                 };
             }
-            f(this.UQ);
-            this.UQ = null;
+            h(this.US);
+            this.US = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void g(Message message) {
-        this.UR = Status.PROCESS;
-        this.US = System.currentTimeMillis();
+    public void i(Message message) {
+        this.UT = Status.PROCESS;
+        this.UU = System.currentTimeMillis();
         try {
-            if (this.UO != null) {
-                this.UO.h(message);
+            if (this.UR != null) {
+                this.UR.j(message);
             }
         } catch (Error e) {
         } catch (Exception e2) {
         }
-        if (this.UR == Status.PROCESS) {
-            this.UR = Status.RUNNING;
+        if (this.UT == Status.PROCESS) {
+            this.UT = Status.RUNNING;
             return;
         }
         synchronized (this.mLock) {
@@ -89,10 +89,10 @@ public class BdWorkThread extends HandlerThread {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qj() {
+    public void qh() {
         try {
-            if (this.UO != null) {
-                this.UO.qk();
+            if (this.UR != null) {
+                this.UR.qi();
             }
         } catch (Error e) {
         } catch (Exception e2) {

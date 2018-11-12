@@ -16,17 +16,17 @@ public class a extends ThreadPoolExecutor {
 
     @Override // java.util.concurrent.AbstractExecutorService, java.util.concurrent.ExecutorService
     public Future<?> submit(Runnable runnable) {
-        C0328a c0328a = new C0328a((com.meizu.cloud.pushsdk.networking.d.c) runnable);
-        execute(c0328a);
-        return c0328a;
+        C0356a c0356a = new C0356a((com.meizu.cloud.pushsdk.networking.d.c) runnable);
+        execute(c0356a);
+        return c0356a;
     }
 
     /* renamed from: com.meizu.cloud.pushsdk.networking.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static final class C0328a extends FutureTask<com.meizu.cloud.pushsdk.networking.d.c> implements Comparable<C0328a> {
+    private static final class C0356a extends FutureTask<com.meizu.cloud.pushsdk.networking.d.c> implements Comparable<C0356a> {
         private final com.meizu.cloud.pushsdk.networking.d.c a;
 
-        public C0328a(com.meizu.cloud.pushsdk.networking.d.c cVar) {
+        public C0356a(com.meizu.cloud.pushsdk.networking.d.c cVar) {
             super(cVar, null);
             this.a = cVar;
         }
@@ -34,10 +34,10 @@ public class a extends ThreadPoolExecutor {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
         /* renamed from: a */
-        public int compareTo(C0328a c0328a) {
+        public int compareTo(C0356a c0356a) {
             Priority a = this.a.a();
-            Priority a2 = c0328a.a.a();
-            return a == a2 ? this.a.a - c0328a.a.a : a2.ordinal() - a.ordinal();
+            Priority a2 = c0356a.a.a();
+            return a == a2 ? this.a.a - c0356a.a.a : a2.ordinal() - a.ordinal();
         }
     }
 }

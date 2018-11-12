@@ -26,10 +26,10 @@ public class AiAppsWebSafeInterceptor extends UnitedSchemeBaseInterceptor {
         NgWebView webView;
         boolean z = false;
         if (callbackHandler != null && (callbackHandler instanceof WebSafeHolder) && (webView = ((WebSafeHolder) callbackHandler).getWebView()) != null) {
-            String qy = webView.getSettings().qy();
-            if (AiAppsWebViewManager.FRAME_WHITE_LIST_AI_APPS_WIDGET.equals(qy)) {
+            String qw = webView.getSettings().qw();
+            if (AiAppsWebViewManager.FRAME_WHITE_LIST_AI_APPS_WIDGET.equals(qw)) {
                 z = WebSafeCheckers.checkWebAction(getUriPath(unitedSchemeEntity)) ? false : true;
-            } else if (AiAppsWebViewManager.FRAME_WHITE_LIST_AI_APPS_AD_LANDING.equals(qy)) {
+            } else if (AiAppsWebViewManager.FRAME_WHITE_LIST_AI_APPS_AD_LANDING.equals(qw)) {
                 z = WebSafeCheckers.checkAdLandingWebAction(getUriPath(unitedSchemeEntity)) ? false : true;
             }
             if (z) {

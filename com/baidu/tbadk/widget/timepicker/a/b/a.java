@@ -6,90 +6,90 @@ import com.baidu.tbadk.widget.timepicker.a.f.b;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class a {
-    private com.baidu.tbadk.widget.timepicker.a.c.a bog = new com.baidu.tbadk.widget.timepicker.a.c.a(2);
+    private com.baidu.tbadk.widget.timepicker.a.c.a boS = new com.baidu.tbadk.widget.timepicker.a.c.a(2);
 
     public a(Context context, e eVar) {
-        this.bog.context = context;
-        this.bog.boh = eVar;
+        this.boS.context = context;
+        this.boS.boT = eVar;
     }
 
     public a b(boolean[] zArr) {
-        this.bog.boo = zArr;
+        this.boS.bpa = zArr;
         return this;
     }
 
-    public a gx(int i) {
-        this.bog.boO = i;
+    public a gL(int i) {
+        this.boS.bpA = i;
         return this;
     }
 
-    public a gy(int i) {
-        this.bog.boS = i;
+    public a gM(int i) {
+        this.boS.bpE = i;
         return this;
     }
 
     public a a(Calendar calendar) {
-        this.bog.bop = calendar;
+        this.boS.bpb = calendar;
         return this;
     }
 
     public a a(int i, com.baidu.tbadk.widget.timepicker.a.d.a aVar) {
-        this.bog.boG = i;
-        this.bog.boj = aVar;
+        this.boS.bps = i;
+        this.boS.boV = aVar;
         return this;
     }
 
     public a ae(float f) {
-        this.bog.boW = f;
+        this.boS.bpI = f;
         return this;
     }
 
-    public a gz(int i) {
-        this.bog.boV = i;
+    public a gN(int i) {
+        this.boS.bpH = i;
         return this;
     }
 
-    public a gA(int i) {
-        this.bog.aZA = i;
+    public a gO(int i) {
+        this.boS.ban = i;
         return this;
     }
 
-    public a gB(int i) {
-        this.bog.boU = i;
+    public a gP(int i) {
+        this.boS.bpG = i;
         return this;
     }
 
-    public a gC(int i) {
-        this.bog.boT = i;
+    public a gQ(int i) {
+        this.boS.bpF = i;
         return this;
     }
 
     public a b(String str, String str2, String str3, String str4, String str5, String str6) {
-        this.bog.bou = str;
-        this.bog.bov = str2;
-        this.bog.bow = str3;
-        this.bog.box = str4;
-        this.bog.boy = str5;
-        this.bog.boz = str6;
+        this.boS.bpg = str;
+        this.boS.bph = str2;
+        this.boS.bpi = str3;
+        this.boS.bpj = str4;
+        this.boS.bpk = str5;
+        this.boS.bpl = str6;
         return this;
     }
 
-    public a d(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.bog.boA = i;
-        this.bog.boB = i2;
-        this.bog.boC = i3;
-        this.bog.boD = i4;
-        this.bog.boE = i5;
-        this.bog.boF = i6;
+    public a e(int i, int i2, int i3, int i4, int i5, int i6) {
+        this.boS.bpm = i;
+        this.boS.bpn = i2;
+        this.boS.bpo = i3;
+        this.boS.bpp = i4;
+        this.boS.bpq = i5;
+        this.boS.bpr = i6;
         return this;
     }
 
-    public a cK(boolean z) {
-        this.bog.boZ = z;
+    public a db(boolean z) {
+        this.boS.bpL = z;
         return this;
     }
 
-    public b RI() {
-        return new b(this.bog);
+    public b RR() {
+        return new b(this.boS);
     }
 }

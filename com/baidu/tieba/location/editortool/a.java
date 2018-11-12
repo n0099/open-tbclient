@@ -9,23 +9,23 @@ import com.baidu.tieba.e;
 public class a extends k {
     public a(Context context) {
         super(context, (String) null, 8);
-        this.aUM = false;
-        this.aUL = 3;
-        this.aTV = new PbLocationInfoContainer(context);
-        this.aUN = new int[]{20, 19};
+        this.aVC = false;
+        this.aVB = 3;
+        this.aUL = new PbLocationInfoContainer(context);
+        this.aVD = new int[]{20, 19};
     }
 
     public a(Context context, boolean z) {
         super(context, (String) null, 8);
-        this.aUM = false;
-        this.aUL = 3;
-        this.aTV = new PbLocationInfoContainer(context);
-        RawLayout.a aVar = new RawLayout.a(-2, l.h(getContext(), e.C0175e.ds48));
-        aVar.leftMargin = l.h(getContext(), e.C0175e.ds32);
-        aVar.rightMargin = l.h(getContext(), e.C0175e.ds32);
-        aVar.bottomMargin = l.h(getContext(), e.C0175e.ds21);
-        aVar.topMargin = l.h(getContext(), e.C0175e.ds21);
-        ((PbLocationInfoContainer) this.aTV).setLayoutParams(aVar);
-        this.aUN = new int[]{20, 19};
+        this.aVC = false;
+        this.aVB = 3;
+        this.aUL = new PbLocationInfoContainer(context);
+        RawLayout.a aVar = new RawLayout.a(-2, l.h(getContext(), e.C0200e.ds48));
+        aVar.leftMargin = l.h(getContext(), e.C0200e.ds32);
+        aVar.rightMargin = l.h(getContext(), e.C0200e.ds32);
+        aVar.bottomMargin = l.h(getContext(), e.C0200e.ds21);
+        aVar.topMargin = l.h(getContext(), e.C0200e.ds21);
+        ((PbLocationInfoContainer) this.aUL).setLayoutParams(aVar);
+        this.aVD = new int[]{20, 19};
     }
 }

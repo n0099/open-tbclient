@@ -7,7 +7,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public final class a implements Serializable {
+public class a implements Serializable {
     public ArrayList<b> a;
 
     public a(ActivityInfo[] activityInfoArr) {
@@ -39,7 +39,7 @@ public final class a implements Serializable {
         }
     }
 
-    public final byte[] a() {
+    public byte[] a() {
         ByteArrayOutputStream byteArrayOutputStream;
         Throwable th;
         ObjectOutputStream objectOutputStream;
@@ -48,57 +48,61 @@ public final class a implements Serializable {
             byteArrayOutputStream = new ByteArrayOutputStream();
             try {
                 objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+            } catch (IOException e) {
+                objectOutputStream = null;
+            } catch (Throwable th2) {
+                objectOutputStream = null;
+                th = th2;
+            }
+        } catch (IOException e2) {
+            objectOutputStream = null;
+            byteArrayOutputStream = null;
+        } catch (Throwable th3) {
+            byteArrayOutputStream = null;
+            th = th3;
+            objectOutputStream = null;
+        }
+        try {
+            objectOutputStream.writeObject(this.a);
+            objectOutputStream.close();
+            byteArrayOutputStream.close();
+            bArr = byteArrayOutputStream.toByteArray();
+            if (objectOutputStream != null) {
                 try {
-                    objectOutputStream.writeObject(this.a);
                     objectOutputStream.close();
-                    byteArrayOutputStream.close();
-                    bArr = byteArrayOutputStream.toByteArray();
-                    try {
-                        objectOutputStream.close();
-                        byteArrayOutputStream.close();
-                    } catch (IOException e) {
-                        com.baidu.sofire.b.e.a(e);
-                    }
-                } catch (IOException e2) {
-                    if (objectOutputStream != null) {
-                        try {
-                            objectOutputStream.close();
-                        } catch (IOException e3) {
-                            com.baidu.sofire.b.e.a(e3);
-                        }
-                    }
-                    if (byteArrayOutputStream != null) {
-                        byteArrayOutputStream.close();
-                    }
-                    return bArr;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (objectOutputStream != null) {
-                        try {
-                            objectOutputStream.close();
-                        } catch (IOException e4) {
-                            com.baidu.sofire.b.e.a(e4);
-                            throw th;
-                        }
-                    }
-                    if (byteArrayOutputStream != null) {
-                        byteArrayOutputStream.close();
-                    }
+                } catch (IOException e3) {
+                    com.baidu.sofire.b.e.a(e3);
+                }
+            }
+            if (byteArrayOutputStream != null) {
+                byteArrayOutputStream.close();
+            }
+        } catch (IOException e4) {
+            if (objectOutputStream != null) {
+                try {
+                    objectOutputStream.close();
+                } catch (IOException e5) {
+                    com.baidu.sofire.b.e.a(e5);
+                }
+            }
+            if (byteArrayOutputStream != null) {
+                byteArrayOutputStream.close();
+            }
+            return bArr;
+        } catch (Throwable th4) {
+            th = th4;
+            if (objectOutputStream != null) {
+                try {
+                    objectOutputStream.close();
+                } catch (IOException e6) {
+                    com.baidu.sofire.b.e.a(e6);
                     throw th;
                 }
-            } catch (IOException e5) {
-                objectOutputStream = null;
-            } catch (Throwable th3) {
-                objectOutputStream = null;
-                th = th3;
             }
-        } catch (IOException e6) {
-            objectOutputStream = null;
-            byteArrayOutputStream = null;
-        } catch (Throwable th4) {
-            byteArrayOutputStream = null;
-            th = th4;
-            objectOutputStream = null;
+            if (byteArrayOutputStream != null) {
+                byteArrayOutputStream.close();
+            }
+            throw th;
         }
         return bArr;
     }
@@ -114,69 +118,72 @@ public final class a implements Serializable {
     public static java.util.ArrayList<com.baidu.sofire.core.b> a(byte[] r4) {
         /*
             r1 = 0
-            java.io.ByteArrayInputStream r3 = new java.io.ByteArrayInputStream     // Catch: java.lang.Throwable -> L1d
-            r3.<init>(r4)     // Catch: java.lang.Throwable -> L1d
-            java.io.ObjectInputStream r2 = new java.io.ObjectInputStream     // Catch: java.lang.Throwable -> L48
-            r2.<init>(r3)     // Catch: java.lang.Throwable -> L48
-            java.lang.Object r0 = r2.readObject()     // Catch: java.lang.Throwable -> L4c
-            java.util.ArrayList r0 = (java.util.ArrayList) r0     // Catch: java.lang.Throwable -> L4c
-            r2.close()     // Catch: java.io.IOException -> L18
-            r3.close()     // Catch: java.io.IOException -> L18
-        L17:
+            java.io.ByteArrayInputStream r3 = new java.io.ByteArrayInputStream     // Catch: java.lang.Throwable -> L21
+            r3.<init>(r4)     // Catch: java.lang.Throwable -> L21
+            java.io.ObjectInputStream r2 = new java.io.ObjectInputStream     // Catch: java.lang.Throwable -> L4c
+            r2.<init>(r3)     // Catch: java.lang.Throwable -> L4c
+            java.lang.Object r0 = r2.readObject()     // Catch: java.lang.Throwable -> L50
+            java.util.ArrayList r0 = (java.util.ArrayList) r0     // Catch: java.lang.Throwable -> L50
+            if (r2 == 0) goto L16
+            r2.close()     // Catch: java.io.IOException -> L1c
+        L16:
+            if (r3 == 0) goto L1b
+            r3.close()     // Catch: java.io.IOException -> L1c
+        L1b:
             return r0
-        L18:
+        L1c:
             r1 = move-exception
             com.baidu.sofire.b.e.a(r1)
-            goto L17
-        L1d:
+            goto L1b
+        L21:
             r0 = move-exception
             r0 = r1
             r2 = r1
-        L20:
-            if (r0 == 0) goto L25
-            r0.close()     // Catch: java.io.IOException -> L2c
-        L25:
-            if (r2 == 0) goto L2a
-            r2.close()     // Catch: java.io.IOException -> L2c
-        L2a:
+        L24:
+            if (r0 == 0) goto L29
+            r0.close()     // Catch: java.io.IOException -> L30
+        L29:
+            if (r2 == 0) goto L2e
+            r2.close()     // Catch: java.io.IOException -> L30
+        L2e:
             r0 = r1
-            goto L17
-        L2c:
+            goto L1b
+        L30:
             r0 = move-exception
             com.baidu.sofire.b.e.a(r0)
-            goto L2a
-        L31:
+            goto L2e
+        L35:
             r0 = move-exception
             r3 = r1
-        L33:
-            if (r1 == 0) goto L38
-            r1.close()     // Catch: java.io.IOException -> L3e
-        L38:
-            if (r3 == 0) goto L3d
-            r3.close()     // Catch: java.io.IOException -> L3e
-        L3d:
+        L37:
+            if (r1 == 0) goto L3c
+            r1.close()     // Catch: java.io.IOException -> L42
+        L3c:
+            if (r3 == 0) goto L41
+            r3.close()     // Catch: java.io.IOException -> L42
+        L41:
             throw r0
-        L3e:
+        L42:
             r1 = move-exception
             com.baidu.sofire.b.e.a(r1)
-            goto L3d
-        L43:
+            goto L41
+        L47:
             r0 = move-exception
-            goto L33
-        L45:
+            goto L37
+        L49:
             r0 = move-exception
             r1 = r2
-            goto L33
-        L48:
+            goto L37
+        L4c:
             r0 = move-exception
             r0 = r1
             r2 = r3
-            goto L20
-        L4c:
+            goto L24
+        L50:
             r0 = move-exception
             r0 = r2
             r2 = r3
-            goto L20
+            goto L24
         */
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.core.a.a(byte[]):java.util.ArrayList");
     }

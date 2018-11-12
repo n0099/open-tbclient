@@ -26,7 +26,7 @@ public class a extends com.baidu.ar.base.b implements CloudRecognitionManager.a 
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(String str) {
-        com.baidu.ar.base.d.a((int) MsgField.IMSG_CLOUDAR_TOAST_ERROR, str);
+        com.baidu.ar.base.d.a(1403, str);
     }
 
     public void a(int i) {

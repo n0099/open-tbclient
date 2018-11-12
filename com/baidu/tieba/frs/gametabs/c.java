@@ -10,9 +10,9 @@ import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.tbadk.mainTab.b {
     public c(int i, String str) {
-        this.aZk.type = i;
-        SpecialFrsWebFragment specialFrsWebFragment = (SpecialFrsWebFragment) this.aZk.aZz;
-        specialFrsWebFragment.mn(i);
+        this.aZX.type = i;
+        SpecialFrsWebFragment specialFrsWebFragment = (SpecialFrsWebFragment) this.aZX.bam;
+        specialFrsWebFragment.mE(i);
         if (str != null && !str.contains("&_client_version=") && !str.contains("?_client_version=")) {
             if (str.contains("&ufanS=1")) {
                 str = str + "&_client_version=" + TbConfig.getVersion();
@@ -29,18 +29,18 @@ public class c extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c MB() {
+    public com.baidu.tbadk.mainTab.c MK() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.aZz = new SpecialFrsWebFragment();
+        cVar.bam = new SpecialFrsWebFragment();
         cVar.type = 101;
-        cVar.aZF = com.baidu.tbadk.mainTab.c.aZC;
+        cVar.bat = com.baidu.tbadk.mainTab.c.bap;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator bR(Context context) {
-        this.aZl = (FragmentTabIndicator) LayoutInflater.from(context).inflate(e.h.fragmenttabindicator, (ViewGroup) null);
-        this.aZl.setTextSize(2.0f);
-        return this.aZl;
+    public TbFragmentTabIndicator bO(Context context) {
+        this.aZY = (FragmentTabIndicator) LayoutInflater.from(context).inflate(e.h.fragmenttabindicator, (ViewGroup) null);
+        this.aZY.setTextSize(2.0f);
+        return this.aZY;
     }
 }

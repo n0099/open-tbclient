@@ -31,7 +31,7 @@ public class RecommendDetailHttpResponseMessage extends HttpResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        l<byte[]> ef = com.baidu.tbadk.core.c.a.Aq().ef("tb.im_recommend_detail");
+        l<byte[]> ef = com.baidu.tbadk.core.c.a.Ax().ef("tb.im_recommend_detail");
         if (ef != null && bArr != null && this.mDetailInfo != null && this.mDetailInfo.user_id != null) {
             ef.e(this.mDetailInfo.user_id + "", bArr);
         }

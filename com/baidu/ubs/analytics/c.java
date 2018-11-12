@@ -7,11 +7,11 @@ import com.sina.weibo.sdk.statistic.StatisticConfig;
 /* loaded from: classes6.dex */
 public final class c {
     private long e;
-    private boolean hTt;
-    private long hTu;
-    private long hTv;
-    private boolean hTw;
-    private int hTx;
+    private boolean hVd;
+    private long hVe;
+    private long hVf;
+    private boolean hVg;
+    private int hVh;
     private Context mContext;
 
     /* synthetic */ c(a aVar, byte b) {
@@ -20,20 +20,20 @@ public final class c {
 
     private c(a aVar) {
         this.mContext = aVar.mContext;
-        this.hTt = aVar.hTt;
-        this.e = aVar.hTy;
-        this.hTu = aVar.hTu;
-        this.hTw = aVar.hTw;
-        this.hTv = aVar.hTv;
-        this.hTx = aVar.hTx;
+        this.hVd = aVar.hVd;
+        this.e = aVar.hVi;
+        this.hVe = aVar.hVe;
+        this.hVg = aVar.hVg;
+        this.hVf = aVar.hVf;
+        this.hVh = aVar.hVh;
     }
 
-    public final Context bQc() {
+    public final Context b() {
         return this.mContext;
     }
 
     public final boolean c() {
-        return this.hTt;
+        return this.hVd;
     }
 
     public final long d() {
@@ -41,71 +41,70 @@ public final class c {
     }
 
     public final long e() {
-        return this.hTu;
+        return this.hVe;
     }
 
     public final long f() {
-        return this.hTv;
+        return this.hVf;
     }
 
     public final boolean g() {
-        return this.hTw;
+        return this.hVg;
     }
 
     public final int h() {
-        return this.hTx;
+        return this.hVh;
     }
 
     /* loaded from: classes6.dex */
     public static class a {
         private Context mContext;
-        private boolean hTt = true;
-        private long hTy = StatisticConfig.MIN_UPLOAD_INTERVAL;
-        private long hTu = 60000;
-        private long hTv = ErrDef.Feature.WEIGHT;
-        private boolean hTw = false;
-        private int hTx = 1000;
+        private boolean hVd = true;
+        private long hVi = StatisticConfig.MIN_UPLOAD_INTERVAL;
+        private long hVe = 60000;
+        private long hVf = ErrDef.Feature.WEIGHT;
+        private boolean hVg = false;
+        private int hVh = 1000;
 
-        /* renamed from: do  reason: not valid java name */
-        public a m21do(Context context) {
+        public a dj(Context context) {
             this.mContext = context;
             return this;
         }
 
-        public a oy(boolean z) {
-            this.hTt = z;
+        public a oM(boolean z) {
+            this.hVd = z;
             return this;
         }
 
-        public a dm(long j) {
-            this.hTy = 1000 * j;
+        public a dh(long j) {
+            this.hVi = 1000 * j;
             return this;
         }
 
-        public a wT(int i) {
-            this.hTu = i * 60 * 1000;
+        public a xm(int i) {
+            this.hVe = i * 60 * 1000;
             return this;
         }
 
-        public a dn(long j) {
-            this.hTv = 1000 * j;
+        public a di(long j) {
+            this.hVf = 1000 * j;
             return this;
         }
 
-        public a oz(boolean z) {
-            this.hTw = z;
+        public a oN(boolean z) {
+            this.hVg = z;
             return this;
         }
 
-        public a wU(int i) {
+        public a xn(int i) {
             int i2 = i <= 0 ? 0 : i;
-            this.hTx = i2 < 1000 ? i2 : 1000;
+            this.hVh = i2 < 1000 ? i2 : 1000;
             return this;
         }
 
-        public c bQd() {
+        public c bPB() {
             if (this.mContext == null) {
-                j.xT("Context must be not empty!");
+                j.xY("Context must be not empty!");
                 return null;
             }
             return new c(this, (byte) 0);

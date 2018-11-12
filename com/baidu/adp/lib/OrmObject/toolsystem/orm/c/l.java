@@ -3,14 +3,14 @@ package com.baidu.adp.lib.OrmObject.toolsystem.orm.c;
 import java.util.List;
 /* loaded from: classes.dex */
 public class l implements h {
-    private List<Object> zC;
+    private List<Object> zF;
 
     public l(List<Object> list) {
-        this.zC = list;
+        this.zF = list;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h
     public Object g(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return com.baidu.adp.lib.OrmObject.toolsystem.orm.d.b.a(this.zC, cVar);
+        return com.baidu.adp.lib.OrmObject.toolsystem.orm.d.b.a(this.zF, cVar);
     }
 }

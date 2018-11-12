@@ -15,113 +15,113 @@ import com.baidu.tieba.pb.pb.main.k;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class a extends k<i, C0248a> {
-    private View.OnClickListener aEg;
-    private b fWD;
-    private final LinkedList<C0248a> fWE;
+public class a extends k<i, C0275a> {
+    private View.OnClickListener aEW;
+    private b fYc;
+    private final LinkedList<C0275a> fYd;
 
     public a(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
-        this.fWE = new LinkedList<>();
-        this.fWD = new b(this.fMF);
+        this.fYd = new LinkedList<>();
+        this.fYc = new b(this.fOe);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bq */
-    public C0248a onCreateViewHolder(ViewGroup viewGroup) {
-        C0248a c0248a = new C0248a(LayoutInflater.from(this.mContext).inflate(e.h.layout_pb_thread_praise_item, viewGroup, false));
-        this.fWE.add(c0248a);
-        return c0248a;
+    /* renamed from: br */
+    public C0275a onCreateViewHolder(ViewGroup viewGroup) {
+        C0275a c0275a = new C0275a(LayoutInflater.from(this.mContext).inflate(e.h.layout_pb_thread_praise_item, viewGroup, false));
+        this.fYd.add(c0275a);
+        return c0275a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.pb.pb.main.k, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, i iVar, C0248a c0248a) {
-        super.onFillViewHolder(i, view, viewGroup, iVar, c0248a);
-        if (iVar != null && c0248a != null) {
-            c0248a.fWF.setOnClickOutListener(this.aEg);
-            c0248a.fWF.setPostId(getPostId());
-            c0248a.fWF.setForumId(getForumId());
-            c0248a.a(iVar);
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, i iVar, C0275a c0275a) {
+        super.onFillViewHolder(i, view, viewGroup, iVar, c0275a);
+        if (iVar != null && c0275a != null) {
+            c0275a.fYe.setOnClickOutListener(this.aEW);
+            c0275a.fYe.setPostId(getPostId());
+            c0275a.fYe.setForumId(getForumId());
+            c0275a.a(iVar);
         }
         return view;
     }
 
     public void onDestroy() {
-        bkC();
-        if (this.fWD != null) {
-            this.fWD.onDestroy();
+        bjZ();
+        if (this.fYc != null) {
+            this.fYc.onDestroy();
         }
     }
 
-    private void bkC() {
-        Iterator<C0248a> it = this.fWE.iterator();
+    private void bjZ() {
+        Iterator<C0275a> it = this.fYd.iterator();
         while (it.hasNext()) {
-            C0248a next = it.next();
-            if (next != null && next.fWF != null) {
-                next.fWF.onDestroy();
+            C0275a next = it.next();
+            if (next != null && next.fYe != null) {
+                next.fYe.onDestroy();
             }
         }
     }
 
-    public void fX(String str) {
-        Iterator<C0248a> it = this.fWE.iterator();
+    public void fY(String str) {
+        Iterator<C0275a> it = this.fYd.iterator();
         while (it.hasNext()) {
-            C0248a next = it.next();
-            if (next != null && next.fWF != null) {
-                next.fWF.fX(str);
+            C0275a next = it.next();
+            if (next != null && next.fYe != null) {
+                next.fYe.fY(str);
             }
         }
     }
 
     private String getPostId() {
-        bb bkD = bkD();
-        return bkD != null ? bkD.yM() : "";
+        bb bka = bka();
+        return bka != null ? bka.yT() : "";
     }
 
     private String getForumId() {
-        return this.fMF.bga() != null ? this.fMF.bga().getForumId() : "";
+        return this.fOe.bfx() != null ? this.fOe.bfx().getForumId() : "";
     }
 
-    private bb bkD() {
-        if (this.fMF.bga() == null || this.fMF.bga().getPbData() == null) {
+    private bb bka() {
+        if (this.fOe.bfx() == null || this.fOe.bfx().getPbData() == null) {
             return null;
         }
-        return this.fMF.bga().getPbData().beV();
+        return this.fOe.bfx().getPbData().bet();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.aEg = onClickListener;
+        this.aEW = onClickListener;
     }
 
     /* renamed from: com.baidu.tieba.pb.pb.main.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0248a extends q.a {
-        public View eoO;
-        public PbThreadCommentAndPraiseInfoLayout fWF;
+    public static class C0275a extends q.a {
+        public View eqh;
+        public PbThreadCommentAndPraiseInfoLayout fYe;
 
-        public C0248a(View view) {
+        public C0275a(View view) {
             super(view);
             if (view != null) {
-                this.fWF = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(e.g.card_bottom_func_layout);
-                this.eoO = view.findViewById(e.g.bottom_divider_line);
-                this.eoO.setVisibility(0);
+                this.fYe = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(e.g.card_bottom_func_layout);
+                this.eqh = view.findViewById(e.g.bottom_divider_line);
+                this.eqh.setVisibility(0);
             }
         }
 
         public void a(i iVar) {
-            if (iVar != null && iVar.bIV != null) {
-                this.fWF.setData(iVar.bIV);
-                this.eoO.setVisibility(iVar.bfA() ? 0 : 8);
+            if (iVar != null && iVar.bJG != null) {
+                this.fYe.setData(iVar.bJG);
+                this.eqh.setVisibility(iVar.beY() ? 0 : 8);
             }
             onChangeSkinType();
         }
 
         public void onChangeSkinType() {
-            al.j(this.eoO, e.d.cp_bg_line_e);
-            this.fWF.onChangeSkinType();
+            al.j(this.eqh, e.d.cp_bg_line_e);
+            this.fYe.onChangeSkinType();
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.video;
 /* loaded from: classes.dex */
 public interface d {
-    void bGi();
+    void bFH();
 
     void onConvertAborted();
 
@@ -11,5 +11,5 @@ public interface d {
 
     void onConvertSuccess();
 
-    void vv(int i);
+    void vO(int i);
 }

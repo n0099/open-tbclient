@@ -4,128 +4,128 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import tbclient.SimpleUser;
 /* loaded from: classes.dex */
 public class a {
-    private int aSS;
-    private int aSV;
-    private int gMq;
-    private int gMr;
-    private boolean gMs;
-    private int gMt;
-    private SimpleUser gMu;
-    private int gMv;
+    private int aTI;
+    private int aTL;
+    private int gNP;
+    private int gNQ;
+    private boolean gNR;
+    private int gNS;
+    private SimpleUser gNT;
+    private int gNU;
 
-    public boolean buQ() {
+    public boolean bum() {
         com.baidu.tbadk.core.sharedPref.b bVar = com.baidu.tbadk.core.sharedPref.b.getInstance();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        this.gMq = bVar.getInt("post" + currentAccount, 0);
-        this.gMr = bVar.getInt("like" + currentAccount, 0);
-        this.aSS = bVar.getInt("group" + currentAccount, 0);
-        this.aSV = bVar.getInt("live" + currentAccount, 0);
-        this.gMt = bVar.getInt("reply" + currentAccount, 1);
-        this.gMs = TbadkCoreApplication.getInst().getLocationShared();
-        return (this.gMq == 0 && this.gMr == 0 && this.aSS == 0 && this.aSV == 0 && this.gMt == 1) ? false : true;
+        this.gNP = bVar.getInt("post" + currentAccount, 0);
+        this.gNQ = bVar.getInt("like" + currentAccount, 0);
+        this.aTI = bVar.getInt("group" + currentAccount, 0);
+        this.aTL = bVar.getInt("live" + currentAccount, 0);
+        this.gNS = bVar.getInt("reply" + currentAccount, 1);
+        this.gNR = TbadkCoreApplication.getInst().getLocationShared();
+        return (this.gNP == 0 && this.gNQ == 0 && this.aTI == 0 && this.aTL == 0 && this.gNS == 1) ? false : true;
     }
 
     public void b(a aVar) {
         if (aVar != null) {
-            this.gMq = aVar.gMq;
-            this.gMr = aVar.gMr;
-            this.aSS = aVar.aSS;
-            this.gMs = aVar.gMs;
-            this.aSV = aVar.aSV;
-            this.gMv = aVar.gMv;
-            this.gMt = aVar.gMt;
+            this.gNP = aVar.gNP;
+            this.gNQ = aVar.gNQ;
+            this.aTI = aVar.aTI;
+            this.gNR = aVar.gNR;
+            this.aTL = aVar.aTL;
+            this.gNU = aVar.gNU;
+            this.gNS = aVar.gNS;
         }
     }
 
-    public int buR() {
-        return this.gMq;
+    public int bun() {
+        return this.gNP;
     }
 
     public void aP(String str, int i) {
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(str + TbadkCoreApplication.getCurrentAccount(), i);
     }
 
-    public void buS() {
+    public void buo() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         com.baidu.tbadk.core.sharedPref.b bVar = com.baidu.tbadk.core.sharedPref.b.getInstance();
-        bVar.putInt("post" + currentAccount, this.gMq);
-        bVar.putInt("like" + currentAccount, this.gMr);
-        bVar.putInt("group" + currentAccount, this.aSS);
-        bVar.putInt("live" + currentAccount, this.aSV);
-        bVar.putInt("reply" + currentAccount, this.gMt);
-        TbadkCoreApplication.getInst().setLocationShared(this.gMs);
+        bVar.putInt("post" + currentAccount, this.gNP);
+        bVar.putInt("like" + currentAccount, this.gNQ);
+        bVar.putInt("group" + currentAccount, this.aTI);
+        bVar.putInt("live" + currentAccount, this.aTL);
+        bVar.putInt("reply" + currentAccount, this.gNS);
+        TbadkCoreApplication.getInst().setLocationShared(this.gNR);
     }
 
-    public void tw(int i) {
-        this.gMq = i;
+    public void tP(int i) {
+        this.gNP = i;
     }
 
-    public int buT() {
-        return this.gMr;
+    public int bup() {
+        return this.gNQ;
     }
 
-    public void tx(int i) {
+    public void tQ(int i) {
         if (i <= 3 && i >= 1) {
-            this.gMr = i;
+            this.gNQ = i;
         }
     }
 
-    public int Kl() {
-        return this.aSV;
+    public int Kx() {
+        return this.aTL;
     }
 
-    public void ty(int i) {
+    public void tR(int i) {
         if (i <= 3 && i >= 1) {
-            this.aSV = i;
+            this.aTL = i;
         }
     }
 
-    public int buU() {
-        return this.aSS;
+    public int buq() {
+        return this.aTI;
     }
 
-    public void tz(int i) {
+    public void tS(int i) {
         if (i <= 3 && i >= 1) {
-            this.aSS = i;
+            this.aTI = i;
         }
     }
 
-    public boolean buV() {
-        return this.gMs;
+    public boolean bur() {
+        return this.gNR;
     }
 
-    public void tA(int i) {
+    public void tT(int i) {
         switch (i) {
             case 1:
-                this.gMs = true;
+                this.gNR = true;
                 return;
             default:
-                this.gMs = false;
+                this.gNR = false;
                 return;
         }
     }
 
-    public SimpleUser UP() {
-        return this.gMu;
+    public SimpleUser UY() {
+        return this.gNT;
     }
 
     public void b(SimpleUser simpleUser) {
-        this.gMu = simpleUser;
+        this.gNT = simpleUser;
     }
 
-    public void tB(int i) {
-        this.gMv = i;
+    public void tU(int i) {
+        this.gNU = i;
     }
 
-    public void tC(int i) {
+    public void tV(int i) {
         if (i == 0) {
-            this.gMt = 1;
+            this.gNS = 1;
         } else {
-            this.gMt = i;
+            this.gNS = i;
         }
     }
 
-    public int buW() {
-        return this.gMt;
+    public int bus() {
+        return this.gNS;
     }
 }

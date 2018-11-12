@@ -10,89 +10,89 @@ import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushModel;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> implements BdSwitchView.a {
-    private e gOZ;
-    private MsgRemindModel gPa;
-    private OfficialAccountPushModel gPb;
-    private MsgRemindModel.a gPc = new MsgRemindModel.a() { // from class: com.baidu.tieba.setting.more.MsgReceiveActivity.1
+    private OfficialAccountPushModel gQA;
+    private MsgRemindModel.a gQB = new MsgRemindModel.a() { // from class: com.baidu.tieba.setting.more.MsgReceiveActivity.1
         @Override // com.baidu.tieba.setting.model.MsgRemindModel.a
         public void d(int i, boolean z, boolean z2) {
             if (i == 8) {
                 if (!z) {
                     if (z2) {
-                        MsgReceiveActivity.this.gOZ.bwi().nT();
-                        MsgReceiveActivity.this.gOZ.mI(false);
-                        MsgReceiveActivity.this.gOZ.mH(false);
+                        MsgReceiveActivity.this.gQy.bvE().nR();
+                        MsgReceiveActivity.this.gQy.mT(false);
+                        MsgReceiveActivity.this.gQy.mS(false);
                         return;
                     }
-                    MsgReceiveActivity.this.gOZ.bwi().nS();
-                    MsgReceiveActivity.this.gOZ.mI(true);
-                    MsgReceiveActivity.this.gOZ.mH(true);
+                    MsgReceiveActivity.this.gQy.bvE().nQ();
+                    MsgReceiveActivity.this.gQy.mT(true);
+                    MsgReceiveActivity.this.gQy.mS(true);
                 }
             } else if (i == 9) {
                 if (!z) {
                     if (z2) {
-                        MsgReceiveActivity.this.gOZ.bwj().nT();
+                        MsgReceiveActivity.this.gQy.bvF().nR();
                     } else {
-                        MsgReceiveActivity.this.gOZ.bwj().nS();
+                        MsgReceiveActivity.this.gQy.bvF().nQ();
                     }
                 }
             } else if (i == 7) {
                 if (z) {
-                    com.baidu.tbadk.coreExtra.messageCenter.c.Hg().bK(z2);
+                    com.baidu.tbadk.coreExtra.messageCenter.c.Hs().cb(z2);
                 } else if (z2) {
-                    MsgReceiveActivity.this.gOZ.bwk().nT();
+                    MsgReceiveActivity.this.gQy.bvG().nR();
                 } else {
-                    MsgReceiveActivity.this.gOZ.bwk().nS();
+                    MsgReceiveActivity.this.gQy.bvG().nQ();
                 }
             }
         }
     };
-    private OfficialAccountPushModel.a gPd = new OfficialAccountPushModel.a() { // from class: com.baidu.tieba.setting.more.MsgReceiveActivity.2
+    private OfficialAccountPushModel.a gQC = new OfficialAccountPushModel.a() { // from class: com.baidu.tieba.setting.more.MsgReceiveActivity.2
         @Override // com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushModel.a
         public void a(ArrayList<OfficialAccountPushInfo> arrayList, int i, String str) {
-            if (i == OfficialAccountPushModel.NET_SUCCESS && MsgReceiveActivity.this.gOZ != null) {
-                MsgReceiveActivity.this.gOZ.av(arrayList);
+            if (i == OfficialAccountPushModel.NET_SUCCESS && MsgReceiveActivity.this.gQy != null) {
+                MsgReceiveActivity.this.gQy.au(arrayList);
             }
         }
     };
+    private e gQy;
+    private MsgRemindModel gQz;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gOZ = new e(this);
-        this.gOZ.init();
-        this.gPa = new MsgRemindModel(this);
+        this.gQy = new e(this);
+        this.gQy.init();
+        this.gQz = new MsgRemindModel(this);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.gOZ.aRs()) {
+        if (view == this.gQy.aQP()) {
             finish();
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view == this.gOZ.bwi()) {
+        if (view == this.gQy.bvE()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.gPa.a(8, true, this.gPc);
-                this.gOZ.mI(true);
-                this.gOZ.mH(true);
+                this.gQz.a(8, true, this.gQB);
+                this.gQy.mT(true);
+                this.gQy.mS(true);
                 return;
             }
-            this.gPa.a(8, false, this.gPc);
-            this.gOZ.mI(false);
-            this.gOZ.mH(false);
-        } else if (view == this.gOZ.bwj()) {
+            this.gQz.a(8, false, this.gQB);
+            this.gQy.mT(false);
+            this.gQy.mS(false);
+        } else if (view == this.gQy.bvF()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.gPa.a(9, true, this.gPc);
+                this.gQz.a(9, true, this.gQB);
             } else {
-                this.gPa.a(9, false, this.gPc);
+                this.gQz.a(9, false, this.gQB);
             }
-        } else if (view == this.gOZ.bwk()) {
-            this.gPa.a(7, switchState == BdSwitchView.SwitchState.OFF, this.gPc);
+        } else if (view == this.gQy.bvG()) {
+            this.gQz.a(7, switchState == BdSwitchView.SwitchState.OFF, this.gQB);
         }
     }
 
@@ -100,25 +100,25 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.gOZ.onChangeSkinType(i);
+        this.gQy.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.gPb == null) {
-            this.gPb = new OfficialAccountPushModel(this.gPd);
+        if (this.gQA == null) {
+            this.gQA = new OfficialAccountPushModel(this.gQC);
         }
-        this.gPb.bxj();
+        this.gQA.bwF();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.gPb != null) {
-            this.gPb.onDestroy();
+        if (this.gQA != null) {
+            this.gQA.onDestroy();
         }
     }
 }

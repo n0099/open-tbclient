@@ -71,7 +71,7 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.scr_dip = Double.valueOf(l.aR(TbadkCoreApplication.getInst()));
         builder.q_type = 1;
         builder.need_forumlist = Integer.valueOf(this.needForumlist);
-        builder.new_net_type = Integer.valueOf(j.ld());
+        builder.new_net_type = Integer.valueOf(j.lb());
         PersonalizedReqIdl.Builder builder2 = new PersonalizedReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

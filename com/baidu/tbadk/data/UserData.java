@@ -268,17 +268,17 @@ public class UserData extends MetaData {
             }
             this.mPhotoAlbum.clear();
             k kVar = new k();
-            kVar.hb(getPortraitH());
-            kVar.hc(getPortrait());
-            kVar.bR(true);
+            kVar.hc(getPortraitH());
+            kVar.hd(getPortrait());
+            kVar.ci(true);
             this.mPhotoAlbum.add(kVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
                         k kVar2 = new k();
-                        kVar2.hb(userPics.big);
-                        kVar2.hc(userPics.small);
-                        kVar2.bR(false);
+                        kVar2.hc(userPics.big);
+                        kVar2.hd(userPics.small);
+                        kVar2.ci(false);
                         this.mPhotoAlbum.add(kVar2);
                     }
                 }
@@ -385,7 +385,7 @@ public class UserData extends MetaData {
                     if (this.sex != 2 && this.sex != 1) {
                         this.sex = 1;
                     }
-                    this.alaUserData.sex = ao.ds(this.sex);
+                    this.alaUserData.sex = ao.dG(this.sex);
                 }
             }
             this.isGodInvited = user.is_invited.intValue() == 1;
@@ -475,9 +475,9 @@ public class UserData extends MetaData {
                 }
                 this.mPhotoAlbum.clear();
                 k kVar = new k();
-                kVar.hb(getPortraitH());
-                kVar.hc(getPortrait());
-                kVar.bR(true);
+                kVar.hc(getPortraitH());
+                kVar.hd(getPortrait());
+                kVar.ci(true);
                 this.mPhotoAlbum.add(kVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -486,9 +486,9 @@ public class UserData extends MetaData {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
                             k kVar2 = new k();
-                            kVar2.hb(jSONObject2.optString("big"));
-                            kVar2.hc(jSONObject2.optString("small"));
-                            kVar2.bR(false);
+                            kVar2.hc(jSONObject2.optString("big"));
+                            kVar2.hd(jSONObject2.optString("small"));
+                            kVar2.ci(false);
                             this.mPhotoAlbum.add(kVar2);
                         }
                     }
@@ -537,7 +537,7 @@ public class UserData extends MetaData {
                     this.liveId = optJSONObject9.optString("live_id");
                     this.alaUserData = (AlaUserInfoData) OrmObject.objectWithJson(jSONObject.optJSONObject("ala_info"), AlaUserInfoData.class);
                     if (StringUtils.isNull(this.alaUserData.sex)) {
-                        this.alaUserData.sex = ao.ds(this.sex);
+                        this.alaUserData.sex = ao.dG(this.sex);
                     }
                 }
             }

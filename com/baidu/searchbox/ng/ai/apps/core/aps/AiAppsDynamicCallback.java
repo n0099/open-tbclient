@@ -125,8 +125,8 @@ public class AiAppsDynamicCallback extends AiAppsBaseApsCallback {
     @Override // com.baidu.b.a.b.a.a
     public void onItemFiltered(a aVar) {
         com.baidu.b.a.b.b.a aVar2 = null;
-        if (aVar != null && aVar.Ky != 1102) {
-            aVar2 = aVar.Ky == 1104 ? buildAppVersionUnMatchErrorInfo() : new com.baidu.b.a.b.b.a(aVar.Ky, TextUtils.isEmpty(aVar.errMsg) ? "" : aVar.errMsg, TextUtils.isEmpty(aVar.Zm) ? "" : aVar.Zm);
+        if (aVar != null && aVar.KC != 1102) {
+            aVar2 = aVar.KC == 1104 ? buildAppVersionUnMatchErrorInfo() : new com.baidu.b.a.b.b.a(aVar.KC, TextUtils.isEmpty(aVar.errMsg) ? "" : aVar.errMsg, TextUtils.isEmpty(aVar.Zm) ? "" : aVar.Zm);
         }
         onApsCheckFinish(false, aVar, aVar2);
     }

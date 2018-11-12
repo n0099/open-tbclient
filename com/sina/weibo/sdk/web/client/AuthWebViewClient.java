@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
+import com.baidu.searchbox.ng.ai.apps.impl.map.model.OpenLocationModel;
 import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import com.sina.weibo.sdk.auth.AccessTokenKeeper;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
@@ -48,7 +49,7 @@ public class AuthWebViewClient extends BaseWebViewClient {
     private boolean needOverLoad(String str) {
         if (str.startsWith("sms:")) {
             Intent intent = new Intent("android.intent.action.VIEW");
-            intent.putExtra("address", str.replace("sms:", ""));
+            intent.putExtra(OpenLocationModel.ADDRESS, str.replace("sms:", ""));
             intent.setType("vnd.android-dir/mms-sms");
             this.context.startActivity(intent);
             return true;

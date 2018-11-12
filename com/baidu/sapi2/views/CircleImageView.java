@@ -15,7 +15,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.e.a.a;
+import com.baidu.d.a.a;
 /* loaded from: classes2.dex */
 public class CircleImageView extends ImageView {
     private static final int COLOR_DRAWABLE_DIMENSION = 1;

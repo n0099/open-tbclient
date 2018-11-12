@@ -27,34 +27,34 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 /* loaded from: classes.dex */
 public class af {
-    private static af axs;
-    private Drawable[] axj;
-    private a[] axk;
-    private boolean axm;
-    private boolean axn;
-    private boolean axo = true;
-    private int axp = -1315344;
-    private int axq = -14670029;
-    private PorterDuffColorFilter axr = new PorterDuffColorFilter(-5000269, PorterDuff.Mode.MULTIPLY);
-    private int[] axl = {e.f.listview_pull_refresh01, e.f.listview_pull_refresh02};
+    private static af ayf;
+    private Drawable[] axW;
+    private a[] axX;
+    private boolean axZ;
+    private boolean aya;
+    private boolean ayb = true;
+    private int ayc = -1315344;
+    private int ayd = -14670029;
+    private PorterDuffColorFilter aye = new PorterDuffColorFilter(-5000269, PorterDuff.Mode.MULTIPLY);
+    private int[] axY = {e.f.listview_pull_refresh01, e.f.listview_pull_refresh02};
 
     /* loaded from: classes.dex */
     public static class a {
-        public Drawable axA;
-        public Drawable axz;
+        public Drawable aym;
+        public Drawable ayn;
     }
 
     private af() {
-        bc(com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("pullview_should_show_3d_loading", this.axo));
+        bs(com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("pullview_should_show_3d_loading", this.ayb));
     }
 
-    public static af Cm() {
+    public static af Ct() {
         synchronized (af.class) {
-            if (axs == null) {
-                axs = new af();
+            if (ayf == null) {
+                ayf = new af();
             }
         }
-        return axs;
+        return ayf;
     }
 
     public void b(final String str, final String str2, String str3, String str4, String str5) {
@@ -77,48 +77,48 @@ public class af {
             if (i3 != i || i2 != i4) {
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("pullview_background_color_day", i);
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("pullview_background_color_night", i2);
-                this.axp = i;
-                this.axq = i2;
+                this.ayc = i;
+                this.ayd = i2;
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016204));
             }
         }
         if (TextUtils.isEmpty(str)) {
             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("pullview_should_show_3d_loading", true);
-            bc(true);
-            com.baidu.adp.lib.g.h.jJ().c(new Runnable() { // from class: com.baidu.tbadk.core.util.af.1
+            bs(true);
+            com.baidu.adp.lib.g.h.jH().c(new Runnable() { // from class: com.baidu.tbadk.core.util.af.1
                 @Override // java.lang.Runnable
                 public void run() {
                     com.baidu.tbadk.core.sharedPref.b.getInstance().remove("pull_image_url");
                     com.baidu.tbadk.core.sharedPref.b.getInstance().remove("pull_image_num");
                     com.baidu.tbadk.core.sharedPref.b.getInstance().remove("pullview_background_color_day");
                     com.baidu.tbadk.core.sharedPref.b.getInstance().remove("pullview_background_color_night");
-                    af.this.Ct();
-                    af.this.Co();
+                    af.this.CA();
+                    af.this.Cv();
                 }
             });
             return;
         }
         com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("pullview_should_show_3d_loading", false);
-        bc(false);
+        bs(false);
         String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("pull_image_url", "");
         final int l = com.baidu.adp.lib.g.b.l(str3, 0);
         if (str.equals(string)) {
-            if (dh(l)) {
-                Cn();
+            if (dv(l)) {
+                Cu();
                 return;
-            } else if (Cr()) {
-                com.baidu.adp.lib.g.h.jJ().c(new Runnable() { // from class: com.baidu.tbadk.core.util.af.2
+            } else if (Cy()) {
+                com.baidu.adp.lib.g.h.jH().c(new Runnable() { // from class: com.baidu.tbadk.core.util.af.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        File Cq = af.this.Cq();
-                        if (af.this.f(Cq, str2)) {
-                            af.this.y(Cq);
-                            if (af.this.dh(l)) {
-                                af.this.Co();
+                        File Cx = af.this.Cx();
+                        if (af.this.f(Cx, str2)) {
+                            af.this.y(Cx);
+                            if (af.this.dv(l)) {
+                                af.this.Cv();
                                 return;
                             }
                         }
-                        af.this.Cs();
+                        af.this.Cz();
                         af.this.c(str, str2, l);
                     }
                 });
@@ -131,22 +131,22 @@ public class af {
         b(str, str2, com.baidu.adp.lib.g.b.l(str3, 0));
     }
 
-    public void Cn() {
-        com.baidu.adp.lib.g.h.jJ().c(new Runnable() { // from class: com.baidu.tbadk.core.util.af.3
+    public void Cu() {
+        com.baidu.adp.lib.g.h.jH().c(new Runnable() { // from class: com.baidu.tbadk.core.util.af.3
             @Override // java.lang.Runnable
             public void run() {
-                af.this.Co();
+                af.this.Cv();
             }
         });
     }
 
-    public AnimationDrawable de(int i) {
+    public AnimationDrawable ds(int i) {
         Drawable[] drawableArr;
-        if (this.axj != null) {
+        if (this.axW != null) {
             boolean z = i == 1;
             AnimationDrawable animationDrawable = new AnimationDrawable();
-            animationDrawable.setColorFilter(z ? this.axr : null);
-            for (Drawable drawable : this.axj) {
+            animationDrawable.setColorFilter(z ? this.aye : null);
+            for (Drawable drawable : this.axW) {
                 if (drawable != null) {
                     animationDrawable.addFrame(drawable, 100);
                 }
@@ -156,31 +156,31 @@ public class af {
         return null;
     }
 
-    public AnimationDrawable df(int i) {
+    public AnimationDrawable dt(int i) {
         a[] aVarArr;
-        if (this.axk == null) {
-            this.axk = new a[this.axl.length];
-            for (int i2 = 0; i2 < this.axl.length; i2++) {
-                this.axk[i2] = new a();
+        if (this.axX == null) {
+            this.axX = new a[this.axY.length];
+            for (int i2 = 0; i2 < this.axY.length; i2++) {
+                this.axX[i2] = new a();
             }
         }
         boolean z = i == 1;
-        if (z && !this.axm) {
-            this.axm = true;
-            for (int i3 = 0; i3 < this.axl.length; i3++) {
-                this.axk[i3].axA = new BitmapDrawable(al.m17do(this.axl[i3]));
+        if (z && !this.axZ) {
+            this.axZ = true;
+            for (int i3 = 0; i3 < this.axY.length; i3++) {
+                this.axX[i3].ayn = new BitmapDrawable(al.dC(this.axY[i3]));
             }
         }
-        if (!z && !this.axn) {
-            this.axn = true;
-            for (int i4 = 0; i4 < this.axl.length; i4++) {
-                this.axk[i4].axz = new BitmapDrawable(al.m17do(this.axl[i4]));
+        if (!z && !this.aya) {
+            this.aya = true;
+            for (int i4 = 0; i4 < this.axY.length; i4++) {
+                this.axX[i4].aym = new BitmapDrawable(al.dC(this.axY[i4]));
             }
         }
         AnimationDrawable animationDrawable = new AnimationDrawable();
-        for (a aVar : this.axk) {
+        for (a aVar : this.axX) {
             if (aVar != null) {
-                Drawable drawable = z ? aVar.axA : aVar.axz;
+                Drawable drawable = z ? aVar.ayn : aVar.aym;
                 if (drawable != null) {
                     animationDrawable.addFrame(drawable, 100);
                 }
@@ -189,33 +189,33 @@ public class af {
         return animationDrawable;
     }
 
-    public int dg(int i) {
+    public int du(int i) {
         if (i == 1) {
-            return this.axq;
+            return this.ayd;
         }
-        return this.axp;
+        return this.ayc;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Co() {
+    public void Cv() {
         boolean z = false;
         String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("pull_image_url", "");
         int i = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("pull_image_num", 0);
-        this.axp = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("pullview_background_color_day", -1315344);
-        this.axq = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("pullview_background_color_night", -14670029);
+        this.ayc = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("pullview_background_color_day", -1315344);
+        this.ayd = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("pullview_background_color_night", -14670029);
         if (!TextUtils.isEmpty(string)) {
-            if (i > 0 && dh(i)) {
-                this.axj = new Drawable[i];
-                File Cp = Cp();
-                if (Cp != null) {
-                    File[] listFiles = Cp.listFiles();
+            if (i > 0 && dv(i)) {
+                this.axW = new Drawable[i];
+                File Cw = Cw();
+                if (Cw != null) {
+                    File[] listFiles = Cw.listFiles();
                     for (int i2 = 1; i2 <= i; i2++) {
-                        this.axj[i2 - 1] = a(listFiles, i2 + ".");
+                        this.axW[i2 - 1] = a(listFiles, i2 + ".");
                     }
                 }
             }
-            if (this.axj != null) {
-                Drawable[] drawableArr = this.axj;
+            if (this.axW != null) {
+                Drawable[] drawableArr = this.axW;
                 int length = drawableArr.length;
                 int i3 = 0;
                 while (true) {
@@ -230,10 +230,10 @@ public class af {
                 }
             }
             if (!z) {
-                this.axj = null;
+                this.axW = null;
             }
         } else {
-            this.axj = null;
+            this.axW = null;
         }
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016203, true));
     }
@@ -270,18 +270,18 @@ public class af {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean dh(int i) {
-        File Cp = Cp();
-        if (Cp == null) {
+    public boolean dv(int i) {
+        File Cw = Cw();
+        if (Cw == null) {
             return false;
         }
-        File[] listFiles = Cp.listFiles();
+        File[] listFiles = Cw.listFiles();
         if (listFiles == null || listFiles.length < i) {
             return false;
         }
         int i2 = 0;
         for (int i3 = 1; i3 <= i; i3++) {
-            if (e(Cp, i3 + ".")) {
+            if (e(Cw, i3 + ".")) {
                 i2++;
             }
         }
@@ -298,12 +298,12 @@ public class af {
         return false;
     }
 
-    private File Cp() {
+    private File Cw() {
         return z(new File(TbadkCoreApplication.getInst().getFilesDir(), "pullImages" + File.separator + TbConfig.IMAGE_CACHE_DIR_NAME));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public File Cq() {
+    public File Cx() {
         File file = new File(TbadkCoreApplication.getInst().getFilesDir(), "pullImages" + File.separator + OpenAppAction.PARAMS_DOWNLOAD_KEY);
         z(file);
         if (file.exists() && file.isDirectory()) {
@@ -312,9 +312,9 @@ public class af {
         return null;
     }
 
-    private boolean Cr() {
-        File Cq = Cq();
-        return Cq != null && Cq.exists() && Cq.isFile() && Cq.length() > 0;
+    private boolean Cy() {
+        File Cx = Cx();
+        return Cx != null && Cx.exists() && Cx.isFile() && Cx.length() > 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -360,7 +360,7 @@ public class af {
     }
 
     private void b(final String str, final String str2, final int i) {
-        com.baidu.adp.lib.g.h.jJ().c(new Runnable() { // from class: com.baidu.tbadk.core.util.af.4
+        com.baidu.adp.lib.g.h.jH().c(new Runnable() { // from class: com.baidu.tbadk.core.util.af.4
             @Override // java.lang.Runnable
             public void run() {
                 af.this.c(str, str2, i);
@@ -370,21 +370,21 @@ public class af {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(String str, String str2, int i) {
-        Ct();
+        CA();
         com.baidu.tbadk.core.sharedPref.b.getInstance().remove("pull_image_url");
         com.baidu.tbadk.core.sharedPref.b.getInstance().remove("pull_image_num");
         com.baidu.tbadk.core.sharedPref.b.getInstance().remove("pullview_background_color_day");
         com.baidu.tbadk.core.sharedPref.b.getInstance().remove("pullview_background_color_night");
         fj(str);
-        File Cq = Cq();
-        if (f(Cq, str2)) {
+        File Cx = Cx();
+        if (f(Cx, str2)) {
             com.baidu.tbadk.core.sharedPref.b.getInstance().putString("pull_image_url", str);
             com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("pull_image_num", i);
-            y(Cq);
-            Co();
+            y(Cx);
+            Cv();
             return;
         }
-        deleteDir(Cq);
+        deleteDir(Cx);
     }
 
     private void fj(String str) {
@@ -447,26 +447,26 @@ public class af {
     }
 
     private void b(String str, InputStream inputStream) {
-        File Cp = Cp();
-        if (Cp != null && inputStream != null) {
-            c(inputStream, new File(Cp, str));
+        File Cw = Cw();
+        if (Cw != null && inputStream != null) {
+            c(inputStream, new File(Cw, str));
         }
     }
 
     private void k(InputStream inputStream) {
-        c(inputStream, Cq());
+        c(inputStream, Cx());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Cs() {
-        File Cq = Cq();
-        if (Cq != null && Cq.isFile() && Cq.exists()) {
-            Cq.delete();
+    public void Cz() {
+        File Cx = Cx();
+        if (Cx != null && Cx.isFile() && Cx.exists()) {
+            Cx.delete();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ct() {
+    public void CA() {
         deleteDir(new File(TbadkCoreApplication.getInst().getFilesDir(), "pullImages"));
     }
 
@@ -529,11 +529,11 @@ public class af {
         }
     }
 
-    public boolean Cu() {
-        return UtilHelper.detectOpenGLES20(TbadkCoreApplication.getInst().getContext()) && this.axo;
+    public boolean CB() {
+        return UtilHelper.detectOpenGLES20(TbadkCoreApplication.getInst().getContext()) && this.ayb;
     }
 
-    public void bc(boolean z) {
-        this.axo = z;
+    public void bs(boolean z) {
+        this.ayb = z;
     }
 }

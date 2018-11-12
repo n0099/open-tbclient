@@ -13,7 +13,7 @@ import java.util.HashMap;
 /* loaded from: classes.dex */
 class c {
     public static String a(com.baidu.adp.lib.stats.base.a aVar, com.baidu.adp.lib.stats.c cVar) {
-        if (aVar.kj() != null && (aVar.kj().equals("omp") || aVar.kj().equals("mon"))) {
+        if (aVar.kh() != null && (aVar.kh().equals("omp") || aVar.kh().equals("mon"))) {
             return a(cVar);
         }
         return a(true, cVar);
@@ -23,19 +23,19 @@ class c {
         HashMap<String, Object> hashMap = new HashMap<>();
         a(hashMap, "_client_type", "2");
         a(hashMap, "_client_version", cVar.mAppVersion);
-        a(hashMap, "_phone_imei", cVar.Ed);
-        a(hashMap, "_client_id", cVar.Ea);
-        a(hashMap, "subapp_type", cVar.Ee);
+        a(hashMap, "_phone_imei", cVar.Eh);
+        a(hashMap, "_client_id", cVar.Ee);
+        a(hashMap, "subapp_type", cVar.Ei);
         a(hashMap, "from", cVar.mChannel);
-        a(hashMap, ETAG.KEY_NET_TYPE, cVar.Ei);
+        a(hashMap, ETAG.KEY_NET_TYPE, cVar.Em);
         a(hashMap, "cuid", cVar.mCuid);
-        a(hashMap, "model", cVar.Ef);
+        a(hashMap, "model", cVar.Ej);
         if (TextUtils.isEmpty(cVar.mUid)) {
             cVar.mUid = "0";
         }
         a(hashMap, "uid", cVar.mUid);
-        a(hashMap, "un", cVar.Eg);
-        a(hashMap, "BDUSS", cVar.Eh);
+        a(hashMap, "un", cVar.Ek);
+        a(hashMap, "BDUSS", cVar.El);
         if (z) {
             a(hashMap, "find_bug", "2");
         } else {
@@ -58,11 +58,11 @@ class c {
         try {
             sb.append("product");
             sb.append(ETAG.EQUAL);
-            sb.append(URLEncoder.encode(cVar.DX, IoUtils.UTF_8));
+            sb.append(URLEncoder.encode(cVar.Eb, IoUtils.UTF_8));
             sb.append(ETAG.ITEM_SEPARATOR);
             sb.append("sub_sys");
             sb.append(ETAG.EQUAL);
-            sb.append(URLEncoder.encode(cVar.DY, IoUtils.UTF_8));
+            sb.append(URLEncoder.encode(cVar.Ec, IoUtils.UTF_8));
             sb.append(ETAG.ITEM_SEPARATOR);
             sb.append("version");
             sb.append(ETAG.EQUAL);
@@ -74,46 +74,46 @@ class c {
             sb.append(ETAG.ITEM_SEPARATOR);
             sb.append(StatisticConstants.OS_VERSION);
             sb.append(ETAG.EQUAL);
-            sb.append(URLEncoder.encode(cVar.Ej, IoUtils.UTF_8));
+            sb.append(URLEncoder.encode(cVar.En, IoUtils.UTF_8));
             if (!TextUtils.isEmpty(cVar.mChannel)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("from");
                 sb.append(ETAG.EQUAL);
                 sb.append(URLEncoder.encode(cVar.mChannel, IoUtils.UTF_8));
             }
-            if (!TextUtils.isEmpty(cVar.DZ)) {
+            if (!TextUtils.isEmpty(cVar.Ed)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("cfrom");
                 sb.append(ETAG.EQUAL);
-                sb.append(URLEncoder.encode(cVar.DZ, IoUtils.UTF_8));
+                sb.append(URLEncoder.encode(cVar.Ed, IoUtils.UTF_8));
             }
             sb.append(ETAG.ITEM_SEPARATOR);
             sb.append(ISapiAccount.SAPI_ACCOUNT_PHONE);
             sb.append(ETAG.EQUAL);
-            sb.append(URLEncoder.encode(cVar.Ef, IoUtils.UTF_8));
+            sb.append(URLEncoder.encode(cVar.Ej, IoUtils.UTF_8));
             if (!TextUtils.isEmpty(cVar.mUid)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("uid");
                 sb.append(ETAG.EQUAL);
                 sb.append(URLEncoder.encode(cVar.mUid, IoUtils.UTF_8));
             }
-            if (!TextUtils.isEmpty(cVar.Ea)) {
+            if (!TextUtils.isEmpty(cVar.Ee)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("client_id");
                 sb.append(ETAG.EQUAL);
-                sb.append(URLEncoder.encode(cVar.Ea, IoUtils.UTF_8));
+                sb.append(URLEncoder.encode(cVar.Ee, IoUtils.UTF_8));
             }
-            if (!TextUtils.isEmpty(cVar.Ed)) {
+            if (!TextUtils.isEmpty(cVar.Eh)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("imei");
                 sb.append(ETAG.EQUAL);
-                sb.append(URLEncoder.encode(cVar.Ed, IoUtils.UTF_8));
+                sb.append(URLEncoder.encode(cVar.Eh, IoUtils.UTF_8));
             }
-            if (!TextUtils.isEmpty(cVar.Eg)) {
+            if (!TextUtils.isEmpty(cVar.Ek)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("uname");
                 sb.append(ETAG.EQUAL);
-                sb.append(URLEncoder.encode(cVar.Eg, IoUtils.UTF_8));
+                sb.append(URLEncoder.encode(cVar.Ek, IoUtils.UTF_8));
             }
             if (!TextUtils.isEmpty(cVar.mCuid)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
@@ -153,21 +153,21 @@ class c {
         StringBuilder sb = new StringBuilder();
         sb.append("_client_type=2");
         a(sb, "_client_version", cVar.mAppVersion, z);
-        a(sb, "_phone_imei", cVar.Ed, z);
-        a(sb, "_client_id", cVar.Ea, z);
-        a(sb, "subapp_type", cVar.Ee, z);
-        a(sb, StatisticConstants.OS_VERSION, cVar.Ej, z);
+        a(sb, "_phone_imei", cVar.Eh, z);
+        a(sb, "_client_id", cVar.Ee, z);
+        a(sb, "subapp_type", cVar.Ei, z);
+        a(sb, StatisticConstants.OS_VERSION, cVar.En, z);
         a(sb, "from", cVar.mChannel, z);
-        a(sb, "cfrom", cVar.DZ, z);
-        a(sb, ETAG.KEY_NET_TYPE, cVar.Ei, z);
+        a(sb, "cfrom", cVar.Ed, z);
+        a(sb, ETAG.KEY_NET_TYPE, cVar.Em, z);
         a(sb, "cuid", cVar.mCuid, z);
-        a(sb, "model", cVar.Ef, z);
+        a(sb, "model", cVar.Ej, z);
         if (TextUtils.isEmpty(cVar.mUid)) {
             a(sb, "uid", "0", z);
         } else {
             a(sb, "uid", cVar.mUid, z);
         }
-        a(sb, "un", cVar.Eg, z);
+        a(sb, "un", cVar.Ek, z);
         return sb.toString();
     }
 }

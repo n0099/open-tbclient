@@ -15,9 +15,9 @@ public class ah extends k<com.baidu.tbadk.core.data.ao, ai> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bn */
+    /* renamed from: bo */
     public ai onCreateViewHolder(ViewGroup viewGroup) {
-        return new ai(this.fMF.getPageContext(), LayoutInflater.from(this.mContext).inflate(e.h.pb_recommend_novel, viewGroup, false));
+        return new ai(this.fOe.getPageContext(), LayoutInflater.from(this.mContext).inflate(e.h.pb_recommend_novel, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

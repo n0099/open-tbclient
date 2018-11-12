@@ -18,57 +18,57 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class a {
-    private static String De;
-    private static String Df;
-    private static String Dg;
-    private static boolean Dh;
     private static String Di;
     private static String Dj;
     private static String Dk;
-    private e Dl;
-    private c Dm;
-    private long Dn;
+    private static boolean Dl;
+    private static String Dm;
+    private static String Dn;
+    private static String Do;
+    private e Dp;
+    private c Dq;
+    private long Dr;
 
     public void init() {
         System.setProperty("http.keepAlive", ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE);
-        this.Dn = BdStatisticsManager.getInstance().getClientLogId();
+        this.Dr = BdStatisticsManager.getInstance().getClientLogId();
     }
 
     public static void aR(String str) {
-        De = str;
-    }
-
-    public static void setCuid(String str) {
         Di = str;
     }
 
+    public static void setCuid(String str) {
+        Dm = str;
+    }
+
     public static void aS(String str) {
-        Dj = str;
+        Dn = str;
     }
 
     public static void aT(String str) {
-        Dk = str;
+        Do = str;
     }
 
     public static void setUserAgent(String str) {
-        Df = str;
+        Dj = str;
     }
 
     public static void setUid(String str) {
-        Dg = str;
+        Dk = str;
     }
 
     public static void setKeepAlive(boolean z) {
-        Dh = z;
+        Dl = z;
     }
 
     public g a(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.Dl = new e();
-        a(this.Dl, z);
-        this.Dl.jr().setUrl(str);
-        this.Dm = new c(this.Dl);
-        this.Dm.e(i, i3, i4);
-        return this.Dl.js();
+        this.Dp = new e();
+        a(this.Dp, z);
+        this.Dp.jp().setUrl(str);
+        this.Dq = new c(this.Dp);
+        this.Dq.e(i, i3, i4);
+        return this.Dp.jq();
     }
 
     public g a(String str, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
@@ -76,52 +76,52 @@ public class a {
     }
 
     public g a(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.Dl = new e();
-        a(this.Dl, z);
-        this.Dl.jr().setUrl(str);
+        this.Dp = new e();
+        a(this.Dp, z);
+        this.Dp.jp().setUrl(str);
         if (list != null) {
             for (BasicNameValuePair basicNameValuePair : list) {
-                this.Dl.jr().a(basicNameValuePair);
+                this.Dp.jp().a(basicNameValuePair);
             }
         }
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.Dl.jr().y(next.getName(), next.getValue());
+                this.Dp.jp().y(next.getName(), next.getValue());
             }
         }
-        this.Dm = new c(this.Dl);
-        this.Dm.g(i, i2, -1);
-        return this.Dl.js();
+        this.Dq = new c(this.Dp);
+        this.Dq.g(i, i2, -1);
+        return this.Dp.jq();
     }
 
     public g a(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.Dl = new e();
-        a(this.Dl, z);
-        this.Dl.jr().setUrl(str);
+        this.Dp = new e();
+        a(this.Dp, z);
+        this.Dp.jp().setUrl(str);
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.Dl.jr().y(next.getName(), next.getValue());
+                this.Dp.jp().y(next.getName(), next.getValue());
             }
         }
         if (arrayList != null) {
             Iterator<BasicNameValuePair> it2 = arrayList.iterator();
             while (it2.hasNext()) {
                 BasicNameValuePair next2 = it2.next();
-                this.Dl.jr().x(next2.getName(), next2.getValue());
+                this.Dp.jp().x(next2.getName(), next2.getValue());
             }
         }
         if (hashMap != null) {
             for (Map.Entry<String, byte[]> entry : hashMap.entrySet()) {
-                this.Dl.jr().d(entry.getKey(), entry.getValue());
+                this.Dp.jp().d(entry.getKey(), entry.getValue());
             }
         }
-        this.Dm = new c(this.Dl);
-        this.Dm.g(i, i2, -1);
-        return this.Dl.js();
+        this.Dq = new c(this.Dp);
+        this.Dq.g(i, i2, -1);
+        return this.Dp.jq();
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, h hVar, boolean z2) {
@@ -129,11 +129,11 @@ public class a {
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, h hVar, boolean z2, boolean z3) {
-        this.Dl = new e();
-        b(this.Dl);
-        this.Dl.jr().setUrl(str);
-        this.Dm = new c(this.Dl);
-        return this.Dm.a(str2, hVar, i, i2, i3, i4, z2, z3);
+        this.Dp = new e();
+        b(this.Dp);
+        this.Dp.jp().setUrl(str);
+        this.Dq = new c(this.Dp);
+        return this.Dq.a(str2, hVar, i, i2, i3, i4, z2, z3);
     }
 
     public a() {
@@ -141,60 +141,60 @@ public class a {
     }
 
     public void cancel() {
-        if (this.Dm != null) {
-            this.Dm.cancel();
+        if (this.Dq != null) {
+            this.Dq.cancel();
         }
     }
 
     public boolean isCanceled() {
-        if (this.Dm != null) {
-            return this.Dm.jk();
+        if (this.Dq != null) {
+            return this.Dq.ji();
         }
         return false;
     }
 
-    public void jl() {
-        if (this.Dm != null) {
-            this.Dm.jl();
+    public void jj() {
+        if (this.Dq != null) {
+            this.Dq.jj();
         }
     }
 
-    public e jz() {
-        return this.Dl;
+    public e jx() {
+        return this.Dp;
     }
 
     private void a(e eVar, boolean z) {
         if (eVar != null) {
-            if (!TextUtils.isEmpty(De)) {
-                eVar.jr().y(SM.COOKIE, De);
-            } else {
-                eVar.jr().y(SM.COOKIE, "");
-            }
-            if (!TextUtils.isEmpty(Dg)) {
-                eVar.jr().y("client_user_token", Dg);
-            }
-            if (!TextUtils.isEmpty(Df)) {
-                eVar.jr().y(HTTP.USER_AGENT, Df);
-            }
-            if (z) {
-                eVar.jr().y("Accept-Encoding", "gzip");
-            } else {
-                eVar.jr().y("Accept-Encoding", "");
-            }
-            if (Dh) {
-                eVar.jr().y(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-            } else {
-                eVar.jr().y(HTTP.CONN_DIRECTIVE, "close");
-            }
-            eVar.jr().y("client_logid", String.valueOf(this.Dn));
             if (!TextUtils.isEmpty(Di)) {
-                eVar.jr().y("cuid", Di);
-            }
-            if (!TextUtils.isEmpty(Dj)) {
-                eVar.jr().y("cuid_galaxy2", Dj);
+                eVar.jp().y(SM.COOKIE, Di);
+            } else {
+                eVar.jp().y(SM.COOKIE, "");
             }
             if (!TextUtils.isEmpty(Dk)) {
-                eVar.jr().y("cuid_gid", Dk);
+                eVar.jp().y("client_user_token", Dk);
+            }
+            if (!TextUtils.isEmpty(Dj)) {
+                eVar.jp().y(HTTP.USER_AGENT, Dj);
+            }
+            if (z) {
+                eVar.jp().y("Accept-Encoding", "gzip");
+            } else {
+                eVar.jp().y("Accept-Encoding", "");
+            }
+            if (Dl) {
+                eVar.jp().y(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+            } else {
+                eVar.jp().y(HTTP.CONN_DIRECTIVE, "close");
+            }
+            eVar.jp().y("client_logid", String.valueOf(this.Dr));
+            if (!TextUtils.isEmpty(Dm)) {
+                eVar.jp().y("cuid", Dm);
+            }
+            if (!TextUtils.isEmpty(Dn)) {
+                eVar.jp().y("cuid_galaxy2", Dn);
+            }
+            if (!TextUtils.isEmpty(Do)) {
+                eVar.jp().y("cuid_gid", Do);
             }
         }
     }

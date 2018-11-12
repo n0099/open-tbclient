@@ -8,36 +8,36 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static a dBJ;
-    private static FrsLinkHashMap<String, Long> dBK = new FrsLinkHashMap<>();
+    private static a dDa;
+    private static FrsLinkHashMap<String, Long> dDb = new FrsLinkHashMap<>();
 
     private a() {
-        aAb();
+        azy();
     }
 
-    public static a aAa() {
-        if (dBJ == null) {
+    public static a azx() {
+        if (dDa == null) {
             synchronized (a.class) {
-                if (dBJ == null) {
-                    dBJ = new a();
+                if (dDa == null) {
+                    dDa = new a();
                 }
             }
         }
-        return dBJ;
+        return dDa;
     }
 
-    private static void aAb() {
+    private static void azy() {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.frs.FrsHotTopic.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
                 FrsHotTopicListData frsHotTopicListData;
-                l<String> ak = com.baidu.tbadk.core.c.a.Aq().ak("tb.frs_hottopic", "");
+                l<String> ak = com.baidu.tbadk.core.c.a.Ax().ak("tb.frs_hottopic", "");
                 if (ak != null) {
                     String str = ak.get("hot_topic_key");
                     if (!StringUtils.isNull(str) && (frsHotTopicListData = (FrsHotTopicListData) OrmObject.objectWithJsonStr(str, FrsHotTopicListData.class)) != null) {
-                        FrsLinkHashMap unused = a.dBK = frsHotTopicListData.mSceneMap;
+                        FrsLinkHashMap unused = a.dDb = frsHotTopicListData.mSceneMap;
                     }
                 }
                 return null;
@@ -47,10 +47,10 @@ public class a {
         bdAsyncTask.execute(new Void[0]);
     }
 
-    public boolean n(String str, long j) {
+    public boolean m(String str, long j) {
         boolean z;
-        if (dBK != null && str != null) {
-            Iterator<Map.Entry<String, Long>> it = dBK.entrySet().iterator();
+        if (dDb != null && str != null) {
+            Iterator<Map.Entry<String, Long>> it = dDb.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -62,25 +62,25 @@ public class a {
                     break;
                 }
             }
-            if (!z || (z && dBK.get(str).longValue() != j)) {
-                dBK.put(str, Long.valueOf(j));
-                aAc();
+            if (!z || (z && dDb.get(str).longValue() != j)) {
+                dDb.put(str, Long.valueOf(j));
+                azz();
                 return true;
             }
         }
         return false;
     }
 
-    private void aAc() {
+    private void azz() {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.frs.FrsHotTopic.a.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
-                l<String> ak = com.baidu.tbadk.core.c.a.Aq().ak("tb.frs_hottopic", "");
+                l<String> ak = com.baidu.tbadk.core.c.a.Ax().ak("tb.frs_hottopic", "");
                 if (ak != null) {
                     FrsHotTopicListData frsHotTopicListData = new FrsHotTopicListData();
-                    frsHotTopicListData.mSceneMap = a.dBK;
+                    frsHotTopicListData.mSceneMap = a.dDb;
                     String jsonStrWithObject = OrmObject.jsonStrWithObject(frsHotTopicListData);
                     if (!StringUtils.isNull(jsonStrWithObject)) {
                         ak.e("hot_topic_key", jsonStrWithObject);

@@ -51,7 +51,7 @@ public class ClientStartStatic {
         public Void doInBackground(Void... voidArr) {
             x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.STAT_CLIENT_START);
             xVar.x("type", "1");
-            xVar.BA();
+            xVar.BH();
             return null;
         }
     }

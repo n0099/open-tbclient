@@ -1,5 +1,6 @@
 package com.coremedia.iso.boxes.threegpp26244;
 
+import com.baidu.searchbox.ng.ai.apps.impl.map.model.element.CoordinateModel;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.coremedia.iso.Utf8;
@@ -12,22 +13,22 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes5.dex */
 public class LocationInformationBox extends AbstractFullBox {
     public static final String TYPE = "loci";
-    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_13 = null;
-    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_14 = null;
-    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_15 = null;
-    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_13 = null;
+    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_14 = null;
+    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_15 = null;
+    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_9 = null;
     private String additionalNotes;
     private double altitude;
     private String astronomicalBody;
@@ -56,9 +57,9 @@ public class LocationInformationBox extends AbstractFullBox {
         ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getRole", "com.coremedia.iso.boxes.threegpp26244.LocationInformationBox", "", "", "", "int"), 46);
         ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setRole", "com.coremedia.iso.boxes.threegpp26244.LocationInformationBox", "int", "role", "", "void"), 50);
         ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getLongitude", "com.coremedia.iso.boxes.threegpp26244.LocationInformationBox", "", "", "", "double"), 54);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setLongitude", "com.coremedia.iso.boxes.threegpp26244.LocationInformationBox", "double", "longitude", "", "void"), 58);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setLongitude", "com.coremedia.iso.boxes.threegpp26244.LocationInformationBox", "double", CoordinateModel.LONGITUDE, "", "void"), 58);
         ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "getLatitude", "com.coremedia.iso.boxes.threegpp26244.LocationInformationBox", "", "", "", "double"), 62);
-        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setLatitude", "com.coremedia.iso.boxes.threegpp26244.LocationInformationBox", "double", "latitude", "", "void"), 66);
+        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setLatitude", "com.coremedia.iso.boxes.threegpp26244.LocationInformationBox", "double", CoordinateModel.LATITUDE, "", "void"), 66);
     }
 
     public LocationInformationBox() {
@@ -94,7 +95,7 @@ public class LocationInformationBox extends AbstractFullBox {
     }
 
     public void setRole(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.yo(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.yH(i)));
         this.role = i;
     }
 

@@ -14,15 +14,15 @@ public interface Framedata {
         CLOSING
     }
 
-    ByteBuffer caX();
+    ByteBuffer cau();
 
-    boolean caY();
+    boolean cav();
 
-    boolean caZ();
+    boolean caw();
 
-    boolean cba();
+    boolean cax();
 
-    boolean cbb();
+    boolean cay();
 
-    Opcode cbc();
+    Opcode caz();
 }

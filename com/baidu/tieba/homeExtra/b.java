@@ -5,32 +5,32 @@ import com.baidu.tieba.lego.c.e;
 import com.squareup.wire.Message;
 /* loaded from: classes3.dex */
 class b implements com.baidu.tieba.lego.model.b {
-    private c.a ehA;
+    private c.a eiU;
 
     public b(c.a aVar) {
-        this.ehA = aVar;
+        this.eiU = aVar;
     }
 
     @Override // com.baidu.tieba.lego.model.b
     public void a(boolean z, Message message, boolean z2, long j, String str, int i) {
         com.baidu.tieba.homeExtra.a.a aVar = new com.baidu.tieba.homeExtra.a.a();
         e eVar = new e();
-        eVar.fiW = j;
+        eVar.fkp = j;
         eVar.itemId = str;
-        com.baidu.tieba.lego.c.a a = com.baidu.tieba.lego.d.b.aYg().a(eVar);
+        com.baidu.tieba.lego.c.a a = com.baidu.tieba.lego.d.b.aXD().a(eVar);
         if (a != null) {
             a.a(z, message, z2, i);
         }
         aVar.a(a);
-        if (this.ehA != null) {
-            this.ehA.a(z, aVar, z2, "", str, true);
+        if (this.eiU != null) {
+            this.eiU.a(z, aVar, z2, "", str, true);
         }
     }
 
     @Override // com.baidu.tieba.lego.model.b
     public void a(long j, String str, String str2, int i) {
-        if (this.ehA != null) {
-            this.ehA.a(str, str2, i, true, 1);
+        if (this.eiU != null) {
+            this.eiU.a(str, str2, i, true, 1);
         }
     }
 

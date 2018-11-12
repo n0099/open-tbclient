@@ -117,10 +117,10 @@ public final class g {
                 throw new IllegalArgumentException("flag or body length error");
             }
             cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(300);
-            bVar.l(0);
+            bVar.C(0);
             bVar.writeByteArray(str.getBytes());
-            bVar.g(i);
-            bVar.l(i2);
+            bVar.i(i);
+            bVar.C(i2);
             bVar.writeByteArray(bArr);
             bVar.l(bVar.current(), 0);
             bVar.k(z ? 1 : 0, 4);

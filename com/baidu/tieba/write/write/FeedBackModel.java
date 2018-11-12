@@ -12,23 +12,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class FeedBackModel extends BdBaseModel<TbPageContext> {
-    private a hNS;
-    private ArrayList<bb> hNT;
+    private a hPC;
+    private ArrayList<bb> hPD;
     private TbPageContext mContext;
     private int mErrCode;
 
     public FeedBackModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.hNS = null;
-        this.hNT = null;
+        this.hPC = null;
+        this.hPD = null;
         this.mErrCode = 0;
         this.mContext = tbPageContext;
-        this.hNT = new ArrayList<>();
+        this.hPD = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<bb> bNl() {
-        return this.hNT;
+    public ArrayList<bb> bMK() {
+        return this.hPD;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -37,11 +37,11 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void xe(String str) {
-        if (this.hNS == null) {
-            this.hNS = new a();
-            this.hNS.setPriority(3);
-            this.hNS.execute(str);
+    public void xj(String str) {
+        if (this.hPC == null) {
+            this.hPC = new a();
+            this.hPC.setPriority(3);
+            this.hPC.execute(str);
         }
     }
 
@@ -55,17 +55,17 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: I */
+        /* renamed from: J */
         public FeedBackModel doInBackground(Object... objArr) {
             String obj = objArr[0].toString();
             this.mNetWork = new x(TbConfig.SERVER_ADDRESS + "c/f/frs/toplist");
             this.mNetWork.x("kw", obj);
-            String BA = this.mNetWork.BA();
-            if (!this.mNetWork.BY().CX().isRequestSuccess()) {
+            String BH = this.mNetWork.BH();
+            if (!this.mNetWork.Cf().De().isRequestSuccess()) {
                 return null;
             }
             FeedBackModel feedBackModel = new FeedBackModel(FeedBackModel.this.mContext);
-            feedBackModel.parserJson(BA);
+            feedBackModel.parserJson(BH);
             return feedBackModel;
         }
 
@@ -75,16 +75,16 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
         /* renamed from: c */
         public void onPostExecute(FeedBackModel feedBackModel) {
             super.onPostExecute(feedBackModel);
-            FeedBackModel.this.hNS = null;
+            FeedBackModel.this.hPC = null;
             FeedBackModel.this.mLoadDataCallBack.m(feedBackModel);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            FeedBackModel.this.hNS = null;
+            FeedBackModel.this.hPC = null;
             if (this.mNetWork != null) {
-                this.mNetWork.ji();
+                this.mNetWork.jg();
             }
         }
     }
@@ -108,7 +108,7 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
                         if (jSONObject2 != null) {
                             bb bbVar = new bb();
                             bbVar.parserJson(jSONObject2);
-                            this.hNT.add(bbVar);
+                            this.hPD.add(bbVar);
                         }
                     }
                 }
@@ -125,8 +125,8 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.hNS != null) {
-            this.hNS.cancel();
+        if (this.hPC != null) {
+            this.hPC.cancel();
             return true;
         }
         return true;

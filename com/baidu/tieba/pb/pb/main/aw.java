@@ -8,43 +8,43 @@ import com.baidu.tbadk.core.util.ay;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class aw {
-    private static aw fWC = null;
+    private static aw fYb = null;
 
-    public static aw bkB() {
-        if (fWC == null) {
+    public static aw bjY() {
+        if (fYb == null) {
             synchronized (aw.class) {
-                if (fWC == null) {
-                    fWC = new aw();
+                if (fYb == null) {
+                    fYb = new aw();
                 }
             }
         }
-        return fWC;
+        return fYb;
     }
 
     public void c(TbPageContext tbPageContext, String str) {
         if (tbPageContext != null && !TextUtils.isEmpty(str)) {
             if (str.contains("is_native_app=1")) {
             }
-            if (sC(str)) {
+            if (sD(str)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
-            } else if (sD(str)) {
-                ay.CU().a((TbPageContext<?>) tbPageContext, new String[]{str}, true);
+            } else if (sE(str)) {
+                ay.Db().a((TbPageContext<?>) tbPageContext, new String[]{str}, true);
             } else {
-                ay.CU().c(tbPageContext, new String[]{str});
+                ay.Db().c(tbPageContext, new String[]{str});
             }
         }
     }
 
-    public static boolean sB(String str) {
+    public static boolean sC(String str) {
         return str != null && str.contains("bookcover:");
     }
 
-    private boolean sC(String str) {
+    private boolean sD(String str) {
         Map<String, String> fv;
         if (!TextUtils.isEmpty(str) && (fv = ay.fv(ay.fw(str))) != null) {
             String str2 = fv.get("url");
             if (!TextUtils.isEmpty(str2)) {
-                return sC(com.baidu.adp.lib.util.k.by(str2));
+                return sD(com.baidu.adp.lib.util.k.by(str2));
             }
             String str3 = fv.get("tbgametype");
             return !TextUtils.isEmpty(str3) && str3.equals("1");
@@ -52,7 +52,7 @@ public class aw {
         return false;
     }
 
-    private boolean sD(String str) {
+    private boolean sE(String str) {
         return !TextUtils.isEmpty(str) && str.contains("xiaoying.tv");
     }
 }

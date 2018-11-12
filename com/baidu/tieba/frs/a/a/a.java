@@ -13,49 +13,49 @@ import com.baidu.tieba.card.data.n;
 import com.baidu.tieba.card.q;
 import com.baidu.tieba.frs.h;
 /* loaded from: classes3.dex */
-public class a extends h<n, C0184a> {
-    private boolean dKD;
+public class a extends h<n, C0209a> {
+    private boolean dLH;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         super(tbPageContext, bdUniqueId);
-        this.dKD = z;
+        this.dLH = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aw */
-    public C0184a onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: ax */
+    public C0209a onCreateViewHolder(ViewGroup viewGroup) {
         q qVar = new q(this.mPageContext);
         qVar.setStatKey(null, "c10819");
-        return new C0184a(qVar);
+        return new C0209a(qVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, n nVar, C0184a c0184a) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, n nVar, C0209a c0209a) {
         TiebaStatic.log(new am("c10835"));
         if (nVar != null) {
-            nVar.bIr = i + 1;
-            c0184a.dKE.jQ(l.dip2px(this.mPageContext.getPageActivity(), 7.0f));
-            c0184a.dKE.showBottomLine(this.dKD);
-            c0184a.dKE.d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+            nVar.bJc = i + 1;
+            c0209a.dLI.kj(l.dip2px(this.mPageContext.getPageActivity(), 7.0f));
+            c0209a.dLI.showBottomLine(this.dLH);
+            c0209a.dLI.d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
-        c0184a.dKE.a(nVar);
-        return c0184a.getView();
+        c0209a.dLI.a(nVar);
+        return c0209a.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.frs.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0184a extends q.a {
-        public com.baidu.tieba.card.q dKE;
+    public class C0209a extends q.a {
+        public com.baidu.tieba.card.q dLI;
 
-        public C0184a(com.baidu.tieba.card.q qVar) {
+        public C0209a(com.baidu.tieba.card.q qVar) {
             super(qVar.getView());
-            this.dKE = qVar;
+            this.dLI = qVar;
         }
     }
 }

@@ -172,7 +172,7 @@ public class AiAppsAudioRecorderManager implements IRecorderManager {
                     public Boolean call(String str) {
                         return Boolean.valueOf(AiAppsAudioRecorderManager.this.saveRecord());
                     }
-                }).observeOn(a.cby()).subscribe(new b<Boolean>() { // from class: com.baidu.searchbox.ng.ai.apps.media.recorder.manager.AiAppsAudioRecorderManager.2
+                }).observeOn(a.caV()).subscribe(new b<Boolean>() { // from class: com.baidu.searchbox.ng.ai.apps.media.recorder.manager.AiAppsAudioRecorderManager.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // rx.functions.b
                     public void call(Boolean bool) {

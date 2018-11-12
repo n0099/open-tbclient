@@ -4,14 +4,13 @@ import android.accounts.NetworkErrorException;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Proxy;
-import android.net.TrafficStats;
 import android.os.Build;
+import android.os.Handler;
 import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -40,45 +39,99 @@ import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.protocol.HTTP;
 @SuppressLint({"NewApi"})
 /* loaded from: classes.dex */
-public final class m {
-    Context a;
-    byte[] b;
+public class m {
+    byte[] a;
+    private Context b;
     private String c;
     private String d;
     private int e;
     private int f;
     private boolean g;
 
+    public m(Context context, Handler handler) {
+        this.a = new byte[8192];
+        this.e = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
+        this.f = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
+        this.g = false;
+        this.b = context;
+    }
+
     public m(Context context) {
-        this.b = new byte[8192];
+        this.a = new byte[8192];
         this.e = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
         this.f = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
         this.g = false;
-        this.a = context;
+        this.b = context;
     }
 
-    public m(Context context, byte b) {
-        this.b = new byte[8192];
-        this.e = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
-        this.f = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
-        this.g = false;
-        this.a = context;
+    private void a(String str, String str2) {
+        this.c = str;
+        this.d = str2;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00bf A[Catch: Throwable -> 0x021b, TRY_LEAVE, TryCatch #7 {Throwable -> 0x021b, blocks: (B:35:0x00a5, B:37:0x00bf, B:30:0x0092, B:32:0x009b), top: B:78:0x0092 }] */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x00f9  */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x011d  */
-    /* JADX WARN: Removed duplicated region for block: B:78:0x0092 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x003d A[Catch: Throwable -> 0x00aa, TRY_LEAVE, TryCatch #6 {Throwable -> 0x00aa, blocks: (B:13:0x0023, B:15:0x003d, B:8:0x0010, B:10:0x0019), top: B:40:0x0010 }] */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x0010 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:44:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private HttpURLConnection a() throws IOException {
-        String str;
-        HttpURLConnection httpURLConnection;
+    private void a(HttpsURLConnection httpsURLConnection) {
         KeyStore keyStore;
         KeyStore keyStore2;
-        int i = -1;
         X509TrustManager x509TrustManager = null;
+        try {
+            keyStore = KeyStore.getInstance("AndroidCAStore");
+        } catch (Throwable th) {
+            keyStore = null;
+        }
+        try {
+            keyStore.load(null, null);
+            keyStore2 = keyStore;
+        } catch (Throwable th2) {
+            try {
+                String property = System.getProperty("javax.net.ssl.trustStore");
+                String property2 = System.getProperty("javax.net.ssl.trustStorePassword");
+                char[] charArray = property2 == null ? null : property2.toCharArray();
+                keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+                BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(property));
+                keyStore.load(bufferedInputStream, charArray);
+                bufferedInputStream.close();
+                keyStore2 = keyStore;
+            } catch (Throwable th3) {
+                keyStore2 = keyStore;
+            }
+            if (keyStore2 != null) {
+            }
+            if (x509TrustManager == null) {
+            }
+        }
+        if (keyStore2 != null) {
+            try {
+                Class<?> cls = Class.forName("com.android.org.conscrypt.TrustManagerImpl");
+                Class<?> cls2 = cls == null ? Class.forName("org.apache.harmony.xnet.provider.jsse.TrustManagerImpl") : cls;
+                if (cls2 != null) {
+                    x509TrustManager = (X509TrustManager) cls2.getDeclaredConstructor(KeyStore.class).newInstance(keyStore2);
+                }
+            } catch (Throwable th4) {
+                e.a(th4);
+                return;
+            }
+        }
+        if (x509TrustManager == null) {
+            SSLContext sSLContext = SSLContext.getInstance("TLS");
+            sSLContext.init(null, new TrustManager[]{new a(x509TrustManager)}, new SecureRandom());
+            httpsURLConnection.setHostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
+            httpsURLConnection.setSSLSocketFactory(sSLContext.getSocketFactory());
+        }
+    }
+
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v36, types: [java.net.HttpURLConnection] */
+    /* JADX WARN: Type inference failed for: r0v5, types: [java.net.HttpURLConnection] */
+    private HttpURLConnection a() {
+        String str;
+        HttpsURLConnection httpsURLConnection;
+        int i = -1;
         if (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(this.d)) {
             throw new IllegalArgumentException();
         }
@@ -86,8 +139,8 @@ public final class m {
             this.c = "POST";
         }
         URL url = new URL(this.d);
-        if (e.c(this.a)) {
-            i = 0;
+        if (e.f(this.b)) {
+            i = 80;
             str = null;
         } else if (Build.VERSION.SDK_INT >= 13) {
             str = System.getProperties().getProperty("http.proxyHost");
@@ -99,113 +152,52 @@ public final class m {
                 }
             }
         } else {
-            str = Proxy.getHost(this.a);
-            i = Proxy.getPort(this.a);
+            str = Proxy.getHost(this.b);
+            i = Proxy.getPort(this.b);
         }
         if (str != null && i > 0) {
-            httpURLConnection = (HttpURLConnection) url.openConnection(new java.net.Proxy(Proxy.Type.HTTP, InetSocketAddress.createUnresolved(str, i)));
+            httpsURLConnection = (HttpURLConnection) url.openConnection(new java.net.Proxy(Proxy.Type.HTTP, InetSocketAddress.createUnresolved(str, i)));
         } else {
-            httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpsURLConnection = (HttpURLConnection) url.openConnection();
         }
-        if (httpURLConnection instanceof HttpsURLConnection) {
-            HttpsURLConnection httpsURLConnection = (HttpsURLConnection) httpURLConnection;
-            try {
-                keyStore = KeyStore.getInstance("AndroidCAStore");
-                try {
-                    keyStore.load(null, null);
-                    keyStore2 = keyStore;
-                } catch (Throwable th2) {
-                    try {
-                        String property2 = System.getProperty("javax.net.ssl.trustStore");
-                        String property3 = System.getProperty("javax.net.ssl.trustStorePassword");
-                        char[] charArray = property3 == null ? null : property3.toCharArray();
-                        keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
-                        BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(property2));
-                        keyStore.load(bufferedInputStream, charArray);
-                        bufferedInputStream.close();
-                        keyStore2 = keyStore;
-                    } catch (Throwable th3) {
-                        keyStore2 = keyStore;
-                    }
-                    if (keyStore2 != null) {
-                    }
-                    if (x509TrustManager != null) {
-                    }
-                    httpURLConnection.setRequestMethod(this.c);
-                    httpURLConnection.setDoInput(true);
-                    if ("POST".equals(this.c)) {
-                    }
-                    httpURLConnection.setInstanceFollowRedirects(true);
-                    httpURLConnection.setConnectTimeout(this.e);
-                    httpURLConnection.setReadTimeout(this.f);
-                    String str2 = e.e(this.a)[0];
-                    String str3 = "sofire";
-                    if ("sofire".equals("sofire")) {
-                    }
-                    httpURLConnection.setRequestProperty(HTTP.USER_AGENT, str3 + "/" + str2 + "/" + v.a(this.a) + "/3.1.3.2");
-                    httpURLConnection.setRequestProperty("Pragma", "no-cache");
-                    httpURLConnection.setRequestProperty("Accept", "*/*");
-                    httpURLConnection.setRequestProperty("Content-Type", URLEncodedUtils.CONTENT_TYPE);
-                    httpURLConnection.setRequestProperty("Accept-Encoding", "gzip,deflate");
-                    httpURLConnection.setRequestProperty("Accept-Language", Locale.getDefault().getLanguage() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Locale.getDefault().getCountry());
-                    httpURLConnection.setRequestProperty("x-device-id", n.a(g.a(this.a)));
-                    return httpURLConnection;
-                }
-            } catch (Throwable th4) {
-                keyStore = null;
-            }
-            if (keyStore2 != null) {
-                try {
-                    Class<?> cls = Class.forName("com.android.org.conscrypt.TrustManagerImpl");
-                    Class<?> cls2 = cls == null ? Class.forName("org.apache.harmony.xnet.provider.jsse.TrustManagerImpl") : cls;
-                    if (cls2 != null) {
-                        x509TrustManager = (X509TrustManager) cls2.getDeclaredConstructor(KeyStore.class).newInstance(keyStore2);
-                    }
-                } catch (Throwable th5) {
-                    e.a(th5);
-                }
-            }
-            if (x509TrustManager != null) {
-                SSLContext sSLContext = SSLContext.getInstance("TLS");
-                sSLContext.init(null, new TrustManager[]{new a(x509TrustManager)}, new SecureRandom());
-                httpsURLConnection.setHostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
-                httpsURLConnection.setSSLSocketFactory(sSLContext.getSocketFactory());
-            }
+        if (httpsURLConnection instanceof HttpsURLConnection) {
+            a(httpsURLConnection);
         }
-        httpURLConnection.setRequestMethod(this.c);
-        httpURLConnection.setDoInput(true);
+        httpsURLConnection.setRequestMethod(this.c);
+        httpsURLConnection.setDoInput(true);
         if ("POST".equals(this.c)) {
-            httpURLConnection.setDoOutput(true);
+            httpsURLConnection.setDoOutput(true);
         }
-        httpURLConnection.setInstanceFollowRedirects(true);
-        httpURLConnection.setConnectTimeout(this.e);
-        httpURLConnection.setReadTimeout(this.f);
-        String str22 = e.e(this.a)[0];
-        String str32 = "sofire";
-        if ("sofire".equals("sofire")) {
-            str32 = "eos";
+        httpsURLConnection.setInstanceFollowRedirects(true);
+        httpsURLConnection.setConnectTimeout(this.e);
+        httpsURLConnection.setReadTimeout(this.f);
+        String str2 = e.h(this.b)[0];
+        String str3 = "sofire";
+        if ("1".equals("1")) {
+            str3 = "eos";
         }
-        httpURLConnection.setRequestProperty(HTTP.USER_AGENT, str32 + "/" + str22 + "/" + v.a(this.a) + "/3.1.3.2");
-        httpURLConnection.setRequestProperty("Pragma", "no-cache");
-        httpURLConnection.setRequestProperty("Accept", "*/*");
-        httpURLConnection.setRequestProperty("Content-Type", URLEncodedUtils.CONTENT_TYPE);
-        httpURLConnection.setRequestProperty("Accept-Encoding", "gzip,deflate");
-        httpURLConnection.setRequestProperty("Accept-Language", Locale.getDefault().getLanguage() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Locale.getDefault().getCountry());
-        httpURLConnection.setRequestProperty("x-device-id", n.a(g.a(this.a)));
-        return httpURLConnection;
+        httpsURLConnection.setRequestProperty(HTTP.USER_AGENT, str3 + "/" + str2 + "/" + t.a(this.b) + "/3.1.8");
+        httpsURLConnection.setRequestProperty("Pragma", "no-cache");
+        httpsURLConnection.setRequestProperty("Accept", "*/*");
+        httpsURLConnection.setRequestProperty("Content-Type", URLEncodedUtils.CONTENT_TYPE);
+        httpsURLConnection.setRequestProperty("Accept-Encoding", "gzip,deflate");
+        httpsURLConnection.setRequestProperty("Accept-Language", Locale.getDefault().getLanguage() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Locale.getDefault().getCountry());
+        httpsURLConnection.setRequestProperty("x-device-id", o.a(g.a(this.b)));
+        return httpsURLConnection;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:60:0x0020 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x0021 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private InputStream a(byte[] bArr, HttpURLConnection httpURLConnection) throws IOException, NetworkErrorException {
+    private InputStream a(byte[] bArr, HttpURLConnection httpURLConnection) {
         Throwable th;
         Throwable th2;
         BufferedOutputStream bufferedOutputStream = null;
         if (httpURLConnection == null) {
             return null;
         }
+        BufferedOutputStream bufferedOutputStream2 = null;
         try {
             try {
                 if (bArr == null) {
@@ -219,12 +211,19 @@ public final class m {
                     } else {
                         this.g = false;
                     }
-                    return httpURLConnection.getInputStream();
+                    InputStream inputStream = httpURLConnection.getInputStream();
+                    if (0 != 0) {
+                        try {
+                            bufferedOutputStream2.close();
+                        } catch (Throwable th3) {
+                        }
+                    }
+                    return inputStream;
                 }
-                BufferedOutputStream bufferedOutputStream2 = new BufferedOutputStream(httpURLConnection.getOutputStream());
+                BufferedOutputStream bufferedOutputStream3 = new BufferedOutputStream(httpURLConnection.getOutputStream());
                 try {
-                    bufferedOutputStream2.write(bArr);
-                    bufferedOutputStream2.flush();
+                    bufferedOutputStream3.write(bArr);
+                    bufferedOutputStream3.flush();
                     int responseCode2 = httpURLConnection.getResponseCode();
                     if (responseCode2 != 200) {
                         throw new NetworkErrorException(String.valueOf(responseCode2));
@@ -234,28 +233,31 @@ public final class m {
                     } else {
                         this.g = false;
                     }
-                    InputStream inputStream = httpURLConnection.getInputStream();
+                    InputStream inputStream2 = httpURLConnection.getInputStream();
+                    if (bufferedOutputStream3 == null) {
+                        return inputStream2;
+                    }
                     try {
-                        bufferedOutputStream2.close();
-                        return inputStream;
-                    } catch (Throwable th3) {
-                        return inputStream;
+                        bufferedOutputStream3.close();
+                        return inputStream2;
+                    } catch (Throwable th4) {
+                        return inputStream2;
                     }
                 } catch (NetworkErrorException e) {
                     throw e;
                 } catch (IOException e2) {
                     throw e2;
-                } catch (Throwable th4) {
-                    th = th4;
+                } catch (Throwable th5) {
+                    th = th5;
                     e.a(th);
                     throw new IOException();
                 }
-            } catch (Throwable th5) {
-                th2 = th5;
+            } catch (Throwable th6) {
+                th2 = th6;
                 if (0 != 0) {
                     try {
                         bufferedOutputStream.close();
-                    } catch (Throwable th6) {
+                    } catch (Throwable th7) {
                     }
                 }
                 throw th2;
@@ -264,14 +266,14 @@ public final class m {
             throw e3;
         } catch (IOException e4) {
             throw e4;
-        } catch (Throwable th7) {
-            th = th7;
+        } catch (Throwable th8) {
+            th = th8;
         }
     }
 
     private InputStream a(HttpURLConnection httpURLConnection) {
         InputStream inputStream = null;
-        if (!e.d(this.a) || httpURLConnection == null || httpURLConnection == null) {
+        if (!e.g(this.b) || httpURLConnection == null || httpURLConnection == null) {
             return null;
         }
         try {
@@ -288,7 +290,7 @@ public final class m {
         }
     }
 
-    private String a(InputStream inputStream) throws IOException, InterruptedException {
+    private String a(InputStream inputStream) {
         if (inputStream == null) {
             throw new NullPointerException("InputStream");
         }
@@ -298,13 +300,7 @@ public final class m {
                 throw new NullPointerException("responseBytes");
             }
             if (this.g) {
-                ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(b);
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                j.b(byteArrayInputStream, byteArrayOutputStream);
-                b = byteArrayOutputStream.toByteArray();
-                byteArrayOutputStream.flush();
-                byteArrayOutputStream.close();
-                byteArrayInputStream.close();
+                b = j.b(b);
             }
             if (b != null) {
                 return new String(b);
@@ -316,7 +312,44 @@ public final class m {
         }
     }
 
-    private static byte[] b(InputStream inputStream) throws IOException, InterruptedException {
+    public String a(String str, byte[] bArr) {
+        HttpURLConnection httpURLConnection;
+        InputStream inputStream = null;
+        s.a();
+        try {
+            a("POST", str);
+            try {
+                httpURLConnection = a();
+            } catch (Throwable th) {
+                th = th;
+                httpURLConnection = null;
+            }
+            try {
+                inputStream = a(bArr, httpURLConnection);
+                String a2 = a(inputStream);
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+                if (httpURLConnection != null) {
+                    httpURLConnection.disconnect();
+                }
+                return a2;
+            } catch (Throwable th2) {
+                th = th2;
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+                if (httpURLConnection != null) {
+                    httpURLConnection.disconnect();
+                }
+                throw th;
+            }
+        } finally {
+            s.b();
+        }
+    }
+
+    private byte[] b(InputStream inputStream) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         byte[] bArr = new byte[1024];
         while (true) {
@@ -331,8 +364,97 @@ public final class m {
         }
     }
 
+    public String a(String str) {
+        HttpURLConnection httpURLConnection;
+        InputStream inputStream = null;
+        s.a();
+        try {
+            com.baidu.sofire.b.a("u=" + str);
+            try {
+                a("GET", str);
+                httpURLConnection = a();
+            } catch (Throwable th) {
+                th = th;
+                httpURLConnection = null;
+            }
+            try {
+                inputStream = a((byte[]) null, httpURLConnection);
+                String a2 = a(inputStream);
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+                if (httpURLConnection != null) {
+                    httpURLConnection.disconnect();
+                }
+                return a2;
+            } catch (Throwable th2) {
+                th = th2;
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+                if (httpURLConnection != null) {
+                    httpURLConnection.disconnect();
+                }
+                throw th;
+            }
+        } finally {
+            s.b();
+        }
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [512=8] */
+    public boolean a(String str, File file) {
+        HttpURLConnection httpURLConnection;
+        InputStream inputStream = null;
+        s.a();
+        try {
+            com.baidu.sofire.b.a("u=" + str);
+            if (e.g(this.b)) {
+                if (TextUtils.isEmpty(str)) {
+                    return false;
+                }
+                com.baidu.sofire.b.a("f= " + file);
+                try {
+                    a("GET", str);
+                    httpURLConnection = a();
+                } catch (Throwable th) {
+                    th = th;
+                    httpURLConnection = null;
+                }
+                try {
+                    inputStream = a(httpURLConnection);
+                    boolean a2 = a(inputStream, file);
+                    if (inputStream != null) {
+                        inputStream.close();
+                    }
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                    return a2;
+                } catch (Throwable th2) {
+                    th = th2;
+                    e.a(th);
+                    if (inputStream != null) {
+                        inputStream.close();
+                    }
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                    return false;
+                }
+            }
+            return false;
+        } finally {
+            s.b();
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [545=4, 546=4, 547=4, 543=5] */
     private boolean a(InputStream inputStream, File file) {
         BufferedOutputStream bufferedOutputStream;
+        boolean z = false;
+        BufferedOutputStream bufferedOutputStream2 = null;
         if (this.g) {
             try {
                 inputStream = new GZIPInputStream(inputStream);
@@ -340,57 +462,54 @@ public final class m {
                 e.a(e);
             }
         }
-        if (inputStream == null) {
-            return false;
-        }
-        try {
-            bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
+        if (inputStream != null) {
             try {
-                byte[] bArr = new byte[1024];
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read != -1) {
+                bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
+                try {
+                    byte[] bArr = new byte[1024];
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read == -1) {
+                            break;
+                        }
                         bufferedOutputStream.write(bArr, 0, read);
                         bufferedOutputStream.flush();
-                    } else {
+                    }
+                    z = true;
+                    if (bufferedOutputStream != null) {
                         try {
-                            break;
+                            bufferedOutputStream.close();
                         } catch (IOException e2) {
                             e.a(e2);
                         }
                     }
-                }
-                bufferedOutputStream.close();
-                return true;
-            } catch (Throwable th) {
-                th = th;
-                try {
-                    e.a(th);
-                    if (bufferedOutputStream != null) {
-                        try {
-                            bufferedOutputStream.close();
-                            return false;
-                        } catch (IOException e3) {
-                            e.a(e3);
-                            return false;
+                } catch (Throwable th) {
+                    th = th;
+                    try {
+                        e.a(th);
+                        return z;
+                    } finally {
+                        if (bufferedOutputStream != null) {
+                            try {
+                                bufferedOutputStream.close();
+                            } catch (IOException e3) {
+                                e.a(e3);
+                            }
                         }
                     }
-                    return false;
-                } catch (Throwable th2) {
-                    if (bufferedOutputStream != null) {
-                        try {
-                            bufferedOutputStream.close();
-                        } catch (IOException e4) {
-                            e.a(e4);
-                        }
-                    }
-                    throw th2;
                 }
+            } catch (Throwable th2) {
+                th = th2;
+                bufferedOutputStream = null;
             }
-        } catch (Throwable th3) {
-            th = th3;
-            bufferedOutputStream = null;
+        } else if (0 != 0) {
+            try {
+                bufferedOutputStream2.close();
+            } catch (IOException e4) {
+                e.a(e4);
+            }
         }
+        return z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -404,26 +523,29 @@ public final class m {
         }
 
         @Override // javax.net.ssl.X509TrustManager
-        public final void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
+        public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) {
+            com.baidu.sofire.b.a("checkClientTrusted");
             this.b.checkClientTrusted(x509CertificateArr, str);
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
         @Override // javax.net.ssl.X509TrustManager
-        public final void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
+        public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) {
+            com.baidu.sofire.b.a("checkServerTrusted");
             try {
                 this.b.checkServerTrusted(x509CertificateArr, str);
+                com.baidu.sofire.b.a("after checkServerTrusted");
             } catch (Throwable th) {
                 e.a(th);
                 for (Throwable th2 = th; th2 != null; th2 = th2.getCause()) {
                     if ((th2 instanceof CertificateExpiredException) || (th2 instanceof CertificateNotYetValidException)) {
                         HashMap hashMap = new HashMap();
                         hashMap.put("0", Long.valueOf(System.currentTimeMillis()));
-                        e.a(m.this.a.getApplicationContext(), "1003121", hashMap);
+                        e.a(m.this.b.getApplicationContext(), "1003121", hashMap);
                         return;
                     }
                 }
-                if (th instanceof CertificateException) {
+                if (th != null && (th instanceof CertificateException)) {
                     throw ((CertificateException) th);
                 }
                 throw new CertificateException();
@@ -431,277 +553,9 @@ public final class m {
         }
 
         @Override // javax.net.ssl.X509TrustManager
-        public final X509Certificate[] getAcceptedIssuers() {
+        public X509Certificate[] getAcceptedIssuers() {
+            com.baidu.sofire.b.a("getAcceptedIssuers");
             return this.b.getAcceptedIssuers();
         }
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, IF, SGET, INVOKE, MOVE_EXCEPTION] complete} */
-    public final String a(String str, byte[] bArr) throws IOException, InterruptedException, NetworkErrorException {
-        HttpURLConnection httpURLConnection;
-        InputStream inputStream = null;
-        try {
-            if (Build.VERSION.SDK_INT >= 15) {
-                TrafficStats.setThreadStatsTag(155648);
-            }
-        } catch (Throwable th) {
-            e.a(th);
-        }
-        try {
-            this.c = "POST";
-            this.d = str;
-            try {
-                httpURLConnection = a();
-                try {
-                    inputStream = a(bArr, httpURLConnection);
-                    String a2 = a(inputStream);
-                    if (inputStream != null) {
-                        inputStream.close();
-                    }
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
-                    return a2;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (inputStream != null) {
-                        inputStream.close();
-                    }
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
-                    throw th;
-                }
-            } catch (Throwable th3) {
-                th = th3;
-                httpURLConnection = null;
-            }
-        } finally {
-            try {
-                if (Build.VERSION.SDK_INT >= 15) {
-                    TrafficStats.clearThreadStatsTag();
-                }
-            } catch (Throwable th4) {
-                e.a(th4);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, IF, SGET, INVOKE, MOVE_EXCEPTION] complete} */
-    public final String a(String str) throws IOException, InterruptedException, NetworkErrorException {
-        HttpURLConnection httpURLConnection;
-        InputStream inputStream = null;
-        try {
-            if (Build.VERSION.SDK_INT >= 15) {
-                TrafficStats.setThreadStatsTag(155648);
-            }
-        } catch (Throwable th) {
-            e.a(th);
-        }
-        try {
-            try {
-                this.c = "GET";
-                this.d = str;
-                httpURLConnection = a();
-                try {
-                    inputStream = a((byte[]) null, httpURLConnection);
-                    String a2 = a(inputStream);
-                    if (inputStream != null) {
-                        inputStream.close();
-                    }
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
-                    return a2;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (inputStream != null) {
-                        inputStream.close();
-                    }
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
-                    throw th;
-                }
-            } finally {
-                try {
-                    if (Build.VERSION.SDK_INT >= 15) {
-                        TrafficStats.clearThreadStatsTag();
-                    }
-                } catch (Throwable th3) {
-                    e.a(th3);
-                }
-            }
-        } catch (Throwable th4) {
-            th = th4;
-            httpURLConnection = null;
-        }
-    }
-
-    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
-        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
-        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
-        */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [512=4] */
-    public final boolean a(java.lang.String r7, java.io.File r8) {
-        /*
-            r6 = this;
-            r3 = 0
-            r0 = 0
-            r4 = 15
-            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> L1e
-            if (r1 < r4) goto Le
-            r1 = 155648(0x26000, float:2.1811E-40)
-            android.net.TrafficStats.setThreadStatsTag(r1)     // Catch: java.lang.Throwable -> L1e
-        Le:
-            android.content.Context r1 = r6.a     // Catch: java.lang.Throwable -> Lbe
-            boolean r1 = com.baidu.sofire.b.e.d(r1)     // Catch: java.lang.Throwable -> Lbe
-            if (r1 != 0) goto L28
-            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> L23
-            if (r1 < r4) goto L1d
-            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> L23
-        L1d:
-            return r0
-        L1e:
-            r1 = move-exception
-            com.baidu.sofire.b.e.a(r1)
-            goto Le
-        L23:
-            r1 = move-exception
-            com.baidu.sofire.b.e.a(r1)
-            goto L1d
-        L28:
-            boolean r1 = android.text.TextUtils.isEmpty(r7)     // Catch: java.lang.Throwable -> Lbe
-            if (r1 == 0) goto L3b
-            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> L36
-            if (r1 < r4) goto L1d
-            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> L36
-            goto L1d
-        L36:
-            r1 = move-exception
-            com.baidu.sofire.b.e.a(r1)
-            goto L1d
-        L3b:
-            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Lbe
-            java.lang.String r2 = "f= "
-            r1.<init>(r2)     // Catch: java.lang.Throwable -> Lbe
-            r1.append(r8)     // Catch: java.lang.Throwable -> Lbe
-            java.lang.String r1 = "GET"
-            r6.c = r1     // Catch: java.lang.Throwable -> L82
-            r6.d = r7     // Catch: java.lang.Throwable -> L82
-            java.net.HttpURLConnection r2 = r6.a()     // Catch: java.lang.Throwable -> L82
-            java.io.InputStream r3 = r6.a(r2)     // Catch: java.lang.Throwable -> Le9
-            boolean r1 = r6.a(r3, r8)     // Catch: java.lang.Throwable -> Le9
-            if (r3 == 0) goto L5e
-            r3.close()     // Catch: java.lang.Throwable -> L6c
-        L5e:
-            if (r2 == 0) goto L63
-            r2.disconnect()     // Catch: java.lang.Throwable -> L6c
-        L63:
-            int r0 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> L7d
-            if (r0 < r4) goto L6a
-            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> L7d
-        L6a:
-            r0 = r1
-            goto L1d
-        L6c:
-            r1 = move-exception
-            com.baidu.sofire.b.e.a(r1)     // Catch: java.lang.Throwable -> Lbe
-            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> L78
-            if (r1 < r4) goto L1d
-            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> L78
-            goto L1d
-        L78:
-            r1 = move-exception
-            com.baidu.sofire.b.e.a(r1)
-            goto L1d
-        L7d:
-            r0 = move-exception
-            com.baidu.sofire.b.e.a(r0)
-            goto L6a
-        L82:
-            r1 = move-exception
-            r2 = r3
-        L84:
-            com.baidu.sofire.b.e.a(r1)     // Catch: java.lang.Throwable -> Le4
-            if (r3 == 0) goto L8c
-            r3.close()     // Catch: java.lang.Throwable -> L9e
-        L8c:
-            if (r2 == 0) goto L91
-            r2.disconnect()     // Catch: java.lang.Throwable -> L9e
-        L91:
-            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> L99
-            if (r1 < r4) goto L1d
-            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> L99
-            goto L1d
-        L99:
-            r1 = move-exception
-            com.baidu.sofire.b.e.a(r1)
-            goto L1d
-        L9e:
-            r1 = move-exception
-            com.baidu.sofire.b.e.a(r1)     // Catch: java.lang.Throwable -> Lbe
-            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> Lab
-            if (r1 < r4) goto L1d
-            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> Lab
-            goto L1d
-        Lab:
-            r1 = move-exception
-            com.baidu.sofire.b.e.a(r1)
-            goto L1d
-        Lb1:
-            r1 = move-exception
-            r2 = r3
-        Lb3:
-            if (r2 == 0) goto Lb8
-            r2.close()     // Catch: java.lang.Throwable -> Lc7
-        Lb8:
-            if (r3 == 0) goto Lbd
-            r3.disconnect()     // Catch: java.lang.Throwable -> Lc7
-        Lbd:
-            throw r1     // Catch: java.lang.Throwable -> Lbe
-        Lbe:
-            r0 = move-exception
-            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> Lda
-            if (r1 < r4) goto Lc6
-            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> Lda
-        Lc6:
-            throw r0
-        Lc7:
-            r1 = move-exception
-            com.baidu.sofire.b.e.a(r1)     // Catch: java.lang.Throwable -> Lbe
-            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> Ld4
-            if (r1 < r4) goto L1d
-            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> Ld4
-            goto L1d
-        Ld4:
-            r1 = move-exception
-            com.baidu.sofire.b.e.a(r1)
-            goto L1d
-        Lda:
-            r1 = move-exception
-            com.baidu.sofire.b.e.a(r1)
-            goto Lc6
-        Ldf:
-            r1 = move-exception
-            r5 = r2
-            r2 = r3
-            r3 = r5
-            goto Lb3
-        Le4:
-            r1 = move-exception
-            r5 = r2
-            r2 = r3
-            r3 = r5
-            goto Lb3
-        Le9:
-            r1 = move-exception
-            goto L84
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.b.m.a(java.lang.String, java.io.File):boolean");
     }
 }

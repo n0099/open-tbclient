@@ -51,40 +51,40 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0191a c0191a;
+        C0216a c0216a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(e.h.frs_lite_program_list_fragment_item, viewGroup, false);
-            C0191a c0191a2 = new C0191a();
-            c0191a2.dTi = (RelativeLayout) view.findViewById(e.g.card);
-            c0191a2.dTg = (HeadImageView) view.findViewById(e.g.portrait);
-            c0191a2.mTitle = (TextView) view.findViewById(e.g.title);
-            c0191a2.dTh = (TextView) view.findViewById(e.g.desc);
-            view.setTag(c0191a2);
-            c0191a = c0191a2;
+            C0216a c0216a2 = new C0216a();
+            c0216a2.dUo = (RelativeLayout) view.findViewById(e.g.card);
+            c0216a2.dUm = (HeadImageView) view.findViewById(e.g.portrait);
+            c0216a2.mTitle = (TextView) view.findViewById(e.g.title);
+            c0216a2.dUn = (TextView) view.findViewById(e.g.desc);
+            view.setTag(c0216a2);
+            c0216a = c0216a2;
         } else {
-            c0191a = (C0191a) view.getTag();
+            c0216a = (C0216a) view.getTag();
         }
         b bVar = (b) getItem(i);
-        int h = l.h(this.mContext.getPageActivity(), e.C0175e.tbds136);
-        c0191a.dTg.setIsRound(true);
-        c0191a.dTg.startLoad(bVar.avatar, 10, h, h, false);
-        c0191a.mTitle.setText(bVar.name);
-        c0191a.dTh.setText(bVar.dTk);
-        al.c(c0191a.mTitle, e.d.cp_cont_b, 1);
-        al.c(c0191a.dTh, e.d.cp_cont_d, 1);
-        al.i(c0191a.dTi, e.f.lite_progrom_icorner_bg);
+        int h = l.h(this.mContext.getPageActivity(), e.C0200e.tbds136);
+        c0216a.dUm.setIsRound(true);
+        c0216a.dUm.startLoad(bVar.avatar, 10, h, h, false);
+        c0216a.mTitle.setText(bVar.name);
+        c0216a.dUn.setText(bVar.dUq);
+        al.c(c0216a.mTitle, e.d.cp_cont_b, 1);
+        al.c(c0216a.dUn, e.d.cp_cont_d, 1);
+        al.i(c0216a.dUo, e.f.lite_progrom_icorner_bg);
         return view;
     }
 
     /* renamed from: com.baidu.tieba.frs.smartapp.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0191a {
-        HeadImageView dTg;
-        TextView dTh;
-        RelativeLayout dTi;
+    public class C0216a {
+        HeadImageView dUm;
+        TextView dUn;
+        RelativeLayout dUo;
         TextView mTitle;
 
-        public C0191a() {
+        public C0216a() {
         }
     }
 }

@@ -6,39 +6,39 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h {
-    private static h aAB;
-    private HashMap<String, f> aAC = new HashMap<>();
-    private LinkedList<String> aAD = new LinkedList<>();
+    private static h aBq;
+    private HashMap<String, f> aBr = new HashMap<>();
+    private LinkedList<String> aBs = new LinkedList<>();
 
     private h() {
     }
 
-    public static h Dt() {
-        if (aAB == null) {
+    public static h DA() {
+        if (aBq == null) {
             synchronized (h.class) {
-                if (aAB == null) {
-                    aAB = new h();
+                if (aBq == null) {
+                    aBq = new h();
                 }
             }
         }
-        return aAB;
+        return aBq;
     }
 
-    public void K(List<String> list) {
-        if (this.aAD != null) {
-            this.aAD.clear();
+    public void J(List<String> list) {
+        if (this.aBs != null) {
+            this.aBs.clear();
         }
         for (String str : list) {
             if (!TextUtils.isEmpty(str)) {
-                if (this.aAC.get(str) == null) {
-                    if (this.aAC.size() < e.Dr().Ds()) {
+                if (this.aBr.get(str) == null) {
+                    if (this.aBr.size() < e.Dy().Dz()) {
                         g.log("put loadingQueue  url: " + str);
                         f fR = fR(str);
-                        this.aAC.put(str, fR);
+                        this.aBr.put(str, fR);
                         fR.load();
                     } else {
                         g.log("put waitingQueue  url: " + str);
-                        this.aAD.push(str);
+                        this.aBs.push(str);
                     }
                 } else {
                     g.log("has loading  : " + str);
@@ -49,19 +49,19 @@ public class h {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fQ(String str) {
-        f remove = this.aAC.remove(str);
+        f remove = this.aBr.remove(str);
         g.log("processCallback remove loadingQueue  url: " + str);
         if (remove != null) {
             remove.release();
         }
-        if (this.aAD != null && this.aAD.size() > 0) {
-            String pop = this.aAD.pop();
+        if (this.aBs != null && this.aBs.size() > 0) {
+            String pop = this.aBs.pop();
             f fR = fR(pop);
-            this.aAC.put(pop, fR);
+            this.aBr.put(pop, fR);
             g.log("processCallback put loadingQueue  url: " + pop);
             fR.load();
         }
-        g.log("processCallback  mWaitingQueue.size() =  " + this.aAD.size() + " mLoadingQueue.size()  " + this.aAC.size());
+        g.log("processCallback  mWaitingQueue.size() =  " + this.aBs.size() + " mLoadingQueue.size()  " + this.aBr.size());
     }
 
     private f fR(String str) {

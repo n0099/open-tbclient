@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class f {
-    private String bno;
-    private int bnp;
-    private String bnq;
-    private int bnr;
-    private int bns;
+    private String boa;
+    private int bob;
+    private String boc;
+    private int bod;
+    private int boe;
     private int duration;
     private int height;
     private String videoUrl;
@@ -17,14 +17,14 @@ public class f {
     public void b(PbContent pbContent) {
         if (pbContent != null) {
             this.videoUrl = pbContent.link;
-            this.bno = pbContent.src;
+            this.boa = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.bnp = pbContent.e_type.intValue();
-            this.bnq = pbContent.text;
+            this.bob = pbContent.e_type.intValue();
+            this.boc = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.bnr = pbContent.count.intValue();
-            this.bns = pbContent.origin_size.intValue();
+            this.bod = pbContent.count.intValue();
+            this.boe = pbContent.origin_size.intValue();
         }
     }
 
@@ -33,7 +33,7 @@ public class f {
     }
 
     public String getThumbUrl() {
-        return this.bno;
+        return this.boa;
     }
 
     public int getWidth() {
@@ -44,12 +44,12 @@ public class f {
         return this.height;
     }
 
-    public String Ry() {
-        return this.bnq;
+    public String RH() {
+        return this.boc;
     }
 
-    public boolean Rz() {
-        return this.bnp == 15;
+    public boolean RI() {
+        return this.bob == 15;
     }
 
     public boolean isAvaliable() {
@@ -61,6 +61,6 @@ public class f {
     }
 
     public int getFileSize() {
-        return this.bns;
+        return this.boe;
     }
 }

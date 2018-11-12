@@ -8,7 +8,7 @@ public final class an<T> implements d.b<T, Notification<T>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        static final an<Object> iwf = new an<>();
+        static final an<Object> ixP = new an<>();
     }
 
     @Override // rx.functions.f
@@ -16,8 +16,8 @@ public final class an<T> implements d.b<T, Notification<T>> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static an cbS() {
-        return a.iwf;
+    public static an cbp() {
+        return a.ixP;
     }
 
     an() {
@@ -31,7 +31,7 @@ public final class an<T> implements d.b<T, Notification<T>> {
             @Override // rx.e
             /* renamed from: b */
             public void onNext(Notification<T> notification) {
-                switch (AnonymousClass2.iwe[notification.cbp().ordinal()]) {
+                switch (AnonymousClass2.ixO[notification.caM().ordinal()]) {
                     case 1:
                         if (!this.terminated) {
                             jVar.onNext(notification.getValue());
@@ -39,7 +39,7 @@ public final class an<T> implements d.b<T, Notification<T>> {
                         }
                         return;
                     case 2:
-                        onError(notification.cbn());
+                        onError(notification.caK());
                         return;
                     case 3:
                         onCompleted();
@@ -72,19 +72,19 @@ public final class an<T> implements d.b<T, Notification<T>> {
     /* renamed from: rx.internal.operators.an$2  reason: invalid class name */
     /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass2 {
-        static final /* synthetic */ int[] iwe = new int[Notification.Kind.values().length];
+        static final /* synthetic */ int[] ixO = new int[Notification.Kind.values().length];
 
         static {
             try {
-                iwe[Notification.Kind.OnNext.ordinal()] = 1;
+                ixO[Notification.Kind.OnNext.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                iwe[Notification.Kind.OnError.ordinal()] = 2;
+                ixO[Notification.Kind.OnError.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                iwe[Notification.Kind.OnCompleted.ordinal()] = 3;
+                ixO[Notification.Kind.OnCompleted.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
         }

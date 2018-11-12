@@ -1,13 +1,13 @@
 package com.facebook.common.time;
 /* loaded from: classes2.dex */
 public class b implements a {
-    private static final b hXJ = new b();
+    private static final b hZt = new b();
 
     private b() {
     }
 
-    public static b bSb() {
-        return hXJ;
+    public static b bRw() {
+        return hZt;
     }
 
     @Override // com.facebook.common.time.a

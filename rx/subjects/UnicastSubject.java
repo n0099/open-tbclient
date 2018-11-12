@@ -15,13 +15,13 @@ import rx.j;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class UnicastSubject<T> extends c<T, T> {
-    final State<T> iFF;
+    final State<T> iHp;
 
-    public static <T> UnicastSubject<T> cdM() {
-        return yG(16);
+    public static <T> UnicastSubject<T> cdj() {
+        return yZ(16);
     }
 
-    public static <T> UnicastSubject<T> yG(int i) {
+    public static <T> UnicastSubject<T> yZ(int i) {
         return new UnicastSubject<>(new State(i, null));
     }
 
@@ -31,27 +31,27 @@ public final class UnicastSubject<T> extends c<T, T> {
 
     private UnicastSubject(State<T> state) {
         super(state);
-        this.iFF = state;
+        this.iHp = state;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.iFF.onNext(t);
+        this.iHp.onNext(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.iFF.onError(th);
+        this.iHp.onError(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.iFF.onCompleted();
+        this.iHp.onCompleted();
     }
 
     @Override // rx.subjects.c
     public boolean hasObservers() {
-        return this.iFF.subscriber.get() != null;
+        return this.iHp.subscriber.get() != null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -76,9 +76,9 @@ public final class UnicastSubject<T> extends c<T, T> {
             Queue<Object> xVar;
             this.terminateOnce = aVar != null ? new AtomicReference<>(aVar) : null;
             if (i > 1) {
-                xVar = ae.cdg() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
+                xVar = ae.ccD() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
             } else {
-                xVar = ae.cdg() ? new x<>() : new rx.internal.util.atomic.e<>();
+                xVar = ae.ccD() ? new x<>() : new rx.internal.util.atomic.e<>();
             }
             this.queue = xVar;
         }
@@ -90,7 +90,7 @@ public final class UnicastSubject<T> extends c<T, T> {
                     boolean z = false;
                     synchronized (this) {
                         if (!this.caughtUp) {
-                            this.queue.offer(NotificationLite.aY(t));
+                            this.queue.offer(NotificationLite.aX(t));
                             z = true;
                         }
                     }
@@ -217,7 +217,7 @@ public final class UnicastSubject<T> extends c<T, T> {
                                     if (z3) {
                                         break;
                                     }
-                                    Object obj = (Object) NotificationLite.bb(poll);
+                                    Object obj = (Object) NotificationLite.ba(poll);
                                     try {
                                         jVar.onNext(obj);
                                         j4--;

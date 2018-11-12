@@ -96,12 +96,12 @@ public final class a {
     private static final String b = "3";
     private SapiConfiguration c = SapiAccountManager.getInstance().getSapiConfiguration();
     private AsyncHttpClient d;
-    private C0089a e;
+    private C0112a e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0089a {
+    public static class C0112a {
         static List<String> b = new ArrayList();
         static int c;
         Context a;
@@ -113,7 +113,7 @@ public final class a {
             b.add(SapiEnv.PASS_RETRY_IP3);
         }
 
-        public C0089a(Context context) {
+        public C0112a(Context context) {
             this.a = context;
             e();
             f();
@@ -149,7 +149,7 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
-        this.e = new C0089a(context);
+        this.e = new C0112a(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -1064,13 +1064,13 @@ public final class a {
                             extraProperty.dispersionCertification.tplStokenMap.putAll(tplStokenMap);
                             accountFromBduss.extra = extraProperty.toJSONObject().toString();
                             if (list.size() == tplStokenMap.size()) {
-                                if (!z) {
+                                if (z) {
+                                    com.baidu.sapi2.share.a.a().a(accountFromBduss);
+                                } else {
                                     SapiContext.getInstance(a.this.c.context).setCurrentAccount(accountFromBduss);
                                     SapiAccountManager.getInstance().preFetchStoken(accountFromBduss, false);
                                     SapiContext.getInstance(a.this.c.context).addLoginAccount(accountFromBduss);
                                     new ShareCallPacking().markLoginState(false);
-                                } else {
-                                    com.baidu.sapi2.share.a.a().a(accountFromBduss);
                                 }
                                 getTplStokenCallback.onSuccess(getTplStokenResult);
                                 PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_TPL_STOKEN, IEventCenterService.EventResult.PHASE.SUCCESS);

@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.tab;
 /* loaded from: classes6.dex */
 public class h {
-    public static a mI(int i) {
+    public static a na(int i) {
         switch (i) {
             case 0:
                 return new f();

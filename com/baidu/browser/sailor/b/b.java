@@ -36,7 +36,7 @@ public final class b extends Handler {
                     }
                     try {
                         Log.d(a.TAG, "do pause");
-                        this.a.WA = com.baidu.browser.sailor.webkit.a.ra().c();
+                        this.a.WC = com.baidu.browser.sailor.webkit.a.qY().c();
                         context3 = this.a.mContext;
                         CookieSyncManager createInstance = CookieSyncManager.createInstance(context3);
                         if (createInstance != null) {

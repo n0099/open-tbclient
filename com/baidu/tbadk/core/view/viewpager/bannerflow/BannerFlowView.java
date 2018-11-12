@@ -15,60 +15,60 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BannerFlowView extends FrameLayout {
-    private ViewPager aHQ;
-    private b aHR;
-    private com.baidu.tbadk.core.view.viewpager.b aHs;
-    private IndicatorView aHv;
+    private ViewPager aIG;
+    private b aIH;
+    private com.baidu.tbadk.core.view.viewpager.b aIi;
+    private IndicatorView aIl;
     private View mBottomLine;
 
     public BannerFlowView(Context context) {
         super(context);
-        bJ(context);
+        initView(context);
     }
 
     public BannerFlowView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        bJ(context);
+        initView(context);
     }
 
-    private void bJ(Context context) {
-        this.aHQ = new ViewPager(context);
-        this.aHv = new IndicatorView(context);
-        this.aHv.setSpacing(0);
-        Ex();
-        this.aHs = new com.baidu.tbadk.core.view.viewpager.b(context, this.aHQ, this.aHv, null);
-        this.aHR = new b(context, a.aHP);
-        this.aHs.setAutoScrollIntervalTime(5000L);
-        this.aHs.a(context, this.aHR);
-        addView(this.aHQ, new FrameLayout.LayoutParams(-1, -1));
+    private void initView(Context context) {
+        this.aIG = new ViewPager(context);
+        this.aIl = new IndicatorView(context);
+        this.aIl.setSpacing(0);
+        EH();
+        this.aIi = new com.baidu.tbadk.core.view.viewpager.b(context, this.aIG, this.aIl, null);
+        this.aIH = new b(context, a.aIF);
+        this.aIi.setAutoScrollIntervalTime(5000L);
+        this.aIi.a(context, this.aIH);
+        addView(this.aIG, new FrameLayout.LayoutParams(-1, -1));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 85;
-        layoutParams.setMargins(0, 0, l.h(context, e.C0175e.ds20), l.h(context, e.C0175e.ds16));
-        addView(this.aHv, layoutParams);
+        layoutParams.setMargins(0, 0, l.h(context, e.C0200e.ds20), l.h(context, e.C0200e.ds16));
+        addView(this.aIl, layoutParams);
         this.mBottomLine = new View(context);
         this.mBottomLine.setBackgroundColor(al.getColor(e.d.common_color_10043));
-        FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, l.h(context, e.C0175e.ds1));
+        FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, l.h(context, e.C0200e.ds1));
         layoutParams2.gravity = 80;
         addView(this.mBottomLine, layoutParams2);
     }
 
     public void setMaxScrollCountLimit(int i) {
-        this.aHs.setMaxScrollCountLimit(i);
+        this.aIi.setMaxScrollCountLimit(i);
     }
 
     public void setData(List<h> list) {
-        this.aHQ.removeAllViews();
-        this.aHs.setDatas(list);
+        this.aIG.removeAllViews();
+        this.aIi.setDatas(list);
     }
 
-    private void Ex() {
-        this.aHv.setSelector(al.getDrawable(e.f.icon_diandian_white_s));
-        this.aHv.setDrawable(al.getDrawable(e.f.icon_diandian_white_n));
+    private void EH() {
+        this.aIl.setSelector(al.getDrawable(e.f.icon_diandian_white_s));
+        this.aIl.setDrawable(al.getDrawable(e.f.icon_diandian_white_n));
     }
 
     public void setOnItemClickListener(c.a<a, b.a> aVar) {
-        if (this.aHR != null) {
-            this.aHR.setOnItemClickListener(aVar);
+        if (this.aIH != null) {
+            this.aIH.setOnItemClickListener(aVar);
         }
     }
 }

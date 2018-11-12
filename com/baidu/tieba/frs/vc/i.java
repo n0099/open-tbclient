@@ -1,65 +1,92 @@
 package com.baidu.tieba.frs.vc;
 
-import android.text.TextUtils;
-import android.widget.LinearLayout;
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.PopupWindow;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.e;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.view.NavigationBarCoverTip;
 /* loaded from: classes6.dex */
 public class i {
-    private TextView asQ;
-    private FrsFragment dSg;
-    private NavigationBarCoverTip dWu;
-    private int dWv;
-
-    public i(FrsFragment frsFragment, NavigationBarCoverTip navigationBarCoverTip) {
-        this.dSg = frsFragment;
-        this.dWu = navigationBarCoverTip;
-        init();
-    }
-
-    private void init() {
-        this.dWv = 0;
-        this.asQ = new TextView(this.dSg.getActivity());
-        this.asQ.setLayoutParams(new LinearLayout.LayoutParams(-1, this.dSg.getResources().getDimensionPixelSize(e.C0175e.tbds112)));
-        if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.asQ.setPadding(this.dSg.getResources().getDimensionPixelSize(e.C0175e.ds34), this.dSg.getResources().getDimensionPixelSize(e.C0175e.ds1), this.dSg.getResources().getDimensionPixelSize(e.C0175e.ds34), 0);
-            this.asQ.setGravity(3);
-        } else {
-            this.asQ.setPadding(this.dSg.getResources().getDimensionPixelSize(e.C0175e.ds34), 0, this.dSg.getResources().getDimensionPixelSize(e.C0175e.ds34), 0);
-            this.asQ.setGravity(19);
-        }
-        this.asQ.setTextSize(0, this.dSg.getResources().getDimensionPixelSize(e.C0175e.ds28));
-        this.asQ.setLineSpacing(this.dSg.getResources().getDimensionPixelSize(e.C0175e.ds2), 1.0f);
-        this.asQ.setMaxLines(2);
-        this.asQ.setEllipsize(TextUtils.TruncateAt.END);
-    }
-
-    public void nA(String str) {
-        String str2;
-        if (!ao.isEmpty(str) && this.dWu != null && this.dSg.isPrimary() && this.dWv <= 0) {
-            this.dWv++;
-            if (str.length() < 20) {
-                str2 = this.dSg.getResources().getString(e.j.forum_ueg_tip) + "\n" + str;
-            } else if (str.length() < 34) {
-                str2 = this.dSg.getResources().getString(e.j.forum_ueg_tip) + str;
-            } else {
-                str2 = this.dSg.getResources().getString(e.j.forum_ueg_tip) + str.substring(0, 34);
+    private PopupWindow dXA;
+    private com.baidu.tieba.frs.entelechy.b.d dXB;
+    private Runnable dXC = new Runnable() { // from class: com.baidu.tieba.frs.vc.i.1
+        @Override // java.lang.Runnable
+        public void run() {
+            if (i.this.mActivity != null && i.this.mAnchorView != null && i.this.dXA != null && i.this.dXA.getContentView() != null) {
+                int h = l.h(i.this.mActivity, e.C0200e.ds252);
+                i.this.dXA.getContentView().measure(0, 0);
+                com.baidu.adp.lib.g.g.showPopupWindowAsDropDown(i.this.dXA, i.this.mAnchorView, (-(l.h(i.this.mActivity, e.C0200e.ds430) - i.this.mAnchorView.getMeasuredWidth())) / 2, -h);
+                com.baidu.adp.lib.g.e.jG().postDelayed(i.this.dXD, 5000L);
+                TiebaStatic.log(new am("c13016").x("obj_locate", 2));
             }
-            this.asQ.setText(str2);
-            al.h(this.asQ, e.d.cp_cont_i);
-            al.j(this.dWu, e.d.cp_link_tip_a_alpha95);
-            this.dWu.a(this.dSg.getActivity(), this.asQ, 5000);
+        }
+    };
+    private Runnable dXD = new Runnable() { // from class: com.baidu.tieba.frs.vc.i.2
+        @Override // java.lang.Runnable
+        public void run() {
+            i.this.aFO();
+        }
+    };
+    private View.OnClickListener dXE = new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.i.3
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            i.this.aFN();
+            if (i.this.dXn != null && i.this.dXn.hcb != null && i.this.dXn.ber() != null) {
+                if (i.this.dXB == null || i.this.dXB.aCr()) {
+                    WriteActivityConfig writeActivityConfig = new WriteActivityConfig(i.this.mActivity, 9, i.this.dXn.ber().getId(), i.this.dXn.ber().getName(), null, null, 0, i.this.dXn.xA(), 13003, false, false, null, false, false, null, null, i.this.dXn.ber().getPrefixData(), 0);
+                    if (!StringUtils.isNull(i.this.dXn.hcb.recom_topic)) {
+                        writeActivityConfig.setTitle(i.this.dXn.hcb.recom_topic, true);
+                    }
+                    ForumData ber = i.this.dXn.ber();
+                    writeActivityConfig.setForumDir(ber.getFirst_class(), ber.getSecond_class());
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, writeActivityConfig));
+                    TiebaStatic.log(new am("c13017").x("obj_locate", 2));
+                }
+            }
+        }
+    };
+    private com.baidu.tieba.tbadkCore.l dXn;
+    private Activity mActivity;
+    private View mAnchorView;
+
+    public i(Activity activity, com.baidu.tieba.frs.entelechy.b.d dVar) {
+        this.mActivity = activity;
+        this.dXB = dVar;
+    }
+
+    public void b(View view, com.baidu.tieba.tbadkCore.l lVar) {
+        if (view != null && lVar != null && lVar.hcb != null && this.mActivity != null) {
+            this.dXn = lVar;
+            this.mAnchorView = view;
+            View inflate = LayoutInflater.from(this.mActivity).inflate(e.h.tips_blue_twice_line_down, (ViewGroup) null);
+            ((TextView) inflate.findViewById(e.g.tips)).setText(ao.f(lVar.hcb.recom_title, 24, "..."));
+            ((TextView) inflate.findViewById(e.g.tips_content)).setText(e.j.topic_join);
+            inflate.setOnClickListener(this.dXE);
+            this.dXA = new PopupWindow(inflate, -2, -2);
+            com.baidu.adp.lib.g.e.jG().removeCallbacks(this.dXC);
+            com.baidu.adp.lib.g.e.jG().postDelayed(this.dXC, 100L);
         }
     }
 
-    public void onDestory() {
-        if (this.dWu != null) {
-            this.dWu.onDestroy();
-        }
+    public void aFN() {
+        com.baidu.adp.lib.g.e.jG().removeCallbacks(this.dXC);
+        com.baidu.adp.lib.g.e.jG().removeCallbacks(this.dXD);
+        aFO();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void aFO() {
+        com.baidu.adp.lib.g.g.a(this.dXA);
     }
 }

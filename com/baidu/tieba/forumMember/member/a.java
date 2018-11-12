@@ -15,7 +15,7 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
     private int mSkinType;
 
     public a(com.baidu.adp.base.e eVar) {
-        super(eVar.getPageActivity(), b.dwJ, eVar.getUniqueId());
+        super(eVar.getPageActivity(), b.dyb, eVar.getUniqueId());
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -35,7 +35,7 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ah */
+    /* renamed from: ai */
     public c onCreateViewHolder(ViewGroup viewGroup) {
         return new c(LayoutInflater.from(this.mContext).inflate(e.h.item_complaint_bar_lord_view, viewGroup, false));
     }
@@ -56,16 +56,16 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         if (cVar.mSkinType != this.mSkinType) {
             cVar.mSkinType = this.mSkinType;
-            al.i(cVar.dgE, e.f.frs_member_manito_bg);
-            al.j(cVar.ass, e.d.cp_bg_line_b);
+            al.i(cVar.dhJ, e.f.frs_member_manito_bg);
+            al.j(cVar.atf, e.d.cp_bg_line_b);
             al.c(cVar.mTitleView, e.d.cp_cont_b, 1);
-            al.c(cVar.cDs, e.f.icon_arrow_tab);
+            al.c(cVar.cEA, e.f.icon_arrow_tab);
         }
     }
 
     private void a(c cVar, b bVar) {
-        cVar.mTitleView.setText(bVar.dwK);
-        cVar.dgE.setTag(bVar.mUrl);
-        cVar.dgE.setOnClickListener(this.mClickListener);
+        cVar.mTitleView.setText(bVar.dyc);
+        cVar.dhJ.setTag(bVar.mUrl);
+        cVar.dhJ.setOnClickListener(this.mClickListener);
     }
 }

@@ -77,7 +77,7 @@ public class CanvasDrawModel extends CanvasBasicModel {
         sDrawActionMap.put(DaArc.ACTION_TYPE, DaArc.class);
         sDrawActionMap.put(DaBezierCurveTo.ACTION_TYPE, DaBezierCurveTo.class);
         sDrawActionMap.put(DaQuadraticCurveTo.ACTION_TYPE, DaQuadraticCurveTo.class);
-        sDrawActionMap.put(DaScale.ACTION_TYPE, DaScale.class);
+        sDrawActionMap.put("scale", DaScale.class);
         sDrawActionMap.put(DaRotate.ACTION_TYPE, DaRotate.class);
         sDrawActionMap.put(DaTranslate.ACTION_TYPE, DaTranslate.class);
         sDrawActionMap.put(DaTransform.ACTION_TYPE, DaTransform.class);
