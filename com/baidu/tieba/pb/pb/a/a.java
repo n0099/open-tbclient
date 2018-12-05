@@ -8,11 +8,11 @@ public interface a {
 
     void b(com.baidu.tieba.pb.data.d dVar);
 
-    void kw(boolean z);
+    void kA(boolean z);
 
-    void kx(boolean z);
+    void kB(boolean z);
 
-    void ky(boolean z);
+    void kz(boolean z);
 
     void s(View.OnClickListener onClickListener);
 

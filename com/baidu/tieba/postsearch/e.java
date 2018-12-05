@@ -24,26 +24,26 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class e extends BaseAdapter {
-    private static final int gAK = TbadkCoreApplication.getInst().getListItemRule().FK();
+    private static final int gHA = TbadkCoreApplication.getInst().getListItemRule().GO();
     private TbPageContext<?> mContext;
-    private int czh = -1;
+    private int cCZ = -1;
     private List<b.a> mData = new ArrayList();
 
     public e(TbPageContext<?> tbPageContext) {
         this.mContext = tbPageContext;
     }
 
-    public int dw(List<b.a> list) {
+    public int dA(List<b.a> list) {
         if (list == null) {
             return 0;
         }
         int size = this.mData.size() + list.size();
-        if (size <= gAK) {
+        if (size <= gHA) {
             this.mData.addAll(list);
             return 0;
         }
-        int i = size - gAK;
-        tf(i);
+        int i = size - gHA;
+        tz(i);
         this.mData.addAll(list);
         return i;
     }
@@ -52,7 +52,7 @@ public class e extends BaseAdapter {
         this.mData.clear();
     }
 
-    private void tf(int i) {
+    private void tz(int i) {
         if (this.mData.size() <= i) {
             this.mData.clear();
         }
@@ -94,11 +94,11 @@ public class e extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(e.h.post_search_list_item, (ViewGroup) null);
             a aVar = new a();
-            aVar.gAN = (TextView) view.findViewById(e.g.title_text);
-            aVar.gAO = (TextView) view.findViewById(e.g.content_text);
-            aVar.gAP = (TextView) view.findViewById(e.g.label_text);
-            aVar.czI = (TextView) view.findViewById(e.g.user_name);
-            aVar.gAQ = (TextView) view.findViewById(e.g.time_text);
+            aVar.gHD = (TextView) view.findViewById(e.g.title_text);
+            aVar.gHE = (TextView) view.findViewById(e.g.content_text);
+            aVar.gHF = (TextView) view.findViewById(e.g.label_text);
+            aVar.cDA = (TextView) view.findViewById(e.g.user_name);
+            aVar.gHG = (TextView) view.findViewById(e.g.time_text);
             view.setTag(aVar);
         }
         a aVar2 = (a) view.getTag();
@@ -108,17 +108,17 @@ public class e extends BaseAdapter {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 str = "#99260f";
             }
-            aVar2.gAN.setText(Html.fromHtml(ao.ay(aVar3.title, str)));
-            aVar2.gAO.setText(Html.fromHtml(ao.ay(aVar3.content, str)));
-            aVar2.czI.setText(aVar3.name_show);
-            aVar2.gAQ.setText(ao.E(aVar3.time));
-            aVar2.gAP.setVisibility(0);
+            aVar2.gHD.setText(Html.fromHtml(ao.aB(aVar3.title, str)));
+            aVar2.gHE.setText(Html.fromHtml(ao.aB(aVar3.content, str)));
+            aVar2.cDA.setText(aVar3.name_show);
+            aVar2.gHG.setText(ao.L(aVar3.time));
+            aVar2.gHF.setVisibility(0);
             if (aVar3.is_floor == 1) {
-                aVar2.gAP.setText(e.j.floor_text);
-            } else if (aVar3.gAl == 1) {
-                aVar2.gAP.setText(e.j.reply_post);
+                aVar2.gHF.setText(e.j.floor_text);
+            } else if (aVar3.gHb == 1) {
+                aVar2.gHF.setText(e.j.reply_post);
             } else {
-                aVar2.gAP.setVisibility(8);
+                aVar2.gHF.setVisibility(8);
             }
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.e.1
                 @Override // android.view.View.OnClickListener
@@ -144,32 +144,32 @@ public class e extends BaseAdapter {
     }
 
     public void setTabType(int i) {
-        this.czh = i;
+        this.cCZ = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b.a aVar) {
-        am ax = new am("c12405").ax(ImageViewerConfig.FORUM_NAME, aVar.fname).ax("uid", TbadkCoreApplication.getCurrentAccount());
-        if (this.czh > 0) {
-            ax.x(MyBookrackActivityConfig.TAB_ID, this.czh);
+        am aA = new am("c12405").aA(ImageViewerConfig.FORUM_NAME, aVar.fname).aA("uid", TbadkCoreApplication.getCurrentAccount());
+        if (this.cCZ > 0) {
+            aA.x(MyBookrackActivityConfig.TAB_ID, this.cCZ);
         }
         if (aVar != null) {
-            if (aVar.is_floor == 1 || aVar.gAl == 1) {
-                ax.h(Info.kBaiduPIDKey, aVar.pid);
+            if (aVar.is_floor == 1 || aVar.gHb == 1) {
+                aA.i(Info.kBaiduPIDKey, aVar.pid);
             } else {
-                ax.h("tid", aVar.tid);
+                aA.i("tid", aVar.tid);
             }
         }
-        TiebaStatic.log(ax);
+        TiebaStatic.log(aA);
     }
 
     /* loaded from: classes3.dex */
     private static class a {
-        TextView czI;
-        TextView gAN;
-        TextView gAO;
-        TextView gAP;
-        TextView gAQ;
+        TextView cDA;
+        TextView gHD;
+        TextView gHE;
+        TextView gHF;
+        TextView gHG;
 
         private a() {
         }

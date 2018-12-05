@@ -15,21 +15,21 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public final class a implements h {
-    private static final Pattern azA = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private static a bxQ = new a();
+    private static final Pattern aDa = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private static a bBn = new a();
     private final List<h.a> mListeners = new LinkedList();
-    private final ConcurrentHashMap<String, h.b> azy = new ConcurrentHashMap<>();
-    private h.c bxR = null;
+    private final ConcurrentHashMap<String, h.b> aCY = new ConcurrentHashMap<>();
+    private h.c bBo = null;
 
     private a() {
     }
 
-    public static a Va() {
-        return bxQ;
+    public static a Wg() {
+        return bBn;
     }
 
     public void a(final h.a aVar) {
-        if (l.ll()) {
+        if (l.lk()) {
             b(aVar);
         } else {
             e.jG().post(new Runnable() { // from class: com.baidu.tieba.ad.a.1
@@ -49,7 +49,7 @@ public final class a implements h {
     }
 
     public void a(h.c cVar) {
-        this.bxR = cVar;
+        this.bBo = cVar;
     }
 
     public boolean a(Context context, String[] strArr, boolean z, h.d dVar, boolean z2) {
@@ -76,9 +76,9 @@ public final class a implements h {
             return false;
         }
         String str2 = strArr[0];
-        h.b bVar = this.azy.get(fz(str2));
+        h.b bVar = this.aCY.get(fR(str2));
         if (bVar != null) {
-            bVar.d(context, fy(jv(str2)));
+            bVar.d(context, fQ(jN(str2)));
             return true;
         }
         Iterator<h.a> it = this.mListeners.iterator();
@@ -93,7 +93,7 @@ public final class a implements h {
                 break;
             }
         }
-        if (!z3 && this.bxR != null) {
+        if (!z3 && this.bBo != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -104,7 +104,7 @@ public final class a implements h {
         return z4;
     }
 
-    private String jv(String str) {
+    private String jN(String str) {
         int lastIndexOf;
         if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
             return str.substring(lastIndexOf + 1);
@@ -112,7 +112,7 @@ public final class a implements h {
         return null;
     }
 
-    private Map<String, String> fy(String str) {
+    private Map<String, String> fQ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -131,7 +131,7 @@ public final class a implements h {
         return hashMap;
     }
 
-    private String fz(String str) {
+    private String fR(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -152,13 +152,13 @@ public final class a implements h {
     }
 
     private void a(Context context, String str, String str2, boolean z, h.d dVar, boolean z2) {
-        if (azA.matcher(str2).find()) {
-            this.bxR.b(context, str, str2, z, dVar, z2);
+        if (aDa.matcher(str2).find()) {
+            this.bBo.b(context, str, str2, z, dVar, z2);
         }
     }
 
     @Override // com.baidu.tieba.recapp.h
-    public boolean jw(String str) {
-        return azA.matcher(str).find();
+    public boolean jO(String str) {
+        return aDa.matcher(str).find();
     }
 }

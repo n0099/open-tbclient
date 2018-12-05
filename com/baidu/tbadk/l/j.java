@@ -3,104 +3,104 @@ package com.baidu.tbadk.l;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class j extends l {
-    public static int bcH = 100;
-    public static int bcI = 10;
+    public static int bgh = 100;
+    public static int bgi = 10;
 
-    public static void Oe() {
-        if (m.Og().Oh()) {
-            if (b.bcM > bcI) {
-                b.Oa();
+    public static void Pi() {
+        if (m.Pk().Pl()) {
+            if (b.bgm > bgi) {
+                b.Pe();
             }
-            if (a.bcJ > bcI) {
-                a.Oa();
+            if (a.bgj > bgi) {
+                a.Pe();
             }
         }
     }
 
     public static void d(boolean z, boolean z2, boolean z3) {
-        a.bcJ++;
+        a.bgj++;
         if (z2) {
-            a.bcK++;
+            a.bgk++;
         } else if (z3) {
-            a.bcL++;
+            a.bgl++;
         }
-        if (a.bcJ > bcH) {
-            a.Oa();
+        if (a.bgj > bgh) {
+            a.Pe();
         }
     }
 
     public void c(f fVar) {
-        if (m.Og().Oh()) {
-            if (b.bcM < bcH) {
-                b.bcN += fVar.Cw;
-                b.bcO += fVar.bcf;
-                b.bcP += fVar.bcg;
-                b.bcQ += fVar.bch;
-                b.bcS += fVar.NL;
-                b.bcR += fVar.bci;
-                b.bcM++;
+        if (m.Pk().Pl()) {
+            if (b.bgm < bgh) {
+                b.bgn += fVar.Cw;
+                b.bgo += fVar.bfF;
+                b.bgp += fVar.bfG;
+                b.bgq += fVar.bfH;
+                b.bgt += fVar.NL;
+                b.bgr += fVar.bfI;
+                b.bgm++;
                 return;
             }
-            b.Oa();
+            b.Pe();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static int bcJ;
-        public static int bcK;
-        public static int bcL;
+        public static int bgj;
+        public static int bgk;
+        public static int bgl;
 
-        public static void Oa() {
+        public static void Pe() {
             com.baidu.adp.lib.stats.a jB = l.jB();
             jB.append("action", "imbusy");
-            jB.append("totalNum", String.valueOf(bcJ));
-            jB.append("tfailNum", String.valueOf(bcK));
-            jB.append("qfailNum", String.valueOf(bcL));
+            jB.append("totalNum", String.valueOf(bgj));
+            jB.append("tfailNum", String.valueOf(bgk));
+            jB.append("qfailNum", String.valueOf(bgl));
             BdStatisticsManager.getInstance().performance("im", jB);
             resetData();
         }
 
         public static void resetData() {
-            bcJ = 0;
-            bcK = 0;
-            bcL = 0;
+            bgj = 0;
+            bgk = 0;
+            bgl = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        public static int bcM;
-        public static long bcN;
-        public static long bcO;
-        public static long bcP;
-        public static int bcQ;
-        public static int bcR;
-        public static long bcS;
+        public static int bgm;
+        public static long bgn;
+        public static long bgo;
+        public static long bgp;
+        public static int bgq;
+        public static int bgr;
+        public static long bgt;
 
-        public static void Oa() {
+        public static void Pe() {
             com.baidu.adp.lib.stats.a jB = l.jB();
             jB.append("action", "imcost");
-            jB.append("dect", String.valueOf(bcN));
-            jB.append("dlsize", String.valueOf(bcO));
-            jB.append("dbt", String.valueOf(bcP));
-            jB.append("pnum", String.valueOf(bcQ));
-            jB.append("reqcost", String.valueOf(bcS));
-            jB.append("cpu", String.valueOf(bcR));
-            jB.append("totalNum", String.valueOf(bcM));
+            jB.append("dect", String.valueOf(bgn));
+            jB.append("dlsize", String.valueOf(bgo));
+            jB.append("dbt", String.valueOf(bgp));
+            jB.append("pnum", String.valueOf(bgq));
+            jB.append("reqcost", String.valueOf(bgt));
+            jB.append("cpu", String.valueOf(bgr));
+            jB.append("totalNum", String.valueOf(bgm));
             BdStatisticsManager.getInstance().performance("im", jB);
-            Of();
+            Pj();
         }
 
-        public static void Of() {
-            bcM = 0;
-            bcN = 0L;
-            bcO = 0L;
-            bcP = 0L;
-            bcQ = 0;
-            bcR = 0;
+        public static void Pj() {
+            bgm = 0;
+            bgn = 0L;
+            bgo = 0L;
+            bgp = 0L;
+            bgq = 0;
+            bgr = 0;
         }
     }
 }

@@ -188,7 +188,7 @@ public class a extends Drawable implements Animatable {
     }
 
     float a(C0028a c0028a) {
-        return (float) Math.toRadians(c0028a.getStrokeWidth() / (6.283185307179586d * c0028a.pf()));
+        return (float) Math.toRadians(c0028a.getStrokeWidth() / (6.283185307179586d * c0028a.pe()));
     }
 
     private int evaluateColorChange(float f, int i, int i2) {
@@ -452,7 +452,7 @@ public class a extends Drawable implements Animatable {
             this.Rc = d;
         }
 
-        public double pf() {
+        public double pe() {
             return this.Rc;
         }
 

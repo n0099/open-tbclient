@@ -1,23 +1,21 @@
 package com.baidu.tieba.aiapps.apps.g;
 
-import android.content.Context;
-import com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppHistoryIoc;
-import com.baidu.searchbox.ng.ai.apps.runtime.AiApp;
-import com.baidu.searchbox.ng.ai.apps.scheme.actions.GetSwanHistoryAction;
-import org.json.JSONObject;
+import com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppIMIoc;
 /* loaded from: classes4.dex */
-public class a implements IAiAppHistoryIoc {
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppHistoryIoc
-    public void getSwanHistory(GetSwanHistoryAction.OnSwanHistoryListener onSwanHistoryListener) {
-        onSwanHistoryListener.onFinish(new JSONObject());
+public class a implements IAiAppIMIoc {
+    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppIMIoc
+    public void register(Object obj) {
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppHistoryIoc
-    public boolean removeSwanHistory(String str, boolean z) {
-        return true;
+    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppIMIoc
+    public void unregister(Object obj) {
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppHistoryIoc
-    public void saveAiAppInHistory(Context context, AiApp aiApp) {
+    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppIMIoc
+    public void sendMsg(Object obj) {
+    }
+
+    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppIMIoc
+    public void pullMsg(Object obj) {
     }
 }

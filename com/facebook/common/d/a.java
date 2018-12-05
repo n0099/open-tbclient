@@ -7,28 +7,28 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class a {
-    public static final Map<String, String> hYE = ImmutableMap.of("mkv", "video/x-matroska");
+    public static final Map<String, String> ifR = ImmutableMap.of("mkv", "video/x-matroska");
 
-    public static boolean yA(@Nullable String str) {
+    public static boolean zd(@Nullable String str) {
         return str != null && str.startsWith("video/");
     }
 
     @Nullable
-    public static String yB(String str) {
-        String yC = yC(str);
-        if (yC == null) {
+    public static String ze(String str) {
+        String zf = zf(str);
+        if (zf == null) {
             return null;
         }
-        String lowerCase = yC.toLowerCase(Locale.US);
+        String lowerCase = zf.toLowerCase(Locale.US);
         String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(lowerCase);
         if (mimeTypeFromExtension == null) {
-            return hYE.get(lowerCase);
+            return ifR.get(lowerCase);
         }
         return mimeTypeFromExtension;
     }
 
     @Nullable
-    private static String yC(String str) {
+    private static String zf(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         if (lastIndexOf < 0 || lastIndexOf == str.length() - 1) {
             return null;

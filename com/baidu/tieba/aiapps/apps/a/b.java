@@ -43,16 +43,16 @@ import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class b {
-    public static String cc(Context context) {
+    public static String cf(Context context) {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, c.class, null);
         return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getString("result", "") : "";
     }
 
     public static String getBduss(Context context) {
-        return !Wv() ? "" : TbadkCoreApplication.getCurrentBduss();
+        return !Xy() ? "" : TbadkCoreApplication.getCurrentBduss();
     }
 
-    public static String cd(Context context) {
+    public static String cg(Context context) {
         AiApp aiApp = AiApp.get();
         if (aiApp == null) {
             return "";
@@ -63,12 +63,12 @@ public final class b {
     }
 
     public static String getUid(Context context) {
-        return !Wv() ? "" : TbadkCoreApplication.getCurrentAccount();
+        return !Xy() ? "" : TbadkCoreApplication.getCurrentAccount();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String getSession(Context context, String str, String str2) {
-        return !Wv() ? str2 : SapiAccountManager.getInstance().getSession(str);
+        return !Xy() ? str2 : SapiAccountManager.getInstance().getSession(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -89,7 +89,7 @@ public final class b {
         return TbConfig.PHOTO_BIG_ADDRESS + TbadkCoreApplication.getCurrentPortrait();
     }
 
-    public static String Wu() {
+    public static String Xx() {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(TbadkCoreApplication.getInst(), e.class, null);
         if (!callOnMainWithContentProvider.isOk() || callOnMainWithContentProvider.mResult == null) {
             return null;
@@ -97,8 +97,8 @@ public final class b {
         return callOnMainWithContentProvider.mResult.getString("result");
     }
 
-    public static String ce(Context context) {
-        if (Wv()) {
+    public static String ch(Context context) {
+        if (Xy()) {
             return TbadkCoreApplication.getCurrentAccountNameShow();
         }
         return null;
@@ -116,7 +116,7 @@ public final class b {
     }
 
     public static void a(Context context, final TypedCallback<Bundle> typedCallback, @Nullable String... strArr) {
-        if (!Wv()) {
+        if (!Xy()) {
             throw new IllegalStateException("must call in MainProcess");
         }
         if (strArr == null) {
@@ -169,13 +169,13 @@ public final class b {
         }, getBduss(TbadkCoreApplication.getInst()), Arrays.asList(strArr));
     }
 
-    public static boolean cf(Context context) {
+    public static boolean ci(Context context) {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, i.class, null);
         return callOnMainWithContentProvider.isOk() && callOnMainWithContentProvider.mResult.getBoolean("result", false);
     }
 
     public static boolean isLogin(Context context) {
-        if (Wv()) {
+        if (Xy()) {
             return TbadkCoreApplication.isLogin();
         }
         return false;
@@ -207,18 +207,18 @@ public final class b {
                     }
                     int i = delegateResult.mResult.getInt("result_code", -1);
                     OnAiAppLoginResultListener.this.onResult(i);
-                    b.hA(i);
+                    b.hO(i);
                 }
             }
         });
     }
 
     public static void login(Activity activity, String str, final OnAiAppLoginResultListener onAiAppLoginResultListener) {
-        if (!Wv()) {
+        if (!Xy()) {
             onAiAppLoginResultListener.onResult(-1);
             return;
         }
-        LoginActivityConfig loginActivityConfig = new LoginActivityConfig(activity, true, -1);
+        LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) activity, true, -1);
         loginActivityConfig.getIntent().putExtra("close", true);
         TbadkCoreApplication.getInst().login(null, new CustomMessage<>(2002001, loginActivityConfig));
         MessageManager.getInstance().registerListener(new CustomMessageListener(2921362) { // from class: com.baidu.tieba.aiapps.apps.a.b.4
@@ -246,14 +246,14 @@ public final class b {
                     }
                     int i2 = delegateResult.mResult.getInt("result_code", -1);
                     OnAiAppLoginResultListener.this.onResult(i2);
-                    b.hA(i2);
+                    b.hO(i2);
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void hA(int i) {
+    public static void hO(int i) {
         boolean z = i == 0;
         String str = "";
         AiApp aiApp = AiApp.get();
@@ -266,7 +266,7 @@ public final class b {
     public static void thirdLogin(Activity activity, int i, String str, OnAiAppLoginResultListener onAiAppLoginResultListener) {
     }
 
-    private static boolean Wv() {
+    private static boolean Xy() {
         return TbadkCoreApplication.getInst().isMainProcess(true);
     }
 

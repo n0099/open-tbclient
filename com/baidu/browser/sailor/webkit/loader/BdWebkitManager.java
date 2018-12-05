@@ -35,7 +35,7 @@ public class BdWebkitManager {
             jSONObject.put("error_code", loadErrorCode.getInt());
             jSONObject.put("error_reason", loadErrorCode.getString());
             String str = ARCameraAttr.FlashType.FLASH_OFF;
-            if (com.baidu.browser.sailor.util.a.qV()) {
+            if (com.baidu.browser.sailor.util.a.qU()) {
                 str = ARCameraAttr.FlashType.FLASH_ON;
             }
             jSONObject.put("t5_integration", str);
@@ -80,38 +80,38 @@ public class BdWebkitManager {
         boolean z2;
         this.WT = z;
         com.baidu.browser.sailor.webkit.loader.a aVar = this.WQ;
-        Context appContext = com.baidu.browser.sailor.b.a.qP().getAppContext();
+        Context appContext = com.baidu.browser.sailor.b.a.qO().getAppContext();
         int i = WR;
         if (!z || (a.b != i && a.c != i)) {
-            if (com.baidu.browser.sailor.util.a.qV()) {
+            if (com.baidu.browser.sailor.util.a.qU()) {
                 return;
             }
             com.baidu.browser.sailor.webkit.loader.a.a(appContext, z, i);
-            if (com.baidu.browser.sailor.util.a.qV()) {
-                com.baidu.browser.sailor.b.a.qQ().a("init-webkit", "success");
-                com.baidu.browser.sailor.b.a.qR().onLoadZeusSDKSuccess();
+            if (com.baidu.browser.sailor.util.a.qU()) {
+                com.baidu.browser.sailor.b.a.qP().a("init-webkit", "success");
+                com.baidu.browser.sailor.b.a.qQ().onLoadZeusSDKSuccess();
                 return;
             }
             LoadErrorCode loadErrorCode = WebKitFactory.getLoadErrorCode();
             aVar.b(loadErrorCode);
             com.baidu.browser.sailor.webkit.loader.a.c(loadErrorCode);
-            com.baidu.browser.sailor.b.a.qR().onLoadSysSDKSuccess();
+            com.baidu.browser.sailor.b.a.qQ().onLoadSysSDKSuccess();
             return;
         }
         if (cls != null) {
             WebKitFactory.setCrashCallback(appContext, cls);
         }
-        WebKitFactory.init(appContext, str, com.baidu.browser.sailor.b.a.qP().getCuid());
+        WebKitFactory.init(appContext, str, com.baidu.browser.sailor.b.a.qO().getCuid());
         WebKitFactory.setApkLibLoadType(z);
-        WebKitFactory.setEmulator(com.baidu.browser.sailor.util.a.qW());
+        WebKitFactory.setEmulator(com.baidu.browser.sailor.util.a.qV());
         if (!WebKitFactory.isZeusSupported()) {
             aVar.b(new LoadErrorCode(99, "not support"));
-            com.baidu.browser.sailor.b.a.qQ().a("init-webkit", "notSupport");
-            com.baidu.browser.sailor.b.a.qQ().e = false;
+            com.baidu.browser.sailor.b.a.qP().a("init-webkit", "notSupport");
+            com.baidu.browser.sailor.b.a.qP().e = false;
             return;
         }
         if (a.c == i) {
-            com.baidu.browser.sailor.b.a.qQ().a("emulator-check", "emulator:" + com.baidu.browser.sailor.util.a.qW());
+            com.baidu.browser.sailor.b.a.qP().a("emulator-check", "emulator:" + com.baidu.browser.sailor.util.a.qV());
             z2 = WebKitFactory.setEngine(1);
             Log.d(com.baidu.browser.sailor.webkit.loader.a.a, "zeus version = " + WebKitFactory.getZeusVersionName());
         } else {
@@ -121,14 +121,14 @@ public class BdWebkitManager {
             LoadErrorCode loadErrorCode2 = WebKitFactory.getLoadErrorCode();
             aVar.b(loadErrorCode2);
             com.baidu.browser.sailor.webkit.loader.a.c(loadErrorCode2);
-            com.baidu.browser.sailor.b.a.qQ().e = false;
+            com.baidu.browser.sailor.b.a.qP().e = false;
             return;
         }
         Log.d(com.baidu.browser.sailor.webkit.loader.a.a, "zeus version = " + WebKitFactory.getZeusVersionName());
         Log.d(com.baidu.browser.sailor.webkit.loader.a.a, "sdk version = " + WebKitFactory.getSdkVersionName());
-        com.baidu.browser.sailor.b.a.qR().onLoadZeusSDKSuccess();
-        com.baidu.browser.sailor.b.a.qQ().a("init-webkit", "success");
-        com.baidu.browser.sailor.b.a.qQ().e = true;
+        com.baidu.browser.sailor.b.a.qQ().onLoadZeusSDKSuccess();
+        com.baidu.browser.sailor.b.a.qP().a("init-webkit", "success");
+        com.baidu.browser.sailor.b.a.qP().e = true;
     }
 
     public void b(IWebkitLoaderListener iWebkitLoaderListener) {
@@ -141,7 +141,7 @@ public class BdWebkitManager {
 
     public void cE(String str) {
         com.baidu.browser.sailor.webkit.loader.a aVar = this.WQ;
-        com.baidu.browser.sailor.b.a.qP().getAppContext();
+        com.baidu.browser.sailor.b.a.qO().getAppContext();
         int i = WR;
         if (str != null) {
             aVar.b = (byte) 0;
@@ -174,20 +174,20 @@ public class BdWebkitManager {
         }
     }
 
-    public void qZ() {
+    public void qY() {
         WR = WS;
     }
 
-    public void ra() {
+    public void qZ() {
         WR = a.a;
     }
 
-    public boolean rb() {
+    public boolean ra() {
         return this.WT;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int rc() {
+    public int rb() {
         return WR;
     }
 }

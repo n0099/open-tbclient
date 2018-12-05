@@ -7,51 +7,51 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public class a {
-    private static a iar = null;
-    private final Runnable iat = new Runnable() { // from class: com.facebook.drawee.components.a.1
+    private static a ihE = null;
+    private final Runnable ihG = new Runnable() { // from class: com.facebook.drawee.components.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.bSc();
-            for (InterfaceC0347a interfaceC0347a : a.this.ias) {
-                interfaceC0347a.release();
+            a.bUi();
+            for (InterfaceC0361a interfaceC0361a : a.this.ihF) {
+                interfaceC0361a.release();
             }
-            a.this.ias.clear();
+            a.this.ihF.clear();
         }
     };
-    private final Set<InterfaceC0347a> ias = new HashSet();
+    private final Set<InterfaceC0361a> ihF = new HashSet();
     private final Handler mUiHandler = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.facebook.drawee.components.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0347a {
+    public interface InterfaceC0361a {
         void release();
     }
 
-    public static synchronized a bSb() {
+    public static synchronized a bUh() {
         a aVar;
         synchronized (a.class) {
-            if (iar == null) {
-                iar = new a();
+            if (ihE == null) {
+                ihE = new a();
             }
-            aVar = iar;
+            aVar = ihE;
         }
         return aVar;
     }
 
-    public void a(InterfaceC0347a interfaceC0347a) {
-        bSc();
-        if (this.ias.add(interfaceC0347a) && this.ias.size() == 1) {
-            this.mUiHandler.post(this.iat);
+    public void a(InterfaceC0361a interfaceC0361a) {
+        bUi();
+        if (this.ihF.add(interfaceC0361a) && this.ihF.size() == 1) {
+            this.mUiHandler.post(this.ihG);
         }
     }
 
-    public void b(InterfaceC0347a interfaceC0347a) {
-        bSc();
-        this.ias.remove(interfaceC0347a);
+    public void b(InterfaceC0361a interfaceC0361a) {
+        bUi();
+        this.ihF.remove(interfaceC0361a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void bSc() {
+    public static void bUi() {
         g.checkState(Looper.getMainLooper().getThread() == Thread.currentThread());
     }
 }

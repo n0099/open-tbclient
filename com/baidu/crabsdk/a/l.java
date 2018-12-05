@@ -39,7 +39,7 @@ final class l implements Printer {
         this.XA = false;
         if (currentTimeMillis - this.Xx >= ((long) a.U)) {
             com.baidu.crabsdk.c.a.cG("BlockCanary ^^ notifyBlockEvent: " + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Xx + ETAG.EQUAL + (currentTimeMillis - this.Xx) + " >= " + a.U);
-            j.rl().post(new m(this, this.Xx, currentTimeMillis, this.Xy, SystemClock.currentThreadTimeMillis()));
+            j.rk().post(new m(this, this.Xx, currentTimeMillis, this.Xy, SystemClock.currentThreadTimeMillis()));
         }
         if (c.bg(this.Xn).Xl != null) {
             c.bg(this.Xn).Xl.stop();

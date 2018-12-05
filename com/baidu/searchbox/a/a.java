@@ -4,6 +4,6 @@ public class a {
 
     /* renamed from: com.baidu.searchbox.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0124a {
+    public interface InterfaceC0132a {
     }
 }

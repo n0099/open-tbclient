@@ -13,10 +13,10 @@ public class BdPermissionActivity extends Activity {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        qk();
+        qj();
     }
 
-    private void qk() {
+    private void qj() {
         Intent intent = getIntent();
         this.Ve = intent.getIntExtra(IntentConfig.REQUEST_CODE, 0);
         this.Vf = intent.getStringArrayExtra("permissions");
@@ -25,10 +25,10 @@ public class BdPermissionActivity extends Activity {
     @Override // android.app.Activity
     protected void onResume() {
         super.onResume();
-        ql();
+        qk();
     }
 
-    private void ql() {
+    private void qk() {
         if (this.Vf != null && this.Vf.length != 0) {
             boolean z = false;
             for (String str : this.Vf) {
@@ -46,7 +46,7 @@ public class BdPermissionActivity extends Activity {
 
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        a.InterfaceC0073a bC = a.qm().bC(this.Ve);
+        a.InterfaceC0073a bC = a.ql().bC(this.Ve);
         if (bC != null) {
             bC.onRequestPermissionsResult(i, strArr, iArr);
         }

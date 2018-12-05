@@ -7,70 +7,70 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes3.dex */
 public class EditHeadsImageTopLayerView extends View {
-    private Paint gmT;
-    private Paint gmU;
-    private int gmV;
-    private int gmW;
-    private float gmX;
-    private float gmY;
+    private Paint gtJ;
+    private Paint gtK;
+    private int gtL;
+    private int gtM;
+    private float gtN;
+    private float gtO;
     private int mLineWidth;
 
     public EditHeadsImageTopLayerView(Context context) {
         super(context);
-        this.gmT = null;
-        this.gmU = null;
-        this.gmV = 0;
-        this.gmW = 0;
-        this.gmX = 0.42857143f;
-        this.gmY = 1.0f;
+        this.gtJ = null;
+        this.gtK = null;
+        this.gtL = 0;
+        this.gtM = 0;
+        this.gtN = 0.42857143f;
+        this.gtO = 1.0f;
         this.mLineWidth = 1;
         init();
     }
 
     public EditHeadsImageTopLayerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gmT = null;
-        this.gmU = null;
-        this.gmV = 0;
-        this.gmW = 0;
-        this.gmX = 0.42857143f;
-        this.gmY = 1.0f;
+        this.gtJ = null;
+        this.gtK = null;
+        this.gtL = 0;
+        this.gtM = 0;
+        this.gtN = 0.42857143f;
+        this.gtO = 1.0f;
         this.mLineWidth = 1;
         init();
     }
 
     public EditHeadsImageTopLayerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gmT = null;
-        this.gmU = null;
-        this.gmV = 0;
-        this.gmW = 0;
-        this.gmX = 0.42857143f;
-        this.gmY = 1.0f;
+        this.gtJ = null;
+        this.gtK = null;
+        this.gtL = 0;
+        this.gtM = 0;
+        this.gtN = 0.42857143f;
+        this.gtO = 1.0f;
         this.mLineWidth = 1;
         init();
     }
 
     private void init() {
-        this.gmT = new Paint();
-        this.gmT.setColor(-16777216);
-        this.gmT.setAlpha(153);
-        this.gmU = new Paint();
-        this.gmU.setStyle(Paint.Style.STROKE);
-        this.gmU.setColor(-1);
+        this.gtJ = new Paint();
+        this.gtJ.setColor(-16777216);
+        this.gtJ.setAlpha(153);
+        this.gtK = new Paint();
+        this.gtK.setStyle(Paint.Style.STROKE);
+        this.gtK.setColor(-1);
     }
 
     public void setLinePaintColor(int i) {
-        if (this.gmU != null) {
-            this.gmU.setColor(i);
+        if (this.gtK != null) {
+            this.gtK.setColor(i);
         }
         invalidate();
     }
 
     public void setLineWidth(int i) {
         this.mLineWidth = i;
-        if (this.gmU != null) {
-            this.gmU.setStrokeWidth(i);
+        if (this.gtK != null) {
+            this.gtK.setStrokeWidth(i);
         }
         invalidate();
     }
@@ -80,19 +80,19 @@ public class EditHeadsImageTopLayerView extends View {
         canvas.save();
         super.onDraw(canvas);
         canvas.restore();
-        canvas.drawRect(0.0f, 0.0f, getWidth(), this.gmV, this.gmT);
-        canvas.drawRect(0.0f, getHeight() - this.gmW, getWidth(), getHeight(), this.gmT);
-        canvas.drawRect(1.0f, this.gmV, getWidth() - 1, getHeight() - this.gmW, this.gmU);
+        canvas.drawRect(0.0f, 0.0f, getWidth(), this.gtL, this.gtJ);
+        canvas.drawRect(0.0f, getHeight() - this.gtM, getWidth(), getHeight(), this.gtJ);
+        canvas.drawRect(1.0f, this.gtL, getWidth() - 1, getHeight() - this.gtM, this.gtK);
     }
 
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        float width = this.gmY * getWidth();
+        float width = this.gtO * getWidth();
         if (width > getHeight()) {
             width = getHeight();
         }
-        this.gmV = (int) (((i4 - i2) - width) * this.gmX);
-        this.gmW = (int) (((i4 - i2) - width) * (1.0f - this.gmX));
+        this.gtL = (int) (((i4 - i2) - width) * this.gtN);
+        this.gtM = (int) (((i4 - i2) - width) * (1.0f - this.gtN));
     }
 }

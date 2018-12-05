@@ -1,19 +1,19 @@
 package org.java_websocket.d;
 /* loaded from: classes2.dex */
 public class b implements a {
-    private final String ito;
+    private final String iAy;
 
     public b(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        this.ito = str;
+        this.iAy = str;
     }
 
     @Override // org.java_websocket.d.a
-    public boolean zl(String str) {
+    public boolean zO(String str) {
         for (String str2 : str.replaceAll(" ", "").split(",")) {
-            if (this.ito.equals(str2)) {
+            if (this.iAy.equals(str2)) {
                 return true;
             }
         }
@@ -21,18 +21,18 @@ public class b implements a {
     }
 
     @Override // org.java_websocket.d.a
-    public String caC() {
-        return this.ito;
+    public String ccI() {
+        return this.iAy;
     }
 
     @Override // org.java_websocket.d.a
-    public a caD() {
-        return new b(caC());
+    public a ccJ() {
+        return new b(ccI());
     }
 
     @Override // org.java_websocket.d.a
     public String toString() {
-        return caC();
+        return ccI();
     }
 
     public boolean equals(Object obj) {
@@ -42,10 +42,10 @@ public class b implements a {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return this.ito.equals(((b) obj).ito);
+        return this.iAy.equals(((b) obj).iAy);
     }
 
     public int hashCode() {
-        return this.ito.hashCode();
+        return this.iAy.hashCode();
     }
 }

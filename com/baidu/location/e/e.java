@@ -121,15 +121,15 @@ public class e {
                 Random random = new Random();
                 StringBuffer stringBuffer2 = new StringBuffer(512);
                 ArrayList<Long> arrayList = new ArrayList();
-                WifiInfo tS = f.tR().tS();
-                if (tS == null || tS.getBSSID() == null) {
+                WifiInfo tR = f.tQ().tR();
+                if (tR == null || tR.getBSSID() == null) {
                     i2 = -1;
                     str = null;
                     str2 = null;
                 } else {
-                    String replace = tS.getBSSID().replace(":", "");
-                    int rssi = tS.getRssi();
-                    String n = f.tR().n();
+                    String replace = tR.getBSSID().replace(":", "");
+                    int rssi = tR.getRssi();
+                    String n = f.tQ().n();
                     if (rssi < 0) {
                         i2 = -rssi;
                         str = n;

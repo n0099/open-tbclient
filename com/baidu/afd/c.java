@@ -26,22 +26,22 @@ public class c implements g {
     }
 
     @Override // com.baidu.afd.g
-    public int pq() {
+    public int pp() {
         return this.RJ;
     }
 
     @Override // com.baidu.afd.g
-    public int pr() {
+    public int pq() {
         return this.RK;
     }
 
     @Override // com.baidu.afd.g
-    public int ps() {
+    public int pr() {
         return this.floor;
     }
 
     @Override // com.baidu.afd.g
-    public Map<String, String> pt() {
+    public Map<String, String> ps() {
         return this.RP;
     }
 

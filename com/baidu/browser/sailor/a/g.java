@@ -33,29 +33,29 @@ public class g implements Runnable {
             nVar.cA("Already in Recording , Please stop recording before start ");
             return;
         }
-        this.Wh.qK();
+        this.Wh.qJ();
         MediaRecorder mediaRecorder2 = new MediaRecorder();
         mediaRecorder2.setAudioSource(1);
         if (Build.VERSION.SDK_INT >= 11) {
             mediaRecorder2.setOutputFormat(3);
         }
         mediaRecorder2.setAudioEncoder(1);
-        File c = TextUtils.isEmpty(this.Wk) ? com.baidu.browser.sailor.feature.a.d.c(com.baidu.browser.sailor.b.a.qP().getAppContext().getCacheDir(), String.valueOf(System.currentTimeMillis()) + ".amr") : new File(com.baidu.browser.sailor.util.c.a(this.Wh.qI(), this.Wk));
+        File c = TextUtils.isEmpty(this.Wk) ? com.baidu.browser.sailor.feature.a.d.c(com.baidu.browser.sailor.b.a.qO().getAppContext().getCacheDir(), String.valueOf(System.currentTimeMillis()) + ".amr") : new File(com.baidu.browser.sailor.util.c.a(this.Wh.qH(), this.Wk));
         mediaRecorder2.setOutputFile(c.getAbsolutePath());
         this.Wh.Wc = c;
         try {
             mediaRecorder2.prepare();
             mediaRecorder2.start();
             this.Wh.Wa = mediaRecorder2;
-            nVar.qO();
+            nVar.qN();
         } catch (IOException e) {
             e.printStackTrace();
             nVar.cA(e.getMessage());
-            this.Wh.qK();
+            this.Wh.qJ();
         } catch (IllegalStateException e2) {
             e2.printStackTrace();
             nVar.cA(e2.getMessage());
-            this.Wh.qK();
+            this.Wh.qJ();
         }
     }
 }

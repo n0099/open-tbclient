@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public interface a {
     void a(d.a aVar, ArrayList<h> arrayList);
 
-    void aGU();
+    void aIG();
 
     String getForumId();
 

@@ -6,7 +6,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 /* loaded from: classes3.dex */
 public class g {
-    public static void ax(Context context, String str) {
+    public static void aA(Context context, String str) {
         String format;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -14,7 +14,7 @@ public class g {
             } catch (UnsupportedEncodingException e) {
                 format = String.format("http://graph.baidu.com/details?image=%s&carousel=0&tn=tieba&promotion_name=shitu", str);
             }
-            com.baidu.tbadk.browser.a.ac(context, format);
+            com.baidu.tbadk.browser.a.ad(context, format);
         }
     }
 }

@@ -4,22 +4,22 @@ import java.security.AccessController;
 import java.security.PrivilegedAction;
 /* loaded from: classes2.dex */
 public final class g {
-    private static final int iEO = cco();
-    private static final boolean iEP;
+    private static final int iLV = cer();
+    private static final boolean iLW;
 
     static {
-        iEP = iEO != 0;
+        iLW = iLV != 0;
     }
 
-    public static boolean ccm() {
-        return iEP;
+    public static boolean cep() {
+        return iLW;
     }
 
-    public static int ccn() {
-        return iEO;
+    public static int ceq() {
+        return iLV;
     }
 
-    private static int cco() {
+    private static int cer() {
         try {
             return ((Integer) Class.forName("android.os.Build$VERSION", true, getSystemClassLoader()).getField("SDK_INT").get(null)).intValue();
         } catch (Exception e) {
@@ -31,7 +31,7 @@ public final class g {
         return System.getSecurityManager() == null ? ClassLoader.getSystemClassLoader() : (ClassLoader) AccessController.doPrivileged(new PrivilegedAction<ClassLoader>() { // from class: rx.internal.util.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.security.PrivilegedAction
-            /* renamed from: ccp */
+            /* renamed from: ces */
             public ClassLoader run() {
                 return ClassLoader.getSystemClassLoader();
             }

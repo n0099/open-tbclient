@@ -8,21 +8,21 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class ae implements ai<com.facebook.imagepipeline.f.d> {
-    private final com.facebook.common.memory.a hYN;
-    private final com.facebook.common.memory.g idU;
-    private final af igb;
+    private final com.facebook.common.memory.a iga;
+    private final com.facebook.common.memory.g ile;
+    private final af inm;
 
     public ae(com.facebook.common.memory.g gVar, com.facebook.common.memory.a aVar, af afVar) {
-        this.idU = gVar;
-        this.hYN = aVar;
-        this.igb = afVar;
+        this.ile = gVar;
+        this.iga = aVar;
+        this.inm = afVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        ajVar.bWM().cW(ajVar.getId(), "NetworkFetchProducer");
-        final s d = this.igb.d(jVar, ajVar);
-        this.igb.a((af) d, new af.a() { // from class: com.facebook.imagepipeline.producers.ae.1
+        ajVar.bYS().db(ajVar.getId(), "NetworkFetchProducer");
+        final s d = this.inm.d(jVar, ajVar);
+        this.inm.a((af) d, new af.a() { // from class: com.facebook.imagepipeline.producers.ae.1
             @Override // com.facebook.imagepipeline.producers.af.a
             public void e(InputStream inputStream, int i) throws IOException {
                 ae.this.a(d, inputStream, i);
@@ -34,7 +34,7 @@ public class ae implements ai<com.facebook.imagepipeline.f.d> {
             }
 
             @Override // com.facebook.imagepipeline.producers.af.a
-            public void bQT() {
+            public void bSZ() {
                 ae.this.b(d);
             }
         });
@@ -42,59 +42,59 @@ public class ae implements ai<com.facebook.imagepipeline.f.d> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(s sVar, InputStream inputStream, int i) throws IOException {
-        com.facebook.common.memory.i bRc;
+        com.facebook.common.memory.i bTi;
         if (i > 0) {
-            bRc = this.idU.xx(i);
+            bTi = this.ile.xU(i);
         } else {
-            bRc = this.idU.bRc();
+            bTi = this.ile.bTi();
         }
-        byte[] bArr = this.hYN.get(16384);
+        byte[] bArr = this.iga.get(16384);
         while (true) {
             try {
                 int read = inputStream.read(bArr);
                 if (read >= 0) {
                     if (read > 0) {
-                        bRc.write(bArr, 0, read);
-                        a(bRc, sVar);
-                        sVar.bWY().az(cj(bRc.size(), i));
+                        bTi.write(bArr, 0, read);
+                        a(bTi, sVar);
+                        sVar.bZe().az(ch(bTi.size(), i));
                     }
                 } else {
-                    this.igb.a((af) sVar, bRc.size());
-                    b(bRc, sVar);
+                    this.inm.a((af) sVar, bTi.size());
+                    b(bTi, sVar);
                     return;
                 }
             } finally {
-                this.hYN.release(bArr);
-                bRc.close();
+                this.iga.release(bArr);
+                bTi.close();
             }
         }
     }
 
-    private static float cj(int i, int i2) {
+    private static float ch(int i, int i2) {
         return i2 > 0 ? i / i2 : 1.0f - ((float) Math.exp((-i) / 50000.0d));
     }
 
     private void a(com.facebook.common.memory.i iVar, s sVar) {
         long uptimeMillis = SystemClock.uptimeMillis();
-        if (c(sVar) && uptimeMillis - sVar.bXa() >= 100) {
-            sVar.m24do(uptimeMillis);
-            sVar.bWM().S(sVar.getId(), "NetworkFetchProducer", "intermediate_result");
-            a(iVar, false, sVar.bWY());
+        if (c(sVar) && uptimeMillis - sVar.bZg() >= 100) {
+            sVar.dv(uptimeMillis);
+            sVar.bYS().T(sVar.getId(), "NetworkFetchProducer", "intermediate_result");
+            a(iVar, false, sVar.bZe());
         }
     }
 
     private void b(com.facebook.common.memory.i iVar, s sVar) {
-        sVar.bWM().a(sVar.getId(), "NetworkFetchProducer", b(sVar, iVar.size()));
-        a(iVar, true, sVar.bWY());
+        sVar.bYS().a(sVar.getId(), "NetworkFetchProducer", b(sVar, iVar.size()));
+        a(iVar, true, sVar.bZe());
     }
 
     private void a(com.facebook.common.memory.i iVar, boolean z, j<com.facebook.imagepipeline.f.d> jVar) {
         com.facebook.imagepipeline.f.d dVar;
-        com.facebook.common.references.a c = com.facebook.common.references.a.c(iVar.bRd());
+        com.facebook.common.references.a c = com.facebook.common.references.a.c(iVar.bTj());
         try {
             dVar = new com.facebook.imagepipeline.f.d(c);
             try {
-                dVar.bVW();
+                dVar.bYc();
                 jVar.e(dVar, z);
                 com.facebook.imagepipeline.f.d.e(dVar);
                 com.facebook.common.references.a.c((com.facebook.common.references.a<?>) c);
@@ -112,27 +112,27 @@ public class ae implements ai<com.facebook.imagepipeline.f.d> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(s sVar, Throwable th) {
-        sVar.bWM().a(sVar.getId(), "NetworkFetchProducer", th, null);
-        sVar.bWY().B(th);
+        sVar.bYS().a(sVar.getId(), "NetworkFetchProducer", th, null);
+        sVar.bZe().B(th);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(s sVar) {
-        sVar.bWM().b(sVar.getId(), "NetworkFetchProducer", null);
-        sVar.bWY().bQT();
+        sVar.bYS().b(sVar.getId(), "NetworkFetchProducer", null);
+        sVar.bZe().bSZ();
     }
 
     private boolean c(s sVar) {
-        if (sVar.bWZ().bWL().bXE()) {
-            return this.igb.a(sVar);
+        if (sVar.bZf().bYR().bZK()) {
+            return this.inm.a(sVar);
         }
         return false;
     }
 
     @Nullable
     private Map<String, String> b(s sVar, int i) {
-        if (sVar.bWM().yI(sVar.getId())) {
-            return this.igb.b(sVar, i);
+        if (sVar.bYS().zl(sVar.getId())) {
+            return this.inm.b(sVar, i);
         }
         return null;
     }

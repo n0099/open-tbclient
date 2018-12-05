@@ -17,11 +17,11 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.im.data.GroupPermData;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tieba.frs.h<GroupPermData, b> {
-    private View.OnClickListener aEo;
+    private View.OnClickListener aHO;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.aEo = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.a.1
+        this.aHO = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view != null) {
@@ -30,7 +30,7 @@ public class a extends com.baidu.tieba.frs.h<GroupPermData, b> {
                         int intValue = ((Integer) tag).intValue();
                         if (a.this.getItem(intValue) instanceof GroupPermData) {
                             GroupPermData groupPermData = (GroupPermData) a.this.getItem(intValue);
-                            if (ba.bG(a.this.mPageContext.getPageActivity())) {
+                            if (ba.bJ(a.this.mPageContext.getPageActivity())) {
                                 TiebaStatic.log(new am("c10332"));
                                 a.this.a(groupPermData);
                             }
@@ -45,7 +45,7 @@ public class a extends com.baidu.tieba.frs.h<GroupPermData, b> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bc */
     public b onCreateViewHolder(ViewGroup viewGroup) {
-        return new b(LayoutInflater.from(this.mContext).inflate(e.h.frs_create_group_item_view, (ViewGroup) null), this.aEo);
+        return new b(LayoutInflater.from(this.mContext).inflate(e.h.frs_create_group_item_view, (ViewGroup) null), this.aHO);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,9 +57,9 @@ public class a extends com.baidu.tieba.frs.h<GroupPermData, b> {
         this.mPageContext.getLayoutMode().onModeChanged(view);
         bVar.rootView.setTag(Integer.valueOf(i));
         al.i(bVar.rootView, e.f.frs_group_item_bg);
-        al.j(bVar.dyx, e.d.cp_bg_line_c);
-        al.c(bVar.eId, e.d.cp_cont_b, 1);
-        bVar.eId.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(e.f.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
+        al.j(bVar.dEW, e.d.cp_bg_line_c);
+        al.c(bVar.eOS, e.d.cp_cont_b, 1);
+        bVar.eOS.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(e.f.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
         al.i(bVar.divider, e.d.cp_bg_line_b);
         return view;
     }

@@ -39,7 +39,7 @@ import org.apache.http.protocol.HTTP;
 public final class b extends HandlerThread {
     volatile boolean a;
     volatile boolean b;
-    InterfaceC0338b c;
+    InterfaceC0352b c;
     Handler d;
     final Object e;
     private volatile boolean i;
@@ -285,7 +285,7 @@ public final class b extends HandlerThread {
 
     /* renamed from: com.baidu.webkit.net.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0338b {
+    public interface InterfaceC0352b {
         BdNetTask onNetDownloadComplete(b bVar, BdNetTask bdNetTask, boolean z);
 
         void onNetDownloadError(b bVar, BdNetTask bdNetTask, BdNet.NetError netError, int i);

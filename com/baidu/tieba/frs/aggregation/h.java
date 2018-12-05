@@ -15,21 +15,21 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class h {
-    private com.baidu.tbadk.coreExtra.model.a ayB;
-    private c dHn;
+    private com.baidu.tbadk.coreExtra.model.a aCb;
+    private c dNM;
     private TbPageContext mPageContext;
-    private BdUniqueId ays = BdUniqueId.gen();
+    private BdUniqueId aBS = BdUniqueId.gen();
     private CustomMessageListener mAttentionListener = new CustomMessageListener(2001115) { // from class: com.baidu.tieba.frs.aggregation.h.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage updateAttentionMessage;
             UpdateAttentionMessage.a data;
-            if ((customResponsedMessage instanceof UpdateAttentionMessage) && h.this.dHn != null && (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) != null) {
+            if ((customResponsedMessage instanceof UpdateAttentionMessage) && h.this.dNM != null && (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) != null) {
                 if (!data.Jr) {
-                    h.this.dHn.showMsg(updateAttentionMessage.getData().errorString);
+                    h.this.dNM.showMsg(updateAttentionMessage.getData().errorString);
                 } else {
-                    h.this.dHn.gR(data.isAttention);
+                    h.this.dNM.gS(data.isAttention);
                 }
             }
         }
@@ -37,25 +37,25 @@ public class h {
 
     public h(TbPageContext tbPageContext, c cVar) {
         this.mPageContext = tbPageContext;
-        this.dHn = cVar;
-        this.ayB = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
+        this.dNM = cVar;
+        this.aCb = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
         this.mAttentionListener.setSelfListener(true);
-        this.mAttentionListener.setTag(this.ays);
+        this.mAttentionListener.setTag(this.aBS);
         MessageManager.getInstance().registerListener(this.mAttentionListener);
     }
 
     public void g(g gVar) {
         if (!j.kV()) {
             this.mPageContext.showToast(e.j.no_network);
-        } else if (gVar != null && gVar.dGZ != null && this.ayB != null && ba.bG(this.mPageContext.getPageActivity())) {
-            this.ayB.a(!gVar.dGZ.hasFocus, gVar.dGZ.portrait, gVar.dGZ.userId, this.ays);
+        } else if (gVar != null && gVar.dNy != null && this.aCb != null && ba.bJ(this.mPageContext.getPageActivity())) {
+            this.aCb.a(!gVar.dNy.hasFocus, gVar.dNy.portrait, gVar.dNy.userId, this.aBS);
         }
     }
 
     public void h(g gVar) {
         if (!j.kV()) {
             this.mPageContext.showToast(e.j.no_network);
-        } else if (gVar != null && this.dHn != null && ba.bG(this.mPageContext.getPageActivity())) {
+        } else if (gVar != null && this.dNM != null && ba.bJ(this.mPageContext.getPageActivity())) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
             httpMessage.addParam("thread_id", gVar.threadId);
             httpMessage.addParam("op_type", Boolean.valueOf(gVar.hasAgree));
@@ -65,13 +65,13 @@ public class h {
             httpMessage.addParam("z_id", FH.gz(TbadkCoreApplication.getInst()));
             httpMessage.addHeader("needSig", "1");
             MessageManager.getInstance().sendMessage(httpMessage);
-            this.dHn.aBj();
+            this.dNM.aCT();
         }
     }
 
-    public void aBt() {
-        if (this.ayB != null) {
-            this.ayB.cancel();
+    public void aDd() {
+        if (this.aCb != null) {
+            this.aCb.cancel();
         }
         MessageManager.getInstance().unRegisterListener(this.mAttentionListener);
     }

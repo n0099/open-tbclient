@@ -3,5 +3,5 @@ package com.baidu.tbadk.pay;
 import com.baidu.adp.lib.util.k;
 /* loaded from: classes6.dex */
 public class b {
-    public static final String bbW = k.bx("http://tieba.baidu.com/mo/q/tbeanget?_client_return_page=close");
+    public static final String bfw = k.bx("http://tieba.baidu.com/mo/q/tbeanget?_client_return_page=close");
 }

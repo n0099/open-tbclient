@@ -2,7 +2,7 @@ package com.baidu.tieba.im.data;
 /* loaded from: classes.dex */
 public class a {
     private String content;
-    private int eGx;
+    private int eNm;
     private long id;
     private String name;
     private String portrait;
@@ -48,11 +48,11 @@ public class a {
         this.status = i;
     }
 
-    public int aOo() {
-        return this.eGx;
+    public int aQg() {
+        return this.eNm;
     }
 
-    public void pp(int i) {
-        this.eGx = i;
+    public void pJ(int i) {
+        this.eNm = i;
     }
 }

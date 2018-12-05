@@ -28,14 +28,14 @@ public class a {
     }
 
     public void a(int i, d dVar, boolean z) {
-        Location apI;
+        Location aru;
         if (dVar != null) {
             if (!j.kV()) {
                 l.showToast(TbadkCoreApplication.getInst().getContext(), e.j.share_on_no_network);
                 return;
             }
-            if (z && (apI = apI()) != null) {
-                dVar.aOI = apI;
+            if (z && (aru = aru()) != null) {
+                dVar.aSh = aru;
             }
             com.baidu.tbadk.coreExtra.c.e eVar = new com.baidu.tbadk.coreExtra.c.e(this.mContext, null);
             if (i == 3) {
@@ -43,7 +43,7 @@ public class a {
                 eVar.b(dVar);
             } else if (i == 2) {
                 a(dVar, 3);
-                if (dVar.aOy) {
+                if (dVar.aRX) {
                     dVar.content = m(dVar);
                 }
                 eVar.c(dVar);
@@ -53,22 +53,22 @@ public class a {
                     eVar.e(dVar);
                     return;
                 }
-                BdToast.a(this.mContext, this.mContext.getText(e.j.share_qq_not_install)).AJ();
+                BdToast.a(this.mContext, this.mContext.getText(e.j.share_qq_not_install)).BN();
             } else if (i == 5) {
                 a(dVar, 6);
-                if (!dVar.aOx) {
+                if (!dVar.aRW) {
                     dVar.content = m(dVar);
                 }
                 eVar.f(dVar);
             } else if (i == 6) {
                 a(dVar, 7);
-                if (!dVar.aOx) {
+                if (!dVar.aRW) {
                     dVar.content = m(dVar);
                 }
                 eVar.g(dVar);
             } else if (i == 7) {
                 a(dVar, 8);
-                if (!dVar.aOx) {
+                if (!dVar.aRW) {
                     dVar.content = m(dVar);
                 }
                 eVar.h(dVar);
@@ -78,24 +78,24 @@ public class a {
                     eVar.d(dVar);
                     return;
                 }
-                BdToast.a(this.mContext, this.mContext.getText(e.j.share_qq_not_install)).AJ();
+                BdToast.a(this.mContext, this.mContext.getText(e.j.share_qq_not_install)).BN();
             }
         }
     }
 
     private void a(d dVar, int i) {
         if (dVar != null && dVar.extData != null) {
-            if (dVar.aOy) {
-                TiebaStatic.log(new am("c10125").ax(ImageViewerConfig.FORUM_ID, dVar.extData).x("obj_type", i));
-            } else if (dVar.aOz || dVar.aOC) {
-                TiebaStatic.log(new am("c10125").ax("tid", dVar.extData).x("obj_type", i).x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.aOM).x("obj_param1", dVar.aON).ax(ImageViewerConfig.FORUM_ID, dVar.fid));
-            } else if (dVar.aOA) {
-                TiebaStatic.log(new am("c10427").ax("tid", dVar.extData).x("obj_type", i));
-            } else if (dVar.aOx) {
-                af(i, dVar.aOJ);
-            } else if (dVar.aOB) {
-                TiebaStatic.log(new am("c10125").x("obj_param1", 7).x("obj_type", i).ax(ImageViewerConfig.FORUM_ID, dVar.extData));
-            } else if (dVar.aOD) {
+            if (dVar.aRX) {
+                TiebaStatic.log(new am("c10125").aA(ImageViewerConfig.FORUM_ID, dVar.extData).x("obj_type", i));
+            } else if (dVar.aRY || dVar.aSb) {
+                TiebaStatic.log(new am("c10125").aA("tid", dVar.extData).x("obj_type", i).x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.aSl).x("obj_param1", dVar.aSm).aA(ImageViewerConfig.FORUM_ID, dVar.fid));
+            } else if (dVar.aRZ) {
+                TiebaStatic.log(new am("c10427").aA("tid", dVar.extData).x("obj_type", i));
+            } else if (dVar.aRW) {
+                af(i, dVar.aSi);
+            } else if (dVar.aSa) {
+                TiebaStatic.log(new am("c10125").x("obj_param1", 7).x("obj_type", i).aA(ImageViewerConfig.FORUM_ID, dVar.extData));
+            } else if (dVar.aSc) {
                 am x = new am("c10125").x("obj_type", i);
                 if (!ao.isEmpty(dVar.linkUrl) && dVar.linkUrl.contains("worldcup")) {
                     x.x("obj_param1", 9);
@@ -115,8 +115,8 @@ public class a {
         TiebaStatic.eventStat(this.mContext, "pb_new_share", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
     }
 
-    private Location apI() {
-        if (ab.bz(this.mContext)) {
+    private Location aru() {
+        if (ab.bC(this.mContext)) {
             LocationManager locationManager = (LocationManager) this.mContext.getSystemService(Headers.LOCATION);
             Criteria criteria = new Criteria();
             criteria.setAccuracy(1);

@@ -3,7 +3,7 @@ package rx.internal.operators;
 import rx.d;
 /* loaded from: classes2.dex */
 public class ar<T> implements d.b<T, T> {
-    final rx.functions.b<? super Long> ixZ;
+    final rx.functions.b<? super Long> iFh;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -11,7 +11,7 @@ public class ar<T> implements d.b<T, T> {
     }
 
     public ar(rx.functions.b<? super Long> bVar) {
-        this.ixZ = bVar;
+        this.iFh = bVar;
     }
 
     public rx.j<? super T> call(rx.j<? super T> jVar) {
@@ -19,8 +19,8 @@ public class ar<T> implements d.b<T, T> {
         jVar.setProducer(new rx.f() { // from class: rx.internal.operators.ar.1
             @Override // rx.f
             public void request(long j) {
-                ar.this.ixZ.call(Long.valueOf(j));
-                aVar.dv(j);
+                ar.this.iFh.call(Long.valueOf(j));
+                aVar.dC(j);
             }
         });
         jVar.add(aVar);
@@ -38,7 +38,7 @@ public class ar<T> implements d.b<T, T> {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void dv(long j) {
+        public void dC(long j) {
             request(j);
         }
 

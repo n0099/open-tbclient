@@ -9,23 +9,23 @@ import com.baidu.tieba.e;
 public class DisPraiseView extends PraiseView {
     public DisPraiseView(Context context) {
         super(context);
-        DD();
+        EH();
     }
 
     public DisPraiseView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        DD();
+        EH();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.BasePraiseView
-    public void DD() {
+    public void EH() {
         this.agreeType = 5;
-        this.aBR = e.j.action_dislike;
-        this.aBU = e.d.cp_cont_j;
-        this.aBV = e.d.cp_link_tip_a;
-        this.aBS = e.f.icon_card_dislike_n;
-        this.aBT = e.f.icon_card_dislike_s;
+        this.aFr = e.j.action_dislike;
+        this.aFu = e.d.cp_cont_j;
+        this.aFv = e.d.cp_link_tip_a;
+        this.aFs = e.f.icon_card_dislike_n;
+        this.aFt = e.f.icon_card_dislike_s;
     }
 
     @Override // com.baidu.tbadk.core.view.PraiseView, com.baidu.tbadk.core.view.BasePraiseView
@@ -33,29 +33,29 @@ public class DisPraiseView extends PraiseView {
         if (this.mData == 0) {
             return 0L;
         }
-        return ((bb) this.mData).zP();
+        return ((bb) this.mData).AT();
     }
 
     @Override // com.baidu.tbadk.core.view.PraiseView
-    public int DF() {
+    public int EJ() {
         int i;
         if (this.mData == 0) {
             return 0;
         }
-        if (((bb) this.mData).zQ() != 0 && DG()) {
-            ((bb) this.mData).cK(5);
-            ((bb) this.mData).cI(0);
-            ((bb) this.mData).x(((bb) this.mData).zO());
-            ((bb) this.mData).y(((bb) this.mData).zP() - 1);
+        if (((bb) this.mData).AU() != 0 && EK()) {
+            ((bb) this.mData).cY(5);
+            ((bb) this.mData).cW(0);
+            ((bb) this.mData).C(((bb) this.mData).AS());
+            ((bb) this.mData).D(((bb) this.mData).AT() - 1);
             i = 1;
         } else {
-            int zR = ((bb) this.mData).zR();
-            if ((((bb) this.mData).zQ() != 0 && zR == 2) || zR == 1) {
-                ((bb) this.mData).x(((bb) this.mData).zO() - 1);
+            int AV = ((bb) this.mData).AV();
+            if ((((bb) this.mData).AU() != 0 && AV == 2) || AV == 1) {
+                ((bb) this.mData).C(((bb) this.mData).AS() - 1);
             }
-            ((bb) this.mData).cI(1);
-            ((bb) this.mData).y(((bb) this.mData).zP() + 1);
-            ((bb) this.mData).cK(5);
+            ((bb) this.mData).cW(1);
+            ((bb) this.mData).D(((bb) this.mData).AT() + 1);
+            ((bb) this.mData).cY(5);
             i = 0;
         }
         return i;
@@ -64,12 +64,12 @@ public class DisPraiseView extends PraiseView {
     @Override // com.baidu.tbadk.core.view.PraiseView
     public int L(View view) {
         int L = super.L(view);
-        by(L == 0);
+        bz(L == 0);
         return L;
     }
 
     @Override // com.baidu.tbadk.core.view.PraiseView
-    public boolean DG() {
-        return this.mData != 0 && ((bb) this.mData).zR() == 5;
+    public boolean EK() {
+        return this.mData != 0 && ((bb) this.mData).AV() == 5;
     }
 }

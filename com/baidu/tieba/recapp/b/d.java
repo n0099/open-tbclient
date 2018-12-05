@@ -4,66 +4,66 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.q;
 /* loaded from: classes3.dex */
 public class d extends q.a implements com.baidu.tieba.play.f {
-    com.baidu.tieba.lego.card.view.e<?> dSG;
-    private com.baidu.tieba.recapp.i gFd;
+    com.baidu.tieba.lego.card.view.e<?> dZj;
+    private com.baidu.tieba.recapp.i gLT;
 
     public d(com.baidu.tieba.lego.card.view.e<?> eVar) {
         super((View) eVar);
-        this.dSG = eVar;
+        this.dZj = eVar;
     }
 
     public void a(com.baidu.tieba.recapp.i iVar) {
-        this.gFd = iVar;
+        this.gLT = iVar;
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlayStarted() {
-        if (this.gFd == null) {
+        if (this.gLT == null) {
             return false;
         }
-        return this.gFd.isPlayStarted();
+        return this.gLT.isPlayStarted();
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlaying() {
-        if (this.gFd == null) {
+        if (this.gLT == null) {
             return false;
         }
-        return this.gFd.isPlaying();
+        return this.gLT.isPlaying();
     }
 
     @Override // com.baidu.tieba.play.f
     public void startPlay() {
-        if (this.gFd != null) {
-            this.gFd.startPlay();
+        if (this.gLT != null) {
+            this.gLT.startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public void stopPlay() {
-        if (this.gFd != null) {
-            this.gFd.stopPlay();
+        if (this.gLT != null) {
+            this.gLT.stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public View getVideoContainer() {
-        if (this.gFd == null) {
+        if (this.gLT == null) {
             return null;
         }
-        return this.gFd.getVideoContainer();
+        return this.gLT.getVideoContainer();
     }
 
     @Override // com.baidu.tieba.play.f
     public String getPlayUrl() {
-        return this.gFd == null ? "" : this.gFd.getPlayUrl();
+        return this.gLT == null ? "" : this.gLT.getPlayUrl();
     }
 
     @Override // com.baidu.tieba.play.f
     public int getCurrentPosition() {
-        if (this.gFd == null) {
+        if (this.gLT == null) {
             return 0;
         }
-        return (int) this.gFd.getCurrentPosition();
+        return (int) this.gLT.getCurrentPosition();
     }
 }

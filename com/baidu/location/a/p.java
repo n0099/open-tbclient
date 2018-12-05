@@ -322,11 +322,11 @@ public class p {
     public static void a(com.baidu.location.e.a aVar, com.baidu.location.e.e eVar, Location location, String str) {
         String str2;
         String a2;
-        if (com.baidu.location.b.d.tx().a) {
+        if (com.baidu.location.b.d.tw().a) {
             if ((com.baidu.location.g.g.v == 3 && !a(location, eVar) && !a(location, false)) || aVar == null || aVar.c()) {
                 return;
             }
-            BDLocation a3 = com.baidu.location.g.g.a(com.baidu.location.f.getServiceContext()) ? com.baidu.location.d.d.tF().a(aVar, eVar, null, d.b.IS_MIX_MODE, d.a.NO_NEED_TO_LOG) : com.baidu.location.d.d.tF().a(aVar, eVar, null, d.b.IS_NOT_MIX_MODE, d.a.NO_NEED_TO_LOG);
+            BDLocation a3 = com.baidu.location.g.g.a(com.baidu.location.f.getServiceContext()) ? com.baidu.location.d.d.tE().a(aVar, eVar, null, d.b.IS_MIX_MODE, d.a.NO_NEED_TO_LOG) : com.baidu.location.d.d.tE().a(aVar, eVar, null, d.b.IS_NOT_MIX_MODE, d.a.NO_NEED_TO_LOG);
             if (a3 == null || a3.getLocType() == 67) {
                 str2 = str + String.format(Locale.CHINA, "&ofl=%s|0", "1");
             } else {
@@ -356,11 +356,11 @@ public class p {
                     }
                 }
             } else if (eVar != null && eVar.l() && a(location, eVar)) {
-                if (!f(location) && !com.baidu.location.e.b.tM().d()) {
+                if (!f(location) && !com.baidu.location.e.b.tL().d()) {
                     str2 = "&cfr=1" + str2;
-                } else if (!f(location) && com.baidu.location.e.b.tM().d()) {
+                } else if (!f(location) && com.baidu.location.e.b.tL().d()) {
                     str2 = "&cfr=3" + str2;
-                } else if (com.baidu.location.e.b.tM().d()) {
+                } else if (com.baidu.location.e.b.tL().d()) {
                     str2 = "&cfr=2" + str2;
                 }
                 String a5 = com.baidu.location.g.g.a(aVar, eVar, location, str2, 2);
@@ -373,11 +373,11 @@ public class p {
                     }
                 }
             } else {
-                if (!f(location) && !com.baidu.location.e.b.tM().d()) {
+                if (!f(location) && !com.baidu.location.e.b.tL().d()) {
                     str2 = "&cfr=1" + str2;
-                } else if (!f(location) && com.baidu.location.e.b.tM().d()) {
+                } else if (!f(location) && com.baidu.location.e.b.tL().d()) {
                     str2 = "&cfr=3" + str2;
-                } else if (com.baidu.location.e.b.tM().d()) {
+                } else if (com.baidu.location.e.b.tL().d()) {
                     str2 = "&cfr=2" + str2;
                 }
                 if (!a(location, eVar)) {
@@ -703,7 +703,7 @@ public class p {
         return ((double) location.distanceTo(aea)) > ((distanceTo * ((double) com.baidu.location.g.g.agn)) + ((((double) com.baidu.location.g.g.agm) * distanceTo) * distanceTo)) + ((double) com.baidu.location.g.g.U);
     }
 
-    public static synchronized p ts() {
+    public static synchronized p tr() {
         p pVar;
         synchronized (p.class) {
             if (aef == null) {

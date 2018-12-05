@@ -6,7 +6,7 @@ public abstract class c implements n {
 
     protected abstract byte[] gG();
 
-    public byte[] lA() {
+    public byte[] lz() {
         synchronized (this) {
             if (!this.Hg) {
                 this.Hg = true;

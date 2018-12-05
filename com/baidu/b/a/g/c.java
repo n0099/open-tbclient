@@ -5,7 +5,7 @@ import java.util.Map;
 public interface c {
     String c(String str, Map<String, String> map);
 
-    String sc();
+    String sb();
 
-    String sd();
+    String sc();
 }

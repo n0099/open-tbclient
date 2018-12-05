@@ -155,7 +155,7 @@ public class MorePopupWindow extends PopupWindow {
             int measuredWidth = this.mContentView.getMeasuredWidth();
             int measuredHeight = this.mContentView.getMeasuredHeight();
             setWidth(measuredWidth);
-            this.mWindowHeight = measuredHeight + ((int) this.mActivity.getResources().getDimension(e.C0200e.ds4));
+            this.mWindowHeight = measuredHeight + ((int) this.mActivity.getResources().getDimension(e.C0210e.ds4));
             setHeight(this.mWindowHeight);
             int[] aS = com.baidu.adp.lib.util.l.aS(this.mActivity);
             if (aS != null && aS.length > 1 && aS[0] > measuredWidth) {

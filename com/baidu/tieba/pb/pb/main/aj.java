@@ -9,45 +9,45 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes6.dex */
 public class aj {
-    private com.baidu.tieba.pb.data.d fRE;
-    private boolean fRo;
-    private boolean fRq;
-    private String fUh;
-    private boolean fUi;
-    private boolean fUj;
-    private Parcelable fUk;
-    private boolean fUl;
-    private PostData fUm;
-    private PostData fUn;
-    private int fUo;
+    private boolean fYe;
+    private boolean fYg;
+    private com.baidu.tieba.pb.data.d fYu;
+    private String gaX;
+    private boolean gaY;
+    private boolean gaZ;
+    private Parcelable gba;
+    private boolean gbb;
+    private PostData gbc;
+    private PostData gbd;
+    private int gbe;
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2005016) { // from class: com.baidu.tieba.pb.pb.main.aj.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                aj.biu().reset();
+                aj.bkm().reset();
             }
         });
         MessageManager.getInstance().registerListener(new CustomMessageListener(2004006) { // from class: com.baidu.tieba.pb.pb.main.aj.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                aj.biu().reset();
+                aj.bkm().reset();
             }
         });
         MessageManager.getInstance().registerListener(new CustomMessageListener(2001335) { // from class: com.baidu.tieba.pb.pb.main.aj.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                aj.biu().a(1, customResponsedMessage);
+                aj.bkm().a(1, customResponsedMessage);
             }
         });
         MessageManager.getInstance().registerListener(new CustomMessageListener(2001336) { // from class: com.baidu.tieba.pb.pb.main.aj.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                aj.biu().a(0, customResponsedMessage);
+                aj.bkm().a(0, customResponsedMessage);
             }
         });
         MessageManager.getInstance().registerListener(new CustomMessageListener(2016485) { // from class: com.baidu.tieba.pb.pb.main.aj.5
@@ -55,7 +55,7 @@ public class aj {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.j)) {
-                    aj.biu().a((com.baidu.tbadk.data.j) customResponsedMessage.getData());
+                    aj.bkm().a((com.baidu.tbadk.data.j) customResponsedMessage.getData());
                 }
             }
         });
@@ -64,156 +64,156 @@ public class aj {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class a {
-        private static aj fUp = new aj();
+        private static aj gbf = new aj();
     }
 
-    public static aj biu() {
-        return a.fUp;
+    public static aj bkm() {
+        return a.gbf;
     }
 
     private aj() {
-        this.fUh = null;
-        this.fUi = false;
-        this.fRE = null;
-        this.fUj = false;
-        this.fUk = null;
-        this.fRq = true;
-        this.fRo = false;
-        this.fUl = false;
+        this.gaX = null;
+        this.gaY = false;
+        this.fYu = null;
+        this.gaZ = false;
+        this.gba = null;
+        this.fYg = true;
+        this.fYe = false;
+        this.gbb = false;
     }
 
-    public void T(String str, boolean z) {
-        this.fUi = false;
+    public void V(String str, boolean z) {
+        this.gaY = false;
         if (z) {
             str = null;
         }
         if (str == null || str.length() < 1) {
             reset();
-            this.fUh = null;
-        } else if (!str.equals(this.fUh)) {
+            this.gaX = null;
+        } else if (!str.equals(this.gaX)) {
             reset();
-            this.fUh = str;
+            this.gaX = str;
         } else {
-            this.fUi = true;
+            this.gaY = true;
         }
     }
 
     public com.baidu.tieba.pb.data.d getPbData() {
-        if (!this.fUi) {
-            this.fUj = false;
+        if (!this.gaY) {
+            this.gaZ = false;
             return null;
-        } else if (this.fRE != null && this.fRE.bev() != null && this.fRE.bev().size() > 0) {
-            this.fUj = true;
-            com.baidu.tieba.pb.data.d dVar = this.fRE;
-            this.fRE = null;
+        } else if (this.fYu != null && this.fYu.bgm() != null && this.fYu.bgm().size() > 0) {
+            this.gaZ = true;
+            com.baidu.tieba.pb.data.d dVar = this.fYu;
+            this.fYu = null;
             return dVar;
         } else {
-            this.fUj = false;
-            this.fRE = null;
+            this.gaZ = false;
+            this.fYu = null;
             return null;
         }
     }
 
-    public Parcelable biv() {
-        if (this.fUj) {
-            this.fUj = false;
-            Parcelable parcelable = this.fUk;
-            this.fUk = null;
+    public Parcelable bkn() {
+        if (this.gaZ) {
+            this.gaZ = false;
+            Parcelable parcelable = this.gba;
+            this.gba = null;
             return parcelable;
         }
-        this.fUk = null;
+        this.gba = null;
         return null;
     }
 
-    public int biw() {
-        return this.fUo;
+    public int bko() {
+        return this.gbe;
     }
 
-    public void sc(int i) {
-        this.fUo = i;
+    public void sw(int i) {
+        this.gbe = i;
     }
 
-    public PostData bix() {
-        return this.fUn;
+    public PostData bkp() {
+        return this.gbd;
     }
 
     public void i(PostData postData) {
-        this.fUn = postData;
+        this.gbd = postData;
     }
 
-    public PostData biy() {
-        return this.fUm;
+    public PostData bkq() {
+        return this.gbc;
     }
 
     public void j(PostData postData) {
-        this.fUm = postData;
+        this.gbc = postData;
     }
 
-    public boolean bhn() {
-        return this.fRq;
+    public boolean bjf() {
+        return this.fYg;
     }
 
-    public boolean biz() {
-        return this.fRo;
+    public boolean bkr() {
+        return this.fYe;
     }
 
-    public boolean biA() {
-        return this.fUl;
+    public boolean bks() {
+        return this.gbb;
     }
 
     public boolean a(com.baidu.tieba.pb.data.d dVar, Parcelable parcelable, boolean z, boolean z2, boolean z3) {
-        this.fUi = false;
-        if (this.fUh == null) {
+        this.gaY = false;
+        if (this.gaX == null) {
             reset();
             return false;
         } else if (dVar == null) {
             reset();
             return false;
-        } else if (dVar.bev() == null) {
+        } else if (dVar.bgm() == null) {
             reset();
             return false;
-        } else if (dVar.bev().size() < 1) {
+        } else if (dVar.bgm().size() < 1) {
             reset();
             return false;
         } else if (parcelable == null) {
             reset();
             return false;
         } else {
-            this.fRE = dVar;
-            this.fUj = false;
-            this.fUk = parcelable;
-            this.fRq = z;
-            this.fRo = z2;
-            this.fUl = z3;
+            this.fYu = dVar;
+            this.gaZ = false;
+            this.gba = parcelable;
+            this.fYg = z;
+            this.fYe = z2;
+            this.gbb = z3;
             return true;
         }
     }
 
     public void reset() {
-        this.fUi = false;
-        this.fRE = null;
-        this.fUj = false;
-        this.fUk = null;
+        this.gaY = false;
+        this.fYu = null;
+        this.gaZ = false;
+        this.gba = null;
     }
 
     public void a(int i, CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && this.fRE != null && this.fRE.ber() != null) {
+        if (customResponsedMessage != null && this.fYu != null && this.fYu.bgi() != null) {
             Object data = customResponsedMessage.getData();
-            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.g.b.d(this.fRE.ber().getId(), 0L)) {
-                this.fRE.ber().setLike(i);
+            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.g.b.d(this.fYu.bgi().getId(), 0L)) {
+                this.fYu.bgi().setLike(i);
             }
         }
     }
 
     public void a(com.baidu.tbadk.data.j jVar) {
-        if (jVar != null && this.fRE != null && this.fRE.bev() != null && this.fRE.bev().size() > 0) {
+        if (jVar != null && this.fYu != null && this.fYu.bgm() != null && this.fYu.bgm().size() > 0) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!StringUtils.isNull(currentAccount)) {
-                int size = this.fRE.bev().size();
+                int size = this.fYu.bgm().size();
                 for (int i = 0; i < size; i++) {
-                    if (this.fRE.bev().get(i) != null && this.fRE.bev().get(i).yC() != null && currentAccount.equals(this.fRE.bev().get(i).yC().getUserId()) && this.fRE.bev().get(i).yC().getPendantData() != null) {
-                        this.fRE.bev().get(i).yC().getPendantData().dR(jVar.xn());
-                        this.fRE.bev().get(i).yC().getPendantData().ah(jVar.KA());
+                    if (this.fYu.bgm().get(i) != null && this.fYu.bgm().get(i).zG() != null && currentAccount.equals(this.fYu.bgm().get(i).zG().getUserId()) && this.fYu.bgm().get(i).zG().getPendantData() != null) {
+                        this.fYu.bgm().get(i).zG().getPendantData().ej(jVar.ys());
+                        this.fYu.bgm().get(i).zG().getPendantData().ao(jVar.LE());
                     }
                 }
             }

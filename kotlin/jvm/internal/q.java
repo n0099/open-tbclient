@@ -2,7 +2,7 @@ package kotlin.jvm.internal;
 /* loaded from: classes2.dex */
 public final class q {
     /* JADX INFO: Access modifiers changed from: private */
-    public static final Void bZK() {
+    public static final Void cbQ() {
         throw new UnsupportedOperationException("Not supported for local property reference.");
     }
 }

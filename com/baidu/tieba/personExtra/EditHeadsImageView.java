@@ -11,44 +11,44 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class EditHeadsImageView extends DragImageView {
-    private int gmV;
-    private int gmW;
-    private float gmX;
-    private float gmY;
-    private int gmZ;
+    private int gtL;
+    private int gtM;
+    private float gtN;
+    private float gtO;
+    private int gtP;
 
     public EditHeadsImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gmV = 0;
-        this.gmW = 0;
-        this.gmX = 0.42857143f;
-        this.gmZ = 0;
-        this.gmY = 1.0f;
+        this.gtL = 0;
+        this.gtM = 0;
+        this.gtN = 0.42857143f;
+        this.gtP = 0;
+        this.gtO = 1.0f;
         init();
     }
 
     public EditHeadsImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gmV = 0;
-        this.gmW = 0;
-        this.gmX = 0.42857143f;
-        this.gmZ = 0;
-        this.gmY = 1.0f;
+        this.gtL = 0;
+        this.gtM = 0;
+        this.gtN = 0.42857143f;
+        this.gtP = 0;
+        this.gtO = 1.0f;
         init();
     }
 
     public EditHeadsImageView(Context context) {
         super(context);
-        this.gmV = 0;
-        this.gmW = 0;
-        this.gmX = 0.42857143f;
-        this.gmZ = 0;
-        this.gmY = 1.0f;
+        this.gtL = 0;
+        this.gtM = 0;
+        this.gtN = 0.42857143f;
+        this.gtP = 0;
+        this.gtO = 1.0f;
         init();
     }
 
     private void init() {
-        this.gmZ = getResources().getColor(e.d.common_color_10226);
+        this.gtP = getResources().getColor(e.d.common_color_10226);
         setDrawingCacheEnabled(true);
         setImageMode(1);
         CompatibleUtile.getInstance().noneViewGpu(this);
@@ -63,30 +63,30 @@ public class EditHeadsImageView extends DragImageView {
     @Override // com.baidu.tbadk.widget.DragImageView, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        float width = this.gmY * getWidth();
+        float width = this.gtO * getWidth();
         if (width > getHeight()) {
             width = getHeight();
         }
-        this.gmV = (int) (((i4 - i2) - width) * this.gmX);
-        this.gmW = (int) (((i4 - i2) - width) * (1.0f - this.gmX));
-        setOffset(0, this.gmV, 0, this.gmW);
+        this.gtL = (int) (((i4 - i2) - width) * this.gtN);
+        this.gtM = (int) (((i4 - i2) - width) * (1.0f - this.gtN));
+        setOffset(0, this.gtL, 0, this.gtM);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.DragImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         canvas.save();
-        canvas.drawColor(this.gmZ);
+        canvas.drawColor(this.gtP);
         super.onDraw(canvas);
         canvas.restore();
     }
 
-    public Bitmap lZ(boolean z) {
+    public Bitmap mc(boolean z) {
         Bitmap bitmap = null;
         try {
             Bitmap visableBitmap = getVisableBitmap();
             if (visableBitmap != null) {
-                Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.gmV, getWidth(), (getHeight() - this.gmW) - this.gmV);
+                Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.gtL, getWidth(), (getHeight() - this.gtM) - this.gtL);
                 bitmap = z ? Bitmap.createScaledBitmap(createBitmap, TbConfig.HEAD_IMG_SIZE, TbConfig.HEAD_IMG_SIZE, false) : createBitmap;
                 if (bitmap != createBitmap) {
                     createBitmap.recycle();
@@ -99,7 +99,7 @@ public class EditHeadsImageView extends DragImageView {
     }
 
     public void setCutImageHeightScale(float f) {
-        this.gmY = f;
+        this.gtO = f;
         invalidate();
     }
 }

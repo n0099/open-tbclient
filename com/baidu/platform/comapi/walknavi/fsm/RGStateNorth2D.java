@@ -12,7 +12,7 @@ public class RGStateNorth2D extends RGState {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {
         b.a().L().l();
-        b.a().L().c(R.drawable.aiapps_open_app_buttion_selector);
+        b.a().L().c(R.drawable.aiapps_normal_toast_view_bg);
         if (b.a().E() != 4) {
         }
     }

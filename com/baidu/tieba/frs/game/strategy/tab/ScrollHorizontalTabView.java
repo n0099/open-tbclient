@@ -21,8 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ScrollHorizontalTabView extends MyHorizontalScrollView {
-    private final a dMO;
-    private b dMP;
+    private final a dTr;
+    private b dTs;
     private float mCurrentPositionOffset;
     private int mCurrentTabIndex;
     private final int mIndicatorHeight;
@@ -49,15 +49,15 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         super(context);
         this.mTabDataList = new ArrayList();
         this.mTabItemView = new ArrayList();
-        this.mIndicatorHeight = l.h(TbadkCoreApplication.getInst(), e.C0200e.tbds4);
-        this.mIndicatorWidth = l.h(TbadkCoreApplication.getInst(), e.C0200e.tbds84);
+        this.mIndicatorHeight = l.h(TbadkCoreApplication.getInst(), e.C0210e.tbds4);
+        this.mIndicatorWidth = l.h(TbadkCoreApplication.getInst(), e.C0210e.tbds84);
         this.mIsClicked = false;
         this.mCurrentTabIndex = 0;
         this.mSelectorColor = al.getColor(e.d.cp_cont_f);
         this.mCurrentPositionOffset = 0.0f;
         this.mScrollOffset = 52;
         this.mLastScrollX = 0;
-        this.dMO = new a();
+        this.dTr = new a();
         this.mOnItemClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollHorizontalTabView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -86,15 +86,15 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         super(context, attributeSet);
         this.mTabDataList = new ArrayList();
         this.mTabItemView = new ArrayList();
-        this.mIndicatorHeight = l.h(TbadkCoreApplication.getInst(), e.C0200e.tbds4);
-        this.mIndicatorWidth = l.h(TbadkCoreApplication.getInst(), e.C0200e.tbds84);
+        this.mIndicatorHeight = l.h(TbadkCoreApplication.getInst(), e.C0210e.tbds4);
+        this.mIndicatorWidth = l.h(TbadkCoreApplication.getInst(), e.C0210e.tbds84);
         this.mIsClicked = false;
         this.mCurrentTabIndex = 0;
         this.mSelectorColor = al.getColor(e.d.cp_cont_f);
         this.mCurrentPositionOffset = 0.0f;
         this.mScrollOffset = 52;
         this.mLastScrollX = 0;
-        this.dMO = new a();
+        this.dTr = new a();
         this.mOnItemClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollHorizontalTabView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -123,15 +123,15 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         super(context, attributeSet, i);
         this.mTabDataList = new ArrayList();
         this.mTabItemView = new ArrayList();
-        this.mIndicatorHeight = l.h(TbadkCoreApplication.getInst(), e.C0200e.tbds4);
-        this.mIndicatorWidth = l.h(TbadkCoreApplication.getInst(), e.C0200e.tbds84);
+        this.mIndicatorHeight = l.h(TbadkCoreApplication.getInst(), e.C0210e.tbds4);
+        this.mIndicatorWidth = l.h(TbadkCoreApplication.getInst(), e.C0210e.tbds84);
         this.mIsClicked = false;
         this.mCurrentTabIndex = 0;
         this.mSelectorColor = al.getColor(e.d.cp_cont_f);
         this.mCurrentPositionOffset = 0.0f;
         this.mScrollOffset = 52;
         this.mLastScrollX = 0;
-        this.dMO = new a();
+        this.dTr = new a();
         this.mOnItemClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollHorizontalTabView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -190,13 +190,13 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     private void setupTabItems() {
         int size = this.mTabDataList.size();
         int size2 = this.mTabItemView.size();
-        int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(e.C0200e.ds4);
-        int dimensionPixelSize2 = getContext().getResources().getDimensionPixelSize(e.C0200e.ds32);
+        int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(e.C0210e.ds4);
+        int dimensionPixelSize2 = getContext().getResources().getDimensionPixelSize(e.C0210e.ds32);
         if (size > size2) {
             while (size2 < size) {
                 TextView textView = new TextView(getContext());
                 textView.setOnClickListener(this.mOnItemClickListener);
-                textView.setTextSize(0, getContext().getResources().getDimensionPixelSize(e.C0200e.tbfontsize42));
+                textView.setTextSize(0, getContext().getResources().getDimensionPixelSize(e.C0210e.tbfontsize42));
                 textView.setPadding(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize);
                 textView.setGravity(17);
                 this.mTabItemView.add(textView);
@@ -229,12 +229,12 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public void setViewPager(ViewPager viewPager) {
         this.mPager = viewPager;
         if (viewPager.getAdapter() != null) {
-            viewPager.setOnPageChangeListener(this.dMO);
+            viewPager.setOnPageChangeListener(this.dTr);
         }
     }
 
     public void setScrollTabPageListener(b bVar) {
-        this.dMP = bVar;
+        this.dTs = bVar;
     }
 
     public int getCurrentIndex() {
@@ -250,7 +250,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             int[] iArr = new int[2];
             ((View) v.d(this.mTabItemView, i)).getLocationOnScreen(iArr);
             int aO = l.aO(getContext()) - iArr[0];
-            final int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(e.C0200e.ds160);
+            final int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(e.C0210e.ds160);
             if (iArr[0] < 0) {
                 post(new Runnable() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollHorizontalTabView.3
                     @Override // java.lang.Runnable
@@ -262,7 +262,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
                 post(new Runnable() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollHorizontalTabView.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        ScrollHorizontalTabView.this.scrollBy(ScrollHorizontalTabView.this.getContext().getResources().getDimensionPixelSize(e.C0200e.ds160), 0);
+                        ScrollHorizontalTabView.this.scrollBy(ScrollHorizontalTabView.this.getContext().getResources().getDimensionPixelSize(e.C0210e.ds160), 0);
                     }
                 });
             }
@@ -364,9 +364,9 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
             e eVar = (e) v.d(ScrollHorizontalTabView.this.mTabDataList, i);
-            if (ScrollHorizontalTabView.this.dMP == null || ScrollHorizontalTabView.this.dMP.a(i, eVar)) {
-                if (ScrollHorizontalTabView.this.dMP != null) {
-                    ScrollHorizontalTabView.this.dMP.b(i, eVar);
+            if (ScrollHorizontalTabView.this.dTs == null || ScrollHorizontalTabView.this.dTs.a(i, eVar)) {
+                if (ScrollHorizontalTabView.this.dTs != null) {
+                    ScrollHorizontalTabView.this.dTs.b(i, eVar);
                 }
                 if (ScrollHorizontalTabView.this.mIsClicked) {
                     if (ScrollHorizontalTabView.this.mCurrentTabIndex != i) {

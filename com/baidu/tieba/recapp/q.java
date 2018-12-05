@@ -53,14 +53,14 @@ public class q implements com.baidu.c.a.b.c {
         } else if (!"video".equalsIgnoreCase(str) || (distributeVideoView = (DistributeVideoView) view.findViewById(e.g.advert_video)) == null) {
             return false;
         } else {
-            int dimension = (int) view.getContext().getResources().getDimension(e.C0200e.ds278);
+            int dimension = (int) view.getContext().getResources().getDimension(e.C0210e.ds278);
             VideoInfo.Builder builder = new VideoInfo.Builder();
             builder.video_url = aVar.src;
             builder.thumbnail_url = aVar.aaH;
             builder.video_duration = Integer.valueOf(aVar.videoDuration);
             builder.video_width = Integer.valueOf(aVar.width);
             builder.video_height = Integer.valueOf(aVar.height);
-            distributeVideoView.setData(builder.build(true), (int) (com.baidu.adp.lib.util.l.aO(view.getContext()) - (view.getContext().getResources().getDimension(e.C0200e.ds44) * 2.0f)), dimension, (int) view.getContext().getResources().getDimension(e.C0200e.ds640));
+            distributeVideoView.setData(builder.build(true), (int) (com.baidu.adp.lib.util.l.aO(view.getContext()) - (view.getContext().getResources().getDimension(e.C0210e.ds44) * 2.0f)), dimension, (int) view.getContext().getResources().getDimension(e.C0210e.ds640));
             return true;
         }
     }
@@ -97,7 +97,7 @@ public class q implements com.baidu.c.a.b.c {
             @Override // com.baidu.adp.lib.f.b
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str4, int i) {
                 if (str2.equalsIgnoreCase(str4)) {
-                    view.setBackgroundDrawable(aVar.os());
+                    view.setBackgroundDrawable(aVar.or());
                 }
             }
         }, null);

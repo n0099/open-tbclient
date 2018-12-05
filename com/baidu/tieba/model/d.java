@@ -26,43 +26,43 @@ import org.json.JSONObject;
 public class d {
     public static a.b a(a.b bVar) {
         a.b bVar2;
-        String[] bat;
+        String[] bck;
         if (bVar == null) {
             return null;
         }
         try {
-            bat = bat();
+            bck = bck();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (bat != null) {
+        if (bck != null) {
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             arrayList.add(new BasicNameValuePair("crypttype", "1"));
             arrayList.add(new BasicNameValuePair(BaiduRimConstants.TPL_INIT_KEY, TbConfig.PassConfig.TPL));
             arrayList.add(new BasicNameValuePair("appid", "1"));
             arrayList.add(new BasicNameValuePair("clientip", getClientIP()));
-            arrayList.add(new BasicNameValuePair("cert_id", bat[0]));
+            arrayList.add(new BasicNameValuePair("cert_id", bck[0]));
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("bduss", bVar.El);
-            jSONObject.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, bVar.akN);
+            jSONObject.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, bVar.aop);
             jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
             jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
-            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.c().encrypt(bat[1], jSONObject.toString())));
+            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.c().encrypt(bck[1], jSONObject.toString())));
             arrayList.add(new BasicNameValuePair("sig", c(arrayList, TbConfig.PassConfig.ENC_KEY)));
             x xVar = new x(TbConfig.PassConfig.LOGIN_BDUSS_URL);
-            xVar.Cf().Dd().mIsNeedAddCommenParam = false;
-            xVar.Cf().Dd().mIsUseCurrentBDUSS = false;
+            xVar.Dj().Eh().mIsNeedAddCommenParam = false;
+            xVar.Dj().Eh().mIsUseCurrentBDUSS = false;
             xVar.p(arrayList);
-            xVar.Cf().Dd().Dg().aAr = true;
-            xVar.Cf().Dd().Dg().mIsBaiduServer = false;
-            String BH = xVar.BH();
-            if (xVar.Cf().De().isRequestSuccess() && !ao.isEmpty(BH)) {
-                JSONObject jSONObject2 = new JSONObject(BH);
+            xVar.Dj().Eh().Ek().aDR = true;
+            xVar.Dj().Eh().Ek().mIsBaiduServer = false;
+            String CL = xVar.CL();
+            if (xVar.Dj().Ei().isRequestSuccess() && !ao.isEmpty(CL)) {
+                JSONObject jSONObject2 = new JSONObject(CL);
                 if ("0".equals(jSONObject2.optString("errno"))) {
                     bVar2 = new a.b();
                     bVar2.El = jSONObject2.optString("bduss");
-                    bVar2.akN = jSONObject2.optString(ISapiAccount.SAPI_ACCOUNT_PTOKEN);
-                    bVar2.akO = jSONObject2.optString("uname");
+                    bVar2.aop = jSONObject2.optString(ISapiAccount.SAPI_ACCOUNT_PTOKEN);
+                    bVar2.aoq = jSONObject2.optString("uname");
                     return bVar2;
                 }
             }
@@ -72,12 +72,12 @@ public class d {
         return null;
     }
 
-    private static String[] bat() {
+    private static String[] bck() {
         try {
             x xVar = new x(TbConfig.PassConfig.GET_CERT_URL);
-            xVar.Cf().Dd().mIsNeedAddCommenParam = false;
-            xVar.Cf().Dd().mIsUseCurrentBDUSS = false;
-            JSONObject jSONObject = new JSONObject(new String(xVar.BI()));
+            xVar.Dj().Eh().mIsNeedAddCommenParam = false;
+            xVar.Dj().Eh().mIsUseCurrentBDUSS = false;
+            JSONObject jSONObject = new JSONObject(new String(xVar.CM()));
             return new String[]{jSONObject.optString("cert_id"), jSONObject.optString("cert")};
         } catch (Exception e) {
             return null;

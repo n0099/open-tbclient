@@ -6,18 +6,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 /* loaded from: classes.dex */
 public class a implements LayoutInflater.Factory {
-    private c ajV;
+    private c anx;
 
     public void a(c cVar) {
-        this.ajV = cVar;
+        this.anx = cVar;
     }
 
     @Override // android.view.LayoutInflater.Factory
     public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-        if (this.ajV == null) {
-            this.ajV = new c();
+        if (this.anx == null) {
+            this.anx = new c();
         }
-        this.ajV.initModeInfos(str, context, attributeSet);
+        this.anx.initModeInfos(str, context, attributeSet);
         return null;
     }
 }

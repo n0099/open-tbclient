@@ -4,10 +4,10 @@ import java.util.Arrays;
 /* loaded from: classes6.dex */
 public abstract class b {
     protected final int FC;
-    protected final byte hWC = 61;
-    private final int hWD;
-    private final int hWE;
-    private final int hWF;
+    protected final byte idP = 61;
+    private final int idQ;
+    private final int idR;
+    private final int idS;
 
     abstract void a(byte[] bArr, int i, int i2, a aVar);
 
@@ -20,10 +20,10 @@ public abstract class b {
     public static class a {
         byte[] buffer;
         boolean eof;
-        int hWG;
-        long hWH;
-        int hWI;
-        int hWJ;
+        int idT;
+        long idU;
+        int idV;
+        int idW;
         int modulus;
         int pos;
 
@@ -31,34 +31,34 @@ public abstract class b {
         }
 
         public String toString() {
-            return String.format("%s[buffer=%s, currentLinePos=%s, eof=%s, ibitWorkArea=%s, lbitWorkArea=%s, modulus=%s, pos=%s, readPos=%s]", getClass().getSimpleName(), Arrays.toString(this.buffer), Integer.valueOf(this.hWJ), Boolean.valueOf(this.eof), Integer.valueOf(this.hWG), Long.valueOf(this.hWH), Integer.valueOf(this.modulus), Integer.valueOf(this.pos), Integer.valueOf(this.hWI));
+            return String.format("%s[buffer=%s, currentLinePos=%s, eof=%s, ibitWorkArea=%s, lbitWorkArea=%s, modulus=%s, pos=%s, readPos=%s]", getClass().getSimpleName(), Arrays.toString(this.buffer), Integer.valueOf(this.idW), Boolean.valueOf(this.eof), Integer.valueOf(this.idT), Long.valueOf(this.idU), Integer.valueOf(this.modulus), Integer.valueOf(this.pos), Integer.valueOf(this.idV));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(int i, int i2, int i3, int i4) {
-        this.hWD = i;
-        this.hWE = i2;
+        this.idQ = i;
+        this.idR = i2;
         this.FC = i3 > 0 && i4 > 0 ? (i3 / i2) * i2 : 0;
-        this.hWF = i4;
+        this.idS = i4;
     }
 
     int a(a aVar) {
         if (aVar.buffer != null) {
-            return aVar.pos - aVar.hWI;
+            return aVar.pos - aVar.idV;
         }
         return 0;
     }
 
-    protected int bQc() {
+    protected int bSi() {
         return 8192;
     }
 
     private byte[] b(a aVar) {
         if (aVar.buffer == null) {
-            aVar.buffer = new byte[bQc()];
+            aVar.buffer = new byte[bSi()];
             aVar.pos = 0;
-            aVar.hWI = 0;
+            aVar.idV = 0;
         } else {
             byte[] bArr = new byte[aVar.buffer.length * 2];
             System.arraycopy(aVar.buffer, 0, bArr, 0, aVar.buffer.length);
@@ -77,9 +77,9 @@ public abstract class b {
             return aVar.eof ? -1 : 0;
         }
         int min = Math.min(a(aVar), i2);
-        System.arraycopy(aVar.buffer, aVar.hWI, bArr, i, min);
-        aVar.hWI += min;
-        if (aVar.hWI >= aVar.pos) {
+        System.arraycopy(aVar.buffer, aVar.idV, bArr, i, min);
+        aVar.idV += min;
+        if (aVar.idV >= aVar.pos) {
             aVar.buffer = null;
             return min;
         }
@@ -87,7 +87,7 @@ public abstract class b {
     }
 
     public byte[] decode(String str) {
-        return decode(d.yj(str));
+        return decode(d.yM(str));
     }
 
     public byte[] decode(byte[] bArr) {
@@ -107,7 +107,7 @@ public abstract class b {
             a aVar = new a();
             a(bArr, 0, bArr.length, aVar);
             a(bArr, 0, -1, aVar);
-            byte[] bArr2 = new byte[aVar.pos - aVar.hWI];
+            byte[] bArr2 = new byte[aVar.pos - aVar.idV];
             c(bArr2, 0, bArr2.length, aVar);
             return bArr2;
         }
@@ -128,9 +128,9 @@ public abstract class b {
     }
 
     public long Q(byte[] bArr) {
-        long length = (((bArr.length + this.hWD) - 1) / this.hWD) * this.hWE;
+        long length = (((bArr.length + this.idQ) - 1) / this.idQ) * this.idR;
         if (this.FC > 0) {
-            return length + ((((this.FC + length) - 1) / this.FC) * this.hWF);
+            return length + ((((this.FC + length) - 1) / this.FC) * this.idS);
         }
         return length;
     }

@@ -21,20 +21,20 @@ public class VideoAggregationPraiseView extends BasePraiseView<com.baidu.tieba.f
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.BasePraiseView
-    public void DD() {
-        super.DD();
-        this.aBU = e.d.cp_cont_i_alpha70;
-        this.aBV = e.d.cp_cont_h_alpha70;
-        this.aBS = e.f.icon_card_like_video_n;
-        this.aBT = e.f.icon_card_like_video_s;
+    public void EH() {
+        super.EH();
+        this.aFu = e.d.cp_cont_i_alpha70;
+        this.aFv = e.d.cp_cont_h_alpha70;
+        this.aFs = e.f.icon_card_like_video_n;
+        this.aFt = e.f.icon_card_like_video_s;
     }
 
     @Override // com.baidu.tbadk.core.view.BasePraiseView
     protected void initView(Context context) {
         if (context != null) {
             View inflate = View.inflate(context, e.h.praise_view_middlevideo, this);
-            this.aBW = (TextView) inflate.findViewById(e.g.thread_info_praise_num);
-            this.aBX = (ImageView) inflate.findViewById(e.g.thread_info_praise_img);
+            this.aFw = (TextView) inflate.findViewById(e.g.thread_info_praise_num);
+            this.aFx = (ImageView) inflate.findViewById(e.g.thread_info_praise_img);
             setDisPraiseFrom(6);
         }
     }
@@ -44,25 +44,25 @@ public class VideoAggregationPraiseView extends BasePraiseView<com.baidu.tieba.f
         if (this.mData == 0) {
             return 0L;
         }
-        return ((com.baidu.tieba.frs.aggregation.g) this.mData).zO();
+        return ((com.baidu.tieba.frs.aggregation.g) this.mData).AS();
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.baidu.tieba.frs.aggregation.g */
     /* JADX WARN: Multi-variable type inference failed */
     public void a(com.baidu.tieba.frs.aggregation.g gVar) {
         if (gVar != 0) {
-            if (gVar.aBr()) {
-                if (gVar.zR() == 0 || gVar.zR() == 1) {
-                    gVar.cK(2);
+            if (gVar.aDb()) {
+                if (gVar.AV() == 0 || gVar.AV() == 1) {
+                    gVar.cY(2);
                 }
-                if (gVar.zR() == 3 || gVar.zR() == 4) {
-                    gVar.cK(5);
+                if (gVar.AV() == 3 || gVar.AV() == 4) {
+                    gVar.cY(5);
                 }
             }
             this.mData = gVar;
             this.mThreadId = ((com.baidu.tieba.frs.aggregation.g) this.mData).threadId;
-            this.arH = ((com.baidu.tieba.frs.aggregation.g) this.mData).zO();
-            this.arI = ((com.baidu.tieba.frs.aggregation.g) this.mData).zP();
+            this.avh = ((com.baidu.tieba.frs.aggregation.g) this.mData).AS();
+            this.avi = ((com.baidu.tieba.frs.aggregation.g) this.mData).AT();
             updateUI();
         }
     }
@@ -71,68 +71,68 @@ public class VideoAggregationPraiseView extends BasePraiseView<com.baidu.tieba.f
     public void updateUI() {
         Context context = getContext();
         long num = getNum();
-        String string = context.getString(this.aBR);
+        String string = context.getString(this.aFr);
         if (num > 0) {
-            string = ao.P(num);
+            string = ao.W(num);
         }
-        this.aBW.setText(string);
-        this.aBW.setContentDescription(context.getString(this.aBR) + num);
-        if (((com.baidu.tieba.frs.aggregation.g) this.mData).aBr() && DG()) {
-            this.aBX.setImageDrawable(createStateDrawable(this.aBT, this.aBS));
-            this.aBW.setTextColor(createColorStateList(this.aBV, this.aBU));
+        this.aFw.setText(string);
+        this.aFw.setContentDescription(context.getString(this.aFr) + num);
+        if (((com.baidu.tieba.frs.aggregation.g) this.mData).aDb() && EK()) {
+            this.aFx.setImageDrawable(createStateDrawable(this.aFt, this.aFs));
+            this.aFw.setTextColor(createColorStateList(this.aFv, this.aFu));
             return;
         }
-        this.aBX.setImageDrawable(createStateDrawable(this.aBS, this.aBT));
-        this.aBW.setTextColor(createColorStateList(this.aBU, this.aBV));
+        this.aFx.setImageDrawable(createStateDrawable(this.aFs, this.aFt));
+        this.aFw.setTextColor(createColorStateList(this.aFu, this.aFv));
     }
 
-    public int DF() {
+    public int EJ() {
         int i;
         if (this.mData == 0) {
             return 0;
         }
-        if (((com.baidu.tieba.frs.aggregation.g) this.mData).aBr() && DG()) {
-            ((com.baidu.tieba.frs.aggregation.g) this.mData).cK(2);
-            ((com.baidu.tieba.frs.aggregation.g) this.mData).cI(0);
-            ((com.baidu.tieba.frs.aggregation.g) this.mData).x(((com.baidu.tieba.frs.aggregation.g) this.mData).zO() - 1);
-            ((com.baidu.tieba.frs.aggregation.g) this.mData).y(((com.baidu.tieba.frs.aggregation.g) this.mData).zP());
+        if (((com.baidu.tieba.frs.aggregation.g) this.mData).aDb() && EK()) {
+            ((com.baidu.tieba.frs.aggregation.g) this.mData).cY(2);
+            ((com.baidu.tieba.frs.aggregation.g) this.mData).cW(0);
+            ((com.baidu.tieba.frs.aggregation.g) this.mData).C(((com.baidu.tieba.frs.aggregation.g) this.mData).AS() - 1);
+            ((com.baidu.tieba.frs.aggregation.g) this.mData).D(((com.baidu.tieba.frs.aggregation.g) this.mData).AT());
             i = 1;
         } else {
-            if (((com.baidu.tieba.frs.aggregation.g) this.mData).aBr() && ((com.baidu.tieba.frs.aggregation.g) this.mData).zR() == 5) {
-                ((com.baidu.tieba.frs.aggregation.g) this.mData).y(((com.baidu.tieba.frs.aggregation.g) this.mData).zP() - 1);
+            if (((com.baidu.tieba.frs.aggregation.g) this.mData).aDb() && ((com.baidu.tieba.frs.aggregation.g) this.mData).AV() == 5) {
+                ((com.baidu.tieba.frs.aggregation.g) this.mData).D(((com.baidu.tieba.frs.aggregation.g) this.mData).AT() - 1);
             }
-            ((com.baidu.tieba.frs.aggregation.g) this.mData).cI(1);
-            ((com.baidu.tieba.frs.aggregation.g) this.mData).x(((com.baidu.tieba.frs.aggregation.g) this.mData).zO() + 1);
-            ((com.baidu.tieba.frs.aggregation.g) this.mData).cK(2);
-            com.baidu.tieba.n.a.bso().y(getTbPageContext());
+            ((com.baidu.tieba.frs.aggregation.g) this.mData).cW(1);
+            ((com.baidu.tieba.frs.aggregation.g) this.mData).C(((com.baidu.tieba.frs.aggregation.g) this.mData).AS() + 1);
+            ((com.baidu.tieba.frs.aggregation.g) this.mData).cY(2);
+            com.baidu.tieba.n.a.buh().y(getTbPageContext());
             i = 0;
         }
         return i;
     }
 
     public int L(View view) {
-        if (com.baidu.tbadk.util.g.isFastDoubleClick() || !ba.bG(getContext()) || this.mData == 0) {
+        if (com.baidu.tbadk.util.g.isFastDoubleClick() || !ba.bJ(getContext()) || this.mData == 0) {
             return -1;
         }
-        int DF = DF();
+        int EJ = EJ();
         updateUI();
-        dL(DF);
-        dM(DF);
+        dZ(EJ);
+        ea(EJ);
         bb bbVar = new bb();
         bbVar.setId(((com.baidu.tieba.frs.aggregation.g) this.mData).threadId);
         bbVar.setTid(((com.baidu.tieba.frs.aggregation.g) this.mData).threadId);
-        bbVar.cK(((com.baidu.tieba.frs.aggregation.g) this.mData).zR());
-        bbVar.cI(((com.baidu.tieba.frs.aggregation.g) this.mData).zQ());
-        bbVar.x(((com.baidu.tieba.frs.aggregation.g) this.mData).zO());
-        bbVar.y(((com.baidu.tieba.frs.aggregation.g) this.mData).zP());
-        a(DF, bbVar);
-        if (this.aBz != null) {
-            this.aBz.onClick(view);
+        bbVar.cY(((com.baidu.tieba.frs.aggregation.g) this.mData).AV());
+        bbVar.cW(((com.baidu.tieba.frs.aggregation.g) this.mData).AU());
+        bbVar.C(((com.baidu.tieba.frs.aggregation.g) this.mData).AS());
+        bbVar.D(((com.baidu.tieba.frs.aggregation.g) this.mData).AT());
+        a(EJ, bbVar);
+        if (this.aEZ != null) {
+            this.aEZ.onClick(view);
         }
-        return DF;
+        return EJ;
     }
 
-    public boolean DG() {
-        return this.mData != 0 && (((com.baidu.tieba.frs.aggregation.g) this.mData).zR() == 2 || ((com.baidu.tieba.frs.aggregation.g) this.mData).zR() == 1);
+    public boolean EK() {
+        return this.mData != 0 && (((com.baidu.tieba.frs.aggregation.g) this.mData).AV() == 2 || ((com.baidu.tieba.frs.aggregation.g) this.mData).AV() == 1);
     }
 }

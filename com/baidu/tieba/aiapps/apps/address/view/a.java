@@ -17,21 +17,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private MultiPickerDialog.Builder bDh;
-    private BdMultiPicker.OnMultiSelectedChangedListener bDi;
-    private InterfaceC0186a bDj;
+    private MultiPickerDialog.Builder bGA;
+    private BdMultiPicker.OnMultiSelectedChangedListener bGB;
+    private InterfaceC0196a bGC;
     private AiAppAlertDialog mMultiPickerDialog;
     private JSONArray mDataArray = new JSONArray();
     private JSONArray mDataIndex = new JSONArray();
-    private List<d> bCG = new ArrayList();
-    private List<d> bDf = new ArrayList();
-    private List<d> bDg = new ArrayList();
-    private Map<d, List<d>> bCH = new HashMap();
-    private Map<d, List<d>> bCI = new HashMap();
+    private List<d> bFZ = new ArrayList();
+    private List<d> bGy = new ArrayList();
+    private List<d> bGz = new ArrayList();
+    private Map<d, List<d>> bGa = new HashMap();
+    private Map<d, List<d>> bGb = new HashMap();
 
     /* renamed from: com.baidu.tieba.aiapps.apps.address.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0186a {
+    public interface InterfaceC0196a {
         void al(List<d> list);
     }
 
@@ -40,62 +40,62 @@ public class a {
     }
 
     private void initData(Context context) {
-        this.bCG = c.WO().WQ();
-        this.bCH = c.WO().WR();
-        this.bCI = c.WO().WS();
-        WY();
-        WZ();
-        this.bDh = new MultiPickerDialog.Builder(context);
-        this.bDi = new BdMultiPicker.OnMultiSelectedChangedListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.1
+        this.bFZ = c.XR().XT();
+        this.bGa = c.XR().XU();
+        this.bGb = c.XR().XV();
+        Yb();
+        Yc();
+        this.bGA = new MultiPickerDialog.Builder(context);
+        this.bGB = new BdMultiPicker.OnMultiSelectedChangedListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.1
             @Override // com.baidu.searchbox.ng.ai.apps.res.ui.BdMultiPicker.OnMultiSelectedChangedListener
             public void onMultiSelectedChanged(BdMultiPicker bdMultiPicker, JSONObject jSONObject) {
                 if (jSONObject != null) {
                     int optInt = jSONObject.optInt("column");
                     int optInt2 = jSONObject.optInt("current");
                     if (optInt != a.this.mDataArray.length() - 1) {
-                        a.this.ac(optInt, optInt2);
+                        a.this.ad(optInt, optInt2);
                     }
                 }
             }
         };
     }
 
-    private void WY() {
+    private void Yb() {
         this.mDataIndex.put(0);
         this.mDataIndex.put(0);
         this.mDataIndex.put(0);
     }
 
-    private void WZ() {
-        if (this.bCG.size() > 0) {
-            this.mDataArray.put(ap(this.bCG));
+    private void Yc() {
+        if (this.bFZ.size() > 0) {
+            this.mDataArray.put(ap(this.bFZ));
         }
-        ab(0, this.mDataIndex.optInt(0));
-        ab(1, this.mDataIndex.optInt(1));
+        ac(0, this.mDataIndex.optInt(0));
+        ac(1, this.mDataIndex.optInt(1));
     }
 
-    private void aa(int i, int i2) {
+    private void ab(int i, int i2) {
         JSONArray optJSONArray;
         if (this.mMultiPickerDialog != null && (optJSONArray = this.mDataArray.optJSONArray(i)) != null) {
             ((MultiPickerDialog) this.mMultiPickerDialog).updateWheel(i, optJSONArray, i2);
         }
     }
 
-    private void ab(int i, int i2) {
+    private void ac(int i, int i2) {
         JSONArray jSONArray;
         JSONArray jSONArray2 = null;
         if (i == 0) {
-            this.bDf = this.bCH.get(this.bCG.get(i2));
-            if (this.bDf.size() <= 0) {
+            this.bGy = this.bGa.get(this.bFZ.get(i2));
+            if (this.bGy.size() <= 0) {
                 jSONArray = null;
             } else {
-                jSONArray = ap(this.bDf);
+                jSONArray = ap(this.bGy);
             }
             jSONArray2 = jSONArray;
         } else if (i == 1) {
-            this.bDg = this.bCI.get(this.bDf.get(i2));
-            if (this.bDg.size() > 0) {
-                jSONArray2 = ap(this.bDg);
+            this.bGz = this.bGb.get(this.bGy.get(i2));
+            if (this.bGz.size() > 0) {
+                jSONArray2 = ap(this.bGz);
             }
         }
         if (jSONArray2 != null) {
@@ -117,15 +117,15 @@ public class a {
         return jSONArray;
     }
 
-    public void Xa() {
+    public void Yd() {
         if (this.mMultiPickerDialog == null) {
-            this.mMultiPickerDialog = this.bDh.setDataArray(this.mDataArray).setDataIndex(this.mDataIndex).setMultiSelectedListener(this.bDi).setTitle("城市选择").setPositiveButton(R.string.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.3
+            this.mMultiPickerDialog = this.bGA.setDataArray(this.mDataArray).setDataIndex(this.mDataIndex).setMultiSelectedListener(this.bGB).setTitle("城市选择").setPositiveButton(R.string.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.3
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
                     a.this.a(dialogInterface);
                     List<d> p = a.this.p(((MultiPickerDialog) dialogInterface).getCurrentIndex());
-                    if (a.this.bDj != null) {
-                        a.this.bDj.al(p);
+                    if (a.this.bGC != null) {
+                        a.this.bGC.al(p);
                     }
                 }
             }).setNegativeButton(R.string.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.2
@@ -140,9 +140,9 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public List<d> p(JSONArray jSONArray) {
         ArrayList arrayList = new ArrayList(3);
-        arrayList.add(this.bCG.get(jSONArray.optInt(0)));
-        arrayList.add(this.bDf.get(jSONArray.optInt(1)));
-        arrayList.add(this.bDg.get(jSONArray.optInt(2)));
+        arrayList.add(this.bFZ.get(jSONArray.optInt(0)));
+        arrayList.add(this.bGy.get(jSONArray.optInt(1)));
+        arrayList.add(this.bGz.get(jSONArray.optInt(2)));
         return arrayList;
     }
 
@@ -153,16 +153,16 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ac(int i, int i2) {
+    public void ad(int i, int i2) {
         int i3 = i;
         while (i3 < this.mDataArray.length() - 1) {
-            ab(i3, i3 == i ? i2 : 0);
-            aa(i3 + 1, 0);
+            ac(i3, i3 == i ? i2 : 0);
+            ab(i3 + 1, 0);
             i3++;
         }
     }
 
-    public void a(InterfaceC0186a interfaceC0186a) {
-        this.bDj = interfaceC0186a;
+    public void a(InterfaceC0196a interfaceC0196a) {
+        this.bGC = interfaceC0196a;
     }
 }

@@ -15,5 +15,5 @@ public interface b {
 
     void aM(View view);
 
-    boolean mi(int i);
+    boolean my(int i);
 }

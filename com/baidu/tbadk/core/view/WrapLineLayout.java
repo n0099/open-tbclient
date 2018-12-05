@@ -8,19 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class WrapLineLayout extends ViewGroup {
-    private List<List<View>> aHE;
-    private List<Integer> aHF;
+    private List<List<View>> aLe;
+    private List<Integer> aLf;
 
     public WrapLineLayout(Context context) {
         super(context);
-        this.aHE = new ArrayList();
-        this.aHF = new ArrayList();
+        this.aLe = new ArrayList();
+        this.aLf = new ArrayList();
     }
 
     public WrapLineLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aHE = new ArrayList();
-        this.aHF = new ArrayList();
+        this.aLe = new ArrayList();
+        this.aLf = new ArrayList();
     }
 
     @Override // android.view.ViewGroup
@@ -91,8 +91,8 @@ public class WrapLineLayout extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        this.aHE.clear();
-        this.aHF.clear();
+        this.aLe.clear();
+        this.aLf.clear();
         int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
         ArrayList arrayList = new ArrayList();
         int childCount = getChildCount();
@@ -105,8 +105,8 @@ public class WrapLineLayout extends ViewGroup {
             int measuredWidth = childAt.getMeasuredWidth();
             int measuredHeight = childAt.getMeasuredHeight();
             if (marginLayoutParams.leftMargin + measuredWidth + marginLayoutParams.rightMargin + i6 > width) {
-                this.aHF.add(Integer.valueOf(i5));
-                this.aHE.add(arrayList);
+                this.aLf.add(Integer.valueOf(i5));
+                this.aLe.add(arrayList);
                 i6 = 0;
                 arrayList = new ArrayList();
             }
@@ -117,17 +117,17 @@ public class WrapLineLayout extends ViewGroup {
             i5 = max;
             i6 = i8;
         }
-        this.aHF.add(Integer.valueOf(i5));
-        this.aHE.add(arrayList);
+        this.aLf.add(Integer.valueOf(i5));
+        this.aLe.add(arrayList);
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        int size = this.aHE.size();
+        int size = this.aLe.size();
         int i9 = 0;
         int i10 = paddingTop;
         int i11 = paddingLeft;
         while (i9 < size) {
-            List<View> list = this.aHE.get(i9);
-            int intValue = this.aHF.get(i9).intValue();
+            List<View> list = this.aLe.get(i9);
+            int intValue = this.aLf.get(i9).intValue();
             int i12 = 0;
             while (true) {
                 int i13 = i12;

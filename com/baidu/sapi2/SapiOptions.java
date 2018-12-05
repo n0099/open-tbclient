@@ -6,7 +6,6 @@ import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import com.baidu.searchbox.ng.ai.apps.scheme.actions.OpenAppAction;
-import com.baidu.searchbox.ng.ai.apps.scheme.actions.RequestPolymerPaymentAction;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -458,7 +457,7 @@ public final class SapiOptions {
         hashMap.put("com.zongheng.reader(.*)", "b9c43ba43f1e150d4f1670ae09a89a7f");
         hashMap.put("com.baidu.doctor.doctorask", "13a0a8019be4015ed20e075d824f1696");
         hashMap.put("com.baidu.k12edu", "610d60c69d2adf4b57fc6c2ec83fecbf");
-        hashMap.put(RequestPolymerPaymentAction.PACKAGE_NAME, "de74282b18c0847e64b2b3f0ebbfe0a0");
+        hashMap.put("com.baidu.wallet", "de74282b18c0847e64b2b3f0ebbfe0a0");
         hashMap.put("com.baidu.clouda.mobile.crm", "561e009b4a1f97012bf90dfed6c054d5");
         hashMap.put("com.dianxinos.optimizer.channel", "bd3df198d50f0dafa3c5804d342d3698");
         hashMap.put("com.baidu.lbs.bus", "3d96c8b0be8fd5b1db754b8dbb73f23e");
@@ -498,7 +497,7 @@ public final class SapiOptions {
     /* JADX INFO: Access modifiers changed from: package-private */
     public Map<String, Integer> d() {
         HashMap hashMap = new HashMap();
-        hashMap.put(RequestPolymerPaymentAction.PACKAGE_NAME, 1);
+        hashMap.put("com.baidu.wallet", 1);
         hashMap.put("com.nuomi", 2);
         hashMap.put("com.baidu.lbs.waimai", 3);
         hashMap.put("com.baidu.searchbox(.*)", 4);

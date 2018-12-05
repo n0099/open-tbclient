@@ -8,12 +8,12 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class k {
     private long Sx;
-    private JSONObject hUF;
-    private int hUG;
-    private String hUH;
-    private boolean hUI = false;
-    private int hUi;
-    private JSONArray hUk;
+    private JSONObject ibP;
+    private int ibQ;
+    private String ibR;
+    private boolean ibS = false;
+    private int ibs;
+    private JSONArray ibu;
     private String mCategory;
     private String mContent;
     private long mEndTime;
@@ -25,9 +25,9 @@ public class k {
 
     public k(String str, int i, String str2, int i2) {
         this.mId = str;
-        this.hUi = i;
+        this.ibs = i;
         this.mContent = str2;
-        this.hUG = i2;
+        this.ibQ = i2;
     }
 
     public String getId() {
@@ -38,12 +38,12 @@ public class k {
         this.mId = str;
     }
 
-    public int bOX() {
-        return this.hUi;
+    public int bRd() {
+        return this.ibs;
     }
 
-    public void xj(int i) {
-        this.hUi = i;
+    public void xG(int i) {
+        this.ibs = i;
     }
 
     public String getContent() {
@@ -54,15 +54,15 @@ public class k {
         this.mContent = str;
     }
 
-    public JSONObject bPa() {
-        return this.hUF;
+    public JSONObject bRg() {
+        return this.ibP;
     }
 
-    public long bPd() {
+    public long bRj() {
         return this.Sx;
     }
 
-    public void dg(long j) {
+    public void dn(long j) {
         this.Sx = j;
     }
 
@@ -78,16 +78,16 @@ public class k {
         return this.mState;
     }
 
-    public void xF(String str) {
+    public void yi(String str) {
         this.mState = str;
     }
 
-    public int bOY() {
-        return this.hUG;
+    public int bRe() {
+        return this.ibQ;
     }
 
-    public String bOZ() {
-        return this.hUH;
+    public String bRf() {
+        return this.ibR;
     }
 
     public String getCategory() {
@@ -98,35 +98,35 @@ public class k {
         this.mCategory = str;
     }
 
-    public boolean bOU() {
-        return this.hUI;
+    public boolean bRa() {
+        return this.ibS;
     }
 
-    public void oI(boolean z) {
-        this.hUI = z;
+    public void oK(boolean z) {
+        this.ibS = z;
     }
 
-    public void xG(String str) {
-        this.hUH = str;
+    public void yj(String str) {
+        this.ibR = str;
     }
 
-    public void bPb() {
-        if (e.bOK().xw(this.mId)) {
-            this.hUH = o.bPm().XZ();
+    public void bRh() {
+        if (e.bQQ().xZ(this.mId)) {
+            this.ibR = o.bRs().Zd();
         }
     }
 
-    public void xH(String str) {
+    public void yk(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.hUk = new JSONArray(str);
+                this.ibu = new JSONArray(str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public JSONArray bPe() {
-        return this.hUk;
+    public JSONArray bRk() {
+        return this.ibu;
     }
 }

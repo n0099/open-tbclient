@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class at extends com.baidu.adp.base.a.c {
     public at(Context context) {
-        super(context, TbConfig.PHONE_DATEBASE_NAME, 18);
+        super(context, TbConfig.PHONE_DATEBASE_NAME, 19);
     }
 
     @Override // com.baidu.adp.base.a.c
@@ -28,6 +28,7 @@ public class at extends com.baidu.adp.base.a.c {
             o(sQLiteDatabase);
             p(sQLiteDatabase);
             q(sQLiteDatabase);
+            r(sQLiteDatabase);
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "DatabaseHelper.createTables", new Object[0]);
         }
@@ -62,6 +63,7 @@ public class at extends com.baidu.adp.base.a.c {
         b(sQLiteDatabase, "DROP TABLE IF EXISTS emotions");
         b(sQLiteDatabase, "DROP TABLE IF EXISTS local_game");
         b(sQLiteDatabase, "DROP TABLE IF EXISTS user_graffiti");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS activity_mission_info;");
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper, com.baidu.adp.base.a.a
@@ -124,6 +126,9 @@ public class at extends com.baidu.adp.base.a.c {
         if (i < 18) {
             q(sQLiteDatabase);
         }
+        if (i < 19) {
+            r(sQLiteDatabase);
+        }
     }
 
     protected void j(SQLiteDatabase sQLiteDatabase) {
@@ -166,5 +171,9 @@ public class at extends com.baidu.adp.base.a.c {
 
     protected void q(SQLiteDatabase sQLiteDatabase) {
         b(sQLiteDatabase, "ALTER TABLE account_data ADD name_show varchar(255)");
+    }
+
+    protected void r(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, "CREATE TABLE if not exists activity_mission_info(id INTEGER primary key autoincrement, activityid INTEGER, missionid INTEGER, activitysource TEXT, calltype INTEGER, tasktype INTEGER, browsetimepage TEXT, browsetime INTEGER, threadnum INTEGER, forumnum INTEGER, cleartype INTEGER, cleartime INTEGER, specificcleartime INTEGER, tid INTEGER, fid INTEGER, threadtext TEXT, threadimg TEXT, threadforum INTEGER)");
     }
 }

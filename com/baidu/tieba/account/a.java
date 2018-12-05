@@ -15,14 +15,14 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a extends BaseAdapter {
-    private View.OnClickListener aEo;
+    private View.OnClickListener aHO;
     private BaseActivity mContext;
     private List<AccountData> mData = null;
-    private boolean bxo = false;
+    private boolean bAL = false;
 
     public a(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         this.mContext = baseActivity;
-        this.aEo = onClickListener;
+        this.aHO = onClickListener;
     }
 
     public void setData(List<AccountData> list) {
@@ -67,46 +67,46 @@ public class a extends BaseAdapter {
         View view3;
         Exception exc;
         View view4;
-        C0174a c0174a;
+        C0184a c0184a;
         View view5;
         try {
             try {
                 if (view != null) {
-                    c0174a = (C0174a) view.getTag();
+                    c0184a = (C0184a) view.getTag();
                     view5 = view;
                 } else if (getItemViewType(i) == 0) {
                     view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(e.h.account_item, viewGroup, false);
-                    c0174a = new C0174a();
-                    c0174a.bxp = (TextView) view5.findViewById(e.g.account);
-                    c0174a.bxr = (ImageView) view5.findViewById(e.g.active);
-                    c0174a.bxs = (TextView) view5.findViewById(e.g.delete);
-                    c0174a.mLine = view5.findViewById(e.g.account_item_line);
-                    c0174a.bxs.setOnClickListener(this.aEo);
-                    view5.setTag(c0174a);
+                    c0184a = new C0184a();
+                    c0184a.bAM = (TextView) view5.findViewById(e.g.account);
+                    c0184a.bAO = (ImageView) view5.findViewById(e.g.active);
+                    c0184a.bAP = (TextView) view5.findViewById(e.g.delete);
+                    c0184a.mLine = view5.findViewById(e.g.account_item_line);
+                    c0184a.bAP.setOnClickListener(this.aHO);
+                    view5.setTag(c0184a);
                 } else {
                     view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(e.h.account_add_item, viewGroup, false);
-                    c0174a = new C0174a();
-                    c0174a.bxq = (TextView) view5.findViewById(e.g.add_text);
-                    view5.setTag(c0174a);
+                    c0184a = new C0184a();
+                    c0184a.bAN = (TextView) view5.findViewById(e.g.add_text);
+                    view5.setTag(c0184a);
                 }
                 if (getItemViewType(i) == 0) {
                     AccountData accountData = (AccountData) getItem(i);
-                    c0174a.bxr.setVisibility(8);
-                    c0174a.bxs.setVisibility(8);
-                    c0174a.bxs.setTag(accountData);
+                    c0184a.bAO.setVisibility(8);
+                    c0184a.bAP.setVisibility(8);
+                    c0184a.bAP.setTag(accountData);
                     if (accountData != null) {
-                        c0174a.bxp.setText(accountData.getAccountNameShow());
+                        c0184a.bAM.setText(accountData.getAccountNameShow());
                         if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                            c0174a.bxr.setVisibility(0);
+                            c0184a.bAO.setVisibility(0);
                         }
-                        if (this.bxo) {
-                            c0174a.bxs.setVisibility(0);
+                        if (this.bAL) {
+                            c0184a.bAP.setVisibility(0);
                         }
                     }
                     if (i == getCount() - 2) {
-                        c0174a.mLine.setVisibility(8);
+                        c0184a.mLine.setVisibility(8);
                     } else {
-                        c0174a.mLine.setVisibility(0);
+                        c0184a.mLine.setVisibility(0);
                     }
                 }
                 this.mContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
@@ -149,12 +149,12 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void dp(boolean z) {
-        this.bxo = z;
+    public void dq(boolean z) {
+        this.bAL = z;
     }
 
-    public boolean UO() {
-        return this.bxo;
+    public boolean VU() {
+        return this.bAL;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -172,14 +172,14 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.account.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    private class C0174a {
-        TextView bxp;
-        TextView bxq;
-        ImageView bxr;
-        TextView bxs;
+    private class C0184a {
+        TextView bAM;
+        TextView bAN;
+        ImageView bAO;
+        TextView bAP;
         View mLine;
 
-        private C0174a() {
+        private C0184a() {
         }
     }
 }

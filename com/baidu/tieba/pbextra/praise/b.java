@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class b {
-    private View bCr;
-    private HeadImageView giC;
-    private TextView giD;
-    private TextView giE;
-    private ImageView giF;
+    private View bFK;
+    private HeadImageView gps;
+    private TextView gpt;
+    private TextView gpu;
+    private ImageView gpv;
 
     public static b d(Context context, View view) {
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
@@ -25,28 +25,28 @@ public class b {
     }
 
     private b(Context context) {
-        this.bCr = null;
-        this.giC = null;
-        this.giD = null;
-        this.giE = null;
-        this.giF = null;
-        this.bCr = LayoutInflater.from(context).inflate(e.h.zan_list_item, (ViewGroup) null);
-        this.giC = (HeadImageView) this.bCr.findViewById(e.g.zan_list_item_head);
-        this.giD = (TextView) this.bCr.findViewById(e.g.zan_list_item_name);
-        this.giE = (TextView) this.bCr.findViewById(e.g.zan_list_item_time);
-        this.giF = (ImageView) this.bCr.findViewById(e.g.zan_list_item_line_bottom);
-        this.giF.setVisibility(0);
-        this.bCr.setTag(this);
+        this.bFK = null;
+        this.gps = null;
+        this.gpt = null;
+        this.gpu = null;
+        this.gpv = null;
+        this.bFK = LayoutInflater.from(context).inflate(e.h.zan_list_item, (ViewGroup) null);
+        this.gps = (HeadImageView) this.bFK.findViewById(e.g.zan_list_item_head);
+        this.gpt = (TextView) this.bFK.findViewById(e.g.zan_list_item_name);
+        this.gpu = (TextView) this.bFK.findViewById(e.g.zan_list_item_time);
+        this.gpv = (ImageView) this.bFK.findViewById(e.g.zan_list_item_line_bottom);
+        this.gpv.setVisibility(0);
+        this.bFK.setTag(this);
     }
 
     public View getView() {
-        return this.bCr;
+        return this.bFK;
     }
 
     public void a(String str, String str2, long j, boolean z) {
-        this.giD.setText(str);
-        this.giC.setImageDrawable(null);
-        this.giE.setText(ao.E(j));
-        this.giC.startLoad(str2, 28, false);
+        this.gpt.setText(str);
+        this.gps.setImageDrawable(null);
+        this.gpu.setText(ao.L(j));
+        this.gps.startLoad(str2, 28, false);
     }
 }

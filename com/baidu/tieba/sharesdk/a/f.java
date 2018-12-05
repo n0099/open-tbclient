@@ -27,25 +27,25 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import java.io.ByteArrayOutputStream;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.tieba.sharesdk.a.a {
-    private int gSB;
-    private ShareEntity gSC;
-    private final com.baidu.adp.lib.f.b<f.a> gSJ;
-    private com.baidu.tieba.sharesdk.b.b gSN;
-    private IWXAPI gSR;
-    private b gSS;
-    private final a gST;
+    private com.baidu.tieba.sharesdk.b.b gZD;
+    private IWXAPI gZH;
+    private b gZI;
+    private final a gZJ;
+    private int gZr;
+    private ShareEntity gZs;
+    private final com.baidu.adp.lib.f.b<f.a> gZz;
 
     public f(Context context, int i) {
         super(context);
-        this.gSJ = new com.baidu.adp.lib.f.b<f.a>() { // from class: com.baidu.tieba.sharesdk.a.f.1
+        this.gZz = new com.baidu.adp.lib.f.b<f.a>() { // from class: com.baidu.tieba.sharesdk.a.f.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
             /* renamed from: a */
             public void onLoaded(f.a aVar, String str, int i2) {
                 super.onLoaded(aVar, str, i2);
-                if (aVar == null || aVar.aAV == null || !f.this.b(f.this.gSC, aVar)) {
-                    f.this.gST.onLoaded((com.baidu.adp.widget.ImageView.a) null, str, i2);
+                if (aVar == null || aVar.aEv == null || !f.this.b(f.this.gZs, aVar)) {
+                    f.this.gZJ.onLoaded((com.baidu.adp.widget.ImageView.a) null, str, i2);
                 }
             }
 
@@ -53,77 +53,77 @@ public class f extends com.baidu.tieba.sharesdk.a.a {
             @Override // com.baidu.adp.lib.f.b
             public void onCancelled(String str) {
                 super.onCancelled(str);
-                f.this.gST.onCancelled(str);
+                f.this.gZJ.onCancelled(str);
             }
         };
-        this.gST = new a();
+        this.gZJ = new a();
         this.context = context.getApplicationContext();
-        this.gSB = i;
-        this.gSR = WXAPIFactory.createWXAPI(context.getApplicationContext(), TbConfig.WEIXIN_SHARE_APP_ID);
+        this.gZr = i;
+        this.gZH = WXAPIFactory.createWXAPI(context.getApplicationContext(), TbConfig.WEIXIN_SHARE_APP_ID);
     }
 
-    private void bwN() {
+    private void byH() {
         if (this.context != null) {
-            this.gSS = new b();
+            this.gZI = new b();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(WXEntryActivityConfig.ACTION_WX_SHARE_RESULT);
-            this.context.registerReceiver(this.gSS, intentFilter);
+            this.context.registerReceiver(this.gZI, intentFilter);
         }
     }
 
-    private void bwO() {
-        if (this.context != null && this.gSS != null) {
-            this.context.unregisterReceiver(this.gSS);
+    private void byI() {
+        if (this.context != null && this.gZI != null) {
+            this.context.unregisterReceiver(this.gZI);
         }
     }
 
     @Override // com.baidu.tieba.sharesdk.a.a
     public void q(BdUniqueId bdUniqueId) {
         super.q(bdUniqueId);
-        bwN();
+        byH();
     }
 
     @Override // com.baidu.tieba.sharesdk.a.a
     public void onDestroy() {
-        bwO();
+        byI();
         super.onDestroy();
     }
 
     @Override // com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
-        if (shareEntity == null || this.gSR == null) {
-            uj(2);
+        if (shareEntity == null || this.gZH == null) {
+            uE(2);
             if (bVar != null) {
-                bVar.bK(0, 2);
+                bVar.bI(0, 2);
                 return;
             }
             return;
         }
-        this.gSC = shareEntity;
-        this.gSN = bVar;
-        this.gSB = shareEntity.bwJ();
-        if (!this.gSR.isWXAppInstalled()) {
-            if (this.gSN != null) {
-                this.gSN.bK(this.gSB, 2);
+        this.gZs = shareEntity;
+        this.gZD = bVar;
+        this.gZr = shareEntity.byC();
+        if (!this.gZH.isWXAppInstalled()) {
+            if (this.gZD != null) {
+                this.gZD.bI(this.gZr, 2);
             }
-            uy(getString(e.j.share_weixin_not_installed_yet, new Object[0]));
-        } else if (!this.gSR.isWXAppSupportAPI()) {
-            if (this.gSN != null) {
-                this.gSN.bK(this.gSB, 2);
+            uZ(getString(e.j.share_weixin_not_installed_yet, new Object[0]));
+        } else if (!this.gZH.isWXAppSupportAPI()) {
+            if (this.gZD != null) {
+                this.gZD.bI(this.gZr, 2);
             }
-            uy(getString(e.j.share_failed, new Object[0]));
+            uZ(getString(e.j.share_failed, new Object[0]));
         } else {
-            String xn = shareEntity.xn();
-            if (!TextUtils.isEmpty(xn) && (xn.startsWith("http://") || xn.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
-                if (this.gSC.bwK()) {
-                    com.baidu.adp.lib.f.c.jA().a(xn, 34, this.gSJ, 0, 0, getPageId(), new Object[0]);
+            String ys = shareEntity.ys();
+            if (!TextUtils.isEmpty(ys) && (ys.startsWith("http://") || ys.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
+                if (this.gZs.byD() != 0) {
+                    com.baidu.adp.lib.f.c.jA().a(ys, 34, this.gZz, 0, 0, getPageId(), new Object[0]);
                 } else {
-                    com.baidu.adp.lib.f.c.jA().a(xn, 10, this.gST, 0, 0, getPageId(), new Object[0]);
+                    com.baidu.adp.lib.f.c.jA().a(ys, 10, this.gZJ, 0, 0, getPageId(), new Object[0]);
                 }
-            } else if (h(shareEntity.getImageUri())) {
-                uD(shareEntity.getImageUri().getPath());
+            } else if (i(shareEntity.getImageUri())) {
+                ve(shareEntity.getImageUri().getPath());
             } else {
-                bwP();
+                byJ();
             }
         }
     }
@@ -140,18 +140,18 @@ public class f extends com.baidu.tieba.sharesdk.a.a {
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((a) aVar, str, i);
             if (aVar == null) {
-                f.this.bwP();
+                f.this.byJ();
                 return;
             }
-            Bitmap oq = aVar.oq();
-            if (!TextUtils.isEmpty(f.this.gSC.getLinkUrl())) {
-                f.this.c(f.this.gSC, oq);
-            } else if (!TextUtils.isEmpty(f.this.gSC.getVideoUrl())) {
-                f.this.d(f.this.gSC, oq);
-            } else if (TextUtils.isEmpty(f.this.gSC.getContent())) {
-                f.this.b(f.this.gSC, oq);
+            Bitmap op = aVar.op();
+            if (!TextUtils.isEmpty(f.this.gZs.getLinkUrl())) {
+                f.this.c(f.this.gZs, op);
+            } else if (!TextUtils.isEmpty(f.this.gZs.getVideoUrl())) {
+                f.this.d(f.this.gZs, op);
+            } else if (TextUtils.isEmpty(f.this.gZs.getContent())) {
+                f.this.b(f.this.gZs, op);
             } else {
-                f.this.bwP();
+                f.this.byJ();
             }
         }
 
@@ -159,37 +159,37 @@ public class f extends com.baidu.tieba.sharesdk.a.a {
         @Override // com.baidu.adp.lib.f.b
         public void onCancelled(String str) {
             super.onCancelled(str);
-            if (f.this.gSN != null) {
-                f.this.gSN.bK(f.this.gSB, 3);
+            if (f.this.gZD != null) {
+                f.this.gZD.bI(f.this.gZr, 3);
             }
-            f.this.uj(3);
+            f.this.uE(3);
         }
     }
 
-    private void uD(String str) {
-        Bitmap uA = uA(str);
-        if (uA == null) {
-            uA = bwL();
+    private void ve(String str) {
+        Bitmap vb = vb(str);
+        if (vb == null) {
+            vb = byF();
         }
-        if (uA != null) {
-            b(this.gSC, uA);
+        if (vb != null) {
+            b(this.gZs, vb);
         } else {
-            c(this.gSC);
+            c(this.gZs);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bwP() {
-        Bitmap bwL = bwL();
-        if (bwL != null) {
-            b(this.gSC, bwL);
+    public void byJ() {
+        Bitmap byF = byF();
+        if (byF != null) {
+            b(this.gZs, byF);
         } else {
-            c(this.gSC);
+            c(this.gZs);
         }
     }
 
     private void c(ShareEntity shareEntity) {
-        if (shareEntity != null && this.gSR != null) {
+        if (shareEntity != null && this.gZH != null) {
             String content = shareEntity.getContent();
             WXTextObject wXTextObject = new WXTextObject();
             wXTextObject.text = content;
@@ -197,71 +197,71 @@ public class f extends com.baidu.tieba.sharesdk.a.a {
             wXMediaMessage.mediaObject = wXTextObject;
             wXMediaMessage.description = content;
             SendMessageToWX.Req req = new SendMessageToWX.Req();
-            req.transaction = uE("textShare");
+            req.transaction = vf("textShare");
             req.message = wXMediaMessage;
-            req.scene = bwQ();
-            this.gSR.sendReq(req);
+            req.scene = byK();
+            this.gZH.sendReq(req);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(ShareEntity shareEntity, Bitmap bitmap) {
-        if (shareEntity != null && this.gSR != null && bitmap != null) {
+        if (shareEntity != null && this.gZH != null && bitmap != null) {
             WXImageObject wXImageObject = new WXImageObject(bitmap);
             wXImageObject.imageData = com.baidu.adp.lib.util.d.kE().Bitmap2Bytes(bitmap, 85);
             WXMediaMessage wXMediaMessage = new WXMediaMessage();
             wXMediaMessage.mediaObject = wXImageObject;
             wXMediaMessage.thumbData = x(bitmap);
             SendMessageToWX.Req req = new SendMessageToWX.Req();
-            req.transaction = uE("imageShare");
+            req.transaction = vf("imageShare");
             req.message = wXMediaMessage;
-            req.scene = bwQ();
-            this.gSR.sendReq(req);
+            req.scene = byK();
+            this.gZH.sendReq(req);
         }
     }
 
     private boolean a(ShareEntity shareEntity, f.a aVar) {
-        if (shareEntity == null || this.gSR == null || aVar == null || StringUtils.isNull(aVar.path) || aVar.aAV == null || aVar.aAV.oq() == null) {
+        if (shareEntity == null || this.gZH == null || aVar == null || StringUtils.isNull(aVar.path) || aVar.aEv == null || aVar.aEv.op() == null) {
             return false;
         }
         WXImageObject wXImageObject = new WXImageObject();
         wXImageObject.setImagePath(aVar.path);
         WXMediaMessage wXMediaMessage = new WXMediaMessage();
         wXMediaMessage.mediaObject = wXImageObject;
-        wXMediaMessage.thumbData = x(aVar.aAV.oq());
+        wXMediaMessage.thumbData = x(aVar.aEv.op());
         SendMessageToWX.Req req = new SendMessageToWX.Req();
-        req.transaction = uE("imageShare");
+        req.transaction = vf("imageShare");
         req.message = wXMediaMessage;
-        req.scene = bwQ();
-        this.gSR.sendReq(req);
+        req.scene = byK();
+        this.gZH.sendReq(req);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean b(ShareEntity shareEntity, f.a aVar) {
-        return this.gSB == 2 ? a(shareEntity, aVar) : c(shareEntity, aVar);
+        return (this.gZr == 2 || this.gZs.byD() == 1) ? a(shareEntity, aVar) : c(shareEntity, aVar);
     }
 
     private boolean c(ShareEntity shareEntity, f.a aVar) {
-        if (shareEntity == null || this.gSR == null || aVar == null || aVar.aAV == null || StringUtils.isNull(aVar.path)) {
+        if (shareEntity == null || this.gZH == null || aVar == null || aVar.aEv == null || StringUtils.isNull(aVar.path)) {
             return false;
         }
         WXEmojiObject wXEmojiObject = new WXEmojiObject();
         wXEmojiObject.emojiPath = aVar.path;
         WXMediaMessage wXMediaMessage = new WXMediaMessage();
         wXMediaMessage.mediaObject = wXEmojiObject;
-        wXMediaMessage.thumbData = x(aVar.aAV.oq());
+        wXMediaMessage.thumbData = x(aVar.aEv.op());
         SendMessageToWX.Req req = new SendMessageToWX.Req();
-        req.transaction = uE("imageShare");
+        req.transaction = vf("imageShare");
         req.message = wXMediaMessage;
-        req.scene = bwQ();
-        this.gSR.sendReq(req);
+        req.scene = byK();
+        this.gZH.sendReq(req);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(ShareEntity shareEntity, Bitmap bitmap) {
-        if (shareEntity != null && this.gSR != null) {
+        if (shareEntity != null && this.gZH != null) {
             WXWebpageObject wXWebpageObject = new WXWebpageObject();
             wXWebpageObject.webpageUrl = shareEntity.getLinkUrl();
             WXMediaMessage wXMediaMessage = new WXMediaMessage(wXWebpageObject);
@@ -269,16 +269,16 @@ public class f extends com.baidu.tieba.sharesdk.a.a {
             wXMediaMessage.description = shareEntity.getContent();
             wXMediaMessage.thumbData = x(bitmap);
             SendMessageToWX.Req req = new SendMessageToWX.Req();
-            req.transaction = uE("webpageShare");
+            req.transaction = vf("webpageShare");
             req.message = wXMediaMessage;
-            req.scene = bwQ();
-            this.gSR.sendReq(req);
+            req.scene = byK();
+            this.gZH.sendReq(req);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(ShareEntity shareEntity, Bitmap bitmap) {
-        if (shareEntity != null && this.gSR != null) {
+        if (shareEntity != null && this.gZH != null) {
             WXVideoObject wXVideoObject = new WXVideoObject();
             wXVideoObject.videoUrl = shareEntity.getVideoUrl();
             WXMediaMessage wXMediaMessage = new WXMediaMessage(wXVideoObject);
@@ -286,24 +286,24 @@ public class f extends com.baidu.tieba.sharesdk.a.a {
             wXMediaMessage.description = shareEntity.getContent();
             wXMediaMessage.thumbData = x(bitmap);
             SendMessageToWX.Req req = new SendMessageToWX.Req();
-            req.transaction = uE("videoShare");
+            req.transaction = vf("videoShare");
             req.message = wXMediaMessage;
-            req.scene = bwQ();
-            this.gSR.sendReq(req);
+            req.scene = byK();
+            this.gZH.sendReq(req);
         }
     }
 
-    private int bwQ() {
-        if (this.gSB == 3) {
+    private int byK() {
+        if (this.gZr == 3) {
             return 0;
         }
-        if (this.gSB == 2) {
+        if (this.gZr == 2) {
             return 1;
         }
         return -1;
     }
 
-    private String uE(String str) {
+    private String vf(String str) {
         return str == null ? String.valueOf(System.currentTimeMillis()) : str + System.currentTimeMillis();
     }
 
@@ -318,21 +318,21 @@ public class f extends com.baidu.tieba.sharesdk.a.a {
             if (intent.hasExtra("weixin_result_errCode")) {
                 int intExtra = intent.getIntExtra("weixin_result_errCode", 0);
                 if (intExtra == 0) {
-                    if (f.this.gSN != null) {
-                        f.this.gSN.bK(f.this.gSB, 1);
+                    if (f.this.gZD != null) {
+                        f.this.gZD.bI(f.this.gZr, 1);
                     }
-                    f.this.uj(1);
+                    f.this.uE(1);
                 } else if (intExtra == -2) {
-                    if (f.this.gSN != null) {
-                        f.this.gSN.bK(f.this.gSB, 3);
+                    if (f.this.gZD != null) {
+                        f.this.gZD.bI(f.this.gZr, 3);
                     }
-                    f.this.uj(3);
+                    f.this.uE(3);
                 } else {
                     f.this.ah(intExtra, intent.getStringExtra("weixin_result_errMsg"));
-                    if (f.this.gSN != null) {
-                        f.this.gSN.bK(f.this.gSB, 2);
+                    if (f.this.gZD != null) {
+                        f.this.gZD.bI(f.this.gZr, 2);
                     }
-                    f.this.uj(2);
+                    f.this.uE(2);
                 }
             }
         }
@@ -340,8 +340,8 @@ public class f extends com.baidu.tieba.sharesdk.a.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ah(int i, String str) {
-        if (this.gSC != null && !StringUtils.isNull(this.gSC.xn())) {
-            com.baidu.tbadk.core.d.a.a("socail_share", -1L, 0, WXEntryActivityConfig.WX_SHARE_FAIL, i, "", "share_fail_exception", str + ETAG.ITEM_SEPARATOR + this.gSC.xn());
+        if (this.gZs != null && !StringUtils.isNull(this.gZs.ys())) {
+            com.baidu.tbadk.core.d.a.a("socail_share", -1L, 0, WXEntryActivityConfig.WX_SHARE_FAIL, i, "", "share_fail_exception", str + ETAG.ITEM_SEPARATOR + this.gZs.ys());
         }
     }
 
@@ -349,7 +349,7 @@ public class f extends com.baidu.tieba.sharesdk.a.a {
         try {
             Bitmap d = d(bitmap, 120);
             if (d == null) {
-                d = bwL();
+                d = byF();
             }
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             d.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);

@@ -55,7 +55,7 @@ public class d {
         } else if (!this.isRunning) {
             this.isRunning = true;
             this.xU.removeMessages(1);
-            if (com.baidu.adp.lib.webSocket.h.lF().lI()) {
+            if (com.baidu.adp.lib.webSocket.h.lE().lH()) {
                 BdLog.d("启动重连策略失败，  WebSocketClient opened");
                 am("in Opened");
                 return;

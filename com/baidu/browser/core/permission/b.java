@@ -16,7 +16,7 @@ public class b {
             return com.baidu.e.a.a.checkPermissionGranted(context, "android.permission.CAMERA");
         } catch (Throwable th) {
             BdLog.e(TAG, th);
-            return !com.baidu.e.a.up();
+            return !com.baidu.e.a.uo();
         }
     }
 
@@ -37,7 +37,7 @@ public class b {
             return z;
         } catch (Throwable th) {
             BdLog.e(TAG, th);
-            return !com.baidu.e.a.up();
+            return !com.baidu.e.a.uo();
         }
     }
 

@@ -13,7 +13,7 @@ import com.baidu.tieba.card.ad;
 import com.baidu.tieba.card.o;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.a, com.baidu.tieba.card.a.a<com.baidu.tieba.card.e>> {
-    private com.baidu.tieba.card.e dOg;
+    private com.baidu.tieba.card.e dUJ;
     private String mForumId;
     private String mForumName;
     private TbPageContext<?> mPageContext;
@@ -21,7 +21,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.a, com.
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(TbPageContext tbPageContext, String str, String str2) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.a.ddI);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.a.dkq);
         this.mForumId = str;
         this.mForumName = str2;
         this.mPageContext = tbPageContext;
@@ -32,8 +32,8 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.a, com.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: Z */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.e> onCreateViewHolder(ViewGroup viewGroup) {
-        this.dOg = new com.baidu.tieba.card.e(this.mPageContext, this.mForumId, this.mForumName);
-        return new com.baidu.tieba.card.a.a<>(this.dOg);
+        this.dUJ = new com.baidu.tieba.card.e(this.mPageContext, this.mForumId, this.mForumName);
+        return new com.baidu.tieba.card.a.a<>(this.dUJ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,30 +41,30 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.a, com.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.a aVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.e> aVar2) {
-        if (aVar2.aor() == null) {
+        if (aVar2.aqe() == null) {
             return null;
         }
-        aVar2.aor().a(aVar);
-        aVar2.aor().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar2.aor().b(new ad<com.baidu.tieba.e.a>() { // from class: com.baidu.tieba.frs.gamerecommend.a.b.1
+        aVar2.aqe().a(aVar);
+        aVar2.aqe().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar2.aqe().b(new ad<com.baidu.tieba.e.a>() { // from class: com.baidu.tieba.frs.gamerecommend.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             /* renamed from: b */
             public void a(View view2, com.baidu.tieba.e.a aVar3) {
-                TiebaStatic.log(new am("c13047").x("obj_locate", 2).ax(ImageViewerConfig.FORUM_ID, b.this.mForumId));
+                TiebaStatic.log(new am("c13047").x("obj_locate", 2).aA(ImageViewerConfig.FORUM_ID, b.this.mForumId));
                 b.this.a(view2, aVar3);
             }
         });
-        return aVar2.aor().getView();
+        return aVar2.aqe().getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, com.baidu.tieba.e.a aVar) {
-        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(aVar.YL(), null, o.yq(), 18003, true, false, false);
-        createFromThreadCfg.setForumId(String.valueOf(aVar.YL().getFid()));
-        createFromThreadCfg.setForumName(aVar.YL().yI());
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(aVar.ZR(), null, o.zu(), 18003, true, false, false);
+        createFromThreadCfg.setForumId(String.valueOf(aVar.ZR().getFid()));
+        createFromThreadCfg.setForumName(aVar.ZR().zM());
         createFromThreadCfg.setStartFrom(0);
-        o.me(aVar.YL().getTid());
+        o.mD(aVar.ZR().getTid());
         this.mPageContext.sendMessage(new CustomMessage(2004001, createFromThreadCfg));
         if (this.vh != null) {
             this.vh.a(view, aVar);

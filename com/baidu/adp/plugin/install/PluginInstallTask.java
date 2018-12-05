@@ -8,7 +8,7 @@ public class PluginInstallTask extends OrmObject {
     protected String Js;
     protected String apkFilePath;
 
-    public long mv() {
+    public long mu() {
         return Math.max(Math.min(this.JT * 80, 240000L), 60000L);
     }
 }

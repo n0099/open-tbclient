@@ -14,21 +14,21 @@ public class InvoiceInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: hH */
+        /* renamed from: hV */
         public InvoiceInfo[] newArray(int i) {
             return new InvoiceInfo[i];
         }
     };
     @com.google.gson.a.c("tax_number")
-    public String bDC;
+    public String bHf;
     @com.google.gson.a.c("company_address")
-    public String bDD;
+    public String bHg;
     @com.google.gson.a.c("telephone")
-    public String bDE;
+    public String bHh;
     @com.google.gson.a.c("bank_name")
-    public String bDF;
+    public String bHi;
     @com.google.gson.a.c("bank_account")
-    public String bDG;
+    public String bHj;
     @com.google.gson.a.c("id")
     public long mId;
     @com.google.gson.a.c("is_default")
@@ -44,28 +44,28 @@ public class InvoiceInfo implements Parcelable {
     public InvoiceInfo(int i, String str, String str2, String str3, String str4, String str5, String str6) {
         this.mType = i;
         this.mTitle = str;
-        this.bDC = str2;
-        this.bDD = str3;
-        this.bDE = str4;
-        this.bDF = str5;
-        this.bDG = str6;
+        this.bHf = str2;
+        this.bHg = str3;
+        this.bHh = str4;
+        this.bHi = str5;
+        this.bHj = str6;
     }
 
     public InvoiceInfo(int i, String str, String str2) {
         this.mType = i;
         this.mTitle = str;
-        this.bDE = str2;
+        this.bHh = str2;
     }
 
     private InvoiceInfo(Parcel parcel) {
         this.mId = parcel.readLong();
         this.mType = parcel.readInt();
         this.mTitle = parcel.readString();
-        this.bDC = parcel.readString();
-        this.bDD = parcel.readString();
-        this.bDE = parcel.readString();
-        this.bDF = parcel.readString();
-        this.bDG = parcel.readString();
+        this.bHf = parcel.readString();
+        this.bHg = parcel.readString();
+        this.bHh = parcel.readString();
+        this.bHi = parcel.readString();
+        this.bHj = parcel.readString();
         this.mIsDefault = parcel.readInt();
     }
 
@@ -79,11 +79,11 @@ public class InvoiceInfo implements Parcelable {
         parcel.writeLong(this.mId);
         parcel.writeInt(this.mType);
         parcel.writeString(this.mTitle);
-        parcel.writeString(this.bDC);
-        parcel.writeString(this.bDD);
-        parcel.writeString(this.bDE);
-        parcel.writeString(this.bDF);
-        parcel.writeString(this.bDG);
+        parcel.writeString(this.bHf);
+        parcel.writeString(this.bHg);
+        parcel.writeString(this.bHh);
+        parcel.writeString(this.bHi);
+        parcel.writeString(this.bHj);
         parcel.writeInt(this.mIsDefault);
     }
 

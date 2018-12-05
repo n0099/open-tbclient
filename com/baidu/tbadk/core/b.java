@@ -1,207 +1,207 @@
 package com.baidu.tbadk.core;
 /* loaded from: classes.dex */
 public class b {
-    private String ajW;
-    private int ajX;
-    private int ajY;
-    private int ajZ;
-    private int aka;
-    private int akb;
-    private int akc;
-    private int akd;
-    private int ake;
-    private int akf;
-    private int akg;
-    private int akh;
-    private int aki;
-    private int akj;
-    private int akk;
-    private int akl;
-    private int akm;
-    private int akn;
-    private int ako;
-    private int akp;
-    private int akq;
-    private StringBuffer akr = new StringBuffer();
+    private int anA;
+    private int anB;
+    private int anC;
+    private int anD;
+    private int anE;
+    private int anF;
+    private int anG;
+    private int anH;
+    private int anI;
+    private int anJ;
+    private int anK;
+    private int anL;
+    private int anM;
+    private int anN;
+    private int anO;
+    private int anP;
+    private int anQ;
+    private int anR;
+    private int anS;
+    private StringBuffer anT = new StringBuffer();
+    private String any;
+    private int anz;
     private String id;
 
     public String toString() {
-        return "BDLayoutInfo [TAG=" + this.akr.toString() + "]";
+        return "BDLayoutInfo [TAG=" + this.anT.toString() + "]";
     }
 
-    public void dG(String str) {
-        this.akr.append(str).append(" || ");
+    public void dY(String str) {
+        this.anT.append(str).append(" || ");
     }
 
-    public int we() {
-        return this.akl;
+    public int xi() {
+        return this.anN;
     }
 
-    public void bO(int i) {
-        this.akl = i;
+    public void cc(int i) {
+        this.anN = i;
     }
 
-    public int wf() {
-        return this.akm;
+    public int xj() {
+        return this.anO;
     }
 
-    public void bP(int i) {
-        this.akm = i;
+    public void cd(int i) {
+        this.anO = i;
     }
 
-    public int wg() {
-        return this.akj;
+    public int xk() {
+        return this.anL;
     }
 
-    public void bQ(int i) {
-        this.akj = i;
+    public void ce(int i) {
+        this.anL = i;
     }
 
-    public int wh() {
-        return this.akk;
+    public int xl() {
+        return this.anM;
     }
 
-    public void bR(int i) {
-        this.akk = i;
+    public void cf(int i) {
+        this.anM = i;
     }
 
-    public int wi() {
-        return this.akh;
+    public int xm() {
+        return this.anJ;
     }
 
-    public void bS(int i) {
-        this.akh = i;
+    public void cg(int i) {
+        this.anJ = i;
     }
 
-    public int wj() {
-        return this.aki;
+    public int xn() {
+        return this.anK;
     }
 
-    public void bT(int i) {
-        this.aki = i;
+    public void ch(int i) {
+        this.anK = i;
     }
 
     public String getId() {
         return this.id;
     }
 
-    public int wk() {
-        return this.akn;
+    public int xo() {
+        return this.anP;
     }
 
-    public void bU(int i) {
-        this.akn = i;
+    public void ci(int i) {
+        this.anP = i;
     }
 
-    public int wl() {
-        return this.ako;
+    public int xp() {
+        return this.anQ;
     }
 
-    public void bV(int i) {
-        this.ako = i;
+    public void cj(int i) {
+        this.anQ = i;
     }
 
     public void setId(String str) {
         this.id = str;
     }
 
-    public void dH(String str) {
-        this.ajW = str;
+    public void dZ(String str) {
+        this.any = str;
     }
 
-    public int wm() {
-        return this.ajX;
+    public int xq() {
+        return this.anz;
     }
 
-    public void bW(int i) {
-        this.ajX = i;
+    public void ck(int i) {
+        this.anz = i;
     }
 
-    public int wn() {
-        return this.ajY;
+    public int xr() {
+        return this.anA;
     }
 
-    public void bX(int i) {
-        this.ajY = i;
+    public void cl(int i) {
+        this.anA = i;
     }
 
-    public int wo() {
-        return this.akb;
+    public int xs() {
+        return this.anD;
     }
 
-    public void bY(int i) {
-        this.akb = i;
+    public void cm(int i) {
+        this.anD = i;
     }
 
-    public int wp() {
-        return this.akc;
+    public int xt() {
+        return this.anE;
     }
 
-    public void bZ(int i) {
-        this.akc = i;
+    public void cn(int i) {
+        this.anE = i;
     }
 
-    public int wq() {
-        return this.ajZ;
+    public int xu() {
+        return this.anB;
     }
 
-    public void ca(int i) {
-        this.ajZ = i;
+    public void co(int i) {
+        this.anB = i;
     }
 
-    public int wr() {
-        return this.aka;
+    public int xv() {
+        return this.anC;
     }
 
-    public void cb(int i) {
-        this.aka = i;
+    public void cp(int i) {
+        this.anC = i;
     }
 
-    public int ws() {
-        return this.ake;
+    public int xw() {
+        return this.anG;
     }
 
-    public int wt() {
-        return this.akd;
+    public int xx() {
+        return this.anF;
     }
 
-    public void cc(int i) {
-        this.akd = i;
+    public void cq(int i) {
+        this.anF = i;
     }
 
-    public void cd(int i) {
-        this.ake = i;
+    public void cr(int i) {
+        this.anG = i;
     }
 
-    public int wu() {
-        return this.akg;
+    public int xy() {
+        return this.anI;
     }
 
-    public void ce(int i) {
-        this.akg = i;
+    public void cs(int i) {
+        this.anI = i;
     }
 
-    public int wv() {
-        return this.akf;
+    public int xz() {
+        return this.anH;
     }
 
-    public void cf(int i) {
-        this.akf = i;
+    public void ct(int i) {
+        this.anH = i;
     }
 
-    public int ww() {
-        return this.akp;
+    public int xA() {
+        return this.anR;
     }
 
-    public void cg(int i) {
-        this.akp = i;
+    public void cu(int i) {
+        this.anR = i;
     }
 
-    public int wx() {
-        return this.akq;
+    public int xB() {
+        return this.anS;
     }
 
-    public void ch(int i) {
-        this.akq = i;
+    public void cv(int i) {
+        this.anS = i;
     }
 }

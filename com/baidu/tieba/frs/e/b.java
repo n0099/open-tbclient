@@ -23,16 +23,16 @@ import com.baidu.tieba.tbadkCore.l;
 import java.util.HashSet;
 /* loaded from: classes6.dex */
 public class b {
-    public static int dUP;
-    private static b dUS;
-    private a dUQ;
-    private SparseArray<HashSet<String>> dUR;
-    private CustomMessageListener akD = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.frs.e.b.1
+    public static int ebs;
+    private static b ebv;
+    private a ebt;
+    private SparseArray<HashSet<String>> ebu;
+    private CustomMessageListener aof = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.frs.e.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && b.this.dUR != null) {
-                b.this.dUR.clear();
+            if (customResponsedMessage != null && b.this.ebu != null) {
+                b.this.ebu.clear();
             }
         }
     };
@@ -43,7 +43,7 @@ public class b {
             switch (message.what) {
                 case 5:
                     if ((message.obj instanceof a) && (aVar = (a) message.obj) != null) {
-                        aVar.dUV = false;
+                        aVar.eby = false;
                         aVar.isRunning = false;
                         aVar.count = 0;
                         return;
@@ -59,56 +59,56 @@ public class b {
     /* loaded from: classes6.dex */
     public class a {
         public int count;
-        public long dUU;
-        public boolean dUV;
+        public long ebx;
+        public boolean eby;
         public boolean isRunning;
 
         private a() {
             this.isRunning = false;
             this.count = 0;
-            this.dUV = false;
+            this.eby = false;
         }
     }
 
     public b() {
-        dUP = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("card_show_statistic_max_count", 200);
-        MessageManager.getInstance().registerListener(this.akD);
+        ebs = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("card_show_statistic_max_count", 200);
+        MessageManager.getInstance().registerListener(this.aof);
     }
 
-    public static b aEY() {
-        if (dUS == null) {
+    public static b aGK() {
+        if (ebv == null) {
             synchronized (v.class) {
-                if (dUS == null) {
-                    dUS = new b();
+                if (ebv == null) {
+                    ebv = new b();
                 }
             }
         }
-        return dUS;
+        return ebv;
     }
 
-    private boolean aEZ() {
-        if (this.dUQ == null) {
-            this.dUQ = new a();
+    private boolean aGL() {
+        if (this.ebt == null) {
+            this.ebt = new a();
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.dUQ.dUV) {
+        if (this.ebt.eby) {
             return true;
         }
-        if (this.dUQ.isRunning) {
-            this.dUQ.count++;
-            if (currentTimeMillis - this.dUQ.dUU < 120000) {
-                if (this.dUQ.count >= dUP) {
-                    this.dUQ.dUV = true;
-                    a(this.dUQ);
+        if (this.ebt.isRunning) {
+            this.ebt.count++;
+            if (currentTimeMillis - this.ebt.ebx < 120000) {
+                if (this.ebt.count >= ebs) {
+                    this.ebt.eby = true;
+                    a(this.ebt);
                     return true;
                 }
             } else {
-                this.dUQ.isRunning = false;
-                this.dUQ.count = 0;
+                this.ebt.isRunning = false;
+                this.ebt.count = 0;
             }
         } else {
-            this.dUQ.isRunning = true;
-            this.dUQ.dUU = currentTimeMillis;
+            this.ebt.isRunning = true;
+            this.ebt.ebx = currentTimeMillis;
         }
         return false;
     }
@@ -122,127 +122,127 @@ public class b {
     }
 
     public void ad(bb bbVar) {
-        if (bbVar != null && bbVar.zv()) {
+        if (bbVar != null && bbVar.Az()) {
             am amVar = new am("c11717");
-            amVar.h(ImageViewerConfig.FORUM_ID, bbVar.getFid());
-            amVar.ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bbVar.mRecomSource);
-            amVar.ax("obj_param2", bbVar.mRecomWeight);
-            amVar.ax("obj_param1", bbVar.arx);
+            amVar.i(ImageViewerConfig.FORUM_ID, bbVar.getFid());
+            amVar.aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bbVar.mRecomSource);
+            amVar.aA("obj_param2", bbVar.mRecomWeight);
+            amVar.aA("obj_param1", bbVar.auX);
             amVar.x("obj_locate", 1);
-            amVar.ax("tid", bbVar.getTid());
-            v.anQ().a(amVar);
+            amVar.aA("tid", bbVar.getTid());
+            v.apD().a(amVar);
         }
     }
 
     public void a(com.baidu.tieba.frs.e.a aVar, bb bbVar) {
-        if (aVar != null && aVar.dUJ && bbVar != null && bbVar.getTid() != null) {
-            if (this.dUR == null) {
-                this.dUR = new SparseArray<>();
+        if (aVar != null && aVar.ebm && bbVar != null && bbVar.getTid() != null) {
+            if (this.ebu == null) {
+                this.ebu = new SparseArray<>();
             }
-            if (this.dUR.get(aVar.dUM) == null) {
-                this.dUR.put(aVar.dUM, new HashSet<>());
+            if (this.ebu.get(aVar.ebp) == null) {
+                this.ebu.put(aVar.ebp, new HashSet<>());
             }
-            HashSet<String> hashSet = this.dUR.get(aVar.dUM);
+            HashSet<String> hashSet = this.ebu.get(aVar.ebp);
             String tid = bbVar.getTid();
-            if (aVar.dUN >= 0) {
-                tid = tid + BaseRequestAction.SPLITE + aVar.dUN;
+            if (aVar.ebq >= 0) {
+                tid = tid + BaseRequestAction.SPLITE + aVar.ebq;
             }
-            if (!hashSet.contains(tid) && !aEZ()) {
+            if (!hashSet.contains(tid) && !aGL()) {
                 hashSet.add(tid);
                 am amVar = new am("c11439");
-                amVar.ax(ImageViewerConfig.FORUM_ID, aVar.dUL);
+                amVar.aA(ImageViewerConfig.FORUM_ID, aVar.ebo);
                 amVar.x("obj_locate", a(aVar));
-                amVar.ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bbVar.mRecomSource);
-                amVar.ax("obj_param2", bbVar.mRecomWeight);
-                amVar.ax("obj_param1", bbVar.mRecomAbTag);
-                amVar.ax("obj_param3", bbVar.arx);
-                amVar.ax("tid", bbVar.getTid());
+                amVar.aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bbVar.mRecomSource);
+                amVar.aA("obj_param2", bbVar.mRecomWeight);
+                amVar.aA("obj_param1", bbVar.mRecomAbTag);
+                amVar.aA("obj_param3", bbVar.auX);
+                amVar.aA("tid", bbVar.getTid());
                 amVar.x(VideoPlayActivityConfig.OBJ_ID, R(bbVar));
-                amVar.ax("uid", TbadkCoreApplication.getCurrentAccount());
-                amVar.h("exposure_time", System.currentTimeMillis());
-                if (aVar.dUM >= 0) {
-                    amVar.x(MyBookrackActivityConfig.TAB_ID, aVar.dUM);
+                amVar.aA("uid", TbadkCoreApplication.getCurrentAccount());
+                amVar.i("exposure_time", System.currentTimeMillis());
+                if (aVar.ebp >= 0) {
+                    amVar.x(MyBookrackActivityConfig.TAB_ID, aVar.ebp);
                 }
-                boolean z = (bbVar.zT() == null || (bbVar.zT().bBz() == null && bbVar.zT().Rb() == null)) ? false : true;
-                if (z && bbVar.zT().bBz() != null && bbVar.zT().bBz().QT() != null && bbVar.zT().bBz().QT().size() > 0) {
-                    amVar.x("obj_name", bbVar.zT().heY ? 3 : 2);
+                boolean z = (bbVar.AX() == null || (bbVar.AX().bDu() == null && bbVar.AX().Sh() == null)) ? false : true;
+                if (z && bbVar.AX().bDu() != null && bbVar.AX().bDu().RZ() != null && bbVar.AX().bDu().RZ().size() > 0) {
+                    amVar.x("obj_name", bbVar.AX().hlS ? 3 : 2);
                 } else {
                     amVar.x("obj_name", z ? 1 : 0);
                 }
-                boolean z2 = bbVar.getType() == bb.apP;
+                boolean z2 = bbVar.getType() == bb.atp;
                 amVar.x("thread_type", z2 ? 2 : 1);
-                if (z2 && bbVar.yC() != null && !StringUtils.isNull(bbVar.yC().getName_show())) {
-                    amVar.ax("obj_name", bbVar.yC().getName_show());
+                if (z2 && bbVar.zG() != null && !StringUtils.isNull(bbVar.zG().getName_show())) {
+                    amVar.aA("obj_name", bbVar.zG().getName_show());
                 }
-                v.anQ().a(amVar);
-                if (bbVar.zq()) {
+                v.apD().a(amVar);
+                if (bbVar.Au()) {
                     am amVar2 = new am("c12099");
-                    amVar2.ax(ImageViewerConfig.FORUM_ID, aVar.dUL);
+                    amVar2.aA(ImageViewerConfig.FORUM_ID, aVar.ebo);
                     amVar2.x("obj_locate", a(aVar));
-                    amVar2.ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bbVar.mRecomSource);
-                    amVar2.ax("obj_param2", bbVar.mRecomWeight);
-                    amVar2.ax("obj_param1", bbVar.mRecomAbTag);
-                    amVar2.ax("obj_param3", bbVar.arx);
-                    amVar2.ax("tid", bbVar.getTid());
+                    amVar2.aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bbVar.mRecomSource);
+                    amVar2.aA("obj_param2", bbVar.mRecomWeight);
+                    amVar2.aA("obj_param1", bbVar.mRecomAbTag);
+                    amVar2.aA("obj_param3", bbVar.auX);
+                    amVar2.aA("tid", bbVar.getTid());
                     amVar2.x(VideoPlayActivityConfig.OBJ_ID, R(bbVar));
-                    amVar2.ax("uid", TbadkCoreApplication.getCurrentAccount());
-                    v.anQ().a(amVar2);
+                    amVar2.aA("uid", TbadkCoreApplication.getCurrentAccount());
+                    v.apD().a(amVar2);
                 }
-                if (bbVar.yH()) {
+                if (bbVar.zL()) {
                     am amVar3 = new am("c13169");
-                    amVar3.ax(ImageViewerConfig.FORUM_ID, aVar.dUL);
-                    amVar3.ax("tid", bbVar.getTid());
-                    amVar3.ax("uid", TbadkCoreApplication.getCurrentAccount());
-                    v.anQ().a(amVar3);
+                    amVar3.aA(ImageViewerConfig.FORUM_ID, aVar.ebo);
+                    amVar3.aA("tid", bbVar.getTid());
+                    amVar3.aA("uid", TbadkCoreApplication.getCurrentAccount());
+                    v.apD().a(amVar3);
                 }
-                if (aVar.dUM == 501) {
+                if (aVar.ebp == 501) {
                     am amVar4 = new am("c13259");
-                    amVar4.ax(ImageViewerConfig.FORUM_ID, aVar.dUL);
-                    amVar4.ax("tid", bbVar.getTid());
-                    v.anQ().a(amVar4);
+                    amVar4.aA(ImageViewerConfig.FORUM_ID, aVar.ebo);
+                    amVar4.aA("tid", bbVar.getTid());
+                    v.apD().a(amVar4);
                 }
             }
         }
     }
 
     public void a(com.baidu.tieba.frs.e.a aVar, bb bbVar, int i) {
-        if (aVar != null && aVar.dUJ && bbVar != null && bbVar.getTid() != null) {
-            v.anQ().fs(true);
+        if (aVar != null && aVar.ebm && bbVar != null && bbVar.getTid() != null) {
+            v.apD().ft(true);
             am amVar = new am("c11438");
-            amVar.ax(ImageViewerConfig.FORUM_ID, aVar.dUL);
+            amVar.aA(ImageViewerConfig.FORUM_ID, aVar.ebo);
             amVar.x("obj_locate", a(aVar));
-            amVar.ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bbVar.mRecomSource);
-            amVar.ax("obj_param2", bbVar.mRecomWeight);
-            amVar.ax("obj_param1", bbVar.mRecomAbTag);
-            amVar.ax("obj_param3", bbVar.arx);
-            amVar.ax("tid", bbVar.getTid());
+            amVar.aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bbVar.mRecomSource);
+            amVar.aA("obj_param2", bbVar.mRecomWeight);
+            amVar.aA("obj_param1", bbVar.mRecomAbTag);
+            amVar.aA("obj_param3", bbVar.auX);
+            amVar.aA("tid", bbVar.getTid());
             amVar.x("obj_type", i);
             amVar.x(VideoPlayActivityConfig.OBJ_ID, R(bbVar));
-            amVar.ax("obj_to", ae(bbVar));
-            if (aVar.dUM >= 0) {
-                amVar.x(MyBookrackActivityConfig.TAB_ID, aVar.dUM);
+            amVar.aA("obj_to", ae(bbVar));
+            if (aVar.ebp >= 0) {
+                amVar.x(MyBookrackActivityConfig.TAB_ID, aVar.ebp);
             }
-            amVar.x("thread_type", bbVar.getType() == bb.apP ? 2 : 1);
+            amVar.x("thread_type", bbVar.getType() == bb.atp ? 2 : 1);
             TiebaStatic.log(amVar);
-            if (bbVar.zq()) {
+            if (bbVar.Au()) {
                 am amVar2 = new am("c12098");
-                amVar2.ax(ImageViewerConfig.FORUM_ID, aVar.dUL);
+                amVar2.aA(ImageViewerConfig.FORUM_ID, aVar.ebo);
                 amVar2.x("obj_locate", a(aVar));
-                amVar2.ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bbVar.mRecomSource);
-                amVar2.ax("obj_param2", bbVar.mRecomWeight);
-                amVar2.ax("obj_param1", bbVar.mRecomAbTag);
-                amVar2.ax("obj_param3", bbVar.arx);
-                amVar2.ax("tid", bbVar.getTid());
+                amVar2.aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bbVar.mRecomSource);
+                amVar2.aA("obj_param2", bbVar.mRecomWeight);
+                amVar2.aA("obj_param1", bbVar.mRecomAbTag);
+                amVar2.aA("obj_param3", bbVar.auX);
+                amVar2.aA("tid", bbVar.getTid());
                 amVar2.x("obj_type", i);
                 amVar2.x(VideoPlayActivityConfig.OBJ_ID, R(bbVar));
-                amVar2.ax("obj_to", ae(bbVar));
+                amVar2.aA("obj_to", ae(bbVar));
                 TiebaStatic.log(amVar2);
             }
-            if (aVar.dUM == 501) {
+            if (aVar.ebp == 501) {
                 am amVar3 = new am("c13260");
-                amVar3.ax(ImageViewerConfig.FORUM_ID, aVar.dUL);
-                amVar3.ax("tid", bbVar.getTid());
-                v.anQ().a(amVar3);
+                amVar3.aA(ImageViewerConfig.FORUM_ID, aVar.ebo);
+                amVar3.aA("tid", bbVar.getTid());
+                v.apD().a(amVar3);
             }
         }
     }
@@ -251,10 +251,10 @@ public class b {
         if (aVar == null) {
             return 5;
         }
-        if (aVar.dUO > 0) {
-            return aVar.dUO;
+        if (aVar.ebr > 0) {
+            return aVar.ebr;
         }
-        int i = aVar.dUK;
+        int i = aVar.ebn;
         if (i == 8) {
             return 9;
         }
@@ -262,29 +262,29 @@ public class b {
     }
 
     public void b(com.baidu.tieba.frs.e.a aVar, bb bbVar, int i) {
-        if (aVar != null && aVar.dUJ && bbVar != null && bbVar.getTid() != null && bbVar.yH()) {
+        if (aVar != null && aVar.ebm && bbVar != null && bbVar.getTid() != null && bbVar.zL()) {
             am amVar = new am("c13170");
-            amVar.ax(ImageViewerConfig.FORUM_ID, aVar.dUL);
+            amVar.aA(ImageViewerConfig.FORUM_ID, aVar.ebo);
             amVar.x("obj_locate", i);
-            amVar.ax("tid", bbVar.getTid());
+            amVar.aA("tid", bbVar.getTid());
             TiebaStatic.log(amVar);
         }
     }
 
     public static void a(l lVar, int i, int i2) {
-        if (lVar != null && lVar.ber() != null && lVar.hbG == 1) {
-            TiebaStatic.log(new am("c11440").ax(ImageViewerConfig.FORUM_ID, lVar.ber().getId()).x("obj_locate", i).x("obj_type", i2));
+        if (lVar != null && lVar.bgi() != null && lVar.hiz == 1) {
+            TiebaStatic.log(new am("c11440").aA(ImageViewerConfig.FORUM_ID, lVar.bgi().getId()).x("obj_locate", i).x("obj_type", i2));
         }
     }
 
     private int R(bb bbVar) {
-        if (bbVar.zF() == null || bbVar.zF().channelId <= 0) {
+        if (bbVar.AJ() == null || bbVar.AJ().channelId <= 0) {
             return 0;
         }
-        return (int) bbVar.zF().channelId;
+        return (int) bbVar.AJ().channelId;
     }
 
     private String ae(bb bbVar) {
-        return bbVar.ary ? String.valueOf(bbVar.zC()) : String.valueOf(4);
+        return bbVar.auY ? String.valueOf(bbVar.AG()) : String.valueOf(4);
     }
 }

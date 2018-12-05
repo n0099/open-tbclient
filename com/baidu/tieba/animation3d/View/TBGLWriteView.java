@@ -11,11 +11,11 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLDisplay;
 /* loaded from: classes.dex */
 public class TBGLWriteView extends LinearLayout {
-    private TBGLSurfaceView cLr;
-    private c cLs;
-    private boolean cLt;
-    private boolean cLu;
-    private a cLv;
+    private TBGLSurfaceView cRY;
+    private c cRZ;
+    private boolean cSa;
+    private boolean cSb;
+    private a cSc;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -24,29 +24,29 @@ public class TBGLWriteView extends LinearLayout {
 
     public TBGLWriteView(Context context) {
         super(context);
-        this.cLt = false;
-        this.cLu = false;
-        ck(context);
+        this.cSa = false;
+        this.cSb = false;
+        co(context);
     }
 
     public TBGLWriteView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cLt = false;
-        this.cLu = false;
-        ck(context);
+        this.cSa = false;
+        this.cSb = false;
+        co(context);
     }
 
     public TBGLWriteView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cLt = false;
-        this.cLu = false;
-        ck(context);
+        this.cSa = false;
+        this.cSb = false;
+        co(context);
     }
 
-    private void ck(Context context) {
-        this.cLr = new TBGLSurfaceView(context);
-        this.cLs = new c(context);
-        this.cLr.setEGLConfigChooser(new TBGLSurfaceView.e() { // from class: com.baidu.tieba.animation3d.View.TBGLWriteView.1
+    private void co(Context context) {
+        this.cRY = new TBGLSurfaceView(context);
+        this.cRZ = new c(context);
+        this.cRY.setEGLConfigChooser(new TBGLSurfaceView.e() { // from class: com.baidu.tieba.animation3d.View.TBGLWriteView.1
             @Override // com.baidu.tieba.animation3d.View.TBGLSurfaceView.e
             public EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay) {
                 EGLConfig[] eGLConfigArr = new EGLConfig[1];
@@ -54,89 +54,89 @@ public class TBGLWriteView extends LinearLayout {
                 return eGLConfigArr[0];
             }
         });
-        anp();
+        apb();
     }
 
-    private void anp() {
-        if (!this.cLt) {
+    private void apb() {
+        if (!this.cSa) {
             setProjectionMode(1);
             setBackTransparent();
-            this.cLr.setRenderer(this.cLs);
-            addView(this.cLr);
-            this.cLt = true;
+            this.cRY.setRenderer(this.cRZ);
+            addView(this.cRY);
+            this.cSa = true;
         }
     }
 
     public void setProjectionMode(int i) {
-        this.cLs.setProjectionMode(i);
+        this.cRZ.setProjectionMode(i);
     }
 
     @Override // android.view.View
     public void setBackgroundColor(int i) {
-        if (this.cLs != null) {
-            this.cLs.ka(i);
+        if (this.cRZ != null) {
+            this.cRZ.kq(i);
         }
     }
 
     public void setBackTransparent() {
-        if (this.cLr != null) {
-            this.cLr.setZOrderOnTop(true);
-            if (this.cLr.getHolder() != null) {
-                this.cLr.getHolder().setFormat(-3);
+        if (this.cRY != null) {
+            this.cRY.setZOrderOnTop(true);
+            if (this.cRY.getHolder() != null) {
+                this.cRY.getHolder().setFormat(-3);
             }
-            this.cLr.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
+            this.cRY.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
         }
     }
 
     public void setRotateRadius(float f) {
-        this.cLs.setRotateRadius(f);
+        this.cRZ.setRotateRadius(f);
     }
 
     public int getViewStatus() {
-        return this.cLs.getViewStatus();
+        return this.cRZ.getViewStatus();
     }
 
-    public boolean ke(int i) {
-        return this.cLs.getViewStatus() == i;
+    public boolean ku(int i) {
+        return this.cRZ.getViewStatus() == i;
     }
 
-    public void Dm() {
-        this.cLs.Dm();
+    public void Eq() {
+        this.cRZ.Eq();
     }
 
     public void setWriteEndCallBack(c.a aVar) {
-        this.cLs.setWriteEndCallBack(aVar);
+        this.cRZ.setWriteEndCallBack(aVar);
     }
 
     public void setDispathEventAction(a aVar) {
-        this.cLv = aVar;
+        this.cSc = aVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.cLv != null) {
-            this.cLv.q(motionEvent);
+        if (this.cSc != null) {
+            this.cSc.q(motionEvent);
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.cLu) {
+        if (this.cSb) {
             return false;
         }
         return super.onTouchEvent(motionEvent);
     }
 
     public void setForceInterrupt(boolean z) {
-        this.cLu = z;
+        this.cSb = z;
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
-        if (this.cLr != null) {
-            this.cLr.setVisibility(i);
+        if (this.cRY != null) {
+            this.cRY.setVisibility(i);
         }
     }
 }

@@ -19,32 +19,32 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes4.dex */
 public class ChatAggregationFragment extends BaseFragment implements NoNetworkView.a, com.baidu.tbadk.mvc.c.a {
-    private ViewEventCenter eXc;
-    private e eXf;
-    private CustomMessageListener bMF = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment.1
+    private ViewEventCenter fdR;
+    private e fdU;
+    private CustomMessageListener bQv = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                if (ChatAggregationFragment.this.eXf != null) {
-                    ChatAggregationFragment.this.eXf.jc(true);
+                if (ChatAggregationFragment.this.fdU != null) {
+                    ChatAggregationFragment.this.fdU.jf(true);
                 }
                 MentionActivityConfig.newJumpIn = true;
-                if (ChatAggregationFragment.this.eXf != null) {
-                    ChatAggregationFragment.this.eXf.aCp();
-                    ChatAggregationFragment.this.eXf.K(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
+                if (ChatAggregationFragment.this.fdU != null) {
+                    ChatAggregationFragment.this.fdU.aEb();
+                    ChatAggregationFragment.this.fdU.K(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
                 }
             }
         }
     };
-    private CustomMessageListener eXd = new CustomMessageListener(2016321) { // from class: com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment.2
+    private CustomMessageListener fdS = new CustomMessageListener(2016321) { // from class: com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
-                if (ChatAggregationFragment.this.eXf != null) {
-                    ChatAggregationFragment.this.eXf.onNewIntent(intent);
+                if (ChatAggregationFragment.this.fdU != null) {
+                    ChatAggregationFragment.this.fdU.onNewIntent(intent);
                 }
             }
         }
@@ -52,26 +52,26 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.eXf = new e(this);
+        this.fdU = new e(this);
         if (bundle != null) {
-            this.eXf.q(bundle);
+            this.fdU.t(bundle);
         } else {
-            this.eXf.q(null);
+            this.fdU.t(null);
         }
-        View aaV = this.eXf.aaV();
-        this.eXf.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        NH().addEventDelegate(this);
-        registerListener(this.bMF);
-        registerListener(this.eXd);
-        return aaV;
+        View acb = this.fdU.acb();
+        this.fdU.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        OL().addEventDelegate(this);
+        registerListener(this.bQv);
+        registerListener(this.fdS);
+        return acb;
     }
 
     @Override // android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
         if (getActivity() != null && T(getActivity().getIntent())) {
-            this.eXf.onNewIntent(getActivity().getIntent());
+            this.fdU.onNewIntent(getActivity().getIntent());
         } else {
-            this.eXf.aCp();
+            this.fdU.aEb();
         }
         super.onViewCreated(view, bundle);
     }
@@ -81,7 +81,7 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean MY() {
+    public boolean Oc() {
         return false;
     }
 
@@ -90,17 +90,17 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
         return bVar == null;
     }
 
-    public ViewEventCenter NH() {
-        if (this.eXc == null) {
-            this.eXc = new ViewEventCenter();
+    public ViewEventCenter OL() {
+        if (this.fdR == null) {
+            this.fdR = new ViewEventCenter();
         }
-        return this.eXc;
+        return this.fdR;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (this.eXf != null) {
-            this.eXf.b(getPageContext(), i);
+        if (this.fdU != null) {
+            this.fdU.b(getPageContext(), i);
         }
     }
 
@@ -140,17 +140,17 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.bMF);
-        MessageManager.getInstance().unRegisterListener(this.eXd);
-        if (this.eXf != null) {
-            this.eXf.onActivityDestroy();
+        MessageManager.getInstance().unRegisterListener(this.bQv);
+        MessageManager.getInstance().unRegisterListener(this.fdS);
+        if (this.fdU != null) {
+            this.fdU.onActivityDestroy();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void bE(boolean z) {
-        if (this.eXf != null) {
-            this.eXf.ja(z);
+    public void bF(boolean z) {
+        if (this.fdU != null) {
+            this.fdU.jd(z);
         }
     }
 }

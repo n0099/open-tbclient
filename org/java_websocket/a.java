@@ -62,19 +62,19 @@ public abstract class a extends b {
         cancelConnectionLostTimer();
         this.connectionLostTimer = new Timer("WebSocketTimer");
         this.connectionLostTimerTask = new TimerTask() { // from class: org.java_websocket.a.1
-            private ArrayList<WebSocket> isv = new ArrayList<>();
+            private ArrayList<WebSocket> izF = new ArrayList<>();
 
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
-                this.isv.clear();
-                this.isv.addAll(a.this.getConnections());
+                this.izF.clear();
+                this.izF.addAll(a.this.getConnections());
                 long currentTimeMillis = System.currentTimeMillis() - (a.this.connectionLostTimeout * TbConfig.POST_IMAGE_SMALL);
-                Iterator<WebSocket> it = this.isv.iterator();
+                Iterator<WebSocket> it = this.izF.iterator();
                 while (it.hasNext()) {
                     WebSocket next = it.next();
                     if (next instanceof c) {
                         c cVar = (c) next;
-                        if (cVar.cae() < currentTimeMillis) {
+                        if (cVar.cck() < currentTimeMillis) {
                             if (c.DEBUG) {
                                 System.out.println("Closing connection due to no pong received: " + next.toString());
                             }
@@ -86,7 +86,7 @@ public abstract class a extends b {
                         }
                     }
                 }
-                this.isv.clear();
+                this.izF.clear();
             }
         };
         this.connectionLostTimer.scheduleAtFixedRate(this.connectionLostTimerTask, this.connectionLostTimeout * 1000, this.connectionLostTimeout * 1000);

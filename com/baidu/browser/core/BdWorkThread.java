@@ -29,7 +29,7 @@ public class BdWorkThread extends HandlerThread {
     public interface a {
         void j(Message message);
 
-        void qi();
+        void qh();
     }
 
     public void h(Message message) {
@@ -53,7 +53,7 @@ public class BdWorkThread extends HandlerThread {
                                 BdWorkThread.this.i((Message) message.obj);
                                 return;
                             case 2:
-                                BdWorkThread.this.qh();
+                                BdWorkThread.this.qg();
                                 return;
                             default:
                                 return;
@@ -89,10 +89,10 @@ public class BdWorkThread extends HandlerThread {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qh() {
+    public void qg() {
         try {
             if (this.UR != null) {
-                this.UR.qi();
+                this.UR.qh();
             }
         } catch (Error e) {
         } catch (Exception e2) {

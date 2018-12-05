@@ -16,7 +16,7 @@ public final class d implements a.InterfaceC0073a {
     @Override // com.baidu.e.a.a.InterfaceC0073a
     public final void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Activity activity;
-        Intent qF;
+        Intent qE;
         if (i == 4099) {
             boolean z = iArr.length != 0;
             for (int i2 : iArr) {
@@ -27,10 +27,10 @@ public final class d implements a.InterfaceC0073a {
             if (z) {
                 this.VY.VX = true;
                 activity = this.VY.mActivity;
-                qF = this.VY.qF();
-                activity.startActivityForResult(qF, 11);
+                qE = this.VY.qE();
+                activity.startActivityForResult(qE, 11);
             }
-            com.baidu.browser.core.permission.a.qm().bB(4099);
+            com.baidu.browser.core.permission.a.ql().bB(4099);
         }
     }
 }

@@ -30,7 +30,7 @@ public final class c {
     }
 
     public final void aC(boolean z) {
-        int networkType = com.baidu.browser.sailor.b.a.qP().getNetworkType();
+        int networkType = com.baidu.browser.sailor.b.a.qO().getNetworkType();
         if (networkType == 1 || -1 == networkType) {
             this.Vz = false;
             k(WebViewFactoryProvider.SETTING_SAVE_FLOW, false);

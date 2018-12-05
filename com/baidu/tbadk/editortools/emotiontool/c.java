@@ -3,16 +3,16 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
-    private com.baidu.adp.widget.ImageView.a aVI;
-    private com.baidu.adp.widget.ImageView.a aVJ;
+    private com.baidu.adp.widget.ImageView.a aZf;
+    private com.baidu.adp.widget.ImageView.a aZg;
     private int cols;
     private int rows;
 
-    public abstract boolean Lh();
+    public abstract boolean Ml();
 
-    public abstract EmotionGroupType Li();
+    public abstract EmotionGroupType Mm();
 
-    public abstract String fz(int i);
+    public abstract String fN(int i);
 
     public abstract int getEmotionsCount();
 
@@ -24,49 +24,49 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public abstract boolean ho(String str);
+    public abstract boolean hG(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a hp(String str);
+    public abstract com.baidu.adp.widget.ImageView.a hH(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a hq(String str);
+    public abstract com.baidu.adp.widget.ImageView.a hI(String str);
 
-    public com.baidu.adp.widget.ImageView.a Lj() {
-        return this.aVI;
+    public com.baidu.adp.widget.ImageView.a Mn() {
+        return this.aZf;
     }
 
     public void c(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
-            aVar.oq();
+            aVar.op();
         }
-        this.aVI = aVar;
+        this.aZf = aVar;
     }
 
-    public com.baidu.adp.widget.ImageView.a Lk() {
-        return this.aVJ;
+    public com.baidu.adp.widget.ImageView.a Mo() {
+        return this.aZg;
     }
 
     public void d(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
-            aVar.oq();
+            aVar.op();
         }
-        this.aVJ = aVar;
+        this.aZg = aVar;
     }
 
-    public int Ll() {
+    public int Mp() {
         return this.cols;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void fA(int i) {
+    public void fO(int i) {
         this.cols = i;
     }
 
-    public int Lm() {
+    public int Mq() {
         return this.rows;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void fB(int i) {
+    public void fP(int i) {
         this.rows = i;
     }
 }

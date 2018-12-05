@@ -8,7 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    public static List<b> kd(String str) {
+    public static List<b> kv(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -51,7 +51,7 @@ public class c {
         for (int i = 0; i < jSONArray.length(); i++) {
             JSONObject optJSONObject = jSONArray.optJSONObject(i);
             if (optJSONObject != null) {
-                arrayList.add(b.J(optJSONObject));
+                arrayList.add(b.K(optJSONObject));
             }
         }
         return arrayList;

@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.view.ThreadLinkView;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class r extends c {
-    private View bvs;
-    private TextView cOR;
-    private ThreadLinkView cOS;
+    private View byP;
+    private TextView cVy;
+    private ThreadLinkView cVz;
 
     public r(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -26,54 +26,54 @@ public class r extends c {
     @Override // com.baidu.tieba.card.c
     protected void ax(View view) {
         if (view != null) {
-            this.cOS = (ThreadLinkView) view.findViewById(e.g.link_thread_root);
-            this.cOS.setTag(getTag());
-            this.cOR = (TextView) view.findViewById(e.g.card_home_page_normal_thread_title);
-            this.bvs = view.findViewById(e.g.divider_line);
-            if (this.bWR != null) {
-                this.bWR.setShareReportFrom(3);
-                this.bWR.setFrom(1);
-                this.bWR.setDisPraiseFrom(1);
+            this.cVz = (ThreadLinkView) view.findViewById(e.g.link_thread_root);
+            this.cVz.setTag(getTag());
+            this.cVy = (TextView) view.findViewById(e.g.card_home_page_normal_thread_title);
+            this.byP = view.findViewById(e.g.divider_line);
+            if (this.caJ != null) {
+                this.caJ.setShareReportFrom(3);
+                this.caJ.setFrom(1);
+                this.caJ.setDisPraiseFrom(1);
             }
-            if (this.bXE != null) {
-                this.bXE.setShareReportFrom(3);
-                this.bXE.setFrom(1);
+            if (this.cbw != null) {
+                this.cbw.setShareReportFrom(3);
+                this.cbw.setFrom(1);
             }
         }
     }
 
     @Override // com.baidu.tieba.card.c
     protected void b(com.baidu.tieba.card.data.k kVar) {
-        if (kVar != null && kVar.YL() != null) {
-            bb YL = kVar.YL();
-            o.b(YL, this.cOR);
-            if ((StringUtils.isNull(YL.getTitle()) && (YL.yA() == null || YL.yA().size() == 0)) || YL.yS() == 1) {
-                YL.g(false, true);
-                if (YL.zc() == null || StringUtils.isNull(YL.zc().toString())) {
-                    this.cOR.setVisibility(8);
+        if (kVar != null && kVar.ZR() != null) {
+            bb ZR = kVar.ZR();
+            o.b(ZR, this.cVy);
+            if ((StringUtils.isNull(ZR.getTitle()) && (ZR.zE() == null || ZR.zE().size() == 0)) || ZR.zW() == 1) {
+                ZR.g(false, true);
+                if (ZR.Ag() == null || StringUtils.isNull(ZR.Ag().toString())) {
+                    this.cVy.setVisibility(8);
                 } else {
-                    this.cOR.setVisibility(0);
-                    this.cOR.setText(YL.zc());
+                    this.cVy.setVisibility(0);
+                    this.cVy.setText(ZR.Ag());
                 }
             } else {
-                this.cOR.setVisibility(0);
+                this.cVy.setVisibility(0);
             }
-            this.cOS.setData(YL);
+            this.cVz.setData(ZR);
         }
     }
 
     @Override // com.baidu.tieba.card.c, com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         super.d(tbPageContext, i);
-        this.cOS.onChangeSkinType();
-        al.j(this.bvs, e.d.cp_bg_line_e);
+        this.cVz.onChangeSkinType();
+        al.j(this.byP, e.d.cp_bg_line_e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.card.c
-    public void anv() {
-        super.anv();
-        o.a(this.cOR, this.cLL.YL().getId(), e.d.cp_cont_b, e.d.cp_cont_d);
-        this.cOS.ga(this.cLL.YL().getId());
+    public void aph() {
+        super.aph();
+        o.a(this.cVy, this.cSs.ZR().getId(), e.d.cp_cont_b, e.d.cp_cont_d);
+        this.cVz.gt(this.cSs.ZR().getId());
     }
 }

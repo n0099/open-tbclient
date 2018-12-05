@@ -1,12 +1,12 @@
 package com.baidu.tbadk.widget.timepicker.a.a;
 /* loaded from: classes.dex */
 public class b implements com.baidu.tbadk.widget.timepicker.wheel.a.a {
-    private int boQ;
-    private int boR;
+    private int bsn;
+    private int bso;
 
     public b(int i, int i2) {
-        this.boQ = i;
-        this.boR = i2;
+        this.bsn = i;
+        this.bso = i2;
     }
 
     @Override // com.baidu.tbadk.widget.timepicker.wheel.a.a
@@ -14,11 +14,11 @@ public class b implements com.baidu.tbadk.widget.timepicker.wheel.a.a {
         if (i < 0 || i >= getItemsCount()) {
             return 0;
         }
-        return Integer.valueOf(this.boQ + i);
+        return Integer.valueOf(this.bsn + i);
     }
 
     @Override // com.baidu.tbadk.widget.timepicker.wheel.a.a
     public int getItemsCount() {
-        return (this.boR - this.boQ) + 1;
+        return (this.bso - this.bsn) + 1;
     }
 }

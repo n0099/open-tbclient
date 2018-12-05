@@ -16,6 +16,11 @@ import org.json.JSONObject;
 public class e {
     private static int aaB = -1;
 
+    public static boolean isNetworkConnected(Context context) {
+        NetworkInfo activeNetworkInfo = getActiveNetworkInfo(context);
+        return activeNetworkInfo != null && activeNetworkInfo.isAvailable();
+    }
+
     public static NetworkInfo getActiveNetworkInfo(Context context) {
         ConnectivityManager connectivityManager;
         if (context != null && (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) != null) {
@@ -29,7 +34,7 @@ public class e {
         return activeNetworkInfo != null && activeNetworkInfo.isAvailable() && activeNetworkInfo.getType() == 1;
     }
 
-    public static String sf() {
+    public static String se() {
         Application application = AppRuntime.getApplication();
         try {
             return application.getPackageManager().getPackageInfo(application.getPackageName(), 64).versionName;
@@ -85,20 +90,20 @@ public class e {
         return ((ByteArrayOutputStream) outputStream).toByteArray();
     }
 
+    public static String sf() {
+        return c.sd().processor;
+    }
+
     public static String sg() {
-        return c.se().processor;
+        return c.sd().features;
     }
 
     public static String sh() {
-        return c.se().features;
-    }
-
-    public static String si() {
         long availableInternalMemorySize = (j.getAvailableInternalMemorySize() / 1024) * 1024;
         return availableInternalMemorySize < 0 ? String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED) : String.valueOf(availableInternalMemorySize);
     }
 
-    public static String sj() {
+    public static String si() {
         long totalInternalMemorySize = (j.getTotalInternalMemorySize() / 1024) * 1024;
         return totalInternalMemorySize < 0 ? String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED) : String.valueOf(totalInternalMemorySize);
     }

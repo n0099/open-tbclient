@@ -45,20 +45,20 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void uy(String str) {
-        aS(str, e.f.icon_toast_game_error);
+    public void uZ(String str) {
+        aT(str, e.f.icon_toast_game_error);
     }
 
-    protected void uz(String str) {
-        aS(str, e.f.icon_toast_game_ok);
+    protected void va(String str) {
+        aT(str, e.f.icon_toast_game_ok);
     }
 
-    protected void aS(String str, int i) {
-        BdToast.b(getAppContext(), str, i).AJ();
+    protected void aT(String str, int i) {
+        BdToast.b(getAppContext(), str, i).BN();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void uj(int i) {
+    public void uE(int i) {
         ag(i, null);
     }
 
@@ -68,17 +68,17 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
             if (TextUtils.isEmpty(str)) {
                 str = getString(e.j.share_success, new Object[0]);
             }
-            uz(str);
+            va(str);
         } else if (i == 3) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(e.j.share_cancel, new Object[0]);
             }
-            uy(str);
+            uZ(str);
         } else if (i == 2) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(e.j.share_failed, new Object[0]);
             }
-            uy(str);
+            uZ(str);
         }
     }
 
@@ -93,22 +93,22 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap bwL() {
+    public Bitmap byF() {
         return BitmapHelper.getCashBitmap(e.f.icon);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap uA(String str) {
+    public Bitmap vb(String str) {
         return BitmapHelper.loadBitmap(str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap g(Uri uri) {
+    public Bitmap h(Uri uri) {
         return BitmapHelper.loadBitmap(uri.getPath());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean h(Uri uri) {
+    public boolean i(Uri uri) {
         if (uri == null) {
             return false;
         }

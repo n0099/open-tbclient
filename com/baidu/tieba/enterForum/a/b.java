@@ -8,23 +8,23 @@ import com.baidu.tieba.enterForum.data.f;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tbadk.mvc.f.d<f, com.baidu.tbadk.mvc.d.b, com.baidu.tieba.enterForum.view.c> implements c {
-    private int dgX;
+    private int dnF;
 
     public b(TbPageContext<?> tbPageContext, Class<com.baidu.tieba.enterForum.view.c> cls, int i, ViewEventCenter viewEventCenter) {
         super(tbPageContext, cls, i, viewEventCenter);
-        this.dgX = -1;
+        this.dnF = -1;
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void aE(int i, int i2) {
+    public void aF(int i, int i2) {
         List<f> dataList = getDataList();
         com.baidu.tieba.enterForum.model.b.d(dataList, i, i2);
         R(dataList);
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void kV(int i) {
-        this.dgX = i;
+    public void ll(int i) {
+        this.dnF = i;
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
@@ -47,7 +47,7 @@ public class b extends com.baidu.tbadk.mvc.f.d<f, com.baidu.tbadk.mvc.d.b, com.b
     public View getView(int i, View view, ViewGroup viewGroup) {
         View view2 = super.getView(i, view, viewGroup);
         if (view2 != null) {
-            if (i == this.dgX) {
+            if (i == this.dnF) {
                 view2.setVisibility(4);
             } else {
                 view2.setVisibility(0);

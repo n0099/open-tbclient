@@ -2,15 +2,15 @@ package com.baidu.tbadk.core.data;
 /* loaded from: classes6.dex */
 public class y {
     public int accountType;
-    public long anZ;
-    public long aoa;
-    public int aob;
-    public String aoc;
-    public long aod;
-    public long aoe;
-    public int aof;
-    public int aog;
-    public int aoh;
+    public long arA;
+    public long arB;
+    public int arC;
+    public String arD;
+    public long arE;
+    public long arF;
+    public int arG;
+    public int arH;
+    public int arI;
     public long beginTime;
     public String desc;
     public long endTime;

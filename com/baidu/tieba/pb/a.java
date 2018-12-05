@@ -17,7 +17,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.pb.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0267a {
+    public interface InterfaceC0278a {
         void d(String str, String str2, String str3, String str4, String str5);
     }
 
@@ -29,39 +29,39 @@ public class a {
 
     public static void a(long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11) {
         if (j > 0) {
-            am ax = new am("ad_tpoint").ax(VideoPlayActivityConfig.OBJ_ID, String.valueOf(j)).ax("obj_name", str);
+            am aA = new am("ad_tpoint").aA(VideoPlayActivityConfig.OBJ_ID, String.valueOf(j)).aA("obj_name", str);
             if (str3 != null) {
-                ax = ax.ax(SystemScreenshotManager.PAGE, str3);
+                aA = aA.aA(SystemScreenshotManager.PAGE, str3);
             }
             if (str4 != null) {
-                ax = ax.ax("loc_param", str4);
+                aA = aA.aA("loc_param", str4);
             }
             if (str5 != null) {
-                ax = ax.ax(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str5);
+                aA = aA.aA(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str5);
             }
             if (str6 != null) {
-                ax = ax.ax(WebSocketAction.PARAM_KEY_TASK, str6);
+                aA = aA.aA(WebSocketAction.PARAM_KEY_TASK, str6);
             }
             if (str7 != null) {
-                ax = ax.ax("obj_param", str7);
+                aA = aA.aA("obj_param", str7);
             }
             if (str8 != null) {
-                ax = ax.ax("params", str8);
+                aA = aA.aA("params", str8);
             }
             if (str9 != null) {
-                ax = ax.ax(ImageViewerConfig.FORUM_ID, str9);
+                aA = aA.aA(ImageViewerConfig.FORUM_ID, str9);
             }
             if (str10 != null) {
-                ax = ax.ax(ImageViewerConfig.FORUM_NAME, str10);
+                aA = aA.aA(ImageViewerConfig.FORUM_NAME, str10);
             }
             if (str11 != null) {
-                ax = ax.ax("tid", str11);
+                aA = aA.aA("tid", str11);
             }
-            am ax2 = ax.ax("line", "PT").ax("locate", "c0114").x("obj_cpid", 0).x("obj_good_id", 0).ax("obj_throw_type", "BY_POST").ax("client_type", "MOBILE_APP").ax("user_timestamp", String.valueOf(System.currentTimeMillis())).ax("os", HttpConstants.OS_TYPE_VALUE).ax(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE).ax("log_ver", "1.1");
+            am aA2 = aA.aA("line", "PT").aA("locate", "c0114").x("obj_cpid", 0).x("obj_good_id", 0).aA("obj_throw_type", "BY_POST").aA("client_type", "MOBILE_APP").aA("user_timestamp", String.valueOf(System.currentTimeMillis())).aA("os", HttpConstants.OS_TYPE_VALUE).aA(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE).aA("log_ver", "1.1");
             if (str2 != null) {
-                ax2 = ax2.ax(SelectForumActivityConfig.KEY_SHARE_LINK, str2);
+                aA2 = aA2.aA(SelectForumActivityConfig.KEY_SHARE_LINK, str2);
             }
-            TiebaStatic.log(ax2);
+            TiebaStatic.log(aA2);
         }
     }
 }

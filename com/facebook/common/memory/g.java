@@ -8,9 +8,9 @@ public interface g {
 
     PooledByteBuffer a(InputStream inputStream, int i) throws IOException;
 
-    i bRc();
+    i bTi();
 
-    PooledByteBuffer o(InputStream inputStream) throws IOException;
+    PooledByteBuffer p(InputStream inputStream) throws IOException;
 
-    i xx(int i);
+    i xU(int i);
 }

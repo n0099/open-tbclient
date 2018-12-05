@@ -13,7 +13,7 @@ import com.baidu.tieba.e;
 /* loaded from: classes4.dex */
 public class CommonTagView extends TextView {
     private boolean IW;
-    private boolean bDJ;
+    private boolean bHm;
     private int mBorderColor;
     private int mBorderWidth;
     private Context mContext;
@@ -32,7 +32,7 @@ public class CommonTagView extends TextView {
     public CommonTagView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.IW = true;
-        this.bDJ = true;
+        this.bHm = true;
         b(context, attributeSet, i);
     }
 
@@ -43,10 +43,10 @@ public class CommonTagView extends TextView {
         this.mCornerRadius = obtainStyledAttributes.getDimensionPixelOffset(e.l.CommonTagView_cornerRadius, 3);
         obtainStyledAttributes.recycle();
         setPadding(getPaddingLeft() == 0 ? AiAppsUIUtils.dip2px(context, 2.0f) : getPaddingLeft(), getPaddingTop() == 0 ? AiAppsUIUtils.dip2px(context, 1.0f) : getPaddingTop(), getPaddingRight() == 0 ? AiAppsUIUtils.dip2px(context, 2.0f) : getPaddingRight(), getPaddingBottom() == 0 ? AiAppsUIUtils.dip2px(context, 1.0f) : getPaddingBottom());
-        ch(context);
+        ck(context);
     }
 
-    private void ch(Context context) {
+    private void ck(Context context) {
         this.mContext = context;
         this.mPaint = new Paint();
         this.mRectF = new RectF();
@@ -59,7 +59,7 @@ public class CommonTagView extends TextView {
             this.mPaint.setStyle(Paint.Style.STROKE);
             this.mPaint.setAntiAlias(true);
             this.mPaint.setStrokeWidth(this.mBorderWidth);
-            if (this.bDJ && this.mBorderColor != getCurrentTextColor()) {
+            if (this.bHm && this.mBorderColor != getCurrentTextColor()) {
                 this.mBorderColor = getCurrentTextColor();
             }
             this.mPaint.setColor(this.mBorderColor);

@@ -40,14 +40,14 @@ public class g {
         return this.VF.getUserAgentString();
     }
 
-    public boolean qv() {
+    public boolean qu() {
         if (this.VF != null) {
             return this.VF.getBackForwardAnimationEnable();
         }
         return false;
     }
 
-    public String qw() {
+    public String qv() {
         return this.VF.getWebViewFrameName();
     }
 

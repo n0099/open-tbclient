@@ -6,7 +6,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a extends d {
-    public void N(JSONObject jSONObject) throws JSONException {
+    public void O(JSONObject jSONObject) throws JSONException {
         this.title = jSONObject.getString("title");
         this.linkUrl = jSONObject.getString("linkUrl");
         this.content = jSONObject.optString("content");

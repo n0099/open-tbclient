@@ -18,16 +18,16 @@ public interface c {
     public interface b {
         void a(com.facebook.cache.common.h hVar, Object obj) throws IOException;
 
-        com.facebook.a.a al(Object obj) throws IOException;
+        com.facebook.a.a am(Object obj) throws IOException;
 
-        boolean bQt();
+        boolean bSz();
     }
 
     long a(a aVar) throws IOException;
 
-    void bQp();
+    void bSv();
 
-    Collection<a> bQq() throws IOException;
+    Collection<a> bSw() throws IOException;
 
     boolean isExternal();
 

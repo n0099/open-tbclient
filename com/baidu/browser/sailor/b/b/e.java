@@ -21,7 +21,7 @@ final class e implements d.a {
             int i3 = jSONObject.getInt("plugged");
             this.WI.addField("level", String.valueOf(i2 != 0 ? i / i2 : 0.0f));
             this.WI.addField("plugged", String.valueOf(i3 != 0));
-            this.WI.qO();
+            this.WI.qN();
         } catch (JSONException e) {
             this.WI.cA(e.getMessage());
             e.printStackTrace();

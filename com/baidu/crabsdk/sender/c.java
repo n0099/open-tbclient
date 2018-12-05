@@ -30,7 +30,7 @@ public final class c implements Thread.UncaughtExceptionHandler {
         return true;
     }
 
-    public static c rw() {
+    public static c rv() {
         return YF;
     }
 
@@ -92,7 +92,7 @@ public final class c implements Thread.UncaughtExceptionHandler {
                     com.baidu.crabsdk.c.a.cJ("oom save fail" + th3.getMessage());
                 }
             }
-            if (e.ry() && e.Y() && e.j(th)) {
+            if (e.rx() && e.Y() && e.j(th)) {
                 YD = false;
                 if (this.YH != null && thread != null && th != null) {
                     f.c(this.YH, f.j(d.a(this.YH, th, false)));

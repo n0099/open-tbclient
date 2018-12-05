@@ -61,7 +61,7 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b
     public void a(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        l.lk();
+        l.lj();
         if (socketMessage != null && socketMessageTask != null) {
             if (a(socketMessage, socketMessageTask.hw())) {
                 i.a("queue", socketMessage, 0, "sendMessage", h.xi, "duplicate message be removed");
@@ -248,7 +248,7 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
         if (this.wH != null) {
             this.wH.gp();
         }
-        if (!l.lm() || c.g(this.wE) || c.g(this.wD) || c.g(this.wC) || !BdSocketLinkService.isAvailable()) {
+        if (!l.ll() || c.g(this.wE) || c.g(this.wD) || c.g(this.wC) || !BdSocketLinkService.isAvailable()) {
             gO();
             return false;
         }

@@ -13,7 +13,7 @@ import com.baidu.tieba.setting.more.MsgSettingItemView;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter implements BdSwitchView.a {
-    private BdSwitchView.a cEn;
+    private BdSwitchView.a cIm;
     private TbPageContext mContext;
     private ArrayList<OfficialAccountPushInfo> mData;
 
@@ -51,51 +51,51 @@ public class a extends BaseAdapter implements BdSwitchView.a {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0299a c0299a;
+        C0310a c0310a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(e.h.official_account_push_item, viewGroup, false);
-            c0299a = new C0299a();
-            c0299a.gRQ = (MsgSettingItemView) view.findViewById(e.g.item_official_account_push);
-            view.setTag(c0299a);
+            c0310a = new C0310a();
+            c0310a.gYG = (MsgSettingItemView) view.findViewById(e.g.item_official_account_push);
+            view.setTag(c0310a);
         } else {
-            c0299a = (C0299a) view.getTag();
+            c0310a = (C0310a) view.getTag();
         }
         OfficialAccountPushInfo officialAccountPushInfo = (OfficialAccountPushInfo) getItem(i);
         if (ao.isEmpty(officialAccountPushInfo.name)) {
-            c0299a.gRQ.setVisibility(8);
+            c0310a.gYG.setVisibility(8);
         } else {
-            c0299a.gRQ.setVisibility(0);
-            c0299a.gRQ.setText(officialAccountPushInfo.name);
-            if (officialAccountPushInfo.gRS == 1) {
-                c0299a.gRQ.getSwitchView().nQ();
+            c0310a.gYG.setVisibility(0);
+            c0310a.gYG.setText(officialAccountPushInfo.name);
+            if (officialAccountPushInfo.gYI == 1) {
+                c0310a.gYG.getSwitchView().nP();
             } else {
-                c0299a.gRQ.getSwitchView().nR();
+                c0310a.gYG.getSwitchView().nQ();
             }
-            c0299a.gRQ.setLineVisibility(true);
-            c0299a.gRQ.d(this.mContext, TbadkCoreApplication.getInst().getSkinType());
-            c0299a.gRQ.getSwitchView().setOnSwitchStateChangeListener(this);
-            c0299a.gRQ.getSwitchView().setTag(officialAccountPushInfo);
+            c0310a.gYG.setLineVisibility(true);
+            c0310a.gYG.d(this.mContext, TbadkCoreApplication.getInst().getSkinType());
+            c0310a.gYG.getSwitchView().setOnSwitchStateChangeListener(this);
+            c0310a.gYG.getSwitchView().setTag(officialAccountPushInfo);
         }
         return view;
     }
 
     public void setSwitchStateChangeListener(BdSwitchView.a aVar) {
-        this.cEn = aVar;
+        this.cIm = aVar;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (this.cEn != null) {
-            this.cEn.a(view, switchState);
+        if (this.cIm != null) {
+            this.cIm.a(view, switchState);
         }
     }
 
     /* renamed from: com.baidu.tieba.setting.officialAccountPush.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0299a {
-        MsgSettingItemView gRQ;
+    public class C0310a {
+        MsgSettingItemView gYG;
 
-        public C0299a() {
+        public C0310a() {
         }
     }
 }

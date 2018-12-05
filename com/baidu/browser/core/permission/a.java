@@ -11,7 +11,7 @@ public class a {
     private a() {
     }
 
-    public static a qm() {
+    public static a ql() {
         return Vh;
     }
 

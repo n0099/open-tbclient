@@ -33,23 +33,23 @@ public class d extends h<f, a> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, f fVar, a aVar) {
         super.onFillViewHolder(i, view, viewGroup, fVar, aVar);
-        if (aVar == null || aVar.edI == null) {
+        if (aVar == null || aVar.ekl == null) {
             return null;
         }
         if (fVar != null) {
-            aVar.edI.setForumId(this.mForumId);
-            aVar.edI.a(fVar);
+            aVar.ekl.setForumId(this.mForumId);
+            aVar.ekl.a(fVar);
         }
         return aVar.getView();
     }
 
     /* loaded from: classes3.dex */
     public static class a extends q.a {
-        private com.baidu.tieba.frs.worldcup.videotopic.b.a edI;
+        private com.baidu.tieba.frs.worldcup.videotopic.b.a ekl;
 
         public a(com.baidu.tieba.frs.worldcup.videotopic.b.a aVar) {
             super(aVar.getView());
-            this.edI = aVar;
+            this.ekl = aVar;
         }
     }
 

@@ -227,14 +227,14 @@ public class c {
         }
 
         public void a(b<T> bVar, BdUniqueId bdUniqueId) {
-            l.lk();
+            l.lj();
             if (!this.DH.containsKey(bVar)) {
                 this.DH.put(bVar, bdUniqueId);
             }
         }
 
         public void a(b<T> bVar) {
-            l.lk();
+            l.lj();
             this.DH.remove(bVar);
             if (bVar != null) {
                 bVar.onCancelled(this.DC);
@@ -245,7 +245,7 @@ public class c {
         }
 
         public void b(BdUniqueId bdUniqueId, b<T> bVar) {
-            l.lk();
+            l.lj();
             if (this.DH.size() == 0) {
                 cancel();
                 return;
@@ -265,7 +265,7 @@ public class c {
         }
 
         public void f(BdUniqueId bdUniqueId) {
-            l.lk();
+            l.lj();
             if (this.DH.size() == 0) {
                 cancel();
                 return;

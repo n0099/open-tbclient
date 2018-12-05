@@ -15,62 +15,62 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private JSONObject bGj;
-    private HttpMessageListener bGk;
-    private BdUniqueId bGl = BdUniqueId.gen();
-    private BdUniqueId bGm = BdUniqueId.gen();
-    private CustomMessageListener btd = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.ala.a.2
+    private JSONObject bJY;
+    private HttpMessageListener bJZ;
+    private BdUniqueId bKa = BdUniqueId.gen();
+    private BdUniqueId bKb = BdUniqueId.gen();
+    private CustomMessageListener bwC = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.ala.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.kK() && a.this.bGj != null) {
-                a.this.a(a.this.bGj, a.this.bGm);
+            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.kK() && a.this.bJY != null) {
+                a.this.a(a.this.bJY, a.this.bKb);
             }
         }
     };
-    private CustomMessageListener bGn = new CustomMessageListener(2921324) { // from class: com.baidu.tieba.ala.a.3
+    private CustomMessageListener bKc = new CustomMessageListener(2921324) { // from class: com.baidu.tieba.ala.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
-                a.this.Q((JSONObject) customResponsedMessage.getData());
+                a.this.R((JSONObject) customResponsedMessage.getData());
             }
         }
     };
 
     public a(TbPageContext tbPageContext) {
-        if (this.bGk == null) {
-            this.bGk = new HttpMessageListener(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK) { // from class: com.baidu.tieba.ala.a.1
+        if (this.bJZ == null) {
+            this.bJZ = new HttpMessageListener(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK) { // from class: com.baidu.tieba.ala.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                     if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003390 && httpResponsedMessage.getError() == 0) {
-                        a.this.bGj = null;
+                        a.this.bJY = null;
                     }
                 }
             };
         }
-        MessageManager.getInstance().registerListener(this.bGk);
-        MessageManager.getInstance().registerListener(this.btd);
-        this.bGn.setTag(tbPageContext.getUniqueId());
-        this.bGn.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.bGn);
+        MessageManager.getInstance().registerListener(this.bJZ);
+        MessageManager.getInstance().registerListener(this.bwC);
+        this.bKc.setTag(tbPageContext.getUniqueId());
+        this.bKc.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.bKc);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.bGk);
-        MessageManager.getInstance().unRegisterListener(this.btd);
-        MessageManager.getInstance().unRegisterListener(this.bGn);
-        this.bGj = null;
+        MessageManager.getInstance().unRegisterListener(this.bJZ);
+        MessageManager.getInstance().unRegisterListener(this.bwC);
+        MessageManager.getInstance().unRegisterListener(this.bKc);
+        this.bJY = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Q(JSONObject jSONObject) {
+    public void R(JSONObject jSONObject) {
         if (jSONObject != null) {
             if (j.kK()) {
-                a(jSONObject, this.bGl);
+                a(jSONObject, this.bKa);
             } else {
-                this.bGj = jSONObject;
+                this.bJY = jSONObject;
             }
         }
     }

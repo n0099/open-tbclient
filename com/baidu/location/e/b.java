@@ -64,7 +64,7 @@ public class b {
                         b.this.k();
                     } catch (Exception e) {
                     }
-                    com.baidu.location.b.b.tv().e();
+                    com.baidu.location.b.b.tu().e();
                 }
             });
         }
@@ -396,11 +396,11 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void k() {
         CellLocation cellLocation;
-        com.baidu.location.e.a tO = tO();
-        if (tO != null) {
-            d(tO);
+        com.baidu.location.e.a tN = tN();
+        if (tN != null) {
+            d(tN);
         }
-        if (tO == null || !tO.b()) {
+        if (tN == null || !tN.b()) {
             try {
                 cellLocation = this.afr.getCellLocation();
             } catch (Throwable th) {
@@ -412,7 +412,7 @@ public class b {
         }
     }
 
-    public static synchronized b tM() {
+    public static synchronized b tL() {
         b bVar;
         synchronized (b.class) {
             if (afq == null) {
@@ -430,7 +430,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private com.baidu.location.e.a tO() {
+    private com.baidu.location.e.a tN() {
         com.baidu.location.e.a aVar;
         if (Integer.valueOf(Build.VERSION.SDK_INT).intValue() < 17) {
             return null;
@@ -631,7 +631,7 @@ public class b {
         return 0;
     }
 
-    public com.baidu.location.e.a tN() {
+    public com.baidu.location.e.a tM() {
         if ((this.afs == null || !this.afs.a() || !this.afs.b()) && this.afr != null) {
             try {
                 k();

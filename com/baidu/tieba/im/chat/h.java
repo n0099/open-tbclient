@@ -13,10 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h {
-    private MsgLeftViewItemAdapter eBP;
-    private MsgRightViewItemAdapter eBQ;
-    private MsgMidViewItemAdapter eBR;
-    private CustomMessageListener eBS;
+    private MsgLeftViewItemAdapter eIE;
+    private MsgRightViewItemAdapter eIF;
+    private MsgMidViewItemAdapter eIG;
+    private CustomMessageListener eIH;
     private List<e> mAdapters;
     private TbPageContext<MsglistActivity<?>> mContext;
     private List<ChatMessage> mData;
@@ -29,14 +29,14 @@ public class h {
     public h(TbPageContext<MsglistActivity<?>> tbPageContext, BdTypeListView bdTypeListView, int i) {
         this.mData = null;
         this.mAdapters = new ArrayList();
-        this.eBS = new CustomMessageListener(2001275) { // from class: com.baidu.tieba.im.chat.h.1
+        this.eIH = new CustomMessageListener(2001275) { // from class: com.baidu.tieba.im.chat.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
                     MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-                    if (aVar.eBg != null && aVar.context != null) {
-                        h.this.mAdapters.addAll(aVar.eBg);
+                    if (aVar.eHV != null && aVar.context != null) {
+                        h.this.mAdapters.addAll(aVar.eHV);
                         h.this.mListView.addAdapters(new ArrayList(h.this.mAdapters));
                     }
                 }
@@ -45,48 +45,49 @@ public class h {
         this.mContext = tbPageContext;
         this.mListView = bdTypeListView;
         initAdapters();
-        this.eBP.pg(i);
-        this.eBQ.pg(i);
+        this.eIE.pB(i);
+        this.eIF.pB(i);
     }
 
     private void initAdapters() {
-        this.eBP = new MsgLeftViewItemAdapter(this.mContext, ChatMessage.TYPE_MSG_LEFT);
-        this.eBP.ia(true);
-        this.eBP.hZ(true);
-        this.eBQ = new MsgRightViewItemAdapter(this.mContext, ChatMessage.TYPE_MSG_RIGHT);
-        this.eBQ.ia(true);
-        this.eBQ.hZ(true);
-        this.eBR = new MsgMidViewItemAdapter(this.mContext, ChatMessage.TYPE_MSG_MID);
-        this.mAdapters.add(this.eBP);
-        this.mAdapters.add(this.eBQ);
-        this.mAdapters.add(this.eBR);
+        this.eIE = new MsgLeftViewItemAdapter(this.mContext, ChatMessage.TYPE_MSG_LEFT);
+        this.eIE.id(true);
+        this.eIE.ic(true);
+        this.eIF = new MsgRightViewItemAdapter(this.mContext, ChatMessage.TYPE_MSG_RIGHT);
+        this.eIF.id(true);
+        this.eIF.ic(true);
+        this.eIG = new MsgMidViewItemAdapter(this.mContext, ChatMessage.TYPE_MSG_MID);
+        this.mAdapters.add(this.eIE);
+        this.mAdapters.add(this.eIF);
+        this.mAdapters.add(this.eIG);
         initListener();
         MsgAdapterScanMessage.a aVar = new MsgAdapterScanMessage.a();
-        aVar.eBg = new ArrayList();
+        aVar.eHV = new ArrayList();
         aVar.context = this.mContext;
         MessageManager.getInstance().dispatchResponsedMessage(new MsgAdapterScanMessage(aVar));
     }
 
     private void initListener() {
-        this.eBS.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-        this.mContext.registerListener(this.eBS);
+        this.eIH.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        this.mContext.registerListener(this.eIH);
     }
 
-    public void ib(boolean z) {
-        if (this.eBP != null) {
-            this.eBP.ib(z);
+    public void ie(boolean z) {
+        if (this.eIE != null) {
+            this.eIE.ie(z);
         }
     }
 
-    public void ic(boolean z) {
-        if (this.eBQ != null) {
-            this.eBQ.ic(z);
+    /* renamed from: if  reason: not valid java name */
+    public void m21if(boolean z) {
+        if (this.eIF != null) {
+            this.eIF.m19if(z);
         }
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
         for (e eVar : this.mAdapters) {
-            if (eVar.aMv()) {
+            if (eVar.aOn()) {
                 eVar.a(aVar);
             }
         }
@@ -94,7 +95,7 @@ public class h {
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
         for (e eVar : this.mAdapters) {
-            if (eVar.aMu()) {
+            if (eVar.aOm()) {
                 eVar.setOnItemViewLongClickListener(bVar);
             }
         }
@@ -141,9 +142,9 @@ public class h {
     }
 
     public void onDestory() {
-        if (this.eBS != null) {
-            MessageManager.getInstance().unRegisterListener(this.eBS);
-            this.eBS = null;
+        if (this.eIH != null) {
+            MessageManager.getInstance().unRegisterListener(this.eIH);
+            this.eIH = null;
         }
     }
 }

@@ -1,16 +1,16 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes2.dex */
 public class as implements ai<com.facebook.imagepipeline.f.d> {
-    private final at<com.facebook.imagepipeline.f.d>[] ikn;
+    private final at<com.facebook.imagepipeline.f.d>[] irz;
 
     public as(at<com.facebook.imagepipeline.f.d>... atVarArr) {
-        this.ikn = (at[]) com.facebook.common.internal.g.checkNotNull(atVarArr);
-        com.facebook.common.internal.g.cf(0, this.ikn.length);
+        this.irz = (at[]) com.facebook.common.internal.g.checkNotNull(atVarArr);
+        com.facebook.common.internal.g.cd(0, this.irz.length);
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        if (ajVar.bWL().bXB() == null) {
+        if (ajVar.bYR().bZH() == null) {
             jVar.e(null, true);
         } else if (!a(0, jVar, ajVar)) {
             jVar.e(null, true);
@@ -20,15 +20,15 @@ public class as implements ai<com.facebook.imagepipeline.f.d> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class a extends m<com.facebook.imagepipeline.f.d, com.facebook.imagepipeline.f.d> {
-        private final com.facebook.imagepipeline.common.c iec;
-        private final aj iiE;
-        private final int iko;
+        private final com.facebook.imagepipeline.common.c ilm;
+        private final aj ipQ;
+        private final int irA;
 
         public a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar, int i) {
             super(jVar);
-            this.iiE = ajVar;
-            this.iko = i;
-            this.iec = this.iiE.bWL().bXB();
+            this.ipQ = ajVar;
+            this.irA = i;
+            this.ilm = this.ipQ.bYR().bZH();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -36,37 +36,37 @@ public class as implements ai<com.facebook.imagepipeline.f.d> {
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
         public void d(com.facebook.imagepipeline.f.d dVar, boolean z) {
-            if (dVar != null && (!z || au.a(dVar, this.iec))) {
-                bWY().e(dVar, z);
+            if (dVar != null && (!z || au.a(dVar, this.ilm))) {
+                bZe().e(dVar, z);
             } else if (z) {
                 com.facebook.imagepipeline.f.d.e(dVar);
-                if (!as.this.a(this.iko + 1, bWY(), this.iiE)) {
-                    bWY().e(null, true);
+                if (!as.this.a(this.irA + 1, bZe(), this.ipQ)) {
+                    bZe().e(null, true);
                 }
             }
         }
 
         @Override // com.facebook.imagepipeline.producers.m, com.facebook.imagepipeline.producers.b
         protected void A(Throwable th) {
-            if (!as.this.a(this.iko + 1, bWY(), this.iiE)) {
-                bWY().B(th);
+            if (!as.this.a(this.irA + 1, bZe(), this.ipQ)) {
+                bZe().B(th);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(int i, j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        int a2 = a(i, ajVar.bWL().bXB());
+        int a2 = a(i, ajVar.bYR().bZH());
         if (a2 == -1) {
             return false;
         }
-        this.ikn[a2].a(new a(jVar, ajVar, a2), ajVar);
+        this.irz[a2].a(new a(jVar, ajVar, a2), ajVar);
         return true;
     }
 
     private int a(int i, com.facebook.imagepipeline.common.c cVar) {
-        while (i < this.ikn.length) {
-            if (!this.ikn[i].a(cVar)) {
+        while (i < this.irz.length) {
+            if (!this.irz[i].a(cVar)) {
                 i++;
             } else {
                 return i;

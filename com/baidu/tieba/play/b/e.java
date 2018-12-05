@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 /* loaded from: classes.dex */
 public class e {
-    public static void sW(int i) {
+    public static void tq(int i) {
         int i2;
         if (i == -100) {
             i2 = 0;
@@ -20,7 +20,7 @@ public class e {
         TiebaStatic.log(new am("c12493").x("obj_type", i2));
     }
 
-    public static void sX(int i) {
+    public static void tr(int i) {
         int i2;
         int i3 = 2;
         if (i == -100) {
@@ -42,11 +42,11 @@ public class e {
         TiebaStatic.log(new am("c12029").x("obj_type", i2).x("obj_param1", j.kW() ? 0 : 1).x("obj_param2", i3));
     }
 
-    public static void tz(String str) {
-        TiebaStatic.log(new am("c12026").ax("tid", str));
+    public static void ub(String str) {
+        TiebaStatic.log(new am("c12026").aA("tid", str));
     }
 
-    public static void sY(int i) {
+    public static void ts(int i) {
         int i2;
         if (i == -100) {
             i2 = 0;
@@ -57,7 +57,7 @@ public class e {
     }
 
     public static void a(Uri uri, String str) {
-        TiebaStatic.log(new am("c12199").ax("obj_param1", uri == null ? "null" : uri.toString()).ax("obj_param2", str).ax("obj_param3", com.baidu.tbadk.core.util.d.getIp()));
+        TiebaStatic.log(new am("c12199").aA("obj_param1", uri == null ? "null" : uri.toString()).aA("obj_param2", str).aA("obj_param3", com.baidu.tbadk.core.util.d.getIp()));
         BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
         Object[] objArr = new Object[6];
         objArr[0] = "url";
@@ -169,7 +169,7 @@ public class e {
         }
     }
 
-    public static void bF(int i, int i2) {
+    public static void bD(int i, int i2) {
         switch (i2) {
             case -10040:
                 TiebaStatic.log(new am("c12511").x("obj_locate", 6));

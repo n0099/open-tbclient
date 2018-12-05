@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.decoder;
 import com.facebook.imagepipeline.f.g;
 /* loaded from: classes2.dex */
 public interface d {
-    int xO(int i);
+    int yl(int i);
 
-    g xP(int i);
+    g ym(int i);
 }

@@ -6,7 +6,7 @@ import android.os.StatFs;
 public final class a {
     private static String[] Vo = {"MemTotal:", "MemFree:", "Buffers:", "Cached:", "Active:", "Inactive:", "Dirty:"};
 
-    public static float qn() {
+    public static float qm() {
         Exception e;
         long j;
         StatFs statFs;

@@ -10,81 +10,81 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class y extends com.baidu.tbadk.core.dialog.b {
-    private View.OnClickListener dzp;
-    private TextView fSB;
-    private TextView fSC;
-    private TextView fSD;
-    private TextView fSE;
-    private TextView fSF;
-    private TextView fSG;
-    private TextView fSH;
-    private TextView fSI;
-    private boolean fSJ;
+    private View.OnClickListener dFO;
+    private TextView fZr;
+    private TextView fZs;
+    private TextView fZt;
+    private TextView fZu;
+    private TextView fZv;
+    private TextView fZw;
+    private TextView fZx;
+    private TextView fZy;
+    private boolean fZz;
     private TbPageContext<?> mContext;
 
     public y(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
         super(tbPageContext.getPageActivity());
-        this.fSJ = false;
+        this.fZz = false;
         this.mContext = tbPageContext;
-        this.dzp = onClickListener;
+        this.dFO = onClickListener;
         createDialog();
     }
 
-    public TextView bhY() {
-        return this.fSB;
+    public TextView bjQ() {
+        return this.fZr;
     }
 
-    public TextView bhZ() {
-        return this.fSC;
+    public TextView bjR() {
+        return this.fZs;
     }
 
-    public TextView bia() {
-        return this.fSD;
+    public TextView bjS() {
+        return this.fZt;
     }
 
-    public TextView bib() {
-        return this.fSE;
+    public TextView bjT() {
+        return this.fZu;
     }
 
-    public TextView bic() {
-        return this.fSF;
+    public TextView bjU() {
+        return this.fZv;
     }
 
-    public TextView bid() {
-        return this.fSI;
+    public TextView bjV() {
+        return this.fZy;
     }
 
-    public TextView bie() {
-        return this.fSG;
+    public TextView bjW() {
+        return this.fZw;
     }
 
-    public TextView bif() {
-        return this.fSH;
+    public TextView bjX() {
+        return this.fZx;
     }
 
     private void createDialog() {
-        a(new CharSequence[]{this.mContext.getString(e.j.no_interesting), this.mContext.getString(e.j.save_to_emotion), this.mContext.getString(e.j.save_to_local), this.mContext.getString(e.j.copy), this.mContext.getString(e.j.mark), this.mContext.getString(e.j.report_text), this.mContext.getString(e.j.delete), this.mContext.getString(e.j.mute)}, new b.InterfaceC0148b() { // from class: com.baidu.tieba.pb.pb.main.y.1
-            @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0148b
+        a(new CharSequence[]{this.mContext.getString(e.j.no_interesting), this.mContext.getString(e.j.save_to_emotion), this.mContext.getString(e.j.save_to_local), this.mContext.getString(e.j.copy), this.mContext.getString(e.j.mark), this.mContext.getString(e.j.report_text), this.mContext.getString(e.j.delete), this.mContext.getString(e.j.mute)}, new b.InterfaceC0158b() { // from class: com.baidu.tieba.pb.pb.main.y.1
+            @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0158b
             public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
                 if (bVar != null && view != null) {
                     bVar.dismiss();
-                    y.this.dzp.onClick(view);
+                    y.this.dFO.onClick(view);
                 }
             }
         });
         d(this.mContext);
-        this.fSI = bA(cV(0));
-        this.fSB = bA(cV(4));
-        this.fSC = bA(cV(7));
-        this.fSD = bA(cV(5));
-        this.fSE = bA(cV(6));
-        this.fSF = bA(cV(3));
-        this.fSG = bA(cV(1));
-        this.fSH = bA(cV(2));
+        this.fZy = bA(dj(0));
+        this.fZr = bA(dj(4));
+        this.fZs = bA(dj(7));
+        this.fZt = bA(dj(5));
+        this.fZu = bA(dj(6));
+        this.fZv = bA(dj(3));
+        this.fZw = bA(dj(1));
+        this.fZx = bA(dj(2));
     }
 
     public void showDialog() {
-        AE();
+        BI();
     }
 
     private TextView bA(View view) {
@@ -98,8 +98,8 @@ public class y extends com.baidu.tbadk.core.dialog.b {
         return view.findViewById(e.g.line);
     }
 
-    public void kV(boolean z) {
-        this.fSD.setVisibility(z ? 0 : 8);
+    public void kY(boolean z) {
+        this.fZt.setVisibility(z ? 0 : 8);
     }
 
     public View getView() {
@@ -113,22 +113,22 @@ public class y extends com.baidu.tbadk.core.dialog.b {
         ArrayList arrayList = new ArrayList();
         boolean z = true;
         for (int i = itemCount - 1; i >= 0; i--) {
-            View cV = cV(i);
-            if (cV != null) {
-                TextView bA2 = bA(cV(i));
-                View bB = bB(cV(i));
+            View dj = dj(i);
+            if (dj != null) {
+                TextView bA2 = bA(dj(i));
+                View bB = bB(dj(i));
                 if (bA2 != null) {
                     if (bA2.getVisibility() == 8) {
                         bB.setVisibility(8);
                     } else {
-                        arrayList.add(cV);
+                        arrayList.add(dj);
                         if (z) {
                             bB.setVisibility(8);
-                            com.baidu.tbadk.core.util.al.i(cV, e.f.dialog_single_button_bg_selector);
+                            com.baidu.tbadk.core.util.al.i(dj, e.f.dialog_single_button_bg_selector);
                             z = false;
                         } else {
                             bB.setVisibility(0);
-                            com.baidu.tbadk.core.util.al.i(cV, e.f.dialog_middle_item_bg_selector);
+                            com.baidu.tbadk.core.util.al.i(dj, e.f.dialog_middle_item_bg_selector);
                         }
                     }
                 }
@@ -139,11 +139,11 @@ public class y extends com.baidu.tbadk.core.dialog.b {
             if (i2 >= itemCount) {
                 break;
             }
-            View cV2 = cV(i2);
-            if (cV2 == null || (bA = bA(cV(i2))) == null || bA.getVisibility() != 0) {
+            View dj2 = dj(i2);
+            if (dj2 == null || (bA = bA(dj(i2))) == null || bA.getVisibility() != 0) {
                 i2++;
             } else {
-                com.baidu.tbadk.core.util.al.i(cV2, e.f.dialog_single_button_first_bg_selector);
+                com.baidu.tbadk.core.util.al.i(dj2, e.f.dialog_single_button_first_bg_selector);
                 break;
             }
         }
@@ -158,10 +158,10 @@ public class y extends com.baidu.tbadk.core.dialog.b {
             SparseArray sparseArray2 = new SparseArray();
             sparseArray2.put(e.g.tag_clip_board, (PostData) sparseArray.get(e.g.tag_clip_board));
             sparseArray2.put(e.g.tag_is_subpb, false);
-            bhY().setTag(sparseArray2);
+            bjQ().setTag(sparseArray2);
             SparseArray sparseArray3 = new SparseArray();
             sparseArray3.put(e.g.tag_clip_board, (PostData) sparseArray.get(e.g.tag_clip_board));
-            bic().setTag(sparseArray3);
+            bjU().setTag(sparseArray3);
             boolean booleanValue = sparseArray.get(e.g.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(e.g.tag_should_manage_visible)).booleanValue() : false;
             boolean booleanValue2 = sparseArray.get(e.g.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(e.g.tag_user_mute_visible)).booleanValue() : false;
             boolean booleanValue3 = sparseArray.get(e.g.tag_should_delete_visible) instanceof Boolean ? ((Boolean) sparseArray.get(e.g.tag_should_delete_visible)).booleanValue() : false;
@@ -191,15 +191,15 @@ public class y extends com.baidu.tbadk.core.dialog.b {
                     sparseArray4.put(e.g.tag_del_post_is_self, Boolean.valueOf(booleanValue4));
                     sparseArray4.put(e.g.tag_del_post_id, sparseArray.get(e.g.tag_del_post_id));
                     sparseArray4.put(e.g.tag_del_post_type, sparseArray.get(e.g.tag_del_post_type));
-                    bib().setVisibility(0);
+                    bjT().setVisibility(0);
                 } else {
                     sparseArray4.put(e.g.tag_should_delete_visible, false);
-                    bib().setVisibility(8);
+                    bjT().setVisibility(8);
                 }
-                bhZ().setTag(sparseArray4);
-                bib().setTag(sparseArray4);
-                bhZ().setText(e.j.bar_manager);
-                bhZ().setVisibility(0);
+                bjR().setTag(sparseArray4);
+                bjT().setTag(sparseArray4);
+                bjR().setText(e.j.bar_manager);
+                bjR().setVisibility(0);
             } else if (booleanValue3) {
                 SparseArray sparseArray5 = new SparseArray();
                 sparseArray5.put(e.g.tag_should_manage_visible, false);
@@ -209,19 +209,19 @@ public class y extends com.baidu.tbadk.core.dialog.b {
                 sparseArray5.put(e.g.tag_del_post_is_self, Boolean.valueOf(booleanValue4));
                 sparseArray5.put(e.g.tag_del_post_id, sparseArray.get(e.g.tag_del_post_id));
                 sparseArray5.put(e.g.tag_del_post_type, sparseArray.get(e.g.tag_del_post_type));
-                bhZ().setTag(sparseArray5);
-                bib().setTag(sparseArray5);
-                bhZ().setText(e.j.delete);
-                bib().setVisibility(0);
+                bjR().setTag(sparseArray5);
+                bjT().setTag(sparseArray5);
+                bjR().setText(e.j.delete);
+                bjT().setVisibility(0);
                 if (i == 1002 && !booleanValue4) {
-                    bib().setText(e.j.report_text);
+                    bjT().setText(e.j.report_text);
                 } else {
-                    bib().setText(e.j.delete);
+                    bjT().setText(e.j.delete);
                 }
-                bhZ().setVisibility(8);
+                bjR().setVisibility(8);
             } else {
-                bhZ().setVisibility(8);
-                bib().setVisibility(8);
+                bjR().setVisibility(8);
+                bjT().setVisibility(8);
             }
             boolean booleanValue5 = sparseArray.get(e.g.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(e.g.tag_user_mute_visible)).booleanValue() : false;
             if (!(sparseArray.get(e.g.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(e.g.tag_should_manage_visible)).booleanValue() : false) && booleanValue5) {
@@ -237,10 +237,10 @@ public class y extends com.baidu.tbadk.core.dialog.b {
                 sparseArray6.put(e.g.tag_del_post_type, sparseArray.get(e.g.tag_del_post_type));
                 sparseArray6.put(e.g.tag_del_post_id, sparseArray.get(e.g.tag_del_post_id));
                 sparseArray6.put(e.g.tag_manage_user_identity, sparseArray.get(e.g.tag_manage_user_identity));
-                bia().setTag(sparseArray6);
-                bia().setVisibility(0);
-                bhZ().setVisibility(8);
-                bia().setText(e.j.mute_option);
+                bjS().setTag(sparseArray6);
+                bjS().setVisibility(0);
+                bjR().setVisibility(8);
+                bjS().setText(e.j.mute_option);
             } else {
                 if (sparseArray.get(e.g.tag_del_post_is_self) instanceof Boolean) {
                     ((Boolean) sparseArray.get(e.g.tag_del_post_is_self)).booleanValue();
@@ -250,10 +250,10 @@ public class y extends com.baidu.tbadk.core.dialog.b {
                     z = false;
                 }
                 if (z) {
-                    bia().setVisibility(0);
-                    bia().setTag(str2);
+                    bjS().setVisibility(0);
+                    bjS().setTag(str2);
                 } else {
-                    bia().setVisibility(8);
+                    bjS().setVisibility(8);
                 }
             }
             long j = 0;
@@ -267,29 +267,29 @@ public class y extends com.baidu.tbadk.core.dialog.b {
             }
             int intValue = sparseArray.get(e.g.tag_chudian_hide_day) instanceof Integer ? ((Integer) sparseArray.get(e.g.tag_chudian_hide_day)).intValue() : 0;
             if (booleanValue6) {
-                bid().setVisibility(0);
-                bid().setTag(e.g.tag_chudian_template_id, Long.valueOf(j));
-                bid().setTag(e.g.tag_chudian_monitor_id, str3);
-                bid().setTag(e.g.tag_chudian_hide_day, Integer.valueOf(intValue));
+                bjV().setVisibility(0);
+                bjV().setTag(e.g.tag_chudian_template_id, Long.valueOf(j));
+                bjV().setTag(e.g.tag_chudian_monitor_id, str3);
+                bjV().setTag(e.g.tag_chudian_hide_day, Integer.valueOf(intValue));
             } else {
-                bid().setVisibility(8);
+                bjV().setVisibility(8);
             }
             boolean booleanValue7 = sparseArray.get(e.g.tag_richtext_emotion) instanceof Boolean ? ((Boolean) sparseArray.get(e.g.tag_richtext_emotion)).booleanValue() : false;
             boolean booleanValue8 = sparseArray.get(e.g.tag_richtext_image) instanceof Boolean ? ((Boolean) sparseArray.get(e.g.tag_richtext_image)).booleanValue() : false;
             if (booleanValue7) {
-                bie().setVisibility(0);
+                bjW().setVisibility(0);
             } else {
-                bie().setVisibility(8);
+                bjW().setVisibility(8);
             }
             if (booleanValue8) {
-                bif().setVisibility(0);
+                bjX().setVisibility(0);
             } else {
-                bif().setVisibility(8);
+                bjX().setVisibility(8);
             }
             if (booleanValue7 || booleanValue8) {
-                bic().setVisibility(8);
+                bjU().setVisibility(8);
             } else {
-                bic().setVisibility(0);
+                bjU().setVisibility(0);
             }
         }
     }

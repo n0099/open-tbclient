@@ -16,17 +16,17 @@ public class e {
             }
         }
     };
-    private boolean awy;
+    private boolean azY;
 
-    public static e Bz() {
+    public static e CD() {
         return new e();
     }
 
     private e() {
     }
 
-    public void k(String str, int i, int i2) {
-        if (!this.awy && str != null) {
+    public void m(String str, int i, int i2) {
+        if (!this.azY && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
                 mHandler.removeCallbacks(r);
@@ -57,7 +57,7 @@ public class e {
     }
 
     public void showToast(String str, int i) {
-        k(str, i, com.baidu.adp.lib.util.l.dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
+        m(str, i, com.baidu.adp.lib.util.l.dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
     }
 
     public void showToast(int i, int i2) {
@@ -65,16 +65,16 @@ public class e {
     }
 
     public void l(int i, int i2, int i3) {
-        k(BdBaseApplication.getInst().getApp().getResources().getString(i), i2, i3);
+        m(BdBaseApplication.getInst().getApp().getResources().getString(i), i2, i3);
     }
 
     public void onPause() {
-        this.awy = true;
+        this.azY = true;
         cancel();
     }
 
     public void onResume() {
-        this.awy = false;
+        this.azY = false;
     }
 
     public static void cancel() {

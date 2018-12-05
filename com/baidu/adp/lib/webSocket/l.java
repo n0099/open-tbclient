@@ -37,15 +37,15 @@ public class l {
         this.Ht = lVar.Ht;
     }
 
-    public boolean lT() {
+    public boolean lS() {
         return this.Id;
     }
 
-    public int lU() {
+    public int lT() {
         return this.Ib;
     }
 
-    public int lV() {
+    public int lU() {
         return this.Ic;
     }
 
@@ -53,23 +53,23 @@ public class l {
         return this.Ie;
     }
 
-    public int lW() {
+    public int lV() {
         return this.If;
     }
 
-    public int lX() {
+    public int lW() {
         return this.Ig;
     }
 
-    public boolean lY() {
+    public boolean lX() {
         return this.Ih;
     }
 
-    public boolean lZ() {
+    public boolean lY() {
         return this.Ii;
     }
 
-    public String ma() {
+    public String lZ() {
         return this.Ht;
     }
 

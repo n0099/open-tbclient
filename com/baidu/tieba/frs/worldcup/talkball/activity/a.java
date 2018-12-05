@@ -11,13 +11,13 @@ import tbclient.TalkBall.AdidasAdvert;
 public interface a {
     void V(ArrayList<h> arrayList);
 
-    void Zd();
-
     void a(e eVar);
 
     void a(AdidasAdvert adidasAdvert);
 
-    void bS(List<com.baidu.tieba.frs.worldcup.talkball.b.a> list);
+    void aaj();
+
+    void bU(List<com.baidu.tieba.frs.worldcup.talkball.b.a> list);
 
     void c(m mVar);
 

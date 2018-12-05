@@ -49,7 +49,7 @@ public final class AiAppsUBCStatistic {
 
     public void startFlow() {
         if (this.mFlow == null) {
-            this.mFlow = o.xI(UBC_AIAPPS_DURATION_ID);
+            this.mFlow = o.yl(UBC_AIAPPS_DURATION_ID);
         }
     }
 
@@ -60,7 +60,7 @@ public final class AiAppsUBCStatistic {
                 @Override // java.lang.Runnable
                 public void run() {
                     aiAppsUBCEvent.mergeExtInfo(AiAppsUBCStatistic.verifyTokenForChannelRefining());
-                    flow.xD(aiAppsUBCEvent.toJSONObject().toString());
+                    flow.yg(aiAppsUBCEvent.toJSONObject().toString());
                     flow.end();
                 }
             }, "AiAppsUBCEndFlow");

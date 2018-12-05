@@ -22,9 +22,9 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.im.chat.officialBar.c;
 /* loaded from: classes3.dex */
 public class MultiImageTextTopView extends RelativeLayout {
-    private TextView dnM;
-    private com.baidu.adp.lib.c.b eBb;
-    private TbImageView eCO;
+    private TextView dun;
+    private com.baidu.adp.lib.c.b eHQ;
+    private TbImageView eJD;
     private Context mContext;
     private int mPosition;
     private TextView mTitle;
@@ -39,22 +39,22 @@ public class MultiImageTextTopView extends RelativeLayout {
 
     public MultiImageTextTopView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.eBb = null;
+        this.eHQ = null;
         this.mContext = context;
         initView();
     }
 
     private void initView() {
         LayoutInflater.from(this.mContext).inflate(e.h.msg_multi_pic_text_top_view, (ViewGroup) this, true);
-        this.eCO = (TbImageView) findViewById(e.g.top_content_pic);
-        this.eCO.setAutoChangeStyle(false);
+        this.eJD = (TbImageView) findViewById(e.g.top_content_pic);
+        this.eJD.setAutoChangeStyle(false);
         this.mTitle = (TextView) findViewById(e.g.top_title);
-        this.dnM = (TextView) findViewById(e.g.show_time);
+        this.dun = (TextView) findViewById(e.g.show_time);
         setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.MultiImageTextTopView.1
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                if (MultiImageTextTopView.this.eBb != null) {
-                    MultiImageTextTopView.this.eBb.b(view, 9, MultiImageTextTopView.this.mPosition, 0L);
+                if (MultiImageTextTopView.this.eHQ != null) {
+                    MultiImageTextTopView.this.eHQ.b(view, 9, MultiImageTextTopView.this.mPosition, 0L);
                     return false;
                 }
                 return false;
@@ -63,7 +63,7 @@ public class MultiImageTextTopView extends RelativeLayout {
     }
 
     public void setData(final TbPageContext<?> tbPageContext, final c.a aVar, View view, final int i) {
-        setPadding((int) this.mContext.getResources().getDimension(e.C0200e.ds30), (int) this.mContext.getResources().getDimension(e.C0200e.ds30), (int) this.mContext.getResources().getDimension(e.C0200e.ds30), (int) this.mContext.getResources().getDimension(e.C0200e.ds30));
+        setPadding((int) this.mContext.getResources().getDimension(e.C0210e.ds30), (int) this.mContext.getResources().getDimension(e.C0210e.ds30), (int) this.mContext.getResources().getDimension(e.C0210e.ds30), (int) this.mContext.getResources().getDimension(e.C0210e.ds30));
         if (aVar != null) {
             String str = "";
             if (!TextUtils.isEmpty(aVar.title)) {
@@ -75,23 +75,23 @@ public class MultiImageTextTopView extends RelativeLayout {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         if (aVar != null && !StringUtils.isNull(aVar.url)) {
-                            ay.Db().c(tbPageContext, new String[]{aVar.url});
+                            ay.Ef().c(tbPageContext, new String[]{aVar.url});
                             if (i == 1) {
                                 TiebaStatic.eventStat(MultiImageTextTopView.this.mContext, "official_msg_ck", AiAppsUBCStatistic.TYPE_CLICK, 1, ImageViewerConfig.FORUM_ID, aVar.fid);
-                                com.baidu.tieba.im.data.d qb = com.baidu.tieba.im.util.e.qb(aVar.eCQ);
-                                if (qb != null) {
-                                    TiebaStatic.eventStat(MultiImageTextTopView.this.mContext, "message_open_detail", AiAppsUBCStatistic.TYPE_CLICK, 1, "task_type", qb.eGB, "task_id", qb.taskId, "loc", "0");
-                                    if ((aVar.userType == 1 || aVar.userType == 3) && !"0".equals(qb.taskId)) {
-                                        com.baidu.tieba.im.b.a.aSv().pV(qb.taskId);
+                                com.baidu.tieba.im.data.d qD = com.baidu.tieba.im.util.e.qD(aVar.eJF);
+                                if (qD != null) {
+                                    TiebaStatic.eventStat(MultiImageTextTopView.this.mContext, "message_open_detail", AiAppsUBCStatistic.TYPE_CLICK, 1, "task_type", qD.eNq, "task_id", qD.taskId, "loc", "0");
+                                    if ((aVar.userType == 1 || aVar.userType == 3) && !"0".equals(qD.taskId)) {
+                                        com.baidu.tieba.im.b.a.aUn().qx(qD.taskId);
                                     }
                                 }
                                 am amVar = new am("official_message_open_detail");
-                                amVar.h("msg_id", aVar.eCX / 100);
-                                amVar.ax("official_id", aVar.eCY);
-                                amVar.x("official_type", aVar.eCZ);
-                                amVar.h("operate_time", System.currentTimeMillis() / 1000);
-                                amVar.h("task_id", aVar.taskId);
-                                amVar.ax("obj_params1", aVar.url);
+                                amVar.i("msg_id", aVar.eJM / 100);
+                                amVar.aA("official_id", aVar.eJN);
+                                amVar.x("official_type", aVar.eJO);
+                                amVar.i("operate_time", System.currentTimeMillis() / 1000);
+                                amVar.i("task_id", aVar.taskId);
+                                amVar.aA("obj_params1", aVar.url);
                                 TiebaStatic.log(amVar);
                             }
                         }
@@ -99,45 +99,45 @@ public class MultiImageTextTopView extends RelativeLayout {
                 });
             }
             if (!TextUtils.isEmpty(aVar.src)) {
-                this.eCO.setTag(aVar.src);
-                this.eCO.startLoad(aVar.src, 10, false);
+                this.eJD.setTag(aVar.src);
+                this.eJD.startLoad(aVar.src, 10, false);
             }
         }
     }
 
     public void setTime(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.dnM.setVisibility(8);
-            this.dnM.setText("");
+            this.dun.setVisibility(8);
+            this.dun.setText("");
             return;
         }
-        this.dnM.setVisibility(0);
-        this.dnM.setText(str);
+        this.dun.setVisibility(0);
+        this.dun.setText(str);
     }
 
     public void reset() {
         this.mTitle.setText("");
-        this.eCO.setBackgroundDrawable(null);
-        this.eCO.setImageDrawable(null);
-        this.dnM.setVisibility(8);
-        this.dnM.setText("");
+        this.eJD.setBackgroundDrawable(null);
+        this.eJD.setImageDrawable(null);
+        this.dun.setVisibility(8);
+        this.dun.setText("");
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.eBb = bVar;
+        this.eHQ = bVar;
     }
 
     public void setPosition(int i) {
         this.mPosition = i;
     }
 
-    public void ie(boolean z) {
+    public void ih(boolean z) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType == 1 && !z) {
             skinType = 0;
         }
-        this.eCO.setAutoChangeStyle(z);
+        this.eJD.setAutoChangeStyle(z);
         al.b(this.mTitle, e.d.cp_cont_g, 1, skinType);
-        al.b(this.dnM, e.d.common_color_10067, 1, skinType);
+        al.b(this.dun, e.d.common_color_10067, 1, skinType);
     }
 }

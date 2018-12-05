@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.e;
 /* loaded from: classes6.dex */
 public interface c {
-    public static final a dJF = new a();
+    public static final a dQi = new a();
 
-    a aCh();
+    a aDT();
 }

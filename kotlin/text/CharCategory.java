@@ -59,7 +59,7 @@ public enum CharCategory {
 
     /* loaded from: classes2.dex */
     public static final class a {
-        static final /* synthetic */ kotlin.reflect.j[] iqV = {kotlin.jvm.internal.s.a(new PropertyReference1Impl(kotlin.jvm.internal.s.C(a.class), "categoryMap", "getCategoryMap()Ljava/util/Map;"))};
+        static final /* synthetic */ kotlin.reflect.j[] iyf = {kotlin.jvm.internal.s.a(new PropertyReference1Impl(kotlin.jvm.internal.s.D(a.class), "categoryMap", "getCategoryMap()Ljava/util/Map;"))};
 
         private a() {
         }

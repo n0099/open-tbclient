@@ -7,16 +7,16 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.am;
 /* loaded from: classes.dex */
 public class z {
-    public String anG;
-    public String beV;
-    public String cRh;
-    public String gxX;
-    public String gxY;
-    public String gxZ;
-    public String gya;
-    public String gyb;
-    public String gyc;
-    public String gyd;
+    public String arh;
+    public String biw;
+    public String cXO;
+    public String gEN;
+    public String gEO;
+    public String gEP;
+    public String gEQ;
+    public String gER;
+    public String gES;
+    public String gET;
     public String mExtra;
     public String mLocate;
     public String mSource;
@@ -26,71 +26,71 @@ public class z {
     public am b(am amVar) {
         if (amVar != null) {
             if (!StringUtils.isNull(this.mLocate)) {
-                amVar.ax("obj_locate", this.mLocate);
+                amVar.aA("obj_locate", this.mLocate);
             }
-            if (!StringUtils.isNull(this.beV)) {
-                amVar.ax("tid", this.beV);
+            if (!StringUtils.isNull(this.biw)) {
+                amVar.aA("tid", this.biw);
             }
-            if (!StringUtils.isNull(this.cRh)) {
-                amVar.ax(ImageViewerConfig.FORUM_ID, this.cRh);
+            if (!StringUtils.isNull(this.cXO)) {
+                amVar.aA(ImageViewerConfig.FORUM_ID, this.cXO);
             }
             if (!StringUtils.isNull(this.mUid)) {
-                amVar.ax("uid", this.mUid);
+                amVar.aA("uid", this.mUid);
             }
             if (!StringUtils.isNull(this.mSource)) {
-                amVar.ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mSource);
+                amVar.aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mSource);
             } else {
                 amVar.x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 0);
             }
-            if (!StringUtils.isNull(this.gxX)) {
-                amVar.ax("obj_param1", this.gxX);
+            if (!StringUtils.isNull(this.gEN)) {
+                amVar.aA("obj_param1", this.gEN);
             } else {
                 amVar.x("obj_param1", 0);
             }
-            if (!StringUtils.isNull(this.gxY)) {
-                amVar.ax("obj_param2", this.gxY);
+            if (!StringUtils.isNull(this.gEO)) {
+                amVar.aA("obj_param2", this.gEO);
             }
-            if (!StringUtils.isNull(this.gxZ)) {
-                amVar.ax("obj_param3", this.gxZ);
+            if (!StringUtils.isNull(this.gEP)) {
+                amVar.aA("obj_param3", this.gEP);
             }
-            if (!StringUtils.isNull(this.anG)) {
-                amVar.ax(VideoPlayActivityConfig.OBJ_ID, this.anG);
+            if (!StringUtils.isNull(this.arh)) {
+                amVar.aA(VideoPlayActivityConfig.OBJ_ID, this.arh);
             }
-            if (!StringUtils.isNull(this.gya)) {
-                amVar.ax("ab_tag", this.gya);
+            if (!StringUtils.isNull(this.gEQ)) {
+                amVar.aA("ab_tag", this.gEQ);
             } else {
                 amVar.x("ab_tag", 0);
             }
-            if (!StringUtils.isNull(this.gyc)) {
-                amVar.ax("topic_type", this.gyc);
+            if (!StringUtils.isNull(this.gES)) {
+                amVar.aA("topic_type", this.gES);
             }
             if (!StringUtils.isNull(this.mExtra)) {
-                amVar.ax("extra", this.mExtra);
+                amVar.aA("extra", this.mExtra);
             } else {
                 amVar.x("extra", 0);
             }
-            if (!StringUtils.isNull(this.gyd)) {
-                amVar.ax("is_vertical", this.gyd);
+            if (!StringUtils.isNull(this.gET)) {
+                amVar.aA("is_vertical", this.gET);
             }
         }
         return amVar;
     }
 
-    public z bql() {
+    public z bse() {
         z zVar = new z();
         zVar.mLocate = this.mLocate;
         zVar.mType = this.mType;
-        zVar.beV = this.beV;
-        zVar.cRh = this.cRh;
+        zVar.biw = this.biw;
+        zVar.cXO = this.cXO;
         zVar.mUid = this.mUid;
         zVar.mSource = this.mSource;
-        zVar.gxX = this.gxX;
-        zVar.gxY = this.gxY;
-        zVar.gxZ = this.gxZ;
-        zVar.anG = this.anG;
-        zVar.gya = this.gya;
-        zVar.gyb = this.gyb;
-        zVar.gyc = this.gyc;
+        zVar.gEN = this.gEN;
+        zVar.gEO = this.gEO;
+        zVar.gEP = this.gEP;
+        zVar.arh = this.arh;
+        zVar.gEQ = this.gEQ;
+        zVar.gER = this.gER;
+        zVar.gES = this.gES;
         return zVar;
     }
 }

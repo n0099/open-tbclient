@@ -8,26 +8,26 @@ import com.baidu.tieba.e;
 public class a extends k {
     public a(Context context, int i, boolean z) {
         super(context, TbadkCoreApplication.getInst().getString(e.j.editor_express), 5, i);
-        this.aVy = e.f.pbeditor_face_button;
+        this.aYV = e.f.pbeditor_face_button;
         EmotionTabHost emotionTabHost = new EmotionTabHost(context);
         emotionTabHost.setShowBigEmotion(z);
-        this.aUL = emotionTabHost;
-        this.aVC = true;
-        this.aVB = 6;
-        this.aVD = new int[]{1, 34, 35};
+        this.aYi = emotionTabHost;
+        this.aYZ = true;
+        this.aYY = 6;
+        this.aZa = new int[]{1, 34, 35};
     }
 
     public a(Context context, int i) {
         super(context, TbadkCoreApplication.getInst().getString(e.j.editor_express), 5, i);
-        this.aVy = e.f.pbeditor_face_button;
-        this.aUL = new EmotionTabHost(context);
-        this.aVC = true;
-        this.aVB = 6;
-        this.aVD = new int[]{1, 34, 35};
+        this.aYV = e.f.pbeditor_face_button;
+        this.aYi = new EmotionTabHost(context);
+        this.aYZ = true;
+        this.aYY = 6;
+        this.aZa = new int[]{1, 34, 35};
     }
 
     @Override // com.baidu.tbadk.editortools.k
-    public void cs(boolean z) {
-        ((EmotionTabHost) this.aUL).setShowUserCollect(z);
+    public void ct(boolean z) {
+        ((EmotionTabHost) this.aYi).setShowUserCollect(z);
     }
 }

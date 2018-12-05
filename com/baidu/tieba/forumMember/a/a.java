@@ -32,9 +32,9 @@ public class a extends h<b, c> {
             al.j(cVar.getView(), e.d.cp_bg_line_d);
             al.j(cVar.dividerLine, e.d.cp_bg_line_b);
             al.c(cVar.title, e.d.cp_cont_c, 1);
-            al.j(cVar.diS, e.d.cp_bg_line_c);
+            al.j(cVar.dpv, e.d.cp_bg_line_c);
         }
-        cVar.title.setText(String.format(this.mContext.getResources().getString(e.j.forum_manito_num), Integer.valueOf(bVar.axF())));
+        cVar.title.setText(String.format(this.mContext.getResources().getString(e.j.forum_manito_num), Integer.valueOf(bVar.azp())));
         cVar.mSkinType = this.mSkinType;
         return view;
     }

@@ -20,13 +20,13 @@ public class e {
     public static void a(final TbPageContext tbPageContext, final String str, final ForumWriteData forumWriteData) {
         if (forumWriteData != null && tbPageContext != null) {
             com.baidu.tbadk.core.util.b.a aVar = new com.baidu.tbadk.core.util.b.a();
-            aVar.Dp();
+            aVar.Et();
             aVar.c(tbPageContext.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
             aVar.c(tbPageContext.getPageActivity(), "android.permission.CAMERA");
             aVar.c(tbPageContext.getPageActivity(), "android.permission.RECORD_AUDIO");
-            aVar.a(new a.InterfaceC0150a() { // from class: com.baidu.tieba.write.e.1
-                @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0150a
-                public void Dq() {
+            aVar.a(new a.InterfaceC0160a() { // from class: com.baidu.tieba.write.e.1
+                @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0160a
+                public void Eu() {
                     e.b(TbPageContext.this, str, forumWriteData);
                 }
             });
@@ -39,7 +39,7 @@ public class e {
         String str2;
         String str3;
         if (forumWriteData != null && tbPageContext != null) {
-            if (bKZ()) {
+            if (bNf()) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new RecordVideoActivityConfig(tbPageContext.getPageActivity(), 1, forumWriteData, null, str, 0)));
             } else if (XiaoyingUtil.isXiaoyingInstalled()) {
                 if (XiaoyingUtil.isXiaoyingForbidden()) {
@@ -49,7 +49,7 @@ public class e {
                 }
             } else if (!j.kV()) {
                 tbPageContext.showToast(e.j.neterror);
-            } else if (com.baidu.adp.plugin.packageManager.pluginServerConfig.d.nx().ny() != null && (pluginConfig = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.nx().ny().getPluginConfig(XiaoyingUtil.PKG_NAME_VIDEO)) != null) {
+            } else if (com.baidu.adp.plugin.packageManager.pluginServerConfig.d.nw().nx() != null && (pluginConfig = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.nw().nx().getPluginConfig(XiaoyingUtil.PKG_NAME_VIDEO)) != null) {
                 float f = (pluginConfig.newest == null || pluginConfig.newest.size <= 0) ? 0.0f : pluginConfig.newest.size / 1048576.0f;
                 String string = tbPageContext.getPageActivity().getString(e.j.plugin_imme_install);
                 String string2 = tbPageContext.getPageActivity().getString(e.j.plugin_video_install_tips_wifi);
@@ -62,16 +62,16 @@ public class e {
                     str3 = string;
                 }
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-                aVar.ej(str2);
+                aVar.eB(str2);
                 aVar.a(str3, new a.b() { // from class: com.baidu.tieba.write.e.2
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                         aVar2.dismiss();
                         a aVar3 = new a(TbPageContext.this, forumWriteData, e.E(TbPageContext.this));
-                        if (PluginPackageManager.nb().cb(XiaoyingUtil.PKG_NAME_VIDEO)) {
-                            PluginPackageManager.nb().a(aVar3);
+                        if (PluginPackageManager.na().cb(XiaoyingUtil.PKG_NAME_VIDEO)) {
+                            PluginPackageManager.na().a(aVar3);
                         } else {
-                            PluginPackageManager.nb().a(pluginConfig, aVar3);
+                            PluginPackageManager.na().a(pluginConfig, aVar3);
                         }
                     }
                 });
@@ -81,61 +81,61 @@ public class e {
                         aVar2.dismiss();
                     }
                 });
-                aVar.b(tbPageContext).AB();
+                aVar.b(tbPageContext).BF();
             }
         }
     }
 
     /* loaded from: classes.dex */
     public static class a implements com.baidu.adp.plugin.packageManager.d {
-        private TbPageContext dVZ;
-        private ForumWriteData hKj;
-        private com.baidu.tbadk.core.dialog.c hKk;
+        private TbPageContext ecC;
+        private ForumWriteData hRu;
+        private com.baidu.tbadk.core.dialog.c hRv;
 
         public a(TbPageContext tbPageContext, ForumWriteData forumWriteData, com.baidu.tbadk.core.dialog.c cVar) {
-            this.dVZ = null;
-            this.dVZ = tbPageContext;
-            this.hKj = forumWriteData;
-            this.hKk = cVar;
+            this.ecC = null;
+            this.ecC = tbPageContext;
+            this.hRu = forumWriteData;
+            this.hRv = cVar;
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void a(BdFileDownloadData bdFileDownloadData) {
-            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.hKk != null) {
-                this.hKk.setPercent((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
+            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.hRv != null) {
+                this.hRv.setPercent((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
             }
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void b(BdFileDownloadData bdFileDownloadData) {
-            if (this.hKk != null) {
-                g.b(this.hKk, this.dVZ);
+            if (this.hRv != null) {
+                g.b(this.hRv, this.ecC);
             }
-            this.dVZ.showToast(e.j.plugin_video_installing);
+            this.ecC.showToast(e.j.plugin_video_installing);
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void c(BdFileDownloadData bdFileDownloadData) {
-            if (this.hKk != null) {
-                g.b(this.hKk, this.dVZ);
+            if (this.hRv != null) {
+                g.b(this.hRv, this.ecC);
             }
-            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.dVZ != null) {
-                this.dVZ.showToast(bdFileDownloadData.getStatusMsg());
+            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.ecC != null) {
+                this.ecC.showToast(bdFileDownloadData.getStatusMsg());
             }
-            PluginPackageManager.nb().a((com.baidu.adp.plugin.packageManager.d) null);
+            PluginPackageManager.na().a((com.baidu.adp.plugin.packageManager.d) null);
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
-            if (this.hKk != null) {
-                g.b(this.hKk, this.dVZ);
+            if (this.hRv != null) {
+                g.b(this.hRv, this.ecC);
             }
             if (i == 0) {
-                e.a(this.dVZ, "", this.hKj);
+                e.a(this.ecC, "", this.hRu);
             } else {
-                this.dVZ.showToast(this.dVZ.getString(e.j.install_failed) + str);
+                this.ecC.showToast(this.ecC.getString(e.j.install_failed) + str);
             }
-            PluginPackageManager.nb().a((com.baidu.adp.plugin.packageManager.d) null);
+            PluginPackageManager.na().a((com.baidu.adp.plugin.packageManager.d) null);
         }
     }
 
@@ -145,7 +145,7 @@ public class e {
         cVar.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.e.4
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                PluginPackageManager.nb().a((com.baidu.adp.plugin.packageManager.d) null);
+                PluginPackageManager.na().a((com.baidu.adp.plugin.packageManager.d) null);
             }
         });
         cVar.setCancelable(true);
@@ -155,7 +155,7 @@ public class e {
         return cVar;
     }
 
-    public static boolean bKZ() {
+    public static boolean bNf() {
         return com.baidu.adp.lib.b.d.iQ().aO("add_video_thread_switch") != 1;
     }
 }

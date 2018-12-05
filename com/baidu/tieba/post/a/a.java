@@ -16,12 +16,12 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    public j gAb;
-    private b gAc;
-    public i gpo;
+    public j gGR;
+    private b gGS;
+    public i gwe;
     private BdTypeListView mListView;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
-    private ArrayList<h> ciz = new ArrayList<>();
+    private ArrayList<h> cmr = new ArrayList<>();
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         this.mListView = bdTypeListView;
@@ -29,20 +29,20 @@ public class a {
     }
 
     private void p(TbPageContext<?> tbPageContext) {
-        this.gpo = new i(tbPageContext);
-        this.gAb = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.gry);
-        this.gAc = new d(tbPageContext, this, tbPageContext.getUniqueId());
-        this.gAb.a(this.gAc);
-        this.mAdapters.add(this.gpo);
-        this.mAdapters.add(this.gAb);
+        this.gwe = new i(tbPageContext);
+        this.gGR = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.gyo);
+        this.gGS = new d(tbPageContext, this, tbPageContext.getUniqueId());
+        this.gGR.a(this.gGS);
+        this.mAdapters.add(this.gwe);
+        this.mAdapters.add(this.gGR);
         this.mListView.addAdapters(this.mAdapters);
     }
 
     public void C(ArrayList<h> arrayList) {
         if (arrayList != null && this.mListView != null) {
-            this.ciz.clear();
-            this.ciz.addAll(arrayList);
-            this.mListView.setData(this.ciz);
+            this.cmr.clear();
+            this.cmr.addAll(arrayList);
+            this.mListView.setData(this.cmr);
         }
     }
 
@@ -58,15 +58,15 @@ public class a {
         }
     }
 
-    public boolean tD(String str) {
+    public boolean uf(String str) {
         boolean z;
         if (ao.isEmpty(str)) {
             return false;
         }
-        if (this.mListView == null || this.ciz == null) {
+        if (this.mListView == null || this.cmr == null) {
             return false;
         }
-        Iterator<h> it = this.ciz.iterator();
+        Iterator<h> it = this.cmr.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -80,8 +80,8 @@ public class a {
             }
         }
         if (z) {
-            this.ciz = PersonPostModel.mergeDynamicThreadByTime(this.ciz);
-            this.mListView.setData(this.ciz);
+            this.cmr = PersonPostModel.mergeDynamicThreadByTime(this.cmr);
+            this.mListView.setData(this.cmr);
             notifyDataSetChanged();
             return z;
         }

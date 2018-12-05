@@ -59,7 +59,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
         this.mRunnable = new Runnable() { // from class: com.baidu.adp.widget.BdSwitchView.BdSwitchView.1
             @Override // java.lang.Runnable
             public void run() {
-                BdSwitchView.this.nU();
+                BdSwitchView.this.nT();
             }
         };
         init(context);
@@ -79,7 +79,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
         this.mRunnable = new Runnable() { // from class: com.baidu.adp.widget.BdSwitchView.BdSwitchView.1
             @Override // java.lang.Runnable
             public void run() {
-                BdSwitchView.this.nU();
+                BdSwitchView.this.nT();
             }
         };
         init(context);
@@ -227,35 +227,35 @@ public class BdSwitchView extends View implements View.OnTouchListener {
         invalidate();
     }
 
-    public void nQ() {
+    public void nP() {
         if (this.mState != SwitchState.ON) {
             a(SwitchState.ON, false);
         }
     }
 
-    public void nR() {
+    public void nQ() {
         if (this.mState != SwitchState.OFF) {
             a(SwitchState.OFF, false);
         }
     }
 
-    public void nS() {
+    public void nR() {
         a(SwitchState.ON, true);
     }
 
     public void ar(boolean z) {
         if (this.mState != SwitchState.ON) {
-            nS();
+            nR();
         }
     }
 
-    public void nT() {
+    public void nS() {
         a(SwitchState.OFF, true);
     }
 
     public void as(boolean z) {
         if (this.mState != SwitchState.OFF) {
-            nT();
+            nS();
         }
     }
 
@@ -269,7 +269,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nU() {
+    public void nT() {
         if (this.mState == SwitchState.ON) {
             a(SwitchState.OFF, true);
         } else if (this.mState == SwitchState.OFF) {

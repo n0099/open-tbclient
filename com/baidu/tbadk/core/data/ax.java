@@ -5,39 +5,39 @@ import java.util.List;
 import tbclient.SeniorLottery;
 /* loaded from: classes.dex */
 public class ax {
-    private ag aps;
-    private List<f> apt;
-    private String apu;
-    private List<g> apv;
-    private String apw;
-    private List<af> apx;
+    private ag asS;
+    private List<f> asT;
+    private String asU;
+    private List<g> asV;
+    private String asW;
+    private List<af> asX;
 
     public void a(SeniorLottery seniorLottery) {
         if (seniorLottery != null) {
-            this.aps = new ag();
-            this.aps.a(seniorLottery.theme);
-            this.apt = new ArrayList();
+            this.asS = new ag();
+            this.asS.a(seniorLottery.theme);
+            this.asT = new ArrayList();
             int size = seniorLottery.award_info.size();
             for (int i = 0; i < size; i++) {
                 f fVar = new f();
                 fVar.a(seniorLottery.award_info.get(i));
-                this.apt.add(fVar);
+                this.asT.add(fVar);
             }
-            this.apu = seniorLottery.myaward;
-            this.apv = new ArrayList();
+            this.asU = seniorLottery.myaward;
+            this.asV = new ArrayList();
             int size2 = seniorLottery.luck_users.size();
             for (int i2 = 0; i2 < size2; i2++) {
                 g gVar = new g();
                 gVar.a(seniorLottery.luck_users.get(i2));
-                this.apv.add(gVar);
+                this.asV.add(gVar);
             }
-            this.apw = seniorLottery.act_desc;
-            this.apx = new ArrayList();
+            this.asW = seniorLottery.act_desc;
+            this.asX = new ArrayList();
             int size3 = seniorLottery.act_regular.size();
             for (int i3 = 0; i3 < size3; i3++) {
                 af afVar = new af();
                 afVar.a(seniorLottery.act_regular.get(i3));
-                this.apx.add(afVar);
+                this.asX.add(afVar);
             }
         }
     }

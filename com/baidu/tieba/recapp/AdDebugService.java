@@ -41,38 +41,38 @@ public class AdDebugService extends Service {
         this.mWindowManager = (WindowManager) getSystemService(WindowConfig.JSON_WINDOW_KEY);
         mFloatView = new TextView(this);
         mFloatView.setGravity(17);
-        mFloatView.setTextSize(getResources().getDimension(e.C0200e.ds12));
+        mFloatView.setTextSize(getResources().getDimension(e.C0210e.ds12));
         al.i(mFloatView, e.f.ad_debug_view_bg);
         mFloatView.setText("AD");
         this.mParams = new WindowManager.LayoutParams(-2, -2, 2005, 40, -3);
         this.mParams.gravity = 51;
         this.mWindowManager.addView(mFloatView, this.mParams);
         mFloatView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.recapp.AdDebugService.1
-            private int gDQ;
-            private int gDR;
-            private float gDS;
-            private float gDT;
+            private int gKG;
+            private int gKH;
+            private float gKI;
+            private float gKJ;
 
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {
                     case 0:
-                        this.gDQ = AdDebugService.this.mParams.x;
-                        this.gDR = AdDebugService.this.mParams.y;
-                        this.gDS = motionEvent.getRawX();
-                        this.gDT = motionEvent.getRawY();
+                        this.gKG = AdDebugService.this.mParams.x;
+                        this.gKH = AdDebugService.this.mParams.y;
+                        this.gKI = motionEvent.getRawX();
+                        this.gKJ = motionEvent.getRawY();
                         return true;
                     case 1:
-                        float abs = Math.abs(motionEvent.getRawX() - this.gDS);
-                        float abs2 = Math.abs(motionEvent.getRawY() - this.gDT);
+                        float abs = Math.abs(motionEvent.getRawX() - this.gKI);
+                        float abs2 = Math.abs(motionEvent.getRawY() - this.gKJ);
                         if (abs >= 10.0f || abs2 >= 10.0f) {
                             return true;
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AdDebugActivityConfig(TbadkCoreApplication.getInst().getContext())));
                         return true;
                     case 2:
-                        AdDebugService.this.mParams.x = this.gDQ + ((int) (motionEvent.getRawX() - this.gDS));
-                        AdDebugService.this.mParams.y = this.gDR + ((int) (motionEvent.getRawY() - this.gDT));
+                        AdDebugService.this.mParams.x = this.gKG + ((int) (motionEvent.getRawX() - this.gKI));
+                        AdDebugService.this.mParams.y = this.gKH + ((int) (motionEvent.getRawY() - this.gKJ));
                         AdDebugService.this.mWindowManager.updateViewLayout(AdDebugService.mFloatView, AdDebugService.this.mParams);
                         return true;
                     default:

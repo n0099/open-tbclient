@@ -57,8 +57,8 @@ public class i implements g {
                         i.this.x(new k.e(2, "cannot connect"));
                     } else {
                         i.this.HM = System.currentTimeMillis() - currentTimeMillis;
-                        i.this.lO();
                         i.this.lN();
+                        i.this.lM();
                         k.b bVar = new k.b(i.this.HE + ":" + i.this.HF);
                         bVar.mPath = i.this.HG;
                         bVar.mQuery = i.this.HH;
@@ -82,7 +82,7 @@ public class i implements g {
     }
 
     public i() {
-        lM();
+        lL();
     }
 
     public boolean sendMessage(c cVar) {
@@ -198,7 +198,7 @@ public class i implements g {
         this.Hy.sendMessage(obtainMessage);
     }
 
-    protected void lM() {
+    protected void lL() {
         this.Hy = new Handler() { // from class: com.baidu.adp.lib.webSocket.i.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
@@ -228,7 +228,7 @@ public class i implements g {
                 } else if (message.obj instanceof k.C0021k) {
                     k.C0021k c0021k2 = (k.C0021k) message.obj;
                     if (i.this.HI != null) {
-                        i.this.HI.lE();
+                        i.this.HI.lD();
                     }
                 } else if (message.obj instanceof k.c) {
                     i.this.close(1, null);
@@ -292,18 +292,18 @@ public class i implements g {
     protected void y(Object obj) {
     }
 
-    protected void lN() {
+    protected void lM() {
         HandlerThread handlerThread = new HandlerThread("WebSocketWriter");
         handlerThread.start();
         this.HA = new o(handlerThread.getLooper(), this.Hy, this.HB, this.HJ);
     }
 
-    protected void lO() {
+    protected void lN() {
         this.Hz = new m(this.Hy, this.HB, this.HJ, "WebSocketReader");
         this.Hz.start();
     }
 
-    public boolean lP() {
+    public boolean lO() {
         return this.HN != null;
     }
 
@@ -320,9 +320,9 @@ public class i implements g {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public void lJ() {
+    public void lI() {
         if (this.HA != null) {
-            this.HA.lJ();
+            this.HA.lI();
         }
     }
 
@@ -333,9 +333,9 @@ public class i implements g {
         return 0L;
     }
 
-    public void lK() {
+    public void lJ() {
         if (this.Hz != null) {
-            this.Hz.lK();
+            this.Hz.lJ();
         }
     }
 
@@ -346,21 +346,21 @@ public class i implements g {
         return 0L;
     }
 
-    public long lQ() {
+    public long lP() {
         if (this.HB != null) {
-            return this.HB.lC();
+            return this.HB.lB();
         }
         return 0L;
     }
 
-    public String lR() {
+    public String lQ() {
         if (this.HB != null) {
-            return this.HB.lB();
+            return this.HB.lA();
         }
         return null;
     }
 
-    public long lS() {
+    public long lR() {
         return this.HM;
     }
 
@@ -371,9 +371,9 @@ public class i implements g {
         return null;
     }
 
-    public String ln() {
+    public String lm() {
         if (this.HB != null) {
-            return this.HB.ln();
+            return this.HB.lm();
         }
         return null;
     }

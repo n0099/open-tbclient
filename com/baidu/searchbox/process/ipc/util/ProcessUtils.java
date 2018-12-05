@@ -4,7 +4,6 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.searchbox.process.ipc.IPCLibConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
@@ -14,7 +13,7 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public final class ProcessUtils {
     private static final String CMD_LINE_NAME = "/proc/self/cmdline";
-    private static final boolean DEBUG = IPCLibConfig.DEBUG;
+    private static final boolean DEBUG = false;
     private static final int PROCESS_NAME_LENGTH = 500;
     private static final String TAG = "ProcessUtils";
     private static boolean sIsMainProcess;
@@ -29,10 +28,6 @@ public final class ProcessUtils {
             sProcessName = getProcessNameFromAm(context);
         }
         sIsMainProcess = checkIsMainProcess(sProcessName);
-        if (DEBUG) {
-            Log.d(TAG, "main process name: " + sMainProcessName);
-            Log.d(TAG, "current process name: " + sProcessName);
-        }
     }
 
     public static boolean isMainProcess() {

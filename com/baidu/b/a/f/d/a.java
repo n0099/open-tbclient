@@ -15,11 +15,11 @@ public class a implements com.baidu.b.a.f.d.a.a {
     public a(List<j> list, com.baidu.b.a.b.c.b bVar) {
         this.ZQ = list;
         this.ZR = bVar;
-        g.rS().a(this);
+        g.rR().a(this);
     }
 
     public void startDownload() {
-        if (!rJ()) {
+        if (!rI()) {
             for (j jVar : this.ZQ) {
                 jVar.aI(false);
             }
@@ -39,18 +39,18 @@ public class a implements com.baidu.b.a.f.d.a.a {
             }
             j next = it.next();
             if (next.g(fVar)) {
-                com.baidu.b.a.c.a.a rM = fVar.rM();
-                if (rM == null) {
+                com.baidu.b.a.c.a.a rL = fVar.rL();
+                if (rL == null) {
                     Log.w("BulkDownload", "unexpected state: DynamicFile is NULL.");
                 } else {
                     this.ZQ.remove(next);
-                    switch (rM.type) {
+                    switch (rL.type) {
                         case 3:
-                            this.ZT.add(next.rU().rM());
-                            rK();
+                            this.ZT.add(next.rT().rL());
+                            rJ();
                             break;
                         case 10:
-                            this.ZS.add(next.rU().rM());
+                            this.ZS.add(next.rT().rL());
                             break;
                         default:
                             Log.w("BulkDownload", "unexpected state: default.");
@@ -59,23 +59,23 @@ public class a implements com.baidu.b.a.f.d.a.a {
                 }
             }
         }
-        rJ();
+        rI();
     }
 
-    private boolean rJ() {
+    private boolean rI() {
         if (this.ZQ.isEmpty()) {
             this.ZR.onBulkDownloaded(this.ZS, this.ZT, this.ZU);
-            g.rS().b(this);
-            com.baidu.b.a.h.g.sk().a(2216, String.format("onBulkDownloaded success:%d,error:%d,cancel:%d", Integer.valueOf(this.ZS.size()), Integer.valueOf(this.ZT.size()), Integer.valueOf(this.ZU.size())), this.ZR.getChannelId(), this.ZR.getPackageName(), 0L, "", "", 0, 0);
+            g.rR().b(this);
+            com.baidu.b.a.h.g.sj().a(2216, String.format("onBulkDownloaded success:%d,error:%d,cancel:%d", Integer.valueOf(this.ZS.size()), Integer.valueOf(this.ZT.size()), Integer.valueOf(this.ZU.size())), this.ZR.getChannelId(), this.ZR.getPackageName(), 0L, "", "", 0, 0);
             return true;
         }
         return false;
     }
 
-    public void rK() {
+    public void rJ() {
         for (j jVar : this.ZQ) {
-            g.rS().f(jVar.rU());
-            this.ZU.add(jVar.rU().rM());
+            g.rR().f(jVar.rT());
+            this.ZU.add(jVar.rT().rL());
         }
         this.ZQ.clear();
     }

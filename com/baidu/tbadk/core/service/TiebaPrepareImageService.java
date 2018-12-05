@@ -116,7 +116,7 @@ public class TiebaPrepareImageService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, Boolean> {
-        String avw = null;
+        String ayW = null;
         String mFileName;
         int mRequestCode;
         Uri mUri;
@@ -155,16 +155,16 @@ public class TiebaPrepareImageService extends BdBaseService {
                     }
                     Bitmap resizeBitmap = BitmapHelper.resizeBitmap(a, i);
                     if (resizeBitmap == null || l.a((String) null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 85) == null) {
-                        this.avw = TiebaPrepareImageService.this.getString(e.j.error_sd_error);
+                        this.ayW = TiebaPrepareImageService.this.getString(e.j.error_sd_error);
                     }
                 } else {
-                    this.avw = TiebaPrepareImageService.this.getString(e.j.error_sd_error);
+                    this.ayW = TiebaPrepareImageService.this.getString(e.j.error_sd_error);
                     z = false;
                 }
                 TiebaPrepareImageService.IS_DECODING = false;
                 return Boolean.valueOf(z);
             }
-            this.avw = TiebaPrepareImageService.this.getString(e.j.pic_parser_error);
+            this.ayW = TiebaPrepareImageService.this.getString(e.j.pic_parser_error);
             z = false;
             TiebaPrepareImageService.IS_DECODING = false;
             return Boolean.valueOf(z);
@@ -183,8 +183,8 @@ public class TiebaPrepareImageService extends BdBaseService {
             super.onPostExecute((a) bool);
             Intent intent = new Intent(TbConfig.getBroadcastActionImageResized());
             intent.putExtra("result", bool);
-            if (this.avw != null) {
-                intent.putExtra(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, this.avw);
+            if (this.ayW != null) {
+                intent.putExtra(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, this.ayW);
             }
             TiebaPrepareImageService.this.sendBroadcast(intent);
         }

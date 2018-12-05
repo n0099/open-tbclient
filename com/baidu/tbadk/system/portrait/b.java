@@ -14,7 +14,7 @@ public class b {
         this.url = str;
     }
 
-    public void ie(String str) {
+    public void iv(String str) {
         this.series = str;
     }
 
@@ -22,7 +22,7 @@ public class b {
         this.num = i;
     }
 
-    public void ga(int i) {
+    public void go(int i) {
         this.myItem = i;
     }
 }

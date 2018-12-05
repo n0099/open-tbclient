@@ -1,24 +1,24 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class l {
-    private k aKp;
+    private k aNO;
     private int mErrorCode;
     private String mErrorString;
     private boolean mIsSuccess;
 
-    public k FE() {
-        return this.aKp;
+    public k GI() {
+        return this.aNO;
     }
 
     public void b(k kVar) {
-        this.aKp = kVar;
+        this.aNO = kVar;
     }
 
     public boolean isSuccess() {
         return this.mIsSuccess;
     }
 
-    public void bn(boolean z) {
+    public void bo(boolean z) {
         this.mIsSuccess = z;
     }
 

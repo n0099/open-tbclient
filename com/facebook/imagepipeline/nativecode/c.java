@@ -1,20 +1,20 @@
 package com.facebook.imagepipeline.nativecode;
 /* loaded from: classes2.dex */
 public class c {
-    private static b iim;
-    public static boolean iin;
+    private static b ipy;
+    public static boolean ipz;
 
     static {
-        iin = false;
+        ipz = false;
         try {
-            iim = (b) Class.forName("com.facebook.imagepipeline.nativecode.WebpTranscoderImpl").newInstance();
-            iin = true;
+            ipy = (b) Class.forName("com.facebook.imagepipeline.nativecode.WebpTranscoderImpl").newInstance();
+            ipz = true;
         } catch (Throwable th) {
-            iin = false;
+            ipz = false;
         }
     }
 
-    public static b bWJ() {
-        return iim;
+    public static b bYP() {
+        return ipy;
     }
 }

@@ -10,22 +10,22 @@ public interface b {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String ffV;
-        public String ffW;
-        public ArrayList<String> ffX = new ArrayList<>();
-        public ArrayList<String> ffY = new ArrayList<>();
+        public String fmN;
+        public String fmO;
+        public ArrayList<String> fmP = new ArrayList<>();
+        public ArrayList<String> fmQ = new ArrayList<>();
 
         public void parseFromJson(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.ffV = jSONObject.optString("charge_click_url");
-                this.ffW = jSONObject.optString("charge_show_url");
+                this.fmN = jSONObject.optString("charge_click_url");
+                this.fmO = jSONObject.optString("charge_show_url");
                 JSONArray optJSONArray = jSONObject.optJSONArray("monitor_show_url");
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         String optString = optJSONArray.optString(i);
                         if (!TextUtils.isEmpty(optString)) {
-                            this.ffX.add(optString);
+                            this.fmP.add(optString);
                         }
                     }
                 }
@@ -35,7 +35,7 @@ public interface b {
                     for (int i2 = 0; i2 < length2; i2++) {
                         String optString2 = optJSONArray2.optString(i2);
                         if (!TextUtils.isEmpty(optString2)) {
-                            this.ffY.add(optString2);
+                            this.fmQ.add(optString2);
                         }
                     }
                 }

@@ -3,13 +3,13 @@ package com.baidu.browser.sailor;
 public interface k {
     j getSettingsExt();
 
-    f qA();
+    void qw();
 
-    void qx();
+    boolean qx();
 
-    boolean qy();
+    BdSailorWebViewClientExt qy();
 
-    BdSailorWebViewClientExt qz();
+    f qz();
 
     void setWebChromeClientExt(f fVar);
 

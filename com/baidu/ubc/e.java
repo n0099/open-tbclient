@@ -8,171 +8,171 @@ import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class e {
-    private static volatile e hUl;
-    private HashSet<String> hUm = new HashSet<>();
-    private HashSet<String> hUn = new HashSet<>();
-    private HashSet<String> hUo = new HashSet<>();
-    private HashSet<String> hUp = new HashSet<>();
-    private HashMap<String, String> hUq = new HashMap<>();
-    private HashMap<String, String> hUr = new HashMap<>();
-    private HashMap<String, i> hUs = new HashMap<>();
-    private HashSet<String> hUt = new HashSet<>();
-    private int hUu;
-    private int hUv;
-    private int hUw;
+    private static volatile e ibv;
+    private int ibE;
+    private int ibF;
+    private int ibG;
     private Context mContext;
+    private HashSet<String> ibw = new HashSet<>();
+    private HashSet<String> ibx = new HashSet<>();
+    private HashSet<String> iby = new HashSet<>();
+    private HashSet<String> ibz = new HashSet<>();
+    private HashMap<String, String> ibA = new HashMap<>();
+    private HashMap<String, String> ibB = new HashMap<>();
+    private HashMap<String, i> ibC = new HashMap<>();
+    private HashSet<String> ibD = new HashSet<>();
 
     private e() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static e bOK() {
-        if (hUl == null) {
+    public static e bQQ() {
+        if (ibv == null) {
             synchronized (e.class) {
-                if (hUl == null) {
-                    hUl = new e();
+                if (ibv == null) {
+                    ibv = new e();
                 }
             }
         }
-        return hUl;
+        return ibv;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(c cVar, Context context) {
         this.mContext = context;
-        this.hUu = 360000;
-        s bPp = s.bPp();
-        this.hUv = bPp.getInt("ubc_data_expire_time", 259200000);
-        this.hUw = bPp.getInt("ubc_database_limit", UIMsg.m_AppUI.MSG_APP_SAVESCREEN);
-        cVar.bOH().a(this.hUm, this.hUp, this.hUn, this.hUo, this.hUq, this.hUr, this.hUs, this.hUt);
+        this.ibE = 360000;
+        s bRv = s.bRv();
+        this.ibF = bRv.getInt("ubc_data_expire_time", 259200000);
+        this.ibG = bRv.getInt("ubc_database_limit", UIMsg.m_AppUI.MSG_APP_SAVESCREEN);
+        cVar.bQN().a(this.ibw, this.ibz, this.ibx, this.iby, this.ibA, this.ibB, this.ibC, this.ibD);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void el(List<h> list) {
+    public void ep(List<h> list) {
         for (h hVar : list) {
-            if ("0".equals(hVar.bOO())) {
-                this.hUm.add(hVar.getId());
+            if ("0".equals(hVar.bQU())) {
+                this.ibw.add(hVar.getId());
             } else {
-                this.hUm.remove(hVar.getId());
+                this.ibw.remove(hVar.getId());
             }
-            if ("1".equals(hVar.bOP())) {
-                this.hUn.add(hVar.getId());
+            if ("1".equals(hVar.bQV())) {
+                this.ibx.add(hVar.getId());
             } else {
-                this.hUn.remove(hVar.getId());
+                this.ibx.remove(hVar.getId());
             }
-            if ("1".equals(hVar.bOQ())) {
-                this.hUo.add(hVar.getId());
+            if ("1".equals(hVar.bQW())) {
+                this.iby.add(hVar.getId());
             } else {
-                this.hUo.remove(hVar.getId());
+                this.iby.remove(hVar.getId());
             }
-            if (hVar.bOR() >= 1 && hVar.bOR() <= 100) {
-                this.hUq.put(hVar.getId(), String.valueOf(hVar.bOR()));
+            if (hVar.bQX() >= 1 && hVar.bQX() <= 100) {
+                this.ibA.put(hVar.getId(), String.valueOf(hVar.bQX()));
             } else {
-                this.hUq.remove(hVar.getId());
+                this.ibA.remove(hVar.getId());
             }
             if (!TextUtils.isEmpty(hVar.getCategory())) {
-                this.hUr.put(hVar.getId(), hVar.getCategory());
+                this.ibB.put(hVar.getId(), hVar.getCategory());
             } else {
-                this.hUr.remove(hVar.getId());
+                this.ibB.remove(hVar.getId());
             }
-            if (hVar.bOT() != 0 && hVar.bOS() != 0) {
-                i iVar = new i(hVar.getId(), hVar.bOT(), hVar.bOS());
-                this.hUs.put(iVar.getId(), iVar);
+            if (hVar.bQZ() != 0 && hVar.bQY() != 0) {
+                i iVar = new i(hVar.getId(), hVar.bQZ(), hVar.bQY());
+                this.ibC.put(iVar.getId(), iVar);
             }
             if (TextUtils.equals(hVar.getIdType(), "1")) {
-                this.hUt.add(hVar.getId());
+                this.ibD.add(hVar.getId());
             } else {
-                this.hUt.remove(hVar.getId());
+                this.ibD.remove(hVar.getId());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean bd(String str, int i) {
-        if (this.hUm.contains(str)) {
+    public boolean be(String str, int i) {
+        if (this.ibw.contains(str)) {
             return false;
         }
-        return ((i & 16) == 0 && (i & 32) == 0) || this.hUp.contains(str);
+        return ((i & 16) == 0 && (i & 32) == 0) || this.ibz.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean xv(String str) {
-        if (o.bPm().Ya()) {
+    public boolean xY(String str) {
+        if (o.bRs().Ze()) {
             return true;
         }
-        return this.hUn.contains(str);
+        return this.ibx.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean xw(String str) {
-        return this.hUo.contains(str);
+    public boolean xZ(String str) {
+        return this.iby.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String xx(String str) {
-        return this.hUr.containsKey(str) ? this.hUr.get(str) : "";
+    public String ya(String str) {
+        return this.ibB.containsKey(str) ? this.ibB.get(str) : "";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int bOL() {
-        return this.hUu;
+    public int bQR() {
+        return this.ibE;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void xc(int i) {
-        if (i * 60000 >= this.hUu) {
-            this.hUu = i * 60000;
+    public void xz(int i) {
+        if (i * 60000 >= this.ibE) {
+            this.ibE = i * 60000;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int bOM() {
-        return this.hUv;
+    public int bQS() {
+        return this.ibF;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void xd(int i) {
-        if (i >= this.hUv) {
-            this.hUv = i;
-            s.bPp().putInt("ubc_data_expire_time", i);
+    public void xA(int i) {
+        if (i >= this.ibF) {
+            this.ibF = i;
+            s.bRv().putInt("ubc_data_expire_time", i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int bON() {
-        return this.hUw;
+    public int bQT() {
+        return this.ibG;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void xe(int i) {
-        if (i >= this.hUw) {
-            this.hUw = i;
-            s.bPp().putInt("ubc_database_limit", i);
+    public void xB(int i) {
+        if (i >= this.ibG) {
+            this.ibG = i;
+            s.bRv().putInt("ubc_database_limit", i);
         }
     }
 
-    public int xy(String str) {
-        if (TextUtils.isEmpty(str) || !this.hUq.containsKey(str)) {
+    public int yb(String str) {
+        if (TextUtils.isEmpty(str) || !this.ibA.containsKey(str)) {
             return 0;
         }
-        return Integer.parseInt(this.hUq.get(str));
+        return Integer.parseInt(this.ibA.get(str));
     }
 
-    public boolean xz(String str) {
-        if (this.hUs == null || !this.hUs.containsKey(str)) {
+    public boolean yc(String str) {
+        if (this.ibC == null || !this.ibC.containsKey(str)) {
             return false;
         }
-        return this.hUs.get(str).bOU();
+        return this.ibC.get(str).bRa();
     }
 
-    public boolean xA(String str) {
-        if (this.hUs == null || !this.hUs.containsKey(str)) {
+    public boolean yd(String str) {
+        if (this.ibC == null || !this.ibC.containsKey(str)) {
             return false;
         }
-        return this.hUs.get(str).bOV();
+        return this.ibC.get(str).bRb();
     }
 
-    public String xB(String str) {
-        return (TextUtils.isEmpty(str) || !this.hUt.contains(str)) ? "0" : "1";
+    public String ye(String str) {
+        return (TextUtils.isEmpty(str) || !this.ibD.contains(str)) ? "0" : "1";
     }
 }

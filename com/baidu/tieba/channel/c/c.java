@@ -7,24 +7,24 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.Calendar;
 /* loaded from: classes3.dex */
 public class c {
-    private static int cUB = -1;
+    private static int dbk = -1;
 
-    public static final String bs(long j) {
+    public static final String bz(long j) {
         long j2 = 1000 * j;
-        return bt(j2) == getCurrentYear() ? ao.G(j2) : ao.E(j2);
+        return bA(j2) == getCurrentYear() ? ao.N(j2) : ao.L(j2);
     }
 
-    private static final int bt(long j) {
+    private static final int bA(long j) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(j);
         return calendar.get(1);
     }
 
     private static final int getCurrentYear() {
-        if (cUB == -1) {
-            cUB = bt(System.currentTimeMillis());
+        if (dbk == -1) {
+            dbk = bA(System.currentTimeMillis());
         }
-        return cUB;
+        return dbk;
     }
 
     public static void a(int i, String str, Class cls) {

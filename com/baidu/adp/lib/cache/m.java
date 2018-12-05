@@ -17,7 +17,7 @@ public class m<T> implements l.c<T> {
 
     @Override // com.baidu.adp.lib.cache.l
     public T get(String str) {
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.l.ll()) {
+        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.l.lk()) {
             if (this.Bb) {
                 throw new RuntimeException("access db in main thread!");
             }
@@ -28,7 +28,7 @@ public class m<T> implements l.c<T> {
 
     @Override // com.baidu.adp.lib.cache.l
     public l.b<T> aF(String str) {
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.l.ll()) {
+        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.l.lk()) {
             if (this.Bb) {
                 throw new RuntimeException("access db in main thread!");
             }
@@ -43,7 +43,7 @@ public class m<T> implements l.c<T> {
             throw new NullPointerException("BdKVCache key cannot be null!");
         }
         long currentTimeMillis = j <= 315532800000L ? j + System.currentTimeMillis() : j;
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.l.ll()) {
+        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.l.lk()) {
             if (this.Bb) {
                 throw new RuntimeException("access db in main thread!");
             }
@@ -63,7 +63,7 @@ public class m<T> implements l.c<T> {
 
     @Override // com.baidu.adp.lib.cache.l
     public void remove(String str) {
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.l.ll()) {
+        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.l.lk()) {
             if (this.Bb) {
                 throw new RuntimeException("access db in main thread!");
             }

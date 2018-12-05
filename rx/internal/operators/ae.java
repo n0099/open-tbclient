@@ -7,7 +7,7 @@ public final class ae<T> implements d.b<T, T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        static final ae<Object> iwV = new ae<>();
+        static final ae<Object> iEe = new ae<>();
     }
 
     @Override // rx.functions.f
@@ -15,8 +15,8 @@ public final class ae<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> ae<T> cbj() {
-        return (ae<T>) a.iwV;
+    public static <T> ae<T> cdm() {
+        return (ae<T>) a.iEe;
     }
 
     ae() {

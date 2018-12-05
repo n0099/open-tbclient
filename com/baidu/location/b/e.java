@@ -94,7 +94,7 @@ public class e implements Thread.UncaughtExceptionHandler {
         return false;
     }
 
-    public static e ty() {
+    public static e tx() {
         if (aev == null) {
             aev = new e();
         }
@@ -156,13 +156,13 @@ public class e implements Thread.UncaughtExceptionHandler {
             return;
         }
         if (System.currentTimeMillis() - com.baidu.location.f.a.a() < ErrDef.Feature.WEIGHT && 7.8f > com.baidu.location.f.getFrameVersion()) {
-            if (System.currentTimeMillis() - com.baidu.location.g.c.tX().c() < 40000) {
+            if (System.currentTimeMillis() - com.baidu.location.g.c.tW().c() < 40000) {
                 File file = new File(g.h() + File.separator + com.baidu.location.f.getJarFileName());
                 if (file.exists()) {
                     file.delete();
                 }
             } else {
-                com.baidu.location.g.c.tX().b(System.currentTimeMillis());
+                com.baidu.location.g.c.tW().b(System.currentTimeMillis());
             }
         }
         try {
@@ -183,7 +183,7 @@ public class e implements Thread.UncaughtExceptionHandler {
             }
             if (str2.contains("com.baidu.location")) {
                 z2 = true;
-                String str4 = com.baidu.location.g.b.tW().a(false) + com.baidu.location.a.a.tc().c();
+                String str4 = com.baidu.location.g.b.tV().a(false) + com.baidu.location.a.a.tb().c();
                 boolean z3 = z2;
                 str3 = str4 == null ? Jni.encode(str4) : null;
                 z = z3;
@@ -212,7 +212,7 @@ public class e implements Thread.UncaughtExceptionHandler {
             }
         }
         z2 = false;
-        String str42 = com.baidu.location.g.b.tW().a(false) + com.baidu.location.a.a.tc().c();
+        String str42 = com.baidu.location.g.b.tV().a(false) + com.baidu.location.a.a.tb().c();
         boolean z32 = z2;
         str3 = str42 == null ? Jni.encode(str42) : null;
         z = z32;

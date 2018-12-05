@@ -32,11 +32,11 @@ public class n {
         adA = aVar;
     }
 
-    public static com.baidu.location.e.a tp() {
+    public static com.baidu.location.e.a tn() {
         return adA;
     }
 
-    public static Location tq() {
+    public static Location tp() {
         return adj;
     }
 }

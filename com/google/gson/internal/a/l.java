@@ -6,51 +6,51 @@ import java.io.IOException;
 /* loaded from: classes2.dex */
 public final class l<T> extends o<T> {
     private final com.google.gson.d gson;
-    private o<T> ilP;
-    private final com.google.gson.n<T> inI;
-    private final com.google.gson.h<T> inJ;
-    private final com.google.gson.b.a<T> inK;
-    private final p inL;
-    private final l<T>.a inM = new a();
+    private o<T> itb;
+    private final com.google.gson.n<T> iuS;
+    private final com.google.gson.h<T> iuT;
+    private final com.google.gson.b.a<T> iuU;
+    private final p iuV;
+    private final l<T>.a iuW = new a();
 
     public l(com.google.gson.n<T> nVar, com.google.gson.h<T> hVar, com.google.gson.d dVar, com.google.gson.b.a<T> aVar, p pVar) {
-        this.inI = nVar;
-        this.inJ = hVar;
+        this.iuS = nVar;
+        this.iuT = hVar;
         this.gson = dVar;
-        this.inK = aVar;
-        this.inL = pVar;
+        this.iuU = aVar;
+        this.iuV = pVar;
     }
 
     @Override // com.google.gson.o
     public T b(com.google.gson.stream.a aVar) throws IOException {
-        if (this.inJ == null) {
-            return bYr().b(aVar);
+        if (this.iuT == null) {
+            return cax().b(aVar);
         }
         com.google.gson.i h = com.google.gson.internal.g.h(aVar);
-        if (h.bYb()) {
+        if (h.cah()) {
             return null;
         }
-        return this.inJ.a(h, this.inK.bYO(), this.inM);
+        return this.iuT.a(h, this.iuU.caU(), this.iuW);
     }
 
     @Override // com.google.gson.o
     public void a(com.google.gson.stream.b bVar, T t) throws IOException {
-        if (this.inI == null) {
-            bYr().a(bVar, t);
+        if (this.iuS == null) {
+            cax().a(bVar, t);
         } else if (t == null) {
-            bVar.bYM();
+            bVar.caS();
         } else {
-            com.google.gson.internal.g.b(this.inI.a(t, this.inK.bYO(), this.inM), bVar);
+            com.google.gson.internal.g.b(this.iuS.a(t, this.iuU.caU(), this.iuW), bVar);
         }
     }
 
-    private o<T> bYr() {
-        o<T> oVar = this.ilP;
+    private o<T> cax() {
+        o<T> oVar = this.itb;
         if (oVar != null) {
             return oVar;
         }
-        o<T> a2 = this.gson.a(this.inL, this.inK);
-        this.ilP = a2;
+        o<T> a2 = this.gson.a(this.iuV, this.iuU);
+        this.itb = a2;
         return a2;
     }
 

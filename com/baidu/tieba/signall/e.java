@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes3.dex */
 public class e {
-    private static final String gVl = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
+    private static final String hcd = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
     private String mAuthSid;
     private x mNetWork = null;
 
@@ -14,29 +14,29 @@ public class e {
         this.mAuthSid = str;
     }
 
-    public String bxZ() {
-        this.mNetWork = new x(gVl);
+    public String bzT() {
+        this.mNetWork = new x(hcd);
         this.mNetWork.x("authsid", this.mAuthSid);
-        this.mNetWork.Cf().Dd().azQ = true;
-        this.mNetWork.Cf().Dd().mIsNeedTbs = true;
-        this.mNetWork.br(true);
-        return this.mNetWork.BH();
+        this.mNetWork.Dj().Eh().aDq = true;
+        this.mNetWork.Dj().Eh().mIsNeedTbs = true;
+        this.mNetWork.bs(true);
+        return this.mNetWork.CL();
     }
 
-    public String uG(String str) {
+    public String vh(String str) {
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str2 = null;
         if (currentAccountObj != null) {
             str2 = currentAccountObj.getID();
         }
-        this.mNetWork = new x(gVl);
+        this.mNetWork = new x(hcd);
         this.mNetWork.x("user_id", str2);
         this.mNetWork.x("forum_ids", str);
         this.mNetWork.x("authsid", this.mAuthSid);
-        this.mNetWork.Cf().Dd().azQ = true;
-        this.mNetWork.Cf().Dd().mIsNeedTbs = true;
-        this.mNetWork.br(true);
-        return this.mNetWork.BH();
+        this.mNetWork.Dj().Eh().aDq = true;
+        this.mNetWork.Dj().Eh().mIsNeedTbs = true;
+        this.mNetWork.bs(true);
+        return this.mNetWork.CL();
     }
 
     public void cancel() {
@@ -47,12 +47,12 @@ public class e {
 
     public boolean isRequestSuccess() {
         if (this.mNetWork != null) {
-            return this.mNetWork.Cf().De().isRequestSuccess();
+            return this.mNetWork.Dj().Ei().isRequestSuccess();
         }
         return false;
     }
 
-    public String wy() {
+    public String xC() {
         if (this.mNetWork != null) {
             return this.mNetWork.getErrorString();
         }

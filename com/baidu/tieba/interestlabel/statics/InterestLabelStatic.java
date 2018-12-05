@@ -17,16 +17,16 @@ public class InterestLabelStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(LabelSettingActivityConfig.class, LabelSettingActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(LabelRecommendActivityConfig.class, LabelRecommendActivity.class);
-        aVn();
-        aVo();
+        aXf();
+        aXg();
     }
 
-    private static void aVn() {
+    private static void aXf() {
         a.a(309467, ResponseSocketGetLabelMessage.class, false, false);
         a.a(309467, CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, TbConfig.URL_GET_INTEREST_LABEL_LIST, ResponseHttpGetLabelMessage.class, false, false, true, false);
     }
 
-    private static void aVo() {
+    private static void aXg() {
         a.a(309468, ResponseSocketSubLabelMessage.class, false, false);
         a.a(309468, CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, TbConfig.URL_SUB_INTEREST_LABEL_LIST, ResponseHttpSubLabelMessage.class, false, false, true, false);
     }

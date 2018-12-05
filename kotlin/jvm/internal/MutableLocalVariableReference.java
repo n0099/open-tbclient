@@ -3,18 +3,18 @@ package kotlin.jvm.internal;
 public class MutableLocalVariableReference extends MutablePropertyReference0 {
     @Override // kotlin.jvm.internal.CallableReference
     public kotlin.reflect.d getOwner() {
-        q.bZK();
+        q.cbQ();
         throw null;
     }
 
     @Override // kotlin.reflect.k
     public Object get() {
-        q.bZK();
+        q.cbQ();
         throw null;
     }
 
     public void set(Object obj) {
-        q.bZK();
+        q.cbQ();
         throw null;
     }
 }

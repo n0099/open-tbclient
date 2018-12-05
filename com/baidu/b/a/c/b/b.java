@@ -6,7 +6,7 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class b {
     public static List<com.baidu.b.a.c.a.a> aa(String str, String str2) {
-        return a.rD().Z(str, str2);
+        return a.rC().Z(str, str2);
     }
 
     public static Map<String, com.baidu.b.a.c.a.a> ab(String str, String str2) {
@@ -28,8 +28,8 @@ public class b {
         Map<String, com.baidu.b.a.c.a.a> ab = ab(str, str2);
         com.baidu.b.a.c.a.a aVar = (ab == null || ab.size() <= 0) ? null : ab.get(str2);
         if (aVar != null) {
-            return a.rD().k(str, str2, "" + aVar.Zo);
+            return a.rC().k(str, str2, "" + aVar.Zo);
         }
-        return a.rD().k(str, str2, null);
+        return a.rC().k(str, str2, null);
     }
 }

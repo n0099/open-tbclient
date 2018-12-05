@@ -12,15 +12,15 @@ import com.baidu.tbadk.coreExtra.relationship.c;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class AssortView extends View {
-    private a bAL;
+    private a bEi;
     private Paint mPaint;
     private int mPosition;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void Vl();
+        void Wr();
 
-        void jB(String str);
+        void jT(String str);
     }
 
     public AssortView(Context context) {
@@ -46,7 +46,7 @@ public class AssortView extends View {
     }
 
     public void setOnTouchListener(a aVar) {
-        this.bAL = aVar;
+        this.bEi = aVar;
     }
 
     @Override // android.view.View
@@ -55,14 +55,14 @@ public class AssortView extends View {
         int height = getHeight();
         int width = getWidth();
         float f = (float) (width / 48.0d);
-        int length = height / c.aOv.length;
-        int length2 = c.aOv.length;
+        int length = height / c.aRU.length;
+        int length2 = c.aRU.length;
         for (int i = 0; i < length2; i++) {
             this.mPaint.setAntiAlias(true);
             this.mPaint.setTypeface(Typeface.DEFAULT_BOLD);
             this.mPaint.setColor(al.getColor(e.d.cp_cont_c));
             this.mPaint.setTextSize(26.0f * f);
-            canvas.drawText(c.aOv[i], (width / 2.0f) - (this.mPaint.measureText(c.aOv[i]) / 2.0f), (length * i) + length, this.mPaint);
+            canvas.drawText(c.aRU[i], (width / 2.0f) - (this.mPaint.measureText(c.aRU[i]) / 2.0f), (length * i) + length, this.mPaint);
             this.mPaint.reset();
         }
     }
@@ -75,27 +75,27 @@ public class AssortView extends View {
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         super.onTouchEvent(motionEvent);
-        int y = (int) ((motionEvent.getY() / getHeight()) * c.aOv.length);
-        if (y >= 0 && y < c.aOv.length) {
+        int y = (int) ((motionEvent.getY() / getHeight()) * c.aRU.length);
+        if (y >= 0 && y < c.aRU.length) {
             switch (motionEvent.getAction()) {
                 case 0:
                     this.mPosition = y;
-                    if (this.bAL != null) {
-                        this.bAL.jB(c.aOv[this.mPosition]);
+                    if (this.bEi != null) {
+                        this.bEi.jT(c.aRU[this.mPosition]);
                         return true;
                     }
                     return true;
                 case 1:
-                    if (this.bAL != null) {
-                        this.bAL.Vl();
+                    if (this.bEi != null) {
+                        this.bEi.Wr();
                     }
                     this.mPosition = -1;
                     return true;
                 case 2:
                     if (this.mPosition != y) {
                         this.mPosition = y;
-                        if (this.bAL != null) {
-                            this.bAL.jB(c.aOv[this.mPosition]);
+                        if (this.bEi != null) {
+                            this.bEi.jT(c.aRU[this.mPosition]);
                             return true;
                         }
                         return true;
@@ -106,8 +106,8 @@ public class AssortView extends View {
             }
         }
         this.mPosition = -1;
-        if (this.bAL != null) {
-            this.bAL.Vl();
+        if (this.bEi != null) {
+            this.bEi.Wr();
             return true;
         }
         return true;

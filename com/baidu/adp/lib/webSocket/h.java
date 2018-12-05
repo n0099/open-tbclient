@@ -20,7 +20,7 @@ public class h {
     private i Hu = null;
     private ArrayList<g.a> Hv = new ArrayList<>();
 
-    public static h lF() {
+    public static h lE() {
         if (Hp == null) {
             synchronized (h.class) {
                 if (Hp == null) {
@@ -93,10 +93,10 @@ public class h {
             }
 
             @Override // com.baidu.adp.lib.webSocket.g.a
-            public void lE() {
+            public void lD() {
                 Iterator it = h.this.Hv.iterator();
                 while (it.hasNext()) {
-                    ((g.a) it.next()).lE();
+                    ((g.a) it.next()).lD();
                 }
             }
 
@@ -123,9 +123,9 @@ public class h {
         };
     }
 
-    public boolean lG() {
+    public boolean lF() {
         if (isDebug()) {
-            com.baidu.adp.lib.util.l.lk();
+            com.baidu.adp.lib.util.l.lj();
         }
         if (this.Hu != null) {
             if (this.Hu.isConnecting() || this.Hu.isOpen()) {
@@ -160,23 +160,23 @@ public class h {
         }
     }
 
-    public boolean lH() {
+    public boolean lG() {
         if (isDebug()) {
-            com.baidu.adp.lib.util.l.lk();
+            com.baidu.adp.lib.util.l.lj();
         }
-        return (this.Hu == null || !this.Hu.isOpen() || this.Hu.lP()) ? false : true;
+        return (this.Hu == null || !this.Hu.isOpen() || this.Hu.lO()) ? false : true;
     }
 
-    public boolean lI() {
+    public boolean lH() {
         if (isDebug()) {
-            com.baidu.adp.lib.util.l.lk();
+            com.baidu.adp.lib.util.l.lj();
         }
         return this.Hu != null && this.Hu.isOpen();
     }
 
     public boolean isConnecting() {
         if (isDebug()) {
-            com.baidu.adp.lib.util.l.lk();
+            com.baidu.adp.lib.util.l.lj();
         }
         return this.Hu != null && this.Hu.isConnecting();
     }
@@ -185,7 +185,7 @@ public class h {
         boolean z = false;
         synchronized (this) {
             if (cVar != null) {
-                com.baidu.adp.lib.util.l.lk();
+                com.baidu.adp.lib.util.l.lj();
                 if (this.Hu != null) {
                     z = this.Hu.sendMessage(cVar);
                 } else if (cVar != null) {
@@ -211,9 +211,9 @@ public class h {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public void lJ() {
+    public void lI() {
         if (this.Hu != null) {
-            this.Hu.lJ();
+            this.Hu.lI();
         }
     }
 
@@ -224,9 +224,9 @@ public class h {
         return -1L;
     }
 
-    public void lK() {
+    public void lJ() {
         if (this.Hu != null) {
-            this.Hu.lK();
+            this.Hu.lJ();
         }
     }
 
@@ -237,23 +237,23 @@ public class h {
         return -1L;
     }
 
-    public long lC() {
+    public long lB() {
         if (this.Hu != null) {
-            return this.Hu.lQ();
+            return this.Hu.lP();
         }
         return -1L;
     }
 
-    public String lB() {
+    public String lA() {
         if (this.Hu != null) {
-            return this.Hu.lR();
+            return this.Hu.lQ();
         }
         return null;
     }
 
-    public long lL() {
+    public long lK() {
         if (this.Hu != null) {
-            return this.Hu.lS();
+            return this.Hu.lR();
         }
         return -1L;
     }
@@ -265,9 +265,9 @@ public class h {
         return null;
     }
 
-    public String ln() {
+    public String lm() {
         if (this.Hu != null) {
-            return this.Hu.ln();
+            return this.Hu.lm();
         }
         return null;
     }

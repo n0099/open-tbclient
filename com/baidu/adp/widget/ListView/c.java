@@ -20,9 +20,9 @@ public abstract class c implements BdSwipeRefreshLayout.b {
 
     public abstract void ax(boolean z);
 
-    public abstract View oE();
+    public abstract View oD();
 
-    public abstract void oF();
+    public abstract void oE();
 
     public abstract void refreshing();
 
@@ -43,7 +43,7 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public final View getView() {
         if (this.mView == null) {
-            this.mView = oE();
+            this.mView = oD();
             if (this.mView == null) {
                 throw new IllegalStateException("BdIListPullView getView is null");
             }
@@ -84,7 +84,7 @@ public abstract class c implements BdSwipeRefreshLayout.b {
         view.measure(childMeasureSpec, makeMeasureSpec);
     }
 
-    public int oG() {
+    public int oF() {
         return this.Ox;
     }
 
@@ -105,8 +105,8 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public void oH() {
-        oF();
+    public void oG() {
+        oE();
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
@@ -119,7 +119,7 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public long oI() {
+    public long oH() {
         return 0L;
     }
 }

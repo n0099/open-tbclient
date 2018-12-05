@@ -14,7 +14,7 @@ public final class c implements a.InterfaceC0073a {
 
     @Override // com.baidu.e.a.a.InterfaceC0073a
     public final void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        Intent qD;
+        Intent qC;
         if (i == 4099) {
             boolean z = iArr.length != 0;
             for (int i2 : iArr) {
@@ -23,11 +23,11 @@ public final class c implements a.InterfaceC0073a {
                 }
             }
             if (z) {
-                qD = this.VY.qD();
+                qC = this.VY.qC();
                 this.VY.VX = true;
-                this.VY.a(qD, 11);
+                this.VY.a(qC, 11);
             }
-            com.baidu.browser.core.permission.a.qm().bB(4099);
+            com.baidu.browser.core.permission.a.ql().bB(4099);
         }
     }
 }

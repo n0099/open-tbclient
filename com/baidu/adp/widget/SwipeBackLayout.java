@@ -55,14 +55,14 @@ public class SwipeBackLayout extends FrameLayout {
     public interface b {
         void ay(boolean z);
 
-        void oR();
+        void oQ();
     }
 
     /* loaded from: classes.dex */
     public interface c {
-        void oS();
+        void oR();
 
-        void oT();
+        void oS();
     }
 
     public SwipeBackLayout(Context context) {
@@ -249,7 +249,7 @@ public class SwipeBackLayout extends FrameLayout {
         this.mVelocityTracker.addMovement(motionEvent);
         switch (motionEvent.getAction() & 255) {
             case 0:
-                oQ();
+                oP();
                 int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
                 this.mActivePointerId = MotionEventCompat.getPointerId(motionEvent, actionIndex);
                 this.mLastMotionX = motionEvent.getX();
@@ -264,9 +264,9 @@ public class SwipeBackLayout extends FrameLayout {
                 if (Math.abs(this.PQ) > this.mMinimumVelocity && p > this.mFlingDistance) {
                     if (this.PQ > 0.0f) {
                         this.PH = true;
-                        oO();
+                        oN();
                     } else {
-                        oP();
+                        oO();
                         this.PH = false;
                     }
                     if (this.PU != null) {
@@ -277,9 +277,9 @@ public class SwipeBackLayout extends FrameLayout {
                 }
                 if (this.mContentView.getScrollX() <= (-this.PE) / 2) {
                     this.PH = true;
-                    oO();
+                    oN();
                 } else {
-                    oP();
+                    oO();
                     this.PH = false;
                 }
                 if (this.PU != null) {
@@ -327,7 +327,7 @@ public class SwipeBackLayout extends FrameLayout {
             if (f > 0.0f && abs > this.PP && abs > abs2) {
                 this.PG = true;
                 if (this.PU != null) {
-                    this.PU.oR();
+                    this.PU.oQ();
                 }
                 this.mLastMotionX = x;
                 this.mLastMotionY = y;
@@ -370,19 +370,19 @@ public class SwipeBackLayout extends FrameLayout {
         return findPointerIndex;
     }
 
-    private void oO() {
+    private void oN() {
         this.PJ = true;
         this.mScroller.startScroll(this.mContentView.getScrollX(), 0, (-(this.PE + this.mContentView.getScrollX())) + 1, 0);
         postInvalidate();
     }
 
-    private void oP() {
+    private void oO() {
         this.PJ = true;
         this.mScroller.startScroll(this.mContentView.getScrollX(), 0, -this.mContentView.getScrollX(), 0);
         postInvalidate();
     }
 
-    private void oQ() {
+    private void oP() {
         if (this.PJ) {
             this.mScroller.abortAnimation();
             int scrollX = getScrollX();
@@ -413,7 +413,7 @@ public class SwipeBackLayout extends FrameLayout {
             this.mActivity.overridePendingTransition(0, 0);
         }
         if (this.mScroller.isFinished()) {
-            oQ();
+            oP();
         }
     }
 

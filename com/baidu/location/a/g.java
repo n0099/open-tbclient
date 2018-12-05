@@ -96,28 +96,28 @@ public class g {
     }
 
     private String a(boolean z) {
-        com.baidu.location.e.a tN = com.baidu.location.e.b.tM().tN();
-        com.baidu.location.e.e tU = com.baidu.location.e.f.tR().tU();
+        com.baidu.location.e.a tM = com.baidu.location.e.b.tL().tM();
+        com.baidu.location.e.e tT = com.baidu.location.e.f.tQ().tT();
         StringBuffer stringBuffer = new StringBuffer(1024);
-        if (tN != null && tN.b()) {
-            stringBuffer.append(tN.h());
+        if (tM != null && tM.b()) {
+            stringBuffer.append(tM.h());
         }
-        if (tU != null && tU.a() > 1) {
-            stringBuffer.append(tU.a(15));
-        } else if (com.baidu.location.e.f.tR().m() != null) {
-            stringBuffer.append(com.baidu.location.e.f.tR().m());
+        if (tT != null && tT.a() > 1) {
+            stringBuffer.append(tT.a(15));
+        } else if (com.baidu.location.e.f.tQ().m() != null) {
+            stringBuffer.append(com.baidu.location.e.f.tQ().m());
         }
         if (z) {
             stringBuffer.append("&imo=1");
         }
-        stringBuffer.append(com.baidu.location.g.b.tW().a(false));
-        stringBuffer.append(com.baidu.location.a.a.tc().c());
+        stringBuffer.append(com.baidu.location.g.b.tV().a(false));
+        stringBuffer.append(com.baidu.location.a.a.tb().c());
         return stringBuffer.toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Bundle bundle) {
-        com.baidu.location.a.a.tc().a(bundle, 406);
+        com.baidu.location.a.a.tb().a(bundle, 406);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -127,7 +127,7 @@ public class g {
         a(bundle);
     }
 
-    public static g th() {
+    public static g tg() {
         g gVar;
         synchronized (c) {
             if (adu == null) {
@@ -193,14 +193,14 @@ public class g {
 
     public synchronized int d() {
         int i;
-        WifiInfo tS;
+        WifiInfo tR;
         Cursor cursor = null;
         synchronized (this) {
             i = -3;
             if (!this.g) {
                 try {
-                    if (com.baidu.location.e.f.j() && this.adv != null && (tS = com.baidu.location.e.f.tR().tS()) != null && tS.getBSSID() != null) {
-                        String replace = tS.getBSSID().replace(":", "");
+                    if (com.baidu.location.e.f.j() && this.adv != null && (tR = com.baidu.location.e.f.tQ().tR()) != null && tR.getBSSID() != null) {
+                        String replace = tR.getBSSID().replace(":", "");
                         Long encode3 = Jni.encode3(replace);
                         if (this.h == null || !replace.equals(this.h) || this.i <= -2) {
                             try {
@@ -269,12 +269,12 @@ public class g {
                 f();
                 return;
             }
-            WifiInfo tS = com.baidu.location.e.f.tR().tS();
-            if (tS == null || tS.getBSSID() == null) {
+            WifiInfo tR = com.baidu.location.e.f.tQ().tR();
+            if (tR == null || tR.getBSSID() == null) {
                 f();
                 return;
             }
-            String replace = tS.getBSSID().replace(":", "");
+            String replace = tR.getBSSID().replace(":", "");
             boolean z2 = false;
             try {
                 rawQuery = this.adv.rawQuery("select * from hstdata where id = \"" + Jni.encode3(replace) + "\";", null);

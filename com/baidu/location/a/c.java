@@ -615,11 +615,11 @@ public class c {
         String str;
         String str2;
         try {
-            com.baidu.location.e.a te = te();
-            if (te == null || !te.b()) {
+            com.baidu.location.e.a td = td();
+            if (td == null || !td.b()) {
                 a(this.acH.getCellLocation());
             } else {
-                this.acI = te;
+                this.acI = td;
             }
             str = (this.acI == null || !this.acI.b()) ? null : this.acI.h();
             try {
@@ -662,7 +662,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private com.baidu.location.e.a te() {
+    private com.baidu.location.e.a td() {
         com.baidu.location.e.a aVar;
         if (Integer.valueOf(Build.VERSION.SDK_INT).intValue() < 17) {
             return null;
@@ -724,7 +724,7 @@ public class c {
         }
         if (this.acJ != null && this.acM.scanSpan >= 1000 && !this.acM.getAddrType().equals("all") && !this.acM.isNeedAptag && !this.acM.isNeedAptagd) {
             try {
-                BDLocation a2 = com.baidu.location.d.a.tA().a(this.acI != null ? this.acI.g() : null, this.acJ.getScanResults(), false);
+                BDLocation a2 = com.baidu.location.d.a.tz().a(this.acI != null ? this.acI.g() : null, this.acJ.getScanResults(), false);
                 if (a2 == null || a2.getLocType() != 66) {
                 }
                 if (a2 == null || a2.getLocType() != 66) {

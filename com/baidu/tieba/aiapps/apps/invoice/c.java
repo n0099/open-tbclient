@@ -1,9 +1,9 @@
 package com.baidu.tieba.aiapps.apps.invoice;
 /* loaded from: classes4.dex */
 public interface c {
-    void Xr();
+    void Yu();
 
-    void Xs();
+    void Yv();
 
-    void Xt();
+    void Yw();
 }

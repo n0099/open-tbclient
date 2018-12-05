@@ -74,7 +74,7 @@ public class a extends OutputStream {
         write(str.getBytes("UTF-8"));
     }
 
-    public synchronized void lz() throws IOException {
+    public synchronized void ly() throws IOException {
         write(13);
         write(10);
     }

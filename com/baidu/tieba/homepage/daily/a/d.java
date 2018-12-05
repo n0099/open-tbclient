@@ -31,13 +31,13 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* renamed from: aO */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         Context context = viewGroup.getContext();
-        this.tbds42 = l.h(context, e.C0200e.tbds42);
-        this.tbds34 = l.h(context, e.C0200e.tbds34);
+        this.tbds42 = l.h(context, e.C0210e.tbds42);
+        this.tbds34 = l.h(context, e.C0210e.tbds34);
         View inflate = LayoutInflater.from(context).inflate(e.h.daily_title_view, (ViewGroup) null);
         inflate.setLayoutParams(generateLayoutParamsByParent(viewGroup));
         a aVar = new a(inflate);
-        aVar.bvs = inflate.findViewById(e.g.divider_line);
-        aVar.elj = (TextView) inflate.findViewById(e.g.daily_title);
+        aVar.byP = inflate.findViewById(e.g.divider_line);
+        aVar.ese = (TextView) inflate.findViewById(e.g.daily_title);
         return aVar;
     }
 
@@ -47,25 +47,25 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.daily.b.d dVar, a aVar) {
         if (aVar != null && dVar != null) {
-            String aIB = !StringUtils.isNull(dVar.aIB()) ? dVar.aIB() : this.mContext.getString(e.j.daily_default_title);
-            String aIA = !StringUtils.isNull(dVar.aIA()) ? dVar.aIA() : "";
-            int length = aIB.length();
-            int length2 = aIA.length();
+            String aKs = !StringUtils.isNull(dVar.aKs()) ? dVar.aKs() : this.mContext.getString(e.j.daily_default_title);
+            String aKr = !StringUtils.isNull(dVar.aKr()) ? dVar.aKr() : "";
+            int length = aKs.length();
+            int length2 = aKr.length();
             int color = al.getColor(e.d.cp_cont_b);
             int color2 = al.getColor(e.d.cp_cont_d);
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(aIB + aIA);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(aKs + aKr);
             spannableStringBuilder.setSpan(new AbsoluteSizeSpan(this.tbds42), 0, length, 33);
             spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, length, 33);
             spannableStringBuilder.setSpan(new AbsoluteSizeSpan(this.tbds34), length, length + length2, 33);
             spannableStringBuilder.setSpan(new ForegroundColorSpan(color2), length, length + length2, 33);
-            aVar.elj.setText(spannableStringBuilder);
-            al.h(aVar.elj, e.d.cp_cont_b);
-            al.j(aVar.elj, e.d.cp_bg_line_d);
-            if (dVar.aIC()) {
-                aVar.bvs.setVisibility(0);
-                al.j(aVar.bvs, e.d.cp_bg_line_e);
+            aVar.ese.setText(spannableStringBuilder);
+            al.h(aVar.ese, e.d.cp_cont_b);
+            al.j(aVar.ese, e.d.cp_bg_line_d);
+            if (dVar.aKt()) {
+                aVar.byP.setVisibility(0);
+                al.j(aVar.byP, e.d.cp_bg_line_e);
             } else {
-                aVar.bvs.setVisibility(8);
+                aVar.byP.setVisibility(8);
             }
             return aVar.getView();
         }
@@ -75,8 +75,8 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static class a extends q.a {
-        public View bvs;
-        public TextView elj;
+        public View byP;
+        public TextView ese;
 
         public a(View view) {
             super(view);

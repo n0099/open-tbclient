@@ -28,7 +28,7 @@ public class AdUploadHttpRequest extends HttpMessage {
         addParam(KEY_BRAND, Build.BRAND);
         addParam(KEY_OS_VERSION, Build.VERSION.SDK);
         addParam(KEY_PRODUCT_ID, 2);
-        addParam("net_type", j.lb());
+        addParam("net_type", j.netType());
         addParam(KEY_OS_TYPE, 2);
     }
 
@@ -54,7 +54,7 @@ public class AdUploadHttpRequest extends HttpMessage {
         while (it.hasNext()) {
             b next = it.next();
             if (next != null) {
-                jSONArray.put(next.btA());
+                jSONArray.put(next.bvt());
             }
         }
         return jSONArray.toString();

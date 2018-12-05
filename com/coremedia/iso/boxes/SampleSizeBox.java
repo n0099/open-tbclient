@@ -11,13 +11,13 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class SampleSizeBox extends AbstractFullBox {
     public static final String TYPE = "stsz";
-    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_6 = null;
     int sampleCount;
     private long sampleSize;
     private long[] sampleSizes;
@@ -48,12 +48,12 @@ public class SampleSizeBox extends AbstractFullBox {
     }
 
     public void setSampleSize(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.ds(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.dz(j)));
         this.sampleSize = j;
     }
 
     public long getSampleSizeAtIndex(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this, org.aspectj.a.a.a.yH(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this, org.aspectj.a.a.a.ze(i)));
         return this.sampleSize > 0 ? this.sampleSize : this.sampleSizes[i];
     }
 

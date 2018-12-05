@@ -136,46 +136,46 @@ public class a {
 
     public int a(int i) {
         if (i == 0 || i == 1 || i == 2) {
-            return R.drawable.ala_authen_explain_circle_bg;
-        }
-        if (i == 3) {
-            return R.drawable.ala_authen_roger_btn_bg;
-        }
-        if (i == 4) {
-            return R.drawable.ala_banner_view_dot_selected_1;
-        }
-        if (i == 5) {
-            return R.drawable.aiapps_xsearch_msg_pull_arrow_down;
-        }
-        if (i == 6) {
             return R.drawable.ala_authen_corners_bg_s;
         }
-        if (i == 7) {
-            return R.drawable.ala_authen_corners_bg_n;
-        }
-        if (i == 8) {
-            return R.drawable.aiapps_white_shimmer_loading;
-        }
-        if (i == 9) {
-            return R.drawable.ala_all_game_default_icon;
-        }
-        if (i == 10) {
-            return R.drawable.ala_achievement_panel_bg;
-        }
-        if (i == 11) {
-            return R.drawable.ala_banner_view_dot_selected;
-        }
-        if (i == 12) {
-            return R.drawable.aiapps_wheel_val;
-        }
-        if (i == 13) {
-            return R.drawable.aiapps_toast_button_view_bg;
-        }
-        if (i == 14) {
+        if (i == 3) {
             return R.drawable.ala_authen_dashed_bound;
         }
-        if (i == 15) {
+        if (i == 4) {
+            return R.drawable.ala_authen_roger_btn_bg;
+        }
+        if (i == 5) {
+            return R.drawable.aiapps_white_shimmer_loading;
+        }
+        if (i == 6) {
             return R.drawable.ala_authen_corners_bg_d;
+        }
+        if (i == 7) {
+            return R.drawable.ala_all_game_default_icon;
+        }
+        if (i == 8) {
+            return R.drawable.aiapps_wheel_val;
+        }
+        if (i == 9) {
+            return R.drawable.aiapps_xsearch_msg_pull_arrow_down;
+        }
+        if (i == 10) {
+            return R.drawable.aiapps_wx_pay_loading;
+        }
+        if (i == 11) {
+            return R.drawable.ala_authen_explain_circle_bg;
+        }
+        if (i == 12) {
+            return R.drawable.aiapps_toast_button_view_bg;
+        }
+        if (i == 13) {
+            return R.drawable.aiapps_textarea_comfirm_bar;
+        }
+        if (i == 14) {
+            return R.drawable.ala_authen_corners_bg_n;
+        }
+        if (i == 15) {
+            return R.drawable.ala_achievement_panel_bg;
         }
         return -1;
     }

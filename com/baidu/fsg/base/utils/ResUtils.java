@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import com.baidu.fsg.base.ApollonConstants;
-import com.baidu.searchbox.ng.ai.apps.scheme.actions.RequestPolymerPaymentAction;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -144,7 +143,7 @@ public final class ResUtils {
         Resources resources = context.getResources();
         String packageName = context.getPackageName();
         if (ChannelUtils.isSpecailPackage()) {
-            packageName = RequestPolymerPaymentAction.PACKAGE_NAME;
+            packageName = "com.baidu.wallet";
         }
         if (ApollonConstants.DEBUG) {
             Log.d("ResUtils", "context instance is " + context);
@@ -165,7 +164,7 @@ public final class ResUtils {
         }
         Resources resources = context.getResources();
         if (ChannelUtils.isSpecailPackage()) {
-            str = RequestPolymerPaymentAction.PACKAGE_NAME;
+            str = "com.baidu.wallet";
         }
         if (ApollonConstants.DEBUG) {
             Log.d("ResUtils", "context instance is " + context);

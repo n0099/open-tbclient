@@ -1,112 +1,110 @@
 package com.baidu.tieba.aiapps.apps.i;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.location.Address;
-import android.net.http.Headers;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.d.a;
-import com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppLocationIoc;
-import com.baidu.searchbox.ng.ai.apps.scheme.actions.location.LocationResult;
-import com.baidu.searchbox.ng.ai.apps.scheme.actions.recommend.model.AiAppsLocationInfo;
-import rx.d;
-import rx.j;
+import com.baidu.searchbox.ng.ai.apps.core.fragment.AiAppsFragmentManager;
+import com.baidu.searchbox.ng.ai.apps.core.slave.AiAppsSlaveManager;
+import com.baidu.searchbox.ng.ai.apps.impl.map.MapViewManager;
+import com.baidu.searchbox.ng.ai.apps.impl.map.action.MapCreateAction;
+import com.baidu.searchbox.ng.ai.apps.impl.map.action.MapRemoveAction;
+import com.baidu.searchbox.ng.ai.apps.impl.map.action.MapUpdateAction;
+import com.baidu.searchbox.ng.ai.apps.impl.map.action.function.GetCenterLocationAction;
+import com.baidu.searchbox.ng.ai.apps.impl.map.action.function.GetRegionAction;
+import com.baidu.searchbox.ng.ai.apps.impl.map.action.function.GetScaleAction;
+import com.baidu.searchbox.ng.ai.apps.impl.map.action.function.IncludePointsAction;
+import com.baidu.searchbox.ng.ai.apps.impl.map.action.function.MoveToLocationAction;
+import com.baidu.searchbox.ng.ai.apps.impl.map.action.function.OpenLocationAction;
+import com.baidu.searchbox.ng.ai.apps.impl.map.action.function.TranslateMarkerAction;
+import com.baidu.searchbox.ng.ai.apps.impl.map.location.action.ChooseLocationAction;
+import com.baidu.searchbox.ng.ai.apps.impl.map.location.action.WalkNavigationAction;
+import com.baidu.searchbox.ng.ai.apps.impl.map.location.walknav.WalkARNavFragment;
+import com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppMapIoc;
+import com.baidu.searchbox.ng.ai.apps.lifecycle.AiAppsController;
+import com.baidu.searchbox.ng.ai.apps.runtime.AiApp;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 /* loaded from: classes4.dex */
-public class a implements IAiAppLocationIoc {
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppLocationIoc
-    @TargetApi(23)
-    @Nullable
-    public d<AiAppsLocationInfo> getLocationInfo(Context context) {
-        if (context == null) {
-            return null;
-        }
-        return d.create(new d.a<AiAppsLocationInfo>() { // from class: com.baidu.tieba.aiapps.apps.i.a.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // rx.functions.b
-            public void call(final j<? super AiAppsLocationInfo> jVar) {
-                a.this.requestLocation("bd09ll", true, true, new IAiAppLocationIoc.LocationListener() { // from class: com.baidu.tieba.aiapps.apps.i.a.1.1
-                    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppLocationIoc.LocationListener
-                    public void onSuccess(LocationResult locationResult) {
-                        AiAppsLocationInfo aiAppsLocationInfo = new AiAppsLocationInfo();
-                        aiAppsLocationInfo.coordType = "bd09ll";
-                        aiAppsLocationInfo.latitude = locationResult.latitude;
-                        aiAppsLocationInfo.longitude = locationResult.longitude;
-                        jVar.onNext(aiAppsLocationInfo);
-                        jVar.onCompleted();
-                    }
-
-                    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppLocationIoc.LocationListener
-                    public void onFailed(int i) {
-                        jVar.onError(new Throwable());
-                    }
-                });
-            }
-        });
+public class a implements IAiAppMapIoc {
+    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppMapIoc
+    public boolean create(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
+        return new MapCreateAction().handle(context, unitedSchemeEntity, callbackHandler, aiApp);
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppLocationIoc
-    public void preInitLocation() {
+    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppMapIoc
+    public boolean update(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
+        return new MapUpdateAction().handle(context, unitedSchemeEntity, callbackHandler, aiApp);
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppLocationIoc
-    public void requestLocation(final String str, boolean z, boolean z2, final IAiAppLocationIoc.LocationListener locationListener) {
-        if (locationListener != null) {
-            com.baidu.adp.lib.d.a.iW().a(!z, z2, new a.InterfaceC0017a() { // from class: com.baidu.tieba.aiapps.apps.i.a.2
-                @Override // com.baidu.adp.lib.d.a.InterfaceC0017a
-                public void b(int i, String str2, Address address) {
-                    if ("bd09ll".equals(str)) {
-                        locationListener.onSuccess(a.this.a(str, address));
-                        return;
-                    }
-                    CustomMessageTask customMessageTask = (CustomMessageTask) MessageManager.getInstance().findTask(2921363);
-                    if (customMessageTask == null) {
-                        locationListener.onFailed(-1);
-                        return;
-                    }
-                    try {
-                        CustomMessageTask.CustomRunnable<?> runnable = customMessageTask.getRunnable();
-                        Bundle bundle = new Bundle();
-                        bundle.putString("coorType", str);
-                        bundle.putParcelable(Headers.LOCATION, address);
-                        CustomResponsedMessage<?> run = runnable.run(new CustomMessage<>(2921363, bundle));
-                        if (run == null) {
-                            locationListener.onFailed(-1);
-                        } else {
-                            locationListener.onSuccess(a.this.a(str, (Address) run.getData()));
-                        }
-                    } catch (Exception e) {
-                        locationListener.onFailed(-1);
-                    }
-                }
-            });
-        }
+    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppMapIoc
+    public boolean remove(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
+        return new MapRemoveAction().handle(context, unitedSchemeEntity, callbackHandler, aiApp);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public LocationResult a(String str, Address address) {
-        if (address == null) {
-            return null;
+    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppMapIoc
+    public boolean translateMarker(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
+        return new TranslateMarkerAction().handle(context, unitedSchemeEntity, callbackHandler, aiApp);
+    }
+
+    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppMapIoc
+    public boolean openLocation(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
+        return new OpenLocationAction().handle(context, unitedSchemeEntity, callbackHandler, aiApp);
+    }
+
+    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppMapIoc
+    public boolean moveToLocation(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
+        return new MoveToLocationAction().handle(context, unitedSchemeEntity, callbackHandler, aiApp);
+    }
+
+    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppMapIoc
+    public boolean includePoints(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
+        return new IncludePointsAction().handle(context, unitedSchemeEntity, callbackHandler, aiApp);
+    }
+
+    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppMapIoc
+    public boolean getScale(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
+        return new GetScaleAction().handle(context, unitedSchemeEntity, callbackHandler, aiApp);
+    }
+
+    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppMapIoc
+    public boolean getRegion(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
+        return new GetRegionAction().handle(context, unitedSchemeEntity, callbackHandler, aiApp);
+    }
+
+    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppMapIoc
+    public boolean getCenterLocation(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
+        return new GetCenterLocationAction().handle(context, unitedSchemeEntity, callbackHandler, aiApp);
+    }
+
+    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppMapIoc
+    public boolean chooseLocation(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
+        return new ChooseLocationAction().handle(context, unitedSchemeEntity, callbackHandler, aiApp);
+    }
+
+    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppMapIoc
+    public boolean openWalkNavigation(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
+        return new WalkNavigationAction().handle(context, unitedSchemeEntity, callbackHandler, aiApp);
+    }
+
+    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppMapIoc
+    public void resume(AiAppsSlaveManager aiAppsSlaveManager) {
+        MapViewManager.get().getMapViewHelper(aiAppsSlaveManager).resume();
+    }
+
+    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppMapIoc
+    public void pause(AiAppsSlaveManager aiAppsSlaveManager) {
+        MapViewManager.get().getMapViewHelper(aiAppsSlaveManager).pause();
+    }
+
+    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppMapIoc
+    public void release(AiAppsSlaveManager aiAppsSlaveManager) {
+        MapViewManager.get().releaseMapViewHelper(aiAppsSlaveManager);
+    }
+
+    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppMapIoc
+    public boolean isTopWalkNavFragment() {
+        AiAppsFragmentManager aiAppsFragmentManager = AiAppsController.getInstance().getAiAppsFragmentManager();
+        if (aiAppsFragmentManager == null) {
+            return false;
         }
-        Bundle extras = address.getExtras();
-        float f = 0.0f;
-        double d = 0.0d;
-        String str2 = "";
-        String str3 = "";
-        String str4 = "";
-        String str5 = "";
-        if (extras != null) {
-            f = extras.getFloat("speed");
-            d = extras.getDouble("altitude");
-            str2 = extras.getString("cityCode");
-            str3 = extras.getString("province");
-            str4 = extras.getString("street");
-            str5 = extras.getString("streetNumber");
-        }
-        return new LocationResult(str, address.getLongitude(), address.getLatitude(), f, 0.0d, d, address.getCountryName(), address.getCountryCode(), address.getLocality(), str2, str3, "", str4, str5);
+        return aiAppsFragmentManager.getTopFragment() instanceof WalkARNavFragment;
     }
 }

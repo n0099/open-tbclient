@@ -5,10 +5,10 @@ import java.util.Map;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class z<T, K, V> implements d.a<Map<K, V>>, rx.functions.e<Map<K, V>> {
-    final rx.d<T> iuw;
-    final rx.functions.f<? super T, ? extends K> iwG;
-    final rx.functions.f<? super T, ? extends V> iwH;
-    final rx.functions.e<? extends Map<K, V>> iwI;
+    final rx.d<T> iBF;
+    final rx.functions.f<? super T, ? extends K> iDP;
+    final rx.functions.f<? super T, ? extends V> iDQ;
+    final rx.functions.e<? extends Map<K, V>> iDR;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -20,26 +20,26 @@ public final class z<T, K, V> implements d.a<Map<K, V>>, rx.functions.e<Map<K, V
     }
 
     public z(rx.d<T> dVar, rx.functions.f<? super T, ? extends K> fVar, rx.functions.f<? super T, ? extends V> fVar2, rx.functions.e<? extends Map<K, V>> eVar) {
-        this.iuw = dVar;
-        this.iwG = fVar;
-        this.iwH = fVar2;
+        this.iBF = dVar;
+        this.iDP = fVar;
+        this.iDQ = fVar2;
         if (eVar == null) {
-            this.iwI = this;
+            this.iDR = this;
         } else {
-            this.iwI = eVar;
+            this.iDR = eVar;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.e, java.util.concurrent.Callable
-    /* renamed from: cbh */
+    /* renamed from: cdk */
     public Map<K, V> call() {
         return new HashMap();
     }
 
     public void call(rx.j<? super Map<K, V>> jVar) {
         try {
-            new a(jVar, this.iwI.call(), this.iwG, this.iwH).c(this.iuw);
+            new a(jVar, this.iDR.call(), this.iDP, this.iDQ).c(this.iBF);
         } catch (Throwable th) {
             rx.exceptions.a.a(th, jVar);
         }
@@ -48,8 +48,8 @@ public final class z<T, K, V> implements d.a<Map<K, V>>, rx.functions.e<Map<K, V
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T, K, V> extends c<T, Map<K, V>> {
-        final rx.functions.f<? super T, ? extends K> iwG;
-        final rx.functions.f<? super T, ? extends V> iwH;
+        final rx.functions.f<? super T, ? extends K> iDP;
+        final rx.functions.f<? super T, ? extends V> iDQ;
 
         /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: java.util.Map<K, V> */
         /* JADX WARN: Multi-variable type inference failed */
@@ -57,8 +57,8 @@ public final class z<T, K, V> implements d.a<Map<K, V>>, rx.functions.e<Map<K, V
             super(jVar);
             this.value = map;
             this.hasValue = true;
-            this.iwG = fVar;
-            this.iwH = fVar2;
+            this.iDP = fVar;
+            this.iDQ = fVar2;
         }
 
         @Override // rx.j
@@ -70,7 +70,7 @@ public final class z<T, K, V> implements d.a<Map<K, V>>, rx.functions.e<Map<K, V
         public void onNext(T t) {
             if (!this.done) {
                 try {
-                    ((Map) this.value).put(this.iwG.call(t), this.iwH.call(t));
+                    ((Map) this.value).put(this.iDP.call(t), this.iDQ.call(t));
                 } catch (Throwable th) {
                     rx.exceptions.a.J(th);
                     unsubscribe();

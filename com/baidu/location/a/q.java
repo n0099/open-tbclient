@@ -16,7 +16,7 @@ public class q {
     q() {
     }
 
-    public static q tt() {
+    public static q ts() {
         q qVar;
         synchronized (a) {
             if (aeh == null) {
@@ -100,7 +100,7 @@ public class q {
                                 Location location = (Location) data.getParcelable("loc");
                                 data.getInt("satnum");
                                 if (location != null) {
-                                    e.tg().a(location);
+                                    e.tf().a(location);
                                     return;
                                 }
                                 return;
@@ -109,26 +109,26 @@ public class q {
                                 return;
                             }
                         case 2:
-                            p.a(n.tp(), com.baidu.location.e.f.tR().tT(), n.tq(), n.a());
+                            p.a(n.tn(), com.baidu.location.e.f.tQ().tS(), n.tp(), n.a());
                             return;
                         case 3:
-                            p.a(n.tp(), null, n.tq(), a.tc().c());
+                            p.a(n.tn(), null, n.tp(), a.tb().c());
                             return;
                         case 4:
                             boolean j = com.baidu.location.e.f.j();
                             if (!j) {
                                 z = j;
-                            } else if (g.th().d() == 1) {
+                            } else if (g.tg().d() == 1) {
                                 z = false;
                             }
                             if (z) {
-                                if (com.baidu.location.b.c.tw().e()) {
-                                    com.baidu.location.d.d.tF().m();
-                                    com.baidu.location.d.d.tF().i();
+                                if (com.baidu.location.b.c.tv().e()) {
+                                    com.baidu.location.d.d.tE().m();
+                                    com.baidu.location.d.d.tE().i();
                                 }
-                                com.baidu.location.b.f.tz().c();
-                                if (com.baidu.location.b.c.tw().e()) {
-                                    p.ts().c();
+                                com.baidu.location.b.f.ty().c();
+                                if (com.baidu.location.b.c.tv().e()) {
+                                    p.tr().c();
                                 }
                             }
                             try {
@@ -142,14 +142,14 @@ public class q {
                                 return;
                             }
                         case 5:
-                            com.baidu.location.b.f.tz().b();
+                            com.baidu.location.b.f.ty().b();
                             return;
                         case 6:
                         default:
                             return;
                         case 7:
-                            p.ts().c();
-                            com.baidu.location.b.f.tz().c();
+                            p.tr().c();
+                            com.baidu.location.b.f.ty().c();
                             return;
                         case 8:
                             message.getData();
@@ -176,7 +176,7 @@ public class q {
 
     public void f() {
         if (this.e) {
-            e.tg().b();
+            e.tf().b();
             try {
                 if (this.d != null) {
                     this.d.removeCallbacksAndMessages(null);

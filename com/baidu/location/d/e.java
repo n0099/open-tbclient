@@ -175,7 +175,7 @@ public final class e {
         ArrayList arrayList = new ArrayList();
         StringBuffer stringBuffer = new StringBuffer();
         if (aVar != null) {
-            stringBuffer.append(com.baidu.location.e.b.tM().g(aVar));
+            stringBuffer.append(com.baidu.location.e.b.tL().g(aVar));
         }
         if (eVar != null) {
             stringBuffer.append(eVar.a(30));

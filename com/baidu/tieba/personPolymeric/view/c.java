@@ -17,15 +17,15 @@ import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.d> {
-    public View cAJ;
-    public TextView gsl;
-    public TextView gsm;
-    public TextView gsn;
-    public TextView gso;
-    public ClickableHeaderImageView gsp;
-    public ClickableHeaderImageView gsq;
-    public ClickableHeaderImageView gsr;
-    public TextView gss;
+    public View cEB;
+    public TextView gzb;
+    public TextView gzc;
+    public TextView gzd;
+    public TextView gze;
+    public ClickableHeaderImageView gzf;
+    public ClickableHeaderImageView gzg;
+    public ClickableHeaderImageView gzh;
+    public TextView gzi;
     private boolean isHost;
     private View.OnClickListener mOnClickListener;
     private TbPageContext<?> mPageContext;
@@ -37,36 +37,36 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         this.mPageContext = tbPageContext;
         View view = getView();
         initListener();
-        this.cAJ = view.findViewById(e.g.bottom_divider);
-        this.gsm = (TextView) view.findViewById(e.g.month_num);
-        this.gsl = (TextView) view.findViewById(e.g.day_num);
-        this.gsn = (TextView) view.findViewById(e.g.identity);
-        this.gso = (TextView) view.findViewById(e.g.attention_str);
-        this.gsp = (ClickableHeaderImageView) view.findViewById(e.g.header1);
-        this.gsp.setRadius(com.baidu.adp.lib.util.l.h(this.mPageContext.getPageActivity(), e.C0200e.ds100));
-        this.gsp.setAutoChangeStyle(true);
-        this.gsp.setOnClickListener(this.mOnClickListener);
-        this.gsq = (ClickableHeaderImageView) view.findViewById(e.g.header2);
-        this.gsq.setRadius(com.baidu.adp.lib.util.l.h(this.mPageContext.getPageActivity(), e.C0200e.ds100));
-        this.gsq.setAutoChangeStyle(true);
-        this.gsq.setOnClickListener(this.mOnClickListener);
-        this.gsr = (ClickableHeaderImageView) view.findViewById(e.g.header3);
-        this.gsr.setRadius(com.baidu.adp.lib.util.l.h(this.mPageContext.getPageActivity(), e.C0200e.ds100));
-        this.gsr.setAutoChangeStyle(true);
-        this.gsr.setOnClickListener(this.mOnClickListener);
-        this.gss = (TextView) view.findViewById(e.g.etc_person);
+        this.cEB = view.findViewById(e.g.bottom_divider);
+        this.gzc = (TextView) view.findViewById(e.g.month_num);
+        this.gzb = (TextView) view.findViewById(e.g.day_num);
+        this.gzd = (TextView) view.findViewById(e.g.identity);
+        this.gze = (TextView) view.findViewById(e.g.attention_str);
+        this.gzf = (ClickableHeaderImageView) view.findViewById(e.g.header1);
+        this.gzf.setRadius(com.baidu.adp.lib.util.l.h(this.mPageContext.getPageActivity(), e.C0210e.ds100));
+        this.gzf.setAutoChangeStyle(true);
+        this.gzf.setOnClickListener(this.mOnClickListener);
+        this.gzg = (ClickableHeaderImageView) view.findViewById(e.g.header2);
+        this.gzg.setRadius(com.baidu.adp.lib.util.l.h(this.mPageContext.getPageActivity(), e.C0210e.ds100));
+        this.gzg.setAutoChangeStyle(true);
+        this.gzg.setOnClickListener(this.mOnClickListener);
+        this.gzh = (ClickableHeaderImageView) view.findViewById(e.g.header3);
+        this.gzh.setRadius(com.baidu.adp.lib.util.l.h(this.mPageContext.getPageActivity(), e.C0210e.ds100));
+        this.gzh.setAutoChangeStyle(true);
+        this.gzh.setOnClickListener(this.mOnClickListener);
+        this.gzi = (TextView) view.findViewById(e.g.etc_person);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             al.i(getView(), e.f.home_thread_card_item_bg);
-            al.j(this.cAJ, e.d.cp_bg_line_c);
-            al.h(this.gsm, e.d.cp_cont_f);
-            al.h(this.gsl, e.d.cp_cont_f);
-            al.h(this.gsn, e.d.cp_cont_f);
-            al.h(this.gso, e.d.cp_cont_f);
-            al.h(this.gss, e.d.cp_cont_c);
+            al.j(this.cEB, e.d.cp_bg_line_c);
+            al.h(this.gzc, e.d.cp_cont_f);
+            al.h(this.gzb, e.d.cp_cont_f);
+            al.h(this.gzd, e.d.cp_cont_f);
+            al.h(this.gze, e.d.cp_cont_f);
+            al.h(this.gzi, e.d.cp_cont_c);
         }
         this.mSkinType = i;
     }
@@ -90,57 +90,57 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             getView().setVisibility(0);
         }
         this.isHost = dVar.isHost;
-        this.gsl.setText(dVar.cRW);
-        this.gsm.setText(dVar.cRV);
-        this.gsl.setVisibility(dVar.cSc ? 0 : 4);
-        this.gsm.setVisibility(dVar.cSc ? 0 : 4);
+        this.gzb.setText(dVar.cYD);
+        this.gzc.setText(dVar.cYC);
+        this.gzb.setVisibility(dVar.cYJ ? 0 : 4);
+        this.gzc.setVisibility(dVar.cYJ ? 0 : 4);
         if (dVar.isHost) {
-            this.gsn.setText(this.mPageContext.getString(e.j.me));
+            this.gzd.setText(this.mPageContext.getString(e.j.me));
         } else {
-            this.gsn.setText(ao.dG(dVar.sex));
+            this.gzd.setText(ao.dU(dVar.sex));
         }
         int H = v.H(dVar.users);
         if (H > 3) {
-            this.gss.setVisibility(0);
-            this.gss.setText(String.format(this.mPageContext.getString(e.j.attention_etc_person), Integer.valueOf(H)));
+            this.gzi.setVisibility(0);
+            this.gzi.setText(String.format(this.mPageContext.getString(e.j.attention_etc_person), Integer.valueOf(H)));
         } else {
-            this.gss.setVisibility(8);
+            this.gzi.setVisibility(8);
         }
         if (H >= 3) {
-            this.gsr.setVisibility(0);
-            this.gsr.setTag(dVar.users.get(2));
+            this.gzh.setVisibility(0);
+            this.gzh.setTag(dVar.users.get(2));
             if (dVar.users.get(2).getGodUserData() != null && dVar.users.get(2).getGodUserData().getType() == 2) {
-                this.gsr.setIsGod(true);
+                this.gzh.setIsGod(true);
             } else {
-                this.gsr.setIsGod(false);
+                this.gzh.setIsGod(false);
             }
-            this.gsr.startLoad(dVar.users.get(2).getPortrait(), 12, false);
+            this.gzh.startLoad(dVar.users.get(2).getPortrait(), 12, false);
         } else {
-            this.gsr.setVisibility(8);
+            this.gzh.setVisibility(8);
         }
         if (H >= 2) {
-            this.gsq.setVisibility(0);
-            this.gsq.setTag(dVar.users.get(1));
+            this.gzg.setVisibility(0);
+            this.gzg.setTag(dVar.users.get(1));
             if (dVar.users.get(1).getGodUserData() != null && dVar.users.get(1).getGodUserData().getType() == 2) {
-                this.gsq.setIsGod(true);
+                this.gzg.setIsGod(true);
             } else {
-                this.gsq.setIsGod(false);
+                this.gzg.setIsGod(false);
             }
-            this.gsq.startLoad(dVar.users.get(1).getPortrait(), 12, false);
+            this.gzg.startLoad(dVar.users.get(1).getPortrait(), 12, false);
         } else {
-            this.gsq.setVisibility(8);
+            this.gzg.setVisibility(8);
         }
         if (H >= 1) {
-            this.gsp.setVisibility(0);
-            this.gsp.setTag(dVar.users.get(0));
+            this.gzf.setVisibility(0);
+            this.gzf.setTag(dVar.users.get(0));
             if (dVar.users.get(0).getGodUserData() != null && dVar.users.get(0).getGodUserData().getType() == 2) {
-                this.gsp.setIsGod(true);
+                this.gzf.setIsGod(true);
             } else {
-                this.gsp.setIsGod(false);
+                this.gzf.setIsGod(false);
             }
-            this.gsp.startLoad(dVar.users.get(0).getPortrait(), 12, false);
+            this.gzf.startLoad(dVar.users.get(0).getPortrait(), 12, false);
         } else {
-            this.gsp.setVisibility(8);
+            this.gzf.setVisibility(8);
         }
         d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }

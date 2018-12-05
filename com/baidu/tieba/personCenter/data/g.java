@@ -4,11 +4,11 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes5.dex */
 public class g extends com.baidu.tieba.card.data.b {
-    public static BdUniqueId glf = BdUniqueId.gen();
-    public UserData fJe;
+    public static BdUniqueId grV = BdUniqueId.gen();
+    public UserData fPU;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return glf;
+        return grV;
     }
 }

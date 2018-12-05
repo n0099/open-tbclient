@@ -28,9 +28,9 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.alQ;
-        if (StringUtils.isNull(str) && advertAppInfo.ama != null) {
-            str = advertAppInfo.ama.userName;
+        String str = advertAppInfo.apr;
+        if (StringUtils.isNull(str) && advertAppInfo.apB != null) {
+            str = advertAppInfo.apB.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -46,29 +46,29 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.KG().b(advertAppInfo);
-        String str2 = advertAppInfo.alQ;
+        com.baidu.tbadk.distribute.a.LK().b(advertAppInfo);
+        String str2 = advertAppInfo.apr;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.d.bsN().a(advertAppInfo.alU, advertAppInfo.alT, str2, i, com.baidu.tieba.recapp.download.d.tY(advertAppInfo.alU).intValue(), null, true, false, true, advertAppInfo.ama.userPortrait, downloadStaticsData, advertAppInfo.ama.userName);
+        com.baidu.tieba.recapp.download.d.buG().a(advertAppInfo.apv, advertAppInfo.apu, str2, i, com.baidu.tieba.recapp.download.d.uz(advertAppInfo.apv).intValue(), null, true, false, true, advertAppInfo.apB.userPortrait, downloadStaticsData, advertAppInfo.apB.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.d.bsN().j(advertAppInfo.alT, advertAppInfo.alU, true);
+        com.baidu.tieba.recapp.download.d.buG().j(advertAppInfo.apu, advertAppInfo.apv, true);
     }
 
-    public static final void aD(Context context, String str) {
+    public static final void aG(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             com.baidu.adp.lib.util.l.showToast(context, e.j.download_error);
             return;
         }
-        File eC = com.baidu.tbadk.core.util.l.eC(str.replace(".", BaseRequestAction.SPLITE) + ".apk");
-        if (eC != null) {
+        File eU = com.baidu.tbadk.core.util.l.eU(str.replace(".", BaseRequestAction.SPLITE) + ".apk");
+        if (eU != null) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(eC, intent, context), AiAppFileClassifyHelper.MIME_TYPE_APK);
+            intent.setDataAndType(UtilHelper.getUriFromFile(eU, intent, context), AiAppFileClassifyHelper.MIME_TYPE_APK);
             intent.addFlags(268435456);
             context.startActivity(intent);
         }
@@ -99,15 +99,15 @@ public class s {
         return false;
     }
 
-    public static boolean O(Activity activity) {
+    public static boolean R(Activity activity) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
-        boolean bC = ab.bC(activity);
+        boolean bF = ab.bF(activity);
         if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
             return false;
         }
-        return bC;
+        return bF;
     }
 
     public static void a(String str, TbImageView tbImageView, float f, int i) {
@@ -148,7 +148,7 @@ public class s {
             tbImageView.startLoad(str, 10, false);
             tbImageView.setEvent(new TbImageView.a() { // from class: com.baidu.tieba.recapp.s.1
                 @Override // com.baidu.tbadk.widget.TbImageView.a
-                public void r(String str2, boolean z) {
+                public void s(String str2, boolean z) {
                     ViewGroup.LayoutParams layoutParams = TbImageView.this.getLayoutParams();
                     if (layoutParams != null) {
                         layoutParams.height = i;
@@ -168,11 +168,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.bsG().sendFRS(z, str, str2, str3, list, str4);
+        r.buz().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.bsG().a(z, str, str2, str3, str4, list, str5);
+        r.buz().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int e(TbPageContext tbPageContext, String str) {
@@ -191,41 +191,41 @@ public class s {
 
     private static boolean f(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        h bsD = r.bsG().bsD();
-        if (bsD == null) {
+        h buw = r.buz().buw();
+        if (buw == null) {
             return false;
         }
-        if (bsD.jw(str)) {
-            bsD.a(tbPageContext.getPageActivity(), strArr, true);
+        if (buw.jO(str)) {
+            buw.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return bsD.d(tbPageContext.getPageActivity(), strArr);
+        return buw.d(tbPageContext.getPageActivity(), strArr);
     }
 
-    public static int aE(Context context, String str) {
+    public static int aH(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             return 0;
         }
         if (!str.startsWith("tieba://deeplink?")) {
-            return aF(context, str) ? 3 : 0;
+            return aI(context, str) ? 3 : 0;
         }
         Uri parse = Uri.parse(str);
         if (c(context, Uri.parse(parse.getQueryParameter("jump")))) {
             return 1;
         }
-        return aF(context, parse.getQueryParameter("wap")) ? 2 : 0;
+        return aI(context, parse.getQueryParameter("wap")) ? 2 : 0;
     }
 
-    private static boolean aF(Context context, String str) {
+    private static boolean aI(Context context, String str) {
         String[] strArr = {str};
-        h bsD = r.bsG().bsD();
-        if (bsD == null) {
+        h buw = r.buz().buw();
+        if (buw == null) {
             return false;
         }
-        if (bsD.jw(str)) {
-            bsD.a(context, strArr, true);
+        if (buw.jO(str)) {
+            buw.a(context, strArr, true);
             return true;
         }
-        return bsD.d(context, strArr);
+        return buw.d(context, strArr);
     }
 }

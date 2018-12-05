@@ -3,7 +3,7 @@ package com.baidu.tieba.t;
 import android.os.Build;
 /* loaded from: classes.dex */
 public class b {
-    public static int vL(int i) {
+    public static int wi(int i) {
         if (Build.VERSION.SDK_INT >= 26) {
             return 2038;
         }

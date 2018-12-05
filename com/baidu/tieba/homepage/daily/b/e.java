@@ -8,16 +8,16 @@ import java.util.List;
 import tbclient.DailyTopic;
 /* loaded from: classes6.dex */
 public class e extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId elt = BdUniqueId.gen();
-    public List<a> elu;
+    public static final BdUniqueId eso = BdUniqueId.gen();
+    public List<a> esp;
 
-    public static e cf(List<DailyTopic> list) {
+    public static e cj(List<DailyTopic> list) {
         if (v.I(list)) {
             return null;
         }
         e eVar = new e();
         ArrayList arrayList = new ArrayList();
-        eVar.elu = arrayList;
+        eVar.esp = arrayList;
         int i = 0;
         Iterator<DailyTopic> it = list.iterator();
         while (true) {
@@ -43,43 +43,43 @@ public class e extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return elt;
+        return eso;
     }
 
     /* loaded from: classes6.dex */
     public static class a {
-        private String ecG;
-        private String elv;
-        private String elw;
-        private String elx;
-        private String ely;
+        private String ejj;
+        private String esq;
+        private String esr;
+        private String ess;
+        private String est;
 
         public void a(DailyTopic dailyTopic) {
-            this.elv = dailyTopic.topic_pic;
-            this.ecG = dailyTopic.topic_title;
-            this.elw = dailyTopic.topic_abstract;
-            this.elx = dailyTopic.topic_url;
-            this.ely = dailyTopic.topic_rank_url;
+            this.esq = dailyTopic.topic_pic;
+            this.ejj = dailyTopic.topic_title;
+            this.esr = dailyTopic.topic_abstract;
+            this.ess = dailyTopic.topic_url;
+            this.est = dailyTopic.topic_rank_url;
         }
 
-        public String aID() {
-            return this.elv;
+        public String aKu() {
+            return this.esq;
         }
 
-        public String xU() {
-            return this.ecG;
+        public String yY() {
+            return this.ejj;
         }
 
-        public String aIE() {
-            return this.elw;
+        public String aKv() {
+            return this.esr;
         }
 
-        public String Ac() {
-            return this.elx;
+        public String Bg() {
+            return this.ess;
         }
 
-        public String aIF() {
-            return this.ely;
+        public String aKw() {
+            return this.est;
         }
     }
 }

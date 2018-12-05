@@ -67,9 +67,9 @@ public class TbadkApplication extends TbadkCoreApplication {
         super.onCreate();
         initMotuFilterImageMap();
         if ((this.isCdnTachometerProcess == null || !this.isCdnTachometerProcess.booleanValue()) && !this.isPluginInstallProcess) {
-            boolean ON = m.ON();
+            boolean PT = m.PT();
             boolean isXiaomiPushSdkShouldOpen = isXiaomiPushSdkShouldOpen();
-            boolean z = ON && isXiaomiPushSdkShouldOpen;
+            boolean z = PT && isXiaomiPushSdkShouldOpen;
             if (Build.VERSION.SDK_INT >= 24) {
                 try {
                     new WebView(this);
@@ -78,13 +78,13 @@ public class TbadkApplication extends TbadkCoreApplication {
             }
             long currentTimeMillis = System.currentTimeMillis();
             String str = TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER;
-            PluginPackageManager.nb().a(a.Oq(), new b(), ON && isXiaomiPushSdkShouldOpen);
-            PluginSettings nA = com.baidu.adp.plugin.packageManager.pluginSettings.c.nD().nA();
-            if (nA != null) {
-                String containerVersion = nA.getContainerVersion();
+            PluginPackageManager.na().a(a.Pu(), new b(), PT && isXiaomiPushSdkShouldOpen);
+            PluginSettings nz = com.baidu.adp.plugin.packageManager.pluginSettings.c.nC().nz();
+            if (nz != null) {
+                String containerVersion = nz.getContainerVersion();
                 if (!TextUtils.isEmpty(containerVersion) && Util.P(containerVersion, str) == Util.VersionCompare.EQUAL) {
-                    n.Ol().cN(z);
-                    n.Ol().aq(System.currentTimeMillis() - currentTimeMillis);
+                    n.Pp().cO(z);
+                    n.Pp().ax(System.currentTimeMillis() - currentTimeMillis);
                 }
             }
         }
@@ -101,14 +101,14 @@ public class TbadkApplication extends TbadkCoreApplication {
             NASLib.setCallBack(new NASLib.NASCallBack() { // from class: com.baidu.tbadk.TbadkApplication.2
                 @Override // com.baidu.appsearchlib.NASLib.NASCallBack
                 public void callback(String str2, String str3) {
-                    ay.Db().c(null, new String[]{str3});
+                    ay.Ef().c(null, new String[]{str3});
                 }
             });
-            n.Ol().az(System.currentTimeMillis() - currentTimeMillis2);
+            n.Pp().aG(System.currentTimeMillis() - currentTimeMillis2);
         }
-        i.BC();
+        i.CG();
         if (this.isRemoteProcess) {
-            n.Ol().aH(System.currentTimeMillis() - this.processCreateTime);
+            n.Pp().aO(System.currentTimeMillis() - this.processCreateTime);
         }
     }
 
@@ -264,13 +264,13 @@ public class TbadkApplication extends TbadkCoreApplication {
     @Override // com.baidu.tbadk.core.TbadkCoreApplication
     public void loadPatchs() {
         super.loadPatchs();
-        PluginPackageManager.nb().a(TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER, isMainProcess(false), this.isThirdProcess);
+        PluginPackageManager.na().a(TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER, isMainProcess(false), this.isThirdProcess);
         int i = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("plugin_patch_hook_failed_count", 0);
-        PluginPackageManager.nb().aZ(i);
-        if (checkSyncPatchBlacklist() && com.baidu.adp.plugin.install.d.mM() && i == 0 && PluginPackageManager.nb().nf()) {
+        PluginPackageManager.na().aZ(i);
+        if (checkSyncPatchBlacklist() && com.baidu.adp.plugin.install.d.mL() && i == 0 && PluginPackageManager.na().ne()) {
             long currentTimeMillis = System.currentTimeMillis();
-            PluginPackageManager.nb().ng();
-            n.Ol().ap(System.currentTimeMillis() - currentTimeMillis);
+            PluginPackageManager.na().nf();
+            n.Pp().aw(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -279,11 +279,11 @@ public class TbadkApplication extends TbadkCoreApplication {
         Map<String, PluginSetting> plugins;
         PluginSetting pluginSetting;
         try {
-            plugins = com.baidu.adp.plugin.packageManager.pluginSettings.c.nD().nA().getPlugins();
+            plugins = com.baidu.adp.plugin.packageManager.pluginSettings.c.nC().nz().getPlugins();
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
         }
-        if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.nD().nA().hasPatch() || plugins == null || plugins.isEmpty()) {
+        if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.nC().nz().hasPatch() || plugins == null || plugins.isEmpty()) {
             return false;
         }
         Iterator<PluginSetting> it = plugins.values().iterator();

@@ -10,9 +10,9 @@ import android.view.View;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class ChooseColorView extends View {
-    private int gij;
-    private boolean gik;
-    private Bitmap gil;
+    private int goZ;
+    private boolean gpa;
+    private Bitmap gpb;
     private int mBorderColor;
     private Paint mBorderPaint;
     private float mBorderWidth;
@@ -29,27 +29,27 @@ public class ChooseColorView extends View {
 
     public ChooseColorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gij = -16777216;
+        this.goZ = -16777216;
         this.mBorderColor = -1;
-        this.mBorderWidth = getResources().getDimensionPixelSize(e.C0200e.ds4);
+        this.mBorderWidth = getResources().getDimensionPixelSize(e.C0210e.ds4);
         init();
     }
 
     private void init() {
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.mPaint.setColor(this.gij);
+        this.mPaint.setColor(this.goZ);
         this.mBorderPaint = new Paint();
         this.mBorderPaint.setColor(this.mBorderColor);
         this.mBorderPaint.setAntiAlias(true);
         this.mBorderPaint.setStyle(Paint.Style.STROKE);
         this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
-        this.gil = BitmapFactory.decodeResource(getResources(), e.f.icon_select_n);
+        this.gpb = BitmapFactory.decodeResource(getResources(), e.f.icon_select_n);
     }
 
     public void setChooseColor(int i) {
-        this.gij = i;
-        this.mPaint.setColor(this.gij);
+        this.goZ = i;
+        this.mPaint.setColor(this.goZ);
     }
 
     public void setRadius(int i) {
@@ -57,11 +57,11 @@ public class ChooseColorView extends View {
     }
 
     public int getChooseColor() {
-        return this.gij;
+        return this.goZ;
     }
 
     public void setIsChooseView(boolean z) {
-        this.gik = z;
+        this.gpa = z;
         invalidate();
     }
 
@@ -70,8 +70,8 @@ public class ChooseColorView extends View {
         super.onDraw(canvas);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.mPaint);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.mBorderPaint);
-        if (this.gik) {
-            canvas.drawBitmap(this.gil, getWidth() - this.gil.getWidth(), 0.0f, (Paint) null);
+        if (this.gpa) {
+            canvas.drawBitmap(this.gpb, getWidth() - this.gpb.getWidth(), 0.0f, (Paint) null);
         }
     }
 }

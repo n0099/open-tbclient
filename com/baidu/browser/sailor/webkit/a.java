@@ -22,10 +22,10 @@ public final class a {
         }
     }
 
-    public static a qY() {
+    public static a qX() {
         if (WN == null) {
             WN = new a();
-        } else if (WN.WO != null && (WN.e ^ com.baidu.browser.sailor.util.a.qV())) {
+        } else if (WN.WO != null && (WN.e ^ com.baidu.browser.sailor.util.a.qU())) {
             Log.d(a, "BdWebViewSingleton, re-new instance need because of the kernel changed");
             WN.f();
             WN.e();
@@ -49,7 +49,7 @@ public final class a {
         if (this.WO != null || this.b == null) {
             return;
         }
-        if (com.baidu.browser.sailor.util.a.qV()) {
+        if (com.baidu.browser.sailor.util.a.qU()) {
             this.e = true;
         } else {
             this.e = false;

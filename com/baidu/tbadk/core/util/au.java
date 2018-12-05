@@ -11,7 +11,7 @@ public class au extends com.baidu.adp.base.a.d {
     @Override // com.baidu.adp.base.a.a
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         if (i <= 9) {
-            r(sQLiteDatabase);
+            s(sQLiteDatabase);
         }
         if (i < 11) {
             b(sQLiteDatabase, "ALTER TABLE pb_photo ADD stamp Integer");
@@ -28,7 +28,7 @@ public class au extends com.baidu.adp.base.a.d {
         b(sQLiteDatabase, "CREATE INDEX if not exists pb_photo_index ON pb_photo(date)");
         b(sQLiteDatabase, "CREATE TABLE if not exists friend_photo(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
         b(sQLiteDatabase, "CREATE INDEX if not exists friend_photo_index ON friend_photo(date)");
-        r(sQLiteDatabase);
+        s(sQLiteDatabase);
     }
 
     @Override // com.baidu.adp.base.a.d
@@ -38,7 +38,7 @@ public class au extends com.baidu.adp.base.a.d {
         b(sQLiteDatabase, "DROP TABLE IF EXISTS user_icon");
     }
 
-    private void r(SQLiteDatabase sQLiteDatabase) {
+    private void s(SQLiteDatabase sQLiteDatabase) {
         b(sQLiteDatabase, "CREATE TABLE if not exists user_icon(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
         b(sQLiteDatabase, "CREATE INDEX if not exists user_icon_index ON user_icon(date)");
     }

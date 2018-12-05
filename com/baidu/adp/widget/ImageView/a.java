@@ -56,7 +56,7 @@ public class a {
         this.NI = new C0026a();
         this.Nu = bitmap;
         this.isGif = z;
-        on();
+        om();
     }
 
     public a(Bitmap bitmap, boolean z, String str) {
@@ -74,7 +74,7 @@ public class a {
         this.Nu = bitmap;
         this.isGif = z;
         this.url = str;
-        on();
+        om();
     }
 
     public a(Bitmap bitmap, boolean z, String str, Rect rect) {
@@ -93,7 +93,7 @@ public class a {
         this.isGif = z;
         this.url = str;
         this.NF = rect;
-        on();
+        om();
     }
 
     public a(Bitmap bitmap, boolean z, String str, byte[] bArr) {
@@ -112,7 +112,7 @@ public class a {
         this.isGif = z;
         this.url = str;
         this.Nw = bArr;
-        on();
+        om();
     }
 
     public a(com.baidu.adp.gif.b bVar, Bitmap bitmap, boolean z) {
@@ -148,7 +148,7 @@ public class a {
         this.NE = true;
     }
 
-    private void on() {
+    private void om() {
         byte[] ninePatchChunk;
         if (this.Nu != null && (ninePatchChunk = this.Nu.getNinePatchChunk()) != null && ninePatchChunk.length > 0 && NinePatch.isNinePatchChunk(ninePatchChunk)) {
             this.NG = true;
@@ -156,7 +156,7 @@ public class a {
         }
     }
 
-    public boolean oo() {
+    public boolean on() {
         return this.NE;
     }
 
@@ -226,7 +226,7 @@ public class a {
         return this.Nu.getHeight() * this.Nu.getRowBytes();
     }
 
-    public boolean op() {
+    public boolean oo() {
         if (this.Nv && !this.NC.get()) {
             if (this.Nu != null) {
                 Bitmap bitmap = this.Nu;
@@ -243,16 +243,16 @@ public class a {
         return false;
     }
 
-    public Bitmap oq() {
+    public Bitmap op() {
         this.Nv = false;
         return this.Nu;
     }
 
-    public boolean or() {
+    public boolean oq() {
         return this.Nu != null;
     }
 
-    public BitmapDrawable os() {
+    public BitmapDrawable or() {
         if (this.Nu == null) {
             return null;
         }
@@ -272,7 +272,7 @@ public class a {
         return this.url;
     }
 
-    public byte[] ot() {
+    public byte[] os() {
         byte[] byteArray;
         if (this.Nu == null) {
             return null;
@@ -285,15 +285,15 @@ public class a {
         return byteArray;
     }
 
-    public Rect ou() {
+    public Rect ot() {
         return this.NF;
     }
 
-    public byte[] ov() {
+    public byte[] ou() {
         return this.Nw;
     }
 
-    public BitmapShader ow() {
+    public BitmapShader ov() {
         if (this.Nu == null || this.Nu.isRecycled()) {
             return null;
         }
@@ -305,7 +305,7 @@ public class a {
         this.NC.set(z);
     }
 
-    public boolean ox() {
+    public boolean ow() {
         return this.NG;
     }
 

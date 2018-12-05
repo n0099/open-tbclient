@@ -41,27 +41,27 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class i {
-    private static void om(String str) {
+    private static void oM(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
-        Map<String, String> fv = ay.fv(str);
-        if (fv != null) {
+        Map<String, String> fN = ay.fN(str);
+        if (fN != null) {
             am amVar = new am("c10320");
-            amVar.ax("obj_locate", fv.get("obj_locate"));
+            amVar.aA("obj_locate", fN.get("obj_locate"));
             amVar.x("obj_type", 1);
-            amVar.ax(ImageViewerConfig.FORUM_NAME, fv.get("kw"));
-            amVar.ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, fv.get(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE));
-            amVar.ax("obj_param2", fv.get("obj_param2"));
+            amVar.aA(ImageViewerConfig.FORUM_NAME, fN.get("kw"));
+            amVar.aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, fN.get(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE));
+            amVar.aA("obj_param2", fN.get("obj_param2"));
             amVar.x("obj_to", 2);
-            amVar.ax(VideoPlayActivityConfig.OBJ_ID, fv.get("bdid"));
-            if (!ao.isEmpty(fv.get("ext_log"))) {
+            amVar.aA(VideoPlayActivityConfig.OBJ_ID, fN.get("bdid"));
+            if (!ao.isEmpty(fN.get("ext_log"))) {
                 try {
-                    JSONObject jSONObject = new JSONObject(fv.get("ext_log"));
+                    JSONObject jSONObject = new JSONObject(fN.get("ext_log"));
                     Iterator<String> keys = jSONObject.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
-                        amVar.ax(next, jSONObject.getString(next));
+                        amVar.aA(next, jSONObject.getString(next));
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
@@ -87,18 +87,18 @@ public class i {
             Matcher matcher = Pattern.compile(".*fr=(.*)&kw=(.*)").matcher(decode);
             if (matcher.find()) {
                 if (!"mpush".equals(matcher.group(1)) && "bpush".equals(matcher.group(1))) {
-                    om(decode);
+                    oM(decode);
                 }
                 dVar.forumName = matcher.group(2);
             } else {
-                om(decode);
+                oM(decode);
                 int indexOf = decode.indexOf("kw=");
                 if (indexOf < 0 || (length = indexOf + "kw=".length()) > decode.length()) {
                     return null;
                 }
                 dVar.forumName = decode.substring(length);
                 try {
-                    dVar.dVN = data.getQueryParameter("from");
+                    dVar.ecq = data.getQueryParameter("from");
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -110,7 +110,7 @@ public class i {
         return dVar;
     }
 
-    public static Intent at(Context context, String str) {
+    public static Intent aw(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
             return null;
         }
@@ -121,7 +121,7 @@ public class i {
         return intent;
     }
 
-    public static boolean au(Context context, String str) {
+    public static boolean ax(Context context, String str) {
         Iterator<ActivityManager.RunningTaskInfo> it = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningTasks(10).iterator();
         while (true) {
             if (!it.hasNext()) {
@@ -150,13 +150,13 @@ public class i {
                     frsFragment.showToast(e.j.sdcard_permission_denied_advert_for_camera);
                 }
             } else if (i == 25040) {
-                com.baidu.tieba.frs.entelechy.c aBE = frsFragment.azv().aBE();
-                String xg = aBE.xg();
-                String aBV = aBE.aBV();
+                com.baidu.tieba.frs.entelechy.c aDo = frsFragment.aBf().aDo();
+                String yl = aDo.yl();
+                String aDH = aDo.aDH();
                 if (iArr[0] == 0 && strArr[0].equals("android.permission.WRITE_EXTERNAL_STORAGE")) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921334, xg));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921334, yl));
                 } else {
-                    ay.Db().c(frsFragment.getPageContext(), new String[]{aBV});
+                    ay.Ef().c(frsFragment.getPageContext(), new String[]{aDH});
                 }
             }
         }
@@ -164,13 +164,13 @@ public class i {
 
     public static void b(TbPageContext tbPageContext, l lVar) {
         if (tbPageContext != null && lVar != null) {
-            com.baidu.tbadk.browser.a.a(tbPageContext.getPageActivity(), "福袋", TbConfig.SERVER_ADDRESS + TbConfig.FORTUNE_ADDRESS + "?fid=" + lVar.ber().getId(), true, true, true);
+            com.baidu.tbadk.browser.a.a(tbPageContext.getPageActivity(), "福袋", TbConfig.SERVER_ADDRESS + TbConfig.FORTUNE_ADDRESS + "?fid=" + lVar.bgi().getId(), true, true, true);
         }
     }
 
     public static void a(FrsFragment frsFragment, String str, bb bbVar, boolean z) {
         if (frsFragment != null && bbVar != null && str != null) {
-            if (!(bbVar == null || bbVar.zr())) {
+            if (!(bbVar == null || bbVar.Av())) {
                 PbActivityConfig createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bbVar, frsFragment.getForumName(), "frs_page", 18003, true, true, z);
                 createFromThreadCfg.setVideo_source("frs");
                 createFromThreadCfg.setStartFrom(3);
@@ -223,15 +223,15 @@ public class i {
         PbActivityConfig createFromThreadCfg;
         if (frsFragment != null && bbVar != null) {
             String valueOf = String.valueOf(bbVar.getFid());
-            if (bbVar.asc == null) {
+            if (bbVar.avC == null) {
                 str = valueOf;
                 str2 = null;
             } else {
-                str = bbVar.asc.id;
+                str = bbVar.avC.id;
                 str2 = valueOf;
             }
-            if (bbVar.yZ() > 0 && com.baidu.tieba.tbadkCore.util.e.bCw()) {
-                createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createHistoryCfg(bbVar.getTid(), String.valueOf(bbVar.yZ()), false, true, "frs_page");
+            if (bbVar.Ad() > 0 && com.baidu.tieba.tbadkCore.util.e.bEr()) {
+                createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createHistoryCfg(bbVar.getTid(), String.valueOf(bbVar.Ad()), false, true, "frs_page");
             } else {
                 createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bbVar, frsFragment.getForumName(), "frs_page", 18003, true, false, z);
             }
@@ -240,13 +240,13 @@ public class i {
             } else {
                 createFromThreadCfg.setVideo_source("frs");
             }
-            createFromThreadCfg.setFromSmartFrs(bbVar.zE());
+            createFromThreadCfg.setFromSmartFrs(bbVar.AI());
             createFromThreadCfg.setSmartFrsPosition(i);
             createFromThreadCfg.setForumId(str);
             createFromThreadCfg.setFromForumId(str2);
             createFromThreadCfg.setStartFrom(3);
             createFromThreadCfg.setFrom("from_frs");
-            if (bbVar.zt() && createFromThreadCfg.getIntent() != null) {
+            if (bbVar.Ax() && createFromThreadCfg.getIntent() != null) {
                 createFromThreadCfg.getIntent().putExtra("KEY_IS_INTERVIEW_LIVE", true);
             }
             frsFragment.sendMessage(new CustomMessage(2004001, createFromThreadCfg));

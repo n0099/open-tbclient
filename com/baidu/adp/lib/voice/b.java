@@ -30,9 +30,9 @@ public class b implements Runnable {
                     }
                 } catch (NullPointerException e) {
                 }
-                int lw = b.this.lw() + 0;
-                if (lw != b.this.mElapsedTime) {
-                    b.this.mElapsedTime = lw;
+                int lv = b.this.lv() + 0;
+                if (lv != b.this.mElapsedTime) {
+                    b.this.mElapsedTime = lv;
                     Message obtainMessage = b.this.mHandler.obtainMessage(6);
                     obtainMessage.arg1 = b.this.mElapsedTime;
                     b.this.mHandler.sendMessage(obtainMessage);
@@ -48,7 +48,7 @@ public class b implements Runnable {
         }
     };
 
-    public int lw() {
+    public int lv() {
         if (this.mAudioTrack == null) {
             return 0;
         }

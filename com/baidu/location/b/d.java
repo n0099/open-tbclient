@@ -393,7 +393,7 @@ public class d {
     }
 
     private void e() {
-        String str = "&ver=" + g.y + "&usr=" + com.baidu.location.g.b.tW().b() + "&app=" + com.baidu.location.g.b.d + "&prod=" + com.baidu.location.g.b.e;
+        String str = "&ver=" + g.y + "&usr=" + com.baidu.location.g.b.tV().b() + "&app=" + com.baidu.location.g.b.d + "&prod=" + com.baidu.location.g.b.e;
         if (this.aet == null) {
             this.aet = new a();
         }
@@ -543,7 +543,7 @@ public class d {
                         randomAccessFile.read(bArr, 0, readInt3);
                         if (bArr[readInt3 - 1] == 0) {
                             String str = new String(bArr, 0, readInt3 - 1);
-                            com.baidu.location.g.b.tW();
+                            com.baidu.location.g.b.tV();
                             if (str.equals(com.baidu.location.g.b.d)) {
                                 l = randomAccessFile.readInt();
                                 n = i;
@@ -564,7 +564,7 @@ public class d {
         }
     }
 
-    public static d tx() {
+    public static d tw() {
         if (aes == null) {
             aes = new d();
         }
@@ -579,8 +579,8 @@ public class d {
     }
 
     public void d() {
-        if (System.currentTimeMillis() - com.baidu.location.g.c.tX().d() > 604800000) {
-            com.baidu.location.g.c.tX().c(System.currentTimeMillis());
+        if (System.currentTimeMillis() - com.baidu.location.g.c.tW().d() > 604800000) {
+            com.baidu.location.g.c.tW().c(System.currentTimeMillis());
             e();
         }
     }

@@ -6,17 +6,17 @@ import java.io.InputStream;
 import org.apache.http.HttpStatus;
 /* loaded from: classes2.dex */
 public class b {
-    public static int ys(int i) {
-        return d.ys(i);
+    public static int yP(int i) {
+        return d.yP(i);
     }
 
-    public static int v(InputStream inputStream) {
+    public static int w(InputStream inputStream) {
         try {
-            int w = w(inputStream);
-            if (w == 0) {
+            int x = x(inputStream);
+            if (x == 0) {
                 return 0;
             }
-            return d.g(inputStream, w);
+            return d.g(inputStream, x);
         } catch (IOException e) {
             return 0;
         }
@@ -29,7 +29,7 @@ public class b {
             while (i2 == 255) {
                 i2 = c.a(inputStream, 1, false);
             }
-            if ((i == 192 && yt(i2)) || i2 == i) {
+            if ((i == 192 && yQ(i2)) || i2 == i) {
                 return true;
             }
             if (i2 != 216 && i2 != 1) {
@@ -42,7 +42,7 @@ public class b {
         return false;
     }
 
-    private static boolean yt(int i) {
+    private static boolean yQ(int i) {
         switch (i) {
             case 192:
             case 193:
@@ -66,7 +66,7 @@ public class b {
         }
     }
 
-    private static int w(InputStream inputStream) throws IOException {
+    private static int x(InputStream inputStream) throws IOException {
         int a;
         if (f(inputStream, 225) && c.a(inputStream, 2, false) - 2 > 6) {
             int a2 = c.a(inputStream, 4, false);

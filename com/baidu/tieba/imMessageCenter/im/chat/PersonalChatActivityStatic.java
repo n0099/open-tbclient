@@ -22,19 +22,19 @@ import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
 public class PersonalChatActivityStatic {
-    private static e eUm;
-    private static CustomMessageListener eUn = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.1
+    private static e fbb;
+    private static CustomMessageListener fbc = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                e unused = PersonalChatActivityStatic.eUm = null;
+                e unused = PersonalChatActivityStatic.fbb = null;
             }
         }
     };
 
     static {
-        MessageManager.getInstance().registerListener(eUn);
+        MessageManager.getInstance().registerListener(fbc);
         CustomMessageTask customMessageTask = new CustomMessageTask(2002005, new CustomMessageTask.CustomRunnable<PersonalChatActivityConfig>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<PersonalChatActivityConfig> run(final CustomMessage<PersonalChatActivityConfig> customMessage) {
@@ -45,9 +45,9 @@ public class PersonalChatActivityStatic {
                     x.b(new w<Void>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.2.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.w
-                        /* renamed from: Vq */
+                        /* renamed from: Ww */
                         public Void doInBackground() {
-                            return m.aOP().o(linkedList);
+                            return m.aQH().o(linkedList);
                         }
                     }, new h<Void>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.2.2
                         /* JADX DEBUG: Method merged with bridge method */
@@ -66,7 +66,7 @@ public class PersonalChatActivityStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        ay.Db().a(new ay.a() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.3
+        ay.Ef().a(new ay.a() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.3
             @Override // com.baidu.tbadk.core.util.ay.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -74,13 +74,13 @@ public class PersonalChatActivityStatic {
                 }
                 String str = strArr[0];
                 if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jump_chat=1")) {
-                    if (ba.bG(TbadkCoreApplication.getInst().getContext())) {
-                        String aL = ab.aL(str, "userid=");
-                        String aL2 = ab.aL(str, "username=");
-                        String aL3 = ab.aL(str, "portrait=");
-                        if (aL != null && aL.length() > 0) {
+                    if (ba.bJ(TbadkCoreApplication.getInst().getContext())) {
+                        String aO = ab.aO(str, "userid=");
+                        String aO2 = ab.aO(str, "username=");
+                        String aO3 = ab.aO(str, "portrait=");
+                        if (aO != null && aO.length() > 0) {
                             try {
-                                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(tbPageContext.getPageActivity(), Long.parseLong(aL), aL2, aL2, aL3, 0)));
+                                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(tbPageContext.getPageActivity(), Long.parseLong(aO), aO2, aO2, aO3, 0)));
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -96,11 +96,11 @@ public class PersonalChatActivityStatic {
         });
     }
 
-    public static e aSU() {
-        return eUm;
+    public static e aUM() {
+        return fbb;
     }
 
     public static void a(e eVar) {
-        eUm = eVar;
+        fbb = eVar;
     }
 }

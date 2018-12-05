@@ -60,7 +60,7 @@ public class Auth {
         }
     }
 
-    private boolean pD() {
+    private boolean pC() {
         return System.currentTimeMillis() > this.mExpiresTime;
     }
 
@@ -88,7 +88,7 @@ public class Auth {
     public String getToken(Context context) {
         String str;
         String str2 = null;
-        if (pD() || this.mToken == null) {
+        if (pC() || this.mToken == null) {
             if (this.Sn == 0) {
                 str2 = "https://verify.baidubce.com/verify/1.0/token/sk?channel=ar";
                 str = g(context, this.So, this.Sp);

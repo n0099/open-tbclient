@@ -15,12 +15,12 @@ import android.view.WindowManager;
 import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
 /* loaded from: classes3.dex */
 public class a {
-    public static final int cP(Context context) {
-        Point cQ = cQ(context);
-        return cQ.x > cQ.y ? 1 : 0;
+    public static final int cT(Context context) {
+        Point cU = cU(context);
+        return cU.x > cU.y ? 1 : 0;
     }
 
-    public static Point cQ(Context context) {
+    public static Point cU(Context context) {
         Display defaultDisplay = ((WindowManager) context.getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay();
         Point point = new Point();
         if (Build.VERSION.SDK_INT >= 13) {

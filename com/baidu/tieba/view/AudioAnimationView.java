@@ -24,7 +24,7 @@ public class AudioAnimationView extends View {
     private int Tw;
     private int Tx;
     private final Runnable Ty;
-    private Rect[] hFl;
+    private Rect[] hMw;
     private Paint mPaint;
     private int mSkinType;
     private Random random;
@@ -38,16 +38,16 @@ public class AudioAnimationView extends View {
         this.Tq = false;
         this.Tr = true;
         this.Tv = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.Tw = l.h(TbadkCoreApplication.getInst(), e.C0200e.ds4);
+        this.Tw = l.h(TbadkCoreApplication.getInst(), e.C0210e.ds4);
         this.Tx = e.d.cp_link_tip_a;
         this.Ty = new Runnable() { // from class: com.baidu.tieba.view.AudioAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
-                AudioAnimationView.this.pS();
+                AudioAnimationView.this.pR();
             }
         };
         initPaint();
-        pS();
+        pR();
     }
 
     public AudioAnimationView(Context context, AttributeSet attributeSet) {
@@ -59,20 +59,20 @@ public class AudioAnimationView extends View {
         this.Tq = false;
         this.Tr = true;
         this.Tv = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.Tw = l.h(TbadkCoreApplication.getInst(), e.C0200e.ds4);
+        this.Tw = l.h(TbadkCoreApplication.getInst(), e.C0210e.ds4);
         this.Tx = e.d.cp_link_tip_a;
         this.Ty = new Runnable() { // from class: com.baidu.tieba.view.AudioAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
-                AudioAnimationView.this.pS();
+                AudioAnimationView.this.pR();
             }
         };
         initPaint();
-        pS();
+        pR();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pS() {
+    public void pR() {
         if (this.Tq) {
             invalidate();
         }
@@ -104,9 +104,9 @@ public class AudioAnimationView extends View {
         super.onDraw(canvas);
         if (this.Tq) {
             for (int i = 0; i < this.Tp; i++) {
-                pT();
-                if (i < this.hFl.length) {
-                    canvas.drawRect(this.hFl[i], this.mPaint);
+                pS();
+                if (i < this.hMw.length) {
+                    canvas.drawRect(this.hMw[i], this.mPaint);
                 }
             }
         }
@@ -128,10 +128,10 @@ public class AudioAnimationView extends View {
         }
     }
 
-    private void pT() {
+    private void pS() {
         int nextInt;
-        if (this.hFl == null || this.hFl.length != this.Tp) {
-            this.hFl = new Rect[this.Tp];
+        if (this.hMw == null || this.hMw.length != this.Tp) {
+            this.hMw = new Rect[this.Tp];
         }
         for (int i = 0; i < this.Tp; i++) {
             int i2 = this.Tw * i * 2;
@@ -142,10 +142,10 @@ public class AudioAnimationView extends View {
             }
             int i3 = this.Tw + i2;
             int i4 = this.Tt;
-            if (this.hFl[i] == null) {
-                this.hFl[i] = new Rect(i2, nextInt, i3, i4);
+            if (this.hMw[i] == null) {
+                this.hMw[i] = new Rect(i2, nextInt, i3, i4);
             } else {
-                this.hFl[i].set(i2, nextInt, i3, i4);
+                this.hMw[i].set(i2, nextInt, i3, i4);
             }
         }
     }
@@ -166,7 +166,7 @@ public class AudioAnimationView extends View {
     public void start() {
         this.Tq = true;
         this.Tr = false;
-        pS();
+        pR();
     }
 
     public void setCertainColumnCount(int i) {
@@ -175,10 +175,10 @@ public class AudioAnimationView extends View {
         }
     }
 
-    public void pU() {
+    public void pT() {
         this.Tq = true;
         this.Tr = true;
-        pS();
+        pR();
     }
 
     @Override // android.view.View

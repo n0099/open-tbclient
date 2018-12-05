@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class o extends com.baidu.tieba.frs.h<p, q> {
-    private static final int dyT = e.g.manager_apply_tip;
-    private static final int dyU = e.g.assist_apply_tip;
-    private com.baidu.tbadk.coreExtra.view.a aJs;
+    private static final int dFs = e.g.manager_apply_tip;
+    private static final int dFt = e.g.assist_apply_tip;
+    private com.baidu.tbadk.coreExtra.view.a aMS;
     private View.OnClickListener mClickListener;
 
     public o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -26,13 +26,13 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.o.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                Object tag = view.getTag(o.dyT);
+                Object tag = view.getTag(o.dFs);
                 if (TbadkCoreApplication.isLogin() && StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
                     o.this.i(TbadkCoreApplication.getCurrentAccountInfo());
                 } else if (tag != null && !tag.toString().equals("")) {
-                    ay.Db().c((TbPageContext) com.baidu.adp.base.i.aK(o.this.mContext), new String[]{tag.toString()});
+                    ay.Ef().c((TbPageContext) com.baidu.adp.base.i.aK(o.this.mContext), new String[]{tag.toString()});
                 } else {
-                    ay.Db().c((TbPageContext) com.baidu.adp.base.i.aK(o.this.mContext), new String[]{view.getTag(o.dyU).toString()});
+                    ay.Ef().c((TbPageContext) com.baidu.adp.base.i.aK(o.this.mContext), new String[]{view.getTag(o.dFt).toString()});
                 }
             }
         };
@@ -57,70 +57,70 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
                 qVar.mRootLayout.setVisibility(8);
             } else {
                 if (qVar.mSkinType != this.mSkinType) {
-                    al.j(qVar.atf, e.d.cp_bg_line_b);
-                    al.c(qVar.dze, e.d.cp_cont_d, 1);
-                    al.c(qVar.dzf, e.d.cp_cont_d, 1);
-                    al.c(qVar.dzc, e.d.cp_cont_b, 1);
-                    al.c(qVar.dzd, e.d.cp_cont_b, 1);
-                    al.i(qVar.dzg, e.f.frs_member_manito_bg);
-                    al.i(qVar.dzh, e.f.frs_member_manito_bg);
+                    al.j(qVar.awF, e.d.cp_bg_line_b);
+                    al.c(qVar.dFD, e.d.cp_cont_d, 1);
+                    al.c(qVar.dFE, e.d.cp_cont_d, 1);
+                    al.c(qVar.dFB, e.d.cp_cont_b, 1);
+                    al.c(qVar.dFC, e.d.cp_cont_b, 1);
+                    al.i(qVar.dFF, e.f.frs_member_manito_bg);
+                    al.i(qVar.dFG, e.f.frs_member_manito_bg);
                 }
-                int axM = pVar.axM();
-                if (axM == -1) {
-                    int axL = pVar.axL();
-                    String I = ao.I(axL);
-                    if (axL > 0) {
-                        qVar.dze.setText(String.format(this.mContext.getResources().getString(e.j.tbtitle_apply_left_num_tip), I));
-                        qVar.dzg.setTag(dyT, pVar.axO());
-                        qVar.dzg.setOnClickListener(this.mClickListener);
-                        qVar.dzg.setEnabled(true);
-                        qVar.dzg.setClickable(true);
+                int azw = pVar.azw();
+                if (azw == -1) {
+                    int azv = pVar.azv();
+                    String P = ao.P(azv);
+                    if (azv > 0) {
+                        qVar.dFD.setText(String.format(this.mContext.getResources().getString(e.j.tbtitle_apply_left_num_tip), P));
+                        qVar.dFF.setTag(dFs, pVar.azy());
+                        qVar.dFF.setOnClickListener(this.mClickListener);
+                        qVar.dFF.setEnabled(true);
+                        qVar.dFF.setClickable(true);
                     } else {
-                        qVar.dze.setText(this.mContext.getResources().getString(e.j.tbtitle_quota_is_full));
-                        qVar.dzg.setTag(dyT, pVar.axO());
-                        qVar.dzg.setOnClickListener(this.mClickListener);
-                        qVar.dzg.setEnabled(false);
-                        qVar.dzg.setClickable(false);
+                        qVar.dFD.setText(this.mContext.getResources().getString(e.j.tbtitle_quota_is_full));
+                        qVar.dFF.setTag(dFs, pVar.azy());
+                        qVar.dFF.setOnClickListener(this.mClickListener);
+                        qVar.dFF.setEnabled(false);
+                        qVar.dFF.setClickable(false);
                     }
-                } else if (axM == 0) {
-                    qVar.dze.setText(this.mContext.getResources().getString(e.j.tbtitle_is_bazhu));
-                    qVar.dzg.setTag(dyT, pVar.axO());
-                    qVar.dzg.setOnClickListener(this.mClickListener);
-                    qVar.dzg.setEnabled(true);
-                    qVar.dzg.setClickable(true);
-                } else if (axM == 1) {
-                    qVar.dze.setText(this.mContext.getResources().getString(e.j.tbtitle_applying));
-                    qVar.dzg.setTag(dyT, pVar.axO());
-                    qVar.dzg.setOnClickListener(this.mClickListener);
-                    qVar.dzg.setEnabled(true);
-                    qVar.dzg.setClickable(true);
-                } else if (axM == 2) {
-                    qVar.dze.setText(this.mContext.getResources().getString(e.j.tbtitle_apply_failed));
-                    qVar.dzg.setTag(dyT, pVar.axO());
-                    qVar.dzg.setOnClickListener(this.mClickListener);
-                    qVar.dzg.setEnabled(true);
-                    qVar.dzg.setClickable(true);
+                } else if (azw == 0) {
+                    qVar.dFD.setText(this.mContext.getResources().getString(e.j.tbtitle_is_bazhu));
+                    qVar.dFF.setTag(dFs, pVar.azy());
+                    qVar.dFF.setOnClickListener(this.mClickListener);
+                    qVar.dFF.setEnabled(true);
+                    qVar.dFF.setClickable(true);
+                } else if (azw == 1) {
+                    qVar.dFD.setText(this.mContext.getResources().getString(e.j.tbtitle_applying));
+                    qVar.dFF.setTag(dFs, pVar.azy());
+                    qVar.dFF.setOnClickListener(this.mClickListener);
+                    qVar.dFF.setEnabled(true);
+                    qVar.dFF.setClickable(true);
+                } else if (azw == 2) {
+                    qVar.dFD.setText(this.mContext.getResources().getString(e.j.tbtitle_apply_failed));
+                    qVar.dFF.setTag(dFs, pVar.azy());
+                    qVar.dFF.setOnClickListener(this.mClickListener);
+                    qVar.dFF.setEnabled(true);
+                    qVar.dFF.setClickable(true);
                 } else {
-                    qVar.dze.setText(this.mContext.getResources().getString(e.j.tbtitle_quota_is_full));
-                    qVar.dzg.setTag(dyT, pVar.axO());
-                    qVar.dzg.setOnClickListener(this.mClickListener);
-                    qVar.dzg.setEnabled(false);
-                    qVar.dzg.setClickable(false);
+                    qVar.dFD.setText(this.mContext.getResources().getString(e.j.tbtitle_quota_is_full));
+                    qVar.dFF.setTag(dFs, pVar.azy());
+                    qVar.dFF.setOnClickListener(this.mClickListener);
+                    qVar.dFF.setEnabled(false);
+                    qVar.dFF.setClickable(false);
                 }
-                int axN = pVar.axN();
-                if (axN > 0) {
-                    qVar.dzf.setText(String.format(this.mContext.getResources().getString(e.j.apply_left_num_tip), ao.I(axN)));
-                    qVar.dzh.setTag(dyU, pVar.axP());
-                    qVar.dzh.setOnClickListener(this.mClickListener);
-                    qVar.dzh.setEnabled(true);
-                    qVar.dzh.setClickable(true);
+                int azx = pVar.azx();
+                if (azx > 0) {
+                    qVar.dFE.setText(String.format(this.mContext.getResources().getString(e.j.apply_left_num_tip), ao.P(azx)));
+                    qVar.dFG.setTag(dFt, pVar.azz());
+                    qVar.dFG.setOnClickListener(this.mClickListener);
+                    qVar.dFG.setEnabled(true);
+                    qVar.dFG.setClickable(true);
                 } else {
-                    qVar.dzf.setText(this.mContext.getResources().getString(e.j.apply_no_left_tip));
-                    qVar.dzh.setEnabled(false);
-                    qVar.dzh.setClickable(false);
+                    qVar.dFE.setText(this.mContext.getResources().getString(e.j.apply_no_left_tip));
+                    qVar.dFG.setEnabled(false);
+                    qVar.dFG.setClickable(false);
                 }
-                qVar.dzf.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(e.f.icon_arrow_tab), (Drawable) null);
-                qVar.dze.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(e.f.icon_arrow_tab), (Drawable) null);
+                qVar.dFE.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(e.f.icon_arrow_tab), (Drawable) null);
+                qVar.dFD.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(e.f.icon_arrow_tab), (Drawable) null);
                 qVar.mSkinType = this.mSkinType;
             }
         }
@@ -136,17 +136,17 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
         } else {
             activity = ((TbPageContext) aK).getPageActivity();
         }
-        if (this.aJs == null) {
-            this.aJs = new com.baidu.tbadk.coreExtra.view.a(activity);
+        if (this.aMS == null) {
+            this.aMS = new com.baidu.tbadk.coreExtra.view.a(activity);
         }
-        this.aJs.Jq();
-        this.aJs.setAccountData(accountData);
-        this.aJs.fd(1);
+        this.aMS.Ku();
+        this.aMS.setAccountData(accountData);
+        this.aMS.fr(1);
     }
 
     public void onDestroy() {
-        if (this.aJs != null) {
-            this.aJs.onDestroy();
+        if (this.aMS != null) {
+            this.aMS.onDestroy();
         }
     }
 }

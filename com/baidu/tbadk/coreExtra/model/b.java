@@ -18,7 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    public void F(JSONObject jSONObject) {
+    public void G(JSONObject jSONObject) {
         JSONArray jSONArray;
         JSONObject optJSONObject;
         String str;
@@ -57,11 +57,11 @@ public class b {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        gv(str2);
+                        gN(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        gv(str2);
+                        gN(str2);
                     }
                 }
             }
@@ -69,47 +69,47 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HO() {
+    public void IS() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
         }
     }
 
-    public String HP() {
+    public String IT() {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void gv(String str) {
-        String HP = HP();
-        if (!TextUtils.equals(HP, str) || !isFileExist(HP)) {
-            W(str, HP);
+    public void gN(String str) {
+        String IT = IT();
+        if (!TextUtils.equals(IT, str) || !isFileExist(IT)) {
+            W(str, IT);
         }
     }
 
     private boolean isFileExist(String str) {
-        File eC = l.eC(ar.fs(str));
-        return eC != null && eC.exists() && eC.isFile();
+        File eU = l.eU(ar.fK(str));
+        return eU != null && eU.exists() && eU.isFile();
     }
 
     private void W(String str, String str2) {
         if (j.kW()) {
-            new a(str, ar.fs(str), str2).execute(new String[0]);
+            new a(str, ar.fK(str), str2).execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private final String aNb;
-        private final String aNc;
+        private final String aQA;
+        private final String aQB;
         private final String mFile;
         private x mNetWork = null;
 
         public a(String str, String str2, String str3) {
-            this.aNb = str;
+            this.aQA = str;
             this.mFile = str2;
-            this.aNc = str3;
+            this.aQB = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -118,14 +118,14 @@ public class b {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.mNetWork = new x(this.aNb);
+                this.mNetWork = new x(this.aQA);
                 bool = Boolean.valueOf(this.mNetWork.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(l.i(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.aNb) && !this.aNb.equals(this.aNc)) {
-                        l.eU(ar.fs(this.aNc));
+                    if (!StringUtils.isNull(l.i(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.aQA) && !this.aQA.equals(this.aQB)) {
+                        l.fm(ar.fK(this.aQB));
                     }
                 } else {
-                    l.eU(this.mFile + ".tmp");
+                    l.fm(this.mFile + ".tmp");
                 }
             } catch (Exception e) {
             }
@@ -138,7 +138,7 @@ public class b {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
             if (bool != null && bool.booleanValue()) {
-                new b().HO();
+                new b().IS();
             }
         }
     }

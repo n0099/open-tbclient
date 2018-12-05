@@ -21,23 +21,23 @@ public class j {
     }
 
     public boolean aI(boolean z) {
-        if (this.aag.rP() || this.aah) {
+        if (this.aag.rO() || this.aah) {
             return false;
         }
         if (z) {
-            this.aag.rM().Zx = 0L;
-            this.aag.rM().Zw = -1L;
+            this.aag.rL().Zx = 0L;
+            this.aag.rL().Zw = -1L;
             this.aag.bH(0);
         }
-        if (d.a(this.aag.rN(), this.aag.rM()) && !c.rL().c(this.aag)) {
-            com.baidu.b.a.c.a.a rM = this.aag.rM();
-            rM.KC = 2212;
-            rM.errMsg = "duplicated download task";
-            rM.Zm = a.C0056a.C0057a.Zc;
-            this.aag.rN().onFileDownloaded(new com.baidu.b.a.b.b.a(this.aag.getPackageName(), rM.KC, rM.errMsg, rM.Zm), rM);
+        if (d.a(this.aag.rM(), this.aag.rL()) && !c.rK().c(this.aag)) {
+            com.baidu.b.a.c.a.a rL = this.aag.rL();
+            rL.KC = 2212;
+            rL.errMsg = "duplicated download task";
+            rL.Zm = a.C0056a.C0057a.Zc;
+            this.aag.rM().onFileDownloaded(new com.baidu.b.a.b.b.a(this.aag.getPackageName(), rL.KC, rL.errMsg, rL.Zm), rL);
             return false;
         }
-        g.rS().e(this.aag);
+        g.rR().e(this.aag);
         return true;
     }
 
@@ -48,7 +48,7 @@ public class j {
         return this.aag.d(fVar);
     }
 
-    public f rU() {
+    public f rT() {
         return this.aag;
     }
 }

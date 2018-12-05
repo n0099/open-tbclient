@@ -16,8 +16,8 @@ public final class a {
 
     /* renamed from: com.baidu.webkit.internal.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    static class C0337a extends GZIPOutputStream {
-        public C0337a(OutputStream outputStream) throws IOException {
+    static class C0351a extends GZIPOutputStream {
+        public C0351a(OutputStream outputStream) throws IOException {
             super(outputStream);
         }
 
@@ -46,10 +46,10 @@ public final class a {
             return null;
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        C0337a c0337a = new C0337a(byteArrayOutputStream);
-        c0337a.a();
-        c0337a.write(bArr);
-        c0337a.close();
+        C0351a c0351a = new C0351a(byteArrayOutputStream);
+        c0351a.a();
+        c0351a.write(bArr);
+        c0351a.close();
         Log.w("rc4", "kernelGzipCompress " + byteArrayOutputStream.toByteArray().length);
         return byteArrayOutputStream.toByteArray();
     }

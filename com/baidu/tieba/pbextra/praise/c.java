@@ -8,16 +8,16 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c extends BaseAdapter implements AbsListView.OnScrollListener {
-    private PraiseListActivity giI;
+    private PraiseListActivity gpy;
     private volatile boolean isScrolling;
     private List<a> mZanItemDataList = null;
 
     public c(PraiseListActivity praiseListActivity) {
-        this.giI = null;
-        this.giI = praiseListActivity;
+        this.gpy = null;
+        this.gpy = praiseListActivity;
     }
 
-    public void dm(List<a> list) {
+    public void dq(List<a> list) {
         this.mZanItemDataList = list;
     }
 
@@ -31,7 +31,7 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: sz */
+    /* renamed from: sT */
     public a getItem(int i) {
         if (this.mZanItemDataList != null) {
             return this.mZanItemDataList.get(i);
@@ -46,7 +46,7 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return g(i, view, viewGroup);
+        return h(i, view, viewGroup);
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -63,11 +63,11 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 
-    private View g(int i, View view, ViewGroup viewGroup) {
-        b d = b.d(this.giI.getPageContext().getPageActivity(), view);
+    private View h(int i, View view, ViewGroup viewGroup) {
+        b d = b.d(this.gpy.getPageContext().getPageActivity(), view);
         a item = getItem(i);
-        d.a(StringUtils.isNull(item.getShowName()) ? item.getUserName() : item.getShowName(), item.getPortrait(), item.bmq(), this.isScrolling);
-        this.giI.changSkinType(d.getView());
+        d.a(StringUtils.isNull(item.getShowName()) ? item.getUserName() : item.getShowName(), item.getPortrait(), item.boj(), this.isScrolling);
+        this.gpy.changSkinType(d.getView());
         return d.getView();
     }
 }

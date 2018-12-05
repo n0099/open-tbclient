@@ -15,31 +15,31 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class b extends k {
-    private d bDn;
-    private com.baidu.tieba.easterEgg.d dfA;
-    private HashMap<String, String> dfB;
-    private SparseArray<String> dfC;
+    private d bGQ;
+    private com.baidu.tieba.easterEgg.d dmh;
+    private HashMap<String, String> dmi;
+    private SparseArray<String> dmj;
 
     public b(int i) {
         super(i);
-        this.bDn = new d();
-        asH();
+        this.bGQ = new d();
+        aut();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a.f
     /* renamed from: d */
     public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        String str = this.dfC.get(socketMessage.getCmd());
-        if (str != null && this.dfB != null && this.dfB.get(str) != null && this.dfA != null) {
-            this.dfA.G(str, this.bDn.toJson(this.dfB.get(str)), this.bDn.toJson(this.bDn.toJson(socketMessage.getData())));
+        String str = this.dmj.get(socketMessage.getCmd());
+        if (str != null && this.dmi != null && this.dmi.get(str) != null && this.dmh != null) {
+            this.dmh.H(str, this.bGQ.toJson(this.dmi.get(str)), this.bGQ.toJson(this.bGQ.toJson(socketMessage.getData())));
         }
         return socketMessage;
     }
 
-    private void asH() {
+    private void aut() {
         int l;
-        this.dfC = new SparseArray<>();
+        this.dmj = new SparseArray<>();
         ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();
         if (!v.I(findHttpTasks)) {
             for (int i = 0; i < findHttpTasks.size(); i++) {
@@ -49,18 +49,18 @@ public class b extends k {
                     String str = split[1];
                     String str2 = split[0];
                     if (!ao.isEmpty(str) && str.contains(ETAG.EQUAL) && (l = com.baidu.adp.lib.g.b.l(str.split("[=]")[1], 0)) != 0) {
-                        this.dfC.put(l, str2.replace(TbConfig.SERVER_ADDRESS, ""));
+                        this.dmj.put(l, str2.replace(TbConfig.SERVER_ADDRESS, ""));
                     }
                 }
             }
         }
     }
 
-    public void p(HashMap<String, String> hashMap) {
-        this.dfB = hashMap;
+    public void q(HashMap<String, String> hashMap) {
+        this.dmi = hashMap;
     }
 
     public void a(com.baidu.tieba.easterEgg.d dVar) {
-        this.dfA = dVar;
+        this.dmh = dVar;
     }
 }

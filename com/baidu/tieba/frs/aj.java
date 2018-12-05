@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes6.dex */
 public interface aj {
-    void ZQ();
+    void aAs();
 
-    void ayI();
+    void aaW();
 }

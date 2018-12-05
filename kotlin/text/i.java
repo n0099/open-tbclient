@@ -6,24 +6,24 @@ import java.util.regex.Matcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public final class i implements h {
-    private final MatchResult irI;
-    private final f irJ;
-    private final Matcher irK;
-    private final CharSequence irL;
+    private final MatchResult iyS;
+    private final f iyT;
+    private final Matcher iyU;
+    private final CharSequence iyV;
 
     public i(Matcher matcher, CharSequence charSequence) {
         kotlin.jvm.internal.p.h((Object) matcher, "matcher");
         kotlin.jvm.internal.p.h((Object) charSequence, "input");
-        this.irK = matcher;
-        this.irL = charSequence;
-        this.irI = this.irK.toMatchResult();
-        this.irJ = new a();
+        this.iyU = matcher;
+        this.iyV = charSequence;
+        this.iyS = this.iyU.toMatchResult();
+        this.iyT = new a();
     }
 
     @Override // kotlin.text.h
-    public kotlin.b.c bZT() {
+    public kotlin.b.c cbZ() {
         kotlin.b.c a2;
-        MatchResult matchResult = this.irI;
+        MatchResult matchResult = this.iyS;
         kotlin.jvm.internal.p.g(matchResult, "matchResult");
         a2 = j.a(matchResult);
         return a2;
@@ -49,7 +49,7 @@ public final class i implements h {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return i.this.irI.groupCount() + 1;
+            return i.this.iyS.groupCount() + 1;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -62,13 +62,13 @@ public final class i implements h {
             return kotlin.sequences.d.c(kotlin.collections.n.d(kotlin.collections.n.i(this)), new MatcherMatchResult$groups$1$iterator$1(this)).iterator();
         }
 
-        public e yF(int i) {
+        public e zc(int i) {
             kotlin.b.c a;
-            MatchResult matchResult = i.this.irI;
+            MatchResult matchResult = i.this.iyS;
             kotlin.jvm.internal.p.g(matchResult, "matchResult");
             a = j.a(matchResult, i);
-            if (a.bZO().intValue() >= 0) {
-                String group = i.this.irI.group(i);
+            if (a.cbU().intValue() >= 0) {
+                String group = i.this.iyS.group(i);
                 kotlin.jvm.internal.p.g(group, "matchResult.group(index)");
                 return new e(group, a);
             }
@@ -77,11 +77,11 @@ public final class i implements h {
     }
 
     @Override // kotlin.text.h
-    public h bZU() {
+    public h cca() {
         h a2;
-        int end = (this.irI.end() == this.irI.start() ? 1 : 0) + this.irI.end();
-        if (end <= this.irL.length()) {
-            a2 = j.a(this.irK, end, this.irL);
+        int end = (this.iyS.end() == this.iyS.start() ? 1 : 0) + this.iyS.end();
+        if (end <= this.iyV.length()) {
+            a2 = j.a(this.iyU, end, this.iyV);
             return a2;
         }
         return null;

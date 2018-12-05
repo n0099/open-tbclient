@@ -29,7 +29,7 @@ public class a {
 
     /* renamed from: com.baidu.searchbox.dns.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0126a {
+    public static class C0134a {
         private final com.baidu.searchbox.dns.d.a r;
         private final com.baidu.searchbox.dns.d.a.a t;
         private final long u;
@@ -37,7 +37,7 @@ public class a {
         private String w;
         private long x;
 
-        public C0126a(long j, com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2) {
+        public C0134a(long j, com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2) {
             this.v = -1;
             this.x = -1L;
             this.u = j;

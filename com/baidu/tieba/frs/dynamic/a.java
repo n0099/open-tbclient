@@ -21,7 +21,7 @@ public class a implements c {
     public boolean hasMore;
     public ArrayList<h> threadList = new ArrayList<>();
     public HashMap<String, MetaData> userMap = new HashMap<>();
-    public int dID = 0;
+    public int dPc = 0;
 
     public StarTrendsResIdl J(byte[] bArr) {
         if (bArr == null) {
@@ -61,8 +61,8 @@ public class a implements c {
                         bbVar.setUserMap(this.userMap);
                         bbVar.a(threadInfo);
                         bbVar.setCurrentPage(3);
-                        bbVar.zm();
-                        if (bbVar.getType() == bb.apG || bbVar.getType() == bb.apI || bbVar.getType() == bb.apN || bbVar.getType() == bb.apJ || bbVar.getType() == bb.apO || bbVar.getType() == bb.apP) {
+                        bbVar.Aq();
+                        if (bbVar.getType() == bb.atg || bbVar.getType() == bb.ati || bbVar.getType() == bb.atn || bbVar.getType() == bb.atj || bbVar.getType() == bb.ato || bbVar.getType() == bb.atp) {
                             this.threadList.add(bbVar);
                         }
                     }
@@ -73,7 +73,7 @@ public class a implements c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] MT() {
+    public byte[] NX() {
         return null;
     }
 
@@ -88,7 +88,7 @@ public class a implements c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void H(JSONObject jSONObject) {
+    public void I(JSONObject jSONObject) {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j

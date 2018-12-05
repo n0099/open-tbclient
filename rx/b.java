@@ -1,24 +1,24 @@
 package rx;
 /* loaded from: classes2.dex */
 public class b {
-    static final b itA = new b(new a() { // from class: rx.b.1
+    static final b iAJ = new b(new a() { // from class: rx.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: c */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.cdr());
+            cVar.onSubscribe(rx.subscriptions.e.cfu());
             cVar.onCompleted();
         }
     }, false);
-    static final b itB = new b(new a() { // from class: rx.b.3
+    static final b iAK = new b(new a() { // from class: rx.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: c */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.cdr());
+            cVar.onSubscribe(rx.subscriptions.e.cfu());
         }
     }, false);
-    private final a itz;
+    private final a iAI;
 
     /* loaded from: classes2.dex */
     public interface a extends rx.functions.b<c> {
@@ -26,7 +26,7 @@ public class b {
 
     /* renamed from: rx.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0393b extends rx.functions.f<c, c> {
+    public interface InterfaceC0407b extends rx.functions.f<c, c> {
     }
 
     public static b a(a aVar) {
@@ -83,11 +83,11 @@ public class b {
     }
 
     protected b(a aVar) {
-        this.itz = rx.c.c.b(aVar);
+        this.iAI = rx.c.c.b(aVar);
     }
 
     protected b(a aVar, boolean z) {
-        this.itz = z ? rx.c.c.b(aVar) : aVar;
+        this.iAI = z ? rx.c.c.b(aVar) : aVar;
     }
 
     public final k subscribe() {
@@ -121,7 +121,7 @@ public class b {
     public final void a(c cVar) {
         requireNonNull(cVar);
         try {
-            rx.c.c.b(this, this.itz).call(cVar);
+            rx.c.c.b(this, this.iAI).call(cVar);
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {

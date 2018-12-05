@@ -25,110 +25,110 @@ import com.baidu.tieba.frs.game.strategy.view.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class FrsGameStrategyMainFragment extends BaseFragment implements a.InterfaceC0073a, ak {
-    private String cRh;
-    private String dMq;
-    private e dMr;
-    private b dMs;
+    private String cXO;
+    private String dST;
+    private e dSU;
+    private b dSV;
     private boolean isLoading;
     private String mFrom;
-    private com.baidu.tieba.frs.game.strategy.tab.b dMt = new com.baidu.tieba.frs.game.strategy.tab.b() { // from class: com.baidu.tieba.frs.game.strategy.FrsGameStrategyMainFragment.1
+    private com.baidu.tieba.frs.game.strategy.tab.b dSW = new com.baidu.tieba.frs.game.strategy.tab.b() { // from class: com.baidu.tieba.frs.game.strategy.FrsGameStrategyMainFragment.1
         @Override // com.baidu.tieba.frs.game.strategy.tab.b
         public void a(int i, int i2, List<h> list, List<com.baidu.tieba.frs.game.strategy.tab.e> list2, boolean z, boolean z2, int i3) {
             if (i != 0 || i2 != 0 || !v.I(list2)) {
-                if (FrsGameStrategyMainFragment.this.dMr != null) {
+                if (FrsGameStrategyMainFragment.this.dSU != null) {
                     FrsGameStrategyMainFragment.this.isLoading = false;
-                    FrsGameStrategyMainFragment.this.hideLoadingView(FrsGameStrategyMainFragment.this.dMr.getRootView());
-                    FrsGameStrategyMainFragment.this.dMr.b(i, i2, list, list2, z, z2, i3);
+                    FrsGameStrategyMainFragment.this.hideLoadingView(FrsGameStrategyMainFragment.this.dSU.getRootView());
+                    FrsGameStrategyMainFragment.this.dSU.b(i, i2, list, list2, z, z2, i3);
                     if (i == 0 && i2 == 0) {
-                        FrsGameStrategyMainFragment.this.dMr.setTabData(list2, z2);
+                        FrsGameStrategyMainFragment.this.dSU.setTabData(list2, z2);
                         return;
                     }
                     return;
                 }
                 return;
             }
-            FrsGameStrategyMainFragment.this.showNetRefreshView(FrsGameStrategyMainFragment.this.dMr.getRootView(), FrsGameStrategyMainFragment.this.getResources().getString(e.j.no_data_text), false);
-            FrsGameStrategyMainFragment.this.setNetRefreshViewTopMargin(FrsGameStrategyMainFragment.this.getResources().getDimensionPixelSize(e.C0200e.ds240));
+            FrsGameStrategyMainFragment.this.showNetRefreshView(FrsGameStrategyMainFragment.this.dSU.getRootView(), FrsGameStrategyMainFragment.this.getResources().getString(e.j.no_data_text), false);
+            FrsGameStrategyMainFragment.this.setNetRefreshViewTopMargin(FrsGameStrategyMainFragment.this.getResources().getDimensionPixelSize(e.C0210e.ds240));
         }
 
         @Override // com.baidu.tieba.frs.game.strategy.tab.b
         public void c(int i, int i2, String str) {
             if (i != 0 || i2 != 0) {
-                if (FrsGameStrategyMainFragment.this.dMr != null) {
+                if (FrsGameStrategyMainFragment.this.dSU != null) {
                     FrsGameStrategyMainFragment.this.isLoading = false;
-                    FrsGameStrategyMainFragment.this.hideLoadingView(FrsGameStrategyMainFragment.this.dMr.getRootView());
-                    FrsGameStrategyMainFragment.this.dMr.d(i, i2, str);
+                    FrsGameStrategyMainFragment.this.hideLoadingView(FrsGameStrategyMainFragment.this.dSU.getRootView());
+                    FrsGameStrategyMainFragment.this.dSU.d(i, i2, str);
                     return;
                 }
                 return;
             }
-            FrsGameStrategyMainFragment.this.showNetRefreshView(FrsGameStrategyMainFragment.this.dMr.getRootView(), str, false);
-            FrsGameStrategyMainFragment.this.setNetRefreshViewTopMargin(FrsGameStrategyMainFragment.this.getResources().getDimensionPixelSize(e.C0200e.ds240));
+            FrsGameStrategyMainFragment.this.showNetRefreshView(FrsGameStrategyMainFragment.this.dSU.getRootView(), str, false);
+            FrsGameStrategyMainFragment.this.setNetRefreshViewTopMargin(FrsGameStrategyMainFragment.this.getResources().getDimensionPixelSize(e.C0210e.ds240));
         }
     };
-    private com.baidu.tieba.frs.game.strategy.tab.a dMu = new com.baidu.tieba.frs.game.strategy.tab.a() { // from class: com.baidu.tieba.frs.game.strategy.FrsGameStrategyMainFragment.2
+    private com.baidu.tieba.frs.game.strategy.tab.a dSX = new com.baidu.tieba.frs.game.strategy.tab.a() { // from class: com.baidu.tieba.frs.game.strategy.FrsGameStrategyMainFragment.2
         @Override // com.baidu.tieba.frs.game.strategy.tab.a
         public void aN(int i, int i2) {
-            if (FrsGameStrategyMainFragment.this.dMs != null) {
-                FrsGameStrategyMainFragment.this.dMs.aN(i, i2);
+            if (FrsGameStrategyMainFragment.this.dSV != null) {
+                FrsGameStrategyMainFragment.this.dSV.aN(i, i2);
             }
         }
 
         @Override // com.baidu.tieba.frs.game.strategy.tab.a
         public void aO(int i, int i2) {
-            if (FrsGameStrategyMainFragment.this.dMs != null) {
-                FrsGameStrategyMainFragment.this.dMs.aO(i, i2);
+            if (FrsGameStrategyMainFragment.this.dSV != null) {
+                FrsGameStrategyMainFragment.this.dSV.aO(i, i2);
             }
         }
 
         @Override // com.baidu.tieba.frs.game.strategy.tab.a
         public boolean aP(int i, int i2) {
-            if (FrsGameStrategyMainFragment.this.dMs != null) {
-                return FrsGameStrategyMainFragment.this.dMs.aP(i, i2);
+            if (FrsGameStrategyMainFragment.this.dSV != null) {
+                return FrsGameStrategyMainFragment.this.dSV.aP(i, i2);
             }
             return false;
         }
 
         @Override // com.baidu.tieba.frs.game.strategy.tab.a
         public String getForumId() {
-            if (FrsGameStrategyMainFragment.this.dMs != null) {
-                return FrsGameStrategyMainFragment.this.dMs.getForumId();
+            if (FrsGameStrategyMainFragment.this.dSV != null) {
+                return FrsGameStrategyMainFragment.this.dSV.getForumId();
             }
             return null;
         }
 
         @Override // com.baidu.tieba.frs.game.strategy.tab.a
-        public com.baidu.tieba.frs.game.strategy.tab.e mo(int i) {
-            if (FrsGameStrategyMainFragment.this.dMs != null) {
-                return FrsGameStrategyMainFragment.this.dMs.mo(i);
+        public com.baidu.tieba.frs.game.strategy.tab.e mE(int i) {
+            if (FrsGameStrategyMainFragment.this.dSV != null) {
+                return FrsGameStrategyMainFragment.this.dSV.mE(i);
             }
             return null;
         }
     };
-    private CustomMessageListener bME = new CustomMessageListener(0) { // from class: com.baidu.tieba.frs.game.strategy.FrsGameStrategyMainFragment.3
+    private CustomMessageListener bQu = new CustomMessageListener(0) { // from class: com.baidu.tieba.frs.game.strategy.FrsGameStrategyMainFragment.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && !TextUtils.isEmpty((String) customResponsedMessage.getData())) {
                 String[] split = ((String) customResponsedMessage.getData()).split(BaseRequestAction.SPLITE);
                 if (split.length == 2 && "FrsGoodsTab".equals(split[0])) {
-                    FrsGameStrategyMainFragment.this.ZQ();
+                    FrsGameStrategyMainFragment.this.aaW();
                 }
             }
         }
     };
-    private boolean bOc = true;
-    private CustomMessageListener bVO = new CustomMessageListener(0) { // from class: com.baidu.tieba.frs.game.strategy.FrsGameStrategyMainFragment.4
+    private boolean bRT = true;
+    private CustomMessageListener bZG = new CustomMessageListener(0) { // from class: com.baidu.tieba.frs.game.strategy.FrsGameStrategyMainFragment.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
                 if (customResponsedMessage.getCmd() == 2001617) {
-                    if (FrsGameStrategyMainFragment.this.dMr != null && FrsGameStrategyMainFragment.this.dMr.aaO() != null && !FrsGameStrategyMainFragment.this.dMr.aaO().getNavBarIsShow()) {
-                        FrsGameStrategyMainFragment.this.dMr.aaO().showNavigationBarWithAnimation();
+                    if (FrsGameStrategyMainFragment.this.dSU != null && FrsGameStrategyMainFragment.this.dSU.abU() != null && !FrsGameStrategyMainFragment.this.dSU.abU().getNavBarIsShow()) {
+                        FrsGameStrategyMainFragment.this.dSU.abU().showNavigationBarWithAnimation();
                     }
-                } else if (customResponsedMessage.getCmd() == 2001618 && FrsGameStrategyMainFragment.this.dMr != null && FrsGameStrategyMainFragment.this.dMr.aaO() != null && FrsGameStrategyMainFragment.this.dMr.aaO().getNavBarIsShow()) {
-                    FrsGameStrategyMainFragment.this.dMr.aaO().hideNavigationBarWithAnimation();
+                } else if (customResponsedMessage.getCmd() == 2001618 && FrsGameStrategyMainFragment.this.dSU != null && FrsGameStrategyMainFragment.this.dSU.abU() != null && FrsGameStrategyMainFragment.this.dSU.abU().getNavBarIsShow()) {
+                    FrsGameStrategyMainFragment.this.dSU.abU().hideNavigationBarWithAnimation();
                 }
             }
         }
@@ -138,35 +138,35 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements a.Inter
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (bundle != null) {
-            this.cRh = bundle.getString(ImageViewerConfig.FORUM_ID);
-            this.dMq = bundle.getString("name");
+            this.cXO = bundle.getString(ImageViewerConfig.FORUM_ID);
+            this.dST = bundle.getString("name");
             this.mFrom = bundle.getString("key_from");
         } else if (getArguments() != null) {
-            this.cRh = getArguments().getString(ImageViewerConfig.FORUM_ID);
-            this.dMq = getArguments().getString("name");
+            this.cXO = getArguments().getString(ImageViewerConfig.FORUM_ID);
+            this.dST = getArguments().getString("name");
             this.mFrom = getArguments().getString("key_from");
         }
-        this.dMs = new b(getActivity(), getUniqueId(), com.baidu.adp.lib.g.b.d(this.cRh, 0L), this.dMq);
-        this.dMs.a(this.dMt);
+        this.dSV = new b(getActivity(), getUniqueId(), com.baidu.adp.lib.g.b.d(this.cXO, 0L), this.dST);
+        this.dSV.a(this.dSW);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.bVO.setSelfListener(true);
-        registerListener(2001617, this.bVO, getBaseFragmentActivity().getUniqueId());
-        registerListener(2001618, this.bVO, getBaseFragmentActivity().getUniqueId());
-        registerListener(2001446, this.bME, getBaseFragmentActivity().getUniqueId());
+        this.bZG.setSelfListener(true);
+        registerListener(2001617, this.bZG, getBaseFragmentActivity().getUniqueId());
+        registerListener(2001618, this.bZG, getBaseFragmentActivity().getUniqueId());
+        registerListener(2001446, this.bQu, getBaseFragmentActivity().getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.dMs != null) {
-            this.dMs.onDestory();
+        if (this.dSV != null) {
+            this.dSV.onDestory();
         }
-        if (this.dMr != null) {
-            this.dMr.onDestory();
+        if (this.dSU != null) {
+            this.dSU.onDestory();
         }
     }
 
@@ -174,17 +174,17 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements a.Inter
     public void onPrimary() {
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            aCM();
+            aEy();
         }
     }
 
-    private void aCM() {
-        if (this.bOc && this.dMs != null) {
-            this.dMs.aN(0, 0);
-            this.bOc = false;
-            if (this.dMr != null) {
+    private void aEy() {
+        if (this.bRT && this.dSV != null) {
+            this.dSV.aN(0, 0);
+            this.bRT = false;
+            if (this.dSU != null) {
                 this.isLoading = true;
-                showLoadingView(this.dMr.getRootView());
+                showLoadingView(this.dSU.getRootView());
             }
         }
     }
@@ -192,13 +192,13 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements a.Inter
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(e.h.frs_game_strategy_layout, (ViewGroup) null);
-        this.dMr = new com.baidu.tieba.frs.game.strategy.view.e(this, inflate);
-        this.dMr.setFrom(this.mFrom);
-        this.dMr.setFrsGameTabDataLoadListener(this.dMu);
-        this.dMr.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.dSU = new com.baidu.tieba.frs.game.strategy.view.e(this, inflate);
+        this.dSU.setFrom(this.mFrom);
+        this.dSU.setFrsGameTabDataLoadListener(this.dSX);
+        this.dSU.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         if ("from_single_act".equals(this.mFrom)) {
-            aCM();
-            aaO().setCenterTextTitle(this.dMq);
+            aEy();
+            abU().setCenterTextTitle(this.dST);
         }
         return inflate;
     }
@@ -206,33 +206,33 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements a.Inter
     @Override // android.support.v4.app.Fragment
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putString(ImageViewerConfig.FORUM_ID, this.cRh);
-        bundle.putString("name", this.dMq);
+        bundle.putString(ImageViewerConfig.FORUM_ID, this.cXO);
+        bundle.putString("name", this.dST);
         bundle.putString("key_from", this.mFrom);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.dMr != null) {
-            this.dMr.onChangeSkinType(i);
+        if (this.dSU != null) {
+            this.dSU.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     protected void onNetRefreshButtonClicked() {
-        if (this.dMs != null) {
-            this.dMs.aN(0, 0);
+        if (this.dSV != null) {
+            this.dSV.aN(0, 0);
         }
-        if (this.dMr != null) {
-            hideNetRefreshView(this.dMr.getRootView());
+        if (this.dSU != null) {
+            hideNetRefreshView(this.dSU.getRootView());
             this.isLoading = true;
-            showLoadingView(this.dMr.getRootView());
+            showLoadingView(this.dSU.getRootView());
         }
     }
 
     public String getFid() {
-        return this.cRh;
+        return this.cXO;
     }
 
     @Override // android.support.v4.app.Fragment
@@ -251,17 +251,17 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements a.Inter
     }
 
     @Override // com.baidu.tieba.frs.ak
-    public NavigationBar aaO() {
-        if (this.dMr != null) {
-            return this.dMr.aaO();
+    public NavigationBar abU() {
+        if (this.dSU != null) {
+            return this.dSU.abU();
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ZQ() {
-        if (!this.isLoading && this.dMr != null && j.kV()) {
-            this.dMr.ZQ();
+    public void aaW() {
+        if (!this.isLoading && this.dSU != null && j.kV()) {
+            this.dSU.aaW();
         }
     }
 }

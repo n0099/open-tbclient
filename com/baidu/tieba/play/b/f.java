@@ -8,16 +8,16 @@ import org.json.JSONObject;
 public class f {
     private List<a> mList = new ArrayList();
 
-    public void N(String str, String str2, String str3) {
+    public void O(String str, String str2, String str3) {
         this.mList.add(new a(str, str2, str3));
     }
 
-    public String bqs() {
+    public String bsl() {
         JSONObject jSONObject = new JSONObject();
         try {
             int size = this.mList.size();
             for (int i = 0; i < size; i++) {
-                jSONObject.put(i + "", this.mList.get(i).bqt());
+                jSONObject.put(i + "", this.mList.get(i).bsm());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -28,21 +28,21 @@ public class f {
     /* loaded from: classes.dex */
     private static class a {
         public final String error;
-        public final String gyz;
+        public final String gFp;
         public final String uuid;
 
         public a(String str, String str2, String str3) {
             this.uuid = str;
             this.error = str2;
-            this.gyz = str3;
+            this.gFp = str3;
         }
 
-        public JSONObject bqt() {
+        public JSONObject bsm() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("uuid", this.uuid);
                 jSONObject.put(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, this.error);
-                jSONObject.put("sub_error", this.gyz);
+                jSONObject.put("sub_error", this.gFp);
             } catch (Exception e) {
                 e.printStackTrace();
             }

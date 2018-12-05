@@ -10,14 +10,14 @@ import tbclient.Timgs;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class h {
-    private VideoInfo ams;
-    public String hdZ;
-    public boolean hea;
-    private int heb;
-    private ArrayList<g> hec;
-    private ArrayList<j> hed;
-    private i hee;
-    private int hef;
+    private VideoInfo apT;
+    public String hkT;
+    public boolean hkU;
+    private int hkV;
+    private ArrayList<g> hkW;
+    private ArrayList<j> hkX;
+    private i hkY;
+    private int hkZ;
     public String position;
     private String tagName;
     public long templateId;
@@ -27,28 +27,28 @@ public class h {
             try {
                 this.position = tPointPost.position;
                 this.templateId = tPointPost.template_id.longValue();
-                this.hea = tPointPost.is_tuiguang.intValue() != 0;
-                this.heb = tPointPost.template_type.intValue();
+                this.hkU = tPointPost.is_tuiguang.intValue() != 0;
+                this.hkV = tPointPost.template_type.intValue();
                 List<ActBtn> list = tPointPost.act_btn;
                 if (list != null && list.size() > 0) {
-                    this.hec = new ArrayList<>();
+                    this.hkW = new ArrayList<>();
                     for (int i = 0; i != list.size(); i++) {
-                        this.hec.add(new g(list.get(i)));
+                        this.hkW.add(new g(list.get(i)));
                     }
                 }
                 List<Timgs> list2 = tPointPost.t_imgs;
                 if (list2 != null && list2.size() > 0) {
-                    this.hed = new ArrayList<>();
+                    this.hkX = new ArrayList<>();
                     for (int i2 = 0; i2 != list2.size(); i2++) {
-                        this.hed.add(new j(list2.get(i2)));
+                        this.hkX.add(new j(list2.get(i2)));
                     }
                 }
                 if (tPointPost.detail_info != null) {
-                    this.hee = new i(tPointPost.detail_info);
+                    this.hkY = new i(tPointPost.detail_info);
                 }
-                this.hdZ = tPointPost.monitor_id;
-                this.hef = tPointPost.hidden_day.intValue();
-                this.ams = tPointPost.t_video;
+                this.hkT = tPointPost.monitor_id;
+                this.hkZ = tPointPost.hidden_day.intValue();
+                this.apT = tPointPost.t_video;
                 this.tagName = tPointPost.tag_name;
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -56,8 +56,8 @@ public class h {
         }
     }
 
-    public j bBa() {
-        return (j) v.d(this.hed, 0);
+    public j bCV() {
+        return (j) v.d(this.hkX, 0);
     }
 
     public String getPosition() {
@@ -68,20 +68,20 @@ public class h {
         return this.templateId;
     }
 
-    public ArrayList<g> bBb() {
-        return this.hec;
+    public ArrayList<g> bCW() {
+        return this.hkW;
     }
 
-    public ArrayList<j> bBc() {
-        return this.hed;
+    public ArrayList<j> bCX() {
+        return this.hkX;
     }
 
-    public i bBd() {
-        return this.hee;
+    public i bCY() {
+        return this.hkY;
     }
 
-    public int bBe() {
-        return this.heb;
+    public int bCZ() {
+        return this.hkV;
     }
 
     public String getTagName() {

@@ -13,11 +13,11 @@ import android.widget.TextView;
 import com.baidu.tieba.e;
 /* loaded from: classes4.dex */
 public class InvoiceInfoItemView extends RelativeLayout {
-    private TextView bEk;
-    private EditText bEl;
-    private View bEm;
-    private String bEn;
-    private boolean bEo;
+    private TextView bHN;
+    private EditText bHO;
+    private View bHP;
+    private String bHQ;
+    private boolean bHR;
     private Context mContext;
     private String mErrorMessage;
     private RelativeLayout mRootView;
@@ -40,106 +40,106 @@ public class InvoiceInfoItemView extends RelativeLayout {
         inflate(context, e.h.invoice_info_item_view, this);
         this.mRootView = (RelativeLayout) findViewById(e.g.item_root_view);
         this.mRootView.setBackgroundDrawable(getResources().getDrawable(e.d.invoice_edit_view_bg));
-        this.bEk = (TextView) findViewById(e.g.invoice_info_desc);
-        this.bEl = (EditText) findViewById(e.g.invoice_info_content);
-        this.bEm = findViewById(e.g.divider_line);
-        this.bEk.setTextColor(getResources().getColor(e.d.invoice_info_desc));
-        this.bEl.setTextColor(getResources().getColor(e.d.invoice_info_content));
-        this.bEl.setHintTextColor(getResources().getColor(e.d.invoice_info_content_hint));
-        this.bEm.setBackgroundDrawable(getResources().getDrawable(e.d.invoice_info_item_divider_line));
+        this.bHN = (TextView) findViewById(e.g.invoice_info_desc);
+        this.bHO = (EditText) findViewById(e.g.invoice_info_content);
+        this.bHP = findViewById(e.g.divider_line);
+        this.bHN.setTextColor(getResources().getColor(e.d.invoice_info_desc));
+        this.bHO.setTextColor(getResources().getColor(e.d.invoice_info_content));
+        this.bHO.setHintTextColor(getResources().getColor(e.d.invoice_info_content_hint));
+        this.bHP.setBackgroundDrawable(getResources().getDrawable(e.d.invoice_info_item_divider_line));
     }
 
     public InvoiceInfoItemView a(a aVar) {
         if (aVar != null) {
-            this.bEo = aVar.bEo;
-            this.bEk.setText(aVar.mDesc);
-            this.bEl.setHint(aVar.bEq);
-            if (!aVar.bEr) {
-                this.bEl.setSingleLine();
+            this.bHR = aVar.bHR;
+            this.bHN.setText(aVar.mDesc);
+            this.bHO.setHint(aVar.bHT);
+            if (!aVar.bHU) {
+                this.bHO.setSingleLine();
             } else {
-                aVar.bEp |= 131072;
+                aVar.bHS |= 131072;
             }
-            this.bEl.setInputType(aVar.bEp);
-            if (!TextUtils.isEmpty(aVar.bEs)) {
-                this.bEl.setKeyListener(DigitsKeyListener.getInstance(aVar.bEs));
+            this.bHO.setInputType(aVar.bHS);
+            if (!TextUtils.isEmpty(aVar.bHV)) {
+                this.bHO.setKeyListener(DigitsKeyListener.getInstance(aVar.bHV));
             }
-            this.bEn = aVar.bEn;
+            this.bHQ = aVar.bHQ;
             this.mErrorMessage = aVar.mErrorMessage;
         }
         return this;
     }
 
     public String getContent() {
-        if (this.bEl != null) {
-            return this.bEl.getText().toString().trim();
+        if (this.bHO != null) {
+            return this.bHO.getText().toString().trim();
         }
         return null;
     }
 
     public void setContent(CharSequence charSequence) {
-        if (this.bEl != null) {
-            this.bEl.setText(charSequence);
+        if (this.bHO != null) {
+            this.bHO.setText(charSequence);
         }
     }
 
-    public boolean Xz() {
-        return this.bEo;
+    public boolean YC() {
+        return this.bHR;
     }
 
     public void setTextChangedListener(TextWatcher textWatcher) {
-        if (this.bEl != null && textWatcher != null) {
-            this.bEl.addTextChangedListener(textWatcher);
+        if (this.bHO != null && textWatcher != null) {
+            this.bHO.addTextChangedListener(textWatcher);
         }
     }
 
     /* loaded from: classes4.dex */
     public static class a {
-        private String bEn;
-        private boolean bEo = false;
-        private int bEp = 1;
-        private String bEq;
-        private boolean bEr;
-        private String bEs;
+        private String bHQ;
+        private boolean bHR = false;
+        private int bHS = 1;
+        private String bHT;
+        private boolean bHU;
+        private String bHV;
         private String mDesc;
         private String mErrorMessage;
 
-        public a dx(boolean z) {
-            this.bEo = z;
+        public a dy(boolean z) {
+            this.bHR = z;
             return this;
         }
 
-        public a kh(String str) {
+        public a kB(String str) {
             this.mDesc = str;
             return this;
         }
 
-        public a hI(int i) {
-            this.bEp = i;
+        public a hW(int i) {
+            this.bHS = i;
             return this;
         }
 
-        public a ki(String str) {
-            this.bEq = str;
+        public a kC(String str) {
+            this.bHT = str;
             return this;
         }
 
-        public a kj(String str) {
-            this.bEn = str;
+        public a kD(String str) {
+            this.bHQ = str;
             return this;
         }
 
-        public a kk(String str) {
+        public a kE(String str) {
             this.mErrorMessage = str;
             return this;
         }
 
-        public a dy(boolean z) {
-            this.bEr = z;
+        public a dz(boolean z) {
+            this.bHU = z;
             return this;
         }
 
-        public a kl(String str) {
-            this.bEs = str;
+        public a kF(String str) {
+            this.bHV = str;
             return this;
         }
     }

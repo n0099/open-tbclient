@@ -17,8 +17,8 @@ import com.baidu.tieba.tbadkCore.d.a;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo fHh;
-    private a.C0305a fHi;
+    private SkinInfo fNX;
+    private a.C0316a fNY;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -40,22 +40,22 @@ public class ThreadSkinView extends TbImageView {
         setVisibility(8);
     }
 
-    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0305a c0305a) {
+    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0316a c0316a) {
         if (tbPageContext == null || skinInfo == null || StringUtils.isNull(skinInfo.skin)) {
             setVisibility(8);
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.fHh != skinInfo && c0305a != null) {
-            this.fHi = c0305a;
-            this.fHi.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-            this.fHi.cH(VideoPlayActivityConfig.OBJ_ID, skinInfo.obj_id);
-            this.fHi.cH("obj_url", skinInfo.url);
-            this.fHi.cH("obj_name", skinInfo.monitor_id);
-            this.fHi.cH(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
-            this.fHi.save();
+        if (this.fNX != skinInfo && c0316a != null) {
+            this.fNY = c0316a;
+            this.fNY.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+            this.fNY.cM(VideoPlayActivityConfig.OBJ_ID, skinInfo.obj_id);
+            this.fNY.cM("obj_url", skinInfo.url);
+            this.fNY.cM("obj_name", skinInfo.monitor_id);
+            this.fNY.cM(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
+            this.fNY.save();
         }
-        this.fHh = skinInfo;
+        this.fNX = skinInfo;
         int aO = l.aO(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = aO;
@@ -67,11 +67,11 @@ public class ThreadSkinView extends TbImageView {
                 if (l > 0 && l2 > 0) {
                     layoutParams.height = (int) ((l2 / l) * layoutParams.width);
                 } else {
-                    layoutParams.height = (int) tbPageContext.getResources().getDimension(e.C0200e.ds80);
+                    layoutParams.height = (int) tbPageContext.getResources().getDimension(e.C0210e.ds80);
                 }
             }
         } else {
-            layoutParams.height = (int) tbPageContext.getResources().getDimension(e.C0200e.ds80);
+            layoutParams.height = (int) tbPageContext.getResources().getDimension(e.C0210e.ds80);
         }
         setLayoutParams(layoutParams);
         startLoad(skinInfo.skin, 10, false);
@@ -82,13 +82,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.fHh != null && !StringUtils.isNull(this.fHh.url)) {
-            if (this.fHi != null) {
-                this.fHi.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-                this.fHi.cH(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
-                this.fHi.save();
+        if (this.fNX != null && !StringUtils.isNull(this.fNX.url)) {
+            if (this.fNY != null) {
+                this.fNY.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+                this.fNY.cM(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
+                this.fNY.save();
             }
-            ay.Db().c(this.mTbPageContext, new String[]{this.fHh.url});
+            ay.Ef().c(this.mTbPageContext, new String[]{this.fNX.url});
         }
     }
 }

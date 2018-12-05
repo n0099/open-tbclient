@@ -1,14 +1,18 @@
 package com.baidu.tieba.im.push;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.aj;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.message.ResponsePullMessage;
 import com.baidu.tieba.im.util.MessageUtils;
 import com.squareup.wire.Wire;
 import java.util.LinkedList;
 import protobuf.PushMessage.PushMessageResIdl;
+import protobuf.PushMsgInfo;
 /* loaded from: classes.dex */
 public class PushResponseMessage extends ResponsePullMessage {
+    private aj notificationData;
+
     public PushResponseMessage() {
         super(202009);
     }
@@ -25,7 +29,16 @@ public class PushResponseMessage extends ResponsePullMessage {
         if (pushMessageResIdl.data != null && pushMessageResIdl.data.msgs != null && pushMessageResIdl.data.msgs.data != null && pushMessageResIdl.data.msgs.data.msgInfo != null) {
             TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "push_content_receive", null);
             setGroupMsg(new LinkedList());
-            MessageUtils.generatePushData(getGroupMsg(), 30, pushMessageResIdl.data.msgs.data.msgInfo, pushMessageResIdl.data.msgs.data.groupId);
+            PushMsgInfo pushMsgInfo = pushMessageResIdl.data.msgs.data;
+            if ((pushMsgInfo.msgInfo.size() == 1 && pushMsgInfo.msgInfo.get(0).msgId.longValue() == 0 && pushMsgInfo.groupType.intValue() == 30) ? false : true) {
+                MessageUtils.generatePushData(getGroupMsg(), 30, pushMsgInfo.msgInfo, pushMsgInfo.groupId);
+            } else {
+                this.notificationData = MessageUtils.generatePushNotifyData(pushMsgInfo.msgInfo.get(0));
+            }
         }
+    }
+
+    public aj getNotificationData() {
+        return this.notificationData;
     }
 }

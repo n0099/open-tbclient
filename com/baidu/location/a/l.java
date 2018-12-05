@@ -19,7 +19,7 @@ public class l implements SensorEventListener {
     private l() {
     }
 
-    public static synchronized l tm() {
+    public static synchronized l tl() {
         l lVar;
         synchronized (l.class) {
             if (adV == null) {

@@ -19,7 +19,7 @@ public class a {
     private a() {
     }
 
-    public static a nK() {
+    public static a nJ() {
         if (LZ == null) {
             synchronized (a.class) {
                 if (LZ == null) {
@@ -31,7 +31,7 @@ public class a {
     }
 
     public void cn(String str) {
-        PluginStatus co = nK().co(str);
+        PluginStatus co = nJ().co(str);
         if (co != null) {
             co.LW = PluginPackageManager.PluginStatus.NROMAL;
         }
@@ -100,7 +100,7 @@ public class a {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000990, co));
     }
 
-    public List<PluginStatus> nL() {
+    public List<PluginStatus> nK() {
         ArrayList arrayList;
         PluginStatus value;
         synchronized (this.Ma) {

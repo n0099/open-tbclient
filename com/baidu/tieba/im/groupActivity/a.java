@@ -28,21 +28,21 @@ import java.util.Date;
 import java.util.TimeZone;
 /* loaded from: classes3.dex */
 public class a extends c<BaseFragmentActivity> {
-    private TextWatcher dub;
-    private View eAV;
-    private CreateGroupActivityActivity eKD;
-    private EditText eKE;
-    private ImageButton eKF;
-    private TextView eKG;
-    private EditText eKH;
-    private ImageButton eKI;
-    private Button eKJ;
-    private Button eKK;
-    private DatePickerDialog eKL;
-    private TimePickerDialog eKM;
-    private EditText eKN;
-    private TextWatcher eKO;
-    private boolean eKP;
+    private TextWatcher dAA;
+    private View eHK;
+    private DatePickerDialog eRA;
+    private TimePickerDialog eRB;
+    private EditText eRC;
+    private TextWatcher eRD;
+    private boolean eRE;
+    private CreateGroupActivityActivity eRs;
+    private EditText eRt;
+    private ImageButton eRu;
+    private TextView eRv;
+    private EditText eRw;
+    private ImageButton eRx;
+    private Button eRy;
+    private Button eRz;
     private int mDay;
     private int mHour;
     private int mMinute;
@@ -53,48 +53,48 @@ public class a extends c<BaseFragmentActivity> {
 
     public a(CreateGroupActivityActivity createGroupActivityActivity) {
         super(createGroupActivityActivity.getPageContext());
-        this.eKL = null;
-        this.eKM = null;
+        this.eRA = null;
+        this.eRB = null;
         this.mYear = 0;
         this.mMonth = 0;
         this.mDay = 0;
         this.mHour = 0;
         this.mMinute = 0;
-        this.eKP = false;
-        this.eKD = createGroupActivityActivity;
+        this.eRE = false;
+        this.eRs = createGroupActivityActivity;
         createGroupActivityActivity.setContentView(e.h.create_group_activity_activity);
         initUI();
     }
 
     private void initUI() {
-        this.mParent = this.eKD.findViewById(e.g.parent);
-        this.mNavigationBar = (NavigationBar) this.eKD.findViewById(e.g.view_navigation_bar);
+        this.mParent = this.eRs.findViewById(e.g.parent);
+        this.mNavigationBar = (NavigationBar) this.eRs.findViewById(e.g.view_navigation_bar);
         this.mNavigationBar.setTitleText(e.j.group_activity_create);
-        this.eAV = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.eAV.setOnClickListener(this.eKD);
-        this.eKG = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.eKD.getResources().getString(e.j.group_activity_create_btntext));
-        this.eKG.setOnClickListener(this.eKD);
-        this.eKG.setEnabled(false);
-        this.eKE = (EditText) this.eKD.findViewById(e.g.txt_group_activity_name);
-        this.eKF = (ImageButton) this.eKD.findViewById(e.g.btn_del_name);
-        this.eKH = (EditText) this.eKD.findViewById(e.g.txt_group_activity_place);
-        this.eKI = (ImageButton) this.eKD.findViewById(e.g.btn_del_place);
-        this.eKN = (EditText) this.eKD.findViewById(e.g.txt_group_activity_content);
-        this.eKJ = (Button) this.eKD.findViewById(e.g.btn_create_group_date);
-        this.eKK = (Button) this.eKD.findViewById(e.g.btn_create_group_time);
+        this.eHK = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.eHK.setOnClickListener(this.eRs);
+        this.eRv = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.eRs.getResources().getString(e.j.group_activity_create_btntext));
+        this.eRv.setOnClickListener(this.eRs);
+        this.eRv.setEnabled(false);
+        this.eRt = (EditText) this.eRs.findViewById(e.g.txt_group_activity_name);
+        this.eRu = (ImageButton) this.eRs.findViewById(e.g.btn_del_name);
+        this.eRw = (EditText) this.eRs.findViewById(e.g.txt_group_activity_place);
+        this.eRx = (ImageButton) this.eRs.findViewById(e.g.btn_del_place);
+        this.eRC = (EditText) this.eRs.findViewById(e.g.txt_group_activity_content);
+        this.eRy = (Button) this.eRs.findViewById(e.g.btn_create_group_date);
+        this.eRz = (Button) this.eRs.findViewById(e.g.btn_create_group_time);
         final Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
         this.mYear = calendar.get(1);
         this.mMonth = calendar.get(2);
         this.mDay = calendar.get(5);
         this.mHour = calendar.get(11);
         this.mMinute = calendar.get(12);
-        aPP();
-        aPO();
-        this.eKD.ShowSoftKeyPadDelay(this.eKE, 500);
-        this.eKJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupActivity.a.1
+        aRH();
+        aRG();
+        this.eRs.ShowSoftKeyPadDelay(this.eRt, 500);
+        this.eRy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupActivity.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.eKL == null) {
+                if (a.this.eRA == null) {
                     DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener() { // from class: com.baidu.tieba.im.groupActivity.a.1.1
                         @Override // android.app.DatePickerDialog.OnDateSetListener
                         public void onDateSet(DatePicker datePicker, int i, int i2, int i3) {
@@ -102,65 +102,65 @@ public class a extends c<BaseFragmentActivity> {
                             int i5 = calendar.get(2);
                             int i6 = calendar.get(5);
                             if (i < i4 || ((i == i4 && i2 < i5) || (i == i4 && i2 == i5 && i3 < i6))) {
-                                a.this.eKD.showToast(e.j.group_activity_time_val);
+                                a.this.eRs.showToast(e.j.group_activity_time_val);
                                 return;
                             }
                             a.this.mYear = i;
                             a.this.mMonth = i2;
                             a.this.mDay = i3;
-                            g.b(a.this.eKL, a.this.eKD.getPageContext());
-                            a.this.aPP();
-                            a.this.eKP = true;
+                            g.b(a.this.eRA, a.this.eRs.getPageContext());
+                            a.this.aRH();
+                            a.this.eRE = true;
                         }
                     };
-                    a.this.eKL = new DatePickerDialog(a.this.eKD.getPageContext().getPageActivity(), onDateSetListener, a.this.mYear, a.this.mMonth, a.this.mDay);
+                    a.this.eRA = new DatePickerDialog(a.this.eRs.getPageContext().getPageActivity(), onDateSetListener, a.this.mYear, a.this.mMonth, a.this.mDay);
                 }
-                a.this.eKL.updateDate(a.this.mYear, a.this.mMonth, a.this.mDay);
-                g.a(a.this.eKL, a.this.eKD.getPageContext());
+                a.this.eRA.updateDate(a.this.mYear, a.this.mMonth, a.this.mDay);
+                g.a(a.this.eRA, a.this.eRs.getPageContext());
             }
         });
-        this.eKK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupActivity.a.2
+        this.eRz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupActivity.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.eKM == null) {
+                if (a.this.eRB == null) {
                     TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() { // from class: com.baidu.tieba.im.groupActivity.a.2.1
                         @Override // android.app.TimePickerDialog.OnTimeSetListener
                         public void onTimeSet(TimePicker timePicker, int i, int i2) {
                             a.this.mHour = i;
                             a.this.mMinute = i2;
-                            g.b(a.this.eKM, a.this.eKD.getPageContext());
-                            a.this.aPO();
-                            a.this.eKP = true;
+                            g.b(a.this.eRB, a.this.eRs.getPageContext());
+                            a.this.aRG();
+                            a.this.eRE = true;
                         }
                     };
-                    a.this.eKM = new TimePickerDialog(a.this.eKD.getPageContext().getPageActivity(), onTimeSetListener, a.this.mHour, a.this.mMinute, false);
+                    a.this.eRB = new TimePickerDialog(a.this.eRs.getPageContext().getPageActivity(), onTimeSetListener, a.this.mHour, a.this.mMinute, false);
                 }
-                a.this.eKM.updateTime(a.this.mHour, a.this.mMinute);
-                g.a(a.this.eKM, a.this.eKD.getPageContext());
+                a.this.eRB.updateTime(a.this.mHour, a.this.mMinute);
+                g.a(a.this.eRB, a.this.eRs.getPageContext());
             }
         });
-        this.eKF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupActivity.a.3
+        this.eRu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupActivity.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.eKE.setText("");
+                a.this.eRt.setText("");
             }
         });
-        this.eKI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupActivity.a.4
+        this.eRx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupActivity.a.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.eKH.setText("");
+                a.this.eRw.setText("");
             }
         });
-        this.dub = new TextWatcher() { // from class: com.baidu.tieba.im.groupActivity.a.5
+        this.dAA = new TextWatcher() { // from class: com.baidu.tieba.im.groupActivity.a.5
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (a.this.eKE.getText().length() > 0) {
-                    a.this.eKF.setVisibility(0);
-                    a.this.eKG.setEnabled(true);
+                if (a.this.eRt.getText().length() > 0) {
+                    a.this.eRu.setVisibility(0);
+                    a.this.eRv.setEnabled(true);
                     return;
                 }
-                a.this.eKF.setVisibility(8);
-                a.this.eKG.setEnabled(false);
+                a.this.eRu.setVisibility(8);
+                a.this.eRv.setEnabled(false);
             }
 
             @Override // android.text.TextWatcher
@@ -171,14 +171,14 @@ public class a extends c<BaseFragmentActivity> {
             public void afterTextChanged(Editable editable) {
             }
         };
-        this.eKE.addTextChangedListener(this.dub);
-        this.eKO = new TextWatcher() { // from class: com.baidu.tieba.im.groupActivity.a.6
+        this.eRt.addTextChangedListener(this.dAA);
+        this.eRD = new TextWatcher() { // from class: com.baidu.tieba.im.groupActivity.a.6
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (a.this.eKH.getText().length() > 0) {
-                    a.this.eKI.setVisibility(0);
+                if (a.this.eRw.getText().length() > 0) {
+                    a.this.eRx.setVisibility(0);
                 } else {
-                    a.this.eKI.setVisibility(8);
+                    a.this.eRx.setVisibility(8);
                 }
             }
 
@@ -190,47 +190,47 @@ public class a extends c<BaseFragmentActivity> {
             public void afterTextChanged(Editable editable) {
             }
         };
-        this.eKH.addTextChangedListener(this.eKO);
+        this.eRw.addTextChangedListener(this.eRD);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aPO() {
+    public void aRG() {
         if (this.mHour > 12) {
-            this.eKK.setText(this.eKD.getResources().getString(e.j.afternoon) + " " + (this.mHour - 12) + ":" + (this.mMinute < 10 ? "0" : "") + this.mMinute);
+            this.eRz.setText(this.eRs.getResources().getString(e.j.afternoon) + " " + (this.mHour - 12) + ":" + (this.mMinute < 10 ? "0" : "") + this.mMinute);
         } else {
-            this.eKK.setText(this.eKD.getResources().getString(e.j.morning) + " " + this.mHour + ":" + (this.mMinute < 10 ? "0" : "") + this.mMinute);
+            this.eRz.setText(this.eRs.getResources().getString(e.j.morning) + " " + this.mHour + ":" + (this.mMinute < 10 ? "0" : "") + this.mMinute);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aPP() {
-        this.eKJ.setText(this.mYear + Constants.ACCEPT_TIME_SEPARATOR_SERVER + (this.mMonth + 1) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mDay + " " + ao.m(this.mYear, this.mMonth, this.mDay));
+    public void aRH() {
+        this.eRy.setText(this.mYear + Constants.ACCEPT_TIME_SEPARATOR_SERVER + (this.mMonth + 1) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mDay + " " + ao.m(this.mYear, this.mMonth, this.mDay));
     }
 
     @Override // com.baidu.adp.base.c
     public void destroy() {
-        this.eKE.removeTextChangedListener(this.dub);
-        this.eKH.removeTextChangedListener(this.eKO);
+        this.eRt.removeTextChangedListener(this.dAA);
+        this.eRw.removeTextChangedListener(this.eRD);
     }
 
-    public View aPQ() {
-        return this.eAV;
+    public View aRI() {
+        return this.eHK;
     }
 
-    public TextView aPR() {
-        return this.eKG;
+    public TextView aRJ() {
+        return this.eRv;
     }
 
     public String getTitle() {
-        return this.eKE.getText().toString();
+        return this.eRt.getText().toString();
     }
 
-    public String aPS() {
-        return this.eKH.getText().toString();
+    public String aRK() {
+        return this.eRw.getText().toString();
     }
 
     public String getContent() {
-        return this.eKN.getText().toString();
+        return this.eRC.getText().toString();
     }
 
     public long getTime() {
@@ -242,15 +242,15 @@ public class a extends c<BaseFragmentActivity> {
     }
 
     public void setTitle(String str) {
-        this.eKE.setText(str);
+        this.eRt.setText(str);
     }
 
     public void setContent(String str) {
-        this.eKN.setText(str);
+        this.eRC.setText(str);
     }
 
-    public void pF(String str) {
-        this.eKH.setText(str);
+    public void qh(String str) {
+        this.eRw.setText(str);
     }
 
     public void setTime(long j) {
@@ -260,35 +260,35 @@ public class a extends c<BaseFragmentActivity> {
         this.mDay = date.getDate();
         this.mHour = date.getHours();
         this.mMinute = date.getMinutes();
-        aPP();
-        aPO();
+        aRH();
+        aRG();
     }
 
     public void onChangeSkinType(int i) {
-        this.eKD.getLayoutMode().setNightMode(i == 1);
-        this.eKD.getLayoutMode().onModeChanged(this.mParent);
-        this.mNavigationBar.onChangeSkinType(this.eKD.getPageContext(), i);
-        this.eKG.setTextColor(al.getColor(e.d.cp_cont_f));
+        this.eRs.getLayoutMode().setNightMode(i == 1);
+        this.eRs.getLayoutMode().onModeChanged(this.mParent);
+        this.mNavigationBar.onChangeSkinType(this.eRs.getPageContext(), i);
+        this.eRv.setTextColor(al.getColor(e.d.cp_cont_f));
     }
 
     public void a(GroupActivityData groupActivityData, boolean z) {
         if (z) {
-            this.eKG.setText(this.eKD.getPageContext().getContext().getString(e.j.done));
+            this.eRv.setText(this.eRs.getPageContext().getContext().getString(e.j.done));
             this.mNavigationBar.setTitleText(e.j.group_activity_edit_title);
             if (groupActivityData != null) {
                 setContent(groupActivityData.getgActivityContent());
                 setTitle(groupActivityData.getgActivityTitle());
                 setTime(groupActivityData.getgActivityTime());
-                pF(groupActivityData.getgActivityArea());
+                qh(groupActivityData.getgActivityArea());
                 return;
             }
             return;
         }
-        this.eKG.setText(this.eKD.getPageContext().getContext().getString(e.j.group_activity_create_btntext));
+        this.eRv.setText(this.eRs.getPageContext().getContext().getString(e.j.group_activity_create_btntext));
         this.mNavigationBar.setTitleText(e.j.group_activity_create);
     }
 
-    public boolean aPT() {
-        return this.eKP;
+    public boolean aRL() {
+        return this.eRE;
     }
 }

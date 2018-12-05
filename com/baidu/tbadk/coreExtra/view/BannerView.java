@@ -20,27 +20,27 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.recapp.s;
 /* loaded from: classes.dex */
 public class BannerView extends RelativeLayout {
-    private String aPo;
-    private String aPp;
-    protected Button aPq;
-    protected TbImageView aPr;
-    private TbImageView aPs;
-    private View aPt;
-    private boolean aPu;
-    private float aPv;
-    private boolean aPw;
-    private v aPx;
-    private a aPy;
-    View.OnClickListener aPz;
+    private String aSN;
+    private String aSO;
+    protected Button aSP;
+    protected TbImageView aSQ;
+    private TbImageView aSR;
+    private View aSS;
+    private boolean aST;
+    private float aSU;
+    private boolean aSV;
+    private v aSW;
+    private a aSX;
+    View.OnClickListener aSY;
     private String link;
     private TbPageContext<?> mContext;
     private String type;
 
     /* loaded from: classes.dex */
     public interface a {
-        void Jk();
+        void Ko();
 
-        void Jl();
+        void Kp();
     }
 
     public void setBannerType(String str) {
@@ -48,45 +48,45 @@ public class BannerView extends RelativeLayout {
     }
 
     public void setBannerData(v vVar) {
-        this.aPx = vVar;
-        s.a(this.aPx.anH, this.aPs, this.aPx.anI, l.h(getContext(), e.C0200e.ds26));
+        this.aSW = vVar;
+        s.a(this.aSW.ari, this.aSR, this.aSW.arj, l.h(getContext(), e.C0210e.ds26));
     }
 
     public void setMtjInfo(String str, String str2) {
         if (str != null && str2 != null) {
-            this.aPo = str;
-            this.aPp = str2;
+            this.aSN = str;
+            this.aSO = str2;
         }
     }
 
     public BannerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aPo = "";
-        this.aPp = "";
-        this.aPu = false;
-        this.aPv = 0.16875f;
-        this.aPw = false;
-        this.aPz = new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.BannerView.1
+        this.aSN = "";
+        this.aSO = "";
+        this.aST = false;
+        this.aSU = 0.16875f;
+        this.aSV = false;
+        this.aSY = new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.BannerView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == BannerView.this.aPq) {
-                    if (!TextUtils.isEmpty(BannerView.this.aPp)) {
-                        TiebaStatic.log(BannerView.this.aPp);
+                if (view == BannerView.this.aSP) {
+                    if (!TextUtils.isEmpty(BannerView.this.aSO)) {
+                        TiebaStatic.log(BannerView.this.aSO);
                     }
-                    BannerView.this.aPu = true;
+                    BannerView.this.aST = true;
                     BannerView.this.setVisibility(8);
-                    if (BannerView.this.aPy != null) {
-                        BannerView.this.aPy.Jl();
+                    if (BannerView.this.aSX != null) {
+                        BannerView.this.aSX.Kp();
                         return;
                     }
                     return;
                 }
-                if (!TextUtils.isEmpty(BannerView.this.aPo)) {
-                    TiebaStatic.log(BannerView.this.aPo);
+                if (!TextUtils.isEmpty(BannerView.this.aSN)) {
+                    TiebaStatic.log(BannerView.this.aSN);
                 }
-                if (BannerView.this.aPy == null) {
+                if (BannerView.this.aSX == null) {
                     if (!TextUtils.isEmpty(BannerView.this.link)) {
-                        ay.Db().c(BannerView.this.mContext, new String[]{BannerView.this.link});
+                        ay.Ef().c(BannerView.this.mContext, new String[]{BannerView.this.link});
                         if (!BannerView.this.link.startsWith("game:detail:") || !"frs_banner".equals(BannerView.this.type)) {
                             if (BannerView.this.link.startsWith("game:detail:") && "enterforum_banner".equals(BannerView.this.type)) {
                                 TiebaStatic.eventStat(BannerView.this.mContext.getPageActivity(), "enterforum_banner", AiAppsUBCStatistic.TYPE_CLICK, 1, "ref_id", "4000401", "ref_type", "603");
@@ -99,7 +99,7 @@ public class BannerView extends RelativeLayout {
                     }
                     return;
                 }
-                BannerView.this.aPy.Jk();
+                BannerView.this.aSX.Ko();
             }
         };
         init(context);
@@ -111,41 +111,41 @@ public class BannerView extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(e.h.bannerview, this);
-        this.aPq = (Button) findViewById(e.g.btn_close);
-        this.aPq.setOnClickListener(this.aPz);
-        this.aPr = (TbImageView) findViewById(e.g.banner_image);
-        this.aPr.setAutoChangeStyle(true);
-        this.aPr.setOnClickListener(this.aPz);
-        this.aPs = (TbImageView) findViewById(e.g.tv_advert);
-        this.aPt = findViewById(e.g.banner_mask);
-        al.j(this.aPt, e.d.black_alpha0);
+        this.aSP = (Button) findViewById(e.g.btn_close);
+        this.aSP.setOnClickListener(this.aSY);
+        this.aSQ = (TbImageView) findViewById(e.g.banner_image);
+        this.aSQ.setAutoChangeStyle(true);
+        this.aSQ.setOnClickListener(this.aSY);
+        this.aSR = (TbImageView) findViewById(e.g.tv_advert);
+        this.aSS = findViewById(e.g.banner_mask);
+        al.j(this.aSS, e.d.black_alpha0);
     }
 
     public void setBannerViewEvent(TbImageView.a aVar) {
-        if (this.aPr != null && aVar != null) {
-            this.aPr.setEvent(aVar);
+        if (this.aSQ != null && aVar != null) {
+            this.aSQ.setEvent(aVar);
         }
     }
 
     public void setTagViewVisible(boolean z) {
         if (z) {
-            this.aPs.setVisibility(0);
+            this.aSR.setVisibility(0);
         } else {
-            this.aPs.setVisibility(8);
+            this.aSR.setVisibility(8);
         }
     }
 
     public void setData(TbPageContext<?> tbPageContext, String str, String str2) {
         this.mContext = tbPageContext;
         this.link = str2;
-        this.aPw = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
+        this.aSV = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
         setVisibility(8);
-        if (!this.aPu && this.aPw) {
-            ViewGroup.LayoutParams layoutParams = this.aPr.getLayoutParams();
+        if (!this.aST && this.aSV) {
+            ViewGroup.LayoutParams layoutParams = this.aSQ.getLayoutParams();
             layoutParams.width = l.aO(getContext());
-            layoutParams.height = (int) ((l.aO(getContext()) * this.aPv) + 0.5d);
-            this.aPr.setLayoutParams(layoutParams);
-            this.aPr.startLoad(str, 10, 640, 108, false);
+            layoutParams.height = (int) ((l.aO(getContext()) * this.aSU) + 0.5d);
+            this.aSQ.setLayoutParams(layoutParams);
+            this.aSQ.startLoad(str, 10, 640, 108, false);
             ViewGroup.LayoutParams layoutParams2 = getLayoutParams();
             if (layoutParams2 != null) {
                 layoutParams2.height = layoutParams.height;
@@ -160,27 +160,27 @@ public class BannerView extends RelativeLayout {
     }
 
     public void setBannerViewClickListener(a aVar) {
-        this.aPy = aVar;
+        this.aSX = aVar;
     }
 
     public void setBannerMaskColor(int i) {
-        this.aPt.setBackgroundColor(i);
+        this.aSS.setBackgroundColor(i);
     }
 
-    public boolean Ji() {
-        return this.aPw;
+    public boolean Km() {
+        return this.aSV;
     }
 
     public TbImageView getBannerView() {
-        return this.aPr;
+        return this.aSQ;
     }
 
     public void reset() {
-        this.aPu = false;
-        this.aPw = false;
+        this.aST = false;
+        this.aSV = false;
     }
 
-    public void Jj() {
-        this.aPr.postInvalidate();
+    public void Kn() {
+        this.aSQ.postInvalidate();
     }
 }

@@ -34,7 +34,7 @@ public class k implements SensorEventListener {
         }
     }
 
-    public static k tl() {
+    public static k tk() {
         k kVar;
         synchronized (a) {
             if (adS == null) {

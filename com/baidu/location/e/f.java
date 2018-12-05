@@ -60,9 +60,9 @@ public class f {
                     @Override // java.lang.Runnable
                     public void run() {
                         f.this.s();
-                        j.tj().i();
+                        j.ti().i();
                         if (System.currentTimeMillis() - n.b() <= 5000) {
-                            q.tt().c();
+                            q.ts().c();
                         }
                     }
                 });
@@ -178,7 +178,7 @@ public class f {
         }
     }
 
-    public static synchronized f tR() {
+    public static synchronized f tQ() {
         f fVar;
         synchronized (f.class) {
             if (afG == null) {
@@ -316,13 +316,13 @@ public class f {
 
     public String m() {
         StringBuffer stringBuffer = new StringBuffer();
-        WifiInfo tS = tR().tS();
-        if (tS == null || tS.getBSSID() == null) {
+        WifiInfo tR = tQ().tR();
+        if (tR == null || tR.getBSSID() == null) {
             return null;
         }
-        String replace = tS.getBSSID().replace(":", "");
-        int rssi = tS.getRssi();
-        String n = tR().n();
+        String replace = tR.getBSSID().replace(":", "");
+        int rssi = tR.getRssi();
+        String n = tQ().n();
         if (rssi < 0) {
             rssi = -rssi;
         }
@@ -333,7 +333,7 @@ public class f {
         stringBuffer.append(replace);
         stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         stringBuffer.append("" + rssi + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-        String ssid = tS.getSSID();
+        String ssid = tR.getSSID();
         if (ssid != null && (ssid.contains(ETAG.ITEM_SEPARATOR) || ssid.contains(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR))) {
             ssid = ssid.replace(ETAG.ITEM_SEPARATOR, BaseRequestAction.SPLITE);
         }
@@ -368,7 +368,7 @@ public class f {
         }
     }
 
-    public WifiInfo tS() {
+    public WifiInfo tR() {
         if (this.kr == null) {
             return null;
         }
@@ -395,15 +395,15 @@ public class f {
         }
     }
 
+    public e tS() {
+        return (this.afI == null || !this.afI.j()) ? tU() : this.afI;
+    }
+
     public e tT() {
-        return (this.afI == null || !this.afI.j()) ? tV() : this.afI;
+        return (this.afI == null || !this.afI.k()) ? tU() : this.afI;
     }
 
     public e tU() {
-        return (this.afI == null || !this.afI.k()) ? tV() : this.afI;
-    }
-
-    public e tV() {
         if (this.kr != null) {
             try {
                 return new e(this.kr.getScanResults(), this.f);

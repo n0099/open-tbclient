@@ -18,7 +18,7 @@ public class a {
         }
     }
 
-    public static boolean qx(int i) {
+    public static boolean qR(int i) {
         if (i == Integer.MAX_VALUE) {
             return true;
         }

@@ -37,7 +37,7 @@ public final class p {
         }
     }
 
-    public static int rp() {
+    public static int ro() {
         if (new File("/system/bin/su").exists() && c("/system/bin/su")) {
             return 1;
         }

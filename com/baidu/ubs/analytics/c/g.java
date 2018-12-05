@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public final class g {
     private static int aY = 0;
 
-    static /* synthetic */ int rs() {
+    static /* synthetic */ int rr() {
         int i = aY;
         aY = i + 1;
         return i;
@@ -56,14 +56,14 @@ public final class g {
             }
             int i11 = (i5 ^ (i5 >>> 13)) * 1540483477;
             if (Math.abs((i11 ^ (i11 >>> 15)) % 1000) >= h) {
-                com.baidu.ubs.analytics.a.oL(false);
+                com.baidu.ubs.analytics.a.oN(false);
                 return;
             }
         }
-        com.baidu.ubs.analytics.d.bPD().a(cVar.b());
-        com.baidu.ubs.analytics.a.oL(true);
+        com.baidu.ubs.analytics.d.bRJ().a(cVar.b());
+        com.baidu.ubs.analytics.a.oN(true);
         com.baidu.ubs.analytics.d.j.c(cVar.c());
-        com.baidu.ubs.analytics.d.b.xY(com.baidu.ubs.analytics.d.a.u() + "-进行一次 初始化   " + new Date().toLocaleString() + "  " + f(cVar.b()));
+        com.baidu.ubs.analytics.d.b.yB(com.baidu.ubs.analytics.d.a.u() + "-进行一次 初始化   " + new Date().toLocaleString() + "  " + f(cVar.b()));
         f.a(cVar.d());
         f.b(cVar.e());
         f.b(cVar.g());
@@ -74,32 +74,32 @@ public final class g {
             @Override // com.baidu.ubs.analytics.d.d
             protected final void a() {
                 g.g(b);
-                if (com.baidu.ubs.analytics.d.bPD().k() != null && !com.baidu.ubs.analytics.d.bPD().k().equals("")) {
-                    com.baidu.ubs.analytics.d.j.yf("BaiDuAB sdk  init success");
+                if (com.baidu.ubs.analytics.d.bRJ().k() != null && !com.baidu.ubs.analytics.d.bRJ().k().equals("")) {
+                    com.baidu.ubs.analytics.d.j.yI("BaiDuAB sdk  init success");
                 } else {
-                    String d = g.d(com.baidu.ubs.analytics.d.bPD().getContext());
+                    String d = g.d(com.baidu.ubs.analytics.d.bRJ().getContext());
                     if (d == null || d.equals("")) {
-                        com.baidu.ubs.analytics.d.j.xY("SDK getToken Error do you have set correct  BAIDUAB_APPKEY in Manifest or network is available");
+                        com.baidu.ubs.analytics.d.j.yB("SDK getToken Error do you have set correct  BAIDUAB_APPKEY in Manifest or network is available");
                         return;
                     }
                 }
                 g.af();
                 g.ae();
-                com.baidu.ubs.analytics.d.c.a(new k(), f.bPN(), f.aa());
+                com.baidu.ubs.analytics.d.c.a(new k(), f.bRT(), f.aa());
                 com.baidu.ubs.analytics.d.k.init();
             }
         });
     }
 
     public static void ae() {
-        if (TextUtils.isEmpty(com.baidu.ubs.analytics.d.bPD().l())) {
+        if (TextUtils.isEmpty(com.baidu.ubs.analytics.d.bRJ().l())) {
             af();
         }
-        if (!TextUtils.isEmpty(com.baidu.ubs.analytics.d.bPD().l())) {
+        if (!TextUtils.isEmpty(com.baidu.ubs.analytics.d.bRJ().l())) {
             HashMap hashMap = new HashMap();
-            hashMap.put("package", com.baidu.ubs.analytics.d.bPD().getContext().getPackageName());
-            hashMap.put("cuid", com.baidu.ubs.analytics.d.bPD().l());
-            com.baidu.ubs.analytics.b.b.a(com.baidu.ubs.analytics.b.b.g("http://absample.baidu.com/appabapp/appapi/getgroup", hashMap), new b.a<JSONArray>() { // from class: com.baidu.ubs.analytics.c.g.1
+            hashMap.put("package", com.baidu.ubs.analytics.d.bRJ().getContext().getPackageName());
+            hashMap.put("cuid", com.baidu.ubs.analytics.d.bRJ().l());
+            com.baidu.ubs.analytics.b.b.a(com.baidu.ubs.analytics.b.b.h("http://absample.baidu.com/appabapp/appapi/getgroup", hashMap), new b.a<JSONArray>() { // from class: com.baidu.ubs.analytics.c.g.1
                 /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
                 @Override // com.baidu.ubs.analytics.b.b.a
                 public final /* synthetic */ void a(JSONArray jSONArray) {
@@ -118,15 +118,15 @@ public final class g {
                         stringBuffer.append(gVar.getId());
                         arrayList.add(gVar);
                     }
-                    com.baidu.ubs.analytics.d.bPD().a(arrayList);
-                    g.xW(stringBuffer.toString());
+                    com.baidu.ubs.analytics.d.bRJ().a(arrayList);
+                    g.yz(stringBuffer.toString());
                 }
 
                 @Override // com.baidu.ubs.analytics.b.b.a
-                public final void xV(String str) {
+                public final void yy(String str) {
                     while (g.aY < 2) {
                         synchronized (this) {
-                            g.rs();
+                            g.rr();
                         }
                         g.ae();
                     }
@@ -141,7 +141,7 @@ public final class g {
         HashMap hashMap = new HashMap();
         hashMap.put(RimArmor.KEY, e);
         hashMap.put("package", context.getPackageName());
-        com.baidu.ubs.analytics.b.b.a(com.baidu.ubs.analytics.b.b.g("http://absample.baidu.com/appabapp/appapi/gettoken", hashMap), new b.a<JSONObject>() { // from class: com.baidu.ubs.analytics.c.g.3
+        com.baidu.ubs.analytics.b.b.a(com.baidu.ubs.analytics.b.b.h("http://absample.baidu.com/appabapp/appapi/gettoken", hashMap), new b.a<JSONObject>() { // from class: com.baidu.ubs.analytics.c.g.3
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
             @Override // com.baidu.ubs.analytics.b.b.a
             public final /* synthetic */ void a(JSONObject jSONObject) {
@@ -149,49 +149,49 @@ public final class g {
                 if (optString == null || optString.isEmpty()) {
                     return;
                 }
-                com.baidu.ubs.analytics.d.bPD().a(optString);
+                com.baidu.ubs.analytics.d.bRJ().a(optString);
                 com.baidu.ubs.analytics.d.e.d("token", optString);
                 com.baidu.ubs.analytics.d.e.putLong("token_update_time", currentTimeMillis);
                 com.baidu.ubs.analytics.d.e.d("lastkey", g.e(context));
             }
 
             @Override // com.baidu.ubs.analytics.b.b.a
-            public final void xV(String str) {
-                com.baidu.ubs.analytics.d.j.xY("SDK getToken Error do you have set correct  BAIDUAB_APPKEY  in Manifest   or network is available");
+            public final void yy(String str) {
+                com.baidu.ubs.analytics.d.j.yB("SDK getToken Error do you have set correct  BAIDUAB_APPKEY  in Manifest   or network is available");
             }
         });
-        return com.baidu.ubs.analytics.d.bPD().k();
+        return com.baidu.ubs.analytics.d.bRJ().k();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void af() {
         String c = com.baidu.ubs.analytics.d.e.c("cuid", "");
         if (!TextUtils.isEmpty(c)) {
-            com.baidu.ubs.analytics.d.b.xY("本地 取得  cuid~~");
-            com.baidu.ubs.analytics.d.bPD().b(c);
+            com.baidu.ubs.analytics.d.b.yB("本地 取得  cuid~~");
+            com.baidu.ubs.analytics.d.bRJ().b(c);
             return;
         }
-        com.baidu.ubs.analytics.d.b.xY("网络请求  cuid~~");
+        com.baidu.ubs.analytics.d.b.yB("网络请求  cuid~~");
         HashMap hashMap = new HashMap();
-        hashMap.put("imei", i.k(com.baidu.ubs.analytics.d.bPD().getContext()));
-        hashMap.put("mac", i.l(com.baidu.ubs.analytics.d.bPD().getContext()));
-        com.baidu.ubs.analytics.b.b.a(com.baidu.ubs.analytics.b.b.g("http://absample.baidu.com/appabapp/appapi/getcuid", hashMap), new b.a<JSONObject>() { // from class: com.baidu.ubs.analytics.c.g.4
+        hashMap.put("imei", i.k(com.baidu.ubs.analytics.d.bRJ().getContext()));
+        hashMap.put("mac", i.l(com.baidu.ubs.analytics.d.bRJ().getContext()));
+        com.baidu.ubs.analytics.b.b.a(com.baidu.ubs.analytics.b.b.h("http://absample.baidu.com/appabapp/appapi/getcuid", hashMap), new b.a<JSONObject>() { // from class: com.baidu.ubs.analytics.c.g.4
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
             @Override // com.baidu.ubs.analytics.b.b.a
             public final /* synthetic */ void a(JSONObject jSONObject) {
                 String optString = jSONObject.optString("cuid");
                 if (TextUtils.isEmpty(optString)) {
-                    com.baidu.ubs.analytics.d.bPD().b("");
+                    com.baidu.ubs.analytics.d.bRJ().b("");
                     return;
                 }
-                com.baidu.ubs.analytics.d.bPD().b(optString);
+                com.baidu.ubs.analytics.d.bRJ().b(optString);
                 com.baidu.ubs.analytics.d.e.d("cuid", optString);
             }
 
             @Override // com.baidu.ubs.analytics.b.b.a
-            public final void xV(String str) {
+            public final void yy(String str) {
                 if (str.equals("1")) {
-                    com.baidu.ubs.analytics.d.bPD().b("");
+                    com.baidu.ubs.analytics.d.bRJ().b("");
                 }
             }
         });
@@ -221,22 +221,22 @@ public final class g {
         return "unknow";
     }
 
-    static /* synthetic */ void xW(final String str) {
+    static /* synthetic */ void yz(final String str) {
         com.baidu.ubs.analytics.d.c.a(new com.baidu.ubs.analytics.d.d() { // from class: com.baidu.ubs.analytics.c.g.5
             @Override // com.baidu.ubs.analytics.d.d
             protected final void a() {
-                if (!com.baidu.ubs.analytics.d.e.ya("status_updated")) {
+                if (!com.baidu.ubs.analytics.d.e.yD("status_updated")) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("exids", str);
-                    com.baidu.ubs.analytics.b.b.a(com.baidu.ubs.analytics.b.b.g("http://absample.baidu.com/appabapp/appapi/updateStatus", hashMap), new b.a<JSONObject>() { // from class: com.baidu.ubs.analytics.c.g.5.1
+                    com.baidu.ubs.analytics.b.b.a(com.baidu.ubs.analytics.b.b.h("http://absample.baidu.com/appabapp/appapi/updateStatus", hashMap), new b.a<JSONObject>() { // from class: com.baidu.ubs.analytics.c.g.5.1
                         @Override // com.baidu.ubs.analytics.b.b.a
-                        public final void xV(String str2) {
+                        public final void yy(String str2) {
                         }
 
                         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
                         @Override // com.baidu.ubs.analytics.b.b.a
                         public final /* synthetic */ void a(JSONObject jSONObject) {
-                            com.baidu.ubs.analytics.d.e.xZ("status_updated");
+                            com.baidu.ubs.analytics.d.e.yC("status_updated");
                         }
                     });
                 }
@@ -246,11 +246,11 @@ public final class g {
 
     static /* synthetic */ String g(Context context) {
         String c = com.baidu.ubs.analytics.d.e.c("lastkey", "");
-        long yb = com.baidu.ubs.analytics.d.e.yb("token_update_time");
-        if (c.equals(e(context)) && 86400000 + yb >= System.currentTimeMillis()) {
+        long yE = com.baidu.ubs.analytics.d.e.yE("token_update_time");
+        if (c.equals(e(context)) && 86400000 + yE >= System.currentTimeMillis()) {
             String c2 = com.baidu.ubs.analytics.d.e.c("token", "");
             if (!c2.equals("")) {
-                com.baidu.ubs.analytics.d.bPD().a(c2);
+                com.baidu.ubs.analytics.d.bRJ().a(c2);
                 return c2;
             }
         }

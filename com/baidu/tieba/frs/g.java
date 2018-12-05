@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
 public class g {
     private static UserData mUserData;
 
-    public static UserData ayL() {
+    public static UserData aAv() {
         return mUserData;
     }
 
@@ -17,7 +17,7 @@ public class g {
 
     public static void a(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, com.baidu.tieba.tbadkCore.l lVar) {
         if (threadCommentAndPraiseInfoLayout != null) {
-            if (lVar != null && lVar.hdf != 303 && b(a(lVar))) {
+            if (lVar != null && lVar.hjZ != 303 && b(a(lVar))) {
                 threadCommentAndPraiseInfoLayout.setManageVisible(true);
             } else {
                 threadCommentAndPraiseInfoLayout.setManageVisible(false);
@@ -38,12 +38,12 @@ public class g {
         }
     }
 
-    public static boolean ayM() {
-        UserData ayL = ayL();
-        if (ayL == null) {
+    public static boolean aAw() {
+        UserData aAv = aAv();
+        if (aAv == null) {
             return false;
         }
-        switch (ayL.getIs_manager()) {
+        switch (aAv.getIs_manager()) {
             case 1:
                 return true;
             default:

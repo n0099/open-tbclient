@@ -15,13 +15,13 @@ public final class d implements Runnable {
     public final void run() {
         a aVar;
         aVar = a.Wu;
-        if (aVar == null || a.qQ() == null) {
+        if (aVar == null || a.qP() == null) {
             return;
         }
-        com.baidu.browser.sailor.b.a.a qQ = a.qQ();
-        if (qQ.d != null) {
-            SessionMonitorEngine.getInstance().recordImmediately("t7_init", qQ.d.toString());
-            qQ.d = null;
+        com.baidu.browser.sailor.b.a.a qP = a.qP();
+        if (qP.d != null) {
+            SessionMonitorEngine.getInstance().recordImmediately("t7_init", qP.d.toString());
+            qP.d = null;
         }
     }
 }

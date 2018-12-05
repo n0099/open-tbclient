@@ -100,11 +100,11 @@ public final class a {
         }
     }
 
-    public static boolean qV() {
+    public static boolean qU() {
         return WebKitFactory.getCurEngine() == 1;
     }
 
-    public static String qW() {
+    public static String qV() {
         int i;
         int i2;
         int i3;
@@ -156,7 +156,7 @@ public final class a {
                 }
             }
             String[] strArr2 = {"15555215554", "15555215556", "15555215558", "15555215560", "15555215562", "15555215564", "15555215566", "15555215568", "15555215570", "15555215572", "15555215574", "15555215576", "15555215578", "15555215580", "15555215582", "15555215584"};
-            TelephonyManager telephonyManager = (TelephonyManager) com.baidu.browser.sailor.a.qo().getAppContext().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            TelephonyManager telephonyManager = (TelephonyManager) com.baidu.browser.sailor.a.qn().getAppContext().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
             String line1Number = telephonyManager.getLine1Number();
             int i5 = 0;
             while (true) {
@@ -170,7 +170,7 @@ public final class a {
                     i5++;
                 }
             }
-            if (((TelephonyManager) com.baidu.browser.sailor.a.qo().getAppContext().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getNetworkOperatorName().toLowerCase().equals(HttpConstants.OS_TYPE_VALUE)) {
+            if (((TelephonyManager) com.baidu.browser.sailor.a.qn().getAppContext().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getNetworkOperatorName().toLowerCase().equals(HttpConstants.OS_TYPE_VALUE)) {
                 arrayList.add(5);
                 i2 = i + 1;
             } else {

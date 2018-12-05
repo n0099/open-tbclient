@@ -6,7 +6,7 @@ public class e {
     private e() {
     }
 
-    public static e ml() {
+    public static e mk() {
         return Je;
     }
 

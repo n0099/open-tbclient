@@ -6,55 +6,55 @@ import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tbadk.baseEditMark.a {
-    private MarkModel fAU;
+    private MarkModel fHK;
 
     public b(BaseActivity baseActivity) {
-        this.fAU = null;
-        this.fAU = new MarkModel(baseActivity);
+        this.fHK = null;
+        this.fHK = new MarkModel(baseActivity);
     }
 
     public b(BaseFragmentActivity baseFragmentActivity) {
-        this.fAU = null;
-        this.fAU = new MarkModel(baseFragmentActivity);
+        this.fHK = null;
+        this.fHK = new MarkModel(baseFragmentActivity);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void aO(boolean z) {
-        this.fAU.aO(z);
+    public void aP(boolean z) {
+        this.fHK.aP(z);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public String vl() {
-        return this.fAU.vl();
+    public String wp() {
+        return this.fHK.wp();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void a(a.InterfaceC0144a interfaceC0144a) {
-        this.fAU.a(interfaceC0144a);
+    public void a(a.InterfaceC0154a interfaceC0154a) {
+        this.fHK.a(interfaceC0154a);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void vn() {
-        this.fAU.vn();
+    public void wr() {
+        this.fHK.wr();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void vo() {
-        this.fAU.vo();
+    public void ws() {
+        this.fHK.ws();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public MarkData vp() {
-        return this.fAU.vp();
+    public MarkData wt() {
+        return this.fHK.wt();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(MarkData markData) {
-        this.fAU.a(markData);
+        this.fHK.a(markData);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public boolean vm() {
-        return this.fAU.vm();
+    public boolean wq() {
+        return this.fHK.wq();
     }
 }

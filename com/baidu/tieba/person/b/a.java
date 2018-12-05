@@ -5,12 +5,12 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.tieba.e;
 /* loaded from: classes5.dex */
 public class a extends q.a {
-    public int aIf;
-    public View gjR;
+    public int aLF;
+    public View gqH;
 
     public a(View view) {
         super(view);
-        this.aIf = -1;
-        this.gjR = view.findViewById(e.g.person_center_interval_item);
+        this.aLF = -1;
+        this.gqH = view.findViewById(e.g.person_center_interval_item);
     }
 }

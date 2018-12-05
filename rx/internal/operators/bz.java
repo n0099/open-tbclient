@@ -17,17 +17,17 @@ public final class bz<T> implements d.b<rx.schedulers.a<T>, T> {
     /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: rx.j<T>, rx.j<? super T> */
     public rx.j<? super T> call(final rx.j<? super rx.schedulers.a<T>> jVar) {
         return (rx.j<T>) new rx.j<T>(jVar) { // from class: rx.internal.operators.bz.1
-            private long iBI;
+            private long iIQ;
 
             {
-                this.iBI = bz.this.scheduler.now();
+                this.iIQ = bz.this.scheduler.now();
             }
 
             @Override // rx.e
             public void onNext(T t) {
                 long now = bz.this.scheduler.now();
-                jVar.onNext(new rx.schedulers.a(now - this.iBI, t));
-                this.iBI = now;
+                jVar.onNext(new rx.schedulers.a(now - this.iIQ, t));
+                this.iIQ = now;
             }
 
             @Override // rx.e

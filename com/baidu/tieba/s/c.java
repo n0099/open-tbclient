@@ -32,7 +32,7 @@ public class c {
         }
     }
 
-    public static byte[] dR(List<String> list) {
+    public static byte[] dV(List<String> list) {
         if (list == null) {
             return null;
         }
@@ -45,7 +45,7 @@ public class c {
         return sb.toString().getBytes();
     }
 
-    public static byte[] av(JSONObject jSONObject) {
+    public static byte[] ax(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }

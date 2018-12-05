@@ -15,7 +15,7 @@ public class y {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public static int it(String str) {
+    public static int iL(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -30,7 +30,7 @@ public class y {
         return i;
     }
 
-    public static int iu(String str) {
+    public static int iM(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -41,13 +41,13 @@ public class y {
             if (substring.length() >= 2) {
                 i += 2;
             } else {
-                i += it(substring);
+                i += iL(substring);
             }
         }
         return i;
     }
 
-    public static int iv(String str) {
+    public static int iN(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -67,7 +67,7 @@ public class y {
         String str2 = str;
         while (i2 <= codePointCount) {
             String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-            if (iv(substring) > i) {
+            if (iN(substring) > i) {
                 break;
             }
             i2++;
@@ -80,13 +80,13 @@ public class y {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (it(str) > i) {
-            return o(str, 0, i - 2) + "...";
+        if (iL(str) > i) {
+            return q(str, 0, i - 2) + "...";
         }
         return str;
     }
 
-    public static String o(String str, int i, int i2) {
+    public static String q(String str, int i, int i2) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str) || i > i2) {
             return sb.toString();
@@ -152,7 +152,7 @@ public class y {
         String str2 = str;
         while (i2 <= codePointCount) {
             String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-            if (iu(substring) > i) {
+            if (iM(substring) > i) {
                 break;
             }
             i2++;

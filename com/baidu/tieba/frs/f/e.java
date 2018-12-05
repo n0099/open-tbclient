@@ -14,30 +14,30 @@ import com.baidu.tieba.frs.view.FrsShareCardView;
 import com.baidu.tieba.tbadkCore.l;
 /* loaded from: classes6.dex */
 public class e {
-    private static ShareFromFrsMsgData f(l lVar) {
+    private static ShareFromFrsMsgData g(l lVar) {
         ShareFromFrsMsgData shareFromFrsMsgData = new ShareFromFrsMsgData();
-        shareFromFrsMsgData.setImageUrl(lVar.ber().getImage_url());
-        shareFromFrsMsgData.setName(lVar.ber().getName());
-        shareFromFrsMsgData.setMemberNum(lVar.ber().getMember_num());
-        shareFromFrsMsgData.setPostNum(lVar.ber().getPost_num());
-        shareFromFrsMsgData.setContent(lVar.ber().getSlogan());
+        shareFromFrsMsgData.setImageUrl(lVar.bgi().getImage_url());
+        shareFromFrsMsgData.setName(lVar.bgi().getName());
+        shareFromFrsMsgData.setMemberNum(lVar.bgi().getMember_num());
+        shareFromFrsMsgData.setPostNum(lVar.bgi().getPost_num());
+        shareFromFrsMsgData.setContent(lVar.bgi().getSlogan());
         return shareFromFrsMsgData;
     }
 
     public static void a(final FrsFragment frsFragment, l lVar, final long j, final String str, final long j2) {
-        if (lVar != null && lVar.ber() != null) {
-            final ShareFromFrsMsgData f = f(lVar);
+        if (lVar != null && lVar.bgi() != null) {
+            final ShareFromFrsMsgData g = g(lVar);
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(frsFragment.getPageContext().getPageActivity());
             final FrsShareCardView frsShareCardView = new FrsShareCardView(frsFragment.getPageContext().getPageActivity());
             frsShareCardView.setPageId(frsFragment.getUniqueId());
-            frsShareCardView.setData(f);
-            aVar.cP(1);
+            frsShareCardView.setData(g);
+            aVar.dd(1);
             aVar.G(frsShareCardView);
             aVar.a(e.j.share, new a.b() { // from class: com.baidu.tieba.frs.f.e.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     FrsFragment.this.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), frsShareCardView.getChatMsgView());
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(FrsFragment.this.getTbPageContext().getPageActivity(), j, str, j2, "from_share", frsShareCardView.getLeaveMsg(), f.toChatMessageContent())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(FrsFragment.this.getTbPageContext().getPageActivity(), j, str, j2, "from_share", frsShareCardView.getLeaveMsg(), g.toChatMessageContent())));
                     aVar2.dismiss();
                 }
             });
@@ -48,10 +48,10 @@ public class e {
                     aVar2.dismiss();
                 }
             });
-            aVar.bf(true);
-            aVar.b(frsFragment.getPageContext()).AB();
-            if (!k.isEmpty(f.getImageUrl())) {
-                frsShareCardView.L(f.getImageUrl(), false);
+            aVar.bg(true);
+            aVar.b(frsFragment.getPageContext()).BF();
+            if (!k.isEmpty(g.getImageUrl())) {
+                frsShareCardView.N(g.getImageUrl(), false);
             }
         }
     }

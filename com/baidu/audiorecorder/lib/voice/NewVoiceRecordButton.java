@@ -46,7 +46,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
         this.SX = (RecordingAnimView) findViewById(e.g.record_anim_view);
         this.SX.setCertainColumnCount(8);
         this.SX.setColumnColor(e.d.cp_cont_g);
-        this.SX.setColumnWidth(getResources().getDimensionPixelSize(e.C0200e.ds4));
+        this.SX.setColumnWidth(getResources().getDimensionPixelSize(e.C0210e.ds4));
         this.SY = (TextView) findViewById(e.g.tv_duration);
         this.SZ = (TextView) findViewById(e.g.tv_tip);
         this.SV.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton.1
@@ -64,7 +64,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
                             NewVoiceRecordButton.this.stopRecord();
                             return true;
                         }
-                        NewVoiceRecordButton.this.pN();
+                        NewVoiceRecordButton.this.pM();
                         return true;
                     default:
                         return true;
@@ -78,10 +78,10 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pN() {
+    public void pM() {
         if (this.Td == null) {
             this.Td = new com.baidu.tbadk.core.dialog.a(i.aK(getContext()).getPageActivity());
-            this.Td.ej(getContext().getString(e.j.voice_restart_tip)).a(getContext().getString(e.j.voice_restart), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton.3
+            this.Td.eB(getContext().getString(e.j.voice_restart_tip)).a(getContext().getString(e.j.voice_restart), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
@@ -94,7 +94,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
                 }
             }).b(i.aK(getContext()));
         }
-        this.Td.AB();
+        this.Td.BF();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -103,7 +103,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
             if (this.mPermissionJudgePolicy == null) {
                 this.mPermissionJudgePolicy = new com.baidu.tbadk.core.util.b.a();
             }
-            this.mPermissionJudgePolicy.Dp();
+            this.mPermissionJudgePolicy.Et();
             this.mPermissionJudgePolicy.c((Activity) getContext(), "android.permission.WRITE_EXTERNAL_STORAGE");
             this.mPermissionJudgePolicy.c((Activity) getContext(), "android.permission.RECORD_AUDIO");
             if (this.mPermissionJudgePolicy.A((Activity) getContext())) {
@@ -114,7 +114,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
             com.baidu.tbadk.core.voice.a.bo(com.baidu.tbadk.core.voice.a.getVoiceFilePath(this.mModel.voiceId));
         }
         com.baidu.tieba.tbadkCore.voice.a recorderManager = getRecorderManager();
-        if (recorderManager != null && recorderManager.pR()) {
+        if (recorderManager != null && recorderManager.pQ()) {
             this.Tc = recorderManager.a(this, -1);
             this.SY.setVisibility(0);
         }
@@ -123,7 +123,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
     /* JADX INFO: Access modifiers changed from: private */
     public void stopRecord() {
         this.SW.setVisibility(0);
-        this.SX.pU();
+        this.SX.pT();
         this.SX.setVisibility(4);
         this.SZ.setText(getResources().getText(e.j.voice_record_press_to_record));
         this.SY.setVisibility(4);
@@ -244,7 +244,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
     }
 
     @Override // com.baidu.tbadk.editortools.l
-    public void pO() {
+    public void pN() {
         setVisibility(0);
     }
 

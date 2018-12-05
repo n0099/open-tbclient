@@ -140,7 +140,7 @@ public class b implements com.baidu.b.a.b.c.b {
                 }
             }
         }
-        com.baidu.b.a.h.g.sk().a(this.ZX.KC, this.ZX.errMsg, this.ZX.channelId, this.ZX.packageName, this.ZX.Zn, this.ZX.downloadUrl, "", 0, this.mRetryCount);
+        com.baidu.b.a.h.g.sj().a(this.ZX.KC, this.ZX.errMsg, this.ZX.channelId, this.ZX.packageName, this.ZX.Zn, this.ZX.downloadUrl, "", 0, this.mRetryCount);
     }
 
     @Override // com.baidu.b.a.b.c.b
@@ -160,7 +160,7 @@ public class b implements com.baidu.b.a.b.c.b {
                 }
             }
         }
-        com.baidu.b.a.h.g.sk().a(this.ZX.KC, this.ZX.errMsg, this.ZX.channelId, this.ZX.packageName, this.ZX.Zn, this.ZX.downloadUrl, "", 0, this.mRetryCount);
+        com.baidu.b.a.h.g.sj().a(this.ZX.KC, this.ZX.errMsg, this.ZX.channelId, this.ZX.packageName, this.ZX.Zn, this.ZX.downloadUrl, "", 0, this.mRetryCount);
     }
 
     @Override // com.baidu.b.a.b.c.b
@@ -180,7 +180,7 @@ public class b implements com.baidu.b.a.b.c.b {
                 }
             }
         }
-        com.baidu.b.a.h.g.sk().a(this.ZX.KC, this.ZX.errMsg, this.ZX.channelId, this.ZX.packageName, this.ZX.Zn, this.ZX.downloadUrl, "", 0, this.mRetryCount);
+        com.baidu.b.a.h.g.sj().a(this.ZX.KC, this.ZX.errMsg, this.ZX.channelId, this.ZX.packageName, this.ZX.Zn, this.ZX.downloadUrl, "", 0, this.mRetryCount);
     }
 
     @Override // com.baidu.b.a.b.c.b
@@ -200,7 +200,7 @@ public class b implements com.baidu.b.a.b.c.b {
                 }
             }
         }
-        com.baidu.b.a.h.g.sk().a(aVar2.KC, aVar2.errMsg, aVar2.channelId, aVar2.packageName, aVar2.Zn, aVar2.downloadUrl, "", 0, this.mRetryCount);
+        com.baidu.b.a.h.g.sj().a(aVar2.KC, aVar2.errMsg, aVar2.channelId, aVar2.packageName, aVar2.Zn, aVar2.downloadUrl, "", 0, this.mRetryCount);
     }
 
     @Override // com.baidu.b.a.b.c.b

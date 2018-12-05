@@ -14,14 +14,14 @@ import java.util.concurrent.Future;
 import okhttp3.internal.http.StatusLine;
 /* loaded from: classes2.dex */
 public class t extends c<s> {
-    private final ExecutorService hTY;
+    private final ExecutorService ibi;
 
     public t() {
         this(Executors.newFixedThreadPool(3));
     }
 
     t(ExecutorService executorService) {
-        this.hTY = executorService;
+        this.ibi = executorService;
     }
 
     @Override // com.facebook.imagepipeline.producers.af
@@ -31,17 +31,17 @@ public class t extends c<s> {
 
     @Override // com.facebook.imagepipeline.producers.af
     public void a(final s sVar, final af.a aVar) {
-        final Future<?> submit = this.hTY.submit(new Runnable() { // from class: com.facebook.imagepipeline.producers.t.1
+        final Future<?> submit = this.ibi.submit(new Runnable() { // from class: com.facebook.imagepipeline.producers.t.1
             @Override // java.lang.Runnable
             public void run() {
                 t.this.b(sVar, aVar);
             }
         });
-        sVar.bWZ().a(new e() { // from class: com.facebook.imagepipeline.producers.t.2
+        sVar.bZf().a(new e() { // from class: com.facebook.imagepipeline.producers.t.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-            public void bWS() {
+            public void bYY() {
                 if (submit.cancel(false)) {
-                    aVar.bQT();
+                    aVar.bSZ();
                 }
             }
         });
@@ -127,12 +127,12 @@ public class t extends c<s> {
     }
 
     private HttpURLConnection b(Uri uri, int i) throws IOException {
-        HttpURLConnection A = A(uri);
-        int responseCode = A.getResponseCode();
-        if (!yn(responseCode)) {
-            if (yo(responseCode)) {
-                String headerField = A.getHeaderField("Location");
-                A.disconnect();
+        HttpURLConnection B = B(uri);
+        int responseCode = B.getResponseCode();
+        if (!yK(responseCode)) {
+            if (yL(responseCode)) {
+                String headerField = B.getHeaderField("Location");
+                B.disconnect();
                 Uri parse = headerField == null ? null : Uri.parse(headerField);
                 String scheme = uri.getScheme();
                 if (i > 0 && parse != null && !parse.getScheme().equals(scheme)) {
@@ -140,21 +140,21 @@ public class t extends c<s> {
                 }
                 throw new IOException(i == 0 ? n("URL %s follows too many redirects", uri.toString()) : n("URL %s returned %d without a valid redirect", uri.toString(), Integer.valueOf(responseCode)));
             }
-            A.disconnect();
+            B.disconnect();
             throw new IOException(String.format("Image URL %s returned HTTP code %d", uri.toString(), Integer.valueOf(responseCode)));
         }
-        return A;
+        return B;
     }
 
-    static HttpURLConnection A(Uri uri) throws IOException {
+    static HttpURLConnection B(Uri uri) throws IOException {
         return (HttpURLConnection) new URL(uri.toString()).openConnection();
     }
 
-    private static boolean yn(int i) {
+    private static boolean yK(int i) {
         return i >= 200 && i < 300;
     }
 
-    private static boolean yo(int i) {
+    private static boolean yL(int i) {
         switch (i) {
             case 300:
             case 301:

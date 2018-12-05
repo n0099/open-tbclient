@@ -5,21 +5,21 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tieba.animation3d.b.a {
-    private int cKc;
-    private a cKd;
+    private int cQJ;
+    private a cQK;
     private Handler mHandler;
     private float mRadius;
 
     /* loaded from: classes.dex */
     public interface a {
-        void fj(boolean z);
+        void fk(boolean z);
     }
 
     public c(Context context) {
         super(context);
         this.mRadius = 0.0f;
-        this.cKc = 1;
-        this.cKd = null;
+        this.cQJ = 1;
+        this.cQK = null;
         initHandler();
     }
 
@@ -29,14 +29,14 @@ public class c extends com.baidu.tieba.animation3d.b.a {
             public boolean handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (c.this.cKd != null) {
-                            c.this.cKd.fj(true);
+                        if (c.this.cQK != null) {
+                            c.this.cQK.fk(true);
                             return true;
                         }
                         return true;
                     case 2:
-                        if (c.this.cKd != null) {
-                            c.this.cKd.fj(false);
+                        if (c.this.cQK != null) {
+                            c.this.cQK.fk(false);
                             return true;
                         }
                         return true;
@@ -49,30 +49,30 @@ public class c extends com.baidu.tieba.animation3d.b.a {
 
     public void setRotateRadius(float f) {
         this.mRadius = f;
-        this.cJS = this.mRadius;
-        this.cJR = this.mRadius;
+        this.cQz = this.mRadius;
+        this.cQy = this.mRadius;
     }
 
-    private void amS() {
+    private void aoE() {
         this.mHandler.removeMessages(1);
         this.mHandler.removeMessages(2);
     }
 
     public int getViewStatus() {
-        return this.cKc;
+        return this.cQJ;
     }
 
     @Override // com.baidu.tieba.animation3d.b.a
-    public void Dm() {
-        super.Dm();
-        this.cJS = this.mRadius;
-        this.cJR = this.mRadius;
-        this.cKc = 1;
-        amS();
+    public void Eq() {
+        super.Eq();
+        this.cQz = this.mRadius;
+        this.cQy = this.mRadius;
+        this.cQJ = 1;
+        aoE();
         this.mHandler.sendEmptyMessage(1);
     }
 
     public void setWriteEndCallBack(a aVar) {
-        this.cKd = aVar;
+        this.cQK = aVar;
     }
 }

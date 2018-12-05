@@ -26,7 +26,7 @@ public class c {
     private int JH = 0;
     private int JI = 0;
 
-    public static c mr() {
+    public static c mq() {
         if (JJ == null) {
             synchronized (c.class) {
                 if (JJ == null) {

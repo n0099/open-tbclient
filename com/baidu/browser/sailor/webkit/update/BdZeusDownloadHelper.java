@@ -54,7 +54,7 @@ public final class BdZeusDownloadHelper implements BdSailorClient.a {
         return WU;
     }
 
-    public static void rd() {
+    public static void rc() {
         try {
             File file = new File(Xa);
             if (!file.exists() || file.delete()) {
@@ -72,13 +72,13 @@ public final class BdZeusDownloadHelper implements BdSailorClient.a {
         }
         this.mDownloadUrl = str;
         this.WW = str2;
-        if (TextUtils.isEmpty(re())) {
+        if (TextUtils.isEmpty(rd())) {
             cF(new StringBuilder().append(System.currentTimeMillis()).toString());
         }
         try {
-            BdSailorClient qt = com.baidu.browser.sailor.a.qo().qt();
-            if (qt != null) {
-                qt.a(this.mDownloadUrl, "", WZ, "updateZeus.zes", BdSailorClient.DownloadTaskType.ZEUS, this);
+            BdSailorClient qs = com.baidu.browser.sailor.a.qn().qs();
+            if (qs != null) {
+                qs.a(this.mDownloadUrl, "", WZ, "updateZeus.zes", BdSailorClient.DownloadTaskType.ZEUS, this);
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -157,10 +157,10 @@ public final class BdZeusDownloadHelper implements BdSailorClient.a {
             }
             Log.d(EngineManager.LOG_TAG, " begine install");
             if (WebKitFactory.getCurEngine() != 1) {
-                com.baidu.browser.sailor.b.a.qQ().b("download-webkit-end", String.valueOf(System.currentTimeMillis()));
-                com.baidu.browser.sailor.b.a.qQ().a();
+                com.baidu.browser.sailor.b.a.qP().b("download-webkit-end", String.valueOf(System.currentTimeMillis()));
+                com.baidu.browser.sailor.b.a.qP().a();
             }
-            com.baidu.browser.sailor.b.a.qR().cE(Xa);
+            com.baidu.browser.sailor.b.a.qQ().cE(Xa);
         }
     }
 
@@ -171,7 +171,7 @@ public final class BdZeusDownloadHelper implements BdSailorClient.a {
         this.WV = a.a;
     }
 
-    public final String re() {
+    public final String rd() {
         return this.mContext.getSharedPreferences(Xb, 0).getString("zeus_download_id", "");
     }
 }

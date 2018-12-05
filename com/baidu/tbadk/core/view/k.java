@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.af;
 /* loaded from: classes.dex */
 public class k extends j {
-    protected boolean aFs;
-    private CustomMessageListener aFt;
+    protected boolean aIS;
+    private CustomMessageListener aIT;
     protected boolean isDone;
     private CustomMessageListener listener;
 
@@ -23,15 +23,15 @@ public class k extends j {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (k.this.isDone) {
-                    k.this.ek(TbadkCoreApplication.getInst().getSkinType());
+                    k.this.ey(TbadkCoreApplication.getInst().getSkinType());
                 }
             }
         };
-        this.aFt = new CustomMessageListener(2016204) { // from class: com.baidu.tbadk.core.view.k.2
+        this.aIT = new CustomMessageListener(2016204) { // from class: com.baidu.tbadk.core.view.k.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                k.this.aFc.setBackgroundColor(af.Ct().du(TbadkCoreApplication.getInst().getSkinType()));
+                k.this.aIC.setBackgroundColor(af.Dx().dI(TbadkCoreApplication.getInst().getSkinType()));
             }
         };
         c(tbPageContext);
@@ -39,7 +39,7 @@ public class k extends j {
 
     @Override // com.baidu.tbadk.core.view.j, com.baidu.adp.widget.ListView.c
     public void aw(boolean z) {
-        this.aFd.setBackgroundDrawable(null);
+        this.aID.setBackgroundDrawable(null);
         super.aw(z);
         this.isDone = true;
     }
@@ -48,12 +48,12 @@ public class k extends j {
     public void av(boolean z) {
         super.av(z);
         this.isDone = false;
-        if (!this.aFs) {
+        if (!this.aIS) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (this.mSkinType != Integer.MIN_VALUE) {
                 skinType = this.mSkinType;
             }
-            ek(skinType);
+            ey(skinType);
         }
     }
 
@@ -64,47 +64,47 @@ public class k extends j {
     }
 
     @Override // com.baidu.tbadk.core.view.j
-    public void ek(int i) {
-        super.ek(i);
-        if (this.aFc != null && this.aFd != null) {
-            this.aFs = false;
-            if (!CB()) {
-                this.aFh = af.Ct().ds(i);
-                if (this.aFh != null) {
-                    this.aFs = true;
+    public void ey(int i) {
+        super.ey(i);
+        if (this.aIC != null && this.aID != null) {
+            this.aIS = false;
+            if (!DF()) {
+                this.aIH = af.Dx().dG(i);
+                if (this.aIH != null) {
+                    this.aIS = true;
                 } else {
-                    this.aFh = new AnimationDrawable();
+                    this.aIH = new AnimationDrawable();
                 }
-                this.aFc.setBackgroundColor(af.Ct().du(i));
-                if (!this.aFs) {
-                    this.aFh = af.Ct().dt(i);
+                this.aIC.setBackgroundColor(af.Dx().dI(i));
+                if (!this.aIS) {
+                    this.aIH = af.Dx().dH(i);
                 }
-                this.aFh.setOneShot(false);
-                this.aFd.setBackgroundDrawable(this.aFh);
+                this.aIH.setOneShot(false);
+                this.aID.setBackgroundDrawable(this.aIH);
             }
         }
     }
 
     private void c(TbPageContext<?> tbPageContext) {
         this.listener.setTag(tbPageContext.getUniqueId());
-        this.aFt.setTag(tbPageContext.getUniqueId());
+        this.aIT.setTag(tbPageContext.getUniqueId());
         tbPageContext.registerListener(this.listener);
-        tbPageContext.registerListener(this.aFt);
+        tbPageContext.registerListener(this.aIT);
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
         if (this.listener != null) {
             this.listener.setTag(bdUniqueId);
         }
-        if (this.aFt != null) {
-            this.aFt.setTag(bdUniqueId);
+        if (this.aIT != null) {
+            this.aIT.setTag(bdUniqueId);
         }
         MessageManager.getInstance().registerListener(this.listener);
-        MessageManager.getInstance().registerListener(this.aFt);
+        MessageManager.getInstance().registerListener(this.aIT);
     }
 
     public void release() {
         MessageManager.getInstance().unRegisterListener(this.listener);
-        MessageManager.getInstance().unRegisterListener(this.aFt);
+        MessageManager.getInstance().unRegisterListener(this.aIT);
     }
 }

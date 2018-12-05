@@ -6,9 +6,9 @@ import java.lang.reflect.Field;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class a {
-    private static Map<String, String> fnD;
+    private static Map<String, String> fuv;
 
-    public static void qO(String str) {
+    public static void rq(String str) {
         try {
             ApplicationInfo.class.getField("primaryCpuAbi").set(((PackageInfo) Class.forName("android.webkit.WebViewFactory").getMethod("getLoadedPackageInfo", new Class[0]).invoke(null, new Object[0])).applicationInfo, str);
         } catch (Exception e) {
@@ -16,16 +16,16 @@ public class a {
         }
     }
 
-    public static Map<String, String> aYn() {
-        if (fnD == null) {
+    public static Map<String, String> baf() {
+        if (fuv == null) {
             try {
                 Field declaredField = Class.forName("dalvik.system.VMRuntime").getDeclaredField("ABI_TO_INSTRUCTION_SET_MAP");
                 declaredField.setAccessible(true);
-                fnD = (Map) declaredField.get(null);
+                fuv = (Map) declaredField.get(null);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        return fnD;
+        return fuv;
     }
 }

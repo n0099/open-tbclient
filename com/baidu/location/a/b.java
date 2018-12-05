@@ -7,7 +7,7 @@ public class b {
     private static b acG = null;
     private int c = -1;
 
-    public static b td() {
+    public static b tc() {
         b bVar;
         synchronized (a) {
             if (acG == null) {
@@ -25,7 +25,7 @@ public class b {
             bundle.putInt("loctype", i);
             bundle.putInt("diagtype", i2);
             bundle.putByteArray("diagmessage", str.getBytes());
-            a.tc().a(bundle, 303);
+            a.tb().a(bundle, 303);
         }
     }
 

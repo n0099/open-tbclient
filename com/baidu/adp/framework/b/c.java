@@ -65,7 +65,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
     }
 
     public void registerListener(int i, MessageListener<N> messageListener) {
-        l.lk();
+        l.lj();
         if (messageListener != null) {
             if ((i == 0 && messageListener.getCmd() == 0) || (i != 0 && messageListener.getCmd() != 0)) {
                 throw new InvalidParameterException("registerListener cmd error");
@@ -88,7 +88,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
     }
 
     public void unRegisterListener(MessageListener<?> messageListener) {
-        l.lk();
+        l.lj();
         if (messageListener != null) {
             int cmd = messageListener.getCmd();
             if (cmd == 0) {
@@ -112,7 +112,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
     }
 
     public void unRegisterListener(BdUniqueId bdUniqueId) {
-        l.lk();
+        l.lj();
         if (bdUniqueId != null) {
             int size = this.yi.size();
             for (int i = 0; i < size; i++) {
@@ -130,7 +130,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
     }
 
     public boolean c(M m, T t) {
-        l.lk();
+        l.lj();
         if (m == null) {
             return false;
         }
@@ -178,7 +178,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
 
     public void dispatchResponsedMessage(N n) {
         BdUniqueId bdUniqueId;
-        l.lk();
+        l.lj();
         if (n != null) {
             n.setProcessTime(System.currentTimeMillis());
             int cmd = n.getCmd();

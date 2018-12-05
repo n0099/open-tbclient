@@ -4,7 +4,7 @@ import rx.d;
 import rx.internal.operators.ak;
 /* loaded from: classes2.dex */
 public final class aj<T, U> implements d.b<T, T> {
-    final rx.functions.f<? super T, ? extends rx.d<U>> ixu;
+    final rx.functions.f<? super T, ? extends rx.d<U>> iED;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -12,7 +12,7 @@ public final class aj<T, U> implements d.b<T, T> {
     }
 
     public aj(rx.functions.f<? super T, ? extends rx.d<U>> fVar) {
-        this.ixu = fVar;
+        this.iED = fVar;
     }
 
     public rx.j<? super T> call(rx.j<? super T> jVar) {
@@ -26,18 +26,18 @@ public final class aj<T, U> implements d.b<T, T> {
     /* renamed from: rx.internal.operators.aj$1  reason: invalid class name */
     /* loaded from: classes2.dex */
     public class AnonymousClass1 extends rx.j<T> {
-        final /* synthetic */ rx.subscriptions.d ivk;
-        final ak.a<T> ixv;
-        final rx.j<?> ixw;
-        final /* synthetic */ rx.b.f ixx;
+        final /* synthetic */ rx.subscriptions.d iCt;
+        final ak.a<T> iEE;
+        final rx.j<?> iEF;
+        final /* synthetic */ rx.b.f iEG;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         AnonymousClass1(rx.j jVar, rx.b.f fVar, rx.subscriptions.d dVar) {
             super(jVar);
-            this.ixx = fVar;
-            this.ivk = dVar;
-            this.ixv = new ak.a<>();
-            this.ixw = this;
+            this.iEG = fVar;
+            this.iCt = dVar;
+            this.iEE = new ak.a<>();
+            this.iEF = this;
         }
 
         @Override // rx.j
@@ -48,8 +48,8 @@ public final class aj<T, U> implements d.b<T, T> {
         @Override // rx.e
         public void onNext(T t) {
             try {
-                rx.d<U> call = aj.this.ixu.call(t);
-                final int bf = this.ixv.bf(t);
+                rx.d<U> call = aj.this.iED.call(t);
+                final int bg = this.iEE.bg(t);
                 rx.j<U> jVar = new rx.j<U>() { // from class: rx.internal.operators.aj.1.1
                     @Override // rx.e
                     public void onNext(U u) {
@@ -58,16 +58,16 @@ public final class aj<T, U> implements d.b<T, T> {
 
                     @Override // rx.e
                     public void onError(Throwable th) {
-                        AnonymousClass1.this.ixw.onError(th);
+                        AnonymousClass1.this.iEF.onError(th);
                     }
 
                     @Override // rx.e
                     public void onCompleted() {
-                        AnonymousClass1.this.ixv.a(bf, AnonymousClass1.this.ixx, AnonymousClass1.this.ixw);
+                        AnonymousClass1.this.iEE.a(bg, AnonymousClass1.this.iEG, AnonymousClass1.this.iEF);
                         unsubscribe();
                     }
                 };
-                this.ivk.g(jVar);
+                this.iCt.g(jVar);
                 call.unsafeSubscribe(jVar);
             } catch (Throwable th) {
                 rx.exceptions.a.a(th, this);
@@ -76,14 +76,14 @@ public final class aj<T, U> implements d.b<T, T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.ixx.onError(th);
+            this.iEG.onError(th);
             unsubscribe();
-            this.ixv.clear();
+            this.iEE.clear();
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.ixv.a(this.ixx, this);
+            this.iEE.a(this.iEG, this);
         }
     }
 }

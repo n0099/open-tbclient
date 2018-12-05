@@ -19,6 +19,7 @@ import com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppMapIoc;
 import com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppNightModeIoc;
 import com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppPaymentIoc;
 import com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppPluginIoc;
+import com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppPolymerPay;
 import com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppTTSIoc;
 import com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppVideoIoc;
 import com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppsBlinkAbTestIoc;
@@ -83,6 +84,10 @@ public class AiAppsRuntimeInit {
 
     public static void setAiAppPaymentImpl(IAiAppPaymentIoc iAiAppPaymentIoc) {
         AiAppsRuntime.sAiAppPaymentIoc = iAiAppPaymentIoc;
+    }
+
+    public static void setAiAppPolymerPayImpl(IAiAppPolymerPay iAiAppPolymerPay) {
+        AiAppsRuntime.sAiAppPolymerPay = iAiAppPolymerPay;
     }
 
     public static void setAiAppPluginImpl(IAiAppPluginIoc iAiAppPluginIoc) {

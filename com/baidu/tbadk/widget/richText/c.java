@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class c extends ClickableSpan {
-    private String bnX;
-    private int bnY;
+    private String bru;
+    private int brv;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -43,8 +43,8 @@ public class c extends ClickableSpan {
         this.mType = i;
     }
 
-    public void gH(int i) {
-        this.bnY = i;
+    public void gV(int i) {
+        this.brv = i;
     }
 
     public void setColor(int i) {
@@ -55,12 +55,12 @@ public class c extends ClickableSpan {
         this.textColor = i;
     }
 
-    public void gI(int i) {
+    public void gW(int i) {
         this.urlType = i;
     }
 
-    public void iH(String str) {
-        this.bnX = str;
+    public void iZ(String str) {
+        this.bru = str;
     }
 
     public String getLink() {
@@ -79,13 +79,13 @@ public class c extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.bnY == 1 && (this.mType == 18 || this.mType == 2)) {
+        } else if (this.brv == 1 && (this.mType == 18 || this.mType == 2)) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 textPaint.bgColor = al.getColor(e.d.cp_bg_line_c);
             } else {
                 textPaint.bgColor = al.getColor(e.d.cp_bg_line_z);
             }
-        } else if (this.bnY == 2) {
+        } else if (this.brv == 2) {
             textPaint.bgColor = al.getColor(e.d.transparent);
         }
     }
@@ -94,7 +94,7 @@ public class c extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.mType, this.mUrl, this.bnX));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.mType, this.mUrl, this.bru));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {
@@ -116,25 +116,25 @@ public class c extends ClickableSpan {
                     eVar.e(context, str, false);
                     return;
                 case 16:
-                    eVar.ak(context, str);
+                    eVar.an(context, str);
                     return;
                 case 18:
                     eVar.e(context, str, true);
                     return;
                 case 32:
-                    eVar.al(context, str);
+                    eVar.ao(context, str);
                     return;
                 case 64:
-                    eVar.am(context, str);
+                    eVar.ap(context, str);
                     return;
                 case 128:
-                    eVar.an(context, str);
+                    eVar.aq(context, str);
                     return;
                 case 256:
                     eVar.i(context, str, str2);
                     return;
                 case 1024:
-                    eVar.ao(context, str);
+                    eVar.ar(context, str);
                     return;
                 default:
                     return;

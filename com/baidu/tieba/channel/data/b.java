@@ -3,19 +3,19 @@ package com.baidu.tieba.channel.data;
 import com.baidu.tbadk.core.view.TbCheckBox;
 /* loaded from: classes3.dex */
 public class b extends h implements TbCheckBox.b {
-    private boolean cTW = false;
+    private boolean daF = false;
 
-    public boolean aoy() {
-        return this.cTW;
+    public boolean aql() {
+        return this.daF;
     }
 
-    public void fx(boolean z) {
-        this.cTW = z;
+    public void fy(boolean z) {
+        this.daF = z;
     }
 
     @Override // com.baidu.tbadk.core.view.TbCheckBox.b
     public boolean isChecked() {
-        return this.cTW;
+        return this.daF;
     }
 
     @Override // com.baidu.tbadk.core.view.TbCheckBox.b

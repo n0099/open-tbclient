@@ -9,8 +9,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class l extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.o> {
-    private TbImageView gtj;
-    private TextView gtk;
+    private TextView gAa;
+    private TbImageView gzZ;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -19,16 +19,16 @@ public class l extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         this.mRootView = getView();
         this.mPageContext = tbPageContext;
         this.mRootView.setTag(this);
-        this.gtj = (TbImageView) this.mRootView.findViewById(e.g.gift_pic);
-        this.gtk = (TextView) this.mRootView.findViewById(e.g.gift_num_text);
+        this.gzZ = (TbImageView) this.mRootView.findViewById(e.g.gift_pic);
+        this.gAa = (TextView) this.mRootView.findViewById(e.g.gift_num_text);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         al.j(this.mRootView, e.d.cp_bg_line_d);
-        al.i(this.gtj, e.f.item_gift_selector);
-        al.j(this.gtk, e.d.common_color_10294);
-        al.h(this.gtk, e.d.cp_link_tip_a);
+        al.i(this.gzZ, e.f.item_gift_selector);
+        al.j(this.gAa, e.d.common_color_10294);
+        al.h(this.gAa, e.d.cp_link_tip_a);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -44,19 +44,19 @@ public class l extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             return;
         }
         d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        this.gtj.startLoad(oVar.picUrl, 10, false);
+        this.gzZ.startLoad(oVar.picUrl, 10, false);
         this.mRootView.setOnClickListener(this);
         if (oVar.giftNum > 0) {
-            this.gtk.setVisibility(0);
+            this.gAa.setVisibility(0);
             if (oVar.giftNum > 99) {
-                this.gtk.setText("99");
+                this.gAa.setText("99");
                 return;
             } else {
-                this.gtk.setText(String.valueOf(oVar.giftNum));
+                this.gAa.setText(String.valueOf(oVar.giftNum));
                 return;
             }
         }
-        this.gtk.setVisibility(8);
+        this.gAa.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener

@@ -48,7 +48,7 @@ public class l {
     public interface a {
         void bB(String str);
 
-        View lq();
+        View lp();
     }
 
     public static void aP(Context context) {
@@ -99,18 +99,18 @@ public class l {
         if (!TextUtils.isEmpty(str)) {
             mHandler.removeCallbacks(mRunnable);
             if (Gv == null) {
-                if (Gw == null || Gw.lq() == null) {
+                if (Gw == null || Gw.lp() == null) {
                     Gv = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
                 } else {
                     Gv = new Toast(BdBaseApplication.getInst().getApp());
                     Gv.setDuration(0);
                     Gw.bB(str);
-                    Gv.setView(Gw.lq());
+                    Gv.setView(Gw.lp());
                 }
                 Gv.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
             } else {
                 if (!str.equals(Gx)) {
-                    if (Gw == null || Gw.lq() == null) {
+                    if (Gw == null || Gw.lp() == null) {
                         Gv.setText(str);
                     } else {
                         Gw.bB(str);
@@ -340,9 +340,9 @@ public class l {
         return false;
     }
 
-    public static void lk() {
+    public static void lj() {
         if (BdBaseApplication.getInst().isDebugMode()) {
-            if (ll() ? false : true) {
+            if (lk() ? false : true) {
                 StringBuilder sb = new StringBuilder(100);
                 StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
                 for (int i = 1; i < stackTrace.length; i++) {
@@ -359,11 +359,11 @@ public class l {
         }
     }
 
-    public static boolean ll() {
+    public static boolean lk() {
         return Looper.getMainLooper() == Looper.myLooper() && Looper.getMainLooper().getThread() == Thread.currentThread();
     }
 
-    public static boolean lm() {
+    public static boolean ll() {
         return j.kV();
     }
 
@@ -420,7 +420,7 @@ public class l {
         return str;
     }
 
-    public static String ln() {
+    public static String lm() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -453,7 +453,7 @@ public class l {
         return str;
     }
 
-    public static boolean lo() {
+    public static boolean ln() {
         String bA;
         String str = Build.DISPLAY;
         if (str != null && str.contains("Flyme") && (bA = bA(str)) != null && bA.length() >= 3) {
@@ -476,7 +476,7 @@ public class l {
         return Pattern.compile("[^0-9]").matcher(str).replaceAll("").trim();
     }
 
-    public static a lp() {
+    public static a lo() {
         return Gw;
     }
 

@@ -15,7 +15,7 @@ public class c {
     private ArrayList<String> KI = new ArrayList<>();
     private a KT;
 
-    public static c mZ() {
+    public static c mY() {
         if (KS == null) {
             synchronized (c.class) {
                 if (KS == null) {
@@ -47,12 +47,12 @@ public class c {
             if (!z) {
                 this.KI.add(pluginSetting.packageName);
             }
-            mV();
+            mU();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mV() {
+    public void mU() {
         if (this.KI.size() > 0 && this.KT == null) {
             this.KT = new a(this.KI.get(0));
             this.KT.execute(new String[0]);
@@ -97,22 +97,22 @@ public class c {
                     }
                 }
             }
-            c.this.mV();
+            c.this.mU();
         }
 
         private void bR(String str) {
             File[] listFiles;
-            File nO = Util.nO();
+            File nN = Util.nN();
             String cr = Util.cr(str);
-            if (nO != null && nO.exists() && (listFiles = nO.listFiles()) != null) {
+            if (nN != null && nN.exists() && (listFiles = nN.listFiles()) != null) {
                 int length = listFiles.length;
                 for (int i = 0; i < length; i++) {
                     if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(cr)) {
                         try {
                             f.q(listFiles[i]);
-                            com.baidu.adp.plugin.b.a.mO().f("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());
+                            com.baidu.adp.plugin.b.a.mN().f("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());
                         } catch (Throwable th) {
-                            com.baidu.adp.plugin.b.a.mO().g("plugin_del_temp", "deltmp_fail", str, listFiles[i].getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.getMessage());
+                            com.baidu.adp.plugin.b.a.mN().g("plugin_del_temp", "deltmp_fail", str, listFiles[i].getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.getMessage());
                         }
                     }
                 }

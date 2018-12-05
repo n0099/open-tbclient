@@ -8,18 +8,18 @@ import com.baidu.tbadk.core.data.AccountData;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class d implements com.baidu.tbadk.coreExtra.a.c {
-    private static d fGh;
+    private static d fMX;
 
     private d() {
     }
 
-    public static synchronized d bdF() {
+    public static synchronized d bfw() {
         d dVar;
         synchronized (d.class) {
-            if (fGh == null) {
-                fGh = new d();
+            if (fMX == null) {
+                fMX = new d();
             }
-            dVar = fGh;
+            dVar = fMX;
         }
         return dVar;
     }
@@ -38,7 +38,7 @@ public class d implements com.baidu.tbadk.coreExtra.a.c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public void EW() {
+    public void Ga() {
         try {
             SapiAccountManager.getInstance().logout();
         } catch (Exception e) {

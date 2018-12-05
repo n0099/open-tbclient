@@ -265,14 +265,14 @@ public class j {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             try {
-                int lb = j.lb();
-                long li = j.li();
+                int netType = j.netType();
+                long lh = j.lh();
                 j.kU().kJ();
                 if (j.kU().kT()) {
                     NetworkState networkState = new NetworkState();
-                    networkState.mLastNetState = lb;
-                    networkState.mCurNetState = j.lb();
-                    networkState.mlastChangedTime = li;
+                    networkState.mLastNetState = netType;
+                    networkState.mCurNetState = j.netType();
+                    networkState.mlastChangedTime = lh;
                     long currentTimeMillis = System.currentTimeMillis();
                     networkState.mCurChangedTime = currentTimeMillis;
                     j.kU().s(currentTimeMillis);
@@ -317,7 +317,7 @@ public class j {
         return 1 == kU().kN();
     }
 
-    public static int lb() {
+    public static int netType() {
         if (kW()) {
             return 1;
         }
@@ -330,8 +330,8 @@ public class j {
         return (kY() || kV()) ? 4 : 0;
     }
 
-    public static String lc() {
-        switch (lb()) {
+    public static String lb() {
+        switch (netType()) {
             case 1:
                 return "wifi";
             case 2:
@@ -345,27 +345,27 @@ public class j {
         }
     }
 
-    public static String ld() {
-        String lc = lc();
-        if (lc != null) {
-            return lc.toUpperCase();
+    public static String lc() {
+        String lb = lb();
+        if (lb != null) {
+            return lb.toUpperCase();
         }
-        return lc;
+        return lb;
     }
 
-    public static int le() {
+    public static int ld() {
         return kU().getOperatorType();
     }
 
-    public static String lf() {
+    public static String le() {
         return kU().kQ();
     }
 
-    public static int lg() {
+    public static int lf() {
         return kU().getProxyPort();
     }
 
-    public static boolean lh() {
+    public static boolean lg() {
         return Gd;
     }
 
@@ -381,7 +381,7 @@ public class j {
         return (activeNetworkInfo == null || activeNetworkInfo.getExtraInfo() == null || !activeNetworkInfo.getExtraInfo().contains("wap")) ? false : true;
     }
 
-    public static long li() {
+    public static long lh() {
         return kU().kR();
     }
 }

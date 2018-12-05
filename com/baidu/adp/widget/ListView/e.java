@@ -95,7 +95,7 @@ public class e extends BaseAdapter implements i {
 
     @Override // android.widget.BaseAdapter, com.baidu.adp.widget.ListView.i
     public void notifyDataSetChanged() {
-        if (com.baidu.adp.lib.util.l.ll()) {
+        if (com.baidu.adp.lib.util.l.lk()) {
             super.notifyDataSetChanged();
         }
     }
@@ -322,7 +322,7 @@ public class e extends BaseAdapter implements i {
         if (i < headersCount) {
             View view4 = this.mHeaderViewInfos.get(i).view;
             if (view4 == null) {
-                return oJ();
+                return oI();
             }
             return view4;
         }
@@ -343,7 +343,7 @@ public class e extends BaseAdapter implements i {
                 view3 = this.mAdapter.getView(i2, view, viewGroup);
             }
             if (view3 == null) {
-                return oJ();
+                return oI();
             }
             return view3;
         }
@@ -354,12 +354,12 @@ public class e extends BaseAdapter implements i {
             view2 = null;
         }
         if (view2 == null) {
-            return oJ();
+            return oI();
         }
         return view2;
     }
 
-    private View oJ() {
+    private View oI() {
         TextView textView = new TextView(this.mContext);
         textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.load_res_failed));
         int dip2px = com.baidu.adp.lib.util.l.dip2px(this.mContext, 15.0f);

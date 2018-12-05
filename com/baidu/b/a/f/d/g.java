@@ -8,7 +8,7 @@ public class g {
     private static g aad;
     private k aae = new k();
 
-    public static g rS() {
+    public static g rR() {
         synchronized (g.class) {
             if (aad == null) {
                 aad = new g();
@@ -56,11 +56,11 @@ public class g {
     public synchronized boolean a(f fVar, b bVar) {
         boolean z;
         if (this.aae.b(fVar, bVar)) {
-            com.baidu.b.a.c.a.a rM = fVar.rM();
-            rM.KC = 2212;
-            rM.errMsg = "duplicated download task";
-            rM.Zm = a.C0056a.C0057a.Zc;
-            fVar.rN().onDownloading(new com.baidu.b.a.b.b.a(fVar.getPackageName(), rM.KC, rM.errMsg, rM.Zm));
+            com.baidu.b.a.c.a.a rL = fVar.rL();
+            rL.KC = 2212;
+            rL.errMsg = "duplicated download task";
+            rL.Zm = a.C0056a.C0057a.Zc;
+            fVar.rM().onDownloading(new com.baidu.b.a.b.b.a(fVar.getPackageName(), rL.KC, rL.errMsg, rL.Zm));
             z = true;
         } else {
             z = false;
@@ -79,7 +79,7 @@ public class g {
         fVar.bH(12);
         com.baidu.b.a.b.b.a aVar = new com.baidu.b.a.b.b.a(fVar.getPackageName(), 2211, "download : customer cancel download", a.C0056a.C0057a.Zb);
         if (!k) {
-            fVar.rN().onFileCancel(aVar);
+            fVar.rM().onFileCancel(aVar);
         }
     }
 

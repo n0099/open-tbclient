@@ -9,17 +9,17 @@ public interface h {
 
     void aa(int i, String str);
 
-    void baA();
+    void bcq();
 
-    void baB();
+    void bcr();
 
-    void baC();
+    void bcs();
 
-    void baz();
+    void bct();
 
     void e(int i, int i2, String str);
 
-    void ry(String str);
+    void sa(String str);
 
-    void rz(String str);
+    void sb(String str);
 }

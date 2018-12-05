@@ -12,13 +12,13 @@ public class f implements b {
     private final com.airbnb.lottie.model.a.f qY;
 
     /* renamed from: rx  reason: collision with root package name */
-    private final com.airbnb.lottie.model.a.b f2rx;
+    private final com.airbnb.lottie.model.a.b f4rx;
 
     private f(String str, m<PointF, PointF> mVar, com.airbnb.lottie.model.a.f fVar, com.airbnb.lottie.model.a.b bVar) {
         this.name = str;
         this.qQ = mVar;
         this.qY = fVar;
-        this.f2rx = bVar;
+        this.f4rx = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,7 +35,7 @@ public class f implements b {
     }
 
     public com.airbnb.lottie.model.a.b ew() {
-        return this.f2rx;
+        return this.f4rx;
     }
 
     public com.airbnb.lottie.model.a.f ec() {
@@ -52,6 +52,6 @@ public class f implements b {
     }
 
     public String toString() {
-        return "RectangleShape{cornerRadius=" + this.f2rx.dI() + ", position=" + this.qQ + ", size=" + this.qY + '}';
+        return "RectangleShape{cornerRadius=" + this.f4rx.dI() + ", position=" + this.qQ + ", size=" + this.qY + '}';
     }
 }

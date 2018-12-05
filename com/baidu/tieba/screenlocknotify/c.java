@@ -14,7 +14,7 @@ import java.util.List;
 public class c extends BaseAdapter {
     private Context mContext;
     private boolean mHasMore = true;
-    private List<d> gNm = new ArrayList();
+    private List<d> gUc = new ArrayList();
 
     public c(Context context) {
         this.mContext = context;
@@ -22,20 +22,20 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.gNm != null) {
-            return this.gNm.size();
+        if (this.gUc != null) {
+            return this.gUc.size();
         }
         return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: tN */
+    /* renamed from: uh */
     public d getItem(int i) {
-        if (this.gNm == null || i >= this.gNm.size()) {
+        if (this.gUc == null || i >= this.gUc.size()) {
             return null;
         }
-        return this.gNm.get(i);
+        return this.gUc.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -45,7 +45,7 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return a(this.gNm.get(i), view, viewGroup);
+        return a(this.gUc.get(i), view, viewGroup);
     }
 
     public View a(d dVar, View view, ViewGroup viewGroup) {
@@ -62,17 +62,17 @@ public class c extends BaseAdapter {
         if (dVar == null) {
             return inflate;
         }
-        bO.gNn.setText(dVar.title);
-        bO.gNo.setText(dVar.content);
-        bO.gNp.setDefaultErrorResource(e.f.screen_notify_default_bg);
-        bO.gNp.setDefaultResource(e.f.screen_notify_default_bg);
-        bO.gNp.startLoad(dVar.pic, 10, 0, 0, false);
+        bO.gUd.setText(dVar.title);
+        bO.gUe.setText(dVar.content);
+        bO.gUf.setDefaultErrorResource(e.f.screen_notify_default_bg);
+        bO.gUf.setDefaultResource(e.f.screen_notify_default_bg);
+        bO.gUf.startLoad(dVar.pic, 10, 0, 0, false);
         return inflate;
     }
 
-    public void dz(List<d> list) {
+    public void dD(List<d> list) {
         if (list != null && list.size() != 0) {
-            this.gNm.addAll(list);
+            this.gUc.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -80,9 +80,9 @@ public class c extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class a {
-        TextView gNn;
-        TextView gNo;
-        TbImageView gNp;
+        TextView gUd;
+        TextView gUe;
+        TbImageView gUf;
         View mLine;
 
         private a() {
@@ -91,10 +91,10 @@ public class c extends BaseAdapter {
 
     private a bO(View view) {
         a aVar = new a();
-        aVar.gNn = (TextView) view.findViewById(e.g.push_msg_title);
-        aVar.gNo = (TextView) view.findViewById(e.g.push_msg_content);
-        aVar.gNp = (TbImageView) view.findViewById(e.g.push_msg_pic);
-        aVar.gNp.setAutoChangeStyle(false);
+        aVar.gUd = (TextView) view.findViewById(e.g.push_msg_title);
+        aVar.gUe = (TextView) view.findViewById(e.g.push_msg_content);
+        aVar.gUf = (TbImageView) view.findViewById(e.g.push_msg_pic);
+        aVar.gUf.setAutoChangeStyle(false);
         aVar.mLine = view.findViewById(e.g.line);
         return aVar;
     }

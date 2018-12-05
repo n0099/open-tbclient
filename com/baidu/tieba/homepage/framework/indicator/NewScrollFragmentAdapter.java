@@ -27,19 +27,19 @@ import tbclient.Personalized.DataRes;
 /* loaded from: classes6.dex */
 public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     private int currentIndex;
-    private int dCh;
-    private String emA;
-    private String emB;
-    private boolean emC;
-    private int emD;
-    private u emE;
-    private a emF;
-    private ConcernFragment emu;
-    private PersonalizeFragment emv;
-    private BaseFragment emw;
-    private BaseFragment emx;
-    private DailyFragment emy;
-    private ah emz;
+    private int dIG;
+    private u etA;
+    private a etB;
+    private ConcernFragment etq;
+    private PersonalizeFragment etr;
+    private BaseFragment ets;
+    private BaseFragment ett;
+    private DailyFragment etu;
+    private ah etv;
+    private String etw;
+    private String etx;
+    private boolean ety;
+    private int etz;
     private int mChildCount;
     private Context mContext;
 
@@ -47,47 +47,47 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         super(fragmentManager);
         CustomResponsedMessage runTask;
         CustomResponsedMessage runTask2;
-        this.emA = "recommendFrsLastReadTabPositionNamespace";
-        this.emB = "recommendFrsLastReadTabPositionKey";
-        this.emC = false;
-        this.emD = -1;
+        this.etw = "recommendFrsLastReadTabPositionNamespace";
+        this.etx = "recommendFrsLastReadTabPositionKey";
+        this.ety = false;
+        this.etz = -1;
         this.mChildCount = 0;
         this.currentIndex = -1;
         this.mContext = context;
-        this.emF = new a();
-        if (this.emF.oi(0) != -1) {
-            this.emu = new ConcernFragment(context);
-            this.emu.setCallback(aVar);
+        this.etB = new a();
+        if (this.etB.oC(0) != -1) {
+            this.etq = new ConcernFragment(context);
+            this.etq.setCallback(aVar);
         }
-        if (this.emF.oi(1) != -1) {
-            this.emv = new PersonalizeFragment(context);
-            this.emv.setCallback(bVar);
+        if (this.etB.oC(1) != -1) {
+            this.etr = new PersonalizeFragment(context);
+            this.etr.setCallback(bVar);
         }
-        if (this.emF.oi(4) != -1) {
-            this.emy = new DailyFragment(context);
+        if (this.etB.oC(4) != -1) {
+            this.etu = new DailyFragment(context);
         }
-        if (this.emF.oi(2) != -1 && (runTask2 = MessageManager.getInstance().runTask(2921010, BaseFragment.class)) != null) {
-            this.emw = (BaseFragment) runTask2.getData();
+        if (this.etB.oC(2) != -1 && (runTask2 = MessageManager.getInstance().runTask(2921010, BaseFragment.class)) != null) {
+            this.ets = (BaseFragment) runTask2.getData();
         }
-        if (this.emF.oi(3) != -1 && (runTask = MessageManager.getInstance().runTask(2921303, BaseFragment.class)) != null) {
-            this.emx = (BaseFragment) runTask.getData();
+        if (this.etB.oC(3) != -1 && (runTask = MessageManager.getInstance().runTask(2921303, BaseFragment.class)) != null) {
+            this.ett = (BaseFragment) runTask.getData();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.viewpager.AbsFragmentStatePagerAdapter
     public Fragment getItem(int i) {
-        switch (this.emF.getType(i)) {
+        switch (this.etB.getType(i)) {
             case 0:
-                return this.emu;
+                return this.etq;
             case 1:
             default:
-                return this.emv;
+                return this.etr;
             case 2:
-                return this.emw;
+                return this.ets;
             case 3:
-                return this.emx;
+                return this.ett;
             case 4:
-                return this.emy;
+                return this.etu;
         }
     }
 
@@ -100,23 +100,23 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         return super.getItemPosition(obj);
     }
 
-    public int ob(int i) {
-        return this.emF.getType(i);
+    public int ov(int i) {
+        return this.etB.getType(i);
     }
 
-    public int aIP() {
-        return this.emF.aIX();
+    public int aKG() {
+        return this.etB.aKO();
     }
 
-    public int oc(int i) {
-        return this.emF.oi(i);
+    public int ow(int i) {
+        return this.etB.oC(i);
     }
 
-    public void aIQ() {
-        if (this.emx == null && this.emF.oi(3) != -1) {
+    public void aKH() {
+        if (this.ett == null && this.etB.oC(3) != -1) {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921303, BaseFragment.class);
             if (runTask != null) {
-                this.emx = (BaseFragment) runTask.getData();
+                this.ett = (BaseFragment) runTask.getData();
             }
             notifyDataSetChanged();
         }
@@ -130,24 +130,24 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return aIR();
+        return aKI();
     }
 
-    private int aIR() {
+    private int aKI() {
         int i = 0;
-        if (this.emF.oi(0) != -1 && this.emu != null) {
+        if (this.etB.oC(0) != -1 && this.etq != null) {
             i = 1;
         }
-        if (this.emF.oi(1) != -1 && this.emv != null) {
+        if (this.etB.oC(1) != -1 && this.etr != null) {
             i++;
         }
-        if (this.emF.oi(2) != -1 && this.emw != null) {
+        if (this.etB.oC(2) != -1 && this.ets != null) {
             i++;
         }
-        if (this.emF.oi(3) != -1 && this.emx != null) {
+        if (this.etB.oC(3) != -1 && this.ett != null) {
             i++;
         }
-        if (this.emF.oi(4) != -1 && this.emy != null) {
+        if (this.etB.oC(4) != -1 && this.etu != null) {
             return i + 1;
         }
         return i;
@@ -157,74 +157,74 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
         if (obj != null && this.currentIndex != i) {
-            if (this.emz instanceof BaseFragment) {
-                ((BaseFragment) this.emz).setPrimary(false);
+            if (this.etv instanceof BaseFragment) {
+                ((BaseFragment) this.etv).setPrimary(false);
             }
             this.currentIndex = i;
-            VoiceManager cX = com.baidu.tieba.tbadkCore.voice.b.cX(this.mContext);
-            if (cX != null) {
-                cX.stopPlay();
+            VoiceManager db = com.baidu.tieba.tbadkCore.voice.b.db(this.mContext);
+            if (db != null) {
+                db.stopPlay();
             }
             if (obj instanceof BaseFragment) {
                 ((BaseFragment) obj).setPrimary(true);
             }
             if ((obj instanceof PersonalizeFragment) && i == 0) {
-                ((PersonalizeFragment) obj).ZQ();
+                ((PersonalizeFragment) obj).aaW();
             }
             if (obj instanceof ah) {
                 ((ah) obj).showFloatingView();
             }
         }
         if (obj instanceof ah) {
-            this.emz = (ah) obj;
-            this.emz.setHeaderViewHeight(this.dCh);
-            this.emz.setRecommendFrsNavigationAnimDispatcher(this.emE);
+            this.etv = (ah) obj;
+            this.etv.setHeaderViewHeight(this.dIG);
+            this.etv.setRecommendFrsNavigationAnimDispatcher(this.etA);
         }
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public CharSequence getPageTitle(int i) {
-        return this.emF.p(this.mContext, i);
+        return this.etB.p(this.mContext, i);
     }
 
     public void setPrimary(boolean z) {
-        if (this.emz instanceof BaseFragment) {
+        if (this.etv instanceof BaseFragment) {
             if (!z) {
-                int a = v.a(Ew(), (BaseFragment) this.emz);
+                int a = v.a(FA(), (BaseFragment) this.etv);
                 if (a < 0) {
-                    a = oc(1);
+                    a = ow(1);
                 }
-                od(a);
+                ox(a);
                 completePullRefresh();
             }
-            ((BaseFragment) this.emz).setPrimary(z);
+            ((BaseFragment) this.etv).setPrimary(z);
         }
     }
 
     public void setRecommendFrsNavigationAnimDispatcher(u uVar) {
-        this.emE = uVar;
+        this.etA = uVar;
     }
 
     public void b(View view, int i, int i2, int i3, int i4) {
-        if (this.dCh != i2) {
-            this.dCh = i2;
-            Iterator<Fragment> it = Ew().iterator();
+        if (this.dIG != i2) {
+            this.dIG = i2;
+            Iterator<Fragment> it = FA().iterator();
             while (it.hasNext()) {
                 Fragment next = it.next();
                 if (next != null && (next instanceof ah)) {
-                    ((ah) next).setHeaderViewHeight(this.dCh);
+                    ((ah) next).setHeaderViewHeight(this.dIG);
                 }
             }
         }
     }
 
-    public void od(final int i) {
+    public void ox(final int i) {
         x.a(new w<Object>() { // from class: com.baidu.tieba.homepage.framework.indicator.NewScrollFragmentAdapter.1
             @Override // com.baidu.tbadk.util.w
             public Object doInBackground() {
-                l<String> ak = com.baidu.tbadk.core.c.a.Ax().ak(NewScrollFragmentAdapter.this.emA, TbadkCoreApplication.getCurrentAccount());
-                if (ak != null) {
-                    ak.a(NewScrollFragmentAdapter.this.emB, Integer.toString(i), 43200000L);
+                l<String> an = com.baidu.tbadk.core.c.a.BB().an(NewScrollFragmentAdapter.this.etw, TbadkCoreApplication.getCurrentAccount());
+                if (an != null) {
+                    an.a(NewScrollFragmentAdapter.this.etx, Integer.toString(i), 43200000L);
                     return null;
                 }
                 return null;
@@ -233,87 +233,87 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     }
 
     public void a(d dVar) {
-        if (!this.emC) {
-            this.emC = true;
-            dVar.nZ(1);
+        if (!this.ety) {
+            this.ety = true;
+            dVar.ot(1);
         }
     }
 
     private void completePullRefresh() {
-        if (this.emv != null && this.emz == this.emv) {
-            this.emv.completePullRefresh();
+        if (this.etr != null && this.etv == this.etr) {
+            this.etr.completePullRefresh();
         }
-        if (this.emu != null && this.emz == this.emu) {
-            this.emu.completePullRefresh();
+        if (this.etq != null && this.etv == this.etq) {
+            this.etq.completePullRefresh();
         }
     }
 
-    public boolean aIS() {
-        return this.emu != null;
+    public boolean aKJ() {
+        return this.etq != null;
     }
 
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
-        if (this.emv != null) {
-            this.emv.setScrollFragmentTabHost(scrollFragmentTabHost);
+        if (this.etr != null) {
+            this.etr.setScrollFragmentTabHost(scrollFragmentTabHost);
         }
     }
 
-    public void u(String str, int i, int i2) {
-        if (i2 == 1 && this.emv != null && this.emz == this.emv) {
-            this.emv.af(str, i);
+    public void w(String str, int i, int i2) {
+        if (i2 == 1 && this.etr != null && this.etv == this.etr) {
+            this.etr.ag(str, i);
         }
-        if (i2 == 0 && this.emu != null) {
-            this.emu.af(str, i);
-        }
-    }
-
-    public void aIT() {
-        if (this.emv != null) {
-            this.emv.aIT();
+        if (i2 == 0 && this.etq != null) {
+            this.etq.ag(str, i);
         }
     }
 
-    public void aIU() {
-        if (this.emu != null) {
-            this.emu.aIg();
+    public void aKK() {
+        if (this.etr != null) {
+            this.etr.aKK();
+        }
+    }
+
+    public void aKL() {
+        if (this.etq != null) {
+            this.etq.aJX();
         }
     }
 
     public void c(DataRes dataRes, boolean z, boolean z2) {
-        if (this.emv != null) {
-            this.emv.d(dataRes, z, z2);
+        if (this.etr != null) {
+            this.etr.d(dataRes, z, z2);
         }
     }
 
     public void d(tbclient.Userlike.DataRes dataRes, boolean z) {
-        if (this.emu != null) {
-            this.emu.a(dataRes, z);
+        if (this.etq != null) {
+            this.etq.a(dataRes, z);
         }
     }
 
-    public void eo(int i) {
-        if (this.emz != null) {
-            this.emz.Ef();
+    public void eC(int i) {
+        if (this.etv != null) {
+            this.etv.Fj();
         }
     }
 
-    public void aIV() {
-        if (this.emz != null) {
-            this.emz.Zu();
+    public void aKM() {
+        if (this.etv != null) {
+            this.etv.aaA();
         }
     }
 
-    public void ZQ() {
-        switch (ob(this.currentIndex)) {
+    public void aaW() {
+        switch (ov(this.currentIndex)) {
             case 0:
-                if (this.emu != null) {
-                    this.emu.ZQ();
+                if (this.etq != null) {
+                    this.etq.aaW();
                     return;
                 }
                 return;
             case 1:
-                if (this.emv != null) {
-                    this.emv.ZQ();
+                if (this.etr != null) {
+                    this.etr.aaW();
                     return;
                 }
                 return;
@@ -322,40 +322,40 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
             default:
                 return;
             case 4:
-                if (this.emy != null) {
-                    this.emy.ZQ();
+                if (this.etu != null) {
+                    this.etu.aaW();
                     return;
                 }
                 return;
         }
     }
 
-    public void oe(int i) {
-        if (i == 1 && this.emv != null) {
-            this.emv.aJf();
+    public void oy(int i) {
+        if (i == 1 && this.etr != null) {
+            this.etr.aKW();
         }
     }
 
-    public void of(int i) {
+    public void oz(int i) {
         if (this.currentIndex == i) {
-            this.emD = -1;
+            this.etz = -1;
         } else {
-            this.emD = i;
+            this.etz = i;
         }
     }
 
     public void onPageScrolled(int i, float f, int i2) {
-        if (this.emD == -1 || (i == this.emD && f == 0.0f)) {
-            Fragment fragment = (Fragment) v.d(Ew(), i - 1);
-            Fragment fragment2 = (Fragment) v.d(Ew(), i);
-            Fragment fragment3 = (Fragment) v.d(Ew(), i + 1);
-            this.emD = -1;
+        if (this.etz == -1 || (i == this.etz && f == 0.0f)) {
+            Fragment fragment = (Fragment) v.d(FA(), i - 1);
+            Fragment fragment2 = (Fragment) v.d(FA(), i);
+            Fragment fragment3 = (Fragment) v.d(FA(), i + 1);
+            this.etz = -1;
             if (f == 0.0f) {
                 if (fragment instanceof ah) {
-                    ((ah) fragment).Zw();
+                    ((ah) fragment).aaC();
                 }
                 if (fragment3 instanceof ah) {
-                    ((ah) fragment3).Zw();
+                    ((ah) fragment3).aaC();
                 }
                 if (fragment2 != null) {
                     fragment2.setMenuVisibility(true);
@@ -365,27 +365,27 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                 return;
             }
             if (fragment instanceof ah) {
-                ((ah) fragment).Zv();
+                ((ah) fragment).aaB();
             }
             if (fragment2 instanceof ah) {
-                ((ah) fragment2).Zv();
+                ((ah) fragment2).aaB();
             }
             if (fragment3 instanceof ah) {
-                ((ah) fragment3).Zv();
+                ((ah) fragment3).aaB();
             }
         }
     }
 
     public String getCurrentPageKey() {
-        if (this.emz instanceof BaseFragment) {
-            return ((BaseFragment) this.emz).getCurrentPageKey();
+        if (this.etv instanceof BaseFragment) {
+            return ((BaseFragment) this.etv).getCurrentPageKey();
         }
         return null;
     }
 
     public void setVideoThreadId(String str) {
-        if (this.emx instanceof ah) {
-            ((ah) this.emx).setVideoThreadId(str);
+        if (this.ett instanceof ah) {
+            ((ah) this.ett).setVideoThreadId(str);
         }
     }
 }

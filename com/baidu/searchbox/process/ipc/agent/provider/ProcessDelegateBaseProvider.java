@@ -8,8 +8,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.searchbox.process.ipc.IPCLibConfig;
 import com.baidu.searchbox.process.ipc.agent.Agent;
 import com.baidu.searchbox.process.ipc.delegate.DelegateDef;
 import com.baidu.searchbox.process.ipc.delegate.Delegation;
@@ -19,7 +17,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
 /* loaded from: classes2.dex */
 public class ProcessDelegateBaseProvider extends ContentProvider implements Agent, DelegateDef {
-    private static final boolean DEBUG = IPCLibConfig.DEBUG;
+    private static final boolean DEBUG = false;
     private static final String TAG = "DelegateBaseProvider";
 
     @Override // android.content.ContentProvider
@@ -31,9 +29,6 @@ public class ProcessDelegateBaseProvider extends ContentProvider implements Agen
     @Nullable
     public Bundle call(@NonNull String str, @Nullable String str2, @Nullable Bundle bundle) {
         Bundle bundle2 = new Bundle();
-        if (DEBUG) {
-            Log.d(TAG, "delegate: " + str + " extras: " + bundle);
-        }
         ProviderDelegation createDelegation = createDelegation(str);
         if (createDelegation == null) {
             setResultBundleData(bundle2, 2, null);
@@ -42,11 +37,7 @@ public class ProcessDelegateBaseProvider extends ContentProvider implements Agen
             if (bundle != null) {
                 createDelegation.mParams.putAll(bundle);
             }
-            Bundle execCall = createDelegation.execCall(createDelegation.mParams);
-            setResultBundleData(bundle2, 0, execCall);
-            if (DEBUG) {
-                Log.d(TAG, "execData: " + execCall);
-            }
+            setResultBundleData(bundle2, 0, createDelegation.execCall(createDelegation.mParams));
         }
         return bundle2;
     }
@@ -77,9 +68,6 @@ public class ProcessDelegateBaseProvider extends ContentProvider implements Agen
             }
             return null;
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
-            if (DEBUG) {
-                e.printStackTrace();
-            }
             return null;
         }
     }

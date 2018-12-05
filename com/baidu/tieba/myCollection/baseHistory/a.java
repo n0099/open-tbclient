@@ -80,7 +80,7 @@ public class a implements f {
         return (((this.isHostOnly ? 1 : 0) + (hashCode6 * 7)) * 7) + (this.isSquence ? 1 : 0);
     }
 
-    public boolean ap(JSONObject jSONObject) {
+    public boolean ar(JSONObject jSONObject) {
         String optString = jSONObject.optString("forum_name");
         String optString2 = jSONObject.optString("thread_id");
         String optString3 = jSONObject.optString("thread_name");
@@ -178,7 +178,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String bbW() {
+    public String bdN() {
         return this.threadName;
     }
 
@@ -194,7 +194,7 @@ public class a implements f {
         this.threadId = str;
     }
 
-    public void rN(String str) {
+    public void sp(String str) {
         this.threadName = str;
     }
 
@@ -202,27 +202,27 @@ public class a implements f {
         this.forumName = str;
     }
 
-    public String Lo() {
+    public String Ms() {
         return this.postID;
     }
 
-    public void rO(String str) {
+    public void sq(String str) {
         this.postID = str;
     }
 
-    public boolean bbX() {
+    public boolean bdO() {
         return this.isHostOnly;
     }
 
-    public void jZ(boolean z) {
+    public void kc(boolean z) {
         this.isHostOnly = z;
     }
 
-    public boolean bbY() {
+    public boolean bdP() {
         return this.isSquence;
     }
 
-    public void ka(boolean z) {
+    public void kd(boolean z) {
         this.isSquence = z;
     }
 
@@ -230,7 +230,7 @@ public class a implements f {
         return this.liveId;
     }
 
-    public void rP(String str) {
+    public void ss(String str) {
         this.liveId = str;
     }
 
@@ -256,15 +256,15 @@ public class a implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String MW() {
+    public String Oa() {
         return toJsonObject().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean hX(String str) {
+    public boolean ip(String str) {
         if (str != null) {
             try {
-                return ap(new JSONObject(str));
+                return ar(new JSONObject(str));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

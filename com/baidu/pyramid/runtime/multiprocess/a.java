@@ -4,7 +4,6 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
-import android.util.Log;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,27 +13,26 @@ import java.io.InputStreamReader;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private static final boolean DEBUG = i.DEBUG;
-    private static volatile int ahq = 0;
+    private static volatile int ajb = 0;
     private static volatile String sProcessName;
 
-    public static int uq() {
-        int i = ahq;
+    public static int uK() {
+        int i = ajb;
         if (i == 0) {
             String processName = getProcessName();
-            String packageName = g.getAppContext().getPackageName();
+            String packageName = f.getAppContext().getPackageName();
             if (TextUtils.equals(processName, packageName) || (processName.startsWith(packageName) && !processName.contains(":"))) {
                 i = i | 1 | 2;
             } else {
                 i |= 4;
             }
-            ahq = i;
+            ajb = i;
         }
         return i;
     }
 
-    public static boolean ur() {
-        return (uq() & 2) != 0;
+    public static boolean uL() {
+        return (uK() & 2) != 0;
     }
 
     public static String getProcessName() {
@@ -43,8 +41,8 @@ public class a {
             synchronized (a.class) {
                 str = sProcessName;
                 if (str == null) {
-                    Context appContext = g.getAppContext();
-                    str = ut();
+                    Context appContext = f.getAppContext();
+                    str = uN();
                     if (str == null && (str = getProcessNameFromAm(appContext)) == null) {
                         str = appContext.getPackageName();
                     }
@@ -55,8 +53,8 @@ public class a {
         return str;
     }
 
-    public static int us() {
-        Context appContext = g.getAppContext();
+    public static int uM() {
+        Context appContext = f.getAppContext();
         int myPid = Process.myPid();
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) appContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         if (runningAppProcesses == null) {
@@ -89,7 +87,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String ut() {
+    private static String uN() {
         BufferedReader bufferedReader;
         Exception exc;
         String str;
@@ -155,8 +153,5 @@ public class a {
     }
 
     private static void c(String str, Exception exc) {
-        if (DEBUG) {
-            Log.e(str, "", exc);
-        }
     }
 }

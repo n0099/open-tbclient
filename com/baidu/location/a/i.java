@@ -23,7 +23,7 @@ public class i implements LBSAuthManagerListener {
         return null;
     }
 
-    public static i ti() {
+    public static i th() {
         i iVar;
         synchronized (a) {
             if (adD == null) {

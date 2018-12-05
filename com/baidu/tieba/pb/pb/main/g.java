@@ -3,54 +3,54 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.adp.lib.cache.l;
 /* loaded from: classes6.dex */
 public class g {
-    private static g fOL;
-    private com.baidu.adp.lib.cache.l<byte[]> fOM = null;
-    private com.baidu.adp.lib.cache.l<byte[]> fON = null;
+    private static g fVB;
+    private com.baidu.adp.lib.cache.l<byte[]> fVC = null;
+    private com.baidu.adp.lib.cache.l<byte[]> fVD = null;
 
-    public static synchronized g bgW() {
+    public static synchronized g biO() {
         g gVar;
         synchronized (g.class) {
-            if (fOL == null) {
-                fOL = new g();
+            if (fVB == null) {
+                fVB = new g();
             }
-            gVar = fOL;
+            gVar = fVB;
         }
         return gVar;
     }
 
     private g() {
-        axB();
+        azl();
     }
 
-    private void axB() {
-        if (this.fOM == null) {
-            this.fOM = com.baidu.tbadk.core.c.a.Ax().ef("tb.pb_mark");
+    private void azl() {
+        if (this.fVC == null) {
+            this.fVC = com.baidu.tbadk.core.c.a.BB().ex("tb.pb_mark");
         }
-        if (this.fON == null) {
-            this.fON = com.baidu.tbadk.core.c.a.Ax().ef("tb.pb_normal");
+        if (this.fVD == null) {
+            this.fVD = com.baidu.tbadk.core.c.a.BB().ex("tb.pb_normal");
         }
     }
 
-    public void R(String str, boolean z) {
+    public void T(String str, boolean z) {
         if (z) {
-            if (this.fOM != null && str != null) {
-                this.fOM.b(str, new byte[0], 0L);
+            if (this.fVC != null && str != null) {
+                this.fVC.b(str, new byte[0], 0L);
             }
-        } else if (this.fON != null && str != null) {
-            this.fON.b(str, new byte[0], 0L);
+        } else if (this.fVD != null && str != null) {
+            this.fVD.b(str, new byte[0], 0L);
         }
     }
 
-    public byte[] S(String str, boolean z) {
+    public byte[] U(String str, boolean z) {
         l.b<byte[]> aF;
         if (z) {
-            if (this.fOM != null && str != null) {
-                aF = this.fOM.aF(str);
+            if (this.fVC != null && str != null) {
+                aF = this.fVC.aF(str);
             }
             aF = null;
         } else {
-            if (this.fON != null && str != null) {
-                aF = this.fON.aF(str);
+            if (this.fVD != null && str != null) {
+                aF = this.fVD.aF(str);
             }
             aF = null;
         }
@@ -62,19 +62,19 @@ public class g {
 
     public void a(String str, boolean z, byte[] bArr) {
         if (str != null) {
-            axB();
+            azl();
             if (z) {
-                this.fOM.a(str, bArr, 604800000L);
+                this.fVC.a(str, bArr, 604800000L);
             } else {
-                this.fON.a(str, bArr, 86400000L);
+                this.fVD.a(str, bArr, 86400000L);
             }
         }
     }
 
     public void m(String str, byte[] bArr) {
         if (bArr != null && str != null) {
-            axB();
-            this.fOM.a(str, bArr, 2592000000L);
+            azl();
+            this.fVC.a(str, bArr, 2592000000L);
         }
     }
 }

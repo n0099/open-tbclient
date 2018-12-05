@@ -47,7 +47,7 @@ public class d {
         }
     }
 
-    public static void rr(String str) {
+    public static void rT(String str) {
         if (!StringUtils.isNull(str)) {
             File file = new File(str);
             if (!file.exists()) {
@@ -56,7 +56,7 @@ public class d {
         }
     }
 
-    public static String H(File file) {
+    public static String I(File file) {
         FileInputStream fileInputStream;
         StringBuilder sb = new StringBuilder();
         try {
@@ -95,21 +95,21 @@ public class d {
         return sb.toString();
     }
 
-    public static JSONArray rs(String str) {
+    public static JSONArray rU(String str) {
         JSONArray jSONArray = new JSONArray();
         if (StringUtils.isNull(str)) {
             return jSONArray;
         }
         File file = new File(str);
         if (file.exists()) {
-            String H = H(file);
-            String[] split = H.split("\n");
+            String I = I(file);
+            String[] split = I.split("\n");
             if (split.length > 0) {
                 for (String str2 : split) {
                     b(str2, jSONArray);
                 }
             } else {
-                b(H, jSONArray);
+                b(I, jSONArray);
             }
             com.baidu.tbadk.core.util.l.deleteFile(file);
             return jSONArray;
@@ -130,9 +130,9 @@ public class d {
         }
     }
 
-    public static void rt(String str) {
+    public static void rV(String str) {
         if (!StringUtils.isNull(str)) {
-            com.baidu.tbadk.core.util.l.x(new File(g.a.fxr + g.a.fxi + str));
+            com.baidu.tbadk.core.util.l.y(new File(g.a.fEh + g.a.fDY + str));
         }
     }
 }

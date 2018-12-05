@@ -12,11 +12,11 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
     /* loaded from: classes.dex */
     public static class a {
         public boolean Jr;
-        public JSONObject aLP;
-        public boolean aLQ;
-        public String aLR;
-        public BlockPopInfoData aLS;
-        public c azN;
+        public c aDn;
+        public JSONObject aPo;
+        public boolean aPp;
+        public String aPq;
+        public BlockPopInfoData aPr;
         public String errorString;
         public boolean isAttention;
         public String showMsg;
@@ -25,12 +25,12 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         public boolean isShowMessage = false;
         public int status = 0;
 
-        public void s(String str, boolean z) {
+        public void t(String str, boolean z) {
             boolean z2 = true;
             if (str != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    this.aLP = jSONObject;
+                    this.aPo = jSONObject;
                     JSONObject optJSONObject = jSONObject.optJSONObject("info");
                     if (optJSONObject != null) {
                         this.status = jSONObject.optInt("status");
@@ -40,7 +40,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                         }
                         this.isShowMessage = z2;
                         this.showMsg = optJSONObject.optString("toast_text");
-                        D(optJSONObject);
+                        E(optJSONObject);
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
@@ -48,18 +48,18 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             }
         }
 
-        private void D(JSONObject jSONObject) {
+        private void E(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.aLR = jSONObject.optString("block_dealurl");
+                this.aPq = jSONObject.optString("block_dealurl");
                 String optString = jSONObject.optString("block_content");
                 String optString2 = jSONObject.optString("block_confirm");
                 String optString3 = jSONObject.optString("block_cancel");
-                if (!ao.isEmpty(optString) && !ao.isEmpty(this.aLR) && !ao.isEmpty(optString2) && !ao.isEmpty(optString3)) {
-                    this.aLS = new BlockPopInfoData();
-                    this.aLS.block_info = optString;
-                    this.aLS.ahead_url = this.aLR;
-                    this.aLS.ahead_info = optString2;
-                    this.aLS.ok_info = optString3;
+                if (!ao.isEmpty(optString) && !ao.isEmpty(this.aPq) && !ao.isEmpty(optString2) && !ao.isEmpty(optString3)) {
+                    this.aPr = new BlockPopInfoData();
+                    this.aPr.block_info = optString;
+                    this.aPr.ahead_url = this.aPq;
+                    this.aPr.ahead_info = optString2;
+                    this.aPr.ok_info = optString3;
                 }
             }
         }

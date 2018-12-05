@@ -380,7 +380,7 @@ public class e {
             } catch (Exception e) {
             }
         }
-        this.adn = a(com.baidu.location.g.b.d + ":" + com.baidu.location.g.b.tW().b);
+        this.adn = a(com.baidu.location.g.b.d + ":" + com.baidu.location.g.b.tV().b);
     }
 
     private void d(Location location) {
@@ -754,8 +754,8 @@ public class e {
                 this.adf = new a();
             }
             StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(com.baidu.location.g.b.tW().a(false));
-            stringBuffer.append(com.baidu.location.a.a.tc().c());
+            stringBuffer.append(com.baidu.location.g.b.tV().a(false));
+            stringBuffer.append(com.baidu.location.a.a.tb().c());
             this.adf.a(stringBuffer.toString());
         }
         k();
@@ -764,7 +764,7 @@ public class e {
     private void k() {
     }
 
-    public static e tg() {
+    public static e tf() {
         if (adc == null) {
             adc = new e();
         }
@@ -775,8 +775,8 @@ public class e {
         if (!this.N) {
             c();
         }
-        boolean z = ((double) com.baidu.location.b.c.tw().f()) < this.l * 100.0d;
-        if (this.k == 1 && z && this.m.contains(com.baidu.location.e.c.a(com.baidu.location.e.b.tM().e()))) {
+        boolean z = ((double) com.baidu.location.b.c.tv().f()) < this.l * 100.0d;
+        if (this.k == 1 && z && this.m.contains(com.baidu.location.e.c.a(com.baidu.location.e.b.tL().e()))) {
             if (this.n != 1 || this.y <= this.o) {
                 this.adl.post(new Runnable() { // from class: com.baidu.location.a.e.1
                     @Override // java.lang.Runnable

@@ -9,11 +9,11 @@ import rx.subjects.PublishSubject;
 import rx.subscriptions.RefCountSubscription;
 /* loaded from: classes2.dex */
 public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
-    final rx.d<T1> ivB;
-    final rx.d<T2> ivC;
-    final rx.functions.f<? super T1, ? extends rx.d<D1>> ivD;
-    final rx.functions.f<? super T2, ? extends rx.d<D2>> ivE;
-    final rx.functions.g<? super T1, ? super rx.d<T2>, ? extends R> ivF;
+    final rx.d<T1> iCK;
+    final rx.d<T2> iCL;
+    final rx.functions.f<? super T1, ? extends rx.d<D1>> iCM;
+    final rx.functions.f<? super T2, ? extends rx.d<D2>> iCN;
+    final rx.functions.g<? super T1, ? super rx.d<T2>, ? extends R> iCO;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -21,11 +21,11 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
     }
 
     public OnSubscribeGroupJoin(rx.d<T1> dVar, rx.d<T2> dVar2, rx.functions.f<? super T1, ? extends rx.d<D1>> fVar, rx.functions.f<? super T2, ? extends rx.d<D2>> fVar2, rx.functions.g<? super T1, ? super rx.d<T2>, ? extends R> gVar) {
-        this.ivB = dVar;
-        this.ivC = dVar2;
-        this.ivD = fVar;
-        this.ivE = fVar2;
-        this.ivF = gVar;
+        this.iCK = dVar;
+        this.iCL = dVar2;
+        this.iCM = fVar;
+        this.iCN = fVar2;
+        this.iCO = gVar;
     }
 
     public void call(rx.j<? super R> jVar) {
@@ -56,8 +56,8 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
             d dVar = new d();
             this.group.add(bVar);
             this.group.add(dVar);
-            OnSubscribeGroupJoin.this.ivB.unsafeSubscribe(bVar);
-            OnSubscribeGroupJoin.this.ivC.unsafeSubscribe(dVar);
+            OnSubscribeGroupJoin.this.iCK.unsafeSubscribe(bVar);
+            OnSubscribeGroupJoin.this.iCL.unsafeSubscribe(dVar);
         }
 
         @Override // rx.k
@@ -118,19 +118,19 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                 int i;
                 ArrayList<Object> arrayList;
                 try {
-                    PublishSubject cdg = PublishSubject.cdg();
-                    rx.b.e eVar = new rx.b.e(cdg);
+                    PublishSubject cfj = PublishSubject.cfj();
+                    rx.b.e eVar = new rx.b.e(cfj);
                     synchronized (ResultManager.this) {
                         ResultManager resultManager = ResultManager.this;
                         i = resultManager.leftIds;
                         resultManager.leftIds = i + 1;
                         ResultManager.this.leftMap().put(Integer.valueOf(i), eVar);
                     }
-                    rx.d create = rx.d.create(new a(cdg, ResultManager.this.cancel));
+                    rx.d create = rx.d.create(new a(cfj, ResultManager.this.cancel));
                     a aVar = new a(i);
                     ResultManager.this.group.add(aVar);
-                    OnSubscribeGroupJoin.this.ivD.call(t1).unsafeSubscribe(aVar);
-                    R j = OnSubscribeGroupJoin.this.ivF.j(t1, create);
+                    OnSubscribeGroupJoin.this.iCM.call(t1).unsafeSubscribe(aVar);
+                    R j = OnSubscribeGroupJoin.this.iCO.j(t1, create);
                     synchronized (ResultManager.this) {
                         arrayList = new ArrayList(ResultManager.this.rightMap.values());
                     }
@@ -182,7 +182,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                     }
                     c cVar = new c(i);
                     ResultManager.this.group.add(cVar);
-                    OnSubscribeGroupJoin.this.ivE.call(t2).unsafeSubscribe(cVar);
+                    OnSubscribeGroupJoin.this.iCN.call(t2).unsafeSubscribe(cVar);
                     synchronized (ResultManager.this) {
                         arrayList = new ArrayList(ResultManager.this.leftMap().values());
                     }
@@ -216,8 +216,8 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
 
         /* loaded from: classes2.dex */
         final class a extends rx.j<D1> {
+            boolean iCk = true;
             final int id;
-            boolean ivb = true;
 
             public a(int i) {
                 this.id = i;
@@ -226,8 +226,8 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
             @Override // rx.e
             public void onCompleted() {
                 rx.e<T2> remove;
-                if (this.ivb) {
-                    this.ivb = false;
+                if (this.iCk) {
+                    this.iCk = false;
                     synchronized (ResultManager.this) {
                         remove = ResultManager.this.leftMap().remove(Integer.valueOf(this.id));
                     }
@@ -251,8 +251,8 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
 
         /* loaded from: classes2.dex */
         final class c extends rx.j<D2> {
+            boolean iCk = true;
             final int id;
-            boolean ivb = true;
 
             public c(int i) {
                 this.id = i;
@@ -260,8 +260,8 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
 
             @Override // rx.e
             public void onCompleted() {
-                if (this.ivb) {
-                    this.ivb = false;
+                if (this.iCk) {
+                    this.iCk = false;
                     synchronized (ResultManager.this) {
                         ResultManager.this.rightMap.remove(Integer.valueOf(this.id));
                     }
@@ -283,8 +283,8 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
 
     /* loaded from: classes2.dex */
     static final class a<T> implements d.a<T> {
-        final RefCountSubscription ivH;
-        final rx.d<T> ivI;
+        final RefCountSubscription iCQ;
+        final rx.d<T> iCR;
 
         @Override // rx.functions.b
         public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -292,28 +292,28 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
         }
 
         public a(rx.d<T> dVar, RefCountSubscription refCountSubscription) {
-            this.ivH = refCountSubscription;
-            this.ivI = dVar;
+            this.iCQ = refCountSubscription;
+            this.iCR = dVar;
         }
 
         public void call(rx.j<? super T> jVar) {
-            rx.k cdl = this.ivH.cdl();
-            C0394a c0394a = new C0394a(jVar, cdl);
-            c0394a.add(cdl);
-            this.ivI.unsafeSubscribe(c0394a);
+            rx.k cfo = this.iCQ.cfo();
+            C0408a c0408a = new C0408a(jVar, cfo);
+            c0408a.add(cfo);
+            this.iCR.unsafeSubscribe(c0408a);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: rx.internal.operators.OnSubscribeGroupJoin$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public final class C0394a extends rx.j<T> {
-            private final rx.k ivJ;
+        public final class C0408a extends rx.j<T> {
+            private final rx.k iCS;
             final rx.j<? super T> subscriber;
 
-            public C0394a(rx.j<? super T> jVar, rx.k kVar) {
+            public C0408a(rx.j<? super T> jVar, rx.k kVar) {
                 super(jVar);
                 this.subscriber = jVar;
-                this.ivJ = kVar;
+                this.iCS = kVar;
             }
 
             @Override // rx.e
@@ -324,13 +324,13 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
             @Override // rx.e
             public void onError(Throwable th) {
                 this.subscriber.onError(th);
-                this.ivJ.unsubscribe();
+                this.iCS.unsubscribe();
             }
 
             @Override // rx.e
             public void onCompleted() {
                 this.subscriber.onCompleted();
-                this.ivJ.unsubscribe();
+                this.iCS.unsubscribe();
             }
         }
     }

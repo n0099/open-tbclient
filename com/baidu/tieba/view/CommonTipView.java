@@ -25,7 +25,7 @@ public class CommonTipView extends TextView {
         super(context);
         this.mDuration = UIMsg.m_AppUI.MSG_APP_SAVESCREEN;
         this.mTipOutAnimation = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), e.a.fade_out);
-        this.mTipInAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(e.C0200e.ds56), 0.0f);
+        this.mTipInAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(e.C0210e.ds56), 0.0f);
         this.mHideTipRunnable = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
             @Override // java.lang.Runnable
             public void run() {
@@ -48,7 +48,7 @@ public class CommonTipView extends TextView {
         super(context, attributeSet);
         this.mDuration = UIMsg.m_AppUI.MSG_APP_SAVESCREEN;
         this.mTipOutAnimation = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), e.a.fade_out);
-        this.mTipInAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(e.C0200e.ds56), 0.0f);
+        this.mTipInAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(e.C0210e.ds56), 0.0f);
         this.mHideTipRunnable = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
             @Override // java.lang.Runnable
             public void run() {
@@ -71,7 +71,7 @@ public class CommonTipView extends TextView {
         super(context, attributeSet, i);
         this.mDuration = UIMsg.m_AppUI.MSG_APP_SAVESCREEN;
         this.mTipOutAnimation = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), e.a.fade_out);
-        this.mTipInAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(e.C0200e.ds56), 0.0f);
+        this.mTipInAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(e.C0210e.ds56), 0.0f);
         this.mHideTipRunnable = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
             @Override // java.lang.Runnable
             public void run() {
@@ -91,7 +91,7 @@ public class CommonTipView extends TextView {
     }
 
     private void init() {
-        setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0200e.ds24));
+        setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0210e.ds24));
         setGravity(17);
         this.mTipOutAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.CommonTipView.3
             @Override // android.view.animation.Animation.AnimationListener
@@ -136,7 +136,7 @@ public class CommonTipView extends TextView {
 
     public void show(LinearLayout linearLayout, int i) {
         if (linearLayout != null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0200e.ds56));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0210e.ds56));
             layoutParams.gravity = 48;
             linearLayout.addView(this, layoutParams);
             onChangeSkinType(i);
@@ -146,7 +146,7 @@ public class CommonTipView extends TextView {
 
     public void show(FrameLayout frameLayout, int i) {
         if (frameLayout != null) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0200e.ds56));
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0210e.ds56));
             layoutParams.setMargins(0, 0, 0, 0);
             frameLayout.addView(this, layoutParams);
             onChangeSkinType(i);

@@ -14,13 +14,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class RatingView extends LinearLayout {
-    private a gId;
+    private a gOT;
     private Context mContext;
 
     /* loaded from: classes3.dex */
     public static class a {
-        public String fjQ;
-        public Double fjR;
+        public String fqH;
+        public Double fqI;
         public String title;
     }
 
@@ -42,12 +42,12 @@ public class RatingView extends LinearLayout {
     private ImageView e(Drawable drawable) {
         ImageView imageView = new ImageView(this.mContext);
         imageView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        imageView.setPadding(0, 0, l.h(this.mContext, e.C0200e.ds4), 0);
+        imageView.setPadding(0, 0, l.h(this.mContext, e.C0210e.ds4), 0);
         imageView.setImageDrawable(drawable);
         return imageView;
     }
 
-    private a uf(String str) {
+    private a uG(String str) {
         a aVar = new a();
         aVar.title = "";
         if (!TextUtils.isEmpty(str)) {
@@ -57,7 +57,7 @@ public class RatingView extends LinearLayout {
                     if (!TextUtils.isEmpty(matcher.group(1))) {
                         aVar.title = matcher.group(1);
                     }
-                    aVar.fjR = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
+                    aVar.fqI = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
                 } catch (NumberFormatException e) {
                     aVar.title = str;
                 }
@@ -69,39 +69,39 @@ public class RatingView extends LinearLayout {
     }
 
     public void setRating(String str, String str2) {
-        this.gId = uf(str2);
-        this.gId.fjQ = str;
-        aXn();
+        this.gOT = uG(str2);
+        this.gOT.fqH = str;
+        aZf();
     }
 
-    private void aXn() {
+    private void aZf() {
         int i;
         removeAllViews();
-        if (this.gId != null) {
-            if (!TextUtils.isEmpty(this.gId.fjQ)) {
+        if (this.gOT != null) {
+            if (!TextUtils.isEmpty(this.gOT.fqH)) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 TextView textView = new TextView(this.mContext);
-                textView.setText(this.gId.fjQ);
-                textView.setTextSize(0, l.h(this.mContext, e.C0200e.fontsize24));
+                textView.setText(this.gOT.fqH);
+                textView.setTextSize(0, l.h(this.mContext, e.C0210e.fontsize24));
                 textView.setTextColor(al.getColor(e.d.cp_cont_d));
-                textView.setPadding(0, 0, l.h(this.mContext, e.C0200e.ds30), 0);
+                textView.setPadding(0, 0, l.h(this.mContext, e.C0210e.ds30), 0);
                 textView.setLayoutParams(layoutParams);
                 textView.setIncludeFontPadding(false);
                 addView(textView);
             }
-            if (!TextUtils.isEmpty(this.gId.title)) {
+            if (!TextUtils.isEmpty(this.gOT.title)) {
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                 TextView textView2 = new TextView(this.mContext);
-                textView2.setText(this.gId.title);
-                textView2.setTextSize(0, l.h(this.mContext, e.C0200e.fontsize24));
+                textView2.setText(this.gOT.title);
+                textView2.setTextSize(0, l.h(this.mContext, e.C0210e.fontsize24));
                 textView2.setTextColor(al.getColor(e.d.cp_cont_d));
-                textView2.setPadding(0, 0, l.h(this.mContext, e.C0200e.ds6), 0);
+                textView2.setPadding(0, 0, l.h(this.mContext, e.C0210e.ds6), 0);
                 textView2.setLayoutParams(layoutParams2);
                 textView2.setIncludeFontPadding(false);
                 addView(textView2);
             }
-            if (this.gId.fjR != null && !Double.isNaN(this.gId.fjR.doubleValue())) {
-                Integer valueOf = Integer.valueOf(this.gId.fjR.intValue());
+            if (this.gOT.fqI != null && !Double.isNaN(this.gOT.fqI.doubleValue())) {
+                Integer valueOf = Integer.valueOf(this.gOT.fqI.intValue());
                 if (valueOf.intValue() > 10) {
                     valueOf = 10;
                 }

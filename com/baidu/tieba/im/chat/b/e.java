@@ -12,11 +12,11 @@ public class e {
     public static void b(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.b.e.1
             @Override // com.baidu.tieba.im.chat.b.a.c
-            public boolean oY(String str) {
+            public boolean pA(String str) {
                 return !TextUtils.isEmpty(str) && ChatStatusManager.getInst().getIsOpen(0) && str.equals(ChatStatusManager.getInst().getCurId(0));
             }
-        }, ChatStatusManager.getInst().getIsOpen(5), new a.InterfaceC0229a() { // from class: com.baidu.tieba.im.chat.b.e.2
-            @Override // com.baidu.tieba.im.chat.b.a.InterfaceC0229a
+        }, ChatStatusManager.getInst().getIsOpen(5), new a.InterfaceC0240a() { // from class: com.baidu.tieba.im.chat.b.e.2
+            @Override // com.baidu.tieba.im.chat.b.a.InterfaceC0240a
             public boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo2) {
                 if (chatMessage != null && chatMessage.getMsgType() == 22) {
                     if (com.baidu.tieba.im.util.e.w(chatMessage)) {
@@ -46,10 +46,10 @@ public class e {
             }
             JSONObject jSONObject = new JSONObject(content);
             String optString = jSONObject.optString("eventId");
-            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject("eventParam")) == null || optJSONObject.optLong("groupId") != com.baidu.tieba.im.sendmessage.a.eRF.longValue()) {
+            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject("eventParam")) == null || optJSONObject.optLong("groupId") != com.baidu.tieba.im.sendmessage.a.eYu.longValue()) {
                 return -1L;
             }
-            return com.baidu.tieba.im.util.d.cv(optJSONObject.optLong("readMsgId"));
+            return com.baidu.tieba.im.util.d.cC(optJSONObject.optLong("readMsgId"));
         } catch (Exception e) {
             return -1L;
         }

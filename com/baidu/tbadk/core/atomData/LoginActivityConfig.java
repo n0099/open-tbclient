@@ -9,6 +9,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 public class LoginActivityConfig extends IntentConfig {
     public static final String JUMP_AFTER_DESTROY = "jump_after_destroy";
     public static final int JUMP_TO_MAINTAB = 1;
+    public static final String URL = "url";
     public static final String USER_INFO_CHANGED = "user_info_changed";
     public static long lastStartActivityTime = 0;
 
@@ -32,6 +33,12 @@ public class LoginActivityConfig extends IntentConfig {
     public LoginActivityConfig(Context context, boolean z) {
         super(context);
         getIntent().putExtra("close", z);
+    }
+
+    public LoginActivityConfig(Context context, boolean z, String str) {
+        super(context);
+        getIntent().putExtra("close", z);
+        getIntent().putExtra("url", str);
     }
 
     public void setJumpToAfterDestroy(int i) {

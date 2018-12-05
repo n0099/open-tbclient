@@ -18,38 +18,38 @@ import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
 /* loaded from: classes3.dex */
 public class SystemHelpSettingModel extends BdBaseModel {
-    private a gOM;
-    private b gON;
-    private BaseActivity.LoadDataCallBack gOO;
+    private a gVC;
+    private b gVD;
+    private BaseActivity.LoadDataCallBack gVE;
     private Context mContext;
 
     public SystemHelpSettingModel(SystemHelpSettingActivity systemHelpSettingActivity) {
         super(systemHelpSettingActivity.getPageContext());
-        this.gOM = null;
-        this.gON = null;
+        this.gVC = null;
+        this.gVD = null;
         this.mContext = null;
-        this.gOO = null;
+        this.gVE = null;
         this.mContext = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
-    public void buH() {
-        if (this.gOM == null) {
-            this.gOM = new a();
-            this.gOM.execute(new String[0]);
+    public void bwA() {
+        if (this.gVC == null) {
+            this.gVC = new a();
+            this.gVC.execute(new String[0]);
         }
     }
 
-    public void buI() {
+    public void bwB() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!TextUtils.isEmpty(currentAccount)) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, currentAccount));
         }
     }
 
-    public void buJ() {
-        if (this.gON == null) {
-            this.gON = new b();
-            this.gON.execute(new String[0]);
+    public void bwC() {
+        if (this.gVD == null) {
+            this.gVD = new b();
+            this.gVD.execute(new String[0]);
         }
     }
 
@@ -68,9 +68,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            SystemHelpSettingModel.this.gOM = null;
-            if (SystemHelpSettingModel.this.gOO != null) {
-                SystemHelpSettingModel.this.gOO.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
+            SystemHelpSettingModel.this.gVC = null;
+            if (SystemHelpSettingModel.this.gVE != null) {
+                SystemHelpSettingModel.this.gVE.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
             }
         }
 
@@ -79,10 +79,10 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
             TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().gg();
-            com.baidu.tbadk.core.voice.a.b.EJ();
+            com.baidu.tbadk.core.voice.a.b.FN();
             try {
-                an.CH().CI();
-                an.CH().CJ();
+                an.DL().DM();
+                an.DL().DN();
                 return null;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -105,9 +105,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
             String a = bVar.a("image", true, false, true);
             String cacheDir = l.getCacheDir();
             String str = cacheDir + "voice";
-            long eV = l.eV(cacheDir + TbConfig.TMP_DATABASE_NAME) + l.p(a, false) + l.p(str, false) + l.p(bVar.a(TbConfig.IMAGE_CACHE_DIR_NAME, true, false, true), false);
-            float f = 0.0f + ((float) eV);
-            if (eV >= 10485.76d) {
+            long fn = l.fn(cacheDir + TbConfig.TMP_DATABASE_NAME) + l.q(a, false) + l.q(str, false) + l.q(bVar.a(TbConfig.IMAGE_CACHE_DIR_NAME, true, false, true), false);
+            float f = 0.0f + ((float) fn);
+            if (fn >= 10485.76d) {
                 return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + SystemHelpSettingModel.this.mContext.getString(e.j.mebibyte);
             }
             return "";
@@ -118,9 +118,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((b) str);
-            SystemHelpSettingModel.this.gON = null;
-            if (SystemHelpSettingModel.this.gOO != null) {
-                SystemHelpSettingModel.this.gOO.callback(MoreModel.TaskType.GET_SIZE, str);
+            SystemHelpSettingModel.this.gVD = null;
+            if (SystemHelpSettingModel.this.gVE != null) {
+                SystemHelpSettingModel.this.gVE.callback(MoreModel.TaskType.GET_SIZE, str);
             }
         }
     }
@@ -136,6 +136,6 @@ public class SystemHelpSettingModel extends BdBaseModel {
     }
 
     public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.gOO = loadDataCallBack;
+        this.gVE = loadDataCallBack;
     }
 }

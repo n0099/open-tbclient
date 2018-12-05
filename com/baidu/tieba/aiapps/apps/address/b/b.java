@@ -9,11 +9,11 @@ public interface b {
 
     void Q(String str, int i);
 
-    void WG();
+    void XJ();
 
     void h(List<com.baidu.tieba.aiapps.apps.address.c.b> list, int i);
 
-    void jX(String str);
+    void kp(String str);
 
     void onFailure();
 }

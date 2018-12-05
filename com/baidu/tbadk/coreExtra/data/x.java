@@ -5,50 +5,50 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class x {
-    private String aKW;
-    private long aKX;
-    private long aKY;
-    private long aKZ;
-    private String aLa;
-    private String aLb;
+    private String aOA;
+    private String aOv;
+    private long aOw;
+    private long aOx;
+    private long aOy;
+    private String aOz;
 
     public void parseJson(String str) {
         if (!ao.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.aKW = jSONObject.optString("splash_video_url");
-                this.aKX = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.aKY = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.aKZ = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.aLa = jSONObject.optString("splash_video_h5_url");
-                this.aLb = jSONObject.optString("splash_video_h5_text");
+                this.aOv = jSONObject.optString("splash_video_url");
+                this.aOw = jSONObject.optLong("splash_video_start_time") * 1000;
+                this.aOx = jSONObject.optLong("splash_video_end_time") * 1000;
+                this.aOy = jSONObject.optLong("splash_video_interval_time") * 1000;
+                this.aOz = jSONObject.optString("splash_video_h5_url");
+                this.aOA = jSONObject.optString("splash_video_h5_text");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String FU() {
-        return this.aKW;
+    public String GY() {
+        return this.aOv;
     }
 
-    public long FV() {
-        return this.aKX;
+    public long GZ() {
+        return this.aOw;
     }
 
-    public long FW() {
-        return this.aKY;
+    public long Ha() {
+        return this.aOx;
     }
 
-    public long FX() {
-        return this.aKZ;
+    public long Hb() {
+        return this.aOy;
     }
 
-    public String FY() {
-        return this.aLa;
+    public String Hc() {
+        return this.aOz;
     }
 
-    public String FZ() {
-        return this.aLb;
+    public String Hd() {
+        return this.aOA;
     }
 }

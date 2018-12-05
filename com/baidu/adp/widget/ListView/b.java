@@ -5,13 +5,13 @@ import android.view.View;
 public abstract class b {
     private View mView = null;
 
-    public abstract View oE();
+    public abstract View oD();
 
     public abstract void onClick();
 
     public final View getView() {
         if (this.mView == null) {
-            this.mView = oE();
+            this.mView = oD();
         }
         return this.mView;
     }

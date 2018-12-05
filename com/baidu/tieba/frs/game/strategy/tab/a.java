@@ -9,5 +9,5 @@ public interface a {
 
     String getForumId();
 
-    e mo(int i);
+    e mE(int i);
 }

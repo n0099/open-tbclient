@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class by<T> implements d.b<T, T> {
-    final long iBF;
+    final long iIN;
     final rx.g scheduler;
 
     @Override // rx.functions.f
@@ -13,14 +13,14 @@ public final class by<T> implements d.b<T, T> {
     }
 
     public by(long j, TimeUnit timeUnit, rx.g gVar) {
-        this.iBF = timeUnit.toMillis(j);
+        this.iIN = timeUnit.toMillis(j);
         this.scheduler = gVar;
     }
 
     /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: rx.j<T>, rx.j<? super T> */
     public rx.j<? super T> call(final rx.j<? super T> jVar) {
         return (rx.j<T>) new rx.j<T>(jVar) { // from class: rx.internal.operators.by.1
-            private long iBG = -1;
+            private long iIO = -1;
 
             @Override // rx.j
             public void onStart() {
@@ -30,8 +30,8 @@ public final class by<T> implements d.b<T, T> {
             @Override // rx.e
             public void onNext(T t) {
                 long now = by.this.scheduler.now();
-                if (this.iBG == -1 || now - this.iBG >= by.this.iBF) {
-                    this.iBG = now;
+                if (this.iIO == -1 || now - this.iIO >= by.this.iIN) {
+                    this.iIO = now;
                     jVar.onNext(t);
                 }
             }

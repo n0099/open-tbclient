@@ -6,6 +6,6 @@ public final class b {
     private static Bitmap Vp = null;
 
     public static int W(float f) {
-        return Math.round(com.baidu.browser.core.a.qe().getResources().getDisplayMetrics().density * f);
+        return Math.round(com.baidu.browser.core.a.qd().getResources().getDisplayMetrics().density * f);
     }
 }

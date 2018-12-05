@@ -31,9 +31,9 @@ public class c {
         if (b.isEmpty()) {
             return;
         }
-        a rg = a.rg();
-        rg.Xg = b;
-        rg.a(j, j2, j3, j4);
+        a rf = a.rf();
+        rf.Xg = b;
+        rf.a(j, j2, j3, j4);
     }
 
     public static c bg(Context context) {

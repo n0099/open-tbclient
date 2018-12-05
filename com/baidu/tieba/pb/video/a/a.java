@@ -25,7 +25,7 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class a {
-    private static final int dYX = l.h(TbadkCoreApplication.getInst(), e.C0200e.tbds33);
+    private static final int efA = l.h(TbadkCoreApplication.getInst(), e.C0210e.tbds33);
 
     public static void a(Context context, TextView textView, String str, final String str2, final String str3) {
         int h;
@@ -33,12 +33,12 @@ public class a {
             int color = al.getColor(e.d.cp_cont_j);
             String str4 = str + "  ";
             TextPaint paint = textView.getPaint();
-            int h2 = l.aS(context)[0] - (l.h(context, e.C0200e.tbds48) * 2);
-            int h3 = l.h(context, e.C0200e.tbds116);
+            int h2 = l.aS(context)[0] - (l.h(context, e.C0210e.tbds48) * 2);
+            int h3 = l.h(context, e.C0210e.tbds116);
             int c = l.c(paint, " 广告");
             int c2 = l.c(paint, "...  ");
             int c3 = l.c(paint, str4);
-            int h4 = c3 + h3 + c + l.h(context, e.C0200e.tbds30);
+            int h4 = c3 + h3 + c + l.h(context, e.C0210e.tbds30);
             if (h4 >= h2 * 2) {
                 str4 = a(paint, str4, ((((h2 * 2) - h3) - c) - c2) - h) + "...  ";
             } else if (h4 >= h2 && c3 < h2 && h4 >= h2) {
@@ -48,13 +48,13 @@ public class a {
             SpannableString spannableString = new SpannableString(BaseRequestAction.SPLITE);
             Drawable drawable = al.getDrawable(e.f.icon_video_pb_ad_link);
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            spannableString.setSpan(new C0280a(drawable, 0), 0, 1, 17);
+            spannableString.setSpan(new C0291a(drawable, 0), 0, 1, 17);
             spannableString.setSpan(new ClickableSpan() { // from class: com.baidu.tieba.pb.video.a.a.1
                 @Override // android.text.style.ClickableSpan
                 public void onClick(View view) {
                     if (!StringUtils.isNull(str2)) {
                         am amVar = new am("c13313");
-                        amVar.ax("tid", str3);
+                        amVar.aA("tid", str3);
                         TiebaStatic.log(amVar);
                         com.baidu.tbadk.browser.a.b(TbadkCoreApplication.getInst().getApplicationContext(), false, str2);
                     }
@@ -62,13 +62,13 @@ public class a {
             }, 0, 1, 17);
             spannableString.setSpan(new BackgroundColorSpan(0), 0, 1, 17);
             SpannableString spannableString2 = new SpannableString(" 广告");
-            spannableString2.setSpan(new b(dYX, color), 0, " 广告".length(), 17);
+            spannableString2.setSpan(new b(efA, color), 0, " 广告".length(), 17);
             spannableStringBuilder.append((CharSequence) spannableString).append((CharSequence) spannableString2);
             textView.setHighlightColor(0);
             textView.setText(spannableStringBuilder);
             textView.setMovementMethod(LinkMovementMethod.getInstance());
             am amVar = new am("c13312");
-            amVar.ax("tid", str3);
+            amVar.aA("tid", str3);
             TiebaStatic.log(amVar);
         }
     }
@@ -83,12 +83,12 @@ public class a {
 
     /* loaded from: classes6.dex */
     private static class b extends ReplacementSpan {
-        private int dZa;
-        private int dZb;
+        private int efD;
+        private int efE;
 
         public b(int i, int i2) {
-            this.dZa = i;
-            this.dZb = i2;
+            this.efD = i;
+            this.efE = i2;
         }
 
         @Override // android.text.style.ReplacementSpan
@@ -106,16 +106,16 @@ public class a {
 
         private TextPaint a(Paint paint) {
             TextPaint textPaint = new TextPaint(paint);
-            textPaint.setTextSize(this.dZa);
-            textPaint.setColor(this.dZb);
+            textPaint.setTextSize(this.efD);
+            textPaint.setColor(this.efE);
             return textPaint;
         }
     }
 
     /* renamed from: com.baidu.tieba.pb.video.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private static class C0280a extends ImageSpan {
-        public C0280a(Drawable drawable, int i) {
+    private static class C0291a extends ImageSpan {
+        public C0291a(Drawable drawable, int i) {
             super(drawable, i);
         }
 

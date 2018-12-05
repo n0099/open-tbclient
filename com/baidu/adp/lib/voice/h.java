@@ -14,7 +14,7 @@ public class h {
         return app == null ? "" : app.getString(i);
     }
 
-    public static boolean ly() {
+    public static boolean lx() {
         String str = Build.BRAND;
         if (str == null) {
             return false;

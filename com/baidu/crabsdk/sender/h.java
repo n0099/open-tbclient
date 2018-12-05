@@ -223,11 +223,11 @@ public final class h {
                                     f.put(WBConstants.SSO_APP_KEY, com.baidu.crabsdk.a.d);
                                     f.put("os", "Android");
                                     f.put("osVN", Build.VERSION.RELEASE);
-                                    f.put("osVC", com.baidu.crabsdk.c.c.rs());
+                                    f.put("osVC", com.baidu.crabsdk.c.c.rr());
                                     f.put("appVC", o.J());
                                     f.put("batVN", "7.3.4");
                                     f.put("nativeVN", CrabSDK.NDK_VERSION);
-                                    f.put("isRoot", p.rp());
+                                    f.put("isRoot", p.ro());
                                     f.put("pkgName", o.G());
                                     f.put("appLabel", o.H());
                                     if (TextUtils.isEmpty(com.baidu.crabsdk.a.o)) {
@@ -389,7 +389,7 @@ public final class h {
                     p(context);
                 } else if (com.baidu.crabsdk.a.r) {
                     com.baidu.crabsdk.c.a.cI("network is not wifi, and UPLOAD_CRASH_ONLY_WIFI is true!");
-                } else if ("MOBILE".equals(F) && e.rz()) {
+                } else if ("MOBILE".equals(F) && e.ry()) {
                     com.baidu.crabsdk.c.a.cI("upload without wifi!");
                     e.a(0L);
                     p(context);

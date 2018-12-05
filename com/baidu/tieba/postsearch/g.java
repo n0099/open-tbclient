@@ -6,89 +6,89 @@ import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class g {
-    private a gAU;
-    private c gAV;
-    private f gAW;
-    private PostSearchActivity gAd;
+    private PostSearchActivity gGT;
+    private a gHK;
+    private c gHL;
+    private f gHM;
     private View mRootView;
 
     public g(PostSearchActivity postSearchActivity) {
-        this.gAd = postSearchActivity;
+        this.gGT = postSearchActivity;
     }
 
     public void initView() {
-        this.gAd.setContentView(e.h.post_search_activity);
-        this.mRootView = this.gAd.findViewById(e.g.search_rootview);
-        this.gAU = new a(this.gAd, this.mRootView);
-        this.gAV = new c(this.gAd, this.mRootView);
-        this.gAW = new f(this.gAd, this.mRootView);
+        this.gGT.setContentView(e.h.post_search_activity);
+        this.mRootView = this.gGT.findViewById(e.g.search_rootview);
+        this.gHK = new a(this.gGT, this.mRootView);
+        this.gHL = new c(this.gGT, this.mRootView);
+        this.gHM = new f(this.gGT, this.mRootView);
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        if (this.gAW != null) {
-            this.gAW.setOnPageChangeListener(onPageChangeListener);
+        if (this.gHM != null) {
+            this.gHM.setOnPageChangeListener(onPageChangeListener);
         }
     }
 
     public void at(ArrayList<String> arrayList) {
-        this.gAW.setVisibility(false);
-        this.gAV.at(arrayList);
+        this.gHM.setVisibility(false);
+        this.gHL.at(arrayList);
     }
 
-    public void tg(int i) {
-        this.gAU.aGm();
-        bqY();
-        this.gAU.bqZ();
-        this.gAW.setVisibility(true);
-        this.gAW.tg(i);
+    public void tA(int i) {
+        this.gHK.aHY();
+        bsR();
+        this.gHK.bsS();
+        this.gHM.setVisibility(true);
+        this.gHM.tA(i);
     }
 
-    public void tE(String str) {
-        this.gAU.tE(str);
+    public void ug(String str) {
+        this.gHK.ug(str);
     }
 
     public void a(int i, b bVar, boolean z) {
-        this.gAW.a(i, bVar, z);
+        this.gHM.a(i, bVar, z);
     }
 
-    public boolean brd() {
-        return this.gAV.brl();
+    public boolean bsW() {
+        return this.gHL.bte();
     }
 
     public void showLoadingView() {
-        this.gAV.showLoadingView();
+        this.gHL.showLoadingView();
     }
 
     public void hideLoadingView() {
-        this.gAV.hideLoadingView();
+        this.gHL.hideLoadingView();
     }
 
-    public void brk() {
-        this.gAV.brk();
+    public void btd() {
+        this.gHL.btd();
     }
 
-    public void bqY() {
-        this.gAU.bqY();
+    public void bsR() {
+        this.gHK.bsR();
     }
 
-    public void brw() {
-        this.gAV.brj();
+    public void btp() {
+        this.gHL.btc();
     }
 
     public int getCurrentTabType() {
-        return this.gAW.getCurrentTabType();
+        return this.gHM.getCurrentTabType();
     }
 
     public void onChangeSkinType(int i) {
-        this.gAU.onChangeSkinType(i);
-        this.gAV.onChangeSkinType(i);
-        this.gAW.onChangeSkinType(i);
-        com.baidu.tbadk.o.a.a(this.gAd.getPageContext(), this.mRootView);
+        this.gHK.onChangeSkinType(i);
+        this.gHL.onChangeSkinType(i);
+        this.gHM.onChangeSkinType(i);
+        com.baidu.tbadk.o.a.a(this.gGT.getPageContext(), this.mRootView);
     }
 
     public void onDestroy() {
-        if (this.gAU != null) {
-            this.gAU.onDestroy();
+        if (this.gHK != null) {
+            this.gHK.onDestroy();
         }
     }
 }

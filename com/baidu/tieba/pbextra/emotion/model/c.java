@@ -4,69 +4,69 @@ import android.support.v7.widget.ActivityChooserView;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes3.dex */
 class c {
-    protected int ghS;
-    protected byte[] ghT;
-    protected int ghU;
-    protected int ghV;
-    protected int[] ghX = new int[256];
-    protected int[] ghY = new int[256];
-    protected int[] ghZ = new int[256];
-    protected int[] gia = new int[32];
-    protected int[][] ghW = new int[256];
+    protected int goJ;
+    protected byte[] goK;
+    protected int goL;
+    protected int goM;
+    protected int[] goO = new int[256];
+    protected int[] goP = new int[256];
+    protected int[] goQ = new int[256];
+    protected int[] goR = new int[32];
+    protected int[][] goN = new int[256];
 
     public c(byte[] bArr, int i, int i2) {
-        this.ghT = bArr;
-        this.ghU = i;
-        this.ghV = i2;
+        this.goK = bArr;
+        this.goL = i;
+        this.goM = i2;
         for (int i3 = 0; i3 < 256; i3++) {
-            this.ghW[i3] = new int[4];
-            int[] iArr = this.ghW[i3];
+            this.goN[i3] = new int[4];
+            int[] iArr = this.goN[i3];
             int i4 = (i3 << 12) / 256;
             iArr[2] = i4;
             iArr[1] = i4;
             iArr[0] = i4;
-            this.ghZ[i3] = 256;
-            this.ghY[i3] = 0;
+            this.goQ[i3] = 256;
+            this.goP[i3] = 0;
         }
     }
 
-    public byte[] bmg() {
+    public byte[] bnZ() {
         byte[] bArr = new byte[768];
         int[] iArr = new int[256];
         for (int i = 0; i < 256; i++) {
-            iArr[this.ghW[i][3]] = i;
+            iArr[this.goN[i][3]] = i;
         }
         int i2 = 0;
         for (int i3 = 0; i3 < 256; i3++) {
             int i4 = iArr[i3];
             int i5 = i2 + 1;
-            bArr[i2] = (byte) this.ghW[i4][0];
+            bArr[i2] = (byte) this.goN[i4][0];
             int i6 = i5 + 1;
-            bArr[i5] = (byte) this.ghW[i4][1];
+            bArr[i5] = (byte) this.goN[i4][1];
             i2 = i6 + 1;
-            bArr[i6] = (byte) this.ghW[i4][2];
+            bArr[i6] = (byte) this.goN[i4][2];
         }
         return bArr;
     }
 
-    public void bmh() {
+    public void boa() {
         int i;
         int i2;
         int i3 = 0;
         int i4 = 0;
         int i5 = 0;
         while (i5 < 256) {
-            int[] iArr = this.ghW[i5];
+            int[] iArr = this.goN[i5];
             int i6 = iArr[1];
             int i7 = i5;
             for (int i8 = i5 + 1; i8 < 256; i8++) {
-                int[] iArr2 = this.ghW[i8];
+                int[] iArr2 = this.goN[i8];
                 if (iArr2[1] < i6) {
                     i6 = iArr2[1];
                     i7 = i8;
                 }
             }
-            int[] iArr3 = this.ghW[i7];
+            int[] iArr3 = this.goN[i7];
             if (i5 != i7) {
                 int i9 = iArr3[0];
                 iArr3[0] = iArr[0];
@@ -82,9 +82,9 @@ class c {
                 iArr[3] = i12;
             }
             if (i6 != i4) {
-                this.ghX[i4] = (i3 + i5) >> 1;
+                this.goO[i4] = (i3 + i5) >> 1;
                 for (int i13 = i4 + 1; i13 < i6; i13++) {
-                    this.ghX[i13] = i5;
+                    this.goO[i13] = i5;
                 }
                 i2 = i6;
                 i = i5;
@@ -96,32 +96,32 @@ class c {
             i3 = i;
             i4 = i2;
         }
-        this.ghX[i4] = (i3 + 255) >> 1;
+        this.goO[i4] = (i3 + 255) >> 1;
         for (int i14 = i4 + 1; i14 < 256; i14++) {
-            this.ghX[i14] = 255;
+            this.goO[i14] = 255;
         }
     }
 
-    public void bmi() {
+    public void bob() {
         int i;
-        if (this.ghU < 1509) {
-            this.ghV = 1;
+        if (this.goL < 1509) {
+            this.goM = 1;
         }
-        this.ghS = ((this.ghV - 1) / 3) + 30;
-        byte[] bArr = this.ghT;
-        int i2 = this.ghU;
-        int i3 = this.ghU / (this.ghV * 3);
+        this.goJ = ((this.goM - 1) / 3) + 30;
+        byte[] bArr = this.goK;
+        int i2 = this.goL;
+        int i3 = this.goL / (this.goM * 3);
         int i4 = i3 / 100;
         for (int i5 = 0; i5 < 32; i5++) {
-            this.gia[i5] = (((1024 - (i5 * i5)) * 256) / 1024) * 1024;
+            this.goR[i5] = (((1024 - (i5 * i5)) * 256) / 1024) * 1024;
         }
-        if (this.ghU < 1509) {
+        if (this.goL < 1509) {
             i = 3;
-        } else if (this.ghU % 499 != 0) {
+        } else if (this.goL % 499 != 0) {
             i = 1497;
-        } else if (this.ghU % 491 != 0) {
+        } else if (this.goL % 491 != 0) {
             i = 1473;
-        } else if (this.ghU % 487 != 0) {
+        } else if (this.goL % 487 != 0) {
             i = 1461;
         } else {
             i = 1509;
@@ -136,23 +136,23 @@ class c {
             int i12 = (bArr[i6 + 1] & 255) << 4;
             int i13 = (bArr[i6 + 2] & 255) << 4;
             int V = V(i11, i12, i13);
-            e(i10, V, i11, i12, i13);
+            f(i10, V, i11, i12, i13);
             if (i7 != 0) {
-                d(i7, V, i11, i12, i13);
+                e(i7, V, i11, i12, i13);
             }
             int i14 = i6 + i;
-            int i15 = i14 >= i2 ? i14 - this.ghU : i14;
+            int i15 = i14 >= i2 ? i14 - this.goL : i14;
             int i16 = i9 + 1;
             int i17 = i4 == 0 ? 1 : i4;
             if (i16 % i17 == 0) {
-                int i18 = i10 - (i10 / this.ghS);
+                int i18 = i10 - (i10 / this.goJ);
                 int i19 = i8 - (i8 / 30);
                 int i20 = i19 >> 6;
                 if (i20 <= 1) {
                     i20 = 0;
                 }
                 for (int i21 = 0; i21 < i20; i21++) {
-                    this.gia[i21] = ((((i20 * i20) - (i21 * i21)) * 256) / (i20 * i20)) * i18;
+                    this.goR[i21] = ((((i20 * i20) - (i21 * i21)) * 256) / (i20 * i20)) * i18;
                 }
                 i6 = i15;
                 i4 = i17;
@@ -172,7 +172,7 @@ class c {
         int i4;
         int i5;
         int i6;
-        int i7 = this.ghX[i2];
+        int i7 = this.goO[i2];
         int i8 = -1;
         int i9 = 1000;
         int i10 = i7 - 1;
@@ -180,7 +180,7 @@ class c {
         while (true) {
             if (i11 < 256 || i10 >= 0) {
                 if (i11 < 256) {
-                    int[] iArr = this.ghW[i11];
+                    int[] iArr = this.goN[i11];
                     int i12 = iArr[1] - i2;
                     if (i12 >= i9) {
                         i5 = i9;
@@ -215,7 +215,7 @@ class c {
                     i6 = i8;
                 }
                 if (i10 >= 0) {
-                    int[] iArr2 = this.ghW[i10];
+                    int[] iArr2 = this.goN[i10];
                     int i16 = i2 - iArr2[1];
                     if (i16 >= i5) {
                         i8 = i6;
@@ -255,26 +255,26 @@ class c {
         }
     }
 
-    public byte[] bmj() {
-        bmi();
-        bmk();
-        bmh();
-        return bmg();
+    public byte[] boc() {
+        bob();
+        bod();
+        boa();
+        return bnZ();
     }
 
-    public void bmk() {
+    public void bod() {
         for (int i = 0; i < 256; i++) {
-            int[] iArr = this.ghW[i];
+            int[] iArr = this.goN[i];
             iArr[0] = iArr[0] >> 4;
-            int[] iArr2 = this.ghW[i];
+            int[] iArr2 = this.goN[i];
             iArr2[1] = iArr2[1] >> 4;
-            int[] iArr3 = this.ghW[i];
+            int[] iArr3 = this.goN[i];
             iArr3[2] = iArr3[2] >> 4;
-            this.ghW[i][3] = i;
+            this.goN[i][3] = i;
         }
     }
 
-    protected void d(int i, int i2, int i3, int i4, int i5) {
+    protected void e(int i, int i2, int i3, int i4, int i5) {
         int i6;
         int i7 = i2 - i;
         int i8 = i7 < -1 ? -1 : i7;
@@ -288,10 +288,10 @@ class c {
         while (true) {
             if (i12 < i9 || i10 > i8) {
                 int i13 = i11 + 1;
-                int i14 = this.gia[i11];
+                int i14 = this.goR[i11];
                 if (i12 < i9) {
                     i6 = i12 + 1;
-                    int[] iArr = this.ghW[i12];
+                    int[] iArr = this.goN[i12];
                     try {
                         iArr[0] = iArr[0] - (((iArr[0] - i3) * i14) / 262144);
                         iArr[1] = iArr[1] - (((iArr[1] - i4) * i14) / 262144);
@@ -304,7 +304,7 @@ class c {
                 }
                 if (i10 > i8) {
                     int i15 = i10 - 1;
-                    int[] iArr2 = this.ghW[i10];
+                    int[] iArr2 = this.goN[i10];
                     try {
                         iArr2[0] = iArr2[0] - (((iArr2[0] - i3) * i14) / 262144);
                         iArr2[1] = iArr2[1] - (((iArr2[1] - i4) * i14) / 262144);
@@ -328,8 +328,8 @@ class c {
         }
     }
 
-    protected void e(int i, int i2, int i3, int i4, int i5) {
-        int[] iArr = this.ghW[i2];
+    protected void f(int i, int i2, int i3, int i4, int i5) {
+        int[] iArr = this.goN[i2];
         iArr[0] = iArr[0] - (((iArr[0] - i3) * i) / 1024);
         iArr[1] = iArr[1] - (((iArr[1] - i4) * i) / 1024);
         iArr[2] = iArr[2] - (((iArr[2] - i5) * i) / 1024);
@@ -345,7 +345,7 @@ class c {
         int i10 = -1;
         int i11 = 0;
         while (i11 < 256) {
-            int[] iArr = this.ghW[i11];
+            int[] iArr = this.goN[i11];
             int i12 = iArr[0] - i;
             if (i12 < 0) {
                 i12 = -i12;
@@ -367,17 +367,17 @@ class c {
                 i4 = i9;
                 i5 = i10;
             }
-            int i17 = i16 - (this.ghY[i11] >> 12);
+            int i17 = i16 - (this.goP[i11] >> 12);
             if (i17 < i7) {
                 i6 = i11;
             } else {
                 i17 = i7;
                 i6 = i8;
             }
-            int i18 = this.ghZ[i11] >> 10;
-            int[] iArr2 = this.ghZ;
+            int i18 = this.goQ[i11] >> 10;
+            int[] iArr2 = this.goQ;
             iArr2[i11] = iArr2[i11] - i18;
-            int[] iArr3 = this.ghY;
+            int[] iArr3 = this.goP;
             iArr3[i11] = (i18 << 10) + iArr3[i11];
             i11++;
             i7 = i17;
@@ -385,9 +385,9 @@ class c {
             i10 = i5;
             i9 = i4;
         }
-        int[] iArr4 = this.ghZ;
+        int[] iArr4 = this.goQ;
         iArr4[i10] = iArr4[i10] + 64;
-        int[] iArr5 = this.ghY;
+        int[] iArr5 = this.goP;
         iArr5[i10] = iArr5[i10] - 65536;
         return i8;
     }

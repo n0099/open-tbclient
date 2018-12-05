@@ -21,7 +21,7 @@ public interface g {
 
         void f(int i, String str);
 
-        void lE();
+        void lD();
 
         void onOpen(Map<String, String> map);
 

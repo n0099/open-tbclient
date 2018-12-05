@@ -10,14 +10,14 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes2.dex */
 public abstract class a<T> implements Closeable, Cloneable {
     @Nullable
-    private static volatile c hYP;
+    private static volatile c igc;
     @GuardedBy("this")
     protected boolean HL;
     @Nullable
-    protected Throwable hYQ;
-    protected final SharedReference<T> hYR;
-    private static Class<a> hXm = a.class;
-    private static final com.facebook.common.references.c<Closeable> hYO = new com.facebook.common.references.c<Closeable>() { // from class: com.facebook.common.references.a.1
+    protected Throwable igd;
+    protected final SharedReference<T> ige;
+    private static Class<a> iez = a.class;
+    private static final com.facebook.common.references.c<Closeable> igb = new com.facebook.common.references.c<Closeable>() { // from class: com.facebook.common.references.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.common.references.c
         /* renamed from: d */
@@ -28,7 +28,7 @@ public abstract class a<T> implements Closeable, Cloneable {
             }
         }
     };
-    private static volatile boolean hYS = true;
+    private static volatile boolean igf = true;
 
     /* loaded from: classes2.dex */
     public interface c {
@@ -37,15 +37,15 @@ public abstract class a<T> implements Closeable, Cloneable {
 
     private a(SharedReference<T> sharedReference) {
         this.HL = false;
-        this.hYR = (SharedReference) g.checkNotNull(sharedReference);
-        sharedReference.bRn();
-        this.hYQ = bRj();
+        this.ige = (SharedReference) g.checkNotNull(sharedReference);
+        sharedReference.bTt();
+        this.igd = bTp();
     }
 
     private a(T t, com.facebook.common.references.c<T> cVar) {
         this.HL = false;
-        this.hYR = new SharedReference<>(t, cVar);
-        this.hYQ = bRj();
+        this.ige = new SharedReference<>(t, cVar);
+        this.igd = bTp();
     }
 
     /* JADX WARN: Incorrect types in method signature: <T::Ljava/io/Closeable;>(TT;)Lcom/facebook/common/references/a<TT;>; */
@@ -54,7 +54,7 @@ public abstract class a<T> implements Closeable, Cloneable {
         if (closeable == null) {
             return null;
         }
-        return b(closeable, hYO);
+        return b(closeable, igb);
     }
 
     @Nullable
@@ -66,7 +66,7 @@ public abstract class a<T> implements Closeable, Cloneable {
     }
 
     private static <T> a<T> b(@Nullable T t, com.facebook.common.references.c<T> cVar) {
-        return hYS ? new C0341a(t, cVar) : new b(t, cVar);
+        return igf ? new C0355a(t, cVar) : new b(t, cVar);
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
@@ -74,48 +74,48 @@ public abstract class a<T> implements Closeable, Cloneable {
         synchronized (this) {
             if (!this.HL) {
                 this.HL = true;
-                this.hYR.bRo();
+                this.ige.bTu();
             }
         }
     }
 
     public synchronized T get() {
         g.checkState(!this.HL);
-        return this.hYR.get();
+        return this.ige.get();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // 
-    /* renamed from: bRe */
+    /* renamed from: bTk */
     public synchronized a<T> clone() {
-        this.hYQ = bRj();
+        this.igd = bTp();
         g.checkState(isValid());
-        return bRg();
+        return bTm();
     }
 
-    public synchronized a<T> bRf() {
-        this.hYQ = bRj();
-        return isValid() ? bRg() : null;
+    public synchronized a<T> bTl() {
+        this.igd = bTp();
+        return isValid() ? bTm() : null;
     }
 
-    private a<T> bRg() {
-        return hYS ? new C0341a((SharedReference) this.hYR) : new b((SharedReference) this.hYR);
+    private a<T> bTm() {
+        return igf ? new C0355a((SharedReference) this.ige) : new b((SharedReference) this.ige);
     }
 
     public synchronized boolean isValid() {
         return !this.HL;
     }
 
-    public static boolean bRh() {
-        return hYP != null;
+    public static boolean bTn() {
+        return igc != null;
     }
 
     public void s(Throwable th) {
-        this.hYQ = th;
+        this.igd = th;
     }
 
-    public synchronized int bRi() {
-        return isValid() ? System.identityHashCode(this.hYR.get()) : 0;
+    public synchronized int bTo() {
+        return isValid() ? System.identityHashCode(this.ige.get()) : 0;
     }
 
     public static boolean a(@Nullable a<?> aVar) {
@@ -125,7 +125,7 @@ public abstract class a<T> implements Closeable, Cloneable {
     @Nullable
     public static <T> a<T> b(@Nullable a<T> aVar) {
         if (aVar != null) {
-            return aVar.bRf();
+            return aVar.bTl();
         }
         return null;
     }
@@ -137,8 +137,8 @@ public abstract class a<T> implements Closeable, Cloneable {
     }
 
     @Nullable
-    private static Throwable bRj() {
-        if (hYP != null) {
+    private static Throwable bTp() {
+        if (igc != null) {
             return new Throwable();
         }
         return null;
@@ -147,8 +147,8 @@ public abstract class a<T> implements Closeable, Cloneable {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class b<T> extends a<T> {
-        private static final ReferenceQueue<a> hYT = new ReferenceQueue<>();
-        private final C0342a hYU;
+        private static final ReferenceQueue<a> igg = new ReferenceQueue<>();
+        private final C0356a igh;
 
         @Override // com.facebook.common.references.a
         public /* synthetic */ Object clone() throws CloneNotSupportedException {
@@ -157,51 +157,51 @@ public abstract class a<T> implements Closeable, Cloneable {
 
         /* renamed from: com.facebook.common.references.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        private static class C0342a extends PhantomReference<a> {
+        private static class C0356a extends PhantomReference<a> {
             @GuardedBy("Destructor.class")
-            private static C0342a hYV;
-            private final SharedReference hYR;
+            private static C0356a igi;
+            private final SharedReference ige;
             @GuardedBy("Destructor.class")
-            private C0342a hYW;
+            private C0356a igj;
             @GuardedBy("Destructor.class")
-            private C0342a hYX;
+            private C0356a igk;
             @GuardedBy("this")
-            private boolean hYY;
+            private boolean igl;
 
-            public C0342a(a aVar, ReferenceQueue<? super a> referenceQueue) {
+            public C0356a(a aVar, ReferenceQueue<? super a> referenceQueue) {
                 super(aVar, referenceQueue);
-                this.hYR = aVar.hYR;
-                synchronized (C0342a.class) {
-                    if (hYV != null) {
-                        hYV.hYW = this;
-                        this.hYX = hYV;
+                this.ige = aVar.ige;
+                synchronized (C0356a.class) {
+                    if (igi != null) {
+                        igi.igj = this;
+                        this.igk = igi;
                     }
-                    hYV = this;
+                    igi = this;
                 }
             }
 
             public synchronized boolean isDestroyed() {
-                return this.hYY;
+                return this.igl;
             }
 
             public void eA(boolean z) {
                 synchronized (this) {
-                    if (!this.hYY) {
-                        this.hYY = true;
-                        synchronized (C0342a.class) {
-                            if (this.hYX != null) {
-                                this.hYX.hYW = this.hYW;
+                    if (!this.igl) {
+                        this.igl = true;
+                        synchronized (C0356a.class) {
+                            if (this.igk != null) {
+                                this.igk.igj = this.igj;
                             }
-                            if (this.hYW != null) {
-                                this.hYW.hYX = this.hYX;
+                            if (this.igj != null) {
+                                this.igj.igk = this.igk;
                             } else {
-                                hYV = this.hYX;
+                                igi = this.igk;
                             }
                         }
                         if (!z) {
-                            com.facebook.common.c.a.d(a.hXm, "GCed without closing: %x %x (type = %s)", Integer.valueOf(System.identityHashCode(this)), Integer.valueOf(System.identityHashCode(this.hYR)), this.hYR.get().getClass().getSimpleName());
+                            com.facebook.common.c.a.d(a.iez, "GCed without closing: %x %x (type = %s)", Integer.valueOf(System.identityHashCode(this)), Integer.valueOf(System.identityHashCode(this.ige)), this.ige.get().getClass().getSimpleName());
                         }
-                        this.hYR.bRo();
+                        this.ige.bTu();
                     }
                 }
             }
@@ -213,7 +213,7 @@ public abstract class a<T> implements Closeable, Cloneable {
                 public void run() {
                     while (true) {
                         try {
-                            ((C0342a) b.hYT.remove()).eA(false);
+                            ((C0356a) b.igg.remove()).eA(false);
                         } catch (InterruptedException e) {
                         }
                     }
@@ -223,39 +223,39 @@ public abstract class a<T> implements Closeable, Cloneable {
 
         private b(SharedReference<T> sharedReference) {
             super((SharedReference) sharedReference);
-            this.hYU = new C0342a(this, hYT);
+            this.igh = new C0356a(this, igg);
         }
 
         private b(T t, com.facebook.common.references.c<T> cVar) {
             super(t, cVar);
-            this.hYU = new C0342a(this, hYT);
+            this.igh = new C0356a(this, igg);
         }
 
         @Override // com.facebook.common.references.a, java.io.Closeable, java.lang.AutoCloseable
         public void close() {
-            this.hYU.eA(true);
+            this.igh.eA(true);
         }
 
         @Override // com.facebook.common.references.a
         public boolean isValid() {
-            return !this.hYU.isDestroyed();
+            return !this.igh.isDestroyed();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.facebook.common.references.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0341a<T> extends a<T> {
+    public static class C0355a<T> extends a<T> {
         @Override // com.facebook.common.references.a
         public /* synthetic */ Object clone() throws CloneNotSupportedException {
             return super.clone();
         }
 
-        private C0341a(SharedReference<T> sharedReference) {
+        private C0355a(SharedReference<T> sharedReference) {
             super((SharedReference) sharedReference);
         }
 
-        private C0341a(T t, com.facebook.common.references.c<T> cVar) {
+        private C0355a(T t, com.facebook.common.references.c<T> cVar) {
             super(t, cVar);
         }
 
@@ -263,11 +263,11 @@ public abstract class a<T> implements Closeable, Cloneable {
             try {
                 synchronized (this) {
                     if (!this.HL) {
-                        c cVar = a.hYP;
+                        c cVar = a.igc;
                         if (cVar != null) {
-                            cVar.a(this, this.hYQ);
+                            cVar.a(this, this.igd);
                         } else {
-                            com.facebook.common.c.a.d(a.hXm, "Finalized without closing: %x %x (type = %s)", Integer.valueOf(System.identityHashCode(this)), Integer.valueOf(System.identityHashCode(this.hYR)), this.hYR.get().getClass().getSimpleName());
+                            com.facebook.common.c.a.d(a.iez, "Finalized without closing: %x %x (type = %s)", Integer.valueOf(System.identityHashCode(this)), Integer.valueOf(System.identityHashCode(this.ige)), this.ige.get().getClass().getSimpleName());
                         }
                         close();
                     }

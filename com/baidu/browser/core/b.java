@@ -18,7 +18,7 @@ public final class b {
     private b() {
     }
 
-    public static synchronized b qg() {
+    public static synchronized b qf() {
         b bVar;
         synchronized (b.class) {
             if (UJ == null) {
@@ -31,7 +31,7 @@ public final class b {
 
     private Context getContext() {
         if (this.mContext == null) {
-            this.mContext = BdCore.qf().getContext();
+            this.mContext = BdCore.qe().getContext();
         }
         if (this.mContext == null) {
             throw new RuntimeException("context is null!");
@@ -54,7 +54,7 @@ public final class b {
         Integer num = cVar.get(str2);
         if (num == null) {
             try {
-                int identifier = qg().getContext().getResources().getIdentifier(str2, str, qg().getContext().getPackageName());
+                int identifier = qf().getContext().getResources().getIdentifier(str2, str, qf().getContext().getPackageName());
                 cVar.put(str2, Integer.valueOf(identifier));
                 return identifier;
             } catch (Error e) {

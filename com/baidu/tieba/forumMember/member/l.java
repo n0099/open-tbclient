@@ -31,8 +31,8 @@ public class l extends com.baidu.tieba.frs.h<m, n> {
                 } else if (view.getId() == e.g.title_text_view) {
                     Object tag = view.getTag();
                     m mVar = ((tag instanceof Integer) && (l.this.getItem(((Integer) tag).intValue()) instanceof m)) ? (m) l.this.getItem(((Integer) tag).intValue()) : null;
-                    if (mVar != null && mVar.axK() != null) {
-                        String[] split = !StringUtils.isNull(mVar.axK().member_group_type) ? mVar.axK().member_group_type.split(BaseRequestAction.SPLITE) : null;
+                    if (mVar != null && mVar.azu() != null) {
+                        String[] split = !StringUtils.isNull(mVar.azu().member_group_type) ? mVar.azu().member_group_type.split(BaseRequestAction.SPLITE) : null;
                         if (split == null || split.length != 2) {
                             str = "";
                         } else {
@@ -61,18 +61,18 @@ public class l extends com.baidu.tieba.frs.h<m, n> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, m mVar, n nVar) {
         super.onFillViewHolder(i, view, viewGroup, mVar, nVar);
-        if (mVar != null && mVar.axK() != null) {
-            MemberGroupInfo axK = mVar.axK();
-            if (axK.member_group_list != null && axK.member_group_list.size() > 0 && !StringUtils.isNull(axK.member_group_type)) {
+        if (mVar != null && mVar.azu() != null) {
+            MemberGroupInfo azu = mVar.azu();
+            if (azu.member_group_list != null && azu.member_group_list.size() > 0 && !StringUtils.isNull(azu.member_group_type)) {
                 nVar.mTitleView.setTag(Integer.valueOf(i));
                 String str = "";
-                String[] split = !StringUtils.isNull(axK.member_group_type) ? axK.member_group_type.split(BaseRequestAction.SPLITE) : null;
+                String[] split = !StringUtils.isNull(azu.member_group_type) ? azu.member_group_type.split(BaseRequestAction.SPLITE) : null;
                 if (split != null && split.length == 2) {
                     str = split[1];
                 }
-                nVar.mTitleView.setText(str + "(" + axK.member_group_num + ")");
+                nVar.mTitleView.setText(str + "(" + azu.member_group_num + ")");
                 int i2 = 0;
-                for (BawuRoleInfoPub bawuRoleInfoPub : axK.member_group_list) {
+                for (BawuRoleInfoPub bawuRoleInfoPub : azu.member_group_list) {
                     if (i2 > 3) {
                         break;
                     } else if (bawuRoleInfoPub != null) {
@@ -80,14 +80,14 @@ public class l extends com.baidu.tieba.frs.h<m, n> {
                         i2++;
                     }
                 }
-                nVar.gk(this.mSkinType == 1);
-                al.j(nVar.dyR, e.d.cp_bg_line_d);
-                al.j(nVar.dyS, e.d.cp_bg_line_b);
+                nVar.gl(this.mSkinType == 1);
+                al.j(nVar.dFq, e.d.cp_bg_line_d);
+                al.j(nVar.dFr, e.d.cp_bg_line_b);
                 al.c(nVar.mTitleView, e.d.cp_cont_c, 1);
-                al.c(nVar.dyN, e.d.cp_cont_f, 1);
-                al.c(nVar.dyO, e.d.cp_cont_f, 1);
-                al.c(nVar.dyP, e.d.cp_cont_f, 1);
-                al.c(nVar.dyQ, e.d.cp_cont_f, 1);
+                al.c(nVar.dFm, e.d.cp_cont_f, 1);
+                al.c(nVar.dFn, e.d.cp_cont_f, 1);
+                al.c(nVar.dFo, e.d.cp_cont_f, 1);
+                al.c(nVar.dFp, e.d.cp_cont_f, 1);
                 nVar.mTitleView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(e.f.icon_arrow_tab), (Drawable) null);
             }
         }

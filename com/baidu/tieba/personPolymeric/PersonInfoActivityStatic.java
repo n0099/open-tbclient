@@ -32,8 +32,8 @@ public class PersonInfoActivityStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        YT();
-        ay.Db().a(new ay.a() { // from class: com.baidu.tieba.personPolymeric.PersonInfoActivityStatic.2
+        ZZ();
+        ay.Ef().a(new ay.a() { // from class: com.baidu.tieba.personPolymeric.PersonInfoActivityStatic.2
             @Override // com.baidu.tbadk.core.util.ay.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -41,7 +41,7 @@ public class PersonInfoActivityStatic {
                 }
                 String str = strArr[0];
                 if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jump_personalCenter=1")) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), ab.aL(str, "userid="), ab.aL(str, "un="))));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), ab.aO(str, "userid="), ab.aO(str, "un="))));
                     return 1;
                 }
                 return 3;
@@ -49,7 +49,7 @@ public class PersonInfoActivityStatic {
         });
     }
 
-    private static void YT() {
+    private static void ZZ() {
         com.baidu.tieba.tbadkCore.a.a.c(303040, UserMuteCheckSocketResponsedMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
     }

@@ -6,7 +6,7 @@ import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class KeyboardLayout extends RelativeLayout {
     private boolean UI;
-    private a bgA;
+    private a bjZ;
     private boolean mHasKeybord;
     private int mHeight;
 
@@ -31,7 +31,7 @@ public class KeyboardLayout extends RelativeLayout {
     }
 
     public void setOnkbdStateListener(a aVar) {
-        this.bgA = aVar;
+        this.bjZ = aVar;
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
@@ -40,22 +40,22 @@ public class KeyboardLayout extends RelativeLayout {
         if (!this.UI) {
             this.UI = true;
             this.mHeight = i4;
-            if (this.bgA != null) {
-                this.bgA.bk(-1);
+            if (this.bjZ != null) {
+                this.bjZ.bk(-1);
             }
         } else {
             this.mHeight = this.mHeight < i4 ? i4 : this.mHeight;
         }
         if (this.UI && this.mHeight > i4) {
             this.mHasKeybord = true;
-            if (this.bgA != null) {
-                this.bgA.bk(-3);
+            if (this.bjZ != null) {
+                this.bjZ.bk(-3);
             }
         }
         if (this.UI && this.mHasKeybord && this.mHeight == i4) {
             this.mHasKeybord = false;
-            if (this.bgA != null) {
-                this.bgA.bk(-2);
+            if (this.bjZ != null) {
+                this.bjZ.bk(-2);
             }
         }
     }

@@ -6,9 +6,9 @@ import com.baidu.tbadk.editortools.k;
 public class a extends k {
     public a(Context context) {
         super(context, (String) null, 21);
-        this.aVC = false;
-        this.aVB = 1;
-        this.aUL = new MenuKeyboardView(getContext());
-        this.aVD = new int[]{1};
+        this.aYZ = false;
+        this.aYY = 1;
+        this.aYi = new MenuKeyboardView(getContext());
+        this.aZa = new int[]{1};
     }
 }

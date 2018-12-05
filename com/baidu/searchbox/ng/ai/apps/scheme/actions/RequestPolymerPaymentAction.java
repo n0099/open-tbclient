@@ -99,11 +99,11 @@ public class RequestPolymerPaymentAction extends AiAppAction {
             try {
                 String optString = new JSONObject(str2).optString("cb");
                 if (!TextUtils.isEmpty(optString)) {
-                    JSONObject jSONObject = new JSONObject();
+                    new JSONObject();
                     if (!TextUtils.isEmpty(str)) {
-                        jSONObject = new JSONObject(str);
+                        new JSONObject(str);
                     }
-                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParamsWithBase64(jSONObject, i, getSecondCallbackMsg(i)).toString());
+                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParamsWithBase64(str, i, getSecondCallbackMsg(i)).toString());
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -131,7 +131,7 @@ public class RequestPolymerPaymentAction extends AiAppAction {
 
         @Override // com.baidu.searchbox.process.ipc.delegate.activity.PluginBaseDelegation
         public String getPluginPackageName() {
-            return RequestPolymerPaymentAction.PACKAGE_NAME;
+            return "com.baidu.wallet";
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation

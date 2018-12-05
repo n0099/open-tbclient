@@ -10,45 +10,45 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.personCenter.data.i;
 /* loaded from: classes5.dex */
 public class d extends com.baidu.tieba.card.a<i> {
-    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.data.a> auf;
-    private LinearLayout glJ;
-    private AutoBannerView glK;
+    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.data.a> axF;
+    private AutoBannerView gsA;
+    private LinearLayout gsz;
     private int mSkinType;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.auf = new com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.data.a>() { // from class: com.baidu.tieba.personCenter.view.d.1
+        this.axF = new com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.data.a>() { // from class: com.baidu.tieba.personCenter.view.d.1
             @Override // com.baidu.tbadk.core.flow.a.d
             public void g(int i, String str) {
-                if (d.this.glK != null && str != null) {
-                    if (d.this.glK.checkIndex(i)) {
-                        TiebaStatic.log(new am("c13247").x("obj_locate", i).ax("obj_param1", str));
+                if (d.this.gsA != null && str != null) {
+                    if (d.this.gsA.checkIndex(i)) {
+                        TiebaStatic.log(new am("c13247").x("obj_locate", i).aA("obj_param1", str));
                     }
-                    d.this.glK.EA();
-                    d.this.glK.os(str);
+                    d.this.gsA.FE();
+                    d.this.gsA.oR(str);
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.core.flow.a.d
             public void a(int i, com.baidu.tieba.personCenter.data.a aVar) {
-                if (d.this.glK != null && aVar != null && aVar.aGG() != null && d.this.glK.checkIndex(i)) {
-                    TiebaStatic.log(new am("c13246").ax("uid", TbadkCoreApplication.getCurrentAccount()).x("obj_locate", i).ax("obj_param1", aVar.aGG()));
+                if (d.this.gsA != null && aVar != null && aVar.aIs() != null && d.this.gsA.checkIndex(i)) {
+                    TiebaStatic.log(new am("c13246").aA("uid", TbadkCoreApplication.getCurrentAccount()).x("obj_locate", i).aA("obj_param1", aVar.aIs()));
                 }
             }
         };
-        this.glJ = (LinearLayout) getView().findViewById(e.g.viewpager);
-        this.glK = new AutoBannerView(this.mTbPageContext.getPageActivity());
-        this.glK.setMarqueenTime(3000L);
-        this.glK.getCoverFlowView().setCallback(this.auf);
+        this.gsz = (LinearLayout) getView().findViewById(e.g.viewpager);
+        this.gsA = new AutoBannerView(this.mTbPageContext.getPageActivity());
+        this.gsA.setMarqueenTime(3000L);
+        this.gsA.getCoverFlowView().setCallback(this.axF);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            if (this.glK != null) {
-                this.glK.onChangeSkinType(i);
+            if (this.gsA != null) {
+                this.gsA.onChangeSkinType(i);
             }
             this.mSkinType = i;
         }
@@ -63,9 +63,9 @@ public class d extends com.baidu.tieba.card.a<i> {
     @Override // com.baidu.tieba.card.a
     public void a(i iVar) {
         d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
-        if (this.glJ != null && iVar != null && iVar.gkR != null && this.glK != null && this.glJ.getChildCount() != 1 && iVar.gkR.size() != 0) {
-            this.glK.bT(iVar.gkR);
-            this.glJ.addView(this.glK);
+        if (this.gsz != null && iVar != null && iVar.grH != null && this.gsA != null && this.gsz.getChildCount() != 1 && iVar.grH.size() != 0) {
+            this.gsA.bV(iVar.grH);
+            this.gsz.addView(this.gsA);
         }
     }
 
@@ -75,8 +75,8 @@ public class d extends com.baidu.tieba.card.a<i> {
 
     @Override // com.baidu.tieba.card.a
     public void onDestroy() {
-        if (this.glK != null) {
-            this.glK.EA();
+        if (this.gsA != null) {
+            this.gsA.FE();
         }
     }
 }

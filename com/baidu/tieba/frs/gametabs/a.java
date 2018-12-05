@@ -18,22 +18,22 @@ import com.baidu.tieba.e;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a extends n {
-    private l avm;
-    private String cRh;
+    private l ayM;
+    private String cXO;
 
     public a(l lVar, String str) {
         super(lVar);
-        this.avm = lVar;
-        this.cRh = str;
+        this.ayM = lVar;
+        this.cXO = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String vM() {
+    public String wQ() {
         return "TBHY_COMMON_DOWNLOAD_GAME";
     }
 
-    @o(Bi = false, value = "downloadGame")
+    @o(Cm = false, value = "downloadGame")
     private void downloadGame(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("packageName");
@@ -45,22 +45,22 @@ public class a extends n {
                     return;
                 }
                 if (StringUtils.isNull(optString2)) {
-                    nT(optString);
+                    ou(optString);
                 } else {
-                    com.baidu.tieba.recapp.download.d.bsN().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.d.tY(optString).intValue(), null, true, false, true, optString3, null, null);
+                    com.baidu.tieba.recapp.download.d.buG().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.d.uz(optString).intValue(), null, true, false, true, optString3, null, null);
                 }
-                TiebaStatic.log(new am("c12775").ax(ImageViewerConfig.FORUM_ID, StringUtils.isNull(this.cRh) ? "" : this.cRh));
+                TiebaStatic.log(new am("c12775").aA(ImageViewerConfig.FORUM_ID, StringUtils.isNull(this.cXO) ? "" : this.cXO));
             }
         }
     }
 
-    private void nT(String str) {
+    private void ou(String str) {
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + str));
         try {
-            if (!(this.avm.getContext() instanceof Activity)) {
+            if (!(this.ayM.getContext() instanceof Activity)) {
                 intent.addFlags(268435456);
             }
-            this.avm.getContext().startActivity(intent);
+            this.ayM.getContext().startActivity(intent);
         } catch (ActivityNotFoundException e) {
             BdLog.e(e.getMessage());
         }

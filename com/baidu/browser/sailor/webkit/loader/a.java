@@ -15,7 +15,7 @@ public class a implements WebKitFactory.WebkitInstallListener {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, boolean z, int i) {
-        WebKitFactory.init(context, context.getPackageName(), com.baidu.browser.sailor.b.a.qP().getCuid());
+        WebKitFactory.init(context, context.getPackageName(), com.baidu.browser.sailor.b.a.qO().getCuid());
         WebKitFactory.setApkLibLoadType(z);
         if (BdWebkitManager.a.c == i || BdWebkitManager.a.b == i) {
             WebKitFactory.setEngine(1);
@@ -30,13 +30,13 @@ public class a implements WebKitFactory.WebkitInstallListener {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void c(LoadErrorCode loadErrorCode) {
-        com.baidu.browser.sailor.b.a.qQ().a("init-webkit", "Err = " + loadErrorCode.getInt() + loadErrorCode.getString());
+        com.baidu.browser.sailor.b.a.qP().a("init-webkit", "Err = " + loadErrorCode.getInt() + loadErrorCode.getString());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void b(LoadErrorCode loadErrorCode) {
         WebKitFactory.setEngine(0);
-        com.baidu.browser.sailor.b.a.qR().a(this.b, loadErrorCode);
+        com.baidu.browser.sailor.b.a.qQ().a(this.b, loadErrorCode);
     }
 
     @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
@@ -46,19 +46,19 @@ public class a implements WebKitFactory.WebkitInstallListener {
         com.baidu.browser.sailor.util.a.cD("oninstalled: " + i + " targetpath: " + str);
         if (i == 0) {
             if (this.b == 0) {
-                a(com.baidu.browser.sailor.b.a.qP().getAppContext(), com.baidu.browser.sailor.b.a.qR().rb(), com.baidu.browser.sailor.b.a.qR().rc());
-                if (com.baidu.browser.sailor.util.a.qV()) {
-                    com.baidu.browser.sailor.b.a.qR().onLoadZeusSDKSuccess();
+                a(com.baidu.browser.sailor.b.a.qO().getAppContext(), com.baidu.browser.sailor.b.a.qQ().ra(), com.baidu.browser.sailor.b.a.qQ().rb());
+                if (com.baidu.browser.sailor.util.a.qU()) {
+                    com.baidu.browser.sailor.b.a.qQ().onLoadZeusSDKSuccess();
                 }
             }
             Log.d(a, "install success!");
-            com.baidu.browser.sailor.b.a.qR().a(com.baidu.browser.sailor.b.a.qP().getAppContext(), str, this.b);
+            com.baidu.browser.sailor.b.a.qQ().a(com.baidu.browser.sailor.b.a.qO().getAppContext(), str, this.b);
         } else {
             Log.d(a, "install failed!");
-            com.baidu.browser.sailor.b.a.qR().a(this.b, WebKitFactory.getLoadErrorCode());
+            com.baidu.browser.sailor.b.a.qQ().a(this.b, WebKitFactory.getLoadErrorCode());
         }
-        BdZeusDownloadHelper.rd();
-        com.baidu.browser.sailor.b.a.qR().qZ();
+        BdZeusDownloadHelper.rc();
+        com.baidu.browser.sailor.b.a.qQ().qY();
         Log.i(a, "total timecost: " + String.valueOf(System.currentTimeMillis() - this.c));
     }
 

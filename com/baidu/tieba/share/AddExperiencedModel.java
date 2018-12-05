@@ -23,10 +23,10 @@ public class AddExperiencedModel extends BdBaseModel {
     public static int MAX_ADD_ADVANCED = 6;
     public static int MAX_ADD_NORMAL = 3;
     public static String USELESS_FORUM_ID = "24981790";
-    private HttpMessageListener ayu;
-    private a gSw;
-    private ContriInfo gSx;
-    private Runnable gSy;
+    private HttpMessageListener aBU;
+    private a gZm;
+    private ContriInfo gZn;
+    private Runnable gZo;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -35,26 +35,26 @@ public class AddExperiencedModel extends BdBaseModel {
 
     public AddExperiencedModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.gSy = new Runnable() { // from class: com.baidu.tieba.share.AddExperiencedModel.1
+        this.gZo = new Runnable() { // from class: com.baidu.tieba.share.AddExperiencedModel.1
             @Override // java.lang.Runnable
             public void run() {
-                if (AddExperiencedModel.this.gSw != null) {
-                    AddExperiencedModel.this.gSw.b(AddExperiencedModel.this.gSx);
+                if (AddExperiencedModel.this.gZm != null) {
+                    AddExperiencedModel.this.gZm.b(AddExperiencedModel.this.gZn);
                 }
             }
         };
-        this.ayu = new HttpMessageListener(CmdConfigHttp.CMD_ADD_EXPERIENCED, true) { // from class: com.baidu.tieba.share.AddExperiencedModel.2
+        this.aBU = new HttpMessageListener(CmdConfigHttp.CMD_ADD_EXPERIENCED, true) { // from class: com.baidu.tieba.share.AddExperiencedModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AddExperiencedResponseMessage)) {
-                    AddExperiencedModel.this.gSx = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
-                    e.jG().postDelayed(AddExperiencedModel.this.gSy, SystemScreenshotManager.DELAY_TIME);
+                    AddExperiencedModel.this.gZn = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
+                    e.jG().postDelayed(AddExperiencedModel.this.gZo, SystemScreenshotManager.DELAY_TIME);
                 }
             }
         };
         registerTask();
-        registerListener(this.ayu);
+        registerListener(this.aBU);
     }
 
     private void registerTask() {
@@ -63,23 +63,23 @@ public class AddExperiencedModel extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void cz(String str, String str2) {
+    public void cE(String str, String str2) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_EXPERIENCED);
         httpMessage.addParam("forum_id", str);
         httpMessage.addParam("thread_id", str2);
         sendMessage(httpMessage);
     }
 
-    public static boolean uw(String str) {
+    public static boolean uX(String str) {
         return b.d(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str);
     }
 
-    public static boolean ux(String str) {
+    public static boolean uY(String str) {
         String str2;
         boolean z;
-        l<String> ak = com.baidu.tbadk.core.c.a.Ax().ak("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());
-        if (ak != null) {
-            String str3 = ak.get(str);
+        l<String> an = com.baidu.tbadk.core.c.a.BB().an("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());
+        if (an != null) {
+            String str3 = an.get(str);
             String currentDay = UtilHelper.getCurrentDay();
             if (!StringUtils.isNull(str3)) {
                 String[] split = str3.split(",");
@@ -107,7 +107,7 @@ public class AddExperiencedModel extends BdBaseModel {
                 str2 = currentDay + ",1";
                 z = true;
             }
-            ak.e(str, str2);
+            an.e(str, str2);
             return z;
         }
         return false;
@@ -124,10 +124,10 @@ public class AddExperiencedModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.gSw = aVar;
+        this.gZm = aVar;
     }
 
     public void onDestroy() {
-        e.jG().removeCallbacks(this.gSy);
+        e.jG().removeCallbacks(this.gZo);
     }
 }

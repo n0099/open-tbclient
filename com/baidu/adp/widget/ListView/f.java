@@ -20,7 +20,7 @@ public class f {
             if (f.this.OM == null) {
                 return;
             }
-            f.this.OM.oK();
+            f.this.OM.oJ();
         }
     };
 
@@ -95,7 +95,7 @@ public class f {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void oK() {
+        public void oJ() {
             f.this.mHandler.removeCallbacks(f.this.OO);
             if (this.mScroller != null) {
                 this.mScroller.abortAnimation();

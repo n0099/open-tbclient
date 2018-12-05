@@ -17,13 +17,13 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class MessageRedDotView extends View {
-    private Paint aCq;
-    private Drawable aDU;
-    private int aDV;
-    private boolean aDW;
-    private String aDX;
-    private int aDY;
-    private Rect aDZ;
+    private Paint aFQ;
+    private Drawable aHu;
+    private int aHv;
+    private boolean aHw;
+    private String aHx;
+    private int aHy;
+    private Rect aHz;
     private Drawable mBackgroundDrawable;
     private int mType;
 
@@ -67,8 +67,8 @@ public class MessageRedDotView extends View {
         if (this.mBackgroundDrawable != null) {
             this.mBackgroundDrawable.setBounds(0, 0, this.mBackgroundDrawable.getIntrinsicWidth(), this.mBackgroundDrawable.getIntrinsicHeight());
             this.mBackgroundDrawable.draw(canvas);
-            if (!ao.isEmpty(this.aDX)) {
-                if (this.aDX.equals("...")) {
+            if (!ao.isEmpty(this.aHx)) {
+                if (this.aHx.equals("...")) {
                     h(canvas);
                 } else {
                     i(canvas);
@@ -78,45 +78,45 @@ public class MessageRedDotView extends View {
     }
 
     private void h(Canvas canvas) {
-        if (this.aDU != null && this.mBackgroundDrawable != null) {
+        if (this.aHu != null && this.mBackgroundDrawable != null) {
             int intrinsicWidth = this.mBackgroundDrawable.getIntrinsicWidth() / 2;
             int intrinsicHeight = this.mBackgroundDrawable.getIntrinsicHeight() / 2;
-            int h = com.baidu.adp.lib.util.l.h(getContext(), e.C0200e.tbds6);
-            int h2 = com.baidu.adp.lib.util.l.h(getContext(), e.C0200e.tbds7);
+            int h = com.baidu.adp.lib.util.l.h(getContext(), e.C0210e.tbds6);
+            int h2 = com.baidu.adp.lib.util.l.h(getContext(), e.C0210e.tbds7);
             int i = intrinsicWidth - (h / 2);
             int i2 = intrinsicHeight - (h / 2);
             int i3 = intrinsicWidth + (h / 2);
             int i4 = intrinsicHeight + (h / 2);
-            this.aDU.setBounds(i, i2, i3, i4);
-            this.aDU.draw(canvas);
-            this.aDU.setBounds((i - h2) - h, i2, i - h2, i4);
-            this.aDU.draw(canvas);
-            this.aDU.setBounds(i3 + h2, i2, i3 + h2 + h, i4);
-            this.aDU.draw(canvas);
+            this.aHu.setBounds(i, i2, i3, i4);
+            this.aHu.draw(canvas);
+            this.aHu.setBounds((i - h2) - h, i2, i - h2, i4);
+            this.aHu.draw(canvas);
+            this.aHu.setBounds(i3 + h2, i2, i3 + h2 + h, i4);
+            this.aHu.draw(canvas);
         }
     }
 
     private void i(Canvas canvas) {
-        if (!ao.isEmpty(this.aDX) && this.mBackgroundDrawable != null) {
-            this.aCq.getTextBounds(this.aDX, 0, this.aDX.length(), this.aDZ);
-            canvas.drawText(this.aDX, this.mBackgroundDrawable.getIntrinsicWidth() / 2, ((this.mBackgroundDrawable.getIntrinsicHeight() + this.aDZ.height()) / 2) - this.aDY, this.aCq);
+        if (!ao.isEmpty(this.aHx) && this.mBackgroundDrawable != null) {
+            this.aFQ.getTextBounds(this.aHx, 0, this.aHx.length(), this.aHz);
+            canvas.drawText(this.aHx, this.mBackgroundDrawable.getIntrinsicWidth() / 2, ((this.mBackgroundDrawable.getIntrinsicHeight() + this.aHz.height()) / 2) - this.aHy, this.aFQ);
         }
     }
 
     private void initView() {
-        DP();
-        this.aCq = new Paint(1);
-        this.aCq.setColor(al.getColor(e.d.cp_cont_i));
-        this.aCq.setTextSize(com.baidu.adp.lib.util.l.h(getContext(), e.C0200e.tbfontsize26));
-        this.aCq.setTextAlign(Paint.Align.CENTER);
-        this.aCq.setTypeface(Typeface.MONOSPACE);
-        this.aDZ = new Rect();
+        ET();
+        this.aFQ = new Paint(1);
+        this.aFQ.setColor(al.getColor(e.d.cp_cont_i));
+        this.aFQ.setTextSize(com.baidu.adp.lib.util.l.h(getContext(), e.C0210e.tbfontsize26));
+        this.aFQ.setTextAlign(Paint.Align.CENTER);
+        this.aFQ.setTypeface(Typeface.MONOSPACE);
+        this.aHz = new Rect();
     }
 
-    private void DP() {
+    private void ET() {
         String str = Build.MODEL;
         if (str.contains("vivo") && str.contains("X20")) {
-            this.aDY = com.baidu.adp.lib.util.l.h(getContext(), e.C0200e.tbds2);
+            this.aHy = com.baidu.adp.lib.util.l.h(getContext(), e.C0210e.tbds2);
         }
     }
 
@@ -124,28 +124,28 @@ public class MessageRedDotView extends View {
         int i2;
         if (i <= 0) {
             i2 = e.f.icon_news_red_dot;
-            this.aDX = null;
+            this.aHx = null;
         } else if (i < 10) {
-            this.aDX = String.valueOf(i);
+            this.aHx = String.valueOf(i);
             i2 = e.f.icon_news_red_dot_one_number;
         } else if (i < 100) {
-            this.aDX = String.valueOf(i);
+            this.aHx = String.valueOf(i);
             i2 = e.f.icon_news_red_dot_two_number;
         } else if (this.mType == 1) {
-            this.aDX = "...";
+            this.aHx = "...";
             i2 = e.f.icon_news_red_dot_two_number;
         } else if (this.mType == 2) {
-            this.aDX = "99+";
+            this.aHx = "99+";
             i2 = e.f.icon_news_red_dot_three_number;
         } else {
             i2 = 0;
         }
-        if (i2 != this.aDV) {
-            this.aDW = true;
+        if (i2 != this.aHv) {
+            this.aHw = true;
         } else {
-            this.aDW = false;
+            this.aHw = false;
         }
-        this.aDV = i2;
+        this.aHv = i2;
         onChangeSkinType();
     }
 
@@ -154,13 +154,13 @@ public class MessageRedDotView extends View {
     }
 
     public void onChangeSkinType() {
-        this.mBackgroundDrawable = al.getDrawable(this.aDV);
-        this.aDU = al.getDrawable(e.f.icon_news_white_dot);
-        if (this.aCq != null) {
-            this.aCq.setColor(al.getColor(e.d.cp_cont_i));
+        this.mBackgroundDrawable = al.getDrawable(this.aHv);
+        this.aHu = al.getDrawable(e.f.icon_news_white_dot);
+        if (this.aFQ != null) {
+            this.aFQ.setColor(al.getColor(e.d.cp_cont_i));
         }
-        if (this.aDW) {
-            this.aDW = false;
+        if (this.aHw) {
+            this.aHw = false;
             requestLayout();
             return;
         }

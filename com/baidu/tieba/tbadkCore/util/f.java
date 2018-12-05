@@ -17,26 +17,26 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class f {
-    private static WeakReference<a> hha;
-    private static a hhb;
-    private static AtomicBoolean hhc;
-    private static int hhd;
-    private static boolean hhe;
-    private static int hhf;
-    private static List<Integer> hhg;
+    private static WeakReference<a> hnU;
+    private static a hnV;
+    private static AtomicBoolean hnW;
+    private static int hnX;
+    private static boolean hnY;
+    private static int hnZ;
+    private static List<Integer> hoa;
 
     static {
-        bCx();
-        bCy();
-        hhc = new AtomicBoolean(false);
-        hhd = 0;
-        hhe = true;
-        hhf = 0;
-        hhg = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 3250017);
+        bEs();
+        bEt();
+        hnW = new AtomicBoolean(false);
+        hnX = 0;
+        hnY = true;
+        hnZ = 0;
+        hoa = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 3250017);
     }
 
     public static boolean a(int i, AuthTokenData authTokenData, a aVar) {
-        if (!hhg.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
+        if (!hoa.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
             return false;
         }
         return a(i, authTokenData.getAuthToken(), aVar);
@@ -45,20 +45,20 @@ public class f {
     private static boolean a(int i, String str, a aVar) {
         AuthVerifyData createDataForAuthWidget;
         boolean z;
-        if (hhc.compareAndSet(false, true)) {
-            if (hha == null || hha.get() == null) {
+        if (hnW.compareAndSet(false, true)) {
+            if (hnU == null || hnU.get() == null) {
                 String valueOf = String.valueOf(System.currentTimeMillis());
                 if (aVar != null) {
                     aVar.setFrom(valueOf);
-                    hha = new WeakReference<>(aVar);
+                    hnU = new WeakReference<>(aVar);
                 }
                 if (i == 3250022) {
                     final AuthVerifyData createDataForModifyPwd = AuthVerifyData.createDataForModifyPwd(valueOf);
-                    if (hha != null && hha.get() != null) {
-                        hha.get().onFail();
+                    if (hnU != null && hnU.get() != null) {
+                        hnU.get().onFail();
                     }
                     final com.baidu.tbadk.core.dialog.a aVar2 = new com.baidu.tbadk.core.dialog.a(TbadkCoreApplication.getInst().getCurrentActivity());
-                    aVar2.cN(e.j.anti_account_modifypwd_tip);
+                    aVar2.db(e.j.anti_account_modifypwd_tip);
                     aVar2.a(e.j.modify_pwd, new a.b() { // from class: com.baidu.tieba.tbadkCore.util.f.1
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
@@ -75,7 +75,7 @@ public class f {
                     });
                     if (TbadkCoreApplication.getInst().getCurrentActivity() instanceof BdBaseActivity) {
                         aVar2.b(((BdBaseActivity) TbadkCoreApplication.getInst().getCurrentActivity()).getPageContext());
-                        aVar2.AB();
+                        aVar2.BF();
                     }
                 } else {
                     if (i == 3250017) {
@@ -91,14 +91,14 @@ public class f {
                 }
                 z = true;
             } else {
-                hhd++;
-                if (hhe && hhf < 3 && hhd > 0 && hhd / 3 == 0) {
+                hnX++;
+                if (hnY && hnZ < 3 && hnX > 0 && hnX / 3 == 0) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921373));
-                    hhf++;
+                    hnZ++;
                 }
                 z = false;
             }
-            hhc.set(false);
+            hnW.set(false);
             return z;
         }
         return false;
@@ -108,11 +108,11 @@ public class f {
     public static abstract class a {
         protected String from;
 
-        public abstract void bCA();
+        public abstract void bEv();
 
-        public abstract void vs(String str);
+        public abstract void vT(String str);
 
-        public abstract void vt(String str);
+        public abstract void vU(String str);
 
         protected void setFrom(String str) {
             this.from = str;
@@ -121,13 +121,13 @@ public class f {
         public void b(AuthVerifyData.c cVar) {
             if (cVar != null && cVar.isSuccess) {
                 if (cVar instanceof AuthVerifyData.a) {
-                    vs(((AuthVerifyData.a) cVar).authSid);
+                    vT(((AuthVerifyData.a) cVar).authSid);
                     return;
                 } else if (cVar instanceof AuthVerifyData.b) {
-                    vt(((AuthVerifyData.b) cVar).aKi);
+                    vU(((AuthVerifyData.b) cVar).aNI);
                     return;
                 } else {
-                    bCA();
+                    bEv();
                     return;
                 }
             }
@@ -140,16 +140,16 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void reset() {
-        if (hha != null) {
-            hha.clear();
+        if (hnU != null) {
+            hnU.clear();
         }
-        hha = null;
-        hhb = null;
-        hhf = 0;
-        hhd = 0;
+        hnU = null;
+        hnV = null;
+        hnZ = 0;
+        hnX = 0;
     }
 
-    public static void bCx() {
+    public static void bEs() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2921372) { // from class: com.baidu.tieba.tbadkCore.util.f.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -158,8 +158,8 @@ public class f {
                     Object data = customResponsedMessage.getData();
                     if (data instanceof AuthVerifyData) {
                         AuthVerifyData authVerifyData = (AuthVerifyData) data;
-                        if (f.hha != null && f.hha.get() != null) {
-                            a aVar = (a) f.hha.get();
+                        if (f.hnU != null && f.hnU.get() != null) {
+                            a aVar = (a) f.hnU.get();
                             if (TextUtils.equals(aVar.from, authVerifyData.getFrom())) {
                                 aVar.b(authVerifyData.getResult());
                             }
@@ -171,7 +171,7 @@ public class f {
         });
     }
 
-    public static void bCy() {
+    public static void bEt() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2921373) { // from class: com.baidu.tieba.tbadkCore.util.f.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener

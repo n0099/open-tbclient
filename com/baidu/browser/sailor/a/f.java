@@ -31,7 +31,7 @@ public class f implements Runnable {
                     sparseArray3 = this.Wh.Wf;
                     n nVar = (n) sparseArray3.get(intExtra);
                     if (nVar != null) {
-                        nVar.qO();
+                        nVar.qN();
                         sparseArray4 = this.Wh.Wf;
                         sparseArray4.remove(intExtra);
                     }
@@ -41,7 +41,7 @@ public class f implements Runnable {
             }
         } catch (ActivityNotFoundException e) {
             e.printStackTrace();
-            Toast.makeText(com.baidu.browser.sailor.b.a.qP().getAppContext(), com.baidu.browser.core.b.R("string", "sailor_msg_activity_not_found"), 0).show();
+            Toast.makeText(com.baidu.browser.sailor.b.a.qO().getAppContext(), com.baidu.browser.core.b.R("string", "sailor_msg_activity_not_found"), 0).show();
             int intExtra2 = this.Kn.getIntExtra("jsaction_key", -1);
             sparseArray = this.Wh.Wf;
             n nVar2 = (n) sparseArray.get(intExtra2);
