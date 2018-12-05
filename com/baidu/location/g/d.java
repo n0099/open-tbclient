@@ -57,7 +57,7 @@ public class d {
         }
     }
 
-    public static d tY() {
+    public static d tX() {
         if (afM == null) {
             afM = new d();
         }

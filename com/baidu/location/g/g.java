@@ -139,7 +139,7 @@ public class g {
         String f2;
         String g2;
         StringBuffer stringBuffer = new StringBuffer(1024);
-        if (aVar != null && (g2 = com.baidu.location.e.b.tM().g(aVar)) != null) {
+        if (aVar != null && (g2 = com.baidu.location.e.b.tL().g(aVar)) != null) {
             stringBuffer.append(g2);
         }
         if (eVar != null) {
@@ -154,18 +154,18 @@ public class g {
                 stringBuffer.append(h2);
             }
         }
-        String a2 = b.tW().a(i2 == 0);
+        String a2 = b.tV().a(i2 == 0);
         if (a2 != null) {
             stringBuffer.append(a2);
         }
         if (str != null) {
             stringBuffer.append(str);
         }
-        String d2 = com.baidu.location.b.c.tw().d();
+        String d2 = com.baidu.location.b.c.tv().d();
         if (!TextUtils.isEmpty(d2)) {
             stringBuffer.append("&bc=").append(d2);
         }
-        if (aVar != null && (f2 = com.baidu.location.e.b.tM().f(aVar)) != null && f2.length() + stringBuffer.length() < 750) {
+        if (aVar != null && (f2 = com.baidu.location.e.b.tL().f(aVar)) != null && f2.length() + stringBuffer.length() < 750) {
             stringBuffer.append(f2);
         }
         String stringBuffer2 = stringBuffer.toString();

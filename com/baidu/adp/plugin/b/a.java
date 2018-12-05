@@ -20,7 +20,7 @@ public class a {
     private static volatile a Kz = null;
     private HashMap<String, Integer> Ky = new HashMap<>();
 
-    public static synchronized a mO() {
+    public static synchronized a mN() {
         a aVar;
         synchronized (a.class) {
             if (Kz == null) {
@@ -74,9 +74,9 @@ public class a {
             jB.append("pname", str2);
         }
         jB.f(Info.kBaiduPIDKey, Integer.valueOf(Process.myPid()));
-        PluginSettings nA = c.nD().nA();
-        if (nA != null) {
-            jB.append("pver", nA.getContainerVersion());
+        PluginSettings nz = c.nC().nz();
+        if (nz != null) {
+            jB.append("pver", nz.getContainerVersion());
         }
         BdStatisticsManager.getInstance().debug("pluginproxy", jB);
     }
@@ -96,9 +96,9 @@ public class a {
             jB.append(ClientCookie.COMMENT_ATTR, str4);
         }
         jB.f(Info.kBaiduPIDKey, Integer.valueOf(Process.myPid()));
-        PluginSettings nA = c.nD().nA();
-        if (nA != null) {
-            jB.append("pver", nA.getContainerVersion());
+        PluginSettings nz = c.nC().nz();
+        if (nz != null) {
+            jB.append("pver", nz.getContainerVersion());
         }
         BdLog.e(jB.toString());
         BdStatisticsManager.getInstance().debug("pluginproxy", jB);
@@ -125,16 +125,16 @@ public class a {
             jB.append(ClientCookie.COMMENT_ATTR, str4);
         }
         jB.f(Info.kBaiduPIDKey, Integer.valueOf(Process.myPid()));
-        PluginSettings nA = c.nD().nA();
-        if (nA != null) {
-            jB.append("pver", nA.getContainerVersion());
+        PluginSettings nz = c.nC().nz();
+        if (nz != null) {
+            jB.append("pver", nz.getContainerVersion());
         }
         BdLog.e(jB.toString());
         BdStatisticsManager.getInstance().debug("pluginproxy", jB);
         BdStatisticsManager.getInstance().save();
     }
 
-    public void mP() {
+    public void mO() {
         if (this.Ky.size() != 0) {
             com.baidu.adp.lib.stats.a jB = jB();
             c(jB);
@@ -156,14 +156,14 @@ public class a {
 
     public void e(String str, String str2, PluginSetting pluginSetting) {
         if (pluginSetting == null) {
-            pluginSetting = c.nD().findPluginSetting(str2);
+            pluginSetting = c.nC().findPluginSetting(str2);
         }
         BdStatisticsManager.getInstance().eventStat(BdBaseApplication.getInst(), str, null, 1, "pname", str2, "index", Integer.valueOf(pluginSetting != null ? pluginSetting.install_fail_count : 0));
     }
 
     public void a(String str, String str2, PluginSetting pluginSetting, String str3) {
         if (pluginSetting == null) {
-            pluginSetting = c.nD().findPluginSetting(str2);
+            pluginSetting = c.nC().findPluginSetting(str2);
         }
         BdStatisticsManager.getInstance().eventStat(BdBaseApplication.getInst(), str, null, 1, "pname", str2, "index", Integer.valueOf(pluginSetting != null ? pluginSetting.install_fail_count : 0), WebSocketAction.PARAM_KEY_REASON, str3);
     }
@@ -189,7 +189,7 @@ public class a {
         EditorHelper.putBoolean(BdBaseApplication.getInst().getSharedPreferences(PluginDownloadActivityConfig.PLUGIN_CONFIG, 0), "is_plugin_lastload_fail", z);
     }
 
-    public boolean mQ() {
+    public boolean mP() {
         return BdBaseApplication.getInst().getSharedPreferences(PluginDownloadActivityConfig.PLUGIN_CONFIG, 0).getBoolean("is_plugin_lastload_fail", false);
     }
 }

@@ -96,7 +96,7 @@ public final class c {
         com.baidu.crabsdk.c.a.cG("init AnrCollector");
         com.baidu.crabsdk.c.a.cG("===Anr init!===");
         mContext = context;
-        if (com.baidu.crabsdk.sender.e.rA()) {
+        if (com.baidu.crabsdk.sender.e.rz()) {
             com.baidu.crabsdk.c.a.cG("===Anr watchThread start!===");
             try {
                 com.baidu.crabsdk.sender.a aVar = new com.baidu.crabsdk.sender.a(context);
@@ -108,7 +108,7 @@ public final class c {
         }
     }
 
-    public static Thread ro() {
+    public static Thread rn() {
         return XS;
     }
 

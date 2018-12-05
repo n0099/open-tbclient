@@ -15,55 +15,55 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes.dex */
 public class b {
-    private static b gyh = null;
-    private com.baidu.tieba.play.a.a gyg;
-    private InterfaceC0284b gyi = null;
-    private int gyj = 0;
+    private static b gEX = null;
+    private com.baidu.tieba.play.a.a gEW;
+    private InterfaceC0295b gEY = null;
+    private int gEZ = 0;
 
     /* renamed from: com.baidu.tieba.play.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0284b {
-        void cp(String str, String str2);
+    public interface InterfaceC0295b {
+        void cu(String str, String str2);
     }
 
     private b() {
     }
 
-    public static b bqn() {
-        if (gyh == null) {
+    public static b bsg() {
+        if (gEX == null) {
             synchronized (b.class) {
-                if (gyh == null) {
-                    gyh = new b();
+                if (gEX == null) {
+                    gEX = new b();
                 }
             }
         }
-        return gyh;
+        return gEX;
     }
 
-    public void a(InterfaceC0284b interfaceC0284b) {
-        this.gyi = interfaceC0284b;
+    public void a(InterfaceC0295b interfaceC0295b) {
+        this.gEY = interfaceC0295b;
     }
 
-    public boolean tw(String str) {
+    public boolean tY(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (tx(str) && this.gyg.bqm().size() > this.gyj) {
-            if (this.gyi != null) {
-                InterfaceC0284b interfaceC0284b = this.gyi;
-                List<String> bqm = this.gyg.bqm();
-                int i = this.gyj;
-                this.gyj = i + 1;
-                interfaceC0284b.cp(bqm.get(i), str);
+        if (tZ(str) && this.gEW.bsf().size() > this.gEZ) {
+            if (this.gEY != null) {
+                InterfaceC0295b interfaceC0295b = this.gEY;
+                List<String> bsf = this.gEW.bsf();
+                int i = this.gEZ;
+                this.gEZ = i + 1;
+                interfaceC0295b.cu(bsf.get(i), str);
             }
             return true;
-        } else if (this.gyg != null && this.gyg.bqm() != null && this.gyg.bqm().size() <= this.gyj) {
-            this.gyj = 0;
-            this.gyg = null;
+        } else if (this.gEW != null && this.gEW.bsf() != null && this.gEW.bsf().size() <= this.gEZ) {
+            this.gEZ = 0;
+            this.gEW = null;
             return false;
         } else {
-            this.gyj = 0;
-            this.gyg = null;
+            this.gEZ = 0;
+            this.gEW = null;
             a aVar = new a();
             aVar.setHost(str);
             aVar.execute(new Void[0]);
@@ -71,8 +71,8 @@ public class b {
         }
     }
 
-    private boolean tx(String str) {
-        return (this.gyg == null || TextUtils.isEmpty(str) || !str.equals(this.gyg.getHost()) || v.I(this.gyg.bqm()) || this.gyg.cT(System.currentTimeMillis()) || this.gyg.bqm().size() <= this.gyj) ? false : true;
+    private boolean tZ(String str) {
+        return (this.gEW == null || TextUtils.isEmpty(str) || !str.equals(this.gEW.getHost()) || v.I(this.gEW.bsf()) || this.gEW.da(System.currentTimeMillis()) || this.gEW.bsf().size() <= this.gEZ) ? false : true;
     }
 
     /* loaded from: classes.dex */
@@ -190,7 +190,7 @@ public class b {
                             }
                             com.baidu.tieba.play.a.a aVar = new com.baidu.tieba.play.a.a();
                             aVar.setStartTime(System.currentTimeMillis());
-                            publishProgress(aVar.tv(stringBuffer.toString()));
+                            publishProgress(aVar.tX(stringBuffer.toString()));
                             if (inputStreamReader != null) {
                                 try {
                                     inputStreamReader.close();
@@ -261,14 +261,14 @@ public class b {
         public void onProgressUpdate(com.baidu.tieba.play.a.a... aVarArr) {
             super.onProgressUpdate(aVarArr);
             if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.mHost)) {
-                b.this.gyg = aVarArr[0];
-                if (!v.I(aVarArr[0].bqm()) && b.this.gyi != null) {
-                    b.this.gyi.cp(aVarArr[0].bqm().get(0), aVarArr[0].getHost());
+                b.this.gEW = aVarArr[0];
+                if (!v.I(aVarArr[0].bsf()) && b.this.gEY != null) {
+                    b.this.gEY.cu(aVarArr[0].bsf().get(0), aVarArr[0].getHost());
                     return;
                 }
             }
-            if (b.this.gyi != null) {
-                b.this.gyi.cp(null, null);
+            if (b.this.gEY != null) {
+                b.this.gEY.cu(null, null);
             }
         }
 

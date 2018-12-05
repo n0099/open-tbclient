@@ -91,7 +91,7 @@ public class c {
         }
     }
 
-    public static c tX() {
+    public static c tW() {
         if (afL == null) {
             afL = new c();
         }

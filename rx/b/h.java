@@ -6,7 +6,7 @@ import java.util.concurrent.CountDownLatch;
 import rx.j;
 /* loaded from: classes2.dex */
 public class h<T> extends j<T> {
-    private static final rx.e<Object> iGi = new rx.e<Object>() { // from class: rx.b.h.1
+    private static final rx.e<Object> iNp = new rx.e<Object>() { // from class: rx.b.h.1
         @Override // rx.e
         public void onCompleted() {
         }
@@ -19,29 +19,29 @@ public class h<T> extends j<T> {
         public void onNext(Object obj) {
         }
     };
-    private final rx.e<T> iGd;
-    private final List<Throwable> iGe;
-    private int iGf;
-    private final CountDownLatch iGg;
-    private volatile Thread iGh;
+    private final rx.e<T> iNk;
+    private final List<Throwable> iNl;
+    private int iNm;
+    private final CountDownLatch iNn;
+    private volatile Thread iNo;
     private volatile int valueCount;
     private final List<T> values;
 
     public h(long j) {
-        this(iGi, j);
+        this(iNp, j);
     }
 
     public h(rx.e<T> eVar, long j) {
-        this.iGg = new CountDownLatch(1);
+        this.iNn = new CountDownLatch(1);
         if (eVar == null) {
             throw new NullPointerException();
         }
-        this.iGd = eVar;
+        this.iNk = eVar;
         if (j >= 0) {
             request(j);
         }
         this.values = new ArrayList();
-        this.iGe = new ArrayList();
+        this.iNl = new ArrayList();
     }
 
     public h() {
@@ -51,30 +51,30 @@ public class h<T> extends j<T> {
     @Override // rx.e
     public void onCompleted() {
         try {
-            this.iGf++;
-            this.iGh = Thread.currentThread();
-            this.iGd.onCompleted();
+            this.iNm++;
+            this.iNo = Thread.currentThread();
+            this.iNk.onCompleted();
         } finally {
-            this.iGg.countDown();
+            this.iNn.countDown();
         }
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
         try {
-            this.iGh = Thread.currentThread();
-            this.iGe.add(th);
-            this.iGd.onError(th);
+            this.iNo = Thread.currentThread();
+            this.iNl.add(th);
+            this.iNk.onError(th);
         } finally {
-            this.iGg.countDown();
+            this.iNn.countDown();
         }
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.iGh = Thread.currentThread();
+        this.iNo = Thread.currentThread();
         this.values.add(t);
         this.valueCount = this.values.size();
-        this.iGd.onNext(t);
+        this.iNk.onNext(t);
     }
 }

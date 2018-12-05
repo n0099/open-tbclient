@@ -7,33 +7,33 @@ public class c {
     public com.baidu.adp.widget.ImageView.a IT;
     public volatile boolean isDefault = true;
 
-    public boolean mj() {
+    public boolean mi() {
         return (this.IS == null || this.IS.getBitmap() == null || this.IS.getBitmap().isRecycled()) ? false : true;
     }
 
-    public boolean mk() {
-        return this.IT != null && this.IT.or();
+    public boolean mj() {
+        return this.IT != null && this.IT.oq();
     }
 
     public boolean isAvailable() {
-        return mj() || mk();
+        return mi() || mj();
     }
 
     public int getWidth() {
-        if (mj()) {
+        if (mi()) {
             return this.IS.getIntrinsicWidth();
         }
-        if (mk()) {
+        if (mj()) {
             return this.IT.getWidth();
         }
         return 0;
     }
 
     public int getHeight() {
-        if (mj()) {
+        if (mi()) {
             return this.IS.getIntrinsicHeight();
         }
-        if (mk()) {
+        if (mj()) {
             return this.IT.getHeight();
         }
         return 0;

@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.c;
 /* loaded from: classes2.dex */
 public interface ac<V> {
-    int aC(V v);
+    int aD(V v);
 }

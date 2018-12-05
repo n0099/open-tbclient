@@ -42,7 +42,7 @@ public abstract class b extends com.baidu.tieba.animation3d.a.a {
 
     /* renamed from: com.baidu.tieba.animation3d.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0193b extends b {
+    public static class C0203b extends b {
         @Override // com.baidu.tieba.animation3d.a.b
         public double f(float f, float f2, float f3, int i) {
             return com.baidu.tieba.animation3d.c.b.b(i, 20.0d);

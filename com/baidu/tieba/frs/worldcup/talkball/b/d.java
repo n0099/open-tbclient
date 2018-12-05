@@ -14,7 +14,7 @@ public class d {
         }
     }
 
-    public boolean aGC() {
+    public boolean aIo() {
         return (ao.isEmpty(this.mIcon) || ao.isEmpty(this.mName)) ? false : true;
     }
 

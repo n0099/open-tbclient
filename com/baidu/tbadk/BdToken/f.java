@@ -1,51 +1,104 @@
 package com.baidu.tbadk.BdToken;
 
-import tbclient.GetToken.DataRes;
+import android.net.Uri;
+import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ao;
+import java.util.HashMap;
 /* loaded from: classes.dex */
 public class f {
-    private a ahX;
-    private String btn_cancel;
-    private String btn_sure;
-    private String img;
-    private String tips;
-    private String title;
-    private String url;
+    public static String SCHEME = "com.baidu.tieba";
+    public static String HOST = "unidispatch";
+    public static String akM = "/homepage";
+    public static String akN = "/enterforum";
+    public static String akO = "/frs";
+    public static String akP = "/pb";
+    public static String akQ = "/tbwebview";
+    public static String akR = "extdata";
+    public static String akS = "kw";
+    public static String akT = "tid";
+    public static String PARAM_URL = "url";
+    public static String akU = "schemefrom";
+    public static String akV = "maintablocate";
+    public static String akW = "from_h5";
+    public static String akX = "from_tb_token";
 
     /* loaded from: classes.dex */
-    public static class a {
-        public String btntext;
-        public String message;
-        public String sharetoken;
-        public String url;
+    public interface a {
+        void n(HashMap<String, Object> hashMap);
     }
 
-    public void a(DataRes dataRes) {
-        if (dataRes != null) {
-            this.title = dataRes.title;
-            this.img = dataRes.img;
-            this.tips = dataRes.tips;
-            this.url = dataRes.url;
-            this.btn_sure = dataRes.btn_sure;
-            this.btn_cancel = dataRes.btn_cancel;
-            if (dataRes.activity_done != null) {
-                this.ahX = new a();
-                this.ahX.url = dataRes.activity_done.url;
-                this.ahX.btntext = dataRes.activity_done.btntext;
-                this.ahX.message = dataRes.activity_done.message;
-                this.ahX.sharetoken = dataRes.activity_done.sharetoken;
+    public static final f vF() {
+        return b.akY;
+    }
+
+    /* loaded from: classes.dex */
+    private static class b {
+        private static final f akY = new f();
+    }
+
+    private f() {
+    }
+
+    public static boolean e(Uri uri) {
+        return uri != null && SCHEME.equals(uri.getScheme()) && HOST.equals(uri.getHost());
+    }
+
+    public void a(Uri uri, a aVar) {
+        if (uri != null && e(uri)) {
+            HashMap<String, Object> hashMap = new HashMap<>();
+            ai(uri.getQueryParameter(akR), uri.getQueryParameter(akU));
+            if (akM.equals(uri.getPath())) {
+                hashMap.put(akV, 2);
+            } else if (akN.equals(uri.getPath())) {
+                hashMap.put(akV, 1);
             }
+            aVar.n(hashMap);
         }
     }
 
-    public String getTitle() {
-        return this.title;
+    public void b(Uri uri, a aVar) {
+        if (uri != null && e(uri) && akO.equals(uri.getPath())) {
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put(akS, uri.getQueryParameter(akS));
+            ai(uri.getQueryParameter(akR), uri.getQueryParameter(akU));
+            aVar.n(hashMap);
+        }
     }
 
-    public String getUrl() {
-        return this.url;
+    public void c(Uri uri, a aVar) {
+        if (uri != null && e(uri) && akP.equals(uri.getPath())) {
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put(akT, uri.getQueryParameter(akT));
+            ai(uri.getQueryParameter(akR), uri.getQueryParameter(akU));
+            aVar.n(hashMap);
+        }
     }
 
-    public a uQ() {
-        return this.ahX;
+    public void d(Uri uri, a aVar) {
+        if (uri != null && e(uri) && akQ.equals(uri.getPath())) {
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put(PARAM_URL, uri.getQueryParameter(PARAM_URL));
+            ai(uri.getQueryParameter(akR), uri.getQueryParameter(akU));
+            aVar.n(hashMap);
+        }
+    }
+
+    private void ai(String str, String str2) {
+        if (!ao.isEmpty(str)) {
+            com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b(str);
+            if (bVar.getActivityId() != 0 && bVar.vh() != 0) {
+                am amVar = new am("c13321");
+                amVar.aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.vi()).x("obj_type", bVar.getActivityId()).x("obj_param1", bVar.vh());
+                if (ao.equals(str2, akX)) {
+                    amVar.x("obj_param2", 2);
+                } else {
+                    amVar.x("obj_param2", 1);
+                }
+                TiebaStatic.log(amVar);
+                c.vu().b(bVar);
+            }
+        }
     }
 }

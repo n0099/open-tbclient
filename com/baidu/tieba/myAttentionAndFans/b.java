@@ -7,21 +7,21 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public abstract class b extends BaseAdapter {
     protected ArrayList<UserData> mData = null;
-    boolean fyW = false;
+    boolean fFM = false;
     private boolean mHasMore = false;
 
     public abstract void a(aq aqVar);
 
-    public abstract boolean cG(long j);
+    public abstract boolean cN(long j);
 
     public void resetData() {
         this.mData.clear();
     }
 
-    public void bbj() {
-        this.fyW = false;
+    public void bda() {
+        this.fFM = false;
         if (this.mData != null && this.mData.size() == 0) {
-            this.fyW = true;
+            this.fFM = true;
         }
     }
 

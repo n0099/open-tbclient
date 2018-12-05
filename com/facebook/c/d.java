@@ -9,45 +9,45 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class d {
-    private static d idL;
-    private int idM;
+    private static d ikV;
+    private int ikW;
     @Nullable
-    private List<c.a> idN;
-    private final c.a idO = new a();
+    private List<c.a> ikX;
+    private final c.a ikY = new a();
 
     private d() {
-        bTu();
+        bVA();
     }
 
-    public void eo(@Nullable List<c.a> list) {
-        this.idN = list;
-        bTu();
+    public void es(@Nullable List<c.a> list) {
+        this.ikX = list;
+        bVA();
     }
 
-    public c p(InputStream inputStream) throws IOException {
+    public c q(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.idM];
-        int a = a(this.idM, inputStream, bArr);
-        if (this.idN != null) {
-            for (c.a aVar : this.idN) {
+        byte[] bArr = new byte[this.ikW];
+        int a = a(this.ikW, inputStream, bArr);
+        if (this.ikX != null) {
+            for (c.a aVar : this.ikX) {
                 c j = aVar.j(bArr, a);
-                if (j != null && j != c.idJ) {
+                if (j != null && j != c.ikT) {
                     return j;
                 }
             }
         }
-        c j2 = this.idO.j(bArr, a);
+        c j2 = this.ikY.j(bArr, a);
         if (j2 == null) {
-            return c.idJ;
+            return c.ikT;
         }
         return j2;
     }
 
-    private void bTu() {
-        this.idM = this.idO.getHeaderSize();
-        if (this.idN != null) {
-            for (c.a aVar : this.idN) {
-                this.idM = Math.max(this.idM, aVar.getHeaderSize());
+    private void bVA() {
+        this.ikW = this.ikY.getHeaderSize();
+        if (this.ikX != null) {
+            for (c.a aVar : this.ikX) {
+                this.ikW = Math.max(this.ikW, aVar.getHeaderSize());
             }
         }
     }
@@ -67,24 +67,24 @@ public class d {
         return com.facebook.common.internal.a.a(inputStream, bArr, 0, i);
     }
 
-    public static synchronized d bTv() {
+    public static synchronized d bVB() {
         d dVar;
         synchronized (d.class) {
-            if (idL == null) {
-                idL = new d();
+            if (ikV == null) {
+                ikV = new d();
             }
-            dVar = idL;
+            dVar = ikV;
         }
         return dVar;
     }
 
-    public static c q(InputStream inputStream) throws IOException {
-        return bTv().p(inputStream);
+    public static c r(InputStream inputStream) throws IOException {
+        return bVB().q(inputStream);
     }
 
-    public static c r(InputStream inputStream) {
+    public static c s(InputStream inputStream) {
         try {
-            return q(inputStream);
+            return r(inputStream);
         } catch (IOException e) {
             throw k.r(e);
         }

@@ -7,44 +7,44 @@ import tbclient.TalkBall.Competition;
 import tbclient.TalkBall.GuessingCompetition;
 /* loaded from: classes3.dex */
 public class e {
-    private List<String> ecA;
-    private String ecu;
-    private List<c> ecz;
+    private String eiX;
+    private List<c> ejc;
+    private List<String> ejd;
 
     public void a(GuessingCompetition guessingCompetition) {
         if (guessingCompetition != null) {
-            this.ecz = new ArrayList();
+            this.ejc = new ArrayList();
             List<Competition> list = guessingCompetition.competition;
             if (list != null) {
                 for (Competition competition : list) {
                     c cVar = new c();
                     cVar.a(competition);
-                    if (cVar.aGC()) {
-                        this.ecz.add(cVar);
+                    if (cVar.aIo()) {
+                        this.ejc.add(cVar);
                     }
                 }
             }
-            this.ecu = guessingCompetition.ahead_url;
-            this.ecA = new ArrayList();
+            this.eiX = guessingCompetition.ahead_url;
+            this.ejd = new ArrayList();
             if (guessingCompetition.winning_message != null) {
                 for (String str : guessingCompetition.winning_message) {
                     if (!ao.isEmpty(str)) {
-                        this.ecA.add(str);
+                        this.ejd.add(str);
                     }
                 }
             }
         }
     }
 
-    public List<c> aGF() {
-        return this.ecz;
+    public List<c> aIr() {
+        return this.ejc;
     }
 
-    public String aGG() {
-        return this.ecu;
+    public String aIs() {
+        return this.eiX;
     }
 
-    public List<String> aGH() {
-        return this.ecA;
+    public List<String> aIt() {
+        return this.ejd;
     }
 }

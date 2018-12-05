@@ -15,30 +15,30 @@ import java.util.Iterator;
 public class b {
     private String Zm;
     private int bgColor;
-    private int dZb;
-    private ArrayList<String> hJm;
-    private int hJn;
-    private int hJo;
-    private int hJp = -1;
-    private boolean hJq = false;
-    private boolean hJr = false;
+    private int efE;
+    private int hQA = -1;
+    private boolean hQB = false;
+    private boolean hQC = false;
+    private ArrayList<String> hQx;
+    private int hQy;
+    private int hQz;
 
     public SpannableStringBuilder b(Editable editable) {
-        if (editable == null || StringUtils.isNull(editable.toString()) || v.I(this.hJm)) {
+        if (editable == null || StringUtils.isNull(editable.toString()) || v.I(this.hQx)) {
             return null;
         }
         String obj = editable.toString();
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(obj);
-        boolean z = this.hJp >= 0;
-        this.hJp = -1;
-        Iterator<String> it = this.hJm.iterator();
+        boolean z = this.hQA >= 0;
+        this.hQA = -1;
+        Iterator<String> it = this.hQx.iterator();
         while (it.hasNext()) {
             String next = it.next();
             if (!StringUtils.isNull(next)) {
                 a(spannableStringBuilder, obj, next);
             }
         }
-        if (this.hJp >= 0 || z) {
+        if (this.hQA >= 0 || z) {
             ImageSpan[] imageSpanArr = (ImageSpan[]) editable.getSpans(0, obj.length(), ImageSpan.class);
             if (imageSpanArr != null) {
                 for (ImageSpan imageSpan : imageSpanArr) {
@@ -56,19 +56,19 @@ public class b {
         if (spannableStringBuilder == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        if (this.dZb != 0 || this.bgColor != 0) {
+        if (this.efE != 0 || this.bgColor != 0) {
             int indexOf = str.indexOf(str2);
             int length = str2.length();
             if (indexOf >= 0) {
-                if (this.hJp == -1) {
-                    this.hJp = indexOf + length;
-                } else if (indexOf + length < this.hJp) {
-                    this.hJp = indexOf + length;
+                if (this.hQA == -1) {
+                    this.hQA = indexOf + length;
+                } else if (indexOf + length < this.hQA) {
+                    this.hQA = indexOf + length;
                 }
             }
             while (indexOf >= 0) {
-                if (this.dZb != 0) {
-                    spannableStringBuilder.setSpan(new ForegroundColorSpan(this.dZb), indexOf, indexOf + length, 33);
+                if (this.efE != 0) {
+                    spannableStringBuilder.setSpan(new ForegroundColorSpan(this.efE), indexOf, indexOf + length, 33);
                 }
                 if (this.bgColor != 0) {
                     spannableStringBuilder.setSpan(new BackgroundColorSpan(this.bgColor), indexOf, indexOf + length, 33);
@@ -79,57 +79,57 @@ public class b {
     }
 
     public void onChangeSkinType() {
-        if (this.hJn != 0) {
-            this.dZb = al.getColor(this.hJn);
+        if (this.hQy != 0) {
+            this.efE = al.getColor(this.hQy);
         }
-        if (this.hJo != 0) {
-            this.bgColor = al.getColor(this.hJo);
+        if (this.hQz != 0) {
+            this.bgColor = al.getColor(this.hQz);
         }
     }
 
     public void az(ArrayList<String> arrayList) {
-        this.hJm = arrayList;
+        this.hQx = arrayList;
     }
 
-    public ArrayList<String> bKP() {
-        return this.hJm;
+    public ArrayList<String> bMV() {
+        return this.hQx;
     }
 
-    public void wy(int i) {
-        this.hJn = i;
-        this.dZb = al.getColor(this.hJn);
+    public void wV(int i) {
+        this.hQy = i;
+        this.efE = al.getColor(this.hQy);
     }
 
-    public void wz(int i) {
-        this.hJo = i;
-        this.bgColor = al.getColor(this.hJo);
+    public void wW(int i) {
+        this.hQz = i;
+        this.bgColor = al.getColor(this.hQz);
     }
 
-    public int bKQ() {
-        return this.hJp;
+    public int bMW() {
+        return this.hQA;
     }
 
-    public void oo(boolean z) {
-        this.hJq = z;
+    public void oq(boolean z) {
+        this.hQB = z;
     }
 
-    public boolean bKR() {
-        return this.hJq;
+    public boolean bMX() {
+        return this.hQB;
     }
 
-    public void op(boolean z) {
-        this.hJr = z;
+    public void or(boolean z) {
+        this.hQC = z;
     }
 
-    public boolean bKS() {
-        return this.hJr;
+    public boolean bMY() {
+        return this.hQC;
     }
 
-    public void wO(String str) {
+    public void xr(String str) {
         this.Zm = str;
     }
 
-    public String bKT() {
+    public String bMZ() {
         return this.Zm;
     }
 }

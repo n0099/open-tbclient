@@ -12,23 +12,23 @@ import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class d extends BaseAdapter {
-    private final String dBw;
-    private boolean fml = true;
+    private final String dHV;
+    private boolean ftd = true;
     private final Context mContext;
     private ArrayList<String> mData;
 
     public d(Context context, ArrayList<String> arrayList) {
         this.mContext = context;
         this.mData = arrayList;
-        this.dBw = this.mContext.getText(e.j.forum).toString();
+        this.dHV = this.mContext.getText(e.j.forum).toString();
     }
 
     public void setData(ArrayList<String> arrayList) {
         this.mData = arrayList;
     }
 
-    public void jy(boolean z) {
-        this.fml = z;
+    public void jB(boolean z) {
+        this.ftd = z;
     }
 
     @Override // android.widget.Adapter
@@ -60,7 +60,7 @@ public class d extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(e.h.home_dialog_search_item, (ViewGroup) null);
             aVar = new a();
-            aVar.aGk = (TextView) view.findViewById(e.g.home_lv_search_forum);
+            aVar.aJK = (TextView) view.findViewById(e.g.home_lv_search_forum);
             aVar.dividerLine = view.findViewById(e.g.home_dialog_lv_search_forum_divider);
             view.setTag(aVar);
         } else {
@@ -69,12 +69,12 @@ public class d extends BaseAdapter {
         Object item = getItem(i);
         if (item != null) {
             String str = (String) item;
-            if (this.fml) {
-                aVar.aGk.setText(str.concat(this.dBw));
+            if (this.ftd) {
+                aVar.aJK.setText(str.concat(this.dHV));
             } else {
-                aVar.aGk.setText(str);
+                aVar.aJK.setText(str);
             }
-            al.c(aVar.aGk, e.d.cp_cont_b, 1);
+            al.c(aVar.aJK, e.d.cp_cont_b, 1);
             al.j(aVar.dividerLine, e.d.cp_bg_line_b);
             al.i(view, e.f.addresslist_item_bg);
         }
@@ -83,7 +83,7 @@ public class d extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     private class a {
-        TextView aGk;
+        TextView aJK;
         View dividerLine;
 
         private a() {

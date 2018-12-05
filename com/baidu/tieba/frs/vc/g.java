@@ -18,12 +18,12 @@ import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class g {
-    private NEGFeedBackView bXc;
-    private ViewGroup bXd;
-    private NEGFeedBackView.a bXe = new NEGFeedBackView.a() { // from class: com.baidu.tieba.frs.vc.g.1
+    private NEGFeedBackView caU;
+    private ViewGroup caV;
+    private NEGFeedBackView.a caW = new NEGFeedBackView.a() { // from class: com.baidu.tieba.frs.vc.g.1
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
         public void a(ah ahVar) {
-            TiebaStatic.log(new am("c11973").ax(ImageViewerConfig.FORUM_ID, ahVar.getFid()).ax("tid", ahVar.getTid()).ax("uid", TbadkCoreApplication.getCurrentAccount()));
+            TiebaStatic.log(new am("c11973").aA(ImageViewerConfig.FORUM_ID, ahVar.getFid()).aA("tid", ahVar.getTid()).aA("uid", TbadkCoreApplication.getCurrentAccount()));
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
@@ -40,7 +40,7 @@ public class g {
                 if (sb.length() > 0) {
                     sb.deleteCharAt(sb.length() - 1);
                 }
-                TiebaStatic.log(new am("c11974").ax("obj_locate", sb.toString()).ax(ImageViewerConfig.FORUM_ID, ahVar.getFid()).ax("tid", ahVar.getTid()).ax("uid", TbadkCoreApplication.getCurrentAccount()));
+                TiebaStatic.log(new am("c11974").aA("obj_locate", sb.toString()).aA(ImageViewerConfig.FORUM_ID, ahVar.getFid()).aA("tid", ahVar.getTid()).aA("uid", TbadkCoreApplication.getCurrentAccount()));
             }
         }
     };
@@ -49,64 +49,64 @@ public class g {
 
     public g(TbPageContext tbPageContext, ViewGroup viewGroup) {
         this.mPageContext = tbPageContext;
-        this.bXd = viewGroup;
+        this.caV = viewGroup;
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
     }
 
-    public boolean aFG() {
-        return this.bXc != null && this.bXc.getVisibility() == 0;
+    public boolean aHs() {
+        return this.caU != null && this.caU.getVisibility() == 0;
     }
 
     public void af(bb bbVar) {
         int i = 0;
-        if (bbVar != null && this.mPageContext != null && this.bXd != null) {
-            boolean z = (bbVar.yC() == null || bbVar.yC().getUserId() == null || !bbVar.yC().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
-            if (bbVar.zE() && bbVar.xB() != null && !z) {
-                if (this.bXc == null) {
-                    this.bXc = new NEGFeedBackView(this.mPageContext);
-                    this.bXc.setUniqueId(this.mBdUniqueId);
-                    this.bXc.setId(e.g.negative_feedback_view);
-                    this.bXc.setDefaultReasonArray(new String[]{this.mPageContext.getString(e.j.bad_quality), "", ""});
-                    this.bXc.setEventCallback(this.bXe);
-                    this.bXc.a(this.bXd, l.h(this.mPageContext.getPageActivity(), e.C0200e.tbds120), 0);
-                    this.bXc.onChangeSkinType();
+        if (bbVar != null && this.mPageContext != null && this.caV != null) {
+            boolean z = (bbVar.zG() == null || bbVar.zG().getUserId() == null || !bbVar.zG().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
+            if (bbVar.AI() && bbVar.yF() != null && !z) {
+                if (this.caU == null) {
+                    this.caU = new NEGFeedBackView(this.mPageContext);
+                    this.caU.setUniqueId(this.mBdUniqueId);
+                    this.caU.setId(e.g.negative_feedback_view);
+                    this.caU.setDefaultReasonArray(new String[]{this.mPageContext.getString(e.j.bad_quality), "", ""});
+                    this.caU.setEventCallback(this.caW);
+                    this.caU.a(this.caV, l.h(this.mPageContext.getPageActivity(), e.C0210e.tbds120), 0);
+                    this.caU.onChangeSkinType();
                 }
-                if (this.bXc.getVisibility() != 0) {
-                    this.bXc.setVisibility(0);
+                if (this.caU.getVisibility() != 0) {
+                    this.caU.setVisibility(0);
                 }
                 ah ahVar = new ah();
                 ahVar.setTid(bbVar.getTid());
                 ahVar.setFid(bbVar.getFid());
-                ahVar.a(bbVar.xB());
-                this.bXc.setData(ahVar);
+                ahVar.a(bbVar.yF());
+                this.caU.setData(ahVar);
             } else {
-                if (this.bXc != null && this.bXc.getVisibility() != 8) {
-                    this.bXc.setVisibility(8);
+                if (this.caU != null && this.caU.getVisibility() != 8) {
+                    this.caU.setVisibility(8);
                 }
-                i = l.h(this.mPageContext.getPageActivity(), e.C0200e.ds32);
+                i = l.h(this.mPageContext.getPageActivity(), e.C0210e.ds32);
             }
-            if (this.bXd.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bXd.getLayoutParams();
+            if (this.caV.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.caV.getLayoutParams();
                 layoutParams.rightMargin = i;
-                this.bXd.setLayoutParams(layoutParams);
+                this.caV.setLayoutParams(layoutParams);
             }
-            if (this.bXd.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.bXd.getLayoutParams();
+            if (this.caV.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.caV.getLayoutParams();
                 layoutParams2.rightMargin = i;
-                this.bXd.setLayoutParams(layoutParams2);
+                this.caV.setLayoutParams(layoutParams2);
             }
-            if (this.bXc != null) {
-                this.bXc.Tt();
+            if (this.caU != null) {
+                this.caU.Uz();
             }
         }
     }
 
     public void onChangeSkinType() {
-        if (this.bXc != null) {
-            this.bXc.onChangeSkinType();
+        if (this.caU != null) {
+            this.caU.onChangeSkinType();
         }
     }
 }

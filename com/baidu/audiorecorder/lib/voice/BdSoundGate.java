@@ -17,7 +17,7 @@ public class BdSoundGate {
         System.loadLibrary("sound_gate");
     }
 
-    public static BdSoundGate pI() {
+    public static BdSoundGate pH() {
         if (SL == null) {
             SL = new BdSoundGate();
         }
@@ -28,7 +28,7 @@ public class BdSoundGate {
     }
 
     public void init(int i, int i2) {
-        pI().a(i, 0.0f, d.bx(i2), 0.0f);
+        pH().a(i, 0.0f, d.bx(i2), 0.0f);
     }
 
     public void a(int i, float f, float f2, float f3) {

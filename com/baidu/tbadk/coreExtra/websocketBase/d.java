@@ -8,48 +8,48 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class d {
-    private c aSB;
-    private b aSC;
-    private a aSD;
+    private c aVY;
+    private b aVZ;
+    private a aWa;
 
     /* loaded from: classes.dex */
     public interface b {
-        void ch(boolean z);
+        void ci(boolean z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class c extends Handler {
-        private final WeakReference<d> aSG;
+        private final WeakReference<d> aWd;
 
         c(d dVar) {
-            this.aSG = new WeakReference<>(dVar);
+            this.aWd = new WeakReference<>(dVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             d dVar;
             super.handleMessage(message);
-            if (message.what == 0 && (dVar = this.aSG.get()) != null) {
+            if (message.what == 0 && (dVar = this.aWd.get()) != null) {
                 dVar.timeOut();
             }
         }
     }
 
     public d(String str, b bVar) {
-        this.aSB = null;
-        this.aSC = null;
-        this.aSD = null;
-        this.aSB = new c(this);
-        this.aSC = bVar;
-        this.aSB.sendEmptyMessageDelayed(0, 50000L);
-        this.aSD = new a();
-        this.aSD.setSelfExecute(true);
-        this.aSD.execute(Kb() + str);
+        this.aVY = null;
+        this.aVZ = null;
+        this.aWa = null;
+        this.aVY = new c(this);
+        this.aVZ = bVar;
+        this.aVY.sendEmptyMessageDelayed(0, 50000L);
+        this.aWa = new a();
+        this.aWa.setSelfExecute(true);
+        this.aWa.execute(Lf() + str);
     }
 
-    private String Kb() {
-        switch (j.lb()) {
+    private String Lf() {
+        switch (j.netType()) {
             case 1:
                 return "ping -c 3 -w 3000 ";
             case 2:
@@ -63,21 +63,21 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void timeOut() {
-        if (this.aSD != null) {
-            this.aSD.cancel(true);
+        if (this.aWa != null) {
+            this.aWa.cancel(true);
         }
-        if (this.aSB != null) {
-            this.aSB.removeMessages(0);
+        if (this.aVY != null) {
+            this.aVY.removeMessages(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Void, Boolean> {
-        Process aSE;
+        Process aWb;
 
         private a() {
-            this.aSE = null;
+            this.aWb = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,19 +88,19 @@ public class d {
             if (strArr != null && strArr.length >= 1) {
                 try {
                     try {
-                        this.aSE = Runtime.getRuntime().exec(strArr[0]);
-                        boolean z2 = this.aSE.waitFor() == 0;
-                        this.aSE.destroy();
+                        this.aWb = Runtime.getRuntime().exec(strArr[0]);
+                        boolean z2 = this.aWb.waitFor() == 0;
+                        this.aWb.destroy();
                         z = z2;
                     } catch (IOException e) {
                         e.printStackTrace();
-                        this.aSE.destroy();
+                        this.aWb.destroy();
                     } catch (InterruptedException e2) {
                         e2.printStackTrace();
-                        this.aSE.destroy();
+                        this.aWb.destroy();
                     }
                 } catch (Throwable th) {
-                    this.aSE.destroy();
+                    this.aWb.destroy();
                     throw th;
                 }
             }
@@ -111,18 +111,18 @@ public class d {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.aSE != null) {
+            if (this.aWb != null) {
                 try {
-                    this.aSE.destroy();
+                    this.aWb.destroy();
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
             }
-            if (d.this.aSC != null) {
-                d.this.aSC.ch(false);
+            if (d.this.aVZ != null) {
+                d.this.aVZ.ci(false);
             }
-            if (d.this.aSB != null) {
-                d.this.aSB.removeMessages(0);
+            if (d.this.aVY != null) {
+                d.this.aVY.removeMessages(0);
             }
         }
 
@@ -130,11 +130,11 @@ public class d {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (d.this.aSC != null) {
-                d.this.aSC.ch(bool == null ? false : bool.booleanValue());
+            if (d.this.aVZ != null) {
+                d.this.aVZ.ci(bool == null ? false : bool.booleanValue());
             }
-            if (d.this.aSB != null) {
-                d.this.aSB.removeMessages(0);
+            if (d.this.aVY != null) {
+                d.this.aVY.removeMessages(0);
             }
         }
     }

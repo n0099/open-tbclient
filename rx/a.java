@@ -3,52 +3,52 @@ package rx;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes2.dex */
 public final class a {
-    public static final d its = c.ity;
-    public static final d itt = its;
-    public static final d itu = b.itx;
-    public static final d itv = C0391a.itw;
+    public static final d iAB = c.iAH;
+    public static final d iAC = iAB;
+    public static final d iAD = b.iAG;
+    public static final d iAE = C0405a.iAF;
 
     /* loaded from: classes2.dex */
     public interface d {
-        boolean caI() throws MissingBackpressureException;
+        boolean ccL() throws MissingBackpressureException;
     }
 
     /* loaded from: classes2.dex */
     static final class b implements d {
-        static final b itx = new b();
+        static final b iAG = new b();
 
         private b() {
         }
 
         @Override // rx.a.d
-        public boolean caI() {
+        public boolean ccL() {
             return true;
         }
     }
 
     /* renamed from: rx.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    static final class C0391a implements d {
-        static final C0391a itw = new C0391a();
+    static final class C0405a implements d {
+        static final C0405a iAF = new C0405a();
 
-        private C0391a() {
+        private C0405a() {
         }
 
         @Override // rx.a.d
-        public boolean caI() {
+        public boolean ccL() {
             return false;
         }
     }
 
     /* loaded from: classes2.dex */
     static final class c implements d {
-        static final c ity = new c();
+        static final c iAH = new c();
 
         private c() {
         }
 
         @Override // rx.a.d
-        public boolean caI() throws MissingBackpressureException {
+        public boolean ccL() throws MissingBackpressureException {
             throw new MissingBackpressureException("Overflowed buffer");
         }
     }

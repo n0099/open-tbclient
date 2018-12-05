@@ -40,7 +40,7 @@ public class AuthActivity extends BaseActivity {
         super.onCreate(bundle);
         try {
             setContentView(a.e.layout_sapi_sdk_webview_with_title_bar);
-            PassManagerStatic.bdq();
+            PassManagerStatic.bfh();
             init();
             setupViews();
         } catch (Throwable th) {
@@ -79,7 +79,7 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    private String bde() {
+    private String beV() {
         ArrayList arrayList = new ArrayList();
         try {
             arrayList.add(new BasicNameValuePair("adapter", URLEncoder.encode("3", "UTF-8")));
@@ -94,7 +94,7 @@ public class AuthActivity extends BaseActivity {
         return (SapiAccountManager.getInstance().getConfignation().getEnvironment().getWap(SapiUtils.getDefaultHttpsEnabled()) + "/passport/authwidget") + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
-    private String bdf() {
+    private String beW() {
         ArrayList arrayList = new ArrayList();
         try {
             arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action" + ETAG.EQUAL + "modify-pwd", "UTF-8")));
@@ -114,7 +114,7 @@ public class AuthActivity extends BaseActivity {
         return str;
     }
 
-    private List<NameValuePair> bdg() {
+    private List<NameValuePair> beX() {
         Domain environment = SapiAccountManager.getInstance().getConfignation().getEnvironment();
         String buildBDUSSCookie = SapiUtils.buildBDUSSCookie(environment.getWap(SapiUtils.getDefaultHttpsEnabled()).replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", ""), "BIND_BDUSS", "");
         ArrayList arrayList = new ArrayList();
@@ -147,11 +147,11 @@ public class AuthActivity extends BaseActivity {
                     AuthActivity.this.k(true, str);
                 }
             });
-            this.sapiWebView.loadUrl(bde());
+            this.sapiWebView.loadUrl(beV());
         } else if (this.type == 1) {
             setTitleText(a.f.sapi_sdk_title_modify_pwd);
             SapiAccountManager.getInstance().getAccountService().webLogin(this, this.bduss);
-            this.sapiWebView.loadUrl(bdf(), bdg());
+            this.sapiWebView.loadUrl(beW(), beX());
             PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIWEBVIEW_CHANGE_PWD, IEventCenterService.EventResult.PHASE.START);
             this.sapiWebView.setChangePwdCallback(new SapiWebView.ChangePwdCallback() { // from class: com.baidu.tieba.passaccount.app.AuthActivity.4
                 @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
@@ -204,13 +204,13 @@ public class AuthActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void k(boolean z, String str) {
         if (this.type == 0) {
-            b.bdw().m(z, str);
+            b.bfn().m(z, str);
         } else if (this.type == 1) {
-            b.bdw().kh(z);
+            b.bfn().kk(z);
         } else if (this.type == 2) {
-            b.bdw().ki(z);
+            b.bfn().kl(z);
         } else {
-            b.bdw().a((AuthVerifyData.c) null);
+            b.bfn().a((AuthVerifyData.c) null);
         }
         finish();
     }

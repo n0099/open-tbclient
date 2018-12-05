@@ -10,43 +10,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class e {
-    private HTypeListView byG;
-    private c gjx;
-    private b gjy;
-    private a gjz;
+    private HTypeListView bCd;
+    private c gqn;
+    private b gqo;
+    private a gqp;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.byG = hTypeListView;
+        this.bCd = hTypeListView;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.gjx = new c(this.mTbPageContext, k.ays);
-        this.gjy = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.gjH);
-        this.gjz = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.gjh);
-        this.mAdapters.add(this.gjx);
-        this.mAdapters.add(this.gjy);
-        this.mAdapters.add(this.gjz);
-        this.byG.addAdapters(this.mAdapters);
+        this.gqn = new c(this.mTbPageContext, k.aBS);
+        this.gqo = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.gqx);
+        this.gqp = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.gpX);
+        this.mAdapters.add(this.gqn);
+        this.mAdapters.add(this.gqo);
+        this.mAdapters.add(this.gqp);
+        this.bCd.addAdapters(this.mAdapters);
     }
 
     public void setDatas(List<h> list) {
-        if (this.byG != null) {
-            this.byG.setData(list);
+        if (this.bCd != null) {
+            this.bCd.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.byG != null && (this.byG.getAdapter() instanceof q)) {
-            ((q) this.byG.getAdapter()).notifyDataSetChanged();
+        if (this.bCd != null && (this.bCd.getAdapter() instanceof q)) {
+            ((q) this.bCd.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.gjx.w(onClickListener);
-        this.gjy.w(onClickListener);
+        this.gqn.w(onClickListener);
+        this.gqo.w(onClickListener);
     }
 }

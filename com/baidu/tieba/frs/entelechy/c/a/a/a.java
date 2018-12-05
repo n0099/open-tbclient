@@ -13,17 +13,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a extends b {
-    private b.InterfaceC0148b ate;
-    private FrsFragment dDf;
-    private int dKD;
+    private b.InterfaceC0158b awE;
+    private FrsFragment dJE;
+    private int dRg;
     private List<x> mDatas;
 
-    public a(FrsFragment frsFragment, b.InterfaceC0148b interfaceC0148b) {
+    public a(FrsFragment frsFragment, b.InterfaceC0158b interfaceC0158b) {
         super(frsFragment.getActivity());
-        this.dKD = 0;
-        if (frsFragment != null && interfaceC0148b != null) {
-            this.dDf = frsFragment;
-            this.ate = interfaceC0148b;
+        this.dRg = 0;
+        if (frsFragment != null && interfaceC0158b != null) {
+            this.dJE = frsFragment;
+            this.awE = interfaceC0158b;
         }
     }
 
@@ -33,8 +33,8 @@ public class a extends b {
             this.mDatas.addAll(list);
             if (TbadkCoreApplication.isLogin()) {
                 x xVar = new x();
-                xVar.name = this.dDf.getResources().getString(e.j.attention_users_thread);
-                xVar.dEQ = 6;
+                xVar.name = this.dJE.getResources().getString(e.j.attention_users_thread);
+                xVar.dLp = 6;
                 this.mDatas.add(xVar);
             }
             ArrayList arrayList = new ArrayList();
@@ -44,20 +44,20 @@ public class a extends b {
                 }
             }
             reset();
-            a(arrayList, this.ate);
+            a(arrayList, this.awE);
         }
     }
 
-    public List<x> aCw() {
+    public List<x> aEi() {
         return this.mDatas;
     }
 
     @Override // com.baidu.tbadk.core.dialog.b
-    public b AE() {
-        View cV;
-        super.AE();
-        if (this.mDatas != null && (cV = cV(this.mDatas.size())) != null && (cV.findViewById(e.g.dialog_item_btn) instanceof TextView)) {
-            al.h((TextView) cV.findViewById(e.g.dialog_item_btn), e.d.cp_link_tip_a);
+    public b BI() {
+        View dj;
+        super.BI();
+        if (this.mDatas != null && (dj = dj(this.mDatas.size())) != null && (dj.findViewById(e.g.dialog_item_btn) instanceof TextView)) {
+            al.h((TextView) dj.findViewById(e.g.dialog_item_btn), e.d.cp_link_tip_a);
         }
         return this;
     }

@@ -3,64 +3,64 @@ package org.aspectj.a.b;
 import java.lang.reflect.Modifier;
 /* loaded from: classes5.dex */
 class h {
-    static h iss = new h();
-    static h ist;
-    static h isu;
-    boolean isj = true;
-    boolean isk = true;
-    boolean isl = false;
-    boolean ism = false;
-    boolean isn = false;
-    boolean iso = true;
-    boolean isp = true;
-    boolean isq = true;
-    int isr;
+    static h izC = new h();
+    static h izD;
+    static h izE;
+    int izB;
+    boolean izt = true;
+    boolean izu = true;
+    boolean izv = false;
+    boolean izw = false;
+    boolean izx = false;
+    boolean izy = true;
+    boolean izz = true;
+    boolean izA = true;
 
     h() {
     }
 
     static {
-        iss.isj = true;
-        iss.isk = false;
-        iss.isl = false;
-        iss.ism = false;
-        iss.isn = true;
-        iss.iso = false;
-        iss.isp = false;
-        iss.isr = 0;
-        ist = new h();
-        ist.isj = true;
-        ist.isk = true;
-        ist.isl = false;
-        ist.ism = false;
-        ist.isn = false;
-        iss.isr = 1;
-        isu = new h();
-        isu.isj = false;
-        isu.isk = true;
-        isu.isl = false;
-        isu.ism = true;
-        isu.isn = false;
-        isu.isq = false;
-        isu.isr = 2;
+        izC.izt = true;
+        izC.izu = false;
+        izC.izv = false;
+        izC.izw = false;
+        izC.izx = true;
+        izC.izy = false;
+        izC.izz = false;
+        izC.izB = 0;
+        izD = new h();
+        izD.izt = true;
+        izD.izu = true;
+        izD.izv = false;
+        izD.izw = false;
+        izD.izx = false;
+        izC.izB = 1;
+        izE = new h();
+        izE.izt = false;
+        izE.izu = true;
+        izE.izv = false;
+        izE.izw = true;
+        izE.izx = false;
+        izE.izA = false;
+        izE.izB = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String zc(String str) {
+    public String zF(String str) {
         int lastIndexOf = str.lastIndexOf(45);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String yN(int i) {
-        if (this.ism) {
+    public String zk(int i) {
+        if (this.izw) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
         return "";
     }
 
-    String zd(String str) {
+    String zG(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
@@ -73,18 +73,18 @@ class h {
             Class<?> componentType = cls.getComponentType();
             return new StringBuffer().append(b(componentType, componentType.getName(), z)).append("[]").toString();
         } else if (z) {
-            return zd(str).replace('$', '.');
+            return zG(str).replace('$', '.');
         } else {
             return str.replace('$', '.');
         }
     }
 
-    public String D(Class cls) {
-        return b(cls, cls.getName(), this.isj);
+    public String E(Class cls) {
+        return b(cls, cls.getName(), this.izt);
     }
 
     public String i(Class cls, String str) {
-        return b(cls, str, this.isn);
+        return b(cls, str, this.izx);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -92,13 +92,13 @@ class h {
             if (i > 0) {
                 stringBuffer.append(", ");
             }
-            stringBuffer.append(D(clsArr[i]));
+            stringBuffer.append(E(clsArr[i]));
         }
     }
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.isk) {
+            if (!this.izu) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.isl && clsArr != null && clsArr.length != 0) {
+        if (this.izv && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

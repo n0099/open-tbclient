@@ -8,22 +8,22 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class f {
-    private RelativeLayout fIP;
-    private TextView fIQ;
-    private TextView fIR;
-    private ImageView fIS;
+    private RelativeLayout fPF;
+    private TextView fPG;
+    private TextView fPH;
+    private ImageView fPI;
     private View rootView;
 
     public f(View view) {
         this.rootView = view;
-        this.fIP = (RelativeLayout) view.findViewById(e.g.chosen_pb_reply_text);
-        this.fIQ = (TextView) view.findViewById(e.g.chosen_pb_reply_comment);
-        this.fIR = (TextView) view.findViewById(e.g.chosen_pb_reply_number);
-        this.fIS = (ImageView) view.findViewById(e.g.chosen_pb_reply_share);
+        this.fPF = (RelativeLayout) view.findViewById(e.g.chosen_pb_reply_text);
+        this.fPG = (TextView) view.findViewById(e.g.chosen_pb_reply_comment);
+        this.fPH = (TextView) view.findViewById(e.g.chosen_pb_reply_number);
+        this.fPI = (ImageView) view.findViewById(e.g.chosen_pb_reply_share);
     }
 
     public void G(View.OnClickListener onClickListener) {
-        this.fIP.setOnClickListener(onClickListener);
+        this.fPF.setOnClickListener(onClickListener);
     }
 
     public void setVisible(boolean z) {
@@ -31,18 +31,18 @@ public class f {
     }
 
     public void H(View.OnClickListener onClickListener) {
-        this.fIS.setOnClickListener(onClickListener);
+        this.fPI.setOnClickListener(onClickListener);
     }
 
-    public void sh(String str) {
-        this.fIR.setText(str);
+    public void sK(String str) {
+        this.fPH.setText(str);
     }
 
     public void onChangeSkinType() {
         al.i(this.rootView, e.f.bg_rec_lick);
-        al.i(this.fIP, e.f.bg_rec_comment);
-        al.c(this.fIQ, e.d.cp_cont_c, 1);
-        al.c(this.fIR, e.d.cp_cont_e, 1);
-        al.c(this.fIS, e.f.recommend_pb_share_selector);
+        al.i(this.fPF, e.f.bg_rec_comment);
+        al.c(this.fPG, e.d.cp_cont_c, 1);
+        al.c(this.fPH, e.d.cp_cont_e, 1);
+        al.c(this.fPI, e.f.recommend_pb_share_selector);
     }
 }

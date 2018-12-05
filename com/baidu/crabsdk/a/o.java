@@ -16,9 +16,9 @@ public final class o implements Runnable {
         Runnable runnable;
         this.XJ.n();
         if (this.XJ.XG.get()) {
-            Handler rk = j.rk();
+            Handler rj = j.rj();
             runnable = this.XJ.XI;
-            rk.postDelayed(runnable, this.XJ.XH);
+            rj.postDelayed(runnable, this.XJ.XH);
         }
     }
 }

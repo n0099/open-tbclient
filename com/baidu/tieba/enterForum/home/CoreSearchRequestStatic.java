@@ -13,27 +13,28 @@ import com.baidu.tbadk.core.message.RequestEnterForumDataMessage;
 import com.baidu.tieba.enterForum.data.f;
 import com.baidu.tieba.enterForum.data.g;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
+import com.baidu.tieba.tbadkCore.d.c;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class CoreSearchRequestStatic {
-    private static EnterForumModel dhx;
+    private static EnterForumModel dog;
 
     static {
-        atm();
-        atn();
+        auY();
+        auZ();
     }
 
-    private static void atm() {
-        com.baidu.tieba.tbadkCore.d.c.bBQ();
-        if (dhx == null) {
-            dhx = new EnterForumModel(null);
-            dhx.a(new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.CoreSearchRequestStatic.1
+    private static void auY() {
+        c.bDL();
+        if (dog == null) {
+            dog = new EnterForumModel(null);
+            dog.a(new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.CoreSearchRequestStatic.1
                 @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
                 public void a(EnterForumModel.a aVar) {
-                    g atd = aVar.diL.atd();
+                    g auP = aVar.dpo.auP();
                     ArrayList arrayList = new ArrayList();
-                    Iterator<f> it = atd.atj().iterator();
+                    Iterator<f> it = auP.auV().iterator();
                     while (it.hasNext()) {
                         arrayList.add(it.next().getName());
                     }
@@ -44,12 +45,12 @@ public class CoreSearchRequestStatic {
         MessageManager.getInstance().registerListener(new com.baidu.adp.framework.listener.a(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011) { // from class: com.baidu.tieba.enterForum.home.CoreSearchRequestStatic.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && CoreSearchRequestStatic.dhx.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
+                if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && CoreSearchRequestStatic.dog.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
                     if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                        CoreSearchRequestStatic.dhx.a((forumRecommendSocketResponseMessage) responsedMessage);
+                        CoreSearchRequestStatic.dog.a((forumRecommendSocketResponseMessage) responsedMessage);
                     }
                     if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                        CoreSearchRequestStatic.dhx.a((forumRecommendHttpResponseMessage) responsedMessage);
+                        CoreSearchRequestStatic.dog.a((forumRecommendHttpResponseMessage) responsedMessage);
                     }
                 }
             }
@@ -60,16 +61,16 @@ public class CoreSearchRequestStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.isLogin() && (customResponsedMessage instanceof RequestEnterForumDataMessage)) {
                     if (((RequestEnterForumDataMessage) customResponsedMessage).isCache()) {
-                        CoreSearchRequestStatic.dhx.gb(true);
+                        CoreSearchRequestStatic.dog.gc(true);
                     } else {
-                        CoreSearchRequestStatic.dhx.ga(true);
+                        CoreSearchRequestStatic.dog.gb(true);
                     }
                 }
             }
         });
     }
 
-    public static void atn() {
+    public static void auZ() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2016562, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.enterForum.home.CoreSearchRequestStatic.4
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.tieba.c.a> run(CustomMessage<Object> customMessage) {

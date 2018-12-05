@@ -16,11 +16,11 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private ChannelAddVideoActivity cTg;
+    private ChannelAddVideoActivity cZN;
     private List<com.baidu.tieba.channel.data.b> mData;
 
     public a(ChannelAddVideoActivity channelAddVideoActivity) {
-        this.cTg = channelAddVideoActivity;
+        this.cZN = channelAddVideoActivity;
     }
 
     public List<com.baidu.tieba.channel.data.b> getData() {
@@ -41,7 +41,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: kp */
+    /* renamed from: kF */
     public com.baidu.tieba.channel.data.b getItem(int i) {
         if (this.mData != null) {
             return this.mData.get(i);
@@ -56,66 +56,66 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0197a c0197a;
+        C0207a c0207a;
         if (view != null) {
-            c0197a = (C0197a) view.getTag();
+            c0207a = (C0207a) view.getTag();
         } else {
-            view = LayoutInflater.from(this.cTg.getPageContext().getPageActivity()).inflate(e.h.channel_add_video_item_layout, viewGroup, false);
-            C0197a c0197a2 = new C0197a();
-            c0197a2.cTh = (TbCheckBox) view.findViewById(e.g.item_check_box);
-            c0197a2.cTi = (TbImageView) view.findViewById(e.g.video_cover);
-            c0197a2.cTj = (TextView) view.findViewById(e.g.video_length);
-            c0197a2.title = (TextView) view.findViewById(e.g.title);
-            c0197a2.cTk = (TextView) view.findViewById(e.g.forum_from);
-            c0197a2.cTl = (TextView) view.findViewById(e.g.intro);
-            view.setTag(c0197a2);
-            c0197a = c0197a2;
+            view = LayoutInflater.from(this.cZN.getPageContext().getPageActivity()).inflate(e.h.channel_add_video_item_layout, viewGroup, false);
+            C0207a c0207a2 = new C0207a();
+            c0207a2.cZO = (TbCheckBox) view.findViewById(e.g.item_check_box);
+            c0207a2.cZP = (TbImageView) view.findViewById(e.g.video_cover);
+            c0207a2.cZQ = (TextView) view.findViewById(e.g.video_length);
+            c0207a2.title = (TextView) view.findViewById(e.g.title);
+            c0207a2.cZR = (TextView) view.findViewById(e.g.forum_from);
+            c0207a2.cZS = (TextView) view.findViewById(e.g.intro);
+            view.setTag(c0207a2);
+            c0207a = c0207a2;
         }
         com.baidu.tieba.channel.data.b item = getItem(i);
         if (item != null) {
-            c0197a.cTh.setTagData(item);
-            if (item.aoI() == 1) {
-                c0197a.cTh.setEnabled(false);
-                al.c(c0197a.cTh, e.f.icon_choose_channel_n);
+            c0207a.cZO.setTagData(item);
+            if (item.aqv() == 1) {
+                c0207a.cZO.setEnabled(false);
+                al.c(c0207a.cZO, e.f.icon_choose_channel_n);
             } else {
-                c0197a.cTh.setEnabled(true);
-                c0197a.cTh.Ef();
+                c0207a.cZO.setEnabled(true);
+                c0207a.cZO.Fj();
             }
             if (!TextUtils.isEmpty(item.getThumbnailUrl())) {
-                c0197a.cTi.setTag(null);
-                c0197a.cTi.startLoad(item.getThumbnailUrl(), 10, false);
-                c0197a.cTi.invalidate();
+                c0207a.cZP.setTag(null);
+                c0207a.cZP.startLoad(item.getThumbnailUrl(), 10, false);
+                c0207a.cZP.invalidate();
             }
-            c0197a.cTj.setText(ao.dD(item.getVideoDuration() * 1000));
+            c0207a.cZQ.setText(ao.dR(item.getVideoDuration() * 1000));
             if (!TextUtils.isEmpty(item.getTitle())) {
-                c0197a.title.setText(item.getTitle());
+                c0207a.title.setText(item.getTitle());
             }
             if (!TextUtils.isEmpty(item.getForumName())) {
-                c0197a.cTk.setText(item.getForumName() + "吧");
+                c0207a.cZR.setText(item.getForumName() + "吧");
             }
-            c0197a.cTl.setText(ao.I(item.aoH()) + "次播放·" + com.baidu.tieba.channel.c.c.bs(item.getCreateTime()));
+            c0207a.cZS.setText(ao.P(item.aqu()) + "次播放·" + com.baidu.tieba.channel.c.c.bz(item.getCreateTime()));
         }
-        this.cTg.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.cTg.getLayoutMode().onModeChanged(view);
+        this.cZN.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.cZN.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        return getItem(i).aoI() != 1;
+        return getItem(i).aqv() != 1;
     }
 
     /* renamed from: com.baidu.tieba.channel.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0197a {
-        public TbCheckBox cTh;
-        public TbImageView cTi;
-        public TextView cTj;
-        public TextView cTk;
-        public TextView cTl;
+    public class C0207a {
+        public TbCheckBox cZO;
+        public TbImageView cZP;
+        public TextView cZQ;
+        public TextView cZR;
+        public TextView cZS;
         public TextView title;
 
-        public C0197a() {
+        public C0207a() {
         }
     }
 }

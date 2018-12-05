@@ -318,16 +318,16 @@ public class d {
         if (location == null) {
             return;
         }
-        String str2 = str + com.baidu.location.a.a.tc().c();
-        boolean f = f.tR().f();
-        n.c(new com.baidu.location.e.a(com.baidu.location.e.b.tM().tN()));
+        String str2 = str + com.baidu.location.a.a.tb().c();
+        boolean f = f.tQ().f();
+        n.c(new com.baidu.location.e.a(com.baidu.location.e.b.tL().tM()));
         n.a(System.currentTimeMillis());
         n.a(new Location(location));
         n.a(str2);
         if (f) {
             return;
         }
-        p.a(n.tp(), null, n.tq(), str2);
+        p.a(n.tn(), null, n.tp(), str2);
     }
 
     public static boolean a(Location location, Location location2, boolean z) {
@@ -338,7 +338,7 @@ public class d {
             return true;
         }
         float speed = location2.getSpeed();
-        if (!z || ((g.v != 3 && com.baidu.location.g.d.tY().a(location2.getLongitude(), location2.getLatitude())) || speed >= 5.0f)) {
+        if (!z || ((g.v != 3 && com.baidu.location.g.d.tX().a(location2.getLongitude(), location2.getLatitude())) || speed >= 5.0f)) {
             float distanceTo = location2.distanceTo(location);
             return speed > g.agh ? distanceTo > g.agj : speed > g.K ? distanceTo > g.agi : distanceTo > 5.0f;
         }
@@ -417,19 +417,19 @@ public class d {
             }
             if (i() && this.afy != null) {
                 F = k();
-                com.baidu.location.a.a.tc().a(f());
+                com.baidu.location.a.a.tb().a(f());
                 if (n > 2 && p.a(this.afy, true)) {
-                    boolean f = f.tR().f();
-                    n.c(new com.baidu.location.e.a(com.baidu.location.e.b.tM().tN()));
+                    boolean f = f.tQ().f();
+                    n.c(new com.baidu.location.e.a(com.baidu.location.e.b.tL().tM()));
                     n.a(System.currentTimeMillis());
                     n.a(new Location(this.afy));
-                    n.a(com.baidu.location.a.a.tc().c());
+                    n.a(com.baidu.location.a.a.tb().c());
                     if (!f) {
-                        q.tt().b();
+                        q.ts().b();
                     }
                 }
             }
-            q.tt().a(location2, n);
+            q.ts().a(location2, n);
         }
     }
 
@@ -493,7 +493,7 @@ public class d {
         return sb.toString();
     }
 
-    public static synchronized d tP() {
+    public static synchronized d tO() {
         d dVar;
         synchronized (d.class) {
             if (afx == null) {
@@ -652,7 +652,7 @@ public class d {
                 speed = -1.0f;
             }
             double[] dArr2 = new double[2];
-            if (com.baidu.location.g.d.tY().a(this.afy.getLongitude(), this.afy.getLatitude())) {
+            if (com.baidu.location.g.d.tX().a(this.afy.getLongitude(), this.afy.getLatitude())) {
                 double[] coorEncrypt = Jni.coorEncrypt(this.afy.getLongitude(), this.afy.getLatitude(), BDLocation.BDLOCATION_WGS84_TO_GCJ02);
                 if (coorEncrypt[0] > 0.0d || coorEncrypt[1] > 0.0d) {
                     dArr = coorEncrypt;
@@ -705,7 +705,7 @@ public class d {
         return false;
     }
 
-    public Location tQ() {
+    public Location tP() {
         if (this.afy != null && Math.abs(System.currentTimeMillis() - this.afy.getTime()) <= 60000) {
             return this.afy;
         }

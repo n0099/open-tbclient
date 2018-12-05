@@ -11,17 +11,17 @@ import org.json.JSONObject;
 @Deprecated
 /* loaded from: classes2.dex */
 public class o {
-    private static volatile IRemoteUBCService hUT;
-    private static r hUU = new r();
-    private static l hUV;
+    private static volatile IRemoteUBCService icd;
+    private static r ice = new r();
+    private static l icf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static final l bPm() {
-        return hUV;
+    public static final l bRs() {
+        return icf;
     }
 
     public static void a(l lVar) {
-        hUV = lVar;
+        icf = lVar;
     }
 
     public static final void onEvent(String str) {
@@ -41,27 +41,27 @@ public class o {
     }
 
     public static final void a(String str, Map<String, String> map, int i) {
-        hUU.a(str, map, i);
+        ice.a(str, map, i);
     }
 
     public static void o(String str, String str2, int i) {
-        hUU.o(str, str2, i);
+        ice.o(str, str2, i);
     }
 
     public static void b(String str, JSONObject jSONObject, int i) {
-        hUU.b(str, jSONObject, i);
+        ice.b(str, jSONObject, i);
     }
 
-    public static void R(String str, String str2, String str3) {
-        d.bOJ().d(str, str2, com.baidu.g.e.xM(str3), 8);
+    public static void S(String str, String str2, String str3) {
+        d.bQP().d(str, str2, com.baidu.g.e.yp(str3), 8);
     }
 
-    public static final Flow xI(String str) {
+    public static final Flow yl(String str) {
         return n(str, "", 0);
     }
 
     public static Flow n(String str, String str2, int i) {
-        return hUU.n(str, str2, i);
+        return ice.n(str, str2, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -70,20 +70,20 @@ public class o {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static IRemoteUBCService bPn() throws RemoteException {
-        if (hUT == null) {
+    public static IRemoteUBCService bRt() throws RemoteException {
+        if (icd == null) {
             synchronized (o.class) {
-                if (hUT == null) {
-                    IBinder m = IPCServiceManager.m("remote_ubc_service", true);
-                    if (m == null) {
+                if (icd == null) {
+                    IBinder n = IPCServiceManager.n("remote_ubc_service", true);
+                    if (n == null) {
                         throw new RemoteException("UBC get remote service empty !");
                     }
-                    if (m != null) {
-                        hUT = IRemoteUBCService.Stub.asInterface(m);
+                    if (n != null) {
+                        icd = IRemoteUBCService.Stub.asInterface(n);
                     }
                 }
             }
         }
-        return hUT;
+        return icd;
     }
 }

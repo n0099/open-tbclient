@@ -34,11 +34,11 @@ public class SmallTailInfo extends OrmObject implements Serializable {
     }
 
     public void updateShowInfo() {
-        yb();
-        yc();
+        zf();
+        zg();
     }
 
-    private void yb() {
+    private void zf() {
         if (this.content != null) {
             StringBuilder sb = new StringBuilder();
             for (SmallTailInfoContent smallTailInfoContent : this.content) {
@@ -47,25 +47,25 @@ public class SmallTailInfo extends OrmObject implements Serializable {
                         sb.append(smallTailInfoContent.text);
                     }
                 } else if (smallTailInfoContent.type == 2 && !StringUtils.isNull(smallTailInfoContent.text)) {
-                    String hn = TbFaceManager.Mp().hn(smallTailInfoContent.text);
-                    if (!StringUtils.isNull(hn)) {
-                        sb.append("#(" + hn + ")");
+                    String hF = TbFaceManager.Nt().hF(smallTailInfoContent.text);
+                    if (!StringUtils.isNull(hF)) {
+                        sb.append("#(" + hF + ")");
                     }
                 }
             }
-            this.tailSpannable = TbFaceManager.Mp().a(TbadkCoreApplication.getInst(), sb.toString(), null);
+            this.tailSpannable = TbFaceManager.Nt().a(TbadkCoreApplication.getInst(), sb.toString(), null);
         }
     }
 
-    private void yc() {
+    private void zg() {
         try {
-            this.showColorId = Color.parseColor(dQ(this.color));
+            this.showColorId = Color.parseColor(ei(this.color));
         } catch (Exception e) {
-            this.showColorId = Color.parseColor(dQ(TbadkCoreApplication.getInst().getString(e.j.tail_color_default)));
+            this.showColorId = Color.parseColor(ei(TbadkCoreApplication.getInst().getString(e.j.tail_color_default)));
         }
     }
 
-    private String dQ(String str) {
+    private String ei(String str) {
         if (str == null) {
             return null;
         }

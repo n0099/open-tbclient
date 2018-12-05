@@ -73,7 +73,7 @@ public final class WebSocketRequest {
         this(r0);
         String url = builder.getUrl();
         if (url == null) {
-            p.bZI();
+            p.cbO();
         }
         this.method = builder.getMethod();
         this.headers = builder.getHeaders();
@@ -122,7 +122,7 @@ public final class WebSocketRequest {
             if (jSONObject.has(WebSocketRequest.PARAM_KEY_PROTOCOLS)) {
                 Ref.ObjectRef objectRef = new Ref.ObjectRef();
                 objectRef.element = jSONObject.getJSONArray(WebSocketRequest.PARAM_KEY_PROTOCOLS);
-                builder.setProtocols(d.b(d.c(n.d(kotlin.b.d.cp(0, ((JSONArray) objectRef.element).length())), new WebSocketRequest$Companion$fromJSON$1$2(objectRef))));
+                builder.setProtocols(d.b(d.c(n.d(kotlin.b.d.cn(0, ((JSONArray) objectRef.element).length())), new WebSocketRequest$Companion$fromJSON$1$2(objectRef))));
             }
             return builder.build();
         }

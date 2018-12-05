@@ -41,12 +41,12 @@ public class CmdConfigHttp {
     public static final int CMD_CHECK_SHARE_SDK = 1003417;
     public static final int CMD_CHOSEN_PB_PRAISE = 1003007;
     public static final int CMD_CLIENT_CONFIG = 1003024;
+    public static final int CMD_COMPLETE_TASK = 1003423;
     public static final int CMD_CONCERN_CHECK_RED_NOTIFY = 1003344;
     public static final int CMD_CONCERN_PAGE = 1003343;
     public static final int CMD_CONCERN_UNREAD_TIP = 1003387;
     public static final int CMD_CUSTOM_ALS = 1003195;
     public static final int CMD_DAILY_PAGE = 1003413;
-    public static final int CMD_DECRYPT_AI_APP_CODE = 1003421;
     public static final int CMD_DEFAULT_GIFT_LIST = 1003045;
     public static final int CMD_DELETE_EMOTION_PACKAGE = 1003347;
     public static final int CMD_DELETE_HISTORY_FORUM = 1003395;
@@ -129,6 +129,7 @@ public class CmdConfigHttp {
     public static final int CMD_HOT_THREAD_UNLIKE = 1003017;
     public static final int CMD_HOT_TOPIC = 1003041;
     public static final int CMD_HOT_TOPIC_RANKLIST = 1003078;
+    public static final int CMD_HTTP_DECRYPT_CODE = 1003421;
     public static final int CMD_HTTP_FRS_TAB_AD = 1003411;
     public static final int CMD_HTTP_GET_BIG_TBEAN_URL = 1003410;
     public static final int CMD_HTTP_GET_HOTFORUM = 1001534;

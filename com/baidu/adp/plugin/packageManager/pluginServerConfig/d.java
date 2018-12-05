@@ -11,7 +11,7 @@ public class d {
     private PluginNetConfigInfos Lu = new PluginNetConfigInfos();
     private b Lv;
 
-    public static d nx() {
+    public static d nw() {
         if (Lt == null) {
             synchronized (d.class) {
                 if (Lt == null) {
@@ -54,7 +54,7 @@ public class d {
         return cVar;
     }
 
-    public PluginNetConfigInfos ny() {
+    public PluginNetConfigInfos nx() {
         return this.Lu;
     }
 

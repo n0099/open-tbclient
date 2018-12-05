@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 /* loaded from: classes.dex */
 public class ObservedChangeFrameLayout extends FrameLayout {
-    private d blM;
+    private d bpk;
 
     public ObservedChangeFrameLayout(Context context) {
         super(context);
@@ -20,18 +20,18 @@ public class ObservedChangeFrameLayout extends FrameLayout {
     }
 
     public void setOnSizeChangeListener(d dVar) {
-        this.blM = dVar;
+        this.bpk = dVar;
     }
 
     public d getOnSizeChangeListener() {
-        return this.blM;
+        return this.bpk;
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        if (this.blM != null) {
-            this.blM.a(this, i, i2, i3, i4);
+        if (this.bpk != null) {
+            this.bpk.a(this, i, i2, i3, i4);
         }
     }
 }

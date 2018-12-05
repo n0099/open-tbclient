@@ -1,11 +1,11 @@
 package com.baidu.tieba.j;
 /* loaded from: classes.dex */
 public interface f {
-    void cb(String str, String str2);
+    void cg(String str, String str2);
 
-    void cc(String str, String str2);
+    void ch(String str, String str2);
 
-    void dj(String str);
+    void ds(String str);
 
     void e(String str, int i, int i2, String str2);
 
@@ -17,11 +17,11 @@ public interface f {
 
     void k(String str, int i, String str2);
 
-    void ru(String str);
+    void rW(String str);
 
-    void rv(String str);
+    void rX(String str);
 
-    boolean rw(String str);
+    boolean rY(String str);
 
-    boolean rx(String str);
+    boolean rZ(String str);
 }

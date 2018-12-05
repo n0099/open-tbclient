@@ -8,31 +8,31 @@ import java.io.OutputStream;
 /* loaded from: classes3.dex */
 public class a {
     protected Bitmap Nu;
-    protected int ggW;
-    protected byte[] ggY;
-    protected byte[] ggZ;
-    protected int gha;
-    protected byte[] ghb;
+    protected int gnN;
+    protected byte[] gnP;
+    protected byte[] gnQ;
+    protected int gnR;
+    protected byte[] gnS;
     protected int height;
     protected OutputStream out;
     protected int width;
     protected int x = 0;
     protected int y = 0;
     protected int transparent = -1;
-    protected int ggX = -1;
+    protected int gnO = -1;
     protected int delay = 0;
     protected boolean started = false;
-    protected boolean[] ghc = new boolean[256];
-    protected int ghd = 7;
-    protected int ghe = -1;
-    protected boolean ghf = false;
-    protected boolean ghg = true;
-    protected boolean ghh = false;
-    protected int ghi = 10;
+    protected boolean[] gnT = new boolean[256];
+    protected int gnU = 7;
+    protected int gnV = -1;
+    protected boolean gnW = false;
+    protected boolean gnX = true;
+    protected boolean gnY = false;
+    protected int gnZ = 10;
 
-    public void sv(int i) {
+    public void sP(int i) {
         if (i >= 0) {
-            this.ggX = i;
+            this.gnO = i;
         }
     }
 
@@ -41,26 +41,26 @@ public class a {
             return false;
         }
         try {
-            if (!this.ghh) {
+            if (!this.gnY) {
                 setSize(bitmap.getWidth(), bitmap.getHeight());
             }
             this.Nu = bitmap;
-            blX();
-            blW();
-            if (this.ghg) {
-                bma();
-                bmc();
-                if (this.ggX >= 0) {
-                    bmb();
+            bnQ();
+            bnP();
+            if (this.gnX) {
+                bnT();
+                bnV();
+                if (this.gnO >= 0) {
+                    bnU();
                 }
             }
-            blY();
-            blZ();
-            if (!this.ghg) {
-                bmc();
+            bnR();
+            bnS();
+            if (!this.gnX) {
+                bnV();
             }
-            bmd();
-            this.ghg = false;
+            bnW();
+            this.gnX = false;
             return true;
         } catch (IOException e) {
             return false;
@@ -74,21 +74,21 @@ public class a {
             try {
                 this.out.write(59);
                 this.out.flush();
-                if (this.ghf) {
+                if (this.gnW) {
                     this.out.close();
                 }
                 z = true;
             } catch (IOException e) {
                 z = false;
             }
-            this.ggW = 0;
+            this.gnN = 0;
             this.out = null;
             this.Nu = null;
-            this.ggY = null;
-            this.ggZ = null;
-            this.ghb = null;
-            this.ghf = false;
-            this.ghg = true;
+            this.gnP = null;
+            this.gnQ = null;
+            this.gnS = null;
+            this.gnW = false;
+            this.gnX = true;
             return z;
         }
         return false;
@@ -103,7 +103,7 @@ public class a {
         if (this.height < 1) {
             this.height = 240;
         }
-        this.ghh = true;
+        this.gnY = true;
     }
 
     public boolean e(OutputStream outputStream) {
@@ -111,7 +111,7 @@ public class a {
             return false;
         }
         boolean z = true;
-        this.ghf = false;
+        this.gnW = false;
         this.out = outputStream;
         try {
             writeString("GIF89a");
@@ -122,56 +122,56 @@ public class a {
         return z;
     }
 
-    protected void blW() {
-        int length = this.ggY.length;
+    protected void bnP() {
+        int length = this.gnP.length;
         int i = length / 3;
-        this.ggZ = new byte[i];
-        c cVar = new c(this.ggY, length, this.ghi);
-        this.ghb = cVar.bmj();
-        for (int i2 = 0; i2 < this.ghb.length; i2 += 3) {
-            byte b = this.ghb[i2];
-            this.ghb[i2] = this.ghb[i2 + 2];
-            this.ghb[i2 + 2] = b;
-            this.ghc[i2 / 3] = false;
+        this.gnQ = new byte[i];
+        c cVar = new c(this.gnP, length, this.gnZ);
+        this.gnS = cVar.boc();
+        for (int i2 = 0; i2 < this.gnS.length; i2 += 3) {
+            byte b = this.gnS[i2];
+            this.gnS[i2] = this.gnS[i2 + 2];
+            this.gnS[i2 + 2] = b;
+            this.gnT[i2 / 3] = false;
         }
         int i3 = 0;
         for (int i4 = 0; i4 < i; i4++) {
             int i5 = i3 + 1;
             int i6 = i5 + 1;
             i3 = i6 + 1;
-            int U = cVar.U(this.ggY[i3] & 255, this.ggY[i5] & 255, this.ggY[i6] & 255);
-            this.ghc[U] = true;
-            this.ggZ[i4] = (byte) U;
+            int U = cVar.U(this.gnP[i3] & 255, this.gnP[i5] & 255, this.gnP[i6] & 255);
+            this.gnT[U] = true;
+            this.gnQ[i4] = (byte) U;
         }
-        this.ggY = null;
-        this.gha = 8;
-        this.ghd = 7;
+        this.gnP = null;
+        this.gnR = 8;
+        this.gnU = 7;
         if (this.transparent != -1) {
-            this.ggW = sw(this.transparent);
+            this.gnN = sQ(this.transparent);
         }
     }
 
-    protected int sw(int i) {
+    protected int sQ(int i) {
         int i2;
         int i3 = 0;
-        if (this.ghb == null) {
+        if (this.gnS == null) {
             return -1;
         }
         int i4 = (i >> 16) & 255;
         int i5 = (i >> 8) & 255;
         int i6 = (i >> 0) & 255;
         int i7 = 16777216;
-        int length = this.ghb.length;
+        int length = this.gnS.length;
         int i8 = 0;
         while (i3 < length) {
             int i9 = i3 + 1;
-            int i10 = i4 - (this.ghb[i3] & 255);
+            int i10 = i4 - (this.gnS[i3] & 255);
             int i11 = i9 + 1;
-            int i12 = i5 - (this.ghb[i9] & 255);
-            int i13 = i6 - (this.ghb[i11] & 255);
+            int i12 = i5 - (this.gnS[i9] & 255);
+            int i13 = i6 - (this.gnS[i11] & 255);
             int i14 = (i10 * i10) + (i12 * i12) + (i13 * i13);
             int i15 = i11 / 3;
-            if (!this.ghc[i15] || i14 >= i7) {
+            if (!this.gnT[i15] || i14 >= i7) {
                 i14 = i7;
                 i2 = i8;
             } else {
@@ -184,7 +184,7 @@ public class a {
         return i8;
     }
 
-    protected void blX() {
+    protected void bnQ() {
         int width = this.Nu.getWidth();
         int height = this.Nu.getHeight();
         if (width != this.width || height != this.height) {
@@ -193,14 +193,14 @@ public class a {
             this.Nu = createBitmap;
         }
         int[] u = u(this.Nu);
-        this.ggY = new byte[u.length * 3];
+        this.gnP = new byte[u.length * 3];
         for (int i = 0; i < u.length; i++) {
             int i2 = u[i];
             int i3 = i * 3;
             int i4 = i3 + 1;
-            this.ggY[i3] = (byte) ((i2 >> 0) & 255);
-            this.ggY[i4] = (byte) ((i2 >> 8) & 255);
-            this.ggY[i4 + 1] = (byte) ((i2 >> 16) & 255);
+            this.gnP[i3] = (byte) ((i2 >> 0) & 255);
+            this.gnP[i4] = (byte) ((i2 >> 8) & 255);
+            this.gnP[i4 + 1] = (byte) ((i2 >> 16) & 255);
         }
     }
 
@@ -212,7 +212,7 @@ public class a {
         return iArr;
     }
 
-    protected void blY() throws IOException {
+    protected void bnR() throws IOException {
         int i;
         int i2;
         this.out.write(33);
@@ -225,57 +225,57 @@ public class a {
             i = 1;
             i2 = 2;
         }
-        if (this.ghe >= 0) {
-            i2 = this.ghe & 7;
+        if (this.gnV >= 0) {
+            i2 = this.gnV & 7;
         }
         this.out.write((i2 << 2) | 0 | 0 | i);
         writeShort(this.delay);
-        this.out.write(this.ggW);
+        this.out.write(this.gnN);
         this.out.write(0);
     }
 
-    protected void blZ() throws IOException {
+    protected void bnS() throws IOException {
         this.out.write(44);
         writeShort(this.x);
         writeShort(this.y);
         writeShort(this.width);
         writeShort(this.height);
-        if (this.ghg) {
+        if (this.gnX) {
             this.out.write(0);
         } else {
-            this.out.write(this.ghd | 128);
+            this.out.write(this.gnU | 128);
         }
     }
 
-    protected void bma() throws IOException {
+    protected void bnT() throws IOException {
         writeShort(this.width);
         writeShort(this.height);
-        this.out.write(this.ghd | 240);
+        this.out.write(this.gnU | 240);
         this.out.write(0);
         this.out.write(0);
     }
 
-    protected void bmb() throws IOException {
+    protected void bnU() throws IOException {
         this.out.write(33);
         this.out.write(255);
         this.out.write(11);
         writeString("NETSCAPE2.0");
         this.out.write(3);
         this.out.write(1);
-        writeShort(this.ggX);
+        writeShort(this.gnO);
         this.out.write(0);
     }
 
-    protected void bmc() throws IOException {
-        this.out.write(this.ghb, 0, this.ghb.length);
-        int length = 768 - this.ghb.length;
+    protected void bnV() throws IOException {
+        this.out.write(this.gnS, 0, this.gnS.length);
+        int length = 768 - this.gnS.length;
         for (int i = 0; i < length; i++) {
             this.out.write(0);
         }
     }
 
-    protected void bmd() throws IOException {
-        new b(this.width, this.height, this.ggZ, this.gha).encode(this.out);
+    protected void bnW() throws IOException {
+        new b(this.width, this.height, this.gnQ, this.gnR).encode(this.out);
     }
 
     protected void writeShort(int i) throws IOException {

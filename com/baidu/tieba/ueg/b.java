@@ -13,28 +13,28 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.ueg.UEGCancelModel;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean hrO = false;
-    private UEGCancelModel.a hrM;
-    public int hrN = as.a.azr;
-    private UEGCancelModel hrL = new UEGCancelModel();
+    public static boolean hza = false;
+    private UEGCancelModel.a hyY;
+    public int hyZ = as.a.aCR;
+    private UEGCancelModel hyX = new UEGCancelModel();
 
     public b() {
-        if (this.hrM == null) {
-            this.hrM = new UEGCancelModel.a() { // from class: com.baidu.tieba.ueg.b.1
+        if (this.hyY == null) {
+            this.hyY = new UEGCancelModel.a() { // from class: com.baidu.tieba.ueg.b.1
                 @Override // com.baidu.tieba.ueg.UEGCancelModel.a
                 public void d(BlockPopInfoData blockPopInfoData) {
-                    if (blockPopInfoData != null && !b.hrO) {
+                    if (blockPopInfoData != null && !b.hza) {
                         b.this.a(blockPopInfoData);
                     }
                 }
             };
         }
-        this.hrL.a(this.hrM);
+        this.hyX.a(this.hyY);
     }
 
-    public void vK(int i) {
-        this.hrN = i;
-        this.hrL.cancelRequest();
+    public void wh(int i) {
+        this.hyZ = i;
+        this.hyX.cancelRequest();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -56,7 +56,7 @@ public class b {
                 if (!z2 && z) {
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean(str + i + currentAccount, true);
                     b(blockPopInfoData);
-                    TiebaStatic.log(new am("c12534").x("obj_locate", this.hrN).x("obj_type", i));
+                    TiebaStatic.log(new am("c12534").x("obj_locate", this.hyZ).x("obj_type", i));
                 }
             }
         }
@@ -66,41 +66,41 @@ public class b {
         Activity fX;
         if (blockPopInfoData != null && (fX = com.baidu.adp.base.a.fW().fX()) != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(fX);
-            aVar.ej(blockPopInfoData.block_info);
+            aVar.eB(blockPopInfoData.block_info);
             aVar.b(blockPopInfoData.ok_info, new a.b() { // from class: com.baidu.tieba.ueg.b.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
-                    TiebaStatic.log(new am("c12535").x("obj_locate", b.this.hrN).x("obj_type", blockPopInfoData.win_type));
+                    TiebaStatic.log(new am("c12535").x("obj_locate", b.this.hyZ).x("obj_type", blockPopInfoData.win_type));
                 }
             });
             aVar.a(blockPopInfoData.ahead_info, new a.b() { // from class: com.baidu.tieba.ueg.b.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     b.this.c(blockPopInfoData);
-                    TiebaStatic.log(new am("c12536").x("obj_locate", b.this.hrN).x("obj_type", blockPopInfoData.win_type));
+                    TiebaStatic.log(new am("c12536").x("obj_locate", b.this.hyZ).x("obj_type", blockPopInfoData.win_type));
                 }
             });
             aVar.b(((f) fX).getPageContext());
-            aVar.AB();
+            aVar.BF();
         }
     }
 
-    public void nR(boolean z) {
-        hrO = z;
+    public void nT(boolean z) {
+        hza = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(BlockPopInfoData blockPopInfoData) {
         Activity fX;
         if (blockPopInfoData != null && (fX = com.baidu.adp.base.a.fW().fX()) != null) {
-            AntiHelper.aH(fX, blockPopInfoData.ahead_url);
+            AntiHelper.aK(fX, blockPopInfoData.ahead_url);
         }
     }
 
     public void onDestroy() {
-        if (this.hrL != null) {
-            this.hrL.onDestroy();
+        if (this.hyX != null) {
+            this.hyX.onDestroy();
         }
     }
 }

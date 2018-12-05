@@ -26,34 +26,34 @@ public class c {
         return "https://mbd.baidu.com";
     }
 
-    public static String f(String str, Map<String, String> map) {
-        String ke = ke(str);
+    public static String g(String str, Map<String, String> map) {
+        String kw = kw(str);
         if (map == null) {
-            return ke;
+            return kw;
         }
         Iterator<String> it = map.keySet().iterator();
         while (true) {
-            String str2 = ke;
+            String str2 = kw;
             if (it.hasNext()) {
                 String next = it.next();
-                ke = !TextUtils.isEmpty(map.get(next)) ? addParam(str2, next, map.get(next)) : str2;
+                kw = !TextUtils.isEmpty(map.get(next)) ? addParam(str2, next, map.get(next)) : str2;
             } else {
                 return str2;
             }
         }
     }
 
-    public static String ke(String str) {
+    public static String kw(String str) {
         String encodeValue = getEncodeValue(getDeviceInfo());
         String encodeValue2 = getEncodeValue(getUid());
-        return addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "uid", encodeValue2), j.c, getEncodeValue(Xd())), "ut", encodeValue), "osbranch", Xc()), "pkgname", nI()), "network", Xb()), "appname", getAppName());
+        return addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "uid", encodeValue2), j.c, getEncodeValue(Yg())), "ut", encodeValue), "osbranch", Yf()), "pkgname", nH()), "network", Ye()), "appname", getAppName());
     }
 
-    public static String Xb() {
-        return Xq() + BaseRequestAction.SPLITE + Xp();
+    public static String Ye() {
+        return Yt() + BaseRequestAction.SPLITE + Ys();
     }
 
-    public static String Xc() {
+    public static String Yf() {
         return "a0";
     }
 
@@ -61,18 +61,18 @@ public class c {
         return CommonParam.getCUID(TbadkCoreApplication.getInst());
     }
 
-    public static String Xd() {
+    public static String Yg() {
         Context appContext = AppRuntime.getAppContext();
         int displayWidth = AiAppsUIUtils.getDisplayWidth(appContext);
         int displayHeight = AiAppsUIUtils.getDisplayHeight(appContext);
         int densityDpi = AiAppsUIUtils.getDensityDpi(appContext);
-        String Xe = Xe();
+        String Yh = Yh();
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(displayWidth);
         stringBuffer.append(BaseRequestAction.SPLITE);
         stringBuffer.append(displayHeight);
         stringBuffer.append(BaseRequestAction.SPLITE);
-        stringBuffer.append(Xe);
+        stringBuffer.append(Yh);
         stringBuffer.append(BaseRequestAction.SPLITE);
         stringBuffer.append(TbadkCoreApplication.getInst().getVersionName());
         stringBuffer.append(BaseRequestAction.SPLITE);
@@ -80,22 +80,22 @@ public class c {
         return stringBuffer.toString();
     }
 
-    public static String Xe() {
+    public static String Yh() {
         return HttpConstants.OS_TYPE_VALUE;
     }
 
-    public static String nI() {
+    public static String nH() {
         return AppRuntime.getApplication().getPackageName();
     }
 
     public static String getDeviceInfo() {
-        String Xh = Xh();
-        String Xg = Xg();
+        String Yk = Yk();
+        String Yj = Yj();
         int i = Build.VERSION.SDK_INT;
-        return Xh + BaseRequestAction.SPLITE + Xg + BaseRequestAction.SPLITE + i + BaseRequestAction.SPLITE + Xf();
+        return Yk + BaseRequestAction.SPLITE + Yj + BaseRequestAction.SPLITE + i + BaseRequestAction.SPLITE + Yi();
     }
 
-    public static String Xf() {
+    public static String Yi() {
         String str = Build.MANUFACTURER;
         if (TextUtils.isEmpty(str)) {
             return "NUL";
@@ -103,7 +103,7 @@ public class c {
         return str.replace(BaseRequestAction.SPLITE, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
-    public static String Xg() {
+    public static String Yj() {
         String str = Build.VERSION.RELEASE;
         if (TextUtils.isEmpty(str)) {
             return "0.0";
@@ -111,7 +111,7 @@ public class c {
         return str.replace(BaseRequestAction.SPLITE, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
-    public static String Xh() {
+    public static String Yk() {
         String str = Build.MODEL;
         if (TextUtils.isEmpty(str)) {
             return "NUL";
@@ -172,31 +172,31 @@ public class c {
         }
     }
 
-    public static String Xi() {
+    public static String Yl() {
         return String.format("%s/ma/address", getHost());
     }
 
-    public static String Xj() {
+    public static String Ym() {
         return String.format("%s/ma/invoice/modify", getHost());
     }
 
-    public static String Xk() {
+    public static String Yn() {
         return String.format("%s/ma/invoice/modify_default", getHost());
     }
 
-    public static String Xl() {
+    public static String Yo() {
         return String.format("%s/ma/invoice/del", getHost());
     }
 
-    public static String Xm() {
+    public static String Yp() {
         return String.format("%s/ma/invoice/list", getHost());
     }
 
-    public static String Xn() {
+    public static String Yq() {
         return String.format("%s/ma/invoice/oa_list", getHost());
     }
 
-    public static String Xo() {
+    public static String Yr() {
         return String.format("%s/ma/invoice/create", getHost());
     }
 
@@ -204,11 +204,11 @@ public class c {
         return NgWebViewInitHelper.INIT_BWEBKIT_APPID;
     }
 
-    private static int Xp() {
+    private static int Ys() {
         return com.baidu.adp.lib.util.j.kP();
     }
 
-    private static int Xq() {
+    private static int Yt() {
         NetworkInfo networkInfo;
         String str = null;
         try {

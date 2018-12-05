@@ -43,17 +43,17 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class NewWriteModel extends BdBaseModel {
     public static int MAX_IMG_NUM = 10;
-    private String cHi;
-    private e hhN;
-    private a hhO;
-    private String hhP;
-    private byte[] hhQ;
-    private b hhR;
-    private c hhS;
-    private d hhT;
-    private boolean hhU;
-    private a.InterfaceC0304a hhV;
-    private f.a hhW;
+    private String cNQ;
+    private e hoH;
+    private a hoI;
+    private String hoJ;
+    private byte[] hoK;
+    private b hoL;
+    private c hoM;
+    private d hoN;
+    private boolean hoO;
+    private a.InterfaceC0315a hoP;
+    private f.a hoQ;
     private WriteData mData;
     private final com.baidu.adp.base.e<?> mPageContext;
 
@@ -74,51 +74,51 @@ public class NewWriteModel extends BdBaseModel {
 
     public NewWriteModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.hhN = null;
-        this.hhO = null;
+        this.hoH = null;
+        this.hoI = null;
         this.mData = null;
-        this.hhP = null;
-        this.cHi = null;
-        this.hhQ = null;
-        this.hhS = null;
-        this.hhT = null;
-        this.hhU = false;
-        this.hhW = new f.a() { // from class: com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.3
+        this.hoJ = null;
+        this.cNQ = null;
+        this.hoK = null;
+        this.hoM = null;
+        this.hoN = null;
+        this.hoO = false;
+        this.hoQ = new f.a() { // from class: com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.3
             @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void vs(String str) {
+            public void vT(String str) {
                 if (NewWriteModel.this.mData == null || TextUtils.isEmpty(str)) {
-                    if (NewWriteModel.this.hhT != null) {
-                        NewWriteModel.this.hhT.callback(false, null, null, null, null);
+                    if (NewWriteModel.this.hoN != null) {
+                        NewWriteModel.this.hoN.callback(false, null, null, null, null);
                         return;
                     }
                     return;
                 }
-                NewWriteModel.this.hhN = null;
+                NewWriteModel.this.hoH = null;
                 NewWriteModel.this.mData.setAuthSid(str);
                 NewWriteModel.this.startPostWrite();
             }
 
             @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void bCA() {
+            public void bEv() {
                 if (NewWriteModel.this.mData != null) {
-                    NewWriteModel.this.hhN = null;
+                    NewWriteModel.this.hoH = null;
                     NewWriteModel.this.mData.setAuthSid(null);
                     NewWriteModel.this.startPostWrite();
-                } else if (NewWriteModel.this.hhT != null) {
-                    NewWriteModel.this.hhT.callback(false, null, null, null, null);
+                } else if (NewWriteModel.this.hoN != null) {
+                    NewWriteModel.this.hoN.callback(false, null, null, null, null);
                 }
             }
 
             @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void vt(String str) {
+            public void vU(String str) {
                 if (NewWriteModel.this.mData == null || TextUtils.isEmpty(str)) {
-                    if (NewWriteModel.this.hhT != null) {
-                        NewWriteModel.this.hhT.callback(false, null, null, null, null);
+                    if (NewWriteModel.this.hoN != null) {
+                        NewWriteModel.this.hoN.callback(false, null, null, null, null);
                         return;
                     }
                     return;
                 }
-                NewWriteModel.this.hhN = null;
+                NewWriteModel.this.hoH = null;
                 NewWriteModel.this.mData.setAuthSid(str);
                 NewWriteModel.this.startPostWrite();
             }
@@ -128,8 +128,8 @@ public class NewWriteModel extends BdBaseModel {
                 if (NewWriteModel.this.mData != null) {
                     NewWriteModel.this.mData.setAuthSid(null);
                 }
-                if (NewWriteModel.this.hhT != null) {
-                    NewWriteModel.this.hhT.callback(false, null, null, null, null);
+                if (NewWriteModel.this.hoN != null) {
+                    NewWriteModel.this.hoN.callback(false, null, null, null, null);
                 }
             }
         };
@@ -138,51 +138,51 @@ public class NewWriteModel extends BdBaseModel {
 
     public NewWriteModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.hhN = null;
-        this.hhO = null;
+        this.hoH = null;
+        this.hoI = null;
         this.mData = null;
-        this.hhP = null;
-        this.cHi = null;
-        this.hhQ = null;
-        this.hhS = null;
-        this.hhT = null;
-        this.hhU = false;
-        this.hhW = new f.a() { // from class: com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.3
+        this.hoJ = null;
+        this.cNQ = null;
+        this.hoK = null;
+        this.hoM = null;
+        this.hoN = null;
+        this.hoO = false;
+        this.hoQ = new f.a() { // from class: com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.3
             @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void vs(String str) {
+            public void vT(String str) {
                 if (NewWriteModel.this.mData == null || TextUtils.isEmpty(str)) {
-                    if (NewWriteModel.this.hhT != null) {
-                        NewWriteModel.this.hhT.callback(false, null, null, null, null);
+                    if (NewWriteModel.this.hoN != null) {
+                        NewWriteModel.this.hoN.callback(false, null, null, null, null);
                         return;
                     }
                     return;
                 }
-                NewWriteModel.this.hhN = null;
+                NewWriteModel.this.hoH = null;
                 NewWriteModel.this.mData.setAuthSid(str);
                 NewWriteModel.this.startPostWrite();
             }
 
             @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void bCA() {
+            public void bEv() {
                 if (NewWriteModel.this.mData != null) {
-                    NewWriteModel.this.hhN = null;
+                    NewWriteModel.this.hoH = null;
                     NewWriteModel.this.mData.setAuthSid(null);
                     NewWriteModel.this.startPostWrite();
-                } else if (NewWriteModel.this.hhT != null) {
-                    NewWriteModel.this.hhT.callback(false, null, null, null, null);
+                } else if (NewWriteModel.this.hoN != null) {
+                    NewWriteModel.this.hoN.callback(false, null, null, null, null);
                 }
             }
 
             @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void vt(String str) {
+            public void vU(String str) {
                 if (NewWriteModel.this.mData == null || TextUtils.isEmpty(str)) {
-                    if (NewWriteModel.this.hhT != null) {
-                        NewWriteModel.this.hhT.callback(false, null, null, null, null);
+                    if (NewWriteModel.this.hoN != null) {
+                        NewWriteModel.this.hoN.callback(false, null, null, null, null);
                         return;
                     }
                     return;
                 }
-                NewWriteModel.this.hhN = null;
+                NewWriteModel.this.hoH = null;
                 NewWriteModel.this.mData.setAuthSid(str);
                 NewWriteModel.this.startPostWrite();
             }
@@ -192,8 +192,8 @@ public class NewWriteModel extends BdBaseModel {
                 if (NewWriteModel.this.mData != null) {
                     NewWriteModel.this.mData.setAuthSid(null);
                 }
-                if (NewWriteModel.this.hhT != null) {
-                    NewWriteModel.this.hhT.callback(false, null, null, null, null);
+                if (NewWriteModel.this.hoN != null) {
+                    NewWriteModel.this.hoN.callback(false, null, null, null, null);
                 }
             }
         };
@@ -201,51 +201,51 @@ public class NewWriteModel extends BdBaseModel {
     }
 
     public NewWriteModel() {
-        this.hhN = null;
-        this.hhO = null;
+        this.hoH = null;
+        this.hoI = null;
         this.mData = null;
-        this.hhP = null;
-        this.cHi = null;
-        this.hhQ = null;
-        this.hhS = null;
-        this.hhT = null;
-        this.hhU = false;
-        this.hhW = new f.a() { // from class: com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.3
+        this.hoJ = null;
+        this.cNQ = null;
+        this.hoK = null;
+        this.hoM = null;
+        this.hoN = null;
+        this.hoO = false;
+        this.hoQ = new f.a() { // from class: com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.3
             @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void vs(String str) {
+            public void vT(String str) {
                 if (NewWriteModel.this.mData == null || TextUtils.isEmpty(str)) {
-                    if (NewWriteModel.this.hhT != null) {
-                        NewWriteModel.this.hhT.callback(false, null, null, null, null);
+                    if (NewWriteModel.this.hoN != null) {
+                        NewWriteModel.this.hoN.callback(false, null, null, null, null);
                         return;
                     }
                     return;
                 }
-                NewWriteModel.this.hhN = null;
+                NewWriteModel.this.hoH = null;
                 NewWriteModel.this.mData.setAuthSid(str);
                 NewWriteModel.this.startPostWrite();
             }
 
             @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void bCA() {
+            public void bEv() {
                 if (NewWriteModel.this.mData != null) {
-                    NewWriteModel.this.hhN = null;
+                    NewWriteModel.this.hoH = null;
                     NewWriteModel.this.mData.setAuthSid(null);
                     NewWriteModel.this.startPostWrite();
-                } else if (NewWriteModel.this.hhT != null) {
-                    NewWriteModel.this.hhT.callback(false, null, null, null, null);
+                } else if (NewWriteModel.this.hoN != null) {
+                    NewWriteModel.this.hoN.callback(false, null, null, null, null);
                 }
             }
 
             @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void vt(String str) {
+            public void vU(String str) {
                 if (NewWriteModel.this.mData == null || TextUtils.isEmpty(str)) {
-                    if (NewWriteModel.this.hhT != null) {
-                        NewWriteModel.this.hhT.callback(false, null, null, null, null);
+                    if (NewWriteModel.this.hoN != null) {
+                        NewWriteModel.this.hoN.callback(false, null, null, null, null);
                         return;
                     }
                     return;
                 }
-                NewWriteModel.this.hhN = null;
+                NewWriteModel.this.hoH = null;
                 NewWriteModel.this.mData.setAuthSid(str);
                 NewWriteModel.this.startPostWrite();
             }
@@ -255,28 +255,28 @@ public class NewWriteModel extends BdBaseModel {
                 if (NewWriteModel.this.mData != null) {
                     NewWriteModel.this.mData.setAuthSid(null);
                 }
-                if (NewWriteModel.this.hhT != null) {
-                    NewWriteModel.this.hhT.callback(false, null, null, null, null);
+                if (NewWriteModel.this.hoN != null) {
+                    NewWriteModel.this.hoN.callback(false, null, null, null, null);
                 }
             }
         };
         this.mPageContext = null;
     }
 
-    public void nx(boolean z) {
-        this.hhU = z;
+    public void nz(boolean z) {
+        this.hoO = z;
     }
 
     public void b(d dVar) {
-        this.hhT = dVar;
+        this.hoN = dVar;
     }
 
     public void a(c cVar) {
-        this.hhS = cVar;
+        this.hoM = cVar;
     }
 
-    public void a(a.InterfaceC0304a interfaceC0304a) {
-        this.hhV = interfaceC0304a;
+    public void a(a.InterfaceC0315a interfaceC0315a) {
+        this.hoP = interfaceC0315a;
     }
 
     public void setWriteData(WriteData writeData) {
@@ -300,7 +300,7 @@ public class NewWriteModel extends BdBaseModel {
                 return true;
             }
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-            aVar.cN(e.j.original_img_up_no_wifi_tip);
+            aVar.db(e.j.original_img_up_no_wifi_tip);
             aVar.a(e.j.alert_yes_button, new a.b() { // from class: com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -316,27 +316,27 @@ public class NewWriteModel extends BdBaseModel {
                 }
             });
             aVar.b(this.mPageContext);
-            aVar.AB();
+            aVar.BF();
         }
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dealPost() {
-        if (this.hhN == null) {
-            this.hhN = new e();
-            this.hhN.execute(new Integer[0]);
+        if (this.hoH == null) {
+            this.hoH = new e();
+            this.hoH.execute(new Integer[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cancel() {
-        if (this.hhN != null && !this.hhN.isCancelled()) {
-            this.hhN.cancel();
-        } else if (this.hhT != null) {
-            this.hhT.callback(false, null, null, null, null);
-        } else if (this.hhS != null) {
-            this.hhS.a(false, null, null, null, null);
+        if (this.hoH != null && !this.hoH.isCancelled()) {
+            this.hoH.cancel();
+        } else if (this.hoN != null) {
+            this.hoN.callback(false, null, null, null, null);
+        } else if (this.hoM != null) {
+            this.hoM.a(false, null, null, null, null);
         }
     }
 
@@ -347,20 +347,20 @@ public class NewWriteModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.hhN != null && !this.hhN.isCancelled()) {
-            this.hhN.cancel();
+        if (this.hoH != null && !this.hoH.isCancelled()) {
+            this.hoH.cancel();
             return false;
         }
         return false;
     }
 
-    public void amw() {
-        if (this.hhO != null && !this.hhO.isCancelled()) {
-            this.hhO.cancel();
+    public void aoi() {
+        if (this.hoI != null && !this.hoI.isCancelled()) {
+            this.hoI.cancel();
         }
     }
 
-    public boolean bCJ() {
+    public boolean bEE() {
         if (this.mData == null) {
             return true;
         }
@@ -370,19 +370,19 @@ public class NewWriteModel extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class e extends BdAsyncTask<Integer, Integer, com.baidu.tieba.tbadkCore.writeModel.b> {
-        private h hfy;
-        private l hhY;
-        private com.baidu.tieba.tbadkCore.c.a cHj = null;
+        private h hms;
+        private l hoS;
+        private com.baidu.tieba.tbadkCore.c.a cNR = null;
         private String mRetData = null;
         private boolean isCanceled = false;
 
         public e() {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, l.class);
             if (runTask != null) {
-                this.hhY = (l) runTask.getData();
+                this.hoS = (l) runTask.getData();
             }
-            if (this.hhY != null) {
-                this.hfy = this.hhY.baV();
+            if (this.hoS != null) {
+                this.hms = this.hoS.bcM();
             }
             setPriority(3);
         }
@@ -403,19 +403,19 @@ public class NewWriteModel extends BdBaseModel {
             String str2;
             String str3;
             if (!this.isCanceled) {
-                com.baidu.tbadk.imageManager.d.hQ(NewWriteModel.this.mData.getContent());
-                this.cHj = new com.baidu.tieba.tbadkCore.c.a();
-                this.cHj.a(this.hfy);
-                this.cHj.a(NewWriteModel.this.hhV);
-                this.mRetData = this.cHj.a(NewWriteModel.this.mData, NewWriteModel.this.hhU);
-                ErrorData errorData = this.cHj.getErrorData();
-                if (this.cHj.isRequestSuccess() && this.mRetData != null) {
-                    AntiData bBN = this.cHj.bBN();
+                com.baidu.tbadk.imageManager.d.ii(NewWriteModel.this.mData.getContent());
+                this.cNR = new com.baidu.tieba.tbadkCore.c.a();
+                this.cNR.a(this.hms);
+                this.cNR.a(NewWriteModel.this.hoP);
+                this.mRetData = this.cNR.a(NewWriteModel.this.mData, NewWriteModel.this.hoO);
+                ErrorData errorData = this.cNR.getErrorData();
+                if (this.cNR.isRequestSuccess() && this.mRetData != null) {
+                    AntiData bDI = this.cNR.bDI();
                     String error_msg = errorData.getError_msg();
                     if (k.isEmpty(error_msg)) {
                         error_msg = TbadkCoreApplication.getInst().getApp().getString(e.j.send_success);
                     }
-                    com.baidu.tieba.tbadkCore.writeModel.b bVar2 = new com.baidu.tieba.tbadkCore.writeModel.b(errorData.getError_code(), error_msg, bBN);
+                    com.baidu.tieba.tbadkCore.writeModel.b bVar2 = new com.baidu.tieba.tbadkCore.writeModel.b(errorData.getError_code(), error_msg, bDI);
                     if (NewWriteModel.this.mData != null && NewWriteModel.this.mData.isHasImages() && !bVar2.hasError()) {
                         NewWriteModel.this.mData.deleteUploadedTempImages();
                     }
@@ -445,8 +445,8 @@ public class NewWriteModel extends BdBaseModel {
                             if (optJSONObject2 != null) {
                                 aw awVar = new aw();
                                 awVar.title = optJSONObject2.optString("block_content");
-                                awVar.apq = optJSONObject2.optString("block_cancel");
-                                awVar.apr = optJSONObject2.optString("block_confirm");
+                                awVar.asQ = optJSONObject2.optString("block_cancel");
+                                awVar.asR = optJSONObject2.optString("block_confirm");
                                 bVar.setReplyPrivacyTip(awVar);
                             }
                         } catch (JSONException e2) {
@@ -462,7 +462,7 @@ public class NewWriteModel extends BdBaseModel {
                             error_msg2 = TbadkCoreApplication.getInst().getApp().getString(e.j.send_error);
                         }
                     }
-                    bVar = new com.baidu.tieba.tbadkCore.writeModel.b(errorData.getError_code(), error_msg2, this.cHj.bBN());
+                    bVar = new com.baidu.tieba.tbadkCore.writeModel.b(errorData.getError_code(), error_msg2, this.cNR.bDI());
                 } else {
                     bVar = new com.baidu.tieba.tbadkCore.writeModel.b(-17, TbadkCoreApplication.getInst().getApp().getString(e.j.neterror), null);
                 }
@@ -497,7 +497,7 @@ public class NewWriteModel extends BdBaseModel {
                                             try {
                                                 String optString6 = jSONObject.optString("video_id");
                                                 try {
-                                                    CustomDialogData aq = com.baidu.tieba.pb.b.aq(jSONObject);
+                                                    CustomDialogData as = com.baidu.tieba.pb.b.as(jSONObject);
                                                     try {
                                                         JSONObject optJSONObject3 = jSONObject.optJSONObject("twzhibo_info");
                                                         if (optJSONObject3 != null) {
@@ -510,7 +510,7 @@ public class NewWriteModel extends BdBaseModel {
                                                                 str9 = optJSONObject4.optString("color_msg");
                                                             } catch (JSONException e3) {
                                                                 videoEasterEggData = null;
-                                                                customDialogData = aq;
+                                                                customDialogData = as;
                                                                 str10 = optString6;
                                                                 str3 = null;
                                                                 str = str8;
@@ -529,8 +529,8 @@ public class NewWriteModel extends BdBaseModel {
                                                                 bVar.setThreadId(str7);
                                                                 bVar.setPostId(str2);
                                                                 bVar.setIsCopyTWZhibo(i2);
-                                                                bVar.vx(str);
-                                                                bVar.vy(str3);
+                                                                bVar.vY(str);
+                                                                bVar.vZ(str3);
                                                                 bVar.setActivityDialog(customDialogData);
                                                                 bVar.setVideoId(str10);
                                                                 bVar.setContriInfo(contriInfo);
@@ -543,7 +543,7 @@ public class NewWriteModel extends BdBaseModel {
                                                             JSONObject optJSONObject5 = jSONObject.optJSONObject("star_info");
                                                             if (optJSONObject5 == null) {
                                                                 videoEasterEggData = null;
-                                                                customDialogData = aq;
+                                                                customDialogData = as;
                                                                 str10 = optString6;
                                                                 str3 = str9;
                                                                 str = str8;
@@ -556,7 +556,7 @@ public class NewWriteModel extends BdBaseModel {
                                                                 videoEasterEggData = new VideoEasterEggData();
                                                                 try {
                                                                     videoEasterEggData.parseJson(optJSONObject5);
-                                                                    customDialogData = aq;
+                                                                    customDialogData = as;
                                                                     str10 = optString6;
                                                                     str3 = str9;
                                                                     str = str8;
@@ -566,7 +566,7 @@ public class NewWriteModel extends BdBaseModel {
                                                                     str5 = optString2;
                                                                     str4 = optString;
                                                                 } catch (JSONException e4) {
-                                                                    customDialogData = aq;
+                                                                    customDialogData = as;
                                                                     str10 = optString6;
                                                                     str3 = str9;
                                                                     str = str8;
@@ -585,8 +585,8 @@ public class NewWriteModel extends BdBaseModel {
                                                                     bVar.setThreadId(str7);
                                                                     bVar.setPostId(str2);
                                                                     bVar.setIsCopyTWZhibo(i2);
-                                                                    bVar.vx(str);
-                                                                    bVar.vy(str3);
+                                                                    bVar.vY(str);
+                                                                    bVar.vZ(str3);
                                                                     bVar.setActivityDialog(customDialogData);
                                                                     bVar.setVideoId(str10);
                                                                     bVar.setContriInfo(contriInfo);
@@ -596,7 +596,7 @@ public class NewWriteModel extends BdBaseModel {
                                                             }
                                                         } catch (JSONException e5) {
                                                             videoEasterEggData = null;
-                                                            customDialogData = aq;
+                                                            customDialogData = as;
                                                             str10 = optString6;
                                                             str3 = str9;
                                                             str = str8;
@@ -609,7 +609,7 @@ public class NewWriteModel extends BdBaseModel {
                                                         }
                                                     } catch (JSONException e6) {
                                                         videoEasterEggData = null;
-                                                        customDialogData = aq;
+                                                        customDialogData = as;
                                                         str10 = optString6;
                                                         str3 = null;
                                                         str = null;
@@ -705,8 +705,8 @@ public class NewWriteModel extends BdBaseModel {
                     bVar.setThreadId(str7);
                     bVar.setPostId(str2);
                     bVar.setIsCopyTWZhibo(i2);
-                    bVar.vx(str);
-                    bVar.vy(str3);
+                    bVar.vY(str);
+                    bVar.vZ(str3);
                     bVar.setActivityDialog(customDialogData);
                     bVar.setVideoId(str10);
                     bVar.setContriInfo(contriInfo);
@@ -722,30 +722,30 @@ public class NewWriteModel extends BdBaseModel {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(com.baidu.tieba.tbadkCore.writeModel.b bVar) {
-            String bCP;
+            String bEK;
             String str = null;
             super.onPostExecute((e) bVar);
-            NewWriteModel.this.hhN = null;
+            NewWriteModel.this.hoH = null;
             if (bVar != null && bVar.getErrorCode() != 0) {
                 com.baidu.tbadk.core.d.a.a("write", 0L, 0, "write_result", bVar.getErrorCode(), bVar.getErrorString(), "tid", bVar.getThreadId(), Info.kBaiduPIDKey, bVar.getPostId());
             }
             if (!this.isCanceled && bVar != null) {
                 if (!bVar.hasError()) {
-                    if (NewWriteModel.this.hhT == null) {
-                        if (NewWriteModel.this.hhS != null) {
-                            NewWriteModel.this.hhS.a(true, bVar.getErrorString(), null, null, bVar.ayn());
+                    if (NewWriteModel.this.hoN == null) {
+                        if (NewWriteModel.this.hoM != null) {
+                            NewWriteModel.this.hoM.a(true, bVar.getErrorString(), null, null, bVar.azX());
                         }
                     } else {
                         if (!StringUtils.isNull(bVar.getPreMsg()) && !StringUtils.isNull(bVar.getColorMsg())) {
                             str = bVar.getPreMsg();
-                            bCP = bVar.getColorMsg();
-                        } else if (StringUtils.isNull(bVar.bCP()) && StringUtils.isNull(bVar.bCO())) {
-                            bCP = null;
+                            bEK = bVar.getColorMsg();
+                        } else if (StringUtils.isNull(bVar.bEK()) && StringUtils.isNull(bVar.bEJ())) {
+                            bEK = null;
                         } else {
-                            str = bVar.bCO();
-                            bCP = bVar.bCP();
+                            str = bVar.bEJ();
+                            bEK = bVar.bEK();
                         }
-                        PostWriteCallBackData postWriteCallBackData = new PostWriteCallBackData(bVar.getErrorCode(), bVar.getErrorString(), str, bCP);
+                        PostWriteCallBackData postWriteCallBackData = new PostWriteCallBackData(bVar.getErrorCode(), bVar.getErrorString(), str, bEK);
                         postWriteCallBackData.setThreadId(bVar.getThreadId());
                         postWriteCallBackData.setPostId(bVar.getPostId());
                         postWriteCallBackData.setIsCopyTWZhibo(bVar.getIsCopyTWZhibo());
@@ -756,7 +756,7 @@ public class NewWriteModel extends BdBaseModel {
                         postWriteCallBackData.setVideoEasterEggData(bVar.getVideoEasterEggData());
                         w wVar = new w();
                         wVar.parserJson(this.mRetData);
-                        NewWriteModel.this.hhT.callback(true, postWriteCallBackData, wVar, NewWriteModel.this.mData, bVar.ayn());
+                        NewWriteModel.this.hoN.callback(true, postWriteCallBackData, wVar, NewWriteModel.this.mData, bVar.azX());
                         final CustomDialogData activityDialog = postWriteCallBackData.getActivityDialog();
                         if (activityDialog != null) {
                             if (NewWriteModel.this.mData != null) {
@@ -783,15 +783,15 @@ public class NewWriteModel extends BdBaseModel {
                         }
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001375, true));
-                    if (this.hfy != null) {
-                        this.hfy.baB();
+                    if (this.hms != null) {
+                        this.hms.bcs();
                         return;
                     }
                     return;
                 }
                 handleRequestFail(bVar);
-                if (this.hfy != null) {
-                    this.hfy.aa(bVar.errorCode, bVar.getErrorString());
+                if (this.hms != null) {
+                    this.hms.aa(bVar.errorCode, bVar.getErrorString());
                 }
             }
         }
@@ -799,26 +799,26 @@ public class NewWriteModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             this.isCanceled = true;
-            if (this.cHj != null) {
-                this.cHj.cancel();
+            if (this.cNR != null) {
+                this.cNR.cancel();
             }
-            if (NewWriteModel.this.hhT != null) {
-                NewWriteModel.this.hhT.callback(false, null, null, null, null);
-            } else if (NewWriteModel.this.hhS != null) {
-                NewWriteModel.this.hhS.a(false, null, null, null, null);
+            if (NewWriteModel.this.hoN != null) {
+                NewWriteModel.this.hoN.callback(false, null, null, null, null);
+            } else if (NewWriteModel.this.hoM != null) {
+                NewWriteModel.this.hoM.a(false, null, null, null, null);
             }
             super.cancel(true);
-            NewWriteModel.this.hhN = null;
+            NewWriteModel.this.hoH = null;
         }
 
         private void handleRequestFail(com.baidu.tieba.tbadkCore.writeModel.b bVar) {
-            if (!f.a(bVar.getErrorCode(), AuthTokenData.parse(this.mRetData), NewWriteModel.this.hhW)) {
-                if (bVar.bCL()) {
+            if (!f.a(bVar.getErrorCode(), AuthTokenData.parse(this.mRetData), NewWriteModel.this.hoQ)) {
+                if (bVar.bEG()) {
                     NewWriteModel.this.a(bVar);
-                } else if (bVar.bCM()) {
+                } else if (bVar.bEH()) {
                     NewWriteModel.this.b(bVar);
                     NewWriteModel.this.a(bVar);
-                } else if (bVar.bCK()) {
+                } else if (bVar.bEF()) {
                     w wVar = new w();
                     wVar.parserJson(this.mRetData);
                     if (wVar.getVcode_pic_url() != null && NewWriteModel.this.mData != null) {
@@ -826,7 +826,7 @@ public class NewWriteModel extends BdBaseModel {
                         NewWriteModel.this.mData.setVcodeUrl(wVar.getVcode_pic_url());
                         NewWriteModel.this.a(bVar, null, wVar, NewWriteModel.this.mData);
                     }
-                } else if (bVar.bCN()) {
+                } else if (bVar.bEI()) {
                     AccessState accessState = new AccessState();
                     accessState.parserJson(this.mRetData);
                     NewWriteModel.this.a(bVar, accessState, null, NewWriteModel.this.mData);
@@ -846,22 +846,22 @@ public class NewWriteModel extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.tbadkCore.writeModel.b bVar) {
-        if (bVar != null && bVar.ayn() != null && bVar.ayn().mFrsForbidenDialogInfo != null) {
-            AntiHelper.aH(this.mPageContext.getPageActivity(), bVar.ayn().mFrsForbidenDialogInfo.ahead_url);
+        if (bVar != null && bVar.azX() != null && bVar.azX().mFrsForbidenDialogInfo != null) {
+            AntiHelper.aK(this.mPageContext.getPageActivity(), bVar.azX().mFrsForbidenDialogInfo.ahead_url);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.tbadkCore.writeModel.b bVar, AccessState accessState, w wVar, WriteData writeData) {
         if (bVar != null) {
-            if (this.hhT != null) {
+            if (this.hoN != null) {
                 PostWriteCallBackData postWriteCallBackData = new PostWriteCallBackData(bVar.getErrorCode(), bVar.getErrorString(), null, null);
                 postWriteCallBackData.setAccessState(accessState);
                 postWriteCallBackData.setSensitiveWords(bVar.getSensitiveWords());
                 postWriteCallBackData.setReplyPrivacyTip(bVar.getReplyPrivacyTip());
-                this.hhT.callback(false, postWriteCallBackData, wVar, writeData, bVar.ayn());
-            } else if (this.hhS != null) {
-                this.hhS.a(false, bVar.getErrorString(), wVar, writeData, bVar.ayn());
+                this.hoN.callback(false, postWriteCallBackData, wVar, writeData, bVar.azX());
+            } else if (this.hoM != null) {
+                this.hoM.a(false, bVar.getErrorString(), wVar, writeData, bVar.azX());
             }
         }
     }
@@ -869,8 +869,8 @@ public class NewWriteModel extends BdBaseModel {
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<Void, Void, ImageUploadResult> {
         private boolean isCanceled = false;
-        com.baidu.tieba.tbadkCore.c.a cHj = new com.baidu.tieba.tbadkCore.c.a();
-        Bitmap bgw = null;
+        com.baidu.tieba.tbadkCore.c.a cNR = new com.baidu.tieba.tbadkCore.c.a();
+        Bitmap bjV = null;
 
         public a() {
             setPriority(3);
@@ -879,33 +879,33 @@ public class NewWriteModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: m */
+        /* renamed from: n */
         public ImageUploadResult doInBackground(Void... voidArr) {
-            boolean eX = com.baidu.tbadk.core.util.l.eX(NewWriteModel.this.cHi);
+            boolean fp = com.baidu.tbadk.core.util.l.fp(NewWriteModel.this.cNQ);
             if (this.isCanceled) {
                 return null;
             }
-            if (NewWriteModel.this.hhQ == null || NewWriteModel.this.hhQ.length <= 0) {
-                if (TextUtils.isEmpty(NewWriteModel.this.cHi) || !eX) {
+            if (NewWriteModel.this.hoK == null || NewWriteModel.this.hoK.length <= 0) {
+                if (TextUtils.isEmpty(NewWriteModel.this.cNQ) || !fp) {
                     return null;
                 }
-                Uri parse = Uri.parse(NewWriteModel.this.cHi);
-                NewWriteModel.this.hhP = com.baidu.tbadk.core.util.l.b(TbadkCoreApplication.getInst().getApp(), parse);
-                if (TextUtils.isEmpty(NewWriteModel.this.hhP)) {
+                Uri parse = Uri.parse(NewWriteModel.this.cNQ);
+                NewWriteModel.this.hoJ = com.baidu.tbadk.core.util.l.b(TbadkCoreApplication.getInst().getApp(), parse);
+                if (TextUtils.isEmpty(NewWriteModel.this.hoJ)) {
                     return null;
                 }
-                return NewWriteModel.this.a(NewWriteModel.this.hhP, this.cHj);
+                return NewWriteModel.this.a(NewWriteModel.this.hoJ, this.cNR);
             }
-            this.bgw = BitmapHelper.Bytes2Bitmap(NewWriteModel.this.hhQ);
-            if (this.bgw != null) {
-                NewWriteModel.this.hhP = com.baidu.tbadk.core.util.l.a(TbConfig.IMAGE_RESIZED_FILE, this.bgw, 85);
-                if (!TextUtils.isEmpty(NewWriteModel.this.hhP)) {
-                    return NewWriteModel.this.a(NewWriteModel.this.hhP, this.cHj);
+            this.bjV = BitmapHelper.Bytes2Bitmap(NewWriteModel.this.hoK);
+            if (this.bjV != null) {
+                NewWriteModel.this.hoJ = com.baidu.tbadk.core.util.l.a(TbConfig.IMAGE_RESIZED_FILE, this.bjV, 85);
+                if (!TextUtils.isEmpty(NewWriteModel.this.hoJ)) {
+                    return NewWriteModel.this.a(NewWriteModel.this.hoJ, this.cNR);
                 }
-                if (this.bgw == null || this.bgw.isRecycled()) {
+                if (this.bjV == null || this.bjV.isRecycled()) {
                     return null;
                 }
-                this.bgw.recycle();
+                this.bjV.recycle();
                 return null;
             }
             return null;
@@ -914,17 +914,17 @@ public class NewWriteModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             this.isCanceled = true;
-            if (this.cHj != null) {
-                this.cHj.cancel();
+            if (this.cNR != null) {
+                this.cNR.cancel();
             }
-            if (NewWriteModel.this.hhR != null) {
-                NewWriteModel.this.hhR.a(null, true);
+            if (NewWriteModel.this.hoL != null) {
+                NewWriteModel.this.hoL.a(null, true);
             }
-            if (this.bgw != null && !this.bgw.isRecycled()) {
-                this.bgw.recycle();
+            if (this.bjV != null && !this.bjV.isRecycled()) {
+                this.bjV.recycle();
             }
             super.cancel();
-            NewWriteModel.this.hhO = null;
+            NewWriteModel.this.hoI = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -934,30 +934,30 @@ public class NewWriteModel extends BdBaseModel {
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
             if (!this.isCanceled) {
-                if (NewWriteModel.this.hhR != null) {
-                    NewWriteModel.this.hhR.a(imageUploadResult, false);
+                if (NewWriteModel.this.hoL != null) {
+                    NewWriteModel.this.hoL.a(imageUploadResult, false);
                 }
-                if (this.bgw != null && !this.bgw.isRecycled()) {
-                    this.bgw.recycle();
+                if (this.bjV != null && !this.bjV.isRecycled()) {
+                    this.bjV.recycle();
                 }
             }
         }
     }
 
-    public void auZ() {
-        if (this.hhO == null) {
-            this.hhO = new a();
-            this.hhO.execute(new Void[0]);
+    public void awK() {
+        if (this.hoI == null) {
+            this.hoI = new a();
+            this.hoI.execute(new Void[0]);
         }
     }
 
     public void f(byte[] bArr, String str) {
-        this.hhQ = bArr;
-        this.cHi = str;
+        this.hoK = bArr;
+        this.cNQ = str;
     }
 
     public void a(b bVar) {
-        this.hhR = bVar;
+        this.hoL = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -968,7 +968,7 @@ public class NewWriteModel extends BdBaseModel {
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath(str);
         imageFileInfo.clearAllActions();
-        imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.K(aq.CN().CT(), aq.CN().CU()));
+        imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.L(aq.DR().DX(), aq.DR().DY()));
         return aVar.e(imageFileInfo, true);
     }
 }

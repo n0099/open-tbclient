@@ -7,53 +7,53 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b implements h, com.baidu.tieba.InjectPlugin.a {
-    private static SparseArray<BdUniqueId> brZ = new SparseArray<>();
-    private Object bsa;
-    private int bsb;
+    private static SparseArray<BdUniqueId> bvy = new SparseArray<>();
+    private int bvA;
+    private Object bvz;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return brZ.get(this.bsb);
+        return bvy.get(this.bvA);
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object SD() {
-        return this.bsa;
+    public Object TJ() {
+        return this.bvz;
     }
 
     public void P(Object obj) {
-        this.bsa = obj;
+        this.bvz = obj;
     }
 
-    public int SE() {
-        return this.bsb;
+    public int TK() {
+        return this.bvA;
     }
 
-    public void hd(int i) {
-        this.bsb = i;
+    public void hr(int i) {
+        this.bvA = i;
     }
 
     public static void W(List<Integer> list) {
-        if (brZ.size() <= 0 && list != null) {
+        if (bvy.size() <= 0 && list != null) {
             for (Integer num : list) {
-                brZ.put(num.intValue(), BdUniqueId.gen());
+                bvy.put(num.intValue(), BdUniqueId.gen());
             }
         }
     }
 
-    public static List<BdUniqueId> SF() {
+    public static List<BdUniqueId> TL() {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < brZ.size(); i++) {
-            arrayList.add(brZ.valueAt(i));
+        for (int i = 0; i < bvy.size(); i++) {
+            arrayList.add(bvy.valueAt(i));
         }
         return arrayList;
     }
 
     public static int i(BdUniqueId bdUniqueId) {
         int indexOfValue;
-        if (brZ.size() == 0 || (indexOfValue = brZ.indexOfValue(bdUniqueId)) == -1 || brZ.size() <= indexOfValue) {
+        if (bvy.size() == 0 || (indexOfValue = bvy.indexOfValue(bdUniqueId)) == -1 || bvy.size() <= indexOfValue) {
             return -1;
         }
-        return brZ.keyAt(indexOfValue);
+        return bvy.keyAt(indexOfValue);
     }
 }

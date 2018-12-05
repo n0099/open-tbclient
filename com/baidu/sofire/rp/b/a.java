@@ -18,14 +18,14 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a {
     private static a a;
-    private C0140a b;
+    private C0149a b;
     private e c;
     private SQLiteDatabase d;
     private Context e;
 
     private a(Context context) {
         this.e = context;
-        this.b = new C0140a(context);
+        this.b = new C0149a(context);
         this.c = new e(context);
         d();
     }
@@ -524,8 +524,8 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sofire.rp.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0140a extends SQLiteOpenHelper {
-        public C0140a(Context context) {
+    public class C0149a extends SQLiteOpenHelper {
+        public C0149a(Context context) {
             super(context, "d.db", (SQLiteDatabase.CursorFactory) null, 3);
         }
 

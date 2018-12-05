@@ -9,27 +9,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
-    private a bAE;
-    private byte[] bAF;
+    private a bEb;
+    private byte[] bEc;
 
     public QuickSearchModel(QuickSearchActivity quickSearchActivity) {
         super(quickSearchActivity.getPageContext());
-        this.bAF = new byte[0];
-        this.bAE = a.Vn();
+        this.bEc = new byte[0];
+        this.bEb = a.Wt();
     }
 
     @SuppressLint({"DefaultLocale"})
-    public List<com.baidu.tbadk.coreExtra.relationship.a> jP(String str) {
-        synchronized (this.bAF) {
+    public List<com.baidu.tbadk.coreExtra.relationship.a> kh(String str) {
+        synchronized (this.bEc) {
             ArrayList arrayList = new ArrayList();
             if (TextUtils.isEmpty(str)) {
                 return arrayList;
             }
-            List<com.baidu.tbadk.coreExtra.relationship.a> Vo = this.bAE.Vo();
-            if (Vo == null) {
+            List<com.baidu.tbadk.coreExtra.relationship.a> Wu = this.bEb.Wu();
+            if (Wu == null) {
                 return arrayList;
             }
-            for (com.baidu.tbadk.coreExtra.relationship.a aVar : Vo) {
+            for (com.baidu.tbadk.coreExtra.relationship.a aVar : Wu) {
                 String userName = aVar.getUserName();
                 String quanpin = aVar.getQuanpin();
                 if (!TextUtils.isEmpty(userName) && userName.toLowerCase().startsWith(str.toLowerCase())) {
@@ -38,7 +38,7 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
                     arrayList.add(aVar);
                 }
             }
-            for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : Vo) {
+            for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : Wu) {
                 String userName2 = aVar2.getUserName();
                 String quanpin2 = aVar2.getQuanpin();
                 if (!arrayList.contains(aVar2)) {

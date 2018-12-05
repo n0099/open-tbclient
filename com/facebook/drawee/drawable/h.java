@@ -7,27 +7,27 @@ import android.graphics.drawable.Drawable;
 /* loaded from: classes2.dex */
 public class h extends g {
     private Matrix IK;
-    private int ibQ;
-    private int ibR;
+    private int ijd;
+    private int ije;
     private Matrix mMatrix;
 
     public h(Drawable drawable, Matrix matrix) {
         super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.ibQ = 0;
-        this.ibR = 0;
+        this.ijd = 0;
+        this.ije = 0;
         this.mMatrix = matrix;
     }
 
     @Override // com.facebook.drawee.drawable.g
     public Drawable j(Drawable drawable) {
         Drawable j = super.j(drawable);
-        bSI();
+        bUO();
         return j;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        bSH();
+        bUN();
         if (this.IK != null) {
             int save = canvas.save();
             canvas.clipRect(getBounds());
@@ -43,22 +43,22 @@ public class h extends g {
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
-        bSI();
+        bUO();
     }
 
-    private void bSH() {
-        if (this.ibQ != getCurrent().getIntrinsicWidth() || this.ibR != getCurrent().getIntrinsicHeight()) {
-            bSI();
+    private void bUN() {
+        if (this.ijd != getCurrent().getIntrinsicWidth() || this.ije != getCurrent().getIntrinsicHeight()) {
+            bUO();
         }
     }
 
-    private void bSI() {
+    private void bUO() {
         Drawable current = getCurrent();
         Rect bounds = getBounds();
         int intrinsicWidth = current.getIntrinsicWidth();
-        this.ibQ = intrinsicWidth;
+        this.ijd = intrinsicWidth;
         int intrinsicHeight = current.getIntrinsicHeight();
-        this.ibR = intrinsicHeight;
+        this.ije = intrinsicHeight;
         if (intrinsicWidth <= 0 || intrinsicHeight <= 0) {
             current.setBounds(bounds);
             this.IK = null;

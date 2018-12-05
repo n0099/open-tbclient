@@ -7,7 +7,7 @@ public class e {
     public static void initial() {
         try {
             if (!av.loadStaticClasses()) {
-                c.bu(BdBaseApplication.getInst());
+                c.bx(BdBaseApplication.getInst());
             }
         } catch (Exception e) {
             e.printStackTrace();

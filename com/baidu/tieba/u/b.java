@@ -9,7 +9,7 @@ import java.io.File;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, String> {
     public static final String FILE_SEP = File.separator;
-    private a hEW;
+    private a hMh;
     private String mPath;
     private String mUrl;
 
@@ -21,13 +21,13 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public b(String str, String str2, a aVar) {
         this.mPath = str;
         this.mUrl = str2;
-        this.hEW = aVar;
+        this.hMh = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: e */
+    /* renamed from: f */
     public String doInBackground(Void... voidArr) {
         if (ao.isEmpty(this.mPath) || ao.isEmpty(this.mUrl)) {
             return "";
@@ -41,7 +41,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
         e eVar = new e();
         eVar.jp().setUrl(this.mUrl);
         if (new com.baidu.adp.lib.network.http.c(eVar).a(str, null, 3, 3000, -1, -1, true, true)) {
-            return bJM();
+            return bLR();
         }
         return "";
     }
@@ -50,36 +50,36 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.hEW != null) {
+        if (this.hMh != null) {
             if (!ao.isEmpty(str)) {
-                this.hEW.a(true, str, this.mUrl);
+                this.hMh.a(true, str, this.mUrl);
             } else {
-                this.hEW.a(false, null, null);
+                this.hMh.a(false, null, null);
             }
         }
     }
 
-    private String bJM() {
+    private String bLR() {
         File file = new File(this.mPath + FILE_SEP + "videosplash.temp");
         File file2 = new File(this.mPath + FILE_SEP + (s.bC(this.mUrl) + ".mp4"));
         if (file2.exists()) {
             file2.delete();
         }
         if (file.renameTo(file2)) {
-            P(file2);
+            Q(file2);
             return file2.getAbsolutePath();
         }
         return "";
     }
 
-    private void P(File file) {
+    private void Q(File file) {
         File[] listFiles;
         if (!ao.isEmpty(this.mPath)) {
             File file2 = new File(this.mPath);
             if (file2.exists() && (listFiles = file2.listFiles()) != null) {
                 for (File file3 : listFiles) {
                     if (file3 != null && !file3.equals(file)) {
-                        l.x(file3);
+                        l.y(file3);
                     }
                 }
             }

@@ -8,26 +8,26 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    private String dfy = "";
-    private HashMap<String, String> dfz;
+    private String dmf = "";
+    private HashMap<String, String> dmg;
     private boolean isOpen;
 
-    public void T(JSONObject jSONObject) {
+    public void V(JSONObject jSONObject) {
         JSONObject optJSONObject;
         JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
         if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("hotmonitor")) != null) {
-            this.dfy = optJSONObject.optString(SelectForumActivityConfig.KEY_SHARE_LINK);
+            this.dmf = optJSONObject.optString(SelectForumActivityConfig.KEY_SHARE_LINK);
             this.isOpen = optJSONObject.optInt("open", 0) == 1;
             JSONArray optJSONArray = optJSONObject.optJSONArray("config");
             if (optJSONArray != null && optJSONArray.length() != 0) {
-                this.dfz = new HashMap<>();
+                this.dmg = new HashMap<>();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
                     if (optJSONObject3 != null) {
                         String optString = optJSONObject3.optString(NotificationCompat.CATEGORY_EVENT);
                         String optString2 = optJSONObject3.optString("rule");
                         if (!ao.isEmpty(optString) && !ao.isEmpty(optString2)) {
-                            this.dfz.put(optString, optString2);
+                            this.dmg.put(optString, optString2);
                         }
                     }
                 }
@@ -39,11 +39,11 @@ public class a {
         return this.isOpen;
     }
 
-    public HashMap<String, String> asF() {
-        return this.dfz;
+    public HashMap<String, String> aur() {
+        return this.dmg;
     }
 
-    public String asG() {
-        return this.dfy;
+    public String aus() {
+        return this.dmf;
     }
 }

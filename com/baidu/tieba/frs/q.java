@@ -9,22 +9,22 @@ import tbclient.FrsPageUserExtend;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class q implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId dEs = BdUniqueId.gen();
-    private List<MetaData> dEp;
-    private int dEo = 0;
-    private String dEq = "本吧都在关注";
-    private boolean dEr = false;
+    public static final BdUniqueId dKR = BdUniqueId.gen();
+    private List<MetaData> dKO;
+    private int dKN = 0;
+    private String dKP = "本吧都在关注";
+    private boolean dKQ = false;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dEs;
+        return dKR;
     }
 
     public void a(FrsPageUserExtend frsPageUserExtend) {
         if (frsPageUserExtend != null && !com.baidu.tbadk.core.util.v.I(frsPageUserExtend.data)) {
             List<User> list = frsPageUserExtend.data;
-            this.dEo = frsPageUserExtend.user_extend_storey.intValue();
-            this.dEp = new ArrayList(list.size());
+            this.dKN = frsPageUserExtend.user_extend_storey.intValue();
+            this.dKO = new ArrayList(list.size());
             int i = 0;
             while (true) {
                 int i2 = i;
@@ -33,11 +33,11 @@ public class q implements com.baidu.adp.widget.ListView.h {
                     if (user != null && user.id.longValue() != 0) {
                         MetaData metaData = new MetaData();
                         metaData.parserProtobuf(list.get(i2));
-                        this.dEp.add(metaData);
+                        this.dKO.add(metaData);
                     }
                     i = i2 + 1;
                 } else {
-                    this.dEq = frsPageUserExtend.tips;
+                    this.dKP = frsPageUserExtend.tips;
                     return;
                 }
             }
@@ -46,29 +46,29 @@ public class q implements com.baidu.adp.widget.ListView.h {
 
     public void a(FeatureCardGod featureCardGod) {
         if (featureCardGod != null && !com.baidu.tbadk.core.util.v.I(featureCardGod.sub_nodes)) {
-            this.dEo = featureCardGod.floor.intValue();
-            this.dEp = featureCardGod.sub_nodes;
-            this.dEq = featureCardGod.title;
+            this.dKN = featureCardGod.floor.intValue();
+            this.dKO = featureCardGod.sub_nodes;
+            this.dKP = featureCardGod.title;
         }
     }
 
-    public int zC() {
-        return this.dEo;
+    public int AG() {
+        return this.dKN;
     }
 
     public List<MetaData> getUserInfo() {
-        return this.dEp;
+        return this.dKO;
     }
 
-    public String aAs() {
-        return this.dEq;
+    public String aCc() {
+        return this.dKP;
     }
 
-    public boolean aAt() {
-        return this.dEr;
+    public boolean aCd() {
+        return this.dKQ;
     }
 
-    public void gF(boolean z) {
-        this.dEr = z;
+    public void gG(boolean z) {
+        this.dKQ = z;
     }
 }

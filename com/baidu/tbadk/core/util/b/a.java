@@ -14,45 +14,45 @@ import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<String> aAJ = new ArrayList<>();
-    private b aAK;
-    private InterfaceC0150a aAL;
+    private ArrayList<String> aEj = new ArrayList<>();
+    private b aEk;
+    private InterfaceC0160a aEl;
 
     /* renamed from: com.baidu.tbadk.core.util.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0150a {
-        void Dq();
+    public interface InterfaceC0160a {
+        void Eu();
     }
 
     /* loaded from: classes.dex */
     public interface b {
-        void fG(String str);
+        void fY(String str);
 
-        void fH(String str);
+        void fZ(String str);
     }
 
     public void a(b bVar) {
-        this.aAK = bVar;
+        this.aEk = bVar;
     }
 
-    public void Dp() {
-        if (this.aAJ != null) {
-            this.aAJ.clear();
+    public void Et() {
+        if (this.aEj != null) {
+            this.aEj.clear();
         }
     }
 
     public void c(Activity activity, String str) {
         if (!TextUtils.isEmpty(str) && !d(activity, str)) {
-            this.aAJ.add(str);
+            this.aEj.add(str);
         }
     }
 
     public boolean A(Activity activity) {
-        if (!com.baidu.e.a.up()) {
-            Dq();
+        if (!com.baidu.e.a.uo()) {
+            Eu();
             return false;
-        } else if (v.I(this.aAJ)) {
-            Dq();
+        } else if (v.I(this.aEj)) {
+            Eu();
             return false;
         } else {
             if (activity instanceof BaseFragmentActivity) {
@@ -77,9 +77,9 @@ public class a {
             return true;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
-        aVar.bf(false);
-        aVar.cM(e.j.request_permission_default_title);
-        aVar.cN(fF(str));
+        aVar.bg(false);
+        aVar.da(e.j.request_permission_default_title);
+        aVar.db(fX(str));
         aVar.a(e.j.isopen, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -89,34 +89,34 @@ public class a {
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
                 intent.setData(Uri.fromParts("package", activity.getPackageName(), null));
                 activity.startActivity(intent);
-                if (a.this.aAK != null) {
-                    a.this.aAK.fH(str);
+                if (a.this.aEk != null) {
+                    a.this.aEk.fZ(str);
                 }
             }
         }).b(e.j.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                if (a.this.aAK != null) {
-                    a.this.aAK.fG(str);
+                if (a.this.aEk != null) {
+                    a.this.aEk.fY(str);
                 }
             }
         }).b(i.aK(activity));
-        aVar.AB();
+        aVar.BF();
         return false;
     }
 
     private void B(Activity activity) {
         if (activity != null) {
             try {
-                com.baidu.e.a.a.requestPermissions(activity, (String[]) this.aAJ.toArray(new String[this.aAJ.size()]), 25040);
+                com.baidu.e.a.a.requestPermissions(activity, (String[]) this.aEj.toArray(new String[this.aEj.size()]), 25040);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    private int fF(String str) {
+    private int fX(String str) {
         if (TextUtils.isEmpty(str)) {
             return e.j.request_permission_default_text;
         }
@@ -144,13 +144,13 @@ public class a {
         return e.j.request_permission_default_text;
     }
 
-    public void a(InterfaceC0150a interfaceC0150a) {
-        this.aAL = interfaceC0150a;
+    public void a(InterfaceC0160a interfaceC0160a) {
+        this.aEl = interfaceC0160a;
     }
 
-    public void Dq() {
-        if (this.aAL != null) {
-            this.aAL.Dq();
+    public void Eu() {
+        if (this.aEl != null) {
+            this.aEl.Eu();
         }
     }
 }

@@ -10,34 +10,34 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
 
     protected abstract void initView();
 
-    protected abstract boolean s(Bundle bundle);
+    protected abstract boolean v(Bundle bundle);
 
     @Override // com.baidu.tieba.im.chat.d
-    public void aMs() {
-        aLU();
+    public void aOk() {
+        aNM();
     }
 
-    public void aLU() {
+    public void aNM() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (!s(bundle)) {
+        if (!v(bundle)) {
             finish();
             return;
         }
         initView();
         adjustResizeForSoftInput(e.d.common_color_10022, false);
-        if (this.eCc != null) {
-            this.eCc.setImageUploadUIProgressCallback(this.eCh);
+        if (this.eIR != null) {
+            this.eIR.setImageUploadUIProgressCallback(this.eIW);
         }
-        aMy();
+        aOq();
         if (a((d) this)) {
             loadDraft();
-            aLS();
-            j.eCa = com.baidu.tbadk.util.i.OJ();
+            aNK();
+            j.eIP = com.baidu.tbadk.util.i.PP();
         }
     }
 
@@ -45,17 +45,17 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.eCc != null) {
-            this.eCc.onDestroy();
+        if (this.eIR != null) {
+            this.eIR.onDestroy();
         }
         setIntent(intent);
-        if (!s(null)) {
+        if (!v(null)) {
             finish();
             return;
         }
         initView();
         adjustResizeForSoftInput(e.d.common_color_10022, false);
-        aMy();
+        aOq();
         if (a((d) this)) {
             loadDraft();
         }
@@ -65,8 +65,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.eCb != null) {
-            this.eCb.onChangeSkinType(i);
+        if (this.eIQ != null) {
+            this.eIQ.onChangeSkinType(i);
         }
     }
 
@@ -74,37 +74,37 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.eCb != null) {
-            this.eCb.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            aLP();
+        if (this.eIQ != null) {
+            this.eIQ.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            aNH();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aLP() {
+    public void aNH() {
         if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
-            this.eCb.showReceiver();
+            this.eIQ.showReceiver();
         } else {
-            this.eCb.closeReceiver();
+            this.eIQ.closeReceiver();
         }
     }
 
     protected boolean loadDraft() {
-        return this.eCc.loadDraft();
+        return this.eIR.loadDraft();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        aLT();
+        aNL();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aLS() {
+    public void aNK() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aLT() {
+    public void aNL() {
     }
 }

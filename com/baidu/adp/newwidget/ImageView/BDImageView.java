@@ -93,7 +93,7 @@ public abstract class BDImageView extends ImageView implements h {
             this.mArgs.mBorderWidth = com.baidu.adp.lib.util.l.dip2px(getContext(), 1.0f);
             this.mArgs.mBorderColor = DEFAULT_BORDER_COLOR;
         }
-        this.mDrawer = e.ml().aY(this.mDrawerType);
+        this.mDrawer = e.mk().aY(this.mDrawerType);
         this.mDrawer.a(this.mArgs);
     }
 
@@ -153,12 +153,12 @@ public abstract class BDImageView extends ImageView implements h {
         ImageView.ScaleType scaleType = getScaleType();
         this.mImage.IS = (BitmapDrawable) getDrawable();
         this.mImage.IT = getBdImage();
-        if (this.mImage.mj()) {
+        if (this.mImage.mi()) {
             this.mImage.IT = null;
             checkReLayout();
             this.mImage.isDefault = false;
             this.mCurBg = this.mBg;
-        } else if (this.mImage.mk()) {
+        } else if (this.mImage.mj()) {
             this.mImage.IS = null;
             checkReLayout();
             this.mImage.isDefault = false;
@@ -167,7 +167,7 @@ public abstract class BDImageView extends ImageView implements h {
             this.mImage.IS = null;
             this.mImage.IT = getDefaultBdImage();
             this.mImage.isDefault = true;
-            ImageView.ScaleType scaleType2 = this.mImage.mk() ? this.mDefaultScaleType : scaleType;
+            ImageView.ScaleType scaleType2 = this.mImage.mj() ? this.mDefaultScaleType : scaleType;
             this.mCurBg = this.mDefaultBg;
             scaleType = scaleType2;
         }
@@ -239,7 +239,7 @@ public abstract class BDImageView extends ImageView implements h {
     private void drawContent(Canvas canvas) {
         if (!this.mImage.isAvailable()) {
             if (this.mArgs.Jd) {
-                this.mDrawer.mi();
+                this.mDrawer.mh();
                 this.mDrawer.a(this.mImage, this);
                 this.mDrawer.b(canvas, this);
                 return;
@@ -340,7 +340,7 @@ public abstract class BDImageView extends ImageView implements h {
     public void setDrawerType(int i) {
         if (this.mDrawerType != i) {
             this.mDrawerType = i;
-            this.mDrawer = e.ml().aY(this.mDrawerType);
+            this.mDrawer = e.mk().aY(this.mDrawerType);
             this.mDrawer.a(this.mArgs);
             this.mNeedRecomputeMatrix = true;
             invalidate();
@@ -373,11 +373,11 @@ public abstract class BDImageView extends ImageView implements h {
 
     @Override // android.widget.ImageView
     public Matrix getImageMatrix() {
-        return !this.mIsBitmap ? super.getImageMatrix() : this.mDrawer.mg();
+        return !this.mIsBitmap ? super.getImageMatrix() : this.mDrawer.mf();
     }
 
     public RectF getImageBounds() {
-        return this.mDrawer.mh();
+        return this.mDrawer.mg();
     }
 
     public int getImageWidth() {

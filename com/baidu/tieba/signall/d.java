@@ -7,19 +7,19 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class d implements ae {
     private String avatar;
-    private int bNf;
-    private int dah;
+    private int bQW;
+    private int dgT;
     private String errorMsg;
     private int forumId;
     private String forumName;
-    private int gUW;
-    private int gUX;
-    private int gUY;
-    private boolean gUZ;
-    private boolean gVa;
-    private boolean gVb;
-    private boolean gVc;
-    private int gVd;
+    private int hbO;
+    private int hbP;
+    private int hbQ;
+    private boolean hbR;
+    private boolean hbS;
+    private boolean hbT;
+    private boolean hbU;
+    private int hbV;
 
     public int getForumId() {
         return this.forumId;
@@ -33,82 +33,82 @@ public class d implements ae {
         return this.avatar;
     }
 
-    public int bxP() {
-        return this.gUW;
+    public int bzJ() {
+        return this.hbO;
     }
 
-    public int bxQ() {
-        return this.bNf;
+    public int bzK() {
+        return this.bQW;
     }
 
-    public int bxR() {
-        return this.dah;
+    public int bzL() {
+        return this.dgT;
     }
 
-    public int bxS() {
-        return this.gUX;
+    public int bzM() {
+        return this.hbP;
     }
 
-    public int bxT() {
-        return this.gUY;
+    public int bzN() {
+        return this.hbQ;
     }
 
-    public void uy(int i) {
-        this.gUW = i;
+    public void uU(int i) {
+        this.hbO = i;
     }
 
-    public void uz(int i) {
-        this.bNf = i;
+    public void uV(int i) {
+        this.bQW = i;
     }
 
-    public void uA(int i) {
-        this.dah = i;
+    public void uW(int i) {
+        this.dgT = i;
     }
 
-    public boolean ZF() {
-        return this.gUZ;
-    }
-
-    public void nd(boolean z) {
-        this.gUZ = z;
-        this.gUW = 1;
-    }
-
-    public boolean bxU() {
-        return this.gVb;
-    }
-
-    public void ne(boolean z) {
-        this.gVb = z;
-        this.gUW = 0;
-    }
-
-    public boolean bxV() {
-        return this.gVc;
+    public boolean aaL() {
+        return this.hbR;
     }
 
     public void nf(boolean z) {
-        this.gVc = z;
+        this.hbR = z;
+        this.hbO = 1;
     }
 
-    public int bxW() {
-        return this.gVd;
+    public boolean bzO() {
+        return this.hbT;
     }
 
-    public void uB(int i) {
-        this.gVd = i;
+    public void ng(boolean z) {
+        this.hbT = z;
+        this.hbO = 0;
+    }
+
+    public boolean bzP() {
+        return this.hbU;
+    }
+
+    public void nh(boolean z) {
+        this.hbU = z;
+    }
+
+    public int bzQ() {
+        return this.hbV;
+    }
+
+    public void uX(int i) {
+        this.hbV = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean bxX() {
-        return this.gVa;
+    public boolean bzR() {
+        return this.hbS;
     }
 
-    public void ng(boolean z) {
-        this.gVa = z;
+    public void ni(boolean z) {
+        this.hbS = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -116,14 +116,14 @@ public class d implements ae {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString("avatar");
-            this.gUW = jSONObject.optInt("is_sign_in");
-            this.bNf = jSONObject.optInt("cont_sign_num");
-            this.dah = jSONObject.optInt("user_level");
-            this.gUX = jSONObject.optInt("user_exp");
-            this.gUY = jSONObject.optInt("need_exp");
-            if (this.gUW != 0) {
-                this.gUZ = true;
-                this.gVb = false;
+            this.hbO = jSONObject.optInt("is_sign_in");
+            this.bQW = jSONObject.optInt("cont_sign_num");
+            this.dgT = jSONObject.optInt("user_level");
+            this.hbP = jSONObject.optInt("user_exp");
+            this.hbQ = jSONObject.optInt("need_exp");
+            if (this.hbO != 0) {
+                this.hbR = true;
+                this.hbT = false;
             }
         }
     }

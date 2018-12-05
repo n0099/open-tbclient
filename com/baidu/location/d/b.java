@@ -86,7 +86,7 @@ public final class b {
                 b.this.a(this.aeY);
                 b.this.a(this.aeX, this.aeV, this.aeW, this.a, this.aeU);
                 if (this.g != null) {
-                    b.this.aeH.tG().a(this.g);
+                    b.this.aeH.tF().a(this.g);
                 }
             } catch (Exception e) {
             }
@@ -158,7 +158,7 @@ public final class b {
                 this.d = h();
             }
             if (this.d == null && (this.t == -1 || this.t + 86400000 <= System.currentTimeMillis())) {
-                if (b.this.aeH.tH().a()) {
+                if (b.this.aeH.tG().a()) {
                     this.d = j();
                 } else {
                     this.d = k();
@@ -174,7 +174,7 @@ public final class b {
             try {
                 jSONObject = new JSONObject();
                 jSONObject.put("type", "0");
-                jSONObject.put("cuid", com.baidu.location.g.b.tW().b);
+                jSONObject.put("cuid", com.baidu.location.g.b.tV().b);
                 jSONObject.put("ver", "1");
                 jSONObject.put("prod", com.baidu.location.g.b.e + ":" + com.baidu.location.g.b.d);
             } catch (Exception e) {
@@ -316,7 +316,7 @@ public final class b {
                         }
                     }
                     jSONObject.put("type", "1");
-                    jSONObject.put("cuid", com.baidu.location.g.b.tW().b);
+                    jSONObject.put("cuid", com.baidu.location.g.b.tV().b);
                     jSONObject.put("ver", "1");
                     jSONObject.put("prod", com.baidu.location.g.b.e + ":" + com.baidu.location.g.b.d);
                     if (i == 0 || i2 != 0) {
@@ -358,7 +358,7 @@ public final class b {
             if (cursor2 != null) {
             }
             jSONObject.put("type", "1");
-            jSONObject.put("cuid", com.baidu.location.g.b.tW().b);
+            jSONObject.put("cuid", com.baidu.location.g.b.tV().b);
             jSONObject.put("ver", "1");
             jSONObject.put("prod", com.baidu.location.g.b.e + ":" + com.baidu.location.g.b.d);
             if (i == 0) {
@@ -383,7 +383,7 @@ public final class b {
                 try {
                     jSONObject.put("type", "2");
                     jSONObject.put("ver", "1");
-                    jSONObject.put("cuid", com.baidu.location.g.b.tW().b);
+                    jSONObject.put("cuid", com.baidu.location.g.b.tV().b);
                     jSONObject.put("prod", com.baidu.location.g.b.e + ":" + com.baidu.location.g.b.d);
                     this.t = System.currentTimeMillis();
                 } catch (Exception e) {
@@ -400,13 +400,13 @@ public final class b {
         private String k() {
             JSONObject jSONObject;
             try {
-                JSONObject b = b.this.aeH.tH().b();
+                JSONObject b = b.this.aeH.tG().b();
                 if (b != null) {
                     jSONObject = new JSONObject();
                     try {
                         jSONObject.put("type", "3");
                         jSONObject.put("ver", "1");
-                        jSONObject.put("cuid", com.baidu.location.g.b.tW().b);
+                        jSONObject.put("cuid", com.baidu.location.g.b.tV().b);
                         jSONObject.put("prod", com.baidu.location.g.b.e + ":" + com.baidu.location.g.b.d);
                         jSONObject.put("rgc", b);
                         this.t = System.currentTimeMillis();
@@ -656,7 +656,7 @@ public final class b {
                         if (jSONObject6 != null) {
                             try {
                                 try {
-                                    b.this.aeH.tH().a(jSONObject6);
+                                    b.this.aeH.tG().a(jSONObject6);
                                 } catch (Exception e5) {
                                     c.this.c();
                                     try {
@@ -1361,7 +1361,7 @@ public final class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String[] strArr) {
-        this.aeH.tI().a(strArr);
+        this.aeH.tH().a(strArr);
     }
 
     private double b(double d, double d2, double d3, double d4) {
@@ -1535,8 +1535,8 @@ public final class b {
                     d = null;
                     bDLocation = bDLocation2;
                 }
-                if (aVar.e && this.aeH.tI().l() && d5 != null && d != null) {
-                    bDLocation.setAddr(this.aeH.tH().d(d.doubleValue(), d5.doubleValue()));
+                if (aVar.e && this.aeH.tH().l() && d5 != null && d != null) {
+                    bDLocation.setAddr(this.aeH.tG().d(d.doubleValue(), d5.doubleValue()));
                 }
                 if (z && aVar.e && bDLocation.getAddrStr() == null) {
                     d5 = null;
@@ -1547,7 +1547,7 @@ public final class b {
                 if ((aVar.d && !aVar.h) || d5 == null || d == null) {
                     list = null;
                 } else {
-                    List<Poi> e = this.aeH.tH().e(d.doubleValue(), d5.doubleValue());
+                    List<Poi> e = this.aeH.tG().e(d.doubleValue(), d5.doubleValue());
                     if (aVar.d) {
                         bDLocation.setPoiList(e);
                     }
@@ -1593,7 +1593,7 @@ public final class b {
                     bDLocation = bDLocation2;
                 }
                 if (aVar.e) {
-                    bDLocation.setAddr(this.aeH.tH().d(d.doubleValue(), d5.doubleValue()));
+                    bDLocation.setAddr(this.aeH.tG().d(d.doubleValue(), d5.doubleValue()));
                 }
                 if (z) {
                     d5 = null;
@@ -1603,7 +1603,7 @@ public final class b {
                 }
                 if (aVar.d) {
                 }
-                List<Poi> e2 = this.aeH.tH().e(d.doubleValue(), d5.doubleValue());
+                List<Poi> e2 = this.aeH.tG().e(d.doubleValue(), d5.doubleValue());
                 if (aVar.d) {
                 }
                 list = e2;
@@ -1638,7 +1638,7 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public SQLiteDatabase tB() {
+    public SQLiteDatabase tA() {
         return this.aeM;
     }
 }

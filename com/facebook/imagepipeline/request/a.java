@@ -13,44 +13,44 @@ import javax.annotation.concurrent.Immutable;
 /* loaded from: classes2.dex */
 public class a {
     @Nullable
-    private final List<b> ikC;
-    private final boolean ikD;
+    private final List<b> irO;
+    private final boolean irP;
     private final String mMediaId;
     private final String mSource;
 
-    private a(C0352a c0352a) {
-        this.mMediaId = c0352a.mMediaId;
-        this.ikC = c0352a.ikC;
-        this.ikD = c0352a.ikD;
-        this.mSource = c0352a.mSource;
+    private a(C0366a c0366a) {
+        this.mMediaId = c0366a.mMediaId;
+        this.irO = c0366a.irO;
+        this.irP = c0366a.irP;
+        this.mSource = c0366a.mSource;
     }
 
     public String getMediaId() {
         return this.mMediaId;
     }
 
-    public int bXN() {
-        if (this.ikC == null) {
+    public int bZT() {
+        if (this.irO == null) {
             return 0;
         }
-        return this.ikC.size();
+        return this.irO.size();
     }
 
     public List<b> a(Comparator<b> comparator) {
-        int bXN = bXN();
-        if (bXN == 0) {
+        int bZT = bZT();
+        if (bZT == 0) {
             return Collections.emptyList();
         }
-        ArrayList arrayList = new ArrayList(bXN);
-        for (int i = 0; i < bXN; i++) {
-            arrayList.add(this.ikC.get(i));
+        ArrayList arrayList = new ArrayList(bZT);
+        for (int i = 0; i < bZT; i++) {
+            arrayList.add(this.irO.get(i));
         }
         Collections.sort(arrayList, comparator);
         return arrayList;
     }
 
-    public boolean bXO() {
-        return this.ikD;
+    public boolean bZU() {
+        return this.irP;
     }
 
     public String getSource() {
@@ -60,23 +60,23 @@ public class a {
     public boolean equals(Object obj) {
         if (obj instanceof a) {
             a aVar = (a) obj;
-            return f.equal(this.mMediaId, aVar.mMediaId) && this.ikD == aVar.ikD && f.equal(this.ikC, aVar.ikC);
+            return f.equal(this.mMediaId, aVar.mMediaId) && this.irP == aVar.irP && f.equal(this.irO, aVar.irO);
         }
         return false;
     }
 
     public int hashCode() {
-        return f.hashCode(this.mMediaId, Boolean.valueOf(this.ikD), this.ikC, this.mSource);
+        return f.hashCode(this.mMediaId, Boolean.valueOf(this.irP), this.irO, this.mSource);
     }
 
     public String toString() {
-        return String.format(null, "%s-%b-%s-%s", this.mMediaId, Boolean.valueOf(this.ikD), this.ikC, this.mSource);
+        return String.format(null, "%s-%b-%s-%s", this.mMediaId, Boolean.valueOf(this.irP), this.irO, this.mSource);
     }
 
     /* loaded from: classes2.dex */
     public static final class b {
         @Nullable
-        private final ImageRequest.CacheChoice ikt;
+        private final ImageRequest.CacheChoice irF;
         private final int mHeight;
         private final Uri mUri;
         private final int mWidth;
@@ -85,7 +85,7 @@ public class a {
             this.mUri = uri;
             this.mWidth = i;
             this.mHeight = i2;
-            this.ikt = cacheChoice;
+            this.irF = cacheChoice;
         }
 
         public Uri getUri() {
@@ -101,14 +101,14 @@ public class a {
         }
 
         @Nullable
-        public ImageRequest.CacheChoice bXx() {
-            return this.ikt;
+        public ImageRequest.CacheChoice bZD() {
+            return this.irF;
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof b) {
                 b bVar = (b) obj;
-                return f.equal(this.mUri, bVar.mUri) && this.mWidth == bVar.mWidth && this.mHeight == bVar.mHeight && this.ikt == bVar.ikt;
+                return f.equal(this.mUri, bVar.mUri) && this.mWidth == bVar.mWidth && this.mHeight == bVar.mHeight && this.irF == bVar.irF;
             }
             return false;
         }
@@ -118,47 +118,47 @@ public class a {
         }
 
         public String toString() {
-            return String.format(null, "%dx%d %s %s", Integer.valueOf(this.mWidth), Integer.valueOf(this.mHeight), this.mUri, this.ikt);
+            return String.format(null, "%dx%d %s %s", Integer.valueOf(this.mWidth), Integer.valueOf(this.mHeight), this.mUri, this.irF);
         }
     }
 
-    public static C0352a yN(String str) {
-        return new C0352a(str);
+    public static C0366a zq(String str) {
+        return new C0366a(str);
     }
 
     /* renamed from: com.facebook.imagepipeline.request.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0352a {
-        private List<b> ikC;
-        private boolean ikD;
+    public static class C0366a {
+        private List<b> irO;
+        private boolean irP;
         private final String mMediaId;
         private String mSource;
 
-        private C0352a(String str) {
-            this.ikD = false;
+        private C0366a(String str) {
+            this.irP = false;
             this.mSource = "request";
             this.mMediaId = str;
         }
 
-        public C0352a a(Uri uri, int i, int i2, ImageRequest.CacheChoice cacheChoice) {
-            if (this.ikC == null) {
-                this.ikC = new ArrayList();
+        public C0366a a(Uri uri, int i, int i2, ImageRequest.CacheChoice cacheChoice) {
+            if (this.irO == null) {
+                this.irO = new ArrayList();
             }
-            this.ikC.add(new b(uri, i, i2, cacheChoice));
+            this.irO.add(new b(uri, i, i2, cacheChoice));
             return this;
         }
 
-        public C0352a oY(boolean z) {
-            this.ikD = z;
+        public C0366a pa(boolean z) {
+            this.irP = z;
             return this;
         }
 
-        public C0352a yO(String str) {
+        public C0366a zr(String str) {
             this.mSource = str;
             return this;
         }
 
-        public a bXP() {
+        public a bZV() {
             return new a(this);
         }
     }

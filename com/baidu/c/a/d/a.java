@@ -128,12 +128,12 @@ public class a {
                     }
                     if (view2 == null) {
                         if (!TextUtils.isEmpty(aVar.acq.get(i).abd)) {
-                            view2 = com.baidu.c.a.b.a.sn().Z(context, aVar.acq.get(i).abd);
+                            view2 = com.baidu.c.a.b.a.sm().Z(context, aVar.acq.get(i).abd);
                             this.acs.put(aVar.acq.get(i).abd, view2);
                         } else if ("view".equalsIgnoreCase(aVar.acq.get(i).type)) {
                             view2 = new RelativeLayout(context);
                         } else if ("image".equalsIgnoreCase(aVar.acq.get(i).type)) {
-                            view2 = d.so().aa(context, "image");
+                            view2 = d.sn().aa(context, "image");
                             if (view2 == null) {
                                 view2 = new ImageView(context);
                             }
@@ -141,7 +141,7 @@ public class a {
                             view2 = new TextView(context);
                             ((TextView) view2).setIncludeFontPadding(false);
                         } else if ("video".equalsIgnoreCase(aVar.acq.get(i).type)) {
-                            view2 = d.so().aa(context, "video");
+                            view2 = d.sn().aa(context, "video");
                         } else {
                             view2 = new RelativeLayout(context);
                         }
@@ -241,7 +241,7 @@ public class a {
                 aVar2.aaI = com.baidu.c.a.e.a.parseColor(aVar.acl);
             }
             aVar2.fontSize = (float) aVar.aca;
-            com.baidu.c.a.b.a.sn().a(str, view, aVar2, z);
+            com.baidu.c.a.b.a.sm().a(str, view, aVar2, z);
         }
     }
 
@@ -267,7 +267,7 @@ public class a {
             aVar2.videoDuration = aVar.videoDuration;
             aVar2.width = (int) aVar.aaO.getLayoutWidth();
             aVar2.height = (int) aVar.aaO.getLayoutHeight();
-            d.so().a("video", view, aVar2);
+            d.sn().a("video", view, aVar2);
         }
     }
 
@@ -278,7 +278,7 @@ public class a {
             com.baidu.c.a.a.a aVar2 = new com.baidu.c.a.a.a();
             aVar2.src = aVar.src;
             aVar2.borderRadius = (float) aVar.abV;
-            d.so().a("image", view, aVar2);
+            d.sn().a("image", view, aVar2);
         }
     }
 
@@ -412,12 +412,12 @@ public class a {
         if (view != null && aVar != null) {
             if (!z || TextUtils.isEmpty(aVar.ach)) {
                 if (!TextUtils.isEmpty(aVar.abR)) {
-                    d.so().a(aVar.type, view, aVar.abR, aVar.acd);
+                    d.sn().a(aVar.type, view, aVar.abR, aVar.acd);
                     return;
                 }
                 return;
             }
-            d.so().a(aVar.type, view, aVar.ach, aVar.acm);
+            d.sn().a(aVar.type, view, aVar.ach, aVar.acm);
         }
     }
 

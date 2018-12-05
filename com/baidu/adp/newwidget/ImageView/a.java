@@ -96,7 +96,7 @@ public abstract class a {
     }
 
     public void a(Canvas canvas, c cVar, ImageView imageView) {
-        mi();
+        mh();
         int save = canvas.save();
         int scrollX = imageView.getScrollX();
         int scrollY = imageView.getScrollY();
@@ -110,8 +110,8 @@ public abstract class a {
         if (this.mArgs.Ja != null) {
             canvas.concat(this.mArgs.Ja);
         }
-        if (cVar.IT != null && cVar.IT.ox()) {
-            if ((cVar.IT.oq().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || cVar.IT.oq().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && this.IK != null) {
+        if (cVar.IT != null && cVar.IT.ow()) {
+            if ((cVar.IT.op().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || cVar.IT.op().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && this.IK != null) {
                 canvas.concat(this.IK);
             }
             this.IO.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
@@ -147,7 +147,7 @@ public abstract class a {
         this.mArgs = dVar;
     }
 
-    public Matrix mg() {
+    public Matrix mf() {
         return this.IK;
     }
 
@@ -155,12 +155,12 @@ public abstract class a {
         this.IK = matrix;
     }
 
-    public RectF mh() {
+    public RectF mg() {
         return this.mBounds;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void mi() {
+    public void mh() {
         this.mPaint.setAlpha((int) (255.0f * this.mArgs.mAlpha));
         if (this.mArgs.mIsNight) {
             this.mPaint.setColorFilter(II);

@@ -4,7 +4,7 @@ import java.util.ListIterator;
 import java.util.NoSuchElementException;
 /* loaded from: classes2.dex */
 public final class v implements ListIterator {
-    public static final v iqM = new v();
+    public static final v ixW = new v();
 
     @Override // java.util.ListIterator
     public /* synthetic */ void add(Object obj) {
@@ -46,14 +46,14 @@ public final class v implements ListIterator {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.ListIterator, java.util.Iterator
-    /* renamed from: bZA */
+    /* renamed from: cbG */
     public Void next() {
         throw new NoSuchElementException();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.ListIterator
-    /* renamed from: bZB */
+    /* renamed from: cbH */
     public Void previous() {
         throw new NoSuchElementException();
     }

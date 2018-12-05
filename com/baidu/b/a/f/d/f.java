@@ -47,11 +47,11 @@ public class f implements Runnable {
         return this.mDynamicFile.c(aVar);
     }
 
-    public com.baidu.b.a.c.a.a rM() {
+    public com.baidu.b.a.c.a.a rL() {
         return this.mDynamicFile;
     }
 
-    public com.baidu.b.a.b.c.b rN() {
+    public com.baidu.b.a.b.c.b rM() {
         return this.aaa;
     }
 
@@ -83,7 +83,7 @@ public class f implements Runnable {
         return "downloadUrl:" + this.mDynamicFile.downloadUrl + ", version:" + this.mDynamicFile.Zn + ",md5:" + this.mDynamicFile.md5 + ",packageName:" + this.mDynamicFile.packageName;
     }
 
-    private boolean rO() {
+    private boolean rN() {
         try {
             this.aab = new File(this.mDynamicFile.filePath);
             if (!this.aab.exists()) {
@@ -127,7 +127,7 @@ public class f implements Runnable {
         return z;
     }
 
-    public boolean rP() {
+    public boolean rO() {
         if (TextUtils.isEmpty(this.mDynamicFile.downloadUrl) || TextUtils.isEmpty(this.mDynamicFile.downloadUrl.trim())) {
             this.mDynamicFile.KC = 2214;
             this.mDynamicFile.errMsg = String.format("download : param error:%s", "downloadUrl");
@@ -159,7 +159,7 @@ public class f implements Runnable {
         }
         while (this.mDynamicFile.KC != 2200) {
             try {
-                rQ();
+                rP();
                 switch (this.mDynamicFile.KC) {
                     case 2200:
                         if (com.baidu.b.a.h.b.isDebug()) {
@@ -203,7 +203,7 @@ public class f implements Runnable {
                                     Log.d("ThunderInfoTask", "download:" + this.mDynamicFile.downloadUrl + " fail. Sleep err:" + e.toString());
                                 }
                             }
-                            com.baidu.b.a.h.g.sk().a(2215, "download : retry", this.mDynamicFile.channelId, this.mDynamicFile.packageName, this.mDynamicFile.Zn, this.mDynamicFile.downloadUrl, "", 0, this.mRetryCount);
+                            com.baidu.b.a.h.g.sj().a(2215, "download : retry", this.mDynamicFile.channelId, this.mDynamicFile.packageName, this.mDynamicFile.Zn, this.mDynamicFile.downloadUrl, "", 0, this.mRetryCount);
                         }
                         break;
                 }
@@ -214,12 +214,12 @@ public class f implements Runnable {
                 }
                 return;
             } finally {
-                d.f(rM());
+                d.f(rL());
             }
         }
     }
 
-    private void rQ() {
+    private void rP() {
         if (this.aac.get()) {
             bH(12);
             if (com.baidu.b.a.h.b.isDebug()) {
@@ -228,7 +228,7 @@ public class f implements Runnable {
             this.mDynamicFile.KC = 2211;
             this.mDynamicFile.errMsg = "download : customer cancel download";
             this.mDynamicFile.Zm = a.C0056a.C0057a.Zb;
-        } else if (d.a(rN(), rM()) && (!rO() || this.aab == null)) {
+        } else if (d.a(rM(), rL()) && (!rN() || this.aab == null)) {
             bH(3);
             this.mDynamicFile.KC = 2205;
             this.mDynamicFile.errMsg = "download : path not writable";
@@ -239,7 +239,7 @@ public class f implements Runnable {
             if (this.mRetryCount == 0) {
                 this.aaa.onDownloadStart(this.mDynamicFile.packageName);
             }
-            if (!com.baidu.b.a.h.e.isWifiNetworkConnected(AppRuntime.getAppContext())) {
+            if (!com.baidu.b.a.h.e.isNetworkConnected(AppRuntime.getAppContext())) {
                 this.mDynamicFile.KC = 2201;
                 this.mDynamicFile.errMsg = "download : network error";
                 this.mDynamicFile.Zm = a.C0056a.C0057a.YS;
@@ -326,7 +326,7 @@ public class f implements Runnable {
         if (body != null && body.contentLength() > 0) {
             long contentLength = body.contentLength();
             this.mDynamicFile.Zw = contentLength;
-            boolean a2 = d.a(rN(), rM());
+            boolean a2 = d.a(rM(), rL());
             if (a2 && !v(contentLength)) {
                 bH(3);
                 this.mDynamicFile.KC = 2206;
@@ -352,9 +352,9 @@ public class f implements Runnable {
                     }
                     if (a) {
                         if (a2) {
-                            File rR = rR();
-                            if (this.aab.renameTo(rR)) {
-                                this.mDynamicFile.filePath = rR.getAbsolutePath();
+                            File rQ = rQ();
+                            if (this.aab.renameTo(rQ)) {
+                                this.mDynamicFile.filePath = rQ.getAbsolutePath();
                                 e.g(this.mDynamicFile);
                             }
                         }
@@ -489,7 +489,7 @@ public class f implements Runnable {
         return false;
     }
 
-    private File rR() {
+    private File rQ() {
         File file = new File(this.aaa.getDownloadPath(), this.mDynamicFile.packageName);
         int i = 1;
         while (file.exists()) {

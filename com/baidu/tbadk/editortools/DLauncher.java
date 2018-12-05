@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class DLauncher extends RelativeLayout implements g {
-    private TextView aUx;
-    private int aUy;
+    private TextView aXU;
+    private int aXV;
     private int mIcon;
     private int mId;
     private int mSkinType;
@@ -22,22 +22,22 @@ public class DLauncher extends RelativeLayout implements g {
         super(context);
         this.mSkinType = 0;
         if (i > 0 && i2 > 0) {
-            setLayoutParams(new AbsListView.LayoutParams(-1, getResources().getDimensionPixelSize(e.C0200e.ds230)));
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, context.getResources().getDimensionPixelSize(e.C0200e.ds144));
-            this.aUx = new TextView(context);
+            setLayoutParams(new AbsListView.LayoutParams(-1, getResources().getDimensionPixelSize(e.C0210e.ds230)));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, context.getResources().getDimensionPixelSize(e.C0210e.ds144));
+            this.aXU = new TextView(context);
             setName(str);
             setIcon(i);
             setToolId(i2);
             layoutParams.addRule(13);
-            this.aUx.setGravity(17);
-            this.aUx.setTextSize(0, context.getResources().getDimensionPixelSize(e.C0200e.fontsize24));
-            this.aUy = context.getResources().getDimensionPixelSize(e.C0200e.ds12);
-            addView(this.aUx, layoutParams);
+            this.aXU.setGravity(17);
+            this.aXU.setTextSize(0, context.getResources().getDimensionPixelSize(e.C0210e.fontsize24));
+            this.aXV = context.getResources().getDimensionPixelSize(e.C0210e.ds12);
+            addView(this.aXU, layoutParams);
         }
     }
 
     public void setName(String str) {
-        this.aUx.setText(str);
+        this.aXU.setText(str);
     }
 
     public void setIcon(int i) {
@@ -45,7 +45,7 @@ public class DLauncher extends RelativeLayout implements g {
     }
 
     @Override // com.baidu.tbadk.editortools.g
-    public void pO() {
+    public void pN() {
         setVisibility(0);
     }
 
@@ -59,8 +59,8 @@ public class DLauncher extends RelativeLayout implements g {
         super.onLayout(z, i, i2, i3, i4);
         if (this.mTip != null) {
             if (getVisibility() == 0) {
-                int right = this.aUx.getRight() - (this.mTip.getMeasuredWidth() / 2);
-                int top = this.aUx.getTop() - (this.mTip.getMeasuredHeight() / 2);
+                int right = this.aXU.getRight() - (this.mTip.getMeasuredWidth() / 2);
+                int top = this.aXU.getTop() - (this.mTip.getMeasuredHeight() / 2);
                 this.mTip.layout(right, top, this.mTip.getMeasuredWidth() + right, this.mTip.getMeasuredHeight() + top);
                 return;
             }
@@ -68,12 +68,12 @@ public class DLauncher extends RelativeLayout implements g {
         }
     }
 
-    public void hj(String str) {
-        hk(str);
+    public void hB(String str) {
+        hC(str);
         this.mTip.setVisibility(0);
     }
 
-    private void hk(String str) {
+    private void hC(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.mText = str;
             if (this.mTip == null) {
@@ -95,7 +95,7 @@ public class DLauncher extends RelativeLayout implements g {
         }
     }
 
-    public void KS() {
+    public void LW() {
         this.mText = null;
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
@@ -106,9 +106,9 @@ public class DLauncher extends RelativeLayout implements g {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                KS();
+                LW();
             } else if (aVar.data instanceof String) {
-                hj((String) aVar.data);
+                hB((String) aVar.data);
             }
         }
     }
@@ -126,14 +126,14 @@ public class DLauncher extends RelativeLayout implements g {
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
         al.d(this, e.f.btn_editor_selector, i);
-        al.b(this.aUx, e.d.cp_cont_f, 1, i);
-        if (TextUtils.isEmpty(this.aUx.getText())) {
-            al.d(this.aUx, this.mIcon, i);
+        al.b(this.aXU, e.d.cp_cont_f, 1, i);
+        if (TextUtils.isEmpty(this.aXU.getText())) {
+            al.d(this.aXU, this.mIcon, i);
         } else {
-            Drawable x = al.x(i, this.mIcon);
-            if (x != null) {
-                x.setBounds(0, 0, getResources().getDimensionPixelSize(e.C0200e.ds70), getResources().getDimensionPixelSize(e.C0200e.ds72));
-                this.aUx.setCompoundDrawables(null, x, null, null);
+            Drawable y = al.y(i, this.mIcon);
+            if (y != null) {
+                y.setBounds(0, 0, getResources().getDimensionPixelSize(e.C0210e.ds70), getResources().getDimensionPixelSize(e.C0210e.ds72));
+                this.aXU.setCompoundDrawables(null, y, null, null);
             }
         }
         if (this.mTip != null) {

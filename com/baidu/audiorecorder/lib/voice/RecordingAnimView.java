@@ -38,15 +38,15 @@ public class RecordingAnimView extends View {
         this.Tq = false;
         this.Tr = true;
         this.Tv = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.Tw = l.h(TbadkCoreApplication.getInst(), e.C0200e.ds4);
+        this.Tw = l.h(TbadkCoreApplication.getInst(), e.C0210e.ds4);
         this.Ty = new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.RecordingAnimView.1
             @Override // java.lang.Runnable
             public void run() {
-                RecordingAnimView.this.pS();
+                RecordingAnimView.this.pR();
             }
         };
         initPaint();
-        pS();
+        pR();
     }
 
     public RecordingAnimView(Context context, AttributeSet attributeSet) {
@@ -58,19 +58,19 @@ public class RecordingAnimView extends View {
         this.Tq = false;
         this.Tr = true;
         this.Tv = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.Tw = l.h(TbadkCoreApplication.getInst(), e.C0200e.ds4);
+        this.Tw = l.h(TbadkCoreApplication.getInst(), e.C0210e.ds4);
         this.Ty = new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.RecordingAnimView.1
             @Override // java.lang.Runnable
             public void run() {
-                RecordingAnimView.this.pS();
+                RecordingAnimView.this.pR();
             }
         };
         initPaint();
-        pS();
+        pR();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pS() {
+    public void pR() {
         if (this.Tq) {
             invalidate();
         }
@@ -102,7 +102,7 @@ public class RecordingAnimView extends View {
         super.onDraw(canvas);
         if (this.Tq) {
             for (int i = 0; i < this.Tp; i++) {
-                pT();
+                pS();
                 if (i < this.Tu.length) {
                     canvas.drawRoundRect(this.Tu[i], 10.0f, 10.0f, this.mPaint);
                 }
@@ -132,7 +132,7 @@ public class RecordingAnimView extends View {
         return i == 0 ? e.d.white_alpha100 : e.d.white_alpha70;
     }
 
-    private void pT() {
+    private void pS() {
         int nextInt;
         if (this.Tu == null || this.Tu.length != this.Tp) {
             this.Tu = new RectF[this.Tp];
@@ -170,7 +170,7 @@ public class RecordingAnimView extends View {
     public void start() {
         this.Tq = true;
         this.Tr = false;
-        pS();
+        pR();
     }
 
     public void setCertainColumnCount(int i) {
@@ -179,10 +179,10 @@ public class RecordingAnimView extends View {
         }
     }
 
-    public void pU() {
+    public void pT() {
         this.Tq = true;
         this.Tr = true;
-        pS();
+        pR();
     }
 
     @Override // android.view.View

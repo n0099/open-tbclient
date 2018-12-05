@@ -28,7 +28,7 @@ public class b {
         }
     }
 
-    public static b tW() {
+    public static b tV() {
         if (afK == null) {
             afK = new b();
         }
@@ -103,7 +103,7 @@ public class b {
             stringBuffer.append("&laip=");
             stringBuffer.append(b);
         }
-        float b2 = k.tl().b();
+        float b2 = k.tk().b();
         if (b2 != 0.0f) {
             stringBuffer.append("&altv=");
             stringBuffer.append(String.format(Locale.US, "%.5f", Float.valueOf(b2)));

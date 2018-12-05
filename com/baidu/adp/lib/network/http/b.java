@@ -119,15 +119,15 @@ public class b {
     private HttpURLConnection c(URL url) {
         HttpURLConnection httpURLConnection;
         Exception e;
-        String lf;
+        String le;
         HttpURLConnection httpURLConnection2 = null;
         try {
             if (j.kV()) {
-                if (j.kX() && (lf = j.lf()) != null && lf.length() > 0) {
-                    if (j.bu(lf) && j.lh()) {
+                if (j.kX() && (le = j.le()) != null && le.length() > 0) {
+                    if (j.bu(le) && j.lg()) {
                         StringBuilder sb = new StringBuilder(80);
                         sb.append("http://");
-                        sb.append(lf);
+                        sb.append(le);
                         String file = url.getFile();
                         if (file != null && file.startsWith("?")) {
                             sb.append("/");
@@ -143,7 +143,7 @@ public class b {
                             return httpURLConnection;
                         }
                     } else {
-                        httpURLConnection2 = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(lf, j.lg())));
+                        httpURLConnection2 = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(le, j.lf())));
                     }
                 }
                 if (httpURLConnection2 == null) {

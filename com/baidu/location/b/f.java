@@ -54,7 +54,7 @@ public class f {
             }
             this.k.put("cltr[0]", "" + Jni.encodeOfflineLocationUpdateRequest(jSONObject.toString()));
             this.k.put("cfg", 1);
-            this.k.put("info", Jni.encode(com.baidu.location.g.b.tW().c()));
+            this.k.put("info", Jni.encode(com.baidu.location.g.b.tV().c()));
             this.k.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
         }
 
@@ -277,7 +277,7 @@ public class f {
                 return;
             }
             JSONArray jSONArray4 = null;
-            List<b> a2 = a(com.baidu.location.e.f.tR().d());
+            List<b> a2 = a(com.baidu.location.e.f.tQ().d());
             if (currentTimeMillis == 0) {
                 if (a2 != null && a2.size() > 0) {
                     jSONArray4 = new JSONArray();
@@ -338,7 +338,7 @@ public class f {
         }
     }
 
-    public static f tz() {
+    public static f ty() {
         f fVar;
         synchronized (a) {
             if (aew == null) {

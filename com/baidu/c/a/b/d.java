@@ -8,7 +8,7 @@ public class d implements c {
     private static volatile d aaL = null;
     private c aaM;
 
-    public static d so() {
+    public static d sn() {
         if (aaL == null) {
             synchronized (d.class) {
                 if (aaL == null) {

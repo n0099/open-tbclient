@@ -30,7 +30,7 @@ public class b extends a {
         if (this.IK != null) {
             canvas.concat(this.IK);
         }
-        if (cVar.mj()) {
+        if (cVar.mi()) {
             Bitmap bitmap = cVar.IS.getBitmap();
             this.IR.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
             canvas.drawBitmap(bitmap, this.IR, this.mBounds, this.mPaint);

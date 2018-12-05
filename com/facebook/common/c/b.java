@@ -5,12 +5,12 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 /* loaded from: classes2.dex */
 public class b implements c {
-    public static final b hYB = new b();
-    private String hYC = "unknown";
-    private int hYD = 5;
+    public static final b ifO = new b();
+    private String ifP = "unknown";
+    private int ifQ = 5;
 
-    public static b bQY() {
-        return hYB;
+    public static b bTe() {
+        return ifO;
     }
 
     private b() {
@@ -18,27 +18,27 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public boolean isLoggable(int i) {
-        return this.hYD <= i;
+        return this.ifQ <= i;
     }
 
     @Override // com.facebook.common.c.c
     public void v(String str, String str2) {
-        m(2, str, str2);
+        n(2, str, str2);
     }
 
     @Override // com.facebook.common.c.c
     public void d(String str, String str2) {
-        m(3, str, str2);
+        n(3, str, str2);
     }
 
     @Override // com.facebook.common.c.c
     public void i(String str, String str2) {
-        m(4, str, str2);
+        n(4, str, str2);
     }
 
     @Override // com.facebook.common.c.c
     public void w(String str, String str2) {
-        m(5, str, str2);
+        n(5, str, str2);
     }
 
     @Override // com.facebook.common.c.c
@@ -48,7 +48,7 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public void e(String str, String str2) {
-        m(6, str, str2);
+        n(6, str, str2);
     }
 
     @Override // com.facebook.common.c.c
@@ -57,8 +57,8 @@ public class b implements c {
     }
 
     @Override // com.facebook.common.c.c
-    public void cV(String str, String str2) {
-        m(6, str, str2);
+    public void da(String str, String str2) {
+        n(6, str, str2);
     }
 
     @Override // com.facebook.common.c.c
@@ -66,17 +66,17 @@ public class b implements c {
         b(6, str, str2, th);
     }
 
-    private void m(int i, String str, String str2) {
-        Log.println(i, yz(str), str2);
+    private void n(int i, String str, String str2) {
+        Log.println(i, zc(str), str2);
     }
 
     private void b(int i, String str, String str2, Throwable th) {
-        Log.println(i, yz(str), j(str2, th));
+        Log.println(i, zc(str), j(str2, th));
     }
 
-    private String yz(String str) {
-        if (this.hYC != null) {
-            return this.hYC + ":" + str;
+    private String zc(String str) {
+        if (this.ifP != null) {
+            return this.ifP + ":" + str;
         }
         return str;
     }

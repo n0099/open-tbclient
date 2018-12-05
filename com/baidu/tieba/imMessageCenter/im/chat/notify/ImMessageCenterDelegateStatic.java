@@ -18,8 +18,8 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment;
 /* loaded from: classes4.dex */
 public class ImMessageCenterDelegateStatic extends b {
-    private MessageRedDotView eUA;
-    private CustomMessageListener eUB;
+    private MessageRedDotView fbp;
+    private CustomMessageListener fbq;
 
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -27,28 +27,28 @@ public class ImMessageCenterDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c MK() {
+    public c NO() {
         c cVar = new c();
-        cVar.bam = new MessageCenterFragment();
+        cVar.bdK = new MessageCenterFragment();
         cVar.type = 3;
-        cVar.aBR = e.j.my_message;
-        cVar.aBS = e.f.s_tabbar_icon_three_bg;
+        cVar.aFr = e.j.my_message;
+        cVar.aFs = e.f.s_tabbar_icon_three_bg;
         cVar.nk = e.f.tabbar_message_anim;
-        cVar.bat = c.baq;
+        cVar.bdQ = c.bdO;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator bO(Context context) {
-        this.aZY = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(e.h.maintab_bottom_indicator, (ViewGroup) null);
-        this.eUA = new MessageRedDotView(context);
+    public TbFragmentTabIndicator bR(Context context) {
+        this.bdw = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(e.h.maintab_bottom_indicator, (ViewGroup) null);
+        this.fbp = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.baH = this.aZY;
-        aVar.view = this.eUA;
-        aVar.baE = true;
-        this.aZY.b("msg", aVar);
-        this.eUA.setVisibility(4);
-        return this.aZY;
+        aVar.bee = this.bdw;
+        aVar.view = this.fbp;
+        aVar.beb = true;
+        this.bdw.b("msg", aVar);
+        this.fbp.setVisibility(4);
+        return this.bdw;
     }
 
     static {
@@ -66,8 +66,8 @@ public class ImMessageCenterDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void MJ() {
-        this.eUB = new CustomMessageListener(2921002) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
+    public void NN() {
+        this.fbq = new CustomMessageListener(2921002) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -83,33 +83,33 @@ public class ImMessageCenterDelegateStatic extends b {
                         } catch (Exception e) {
                             i = intValue;
                             z = false;
-                            ImMessageCenterDelegateStatic.this.g(z, i);
+                            ImMessageCenterDelegateStatic.this.h(z, i);
                         }
                     } catch (Exception e2) {
                         i = 0;
                     }
-                    ImMessageCenterDelegateStatic.this.g(z, i);
+                    ImMessageCenterDelegateStatic.this.h(z, i);
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.eUB);
+        MessageManager.getInstance().registerListener(this.fbq);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void g(boolean z, int i) {
-        if (this.eUA != null) {
+    public void h(boolean z, int i) {
+        if (this.fbp != null) {
             if (z) {
-                this.eUA.refresh(i);
-                this.eUA.setVisibility(0);
+                this.fbp.refresh(i);
+                this.fbp.setVisibility(0);
                 return;
             }
-            this.eUA.setVisibility(8);
+            this.fbp.setVisibility(8);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void gy() {
         super.gy();
-        MessageManager.getInstance().unRegisterListener(this.eUB);
+        MessageManager.getInstance().unRegisterListener(this.fbq);
     }
 }

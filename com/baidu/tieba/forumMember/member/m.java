@@ -4,27 +4,27 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.MemberGroupInfo;
 /* loaded from: classes3.dex */
 public class m implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId dyD = BdUniqueId.gen();
-    private boolean dxm = false;
-    private MemberGroupInfo dyE;
+    public static final BdUniqueId dFc = BdUniqueId.gen();
+    private boolean dDL = false;
+    private MemberGroupInfo dFd;
     private String forumId;
     private String forumName;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dyD;
+        return dFc;
     }
 
-    public MemberGroupInfo axK() {
-        return this.dyE;
+    public MemberGroupInfo azu() {
+        return this.dFd;
     }
 
     public void a(MemberGroupInfo memberGroupInfo) {
-        this.dyE = memberGroupInfo;
+        this.dFd = memberGroupInfo;
     }
 
-    public void gj(boolean z) {
-        this.dxm = z;
+    public void gk(boolean z) {
+        this.dDL = z;
     }
 
     public String getForumId() {

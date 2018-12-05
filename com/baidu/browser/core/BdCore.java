@@ -21,7 +21,7 @@ public final class BdCore {
     private BdCore() {
     }
 
-    public static synchronized BdCore qf() {
+    public static synchronized BdCore qe() {
         BdCore bdCore;
         synchronized (BdCore.class) {
             if (UG == null) {

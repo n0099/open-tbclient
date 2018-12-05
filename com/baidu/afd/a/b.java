@@ -39,7 +39,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
     /* renamed from: c */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         e a;
-        if (this.Se == null || (a = com.baidu.tieba.lego.card.b.aVX().a(this.Sf, this.Se, 2)) == null) {
+        if (this.Se == null || (a = com.baidu.tieba.lego.card.b.aXP().a(this.Sf, this.Se, 2)) == null) {
             return null;
         }
         if (a instanceof i) {
@@ -63,25 +63,25 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public a onCreateViewHolder(ViewGroup viewGroup, com.baidu.afd.d dVar) {
-        if (dVar == null || dVar.pu() == null) {
+        if (dVar == null || dVar.pt() == null) {
             return null;
         }
         this.adFacadeData = dVar;
-        this.Se = dVar.pu();
+        this.Se = dVar.pt();
         return onCreateViewHolder(viewGroup);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.afd.d dVar, boolean z, int i, String str, String str2) {
         if (dVar != null) {
-            AdvertAppInfo pv = dVar.pv();
+            AdvertAppInfo pu = dVar.pu();
             int i2 = 2;
-            if (pv != null && pv.legoCard != null && pv.legoCard.forFree()) {
+            if (pu != null && pu.legoCard != null && pu.legoCard.forFree()) {
                 i2 = 102;
             }
-            com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(pv, i2, i);
-            c.uo(str2);
-            com.baidu.tieba.recapp.report.c.btB().a(c);
+            com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(pu, i2, i);
+            c.uP(str2);
+            com.baidu.tieba.recapp.report.c.bvu().a(c);
             com.baidu.tieba.lego.card.b.c.a(dVar);
         }
     }
@@ -94,16 +94,16 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
         if (dVar == null || aVar == null) {
             return null;
         }
-        if (aVar.pz() instanceof g) {
-            g gVar = (g) aVar.pz();
+        if (aVar.py() instanceof g) {
+            g gVar = (g) aVar.py();
             gVar.setAutoPlayCallBack(this.Sg);
             gVar.setOnVideoContainerForegroundClickListener(this.Sh);
             gVar.setCurrentPlayCallBack(this);
         }
-        dVar.px();
-        if (aVar.pz() != null) {
-            aVar.pz().setPosition(i);
-            aVar.pz().Z(dVar.pu());
+        dVar.pw();
+        if (aVar.py() != null) {
+            aVar.py().setPosition(i);
+            aVar.py().Z(dVar.pt());
         }
         return aVar.getView();
     }
@@ -113,17 +113,17 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
     /* renamed from: a */
     public View getView(int i, View view, ViewGroup viewGroup, com.baidu.afd.d dVar) {
         this.adFacadeData = dVar;
-        this.Se = dVar.pu();
+        this.Se = dVar.pt();
         return super.getView(i, view, viewGroup, dVar);
     }
 
-    public void pA() {
+    public void pz() {
         if (this.Si != null) {
             this.Si.pausePlay();
         }
     }
 
-    public void pB() {
+    public void pA() {
         if (this.Si != null) {
             this.Si.stopPlay();
         }
@@ -137,7 +137,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
         }
     }
 
-    public boolean pC() {
+    public boolean pB() {
         if (this.Si != null) {
             return this.Si.isPlaying();
         }

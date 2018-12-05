@@ -47,7 +47,7 @@ public class n {
             e.printStackTrace();
         }
         setResult(i == 0 ? 0 : 1);
-        qN();
+        qM();
     }
 
     public void c(String str, String str2, boolean z) {
@@ -57,7 +57,7 @@ public class n {
             addField(str, str2);
         }
         aG(z);
-        qN();
+        qM();
     }
 
     public void cA(String str) {
@@ -82,7 +82,7 @@ public class n {
             }
             cz(str);
         }
-        qN();
+        qM();
     }
 
     public void notifyCallback(String str, String str2) {
@@ -91,14 +91,14 @@ public class n {
         }
     }
 
-    public HashMap<String, String> qM() {
+    public HashMap<String, String> qL() {
         if (this.Wt == null) {
             this.Wt = new HashMap<>();
         }
         return this.Wt;
     }
 
-    public void qN() {
+    public void qM() {
         int i = 0;
         try {
             i = this.Wr.getInt("result");
@@ -108,9 +108,9 @@ public class n {
         notifyCallback(i == 0 ? this.Wp : this.Wq, this.Wr.toString());
     }
 
-    public void qO() {
+    public void qN() {
         aG(true);
-        qN();
+        qM();
     }
 
     public void setResult(int i) {

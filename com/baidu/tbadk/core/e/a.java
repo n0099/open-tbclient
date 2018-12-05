@@ -3,11 +3,11 @@ package com.baidu.tbadk.core.e;
 import android.content.Context;
 /* loaded from: classes.dex */
 public interface a {
-    Class<?> Bn();
+    Class<?> Cr();
 
-    String Bo();
+    String Cs();
 
-    void bv(Context context);
+    void by(Context context);
 
     void c(Context context, int i, boolean z);
 

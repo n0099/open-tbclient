@@ -7,45 +7,45 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class d {
-    private static volatile d bwV;
-    private ArrayList<Integer> bwR = new ArrayList<>();
-    private c bwS;
-    private a bwW;
+    private static volatile d bAs;
+    private ArrayList<Integer> bAo = new ArrayList<>();
+    private c bAp;
+    private a bAt;
 
-    public static d UG() {
-        if (bwV == null) {
+    public static d VM() {
+        if (bAs == null) {
             synchronized (c.class) {
-                if (bwV == null) {
-                    bwV = new d();
+                if (bAs == null) {
+                    bAs = new d();
                 }
             }
         }
-        return bwV;
+        return bAs;
     }
 
     private d() {
-        this.bwR.add(1);
-        this.bwR.add(2);
-        this.bwS = new c();
-        this.bwW = new a(this.bwS, this.bwR);
-        ht(com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_abtest_channel", 0));
+        this.bAo.add(1);
+        this.bAo.add(2);
+        this.bAp = new c();
+        this.bAt = new a(this.bAp, this.bAo);
+        hH(com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_abtest_channel", 0));
     }
 
     public int M(String str, int i) {
-        if (this.bwW == null) {
+        if (this.bAt == null) {
             return 0;
         }
-        return this.bwW.M(str, i);
+        return this.bAt.M(str, i);
     }
 
-    public void jr(String str) {
-        if (this.bwW != null) {
-            this.bwW.jq(str);
+    public void jJ(String str) {
+        if (this.bAt != null) {
+            this.bAt.jI(str);
         }
     }
 
     public void a(String str, String str2, am amVar) {
-        if (amVar != null && this.bwS != null && this.bwS.UE()) {
+        if (amVar != null && this.bAp != null && this.bAp.VK()) {
             HashMap hashMap = new HashMap();
             List<Object> params = amVar.getParams();
             if (params != null) {
@@ -69,20 +69,20 @@ public class d {
     }
 
     public void onPageStart(String str) {
-        if (ao.isEmpty(str) || this.bwS == null || !this.bwS.UE()) {
-            com.baidu.ubs.analytics.a.xO(str);
+        if (ao.isEmpty(str) || this.bAp == null || !this.bAp.VK()) {
+            com.baidu.ubs.analytics.a.yr(str);
         }
     }
 
     public void onPageEnd(String str) {
-        if (ao.isEmpty(str) || this.bwS == null || !this.bwS.UE()) {
-            com.baidu.ubs.analytics.a.xP(str);
+        if (ao.isEmpty(str) || this.bAp == null || !this.bAp.VK()) {
+            com.baidu.ubs.analytics.a.ys(str);
         }
     }
 
-    public void ht(int i) {
-        if (this.bwS != null) {
-            this.bwS.ht(i);
+    public void hH(int i) {
+        if (this.bAp != null) {
+            this.bAp.hH(i);
         }
     }
 }

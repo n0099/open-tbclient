@@ -15,12 +15,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class ay {
-    private final ConcurrentHashMap<String, b> azy;
-    private c azz;
-    private final List<a> mListeners;
-    private static ay azx = new ay() { // from class: com.baidu.tbadk.core.util.ay.1
+    private static ay aCX = new ay() { // from class: com.baidu.tbadk.core.util.ay.1
     };
-    private static final Pattern azA = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private static final Pattern aDa = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private final ConcurrentHashMap<String, b> aCY;
+    private c aCZ;
+    private final List<a> mListeners;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -43,13 +43,13 @@ public class ay {
 
     private ay() {
         this.mListeners = new LinkedList();
-        this.azy = new ConcurrentHashMap<>();
-        this.azz = null;
+        this.aCY = new ConcurrentHashMap<>();
+        this.aCZ = null;
     }
 
-    public static SpannableString ah(Context context, String str) {
+    public static SpannableString ai(Context context, String str) {
         int start;
-        Matcher matcher = azA.matcher(str);
+        Matcher matcher = aDa.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             String group = matcher.group();
@@ -63,12 +63,12 @@ public class ay {
         return spannableString;
     }
 
-    public static ay Db() {
-        return azx;
+    public static ay Ef() {
+        return aCX;
     }
 
     public void a(final a aVar) {
-        if (com.baidu.adp.lib.util.l.ll()) {
+        if (com.baidu.adp.lib.util.l.lk()) {
             b(aVar);
         } else {
             com.baidu.adp.lib.g.e.jG().post(new Runnable() { // from class: com.baidu.tbadk.core.util.ay.2
@@ -88,7 +88,7 @@ public class ay {
     }
 
     public void a(c cVar) {
-        this.azz = cVar;
+        this.aCZ = cVar;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
@@ -101,9 +101,9 @@ public class ay {
             return 3;
         }
         String str = strArr[0];
-        b bVar = this.azy.get(fz(str));
+        b bVar = this.aCY.get(fR(str));
         if (bVar != null) {
-            bVar.a(tbPageContext, fy(fx(str)));
+            bVar.a(tbPageContext, fQ(fP(str)));
             return 0;
         }
         for (a aVar : this.mListeners) {
@@ -121,9 +121,9 @@ public class ay {
             return false;
         }
         String str2 = strArr[0];
-        b bVar = this.azy.get(fz(str2));
+        b bVar = this.aCY.get(fR(str2));
         if (bVar != null) {
-            bVar.a(tbPageContext, fy(fx(str2)));
+            bVar.a(tbPageContext, fQ(fP(str2)));
             return true;
         }
         Iterator<a> it = this.mListeners.iterator();
@@ -138,7 +138,7 @@ public class ay {
                 break;
             }
         }
-        if (!z3 && this.azz != null) {
+        if (!z3 && this.aCZ != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -149,7 +149,7 @@ public class ay {
         return z4;
     }
 
-    public static Map<String, String> fv(String str) {
+    public static Map<String, String> fN(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -167,7 +167,7 @@ public class ay {
         return null;
     }
 
-    public static String fw(String str) {
+    public static String fO(String str) {
         String[] split;
         if (StringUtils.isNull(str) || (split = str.split("[?]")) == null || split.length <= 1) {
             return null;
@@ -175,7 +175,7 @@ public class ay {
         return split[1];
     }
 
-    public static String fx(String str) {
+    public static String fP(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -193,7 +193,7 @@ public class ay {
         }
     }
 
-    private Map<String, String> fy(String str) {
+    private Map<String, String> fQ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -217,7 +217,7 @@ public class ay {
         return hashMap;
     }
 
-    private String fz(String str) {
+    private String fR(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -243,21 +243,21 @@ public class ay {
     }
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
-        if (azA.matcher(str2).find()) {
-            this.azz.a(tbPageContext, str, str2, z, dVar, z2);
+        if (aDa.matcher(str2).find()) {
+            this.aCZ.a(tbPageContext, str, str2, z, dVar, z2);
         }
     }
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str) && bVar != null) {
-            String fz = fz(str);
-            if (!StringUtils.isNull(fz)) {
-                this.azy.put(fz, bVar);
+            String fR = fR(str);
+            if (!StringUtils.isNull(fR)) {
+                this.aCY.put(fR, bVar);
             }
         }
     }
 
-    public boolean fA(String str) {
-        return azA.matcher(str).find();
+    public boolean fS(String str) {
+        return aDa.matcher(str).find();
     }
 }

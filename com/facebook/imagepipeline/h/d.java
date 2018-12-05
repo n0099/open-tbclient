@@ -11,7 +11,7 @@ import javax.annotation.concurrent.ThreadSafe;
 @TargetApi(19)
 /* loaded from: classes2.dex */
 public class d extends b {
-    private final i idW;
+    private final i ilg;
 
     @Override // com.facebook.imagepipeline.h.b
     public /* bridge */ /* synthetic */ com.facebook.common.references.a S(Bitmap bitmap) {
@@ -29,31 +29,31 @@ public class d extends b {
     }
 
     public d(i iVar) {
-        this.idW = iVar;
+        this.ilg = iVar;
     }
 
     @Override // com.facebook.imagepipeline.h.b
     protected Bitmap a(com.facebook.common.references.a<PooledByteBuffer> aVar, BitmapFactory.Options options) {
         PooledByteBuffer pooledByteBuffer = aVar.get();
         int size = pooledByteBuffer.size();
-        com.facebook.common.references.a<byte[]> yd = this.idW.yd(size);
+        com.facebook.common.references.a<byte[]> yA = this.ilg.yA(size);
         try {
-            byte[] bArr = yd.get();
+            byte[] bArr = yA.get();
             pooledByteBuffer.b(0, bArr, 0, size);
             return (Bitmap) g.checkNotNull(BitmapFactory.decodeByteArray(bArr, 0, size, options), "BitmapFactory returned null");
         } finally {
-            com.facebook.common.references.a.c((com.facebook.common.references.a<?>) yd);
+            com.facebook.common.references.a.c((com.facebook.common.references.a<?>) yA);
         }
     }
 
     @Override // com.facebook.imagepipeline.h.b
     protected Bitmap a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, BitmapFactory.Options options) {
-        byte[] bArr = a(aVar, i) ? null : iiq;
+        byte[] bArr = a(aVar, i) ? null : ipC;
         PooledByteBuffer pooledByteBuffer = aVar.get();
         g.checkArgument(i <= pooledByteBuffer.size());
-        com.facebook.common.references.a<byte[]> yd = this.idW.yd(i + 2);
+        com.facebook.common.references.a<byte[]> yA = this.ilg.yA(i + 2);
         try {
-            byte[] bArr2 = yd.get();
+            byte[] bArr2 = yA.get();
             pooledByteBuffer.b(0, bArr2, 0, i);
             if (bArr != null) {
                 p(bArr2, i);
@@ -61,7 +61,7 @@ public class d extends b {
             }
             return (Bitmap) g.checkNotNull(BitmapFactory.decodeByteArray(bArr2, 0, i, options), "BitmapFactory returned null");
         } finally {
-            com.facebook.common.references.a.c((com.facebook.common.references.a<?>) yd);
+            com.facebook.common.references.a.c((com.facebook.common.references.a<?>) yA);
         }
     }
 

@@ -4,59 +4,59 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes3.dex */
 public class p implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId dyW = BdUniqueId.gen();
-    private String dyZ;
-    private String dza;
-    private int dyX = -1;
-    private int dyY = -1;
-    private int dzb = -1;
+    public static final BdUniqueId dFv = BdUniqueId.gen();
+    private String dFy;
+    private String dFz;
+    private int dFw = -1;
+    private int dFx = -1;
+    private int dFA = -1;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dyW;
+        return dFv;
     }
 
-    public int axL() {
-        return this.dyX;
+    public int azv() {
+        return this.dFw;
     }
 
-    public void lw(int i) {
-        this.dyX = i;
+    public void lM(int i) {
+        this.dFw = i;
     }
 
-    public int axM() {
-        return this.dzb;
+    public int azw() {
+        return this.dFA;
     }
 
-    public void lx(int i) {
-        this.dzb = i;
+    public void lN(int i) {
+        this.dFA = i;
     }
 
-    public int axN() {
-        return this.dyY;
+    public int azx() {
+        return this.dFx;
     }
 
-    public void ly(int i) {
-        this.dyY = i;
+    public void lO(int i) {
+        this.dFx = i;
     }
 
-    public String axO() {
-        return this.dyZ;
+    public String azy() {
+        return this.dFy;
     }
 
-    public void ns(String str) {
-        this.dyZ = str;
+    public void nR(String str) {
+        this.dFy = str;
     }
 
-    public String axP() {
-        return this.dza;
+    public String azz() {
+        return this.dFz;
     }
 
-    public void nt(String str) {
-        this.dza = str;
+    public void nS(String str) {
+        this.dFz = str;
     }
 
     public boolean isEmpty() {
-        return StringUtils.isNull(this.dyZ) || StringUtils.isNull(this.dza) || this.dyX < 0 || this.dyY < 0;
+        return StringUtils.isNull(this.dFy) || StringUtils.isNull(this.dFz) || this.dFw < 0 || this.dFx < 0;
     }
 }

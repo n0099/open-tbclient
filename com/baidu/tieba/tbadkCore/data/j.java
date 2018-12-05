@@ -4,30 +4,30 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.Timgs;
 /* loaded from: classes.dex */
 public class j implements com.baidu.tbadk.core.flow.a.a {
-    private String heg;
-    private String heh;
-    private String hei;
     private int height;
-    private String hej;
+    private String hla;
+    private String hlb;
+    private String hlc;
+    private String hld;
     private String subTitle;
     private int urlFlag;
     private int width;
 
     public j(Timgs timgs) {
-        this.heg = null;
+        this.hla = null;
         this.urlFlag = 0;
-        this.heh = null;
-        this.hei = null;
-        this.hej = null;
+        this.hlb = null;
+        this.hlc = null;
+        this.hld = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.heg = timgs.img_url;
+            this.hla = timgs.img_url;
             this.urlFlag = timgs.flag.intValue();
-            this.heh = timgs.url;
-            this.hei = timgs.big_cdn_url;
-            this.hej = timgs.des_main;
+            this.hlb = timgs.url;
+            this.hlc = timgs.big_cdn_url;
+            this.hld = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
@@ -50,19 +50,19 @@ public class j implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.heg;
+        return this.hla;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String xi() {
-        return this.heh;
+    public String yn() {
+        return this.hlb;
     }
 
-    public String bBf() {
-        return this.heg;
+    public String bDa() {
+        return this.hla;
     }
 
-    public String bBg() {
-        return this.hei;
+    public String bDb() {
+        return this.hlc;
     }
 }

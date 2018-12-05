@@ -77,16 +77,16 @@ public abstract class AsyncTask<Params, Progress, Result> {
                     try {
                         runnable.run();
                     } finally {
-                        c.this.qj();
+                        c.this.qi();
                     }
                 }
             });
             if (this.Vb == null) {
-                qj();
+                qi();
             }
         }
 
-        protected synchronized void qj() {
+        protected synchronized void qi() {
             this.Vb = this.Va.poll();
             if (this.Vb != null) {
                 try {

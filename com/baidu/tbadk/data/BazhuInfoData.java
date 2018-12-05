@@ -20,7 +20,7 @@ public class BazhuInfoData extends OrmObject {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: fm */
+            /* renamed from: fA */
             public BaInfo[] newArray(int i) {
                 return new BaInfo[i];
             }

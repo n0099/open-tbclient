@@ -2,32 +2,23 @@ package com.baidu.tieba.aiapps.apps.l;
 
 import android.app.Activity;
 import android.content.Context;
-import com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppPaymentIoc;
-import com.baidu.searchbox.ng.ai.apps.pay.callback.AliPayCallback;
-import com.baidu.searchbox.ng.ai.apps.pay.callback.PayCallback;
-import com.baidu.searchbox.ng.ai.apps.pay.callback.PolymerPayCallback;
-import com.baidu.searchbox.ng.ai.apps.scheme.actions.RequestPolymerPaymentAction;
-import org.json.JSONObject;
+import android.net.Uri;
+import android.os.Bundle;
+import com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppPluginIoc;
+import com.baidu.searchbox.ng.ai.apps.media.chooser.helper.PickVideoTask;
 /* loaded from: classes4.dex */
-public class a implements IAiAppPaymentIoc {
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppPaymentIoc
-    public void doPay(Context context, String str, PayCallback payCallback) {
+public class a implements IAiAppPluginIoc {
+    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppPluginIoc
+    public void openDocument(Activity activity, Uri uri, String str) {
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppPaymentIoc
-    public void doAliPay(Context context, String str, AliPayCallback aliPayCallback) {
-    }
-
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppPaymentIoc
-    public void doPolymerPay(Context context, Activity activity, String str, String[] strArr, PolymerPayCallback polymerPayCallback) {
-    }
-
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppPaymentIoc
-    public boolean removeWalletUI() {
+    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppPluginIoc
+    public boolean isReadPluginAvailable(Context context, String str) {
         return false;
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppPaymentIoc
-    public void doPolymerPayBySwan(Context context, JSONObject jSONObject, RequestPolymerPaymentAction.OnWalletPayBack onWalletPayBack) {
+    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppPluginIoc
+    public void compressVideo(Context context, Bundle bundle, PickVideoTask.OnCompressResultCallback onCompressResultCallback) {
+        onCompressResultCallback.onResult(false, null);
     }
 }

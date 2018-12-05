@@ -8,7 +8,7 @@ import android.widget.Adapter;
 import android.widget.LinearLayout;
 /* loaded from: classes6.dex */
 public class AdapterLinearLayout extends LinearLayout {
-    private Adapter dZc;
+    private Adapter efF;
     private final DataSetObserver mDataSetObserver;
 
     public AdapterLinearLayout(Context context) {
@@ -16,12 +16,12 @@ public class AdapterLinearLayout extends LinearLayout {
         this.mDataSetObserver = new DataSetObserver() { // from class: com.baidu.tieba.frs.view.AdapterLinearLayout.1
             @Override // android.database.DataSetObserver
             public void onChanged() {
-                if (AdapterLinearLayout.this.dZc != null) {
-                    int count = AdapterLinearLayout.this.dZc.getCount();
+                if (AdapterLinearLayout.this.efF != null) {
+                    int count = AdapterLinearLayout.this.efF.getCount();
                     int childCount = AdapterLinearLayout.this.getChildCount() - count;
                     for (int i = 0; i < count; i++) {
                         View childAt = AdapterLinearLayout.this.getChildAt(i);
-                        View view = AdapterLinearLayout.this.dZc.getView(i, childAt, AdapterLinearLayout.this);
+                        View view = AdapterLinearLayout.this.efF.getView(i, childAt, AdapterLinearLayout.this);
                         if (childAt == null && view != null) {
                             AdapterLinearLayout.this.addView(view);
                         }
@@ -44,12 +44,12 @@ public class AdapterLinearLayout extends LinearLayout {
         this.mDataSetObserver = new DataSetObserver() { // from class: com.baidu.tieba.frs.view.AdapterLinearLayout.1
             @Override // android.database.DataSetObserver
             public void onChanged() {
-                if (AdapterLinearLayout.this.dZc != null) {
-                    int count = AdapterLinearLayout.this.dZc.getCount();
+                if (AdapterLinearLayout.this.efF != null) {
+                    int count = AdapterLinearLayout.this.efF.getCount();
                     int childCount = AdapterLinearLayout.this.getChildCount() - count;
                     for (int i = 0; i < count; i++) {
                         View childAt = AdapterLinearLayout.this.getChildAt(i);
-                        View view = AdapterLinearLayout.this.dZc.getView(i, childAt, AdapterLinearLayout.this);
+                        View view = AdapterLinearLayout.this.efF.getView(i, childAt, AdapterLinearLayout.this);
                         if (childAt == null && view != null) {
                             AdapterLinearLayout.this.addView(view);
                         }
@@ -72,12 +72,12 @@ public class AdapterLinearLayout extends LinearLayout {
         this.mDataSetObserver = new DataSetObserver() { // from class: com.baidu.tieba.frs.view.AdapterLinearLayout.1
             @Override // android.database.DataSetObserver
             public void onChanged() {
-                if (AdapterLinearLayout.this.dZc != null) {
-                    int count = AdapterLinearLayout.this.dZc.getCount();
+                if (AdapterLinearLayout.this.efF != null) {
+                    int count = AdapterLinearLayout.this.efF.getCount();
                     int childCount = AdapterLinearLayout.this.getChildCount() - count;
                     for (int i2 = 0; i2 < count; i2++) {
                         View childAt = AdapterLinearLayout.this.getChildAt(i2);
-                        View view = AdapterLinearLayout.this.dZc.getView(i2, childAt, AdapterLinearLayout.this);
+                        View view = AdapterLinearLayout.this.efF.getView(i2, childAt, AdapterLinearLayout.this);
                         if (childAt == null && view != null) {
                             AdapterLinearLayout.this.addView(view);
                         }
@@ -96,12 +96,12 @@ public class AdapterLinearLayout extends LinearLayout {
     }
 
     public void setAdapter(Adapter adapter) {
-        if (this.dZc != null) {
-            this.dZc.unregisterDataSetObserver(this.mDataSetObserver);
+        if (this.efF != null) {
+            this.efF.unregisterDataSetObserver(this.mDataSetObserver);
         }
-        this.dZc = adapter;
-        if (this.dZc != null) {
-            this.dZc.registerDataSetObserver(this.mDataSetObserver);
+        this.efF = adapter;
+        if (this.efF != null) {
+            this.efF.registerDataSetObserver(this.mDataSetObserver);
         }
     }
 }

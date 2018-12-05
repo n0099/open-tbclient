@@ -20,13 +20,13 @@ public class e {
 
         boolean isConnected();
 
-        String lB();
+        String lA();
 
-        long lC();
+        long lB();
 
-        int lD();
+        int lC();
 
-        String ln();
+        String lm();
 
         int read(ByteBuffer byteBuffer) throws Exception;
 
@@ -71,14 +71,14 @@ public class e {
                 this.Hk = inetSocketAddress.getAddress().getHostAddress();
                 this.Hj = System.currentTimeMillis() - currentTimeMillis;
             }
-            this.Hn.connect(inetSocketAddress, lVar.lX());
-            this.Hn.setSoTimeout(lVar.lW());
+            this.Hn.connect(inetSocketAddress, lVar.lW());
+            this.Hn.setSoTimeout(lVar.lV());
             this.Hn.setTcpNoDelay(lVar.getTcpNoDelay());
             this.mInputStream = this.Hn.getInputStream();
             this.mOutputStream = this.Hn.getOutputStream();
             this.mData = new byte[1024];
             this.Hl = com.baidu.adp.lib.util.l.getLocalDns();
-            this.Hm = com.baidu.adp.lib.util.l.ln();
+            this.Hm = com.baidu.adp.lib.util.l.lm();
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
@@ -132,12 +132,12 @@ public class e {
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String lB() {
+        public String lA() {
             return this.Hk;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public long lC() {
+        public long lB() {
             return this.Hj;
         }
 
@@ -147,12 +147,12 @@ public class e {
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String ln() {
+        public String lm() {
             return this.Hm;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public int lD() {
+        public int lC() {
             return 0;
         }
     }
@@ -178,11 +178,11 @@ public class e {
                 this.Hk = inetSocketAddress.getAddress().getHostAddress();
                 this.Hj = System.currentTimeMillis() - currentTimeMillis;
             }
-            this.Hi.socket().connect(inetSocketAddress, lVar.lX());
-            this.Hi.socket().setSoTimeout(lVar.lW());
+            this.Hi.socket().connect(inetSocketAddress, lVar.lW());
+            this.Hi.socket().setSoTimeout(lVar.lV());
             this.Hi.socket().setTcpNoDelay(lVar.getTcpNoDelay());
             this.Hl = com.baidu.adp.lib.util.l.getLocalDns();
-            this.Hm = com.baidu.adp.lib.util.l.ln();
+            this.Hm = com.baidu.adp.lib.util.l.lm();
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
@@ -211,12 +211,12 @@ public class e {
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String lB() {
+        public String lA() {
             return this.Hk;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public long lC() {
+        public long lB() {
             return this.Hj;
         }
 
@@ -226,12 +226,12 @@ public class e {
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String ln() {
+        public String lm() {
             return this.Hm;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public int lD() {
+        public int lC() {
             return 0;
         }
     }

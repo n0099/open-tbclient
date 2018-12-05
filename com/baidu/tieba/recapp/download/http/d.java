@@ -11,11 +11,11 @@ import java.net.SocketTimeoutException;
 public class d {
     private int CE = 0;
     private long Ct = 0;
-    private g gFI;
-    private b gFM;
+    private b gMC;
+    private g gMy;
 
     public d(g gVar) {
-        this.gFI = gVar;
+        this.gMy = gVar;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET]}, finally: {[INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF] complete} */
@@ -26,49 +26,49 @@ public class d {
             i = com.baidu.adp.framework.c.b.hn().getRetryCount();
         }
         int hr2 = i4 <= 0 ? com.baidu.adp.framework.c.b.hn().ho().hr() : i4;
-        this.gFM = new b(this.gFI);
+        this.gMC = new b(this.gMy);
         for (int i5 = 0; i5 < i; i5++) {
             e eVar = new e();
             try {
                 eVar.CI = i5 + 1;
                 this.CE = i5;
-                boolean a = this.gFM.a(str, jVar, hr, hr2, z, eVar, z2);
-                com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                this.gFI.a(eVar);
-                a bsU = a.bsU();
-                if (bsU != null) {
-                    bsU.a(this.gFI);
+                boolean a = this.gMC.a(str, jVar, hr, hr2, z, eVar, z2);
+                com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                this.gMy.a(eVar);
+                a buN = a.buN();
+                if (buN != null) {
+                    buN.a(this.gMy);
                 }
                 return a;
             } catch (FileNotFoundException e) {
                 try {
-                    this.gFI.bsX().responseCode = -100;
-                    eVar.CL = String.valueOf(this.gFI.bsX().responseCode) + "|retryCount:" + i5 + "|" + e.getClass() + "|" + e.getMessage();
-                    this.gFI.a(eVar);
-                    com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                    this.gFI.a(eVar);
-                    a bsU2 = a.bsU();
-                    if (bsU2 != null) {
-                        bsU2.a(this.gFI);
+                    this.gMy.buQ().responseCode = -100;
+                    eVar.CL = String.valueOf(this.gMy.buQ().responseCode) + "|retryCount:" + i5 + "|" + e.getClass() + "|" + e.getMessage();
+                    this.gMy.a(eVar);
+                    com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                    this.gMy.a(eVar);
+                    a buN2 = a.buN();
+                    if (buN2 != null) {
+                        buN2.a(this.gMy);
                     }
                 } catch (Throwable th) {
-                    com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                    this.gFI.a(eVar);
-                    a bsU3 = a.bsU();
-                    if (bsU3 != null) {
-                        bsU3.a(this.gFI);
+                    com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                    this.gMy.a(eVar);
+                    a buN3 = a.buN();
+                    if (buN3 != null) {
+                        buN3.a(this.gMy);
                     }
                     throw th;
                 }
             } catch (Exception e2) {
-                this.gFI.bsX().responseCode = -10;
-                eVar.CL = String.valueOf(this.gFI.bsX().responseCode) + "|retryCount:" + i5 + "|" + e2.getClass() + "|" + e2.getMessage();
-                this.gFI.a(eVar);
-                com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                this.gFI.a(eVar);
-                a bsU4 = a.bsU();
-                if (bsU4 != null) {
-                    bsU4.a(this.gFI);
+                this.gMy.buQ().responseCode = -10;
+                eVar.CL = String.valueOf(this.gMy.buQ().responseCode) + "|retryCount:" + i5 + "|" + e2.getClass() + "|" + e2.getMessage();
+                this.gMy.a(eVar);
+                com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                this.gMy.a(eVar);
+                a buN4 = a.buN();
+                if (buN4 != null) {
+                    buN4.a(this.gMy);
                 }
             }
         }
@@ -89,9 +89,9 @@ public class d {
         }
         boolean z = true;
         long currentTimeMillis = System.currentTimeMillis();
-        for (int i4 = 0; !this.gFI.bsX().Dd && z && i4 < i; i4++) {
+        for (int i4 = 0; !this.gMy.buQ().Dd && z && i4 < i; i4++) {
             e eVar = new e();
-            this.gFI.a(eVar);
+            this.gMy.a(eVar);
             try {
                 try {
                     try {
@@ -100,107 +100,107 @@ public class d {
                                 this.CE = i4;
                                 eVar.CI = i4 + 1;
                                 eVar.CU = 1;
-                                this.gFM = new b(this.gFI);
-                                this.gFM.a(i2, i3, eVar);
+                                this.gMC = new b(this.gMy);
+                                this.gMC.a(i2, i3, eVar);
                             } catch (IllegalStateException e) {
-                                this.gFI.bsX().De = -19;
+                                this.gMy.buQ().De = -19;
                                 eVar.CL = "errorCode:" + String.valueOf(-19) + "|" + e.getClass() + "|" + e.getMessage() + "|getcontent_illegal_error";
-                                if (this.Ct <= 0 && this.gFM != null) {
-                                    this.Ct = this.gFM.jc();
+                                if (this.Ct <= 0 && this.gMC != null) {
+                                    this.Ct = this.gMC.jc();
                                 }
                                 eVar.CJ = System.currentTimeMillis() - currentTimeMillis;
-                                com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                                this.gFI.b(eVar);
-                                a bsU = a.bsU();
-                                if (bsU != null) {
-                                    bsU.a(this.gFI);
+                                com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                                this.gMy.b(eVar);
+                                a buN = a.buN();
+                                if (buN != null) {
+                                    buN.a(this.gMy);
                                 }
                             }
                         } catch (Exception e2) {
-                            eVar.CL = String.valueOf(this.gFI.bsX().responseCode) + "|retryCount:" + i4 + "|" + e2.getClass() + "|" + e2.getMessage();
-                            this.gFI.bsX().De = -10;
+                            eVar.CL = String.valueOf(this.gMy.buQ().responseCode) + "|retryCount:" + i4 + "|" + e2.getClass() + "|" + e2.getMessage();
+                            this.gMy.buQ().De = -10;
                             BdLog.e(e2.getMessage());
-                            if (this.Ct <= 0 && this.gFM != null) {
-                                this.Ct = this.gFM.jc();
+                            if (this.Ct <= 0 && this.gMC != null) {
+                                this.Ct = this.gMC.jc();
                             }
                             eVar.CJ = System.currentTimeMillis() - currentTimeMillis;
-                            com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                            this.gFI.b(eVar);
-                            a bsU2 = a.bsU();
-                            if (bsU2 != null) {
-                                bsU2.a(this.gFI);
+                            com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                            this.gMy.b(eVar);
+                            a buN2 = a.buN();
+                            if (buN2 != null) {
+                                buN2.a(this.gMy);
                                 return;
                             }
                             return;
                         }
                     } catch (SocketTimeoutException e3) {
-                        eVar.CL = String.valueOf(this.gFI.bsX().responseCode) + "|retryCount:" + i4 + "|" + e3.getClass() + "|" + e3.getMessage();
-                        this.gFI.bsX().De = -13;
-                        if (this.Ct <= 0 && this.gFM != null) {
-                            this.Ct = this.gFM.jc();
+                        eVar.CL = String.valueOf(this.gMy.buQ().responseCode) + "|retryCount:" + i4 + "|" + e3.getClass() + "|" + e3.getMessage();
+                        this.gMy.buQ().De = -13;
+                        if (this.Ct <= 0 && this.gMC != null) {
+                            this.Ct = this.gMC.jc();
                         }
                         eVar.CJ = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                        this.gFI.b(eVar);
-                        a bsU3 = a.bsU();
-                        if (bsU3 != null) {
-                            bsU3.a(this.gFI);
+                        com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                        this.gMy.b(eVar);
+                        a buN3 = a.buN();
+                        if (buN3 != null) {
+                            buN3.a(this.gMy);
                         }
                         z = true;
                     }
                 } catch (SocketException e4) {
-                    eVar.CL = String.valueOf(this.gFI.bsX().responseCode) + "|retryCount:" + i4 + "|" + e4.getClass() + "|" + e4.getMessage();
-                    this.gFI.bsX().De = -12;
-                    if (this.Ct <= 0 && this.gFM != null) {
-                        this.Ct = this.gFM.jc();
+                    eVar.CL = String.valueOf(this.gMy.buQ().responseCode) + "|retryCount:" + i4 + "|" + e4.getClass() + "|" + e4.getMessage();
+                    this.gMy.buQ().De = -12;
+                    if (this.Ct <= 0 && this.gMC != null) {
+                        this.Ct = this.gMC.jc();
                     }
                     eVar.CJ = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                    this.gFI.b(eVar);
-                    a bsU4 = a.bsU();
-                    if (bsU4 != null) {
-                        bsU4.a(this.gFI);
+                    com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                    this.gMy.b(eVar);
+                    a buN4 = a.buN();
+                    if (buN4 != null) {
+                        buN4.a(this.gMy);
                     }
                     z = true;
                 }
-                if (this.gFI.bsX().responseCode == 200) {
-                    this.gFI.b(eVar);
-                    if (this.Ct <= 0 && this.gFM != null) {
-                        this.Ct = this.gFM.jc();
+                if (this.gMy.buQ().responseCode == 200) {
+                    this.gMy.b(eVar);
+                    if (this.Ct <= 0 && this.gMC != null) {
+                        this.Ct = this.gMC.jc();
                     }
                     eVar.CJ = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                    this.gFI.b(eVar);
-                    a bsU5 = a.bsU();
-                    if (bsU5 != null) {
-                        bsU5.a(this.gFI);
+                    com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                    this.gMy.b(eVar);
+                    a buN5 = a.buN();
+                    if (buN5 != null) {
+                        buN5.a(this.gMy);
                         return;
                     }
                     return;
                 }
-                eVar.CL = String.valueOf(this.gFI.bsX().responseCode) + "|retryCount:" + i4;
-                boolean aA = aA(this.gFI.bsX().responseCode);
-                if (this.Ct <= 0 && this.gFM != null) {
-                    this.Ct = this.gFM.jc();
+                eVar.CL = String.valueOf(this.gMy.buQ().responseCode) + "|retryCount:" + i4;
+                boolean aA = aA(this.gMy.buQ().responseCode);
+                if (this.Ct <= 0 && this.gMC != null) {
+                    this.Ct = this.gMC.jc();
                 }
                 eVar.CJ = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                this.gFI.b(eVar);
-                a bsU6 = a.bsU();
-                if (bsU6 != null) {
-                    bsU6.a(this.gFI);
+                com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                this.gMy.b(eVar);
+                a buN6 = a.buN();
+                if (buN6 != null) {
+                    buN6.a(this.gMy);
                 }
                 z = aA;
             } catch (Throwable th) {
-                if (this.Ct <= 0 && this.gFM != null) {
-                    this.Ct = this.gFM.jc();
+                if (this.Ct <= 0 && this.gMC != null) {
+                    this.Ct = this.gMC.jc();
                 }
                 eVar.CJ = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                this.gFI.b(eVar);
-                a bsU7 = a.bsU();
-                if (bsU7 != null) {
-                    bsU7.a(this.gFI);
+                com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                this.gMy.b(eVar);
+                a buN7 = a.buN();
+                if (buN7 != null) {
+                    buN7.a(this.gMy);
                 }
                 throw th;
             }
@@ -222,118 +222,118 @@ public class d {
         }
         long currentTimeMillis = System.currentTimeMillis();
         boolean z2 = true;
-        for (int i4 = 0; !this.gFI.bsX().Dd && z2 && i4 < i; i4++) {
+        for (int i4 = 0; !this.gMy.buQ().Dd && z2 && i4 < i; i4++) {
             e eVar = new e();
             eVar.CI = i4 + 1;
             this.CE = i4;
             try {
                 try {
                     try {
-                        this.gFM = new b(this.gFI);
-                        this.gFM.b(i2, i3, eVar);
+                        this.gMC = new b(this.gMy);
+                        this.gMC.b(i2, i3, eVar);
                     } catch (UnsupportedOperationException e) {
                         z = false;
-                        this.gFI.bsX().De = -14;
+                        this.gMy.buQ().De = -14;
                         eVar.CL = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
-                        this.gFI.a(eVar);
-                        if (this.Ct <= 0 && this.gFM != null) {
-                            this.Ct = this.gFM.jc();
+                        this.gMy.a(eVar);
+                        if (this.Ct <= 0 && this.gMC != null) {
+                            this.Ct = this.gMC.jc();
                         }
                         eVar.CJ = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                        this.gFI.a(eVar);
-                        a bsU = a.bsU();
-                        if (bsU != null && this.gFM != null && this.gFM.jf()) {
-                            bsU.a(this.gFI);
+                        com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                        this.gMy.a(eVar);
+                        a buN = a.buN();
+                        if (buN != null && this.gMC != null && this.gMC.jf()) {
+                            buN.a(this.gMy);
                         }
                     } catch (SocketTimeoutException e2) {
-                        this.gFI.bsX().De = -13;
+                        this.gMy.buQ().De = -13;
                         z = true;
                         eVar.CL = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                         BdLog.e(e2.getMessage());
-                        this.gFI.a(eVar);
-                        if (this.Ct <= 0 && this.gFM != null) {
-                            this.Ct = this.gFM.jc();
+                        this.gMy.a(eVar);
+                        if (this.Ct <= 0 && this.gMC != null) {
+                            this.Ct = this.gMC.jc();
                         }
                         eVar.CJ = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                        this.gFI.a(eVar);
-                        a bsU2 = a.bsU();
-                        if (bsU2 != null && this.gFM != null && this.gFM.jf()) {
-                            bsU2.a(this.gFI);
+                        com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                        this.gMy.a(eVar);
+                        a buN2 = a.buN();
+                        if (buN2 != null && this.gMC != null && this.gMC.jf()) {
+                            buN2.a(this.gMy);
                         }
                     }
                 } catch (SocketException e3) {
-                    this.gFI.bsX().De = -12;
+                    this.gMy.buQ().De = -12;
                     z = true;
                     eVar.CL = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(e3.getMessage());
-                    this.gFI.a(eVar);
-                    if (this.Ct <= 0 && this.gFM != null) {
-                        this.Ct = this.gFM.jc();
+                    this.gMy.a(eVar);
+                    if (this.Ct <= 0 && this.gMC != null) {
+                        this.Ct = this.gMC.jc();
                     }
                     eVar.CJ = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                    this.gFI.a(eVar);
-                    a bsU3 = a.bsU();
-                    if (bsU3 != null && this.gFM != null && this.gFM.jf()) {
-                        bsU3.a(this.gFI);
+                    com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                    this.gMy.a(eVar);
+                    a buN3 = a.buN();
+                    if (buN3 != null && this.gMC != null && this.gMC.jf()) {
+                        buN3.a(this.gMy);
                     }
                 } catch (Throwable th) {
-                    this.gFI.bsX().De = -10;
+                    this.gMy.buQ().De = -10;
                     z = false;
                     eVar.CL = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(th.getMessage());
-                    this.gFI.a(eVar);
-                    if (this.Ct <= 0 && this.gFM != null) {
-                        this.Ct = this.gFM.jc();
+                    this.gMy.a(eVar);
+                    if (this.Ct <= 0 && this.gMC != null) {
+                        this.Ct = this.gMC.jc();
                     }
                     eVar.CJ = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                    this.gFI.a(eVar);
-                    a bsU4 = a.bsU();
-                    if (bsU4 != null && this.gFM != null && this.gFM.jf()) {
-                        bsU4.a(this.gFI);
+                    com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                    this.gMy.a(eVar);
+                    a buN4 = a.buN();
+                    if (buN4 != null && this.gMC != null && this.gMC.jf()) {
+                        buN4.a(this.gMy);
                     }
                 }
-                if (this.gFI.bsX().responseCode == 200) {
-                    if (this.Ct <= 0 && this.gFM != null) {
-                        this.Ct = this.gFM.jc();
+                if (this.gMy.buQ().responseCode == 200) {
+                    if (this.Ct <= 0 && this.gMC != null) {
+                        this.Ct = this.gMC.jc();
                     }
                     eVar.CJ = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                    this.gFI.a(eVar);
-                    a bsU5 = a.bsU();
-                    if (bsU5 == null || this.gFM == null || !this.gFM.jf()) {
+                    com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                    this.gMy.a(eVar);
+                    a buN5 = a.buN();
+                    if (buN5 == null || this.gMC == null || !this.gMC.jf()) {
                         return;
                     }
-                    bsU5.a(this.gFI);
+                    buN5.a(this.gMy);
                     return;
                 }
-                eVar.CL = String.valueOf(this.gFI.bsX().responseCode) + "|retryCount:" + i4;
-                z = aA(this.gFI.bsX().responseCode);
-                this.gFI.a(eVar);
-                if (this.Ct <= 0 && this.gFM != null) {
-                    this.Ct = this.gFM.jc();
+                eVar.CL = String.valueOf(this.gMy.buQ().responseCode) + "|retryCount:" + i4;
+                z = aA(this.gMy.buQ().responseCode);
+                this.gMy.a(eVar);
+                if (this.Ct <= 0 && this.gMC != null) {
+                    this.Ct = this.gMC.jc();
                 }
                 eVar.CJ = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                this.gFI.a(eVar);
-                a bsU6 = a.bsU();
-                if (bsU6 != null && this.gFM != null && this.gFM.jf()) {
-                    bsU6.a(this.gFI);
+                com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                this.gMy.a(eVar);
+                a buN6 = a.buN();
+                if (buN6 != null && this.gMC != null && this.gMC.jf()) {
+                    buN6.a(this.gMy);
                 }
                 z2 = z;
             } catch (Throwable th2) {
-                if (this.Ct <= 0 && this.gFM != null) {
-                    this.Ct = this.gFM.jc();
+                if (this.Ct <= 0 && this.gMC != null) {
+                    this.Ct = this.gMC.jc();
                 }
                 eVar.CJ = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                this.gFI.a(eVar);
-                a bsU7 = a.bsU();
-                if (bsU7 != null && this.gFM != null && this.gFM.jf()) {
-                    bsU7.a(this.gFI);
+                com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                this.gMy.a(eVar);
+                a buN7 = a.buN();
+                if (buN7 != null && this.gMC != null && this.gMC.jf()) {
+                    buN7.a(this.gMy);
                 }
                 throw th2;
             }
@@ -348,7 +348,7 @@ public class d {
     }
 
     public void g(int i, int i2, int i3) {
-        if (this.gFI.bsW().jt()) {
+        if (this.gMy.buP().jt()) {
             f(i, i2, i3);
         } else {
             h(i, i2, i3);
@@ -370,118 +370,118 @@ public class d {
         }
         long currentTimeMillis = System.currentTimeMillis();
         boolean z2 = true;
-        for (int i4 = 0; !this.gFI.bsX().Dd && z2 && i4 < i; i4++) {
+        for (int i4 = 0; !this.gMy.buQ().Dd && z2 && i4 < i; i4++) {
             e eVar = new e();
             this.CE = i4;
             eVar.CI = i4 + 1;
             try {
                 try {
                     try {
-                        this.gFM = new b(this.gFI);
-                        this.gFM.c(i2, i3, eVar);
+                        this.gMC = new b(this.gMy);
+                        this.gMC.c(i2, i3, eVar);
                     } catch (SocketTimeoutException e) {
-                        this.gFI.bsX().De = -13;
+                        this.gMy.buQ().De = -13;
                         z = true;
                         eVar.CL = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                         BdLog.e(e.getMessage());
-                        this.gFI.a(eVar);
-                        if (this.Ct <= 0 && this.gFM != null) {
-                            this.Ct = this.gFM.jc();
+                        this.gMy.a(eVar);
+                        if (this.Ct <= 0 && this.gMC != null) {
+                            this.Ct = this.gMC.jc();
                         }
                         eVar.CJ = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                        this.gFI.a(eVar);
-                        a bsU = a.bsU();
-                        if (bsU != null) {
-                            bsU.a(this.gFI);
+                        com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                        this.gMy.a(eVar);
+                        a buN = a.buN();
+                        if (buN != null) {
+                            buN.a(this.gMy);
                         }
                     } catch (Throwable th) {
-                        this.gFI.bsX().De = -10;
+                        this.gMy.buQ().De = -10;
                         z = false;
                         eVar.CL = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                         BdLog.e(th.getMessage());
-                        this.gFI.a(eVar);
-                        if (this.Ct <= 0 && this.gFM != null) {
-                            this.Ct = this.gFM.jc();
+                        this.gMy.a(eVar);
+                        if (this.Ct <= 0 && this.gMC != null) {
+                            this.Ct = this.gMC.jc();
                         }
                         eVar.CJ = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                        this.gFI.a(eVar);
-                        a bsU2 = a.bsU();
-                        if (bsU2 != null) {
-                            bsU2.a(this.gFI);
+                        com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                        this.gMy.a(eVar);
+                        a buN2 = a.buN();
+                        if (buN2 != null) {
+                            buN2.a(this.gMy);
                         }
                     }
                 } catch (UnsupportedOperationException e2) {
                     z = false;
-                    this.gFI.bsX().De = -14;
+                    this.gMy.buQ().De = -14;
                     eVar.CL = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
-                    this.gFI.a(eVar);
-                    if (this.Ct <= 0 && this.gFM != null) {
-                        this.Ct = this.gFM.jc();
+                    this.gMy.a(eVar);
+                    if (this.Ct <= 0 && this.gMC != null) {
+                        this.Ct = this.gMC.jc();
                     }
                     eVar.CJ = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                    this.gFI.a(eVar);
-                    a bsU3 = a.bsU();
-                    if (bsU3 != null) {
-                        bsU3.a(this.gFI);
+                    com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                    this.gMy.a(eVar);
+                    a buN3 = a.buN();
+                    if (buN3 != null) {
+                        buN3.a(this.gMy);
                     }
                 } catch (SocketException e3) {
-                    this.gFI.bsX().De = -12;
+                    this.gMy.buQ().De = -12;
                     z = true;
                     eVar.CL = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(e3.getMessage());
-                    this.gFI.a(eVar);
-                    if (this.Ct <= 0 && this.gFM != null) {
-                        this.Ct = this.gFM.jc();
+                    this.gMy.a(eVar);
+                    if (this.Ct <= 0 && this.gMC != null) {
+                        this.Ct = this.gMC.jc();
                     }
                     eVar.CJ = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                    this.gFI.a(eVar);
-                    a bsU4 = a.bsU();
-                    if (bsU4 != null) {
-                        bsU4.a(this.gFI);
+                    com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                    this.gMy.a(eVar);
+                    a buN4 = a.buN();
+                    if (buN4 != null) {
+                        buN4.a(this.gMy);
                     }
                 }
-                if (this.gFI.bsX().responseCode == 200) {
-                    if (this.Ct <= 0 && this.gFM != null) {
-                        this.Ct = this.gFM.jc();
+                if (this.gMy.buQ().responseCode == 200) {
+                    if (this.Ct <= 0 && this.gMC != null) {
+                        this.Ct = this.gMC.jc();
                     }
                     eVar.CJ = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                    this.gFI.a(eVar);
-                    a bsU5 = a.bsU();
-                    if (bsU5 != null) {
-                        bsU5.a(this.gFI);
+                    com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                    this.gMy.a(eVar);
+                    a buN5 = a.buN();
+                    if (buN5 != null) {
+                        buN5.a(this.gMy);
                         return;
                     }
                     return;
                 }
-                eVar.CL = String.valueOf(this.gFI.bsX().responseCode) + "|retryCount:" + i4;
-                z = aA(this.gFI.bsX().responseCode);
-                this.gFI.a(eVar);
-                if (this.Ct <= 0 && this.gFM != null) {
-                    this.Ct = this.gFM.jc();
+                eVar.CL = String.valueOf(this.gMy.buQ().responseCode) + "|retryCount:" + i4;
+                z = aA(this.gMy.buQ().responseCode);
+                this.gMy.a(eVar);
+                if (this.Ct <= 0 && this.gMC != null) {
+                    this.Ct = this.gMC.jc();
                 }
                 eVar.CJ = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                this.gFI.a(eVar);
-                a bsU6 = a.bsU();
-                if (bsU6 != null) {
-                    bsU6.a(this.gFI);
+                com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                this.gMy.a(eVar);
+                a buN6 = a.buN();
+                if (buN6 != null) {
+                    buN6.a(this.gMy);
                 }
                 z2 = z;
             } catch (Throwable th2) {
-                if (this.Ct <= 0 && this.gFM != null) {
-                    this.Ct = this.gFM.jc();
+                if (this.Ct <= 0 && this.gMC != null) {
+                    this.Ct = this.gMC.jc();
                 }
                 eVar.CJ = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.iF().a(this.gFI.bsW().getUrl(), this.gFI.bsW().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
-                this.gFI.a(eVar);
-                a bsU7 = a.bsU();
-                if (bsU7 != null) {
-                    bsU7.a(this.gFI);
+                com.baidu.adp.lib.a.a.iF().a(this.gMy.buP().getUrl(), this.gMy.buP().aQ("Host"), TextUtils.isEmpty(eVar.CL), eVar.CP != null);
+                this.gMy.a(eVar);
+                a buN7 = a.buN();
+                if (buN7 != null) {
+                    buN7.a(this.gMy);
                 }
                 throw th2;
             }
@@ -489,21 +489,21 @@ public class d {
     }
 
     public void cancel() {
-        if (this.gFM != null) {
-            this.gFM.jg();
+        if (this.gMC != null) {
+            this.gMC.jg();
         }
     }
 
     public boolean ji() {
-        if (this.gFI == null) {
+        if (this.gMy == null) {
             return false;
         }
-        return this.gFI.bsX().Dd;
+        return this.gMy.buQ().Dd;
     }
 
     public void jj() {
-        if (this.gFI != null) {
-            this.gFI.bsX().Dd = true;
+        if (this.gMy != null) {
+            this.gMy.buQ().Dd = true;
         }
     }
 }

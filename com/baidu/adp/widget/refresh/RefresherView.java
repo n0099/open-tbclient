@@ -178,7 +178,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
         private a() {
         }
 
-        void pm() {
+        void pl() {
             long uptimeMillis = SystemClock.uptimeMillis();
             this.RB = (int) (((((float) (uptimeMillis - this.NX)) / 1000.0f) * this.NZ) + this.RB);
             if (this.RB >= this.RC) {
@@ -190,7 +190,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
                     aVar.a(IRefreshable.State.idle);
                 }
                 if (RefresherView.this.Ru == 0 && aVar != null) {
-                    aVar.pl();
+                    aVar.pk();
                     RefresherView.this.mRefreshing = false;
                 }
             } else {
@@ -203,7 +203,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
             RefresherView.this.invalidate();
         }
 
-        void pn() {
+        void pm() {
             long uptimeMillis = SystemClock.uptimeMillis();
             this.RB = (int) (((((float) (uptimeMillis - this.NX)) / 1000.0f) * this.NZ) + this.RB);
             if (this.RB >= this.RC) {
@@ -313,9 +313,9 @@ public class RefresherView extends ViewGroup implements IRefreshable {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 1000) {
-                RefresherView.this.Rv.pm();
+                RefresherView.this.Rv.pl();
             } else if (message.what == 1001) {
-                RefresherView.this.Rv.pn();
+                RefresherView.this.Rv.pm();
             }
         }
     }
@@ -334,7 +334,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
         public void onPreExecute() {
             if (this.RE != null) {
                 RefresherView.this.Ru = RefresherView.this.Rl;
-                this.RE.pj();
+                this.RE.pi();
             }
         }
 
@@ -344,7 +344,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
         public Void doInBackground(Void... voidArr) {
             RefresherView.this.mRefreshing = true;
             if (this.RE != null) {
-                this.RE.pk();
+                this.RE.pj();
                 return null;
             }
             return null;
@@ -521,10 +521,10 @@ public class RefresherView extends ViewGroup implements IRefreshable {
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 1000:
-                    pm();
+                    pl();
                     return;
                 case 1001:
-                    pn();
+                    pm();
                     return;
                 default:
                     return;
@@ -669,17 +669,17 @@ public class RefresherView extends ViewGroup implements IRefreshable {
         public void bh(int i) {
             switch (i) {
                 case 1000:
-                    pp();
+                    po();
                     return;
                 case 1001:
-                    po();
+                    pn();
                     return;
                 default:
                     return;
             }
         }
 
-        private void po() {
+        private void pn() {
             long uptimeMillis = SystemClock.uptimeMillis();
             this.NX = uptimeMillis;
             this.NY = uptimeMillis + 16;
@@ -691,7 +691,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
             sendEmptyMessageAtTime(1001, this.NY);
         }
 
-        private void pp() {
+        private void po() {
             long uptimeMillis = SystemClock.uptimeMillis();
             this.NX = uptimeMillis;
             this.NY = uptimeMillis + 16;
@@ -703,7 +703,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
             sendEmptyMessageAtTime(1000, this.NY);
         }
 
-        private void pn() {
+        private void pm() {
             long uptimeMillis = SystemClock.uptimeMillis();
             this.Oa = ((((float) (uptimeMillis - this.NX)) / 1000.0f) * this.NZ) + this.Oa;
             if (this.Oa >= this.RG) {
@@ -725,7 +725,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
             RefresherView.this.invalidate();
         }
 
-        private void pm() {
+        private void pl() {
             long uptimeMillis = SystemClock.uptimeMillis();
             this.Oa = ((((float) (uptimeMillis - this.NX)) / 1000.0f) * this.NZ) + this.Oa;
             if (this.Oa >= this.RG) {
@@ -737,7 +737,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
                     aVar.a(IRefreshable.State.idle);
                 }
                 if (RefresherView.this.Ru == 0 && aVar != null) {
-                    aVar.pl();
+                    aVar.pk();
                     RefresherView.this.mRefreshing = false;
                 }
             } else {

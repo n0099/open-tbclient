@@ -14,6 +14,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.BdToken.g;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
@@ -24,12 +25,12 @@ import com.baidu.tieba.e;
 import java.lang.reflect.Field;
 /* loaded from: classes4.dex */
 public final class b {
-    public static PopupWindow a(final com.baidu.tieba.aiapps.apps.abtest.msg.a aVar) {
+    public static PopupWindow a(final g gVar) {
         Activity fX = com.baidu.adp.base.a.fW().fX();
-        if (fX == null || aVar == null) {
+        if (fX == null || gVar == null) {
             return null;
         }
-        final String url = aVar.getUrl();
+        final String url = gVar.getUrl();
         if (StringUtils.isNull(url)) {
             return null;
         }
@@ -47,7 +48,7 @@ public final class b {
             public void onClick(View view) {
                 if (view.getId() == e.g.go_to_aiapps_go) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921361, url));
-                    TiebaStatic.log(new am("c13274").ax("uid", TbadkCoreApplication.getCurrentAccount()).ax(VideoPlayActivityConfig.OBJ_ID, aVar.appId).ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "tb_password"));
+                    TiebaStatic.log(new am("c13274").aA("uid", TbadkCoreApplication.getCurrentAccount()).aA(VideoPlayActivityConfig.OBJ_ID, gVar.appId).aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "tb_password").aA("obj_name", gVar.appName));
                     try {
                         popupWindow.dismiss();
                     } catch (Throwable th) {
@@ -64,15 +65,15 @@ public final class b {
         };
         textView.setOnClickListener(onClickListener);
         textView2.setOnClickListener(onClickListener);
-        if (!StringUtils.isNull(aVar.Wr())) {
-            tbImageView.startLoad(aVar.Wr(), 10, false);
+        if (!StringUtils.isNull(gVar.vH())) {
+            tbImageView.startLoad(gVar.vH(), 10, false);
         } else {
             tbImageView.setImageResource(e.f.toastpic);
         }
-        textView.setText(aVar.Ws());
-        textView2.setText(aVar.Wt());
-        textView3.setText(aVar.getTitle());
-        textView4.setText(aVar.getTips());
+        textView.setText(gVar.vI());
+        textView2.setText(gVar.vJ());
+        textView3.setText(gVar.getTitle());
+        textView4.setText(gVar.getTips());
         ColorDrawable colorDrawable = new ColorDrawable();
         colorDrawable.setColor(Color.argb(178, 0, 0, 0));
         popupWindow.setBackgroundDrawable(colorDrawable);

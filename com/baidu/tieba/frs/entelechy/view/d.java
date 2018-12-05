@@ -15,8 +15,8 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.view.k;
 /* loaded from: classes6.dex */
 public class d extends c {
-    private TextView cOR;
-    private ThreadLinkView cOS;
+    private TextView cVy;
+    private ThreadLinkView cVz;
     private View mMaskView;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -31,20 +31,20 @@ public class d extends c {
     @Override // com.baidu.tieba.frs.entelechy.view.c
     protected void ax(View view) {
         if (view != null) {
-            this.cOS = (ThreadLinkView) view.findViewById(e.g.link_thread_root);
-            this.cOS.setTag(getTag());
-            this.cOR = (TextView) view.findViewById(e.g.card_home_page_normal_thread_title);
+            this.cVz = (ThreadLinkView) view.findViewById(e.g.link_thread_root);
+            this.cVz.setTag(getTag());
+            this.cVy = (TextView) view.findViewById(e.g.card_home_page_normal_thread_title);
             this.mMaskView = view.findViewById(e.g.thread_multi_del_mask_view);
-            this.bWR.setOnSelectStatusChangeListener(new ThreadCommentAndPraiseInfoLayout.a() { // from class: com.baidu.tieba.frs.entelechy.view.d.1
+            this.caJ.setOnSelectStatusChangeListener(new ThreadCommentAndPraiseInfoLayout.a() { // from class: com.baidu.tieba.frs.entelechy.view.d.1
                 @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.a
-                public void bI(boolean z) {
+                public void bJ(boolean z) {
                     al.j(d.this.mMaskView, z ? e.d.cp_bg_line_d : e.d.transparent);
                 }
             });
             this.mMaskView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.d.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    d.this.bWR.changeSelectStatus();
+                    d.this.caJ.changeSelectStatus();
                 }
             });
         }
@@ -56,27 +56,27 @@ public class d extends c {
     public void a(bb bbVar) {
         if (bbVar != null) {
             super.a(bbVar);
-            if ((StringUtils.isNull(bbVar.getTitle()) && (bbVar.yA() == null || bbVar.yA().size() == 0)) || bbVar.yS() == 1) {
+            if ((StringUtils.isNull(bbVar.getTitle()) && (bbVar.zE() == null || bbVar.zE().size() == 0)) || bbVar.zW() == 1) {
                 bbVar.g(false, true);
-                if (bbVar.zc() == null || StringUtils.isNull(bbVar.zc().toString())) {
-                    this.cOR.setVisibility(8);
+                if (bbVar.Ag() == null || StringUtils.isNull(bbVar.Ag().toString())) {
+                    this.cVy.setVisibility(8);
                 } else {
-                    this.cOR.setVisibility(0);
-                    this.cOR.setText(bbVar.zc());
+                    this.cVy.setVisibility(0);
+                    this.cVy.setText(bbVar.Ag());
                 }
             } else {
-                this.cOR.setVisibility(0);
-                bbVar.apY = 0;
-                bbVar.g(false, bbVar.zy());
-                SpannableStringBuilder zc = bbVar.zc();
-                this.cOR.setOnTouchListener(new k(zc));
-                this.cOR.setText(zc);
-                o.a(this.cOR, bbVar.getId(), e.d.cp_cont_b, e.d.cp_cont_d);
+                this.cVy.setVisibility(0);
+                bbVar.aty = 0;
+                bbVar.g(false, bbVar.AC());
+                SpannableStringBuilder Ag = bbVar.Ag();
+                this.cVy.setOnTouchListener(new k(Ag));
+                this.cVy.setText(Ag);
+                o.a(this.cVy, bbVar.getId(), e.d.cp_cont_b, e.d.cp_cont_d);
             }
-            this.cOS.setData(this.aBF);
-            if (this.bWR.isInFrsAllThread() && com.baidu.tieba.frs.a.ayk().ayl()) {
+            this.cVz.setData(this.aFf);
+            if (this.caJ.isInFrsAllThread() && com.baidu.tieba.frs.a.azU().azV()) {
                 this.mMaskView.setVisibility(0);
-                if (this.aBF.Ad() || this.aBF.Ae()) {
+                if (this.aFf.Bh() || this.aFf.Bi()) {
                     al.j(this.mMaskView, e.d.cp_bg_line_d);
                     return;
                 } else {
@@ -91,34 +91,34 @@ public class d extends c {
     @Override // com.baidu.tieba.frs.entelechy.view.c, com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         super.d(tbPageContext, i);
-        this.cOS.onChangeSkinType();
+        this.cVz.onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.entelechy.view.c
-    public void anv() {
-        super.anv();
-        o.a(this.cOR, this.aBF.getId(), e.d.cp_cont_b, e.d.cp_cont_d);
-        this.cOS.ga(this.aBF.getId());
+    public void aph() {
+        super.aph();
+        o.a(this.cVy, this.aFf.getId(), e.d.cp_cont_b, e.d.cp_cont_d);
+        this.cVz.gt(this.aFf.getId());
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.c, com.baidu.tieba.card.ab
-    public void iv(int i) {
+    public void iJ(int i) {
         this.currentPageType = i;
-        if (this.bWR != null) {
-            this.bWR.asl = i;
+        if (this.caJ != null) {
+            this.caJ.avL = i;
             if (i == 15) {
-                this.bWR.setFrom(10);
+                this.caJ.setFrom(10);
             } else {
-                this.bWR.setFrom(2);
-                this.bWR.setDisPraiseFrom(2);
+                this.caJ.setFrom(2);
+                this.caJ.setDisPraiseFrom(2);
             }
         }
-        if (this.bWQ != null) {
+        if (this.caI != null) {
             if (i == 15) {
-                this.bWQ.setFrom(5);
+                this.caI.setFrom(5);
             } else {
-                this.bWQ.setFrom(3);
+                this.caI.setFrom(3);
             }
         }
     }

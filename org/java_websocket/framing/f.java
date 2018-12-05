@@ -5,76 +5,76 @@ import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes2.dex */
 public abstract class f implements Framedata {
-    private Framedata.Opcode ite;
-    private ByteBuffer itf = org.java_websocket.e.b.caE();
-    private boolean itd = true;
-    private boolean itg = false;
-    private boolean ith = false;
-    private boolean iti = false;
-    private boolean itj = false;
+    private Framedata.Opcode iAo;
+    private ByteBuffer iAp = org.java_websocket.e.b.ccK();
+    private boolean iAn = true;
+    private boolean iAq = false;
+    private boolean iAr = false;
+    private boolean iAs = false;
+    private boolean iAt = false;
 
-    public abstract void cas() throws InvalidDataException;
+    public abstract void ccy() throws InvalidDataException;
 
     public f(Framedata.Opcode opcode) {
-        this.ite = opcode;
+        this.iAo = opcode;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean caw() {
-        return this.ith;
+    public boolean ccC() {
+        return this.iAr;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean cax() {
-        return this.iti;
+    public boolean ccD() {
+        return this.iAs;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean cay() {
-        return this.itj;
+    public boolean ccE() {
+        return this.iAt;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean cav() {
-        return this.itd;
+    public boolean ccB() {
+        return this.iAn;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public Framedata.Opcode caz() {
-        return this.ite;
+    public Framedata.Opcode ccF() {
+        return this.iAo;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public ByteBuffer cau() {
-        return this.itf;
+    public ByteBuffer ccA() {
+        return this.iAp;
     }
 
     public String toString() {
-        return "Framedata{ optcode:" + caz() + ", fin:" + cav() + ", rsv1:" + caw() + ", rsv2:" + cax() + ", rsv3:" + cay() + ", payloadlength:[pos:" + this.itf.position() + ", len:" + this.itf.remaining() + "], payload:" + (this.itf.remaining() > 1000 ? "(too big to display)" : new String(this.itf.array())) + '}';
+        return "Framedata{ optcode:" + ccF() + ", fin:" + ccB() + ", rsv1:" + ccC() + ", rsv2:" + ccD() + ", rsv3:" + ccE() + ", payloadlength:[pos:" + this.iAp.position() + ", len:" + this.iAp.remaining() + "], payload:" + (this.iAp.remaining() > 1000 ? "(too big to display)" : new String(this.iAp.array())) + '}';
     }
 
     public void t(ByteBuffer byteBuffer) {
-        this.itf = byteBuffer;
-    }
-
-    public void pg(boolean z) {
-        this.itd = z;
-    }
-
-    public void ph(boolean z) {
-        this.ith = z;
+        this.iAp = byteBuffer;
     }
 
     public void pi(boolean z) {
-        this.iti = z;
+        this.iAn = z;
     }
 
     public void pj(boolean z) {
-        this.itj = z;
+        this.iAr = z;
     }
 
     public void pk(boolean z) {
-        this.itg = z;
+        this.iAs = z;
+    }
+
+    public void pl(boolean z) {
+        this.iAt = z;
+    }
+
+    public void pm(boolean z) {
+        this.iAq = z;
     }
 
     public static f b(Framedata.Opcode opcode) {
@@ -108,10 +108,10 @@ public abstract class f implements Framedata {
             return false;
         }
         f fVar = (f) obj;
-        if (this.itd == fVar.itd && this.itg == fVar.itg && this.ith == fVar.ith && this.iti == fVar.iti && this.itj == fVar.itj && this.ite == fVar.ite) {
-            if (this.itf != null) {
-                z = this.itf.equals(fVar.itf);
-            } else if (fVar.itf != null) {
+        if (this.iAn == fVar.iAn && this.iAq == fVar.iAq && this.iAr == fVar.iAr && this.iAs == fVar.iAs && this.iAt == fVar.iAt && this.iAo == fVar.iAo) {
+            if (this.iAp != null) {
+                z = this.iAp.equals(fVar.iAp);
+            } else if (fVar.iAp != null) {
                 z = false;
             }
             return z;
@@ -120,6 +120,6 @@ public abstract class f implements Framedata {
     }
 
     public int hashCode() {
-        return (((this.iti ? 1 : 0) + (((this.ith ? 1 : 0) + (((this.itg ? 1 : 0) + (((this.itf != null ? this.itf.hashCode() : 0) + ((((this.itd ? 1 : 0) * 31) + this.ite.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.itj ? 1 : 0);
+        return (((this.iAs ? 1 : 0) + (((this.iAr ? 1 : 0) + (((this.iAq ? 1 : 0) + (((this.iAp != null ? this.iAp.hashCode() : 0) + ((((this.iAn ? 1 : 0) * 31) + this.iAo.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.iAt ? 1 : 0);
     }
 }

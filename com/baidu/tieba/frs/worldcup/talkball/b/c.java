@@ -7,34 +7,34 @@ import tbclient.TalkBall.Competition;
 import tbclient.TalkBall.Country;
 /* loaded from: classes3.dex */
 public class c {
-    private List<d> ecx;
-    private String ecy;
+    private List<d> eja;
+    private String ejb;
     private long mTime;
     private String mType;
 
     public void a(Competition competition) {
         if (competition != null) {
-            this.ecx = new ArrayList();
+            this.eja = new ArrayList();
             List<Country> list = competition.country;
             if (list != null) {
                 for (Country country : list) {
                     d dVar = new d();
                     dVar.a(country);
-                    this.ecx.add(dVar);
+                    this.eja.add(dVar);
                 }
             }
             this.mTime = competition.time.longValue() * 1000;
             this.mType = competition.type;
-            this.ecy = competition.btn_title;
+            this.ejb = competition.btn_title;
         }
     }
 
-    public boolean aGC() {
-        return this.ecx.size() == 2 && this.ecx.get(0).aGC() && this.ecx.get(1).aGC() && !ao.isEmpty(this.mType) && this.mTime > 0 && !ao.isEmpty(this.ecy);
+    public boolean aIo() {
+        return this.eja.size() == 2 && this.eja.get(0).aIo() && this.eja.get(1).aIo() && !ao.isEmpty(this.mType) && this.mTime > 0 && !ao.isEmpty(this.ejb);
     }
 
-    public List<d> aGD() {
-        return this.ecx;
+    public List<d> aIp() {
+        return this.eja;
     }
 
     public long getTime() {
@@ -45,7 +45,7 @@ public class c {
         return this.mType;
     }
 
-    public String aGE() {
-        return this.ecy;
+    public String aIq() {
+        return this.ejb;
     }
 }

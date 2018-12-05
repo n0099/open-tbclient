@@ -4,7 +4,7 @@ public class d extends c {
     private String appID;
     private String content;
     private String description;
-    private String hXd;
+    private String ieq;
 
     @Override // com.coloros.mcssdk.e.c
     public int getType() {
@@ -24,10 +24,10 @@ public class d extends c {
     }
 
     public String toString() {
-        return "messageID:" + this.hXb + ",taskID:" + this.hXc + ",globalID:" + this.hXd + ",appPackage:" + this.appPackage + ",content:" + this.content + ",description:" + this.description + ",appID:" + this.appID;
+        return "messageID:" + this.ieo + ",taskID:" + this.iep + ",globalID:" + this.ieq + ",appPackage:" + this.appPackage + ",content:" + this.content + ",description:" + this.description + ",appID:" + this.appID;
     }
 
-    public void yr(String str) {
-        this.hXd = str;
+    public void yU(String str) {
+        this.ieq = str;
     }
 }

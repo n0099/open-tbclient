@@ -88,15 +88,15 @@ public class a {
 
     /* renamed from: com.baidu.sapi2.passhost.framework.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private static class C0114a {
+    private static class C0122a {
         public static a a = new a();
 
-        private C0114a() {
+        private C0122a() {
         }
     }
 
     public static a a() {
-        return C0114a.a;
+        return C0122a.a;
     }
 
     a() {

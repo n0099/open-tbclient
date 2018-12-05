@@ -6,7 +6,7 @@ import com.squareup.wire.Wire;
 import tbclient.GetToken.GetTokenResIdl;
 /* loaded from: classes.dex */
 public class GetTokenHttpResponsedMessage extends HttpResponsedMessage {
-    private f mData;
+    private p mData;
 
     public GetTokenHttpResponsedMessage() {
         super(CmdConfigHttp.CMD_GET_TOKEN);
@@ -22,13 +22,13 @@ public class GetTokenHttpResponsedMessage extends HttpResponsedMessage {
                 setErrorString(getTokenResIdl.error.usermsg);
             }
             if (getTokenResIdl.data != null) {
-                this.mData = new f();
+                this.mData = new p();
                 this.mData.a(getTokenResIdl.data);
             }
         }
     }
 
-    public f getData() {
+    public p getData() {
         return this.mData;
     }
 }

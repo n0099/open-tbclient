@@ -12,7 +12,7 @@ public class d {
     public String code;
     public String name;
 
-    public static d K(JSONObject jSONObject) {
+    public static d L(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -22,9 +22,9 @@ public class d {
         JSONArray optJSONArray = jSONObject.optJSONArray("children");
         if (optJSONArray != null && optJSONArray.length() > 0) {
             for (int i = 0; i < optJSONArray.length(); i++) {
-                d K = K(optJSONArray.optJSONObject(i));
-                if (K != null) {
-                    dVar.acq.add(K);
+                d L = L(optJSONArray.optJSONObject(i));
+                if (L != null) {
+                    dVar.acq.add(L);
                 }
             }
         }
@@ -46,7 +46,7 @@ public class d {
         }
     }
 
-    public boolean WX() {
+    public boolean Ya() {
         return this.acq.size() > 0;
     }
 

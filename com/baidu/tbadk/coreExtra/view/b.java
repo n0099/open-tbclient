@@ -5,23 +5,23 @@ import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class b {
     private String labelName = "";
-    private int aQI = 0;
-    private boolean aQJ = false;
+    private int aUh = 0;
+    private boolean aUi = false;
     private String labelId = "";
-    private int aQK = 0;
-    private boolean aQL = false;
-    private int aQM = al.getColor(e.d.cp_cont_i);
-    private int aQN = al.getColor(e.d.cp_link_tip_d);
+    private int aUj = 0;
+    private boolean aUk = false;
+    private int aUl = al.getColor(e.d.cp_cont_i);
+    private int aUm = al.getColor(e.d.cp_link_tip_d);
 
     public void setLabelName(String str) {
         this.labelName = str;
     }
 
-    public void fe(int i) {
-        this.aQI = i;
+    public void fs(int i) {
+        this.aUh = i;
     }
 
-    public void gP(String str) {
+    public void hh(String str) {
         this.labelId = str;
     }
 }

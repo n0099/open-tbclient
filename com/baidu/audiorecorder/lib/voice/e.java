@@ -35,7 +35,7 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
         h.Hb = 1;
     }
 
-    public static e pP() {
+    public static e pO() {
         return new e();
     }
 
@@ -44,25 +44,25 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
         if (fVar == null || this.context == null) {
             return false;
         }
-        if (ab.bC(this.context.getPageActivity())) {
+        if (ab.bF(this.context.getPageActivity())) {
             this.Tf = fVar;
             if (!l.hA()) {
-                String BD = l.BD();
-                if (BD == null) {
-                    BD = h.getString(e.j.voice_error_sdcard);
+                String CH = l.CH();
+                if (CH == null) {
+                    CH = h.getString(e.j.voice_error_sdcard);
                 }
-                this.Tf.onShowErr(0, BD);
+                this.Tf.onShowErr(0, CH);
                 return false;
             }
             stopPlay(true);
-            this.Tg = com.baidu.tbadk.core.voice.a.EI();
-            String gb = com.baidu.tbadk.core.voice.a.gb(this.Tg);
+            this.Tg = com.baidu.tbadk.core.voice.a.FM();
+            String gu = com.baidu.tbadk.core.voice.a.gu(this.Tg);
             if (this.Th == null) {
                 this.Th = new a();
             }
             com.baidu.audiorecorder.lib.voice.a.stop();
             releaseWakeLock();
-            boolean a2 = com.baidu.audiorecorder.lib.voice.a.a(gb, i, this.Th);
+            boolean a2 = com.baidu.audiorecorder.lib.voice.a.a(gu, i, this.Th);
             if (a2) {
                 this.Tf.onStartedRecorder(true);
                 h.Hb = 2;
@@ -84,7 +84,7 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
     }
 
     @Override // com.baidu.tieba.tbadkCore.voice.a
-    public void pQ() {
+    public void pP() {
         com.baidu.audiorecorder.lib.voice.a.cancel();
     }
 
@@ -107,7 +107,7 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
     }
 
     @Override // com.baidu.tieba.tbadkCore.voice.a
-    public boolean pR() {
+    public boolean pQ() {
         return h.Hb == 1;
     }
 
@@ -118,7 +118,7 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
             new Thread(new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.e.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    final String str2 = com.baidu.tbadk.core.voice.a.b.gd(com.baidu.tbadk.core.voice.a.gc(str)).md5;
+                    final String str2 = com.baidu.tbadk.core.voice.a.b.gw(com.baidu.tbadk.core.voice.a.gv(str)).md5;
                     if (e.this.mHandle != null) {
                         e.this.mHandle.removeCallbacks(e.this.Ti);
                         if (StringUtils.isNull(str2)) {
@@ -218,7 +218,7 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
         }
 
         @Override // com.baidu.adp.lib.voice.g
-        public void lx() {
+        public void lw() {
             h.Hb = 1;
         }
     }

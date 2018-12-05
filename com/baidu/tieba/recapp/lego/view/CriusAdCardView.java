@@ -42,45 +42,45 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
 public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k {
     private com.baidu.c.a.c.a criusData;
-    private LinearLayout eZz;
-    protected String gGG;
-    private JumpButton gHA;
-    private AdThreadCommentAndPraiseInfoLayout gHB;
-    private CriusAdCard gHC;
-    private boolean gHD;
-    protected CustomMessageListener gHE;
-    private com.baidu.c.a.d.a gHv;
-    private ViewGroup gHw;
-    private HeadImageView gHx;
-    private ApkDownloadView gHy;
-    private AdCloseView gHz;
+    private LinearLayout fgo;
+    protected String gNw;
+    private com.baidu.c.a.d.a gOl;
+    private ViewGroup gOm;
+    private HeadImageView gOn;
+    private ApkDownloadView gOo;
+    private AdCloseView gOp;
+    private JumpButton gOq;
+    private AdThreadCommentAndPraiseInfoLayout gOr;
+    private CriusAdCard gOs;
+    private boolean gOt;
+    protected CustomMessageListener gOu;
     private com.baidu.tbadk.core.util.b.a mPermissionJudgePolicy;
 
     public CriusAdCardView(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.gHD = true;
-        this.gHE = new CustomMessageListener(2016483) { // from class: com.baidu.tieba.recapp.lego.view.CriusAdCardView.7
+        this.gOt = true;
+        this.gOu = new CustomMessageListener(2016483) { // from class: com.baidu.tieba.recapp.lego.view.CriusAdCardView.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 DownloadData downloadData;
-                if (customResponsedMessage != null && (downloadData = (DownloadData) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(CriusAdCardView.this.gGG) && CriusAdCardView.this.gGG.equals(downloadData.getId()) && CriusAdCardView.this.gHy != null) {
-                    CriusAdCardView.this.gHy.s(downloadData);
+                if (customResponsedMessage != null && (downloadData = (DownloadData) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(CriusAdCardView.this.gNw) && CriusAdCardView.this.gNw.equals(downloadData.getId()) && CriusAdCardView.this.gOo != null) {
+                    CriusAdCardView.this.gOo.s(downloadData);
                 }
             }
         };
-        this.gHv = new com.baidu.c.a.d.a();
-        this.gHv.a(new a.InterfaceC0070a() { // from class: com.baidu.tieba.recapp.lego.view.CriusAdCardView.1
+        this.gOl = new com.baidu.c.a.d.a();
+        this.gOl.a(new a.InterfaceC0070a() { // from class: com.baidu.tieba.recapp.lego.view.CriusAdCardView.1
             @Override // com.baidu.c.a.d.a.InterfaceC0070a
             public void d(String str, Map<String, String> map) {
                 String str2;
                 String str3;
                 int e = s.e(CriusAdCardView.this.mContext, str);
                 if (e == 1 || e == 2) {
-                    if (CriusAdCardView.this.fgQ != null) {
-                        CriusAdCardView.this.fgQ.b(e, null);
+                    if (CriusAdCardView.this.fnI != null) {
+                        CriusAdCardView.this.fnI.b(e, null);
                     }
-                } else if (CriusAdCardView.this.fgQ != null) {
+                } else if (CriusAdCardView.this.fnI != null) {
                     if (map == null) {
                         str2 = "";
                         str3 = "";
@@ -92,56 +92,56 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
                         }
                         str3 = map.containsKey("data-url-stat") ? map.get("data-url-stat") : "";
                     }
-                    CriusAdCardView.this.fgQ.b(str2, str3, null);
+                    CriusAdCardView.this.fnI.b(str2, str3, null);
                 }
             }
         });
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View aWt() {
-        this.eZz = new LinearLayout(this.mContext.getPageActivity());
-        this.eZz.setOrientation(1);
-        return this.eZz;
+    protected View aYl() {
+        this.fgo = new LinearLayout(this.mContext.getPageActivity());
+        this.fgo.setOrientation(1);
+        return this.fgo;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     public void a(CriusAdCard criusAdCard, int i) {
-        al.i(this.gHw, e.f.addresslist_item_bg);
-        this.gHv.j(this.mContext.getPageActivity(), i == 1);
-        if (this.gHy != null) {
-            this.gHy.onChangeSkinType(i);
+        al.i(this.gOm, e.f.addresslist_item_bg);
+        this.gOl.j(this.mContext.getPageActivity(), i == 1);
+        if (this.gOo != null) {
+            this.gOo.onChangeSkinType(i);
         }
-        if (this.gHz != null) {
-            this.gHz.onChangeSkinType();
+        if (this.gOp != null) {
+            this.gOp.onChangeSkinType();
         }
-        if (this.gHB != null) {
-            this.gHB.onChangeSkinType();
+        if (this.gOr != null) {
+            this.gOr.onChangeSkinType();
         }
-        al.i(this.gHA, e.f.btn_focus_border_bg);
-        al.c(this.gHA, e.d.btn_forum_focus_color, 1);
+        al.i(this.gOq, e.f.btn_focus_border_bg);
+        al.c(this.gOq, e.d.btn_forum_focus_color, 1);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     /* renamed from: a */
     public void e(CriusAdCard criusAdCard) {
-        this.gHC = criusAdCard;
+        this.gOs = criusAdCard;
         this.criusData = criusAdCard.getCriusData();
         if (this.criusData != null) {
-            btb();
+            buU();
         }
     }
 
     private void setHeadLongClick(final AdvertAppInfo advertAppInfo) {
-        if (this.gHx != null) {
-            this.gHx.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.recapp.lego.view.CriusAdCardView.2
+        if (this.gOn != null) {
+            this.gOn.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.recapp.lego.view.CriusAdCardView.2
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view) {
                     d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-                    if (adAdSense == null || !adAdSense.Ft() || advertAppInfo == null) {
+                    if (adAdSense == null || !adAdSense.Gx() || advertAppInfo == null) {
                         return false;
                     }
                     com.baidu.adp.lib.util.a.bg(advertAppInfo.adCollect());
@@ -153,52 +153,52 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
     }
 
     private void j(AdvertAppInfo advertAppInfo) {
-        if (advertAppInfo != null && advertAppInfo.wZ()) {
-            this.gHE.setTag(this.mContext.getUniqueId());
-            MessageManager.getInstance().registerListener(this.gHE);
-            this.gGG = advertAppInfo.alU;
+        if (advertAppInfo != null && advertAppInfo.yd()) {
+            this.gOu.setTag(this.mContext.getUniqueId());
+            MessageManager.getInstance().registerListener(this.gOu);
+            this.gNw = advertAppInfo.apv;
             DownloadData c = c(advertAppInfo, b.l(advertAppInfo.adPosition, -1));
             c.setStatus(ApkDownloadView.getStatus(c));
-            this.gHy.setData(c);
-            this.gHy.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            this.gOo.setData(c);
+            this.gOo.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     private void k(AdvertAppInfo advertAppInfo) {
-        if (this.gHz != null && advertAppInfo != null && advertAppInfo.ama != null && advertAppInfo.ama.adCloseInfo != null && advertAppInfo.ama.adCloseInfo.support_close.intValue() > 0) {
-            this.gHz.setPage(getBusinessType());
-            this.gHz.setData(advertAppInfo);
-            this.gHz.onChangeSkinType();
-            l.b(this.mContext.getPageActivity(), this.gHz, 40, 40, 40, 120);
+        if (this.gOp != null && advertAppInfo != null && advertAppInfo.apB != null && advertAppInfo.apB.adCloseInfo != null && advertAppInfo.apB.adCloseInfo.support_close.intValue() > 0) {
+            this.gOp.setPage(getBusinessType());
+            this.gOp.setData(advertAppInfo);
+            this.gOp.onChangeSkinType();
+            l.b(this.mContext.getPageActivity(), this.gOp, 40, 40, 40, 120);
         }
     }
 
-    private void bsZ() {
-        if (this.gHA != null) {
-            this.gHA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.CriusAdCardView.3
+    private void buS() {
+        if (this.gOq != null) {
+            this.gOq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.CriusAdCardView.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     final com.baidu.c.a.c.a cX;
                     if (CriusAdCardView.this.criusData != null && (cX = CriusAdCardView.this.criusData.cX("viewbtn")) != null) {
-                        if (!q.uW(cX.abe) && CriusAdCardView.this.fgQ != null) {
-                            CriusAdCardView.this.fgQ.b(cX.abf, cX.abg, null);
+                        if (!q.vx(cX.abe) && CriusAdCardView.this.fnI != null) {
+                            CriusAdCardView.this.fnI.b(cX.abf, cX.abg, null);
                         }
                         if (TextUtils.isEmpty(cX.abh)) {
                             int e = s.e(CriusAdCardView.this.mContext, cX.abe);
-                            if ((e == 1 || e == 2) && CriusAdCardView.this.fgQ != null) {
-                                CriusAdCardView.this.fgQ.b(e, null);
+                            if ((e == 1 || e == 2) && CriusAdCardView.this.fnI != null) {
+                                CriusAdCardView.this.fnI.b(e, null);
                                 return;
                             }
                             return;
                         }
                         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(CriusAdCardView.this.mContext.getPageActivity());
-                        aVar.ej(cX.abh);
+                        aVar.eB(cX.abh);
                         aVar.a(e.j.alert_yes_button, new a.b() { // from class: com.baidu.tieba.recapp.lego.view.CriusAdCardView.3.1
                             @Override // com.baidu.tbadk.core.dialog.a.b
                             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                                 int e2 = s.e(CriusAdCardView.this.mContext, cX.abe);
-                                if ((e2 == 1 || e2 == 2) && CriusAdCardView.this.fgQ != null) {
-                                    CriusAdCardView.this.fgQ.b(e2, null);
+                                if ((e2 == 1 || e2 == 2) && CriusAdCardView.this.fnI != null) {
+                                    CriusAdCardView.this.fnI.b(e2, null);
                                 }
                                 aVar2.dismiss();
                             }
@@ -209,7 +209,7 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
                                 aVar2.dismiss();
                             }
                         });
-                        aVar.b(CriusAdCardView.this.mContext).AB();
+                        aVar.b(CriusAdCardView.this.mContext).BF();
                     }
                 }
             });
@@ -218,25 +218,25 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
 
     private void a(a aVar) {
         final com.baidu.c.a.c.a cX;
-        if (this.gHB != null && (cX = this.criusData.cX("bottombar")) != null) {
-            a(this.gHC.getAdvertAppInfo(), cX);
-            this.gHB.setType(TbadkCoreApplication.getInst().getCardShowType());
-            this.gHB.setBarNameClickEnabled(false);
-            this.gHB.setReplyTimeVisible(false);
+        if (this.gOr != null && (cX = this.criusData.cX("bottombar")) != null) {
+            a(this.gOs.getAdvertAppInfo(), cX);
+            this.gOr.setType(TbadkCoreApplication.getInst().getCardShowType());
+            this.gOr.setBarNameClickEnabled(false);
+            this.gOr.setReplyTimeVisible(false);
             if (cX.abi != Integer.MIN_VALUE) {
-                this.gHB.setShareClickable(true);
-                this.gHB.setShareContainerBgGray(false);
+                this.gOr.setShareClickable(true);
+                this.gOr.setShareContainerBgGray(false);
             } else {
-                this.gHB.setShareClickable(false);
-                this.gHB.setShareContainerBgGray(true);
+                this.gOr.setShareClickable(false);
+                this.gOr.setShareContainerBgGray(true);
             }
-            this.gHB.getCommentContainer().setOnClickListener(aVar);
-            this.gHB.setNeedAddReplyIcon(true);
-            this.gHB.setCommentNumEnable(true);
-            this.gHB.setCommentClickable(true);
-            this.gHB.setReplayContainerBgGray(true);
-            this.gHB.setOnClickListener(aVar);
-            this.gHB.setShareData(new com.baidu.tieba.recapp.c.a() { // from class: com.baidu.tieba.recapp.lego.view.CriusAdCardView.4
+            this.gOr.getCommentContainer().setOnClickListener(aVar);
+            this.gOr.setNeedAddReplyIcon(true);
+            this.gOr.setCommentNumEnable(true);
+            this.gOr.setCommentClickable(true);
+            this.gOr.setReplayContainerBgGray(true);
+            this.gOr.setOnClickListener(aVar);
+            this.gOr.setShareData(new com.baidu.tieba.recapp.c.a() { // from class: com.baidu.tieba.recapp.lego.view.CriusAdCardView.4
                 @Override // com.baidu.tieba.recapp.c.a
                 public String getTitle() {
                     return cX.shareTitle;
@@ -259,38 +259,38 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
 
                 @Override // com.baidu.tieba.recapp.c.a
                 public AdvertAppInfo getThreadData() {
-                    return CriusAdCardView.this.gHC.getAdvertAppInfo();
+                    return CriusAdCardView.this.gOs.getAdvertAppInfo();
                 }
             });
             if (cX.abk != Integer.MIN_VALUE) {
-                this.gHB.setAgreeClickable(true);
-                this.gHB.setPraiseContainerBgGray(false);
+                this.gOr.setAgreeClickable(true);
+                this.gOr.setPraiseContainerBgGray(false);
             } else {
-                this.gHB.setAgreeClickable(false);
-                this.gHB.setPraiseContainerBgGray(true);
+                this.gOr.setAgreeClickable(false);
+                this.gOr.setPraiseContainerBgGray(true);
             }
-            this.gHB.onChangeSkinType();
+            this.gOr.onChangeSkinType();
         }
     }
 
     public void a(bb bbVar, com.baidu.c.a.c.a aVar) {
         if (bbVar != null && aVar != null) {
-            if (this.gHD || (bbVar.zO() <= 0 && bbVar.zS() <= 0)) {
-                if (this.gHD) {
-                    this.gHD = false;
+            if (this.gOt || (bbVar.AS() <= 0 && bbVar.AW() <= 0)) {
+                if (this.gOt) {
+                    this.gOt = false;
                 }
-                bbVar.cB(aVar.abj);
-                bbVar.cJ(aVar.abk);
-                bbVar.z(aVar.abi);
+                bbVar.cP(aVar.abj);
+                bbVar.cX(aVar.abk);
+                bbVar.E(aVar.abi);
             }
         }
     }
 
     private void a(DistributeVideoView distributeVideoView, AdvertAppInfo advertAppInfo) {
-        if (distributeVideoView != null && advertAppInfo != null && this.gHC != null) {
+        if (distributeVideoView != null && advertAppInfo != null && this.gOs != null) {
             distributeVideoView.setPageContext(this.mContext);
-            distributeVideoView.setVideoTailFrameData(this.gHC.tailFrame);
-            distributeVideoView.setChargeInfo(this.gHC.chargeInfo);
+            distributeVideoView.setVideoTailFrameData(this.gOs.tailFrame);
+            distributeVideoView.setChargeInfo(this.gOs.chargeInfo);
             distributeVideoView.updateTailFrameView(advertAppInfo);
             if (advertAppInfo != null && advertAppInfo.advertAppContext != null) {
                 distributeVideoView.setStatisticInfo(advertAppInfo, advertAppInfo.advertAppContext.pn, advertAppInfo.advertAppContext.page);
@@ -298,42 +298,42 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
         }
     }
 
-    private void bta() {
+    private void buT() {
         DistributeVideoView distributeVideoView;
-        AdvertAppInfo advertAppInfo = this.gHC.getAdvertAppInfo();
-        a aVar = new a(this.gHC);
-        this.gHw.setOnClickListener(aVar);
-        View da = this.gHv.da("head");
+        AdvertAppInfo advertAppInfo = this.gOs.getAdvertAppInfo();
+        a aVar = new a(this.gOs);
+        this.gOm.setOnClickListener(aVar);
+        View da = this.gOl.da("head");
         if (da != null && (da instanceof HeadImageView)) {
-            this.gHx = (HeadImageView) da;
+            this.gOn = (HeadImageView) da;
             setHeadLongClick(advertAppInfo);
         }
-        View da2 = this.gHv.da(OpenAppAction.PARAMS_DOWNLOAD_KEY);
+        View da2 = this.gOl.da(OpenAppAction.PARAMS_DOWNLOAD_KEY);
         if (da2 != null && (da2 instanceof ApkDownloadView)) {
-            this.gHy = (ApkDownloadView) da2;
-            this.gHy.p(this.mContext.getUniqueId());
-            this.gHy.setOnClickListener(aVar);
+            this.gOo = (ApkDownloadView) da2;
+            this.gOo.p(this.mContext.getUniqueId());
+            this.gOo.setOnClickListener(aVar);
             j(advertAppInfo);
         }
-        View da3 = this.gHv.da("closead");
+        View da3 = this.gOl.da("closead");
         if (da3 != null && (da3 instanceof AdCloseView)) {
-            this.gHz = (AdCloseView) da3;
+            this.gOp = (AdCloseView) da3;
             k(advertAppInfo);
         }
-        View da4 = this.gHv.da("viewbtn");
+        View da4 = this.gOl.da("viewbtn");
         if (da4 != null && (da4 instanceof JumpButton)) {
-            this.gHA = (JumpButton) da4;
-            bsZ();
+            this.gOq = (JumpButton) da4;
+            buS();
         }
-        View da5 = this.gHv.da("bottombar");
+        View da5 = this.gOl.da("bottombar");
         if (da5 != null && (da5 instanceof LinearLayout)) {
             View childAt = ((LinearLayout) da5).getChildAt(0);
             if (childAt instanceof AdThreadCommentAndPraiseInfoLayout) {
-                this.gHB = (AdThreadCommentAndPraiseInfoLayout) childAt;
+                this.gOr = (AdThreadCommentAndPraiseInfoLayout) childAt;
                 a(aVar);
             }
         }
-        View db = this.gHv.db("video");
+        View db = this.gOl.db("video");
         if (db != null && (distributeVideoView = (DistributeVideoView) db.findViewById(e.g.advert_video)) != null) {
             a(distributeVideoView, advertAppInfo);
         }
@@ -342,7 +342,7 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
     @Override // com.baidu.tieba.recapp.k
     public i getVideoOrVrView() {
         DistributeVideoView distributeVideoView;
-        View db = this.gHv.db("video");
+        View db = this.gOl.db("video");
         if (db == null || (distributeVideoView = (DistributeVideoView) db.findViewById(e.g.advert_video)) == null) {
             return null;
         }
@@ -353,7 +353,7 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
     public void setDownloadAppCallback(c cVar) {
         DistributeVideoView distributeVideoView;
         super.setDownloadAppCallback(cVar);
-        View db = this.gHv.db("video");
+        View db = this.gOl.db("video");
         if (db != null && (distributeVideoView = (DistributeVideoView) db.findViewById(e.g.advert_video)) != null) {
             distributeVideoView.setDownloadCallback(cVar);
         }
@@ -362,26 +362,26 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
-        private CriusAdCard gHI;
+        private CriusAdCard gOy;
 
         public a(CriusAdCard criusAdCard) {
-            this.gHI = criusAdCard;
+            this.gOy = criusAdCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (!j.kK()) {
                 CriusAdCardView.this.mContext.showToast(e.j.neterror);
-            } else if (this.gHI != null) {
-                AdvertAppInfo advertAppInfo = this.gHI.getAdvertAppInfo();
-                boolean z = view == CriusAdCardView.this.gHy;
-                if (advertAppInfo != null && advertAppInfo.wZ()) {
+            } else if (this.gOy != null) {
+                AdvertAppInfo advertAppInfo = this.gOy.getAdvertAppInfo();
+                boolean z = view == CriusAdCardView.this.gOo;
+                if (advertAppInfo != null && advertAppInfo.yd()) {
                     int l = b.l(advertAppInfo.adPosition, -1);
                     int status = ApkDownloadView.getStatus(CriusAdCardView.this.c(advertAppInfo, l));
                     if ((6 != status && 7 != status) || !j.kV() || j.kW()) {
-                        CriusAdCardView.this.a(advertAppInfo, l, CriusAdCardView.this.gHy, z);
-                        if (CriusAdCardView.this.fgQ != null) {
-                            CriusAdCardView.this.fgQ.b(3, null);
+                        CriusAdCardView.this.a(advertAppInfo, l, CriusAdCardView.this.gOo, z);
+                        if (CriusAdCardView.this.fnI != null) {
+                            CriusAdCardView.this.fnI.b(3, null);
                             return;
                         }
                         return;
@@ -394,11 +394,11 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
                     str = CriusAdCardView.this.criusData.abe;
                 }
                 if (com.baidu.adp.lib.util.k.isEmpty(str) && advertAppInfo != null) {
-                    str = advertAppInfo.alS;
+                    str = advertAppInfo.apt;
                 }
                 int e = s.e(CriusAdCardView.this.mContext, str);
-                if (CriusAdCardView.this.fgQ != null) {
-                    CriusAdCardView.this.fgQ.b(e, null);
+                if (CriusAdCardView.this.fnI != null) {
+                    CriusAdCardView.this.fnI.b(e, null);
                 }
             }
         }
@@ -421,7 +421,7 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
                 default:
                     return;
                 case 3:
-                    g.aD(this.mContext.getPageActivity(), advertAppInfo.alU);
+                    g.aG(this.mContext.getPageActivity(), advertAppInfo.apv);
                     return;
                 case 6:
                 case 7:
@@ -433,11 +433,11 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
     }
 
     DownloadData c(AdvertAppInfo advertAppInfo, int i) {
-        DownloadData downloadData = new DownloadData(advertAppInfo.alU);
-        downloadData.setUrl(advertAppInfo.alT);
-        downloadData.setName(advertAppInfo.alQ);
+        DownloadData downloadData = new DownloadData(advertAppInfo.apv);
+        downloadData.setUrl(advertAppInfo.apu);
+        downloadData.setName(advertAppInfo.apr);
         downloadData.setPosition(i);
-        downloadData.setNotifyId(b.l(advertAppInfo.alP, 0));
+        downloadData.setNotifyId(b.l(advertAppInfo.apq, 0));
         return downloadData;
     }
 
@@ -445,18 +445,18 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
         if (advertAppInfo != null) {
             if (!j.kK()) {
                 l.showToast(this.mContext.getPageActivity(), e.j.neterror);
-            } else if (advertAppInfo.wZ()) {
+            } else if (advertAppInfo.yd()) {
                 if (TextUtils.isEmpty(str)) {
                     str = this.mContext.getString(e.j.frs_network_tips);
                 }
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
-                aVar.ej(str);
+                aVar.eB(str);
                 aVar.a(e.j.alert_yes_button, new a.b() { // from class: com.baidu.tieba.recapp.lego.view.CriusAdCardView.5
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                         CriusAdCardView.this.d(advertAppInfo, i);
-                        if (CriusAdCardView.this.gHy != null) {
-                            CriusAdCardView.this.gHy.p(CriusAdCardView.this.c(advertAppInfo, i));
+                        if (CriusAdCardView.this.gOo != null) {
+                            CriusAdCardView.this.gOo.p(CriusAdCardView.this.c(advertAppInfo, i));
                         }
                         aVar2.dismiss();
                     }
@@ -467,46 +467,46 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
                         aVar2.dismiss();
                     }
                 });
-                aVar.b(this.mContext).AB();
+                aVar.b(this.mContext).BF();
             }
         }
     }
 
     protected void d(AdvertAppInfo advertAppInfo, int i) {
         if (advertAppInfo != null) {
-            if (advertAppInfo.wY() != 0) {
+            if (advertAppInfo.yc() != 0) {
                 l.showToast(this.mContext.getPageActivity(), e.j.download_error);
                 return;
             }
             if (this.mPermissionJudgePolicy == null) {
                 this.mPermissionJudgePolicy = new com.baidu.tbadk.core.util.b.a();
             }
-            this.mPermissionJudgePolicy.Dp();
+            this.mPermissionJudgePolicy.Et();
             this.mPermissionJudgePolicy.c(this.mContext.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (!this.mPermissionJudgePolicy.A(this.mContext.getPageActivity()) && this.fgR != null) {
-                this.fgR.b(advertAppInfo, i);
-                if (this.gHy != null) {
-                    this.gHy.p(c(advertAppInfo, i));
+            if (!this.mPermissionJudgePolicy.A(this.mContext.getPageActivity()) && this.fnJ != null) {
+                this.fnJ.b(advertAppInfo, i);
+                if (this.gOo != null) {
+                    this.gOo.p(c(advertAppInfo, i));
                 }
             }
         }
     }
 
-    private void btb() {
-        if (this.eZz != null && this.gHv != null) {
-            this.eZz.removeAllViews();
-            this.gHw = this.gHv.a(this.mContext.getPageActivity(), this.criusData, TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.eZz.addView(this.gHw);
-            al.i(this.gHw, e.f.addresslist_item_bg);
-            bta();
+    private void buU() {
+        if (this.fgo != null && this.gOl != null) {
+            this.fgo.removeAllViews();
+            this.gOm = this.gOl.a(this.mContext.getPageActivity(), this.criusData, TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.fgo.addView(this.gOm);
+            al.i(this.gOm, e.f.addresslist_item_bg);
+            buT();
         }
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.lego.card.view.e
-    public void aWB() {
-        if (this.gHv != null && ((TextView) this.gHv.db("title")) != null) {
+    public void aYt() {
+        if (this.gOl != null && ((TextView) this.gOl.db("title")) != null) {
             this.criusData.d("title", TbConfig.getContentSize() / l.aR(this.mContext.getPageActivity()));
-            btb();
+            buU();
         }
     }
 }

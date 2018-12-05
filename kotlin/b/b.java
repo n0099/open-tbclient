@@ -4,15 +4,15 @@ import java.util.NoSuchElementException;
 import kotlin.collections.y;
 /* loaded from: classes2.dex */
 public final class b extends y {
-    private final int iro;
-    private boolean irp;
+    private final int iyy;
+    private boolean iyz;
     private int next;
     private final int step;
 
     public b(int i, int i2, int i3) {
         boolean z = true;
         this.step = i3;
-        this.iro = i2;
+        this.iyy = i2;
         if (this.step > 0) {
             if (i > i2) {
                 z = false;
@@ -20,23 +20,23 @@ public final class b extends y {
         } else if (i < i2) {
             z = false;
         }
-        this.irp = z;
-        this.next = this.irp ? i : this.iro;
+        this.iyz = z;
+        this.next = this.iyz ? i : this.iyy;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.irp;
+        return this.iyz;
     }
 
     @Override // kotlin.collections.y
     public int nextInt() {
         int i = this.next;
-        if (i == this.iro) {
-            if (!this.irp) {
+        if (i == this.iyy) {
+            if (!this.iyz) {
                 throw new NoSuchElementException();
             }
-            this.irp = false;
+            this.iyz = false;
         } else {
             this.next += this.step;
         }

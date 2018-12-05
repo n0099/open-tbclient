@@ -11,20 +11,20 @@ import com.facebook.drawee.drawable.n;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class a extends Drawable {
-    private String ibh;
-    private int ibi;
-    private int ibj;
-    private int ibk;
-    private String ibl;
-    private n.b ibm;
-    private int ibn;
-    private int ibo;
-    private int ibp;
-    private int ibq;
-    private int ibr;
-    private int ibs;
+    private int iiA;
+    private int iiB;
+    private int iiC;
+    private int iiD;
+    private int iiE;
+    private int iiF;
+    private String iiu;
+    private int iiv;
+    private int iiw;
+    private int iix;
+    private String iiy;
+    private n.b iiz;
     private int mFrameCount;
-    private int hFE = 80;
+    private int hMP = 80;
     private final Paint mPaint = new Paint(1);
     private final Matrix mMatrix = new Matrix();
     private final Rect mRect = new Rect();
@@ -35,36 +35,36 @@ public class a extends Drawable {
     }
 
     public void reset() {
-        this.ibi = -1;
-        this.ibj = -1;
-        this.ibk = -1;
+        this.iiv = -1;
+        this.iiw = -1;
+        this.iix = -1;
         this.mFrameCount = -1;
-        this.ibn = -1;
-        this.ibl = null;
-        yG(null);
+        this.iiA = -1;
+        this.iiy = null;
+        zj(null);
         invalidateSelf();
     }
 
-    public void yG(@Nullable String str) {
+    public void zj(@Nullable String str) {
         if (str == null) {
             str = "none";
         }
-        this.ibh = str;
+        this.iiu = str;
         invalidateSelf();
     }
 
     public void setDimensions(int i, int i2) {
-        this.ibi = i;
-        this.ibj = i2;
+        this.iiv = i;
+        this.iiw = i2;
         invalidateSelf();
     }
 
-    public void xB(int i) {
-        this.ibk = i;
+    public void xY(int i) {
+        this.iix = i;
     }
 
     public void a(n.b bVar) {
-        this.ibm = bVar;
+        this.iiz = bVar;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -81,25 +81,25 @@ public class a extends Drawable {
         this.mPaint.setColor(-26624);
         canvas.drawRect(bounds.left, bounds.top, bounds.right, bounds.bottom, this.mPaint);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(a(this.ibi, this.ibj, this.ibm));
+        this.mPaint.setColor(a(this.iiv, this.iiw, this.iiz));
         canvas.drawRect(bounds.left, bounds.top, bounds.right, bounds.bottom, this.mPaint);
         this.mPaint.setStyle(Paint.Style.FILL);
         this.mPaint.setStrokeWidth(0.0f);
         this.mPaint.setColor(-1);
-        this.ibr = this.ibo;
-        this.ibs = this.ibp;
-        a(canvas, "ID: %s", this.ibh);
+        this.iiE = this.iiB;
+        this.iiF = this.iiC;
+        a(canvas, "ID: %s", this.iiu);
         a(canvas, "D: %dx%d", Integer.valueOf(bounds.width()), Integer.valueOf(bounds.height()));
-        a(canvas, "I: %dx%d", Integer.valueOf(this.ibi), Integer.valueOf(this.ibj));
-        a(canvas, "I: %d KiB", Integer.valueOf(this.ibk / 1024));
-        if (this.ibl != null) {
-            a(canvas, "i format: %s", this.ibl);
+        a(canvas, "I: %dx%d", Integer.valueOf(this.iiv), Integer.valueOf(this.iiw));
+        a(canvas, "I: %d KiB", Integer.valueOf(this.iix / 1024));
+        if (this.iiy != null) {
+            a(canvas, "i format: %s", this.iiy);
         }
         if (this.mFrameCount > 0) {
-            a(canvas, "anim: f %d, l %d", Integer.valueOf(this.mFrameCount), Integer.valueOf(this.ibn));
+            a(canvas, "anim: f %d, l %d", Integer.valueOf(this.mFrameCount), Integer.valueOf(this.iiA));
         }
-        if (this.ibm != null) {
-            a(canvas, "scale: %s", this.ibm);
+        if (this.iiz != null) {
+            a(canvas, "scale: %s", this.iiz);
         }
     }
 
@@ -119,21 +119,21 @@ public class a extends Drawable {
     private void a(Rect rect, int i, int i2) {
         int min = Math.min(40, Math.max(12, Math.min(rect.width() / i2, rect.height() / i)));
         this.mPaint.setTextSize(min);
-        this.ibq = min + 8;
-        if (this.hFE == 80) {
-            this.ibq *= -1;
+        this.iiD = min + 8;
+        if (this.hMP == 80) {
+            this.iiD *= -1;
         }
-        this.ibo = rect.left + 10;
-        this.ibp = this.hFE == 80 ? rect.bottom - 10 : rect.top + 10 + 12;
+        this.iiB = rect.left + 10;
+        this.iiC = this.hMP == 80 ? rect.bottom - 10 : rect.top + 10 + 12;
     }
 
     private void a(Canvas canvas, String str, @Nullable Object... objArr) {
         if (objArr == null) {
-            canvas.drawText(str, this.ibr, this.ibs, this.mPaint);
+            canvas.drawText(str, this.iiE, this.iiF, this.mPaint);
         } else {
-            canvas.drawText(String.format(str, objArr), this.ibr, this.ibs, this.mPaint);
+            canvas.drawText(String.format(str, objArr), this.iiE, this.iiF, this.mPaint);
         }
-        this.ibs += this.ibq;
+        this.iiF += this.iiD;
     }
 
     int a(int i, int i2, @Nullable n.b bVar) {

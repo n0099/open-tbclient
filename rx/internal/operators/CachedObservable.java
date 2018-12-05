@@ -27,37 +27,37 @@ public final class CachedObservable<T> extends rx.d<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.internal.util.d implements rx.e<T> {
-        static final ReplayProducer<?>[] iuz = new ReplayProducer[0];
-        volatile boolean iuA;
-        boolean iuB;
-        final rx.d<? extends T> iuw;
-        final rx.subscriptions.d iux;
-        volatile ReplayProducer<?>[] iuy;
+        static final ReplayProducer<?>[] iBI = new ReplayProducer[0];
+        final rx.d<? extends T> iBF;
+        final rx.subscriptions.d iBG;
+        volatile ReplayProducer<?>[] iBH;
+        volatile boolean iBJ;
+        boolean iBK;
 
         public a(rx.d<? extends T> dVar, int i) {
             super(i);
-            this.iuw = dVar;
-            this.iuy = iuz;
-            this.iux = new rx.subscriptions.d();
+            this.iBF = dVar;
+            this.iBH = iBI;
+            this.iBG = new rx.subscriptions.d();
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: rx.internal.operators.CachedObservable$ReplayProducer<?>[] */
         /* JADX WARN: Multi-variable type inference failed */
         public void a(ReplayProducer<T> replayProducer) {
-            synchronized (this.iux) {
-                ReplayProducer<?>[] replayProducerArr = this.iuy;
+            synchronized (this.iBG) {
+                ReplayProducer<?>[] replayProducerArr = this.iBH;
                 int length = replayProducerArr.length;
                 ReplayProducer<?>[] replayProducerArr2 = new ReplayProducer[length + 1];
                 System.arraycopy(replayProducerArr, 0, replayProducerArr2, 0, length);
                 replayProducerArr2[length] = replayProducer;
-                this.iuy = replayProducerArr2;
+                this.iBH = replayProducerArr2;
             }
         }
 
         public void b(ReplayProducer<T> replayProducer) {
             int i = 0;
-            synchronized (this.iux) {
-                ReplayProducer<?>[] replayProducerArr = this.iuy;
+            synchronized (this.iBG) {
+                ReplayProducer<?>[] replayProducerArr = this.iBH;
                 int length = replayProducerArr.length;
                 while (true) {
                     if (i >= length) {
@@ -71,13 +71,13 @@ public final class CachedObservable<T> extends rx.d<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        this.iuy = iuz;
+                        this.iBH = iBI;
                         return;
                     }
                     ReplayProducer<?>[] replayProducerArr2 = new ReplayProducer[length - 1];
                     System.arraycopy(replayProducerArr, 0, replayProducerArr2, 0, i);
                     System.arraycopy(replayProducerArr, i + 1, replayProducerArr2, i, (length - i) - 1);
-                    this.iuy = replayProducerArr2;
+                    this.iBH = replayProducerArr2;
                 }
             }
         }
@@ -99,41 +99,41 @@ public final class CachedObservable<T> extends rx.d<T> {
                     a.this.onCompleted();
                 }
             };
-            this.iux.g(jVar);
-            this.iuw.unsafeSubscribe(jVar);
-            this.iuA = true;
+            this.iBG.g(jVar);
+            this.iBF.unsafeSubscribe(jVar);
+            this.iBJ = true;
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            if (!this.iuB) {
-                add(NotificationLite.aX(t));
-                cbb();
+            if (!this.iBK) {
+                add(NotificationLite.aY(t));
+                cde();
             }
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (!this.iuB) {
-                this.iuB = true;
+            if (!this.iBK) {
+                this.iBK = true;
                 add(NotificationLite.M(th));
-                this.iux.unsubscribe();
-                cbb();
+                this.iBG.unsubscribe();
+                cde();
             }
         }
 
         @Override // rx.e
         public void onCompleted() {
-            if (!this.iuB) {
-                this.iuB = true;
-                add(NotificationLite.cbe());
-                this.iux.unsubscribe();
-                cbb();
+            if (!this.iBK) {
+                this.iBK = true;
+                add(NotificationLite.cdh());
+                this.iBG.unsubscribe();
+                cde();
             }
         }
 
-        void cbb() {
-            for (ReplayProducer<?> replayProducer : this.iuy) {
+        void cde() {
+            for (ReplayProducer<?> replayProducer : this.iBH) {
                 replayProducer.replay();
             }
         }
@@ -233,7 +233,7 @@ public final class CachedObservable<T> extends rx.d<T> {
                             if (size != 0) {
                                 Object[] objArr = this.currentBuffer;
                                 if (objArr == null) {
-                                    objArr = this.state.ccj();
+                                    objArr = this.state.cem();
                                     this.currentBuffer = objArr;
                                 }
                                 int length = objArr.length - 1;
@@ -241,12 +241,12 @@ public final class CachedObservable<T> extends rx.d<T> {
                                 int i2 = this.currentIndexInBuffer;
                                 if (j == 0) {
                                     Object obj = objArr[i2];
-                                    if (NotificationLite.aY(obj)) {
+                                    if (NotificationLite.aZ(obj)) {
                                         jVar.onCompleted();
                                         unsubscribe();
                                         return;
-                                    } else if (NotificationLite.aZ(obj)) {
-                                        jVar.onError(NotificationLite.bb(obj));
+                                    } else if (NotificationLite.ba(obj)) {
+                                        jVar.onError(NotificationLite.bc(obj));
                                         unsubscribe();
                                         return;
                                     }

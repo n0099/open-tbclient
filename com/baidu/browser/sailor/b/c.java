@@ -20,7 +20,7 @@ public final class c implements Runnable {
         if (this.a.getAppContext() != null) {
             Log.d(EngineManager.LOG_TAG, "start check zeus update");
             this.a.getAppContext();
-            com.baidu.browser.sailor.webkit.update.a rf = com.baidu.browser.sailor.webkit.update.a.rf();
+            com.baidu.browser.sailor.webkit.update.a re = com.baidu.browser.sailor.webkit.update.a.re();
             Context appContext = this.a.getAppContext();
             if (com.baidu.browser.sailor.util.c.a(appContext)) {
                 a.C0068a c0068a = new a.C0068a(appContext, "https://mbrowser.baidu.com/api/update/kernel?version=");

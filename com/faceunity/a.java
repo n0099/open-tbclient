@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes5.dex */
 public class a {
-    public static int dr(Context context) {
+    public static int dv(Context context) {
         try {
             InputStream open = context.getAssets().open("beauty/v3.mp3");
             byte[] bArr = new byte[open.available()];

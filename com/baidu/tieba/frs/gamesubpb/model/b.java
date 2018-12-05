@@ -7,12 +7,12 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b implements h {
-    public static final BdUniqueId dQh = BdUniqueId.gen();
+    public static final BdUniqueId dWJ = BdUniqueId.gen();
     public String content;
     public String createTime;
-    public String dQi;
-    public int dQj;
-    public boolean dQk;
+    public String dWK;
+    public int dWL;
+    public boolean dWM;
     public String forumId;
     public String id;
     public String portrait;
@@ -27,10 +27,10 @@ public class b implements h {
             this.forumId = jSONObject.optString("forum_id");
             this.score = jSONObject.optString(PaddleController.SDK_TO_LUA_GESTURE_RESULT_SCORE);
             this.createTime = jSONObject.optString("create_time");
-            this.dQi = jSONObject.optString("time_passed");
+            this.dWK = jSONObject.optString("time_passed");
             this.content = jSONObject.optString("content");
-            this.dQj = jSONObject.optInt("zan_num");
-            this.dQk = jSONObject.optInt("is_zan", 0) == 1;
+            this.dWL = jSONObject.optInt("zan_num");
+            this.dWM = jSONObject.optInt("is_zan", 0) == 1;
             this.userName = jSONObject.optString("user_name");
             this.portrait = jSONObject.optString(IntentConfig.PORTRAIT);
         }
@@ -38,6 +38,6 @@ public class b implements h {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dQh;
+        return dWJ;
     }
 }

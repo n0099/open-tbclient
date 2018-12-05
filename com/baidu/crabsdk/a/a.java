@@ -46,7 +46,7 @@ public final class a {
         return U * 0.6f;
     }
 
-    public static a rg() {
+    public static a rf() {
         if (Xh == null) {
             synchronized (a.class) {
                 if (Xh == null) {

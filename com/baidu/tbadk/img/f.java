@@ -20,16 +20,16 @@ import java.io.RandomAccessFile;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class f {
-    private a aZA;
-    private Object aZB;
-    private e aZC;
+    private a bcY;
+    private Object bcZ;
+    private e bda;
     private int bigHeight;
     private int bigWidth;
     private String from;
     private boolean isCancelled;
     private int smallHeight;
     private int smallWidth;
-    private int aZz = 512000;
+    private int bcX = 512000;
     private String groupId = "1";
     private x mNetwork = null;
 
@@ -50,10 +50,10 @@ public class f {
     }
 
     public void a(a aVar, Object obj) {
-        this.aZA = aVar;
-        this.aZB = obj;
+        this.bcY = aVar;
+        this.bcZ = obj;
         if (aVar != null) {
-            this.aZz = 10240;
+            this.bcX = 10240;
         }
     }
 
@@ -136,17 +136,17 @@ public class f {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.aZC == null) {
-            this.aZC = new e();
+        if (this.bda == null) {
+            this.bda = new e();
         }
-        return c(this.aZC.c(imageFileInfo, z), z, z2);
+        return c(this.bda.c(imageFileInfo, z), z, z2);
     }
 
     public ImageUploadResult d(ImageFileInfo imageFileInfo, boolean z) {
         return a(imageFileInfo, false, z);
     }
 
-    public ImageUploadResult u(String str, boolean z) {
+    public ImageUploadResult v(String str, boolean z) {
         return c(str, false, z);
     }
 
@@ -278,7 +278,7 @@ public class f {
                         this.mNetwork = null;
                         return imageUploadResult4;
                     }
-                    String i = s.i(l.w(file));
+                    String i = s.i(l.x(file));
                     sb.append("path=");
                     sb.append(str);
                     sb.append("|length=");
@@ -293,8 +293,8 @@ public class f {
                         imageUploadResult2 = imageUploadResult5;
                         randomAccessFile2 = null;
                     } else {
-                        String str2 = i + this.aZz;
-                        long j2 = length % ((long) this.aZz) == 0 ? length / this.aZz : (length / this.aZz) + 1;
+                        String str2 = i + this.bcX;
+                        long j2 = length % ((long) this.bcX) == 0 ? length / this.bcX : (length / this.bcX) + 1;
                         sb.append("|chunkNo=");
                         sb.append(j2);
                         randomAccessFile2 = new RandomAccessFile(str, "r");
@@ -328,14 +328,14 @@ public class f {
                                                 bArr = null;
                                             } else {
                                                 if (i4 < j2) {
-                                                    i5 = this.aZz;
+                                                    i5 = this.bcX;
                                                 } else if (i4 == j2) {
-                                                    i5 = (int) (length - (this.aZz * (j2 - 1)));
+                                                    i5 = (int) (length - (this.bcX * (j2 - 1)));
                                                 }
                                                 if (bArr2 == null || bArr2.length != i5) {
                                                     bArr2 = new byte[i5];
                                                 }
-                                                randomAccessFile2.seek(this.aZz * (i4 - 1));
+                                                randomAccessFile2.seek(this.bcX * (i4 - 1));
                                                 randomAccessFile2.read(bArr2, 0, i5);
                                                 bArr = bArr2;
                                             }
@@ -366,22 +366,22 @@ public class f {
                                                 this.mNetwork.x("saveOrigin", "0");
                                             }
                                             if (z2) {
-                                                int wC = i.wA().wC();
-                                                if (wC != 0) {
-                                                    this.mNetwork.x("pic_water_type", String.valueOf(wC));
+                                                int xG = i.xE().xG();
+                                                if (xG != 0) {
+                                                    this.mNetwork.x("pic_water_type", String.valueOf(xG));
                                                 }
                                                 String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
-                                                if (!StringUtils.isNull(currentAccountName) && wC == 1) {
+                                                if (!StringUtils.isNull(currentAccountName) && xG == 1) {
                                                     this.mNetwork.x("user_name", currentAccountName);
                                                 }
-                                                String wD = i.wA().wD();
-                                                if (!StringUtils.isNull(wD) && wC == 2) {
-                                                    this.mNetwork.x("forum_name", wD);
+                                                String xH = i.xE().xH();
+                                                if (!StringUtils.isNull(xH) && xG == 2) {
+                                                    this.mNetwork.x("forum_name", xH);
                                                 }
                                             }
-                                            String BK = this.mNetwork.BK();
-                                            imageUploadResult3 = ImageUploadResult.parser(BK);
-                                            if (BK == null || imageUploadResult3 == null) {
+                                            String CO = this.mNetwork.CO();
+                                            imageUploadResult3 = ImageUploadResult.parser(CO);
+                                            if (CO == null || imageUploadResult3 == null) {
                                                 break;
                                             }
                                             try {
@@ -391,9 +391,9 @@ public class f {
                                                 if (imageUploadResult3.error_code != ImageUploadResult.CHUNK_ERROR) {
                                                     int i6 = i4 + 1;
                                                     long j4 = j3 + i5;
-                                                    long j5 = i6 > 1 ? j4 + ((i6 - 1) * this.aZz) : j4;
-                                                    if (this.aZA != null) {
-                                                        this.aZA.a(str, this.aZB, j5, length);
+                                                    long j5 = i6 > 1 ? j4 + ((i6 - 1) * this.bcX) : j4;
+                                                    if (this.bcY != null) {
+                                                        this.bcY.a(str, this.bcZ, j5, length);
                                                     }
                                                     i2 = i6;
                                                     j = j4;

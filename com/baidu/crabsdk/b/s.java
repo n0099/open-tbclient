@@ -75,7 +75,7 @@ public final class s {
         return Yh != null ? Yh.getString("userName", "") : "";
     }
 
-    public static HashMap<String, String> rq() {
+    public static HashMap<String, String> rp() {
         HashMap<String, String> hashMap = new HashMap<>();
         if (Yh != null) {
             String string = Yh.getString("users_custom", "");

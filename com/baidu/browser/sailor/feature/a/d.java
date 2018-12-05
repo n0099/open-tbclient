@@ -16,7 +16,7 @@ public final class d {
         if (file != null) {
             ContentValues contentValues = new ContentValues(1);
             contentValues.put("_data", file.getAbsolutePath());
-            return com.baidu.browser.sailor.a.qo().getAppContext().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
+            return com.baidu.browser.sailor.a.qn().getAppContext().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
         }
         return null;
     }

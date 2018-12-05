@@ -5,5 +5,5 @@ import android.net.Uri;
 public interface b {
     String getUriString();
 
-    boolean i(Uri uri);
+    boolean j(Uri uri);
 }

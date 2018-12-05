@@ -17,8 +17,8 @@ import java.util.Iterator;
 public class b extends RecyclerView.Adapter<a> {
     private ArrayList<com.baidu.tieba.forbidden.fans.a> fansList;
     private Context mContext;
-    private View.OnClickListener dwU = null;
-    private View.OnClickListener cDP = null;
+    private View.OnClickListener dDt = null;
+    private View.OnClickListener cHO = null;
 
     public b(Context context) {
         this.mContext = context;
@@ -35,14 +35,14 @@ public class b extends RecyclerView.Adapter<a> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(a aVar, int i) {
-        com.baidu.tieba.forbidden.fans.a ls;
-        if (aVar != null && (ls = ls(i)) != null) {
-            aVar.dwW.startLoad(ls.portrait, 12, false);
-            aVar.dwX.setText(ls.nameShow);
-            aVar.dwY.setOnClickListener(this.dwU);
-            aVar.dwY.setTag(ls);
-            aVar.dwV.setOnClickListener(this.cDP);
-            aVar.dwV.setTag(ls);
+        com.baidu.tieba.forbidden.fans.a lI;
+        if (aVar != null && (lI = lI(i)) != null) {
+            aVar.dDv.startLoad(lI.portrait, 12, false);
+            aVar.dDw.setText(lI.nameShow);
+            aVar.dDx.setOnClickListener(this.dDt);
+            aVar.dDx.setTag(lI);
+            aVar.dDu.setOnClickListener(this.cHO);
+            aVar.dDu.setTag(lI);
             a(aVar);
         }
     }
@@ -52,7 +52,7 @@ public class b extends RecyclerView.Adapter<a> {
         return v.H(this.fansList);
     }
 
-    private com.baidu.tieba.forbidden.fans.a ls(int i) {
+    private com.baidu.tieba.forbidden.fans.a lI(int i) {
         return (com.baidu.tieba.forbidden.fans.a) v.d(this.fansList, i);
     }
 
@@ -64,7 +64,7 @@ public class b extends RecyclerView.Adapter<a> {
         return this.fansList;
     }
 
-    public boolean bJ(long j) {
+    public boolean bQ(long j) {
         if (j == 0 || v.I(this.fansList)) {
             return false;
         }
@@ -79,43 +79,43 @@ public class b extends RecyclerView.Adapter<a> {
         return false;
     }
 
-    public boolean axu() {
+    public boolean aze() {
         return v.I(this.fansList);
     }
 
     /* loaded from: classes3.dex */
     public static class a extends RecyclerView.ViewHolder {
+        public View dDu;
+        public ClickableHeaderImageView dDv;
+        public TextView dDw;
+        public TextView dDx;
         public View dividerLine;
-        public View dwV;
-        public ClickableHeaderImageView dwW;
-        public TextView dwX;
-        public TextView dwY;
 
         public a(View view) {
             super(view);
-            this.dwV = view.findViewById(e.g.container_forbidden_item);
-            this.dwW = (ClickableHeaderImageView) view.findViewById(e.g.view_fans_photo);
-            this.dwW.setRadius(l.h(view.getContext(), e.C0200e.ds90));
-            this.dwW.setAutoChangeStyle(true);
-            this.dwW.setClickable(false);
-            this.dwX = (TextView) view.findViewById(e.g.view_fans_name);
-            this.dwY = (TextView) view.findViewById(e.g.view_fans_remove);
+            this.dDu = view.findViewById(e.g.container_forbidden_item);
+            this.dDv = (ClickableHeaderImageView) view.findViewById(e.g.view_fans_photo);
+            this.dDv.setRadius(l.h(view.getContext(), e.C0210e.ds90));
+            this.dDv.setAutoChangeStyle(true);
+            this.dDv.setClickable(false);
+            this.dDw = (TextView) view.findViewById(e.g.view_fans_name);
+            this.dDx = (TextView) view.findViewById(e.g.view_fans_remove);
             this.dividerLine = view.findViewById(e.g.line_divider);
         }
     }
 
     private void a(a aVar) {
-        al.h(aVar.dwX, e.d.cp_cont_b);
+        al.h(aVar.dDw, e.d.cp_cont_b);
         al.j(aVar.dividerLine, e.d.cp_bg_line_b);
-        al.h(aVar.dwY, e.d.btn_color_remove);
-        al.i(aVar.dwY, e.f.btn_transparent_focus_border_bg);
+        al.h(aVar.dDx, e.d.btn_color_remove);
+        al.i(aVar.dDx, e.f.btn_transparent_focus_border_bg);
     }
 
     public void q(View.OnClickListener onClickListener) {
-        this.dwU = onClickListener;
+        this.dDt = onClickListener;
     }
 
     public void j(View.OnClickListener onClickListener) {
-        this.cDP = onClickListener;
+        this.cHO = onClickListener;
     }
 }

@@ -71,7 +71,7 @@ public class MvcJsonHttpResponsedMessage<D extends j> extends MvcHttpResponsedMe
             Object createData = createData(((MvcHttpMessage) getOrginalMessage()).getResponseDataClass());
             if (createData instanceof j) {
                 this.data = (D) createData;
-                this.data.H(jSONObject);
+                this.data.I(jSONObject);
             }
         }
     }
@@ -79,24 +79,24 @@ public class MvcJsonHttpResponsedMessage<D extends j> extends MvcHttpResponsedMe
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        l<String> ak;
+        l<String> an;
         super.afterDispatchInBackGround(i, (int) bArr);
         if (getError() == 0 && (getOrginalMessage() instanceof MvcHttpMessage) && bArr != null) {
             MvcHttpMessage mvcHttpMessage = (MvcHttpMessage) getOrginalMessage();
             if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof com.baidu.tbadk.mvc.b.e)) {
                 com.baidu.tbadk.mvc.b.e eVar = (com.baidu.tbadk.mvc.b.e) mvcHttpMessage.getRequestData();
                 String cacheKey = eVar.getCacheKey();
-                String MU = eVar.MU();
+                String NY = eVar.NY();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey != null && !TextUtils.isEmpty(MU) && bArr != null) {
-                    if (eVar.MV()) {
-                        l<byte[]> aj = a.Ax().aj(MU, currentAccount);
-                        if (aj != null) {
-                            aj.e(cacheKey, bArr);
+                if (cacheKey != null && !TextUtils.isEmpty(NY) && bArr != null) {
+                    if (eVar.NZ()) {
+                        l<byte[]> am = a.BB().am(NY, currentAccount);
+                        if (am != null) {
+                            am.e(cacheKey, bArr);
                         }
-                    } else if ((mvcHttpMessage.getRequestData() instanceof f) && (ak = a.Ax().ak(MU, currentAccount)) != null) {
+                    } else if ((mvcHttpMessage.getRequestData() instanceof f) && (an = a.BB().an(NY, currentAccount)) != null) {
                         try {
-                            ak.e(cacheKey, new String(bArr, "UTF-8"));
+                            an.e(cacheKey, new String(bArr, "UTF-8"));
                         } catch (UnsupportedEncodingException e) {
                             e.printStackTrace();
                         }

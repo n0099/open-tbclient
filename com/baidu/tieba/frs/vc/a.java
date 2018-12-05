@@ -13,30 +13,30 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class a implements View.OnClickListener {
-    private boolean dWb;
-    private PopupWindow dit;
+    private boolean ecE;
+    private PopupWindow ecF;
     private View mAnchor;
     private TbPageContext mPageContext;
-    private int dWa = e.j.attention_post_update_tip;
+    private int ecD = e.j.attention_post_update_tip;
     private Handler mHandler = new Handler();
-    private Runnable dWc = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
+    private Runnable ecG = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.mPageContext != null && a.this.mAnchor != null) {
                 Activity pageActivity = a.this.mPageContext.getPageActivity();
-                int h = l.h(pageActivity, e.C0200e.ds64);
-                View g = a.this.g(pageActivity, a.this.dWa);
+                int h = l.h(pageActivity, e.C0210e.ds64);
+                View g = a.this.g(pageActivity, a.this.ecD);
                 int[] iArr = new int[2];
                 a.this.mAnchor.getLocationInWindow(iArr);
-                int h2 = l.h(pageActivity, e.C0200e.ds32);
-                int h3 = l.h(pageActivity, e.C0200e.ds16) + (iArr[1] - h);
-                a.this.dit = new PopupWindow(g, -2, h);
-                a.this.dit.showAtLocation(a.this.mAnchor, 53, h2, h3);
+                int h2 = l.h(pageActivity, e.C0210e.ds32);
+                int h3 = l.h(pageActivity, e.C0210e.ds16) + (iArr[1] - h);
+                a.this.ecF = new PopupWindow(g, -2, h);
+                a.this.ecF.showAtLocation(a.this.mAnchor, 53, h2, h3);
                 a.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (a.this.dit != null) {
-                            a.this.aFh();
+                        if (a.this.ecF != null) {
+                            a.this.aGT();
                         }
                     }
                 }, 3000L);
@@ -46,24 +46,24 @@ public class a implements View.OnClickListener {
 
     public a(TbPageContext tbPageContext, boolean z) {
         this.mPageContext = tbPageContext;
-        this.dWb = z;
+        this.ecE = z;
     }
 
     public void aS(View view) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (this.mPageContext != null && view != null && !StringUtils.isNull(currentAccount)) {
             this.mAnchor = view;
-            if (this.dWb) {
-                this.dWa = e.j.attention_post_update_tip;
+            if (this.ecE) {
+                this.ecD = e.j.attention_post_update_tip;
                 String str = currentAccount + "frs_god_new_post_tip_count";
                 int i = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str, 0);
                 if (i >= 3) {
-                    this.dWb = false;
+                    this.ecE = false;
                     return;
                 }
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(str, i + 1);
-                this.dWb = false;
-                this.mHandler.postDelayed(this.dWc, 500L);
+                this.ecE = false;
+                this.mHandler.postDelayed(this.ecG, 500L);
             }
         }
     }
@@ -71,11 +71,11 @@ public class a implements View.OnClickListener {
     /* JADX INFO: Access modifiers changed from: private */
     public View g(Activity activity, int i) {
         TextView textView = new TextView(activity);
-        int h = l.h(activity, e.C0200e.ds20);
-        textView.setPadding(h, 0 - activity.getResources().getDimensionPixelSize(e.C0200e.ds12), h, 0);
-        textView.setHeight(activity.getResources().getDimensionPixelSize(e.C0200e.ds76));
+        int h = l.h(activity, e.C0210e.ds20);
+        textView.setPadding(h, 0 - activity.getResources().getDimensionPixelSize(e.C0210e.ds12), h, 0);
+        textView.setHeight(activity.getResources().getDimensionPixelSize(e.C0210e.ds76));
         textView.setGravity(17);
-        textView.setTextSize(0, l.h(activity, e.C0200e.fontsize28));
+        textView.setTextSize(0, l.h(activity, e.C0210e.fontsize28));
         textView.setText(i);
         textView.setOnClickListener(this);
         al.i(textView, e.f.bg_tip_blue_left);
@@ -86,18 +86,18 @@ public class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        aFh();
+        aGT();
     }
 
-    public void aFh() {
-        if (this.dit != null) {
-            this.dit.dismiss();
-            this.dit = null;
+    public void aGT() {
+        if (this.ecF != null) {
+            this.ecF.dismiss();
+            this.ecF = null;
         }
     }
 
     public void destory() {
         this.mHandler.removeCallbacksAndMessages(null);
-        aFh();
+        aGT();
     }
 }

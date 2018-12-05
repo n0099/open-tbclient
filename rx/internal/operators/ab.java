@@ -10,7 +10,7 @@ public final class ab {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class a<T> implements d.a<T> {
-        final Future<? extends T> iwL;
+        final Future<? extends T> iDU;
         private final long time;
         private final TimeUnit unit;
 
@@ -20,13 +20,13 @@ public final class ab {
         }
 
         public a(Future<? extends T> future) {
-            this.iwL = future;
+            this.iDU = future;
             this.time = 0L;
             this.unit = null;
         }
 
         public a(Future<? extends T> future, long j, TimeUnit timeUnit) {
-            this.iwL = future;
+            this.iDU = future;
             this.time = j;
             this.unit = timeUnit;
         }
@@ -35,12 +35,12 @@ public final class ab {
             jVar.add(rx.subscriptions.e.j(new rx.functions.a() { // from class: rx.internal.operators.ab.a.1
                 @Override // rx.functions.a
                 public void call() {
-                    a.this.iwL.cancel(true);
+                    a.this.iDU.cancel(true);
                 }
             }));
             try {
                 if (!jVar.isUnsubscribed()) {
-                    jVar.setProducer(new SingleProducer(jVar, this.unit == null ? this.iwL.get() : this.iwL.get(this.time, this.unit)));
+                    jVar.setProducer(new SingleProducer(jVar, this.unit == null ? this.iDU.get() : this.iDU.get(this.time, this.unit)));
                 }
             } catch (Throwable th) {
                 if (!jVar.isUnsubscribed()) {

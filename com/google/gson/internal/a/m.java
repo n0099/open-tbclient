@@ -8,30 +8,30 @@ import java.lang.reflect.TypeVariable;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public final class m<T> extends o<T> {
-    private final o<T> ilP;
-    private final com.google.gson.d inO;
-    private final Type inP;
+    private final o<T> itb;
+    private final com.google.gson.d iuY;
+    private final Type iuZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(com.google.gson.d dVar, o<T> oVar, Type type) {
-        this.inO = dVar;
-        this.ilP = oVar;
-        this.inP = type;
+        this.iuY = dVar;
+        this.itb = oVar;
+        this.iuZ = type;
     }
 
     @Override // com.google.gson.o
     public T b(com.google.gson.stream.a aVar) throws IOException {
-        return this.ilP.b(aVar);
+        return this.itb.b(aVar);
     }
 
     @Override // com.google.gson.o
     public void a(com.google.gson.stream.b bVar, T t) throws IOException {
-        o<T> oVar = this.ilP;
-        Type a = a(this.inP, t);
-        if (a != this.inP) {
-            oVar = this.inO.a(com.google.gson.b.a.l(a));
-            if ((oVar instanceof i.a) && !(this.ilP instanceof i.a)) {
-                oVar = this.ilP;
+        o<T> oVar = this.itb;
+        Type a = a(this.iuZ, t);
+        if (a != this.iuZ) {
+            oVar = this.iuY.a(com.google.gson.b.a.l(a));
+            if ((oVar instanceof i.a) && !(this.itb instanceof i.a)) {
+                oVar = this.itb;
             }
         }
         oVar.a(bVar, t);

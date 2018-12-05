@@ -64,11 +64,11 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             bbVar.setUserMap(this.userMap);
                             bbVar.a(list2.get(i3));
                             bbVar.setCurrentPage(3);
-                            bbVar.zm();
-                            bbVar.asd = isBrandForum;
-                            if (!TextUtils.isEmpty(bbVar.zw())) {
+                            bbVar.Aq();
+                            bbVar.avD = isBrandForum;
+                            if (!TextUtils.isEmpty(bbVar.AA())) {
                                 ab abVar = new ab();
-                                abVar.dP(bbVar.zw());
+                                abVar.eh(bbVar.AA());
                                 this.threadList.add(abVar);
                             } else {
                                 this.threadList.add(bbVar);

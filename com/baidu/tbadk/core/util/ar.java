@@ -78,7 +78,7 @@ public class ar {
         return null;
     }
 
-    public static String fs(String str) {
+    public static String fK(String str) {
         return com.baidu.adp.lib.util.s.bC(str);
     }
 }

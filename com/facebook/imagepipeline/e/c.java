@@ -24,7 +24,7 @@ public class c<T> extends a<com.facebook.common.references.a<T>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
     @Nullable
-    /* renamed from: bVH */
+    /* renamed from: bXN */
     public com.facebook.common.references.a<T> getResult() {
         return com.facebook.common.references.a.b((com.facebook.common.references.a) super.getResult());
     }
@@ -33,7 +33,7 @@ public class c<T> extends a<com.facebook.common.references.a<T>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.datasource.AbstractDataSource
     /* renamed from: h */
-    public void ar(com.facebook.common.references.a<T> aVar) {
+    public void as(com.facebook.common.references.a<T> aVar) {
         com.facebook.common.references.a.c((com.facebook.common.references.a<?>) aVar);
     }
 

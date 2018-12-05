@@ -12,24 +12,24 @@ import com.baidu.tieba.e;
 public class SendView extends TextView implements l {
     private EditorTools Ta;
     private int Tb;
-    private int aIf;
-    private boolean[] aWR;
-    private int[] aWS;
+    private int aLF;
+    private boolean[] bao;
+    private int[] bap;
     private int mType;
-    public static int aWT = 1;
+    public static int baq = 1;
     public static int ALL = 0;
 
     public SendView(Context context) {
         super(context);
-        this.aWR = new boolean[]{false, false, false, false, false};
-        this.aWS = new int[]{0, 0};
-        this.aIf = 0;
+        this.bao = new boolean[]{false, false, false, false, false};
+        this.bap = new int[]{0, 0};
+        this.aLF = 0;
         this.mType = ALL;
-        setPadding(context.getResources().getDimensionPixelSize(e.C0200e.ds17), context.getResources().getDimensionPixelSize(e.C0200e.ds28), context.getResources().getDimensionPixelSize(e.C0200e.ds10), context.getResources().getDimensionPixelSize(e.C0200e.ds28));
+        setPadding(context.getResources().getDimensionPixelSize(e.C0210e.ds17), context.getResources().getDimensionPixelSize(e.C0210e.ds28), context.getResources().getDimensionPixelSize(e.C0210e.ds10), context.getResources().getDimensionPixelSize(e.C0210e.ds28));
         setGravity(17);
         setIncludeFontPadding(false);
         setEnabled(false);
-        setTextSize(0, context.getResources().getDimensionPixelSize(e.C0200e.fontsize28));
+        setTextSize(0, context.getResources().getDimensionPixelSize(e.C0210e.fontsize28));
         setTextColor(getContext().getResources().getColor(e.d.cp_cont_e));
         setText(e.j.send_post);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.sendtool.SendView.1
@@ -46,67 +46,67 @@ public class SendView extends TextView implements l {
             switch (aVar.code) {
                 case 4:
                     if (aVar.data == null || ((aVar.data instanceof String) && StringUtils.isNull((String) aVar.data))) {
-                        this.aWR[0] = false;
+                        this.bao[0] = false;
                         break;
                     } else {
-                        this.aWR[0] = true;
+                        this.bao[0] = true;
                         break;
                     }
                     break;
                 case 9:
-                    this.aWR[0] = false;
-                    this.aWR[1] = false;
-                    this.aWR[2] = false;
-                    this.aWR[3] = false;
-                    this.aWR[4] = false;
-                    this.aWS[0] = 0;
-                    this.aWS[1] = 0;
+                    this.bao[0] = false;
+                    this.bao[1] = false;
+                    this.bao[2] = false;
+                    this.bao[3] = false;
+                    this.bao[4] = false;
+                    this.bap[0] = 0;
+                    this.bap[1] = 0;
                     break;
                 case 10:
-                    this.aWR[2] = true;
+                    this.bao[2] = true;
                     break;
                 case 11:
-                    this.aWR[2] = false;
+                    this.bao[2] = false;
                     break;
                 case 12:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar2 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar2.aVK != null) {
-                            if (aVar2.aVK.getChosedFiles() != null) {
-                                this.aWS[0] = aVar2.aVK.getChosedFiles().size();
+                        if (aVar2.aZh != null) {
+                            if (aVar2.aZh.getChosedFiles() != null) {
+                                this.bap[0] = aVar2.aZh.getChosedFiles().size();
                             } else {
-                                this.aWS[0] = 0;
+                                this.bap[0] = 0;
                             }
                         }
-                        if (this.aWS[0] > 0) {
-                            this.aWR[1] = true;
+                        if (this.bap[0] > 0) {
+                            this.bao[1] = true;
                             break;
                         } else {
-                            this.aWR[1] = false;
+                            this.bao[1] = false;
                             break;
                         }
                     } else {
                         return;
                     }
                 case 13:
-                    int[] iArr = this.aWS;
+                    int[] iArr = this.bap;
                     iArr[0] = iArr[0] - 1;
-                    if (this.aWS[0] > 0) {
-                        this.aWR[1] = true;
+                    if (this.bap[0] > 0) {
+                        this.bao[1] = true;
                         break;
                     } else {
-                        this.aWR[1] = false;
+                        this.bao[1] = false;
                         break;
                     }
                 case 28:
                 case 39:
-                    this.aWR[3] = true;
+                    this.bao[3] = true;
                     break;
                 case 29:
-                    this.aWR[3] = false;
+                    this.bao[3] = false;
                     break;
             }
-            fE(this.mType);
+            fS(this.mType);
         }
     }
 
@@ -138,7 +138,7 @@ public class SendView extends TextView implements l {
     }
 
     @Override // com.baidu.tbadk.editortools.l
-    public void pO() {
+    public void pN() {
         setVisibility(0);
     }
 
@@ -149,7 +149,7 @@ public class SendView extends TextView implements l {
 
     @Override // com.baidu.tbadk.editortools.l
     public void onChangeSkinType(int i) {
-        this.aIf = i;
+        this.aLF = i;
         if (isEnabled()) {
             al.b(this, e.d.cp_link_tip_a, 1, i);
         } else {
@@ -161,19 +161,19 @@ public class SendView extends TextView implements l {
         this.mType = i;
     }
 
-    public void fE(int i) {
+    public void fS(int i) {
         if (i == ALL) {
-            if (this.aWR[0] || this.aWR[1] || this.aWR[2] || this.aWR[3] || this.aWR[4]) {
+            if (this.bao[0] || this.bao[1] || this.bao[2] || this.bao[3] || this.bao[4]) {
                 setEnabled(true);
-                al.b(this, e.d.cp_link_tip_a, 1, this.aIf);
+                al.b(this, e.d.cp_link_tip_a, 1, this.aLF);
                 return;
             }
             setEnabled(false);
             al.c(this, e.d.cp_cont_e, 1);
-        } else if (i == aWT) {
-            if (this.aWR[1]) {
+        } else if (i == baq) {
+            if (this.bao[1]) {
                 setEnabled(true);
-                al.b(this, e.d.cp_link_tip_a, 1, this.aIf);
+                al.b(this, e.d.cp_link_tip_a, 1, this.aLF);
                 return;
             }
             setEnabled(false);

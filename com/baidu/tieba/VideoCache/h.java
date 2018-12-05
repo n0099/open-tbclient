@@ -1,68 +1,67 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes6.dex */
 public class h {
-    private String aie;
-    private String bwn;
-    private boolean bwo;
-    private long bwp = -1;
-    private long bwq = -1;
-    private long bwr = 0;
-    private long bws = 0;
+    private String alG;
+    private String bzK;
+    private boolean bzL;
+    private long bzM = -1;
+    private long bzN = -1;
+    private long bzO = 0;
+    private long bzP = 0;
 
-    public String Ug() {
-        return this.bwn;
+    public String Vm() {
+        return this.bzK;
     }
 
-    public void jb(String str) {
-        this.bwn = str;
+    public void jt(String str) {
+        this.bzK = str;
     }
 
-    public String Uh() {
-        return this.aie;
+    public String Vn() {
+        return this.alG;
     }
 
-    public void jc(String str) {
-        this.aie = str;
+    public void ju(String str) {
+        this.alG = str;
     }
 
-    public boolean Ui() {
-        return this.bwo;
+    public boolean Vo() {
+        return this.bzL;
     }
 
-    /* renamed from: do  reason: not valid java name */
-    public void m18do(boolean z) {
-        this.bwo = z;
+    public void dp(boolean z) {
+        this.bzL = z;
     }
 
-    public long Uj() {
-        return this.bwp;
+    public long Vp() {
+        return this.bzM;
     }
 
-    public void aL(long j) {
-        this.bwp = j;
+    public void aS(long j) {
+        this.bzM = j;
     }
 
-    public long Uk() {
-        return this.bwq;
+    public long Vq() {
+        return this.bzN;
     }
 
-    public void aM(long j) {
-        this.bwq = j;
+    public void aT(long j) {
+        this.bzN = j;
     }
 
     public long getTotalLength() {
-        return this.bwr;
+        return this.bzO;
     }
 
-    public void ae(long j) {
-        this.bwr = j;
+    public void al(long j) {
+        this.bzO = j;
     }
 
-    public void aN(long j) {
-        this.bws = j;
+    public void aU(long j) {
+        this.bzP = j;
     }
 
-    public long Ul() {
-        return this.bws;
+    public long Vr() {
+        return this.bzP;
     }
 }

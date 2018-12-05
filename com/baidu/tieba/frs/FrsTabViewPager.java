@@ -8,11 +8,11 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 /* loaded from: classes6.dex */
 public class FrsTabViewPager extends BdBaseViewPager {
-    private float dEX;
-    private float dEY;
-    private float dEZ;
-    private float dFa;
-    private boolean dFb;
+    private boolean dLA;
+    private float dLw;
+    private float dLx;
+    private float dLy;
+    private float dLz;
     private float x;
     private float y;
 
@@ -30,16 +30,16 @@ public class FrsTabViewPager extends BdBaseViewPager {
         this.y = motionEvent.getRawY();
         switch (motionEvent.getAction()) {
             case 0:
-                this.dEX = motionEvent.getRawX();
-                this.dEY = motionEvent.getRawY();
-                gI(true);
-                if (aAK()) {
-                    this.dFb = false;
+                this.dLw = motionEvent.getRawX();
+                this.dLx = motionEvent.getRawY();
+                gJ(true);
+                if (aCu()) {
+                    this.dLA = false;
                     break;
                 }
                 break;
             case 1:
-                gI(false);
+                gJ(false);
                 break;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -51,18 +51,18 @@ public class FrsTabViewPager extends BdBaseViewPager {
         this.y = motionEvent.getRawY();
         switch (motionEvent.getAction()) {
             case 1:
-                gI(false);
+                gJ(false);
                 break;
             case 2:
-                this.dEZ = this.x - this.dEX;
-                this.dFa = this.y - this.dEY;
-                if (this.dEZ < 0.0f && Math.abs(this.dEZ) > Math.abs(this.dFa) && aAK()) {
-                    bL(false);
-                    if (this.dFb) {
+                this.dLy = this.x - this.dLw;
+                this.dLz = this.y - this.dLx;
+                if (this.dLy < 0.0f && Math.abs(this.dLy) > Math.abs(this.dLz) && aCu()) {
+                    bM(false);
+                    if (this.dLA) {
                         return false;
                     }
-                    gJ(true);
-                    this.dFb = true;
+                    gK(true);
+                    this.dLA = true;
                     return false;
                 }
                 break;
@@ -70,44 +70,44 @@ public class FrsTabViewPager extends BdBaseViewPager {
         return super.onTouchEvent(motionEvent);
     }
 
-    public void gI(boolean z) {
+    public void gJ(boolean z) {
         a aVar = new a();
-        aVar.gK(aAK());
-        aVar.gL(z);
+        aVar.gL(aCu());
+        aVar.gM(z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
     }
 
-    public void aAJ() {
-        gI(false);
+    public void aCt() {
+        gJ(false);
     }
 
-    public void gJ(boolean z) {
+    public void gK(boolean z) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921370, Boolean.valueOf(z)));
     }
 
-    private boolean aAK() {
+    private boolean aCu() {
         return getCurrentItem() == getAdapter().getCount() + (-1);
     }
 
     /* loaded from: classes6.dex */
     public static class a {
-        private boolean dFc;
-        private boolean dFd;
+        private boolean dLB;
+        private boolean dLC;
 
-        public boolean aAL() {
-            return this.dFc;
-        }
-
-        public void gK(boolean z) {
-            this.dFc = z;
-        }
-
-        public boolean aAM() {
-            return this.dFd;
+        public boolean aCv() {
+            return this.dLB;
         }
 
         public void gL(boolean z) {
-            this.dFd = z;
+            this.dLB = z;
+        }
+
+        public boolean aCw() {
+            return this.dLC;
+        }
+
+        public void gM(boolean z) {
+            this.dLC = z;
         }
     }
 }

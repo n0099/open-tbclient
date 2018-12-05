@@ -1,9 +1,9 @@
 package com.facebook.imagepipeline.c;
 /* loaded from: classes2.dex */
 public interface v<K> {
-    void aD(K k);
+    void aE(K k);
 
-    void bTy();
+    void bVE();
 
-    void bTz();
+    void bVF();
 }

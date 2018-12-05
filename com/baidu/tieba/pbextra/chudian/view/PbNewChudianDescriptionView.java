@@ -7,28 +7,28 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.pb.a;
 /* loaded from: classes3.dex */
 public class PbNewChudianDescriptionView extends LinearLayout implements View.OnClickListener {
-    private a.InterfaceC0267a ggE;
-    private String ggG;
-    private int ggH;
+    private a.InterfaceC0278a gnv;
+    private String gnx;
+    private int gny;
     private Context mContext;
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!ao.isEmpty(this.ggG)) {
-            com.baidu.tbadk.browser.a.ac(this.mContext, this.ggG);
-            if (this.ggE != null) {
-                switch (this.ggH) {
+        if (!ao.isEmpty(this.gnx)) {
+            com.baidu.tbadk.browser.a.ad(this.mContext, this.gnx);
+            if (this.gnv != null) {
+                switch (this.gny) {
                     case 0:
-                        this.ggE.d(this.ggG, "IMAGE1", "LINK_IMAGE", null, null);
+                        this.gnv.d(this.gnx, "IMAGE1", "LINK_IMAGE", null, null);
                         return;
                     case 1:
-                        this.ggE.d(this.ggG, "IMAGE1", "LINK_IMAGE", null, null);
+                        this.gnv.d(this.gnx, "IMAGE1", "LINK_IMAGE", null, null);
                         return;
                     case 2:
-                        this.ggE.d(this.ggG, "IMAGE2", "LINK_IMAGE", null, null);
+                        this.gnv.d(this.gnx, "IMAGE2", "LINK_IMAGE", null, null);
                         return;
                     case 3:
-                        this.ggE.d(this.ggG, "IMAGE3", "LINK_IMAGE", null, null);
+                        this.gnv.d(this.gnx, "IMAGE3", "LINK_IMAGE", null, null);
                         return;
                     default:
                         return;
@@ -38,7 +38,7 @@ public class PbNewChudianDescriptionView extends LinearLayout implements View.On
     }
 
     public void setClickUrl(String str, int i) {
-        this.ggG = str;
-        this.ggH = i;
+        this.gnx = str;
+        this.gny = i;
     }
 }

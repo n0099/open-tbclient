@@ -6,90 +6,90 @@ import com.baidu.tbadk.widget.timepicker.a.f.b;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class a {
-    private com.baidu.tbadk.widget.timepicker.a.c.a boS = new com.baidu.tbadk.widget.timepicker.a.c.a(2);
+    private com.baidu.tbadk.widget.timepicker.a.c.a bsp = new com.baidu.tbadk.widget.timepicker.a.c.a(2);
 
     public a(Context context, e eVar) {
-        this.boS.context = context;
-        this.boS.boT = eVar;
+        this.bsp.context = context;
+        this.bsp.bsq = eVar;
     }
 
     public a b(boolean[] zArr) {
-        this.boS.bpa = zArr;
+        this.bsp.bsx = zArr;
         return this;
     }
 
-    public a gL(int i) {
-        this.boS.bpA = i;
+    public a gZ(int i) {
+        this.bsp.bsX = i;
         return this;
     }
 
-    public a gM(int i) {
-        this.boS.bpE = i;
+    public a ha(int i) {
+        this.bsp.btb = i;
         return this;
     }
 
     public a a(Calendar calendar) {
-        this.boS.bpb = calendar;
+        this.bsp.bsy = calendar;
         return this;
     }
 
     public a a(int i, com.baidu.tbadk.widget.timepicker.a.d.a aVar) {
-        this.boS.bps = i;
-        this.boS.boV = aVar;
+        this.bsp.bsP = i;
+        this.bsp.bss = aVar;
         return this;
     }
 
     public a ae(float f) {
-        this.boS.bpI = f;
+        this.bsp.btf = f;
         return this;
     }
 
-    public a gN(int i) {
-        this.boS.bpH = i;
+    public a hb(int i) {
+        this.bsp.bte = i;
         return this;
     }
 
-    public a gO(int i) {
-        this.boS.ban = i;
+    public a hc(int i) {
+        this.bsp.bdL = i;
         return this;
     }
 
-    public a gP(int i) {
-        this.boS.bpG = i;
+    public a hd(int i) {
+        this.bsp.btd = i;
         return this;
     }
 
-    public a gQ(int i) {
-        this.boS.bpF = i;
+    public a he(int i) {
+        this.bsp.btc = i;
         return this;
     }
 
     public a b(String str, String str2, String str3, String str4, String str5, String str6) {
-        this.boS.bpg = str;
-        this.boS.bph = str2;
-        this.boS.bpi = str3;
-        this.boS.bpj = str4;
-        this.boS.bpk = str5;
-        this.boS.bpl = str6;
+        this.bsp.bsD = str;
+        this.bsp.bsE = str2;
+        this.bsp.bsF = str3;
+        this.bsp.bsG = str4;
+        this.bsp.bsH = str5;
+        this.bsp.bsI = str6;
         return this;
     }
 
     public a e(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.boS.bpm = i;
-        this.boS.bpn = i2;
-        this.boS.bpo = i3;
-        this.boS.bpp = i4;
-        this.boS.bpq = i5;
-        this.boS.bpr = i6;
+        this.bsp.bsJ = i;
+        this.bsp.bsK = i2;
+        this.bsp.bsL = i3;
+        this.bsp.bsM = i4;
+        this.bsp.bsN = i5;
+        this.bsp.bsO = i6;
         return this;
     }
 
-    public a db(boolean z) {
-        this.boS.bpL = z;
+    public a dc(boolean z) {
+        this.bsp.bti = z;
         return this;
     }
 
-    public b RR() {
-        return new b(this.boS);
+    public b SX() {
+        return new b(this.bsp);
     }
 }

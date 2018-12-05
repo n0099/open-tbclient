@@ -183,14 +183,14 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     }
 
     public void a(int i) {
-        if (i == R.drawable.aiapps_night_mode_toast_icon) {
-            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_night_mode_toast_icon));
+        if (i == R.drawable.aiapps_new_dot) {
+            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_new_dot));
             this.e = 1;
-        } else if (i == R.drawable.aiapps_open_app_buttion_selector) {
-            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_open_app_buttion_selector));
+        } else if (i == R.drawable.aiapps_normal_toast_view_bg) {
+            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_normal_toast_view_bg));
             this.e = 2;
-        } else if (i == R.drawable.aiapps_no_recommend) {
-            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_no_recommend));
+        } else if (i == R.drawable.aiapps_night_mode_toast_icon) {
+            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_night_mode_toast_icon));
             this.e = 3;
         }
     }

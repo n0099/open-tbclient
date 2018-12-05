@@ -10,21 +10,21 @@ import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private static Runnable atM = new Runnable() { // from class: com.baidu.tbadk.plugin.a.1
+    private static Runnable axm = new Runnable() { // from class: com.baidu.tbadk.plugin.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.Oo();
+            a.Ps();
         }
     };
-    private static boolean bdJ = false;
+    private static boolean bhk = false;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void On() {
+    public static final void Pr() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            e.jG().removeCallbacks(atM);
-            e.jG().postDelayed(atM, 120000L);
-            if (!bdJ) {
-                bdJ = true;
+            e.jG().removeCallbacks(axm);
+            e.jG().postDelayed(axm, 120000L);
+            if (!bhk) {
+                bhk = true;
                 String string = TbadkCoreApplication.getInst().getResources().getString(e.j.plugin_tip_installing);
                 NotificationHelper.showNotification(TbadkCoreApplication.getInst().getApplicationContext(), 1000, null, string, string, null, false);
             }
@@ -32,10 +32,10 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void Oo() {
+    public static final void Ps() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            bdJ = false;
-            com.baidu.adp.lib.g.e.jG().removeCallbacks(atM);
+            bhk = false;
+            com.baidu.adp.lib.g.e.jG().removeCallbacks(axm);
             NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApplicationContext(), 1000);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004602, new ArrayList()));
         }
@@ -43,19 +43,19 @@ public class a {
 
     public static void init() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            com.baidu.adp.lib.g.e.jG().post(atM);
+            com.baidu.adp.lib.g.e.jG().post(axm);
             MessageManager.getInstance().registerListener(new CustomMessageListener(2000993) { // from class: com.baidu.tbadk.plugin.a.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    a.On();
+                    a.Pr();
                 }
             });
             MessageManager.getInstance().registerListener(new CustomMessageListener(2000988) { // from class: com.baidu.tbadk.plugin.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    a.Oo();
+                    a.Ps();
                 }
             });
         }

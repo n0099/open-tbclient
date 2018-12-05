@@ -32,10 +32,10 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
                 String string = context.getString(e.j.sign_notification_content);
                 String string2 = context.getString(e.j.app_name);
-                a.GL().d(a.GL().eI(12), 12);
+                a.HP().d(a.HP().eW(12), 12);
                 NotificationHelper.showNotification(context, 12, string2, string, string, service, false);
                 am amVar = new am("c13252");
-                amVar.ax("uid", TbadkCoreApplication.getCurrentAccount());
+                amVar.aA("uid", TbadkCoreApplication.getCurrentAccount());
                 TiebaStatic.log(amVar);
             } catch (Throwable th) {
                 try {
@@ -43,7 +43,7 @@ public class SignAlertReceiver extends BroadcastReceiver {
                         BdLog.e(th.getMessage());
                     }
                 } finally {
-                    c.Hs().updateSignAlarm();
+                    c.Iw().updateSignAlarm();
                 }
             }
         }

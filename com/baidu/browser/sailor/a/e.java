@@ -25,13 +25,13 @@ public class e implements Runnable {
         try {
             if (this.Wh.mActivity != null) {
                 this.Wh.mActivity.startActivityForResult(this.Kn, this.val$requestCode);
-                this.Wh.qJ();
+                this.Wh.qI();
             } else {
                 Log.w("BdLightappKernelClient", "mActivity is null.");
             }
         } catch (ActivityNotFoundException e) {
             e.printStackTrace();
-            Toast.makeText(com.baidu.browser.sailor.b.a.qP().getAppContext(), com.baidu.browser.core.b.R("string", "sailor_msg_activity_not_found"), 0).show();
+            Toast.makeText(com.baidu.browser.sailor.b.a.qO().getAppContext(), com.baidu.browser.core.b.R("string", "sailor_msg_activity_not_found"), 0).show();
             int intExtra = this.Kn.getIntExtra("jsaction_key", -1);
             sparseArray = this.Wh.Wf;
             n nVar = (n) sparseArray.get(intExtra);

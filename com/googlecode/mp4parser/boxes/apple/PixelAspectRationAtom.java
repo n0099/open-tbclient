@@ -8,10 +8,10 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class PixelAspectRationAtom extends AbstractBox {
     public static final String TYPE = "pasp";
-    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_3 = null;
     private int hSpacing;
     private int vSpacing;
 
@@ -37,7 +37,7 @@ public class PixelAspectRationAtom extends AbstractBox {
     }
 
     public void sethSpacing(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.yH(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.ze(i)));
         this.hSpacing = i;
     }
 
@@ -47,7 +47,7 @@ public class PixelAspectRationAtom extends AbstractBox {
     }
 
     public void setvSpacing(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.yH(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.ze(i)));
         this.vSpacing = i;
     }
 

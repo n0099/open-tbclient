@@ -39,7 +39,7 @@ public abstract class c implements n.a, com.baidu.browser.sailor.feature.a.e, co
             for (String str2 : strArr) {
                 String optString = jSONObject.optString(str2);
                 if (!TextUtils.isEmpty(optString)) {
-                    nVar.qM().put(str2, optString);
+                    nVar.qL().put(str2, optString);
                 }
             }
             return true;
@@ -53,7 +53,7 @@ public abstract class c implements n.a, com.baidu.browser.sailor.feature.a.e, co
     /* JADX INFO: Access modifiers changed from: private */
     public void cx(String str) {
         n nVar;
-        qL();
+        qK();
         MediaPlayer mediaPlayer = this.Wd;
         if (this.mAudioManager.getStreamVolume(2) != 0) {
             mediaPlayer.setAudioStreamType(2);
@@ -66,7 +66,7 @@ public abstract class c implements n.a, com.baidu.browser.sailor.feature.a.e, co
                         try {
                             mediaPlayer.reset();
                             if (!new File(str).exists()) {
-                                str = com.baidu.browser.sailor.util.c.a(qI(), str);
+                                str = com.baidu.browser.sailor.util.c.a(qH(), str);
                                 if (!new File(str).exists() && (nVar = this.Wf.get(4)) != null) {
                                     nVar.bD(101);
                                     this.Wf.remove(4);
@@ -117,7 +117,7 @@ public abstract class c implements n.a, com.baidu.browser.sailor.feature.a.e, co
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qK() {
+    public void qJ() {
         if (this.Wa != null) {
             this.Wa.stop();
             this.Wa.reset();
@@ -134,9 +134,9 @@ public abstract class c implements n.a, com.baidu.browser.sailor.feature.a.e, co
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qL() {
+    public void qK() {
         if (this.mAudioManager == null || this.Wd == null) {
-            this.mAudioManager = (AudioManager) com.baidu.browser.sailor.b.a.qP().getAppContext().getSystemService("audio");
+            this.mAudioManager = (AudioManager) com.baidu.browser.sailor.b.a.qO().getAppContext().getSystemService("audio");
             this.Wd = new MediaPlayer();
             this.Wd.setOnCompletionListener(new m(this));
             this.Wd.setOnErrorListener(new d(this));
@@ -187,7 +187,7 @@ public abstract class c implements n.a, com.baidu.browser.sailor.feature.a.e, co
             nVar.bD(101);
             return;
         }
-        String str4 = nVar.qM().get("mediaType");
+        String str4 = nVar.qL().get("mediaType");
         this.We = null;
         if ("lightapp.device.MEDIA_TYPE.IMAGE".equals(str4)) {
             if (Build.VERSION.SDK_INT >= 24) {
@@ -230,7 +230,7 @@ public abstract class c implements n.a, com.baidu.browser.sailor.feature.a.e, co
             nVar.bD(101);
             return;
         }
-        String str4 = nVar.qM().get("mediaType");
+        String str4 = nVar.qL().get("mediaType");
         this.Wf.put(8, nVar);
         Intent intent = new Intent("android.intent.action.PICK");
         if ("lightapp.device.MEDIA_TYPE.IMAGE".equals(str4)) {
@@ -331,15 +331,15 @@ public abstract class c implements n.a, com.baidu.browser.sailor.feature.a.e, co
     }
 
     public void postFile(String str, String str2, String str3, String str4) {
-        com.baidu.browser.sailor.b.b.a.a(str, str2, str3, str4, this, qI(), this.mWebView != null ? this.mWebView.getSettings().getUserAgentString() : "");
+        com.baidu.browser.sailor.b.b.a.a(str, str2, str3, str4, this, qH(), this.mWebView != null ? this.mWebView.getSettings().getUserAgentString() : "");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract String qI();
+    public abstract String qH();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void qJ() {
-        com.baidu.browser.sailor.feature.a cC = com.baidu.browser.sailor.b.a.qP().cC("LIGHT_APP");
+    public void qI() {
+        com.baidu.browser.sailor.feature.a cC = com.baidu.browser.sailor.b.a.qO().cC("LIGHT_APP");
         if (cC == null || this.mActivity == null) {
             Log.w("BdLightappKernelClient", "lightAppFeature or mActivity null");
         } else {

@@ -32,11 +32,11 @@ public class a {
         return this.mErrorCode;
     }
 
-    public JSONObject rH() {
+    public JSONObject rG() {
         return this.ZN;
     }
 
-    public JSONObject rI() {
+    public JSONObject rH() {
         return this.ZO;
     }
 

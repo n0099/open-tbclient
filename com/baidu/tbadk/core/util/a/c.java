@@ -5,18 +5,18 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class c {
     public int De;
-    public int azT;
+    public int aDt;
     public String mErrorString;
-    public String azU = null;
+    public String aDu = null;
     public boolean mIsGif = false;
     public Map<String, List<String>> mHeader = null;
 
-    public boolean Ci() {
+    public boolean Dm() {
         return this.De == 200;
     }
 
     public boolean isRequestSuccess() {
-        return this.De == 200 && this.azT == 0;
+        return this.De == 200 && this.aDt == 0;
     }
 
     public boolean jh() {

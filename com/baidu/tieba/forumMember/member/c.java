@@ -8,18 +8,18 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class c extends q.a {
-    public View atf;
-    public ImageView cEA;
-    public RelativeLayout dhJ;
+    public View awF;
+    public ImageView cLi;
+    public RelativeLayout dor;
     public int mSkinType;
     public TextView mTitleView;
 
     public c(View view) {
         super(view);
         this.mSkinType = 3;
-        this.dhJ = (RelativeLayout) view.findViewById(e.g.bar_info_complaint_lay);
-        this.atf = view.findViewById(e.g.info_complaint_diver_top);
+        this.dor = (RelativeLayout) view.findViewById(e.g.bar_info_complaint_lay);
+        this.awF = view.findViewById(e.g.info_complaint_diver_top);
         this.mTitleView = (TextView) view.findViewById(e.g.bar_info_complaint_tv);
-        this.cEA = (ImageView) view.findViewById(e.g.bar_info_complaint_img);
+        this.cLi = (ImageView) view.findViewById(e.g.bar_info_complaint_img);
     }
 }

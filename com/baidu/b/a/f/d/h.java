@@ -12,7 +12,7 @@ public class h<T> {
         notifyAll();
     }
 
-    public synchronized T rT() {
+    public synchronized T rS() {
         T t;
         if (this.mQueue.isEmpty() && this.aaf) {
             try {

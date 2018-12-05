@@ -18,13 +18,13 @@ public class MsgActivityViewItemAdapter extends e<MsgActivityView> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgActivityView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgActivityView aMw = aVar.aMw();
-        aMw.setPosition(i);
-        aMw.setData(chatMessage);
-        aMw.a(this.eBa);
-        aMw.setOnItemViewLongClickListener(this.eBb);
-        aMw.cd(this.eBh);
-        aMw.cc(chatMessage.getCacheData().getLastMsgTime());
+        MsgActivityView aOo = aVar.aOo();
+        aOo.setPosition(i);
+        aOo.setData(chatMessage);
+        aOo.a(this.eHP);
+        aOo.setOnItemViewLongClickListener(this.eHQ);
+        aOo.ck(this.eHW);
+        aOo.cj(chatMessage.getCacheData().getLastMsgTime());
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

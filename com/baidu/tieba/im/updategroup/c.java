@@ -9,30 +9,30 @@ public class c extends d {
     public c(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
         setContentView(e.h.update_group_name_activity);
-        qa(e.j.group_info_name);
-        this.eFd = (ImageButton) updateGroupActivity.findViewById(e.g.button_del);
-        this.eFd.setOnClickListener(updateGroupActivity);
+        qu(e.j.group_info_name);
+        this.eLS = (ImageButton) updateGroupActivity.findViewById(e.g.button_del);
+        this.eLS.setOnClickListener(updateGroupActivity);
         this.mEditText.setFilters(new InputFilter[]{new com.baidu.tieba.im.util.a(20)});
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.updategroup.d
-    public void u(int i, int i2, int i3, int i4) {
-        super.u(i, i2, i3, i4);
+    public void v(int i, int i2, int i3, int i4) {
+        super.v(i, i2, i3, i4);
         if (i < 1) {
-            this.eFd.setVisibility(8);
+            this.eLS.setVisibility(8);
         } else {
-            this.eFd.setVisibility(0);
+            this.eLS.setVisibility(0);
         }
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void aSC() {
-        u(this.mEditText.length(), f.d(this.mEditText) / 2, 2, 20);
+    public void aUu() {
+        v(this.mEditText.length(), f.d(this.mEditText) / 2, 2, 20);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public int aSD() {
+    public int aUv() {
         return e.j.group_step_name_error;
     }
 }

@@ -149,11 +149,11 @@ public final class UnitedSchemeUtility {
         return wrapCallbackParamsWithEncode(jSONObject, i, getErrMessage(i));
     }
 
-    public static JSONObject wrapCallbackParamsWithBase64(JSONObject jSONObject, int i, String str) {
-        JSONObject wrapCallbackParams = wrapCallbackParams(i, str);
-        if (jSONObject != null) {
+    public static JSONObject wrapCallbackParamsWithBase64(String str, int i, String str2) {
+        JSONObject wrapCallbackParams = wrapCallbackParams(i, str2);
+        if (str != null) {
             try {
-                wrapCallbackParams.put("data", Base64.encodeToString(jSONObject.toString().getBytes("UTF-8"), 2));
+                wrapCallbackParams.put("data", Base64.encodeToString(str.getBytes("UTF-8"), 2));
             } catch (UnsupportedEncodingException | JSONException e) {
                 e.printStackTrace();
             }
@@ -161,8 +161,8 @@ public final class UnitedSchemeUtility {
         return wrapCallbackParams;
     }
 
-    public static JSONObject wrapCallbackParamsWithBase64(JSONObject jSONObject, int i) {
-        return wrapCallbackParamsWithBase64(jSONObject, i, getErrMessage(i));
+    public static JSONObject wrapCallbackParamsWithBase64(String str, int i) {
+        return wrapCallbackParamsWithBase64(str, i, getErrMessage(i));
     }
 
     public static JSONObject wrapCallbackParams(int i, String str) {

@@ -56,10 +56,10 @@ public class b {
         message.what = 22;
         if (System.currentTimeMillis() - this.g >= g.X) {
             this.g = System.currentTimeMillis();
-            if (com.baidu.location.e.d.tP().i()) {
+            if (com.baidu.location.e.d.tO().i()) {
                 return;
             }
-            j.tj().b(message);
+            j.ti().b(message);
         }
     }
 
@@ -81,7 +81,7 @@ public class b {
         }
     }
 
-    public static synchronized b tv() {
+    public static synchronized b tu() {
         b bVar;
         synchronized (b.class) {
             if (a == null) {

@@ -22,7 +22,7 @@ public class bk<T> implements d.b<T, T> {
     /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: rx.j<T>, rx.j<? super T> */
     public rx.j<? super T> call(final rx.j<? super T> jVar) {
         return (rx.j<T>) new rx.j<T>(jVar) { // from class: rx.internal.operators.bk.1
-            private final Deque<Object> iAM = new ArrayDeque();
+            private final Deque<Object> iHU = new ArrayDeque();
 
             @Override // rx.e
             public void onCompleted() {
@@ -42,12 +42,12 @@ public class bk<T> implements d.b<T, T> {
                     jVar.onNext(t);
                     return;
                 }
-                if (this.iAM.size() == bk.this.count) {
-                    jVar.onNext(NotificationLite.ba(this.iAM.removeFirst()));
+                if (this.iHU.size() == bk.this.count) {
+                    jVar.onNext(NotificationLite.bb(this.iHU.removeFirst()));
                 } else {
                     request(1L);
                 }
-                this.iAM.offerLast(NotificationLite.aX(t));
+                this.iHU.offerLast(NotificationLite.aY(t));
             }
         };
     }

@@ -12,9 +12,9 @@ public class d {
             return "WIFI";
         }
         if (j.kX()) {
-            int le = j.le();
+            int ld = j.ld();
             StringBuilder sb = new StringBuilder();
-            switch (le) {
+            switch (ld) {
                 case 1:
                     sb.append('M');
                     break;

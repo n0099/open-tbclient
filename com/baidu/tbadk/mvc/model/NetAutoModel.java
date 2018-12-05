@@ -9,10 +9,10 @@ import com.baidu.tbadk.mvc.model.NetModel;
 /* loaded from: classes.dex */
 public abstract class NetAutoModel<T extends h, D extends j, ActivityType> extends NetModel<T, D, ActivityType> {
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected abstract Class<? extends MvcProtobufHttpResponsedMessage> Nm();
+    protected abstract Class<? extends MvcProtobufHttpResponsedMessage> Oq();
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected abstract Class<? extends MvcSocketResponsedMessage> Nn();
+    protected abstract Class<? extends MvcSocketResponsedMessage> Or();
 
     public NetAutoModel(TbPageContext<ActivityType> tbPageContext, T t) {
         super(tbPageContext, t, NetModel.NetModelType.TYPE_AUTO);

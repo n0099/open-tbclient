@@ -10,22 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private a auE = null;
+    private a aye = null;
 
     /* loaded from: classes.dex */
     private static final class c {
-        private static final g auQ = new g();
+        private static final g ayq = new g();
     }
 
-    public static g AY() {
-        return c.auQ;
+    public static g Cc() {
+        return c.ayq;
     }
 
     public void a(int i, j jVar) {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
-                this.auE = new a(i, jVar);
-                this.auE.Ba();
+                this.aye = new a(i, jVar);
+                this.aye.Ce();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -35,12 +35,12 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b implements InvocationHandler {
-        protected a auE;
-        private final List<Long> auO = new ArrayList(240);
-        private final List<Integer> auP = new ArrayList(15);
+        protected a aye;
+        private final List<Long> ayo = new ArrayList(240);
+        private final List<Integer> ayp = new ArrayList(15);
 
         public b(a aVar) {
-            this.auE = aVar;
+            this.aye = aVar;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -63,15 +63,15 @@ public class g {
         }
 
         private void doFrame(long j) {
-            this.auO.add(Long.valueOf(j));
-            this.auE.Ba();
+            this.ayo.add(Long.valueOf(j));
+            this.aye.Ce();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.auE = null;
-            this.auO.clear();
-            this.auP.clear();
+            this.aye = null;
+            this.ayo.clear();
+            this.ayp.clear();
         }
     }
 
@@ -79,41 +79,41 @@ public class g {
     /* loaded from: classes.dex */
     public static class a {
         private final int MAX_FRAME_COUNT;
-        private final Class<?> auF;
-        private final Object auG;
-        private final Class<?> auH;
-        private final Method auI;
-        private final Object auJ;
-        private final Method auK;
-        private final b auL;
-        private final j auM;
+        private final Class<?> ayf;
+        private final Object ayg;
+        private final Class<?> ayh;
+        private final Method ayi;
+        private final Object ayj;
+        private final Method ayk;
+        private final b ayl;
+        private final j aym;
         private int index;
 
         private a(int i, j jVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
             this.index = 0;
-            this.auH = Class.forName("android.view.Choreographer");
-            this.auF = Class.forName("android.view.Choreographer$FrameCallback");
-            this.auL = new b(this);
-            this.auG = Proxy.newProxyInstance(this.auF.getClassLoader(), new Class[]{this.auF}, this.auL);
-            this.auI = this.auH.getMethod("getInstance", new Class[0]);
-            this.auJ = this.auI.invoke(null, new Object[0]);
-            this.auK = this.auH.getMethod("postFrameCallback", this.auF);
+            this.ayh = Class.forName("android.view.Choreographer");
+            this.ayf = Class.forName("android.view.Choreographer$FrameCallback");
+            this.ayl = new b(this);
+            this.ayg = Proxy.newProxyInstance(this.ayf.getClassLoader(), new Class[]{this.ayf}, this.ayl);
+            this.ayi = this.ayh.getMethod("getInstance", new Class[0]);
+            this.ayj = this.ayi.invoke(null, new Object[0]);
+            this.ayk = this.ayh.getMethod("postFrameCallback", this.ayf);
             this.MAX_FRAME_COUNT = i <= 0 ? 16 : i;
-            this.auM = jVar;
+            this.aym = jVar;
         }
 
-        private void AZ() throws InvocationTargetException, IllegalAccessException {
-            this.auK.invoke(this.auJ, this.auG);
+        private void Cd() throws InvocationTargetException, IllegalAccessException {
+            this.ayk.invoke(this.ayj, this.ayg);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void Ba() {
+        public void Ce() {
             if (this.index >= this.MAX_FRAME_COUNT) {
                 com.baidu.adp.lib.g.e.jG().post(new Runnable() { // from class: com.baidu.tbadk.core.hybrid.g.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.auM.F(a.this.Bc());
-                        a.this.auL.destroy();
+                        a.this.aym.F(a.this.Cg());
+                        a.this.ayl.destroy();
                         a.this.destroy();
                     }
                 });
@@ -121,31 +121,31 @@ public class g {
             }
             this.index++;
             try {
-                AZ();
+                Cd();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
         }
 
-        private List<Long> Bb() {
-            return this.auL.auO;
+        private List<Long> Cf() {
+            return this.ayl.ayo;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.auL.destroy();
+            this.ayl.destroy();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public List<Long> Bc() {
+        public List<Long> Cg() {
             ArrayList arrayList = new ArrayList(24);
-            List<Long> Bb = Bb();
-            int size = Bb.size();
+            List<Long> Cf = Cf();
+            int size = Cf.size();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < size - 1) {
-                    arrayList.add(Long.valueOf(Bb.get(i2 + 1).longValue() - Bb.get(i2).longValue()));
+                    arrayList.add(Long.valueOf(Cf.get(i2 + 1).longValue() - Cf.get(i2).longValue()));
                     i = i2 + 1;
                 } else {
                     return arrayList;

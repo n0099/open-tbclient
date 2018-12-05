@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.hybrid;
 /* loaded from: classes.dex */
 public interface b {
-    void AW();
+    void Ca();
 
-    void AX();
+    void Cb();
 }

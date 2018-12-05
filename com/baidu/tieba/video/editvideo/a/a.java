@@ -14,13 +14,13 @@ import com.baidu.tieba.video.editvideo.data.PendantData;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a extends BaseAdapter {
-    private InterfaceC0310a hun;
+    private InterfaceC0324a hBz;
     private List<PendantData> mList;
     private e mPageContext;
 
     /* renamed from: com.baidu.tieba.video.editvideo.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0310a {
+    public interface InterfaceC0324a {
         void a(View view, int i, PendantData pendantData);
     }
 
@@ -59,21 +59,21 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(e.h.layout_pendant_item, (ViewGroup) null);
             bVar = new b();
-            bVar.hup = (TextView) view.findViewById(e.g.cover_text);
-            bVar.huq = (TbImageView) view.findViewById(e.g.pendant_image);
-            bVar.hur = (ProgressBar) view.findViewById(e.g.pendant_progressbar);
-            bVar.huq.setDefaultBgResource(e.d.transparent);
-            bVar.huq.setDefaultErrorResource(e.d.cp_cont_i);
-            bVar.huq.setDefaultResource(e.d.cp_cont_i);
+            bVar.hBB = (TextView) view.findViewById(e.g.cover_text);
+            bVar.hBC = (TbImageView) view.findViewById(e.g.pendant_image);
+            bVar.hBD = (ProgressBar) view.findViewById(e.g.pendant_progressbar);
+            bVar.hBC.setDefaultBgResource(e.d.transparent);
+            bVar.hBC.setDefaultErrorResource(e.d.cp_cont_i);
+            bVar.hBC.setDefaultResource(e.d.cp_cont_i);
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.hun != null) {
+                    if (a.this.hBz != null) {
                         b bVar2 = (b) view2.getTag();
-                        if (bVar2.huq.getTag() instanceof Integer) {
-                            Integer num = (Integer) bVar2.huq.getTag();
+                        if (bVar2.hBC.getTag() instanceof Integer) {
+                            Integer num = (Integer) bVar2.hBC.getTag();
                             if (a.this.mList.size() > num.intValue()) {
-                                a.this.hun.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
+                                a.this.hBz.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
                             }
                         }
                     }
@@ -86,60 +86,60 @@ public class a extends BaseAdapter {
         }
         PendantData pendantData = this.mList.get(i);
         if (pendantData != null) {
-            bVar.huq.setTag(Integer.valueOf(i));
+            bVar.hBC.setTag(Integer.valueOf(i));
             switch (pendantData.pendantType) {
                 case 0:
-                    bVar.hup.setVisibility(0);
-                    bVar.huq.setVisibility(8);
-                    bVar.hur.setVisibility(8);
-                    bVar.hup.setTextColor(al.getColor(e.d.cp_cont_e));
-                    bVar.hup.setText("No");
-                    bVar.hup.setBackgroundDrawable(al.getDrawable(e.f.bg_cover_text_border));
+                    bVar.hBB.setVisibility(0);
+                    bVar.hBC.setVisibility(8);
+                    bVar.hBD.setVisibility(8);
+                    bVar.hBB.setTextColor(al.getColor(e.d.cp_cont_e));
+                    bVar.hBB.setText("No");
+                    bVar.hBB.setBackgroundDrawable(al.getDrawable(e.f.bg_cover_text_border));
                     break;
                 case 1:
-                    bVar.hup.setVisibility(0);
-                    bVar.huq.setVisibility(8);
-                    bVar.hur.setVisibility(8);
-                    bVar.hup.setTextColor(al.getColor(e.d.cp_cont_g));
-                    bVar.hup.setText("T");
-                    bVar.hup.setBackgroundColor(al.getColor(e.d.cp_link_tip_a));
+                    bVar.hBB.setVisibility(0);
+                    bVar.hBC.setVisibility(8);
+                    bVar.hBD.setVisibility(8);
+                    bVar.hBB.setTextColor(al.getColor(e.d.cp_cont_g));
+                    bVar.hBB.setText("T");
+                    bVar.hBB.setBackgroundColor(al.getColor(e.d.cp_link_tip_a));
                     break;
                 case 2:
-                    bVar.hup.setVisibility(0);
-                    bVar.huq.setVisibility(8);
-                    bVar.hur.setVisibility(8);
-                    bVar.hup.setTextColor(al.getColor(e.d.cp_cont_g));
-                    bVar.hup.setText("T");
-                    bVar.hup.setBackgroundColor(al.getColor(e.d.cp_cont_d));
+                    bVar.hBB.setVisibility(0);
+                    bVar.hBC.setVisibility(8);
+                    bVar.hBD.setVisibility(8);
+                    bVar.hBB.setTextColor(al.getColor(e.d.cp_cont_g));
+                    bVar.hBB.setText("T");
+                    bVar.hBB.setBackgroundColor(al.getColor(e.d.cp_cont_d));
                     break;
                 case 3:
-                    bVar.hup.setVisibility(0);
-                    bVar.huq.setVisibility(8);
-                    bVar.hur.setVisibility(8);
-                    bVar.hup.setTextColor(al.getColor(e.d.cp_cont_d));
-                    bVar.hup.setText("T");
-                    bVar.hup.setBackgroundDrawable(al.getDrawable(e.f.bg_cover_text_border));
+                    bVar.hBB.setVisibility(0);
+                    bVar.hBC.setVisibility(8);
+                    bVar.hBD.setVisibility(8);
+                    bVar.hBB.setTextColor(al.getColor(e.d.cp_cont_d));
+                    bVar.hBB.setText("T");
+                    bVar.hBB.setBackgroundDrawable(al.getDrawable(e.f.bg_cover_text_border));
                     break;
                 default:
-                    bVar.hup.setVisibility(8);
-                    bVar.huq.setVisibility(0);
-                    bVar.hur.setVisibility(8);
-                    bVar.huq.startLoad(pendantData.img, 10, false);
+                    bVar.hBB.setVisibility(8);
+                    bVar.hBC.setVisibility(0);
+                    bVar.hBD.setVisibility(8);
+                    bVar.hBC.startLoad(pendantData.img, 10, false);
                     break;
             }
         }
         return view;
     }
 
-    public void a(InterfaceC0310a interfaceC0310a) {
-        this.hun = interfaceC0310a;
+    public void a(InterfaceC0324a interfaceC0324a) {
+        this.hBz = interfaceC0324a;
     }
 
     /* loaded from: classes5.dex */
     public class b {
-        public TextView hup;
-        public TbImageView huq;
-        public ProgressBar hur;
+        public TextView hBB;
+        public TbImageView hBC;
+        public ProgressBar hBD;
 
         public b() {
         }

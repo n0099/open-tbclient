@@ -5,40 +5,40 @@ import android.text.TextUtils;
 import com.baidu.tieba.face.SearchEmotionModel;
 /* loaded from: classes6.dex */
 public class b {
-    private SearchEmotionModel.a dkw;
-    private SearchEmotionModel fZp;
-    private String fZq;
-    private Runnable fZr = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.1
+    private SearchEmotionModel.a dqY;
+    private SearchEmotionModel ggg;
+    private String ggh;
+    private Runnable ggi = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.1
         @Override // java.lang.Runnable
         public void run() {
-            if (!TextUtils.isEmpty(b.this.fZq) && b.this.dkw != null) {
-                if (b.this.fZp == null) {
-                    b.this.fZp = new SearchEmotionModel();
+            if (!TextUtils.isEmpty(b.this.ggh) && b.this.dqY != null) {
+                if (b.this.ggg == null) {
+                    b.this.ggg = new SearchEmotionModel();
                 }
-                b.this.fZp.a(b.this.fZq, 0, 30, b.this.dkw);
+                b.this.ggg.a(b.this.ggh, 0, 30, b.this.dqY);
             }
         }
     };
     private Handler mHandler = new Handler();
 
-    public void sJ(String str) {
+    public void tl(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.fZq = "";
+            this.ggh = "";
             return;
         }
-        this.mHandler.removeCallbacks(this.fZr);
-        this.mHandler.postDelayed(this.fZr, 300L);
-        this.fZq = str;
+        this.mHandler.removeCallbacks(this.ggi);
+        this.mHandler.postDelayed(this.ggi, 300L);
+        this.ggh = str;
     }
 
     public void a(SearchEmotionModel.a aVar) {
-        this.dkw = aVar;
+        this.dqY = aVar;
     }
 
-    public void aBt() {
-        if (this.fZp != null) {
-            this.fZp.cancelLoadData();
+    public void aDd() {
+        if (this.ggg != null) {
+            this.ggg.cancelLoadData();
         }
-        this.mHandler.removeCallbacks(this.fZr);
+        this.mHandler.removeCallbacks(this.ggi);
     }
 }

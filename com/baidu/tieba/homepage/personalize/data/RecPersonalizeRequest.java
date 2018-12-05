@@ -13,6 +13,7 @@ public class RecPersonalizeRequest extends NetMessage {
     private int loadType;
     private int needForumlist;
     private int pn;
+    private int preAdThreadCount;
     private int suggestCount;
     private int threadCount;
 
@@ -34,6 +35,10 @@ public class RecPersonalizeRequest extends NetMessage {
         } else {
             this.threadCount = 0;
         }
+    }
+
+    public void setPreAdThreadCount(int i) {
+        this.preAdThreadCount = i;
     }
 
     public void setPn(int i) {
@@ -63,6 +68,7 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.need_tags = 0;
         builder.load_type = Integer.valueOf(this.loadType);
         builder.page_thread_count = Integer.valueOf(this.threadCount);
+        builder.pre_ad_thread_count = Integer.valueOf(this.preAdThreadCount);
         builder.pn = Integer.valueOf(this.pn);
         builder.sug_count = Integer.valueOf(this.suggestCount);
         builder.tag_code = 0;
@@ -71,7 +77,7 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.scr_dip = Double.valueOf(l.aR(TbadkCoreApplication.getInst()));
         builder.q_type = 1;
         builder.need_forumlist = Integer.valueOf(this.needForumlist);
-        builder.new_net_type = Integer.valueOf(j.lb());
+        builder.new_net_type = Integer.valueOf(j.netType());
         PersonalizedReqIdl.Builder builder2 = new PersonalizedReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

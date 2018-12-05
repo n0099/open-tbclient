@@ -37,7 +37,7 @@ public class EasterEggH5Service extends Service {
     private com.google.gson.d gson = new com.google.gson.d();
     private d onHitEventListener = new d() { // from class: com.baidu.tieba.easterEgg.EasterEggH5Service.1
         @Override // com.baidu.tieba.easterEgg.d
-        public void G(String str, String str2, String str3) {
+        public void H(String str, String str2, String str3) {
             if (EasterEggH5Service.this.mWebView != null) {
                 EasterEggH5Service.this.loadJsUrl(EasterEggH5Service.this.mWebView, "receiveEvent", str2, str3);
             }
@@ -50,7 +50,7 @@ public class EasterEggH5Service extends Service {
             String str;
             if (customResponsedMessage.getData() instanceof String) {
                 if (EasterEggH5Service.this.mHttpRule != null) {
-                    str = EasterEggH5Service.this.mHttpRule.mB("reindeer_search");
+                    str = EasterEggH5Service.this.mHttpRule.na("reindeer_search");
                 } else {
                     str = null;
                 }
@@ -58,7 +58,7 @@ public class EasterEggH5Service extends Service {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("content", customResponsedMessage.getData());
-                        EasterEggH5Service.this.onHitEventListener.G("reindeer_search", EasterEggH5Service.this.gson.toJson(str), EasterEggH5Service.this.gson.toJson(jSONObject.toString()));
+                        EasterEggH5Service.this.onHitEventListener.H("reindeer_search", EasterEggH5Service.this.gson.toJson(str), EasterEggH5Service.this.gson.toJson(jSONObject.toString()));
                     } catch (JSONException e) {
                     }
                 }
@@ -73,26 +73,26 @@ public class EasterEggH5Service extends Service {
             if (customResponsedMessage.getData() instanceof g) {
                 g gVar = (g) customResponsedMessage.getData();
                 if (EasterEggH5Service.this.mHttpRule != null) {
-                    str = EasterEggH5Service.this.mHttpRule.mB(gVar.mUrl);
+                    str = EasterEggH5Service.this.mHttpRule.na(gVar.mUrl);
                 } else {
                     str = null;
                 }
                 if (str != null) {
                     HashMap hashMap = new HashMap();
-                    if (!v.I(gVar.aAp)) {
+                    if (!v.I(gVar.aDP)) {
                         int i = 0;
                         while (true) {
                             int i2 = i;
-                            if (i2 >= gVar.aAp.size()) {
+                            if (i2 >= gVar.aDP.size()) {
                                 break;
                             }
-                            if (gVar.aAp.get(i2) != null) {
-                                hashMap.put(gVar.aAp.get(i2).getName(), gVar.aAp.get(i2).getValue());
+                            if (gVar.aDP.get(i2) != null) {
+                                hashMap.put(gVar.aDP.get(i2).getName(), gVar.aDP.get(i2).getValue());
                             }
                             i = i2 + 1;
                         }
                     }
-                    EasterEggH5Service.this.onHitEventListener.G(gVar.mUrl, EasterEggH5Service.this.gson.toJson(str), EasterEggH5Service.this.gson.toJson(EasterEggH5Service.this.gson.toJson(hashMap)));
+                    EasterEggH5Service.this.onHitEventListener.H(gVar.mUrl, EasterEggH5Service.this.gson.toJson(str), EasterEggH5Service.this.gson.toJson(EasterEggH5Service.this.gson.toJson(hashMap)));
                 }
             }
         }
@@ -123,14 +123,14 @@ public class EasterEggH5Service extends Service {
         this.model.a(new e.a() { // from class: com.baidu.tieba.easterEgg.EasterEggH5Service.4
             @Override // com.baidu.tieba.easterEgg.e.a
             public void a(boolean z, com.baidu.tieba.easterEgg.a.a aVar) {
-                if (z && aVar != null && !ao.isEmpty(aVar.asG()) && aVar.isOpen()) {
+                if (z && aVar != null && !ao.isEmpty(aVar.aus()) && aVar.isOpen()) {
                     if (EasterEggH5Service.this.mWebView != null) {
-                        EasterEggH5Service.this.mWebView.loadUrl(aVar.asG());
+                        EasterEggH5Service.this.mWebView.loadUrl(aVar.aus());
                     }
-                    HashMap<String, String> asF = aVar.asF();
-                    if (asF != null) {
-                        EasterEggH5Service.this.mHttpRule.p(asF);
-                        EasterEggH5Service.this.mSocketRule.p(asF);
+                    HashMap<String, String> aur = aVar.aur();
+                    if (aur != null) {
+                        EasterEggH5Service.this.mHttpRule.q(aur);
+                        EasterEggH5Service.this.mSocketRule.q(aur);
                         return;
                     }
                     return;
@@ -138,7 +138,7 @@ public class EasterEggH5Service extends Service {
                 EasterEggH5Service.this.stopSelf();
             }
         });
-        this.model.Ql();
+        this.model.Rr();
     }
 
     private void initListenerAndRule() {
@@ -213,7 +213,7 @@ public class EasterEggH5Service extends Service {
             this.model.onDestroy();
         }
         if (this.eggBridge != null) {
-            this.eggBridge.asz();
+            this.eggBridge.aul();
         }
         MessageManager.getInstance().removeMessageRule(this.mHttpRule);
         MessageManager.getInstance().removeMessageRule(this.mSocketRule);

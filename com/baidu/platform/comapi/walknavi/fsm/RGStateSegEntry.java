@@ -10,7 +10,7 @@ import com.baidu.tieba.R;
 public class RGStateSegEntry extends RGStateCar3D {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGStateCar3D, com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {
-        b.a().L().c(R.drawable.aiapps_no_recommend);
+        b.a().L().c(R.drawable.aiapps_night_mode_toast_icon);
     }
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGStateCar3D, com.baidu.platform.comapi.walknavi.fsm.RGState

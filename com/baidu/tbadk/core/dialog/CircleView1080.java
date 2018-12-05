@@ -9,10 +9,10 @@ import android.view.View;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class CircleView1080 extends View {
-    private static int atx = 360;
-    private static int aty = 100;
-    private Paint atA;
-    private RectF atC;
+    private static int awX = 360;
+    private static int awY = 100;
+    private Paint axa;
+    private RectF axc;
     private int mLineWidth;
     private int mValue;
     private int mWidth;
@@ -41,19 +41,19 @@ public class CircleView1080 extends View {
     }
 
     public void init() {
-        this.mWidth = getResources().getDimensionPixelSize(e.C0200e.tbds122);
-        this.mLineWidth = getResources().getDimensionPixelSize(e.C0200e.tbds6);
-        this.atA = new Paint();
-        this.atA.setStrokeWidth(this.mLineWidth);
-        this.atA.setColor(getResources().getColor(e.d.cp_cont_g));
-        this.atA.setStyle(Paint.Style.STROKE);
-        this.atA.setAntiAlias(true);
-        this.atA.setStrokeCap(Paint.Cap.ROUND);
-        this.atC = new RectF(this.mLineWidth / 2, this.mLineWidth / 2, this.mWidth + (this.mLineWidth / 2), this.mWidth + (this.mLineWidth / 2));
+        this.mWidth = getResources().getDimensionPixelSize(e.C0210e.tbds122);
+        this.mLineWidth = getResources().getDimensionPixelSize(e.C0210e.tbds6);
+        this.axa = new Paint();
+        this.axa.setStrokeWidth(this.mLineWidth);
+        this.axa.setColor(getResources().getColor(e.d.cp_cont_g));
+        this.axa.setStyle(Paint.Style.STROKE);
+        this.axa.setAntiAlias(true);
+        this.axa.setStrokeCap(Paint.Cap.ROUND);
+        this.axc = new RectF(this.mLineWidth / 2, this.mLineWidth / 2, this.mWidth + (this.mLineWidth / 2), this.mWidth + (this.mLineWidth / 2));
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.atC, 270.0f, (atx * this.mValue) / aty, false, this.atA);
+        canvas.drawArc(this.axc, 270.0f, (awX * this.mValue) / awY, false, this.axa);
     }
 }

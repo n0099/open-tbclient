@@ -7,10 +7,10 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
     String address;
-    float deJ;
+    float dlq;
     private List<Integer> data = new ArrayList();
-    boolean deK = false;
-    boolean deL = false;
+    boolean dlr = false;
+    boolean dls = false;
 
     public static final b a(DnsIpData dnsIpData) {
         if (dnsIpData == null) {
@@ -38,7 +38,7 @@ public class b {
         return builder.build(true);
     }
 
-    public void kM(int i) {
+    public void lc(int i) {
         this.data.add(0, Integer.valueOf(i));
         while (this.data.size() > 49) {
             this.data.remove(this.data.size() - 1);
@@ -53,9 +53,9 @@ public class b {
         float f2 = 0.0f;
         int size = this.data.size();
         if (size <= 0) {
-            this.deJ = 0.0f;
+            this.dlq = 0.0f;
         } else if (size == 1) {
-            this.deJ = this.data.get(0).intValue();
+            this.dlq = this.data.get(0).intValue();
         } else {
             Iterator<Integer> it = this.data.iterator();
             float f3 = 1.0f;
@@ -70,15 +70,15 @@ public class b {
                 f3 *= 0.5f;
                 f2 = (intValue * f3) + f;
             }
-            this.deJ = ((i * f3) / size) + f;
-            if (this.deJ < 0.05d) {
-                if (!this.deK) {
-                    com.baidu.tieba.dnsproxy.d.asi().F("ip_weight_lower", this.address, String.valueOf(this.deJ));
-                    this.deK = true;
+            this.dlq = ((i * f3) / size) + f;
+            if (this.dlq < 0.05d) {
+                if (!this.dlr) {
+                    com.baidu.tieba.dnsproxy.d.atU().G("ip_weight_lower", this.address, String.valueOf(this.dlq));
+                    this.dlr = true;
                 }
-            } else if (this.deK && this.deJ > 0.5d && !this.deL) {
-                com.baidu.tieba.dnsproxy.d.asi().F("ip_weight_lower_recover", this.address, String.valueOf(this.deJ));
-                this.deL = true;
+            } else if (this.dlr && this.dlq > 0.5d && !this.dls) {
+                com.baidu.tieba.dnsproxy.d.atU().G("ip_weight_lower_recover", this.address, String.valueOf(this.dlq));
+                this.dls = true;
             }
         }
     }

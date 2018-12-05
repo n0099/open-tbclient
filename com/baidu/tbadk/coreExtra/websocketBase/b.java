@@ -6,29 +6,29 @@ public class b {
 
     /* loaded from: classes.dex */
     private static class a {
-        private static b aSq = new b();
+        private static b aVN = new b();
     }
 
-    public static b JW() {
-        return a.aSq;
+    public static b La() {
+        return a.aVN;
     }
 
     private b() {
     }
 
-    public void JX() {
-        gW("kLCSError=1");
+    public void Lb() {
+        ho("kLCSError=1");
     }
 
-    public void fh(int i) {
-        gW("kNetStatus=" + i);
+    public void fv(int i) {
+        ho("kNetStatus=" + i);
     }
 
-    public void gV(String str) {
-        gW("kNewIpResult=" + str);
+    public void hn(String str) {
+        ho("kNewIpResult=" + str);
     }
 
-    private void gW(String str) {
-        i.a("IpReconnLogHelper", 0, 0, (String) null, com.baidu.tbadk.core.g.akB, str);
+    private void ho(String str) {
+        i.a("IpReconnLogHelper", 0, 0, (String) null, com.baidu.tbadk.core.g.aod, str);
     }
 }

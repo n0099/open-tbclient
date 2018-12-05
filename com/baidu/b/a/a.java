@@ -41,8 +41,8 @@ public final class a {
 
     /* loaded from: classes2.dex */
     public static final class b {
-        public static final String Zh = com.baidu.b.a.g.a.sb().sc() + "&action=";
-        public static final String Zi = com.baidu.b.a.g.a.sb().sd() + "&action=";
+        public static final String Zh = com.baidu.b.a.g.a.sa().sb() + "&action=";
+        public static final String Zi = com.baidu.b.a.g.a.sa().sc() + "&action=";
         public static final String Zj = Zh + "api";
         public static final String Zk = Zi + "api";
     }

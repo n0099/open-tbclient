@@ -289,14 +289,14 @@ public class c extends b implements CompoundButton.OnCheckedChangeListener {
     }
 
     public void c(int i) {
-        if (i == R.drawable.aiapps_night_mode_toast_icon) {
-            this.m.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.i, (int) R.drawable.aiapps_night_mode_toast_icon));
+        if (i == R.drawable.aiapps_new_dot) {
+            this.m.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.i, (int) R.drawable.aiapps_new_dot));
             this.r = 1;
-        } else if (i == R.drawable.aiapps_open_app_buttion_selector) {
-            this.m.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.i, (int) R.drawable.aiapps_open_app_buttion_selector));
+        } else if (i == R.drawable.aiapps_normal_toast_view_bg) {
+            this.m.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.i, (int) R.drawable.aiapps_normal_toast_view_bg));
             this.r = 2;
-        } else if (i == R.drawable.aiapps_no_recommend) {
-            this.m.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.i, (int) R.drawable.aiapps_no_recommend));
+        } else if (i == R.drawable.aiapps_night_mode_toast_icon) {
+            this.m.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.i, (int) R.drawable.aiapps_night_mode_toast_icon));
             this.r = 3;
         }
     }

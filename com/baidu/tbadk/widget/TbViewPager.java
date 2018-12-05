@@ -12,8 +12,8 @@ import com.baidu.searchbox.ng.ai.apps.core.slave.AiAppsSlavePool;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class TbViewPager extends ViewPager {
-    private boolean aHZ;
-    private float bgV;
+    private boolean aLz;
+    private float bku;
     private int mDuration;
     private int mTouchSlop;
 
@@ -59,14 +59,14 @@ public class TbViewPager extends ViewPager {
 
     public TbViewPager(Context context) {
         super(context);
-        this.aHZ = false;
+        this.aLz = false;
         this.mDuration = AiAppsSlavePool.PRELOAD_NEXT_DELAY_MS;
         init();
     }
 
     public TbViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aHZ = false;
+        this.aLz = false;
         this.mDuration = AiAppsSlavePool.PRELOAD_NEXT_DELAY_MS;
         init();
     }
@@ -77,7 +77,7 @@ public class TbViewPager extends ViewPager {
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.aHZ = z;
+        this.aLz = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
@@ -86,7 +86,7 @@ public class TbViewPager extends ViewPager {
         if (r(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.aHZ) {
+        if (motionEvent.getPointerCount() > 1 && this.aLz) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);
@@ -113,30 +113,30 @@ public class TbViewPager extends ViewPager {
             case 0:
             case 5:
             case 6:
-                bL(true);
-                this.bgV = motionEvent.getX();
+                bM(true);
+                this.bku = motionEvent.getX();
                 break;
             case 1:
             case 3:
-                bL(false);
-                this.bgV = 0.0f;
+                bM(false);
+                this.bku = 0.0f;
                 break;
             case 2:
-                float x = motionEvent.getX() - this.bgV;
+                float x = motionEvent.getX() - this.bku;
                 if (getCurrentItem() == 0) {
                     if (x >= this.mTouchSlop) {
-                        bL(false);
+                        bM(false);
                         break;
                     } else {
-                        bL(true);
+                        bM(true);
                         break;
                     }
                 } else if (getCurrentItem() == getAdapter().getCount() - 1) {
                     if (x <= (-this.mTouchSlop)) {
-                        bL(false);
+                        bM(false);
                         break;
                     } else {
-                        bL(true);
+                        bM(true);
                         break;
                     }
                 }
@@ -157,7 +157,7 @@ public class TbViewPager extends ViewPager {
         return motionEvent.getPointerId(action) == -1 || action == -1 || action >= motionEvent.getPointerCount();
     }
 
-    private void bL(boolean z) {
+    private void bM(boolean z) {
         if (getParent() != null) {
             getParent().requestDisallowInterceptTouchEvent(z);
         }

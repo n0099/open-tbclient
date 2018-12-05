@@ -21,9 +21,9 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
-    private f bGG;
-    private PbListView bKJ;
-    private g eKo;
+    private f bKv;
+    private PbListView bOy;
+    private g eRd;
     private TbPageContext<?> mContext;
     private View mHeaderView;
     private BdTypeListView mListView;
@@ -48,19 +48,19 @@ public class b {
         this.mRootView.addView(this.mListView);
     }
 
-    public void iC(boolean z) {
+    public void iF(boolean z) {
         if (this.mHeaderView != null && this.mListView != null) {
             BdListViewHelper.a(this.mHeaderView, BdListViewHelper.HeadType.HASTAB, z);
         }
     }
 
-    public void cD(List<com.baidu.adp.widget.ListView.a> list) {
+    public void cH(List<com.baidu.adp.widget.ListView.a> list) {
         if (!v.I(list)) {
             this.mListView.addAdapters(list);
         }
     }
 
-    public void cc(List<h> list) {
+    public void cg(List<h> list) {
         if (list != null) {
             this.mListView.setData(list);
         }
@@ -70,21 +70,21 @@ public class b {
         this.mListView.completePullRefreshPostDelayed(SystemScreenshotManager.DELAY_TIME);
     }
 
-    public void aHM() {
-        aPK();
-        this.bKJ.DY();
+    public void aJD() {
+        aRC();
+        this.bOy.Fc();
     }
 
-    public void aHN() {
-        aPK();
-        this.bKJ.setText(this.mContext.getResources().getString(e.j.network_ungeilivable));
-        this.bKJ.DZ();
+    public void aJE() {
+        aRC();
+        this.bOy.setText(this.mContext.getResources().getString(e.j.network_ungeilivable));
+        this.bOy.Fd();
     }
 
-    public void aHO() {
-        aPK();
-        this.bKJ.setText(this.mContext.getResources().getString(e.j.list_no_more));
-        this.bKJ.DZ();
+    public void aJF() {
+        aRC();
+        this.bOy.setText(this.mContext.getResources().getString(e.j.list_no_more));
+        this.bOy.Fd();
     }
 
     public View getRootView() {
@@ -94,75 +94,75 @@ public class b {
     public void onChangeSkinType(int i) {
         al.j(this.mListView, e.d.cp_bg_line_c);
         if (this.mPullView != null) {
-            this.mPullView.ek(i);
+            this.mPullView.ey(i);
         }
-        if (this.bKJ != null) {
-            this.bKJ.ej(e.d.cp_bg_line_c);
-            this.bKJ.setTextColor(al.getColor(e.d.cp_cont_d));
-            this.bKJ.ek(i);
+        if (this.bOy != null) {
+            this.bOy.ex(e.d.cp_bg_line_c);
+            this.bOy.setTextColor(al.getColor(e.d.cp_cont_d));
+            this.bOy.ey(i);
         }
-        if (this.eKo != null) {
-            this.eKo.onChangeSkinType();
+        if (this.eRd != null) {
+            this.eRd.onChangeSkinType();
         }
-        if (this.bGG != null) {
-            this.bGG.onChangeSkinType();
+        if (this.bKv != null) {
+            this.bKv.onChangeSkinType();
         }
     }
 
-    public void aPJ() {
+    public void aRB() {
         if (this.mListView != null) {
             this.mListView.setNextPage(null);
-            this.bKJ = null;
+            this.bOy = null;
         }
     }
 
-    private void aPK() {
-        if (this.mListView != null && this.bKJ == null) {
-            this.bKJ = new PbListView(this.mContext.getPageActivity());
-            this.bKJ.oE();
-            this.mListView.setNextPage(this.bKJ);
+    private void aRC() {
+        if (this.mListView != null && this.bOy == null) {
+            this.bOy = new PbListView(this.mContext.getPageActivity());
+            this.bOy.oD();
+            this.mListView.setNextPage(this.bOy);
         }
     }
 
     public void showLoadingView() {
-        if (this.bGG == null) {
-            this.bGG = new f(this.mContext.getPageActivity(), BdListViewHelper.beN);
-            this.bGG.onChangeSkinType();
+        if (this.bKv == null) {
+            this.bKv = new f(this.mContext.getPageActivity(), BdListViewHelper.bio);
+            this.bKv.onChangeSkinType();
         }
-        if (!this.bGG.isViewAttached()) {
+        if (!this.bKv.isViewAttached()) {
             this.mListView.setVisibility(8);
-            this.bGG.attachView(this.mRootView, true);
+            this.bKv.attachView(this.mRootView, true);
         }
     }
 
     public void hideLoadingView() {
-        if (this.bGG != null && this.bGG.isViewAttached()) {
+        if (this.bKv != null && this.bKv.isViewAttached()) {
             this.mListView.setVisibility(0);
-            this.bGG.dettachView(this.mRootView);
+            this.bKv.dettachView(this.mRootView);
         }
     }
 
     public void a(String str, View.OnClickListener onClickListener) {
-        if (this.eKo == null) {
-            this.eKo = new g(this.mContext.getPageActivity(), onClickListener);
-            this.eKo.fP(BdListViewHelper.beN);
-            this.eKo.onChangeSkinType();
+        if (this.eRd == null) {
+            this.eRd = new g(this.mContext.getPageActivity(), onClickListener);
+            this.eRd.gd(BdListViewHelper.bio);
+            this.eRd.onChangeSkinType();
         }
-        if (!this.eKo.isViewAttached()) {
+        if (!this.eRd.isViewAttached()) {
             this.mListView.setVisibility(8);
             if (StringUtils.isNull(str)) {
                 str = this.mContext.getString(e.j.invite_friend_no_data_now);
             }
-            this.eKo.setTitle(str);
-            this.eKo.attachView(this.mRootView, true);
-            this.eKo.MH();
+            this.eRd.setTitle(str);
+            this.eRd.attachView(this.mRootView, true);
+            this.eRd.NL();
         }
     }
 
-    public void ZS() {
-        if (this.eKo != null && this.eKo.isViewAttached()) {
+    public void aaY() {
+        if (this.eRd != null && this.eRd.isViewAttached()) {
             this.mListView.setVisibility(0);
-            this.eKo.dettachView(this.mRootView);
+            this.eRd.dettachView(this.mRootView);
         }
     }
 }

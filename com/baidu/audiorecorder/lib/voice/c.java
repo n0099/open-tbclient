@@ -12,7 +12,7 @@ public class c {
     private short SC;
     private int SD = -2;
 
-    public static c pG() {
+    public static c pF() {
         c cVar;
         if (SE == null) {
             synchronized (c.class) {
@@ -38,7 +38,7 @@ public class c {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [149=7, 150=6, 151=6, 152=6] */
-    public android.media.AudioRecord pH() throws java.lang.IllegalArgumentException {
+    public android.media.AudioRecord pG() throws java.lang.IllegalArgumentException {
         /*
             r18 = this;
             r0 = r18
@@ -233,6 +233,6 @@ public class c {
             r1 = r7
             goto L6a
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.audiorecorder.lib.voice.c.pH():android.media.AudioRecord");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.audiorecorder.lib.voice.c.pG():android.media.AudioRecord");
     }
 }

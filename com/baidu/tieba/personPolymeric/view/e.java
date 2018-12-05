@@ -16,8 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.g> {
-    private HTypeListView byG;
-    private com.baidu.tieba.personPolymeric.a.o gsw;
+    private HTypeListView bCd;
+    private com.baidu.tieba.personPolymeric.a.o gzm;
     private View mDividerView;
     private TbPageContext mPageContext;
     private View mRootView;
@@ -29,8 +29,8 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         this.mRootView = getView();
         this.mDividerView = this.mRootView.findViewById(e.g.divider_view);
         this.mTitle = (TextView) this.mRootView.findViewById(e.g.gift_title);
-        this.byG = (HTypeListView) this.mRootView.findViewById(e.g.gift_horizontal_list);
-        this.gsw = new com.baidu.tieba.personPolymeric.a.o(this.mPageContext, this.byG);
+        this.bCd = (HTypeListView) this.mRootView.findViewById(e.g.gift_horizontal_list);
+        this.gzm = new com.baidu.tieba.personPolymeric.a.o(this.mPageContext, this.bCd);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -58,13 +58,13 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
                 e.this.b(gVar);
             }
         };
-        this.gsw.R(onClickListener);
+        this.gzm.R(onClickListener);
         this.mRootView.setOnClickListener(onClickListener);
-        this.gsw.S(onClickListener);
-        this.byG.setData(ds(gVar.grv));
+        this.gzm.S(onClickListener);
+        this.bCd.setData(dw(gVar.gyl));
         if (gVar.mIsHost) {
             this.mTitle.setText(e.j.gift_received_by_me);
-        } else if (gVar.grt) {
+        } else if (gVar.gyj) {
             this.mTitle.setText(e.j.gift_received_by_him);
         } else {
             this.mTitle.setText(e.j.gift_received_by_her);
@@ -76,17 +76,17 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     public void b(com.baidu.tieba.personPolymeric.c.g gVar) {
         if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
             this.mPageContext.showToast(e.j.gift_load_fail);
-        } else if (ba.bG(this.mPageContext.getPageActivity())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), gVar.mUid, gVar.Ek, gVar.gru, gVar.mSex)));
+        } else if (ba.bJ(this.mPageContext.getPageActivity())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), gVar.mUid, gVar.Ek, gVar.gyk, gVar.mSex)));
         }
     }
 
-    private List<com.baidu.adp.widget.ListView.h> ds(List<com.baidu.adp.widget.ListView.h> list) {
+    private List<com.baidu.adp.widget.ListView.h> dw(List<com.baidu.adp.widget.ListView.h> list) {
         int H = v.H(list);
         if (H > 0) {
             List<com.baidu.adp.widget.ListView.h> arrayList = new ArrayList<>(list);
-            int h = com.baidu.adp.lib.util.l.h(this.mTbPageContext.getPageActivity(), e.C0200e.ds100);
-            int h2 = com.baidu.adp.lib.util.l.h(this.mTbPageContext.getPageActivity(), e.C0200e.ds32);
+            int h = com.baidu.adp.lib.util.l.h(this.mTbPageContext.getPageActivity(), e.C0210e.ds100);
+            int h2 = com.baidu.adp.lib.util.l.h(this.mTbPageContext.getPageActivity(), e.C0210e.ds32);
             if (H > 7) {
                 arrayList = arrayList.subList(0, 7);
                 com.baidu.tieba.personPolymeric.c.h hVar = new com.baidu.tieba.personPolymeric.c.h();

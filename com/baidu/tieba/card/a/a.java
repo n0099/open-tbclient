@@ -4,14 +4,14 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.tieba.card.a;
 /* loaded from: classes6.dex */
 public class a<T extends com.baidu.tieba.card.a> extends q.a {
-    protected T cSv;
+    protected T cZc;
 
     public a(T t) {
         super(t.getView());
-        this.cSv = t;
+        this.cZc = t;
     }
 
-    public T aor() {
-        return this.cSv;
+    public T aqe() {
+        return this.cZc;
     }
 }

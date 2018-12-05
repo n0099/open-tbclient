@@ -57,7 +57,7 @@ public final class c {
             this.c = -1L;
             this.d = -1L;
             this.k = new HashMap();
-            this.f = Jni.encodeOfflineLocationUpdateRequest(String.format(Locale.US, "&ver=%s&cuid=%s&prod=%s:%s&sdk=%.2f&mb=%s&os=A%s", "1", com.baidu.location.g.b.tW().b, com.baidu.location.g.b.e, com.baidu.location.g.b.d, Float.valueOf(7.8f), Build.MODEL, Build.VERSION.SDK));
+            this.f = Jni.encodeOfflineLocationUpdateRequest(String.format(Locale.US, "&ver=%s&cuid=%s&prod=%s:%s&sdk=%.2f&mb=%s&os=A%s", "1", com.baidu.location.g.b.tV().b, com.baidu.location.g.b.e, com.baidu.location.g.b.d, Float.valueOf(7.8f), Build.MODEL, Build.VERSION.SDK));
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -467,17 +467,17 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public double tC() {
+    public double tB() {
         return this.ade;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public double tD() {
+    public double tC() {
         return this.s;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String[] tE() {
+    public String[] tD() {
         return this.i;
     }
 }

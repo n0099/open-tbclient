@@ -6,7 +6,7 @@ public class c {
     private static volatile c Lq;
     private b Lr;
 
-    public static c nv() {
+    public static c nu() {
         if (Lq == null) {
             synchronized (c.class) {
                 if (Lq == null) {
@@ -49,7 +49,7 @@ public class c {
             return false;
         }
         if (this.Lr != null) {
-            for (BdFileDownloadData bdFileDownloadData : this.Lr.nu()) {
+            for (BdFileDownloadData bdFileDownloadData : this.Lr.nt()) {
                 if (str.equals(bdFileDownloadData.getId())) {
                     return true;
                 }

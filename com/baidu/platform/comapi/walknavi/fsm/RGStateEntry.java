@@ -14,7 +14,7 @@ public class RGStateEntry extends RGStateCar3D {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGStateCar3D, com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {
         b.a().L().l();
-        b.a().L().c(R.drawable.aiapps_night_mode_toast_icon);
+        b.a().L().c(R.drawable.aiapps_new_dot);
     }
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGStateCar3D, com.baidu.platform.comapi.walknavi.fsm.RGState

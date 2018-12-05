@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class a {
-    private static ArrayList<a> eru = new ArrayList<>(5);
-    int erA;
-    public int ery;
-    public int erz;
+    private static ArrayList<a> eyp = new ArrayList<>(5);
+    public int eyt;
+    public int eyu;
+    int eyv;
     public int type;
 
-    private void Tv() {
-        this.ery = 0;
-        this.erz = 0;
-        this.erA = 0;
+    private void UB() {
+        this.eyt = 0;
+        this.eyu = 0;
+        this.eyv = 0;
         this.type = 0;
     }
 
@@ -21,31 +21,31 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long aJW() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.ery, this.erz) : ExpandableListView.getPackedPositionForGroup(this.ery);
+    public long aLO() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.eyt, this.eyu) : ExpandableListView.getPackedPositionForGroup(this.eyt);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a oz(int i) {
-        return s(2, i, 0, 0);
+    public static a oT(int i) {
+        return t(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a s(int i, int i2, int i3, int i4) {
-        a aJX = aJX();
-        aJX.type = i;
-        aJX.ery = i2;
-        aJX.erz = i3;
-        aJX.erA = i4;
-        return aJX;
+    public static a t(int i, int i2, int i3, int i4) {
+        a aLP = aLP();
+        aLP.type = i;
+        aLP.eyt = i2;
+        aLP.eyu = i3;
+        aLP.eyv = i4;
+        return aLP;
     }
 
-    private static a aJX() {
+    private static a aLP() {
         a aVar;
-        synchronized (eru) {
-            if (eru.size() > 0) {
-                aVar = eru.remove(0);
-                aVar.Tv();
+        synchronized (eyp) {
+            if (eyp.size() > 0) {
+                aVar = eyp.remove(0);
+                aVar.UB();
             } else {
                 aVar = new a();
             }
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (eru) {
-            if (eru.size() < 5) {
-                eru.add(this);
+        synchronized (eyp) {
+            if (eyp.size() < 5) {
+                eyp.add(this);
             }
         }
     }

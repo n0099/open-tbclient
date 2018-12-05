@@ -53,9 +53,9 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public int view_card_num;
     public static int FROM_PERSON_POLYMERIC = 1;
     public static int FROM_PERSON_POST = 2;
-    private static int grT = 0;
-    private static int grU = 1;
-    private static String grV = "";
+    private static int gyJ = 0;
+    private static int gyK = 1;
+    private static String gyL = "";
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -182,36 +182,36 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     public void resetThreadPn() {
-        grU = 1;
+        gyK = 1;
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, a aVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4) {
         this.mIsReset = z;
         if (z3) {
-            if (z || !str.equals(grV)) {
-                grT = 1;
-                grV = str;
+            if (z || !str.equals(gyL)) {
+                gyJ = 1;
+                gyL = str;
             } else {
-                grT++;
+                gyJ++;
             }
         } else {
-            if (z || !str.equals(grV)) {
+            if (z || !str.equals(gyL)) {
                 if (this.mFrom == FROM_PERSON_POLYMERIC) {
-                    grU = 1;
+                    gyK = 1;
                 } else {
-                    grU = 0;
+                    gyK = 0;
                 }
-                grV = str;
+                gyL = str;
             }
-            grU++;
+            gyK++;
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
         userPostPageRequestMessage.set_sub_type(i);
-        userPostPageRequestMessage.setUid(grV);
+        userPostPageRequestMessage.setUid(gyL);
         if (z3) {
-            userPostPageRequestMessage.setPn(grT);
+            userPostPageRequestMessage.setPn(gyJ);
         } else {
-            userPostPageRequestMessage.setPn(grU);
+            userPostPageRequestMessage.setPn(gyK);
         }
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(!z3);
@@ -222,7 +222,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         int aO = l.aO(TbadkCoreApplication.getInst().getApp());
         int aQ = l.aQ(TbadkCoreApplication.getInst().getApp());
         float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = aq.CN().CP() ? 2 : 1;
+        int i2 = aq.DR().DT() ? 2 : 1;
         userPostPageRequestMessage.set_scr_w(aO);
         userPostPageRequestMessage.set_scr_h(aQ);
         userPostPageRequestMessage.set_scr_dip(f);
@@ -264,7 +264,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 } else if (this.mFrom == FROM_PERSON_POST) {
                     cardPersonDynamicThreadData.from = 1;
                 }
-                if (cardPersonDynamicThreadData.cRR != 33) {
+                if (cardPersonDynamicThreadData.cYy != 33) {
                     this.threadList.add(cardPersonDynamicThreadData);
                     this.postList.add(postInfoList2);
                 }
@@ -503,39 +503,39 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         String str;
         String str2;
         String str3;
-        String Y = ao.Y(System.currentTimeMillis());
+        String af = ao.af(System.currentTimeMillis());
         String str4 = "";
         String str5 = "";
         Iterator<h> it = arrayList.iterator();
         while (it.hasNext()) {
             h next = it.next();
             if (next instanceof CardPersonDynamicThreadData) {
-                ((CardPersonDynamicThreadData) next).cSd = true;
-                ((CardPersonDynamicThreadData) next).cSc = true;
-                long j = ((CardPersonDynamicThreadData) next).cRP * 1000;
-                String Y2 = ao.Y(j);
-                String ab = ao.ab(j);
-                String aa = ao.aa(j);
-                if (ao.equals(Y2, Y)) {
-                    ((CardPersonDynamicThreadData) next).cSd = false;
+                ((CardPersonDynamicThreadData) next).cYK = true;
+                ((CardPersonDynamicThreadData) next).cYJ = true;
+                long j = ((CardPersonDynamicThreadData) next).cYw * 1000;
+                String af2 = ao.af(j);
+                String ai = ao.ai(j);
+                String ah = ao.ah(j);
+                if (ao.equals(af2, af)) {
+                    ((CardPersonDynamicThreadData) next).cYK = false;
                 }
-                if (ao.equals(aa, str5) && ao.equals(ab, str4) && ao.equals(Y2, Y)) {
-                    ((CardPersonDynamicThreadData) next).cSc = false;
+                if (ao.equals(ah, str5) && ao.equals(ai, str4) && ao.equals(af2, af)) {
+                    ((CardPersonDynamicThreadData) next).cYJ = false;
                     str = str5;
                     str2 = str4;
-                    str3 = Y;
+                    str3 = af;
                 } else {
-                    str = aa;
-                    str2 = ab;
-                    str3 = Y2;
+                    str = ah;
+                    str2 = ai;
+                    str3 = af2;
                 }
             } else {
                 str = str5;
                 str2 = str4;
-                str3 = Y;
+                str3 = af;
             }
             str4 = str2;
-            Y = str3;
+            af = str3;
             str5 = str;
         }
         return arrayList;

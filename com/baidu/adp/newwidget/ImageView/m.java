@@ -20,7 +20,7 @@ public class m extends j {
             } catch (Error e) {
             }
         }
-        if (cVar.mj()) {
+        if (cVar.mi()) {
             Bitmap bitmap = cVar.IS.getBitmap();
             this.mRect.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
             canvas.drawBitmap(bitmap, this.mRect, this.mBounds, this.mPaint);

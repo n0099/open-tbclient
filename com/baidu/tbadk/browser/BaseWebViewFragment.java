@@ -15,6 +15,10 @@ public class BaseWebViewFragment extends BaseFragment {
     public String mUrl;
     private String mUrlTitle;
 
+    public void dF(String str) {
+        this.mUrlTitle = str;
+    }
+
     public void setUrl(String str) {
         if (!StringUtils.isNull(str) && str.startsWith("com.baidu.tieba://tbwebview")) {
             this.mUrl = str;
@@ -31,22 +35,22 @@ public class BaseWebViewFragment extends BaseFragment {
     }
 
     public boolean isNeedShowNavigationBar() {
-        return ag(this.mUrl, "nonavigationbar");
+        return aj(this.mUrl, "nonavigationbar");
     }
 
     public boolean isNeedShowShareItem() {
-        return ag(this.mUrl, "noshare");
+        return aj(this.mUrl, "noshare");
     }
 
     public boolean isNeedShowMenuItem() {
-        return ag(this.mUrl, "nomenu");
+        return aj(this.mUrl, "nomenu");
     }
 
-    public boolean dq(String str) {
-        return ag(str, "blank");
+    public boolean dG(String str) {
+        return aj(str, "blank");
     }
 
-    public boolean ag(String str, String str2) {
+    public boolean aj(String str, String str2) {
         String[] split;
         if (StringUtils.isNull(str) || StringUtils.isNull(str2)) {
             return true;

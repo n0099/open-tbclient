@@ -3,60 +3,60 @@ package com.baidu.tieba.h;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class a {
-    private String bxF;
-    private String edO;
-    private String edP;
-    private String edQ;
-    private String edR;
+    private String bBc;
+    private String ekG;
+    private String ekH;
+    private String ekI;
+    private String ekJ;
     private String mImgUrl;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.edO = String.valueOf(esportRank.rank);
-            this.edP = esportRank.text;
-            this.bxF = esportRank.url;
+            this.ekG = String.valueOf(esportRank.rank);
+            this.ekH = esportRank.text;
+            this.bBc = esportRank.url;
             if (esportRank.user != null) {
-                this.edQ = esportRank.user.steam_name;
-                this.edR = esportRank.user.steam_portrait;
+                this.ekI = esportRank.user.steam_name;
+                this.ekJ = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String aHa() {
+    public String aIR() {
         return this.mTitle;
     }
 
-    public String aHb() {
-        return this.edO;
+    public String aIS() {
+        return this.ekG;
     }
 
-    public String aHc() {
-        return this.edP;
+    public String aIT() {
+        return this.ekH;
     }
 
-    public String aHd() {
-        return this.edQ;
+    public String aIU() {
+        return this.ekI;
     }
 
-    public String aHe() {
-        return this.edR;
+    public String aIV() {
+        return this.ekJ;
     }
 
-    public String aHf() {
+    public String aIW() {
         return this.mImgUrl;
     }
 
-    public void ov(String str) {
+    public void oX(String str) {
         this.mImgUrl = str;
     }
 
-    public String aHg() {
-        return this.bxF;
+    public String aIX() {
+        return this.bBc;
     }
 
-    public void ow(String str) {
-        this.bxF = str;
+    public void oY(String str) {
+        this.bBc = str;
     }
 }

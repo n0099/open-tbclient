@@ -12,7 +12,7 @@ public class e {
     private int JP = 0;
     private int JQ = 0;
 
-    public static e mu() {
+    public static e mt() {
         if (JO == null) {
             synchronized (e.class) {
                 if (JO == null) {

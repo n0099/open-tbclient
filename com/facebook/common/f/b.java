@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 public class b extends FilterInputStream {
-    private final byte[] hZp;
-    private int hZq;
-    private int hZr;
+    private final byte[] igC;
+    private int igD;
+    private int igE;
 
     public b(InputStream inputStream, byte[] bArr) {
         super(inputStream);
@@ -17,13 +17,13 @@ public class b extends FilterInputStream {
         if (bArr == null) {
             throw new NullPointerException();
         }
-        this.hZp = bArr;
+        this.igC = bArr;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read() throws IOException {
         int read = this.in.read();
-        return read != -1 ? read : bRv();
+        return read != -1 ? read : bTB();
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -40,11 +40,11 @@ public class b extends FilterInputStream {
             }
             int i3 = 0;
             while (i3 < i2) {
-                int bRv = bRv();
-                if (bRv == -1) {
+                int bTB = bTB();
+                if (bTB == -1) {
                     break;
                 }
-                bArr[i + i3] = (byte) bRv;
+                bArr[i + i3] = (byte) bTB;
                 i3++;
             }
             if (i3 <= 0) {
@@ -59,7 +59,7 @@ public class b extends FilterInputStream {
     public void reset() throws IOException {
         if (this.in.markSupported()) {
             this.in.reset();
-            this.hZq = this.hZr;
+            this.igD = this.igE;
             return;
         }
         throw new IOException("mark is not supported");
@@ -69,17 +69,17 @@ public class b extends FilterInputStream {
     public void mark(int i) {
         if (this.in.markSupported()) {
             super.mark(i);
-            this.hZr = this.hZq;
+            this.igE = this.igD;
         }
     }
 
-    private int bRv() {
-        if (this.hZq >= this.hZp.length) {
+    private int bTB() {
+        if (this.igD >= this.igC.length) {
             return -1;
         }
-        byte[] bArr = this.hZp;
-        int i = this.hZq;
-        this.hZq = i + 1;
+        byte[] bArr = this.igC;
+        int i = this.igD;
+        this.igD = i + 1;
         return bArr[i] & 255;
     }
 }

@@ -1,8 +1,8 @@
 package com.baidu.tbadk.a;
 /* loaded from: classes.dex */
 public class h {
-    public String aie;
-    public boolean aif;
+    public String alG;
+    public boolean alH;
     public int errorCode = 0;
     public String errorString = null;
 }

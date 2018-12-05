@@ -7,48 +7,48 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class h {
-    private d gzF;
-    BdTypeListView gzS;
-    private com.baidu.tbadk.k.g gzz;
+    BdTypeListView gGI;
+    private com.baidu.tbadk.k.g gGp;
+    private d gGv;
     private Context mContext;
     private View mRootView;
     NoDataView mNoDataView = null;
-    private View.OnClickListener eKu = new View.OnClickListener() { // from class: com.baidu.tieba.post.h.1
+    private View.OnClickListener eRj = new View.OnClickListener() { // from class: com.baidu.tieba.post.h.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (com.baidu.adp.lib.util.j.kK()) {
-                if (h.this.gzz != null) {
-                    h.this.gzz.dettachView(h.this.mRootView);
-                    h.this.gzz = null;
+                if (h.this.gGp != null) {
+                    h.this.gGp.dettachView(h.this.mRootView);
+                    h.this.gGp = null;
                 }
-                if (h.this.gzF != null) {
-                    h.this.gzF.bqy();
+                if (h.this.gGv != null) {
+                    h.this.gGv.bsr();
                 }
             }
         }
     };
 
-    public BdTypeListView bqK() {
-        return this.gzS;
+    public BdTypeListView bsD() {
+        return this.gGI;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(Context context, View view) {
         this.mContext = context;
         this.mRootView = view;
-        this.gzS = (BdTypeListView) view.findViewById(e.g.list);
+        this.gGI = (BdTypeListView) view.findViewById(e.g.list);
     }
 
-    public d bqL() {
-        return this.gzF;
+    public d bsE() {
+        return this.gGv;
     }
 
     public void b(d dVar) {
-        this.gzF = dVar;
+        this.gGv = dVar;
     }
 
-    public void M(String str, boolean z) {
-        f.a(this.gzz, this.eKu, this.mContext, this.mRootView, str, z);
-        this.gzS.setVisibility(8);
+    public void O(String str, boolean z) {
+        f.a(this.gGp, this.eRj, this.mContext, this.mRootView, str, z);
+        this.gGI.setVisibility(8);
     }
 }

@@ -42,7 +42,7 @@ public class a {
         public void a() {
             String str;
             this.h = "http://loc.map.baidu.com/gpsz";
-            String format = String.format(Locale.CHINESE, "&x=%d&y=%d%s", Integer.valueOf(this.a), Integer.valueOf(this.b), com.baidu.location.g.b.tW().c());
+            String format = String.format(Locale.CHINESE, "&x=%d&y=%d%s", Integer.valueOf(this.a), Integer.valueOf(this.b), com.baidu.location.g.b.tV().c());
             String encode = Jni.encode(format);
             if (!encode.contains("err!")) {
                 this.k.put("gpsz", encode);
@@ -134,7 +134,7 @@ public class a {
         this.ael.a(d2, d3, d4);
     }
 
-    public static a tu() {
+    public static a tt() {
         a aVar;
         synchronized (b) {
             if (aej == null) {

@@ -19,7 +19,7 @@ public class AdThreadUserInfoLayout extends ThreadUserInfoLayout {
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout
-    protected String fZ(String str) {
+    protected String gr(String str) {
         return ao.A(str, 16);
     }
 }

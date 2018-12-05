@@ -17,7 +17,7 @@ public class a {
     private static volatile a KE = null;
     private HashMap<String, ArrayList<Message<?>>> KD = null;
 
-    public static a mR() {
+    public static a mQ() {
         if (KE == null) {
             synchronized (a.class) {
                 if (KE == null) {
@@ -30,11 +30,11 @@ public class a {
 
     public void init() {
         this.KD = new HashMap<>();
-        mT();
         mS();
+        mR();
     }
 
-    private void mS() {
+    private void mR() {
         MessageManager.getInstance().registerListener(2000997, new CustomMessageListener(0) { // from class: com.baidu.adp.plugin.c.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -55,15 +55,15 @@ public class a {
         });
     }
 
-    private void mT() {
+    private void mS() {
         MessageManager.getInstance().setNotFindTaskListener(new b<Message<?>>() { // from class: com.baidu.adp.plugin.c.a.2
             @Override // com.baidu.adp.framework.listener.b
             public boolean a(Message<?> message) {
                 if (message == null) {
                     return false;
                 }
-                String ba = c.nD().ba(message.getCmd());
-                if (TextUtils.isEmpty(ba) || c.nD().ck(ba)) {
+                String ba = c.nC().ba(message.getCmd());
+                if (TextUtils.isEmpty(ba) || c.nC().ck(ba)) {
                     return false;
                 }
                 if (!PluginCenter.getInstance().hasInstance(ba)) {

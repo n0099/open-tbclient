@@ -9,14 +9,14 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.BaseFragment;
 /* loaded from: classes3.dex */
 public abstract class CollectFragment extends BaseFragment {
-    protected boolean ajT = false;
+    protected boolean anv = false;
     private final CustomMessageListener mNetworkChangedMessageListener = new CustomMessageListener(2000994) { // from class: com.baidu.tbadk.collectTab.CollectFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-                CollectFragment.this.bN(CollectFragment.this.getType());
-                if (!CollectFragment.this.ajT) {
+                CollectFragment.this.cb(CollectFragment.this.getType());
+                if (!CollectFragment.this.anv) {
                     CollectFragment.this.b(false, CollectFragment.this.getType());
                 }
             }
@@ -25,10 +25,10 @@ public abstract class CollectFragment extends BaseFragment {
 
     public abstract int getType();
 
-    public abstract boolean wd();
+    public abstract boolean xh();
 
-    public boolean wc() {
-        return this.ajT;
+    public boolean xg() {
+        return this.anv;
     }
 
     @Override // android.support.v4.app.Fragment
@@ -44,10 +44,10 @@ public abstract class CollectFragment extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bN(int i) {
+    public void cb(int i) {
         Bundle bundle = new Bundle();
-        this.ajT = !wd() && j.kV();
-        bundle.putBoolean("is_enable_edit", this.ajT);
+        this.anv = !xh() && j.kV();
+        bundle.putBoolean("is_enable_edit", this.anv);
         bundle.putInt("fragment_type", i);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2022209, bundle));
     }

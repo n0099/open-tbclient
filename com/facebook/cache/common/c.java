@@ -8,10 +8,10 @@ public final class c {
     public static List<String> a(b bVar) {
         try {
             if (bVar instanceof d) {
-                List<b> bQl = ((d) bVar).bQl();
-                ArrayList arrayList = new ArrayList(bQl.size());
-                for (int i = 0; i < bQl.size(); i++) {
-                    arrayList.add(c(bQl.get(i)));
+                List<b> bSr = ((d) bVar).bSr();
+                ArrayList arrayList = new ArrayList(bSr.size());
+                for (int i = 0; i < bSr.size(); i++) {
+                    arrayList.add(c(bSr.get(i)));
                 }
                 return arrayList;
             }
@@ -25,7 +25,7 @@ public final class c {
 
     public static String b(b bVar) {
         try {
-            return bVar instanceof d ? c(((d) bVar).bQl().get(0)) : c(bVar);
+            return bVar instanceof d ? c(((d) bVar).bSr().get(0)) : c(bVar);
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }

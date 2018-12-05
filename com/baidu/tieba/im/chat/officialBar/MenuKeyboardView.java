@@ -16,7 +16,7 @@ public class MenuKeyboardView extends LinearLayout implements l {
         super(context);
         this.Tb = 0;
         inflate(context, e.h.official_bar_menu_toggle, this);
-        setLayoutParams(new RawLayout.a(context.getResources().getDimensionPixelSize(e.C0200e.ds100), -2));
+        setLayoutParams(new RawLayout.a(context.getResources().getDimensionPixelSize(e.C0210e.ds100), -2));
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.MenuKeyboardView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -56,7 +56,7 @@ public class MenuKeyboardView extends LinearLayout implements l {
     }
 
     @Override // com.baidu.tbadk.editortools.l
-    public void pO() {
+    public void pN() {
         setVisibility(0);
     }
 

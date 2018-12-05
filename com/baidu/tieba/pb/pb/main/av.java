@@ -33,7 +33,7 @@ public class av {
         public String doInBackground(String... strArr) {
             switch (com.baidu.tbadk.core.util.l.a(this.mUrl, this.mData, av.this.mPageContext.getPageActivity())) {
                 case -2:
-                    return com.baidu.tbadk.core.util.l.BD();
+                    return com.baidu.tbadk.core.util.l.CH();
                 case -1:
                 default:
                     return av.this.mPageContext.getString(e.j.save_fail);

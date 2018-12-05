@@ -6,25 +6,25 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 /* loaded from: classes.dex */
 public class b extends TimePickerDialog {
-    private int hFI;
-    private boolean hFJ;
+    private int hMT;
+    private boolean hMU;
     private int mHour;
 
     public b(Context context, TimePickerDialog.OnTimeSetListener onTimeSetListener, int i, int i2, boolean z) {
         super(context, onTimeSetListener, i, i2, z);
         this.mHour = -1;
-        this.hFI = -1;
-        this.hFJ = false;
+        this.hMT = -1;
+        this.hMU = false;
         this.mHour = i;
-        this.hFI = i2;
+        this.hMT = i2;
     }
 
     @Override // android.app.TimePickerDialog
     public void updateTime(int i, int i2) {
         super.updateTime(i, i2);
         this.mHour = i;
-        this.hFI = i2;
-        this.hFJ = false;
+        this.hMT = i2;
+        this.hMU = false;
     }
 
     @Override // android.app.TimePickerDialog, android.app.Dialog
@@ -38,7 +38,7 @@ public class b extends TimePickerDialog {
             bundle = new Bundle();
         }
         bundle.putInt("hour_key", this.mHour);
-        bundle.putInt("min_key", this.hFI);
+        bundle.putInt("min_key", this.hMT);
         return bundle;
     }
 
@@ -47,24 +47,24 @@ public class b extends TimePickerDialog {
         super.onRestoreInstanceState(bundle);
         updateTime(0, 0);
         this.mHour = bundle.getInt("hour_key");
-        this.hFI = bundle.getInt("min_key");
-        updateTime(this.mHour, this.hFI);
+        this.hMT = bundle.getInt("min_key");
+        updateTime(this.mHour, this.hMT);
     }
 
     @Override // android.app.TimePickerDialog, android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         if (i == -1) {
-            this.hFJ = true;
-        } else if (this.mHour >= 0 && this.hFI >= 0) {
-            updateTime(this.mHour, this.hFI);
+            this.hMU = true;
+        } else if (this.mHour >= 0 && this.hMT >= 0) {
+            updateTime(this.mHour, this.hMT);
         }
         super.onClick(dialogInterface, i);
     }
 
     @Override // android.app.Dialog
     protected void onStop() {
-        if (!this.hFJ) {
-            updateTime(this.mHour, this.hFI);
+        if (!this.hMU) {
+            updateTime(this.mHour, this.hMT);
         }
         super.onStop();
     }

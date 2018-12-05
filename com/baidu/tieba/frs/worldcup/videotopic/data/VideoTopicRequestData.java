@@ -9,22 +9,22 @@ import tbclient.VideoTopicList.DataReq;
 import tbclient.VideoTopicList.VideoTopicListReqIdl;
 /* loaded from: classes3.dex */
 public class VideoTopicRequestData extends OrmObject implements e, h {
-    private Integer edr;
-    private Integer eds;
-    private String edt;
-    private String edu;
-    private Integer edv;
-    private Integer edw;
+    private Integer ejU;
+    private Integer ejV;
+    private String ejW;
+    private String ejX;
+    private Integer ejY;
+    private Integer ejZ;
     private Long pn;
     private Integer rn = 10;
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String MU() {
+    public String NY() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean MV() {
+    public boolean NZ() {
         return false;
     }
 
@@ -39,20 +39,20 @@ public class VideoTopicRequestData extends OrmObject implements e, h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> MX() {
+    public HashMap<String, Object> Ob() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object cC(boolean z) {
+    public Object cD(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.topic_id = this.edv;
+        builder.topic_id = this.ejY;
         builder.pn = this.pn;
         builder.rn = this.rn;
-        builder.q_type = this.edu;
-        builder.scr_dip = this.edt;
-        builder.scr_h = this.eds;
-        builder.scr_w = this.edr;
+        builder.q_type = this.ejX;
+        builder.scr_dip = this.ejW;
+        builder.scr_h = this.ejV;
+        builder.scr_w = this.ejU;
         p.bindCommonParamsToProtobufData(builder, true, false, true);
         VideoTopicListReqIdl.Builder builder2 = new VideoTopicListReqIdl.Builder();
         builder2.data = builder.build(false);
@@ -60,26 +60,26 @@ public class VideoTopicRequestData extends OrmObject implements e, h {
     }
 
     public void setScrW(Integer num) {
-        this.edr = num;
+        this.ejU = num;
     }
 
     public void setScrH(Integer num) {
-        this.eds = num;
+        this.ejV = num;
     }
 
-    public void ot(String str) {
-        this.edt = str;
+    public void oS(String str) {
+        this.ejW = str;
     }
 
-    public void ou(String str) {
-        this.edu = str;
+    public void oT(String str) {
+        this.ejX = str;
     }
 
     public void l(Integer num) {
-        this.edv = num;
+        this.ejY = num;
     }
 
-    public void bS(long j) {
+    public void bZ(long j) {
         this.pn = Long.valueOf(j);
     }
 
@@ -88,10 +88,10 @@ public class VideoTopicRequestData extends OrmObject implements e, h {
     }
 
     public int getRequestType() {
-        return this.edw.intValue();
+        return this.ejZ.intValue();
     }
 
     public void m(Integer num) {
-        this.edw = num;
+        this.ejZ = num;
     }
 }

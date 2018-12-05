@@ -16,18 +16,18 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class NoDataView extends LinearLayout {
-    private TbImageView aEb;
-    private TextView aEc;
-    private TextView aEd;
-    private TextView aEe;
-    private TextView aEf;
-    private TextView aEg;
-    private TextView aEh;
-    private String aEi;
-    private String aEj;
-    private View aEk;
-    private NoDataViewFactory.ImgType aEl;
-    private int aEm;
+    private TbImageView aHB;
+    private TextView aHC;
+    private TextView aHD;
+    private TextView aHE;
+    private TextView aHF;
+    private TextView aHG;
+    private TextView aHH;
+    private String aHI;
+    private String aHJ;
+    private View aHK;
+    private NoDataViewFactory.ImgType aHL;
+    private int aHM;
     private Context mContext;
     private View mRootView;
 
@@ -44,15 +44,15 @@ public class NoDataView extends LinearLayout {
 
     private void init(Context context, AttributeSet attributeSet) {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(e.h.no_data_view, this);
-        this.aEb = (TbImageView) this.mRootView.findViewById(e.g.iv_no_data_img);
-        this.aEb.setDefaultBgResource(0);
-        this.aEb.setDefaultResource(0);
-        this.aEb.setDefaultErrorResource(0);
-        this.aEc = (TextView) this.mRootView.findViewById(e.g.tv_text_reamrk);
-        this.aEd = (TextView) this.mRootView.findViewById(e.g.tv_subtitle);
-        this.aEe = (TextView) this.mRootView.findViewById(e.g.tv_title);
-        this.aEf = (TextView) this.mRootView.findViewById(e.g.btn_func);
-        this.aEk = (LinearLayout) this.mRootView.findViewById(e.g.two_button_layout);
+        this.aHB = (TbImageView) this.mRootView.findViewById(e.g.iv_no_data_img);
+        this.aHB.setDefaultBgResource(0);
+        this.aHB.setDefaultResource(0);
+        this.aHB.setDefaultErrorResource(0);
+        this.aHC = (TextView) this.mRootView.findViewById(e.g.tv_text_reamrk);
+        this.aHD = (TextView) this.mRootView.findViewById(e.g.tv_subtitle);
+        this.aHE = (TextView) this.mRootView.findViewById(e.g.tv_title);
+        this.aHF = (TextView) this.mRootView.findViewById(e.g.btn_func);
+        this.aHK = (LinearLayout) this.mRootView.findViewById(e.g.two_button_layout);
     }
 
     public void a(NoDataViewFactory.b bVar, NoDataViewFactory.c cVar, NoDataViewFactory.d dVar) {
@@ -66,93 +66,93 @@ public class NoDataView extends LinearLayout {
             ((TbPageContext) eVar).getLayoutMode().setNightMode(i == 1);
             ((TbPageContext) eVar).getLayoutMode().onModeChanged(this);
         }
-        if (this.aEl == NoDataViewFactory.ImgType.WEBVIEW) {
-            this.aEb.setImageBitmap(al.dC(e.f.pic_emotion08));
-        } else if (this.aEl == NoDataViewFactory.ImgType.NODATA) {
-            this.aEb.setImageBitmap(al.dC(e.f.no_data_image));
-        } else if (this.aEl == NoDataViewFactory.ImgType.LOCAL) {
-            this.aEb.setImageBitmap(al.dC(this.aEm));
-        } else if (this.aEl == NoDataViewFactory.ImgType.ANTI) {
-            this.aEb.setImageBitmap(al.dC(e.f.pic_emotion05));
+        if (this.aHL == NoDataViewFactory.ImgType.WEBVIEW) {
+            this.aHB.setImageBitmap(al.dQ(e.f.pic_emotion08));
+        } else if (this.aHL == NoDataViewFactory.ImgType.NODATA) {
+            this.aHB.setImageBitmap(al.dQ(e.f.no_data_image));
+        } else if (this.aHL == NoDataViewFactory.ImgType.LOCAL) {
+            this.aHB.setImageBitmap(al.dQ(this.aHM));
+        } else if (this.aHL == NoDataViewFactory.ImgType.ANTI) {
+            this.aHB.setImageBitmap(al.dQ(e.f.pic_emotion05));
         } else if (i == 1) {
-            this.aEb.startLoad(this.aEj, 29, false);
+            this.aHB.startLoad(this.aHJ, 29, false);
         } else {
-            this.aEb.startLoad(this.aEi, 29, false);
+            this.aHB.startLoad(this.aHI, 29, false);
         }
     }
 
     public void setTextOption(NoDataViewFactory.d dVar) {
         if (dVar != null) {
             if (!TextUtils.isEmpty(dVar.mTitle)) {
-                this.aEe.setText(dVar.mTitle);
-                this.aEe.setVisibility(0);
+                this.aHE.setText(dVar.mTitle);
+                this.aHE.setVisibility(0);
             } else {
-                this.aEe.setVisibility(8);
+                this.aHE.setVisibility(8);
             }
-            if (!TextUtils.isEmpty(dVar.anq)) {
-                this.aEd.setText(dVar.anq);
+            if (!TextUtils.isEmpty(dVar.aqR)) {
+                this.aHD.setText(dVar.aqR);
                 if (TextUtils.isEmpty(dVar.mTitle)) {
-                    this.aEd.setTextSize(0, getResources().getDimension(e.C0200e.fontsize28));
-                    if (dVar.aEu >= 0) {
-                        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aEd.getLayoutParams();
-                        layoutParams.topMargin = dVar.aEu;
-                        this.aEd.setLayoutParams(layoutParams);
+                    this.aHD.setTextSize(0, getResources().getDimension(e.C0210e.fontsize28));
+                    if (dVar.aHU >= 0) {
+                        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aHD.getLayoutParams();
+                        layoutParams.topMargin = dVar.aHU;
+                        this.aHD.setLayoutParams(layoutParams);
                     }
                 }
-                if (dVar.aEv != 0) {
-                    setSubTitleCompoundDrawable(dVar.aEv);
+                if (dVar.aHV != 0) {
+                    setSubTitleCompoundDrawable(dVar.aHV);
                 }
             } else {
-                this.aEd.setVisibility(8);
+                this.aHD.setVisibility(8);
             }
-            if (!TextUtils.isEmpty(dVar.aEt)) {
-                this.aEc.setText(dVar.aEt);
-                this.aEc.setVisibility(0);
+            if (!TextUtils.isEmpty(dVar.aHT)) {
+                this.aHC.setText(dVar.aHT);
+                this.aHC.setVisibility(0);
                 return;
             }
-            this.aEc.setVisibility(8);
+            this.aHC.setVisibility(8);
         }
     }
 
     public void setImgOption(NoDataViewFactory.c cVar) {
         if (cVar != null) {
-            this.aEl = cVar.aEs;
-            this.aEm = cVar.aEm;
-            switch (cVar.aEs) {
+            this.aHL = cVar.aHS;
+            this.aHM = cVar.aHM;
+            switch (cVar.aHS) {
                 case CREATE:
-                    this.aEi = com.baidu.tbadk.util.c.OF().ig("pic_emotion03.png");
-                    this.aEj = com.baidu.tbadk.util.c.OF().ig("pic_emotion03_1.png");
+                    this.aHI = com.baidu.tbadk.util.c.PL().iy("pic_emotion03.png");
+                    this.aHJ = com.baidu.tbadk.util.c.PL().iy("pic_emotion03_1.png");
                     break;
                 case NODATA:
-                    this.aEi = com.baidu.tbadk.util.c.OF().ig("pic_emotion05.png");
-                    this.aEj = com.baidu.tbadk.util.c.OF().ig("pic_emotion05_1.png");
+                    this.aHI = com.baidu.tbadk.util.c.PL().iy("pic_emotion05.png");
+                    this.aHJ = com.baidu.tbadk.util.c.PL().iy("pic_emotion05_1.png");
                     break;
                 case FINDBAR:
-                    this.aEi = com.baidu.tbadk.util.c.OF().ig("pic_emotion01.png");
-                    this.aEj = com.baidu.tbadk.util.c.OF().ig("pic_emotion01_1.png");
+                    this.aHI = com.baidu.tbadk.util.c.PL().iy("pic_emotion01.png");
+                    this.aHJ = com.baidu.tbadk.util.c.PL().iy("pic_emotion01_1.png");
                     break;
                 case EMOTION:
-                    this.aEi = com.baidu.tbadk.util.c.OF().ig("pic_emotion02.png");
-                    this.aEj = com.baidu.tbadk.util.c.OF().ig("pic_emotion02_1.png");
+                    this.aHI = com.baidu.tbadk.util.c.PL().iy("pic_emotion02.png");
+                    this.aHJ = com.baidu.tbadk.util.c.PL().iy("pic_emotion02_1.png");
                     break;
                 case GIFT:
-                    this.aEi = com.baidu.tbadk.util.c.OF().ig("pic_emotion07.png");
-                    this.aEj = com.baidu.tbadk.util.c.OF().ig("pic_emotion07_1.png");
+                    this.aHI = com.baidu.tbadk.util.c.PL().iy("pic_emotion07.png");
+                    this.aHJ = com.baidu.tbadk.util.c.PL().iy("pic_emotion07_1.png");
                     break;
                 case SINGALL:
-                    this.aEi = com.baidu.tbadk.util.c.OF().ig("pic_emotion06.png");
-                    this.aEj = com.baidu.tbadk.util.c.OF().ig("pic_emotion06_1.png");
+                    this.aHI = com.baidu.tbadk.util.c.PL().iy("pic_emotion06.png");
+                    this.aHJ = com.baidu.tbadk.util.c.PL().iy("pic_emotion06_1.png");
                     break;
                 case WEBVIEW:
-                    this.aEi = com.baidu.tbadk.util.c.OF().ig("pic_emotion08.png");
-                    this.aEj = com.baidu.tbadk.util.c.OF().ig("pic_emotion08_1.png");
+                    this.aHI = com.baidu.tbadk.util.c.PL().iy("pic_emotion08.png");
+                    this.aHJ = com.baidu.tbadk.util.c.PL().iy("pic_emotion08_1.png");
                     break;
                 case ANTI:
-                    this.aEi = com.baidu.tbadk.util.c.OF().ig("pic_emotion05.png");
-                    this.aEj = com.baidu.tbadk.util.c.OF().ig("pic_emotion05_1.png");
+                    this.aHI = com.baidu.tbadk.util.c.PL().iy("pic_emotion05.png");
+                    this.aHJ = com.baidu.tbadk.util.c.PL().iy("pic_emotion05_1.png");
                     break;
             }
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aEb.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aHB.getLayoutParams();
             if (cVar.mMarginTop >= 0) {
                 layoutParams.setMargins(0, cVar.mMarginTop, 0, 0);
             }
@@ -160,36 +160,36 @@ public class NoDataView extends LinearLayout {
                 layoutParams.height = cVar.mHeight;
                 layoutParams.width = cVar.mWidth;
             }
-            this.aEb.setLayoutParams(layoutParams);
+            this.aHB.setLayoutParams(layoutParams);
         }
     }
 
     public void setButtonOption(NoDataViewFactory.b bVar) {
         if (bVar == null) {
-            this.aEf.setVisibility(8);
-            this.aEk.setVisibility(8);
+            this.aHF.setVisibility(8);
+            this.aHK.setVisibility(8);
             return;
         }
-        NoDataViewFactory.a aVar = bVar.aEp;
-        NoDataViewFactory.a aVar2 = bVar.aEq;
+        NoDataViewFactory.a aVar = bVar.aHP;
+        NoDataViewFactory.a aVar2 = bVar.aHQ;
         if (aVar2 == null && aVar != null) {
-            this.aEf.setOnClickListener(aVar.aEo);
-            this.aEf.setText(aVar.mText);
-            this.aEf.setVisibility(0);
-            if (bVar.aEr >= 0) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aEf.getLayoutParams();
-                layoutParams.topMargin = bVar.aEr;
-                this.aEf.setLayoutParams(layoutParams);
+            this.aHF.setOnClickListener(aVar.aHO);
+            this.aHF.setText(aVar.mText);
+            this.aHF.setVisibility(0);
+            if (bVar.aHR >= 0) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aHF.getLayoutParams();
+                layoutParams.topMargin = bVar.aHR;
+                this.aHF.setLayoutParams(layoutParams);
             }
         }
         if (aVar2 != null && aVar != null) {
-            this.aEg = (TextView) this.aEk.findViewById(e.g.btn_left);
-            this.aEh = (TextView) this.aEk.findViewById(e.g.btn_right);
-            this.aEg.setOnClickListener(aVar.aEo);
-            this.aEg.setText(aVar.mText);
-            this.aEh.setOnClickListener(aVar2.aEo);
-            this.aEh.setText(aVar2.mText);
-            this.aEk.setVisibility(0);
+            this.aHG = (TextView) this.aHK.findViewById(e.g.btn_left);
+            this.aHH = (TextView) this.aHK.findViewById(e.g.btn_right);
+            this.aHG.setOnClickListener(aVar.aHO);
+            this.aHG.setText(aVar.mText);
+            this.aHH.setOnClickListener(aVar2.aHO);
+            this.aHH.setText(aVar2.mText);
+            this.aHK.setVisibility(0);
         }
     }
 
@@ -198,44 +198,44 @@ public class NoDataView extends LinearLayout {
     }
 
     public void onActivityStop() {
-        this.aEb.setImageDrawable(null);
-        this.aEb.startLoad(null, 10, false);
+        this.aHB.setImageDrawable(null);
+        this.aHB.startLoad(null, 10, false);
     }
 
     public void setTitleTextColor(int i) {
-        if (this.aEe != null) {
-            al.c(this.aEe, i, 1);
+        if (this.aHE != null) {
+            al.c(this.aHE, i, 1);
         }
     }
 
     public void setSubTitleTextColor(int i) {
-        if (this.aEd != null) {
-            al.c(this.aEd, i, 1);
+        if (this.aHD != null) {
+            al.c(this.aHD, i, 1);
         }
     }
 
     public void setRemarkTextColor(int i) {
-        if (this.aEc != null) {
-            al.c(this.aEc, i, 1);
+        if (this.aHC != null) {
+            al.c(this.aHC, i, 1);
         }
     }
 
     public void setSubTitleCompoundDrawable(int i) {
         Drawable drawable = al.getDrawable(i);
-        int h = com.baidu.adp.lib.util.l.h(this.mContext, e.C0200e.ds32);
-        int h2 = com.baidu.adp.lib.util.l.h(this.mContext, e.C0200e.ds8);
+        int h = com.baidu.adp.lib.util.l.h(this.mContext, e.C0210e.ds32);
+        int h2 = com.baidu.adp.lib.util.l.h(this.mContext, e.C0210e.ds8);
         drawable.setBounds(0, 0, h, h);
-        this.aEd.setCompoundDrawablePadding(h2);
-        this.aEd.setCompoundDrawables(drawable, null, null, null);
+        this.aHD.setCompoundDrawablePadding(h2);
+        this.aHD.setCompoundDrawables(drawable, null, null, null);
     }
 
     public void setSubTitleTextSize(int i) {
-        if (this.aEe != null) {
-            this.aEe.setTextSize(i);
+        if (this.aHE != null) {
+            this.aHE.setTextSize(i);
         }
     }
 
     public TextView getSuTextView() {
-        return this.aEd;
+        return this.aHD;
     }
 }

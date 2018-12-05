@@ -18,40 +18,40 @@ public class Slot implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: xk */
+        /* renamed from: xH */
         public Slot[] newArray(int i) {
             return new Slot[i];
         }
     };
-    private long hUP;
-    private long hUQ;
-    private JSONObject hUR;
-    private float hUS;
+    private long ibZ;
+    private long ica;
+    private JSONObject icb;
+    private float icc;
     private String mCategory;
 
     public Slot(String str, long j, JSONObject jSONObject) {
-        this.hUP = 0L;
-        this.hUQ = 0L;
-        this.hUP = j;
+        this.ibZ = 0L;
+        this.ica = 0L;
+        this.ibZ = j;
         this.mCategory = str;
-        this.hUR = jSONObject;
+        this.icb = jSONObject;
     }
 
     protected Slot(Parcel parcel) {
-        this.hUP = 0L;
-        this.hUQ = 0L;
-        this.hUP = parcel.readLong();
-        this.hUQ = parcel.readLong();
+        this.ibZ = 0L;
+        this.ica = 0L;
+        this.ibZ = parcel.readLong();
+        this.ica = parcel.readLong();
         this.mCategory = parcel.readString();
-        this.hUS = parcel.readFloat();
+        this.icc = parcel.readFloat();
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeLong(this.hUP);
-        parcel.writeLong(this.hUQ);
+        parcel.writeLong(this.ibZ);
+        parcel.writeLong(this.ica);
         parcel.writeString(this.mCategory);
-        parcel.writeFloat(this.hUS);
+        parcel.writeFloat(this.icc);
     }
 
     @Override // android.os.Parcelable
@@ -60,36 +60,36 @@ public class Slot implements Parcelable {
     }
 
     public void setEnd(long j) {
-        if (j > 0 && j > this.hUP) {
-            this.hUQ = j;
-            this.hUS = (((float) (this.hUQ - this.hUP)) / 1000.0f) + this.hUS;
+        if (j > 0 && j > this.ibZ) {
+            this.ica = j;
+            this.icc = (((float) (this.ica - this.ibZ)) / 1000.0f) + this.icc;
         }
     }
 
-    public void ax(JSONObject jSONObject) {
-        this.hUR = jSONObject;
+    public void az(JSONObject jSONObject) {
+        this.icb = jSONObject;
     }
 
-    public boolean bPj() {
-        return this.hUP > 0;
+    public boolean bRp() {
+        return this.ibZ > 0;
     }
 
-    public boolean bPk() {
-        return this.hUQ > 0;
+    public boolean bRq() {
+        return this.ica > 0;
     }
 
     public void clean() {
-        this.hUP = 0L;
-        this.hUQ = 0L;
+        this.ibZ = 0L;
+        this.ica = 0L;
     }
 
-    public JSONObject bPl() {
+    public JSONObject bRr() {
         JSONObject jSONObject;
         JSONException e;
-        if (TextUtils.isEmpty(this.mCategory) || this.hUS <= 0.0f) {
+        if (TextUtils.isEmpty(this.mCategory) || this.icc <= 0.0f) {
             return null;
         }
-        String format = String.format("%.3f", Float.valueOf(this.hUS));
+        String format = String.format("%.3f", Float.valueOf(this.icc));
         try {
             jSONObject = new JSONObject();
         } catch (JSONException e2) {
@@ -99,8 +99,8 @@ public class Slot implements Parcelable {
         try {
             jSONObject.put("id", this.mCategory);
             jSONObject.put("d", format);
-            if (this.hUR != null) {
-                jSONObject.put("info", this.hUR);
+            if (this.icb != null) {
+                jSONObject.put("info", this.icb);
                 return jSONObject;
             }
             return jSONObject;

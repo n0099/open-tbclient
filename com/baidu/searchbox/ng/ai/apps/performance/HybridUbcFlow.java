@@ -166,14 +166,14 @@ public class HybridUbcFlow {
 
     private boolean checkSubmit() {
         if (allDone()) {
-            Flow xI = o.xI(this.mFlowId);
+            Flow yl = o.yl(this.mFlowId);
             updateFinalEvents();
             if (this.mReporter != null) {
                 this.mReporter.report(this);
             }
             for (UbcFlowEvent ubcFlowEvent : this.mFinalEvents) {
                 if (!ubcFlowEvent.justLocalRecord()) {
-                    xI.e(ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.time());
+                    yl.e(ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.time());
                 }
             }
             if (isEmpty()) {
@@ -196,8 +196,8 @@ public class HybridUbcFlow {
                 putValue("ext", jSONObject);
             } catch (Exception e) {
             }
-            xI.xD(this.mValues.toString());
-            xI.end();
+            yl.yg(this.mValues.toString());
+            yl.end();
             AiAppsPerformanceUBC.resetSession();
             return true;
         }

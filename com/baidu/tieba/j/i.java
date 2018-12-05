@@ -9,39 +9,39 @@ public interface i {
 
     void a(String str, long j, long j2, long j3, long j4, long j5, String str2, int i);
 
-    void baD();
+    String bcA();
 
-    void baE();
+    String bcB();
 
-    void baF();
+    void bcu();
 
-    void baG();
+    void bcv();
 
-    void baH();
+    void bcw();
 
-    void baI();
+    void bcx();
 
-    String baJ();
+    void bcy();
 
-    String baK();
+    void bcz();
 
     void f(int i, int i2, String str);
 
-    void jM(boolean z);
+    void jP(boolean z);
 
-    void rA(String str);
+    void rH(int i);
 
-    void rB(String str);
-
-    String rC(String str);
-
-    boolean rD(String str);
-
-    void rE(String str);
+    void rI(int i);
 
     void report();
 
-    void rn(int i);
+    void sc(String str);
 
-    void ro(int i);
+    void sd(String str);
+
+    String se(String str);
+
+    boolean sf(String str);
+
+    void sg(String str);
 }

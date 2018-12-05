@@ -14,7 +14,7 @@ public interface a {
 
     void show();
 
-    void vq(int i);
+    void vN(int i);
 
-    void vr(int i);
+    void vO(int i);
 }

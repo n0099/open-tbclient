@@ -15,7 +15,7 @@ public class b implements com.baidu.tbadk.mvc.b.b, j {
     private Error error;
     private List<tinfo> list;
 
-    public List<tinfo> apf() {
+    public List<tinfo> aqS() {
         if (this.list == null || this.list.size() <= 0) {
             return null;
         }
@@ -43,7 +43,7 @@ public class b implements com.baidu.tbadk.mvc.b.b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void H(JSONObject jSONObject) {
+    public void I(JSONObject jSONObject) {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
@@ -72,7 +72,7 @@ public class b implements com.baidu.tbadk.mvc.b.b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] MT() {
+    public byte[] NX() {
         return null;
     }
 }

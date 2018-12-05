@@ -16,9 +16,9 @@ public final class r {
             return false;
         }
         try {
-            a OT = a.OT();
+            a PZ = a.PZ();
             for (String str : strArr) {
-                if (OT.getProperty(str) != null) {
+                if (PZ.getProperty(str) != null) {
                     return true;
                 }
             }
@@ -31,26 +31,26 @@ public final class r {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static final class a {
-        private static a bff;
-        private final Properties bfg = new Properties();
+        private static a biF;
+        private final Properties biG = new Properties();
 
         private a() throws IOException {
-            this.bfg.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
+            this.biG.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
         }
 
-        public static a OT() throws IOException {
-            if (bff == null) {
+        public static a PZ() throws IOException {
+            if (biF == null) {
                 synchronized (a.class) {
-                    if (bff == null) {
-                        bff = new a();
+                    if (biF == null) {
+                        biF = new a();
                     }
                 }
             }
-            return bff;
+            return biF;
         }
 
         public String getProperty(String str) {
-            return this.bfg.getProperty(str);
+            return this.biG.getProperty(str);
         }
     }
 }

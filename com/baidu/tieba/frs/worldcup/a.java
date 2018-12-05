@@ -11,7 +11,7 @@ import com.baidu.tieba.frs.worldcup.talkball.activity.TalkBallFragment;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tbadk.mainTab.b {
     public a() {
-        ML().bam = new TalkBallFragment();
+        NP().bdK = new TalkBallFragment();
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -20,23 +20,23 @@ public class a extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c MK() {
+    public com.baidu.tbadk.mainTab.c NO() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.type = 12;
-        cVar.aBR = e.j.frs_tab_talkball;
-        cVar.bat = com.baidu.tbadk.mainTab.c.baq;
+        cVar.aFr = e.j.frs_tab_talkball;
+        cVar.bdQ = com.baidu.tbadk.mainTab.c.bdO;
         return cVar;
     }
 
     public void a(ad adVar) {
-        if (adVar != null && adVar.mb(12)) {
+        if (adVar != null && adVar.mr(12)) {
             adVar.b(this);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator bO(Context context) {
-        this.aZY = (FragmentTabIndicator) LayoutInflater.from(context).inflate(e.h.fragmenttabindicator, (ViewGroup) null);
-        return this.aZY;
+    public TbFragmentTabIndicator bR(Context context) {
+        this.bdw = (FragmentTabIndicator) LayoutInflater.from(context).inflate(e.h.fragmenttabindicator, (ViewGroup) null);
+        return this.bdw;
     }
 }

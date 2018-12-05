@@ -15,7 +15,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class EmotionPreview extends LinearLayout {
-    private ImageView dkz;
+    private ImageView drb;
     private int mImageWidth;
 
     public EmotionPreview(Context context) {
@@ -35,26 +35,26 @@ public class EmotionPreview extends LinearLayout {
 
     private void init() {
         setBackgroundResource(e.f.bg_expression_bubble);
-        int h = l.h(getContext(), e.C0200e.ds20);
-        setPadding(h, h, h, l.h(getContext(), e.C0200e.ds40));
-        this.mImageWidth = l.h(getContext(), e.C0200e.ds200);
+        int h = l.h(getContext(), e.C0210e.ds20);
+        setPadding(h, h, h, l.h(getContext(), e.C0210e.ds40));
+        this.mImageWidth = l.h(getContext(), e.C0210e.ds200);
     }
 
     public void a(final String str, final String str2, boolean z, int i) {
         if (!TextUtils.isEmpty(str)) {
             removeAllViews();
             if (z || i == 20) {
-                this.dkz = new GifView(getContext());
-                ((GifView) this.dkz).setSupportNoImage(false);
+                this.drb = new GifView(getContext());
+                ((GifView) this.drb).setSupportNoImage(false);
                 GifInfo gifInfo = new GifInfo();
                 gifInfo.mSharpText = str;
                 gifInfo.mDynamicUrl = str;
                 gifInfo.mStaticUrl = str2;
-                this.dkz.setTag(gifInfo.mSharpText);
-                ((GifView) this.dkz).a(gifInfo);
+                this.drb.setTag(gifInfo.mSharpText);
+                ((GifView) this.drb).a(gifInfo);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.mImageWidth, this.mImageWidth);
                 layoutParams.gravity = 17;
-                addView(this.dkz, layoutParams);
+                addView(this.drb, layoutParams);
                 return;
             }
             c.jA().a(str, 10, new b<a>() { // from class: com.baidu.tieba.face.view.EmotionPreview.1
@@ -64,22 +64,22 @@ public class EmotionPreview extends LinearLayout {
                 public void onLoaded(a aVar, String str3, int i2) {
                     if (aVar != null) {
                         if (aVar.isGif()) {
-                            EmotionPreview.this.dkz = new GifView(EmotionPreview.this.getContext());
-                            ((GifView) EmotionPreview.this.dkz).setSupportNoImage(false);
+                            EmotionPreview.this.drb = new GifView(EmotionPreview.this.getContext());
+                            ((GifView) EmotionPreview.this.drb).setSupportNoImage(false);
                             GifInfo gifInfo2 = new GifInfo();
                             gifInfo2.mSharpText = str;
                             gifInfo2.mDynamicUrl = str;
                             gifInfo2.mStaticUrl = str2;
-                            EmotionPreview.this.dkz.setTag(gifInfo2.mSharpText);
-                            ((GifView) EmotionPreview.this.dkz).a(gifInfo2);
+                            EmotionPreview.this.drb.setTag(gifInfo2.mSharpText);
+                            ((GifView) EmotionPreview.this.drb).a(gifInfo2);
                         } else {
-                            EmotionPreview.this.dkz = new TbImageView(EmotionPreview.this.getContext());
-                            ((TbImageView) EmotionPreview.this.dkz).setGifIconSupport(false);
-                            aVar.a(EmotionPreview.this.dkz);
+                            EmotionPreview.this.drb = new TbImageView(EmotionPreview.this.getContext());
+                            ((TbImageView) EmotionPreview.this.drb).setGifIconSupport(false);
+                            aVar.a(EmotionPreview.this.drb);
                         }
                         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(EmotionPreview.this.mImageWidth, EmotionPreview.this.mImageWidth);
                         layoutParams2.gravity = 17;
-                        EmotionPreview.this.addView(EmotionPreview.this.dkz, layoutParams2);
+                        EmotionPreview.this.addView(EmotionPreview.this.drb, layoutParams2);
                     }
                 }
             }, null);

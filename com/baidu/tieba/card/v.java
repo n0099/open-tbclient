@@ -6,34 +6,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class v {
-    private static v cPW;
-    private List<am> bGM;
+    private static v cWD;
+    private List<am> bKB;
 
-    public static v anQ() {
-        if (cPW == null) {
+    public static v apD() {
+        if (cWD == null) {
             synchronized (v.class) {
-                if (cPW == null) {
-                    cPW = new v();
+                if (cWD == null) {
+                    cWD = new v();
                 }
             }
         }
-        return cPW;
+        return cWD;
     }
 
     public void a(am amVar) {
         if (amVar != null) {
-            if (this.bGM == null) {
-                this.bGM = new ArrayList();
+            if (this.bKB == null) {
+                this.bKB = new ArrayList();
             }
-            if (this.bGM != null) {
-                this.bGM.add(amVar);
+            if (this.bKB != null) {
+                this.bKB.add(amVar);
             }
         }
     }
 
-    public void dP(boolean z) {
-        if (com.baidu.tbadk.core.util.v.H(this.bGM) != 0) {
-            for (am amVar : this.bGM) {
+    public void dQ(boolean z) {
+        if (com.baidu.tbadk.core.util.v.H(this.bKB) != 0) {
+            for (am amVar : this.bKB) {
                 if (amVar != null) {
                     int i = 0;
                     if (z) {
@@ -43,13 +43,13 @@ public class v {
                     TiebaStatic.log(amVar);
                 }
             }
-            this.bGM.clear();
+            this.bKB.clear();
         }
     }
 
-    public void fs(boolean z) {
-        if (com.baidu.tbadk.core.util.v.H(this.bGM) != 0) {
-            for (am amVar : this.bGM) {
+    public void ft(boolean z) {
+        if (com.baidu.tbadk.core.util.v.H(this.bKB) != 0) {
+            for (am amVar : this.bKB) {
                 if (amVar != null) {
                     int i = 0;
                     if (z) {
@@ -59,18 +59,18 @@ public class v {
                     TiebaStatic.log(amVar);
                 }
             }
-            this.bGM.clear();
+            this.bKB.clear();
         }
     }
 
-    public void Yi() {
-        if (com.baidu.tbadk.core.util.v.H(this.bGM) != 0) {
-            for (am amVar : this.bGM) {
+    public void Zn() {
+        if (com.baidu.tbadk.core.util.v.H(this.bKB) != 0) {
+            for (am amVar : this.bKB) {
                 if (amVar != null) {
                     TiebaStatic.log(amVar);
                 }
             }
-            this.bGM.clear();
+            this.bKB.clear();
         }
     }
 }

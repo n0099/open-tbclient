@@ -8,15 +8,15 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class ak extends k<com.baidu.tieba.pb.data.h, al> {
-    private BdUniqueId fUq;
-    private BdUniqueId fUr;
+    private BdUniqueId gbg;
+    private BdUniqueId gbh;
     private View.OnClickListener mCommonClickListener;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ak(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
-        this.fUq = BdUniqueId.gen();
-        this.fUr = BdUniqueId.gen();
+        this.gbg = BdUniqueId.gen();
+        this.gbh = BdUniqueId.gen();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,12 +24,12 @@ public class ak extends k<com.baidu.tieba.pb.data.h, al> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bp */
     public al onCreateViewHolder(ViewGroup viewGroup) {
-        al alVar = new al(this.fOe.getPageContext(), LayoutInflater.from(this.mContext).inflate(e.h.pb_reply_title_layout, viewGroup, false));
+        al alVar = new al(this.fUU.getPageContext(), LayoutInflater.from(this.mContext).inflate(e.h.pb_reply_title_layout, viewGroup, false));
         alVar.L(this.mCommonClickListener);
-        if (getType() == com.baidu.tieba.pb.data.h.fJO) {
-            alVar.h(this.fUq);
-        } else if (getType() == com.baidu.tieba.pb.data.h.fJP) {
-            alVar.n(this.fUr);
+        if (getType() == com.baidu.tieba.pb.data.h.fQE) {
+            alVar.h(this.gbg);
+        } else if (getType() == com.baidu.tieba.pb.data.h.fQF) {
+            alVar.n(this.gbh);
         }
         return alVar;
     }
@@ -47,8 +47,8 @@ public class ak extends k<com.baidu.tieba.pb.data.h, al> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fUq);
-        MessageManager.getInstance().unRegisterListener(this.fUr);
+        MessageManager.getInstance().unRegisterListener(this.gbg);
+        MessageManager.getInstance().unRegisterListener(this.gbh);
     }
 
     public void s(View.OnClickListener onClickListener) {

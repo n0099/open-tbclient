@@ -6,65 +6,65 @@ import java.util.LinkedList;
 import java.util.Queue;
 /* loaded from: classes.dex */
 public class j {
-    private static j aAX = null;
-    private Queue<a> aAY = new LinkedList();
-    private BdAsyncTaskParallel aAZ = null;
-    private BdAsyncTaskParallel aBa = null;
-    private float aBb = 0.0f;
+    private static j aEx = null;
+    private Queue<a> aEy = new LinkedList();
+    private BdAsyncTaskParallel aEz = null;
+    private BdAsyncTaskParallel aEA = null;
+    private float aEB = 0.0f;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        public long aBc;
+        public long aEC;
         public int downloadSize;
 
         private a() {
             this.downloadSize = 0;
-            this.aBc = 0L;
+            this.aEC = 0L;
         }
     }
 
-    public static j Dv() {
-        if (aAX == null) {
-            aAX = new j();
+    public static j Ez() {
+        if (aEx == null) {
+            aEx = new j();
         }
-        return aAX;
+        return aEx;
     }
 
-    public synchronized void e(int i, long j) {
+    public synchronized void h(int i, long j) {
         a aVar = new a();
         aVar.downloadSize = i;
-        aVar.aBc = j;
-        this.aAY.offer(aVar);
-        if (this.aAY.size() > 5) {
-            this.aAY.poll();
+        aVar.aEC = j;
+        this.aEy.offer(aVar);
+        if (this.aEy.size() > 5) {
+            this.aEy.poll();
         }
-        if (Dw()) {
+        if (EA()) {
             int i2 = 0;
-            for (a aVar2 : this.aAY) {
-                i2 = j > 0 ? (int) ((aVar2.downloadSize / aVar2.aBc) + i2) : i2;
+            for (a aVar2 : this.aEy) {
+                i2 = j > 0 ? (int) ((aVar2.downloadSize / aVar2.aEC) + i2) : i2;
             }
-            this.aBb = i2 / 5;
+            this.aEB = i2 / 5;
         }
     }
 
-    public boolean Dw() {
-        return this.aAY.size() == 5;
+    public boolean EA() {
+        return this.aEy.size() == 5;
     }
 
     public BdAsyncTaskParallel jE() {
         if (!com.baidu.adp.lib.util.j.kY()) {
             return null;
         }
-        if (Dw() && this.aBb < 20.0f) {
-            if (this.aAZ == null) {
-                this.aAZ = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        if (EA() && this.aEB < 20.0f) {
+            if (this.aEz == null) {
+                this.aEz = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
             }
-            return this.aAZ;
+            return this.aEz;
         }
-        if (this.aBa == null) {
-            this.aBa = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, BdUniqueId.gen());
+        if (this.aEA == null) {
+            this.aEA = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, BdUniqueId.gen());
         }
-        return this.aBa;
+        return this.aEA;
     }
 }

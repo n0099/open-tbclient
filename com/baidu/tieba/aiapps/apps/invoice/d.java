@@ -12,18 +12,18 @@ public interface d {
 
     /* loaded from: classes4.dex */
     public interface b extends d {
-        void aV(long j);
+        void bc(long j);
     }
 
     /* loaded from: classes4.dex */
     public interface c extends d {
-        void aq(List<InvoiceInfo> list);
+        void ar(List<InvoiceInfo> list);
     }
 
     /* renamed from: com.baidu.tieba.aiapps.apps.invoice.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0188d extends d {
-        void aW(long j);
+    public interface InterfaceC0198d extends d {
+        void bd(long j);
     }
 
     /* loaded from: classes4.dex */
@@ -31,7 +31,7 @@ public interface d {
         void b(InvoiceInfo invoiceInfo);
     }
 
-    void aU(String str, String str2);
+    void aX(String str, String str2);
 
-    void kf(String str);
+    void kz(String str);
 }

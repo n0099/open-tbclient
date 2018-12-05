@@ -471,7 +471,7 @@ public final class g {
     public boolean a() {
         Cursor cursor;
         Cursor cursor2 = null;
-        if (this.aeH.tI().l() && this.f == -1 && this.e == -1 && this.d != null && this.d.isOpen()) {
+        if (this.aeH.tH().l() && this.f == -1 && this.e == -1 && this.d != null && this.d.isOpen()) {
             try {
                 cursor = this.d.rawQuery("SELECT COUNT(*) FROM RGCSITE;", null);
             } catch (Exception e) {
@@ -549,8 +549,8 @@ public final class g {
                 JSONArray jSONArray2 = new JSONArray();
                 JSONArray jSONArray3 = new JSONArray();
                 JSONArray jSONArray4 = new JSONArray();
-                cursor2 = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 0, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.aeH.tI().p())), null);
-                cursor = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 1, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.aeH.tI().q())), null);
+                cursor2 = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 0, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.aeH.tH().p())), null);
+                cursor = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 1, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.aeH.tH().q())), null);
                 if (cursor2.moveToFirst()) {
                     HashSet hashSet = new HashSet();
                     while (!cursor2.isAfterLast()) {

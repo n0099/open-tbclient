@@ -7,38 +7,38 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private AntiData aKm;
-    private final ArrayList<bb> dAF;
-    private boolean dAG;
-    private b dAH;
+    private AntiData aNL;
+    private final ArrayList<bb> dHe;
+    private boolean dHf;
+    private b dHg;
     private String forumId;
 
     /* loaded from: classes.dex */
     public interface b {
-        void ayq();
+        void aAa();
 
-        void lC(int i);
+        void lS(int i);
 
         void y(boolean z, boolean z2);
     }
 
     private a() {
-        this.dAG = false;
-        this.dAF = new ArrayList<>();
+        this.dHf = false;
+        this.dHe = new ArrayList<>();
     }
 
-    public static a ayk() {
-        return C0208a.dAI;
+    public static a azU() {
+        return C0218a.dHh;
     }
 
-    public boolean ayl() {
-        return this.dAG;
+    public boolean azV() {
+        return this.dHf;
     }
 
     public void x(boolean z, boolean z2) {
-        this.dAG = z;
-        if (this.dAH != null) {
-            this.dAH.y(this.dAG, z2);
+        this.dHf = z;
+        if (this.dHg != null) {
+            this.dHg.y(this.dHf, z2);
         }
     }
 
@@ -46,42 +46,42 @@ public class a {
         if (bbVar == null) {
             return false;
         }
-        if (this.dAF.size() > 29) {
-            if (this.dAH != null) {
-                this.dAH.ayq();
+        if (this.dHe.size() > 29) {
+            if (this.dHg != null) {
+                this.dHg.aAa();
                 return false;
             }
             return false;
         }
-        this.dAF.add(bbVar);
-        if (this.dAH != null) {
-            this.dAH.lC(this.dAF.size());
+        this.dHe.add(bbVar);
+        if (this.dHg != null) {
+            this.dHg.lS(this.dHe.size());
         }
         return true;
     }
 
-    public List<bb> aym() {
-        return this.dAF;
+    public List<bb> azW() {
+        return this.dHe;
     }
 
     public void W(bb bbVar) {
-        this.dAF.remove(bbVar);
-        if (this.dAH != null) {
-            this.dAH.lC(this.dAF.size());
+        this.dHe.remove(bbVar);
+        if (this.dHg != null) {
+            this.dHg.lS(this.dHe.size());
         }
     }
 
     public void clearData() {
-        Iterator<bb> it = this.dAF.iterator();
+        Iterator<bb> it = this.dHe.iterator();
         while (it.hasNext()) {
             bb next = it.next();
             if (next != null) {
-                next.bc(false);
+                next.bd(false);
             }
         }
-        this.dAF.clear();
-        if (this.dAH != null) {
-            this.dAH.lC(0);
+        this.dHe.clear();
+        if (this.dHg != null) {
+            this.dHg.lS(0);
         }
     }
 
@@ -91,22 +91,22 @@ public class a {
     }
 
     public void a(b bVar) {
-        this.dAH = bVar;
+        this.dHg = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0208a {
-        private static a dAI = new a();
+    public static class C0218a {
+        private static a dHh = new a();
     }
 
-    public AntiData ayn() {
-        return this.aKm;
+    public AntiData azX() {
+        return this.aNL;
     }
 
     public void b(AntiData antiData) {
-        this.aKm = antiData;
+        this.aNL = antiData;
     }
 
     public String getForumId() {
@@ -117,9 +117,9 @@ public class a {
         this.forumId = str;
     }
 
-    public void bz(List<String> list) {
-        if (!com.baidu.tbadk.core.util.v.I(list) && !com.baidu.tbadk.core.util.v.I(this.dAF)) {
-            Iterator<bb> it = this.dAF.iterator();
+    public void bB(List<String> list) {
+        if (!com.baidu.tbadk.core.util.v.I(list) && !com.baidu.tbadk.core.util.v.I(this.dHe)) {
+            Iterator<bb> it = this.dHe.iterator();
             while (it.hasNext()) {
                 bb next = it.next();
                 int i = 0;
@@ -135,13 +135,13 @@ public class a {
                     }
                 }
             }
-            if (this.dAH != null) {
-                this.dAH.lC(this.dAF.size());
+            if (this.dHg != null) {
+                this.dHg.lS(this.dHe.size());
             }
         }
     }
 
-    public boolean ayo() {
-        return this.aKm != null && this.aKm.isMultiDeleteEnable();
+    public boolean azY() {
+        return this.aNL != null && this.aNL.isMultiDeleteEnable();
     }
 }

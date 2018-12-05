@@ -21,9 +21,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private static Pattern azA = Pattern.compile("(#\\([^#\\)\\(]+\\))");
+    private static Pattern aDa = Pattern.compile("(#\\([^#\\)\\(]+\\))");
 
-    public static String N(String str, boolean z) {
+    public static String P(String str, boolean z) {
         String str2 = null;
         if (str == null) {
             return null;
@@ -127,7 +127,7 @@ public class e {
         }
     }
 
-    private static final String pX(String str) {
+    private static final String qz(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -156,7 +156,7 @@ public class e {
         return sb.toString();
     }
 
-    private static final String pY(String str) {
+    private static final String qA(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -188,19 +188,19 @@ public class e {
             return null;
         }
         if (i == 1) {
-            String pX = (str.length() <= 1 || str.charAt(0) != '[') ? null : pX(str);
-            if (TextUtils.isEmpty(pX)) {
-                pX = str;
+            String qz = (str.length() <= 1 || str.charAt(0) != '[') ? null : qz(str);
+            if (TextUtils.isEmpty(qz)) {
+                qz = str;
             }
-            if (pX == null) {
+            if (qz == null) {
                 return null;
             }
-            Matcher matcher = azA.matcher(pX);
+            Matcher matcher = aDa.matcher(qz);
             while (matcher.find()) {
                 String group = matcher.group();
-                pX = pX.replace(group, group.replace("#(", "[").replace(")", "]"));
+                qz = qz.replace(group, group.replace("#(", "[").replace(")", "]"));
             }
-            return pX;
+            return qz;
         } else if (i == 2) {
             return TbadkCoreApplication.getInst().getApp().getString(e.j.last_msg_pic);
         } else {
@@ -208,7 +208,7 @@ public class e {
                 return TbadkCoreApplication.getInst().getApp().getString(e.j.last_msg_voice);
             }
             if (i == 11) {
-                return pZ(str);
+                return qB(str);
             }
             if (i == 23) {
                 return TbadkCoreApplication.getInst().getApp().getString(e.j.last_msg_reply_card);
@@ -297,7 +297,7 @@ public class e {
                         return TbadkCoreApplication.getInst().getApp().getString(e.j.great_call_notify_default);
                     }
                 } else if (i == 9) {
-                    return pY(str);
+                    return qA(str);
                 } else {
                     return null;
                 }
@@ -329,7 +329,7 @@ public class e {
         return A(chatMessage);
     }
 
-    private static String pZ(String str) {
+    private static String qB(String str) {
         String str2 = null;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -443,19 +443,19 @@ public class e {
 
     public static com.baidu.tieba.im.data.d a(CommonMsgPojo commonMsgPojo) {
         if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 7) {
-            return qa(commonMsgPojo.getContent());
+            return qC(commonMsgPojo.getContent());
         }
         return null;
     }
 
-    public static com.baidu.tieba.im.data.d qa(String str) {
+    public static com.baidu.tieba.im.data.d qC(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
-                return qb(jSONArray.getJSONObject(0).optString("msg_src"));
+                return qD(jSONArray.getJSONObject(0).optString("msg_src"));
             }
             return null;
         } catch (Exception e) {
@@ -464,13 +464,13 @@ public class e {
         }
     }
 
-    public static com.baidu.tieba.im.data.d qb(String str) {
+    public static com.baidu.tieba.im.data.d qD(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(BaseRequestAction.SPLITE)) == null || split.length != 2) {
             return null;
         }
         com.baidu.tieba.im.data.d dVar = new com.baidu.tieba.im.data.d();
-        dVar.eGB = split[0];
+        dVar.eNq = split[0];
         dVar.taskId = split[1];
         return dVar;
     }

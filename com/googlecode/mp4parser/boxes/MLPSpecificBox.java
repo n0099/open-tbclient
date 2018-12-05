@@ -11,14 +11,14 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class MLPSpecificBox extends AbstractBox {
     public static final String TYPE = "dmlp";
-    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0388a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_7 = null;
     int format_info;
     int peak_data_rate;
     int reserved;
@@ -73,7 +73,7 @@ public class MLPSpecificBox extends AbstractBox {
     }
 
     public void setFormat_info(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.yH(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.ze(i)));
         this.format_info = i;
     }
 
@@ -83,7 +83,7 @@ public class MLPSpecificBox extends AbstractBox {
     }
 
     public void setPeak_data_rate(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.yH(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.ze(i)));
         this.peak_data_rate = i;
     }
 
@@ -93,7 +93,7 @@ public class MLPSpecificBox extends AbstractBox {
     }
 
     public void setReserved(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.yH(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.ze(i)));
         this.reserved = i;
     }
 
@@ -103,7 +103,7 @@ public class MLPSpecificBox extends AbstractBox {
     }
 
     public void setReserved2(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.yH(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.ze(i)));
         this.reserved2 = i;
     }
 }

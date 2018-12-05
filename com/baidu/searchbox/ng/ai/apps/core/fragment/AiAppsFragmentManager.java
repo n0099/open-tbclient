@@ -6,6 +6,7 @@ import com.baidu.searchbox.ng.ai.apps.R;
 import com.baidu.searchbox.ng.ai.apps.adlanding.AiAppsAdLandingFragment;
 import com.baidu.searchbox.ng.ai.apps.model.AiAppsPageParam;
 import com.baidu.searchbox.ng.ai.apps.model.AiAppsParam;
+import com.baidu.searchbox.ng.ai.apps.pay.AiAppsWxPayFragment;
 import com.baidu.searchbox.support.v4.app.Fragment;
 import com.baidu.searchbox.support.v4.app.FragmentActivity;
 import com.baidu.searchbox.support.v4.app.FragmentManager;
@@ -23,6 +24,7 @@ public final class AiAppsFragmentManager {
     public static final String NORMAL = "normal";
     public static final String SETTING = "setting";
     private static final String TAG = "AiAppsFragmentManager";
+    public static final String WXPAY = "wxPay";
     private Activity mActivity;
     private FragmentManager mFragmentManager;
     private ArrayList<AiAppsBaseFragment> mFragmentStack = new ArrayList<>();
@@ -113,6 +115,8 @@ public final class AiAppsFragmentManager {
                 newInstance = AiAppsSettingFragment.newInstance();
             } else if ("adLanding".equals(str)) {
                 newInstance = AiAppsAdLandingFragment.newInstance(aiAppsPageParam);
+            } else if (AiAppsFragmentManager.WXPAY.equals(str)) {
+                newInstance = AiAppsWxPayFragment.newInstance(aiAppsPageParam);
             } else {
                 newInstance = "normal".equals(str) ? AiAppsFragment.newInstance(new AiAppsParam.Builder().setPage(aiAppsPageParam.mPage).setParams(aiAppsPageParam.mParams).setBaseUrl(aiAppsPageParam.mBaseUrl).build()) : null;
             }

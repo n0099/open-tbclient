@@ -9,7 +9,7 @@ public class d {
     private static volatile d JK;
     private Map<String, a> JL;
 
-    public static d ms() {
+    public static d mr() {
         if (JK == null) {
             synchronized (d.class) {
                 if (JK == null) {
@@ -37,7 +37,7 @@ public class d {
         this.JL.remove(str);
     }
 
-    public int mt() {
+    public int ms() {
         return this.JL.size();
     }
 

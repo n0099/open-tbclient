@@ -16,10 +16,10 @@ public class a {
     }
 
     public static void a(b bVar) {
-        com.baidu.c.a.b.a.sn().b(bVar);
+        com.baidu.c.a.b.a.sm().b(bVar);
     }
 
     public static void a(c cVar) {
-        d.so().b(cVar);
+        d.sn().b(cVar);
     }
 }

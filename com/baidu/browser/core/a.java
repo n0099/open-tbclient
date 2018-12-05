@@ -14,7 +14,7 @@ public class a extends ContextWrapper {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.content.ContextWrapper, android.content.Context
-    /* renamed from: qd */
+    /* renamed from: qc */
     public c getResources() {
         if (this.UF == null) {
             long currentTimeMillis = System.currentTimeMillis();
@@ -29,7 +29,7 @@ public class a extends ContextWrapper {
         super.attachBaseContext(context);
     }
 
-    public static synchronized a qe() {
+    public static synchronized a qd() {
         a aVar;
         synchronized (a.class) {
             if (UE == null) {

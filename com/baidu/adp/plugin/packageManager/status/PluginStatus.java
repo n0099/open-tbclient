@@ -20,7 +20,7 @@ public class PluginStatus extends OrmObject {
     String errorMsg;
     int priority;
 
-    public String nI() {
+    public String nH() {
         return this.Js;
     }
 
@@ -36,7 +36,7 @@ public class PluginStatus extends OrmObject {
         return this.errorMsg;
     }
 
-    public String nJ() {
+    public String nI() {
         return this.LX;
     }
 }

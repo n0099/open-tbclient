@@ -44,7 +44,7 @@ public class i implements Runnable {
             } else if ("lightapp.device.AUDIO_TYPE.STOP".equals(this.val$type)) {
                 sparseArray2 = this.Wh.Wf;
                 sparseArray2.put(4, this.Wl);
-                this.Wh.qL();
+                this.Wh.qK();
                 mediaPlayer = this.Wh.Wd;
                 if (mediaPlayer.isPlaying()) {
                     mediaPlayer2 = this.Wh.Wd;

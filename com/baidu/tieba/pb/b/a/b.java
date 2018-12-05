@@ -10,15 +10,15 @@ import com.baidu.tbadk.core.util.ay;
 import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes3.dex */
 public class b implements c {
-    private SpannableString gcP;
+    private SpannableString gjH;
     private TbPageContext<?> pageContext;
     private String url;
 
     public b(TbPageContext<?> tbPageContext, ExcContent excContent) {
         if (excContent != null && excContent.type.longValue() == 1 && !StringUtils.isNull(excContent.text)) {
             this.pageContext = tbPageContext;
-            this.gcP = new SpannableString(excContent.text);
-            this.gcP.setSpan(new a(), 0, excContent.text.length(), 17);
+            this.gjH = new SpannableString(excContent.text);
+            this.gjH.setSpan(new a(), 0, excContent.text.length(), 17);
             this.url = excContent.link;
         }
     }
@@ -29,8 +29,8 @@ public class b implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence bll() {
-        return this.gcP;
+    public CharSequence bne() {
+        return this.gjH;
     }
 
     /* loaded from: classes3.dex */
@@ -40,7 +40,7 @@ public class b implements c {
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            ay.Db().c(b.this.pageContext, new String[]{b.this.url});
+            ay.Ef().c(b.this.pageContext, new String[]{b.this.url});
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -51,7 +51,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean blm() {
+    public boolean bnf() {
         return false;
     }
 }

@@ -1,19 +1,19 @@
 package com.baidu.tieba.frs.entelechy.b;
 /* loaded from: classes6.dex */
 public interface d {
-    void aCn();
+    boolean aBE();
 
-    void aCo();
+    void aDZ();
 
-    void aCp();
+    void aEa();
 
-    boolean aCq();
+    void aEb();
 
-    boolean aCr();
+    boolean aEc();
 
-    boolean azU();
+    boolean aEd();
 
-    void gv(boolean z);
+    void gw(boolean z);
 
     void onChangeSkinType(int i);
 }

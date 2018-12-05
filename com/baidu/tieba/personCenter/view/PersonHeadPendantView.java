@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tieba.e;
 /* loaded from: classes5.dex */
 public class PersonHeadPendantView extends HeadPendantView {
-    private View glR;
+    private View gsH;
 
     public PersonHeadPendantView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -27,24 +27,24 @@ public class PersonHeadPendantView extends HeadPendantView {
     @Override // com.baidu.tbadk.core.view.HeadPendantView
     public void init() {
         super.init();
-        this.glR = new View(getContext());
-        addView(this.glR, 0, new RelativeLayout.LayoutParams(-1, -1));
+        this.gsH = new View(getContext());
+        addView(this.gsH, 0, new RelativeLayout.LayoutParams(-1, -1));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.HeadPendantView, android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.glR.getLayoutParams();
-        int measuredWidth = (int) ((getMeasuredWidth() * 0.13f) - getResources().getDimensionPixelSize(e.C0200e.ds4));
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gsH.getLayoutParams();
+        int measuredWidth = (int) ((getMeasuredWidth() * 0.13f) - getResources().getDimensionPixelSize(e.C0210e.ds4));
         layoutParams.leftMargin = measuredWidth;
         layoutParams.topMargin = measuredWidth;
         layoutParams.rightMargin = measuredWidth;
         layoutParams.bottomMargin = measuredWidth;
-        this.glR.setLayoutParams(layoutParams);
+        this.gsH.setLayoutParams(layoutParams);
     }
 
     public void setBackgroundViewDrawable(Drawable drawable) {
-        this.glR.setBackgroundDrawable(drawable);
+        this.gsH.setBackgroundDrawable(drawable);
     }
 }

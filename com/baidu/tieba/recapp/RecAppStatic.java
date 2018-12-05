@@ -23,9 +23,9 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class RecAppStatic {
     static {
-        r.gEF.set(new t());
+        r.gLv.set(new t());
         TbadkCoreApplication.getInst().setRecAppExist(true);
-        com.baidu.tieba.ad.a.Va().a(new h.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
+        com.baidu.tieba.ad.a.Wg().a(new h.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
             @Override // com.baidu.tieba.recapp.h.a
             public int e(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
@@ -38,7 +38,7 @@ public class RecAppStatic {
                         if (queryParameter.startsWith(WebView.SCHEME_TEL)) {
                             if (context instanceof Activity) {
                                 com.baidu.tbadk.core.util.b.a aVar = new com.baidu.tbadk.core.util.b.a();
-                                aVar.Dp();
+                                aVar.Et();
                                 aVar.c((Activity) context, "android.permission.CALL_PHONE");
                                 if (aVar.A((Activity) context)) {
                                     return 0;
@@ -74,9 +74,9 @@ public class RecAppStatic {
                 return 3;
             }
         });
-        com.baidu.tieba.InjectPlugin.a.e.SJ().a(1, new f());
-        com.baidu.tieba.InjectPlugin.a.e.SJ().a(2, new d());
-        bb.apS.set(true);
+        com.baidu.tieba.InjectPlugin.a.e.TP().a(1, new f());
+        com.baidu.tieba.InjectPlugin.a.e.TP().a(2, new d());
+        bb.ats.set(true);
         final TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.RegisterIntent(WebVideoActivityConfig.class, WebVideoActivity.class);
         inst.RegisterIntent(AdDebugActivityConfig.class, AdDebugActivity.class);
@@ -89,8 +89,8 @@ public class RecAppStatic {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbadkCoreApplication.SWITCH_PROCESS_NOTIFICATION_KEY);
         inst.registerReceiver(broadcastReceiver, intentFilter);
-        b.bsq().bst();
-        b.bsq().bsr();
+        b.buj().bum();
+        b.buj().buk();
         com.baidu.c.a.a.init(TbadkCoreApplication.getInst());
         com.baidu.c.a.a.a(new p());
         com.baidu.c.a.a.a(new q());

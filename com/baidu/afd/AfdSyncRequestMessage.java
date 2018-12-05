@@ -32,15 +32,15 @@ public class AfdSyncRequestMessage extends HttpMessage {
         setUserAgent("bdtb for Android " + TbConfig.getVersion());
         addParam(Info.kBaiduPIDKey, "1517888290046");
         addParam("ac", "1");
-        addParam("ft", gVar.pq());
+        addParam("ft", gVar.pp());
         addParam("ext", getExt(gVar));
-        addParam("flr", String.valueOf(gVar.ps()));
-        addParam("fc", String.valueOf(gVar.ps()));
+        addParam("flr", String.valueOf(gVar.pr()));
+        addParam("fc", String.valueOf(gVar.pr()));
     }
 
     private static String getExt(g gVar) {
         JSONArray jSONArray = new JSONArray();
-        for (Map.Entry<String, String> entry : gVar.pt().entrySet()) {
+        for (Map.Entry<String, String> entry : gVar.ps().entrySet()) {
             jSONArray.put(create(entry.getKey(), entry.getValue()));
         }
         return jSONArray.toString();
@@ -50,6 +50,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
         addParam("mod", Build.MODEL);
         addParam("ver", TbConfig.getVersion());
         addParam("cuid", TbadkCoreApplication.getInst().getCuid());
+        addParam("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
         addParam("ov", Build.VERSION.RELEASE);
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
         addParam("imei", TbadkCoreApplication.getInst().getImei());
@@ -57,7 +58,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
         addParam("android_id", androidId());
         addParam("ot", "2");
         addParam(Config.EXCEPTION_CRASH_TYPE, "2");
-        addParam("nt", String.valueOf(com.baidu.adp.lib.util.j.lb()));
+        addParam("nt", String.valueOf(com.baidu.adp.lib.util.j.netType()));
         addParam("uid", SapiAccountManager.getInstance().getSession("uid"));
         addParam("is_https", 1);
     }

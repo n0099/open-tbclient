@@ -10,67 +10,67 @@ public final class q<E> extends v<E> {
         if (e == null) {
             throw new NullPointerException("null elements not allowed");
         }
-        E[] eArr = this.iqN;
+        E[] eArr = this.ixX;
         long j = this.producerIndex;
-        long dJ = dJ(j);
-        if (b(eArr, dJ) != null) {
+        long dQ = dQ(j);
+        if (b(eArr, dQ) != null) {
             return false;
         }
-        b(eArr, dJ, e);
-        dH(1 + j);
+        b(eArr, dQ, e);
+        dO(1 + j);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
         long j = this.consumerIndex;
-        long dJ = dJ(j);
-        E[] eArr = this.iqN;
-        E b = b(eArr, dJ);
+        long dQ = dQ(j);
+        E[] eArr = this.ixX;
+        E b = b(eArr, dQ);
         if (b == null) {
             return null;
         }
-        b(eArr, dJ, null);
-        dI(j + 1);
+        b(eArr, dQ, null);
+        dP(j + 1);
         return b;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        return dK(dJ(this.consumerIndex));
+        return dR(dQ(this.consumerIndex));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long ccy = ccy();
+        long ceB = ceB();
         while (true) {
-            long ccz = ccz();
-            long ccy2 = ccy();
-            if (ccy == ccy2) {
-                return (int) (ccz - ccy2);
+            long ceC = ceC();
+            long ceB2 = ceB();
+            if (ceB == ceB2) {
+                return (int) (ceC - ceB2);
             }
-            ccy = ccy2;
+            ceB = ceB2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return ccz() == ccy();
+        return ceC() == ceB();
     }
 
-    private void dH(long j) {
-        ae.iFC.putOrderedLong(this, iFw, j);
+    private void dO(long j) {
+        ae.iMJ.putOrderedLong(this, iMD, j);
     }
 
-    private void dI(long j) {
-        ae.iFC.putOrderedLong(this, iFv, j);
+    private void dP(long j) {
+        ae.iMJ.putOrderedLong(this, iMC, j);
     }
 
-    private long ccz() {
-        return ae.iFC.getLongVolatile(this, iFw);
+    private long ceC() {
+        return ae.iMJ.getLongVolatile(this, iMD);
     }
 
-    private long ccy() {
-        return ae.iFC.getLongVolatile(this, iFv);
+    private long ceB() {
+        return ae.iMJ.getLongVolatile(this, iMC);
     }
 }

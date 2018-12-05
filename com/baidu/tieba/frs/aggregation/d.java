@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.aggregation;
 import java.util.List;
 /* loaded from: classes3.dex */
 public interface d {
-    void Mb();
+    void Nf();
 
     void c(List<g> list, boolean z, boolean z2);
 

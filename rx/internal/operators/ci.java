@@ -7,8 +7,8 @@ import rx.d;
 import rx.subjects.UnicastSubject;
 /* loaded from: classes2.dex */
 public final class ci<T, U> implements d.b<rx.d<T>, T> {
-    static final Object iCj = new Object();
-    final rx.functions.e<? extends rx.d<? extends U>> iCo;
+    static final Object iJr = new Object();
+    final rx.functions.e<? extends rx.d<? extends U>> iJw;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -16,13 +16,13 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
     }
 
     public ci(rx.functions.e<? extends rx.d<? extends U>> eVar) {
-        this.iCo = eVar;
+        this.iJw = eVar;
     }
 
     public rx.j<? super T> call(rx.j<? super rx.d<T>> jVar) {
-        b bVar = new b(jVar, this.iCo);
+        b bVar = new b(jVar, this.iJw);
         jVar.add(bVar);
-        bVar.cbU();
+        bVar.cdX();
         return bVar;
     }
 
@@ -31,16 +31,16 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
     public static final class b<T, U> extends rx.j<T> {
         final rx.j<? super rx.d<T>> child;
         boolean emitting;
-        rx.e<T> iCl;
-        rx.d<T> iCm;
-        List<Object> iCn;
-        final rx.functions.e<? extends rx.d<? extends U>> iCo;
+        rx.e<T> iJt;
+        rx.d<T> iJu;
+        List<Object> iJv;
+        final rx.functions.e<? extends rx.d<? extends U>> iJw;
         final Object guard = new Object();
         final rx.subscriptions.d serial = new rx.subscriptions.d();
 
         public b(rx.j<? super rx.d<T>> jVar, rx.functions.e<? extends rx.d<? extends U>> eVar) {
             this.child = new rx.b.f(jVar);
-            this.iCo = eVar;
+            this.iJw = eVar;
             add(this.serial);
         }
 
@@ -55,29 +55,29 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
             boolean z2 = false;
             synchronized (this.guard) {
                 if (this.emitting) {
-                    if (this.iCn == null) {
-                        this.iCn = new ArrayList();
+                    if (this.iJv == null) {
+                        this.iJv = new ArrayList();
                     }
-                    this.iCn.add(t);
+                    this.iJv.add(t);
                     return;
                 }
-                List<Object> list = this.iCn;
-                this.iCn = null;
+                List<Object> list = this.iJv;
+                this.iJv = null;
                 this.emitting = true;
                 List<Object> list2 = list;
                 boolean z3 = true;
                 do {
                     try {
-                        ey(list2);
+                        eC(list2);
                         if (z3) {
-                            bk(t);
+                            bl(t);
                             z3 = false;
                         }
                         try {
                             synchronized (this.guard) {
                                 try {
-                                    list2 = this.iCn;
-                                    this.iCn = null;
+                                    list2 = this.iJv;
+                                    this.iJv = null;
                                     if (list2 == null) {
                                         this.emitting = false;
                                         return;
@@ -114,39 +114,39 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
 
         /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: rx.internal.operators.ci$b<T, U> */
         /* JADX WARN: Multi-variable type inference failed */
-        void ey(List<Object> list) {
+        void eC(List<Object> list) {
             if (list != null) {
                 for (Object obj : list) {
-                    if (obj == ci.iCj) {
-                        cbS();
-                    } else if (NotificationLite.aZ(obj)) {
-                        error(NotificationLite.bb(obj));
+                    if (obj == ci.iJr) {
+                        cdV();
+                    } else if (NotificationLite.ba(obj)) {
+                        error(NotificationLite.bc(obj));
                         return;
-                    } else if (NotificationLite.aY(obj)) {
+                    } else if (NotificationLite.aZ(obj)) {
                         complete();
                         return;
                     } else {
-                        bk(obj);
+                        bl(obj);
                     }
                 }
             }
         }
 
-        void cbS() {
-            rx.e<T> eVar = this.iCl;
+        void cdV() {
+            rx.e<T> eVar = this.iJt;
             if (eVar != null) {
                 eVar.onCompleted();
             }
-            cbT();
-            this.child.onNext(this.iCm);
+            cdW();
+            this.child.onNext(this.iJu);
         }
 
-        void cbT() {
-            UnicastSubject cdj = UnicastSubject.cdj();
-            this.iCl = cdj;
-            this.iCm = cdj;
+        void cdW() {
+            UnicastSubject cfm = UnicastSubject.cfm();
+            this.iJt = cfm;
+            this.iJu = cfm;
             try {
-                rx.d<? extends U> call = this.iCo.call();
+                rx.d<? extends U> call = this.iJw.call();
                 a aVar = new a(this);
                 this.serial.g(aVar);
                 call.unsafeSubscribe(aVar);
@@ -156,8 +156,8 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
             }
         }
 
-        void bk(T t) {
-            rx.e<T> eVar = this.iCl;
+        void bl(T t) {
+            rx.e<T> eVar = this.iJt;
             if (eVar != null) {
                 eVar.onNext(t);
             }
@@ -167,10 +167,10 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
         public void onError(Throwable th) {
             synchronized (this.guard) {
                 if (this.emitting) {
-                    this.iCn = Collections.singletonList(NotificationLite.M(th));
+                    this.iJv = Collections.singletonList(NotificationLite.M(th));
                     return;
                 }
-                this.iCn = null;
+                this.iJv = null;
                 this.emitting = true;
                 error(th);
             }
@@ -180,17 +180,17 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
         public void onCompleted() {
             synchronized (this.guard) {
                 if (this.emitting) {
-                    if (this.iCn == null) {
-                        this.iCn = new ArrayList();
+                    if (this.iJv == null) {
+                        this.iJv = new ArrayList();
                     }
-                    this.iCn.add(NotificationLite.cbe());
+                    this.iJv.add(NotificationLite.cdh());
                     return;
                 }
-                List<Object> list = this.iCn;
-                this.iCn = null;
+                List<Object> list = this.iJv;
+                this.iJv = null;
                 this.emitting = true;
                 try {
-                    ey(list);
+                    eC(list);
                     complete();
                 } catch (Throwable th) {
                     error(th);
@@ -198,34 +198,34 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
             }
         }
 
-        void cbU() {
+        void cdX() {
             boolean z = true;
             boolean z2 = false;
             synchronized (this.guard) {
                 if (this.emitting) {
-                    if (this.iCn == null) {
-                        this.iCn = new ArrayList();
+                    if (this.iJv == null) {
+                        this.iJv = new ArrayList();
                     }
-                    this.iCn.add(ci.iCj);
+                    this.iJv.add(ci.iJr);
                     return;
                 }
-                List<Object> list = this.iCn;
-                this.iCn = null;
+                List<Object> list = this.iJv;
+                this.iJv = null;
                 this.emitting = true;
                 List<Object> list2 = list;
                 boolean z3 = true;
                 do {
                     try {
-                        ey(list2);
+                        eC(list2);
                         if (z3) {
-                            cbS();
+                            cdV();
                             z3 = false;
                         }
                         try {
                             synchronized (this.guard) {
                                 try {
-                                    list2 = this.iCn;
-                                    this.iCn = null;
+                                    list2 = this.iJv;
+                                    this.iJv = null;
                                     if (list2 == null) {
                                         this.emitting = false;
                                         return;
@@ -261,9 +261,9 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
         }
 
         void complete() {
-            rx.e<T> eVar = this.iCl;
-            this.iCl = null;
-            this.iCm = null;
+            rx.e<T> eVar = this.iJt;
+            this.iJt = null;
+            this.iJu = null;
             if (eVar != null) {
                 eVar.onCompleted();
             }
@@ -272,9 +272,9 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
         }
 
         void error(Throwable th) {
-            rx.e<T> eVar = this.iCl;
-            this.iCl = null;
-            this.iCm = null;
+            rx.e<T> eVar = this.iJt;
+            this.iJt = null;
+            this.iJu = null;
             if (eVar != null) {
                 eVar.onError(th);
             }
@@ -287,10 +287,10 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
     /* loaded from: classes2.dex */
     public static final class a<T, U> extends rx.j<U> {
         boolean done;
-        final b<T, U> iCp;
+        final b<T, U> iJx;
 
         public a(b<T, U> bVar) {
-            this.iCp = bVar;
+            this.iJx = bVar;
         }
 
         @Override // rx.j
@@ -302,20 +302,20 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
         public void onNext(U u) {
             if (!this.done) {
                 this.done = true;
-                this.iCp.cbU();
+                this.iJx.cdX();
             }
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.iCp.onError(th);
+            this.iJx.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
             if (!this.done) {
                 this.done = true;
-                this.iCp.onCompleted();
+                this.iJx.onCompleted();
             }
         }
     }

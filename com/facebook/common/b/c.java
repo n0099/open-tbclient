@@ -63,7 +63,7 @@ public class c extends AbstractExecutorService implements b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.concurrent.AbstractExecutorService, java.util.concurrent.ExecutorService
-    /* renamed from: l */
+    /* renamed from: m */
     public ScheduledFuture<?> submit(Runnable runnable) {
         return submit(runnable, null);
     }
@@ -116,7 +116,7 @@ public class c extends AbstractExecutorService implements b {
         throw new UnsupportedOperationException();
     }
 
-    public boolean bQS() {
+    public boolean bSY() {
         return Thread.currentThread() == this.mHandler.getLooper().getThread();
     }
 }

@@ -5,10 +5,10 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    public static final String ail = String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-    public static final String aim = String.valueOf(2147483646);
-    private MediaFileInfo ain;
-    private List<MediaFileInfo> aio;
+    public static final String alN = String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+    public static final String alO = String.valueOf(2147483646);
+    private MediaFileInfo alP;
+    private List<MediaFileInfo> alQ;
     private String albumId;
     private int count;
     private String name;
@@ -17,7 +17,7 @@ public class a {
         return this.albumId;
     }
 
-    public void dn(String str) {
+    public void dC(String str) {
         this.albumId = str;
     }
 
@@ -33,35 +33,34 @@ public class a {
         return this.count;
     }
 
-    /* renamed from: do  reason: not valid java name */
-    public void m14do(String str) {
+    public void dD(String str) {
         this.count = com.baidu.adp.lib.g.b.l(str, 0);
     }
 
-    public void uX() {
+    public void wb() {
         this.count++;
     }
 
-    public ImageFileInfo uY() {
-        if (this.ain instanceof ImageFileInfo) {
-            return (ImageFileInfo) this.ain;
+    public ImageFileInfo wc() {
+        if (this.alP instanceof ImageFileInfo) {
+            return (ImageFileInfo) this.alP;
         }
         return null;
     }
 
     public void a(MediaFileInfo mediaFileInfo) {
-        this.ain = mediaFileInfo;
+        this.alP = mediaFileInfo;
     }
 
-    public MediaFileInfo uZ() {
-        return this.ain;
+    public MediaFileInfo wd() {
+        return this.alP;
     }
 
-    public List<MediaFileInfo> va() {
-        return this.aio;
+    public List<MediaFileInfo> we() {
+        return this.alQ;
     }
 
     public void x(List<MediaFileInfo> list) {
-        this.aio = list;
+        this.alQ = list;
     }
 }

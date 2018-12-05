@@ -22,7 +22,7 @@ public final class g {
 
     public static String f(Context context) {
         Object[] objArr;
-        if (com.baidu.crabsdk.c.c.rs() < 5) {
+        if (com.baidu.crabsdk.c.c.rr() < 5) {
             return "N/A";
         }
         StringBuilder sb = new StringBuilder();

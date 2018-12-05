@@ -6,105 +6,105 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 public class e {
-    private final com.facebook.common.memory.a hYN;
-    private int ihh = 0;
-    private int ihg = 0;
-    private int ihi = 0;
-    private int ihk = 0;
-    private int ihj = 0;
-    private int ihf = 0;
+    private final com.facebook.common.memory.a iga;
+    private int iot = 0;
+    private int ios = 0;
+    private int iou = 0;
+    private int iow = 0;
+    private int iov = 0;
+    private int ior = 0;
 
     public e(com.facebook.common.memory.a aVar) {
-        this.hYN = (com.facebook.common.memory.a) g.checkNotNull(aVar);
+        this.iga = (com.facebook.common.memory.a) g.checkNotNull(aVar);
     }
 
     public boolean a(com.facebook.imagepipeline.f.d dVar) {
-        if (this.ihf != 6 && dVar.getSize() > this.ihh) {
-            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(dVar.getInputStream(), this.hYN.get(16384), this.hYN);
+        if (this.ior != 6 && dVar.getSize() > this.iot) {
+            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(dVar.getInputStream(), this.iga.get(16384), this.iga);
             try {
-                com.facebook.common.util.c.a(fVar, this.ihh);
-                return s(fVar);
+                com.facebook.common.util.c.a(fVar, this.iot);
+                return t(fVar);
             } catch (IOException e) {
                 k.r(e);
                 return false;
             } finally {
-                com.facebook.common.internal.b.n(fVar);
+                com.facebook.common.internal.b.o(fVar);
             }
         }
         return false;
     }
 
-    private boolean s(InputStream inputStream) {
+    private boolean t(InputStream inputStream) {
         int read;
-        int i = this.ihj;
-        while (this.ihf != 6 && (read = inputStream.read()) != -1) {
+        int i = this.iov;
+        while (this.ior != 6 && (read = inputStream.read()) != -1) {
             try {
-                this.ihh++;
-                switch (this.ihf) {
+                this.iot++;
+                switch (this.ior) {
                     case 0:
                         if (read == 255) {
-                            this.ihf = 1;
+                            this.ior = 1;
                             break;
                         } else {
-                            this.ihf = 6;
+                            this.ior = 6;
                             break;
                         }
                     case 1:
                         if (read == 216) {
-                            this.ihf = 2;
+                            this.ior = 2;
                             break;
                         } else {
-                            this.ihf = 6;
+                            this.ior = 6;
                             break;
                         }
                     case 2:
                         if (read != 255) {
                             break;
                         } else {
-                            this.ihf = 3;
+                            this.ior = 3;
                             break;
                         }
                     case 3:
                         if (read == 255) {
-                            this.ihf = 3;
+                            this.ior = 3;
                             break;
                         } else if (read == 0) {
-                            this.ihf = 2;
+                            this.ior = 2;
                             break;
                         } else {
                             if (read == 218 || read == 217) {
-                                xR(this.ihh - 2);
+                                yo(this.iot - 2);
                             }
-                            if (xQ(read)) {
-                                this.ihf = 4;
+                            if (yn(read)) {
+                                this.ior = 4;
                                 break;
                             } else {
-                                this.ihf = 2;
+                                this.ior = 2;
                                 break;
                             }
                         }
                     case 4:
-                        this.ihf = 5;
+                        this.ior = 5;
                         break;
                     case 5:
-                        int i2 = ((this.ihg << 8) + read) - 2;
+                        int i2 = ((this.ios << 8) + read) - 2;
                         com.facebook.common.util.c.a(inputStream, i2);
-                        this.ihh = i2 + this.ihh;
-                        this.ihf = 2;
+                        this.iot = i2 + this.iot;
+                        this.ior = 2;
                         break;
                     default:
                         g.checkState(false);
                         break;
                 }
-                this.ihg = read;
+                this.ios = read;
             } catch (IOException e) {
                 k.r(e);
             }
         }
-        return (this.ihf == 6 || this.ihj == i) ? false : true;
+        return (this.ior == 6 || this.iov == i) ? false : true;
     }
 
-    private static boolean xQ(int i) {
+    private static boolean yn(int i) {
         boolean z = true;
         if (i == 1) {
             return false;
@@ -118,20 +118,20 @@ public class e {
         return false;
     }
 
-    private void xR(int i) {
-        if (this.ihi > 0) {
-            this.ihk = i;
+    private void yo(int i) {
+        if (this.iou > 0) {
+            this.iow = i;
         }
-        int i2 = this.ihi;
-        this.ihi = i2 + 1;
-        this.ihj = i2;
+        int i2 = this.iou;
+        this.iou = i2 + 1;
+        this.iov = i2;
     }
 
-    public int bVK() {
-        return this.ihk;
+    public int bXQ() {
+        return this.iow;
     }
 
-    public int bVL() {
-        return this.ihj;
+    public int bXR() {
+        return this.iov;
     }
 }

@@ -6,25 +6,29 @@ import tbclient.FrsPage.ActivityHead;
 import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes6.dex */
 public class o {
-    private String amY;
-    private int amZ;
-    private ArrayList<q> ana = new ArrayList<>();
+    private int aqA;
+    private ArrayList<q> aqB = new ArrayList<>();
+    private String aqz;
     private int height;
     private String obj_id;
     private int width;
 
-    public ArrayList<q> xf() {
-        return this.ana;
+    public ArrayList<q> yj() {
+        return this.aqB;
     }
 
     public void j(ArrayList<q> arrayList) {
-        this.ana = arrayList;
+        this.aqB = arrayList;
+    }
+
+    public String yk() {
+        return this.obj_id;
     }
 
     public void a(ActivityHead activityHead) {
         if (activityHead != null) {
-            this.amZ = activityHead.activity_type.intValue();
-            this.amY = activityHead.activity_title;
+            this.aqA = activityHead.activity_type.intValue();
+            this.aqz = activityHead.activity_title;
             this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
             this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
             this.obj_id = activityHead.obj_id;
@@ -44,7 +48,7 @@ public class o {
         if (headImgs != null) {
             q qVar = new q();
             qVar.b(headImgs);
-            this.ana.add(qVar);
+            this.aqB.add(qVar);
         }
     }
 }

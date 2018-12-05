@@ -10,62 +10,62 @@ public class c<T extends n> extends com.baidu.tieba.card.a.a<T> implements com.b
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a.a
-    /* renamed from: aJy */
-    public T aor() {
-        return (T) this.cSv;
+    /* renamed from: aLq */
+    public T aqe() {
+        return (T) this.cZc;
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlayStarted() {
-        if (this.cSv == 0) {
+        if (this.cZc == 0) {
             return false;
         }
-        return ((n) this.cSv).isPlayStarted();
+        return ((n) this.cZc).isPlayStarted();
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlaying() {
-        if (this.cSv == 0) {
+        if (this.cZc == 0) {
             return false;
         }
-        return ((n) this.cSv).isPlaying();
+        return ((n) this.cZc).isPlaying();
     }
 
     @Override // com.baidu.tieba.play.f
     public void startPlay() {
-        if (this.cSv != 0) {
-            ((n) this.cSv).startPlay();
+        if (this.cZc != 0) {
+            ((n) this.cZc).startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public void stopPlay() {
-        if (this.cSv != 0) {
-            ((n) this.cSv).stopPlay();
+        if (this.cZc != 0) {
+            ((n) this.cZc).stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public View getVideoContainer() {
-        if (this.cSv == 0) {
+        if (this.cZc == 0) {
             return null;
         }
-        return ((n) this.cSv).getVideoContainer();
+        return ((n) this.cZc).getVideoContainer();
     }
 
     @Override // com.baidu.tieba.play.f
     public String getPlayUrl() {
-        if (this.cSv == 0) {
+        if (this.cZc == 0) {
             return null;
         }
-        return ((n) this.cSv).getPlayUrl();
+        return ((n) this.cZc).getPlayUrl();
     }
 
     @Override // com.baidu.tieba.play.f
     public int getCurrentPosition() {
-        if (this.cSv == 0) {
+        if (this.cZc == 0) {
             return 0;
         }
-        return ((n) this.cSv).getCurrentPosition();
+        return ((n) this.cZc).getCurrentPosition();
     }
 }

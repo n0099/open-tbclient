@@ -32,13 +32,13 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
             e.printStackTrace();
             jSONObject2 = null;
         }
-        this.feedData = PostAdBaseData.b.as(jSONObject2);
+        this.feedData = PostAdBaseData.b.au(jSONObject2);
         try {
             jSONObject3 = jSONObject.getJSONObject("ad_content");
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        this.adData = PostAdBaseData.a.ar(jSONObject3);
+        this.adData = PostAdBaseData.a.at(jSONObject3);
         try {
             this.preloadLegoCardStr = jSONObject.getString(LegoListActivityConfig.PRE_LOAD);
         } catch (JSONException e3) {
@@ -79,7 +79,7 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
             return 21;
         }
         if (this.adData.type == 2) {
-            return this.adData.tu(i);
+            return this.adData.tO(i);
         }
         return 0;
     }

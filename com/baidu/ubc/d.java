@@ -13,27 +13,27 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class d {
-    private static volatile d hTX;
-    private com.baidu.ubc.e hTW;
-    private ExecutorService hTY;
-    private ExecutorService hTZ;
-    private com.baidu.ubc.c hUa;
-    private int hUb;
-    private boolean hUc = false;
+    private static volatile d ibh;
+    private com.baidu.ubc.e ibg;
+    private ExecutorService ibi;
+    private ExecutorService ibj;
+    private com.baidu.ubc.c ibk;
+    private int ibl;
+    private boolean ibm = false;
     private Context mContext;
 
     static /* synthetic */ int d(d dVar) {
-        int i = dVar.hUb;
-        dVar.hUb = i + 1;
+        int i = dVar.ibl;
+        dVar.ibl = i + 1;
         return i;
     }
 
     static {
         String readAssetData = com.baidu.g.e.readAssetData(AppRuntime.getAppContext(), "ubc_config.json");
         if (!TextUtils.isEmpty(readAssetData)) {
-            n nVar = new n("ubc_sign", com.baidu.g.e.xN(readAssetData));
-            nVar.bPi();
-            bOJ().a(nVar);
+            n nVar = new n("ubc_sign", com.baidu.g.e.yq(readAssetData));
+            nVar.bRo();
+            bQP().a(nVar);
         }
     }
 
@@ -42,15 +42,15 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static d bOJ() {
-        if (hTX == null) {
+    public static d bQP() {
+        if (ibh == null) {
             synchronized (d.class) {
-                if (hTX == null) {
-                    hTX = new d();
+                if (ibh == null) {
+                    ibh = new d();
                 }
             }
         }
-        return hTX;
+        return ibh;
     }
 
     private void init(Context context) {
@@ -60,58 +60,58 @@ public class d {
             } else {
                 this.mContext = context.getApplicationContext();
             }
-            this.hUb = com.baidu.g.b.bPz().getInt("ubc_key_flow_handle", 0);
-            this.hTY = Executors.newSingleThreadExecutor();
-            this.hTY.execute(new g(this, null));
-            this.hTZ = Executors.newSingleThreadExecutor();
+            this.ibl = com.baidu.g.b.bRF().getInt("ubc_key_flow_handle", 0);
+            this.ibi = Executors.newSingleThreadExecutor();
+            this.ibi.execute(new g(this, null));
+            this.ibj = Executors.newSingleThreadExecutor();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void m(String str, String str2, int i) {
-        if (!bb(str, i)) {
+        if (!bc(str, i)) {
             b bVar = new b(str, str2, i);
-            if (this.hTW != null && this.hTW.xA(str)) {
-                bVar.oI(true);
+            if (this.ibg != null && this.ibg.yd(str)) {
+                bVar.oK(true);
             }
-            this.hTY.execute(bVar);
+            this.ibi.execute(bVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, JSONObject jSONObject, int i) {
-        if (!bb(str, i)) {
+        if (!bc(str, i)) {
             b bVar = new b(str, jSONObject, i);
-            if (this.hTW != null && this.hTW.xA(str)) {
-                bVar.oI(true);
+            if (this.ibg != null && this.ibg.yd(str)) {
+                bVar.oK(true);
             }
-            this.hTY.execute(bVar);
+            this.ibi.execute(bVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(String str, String str2, String str3, int i) {
-        if (!bb(str, i)) {
+        if (!bc(str, i)) {
             b bVar = new b(str, str2, i);
             if (!TextUtils.isEmpty(str3)) {
-                bVar.xu(str3);
+                bVar.xX(str3);
             }
-            if (this.hTW != null && this.hTW.xA(str)) {
-                bVar.oI(true);
+            if (this.ibg != null && this.ibg.yd(str)) {
+                bVar.oK(true);
             }
-            this.hTY.execute(bVar);
+            this.ibi.execute(bVar);
         }
     }
 
-    boolean bb(String str, int i) {
-        if (this.hTW == null || this.hTW.bd(str, i)) {
-            if ((i & 16) == 0 || o.bPm().kn(str)) {
-                if (this.hTW != null && this.hTW.xy(str) > 0) {
-                    if (new Random().nextInt(100) >= this.hTW.xy(str)) {
+    boolean bc(String str, int i) {
+        if (this.ibg == null || this.ibg.be(str, i)) {
+            if ((i & 16) == 0 || o.bRs().kH(str)) {
+                if (this.ibg != null && this.ibg.yb(str) > 0) {
+                    if (new Random().nextInt(100) >= this.ibg.yb(str)) {
                         return true;
                     }
                 }
-                return this.hTW != null && this.hTW.xz(str);
+                return this.ibg != null && this.ibg.yc(str);
             }
             return true;
         }
@@ -120,42 +120,42 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, String str2, int i, String str3, int i2) {
-        this.hTY.execute(new b(str, str2, i, str3, i2));
+        this.ibi.execute(new b(str, str2, i, str3, i2));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, String str2, int i, String str3, long j, int i2) {
-        this.hTY.execute(new b(str, str2, i, str3, j, i2));
+        this.ibi.execute(new b(str, str2, i, str3, j, i2));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized Flow n(String str, String str2, int i) {
-        Flow bc;
-        bc = bc(str, i);
-        if (bc != null && bc.bPc()) {
-            RunnableC0333d runnableC0333d = new RunnableC0333d(bc, str2);
-            if (this.hTW != null && this.hTW.xA(str)) {
-                runnableC0333d.oI(true);
+        Flow bd;
+        bd = bd(str, i);
+        if (bd != null && bd.bRi()) {
+            RunnableC0347d runnableC0347d = new RunnableC0347d(bd, str2);
+            if (this.ibg != null && this.ibg.yd(str)) {
+                runnableC0347d.oK(true);
             }
-            this.hTY.execute(runnableC0333d);
+            this.ibi.execute(runnableC0347d);
         }
-        return bc;
+        return bd;
     }
 
-    Flow bc(String str, int i) {
-        Flow flow = new Flow(str, this.hUb, i);
-        if (this.hTW != null && !this.hTW.bd(str, i)) {
-            flow.oJ(false);
-        } else if ((i & 16) != 0 && !o.bPm().kn(str)) {
-            flow.oJ(false);
+    Flow bd(String str, int i) {
+        Flow flow = new Flow(str, this.ibl, i);
+        if (this.ibg != null && !this.ibg.be(str, i)) {
+            flow.oL(false);
+        } else if ((i & 16) != 0 && !o.bRs().kH(str)) {
+            flow.oL(false);
         } else {
-            if (this.hTW != null && this.hTW.xy(str) > 0) {
-                if (new Random().nextInt(100) >= this.hTW.xy(str)) {
-                    flow.oJ(false);
+            if (this.ibg != null && this.ibg.yb(str) > 0) {
+                if (new Random().nextInt(100) >= this.ibg.yb(str)) {
+                    flow.oL(false);
                 }
             }
-            if (this.hTW != null && this.hTW.xz(str)) {
-                flow.oJ(false);
+            if (this.ibg != null && this.ibg.yc(str)) {
+                flow.oL(false);
             }
         }
         return flow;
@@ -163,71 +163,71 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void n(String str, int i, String str2) {
-        this.hTY.execute(new f(str, i, str2));
+        this.ibi.execute(new f(str, i, str2));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, int i, JSONArray jSONArray) {
-        this.hTY.execute(new e(str, i, jSONArray));
+        this.ibi.execute(new e(str, i, jSONArray));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ba(String str, int i) {
-        this.hTY.execute(new c(str, i));
+    public void bb(String str, int i) {
+        this.ibi.execute(new c(str, i));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.ubc.d$1  reason: invalid class name */
     /* loaded from: classes2.dex */
     public class AnonymousClass1 implements Runnable {
-        final /* synthetic */ d hUd;
+        final /* synthetic */ d ibn;
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.hUd.hUa != null) {
-                this.hUd.hUa.bOF();
+            if (this.ibn.ibk != null) {
+                this.ibn.ibk.bQL();
             }
         }
     }
 
     void a(n nVar) {
-        this.hTY.execute(new a(nVar));
+        this.ibi.execute(new a(nVar));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void k(final JSONObject jSONObject, final String str) {
-        this.hTZ.execute(new Runnable() { // from class: com.baidu.ubc.d.2
+        this.ibj.execute(new Runnable() { // from class: com.baidu.ubc.d.2
             @Override // java.lang.Runnable
             public void run() {
-                if (d.this.hUa != null) {
-                    d.this.hUa.k(jSONObject, str);
+                if (d.this.ibk != null) {
+                    d.this.ibk.k(jSONObject, str);
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aw(final JSONObject jSONObject) {
-        this.hTZ.execute(new Runnable() { // from class: com.baidu.ubc.d.3
+    public void ay(final JSONObject jSONObject) {
+        this.ibj.execute(new Runnable() { // from class: com.baidu.ubc.d.3
             @Override // java.lang.Runnable
             public void run() {
-                if (d.this.hUa != null) {
-                    d.this.hUa.aw(jSONObject);
+                if (d.this.ibk != null) {
+                    d.this.ibk.ay(jSONObject);
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ae(final String str, final boolean z) {
-        this.hTY.execute(new Runnable() { // from class: com.baidu.ubc.d.4
+    public void ag(final String str, final boolean z) {
+        this.ibi.execute(new Runnable() { // from class: com.baidu.ubc.d.4
             @Override // java.lang.Runnable
             public void run() {
-                if (d.this.hUa != null) {
+                if (d.this.ibk != null) {
                     if (z) {
-                        d.this.hUa.xs(str);
+                        d.this.ibk.xV(str);
                     } else {
-                        d.this.hUa.xt(str);
+                        d.this.ibk.xW(str);
                     }
                 }
             }
@@ -247,55 +247,55 @@ public class d {
         @Override // java.lang.Runnable
         public void run() {
             Process.setThreadPriority(10);
-            d.this.hTW = com.baidu.ubc.e.bOK();
-            d.this.hUa = new com.baidu.ubc.c(d.this.mContext);
-            d.this.hUa.bOI();
+            d.this.ibg = com.baidu.ubc.e.bQQ();
+            d.this.ibk = new com.baidu.ubc.c(d.this.mContext);
+            d.this.ibk.bQO();
         }
     }
 
     /* loaded from: classes2.dex */
     private class b implements Runnable {
-        private j hUh;
+        private j ibr;
 
         b(String str, String str2, int i) {
-            this.hUh = new j(str, str2, i);
+            this.ibr = new j(str, str2, i);
         }
 
         b(String str, JSONObject jSONObject, int i) {
-            this.hUh = new j(str, jSONObject, i);
+            this.ibr = new j(str, jSONObject, i);
         }
 
         b(String str, String str2, int i, String str3, int i2) {
-            this.hUh = new j(str, str2, i, str3, i2);
+            this.ibr = new j(str, str2, i, str3, i2);
         }
 
         b(String str, String str2, int i, String str3, long j, int i2) {
-            this.hUh = new j(str, str2, i, str3, j, i2);
+            this.ibr = new j(str, str2, i, str3, j, i2);
         }
 
-        public void oI(boolean z) {
-            if (this.hUh != null) {
-                this.hUh.oI(z);
+        public void oK(boolean z) {
+            if (this.ibr != null) {
+                this.ibr.oK(z);
             }
         }
 
-        public void xu(String str) {
-            if (this.hUh != null) {
-                this.hUh.iU(str);
+        public void xX(String str) {
+            if (this.ibr != null) {
+                this.ibr.jm(str);
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.hUa != null) {
-                this.hUh.bPb();
-                if (!TextUtils.isEmpty(d.this.hTW.xx(this.hUh.getId()))) {
-                    this.hUh.setCategory(d.this.hTW.xx(this.hUh.getId()));
+            if (d.this.ibk != null) {
+                this.ibr.bRh();
+                if (!TextUtils.isEmpty(d.this.ibg.ya(this.ibr.getId()))) {
+                    this.ibr.setCategory(d.this.ibg.ya(this.ibr.getId()));
                 }
-                if ((this.hUh.bOY() & 8) != 0) {
-                    d.this.hUa.b(this.hUh);
+                if ((this.ibr.bRe() & 8) != 0) {
+                    d.this.ibk.b(this.ibr);
                 } else {
-                    d.this.hUa.a(this.hUh);
+                    d.this.ibk.a(this.ibr);
                 }
             }
         }
@@ -303,90 +303,90 @@ public class d {
 
     /* renamed from: com.baidu.ubc.d$d  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private class RunnableC0333d implements Runnable {
-        private k hUj;
+    private class RunnableC0347d implements Runnable {
+        private k ibt;
 
-        RunnableC0333d(Flow flow, String str) {
-            this.hUj = new k(flow.getId(), flow.getHandle(), str, flow.bOY());
-            this.hUj.dg(flow.getStartTime());
-            this.hUj.xF("1");
+        RunnableC0347d(Flow flow, String str) {
+            this.ibt = new k(flow.getId(), flow.getHandle(), str, flow.bRe());
+            this.ibt.dn(flow.getStartTime());
+            this.ibt.yi("1");
             d.d(d.this);
         }
 
-        public void oI(boolean z) {
-            if (this.hUj != null) {
-                this.hUj.oI(z);
+        public void oK(boolean z) {
+            if (this.ibt != null) {
+                this.ibt.oK(z);
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.hUa != null) {
-                this.hUj.bPb();
-                if (!TextUtils.isEmpty(d.this.hTW.xx(this.hUj.getId()))) {
-                    this.hUj.setCategory(d.this.hTW.xx(this.hUj.getId()));
+            if (d.this.ibk != null) {
+                this.ibt.bRh();
+                if (!TextUtils.isEmpty(d.this.ibg.ya(this.ibt.getId()))) {
+                    this.ibt.setCategory(d.this.ibg.ya(this.ibt.getId()));
                 }
-                d.this.hUa.b(this.hUj);
-                com.baidu.g.b.bPz().putInt("ubc_key_flow_handle", d.this.hUb);
+                d.this.ibk.b(this.ibt);
+                com.baidu.g.b.bRF().putInt("ubc_key_flow_handle", d.this.ibl);
             }
         }
     }
 
     /* loaded from: classes2.dex */
     private class f implements Runnable {
-        private int hUi;
+        private int ibs;
         private String mFlowId;
         private String mValue;
 
         f(String str, int i, String str2) {
             this.mFlowId = str;
-            this.hUi = i;
+            this.ibs = i;
             this.mValue = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.hUa != null) {
-                d.this.hUa.n(this.mFlowId, this.hUi, this.mValue);
+            if (d.this.ibk != null) {
+                d.this.ibk.n(this.mFlowId, this.ibs, this.mValue);
             }
         }
     }
 
     /* loaded from: classes2.dex */
     private class e implements Runnable {
-        private int hUi;
-        private JSONArray hUk;
+        private int ibs;
+        private JSONArray ibu;
         private long mEndTime = System.currentTimeMillis();
         private String mFlowId;
 
         e(String str, int i, JSONArray jSONArray) {
             this.mFlowId = str;
-            this.hUi = i;
-            this.hUk = jSONArray;
+            this.ibs = i;
+            this.ibu = jSONArray;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.hUa != null) {
-                d.this.hUa.a(this.mFlowId, this.hUi, this.mEndTime, this.hUk);
+            if (d.this.ibk != null) {
+                d.this.ibk.a(this.mFlowId, this.ibs, this.mEndTime, this.ibu);
             }
         }
     }
 
     /* loaded from: classes2.dex */
     private class c implements Runnable {
-        private int hUi;
+        private int ibs;
         private String mFlowId;
 
         c(String str, int i) {
             this.mFlowId = str;
-            this.hUi = i;
+            this.ibs = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.hUa != null) {
-                d.this.hUa.ba(this.mFlowId, this.hUi);
+            if (d.this.ibk != null) {
+                d.this.ibk.bb(this.mFlowId, this.ibs);
             }
         }
     }
@@ -394,16 +394,16 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class a implements Runnable {
-        private n hUg;
+        private n ibq;
 
         a(n nVar) {
-            this.hUg = nVar;
+            this.ibq = nVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.hUa != null) {
-                d.this.hUa.a(this.hUg);
+            if (d.this.ibk != null) {
+                d.this.ibk.a(this.ibq);
             }
         }
     }

@@ -9,19 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class n {
-    private com.baidu.tieba.person.a.a gjz;
-    private m gpm;
-    private b gpn;
-    private i gpo;
-    private a gpp;
-    private c gpq;
-    private h gpr;
-    private e gps;
-    private k gpt;
-    private d gpu;
-    private com.baidu.tieba.person.a.d gpv;
-    private p gpw;
-    private BdPersonListView gpx;
+    private com.baidu.tieba.person.a.a gqp;
+    private m gwc;
+    private b gwd;
+    private i gwe;
+    private a gwf;
+    private c gwg;
+    private h gwh;
+    private e gwi;
+    private k gwj;
+    private d gwk;
+    private com.baidu.tieba.person.a.d gwl;
+    private p gwm;
+    private BdPersonListView gwn;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdUniqueId mBdUniqueId;
 
@@ -31,42 +31,42 @@ public class n {
     }
 
     private void a(TbPageContext tbPageContext, BdPersonListView bdPersonListView) {
-        this.gpx = bdPersonListView;
-        this.gpm = new m(tbPageContext);
-        this.gpn = new b(tbPageContext);
-        this.gpo = new i(tbPageContext);
-        this.gpp = new a(tbPageContext);
-        this.gpq = new c(tbPageContext);
-        this.gpr = new h(tbPageContext, tbPageContext.getUniqueId());
-        this.gps = new e(tbPageContext, com.baidu.tieba.personPolymeric.c.g.grs);
-        this.gpt = new k(tbPageContext);
-        this.gpu = new d(tbPageContext);
-        this.gpv = new com.baidu.tieba.person.a.d(tbPageContext, com.baidu.tieba.person.a.f.gjA);
-        this.gjz = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.gjh);
-        this.gpw = new p(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
-        this.mAdapters.add(this.gpm);
-        this.mAdapters.add(this.gpn);
-        this.mAdapters.add(this.gpo);
-        this.mAdapters.add(this.gpp);
-        this.mAdapters.add(this.gpq);
-        this.mAdapters.add(this.gpr);
-        this.mAdapters.add(this.gps);
-        this.mAdapters.add(this.gpt);
-        this.mAdapters.add(this.gpu);
-        this.mAdapters.add(this.gpv);
-        this.mAdapters.add(this.gjz);
-        this.mAdapters.add(this.gpw);
+        this.gwn = bdPersonListView;
+        this.gwc = new m(tbPageContext);
+        this.gwd = new b(tbPageContext);
+        this.gwe = new i(tbPageContext);
+        this.gwf = new a(tbPageContext);
+        this.gwg = new c(tbPageContext);
+        this.gwh = new h(tbPageContext, tbPageContext.getUniqueId());
+        this.gwi = new e(tbPageContext, com.baidu.tieba.personPolymeric.c.g.gyi);
+        this.gwj = new k(tbPageContext);
+        this.gwk = new d(tbPageContext);
+        this.gwl = new com.baidu.tieba.person.a.d(tbPageContext, com.baidu.tieba.person.a.f.gqq);
+        this.gqp = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.gpX);
+        this.gwm = new p(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
+        this.mAdapters.add(this.gwc);
+        this.mAdapters.add(this.gwd);
+        this.mAdapters.add(this.gwe);
+        this.mAdapters.add(this.gwf);
+        this.mAdapters.add(this.gwg);
+        this.mAdapters.add(this.gwh);
+        this.mAdapters.add(this.gwi);
+        this.mAdapters.add(this.gwj);
+        this.mAdapters.add(this.gwk);
+        this.mAdapters.add(this.gwl);
+        this.mAdapters.add(this.gqp);
+        this.mAdapters.add(this.gwm);
         bdPersonListView.addAdapters(this.mAdapters);
     }
 
     public void Q(View.OnClickListener onClickListener) {
-        if (this.gpv != null) {
-            this.gpv.O(onClickListener);
+        if (this.gwl != null) {
+            this.gwl.O(onClickListener);
         }
     }
 
     public void setIsHost(boolean z) {
-        this.gpw.setIsHost(z);
-        this.gpo.setIsHost(z);
+        this.gwm.setIsHost(z);
+        this.gwe.setIsHost(z);
     }
 }

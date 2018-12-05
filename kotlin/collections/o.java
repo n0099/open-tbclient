@@ -10,7 +10,7 @@ public class o {
         return EmptyList.INSTANCE;
     }
 
-    public static final <T> List<T> aT(T t) {
+    public static final <T> List<T> aU(T t) {
         List<T> singletonList = Collections.singletonList(t);
         kotlin.jvm.internal.p.g(singletonList, "java.util.Collections.singletonList(element)");
         return singletonList;

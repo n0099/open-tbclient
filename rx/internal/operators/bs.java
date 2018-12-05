@@ -25,7 +25,7 @@ public final class bs<T> implements d.b<T, T> {
         jVar.setProducer(new rx.f() { // from class: rx.internal.operators.bs.1
             @Override // rx.f
             public void request(long j) {
-                aVar.dv(j);
+                aVar.dC(j);
             }
         });
         return aVar;
@@ -37,7 +37,7 @@ public final class bs<T> implements d.b<T, T> {
         final rx.j<? super T> actual;
         final int count;
         final AtomicLong requested = new AtomicLong();
-        final ArrayDeque<Object> ixe = new ArrayDeque<>();
+        final ArrayDeque<Object> iEn = new ArrayDeque<>();
 
         public a(rx.j<? super T> jVar, int i) {
             this.actual = jVar;
@@ -46,31 +46,31 @@ public final class bs<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onNext(T t) {
-            if (this.ixe.size() == this.count) {
-                this.ixe.poll();
+            if (this.iEn.size() == this.count) {
+                this.iEn.poll();
             }
-            this.ixe.offer(NotificationLite.aX(t));
+            this.iEn.offer(NotificationLite.aY(t));
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.ixe.clear();
+            this.iEn.clear();
             this.actual.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            rx.internal.operators.a.a(this.requested, this.ixe, this.actual, this);
+            rx.internal.operators.a.a(this.requested, this.iEn, this.actual, this);
         }
 
         @Override // rx.functions.f
         public T call(Object obj) {
-            return (T) NotificationLite.ba(obj);
+            return (T) NotificationLite.bb(obj);
         }
 
-        void dv(long j) {
+        void dC(long j) {
             if (j > 0) {
-                rx.internal.operators.a.a(this.requested, j, this.ixe, this.actual, this);
+                rx.internal.operators.a.a(this.requested, j, this.iEn, this.actual, this);
             }
         }
     }

@@ -275,7 +275,7 @@ public final class a {
         double d;
         boolean z = false;
         double d2 = 0.0d;
-        if (!aVar.b() || !j.tj().h()) {
+        if (!aVar.b() || !j.ti().h()) {
             return;
         }
         System.currentTimeMillis();
@@ -574,7 +574,7 @@ public final class a {
         }
     }
 
-    public static synchronized a tA() {
+    public static synchronized a tz() {
         a aVar;
         synchronized (a.class) {
             if (aeE == null) {
@@ -610,7 +610,7 @@ public final class a {
 
     public void a(String str, com.baidu.location.e.a aVar, com.baidu.location.e.e eVar, BDLocation bDLocation) {
         if (this.a) {
-            boolean z = (aVar.b() && j.tj().h()) ? false : true;
+            boolean z = (aVar.b() && j.ti().h()) ? false : true;
             boolean z2 = bDLocation == null || bDLocation.getLocType() != 161 || (!"wf".equals(bDLocation.getNetworkLocationType()) && bDLocation.getRadius() >= 300.0f);
             if (eVar.a == null) {
                 z2 = true;
@@ -625,26 +625,26 @@ public final class a {
 
     public BDLocation aM(boolean z) {
         if (this.a) {
-            com.baidu.location.e.a tN = com.baidu.location.e.b.tM().tN();
-            String g = (tN == null || !tN.e()) ? null : tN.g();
-            com.baidu.location.e.e tT = com.baidu.location.e.f.tR().tT();
-            BDLocation a = tT != null ? a(g, tT.a, true) : null;
+            com.baidu.location.e.a tM = com.baidu.location.e.b.tL().tM();
+            String g = (tM == null || !tM.e()) ? null : tM.g();
+            com.baidu.location.e.e tS = com.baidu.location.e.f.tQ().tS();
+            BDLocation a = tS != null ? a(g, tS.a, true) : null;
             if (a == null || a.getLocType() != 66) {
                 return a;
             }
             StringBuffer stringBuffer = new StringBuffer(1024);
             stringBuffer.append(String.format(Locale.CHINA, "&ofl=%f|%f|%f", Double.valueOf(a.getLatitude()), Double.valueOf(a.getLongitude()), Float.valueOf(a.getRadius())));
-            if (tT != null && tT.a() > 0) {
+            if (tS != null && tS.a() > 0) {
                 stringBuffer.append("&wf=");
-                stringBuffer.append(tT.c(15));
+                stringBuffer.append(tS.c(15));
             }
-            if (tN != null) {
-                stringBuffer.append(tN.h());
+            if (tM != null) {
+                stringBuffer.append(tM.h());
             }
             stringBuffer.append("&uptype=oldoff");
             stringBuffer.append(com.baidu.location.g.g.e(com.baidu.location.f.getServiceContext()));
-            stringBuffer.append(com.baidu.location.g.b.tW().a(false));
-            stringBuffer.append(com.baidu.location.a.a.tc().c());
+            stringBuffer.append(com.baidu.location.g.b.tV().a(false));
+            stringBuffer.append(com.baidu.location.a.a.tb().c());
             stringBuffer.toString();
             return a;
         }

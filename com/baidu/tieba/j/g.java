@@ -8,10 +8,10 @@ public interface g {
 
     /* loaded from: classes.dex */
     public interface a {
-        public static final String fxi = File.separator;
-        public static final String bwt = Environment.getExternalStorageDirectory() + fxi + NgWebViewInitHelper.INIT_BWEBKIT_APPID;
-        public static final String fxp = bwt + fxi + ".tieba_post_monitor";
-        public static final String fxq = fxp + fxi + "v1";
-        public static final String fxr = fxq + fxi;
+        public static final String fDY = File.separator;
+        public static final String bzQ = Environment.getExternalStorageDirectory() + fDY + NgWebViewInitHelper.INIT_BWEBKIT_APPID;
+        public static final String fEf = bzQ + fDY + ".tieba_post_monitor";
+        public static final String fEg = fEf + fDY + "v1";
+        public static final String fEh = fEg + fDY;
     }
 }

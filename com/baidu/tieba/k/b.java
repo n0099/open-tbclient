@@ -10,9 +10,9 @@ import com.baidu.tieba.play.QuickVideoView;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class b implements e {
-    private boolean fyr = false;
-    private boolean fys = false;
-    private e.a fyt;
+    private boolean fFh = false;
+    private boolean fFi = false;
+    private e.a fFj;
     private String mLocalPath;
 
     public b(String str) {
@@ -21,28 +21,28 @@ public class b implements e {
 
     @Override // com.baidu.tieba.j.e
     public void a(e.a aVar) {
-        this.fyt = aVar;
+        this.fFj = aVar;
     }
 
     @Override // com.baidu.tieba.j.e
-    public void baw() {
-        if (f.IJ()) {
-            if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.gK(this.mLocalPath)) {
-                if (this.fyt != null) {
-                    this.fyt.rm(2);
+    public void bcn() {
+        if (f.JN()) {
+            if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.hc(this.mLocalPath)) {
+                if (this.fFj != null) {
+                    this.fFj.rG(2);
                     return;
                 }
                 return;
             }
             a.a(this.mLocalPath, new a.b() { // from class: com.baidu.tieba.k.b.1
                 @Override // com.baidu.tieba.k.a.b
-                public void rq(int i) {
+                public void rK(int i) {
                     if (i == 1) {
-                        b.this.fyr = true;
-                        b.this.bbb();
+                        b.this.fFh = true;
+                        b.this.bcS();
                     }
-                    if (b.this.fyt != null) {
-                        b.this.fyt.rm(i);
+                    if (b.this.fFj != null) {
+                        b.this.fFj.rG(i);
                     }
                 }
             });
@@ -50,23 +50,23 @@ public class b implements e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bbb() {
-        if (f.IJ()) {
-            if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.gK(this.mLocalPath)) {
-                if (this.fyt != null) {
-                    this.fyt.onChange(false);
+    public void bcS() {
+        if (f.JN()) {
+            if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.hc(this.mLocalPath)) {
+                if (this.fFj != null) {
+                    this.fFj.onChange(false);
                     return;
                 }
                 return;
             }
-            a.a(this.mLocalPath, this.mLocalPath + "_moov_head_suffix", new a.InterfaceC0250a() { // from class: com.baidu.tieba.k.b.2
-                @Override // com.baidu.tieba.k.a.InterfaceC0250a
-                public void jN(boolean z) {
-                    if (b.this.fyr && z) {
-                        b.this.fys = true;
+            a.a(this.mLocalPath, this.mLocalPath + "_moov_head_suffix", new a.InterfaceC0261a() { // from class: com.baidu.tieba.k.b.2
+                @Override // com.baidu.tieba.k.a.InterfaceC0261a
+                public void jQ(boolean z) {
+                    if (b.this.fFh && z) {
+                        b.this.fFi = true;
                     }
-                    if (b.this.fyt != null) {
-                        b.this.fyt.onChange(z);
+                    if (b.this.fFj != null) {
+                        b.this.fFj.onChange(z);
                     }
                 }
             });
@@ -74,11 +74,11 @@ public class b implements e {
     }
 
     @Override // com.baidu.tieba.j.e
-    public void bax() {
-        if (f.IJ()) {
-            if (StringUtils.isNull(this.mLocalPath) || !new File(this.mLocalPath).exists() || !new File(this.mLocalPath + "_moov_head_suffix").exists() || !this.fyr || !this.fys) {
-                if (this.fyt != null) {
-                    this.fyt.jL(false);
+    public void bco() {
+        if (f.JN()) {
+            if (StringUtils.isNull(this.mLocalPath) || !new File(this.mLocalPath).exists() || !new File(this.mLocalPath + "_moov_head_suffix").exists() || !this.fFh || !this.fFi) {
+                if (this.fFj != null) {
+                    this.fFj.jO(false);
                     return;
                 }
                 return;
@@ -89,7 +89,7 @@ public class b implements e {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Boolean doInBackground(String... strArr) {
                     if (strArr != null && strArr.length == 1 && !StringUtils.isNull(strArr[0])) {
-                        return Boolean.valueOf(b.ce(strArr[0] + "_moov_head_suffix", strArr[0]));
+                        return Boolean.valueOf(b.cj(strArr[0] + "_moov_head_suffix", strArr[0]));
                     }
                     return false;
                 }
@@ -99,8 +99,8 @@ public class b implements e {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(Boolean bool) {
                     super.onPostExecute((AnonymousClass3) bool);
-                    if (b.this.fyt != null) {
-                        b.this.fyt.jL(bool.booleanValue());
+                    if (b.this.fFj != null) {
+                        b.this.fFj.jO(bool.booleanValue());
                     }
                 }
             }.execute(this.mLocalPath);
@@ -108,10 +108,10 @@ public class b implements e {
     }
 
     @Override // com.baidu.tieba.j.e
-    public void bay() {
-        if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.gK(this.mLocalPath)) {
-            if (this.fyt != null) {
-                this.fyt.rm(2);
+    public void bcp() {
+        if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.hc(this.mLocalPath)) {
+            if (this.fFj != null) {
+                this.fFj.rG(2);
                 return;
             }
             return;
@@ -123,17 +123,17 @@ public class b implements e {
             public Void doInBackground(String... strArr) {
                 if (strArr != null && strArr.length == 1 && !StringUtils.isNull(strArr[0])) {
                     String str = strArr[0];
-                    int rI = a.rI(str);
-                    publishProgress(new c(1, rI));
-                    if (rI == 1) {
-                        boolean cd = a.cd(str, str + "_moov_head_suffix");
+                    int sk = a.sk(str);
+                    publishProgress(new c(1, sk));
+                    if (sk == 1) {
+                        boolean ci = a.ci(str, str + "_moov_head_suffix");
                         c[] cVarArr = new c[1];
-                        cVarArr[0] = new c(2, cd ? 1 : 0);
+                        cVarArr[0] = new c(2, ci ? 1 : 0);
                         publishProgress(cVarArr);
-                        if (cd) {
-                            boolean ce = b.ce(str + "_moov_head_suffix", str);
+                        if (ci) {
+                            boolean cj = b.cj(str + "_moov_head_suffix", str);
                             c[] cVarArr2 = new c[1];
-                            cVarArr2[0] = new c(3, ce ? 1 : 0);
+                            cVarArr2[0] = new c(3, cj ? 1 : 0);
                             publishProgress(cVarArr2);
                         }
                     }
@@ -150,15 +150,15 @@ public class b implements e {
                 if (cVarArr != null && cVarArr.length == 1 && cVarArr[0] != null) {
                     c cVar = cVarArr[0];
                     if (cVar.type == 1) {
-                        if (b.this.fyt != null) {
-                            b.this.fyt.rm(cVar.value);
+                        if (b.this.fFj != null) {
+                            b.this.fFj.rG(cVar.value);
                         }
                     } else if (cVar.type == 2) {
-                        if (b.this.fyt != null) {
-                            b.this.fyt.onChange(cVar.value == 1);
+                        if (b.this.fFj != null) {
+                            b.this.fFj.onChange(cVar.value == 1);
                         }
-                    } else if (cVar.type == 3 && b.this.fyt != null) {
-                        b.this.fyt.jL(cVar.value == 1);
+                    } else if (cVar.type == 3 && b.this.fFj != null) {
+                        b.this.fFj.jO(cVar.value == 1);
                     }
                 }
             }
@@ -166,7 +166,7 @@ public class b implements e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean ce(String str, String str2) {
+    public static boolean cj(String str, String str2) {
         if (StringUtils.isNull(str) || StringUtils.isNull(str2) || TextUtils.equals(str, str2) || !new File(str).exists() || !new File(str2).exists()) {
             return false;
         }

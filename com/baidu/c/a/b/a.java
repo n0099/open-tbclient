@@ -8,7 +8,7 @@ public class a implements b {
     private static volatile a aaJ = null;
     private b aaK;
 
-    public static a sn() {
+    public static a sm() {
         if (aaJ == null) {
             synchronized (a.class) {
                 if (aaJ == null) {

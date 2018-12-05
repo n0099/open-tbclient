@@ -7,23 +7,23 @@ import com.baidu.searchbox.ng.ai.apps.network.WebSocketAction;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes3.dex */
 public class d {
-    private static volatile d del = null;
+    private static volatile d dkT = null;
 
-    public static final d asi() {
-        if (del == null) {
+    public static final d atU() {
+        if (dkT == null) {
             synchronized (d.class) {
-                if (del == null) {
-                    del = new d();
+                if (dkT == null) {
+                    dkT = new d();
                 }
             }
         }
-        return del;
+        return dkT;
     }
 
     private d() {
     }
 
-    public void aU(String str, String str2) {
+    public void aX(String str, String str2) {
         if (!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("workflow", "dnsproxy_error");
@@ -37,7 +37,7 @@ public class d {
         }
     }
 
-    public void F(String str, String str2, String str3) {
+    public void G(String str, String str2, String str3) {
         if (!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2) || !TextUtils.isEmpty(str3)) {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("workflow", "dnsproxy_event");

@@ -12,7 +12,7 @@ public class a<T extends e> extends q.a {
         this.Sd = t;
     }
 
-    public T pz() {
+    public T py() {
         return this.Sd;
     }
 }

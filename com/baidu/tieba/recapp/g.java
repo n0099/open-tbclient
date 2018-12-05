@@ -5,40 +5,40 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class g {
     public String forumName;
-    public int gEA;
-    public int gEB;
-    public int gEC;
+    public int gLq;
+    public int gLr;
+    public int gLs;
     public int refreshCount;
 
     public g() {
         this.refreshCount = 0;
-        this.gEA = 0;
-        this.gEB = 0;
-        this.gEC = 0;
+        this.gLq = 0;
+        this.gLr = 0;
+        this.gLs = 0;
     }
 
     public g(JSONObject jSONObject) {
         this.refreshCount = 0;
-        this.gEA = 0;
-        this.gEB = 0;
-        this.gEC = 0;
+        this.gLq = 0;
+        this.gLr = 0;
+        this.gLs = 0;
         if (jSONObject != null) {
             this.forumName = jSONObject.optString("forum_name");
             this.refreshCount = jSONObject.optInt("refresh_count");
-            this.gEA = jSONObject.optInt("loadmore_count");
-            this.gEB = jSONObject.optInt("loadmore_count_pb");
-            this.gEC = jSONObject.optInt("refresh_count_pb");
+            this.gLq = jSONObject.optInt("loadmore_count");
+            this.gLr = jSONObject.optInt("loadmore_count_pb");
+            this.gLs = jSONObject.optInt("refresh_count_pb");
         }
     }
 
-    public JSONObject bsz() {
+    public JSONObject bus() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("forum_name", this.forumName);
             jSONObject.put("refresh_count", this.refreshCount);
-            jSONObject.put("loadmore_count", this.gEA);
-            jSONObject.put("loadmore_count_pb", this.gEB);
-            jSONObject.put("refresh_count_pb", this.gEC);
+            jSONObject.put("loadmore_count", this.gLq);
+            jSONObject.put("loadmore_count_pb", this.gLr);
+            jSONObject.put("refresh_count_pb", this.gLs);
             return jSONObject;
         } catch (JSONException e) {
             return null;
@@ -46,20 +46,20 @@ public class g {
     }
 
     public int T(boolean z, boolean z2) {
-        return z2 ? z ? this.gEC : this.gEB : z ? this.refreshCount : this.gEA;
+        return z2 ? z ? this.gLs : this.gLr : z ? this.refreshCount : this.gLq;
     }
 
     public void U(boolean z, boolean z2) {
         if (z2) {
             if (z) {
-                this.gEC++;
+                this.gLs++;
             } else {
-                this.gEB++;
+                this.gLr++;
             }
         } else if (z) {
             this.refreshCount++;
         } else {
-            this.gEA++;
+            this.gLq++;
         }
     }
 }

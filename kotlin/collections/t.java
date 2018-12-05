@@ -11,22 +11,22 @@ public class t extends s {
 
     /* loaded from: classes2.dex */
     public static final class a implements kotlin.sequences.c<T> {
-        final /* synthetic */ Iterable iqL;
+        final /* synthetic */ Iterable ixV;
 
         public a(Iterable iterable) {
-            this.iqL = iterable;
+            this.ixV = iterable;
         }
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            return this.iqL.iterator();
+            return this.ixV.iterator();
         }
     }
 
     public static final <T> T b(Iterable<? extends T> iterable) {
         kotlin.jvm.internal.p.h((Object) iterable, "$receiver");
         if (iterable instanceof List) {
-            return (T) n.et((List) iterable);
+            return (T) n.ex((List) iterable);
         }
         Iterator<? extends T> it = iterable.iterator();
         if (!it.hasNext()) {
@@ -39,7 +39,7 @@ public class t extends s {
         return next;
     }
 
-    public static final <T> T et(List<? extends T> list) {
+    public static final <T> T ex(List<? extends T> list) {
         kotlin.jvm.internal.p.h((Object) list, "$receiver");
         switch (list.size()) {
             case 0:
@@ -62,7 +62,7 @@ public class t extends s {
 
     public static final <T> HashSet<T> c(Iterable<? extends T> iterable) {
         kotlin.jvm.internal.p.h((Object) iterable, "$receiver");
-        return (HashSet) n.a(iterable, new HashSet(aa.yB(n.a(iterable, 12))));
+        return (HashSet) n.a(iterable, new HashSet(aa.yY(n.a(iterable, 12))));
     }
 
     public static final <T, A extends Appendable> A a(Iterable<? extends T> iterable, A a2, CharSequence charSequence, CharSequence charSequence2, CharSequence charSequence3, int i, CharSequence charSequence4, kotlin.jvm.a.b<? super T, ? extends CharSequence> bVar) {

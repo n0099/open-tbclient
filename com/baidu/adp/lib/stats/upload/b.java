@@ -68,7 +68,7 @@ public class b {
             this.Fb.Ej = Build.MODEL;
             this.Fb.En = Build.VERSION.RELEASE;
             this.Fb.mNetType = d.getNetType(BdBaseApplication.getInst());
-            this.Fb.Em = String.valueOf(j.lb());
+            this.Fb.Em = String.valueOf(j.netType());
         }
         try {
             MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
@@ -96,7 +96,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void kv() {
         this.Fb.mNetType = d.getNetType(BdBaseApplication.getInst());
-        this.Fb.Em = String.valueOf(j.lb());
+        this.Fb.Em = String.valueOf(j.netType());
     }
 
     /* JADX INFO: Access modifiers changed from: private */

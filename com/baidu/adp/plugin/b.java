@@ -64,11 +64,11 @@ public class b {
         return null;
     }
 
-    public Map<String, IntentFilter> mo() {
+    public Map<String, IntentFilter> mn() {
         return this.JA;
     }
 
-    public Map<String, ProviderInfo> mp() {
+    public Map<String, ProviderInfo> mo() {
         return this.Jz;
     }
 
@@ -81,7 +81,7 @@ public class b {
                 this.Jx = this.mContext.getPackageManager().getPackageArchiveInfo(this.Jw.getAbsolutePath(), 15);
             } catch (Exception e) {
                 BdLog.e(e);
-                com.baidu.adp.plugin.b.a.mO().g("plugin_use", "plugin_manifest_pkginfo_failed", "getPluginPackageInfo", e.getMessage());
+                com.baidu.adp.plugin.b.a.mN().g("plugin_use", "plugin_manifest_pkginfo_failed", "getPluginPackageInfo", e.getMessage());
             }
         }
         return this.Jx;
@@ -123,7 +123,7 @@ public class b {
         }
     }
 
-    public boolean mq() {
+    public boolean mp() {
         XmlResourceParser openXmlResourceParser;
         char c;
         String str;
@@ -149,7 +149,7 @@ public class b {
             openXmlResourceParser = this.mPluginResource.getAssets().openXmlResourceParser("AndroidManifest.xml");
         } catch (Exception e) {
             BdLog.e(e);
-            com.baidu.adp.plugin.b.a.mO().g("plugin_install", "plugin_third_manifest_failed", pluginPackageInfo.packageName, e.getMessage());
+            com.baidu.adp.plugin.b.a.mN().g("plugin_install", "plugin_third_manifest_failed", pluginPackageInfo.packageName, e.getMessage());
         }
         if (openXmlResourceParser == null) {
             return false;

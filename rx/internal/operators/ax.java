@@ -9,7 +9,7 @@ public final class ax<T> implements d.b<Notification<T>, T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        static final ax<Object> iyI = new ax<>();
+        static final ax<Object> iFQ = new ax<>();
     }
 
     @Override // rx.functions.f
@@ -17,8 +17,8 @@ public final class ax<T> implements d.b<Notification<T>, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> ax<T> cbw() {
-        return (ax<T>) a.iyI;
+    public static <T> ax<T> cdz() {
+        return (ax<T>) a.iFQ;
     }
 
     ax() {
@@ -31,7 +31,7 @@ public final class ax<T> implements d.b<Notification<T>, T> {
             @Override // rx.f
             public void request(long j) {
                 if (j > 0) {
-                    bVar.dv(j);
+                    bVar.dC(j);
                 }
             }
         });
@@ -42,8 +42,8 @@ public final class ax<T> implements d.b<Notification<T>, T> {
     /* loaded from: classes2.dex */
     public static class b<T> extends rx.j<T> {
         private final rx.j<? super Notification<T>> child;
-        private volatile Notification<T> iyJ;
-        private boolean iyK;
+        private volatile Notification<T> iFR;
+        private boolean iFS;
         private boolean missed;
         private final AtomicLong requested = new AtomicLong();
 
@@ -56,7 +56,7 @@ public final class ax<T> implements d.b<Notification<T>, T> {
             request(0L);
         }
 
-        void dv(long j) {
+        void dC(long j) {
             rx.internal.operators.a.a(this.requested, j);
             request(j);
             drain();
@@ -64,24 +64,24 @@ public final class ax<T> implements d.b<Notification<T>, T> {
 
         @Override // rx.e
         public void onCompleted() {
-            this.iyJ = Notification.caJ();
+            this.iFR = Notification.ccM();
             drain();
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.iyJ = Notification.H(th);
+            this.iFR = Notification.H(th);
             rx.c.c.onError(th);
             drain();
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            this.child.onNext(Notification.aU(t));
-            cbx();
+            this.child.onNext(Notification.aV(t));
+            cdA();
         }
 
-        private void cbx() {
+        private void cdA() {
             long j;
             AtomicLong atomicLong = this.requested;
             do {
@@ -94,15 +94,15 @@ public final class ax<T> implements d.b<Notification<T>, T> {
 
         private void drain() {
             synchronized (this) {
-                if (this.iyK) {
+                if (this.iFS) {
                     this.missed = true;
                     return;
                 }
                 AtomicLong atomicLong = this.requested;
                 while (!this.child.isUnsubscribed()) {
-                    Notification<T> notification = this.iyJ;
+                    Notification<T> notification = this.iFR;
                     if (notification != null && atomicLong.get() > 0) {
-                        this.iyJ = null;
+                        this.iFR = null;
                         this.child.onNext(notification);
                         if (!this.child.isUnsubscribed()) {
                             this.child.onCompleted();
@@ -112,7 +112,7 @@ public final class ax<T> implements d.b<Notification<T>, T> {
                     }
                     synchronized (this) {
                         if (!this.missed) {
-                            this.iyK = false;
+                            this.iFS = false;
                             return;
                         }
                     }

@@ -30,7 +30,7 @@ public class e {
         if (this.yG == null || this.yG.length != 3) {
             return 0;
         }
-        switch (j.lb()) {
+        switch (j.netType()) {
             case 1:
                 return this.yG[2];
             case 2:

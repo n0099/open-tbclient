@@ -14,10 +14,10 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.tieba.card.a<com.baidu.tieba.frs.game.strategy.data.b> {
-    private ImageView cQn;
-    private TbImageView dNs;
-    private TextView dNt;
-    private TextView dNu;
+    private ImageView cWU;
+    private TbImageView dTV;
+    private TextView dTW;
+    private TextView dTX;
     private TbPageContext mPageContext;
     private View mRootView;
     private TextView mTitle;
@@ -30,21 +30,21 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.frs.game.strategy.
     }
 
     private void initView() {
-        this.dNs = (TbImageView) this.mRootView.findViewById(e.g.frs_game_left_image);
-        this.dNs.setDefaultErrorResource(e.f.icon_morenpic);
-        this.dNs.setDefaultResource(e.f.icon_morenpic);
-        this.cQn = (ImageView) this.mRootView.findViewById(e.g.frs_game_video_icon);
+        this.dTV = (TbImageView) this.mRootView.findViewById(e.g.frs_game_left_image);
+        this.dTV.setDefaultErrorResource(e.f.icon_morenpic);
+        this.dTV.setDefaultResource(e.f.icon_morenpic);
+        this.cWU = (ImageView) this.mRootView.findViewById(e.g.frs_game_video_icon);
         this.mTitle = (TextView) this.mRootView.findViewById(e.g.frs_game_strategy_title);
-        this.dNt = (TextView) this.mRootView.findViewById(e.g.frs_game_strategy_scan_info);
-        this.dNu = (TextView) this.mRootView.findViewById(e.g.frs_game_strategy_info_source);
+        this.dTW = (TextView) this.mRootView.findViewById(e.g.frs_game_strategy_scan_info);
+        this.dTX = (TextView) this.mRootView.findViewById(e.g.frs_game_strategy_info_source);
         d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         al.h(this.mTitle, e.d.cp_cont_b);
-        al.h(this.dNt, e.d.cp_cont_d);
-        al.h(this.dNu, e.d.cp_cont_i);
+        al.h(this.dTW, e.d.cp_cont_d);
+        al.h(this.dTX, e.d.cp_cont_i);
         al.i(this.mRootView, e.f.addresslist_item_bg);
     }
 
@@ -56,39 +56,39 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.frs.game.strategy.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.frs.game.strategy.data.b bVar) {
-        if (bVar != null && bVar.YL() != null) {
-            bb YL = bVar.YL();
-            this.mTitle.setText(YL.getTitle());
+        if (bVar != null && bVar.ZR() != null) {
+            bb ZR = bVar.ZR();
+            this.mTitle.setText(ZR.getTitle());
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.vq(YL.getId())) {
+            if (readThreadHistory != null && readThreadHistory.vR(ZR.getId())) {
                 al.h(this.mTitle, e.d.cp_cont_c);
             } else {
                 al.h(this.mTitle, e.d.cp_cont_b);
             }
-            String I = ao.I(YL.yu());
-            String G = ao.G(YL.yn());
-            if (!StringUtils.isNull(I) && !StringUtils.isNull(G)) {
-                this.dNt.setText(String.format(this.mContext.getString(e.j.frs_game_strategy_scan_info), I, G));
+            String P = ao.P(ZR.zy());
+            String N = ao.N(ZR.zr());
+            if (!StringUtils.isNull(P) && !StringUtils.isNull(N)) {
+                this.dTW.setText(String.format(this.mContext.getString(e.j.frs_game_strategy_scan_info), P, N));
             }
             String str = null;
-            if (YL.getThreadType() == 40) {
-                this.cQn.setVisibility(0);
-                if (YL.yU() != null) {
-                    str = YL.yU().thumbnail_url;
+            if (ZR.getThreadType() == 40) {
+                this.cWU.setVisibility(0);
+                if (ZR.zY() != null) {
+                    str = ZR.zY().thumbnail_url;
                 }
             } else {
-                this.cQn.setVisibility(8);
-                if (YL.yN() != null && YL.yN().size() >= 1) {
-                    str = YL.yN().get(0).getOriginalUrl();
+                this.cWU.setVisibility(8);
+                if (ZR.zR() != null && ZR.zR().size() >= 1) {
+                    str = ZR.zR().get(0).getOriginalUrl();
                 }
             }
-            this.dNs.startLoad(str, 10, false);
-            if (!StringUtils.isNull(YL.ys())) {
-                this.dNu.setText(YL.ys());
-                this.dNu.setVisibility(0);
+            this.dTV.startLoad(str, 10, false);
+            if (!StringUtils.isNull(ZR.zw())) {
+                this.dTX.setText(ZR.zw());
+                this.dTX.setVisibility(0);
                 return;
             }
-            this.dNu.setVisibility(8);
+            this.dTX.setVisibility(8);
         }
     }
 
@@ -98,11 +98,11 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.frs.game.strategy.
 
     /* loaded from: classes3.dex */
     public static class a extends q.a {
-        public d dNv;
+        public d dTY;
 
         public a(d dVar) {
             super(dVar.getView());
-            this.dNv = dVar;
+            this.dTY = dVar;
         }
     }
 }

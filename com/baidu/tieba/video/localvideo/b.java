@@ -8,42 +8,42 @@ import java.util.List;
 import java.util.TimeZone;
 /* loaded from: classes5.dex */
 public class b extends BdAsyncTask<Void, Void, List<d>> {
-    private static long hxD = 3600000;
+    private static long hEP = 3600000;
     private Context context;
-    private a hxK;
+    private a hEW;
     private int maxHeight;
     private int maxWidth;
-    private SimpleDateFormat hxF = new SimpleDateFormat("mm:ss");
-    private SimpleDateFormat hxE = new SimpleDateFormat("HH:mm:ss");
+    private SimpleDateFormat hER = new SimpleDateFormat("mm:ss");
+    private SimpleDateFormat hEQ = new SimpleDateFormat("HH:mm:ss");
 
     /* loaded from: classes5.dex */
     public interface a {
-        void dV(List<d> list);
+        void dZ(List<d> list);
     }
 
     public b(Context context) {
         this.context = context;
-        this.maxHeight = context.getResources().getDimensionPixelSize(e.C0200e.ds220);
+        this.maxHeight = context.getResources().getDimensionPixelSize(e.C0210e.ds220);
         this.maxWidth = this.maxHeight;
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.hxF.setTimeZone(timeZone);
-        this.hxE.setTimeZone(timeZone);
+        this.hER.setTimeZone(timeZone);
+        this.hEQ.setTimeZone(timeZone);
     }
 
     public void b(a aVar) {
-        this.hxK = aVar;
+        this.hEW = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
+    /* renamed from: c */
     public List<d> doInBackground(Void... voidArr) {
-        List<d> da = e.da(this.context);
-        e.c("/sdcard", da, false);
-        e.c("/sdcard/DCIM", da, true);
-        e.dX(da);
-        return da;
+        List<d> de = e.de(this.context);
+        e.c("/sdcard", de, false);
+        e.c("/sdcard/DCIM", de, true);
+        e.eb(de);
+        return de;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -52,8 +52,8 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
     /* renamed from: y */
     public void onPostExecute(List<d> list) {
         super.onPostExecute(list);
-        if (this.hxK != null) {
-            this.hxK.dV(list);
+        if (this.hEW != null) {
+            this.hEW.dZ(list);
         }
     }
 }

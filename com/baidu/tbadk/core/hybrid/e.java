@@ -7,9 +7,9 @@ import com.baidu.tbadk.core.util.am;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e {
-    private static final boolean auB;
-    private static final b auz = new a();
-    private static final b auA = new c();
+    private static final b axZ = new a();
+    private static final b aya = new c();
+    private static final boolean ayb;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -39,9 +39,9 @@ public class e {
         @Override // com.baidu.tbadk.core.hybrid.e.b
         public void o(String str, String str2, String str3) {
             am amVar = new am("c10729");
-            amVar.ax("obj_param1", str);
-            amVar.ax("obj_param2", str2);
-            amVar.ax("obj_param3", str3);
+            amVar.aA("obj_param1", str);
+            amVar.aA("obj_param2", str2);
+            amVar.aA("obj_param3", str3);
             if (BdBaseApplication.getInst() != null) {
                 TiebaStatic.log(amVar);
             }
@@ -49,23 +49,23 @@ public class e {
     }
 
     public static void o(String str, String str2, String str3) {
-        if (auB) {
-            auz.o(str, str2, str3);
+        if (ayb) {
+            axZ.o(str, str2, str3);
         }
-        auA.o(str, str2, str3);
+        aya.o(str, str2, str3);
     }
 
-    public static void em(String str) {
-        if (auB) {
-            auz.o(null, null, str);
+    public static void eE(String str) {
+        if (ayb) {
+            axZ.o(null, null, str);
         }
     }
 
     public static void p(String str, String str2, String str3) {
-        em(str3);
+        eE(str3);
     }
 
     static {
-        auB = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
+        ayb = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 }

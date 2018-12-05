@@ -10,8 +10,8 @@ import rx.g;
 /* loaded from: classes2.dex */
 public final class ah<T> implements d.b<List<T>, T> {
     final int count;
-    final long ixn;
-    final long ixo;
+    final long iEw;
+    final long iEx;
     final rx.g scheduler;
     final TimeUnit unit;
 
@@ -21,8 +21,8 @@ public final class ah<T> implements d.b<List<T>, T> {
     }
 
     public ah(long j, long j2, TimeUnit timeUnit, int i, rx.g gVar) {
-        this.ixn = j;
-        this.ixo = j2;
+        this.iEw = j;
+        this.iEx = j2;
         this.unit = timeUnit;
         this.count = i;
         this.scheduler = gVar;
@@ -31,18 +31,18 @@ public final class ah<T> implements d.b<List<T>, T> {
     public rx.j<? super T> call(rx.j<? super List<T>> jVar) {
         g.a createWorker = this.scheduler.createWorker();
         rx.b.f fVar = new rx.b.f(jVar);
-        if (this.ixn == this.ixo) {
+        if (this.iEw == this.iEx) {
             a aVar = new a(fVar, createWorker);
             aVar.add(createWorker);
             jVar.add(aVar);
-            aVar.cbm();
+            aVar.cdp();
             return aVar;
         }
         b bVar = new b(fVar, createWorker);
         bVar.add(createWorker);
         jVar.add(bVar);
-        bVar.cbo();
-        bVar.cbn();
+        bVar.cdr();
+        bVar.cdq();
         return bVar;
     }
 
@@ -51,12 +51,12 @@ public final class ah<T> implements d.b<List<T>, T> {
     public final class b extends rx.j<T> {
         final rx.j<? super List<T>> child;
         boolean done;
-        final List<List<T>> ixj = new LinkedList();
-        final g.a ixp;
+        final List<List<T>> iEs = new LinkedList();
+        final g.a iEy;
 
         public b(rx.j<? super List<T>> jVar, g.a aVar) {
             this.child = jVar;
-            this.ixp = aVar;
+            this.iEy = aVar;
         }
 
         @Override // rx.e
@@ -64,7 +64,7 @@ public final class ah<T> implements d.b<List<T>, T> {
             LinkedList<List> linkedList = null;
             synchronized (this) {
                 if (!this.done) {
-                    Iterator<List<T>> it = this.ixj.iterator();
+                    Iterator<List<T>> it = this.iEs.iterator();
                     while (it.hasNext()) {
                         List<T> next = it.next();
                         next.add(t);
@@ -91,7 +91,7 @@ public final class ah<T> implements d.b<List<T>, T> {
             synchronized (this) {
                 if (!this.done) {
                     this.done = true;
-                    this.ixj.clear();
+                    this.iEs.clear();
                     this.child.onError(th);
                     unsubscribe();
                 }
@@ -104,8 +104,8 @@ public final class ah<T> implements d.b<List<T>, T> {
                 synchronized (this) {
                     if (!this.done) {
                         this.done = true;
-                        LinkedList<List> linkedList = new LinkedList(this.ixj);
-                        this.ixj.clear();
+                        LinkedList<List> linkedList = new LinkedList(this.iEs);
+                        this.iEs.clear();
                         for (List list : linkedList) {
                             this.child.onNext(list);
                         }
@@ -118,35 +118,35 @@ public final class ah<T> implements d.b<List<T>, T> {
             }
         }
 
-        void cbn() {
-            this.ixp.a(new rx.functions.a() { // from class: rx.internal.operators.ah.b.1
+        void cdq() {
+            this.iEy.a(new rx.functions.a() { // from class: rx.internal.operators.ah.b.1
                 @Override // rx.functions.a
                 public void call() {
-                    b.this.cbo();
+                    b.this.cdr();
                 }
-            }, ah.this.ixo, ah.this.ixo, ah.this.unit);
+            }, ah.this.iEx, ah.this.iEx, ah.this.unit);
         }
 
-        void cbo() {
+        void cdr() {
             final ArrayList arrayList = new ArrayList();
             synchronized (this) {
                 if (!this.done) {
-                    this.ixj.add(arrayList);
-                    this.ixp.a(new rx.functions.a() { // from class: rx.internal.operators.ah.b.2
+                    this.iEs.add(arrayList);
+                    this.iEy.a(new rx.functions.a() { // from class: rx.internal.operators.ah.b.2
                         @Override // rx.functions.a
                         public void call() {
-                            b.this.ex(arrayList);
+                            b.this.eB(arrayList);
                         }
-                    }, ah.this.ixn, ah.this.unit);
+                    }, ah.this.iEw, ah.this.unit);
                 }
             }
         }
 
-        void ex(List<T> list) {
+        void eB(List<T> list) {
             boolean z;
             synchronized (this) {
                 if (!this.done) {
-                    Iterator<List<T>> it = this.ixj.iterator();
+                    Iterator<List<T>> it = this.iEs.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             z = false;
@@ -174,12 +174,12 @@ public final class ah<T> implements d.b<List<T>, T> {
     public final class a extends rx.j<T> {
         final rx.j<? super List<T>> child;
         boolean done;
-        List<T> ixb = new ArrayList();
-        final g.a ixp;
+        List<T> iEk = new ArrayList();
+        final g.a iEy;
 
         public a(rx.j<? super List<T>> jVar, g.a aVar) {
             this.child = jVar;
-            this.ixp = aVar;
+            this.iEy = aVar;
         }
 
         @Override // rx.e
@@ -187,10 +187,10 @@ public final class ah<T> implements d.b<List<T>, T> {
             List<T> list = null;
             synchronized (this) {
                 if (!this.done) {
-                    this.ixb.add(t);
-                    if (this.ixb.size() == ah.this.count) {
-                        list = this.ixb;
-                        this.ixb = new ArrayList();
+                    this.iEk.add(t);
+                    if (this.iEk.size() == ah.this.count) {
+                        list = this.iEk;
+                        this.iEk = new ArrayList();
                     }
                     if (list != null) {
                         this.child.onNext(list);
@@ -204,7 +204,7 @@ public final class ah<T> implements d.b<List<T>, T> {
             synchronized (this) {
                 if (!this.done) {
                     this.done = true;
-                    this.ixb = null;
+                    this.iEk = null;
                     this.child.onError(th);
                     unsubscribe();
                 }
@@ -214,12 +214,12 @@ public final class ah<T> implements d.b<List<T>, T> {
         @Override // rx.e
         public void onCompleted() {
             try {
-                this.ixp.unsubscribe();
+                this.iEy.unsubscribe();
                 synchronized (this) {
                     if (!this.done) {
                         this.done = true;
-                        List<T> list = this.ixb;
-                        this.ixb = null;
+                        List<T> list = this.iEk;
+                        this.iEk = null;
                         this.child.onNext(list);
                         this.child.onCompleted();
                         unsubscribe();
@@ -230,20 +230,20 @@ public final class ah<T> implements d.b<List<T>, T> {
             }
         }
 
-        void cbm() {
-            this.ixp.a(new rx.functions.a() { // from class: rx.internal.operators.ah.a.1
+        void cdp() {
+            this.iEy.a(new rx.functions.a() { // from class: rx.internal.operators.ah.a.1
                 @Override // rx.functions.a
                 public void call() {
                     a.this.emit();
                 }
-            }, ah.this.ixn, ah.this.ixn, ah.this.unit);
+            }, ah.this.iEw, ah.this.iEw, ah.this.unit);
         }
 
         void emit() {
             synchronized (this) {
                 if (!this.done) {
-                    List<T> list = this.ixb;
-                    this.ixb = new ArrayList();
+                    List<T> list = this.iEk;
+                    this.iEk = new ArrayList();
                     try {
                         this.child.onNext(list);
                     } catch (Throwable th) {

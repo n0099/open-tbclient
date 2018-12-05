@@ -19,20 +19,20 @@ public class c {
         if (tbPageContext == null || lVar == null) {
             return false;
         }
-        if (ba.bG(tbPageContext.getPageActivity())) {
-            AntiData xA = lVar.xA();
-            if (xA != null) {
-                if (a(tbPageContext, xA.getBlock_stat(), xA.mFrsForbidenDialogInfo)) {
+        if (ba.bJ(tbPageContext.getPageActivity())) {
+            AntiData yE = lVar.yE();
+            if (yE != null) {
+                if (a(tbPageContext, yE.getBlock_stat(), yE.mFrsForbidenDialogInfo)) {
                     return true;
                 }
-                if (xA.getIfpost() == 0 && !StringUtils.isNull(xA.getForbid_info())) {
-                    String forbid_info = xA.getForbid_info();
-                    if (ao.fq(forbid_info) > 14) {
+                if (yE.getIfpost() == 0 && !StringUtils.isNull(yE.getForbid_info())) {
+                    String forbid_info = yE.getForbid_info();
+                    if (ao.fI(forbid_info) > 14) {
                         forbid_info = ao.getFixedText(forbid_info, 7, false) + "\n" + forbid_info.substring(fixedText.length());
                     }
                     BdToast b = BdToast.b(tbPageContext.getPageActivity(), forbid_info, e.f.icon_toast_game_error);
                     b.Z(1.25f);
-                    b.AJ();
+                    b.BN();
                     return false;
                 }
             }
@@ -49,11 +49,11 @@ public class c {
         if (i != 1 && i != 2) {
             BdToast b = BdToast.b(tbPageContext.getPageActivity(), string, e.f.icon_toast_game_error);
             b.Z(1.25f);
-            b.AJ();
+            b.BN();
             return false;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-        aVar.ej(ao.getFixedText(string, 50, true));
+        aVar.eB(ao.getFixedText(string, 50, true));
         aVar.b(ao.getFixedText(StringUtils.isNull(blockPopInfoData.ok_info) ? tbPageContext.getResources().getString(e.j.group_create_private_isee) : blockPopInfoData.ok_info, 4, true), new a.b() { // from class: com.baidu.tieba.frs.gametab.c.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -66,14 +66,14 @@ public class c {
             aVar.a(ao.getFixedText(blockPopInfoData.ahead_info, 4, true), new a.b() { // from class: com.baidu.tieba.frs.gametab.c.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    ay.Db().c(TbPageContext.this, new String[]{blockPopInfoData.ahead_url});
+                    ay.Ef().c(TbPageContext.this, new String[]{blockPopInfoData.ahead_url});
                     if (aVar2 != null) {
                         aVar2.dismiss();
                     }
                 }
             });
         }
-        aVar.b(tbPageContext).AB();
+        aVar.b(tbPageContext).BF();
         return true;
     }
 }

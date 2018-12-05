@@ -40,8 +40,8 @@ public class d implements j {
                         bbVar.setUserMap(this.userMap);
                         bbVar.a(threadInfo);
                         bbVar.setCurrentPage(3);
-                        bbVar.zm();
-                        if (bbVar.getType() == bb.apJ || bbVar.getType() == bb.apO) {
+                        bbVar.Aq();
+                        if (bbVar.getType() == bb.atj || bbVar.getType() == bb.ato) {
                             this.threadList.add(bbVar);
                         }
                     }
@@ -51,7 +51,7 @@ public class d implements j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void H(JSONObject jSONObject) {
+    public void I(JSONObject jSONObject) {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j

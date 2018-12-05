@@ -28,15 +28,15 @@ public class a extends BaseAdapter {
     private BaseActivity mBaseActivity;
     private Context mContext;
     private GridView mGridView;
-    private b aVS = new b();
-    private EditorTools aUz = null;
-    private int aVV = 13;
-    private int hOP = 6;
-    private boolean hOQ = false;
+    private b aZp = new b();
+    private EditorTools aXW = null;
+    private int aZs = 13;
+    private int hVZ = 6;
+    private boolean hWa = false;
     private LinkedList<ImageFileInfo> chosedFiles = null;
-    private InterfaceC0327a hOR = new InterfaceC0327a() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.1
-        @Override // com.baidu.tieba.write.view.PhotoLiveView.a.InterfaceC0327a
-        public void wS(int i) {
+    private InterfaceC0341a hWb = new InterfaceC0341a() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.1
+        @Override // com.baidu.tieba.write.view.PhotoLiveView.a.InterfaceC0341a
+        public void xp(int i) {
             if (a.this.chosedFiles != null) {
                 if (a.this.chosedFiles.size() - 1 >= i) {
                     ImageFileInfo imageFileInfo = (ImageFileInfo) a.this.chosedFiles.remove(i);
@@ -45,20 +45,20 @@ public class a extends BaseAdapter {
                     }
                 }
                 int size = a.this.chosedFiles.size();
-                if (a.this.aUz != null) {
-                    a.this.aUz.b(new com.baidu.tbadk.editortools.a(a.this.aVV, -1, null));
+                if (a.this.aXW != null) {
+                    a.this.aXW.b(new com.baidu.tbadk.editortools.a(a.this.aZs, -1, null));
                     if (size > 0) {
-                        a.this.aUz.b(new com.baidu.tbadk.editortools.a(2, 10, String.valueOf(size)));
+                        a.this.aXW.b(new com.baidu.tbadk.editortools.a(2, 10, String.valueOf(size)));
                     } else {
-                        a.this.aUz.b(new com.baidu.tbadk.editortools.a(2, 10, null));
+                        a.this.aXW.b(new com.baidu.tbadk.editortools.a(2, 10, null));
                     }
                     if (a.this.chosedFiles.size() == 1 && size == 0) {
-                        a.this.aUz.b(new com.baidu.tbadk.editortools.a(1, 2, null));
+                        a.this.aXW.b(new com.baidu.tbadk.editortools.a(1, 2, null));
                     }
                 }
-                a.this.bME();
+                a.this.bOK();
                 ((WriteActivity) a.this.mBaseActivity).t(a.this.chosedFiles);
-                a.this.bMB();
+                a.this.bOH();
                 a.this.notifyDataSetChanged();
                 a.this.mGridView.invalidateViews();
             }
@@ -67,21 +67,21 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.write.view.PhotoLiveView.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    protected interface InterfaceC0327a {
-        void wS(int i);
+    protected interface InterfaceC0341a {
+        void xp(int i);
     }
 
-    public void bMB() {
+    public void bOH() {
         if (this.chosedFiles == null || this.chosedFiles.size() == 0) {
-            bMC();
-        } else if (this.chosedFiles.size() < this.hOP) {
+            bOI();
+        } else if (this.chosedFiles.size() < this.hVZ) {
             if (this.chosedFiles.size() <= 0 || !this.chosedFiles.get(this.chosedFiles.size() - 1).getFilePath().startsWith("android.resource://")) {
-                bMC();
+                bOI();
             }
         }
     }
 
-    private void bMC() {
+    private void bOI() {
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath("android.resource://" + this.mContext.getPackageName() + "/" + e.f.btn_addpic_n);
         imageFileInfo.setTempFile(true);
@@ -92,14 +92,14 @@ public class a extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public boolean bMD() {
+    public boolean bOJ() {
         if (this.chosedFiles == null || this.chosedFiles.size() == 0) {
             return false;
         }
         return this.chosedFiles.get(this.chosedFiles.size() + (-1)).getFilePath().startsWith("android.resource://");
     }
 
-    public void bME() {
+    public void bOK() {
         if (this.chosedFiles != null && this.chosedFiles.size() > 0) {
             int size = this.chosedFiles.size() - 1;
             if (this.chosedFiles.get(size).getFilePath().startsWith("android.resource://")) {
@@ -142,7 +142,7 @@ public class a extends BaseAdapter {
     }
 
     public void setEditorTools(EditorTools editorTools) {
-        this.aUz = editorTools;
+        this.aXW = editorTools;
     }
 
     public void c(WriteImagesInfo writeImagesInfo) {
@@ -156,7 +156,7 @@ public class a extends BaseAdapter {
         if (writeImagesInfo.getChosedFiles() != null && writeImagesInfo.size() > 0) {
             this.chosedFiles.addAll(writeImagesInfo.getChosedFiles());
         }
-        bMB();
+        bOH();
         notifyDataSetInvalidated();
     }
 
@@ -183,11 +183,11 @@ public class a extends BaseAdapter {
             al.c(imageView, e.f.icon_live_close_n);
         }
         frameLayout.setForeground(al.getDrawable(e.f.bg_add_photo_foregroundselector));
-        int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(e.C0200e.ds206);
-        ImageOperation K = com.baidu.tbadk.img.effect.d.K(dimensionPixelSize, dimensionPixelSize);
+        int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(e.C0210e.ds206);
+        ImageOperation L = com.baidu.tbadk.img.effect.d.L(dimensionPixelSize, dimensionPixelSize);
         if (imageFileInfo != null) {
             imageFileInfo.clearPageActions();
-            imageFileInfo.addPageAction(K);
+            imageFileInfo.addPageAction(L);
             tbImageView.setTag(imageFileInfo.toCachedKey(true));
         }
         com.baidu.tbadk.imageManager.b bVar = new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.2
@@ -199,8 +199,8 @@ public class a extends BaseAdapter {
                 }
             }
         };
-        if (imageFileInfo != null && this.aVS != null) {
-            aVar = this.aVS.a(imageFileInfo, bVar, true);
+        if (imageFileInfo != null && this.aZp != null) {
+            aVar = this.aZp.a(imageFileInfo, bVar, true);
         }
         if (aVar != null) {
             tbImageView.invalidate();
@@ -228,12 +228,12 @@ public class a extends BaseAdapter {
                     }
                     if (!z2) {
                         l.g(a.this.mContext, e.j.editor_mutiiamge_image_error);
-                    } else if (a.this.aUz != null) {
-                        if (a.this.bMD()) {
-                            a.this.bME();
+                    } else if (a.this.aXW != null) {
+                        if (a.this.bOJ()) {
+                            a.this.bOK();
                         }
                         ((WriteActivity) a.this.mBaseActivity).t(a.this.chosedFiles);
-                        a.this.aUz.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(indexOfChild)));
+                        a.this.aXW.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(indexOfChild)));
                     }
                 }
             }
@@ -241,15 +241,15 @@ public class a extends BaseAdapter {
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (a.this.hOR != null) {
-                    a.this.hOR.wS(i);
+                if (a.this.hWb != null) {
+                    a.this.hWb.xp(i);
                 }
             }
         });
         return inflate;
     }
 
-    public void wR(int i) {
-        this.hOP = i;
+    public void xo(int i) {
+        this.hVZ = i;
     }
 }

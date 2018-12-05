@@ -75,7 +75,7 @@ public class a {
                             }
                         }
                         for (String str2 : hashMap.keySet()) {
-                            com.baidu.b.a.f.e.a.a(str2, a.n(a.p((List) hashMap.get(str2))), a.o(a.p((List) hashMap.get(str2))), a.a(a.p((List) hashMap.get(str2)), a.rG(), z), a.s((List) hashMap.get(str2)));
+                            com.baidu.b.a.f.e.a.a(str2, a.n(a.p((List) hashMap.get(str2))), a.o(a.p((List) hashMap.get(str2))), a.a(a.p((List) hashMap.get(str2)), a.rF(), z), a.s((List) hashMap.get(str2)));
                         }
                     }
                 }).start();
@@ -88,13 +88,13 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String rG() {
+    public static String rF() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("cpu_model", e.sg());
-            jSONObject.put("cpu_feature", e.sh());
-            jSONObject.put("free_space", e.si());
-            jSONObject.put("whole_space", e.sj());
+            jSONObject.put("cpu_model", e.sf());
+            jSONObject.put("cpu_feature", e.sg());
+            jSONObject.put("free_space", e.sh());
+            jSONObject.put("whole_space", e.si());
         } catch (JSONException e) {
             Log.e("lib-dynamic", "getEnvStr, e=" + e.getLocalizedMessage());
         }
@@ -131,7 +131,7 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("product_id", "1");
-            jSONObject.put(com.baidu.fsg.face.base.b.c.c, e.sf());
+            jSONObject.put(com.baidu.fsg.face.base.b.c.c, e.se());
             jSONObject.put("env", new JSONObject(str));
             StringBuilder sb = new StringBuilder();
             for (c cVar : list) {
@@ -355,7 +355,7 @@ public class a {
                                     if (list.iterator().hasNext()) {
                                         str2 = str3 + ((com.baidu.b.a.b.a.a) it.next()).getChannelId() + ",";
                                     } else {
-                                        g.sk().b(SubPackageAPSInfo.RESULT_APS_NO_PACKAGE, errorMessage, str3);
+                                        g.sj().b(SubPackageAPSInfo.RESULT_APS_NO_PACKAGE, errorMessage, str3);
                                         return;
                                     }
                                 }
@@ -379,7 +379,7 @@ public class a {
                         if (list.iterator().hasNext()) {
                             str4 = str5 + ((com.baidu.b.a.b.a.a) it2.next()).getChannelId() + ",";
                         } else {
-                            g.sk().b(SubPackageAPSInfo.RESULT_APS_DOWNLOAD_ERROR, "metadata : parse response error - ,errmsg:" + jSONObject.toString(), str5);
+                            g.sj().b(SubPackageAPSInfo.RESULT_APS_DOWNLOAD_ERROR, "metadata : parse response error - ,errmsg:" + jSONObject.toString(), str5);
                             return;
                         }
                     }
@@ -393,7 +393,7 @@ public class a {
                         if (list.iterator().hasNext()) {
                             str6 = str7 + ((com.baidu.b.a.b.a.a) it3.next()).getChannelId() + ",";
                         } else {
-                            g.sk().b(2105, "metadata : network error. http code=" + i, str7);
+                            g.sj().b(2105, "metadata : network error. http code=" + i, str7);
                             return;
                         }
                     }
@@ -412,7 +412,7 @@ public class a {
                     if (list.iterator().hasNext()) {
                         str = str2 + ((com.baidu.b.a.b.a.a) it.next()).getChannelId() + ",";
                     } else {
-                        g.sk().b(2101, exc.getMessage(), str2);
+                        g.sj().b(2101, exc.getMessage(), str2);
                         return;
                     }
                 }
@@ -426,7 +426,7 @@ public class a {
         if (TextUtils.isEmpty(str) || (cU = com.baidu.b.a.f.a.a.cU(str)) == null) {
             return null;
         }
-        if (a(cU) && (cU.rH() == null || cU.rI() == null)) {
+        if (a(cU) && (cU.rG() == null || cU.rH() == null)) {
             return null;
         }
         return cU;

@@ -5,5 +5,5 @@ import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public interface q {
     @Nullable
-    String v(Uri uri);
+    String w(Uri uri);
 }

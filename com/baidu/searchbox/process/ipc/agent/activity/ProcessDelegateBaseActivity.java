@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.searchbox.process.ipc.IPCLibConfig;
 import com.baidu.searchbox.process.ipc.agent.Agent;
 import com.baidu.searchbox.process.ipc.delegate.DelegateDef;
 import com.baidu.searchbox.process.ipc.delegate.Delegation;
@@ -13,7 +11,7 @@ import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import java.lang.reflect.Modifier;
 /* loaded from: classes2.dex */
 public class ProcessDelegateBaseActivity extends Activity implements Agent, DelegateDef {
-    private static final boolean DEBUG = IPCLibConfig.DEBUG;
+    private static final boolean DEBUG = false;
     private static final String TAG = "DelegateBaseActivity";
     protected ActivityDelegation mDelegation;
     protected String mDelegationName = "";
@@ -68,9 +66,6 @@ public class ProcessDelegateBaseActivity extends Activity implements Agent, Dele
             }
             return z;
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
-            if (DEBUG) {
-                e.printStackTrace();
-            }
             exitByIllegalDelegationClass(e.toString());
             return false;
         }
@@ -102,9 +97,6 @@ public class ProcessDelegateBaseActivity extends Activity implements Agent, Dele
 
     @Override // android.app.Activity
     public void finish() {
-        if (DEBUG) {
-            Log.d(TAG, "call finish() " + Log.getStackTraceString(new Exception()));
-        }
         super.finish();
     }
 

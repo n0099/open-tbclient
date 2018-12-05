@@ -11,13 +11,13 @@ public final class bp<T> implements d.b<T, rx.d<? extends T>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        static final bp<Object> iBe = new bp<>(false);
+        static final bp<Object> iIm = new bp<>(false);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class b {
-        static final bp<Object> iBe = new bp<>(true);
+        static final bp<Object> iIm = new bp<>(true);
     }
 
     @Override // rx.functions.f
@@ -25,8 +25,8 @@ public final class bp<T> implements d.b<T, rx.d<? extends T>> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> bp<T> pm(boolean z) {
-        return z ? (bp<T>) b.iBe : (bp<T>) a.iBe;
+    public static <T> bp<T> po(boolean z) {
+        return z ? (bp<T>) b.iIm : (bp<T>) a.iIm;
     }
 
     bp(boolean z) {
@@ -43,18 +43,18 @@ public final class bp<T> implements d.b<T, rx.d<? extends T>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class d<T> extends rx.j<rx.d<? extends T>> {
-        static final Throwable iBj = new Throwable("Terminal error");
+        static final Throwable iIr = new Throwable("Terminal error");
         final rx.j<? super T> child;
         final boolean delayError;
         boolean emitting;
         Throwable error;
-        volatile boolean iBh;
-        boolean iBi;
+        volatile boolean iIp;
+        boolean iIq;
         boolean missed;
         rx.f producer;
         long requested;
         final rx.subscriptions.d serial = new rx.subscriptions.d();
-        final AtomicLong iBg = new AtomicLong();
+        final AtomicLong iIo = new AtomicLong();
         final rx.internal.util.atomic.d<Object> queue = new rx.internal.util.atomic.d<>(rx.internal.util.h.SIZE);
 
         d(rx.j<? super T> jVar, boolean z) {
@@ -67,14 +67,14 @@ public final class bp<T> implements d.b<T, rx.d<? extends T>> {
             this.child.add(rx.subscriptions.e.j(new rx.functions.a() { // from class: rx.internal.operators.bp.d.1
                 @Override // rx.functions.a
                 public void call() {
-                    d.this.cbP();
+                    d.this.cdS();
                 }
             }));
             this.child.setProducer(new rx.f() { // from class: rx.internal.operators.bp.d.2
                 @Override // rx.f
                 public void request(long j) {
                     if (j > 0) {
-                        d.this.dB(j);
+                        d.this.dI(j);
                     } else if (j < 0) {
                         throw new IllegalArgumentException("n >= 0 expected but it was " + j);
                     }
@@ -82,7 +82,7 @@ public final class bp<T> implements d.b<T, rx.d<? extends T>> {
             });
         }
 
-        void cbP() {
+        void cdS() {
             synchronized (this) {
                 this.producer = null;
             }
@@ -93,14 +93,14 @@ public final class bp<T> implements d.b<T, rx.d<? extends T>> {
         /* renamed from: h */
         public void onNext(rx.d<? extends T> dVar) {
             c cVar;
-            long incrementAndGet = this.iBg.incrementAndGet();
-            rx.k cdl = this.serial.cdl();
-            if (cdl != null) {
-                cdl.unsubscribe();
+            long incrementAndGet = this.iIo.incrementAndGet();
+            rx.k cfo = this.serial.cfo();
+            if (cfo != null) {
+                cfo.unsubscribe();
             }
             synchronized (this) {
                 cVar = new c(incrementAndGet, this);
-                this.iBi = true;
+                this.iIq = true;
                 this.producer = null;
             }
             this.serial.g(cVar);
@@ -114,7 +114,7 @@ public final class bp<T> implements d.b<T, rx.d<? extends T>> {
                 R = R(th);
             }
             if (R) {
-                this.iBh = true;
+                this.iIp = true;
                 drain();
                 return;
             }
@@ -123,7 +123,7 @@ public final class bp<T> implements d.b<T, rx.d<? extends T>> {
 
         boolean R(Throwable th) {
             Throwable th2 = this.error;
-            if (th2 == iBj) {
+            if (th2 == iIr) {
                 return false;
             }
             if (th2 == null) {
@@ -140,14 +140,14 @@ public final class bp<T> implements d.b<T, rx.d<? extends T>> {
 
         @Override // rx.e
         public void onCompleted() {
-            this.iBh = true;
+            this.iIp = true;
             drain();
         }
 
         void a(T t, c<T> cVar) {
             synchronized (this) {
-                if (this.iBg.get() == ((c) cVar).id) {
-                    this.queue.l(cVar, NotificationLite.aX(t));
+                if (this.iIo.get() == ((c) cVar).id) {
+                    this.queue.l(cVar, NotificationLite.aY(t));
                     drain();
                 }
             }
@@ -156,9 +156,9 @@ public final class bp<T> implements d.b<T, rx.d<? extends T>> {
         void b(Throwable th, long j) {
             boolean z;
             synchronized (this) {
-                if (this.iBg.get() == j) {
+                if (this.iIo.get() == j) {
                     z = R(th);
-                    this.iBi = false;
+                    this.iIq = false;
                     this.producer = null;
                 } else {
                     z = true;
@@ -171,10 +171,10 @@ public final class bp<T> implements d.b<T, rx.d<? extends T>> {
             }
         }
 
-        void dA(long j) {
+        void dH(long j) {
             synchronized (this) {
-                if (this.iBg.get() == j) {
-                    this.iBi = false;
+                if (this.iIo.get() == j) {
+                    this.iIq = false;
                     this.producer = null;
                     drain();
                 }
@@ -187,7 +187,7 @@ public final class bp<T> implements d.b<T, rx.d<? extends T>> {
 
         void a(rx.f fVar, long j) {
             synchronized (this) {
-                if (this.iBg.get() == j) {
+                if (this.iIo.get() == j) {
                     long j2 = this.requested;
                     this.producer = fVar;
                     fVar.request(j2);
@@ -195,7 +195,7 @@ public final class bp<T> implements d.b<T, rx.d<? extends T>> {
             }
         }
 
-        void dB(long j) {
+        void dI(long j) {
             rx.f fVar;
             synchronized (this) {
                 fVar = this.producer;
@@ -215,16 +215,16 @@ public final class bp<T> implements d.b<T, rx.d<? extends T>> {
                     return;
                 }
                 this.emitting = true;
-                boolean z = this.iBi;
+                boolean z = this.iIq;
                 long j2 = this.requested;
                 Throwable th = this.error;
-                if (th != null && th != iBj && !this.delayError) {
-                    this.error = iBj;
+                if (th != null && th != iIr && !this.delayError) {
+                    this.error = iIr;
                 }
                 rx.internal.util.atomic.d<Object> dVar = this.queue;
-                AtomicLong atomicLong = this.iBg;
+                AtomicLong atomicLong = this.iIo;
                 rx.j<? super T> jVar = this.child;
-                boolean z2 = this.iBh;
+                boolean z2 = this.iIp;
                 while (true) {
                     long j3 = j2;
                     long j4 = 0;
@@ -235,7 +235,7 @@ public final class bp<T> implements d.b<T, rx.d<? extends T>> {
                                 if (isEmpty) {
                                     break;
                                 }
-                                Object obj = (Object) NotificationLite.ba(dVar.poll());
+                                Object obj = (Object) NotificationLite.bb(dVar.poll());
                                 if (atomicLong.get() == ((c) dVar.poll()).id) {
                                     jVar.onNext(obj);
                                     j = 1 + j4;
@@ -250,7 +250,7 @@ public final class bp<T> implements d.b<T, rx.d<? extends T>> {
                             return;
                         }
                     }
-                    if (j4 != j3 || (!jVar.isUnsubscribed() && !a(this.iBh, z, th, dVar, jVar, dVar.isEmpty()))) {
+                    if (j4 != j3 || (!jVar.isUnsubscribed() && !a(this.iIp, z, th, dVar, jVar, dVar.isEmpty()))) {
                         synchronized (this) {
                             j2 = this.requested;
                             if (j2 != Long.MAX_VALUE) {
@@ -262,11 +262,11 @@ public final class bp<T> implements d.b<T, rx.d<? extends T>> {
                                 return;
                             }
                             this.missed = false;
-                            z2 = this.iBh;
-                            z = this.iBi;
+                            z2 = this.iIp;
+                            z = this.iIq;
                             th = this.error;
-                            if (th != null && th != iBj && !this.delayError) {
-                                this.error = iBj;
+                            if (th != null && th != iIr && !this.delayError) {
+                                this.error = iIr;
                             }
                         }
                     } else {
@@ -301,32 +301,32 @@ public final class bp<T> implements d.b<T, rx.d<? extends T>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class c<T> extends rx.j<T> {
-        private final d<T> iBf;
+        private final d<T> iIn;
         private final long id;
 
         c(long j, d<T> dVar) {
             this.id = j;
-            this.iBf = dVar;
+            this.iIn = dVar;
         }
 
         @Override // rx.j
         public void setProducer(rx.f fVar) {
-            this.iBf.a(fVar, this.id);
+            this.iIn.a(fVar, this.id);
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            this.iBf.a((d<T>) t, (c<d<T>>) this);
+            this.iIn.a((d<T>) t, (c<d<T>>) this);
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.iBf.b(th, this.id);
+            this.iIn.b(th, this.id);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.iBf.dA(this.id);
+            this.iIn.dH(this.id);
         }
     }
 }

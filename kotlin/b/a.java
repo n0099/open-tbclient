@@ -4,65 +4,65 @@ import kotlin.collections.y;
 import kotlin.jvm.internal.o;
 /* loaded from: classes2.dex */
 public class a implements Iterable<Integer> {
-    public static final C0384a irn = new C0384a(null);
-    private final int irl;
-    private final int irm;
+    public static final C0398a iyx = new C0398a(null);
+    private final int iyv;
+    private final int iyw;
     private final int step;
 
     public a(int i, int i2, int i3) {
         if (i3 == 0) {
             throw new IllegalArgumentException("Step must be non-zero");
         }
-        this.irl = i;
-        this.irm = kotlin.internal.a.ah(i, i2, i3);
+        this.iyv = i;
+        this.iyw = kotlin.internal.a.ah(i, i2, i3);
         this.step = i3;
     }
 
     public final int getFirst() {
-        return this.irl;
+        return this.iyv;
     }
 
     public final int getLast() {
-        return this.irm;
+        return this.iyw;
     }
 
-    public final int bZM() {
+    public final int cbS() {
         return this.step;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: bZN */
+    /* renamed from: cbT */
     public y iterator() {
-        return new b(this.irl, this.irm, this.step);
+        return new b(this.iyv, this.iyw, this.step);
     }
 
     public boolean isEmpty() {
-        return this.step > 0 ? this.irl > this.irm : this.irl < this.irm;
+        return this.step > 0 ? this.iyv > this.iyw : this.iyv < this.iyw;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.irl == ((a) obj).irl && this.irm == ((a) obj).irm && this.step == ((a) obj).step));
+        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.iyv == ((a) obj).iyv && this.iyw == ((a) obj).iyw && this.step == ((a) obj).step));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (((this.irl * 31) + this.irm) * 31) + this.step;
+        return (((this.iyv * 31) + this.iyw) * 31) + this.step;
     }
 
     public String toString() {
-        return this.step > 0 ? "" + this.irl + ".." + this.irm + " step " + this.step : "" + this.irl + " downTo " + this.irm + " step " + (-this.step);
+        return this.step > 0 ? "" + this.iyv + ".." + this.iyw + " step " + this.step : "" + this.iyv + " downTo " + this.iyw + " step " + (-this.step);
     }
 
     /* renamed from: kotlin.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0384a {
-        private C0384a() {
+    public static final class C0398a {
+        private C0398a() {
         }
 
-        public /* synthetic */ C0384a(o oVar) {
+        public /* synthetic */ C0398a(o oVar) {
             this();
         }
 

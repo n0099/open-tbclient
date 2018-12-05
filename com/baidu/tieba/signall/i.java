@@ -7,44 +7,44 @@ import org.json.JSONObject;
 public class i {
     private int forumId;
     private String forumName;
-    private a gUR = new a();
-    private int gWa;
-    private int gWb;
-    private int gWc;
-    private int gWd;
+    private a hbJ = new a();
+    private int hcS;
+    private int hcT;
+    private int hcU;
+    private int hcV;
     private int signed;
 
     public int getForumId() {
         return this.forumId;
     }
 
-    public int byj() {
+    public int bAd() {
         return this.signed;
     }
 
-    public int byk() {
-        return this.gWc;
+    public int bAe() {
+        return this.hcU;
     }
 
     public int getCurScore() {
-        return this.gWd;
+        return this.hcV;
     }
 
-    public a bxF() {
-        return this.gUR;
+    public a bzz() {
+        return this.hbJ;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.gUR.parserJson(jSONObject.optJSONObject(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR));
+                this.hbJ.parserJson(jSONObject.optJSONObject(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR));
                 this.forumId = jSONObject.optInt("forum_id");
                 this.forumName = jSONObject.optString("forum_name");
                 this.signed = jSONObject.optInt("signed");
-                this.gWa = jSONObject.optInt("is_on");
-                this.gWb = jSONObject.optInt("is_filter");
-                this.gWc = jSONObject.optInt("sign_day_count");
-                this.gWd = jSONObject.optInt("cur_score");
+                this.hcS = jSONObject.optInt("is_on");
+                this.hcT = jSONObject.optInt("is_filter");
+                this.hcU = jSONObject.optInt("sign_day_count");
+                this.hcV = jSONObject.optInt("cur_score");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

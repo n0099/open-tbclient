@@ -71,9 +71,9 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
 
         void n(float f, float f2);
 
-        void oH();
+        void oG();
 
-        long oI();
+        long oH();
 
         void onFinish();
 
@@ -268,7 +268,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean pg() {
+    public boolean pf() {
         return Build.VERSION.SDK_INT < 11;
     }
 
@@ -281,7 +281,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
     }
 
     void setAnimationProgress(float f) {
-        if (pg()) {
+        if (pf()) {
             setColorViewAlpha((int) (255.0f * f));
             return;
         }
@@ -297,7 +297,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
             if (this.mRefreshing) {
                 animateOffsetToCorrectPosition(this.mCurrentTargetOffsetTop, this.mRefreshListener);
             } else {
-                ph();
+                pg();
             }
         }
     }
@@ -841,18 +841,18 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
         }
     }
 
-    private void ph() {
+    private void pg() {
         this.mState = 3;
-        this.Re.oH();
+        this.Re.oG();
         postDelayed(new Runnable() { // from class: com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.7
             @Override // java.lang.Runnable
             public void run() {
                 BdSwipeRefreshLayout.this.animateOffsetToStartPosition(BdSwipeRefreshLayout.this.mCurrentTargetOffsetTop, BdSwipeRefreshLayout.this.mRefreshListener);
             }
-        }, this.Re.oI());
+        }, this.Re.oH());
     }
 
-    public void pi() {
+    public void ph() {
         ensureTarget();
         this.mRefreshing = false;
         moveToStart(1.0f);
@@ -909,7 +909,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-        public void oH() {
+        public void oG() {
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
@@ -926,7 +926,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-        public long oI() {
+        public long oH() {
             return 0L;
         }
 
@@ -962,7 +962,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
 
         @SuppressLint({"NewApi"})
         private Animation startAlphaAnimation(final int i, final int i2) {
-            if (BdSwipeRefreshLayout.this.pg()) {
+            if (BdSwipeRefreshLayout.this.pf()) {
                 return null;
             }
             Animation animation = new Animation() { // from class: com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.a.1

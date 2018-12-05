@@ -12,86 +12,86 @@ import com.baidu.tieba.frs.as;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes6.dex */
 public class b {
-    private as bLQ;
-    private TextView dNB;
-    private final FrsFragment dTm;
-    private boolean dUH;
-    private int dUI = -1;
-    private int dnv;
+    private as bPF;
+    private TextView dUe;
+    private final FrsFragment dZP;
+    private int dtW;
+    private boolean ebk;
+    private int ebl = -1;
 
     public b(FrsFragment frsFragment) {
-        this.dnv = 0;
+        this.dtW = 0;
         if (frsFragment == null) {
             throw new NullPointerException("FrsFragment is null");
         }
-        this.dTm = frsFragment;
+        this.dZP = frsFragment;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.dnv = UtilHelper.getStatusBarHeight();
+            this.dtW = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void aEW() {
-        if (this.dUH && this.dUI >= 0) {
-            mO(this.dUI);
+    public void aGI() {
+        if (this.ebk && this.ebl >= 0) {
+            ne(this.ebl);
         }
-        this.dUH = false;
+        this.ebk = false;
     }
 
-    public void mN(int i) {
+    public void nd(int i) {
         if (i >= 0) {
-            hl(true);
-            mP(i);
+            hn(true);
+            nf(i);
             return;
         }
-        hl(false);
-        mP(i);
+        hn(false);
+        nf(i);
     }
 
-    private void mO(int i) {
+    private void ne(int i) {
         FrameLayout frameLayout;
         String string;
-        k ayY = this.dTm.ayY();
-        if (ayY != null && ayY.getListView() != null && (frameLayout = (FrameLayout) ayY.aAh()) != null) {
-            if (this.dNB == null && this.dTm.getPageContext() != null) {
-                this.dNB = new TextView(this.dTm.getPageContext().getPageActivity());
-                this.dNB.setTextSize(0, this.dTm.getResources().getDimensionPixelSize(e.C0200e.fontsize28));
-                this.dNB.setGravity(17);
+        k aAI = this.dZP.aAI();
+        if (aAI != null && aAI.getListView() != null && (frameLayout = (FrameLayout) aAI.aBR()) != null) {
+            if (this.dUe == null && this.dZP.getPageContext() != null) {
+                this.dUe = new TextView(this.dZP.getPageContext().getPageActivity());
+                this.dUe.setTextSize(0, this.dZP.getResources().getDimensionPixelSize(e.C0210e.fontsize28));
+                this.dUe.setGravity(17);
             }
-            if (this.dNB != null) {
+            if (this.dUe != null) {
                 if (i > 0) {
                     string = String.format(TbadkCoreApplication.getInst().getString(e.j.recommend_frs_refresh_return), Integer.valueOf(i));
                 } else {
                     string = TbadkCoreApplication.getInst().getString(e.j.smart_frs_refresh_nodata);
                 }
-                this.dNB.setText(string);
+                this.dUe.setText(string);
             }
-            al.i(this.dNB, e.d.common_color_10260);
-            al.h(this.dNB, e.d.cp_cont_g);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.h(TbadkCoreApplication.getInst(), e.C0200e.ds56));
-            if (ayY.azM() != null && ayY.azM().getLayoutParams() != null) {
-                layoutParams.topMargin = ayY.azM().getLayoutParams().height;
+            al.i(this.dUe, e.d.common_color_10260);
+            al.h(this.dUe, e.d.cp_cont_g);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.h(TbadkCoreApplication.getInst(), e.C0210e.ds56));
+            if (aAI.aBw() != null && aAI.aBw().getLayoutParams() != null) {
+                layoutParams.topMargin = aAI.aBw().getLayoutParams().height;
             } else {
                 layoutParams.topMargin = 0;
             }
-            if (this.bLQ == null) {
-                this.bLQ = new as();
+            if (this.bPF == null) {
+                this.bPF = new as();
             }
-            this.bLQ.a(this.dNB, frameLayout, layoutParams, 2000);
-            this.dUI = -1;
+            this.bPF.a(this.dUe, frameLayout, layoutParams, 2000);
+            this.ebl = -1;
         }
     }
 
-    public void hl(boolean z) {
-        this.dUH = z;
+    public void hn(boolean z) {
+        this.ebk = z;
     }
 
-    public void mP(int i) {
-        this.dUI = i;
+    public void nf(int i) {
+        this.ebl = i;
     }
 
     public void onDestroy() {
-        if (this.bLQ != null) {
-            this.bLQ.onDestroy();
+        if (this.bPF != null) {
+            this.bPF.onDestroy();
         }
     }
 }

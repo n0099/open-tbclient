@@ -17,23 +17,23 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private List<String> fnA;
+    private List<String> fus;
     private Context mContext;
     private String mKeyWord;
 
     public a(Context context, ArrayList<String> arrayList) {
         this.mContext = context;
-        this.fnA = arrayList;
+        this.fus = arrayList;
     }
 
     public void setData(List<String> list) {
-        this.fnA = list;
-        if (this.fnA != null) {
+        this.fus = list;
+        if (this.fus != null) {
             notifyDataSetChanged();
         }
     }
 
-    public void qK(String str) {
+    public void rm(String str) {
         if (!StringUtils.isNull(str)) {
             this.mKeyWord = str.trim();
         }
@@ -41,10 +41,10 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.fnA == null) {
+        if (this.fus == null) {
             return 0;
         }
-        return this.fnA.size();
+        return this.fus.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class a extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.fnA.get(i);
+        return this.fus.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -64,27 +64,27 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0259a c0259a;
+        C0270a c0270a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(e.h.search_suggest_item, (ViewGroup) null);
-            C0259a c0259a2 = new C0259a();
-            c0259a2.mRootView = view.findViewById(e.g.rootview);
-            c0259a2.fnB = (TextView) view.findViewById(e.g.searchSuggestTitle);
-            c0259a2.mDividerView = view.findViewById(e.g.searchItemSep);
-            view.setTag(c0259a2);
-            c0259a = c0259a2;
+            C0270a c0270a2 = new C0270a();
+            c0270a2.mRootView = view.findViewById(e.g.rootview);
+            c0270a2.fut = (TextView) view.findViewById(e.g.searchSuggestTitle);
+            c0270a2.mDividerView = view.findViewById(e.g.searchItemSep);
+            view.setTag(c0270a2);
+            c0270a = c0270a2;
         } else {
-            c0259a = (C0259a) view.getTag();
+            c0270a = (C0270a) view.getTag();
         }
         String item = getItem(i);
         if (!StringUtils.isNull(item)) {
-            a(c0259a.fnB, item);
+            a(c0270a.fut, item);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType != c0259a.mSkinType) {
-                c0259a.mSkinType = skinType;
-                al.i(c0259a.mRootView, e.f.addresslist_item_bg);
-                al.h(c0259a.fnB, e.d.cp_cont_b);
-                al.j(c0259a.mDividerView, e.d.cp_bg_line_c);
+            if (skinType != c0270a.mSkinType) {
+                c0270a.mSkinType = skinType;
+                al.i(c0270a.mRootView, e.f.addresslist_item_bg);
+                al.h(c0270a.fut, e.d.cp_cont_b);
+                al.j(c0270a.mDividerView, e.d.cp_bg_line_c);
             }
         }
         return view;
@@ -92,13 +92,13 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.mainentrance.searchSuggestList.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private class C0259a {
-        TextView fnB;
+    private class C0270a {
+        TextView fut;
         View mDividerView;
         View mRootView;
         int mSkinType;
 
-        private C0259a() {
+        private C0270a() {
             this.mSkinType = 3;
         }
     }

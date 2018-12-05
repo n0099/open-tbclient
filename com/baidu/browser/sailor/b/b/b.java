@@ -65,7 +65,7 @@ final class b implements Runnable {
                                 String string4 = jSONObject3.getString("value");
                                 if (!TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string4)) {
                                     File file = new File(string4);
-                                    if (com.baidu.browser.sailor.feature.a.d.a(com.baidu.browser.sailor.b.a.qP().getAppContext().getCacheDir(), file)) {
+                                    if (com.baidu.browser.sailor.feature.a.d.a(com.baidu.browser.sailor.b.a.qO().getAppContext().getCacheDir(), file)) {
                                         fVar.a(string3, file);
                                     } else if (!com.baidu.browser.sailor.util.c.a(this.e, file)) {
                                         this.WH.bD(4);
@@ -93,7 +93,7 @@ final class b implements Runnable {
                             this.WH.aG(true);
                             this.WH.addField("response", str);
                         }
-                        this.WH.qN();
+                        this.WH.qM();
                     } catch (IllegalStateException e4) {
                         this.WH.bD(1);
                         e4.printStackTrace();

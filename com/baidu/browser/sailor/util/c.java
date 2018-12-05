@@ -120,14 +120,14 @@ public final class c {
 
     public static void a(Runnable runnable) {
         if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-            qX().post(runnable);
+            qW().post(runnable);
         } else {
             runnable.run();
         }
     }
 
     public static void a(Runnable runnable, long j) {
-        qX().postDelayed(runnable, j);
+        qW().postDelayed(runnable, j);
     }
 
     public static boolean a() {
@@ -224,7 +224,7 @@ public final class c {
         return false;
     }
 
-    private static Handler qX() {
+    private static Handler qW() {
         synchronized (c.class) {
             if (c == null) {
                 c = new Handler(Looper.getMainLooper());

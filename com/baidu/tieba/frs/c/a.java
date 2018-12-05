@@ -26,13 +26,13 @@ import java.util.List;
 import tbclient.OriForumInfo;
 /* loaded from: classes6.dex */
 public class a implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
-    private View dSA;
-    private LinearLayout dSB;
-    private RelationBarView dSC;
-    private ImageView dSw;
-    private TextView dSx;
-    private String dSy;
-    private View dSz;
+    private ImageView dYY;
+    private TextView dYZ;
+    private String dZa;
+    private View dZb;
+    private View dZc;
+    private LinearLayout dZd;
+    private RelationBarView dZe;
     private TbPageContext mContext;
     private View rootView;
     private TextView titleText;
@@ -42,7 +42,7 @@ public class a implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
         @Override // com.baidu.adp.lib.f.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             if (aVar != null) {
-                aVar.a(a.this.dSw);
+                aVar.a(a.this.dYY);
             }
         }
 
@@ -64,39 +64,39 @@ public class a implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
     public a(TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
         this.rootView = LayoutInflater.from(tbPageContext.getContext()).inflate(e.h.frs_head_image_item, (ViewGroup) null, false);
-        this.dSz = this.rootView.findViewById(e.g.frs_header_title_container);
-        this.dSw = (ImageView) this.rootView.findViewById(e.g.frs_head_image);
+        this.dZb = this.rootView.findViewById(e.g.frs_header_title_container);
+        this.dYY = (ImageView) this.rootView.findViewById(e.g.frs_head_image);
         this.titleText = (TextView) this.rootView.findViewById(e.g.frs_header_title);
-        this.dSx = (TextView) this.rootView.findViewById(e.g.frs_header_title_lable);
-        this.dSA = this.rootView.findViewById(e.g.frs_image_header_contianer);
-        aEg();
-        this.dSA.getLayoutParams().height = aEf();
-        this.dSA.requestLayout();
-        this.dSx.setText(tbPageContext.getString(e.j.frs_header_image_lable));
-        this.dSw.setOnClickListener(this);
-        this.dSz.setOnClickListener(this);
-        this.dSA.setOnClickListener(this);
-        this.dSB = (LinearLayout) this.rootView.findViewById(e.g.brand_layout);
-        this.dSB.setBackgroundColor(0);
-        this.dSB.setVisibility(0);
-        this.dSC = (RelationBarView) this.rootView.findViewById(e.g.frs_brand_relation_bar_list);
+        this.dYZ = (TextView) this.rootView.findViewById(e.g.frs_header_title_lable);
+        this.dZc = this.rootView.findViewById(e.g.frs_image_header_contianer);
+        aFS();
+        this.dZc.getLayoutParams().height = aFR();
+        this.dZc.requestLayout();
+        this.dYZ.setText(tbPageContext.getString(e.j.frs_header_image_lable));
+        this.dYY.setOnClickListener(this);
+        this.dZb.setOnClickListener(this);
+        this.dZc.setOnClickListener(this);
+        this.dZd = (LinearLayout) this.rootView.findViewById(e.g.brand_layout);
+        this.dZd.setBackgroundColor(0);
+        this.dZd.setVisibility(0);
+        this.dZe = (RelationBarView) this.rootView.findViewById(e.g.frs_brand_relation_bar_list);
     }
 
-    private int aEf() {
+    private int aFR() {
         if (this.screenWidth == 0 || this.screenHeight == 0) {
-            return l.h(this.mContext.getPageActivity(), e.C0200e.ds278);
+            return l.h(this.mContext.getPageActivity(), e.C0210e.ds278);
         }
-        if (Float.compare(mI(536), 0.0f) == 0 || Float.compare(mI(1080), 0.0f) == 0) {
-            return l.h(this.mContext.getPageActivity(), e.C0200e.ds278);
+        if (Float.compare(mY(536), 0.0f) == 0 || Float.compare(mY(1080), 0.0f) == 0) {
+            return l.h(this.mContext.getPageActivity(), e.C0210e.ds278);
         }
-        return (int) ((mI(536) / mI(1080)) * mI(this.screenWidth));
+        return (int) ((mY(536) / mY(1080)) * mY(this.screenWidth));
     }
 
-    private float mI(int i) {
+    private float mY(int i) {
         return i * 1.0f;
     }
 
-    private void aEg() {
+    private void aFS() {
         if (this.screenWidth == 0 || this.screenHeight == 0) {
             Display defaultDisplay = ((WindowManager) TbadkCoreApplication.getInst().getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay();
             if (Build.VERSION.SDK_INT >= 13) {
@@ -113,24 +113,24 @@ public class a implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void onChangeSkinType(int i) {
-        if (this.dSw != null) {
-            al.e(this.dSw, e.d.cp_bg_line_e, i);
+        if (this.dYY != null) {
+            al.e(this.dYY, e.d.cp_bg_line_e, i);
         }
-        if (this.dSx != null) {
-            al.c(this.dSx, e.d.cp_cont_i, i);
+        if (this.dYZ != null) {
+            al.c(this.dYZ, e.d.cp_cont_i, i);
         }
         if (this.titleText != null) {
             al.c(this.titleText, e.d.cp_cont_i, i);
         }
-        if (this.dSC != null) {
-            this.dSC.onChangeSkinType();
+        if (this.dZe != null) {
+            this.dZe.onChangeSkinType();
         }
     }
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void hideTitle() {
-        if (this.dSz != null) {
-            this.dSz.setVisibility(8);
+        if (this.dZb != null) {
+            this.dZb.setVisibility(8);
         }
     }
 
@@ -140,15 +140,15 @@ public class a implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
     }
 
     @Override // com.baidu.tieba.frs.c.a.a
-    public LinearLayout aEh() {
-        return this.dSB;
+    public LinearLayout aFT() {
+        return this.dZd;
     }
 
     @Override // com.baidu.tieba.frs.c.a.a
-    public void iI(String str) {
-        if (this.dSw != null) {
+    public void a(com.baidu.tieba.tbadkCore.l lVar, String str) {
+        if (this.dYY != null) {
             if (TextUtils.isEmpty(str)) {
-                this.dSw.setBackgroundResource(e.f.bg_frs_brand_head);
+                this.dYY.setBackgroundResource(e.f.bg_frs_brand_head);
             }
             c.jA().a(str, 10, this.mCallback, 0, 0, null, new Object[0]);
         }
@@ -156,35 +156,35 @@ public class a implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void setTitle(String str) {
-        if (this.titleText != null && this.dSx != null) {
+        if (this.titleText != null && this.dYZ != null) {
             if (!TextUtils.isEmpty(str)) {
                 this.titleText.setText(str);
                 this.titleText.setVisibility(0);
             } else {
                 this.titleText.setVisibility(8);
             }
-            if (TextUtils.isEmpty(this.dSy)) {
-                this.dSx.setVisibility(8);
+            if (TextUtils.isEmpty(this.dZa)) {
+                this.dYZ.setVisibility(8);
             } else {
-                this.dSx.setVisibility(0);
+                this.dYZ.setVisibility(0);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void setSchemaUrl(String str) {
-        this.dSy = str;
+        this.dZa = str;
     }
 
-    public void bK(List<OriForumInfo> list) {
-        this.dSC.setData(list);
+    public void bM(List<OriForumInfo> list) {
+        this.dZe.setData(list);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!TextUtils.isEmpty(this.dSy) && this.mContext != null) {
-            TiebaStatic.log(new am("c13109").ax("obj_to", this.dSy));
-            ay.Db().a(this.mContext, new String[]{this.dSy}, true);
+        if (!TextUtils.isEmpty(this.dZa) && this.mContext != null) {
+            TiebaStatic.log(new am("c13109").aA("obj_to", this.dZa));
+            ay.Ef().a(this.mContext, new String[]{this.dZa}, true);
         }
     }
 }

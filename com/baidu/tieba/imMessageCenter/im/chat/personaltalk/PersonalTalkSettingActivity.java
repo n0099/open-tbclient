@@ -27,10 +27,10 @@ import com.baidu.tieba.im.message.SettingChangeMessage;
 import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f;
 /* loaded from: classes4.dex */
 public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettingActivity> implements BdSwitchView.a, f.a {
-    private g eUG;
-    private f eUH;
-    private com.baidu.tieba.ueg.a eUI;
-    private com.baidu.adp.framework.listener.c eUJ = new com.baidu.adp.framework.listener.c(104102) { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingActivity.9
+    private g fbv;
+    private f fbw;
+    private com.baidu.tieba.ueg.a fbx;
+    private com.baidu.adp.framework.listener.c fby = new com.baidu.adp.framework.listener.c(104102) { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingActivity.9
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -52,17 +52,17 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         super.onCreate(bundle);
         initView();
         initData(bundle);
-        registerListener(205003, this.eUH.aTb());
-        registerListener(104102, this.eUH.aTb());
-        registerListener(2001115, this.eUH.aTc());
-        registerListener(this.eUJ);
+        registerListener(205003, this.fbw.aUT());
+        registerListener(104102, this.fbw.aUT());
+        registerListener(2001115, this.fbw.aUU());
+        registerListener(this.fby);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.eUH.onDestory();
+        this.fbw.onDestory();
     }
 
     @Override // android.app.Activity
@@ -77,12 +77,12 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         } else {
             this.userId = bundle.getLong("userId");
         }
-        this.eUH = new f(this, this, this.userId);
+        this.fbw = new f(this, this, this.userId);
     }
 
     private void initView() {
-        this.eUG = new g(this);
-        this.eUG.a(this);
+        this.fbv = new g(this);
+        this.fbv.a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -90,7 +90,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().setNightMode(i == 1);
-        this.eUG.onChangeSkinType(i);
+        this.fbv.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
@@ -98,16 +98,16 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         CustomResponsedMessage runTask;
         int id = view.getId();
         if (id == e.g.user_info_lin) {
-            if (this.eUH != null && this.eUH.aSZ() != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getContext(), String.valueOf(this.userId), this.eUH.aSZ().name)));
+            if (this.fbw != null && this.fbw.aUR() != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getContext(), String.valueOf(this.userId), this.fbw.aUR().name)));
             }
         } else if (id == e.g.remove_from_black_man) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-            aVar.ej(getPageContext().getContext().getString(e.j.add_black_alert, this.eUH.aSZ().nameShow)).a(e.j.alert_yes_button, new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingActivity.3
+            aVar.eB(getPageContext().getContext().getString(e.j.add_black_alert, this.fbw.aUR().nameShow)).a(e.j.alert_yes_button, new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingActivity.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
-                    PersonalTalkSettingActivity.this.eUH.iY(false);
+                    PersonalTalkSettingActivity.this.fbw.jb(false);
                 }
             }).b(e.j.cancel, new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingActivity.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
@@ -115,10 +115,10 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
                     aVar2.dismiss();
                 }
             }).b(getPageContext());
-            aVar.AB();
+            aVar.BF();
         } else if (id == e.g.st_delete_talk_history) {
             com.baidu.tbadk.core.dialog.a aVar2 = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-            aVar2.ej(getPageContext().getContext().getString(e.j.remove_personal_history)).a(e.j.alert_yes_button, new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingActivity.5
+            aVar2.eB(getPageContext().getContext().getString(e.j.remove_personal_history)).a(e.j.alert_yes_button, new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingActivity.5
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
                     aVar3.dismiss();
@@ -128,7 +128,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
                         /* JADX WARN: Can't rename method to resolve collision */
                         @Override // com.baidu.tbadk.util.w
                         public Boolean doInBackground() {
-                            return Boolean.valueOf(m.aOP().pn(String.valueOf(PersonalTalkSettingActivity.this.userId)));
+                            return Boolean.valueOf(m.aQH().pP(String.valueOf(PersonalTalkSettingActivity.this.userId)));
                         }
                     }, new h<Boolean>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingActivity.5.2
                         /* JADX DEBUG: Method merged with bridge method */
@@ -147,25 +147,25 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
                     aVar3.dismiss();
                 }
             }).b(getPageContext());
-            aVar2.AB();
+            aVar2.BF();
         } else if (id == e.g.st_report) {
-            if (this.eUI == null && (runTask = MessageManager.getInstance().runTask(2921343, com.baidu.tieba.ueg.a.class, getPageContext().getPageActivity())) != null) {
-                this.eUI = (com.baidu.tieba.ueg.a) runTask.getData();
+            if (this.fbx == null && (runTask = MessageManager.getInstance().runTask(2921343, com.baidu.tieba.ueg.a.class, getPageContext().getPageActivity())) != null) {
+                this.fbx = (com.baidu.tieba.ueg.a) runTask.getData();
             }
-            if (this.eUI != null) {
-                this.eUI.o(getUniqueId());
-                this.eUI.lM(String.valueOf(this.userId));
+            if (this.fbx != null) {
+                this.fbx.o(getUniqueId());
+                this.fbx.mg(String.valueOf(this.userId));
                 TiebaStatic.log(new am("c13063").x("obj_locate", 2));
             }
         } else if (id == e.g.add_to_black) {
             com.baidu.tbadk.core.dialog.a aVar3 = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-            aVar3.ei(getPageContext().getContext().getString(e.j.sure_add_somebody_to_black, this.eUH.aSZ().nameShow));
-            aVar3.ej(getPageContext().getContext().getString(e.j.remove_black_alert)).a(e.j.alert_yes_button, new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingActivity.7
+            aVar3.eA(getPageContext().getContext().getString(e.j.sure_add_somebody_to_black, this.fbw.aUR().nameShow));
+            aVar3.eB(getPageContext().getContext().getString(e.j.remove_black_alert)).a(e.j.alert_yes_button, new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingActivity.7
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar4) {
                     aVar4.dismiss();
                     TiebaStatic.log("personalchat_morepage_addblack");
-                    PersonalTalkSettingActivity.this.eUH.iY(true);
+                    PersonalTalkSettingActivity.this.fbw.jb(true);
                 }
             }).b(e.j.cancel, new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingActivity.6
                 @Override // com.baidu.tbadk.core.dialog.a.b
@@ -173,15 +173,15 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
                     aVar4.dismiss();
                 }
             }).b(getPageContext());
-            aVar3.AB();
+            aVar3.BF();
         }
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f.a
     public void updateUI() {
         closeLoadingDialog();
-        if (this.eUG != null && this.eUH != null) {
-            this.eUG.e(this.eUH);
+        if (this.fbv != null && this.fbw != null) {
+            this.fbv.e(this.fbw);
         }
     }
 
@@ -189,9 +189,9 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
     public void a(View view, BdSwitchView.SwitchState switchState) {
         boolean z = BdSwitchView.SwitchState.ON == switchState;
         if (z) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.Hs().Hu() || !com.baidu.tbadk.coreExtra.messageCenter.c.Hs().HA()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.Iw().Iy() || !com.baidu.tbadk.coreExtra.messageCenter.c.Iw().IE()) {
                 final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getActivity());
-                aVar.cN(e.j.error_open_personal_single_alloff);
+                aVar.db(e.j.error_open_personal_single_alloff);
                 aVar.b(getResources().getString(e.j.group_create_private_isee), new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingActivity.8
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -199,40 +199,40 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
                     }
                 });
                 aVar.b(getPageContext());
-                aVar.AB();
+                aVar.BF();
                 I(false, z);
                 return;
             }
             closeLoadingDialog();
             showLoadingDialog(null);
-            this.eUH.iX(z);
+            this.fbw.ja(z);
             return;
         }
         closeLoadingDialog();
         showLoadingDialog(null);
-        this.eUH.iX(z);
+        this.fbw.ja(z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void I(boolean z, final boolean z2) {
         if (z) {
-            boolean aSY = this.eUH.aSY();
-            this.eUH.iW(z2);
-            this.eUG.iZ(z2);
+            boolean aUQ = this.fbw.aUQ();
+            this.fbw.iZ(z2);
+            this.fbv.jc(z2);
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingActivity.10
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
                     if (!z2) {
-                        com.baidu.tieba.im.settingcache.e.aSt().i(TbadkCoreApplication.getCurrentAccount(), String.valueOf(PersonalTalkSettingActivity.this.userId), false);
+                        com.baidu.tieba.im.settingcache.e.aUl().i(TbadkCoreApplication.getCurrentAccount(), String.valueOf(PersonalTalkSettingActivity.this.userId), false);
                         return null;
                     }
-                    com.baidu.tieba.im.settingcache.e.aSt().i(TbadkCoreApplication.getCurrentAccount(), String.valueOf(PersonalTalkSettingActivity.this.userId), true);
+                    com.baidu.tieba.im.settingcache.e.aUl().i(TbadkCoreApplication.getCurrentAccount(), String.valueOf(PersonalTalkSettingActivity.this.userId), true);
                     return null;
                 }
             }.execute(new Void[0]);
-            if (aSY != this.eUH.aSY()) {
+            if (aUQ != this.fbw.aUQ()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new SettingChangeMessage(3));
                 return;
             }
@@ -241,9 +241,9 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         com.baidu.adp.lib.g.e.jG().postDelayed(new Runnable() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingActivity.2
             @Override // java.lang.Runnable
             public void run() {
-                PersonalTalkSettingActivity.this.eUG.a((BdSwitchView.a) null);
-                PersonalTalkSettingActivity.this.eUG.iZ(!z2);
-                PersonalTalkSettingActivity.this.eUG.a(PersonalTalkSettingActivity.this);
+                PersonalTalkSettingActivity.this.fbv.a((BdSwitchView.a) null);
+                PersonalTalkSettingActivity.this.fbv.jc(!z2);
+                PersonalTalkSettingActivity.this.fbv.a(PersonalTalkSettingActivity.this);
             }
         }, 500L);
     }

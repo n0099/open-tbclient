@@ -8,18 +8,18 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.e> {
-    private TextView gsf;
-    private TextView gsh;
-    private TbImageView gsu;
-    private com.baidu.tieba.personPolymeric.c.e gsv;
+    private TextView gyV;
+    private TextView gyX;
+    private TbImageView gzk;
+    private com.baidu.tieba.personPolymeric.c.e gzl;
     private View mRootView;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mRootView = getView();
-        this.gsu = (TbImageView) this.mRootView.findViewById(e.g.card_person_auth_icon);
-        this.gsh = (TextView) this.mRootView.findViewById(e.g.card_person_auth_bar_name);
-        this.gsf = (TextView) this.mRootView.findViewById(e.g.card_person_auth_des);
+        this.gzk = (TbImageView) this.mRootView.findViewById(e.g.card_person_auth_icon);
+        this.gyX = (TextView) this.mRootView.findViewById(e.g.card_person_auth_bar_name);
+        this.gyV = (TextView) this.mRootView.findViewById(e.g.card_person_auth_des);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -27,10 +27,10 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mSkinType != i) {
             this.mSkinType = i;
             al.i(this.mRootView, e.d.cp_bg_line_d);
-            al.c(this.gsh, e.d.cp_cont_b, 1);
-            al.c(this.gsf, e.d.cp_cont_d, 1);
-            if (this.gsv.iconUrl == null) {
-                al.c(this.gsu, e.f.icon_shen_mine);
+            al.c(this.gyX, e.d.cp_cont_b, 1);
+            al.c(this.gyV, e.d.cp_cont_d, 1);
+            if (this.gzl.iconUrl == null) {
+                al.c(this.gzk, e.f.icon_shen_mine);
             }
         }
     }
@@ -44,12 +44,12 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.personPolymeric.c.e eVar) {
         if (eVar != null) {
-            this.gsv = eVar;
+            this.gzl = eVar;
             if (eVar.iconUrl != null) {
-                this.gsu.startLoad(eVar.iconUrl, 10, false);
+                this.gzk.startLoad(eVar.iconUrl, 10, false);
             }
-            this.gsh.setText(eVar.grk);
-            this.gsf.setText(eVar.des);
+            this.gyX.setText(eVar.gya);
+            this.gyV.setText(eVar.des);
         }
     }
 

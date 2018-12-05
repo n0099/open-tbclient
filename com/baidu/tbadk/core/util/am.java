@@ -22,7 +22,7 @@ public class am {
         this.key = str;
     }
 
-    public am ax(String str, String str2) {
+    public am aA(String str, String str2) {
         this.params.add(str);
         this.params.add(str2);
         return this;
@@ -34,7 +34,7 @@ public class am {
         return this;
     }
 
-    public am h(String str, long j) {
+    public am i(String str, long j) {
         this.params.add(str);
         this.params.add(Long.valueOf(j));
         return this;

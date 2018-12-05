@@ -59,8 +59,8 @@ public class m extends Thread {
         this.Ij = handler;
         this.HB = aVar;
         this.HJ = lVar;
-        this.Ik = ByteBuffer.allocateDirect(lVar.lU() + 14);
-        this.Il = new d(lVar.lV());
+        this.Ik = ByteBuffer.allocateDirect(lVar.lT() + 14);
+        this.Il = new d(lVar.lU());
         this.Ip = null;
         this.mState = 1;
     }
@@ -73,7 +73,7 @@ public class m extends Thread {
         this.Ij.sendMessage(obtainMessage);
     }
 
-    private boolean mb() throws Exception {
+    private boolean ma() throws Exception {
         int i;
         String str;
         int i2;
@@ -199,19 +199,19 @@ public class m extends Thread {
                 if (!this.In) {
                     this.In = true;
                     this.Io = this.Ip.Iv;
-                    if (this.Io == 1 && this.HJ.lY()) {
+                    if (this.Io == 1 && this.HJ.lX()) {
                         this.Ir.reset();
                     }
                 }
-                if (this.Io == 1 && this.HJ.lY() && !this.Ir.v(this.Il.toByteArray())) {
+                if (this.Io == 1 && this.HJ.lX() && !this.Ir.v(this.Il.toByteArray())) {
                     throw new WebSocketException("invalid UTF-8 in text message payload");
                 }
                 if (this.Ip.Iw) {
                     if (this.Io == 1) {
-                        if (this.HJ.lY() && !this.Ir.isValid()) {
+                        if (this.HJ.lX() && !this.Ir.isValid()) {
                             throw new WebSocketException("UTF-8 text message payload ended within Unicode code point");
                         }
-                        if (this.HJ.lT()) {
+                        if (this.HJ.lS()) {
                             w(this.Il.toByteArray());
                         } else {
                             aj(new String(this.Il.toByteArray(), "UTF-8"));
@@ -279,7 +279,7 @@ public class m extends Thread {
         z(new k.a(bArr, this.It, this.Iu));
     }
 
-    private boolean mc() throws UnsupportedEncodingException {
+    private boolean mb() throws UnsupportedEncodingException {
         boolean z;
         boolean z2;
         boolean z3 = false;
@@ -293,9 +293,9 @@ public class m extends Thread {
                 int position2 = this.Ik.position();
                 Map<String, String> map = null;
                 if (this.Ik.get(0) == 72 && this.Ik.get(1) == 84 && this.Ik.get(2) == 84 && this.Ik.get(3) == 80) {
-                    Pair<Integer, String> md = md();
-                    if (((Integer) md.first).intValue() >= 300) {
-                        z(new k.p(((Integer) md.first).intValue(), (String) md.second));
+                    Pair<Integer, String> mc = mc();
+                    if (((Integer) mc.first).intValue() >= 300) {
+                        z(new k.p(((Integer) mc.first).intValue(), (String) mc.second));
                         z = true;
                     } else {
                         z = false;
@@ -312,7 +312,7 @@ public class m extends Thread {
                 this.Ik.position(position + 4);
                 this.Ik.limit(position2);
                 this.Ik.compact();
-                if (this.Is < this.HB.lD() && map.size() == 0) {
+                if (this.Is < this.HB.lC() && map.size() == 0) {
                     this.Is++;
                     return true;
                 }
@@ -347,7 +347,7 @@ public class m extends Thread {
         return hashMap;
     }
 
-    private Pair<Integer, String> md() throws UnsupportedEncodingException {
+    private Pair<Integer, String> mc() throws UnsupportedEncodingException {
         int i = 4;
         while (i < this.Ik.position() && this.Ik.get(i) != 32) {
             i++;
@@ -373,12 +373,12 @@ public class m extends Thread {
         return new Pair<>(Integer.valueOf(i4), new String(bArr, "UTF-8"));
     }
 
-    private boolean me() throws Exception {
+    private boolean md() throws Exception {
         if (this.mState == 3 || this.mState == 2) {
-            return mb();
+            return ma();
         }
         if (this.mState == 1) {
-            return mc();
+            return mb();
         }
         if (this.mState == 0) {
         }
@@ -412,7 +412,7 @@ public class m extends Thread {
                     }
                     if (read > 0) {
                         do {
-                        } while (me());
+                        } while (md());
                     } else if (read < 0) {
                         z(new k.d(new SocketException("len < 0")));
                         this.mStopped = true;
@@ -436,7 +436,7 @@ public class m extends Thread {
         }
     }
 
-    public void lK() {
+    public void lJ() {
         synchronized (m.class) {
             Im = 0L;
         }

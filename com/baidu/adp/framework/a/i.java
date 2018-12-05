@@ -29,7 +29,7 @@ public class i {
 
     public void addMessageRule(f<?, ?> fVar) {
         if (fVar != null) {
-            l.lk();
+            l.lj();
             if (fVar instanceof d) {
                 FrameHelper.a(this.xW, (d) fVar);
             } else if (fVar instanceof k) {
@@ -44,7 +44,7 @@ public class i {
 
     public void removeMessageRule(f<?, ?> fVar) {
         if (fVar != null) {
-            l.lk();
+            l.lj();
             if (fVar instanceof d) {
                 this.xW.remove(fVar);
             } else if (fVar instanceof k) {
@@ -59,7 +59,7 @@ public class i {
 
     public void a(g<?> gVar) {
         if (gVar != null) {
-            l.lk();
+            l.lj();
             if (gVar instanceof c) {
                 FrameHelper.a(this.xZ, (c) gVar);
             } else if (gVar instanceof j) {
@@ -74,7 +74,7 @@ public class i {
 
     public void b(g<?> gVar) {
         if (gVar != null) {
-            l.lk();
+            l.lj();
             if (gVar instanceof c) {
                 this.xZ.remove(gVar);
             } else if (gVar instanceof j) {

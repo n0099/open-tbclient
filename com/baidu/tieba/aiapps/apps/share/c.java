@@ -21,7 +21,7 @@ public class c extends ActivityDelegation implements IAiAppsSocialShareIoc.OnSha
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onAttachedToWindow() {
-        XR();
+        YV();
         String string = this.mParams.getString("options");
         String string2 = this.mParams.getString("successCallback");
         this.errorCallback = this.mParams.getString("errorCallback");
@@ -30,20 +30,20 @@ public class c extends ActivityDelegation implements IAiAppsSocialShareIoc.OnSha
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onSelfFinish() {
-        XS();
+        YW();
     }
 
-    private void XR() {
+    private void YV() {
     }
 
-    private void XS() {
+    private void YW() {
     }
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppsSocialShareIoc.OnShareResultListener
     public void notify(String str, String str2) {
         this.mResult.putString("callBack", str);
         this.mResult.putString("info", str2);
-        XS();
+        YW();
         finish();
     }
 
@@ -59,7 +59,7 @@ public class c extends ActivityDelegation implements IAiAppsSocialShareIoc.OnSha
         }
         a aVar = new a();
         try {
-            aVar.N(new JSONObject(str2));
+            aVar.O(new JSONObject(str2));
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(context, aVar, false);
             shareDialogConfig.onCancelListener = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.aiapps.apps.share.c.1
                 @Override // android.content.DialogInterface.OnCancelListener

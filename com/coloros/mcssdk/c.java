@@ -1,5 +1,5 @@
 package com.coloros.mcssdk;
 /* loaded from: classes3.dex */
 final class c {
-    private static final a hWP = new a();
+    private static final a iec = new a();
 }
