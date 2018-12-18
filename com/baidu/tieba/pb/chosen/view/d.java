@@ -60,7 +60,7 @@ public class d {
         this.fPq = (LinearLayout) this.fPk.findViewById(e.g.chosen_pb_bar_container);
     }
 
-    public View bfZ() {
+    public View bfY() {
         return this.fPk;
     }
 

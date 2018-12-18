@@ -6,11 +6,11 @@ public class m {
     private boolean hka;
     private String menu_name;
 
-    public boolean bCD() {
+    public boolean bCC() {
         return this.hka;
     }
 
-    public String bCE() {
+    public String bCD() {
         return this.menu_name;
     }
 

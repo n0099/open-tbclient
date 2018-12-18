@@ -21,7 +21,7 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
     a.b eMR = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.1
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-            UpdateGroupActivity.this.aUy();
+            UpdateGroupActivity.this.aUx();
         }
     };
     a.b eMS = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.2
@@ -106,31 +106,31 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.eZp.aPU()) {
-            if (((d) this.eZp).aUz()) {
+        if (view == this.eZp.aPT()) {
+            if (((d) this.eZp).aUy()) {
                 finish();
-            } else if (this.eZp.aUw() && this.eZp.aPK()) {
-                aUy();
+            } else if (this.eZp.aUv() && this.eZp.aPJ()) {
+                aUx();
             } else {
-                showToast(this.eZp.aUv());
+                showToast(this.eZp.aUu());
             }
-        } else if (view == this.eZp.aPi()) {
+        } else if (view == this.eZp.aPh()) {
             this.eZp.clearText();
-        } else if (view == this.eZp.aUt() && !aUx()) {
+        } else if (view == this.eZp.aUs() && !aUw()) {
             finish();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && keyEvent.getRepeatCount() == 0 && aUx()) {
+        if (i == 4 && keyEvent.getRepeatCount() == 0 && aUw()) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private boolean aUx() {
-        if (TextUtils.isEmpty(this.eZp.getText()) || !this.eZp.aPK() || this.eZp.getText().equals(this.eZp.aUs())) {
+    private boolean aUw() {
+        if (TextUtils.isEmpty(this.eZp.getText()) || !this.eZp.aPJ() || this.eZp.getText().equals(this.eZp.aUr())) {
             return false;
         }
         this.eZp.showDialog();
@@ -138,7 +138,7 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aUy() {
+    public void aUx() {
         this.eZp.setIsLoading(true);
         this.eZq.setGroupId(this.eZp.getGroupId());
         if (this.eZr == 1) {

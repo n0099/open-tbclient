@@ -45,21 +45,21 @@ public class a {
                 setSize(bitmap.getWidth(), bitmap.getHeight());
             }
             this.Nu = bitmap;
-            bnQ();
             bnP();
+            bnO();
             if (this.gnX) {
-                bnT();
-                bnV();
+                bnS();
+                bnU();
                 if (this.gnO >= 0) {
-                    bnU();
+                    bnT();
                 }
             }
+            bnQ();
             bnR();
-            bnS();
             if (!this.gnX) {
-                bnV();
+                bnU();
             }
-            bnW();
+            bnV();
             this.gnX = false;
             return true;
         } catch (IOException e) {
@@ -122,12 +122,12 @@ public class a {
         return z;
     }
 
-    protected void bnP() {
+    protected void bnO() {
         int length = this.gnP.length;
         int i = length / 3;
         this.gnQ = new byte[i];
         c cVar = new c(this.gnP, length, this.gnZ);
-        this.gnS = cVar.boc();
+        this.gnS = cVar.bob();
         for (int i2 = 0; i2 < this.gnS.length; i2 += 3) {
             byte b = this.gnS[i2];
             this.gnS[i2] = this.gnS[i2 + 2];
@@ -184,7 +184,7 @@ public class a {
         return i8;
     }
 
-    protected void bnQ() {
+    protected void bnP() {
         int width = this.Nu.getWidth();
         int height = this.Nu.getHeight();
         if (width != this.width || height != this.height) {
@@ -212,7 +212,7 @@ public class a {
         return iArr;
     }
 
-    protected void bnR() throws IOException {
+    protected void bnQ() throws IOException {
         int i;
         int i2;
         this.out.write(33);
@@ -234,7 +234,7 @@ public class a {
         this.out.write(0);
     }
 
-    protected void bnS() throws IOException {
+    protected void bnR() throws IOException {
         this.out.write(44);
         writeShort(this.x);
         writeShort(this.y);
@@ -247,7 +247,7 @@ public class a {
         }
     }
 
-    protected void bnT() throws IOException {
+    protected void bnS() throws IOException {
         writeShort(this.width);
         writeShort(this.height);
         this.out.write(this.gnU | 240);
@@ -255,7 +255,7 @@ public class a {
         this.out.write(0);
     }
 
-    protected void bnU() throws IOException {
+    protected void bnT() throws IOException {
         this.out.write(33);
         this.out.write(255);
         this.out.write(11);
@@ -266,7 +266,7 @@ public class a {
         this.out.write(0);
     }
 
-    protected void bnV() throws IOException {
+    protected void bnU() throws IOException {
         this.out.write(this.gnS, 0, this.gnS.length);
         int length = 768 - this.gnS.length;
         for (int i = 0; i < length; i++) {
@@ -274,7 +274,7 @@ public class a {
         }
     }
 
-    protected void bnW() throws IOException {
+    protected void bnV() throws IOException {
         new b(this.width, this.height, this.gnQ, this.gnR).encode(this.out);
     }
 

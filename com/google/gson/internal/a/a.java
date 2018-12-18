@@ -14,11 +14,11 @@ public final class a<E> extends o<Object> {
     public static final p iuj = new p() { // from class: com.google.gson.internal.a.a.1
         @Override // com.google.gson.p
         public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-            Type caU = aVar.caU();
-            if (!(caU instanceof GenericArrayType) && (!(caU instanceof Class) || !((Class) caU).isArray())) {
+            Type caT = aVar.caT();
+            if (!(caT instanceof GenericArrayType) && (!(caT instanceof Class) || !((Class) caT).isArray())) {
                 return null;
             }
-            Type i = C$Gson$Types.i(caU);
+            Type i = C$Gson$Types.i(caT);
             return new a(dVar, dVar.a(com.google.gson.b.a.l(i)), C$Gson$Types.g(i));
         }
     };
@@ -32,7 +32,7 @@ public final class a<E> extends o<Object> {
 
     @Override // com.google.gson.o
     public Object b(com.google.gson.stream.a aVar) throws IOException {
-        if (aVar.caH() == JsonToken.NULL) {
+        if (aVar.caG() == JsonToken.NULL) {
             aVar.nextNull();
             return null;
         }
@@ -54,14 +54,14 @@ public final class a<E> extends o<Object> {
     @Override // com.google.gson.o
     public void a(com.google.gson.stream.b bVar, Object obj) throws IOException {
         if (obj == null) {
-            bVar.caS();
+            bVar.caR();
             return;
         }
-        bVar.caO();
+        bVar.caN();
         int length = Array.getLength(obj);
         for (int i = 0; i < length; i++) {
             this.iul.a(bVar, Array.get(obj, i));
         }
-        bVar.caP();
+        bVar.caO();
     }
 }

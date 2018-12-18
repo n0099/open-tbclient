@@ -133,11 +133,11 @@ public class k extends com.baidu.adp.base.c<GroupLevelActivity> {
         this.eQh.setText(string);
     }
 
-    public View aRe() {
+    public View aRd() {
         return this.eHK;
     }
 
-    public TextView aRf() {
+    public TextView aRe() {
         return this.eQg;
     }
 
@@ -147,11 +147,11 @@ public class k extends com.baidu.adp.base.c<GroupLevelActivity> {
         this.mNavigationBar.onChangeSkinType(this.ePP.getPageContext(), i);
     }
 
-    public TextView[] aRg() {
+    public TextView[] aRf() {
         return this.eQd;
     }
 
-    public TextView[] aRh() {
+    public TextView[] aRg() {
         return this.eQe;
     }
 
@@ -187,7 +187,7 @@ public class k extends com.baidu.adp.base.c<GroupLevelActivity> {
         this.ePU.setText(this.eQf[i]);
     }
 
-    public TextView aRi() {
+    public TextView aRh() {
         return this.ePW;
     }
 

@@ -70,7 +70,7 @@ public class d implements com.baidu.tieba.personPolymeric.b.b {
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.b
-    public void bpK() {
+    public void bpJ() {
         if (!j.kV()) {
             if (this.mTbPageContext != null) {
                 this.mTbPageContext.showToast(e.j.neterror);

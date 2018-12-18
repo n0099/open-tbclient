@@ -320,11 +320,11 @@ public class b extends com.baidu.tieba.card.a<k> implements com.baidu.tieba.a.e 
             VoiceData.VoiceModel voiceModel = zV.get(0);
             this.cUX.setVoiceModel(voiceModel);
             this.cUX.setTag(voiceModel);
-            this.cUX.aWg();
+            this.cUX.aWf();
             if (voiceModel != null) {
                 this.cUX.qw(voiceModel.voice_status.intValue());
             }
-            this.cUX.bEC();
+            this.cUX.bEB();
             z = true;
         }
         if (this.cSs.cYg && z) {

@@ -133,11 +133,11 @@ public final class cj<T, U, V> implements d.b<rx.d<T>, T> {
         }
 
         void bm(U u) {
-            final a<T> cdY = cdY();
+            final a<T> cdX = cdX();
             synchronized (this.guard) {
                 if (!this.done) {
-                    this.iEs.add(cdY);
-                    this.child.onNext(cdY.iJu);
+                    this.iEs.add(cdX);
+                    this.child.onNext(cdX.iJu);
                     try {
                         rx.d<? extends V> call = cj.this.iJF.call(u);
                         rx.j<V> jVar = new rx.j<V>() { // from class: rx.internal.operators.cj.b.1
@@ -157,7 +157,7 @@ public final class cj<T, U, V> implements d.b<rx.d<T>, T> {
                             public void onCompleted() {
                                 if (this.iCk) {
                                     this.iCk = false;
-                                    b.this.a(cdY);
+                                    b.this.a(cdX);
                                     b.this.iJI.b(this);
                                 }
                             }
@@ -193,9 +193,9 @@ public final class cj<T, U, V> implements d.b<rx.d<T>, T> {
             }
         }
 
-        a<T> cdY() {
-            UnicastSubject cfm = UnicastSubject.cfm();
-            return new a<>(cfm, cfm);
+        a<T> cdX() {
+            UnicastSubject cfl = UnicastSubject.cfl();
+            return new a<>(cfl, cfl);
         }
     }
 }

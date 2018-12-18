@@ -929,7 +929,7 @@ public class HListView extends AbsHListView {
                     view3 = null;
                 }
                 detachAllViewsFromParent();
-                kVar.aLG();
+                kVar.aLF();
                 switch (this.mLayoutMode) {
                     case 1:
                         this.mFirstPosition = 0;
@@ -991,7 +991,7 @@ public class HListView extends AbsHListView {
                             break;
                         }
                 }
-                kVar.aLH();
+                kVar.aLG();
                 if (moveSelection != null) {
                     if (!this.mItemsCanFocus || !hasFocus() || moveSelection.hasFocus()) {
                         positionSelector(-1, moveSelection);
@@ -1565,7 +1565,7 @@ public class HListView extends AbsHListView {
         a arrowScrollFocused = this.mItemsCanFocus ? arrowScrollFocused(i) : null;
         if (arrowScrollFocused != null) {
             lookForSelectablePositionOnScreen = arrowScrollFocused.getSelectedPosition();
-            amountToScroll = arrowScrollFocused.aLS();
+            amountToScroll = arrowScrollFocused.aLR();
         }
         boolean z = arrowScrollFocused != null;
         if (lookForSelectablePositionOnScreen != -1) {
@@ -1748,7 +1748,7 @@ public class HListView extends AbsHListView {
             return this.mSelectedPosition;
         }
 
-        public int aLS() {
+        public int aLR() {
             return this.eyV;
         }
     }

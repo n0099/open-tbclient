@@ -13,36 +13,36 @@ public class b {
     private int imA = 100;
     private Bitmap.Config FJ = Bitmap.Config.ARGB_8888;
 
-    public int bWf() {
+    public int bWe() {
         return this.imA;
     }
 
-    public boolean bWg() {
+    public boolean bWf() {
         return this.imB;
     }
 
-    public boolean bWh() {
+    public boolean bWg() {
         return this.imC;
     }
 
-    public boolean bWi() {
+    public boolean bWh() {
         return this.imD;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.decoder.b bWj() {
+    public com.facebook.imagepipeline.decoder.b bWi() {
         return this.imF;
     }
 
-    public boolean bWk() {
+    public boolean bWj() {
         return this.imE;
     }
 
-    public Bitmap.Config bWl() {
+    public Bitmap.Config bWk() {
         return this.FJ;
     }
 
-    public a bWm() {
+    public a bWl() {
         return new a(this);
     }
 }

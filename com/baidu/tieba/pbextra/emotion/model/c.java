@@ -30,7 +30,7 @@ class c {
         }
     }
 
-    public byte[] bnZ() {
+    public byte[] bnY() {
         byte[] bArr = new byte[768];
         int[] iArr = new int[256];
         for (int i = 0; i < 256; i++) {
@@ -49,7 +49,7 @@ class c {
         return bArr;
     }
 
-    public void boa() {
+    public void bnZ() {
         int i;
         int i2;
         int i3 = 0;
@@ -102,7 +102,7 @@ class c {
         }
     }
 
-    public void bob() {
+    public void boa() {
         int i;
         if (this.goL < 1509) {
             this.goM = 1;
@@ -255,14 +255,14 @@ class c {
         }
     }
 
-    public byte[] boc() {
-        bob();
-        bod();
+    public byte[] bob() {
         boa();
-        return bnZ();
+        boc();
+        bnZ();
+        return bnY();
     }
 
-    public void bod() {
+    public void boc() {
         for (int i = 0; i < 256; i++) {
             int[] iArr = this.goN[i];
             iArr[0] = iArr[0] >> 4;

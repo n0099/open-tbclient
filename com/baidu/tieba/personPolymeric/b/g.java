@@ -55,7 +55,7 @@ public class g implements View.OnClickListener {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChangePortraitResponse) && ((ChangePortraitResponse) httpResponsedMessage).getErrCode() == 0) {
-                g.this.bql();
+                g.this.bqk();
             }
         }
     };
@@ -70,7 +70,7 @@ public class g implements View.OnClickListener {
                     g.this.ml(false);
                     return;
                 }
-                g.this.bql();
+                g.this.bqk();
             }
         }
     };
@@ -113,25 +113,25 @@ public class g implements View.OnClickListener {
         this.gwL = personPolymericModel;
     }
 
-    public List<com.baidu.adp.widget.ListView.h> bqi() {
+    public List<com.baidu.adp.widget.ListView.h> bqh() {
         if (this.gxh == null) {
             return null;
         }
-        return this.gxh.bqi();
+        return this.gxh.bqh();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view != null && bqi() != null) {
+        if (view != null && bqh() != null) {
             com.baidu.adp.widget.ListView.h hVar = null;
             if (view.getTag() instanceof com.baidu.tieba.person.b.c) {
                 hVar = ((com.baidu.tieba.person.b.c) view.getTag()).FB();
             } else if (view.getTag() instanceof com.baidu.tieba.person.b.b) {
                 hVar = ((com.baidu.tieba.person.b.b) view.getTag()).FB();
             }
-            int a = v.a(bqi(), hVar);
+            int a = v.a(bqh(), hVar);
             if (a >= 0) {
-                a(hVar, bqi(), a);
+                a(hVar, bqh(), a);
             }
         }
     }
@@ -148,7 +148,7 @@ public class g implements View.OnClickListener {
                     c((k) hVar, list, i);
                 }
             } else if (hVar instanceof com.baidu.tieba.person.data.c) {
-                bqj();
+                bqi();
             } else if (hVar instanceof k) {
                 k kVar = (k) hVar;
                 if (kVar.isPortrait()) {
@@ -160,7 +160,7 @@ public class g implements View.OnClickListener {
         }
     }
 
-    private void bqj() {
+    private void bqi() {
         if (this.mPageContext != null) {
             String[] strArr = {this.mPageContext.getString(e.j.choose_local_photo), this.mPageContext.getString(e.j.change_system_photo)};
             com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(this.mPageContext.getPageActivity());
@@ -174,7 +174,7 @@ public class g implements View.OnClickListener {
                             g.this.aop();
                             break;
                         case 1:
-                            g.this.bqn();
+                            g.this.bqm();
                             break;
                     }
                     bVar2.dismiss();
@@ -202,11 +202,11 @@ public class g implements View.OnClickListener {
                             g.this.aop();
                             break;
                         case 2:
-                            g.this.bqn();
+                            g.this.bqm();
                             break;
                         case 3:
                             TiebaStatic.log(new am("c11616").x("obj_type", 1));
-                            g.this.bqo();
+                            g.this.bqn();
                             break;
                     }
                     bVar2.dismiss();
@@ -277,7 +277,7 @@ public class g implements View.OnClickListener {
         }
     }
 
-    public void bqk() {
+    public void bqj() {
         if (this.gxh != null && this.gxh.getUserData() != null) {
             com.baidu.tbadk.imageManager.c.Nu().ie(this.gxh.getUserData().getPortrait());
         }
@@ -286,7 +286,7 @@ public class g implements View.OnClickListener {
     public void ml(boolean z) {
     }
 
-    public void bql() {
+    public void bqk() {
         com.baidu.adp.lib.g.e.jG().postDelayed(this.gxk, 300L);
     }
 
@@ -297,11 +297,11 @@ public class g implements View.OnClickListener {
                 this.mPersonChangeData = new PersonChangeData();
             }
             this.mPersonChangeData.setPhotoChanged(true);
-            bqk();
+            bqj();
         }
     }
 
-    public void bqm() {
+    public void bql() {
         new com.baidu.tieba.person.a().a(TbConfig.PERSON_USER_PIC_TEMP_FILE, new a.b() { // from class: com.baidu.tieba.personPolymeric.b.g.8
             @Override // com.baidu.tieba.person.a.b
             public void a(int i, String str, ImageUploadResult imageUploadResult) {
@@ -310,7 +310,7 @@ public class g implements View.OnClickListener {
                     if (imageUploadResult.picInfo != null && imageUploadResult.picInfo.bigPic != null) {
                         str2 = imageUploadResult.picInfo.bigPic.picUrl;
                     }
-                    h.p(str2, g.this.bqi());
+                    h.p(str2, g.this.bqh());
                     g.this.ml(true);
                 }
             }
@@ -335,13 +335,13 @@ public class g implements View.OnClickListener {
         }
     }
 
-    public void bqn() {
+    public void bqm() {
         if (this.mPageContext != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChangeSystemPhotoActivityConfig(this.mPageContext.getPageActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_USERINFO, this.gxg)));
         }
     }
 
-    public void bqo() {
+    public void bqn() {
         if (this.mPageContext != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AvatarPendantActivityConfig(this.mPageContext.getPageActivity())));
         }

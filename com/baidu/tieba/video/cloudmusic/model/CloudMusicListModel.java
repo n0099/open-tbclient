@@ -41,13 +41,13 @@ public class CloudMusicListModel extends BdBaseModel {
                 }
             }
         };
-        bIi();
+        bIh();
         this.hBb.setTag(getUniqueId());
         this.hBb.setSelfListener(true);
         registerListener(this.hBb);
     }
 
-    private void bIi() {
+    private void bIh() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST, TbConfig.SERVER_ADDRESS + "c/f/video/getMusicTagList");
         tbHttpMessageTask.setResponsedClass(VideoCloudMusicListResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -84,7 +84,7 @@ public class CloudMusicListModel extends BdBaseModel {
         }
     }
 
-    public void bIj() {
+    public void bIi() {
         this.pn = 1;
     }
 

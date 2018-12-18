@@ -131,9 +131,9 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     private void ac(bb bbVar) {
-        if (bbVar != null && this.dZP != null && this.dZP.aAZ() != null && this.dZP.aAZ().bgi() != null) {
-            bbVar.eu(this.dZP.aAZ().bgi().getFirst_class());
-            bbVar.ev(this.dZP.aAZ().bgi().getSecond_class());
+        if (bbVar != null && this.dZP != null && this.dZP.aAZ() != null && this.dZP.aAZ().bgh() != null) {
+            bbVar.eu(this.dZP.aAZ().bgh().getFirst_class());
+            bbVar.ev(this.dZP.aAZ().bgh().getSecond_class());
         }
     }
 

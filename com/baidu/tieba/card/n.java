@@ -123,7 +123,7 @@ public class n extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
                 e.printStackTrace();
             }
             if (!this.cUy.isPlayerReuse()) {
-                int tW = com.baidu.tieba.play.y.bsd().tW(this.aEN);
+                int tW = com.baidu.tieba.play.y.bsc().tW(this.aEN);
                 if (tW <= 100 || this.cUy.getDuration() <= tW) {
                     tW = 100;
                 }
@@ -187,7 +187,7 @@ public class n extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
                 if (n.this.cUy != null) {
                     n.this.cUy.setVolume(0.0f, 0.0f);
                 }
-                n.this.cUA.bcL();
+                n.this.cUA.bcK();
                 n.this.apl();
             }
         };
@@ -613,7 +613,7 @@ public class n extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
                     if (this.cUB != null && this.cUB.ZR() != null && this.cUB.ZR().avr > 0) {
                         this.cUH.setVisibility(0);
                     }
-                    this.boR.brY();
+                    this.boR.brX();
                     this.boQ.setVisibility(8);
                     this.boP.setVisibility(8);
                     if (this.cUB != null && this.cUB.bMJ != null && this.cUB.bMJ.zY() != null) {
@@ -623,7 +623,7 @@ public class n extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
                     this.boN.setVisibility(8);
                     this.boM.startAnimation(this.bOd);
                     this.boS.setVisibility(8);
-                    this.boR.brZ();
+                    this.boR.brY();
                     this.boQ.setVisibility(0);
                     this.boP.setVisibility(0);
                     com.baidu.adp.lib.g.e.jG().postDelayed(this.boY, SystemScreenshotManager.DELAY_TIME);
@@ -634,7 +634,7 @@ public class n extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
                     this.boM.setVisibility(0);
                     this.boS.setVisibility(0);
                     this.cUz.setVisibility(0);
-                    this.boR.brZ();
+                    this.boR.brY();
                     this.boQ.setVisibility(8);
                     this.boP.setVisibility(8);
                 }
@@ -766,8 +766,8 @@ public class n extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
                 if (StringUtils.isNull(this.cUB.bMJ.zY().video_url)) {
                     e(true, 4);
                 }
-                if (this.bOp != null && this.bOp.brH() != null) {
-                    this.bOp.brH().g(this.cUB.bMJ.zY());
+                if (this.bOp != null && this.bOp.brG() != null) {
+                    this.bOp.brG().g(this.cUB.bMJ.zY());
                 }
                 this.boO.ct(this.aEN, this.cUB.tid);
                 return;
@@ -840,7 +840,7 @@ public class n extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
         if (!this.cUD && this.cUB != null && this.cUB.bMJ != null && this.cUB.bMJ.zY() != null && this.boO != null) {
             this.boO.stopPlayback();
             if (com.baidu.tbadk.util.aa.p(1, this.aEN)) {
-                this.cUA.bcK();
+                this.cUA.bcJ();
                 e(true, 2);
                 if (StringUtils.isNull(this.aEN)) {
                     TiebaStatic.log(new am("c12619").aA("obj_locate", "index").aA("tid", this.cUB.tid));

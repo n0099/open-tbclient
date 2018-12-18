@@ -40,7 +40,7 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         return false;
     }
 
-    public void bAr() {
+    public void bAq() {
         if (this.hdz != null) {
             this.hdz.cancel();
             this.hdz = null;

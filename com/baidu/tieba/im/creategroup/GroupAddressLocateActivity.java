@@ -26,7 +26,7 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
             aVar.dismiss();
-            GroupAddressLocateActivity.this.aPX();
+            GroupAddressLocateActivity.this.aPW();
         }
     };
     a.b eMS = new a.b() { // from class: com.baidu.tieba.im.creategroup.GroupAddressLocateActivity.2
@@ -59,7 +59,7 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
     public void onDestroy() {
         super.onDestroy();
         if (this.eMQ != null) {
-            this.eMQ.aPJ();
+            this.eMQ.aPI();
         }
     }
 
@@ -72,7 +72,7 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && keyEvent.getRepeatCount() == 0 && aPW()) {
+        if (i == 4 && keyEvent.getRepeatCount() == 0 && aPV()) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -81,24 +81,24 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.eMQ.aPU()) {
-            aPX();
+        if (view == this.eMQ.aPT()) {
+            aPW();
         } else if (view == this.eMQ.getBackButton()) {
-            if (!aPW()) {
+            if (!aPV()) {
                 finish();
             }
-        } else if (view == this.eMQ.aQd()) {
-            this.eMQ.aPV();
-            this.eMQ.aPZ();
+        } else if (view == this.eMQ.aQc()) {
+            this.eMQ.aPU();
+            this.eMQ.aPY();
             this.eFJ = -1;
-        } else if (view == this.eMQ.aQe()) {
-            switch (this.eMQ.aOR()) {
+        } else if (view == this.eMQ.aQd()) {
+            switch (this.eMQ.aOQ()) {
                 case 1:
                     startActivityForResult(new Intent("android.settings.LOCATION_SOURCE_SETTINGS"), 22001);
                     return;
                 case 2:
-                    this.eMQ.aQa();
-                    this.eMQ.aPI();
+                    this.eMQ.aPZ();
+                    this.eMQ.aPH();
                     return;
                 case 3:
                 default:
@@ -112,8 +112,8 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 22001) {
-            this.eMQ.aQa();
-            this.eMQ.aPI();
+            this.eMQ.aPZ();
+            this.eMQ.aPH();
         }
     }
 
@@ -128,8 +128,8 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        this.eMQ.aPV();
-        this.eMQ.aPY();
+        this.eMQ.aPU();
+        this.eMQ.aPX();
         this.eFJ = i;
     }
 
@@ -161,16 +161,16 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
     }
 
     @Override // com.baidu.tieba.im.util.b.a
-    public void aPn() {
-        this.eMQ.aQb();
+    public void aPm() {
+        this.eMQ.aQa();
     }
 
     @Override // com.baidu.tieba.im.util.b.a
-    public void aPo() {
-        this.eMQ.aOT();
+    public void aPn() {
+        this.eMQ.aOS();
     }
 
-    private boolean aPW() {
+    private boolean aPV() {
         if (this.eMz != this.eML || this.eFJ > -1) {
             this.eMQ.showDialog();
             return true;
@@ -179,7 +179,7 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aPX() {
+    public void aPW() {
         Intent intent = new Intent();
         if (this.eMO == null) {
             if (this.eFJ > -1) {

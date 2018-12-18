@@ -38,12 +38,12 @@ public class b {
 
     private void init() {
         MessageManager messageManager = MessageManager.getInstance();
-        messageManager.registerTask(bOm());
+        messageManager.registerTask(bOl());
         this.mHttpMessageListener.setTag(this.mPageId);
         messageManager.registerListener(this.mHttpMessageListener);
     }
 
-    private HttpMessageTask bOm() {
+    private HttpMessageTask bOl() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_SHARE_SDK, TbConfig.CHECK_SHARE_SDK_URL);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setRetry(3);

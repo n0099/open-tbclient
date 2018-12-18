@@ -7,7 +7,7 @@ public abstract class a {
 
     public abstract String aP(String str);
 
-    public static final a buN() {
+    public static final a buM() {
         return gMv;
     }
 }

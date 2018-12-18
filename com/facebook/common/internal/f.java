@@ -70,7 +70,7 @@ public final class f {
             return append.append('}').toString();
         }
 
-        private C0354a bTb() {
+        private C0354a bTa() {
             C0354a c0354a = new C0354a();
             this.ifJ.ifL = c0354a;
             this.ifJ = c0354a;
@@ -78,9 +78,9 @@ public final class f {
         }
 
         private a o(String str, @Nullable Object obj) {
-            C0354a bTb = bTb();
-            bTb.value = obj;
-            bTb.name = (String) g.checkNotNull(str);
+            C0354a bTa = bTa();
+            bTa.value = obj;
+            bTa.name = (String) g.checkNotNull(str);
             return this;
         }
 

@@ -44,8 +44,8 @@ public class c {
         this.mContext = context;
     }
 
-    public void bcT() {
-        if (!this.mIsShowing && isMainProcess() && bcU()) {
+    public void bcS() {
+        if (!this.mIsShowing && isMainProcess() && bcT()) {
             if (this.mHandlerThread == null) {
                 this.mHandlerThread = new HandlerThread("splash-thread");
                 this.mHandlerThread.start();
@@ -152,7 +152,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean bcU() {
+    private boolean bcT() {
         List<String> cK = cK(this.mContext);
         if (cK == null || cK.size() == 0) {
             return false;

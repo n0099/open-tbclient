@@ -17,7 +17,7 @@ public class ba<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> ba<T> cdL() {
+    public static <T> ba<T> cdK() {
         return (ba<T>) a.iGw;
     }
 

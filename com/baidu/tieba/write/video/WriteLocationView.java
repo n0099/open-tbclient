@@ -53,8 +53,8 @@ public class WriteLocationView extends LocationInfoView {
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
             public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
-                if (aVar != null && !StringUtils.isNull(aVar.bDU())) {
-                    WriteLocationView.this.c(2, true, aVar.bDU());
+                if (aVar != null && !StringUtils.isNull(aVar.bDT())) {
+                    WriteLocationView.this.c(2, true, aVar.bDT());
                 } else {
                     dj(null);
                 }
@@ -116,23 +116,23 @@ public class WriteLocationView extends LocationInfoView {
             c(0, true, null);
         } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
             MB();
-        } else if (this.aZQ.bEb()) {
+        } else if (this.aZQ.bEa()) {
             My();
         } else {
             this.aZQ.nx(false);
             c(1, true, null);
-            this.aZQ.bDZ();
+            this.aZQ.bDY();
         }
     }
 
     private void MC() {
         if (this.aZQ.alM() && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
-            if (this.aZQ.bEb()) {
-                c(2, true, c.bDX().getLocationData().bDU());
+            if (this.aZQ.bEa()) {
+                c(2, true, c.bDW().getLocationData().bDT());
                 return;
             }
             c(1, true, null);
-            this.aZQ.bDZ();
+            this.aZQ.bDY();
             return;
         }
         c(0, true, null);
@@ -162,7 +162,7 @@ public class WriteLocationView extends LocationInfoView {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void byW() {
+    public void byV() {
         if (this.aZQ != null) {
             this.aZQ.cancelLoadData();
         }

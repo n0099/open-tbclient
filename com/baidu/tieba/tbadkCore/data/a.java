@@ -12,7 +12,7 @@ public class a {
     private String mTitle;
     private int mWidth;
 
-    public String bCQ() {
+    public String bCP() {
         return this.hkE;
     }
 
@@ -24,7 +24,7 @@ public class a {
         return this.mHeight;
     }
 
-    public String bCR() {
+    public String bCQ() {
         return this.hkF;
     }
 

@@ -40,8 +40,8 @@ class f extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         try {
-            bID();
-            if (bIF()) {
+            bIC();
+            if (bIE()) {
                 com.baidu.adp.lib.g.e.jG().post(new Runnable() { // from class: com.baidu.tieba.video.editvideo.b.f.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -70,7 +70,7 @@ class f extends Thread {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void bID() throws Exception {
+    private void bIC() throws Exception {
         Throwable th;
         g gVar;
         MediaCodec mediaCodec;
@@ -86,7 +86,7 @@ class f extends Thread {
         MediaCodecInfo selectCodec = selectCodec("video/avc");
         if (selectCodec != null) {
             try {
-                mediaExtractor2 = bIE();
+                mediaExtractor2 = bID();
                 try {
                     MediaFormat trackFormat = mediaExtractor2.getTrackFormat(c(mediaExtractor2));
                     int integer = trackFormat.getInteger("width");
@@ -411,7 +411,7 @@ class f extends Thread {
         }
     }
 
-    private MediaExtractor bIE() throws IOException {
+    private MediaExtractor bID() throws IOException {
         MediaExtractor mediaExtractor = new MediaExtractor();
         mediaExtractor.setDataSource(this.hBN);
         return mediaExtractor;
@@ -467,8 +467,8 @@ class f extends Thread {
         MediaFormat mediaFormat2 = null;
         ByteBuffer[] byteBufferArr3 = outputBuffers2;
         boolean z7 = false;
-        while (!z4 && bIF()) {
-            if (z7 || !((mediaFormat2 == null || this.hBQ.isStarted()) && bIF())) {
+        while (!z4 && bIE()) {
+            if (z7 || !((mediaFormat2 == null || this.hBQ.isStarted()) && bIE())) {
                 z = z7;
             } else {
                 int dequeueInputBuffer = mediaCodec.dequeueInputBuffer(ErrDef.Feature.WEIGHT);
@@ -489,7 +489,7 @@ class f extends Thread {
                     }
                 }
             }
-            if (!z6 && ((mediaFormat2 == null || this.hBQ.isStarted()) && bIF())) {
+            if (!z6 && ((mediaFormat2 == null || this.hBQ.isStarted()) && bIE())) {
                 int dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, ErrDef.Feature.WEIGHT);
                 if (dequeueOutputBuffer == -1) {
                     z2 = z6;
@@ -511,8 +511,8 @@ class f extends Thread {
                         boolean z9 = bufferInfo.size != 0;
                         mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, z9);
                         if (z9) {
-                            hVar.bIK();
                             hVar.bIJ();
+                            hVar.bII();
                             gVar.setPresentationTime(bufferInfo.presentationTimeUs * 1000);
                             gVar.swapBuffers();
                         }
@@ -523,7 +523,7 @@ class f extends Thread {
                         }
                     }
                 }
-                if (z4 && ((mediaFormat2 == null || this.hBQ.isStarted()) && bIF())) {
+                if (z4 && ((mediaFormat2 == null || this.hBQ.isStarted()) && bIE())) {
                     int dequeueOutputBuffer2 = mediaCodec2.dequeueOutputBuffer(bufferInfo2, ErrDef.Feature.WEIGHT);
                     if (dequeueOutputBuffer2 == -1) {
                         mediaFormat = mediaFormat2;
@@ -568,7 +568,7 @@ class f extends Thread {
                     z3 = true;
                 }
                 if (!this.hBQ.isStarted() && z3) {
-                    this.hBQ.bIG();
+                    this.hBQ.bIF();
                     if (this.hBQ.start()) {
                         synchronized (this.hBQ) {
                             while (!this.hBQ.isStarted()) {
@@ -607,7 +607,7 @@ class f extends Thread {
             z3 = z5;
             i = i2;
             if (!this.hBQ.isStarted()) {
-                this.hBQ.bIG();
+                this.hBQ.bIF();
                 if (this.hBQ.start()) {
                 }
             }
@@ -621,7 +621,7 @@ class f extends Thread {
         }
     }
 
-    private boolean bIF() {
+    private boolean bIE() {
         return !Thread.currentThread().isInterrupted();
     }
 

@@ -8,7 +8,7 @@ public class c {
     private List<b> parent_menu = new ArrayList();
     private long update_time;
 
-    public boolean aQj() {
+    public boolean aQi() {
         return this.eNp == 1;
     }
 
@@ -24,7 +24,7 @@ public class c {
         this.update_time = j;
     }
 
-    public List<b> aQk() {
+    public List<b> aQj() {
         return this.parent_menu;
     }
 

@@ -29,7 +29,7 @@ public class ar<T> implements ai<T> {
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<T> jVar, aj ajVar) {
         boolean z;
-        ajVar.bYS().db(ajVar.getId(), "ThrottlingProducer");
+        ajVar.bYR().db(ajVar.getId(), "ThrottlingProducer");
         synchronized (this) {
             if (this.iru >= this.irt) {
                 this.irv.add(Pair.create(jVar, ajVar));
@@ -45,7 +45,7 @@ public class ar<T> implements ai<T> {
     }
 
     void g(j<T> jVar, aj ajVar) {
-        ajVar.bYS().a(ajVar.getId(), "ThrottlingProducer", null);
+        ajVar.bYR().a(ajVar.getId(), "ThrottlingProducer", null);
         this.ipF.a(new a(jVar), ajVar);
     }
 
@@ -58,25 +58,25 @@ public class ar<T> implements ai<T> {
 
         @Override // com.facebook.imagepipeline.producers.b
         protected void d(T t, boolean z) {
-            bZe().e(t, z);
+            bZd().e(t, z);
             if (z) {
-                bZC();
+                bZB();
             }
         }
 
         @Override // com.facebook.imagepipeline.producers.m, com.facebook.imagepipeline.producers.b
         protected void A(Throwable th) {
-            bZe().B(th);
-            bZC();
+            bZd().B(th);
+            bZB();
         }
 
         @Override // com.facebook.imagepipeline.producers.m, com.facebook.imagepipeline.producers.b
-        protected void bXM() {
-            bZe().bSZ();
-            bZC();
+        protected void bXL() {
+            bZd().bSY();
+            bZB();
         }
 
-        private void bZC() {
+        private void bZB() {
             final Pair pair;
             synchronized (ar.this) {
                 pair = (Pair) ar.this.irv.poll();

@@ -16,9 +16,9 @@ public class a extends com.baidu.tieba.homepage.a.a.a {
 
     private void update() {
         if (this.epP != null && this.epP.hasData()) {
-            List<ICardInfo> aZi = this.epP.aZi();
+            List<ICardInfo> aZh = this.epP.aZh();
             this.mThreadList = new ArrayList();
-            this.mThreadList.addAll(aZi);
+            this.mThreadList.addAll(aZh);
             this.mHasMore = this.epP.hasMore();
             this.pn = this.epP.getPn();
         }

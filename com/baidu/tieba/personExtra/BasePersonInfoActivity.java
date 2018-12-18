@@ -52,7 +52,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage.isSuccess()) {
                 if (httpResponsedMessage.getError() == 0) {
-                    com.baidu.tbadk.core.a.e.w(BasePersonInfoActivity.this.boW(), BasePersonInfoActivity.eWX[BasePersonInfoActivity.this.eWN]);
+                    com.baidu.tbadk.core.a.e.w(BasePersonInfoActivity.this.boV(), BasePersonInfoActivity.eWX[BasePersonInfoActivity.this.eWN]);
                     al.a(BasePersonInfoActivity.this.eWP, BasePersonInfoActivity.gsQ[BasePersonInfoActivity.this.eWN], BasePersonInfoActivity.eWU[BasePersonInfoActivity.this.eWN]);
                     BasePersonInfoActivity.this.showToastWithIcon(BasePersonInfoActivity.this.getPageContext().getString(BasePersonInfoActivity.eWW[BasePersonInfoActivity.this.eWN]), e.f.icon_toast_info);
                     return;
@@ -66,6 +66,8 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
 
     public abstract BasePersonInfoAdapter a(BasePersonInfoActivity basePersonInfoActivity, boolean z);
 
+    public abstract String boM();
+
     public abstract String boN();
 
     public abstract String boO();
@@ -74,11 +76,9 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
 
     public abstract String boQ();
 
-    public abstract String boR();
+    public abstract String boU();
 
-    public abstract String boV();
-
-    public abstract int boW();
+    public abstract int boV();
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
@@ -139,7 +139,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
                 this.mNavigationBar.setCenterTextTitle(getPageContext().getString(e.j.share_choose_bar_title));
             }
         } else {
-            this.mNavigationBar.setCenterTextTitle(String.format(boN(), this.eWO));
+            this.mNavigationBar.setCenterTextTitle(String.format(boM(), this.eWO));
         }
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.BasePersonInfoActivity.1
@@ -154,13 +154,13 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         });
         if (this.mIsHost && this.eWS != 23003 && !this.gsO) {
             this.eWP = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.widget_nb_item_privacy, (View.OnClickListener) null);
-            al.a(this.eWP, gsQ[com.baidu.tbadk.core.a.e.cz(boW()) - 1], eWU[com.baidu.tbadk.core.a.e.cz(boW()) - 1]);
+            al.a(this.eWP, gsQ[com.baidu.tbadk.core.a.e.cz(boV()) - 1], eWU[com.baidu.tbadk.core.a.e.cz(boV()) - 1]);
             this.eWP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.BasePersonInfoActivity.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    BasePersonInfoActivity.this.eWN = com.baidu.tbadk.core.a.e.cz(BasePersonInfoActivity.this.boW()) % 3;
+                    BasePersonInfoActivity.this.eWN = com.baidu.tbadk.core.a.e.cz(BasePersonInfoActivity.this.boV()) % 3;
                     String str = "";
-                    switch (BasePersonInfoActivity.this.boW()) {
+                    switch (BasePersonInfoActivity.this.boV()) {
                         case 2:
                             str = "like";
                             break;
@@ -201,12 +201,12 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             for (int i2 = 0; i2 < i; i2++) {
                 Fragment item = this.gsR.getItem(i2);
                 int qp = this.gsR.qp(i2);
-                String boO = boO();
+                String boN = boN();
                 if (qp == 1) {
-                    boO = boP();
+                    boN = boO();
                 }
                 if (item != null) {
-                    a(item, qp, boO);
+                    a(item, qp, boN);
                 }
             }
             this.mTabHost.dw(3);
@@ -236,15 +236,15 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         if (!this.mIsHost && this.gsR != null) {
             FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.mTabHost.dz(0).azy;
             if (i <= 0) {
-                fragmentTabIndicator.setText(boO());
+                fragmentTabIndicator.setText(boN());
             } else {
-                fragmentTabIndicator.setText(String.format(boQ(), Integer.valueOf(i)));
+                fragmentTabIndicator.setText(String.format(boP(), Integer.valueOf(i)));
             }
             FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.mTabHost.dz(1).azy;
             if (i2 <= 0) {
-                fragmentTabIndicator2.setText(boP());
+                fragmentTabIndicator2.setText(boO());
             } else {
-                fragmentTabIndicator2.setText(String.format(boR(), Integer.valueOf(i2)));
+                fragmentTabIndicator2.setText(String.format(boQ(), Integer.valueOf(i2)));
             }
         }
     }
@@ -257,27 +257,27 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         return this.mSex;
     }
 
-    public String aTB() {
+    public String aTA() {
         return this.eWO;
     }
 
-    public boolean aTC() {
+    public boolean aTB() {
         return this.mIsHost;
     }
 
-    public boolean boS() {
+    public boolean boR() {
         return this.gsO;
     }
 
-    public int aTA() {
+    public int aTz() {
         return this.bZF == 0 ? 0 : 1;
     }
 
-    public int boT() {
+    public int boS() {
         return this.gsN;
     }
 
-    public String boU() {
+    public String boT() {
         return this.gsP;
     }
 
@@ -317,7 +317,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         if (i >= 0 && i < 2 && i != this.bZF) {
             this.bZF = i;
             if (!this.mIsHost && this.eWM[i] == 1) {
-                TiebaStatic.eventStat(getPageContext().getContext(), boV(), AiAppsUBCStatistic.TYPE_CLICK, 1, new Object[0]);
+                TiebaStatic.eventStat(getPageContext().getContext(), boU(), AiAppsUBCStatistic.TYPE_CLICK, 1, new Object[0]);
             }
         }
     }

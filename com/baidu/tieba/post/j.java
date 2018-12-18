@@ -14,7 +14,7 @@ public class j implements com.baidu.tieba.j.h {
         private static final com.baidu.tieba.j.h gGL = new j();
     }
 
-    public static com.baidu.tieba.j.h bsF() {
+    public static com.baidu.tieba.j.h bsE() {
         return a.gGL;
     }
 
@@ -23,44 +23,44 @@ public class j implements com.baidu.tieba.j.h {
     }
 
     @Override // com.baidu.tieba.j.h
-    public void bcq() {
+    public void bcp() {
         this.fEi = UUID.randomUUID().toString();
     }
 
     @Override // com.baidu.tieba.j.h
     public void X(int i, String str) {
-        bsG().h(this.fEi, i, str);
+        bsF().h(this.fEi, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
     public void Y(int i, String str) {
-        bsG().i(this.fEi, i, str);
+        bsF().i(this.fEi, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
     public void Z(int i, String str) {
-        bsG().j(this.fEi, i, str);
+        bsF().j(this.fEi, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
-    public void bcr() {
-        bsG().rW(this.fEi);
+    public void bcq() {
+        bsF().rW(this.fEi);
     }
 
     @Override // com.baidu.tieba.j.h
     public void e(int i, int i2, String str) {
-        bsG().e(this.fEi, i, i2, str);
+        bsF().e(this.fEi, i, i2, str);
     }
 
     @Override // com.baidu.tieba.j.h
-    public void bcs() {
-        bsG().rX(this.fEi);
+    public void bcr() {
+        bsF().rX(this.fEi);
         ds(this.fEi);
     }
 
     @Override // com.baidu.tieba.j.h
     public void aa(int i, String str) {
-        bsG().k(this.fEi, i, str);
+        bsF().k(this.fEi, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
@@ -72,20 +72,20 @@ public class j implements com.baidu.tieba.j.h {
                 com.baidu.tieba.j.d.rV(this.fEj);
                 this.bJa.remove(this.fEi);
             }
-            bcq();
-            bsG().cg(this.fEj, str);
+            bcp();
+            bsF().cg(this.fEj, str);
             this.fEj = null;
         }
     }
 
     @Override // com.baidu.tieba.j.h
-    public void bct() {
+    public void bcs() {
         this.fEj = this.fEi;
     }
 
     @Override // com.baidu.tieba.j.h
     public void sb(String str) {
-        bsG().ch(this.fEi, str);
+        bsF().ch(this.fEi, str);
         if (rY(this.fEi) || rZ(this.fEi)) {
             ds(this.fEi);
         } else {
@@ -96,11 +96,11 @@ public class j implements com.baidu.tieba.j.h {
     }
 
     public boolean rY(String str) {
-        return bsG().rY(str);
+        return bsF().rY(str);
     }
 
     public boolean rZ(String str) {
-        return bsG().rZ(str);
+        return bsF().rZ(str);
     }
 
     public void ds(String str) {
@@ -111,15 +111,15 @@ public class j implements com.baidu.tieba.j.h {
         }
     }
 
-    private com.baidu.tieba.j.f bsG() {
+    private com.baidu.tieba.j.f bsF() {
         com.baidu.tieba.j.f fVar = this.bJa.get(this.fEi);
         if (fVar == null) {
-            return bsH();
+            return bsG();
         }
         return fVar;
     }
 
-    private com.baidu.tieba.j.f bsH() {
+    private com.baidu.tieba.j.f bsG() {
         i iVar = new i(this.fEi);
         this.bJa.put(this.fEi, iVar);
         return iVar;

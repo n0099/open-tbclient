@@ -33,7 +33,7 @@ public class StatFsHelper {
         EXTERNAL
     }
 
-    public static synchronized StatFsHelper bTx() {
+    public static synchronized StatFsHelper bTw() {
         StatFsHelper statFsHelper;
         synchronized (StatFsHelper.class) {
             if (igs == null) {
@@ -47,14 +47,14 @@ public class StatFsHelper {
     protected StatFsHelper() {
     }
 
-    private void bTy() {
+    private void bTx() {
         if (!this.ifo) {
             this.igz.lock();
             try {
                 if (!this.ifo) {
                     this.igv = Environment.getDataDirectory();
                     this.igx = Environment.getExternalStorageDirectory();
-                    bTA();
+                    bTz();
                     this.ifo = true;
                 }
             } finally {
@@ -64,7 +64,7 @@ public class StatFsHelper {
     }
 
     public boolean a(StorageType storageType, long j) {
-        bTy();
+        bTx();
         long a = a(storageType);
         return a <= 0 || a < j;
     }
@@ -73,8 +73,8 @@ public class StatFsHelper {
     public long a(StorageType storageType) {
         long blockSize;
         long availableBlocks;
+        bTx();
         bTy();
-        bTz();
         StatFs statFs = storageType == StorageType.INTERNAL ? this.igu : this.igw;
         if (statFs != null) {
             if (Build.VERSION.SDK_INT >= 18) {
@@ -89,11 +89,11 @@ public class StatFsHelper {
         return 0L;
     }
 
-    private void bTz() {
+    private void bTy() {
         if (this.igz.tryLock()) {
             try {
                 if (SystemClock.uptimeMillis() - this.igy > igt) {
-                    bTA();
+                    bTz();
                 }
             } finally {
                 this.igz.unlock();
@@ -102,7 +102,7 @@ public class StatFsHelper {
     }
 
     @GuardedBy("lock")
-    private void bTA() {
+    private void bTz() {
         this.igu = a(this.igu, this.igv);
         this.igw = a(this.igw, this.igx);
         this.igy = SystemClock.uptimeMillis();

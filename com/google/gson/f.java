@@ -20,17 +20,17 @@ public final class f extends i implements Iterable<i> {
     }
 
     @Override // com.google.gson.i
-    public Number cac() {
+    public Number cab() {
         if (this.itc.size() == 1) {
-            return this.itc.get(0).cac();
+            return this.itc.get(0).cab();
         }
         throw new IllegalStateException();
     }
 
     @Override // com.google.gson.i
-    public String cad() {
+    public String cac() {
         if (this.itc.size() == 1) {
-            return this.itc.get(0).cad();
+            return this.itc.get(0).cac();
         }
         throw new IllegalStateException();
     }

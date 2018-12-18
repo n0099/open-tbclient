@@ -39,7 +39,7 @@ public class e {
         String str2;
         String str3;
         if (forumWriteData != null && tbPageContext != null) {
-            if (bNf()) {
+            if (bNe()) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new RecordVideoActivityConfig(tbPageContext.getPageActivity(), 1, forumWriteData, null, str, 0)));
             } else if (XiaoyingUtil.isXiaoyingInstalled()) {
                 if (XiaoyingUtil.isXiaoyingForbidden()) {
@@ -155,7 +155,7 @@ public class e {
         return cVar;
     }
 
-    public static boolean bNf() {
+    public static boolean bNe() {
         return com.baidu.adp.lib.b.d.iQ().aO("add_video_thread_switch") != 1;
     }
 }

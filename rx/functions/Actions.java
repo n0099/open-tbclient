@@ -5,7 +5,7 @@ import rx.exceptions.OnErrorNotImplementedException;
 public final class Actions {
     private static final b iBr = new b();
 
-    public static <T0, T1, T2, T3, T4, T5, T6, T7, T8> b<T0, T1, T2, T3, T4, T5, T6, T7, T8> cdb() {
+    public static <T0, T1, T2, T3, T4, T5, T6, T7, T8> b<T0, T1, T2, T3, T4, T5, T6, T7, T8> cda() {
         return iBr;
     }
 
@@ -59,7 +59,7 @@ public final class Actions {
         }
     }
 
-    public static rx.functions.b<Throwable> cdc() {
+    public static rx.functions.b<Throwable> cdb() {
         return NotImplemented.INSTANCE;
     }
 }

@@ -6,7 +6,7 @@ final class i extends h {
     private i() {
     }
 
-    public static h cfe() {
+    public static h cfd() {
         return iNS;
     }
 }

@@ -127,7 +127,7 @@ public class d extends BaseAdapter {
         }
     }
 
-    public void bex() {
+    public void bew() {
         new BdAsyncTask<Void, Void, Boolean>() { // from class: com.baidu.tieba.pb.pb.main.emotion.d.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */

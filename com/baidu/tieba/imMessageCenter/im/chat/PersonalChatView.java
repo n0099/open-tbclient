@@ -37,7 +37,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
                 PersonalChatView.this.fbe.showToast(e.j.add_friend_cannot_send);
             }
         };
-        if (!this.fbe.aUL() && this.mTool != null) {
+        if (!this.fbe.aUK() && this.mTool != null) {
             b(this.mTool.fH(6));
             b(this.mTool.fH(2));
         }
@@ -54,7 +54,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
             this.eHf = (TextView) this.mBtnGroupInfo.findViewById(e.g.group_info_btn_txt);
             this.eHf.setText(string);
         }
-        if (!this.fbe.aUL()) {
+        if (!this.fbe.aUK()) {
             this.fbf = (LinearLayout) ((ViewStub) talkableActivity.findViewById(e.g.stranger_person_add_friend_stub)).inflate();
             this.fbg = (LinearLayout) this.fbf.findViewById(e.g.add_friend_tip_full);
             this.fbh = (TextView) this.fbf.findViewById(e.g.add_friend_tip_title);
@@ -82,7 +82,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         }
     }
 
-    private void aUN() {
+    private void aUM() {
         if (this.mTool != null) {
             this.mTool.Mg();
         }
@@ -92,7 +92,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         this.fbf.setVisibility(0);
         switch (cardStatus) {
             case APPLY:
-                aUO();
+                aUN();
                 return;
             case WAIT:
                 iX(z);
@@ -112,7 +112,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         }
     }
 
-    private void aUO() {
+    private void aUN() {
         this.fbf.setVisibility(8);
         this.fbg.setVisibility(0);
         this.fbj.setVisibility(8);
@@ -122,7 +122,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     }
 
     private void iX(boolean z) {
-        if (this.fbe.aUJ().aVv() == PersonalMsglistModel.CardStatus.WAIT && z) {
+        if (this.fbe.aUI().aVu() == PersonalMsglistModel.CardStatus.WAIT && z) {
             final TranslateAnimation translateAnimation = new TranslateAnimation(2, 0.0f, 2, 0.0f, 1, 1.0f, 1, 0.0f);
             translateAnimation.setDuration(400L);
             translateAnimation.setFillAfter(true);
@@ -179,7 +179,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     }
 
     private void i(boolean z, final String str) {
-        final String name_show = this.fbe.aUJ().getUser().getName_show();
+        final String name_show = this.fbe.aUI().getUser().getName_show();
         this.fbj.setVisibility(8);
         if (z) {
             final TranslateAnimation translateAnimation = new TranslateAnimation(2, 0.0f, 2, 0.0f, 2, 1.0f, 1, 0.0f);
@@ -216,7 +216,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     }
 
     private void iY(boolean z) {
-        aUN();
+        aUM();
         if (z) {
             TranslateAnimation translateAnimation = new TranslateAnimation(2, 0.0f, 2, 0.0f, 2, 0.0f, 2, -1.0f);
             translateAnimation.setDuration(500L);
@@ -241,7 +241,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         this.fbf.setVisibility(8);
     }
 
-    public Button aUP() {
+    public Button aUO() {
         return this.fbk;
     }
 

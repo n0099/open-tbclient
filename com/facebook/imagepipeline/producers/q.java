@@ -16,7 +16,7 @@ public class q extends ad<Pair<com.facebook.cache.common.b, ImageRequest.Request
     @Override // com.facebook.imagepipeline.producers.ad
     /* renamed from: a */
     public Pair<com.facebook.cache.common.b, ImageRequest.RequestLevel> b(aj ajVar) {
-        return Pair.create(this.imn.c(ajVar.bYR(), ajVar.bUu()), ajVar.bYT());
+        return Pair.create(this.imn.c(ajVar.bYQ(), ajVar.bUt()), ajVar.bYS());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

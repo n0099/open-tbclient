@@ -47,11 +47,11 @@ public class a {
         }
     };
 
-    public int bdj() {
+    public int bdi() {
         return this.fGG;
     }
 
-    public Fragment bdk() {
+    public Fragment bdj() {
         return this.fGH;
     }
 
@@ -86,7 +86,7 @@ public class a {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public TextView bdl() {
+    public TextView bdk() {
         return this.fGE;
     }
 
@@ -114,7 +114,7 @@ public class a {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2022208, bundle));
     }
 
-    public boolean bdm() {
+    public boolean bdl() {
         return this.fGK;
     }
 

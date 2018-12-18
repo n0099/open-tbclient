@@ -16,9 +16,9 @@ public class ImageRequestBuilder {
     private com.facebook.imagepipeline.common.c ilm = null;
     @Nullable
     private com.facebook.imagepipeline.common.d iln = null;
-    private com.facebook.imagepipeline.common.a ilo = com.facebook.imagepipeline.common.a.bWd();
+    private com.facebook.imagepipeline.common.a ilo = com.facebook.imagepipeline.common.a.bWc();
     private ImageRequest.CacheChoice irF = ImageRequest.CacheChoice.DEFAULT;
-    private boolean inz = h.bWC().bWW();
+    private boolean inz = h.bWB().bWV();
     private boolean irK = false;
     private Priority irL = Priority.HIGH;
     @Nullable
@@ -40,21 +40,21 @@ public class ImageRequestBuilder {
         return this;
     }
 
-    public Uri bZE() {
+    public Uri bZD() {
         return this.irG;
     }
 
     @Nullable
-    public a bZG() {
+    public a bZF() {
         return this.irI;
     }
 
-    public ImageRequest.RequestLevel bYT() {
+    public ImageRequest.RequestLevel bYS() {
         return this.ipJ;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.c bZH() {
+    public com.facebook.imagepipeline.common.c bZG() {
         return this.ilm;
     }
 
@@ -64,45 +64,45 @@ public class ImageRequestBuilder {
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.d bZI() {
+    public com.facebook.imagepipeline.common.d bZH() {
         return this.iln;
     }
 
-    public com.facebook.imagepipeline.common.a bZJ() {
+    public com.facebook.imagepipeline.common.a bZI() {
         return this.ilo;
     }
 
-    public ImageRequest.CacheChoice bZD() {
+    public ImageRequest.CacheChoice bZC() {
         return this.irF;
     }
 
-    public boolean bWW() {
+    public boolean bWV() {
         return this.inz;
     }
 
-    public boolean bZQ() {
+    public boolean bZP() {
         return this.irK;
     }
 
-    public boolean bZM() {
+    public boolean bZL() {
         return this.irN && com.facebook.common.util.d.k(this.irG);
     }
 
-    public Priority bZR() {
+    public Priority bZQ() {
         return this.irL;
     }
 
     @Nullable
-    public b bZO() {
+    public b bZN() {
         return this.ira;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.g.b bZP() {
+    public com.facebook.imagepipeline.g.b bZO() {
         return this.imT;
     }
 
-    public ImageRequest bZS() {
+    public ImageRequest bZR() {
         validate();
         return new ImageRequest(this);
     }

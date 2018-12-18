@@ -150,7 +150,7 @@ public class c extends com.baidu.adp.base.c {
             }
 
             @Override // com.baidu.tieba.video.commonview.ExpandViewRelativeLayout.a
-            public void bIk() {
+            public void bIj() {
                 if (c.this.hEX.getTop() > c.this.hFh / 2) {
                     c.this.hFn = true;
                     c.this.hEZ.start();
@@ -212,7 +212,7 @@ public class c extends com.baidu.adp.base.c {
         this.hFi = l.h(this.hET, e.C0210e.ds902);
     }
 
-    public boolean bJv() {
+    public boolean bJu() {
         return this.hFm;
     }
 
@@ -235,7 +235,7 @@ public class c extends com.baidu.adp.base.c {
             }
             if (this.hEY != null) {
                 this.hEY.setData(list);
-                bJD();
+                bJC();
                 return;
             }
             return;
@@ -243,7 +243,7 @@ public class c extends com.baidu.adp.base.c {
         l.showToast(TbadkCoreApplication.getInst(), e.j.no_local_video_tip);
     }
 
-    public void bJw() {
+    public void bJv() {
         com.baidu.tbadk.core.dialog.a a = new com.baidu.tbadk.core.dialog.a(this.hET).da(e.j.mv_local_video_too_long).a(e.j.group_create_private_isee, new a.b() { // from class: com.baidu.tieba.video.localvideo.c.5
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -287,21 +287,21 @@ public class c extends com.baidu.adp.base.c {
         }
     }
 
-    public TextView bJx() {
+    public TextView bJw() {
         return this.dUw;
     }
 
-    public TextView bJy() {
+    public TextView bJx() {
         return this.hFa;
     }
 
-    public void bJz() {
+    public void bJy() {
         if (this.hEZ != null && !StringUtils.isNull(this.hFb)) {
             this.hEZ.start();
         }
     }
 
-    public void bJA() {
+    public void bJz() {
         if (this.hEZ != null && !StringUtils.isNull(this.hFb)) {
             this.hEZ.resume();
             this.hEZ.seekTo(this.hFj);
@@ -325,15 +325,15 @@ public class c extends com.baidu.adp.base.c {
         }
     }
 
-    public String bJB() {
+    public String bJA() {
         return this.hFb;
     }
 
-    public d bJC() {
+    public d bJB() {
         return this.hFk;
     }
 
-    private void bJD() {
+    private void bJC() {
         if (!v.I(this.hFl)) {
             new BdAsyncTask<Void, Integer, Void>() { // from class: com.baidu.tieba.video.localvideo.c.6
                 /* JADX DEBUG: Method merged with bridge method */

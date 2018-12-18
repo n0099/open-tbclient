@@ -32,19 +32,19 @@ public class b {
         this.ieS = aVar.ieZ;
         this.ieT = (g) com.facebook.common.internal.g.checkNotNull(aVar.ieT);
         if (aVar.ieE == null) {
-            cacheErrorLogger = com.facebook.cache.common.e.bSs();
+            cacheErrorLogger = com.facebook.cache.common.e.bSr();
         } else {
             cacheErrorLogger = aVar.ieE;
         }
         this.ieE = cacheErrorLogger;
         if (aVar.ieU == null) {
-            cacheEventListener = com.facebook.cache.common.f.bSt();
+            cacheEventListener = com.facebook.cache.common.f.bSs();
         } else {
             cacheEventListener = aVar.ieU;
         }
         this.ieU = cacheEventListener;
         if (aVar.ieV == null) {
-            bVar = com.facebook.common.a.c.bSW();
+            bVar = com.facebook.common.a.c.bSV();
         } else {
             bVar = aVar.ieV;
         }
@@ -57,39 +57,39 @@ public class b {
         return this.vz;
     }
 
-    public String bSB() {
+    public String bSA() {
         return this.ieO;
     }
 
-    public com.facebook.common.internal.i<File> bSC() {
+    public com.facebook.common.internal.i<File> bSB() {
         return this.ieP;
     }
 
-    public long bSD() {
+    public long bSC() {
         return this.ieQ;
     }
 
-    public long bSE() {
+    public long bSD() {
         return this.ieR;
     }
 
-    public long bSF() {
+    public long bSE() {
         return this.ieS;
     }
 
-    public g bSG() {
+    public g bSF() {
         return this.ieT;
     }
 
-    public CacheErrorLogger bSH() {
+    public CacheErrorLogger bSG() {
         return this.ieE;
     }
 
-    public CacheEventListener bSI() {
+    public CacheEventListener bSH() {
         return this.ieU;
     }
 
-    public com.facebook.common.a.b bSJ() {
+    public com.facebook.common.a.b bSI() {
         return this.ieV;
     }
 
@@ -97,7 +97,7 @@ public class b {
         return this.mContext;
     }
 
-    public boolean bSK() {
+    public boolean bSJ() {
         return this.ieW;
     }
 
@@ -131,13 +131,13 @@ public class b {
             this.mContext = context;
         }
 
-        public b bSL() {
+        public b bSK() {
             com.facebook.common.internal.g.c((this.ieP == null && this.mContext == null) ? false : true, "Either a non-null context or a base directory path or supplier must be provided.");
             if (this.ieP == null && this.mContext != null) {
                 this.ieP = new com.facebook.common.internal.i<File>() { // from class: com.facebook.cache.disk.b.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.facebook.common.internal.i
-                    /* renamed from: bSM */
+                    /* renamed from: bSL */
                     public File get() {
                         return a.this.mContext.getApplicationContext().getCacheDir();
                     }

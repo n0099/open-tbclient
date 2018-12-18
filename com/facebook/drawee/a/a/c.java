@@ -38,15 +38,15 @@ public class c {
         SimpleDraweeView.initialize(ihq);
     }
 
-    public static e bTV() {
+    public static e bTU() {
         return ihq.get();
     }
 
-    public static j bTW() {
-        return j.bXh();
+    public static j bTV() {
+        return j.bXg();
     }
 
-    public static com.facebook.imagepipeline.d.g bTX() {
-        return bTW().bTX();
+    public static com.facebook.imagepipeline.d.g bTW() {
+        return bTV().bTW();
     }
 }

@@ -49,7 +49,7 @@ public class e {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && e.this.dJC != null && e.this.dJC.aAD() != null && e.this.dJC.aAD().aFM() != null) {
                 String str = (String) customResponsedMessage.getData();
-                e.this.g(str, e.this.dJC.aAD().aFM().bgi().getBannerListData().getAllAdvertList());
+                e.this.g(str, e.this.dJC.aAD().aFM().bgh().getBannerListData().getAllAdvertList());
                 e.this.h(str, e.this.dJC.aAI().getListView().getData());
                 e.this.h(str, e.this.dJC.aAE().aGg().getDataList());
                 e.this.dJC.aAD().oD(str);

@@ -30,7 +30,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCen
         return aVar.getView();
     }
 
-    public void boB() {
+    public void boA() {
     }
 
     public void destroy() {

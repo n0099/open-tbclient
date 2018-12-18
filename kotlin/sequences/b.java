@@ -24,7 +24,7 @@ public final class b<T> implements c<T> {
         a() {
         }
 
-        private final void cbY() {
+        private final void cbX() {
             T t;
             if (this.iyG == -2) {
                 t = (T) b.this.iyI.invoke();
@@ -32,7 +32,7 @@ public final class b<T> implements c<T> {
                 kotlin.jvm.a.b bVar = b.this.iyJ;
                 T t2 = this.GE;
                 if (t2 == null) {
-                    p.cbO();
+                    p.cbN();
                 }
                 t = (T) bVar.invoke(t2);
             }
@@ -43,7 +43,7 @@ public final class b<T> implements c<T> {
         @Override // java.util.Iterator
         public T next() {
             if (this.iyG < 0) {
-                cbY();
+                cbX();
             }
             if (this.iyG == 0) {
                 throw new NoSuchElementException();
@@ -59,7 +59,7 @@ public final class b<T> implements c<T> {
         @Override // java.util.Iterator
         public boolean hasNext() {
             if (this.iyG < 0) {
-                cbY();
+                cbX();
             }
             return this.iyG == 1;
         }

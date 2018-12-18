@@ -22,13 +22,13 @@ public class h {
                     h.this.gGp = null;
                 }
                 if (h.this.gGv != null) {
-                    h.this.gGv.bsr();
+                    h.this.gGv.bsq();
                 }
             }
         }
     };
 
-    public BdTypeListView bsD() {
+    public BdTypeListView bsC() {
         return this.gGI;
     }
 
@@ -39,7 +39,7 @@ public class h {
         this.gGI = (BdTypeListView) view.findViewById(e.g.list);
     }
 
-    public d bsE() {
+    public d bsD() {
         return this.gGv;
     }
 

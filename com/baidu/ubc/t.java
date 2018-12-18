@@ -20,7 +20,7 @@ class t {
         this.mDataArray.put(jSONObject);
     }
 
-    public final SparseArray<Integer> bRx() {
+    public final SparseArray<Integer> bRw() {
         return this.ich;
     }
 
@@ -28,7 +28,7 @@ class t {
         this.ich.put(i, Integer.valueOf(i2));
     }
 
-    public final ArrayList bRy() {
+    public final ArrayList bRx() {
         return this.ici;
     }
 
@@ -55,7 +55,7 @@ class t {
         return this.mDataArray.length() == 0;
     }
 
-    public JSONObject bRz() {
+    public JSONObject bRy() {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
@@ -86,23 +86,23 @@ class t {
         this.ibK = str;
     }
 
-    public String bRA() {
+    public String bRz() {
         return this.ibK;
     }
 
-    public long bRB() {
+    public long bRA() {
         return this.icj;
     }
 
-    public long bRC() {
+    public long bRB() {
         return this.dfz;
     }
 
-    public JSONArray bRD() {
+    public JSONArray bRC() {
         return this.mDataArray;
     }
 
-    public boolean bRE() {
+    public boolean bRD() {
         return this.ick;
     }
 

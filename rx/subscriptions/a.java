@@ -19,7 +19,7 @@ public final class a implements k {
         this.iOx = new AtomicReference<>(aVar);
     }
 
-    public static a cfn() {
+    public static a cfm() {
         return new a();
     }
 

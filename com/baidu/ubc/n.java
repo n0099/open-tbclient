@@ -20,7 +20,7 @@ class n {
         this.ibX = jSONObject;
     }
 
-    public String bRl() {
+    public String bRk() {
         return this.ibW;
     }
 
@@ -28,15 +28,15 @@ class n {
         return this.mThreshold;
     }
 
-    public int bRm() {
+    public int bRl() {
         return this.ibV;
     }
 
-    public List<h> bRn() {
+    public List<h> bRm() {
         return this.ibY;
     }
 
-    public boolean bRo() {
+    public boolean bRn() {
         try {
             JSONObject jSONObject = this.ibX;
             this.mThreshold = jSONObject.getInt("threshold");

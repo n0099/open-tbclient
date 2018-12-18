@@ -35,11 +35,11 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
         this.eHQ = bVar;
     }
 
-    private void aOl() {
+    private void aOk() {
         this.eHW = System.currentTimeMillis() / 1000;
     }
 
-    public boolean aOm() {
+    public boolean aOl() {
         return this.eHX;
     }
 
@@ -47,7 +47,7 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
         this.eHX = z;
     }
 
-    public boolean aOn() {
+    public boolean aOm() {
         return this.eHY;
     }
 
@@ -67,7 +67,7 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        aOl();
+        aOk();
         return view;
     }
 
@@ -80,7 +80,7 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
             this.eIa = t;
         }
 
-        public T aOo() {
+        public T aOn() {
             return this.eIa;
         }
     }

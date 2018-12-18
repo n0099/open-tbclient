@@ -512,7 +512,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements Naviga
             this.dYd.onDestroy();
         }
         if (this.jsBridge != null) {
-            this.jsBridge.bDT();
+            this.jsBridge.bDS();
         }
         if (this.bZQ != null) {
             this.bZQ.getSettings().setBuiltInZoomControls(true);

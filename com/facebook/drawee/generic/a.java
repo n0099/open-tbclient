@@ -27,33 +27,33 @@ public class a implements com.facebook.drawee.d.c {
     public a(b bVar) {
         int i = 0;
         this.mResources = bVar.getResources();
-        this.ijR = bVar.bVm();
-        int size = (bVar.bVk() != null ? bVar.bVk().size() : 1) + (bVar.bVl() != null ? 1 : 0);
+        this.ijR = bVar.bVl();
+        int size = (bVar.bVj() != null ? bVar.bVj().size() : 1) + (bVar.bVk() != null ? 1 : 0);
         Drawable[] drawableArr = new Drawable[size + 6];
         drawableArr[0] = a(bVar.getBackground(), null);
-        drawableArr[1] = a(bVar.bUY(), bVar.bUZ());
-        drawableArr[2] = a(this.ijU, bVar.bVg(), bVar.bVi(), bVar.bVh(), bVar.bVj());
-        drawableArr[3] = a(bVar.bVe(), bVar.bVf());
-        drawableArr[4] = a(bVar.bVa(), bVar.bVb());
-        drawableArr[5] = a(bVar.bVc(), bVar.bVd());
+        drawableArr[1] = a(bVar.bUX(), bVar.bUY());
+        drawableArr[2] = a(this.ijU, bVar.bVf(), bVar.bVh(), bVar.bVg(), bVar.bVi());
+        drawableArr[3] = a(bVar.bVd(), bVar.bVe());
+        drawableArr[4] = a(bVar.bUZ(), bVar.bVa());
+        drawableArr[5] = a(bVar.bVb(), bVar.bVc());
         if (size > 0) {
-            if (bVar.bVk() != null) {
-                for (Drawable drawable : bVar.bVk()) {
+            if (bVar.bVj() != null) {
+                for (Drawable drawable : bVar.bVj()) {
                     drawableArr[i + 6] = a(drawable, null);
                     i++;
                 }
             } else {
                 i = 1;
             }
-            if (bVar.bVl() != null) {
-                drawableArr[i + 6] = a(bVar.bVl(), null);
+            if (bVar.bVk() != null) {
+                drawableArr[i + 6] = a(bVar.bVk(), null);
             }
         }
         this.ijT = new f(drawableArr);
-        this.ijT.yc(bVar.bUW());
+        this.ijT.yc(bVar.bUV());
         this.ijS = new d(e.a(this.ijT, this.ijR));
         this.ijS.mutate();
-        bUU();
+        bUT();
     }
 
     @Nullable
@@ -67,22 +67,22 @@ public class a implements com.facebook.drawee.d.c {
         return e.b(e.a(drawable, this.ijR, this.mResources), bVar);
     }
 
-    private void bUT() {
+    private void bUS() {
         this.ijU.h(this.ijQ);
     }
 
-    private void bUU() {
+    private void bUT() {
         if (this.ijT != null) {
-            this.ijT.bUI();
-            this.ijT.bUK();
-            bUV();
-            yd(1);
-            this.ijT.bUL();
+            this.ijT.bUH();
             this.ijT.bUJ();
+            bUU();
+            yd(1);
+            this.ijT.bUK();
+            this.ijT.bUI();
         }
     }
 
-    private void bUV() {
+    private void bUU() {
         ye(1);
         ye(2);
         ye(3);
@@ -127,8 +127,8 @@ public class a implements com.facebook.drawee.d.c {
 
     @Override // com.facebook.drawee.d.c
     public void reset() {
+        bUS();
         bUT();
-        bUU();
     }
 
     @Override // com.facebook.drawee.d.c
@@ -136,50 +136,50 @@ public class a implements com.facebook.drawee.d.c {
         Drawable a = e.a(drawable, this.ijR, this.mResources);
         a.mutate();
         this.ijU.h(a);
-        this.ijT.bUI();
-        bUV();
+        this.ijT.bUH();
+        bUU();
         yd(2);
         setProgress(f);
         if (z) {
-            this.ijT.bUL();
+            this.ijT.bUK();
         }
-        this.ijT.bUJ();
+        this.ijT.bUI();
     }
 
     @Override // com.facebook.drawee.d.c
     public void d(float f, boolean z) {
         if (this.ijT.getDrawable(3) != null) {
-            this.ijT.bUI();
+            this.ijT.bUH();
             setProgress(f);
             if (z) {
-                this.ijT.bUL();
+                this.ijT.bUK();
             }
-            this.ijT.bUJ();
+            this.ijT.bUI();
         }
     }
 
     @Override // com.facebook.drawee.d.c
     public void y(Throwable th) {
-        this.ijT.bUI();
-        bUV();
+        this.ijT.bUH();
+        bUU();
         if (this.ijT.getDrawable(5) != null) {
             yd(5);
         } else {
             yd(1);
         }
-        this.ijT.bUJ();
+        this.ijT.bUI();
     }
 
     @Override // com.facebook.drawee.d.c
     public void z(Throwable th) {
-        this.ijT.bUI();
-        bUV();
+        this.ijT.bUH();
+        bUU();
         if (this.ijT.getDrawable(4) != null) {
             yd(4);
         } else {
             yd(1);
         }
-        this.ijT.bUJ();
+        this.ijT.bUI();
     }
 
     @Override // com.facebook.drawee.d.c

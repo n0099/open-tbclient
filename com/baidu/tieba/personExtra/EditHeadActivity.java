@@ -130,7 +130,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             } else {
                 TiebaPrepareImageService.StartService(this.eWS, null, aq.DR().DX(), 0, stringExtra);
             }
-            aNK();
+            aNJ();
         } else {
             initUI();
             initData();
@@ -146,10 +146,10 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
     @SuppressLint({"ResourceAsColor"})
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        bpa();
+        boZ();
     }
 
-    private void bpa() {
+    private void boZ() {
         al.j(this.mNavigationBar, e.d.common_color_10222);
         getLayoutMode().onModeChanged(this.gtd);
         getLayoutMode().onModeChanged(this.gte);
@@ -164,10 +164,10 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             this.gtj.cancel();
         }
         this.gsZ.setImageDrawable(null);
-        bpb();
+        bpa();
     }
 
-    private void bpb() {
+    private void bpa() {
         if (this.gtz != null) {
             for (Map.Entry<String, ImageView> entry : this.gtz.entrySet()) {
                 ImageView value = entry.getValue();
@@ -232,7 +232,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bpc() {
+    public void bpb() {
         if (this.gtp != null) {
             this.gtp.cancel();
         }
@@ -323,7 +323,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 if (mc != null && EditHeadActivity.this.e(str, mc)) {
                     if (EditHeadActivity.this.eZr == 0) {
                         if (EditHeadActivity.this.bia) {
-                            EditHeadActivity.this.bpc();
+                            EditHeadActivity.this.bpb();
                             return;
                         }
                         Intent intent = EditHeadActivity.this.getIntent();
@@ -645,7 +645,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            if (!this.gtE || bpe()) {
+            if (!this.gtE || bpd()) {
                 EditHeadActivity.this.gti.bA(true);
                 EditHeadActivity.this.gte.setEnabled(false);
                 return;
@@ -688,7 +688,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             return this.bitmap;
         }
 
-        private boolean bpe() {
+        private boolean bpd() {
             PluginPackageManager.PluginStatus cc = PluginPackageManager.na().cc(PluginCenter.NAME_MOTUSDK);
             if (cc == PluginPackageManager.PluginStatus.NROMAL) {
                 return true;
@@ -759,7 +759,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         }
     }
 
-    private void aNK() {
+    private void aNJ() {
         this.gtr = new c();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionImageResized());

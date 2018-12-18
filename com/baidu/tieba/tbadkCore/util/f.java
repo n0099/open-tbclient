@@ -26,8 +26,8 @@ public class f {
     private static List<Integer> hoa;
 
     static {
+        bEr();
         bEs();
-        bEt();
         hnW = new AtomicBoolean(false);
         hnX = 0;
         hnY = true;
@@ -108,7 +108,7 @@ public class f {
     public static abstract class a {
         protected String from;
 
-        public abstract void bEv();
+        public abstract void bEu();
 
         public abstract void vT(String str);
 
@@ -127,7 +127,7 @@ public class f {
                     vU(((AuthVerifyData.b) cVar).aNI);
                     return;
                 } else {
-                    bEv();
+                    bEu();
                     return;
                 }
             }
@@ -149,7 +149,7 @@ public class f {
         hnX = 0;
     }
 
-    public static void bEs() {
+    public static void bEr() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2921372) { // from class: com.baidu.tieba.tbadkCore.util.f.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -171,7 +171,7 @@ public class f {
         });
     }
 
-    public static void bEt() {
+    public static void bEs() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2921373) { // from class: com.baidu.tieba.tbadkCore.util.f.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener

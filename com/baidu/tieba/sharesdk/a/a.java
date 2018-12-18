@@ -93,7 +93,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap byF() {
+    public Bitmap byE() {
         return BitmapHelper.getCashBitmap(e.f.icon);
     }
 

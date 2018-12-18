@@ -116,7 +116,7 @@ public abstract class c extends b implements ae {
             aA.aA("ab_tag", apP());
             aA.x("is_vertical", apR().intValue());
         }
-        if (ZR.AX() != null && ZR.AX().bDu() != null && ZR.AX().bDu().RZ() != null && ZR.AX().bDu().RZ().size() > 0) {
+        if (ZR.AX() != null && ZR.AX().bDt() != null && ZR.AX().bDt().RZ() != null && ZR.AX().bDt().RZ().size() > 0) {
             aA.x("obj_to", ZR.AX().hlS ? 2 : 1);
         }
         return aA;

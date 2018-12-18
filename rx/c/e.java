@@ -6,7 +6,7 @@ final class e extends d {
     private e() {
     }
 
-    public static d ceQ() {
+    public static d ceP() {
         return iNJ;
     }
 }

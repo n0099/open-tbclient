@@ -36,7 +36,7 @@ public class a extends com.baidu.adp.base.c<AboutActivity> {
         a(cVar);
     }
 
-    public void bwD() {
+    public void bwC() {
         if (this.gVW != null) {
             this.gVW.setVisibility(0);
         }
@@ -122,7 +122,7 @@ public class a extends com.baidu.adp.base.c<AboutActivity> {
         this.gVM.findViewById(e.g.line0).setVisibility(i);
     }
 
-    public void bwE() {
+    public void bwD() {
         if (this.gVP != null) {
             this.gVP.refresh();
         }
@@ -133,6 +133,6 @@ public class a extends com.baidu.adp.base.c<AboutActivity> {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         this.gVM.getLayoutMode().setNightMode(i == 1);
         this.gVM.getLayoutMode().onModeChanged(this.gVN);
-        bwE();
+        bwD();
     }
 }

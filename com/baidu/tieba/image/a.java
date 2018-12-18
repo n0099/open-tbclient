@@ -38,9 +38,9 @@ public class a implements ImagePagerAdapter.a {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (a.this.fgz != null) {
-                if (a.this.fgB == null || !a.this.fgB.fgM || a.this.fgB.aWn() != view) {
+                if (a.this.fgB == null || !a.this.fgB.fgM || a.this.fgB.aWm() != view) {
                     if (u.R((Activity) view.getContext())) {
-                        a.this.fgC.aWt();
+                        a.this.fgC.aWs();
                         com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.e(a.this.fgz));
                         int i = a.this.fgz.apo;
                         if (i == 0 || i == 3) {
@@ -49,7 +49,7 @@ public class a implements ImagePagerAdapter.a {
                                 if (StringUtils.isNull(str)) {
                                     str = a.this.mContext.getString(e.j.app_name);
                                 }
-                                a.this.fgC.aWv();
+                                a.this.fgC.aWu();
                                 if (s.a(a.this.mContext.getPageActivity(), a.this.fgz, 0, str)) {
                                     a.this.fgC.qM(a.this.fgz.apv);
                                     return;
@@ -61,15 +61,15 @@ public class a implements ImagePagerAdapter.a {
                         } else if (i == 1) {
                             s.f(a.this.fgz);
                             a.this.fgz.apo = 3;
-                            a.this.aWi();
+                            a.this.aWh();
                             return;
                         } else if (i == 2) {
-                            if (com.baidu.tieba.recapp.download.d.buG().hz(a.this.fgz.apv)) {
+                            if (com.baidu.tieba.recapp.download.d.buF().hz(a.this.fgz.apv)) {
                                 u.aG(a.this.mContext.getPageActivity(), a.this.fgz.apv);
                                 return;
                             }
                             a.this.fgz.apo = 0;
-                            a.this.aWi();
+                            a.this.aWh();
                             return;
                         } else {
                             return;
@@ -84,10 +84,10 @@ public class a implements ImagePagerAdapter.a {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (a.this.fgz != null) {
-                if (a.this.fgB == null || !a.this.fgB.fgM || a.this.fgB.aWn() != view) {
-                    a.this.fgC.aWt();
+                if (a.this.fgB == null || !a.this.fgB.fgM || a.this.fgB.aWm() != view) {
+                    a.this.fgC.aWs();
                     com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.e(a.this.fgz));
-                    r.buz().buw().a(a.this.mContext.getPageActivity(), new String[]{a.this.fgz.apt}, true);
+                    r.buy().buv().a(a.this.mContext.getPageActivity(), new String[]{a.this.fgz.apt}, true);
                 }
             }
         }
@@ -123,7 +123,7 @@ public class a implements ImagePagerAdapter.a {
         this.fgC.d(this.fgz);
     }
 
-    public boolean aWh() {
+    public boolean aWg() {
         if (!this.fgA || this.fgz == null) {
             return false;
         }
@@ -134,7 +134,7 @@ public class a implements ImagePagerAdapter.a {
     public View f(ViewGroup viewGroup, int i) {
         if (qH(i)) {
             this.fgB = new b(viewGroup);
-            aWi();
+            aWh();
             viewGroup.addView(this.fgB.getView());
             return this.fgB.getView();
         }
@@ -142,20 +142,20 @@ public class a implements ImagePagerAdapter.a {
     }
 
     private boolean qH(int i) {
-        return aWh() && this.fgy != 0 && i == this.fgy;
+        return aWg() && this.fgy != 0 && i == this.fgy;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aWi() {
+    public void aWh() {
         if (this.fgz != null && this.fgz.apB != null) {
-            aWj();
+            aWi();
             if (this.fgz.ye()) {
-                this.fgB.aWo().setVisibility(8);
+                this.fgB.aWn().setVisibility(8);
                 this.fgB.v(this.fgF);
             } else if (this.fgz.yd()) {
-                this.fgB.aWo().setVisibility(0);
+                this.fgB.aWn().setVisibility(0);
                 this.fgB.v(this.fgE);
-                aWk();
+                aWj();
             }
             s.a(this.fgz.apB.apU, this.fgB.fgJ, this.fgz.apB.tagRatio, l.h(this.mContext.getPageActivity(), e.C0210e.ds26));
             if (!TextUtils.isEmpty(this.fgz.apB.adSource)) {
@@ -167,34 +167,34 @@ public class a implements ImagePagerAdapter.a {
         }
     }
 
-    private void aWj() {
-        this.fgB.aWn().setEvent(new TbImageView.a() { // from class: com.baidu.tieba.image.a.1
+    private void aWi() {
+        this.fgB.aWm().setEvent(new TbImageView.a() { // from class: com.baidu.tieba.image.a.1
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void s(String str, boolean z) {
                 if (z) {
-                    a.this.fgB.aWr();
+                    a.this.fgB.aWq();
                 }
-                a.this.fgB.aWs();
+                a.this.fgB.aWr();
             }
 
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void onCancel() {
-                a.this.fgB.aWs();
+                a.this.fgB.aWr();
             }
         });
-        this.fgB.aWn().startLoad(this.fgz.apB.apM, this.aTz ? 30 : 31, 720, 720, false);
+        this.fgB.aWm().startLoad(this.fgz.apB.apM, this.aTz ? 30 : 31, 720, 720, false);
     }
 
-    private void aWk() {
+    private void aWj() {
         if (this.fgz != null) {
             String str = this.fgz.apr;
             if (StringUtils.isNull(str)) {
                 str = this.mContext.getString(e.j.app_name);
             }
-            if (com.baidu.tieba.recapp.download.d.buG().hz(this.fgz.apv)) {
+            if (com.baidu.tieba.recapp.download.d.buF().hz(this.fgz.apv)) {
                 this.fgz.apo = 2;
-            } else if (com.baidu.tieba.recapp.download.d.buG().cy(this.fgz.apv, str)) {
-                if (com.baidu.tieba.recapp.download.d.buG().hx(this.fgz.apv)) {
+            } else if (com.baidu.tieba.recapp.download.d.buF().cy(this.fgz.apv, str)) {
+                if (com.baidu.tieba.recapp.download.d.buF().hx(this.fgz.apv)) {
                     this.fgz.apo = 1;
                 } else {
                     this.fgz.apo = 3;
@@ -212,16 +212,16 @@ public class a implements ImagePagerAdapter.a {
                     this.fgB.qL(string);
                     return;
                 case 1:
-                    this.fgB.aWp();
+                    this.fgB.aWo();
                     return;
                 case 2:
-                    this.fgB.aWq();
+                    this.fgB.aWp();
                     return;
                 case 3:
                     this.fgB.qL(this.mContext.getString(e.j.pb_download_pause));
                     return;
                 default:
-                    this.fgB.aWo().setVisibility(8);
+                    this.fgB.aWn().setVisibility(8);
                     this.fgB.v(null);
                     return;
             }
@@ -246,7 +246,7 @@ public class a implements ImagePagerAdapter.a {
                     if (StringUtils.isNull(str)) {
                         str = a.this.mContext.getString(e.j.app_name);
                     }
-                    a.this.fgC.aWv();
+                    a.this.fgC.aWu();
                     if (s.a(a.this.mContext.getPageActivity(), a.this.fgz, 0, str)) {
                         a.this.fgC.qM(a.this.fgz.apv);
                     }
@@ -280,16 +280,16 @@ public class a implements ImagePagerAdapter.a {
                     } else if (status == 1) {
                         this.fgz.apo = 1;
                     }
-                    aWi();
+                    aWh();
                 }
             }
         }
     }
 
-    public void aWl() {
+    public void aWk() {
         if (!this.fgD) {
             this.fgD = true;
-            this.fgC.aWu();
+            this.fgC.aWt();
             com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.e(this.fgz));
         }
     }

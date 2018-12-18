@@ -46,8 +46,8 @@ public class a implements f {
             if (this.caL != null && this.bNv.Aa() != null) {
                 this.cXD = this.bNv.Aa();
                 this.caL.setVideoThumbnail(this.cXD.cover);
-                if (this.bOp != null && this.bOp.brH() != null) {
-                    this.bOp.brH().b(this.cXD);
+                if (this.bOp != null && this.bOp.brG() != null) {
+                    this.bOp.brG().b(this.cXD);
                 }
                 if (z) {
                     this.caL.setTitle(this.bNv.getTitle());

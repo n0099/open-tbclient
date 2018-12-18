@@ -21,10 +21,10 @@ public class p extends ContentObserver {
 
     @Override // android.database.ContentObserver
     public void onChange(boolean z) {
-        brL();
+        brK();
     }
 
-    private void brL() {
+    private void brK() {
         if (this.mContext != null) {
             try {
                 int i = Settings.System.getInt(this.mContext.getContentResolver(), "accelerometer_rotation");
@@ -39,6 +39,6 @@ public class p extends ContentObserver {
 
     public void a(a aVar) {
         this.gDZ = aVar;
-        brL();
+        brK();
     }
 }

@@ -55,15 +55,15 @@ public class aa extends com.baidu.adp.base.c<PbActivity> {
         return this.mView;
     }
 
-    public TextView bjQ() {
+    public TextView bjP() {
         return this.fZr;
     }
 
-    public TextView bjY() {
+    public TextView bjX() {
         return this.fZE;
     }
 
-    public TextView bjZ() {
+    public TextView bjY() {
         return this.fZM;
     }
 
@@ -71,47 +71,47 @@ public class aa extends com.baidu.adp.base.c<PbActivity> {
         return this.mCancelView;
     }
 
-    public View bka() {
+    public View bjZ() {
         return this.fZQ;
     }
 
-    public TextView bkb() {
+    public TextView bka() {
         return this.fZO;
     }
 
-    public TextView bkc() {
+    public TextView bkb() {
         return this.fZI;
     }
 
-    public TextView bkd() {
+    public TextView bkc() {
         return this.fZG;
     }
 
-    public TextView bke() {
+    public TextView bkd() {
         return this.fZL;
     }
 
-    public TextView bkf() {
+    public TextView bke() {
         return this.fZF;
     }
 
-    public TextView bkg() {
+    public TextView bkf() {
         return this.fZH;
     }
 
-    public TextView bkh() {
+    public TextView bkg() {
         return this.fZJ;
     }
 
-    public TextView bki() {
+    public TextView bkh() {
         return this.fZK;
     }
 
-    public TextView bkj() {
+    public TextView bki() {
         return this.fZN;
     }
 
-    public void bkk() {
+    public void bkj() {
         if (this.bdm == null) {
             this.bdm = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.aa.1
                 @Override // java.lang.Runnable
@@ -123,7 +123,7 @@ public class aa extends com.baidu.adp.base.c<PbActivity> {
         this.fZQ.postDelayed(this.bdm, 200L);
     }
 
-    public void bkl() {
+    public void bkk() {
         this.fZQ.setBackgroundColor(this.fZP.getResources().getColor(e.d.common_color_10022));
     }
 

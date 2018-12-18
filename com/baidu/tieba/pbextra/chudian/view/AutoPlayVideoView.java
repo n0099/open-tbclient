@@ -102,7 +102,7 @@ public class AutoPlayVideoView extends BaseAutoPlayVideoView {
                             }
                             AutoPlayVideoView.this.gmY = AutoPlayVideoView.this.gmZ;
                             AutoPlayVideoView.this.eDq.setVisibility(8);
-                            if (!AutoPlayVideoView.this.bOp.brl() || AutoPlayVideoView.this.gnc == null) {
+                            if (!AutoPlayVideoView.this.bOp.brk() || AutoPlayVideoView.this.gnc == null) {
                                 AutoPlayVideoView.this.bOn.seekTo((int) AutoPlayVideoView.this.gmZ);
                                 AutoPlayVideoView.this.eDk.setVisibility(8);
                             } else {
@@ -118,7 +118,7 @@ public class AutoPlayVideoView extends BaseAutoPlayVideoView {
                             if (AutoPlayVideoView.this.bIZ) {
                                 AutoPlayVideoView.this.gmT.setVisibility(0);
                                 AutoPlayVideoView.this.gmT.m(AutoPlayVideoView.this.gmZ, AutoPlayVideoView.this.mDuration);
-                                AutoPlayVideoView.this.gmT.bnG();
+                                AutoPlayVideoView.this.gmT.bnF();
                                 return;
                             }
                             AutoPlayVideoView.this.gmR.pT();
@@ -151,7 +151,7 @@ public class AutoPlayVideoView extends BaseAutoPlayVideoView {
                         }
                         return;
                     case 501:
-                        if (AutoPlayVideoView.this.bOn.isPlaying() && AutoPlayVideoView.this.bOp.brl() && AutoPlayVideoView.this.gnc != null) {
+                        if (AutoPlayVideoView.this.bOn.isPlaying() && AutoPlayVideoView.this.bOp.brk() && AutoPlayVideoView.this.gnc != null) {
                             if (AutoPlayVideoView.this.bOn.getCurrentPosition() > AutoPlayVideoView.this.gmZ) {
                                 AutoPlayVideoView.this.eDk.setVisibility(8);
                                 return;
@@ -170,11 +170,11 @@ public class AutoPlayVideoView extends BaseAutoPlayVideoView {
             @Override // com.baidu.tieba.play.g.f
             public void onPrepared(g gVar) {
                 if (gVar != null) {
-                    if (AutoPlayVideoView.this.bOn != null && AutoPlayVideoView.this.bOp.brl()) {
+                    if (AutoPlayVideoView.this.bOn != null && AutoPlayVideoView.this.bOp.brk()) {
                         if (AutoPlayVideoView.this.gnd == null) {
                             AutoPlayVideoView.this.gnd = new MediaMetadataRetriever();
                             try {
-                                AutoPlayVideoView.this.gnd.setDataSource(AutoPlayVideoView.this.bOp.jA(AutoPlayVideoView.this.bOp.brk()));
+                                AutoPlayVideoView.this.gnd.setDataSource(AutoPlayVideoView.this.bOp.jA(AutoPlayVideoView.this.bOp.brj()));
                             } catch (IllegalArgumentException e) {
                                 BdLog.e(e.getMessage());
                             }
@@ -218,7 +218,7 @@ public class AutoPlayVideoView extends BaseAutoPlayVideoView {
             @Override // java.lang.Runnable
             public void run() {
                 if (AutoPlayVideoView.this.gmO != null && AutoPlayVideoView.this.bOn != null) {
-                    AutoPlayVideoView.this.bnF();
+                    AutoPlayVideoView.this.bnE();
                 }
             }
         };
@@ -254,7 +254,7 @@ public class AutoPlayVideoView extends BaseAutoPlayVideoView {
                             }
                             AutoPlayVideoView.this.gmY = AutoPlayVideoView.this.gmZ;
                             AutoPlayVideoView.this.eDq.setVisibility(8);
-                            if (!AutoPlayVideoView.this.bOp.brl() || AutoPlayVideoView.this.gnc == null) {
+                            if (!AutoPlayVideoView.this.bOp.brk() || AutoPlayVideoView.this.gnc == null) {
                                 AutoPlayVideoView.this.bOn.seekTo((int) AutoPlayVideoView.this.gmZ);
                                 AutoPlayVideoView.this.eDk.setVisibility(8);
                             } else {
@@ -270,7 +270,7 @@ public class AutoPlayVideoView extends BaseAutoPlayVideoView {
                             if (AutoPlayVideoView.this.bIZ) {
                                 AutoPlayVideoView.this.gmT.setVisibility(0);
                                 AutoPlayVideoView.this.gmT.m(AutoPlayVideoView.this.gmZ, AutoPlayVideoView.this.mDuration);
-                                AutoPlayVideoView.this.gmT.bnG();
+                                AutoPlayVideoView.this.gmT.bnF();
                                 return;
                             }
                             AutoPlayVideoView.this.gmR.pT();
@@ -303,7 +303,7 @@ public class AutoPlayVideoView extends BaseAutoPlayVideoView {
                         }
                         return;
                     case 501:
-                        if (AutoPlayVideoView.this.bOn.isPlaying() && AutoPlayVideoView.this.bOp.brl() && AutoPlayVideoView.this.gnc != null) {
+                        if (AutoPlayVideoView.this.bOn.isPlaying() && AutoPlayVideoView.this.bOp.brk() && AutoPlayVideoView.this.gnc != null) {
                             if (AutoPlayVideoView.this.bOn.getCurrentPosition() > AutoPlayVideoView.this.gmZ) {
                                 AutoPlayVideoView.this.eDk.setVisibility(8);
                                 return;
@@ -322,11 +322,11 @@ public class AutoPlayVideoView extends BaseAutoPlayVideoView {
             @Override // com.baidu.tieba.play.g.f
             public void onPrepared(g gVar) {
                 if (gVar != null) {
-                    if (AutoPlayVideoView.this.bOn != null && AutoPlayVideoView.this.bOp.brl()) {
+                    if (AutoPlayVideoView.this.bOn != null && AutoPlayVideoView.this.bOp.brk()) {
                         if (AutoPlayVideoView.this.gnd == null) {
                             AutoPlayVideoView.this.gnd = new MediaMetadataRetriever();
                             try {
-                                AutoPlayVideoView.this.gnd.setDataSource(AutoPlayVideoView.this.bOp.jA(AutoPlayVideoView.this.bOp.brk()));
+                                AutoPlayVideoView.this.gnd.setDataSource(AutoPlayVideoView.this.bOp.jA(AutoPlayVideoView.this.bOp.brj()));
                             } catch (IllegalArgumentException e) {
                                 BdLog.e(e.getMessage());
                             }
@@ -370,7 +370,7 @@ public class AutoPlayVideoView extends BaseAutoPlayVideoView {
             @Override // java.lang.Runnable
             public void run() {
                 if (AutoPlayVideoView.this.gmO != null && AutoPlayVideoView.this.bOn != null) {
-                    AutoPlayVideoView.this.bnF();
+                    AutoPlayVideoView.this.bnE();
                 }
             }
         };
@@ -406,7 +406,7 @@ public class AutoPlayVideoView extends BaseAutoPlayVideoView {
                             }
                             AutoPlayVideoView.this.gmY = AutoPlayVideoView.this.gmZ;
                             AutoPlayVideoView.this.eDq.setVisibility(8);
-                            if (!AutoPlayVideoView.this.bOp.brl() || AutoPlayVideoView.this.gnc == null) {
+                            if (!AutoPlayVideoView.this.bOp.brk() || AutoPlayVideoView.this.gnc == null) {
                                 AutoPlayVideoView.this.bOn.seekTo((int) AutoPlayVideoView.this.gmZ);
                                 AutoPlayVideoView.this.eDk.setVisibility(8);
                             } else {
@@ -422,7 +422,7 @@ public class AutoPlayVideoView extends BaseAutoPlayVideoView {
                             if (AutoPlayVideoView.this.bIZ) {
                                 AutoPlayVideoView.this.gmT.setVisibility(0);
                                 AutoPlayVideoView.this.gmT.m(AutoPlayVideoView.this.gmZ, AutoPlayVideoView.this.mDuration);
-                                AutoPlayVideoView.this.gmT.bnG();
+                                AutoPlayVideoView.this.gmT.bnF();
                                 return;
                             }
                             AutoPlayVideoView.this.gmR.pT();
@@ -455,7 +455,7 @@ public class AutoPlayVideoView extends BaseAutoPlayVideoView {
                         }
                         return;
                     case 501:
-                        if (AutoPlayVideoView.this.bOn.isPlaying() && AutoPlayVideoView.this.bOp.brl() && AutoPlayVideoView.this.gnc != null) {
+                        if (AutoPlayVideoView.this.bOn.isPlaying() && AutoPlayVideoView.this.bOp.brk() && AutoPlayVideoView.this.gnc != null) {
                             if (AutoPlayVideoView.this.bOn.getCurrentPosition() > AutoPlayVideoView.this.gmZ) {
                                 AutoPlayVideoView.this.eDk.setVisibility(8);
                                 return;
@@ -474,11 +474,11 @@ public class AutoPlayVideoView extends BaseAutoPlayVideoView {
             @Override // com.baidu.tieba.play.g.f
             public void onPrepared(g gVar) {
                 if (gVar != null) {
-                    if (AutoPlayVideoView.this.bOn != null && AutoPlayVideoView.this.bOp.brl()) {
+                    if (AutoPlayVideoView.this.bOn != null && AutoPlayVideoView.this.bOp.brk()) {
                         if (AutoPlayVideoView.this.gnd == null) {
                             AutoPlayVideoView.this.gnd = new MediaMetadataRetriever();
                             try {
-                                AutoPlayVideoView.this.gnd.setDataSource(AutoPlayVideoView.this.bOp.jA(AutoPlayVideoView.this.bOp.brk()));
+                                AutoPlayVideoView.this.gnd.setDataSource(AutoPlayVideoView.this.bOp.jA(AutoPlayVideoView.this.bOp.brj()));
                             } catch (IllegalArgumentException e) {
                                 BdLog.e(e.getMessage());
                             }
@@ -522,7 +522,7 @@ public class AutoPlayVideoView extends BaseAutoPlayVideoView {
             @Override // java.lang.Runnable
             public void run() {
                 if (AutoPlayVideoView.this.gmO != null && AutoPlayVideoView.this.bOn != null) {
-                    AutoPlayVideoView.this.bnF();
+                    AutoPlayVideoView.this.bnE();
                 }
             }
         };
@@ -549,16 +549,16 @@ public class AutoPlayVideoView extends BaseAutoPlayVideoView {
         this.gmX = this.mRootView.findViewById(e.g.available_click_area);
     }
 
-    private boolean bnE() {
-        return q.bnE();
+    private boolean bnD() {
+        return q.bnD();
     }
 
-    public void bnF() {
-        if (bnE()) {
+    public void bnE() {
+        if (bnD()) {
             this.bOn.setVideoPath(this.gmO.video_url, this.biw);
             this.bOn.start();
             this.gmP = 0;
-            if (!this.bOp.brl() || this.gnc == null) {
+            if (!this.bOp.brk() || this.gnc == null) {
                 showLoading();
             }
             this.gmW.setVisibility(8);
@@ -626,7 +626,7 @@ public class AutoPlayVideoView extends BaseAutoPlayVideoView {
         com.baidu.adp.lib.g.e.jG().removeCallbacks(this.gne);
         if (this.bOn.isPlaying()) {
             this.gmY = this.bOn.getCurrentPosition();
-            if (this.bOp.brl() && this.gnd != null) {
+            if (this.bOp.brk() && this.gnd != null) {
                 Bitmap bitmap = null;
                 try {
                     try {
@@ -815,14 +815,14 @@ public class AutoPlayVideoView extends BaseAutoPlayVideoView {
                         AutoPlayVideoView.this.gmM.setLayoutParams(layoutParams);
                         AutoPlayVideoView.this.gmZ = AutoPlayVideoView.this.gmY;
                         if (AutoPlayVideoView.this.gmW.getVisibility() != 0) {
-                            AutoPlayVideoView.this.bnF();
+                            AutoPlayVideoView.this.bnE();
                         }
                         AutoPlayVideoView.this.gmW.setVisibility(8);
                     }
                 }
             });
             this.gmZ = this.gmY;
-            bnF();
+            bnE();
         }
     }
 

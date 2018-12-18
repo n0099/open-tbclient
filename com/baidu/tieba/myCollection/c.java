@@ -64,7 +64,7 @@ public class c {
         this.fGV.C(editMarkActivity);
     }
 
-    public TextView bdu() {
+    public TextView bdt() {
         return this.bAy;
     }
 
@@ -72,7 +72,7 @@ public class c {
         this.fGX = bVar;
     }
 
-    public void bdv() {
+    public void bdu() {
         if (!this.fGV.VU()) {
             this.fGV.dq(true);
             this.bAy.setText(e.j.done);
@@ -90,7 +90,7 @@ public class c {
         return this.fGV.VU();
     }
 
-    public int bdw() {
+    public int bdv() {
         return e.g.home_lv_markitem_delete;
     }
 
@@ -116,16 +116,16 @@ public class c {
             this.fGU.showToast(str);
         }
         if (aVar != null) {
-            if (aVar.bdJ() != 0 || z || aVar.getCount() <= 0) {
+            if (aVar.bdI() != 0 || z || aVar.getCount() <= 0) {
             }
-            if (aVar.bdJ() < 20) {
+            if (aVar.bdI() < 20) {
                 this.fGV.setHasMore(false);
                 this.fGV.jX(aVar.isFirst() ? false : true);
             } else {
                 this.fGV.setHasMore(true);
                 this.fGV.jX(true);
             }
-            this.fGV.setData(aVar.bdI());
+            this.fGV.setData(aVar.bdH());
             if (aVar.getCount() > 0) {
                 this.bAy.setVisibility(0);
                 this.mNoDataView.setVisibility(8);
@@ -157,7 +157,7 @@ public class c {
             this.fGU.showToast(str);
         }
         if (z2) {
-            bdx();
+            bdw();
         }
         this.fGV.notifyDataSetChanged();
     }
@@ -169,13 +169,13 @@ public class c {
     public void a(boolean z, String str, com.baidu.tieba.myCollection.baseEditMark.a aVar) {
         if (z) {
             this.fGU.showToast(this.fGU.getPageContext().getString(e.j.delete_success));
-            if (aVar == null || aVar.bdI() == null) {
+            if (aVar == null || aVar.bdH() == null) {
                 this.mProgressBar.setVisibility(8);
                 return;
-            } else if (aVar.bdI().size() == 0) {
+            } else if (aVar.bdH().size() == 0) {
                 aVar.a((Boolean) true, false);
             } else {
-                this.fGV.setData(aVar.bdI());
+                this.fGV.setData(aVar.bdH());
             }
         } else {
             this.fGU.showToast(str);
@@ -188,7 +188,7 @@ public class c {
         this.fGV.setData(arrayList);
     }
 
-    private void bdx() {
+    private void bdw() {
         if (this.fGW == null) {
             this.fGW = new com.baidu.tbadk.core.dialog.a(this.fGU.getPageContext().getPageActivity());
             this.fGW.eA(this.fGU.getPageContext().getString(e.j.sync_mark_fail));
@@ -219,7 +219,7 @@ public class c {
         }
     }
 
-    public void bdy() {
+    public void bdx() {
         this.fGV.notifyDataSetChanged();
     }
 

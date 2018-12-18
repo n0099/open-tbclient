@@ -395,7 +395,7 @@ public class ThreadUserInfoLayout extends LinearLayout implements f {
                 if (an.jJ() && name_show != null && !name_show.equals(userName)) {
                     this.aKp.setText(com.baidu.tieba.pb.c.aE(this.mContext, this.aKp.getText().toString()));
                     this.aKp.setGravity(16);
-                    this.aKp.setTag(e.g.tag_nick_name_activity, com.baidu.tieba.pb.c.bfT());
+                    this.aKp.setTag(e.g.tag_nick_name_activity, com.baidu.tieba.pb.c.bfS());
                     al.c(this.aKp, e.d.cp_other_e, 1);
                 }
             }

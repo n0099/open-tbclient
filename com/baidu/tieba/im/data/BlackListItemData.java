@@ -13,7 +13,7 @@ public class BlackListItemData extends AbstractImageProvider {
     @Override // com.baidu.tbadk.core.util.AbstractImageProvider
     public ArrayList<String> getPhotoUrl() {
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add(aQf());
+        arrayList.add(aQe());
         return arrayList;
     }
 
@@ -29,7 +29,7 @@ public class BlackListItemData extends AbstractImageProvider {
         this.userName = str;
     }
 
-    public String aQf() {
+    public String aQe() {
         return this.eNi;
     }
 

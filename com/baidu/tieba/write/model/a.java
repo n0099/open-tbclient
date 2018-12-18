@@ -46,7 +46,7 @@ public class a {
     private Runnable bBO = new Runnable() { // from class: com.baidu.tieba.write.model.a.2
         @Override // java.lang.Runnable
         public void run() {
-            a.this.bOh();
+            a.this.bOg();
             com.baidu.tieba.write.a.a aVar = new com.baidu.tieba.write.a.a();
             aVar.hTt = false;
             aVar.linkUrl = a.this.aqQ;
@@ -84,7 +84,7 @@ public class a {
         e.jG().postDelayed(this.bBO, 15000L);
     }
 
-    public void bOh() {
+    public void bOg() {
         MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_ADD_LINK, this.mBdUniqueId);
         e.jG().removeCallbacks(this.bBO);
     }
@@ -98,7 +98,7 @@ public class a {
         this.hTU = interfaceC0336a;
     }
 
-    public com.baidu.tieba.write.a.a bOi() {
+    public com.baidu.tieba.write.a.a bOh() {
         return this.hTV;
     }
 }

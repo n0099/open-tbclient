@@ -48,7 +48,7 @@ public class c implements b {
         if (!file.exists()) {
             return null;
         }
-        com.baidu.tieba.tbadkCore.videoupload.b.bEw();
+        com.baidu.tieba.tbadkCore.videoupload.b.bEv();
         VideoFinishResult videoFinishResult = new VideoFinishResult();
         String i2 = s.i(l.x(file));
         if (!StringUtils.isNull(i2)) {
@@ -116,7 +116,7 @@ public class c implements b {
         videoFinishResult.setVideoMd5(i2);
         randomAccessFile.close();
         if (this.hms != null) {
-            this.hms.bcr();
+            this.hms.bcq();
         }
         return videoFinishResult;
     }

@@ -39,7 +39,7 @@ public class DraweeEventTracker {
     private DraweeEventTracker() {
     }
 
-    public static DraweeEventTracker bUj() {
+    public static DraweeEventTracker bUi() {
         return ihK ? new DraweeEventTracker() : ihJ;
     }
 

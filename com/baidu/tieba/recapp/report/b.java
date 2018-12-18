@@ -100,7 +100,7 @@ public class b {
         }
     }
 
-    public JSONObject bvt() {
+    public JSONObject bvs() {
         if (this.gQS != null) {
             return this.gQS;
         }

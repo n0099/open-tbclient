@@ -9,11 +9,11 @@ public class a {
         this.idF = str;
     }
 
-    public EncryptAlgorithm bSg() {
+    public EncryptAlgorithm bSf() {
         return this.idE;
     }
 
-    public String bSh() {
+    public String bSg() {
         return this.idF;
     }
 }

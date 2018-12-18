@@ -148,7 +148,7 @@ public class e {
         return this.rootView;
     }
 
-    public View bni() {
+    public View bnh() {
         return this.gkg;
     }
 }

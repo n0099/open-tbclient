@@ -10,20 +10,20 @@ public class EllipsizeRichTextView extends TextView {
 
     public EllipsizeRichTextView(Context context) {
         super(context);
-        bmp();
+        bmo();
     }
 
     public EllipsizeRichTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        bmp();
+        bmo();
     }
 
     public EllipsizeRichTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        bmp();
+        bmo();
     }
 
-    private void bmp() {
+    private void bmo() {
         this.ghA = new SpannableStringBuilder();
     }
 
@@ -36,7 +36,7 @@ public class EllipsizeRichTextView extends TextView {
             int lineVisibleEnd = getLayout().getLineVisibleEnd((lineCount <= 2 ? lineCount : 2) - 1);
             if (text != null && text.length() > lineVisibleEnd) {
                 if (this.ghA == null) {
-                    bmp();
+                    bmo();
                 } else {
                     this.ghA.clear();
                 }

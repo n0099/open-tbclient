@@ -22,7 +22,7 @@ public class f<T> implements i<b<T>> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.i
-    /* renamed from: bTM */
+    /* renamed from: bTL */
     public b<T> get() {
         return new a();
     }
@@ -62,8 +62,8 @@ public class f<T> implements i<b<T>> {
             for (int i = 0; i < size; i++) {
                 b<T> bVar = (b) ((i) f.this.ihe.get(i)).get();
                 this.ihj.add(bVar);
-                bVar.a(new C0358a(i), com.facebook.common.b.a.bSX());
-                if (bVar.bTF()) {
+                bVar.a(new C0358a(i), com.facebook.common.b.a.bSW());
+                if (bVar.bTE()) {
                     return;
                 }
             }
@@ -86,33 +86,33 @@ public class f<T> implements i<b<T>> {
         }
 
         @Nullable
-        private synchronized b<T> bTP() {
+        private synchronized b<T> bTO() {
             return xW(this.ihk);
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
         @Nullable
         public synchronized T getResult() {
-            b<T> bTP;
-            bTP = bTP();
-            return bTP != null ? bTP.getResult() : null;
+            b<T> bTO;
+            bTO = bTO();
+            return bTO != null ? bTO.getResult() : null;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-        public synchronized boolean bTF() {
+        public synchronized boolean bTE() {
             boolean z;
-            b<T> bTP = bTP();
-            if (bTP != null) {
-                z = bTP.bTF();
+            b<T> bTO = bTO();
+            if (bTO != null) {
+                z = bTO.bTE();
             }
             return z;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-        public boolean bTI() {
+        public boolean bTH() {
             int i = 0;
             synchronized (this) {
-                if (super.bTI()) {
+                if (super.bTH()) {
                     ArrayList<b<T>> arrayList = this.ihj;
                     this.ihj = null;
                     if (arrayList != null) {
@@ -134,7 +134,7 @@ public class f<T> implements i<b<T>> {
         /* JADX INFO: Access modifiers changed from: private */
         public void a(int i, b<T> bVar) {
             a(i, bVar, bVar.isFinished());
-            if (bVar == bTP()) {
+            if (bVar == bTO()) {
                 a((a) null, i == 0 && bVar.isFinished());
             }
         }
@@ -143,7 +143,7 @@ public class f<T> implements i<b<T>> {
         public void b(int i, b<T> bVar) {
             e(c(i, bVar));
             if (i == 0) {
-                t(bVar.bTH());
+                t(bVar.bTG());
             }
         }
 
@@ -151,7 +151,7 @@ public class f<T> implements i<b<T>> {
             synchronized (this) {
                 int i2 = this.ihk;
                 if (bVar == xW(i) && i != this.ihk) {
-                    if (bTP() == null || (z && i < this.ihk)) {
+                    if (bTO() == null || (z && i < this.ihk)) {
                         this.ihk = i;
                     } else {
                         i = i2;
@@ -165,7 +165,7 @@ public class f<T> implements i<b<T>> {
 
         @Nullable
         private synchronized b<T> c(int i, b<T> bVar) {
-            if (bVar == bTP()) {
+            if (bVar == bTO()) {
                 bVar = null;
             } else if (bVar == xW(i)) {
                 bVar = xX(i);
@@ -175,7 +175,7 @@ public class f<T> implements i<b<T>> {
 
         private void e(b<T> bVar) {
             if (bVar != null) {
-                bVar.bTI();
+                bVar.bTH();
             }
         }
 
@@ -190,7 +190,7 @@ public class f<T> implements i<b<T>> {
 
             @Override // com.facebook.datasource.d
             public void onNewResult(b<T> bVar) {
-                if (bVar.bTF()) {
+                if (bVar.bTE()) {
                     a.this.a(this.mIndex, bVar);
                 } else if (bVar.isFinished()) {
                     a.this.b(this.mIndex, bVar);

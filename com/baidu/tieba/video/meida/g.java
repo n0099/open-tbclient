@@ -22,20 +22,20 @@ public class g {
         public int hFv = 16;
         public int hFz = 0;
 
-        public boolean bJH() {
+        public boolean bJG() {
             return this.hFz == 1 || this.hFz == 4 || this.hFz == 6 || this.hFz == 9;
         }
 
-        public boolean bJI() {
+        public boolean bJH() {
             return this.hFz == 3 || this.hFz == 4 || this.hFz == 8 || this.hFz == 9;
         }
 
-        public boolean bJJ() {
+        public boolean bJI() {
             return this.hFz == 5 || this.hFz == 6 || this.hFz == 8 || this.hFz == 9;
         }
     }
 
-    public static void bJG() {
+    public static void bJF() {
         if (ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN) {
             hFy = true;
         } else {

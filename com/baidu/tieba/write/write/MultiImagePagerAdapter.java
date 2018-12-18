@@ -43,11 +43,11 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
     public interface a {
         void J(int i, boolean z);
 
-        void bOV();
+        void bOU();
 
-        void bOX();
+        void bOW();
 
-        boolean bOY();
+        boolean bOX();
     }
 
     public MultiImagePagerAdapter(WriteMultiImgsActivity writeMultiImgsActivity, ViewPager viewPager, LinkedList<ImageFileInfo> linkedList, int i, a aVar, h hVar, boolean z) {
@@ -83,11 +83,11 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
         this.mViewPager.setOnPageChangeListener(this);
     }
 
-    private boolean bOR() {
+    private boolean bOQ() {
         return (this.hWT == null || this.mCurrentIndex >= this.hWT.length || this.hWT[this.mCurrentIndex] == null || this.hWR == null || this.mCurrentIndex >= this.hWR.length || this.hWR[this.mCurrentIndex] == null) ? false : true;
     }
 
-    public boolean bOS() {
+    public boolean bOR() {
         if (this.mCurrentIndex >= this.hWR.length || this.hWR[this.mCurrentIndex] == null || !this.hWR[this.mCurrentIndex].isGif() || this.hWR[this.mCurrentIndex].mCount > 0) {
             return false;
         }
@@ -99,15 +99,15 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
     public void I(int i, boolean z) {
         b bVar;
         ImageFileInfo imageFileInfo;
-        if (bOS()) {
+        if (bOR()) {
             if (this.hWS != null) {
                 this.hWS.J(i, z);
             }
         } else if (z) {
             xs(i);
-        } else if (bOR() && (bVar = this.hWT[this.mCurrentIndex]) != null && (imageFileInfo = this.hWR[this.mCurrentIndex]) != null && bVar.bOZ()) {
+        } else if (bOQ() && (bVar = this.hWT[this.mCurrentIndex]) != null && (imageFileInfo = this.hWR[this.mCurrentIndex]) != null && bVar.bOY()) {
             imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.e.gb(i));
-            this.hWQ.bPV();
+            this.hWQ.bPU();
             bVar.h(imageFileInfo);
         }
     }
@@ -125,12 +125,12 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                     }
                     MultiImagePagerAdapter.this.hWX.hZl.a(new com.baidu.tieba.write.write.sticker.a.c() { // from class: com.baidu.tieba.write.write.MultiImagePagerAdapter.1.1
                         @Override // com.baidu.tieba.write.write.sticker.a.c
-                        public void bOU() {
+                        public void bOT() {
                         }
 
                         @Override // com.baidu.tieba.write.write.sticker.a.c
-                        public void bOV() {
-                            MultiImagePagerAdapter.this.hWS.bOV();
+                        public void bOU() {
+                            MultiImagePagerAdapter.this.hWS.bOU();
                         }
 
                         @Override // com.baidu.tieba.write.write.sticker.a.c
@@ -139,7 +139,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                         }
 
                         @Override // com.baidu.tieba.write.write.sticker.a.c
-                        public void bOW() {
+                        public void bOV() {
                         }
                     });
                     MultiImagePagerAdapter.this.I(MultiImagePagerAdapter.this.hWU, false);
@@ -175,10 +175,10 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         this.mCurrentIndex = i;
-        bOT();
+        bOS();
     }
 
-    private void bOT() {
+    private void bOS() {
         if (this.mCurrentIndex >= 0 && this.hWT != null && this.mCurrentIndex < this.hWT.length && this.mCurrentIndex < this.hWR.length && this.hWR[this.mCurrentIndex] != null) {
             for (int i = 0; i < this.hWT.length; i++) {
                 if (this.hWT[i] != null) {
@@ -234,15 +234,15 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                     this.hWR[i].applayRotatePageActionToPersistAction(imageFileInfo);
                 }
             }
-            if (!bOR()) {
+            if (!bOQ()) {
                 if (!z && this.mIsFromIm) {
                     F(this.mBitmap);
                 }
-            } else if (this.hWS != null && this.hWS.bOY() && this.hWX != null && this.hWX.hZl != null) {
-                this.hWX.hZl.beD();
+            } else if (this.hWS != null && this.hWS.bOX() && this.hWX != null && this.hWX.hZl != null) {
+                this.hWX.hZl.beC();
                 TbImageView tbImageView = this.hWT[this.mCurrentIndex].flm;
                 try {
-                    bitmap = this.hWX.hZl.bQy();
+                    bitmap = this.hWX.hZl.bQx();
                 } catch (OutOfMemoryError e) {
                     bitmap = null;
                 }
@@ -307,7 +307,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (MultiImagePagerAdapter.this.hWS != null) {
-                        MultiImagePagerAdapter.this.hWS.bOX();
+                        MultiImagePagerAdapter.this.hWS.bOW();
                     }
                 }
             });
@@ -358,7 +358,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                         b.this.a(imageFileInfo, aVar);
                         b.this.hfM.setVisibility(8);
                         if (MultiImagePagerAdapter.this.hWX != null) {
-                            MultiImagePagerAdapter.this.hWX.bOM();
+                            MultiImagePagerAdapter.this.hWX.bOL();
                         }
                     }
                 }, false);
@@ -373,7 +373,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
             }
         }
 
-        public boolean bOZ() {
+        public boolean bOY() {
             return this.hfM.getVisibility() != 0;
         }
     }

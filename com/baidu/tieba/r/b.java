@@ -76,9 +76,9 @@ public class b implements View.OnClickListener {
             this.ceD.setOrientation(0);
             int h = l.h(this.mContext, e.C0210e.ds18);
             this.ceD.setPadding(h, l.h(this.mContext, e.C0210e.ds32), h, l.h(this.mContext, e.C0210e.ds26));
+            bHj();
             bHk();
             bHl();
-            bHm();
         }
         return this.ceD;
     }
@@ -87,48 +87,48 @@ public class b implements View.OnClickListener {
     public void updateView() {
         if (this.ceD != null) {
             this.ceD.removeAllViews();
+            bHj();
             bHk();
             bHl();
-            bHm();
         }
     }
 
-    private void bHk() {
-        a bHn = bHn();
+    private void bHj() {
+        a bHm = bHm();
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-        bHn.bij.startLoad(currentAccountInfo != null ? currentAccountInfo.getPortrait() : null, 12, false);
-        bHn.bPh.setText(e.j.my_homepage);
-        bHn.hyG.setTag(100);
-        bHn.hyG.setOnClickListener(this);
-        this.ceD.addView(bHn.hyG);
+        bHm.bij.startLoad(currentAccountInfo != null ? currentAccountInfo.getPortrait() : null, 12, false);
+        bHm.bPh.setText(e.j.my_homepage);
+        bHm.hyG.setTag(100);
+        bHm.hyG.setOnClickListener(this);
+        this.ceD.addView(bHm.hyG);
     }
 
-    private void bHl() {
+    private void bHk() {
         int H = v.H(this.gFr);
         for (int i = 0; i < H; i++) {
             TransmitForumData transmitForumData = this.gFr.get(i);
             if (transmitForumData != null) {
-                a bHn = bHn();
-                bHn.bij.startLoad(transmitForumData.avatar, 10, false);
-                bHn.bPh.setText(transmitForumData.forumName);
-                bHn.hyG.setTag(transmitForumData);
-                bHn.hyG.setOnClickListener(this);
-                this.ceD.addView(bHn.hyG);
+                a bHm = bHm();
+                bHm.bij.startLoad(transmitForumData.avatar, 10, false);
+                bHm.bPh.setText(transmitForumData.forumName);
+                bHm.hyG.setTag(transmitForumData);
+                bHm.hyG.setOnClickListener(this);
+                this.ceD.addView(bHm.hyG);
             }
         }
     }
 
-    private void bHm() {
-        a bHn = bHn();
-        al.c(bHn.bij, e.f.icon_share_more_ba);
-        al.j(bHn.bij, e.d.cp_bg_line_d);
-        bHn.bPh.setText(e.j.more_forums);
-        bHn.hyG.setTag(200);
-        bHn.hyG.setOnClickListener(this);
-        this.ceD.addView(bHn.hyG);
+    private void bHl() {
+        a bHm = bHm();
+        al.c(bHm.bij, e.f.icon_share_more_ba);
+        al.j(bHm.bij, e.d.cp_bg_line_d);
+        bHm.bPh.setText(e.j.more_forums);
+        bHm.hyG.setTag(200);
+        bHm.hyG.setOnClickListener(this);
+        this.ceD.addView(bHm.hyG);
     }
 
-    private a bHn() {
+    private a bHm() {
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(e.h.share_dialog_forum_item, (ViewGroup) this.ceD, false);
         a aVar = new a();
         aVar.hyG = viewGroup;
@@ -154,7 +154,7 @@ public class b implements View.OnClickListener {
                 a("1", (TransmitForumData) null, this.mPrivateThread);
                 wg(11);
             } else if (num.intValue() == 200) {
-                bHo();
+                bHn();
                 wg(13);
             }
         } else if (tag instanceof TransmitForumData) {
@@ -169,7 +169,7 @@ public class b implements View.OnClickListener {
         }
     }
 
-    private void bHo() {
+    private void bHn() {
         SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.mContext, 25018);
         selectForumActivityConfig.setForumList(this.mForumList);
         selectForumActivityConfig.setFrom(2);

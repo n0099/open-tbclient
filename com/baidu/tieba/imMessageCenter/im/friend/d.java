@@ -106,11 +106,11 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
             this.fcz.setVisibility(8);
             this.fcx.setVisibility(8);
         }
-        aVp();
+        aVo();
         this.fcA = (Button) this.amM.findViewById(e.g.button_send);
         this.fcA.setOnClickListener(this.fcv);
         Fj();
-        aVh();
+        aVg();
         qx(0);
     }
 
@@ -120,7 +120,7 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (d.this.fcE != null && d.this.fcE.getVisibility() == 0) {
-                    d.this.aVi();
+                    d.this.aVh();
                     return;
                 }
                 l.b(d.this.fcv.getPageContext().getPageActivity(), d.this.mEditText);
@@ -160,7 +160,7 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
                     } else {
                         d.this.fcG.setVisibility(8);
                     }
-                    d.this.aVg();
+                    d.this.aVf();
                 }
             }
 
@@ -183,9 +183,9 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aVg() {
+    public void aVf() {
         if (this.fcv != null) {
-            this.fcv.aVe();
+            this.fcv.aVd();
         }
     }
 
@@ -200,17 +200,17 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
         this.mListFooter.setEnabled(false);
     }
 
-    public void aVh() {
+    public void aVg() {
         this.OF.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.d.7
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                d.this.aVr();
+                d.this.aVq();
                 return false;
             }
         });
     }
 
-    public void aVi() {
+    public void aVh() {
         l.b(this.fcv.getPageContext().getPageActivity(), this.mEditText);
         this.fcE.setVisibility(8);
         this.fcD.setVisibility(0);
@@ -218,21 +218,21 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
         this.mEditText.getText().clear();
     }
 
-    public boolean aVj() {
+    public boolean aVi() {
         return this.fcE != null && this.fcE.getVisibility() == 0;
     }
 
-    public int aVk() {
+    public int aVj() {
         return this.fcA.getId();
     }
 
-    public String aVl() {
+    public String aVk() {
         Editable text = this.mEditText.getText();
         return text != null ? text.toString() : "";
     }
 
-    public String aVm() {
-        return this.fcy.aVb();
+    public String aVl() {
+        return this.fcy.aVa();
     }
 
     public void m(List<com.baidu.tbadk.coreExtra.relationship.a> list, boolean z) {
@@ -242,10 +242,10 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
             this.fcw.a(new TbCheckBox.a() { // from class: com.baidu.tieba.imMessageCenter.im.friend.d.8
                 @Override // com.baidu.tbadk.core.view.TbCheckBox.a
                 public void a(TbCheckBox tbCheckBox, boolean z2, Object obj) {
-                    d.this.aVr();
+                    d.this.aVq();
                     if (obj != null && (obj instanceof com.baidu.tbadk.coreExtra.relationship.a)) {
                         if (z2) {
-                            if (d.this.aVs() <= d.this.fcy.getItemLength()) {
+                            if (d.this.aVr() <= d.this.fcy.getItemLength()) {
                                 d.this.fcv.showToast(String.format(d.this.fcv.getPageContext().getString(e.j.invite_friend_exceed_max_count), Integer.valueOf(d.this.fcB)));
                                 tbCheckBox.setChecked(false);
                                 ((com.baidu.tbadk.coreExtra.relationship.a) obj).setChecked(false);
@@ -278,19 +278,19 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
         }
     }
 
-    public void aVn() {
+    public void aVm() {
         if (this.mNoDataView != null) {
             this.mNoDataView.e(this.fcv.getPageContext());
         }
     }
 
-    public void aVo() {
+    public void aVn() {
         if (this.mNoDataView != null) {
             this.mNoDataView.onActivityStop();
         }
     }
 
-    private void aVp() {
+    private void aVo() {
         int dimensionPixelSize = this.fcv.getResources().getDimensionPixelSize(e.C0210e.ds80) + this.fcv.getResources().getDimensionPixelSize(e.C0210e.ds16) + this.fcv.getResources().getDimensionPixelSize(e.C0210e.ds16);
         this.mListFooter = new View(this.fcv.getPageContext().getPageActivity());
         this.mListFooter.setLayoutParams(new AbsListView.LayoutParams(-1, dimensionPixelSize));
@@ -302,7 +302,7 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
         if (aVar != null) {
             this.fcy.d(aVar);
             qx(this.fcy.getItemLength());
-            aVq();
+            aVp();
         }
     }
 
@@ -310,11 +310,11 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
         if (aVar != null) {
             this.fcy.f(aVar);
             qx(this.fcy.getItemLength());
-            aVq();
+            aVp();
         }
     }
 
-    private void aVq() {
+    private void aVp() {
         if (this.fcy.getItemLength() > 0) {
             this.fcA.setEnabled(true);
         } else {
@@ -322,7 +322,7 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
         }
     }
 
-    public void aVr() {
+    public void aVq() {
         l.b(this.fcv.getPageContext().getPageActivity(), this.mEditText);
     }
 
@@ -330,7 +330,7 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
         this.fcA.setText(String.format(this.fcv.getPageContext().getString(e.j.invite_friend_candidate_send), Integer.valueOf(i)));
     }
 
-    public int aVs() {
+    public int aVr() {
         return this.fcB;
     }
 

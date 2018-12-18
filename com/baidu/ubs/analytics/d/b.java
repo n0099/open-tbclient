@@ -15,14 +15,14 @@ public final class b {
     private static StringBuffer ido = new StringBuffer();
 
     static {
-        if (com.baidu.ubs.analytics.d.bRJ() != null) {
-            icn = !a.bSa();
+        if (com.baidu.ubs.analytics.d.bRI() != null) {
+            icn = !a.bRZ();
             idn = true;
             ido.append("ABsdkLog-");
             ido.append(new SimpleDateFormat(AiAppDateTimeUtil.DATE_FORMAT).format(new Date()));
             ido.append(BaseRequestAction.SPLITE);
             try {
-                ido.append(a(com.baidu.ubs.analytics.c.i.k(com.baidu.ubs.analytics.d.bRJ().getContext()).getBytes("UTF-8")));
+                ido.append(a(com.baidu.ubs.analytics.c.i.k(com.baidu.ubs.analytics.d.bRI().getContext()).getBytes("UTF-8")));
             } catch (UnsupportedEncodingException e) {
                 j.a(e);
             } catch (Exception e2) {
@@ -32,7 +32,7 @@ public final class b {
         }
     }
 
-    public static String bSc() {
+    public static String bSb() {
         return ido.toString();
     }
 

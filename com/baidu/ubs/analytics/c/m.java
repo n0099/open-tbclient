@@ -26,13 +26,13 @@ public final class m implements a.InterfaceC0348a {
             if (currentTimeMillis - m.idb > m.ics) {
                 m.this.d(currentTimeMillis);
             }
-            if (com.baidu.ubs.analytics.d.bRJ().i()) {
+            if (com.baidu.ubs.analytics.d.bRI().i()) {
                 com.baidu.ubs.analytics.d.c.a(new com.baidu.ubs.analytics.d.d() { // from class: com.baidu.ubs.analytics.c.m.1.1
                     @Override // com.baidu.ubs.analytics.d.d
                     protected final void a() {
                         com.baidu.ubs.analytics.d.b.yB("记录一次app启动事件");
                         com.baidu.ubs.analytics.a.a("power_on", "", "", null);
-                        com.baidu.ubs.analytics.d.bRJ().a(false);
+                        com.baidu.ubs.analytics.d.bRI().a(false);
                     }
                 });
             }
@@ -42,9 +42,9 @@ public final class m implements a.InterfaceC0348a {
         public final void ar() {
             d dVar;
             dVar = d.a.icK;
-            if (dVar.bRO().size() == 0) {
+            if (dVar.bRN().size() == 0) {
                 com.baidu.ubs.analytics.d.b.yB("后台应用退出了 了               ");
-                com.baidu.ubs.analytics.d.bRJ().a(true);
+                com.baidu.ubs.analytics.d.bRI().a(true);
                 long unused = m.idb = 0L;
                 return;
             }
@@ -67,7 +67,7 @@ public final class m implements a.InterfaceC0348a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static n bRV() {
+    public static n bRU() {
         return ida;
     }
 

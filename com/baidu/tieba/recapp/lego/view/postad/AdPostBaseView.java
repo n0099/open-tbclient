@@ -90,7 +90,7 @@ public abstract class AdPostBaseView extends PostAdBaseView<AdPost> {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.postad.PostAdBaseView
-    protected View aYl() {
+    protected View aYk() {
         this.rootView = LayoutInflater.from(getContext()).inflate(getLayout(), (ViewGroup) null);
         this.rootView.setOnClickListener(this.cSt);
         this.gNb = this.rootView.findViewById(e.g.thread_multi_del_ad_mask_view);
@@ -222,7 +222,7 @@ public abstract class AdPostBaseView extends PostAdBaseView<AdPost> {
 
     private void a(AdPost adPost, View view) {
         if (adPost != null) {
-            if (!i.xE().xI() || adPost.feedData.buR().size() == 0) {
+            if (!i.xE().xI() || adPost.feedData.buQ().size() == 0) {
             }
             if (adPost.adData.type == 1) {
             }

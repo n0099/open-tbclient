@@ -259,13 +259,13 @@ public class b implements q {
             return false;
         }
         this.dPH = new ArrayList();
-        ArrayList<BdUniqueId> bCF = com.baidu.tieba.tbadkCore.q.bCF();
-        if (bCF == null || bCF.size() <= 0) {
+        ArrayList<BdUniqueId> bCE = com.baidu.tieba.tbadkCore.q.bCE();
+        if (bCE == null || bCE.size() <= 0) {
             return false;
         }
-        int size = bCF.size();
+        int size = bCE.size();
         for (int i = 0; i < size; i++) {
-            com.baidu.tieba.frs.h<ICardInfo, ? extends q.a> a = com.baidu.tieba.frs.c.aAd().a(this.dJE.getPageContext(), bCF.get(i), this.dJE.getUniqueId());
+            com.baidu.tieba.frs.h<ICardInfo, ? extends q.a> a = com.baidu.tieba.frs.c.aAd().a(this.dJE.getPageContext(), bCE.get(i), this.dJE.getUniqueId());
             if (a != null) {
                 this.mAdapters.add(a);
                 this.dPH.add(a);
@@ -302,14 +302,14 @@ public class b implements q {
     }
 
     private void d(com.baidu.tieba.tbadkCore.l lVar) {
-        if (lVar != null && lVar.bgi() != null && "worldcup".equals(lVar.bgi().getSpecialForumType())) {
-            com.baidu.tieba.frs.worldcup.c.a(lVar.bgi().getId(), 2, this.dOD, this.dOG, this.dPM, this.dOE, this.dOH);
+        if (lVar != null && lVar.bgh() != null && "worldcup".equals(lVar.bgh().getSpecialForumType())) {
+            com.baidu.tieba.frs.worldcup.c.a(lVar.bgh().getId(), 2, this.dOD, this.dOG, this.dPM, this.dOE, this.dOH);
         }
     }
 
     private void aDL() {
-        if (this.dPO != null && this.dPO.bgi() != null && !StringUtils.isNull(this.dPO.bgi().getId()) && this.dPL != null) {
-            this.dPL.setForumId(this.dPO.bgi().getId());
+        if (this.dPO != null && this.dPO.bgh() != null && !StringUtils.isNull(this.dPO.bgh().getId()) && this.dPL != null) {
+            this.dPL.setForumId(this.dPO.bgh().getId());
         }
     }
 
@@ -532,8 +532,8 @@ public class b implements q {
                     } else {
                         aDT.ebm = false;
                     }
-                    if (this.dPO.bgi() != null) {
-                        aDT.ebo = this.dPO.bgi().getId();
+                    if (this.dPO.bgh() != null) {
+                        aDT.ebo = this.dPO.bgh().getId();
                     }
                     if (this.dJE != null && this.dJE.aAD() != null) {
                         aDT.ebn = this.dJE.aAD().aGs();
@@ -551,8 +551,8 @@ public class b implements q {
         } else {
             aVar.ebm = false;
         }
-        if (this.dPO.bgi() != null) {
-            aVar.ebo = this.dPO.bgi().getId();
+        if (this.dPO.bgh() != null) {
+            aVar.ebo = this.dPO.bgh().getId();
         }
         if (this.dJE != null && this.dJE.aAD() != null) {
             aVar.ebn = this.dJE.aAD().aGs();

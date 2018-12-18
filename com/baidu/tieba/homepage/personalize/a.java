@@ -73,7 +73,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.homepage.personalize.data.e eVar) {
-        if (eVar != null && eVar.aLy()) {
+        if (eVar != null && eVar.aLx()) {
             b(eVar);
         }
     }

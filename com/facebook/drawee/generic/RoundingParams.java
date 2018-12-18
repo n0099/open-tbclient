@@ -24,28 +24,28 @@ public class RoundingParams {
         return this;
     }
 
-    public boolean bVo() {
+    public boolean bVn() {
         return this.ikp;
     }
 
     public RoundingParams k(float f, float f2, float f3, float f4) {
-        float[] bVs = bVs();
-        bVs[1] = f;
-        bVs[0] = f;
-        bVs[3] = f2;
-        bVs[2] = f2;
-        bVs[5] = f3;
-        bVs[4] = f3;
-        bVs[7] = f4;
-        bVs[6] = f4;
+        float[] bVr = bVr();
+        bVr[1] = f;
+        bVr[0] = f;
+        bVr[3] = f2;
+        bVr[2] = f2;
+        bVr[5] = f3;
+        bVr[4] = f3;
+        bVr[7] = f4;
+        bVr[6] = f4;
         return this;
     }
 
-    public float[] bVp() {
+    public float[] bVo() {
         return this.ikq;
     }
 
-    public RoundingMethod bVq() {
+    public RoundingMethod bVp() {
         return this.iko;
     }
 
@@ -55,11 +55,11 @@ public class RoundingParams {
         return this;
     }
 
-    public int bVr() {
+    public int bVq() {
         return this.ijC;
     }
 
-    private float[] bVs() {
+    private float[] bVr() {
         if (this.ikq == null) {
             this.ikq = new float[8];
         }
@@ -72,7 +72,7 @@ public class RoundingParams {
         return this;
     }
 
-    public float bVt() {
+    public float bVs() {
         return this.mBorderWidth;
     }
 
@@ -91,7 +91,7 @@ public class RoundingParams {
         return this;
     }
 
-    public float bVu() {
+    public float bVt() {
         return this.ijv;
     }
 

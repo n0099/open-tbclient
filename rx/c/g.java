@@ -6,7 +6,7 @@ import rx.internal.util.RxThreadFactory;
 public class g {
     private static final g iNR = new g();
 
-    public static rx.g ceX() {
+    public static rx.g ceW() {
         return a(new RxThreadFactory("RxComputationScheduler-"));
     }
 
@@ -17,7 +17,7 @@ public class g {
         return new rx.internal.schedulers.b(threadFactory);
     }
 
-    public static rx.g ceY() {
+    public static rx.g ceX() {
         return b(new RxThreadFactory("RxIoScheduler-"));
     }
 
@@ -28,7 +28,7 @@ public class g {
         return new rx.internal.schedulers.a(threadFactory);
     }
 
-    public static rx.g ceZ() {
+    public static rx.g ceY() {
         return c(new RxThreadFactory("RxNewThreadScheduler-"));
     }
 
@@ -39,6 +39,10 @@ public class g {
         return new rx.internal.schedulers.f(threadFactory);
     }
 
+    public rx.g ceZ() {
+        return null;
+    }
+
     public rx.g cfa() {
         return null;
     }
@@ -47,16 +51,12 @@ public class g {
         return null;
     }
 
-    public rx.g cfc() {
-        return null;
-    }
-
     @Deprecated
     public rx.functions.a b(rx.functions.a aVar) {
         return aVar;
     }
 
-    public static g cfd() {
+    public static g cfc() {
         return iNR;
     }
 }

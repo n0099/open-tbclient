@@ -32,7 +32,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         this.hcL = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_URL);
         this.hcM = intent.getBooleanExtra(SignAllForumAdvertActivityConfig.HAS_PRIVILEGE, false);
         initUI();
-        bzY();
+        bzX();
     }
 
     private void initUI() {
@@ -71,7 +71,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         });
     }
 
-    private void bzY() {
+    private void bzX() {
         TiebaStatic.log("c10746");
     }
 

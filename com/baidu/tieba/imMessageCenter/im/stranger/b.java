@@ -55,11 +55,11 @@ public class b extends c<StrangerListActivity> {
         this.eKJ.setAdapter((ListAdapter) this.fdv);
     }
 
-    public StrangerListAdapter aVz() {
+    public StrangerListAdapter aVy() {
         return this.fdv;
     }
 
-    public View aVA() {
+    public View aVz() {
         return this.mDeleteBtn;
     }
 }

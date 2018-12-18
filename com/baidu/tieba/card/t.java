@@ -370,11 +370,11 @@ public class t extends a<CardPersonDynamicThreadData> {
             VoiceData.VoiceModel voiceModel = voiceModelArr[0];
             this.cUX.setVoiceModel(voiceModel);
             this.cUX.setTag(voiceModel);
-            this.cUX.aWg();
+            this.cUX.aWf();
             if (voiceModel != null) {
                 this.cUX.qw(voiceModel.voice_status.intValue());
             }
-            this.cUX.bEC();
+            this.cUX.bEB();
         } else {
             this.cUX.setVisibility(8);
             fr(false);
@@ -388,7 +388,7 @@ public class t extends a<CardPersonDynamicThreadData> {
         this.cWj.setVisibility(8);
         this.cWf.setVisibility(8);
         this.cWi.setVisibility(8);
-        this.cUu.bLX();
+        this.cUu.bLW();
         if (cardPersonDynamicThreadData.cYy == 36) {
             this.cVa.setVisibility(8);
         } else if (cardPersonDynamicThreadData.cYy == 40 || this.cVD.cYy == 50) {

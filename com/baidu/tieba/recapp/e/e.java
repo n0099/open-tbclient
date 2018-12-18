@@ -30,15 +30,15 @@ public class e {
         return (T) this.mRootView.findViewById(i);
     }
 
-    public void bvy() {
+    public void bvx() {
         this.mRootView.setVisibility(0);
         if (this.gRC != null) {
             this.gRC.tT(303);
-            com.baidu.tieba.recapp.report.c.bvu().a(this.gRC);
+            com.baidu.tieba.recapp.report.c.bvt().a(this.gRC);
         }
     }
 
-    public void bvz() {
+    public void bvy() {
         this.mRootView.setVisibility(8);
     }
 

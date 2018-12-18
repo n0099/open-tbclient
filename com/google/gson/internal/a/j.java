@@ -14,7 +14,7 @@ public final class j extends o<Date> {
     public static final p iuj = new p() { // from class: com.google.gson.internal.a.j.1
         @Override // com.google.gson.p
         public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-            if (aVar.caT() == Date.class) {
+            if (aVar.caS() == Date.class) {
                 return new j();
             }
             return null;
@@ -27,7 +27,7 @@ public final class j extends o<Date> {
     /* renamed from: l */
     public synchronized Date b(com.google.gson.stream.a aVar) throws IOException {
         Date date;
-        if (aVar.caH() == JsonToken.NULL) {
+        if (aVar.caG() == JsonToken.NULL) {
             aVar.nextNull();
             date = null;
         } else {

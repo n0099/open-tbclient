@@ -106,19 +106,19 @@ public class ConcernSelectView extends FrameLayout {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void bcV() {
+    public void bcU() {
         if (!(this.fFC.getVisibility() == 0)) {
             x(this.fFC, 0);
         }
     }
 
-    public void bcW() {
+    public void bcV() {
         if (this.fFC.getVisibility() == 0) {
             x(this.fFC, 1);
         }
     }
 
-    public boolean bcX() {
+    public boolean bcW() {
         return this.fFC.getVisibility() == 0;
     }
 
@@ -183,7 +183,7 @@ public class ConcernSelectView extends FrameLayout {
                 if (this.fFy.getAnimation() == null || this.fFy.getAnimation().hasEnded()) {
                     if (i == 0) {
                         if (this.fFD == null) {
-                            bcZ();
+                            bcY();
                         }
                         if (this.fFE != null) {
                             this.fFE.cancel();
@@ -192,7 +192,7 @@ public class ConcernSelectView extends FrameLayout {
                         return;
                     }
                     if (this.fFE == null) {
-                        bcY();
+                        bcX();
                     }
                     if (this.fFD != null) {
                         this.fFD.cancel();
@@ -203,7 +203,7 @@ public class ConcernSelectView extends FrameLayout {
         }
     }
 
-    private void bcY() {
+    private void bcX() {
         this.fFE = AnimationUtils.loadAnimation(this.mContext, e.a.rotate_collapse);
         this.fFE.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.5
             @Override // android.view.animation.Animation.AnimationListener
@@ -221,7 +221,7 @@ public class ConcernSelectView extends FrameLayout {
         });
     }
 
-    private void bcZ() {
+    private void bcY() {
         this.fFD = AnimationUtils.loadAnimation(this.mContext, e.a.rotate_expand);
         this.fFD.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.6
             @Override // android.view.animation.Animation.AnimationListener

@@ -16,12 +16,12 @@ public class k {
     private long fEO;
     private boolean fEP;
 
-    public void bcK() {
+    public void bcJ() {
         this.fEP = true;
         this.fEN = SystemClock.elapsedRealtime();
     }
 
-    public void bcL() {
+    public void bcK() {
         this.fEO = SystemClock.elapsedRealtime();
     }
 

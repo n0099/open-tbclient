@@ -52,7 +52,7 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             }
         };
         this.mPageContext = tbPageContext;
-        aLr();
+        aLq();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -103,7 +103,7 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         return aVar.getView();
     }
 
-    private void aLr() {
+    private void aLq() {
         com.baidu.tieba.card.data.k.cXS = "c10705";
         com.baidu.tieba.card.data.k.cXT = "c10730";
         com.baidu.tieba.card.data.k.cXU = "c10731";

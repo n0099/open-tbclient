@@ -16,7 +16,7 @@ public class c {
     private a.InterfaceC0214a fSb = new a.InterfaceC0214a() { // from class: com.baidu.tieba.pb.pb.godreply.c.1
         @Override // com.baidu.tieba.f.a.InterfaceC0214a
         public void aq(int i, int i2) {
-            if (c.this.fRZ.isActive() && !c.this.bhq() && c.this.fRZ.bhm().bhv() && Math.abs(i2) > c.TOUCH_SLOP) {
+            if (c.this.fRZ.isActive() && !c.this.bhp() && c.this.fRZ.bhl().bhu() && Math.abs(i2) > c.TOUCH_SLOP) {
                 c.this.fRZ.i(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -30,10 +30,10 @@ public class c {
 
         @Override // com.baidu.tieba.f.a.InterfaceC0214a
         public void ar(int i, int i2) {
-            if (c.this.fRZ.isActive() && !c.this.bhq() && !c.this.isFullscreen()) {
+            if (c.this.fRZ.isActive() && !c.this.bhp() && !c.this.isFullscreen()) {
                 c.this.kC(true);
                 c.this.setFullscreen(true);
-                c.this.fRZ.bhm().j(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.2
+                c.this.fRZ.bhl().j(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.2
                     @Override // java.lang.Runnable
                     public void run() {
                         c.this.kC(false);
@@ -61,13 +61,13 @@ public class c {
     }
 
     public void initialize() {
-        d bhm = this.fRZ.bhm();
-        if (bhm.bhs()) {
-            bhm.getListView().setOnTouchListener(this.fSc);
+        d bhl = this.fRZ.bhl();
+        if (bhl.bhr()) {
+            bhl.getListView().setOnTouchListener(this.fSc);
         }
     }
 
-    public boolean bhq() {
+    public boolean bhp() {
         return this.fRX;
     }
 

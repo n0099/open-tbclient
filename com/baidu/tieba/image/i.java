@@ -19,7 +19,7 @@ public class i {
         this.fhY = i;
     }
 
-    public int aWP() {
+    public int aWO() {
         return this.fhY;
     }
 
@@ -51,11 +51,11 @@ public class i {
             }
         }
         if (this.fhU.size() >= 100) {
-            aWQ();
+            aWP();
         }
     }
 
-    public void aWQ() {
+    public void aWP() {
         if (this.fhU != null) {
             synchronized (this.fhU) {
                 if (this.fhU.size() > 0) {

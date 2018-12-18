@@ -107,19 +107,19 @@ public class g extends com.baidu.adp.base.c<SystemHelpSettingActivity> {
         }
     }
 
-    public BdSwitchView bys() {
+    public BdSwitchView byr() {
         return this.gYz;
     }
 
-    public BdSwitchView byt() {
+    public BdSwitchView bys() {
         return this.gYy;
     }
 
-    public TbSettingTextTipView byu() {
+    public TbSettingTextTipView byt() {
         return this.gYw;
     }
 
-    public TbSettingTextTipView byv() {
+    public TbSettingTextTipView byu() {
         return this.gYx;
     }
 
@@ -135,7 +135,7 @@ public class g extends com.baidu.adp.base.c<SystemHelpSettingActivity> {
         al.i(this.gYw, e.f.more_all);
     }
 
-    public TbSettingTextNewDotView byw() {
+    public TbSettingTextNewDotView byv() {
         return this.gYA;
     }
 }

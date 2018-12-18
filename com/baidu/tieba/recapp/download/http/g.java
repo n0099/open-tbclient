@@ -10,11 +10,11 @@ public class g {
     private LinkedList<e> CX = new LinkedList<>();
     private e gMF = null;
 
-    public h buP() {
+    public h buO() {
         return this.gMD;
     }
 
-    public i buQ() {
+    public i buP() {
         return this.gME;
     }
 

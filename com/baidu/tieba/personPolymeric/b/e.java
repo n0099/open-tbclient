@@ -67,31 +67,31 @@ public class e implements com.baidu.tieba.personPolymeric.mode.b {
         this.gwN = new BlackListModel(this.bLQ.getPageContext(), bdUniqueId);
         this.gwP = new g(this.bLQ.getPageContext(), bdUniqueId, z);
         this.gwP.a(this.gwL);
-        bqe();
+        bqd();
         loadData();
     }
 
-    public a bpY() {
+    public a bpX() {
         return this.gwO;
     }
 
-    public g bpZ() {
+    public g bpY() {
         return this.gwP;
     }
 
-    public PersonPolymericModel bqa() {
+    public PersonPolymericModel bpZ() {
         return this.gwL;
     }
 
-    public BlackListModel bqb() {
+    public BlackListModel bqa() {
         return this.gwN;
     }
 
-    public c bqc() {
+    public c bqb() {
         return this.gwM;
     }
 
-    public d bqd() {
+    public d bqc() {
         return this.gwK;
     }
 
@@ -124,7 +124,7 @@ public class e implements com.baidu.tieba.personPolymeric.mode.b {
             arrayList.add(iVar);
             this.gwK.abb();
             this.gwK.dt(arrayList);
-            this.gwK.bpX();
+            this.gwK.bpW();
         }
     }
 
@@ -135,7 +135,7 @@ public class e implements com.baidu.tieba.personPolymeric.mode.b {
                 this.gwL.cW(this.mUserId);
             }
         }
-        return this.gwL.bqA();
+        return this.gwL.bqz();
     }
 
     @Override // com.baidu.tieba.personPolymeric.mode.b
@@ -155,7 +155,7 @@ public class e implements com.baidu.tieba.personPolymeric.mode.b {
         }
     }
 
-    private void bqe() {
+    private void bqd() {
         this.gwO = new i();
         this.gwO.a(this.bLQ, this, this.mPageId, this.mUserId, this.isHost, this.gwJ);
         this.gwO.mg(this.gwR);

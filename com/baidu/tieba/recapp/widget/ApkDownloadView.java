@@ -115,7 +115,7 @@ public class ApkDownloadView extends FrameLayout {
         }
         int process = downloadData.getProcess();
         if (process <= 0) {
-            process = h.buM().aJ(downloadData.getId(), downloadData.getName());
+            process = h.buL().aJ(downloadData.getId(), downloadData.getName());
         }
         return Math.max(process, 0);
     }
@@ -128,22 +128,22 @@ public class ApkDownloadView extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bvD();
+        bvC();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        bvC();
+        bvB();
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
         if (i == 0) {
-            bvC();
+            bvB();
         } else {
-            bvD();
+            bvC();
         }
     }
 
@@ -151,7 +151,7 @@ public class ApkDownloadView extends FrameLayout {
         this.gSW.onChangeSkinType();
     }
 
-    private void bvC() {
+    private void bvB() {
         if (this.downloadListener != null) {
             MessageManager.getInstance().registerListener(this.downloadListener);
         }
@@ -160,7 +160,7 @@ public class ApkDownloadView extends FrameLayout {
         }
     }
 
-    private void bvD() {
+    private void bvC() {
         if (this.downloadListener != null) {
             MessageManager.getInstance().unRegisterListener(this.downloadListener);
         }

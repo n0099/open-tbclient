@@ -131,7 +131,7 @@ public class ForumManageModel extends BdBaseModel {
         this.hnC.execute(new String[0]);
     }
 
-    public boolean bEd() {
+    public boolean bEc() {
         return (this.hnC == null && this.hnD == null && this.hnE == null) ? false : true;
     }
 
@@ -139,7 +139,7 @@ public class ForumManageModel extends BdBaseModel {
         this.hnF = str;
     }
 
-    public String bEe() {
+    public String bEd() {
         return this.hnF;
     }
 
@@ -164,7 +164,7 @@ public class ForumManageModel extends BdBaseModel {
             this.hnG = i;
             this.giK = i2;
             this.eni = z;
-            this.hnF = ForumManageModel.this.bEe();
+            this.hnF = ForumManageModel.this.bEd();
         }
 
         /* JADX DEBUG: Method merged with bridge method */

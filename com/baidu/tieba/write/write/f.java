@@ -32,7 +32,7 @@ public class f extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bPU();
+        void bPT();
 
         void xp(int i);
 
@@ -111,7 +111,7 @@ public class f extends BaseAdapter {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     if (f.this.hZa != null) {
-                        f.this.hZa.bPU();
+                        f.this.hZa.bPT();
                     }
                 }
             });

@@ -28,12 +28,12 @@ public class h implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void aOV() {
+    public void aOU() {
         this.eLG.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void aOW() {
+    public void aOV() {
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
         this.eLu.getLayoutMode().setNightMode(z);
         this.eLu.getLayoutMode().onModeChanged(this.mView);
@@ -46,7 +46,7 @@ public class h implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public int aOP() {
+    public int aOO() {
         return this.mIndex;
     }
 
@@ -56,12 +56,12 @@ public class h implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public String aOY() {
+    public String aOX() {
         return "";
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean aOZ() {
+    public boolean aOY() {
         return false;
     }
 
@@ -71,11 +71,11 @@ public class h implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean aPa() {
+    public boolean aOZ() {
         return false;
     }
 
-    public Button aPe() {
+    public Button aPd() {
         return this.eLH;
     }
 }

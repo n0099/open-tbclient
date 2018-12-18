@@ -370,7 +370,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                 tbImageView.setDefaultResource(e.f.pic_video);
                 tbImageView.setDefaultErrorResource(e.f.pic_bg_video_h5);
             }
-            if (bBf() && i == getChildCount() - 1) {
+            if (bBe() && i == getChildCount() - 1) {
                 tbImageView.setGifIconSupport(false);
                 tbImageView.setLongIconSupport(false);
             } else {
@@ -397,14 +397,14 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                     drawChild(canvas, (TbImageView) getChildAt(i2), drawingTime);
                     i = i2 + 1;
                 }
-                if (bBf()) {
+                if (bBe()) {
                     G(canvas);
                 }
             }
         }
     }
 
-    private boolean bBf() {
+    private boolean bBe() {
         return this.hhZ > 3 && this.hia;
     }
 

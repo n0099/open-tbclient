@@ -29,7 +29,7 @@ public class g<K, V> {
     }
 
     @Nullable
-    public synchronized K bVJ() {
+    public synchronized K bVI() {
         return this.ilF.isEmpty() ? null : this.ilF.keySet().iterator().next();
     }
 

@@ -139,7 +139,7 @@ public class n {
                 if (this.mSwitchs != null && this.mSwitchs.size() > 0) {
                     com.baidu.adp.lib.b.d.iQ().k(this.mSwitchs);
                 }
-                com.baidu.tieba.play.t.brU();
+                com.baidu.tieba.play.t.brT();
                 CustomPlayerSwitchStatic.tk(com.baidu.adp.lib.b.d.iQ().aO("android_custom_player_enabled_2"));
                 this.aNT = jSONObject.optInt("is_pushservice_open", 1) == 1;
                 TbadkCoreApplication.getInst().setIsPushServiceOpen(this.aNT);

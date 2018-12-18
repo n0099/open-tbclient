@@ -40,9 +40,9 @@ public class a implements IAiAppVideoIoc {
         M.a(a);
         if (a.isAutoPlay()) {
             if (!TextUtils.equals(YO.mSrc, a.mSrc)) {
-                if (M.bqW()) {
+                if (M.bqV()) {
                     M.stopPlay();
-                    M.bqM();
+                    M.bqL();
                 }
             } else if (M.hasStart()) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
@@ -74,7 +74,7 @@ public class a implements IAiAppVideoIoc {
         b YO = M.YO();
         M.a(a);
         if (!TextUtils.equals(YO.mSrc, a.mSrc)) {
-            if (M.bqW()) {
+            if (M.bqV()) {
                 M.stopPlay();
             }
             M.aZ(a.mSrc, null);
@@ -177,14 +177,14 @@ public class a implements IAiAppVideoIoc {
 
     private void a(Context context, com.baidu.tieba.aiapps.apps.media.video.view.a aVar, b bVar) {
         AiAppsNAViewContainer aiAppsNAViewContainer;
-        if (aVar != null && aVar.bri() != null) {
+        if (aVar != null && aVar.brh() != null) {
             AiAppsNAViewContainer findNAViewById = NAViewFinder.findNAViewById(bVar.slaveId, bVar.id, AiAppsUtils.getCurrentNAViewRoot(bVar.slaveId));
-            if (aVar.bri().getParent() != null) {
-                ((ViewGroup) aVar.bri().getParent()).removeView(aVar.bri());
+            if (aVar.brh().getParent() != null) {
+                ((ViewGroup) aVar.brh().getParent()).removeView(aVar.brh());
             }
             if (findNAViewById == null) {
                 aiAppsNAViewContainer = new AiAppsNAViewContainer(context);
-                aiAppsNAViewContainer.insertView(aVar.bri(), bVar);
+                aiAppsNAViewContainer.insertView(aVar.brh(), bVar);
             } else {
                 AiAppsNaViewModel cloneModel = bVar.cloneModel();
                 findNAViewById.removeView();
@@ -193,7 +193,7 @@ public class a implements IAiAppVideoIoc {
                 cloneModel.id = findNAViewById.getViewId();
                 cloneModel.position.setTop(cloneModel.position.getTop());
                 cloneModel.position.setHeight(cloneModel.position.getHeight());
-                findNAViewById.insertView(aVar.bri(), cloneModel);
+                findNAViewById.insertView(aVar.brh(), cloneModel);
                 aiAppsNAViewContainer = findNAViewById;
             }
             aVar.a(aiAppsNAViewContainer);

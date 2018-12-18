@@ -80,11 +80,11 @@ public class j {
         return this.mId;
     }
 
-    public String bRc() {
+    public String bRb() {
         return this.mFlowId;
     }
 
-    public int bRd() {
+    public int bRc() {
         return this.ibs;
     }
 
@@ -96,11 +96,11 @@ public class j {
         return this.mTime;
     }
 
-    public int bRe() {
+    public int bRd() {
         return this.ibQ;
     }
 
-    public String bRf() {
+    public String bRe() {
         return this.ibR;
     }
 
@@ -112,7 +112,7 @@ public class j {
         this.mCategory = str;
     }
 
-    public JSONObject bRg() {
+    public JSONObject bRf() {
         return this.ibP;
     }
 
@@ -124,7 +124,7 @@ public class j {
         this.Ss = str;
     }
 
-    public boolean bRa() {
+    public boolean bQZ() {
         return this.ibS;
     }
 
@@ -132,9 +132,9 @@ public class j {
         this.ibS = z;
     }
 
-    public void bRh() {
-        if (this.mId != null && this.mId.equals(this.mFlowId) && e.bQQ().xZ(this.mId)) {
-            this.ibR = o.bRs().Zd();
+    public void bRg() {
+        if (this.mId != null && this.mId.equals(this.mFlowId) && e.bQP().xZ(this.mId)) {
+            this.ibR = o.bRr().Zd();
         }
     }
 }

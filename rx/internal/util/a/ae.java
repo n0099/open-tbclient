@@ -20,7 +20,7 @@ public final class ae {
         iMJ = unsafe;
     }
 
-    public static boolean ceG() {
+    public static boolean ceF() {
         return (iMJ == null || iMK) ? false : true;
     }
 

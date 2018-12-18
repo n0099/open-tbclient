@@ -62,11 +62,11 @@ public class aa extends y {
     }
 
     @Override // com.facebook.imagepipeline.producers.y
-    protected String bZc() {
+    protected String bZb() {
         return "LocalResourceFetchProducer";
     }
 
     private static int h(ImageRequest imageRequest) {
-        return Integer.parseInt(imageRequest.bZE().getPath().substring(1));
+        return Integer.parseInt(imageRequest.bZD().getPath().substring(1));
     }
 }

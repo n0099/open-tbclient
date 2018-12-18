@@ -321,21 +321,21 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
         return false;
     }
 
-    ExpandableListAdapter aLL() {
+    ExpandableListAdapter aLK() {
         return this.eyf;
     }
 
     @Override // android.widget.Filterable
     public Filter getFilter() {
-        ExpandableListAdapter aLL = aLL();
-        if (aLL instanceof Filterable) {
-            return ((Filterable) aLL).getFilter();
+        ExpandableListAdapter aLK = aLK();
+        if (aLK instanceof Filterable) {
+            return ((Filterable) aLK).getFilter();
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<GroupMetadata> aLM() {
+    public ArrayList<GroupMetadata> aLL() {
         return this.eyg;
     }
 
@@ -355,9 +355,9 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public boolean isEmpty() {
-        ExpandableListAdapter aLL = aLL();
-        if (aLL != null) {
-            return aLL.isEmpty();
+        ExpandableListAdapter aLK = aLK();
+        if (aLK != null) {
+            return aLK.isEmpty();
         }
         return true;
     }
@@ -370,14 +370,14 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
         int min = Math.min(groupCount - 1, Math.max(0, i));
         long uptimeMillis = SystemClock.uptimeMillis() + 100;
         boolean z = false;
-        ExpandableListAdapter aLL = aLL();
-        if (aLL == null) {
+        ExpandableListAdapter aLK = aLK();
+        if (aLK == null) {
             return -1;
         }
         int i2 = min;
         int i3 = min;
         while (SystemClock.uptimeMillis() <= uptimeMillis) {
-            if (aLL.getGroupId(i3) != j) {
+            if (aLK.getGroupId(i3) != j) {
                 boolean z2 = min == groupCount + (-1);
                 boolean z3 = i2 == 0;
                 if (z2 && z3) {
@@ -495,14 +495,14 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
         }
 
         static b a(int i, int i2, int i3, int i4, GroupMetadata groupMetadata, int i5) {
-            b aLN = aLN();
-            aLN.eyq = com.baidu.tieba.horizonalList.widget.a.t(i2, i3, i4, i);
-            aLN.eyr = groupMetadata;
-            aLN.eys = i5;
-            return aLN;
+            b aLM = aLM();
+            aLM.eyq = com.baidu.tieba.horizonalList.widget.a.t(i2, i3, i4, i);
+            aLM.eyr = groupMetadata;
+            aLM.eys = i5;
+            return aLM;
         }
 
-        private static b aLN() {
+        private static b aLM() {
             b bVar;
             synchronized (eyp) {
                 if (eyp.size() > 0) {

@@ -13,7 +13,7 @@ public class a {
     private SimpleUser gUJ;
     private int gUK;
 
-    public boolean bwf() {
+    public boolean bwe() {
         com.baidu.tbadk.core.sharedPref.b bVar = com.baidu.tbadk.core.sharedPref.b.getInstance();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         this.gUF = bVar.getInt("post" + currentAccount, 0);
@@ -37,7 +37,7 @@ public class a {
         }
     }
 
-    public int bwg() {
+    public int bwf() {
         return this.gUF;
     }
 
@@ -45,7 +45,7 @@ public class a {
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(str + TbadkCoreApplication.getCurrentAccount(), i);
     }
 
-    public void bwh() {
+    public void bwg() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         com.baidu.tbadk.core.sharedPref.b bVar = com.baidu.tbadk.core.sharedPref.b.getInstance();
         bVar.putInt("post" + currentAccount, this.gUF);
@@ -60,7 +60,7 @@ public class a {
         this.gUF = i;
     }
 
-    public int bwi() {
+    public int bwh() {
         return this.gUG;
     }
 
@@ -80,7 +80,7 @@ public class a {
         }
     }
 
-    public int bwj() {
+    public int bwi() {
         return this.aXf;
     }
 
@@ -90,7 +90,7 @@ public class a {
         }
     }
 
-    public boolean bwk() {
+    public boolean bwj() {
         return this.gUH;
     }
 
@@ -125,7 +125,7 @@ public class a {
         }
     }
 
-    public int bwl() {
+    public int bwk() {
         return this.gUI;
     }
 }

@@ -25,13 +25,13 @@ public class a implements ai<com.facebook.imagepipeline.f.d> {
         /* renamed from: a */
         public void d(com.facebook.imagepipeline.f.d dVar, boolean z) {
             if (dVar == null) {
-                bZe().e(null, z);
+                bZd().e(null, z);
                 return;
             }
             if (!com.facebook.imagepipeline.f.d.d(dVar)) {
-                dVar.bYc();
+                dVar.bYb();
             }
-            bZe().e(dVar, z);
+            bZd().e(dVar, z);
         }
     }
 }

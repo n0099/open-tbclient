@@ -11,7 +11,7 @@ public class e {
         this.mData = arrayList;
     }
 
-    public boolean box() {
+    public boolean bow() {
         return this.gqG;
     }
 
@@ -19,7 +19,7 @@ public class e {
         this.gqG = z;
     }
 
-    public ArrayList<h> boy() {
+    public ArrayList<h> box() {
         return this.mData;
     }
 }

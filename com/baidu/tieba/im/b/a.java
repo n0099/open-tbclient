@@ -21,11 +21,11 @@ public class a {
     private a() {
     }
 
-    public static a aUn() {
+    public static a aUm() {
         return eZj;
     }
 
-    public void aUo() {
+    public void aUn() {
         String str;
         String str2 = null;
         if (this.eZk != null) {
@@ -57,7 +57,7 @@ public class a {
         new AddMsgRecordModel().reqViewAndClick(str, str2);
     }
 
-    public void aUp() {
+    public void aUo() {
         if (this.eZl != null && this.eZl.length() > 0) {
             this.eZl.delete(0, this.eZl.length());
         }

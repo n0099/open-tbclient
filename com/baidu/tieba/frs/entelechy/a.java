@@ -44,22 +44,22 @@ public abstract class a extends com.baidu.tieba.frs.view.b {
     public void bE(List<g> list) {
         if (this.dJE != null && this.dJE.aAZ() != null && this.dPd != null) {
             ArrayList arrayList = new ArrayList();
-            List<h> bCA = this.dJE.aAZ().bCA();
+            List<h> bCz = this.dJE.aAZ().bCz();
             if (!v.I(list)) {
                 for (int i = 0; i < list.size(); i++) {
-                    if (list.get(i).bBg() == 1) {
+                    if (list.get(i).bBf() == 1) {
                         arrayList.add(list.get(i));
                     }
                 }
             }
-            if (bCA != null) {
-                for (int i2 = 0; i2 < v.H(bCA) && arrayList.size() < this.dPh; i2++) {
-                    h hVar = (h) v.d(bCA, i2);
+            if (bCz != null) {
+                for (int i2 = 0; i2 < v.H(bCz) && arrayList.size() < this.dPh; i2++) {
+                    h hVar = (h) v.d(bCz, i2);
                     if (hVar instanceof bb) {
                         arrayList.add(hVar);
                         if (((bb) hVar).zA() == 1) {
                             this.dPh = 4;
-                        } else if (this.dJE.aAZ().bgi() != null && this.dJE.aAZ().bgi().isShowAllTopThread == 0 && arrayList.size() >= 1) {
+                        } else if (this.dJE.aAZ().bgh() != null && this.dJE.aAZ().bgh().isShowAllTopThread == 0 && arrayList.size() >= 1) {
                             break;
                         }
                     }
@@ -73,12 +73,12 @@ public abstract class a extends com.baidu.tieba.frs.view.b {
                     } else {
                         fVar.aDT().ebm = false;
                     }
-                    if (this.dJE.aAZ().bgi() != null) {
-                        fVar.aDT().ebo = this.dJE.aAZ().bgi().getId();
+                    if (this.dJE.aAZ().bgh() != null) {
+                        fVar.aDT().ebo = this.dJE.aAZ().bgh().getId();
                     }
                 }
             }
-            if (!v.I(list) && list.get(0).bBg() != 1) {
+            if (!v.I(list) && list.get(0).bBf() != 1) {
                 arrayList.add(list.get(0));
             }
             this.dPd.c(this.dJq);

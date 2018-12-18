@@ -59,7 +59,7 @@ public class b extends c<GroupActivityActivity> {
         this.eRS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupActivity.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.aRU();
+                b.this.aRT();
                 b.this.eSf.BI();
                 TiebaStatic.eventStat(groupActivityActivity.getPageContext().getPageActivity(), "group_activity_edit", "groupclick", 1, new Object[0]);
             }
@@ -210,20 +210,20 @@ public class b extends c<GroupActivityActivity> {
         this.eSh = null;
     }
 
-    public View aRR() {
+    public View aRQ() {
         return this.eHK;
     }
 
-    public TextView aRS() {
+    public TextView aRR() {
         return this.eSg;
     }
 
-    public com.baidu.tbadk.core.dialog.b aRT() {
+    public com.baidu.tbadk.core.dialog.b aRS() {
         return this.eSf;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aRU() {
+    public void aRT() {
         if (this.eSf == null) {
             CharSequence[] charSequenceArr = {this.eRP.getPageContext().getString(e.j.group_activity_eidt), this.eRP.getPageContext().getString(e.j.group_activity_delete)};
             this.eSf = new com.baidu.tbadk.core.dialog.b(this.eRP.getPageContext().getPageActivity());

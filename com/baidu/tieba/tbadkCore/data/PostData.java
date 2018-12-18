@@ -141,15 +141,15 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
         this.fQW = z;
     }
 
-    public boolean bDk() {
+    public boolean bDj() {
         return this.fQW;
     }
 
-    public ArrayList<PostData> bDl() {
+    public ArrayList<PostData> bDk() {
         return this.hlA;
     }
 
-    public void bDm() {
+    public void bDl() {
         this.hlA.clear();
         this.hlA = null;
         this.hlz = false;
@@ -172,7 +172,7 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
     public void q(PostData postData) {
         if (postData != null && this.hly != null) {
             this.hly.add(postData);
-            bDq();
+            bDp();
         }
     }
 
@@ -193,7 +193,7 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
         this.hmb = z;
     }
 
-    public boolean bDn() {
+    public boolean bDm() {
         return this.hmb;
     }
 
@@ -201,19 +201,19 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
         this.hlz = z;
     }
 
-    public boolean bDo() {
+    public boolean bDn() {
         return this.hlz;
     }
 
-    public ArrayList<PostData> bDp() {
+    public ArrayList<PostData> bDo() {
         return this.hly;
     }
 
-    public void bDq() {
+    public void bDp() {
         this.hlx++;
     }
 
-    public void bDr() {
+    public void bDq() {
         this.hlx--;
     }
 
@@ -241,11 +241,11 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
         this.title = str;
     }
 
-    public String bgd() {
+    public String bgc() {
         return this.fPK;
     }
 
-    public int bDs() {
+    public int bDr() {
         return this.floor_num;
     }
 
@@ -253,7 +253,7 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
         this.floor_num = i;
     }
 
-    public boolean bDt() {
+    public boolean bDs() {
         return this.hlI;
     }
 
@@ -282,7 +282,7 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
         this.atX = praiseData;
     }
 
-    public TbRichText bDu() {
+    public TbRichText bDt() {
         return this.hlB;
     }
 
@@ -294,7 +294,7 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
         return this.bimg_url;
     }
 
-    public SmallTailInfo bmY() {
+    public SmallTailInfo bmX() {
         return this.gjp;
     }
 
@@ -302,7 +302,7 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
         this.gjp = smallTailInfo;
     }
 
-    public com.baidu.tbadk.data.f bDv() {
+    public com.baidu.tbadk.data.f bDu() {
         return this.hlG;
     }
 
@@ -481,7 +481,7 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
         return bitmapDrawable;
     }
 
-    public int bDw() {
+    public int bDv() {
         return this.hlx;
     }
 
@@ -548,8 +548,8 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
                 while (it.hasNext()) {
                     k next = it.next();
                     if (next.getType() == 0) {
-                        if (next.bDd() != null) {
-                            sb.append((CharSequence) next.bDd());
+                        if (next.bDc() != null) {
+                            sb.append((CharSequence) next.bDc());
                         }
                     } else if (next.getType() == 3) {
                         if (next.getLink() != null) {
@@ -564,8 +564,8 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
                             sb.append(hF);
                             sb.append("]");
                         }
-                    } else if (next.getType() == 11 && !ao.isEmpty(next.bDc())) {
-                        sb.append("[").append(next.bDc()).append("]");
+                    } else if (next.getType() == 11 && !ao.isEmpty(next.bDb())) {
+                        sb.append("[").append(next.bDb()).append("]");
                     }
                 }
                 ClipboardManager clipboardManager2 = (ClipboardManager) context.getSystemService("clipboard");
@@ -816,7 +816,7 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
         return stringBuffer.toString();
     }
 
-    public String bDx() {
+    public String bDw() {
         ArrayList<TbRichTextData> RZ;
         String str;
         if (this.hlB == null || (RZ = this.hlB.RZ()) == null) {
@@ -841,7 +841,7 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
         return sb.toString();
     }
 
-    public PreLoadImageInfo bDy() {
+    public PreLoadImageInfo bDx() {
         ArrayList<TbRichTextData> RZ;
         if (this.hlB != null && (RZ = this.hlB.RZ()) != null) {
             Iterator<TbRichTextData> it = RZ.iterator();
@@ -868,14 +868,14 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
         return null;
     }
 
-    public String bDz() {
-        j bCV;
-        PreLoadImageInfo bDy = bDy();
-        if (bDy != null && !StringUtils.isNull(bDy.imgUrl)) {
-            return bDy.imgUrl;
+    public String bDy() {
+        j bCU;
+        PreLoadImageInfo bDx = bDx();
+        if (bDx != null && !StringUtils.isNull(bDx.imgUrl)) {
+            return bDx.imgUrl;
         }
-        if (this.hlJ != null && (bCV = this.hlJ.bCV()) != null && !StringUtils.isNull(bCV.bDa())) {
-            return bCV.bDa();
+        if (this.hlJ != null && (bCU = this.hlJ.bCU()) != null && !StringUtils.isNull(bCU.bCZ())) {
+            return bCU.bCZ();
         }
         return null;
     }
@@ -949,7 +949,7 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
         if (this.hlu == 53) {
             return hlr;
         }
-        if (bDs() == 1) {
+        if (bDr() == 1) {
             return hlm;
         }
         return hln;
@@ -959,7 +959,7 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
         this.hlu = i;
     }
 
-    public am bDA() {
+    public am bDz() {
         return this.hlC;
     }
 
@@ -967,7 +967,7 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
         this.hlC = amVar;
     }
 
-    public h bDB() {
+    public h bDA() {
         return this.hlJ;
     }
 
@@ -1005,7 +1005,7 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
         return null;
     }
 
-    public String bDC() {
+    public String bDB() {
         return this.hlO;
     }
 
@@ -1051,7 +1051,7 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
         this.avi = j;
     }
 
-    public OriginalThreadInfo bDD() {
+    public OriginalThreadInfo bDC() {
         return this.avt;
     }
 
@@ -1059,11 +1059,11 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
         this.avt = originalThreadInfo;
     }
 
-    public int bDE() {
+    public int bDD() {
         return this.hma;
     }
 
-    public String bgs() {
+    public String bgr() {
         return this.fQw;
     }
 }

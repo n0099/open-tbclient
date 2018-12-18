@@ -9,7 +9,7 @@ public class b implements c {
     private String ifP = "unknown";
     private int ifQ = 5;
 
-    public static b bTe() {
+    public static b bTd() {
         return ifO;
     }
 

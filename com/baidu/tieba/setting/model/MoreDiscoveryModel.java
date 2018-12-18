@@ -113,7 +113,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             profileRequestMessage.setSelf(true);
             profileRequestMessage.setIs_from_usercenter(1);
             profileRequestMessage.setPage(2);
-            bwy();
+            bwx();
             sendMessage(profileRequestMessage);
         }
     }
@@ -181,7 +181,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     }
 
     public void xU() {
-        bwx().a("profile_cache_key", new l.a<byte[]>() { // from class: com.baidu.tieba.setting.model.MoreDiscoveryModel.2
+        bww().a("profile_cache_key", new l.a<byte[]>() { // from class: com.baidu.tieba.setting.model.MoreDiscoveryModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.cache.l.a
             /* renamed from: n */
@@ -222,11 +222,11 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         }
     }
 
-    private l<byte[]> bwx() {
+    private l<byte[]> bww() {
         return com.baidu.tbadk.core.c.a.BB().am("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
     }
 
-    private void bwy() {
+    private void bwx() {
         if (this.dph == null) {
             this.dph = new b("profileStat");
             this.dph.start();

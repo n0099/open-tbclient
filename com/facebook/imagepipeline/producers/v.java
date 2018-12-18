@@ -25,16 +25,16 @@ public class v extends y {
     protected com.facebook.imagepipeline.f.d e(ImageRequest imageRequest) throws IOException {
         com.facebook.imagepipeline.f.d C;
         InputStream openContactPhotoInputStream;
-        Uri bZE = imageRequest.bZE();
-        if (!com.facebook.common.util.d.n(bZE)) {
-            return (!com.facebook.common.util.d.o(bZE) || (C = C(bZE)) == null) ? d(this.mContentResolver.openInputStream(bZE), -1) : C;
+        Uri bZD = imageRequest.bZD();
+        if (!com.facebook.common.util.d.n(bZD)) {
+            return (!com.facebook.common.util.d.o(bZD) || (C = C(bZD)) == null) ? d(this.mContentResolver.openInputStream(bZD), -1) : C;
         }
-        if (bZE.toString().endsWith("/photo")) {
-            openContactPhotoInputStream = this.mContentResolver.openInputStream(bZE);
+        if (bZD.toString().endsWith("/photo")) {
+            openContactPhotoInputStream = this.mContentResolver.openInputStream(bZD);
         } else {
-            openContactPhotoInputStream = ContactsContract.Contacts.openContactPhotoInputStream(this.mContentResolver, bZE);
+            openContactPhotoInputStream = ContactsContract.Contacts.openContactPhotoInputStream(this.mContentResolver, bZD);
             if (openContactPhotoInputStream == null) {
-                throw new IOException("Contact photo does not exist: " + bZE);
+                throw new IOException("Contact photo does not exist: " + bZD);
             }
         }
         return d(openContactPhotoInputStream, -1);
@@ -68,7 +68,7 @@ public class v extends y {
     }
 
     @Override // com.facebook.imagepipeline.producers.y
-    protected String bZc() {
+    protected String bZb() {
         return "LocalContentUriFetchProducer";
     }
 }

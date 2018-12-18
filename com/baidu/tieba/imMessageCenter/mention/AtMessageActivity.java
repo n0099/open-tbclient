@@ -139,8 +139,8 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         return this.fdR;
     }
 
-    public void aVC() {
-        this.fdP.aVC();
+    public void aVB() {
+        this.fdP.aVB();
     }
 
     public void b(com.baidu.tbadk.mvc.d.b bVar) {
@@ -151,8 +151,8 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         this.fdP.a(aVar);
     }
 
-    public void aVD() {
-        this.fdP.aVD();
+    public void aVC() {
+        this.fdP.aVC();
     }
 
     public void a(ErrorData errorData) {

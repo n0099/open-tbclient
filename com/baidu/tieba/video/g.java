@@ -21,7 +21,7 @@ public class g {
     private boolean hAo;
     private boolean hAp;
 
-    public static g bHR() {
+    public static g bHQ() {
         if (hAm == null) {
             synchronized (g.class) {
                 if (hAm == null) {
@@ -32,17 +32,17 @@ public class g {
         return hAm;
     }
 
-    public boolean bHS() {
+    public boolean bHR() {
         return this.hAo;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bHT() {
+    public void bHS() {
         if (this.hAn == null) {
             this.hAn = new VideoHolyCardModel();
             this.hAn.a(this.fDV);
         }
-        this.hAn.bcm();
+        this.hAn.bcl();
     }
 
     public void dc(Context context) {
@@ -53,17 +53,17 @@ public class g {
     }
 
     private g() {
-        bHU();
         bHT();
+        bHS();
     }
 
-    private void bHU() {
+    private void bHT() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2000994) { // from class: com.baidu.tieba.video.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (j.kX()) {
-                    g.this.bHT();
+                    g.this.bHS();
                 }
             }
         });

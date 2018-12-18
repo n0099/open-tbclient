@@ -127,9 +127,9 @@ public class DistributeVideoView extends RelativeLayout implements i {
                 } else if (view == DistributeVideoView.this.gSu || view == DistributeVideoView.this.gSt) {
                     DistributeVideoView.this.mN(DistributeVideoView.this.gSz ? false : true);
                 } else if (view == DistributeVideoView.this.gOH || view == DistributeVideoView.this.gSx) {
-                    DistributeVideoView.this.bvF();
+                    DistributeVideoView.this.bvE();
                 } else if (DistributeVideoView.this.mStyle != 1 || DistributeVideoView.this.gSr == null || !DistributeVideoView.this.gSr.ye()) {
-                    DistributeVideoView.this.bvF();
+                    DistributeVideoView.this.bvE();
                 } else {
                     DistributeVideoView.this.ab(2, 1, 0);
                     if (DistributeVideoView.this.gSr != null) {
@@ -249,7 +249,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
         this.boW = new g.b() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.5
             @Override // com.baidu.tieba.play.g.b
             public boolean onError(g gVar, int i, int i2) {
-                DistributeVideoView.this.bvE();
+                DistributeVideoView.this.bvD();
                 DistributeVideoView.this.ab(36, DistributeVideoView.this.uc(DistributeVideoView.this.gSF), gVar.getCurrentPosition());
                 DistributeVideoView.this.eDk.setForegroundDrawable(0);
                 DistributeVideoView.this.gOH.setVisibility(8);
@@ -263,9 +263,9 @@ public class DistributeVideoView extends RelativeLayout implements i {
                 DistributeVideoView.this.gSA = System.currentTimeMillis();
                 DistributeVideoView.this.gSE = true;
                 DistributeVideoView.this.ab(34, DistributeVideoView.this.uc(DistributeVideoView.this.gSF), gVar.getDuration());
-                DistributeVideoView.this.bvE();
+                DistributeVideoView.this.bvD();
                 if (DistributeVideoView.this.gPd != null) {
-                    DistributeVideoView.this.gPd.bvy();
+                    DistributeVideoView.this.gPd.bvx();
                     DistributeVideoView.this.gmS.setVisibility(8);
                     DistributeVideoView.this.gOH.setVisibility(8);
                 }
@@ -288,7 +288,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
         this.gSG = new Runnable() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.9
             @Override // java.lang.Runnable
             public void run() {
-                DistributeVideoView.this.bvG();
+                DistributeVideoView.this.bvF();
             }
         };
         init(context);
@@ -316,9 +316,9 @@ public class DistributeVideoView extends RelativeLayout implements i {
                 } else if (view == DistributeVideoView.this.gSu || view == DistributeVideoView.this.gSt) {
                     DistributeVideoView.this.mN(DistributeVideoView.this.gSz ? false : true);
                 } else if (view == DistributeVideoView.this.gOH || view == DistributeVideoView.this.gSx) {
-                    DistributeVideoView.this.bvF();
+                    DistributeVideoView.this.bvE();
                 } else if (DistributeVideoView.this.mStyle != 1 || DistributeVideoView.this.gSr == null || !DistributeVideoView.this.gSr.ye()) {
-                    DistributeVideoView.this.bvF();
+                    DistributeVideoView.this.bvE();
                 } else {
                     DistributeVideoView.this.ab(2, 1, 0);
                     if (DistributeVideoView.this.gSr != null) {
@@ -438,7 +438,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
         this.boW = new g.b() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.5
             @Override // com.baidu.tieba.play.g.b
             public boolean onError(g gVar, int i, int i2) {
-                DistributeVideoView.this.bvE();
+                DistributeVideoView.this.bvD();
                 DistributeVideoView.this.ab(36, DistributeVideoView.this.uc(DistributeVideoView.this.gSF), gVar.getCurrentPosition());
                 DistributeVideoView.this.eDk.setForegroundDrawable(0);
                 DistributeVideoView.this.gOH.setVisibility(8);
@@ -452,9 +452,9 @@ public class DistributeVideoView extends RelativeLayout implements i {
                 DistributeVideoView.this.gSA = System.currentTimeMillis();
                 DistributeVideoView.this.gSE = true;
                 DistributeVideoView.this.ab(34, DistributeVideoView.this.uc(DistributeVideoView.this.gSF), gVar.getDuration());
-                DistributeVideoView.this.bvE();
+                DistributeVideoView.this.bvD();
                 if (DistributeVideoView.this.gPd != null) {
-                    DistributeVideoView.this.gPd.bvy();
+                    DistributeVideoView.this.gPd.bvx();
                     DistributeVideoView.this.gmS.setVisibility(8);
                     DistributeVideoView.this.gOH.setVisibility(8);
                 }
@@ -477,7 +477,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
         this.gSG = new Runnable() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.9
             @Override // java.lang.Runnable
             public void run() {
-                DistributeVideoView.this.bvG();
+                DistributeVideoView.this.bvF();
             }
         };
         init(context);
@@ -505,9 +505,9 @@ public class DistributeVideoView extends RelativeLayout implements i {
                 } else if (view == DistributeVideoView.this.gSu || view == DistributeVideoView.this.gSt) {
                     DistributeVideoView.this.mN(DistributeVideoView.this.gSz ? false : true);
                 } else if (view == DistributeVideoView.this.gOH || view == DistributeVideoView.this.gSx) {
-                    DistributeVideoView.this.bvF();
+                    DistributeVideoView.this.bvE();
                 } else if (DistributeVideoView.this.mStyle != 1 || DistributeVideoView.this.gSr == null || !DistributeVideoView.this.gSr.ye()) {
-                    DistributeVideoView.this.bvF();
+                    DistributeVideoView.this.bvE();
                 } else {
                     DistributeVideoView.this.ab(2, 1, 0);
                     if (DistributeVideoView.this.gSr != null) {
@@ -627,7 +627,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
         this.boW = new g.b() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.5
             @Override // com.baidu.tieba.play.g.b
             public boolean onError(g gVar, int i2, int i22) {
-                DistributeVideoView.this.bvE();
+                DistributeVideoView.this.bvD();
                 DistributeVideoView.this.ab(36, DistributeVideoView.this.uc(DistributeVideoView.this.gSF), gVar.getCurrentPosition());
                 DistributeVideoView.this.eDk.setForegroundDrawable(0);
                 DistributeVideoView.this.gOH.setVisibility(8);
@@ -641,9 +641,9 @@ public class DistributeVideoView extends RelativeLayout implements i {
                 DistributeVideoView.this.gSA = System.currentTimeMillis();
                 DistributeVideoView.this.gSE = true;
                 DistributeVideoView.this.ab(34, DistributeVideoView.this.uc(DistributeVideoView.this.gSF), gVar.getDuration());
-                DistributeVideoView.this.bvE();
+                DistributeVideoView.this.bvD();
                 if (DistributeVideoView.this.gPd != null) {
-                    DistributeVideoView.this.gPd.bvy();
+                    DistributeVideoView.this.gPd.bvx();
                     DistributeVideoView.this.gmS.setVisibility(8);
                     DistributeVideoView.this.gOH.setVisibility(8);
                 }
@@ -666,7 +666,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
         this.gSG = new Runnable() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.9
             @Override // java.lang.Runnable
             public void run() {
-                DistributeVideoView.this.bvG();
+                DistributeVideoView.this.bvF();
             }
         };
         init(context);
@@ -704,8 +704,8 @@ public class DistributeVideoView extends RelativeLayout implements i {
         }
     }
 
-    private boolean bnE() {
-        return this.mStyle == 1 ? q.bnE() : j.kW();
+    private boolean bnD() {
+        return this.mStyle == 1 ? q.bnD() : j.kW();
     }
 
     public void setData(VideoInfo videoInfo, int i, TbPageContext<?> tbPageContext) {
@@ -716,7 +716,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
         this.mStyle = i;
         if (tbPageContext != null) {
             this.mPageContext = tbPageContext;
-            bvH();
+            bvG();
         }
         setData(videoInfo);
     }
@@ -737,7 +737,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
         this.gmO = videoInfo;
         this.mDuration = this.gmO.video_duration.intValue() * 1000;
         this.amy = new WeakReference<>(this.mContext.getApplicationContext());
-        bvE();
+        bvD();
         al.j(this, e.d.cp_bg_line_d);
         int aO = l.aO(this.mContext) - l.h(this.mContext, e.C0210e.ds146);
         if (this.mStyle == 2) {
@@ -798,7 +798,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
         }
         this.gmO = videoInfo;
         this.amy = new WeakReference<>(this.mContext.getApplicationContext());
-        bvE();
+        bvD();
         al.j(this, e.d.cp_bg_line_d);
         if (this.mStyle == 2) {
             i = l.aO(this.mContext);
@@ -852,7 +852,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
             this.gPd.c(this.gSB);
             this.gPd.setAdvertAppInfo(advertAppInfo);
             this.gPd.a(this.gLK);
-            this.gPd.bvz();
+            this.gPd.bvy();
         }
     }
 
@@ -904,7 +904,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
         if (this.gmO != null && this.gmP == -1) {
             if (TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - this.gSA) >= TimeUnit.SECONDS.toSeconds(3L)) {
                 if (this.gPd != null) {
-                    this.gPd.bvz();
+                    this.gPd.bvy();
                 }
                 this.bOn.setVideoPath(this.gmO.video_url);
                 this.bOn.start();
@@ -930,7 +930,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
 
     @Override // com.baidu.tieba.recapp.i
     public void autoPlay(int i) {
-        if (bnE()) {
+        if (bnD()) {
             if (i <= 0) {
                 ub(1);
                 return;
@@ -1001,11 +1001,11 @@ public class DistributeVideoView extends RelativeLayout implements i {
             }
             e(i, uc(this.gSF), currentPosition, this.bOn.isPlaying());
         }
-        bvE();
+        bvD();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bvE() {
+    public void bvD() {
         com.baidu.adp.lib.g.e.jG().removeCallbacks(this.gne);
         com.baidu.adp.lib.g.e.jG().removeCallbacks(this.gSG);
         this.mHandler.removeMessages(1001);
@@ -1134,7 +1134,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
         String str2;
         if (this.gSr != null && this.gmO != null) {
             this.gSr.page = this.mPage;
-            com.baidu.tieba.recapp.report.c.bvu().a(f.a(this.gSr, i, this.gSs, i2, this.gmO.video_duration.intValue(), a.hJ(i3), i4));
+            com.baidu.tieba.recapp.report.c.bvt().a(f.a(this.gSr, i, this.gSs, i2, this.gmO.video_duration.intValue(), a.hJ(i3), i4));
             if (z && i != 31 && i != 33 && i != 35 && i != 2) {
                 if (i == 34) {
                     str = "com";
@@ -1205,7 +1205,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bvF() {
+    public void bvE() {
         switch (this.gmP) {
             case -1:
                 if (!j.kV() && this.mPageContext != null) {
@@ -1259,14 +1259,14 @@ public class DistributeVideoView extends RelativeLayout implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bvG() {
+    public void bvF() {
         if (!this.mIsInAnimation && this.dNf != null) {
             this.gSw.startAnimation(this.dNf);
             this.mIsInAnimation = true;
         }
     }
 
-    private void bvH() {
+    private void bvG() {
         if (this.mPageContext != null) {
             this.dNf = AnimationUtils.loadAnimation(this.mPageContext.getPageActivity(), e.a.anim_alpha_1_to_0_duration_1000);
             this.dNf.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.12

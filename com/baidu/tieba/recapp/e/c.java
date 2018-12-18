@@ -43,7 +43,7 @@ public class c extends e {
                 s.aH(c.this.mRootView.getContext(), fVar.scheme);
                 if (c.this.gRC != null) {
                     c.this.gRC.tT(302);
-                    com.baidu.tieba.recapp.report.c.bvu().a(c.this.gRC);
+                    com.baidu.tieba.recapp.report.c.bvt().a(c.this.gRC);
                 }
                 if (c.this.gRE != null) {
                     com.baidu.tieba.lego.card.b.c.a(c.this.gRE);
@@ -56,8 +56,8 @@ public class c extends e {
     }
 
     @Override // com.baidu.tieba.recapp.e.e
-    public void bvy() {
-        super.bvy();
+    public void bvx() {
+        super.bvx();
         this.gRy.startCountDown();
     }
 

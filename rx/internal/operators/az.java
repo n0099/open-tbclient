@@ -24,7 +24,7 @@ public class az<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> az<T> cdI() {
+    public static <T> az<T> cdH() {
         return (az<T>) b.iGs;
     }
 
@@ -57,7 +57,7 @@ public class az<T> implements d.b<T, T> {
     public rx.j<? super T> call(rx.j<? super T> jVar) {
         a aVar = new a(jVar, this.iGl, this.iGm, this.iGn);
         jVar.add(aVar);
-        jVar.setProducer(aVar.cdK());
+        jVar.setProducer(aVar.cdJ());
         return aVar;
     }
 
@@ -101,7 +101,7 @@ public class az<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onNext(T t) {
-            if (cdJ()) {
+            if (cdI()) {
                 this.iGo.offer(NotificationLite.aY(t));
                 this.iGr.drain();
             }
@@ -135,7 +135,7 @@ public class az<T> implements d.b<T, T> {
             return poll;
         }
 
-        private boolean cdJ() {
+        private boolean cdI() {
             long j;
             boolean z;
             if (this.iGp == null) {
@@ -145,7 +145,7 @@ public class az<T> implements d.b<T, T> {
                 j = this.iGp.get();
                 if (j <= 0) {
                     try {
-                        z = this.iGn.ccL() && poll() != null;
+                        z = this.iGn.ccK() && poll() != null;
                     } catch (MissingBackpressureException e) {
                         if (this.iGq.compareAndSet(false, true)) {
                             unsubscribe();
@@ -170,7 +170,7 @@ public class az<T> implements d.b<T, T> {
             return true;
         }
 
-        protected rx.f cdK() {
+        protected rx.f cdJ() {
             return this.iGr;
         }
     }

@@ -16,7 +16,7 @@ public class b {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void bIa();
+        void bHZ();
 
         void cR(String str, String str2);
 
@@ -26,7 +26,7 @@ public class b {
     private b() {
     }
 
-    public static b bIP() {
+    public static b bIO() {
         if (hCp == null) {
             synchronized (b.class) {
                 if (hCp == null) {
@@ -44,7 +44,7 @@ public class b {
         }
         if (this.hCk == null) {
             this.hCk = new HashMap<>();
-            bIQ();
+            bIP();
             if (this.hCk.size() > 0) {
                 return this.hCk.get(fK);
             }
@@ -53,7 +53,7 @@ public class b {
         return this.hCk.get(fK);
     }
 
-    public void bIQ() {
+    public void bIP() {
         if (this.hCk == null) {
             this.hCk = new HashMap<>();
         } else {
@@ -97,7 +97,7 @@ public class b {
                             b.this.hCl = null;
                         }
                         if (aVar != null) {
-                            aVar.bIa();
+                            aVar.bHZ();
                         }
                     }
                 }

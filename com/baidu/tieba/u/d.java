@@ -54,17 +54,17 @@ public class d {
         this.hMo = 0;
     }
 
-    public boolean bLP() {
+    public boolean bLO() {
         if (!(com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_video_splash_switch", 0) == 1) || this.hMm == null || this.hMn == null) {
             return false;
         }
-        return this.hMm.bLP() && this.hMn.bLS();
+        return this.hMm.bLO() && this.hMn.bLR();
     }
 
-    public void bLU() {
+    public void bLT() {
         if (!(com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_video_splash_switch", 0) == 1)) {
             if (this.hMn != null) {
-                this.hMn.bLT();
+                this.hMn.bLS();
             }
             com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("key_video_splash_last_show_time", 0L);
         }
@@ -135,7 +135,7 @@ public class d {
                     @Override // android.media.MediaPlayer.OnInfoListener
                     public boolean onInfo(MediaPlayer mediaPlayer2, int i, int i2) {
                         if (i == 3) {
-                            d.this.bLV();
+                            d.this.bLU();
                             return false;
                         }
                         return false;
@@ -180,19 +180,19 @@ public class d {
             Hd = this.hMk.getString(e.j.video_splash_tip_default);
         }
         this.chn.setText(Hd);
-        bLW();
+        bLV();
         return inflate;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bLV() {
+    public void bLU() {
         if (this.hKo != null) {
             this.hKo.setBackgroundResource(0);
         }
     }
 
-    private void bLW() {
-        if (this.hMn != null && this.hMn.bLS()) {
+    private void bLV() {
+        if (this.hMn != null && this.hMn.bLR()) {
             try {
                 MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
                 mediaMetadataRetriever.setDataSource(this.hMn.getVideoPath());
@@ -221,7 +221,7 @@ public class d {
             this.hMo = this.hKo.getCurrentPosition();
             this.hKo.stopPlayback();
             if (this.hMp) {
-                bLW();
+                bLV();
             }
         }
     }

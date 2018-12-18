@@ -62,11 +62,11 @@ public class l extends BaseAdapter {
         }
     }
 
-    public void aRp() {
+    public void aRo() {
         this.eQw.clear();
     }
 
-    public Set<Long> aRq() {
+    public Set<Long> aRp() {
         return this.eQw;
     }
 
@@ -108,7 +108,7 @@ public class l extends BaseAdapter {
         this.eQu = z;
     }
 
-    public boolean aOx() {
+    public boolean aOw() {
         return this.eQv;
     }
 
@@ -262,8 +262,8 @@ public class l extends BaseAdapter {
 
     private String d(UserData userData) {
         long lastReplyTime;
-        MembersModel aRj = this.eQr.aRj();
-        switch (aRj.getOrderType()) {
+        MembersModel aRi = this.eQr.aRi();
+        switch (aRi.getOrderType()) {
             case 0:
                 lastReplyTime = userData.getLoginTime();
                 break;
@@ -278,7 +278,7 @@ public class l extends BaseAdapter {
                 break;
         }
         if (lastReplyTime <= 0) {
-            if (aRj.getOrderType() == 1) {
+            if (aRi.getOrderType() == 1) {
                 return this.eQr.getPageContext().getString(e.j.members_no_speak);
             }
             return "";

@@ -23,18 +23,18 @@ public class e extends c.a {
     }
 
     @Override // com.baidu.tieba.m.c.a, com.baidu.tieba.m.c
-    public JSONObject bsk() {
-        JSONObject bsk = super.bsk();
+    public JSONObject bsj() {
+        JSONObject bsj = super.bsj();
         try {
             JSONArray jSONArray = new JSONArray();
             jSONArray.put(new JSONObject().put("retry_type", this.type));
             jSONArray.put(new JSONObject().put("error_msg", b.c(this.gFn, this.what, this.gFo, 0L).toString()));
             jSONArray.put(new JSONObject().put("retry_ip", this.ip));
             jSONArray.put(new JSONObject().put("retry_error_times", this.times));
-            bsk.put("ext", jSONArray);
+            bsj.put("ext", jSONArray);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return bsk;
+        return bsj;
     }
 }

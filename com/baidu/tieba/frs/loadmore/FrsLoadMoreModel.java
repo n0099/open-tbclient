@@ -100,8 +100,8 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                             }
                             FrsLoadMoreModel.this.a((LoadMoreResponseSocketMessage) responsedMessage);
                         }
-                        if (!TextUtils.isEmpty(FrsLoadMoreModel.this.dZy.getForumName()) && r.buz().but() != null) {
-                            r.buz().but().f(FrsLoadMoreModel.this.dZy.getForumName(), 2, false);
+                        if (!TextUtils.isEmpty(FrsLoadMoreModel.this.dZy.getForumName()) && r.buy().bus() != null) {
+                            r.buy().bus().f(FrsLoadMoreModel.this.dZy.getForumName(), 2, false);
                         }
                         FrsLoadMoreModel.this.loadIndex++;
                     }
@@ -171,8 +171,8 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     private void a(String str, LoadMoreRequestMessage loadMoreRequestMessage) {
-        if (r.buz().but() != null) {
-            loadMoreRequestMessage.setLoadCount(r.buz().but().ab(str, false) + 1);
+        if (r.buy().bus() != null) {
+            loadMoreRequestMessage.setLoadCount(r.buy().bus().ab(str, false) + 1);
         }
     }
 

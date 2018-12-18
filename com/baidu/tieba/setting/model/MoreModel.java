@@ -31,7 +31,7 @@ public class MoreModel extends BdBaseModel {
         this.gVu = z;
     }
 
-    public boolean bwz() {
+    public boolean bwy() {
         return this.gVu;
     }
 

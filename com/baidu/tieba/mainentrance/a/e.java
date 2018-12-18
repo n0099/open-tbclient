@@ -59,11 +59,11 @@ public class e implements b {
             this.bBf.setContentView(this.mRootView);
         } catch (Exception e) {
             e.printStackTrace();
-            Map<String, String> baf = a.baf();
-            if (baf != null) {
-                int size = baf.size();
+            Map<String, String> bae = a.bae();
+            if (bae != null) {
+                int size = bae.size();
                 int i2 = 0;
-                Iterator<String> it = baf.keySet().iterator();
+                Iterator<String> it = bae.keySet().iterator();
                 while (true) {
                     i = i2;
                     if (!it.hasNext()) {
@@ -94,13 +94,13 @@ public class e implements b {
         }
         this.fux = new d(this.mRootView, this.bBf.getPageContext().getPageActivity());
         this.fuJ = new c(this.bBf, this, this.fux);
+        bat();
         bau();
         bav();
-        baw();
-        aZP();
-        baz();
+        aZO();
+        bay();
+        ab.a(this.fux.baq(), this.bBf.getUniqueId());
         ab.a(this.fux.bar(), this.bBf.getUniqueId());
-        ab.a(this.fux.bas(), this.bBf.getUniqueId());
     }
 
     public void onResume() {
@@ -109,14 +109,14 @@ public class e implements b {
         }
     }
 
-    public void bau() {
+    public void bat() {
         View.OnFocusChangeListener onFocusChangeListener = new View.OnFocusChangeListener() { // from class: com.baidu.tieba.mainentrance.a.e.1
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (!z) {
                     l.b(e.this.bBf.getPageContext().getPageActivity(), view);
                 } else {
-                    e.this.bay();
+                    e.this.bax();
                 }
             }
         };
@@ -126,7 +126,7 @@ public class e implements b {
                 if (i == 3) {
                     if (StringUtils.isNull(e.this.dGt)) {
                         l.b(e.this.bBf.getPageContext().getPageActivity(), textView);
-                        e.this.bax();
+                        e.this.baw();
                         return true;
                     }
                     e.this.a(e.this.dGt, false, 1);
@@ -150,7 +150,7 @@ public class e implements b {
                 if (editable != null) {
                     if (e.this.fuI) {
                         e.this.dGt = editable.toString();
-                        e.this.baz();
+                        e.this.bay();
                     }
                     e.this.fux.hX(!StringUtils.isNull(editable.toString()));
                 }
@@ -159,9 +159,9 @@ public class e implements b {
         View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.mainentrance.a.e.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != e.this.fux.bap() || e.this.fux.bap().getText() == null) {
-                    if (view == e.this.fux.baq()) {
-                        l.b(e.this.bBf.getPageContext().getPageActivity(), e.this.fux.bap());
+                if (view != e.this.fux.bao() || e.this.fux.bao().getText() == null) {
+                    if (view == e.this.fux.bap()) {
+                        l.b(e.this.bBf.getPageContext().getPageActivity(), e.this.fux.bao());
                         com.baidu.adp.lib.g.e.jG().postDelayed(new Runnable() { // from class: com.baidu.tieba.mainentrance.a.e.5.1
                             @Override // java.lang.Runnable
                             public void run() {
@@ -172,9 +172,9 @@ public class e implements b {
                     }
                     return;
                 }
-                e.this.dGt = e.this.fux.bap().getText().toString();
+                e.this.dGt = e.this.fux.bao().getText().toString();
                 if (StringUtils.isNull(e.this.dGt)) {
-                    e.this.bai();
+                    e.this.bah();
                 }
             }
         };
@@ -184,7 +184,7 @@ public class e implements b {
         this.fux.setOnClickListener(onClickListener);
     }
 
-    private void bav() {
+    private void bau() {
         AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.mainentrance.a.e.6
             /* JADX WARN: Type inference failed for: r0v0, types: [android.widget.Adapter] */
             @Override // android.widget.AdapterView.OnItemClickListener
@@ -221,7 +221,7 @@ public class e implements b {
         this.fux.onChangeSkinType(this.bBf.getPageContext(), i);
     }
 
-    private void baw() {
+    private void bav() {
         BaseWebView.c cVar = new BaseWebView.c() { // from class: com.baidu.tieba.mainentrance.a.e.8
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
             public void onPageFinished(WebView webView, String str) {
@@ -251,17 +251,17 @@ public class e implements b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bax() {
+    public void baw() {
         if (this.mHotSearchInfo == null) {
             this.bBf.showToast(this.bBf.getResources().getString(e.j.write_keyword));
             return;
         }
-        if (this.mHotSearchInfo.aZG() == 0 || this.mHotSearchInfo.aZG() == 2) {
+        if (this.mHotSearchInfo.aZF() == 0 || this.mHotSearchInfo.aZF() == 2) {
             a(this.mHotSearchInfo.getName(), false, 1);
-        } else if (this.mHotSearchInfo.aZG() == 1 && !com.baidu.tbadk.plugins.b.e(this.bBf.getPageContext())) {
+        } else if (this.mHotSearchInfo.aZF() == 1 && !com.baidu.tbadk.plugins.b.e(this.bBf.getPageContext())) {
             this.bBf.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(this.bBf.getPageContext().getPageActivity()).createNormalConfig(String.valueOf(this.mHotSearchInfo.getId()), this.mHotSearchInfo.getName(), "4")));
         }
-        TiebaStatic.log(new am("c10355").aA("obj_name", this.mHotSearchInfo.getName()).x("obj_type", this.mHotSearchInfo.aZG() == 0 ? 2 : 1));
+        TiebaStatic.log(new am("c10355").aA("obj_name", this.mHotSearchInfo.getName()).x("obj_type", this.mHotSearchInfo.aZF() == 0 ? 2 : 1));
     }
 
     @Override // com.baidu.tieba.mainentrance.a.b
@@ -274,15 +274,15 @@ public class e implements b {
                 this.fux.rv(str);
                 this.fuI = true;
             }
-            l.b(this.bBf.getPageContext().getPageActivity(), this.fux.bap());
-            this.fux.bao();
+            l.b(this.bBf.getPageContext().getPageActivity(), this.fux.bao());
+            this.fux.ban();
             String str2 = TbConfig.SQUARE_SEARCH_PAGE + str + ETAG.ITEM_SEPARATOR + "sub_type" + ETAG.EQUAL + i;
             try {
                 str2 = TbConfig.SQUARE_SEARCH_PAGE + URLEncoder.encode(str, IoUtils.UTF_8);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            this.fux.bar().loadUrl(str2);
+            this.fux.baq().loadUrl(str2);
             x.a(new w<Boolean>() { // from class: com.baidu.tieba.mainentrance.a.e.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
@@ -298,27 +298,27 @@ public class e implements b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    public void bax() {
+        if (!this.fux.bas()) {
+            aZT();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void bah() {
+        this.fuJ.bah();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
     public void bay() {
-        if (!this.fux.bat()) {
-            aZU();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void bai() {
-        this.fuJ.bai();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void baz() {
         if (!StringUtils.isNull(this.dGt)) {
-            aZU();
+            aZT();
         } else {
-            bai();
+            bah();
         }
     }
 
-    private void aZU() {
+    private void aZT() {
         if (!StringUtils.isNull(this.dGt)) {
             SearchListNetMessage searchListNetMessage = new SearchListNetMessage();
             searchListNetMessage.mKey = this.dGt.trim();
@@ -328,14 +328,14 @@ public class e implements b {
 
     public void b(HotSearchInfoData hotSearchInfoData) {
         this.mHotSearchInfo = hotSearchInfoData;
-        aZP();
+        aZO();
     }
 
-    public BaseWebView baA() {
-        return this.fux.bar();
+    public BaseWebView baz() {
+        return this.fux.baq();
     }
 
-    private void aZP() {
+    private void aZO() {
         if (this.mHotSearchInfo == null) {
             this.fux.ru(this.bBf.getResources().getString(e.j.search_bar));
         } else {

@@ -23,7 +23,7 @@ public class a {
         }
     }
 
-    public void bDT() {
+    public void bDS() {
         this.hns.clear();
     }
 

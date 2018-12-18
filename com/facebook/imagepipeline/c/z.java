@@ -17,7 +17,7 @@ public class z implements l {
     @Override // com.facebook.imagepipeline.c.l
     public bolts.g<com.facebook.imagepipeline.f.d> a(ImageRequest imageRequest, Object obj, AtomicBoolean atomicBoolean) {
         com.facebook.cache.common.b c = this.imn.c(imageRequest, obj);
-        return imageRequest.bZD() == ImageRequest.CacheChoice.SMALL ? this.imm.a(c, atomicBoolean) : this.iml.a(c, atomicBoolean);
+        return imageRequest.bZC() == ImageRequest.CacheChoice.SMALL ? this.imm.a(c, atomicBoolean) : this.iml.a(c, atomicBoolean);
     }
 
     @Override // com.facebook.imagepipeline.c.l
@@ -32,6 +32,6 @@ public class z implements l {
 
     @Override // com.facebook.imagepipeline.c.l
     public ImageRequest.CacheChoice a(ImageRequest imageRequest, com.facebook.imagepipeline.f.d dVar) {
-        return imageRequest.bZD() == null ? ImageRequest.CacheChoice.DEFAULT : imageRequest.bZD();
+        return imageRequest.bZC() == null ? ImageRequest.CacheChoice.DEFAULT : imageRequest.bZC();
     }
 }

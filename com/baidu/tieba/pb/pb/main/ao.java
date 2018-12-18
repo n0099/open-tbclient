@@ -68,12 +68,12 @@ public class ao extends k<ForumData, a> implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.gbD != null && this.fUU != null) {
-            bku();
+            bkt();
             this.fUU.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.fUU).createNormalCfg(this.gbD.getName(), FrsActivityConfig.FRS_FROM_PB).setCallFrom(2)));
         }
     }
 
-    private void bku() {
+    private void bkt() {
         if (this.gbD != null) {
             com.baidu.tbadk.core.util.am aA = new com.baidu.tbadk.core.util.am("c13007").aA(ImageViewerConfig.FORUM_ID, this.gbD.getId()).aA("tid", this.mThreadId);
             if (!com.baidu.tbadk.core.util.ao.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {

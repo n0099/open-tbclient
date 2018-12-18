@@ -40,7 +40,7 @@ public class i implements o {
         this.eLy = i3;
     }
 
-    public void aPk() {
+    public void aPj() {
         if (this.eLY != null) {
             this.eLY.cancel();
         }
@@ -49,11 +49,11 @@ public class i implements o {
         this.eLY.execute(new Object[0]);
     }
 
-    public ImageView aPl() {
+    public ImageView aPk() {
         return this.eLV;
     }
 
-    public TextView aPm() {
+    public TextView aPl() {
         return this.eLW;
     }
 
@@ -63,12 +63,12 @@ public class i implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void aOV() {
+    public void aOU() {
         this.eLV.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void aOW() {
+    public void aOV() {
         this.eLu.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
         this.eLu.getLayoutMode().onModeChanged(this.mView);
         this.eLU.refresh();
@@ -124,7 +124,7 @@ public class i implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public String aOY() {
+    public String aOX() {
         if (this.mIndex != this.eLy) {
             return this.eLu.getPageContext().getString(e.j.next_step);
         }
@@ -132,12 +132,12 @@ public class i implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean aOZ() {
+    public boolean aOY() {
         return true;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public int aOP() {
+    public int aOO() {
         return this.mIndex;
     }
 
@@ -147,7 +147,7 @@ public class i implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean aPa() {
+    public boolean aOZ() {
         return true;
     }
 }

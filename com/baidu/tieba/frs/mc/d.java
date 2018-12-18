@@ -53,8 +53,8 @@ public class d extends h {
                         l aAZ = d.this.dZP.aAZ();
                         aAZ.ab(aAZ.vv(str));
                         d.this.dId.a(aAZ.getThreadList(), aAZ);
-                        if (com.baidu.tieba.tbadkCore.c.bBd() != null) {
-                            com.baidu.tieba.tbadkCore.c.bBd().ad(d.this.dZP.getForumName(), false);
+                        if (com.baidu.tieba.tbadkCore.c.bBc() != null) {
+                            com.baidu.tieba.tbadkCore.c.bBc().ad(d.this.dZP.getForumName(), false);
                         }
                     }
                 }
@@ -75,16 +75,16 @@ public class d extends h {
                         l aAZ = d.this.dZP.aAZ();
                         bb vv = aAZ.vv(str);
                         aAZ.ab(vv);
-                        List<com.baidu.adp.widget.ListView.h> bCA = aAZ.bCA();
-                        if (bCA == null) {
-                            bCA = new ArrayList<>();
+                        List<com.baidu.adp.widget.ListView.h> bCz = aAZ.bCz();
+                        if (bCz == null) {
+                            bCz = new ArrayList<>();
                         }
-                        bCA.add(0, vv);
+                        bCz.add(0, vv);
                         d.this.dId.a(aAZ.getThreadList(), aAZ);
                         d.this.dIo.i(aAZ);
                     }
                     if (TextUtils.equals(d.this.dZP.getForumName(), str3)) {
-                        com.baidu.tieba.tbadkCore.c.bBd().ad(d.this.dZP.getForumName(), false);
+                        com.baidu.tieba.tbadkCore.c.bBc().ad(d.this.dZP.getForumName(), false);
                     }
                 }
             }
@@ -130,15 +130,15 @@ public class d extends h {
             return;
         }
         l aAZ = this.dZP.aAZ();
-        if (aAZ != null && aAZ.bgi() != null && getMyPostResIdl != null && this.dId != null && this.dIn != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
+        if (aAZ != null && aAZ.bgh() != null && getMyPostResIdl != null && this.dId != null && this.dIn != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
             ai aiVar = new ai();
             ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
             User.Builder builder2 = new User.Builder(builder.author);
             a(builder2, getMyPostResIdl.data.user_info);
             builder.author = builder2.build(true);
             builder.cheak_repeat = 1;
-            builder.fname = aAZ.bgi().getName();
-            builder.fid = Long.valueOf(com.baidu.adp.lib.g.b.d(aAZ.bgi().getId(), 0L));
+            builder.fname = aAZ.bgh().getName();
+            builder.fid = Long.valueOf(com.baidu.adp.lib.g.b.d(aAZ.bgh().getId(), 0L));
             aiVar.a(builder.build(true));
             aiVar.setCurrentPage(3);
             this.dIn.a(aiVar);
@@ -151,7 +151,7 @@ public class d extends h {
             }
             if (a != null) {
                 aAZ.ax(a);
-                aAZ.bCk();
+                aAZ.bCj();
                 this.dId.a(a, aAZ);
                 this.dId.mh(0);
             }
@@ -176,7 +176,7 @@ public class d extends h {
 
     public void e(PostWriteCallBackData postWriteCallBackData) {
         if (this.dIn != null) {
-            boolean z = this.dIn.aFM() != null && this.dIn.aFM().bCl();
+            boolean z = this.dIn.aFM() != null && this.dIn.aFM().bCk();
             int aGs = this.dIn.aGs();
             if (aGs == 2 || aGs == 3 || aGs == 7 || aGs == 8 || z) {
                 if ((y.aCr().mn(1) != null ? this.dIn.aGk() : 0) == 0 && postWriteCallBackData != null) {

@@ -60,72 +60,72 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         }
     }
 
-    public TbCameraView bNu() {
+    public TbCameraView bNt() {
         if (this.hRV == null) {
             return null;
         }
-        return this.hRV.bNu();
+        return this.hRV.bNt();
     }
 
     public void stopCamera() {
-        TbCameraView bNu = bNu();
-        if (bNu != null) {
-            bNu.stopCamera();
-            bNu.setVisibility(4);
+        TbCameraView bNt = bNt();
+        if (bNt != null) {
+            bNt.stopCamera();
+            bNt.setVisibility(4);
         }
     }
 
-    public void bNt() {
-        TbCameraView bNu = bNu();
-        if (bNu != null) {
-            bNu.setVisibility(0);
-            bNu.oz(false);
+    public void bNs() {
+        TbCameraView bNt = bNt();
+        if (bNt != null) {
+            bNt.setVisibility(0);
+            bNt.oz(false);
         }
-        if (this.hRV != null && this.hRV.bNS() != null) {
-            this.hRV.bNS().bNX();
+        if (this.hRV != null && this.hRV.bNR() != null) {
+            this.hRV.bNR().bNW();
         }
+    }
+
+    public View bNu() {
+        if (this.hRV == null) {
+            return null;
+        }
+        return this.hRV.bxE();
     }
 
     public View bNv() {
         if (this.hRV == null) {
             return null;
         }
-        return this.hRV.bxF();
+        return this.hRV.bNQ();
     }
 
     public View bNw() {
-        if (this.hRV == null) {
+        if (this.hRW == null) {
             return null;
         }
-        return this.hRV.bNR();
+        return this.hRW.bxE();
     }
 
     public View bNx() {
         if (this.hRW == null) {
             return null;
         }
-        return this.hRW.bxF();
+        return this.hRW.bNC();
     }
 
     public View bNy() {
         if (this.hRW == null) {
             return null;
         }
-        return this.hRW.bND();
+        return this.hRW.bNy();
     }
 
     public View bNz() {
-        if (this.hRW == null) {
-            return null;
-        }
-        return this.hRW.bNz();
-    }
-
-    public View bNA() {
         if (this.hRV == null) {
             return null;
         }
-        return this.hRV.bNz();
+        return this.hRV.bNy();
     }
 
     public void onDestroy() {

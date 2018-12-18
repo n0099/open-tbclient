@@ -34,7 +34,7 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
                     } else if (customResponsedMessage.getCmd() == 2001145) {
                         boolean processHistory = GroupMsglistModel.this.processHistory(customResponsedMessage);
                         if ((customResponsedMessage.getOrginalMessage() instanceof LoadGroupHistoryMessage) && processHistory && (callback = ((LoadGroupHistoryMessage) customResponsedMessage.getOrginalMessage()).getCallback()) != null) {
-                            callback.aOk();
+                            callback.aOj();
                         }
                     }
                 }

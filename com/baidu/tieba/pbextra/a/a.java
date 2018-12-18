@@ -94,7 +94,7 @@ public class a extends k<PostData, b> implements View.OnClickListener, com.baidu
             bVar.fWI.setPadding(0, 0, 0, 0);
             bVar.fWI.ja(null);
             postData.AD();
-            if (postData.bDs() == 1) {
+            if (postData.bDr() == 1) {
                 bVar.gmJ.setVisibility(0);
                 String str = null;
                 String str2 = null;
@@ -104,16 +104,16 @@ public class a extends k<PostData, b> implements View.OnClickListener, com.baidu
                     str = postData.zG().getUserName();
                     str2 = postData.zG().getName_show();
                 }
-                bVar.gmJ.a(postData.bDA(), str, str2, j, com.baidu.adp.lib.g.b.d(this.fVj.bgk().getId(), 0L), com.baidu.adp.lib.g.b.d(postData.getId(), 0L));
+                bVar.gmJ.a(postData.bDz(), str, str2, j, com.baidu.adp.lib.g.b.d(this.fVj.bgj().getId(), 0L), com.baidu.adp.lib.g.b.d(postData.getId(), 0L));
                 bVar.gmJ.onChangeSkinType();
                 if (this.fVl) {
-                    PraiseData zt = this.fVj.bgk().zt();
+                    PraiseData zt = this.fVj.bgj().zt();
                     if (zt != null && zt.getUser() != null && zt.getUser().size() > 0) {
                         bVar.gmK.setVisibility(0);
                         bVar.gmI.setVisibility(0);
                         bVar.gmL.setVisibility(0);
                         bVar.gmK.setIsFromPb(true);
-                        bVar.gmK.setData(zt, this.fVj.bgk().getId(), zt.getPostId(), true);
+                        bVar.gmK.setData(zt, this.fVj.bgj().getId(), zt.getPostId(), true);
                         bVar.gmK.eC(this.mSkinType);
                     } else {
                         bVar.gmK.setVisibility(8);
@@ -144,16 +144,16 @@ public class a extends k<PostData, b> implements View.OnClickListener, com.baidu
             bVar.fWI.setIsFromCDN(this.mIsFromCDN);
             TbRichText tbRichText = null;
             if (0 == 0) {
-                tbRichText = postData.bDu();
+                tbRichText = postData.bDt();
             }
             if (this.fWz || !this.fWA) {
                 bVar.fWI.setText(tbRichText, false);
             } else {
                 bVar.fWI.setText(tbRichText, true);
             }
-            ba zn = this.fVj.bgk().zn();
+            ba zn = this.fVj.bgj().zn();
             if (zn != null) {
-                bVar.gmH.startLoad(this.fVj.bgk().zn().getThreadImgUrl(), this.mIsFromCDN ? 17 : 18, false);
+                bVar.gmH.startLoad(this.fVj.bgj().zn().getThreadImgUrl(), this.mIsFromCDN ? 17 : 18, false);
                 int aO = l.aO(this.mContext);
                 float zl = zn.zl() / zn.zk();
                 if (zl > 1.0f) {

@@ -18,7 +18,7 @@ public class d {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
                 if (this.hnS.size() >= this.aEK) {
-                    bEo();
+                    bEn();
                 }
                 this.mWeight++;
                 this.hnS.put(valueOf, Integer.valueOf(this.mWeight));
@@ -28,7 +28,7 @@ public class d {
         }
     }
 
-    public void bEo() {
+    public void bEn() {
         int i;
         Long l;
         synchronized (this) {
@@ -77,7 +77,7 @@ public class d {
         }
     }
 
-    public void bEn() {
+    public void bEm() {
         synchronized (this) {
             this.hnS.clear();
         }

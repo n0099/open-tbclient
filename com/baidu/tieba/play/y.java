@@ -24,7 +24,7 @@ public class y {
         MessageManager.getInstance().registerListener(this.bQv);
     }
 
-    public static y bsd() {
+    public static y bsc() {
         if (gEK == null) {
             synchronized (y.class) {
                 if (gEK == null) {

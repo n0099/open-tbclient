@@ -18,7 +18,7 @@ public abstract class a {
 
     public abstract void a(ChatSetting chatSetting, h<Void> hVar);
 
-    protected abstract l<String> aUh();
+    protected abstract l<String> aUg();
 
     public abstract ChatSetting bR(String str, String str2);
 
@@ -34,12 +34,12 @@ public abstract class a {
         if (str2 != null && str2.length() != 0) {
             String str3 = str2 + "@";
             synchronized (this.eYV) {
-                l<String> aUh = aUh();
-                List<l.b<String>> b = r.b(aUh);
+                l<String> aUg = aUg();
+                List<l.b<String>> b = r.b(aUg);
                 if (b != null) {
                     for (l.b<String> bVar : b) {
                         String str4 = bVar.key;
-                        if (str4 != null && str4.startsWith(str3) && (str = aUh.get(str4)) != null) {
+                        if (str4 != null && str4.startsWith(str3) && (str = aUg.get(str4)) != null) {
                             this.eYV.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
                         }
                     }

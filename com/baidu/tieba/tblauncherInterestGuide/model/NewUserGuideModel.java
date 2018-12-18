@@ -32,7 +32,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         super(baseFragmentActivity.getPageContext());
     }
 
-    public boolean bGb() {
+    public boolean bGa() {
         return this.hsN;
     }
 
@@ -40,7 +40,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         this.hsN = z;
     }
 
-    public InterestFrsData bGc() {
+    public InterestFrsData bGb() {
         return this.hsO;
     }
 
@@ -53,7 +53,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         this.hsP.execute(new Void[0]);
     }
 
-    public void bGd() {
+    public void bGc() {
         if (this.hsP != null) {
             this.hsP.cancel();
         }

@@ -65,7 +65,7 @@ public class d implements f {
     private View.OnClickListener eei = new View.OnClickListener() { // from class: com.baidu.tieba.view.d.6
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.this.bmn();
+            d.this.bmm();
         }
     };
 
@@ -88,7 +88,7 @@ public class d implements f {
     }
 
     @Override // com.baidu.tieba.view.f
-    public void bpL() {
+    public void bpK() {
         this.mNavigationBar.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
         if (this.mFrom == 1) {
             if (this.hNo != null && this.hNo.getParent() == null) {
@@ -115,7 +115,7 @@ public class d implements f {
                         TiebaStatic.log(new am("c12502").aA("obj_locate", "1"));
                     }
                     d.this.C(6, false);
-                    com.baidu.tieba.o.a.bvJ().c(6, false, true);
+                    com.baidu.tieba.o.a.bvI().c(6, false, true);
                     if (TbadkCoreApplication.getInst().appResponseToIntentClass(DressupCenterActivityConfig.class)) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new DressupCenterActivityConfig(d.this.mContext)));
                         return;
@@ -136,7 +136,7 @@ public class d implements f {
                     d.this.C(5, false);
                     TiebaStatic.log(new am("c12502").aA("obj_locate", "2"));
                     d.this.C(5, false);
-                    com.baidu.tieba.o.a.bvJ().c(5, false, true);
+                    com.baidu.tieba.o.a.bvI().c(5, false, true);
                     if (!TbadkCoreApplication.getInst().appResponseToCmd(2015004)) {
                         BdToast.a(d.this.mContext, d.this.mContext.getResources().getString(e.j.plugin_video_installing), 0).BN();
                         return;
@@ -245,7 +245,7 @@ public class d implements f {
         }
     }
 
-    public void bqp() {
+    public void bqo() {
         if (!this.hNw) {
             this.hNw = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("show_person_tab_feedback_tips", false);
             if (!this.hNw) {
@@ -264,7 +264,7 @@ public class d implements f {
         }
     }
 
-    public void bmn() {
+    public void bmm() {
         this.mHandler.removeCallbacks(this.eeg);
         this.mHandler.removeCallbacks(this.eeh);
         aHA();

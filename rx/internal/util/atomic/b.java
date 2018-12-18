@@ -8,12 +8,12 @@ abstract class b<E> extends AbstractQueue<E> {
     private final AtomicReference<LinkedQueueNode<E>> iMk = new AtomicReference<>();
     private final AtomicReference<LinkedQueueNode<E>> iMl = new AtomicReference<>();
 
-    protected final LinkedQueueNode<E> cex() {
+    protected final LinkedQueueNode<E> cew() {
         return this.iMk.get();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final LinkedQueueNode<E> cey() {
+    public final LinkedQueueNode<E> cex() {
         return this.iMk.get();
     }
 
@@ -22,12 +22,12 @@ abstract class b<E> extends AbstractQueue<E> {
         this.iMk.lazySet(linkedQueueNode);
     }
 
-    protected final LinkedQueueNode<E> cez() {
+    protected final LinkedQueueNode<E> cey() {
         return this.iMl.get();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final LinkedQueueNode<E> ceA() {
+    public final LinkedQueueNode<E> cez() {
         return this.iMl.get();
     }
 
@@ -44,21 +44,21 @@ abstract class b<E> extends AbstractQueue<E> {
     @Override // java.util.AbstractCollection, java.util.Collection
     public final int size() {
         LinkedQueueNode<E> lvNext;
-        LinkedQueueNode<E> cez = cez();
-        LinkedQueueNode<E> cex = cex();
+        LinkedQueueNode<E> cey = cey();
+        LinkedQueueNode<E> cew = cew();
         int i = 0;
-        while (cez != cex && i < Integer.MAX_VALUE) {
+        while (cey != cew && i < Integer.MAX_VALUE) {
             do {
-                lvNext = cez.lvNext();
+                lvNext = cey.lvNext();
             } while (lvNext == null);
             i++;
-            cez = lvNext;
+            cey = lvNext;
         }
         return i;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public final boolean isEmpty() {
-        return cez() == cex();
+        return cey() == cew();
     }
 }

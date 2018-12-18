@@ -44,7 +44,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
 
     /* loaded from: classes5.dex */
     public interface a {
-        void bKA();
+        void bKK();
 
         void bKL();
 
@@ -62,7 +62,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
 
         void bKS();
 
-        void bKT();
+        void bKz();
     }
 
     public VideoControllerLayout(Context context) {
@@ -132,7 +132,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public void wH(int i) {
         this.hGc.setStatus(i);
         if (this.hIV != null) {
-            this.hIV.bKT();
+            this.hIV.bKS();
         }
         if (i == 1) {
             this.hIO.setVisibility(8);
@@ -157,13 +157,13 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public void onClick(View view) {
         if (view == this.hIO) {
             if (this.hIV != null) {
-                this.hIV.bKS();
+                this.hIV.bKR();
             }
             int status = this.hGc.getStatus();
             if (this.hGc != null && this.hGc.getVideoDuration() > 0 && status > 2) {
                 if (status == 5) {
                     TiebaStatic.log("c12299");
-                    this.hGc.bKt();
+                    this.hGc.bKs();
                     ec(this.hIY);
                     ec(this.hIZ);
                     ec(this.hJa);
@@ -175,16 +175,16 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                         return;
                     }
                 }
-                this.hGc.bKs();
+                this.hGc.bKr();
                 wH(5);
             }
         } else if (view == this.hIR) {
             TiebaStatic.log("c12300");
             if (this.hGc != null && this.hGc.getStatus() > 2 && this.hIV != null) {
                 if (this.hGc.getVideoDuration() >= 3000.0f) {
-                    this.hIV.bKQ();
+                    this.hIV.bKP();
                 } else {
-                    this.hIV.bKR();
+                    this.hIV.bKQ();
                 }
             }
         }
@@ -200,7 +200,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public void startRecord(final boolean z) {
         if (this.hGc.getProgress() >= 100) {
             if (this.hIV != null) {
-                this.hIV.bKQ();
+                this.hIV.bKP();
                 return;
             }
             return;
@@ -231,28 +231,28 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             this.hGc.startRecord();
         }
         if (this.hIV != null) {
-            this.hIV.bKL();
+            this.hIV.bKK();
         }
     }
 
     public void stopRecord() {
-        bKX();
+        bKW();
         int status = this.hGc.getStatus();
         if (this.hGc != null) {
-            if (!this.hGc.bKu() && this.hGc.FR()) {
+            if (!this.hGc.bKt() && this.hGc.FR()) {
                 this.hGc.stopRecord();
             }
-            bKW();
+            bKV();
         }
         if (this.hIV != null) {
-            this.hIV.bKA();
+            this.hIV.bKz();
             if (status == 6) {
-                this.hIV.bKN();
+                this.hIV.bKM();
             }
         }
     }
 
-    public void bKW() {
+    public void bKV() {
         if (this.hGc != null) {
             if (this.hGc.getVideoDuration() >= 3000.0f) {
                 wH(4);
@@ -289,7 +289,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         }
     }
 
-    public void bKX() {
+    public void bKW() {
         if (this.hGc == null || this.hGc.FR() || this.hGc.getStatus() == 6) {
             if (this.hIc != null && this.hIc.isRunning()) {
                 this.hIc.cancel();
@@ -303,7 +303,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             this.hIR.setVisibility(0);
             this.hId.start();
             if (this.hGc.getStatus() != 7 && this.hGc.getStatus() != 6) {
-                this.hIQ.bKX();
+                this.hIQ.bKW();
                 return;
             }
             this.hIQ.getTvTip().setVisibility(8);
@@ -331,10 +331,10 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         switch (motionEvent.getAction()) {
             case 0:
                 if (this.hIV != null) {
-                    this.hIV.bKS();
+                    this.hIV.bKR();
                 }
                 if (this.hGc.getStatus() != 7 && this.hGc.getStatus() != 6) {
-                    if (this.hGc != null && this.hGc.bKr()) {
+                    if (this.hGc != null && this.hGc.bKq()) {
                         this.hIX = true;
                         com.baidu.tbadk.core.util.e.CD().showToast(e.j.music_is_downloading);
                         return;
@@ -383,8 +383,8 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                 if (this.hGc.getStatus() == 6) {
                     this.hGc.setStatus(1);
                     if (this.hIV != null) {
-                        this.hIV.bKN();
-                        this.hIV.bKA();
+                        this.hIV.bKM();
+                        this.hIV.bKz();
                     }
                     this.hIQ.getTvTip().setText("");
                     this.hIQ.getTvTip().setVisibility(8);
@@ -393,21 +393,21 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                     a((m) null);
                     return;
                 } else if (this.hIV != null) {
-                    this.hIV.bKM();
-                    this.hIQ.bLi();
+                    this.hIV.bKL();
+                    this.hIQ.bLh();
                     return;
                 } else {
                     return;
                 }
             case 1:
-                this.hIQ.bLj();
+                this.hIQ.bLi();
                 return;
             default:
                 return;
         }
     }
 
-    public void bKG() {
+    public void bKF() {
         if (this.hJc.getVisibility() == 0) {
             a((m) null);
         }
@@ -416,11 +416,11 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         this.hIQ.getTvTip().setText(getResources().getText(e.j.video_record_button_cancel));
         this.hIQ.getTvTip().setVisibility(0);
         if (this.hIV != null) {
-            this.hIV.bKL();
+            this.hIV.bKK();
         }
     }
 
-    public void bKY() {
+    public void bKX() {
         if (this.hGc.getStatus() == 6) {
             if (this.dYL == 2) {
                 wH(7);
@@ -436,60 +436,60 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             }
             this.hIQ.getTvTip().setVisibility(8);
             if (this.hIV != null) {
-                this.hIV.bKM();
+                this.hIV.bKL();
             }
         }
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void bKH() {
-        if (bLb() && this.hJc.getCurrentEffectLayout() == 3) {
+    public void bKG() {
+        if (bLa() && this.hJc.getCurrentEffectLayout() == 3) {
             a((m) null);
             return;
         }
-        if (!bLb()) {
-            bLa();
+        if (!bLa()) {
+            bKZ();
+        }
+        this.hJc.bKG();
+    }
+
+    @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
+    public void bKH() {
+        if (bLa() && this.hJc.getCurrentEffectLayout() == 0) {
+            a((m) null);
+            return;
+        }
+        if (!bLa()) {
+            bKZ();
         }
         this.hJc.bKH();
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
     public void bKI() {
-        if (bLb() && this.hJc.getCurrentEffectLayout() == 0) {
+        if (bLa() && this.hJc.getCurrentEffectLayout() == 1) {
             a((m) null);
             return;
         }
-        if (!bLb()) {
-            bLa();
+        if (!bLa()) {
+            bKZ();
         }
         this.hJc.bKI();
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
     public void bKJ() {
-        if (bLb() && this.hJc.getCurrentEffectLayout() == 1) {
+        if (bLa() && this.hJc.getCurrentEffectLayout() == 2) {
             a((m) null);
             return;
         }
-        if (!bLb()) {
-            bLa();
+        if (!bLa()) {
+            bKZ();
         }
         this.hJc.bKJ();
     }
 
-    @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void bKK() {
-        if (bLb() && this.hJc.getCurrentEffectLayout() == 2) {
-            a((m) null);
-            return;
-        }
-        if (!bLb()) {
-            bLa();
-        }
-        this.hJc.bKK();
-    }
-
-    private void bKZ() {
+    private void bKY() {
         if (v.I(this.hIU)) {
             this.hIU = new ArrayList();
             this.hIU.add(ObjectAnimator.ofFloat(this.hJc, "translationY", 1000.0f, 0.0f));
@@ -507,11 +507,11 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         }
     }
 
-    private void bLa() {
+    private void bKZ() {
         int i = 0;
         if (this.hJc.getVisibility() != 0) {
             this.hJc.setVisibility(0);
-            bKZ();
+            bKY();
             this.hIR.setEnabled(false);
             this.hIO.setEnabled(false);
             while (true) {
@@ -527,7 +527,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                                 @Override // com.baidu.tieba.video.record.m, android.animation.Animator.AnimatorListener
                                 public void onAnimationStart(Animator animator) {
                                     if (VideoControllerLayout.this.hIV != null) {
-                                        VideoControllerLayout.this.hIV.bKO();
+                                        VideoControllerLayout.this.hIV.bKN();
                                     }
                                 }
                             });
@@ -544,7 +544,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
 
     public void a(final m mVar) {
         if (this.hJc.getVisibility() != 8) {
-            bKZ();
+            bKY();
             this.hIR.setEnabled(true);
             this.hIO.setEnabled(true);
             if (this.hGc.getStatus() == 6 || this.hGc.FR()) {
@@ -569,7 +569,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                                     if (!this.hJQ) {
                                         VideoControllerLayout.this.hJc.setVisibility(8);
                                         if (VideoControllerLayout.this.hIV != null) {
-                                            VideoControllerLayout.this.hIV.bKP();
+                                            VideoControllerLayout.this.hIV.bKO();
                                         }
                                         if (mVar != null) {
                                             mVar.onAnimationEnd(animator);
@@ -612,7 +612,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         }
     }
 
-    public boolean bLb() {
+    public boolean bLa() {
         return this.hJc.getVisibility() == 0;
     }
 
@@ -634,9 +634,9 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         }
     }
 
-    public boolean bLc() {
+    public boolean bLb() {
         if (this.hJc != null) {
-            return this.hJc.bLc();
+            return this.hJc.bLb();
         }
         return false;
     }
@@ -673,15 +673,15 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public void m(String str, int i, String str2) {
     }
 
-    public void bLd() {
+    public void bLc() {
         if (this.hJc != null) {
-            this.hJc.bLd();
+            this.hJc.bLc();
         }
     }
 
-    public void bJR() {
+    public void bJQ() {
         if (this.hJc != null) {
-            this.hJc.bJR();
+            this.hJc.bJQ();
         }
     }
 }

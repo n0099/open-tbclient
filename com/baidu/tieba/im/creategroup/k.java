@@ -22,7 +22,7 @@ public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
     NavigationBar mNavigationBar;
     View mParent;
 
-    public View aPU() {
+    public View aPT() {
         return this.bhR;
     }
 
@@ -80,7 +80,7 @@ public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
         this.bhR = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupAddressEditActivity.getResources().getString(e.j.save));
     }
 
-    public void aPV() {
+    public void aPU() {
         this.eMJ.notifyDataSetChanged();
     }
 

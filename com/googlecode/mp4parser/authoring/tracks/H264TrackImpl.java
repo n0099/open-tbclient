@@ -278,16 +278,16 @@ public class H264TrackImpl extends AbstractTrack {
         long ixf = 0;
         int ixg = 0;
 
-        public void cbp() throws IOException {
+        public void cbo() throws IOException {
             this.buffer = this.dataSource.map(this.ixf, Math.min(this.dataSource.size() - this.ixf, H264TrackImpl.BUFFER));
         }
 
         a(DataSource dataSource) throws IOException {
             this.dataSource = dataSource;
-            cbp();
+            cbo();
         }
 
-        boolean cbq() throws IOException {
+        boolean cbp() throws IOException {
             if (this.buffer.limit() - this.ixg >= 3) {
                 return this.buffer.get(this.ixg) == 0 && this.buffer.get(this.ixg + 1) == 0 && this.buffer.get(this.ixg + 2) == 1;
             } else if (this.ixf + this.ixg != this.dataSource.size()) {
@@ -298,7 +298,7 @@ public class H264TrackImpl extends AbstractTrack {
             }
         }
 
-        boolean cbr() throws IOException {
+        boolean cbq() throws IOException {
             if (this.buffer.limit() - this.ixg >= 3) {
                 return this.buffer.get(this.ixg) == 0 && this.buffer.get(this.ixg + 1) == 0 && (this.buffer.get(this.ixg + 2) == 0 || this.buffer.get(this.ixg + 2) == 1);
             } else if (this.ixf + this.ixg + 3 > this.dataSource.size()) {
@@ -306,21 +306,21 @@ public class H264TrackImpl extends AbstractTrack {
             } else {
                 this.ixf = this.ayy;
                 this.ixg = 0;
-                cbp();
-                return cbr();
+                cbo();
+                return cbq();
             }
         }
 
-        void cbs() {
+        void cbr() {
             this.ixg++;
         }
 
-        void cbt() {
+        void cbs() {
             this.ixg += 3;
             this.ayy = this.ixf + this.ixg;
         }
 
-        public ByteBuffer cbu() {
+        public ByteBuffer cbt() {
             if (this.ayy >= this.ixf) {
                 this.buffer.position((int) (this.ayy - this.ixf));
                 ByteBuffer slice = this.buffer.slice();
@@ -332,18 +332,18 @@ public class H264TrackImpl extends AbstractTrack {
     }
 
     private ByteBuffer findNextSample(a aVar) throws IOException {
-        while (!aVar.cbq()) {
+        while (!aVar.cbp()) {
             try {
-                aVar.cbs();
+                aVar.cbr();
             } catch (EOFException e) {
                 return null;
             }
         }
-        aVar.cbt();
-        while (!aVar.cbr()) {
-            aVar.cbs();
+        aVar.cbs();
+        while (!aVar.cbq()) {
+            aVar.cbr();
         }
-        return aVar.cbu();
+        return aVar.cbt();
     }
 
     protected Sample createSample(List<? extends ByteBuffer> list) {

@@ -22,17 +22,17 @@ public class c {
         this.fgz = advertAppInfo;
     }
 
-    public void aWt() {
+    public void aWs() {
         qN(AiAppsUBCStatistic.TYPE_CLICK);
-        com.baidu.tieba.recapp.report.c.bvu().a(com.baidu.tieba.recapp.report.f.c(this.fgz, 2, 0));
+        com.baidu.tieba.recapp.report.c.bvt().a(com.baidu.tieba.recapp.report.f.c(this.fgz, 2, 0));
+    }
+
+    public void aWt() {
+        qN("show");
+        com.baidu.tieba.recapp.report.c.bvt().a(com.baidu.tieba.recapp.report.f.c(this.fgz, 3, 0));
     }
 
     public void aWu() {
-        qN("show");
-        com.baidu.tieba.recapp.report.c.bvu().a(com.baidu.tieba.recapp.report.f.c(this.fgz, 3, 0));
-    }
-
-    public void aWv() {
     }
 
     public void qM(String str) {

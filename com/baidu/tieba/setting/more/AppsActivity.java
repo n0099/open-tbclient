@@ -48,7 +48,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         }
         if (System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("app_inverval", 0L) > 86400000) {
             refresh();
-        } else if (!bwF()) {
+        } else if (!bwE()) {
             refresh();
         }
     }
@@ -161,7 +161,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
                 });
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("app_inverval", System.currentTimeMillis());
                 AppsActivity.this.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, "text/html", IoUtils.UTF_8, "");
-            } else if (!AppsActivity.this.bwF() && str == null) {
+            } else if (!AppsActivity.this.bwE() && str == null) {
                 AppsActivity.this.mWebView.setVisibility(8);
                 AppsActivity.this.gWb.setVisibility(0);
                 AppsActivity.this.showToast(AppsActivity.this.getPageContext().getString(e.j.neterror));
@@ -172,7 +172,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bwF() {
+    public boolean bwE() {
         String noAccountData = TbadkCoreApplication.getInst().getNoAccountData(7);
         if (noAccountData == null || noAccountData.length() <= 1) {
             return false;

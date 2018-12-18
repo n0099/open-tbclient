@@ -70,7 +70,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         setContentView(e.h.image_activity_2);
         initData(bundle);
         initUI();
-        aNF();
+        aNE();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -87,7 +87,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        aNF();
+        aNE();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -304,7 +304,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         this.eGJ.setOffscreenPageLimit(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
         this.eGJ.setOnPageChangeListener(this.mOnPageChangeListener);
         this.eGJ.setItemOnclickListener(this.mOnClickListener);
-        this.eGJ.setCurrentItem(aNE(), false);
+        this.eGJ.setCurrentItem(aND(), false);
         this.eGJ.setOnScrollOutListener(this.eGK);
         this.eGJ.setItemOnLongClickListener(onLongClickListener);
         this.eGJ.setHasNext(false);
@@ -332,7 +332,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
     }
 
-    private int aNE() {
+    private int aND() {
         if (this.eGF != null && this.eGF.size() > 0) {
             int size = this.eGF.size();
             if (this.mIndex >= size) {
@@ -385,7 +385,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         this.eGS = new HashMap<>();
     }
 
-    private void aNF() {
+    private void aNE() {
         if (TextUtils.isEmpty(this.id)) {
             finish();
         }

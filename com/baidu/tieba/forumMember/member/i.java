@@ -81,7 +81,7 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
             if (azt.isLike() == 1 && isLogin) {
                 kVar.dEQ.setVisibility(8);
                 kVar.dER.setText(e.j.degree);
-                al.c(kVar.dDR, BitmapHelper.getSmallGradeResourceIdNew(azt.bzL()));
+                al.c(kVar.dDR, BitmapHelper.getSmallGradeResourceIdNew(azt.bzK()));
                 if (StringUtils.isNull(azt.getLevelName())) {
                     kVar.dDS.setVisibility(8);
                 } else {
@@ -91,7 +91,7 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
             } else {
                 kVar.dEQ.setVisibility(0);
                 kVar.dER.setText(e.j.tbtille_just_be);
-                al.c(kVar.dDR, BitmapHelper.getSmallGradeResourceIdNew(azt.bzL()));
+                al.c(kVar.dDR, BitmapHelper.getSmallGradeResourceIdNew(azt.bzK()));
                 kVar.dDS.setVisibility(8);
             }
             kVar.dEQ.setTag(Integer.valueOf(i));

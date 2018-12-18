@@ -48,11 +48,11 @@ public class b {
         }
     }
 
-    public ArrayList<MetaData> bOa() {
+    public ArrayList<MetaData> bNZ() {
         return this.hTD;
     }
 
-    public HashMap<String, String> bOb() {
+    public HashMap<String, String> bOa() {
         return this.hTE;
     }
 }

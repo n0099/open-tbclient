@@ -70,21 +70,21 @@ public class GroupLevelActivity extends BaseActivity<GroupLevelActivity> {
                         int thresholdDay = levelInfo.getThresholdDay();
                         String intro = levelInfo.getIntro();
                         GroupLevelActivity.this.ePK.x(grade, groupLevelInfo.isMemGroup());
-                        GroupLevelActivity.this.ePK.aRi().setText(intro);
+                        GroupLevelActivity.this.ePK.aRh().setText(intro);
                         GroupLevelActivity.this.ePK.S(grade, activeDay, thresholdDay);
                         GroupLevelActivity.this.ePK.a(groupLevelInfo.isMemGroup(), groupLevelInfo.isGroupAuthor(), groupLevelInfo.isCanCreateMember(), groupLevelInfo.getLeftCreateMemGroup());
-                        TextView[] aRg = GroupLevelActivity.this.ePK.aRg();
+                        TextView[] aRf = GroupLevelActivity.this.ePK.aRf();
                         for (int i = 1; i < levelInfos.size(); i++) {
                             int maxMemberNum = levelInfos.get(i).getMaxMemberNum();
-                            if (i <= aRg.length) {
-                                aRg[i].setText(GroupLevelActivity.this.getPageContext().getContext().getString(e.j.grouplevel_level_condition, String.valueOf(maxMemberNum)));
+                            if (i <= aRf.length) {
+                                aRf[i].setText(GroupLevelActivity.this.getPageContext().getContext().getString(e.j.grouplevel_level_condition, String.valueOf(maxMemberNum)));
                             }
                         }
-                        TextView[] aRh = GroupLevelActivity.this.ePK.aRh();
+                        TextView[] aRg = GroupLevelActivity.this.ePK.aRg();
                         for (int i2 = 1; i2 < vipLevelInfos.size(); i2++) {
                             int maxMemberNum2 = vipLevelInfos.get(i2).getMaxMemberNum();
-                            if (i2 <= aRh.length) {
-                                aRh[i2].setText(GroupLevelActivity.this.getPageContext().getContext().getString(e.j.grouplevel_level_condition, String.valueOf(maxMemberNum2)));
+                            if (i2 <= aRg.length) {
+                                aRg[i2].setText(GroupLevelActivity.this.getPageContext().getContext().getString(e.j.grouplevel_level_condition, String.valueOf(maxMemberNum2)));
                             }
                         }
                     }
@@ -127,9 +127,9 @@ public class GroupLevelActivity extends BaseActivity<GroupLevelActivity> {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.ePK.aRe()) {
+        if (view == this.ePK.aRd()) {
             closeActivity();
-        } else if (view == this.ePK.aRf()) {
+        } else if (view == this.ePK.aRe()) {
             TiebaStatic.log("im_group_level_upgrade_mem");
             this.ePL.BF();
         }

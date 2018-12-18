@@ -35,9 +35,9 @@ public abstract class ao<T> extends com.facebook.common.b.e<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.e
-    public void bSZ() {
-        this.ipI.b(this.ZM, this.irm, this.ipI.zl(this.ZM) ? bZB() : null);
-        this.iqb.bSZ();
+    public void bSY() {
+        this.ipI.b(this.ZM, this.irm, this.ipI.zl(this.ZM) ? bZA() : null);
+        this.iqb.bSY();
     }
 
     protected Map<String, String> aM(T t) {
@@ -48,7 +48,7 @@ public abstract class ao<T> extends com.facebook.common.b.e<T> {
         return null;
     }
 
-    protected Map<String, String> bZB() {
+    protected Map<String, String> bZA() {
         return null;
     }
 }

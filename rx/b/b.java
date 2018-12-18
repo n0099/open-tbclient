@@ -18,7 +18,7 @@ public final class b {
         }
     };
 
-    public static <T> rx.e<T> ceM() {
+    public static <T> rx.e<T> ceL() {
         return (rx.e<T>) iNe;
     }
 }

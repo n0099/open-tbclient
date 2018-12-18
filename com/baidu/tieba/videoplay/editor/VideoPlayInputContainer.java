@@ -121,7 +121,7 @@ public class VideoPlayInputContainer extends LinearLayout implements l {
                     VideoPlayInputContainer.this.b(new com.baidu.tbadk.editortools.a(4, -1, VideoPlayInputContainer.this.bai.getText().toString()));
                 }
                 VideoPlayInputContainer.this.mSendView.setEnabled((editable == null || StringUtils.isNull(editable.toString().trim())) ? false : true);
-                VideoPlayInputContainer.this.bLO();
+                VideoPlayInputContainer.this.bLN();
             }
         });
         this.bai.setHint(context.getString(e.j.reply_something));
@@ -213,7 +213,7 @@ public class VideoPlayInputContainer extends LinearLayout implements l {
                         this.bai.setText((CharSequence) null);
                     }
                     this.mSendView.setEnabled(false);
-                    bLO();
+                    bLN();
                     return;
                 case 24:
                     if (aVar.data != null && (aVar.data instanceof p)) {
@@ -310,12 +310,12 @@ public class VideoPlayInputContainer extends LinearLayout implements l {
             a(this.bai, e.f.edittext_cursor_1);
             this.bai.setHintTextColor(al.getColor(i, e.d.cp_cont_d));
         }
-        bLO();
+        bLN();
         al.c(this.hMc, e.f.pbeditor_face_button);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bLO() {
+    public void bLN() {
         if (this.mSendView.isEnabled()) {
             al.b(this.mSendView, e.d.cp_link_tip_a, 1, this.aLF);
         } else {

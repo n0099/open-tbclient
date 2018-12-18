@@ -38,7 +38,7 @@ public class k {
         this.mId = str;
     }
 
-    public int bRd() {
+    public int bRc() {
         return this.ibs;
     }
 
@@ -54,11 +54,11 @@ public class k {
         this.mContent = str;
     }
 
-    public JSONObject bRg() {
+    public JSONObject bRf() {
         return this.ibP;
     }
 
-    public long bRj() {
+    public long bRi() {
         return this.Sx;
     }
 
@@ -82,11 +82,11 @@ public class k {
         this.mState = str;
     }
 
-    public int bRe() {
+    public int bRd() {
         return this.ibQ;
     }
 
-    public String bRf() {
+    public String bRe() {
         return this.ibR;
     }
 
@@ -98,7 +98,7 @@ public class k {
         this.mCategory = str;
     }
 
-    public boolean bRa() {
+    public boolean bQZ() {
         return this.ibS;
     }
 
@@ -110,9 +110,9 @@ public class k {
         this.ibR = str;
     }
 
-    public void bRh() {
-        if (e.bQQ().xZ(this.mId)) {
-            this.ibR = o.bRs().Zd();
+    public void bRg() {
+        if (e.bQP().xZ(this.mId)) {
+            this.ibR = o.bRr().Zd();
         }
     }
 
@@ -126,7 +126,7 @@ public class k {
         }
     }
 
-    public JSONArray bRk() {
+    public JSONArray bRj() {
         return this.ibu;
     }
 }

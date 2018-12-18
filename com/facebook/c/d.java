@@ -16,12 +16,12 @@ public class d {
     private final c.a ikY = new a();
 
     private d() {
-        bVA();
+        bVz();
     }
 
     public void es(@Nullable List<c.a> list) {
         this.ikX = list;
-        bVA();
+        bVz();
     }
 
     public c q(InputStream inputStream) throws IOException {
@@ -43,7 +43,7 @@ public class d {
         return j2;
     }
 
-    private void bVA() {
+    private void bVz() {
         this.ikW = this.ikY.getHeaderSize();
         if (this.ikX != null) {
             for (c.a aVar : this.ikX) {
@@ -67,7 +67,7 @@ public class d {
         return com.facebook.common.internal.a.a(inputStream, bArr, 0, i);
     }
 
-    public static synchronized d bVB() {
+    public static synchronized d bVA() {
         d dVar;
         synchronized (d.class) {
             if (ikV == null) {
@@ -79,7 +79,7 @@ public class d {
     }
 
     public static c r(InputStream inputStream) throws IOException {
-        return bVB().q(inputStream);
+        return bVA().q(inputStream);
     }
 
     public static c s(InputStream inputStream) {

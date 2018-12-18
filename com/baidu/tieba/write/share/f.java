@@ -96,10 +96,10 @@ public class f {
                 xVar.x("lat", String.valueOf(af.getLatitude()));
                 xVar.x("lng", String.valueOf(af.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bDX().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bDW().getLocationData();
             if (locationData != null) {
-                xVar.x("name", locationData.bDU());
-                xVar.x("sn", locationData.bDW());
+                xVar.x("name", locationData.bDT());
+                xVar.x("sn", locationData.bDV());
             }
             xVar.x("is_link_thread", "0");
             if (TbadkCoreApplication.getCurrentAccountInfo() != null) {

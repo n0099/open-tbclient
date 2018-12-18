@@ -103,7 +103,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         aVar.a(e.j.share, new a.b() { // from class: com.baidu.tieba.im.mygroup.PersonGroupActivity.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                long aB = b.aSN().aB(String.valueOf(j), 1);
+                long aB = b.aSM().aB(String.valueOf(j), 1);
                 MessageUtils.createGroupChatMessage(aB, 9, shareFromGameCenterMsgData.toChatMessageContent(), j);
                 MessageUtils.createGroupChatMessage(aB + 1, 1, game2GroupShareDialogView.getLeaveMsg(), j);
                 aVar2.dismiss();
@@ -249,7 +249,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
             this.eWQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.mygroup.PersonGroupActivity.6
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    PersonGroupActivity.this.aTz();
+                    PersonGroupActivity.this.aTy();
                 }
             });
             this.eWR = (LinearLayout) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.widget_nb_item_search_group_btn, (View.OnClickListener) null);
@@ -294,7 +294,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aTz() {
+    public void aTy() {
         showProgressBar();
         this.eWZ.cr(0L);
     }
@@ -349,7 +349,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
     }
 
-    public int aTA() {
+    public int aTz() {
         return this.bZF == 0 ? 0 : 1;
     }
 
@@ -363,11 +363,11 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
     }
 
-    public String aTB() {
+    public String aTA() {
         return this.eWO;
     }
 
-    public boolean aTC() {
+    public boolean aTB() {
         return this.isHost;
     }
 
@@ -401,7 +401,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
     }
 
-    public PersonGroupModel aTD() {
+    public PersonGroupModel aTC() {
         return this.eWZ;
     }
 

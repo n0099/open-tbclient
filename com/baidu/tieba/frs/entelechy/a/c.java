@@ -42,16 +42,16 @@ public class c extends com.baidu.tieba.frs.h<s, a> implements View.OnClickListen
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, s sVar, a aVar) {
         boolean z = true;
         super.onFillViewHolder(i, view, viewGroup, sVar, aVar);
-        if (sVar.bCK()) {
-            String bCL = sVar.bCL();
-            if (bCL != null) {
-                aVar.dPW.setText(bCL);
-            } else if (this.dHF != null && this.dHF.bgi() != null && this.dHF.bgi().getName() != null) {
+        if (sVar.bCJ()) {
+            String bCK = sVar.bCK();
+            if (bCK != null) {
+                aVar.dPW.setText(bCK);
+            } else if (this.dHF != null && this.dHF.bgh() != null && this.dHF.bgh().getName() != null) {
                 TextView textView = aVar.dPW;
                 Context context = this.mContext;
                 int i2 = e.j.get_fortune_hint_format;
                 Object[] objArr = new Object[1];
-                objArr[0] = this.dHF == null ? "" : this.dHF.bgi().getName();
+                objArr[0] = this.dHF == null ? "" : this.dHF.bgh().getName();
                 textView.setText(context.getString(i2, objArr));
             }
             aVar.dPV.setTag(Integer.valueOf(i));
@@ -61,9 +61,9 @@ public class c extends com.baidu.tieba.frs.h<s, a> implements View.OnClickListen
             aVar.dPV.setVisibility(8);
             aVar.dQc.setVisibility(8);
         }
-        com.baidu.tieba.tbadkCore.m bCM = sVar.bCM();
-        if (bCM != null && bCM.bCD() && !TextUtils.isEmpty(bCM.bCE())) {
-            aVar.dPY.setText(bCM.bCE());
+        com.baidu.tieba.tbadkCore.m bCL = sVar.bCL();
+        if (bCL != null && bCL.bCC() && !TextUtils.isEmpty(bCL.bCD())) {
+            aVar.dPY.setText(bCL.bCD());
             aVar.dPX.setTag(Integer.valueOf(i));
             aVar.dPX.setOnClickListener(this);
             aVar.dPX.setVisibility(0);
@@ -91,7 +91,7 @@ public class c extends com.baidu.tieba.frs.h<s, a> implements View.OnClickListen
             aVar.dQa.setVisibility(8);
             aVar.dQe.setVisibility(8);
         }
-        if (!this.dPT && !sVar.bCK()) {
+        if (!this.dPT && !sVar.bCJ()) {
             if (z) {
                 aVar.dPV.setVisibility(8);
                 aVar.dPX.setVisibility(8);

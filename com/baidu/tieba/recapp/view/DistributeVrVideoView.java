@@ -287,15 +287,15 @@ public class DistributeVrVideoView extends RelativeLayout implements i, IVrPlayV
 
     @Override // com.baidu.tieba.recapp.i
     public void startPlay() {
-        if (bnE() && this.gkC != null && this.gSK != null) {
+        if (bnD() && this.gkC != null && this.gSK != null) {
             this.mHandler.removeMessages(MsgField.IMSG_DEVICE_NOT_SUPPORT);
             this.mHandler.sendEmptyMessage(MsgField.IMSG_DEVICE_NOT_SUPPORT);
             this.gSK.startPlay(this.gkC.video_url);
         }
     }
 
-    private boolean bnE() {
-        return q.bnE();
+    private boolean bnD() {
+        return q.bnD();
     }
 
     @Override // com.baidu.tieba.recapp.i

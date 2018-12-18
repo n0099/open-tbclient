@@ -70,11 +70,11 @@ public class d {
     }
 
     public boolean isVisible() {
-        return bhs() && this.rootView.getVisibility() == 0;
+        return bhr() && this.rootView.getVisibility() == 0;
     }
 
-    private void bhr() {
-        if (!bhs()) {
+    private void bhq() {
+        if (!bhr()) {
             this.rootView = this.fPc.inflate();
             init();
             if (this.fSg != this.fSh) {
@@ -83,12 +83,12 @@ public class d {
         }
     }
 
-    public boolean bhs() {
+    public boolean bhr() {
         return this.rootView != null;
     }
 
     public void show() {
-        bhr();
+        bhq();
         if (!isVisible() && this.rootView != null) {
             this.rootView.setVisibility(0);
         }
@@ -104,7 +104,7 @@ public class d {
     }
 
     public void hide() {
-        if (bhs()) {
+        if (bhr()) {
             this.rootView.setVisibility(8);
             this.bDP.setStatusBarVisibility(8);
         }
@@ -112,7 +112,7 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void j(final Runnable runnable) {
-        if (bhs()) {
+        if (bhr()) {
             this.bDP.setStatusBarVisibility(0);
             this.contentView.animate().translationY(0.0f).setDuration(300L).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.d.1
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -134,14 +134,14 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void k(Runnable runnable) {
-        if (bhs()) {
+        if (bhr()) {
             a(this.contentView.getHeight(), 0.0f, runnable);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void l(Runnable runnable) {
-        if (bhs()) {
+        if (bhr()) {
             this.contentView.setTranslationY(l.aS(this.fRB)[1]);
             this.fSl.setAlpha(0.0f);
             a(fSf, 1.0f, runnable);
@@ -149,7 +149,7 @@ public class d {
     }
 
     private void a(float f, float f2, final Runnable runnable) {
-        if (bhs()) {
+        if (bhr()) {
             this.contentView.animate().translationY(f).setDuration(300L).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.d.2
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
@@ -171,7 +171,7 @@ public class d {
 
     public void onChangeSkinType(int i) {
         this.fSh = i;
-        if (bhs()) {
+        if (bhr()) {
             sc(i);
         }
     }
@@ -192,15 +192,15 @@ public class d {
         return this.bDP;
     }
 
-    public View bht() {
+    public View bhs() {
         return this.eYm;
     }
 
-    public View bhu() {
+    public View bht() {
         return this.fSl;
     }
 
-    public boolean bhv() {
+    public boolean bhu() {
         if (this.fSj == null || this.fSj.getChildCount() <= 0) {
             return true;
         }
@@ -211,7 +211,7 @@ public class d {
         return false;
     }
 
-    public b bhw() {
+    public b bhv() {
         return this.fSk;
     }
 }

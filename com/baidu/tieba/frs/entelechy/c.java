@@ -254,15 +254,15 @@ public class c extends a {
             gZ(false);
             return;
         }
-        NebulaHotThreads bCs = lVar.bCs();
-        if (bCs == null || v.I(bCs.threads)) {
+        NebulaHotThreads bCr = lVar.bCr();
+        if (bCr == null || v.I(bCr.threads)) {
             gZ(false);
             return;
         }
         gZ(true);
-        List<NebulaHotThread> list = bCs.threads;
+        List<NebulaHotThread> list = bCr.threads;
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new com.baidu.tieba.frs.g.b.b(bCs.url));
+        arrayList.add(new com.baidu.tieba.frs.g.b.b(bCr.url));
         this.dPt.setData(arrayList);
         ArrayList arrayList2 = new ArrayList();
         for (NebulaHotThread nebulaHotThread : list) {
@@ -283,28 +283,28 @@ public class c extends a {
     }
 
     private void aDu() {
-        final com.baidu.tbadk.core.data.l bBO = this.edR.bBO();
-        if (bBO != null && this.edR.bgi() != null) {
-            final String id = this.edR.bgi().getId();
-            final String name = this.edR.bgi().getName();
-            if (this.egV.add(bBO.yg())) {
-                a.C0316a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0130", "ad_plat", "VIEW_TRUE", bBO.yg(), id, name, null);
-                b.cM("obj_url", bBO.getUrl());
+        final com.baidu.tbadk.core.data.l bBN = this.edR.bBN();
+        if (bBN != null && this.edR.bgh() != null) {
+            final String id = this.edR.bgh().getId();
+            final String name = this.edR.bgh().getName();
+            if (this.egV.add(bBN.yg())) {
+                a.C0316a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0130", "ad_plat", "VIEW_TRUE", bBN.yg(), id, name, null);
+                b.cM("obj_url", bBN.getUrl());
                 b.save();
             }
             this.egk.setVisibility(0);
-            this.egl.setText(bBO.getText());
-            this.egm.setText(bBO.getTitle());
-            this.egn.startLoad(bBO.yf(), 10, false);
+            this.egl.setText(bBN.getText());
+            this.egm.setText(bBN.getTitle());
+            this.egn.startLoad(bBN.yf(), 10, false);
             this.egk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.c.2
                 /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: com.baidu.tieba.frs.FrsFragment */
                 /* JADX WARN: Multi-variable type inference failed */
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.C0316a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0130", "ad_plat", "CLICK", bBO.yg(), id, name, null);
-                    b2.cM("obj_url", bBO.getUrl());
+                    a.C0316a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0130", "ad_plat", "CLICK", bBN.yg(), id, name, null);
+                    b2.cM("obj_url", bBN.getUrl());
                     b2.save();
-                    ay.Ef().c(c.this.dJE.getPageContext(), new String[]{bBO.getUrl()});
+                    ay.Ef().c(c.this.dJE.getPageContext(), new String[]{bBN.getUrl()});
                 }
             });
         }
@@ -456,9 +456,9 @@ public class c extends a {
             aDC();
             aDu();
             this.dPq.setVisibility(8);
-            if (lVar != null && lVar.bBm() != null) {
-                mw(lVar.bBm().grade.intValue());
-                this.dPr = lVar.bBm().url;
+            if (lVar != null && lVar.bBl() != null) {
+                mw(lVar.bBl().grade.intValue());
+                this.dPr = lVar.bBl().url;
             }
             if (lVar != null && lVar.hjt != null) {
                 FrsTabInfo frsTabInfo = lVar.hjt;
@@ -570,14 +570,14 @@ public class c extends a {
             }
         }
         if (this.egg != null && this.egh != null) {
-            if (this.edR != null && this.edR.bBy()) {
-                if (m.ft(this.edR.bBA()) == 1 && !n.aAe) {
+            if (this.edR != null && this.edR.bBx()) {
+                if (m.ft(this.edR.bBz()) == 1 && !n.aAe) {
                     this.egg.setVisibility(8);
                 } else {
                     this.egg.setVisibility(0);
                     if (!TextUtils.isEmpty(this.edR.getGameName()) && !TextUtils.isEmpty(this.edR.getGameName().trim())) {
                         this.egh.setText(UtilHelper.getFixedText(this.edR.getGameName(), 10));
-                        String vO = com.baidu.tieba.tbadkCore.util.b.vO(this.edR.bBA());
+                        String vO = com.baidu.tieba.tbadkCore.util.b.vO(this.edR.bBz());
                         if (!StringUtils.isNull(vO)) {
                             TiebaStatic.eventStat(this.mContext.getPageActivity(), "game_show", "show", 1, "dev_id", vO, "ref_id", "1000601", "ref_type", "603");
                         }
@@ -595,8 +595,8 @@ public class c extends a {
             this.egi = this.egg.findViewById(e.g.top_item_divider);
         }
         aDD();
-        if (this.edR != null && !v.I(this.edR.bBz())) {
-            list = this.edR.bBz();
+        if (this.edR != null && !v.I(this.edR.bBy())) {
+            list = this.edR.bBy();
             bT(list);
         }
         bE(list);
@@ -744,8 +744,8 @@ public class c extends a {
                     i = this.mLevel + 1;
                 }
                 com.baidu.tieba.tbadkCore.l aAZ = this.dJE.aAZ();
-                if (aAZ != null && aAZ.bgi() != null) {
-                    aAZ.bgi().setUser_level(i);
+                if (aAZ != null && aAZ.bgh() != null) {
+                    aAZ.bgh().setUser_level(i);
                 }
                 this.eha.setText(this.mContext.getResources().getString(e.j.lv_num, Integer.valueOf(i)));
             } else {

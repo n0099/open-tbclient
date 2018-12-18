@@ -16,7 +16,7 @@ public class b implements f {
     }
 
     public static com.facebook.cache.disk.d a(com.facebook.cache.disk.b bVar, com.facebook.cache.disk.c cVar, Executor executor) {
-        return new com.facebook.cache.disk.d(cVar, bVar.bSG(), new d.b(bVar.bSF(), bVar.bSE(), bVar.bSD()), bVar.bSI(), bVar.bSH(), bVar.bSJ(), bVar.getContext(), executor, bVar.bSK());
+        return new com.facebook.cache.disk.d(cVar, bVar.bSF(), new d.b(bVar.bSE(), bVar.bSD(), bVar.bSC()), bVar.bSH(), bVar.bSG(), bVar.bSI(), bVar.getContext(), executor, bVar.bSJ());
     }
 
     @Override // com.facebook.imagepipeline.d.f

@@ -50,13 +50,13 @@ public class a extends k<i, C0286a> {
     }
 
     public void onDestroy() {
-        blS();
+        blR();
         if (this.geT != null) {
             this.geT.onDestroy();
         }
     }
 
-    private void blS() {
+    private void blR() {
         Iterator<C0286a> it = this.geU.iterator();
         while (it.hasNext()) {
             C0286a next = it.next();
@@ -77,19 +77,19 @@ public class a extends k<i, C0286a> {
     }
 
     private String getPostId() {
-        bb blT = blT();
-        return blT != null ? blT.zX() : "";
+        bb blS = blS();
+        return blS != null ? blS.zX() : "";
     }
 
     private String getForumId() {
-        return this.fUU.bho() != null ? this.fUU.bho().getForumId() : "";
+        return this.fUU.bhn() != null ? this.fUU.bhn().getForumId() : "";
     }
 
-    private bb blT() {
-        if (this.fUU.bho() == null || this.fUU.bho().getPbData() == null) {
+    private bb blS() {
+        if (this.fUU.bhn() == null || this.fUU.bhn().getPbData() == null) {
             return null;
         }
-        return this.fUU.bho().getPbData().bgk();
+        return this.fUU.bhn().getPbData().bgj();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -114,7 +114,7 @@ public class a extends k<i, C0286a> {
         public void a(i iVar) {
             if (iVar != null && iVar.bNv != null) {
                 this.geV.setData(iVar.bNv);
-                this.exb.setVisibility(iVar.bgP() ? 0 : 8);
+                this.exb.setVisibility(iVar.bgO() ? 0 : 8);
             }
             onChangeSkinType();
         }

@@ -61,7 +61,7 @@ public final class a extends rx.g implements h {
                 scheduledFuture = newScheduledThreadPool.scheduleWithFixedDelay(new Runnable() { // from class: rx.internal.schedulers.a.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        C0423a.this.ceg();
+                        C0423a.this.cef();
                     }
                 }, this.iKy, this.iKy, TimeUnit.NANOSECONDS);
             } else {
@@ -71,7 +71,7 @@ public final class a extends rx.g implements h {
             this.iKC = scheduledFuture;
         }
 
-        c cef() {
+        c cee() {
             if (this.iKA.isUnsubscribed()) {
                 return a.iKv;
             }
@@ -91,13 +91,13 @@ public final class a extends rx.g implements h {
             this.iKz.offer(cVar);
         }
 
-        void ceg() {
+        void cef() {
             if (!this.iKz.isEmpty()) {
                 long now = now();
                 Iterator<c> it = this.iKz.iterator();
                 while (it.hasNext()) {
                     c next = it.next();
-                    if (next.ceh() <= now) {
+                    if (next.ceg() <= now) {
                         if (this.iKz.remove(next)) {
                             this.iKA.b(next);
                         }
@@ -165,7 +165,7 @@ public final class a extends rx.g implements h {
 
         b(C0423a c0423a) {
             this.iKG = c0423a;
-            this.iKH = c0423a.cef();
+            this.iKH = c0423a.cee();
         }
 
         @Override // rx.k
@@ -194,7 +194,7 @@ public final class a extends rx.g implements h {
         @Override // rx.g.a
         public k a(final rx.functions.a aVar, long j, TimeUnit timeUnit) {
             if (this.iKF.isUnsubscribed()) {
-                return rx.subscriptions.e.cfu();
+                return rx.subscriptions.e.cft();
             }
             ScheduledAction b = this.iKH.b(new rx.functions.a() { // from class: rx.internal.schedulers.a.b.1
                 @Override // rx.functions.a
@@ -220,7 +220,7 @@ public final class a extends rx.g implements h {
             this.iKJ = 0L;
         }
 
-        public long ceh() {
+        public long ceg() {
             return this.iKJ;
         }
 

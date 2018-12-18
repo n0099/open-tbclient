@@ -168,11 +168,11 @@ public class a extends com.baidu.tieba.card.data.b {
         return this.msgId;
     }
 
-    public boolean aWd() {
+    public boolean aWc() {
         return this.ffT;
     }
 
-    public String aWe() {
+    public String aWd() {
         return this.quote_pid;
     }
 
@@ -184,7 +184,7 @@ public class a extends com.baidu.tieba.card.data.b {
         this.isNew = z;
     }
 
-    public String aWf() {
+    public String aWe() {
         return this.ffU;
     }
 

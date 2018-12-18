@@ -6,7 +6,7 @@ public class b implements a {
     private b() {
     }
 
-    public static b bTC() {
+    public static b bTB() {
         return igG;
     }
 

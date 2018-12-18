@@ -9,13 +9,13 @@ public interface h {
 
     void aa(int i, String str);
 
+    void bcp();
+
     void bcq();
 
     void bcr();
 
     void bcs();
-
-    void bct();
 
     void e(int i, int i2, String str);
 

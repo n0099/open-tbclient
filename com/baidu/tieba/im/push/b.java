@@ -11,7 +11,7 @@ public class b {
         this.eXH = new e(1000, 1000, 1000);
     }
 
-    public static b aTI() {
+    public static b aTH() {
         if (eXG == null) {
             synchronized (b.class) {
                 if (eXG == null) {

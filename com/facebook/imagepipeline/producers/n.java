@@ -17,40 +17,40 @@ public class n implements ai<com.facebook.imagepipeline.f.d> {
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        ImageRequest bYR = ajVar.bYR();
-        if (!bYR.bZM()) {
+        ImageRequest bYQ = ajVar.bYQ();
+        if (!bYQ.bZL()) {
             c(jVar, ajVar);
             return;
         }
-        ajVar.bYS().db(ajVar.getId(), "DiskCacheProducer");
+        ajVar.bYR().db(ajVar.getId(), "DiskCacheProducer");
         AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-        this.iqc.a(bYR, ajVar.bUu(), atomicBoolean).a(b(jVar, ajVar));
+        this.iqc.a(bYQ, ajVar.bUt(), atomicBoolean).a(b(jVar, ajVar));
         a(atomicBoolean, ajVar);
     }
 
     private bolts.f<com.facebook.imagepipeline.f.d, Void> b(final j<com.facebook.imagepipeline.f.d> jVar, final aj ajVar) {
         final String id = ajVar.getId();
-        final al bYS = ajVar.bYS();
+        final al bYR = ajVar.bYR();
         return new bolts.f<com.facebook.imagepipeline.f.d, Void>() { // from class: com.facebook.imagepipeline.producers.n.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // bolts.f
             /* renamed from: b */
             public Void a(bolts.g<com.facebook.imagepipeline.f.d> gVar) throws Exception {
                 if (n.c(gVar)) {
-                    bYS.b(id, "DiskCacheProducer", null);
-                    jVar.bSZ();
+                    bYR.b(id, "DiskCacheProducer", null);
+                    jVar.bSY();
                 } else if (gVar.bf()) {
-                    bYS.a(id, "DiskCacheProducer", gVar.bg(), null);
+                    bYR.a(id, "DiskCacheProducer", gVar.bg(), null);
                     n.this.ipF.a(jVar, ajVar);
                 } else {
                     com.facebook.imagepipeline.f.d result = gVar.getResult();
                     if (result != null) {
-                        bYS.a(id, "DiskCacheProducer", n.a(bYS, id, true, result.getSize()));
+                        bYR.a(id, "DiskCacheProducer", n.a(bYR, id, true, result.getSize()));
                         jVar.az(1.0f);
                         jVar.e(result, true);
                         result.close();
                     } else {
-                        bYS.a(id, "DiskCacheProducer", n.a(bYS, id, false, 0));
+                        bYR.a(id, "DiskCacheProducer", n.a(bYR, id, false, 0));
                         n.this.ipF.a(jVar, ajVar);
                     }
                 }
@@ -65,7 +65,7 @@ public class n implements ai<com.facebook.imagepipeline.f.d> {
     }
 
     private void c(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        if (ajVar.bYT().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
+        if (ajVar.bYS().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
             jVar.e(null, true);
         } else {
             this.ipF.a(jVar, ajVar);
@@ -85,7 +85,7 @@ public class n implements ai<com.facebook.imagepipeline.f.d> {
     private void a(final AtomicBoolean atomicBoolean, aj ajVar) {
         ajVar.a(new e() { // from class: com.facebook.imagepipeline.producers.n.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-            public void bYY() {
+            public void bYX() {
                 atomicBoolean.set(true);
             }
         });

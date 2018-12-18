@@ -339,7 +339,7 @@ public class f extends SQLiteOpenHelper {
                 try {
                     sQLiteDatabase.beginTransaction();
                     g.eNF.put(TbadkCoreApplication.getCurrentAccount() + ".db", sQLiteDatabase);
-                    k.aQE();
+                    k.aQD();
                     sQLiteDatabase.setTransactionSuccessful();
                 } finally {
                     sQLiteDatabase.endTransaction();

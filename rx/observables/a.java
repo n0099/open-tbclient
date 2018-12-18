@@ -13,7 +13,7 @@ import rx.k;
 public abstract class a<S, T> implements d.a<T> {
     protected abstract S a(S s, long j, e<rx.d<? extends T>> eVar);
 
-    protected abstract S ceH();
+    protected abstract S ceG();
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -25,9 +25,9 @@ public abstract class a<S, T> implements d.a<T> {
 
     public final void call(final j<? super T> jVar) {
         try {
-            S ceH = ceH();
-            b ceI = b.ceI();
-            final C0425a c0425a = new C0425a(this, ceH, ceI);
+            S ceG = ceG();
+            b ceH = b.ceH();
+            final C0425a c0425a = new C0425a(this, ceG, ceH);
             j<T> jVar2 = new j<T>() { // from class: rx.observables.a.1
                 @Override // rx.e
                 public void onNext(T t) {
@@ -49,7 +49,7 @@ public abstract class a<S, T> implements d.a<T> {
                     c0425a.a(fVar);
                 }
             };
-            ceI.onBackpressureBuffer().concatMap(new rx.functions.f<rx.d<T>, rx.d<T>>() { // from class: rx.observables.a.2
+            ceH.onBackpressureBuffer().concatMap(new rx.functions.f<rx.d<T>, rx.d<T>>() { // from class: rx.observables.a.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.f
                 /* renamed from: f */
@@ -273,7 +273,7 @@ public abstract class a<S, T> implements d.a<T> {
         }
 
         private void m(rx.d<? extends T> dVar) {
-            final BufferUntilSubscriber cdd = BufferUntilSubscriber.cdd();
+            final BufferUntilSubscriber cdc = BufferUntilSubscriber.cdc();
             final long j = this.iMU;
             final j jVar = (j<T>) new j<T>() { // from class: rx.observables.a.a.1
                 long iMV;
@@ -285,17 +285,17 @@ public abstract class a<S, T> implements d.a<T> {
                 @Override // rx.e
                 public void onNext(T t) {
                     this.iMV--;
-                    cdd.onNext(t);
+                    cdc.onNext(t);
                 }
 
                 @Override // rx.e
                 public void onError(Throwable th) {
-                    cdd.onError(th);
+                    cdc.onError(th);
                 }
 
                 @Override // rx.e
                 public void onCompleted() {
-                    cdd.onCompleted();
+                    cdc.onCompleted();
                     long j2 = this.iMV;
                     if (j2 > 0) {
                         C0425a.this.dW(j2);
@@ -309,7 +309,7 @@ public abstract class a<S, T> implements d.a<T> {
                     C0425a.this.iFZ.b(jVar);
                 }
             }).subscribe((j<? super Object>) jVar);
-            this.iMR.onNext(cdd);
+            this.iMR.onNext(cdc);
         }
     }
 
@@ -318,7 +318,7 @@ public abstract class a<S, T> implements d.a<T> {
     public static final class b<T> extends rx.d<T> implements e<T> {
         private final C0426a<T> iMZ;
 
-        public static <T> b<T> ceI() {
+        public static <T> b<T> ceH() {
             return new b<>(new C0426a());
         }
 

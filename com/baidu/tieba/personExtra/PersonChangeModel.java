@@ -15,7 +15,7 @@ public class PersonChangeModel extends BdBaseModel {
         }
     }
 
-    public PersonChangeData bpF() {
+    public PersonChangeData bpE() {
         return this.gvu;
     }
 

@@ -57,9 +57,9 @@ public class d {
 
     /* loaded from: classes5.dex */
     public interface c {
-        void bKv();
+        void bKu();
 
-        void bKw();
+        void bKv();
     }
 
     public boolean yR(int i) {
@@ -71,7 +71,7 @@ public class d {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, l.class);
         l lVar = runTask != null ? (l) runTask.getData() : null;
         if (lVar != null) {
-            this.hms = lVar.bcM();
+            this.hms = lVar.bcL();
         }
         this.isr = null;
         this.iss = new Object();
@@ -241,7 +241,7 @@ public class d {
                         dVar.b((b) obj);
                         return;
                     case 1:
-                        dVar.bZZ();
+                        dVar.bZY();
                         return;
                     case 2:
                         if (dVar.isw) {
@@ -280,7 +280,7 @@ public class d {
         a(bVar.isA, bVar.mWidth, bVar.mHeight, bVar.gDm, bVar.hAe);
         this.isx = false;
         if (this.isn != null) {
-            this.isn.bKv();
+            this.isn.bKu();
         }
     }
 
@@ -297,14 +297,14 @@ public class d {
                 this.isg.drawFrame(this.mTextureId, fArr);
             }
             if (this.ise != null) {
-                this.ise.setPresentationTime(cab() * 1000);
+                this.ise.setPresentationTime(caa() * 1000);
                 this.ise.swapBuffers();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bZZ() {
+    public void bZY() {
         Log.d("TextureMovieEncoder", "handleStopRecording");
         try {
             this.isi.drainEncoder(true);
@@ -312,7 +312,7 @@ public class d {
             e2.printStackTrace();
         }
         this.isx = true;
-        caa();
+        bZZ();
         Log.e("TextureMovieEncoder", "handleStopRecording before stop success");
         while (!this.isv) {
             synchronized (this.isu) {
@@ -325,7 +325,7 @@ public class d {
         }
         this.isv = false;
         if (this.isn != null) {
-            this.isn.bKw();
+            this.isn.bKv();
         }
     }
 
@@ -380,7 +380,7 @@ public class d {
         this.isg = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
     }
 
-    private void caa() {
+    private void bZZ() {
         try {
             this.isi.release();
             if (this.ise != null) {
@@ -423,7 +423,7 @@ public class d {
             d.this.ist = false;
             try {
                 com.faceunity.a.b bVar = new com.faceunity.a.b();
-                if (bVar.bZY() != null) {
+                if (bVar.bZX() != null) {
                     ByteBuffer allocateDirect = ByteBuffer.allocateDirect(com.faceunity.a.b.SAMPLES_PER_FRAME);
                     bVar.startRecording();
                     d.this.ism = 1;
@@ -434,14 +434,14 @@ public class d {
                             if (read > 0) {
                                 allocateDirect.position(read);
                                 allocateDirect.flip();
-                                d.this.isj.c(allocateDirect, read, d.this.cab());
-                                d.this.isj.bZX();
+                                d.this.isj.c(allocateDirect, read, d.this.caa());
+                                d.this.isj.bZW();
                             }
                         } finally {
                             bVar.stop();
                         }
                     }
-                    d.this.isj.c(null, 0, d.this.cab());
+                    d.this.isj.c(null, 0, d.this.caa());
                     bVar.release();
                     d.this.isj.release();
                 } else {
@@ -457,7 +457,7 @@ public class d {
         }
     }
 
-    protected long cab() {
+    protected long caa() {
         long nanoTime = System.nanoTime();
         if (this.iso != 0) {
             if (this.isp == 0) {

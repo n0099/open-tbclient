@@ -98,9 +98,9 @@ public class a {
                         a.this.gTm = true;
                         a.this.gTd = a.this.gTm ? true : a.this.gTd;
                         a.this.gTl = responseUnreadPointNum.getNum();
-                        a.this.bvN();
+                        a.this.bvM();
                     }
-                    a.this.bvM();
+                    a.this.bvL();
                 }
             }
         };
@@ -115,7 +115,7 @@ public class a {
                     }
                     a.this.gTh = booleanValue;
                     a.this.gTs = booleanValue;
-                    a.this.bvN();
+                    a.this.bvM();
                 }
             }
         };
@@ -136,7 +136,7 @@ public class a {
                     }
                     a.this.gTq = booleanValue;
                     a.this.gTf = booleanValue;
-                    a.this.bvN();
+                    a.this.bvM();
                 }
             }
         };
@@ -147,7 +147,7 @@ public class a {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean)) {
                     a.this.mHasNewVersion = ((Boolean) customResponsedMessage.getData()).booleanValue();
                     a.this.gTe = a.this.mHasNewVersion ? true : a.this.gTe;
-                    a.this.bvN();
+                    a.this.bvM();
                 }
             }
         };
@@ -158,7 +158,7 @@ public class a {
                 if (customResponsedMessage != null) {
                     Object data = customResponsedMessage.getData();
                     if ((data instanceof Integer) && ((Integer) data).intValue() == 4) {
-                        a.this.bvP();
+                        a.this.bvO();
                     }
                 }
             }
@@ -168,7 +168,7 @@ public class a {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
-                    a.this.bvR();
+                    a.this.bvQ();
                 }
             }
         };
@@ -185,7 +185,7 @@ public class a {
                         if (!StringUtils.isNull(Gm) && !Gm.equals(string)) {
                             a.this.gTg = true;
                             a.this.gTr = true;
-                            a.this.bvN();
+                            a.this.bvM();
                         }
                     }
                 }
@@ -194,7 +194,7 @@ public class a {
         initListener();
     }
 
-    public static final a bvJ() {
+    public static final a bvI() {
         return C0274a.gTC;
     }
 
@@ -209,7 +209,7 @@ public class a {
         MessageManager.getInstance().registerListener(this.gTA);
     }
 
-    private void bvK() {
+    private void bvJ() {
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (!com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("member_close_ad_setting_clicked", false) && currentAccountObj != null && currentAccountObj.isMemberCloseAdIsOpen()) {
             this.gTe = true;
@@ -220,7 +220,7 @@ public class a {
         this.gTt = inst.loadBoolean(append.append(TbadkCoreApplication.getCurrentAccount()).toString(), false);
     }
 
-    private void bvL() {
+    private void bvK() {
         if (TbadkCoreApplication.isLogin()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new com.baidu.tbadk.mainTab.a(this.gTe)));
         }
@@ -241,12 +241,12 @@ public class a {
                 this.gTb = this.gTp ? true : this.gTb;
                 this.gTc = this.gTo ? true : this.gTc;
                 this.gTe = this.mHasNewVersion ? true : this.gTe;
-                bvN();
+                bvM();
             }
         }
     }
 
-    public void bvM() {
+    public void bvL() {
         TbadkSettings inst = TbadkSettings.getInst();
         StringBuilder append = new StringBuilder().append("has_clicked_addresslist_item_in_leftnavi");
         TbadkCoreApplication.getInst();
@@ -258,7 +258,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bvN() {
+    public void bvM() {
         SparseArray sparseArray = new SparseArray();
         if (this.gTm) {
             sparseArray.append(4, new b.a(this.gTd, this.gTl));
@@ -285,7 +285,7 @@ public class a {
             sparseArray.append(10, new b.a(this.gTh, 0));
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new b(sparseArray)));
-        bvO();
+        bvN();
     }
 
     public void mQ(boolean z) {
@@ -303,7 +303,7 @@ public class a {
         }
     }
 
-    private void bvO() {
+    private void bvN() {
         if (((this.gTi > 0 && this.gTn) || (this.gTk > 0 && this.gTp) || this.mHasNewVersion || this.gTr || this.gTs) && !this.isPrimary && TbadkCoreApplication.isLogin()) {
             if (this.gTs) {
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("key_feedback_tip_tab_show", true);
@@ -312,7 +312,7 @@ public class a {
         }
     }
 
-    public void bvP() {
+    public void bvO() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new com.baidu.tbadk.mainTab.a(false)));
     }
 
@@ -357,18 +357,18 @@ public class a {
                     break;
             }
             mQ(true);
-            bvQ();
+            bvP();
         }
     }
 
-    private void bvQ() {
+    private void bvP() {
         boolean z = this.gTc || this.gTb || this.gTa || this.gTd || this.gTe || this.gTf || this.gTg;
         if (!this.isPrimary && TbadkCoreApplication.isLogin()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new com.baidu.tbadk.mainTab.a(z, 0)));
         }
     }
 
-    public void bvR() {
+    public void bvQ() {
         this.gTa = false;
         this.gTb = false;
         this.gTc = false;
@@ -387,7 +387,7 @@ public class a {
         this.gTp = false;
         this.gTq = false;
         this.gTr = false;
-        bvK();
+        bvJ();
         e.jG().post(new Runnable() { // from class: com.baidu.tieba.o.a.9
             @Override // java.lang.Runnable
             public void run() {
@@ -396,6 +396,6 @@ public class a {
                 }
             }
         });
-        bvL();
+        bvK();
     }
 }

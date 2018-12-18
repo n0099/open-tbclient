@@ -80,7 +80,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
     private AdapterView.OnItemClickListener fsP = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.location.selectpoi.SearchLocationActivity.6
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (SearchLocationActivity.this.fsK != null && SearchLocationActivity.this.fsK.aZD()) {
+            if (SearchLocationActivity.this.fsK != null && SearchLocationActivity.this.fsK.aZC()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002013));
                 MessageManager messageManager = MessageManager.getInstance();
                 a.C0266a c0266a = (a.C0266a) SearchLocationActivity.this.fsK.getItem(i);
@@ -95,7 +95,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         registerListener(this.fsO);
-        SearchLocationActivityStatic.aZC();
+        SearchLocationActivityStatic.aZB();
         setContentView(e.h.search_location_layout);
         initUI();
         initData();
@@ -141,7 +141,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
                 if (!l.ll()) {
                     SearchLocationActivity.this.showToast(e.j.no_network_guide);
                 } else if (!StringUtils.isNull(SearchLocationActivity.this.getInputMsg())) {
-                    SearchLocationActivity.this.aZB();
+                    SearchLocationActivity.this.aZA();
                 }
             }
         });
@@ -154,9 +154,9 @@ public class SearchLocationActivity extends NavigationBarActivity {
 
     public void initData() {
         this.fsJ = new com.baidu.tieba.location.data.a();
-        com.baidu.tieba.tbadkCore.location.a locationData = c.bDX().getLocationData();
+        com.baidu.tieba.tbadkCore.location.a locationData = c.bDW().getLocationData();
         if (locationData != null) {
-            this.fsJ.aa(b(locationData.bDV(), locationData.bDU(), locationData.bDW()));
+            this.fsJ.aa(b(locationData.bDU(), locationData.bDT(), locationData.bDV()));
         }
         this.fsK.a(this.fsJ);
         this.fsK.notifyDataSetChanged();
@@ -175,7 +175,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
                 } else {
                     a.C0266a c0266a = new a.C0266a();
                     c0266a.setName(c0318a2.getName());
-                    c0266a.rl(c0318a2.bDW());
+                    c0266a.rl(c0318a2.bDV());
                     arrayList.add(c0266a);
                 }
             }
@@ -183,7 +183,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
         if (c0318a != null) {
             a.C0266a c0266a2 = new a.C0266a();
             c0266a2.setName(c0318a.getName());
-            c0266a2.rl(c0318a.bDW());
+            c0266a2.rl(c0318a.bDV());
             arrayList.add(0, c0266a2);
         } else {
             a.C0266a c0266a3 = new a.C0266a();
@@ -194,7 +194,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
         return arrayList;
     }
 
-    public void aZB() {
+    public void aZA() {
         LocationSearchNetRequestMessage locationSearchNetRequestMessage = new LocationSearchNetRequestMessage();
         locationSearchNetRequestMessage.setAddrName(getInputMsg());
         sendMessage(locationSearchNetRequestMessage);

@@ -20,15 +20,15 @@ public final class RefCountSubscription implements k {
             this.iOE = i;
         }
 
-        a cfq() {
+        a cfp() {
             return new a(this.isUnsubscribed, this.iOE + 1);
         }
 
-        a cfr() {
+        a cfq() {
             return new a(this.isUnsubscribed, this.iOE - 1);
         }
 
-        a cfs() {
+        a cfr() {
             return new a(true, this.iOE);
         }
     }
@@ -40,15 +40,15 @@ public final class RefCountSubscription implements k {
         this.iOB = kVar;
     }
 
-    public k cfo() {
+    public k cfn() {
         a aVar;
         AtomicReference<a> atomicReference = this.iOD;
         do {
             aVar = atomicReference.get();
             if (aVar.isUnsubscribed) {
-                return e.cfu();
+                return e.cft();
             }
-        } while (!atomicReference.compareAndSet(aVar, aVar.cfq()));
+        } while (!atomicReference.compareAndSet(aVar, aVar.cfp()));
         return new InnerSubscription(this);
     }
 
@@ -60,17 +60,17 @@ public final class RefCountSubscription implements k {
     @Override // rx.k
     public void unsubscribe() {
         a aVar;
-        a cfs;
+        a cfr;
         AtomicReference<a> atomicReference = this.iOD;
         do {
             aVar = atomicReference.get();
             if (!aVar.isUnsubscribed) {
-                cfs = aVar.cfs();
+                cfr = aVar.cfr();
             } else {
                 return;
             }
-        } while (!atomicReference.compareAndSet(aVar, cfs));
-        a(cfs);
+        } while (!atomicReference.compareAndSet(aVar, cfr));
+        a(cfr);
     }
 
     private void a(a aVar) {
@@ -79,15 +79,15 @@ public final class RefCountSubscription implements k {
         }
     }
 
-    void cfp() {
+    void cfo() {
         a aVar;
-        a cfr;
+        a cfq;
         AtomicReference<a> atomicReference = this.iOD;
         do {
             aVar = atomicReference.get();
-            cfr = aVar.cfr();
-        } while (!atomicReference.compareAndSet(aVar, cfr));
-        a(cfr);
+            cfq = aVar.cfq();
+        } while (!atomicReference.compareAndSet(aVar, cfq));
+        a(cfq);
     }
 
     /* loaded from: classes2.dex */
@@ -102,7 +102,7 @@ public final class RefCountSubscription implements k {
         @Override // rx.k
         public void unsubscribe() {
             if (compareAndSet(0, 1)) {
-                this.parent.cfp();
+                this.parent.cfo();
             }
         }
 

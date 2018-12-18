@@ -268,7 +268,7 @@ public class a extends h {
         if (this.dZG == null) {
             this.dZG = new com.baidu.tieba.c.f(this.dZP.getPageContext(), (NavigationBarCoverTip) this.dZP.getView().findViewById(e.g.navigation_cover_tip));
         }
-        if (this.dZP.aAZ() != null && this.dZP.aAZ().bgi() != null && this.dZP.aAZ().bgi().isLike() == 1) {
+        if (this.dZP.aAZ() != null && this.dZP.aAZ().bgh() != null && this.dZP.aAZ().bgh().isLike() == 1) {
             this.dZG.fH(true);
         } else {
             this.dZG.fH(false);

@@ -31,7 +31,7 @@ public class a {
 
     public static void a(com.baidu.tieba.InjectPlugin.a.b bVar, l lVar, List<com.baidu.adp.widget.ListView.h> list, int i) {
         if (lVar != null) {
-            a(bVar, lVar.bgi(), list, false, i);
+            a(bVar, lVar.bgh(), list, false, i);
         }
     }
 

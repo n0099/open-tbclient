@@ -33,23 +33,23 @@ public class d implements ae {
         return this.avatar;
     }
 
-    public int bzJ() {
+    public int bzI() {
         return this.hbO;
     }
 
-    public int bzK() {
+    public int bzJ() {
         return this.bQW;
     }
 
-    public int bzL() {
+    public int bzK() {
         return this.dgT;
     }
 
-    public int bzM() {
+    public int bzL() {
         return this.hbP;
     }
 
-    public int bzN() {
+    public int bzM() {
         return this.hbQ;
     }
 
@@ -74,7 +74,7 @@ public class d implements ae {
         this.hbO = 1;
     }
 
-    public boolean bzO() {
+    public boolean bzN() {
         return this.hbT;
     }
 
@@ -83,7 +83,7 @@ public class d implements ae {
         this.hbO = 0;
     }
 
-    public boolean bzP() {
+    public boolean bzO() {
         return this.hbU;
     }
 
@@ -91,7 +91,7 @@ public class d implements ae {
         this.hbU = z;
     }
 
-    public int bzQ() {
+    public int bzP() {
         return this.hbV;
     }
 
@@ -103,7 +103,7 @@ public class d implements ae {
         this.errorMsg = str;
     }
 
-    public boolean bzR() {
+    public boolean bzQ() {
         return this.hbS;
     }
 

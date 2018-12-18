@@ -19,7 +19,7 @@ public class j implements com.baidu.tbadk.mvc.b.j {
     protected al feI = new al();
     protected h feJ = new h();
 
-    public ArrayList<FeedData> aVW() {
+    public ArrayList<FeedData> aVV() {
         return this.feH;
     }
 

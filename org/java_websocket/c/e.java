@@ -5,7 +5,7 @@ public class e extends g implements i {
     private String iAw;
 
     @Override // org.java_websocket.c.h
-    public String ccG() {
+    public String ccF() {
         return this.iAw;
     }
 

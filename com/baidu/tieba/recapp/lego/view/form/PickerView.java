@@ -106,13 +106,13 @@ public class PickerView extends FormItemBaseView implements DatePickerDialog.OnD
     }
 
     private void init() {
+        bvj();
         bvk();
-        bvl();
         setOnClickListener(this);
         a(this, FormItemBaseView.DrawableType.ORDINARY_FRAME);
     }
 
-    private void bvk() {
+    private void bvj() {
         this.dOv = new TextView(this.mContext);
         this.dOv.setTextSize(0, this.mFontSize);
         this.dOv.setTextColor(this.gPY);
@@ -122,7 +122,7 @@ public class PickerView extends FormItemBaseView implements DatePickerDialog.OnD
         addView(this.dOv, layoutParams);
     }
 
-    private void bvl() {
+    private void bvk() {
         Drawable drawable = this.mResources.getDrawable(e.f.form_picker_arrow);
         this.gQh = new ImageView(this.mContext);
         this.gQh.setBackgroundDrawable(drawable);
@@ -179,7 +179,7 @@ public class PickerView extends FormItemBaseView implements DatePickerDialog.OnD
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
-    public int bvj() {
+    public int bvi() {
         return this.gPU;
     }
 
@@ -242,7 +242,7 @@ public class PickerView extends FormItemBaseView implements DatePickerDialog.OnD
         dialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.recapp.lego.view.form.PickerView.2
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                if (!PickerView.this.bva()) {
+                if (!PickerView.this.buZ()) {
                     PickerView.this.a(PickerView.this, FormItemBaseView.DrawableType.ERROR_FRAME);
                 } else {
                     PickerView.this.a(PickerView.this, FormItemBaseView.DrawableType.ORDINARY_FRAME);
@@ -252,7 +252,7 @@ public class PickerView extends FormItemBaseView implements DatePickerDialog.OnD
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormCardView.a
-    public boolean bva() {
+    public boolean buZ() {
         return !TextUtils.isEmpty(this.gPz);
     }
 

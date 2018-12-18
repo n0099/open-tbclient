@@ -228,7 +228,7 @@ public class k implements View.OnClickListener {
         } else if (view == this.gzJ) {
             bK(this.gzJ);
         } else if (view == this.gzG) {
-            bqD();
+            bqC();
         }
     }
 
@@ -238,7 +238,7 @@ public class k implements View.OnClickListener {
         }
     }
 
-    private void bqD() {
+    private void bqC() {
         if (this.mUserData != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.mPageContext.getPageActivity(), this.mUserData.getUserId(), this.mUserData.getUserName(), this.mUserData.getPortrait(), this.mUserData.getSex(), this.mUserData.getUserId().equals(TbadkCoreApplication.getCurrentAccount()))));
         }

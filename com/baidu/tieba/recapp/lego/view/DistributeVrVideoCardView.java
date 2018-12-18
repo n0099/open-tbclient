@@ -102,7 +102,7 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View aYl() {
+    protected View aYk() {
         this.dEn = (RelativeLayout) LayoutInflater.from(getContext()).inflate(e.h.card_distribute_vr_video_view, (ViewGroup) null);
         this.gOF = new CardGLTextureView(this.mContext.getPageActivity());
         this.dEn.addView((View) this.gOF, 0, new ViewGroup.LayoutParams(-1, -1));
@@ -161,10 +161,10 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
                 builder.video_duration = Integer.valueOf(distributeVrVideoCard.getVideoInfo().videoDuration);
                 this.gkC = builder.build(false);
                 if (this.gkC != null && !ao.isEmpty(this.gkC.video_url)) {
-                    long buV = (this.gOD == null || !this.gkC.video_url.equalsIgnoreCase(this.gOD.getVideoPath())) ? 0L : this.gOD.buV();
+                    long buU = (this.gOD == null || !this.gkC.video_url.equalsIgnoreCase(this.gOD.getVideoPath())) ? 0L : this.gOD.buU();
                     this.gOD = new a(this);
-                    if (buV > 0) {
-                        this.gOD.rc((int) buV);
+                    if (buU > 0) {
+                        this.gOD.rc((int) buU);
                     }
                     ViewGroup.LayoutParams layoutParams = this.dEn.getLayoutParams();
                     if (layoutParams != null) {
@@ -328,7 +328,7 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
     public void startPlay() {
         if (this.gOL) {
             this.gOL = false;
-            if (!q.bCG()) {
+            if (!q.bCF()) {
                 return;
             }
         }
@@ -392,9 +392,9 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.lego.card.view.e
-    public void aYs() {
+    public void aYr() {
         this.isBackground = false;
-        super.aYs();
+        super.aYr();
         if (this.gOF == null || this.gOF.isDestroyed()) {
             e(this.gOE);
         } else if (this.gOD != null) {
@@ -403,12 +403,12 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.lego.card.view.e
-    public void aYr() {
+    public void aYq() {
         this.isBackground = true;
-        super.aYr();
+        super.aYq();
         if (this.gOD != null) {
             this.gOD.pausePlay();
-            this.gOD.buW();
+            this.gOD.buV();
         }
     }
 }

@@ -37,7 +37,7 @@ public class b {
                 } else {
                     b.this.fjW.add(valueOf);
                 }
-                b.this.aXm();
+                b.this.aXl();
             }
         }
     };
@@ -64,7 +64,7 @@ public class b {
         this.fjU = new com.baidu.tieba.interestlabel.a.a(this.fjR.getPageContext().getPageActivity());
         this.fjU.setOnClickListener(this.fjX);
         this.fjV = new a(this.fjR.getPageContext().getPageActivity());
-        this.OF.addHeaderView(this.fjV.aXi());
+        this.OF.addHeaderView(this.fjV.aXh());
         this.OF.setAdapter((ListAdapter) this.fjU);
         onChangeSkinType();
     }
@@ -91,24 +91,24 @@ public class b {
         return this.mRootView;
     }
 
-    public View aXk() {
+    public View aXj() {
         return this.fjS;
     }
 
-    public View aXl() {
+    public View aXk() {
         return this.fjT;
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && bVar.aXb() != null && bVar.aXc() != null) {
-            for (com.baidu.tieba.interestlabel.b.a aVar : bVar.aXc()) {
+        if (bVar != null && bVar.aXa() != null && bVar.aXb() != null) {
+            for (com.baidu.tieba.interestlabel.b.a aVar : bVar.aXb()) {
                 if (aVar != null) {
                     aVar.isFollow = false;
                 }
             }
             this.mDataList.clear();
-            this.mDataList.addAll(bVar.aXc());
-            this.fjV.setData(bVar.aXb());
+            this.mDataList.addAll(bVar.aXb());
+            this.fjV.setData(bVar.aXa());
             this.fjU.setData(this.mDataList);
             this.OF.setVisibility(0);
             bq(0, this.mDataList.size());
@@ -116,7 +116,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aXm() {
+    public void aXl() {
         for (com.baidu.tieba.interestlabel.b.a aVar : this.mDataList) {
             if (aVar != null) {
                 aVar.isFollow = this.fjW.contains(Integer.valueOf(aVar.labelId));
@@ -126,9 +126,9 @@ public class b {
         bq(this.fjW.size(), this.mDataList.size());
     }
 
-    public List<Integer> aXn() {
+    public List<Integer> aXm() {
         ArrayList arrayList = new ArrayList(this.fjW);
-        arrayList.add(0, Integer.valueOf(this.fjV.aXj()));
+        arrayList.add(0, Integer.valueOf(this.fjV.aXi()));
         return arrayList;
     }
 }

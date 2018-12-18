@@ -38,7 +38,7 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                    AtMeModelController.this.fdE.aVC();
+                    AtMeModelController.this.fdE.aVB();
                 }
             }
         };
@@ -64,7 +64,7 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean aqN() {
-        if (!this.fdG.Fi() && this.dcF.OE() && aVB()) {
+        if (!this.fdG.Fi() && this.dcF.OE() && aVA()) {
             this.dcF.cF(true);
             this.dcF.cH(true);
             this.fdF.d(this.fdI);
@@ -78,7 +78,7 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean aFL() {
-        if (this.fdG.Fi() || !aVB()) {
+        if (this.fdG.Fi() || !aVA()) {
             return false;
         }
         this.fdI = null;
@@ -88,22 +88,22 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
         return true;
     }
 
-    protected boolean aVB() {
+    protected boolean aVA() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
         if (this.fdJ != null && this.fdJ.feH != null) {
             this.fdJ.feH.clear();
         }
-        this.fdE.aVC();
+        this.fdE.aVB();
         this.fdE.a(this.fdJ);
         return false;
     }
 
     public boolean aqM() {
-        if (aVB()) {
+        if (aVA()) {
             if (this.fdE != null) {
-                this.fdE.aVD();
+                this.fdE.aVC();
             }
             this.fdH.a((com.baidu.tbadk.mvc.b.e) this.fdF);
             return true;
@@ -113,11 +113,11 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
 
     protected boolean a(b bVar, c cVar) {
         if (bVar.getUpdateType() != 4) {
-            this.fdJ.aVW().clear();
+            this.fdJ.aVV().clear();
         }
         this.fdJ.a(cVar);
-        if (cVar != null && cVar.aVW() != null && cVar.aVW().size() > 0) {
-            this.fdI = cVar.aVW().get(cVar.aVW().size() - 1);
+        if (cVar != null && cVar.aVV() != null && cVar.aVV().size() > 0) {
+            this.fdI = cVar.aVV().get(cVar.aVV().size() - 1);
             if (this.fdJ.yS() != null) {
                 this.dcF.cG(this.fdJ.yS().yP() == 1);
             } else {
@@ -136,7 +136,7 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
         this.dcF.cE(false);
         com.baidu.tbadk.coreExtra.messageCenter.a.HP().Ie();
         if (!TbadkCoreApplication.isLogin()) {
-            this.fdJ.aVW().clear();
+            this.fdJ.aVV().clear();
         } else {
             this.fdE.b(this.dcF);
         }
@@ -162,7 +162,7 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
     public void a(MvcHttpResponsedMessage<c> mvcHttpResponsedMessage, MvcHttpMessage<b, c> mvcHttpMessage, MvcNetMessage<b, c> mvcNetMessage) {
         c cVar;
-        this.fdE.aVC();
+        this.fdE.aVB();
         if (mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
             cVar = mvcHttpResponsedMessage.getData();
             r1 = mvcHttpMessage != null ? mvcHttpMessage.getRequestData() : null;
@@ -188,7 +188,7 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
     public void a(MvcSocketResponsedMessage<c, ?> mvcSocketResponsedMessage, MvcSocketMessage<b, c> mvcSocketMessage, MvcNetMessage<b, c> mvcNetMessage) {
         c cVar;
-        this.fdE.aVC();
+        this.fdE.aVB();
         if (mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
             cVar = mvcSocketResponsedMessage.getData();
             r1 = mvcSocketMessage != null ? mvcSocketMessage.getRequestData() : null;

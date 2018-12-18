@@ -87,10 +87,10 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             }
         };
         this.mPageContext = tbPageContext;
-        aLr();
+        aLq();
     }
 
-    private void aLr() {
+    private void aLq() {
         com.baidu.tieba.card.data.l.cYj = "c10708";
         com.baidu.tieba.card.data.l.cYk = "c10735";
         com.baidu.tieba.card.data.l.cYl = "c10709";

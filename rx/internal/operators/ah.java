@@ -35,14 +35,14 @@ public final class ah<T> implements d.b<List<T>, T> {
             a aVar = new a(fVar, createWorker);
             aVar.add(createWorker);
             jVar.add(aVar);
-            aVar.cdp();
+            aVar.cdo();
             return aVar;
         }
         b bVar = new b(fVar, createWorker);
         bVar.add(createWorker);
         jVar.add(bVar);
-        bVar.cdr();
         bVar.cdq();
+        bVar.cdp();
         return bVar;
     }
 
@@ -118,16 +118,16 @@ public final class ah<T> implements d.b<List<T>, T> {
             }
         }
 
-        void cdq() {
+        void cdp() {
             this.iEy.a(new rx.functions.a() { // from class: rx.internal.operators.ah.b.1
                 @Override // rx.functions.a
                 public void call() {
-                    b.this.cdr();
+                    b.this.cdq();
                 }
             }, ah.this.iEx, ah.this.iEx, ah.this.unit);
         }
 
-        void cdr() {
+        void cdq() {
             final ArrayList arrayList = new ArrayList();
             synchronized (this) {
                 if (!this.done) {
@@ -230,7 +230,7 @@ public final class ah<T> implements d.b<List<T>, T> {
             }
         }
 
-        void cdp() {
+        void cdo() {
             this.iEy.a(new rx.functions.a() { // from class: rx.internal.operators.ah.a.1
                 @Override // rx.functions.a
                 public void call() {

@@ -38,8 +38,8 @@ class d extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         try {
-            bID();
-            if (bIF()) {
+            bIC();
+            if (bIE()) {
                 com.baidu.adp.lib.g.e.jG().post(new Runnable() { // from class: com.baidu.tieba.video.editvideo.b.d.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -63,7 +63,7 @@ class d extends Thread {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void bID() throws Exception {
+    private void bIC() throws Exception {
         MediaExtractor mediaExtractor;
         MediaExtractor mediaExtractor2;
         MediaCodec mediaCodec;
@@ -80,7 +80,7 @@ class d extends Thread {
         try {
             if (selectCodec != null) {
                 try {
-                    mediaExtractor3 = bIE();
+                    mediaExtractor3 = bID();
                     try {
                         trackFormat = mediaExtractor3.getTrackFormat(b(mediaExtractor3));
                         MediaFormat mediaFormat = new MediaFormat();
@@ -259,7 +259,7 @@ class d extends Thread {
         }
     }
 
-    private MediaExtractor bIE() throws IOException {
+    private MediaExtractor bID() throws IOException {
         MediaExtractor mediaExtractor = new MediaExtractor();
         mediaExtractor.setDataSource(this.hBN);
         return mediaExtractor;
@@ -312,8 +312,8 @@ class d extends Thread {
         MediaFormat mediaFormat2 = null;
         ByteBuffer[] byteBufferArr2 = outputBuffers2;
         boolean z7 = false;
-        while (!z4 && bIF()) {
-            if (z7 || !((mediaFormat2 == null || this.hBQ.isStarted()) && bIF())) {
+        while (!z4 && bIE()) {
+            if (z7 || !((mediaFormat2 == null || this.hBQ.isStarted()) && bIE())) {
                 z = z7;
             } else {
                 int dequeueInputBuffer = mediaCodec.dequeueInputBuffer(ErrDef.Feature.WEIGHT);
@@ -331,7 +331,7 @@ class d extends Thread {
                     }
                 }
             }
-            if (!z6 && i3 == -1 && ((mediaFormat2 == null || this.hBQ.isStarted()) && bIF() && (dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, ErrDef.Feature.WEIGHT)) != -1)) {
+            if (!z6 && i3 == -1 && ((mediaFormat2 == null || this.hBQ.isStarted()) && bIE() && (dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, ErrDef.Feature.WEIGHT)) != -1)) {
                 if (dequeueOutputBuffer == -3) {
                     outputBuffers = mediaCodec.getOutputBuffers();
                 } else if (dequeueOutputBuffer == -2) {
@@ -345,7 +345,7 @@ class d extends Thread {
                     }
                 }
             }
-            if (i3 == -1 || !bIF()) {
+            if (i3 == -1 || !bIE()) {
                 i = i3;
                 z2 = z6;
             } else {
@@ -375,7 +375,7 @@ class d extends Thread {
                     }
                 }
             }
-            if (z4 || !((mediaFormat2 == null || this.hBQ.isStarted()) && bIF())) {
+            if (z4 || !((mediaFormat2 == null || this.hBQ.isStarted()) && bIE())) {
                 mediaFormat = mediaFormat2;
                 byteBufferArr = byteBufferArr2;
             } else {
@@ -421,7 +421,7 @@ class d extends Thread {
                 z3 = true;
             }
             if (!this.hBQ.isStarted() && z3) {
-                this.hBQ.bIH();
+                this.hBQ.bIG();
                 if (!this.hBQ.start()) {
                     synchronized (this.hBQ) {
                         while (!this.hBQ.isStarted()) {
@@ -451,7 +451,7 @@ class d extends Thread {
         }
     }
 
-    private boolean bIF() {
+    private boolean bIE() {
         return !Thread.currentThread().isInterrupted();
     }
 

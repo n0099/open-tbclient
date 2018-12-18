@@ -15,7 +15,7 @@ public class b extends a {
     private b() {
     }
 
-    public static b aUi() {
+    public static b aUh() {
         return eYX;
     }
 
@@ -43,7 +43,7 @@ public class b extends a {
         return groupSettingItemData;
     }
 
-    public void aQo() {
+    public void aQn() {
         super.p(GroupSettingItemData.class);
     }
 
@@ -82,7 +82,7 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> aUh() {
+    protected l<String> aUg() {
         return com.baidu.tbadk.core.c.a.BB().ey("tb.im_group_setting");
     }
 
@@ -98,13 +98,13 @@ public class b extends a {
                 }
                 return;
             }
-            l<String> aUh = aUh();
+            l<String> aUg = aUg();
             String str = uid + "@" + gid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
             synchronized (this.eYV) {
                 this.eYV.put(str, groupSettingItemData);
             }
-            aUh.e(str, jsonStrWithObject);
+            aUg.e(str, jsonStrWithObject);
         }
     }
 
@@ -129,7 +129,7 @@ public class b extends a {
                 @Override // com.baidu.tbadk.util.w
                 /* renamed from: Ww */
                 public Void doInBackground() {
-                    b.this.aUh().e(str, OrmObject.jsonStrWithObject(groupSettingItemData));
+                    b.this.aUg().e(str, OrmObject.jsonStrWithObject(groupSettingItemData));
                     return null;
                 }
             }, hVar);
@@ -147,7 +147,7 @@ public class b extends a {
                 @Override // com.baidu.tbadk.util.w
                 /* renamed from: Ww */
                 public Void doInBackground() {
-                    b.this.aUh().remove(str3);
+                    b.this.aUg().remove(str3);
                     return null;
                 }
             }, hVar);

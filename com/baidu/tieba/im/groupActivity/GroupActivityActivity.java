@@ -28,18 +28,18 @@ public class GroupActivityActivity extends BaseActivity<GroupActivityActivity> i
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (!(customResponsedMessage instanceof ResponseGetGroupActivityLocalMessage)) {
-                GroupActivityActivity.this.eRK.sendMessage(GroupActivityActivity.this.eRK.aRN());
+                GroupActivityActivity.this.eRK.sendMessage(GroupActivityActivity.this.eRK.aRM());
                 return;
             }
             ResponseGetGroupActivityLocalMessage responseGetGroupActivityLocalMessage = (ResponseGetGroupActivityLocalMessage) customResponsedMessage;
             if (GroupActivityActivity.this.eRK.getLocalSendMsg() == responseGetGroupActivityLocalMessage.getOrginalMessage()) {
                 if (responseGetGroupActivityLocalMessage.getError() != 0) {
-                    GroupActivityActivity.this.eRK.sendMessage(GroupActivityActivity.this.eRK.aRN());
+                    GroupActivityActivity.this.eRK.sendMessage(GroupActivityActivity.this.eRK.aRM());
                     return;
                 }
                 GroupActivityActivity.this.eRJ.a(responseGetGroupActivityLocalMessage.getActivityData(), true);
                 GroupActivityActivity.this.eRK.a(responseGetGroupActivityLocalMessage.getActivityData());
-                GroupActivityActivity.this.eRK.sendMessage(GroupActivityActivity.this.eRK.aRN());
+                GroupActivityActivity.this.eRK.sendMessage(GroupActivityActivity.this.eRK.aRM());
             }
         }
     };
@@ -75,7 +75,7 @@ public class GroupActivityActivity extends BaseActivity<GroupActivityActivity> i
                     return;
                 }
                 ResponseDelGroupActivityMessage responseDelGroupActivityMessage = (ResponseDelGroupActivityMessage) socketResponsedMessage;
-                if (GroupActivityActivity.this.eRK.aRP() == responseDelGroupActivityMessage.getOrginalMessage()) {
+                if (GroupActivityActivity.this.eRK.aRO() == responseDelGroupActivityMessage.getOrginalMessage()) {
                     if (responseDelGroupActivityMessage.getError() != 0) {
                         GroupActivityActivity.this.showToast(StringUtils.isNull(responseDelGroupActivityMessage.getErrorString()) ? GroupActivityActivity.this.getResources().getString(e.j.neterror) : responseDelGroupActivityMessage.getErrorString());
                         return;
@@ -138,9 +138,9 @@ public class GroupActivityActivity extends BaseActivity<GroupActivityActivity> i
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         if (this.eRK != null) {
-            bundle.putInt(GroupActivityActivityConfig.ACTIVITY_ID, this.eRK.aRN());
-            bundle.putLong("group_id", this.eRK.aRO());
-            bundle.putInt("from", this.eRK.aRM());
+            bundle.putInt(GroupActivityActivityConfig.ACTIVITY_ID, this.eRK.aRM());
+            bundle.putLong("group_id", this.eRK.aRN());
+            bundle.putInt("from", this.eRK.aRL());
         }
     }
 
@@ -168,7 +168,7 @@ public class GroupActivityActivity extends BaseActivity<GroupActivityActivity> i
 
     private void startLoading() {
         showProgressBar();
-        this.eRK.qb(this.eRK.aRN());
+        this.eRK.qb(this.eRK.aRM());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -182,15 +182,15 @@ public class GroupActivityActivity extends BaseActivity<GroupActivityActivity> i
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.eRJ.aRR()) {
+        if (view == this.eRJ.aRQ()) {
             closeActivity();
-        } else if (view == this.eRJ.aRS()) {
+        } else if (view == this.eRJ.aRR()) {
             DialogUtil.deleteGroupActivity(getPageContext().getContext(), new a.b() { // from class: com.baidu.tieba.im.groupActivity.GroupActivityActivity.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
                     GroupActivityActivity.this.showProgressBar();
-                    GroupActivityActivity.this.eRK.m(GroupActivityActivity.this.eRK.aRO(), GroupActivityActivity.this.eRK.aRN());
+                    GroupActivityActivity.this.eRK.m(GroupActivityActivity.this.eRK.aRN(), GroupActivityActivity.this.eRK.aRM());
                 }
             });
         }
@@ -219,16 +219,16 @@ public class GroupActivityActivity extends BaseActivity<GroupActivityActivity> i
 
     @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0158b
     public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
-        if (bVar != null && bVar == this.eRJ.aRT()) {
+        if (bVar != null && bVar == this.eRJ.aRS()) {
             bVar.dismiss();
             if (i == 0) {
-                sendMessage(new CustomMessage(2002001, new CreateGroupActivityActivityConfig(getPageContext().getPageActivity(), this.eRK.aRO(), this.eRK.aRQ(), 23001)));
+                sendMessage(new CustomMessage(2002001, new CreateGroupActivityActivityConfig(getPageContext().getPageActivity(), this.eRK.aRN(), this.eRK.aRP(), 23001)));
             } else if (i == 1) {
                 DialogUtil.deleteGroupActivity(getPageContext().getContext(), new a.b() { // from class: com.baidu.tieba.im.groupActivity.GroupActivityActivity.4
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                         GroupActivityActivity.this.showProgressBar();
-                        GroupActivityActivity.this.eRK.m(GroupActivityActivity.this.eRK.aRO(), GroupActivityActivity.this.eRK.aRN());
+                        GroupActivityActivity.this.eRK.m(GroupActivityActivity.this.eRK.aRN(), GroupActivityActivity.this.eRK.aRM());
                     }
                 });
             }

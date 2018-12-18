@@ -49,7 +49,7 @@ public class c {
         this.dbn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.aQX();
+                c.this.aQW();
             }
         });
         this.gHd.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.postsearch.c.2
@@ -66,20 +66,20 @@ public class c {
         this.gHd.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.postsearch.c.3
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                c.this.gGT.bsR();
+                c.this.gGT.bsQ();
                 return false;
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aQX() {
+    public void aQW() {
         if (this.gHf == null) {
             this.gHf = new com.baidu.tbadk.core.dialog.a(this.gGT.getPageContext().getPageActivity()).eB(this.gGT.getPageContext().getString(e.j.alert_clean_history)).a(this.gGT.getPageContext().getString(e.j.clear_all_text), new a.b() { // from class: com.baidu.tieba.postsearch.c.5
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
-                    c.this.gGT.bsX().btk();
+                    c.this.gGT.bsW().btj();
                     c.this.gHd.setVisibility(8);
                     c.this.showNoDataView();
                 }
@@ -100,7 +100,7 @@ public class c {
             this.mNoDataView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.postsearch.c.6
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view, MotionEvent motionEvent) {
-                    c.this.gGT.bsR();
+                    c.this.gGT.bsQ();
                     return false;
                 }
             });
@@ -114,7 +114,7 @@ public class c {
         jX(e.j.text_no_search_record);
     }
 
-    public void btc() {
+    public void btb() {
         this.gHd.setVisibility(8);
         jX(e.j.text_no_search_result);
     }
@@ -149,11 +149,11 @@ public class c {
         this.gHe.notifyDataSetChanged();
     }
 
-    public void btd() {
+    public void btc() {
         this.gHc.setVisibility(8);
     }
 
-    public boolean bte() {
+    public boolean btd() {
         return this.gHc.getVisibility() == 0 && !this.gHg && (this.mNoDataView == null || 8 == this.mNoDataView.getVisibility());
     }
 

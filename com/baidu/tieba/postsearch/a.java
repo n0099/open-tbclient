@@ -55,15 +55,15 @@ public class a {
                     l.b(a.this.gGT.getPageContext().getPageActivity(), view);
                     return;
                 }
-                a.this.bsU();
                 a.this.bsT();
+                a.this.bsS();
             }
         });
         this.drp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.bsU();
                 a.this.bsT();
+                a.this.bsS();
             }
         });
         this.drp.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.postsearch.a.4
@@ -85,7 +85,7 @@ public class a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.this.drp.setText("");
-                a.this.bsU();
+                a.this.bsT();
             }
         });
         this.drp.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.postsearch.a.6
@@ -102,7 +102,7 @@ public class a {
                 String obj = editable.toString();
                 a.this.gGT.dGt = obj;
                 if (obj.trim().length() == 0) {
-                    a.this.bsU();
+                    a.this.bsT();
                     a.this.dGD.setVisibility(8);
                     return;
                 }
@@ -128,25 +128,25 @@ public class a {
         this.mRootView.requestFocus();
     }
 
-    public void bsR() {
+    public void bsQ() {
         l.b(this.gGT.getPageContext().getPageActivity(), this.drp);
     }
 
-    public void bsS() {
+    public void bsR() {
         this.dGD.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bsT() {
+    public void bsS() {
         if (!StringUtils.isNull(this.drp.getText().toString())) {
             this.dGD.setVisibility(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bsU() {
-        if (!this.gGT.bsW()) {
-            this.gGT.bsV();
+    public void bsT() {
+        if (!this.gGT.bsV()) {
+            this.gGT.bsU();
             if (!this.drp.hasFocus()) {
                 this.drp.requestFocus();
                 l.c(this.gGT.getPageContext().getPageActivity(), this.drp);

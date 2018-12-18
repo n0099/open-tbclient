@@ -110,7 +110,7 @@ public class p {
                 if (p.this.gAQ != null) {
                     p.this.gAQ.onScroll(absListView, i, i2, i3);
                 }
-                p.this.bqI();
+                p.this.bqH();
             }
         }
     };
@@ -132,7 +132,7 @@ public class p {
     private BdPersonListView.a gBj = new BdPersonListView.a() { // from class: com.baidu.tieba.personPolymeric.view.p.8
         @Override // com.baidu.tieba.person.listview.BdPersonListView.a
         public void onRefresh() {
-            p.this.bpU();
+            p.this.bpT();
         }
 
         @Override // com.baidu.tieba.person.listview.BdPersonListView.a
@@ -152,7 +152,7 @@ public class p {
         this.aBS = bdUniqueId;
         this.mIsHost = z;
         this.grf = z2;
-        this.gwK = eVar.bqd();
+        this.gwK = eVar.bqc();
         this.bOy = this.gwK.bOy;
         this.gAM = com.baidu.adp.lib.util.l.h(this.mContext.getPageActivity(), e.C0210e.tbds402);
         if (z) {
@@ -231,7 +231,7 @@ public class p {
             this.gAN.c(1.0f, true);
             al.c(this.dby, e.f.selector_topbar_return_black);
         } else {
-            bqI();
+            bqH();
         }
         al.h(this.gAR, e.d.cp_cont_i);
         this.gAS.onChangeSkinType(i);
@@ -293,7 +293,7 @@ public class p {
         }
     }
 
-    public void bpU() {
+    public void bpT() {
         this.gAZ = false;
         if (this.cIk == 0) {
             if (com.baidu.adp.lib.util.j.kV()) {
@@ -365,48 +365,48 @@ public class p {
             this.gwX = aVar;
             this.gAN.e(this.gwX.getUserData());
             if (this.gAZ) {
-                dt(aVar.aMK());
+                dt(aVar.aMJ());
                 if (this.bOy != null) {
                     this.bOy.Fd();
                     return;
                 }
                 return;
             }
-            this.gAN.bpL();
+            this.gAN.bpK();
             this.gAO.e(aVar);
             if (aVar != null) {
                 this.gAS.e(aVar.getUserData());
             }
             if (this.mIsHost) {
-                this.gAS.bqC();
+                this.gAS.bqB();
             } else {
                 this.gwX.getUserData().setIsLike(this.gwX.getUserData().getHave_attention() == 1);
                 this.gAT.a(this.gwX.getUserData());
             }
-            if ((aVar.bqv() == null || this.mIsHost) && v.I(aVar.bqw())) {
+            if ((aVar.bqu() == null || this.mIsHost) && v.I(aVar.bqv())) {
                 this.gww.removeHeaderView(this.gBe.ana());
             } else {
                 TiebaStatic.log(new am("c12543"));
-                this.gBe.a(aVar.bqv(), this.mIsHost, this.gwX.getUserData(), aVar.bqw());
+                this.gBe.a(aVar.bqu(), this.mIsHost, this.gwX.getUserData(), aVar.bqv());
             }
             if (!this.mIsHost) {
-                if (aVar.bqx() == null || aVar.bqx().gyd == null || aVar.bqx().gyd.size() <= 0) {
+                if (aVar.bqw() == null || aVar.bqw().gyd == null || aVar.bqw().gyd.size() <= 0) {
                     this.gww.removeHeaderView(this.gBb);
                 } else {
-                    this.gBb.a(aVar.bqx());
+                    this.gBb.a(aVar.bqw());
                 }
             }
-            if (v.I(aVar.aMK())) {
+            if (v.I(aVar.aMJ())) {
                 dt(null);
                 this.gwK.abb();
                 com.baidu.adp.lib.util.l.showToast(this.mContext.getContext(), this.mContext.getString(e.j.data_load_error));
                 return;
             }
-            com.baidu.tieba.o.a.bvJ().mQ(this.mIsHost);
-            dt(aVar.aMK());
-            int size = aVar.aMK().size();
+            com.baidu.tieba.o.a.bvI().mQ(this.mIsHost);
+            dt(aVar.aMJ());
+            int size = aVar.aMJ().size();
             for (int i = 0; i < size; i++) {
-                com.baidu.adp.widget.ListView.h hVar = aVar.aMK().get(i);
+                com.baidu.adp.widget.ListView.h hVar = aVar.aMJ().get(i);
                 if (hVar != null && (hVar instanceof com.baidu.tieba.personPolymeric.c.i)) {
                     this.gwK.abb();
                     return;
@@ -419,7 +419,7 @@ public class p {
                 }
                 return;
             }
-            this.gwK.c(true, aVar.aMK());
+            this.gwK.c(true, aVar.aMJ());
         }
     }
 
@@ -498,7 +498,7 @@ public class p {
         }
     }
 
-    public com.baidu.tieba.view.f bqH() {
+    public com.baidu.tieba.view.f bqG() {
         return this.gAN;
     }
 
@@ -525,10 +525,10 @@ public class p {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bqI() {
+    public void bqH() {
         amQ();
         amR();
-        bqJ();
+        bqI();
         if (this.gAO.ana().getTop() + this.gAU <= this.mNavigationBar.getBottom()) {
             this.mNavigationBar.showBottomLine();
         } else {
@@ -570,7 +570,7 @@ public class p {
         }
     }
 
-    private void bqJ() {
+    private void bqI() {
         if (Build.VERSION.SDK_INT >= 11 && this.gAO != null) {
             int i = this.gAM / 2;
             int i2 = this.gAM - i;

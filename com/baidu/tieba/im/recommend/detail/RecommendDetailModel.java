@@ -80,7 +80,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof UserInfoBigVip)) {
-                    RecommendDetailModel.this.aTV();
+                    RecommendDetailModel.this.aTU();
                     return;
                 }
                 UserInfoBigVip userInfoBigVip = (UserInfoBigVip) customResponsedMessage.getData();
@@ -88,14 +88,14 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                     RecommendDetailModel.this.eNY = true;
                     RecommendDetailModel.this.eXV.a(userInfoBigVip, false);
                 }
-                RecommendDetailModel.this.aTV();
+                RecommendDetailModel.this.aTU();
             }
         };
         this.mContext = tbPageContext;
         this.eXV = aVar;
         MessageManager.getInstance().registerListener(this.eXX);
         MessageManager.getInstance().registerListener(this.eXY);
-        aQS();
+        aQR();
     }
 
     public void cy(long j) {
@@ -103,7 +103,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
         sendMessage(new CustomMessage(2001306, Long.valueOf(this.mUserId)));
     }
 
-    private void aQS() {
+    private void aQR() {
         registerListener(new c(104102) { // from class: com.baidu.tieba.im.recommend.detail.RecommendDetailModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -138,7 +138,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aTV() {
+    public void aTU() {
         RecommendDetailRequestMessage recommendDetailRequestMessage = new RecommendDetailRequestMessage();
         recommendDetailRequestMessage.setUserId(this.mUserId);
         sendMessage(recommendDetailRequestMessage);
@@ -157,11 +157,11 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
         sendMessage(requestUpdateMaskInfoMessage);
     }
 
-    public boolean aTW() {
+    public boolean aTV() {
         return this.eNY;
     }
 
-    public boolean aTX() {
+    public boolean aTW() {
         return this.eXW;
     }
 

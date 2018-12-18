@@ -20,12 +20,12 @@ public class f implements g {
     }
 
     @Override // com.facebook.imagepipeline.f.g
-    public boolean bYf() {
+    public boolean bYe() {
         return this.ioG;
     }
 
     @Override // com.facebook.imagepipeline.f.g
-    public boolean bYg() {
+    public boolean bYf() {
         return this.ioH;
     }
 

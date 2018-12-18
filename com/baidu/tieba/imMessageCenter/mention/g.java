@@ -100,7 +100,7 @@ public class g extends com.baidu.adp.base.c implements NoNetworkView.a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (g.this.fen != null) {
-                    g.this.fen.aVJ();
+                    g.this.fen.aVI();
                 }
             }
         });
@@ -118,7 +118,7 @@ public class g extends com.baidu.adp.base.c implements NoNetworkView.a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (g.this.fen != null) {
-                    g.this.fen.aVK();
+                    g.this.fen.aVJ();
                 }
             }
         });
@@ -160,7 +160,7 @@ public class g extends com.baidu.adp.base.c implements NoNetworkView.a {
         }
     }
 
-    public TbTabLayout aVM() {
+    public TbTabLayout aVL() {
         return this.edJ;
     }
 
@@ -171,7 +171,7 @@ public class g extends com.baidu.adp.base.c implements NoNetworkView.a {
         }
     }
 
-    public TbTabLayout.e aVN() {
+    public TbTabLayout.e aVM() {
         if (this.edJ == null || this.edJ.getTabCount() <= 0) {
             return null;
         }
@@ -246,7 +246,7 @@ public class g extends com.baidu.adp.base.c implements NoNetworkView.a {
         }
     }
 
-    public void aVO() {
+    public void aVN() {
         if (this.fen != null && this.fex != null && this.aLN != null && this.few != null) {
             FragmentManager supportFragmentManager = this.fen.getActivity().getSupportFragmentManager();
             if (!supportFragmentManager.isDestroyed()) {

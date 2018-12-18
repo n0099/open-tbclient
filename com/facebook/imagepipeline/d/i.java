@@ -25,7 +25,7 @@ public class i {
             this.inC = new com.facebook.common.internal.i<Boolean>() { // from class: com.facebook.imagepipeline.d.i.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.facebook.common.internal.i
-                /* renamed from: bWU */
+                /* renamed from: bWT */
                 public Boolean get() {
                     return Boolean.FALSE;
                 }
@@ -41,40 +41,40 @@ public class i {
         this.inI = aVar.inI;
     }
 
-    public boolean bWX() {
+    public boolean bWW() {
         return this.inB;
     }
 
-    public int bWY() {
+    public int bWX() {
         return this.imo;
     }
 
-    public boolean bWZ() {
+    public boolean bWY() {
         return this.inC.get().booleanValue();
     }
 
     @Nullable
-    public q bXa() {
+    public q bWZ() {
         return this.inD;
     }
 
-    public boolean bXb() {
+    public boolean bXa() {
         return this.inI;
     }
 
-    public boolean bXc() {
+    public boolean bXb() {
         return this.inA;
     }
 
-    public boolean bXd() {
+    public boolean bXc() {
         return this.inF;
     }
 
-    public b.a bXe() {
+    public b.a bXd() {
         return this.inE;
     }
 
-    public com.facebook.common.g.b bXf() {
+    public com.facebook.common.g.b bXe() {
         return this.inG;
     }
 
@@ -96,7 +96,7 @@ public class i {
             this.inK = aVar;
         }
 
-        public i bXg() {
+        public i bXf() {
             return new i(this, this.inK);
         }
     }

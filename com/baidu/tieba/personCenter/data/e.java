@@ -38,7 +38,7 @@ public class e implements com.baidu.tieba.person.b {
     public PersonMoreData grc;
     private UserData mUserData;
 
-    private void boF() {
+    private void boE() {
         if (this.grQ != null) {
             this.ebb.add(this.grQ);
         } else if (this.mUserData != null) {
@@ -52,7 +52,7 @@ public class e implements com.baidu.tieba.person.b {
         }
     }
 
-    private void boG() {
+    private void boF() {
         if (this.grP != null) {
             this.ebb.add(this.grP);
             return;
@@ -78,11 +78,11 @@ public class e implements com.baidu.tieba.person.b {
         }
     }
 
-    private void boH() {
+    private void boG() {
         this.ebb.add(new d());
     }
 
-    private void boI() {
+    private void boH() {
         if (this.grK == null) {
             this.grK = W(e.f.icon_mine_list_collect, e.j.my_mark, 16);
             this.grK.grS = new h();
@@ -223,11 +223,11 @@ public class e implements com.baidu.tieba.person.b {
             b(profileResIdl.data.uc_card);
             ds(profileResIdl.data.url_map);
             this.ebb.add(this.grO);
+            boE();
+            boG();
             boF();
             boH();
-            boG();
-            boI();
-            com.baidu.tieba.o.a.bvJ().mQ(true);
+            com.baidu.tieba.o.a.bvI().mQ(true);
         }
     }
 
@@ -241,9 +241,9 @@ public class e implements com.baidu.tieba.person.b {
             this.grO = new g();
             this.grO.fPU = this.mUserData;
             this.ebb.add(this.grO);
-            boF();
-            boI();
-            com.baidu.tieba.o.a.bvJ().mQ(true);
+            boE();
+            boH();
+            com.baidu.tieba.o.a.bvI().mQ(true);
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 TbadkCoreApplication.getCurrentAccountObj().setSex(this.mUserData.getSex());
             }

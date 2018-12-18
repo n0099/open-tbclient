@@ -44,7 +44,7 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
             public void bF(boolean z) {
                 if (z && LabelSettingView.this.fkd.getCount() == 0 && LabelSettingView.this.fjZ != null) {
-                    LabelSettingView.this.fjZ.aWY();
+                    LabelSettingView.this.fjZ.aWX();
                 }
             }
         };
@@ -84,7 +84,7 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && !v.I(bVar.aXc())) {
+        if (bVar != null && !v.I(bVar.aXb())) {
             this.fkc.setVisibility(0);
             this.fkd.setData(bVar);
             this.fkd.notifyDataSetChanged();
@@ -96,8 +96,8 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
         this.fkb.setSelected(z);
     }
 
-    public boolean aXo() {
-        return (this.fkd == null || v.c(this.fkd.aWZ(), this.fkd.aXa())) ? false : true;
+    public boolean aXn() {
+        return (this.fkd == null || v.c(this.fkd.aWY(), this.fkd.aWZ())) ? false : true;
     }
 
     public void showDialog() {
@@ -132,19 +132,19 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.fka) {
-            if (aXo()) {
+            if (aXn()) {
                 showDialog();
             } else {
                 this.mPageContext.getPageActivity().finish();
             }
         } else if (view == this.fkb && this.fjZ != null && this.fke) {
             TiebaStatic.log(new am("c12237").aA("uid", TbadkCoreApplication.getCurrentAccount()));
-            this.fjZ.cO(this.fkd.aXa());
+            this.fjZ.cO(this.fkd.aWZ());
         }
     }
 
     public void showLoadingView(boolean z) {
-        if (!aMQ()) {
+        if (!aMP()) {
             if (this.bKv == null) {
                 this.bKv = new f(getContext());
                 this.bKv.onChangeSkinType();
@@ -160,7 +160,7 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
         }
     }
 
-    public boolean aMQ() {
+    public boolean aMP() {
         if (this.bKv != null) {
             return this.bKv.isViewAttached();
         }
@@ -174,7 +174,7 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (j.kK() && LabelSettingView.this.fjZ != null) {
-                            LabelSettingView.this.fjZ.aWY();
+                            LabelSettingView.this.fjZ.aWX();
                         }
                     }
                 });

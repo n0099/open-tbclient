@@ -53,7 +53,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
                     PersonReplyFragment.this.gGp = null;
                 }
                 if (PersonReplyFragment.this.gGv != null) {
-                    PersonReplyFragment.this.gGv.bsr();
+                    PersonReplyFragment.this.gGv.bsq();
                 }
             }
         }
@@ -185,7 +185,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         }
     }
 
-    private void bsu() {
+    private void bst() {
         this.gGn = new g(getPageContext(), getArguments().getString("key_uid"), getArguments().getString(PersonPostActivityConfig.KEY_PORTRAIT_URL), getUniqueId());
         this.gGn.a(this.gGg);
         this.gGm.setAdapter((ListAdapter) this.gGn);
@@ -202,13 +202,13 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
 
     public void onActive() {
         if (!this.gGo) {
-            bsu();
+            bst();
             this.gGo = true;
-            bsv();
+            bsu();
         }
     }
 
-    private void bsv() {
+    private void bsu() {
         if (com.baidu.adp.lib.util.j.kK()) {
             this.gGn.mE(true);
             return;
@@ -220,7 +220,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     }
 
     @Override // com.baidu.tieba.post.c
-    public void bsq() {
+    public void bsp() {
         if (this.gGn != null) {
             this.gGn.mE(true);
         }

@@ -29,7 +29,7 @@ public class b {
     private b() {
     }
 
-    public static b bsg() {
+    public static b bsf() {
         if (gEX == null) {
             synchronized (b.class) {
                 if (gEX == null) {
@@ -48,16 +48,16 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (tZ(str) && this.gEW.bsf().size() > this.gEZ) {
+        if (tZ(str) && this.gEW.bse().size() > this.gEZ) {
             if (this.gEY != null) {
                 InterfaceC0295b interfaceC0295b = this.gEY;
-                List<String> bsf = this.gEW.bsf();
+                List<String> bse = this.gEW.bse();
                 int i = this.gEZ;
                 this.gEZ = i + 1;
-                interfaceC0295b.cu(bsf.get(i), str);
+                interfaceC0295b.cu(bse.get(i), str);
             }
             return true;
-        } else if (this.gEW != null && this.gEW.bsf() != null && this.gEW.bsf().size() <= this.gEZ) {
+        } else if (this.gEW != null && this.gEW.bse() != null && this.gEW.bse().size() <= this.gEZ) {
             this.gEZ = 0;
             this.gEW = null;
             return false;
@@ -72,7 +72,7 @@ public class b {
     }
 
     private boolean tZ(String str) {
-        return (this.gEW == null || TextUtils.isEmpty(str) || !str.equals(this.gEW.getHost()) || v.I(this.gEW.bsf()) || this.gEW.da(System.currentTimeMillis()) || this.gEW.bsf().size() <= this.gEZ) ? false : true;
+        return (this.gEW == null || TextUtils.isEmpty(str) || !str.equals(this.gEW.getHost()) || v.I(this.gEW.bse()) || this.gEW.da(System.currentTimeMillis()) || this.gEW.bse().size() <= this.gEZ) ? false : true;
     }
 
     /* loaded from: classes.dex */
@@ -262,8 +262,8 @@ public class b {
             super.onProgressUpdate(aVarArr);
             if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.mHost)) {
                 b.this.gEW = aVarArr[0];
-                if (!v.I(aVarArr[0].bsf()) && b.this.gEY != null) {
-                    b.this.gEY.cu(aVarArr[0].bsf().get(0), aVarArr[0].getHost());
+                if (!v.I(aVarArr[0].bse()) && b.this.gEY != null) {
+                    b.this.gEY.cu(aVarArr[0].bse().get(0), aVarArr[0].getHost());
                     return;
                 }
             }

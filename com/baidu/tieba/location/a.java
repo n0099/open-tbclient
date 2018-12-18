@@ -37,9 +37,9 @@ public class a implements com.baidu.adp.lib.d.b {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001330) {
                     if ((!com.baidu.e.a.uo() || ab.bB(TbadkCoreApplication.getInst())) && (customResponsedMessage.getData() instanceof Boolean)) {
                         if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                            com.baidu.adp.lib.d.a.iW().a(a.aZx());
+                            com.baidu.adp.lib.d.a.iW().a(a.aZw());
                         } else {
-                            com.baidu.adp.lib.d.a.iW().b(a.aZx());
+                            com.baidu.adp.lib.d.a.iW().b(a.aZw());
                         }
                     }
                 }
@@ -47,7 +47,7 @@ public class a implements com.baidu.adp.lib.d.b {
         });
     }
 
-    public static a aZx() {
+    public static a aZw() {
         if (fsq == null) {
             synchronized (a.class) {
                 if (fsq == null) {
@@ -146,9 +146,9 @@ public class a implements com.baidu.adp.lib.d.b {
                 }
                 if (a.this.fss != null) {
                     a.this.fss.a(0, "", a.this.Cm, a.this.Cg, a.this.fsv);
-                    com.baidu.tieba.recapp.d.a.bvp().pF(String.valueOf(a.this.Cm.getLatitude()));
-                    com.baidu.tieba.recapp.d.a.bvp().pE(String.valueOf(a.this.Cm.getLongitude()));
-                    com.baidu.tieba.recapp.d.a.bvp().db(System.currentTimeMillis());
+                    com.baidu.tieba.recapp.d.a.bvo().pF(String.valueOf(a.this.Cm.getLatitude()));
+                    com.baidu.tieba.recapp.d.a.bvo().pE(String.valueOf(a.this.Cm.getLongitude()));
+                    com.baidu.tieba.recapp.d.a.bvo().db(System.currentTimeMillis());
                 }
             }
         }

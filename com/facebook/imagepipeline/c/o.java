@@ -5,6 +5,8 @@ public interface o {
 
     void b(h<?, ?> hVar);
 
+    void bVQ();
+
     void bVR();
 
     void bVS();
@@ -18,8 +20,6 @@ public interface o {
     void bVW();
 
     void bVX();
-
-    void bVY();
 
     void n(com.facebook.cache.common.b bVar);
 

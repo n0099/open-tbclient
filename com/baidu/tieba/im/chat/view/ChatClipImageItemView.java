@@ -116,7 +116,7 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         this.isLeft = z;
     }
 
-    public void aON() {
+    public void aOM() {
         this.eLm.ml();
         this.eLm.an(true);
     }

@@ -105,7 +105,7 @@ public class ShareEntity implements Parcelable {
         this.aSh = location;
     }
 
-    public int byC() {
+    public int byB() {
         return this.gZw;
     }
 
@@ -113,7 +113,7 @@ public class ShareEntity implements Parcelable {
         this.gZw = i;
     }
 
-    public int byD() {
+    public int byC() {
         return this.shareType;
     }
 
@@ -121,7 +121,7 @@ public class ShareEntity implements Parcelable {
         this.shareType = i;
     }
 
-    public boolean byE() {
+    public boolean byD() {
         return this.shareType != 0 && (this.gZw == 8 || this.gZw == 4 || this.gZw == 3 || this.gZw == 2);
     }
 

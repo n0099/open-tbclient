@@ -223,15 +223,15 @@ public class c implements q {
             if (this.gMf.b(this.aAQ.Eh().Ek().mUrl, this.aAQ.Eh().Ek().aDP, this.aAQ.Eh().Ek().aDR, 5, -1, Ds()) == null) {
                 throw new BdHttpCancelException();
             }
-            com.baidu.tieba.recapp.download.http.g buO = this.gMf.buO();
-            if (buO == null) {
+            com.baidu.tieba.recapp.download.http.g buN = this.gMf.buN();
+            if (buN == null) {
                 return null;
             }
-            com.baidu.tieba.recapp.download.http.i buQ = buO.buQ();
-            if (buO == null || buO.jr() == null || buO.jr().size() > 0) {
+            com.baidu.tieba.recapp.download.http.i buP = buN.buP();
+            if (buN == null || buN.jr() == null || buN.jr().size() > 0) {
             }
-            this.aAQ.Ei().De = buQ.responseCode;
-            this.aAQ.Ei().mHeader = buQ.Df;
+            this.aAQ.Ei().De = buP.responseCode;
+            this.aAQ.Ei().mHeader = buP.Df;
             if (this.aAQ.Ei().De != 200) {
                 if (this.aAQ.Ej().aDv != null && !TextUtils.isEmpty(this.aAQ.Ej().aDv.CL)) {
                     this.aAQ.Ei().aDu = this.aAQ.Ej().aDv.CL;
@@ -243,7 +243,7 @@ public class c implements q {
             } else if (this.gMf.isCanceled()) {
                 return null;
             } else {
-                str = new String(buQ.Dg, IoUtils.UTF_8);
+                str = new String(buP.Dg, IoUtils.UTF_8);
                 try {
                     if (this.aAQ.Eh().Ek().mIsBaiduServer && this.aAQ.Eh().Ek().aDS) {
                         fA(str);
@@ -386,14 +386,14 @@ public class c implements q {
         }
         long j = new Date().getTime();
         this.gMf.b(str, z, 5, 100, -1, -1, Ds());
-        com.baidu.tieba.recapp.download.http.g buO = this.gMf.buO();
-        if (buO == null) {
+        com.baidu.tieba.recapp.download.http.g buN = this.gMf.buN();
+        if (buN == null) {
             return null;
         }
-        iVar = buO.buQ();
-        if (buO != null) {
+        iVar = buN.buP();
+        if (buN != null) {
             try {
-                if (buO.jr() == null || buO.jr().size() > 0) {
+                if (buN.jr() == null || buN.jr().size() > 0) {
                 }
             } catch (BdHttpCancelException e6) {
                 iVar2 = iVar;
@@ -569,15 +569,15 @@ public class c implements q {
             if (this.gMf.b(this.aAQ.Eh().Ek().mUrl, this.aAQ.Eh().Ek().aDP, this.aAQ.Eh().Ek().aDR, 5, -1, Ds()) == null) {
                 throw new BdHttpCancelException();
             }
-            com.baidu.tieba.recapp.download.http.g buO = this.gMf.buO();
-            if (buO == null) {
+            com.baidu.tieba.recapp.download.http.g buN = this.gMf.buN();
+            if (buN == null) {
                 return null;
             }
-            com.baidu.tieba.recapp.download.http.i buQ = buO.buQ();
-            if (buO == null || buO.jr() == null || buO.jr().size() > 0) {
+            com.baidu.tieba.recapp.download.http.i buP = buN.buP();
+            if (buN == null || buN.jr() == null || buN.jr().size() > 0) {
             }
-            this.aAQ.Ei().De = buQ.responseCode;
-            this.aAQ.Ei().mHeader = buQ.Df;
+            this.aAQ.Ei().De = buP.responseCode;
+            this.aAQ.Ei().mHeader = buP.Df;
             if (this.aAQ.Ei().De != 200) {
                 if (this.aAQ.Ej().aDv != null && !TextUtils.isEmpty(this.aAQ.Ej().aDv.CL)) {
                     this.aAQ.Ei().aDu = this.aAQ.Ej().aDv.CL;
@@ -589,7 +589,7 @@ public class c implements q {
             } else if (this.gMf.isCanceled()) {
                 return null;
             } else {
-                str = new String(buQ.Dg, IoUtils.UTF_8);
+                str = new String(buP.Dg, IoUtils.UTF_8);
                 try {
                     if (this.aAQ.Eh().Ek().mIsBaiduServer && this.aAQ.Eh().Ek().aDS) {
                         fA(str);

@@ -21,7 +21,7 @@ public class DealEventView extends FrameLayout {
 
         void TC();
 
-        void bLq();
+        void bLp();
     }
 
     public DealEventView(Context context) {
@@ -50,7 +50,7 @@ public class DealEventView extends FrameLayout {
                 if (currentTimeMillis - this.hKE < 300) {
                     this.bvi = true;
                     if (this.hKF != null) {
-                        this.hKF.bLq();
+                        this.hKF.bLp();
                     }
                 } else {
                     this.bvi = false;

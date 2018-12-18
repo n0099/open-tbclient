@@ -44,8 +44,8 @@ public class a {
             intent.setAction("com.coloros.mcssdk.action.RECEIVE_SDK_MESSAGE");
             intent.setPackage("com.coloros.mcs");
             intent.putExtra("type", 12291);
-            intent.putExtra(WebSocketAction.PARAM_KEY_TASKID, aVar.bSo());
-            intent.putExtra("appPackage", aVar.bSp());
+            intent.putExtra(WebSocketAction.PARAM_KEY_TASKID, aVar.bSn());
+            intent.putExtra("appPackage", aVar.bSo());
             intent.putExtra("messageID", new StringBuilder().append(aVar.getMessageID()).toString());
             intent.putExtra("messageType", aVar.getType());
             intent.putExtra("eventID", str);
@@ -62,8 +62,8 @@ public class a {
             intent.setAction("com.coloros.mcssdk.action.RECEIVE_SDK_MESSAGE");
             intent.setPackage("com.coloros.mcs");
             intent.putExtra("type", 12291);
-            intent.putExtra(WebSocketAction.PARAM_KEY_TASKID, dVar.bSo());
-            intent.putExtra("appPackage", dVar.bSp());
+            intent.putExtra(WebSocketAction.PARAM_KEY_TASKID, dVar.bSn());
+            intent.putExtra("appPackage", dVar.bSo());
             intent.putExtra("messageID", new StringBuilder().append(dVar.getMessageID()).toString());
             intent.putExtra("messageType", dVar.getType());
             intent.putExtra("eventID", str);
@@ -99,7 +99,7 @@ public class a {
         this.mContext.startService(intent);
     }
 
-    public static a bSl() {
+    public static a bSk() {
         a aVar;
         aVar = c.iec;
         return aVar;
@@ -128,15 +128,15 @@ public class a {
         xL(UIMsg.k_event.MV_MAP_CACHEMANAGE);
     }
 
-    public List<d> bSj() {
+    public List<d> bSi() {
         return this.idY;
     }
 
-    public List<com.coloros.mcssdk.b.c> bSk() {
+    public List<com.coloros.mcssdk.b.c> bSj() {
         return this.idX;
     }
 
-    public com.coloros.mcssdk.d.b bSm() {
+    public com.coloros.mcssdk.d.b bSl() {
         return this.ieb;
     }
 

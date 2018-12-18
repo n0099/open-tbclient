@@ -7,7 +7,7 @@ public abstract class m<I, O> extends b<I> {
         this.iqb = jVar;
     }
 
-    public j<O> bZe() {
+    public j<O> bZd() {
         return this.iqb;
     }
 
@@ -17,8 +17,8 @@ public abstract class m<I, O> extends b<I> {
     }
 
     @Override // com.facebook.imagepipeline.producers.b
-    protected void bXM() {
-        this.iqb.bSZ();
+    protected void bXL() {
+        this.iqb.bSY();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

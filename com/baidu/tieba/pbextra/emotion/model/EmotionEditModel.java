@@ -51,7 +51,7 @@ public class EmotionEditModel extends BdBaseModel {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003348 && (httpResponsedMessage instanceof EmotionCheckUegResponseMessage)) {
                 String status = ((EmotionCheckUegResponseMessage) httpResponsedMessage).getStatus();
                 if (EmotionCheckUegResponseMessage.STATUS_OK.equals(status)) {
-                    EmotionEditModel.this.goa.bnO();
+                    EmotionEditModel.this.goa.bnN();
                 } else if (EmotionCheckUegResponseMessage.STATUS_FAIL.equals(status)) {
                     String msg = ((EmotionCheckUegResponseMessage) httpResponsedMessage).getMsg();
                     if (TextUtils.isEmpty(msg)) {
@@ -72,7 +72,7 @@ public class EmotionEditModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bnO();
+        void bnN();
 
         void c(ImageUploadResult imageUploadResult);
 
@@ -93,7 +93,7 @@ public class EmotionEditModel extends BdBaseModel {
     public void lT(boolean z) {
         this.mIsCancel = z;
         if (this.mIsCancel) {
-            bnX();
+            bnW();
         }
     }
 
@@ -212,11 +212,11 @@ public class EmotionEditModel extends BdBaseModel {
     public boolean cancelLoadData() {
         MessageManager.getInstance().unRegisterListener(this.gog);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_EMOTION_EDIT_TEXT_UEG);
-        bnX();
+        bnW();
         return false;
     }
 
-    private void bnX() {
+    private void bnW() {
         if (this.gob != null) {
             this.gob.cancel();
         }

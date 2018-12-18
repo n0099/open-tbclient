@@ -19,7 +19,7 @@ public class g {
     private g() {
     }
 
-    public static synchronized g aOM() {
+    public static synchronized g aOL() {
         g gVar;
         synchronized (g.class) {
             if (eLl == null) {

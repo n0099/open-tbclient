@@ -163,8 +163,8 @@ public class b {
                 if (aVar.ebp >= 0) {
                     amVar.x(MyBookrackActivityConfig.TAB_ID, aVar.ebp);
                 }
-                boolean z = (bbVar.AX() == null || (bbVar.AX().bDu() == null && bbVar.AX().Sh() == null)) ? false : true;
-                if (z && bbVar.AX().bDu() != null && bbVar.AX().bDu().RZ() != null && bbVar.AX().bDu().RZ().size() > 0) {
+                boolean z = (bbVar.AX() == null || (bbVar.AX().bDt() == null && bbVar.AX().Sh() == null)) ? false : true;
+                if (z && bbVar.AX().bDt() != null && bbVar.AX().bDt().RZ() != null && bbVar.AX().bDt().RZ().size() > 0) {
                     amVar.x("obj_name", bbVar.AX().hlS ? 3 : 2);
                 } else {
                     amVar.x("obj_name", z ? 1 : 0);
@@ -272,8 +272,8 @@ public class b {
     }
 
     public static void a(l lVar, int i, int i2) {
-        if (lVar != null && lVar.bgi() != null && lVar.hiz == 1) {
-            TiebaStatic.log(new am("c11440").aA(ImageViewerConfig.FORUM_ID, lVar.bgi().getId()).x("obj_locate", i).x("obj_type", i2));
+        if (lVar != null && lVar.bgh() != null && lVar.hiz == 1) {
+            TiebaStatic.log(new am("c11440").aA(ImageViewerConfig.FORUM_ID, lVar.bgh().getId()).x("obj_locate", i).x("obj_type", i2));
         }
     }
 

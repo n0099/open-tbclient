@@ -21,7 +21,7 @@ public class c extends a {
     }
 
     public c(com.facebook.common.references.a<Bitmap> aVar, g gVar, int i) {
-        this.ioy = (com.facebook.common.references.a) com.facebook.common.internal.g.checkNotNull(aVar.bTl());
+        this.ioy = (com.facebook.common.references.a) com.facebook.common.internal.g.checkNotNull(aVar.bTk());
         this.mBitmap = this.ioy.get();
         this.ioz = gVar;
         this.ijg = i;
@@ -29,13 +29,13 @@ public class c extends a {
 
     @Override // com.facebook.imagepipeline.f.b, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        com.facebook.common.references.a<Bitmap> bXW = bXW();
-        if (bXW != null) {
-            bXW.close();
+        com.facebook.common.references.a<Bitmap> bXV = bXV();
+        if (bXV != null) {
+            bXV.close();
         }
     }
 
-    private synchronized com.facebook.common.references.a<Bitmap> bXW() {
+    private synchronized com.facebook.common.references.a<Bitmap> bXV() {
         com.facebook.common.references.a<Bitmap> aVar;
         aVar = this.ioy;
         this.ioy = null;
@@ -49,7 +49,7 @@ public class c extends a {
     }
 
     @Override // com.facebook.imagepipeline.f.a
-    public Bitmap bXU() {
+    public Bitmap bXT() {
         return this.mBitmap;
     }
 
@@ -82,12 +82,12 @@ public class c extends a {
         return bitmap.getHeight();
     }
 
-    public int bXX() {
+    public int bXW() {
         return this.ijg;
     }
 
     @Override // com.facebook.imagepipeline.f.b
-    public g bXV() {
+    public g bXU() {
         return this.ioz;
     }
 }

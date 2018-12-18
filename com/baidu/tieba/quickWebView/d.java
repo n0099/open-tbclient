@@ -6,7 +6,7 @@ public class d {
     private static d gKB;
     private HashMap<String, com.baidu.tieba.quickWebView.data.a> gKA = new HashMap<>();
 
-    public static d bug() {
+    public static d buf() {
         if (gKB == null) {
             synchronized (d.class) {
                 if (gKB == null) {

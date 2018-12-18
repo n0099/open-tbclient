@@ -80,7 +80,7 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
         if (aVar instanceof f) {
             f fVar = (f) aVar;
             if (this.fdL != null) {
-                this.fdL.R(fVar.aVW());
+                this.fdL.R(fVar.aVV());
             }
         }
     }
@@ -98,7 +98,7 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
         this.fdN.onChangeSkinType(tbPageContext, i);
     }
 
-    public void aVC() {
+    public void aVB() {
         if (this.fdM != null) {
             this.fdM.completePullRefreshPostDelayed(SystemScreenshotManager.DELAY_TIME);
         }
@@ -134,14 +134,14 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
                 }
             }
             if (aVar.isPullRefreshing()) {
-                aVD();
-            } else {
                 aVC();
+            } else {
+                aVB();
             }
         }
     }
 
-    public void aVD() {
+    public void aVC() {
         if (this.mPullView != null) {
             this.mPullView.a((j.b) null);
         }

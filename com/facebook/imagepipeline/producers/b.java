@@ -9,7 +9,7 @@ public abstract class b<T> implements j<T> {
 
     protected abstract void A(Throwable th);
 
-    protected abstract void bXM();
+    protected abstract void bXL();
 
     protected abstract void d(T t, boolean z);
 
@@ -38,11 +38,11 @@ public abstract class b<T> implements j<T> {
     }
 
     @Override // com.facebook.imagepipeline.producers.j
-    public synchronized void bSZ() {
+    public synchronized void bSY() {
         if (!this.ipG) {
             this.ipG = true;
             try {
-                bXM();
+                bXL();
             } catch (Exception e) {
                 k(e);
             }

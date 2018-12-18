@@ -25,33 +25,33 @@ public class e extends AbstractDraweeControllerBuilder<e, ImageRequest, com.face
         if (uri == null) {
             return (e) super.aA(null);
         }
-        return (e) super.aA(ImageRequestBuilder.G(uri).a(com.facebook.imagepipeline.common.d.bWo()).bZS());
+        return (e) super.aA(ImageRequestBuilder.G(uri).a(com.facebook.imagepipeline.common.d.bWn()).bZR());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.drawee.controller.AbstractDraweeControllerBuilder
-    /* renamed from: bUb */
-    public d bUf() {
-        com.facebook.drawee.d.a bUz = bUz();
-        if (bUz instanceof d) {
-            d dVar = (d) bUz;
-            dVar.a(bUD(), bUC(), bUc(), bUu());
+    /* renamed from: bUa */
+    public d bUe() {
+        com.facebook.drawee.d.a bUy = bUy();
+        if (bUy instanceof d) {
+            d dVar = (d) bUy;
+            dVar.a(bUC(), bUB(), bUb(), bUt());
             return dVar;
         }
-        return this.iho.b(bUD(), bUC(), bUc(), bUu());
+        return this.iho.b(bUC(), bUB(), bUb(), bUt());
     }
 
-    private com.facebook.cache.common.b bUc() {
-        ImageRequest bUv = bUv();
-        com.facebook.imagepipeline.c.f bWA = this.ihz.bWA();
-        if (bWA == null || bUv == null) {
+    private com.facebook.cache.common.b bUb() {
+        ImageRequest bUu = bUu();
+        com.facebook.imagepipeline.c.f bWz = this.ihz.bWz();
+        if (bWz == null || bUu == null) {
             return null;
         }
-        if (bUv.bZO() != null) {
-            return bWA.b(bUv, bUu());
+        if (bUu.bZN() != null) {
+            return bWz.b(bUu, bUt());
         }
-        return bWA.a(bUv, bUu());
+        return bWz.a(bUu, bUt());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -64,8 +64,8 @@ public class e extends AbstractDraweeControllerBuilder<e, ImageRequest, com.face
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.drawee.controller.AbstractDraweeControllerBuilder
-    /* renamed from: bUd */
-    public e bUe() {
+    /* renamed from: bUc */
+    public e bUd() {
         return this;
     }
 

@@ -53,7 +53,7 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
         this.glG = new Runnable() { // from class: com.baidu.tieba.pb.view.PbFullScreenFloatingHuajiAninationView.1
             @Override // java.lang.Runnable
             public void run() {
-                PbFullScreenFloatingHuajiAninationView.this.bnC();
+                PbFullScreenFloatingHuajiAninationView.this.bnB();
             }
         };
         this.glH = new Runnable() { // from class: com.baidu.tieba.pb.view.PbFullScreenFloatingHuajiAninationView.2
@@ -83,7 +83,7 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
         this.glG = new Runnable() { // from class: com.baidu.tieba.pb.view.PbFullScreenFloatingHuajiAninationView.1
             @Override // java.lang.Runnable
             public void run() {
-                PbFullScreenFloatingHuajiAninationView.this.bnC();
+                PbFullScreenFloatingHuajiAninationView.this.bnB();
             }
         };
         this.glH = new Runnable() { // from class: com.baidu.tieba.pb.view.PbFullScreenFloatingHuajiAninationView.2
@@ -113,7 +113,7 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
         this.glG = new Runnable() { // from class: com.baidu.tieba.pb.view.PbFullScreenFloatingHuajiAninationView.1
             @Override // java.lang.Runnable
             public void run() {
-                PbFullScreenFloatingHuajiAninationView.this.bnC();
+                PbFullScreenFloatingHuajiAninationView.this.bnB();
             }
         };
         this.glH = new Runnable() { // from class: com.baidu.tieba.pb.view.PbFullScreenFloatingHuajiAninationView.2
@@ -148,10 +148,10 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
         this.gly = (TextView) findViewById(e.g.pb_video_floating_huaji_tip);
         this.gly.setX((SCREEN_WIDTH - glr) / 2);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        bnB();
+        bnA();
     }
 
-    private void bnB() {
+    private void bnA() {
         this.glz = new AnimatorSet();
         Drawable drawable = al.getDrawable(e.f.icon_floor_bigpraised_floating);
         int intrinsicWidth = (SCREEN_WIDTH - drawable.getIntrinsicWidth()) / 2;
@@ -233,7 +233,7 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bnC() {
+    public void bnB() {
         this.bRU = false;
         com.baidu.adp.lib.g.e.jG().post(this.glH);
         if (this.gkZ != null) {
@@ -244,7 +244,7 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
 
     public void stopAnimation() {
         if (this.bRU) {
-            bnC();
+            bnB();
             this.glz.cancel();
             this.glA.cancel();
             this.glB.cancel();

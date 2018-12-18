@@ -111,8 +111,8 @@ public class o extends k<PostData, p> implements View.OnClickListener {
                 }
             }
         };
-        if (pbActivity != null && pbActivity.bho() != null) {
-            this.pageFromType = pbActivity.bho().bjJ();
+        if (pbActivity != null && pbActivity.bhn() != null) {
+            this.pageFromType = pbActivity.bhn().bjI();
         }
     }
 
@@ -180,7 +180,7 @@ public class o extends k<PostData, p> implements View.OnClickListener {
         boolean z5;
         boolean z6;
         if (this.fVj != null) {
-            if (postData.bDs() != 1) {
+            if (postData.bDr() != 1) {
                 if (TextUtils.isEmpty(postData.getBimg_url())) {
                     pVar.fWI.setOnClickListener(this.mCommonClickListener);
                     pVar.fWI.setTextViewOnClickListener(this.mCommonClickListener);
@@ -192,8 +192,8 @@ public class o extends k<PostData, p> implements View.OnClickListener {
             } else {
                 pVar.fVN.setOnClickListener(null);
             }
-            if (postData.bDs() == 1) {
-                pVar.fWN.a(this.fVj, this.fUU.bhe(), this.mContext);
+            if (postData.bDr() == 1) {
+                pVar.fWN.a(this.fVj, this.fUU.bhd(), this.mContext);
                 a(pVar.fWI, view, this.fWB);
                 pVar.fWH.setVisibility(8);
                 String str = null;
@@ -204,14 +204,14 @@ public class o extends k<PostData, p> implements View.OnClickListener {
                     str = postData.zG().getUserName();
                     str2 = postData.zG().getName_show();
                 }
-                if (this.fVj != null && this.fVj.bgk() != null) {
-                    pVar.fWN.a(postData.bDA(), str, str2, j, com.baidu.adp.lib.g.b.d(this.fVj.bgk().getId(), 0L), com.baidu.adp.lib.g.b.d(postData.getId(), 0L));
+                if (this.fVj != null && this.fVj.bgj() != null) {
+                    pVar.fWN.a(postData.bDz(), str, str2, j, com.baidu.adp.lib.g.b.d(this.fVj.bgj().getId(), 0L), com.baidu.adp.lib.g.b.d(postData.getId(), 0L));
                 }
-                if (this.fUU.bhF().blC()) {
+                if (this.fUU.bhE().blB()) {
                     pVar.fWI.setVisibility(8);
                 }
-                if (this.fVj != null && this.fVj.bgk() != null && this.fVj.bgk().zT() != null) {
-                    bk zT = this.fVj.bgk().zT();
+                if (this.fVj != null && this.fVj.bgj() != null && this.fVj.bgj().zT() != null) {
+                    bk zT = this.fVj.bgj().zT();
                     zT.getActivityUrl();
                     String Bz = zT.Bz();
                     if (!StringUtils.isNull(zT.BA())) {
@@ -235,15 +235,15 @@ public class o extends k<PostData, p> implements View.OnClickListener {
             sparseArray.put(e.g.tag_load_sub_data, postData);
             sparseArray.put(e.g.tag_load_sub_view, view);
             sparseArray.put(e.g.tag_pb_floor_postion, Integer.valueOf(i));
-            sparseArray.put(e.g.tag_pb_floor_number, Integer.valueOf(postData.bDs()));
-            if (postData.bDw() > 0 && postData.bDp() != null && postData.bDp().size() > 0) {
+            sparseArray.put(e.g.tag_pb_floor_number, Integer.valueOf(postData.bDr()));
+            if (postData.bDv() > 0 && postData.bDo() != null && postData.bDo().size() > 0) {
                 if (this.fVI == null) {
                     this.fVI = new com.baidu.tieba.pb.pb.sub.c(this.mContext);
                     this.fVI.setIsFromCDN(this.mIsFromCDN);
                     this.fVI.M(this.fVs);
                     if (this.fVj != null) {
-                        this.fVI.B(this.fVj.bgw(), TextUtils.equals(this.fVj.bgk().zG().getUserId(), TbadkCoreApplication.getCurrentAccount()));
-                        this.fVI.aa(this.fVj.bgk());
+                        this.fVI.B(this.fVj.bgv(), TextUtils.equals(this.fVj.bgj().zG().getUserId(), TbadkCoreApplication.getCurrentAccount()));
+                        this.fVI.aa(this.fVj.bgj());
                     }
                 }
                 this.fVI.tp(postData.getId());
@@ -255,24 +255,24 @@ public class o extends k<PostData, p> implements View.OnClickListener {
                 pVar.fWI.getLayoutStrategy().gM(e.f.icon_click);
             }
             pVar.fWI.setIsFromCDN(this.mIsFromCDN);
-            if (this.fVj != null && this.fVj.bgk() != null && this.fVj.bgk().isLinkThread()) {
-                a(pVar, this.fVj.bgk().AY());
+            if (this.fVj != null && this.fVj.bgj() != null && this.fVj.bgj().isLinkThread()) {
+                a(pVar, this.fVj.bgj().AY());
             }
             a(pVar, postData);
-            TbRichText bDu = postData.bDu();
-            if (this.fVj != null && this.fVj.bgJ()) {
-                bDu = null;
+            TbRichText bDt = postData.bDt();
+            if (this.fVj != null && this.fVj.bgI()) {
+                bDt = null;
             }
             if (this.fWz || !this.fWA) {
-                pVar.fWI.setText(bDu, false, this.fVH);
+                pVar.fWI.setText(bDt, false, this.fVH);
             } else {
-                pVar.fWI.setText(bDu, true, this.fVH);
+                pVar.fWI.setText(bDt, true, this.fVH);
             }
-            a(pVar, postData, bDu);
+            a(pVar, postData, bDt);
             boolean z7 = !StringUtils.isNull(postData.zG().getVirtualUserUrl());
             boolean z8 = false;
             boolean z9 = false;
-            if (this.fVj != null && this.fVj.bgw() != 0) {
+            if (this.fVj != null && this.fVj.bgv() != 0) {
                 z8 = true;
                 z9 = true;
                 if (postData.zG() != null) {
@@ -285,8 +285,8 @@ public class o extends k<PostData, p> implements View.OnClickListener {
                     }
                 }
             }
-            if (this.fVj != null && this.fVj.bgk() != null && this.fVj.bgk().zG() != null && postData.zG() != null) {
-                String userId2 = this.fVj.bgk().zG().getUserId();
+            if (this.fVj != null && this.fVj.bgj() != null && this.fVj.bgj().zG() != null && postData.zG() != null) {
+                String userId2 = this.fVj.bgj().zG().getUserId();
                 String userId3 = postData.zG().getUserId();
                 if (UtilHelper.isCurrentAccount(userId2)) {
                     z2 = true;
@@ -313,7 +313,7 @@ public class o extends k<PostData, p> implements View.OnClickListener {
                         z = false;
                     }
                     int i2 = 1;
-                    if (postData.bDs() == 1) {
+                    if (postData.bDr() == 1) {
                         i2 = 0;
                     }
                     sparseArray.put(e.g.tag_forbid_user_post_id, postData.getId());
@@ -325,7 +325,7 @@ public class o extends k<PostData, p> implements View.OnClickListener {
                             sparseArray.put(e.g.tag_forbid_user_portrait, postData.zG().getPortrait());
                         }
                         if (this.fVj != null) {
-                            sparseArray.put(e.g.tag_manage_user_identity, Integer.valueOf(this.fVj.bgw()));
+                            sparseArray.put(e.g.tag_manage_user_identity, Integer.valueOf(this.fVj.bgv()));
                         }
                     } else {
                         sparseArray.put(e.g.tag_should_manage_visible, false);
@@ -338,8 +338,8 @@ public class o extends k<PostData, p> implements View.OnClickListener {
                             sparseArray.put(e.g.tag_user_mute_mute_username, postData.zG().getUserName());
                             sparseArray.put(e.g.tag_user_mute_mute_nameshow, postData.zG().getName_show());
                         }
-                        if (this.fVj != null && this.fVj.bgk() != null) {
-                            sparseArray.put(e.g.tag_user_mute_thread_id, this.fVj.bgk().getId());
+                        if (this.fVj != null && this.fVj.bgj() != null) {
+                            sparseArray.put(e.g.tag_user_mute_thread_id, this.fVj.bgj().getId());
                         }
                         sparseArray.put(e.g.tag_user_mute_post_id, postData.getId());
                     } else {
@@ -351,7 +351,7 @@ public class o extends k<PostData, p> implements View.OnClickListener {
                         sparseArray.put(e.g.tag_del_post_type, Integer.valueOf(i2));
                         sparseArray.put(e.g.tag_del_post_id, postData.getId());
                         if (this.fVj != null) {
-                            sparseArray.put(e.g.tag_manage_user_identity, Integer.valueOf(this.fVj.bgw()));
+                            sparseArray.put(e.g.tag_manage_user_identity, Integer.valueOf(this.fVj.bgv()));
                         }
                     } else {
                         sparseArray.put(e.g.tag_should_delete_visible, false);
@@ -370,7 +370,7 @@ public class o extends k<PostData, p> implements View.OnClickListener {
             if (z7) {
             }
             int i22 = 1;
-            if (postData.bDs() == 1) {
+            if (postData.bDr() == 1) {
             }
             sparseArray.put(e.g.tag_forbid_user_post_id, postData.getId());
             if (!z8) {
@@ -424,10 +424,10 @@ public class o extends k<PostData, p> implements View.OnClickListener {
                     }
                 });
             }
-            pVar.fWM.setData(this.fVj.bgM());
+            pVar.fWM.setData(this.fVj.bgL());
             pVar.fWM.setPageContext(this.fUU.getPageContext());
-            if (postData.bDu() != null) {
-                if (postData.bDu().getImageCount() > 0) {
+            if (postData.bDt() != null) {
+                if (postData.bDt().getImageCount() > 0) {
                     LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) pVar.dRv.getLayoutParams();
                     layoutParams2.topMargin = getDimensionPixelSize(e.C0210e.tbds26);
                     pVar.dRv.setLayoutParams(layoutParams2);
@@ -437,11 +437,11 @@ public class o extends k<PostData, p> implements View.OnClickListener {
                     pVar.dRv.setLayoutParams(layoutParams3);
                 }
             }
-            if (this.fVj.bgk() != null && this.fVj.bgk().Am() != null) {
+            if (this.fVj.bgj() != null && this.fVj.bgj().Am() != null) {
                 pVar.dRv.setVisibility(0);
-                pVar.dRv.setData(this.fVj.bgk().Am());
-                if (this.fVj.bgi() != null) {
-                    pVar.dRv.setForumId(String.valueOf(this.fVj.bgi().getId()));
+                pVar.dRv.setData(this.fVj.bgj().Am());
+                if (this.fVj.bgh() != null) {
+                    pVar.dRv.setForumId(String.valueOf(this.fVj.bgh().getId()));
                 }
                 AppletsCellView appletsCellView = pVar.dRv;
                 AppletsCellView appletsCellView2 = pVar.dRv;
@@ -452,12 +452,12 @@ public class o extends k<PostData, p> implements View.OnClickListener {
 
     private void a(p pVar, PostData postData) {
         if (pVar != null && postData != null) {
-            if (postData.bDD() == null) {
+            if (postData.bDC() == null) {
                 pVar.fWI.getLayoutStrategy().gR(kY(e.C0210e.tbds24));
             } else {
                 pVar.fWI.getLayoutStrategy().gR(kY(e.C0210e.tbds14));
             }
-            pVar.fWN.f(postData.bDD());
+            pVar.fWN.f(postData.bDC());
         }
     }
 
@@ -475,10 +475,10 @@ public class o extends k<PostData, p> implements View.OnClickListener {
     }
 
     private void a(p pVar, PostData postData, TbRichText tbRichText) {
-        if (postData == null || postData.bmY() == null) {
+        if (postData == null || postData.bmX() == null) {
             pVar.fWg.setVisibility(8);
         } else {
-            com.baidu.tieba.pb.view.c.a(postData.bmY(), pVar.fWg, false, true, tbRichText != null && StringUtils.isNull(tbRichText.toString()) && StringUtils.isNull(postData.getBimg_url()));
+            com.baidu.tieba.pb.view.c.a(postData.bmX(), pVar.fWg, false, true, tbRichText != null && StringUtils.isNull(tbRichText.toString()) && StringUtils.isNull(postData.getBimg_url()));
         }
     }
 

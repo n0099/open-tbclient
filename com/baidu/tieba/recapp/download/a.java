@@ -47,7 +47,7 @@ public class a {
     private a() {
     }
 
-    public static a buF() {
+    public static a buE() {
         return gMb;
     }
 

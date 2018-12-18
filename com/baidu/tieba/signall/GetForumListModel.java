@@ -80,7 +80,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
         registerListener(this.hcb);
     }
 
-    public boolean bzS() {
+    public boolean bzR() {
         return this.hca;
     }
 

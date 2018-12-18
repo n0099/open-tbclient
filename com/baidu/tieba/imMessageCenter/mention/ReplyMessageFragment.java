@@ -75,7 +75,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016010 && ReplyMessageFragment.this.ffu != null) {
-                ReplyMessageFragment.this.ffu.aWa();
+                ReplyMessageFragment.this.ffu.aVZ();
             }
         }
     };
@@ -90,13 +90,13 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
                         ReplyMessageFragment.this.ffu.notifyDataSetChanged();
                     }
                 }
-                if (aVar.aWd()) {
+                if (aVar.aWc()) {
                     ReplyMessageFragment.this.b(aVar);
                 } else {
                     ReplyMessageFragment.this.a(aVar);
                 }
-                if (aVar.aWf() != null) {
-                    am x = new am(aVar.aWf()).x("obj_locate", 1);
+                if (aVar.aWe() != null) {
+                    am x = new am(aVar.aWe()).x("obj_locate", 1);
                     if (aVar.getType() == com.baidu.tieba.imMessageCenter.mention.base.a.ffR) {
                         x.x("obj_type", 1);
                     } else {
@@ -113,7 +113,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         registerListener(this.fdS);
         registerListener(this.ffv);
-        aWc();
+        aWb();
         this.fft = new ReplyMeModelController(this);
         this.fft.p(bundle);
         this.fft.setUniqueId(getUniqueId());
@@ -199,11 +199,11 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         }
     }
 
-    public void aWb() {
+    public void aWa() {
         this.ffu.jj(false);
     }
 
-    private void aWc() {
+    private void aWb() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2016322, new CustomMessageTask.CustomRunnable<Boolean>() { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMessageFragment.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {

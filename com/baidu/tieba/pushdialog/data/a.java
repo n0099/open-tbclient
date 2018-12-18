@@ -10,19 +10,19 @@ public class a {
     private b gIx;
     private MetaData gIy;
 
-    public String btA() {
+    public String btz() {
         return this.gIv;
     }
 
-    public String btB() {
+    public String btA() {
         return this.gIw;
     }
 
-    public b btC() {
+    public b btB() {
         return this.gIx;
     }
 
-    public MetaData btD() {
+    public MetaData btC() {
         return this.gIy;
     }
 

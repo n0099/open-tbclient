@@ -57,9 +57,9 @@ public abstract class Draft {
 
     public abstract b b(b bVar) throws InvalidHandshakeException;
 
-    public abstract CloseHandshakeType ccn();
+    public abstract CloseHandshakeType ccm();
 
-    public abstract Draft cco();
+    public abstract Draft ccn();
 
     public abstract List<Framedata> q(ByteBuffer byteBuffer) throws InvalidDataException;
 
@@ -164,7 +164,7 @@ public abstract class Draft {
         iVar.t(byteBuffer);
         iVar.pi(z);
         try {
-            iVar.ccy();
+            iVar.ccx();
             if (z) {
                 this.iAe = null;
             } else {
@@ -187,14 +187,14 @@ public abstract class Draft {
             sb.append(((org.java_websocket.c.a) fVar).getResourceDescriptor());
             sb.append(" HTTP/1.1");
         } else if (fVar instanceof h) {
-            sb.append("HTTP/1.1 101 ").append(((h) fVar).ccG());
+            sb.append("HTTP/1.1 101 ").append(((h) fVar).ccF());
         } else {
             throw new IllegalArgumentException("unknown role");
         }
         sb.append(SystemInfoUtil.LINE_END);
-        Iterator<String> ccH = fVar.ccH();
-        while (ccH.hasNext()) {
-            String next = ccH.next();
+        Iterator<String> ccG = fVar.ccG();
+        while (ccG.hasNext()) {
+            String next = ccG.next();
             String zM = fVar.zM(next);
             sb.append(next);
             sb.append(": ");

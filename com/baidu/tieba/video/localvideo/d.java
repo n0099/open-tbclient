@@ -82,7 +82,7 @@ public class d {
         this.hasLoaded = z;
     }
 
-    public boolean bJE() {
+    public boolean bJD() {
         return this.hasLoaded;
     }
 }

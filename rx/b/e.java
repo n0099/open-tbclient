@@ -134,7 +134,7 @@ public class e<T> implements rx.e<T> {
                             aVar = new a();
                             this.iNh = aVar;
                         }
-                        aVar.add(NotificationLite.cdh());
+                        aVar.add(NotificationLite.cdg());
                         return;
                     }
                     this.emitting = true;

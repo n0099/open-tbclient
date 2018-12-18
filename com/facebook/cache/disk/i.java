@@ -16,7 +16,7 @@ public class i implements com.facebook.cache.common.a {
     private long ify;
     private long ifz;
 
-    public static i bSV() {
+    public static i bSU() {
         synchronized (ift) {
             if (ifu != null) {
                 i iVar = ifu;

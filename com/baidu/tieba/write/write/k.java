@@ -135,7 +135,7 @@ public class k {
                 @Override // android.text.TextWatcher
                 public void afterTextChanged(Editable editable) {
                     if (k.this.iaf.getText().equals(k.this.hZN.getActivity().getString(e.j.tip_url_not_match))) {
-                        k.this.bQi();
+                        k.this.bQh();
                     }
                 }
             });
@@ -148,12 +148,12 @@ public class k {
                 }
             });
             this.bib = new com.baidu.tbadk.core.view.d(this.hZN.getPageContext());
-            bQi();
+            bQh();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bQi() {
+    public void bQh() {
         if (StringUtils.isNull(TbadkCoreApplication.getInst().getUrlText())) {
             this.iaf.setText(e.j.tip_url_post);
         } else {
@@ -177,7 +177,7 @@ public class k {
         } else if (aVar == null) {
             this.hZS.setVisibility(8);
             this.gky.setVisibility(8);
-            bQj();
+            bQi();
         } else {
             if (aVar.hTu == 1) {
                 this.hZS.setVisibility(0);
@@ -226,7 +226,7 @@ public class k {
                 this.hZZ.setText(aVar.linkUrl);
                 al.h(this.hZZ, e.d.cp_cont_b);
             }
-            bQj();
+            bQi();
         }
     }
 
@@ -259,13 +259,13 @@ public class k {
             al.i(this.hZX, e.f.btn_delete_url);
             al.i(this.iac, e.f.btn_delete_url);
             al.i(this.hZU, e.f.btn_delete_url);
-            bQj();
+            bQi();
         }
     }
 
-    public void bQj() {
+    public void bQi() {
         boolean z;
-        if (StringUtils.isNull(bQk())) {
+        if (StringUtils.isNull(bQj())) {
             z = this.hZS.getVisibility() == 0 || this.gky.getVisibility() == 0;
         } else {
             z = true;
@@ -279,18 +279,18 @@ public class k {
         this.hZO.setEnabled(false);
     }
 
-    public String bQk() {
+    public String bQj() {
         if (this.hZQ == null || this.hZQ.getText() == null) {
             return null;
         }
         return this.hZQ.getText().toString();
     }
 
-    public View aUc() {
+    public View aUb() {
         return this.fka;
     }
 
-    public View bQl() {
+    public View bQk() {
         return this.hZO;
     }
 
@@ -298,19 +298,19 @@ public class k {
         return this.amM;
     }
 
-    public EditText bQm() {
+    public EditText bQl() {
         return this.hZQ;
     }
 
-    public View bQn() {
+    public View bQm() {
         return this.hZX;
     }
 
-    public View bQo() {
+    public View bQn() {
         return this.hZU;
     }
 
-    public View bQp() {
+    public View bQo() {
         return this.hZS;
     }
 
@@ -330,7 +330,7 @@ public class k {
         this.hZR.setVisibility(8);
     }
 
-    public void bQq() {
+    public void bQp() {
         this.iaa.setVisibility(8);
         this.iae.setVisibility(8);
         this.hZR.setVisibility(0);
@@ -343,14 +343,14 @@ public class k {
         this.hZR.setOnClickListener(onClickListener);
     }
 
-    public String bQr() {
+    public String bQq() {
         if (this.iab == null || this.iab.getText() == null) {
             return null;
         }
         return this.iab.getText().toString();
     }
 
-    public void bQs() {
+    public void bQr() {
         if (this.iaf != null) {
             this.iaf.setText(e.j.tip_url_not_match);
             al.h(this.iaf, e.d.cp_other_b);
@@ -363,7 +363,7 @@ public class k {
         }
     }
 
-    public View bQt() {
+    public View bQs() {
         return this.iaa;
     }
 

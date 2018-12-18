@@ -269,7 +269,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            PbChosenActivity.this.fOv.bgb();
+            PbChosenActivity.this.fOv.bga();
             PbChosenActivity.this.fOv.fPz = !PbChosenActivity.this.fOv.fPz;
             PbChosenActivity.this.fOv.kt(PbChosenActivity.this.fOv.fPz);
             if (PbChosenActivity.this.fOv.fPz) {
@@ -284,7 +284,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String errorString;
             if (responsedMessage != null) {
-                PbChosenActivity.this.fOv.bgb();
+                PbChosenActivity.this.fOv.bga();
                 if (responsedMessage.hasError()) {
                     if (StringUtils.isNull(responsedMessage.getErrorString())) {
                         errorString = PbChosenActivity.this.getResources().getString(e.j.neterror);
@@ -420,9 +420,9 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         this.fOw = new c(getPageContext().getPageActivity(), this.fOJ);
         this.fOu.a(this.fON);
         this.fOv.a(this.fOM);
-        this.dcL.addHeaderView(this.fOu.bfZ());
+        this.dcL.addHeaderView(this.fOu.bfY());
         BdListViewHelper.a(getActivity(), this.dcL, BdListViewHelper.HeadType.DEFAULT);
-        this.dcL.addFooterView(this.fOv.bga());
+        this.dcL.addFooterView(this.fOv.bfZ());
         this.dcL.addFooterView(this.fOw.getView());
         ayF();
         registerListener(this.fOP);
@@ -432,7 +432,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         registerListener(this.aXz);
         registerListener(this.bVk);
         registerListener(this.fOL);
-        bfV();
+        bfU();
         if (getIntent() != null) {
             this.shareUrl = getIntent().getStringExtra(PbChosenActivityConfig.KEY_SHARE_URL);
             this.from = getIntent().getIntExtra("from", 1);
@@ -489,7 +489,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    private void bfV() {
+    private void bfU() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001314, new com.baidu.tieba.pb.chosen.cache.b());
         CustomMessage customMessage = new CustomMessage(2001314);
         customMessage.setTag(getUniqueId());
@@ -531,7 +531,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    private DataModel<PbChosenActivity> bfW() {
+    private DataModel<PbChosenActivity> bfV() {
         if (this.ffq == null) {
             this.ffq = new DataModel<PbChosenActivity>(getPageContext()) { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.10
                 @Override // com.baidu.adp.base.BdBaseModel
@@ -577,8 +577,8 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getPageContext().getLayoutMode().setNightMode(i == 1);
-        getPageContext().getLayoutMode().onModeChanged(this.fOu.bfZ());
-        getPageContext().getLayoutMode().onModeChanged(this.fOv.bga());
+        getPageContext().getLayoutMode().onModeChanged(this.fOu.bfY());
+        getPageContext().getLayoutMode().onModeChanged(this.fOv.bfZ());
         this.fOw.onChangeSkinType();
         this.fOx.onChangeSkinType();
         if (this.bDP != null) {
@@ -653,7 +653,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
 
     private void E(Bundle bundle) {
         com.baidu.tbadk.editortools.pb.f fVar = new com.baidu.tbadk.editortools.pb.f();
-        fVar.a(bfW());
+        fVar.a(bfV());
         this.fOF = (com.baidu.tbadk.editortools.pb.d) fVar.bM(getActivity());
         this.fOF.b(this);
         this.fOF.a(this.baf);

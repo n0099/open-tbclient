@@ -39,7 +39,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         }
     };
 
-    public boolean bFS() {
+    public boolean bFR() {
         return this.isChanged;
     }
 
@@ -47,7 +47,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         this.isChanged = z;
     }
 
-    public RightSlideViewPager bFT() {
+    public RightSlideViewPager bFS() {
         return this.hrR;
     }
 
@@ -56,7 +56,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
-        bFV();
+        bFU();
         setContentView(e.h.guide_activity_interestfrs);
         initUI();
         initData();
@@ -88,8 +88,8 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
-                if (NewUserGuideActivity.this.hrO.bGb() && i == 0 && f > 0.0f) {
-                    NewUserGuideActivity.this.bFW();
+                if (NewUserGuideActivity.this.hrO.bGa() && i == 0 && f > 0.0f) {
+                    NewUserGuideActivity.this.bFV();
                 }
             }
 
@@ -97,9 +97,9 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
             public void onPageScrollStateChanged(int i) {
                 NewUserGuideIntroduceFragment newUserGuideIntroduceFragment = (NewUserGuideIntroduceFragment) ((FragmentPagerAdapter) NewUserGuideActivity.this.hrR.getAdapter()).getItem(0);
                 if (i == 0) {
-                    newUserGuideIntroduceFragment.bFY();
+                    newUserGuideIntroduceFragment.bFX();
                 } else {
-                    newUserGuideIntroduceFragment.bFZ();
+                    newUserGuideIntroduceFragment.bFY();
                 }
             }
         });
@@ -110,11 +110,11 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     public void onDestroy() {
         super.onDestroy();
         if (this.hrO != null) {
-            this.hrO.bGd();
+            this.hrO.bGc();
         }
     }
 
-    public NewUserGuideModel bFU() {
+    public NewUserGuideModel bFT() {
         return this.hrO;
     }
 
@@ -125,13 +125,13 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            bFW();
+            bFV();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void bFV() {
+    private void bFU() {
         if (Build.VERSION.SDK_INT >= 11) {
             try {
                 Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("FLAG_HARDWARE_ACCELERATED");
@@ -144,7 +144,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         }
     }
 
-    public void bFW() {
+    public void bFV() {
         sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNewUserCfg(1, this.hrQ)));
         finish();
     }

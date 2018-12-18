@@ -332,7 +332,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
 
     public void oy(int i) {
         if (i == 1 && this.etr != null) {
-            this.etr.aKW();
+            this.etr.aKV();
         }
     }
 

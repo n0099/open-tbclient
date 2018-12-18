@@ -29,7 +29,7 @@ public class j {
                     j.this.gCq.bC(duration, currentPosition);
                 }
                 j.this.gCo = currentPosition;
-                j.this.brt();
+                j.this.brs();
             }
         }
     };
@@ -55,7 +55,7 @@ public class j {
 
     public void start() {
         this.gCo = 0;
-        brt();
+        brs();
     }
 
     public void stop() {
@@ -63,7 +63,7 @@ public class j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void brt() {
+    public void brs() {
         this.mHandler.removeMessages(1);
         this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.gCn);
     }

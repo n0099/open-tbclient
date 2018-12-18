@@ -83,7 +83,7 @@ public class b {
         gP(false);
     }
 
-    private void blZ() {
+    private void blY() {
         this.ggq = ObjectAnimator.ofFloat(this.ggw, "translationY", (-this.ggw.getMeasuredHeight()) + this.On.getMeasuredHeight());
         this.ggq.setInterpolator(new LinearInterpolator());
         this.ggq.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.pb.main.b.b.2
@@ -163,7 +163,7 @@ public class b {
         this.ggv.play(this.ggq).with(this.ggt);
     }
 
-    private void bma() {
+    private void blZ() {
         this.ggr = ObjectAnimator.ofFloat(this.ggw, "translationY", 0.0f);
         this.ggr.setInterpolator(new LinearInterpolator());
         this.ggr.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.pb.main.b.b.5
@@ -261,7 +261,7 @@ public class b {
             }
             this.ggw.setVisibility(0);
             if (this.ggv == null) {
-                blZ();
+                blY();
             }
             if (this.ggv != null) {
                 this.ggv.cancel();
@@ -274,7 +274,7 @@ public class b {
         if (this.ggw != null && this.ggw.getY() < 0.0f && !aCE()) {
             this.ggw.setVisibility(0);
             if (this.ggu == null) {
-                bma();
+                blZ();
             }
             if (this.ggu != null) {
                 this.ggu.cancel();
@@ -309,7 +309,7 @@ public class b {
         if (this.dLL) {
             if (this.aVk) {
                 gP(true);
-            } else if (this.ggw != null && !this.ggA && !this.gdS && bmb()) {
+            } else if (this.ggw != null && !this.ggA && !this.gdS && bma()) {
                 Log.i("PbView", "hideFloatingView: startDragDown");
                 Qb();
             }
@@ -320,14 +320,14 @@ public class b {
         if (this.dLL) {
             if (this.aVk) {
                 gP(true);
-            } else if (this.ggw != null && !bmb()) {
+            } else if (this.ggw != null && !bma()) {
                 Log.i("PbView", "showFloatingView: startDragUp");
                 Qa();
             }
         }
     }
 
-    public boolean bmb() {
+    public boolean bma() {
         return this.ggw.getVisibility() == 0 && this.ggw.getY() >= 0.0f;
     }
 
@@ -341,10 +341,10 @@ public class b {
 
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         if (this.dLL && this.ggw != null && !this.ggA && !this.gdS && this.ggz) {
-            if (i > this.biJ && bmb()) {
+            if (i > this.biJ && bma()) {
                 Log.i("PbView", "onScroll hideFloatingView");
                 hideFloatingView();
-            } else if (i < this.biJ && !bmb()) {
+            } else if (i < this.biJ && !bma()) {
                 Log.i("PbView", "onScroll showFloatingView");
                 showFloatingView();
             }

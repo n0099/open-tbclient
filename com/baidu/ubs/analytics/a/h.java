@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 final class h {
-    private SQLiteDatabase icw = f.bRL().getDatabase();
+    private SQLiteDatabase icw = f.bRK().getDatabase();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final List<i> bRK() {
+    public final List<i> bRJ() {
         Cursor rawQuery = this.icw.rawQuery("SELECT * FROM tb_ab_netlog order by _id ", null);
         ArrayList arrayList = new ArrayList();
         while (rawQuery.moveToNext()) {

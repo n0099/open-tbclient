@@ -68,7 +68,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         setContentView(e.h.video_play_activity);
         registerListener(this.hKK);
         initData();
-        bLr();
+        bLq();
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
     }
@@ -110,7 +110,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         }
     }
 
-    private void bLr() {
+    private void bLq() {
         this.hKI = new VideoPlayView(this, this.bUG);
         this.hKI.a(new VideoPlayView.a() { // from class: com.baidu.tieba.videoplay.VideoPlayActivity.2
             @Override // com.baidu.tieba.videoplay.VideoPlayView.a
@@ -192,7 +192,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         VideoItemData videoItemData;
         if (i == 4) {
-            if (this.hKI == null || !this.hKI.bLE()) {
+            if (this.hKI == null || !this.hKI.bLD()) {
                 if (this.hKI.hLP != this.hKI.hLO && this.hKI.hLO >= 0 && this.hKI.hLO < this.hKJ.size() && (videoItemData = this.hKJ.get(this.hKI.hLO)) != null && !StringUtils.isNull(videoItemData.thread_id)) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921321, videoItemData.thread_id));
                 }

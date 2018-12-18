@@ -21,7 +21,7 @@ public class c {
     static {
         igK = Build.VERSION.SDK_INT <= 17;
         igL = Build.VERSION.SDK_INT >= 14;
-        igM = bTE();
+        igM = bTD();
         igN = null;
         igO = false;
         igP = zh("RIFF");
@@ -31,7 +31,7 @@ public class c {
         igT = zh("VP8X");
     }
 
-    public static b bTD() {
+    public static b bTC() {
         b bVar;
         if (igO) {
             return igN;
@@ -53,7 +53,7 @@ public class c {
         }
     }
 
-    private static boolean bTE() {
+    private static boolean bTD() {
         if (Build.VERSION.SDK_INT < 17) {
             return false;
         }

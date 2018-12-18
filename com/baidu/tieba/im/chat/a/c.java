@@ -180,7 +180,7 @@ public abstract class c extends BaseAdapter {
         al.c(aVar.eJl, e.d.cp_cont_d, 1);
     }
 
-    public boolean aOx() {
+    public boolean aOw() {
         return this.eJg;
     }
 

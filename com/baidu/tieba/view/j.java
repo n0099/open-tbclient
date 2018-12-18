@@ -194,7 +194,7 @@ public class j {
         this.amN.setTextSize(0, l.h(this.hMG, i));
     }
 
-    public d bMc() {
+    public d bMb() {
         return this.hNO;
     }
 
@@ -244,7 +244,7 @@ public class j {
         }
     }
 
-    public View bLZ() {
+    public View bLY() {
         if (!StringUtils.isNull(this.titleText)) {
             this.amN.setText(this.titleText);
         } else {
@@ -280,8 +280,8 @@ public class j {
                 if (a.this.hNU != null) {
                     a.this.hNU.onClick();
                 }
-                if (a.this.hNT != null && a.this.hNT.bMc() != null) {
-                    a.this.hNT.bMc().hQ(a.this.mId);
+                if (a.this.hNT != null && a.this.hNT.bMb() != null) {
+                    a.this.hNT.bMb().hQ(a.this.mId);
                 }
             }
         };

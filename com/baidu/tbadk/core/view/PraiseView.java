@@ -84,7 +84,7 @@ public class PraiseView extends BasePraiseView<bb> {
             ((bb) this.mData).cW(1);
             ((bb) this.mData).C(((bb) this.mData).AS() + 1);
             ((bb) this.mData).cY(2);
-            com.baidu.tieba.n.a.buh().y(getTbPageContext());
+            com.baidu.tieba.n.a.bug().y(getTbPageContext());
             i = 0;
         }
         return i;

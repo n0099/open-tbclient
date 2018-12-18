@@ -16,7 +16,7 @@ public class TbJPushReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         try {
-            if (com.baidu.tieba.q.b.bGj().bGk()) {
+            if (com.baidu.tieba.q.b.bGi().bGj()) {
                 Bundle extras = intent.getExtras();
                 if (JPushInterface.ACTION_REGISTRATION_ID.equals(intent.getAction())) {
                     extras.getString(JPushInterface.EXTRA_REGISTRATION_ID);

@@ -127,7 +127,7 @@ public final class OperatorPublish<T> extends rx.observables.c<T> {
         final Queue<Object> queue;
 
         public a(AtomicReference<a<T>> atomicReference) {
-            this.queue = rx.internal.util.a.ae.ceG() ? new rx.internal.util.a.q<>(rx.internal.util.h.SIZE) : new rx.internal.util.atomic.c<>(rx.internal.util.h.SIZE);
+            this.queue = rx.internal.util.a.ae.ceF() ? new rx.internal.util.a.q<>(rx.internal.util.h.SIZE) : new rx.internal.util.atomic.c<>(rx.internal.util.h.SIZE);
             this.iGO = new AtomicReference<>(iGM);
             this.iGF = atomicReference;
             this.iGP = new AtomicBoolean();
@@ -153,7 +153,7 @@ public final class OperatorPublish<T> extends rx.observables.c<T> {
             if (!this.queue.offer(NotificationLite.aY(t))) {
                 onError(new MissingBackpressureException());
             } else {
-                cde();
+                cdd();
             }
         }
 
@@ -161,15 +161,15 @@ public final class OperatorPublish<T> extends rx.observables.c<T> {
         public void onError(Throwable th) {
             if (this.iGL == null) {
                 this.iGL = NotificationLite.M(th);
-                cde();
+                cdd();
             }
         }
 
         @Override // rx.e
         public void onCompleted() {
             if (this.iGL == null) {
-                this.iGL = NotificationLite.cdh();
-                cde();
+                this.iGL = NotificationLite.cdg();
+                cdd();
             }
         }
 
@@ -267,7 +267,7 @@ public final class OperatorPublish<T> extends rx.observables.c<T> {
         /* JADX WARN: Multi-variable type inference failed */
         /* JADX WARN: Type inference failed for: r3v1, types: [java.util.Queue, java.util.Queue<java.lang.Object>] */
         /* JADX WARN: Type inference failed for: r3v13, types: [int] */
-        void cde() {
+        void cdd() {
             int i;
             boolean z;
             synchronized (this) {
@@ -418,7 +418,7 @@ public final class OperatorPublish<T> extends rx.observables.c<T> {
                         return;
                     }
                 } while (!compareAndSet(j2, j3));
-                this.parent.cde();
+                this.parent.cdd();
             }
         }
 
@@ -453,7 +453,7 @@ public final class OperatorPublish<T> extends rx.observables.c<T> {
         public void unsubscribe() {
             if (get() != Long.MIN_VALUE && getAndSet(Long.MIN_VALUE) != Long.MIN_VALUE) {
                 this.parent.b(this);
-                this.parent.cde();
+                this.parent.cdd();
             }
         }
     }

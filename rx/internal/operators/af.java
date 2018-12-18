@@ -22,7 +22,7 @@ public final class af<T, TClosing> implements d.b<List<T>, T> {
         this.iEf = new rx.functions.e<rx.d<? extends TClosing>>() { // from class: rx.internal.operators.af.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.e, java.util.concurrent.Callable
-            /* renamed from: cdn */
+            /* renamed from: cdm */
             public rx.d<? extends TClosing> call() {
                 return dVar;
             }
@@ -56,7 +56,7 @@ public final class af<T, TClosing> implements d.b<List<T>, T> {
             return aVar;
         } catch (Throwable th) {
             rx.exceptions.a.a(th, jVar);
-            return rx.b.g.ceN();
+            return rx.b.g.ceM();
         }
     }
 

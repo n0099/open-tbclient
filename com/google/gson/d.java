@@ -105,7 +105,7 @@ public final class d {
             @Override // com.google.gson.o
             /* renamed from: a */
             public Double b(com.google.gson.stream.a aVar) throws IOException {
-                if (aVar.caH() == JsonToken.NULL) {
+                if (aVar.caG() == JsonToken.NULL) {
                     aVar.nextNull();
                     return null;
                 }
@@ -116,7 +116,7 @@ public final class d {
             @Override // com.google.gson.o
             public void a(com.google.gson.stream.b bVar, Number number) throws IOException {
                 if (number == null) {
-                    bVar.caS();
+                    bVar.caR();
                     return;
                 }
                 d.p(number.doubleValue());
@@ -131,7 +131,7 @@ public final class d {
             @Override // com.google.gson.o
             /* renamed from: c */
             public Float b(com.google.gson.stream.a aVar) throws IOException {
-                if (aVar.caH() == JsonToken.NULL) {
+                if (aVar.caG() == JsonToken.NULL) {
                     aVar.nextNull();
                     return null;
                 }
@@ -142,7 +142,7 @@ public final class d {
             @Override // com.google.gson.o
             public void a(com.google.gson.stream.b bVar, Number number) throws IOException {
                 if (number == null) {
-                    bVar.caS();
+                    bVar.caR();
                     return;
                 }
                 d.p(number.floatValue());
@@ -163,7 +163,7 @@ public final class d {
             @Override // com.google.gson.o
             /* renamed from: d */
             public Number b(com.google.gson.stream.a aVar) throws IOException {
-                if (aVar.caH() == JsonToken.NULL) {
+                if (aVar.caG() == JsonToken.NULL) {
                     aVar.nextNull();
                     return null;
                 }
@@ -174,7 +174,7 @@ public final class d {
             @Override // com.google.gson.o
             public void a(com.google.gson.stream.b bVar, Number number) throws IOException {
                 if (number == null) {
-                    bVar.caS();
+                    bVar.caR();
                 } else {
                     bVar.zu(number.toString());
                 }
@@ -196,7 +196,7 @@ public final class d {
             public AtomicLong b(com.google.gson.stream.a aVar) throws IOException {
                 return new AtomicLong(((Number) o.this.b(aVar)).longValue());
             }
-        }.cap();
+        }.cao();
     }
 
     private static o<AtomicLongArray> b(final o<Number> oVar) {
@@ -204,12 +204,12 @@ public final class d {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.o
             public void a(com.google.gson.stream.b bVar, AtomicLongArray atomicLongArray) throws IOException {
-                bVar.caO();
+                bVar.caN();
                 int length = atomicLongArray.length();
                 for (int i = 0; i < length; i++) {
                     o.this.a(bVar, Long.valueOf(atomicLongArray.get(i)));
                 }
-                bVar.caP();
+                bVar.caO();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -229,7 +229,7 @@ public final class d {
                 }
                 return atomicLongArray;
             }
-        }.cap();
+        }.cao();
     }
 
     public <T> o<T> a(com.google.gson.b.a<T> aVar) {
@@ -321,9 +321,9 @@ public final class d {
         o a2 = a(com.google.gson.b.a.l(type));
         boolean isLenient = bVar.isLenient();
         bVar.setLenient(true);
-        boolean cbe = bVar.cbe();
+        boolean cbd = bVar.cbd();
         bVar.pf(this.isU);
-        boolean cbf = bVar.cbf();
+        boolean cbe = bVar.cbe();
         bVar.pg(this.isT);
         try {
             try {
@@ -333,8 +333,8 @@ public final class d {
             }
         } finally {
             bVar.setLenient(isLenient);
-            bVar.pf(cbe);
-            bVar.pg(cbf);
+            bVar.pf(cbd);
+            bVar.pg(cbe);
         }
     }
 
@@ -373,9 +373,9 @@ public final class d {
     public void a(i iVar, com.google.gson.stream.b bVar) throws JsonIOException {
         boolean isLenient = bVar.isLenient();
         bVar.setLenient(true);
-        boolean cbe = bVar.cbe();
+        boolean cbd = bVar.cbd();
         bVar.pf(this.isU);
-        boolean cbf = bVar.cbf();
+        boolean cbe = bVar.cbe();
         bVar.pg(this.isT);
         try {
             try {
@@ -385,8 +385,8 @@ public final class d {
             }
         } finally {
             bVar.setLenient(isLenient);
-            bVar.pf(cbe);
-            bVar.pg(cbf);
+            bVar.pf(cbd);
+            bVar.pg(cbe);
         }
     }
 
@@ -411,7 +411,7 @@ public final class d {
     private static void a(Object obj, com.google.gson.stream.a aVar) {
         if (obj != null) {
             try {
-                if (aVar.caH() != JsonToken.END_DOCUMENT) {
+                if (aVar.caG() != JsonToken.END_DOCUMENT) {
                     throw new JsonIOException("JSON document was not fully consumed.");
                 }
             } catch (MalformedJsonException e) {
@@ -428,7 +428,7 @@ public final class d {
         aVar.setLenient(true);
         try {
             try {
-                aVar.caH();
+                aVar.caG();
                 z = false;
                 T b = a(com.google.gson.b.a.l(type)).b(aVar);
                 aVar.setLenient(isLenient);

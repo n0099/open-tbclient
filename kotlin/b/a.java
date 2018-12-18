@@ -26,13 +26,13 @@ public class a implements Iterable<Integer> {
         return this.iyw;
     }
 
-    public final int cbS() {
+    public final int cbR() {
         return this.step;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: cbT */
+    /* renamed from: cbS */
     public y iterator() {
         return new b(this.iyv, this.iyw, this.step);
     }

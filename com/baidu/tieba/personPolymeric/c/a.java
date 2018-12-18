@@ -62,13 +62,13 @@ public abstract class a {
     protected ArrayList<com.baidu.adp.widget.ListView.h> gxN = new ArrayList<>();
     private ArrayList<n> gxO = new ArrayList<>();
 
-    public abstract void bqr();
+    public abstract void bqq();
 
     public a(boolean z) {
         this.isHost = z;
     }
 
-    public boolean aUL() {
+    public boolean aUK() {
         return this.gxB;
     }
 
@@ -115,7 +115,7 @@ public abstract class a {
                 aVar.a(cVar.getBookrackData());
                 this.grJ = new com.baidu.tieba.person.data.d(true, aVar);
             }
-            if (!v.I(cVar.getConcernedForumList()) && !this.isHost && !bqs()) {
+            if (!v.I(cVar.getConcernedForumList()) && !this.isHost && !bqr()) {
                 dv(cVar.getConcernedForumList());
             }
             if (this.gxL == null) {
@@ -179,7 +179,7 @@ public abstract class a {
                 this.mCardNullPolymericData.isHost = this.isHost;
             }
             if (this.isHost) {
-                boI();
+                boH();
                 this.maskType = cVar.getMaskType();
             }
             if (this.grI == null) {
@@ -205,7 +205,7 @@ public abstract class a {
 
     private void a(DynamicInfo dynamicInfo, Random random, boolean z, boolean z2, boolean z3) {
         ThreadInfo threadInfo;
-        if ((!bqt() || this.isHost) && (threadInfo = dynamicInfo.thread_dynamic) != null) {
+        if ((!bqs() || this.isHost) && (threadInfo = dynamicInfo.thread_dynamic) != null) {
             if (this.gxM == null) {
                 this.gxM = new ArrayList();
             }
@@ -225,7 +225,7 @@ public abstract class a {
     }
 
     private void a(PostInfoList postInfoList, Random random) {
-        if (!bqt() || this.isHost) {
+        if (!bqs() || this.isHost) {
             if (this.gxP == null) {
                 this.gxP = new ArrayList<>();
             }
@@ -271,7 +271,7 @@ public abstract class a {
 
     private void b(DynamicInfo dynamicInfo, boolean z) {
         ForumDynamic forumDynamic;
-        if ((!bqs() || this.isHost) && (forumDynamic = dynamicInfo.forum_dynamic) != null) {
+        if ((!bqr() || this.isHost) && (forumDynamic = dynamicInfo.forum_dynamic) != null) {
             if (this.gxM == null) {
                 this.gxM = new ArrayList();
             }
@@ -292,7 +292,7 @@ public abstract class a {
         }
     }
 
-    public List<com.baidu.adp.widget.ListView.h> bqi() {
+    public List<com.baidu.adp.widget.ListView.h> bqh() {
         if (this.gxH == null) {
             return null;
         }
@@ -315,7 +315,7 @@ public abstract class a {
         }
     }
 
-    private boolean bqs() {
+    private boolean bqr() {
         if (this.isHost) {
             return false;
         }
@@ -325,7 +325,7 @@ public abstract class a {
         return this.gxC == 2 && !this.gxB;
     }
 
-    public boolean bqt() {
+    public boolean bqs() {
         if (this.isHost) {
             return false;
         }
@@ -342,7 +342,7 @@ public abstract class a {
         return dVar;
     }
 
-    public void bqu() {
+    public void bqt() {
         this.gxB = true;
         this.sex = 1;
         this.gxC = 1;
@@ -384,31 +384,31 @@ public abstract class a {
         return this.aNL;
     }
 
-    public AlaLiveInfoCoreData bqv() {
+    public AlaLiveInfoCoreData bqu() {
         return this.gxJ;
     }
 
-    public List<AlaLiveInfoCoreData> bqw() {
+    public List<AlaLiveInfoCoreData> bqv() {
         return this.gxK;
     }
 
-    public ArrayList<com.baidu.adp.widget.ListView.h> aMK() {
+    public ArrayList<com.baidu.adp.widget.ListView.h> aMJ() {
         return this.gxN;
     }
 
-    public c bqx() {
+    public c bqw() {
         return this.gxG;
     }
 
-    public g bqy() {
+    public g bqx() {
         return this.gxL;
     }
 
-    public PersonUserGodInfo bqz() {
+    public PersonUserGodInfo bqy() {
         return this.grI;
     }
 
-    private void boI() {
+    private void boH() {
         this.gxO.clear();
         this.gxS = X(e.f.icon_starer_caise_heibai, e.j.mark, 20);
         this.gxS.dqO = new Bundle();

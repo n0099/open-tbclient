@@ -16,7 +16,7 @@ public final class an<T> implements d.b<T, Notification<T>> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static an cds() {
+    public static an cdr() {
         return a.iEX;
     }
 
@@ -31,7 +31,7 @@ public final class an<T> implements d.b<T, Notification<T>> {
             @Override // rx.e
             /* renamed from: b */
             public void onNext(Notification<T> notification) {
-                switch (AnonymousClass2.iEW[notification.ccP().ordinal()]) {
+                switch (AnonymousClass2.iEW[notification.ccO().ordinal()]) {
                     case 1:
                         if (!this.terminated) {
                             jVar.onNext(notification.getValue());
@@ -39,7 +39,7 @@ public final class an<T> implements d.b<T, Notification<T>> {
                         }
                         return;
                     case 2:
-                        onError(notification.ccN());
+                        onError(notification.ccM());
                         return;
                     case 3:
                         onCompleted();

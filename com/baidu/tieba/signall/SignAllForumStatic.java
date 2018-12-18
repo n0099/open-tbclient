@@ -14,10 +14,10 @@ public class SignAllForumStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumActivityConfig.class, SignAllForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumAdvertActivityConfig.class, SignAllForumAdvertActivity.class);
-        bAk();
+        bAj();
     }
 
-    private static void bAk() {
+    private static void bAj() {
         ay.Ef().a(new ay.a() { // from class: com.baidu.tieba.signall.SignAllForumStatic.1
             @Override // com.baidu.tbadk.core.util.ay.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {

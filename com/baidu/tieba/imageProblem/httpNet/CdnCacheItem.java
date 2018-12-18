@@ -99,7 +99,7 @@ public class CdnCacheItem implements Serializable {
                 this.ipHashMap.remove(tBIPListItem.cdnIp);
                 this.ipList.remove(i2);
                 long currentTimeMillis = System.currentTimeMillis();
-                aWV();
+                aWU();
                 this.disableIpMap.put(tBIPListItem.cdnIp, Long.valueOf(currentTimeMillis));
             }
             if (tBIPListItem.ipRank < 0) {
@@ -150,7 +150,7 @@ public class CdnCacheItem implements Serializable {
     public void setIpList(ArrayList<String> arrayList, boolean z, boolean z2) {
         if (arrayList != null && arrayList.size() != 0) {
             synchronized (mLock) {
-                aWV();
+                aWU();
                 if (z2) {
                     this.ipList.clear();
                     this.ipHashMap.clear();
@@ -160,7 +160,7 @@ public class CdnCacheItem implements Serializable {
                 for (int i = 0; i < size; i++) {
                     String str = arrayList.get(i);
                     Long l = this.disableIpMap.get(str);
-                    if (l != null && System.currentTimeMillis() - l.longValue() >= aWW()) {
+                    if (l != null && System.currentTimeMillis() - l.longValue() >= aWV()) {
                         this.disableIpMap.remove(str);
                     }
                     if (this.ipHashMap.get(str) == null && this.disableIpMap.get(str) == null) {
@@ -174,13 +174,13 @@ public class CdnCacheItem implements Serializable {
         }
     }
 
-    private void aWV() {
+    private void aWU() {
         if (this.disableIpMap == null) {
             this.disableIpMap = new HashMap<>();
         }
     }
 
-    private int aWW() {
+    private int aWV() {
         if (this.ipDisableTime < 0) {
             return 3600000;
         }

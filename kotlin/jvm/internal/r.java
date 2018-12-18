@@ -12,19 +12,19 @@ public final class r implements l {
     }
 
     @Override // kotlin.jvm.internal.l
-    public Class<?> cbM() {
+    public Class<?> cbL() {
         return this.iyr;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof r) && p.h(cbM(), ((r) obj).cbM());
+        return (obj instanceof r) && p.h(cbL(), ((r) obj).cbL());
     }
 
     public int hashCode() {
-        return cbM().hashCode();
+        return cbL().hashCode();
     }
 
     public String toString() {
-        return cbM().toString() + " (Kotlin reflection is not available)";
+        return cbL().toString() + " (Kotlin reflection is not available)";
     }
 }

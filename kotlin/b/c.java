@@ -10,11 +10,11 @@ public final class c extends kotlin.b.a {
         super(i, i2, 1);
     }
 
-    public Integer cbU() {
+    public Integer cbT() {
         return Integer.valueOf(getFirst());
     }
 
-    public Integer cbV() {
+    public Integer cbU() {
         return Integer.valueOf(getLast());
     }
 
@@ -50,7 +50,7 @@ public final class c extends kotlin.b.a {
             this();
         }
 
-        public final c cbX() {
+        public final c cbW() {
             return c.iyA;
         }
     }

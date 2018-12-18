@@ -84,7 +84,7 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     public void setImageURI(Uri uri, @Nullable Object obj) {
-        setController(this.mSimpleDraweeControllerBuilder.aC(obj).u(uri).b(getController()).bUE());
+        setController(this.mSimpleDraweeControllerBuilder.aC(obj).u(uri).b(getController()).bUD());
     }
 
     public void setImageURI(@Nullable String str, @Nullable Object obj) {

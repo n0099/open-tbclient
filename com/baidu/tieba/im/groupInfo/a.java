@@ -243,63 +243,63 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
         this.eTk.setVisibility(8);
     }
 
-    public RelativeLayout aSj() {
+    public RelativeLayout aSi() {
         return this.eTN;
     }
 
-    public RelativeLayout aSk() {
+    public RelativeLayout aSj() {
         return this.eTj;
     }
 
-    public LinearLayout aSl() {
+    public LinearLayout aSk() {
         return this.eTw;
     }
 
-    public RelativeLayout aSm() {
+    public RelativeLayout aSl() {
         return this.eTA;
     }
 
-    public RelativeLayout aSn() {
+    public RelativeLayout aSm() {
         return this.eTM;
     }
 
-    public RelativeLayout aSo() {
+    public RelativeLayout aSn() {
         return this.eTJ;
     }
 
-    public RelativeLayout aSp() {
+    public RelativeLayout aSo() {
         return this.eTc;
     }
 
-    public View aSq() {
+    public View aSp() {
         return this.eTG;
     }
 
-    public LinearLayout aSr() {
+    public LinearLayout aSq() {
         return this.eTT;
     }
 
-    public RelativeLayout aSs() {
+    public RelativeLayout aSr() {
         return this.eTl;
     }
 
-    public RelativeLayout aSt() {
+    public RelativeLayout aSs() {
         return this.eTm;
     }
 
-    public RelativeLayout aSu() {
+    public RelativeLayout aSt() {
         return this.eTq;
     }
 
-    public View aRe() {
+    public View aRd() {
         return this.eHK;
     }
 
-    public void aSv() {
+    public void aSu() {
         this.eTb.setVisibility(8);
     }
 
-    public void aSw() {
+    public void aSv() {
         this.eTb.setVisibility(0);
     }
 
@@ -323,7 +323,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
         }
     }
 
-    public RelativeLayout aSx() {
+    public RelativeLayout aSw() {
         return this.eTv;
     }
 
@@ -334,15 +334,15 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
     public void a(ResponseGroupInfoLocalMessage.a aVar, boolean z) {
         if (aVar != null) {
             this.isMemGroup = aVar.isMemGroup();
-            this.dzM = aVar.aTh();
-            this.eTY = aVar.aTi();
+            this.dzM = aVar.aTg();
+            this.eTY = aVar.aTh();
             this.eTW = aVar;
             this.eTX = z;
             if (aVar.getGroup() != null) {
                 gid = aVar.getGroup().getGroupId();
             }
-            if (aVar.aTc() != null) {
-                eTZ = aVar.aTc().getActivityId();
+            if (aVar.aTb() != null) {
+                eTZ = aVar.aTb().getActivityId();
             }
             if (TbadkApplication.getInst().getSkinType() == 1) {
             }
@@ -395,7 +395,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
                     this.eTj.setVisibility(8);
                 }
                 this.eTn.removeAllViews();
-                boolean aTj = aVar.aTj();
+                boolean aTi = aVar.aTi();
                 boolean isMemGroup = aVar.isMemGroup();
                 if (isMemGroup) {
                     al.c(this.eTV, e.d.common_color_10009, 1);
@@ -419,18 +419,18 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
                     }
                     this.eTn.addView(imageView2);
                 }
-                if (aTj) {
+                if (aTi) {
                     this.eTS.setVisibility(0);
                 } else {
                     this.eTS.setVisibility(8);
                 }
             }
-            if (aVar.aTc() != null) {
+            if (aVar.aTb() != null) {
                 this.eTc.setVisibility(0);
                 this.eTa.setVisibility(0);
-                GroupActivityData aTc = aVar.aTc();
-                if (!aVar.aTh()) {
-                    if (aTc.getIsEnd() != 1) {
+                GroupActivityData aTb = aVar.aTb();
+                if (!aVar.aTg()) {
+                    if (aTb.getIsEnd() != 1) {
                         this.eTd.setVisibility(4);
                         this.eTe.setText(e.j.group_info_activity_not_join_tip);
                     } else {
@@ -439,17 +439,17 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
                     }
                 } else {
                     this.eTd.setVisibility(0);
-                    this.eTe.setText(aTc.getgActivityTitle());
-                    if (aTc.getIsEnd() != 1) {
+                    this.eTe.setText(aTb.getgActivityTitle());
+                    if (aTb.getIsEnd() != 1) {
                         this.eTd.setText(e.j.group_info_activity_doing);
                         al.c(this.eTd, e.d.common_color_10171, 1);
                     } else {
                         this.eTd.setText(e.j.group_activity_end);
                         al.c(this.eTd, e.d.common_color_10168, 1);
                     }
-                    this.eTe.setText(aTc.getgActivityTitle());
+                    this.eTe.setText(aTb.getgActivityTitle());
                 }
-            } else if (aVar.aTi()) {
+            } else if (aVar.aTh()) {
                 this.eTc.setVisibility(0);
                 this.eTa.setVisibility(0);
                 this.eTd.setVisibility(4);
@@ -459,12 +459,12 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
                 this.eTa.setVisibility(8);
             }
             this.eTw.removeAllViews();
-            if (aVar.aTd() != null && aVar.aTd().size() > 0) {
-                List<MemberData> aTd = aVar.aTd();
-                int size = aTd.size();
+            if (aVar.aTc() != null && aVar.aTc().size() > 0) {
+                List<MemberData> aTc = aVar.aTc();
+                int size = aTc.size();
                 int i2 = size > 5 ? 5 : size;
                 for (int i3 = 0; i3 < i2; i3++) {
-                    MemberData memberData = aTd.get(i3);
+                    MemberData memberData = aTc.get(i3);
                     HeadImageView headImageView = this.eTx[i3];
                     if (headImageView == null) {
                         headImageView = new HeadImageView(this.eSZ.getPageContext().getPageActivity());
@@ -481,7 +481,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
                     }
                 }
             }
-            if (aVar.aTi()) {
+            if (aVar.aTh()) {
                 this.eTv.setEnabled(true);
                 this.eTM.setEnabled(true);
                 al.i(this.eTM, e.f.group_info_item);
@@ -499,7 +499,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
                 this.eTO.setVisibility(8);
                 this.eTh.setPadding(0, 0, 0, 0);
             }
-            if (aVar.aTh()) {
+            if (aVar.aTg()) {
                 this.eTB.setVisibility(0);
                 this.eTU.setVisibility(0);
                 if (this.eTq.getParent() != this.eTB) {
@@ -512,7 +512,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
                     this.eTD.removeView(this.eTq);
                     this.eTB.addView(this.eTq, 1);
                 }
-                aSy();
+                aSx();
             } else {
                 this.eTB.setVisibility(8);
                 this.eTU.setVisibility(8);
@@ -531,9 +531,9 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
             }
             a(aVar);
             if (aVar.getGroup().getIsHidePosition() == 1) {
-                iH(aVar.aTi());
+                iH(aVar.aTh());
             } else {
-                h(aVar.aTi(), this.eTH);
+                h(aVar.aTh(), this.eTH);
             }
             this.bHu.setVisibility(0);
             this.eTy.setVisibility(0);
@@ -545,12 +545,12 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
             if (qc(aVar.getGroup().getFlag())) {
                 iI(z);
             } else {
-                aSz();
+                aSy();
             }
         }
     }
 
-    public void aSy() {
+    public void aSx() {
         this.eTz.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(e.f.icon_brief_jinba), (Drawable) null, (Drawable) null, (Drawable) null);
         al.c(this.eTz, e.d.cp_cont_i, 1);
         this.eTz.setText(this.eSZ.getPageContext().getString(e.j.i_want_talk));
@@ -574,7 +574,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
         return ((i & 2) >> 1) != 1;
     }
 
-    private void aSz() {
+    private void aSy() {
         this.eTz.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
         this.eTz.setText(this.eSZ.getPageContext().getString(e.j.group_info_refuse_join));
         this.eTz.setTextColor(this.eSZ.getResources().getColorStateList(e.d.cp_cont_i));
@@ -597,21 +597,21 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
 
     public void a(ResponseGroupInfoLocalMessage.a aVar) {
         if (aVar != null) {
-            this.eTk.setIsManager(aVar.aTi());
-            if (aVar.aTi()) {
+            this.eTk.setIsManager(aVar.aTh());
+            if (aVar.aTh()) {
                 this.eTk.setVisibility(0);
-                if (aVar.aTe() != null && aVar.aTe().size() == 1 && TextUtils.isEmpty(aVar.aTe().get(0).getPicId())) {
+                if (aVar.aTd() != null && aVar.aTd().size() == 1 && TextUtils.isEmpty(aVar.aTd().get(0).getPicId())) {
                     this.eTk.setData(null);
                 } else {
-                    this.eTk.setData(aVar.aTe());
+                    this.eTk.setData(aVar.aTd());
                 }
-            } else if (aVar.aTe() != null && aVar.aTe().size() > 0) {
-                if (aVar.aTe().size() == 1 && TextUtils.isEmpty(aVar.aTe().get(0).getPicId())) {
+            } else if (aVar.aTd() != null && aVar.aTd().size() > 0) {
+                if (aVar.aTd().size() == 1 && TextUtils.isEmpty(aVar.aTd().get(0).getPicId())) {
                     this.eTk.setVisibility(8);
                     return;
                 }
                 this.eTk.setVisibility(0);
-                this.eTk.setData(aVar.aTe());
+                this.eTk.setData(aVar.aTd());
             } else {
                 this.eTk.setVisibility(8);
             }
@@ -631,7 +631,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
         this.eTE.BI();
     }
 
-    public void aSA() {
+    public void aSz() {
         this.eTE.dismiss();
     }
 
@@ -719,7 +719,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
         }
     }
 
-    public void aSB() {
+    public void aSA() {
         ColorStateList dN = al.dN(e.d.cp_cont_i);
         if (dN != null) {
             this.eTz.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(e.f.icon_brief_attention_disable), (Drawable) null, (Drawable) null, (Drawable) null);

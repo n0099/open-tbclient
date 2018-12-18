@@ -35,7 +35,7 @@ public class l extends Drawable implements j {
     @Override // android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
-        bUR();
+        bUQ();
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -54,7 +54,7 @@ public class l extends Drawable implements j {
     @Override // com.facebook.drawee.drawable.j
     public void oU(boolean z) {
         this.ijh = z;
-        bUR();
+        bUQ();
         invalidateSelf();
     }
 
@@ -66,7 +66,7 @@ public class l extends Drawable implements j {
             com.facebook.common.internal.g.checkArgument(fArr.length == 8, "radii should have exactly 8 values");
             System.arraycopy(fArr, 0, this.ijz, 0, 8);
         }
-        bUR();
+        bUQ();
         invalidateSelf();
     }
 
@@ -74,7 +74,7 @@ public class l extends Drawable implements j {
     public void setRadius(float f) {
         com.facebook.common.internal.g.checkArgument(f >= 0.0f, "radius should be non negative");
         Arrays.fill(this.ijz, f);
-        bUR();
+        bUQ();
         invalidateSelf();
     }
 
@@ -93,7 +93,7 @@ public class l extends Drawable implements j {
         }
         if (this.mBorderWidth != f) {
             this.mBorderWidth = f;
-            bUR();
+            bUQ();
             invalidateSelf();
         }
     }
@@ -102,7 +102,7 @@ public class l extends Drawable implements j {
     public void aI(float f) {
         if (this.ijv != f) {
             this.ijv = f;
-            bUR();
+            bUQ();
             invalidateSelf();
         }
     }
@@ -129,7 +129,7 @@ public class l extends Drawable implements j {
         return e.yb(e.ce(this.mColor, this.mAlpha));
     }
 
-    private void bUR() {
+    private void bUQ() {
         this.mPath.reset();
         this.bIx.reset();
         this.ijA.set(getBounds());

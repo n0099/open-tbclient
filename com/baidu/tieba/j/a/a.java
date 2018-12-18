@@ -30,11 +30,11 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
         return this.list.size();
     }
 
-    public String bcN() {
+    public String bcM() {
         if (StringUtils.isNull(this.uuid) || !l.hA() || StringUtils.isNull(getKey())) {
             return null;
         }
-        String str = c.a.fEe + bcO();
+        String str = c.a.fEe + bcN();
         try {
             File file = new File(str);
             if (!file.exists()) {
@@ -48,13 +48,13 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
         }
     }
 
-    protected String bcO() {
+    protected String bcN() {
         return BaseRequestAction.SPLITE + this.uuid + BaseRequestAction.SPLITE + getKey();
     }
 
     @Override // com.baidu.tieba.j.a.c
-    public e bcP() {
-        return new e(getKey(), bcN());
+    public e bcO() {
+        return new e(getKey(), bcM());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -66,9 +66,9 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
             /* renamed from: e */
             public Void doInBackground(List<T>[] listArr) {
                 if (listArr != null && listArr.length == 1) {
-                    String bcN = a.this.bcN();
-                    if (!StringUtils.isNull(bcN)) {
-                        a.this.k(bcN, listArr[0]);
+                    String bcM = a.this.bcM();
+                    if (!StringUtils.isNull(bcM)) {
+                        a.this.k(bcM, listArr[0]);
                     }
                 }
                 return null;
@@ -81,7 +81,7 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
         int size = list.size();
         JSONArray jSONArray = new JSONArray();
         for (int i = 0; i < size; i++) {
-            jSONArray.put(list.get(i).bsk());
+            jSONArray.put(list.get(i).bsj());
         }
         com.baidu.tieba.j.d.g(new File(str), jSONArray.toString() + "\n");
     }

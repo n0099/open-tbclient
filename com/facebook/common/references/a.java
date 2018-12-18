@@ -38,14 +38,14 @@ public abstract class a<T> implements Closeable, Cloneable {
     private a(SharedReference<T> sharedReference) {
         this.HL = false;
         this.ige = (SharedReference) g.checkNotNull(sharedReference);
-        sharedReference.bTt();
-        this.igd = bTp();
+        sharedReference.bTs();
+        this.igd = bTo();
     }
 
     private a(T t, com.facebook.common.references.c<T> cVar) {
         this.HL = false;
         this.ige = new SharedReference<>(t, cVar);
-        this.igd = bTp();
+        this.igd = bTo();
     }
 
     /* JADX WARN: Incorrect types in method signature: <T::Ljava/io/Closeable;>(TT;)Lcom/facebook/common/references/a<TT;>; */
@@ -74,7 +74,7 @@ public abstract class a<T> implements Closeable, Cloneable {
         synchronized (this) {
             if (!this.HL) {
                 this.HL = true;
-                this.ige.bTu();
+                this.ige.bTt();
             }
         }
     }
@@ -86,19 +86,19 @@ public abstract class a<T> implements Closeable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // 
-    /* renamed from: bTk */
+    /* renamed from: bTj */
     public synchronized a<T> clone() {
-        this.igd = bTp();
+        this.igd = bTo();
         g.checkState(isValid());
-        return bTm();
+        return bTl();
     }
 
-    public synchronized a<T> bTl() {
-        this.igd = bTp();
-        return isValid() ? bTm() : null;
+    public synchronized a<T> bTk() {
+        this.igd = bTo();
+        return isValid() ? bTl() : null;
     }
 
-    private a<T> bTm() {
+    private a<T> bTl() {
         return igf ? new C0355a((SharedReference) this.ige) : new b((SharedReference) this.ige);
     }
 
@@ -106,7 +106,7 @@ public abstract class a<T> implements Closeable, Cloneable {
         return !this.HL;
     }
 
-    public static boolean bTn() {
+    public static boolean bTm() {
         return igc != null;
     }
 
@@ -114,7 +114,7 @@ public abstract class a<T> implements Closeable, Cloneable {
         this.igd = th;
     }
 
-    public synchronized int bTo() {
+    public synchronized int bTn() {
         return isValid() ? System.identityHashCode(this.ige.get()) : 0;
     }
 
@@ -125,7 +125,7 @@ public abstract class a<T> implements Closeable, Cloneable {
     @Nullable
     public static <T> a<T> b(@Nullable a<T> aVar) {
         if (aVar != null) {
-            return aVar.bTl();
+            return aVar.bTk();
         }
         return null;
     }
@@ -137,7 +137,7 @@ public abstract class a<T> implements Closeable, Cloneable {
     }
 
     @Nullable
-    private static Throwable bTp() {
+    private static Throwable bTo() {
         if (igc != null) {
             return new Throwable();
         }
@@ -201,7 +201,7 @@ public abstract class a<T> implements Closeable, Cloneable {
                         if (!z) {
                             com.facebook.common.c.a.d(a.iez, "GCed without closing: %x %x (type = %s)", Integer.valueOf(System.identityHashCode(this)), Integer.valueOf(System.identityHashCode(this.ige)), this.ige.get().getClass().getSimpleName());
                         }
-                        this.ige.bTu();
+                        this.ige.bTt();
                     }
                 }
             }

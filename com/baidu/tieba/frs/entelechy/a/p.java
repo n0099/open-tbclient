@@ -121,8 +121,8 @@ public class p extends com.baidu.tieba.frs.h<bb, a<com.baidu.tieba.frs.entelechy
         com.baidu.tieba.frs.g.a(aVar.aqe().aco(), this.dHF);
         com.baidu.tieba.frs.g.a(aVar.aqe().acp(), this.dHF);
         aVar.aqe().setVideoStatsData(X(bbVar));
-        if (this.dHF != null && this.dHF.bgi() != null && !StringUtils.isNull(this.dHF.bgi().getTopic_special_icon()) && !StringUtils.isNull(this.dHF.bgi().getTopic_special_icon_right())) {
-            aVar.aqe().al(this.dHF.bgi().getTopic_special_icon(), this.dHF.bgi().getTopic_special_icon_right());
+        if (this.dHF != null && this.dHF.bgh() != null && !StringUtils.isNull(this.dHF.bgh().getTopic_special_icon()) && !StringUtils.isNull(this.dHF.bgh().getTopic_special_icon_right())) {
+            aVar.aqe().al(this.dHF.bgh().getTopic_special_icon(), this.dHF.bgh().getTopic_special_icon_right());
         }
         aVar.aqe().a(bbVar);
         aVar.aqe().setForumName(this.mForumName);

@@ -26,7 +26,7 @@ public class b {
         }
     }
 
-    public boolean bEO() {
+    public boolean bEN() {
         return this.showType == 1;
     }
 

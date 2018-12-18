@@ -19,18 +19,18 @@ public class PushStatic {
                 new Thread(new Runnable() { // from class: com.baidu.tieba.yunpush.PushStatic.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        PushStatic.bQB();
+                        PushStatic.bQA();
                     }
                 }).start();
             }
         }
     };
 
-    private static void bQz() {
+    private static void bQy() {
         dk(TbadkApplication.getInst());
     }
 
-    private static void bQA() {
+    private static void bQz() {
         dl(TbadkCoreApplication.getInst());
     }
 
@@ -48,12 +48,12 @@ public class PushStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void bQB() {
+    public static void bQA() {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
             if (TbadkCoreApplication.getInst().isBaiduYunPushAvailable()) {
-                bQz();
+                bQy();
             } else {
-                bQA();
+                bQz();
             }
         }
     }

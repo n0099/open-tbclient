@@ -29,8 +29,8 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
         this.ieC = a(file, cacheErrorLogger);
         this.ieD = new File(this.ieB, xR(i));
         this.ieE = cacheErrorLogger;
-        bSu();
-        this.ieF = com.facebook.common.time.b.bTC();
+        bSt();
+        this.ieF = com.facebook.common.time.b.bTB();
     }
 
     private static boolean a(File file, CacheErrorLogger cacheErrorLogger) {
@@ -66,7 +66,7 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
         return this.ieC;
     }
 
-    private void bSu() {
+    private void bSt() {
         boolean z = true;
         if (this.ieB.exists()) {
             if (this.ieD.exists()) {
@@ -187,7 +187,7 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
     }
 
     @Override // com.facebook.cache.disk.c
-    public void bSv() {
+    public void bSu() {
         com.facebook.common.file.a.a(this.ieB, new e());
     }
 
@@ -246,7 +246,7 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
 
     @Override // com.facebook.cache.disk.c
     public long a(c.a aVar) {
-        return S(((b) aVar).bSy().getFile());
+        return S(((b) aVar).bSx().getFile());
     }
 
     private long S(File file) {
@@ -263,7 +263,7 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.cache.disk.c
     /* renamed from: getEntries */
-    public List<c.a> bSw() throws IOException {
+    public List<c.a> bSv() throws IOException {
         a aVar = new a();
         com.facebook.common.file.a.a(this.ieD, aVar);
         return aVar.getEntries();
@@ -297,7 +297,7 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
             return this.timestamp;
         }
 
-        public com.facebook.a.b bSy() {
+        public com.facebook.a.b bSx() {
             return this.ieI;
         }
 
@@ -448,7 +448,7 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
         }
 
         @Override // com.facebook.cache.disk.c.b
-        public boolean bSz() {
+        public boolean bSy() {
             return !this.ieL.exists() || this.ieL.delete();
         }
     }

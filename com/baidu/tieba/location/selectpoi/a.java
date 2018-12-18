@@ -23,20 +23,20 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.fsR == null || this.fsR.aZz() == null || this.fsR.aZz().isEmpty()) {
+        if (this.fsR == null || this.fsR.aZy() == null || this.fsR.aZy().isEmpty()) {
             this.dul = false;
             return 1;
         }
         this.dul = true;
-        return this.fsR.aZz().size();
+        return this.fsR.aZy().size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.fsR == null || this.fsR.aZz() == null || this.fsR.aZz().isEmpty()) {
+        if (this.fsR == null || this.fsR.aZy() == null || this.fsR.aZy().isEmpty()) {
             return null;
         }
-        return this.fsR.aZz().get(i);
+        return this.fsR.aZy().get(i);
     }
 
     @Override // android.widget.Adapter
@@ -59,7 +59,7 @@ public class a extends BaseAdapter {
             view.setTag(c0267a);
         }
         C0267a c0267a2 = c0267a;
-        c0267a2.fsU.setText(this.fsR.aZz().get(i).getName());
+        c0267a2.fsU.setText(this.fsR.aZy().get(i).getName());
         al.j(c0267a2.cJd, e.d.cp_bg_line_b);
         al.c(c0267a2.fsU, e.d.cp_cont_b, 1);
         al.i(view, e.f.home_recommend_item_bg);
@@ -70,7 +70,7 @@ public class a extends BaseAdapter {
         this.fsR = aVar;
     }
 
-    public boolean aZD() {
+    public boolean aZC() {
         return this.dul;
     }
 

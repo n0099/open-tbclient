@@ -56,10 +56,10 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
 
     protected abstract com.facebook.datasource.b<IMAGE> a(REQUEST request, Object obj, CacheLevel cacheLevel);
 
-    protected abstract BUILDER bUe();
+    protected abstract BUILDER bUd();
 
     @ReturnsOwnership
-    protected abstract a bUf();
+    protected abstract a bUe();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public AbstractDraweeControllerBuilder(Context context, Set<c> set) {
@@ -87,45 +87,45 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
     /* renamed from: az */
     public BUILDER aC(Object obj) {
         this.ihW = obj;
-        return bUe();
+        return bUd();
     }
 
     @Nullable
-    public Object bUu() {
+    public Object bUt() {
         return this.ihW;
     }
 
     public BUILDER aA(REQUEST request) {
         this.iij = request;
-        return bUe();
+        return bUd();
     }
 
     @Nullable
-    public REQUEST bUv() {
+    public REQUEST bUu() {
         return this.iij;
     }
 
-    public boolean bUw() {
+    public boolean bUv() {
         return this.iia;
     }
 
     public BUILDER oT(boolean z) {
         this.iin = z;
-        return bUe();
+        return bUd();
     }
 
     public BUILDER b(c<? super INFO> cVar) {
         this.ihS = cVar;
-        return bUe();
+        return bUd();
     }
 
     @Nullable
-    public d bUx() {
+    public d bUw() {
         return this.ihT;
     }
 
     @Nullable
-    public String bUy() {
+    public String bUx() {
         return this.iib;
     }
 
@@ -134,24 +134,24 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
     /* renamed from: a */
     public BUILDER b(@Nullable com.facebook.drawee.d.a aVar) {
         this.iio = aVar;
-        return bUe();
+        return bUd();
     }
 
     @Nullable
-    public com.facebook.drawee.d.a bUz() {
+    public com.facebook.drawee.d.a bUy() {
         return this.iio;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.d.d
-    /* renamed from: bUA */
-    public a bUE() {
+    /* renamed from: bUz */
+    public a bUD() {
         validate();
         if (this.iij == null && this.iil == null && this.iik != null) {
             this.iij = this.iik;
             this.iik = null;
         }
-        return bUB();
+        return bUA();
     }
 
     protected void validate() {
@@ -163,23 +163,23 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
         g.c(z, "Cannot specify DataSourceSupplier with other ImageRequests! Use one or the other.");
     }
 
-    protected a bUB() {
-        a bUf = bUf();
-        bUf.oS(bUw());
-        bUf.zi(bUy());
-        bUf.a(bUx());
-        c(bUf);
-        b(bUf);
-        return bUf;
+    protected a bUA() {
+        a bUe = bUe();
+        bUe.oS(bUv());
+        bUe.zi(bUx());
+        bUe.a(bUw());
+        c(bUe);
+        b(bUe);
+        return bUe;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static String bUC() {
+    public static String bUB() {
         return String.valueOf(iip.getAndIncrement());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public i<com.facebook.datasource.b<IMAGE>> bUD() {
+    public i<com.facebook.datasource.b<IMAGE>> bUC() {
         if (this.ihv != null) {
             return this.ihv;
         }
@@ -219,15 +219,15 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
     }
 
     protected i<com.facebook.datasource.b<IMAGE>> a(final REQUEST request, final CacheLevel cacheLevel) {
-        final Object bUu = bUu();
+        final Object bUt = bUt();
         return new i<com.facebook.datasource.b<IMAGE>>() { // from class: com.facebook.drawee.controller.AbstractDraweeControllerBuilder.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.facebook.drawee.controller.AbstractDraweeControllerBuilder */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // com.facebook.common.internal.i
-            /* renamed from: bTM */
+            /* renamed from: bTL */
             public com.facebook.datasource.b<IMAGE> get() {
-                return AbstractDraweeControllerBuilder.this.a(request, bUu, cacheLevel);
+                return AbstractDraweeControllerBuilder.this.a(request, bUt, cacheLevel);
             }
 
             public String toString() {
@@ -252,18 +252,18 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
 
     protected void c(a aVar) {
         if (this.ihL) {
-            com.facebook.drawee.components.b bUn = aVar.bUn();
-            if (bUn == null) {
-                bUn = new com.facebook.drawee.components.b();
-                aVar.a(bUn);
+            com.facebook.drawee.components.b bUm = aVar.bUm();
+            if (bUm == null) {
+                bUm = new com.facebook.drawee.components.b();
+                aVar.a(bUm);
             }
-            bUn.oR(this.ihL);
+            bUm.oR(this.ihL);
             d(aVar);
         }
     }
 
     protected void d(a aVar) {
-        if (aVar.bUo() == null) {
+        if (aVar.bUn() == null) {
             aVar.a(com.facebook.drawee.c.a.dq(this.mContext));
         }
     }

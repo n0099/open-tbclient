@@ -33,10 +33,10 @@ public class h {
     private static volatile h hFB;
 
     private h() {
-        g.bJG();
+        g.bJF();
     }
 
-    public static h bJM() {
+    public static h bJL() {
         if (hFB == null) {
             synchronized (h.class) {
                 if (hFB == null) {
@@ -208,7 +208,7 @@ public class h {
                 }
                 String str5 = str2 + "temp_" + i + BaseRequestAction.SPLITE + System.currentTimeMillis();
                 if (new b(strArr[i]).a(str5, z, wV, aVar) != null) {
-                    if (!z && i != 0 && aVar.bJH()) {
+                    if (!z && i != 0 && aVar.bJG()) {
                         str3 = str2 + "resample_" + System.currentTimeMillis();
                         long currentTimeMillis = System.currentTimeMillis();
                         boolean e = g.e(str5, str3, aVar.sampleRate, wV.sampleRate);
@@ -221,8 +221,8 @@ public class h {
                 aVar2 = aVar;
                 z2 = z;
             }
-            MultiAudioMixer bJK = MultiAudioMixer.bJK();
-            bJK.a(new MultiAudioMixer.b() { // from class: com.baidu.tieba.video.meida.h.1
+            MultiAudioMixer bJJ = MultiAudioMixer.bJJ();
+            bJJ.a(new MultiAudioMixer.b() { // from class: com.baidu.tieba.video.meida.h.1
                 FileOutputStream hFC;
 
                 {
@@ -248,7 +248,7 @@ public class h {
                 }
 
                 @Override // com.baidu.tieba.video.meida.MultiAudioMixer.b
-                public void bJL() {
+                public void bJK() {
                     try {
                         if (this.hFC != null) {
                             this.hFC.close();
@@ -258,7 +258,7 @@ public class h {
                     }
                 }
             });
-            bJK.d(fileArr);
+            bJJ.d(fileArr);
             d wU = d.wU(str4);
             wU.setSampleRate(wV.sampleRate);
             wU.setChannelCount(wV.channelCount);

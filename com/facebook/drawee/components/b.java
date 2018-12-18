@@ -23,11 +23,11 @@ public class b {
         this.ihL = z;
     }
 
-    public boolean bUk() {
+    public boolean bUj() {
         return this.ihL && this.ihN < this.ihM;
     }
 
-    public void bUl() {
+    public void bUk() {
         this.ihN++;
     }
 }

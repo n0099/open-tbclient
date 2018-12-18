@@ -219,7 +219,7 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
         aVar.a(e.j.share, new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.selectfriend.SelectFriendActivity.5
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                long aB = b.aSN().aB(String.valueOf(j), 2);
+                long aB = b.aSM().aB(String.valueOf(j), 2);
                 MessageUtils.createPersonalChatMessage(aB, 9, shareFromPBMsgData.toChatMessageContent(), j, str, str2, str3);
                 MessageUtils.createPersonalChatMessage(aB + 1, 1, game2GroupShareDialogView.getLeaveMsg(), j, str, str2, str3);
                 aVar2.dismiss();
@@ -252,7 +252,7 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
         aVar.a(e.j.share, new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.selectfriend.SelectFriendActivity.7
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                long aB = b.aSN().aB(String.valueOf(j), 2);
+                long aB = b.aSM().aB(String.valueOf(j), 2);
                 MessageUtils.createPersonalChatMessage(aB, 9, shareFromGameCenterMsgData.toChatMessageContent(), j, str, str2, str3);
                 MessageUtils.createPersonalChatMessage(aB + 1, 1, game2GroupShareDialogView.getLeaveMsg(), j, str, str2, str3);
                 aVar2.dismiss();

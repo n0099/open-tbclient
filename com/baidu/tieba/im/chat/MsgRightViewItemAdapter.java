@@ -35,17 +35,17 @@ public class MsgRightViewItemAdapter extends e<MsgrightView> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgrightView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgrightView aOo = aVar.aOo();
-        aOo.pB(this.eHZ);
-        aOo.m20if(this.eIi);
+        MsgrightView aOn = aVar.aOn();
+        aOn.pB(this.eHZ);
+        aOn.m20if(this.eIi);
         chatMessage.getCacheData().setIs_left(0);
-        aOo.a(this.eHP);
-        aOo.setOnItemViewLongClickListener(this.eHQ);
-        aOo.setPosition(i);
-        aOo.ck(this.eHW);
-        aOo.cj(chatMessage.getCacheData().getLastMsgTime());
-        aOo.a(viewGroup, chatMessage);
-        aOo.b(viewGroup, chatMessage);
+        aOn.a(this.eHP);
+        aOn.setOnItemViewLongClickListener(this.eHQ);
+        aOn.setPosition(i);
+        aOn.ck(this.eHW);
+        aOn.cj(chatMessage.getCacheData().getLastMsgTime());
+        aOn.a(viewGroup, chatMessage);
+        aOn.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

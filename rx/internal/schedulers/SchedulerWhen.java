@@ -20,16 +20,16 @@ public class SchedulerWhen extends rx.g implements k {
             return false;
         }
     };
-    static final k iLu = rx.subscriptions.e.cfu();
+    static final k iLu = rx.subscriptions.e.cft();
     private final rx.g iLq;
     private final rx.e<rx.d<rx.b>> iLr;
     private final k iLs;
 
     public SchedulerWhen(rx.functions.f<rx.d<rx.d<rx.b>>, rx.b> fVar, rx.g gVar) {
         this.iLq = gVar;
-        PublishSubject cfj = PublishSubject.cfj();
-        this.iLr = new rx.b.e(cfj);
-        this.iLs = fVar.call(cfj.onBackpressureBuffer()).subscribe();
+        PublishSubject cfi = PublishSubject.cfi();
+        this.iLr = new rx.b.e(cfi);
+        this.iLs = fVar.call(cfi.onBackpressureBuffer()).subscribe();
     }
 
     @Override // rx.k
@@ -47,9 +47,9 @@ public class SchedulerWhen extends rx.g implements k {
     @Override // rx.g
     public g.a createWorker() {
         final g.a createWorker = this.iLq.createWorker();
-        BufferUntilSubscriber cdd = BufferUntilSubscriber.cdd();
-        final rx.b.e eVar = new rx.b.e(cdd);
-        Object map = cdd.map(new rx.functions.f<ScheduledAction, rx.b>() { // from class: rx.internal.schedulers.SchedulerWhen.1
+        BufferUntilSubscriber cdc = BufferUntilSubscriber.cdc();
+        final rx.b.e eVar = new rx.b.e(cdc);
+        Object map = cdc.map(new rx.functions.f<ScheduledAction, rx.b>() { // from class: rx.internal.schedulers.SchedulerWhen.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
             /* renamed from: a */

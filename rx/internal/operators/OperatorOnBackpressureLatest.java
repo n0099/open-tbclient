@@ -17,7 +17,7 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> OperatorOnBackpressureLatest<T> cdM() {
+    public static <T> OperatorOnBackpressureLatest<T> cdL() {
         return (OperatorOnBackpressureLatest<T>) a.iGx;
     }
 

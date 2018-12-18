@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 final class k {
-    private SQLiteDatabase icw = f.bRL().getDatabase();
+    private SQLiteDatabase icw = f.bRK().getDatabase();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(l lVar) {
@@ -14,7 +14,7 @@ final class k {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final List<l> bRK() {
+    public final List<l> bRJ() {
         Cursor rawQuery = this.icw.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
         ArrayList arrayList = new ArrayList();
         while (rawQuery.moveToNext()) {

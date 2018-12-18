@@ -59,11 +59,11 @@ public class NavigationBarCoverTip extends LinearLayout {
                 NavigationBarCoverTip.this.hideTip();
             }
         });
-        bvH();
+        bvG();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void bvH() {
+    private void bvG() {
         this.edd = AnimationUtils.loadAnimation(getContext(), e.a.in_from_top);
         this.edd.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.NavigationBarCoverTip.2
             @Override // android.view.animation.Animation.AnimationListener

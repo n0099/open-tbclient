@@ -28,11 +28,11 @@ public class m extends g {
     @Override // com.facebook.drawee.drawable.g
     public Drawable j(Drawable drawable) {
         Drawable j = super.j(drawable);
-        bUO();
+        bUN();
         return j;
     }
 
-    public n.b bUS() {
+    public n.b bUR() {
         return this.iiz;
     }
 
@@ -40,7 +40,7 @@ public class m extends g {
         if (!com.facebook.common.internal.f.equal(this.iiz, bVar)) {
             this.iiz = bVar;
             this.ijF = null;
-            bUO();
+            bUN();
             invalidateSelf();
         }
     }
@@ -51,14 +51,14 @@ public class m extends g {
                 this.ijG = new PointF();
             }
             this.ijG.set(pointF);
-            bUO();
+            bUN();
             invalidateSelf();
         }
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        bUN();
+        bUM();
         if (this.IK != null) {
             int save = canvas.save();
             canvas.clipRect(getBounds());
@@ -72,10 +72,10 @@ public class m extends g {
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
-        bUO();
+        bUN();
     }
 
-    private void bUN() {
+    private void bUM() {
         boolean z;
         boolean z2 = false;
         if (this.iiz instanceof n.k) {
@@ -89,11 +89,11 @@ public class m extends g {
             z2 = true;
         }
         if (z2 || z) {
-            bUO();
+            bUN();
         }
     }
 
-    void bUO() {
+    void bUN() {
         Drawable current = getCurrent();
         Rect bounds = getBounds();
         int width = bounds.width();
@@ -121,7 +121,7 @@ public class m extends g {
     @Override // com.facebook.drawee.drawable.g, com.facebook.drawee.drawable.p
     public void e(Matrix matrix) {
         f(matrix);
-        bUN();
+        bUM();
         if (this.IK != null) {
             matrix.preConcat(this.IK);
         }

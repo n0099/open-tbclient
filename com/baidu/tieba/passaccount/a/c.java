@@ -35,7 +35,7 @@ public class c {
         void onUnavailable();
     }
 
-    public static c bfu() {
+    public static c bft() {
         if (fMR == null) {
             synchronized (c.class) {
                 if (fMR == null) {
@@ -52,10 +52,10 @@ public class c {
 
     public void b(a aVar) {
         this.fMS = aVar;
-        bfv();
+        bfu();
     }
 
-    private void bfv() {
+    private void bfu() {
         final SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
             HashMap hashMap = new HashMap();

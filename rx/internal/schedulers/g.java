@@ -27,8 +27,8 @@ public class g extends g.a implements k {
 
     static {
         boolean z = Boolean.getBoolean("rx.scheduler.jdk6.purge-force");
-        int ceq = rx.internal.util.g.ceq();
-        iLi = !z && (ceq == 0 || ceq >= 21);
+        int cep = rx.internal.util.g.cep();
+        iLi = !z && (cep == 0 || cep >= 21);
     }
 
     public static void a(ScheduledThreadPoolExecutor scheduledThreadPoolExecutor) {
@@ -41,7 +41,7 @@ public class g extends g.a implements k {
                 newScheduledThreadPool.scheduleAtFixedRate(new Runnable() { // from class: rx.internal.schedulers.g.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        g.cek();
+                        g.cej();
                     }
                 }, iLj, iLj, TimeUnit.MILLISECONDS);
                 break;
@@ -55,7 +55,7 @@ public class g extends g.a implements k {
         iLk.remove(scheduledExecutorService);
     }
 
-    static void cek() {
+    static void cej() {
         try {
             Iterator<ScheduledThreadPoolExecutor> it = iLk.keySet().iterator();
             while (it.hasNext()) {
@@ -133,7 +133,7 @@ public class g extends g.a implements k {
 
     @Override // rx.g.a
     public k a(rx.functions.a aVar, long j, TimeUnit timeUnit) {
-        return this.isUnsubscribed ? rx.subscriptions.e.cfu() : b(aVar, j, timeUnit);
+        return this.isUnsubscribed ? rx.subscriptions.e.cft() : b(aVar, j, timeUnit);
     }
 
     public ScheduledAction b(rx.functions.a aVar, long j, TimeUnit timeUnit) {

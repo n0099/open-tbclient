@@ -10,7 +10,7 @@ public class e {
     public String ewP;
     public int ewQ;
 
-    public boolean aLy() {
+    public boolean aLx() {
         return this.ewM > 0;
     }
 

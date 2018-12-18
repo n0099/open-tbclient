@@ -141,9 +141,9 @@ public class b implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
     public void a(com.baidu.tieba.tbadkCore.l lVar, String str) {
         if (this.dYY != null && !TextUtils.isEmpty(str)) {
             c.jA().a(str, 10, this.mCallback, 0, 0, null, new Object[0]);
-            if (lVar != null && lVar.bgi() != null && !TextUtils.isEmpty(lVar.bgi().getId()) && lVar.bBs() != null && !TextUtils.isEmpty(lVar.bBs().yk())) {
-                this.forumId = lVar.bgi().getId();
-                this.dZg = lVar.bBs().yk();
+            if (lVar != null && lVar.bgh() != null && !TextUtils.isEmpty(lVar.bgh().getId()) && lVar.bBr() != null && !TextUtils.isEmpty(lVar.bBr().yk())) {
+                this.forumId = lVar.bgh().getId();
+                this.dZg = lVar.bBr().yk();
             }
         }
     }

@@ -54,30 +54,30 @@ public class CreateGroupActivityActivity extends BaseActivity implements View.On
         initListener();
         this.eRn = new CreateGroupActivityModel(this);
         this.eRm = new a(this);
-        if (this.eRn.aRF() != null) {
+        if (this.eRn.aRE() != null) {
             if (bundle != null) {
-                this.eRn.aRF().setGroupId(bundle.getLong("gid", 0L));
+                this.eRn.aRE().setGroupId(bundle.getLong("gid", 0L));
                 this.eRo = bundle.getBoolean(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_ISEDIT, false);
                 if (this.eRo) {
-                    this.eRn.aRF().setActivityId(bundle.getInt("aid", 0));
-                    this.eRn.aRF().setgActivityTitle(bundle.getString("name"));
-                    this.eRn.aRF().setgActivityArea(bundle.getString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
-                    this.eRn.aRF().setgActivityContent(bundle.getString("content"));
-                    this.eRn.aRF().setgActivityTime(bundle.getLong("time", 0L));
+                    this.eRn.aRE().setActivityId(bundle.getInt("aid", 0));
+                    this.eRn.aRE().setgActivityTitle(bundle.getString("name"));
+                    this.eRn.aRE().setgActivityArea(bundle.getString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
+                    this.eRn.aRE().setgActivityContent(bundle.getString("content"));
+                    this.eRn.aRE().setgActivityTime(bundle.getLong("time", 0L));
                 }
             } else if (getIntent() != null) {
-                this.eRn.aRF().setGroupId(getIntent().getLongExtra("gid", 0L));
+                this.eRn.aRE().setGroupId(getIntent().getLongExtra("gid", 0L));
                 this.eRo = getIntent().getBooleanExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_ISEDIT, false);
                 if (this.eRo) {
-                    this.eRn.aRF().setActivityId(getIntent().getIntExtra("aid", 0));
-                    this.eRn.aRF().setgActivityTitle(getIntent().getStringExtra("name"));
-                    this.eRn.aRF().setgActivityArea(getIntent().getStringExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
-                    this.eRn.aRF().setgActivityContent(getIntent().getStringExtra("content"));
-                    this.eRn.aRF().setgActivityTime(getIntent().getLongExtra("time", 0L));
+                    this.eRn.aRE().setActivityId(getIntent().getIntExtra("aid", 0));
+                    this.eRn.aRE().setgActivityTitle(getIntent().getStringExtra("name"));
+                    this.eRn.aRE().setgActivityArea(getIntent().getStringExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
+                    this.eRn.aRE().setgActivityContent(getIntent().getStringExtra("content"));
+                    this.eRn.aRE().setgActivityTime(getIntent().getLongExtra("time", 0L));
                 }
             }
         }
-        this.eRm.a(this.eRn.aRF(), this.eRo);
+        this.eRm.a(this.eRn.aRE(), this.eRo);
     }
 
     @Override // android.app.Activity
@@ -90,34 +90,34 @@ public class CreateGroupActivityActivity extends BaseActivity implements View.On
         if (intent == null) {
             intent = getIntent();
         }
-        if (intent != null && this.eRn.aRF() != null) {
-            this.eRn.aRF().setGroupId(intent.getLongExtra("gid", 0L));
+        if (intent != null && this.eRn.aRE() != null) {
+            this.eRn.aRE().setGroupId(intent.getLongExtra("gid", 0L));
             this.eRo = getIntent().getBooleanExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_ISEDIT, false);
             if (this.eRo) {
-                this.eRn.aRF().setActivityId(intent.getIntExtra("aid", 0));
-                this.eRn.aRF().setgActivityTitle(getIntent().getStringExtra("name"));
-                this.eRn.aRF().setgActivityArea(getIntent().getStringExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
-                this.eRn.aRF().setgActivityContent(getIntent().getStringExtra("content"));
-                this.eRn.aRF().setgActivityTime(getIntent().getLongExtra("time", 0L));
+                this.eRn.aRE().setActivityId(intent.getIntExtra("aid", 0));
+                this.eRn.aRE().setgActivityTitle(getIntent().getStringExtra("name"));
+                this.eRn.aRE().setgActivityArea(getIntent().getStringExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
+                this.eRn.aRE().setgActivityContent(getIntent().getStringExtra("content"));
+                this.eRn.aRE().setgActivityTime(getIntent().getLongExtra("time", 0L));
             }
         }
         if (this.eRm == null) {
             this.eRm = new a(this);
         }
-        this.eRm.a(this.eRn.aRF(), this.eRo);
+        this.eRm.a(this.eRn.aRE(), this.eRo);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         long j = 0;
-        if (this.eRn.aRF() != null) {
-            j = this.eRn.aRF().getGroupId();
+        if (this.eRn.aRE() != null) {
+            j = this.eRn.aRE().getGroupId();
         }
         bundle.putLong("gid", j);
         bundle.putString("name", this.eRm.getTitle());
         bundle.putString("content", this.eRm.getContent());
-        bundle.putString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, this.eRm.aRK());
+        bundle.putString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, this.eRm.aRJ());
         bundle.putLong("time", this.eRm.getTime());
     }
 
@@ -144,18 +144,18 @@ public class CreateGroupActivityActivity extends BaseActivity implements View.On
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.eRm.aRI()) {
-            aRE();
-        } else if (view == this.eRm.aRJ() && this.eRn != null && this.eRn.aRF() != null) {
+        if (view == this.eRm.aRH()) {
+            aRD();
+        } else if (view == this.eRm.aRI() && this.eRn != null && this.eRn.aRE() != null) {
             long time = this.eRm.getTime();
-            if ((!this.eRo || this.eRm.aRL()) && 1000 * time < System.currentTimeMillis()) {
+            if ((!this.eRo || this.eRm.aRK()) && 1000 * time < System.currentTimeMillis()) {
                 showToast(e.j.group_activity_time_val);
                 return;
             }
-            this.eRn.aRF().setgActivityArea(this.eRm.aRK());
-            this.eRn.aRF().setgActivityContent(this.eRm.getContent());
-            this.eRn.aRF().setgActivityTime(time);
-            this.eRn.aRF().setgActivityTitle(this.eRm.getTitle());
+            this.eRn.aRE().setgActivityArea(this.eRm.aRJ());
+            this.eRn.aRE().setgActivityContent(this.eRm.getContent());
+            this.eRn.aRE().setgActivityTime(time);
+            this.eRn.aRE().setgActivityTitle(this.eRm.getTitle());
             showProgressBar();
             this.eRn.iG(this.eRo);
         }
@@ -164,13 +164,13 @@ public class CreateGroupActivityActivity extends BaseActivity implements View.On
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            aRE();
+            aRD();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void aRE() {
+    private void aRD() {
         DialogUtil.quitCreateGroupActivity(getPageContext().getPageActivity(), this.eRo, new a.b() { // from class: com.baidu.tieba.im.groupActivity.CreateGroupActivityActivity.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {

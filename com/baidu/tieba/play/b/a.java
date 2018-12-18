@@ -31,10 +31,10 @@ public class a {
         if (i == -300) {
             if (this.gFl == 0) {
                 this.gFl++;
-                this.mHandler.postDelayed(new b(this.gFj, gVar, i, i2, i3, 3, bsh()), 200L);
+                this.mHandler.postDelayed(new b(this.gFj, gVar, i, i2, i3, 3, bsg()), 200L);
             } else if (this.gFl == 1) {
                 this.gFl++;
-                this.mHandler.postDelayed(new b(this.gFj, gVar, i, i2, i3, 4, bsh()), 200L);
+                this.mHandler.postDelayed(new b(this.gFj, gVar, i, i2, i3, 4, bsg()), 200L);
             } else {
                 return false;
             }
@@ -42,12 +42,12 @@ public class a {
         }
         this.gFk++;
         if (this.gFk <= 2) {
-            if (!a(gVar, i, i2, i3, uri, bsh())) {
+            if (!a(gVar, i, i2, i3, uri, bsg())) {
                 if (i == -200) {
-                    this.mHandler.postDelayed(new b(this.gFj, gVar, i, i2, i3, this.gFk % 2 == 1 ? 7 : 17, bsh()), 200L);
+                    this.mHandler.postDelayed(new b(this.gFj, gVar, i, i2, i3, this.gFk % 2 == 1 ? 7 : 17, bsg()), 200L);
                     this.gFk = 2;
                 } else {
-                    this.mHandler.postDelayed(new b(this.gFj, gVar, i, i2, i3, this.gFk % 2 == 1 ? 8 : 18, bsh()), 200L);
+                    this.mHandler.postDelayed(new b(this.gFj, gVar, i, i2, i3, this.gFk % 2 == 1 ? 8 : 18, bsg()), 200L);
                     this.gFk = 4;
                     return false;
                 }
@@ -55,32 +55,32 @@ public class a {
             return true;
         } else if (this.gFk <= 4) {
             if (i == -200) {
-                this.mHandler.postDelayed(new b(this.gFj, gVar, i, i2, i3, this.gFk % 2 == 1 ? 1 : 11, bsh()), 200L);
+                this.mHandler.postDelayed(new b(this.gFj, gVar, i, i2, i3, this.gFk % 2 == 1 ? 1 : 11, bsg()), 200L);
                 return true;
             }
             return false;
         } else if (this.gFk <= 6 && i == -200) {
-            this.mHandler.postDelayed(new b(this.gFj, gVar, i, i2, i3, this.gFk % 2 == 1 ? 2 : 12, bsh()), 200L);
+            this.mHandler.postDelayed(new b(this.gFj, gVar, i, i2, i3, this.gFk % 2 == 1 ? 2 : 12, bsg()), 200L);
             return true;
         } else {
             return false;
         }
     }
 
-    private int bsh() {
+    private int bsg() {
         return (this.gFl * 100) + this.gFk;
     }
 
     private boolean a(g gVar, int i, int i2, int i3, Uri uri, int i4) {
-        if (!bsi() || i == -100 || uri == null || TextUtils.isEmpty(uri.getHost()) || uri.toString().contains(NetworkDef.IP_LOOPBACK) || !uri.toString().contains(HttpHost.DEFAULT_SCHEME_NAME)) {
+        if (!bsh() || i == -100 || uri == null || TextUtils.isEmpty(uri.getHost()) || uri.toString().contains(NetworkDef.IP_LOOPBACK) || !uri.toString().contains(HttpHost.DEFAULT_SCHEME_NAME)) {
             return false;
         }
-        com.baidu.tieba.play.a.b.bsg().a(new C0296a(this.mHandler, this.gFj, i, uri, gVar, i2, i3, i4));
-        return com.baidu.tieba.play.a.b.bsg().tY(uri.getHost());
+        com.baidu.tieba.play.a.b.bsf().a(new C0296a(this.mHandler, this.gFj, i, uri, gVar, i2, i3, i4));
+        return com.baidu.tieba.play.a.b.bsf().tY(uri.getHost());
     }
 
-    private boolean bsi() {
-        return (com.baidu.adp.lib.b.d.iQ().aO("android_video_http_dns_open") == 0 || !j.kV() || CustomPlayerSwitchStatic.bqK() == 0) ? false : true;
+    private boolean bsh() {
+        return (com.baidu.adp.lib.b.d.iQ().aO("android_video_http_dns_open") == 0 || !j.kV() || CustomPlayerSwitchStatic.bqJ() == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -126,7 +126,7 @@ public class a {
         }
     }
 
-    public boolean bsj() {
+    public boolean bsi() {
         boolean z = this.gFk > 0 || this.gFl > 0;
         this.gFk = 0;
         this.gFl = 0;

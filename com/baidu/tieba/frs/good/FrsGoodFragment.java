@@ -173,7 +173,7 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
                 FrsGoodFragment.this.dHF = FrsGoodFragment.this.aFF().aFM();
             }
             FrsGoodFragment.this.cDk = FrsGoodFragment.this.dHF.yS().yP();
-            if (FrsGoodFragment.this.cDk == 0 && (FrsGoodFragment.this.dHF.bBw() == null || FrsGoodFragment.this.dHF.bBw().size() == 0)) {
+            if (FrsGoodFragment.this.cDk == 0 && (FrsGoodFragment.this.dHF.bBv() == null || FrsGoodFragment.this.dHF.bBv().size() == 0)) {
                 if (FrsGoodFragment.this.dHF.getThreadList() == null || FrsGoodFragment.this.dHF.getThreadList().size() == 0) {
                     FrsGoodFragment.this.dYx.abb();
                 } else {
@@ -199,7 +199,7 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
                     FrsGoodFragment.this.dYx.aBF();
                     break;
                 case 3:
-                    if (FrsGoodFragment.this.dHF.bBN()) {
+                    if (FrsGoodFragment.this.dHF.bBM()) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001612, true));
                         break;
                     }
@@ -210,12 +210,12 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
                 FrsGoodFragment.this.c(aVar);
             } else {
                 if (FrsGoodFragment.this.dHF != null) {
-                    FrsGoodFragment.this.dHV = FrsGoodFragment.this.dHF.bgi().getName();
-                    FrsGoodFragment.this.forumId = FrsGoodFragment.this.dHF.bgi().getId();
-                    FrsGoodFragment.this.dYx.b(FrsGoodFragment.this.dHF.bgi(), FrsGoodFragment.this.dHF.getUserData());
+                    FrsGoodFragment.this.dHV = FrsGoodFragment.this.dHF.bgh().getName();
+                    FrsGoodFragment.this.forumId = FrsGoodFragment.this.dHF.bgh().getId();
+                    FrsGoodFragment.this.dYx.b(FrsGoodFragment.this.dHF.bgh(), FrsGoodFragment.this.dHF.getUserData());
                 }
                 if (FrsGoodFragment.this.dHF != null) {
-                    FrsGoodFragment.this.dHF.bCh();
+                    FrsGoodFragment.this.dHF.bCg();
                 }
                 FrsGoodFragment.this.dYx.e(FrsGoodFragment.this.dHF);
                 if (FrsGoodFragment.this.dHF == null || FrsGoodFragment.this.dHF.getThreadList() == null || FrsGoodFragment.this.dHF.getThreadList().size() != 0 || FrsGoodFragment.this.aFF().getType() != 4) {
@@ -645,20 +645,20 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
         try {
             if (this.dHF != null) {
                 this.dYx.amN();
-                this.dHV = this.dHF.bgi().getName();
-                this.forumId = this.dHF.bgi().getId();
+                this.dHV = this.dHF.bgh().getName();
+                this.forumId = this.dHF.bgh().getId();
                 TbadkCoreApplication.getInst().setDefaultBubble(this.dHF.getUserData().getBimg_url());
                 TbadkCoreApplication.getInst().setDefaultBubbleEndTime(this.dHF.getUserData().getBimg_end_time());
                 aAT();
                 if (!this.dYx.aFJ().k(bb.atk)) {
-                    this.dHF.bCj();
+                    this.dHF.bCi();
                 }
                 ArrayList<h> threadList = this.dHF.getThreadList();
                 if (threadList != null) {
                     this.dYx.a(threadList, this.mPn, this.dHF, this.dHF.yS().yP());
                     aFE();
                     this.dYx.aFH();
-                    if (this.dHF.bgx() == 1) {
+                    if (this.dHF.bgw() == 1) {
                         this.dYx.aFJ().setFromCDN(true);
                     } else {
                         this.dYx.aFJ().setFromCDN(false);
@@ -686,8 +686,8 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
     public void onStop() {
         super.onStop();
         v.apD().ft(false);
-        if (this.dHF != null && this.dHF.bgi() != null) {
-            com.baidu.tbadk.distribute.a.LK().a(getPageContext().getPageActivity(), "frs", this.dHF.bgi().getId(), 0L);
+        if (this.dHF != null && this.dHF.bgh() != null) {
+            com.baidu.tbadk.distribute.a.LK().a(getPageContext().getPageActivity(), "frs", this.dHF.bgh().getId(), 0L);
         }
         this.dIc = getVoiceManager();
         if (this.dIc != null) {
@@ -877,9 +877,9 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
         } else {
             aap();
             if (!this.dYw.isLoading && !this.dYv.Fi()) {
-                if (this.dYw.bO(this.dHF.bBw())) {
+                if (this.dYw.bO(this.dHF.bBv())) {
                     this.dYx.a(this.dYw.aGc(), this.mPn, this.dHF, 0);
-                    this.dYw.a(com.baidu.adp.lib.g.b.d(this.forumId, 0L), this.dHF.bBw(), this.dHV, this.mPn, this.dHF.isBrandForum);
+                    this.dYw.a(com.baidu.adp.lib.g.b.d(this.forumId, 0L), this.dHF.bBv(), this.dHV, this.mPn, this.dHF.isBrandForum);
                 } else if (this.cDk != 0) {
                     this.dYx.a(this.dYw.aGc(), this.mPn, this.dHF, 0);
                     this.mPn++;
@@ -907,7 +907,7 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
     }
 
     private void aap() {
-        if (this.cDk == 0 && !this.dYw.bO(this.dHF.bBw())) {
+        if (this.cDk == 0 && !this.dYw.bO(this.dHF.bBv())) {
             if (this.dHF.getThreadList() == null || this.dHF.getThreadList().size() == 0) {
                 this.dYx.abb();
                 return;

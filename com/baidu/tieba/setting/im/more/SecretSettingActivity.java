@@ -38,12 +38,12 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     private boolean gUN = false;
     private c.a gUV = new c.a() { // from class: com.baidu.tieba.setting.im.more.SecretSettingActivity.1
         @Override // com.baidu.tieba.setting.im.more.c.a
-        public void bwo() {
-            SecretSettingActivity.this.bwm();
+        public void bwn() {
+            SecretSettingActivity.this.bwl();
         }
 
         @Override // com.baidu.tieba.setting.im.more.c.a
-        public void bwp() {
+        public void bwo() {
             SecretSettingActivity.this.cD("like", SecretSettingActivity.this.getPageContext().getString(e.j.my_attention_bar));
             TiebaStatic.log("c12514");
         }
@@ -54,28 +54,28 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         }
 
         @Override // com.baidu.tieba.setting.im.more.c.a
-        public void bwq() {
+        public void bwp() {
             SecretSettingActivity.this.cD("group", SecretSettingActivity.this.getPageContext().getString(e.j.privacy_setting_attention_group));
             TiebaStatic.log("c10652");
         }
 
         @Override // com.baidu.tieba.setting.im.more.c.a
-        public void bwr() {
+        public void bwq() {
             SecretSettingActivity.this.cD("live", SecretSettingActivity.this.getPageContext().getString(e.j.ala_setting_security_mylive));
         }
 
         @Override // com.baidu.tieba.setting.im.more.c.a
-        public void bws() {
-            SecretSettingActivity.this.bwn();
+        public void bwr() {
+            SecretSettingActivity.this.bwm();
         }
 
         @Override // com.baidu.tieba.setting.im.more.c.a
-        public void bwt() {
+        public void bws() {
             SecretSettingActivity.this.cD("reply", SecretSettingActivity.this.getPageContext().getString(e.j.privacy_setting_thread_reply));
         }
 
         @Override // com.baidu.tieba.setting.im.more.c.a
-        public void bwu() {
+        public void bwt() {
             SecretSettingActivity.this.sendMessage(new CustomMessage(2002001, new PrivacyPermissionActivityConfig(SecretSettingActivity.this.getPageContext().getPageActivity())));
         }
     };
@@ -121,11 +121,11 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
                 }
                 if (aVar != null) {
                     SecretSettingActivity.this.gUM.b(aVar);
-                    SecretSettingActivity.this.gUM.bwh();
+                    SecretSettingActivity.this.gUM.bwg();
                     SecretSettingActivity.this.gUL.mS(true);
                     SecretSettingActivity.this.gUL.d(SecretSettingActivity.this.gUM);
                     SecretSettingActivity.this.c(SecretSettingActivity.this.gUM);
-                    TbadkCoreApplication.getInst().setLocationShared(SecretSettingActivity.this.gUM.bwk());
+                    TbadkCoreApplication.getInst().setLocationShared(SecretSettingActivity.this.gUM.bwj());
                 }
             }
         }
@@ -148,7 +148,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         this.gUL = new c(this);
         this.gUM = new a();
         this.gUL.a(this.gUV);
-        if (this.gUM.bwf()) {
+        if (this.gUM.bwe()) {
             this.gUL.mS(true);
             this.gUL.d(this.gUM);
             c(this.gUM);
@@ -163,11 +163,11 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(a aVar) {
-        this.gUP = aVar.bwi();
-        this.gUQ = aVar.bwg();
-        this.gUR = aVar.bwj();
+        this.gUP = aVar.bwh();
+        this.gUQ = aVar.bwf();
+        this.gUR = aVar.bwi();
         this.gUS = aVar.LB();
-        this.gUT = aVar.bwl();
+        this.gUT = aVar.bwk();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -181,7 +181,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onResourceRecycle() {
         super.onResourceRecycle();
-        this.gUL.bwv();
+        this.gUL.bwu();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -267,12 +267,12 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bwm() {
+    public void bwl() {
         sendMessage(new CustomMessage(2008001, new IMBlackListActivityConfig(getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bwn() {
+    public void bwm() {
         sendMessage(new CustomMessage(2016302, new UserMuteListActivityConfig(getPageContext().getPageActivity())));
     }
 

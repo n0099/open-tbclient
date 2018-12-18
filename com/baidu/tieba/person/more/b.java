@@ -32,7 +32,7 @@ public class b {
     public void initView() {
         this.mPageContext.getPageActivity().setContentView(e.h.person_center_more_layout);
         this.gra.initView(this.mPageContext.getPageActivity().findViewById(e.g.person_more_layout));
-        boz();
+        boy();
         this.gra.setData(this.grb);
     }
 
@@ -42,7 +42,7 @@ public class b {
         }
     }
 
-    private void boz() {
+    private void boy() {
         this.grb = new ArrayList();
         if (this.grc != null && !v.I(this.grc.mUrlMaps)) {
             for (PersonMoreItemData personMoreItemData : this.grc.mUrlMaps) {

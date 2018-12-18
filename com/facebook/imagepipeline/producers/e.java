@@ -2,6 +2,10 @@ package com.facebook.imagepipeline.producers;
 /* loaded from: classes2.dex */
 public class e implements ak {
     @Override // com.facebook.imagepipeline.producers.ak
+    public void bYX() {
+    }
+
+    @Override // com.facebook.imagepipeline.producers.ak
     public void bYY() {
     }
 
@@ -11,9 +15,5 @@ public class e implements ak {
 
     @Override // com.facebook.imagepipeline.producers.ak
     public void bZa() {
-    }
-
-    @Override // com.facebook.imagepipeline.producers.ak
-    public void bZb() {
     }
 }

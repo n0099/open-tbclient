@@ -16,7 +16,7 @@ public class CreateGroupActivityModel extends BdBaseModel<BaseActivity> {
         this.bBf = baseActivity;
     }
 
-    public GroupActivityData aRF() {
+    public GroupActivityData aRE() {
         return this.eRq;
     }
 

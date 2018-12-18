@@ -42,7 +42,7 @@ public final class h<T, U> implements d.a<T> {
             public void onCompleted() {
                 if (!this.done) {
                     this.done = true;
-                    dVar.g(rx.subscriptions.e.cfu());
+                    dVar.g(rx.subscriptions.e.cft());
                     h.this.iCq.unsafeSubscribe(b);
                 }
             }

@@ -317,7 +317,7 @@ public class SignAllForumProgressView extends FrameLayout {
         }, 3000L);
     }
 
-    public void bAj() {
+    public void bAi() {
         this.hdh.setVisibility(8);
     }
 

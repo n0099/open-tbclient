@@ -40,7 +40,7 @@ public class a {
         fHV = null;
     }
 
-    public static synchronized a bdQ() {
+    public static synchronized a bdP() {
         a aVar;
         synchronized (a.class) {
             if (fHV == null) {

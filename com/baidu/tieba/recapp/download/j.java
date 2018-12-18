@@ -39,16 +39,16 @@ public class j {
         this.gMp.setOnClickPendingIntent(e.g.download_cancel, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent2, 134217728));
     }
 
-    public RemoteViews buJ() {
+    public RemoteViews buI() {
         return this.gMp;
     }
 
-    public void buK() {
+    public void buJ() {
         this.gMp.setTextViewText(e.g.download_status_text, TbadkCoreApplication.getInst().getResources().getString(e.j.on_downloading));
         this.gMp.setImageViewResource(e.g.download_btn, e.f.notify_pause_bg);
     }
 
-    public void buL() {
+    public void buK() {
         this.gMp.setTextViewText(e.g.download_status_text, TbadkCoreApplication.getInst().getResources().getString(e.j.downloading_app_paused));
         this.gMp.setImageViewResource(e.g.download_btn, e.f.notify_start_bg);
     }

@@ -40,7 +40,7 @@ public class r {
         this.fid = str;
     }
 
-    public int bzL() {
+    public int bzK() {
         return this.user_level;
     }
 
@@ -153,7 +153,7 @@ public class r {
         return this.levelup_score;
     }
 
-    public List<FeedForumData> bBk() {
+    public List<FeedForumData> bBj() {
         return this.hkg;
     }
 
@@ -165,7 +165,7 @@ public class r {
         this.mBlockPopInfoData = blockPopInfoData;
     }
 
-    public String bCJ() {
+    public String bCI() {
         return this.aPq;
     }
 

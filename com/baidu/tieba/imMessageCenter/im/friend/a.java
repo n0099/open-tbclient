@@ -76,7 +76,7 @@ public class a extends BaseAdapter {
         return null;
     }
 
-    private C0256a aUW() {
+    private C0256a aUV() {
         C0256a c0256a = new C0256a();
         c0256a.rootView = LayoutInflater.from(this.fbW.getPageContext().getContext()).inflate(e.h.im_black_list_item, (ViewGroup) null);
         c0256a.fbY = (HeadImageView) c0256a.rootView.findViewById(e.g.header_view);
@@ -91,11 +91,11 @@ public class a extends BaseAdapter {
     private C0256a a(Object obj, BlackListItemData blackListItemData) {
         C0256a c0256a;
         if (obj == null) {
-            c0256a = aUW();
+            c0256a = aUV();
         } else {
             c0256a = (C0256a) obj;
         }
-        a(c0256a, blackListItemData.aQf());
+        a(c0256a, blackListItemData.aQe());
         c0256a.clh.setText(blackListItemData.Kd());
         c0256a.fbZ.setTag(blackListItemData);
         this.fbW.getLayoutMode().onModeChanged(c0256a.rootView);

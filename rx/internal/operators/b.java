@@ -87,11 +87,11 @@ public abstract class b<T, R> extends rx.j<T> {
     }
 
     public final void c(rx.d<? extends T> dVar) {
-        cdg();
+        cdf();
         dVar.unsafeSubscribe(this);
     }
 
-    final void cdg() {
+    final void cdf() {
         rx.j<? super R> jVar = this.actual;
         jVar.add(this);
         jVar.setProducer(new a(this));

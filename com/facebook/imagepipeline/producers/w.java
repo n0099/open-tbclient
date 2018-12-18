@@ -34,8 +34,8 @@ public class w extends y implements at<com.facebook.imagepipeline.f.d> {
     @Override // com.facebook.imagepipeline.producers.y
     protected com.facebook.imagepipeline.f.d e(ImageRequest imageRequest) throws IOException {
         com.facebook.imagepipeline.f.d a;
-        Uri bZE = imageRequest.bZE();
-        if (!com.facebook.common.util.d.o(bZE) || (a = a(bZE, imageRequest.bZH())) == null) {
+        Uri bZD = imageRequest.bZD();
+        if (!com.facebook.common.util.d.o(bZD) || (a = a(bZD, imageRequest.bZG())) == null) {
             return null;
         }
         return a;
@@ -124,7 +124,7 @@ public class w extends y implements at<com.facebook.imagepipeline.f.d> {
     }
 
     @Override // com.facebook.imagepipeline.producers.y
-    protected String bZc() {
+    protected String bZb() {
         return "LocalContentUriThumbnailFetchProducer";
     }
 

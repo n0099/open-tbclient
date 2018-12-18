@@ -8,11 +8,11 @@ public class c {
     private final Map<com.facebook.c.c, b> iop;
     private final List<c.a> ioq;
 
-    public Map<com.facebook.c.c, b> bXO() {
+    public Map<com.facebook.c.c, b> bXN() {
         return this.iop;
     }
 
-    public List<c.a> bXP() {
+    public List<c.a> bXO() {
         return this.ioq;
     }
 }

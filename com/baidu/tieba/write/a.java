@@ -20,7 +20,7 @@ public class a implements com.baidu.tieba.c.a {
     private a.InterfaceC0338a hQv = new a.InterfaceC0338a() { // from class: com.baidu.tieba.write.a.1
         @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0338a
         public void onError() {
-            a.this.bMU();
+            a.this.bMT();
         }
 
         @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0338a
@@ -54,7 +54,7 @@ public class a implements com.baidu.tieba.c.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bMU() {
+    public void bMT() {
         if (!this.hQu) {
             if (this.doS != null) {
                 this.doS.a(null, false, 2, 0);

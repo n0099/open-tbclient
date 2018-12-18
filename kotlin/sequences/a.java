@@ -37,7 +37,7 @@ public final class a<T> implements c<T> {
             this.iyF = a.this.iyC.iterator();
         }
 
-        private final void cbY() {
+        private final void cbX() {
             while (this.iyF.hasNext()) {
                 T next = this.iyF.next();
                 if (((Boolean) a.this.iyE.invoke(next)).booleanValue() == a.this.iyD) {
@@ -52,7 +52,7 @@ public final class a<T> implements c<T> {
         @Override // java.util.Iterator
         public T next() {
             if (this.iyG == -1) {
-                cbY();
+                cbX();
             }
             if (this.iyG == 0) {
                 throw new NoSuchElementException();
@@ -66,7 +66,7 @@ public final class a<T> implements c<T> {
         @Override // java.util.Iterator
         public boolean hasNext() {
             if (this.iyG == -1) {
-                cbY();
+                cbX();
             }
             return this.iyG == 1;
         }

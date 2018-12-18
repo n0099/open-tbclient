@@ -107,16 +107,16 @@ public class g {
             this.bCu.showToast(str);
         }
         if (aVar != null) {
-            if (aVar.bdJ() != 0 || z || aVar.getCount() <= 0) {
+            if (aVar.bdI() != 0 || z || aVar.getCount() <= 0) {
             }
-            if (aVar.bdJ() < 20) {
+            if (aVar.bdI() < 20) {
                 this.fGV.setHasMore(false);
                 this.fGV.jX(true);
             } else {
                 this.fGV.setHasMore(true);
                 this.fGV.jX(true);
             }
-            this.fGV.setData(aVar.bdI());
+            this.fGV.setData(aVar.bdH());
             a(aVar, z);
         }
         this.fGV.setRefreshing(false);
@@ -145,7 +145,7 @@ public class g {
         this.mNoDataView.setVisibility(0);
     }
 
-    public void bdG() {
+    public void bdF() {
         if (this.mNoDataView.isShown()) {
             this.mNoDataView.e(this.bCu.getPageContext());
         }
@@ -157,7 +157,7 @@ public class g {
             this.bCu.showToast(str);
         }
         if (z2) {
-            bdx();
+            bdw();
         }
         this.fGV.notifyDataSetChanged();
     }
@@ -185,12 +185,12 @@ public class g {
     public void a(boolean z, String str, com.baidu.tieba.myCollection.baseEditMark.a aVar) {
         if (z) {
             this.bCu.showToast(this.bCu.getPageContext().getString(e.j.delete_success));
-            if (aVar == null || aVar.bdI() == null) {
+            if (aVar == null || aVar.bdH() == null) {
                 this.mProgressBar.setVisibility(8);
                 return;
             }
-            this.fGV.setData(aVar.bdI());
-            if (aVar.bdI().size() == 0) {
+            this.fGV.setData(aVar.bdH());
+            if (aVar.bdH().size() == 0) {
                 if (this.fHx == null) {
                     this.fHx = new a(aVar);
                 } else {
@@ -215,7 +215,7 @@ public class g {
         this.fGV.setData(arrayList);
     }
 
-    private void bdx() {
+    private void bdw() {
         if (this.fGW == null) {
             this.fGW = new com.baidu.tbadk.core.dialog.a(this.bCu.getPageContext().getPageActivity());
             this.fGW.eA(this.bCu.getPageContext().getString(e.j.sync_mark_fail));
@@ -240,14 +240,14 @@ public class g {
         if (this.mPullView != null) {
             this.mPullView.ey(i);
         }
-        bdy();
+        bdx();
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(this.bCu.getPageContext(), i);
             al.j(this.mNoDataView, e.d.common_color_10076);
         }
     }
 
-    public void bdy() {
+    public void bdx() {
         this.fGV.notifyDataSetChanged();
     }
 

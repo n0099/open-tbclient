@@ -50,10 +50,10 @@ public class i implements Handler.Callback, com.baidu.tieba.video.d {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, l.class);
         l lVar = runTask != null ? (l) runTask.getData() : null;
         if (lVar != null) {
-            this.hms = lVar.bcM();
+            this.hms = lVar.bcL();
         }
         if (this.hms != null) {
-            this.hms.bcq();
+            this.hms.bcp();
         }
         this.hEL = new CustomMessageListener(2001374) { // from class: com.baidu.tieba.write.album.i.2
             /* JADX DEBUG: Method merged with bridge method */
@@ -82,7 +82,7 @@ public class i implements Handler.Callback, com.baidu.tieba.video.d {
         this.eeJ = str;
         if (this.hTn != null && this.bLQ != null) {
             if (this.hTn.videoDuration > KeepJobService.JOB_CHECK_PERIODIC) {
-                bJw();
+                bJv();
             } else if (this.hTq == null || !this.hTq.isConvertRunning()) {
                 String str2 = this.hTn.videoPath;
                 if (TextUtils.isEmpty(str2)) {
@@ -100,11 +100,11 @@ public class i implements Handler.Callback, com.baidu.tieba.video.d {
                         xi(102);
                     }
                 } else if (VideoConvertUtil.wy(str2) >= 1500000) {
-                    if (VideoConvertUtil.bHQ()) {
+                    if (VideoConvertUtil.bHP()) {
                         this.hTo = new File(VideoConvertUtil.hzN, "tieba_" + VideoConvertUtil.wx(str2) + "_tiebaconverting.mp4").getAbsolutePath();
                         this.hTq.setConvertType(1);
                         this.hTq.cQ(str2, this.hTo);
-                        bJr();
+                        bJq();
                         this.hED = false;
                         this.hEE = false;
                     }
@@ -115,7 +115,7 @@ public class i implements Handler.Callback, com.baidu.tieba.video.d {
                             this.hTo = new File(VideoConvertUtil.hzN, "tieba_" + VideoConvertUtil.wx(str2) + "_tiebaconverting.mp4").getAbsolutePath();
                             this.hTq.setConvertType(2);
                             this.hTq.cQ(str2, this.hTo);
-                            bJr();
+                            bJq();
                             this.hED = false;
                             this.hEE = false;
                             return;
@@ -129,7 +129,7 @@ public class i implements Handler.Callback, com.baidu.tieba.video.d {
         }
     }
 
-    private void bJw() {
+    private void bJv() {
         com.baidu.tbadk.core.dialog.a a = new com.baidu.tbadk.core.dialog.a(this.bLQ).da(e.j.mv_local_video_too_long).a(e.j.group_create_private_isee, new a.b() { // from class: com.baidu.tieba.write.album.i.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -141,7 +141,7 @@ public class i implements Handler.Callback, com.baidu.tieba.video.d {
         a.BF();
     }
 
-    private void bJr() {
+    private void bJq() {
         RelativeLayout relativeLayout = (RelativeLayout) this.bLQ.findViewById(e.g.parent);
         if (relativeLayout != null) {
             if (this.hTp == null) {
@@ -176,7 +176,7 @@ public class i implements Handler.Callback, com.baidu.tieba.video.d {
         this.hED = false;
         this.hTo = null;
         if (this.hms != null) {
-            this.hms.bct();
+            this.hms.bcs();
         }
     }
 
@@ -224,7 +224,7 @@ public class i implements Handler.Callback, com.baidu.tieba.video.d {
     }
 
     @Override // com.baidu.tieba.video.d
-    public void bHM() {
+    public void bHL() {
     }
 
     @Override // com.baidu.tieba.video.d
@@ -274,7 +274,7 @@ public class i implements Handler.Callback, com.baidu.tieba.video.d {
                 }
                 this.hTr = false;
                 this.hED = false;
-                bJs();
+                bJr();
                 break;
             case 3:
                 this.hTr = false;
@@ -283,11 +283,11 @@ public class i implements Handler.Callback, com.baidu.tieba.video.d {
                     this.hTo = this.hTo.replace("_tiebaconverting.mp4", ".mp4");
                     file.renameTo(new File(this.hTo));
                 }
-                bJs();
+                bJr();
                 if (!this.hEC) {
                     nY(true);
                     if (this.hms != null) {
-                        this.hms.bct();
+                        this.hms.bcs();
                         break;
                     }
                 }
@@ -295,14 +295,14 @@ public class i implements Handler.Callback, com.baidu.tieba.video.d {
             case 4:
                 this.hTr = false;
                 this.hED = false;
-                bJs();
+                bJr();
                 xi(104);
                 break;
             case 5:
                 this.hTr = false;
                 com.baidu.adp.lib.util.l.showToast(this.bLQ, e.j.mv_local_video_compress_failed);
                 if (this.hTq != null && this.hTq.isConvertRunning()) {
-                    bJt();
+                    bJs();
                 }
                 xi(105);
                 break;
@@ -310,14 +310,14 @@ public class i implements Handler.Callback, com.baidu.tieba.video.d {
         return true;
     }
 
-    private void bJs() {
+    private void bJr() {
         RelativeLayout relativeLayout = (RelativeLayout) this.bLQ.findViewById(e.g.parent);
         if (relativeLayout != null && this.hTp.getParent() != null) {
             relativeLayout.removeView(this.hTp);
         }
     }
 
-    private void bJt() {
+    private void bJs() {
         if (this.hTq != null) {
             this.hTq.abortConvert();
         }
@@ -328,7 +328,7 @@ public class i implements Handler.Callback, com.baidu.tieba.video.d {
                 file.delete();
             }
         }
-        bJs();
+        bJr();
         this.hTo = null;
     }
 
@@ -369,7 +369,7 @@ public class i implements Handler.Callback, com.baidu.tieba.video.d {
         }
     }
 
-    public boolean bNZ() {
+    public boolean bNY() {
         return this.hTr;
     }
 }

@@ -97,11 +97,11 @@ public class DefaultMp4Builder implements Mp4Builder {
         }
         a aVar = new a(this, movie, hashMap, j, null);
         basicContainer.addBox(aVar);
-        long cbo = aVar.cbo();
+        long cbn = aVar.cbn();
         for (StaticChunkOffsetBox staticChunkOffsetBox : this.chunkOffsetBoxes) {
             long[] chunkOffsets = staticChunkOffsetBox.getChunkOffsets();
             for (int i2 = 0; i2 < chunkOffsets.length; i2++) {
-                chunkOffsets[i2] = chunkOffsets[i2] + cbo;
+                chunkOffsets[i2] = chunkOffsets[i2] + cbn;
             }
         }
         return basicContainer;
@@ -388,7 +388,7 @@ public class DefaultMp4Builder implements Mp4Builder {
             this(movie, map, j);
         }
 
-        public long cbo() {
+        public long cbn() {
             Box next;
             long j = 16;
             for (Container container = this; container instanceof Box; container = container.getParent()) {

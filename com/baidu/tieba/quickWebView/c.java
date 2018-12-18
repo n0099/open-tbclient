@@ -74,7 +74,7 @@ public class c {
         }
     };
 
-    public static c bua() {
+    public static c btZ() {
         if (gKr == null) {
             synchronized (c.class) {
                 if (gKr == null) {
@@ -88,7 +88,7 @@ public class c {
     private c() {
     }
 
-    public String bub() {
+    public String bua() {
         return this.gKs;
     }
 
@@ -126,13 +126,13 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: j */
         public b doInBackground(Void... voidArr) {
-            b bud = c.this.bud();
-            if (bud == null || TextUtils.isEmpty(bud.gKx) || bud.gKy == null || bud.gKy.size() == 0) {
-                bud = c.this.buc();
+            b buc = c.this.buc();
+            if (buc == null || TextUtils.isEmpty(buc.gKx) || buc.gKy == null || buc.gKy.size() == 0) {
+                buc = c.this.bub();
             }
-            if (bud != null && !TextUtils.isEmpty(bud.gKx) && bud.gKy != null && bud.gKy.size() != 0) {
-                c.ut(bud.gKz);
-                return bud;
+            if (buc != null && !TextUtils.isEmpty(buc.gKx) && buc.gKy != null && buc.gKy.size() != 0) {
+                c.ut(buc.gKz);
+                return buc;
             }
             return null;
         }
@@ -148,7 +148,7 @@ public class c {
                 com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "readCache", -1, "read error", new Object[0]);
             } else {
                 c.this.gKv = bVar.gKx;
-                d.bug().r(bVar.gKy);
+                d.buf().r(bVar.gKy);
                 str = bVar.gKz;
             }
             c.this.gKs = str;
@@ -162,7 +162,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public b buc() {
+    public b bub() {
         IOException e;
         String str;
         InputStream inputStream = null;
@@ -210,7 +210,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public b bud() {
+    public b buc() {
         String str;
         FileInputStream fileInputStream;
         String[] list;
@@ -417,7 +417,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void bue() {
+    public static void bud() {
         l.y(new File(gKu + "bdtbWCacheTemp"));
     }
 
@@ -446,7 +446,7 @@ public class c {
             FileInputStream fileInputStream;
             String str;
             String i;
-            c.bue();
+            c.bud();
             if (!j.kW()) {
                 return null;
             }
@@ -468,7 +468,7 @@ public class c {
                             str = c.gKu + "bdtbWCacheTemp/" + this.mVersion;
                             if (!r.at(str2, str)) {
                             }
-                            c.bue();
+                            c.bud();
                             return null;
                         }
                     } catch (Throwable th) {
@@ -497,14 +497,14 @@ public class c {
                     }
                 } else {
                     com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "md5 error", new Object[0]);
-                    c.bue();
+                    c.bud();
                     n.h(fileInputStream);
                     return null;
                 }
             } else {
                 com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "download error", new Object[0]);
             }
-            c.bue();
+            c.bud();
             return null;
         }
     }

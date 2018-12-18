@@ -72,7 +72,7 @@ public class d extends com.baidu.adp.base.c {
         this.hEg.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.video.editvideo.view.d.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                if (d.this.hEk.bIu() != i || i == d.this.hEq) {
+                if (d.this.hEk.bIt() != i || i == d.this.hEq) {
                     d.this.hEr = i;
                     d.this.j(i, view);
                 }
@@ -84,7 +84,7 @@ public class d extends com.baidu.adp.base.c {
         al.j(this.mRootView, e.d.cp_bg_line_d);
     }
 
-    public boolean bJl() {
+    public boolean bJk() {
         return !TextUtils.isEmpty(this.hEu);
     }
 
@@ -126,13 +126,13 @@ public class d extends com.baidu.adp.base.c {
     private void a(final int i, View view, MusicData musicData) {
         if (musicData != null && !TextUtils.isEmpty(musicData.resource)) {
             this.hEu = musicData.id;
-            this.hBp.bIt();
-            String wH = com.baidu.tieba.video.editvideo.model.a.bIM().wH(musicData.resource);
+            this.hBp.bIs();
+            String wH = com.baidu.tieba.video.editvideo.model.a.bIL().wH(musicData.resource);
             if (TextUtils.isEmpty(wH)) {
                 if (view != null) {
                     final c.a aVar = (c.a) view.getTag();
                     aVar.hAT.setVisibility(0);
-                    com.baidu.tieba.video.editvideo.model.a.bIM().a(musicData.id, musicData.resource, new a.InterfaceC0325a() { // from class: com.baidu.tieba.video.editvideo.view.d.2
+                    com.baidu.tieba.video.editvideo.model.a.bIL().a(musicData.id, musicData.resource, new a.InterfaceC0325a() { // from class: com.baidu.tieba.video.editvideo.view.d.2
                         @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0325a
                         public void cR(String str, String str2) {
                             if (!TextUtils.isEmpty(str2)) {
@@ -152,13 +152,13 @@ public class d extends com.baidu.adp.base.c {
                         }
 
                         @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0325a
-                        public void bIa() {
+                        public void bHZ() {
                             aVar.hAT.setVisibility(4);
                         }
                     });
                     return;
                 }
-                com.baidu.tieba.video.editvideo.model.a.bIM().a(musicData.id, musicData.resource, new a.InterfaceC0325a() { // from class: com.baidu.tieba.video.editvideo.view.d.3
+                com.baidu.tieba.video.editvideo.model.a.bIL().a(musicData.id, musicData.resource, new a.InterfaceC0325a() { // from class: com.baidu.tieba.video.editvideo.view.d.3
                     @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0325a
                     public void cR(String str, String str2) {
                         if (!TextUtils.isEmpty(str2)) {
@@ -176,7 +176,7 @@ public class d extends com.baidu.adp.base.c {
                     }
 
                     @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0325a
-                    public void bIa() {
+                    public void bHZ() {
                     }
                 });
                 return;
@@ -246,7 +246,7 @@ public class d extends com.baidu.adp.base.c {
             if (file.exists()) {
                 file.delete();
             }
-            com.baidu.tieba.video.editvideo.model.a.bIM().bIN();
+            com.baidu.tieba.video.editvideo.model.a.bIL().bIM();
         }
         a(i, this.hEg.getChildCount() > i ? this.hEg.getChildAt(i) : null, (MusicData) this.hEk.getItem(i));
     }
@@ -254,16 +254,16 @@ public class d extends com.baidu.adp.base.c {
     public void setMusicData(List<MusicData> list) {
         this.hEk.setData(list);
         if (this.hEk != null) {
-            this.hEs = this.hEk.bIu();
+            this.hEs = this.hEk.bIt();
             this.hEr = this.hEs;
         }
     }
 
-    public String bJj() {
+    public String bJi() {
         return this.hEp;
     }
 
-    public String bJk() {
+    public String bJj() {
         return this.hEu;
     }
 
@@ -362,7 +362,7 @@ public class d extends com.baidu.adp.base.c {
             this.hEp = intent.getStringExtra(EditVideoActivityConfig.LOCAL_PATH_KEY);
             if (this.hEk != null) {
                 this.hEk.wF(this.hEu);
-                this.hEs = this.hEk.bIu();
+                this.hEs = this.hEk.bIt();
                 this.hEq = this.hEs;
                 this.hEr = this.hEs;
             }

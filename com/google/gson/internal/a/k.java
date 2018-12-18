@@ -15,7 +15,7 @@ public final class k extends o<Time> {
     public static final p iuj = new p() { // from class: com.google.gson.internal.a.k.1
         @Override // com.google.gson.p
         public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-            if (aVar.caT() == Time.class) {
+            if (aVar.caS() == Time.class) {
                 return new k();
             }
             return null;
@@ -28,7 +28,7 @@ public final class k extends o<Time> {
     /* renamed from: m */
     public synchronized Time b(com.google.gson.stream.a aVar) throws IOException {
         Time time;
-        if (aVar.caH() == JsonToken.NULL) {
+        if (aVar.caG() == JsonToken.NULL) {
             aVar.nextNull();
             time = null;
         } else {

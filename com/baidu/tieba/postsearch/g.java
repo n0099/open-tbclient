@@ -37,8 +37,8 @@ public class g {
 
     public void tA(int i) {
         this.gHK.aHY();
-        bsR();
-        this.gHK.bsS();
+        bsQ();
+        this.gHK.bsR();
         this.gHM.setVisibility(true);
         this.gHM.tA(i);
     }
@@ -51,8 +51,8 @@ public class g {
         this.gHM.a(i, bVar, z);
     }
 
-    public boolean bsW() {
-        return this.gHL.bte();
+    public boolean bsV() {
+        return this.gHL.btd();
     }
 
     public void showLoadingView() {
@@ -63,16 +63,16 @@ public class g {
         this.gHL.hideLoadingView();
     }
 
-    public void btd() {
-        this.gHL.btd();
-    }
-
-    public void bsR() {
-        this.gHK.bsR();
-    }
-
-    public void btp() {
+    public void btc() {
         this.gHL.btc();
+    }
+
+    public void bsQ() {
+        this.gHK.bsQ();
+    }
+
+    public void bto() {
+        this.gHL.btb();
     }
 
     public int getCurrentTabType() {

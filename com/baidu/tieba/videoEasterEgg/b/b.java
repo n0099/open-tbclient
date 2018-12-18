@@ -35,7 +35,7 @@ public class b implements a {
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
-    public void bLm() {
+    public void bLl() {
         if (this.mPageContext != null) {
             if (ax.jJ() || ba.bJ(this.mPageContext.getPageActivity())) {
                 Fp();
@@ -44,7 +44,7 @@ public class b implements a {
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
-    public void bLn() {
+    public void bLm() {
         if (this.hKB != null && this.hKC != null) {
             this.hKC.xd(this.hKB.getVideoUrl());
         }
@@ -58,14 +58,14 @@ public class b implements a {
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
-    public void bLo() {
+    public void bLn() {
         if (this.hKC != null && this.hKB != null) {
             this.hKC.cU(this.hKB.getPopText(), this.hKB.getPopImageUrl());
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
-    public void bLp() {
+    public void bLo() {
         if (this.hKB != null) {
             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(this.hKB.getID()), false);
         }

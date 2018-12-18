@@ -164,12 +164,12 @@ public class WebVideoActivity extends AdTbWebViewActivity {
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bBz.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.topMargin = i;
-            layoutParams.height = (l.aQ(getActivity()) - l.r(getActivity())) - buE();
+            layoutParams.height = (l.aQ(getActivity()) - l.r(getActivity())) - buD();
             this.bBz.setLayoutParams(layoutParams);
         }
     }
 
-    private int buE() {
+    private int buD() {
         return l.h(this, e.C0210e.ds98);
     }
 }

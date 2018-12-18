@@ -16,7 +16,7 @@ public class a {
         }
     }
 
-    public static Map<String, String> baf() {
+    public static Map<String, String> bae() {
         if (fuv == null) {
             try {
                 Field declaredField = Class.forName("dalvik.system.VMRuntime").getDeclaredField("ABI_TO_INSTRUCTION_SET_MAP");

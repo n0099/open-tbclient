@@ -87,7 +87,7 @@ public class PersonCenterFragment extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void boA() {
+    public void boz() {
         long j = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_feedback_tip", 0L);
         if (TbadkCoreApplication.isLogin() && System.currentTimeMillis() - j > 4 * ao.aCo) {
             x.a(new w<Boolean>() { // from class: com.baidu.tieba.personCenter.PersonCenterFragment.4
@@ -118,12 +118,12 @@ public class PersonCenterFragment extends BaseFragment {
     /* JADX INFO: Access modifiers changed from: private */
     public void lW(boolean z) {
         if (!z) {
-            boA();
+            boz();
         } else if (getPageContext() != null && getPageContext().getPageActivity() != null && getPageContext().getPageActivity().getMainLooper() != null && getPageContext().getPageActivity().getMainLooper().getQueue() != null) {
             getPageContext().getPageActivity().getMainLooper().getQueue().addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.baidu.tieba.personCenter.PersonCenterFragment.6
                 @Override // android.os.MessageQueue.IdleHandler
                 public boolean queueIdle() {
-                    PersonCenterFragment.this.boA();
+                    PersonCenterFragment.this.boz();
                     return false;
                 }
             });
@@ -162,15 +162,15 @@ public class PersonCenterFragment extends BaseFragment {
             } else {
                 this.grg.refreshView();
             }
-            this.grg.boD();
+            this.grg.boC();
             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("key_feedback_tip_tab_show", false);
         } else {
-            this.grg.boE();
+            this.grg.boD();
         }
         if (isAdded()) {
-            a.bvJ().bvP();
+            a.bvI().bvO();
         }
-        a.bvJ().mP(isPrimary());
+        a.bvI().mP(isPrimary());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment

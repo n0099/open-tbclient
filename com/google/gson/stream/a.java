@@ -31,12 +31,12 @@ public class a implements Closeable {
             @Override // com.google.gson.internal.d
             public void g(a aVar) throws IOException {
                 if (aVar instanceof e) {
-                    ((e) aVar).caK();
+                    ((e) aVar).caJ();
                     return;
                 }
                 int i = aVar.iws;
                 if (i == 0) {
-                    i = aVar.caV();
+                    i = aVar.caU();
                 }
                 if (i == 13) {
                     aVar.iws = 9;
@@ -45,7 +45,7 @@ public class a implements Closeable {
                 } else if (i == 14) {
                     aVar.iws = 10;
                 } else {
-                    throw new IllegalStateException("Expected a name but was " + aVar.caH() + aVar.caL());
+                    throw new IllegalStateException("Expected a name but was " + aVar.caG() + aVar.caK());
                 }
             }
         };
@@ -76,7 +76,7 @@ public class a implements Closeable {
     public void beginArray() throws IOException {
         int i = this.iws;
         if (i == 0) {
-            i = caV();
+            i = caU();
         }
         if (i == 3) {
             yU(1);
@@ -84,13 +84,13 @@ public class a implements Closeable {
             this.iws = 0;
             return;
         }
-        throw new IllegalStateException("Expected BEGIN_ARRAY but was " + caH() + caL());
+        throw new IllegalStateException("Expected BEGIN_ARRAY but was " + caG() + caK());
     }
 
     public void endArray() throws IOException {
         int i = this.iws;
         if (i == 0) {
-            i = caV();
+            i = caU();
         }
         if (i == 4) {
             this.iut--;
@@ -100,26 +100,26 @@ public class a implements Closeable {
             this.iws = 0;
             return;
         }
-        throw new IllegalStateException("Expected END_ARRAY but was " + caH() + caL());
+        throw new IllegalStateException("Expected END_ARRAY but was " + caG() + caK());
     }
 
     public void beginObject() throws IOException {
         int i = this.iws;
         if (i == 0) {
-            i = caV();
+            i = caU();
         }
         if (i == 1) {
             yU(3);
             this.iws = 0;
             return;
         }
-        throw new IllegalStateException("Expected BEGIN_OBJECT but was " + caH() + caL());
+        throw new IllegalStateException("Expected BEGIN_OBJECT but was " + caG() + caK());
     }
 
     public void endObject() throws IOException {
         int i = this.iws;
         if (i == 0) {
-            i = caV();
+            i = caU();
         }
         if (i == 2) {
             this.iut--;
@@ -130,21 +130,21 @@ public class a implements Closeable {
             this.iws = 0;
             return;
         }
-        throw new IllegalStateException("Expected END_OBJECT but was " + caH() + caL());
+        throw new IllegalStateException("Expected END_OBJECT but was " + caG() + caK());
     }
 
     public boolean hasNext() throws IOException {
         int i = this.iws;
         if (i == 0) {
-            i = caV();
+            i = caU();
         }
         return (i == 2 || i == 4) ? false : true;
     }
 
-    public JsonToken caH() throws IOException {
+    public JsonToken caG() throws IOException {
         int i = this.iws;
         if (i == 0) {
-            i = caV();
+            i = caU();
         }
         switch (i) {
             case 1:
@@ -180,7 +180,7 @@ public class a implements Closeable {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    int caV() throws IOException {
+    int caU() throws IOException {
         int i = this.iww[this.iut - 1];
         if (i == 1) {
             this.iww[this.iut - 1] = 2;
@@ -189,7 +189,7 @@ public class a implements Closeable {
                 case 44:
                     break;
                 case 59:
-                    cba();
+                    caZ();
                     break;
                 case 93:
                     this.iws = 4;
@@ -204,7 +204,7 @@ public class a implements Closeable {
                     case 44:
                         break;
                     case 59:
-                        cba();
+                        caZ();
                         break;
                     case 125:
                         this.iws = 2;
@@ -219,7 +219,7 @@ public class a implements Closeable {
                     this.iws = 13;
                     return 13;
                 case 39:
-                    cba();
+                    caZ();
                     this.iws = 12;
                     return 12;
                 case 125:
@@ -229,7 +229,7 @@ public class a implements Closeable {
                     }
                     throw zw("Expected name");
                 default:
-                    cba();
+                    caZ();
                     this.pos--;
                     if (h((char) pe)) {
                         this.iws = 14;
@@ -247,7 +247,7 @@ public class a implements Closeable {
                 default:
                     throw zw("Expected ':'");
                 case 61:
-                    cba();
+                    caZ();
                     if ((this.pos < this.limit || yV(1)) && this.iwp[this.pos] == '>') {
                         this.pos++;
                         break;
@@ -256,7 +256,7 @@ public class a implements Closeable {
             }
         } else if (i == 6) {
             if (this.isX) {
-                cbd();
+                cbc();
             }
             this.iww[this.iut - 1] = 7;
         } else if (i == 7) {
@@ -264,7 +264,7 @@ public class a implements Closeable {
                 this.iws = 17;
                 return 17;
             }
-            cba();
+            caZ();
             this.pos--;
         } else if (i == 8) {
             throw new IllegalStateException("JsonReader is closed");
@@ -274,7 +274,7 @@ public class a implements Closeable {
                 this.iws = 9;
                 return 9;
             case 39:
-                cba();
+                caZ();
                 this.iws = 8;
                 return 8;
             case 44:
@@ -294,23 +294,23 @@ public class a implements Closeable {
                 return 1;
             default:
                 this.pos--;
-                int caW = caW();
-                if (caW == 0) {
-                    int caX = caX();
-                    if (caX == 0) {
+                int caV = caV();
+                if (caV == 0) {
+                    int caW = caW();
+                    if (caW == 0) {
                         if (!h(this.iwp[this.pos])) {
                             throw zw("Expected value");
                         }
-                        cba();
+                        caZ();
                         this.iws = 10;
                         return 10;
                     }
-                    return caX;
+                    return caW;
                 }
-                return caW;
+                return caV;
         }
         if (i == 1 || i == 2) {
-            cba();
+            caZ();
             this.pos--;
             this.iws = 7;
             return 7;
@@ -318,7 +318,7 @@ public class a implements Closeable {
         throw zw("Unexpected value");
     }
 
-    private int caW() throws IOException {
+    private int caV() throws IOException {
         String str;
         String str2;
         int i;
@@ -410,7 +410,7 @@ public class a implements Closeable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private int caX() throws IOException {
+    private int caW() throws IOException {
         char c;
         boolean z;
         boolean z2;
@@ -546,7 +546,7 @@ public class a implements Closeable {
             case ';':
             case '=':
             case '\\':
-                cba();
+                caZ();
                 break;
         }
         return false;
@@ -556,16 +556,16 @@ public class a implements Closeable {
         String i;
         int i2 = this.iws;
         if (i2 == 0) {
-            i2 = caV();
+            i2 = caU();
         }
         if (i2 == 14) {
-            i = caY();
+            i = caX();
         } else if (i2 == 12) {
             i = i('\'');
         } else if (i2 == 13) {
             i = i('\"');
         } else {
-            throw new IllegalStateException("Expected a name but was " + caH() + caL());
+            throw new IllegalStateException("Expected a name but was " + caG() + caK());
         }
         this.iws = 0;
         this.iuu[this.iut - 1] = i;
@@ -576,10 +576,10 @@ public class a implements Closeable {
         String str;
         int i = this.iws;
         if (i == 0) {
-            i = caV();
+            i = caU();
         }
         if (i == 10) {
-            str = caY();
+            str = caX();
         } else if (i == 8) {
             str = i('\'');
         } else if (i == 9) {
@@ -593,7 +593,7 @@ public class a implements Closeable {
             str = new String(this.iwp, this.pos, this.iwu);
             this.pos += this.iwu;
         } else {
-            throw new IllegalStateException("Expected a string but was " + caH() + caL());
+            throw new IllegalStateException("Expected a string but was " + caG() + caK());
         }
         this.iws = 0;
         int[] iArr = this.iuv;
@@ -605,7 +605,7 @@ public class a implements Closeable {
     public boolean nextBoolean() throws IOException {
         int i = this.iws;
         if (i == 0) {
-            i = caV();
+            i = caU();
         }
         if (i == 5) {
             this.iws = 0;
@@ -620,14 +620,14 @@ public class a implements Closeable {
             iArr2[i3] = iArr2[i3] + 1;
             return false;
         } else {
-            throw new IllegalStateException("Expected a boolean but was " + caH() + caL());
+            throw new IllegalStateException("Expected a boolean but was " + caG() + caK());
         }
     }
 
     public void nextNull() throws IOException {
         int i = this.iws;
         if (i == 0) {
-            i = caV();
+            i = caU();
         }
         if (i == 7) {
             this.iws = 0;
@@ -636,13 +636,13 @@ public class a implements Closeable {
             iArr[i2] = iArr[i2] + 1;
             return;
         }
-        throw new IllegalStateException("Expected null but was " + caH() + caL());
+        throw new IllegalStateException("Expected null but was " + caG() + caK());
     }
 
     public double nextDouble() throws IOException {
         int i = this.iws;
         if (i == 0) {
-            i = caV();
+            i = caU();
         }
         if (i == 15) {
             this.iws = 0;
@@ -657,14 +657,14 @@ public class a implements Closeable {
         } else if (i == 8 || i == 9) {
             this.iwv = i(i == 8 ? '\'' : '\"');
         } else if (i == 10) {
-            this.iwv = caY();
+            this.iwv = caX();
         } else if (i != 11) {
-            throw new IllegalStateException("Expected a double but was " + caH() + caL());
+            throw new IllegalStateException("Expected a double but was " + caG() + caK());
         }
         this.iws = 11;
         double parseDouble = Double.parseDouble(this.iwv);
         if (!this.isX && (Double.isNaN(parseDouble) || Double.isInfinite(parseDouble))) {
-            throw new MalformedJsonException("JSON forbids NaN and infinities: " + parseDouble + caL());
+            throw new MalformedJsonException("JSON forbids NaN and infinities: " + parseDouble + caK());
         }
         this.iwv = null;
         this.iws = 0;
@@ -677,7 +677,7 @@ public class a implements Closeable {
     public long nextLong() throws IOException {
         int i = this.iws;
         if (i == 0) {
-            i = caV();
+            i = caU();
         }
         if (i == 15) {
             this.iws = 0;
@@ -691,7 +691,7 @@ public class a implements Closeable {
             this.pos += this.iwu;
         } else if (i == 8 || i == 9 || i == 10) {
             if (i == 10) {
-                this.iwv = caY();
+                this.iwv = caX();
             } else {
                 this.iwv = i(i == 8 ? '\'' : '\"');
             }
@@ -705,13 +705,13 @@ public class a implements Closeable {
             } catch (NumberFormatException e) {
             }
         } else {
-            throw new IllegalStateException("Expected a long but was " + caH() + caL());
+            throw new IllegalStateException("Expected a long but was " + caG() + caK());
         }
         this.iws = 11;
         double parseDouble = Double.parseDouble(this.iwv);
         long j = (long) parseDouble;
         if (j != parseDouble) {
-            throw new NumberFormatException("Expected a long but was " + this.iwv + caL());
+            throw new NumberFormatException("Expected a long but was " + this.iwv + caK());
         }
         this.iwv = null;
         this.iws = 0;
@@ -739,7 +739,7 @@ public class a implements Closeable {
                 if (c2 == '\\') {
                     this.pos = i4;
                     sb.append(cArr, i, (i4 - i) - 1);
-                    sb.append(cbc());
+                    sb.append(cbb());
                     i = this.pos;
                     i2 = this.limit;
                     i4 = i;
@@ -755,7 +755,7 @@ public class a implements Closeable {
         throw zw("Unterminated string");
     }
 
-    private String caY() throws IOException {
+    private String caX() throws IOException {
         String sb;
         StringBuilder sb2 = null;
         int i = 0;
@@ -779,7 +779,7 @@ public class a implements Closeable {
                     case ';':
                     case '=':
                     case '\\':
-                        cba();
+                        caZ();
                         break;
                     default:
                         i++;
@@ -825,7 +825,7 @@ public class a implements Closeable {
                 }
                 if (c2 == '\\') {
                     this.pos = i4;
-                    cbc();
+                    cbb();
                     i4 = this.pos;
                     i2 = this.limit;
                 } else if (c2 == '\n') {
@@ -839,7 +839,7 @@ public class a implements Closeable {
         throw zw("Unterminated string");
     }
 
-    private void caZ() throws IOException {
+    private void caY() throws IOException {
         do {
             int i = 0;
             while (this.pos + i < this.limit) {
@@ -862,7 +862,7 @@ public class a implements Closeable {
                     case ';':
                     case '=':
                     case '\\':
-                        cba();
+                        caZ();
                         this.pos = i + this.pos;
                         return;
                     default:
@@ -876,12 +876,12 @@ public class a implements Closeable {
     public int nextInt() throws IOException {
         int i = this.iws;
         if (i == 0) {
-            i = caV();
+            i = caU();
         }
         if (i == 15) {
             int i2 = (int) this.iwt;
             if (this.iwt != i2) {
-                throw new NumberFormatException("Expected an int but was " + this.iwt + caL());
+                throw new NumberFormatException("Expected an int but was " + this.iwt + caK());
             }
             this.iws = 0;
             int[] iArr = this.iuv;
@@ -894,7 +894,7 @@ public class a implements Closeable {
             this.pos += this.iwu;
         } else if (i == 8 || i == 9 || i == 10) {
             if (i == 10) {
-                this.iwv = caY();
+                this.iwv = caX();
             } else {
                 this.iwv = i(i == 8 ? '\'' : '\"');
             }
@@ -908,13 +908,13 @@ public class a implements Closeable {
             } catch (NumberFormatException e) {
             }
         } else {
-            throw new IllegalStateException("Expected an int but was " + caH() + caL());
+            throw new IllegalStateException("Expected an int but was " + caG() + caK());
         }
         this.iws = 11;
         double parseDouble = Double.parseDouble(this.iwv);
         int i5 = (int) parseDouble;
         if (i5 != parseDouble) {
-            throw new NumberFormatException("Expected an int but was " + this.iwv + caL());
+            throw new NumberFormatException("Expected an int but was " + this.iwv + caK());
         }
         this.iwv = null;
         this.iws = 0;
@@ -937,7 +937,7 @@ public class a implements Closeable {
         do {
             int i2 = this.iws;
             if (i2 == 0) {
-                i2 = caV();
+                i2 = caU();
             }
             if (i2 == 3) {
                 yU(1);
@@ -952,7 +952,7 @@ public class a implements Closeable {
                 this.iut--;
                 i--;
             } else if (i2 == 14 || i2 == 10) {
-                caZ();
+                caY();
             } else if (i2 == 8 || i2 == 12) {
                 j('\'');
             } else if (i2 == 9 || i2 == 13) {
@@ -1022,7 +1022,7 @@ public class a implements Closeable {
                     i = this.pos;
                     i2 = this.limit;
                 } else if (z) {
-                    throw new EOFException("End of input" + caL());
+                    throw new EOFException("End of input" + caK());
                 } else {
                     return -1;
                 }
@@ -1047,7 +1047,7 @@ public class a implements Closeable {
                         return c;
                     }
                 }
-                cba();
+                caZ();
                 switch (cArr[this.pos]) {
                     case '*':
                         this.pos++;
@@ -1059,7 +1059,7 @@ public class a implements Closeable {
                         continue;
                     case '/':
                         this.pos++;
-                        cbb();
+                        cba();
                         i = this.pos;
                         i2 = this.limit;
                         continue;
@@ -1068,8 +1068,8 @@ public class a implements Closeable {
                 }
             } else if (c == '#') {
                 this.pos = i3;
+                caZ();
                 cba();
-                cbb();
                 i = this.pos;
                 i2 = this.limit;
             } else {
@@ -1079,13 +1079,13 @@ public class a implements Closeable {
         }
     }
 
-    private void cba() throws IOException {
+    private void caZ() throws IOException {
         if (!this.isX) {
             throw zw("Use JsonReader.setLenient(true) to accept malformed JSON");
         }
     }
 
-    private void cbb() throws IOException {
+    private void cba() throws IOException {
         char c;
         do {
             if (this.pos < this.limit || yV(1)) {
@@ -1124,11 +1124,11 @@ public class a implements Closeable {
     }
 
     public String toString() {
-        return getClass().getSimpleName() + caL();
+        return getClass().getSimpleName() + caK();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String caL() {
+    public String caK() {
         return " at line " + (this.iwq + 1) + " column " + ((this.pos - this.iwr) + 1) + " path " + getPath();
     }
 
@@ -1156,7 +1156,7 @@ public class a implements Closeable {
         return append.toString();
     }
 
-    private char cbc() throws IOException {
+    private char cbb() throws IOException {
         int i;
         if (this.pos == this.limit && !yV(1)) {
             throw zw("Unterminated escape sequence");
@@ -1214,10 +1214,10 @@ public class a implements Closeable {
     }
 
     private IOException zw(String str) throws IOException {
-        throw new MalformedJsonException(str + caL());
+        throw new MalformedJsonException(str + caK());
     }
 
-    private void cbd() throws IOException {
+    private void cbc() throws IOException {
         pe(true);
         this.pos--;
         if (this.pos + iwo.length <= this.limit || yV(iwo.length)) {

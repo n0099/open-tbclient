@@ -95,7 +95,7 @@ public class h<K, V> implements com.facebook.common.memory.b, t<K, V> {
         com.facebook.common.references.a<V> aVar3;
         com.facebook.common.internal.g.checkNotNull(k);
         com.facebook.common.internal.g.checkNotNull(aVar);
-        bVK();
+        bVJ();
         synchronized (this) {
             remove = this.ilI.remove(k);
             b<K, V> remove2 = this.ilJ.remove(k);
@@ -115,15 +115,15 @@ public class h<K, V> implements com.facebook.common.memory.b, t<K, V> {
         }
         com.facebook.common.references.a.c((com.facebook.common.references.a<?>) aVar2);
         d(remove);
-        bVL();
+        bVK();
         return aVar3;
     }
 
     private synchronized boolean aG(V v) {
         boolean z;
         int aD = this.ilE.aD(v);
-        if (aD <= this.ilN.imj && bVM() <= this.ilN.imf - 1) {
-            z = bVN() <= this.ilN.ime - aD;
+        if (aD <= this.ilN.imj && bVL() <= this.ilN.imf - 1) {
+            z = bVM() <= this.ilN.ime - aD;
         }
         return z;
     }
@@ -144,8 +144,8 @@ public class h<K, V> implements com.facebook.common.memory.b, t<K, V> {
             }
         }
         d(remove);
+        bVJ();
         bVK();
-        bVL();
         return aVar;
     }
 
@@ -174,8 +174,8 @@ public class h<K, V> implements com.facebook.common.memory.b, t<K, V> {
             bVar = null;
         }
         e(bVar);
+        bVJ();
         bVK();
-        bVL();
     }
 
     private synchronized boolean c(b<K, V> bVar) {
@@ -194,17 +194,17 @@ public class h<K, V> implements com.facebook.common.memory.b, t<K, V> {
         return !this.ilJ.a(predicate).isEmpty();
     }
 
-    private synchronized void bVK() {
+    private synchronized void bVJ() {
         if (this.ilO + ilH <= SystemClock.uptimeMillis()) {
             this.ilO = SystemClock.uptimeMillis();
             this.ilN = this.ilM.get();
         }
     }
 
-    private void bVL() {
+    private void bVK() {
         ArrayList<b<K, V>> cf;
         synchronized (this) {
-            cf = cf(Math.min(this.ilN.imi, this.ilN.imf - bVM()), Math.min(this.ilN.imh, this.ilN.ime - bVN()));
+            cf = cf(Math.min(this.ilN.imi, this.ilN.imf - bVL()), Math.min(this.ilN.imh, this.ilN.ime - bVM()));
             aE(cf);
         }
         aC(cf);
@@ -224,9 +224,9 @@ public class h<K, V> implements com.facebook.common.memory.b, t<K, V> {
                 if (this.ilI.getCount() <= max && this.ilI.getSizeInBytes() <= max2) {
                     break;
                 }
-                K bVJ = this.ilI.bVJ();
-                this.ilI.remove(bVJ);
-                arrayList.add(this.ilJ.remove(bVJ));
+                K bVI = this.ilI.bVI();
+                this.ilI.remove(bVI);
+                arrayList.add(this.ilJ.remove(bVI));
             }
         }
         return arrayList;
@@ -297,11 +297,11 @@ public class h<K, V> implements com.facebook.common.memory.b, t<K, V> {
         return (bVar.ilT && bVar.clientCount == 0) ? bVar.ilS : null;
     }
 
-    public synchronized int bVM() {
+    public synchronized int bVL() {
         return this.ilJ.getCount() - this.ilI.getCount();
     }
 
-    public synchronized int bVN() {
+    public synchronized int bVM() {
         return this.ilJ.getSizeInBytes() - this.ilI.getSizeInBytes();
     }
 }

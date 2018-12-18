@@ -19,7 +19,7 @@ public final class bi<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> bi<T> cdR() {
+    public static <T> bi<T> cdQ() {
         return (bi<T>) a.iHO;
     }
 

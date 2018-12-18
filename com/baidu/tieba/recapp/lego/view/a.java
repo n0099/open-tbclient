@@ -45,8 +45,8 @@ public class a extends com.baidu.tieba.recapp.a {
                 if (mediaPlayer != null && a.this.gKO != null) {
                     a.this.mDuration = a.this.gKO.getDuration();
                     a.this.gKM.setSeekBarTime(0, a.this.mDuration);
-                    if (a.this.buV() > 0) {
-                        mediaPlayer.seekTo((int) a.this.buV());
+                    if (a.this.buU() > 0) {
+                        mediaPlayer.seekTo((int) a.this.buU());
                         a.this.rc(0);
                     }
                     a.this.gKM.play();
@@ -183,11 +183,11 @@ public class a extends com.baidu.tieba.recapp.a {
         super.destroy();
     }
 
-    public long buV() {
+    public long buU() {
         return this.gOB;
     }
 
-    public void buW() {
+    public void buV() {
         this.gOB = getCurrentPos();
     }
 

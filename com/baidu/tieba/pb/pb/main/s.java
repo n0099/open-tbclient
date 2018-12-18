@@ -23,7 +23,7 @@ public class s {
         this.fXn = pbFakeFloorModel;
     }
 
-    public void biR() {
+    public void biQ() {
         if (this.fXm != null) {
             this.fXm.MT();
             if (StringUtils.isNull(this.fXo)) {
@@ -33,27 +33,27 @@ public class s {
         }
     }
 
-    public void biS() {
+    public void biR() {
         if (this.fXm != null && this.fXm.LX() != null) {
             this.fXm.LX().Kw();
         }
     }
 
-    public boolean biT() {
+    public boolean biS() {
         if (this.fXm == null || this.fXm.LX() == null) {
             return false;
         }
         return this.fXm.LX().Ma();
     }
 
-    private void biU() {
+    private void biT() {
         if (this.dor != null && this.fXm == null) {
             this.fXm = (com.baidu.tbadk.editortools.pb.g) new com.baidu.tbadk.editortools.pb.h().bM(this.mPageContext.getPageActivity());
             this.fXm.setContext(this.mPageContext);
             this.fXm.b(this.fXn);
             this.fXm.LX().cq(true);
             this.fXm.d(this.mPageContext);
-            biV();
+            biU();
             this.fXm.b(this.fXp);
         }
     }
@@ -61,7 +61,7 @@ public class s {
     public void cn(String str, String str2) {
         this.fXo = str2;
         if (this.fXm == null) {
-            biU();
+            biT();
         } else {
             this.fXm.b(this.fXn);
             if (StringUtils.isNull(this.fXo)) {
@@ -75,7 +75,7 @@ public class s {
         }
     }
 
-    private void biV() {
+    private void biU() {
         if (this.dor != null && this.fXm != null && this.fXm.LX() != null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
@@ -109,7 +109,7 @@ public class s {
         }
     }
 
-    public com.baidu.tbadk.editortools.pb.g biW() {
+    public com.baidu.tbadk.editortools.pb.g biV() {
         return this.fXm;
     }
 }

@@ -28,7 +28,7 @@ public class ReplyMeModel extends BdBaseModel {
         super(tbPageContext);
         this.feO = BdUniqueId.gen();
         this.mPageContext = tbPageContext;
-        aVY();
+        aVX();
     }
 
     public void a(long j, int i, String str, String str2) {
@@ -41,7 +41,7 @@ public class ReplyMeModel extends BdBaseModel {
         sendMessage(checkPostRequestMessage);
     }
 
-    public void aVY() {
+    public void aVX() {
         this.feQ = new com.baidu.adp.framework.listener.c(303010) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener

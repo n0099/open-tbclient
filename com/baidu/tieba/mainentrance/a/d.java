@@ -69,10 +69,10 @@ public class d {
         this.ftG = (FrameLayout) this.mRootView.findViewById(e.g.frame_layout);
         this.mNoDataView = NoDataViewFactory.a(this.mContext, null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.mContext.getResources().getDimension(e.C0210e.ds200)), null, null);
         this.ftG.addView(this.mNoDataView, 0);
+        baj();
+        aZM();
         bak();
-        aZN();
         bal();
-        bam();
     }
 
     private void ayF() {
@@ -119,50 +119,50 @@ public class d {
         al.c(this.ftI, e.d.cp_link_tip_a, 1);
     }
 
-    private void bak() {
+    private void baj() {
         this.fuF = (QuickWebView) this.mRootView.findViewById(e.g.search_history_webview);
         this.fuF.mI(true);
     }
 
-    private void aZN() {
+    private void aZM() {
         this.ftP = (BdListView) this.mRootView.findViewById(e.g.home_lv_search_suggest);
         this.ftR = new com.baidu.tieba.mainentrance.searchSuggestList.a(this.mContext, null);
         this.ftP.setAdapter((ListAdapter) this.ftR);
     }
 
-    private void bal() {
+    private void bak() {
         this.fuE = (QuickWebView) this.mRootView.findViewById(e.g.search_result_webview);
         this.fuE.mI(true);
     }
 
-    private void bam() {
+    private void bal() {
         this.fuC.setText("");
         this.fuC.requestFocus();
         this.ftI.setText(this.mContext.getString(e.j.cancel));
     }
 
-    public void ban() {
+    public void bam() {
         this.fuF.setVisibility(0);
         this.ftP.setVisibility(8);
         this.fuE.setVisibility(8);
         this.mNoDataView.setVisibility(8);
     }
 
-    public void aZX() {
+    public void aZW() {
         this.ftP.setVisibility(8);
         this.fuF.setVisibility(8);
         this.fuE.setVisibility(8);
         this.mNoDataView.setVisibility(0);
     }
 
-    public void aZV() {
+    public void aZU() {
         this.ftP.setVisibility(0);
         this.fuF.setVisibility(8);
         this.fuE.setVisibility(8);
         this.mNoDataView.setVisibility(8);
     }
 
-    public void bao() {
+    public void ban() {
         this.ftP.setVisibility(8);
         this.fuF.setVisibility(8);
         this.fuE.setVisibility(0);
@@ -188,7 +188,7 @@ public class d {
 
     public void j(List<String> list, String str) {
         if (!v.I(list)) {
-            aZV();
+            aZU();
             this.ftR.rm(str);
             this.ftR.setData(list);
         }
@@ -235,23 +235,23 @@ public class d {
         this.fuE.setOnLoadUrlListener(bVar);
     }
 
-    public EditText bap() {
+    public EditText bao() {
         return this.fuC;
     }
 
-    public TextView baq() {
+    public TextView bap() {
         return this.ftI;
     }
 
-    public QuickWebView bar() {
+    public QuickWebView baq() {
         return this.fuE;
     }
 
-    public QuickWebView bas() {
+    public QuickWebView bar() {
         return this.fuF;
     }
 
-    public boolean bat() {
+    public boolean bas() {
         return this.ftP.getVisibility() == 0;
     }
 

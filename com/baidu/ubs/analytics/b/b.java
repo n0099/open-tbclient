@@ -65,7 +65,7 @@ public final class b {
             httpURLConnection.setReadTimeout(HttpConstants.HTTP_CONNECT_TIMEOUT);
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setDoInput(true);
-            httpURLConnection.setRequestProperty("token", d.bRJ().k());
+            httpURLConnection.setRequestProperty("token", d.bRI().k());
             PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(httpURLConnection.getOutputStream(), IoUtils.UTF_8));
             printWriter.write(str2);
             printWriter.flush();
@@ -112,7 +112,7 @@ public final class b {
                 httpURLConnection.setRequestProperty("Accept-Charset", IoUtils.UTF_8);
                 httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
                 httpURLConnection.setRequestProperty("Content-Type", UploadFileAction.PARAMS_UPLOADFILE_CONTENT_TYPE + ";boundary=" + uuid);
-                httpURLConnection.setRequestProperty("token", d.bRJ().k());
+                httpURLConnection.setRequestProperty("token", d.bRI().k());
                 if (file != null) {
                     DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
                     StringBuffer stringBuffer = new StringBuffer();
@@ -230,7 +230,7 @@ public final class b {
             httpURLConnection.setRequestProperty(HTTP.CONTENT_LEN, String.valueOf(str.toString().getBytes("UTF-8").length));
             httpURLConnection.setReadTimeout(HttpConstants.HTTP_CONNECT_TIMEOUT);
             httpURLConnection.setConnectTimeout(10000);
-            httpURLConnection.setRequestProperty("token", d.bRJ().k());
+            httpURLConnection.setRequestProperty("token", d.bRI().k());
             httpURLConnection.connect();
             OutputStream outputStream = httpURLConnection.getOutputStream();
             outputStream.write(str.getBytes("UTF-8"));
@@ -294,7 +294,7 @@ public final class b {
             return false;
         } else {
             if (jSONObject.getString("status").equals("2")) {
-                g.d(d.bRJ().getContext());
+                g.d(d.bRI().getContext());
                 com.baidu.ubs.analytics.d.b.yB("net  token error ");
                 return false;
             }

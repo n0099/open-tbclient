@@ -65,7 +65,7 @@ public class c implements WebSocket {
         this.izK = dVar;
         this.izQ = WebSocket.Role.CLIENT;
         if (draft != null) {
-            this.draft = draft.cco();
+            this.draft = draft.ccn();
         }
     }
 
@@ -137,11 +137,11 @@ public class c implements WebSocket {
         if (this.izQ == WebSocket.Role.SERVER) {
             if (this.draft == null) {
                 for (Draft draft : this.izP) {
-                    Draft cco = draft.cco();
+                    Draft ccn = draft.ccn();
                     try {
-                        cco.a(this.izQ);
+                        ccn.a(this.izQ);
                         byteBuffer2.reset();
-                        r = cco.r(byteBuffer2);
+                        r = ccn.r(byteBuffer2);
                     } catch (InvalidHandshakeException e3) {
                     }
                     if (!(r instanceof org.java_websocket.c.a)) {
@@ -149,11 +149,11 @@ public class c implements WebSocket {
                         z = false;
                     } else {
                         org.java_websocket.c.a aVar = (org.java_websocket.c.a) r;
-                        if (cco.a(aVar) == Draft.HandshakeState.MATCHED) {
+                        if (ccn.a(aVar) == Draft.HandshakeState.MATCHED) {
                             this.izW = aVar.getResourceDescriptor();
                             try {
-                                ey(cco.a(cco.a(aVar, this.izK.onWebsocketHandshakeReceivedAsServer(this, cco, aVar)), this.izQ));
-                                this.draft = cco;
+                                ey(ccn.a(ccn.a(aVar, this.izK.onWebsocketHandshakeReceivedAsServer(this, ccn, aVar)), this.izQ));
+                                this.draft = ccn;
                                 a(aVar);
                                 z = true;
                             } catch (RuntimeException e4) {
@@ -262,7 +262,7 @@ public class c implements WebSocket {
                     a(WebSocket.READYSTATE.CLOSING);
                     k(i, str, false);
                 } else {
-                    if (this.draft.ccn() != Draft.CloseHandshakeType.NONE) {
+                    if (this.draft.ccm() != Draft.CloseHandshakeType.NONE) {
                         if (!z) {
                             try {
                                 try {
@@ -279,7 +279,7 @@ public class c implements WebSocket {
                             org.java_websocket.framing.b bVar = new org.java_websocket.framing.b();
                             bVar.setReason(str);
                             bVar.setCode(i);
-                            bVar.ccy();
+                            bVar.ccx();
                             sendFrame(bVar);
                         }
                     }
@@ -365,14 +365,14 @@ public class c implements WebSocket {
         }
     }
 
-    public void ccj() {
+    public void cci() {
         if (getReadyState() == WebSocket.READYSTATE.NOT_YET_CONNECTED) {
             M(-1, true);
         } else if (this.izN) {
             j(this.izU.intValue(), this.izT, this.izV.booleanValue());
-        } else if (this.draft.ccn() == Draft.CloseHandshakeType.NONE) {
+        } else if (this.draft.ccm() == Draft.CloseHandshakeType.NONE) {
             M(1000, true);
-        } else if (this.draft.ccn() == Draft.CloseHandshakeType.ONEWAY) {
+        } else if (this.draft.ccm() == Draft.CloseHandshakeType.ONEWAY) {
             if (this.izQ == WebSocket.Role.SERVER) {
                 M(1006, true);
             } else {
@@ -553,15 +553,15 @@ public class c implements WebSocket {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long cck() {
+    public long ccj() {
         return this.izX;
     }
 
-    public void ccl() {
+    public void cck() {
         this.izX = System.currentTimeMillis();
     }
 
-    public d ccm() {
+    public d ccl() {
         return this.izK;
     }
 

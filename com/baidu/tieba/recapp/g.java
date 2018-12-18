@@ -31,7 +31,7 @@ public class g {
         }
     }
 
-    public JSONObject bus() {
+    public JSONObject bur() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("forum_name", this.forumName);

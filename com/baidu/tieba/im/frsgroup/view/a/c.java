@@ -78,7 +78,7 @@ public class c implements BdListView.e, NoNetworkView.a, j.b {
                         c.this.eRe.aJF();
                     }
                 } else {
-                    c.this.eRe.aRB();
+                    c.this.eRe.aRA();
                 }
                 if (c.this.eRg) {
                     c.this.eRe.hideLoadingView();
@@ -113,7 +113,7 @@ public class c implements BdListView.e, NoNetworkView.a, j.b {
 
     @Override // com.baidu.tbadk.core.view.j.b
     public void bH(boolean z) {
-        aRD();
+        aRC();
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
@@ -142,7 +142,7 @@ public class c implements BdListView.e, NoNetworkView.a, j.b {
         }
     }
 
-    private void aRD() {
+    private void aRC() {
         ao aoVar = new ao();
         aoVar.forumName = this.eRh;
         aoVar.forumId = this.cXO;
@@ -160,7 +160,7 @@ public class c implements BdListView.e, NoNetworkView.a, j.b {
         if (this.eRg) {
             this.eRe.aaY();
             this.eRe.showLoadingView();
-            aRD();
+            aRC();
         }
     }
 

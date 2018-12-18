@@ -13,17 +13,17 @@ public final class m implements l, kotlin.reflect.c<Object> {
     }
 
     @Override // kotlin.jvm.internal.l
-    public Class<?> cbM() {
+    public Class<?> cbL() {
         return this.iyr;
     }
 
     @Override // kotlin.reflect.a
     public List<Annotation> getAnnotations() {
-        cbN();
+        cbM();
         throw null;
     }
 
-    private final Void cbN() {
+    private final Void cbM() {
         throw new KotlinReflectionNotSupportedError();
     }
 
@@ -36,6 +36,6 @@ public final class m implements l, kotlin.reflect.c<Object> {
     }
 
     public String toString() {
-        return cbM().toString() + " (Kotlin reflection is not available)";
+        return cbL().toString() + " (Kotlin reflection is not available)";
     }
 }

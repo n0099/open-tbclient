@@ -63,11 +63,11 @@ public class j implements i {
         this.biw = str;
         this.aEN = str2;
         this.fEj = str3;
-        bcJ();
+        bcI();
     }
 
     @Override // com.baidu.tieba.j.i
-    public void bcu() {
+    public void bct() {
         this.fEr = System.currentTimeMillis();
         this.fEm.add(new com.baidu.tieba.m.a(3));
         this.mCurrentState = 0;
@@ -90,13 +90,13 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.j.i
-    public void bcv() {
+    public void bcu() {
         this.fEm.add(new com.baidu.tieba.m.a(2));
         this.mCurrentState = 2;
     }
 
     @Override // com.baidu.tieba.j.i
-    public void bcw() {
+    public void bcv() {
         if (this.mCurrentState != 2) {
             this.fEr = System.currentTimeMillis();
             this.fEm.add(new com.baidu.tieba.m.a(101));
@@ -132,7 +132,7 @@ public class j implements i {
     @Override // com.baidu.tieba.j.i
     public void rI(int i) {
         if (this.mCurrentState == 5) {
-            bcC();
+            bcB();
         } else if (this.mCurrentState == 3) {
             this.fEk = i;
             this.fEm.add(new com.baidu.tieba.m.a(200));
@@ -141,7 +141,7 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.j.i
-    public void bcx() {
+    public void bcw() {
         if (this.fEs != 0) {
             long currentTimeMillis = System.currentTimeMillis();
             this.fEt += currentTimeMillis - this.fEs;
@@ -153,7 +153,7 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.j.i
-    public void bcy() {
+    public void bcx() {
         this.fEs = System.currentTimeMillis();
         if (this.fEw != 0) {
             this.fEv += System.currentTimeMillis() - this.fEw;
@@ -162,7 +162,7 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.j.i
-    public void bcz() {
+    public void bcy() {
         if (this.mCurrentState == 4 || this.mCurrentState == 3) {
             if (this.fEs != 0) {
                 long currentTimeMillis = System.currentTimeMillis();
@@ -174,7 +174,7 @@ public class j implements i {
         }
     }
 
-    public void bcC() {
+    public void bcB() {
         if (this.mCurrentState == 5) {
             this.fEs = System.currentTimeMillis();
             this.fEm.add(new com.baidu.tieba.m.a(204));
@@ -186,7 +186,7 @@ public class j implements i {
     public void sd(String str) {
         if (this.mCurrentState != 8 && this.mCurrentState != 7 && this.mCurrentState != 6 && this.mCurrentState != -1) {
             this.mSource = VideoPlatformStatic.jH(str);
-            bcE();
+            bcD();
             this.fEm.add(new com.baidu.tieba.m.a(205));
             this.mCurrentState = 8;
             report();
@@ -199,7 +199,7 @@ public class j implements i {
             return this.fEi;
         }
         this.mSource = VideoPlatformStatic.jH(str);
-        bcE();
+        bcD();
         this.fEn.put("stallDuration", Long.valueOf(this.fEv));
         this.fEm.add(new com.baidu.tieba.m.a(206));
         this.mCurrentState = 6;
@@ -213,7 +213,7 @@ public class j implements i {
             return false;
         }
         this.mSource = VideoPlatformStatic.jH(str);
-        bcE();
+        bcD();
         this.fEm.add(new com.baidu.tieba.m.a(HttpStatus.SC_MULTI_STATUS));
         this.mCurrentState = 7;
         report();
@@ -264,23 +264,23 @@ public class j implements i {
         this.fEz = z;
         this.mError = i3;
         this.mSource = VideoPlatformStatic.jH(str);
-        bcE();
+        bcD();
         if (!v.I(this.fEq)) {
             int size = this.fEq.size();
             for (int i4 = 0; i4 < size; i4++) {
                 com.baidu.tieba.j.a.c cVar = this.fEq.get(i4);
                 if (cVar != null) {
-                    cVar.bcR();
+                    cVar.bcQ();
                 }
             }
         }
-        this.fEm.add(new com.baidu.tieba.m.b(i, i2, i3, j, str2, bcD()));
+        this.fEm.add(new com.baidu.tieba.m.b(i, i2, i3, j, str2, bcC()));
         this.mCurrentState = -1;
         report();
         return this.fEi;
     }
 
-    private com.baidu.tieba.j.a.e[] bcD() {
+    private com.baidu.tieba.j.a.e[] bcC() {
         if (this.fEq == null || this.fEq.size() == 0) {
             return null;
         }
@@ -291,7 +291,7 @@ public class j implements i {
             if (i2 >= this.fEq.size()) {
                 return eVarArr;
             }
-            eVarArr[i2] = this.fEq.get(i2).bcP();
+            eVarArr[i2] = this.fEq.get(i2).bcO();
             i = i2 + 1;
         }
     }
@@ -301,7 +301,7 @@ public class j implements i {
         this.fEB = str;
     }
 
-    private void bcE() {
+    private void bcD() {
         if (this.fEs != 0) {
             this.fEt += System.currentTimeMillis() - this.fEs;
         }
@@ -334,19 +334,19 @@ public class j implements i {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("baseInfo", j.this.VG());
-                            jSONObject.put("kpiInfo", j.this.bcF());
+                            jSONObject.put("kpiInfo", j.this.bcE());
                             if (reportType2 == 0 || (reportType2 == 4 && j.this.fEy)) {
-                                JSONObject bcH = j.this.bcH();
-                                bcH.put("running", j.this.bcI());
-                                jSONObject.put("debugInfo", bcH);
+                                JSONObject bcG = j.this.bcG();
+                                bcG.put("running", j.this.bcH());
+                                jSONObject.put("debugInfo", bcG);
                             } else if (reportType2 == 2) {
-                                jSONObject.put("debugInfo", j.this.bcH());
+                                jSONObject.put("debugInfo", j.this.bcG());
                             } else if (reportType2 == 1) {
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        com.baidu.tieba.s.e.bHz().b(jSONObject, j.this.fEy ? false : true);
+                        com.baidu.tieba.s.e.bHy().b(jSONObject, j.this.fEy ? false : true);
                         if (j.this.fEC != null) {
                             j.this.fEC.clear();
                             return null;
@@ -375,7 +375,7 @@ public class j implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject bcF() {
+    public JSONObject bcE() {
         JSONObject jSONObject = new JSONObject();
         try {
             for (Map.Entry<String, Long> entry : this.fEn.entrySet()) {
@@ -395,7 +395,7 @@ public class j implements i {
             }
             jSONObject.put("isCacheHit", this.fEx ? 1 : 0);
             jSONObject.put("playSuccess", this.fEy ? 1 : 0);
-            jSONObject.put("startPlayTimeInfo", bcG());
+            jSONObject.put("startPlayTimeInfo", bcF());
             jSONObject.put("retryError", this.fEz ? 1 : 0);
             jSONObject.put(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, this.mError);
             if (this.fEC != null) {
@@ -410,7 +410,7 @@ public class j implements i {
         return jSONObject;
     }
 
-    private JSONObject bcG() {
+    private JSONObject bcF() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(SystemScreenshotManager.PAGE, this.fEE);
@@ -424,12 +424,12 @@ public class j implements i {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        bcJ();
+        bcI();
         return jSONObject;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject bcH() {
+    public JSONObject bcG() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("uuid", this.fEi);
@@ -459,14 +459,14 @@ public class j implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONArray bcI() {
+    public JSONArray bcH() {
         JSONArray jSONArray = new JSONArray();
         if (this.fEm == null) {
             return jSONArray;
         }
         int size = this.fEm.size();
         for (int i = 0; i < size; i++) {
-            jSONArray.put(this.fEm.get(i).bsk());
+            jSONArray.put(this.fEm.get(i).bsj());
         }
         return jSONArray;
     }
@@ -485,12 +485,12 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.j.i
-    public String bcA() {
+    public String bcz() {
         return this.fEi;
     }
 
     @Override // com.baidu.tieba.j.i
-    public String bcB() {
+    public String bcA() {
         return this.fED + "";
     }
 
@@ -509,7 +509,7 @@ public class j implements i {
         this.fEL = i;
     }
 
-    private void bcJ() {
+    private void bcI() {
         this.fEE = "default";
         this.fEG = 0L;
         this.fEH = 0L;

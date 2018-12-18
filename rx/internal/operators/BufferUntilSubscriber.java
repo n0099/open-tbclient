@@ -21,7 +21,7 @@ public final class BufferUntilSubscriber<T> extends rx.subjects.c<T, T> {
     final State<T> iBB;
     private boolean iBC;
 
-    public static <T> BufferUntilSubscriber<T> cdd() {
+    public static <T> BufferUntilSubscriber<T> cdc() {
         return new BufferUntilSubscriber<>(new State());
     }
 
@@ -123,7 +123,7 @@ public final class BufferUntilSubscriber<T> extends rx.subjects.c<T, T> {
         if (this.iBC) {
             this.iBB.get().onCompleted();
         } else {
-            aX(NotificationLite.cdh());
+            aX(NotificationLite.cdg());
         }
     }
 

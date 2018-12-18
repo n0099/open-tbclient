@@ -120,11 +120,11 @@ public class a {
                 this.aZR.setWriteData(pbModel.hK(null));
             }
             if (this.aZR.getWriteData() != null) {
-                if (dVar.bgk().AR()) {
+                if (dVar.bgj().AR()) {
                     this.aZR.getWriteData().setCanNoForum(true);
-                    if (dVar.bgi() != null) {
-                        this.aZR.getWriteData().setVForumId(dVar.bgi().getId());
-                        this.aZR.getWriteData().setVForumName(dVar.bgi().getName());
+                    if (dVar.bgh() != null) {
+                        this.aZR.getWriteData().setVForumId(dVar.bgh().getId());
+                        this.aZR.getWriteData().setVForumName(dVar.bgh().getName());
                     }
                 } else {
                     this.aZR.getWriteData().setCanNoForum(false);

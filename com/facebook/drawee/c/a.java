@@ -16,7 +16,7 @@ public class a {
     /* renamed from: com.facebook.drawee.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public interface InterfaceC0360a {
-        boolean bUs();
+        boolean bUr();
     }
 
     public a(Context context) {
@@ -42,7 +42,7 @@ public class a {
         this.iks = interfaceC0360a;
     }
 
-    public boolean bVv() {
+    public boolean bVu() {
         return this.iku;
     }
 
@@ -61,7 +61,7 @@ public class a {
                     this.ikv = false;
                 }
                 if (this.ikv && motionEvent.getEventTime() - this.ikw <= ViewConfiguration.getLongPressTimeout() && this.iks != null) {
-                    this.iks.bUs();
+                    this.iks.bUr();
                 }
                 this.ikv = false;
                 break;

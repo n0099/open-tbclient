@@ -62,13 +62,13 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
 
     /* loaded from: classes6.dex */
     public interface a extends BdSwipeRefreshLayout.b {
-        int aLt();
+        int aLs();
+
+        void aLt();
 
         void aLu();
 
         void aLv();
-
-        void aLw();
     }
 
     void reset() {
@@ -512,8 +512,8 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             float max = (((float) Math.max(min - 0.4d, 0.0d)) * 5.0f) / 3.0f;
             float abs = Math.abs(f) - this.mTotalDragDistance;
             int i = this.mSpinnerOffsetEnd;
-            if (this.ewH.aLt() > 0) {
-                i = this.ewH.aLt();
+            if (this.ewH.aLs() > 0) {
+                i = this.ewH.aLs();
             }
             float f2 = this.mUsingCustomStart ? i - this.mOriginalOffsetTop : i;
             float max2 = Math.max(0.0f, Math.min(abs, f2 * 2.0f) / f2);
@@ -530,9 +530,9 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
                         if (this.mState != 0) {
                             pullToRefresh();
                         }
-                    } else if (this.ewH.aLt() > 0 && this.mCurrentTargetOffsetTop - this.mOriginalOffsetTop > this.ewH.aLt()) {
+                    } else if (this.ewH.aLs() > 0 && this.mCurrentTargetOffsetTop - this.mOriginalOffsetTop > this.ewH.aLs()) {
                         this.mState = 5;
-                        this.ewH.aLu();
+                        this.ewH.aLt();
                     } else if (this.mState != 1) {
                         releaseToRefresh();
                     }
@@ -547,9 +547,9 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         if (this.ewH != null) {
             if (!com.baidu.tbadk.core.bigday.b.xS().xW()) {
                 cancelRefresh();
-            } else if (this.ewH.aLt() > 0 && this.mCurrentTargetOffsetTop - this.mOriginalOffsetTop > this.ewH.aLt()) {
+            } else if (this.ewH.aLs() > 0 && this.mCurrentTargetOffsetTop - this.mOriginalOffsetTop > this.ewH.aLs()) {
                 this.mState = 6;
-                this.ewH.aLv();
+                this.ewH.aLu();
                 ((FrameLayout.LayoutParams) getLayoutParams()).topMargin = 0;
                 this.mRefreshing = false;
                 b(this.mCurrentTargetOffsetTop, new Animation.AnimationListener() { // from class: com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.3
@@ -559,7 +559,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        BigdaySwipeRefreshLayout.this.ewH.aLw();
+                        BigdaySwipeRefreshLayout.this.ewH.aLv();
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener

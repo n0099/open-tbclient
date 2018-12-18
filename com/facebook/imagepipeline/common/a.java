@@ -6,7 +6,7 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes2.dex */
 public class a {
-    private static final a ims = bWe().bWm();
+    private static final a ims = bWd().bWl();
     public final int imt;
     public final boolean imu;
     public final boolean imv;
@@ -17,20 +17,20 @@ public class a {
     public final com.facebook.imagepipeline.decoder.b imz;
 
     public a(b bVar) {
-        this.imt = bVar.bWf();
-        this.imu = bVar.bWg();
-        this.imv = bVar.bWh();
-        this.imw = bVar.bWi();
-        this.imx = bVar.bWk();
-        this.imy = bVar.bWl();
-        this.imz = bVar.bWj();
+        this.imt = bVar.bWe();
+        this.imu = bVar.bWf();
+        this.imv = bVar.bWg();
+        this.imw = bVar.bWh();
+        this.imx = bVar.bWj();
+        this.imy = bVar.bWk();
+        this.imz = bVar.bWi();
     }
 
-    public static a bWd() {
+    public static a bWc() {
         return ims;
     }
 
-    public static b bWe() {
+    public static b bWd() {
         return new b();
     }
 

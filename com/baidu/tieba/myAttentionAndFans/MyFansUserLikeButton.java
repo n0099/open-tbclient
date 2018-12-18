@@ -135,7 +135,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                                 }
                             });
                             aVar.ed(arrayList);
-                            MyFansUserLikeButton.this.fFU = new com.baidu.tieba.person.e(MyFansUserLikeButton.this.mContext.getPageActivity(), aVar.bLZ());
+                            MyFansUserLikeButton.this.fFU = new com.baidu.tieba.person.e(MyFansUserLikeButton.this.mContext.getPageActivity(), aVar.bLY());
                             MyFansUserLikeButton.this.fFU.ax(0.7f);
                         }
                         g.a(MyFansUserLikeButton.this.fFU, MyFansUserLikeButton.this.mContext);

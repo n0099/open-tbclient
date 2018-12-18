@@ -15,7 +15,7 @@ public final class bh<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> bh<T> cdQ() {
+    public static <T> bh<T> cdP() {
         return (bh<T>) a.iHM;
     }
 

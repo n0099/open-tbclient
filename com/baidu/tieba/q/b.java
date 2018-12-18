@@ -7,29 +7,29 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 public class b {
     private static b hsT;
     private boolean mInited = false;
-    private a hsU = bGi();
+    private a hsU = bGh();
 
     /* loaded from: classes.dex */
     public interface a {
         void b(Application application);
     }
 
-    private boolean bGh() {
+    private boolean bGg() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("pref_key_jpush_sdk_enable", 0) == 1;
     }
 
     private b() {
     }
 
-    private a bGi() {
+    private a bGh() {
         CustomResponsedMessage runTask;
-        if (!bGh() || (runTask = MessageManager.getInstance().runTask(2156672, a.class)) == null) {
+        if (!bGg() || (runTask = MessageManager.getInstance().runTask(2156672, a.class)) == null) {
             return null;
         }
         return (a) runTask.getData();
     }
 
-    public static b bGj() {
+    public static b bGi() {
         if (hsT == null) {
             synchronized (b.class) {
                 if (hsT == null) {
@@ -47,7 +47,7 @@ public class b {
         }
     }
 
-    public boolean bGk() {
+    public boolean bGj() {
         return this.mInited;
     }
 }

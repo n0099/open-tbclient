@@ -47,7 +47,7 @@ public class a extends n {
                 if (StringUtils.isNull(optString2)) {
                     ou(optString);
                 } else {
-                    com.baidu.tieba.recapp.download.d.buG().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.d.uz(optString).intValue(), null, true, false, true, optString3, null, null);
+                    com.baidu.tieba.recapp.download.d.buF().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.d.uz(optString).intValue(), null, true, false, true, optString3, null, null);
                 }
                 TiebaStatic.log(new am("c12775").aA(ImageViewerConfig.FORUM_ID, StringUtils.isNull(this.cXO) ? "" : this.cXO));
             }

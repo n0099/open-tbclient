@@ -14,7 +14,7 @@ class i {
         this.mSize = i2;
     }
 
-    public boolean bRa() {
+    public boolean bQZ() {
         if (this.ibO == 0 || this.mSize == 0) {
             return false;
         }
@@ -32,7 +32,7 @@ class i {
         return false;
     }
 
-    public boolean bRb() {
+    public boolean bRa() {
         return this.mCount != 0 && this.mCount == this.mSize;
     }
 

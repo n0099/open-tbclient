@@ -3,9 +3,9 @@ package com.facebook.imagepipeline.memory;
 public interface s {
     void a(BasePool basePool);
 
-    void bYx();
+    void bYw();
 
-    void bYy();
+    void bYx();
 
     void yF(int i);
 

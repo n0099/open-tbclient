@@ -6,7 +6,7 @@ public class f implements CacheEventListener {
     private f() {
     }
 
-    public static synchronized f bSt() {
+    public static synchronized f bSs() {
         f fVar;
         synchronized (f.class) {
             if (iey == null) {

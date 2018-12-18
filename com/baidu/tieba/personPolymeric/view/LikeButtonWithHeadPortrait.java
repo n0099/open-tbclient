@@ -40,7 +40,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements com.baidu
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                LikeButtonWithHeadPortrait.this.bqC();
+                LikeButtonWithHeadPortrait.this.bqB();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -59,7 +59,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements com.baidu
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                LikeButtonWithHeadPortrait.this.bqC();
+                LikeButtonWithHeadPortrait.this.bqB();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -78,7 +78,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements com.baidu
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                LikeButtonWithHeadPortrait.this.bqC();
+                LikeButtonWithHeadPortrait.this.bqB();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -178,7 +178,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements com.baidu
         al.h(this.gzv, e.d.cp_cont_f);
     }
 
-    public void bqC() {
+    public void bqB() {
         this.gzw.clearAnimation();
         this.gzv.clearAnimation();
         this.gzx.clearAnimation();

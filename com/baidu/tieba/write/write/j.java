@@ -54,11 +54,11 @@ public class j {
         public void onClick(View view) {
             if (view != null && view.getId() != 0) {
                 if (view.getId() == e.g.icon_invoke_link) {
-                    j.this.bQe();
+                    j.this.bQd();
                     TiebaStatic.log(new am("c12169"));
                 }
                 if (view.getId() == e.g.url_edit_back_view) {
-                    j.this.bQd();
+                    j.this.bQc();
                 }
             }
         }
@@ -68,15 +68,15 @@ public class j {
         public void onClick(View view) {
             if (view != null && view.getId() == e.g.url_add) {
                 TiebaStatic.log(new am("c12163"));
-                String bQr = j.this.hZF.bQr();
-                if (j.hZE.matcher(bQr).matches()) {
-                    j.this.bQd();
-                    j.this.hZG.xB(bQr);
+                String bQq = j.this.hZF.bQq();
+                if (j.hZE.matcher(bQq).matches()) {
+                    j.this.bQc();
+                    j.this.hZG.xB(bQq);
                     j.this.hZF.a(null, true);
                     return;
                 }
                 TiebaStatic.log(new am("c12164"));
-                j.this.hZF.bQs();
+                j.this.hZF.bQr();
             }
         }
     };
@@ -87,13 +87,13 @@ public class j {
 
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            j.this.hZF.bQj();
+            j.this.hZF.bQi();
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             if (j.this.ghU != null) {
-                if (!j.this.ghU.bMY()) {
+                if (!j.this.ghU.bMX()) {
                     j.this.oA(false);
                 }
                 j.this.ghU.or(false);
@@ -152,7 +152,7 @@ public class j {
                     j.this.mContext.showToast(postWriteCallBackData.getErrorString());
                     j.this.ghU.az(postWriteCallBackData.getSensitiveWords());
                     j.this.ghU.xr(postWriteCallBackData.getErrorString());
-                    if (!v.I(j.this.ghU.bMV())) {
+                    if (!v.I(j.this.ghU.bMU())) {
                         j.this.oA(true);
                     }
                 } else if ((wVar == null || writeData == null || wVar.getVcode_pic_url() == null || AntiHelper.f(antiData)) && postWriteCallBackData != null && postWriteCallBackData.getErrorCode() != 227001) {
@@ -182,17 +182,17 @@ public class j {
         this.hZF.Z(this.mClickListener);
         this.hZF.aa(this.hZJ);
         this.hZF.e(this.hZK);
-        bQe();
+        bQd();
         this.hZI = new com.baidu.tbadk.core.view.d(this.mContext);
         this.hZI.d(this.hZL);
-        bQc();
+        bQb();
         this.hZA.b(this.baf);
         this.ghU = new com.baidu.tieba.write.b();
         this.ghU.wV(e.d.cp_cont_i);
         this.ghU.wW(e.d.cp_cont_h_alpha85);
     }
 
-    private void bQc() {
+    private void bQb() {
         this.hZH = new com.baidu.tieba.write.transmit.model.a(this.mContext.getUniqueId());
         this.hZH.a(this.hQv);
         if (this.hZA.getWriteData() != null) {
@@ -200,11 +200,11 @@ public class j {
         }
     }
 
-    protected void bQd() {
-        this.hZF.bQq();
+    protected void bQc() {
+        this.hZF.bQp();
     }
 
-    protected void bQe() {
+    protected void bQd() {
         this.hZF.b((com.baidu.tieba.write.a.a) null);
     }
 
@@ -234,7 +234,7 @@ public class j {
         }
     }
 
-    public void bDZ() {
+    public void bDY() {
         if (ab.bB(this.mContext.getPageActivity())) {
             com.baidu.adp.lib.d.a.iW().a(true, this.bTD);
         }
@@ -253,32 +253,32 @@ public class j {
     }
 
     public void ard() {
-        this.hZH.setThreadContent(this.hZF.bQk());
+        this.hZH.setThreadContent(this.hZF.bQj());
         this.hZH.loadData();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void oA(boolean z) {
-        if (this.hZF.bQm() != null && this.hZF.bQk() != null) {
-            int selectionEnd = this.hZF.bQm().getSelectionEnd();
-            SpannableStringBuilder b = this.ghU.b(this.hZF.bQm().getText());
+        if (this.hZF.bQl() != null && this.hZF.bQj() != null) {
+            int selectionEnd = this.hZF.bQl().getSelectionEnd();
+            SpannableStringBuilder b = this.ghU.b(this.hZF.bQl().getText());
             if (b != null) {
                 this.ghU.or(true);
-                this.hZF.bQm().setText(b);
-                if (z && this.ghU.bMW() >= 0) {
-                    this.hZF.bQm().requestFocus();
-                    this.hZF.bQm().setSelection(this.ghU.bMW());
+                this.hZF.bQl().setText(b);
+                if (z && this.ghU.bMV() >= 0) {
+                    this.hZF.bQl().requestFocus();
+                    this.hZF.bQl().setSelection(this.ghU.bMV());
                 } else {
-                    this.hZF.bQm().setSelection(selectionEnd);
+                    this.hZF.bQl().setSelection(selectionEnd);
                 }
-                this.ghU.oq(this.ghU.bMW() >= 0);
+                this.ghU.oq(this.ghU.bMV() >= 0);
             }
         }
     }
 
-    public boolean bQf() {
-        if (this.ghU.bMX()) {
-            this.mContext.showToast(this.ghU.bMZ());
+    public boolean bQe() {
+        if (this.ghU.bMW()) {
+            this.mContext.showToast(this.ghU.bMY());
             oA(true);
             return true;
         }
@@ -311,7 +311,7 @@ public class j {
                     this.mContext.getPageActivity().setResult(-1, intent2);
                 }
                 baseActivity.finish();
-            } else if (i == 25013 && (writeData = this.hZA.getWriteData()) != null && this.hZG.bOi() != null) {
+            } else if (i == 25013 && (writeData = this.hZA.getWriteData()) != null && this.hZG.bOh() != null) {
                 if (intent != null) {
                     writeData.setTransmitForumData(intent.getStringExtra(TransmitForumActivityConfig.KEY_FORUM_LIST_SELECTED));
                 }
@@ -319,7 +319,7 @@ public class j {
                 writeData.setCanNoForum(true);
                 writeData.setRecommendExt(this.hZH.getRecommendExt());
                 if (!TextUtils.isEmpty(this.mLat) && !TextUtils.isEmpty(this.mLng)) {
-                    bQg();
+                    bQf();
                 } else if (ab.bB(this.mContext.getPageActivity())) {
                     com.baidu.adp.lib.d.a.iW().a(true, new a.InterfaceC0017a() { // from class: com.baidu.tieba.write.write.j.8
                         @Override // com.baidu.adp.lib.d.a.InterfaceC0017a
@@ -328,7 +328,7 @@ public class j {
                                 j.this.mLat = String.valueOf(address.getLatitude());
                                 j.this.mLng = String.valueOf(address.getLongitude());
                             }
-                            j.this.bQg();
+                            j.this.bQf();
                         }
                     });
                 }
@@ -340,7 +340,7 @@ public class j {
                     if (intent != null && intent.getExtras() != null && (intent.getExtras().getSerializable("post_write_callback_data") instanceof PostWriteCallBackData) && (postWriteCallBackData = (PostWriteCallBackData) intent.getExtras().getSerializable("post_write_callback_data")) != null && postWriteCallBackData.isSensitiveError()) {
                         this.mContext.showToast(postWriteCallBackData.getErrorString());
                         this.ghU.az(postWriteCallBackData.getSensitiveWords());
-                        if (!v.I(this.ghU.bMV())) {
+                        if (!v.I(this.ghU.bMU())) {
                             oA(true);
                             return;
                         }
@@ -353,7 +353,7 @@ public class j {
         }
     }
 
-    public void bQg() {
-        this.hZA.g("", this.hZF.bQk(), this.hZG.bOi().linkUrl, this.hZG.bOi().linkUrlCode, this.mLat, this.mLng);
+    public void bQf() {
+        this.hZA.g("", this.hZF.bQj(), this.hZG.bOh().linkUrl, this.hZG.bOh().linkUrlCode, this.mLat, this.mLng);
     }
 }

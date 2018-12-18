@@ -35,7 +35,7 @@ public class b {
         this.mFilterName = str3;
     }
 
-    public void bIz() {
+    public void bIy() {
         if (!this.Et) {
             this.Et = true;
             this.hBR = false;
@@ -58,7 +58,7 @@ public class b {
                     @Override // com.baidu.tieba.video.editvideo.b.f
                     public void onPostExecute() {
                         b.this.hBR = true;
-                        b.this.bIB();
+                        b.this.bIA();
                     }
                 };
                 this.hBO.start();
@@ -66,7 +66,7 @@ public class b {
                     @Override // com.baidu.tieba.video.editvideo.b.d
                     public void onPostExecute() {
                         b.this.hBS = true;
-                        b.this.bIB();
+                        b.this.bIA();
                     }
                 };
                 this.hBP.start();
@@ -75,7 +75,7 @@ public class b {
         }
     }
 
-    public void bIA() {
+    public void bIz() {
         if (this.hBO != null) {
             this.hBO.interrupt();
             this.hBO = null;
@@ -87,15 +87,15 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bIB() {
+    public void bIA() {
         if (this.hBR && this.hBS && !this.hBT) {
             this.hBQ.stop();
             this.hBT = true;
-            bIC();
+            bIB();
         }
     }
 
-    private void bIC() {
+    private void bIB() {
         if (this.hBM != null) {
             File file = new File(this.hAc);
             if (file.exists() && file.length() > 0) {

@@ -50,10 +50,10 @@ public class v extends k<com.baidu.tieba.pb.data.a, w> implements View.OnClickLi
         if (aVar != null) {
             wVar.fXQ.startLoad(aVar.getPortrait(), 28, false);
             wVar.clh.setText(aVar.getUserName());
-            wVar.eJs.setText(aVar.bgd());
+            wVar.eJs.setText(aVar.bgc());
             wVar.text.setText(aVar.getText());
             wVar.fXR.startLoad(aVar.getPicUrl(), 10, false);
-            wVar.fXS.setText(aVar.bge());
+            wVar.fXS.setText(aVar.bgd());
         }
         return view;
     }
@@ -63,9 +63,9 @@ public class v extends k<com.baidu.tieba.pb.data.a, w> implements View.OnClickLi
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if ((view.getTag() instanceof com.baidu.tieba.pb.data.a) && ba.bJ(this.mContext)) {
-            String bgf = ((com.baidu.tieba.pb.data.a) view.getTag()).bgf();
-            if (!StringUtils.isNull(bgf)) {
-                ay.Ef().c(this.fUU.getPageContext(), new String[]{bgf});
+            String bge = ((com.baidu.tieba.pb.data.a) view.getTag()).bge();
+            if (!StringUtils.isNull(bge)) {
+                ay.Ef().c(this.fUU.getPageContext(), new String[]{bge});
             }
         }
     }

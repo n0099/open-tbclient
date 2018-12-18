@@ -76,10 +76,10 @@ public class a {
             this.hmv = str4;
             this.hmw = str5;
             this.arM = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.flk = bDJ();
+            this.flk = bDI();
         }
 
-        private am bDJ() {
+        private am bDI() {
             am amVar = new am(this.key);
             if (!StringUtils.isNull(this.line)) {
                 amVar = amVar.aA("line", this.line);

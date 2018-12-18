@@ -49,7 +49,7 @@ public class SettingStatic {
             MaskInfo maskInfo2;
             if (socketResponsedMessage != null && socketResponsedMessage.getError() == 0 && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && (socketResponsedMessage instanceof ResponseOnlineMessage) && (maskInfo2 = ((ResponseOnlineMessage) socketResponsedMessage).getMaskInfo()) != null) {
                 MaskInfo unused = SettingStatic.maskInfo = maskInfo2;
-                SettingStatic.bym();
+                SettingStatic.byl();
             }
         }
     };
@@ -67,7 +67,7 @@ public class SettingStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             boolean unused = SettingStatic.gYn = true;
-            SettingStatic.bym();
+            SettingStatic.byl();
         }
     };
 
@@ -101,9 +101,9 @@ public class SettingStatic {
         MessageManager.getInstance().registerListener(gYp);
         com.baidu.tieba.tbadkCore.a.a.c(104101, ResponseUpdateMaskMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.c(104106, ResponseUpdateForumMask.class, false);
+        bym();
         byn();
         byo();
-        byp();
         com.baidu.adp.lib.b.d.iQ().i(com.baidu.tieba.setting.im.more.b.class);
     }
 
@@ -112,7 +112,7 @@ public class SettingStatic {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final void bym() {
+    public static final void byl() {
         boolean z;
         Integer num;
         String[] split;
@@ -194,17 +194,17 @@ public class SettingStatic {
                 }
                 if (!TextUtils.isEmpty(maskInfo.maskFids) && (split3 = maskInfo.maskFids.split(",")) != null && split3.length > 0) {
                     for (String str : split3) {
-                        com.baidu.tieba.im.settingcache.d.aUk().a(currentAccount, str, false, null);
+                        com.baidu.tieba.im.settingcache.d.aUj().a(currentAccount, str, false, null);
                     }
                 }
                 if (!TextUtils.isEmpty(maskInfo.maskGids) && (split2 = maskInfo.maskGids.split(",")) != null && split2.length > 0) {
                     for (String str2 : split2) {
-                        com.baidu.tieba.im.settingcache.b.aUi().a(currentAccount, str2, false, (com.baidu.tbadk.util.h<Void>) null);
+                        com.baidu.tieba.im.settingcache.b.aUh().a(currentAccount, str2, false, (com.baidu.tbadk.util.h<Void>) null);
                     }
                 }
                 if (!TextUtils.isEmpty(maskInfo.maskUids) && (split = maskInfo.maskUids.split(",")) != null && split.length > 0) {
                     for (String str3 : split) {
-                        com.baidu.tieba.im.settingcache.e.aUl().a(currentAccount, str3, false, null);
+                        com.baidu.tieba.im.settingcache.e.aUk().a(currentAccount, str3, false, null);
                     }
                 }
                 gYo = true;
@@ -225,19 +225,19 @@ public class SettingStatic {
         MessageManager.getInstance().sendMessage(requestUpdateMaskInfoMessage);
     }
 
-    private static void byn() {
+    private static void bym() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FRIEND_AND_STRANGER_MSG_SWITCH, TbConfig.SERVER_ADDRESS + TbConfig.FRIEND_AND_STRANGER_MSG_SWITCH);
         tbHttpMessageTask.setResponsedClass(FriendAndStrangerSwitchResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void byo() {
+    private static void byn() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH, TbConfig.SERVER_ADDRESS + TbConfig.GET_FRIEND_AND_STRANGER_MSG_SWITCH);
         tbHttpMessageTask.setResponsedClass(GetFriendAndStrangerSwitchResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void byp() {
+    private static void byo() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921330, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.setting.more.SettingStatic.5
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Context> customMessage) {

@@ -18,14 +18,14 @@ public class a {
         }
     }
 
-    public int bQu() {
+    public int bQt() {
         if (this.iak == null) {
             return 0;
         }
         return this.iak.getWidth();
     }
 
-    public int bQv() {
+    public int bQu() {
         if (this.iak == null) {
             return 0;
         }
@@ -36,7 +36,7 @@ public class a {
         return this.mMatrix;
     }
 
-    public Bitmap bQw() {
+    public Bitmap bQv() {
         return this.iak;
     }
 }

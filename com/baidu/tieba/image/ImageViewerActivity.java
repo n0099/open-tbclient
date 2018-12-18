@@ -106,7 +106,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         @Override // java.lang.Runnable
         public void run() {
             if (ImageViewerActivity.this.mNavigationBar != null && ImageViewerActivity.this.mNavigationBar.getVisibility() == 0) {
-                ImageViewerActivity.this.aWM();
+                ImageViewerActivity.this.aWL();
             }
         }
     };
@@ -152,7 +152,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
                 case 3:
                     if (Math.abs(motionEvent.getX() - ImageViewerActivity.this.fhL) > 0.0f && ImageViewerActivity.this.mNavigationBar.getVisibility() != 0) {
                         com.baidu.adp.lib.g.e.jG().removeCallbacks(ImageViewerActivity.this.fhJ);
-                        ImageViewerActivity.this.aWM();
+                        ImageViewerActivity.this.aWL();
                     }
                     ImageViewerActivity.this.fhL = motionEvent.getX();
                     if (action != 2) {
@@ -174,7 +174,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
     private View.OnLongClickListener fhN = new View.OnLongClickListener() { // from class: com.baidu.tieba.image.ImageViewerActivity.4
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
-            ImageViewerActivity.this.createListMenu(ImageViewerActivity.this.fhK.aWO(), ImageViewerActivity.this.fhK);
+            ImageViewerActivity.this.createListMenu(ImageViewerActivity.this.fhK.aWN(), ImageViewerActivity.this.fhK);
             ImageViewerActivity.this.showListMenu();
             TiebaStatic.log(new am("c13269").aA("uid", ImageViewerActivity.this.mUserId).aA(ImageViewerConfig.FORUM_ID, ImageViewerActivity.this.cXO).aA("tid", ImageViewerActivity.this.biw));
             return true;
@@ -184,10 +184,10 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         @Override // com.baidu.tbadk.core.view.BaseViewPager.a
         public void eb(int i) {
             if (i == 0) {
-                ImageViewerActivity.this.fhs.aWw();
-            } else if (ImageViewerActivity.this.aWG() != 1) {
+                ImageViewerActivity.this.fhs.aWv();
+            } else if (ImageViewerActivity.this.aWF() != 1) {
                 ImageViewerActivity.this.showProgressBarWithOffset(0, 0);
-                ImageViewerActivity.this.fhs.aWx();
+                ImageViewerActivity.this.fhs.aWw();
             }
         }
     };
@@ -195,17 +195,17 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
             if (ImageViewerActivity.this.fhs != null && i > ImageViewerActivity.this.fhn.getItemNum() - 5) {
-                ImageViewerActivity.this.fhs.aWw();
+                ImageViewerActivity.this.fhs.aWv();
             }
             ImageViewerActivity.this.fht.e(ImageViewerActivity.this.fho, ImageViewerActivity.this.mIndex, i);
             ImageViewerActivity.this.mIndex = i;
-            ImageViewerActivity.this.aWH();
-            ImageViewerActivity.this.aWN();
-            if (ImageViewerActivity.this.fht.aWP() < ImageViewerActivity.this.mIndex) {
+            ImageViewerActivity.this.aWG();
+            ImageViewerActivity.this.aWM();
+            if (ImageViewerActivity.this.fht.aWO() < ImageViewerActivity.this.mIndex) {
                 ImageViewerActivity.this.fht.qI(ImageViewerActivity.this.mIndex);
             }
-            if (ImageViewerActivity.this.aWI()) {
-                ImageViewerActivity.this.fhw.aWl();
+            if (ImageViewerActivity.this.aWH()) {
+                ImageViewerActivity.this.fhw.aWk();
             }
             if (ImageViewerActivity.this.mIndex != ImageViewerActivity.this.fhn.getItemNum() - 1) {
                 ImageViewerActivity.this.fhu = false;
@@ -229,7 +229,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
                 ImageViewerActivity.this.fht.U(i, (String) ImageViewerActivity.this.fho.get(ImageViewerActivity.this.mIndex));
             }
             if (i == 0 && ImageViewerActivity.this.mIndex == ImageViewerActivity.this.fhn.getItemNum() - 1) {
-                if (!ImageViewerActivity.this.fhM || !ImageViewerActivity.this.fhD || (!ImageViewerActivity.this.fhu && !ImageViewerActivity.this.aWI() && (ImageViewerActivity.this.fhn.getItemNum() != 1 || !ImageViewerActivity.this.beb))) {
+                if (!ImageViewerActivity.this.fhM || !ImageViewerActivity.this.fhD || (!ImageViewerActivity.this.fhu && !ImageViewerActivity.this.aWH() && (ImageViewerActivity.this.fhn.getItemNum() != 1 || !ImageViewerActivity.this.beb))) {
                     ImageViewerActivity.this.fhu = true;
                 } else {
                     ImageViewerActivity.this.showToast(e.j.last_page);
@@ -314,7 +314,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
                     ImageViewerActivity.this.fhn.setCurrentItem(ImageViewerActivity.this.fhn.getCurrentItem() - 200, false);
                 }
                 a(arrayList, advertAppInfo);
-                ImageViewerActivity.this.aWH();
+                ImageViewerActivity.this.aWG();
             }
 
             private void a(ArrayList<String> arrayList, AdvertAppInfo advertAppInfo) {
@@ -323,7 +323,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
                     return;
                 }
                 ImageViewerActivity.this.fhw.a(advertAppInfo, arrayList.size());
-                if (ImageViewerActivity.this.fhw.aWh()) {
+                if (ImageViewerActivity.this.fhw.aWg()) {
                     ImageViewerActivity.this.fhn.setAddSize(1);
                 } else {
                     ImageViewerActivity.this.fhn.setAddSize(0);
@@ -338,12 +338,12 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
                 ImageViewerActivity.this.showToast(str2);
                 if (i == 40) {
                     ImageViewerActivity.this.mCount = ImageViewerActivity.this.fho.size();
-                    ImageViewerActivity.this.aWH();
+                    ImageViewerActivity.this.aWG();
                 }
             }
         });
         this.fhs.jn(true);
-        this.fhs.aWw();
+        this.fhs.aWv();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -403,7 +403,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         TbadkCoreApplication.getInst().delRemoteActivity(this);
         com.baidu.tbadk.imageManager.c.Nu().Nv();
         this.fht.e(this.fho, this.mIndex, this.mIndex);
-        this.fht.aWQ();
+        this.fht.aWP();
         this.fhn.onDestroy();
         if (this.fhr != null) {
             this.fhr.cancel();
@@ -434,8 +434,8 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         this.mStatusBarView = findViewById(e.g.statusbar_view);
         ayF();
         initViewPager();
-        aWH();
-        aWL();
+        aWG();
+        aWK();
         this.fht.e(this.fho, this.mIndex, this.mIndex);
     }
 
@@ -486,7 +486,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public long aWG() {
+    public long aWF() {
         ImageUrlData imageUrlData;
         String str = (String) v.d(this.fho, this.mIndex);
         if (this.fhq == null) {
@@ -499,21 +499,21 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aWH() {
+    public void aWG() {
         String str;
         if (this.fho != null) {
-            String str2 = ("" + aWG()) + "/";
+            String str2 = ("" + aWF()) + "/";
             if (this.mCount > 0) {
                 str = str2 + this.mCount;
             } else {
                 str = str2 + "...";
             }
-            if (this.mFrom != null && !this.fhI && aWG() == this.mCount && (this.mFrom.equals("frs") || this.mFrom.equals("index"))) {
+            if (this.mFrom != null && !this.fhI && aWF() == this.mCount && (this.mFrom.equals("frs") || this.mFrom.equals("index"))) {
                 TiebaStatic.log(new am("c13316").aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mFrom));
                 this.fhI = true;
             }
-            if (aWI()) {
-                aWK();
+            if (aWH()) {
+                aWJ();
             } else {
                 qS(str);
             }
@@ -521,8 +521,8 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aWI() {
-        if (this.fhv && this.fhw != null && this.fhw.aWh()) {
+    public boolean aWH() {
+        if (this.fhv && this.fhw != null && this.fhw.aWg()) {
             return this.fhn.getItemNum() != 1 && this.mIndex == this.fhn.getItemNum() + (-1);
         }
         return false;
@@ -540,7 +540,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         }
     }
 
-    private boolean aWJ() {
+    private boolean aWI() {
         if (this.fho == null) {
             return false;
         }
@@ -553,7 +553,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         return true;
     }
 
-    private void aWK() {
+    private void aWJ() {
         this.mTitleView.setText("");
         this.fhm.setVisibility(8);
     }
@@ -576,7 +576,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         this.fhn.setOuterOnTouchListener(this.aVo);
         this.fhn.setItemOnclickListener(this.mOnClickListener);
         this.fhn.setItemOnLongClickListener(this.fhN);
-        this.fhn.setCurrentItem(aNE(), false);
+        this.fhn.setCurrentItem(aND(), false);
         this.fhn.setOnScrollOutListener(this.fhO);
         this.fhw = new com.baidu.tieba.image.a(this.aTz, this.fhv, getPageContext(), this.cXO, this.biw);
         this.fhn.a(this.fhw);
@@ -596,7 +596,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         });
     }
 
-    private void aWL() {
+    private void aWK() {
         if (!this.fhH) {
             if (this.fhF == null) {
                 this.fhF = new com.baidu.tieba.c.d(getPageContext(), this.fhm);
@@ -618,7 +618,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         }
     }
 
-    private int aNE() {
+    private int aND() {
         int H = v.H(this.fho);
         if (H > 0) {
             if (this.mIndex >= H) {
@@ -698,7 +698,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         }
         this.fht.b(bundle, getIntent());
         this.mCount = v.H(this.fho);
-        this.fhz = aWJ();
+        this.fhz = aWI();
         if (this.fha != null) {
             String str = (String) v.d(this.fho, this.mIndex);
             if (!StringUtils.isNull(str) && this.fhq != null && (imageUrlData = this.fhq.get(str)) != null) {
@@ -838,7 +838,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         a() {
         }
 
-        protected String[] aWO() {
+        protected String[] aWN() {
             this.fhT.clear();
             ArrayList arrayList = new ArrayList();
             if (ImageViewerActivity.this.fhG) {
@@ -892,7 +892,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aWM() {
+    public void aWL() {
         if (this.eGM) {
             if (this.mNavigationBar.getVisibility() == 8) {
                 if (UtilHelper.canUseStyleImmersiveSticky()) {
@@ -937,12 +937,12 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aWN() {
-        if (aWI()) {
+    public void aWM() {
+        if (aWH()) {
             this.fhy = this.mNavigationBar.getVisibility() == 0;
             this.fhx = true;
             if (!this.fhy) {
-                aWM();
+                aWL();
             }
         } else if (this.fhx) {
             this.mNavigationBar.setVisibility(this.fhy ? 0 : 8);

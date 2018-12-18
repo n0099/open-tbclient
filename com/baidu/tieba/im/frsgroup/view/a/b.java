@@ -71,18 +71,18 @@ public class b {
     }
 
     public void aJD() {
-        aRC();
+        aRB();
         this.bOy.Fc();
     }
 
     public void aJE() {
-        aRC();
+        aRB();
         this.bOy.setText(this.mContext.getResources().getString(e.j.network_ungeilivable));
         this.bOy.Fd();
     }
 
     public void aJF() {
-        aRC();
+        aRB();
         this.bOy.setText(this.mContext.getResources().getString(e.j.list_no_more));
         this.bOy.Fd();
     }
@@ -109,14 +109,14 @@ public class b {
         }
     }
 
-    public void aRB() {
+    public void aRA() {
         if (this.mListView != null) {
             this.mListView.setNextPage(null);
             this.bOy = null;
         }
     }
 
-    private void aRC() {
+    private void aRB() {
         if (this.mListView != null && this.bOy == null) {
             this.bOy = new PbListView(this.mContext.getPageActivity());
             this.bOy.oD();

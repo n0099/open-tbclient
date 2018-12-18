@@ -69,9 +69,9 @@ public class a {
                         bVar.dismiss();
                         if (a.this.dRb != 7) {
                             com.baidu.tbadk.util.v.Qg();
-                            com.baidu.tieba.tbadkCore.util.e.bEq();
-                        } else {
                             com.baidu.tieba.tbadkCore.util.e.bEp();
+                        } else {
+                            com.baidu.tieba.tbadkCore.util.e.bEo();
                         }
                         if (a.this.dJE.aAD() != null && a.this.dJE.aAI() != null) {
                             a.this.dJE.aAD().nb(xVar.dLp);

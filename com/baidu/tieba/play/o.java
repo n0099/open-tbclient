@@ -73,7 +73,7 @@ public class o {
         }
     };
 
-    public void aYK() {
+    public void aYJ() {
         if (this.mActivity != null) {
             if (this.mActivity.getRequestedOrientation() == 1) {
                 this.mActivity.setRequestedOrientation(0);

@@ -26,28 +26,28 @@ import org.json.JSONObject;
 public class d {
     public static a.b a(a.b bVar) {
         a.b bVar2;
-        String[] bck;
+        String[] bcj;
         if (bVar == null) {
             return null;
         }
         try {
-            bck = bck();
+            bcj = bcj();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (bck != null) {
+        if (bcj != null) {
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             arrayList.add(new BasicNameValuePair("crypttype", "1"));
             arrayList.add(new BasicNameValuePair(BaiduRimConstants.TPL_INIT_KEY, TbConfig.PassConfig.TPL));
             arrayList.add(new BasicNameValuePair("appid", "1"));
             arrayList.add(new BasicNameValuePair("clientip", getClientIP()));
-            arrayList.add(new BasicNameValuePair("cert_id", bck[0]));
+            arrayList.add(new BasicNameValuePair("cert_id", bcj[0]));
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("bduss", bVar.El);
             jSONObject.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, bVar.aop);
             jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
             jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
-            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.c().encrypt(bck[1], jSONObject.toString())));
+            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.c().encrypt(bcj[1], jSONObject.toString())));
             arrayList.add(new BasicNameValuePair("sig", c(arrayList, TbConfig.PassConfig.ENC_KEY)));
             x xVar = new x(TbConfig.PassConfig.LOGIN_BDUSS_URL);
             xVar.Dj().Eh().mIsNeedAddCommenParam = false;
@@ -72,7 +72,7 @@ public class d {
         return null;
     }
 
-    private static String[] bck() {
+    private static String[] bcj() {
         try {
             x xVar = new x(TbConfig.PassConfig.GET_CERT_URL);
             xVar.Dj().Eh().mIsNeedAddCommenParam = false;

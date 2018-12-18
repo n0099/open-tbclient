@@ -56,7 +56,7 @@ public class e extends com.baidu.adp.base.c<OfficialBarHistoryActivity> {
         this.eaY.setOnSrollToBottomListener(eVar);
     }
 
-    public boolean aOB() {
+    public boolean aOA() {
         return this.eKi.getCount() != 0 && this.eaY.getLastVisiblePosition() - this.eaY.getHeaderViewsCount() < this.eKi.getCount() + (-1);
     }
 

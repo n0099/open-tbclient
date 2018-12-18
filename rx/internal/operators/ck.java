@@ -36,13 +36,13 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
         if (this.iEw == this.iEx) {
             b bVar = new b(jVar, createWorker);
             bVar.add(createWorker);
-            bVar.cdp();
+            bVar.cdo();
             return bVar;
         }
         c cVar = new c(jVar, createWorker);
         cVar.add(createWorker);
-        cVar.cdr();
         cVar.cdq();
+        cVar.cdp();
         return cVar;
     }
 
@@ -60,7 +60,7 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
             this.count = i;
         }
 
-        public d<T> cec() {
+        public d<T> ceb() {
             return new d<>(this.iJt, this.iJu, this.count + 1);
         }
 
@@ -68,11 +68,11 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
             return new d<>(eVar, dVar, 0);
         }
 
-        public d<T> ced() {
-            return cee();
+        public d<T> cec() {
+            return ced();
         }
 
-        public static <T> d<T> cee() {
+        public static <T> d<T> ced() {
             return (d<T>) iJS;
         }
     }
@@ -85,7 +85,7 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
         final g.a iJL;
         List<Object> iJv;
         final Object guard = new Object();
-        volatile d<T> iJM = d.cee();
+        volatile d<T> iJM = d.ced();
 
         public b(rx.j<? super rx.d<T>> jVar, g.a aVar) {
             this.child = new rx.b.f(jVar);
@@ -175,7 +175,7 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
             }
             for (Object obj : list) {
                 if (obj == ck.iJr) {
-                    if (!cdZ()) {
+                    if (!cdY()) {
                         return false;
                     }
                 } else if (NotificationLite.ba(obj)) {
@@ -191,27 +191,27 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
             return true;
         }
 
-        boolean cdZ() {
+        boolean cdY() {
             rx.e<T> eVar = this.iJM.iJt;
             if (eVar != null) {
                 eVar.onCompleted();
             }
             if (this.child.isUnsubscribed()) {
-                this.iJM = this.iJM.ced();
+                this.iJM = this.iJM.cec();
                 unsubscribe();
                 return false;
             }
-            UnicastSubject cfm = UnicastSubject.cfm();
-            this.iJM = this.iJM.a(cfm, cfm);
-            this.child.onNext(cfm);
+            UnicastSubject cfl = UnicastSubject.cfl();
+            this.iJM = this.iJM.a(cfl, cfl);
+            this.child.onNext(cfl);
             return true;
         }
 
         boolean bn(T t) {
-            d<T> cec;
+            d<T> ceb;
             d<T> dVar = this.iJM;
             if (dVar.iJt == null) {
-                if (!cdZ()) {
+                if (!cdY()) {
                     return false;
                 }
                 dVar = this.iJM;
@@ -219,11 +219,11 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
             dVar.iJt.onNext(t);
             if (dVar.count == ck.this.size - 1) {
                 dVar.iJt.onCompleted();
-                cec = dVar.ced();
+                ceb = dVar.cec();
             } else {
-                cec = dVar.cec();
+                ceb = dVar.ceb();
             }
-            this.iJM = cec;
+            this.iJM = ceb;
             return true;
         }
 
@@ -242,7 +242,7 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
 
         void error(Throwable th) {
             rx.e<T> eVar = this.iJM.iJt;
-            this.iJM = this.iJM.ced();
+            this.iJM = this.iJM.cec();
             if (eVar != null) {
                 eVar.onError(th);
             }
@@ -252,7 +252,7 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
 
         void complete() {
             rx.e<T> eVar = this.iJM.iJt;
-            this.iJM = this.iJM.ced();
+            this.iJM = this.iJM.cec();
             if (eVar != null) {
                 eVar.onCompleted();
             }
@@ -267,7 +267,7 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
                     if (this.iJv == null) {
                         this.iJv = new ArrayList();
                     }
-                    this.iJv.add(NotificationLite.cdh());
+                    this.iJv.add(NotificationLite.cdg());
                     return;
                 }
                 List<Object> list = this.iJv;
@@ -282,17 +282,17 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
             }
         }
 
-        void cdp() {
+        void cdo() {
             this.iJL.a(new rx.functions.a() { // from class: rx.internal.operators.ck.b.2
                 @Override // rx.functions.a
                 public void call() {
-                    b.this.cea();
+                    b.this.cdZ();
                 }
             }, 0L, ck.this.iEw, ck.this.unit);
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [341=4] */
-        void cea() {
+        void cdZ() {
             List<Object> list;
             boolean z = true;
             boolean z2 = false;
@@ -306,7 +306,7 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
                 }
                 this.emitting = true;
                 try {
-                    if (!cdZ()) {
+                    if (!cdY()) {
                         synchronized (this.guard) {
                             this.emitting = false;
                         }
@@ -442,26 +442,26 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
             }
         }
 
-        void cdq() {
+        void cdp() {
             this.iJL.a(new rx.functions.a() { // from class: rx.internal.operators.ck.c.1
                 @Override // rx.functions.a
                 public void call() {
-                    c.this.cdr();
+                    c.this.cdq();
                 }
             }, ck.this.iEx, ck.this.iEx, ck.this.unit);
         }
 
-        void cdr() {
-            final a<T> ceb = ceb();
+        void cdq() {
+            final a<T> cea = cea();
             synchronized (this.guard) {
                 if (!this.done) {
-                    this.iEs.add(ceb);
+                    this.iEs.add(cea);
                     try {
-                        this.child.onNext(ceb.iJu);
+                        this.child.onNext(cea.iJu);
                         this.iJL.a(new rx.functions.a() { // from class: rx.internal.operators.ck.c.2
                             @Override // rx.functions.a
                             public void call() {
-                                c.this.a(ceb);
+                                c.this.a(cea);
                             }
                         }, ck.this.iEw, ck.this.unit);
                     } catch (Throwable th) {
@@ -493,9 +493,9 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
             }
         }
 
-        a<T> ceb() {
-            UnicastSubject cfm = UnicastSubject.cfm();
-            return new a<>(cfm, cfm);
+        a<T> cea() {
+            UnicastSubject cfl = UnicastSubject.cfl();
+            return new a<>(cfl, cfl);
         }
     }
 }

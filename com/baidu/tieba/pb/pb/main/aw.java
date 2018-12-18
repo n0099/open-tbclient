@@ -10,7 +10,7 @@ import java.util.Map;
 public class aw {
     private static aw geS = null;
 
-    public static aw blR() {
+    public static aw blQ() {
         if (geS == null) {
             synchronized (aw.class) {
                 if (geS == null) {

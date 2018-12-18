@@ -45,7 +45,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         return false;
     }
 
-    public void bww() {
+    public void bwv() {
         if (this.gVo == null) {
             this.gVo = new a();
         }

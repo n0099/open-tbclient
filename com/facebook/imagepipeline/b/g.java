@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 public class g implements com.facebook.common.references.c<Bitmap> {
     private static g ilj;
 
-    public static g bVD() {
+    public static g bVC() {
         if (ilj == null) {
             ilj = new g();
         }

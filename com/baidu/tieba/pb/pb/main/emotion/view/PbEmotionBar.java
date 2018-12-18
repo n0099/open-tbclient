@@ -515,7 +515,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
                 @Override // com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.a
                 public void a(String str, List<String> list, List<String> list2) {
                     if (PbEmotionBar.this.mData != null) {
-                        aVar.a(PbEmotionBar.this.drp.getText().toString(), PbEmotionBar.this.mData.blY(), list2);
+                        aVar.a(PbEmotionBar.this.drp.getText().toString(), PbEmotionBar.this.mData.blX(), list2);
                         TiebaStatic.log("c12177");
                     }
                 }
@@ -563,7 +563,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
 
     public void onDestroy() {
         if (this.gfO != null) {
-            this.gfO.bex();
+            this.gfO.bew();
         }
         aDd();
     }

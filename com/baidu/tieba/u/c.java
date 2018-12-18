@@ -62,7 +62,7 @@ public class c {
         new b(getPath(), str, this.hMh).execute(new Void[0]);
     }
 
-    public boolean bLS() {
+    public boolean bLR() {
         if (this.isLoading || ao.isEmpty(getVideoPath())) {
             return false;
         }
@@ -80,7 +80,7 @@ public class c {
         return this.mVideoPath;
     }
 
-    public void bLT() {
+    public void bLS() {
         if (!ao.isEmpty(getPath())) {
             l.y(new File(getPath()));
             this.mVideoPath = null;

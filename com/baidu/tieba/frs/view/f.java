@@ -67,7 +67,7 @@ public class f extends BaseAdapter implements com.baidu.tieba.frs.e.c {
                             return;
                         }
                         ay.Ef().c(f.this.dJE.getTbPageContext(), new String[]{url});
-                        a.C0316a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", gVar.bBi(), f.this.dJE.getForumId(), f.this.dJE.getForumName(), null);
+                        a.C0316a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", gVar.bBh(), f.this.dJE.getForumId(), f.this.dJE.getForumName(), null);
                         b.cM("obj_url", gVar.getUrl());
                         b.save();
                     }
@@ -219,14 +219,14 @@ public class f extends BaseAdapter implements com.baidu.tieba.frs.e.c {
         String a2 = a(gVar);
         aVar.titleText.setText(gVar.getTitle());
         aVar.eio.setText(a2);
-        if (gVar.bBh() != 0) {
+        if (gVar.bBg() != 0) {
             aVar.eip.setVisibility(0);
-            if (gVar.bBh() == -1) {
+            if (gVar.bBg() == -1) {
                 aVar.eip.setText(this.mContext.getString(e.j.no_rank));
-            } else if (gVar.bBh() > 999) {
+            } else if (gVar.bBg() > 999) {
                 aVar.eip.setText(this.mContext.getString(e.j.rang_orer_thousand));
             } else {
-                aVar.eip.setText(this.mContext.getString(e.j.rang_identify) + String.valueOf(gVar.bBh()));
+                aVar.eip.setText(this.mContext.getString(e.j.rang_identify) + String.valueOf(gVar.bBg()));
             }
             if (!StringUtils.isNull(gVar.getTitle())) {
                 aVar.titleText.setText(ao.d(gVar.getTitle(), 22, "..."));
@@ -243,21 +243,21 @@ public class f extends BaseAdapter implements com.baidu.tieba.frs.e.c {
         if (this.ehd != null) {
             aVar.bRX.setOnClickListener(this.ehd);
         }
-        if (this.egV != null && this.egV.add(gVar.bBi())) {
-            a.C0316a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", gVar.bBi(), this.dJE.getForumId(), this.dJE.getForumName(), null);
+        if (this.egV != null && this.egV.add(gVar.bBh())) {
+            a.C0316a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", gVar.bBh(), this.dJE.getForumId(), this.dJE.getForumName(), null);
             b.cM("obj_url", gVar.getUrl());
             b.save();
         }
     }
 
     private String a(g gVar) {
-        if (gVar.bBg() == 1) {
+        if (gVar.bBf() == 1) {
             return TbadkCoreApplication.getInst().getString(e.j.thread_recruit);
         }
-        if (TextUtils.isEmpty(gVar.bBj()) || gVar.bBj().trim().length() == 0) {
+        if (TextUtils.isEmpty(gVar.bBi()) || gVar.bBi().trim().length() == 0) {
             return TbadkCoreApplication.getInst().getString(e.j.top_announcement);
         }
-        return gVar.bBj();
+        return gVar.bBi();
     }
 
     public void b(HashSet<String> hashSet) {

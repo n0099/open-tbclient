@@ -89,7 +89,7 @@ public class b {
     private View.OnClickListener eei = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.b.7
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.bmn();
+            b.this.bmm();
         }
     };
 
@@ -133,7 +133,7 @@ public class b {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.cvk, this.cvk);
             layoutParams.rightMargin = this.DS4;
             this.ggW.setLayoutParams(layoutParams);
-            bmf();
+            bme();
         }
         if (this.ggV == null && this.amQ == null) {
             this.ggV = this.mNavigationBar.addCustomView(controlAlign, e.h.nb_item_floor_more, this.fUU.dJU);
@@ -175,10 +175,10 @@ public class b {
 
     public void lE(boolean z) {
         this.ghl = z;
-        bmf();
+        bme();
     }
 
-    private void bmf() {
+    private void bme() {
         if (this.amR != null && this.ggW != null) {
             if (this.ghl) {
                 if (this.ghg) {
@@ -204,7 +204,7 @@ public class b {
         }
     }
 
-    public NavigationBar bmg() {
+    public NavigationBar bmf() {
         return this.mNavigationBar;
     }
 
@@ -246,7 +246,7 @@ public class b {
                 this.ghd = new com.baidu.tieba.pb.view.b(this.fUU.getPageContext().getPageActivity(), this.ghe.getView(), al.getDrawable(e.f.bg_pull_down_right_n), new KeyEventDealContainerView.a() { // from class: com.baidu.tieba.pb.pb.main.view.b.2
                     @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
                     public void xd() {
-                        b.this.fUU.bhQ();
+                        b.this.fUU.bhP();
                     }
 
                     @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
@@ -254,7 +254,7 @@ public class b {
                     }
                 });
             }
-            this.ghe.bkk();
+            this.ghe.bkj();
             if (this.ghg) {
                 final Rect rect = new Rect();
                 if (this.fUU.fTn) {
@@ -304,7 +304,7 @@ public class b {
             if (abVar != null) {
                 this.ghe.fZU = abVar.gan;
                 if (abVar.gan) {
-                    this.ghe.bkd().setText(e.j.report_text);
+                    this.ghe.bkc().setText(e.j.report_text);
                     this.ghe.ld(false);
                 }
             }
@@ -312,34 +312,34 @@ public class b {
         }
     }
 
-    public void bmh() {
-        this.ghe.bkj().setText(this.fUU.getResources().getString(e.j.haved_fans_call));
+    public void bmg() {
+        this.ghe.bki().setText(this.fUU.getResources().getString(e.j.haved_fans_call));
     }
 
     private void h(boolean z, boolean z2, boolean z3) {
         if (this.ghe != null) {
             this.ghe.setBackGround();
             if (z) {
-                this.ghe.bjQ().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.icon_recommend_reversed_down_selector), (Drawable) null, (Drawable) null);
+                this.ghe.bjP().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.icon_recommend_reversed_down_selector), (Drawable) null, (Drawable) null);
             } else {
-                this.ghe.bjQ().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.icon_recommend_reversed_selector), (Drawable) null, (Drawable) null);
+                this.ghe.bjP().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.icon_recommend_reversed_selector), (Drawable) null, (Drawable) null);
             }
             if (z2) {
-                this.ghe.bjQ().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.icon_recommend_collect_h_selector), (Drawable) null, (Drawable) null);
+                this.ghe.bjP().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.icon_recommend_collect_h_selector), (Drawable) null, (Drawable) null);
             } else {
-                this.ghe.bjQ().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.icon_recommend_collect_selector), (Drawable) null, (Drawable) null);
+                this.ghe.bjP().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.icon_recommend_collect_selector), (Drawable) null, (Drawable) null);
             }
             if (z3) {
-                this.ghe.bkb().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.icon_host_only_selector), (Drawable) null, (Drawable) null);
+                this.ghe.bka().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.icon_host_only_selector), (Drawable) null, (Drawable) null);
             } else {
-                this.ghe.bkb().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.icon_not_host_only_selector), (Drawable) null, (Drawable) null);
+                this.ghe.bka().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.icon_not_host_only_selector), (Drawable) null, (Drawable) null);
             }
         }
     }
 
     public void dismissPopMenu() {
         if (this.ghe != null) {
-            this.ghe.bkl();
+            this.ghe.bkk();
         }
         if (this.bdm == null) {
             this.bdm = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.view.b.4
@@ -354,20 +354,20 @@ public class b {
         com.baidu.adp.lib.g.e.jG().postDelayed(this.bdm, 100L);
     }
 
-    public void bmi() {
+    public void bmh() {
         if (this.ghe != null) {
-            this.ghe.bkl();
+            this.ghe.bkk();
         }
         if (this.ghd != null) {
             g.a(this.ghd, this.fUU.getPageContext().getPageActivity());
         }
     }
 
-    public aa bmj() {
+    public aa bmi() {
         return this.ghe;
     }
 
-    public View bmk() {
+    public View bmj() {
         return this.ggX;
     }
 
@@ -375,7 +375,7 @@ public class b {
         return this.ghd != null && this.ghd.isShowing();
     }
 
-    public void aXu() {
+    public void aXt() {
         if (this.ghe != null) {
             this.ghe.release();
         }
@@ -384,7 +384,7 @@ public class b {
         com.baidu.adp.lib.g.e.jG().removeCallbacks(this.bdm);
     }
 
-    public void bml() {
+    public void bmk() {
         if (this.ggV != null) {
             this.ggV.setVisibility(8);
         }
@@ -397,7 +397,7 @@ public class b {
         }
         ap.DQ().c(this.ghf, e.f.icon_topbar_return_n_svg, e.d.select_topbar_icon_color_tint);
         ap.DQ().c(this.amQ, e.f.icon_topbar_more_n_svg, e.d.select_topbar_icon_color_tint);
-        bmf();
+        bme();
         if (this.gha != null) {
             this.gha.onChangeSkinType(i);
         }
@@ -423,7 +423,7 @@ public class b {
         this.ghf.setImageResource(e.f.icon_return_bg);
     }
 
-    public void bmm() {
+    public void bml() {
         this.ghf.setVisibility(0);
         lI(false);
         if (this.ggV != null) {
@@ -498,7 +498,7 @@ public class b {
         }
     }
 
-    public void bmn() {
+    public void bmm() {
         if (this.eeg != null) {
             com.baidu.adp.lib.g.e.jG().removeCallbacks(this.eeg);
         }
@@ -514,7 +514,7 @@ public class b {
     }
 
     public void h(int i, int i2, boolean z) {
-        if (i2 != 0 && bmg() != null && this.ggZ != null) {
+        if (i2 != 0 && bmf() != null && this.ggZ != null) {
             if (!z) {
                 if (this.ggZ.getAlpha() != 1.0f) {
                     this.ggZ.setAlpha(1.0f);
@@ -525,7 +525,7 @@ public class b {
                 }
                 return;
             }
-            int measuredHeight = (bmg().getMeasuredHeight() + i2) - 1;
+            int measuredHeight = (bmf().getMeasuredHeight() + i2) - 1;
             if (i >= measuredHeight) {
                 if (this.ggZ.getAlpha() != 0.0f) {
                     this.ggZ.setAlpha(0.0f);
@@ -533,11 +533,11 @@ public class b {
                 if (this.gha.getAlpha() != 0.0f) {
                     this.gha.setAlpha(0.0f);
                 }
-            } else if (i > bmg().getMeasuredHeight() && i < measuredHeight) {
-                float measuredHeight2 = ((i - bmg().getMeasuredHeight()) * 1.0f) / (measuredHeight - bmg().getMeasuredHeight());
+            } else if (i > bmf().getMeasuredHeight() && i < measuredHeight) {
+                float measuredHeight2 = ((i - bmf().getMeasuredHeight()) * 1.0f) / (measuredHeight - bmf().getMeasuredHeight());
                 this.ggZ.setAlpha(1.0f - measuredHeight2);
                 this.gha.setAlpha(1.0f - measuredHeight2);
-            } else if (i <= bmg().getMeasuredHeight()) {
+            } else if (i <= bmf().getMeasuredHeight()) {
                 if (this.ggZ.getAlpha() != 1.0f) {
                     this.ggZ.setAlpha(1.0f);
                 }

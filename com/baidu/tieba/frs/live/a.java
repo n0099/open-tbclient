@@ -178,7 +178,7 @@ public class a {
                 TiebaStatic.log(new am("c12331"));
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.dJE.getPageContext().getPageActivity(), this.dZp, this.dZq, str, getUserId(), equals, null, null)));
-            if (this.dJE.aAZ().bgi().isGameForumType()) {
+            if (this.dJE.aAZ().bgh().isGameForumType()) {
                 CustomMessage customMessage = new CustomMessage(2001622);
                 customMessage.setTag(this.dJE.getBaseFragmentActivity().getUniqueId());
                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001622);

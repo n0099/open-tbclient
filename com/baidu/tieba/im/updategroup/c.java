@@ -27,12 +27,12 @@ public class c extends d {
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void aUu() {
+    public void aUt() {
         v(this.mEditText.length(), f.d(this.mEditText) / 2, 2, 20);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public int aUv() {
+    public int aUu() {
         return e.j.group_step_name_error;
     }
 }

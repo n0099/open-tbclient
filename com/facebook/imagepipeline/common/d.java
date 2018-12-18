@@ -7,11 +7,11 @@ public class d {
     private final boolean imI;
     private final int mRotation;
 
-    public static d bWn() {
+    public static d bWm() {
         return imJ;
     }
 
-    public static d bWo() {
+    public static d bWn() {
         return imL;
     }
 
@@ -20,22 +20,22 @@ public class d {
         this.imI = z;
     }
 
-    public boolean bWp() {
+    public boolean bWo() {
         return this.mRotation == -1;
     }
 
-    public boolean bWq() {
+    public boolean bWp() {
         return this.mRotation != -2;
     }
 
-    public int bWr() {
-        if (bWp()) {
+    public int bWq() {
+        if (bWo()) {
             throw new IllegalStateException("Rotation is set to use EXIF");
         }
         return this.mRotation;
     }
 
-    public boolean bWs() {
+    public boolean bWr() {
         return this.imI;
     }
 

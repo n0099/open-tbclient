@@ -22,7 +22,7 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         this.eRP = groupActivityActivity;
     }
 
-    public int aRM() {
+    public int aRL() {
         return this.mFrom;
     }
 
@@ -30,7 +30,7 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         this.mFrom = i;
     }
 
-    public int aRN() {
+    public int aRM() {
         return this.akb;
     }
 
@@ -38,7 +38,7 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         this.akb = i;
     }
 
-    public long aRO() {
+    public long aRN() {
         return this.mGroupId;
     }
 
@@ -92,7 +92,7 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         return this.eRM;
     }
 
-    public Message<?> aRP() {
+    public Message<?> aRO() {
         return this.eRO;
     }
 
@@ -103,7 +103,7 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         this.eRP.sendMessage(this.eRO);
     }
 
-    public GroupActivityData aRQ() {
+    public GroupActivityData aRP() {
         return this.eRQ;
     }
 

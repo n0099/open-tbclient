@@ -21,7 +21,7 @@ public final class Notification<T> {
         return new Notification<>(Kind.OnError, null, th);
     }
 
-    public static <T> Notification<T> ccM() {
+    public static <T> Notification<T> ccL() {
         return (Notification<T>) iAS;
     }
 
@@ -31,7 +31,7 @@ public final class Notification<T> {
         this.iAQ = kind;
     }
 
-    public Throwable ccN() {
+    public Throwable ccM() {
         return this.iAR;
     }
 
@@ -40,48 +40,48 @@ public final class Notification<T> {
     }
 
     public boolean hasValue() {
-        return ccS() && this.value != null;
+        return ccR() && this.value != null;
     }
 
-    public boolean ccO() {
-        return ccQ() && this.iAR != null;
+    public boolean ccN() {
+        return ccP() && this.iAR != null;
     }
 
-    public Kind ccP() {
+    public Kind ccO() {
         return this.iAQ;
     }
 
+    public boolean ccP() {
+        return ccO() == Kind.OnError;
+    }
+
     public boolean ccQ() {
-        return ccP() == Kind.OnError;
+        return ccO() == Kind.OnCompleted;
     }
 
     public boolean ccR() {
-        return ccP() == Kind.OnCompleted;
-    }
-
-    public boolean ccS() {
-        return ccP() == Kind.OnNext;
+        return ccO() == Kind.OnNext;
     }
 
     public String toString() {
-        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(ccP());
+        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(ccO());
         if (hasValue()) {
             append.append(' ').append(getValue());
         }
-        if (ccO()) {
-            append.append(' ').append(ccN().getMessage());
+        if (ccN()) {
+            append.append(' ').append(ccM().getMessage());
         }
         append.append(']');
         return append.toString();
     }
 
     public int hashCode() {
-        int hashCode = ccP().hashCode();
+        int hashCode = ccO().hashCode();
         if (hasValue()) {
             hashCode = (hashCode * 31) + getValue().hashCode();
         }
-        if (ccO()) {
-            return (hashCode * 31) + ccN().hashCode();
+        if (ccN()) {
+            return (hashCode * 31) + ccM().hashCode();
         }
         return hashCode;
     }
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.ccP() != ccP() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.iAR != notification.iAR && (this.iAR == null || !this.iAR.equals(notification.iAR))))) {
+            if (notification.ccO() != ccO() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.iAR != notification.iAR && (this.iAR == null || !this.iAR.equals(notification.iAR))))) {
                 z = false;
             }
             return z;

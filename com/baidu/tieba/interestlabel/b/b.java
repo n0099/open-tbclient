@@ -41,15 +41,15 @@ public class b {
         }
     }
 
-    public List<a> aXb() {
+    public List<a> aXa() {
         return this.fjz;
     }
 
-    public List<a> aXc() {
+    public List<a> aXb() {
         return this.fjv;
     }
 
-    public List<Integer> aXd() {
+    public List<Integer> aXc() {
         return this.fjw;
     }
 }

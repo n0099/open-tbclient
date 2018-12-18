@@ -3,7 +3,7 @@ package com.facebook.common.memory;
 public class d implements c {
     private static d ifS = null;
 
-    public static synchronized d bTf() {
+    public static synchronized d bTe() {
         d dVar;
         synchronized (d.class) {
             if (ifS == null) {

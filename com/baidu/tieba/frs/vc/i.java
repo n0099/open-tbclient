@@ -43,14 +43,14 @@ public class i {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             i.this.aHz();
-            if (i.this.edR != null && i.this.edR.hiU != null && i.this.edR.bgi() != null) {
+            if (i.this.edR != null && i.this.edR.hiU != null && i.this.edR.bgh() != null) {
                 if (i.this.eef == null || i.this.eef.aEd()) {
-                    WriteActivityConfig writeActivityConfig = new WriteActivityConfig(i.this.mActivity, 9, i.this.edR.bgi().getId(), i.this.edR.bgi().getName(), null, null, 0, i.this.edR.yE(), 13003, false, false, null, false, false, null, null, i.this.edR.bgi().getPrefixData(), 0);
+                    WriteActivityConfig writeActivityConfig = new WriteActivityConfig(i.this.mActivity, 9, i.this.edR.bgh().getId(), i.this.edR.bgh().getName(), null, null, 0, i.this.edR.yE(), 13003, false, false, null, false, false, null, null, i.this.edR.bgh().getPrefixData(), 0);
                     if (!StringUtils.isNull(i.this.edR.hiU.recom_topic)) {
                         writeActivityConfig.setTitle(i.this.edR.hiU.recom_topic, true);
                     }
-                    ForumData bgi = i.this.edR.bgi();
-                    writeActivityConfig.setForumDir(bgi.getFirst_class(), bgi.getSecond_class());
+                    ForumData bgh = i.this.edR.bgh();
+                    writeActivityConfig.setForumDir(bgh.getFirst_class(), bgh.getSecond_class());
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, writeActivityConfig));
                     TiebaStatic.log(new am("c13017").x("obj_locate", 2));
                 }

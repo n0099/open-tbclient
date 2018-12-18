@@ -35,19 +35,19 @@ public class b {
         return this.errorCode != 0;
     }
 
-    public boolean bEF() {
+    public boolean bEE() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean bEG() {
+    public boolean bEF() {
         return this.errorCode == 1990055;
     }
 
-    public boolean bEH() {
+    public boolean bEG() {
         return this.errorCode == 3250012;
     }
 
-    public boolean bEI() {
+    public boolean bEH() {
         return this.errorCode == 227001;
     }
 
@@ -107,7 +107,7 @@ public class b {
         return this.isCopyTWZhibo;
     }
 
-    public String bEJ() {
+    public String bEI() {
         return this.hoU;
     }
 
@@ -115,7 +115,7 @@ public class b {
         this.hoU = str;
     }
 
-    public String bEK() {
+    public String bEJ() {
         return this.hoV;
     }
 

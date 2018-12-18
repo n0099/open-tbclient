@@ -279,7 +279,7 @@ final class SingleToast {
         final LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(R.layout.aiapps_left_icon_clickable_toast_view, (ViewGroup) null);
         linearLayout.setBackground(resources.getDrawable(R.drawable.aiapps_clickable_toast_view_bg));
         linearLayout.setClickable(true);
-        ((SimpleDraweeView) linearLayout.findViewById(R.id.gif_toast_left_icon)).setController(c.bTV().oT(true).u(uri).bUE());
+        ((SimpleDraweeView) linearLayout.findViewById(R.id.gif_toast_left_icon)).setController(c.bTU().oT(true).u(uri).bUD());
         if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.gif_toast_info_view)) != null) {
             textView.setTextColor(resources.getColor(R.color.aiapps_white_text));
             textView.setText(charSequence);

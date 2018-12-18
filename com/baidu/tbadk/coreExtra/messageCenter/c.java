@@ -31,7 +31,7 @@ public class c {
     }
 
     public void initSetting() {
-        com.baidu.tieba.tbadkCore.util.a.bEm();
+        com.baidu.tieba.tbadkCore.util.a.bEl();
     }
 
     public void Ix() {

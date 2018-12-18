@@ -207,7 +207,7 @@ public class ScrollFragmentTabHost extends FrameLayout {
                     TiebaStatic.log(new am("c13172").x("obj_type", ScrollFragmentTabHost.this.etY ? 2 : 1));
                     ScrollFragmentTabHost.this.etY = false;
                 }
-                ScrollFragmentTabHost.this.aKS();
+                ScrollFragmentTabHost.this.aKR();
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -304,7 +304,7 @@ public class ScrollFragmentTabHost extends FrameLayout {
             if (this.etQ != null) {
                 this.etV.setRecommendFrsNavigationAnimDispatcher(this.etQ);
             }
-            aKS();
+            aKR();
         }
         i = aKG;
         NewScrollFragmentAdapter newScrollFragmentAdapter2 = this.etV;
@@ -315,10 +315,10 @@ public class ScrollFragmentTabHost extends FrameLayout {
         this.etT.setConcernTabIndex(this.etV.ow(0));
         if (this.etQ != null) {
         }
-        aKS();
+        aKR();
     }
 
-    public boolean aKQ() {
+    public boolean aKP() {
         return this.etV != null && this.etV.getCount() > 0;
     }
 
@@ -415,7 +415,7 @@ public class ScrollFragmentTabHost extends FrameLayout {
         }
     }
 
-    public void aKR() {
+    public void aKQ() {
         this.etV.a(this.eud);
     }
 
@@ -427,10 +427,10 @@ public class ScrollFragmentTabHost extends FrameLayout {
         if (this.etQ != null) {
             this.etQ.onDestroy();
         }
-        aKU();
+        aKT();
     }
 
-    public void aKS() {
+    public void aKR() {
         int i = 1;
         if (this.etV != null) {
             int ov = this.etV.ov(this.azq.getCurrentItem());
@@ -464,7 +464,7 @@ public class ScrollFragmentTabHost extends FrameLayout {
         }
     }
 
-    public void aKT() {
+    public void aKS() {
         if (com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_concern_tab_tips_switch", 0) != 0) {
             int ow = this.etV != null ? this.etV.ow(0) : 0;
             if (this.etX == null) {
@@ -480,7 +480,7 @@ public class ScrollFragmentTabHost extends FrameLayout {
         }
     }
 
-    public void aKU() {
+    public void aKT() {
         if (this.etX != null) {
             this.etX.arm();
         }

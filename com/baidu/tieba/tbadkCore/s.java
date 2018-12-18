@@ -9,15 +9,15 @@ public class s extends bb {
     private boolean hki;
     private m hkj;
 
-    public boolean bCK() {
+    public boolean bCJ() {
         return this.hki;
     }
 
-    public String bCL() {
+    public String bCK() {
         return this.fortune_desc;
     }
 
-    public m bCM() {
+    public m bCL() {
         return this.hkj;
     }
 

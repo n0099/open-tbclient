@@ -50,7 +50,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                     NewVcodeActivity.this.mWriteData.setVcodeUrl(wVar.getVcode_pic_url());
                     NewVcodeActivity.this.mWriteData.setVcodeExtra(wVar.GW());
                     NewVcodeActivity.this.aZR.setWriteData(NewVcodeActivity.this.mWriteData);
-                    NewVcodeActivity.this.hVd = NewVcodeActivity.this.bOr();
+                    NewVcodeActivity.this.hVd = NewVcodeActivity.this.bOq();
                     NewVcodeActivity.this.hVd.showErrorOnStart(true, postWriteCallBackData.getErrorString());
                     NewVcodeActivity.this.hVc.setPresenter(NewVcodeActivity.this.hVd);
                     NewVcodeActivity.this.hVd.start(NewVcodeActivity.this.mNeedFeedBackButton);
@@ -83,13 +83,13 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         if (this.mWriteData.getWriteImagesInfo() != null) {
             this.aZR.nz(this.mWriteData.getWriteImagesInfo().size() > 0);
         }
-        this.hVd = bOr();
+        this.hVd = bOq();
         this.hVc.setPresenter(this.hVd);
         this.hVd.start(this.mNeedFeedBackButton);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public b bOr() {
+    public b bOq() {
         b cVar;
         if (this.mPageType == com.baidu.adp.lib.g.b.l("5", 0)) {
             cVar = new a(this.hVc, this.aZR);
@@ -114,7 +114,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        bMv();
+        bMu();
         this.hVd.onDestroy();
     }
 
@@ -128,7 +128,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 4);
     }
 
-    private void bMv() {
+    private void bMu() {
         if (this.mWriteData != null && this.mWriteData.getType() == 3) {
             com.baidu.tbadk.core.e.b.d(getPageContext().getPageActivity(), 200, false);
         }

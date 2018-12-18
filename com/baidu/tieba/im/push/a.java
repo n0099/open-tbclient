@@ -38,7 +38,7 @@ public class a {
     private ConcurrentHashMap<Long, NewpushGroupRepair> eXz;
     private Handler mHandler;
 
-    public static a aTH() {
+    public static a aTG() {
         if (eXw == null) {
             synchronized (a.class) {
                 if (eXw == null) {
@@ -90,7 +90,7 @@ public class a {
         GroupMsgData groupMsgData2;
         if (groupMsgData != null && groupMsgData.getGroupInfo() != null && (listMessage = groupMsgData.getListMessage()) != null && listMessage.size() != 0) {
             long groupId = groupMsgData.getGroupInfo().getGroupId();
-            ImMessageCenterPojo at = j.aQz().at(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
+            ImMessageCenterPojo at = j.aQy().at(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
             if (!(at != null)) {
                 if (!this.eXB.contains(Long.valueOf(groupId))) {
                     a(groupMsgData, listMessage, groupId);
@@ -223,13 +223,13 @@ public class a {
                 a.this.cw(j2);
                 if (j5 > j) {
                     a.this.eXz.put(Long.valueOf(j2), MessageUtils.makeNewpushGroupRepair(j2, i, j, j5, j3));
-                    com.baidu.tieba.im.a.b.aTq().a(j2, 1L, 0L, true);
+                    com.baidu.tieba.im.a.b.aTp().a(j2, 1L, 0L, true);
                     a.this.eXB.add(Long.valueOf(j2));
                     a.this.cu(j2);
                 }
             }
         };
-        this.eXx.postDelayed(runnable, b.aTI().hq().hr());
+        this.eXx.postDelayed(runnable, b.aTH().hq().hr());
         this.eXA.put(Long.valueOf(j2), runnable);
     }
 

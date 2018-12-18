@@ -15,7 +15,7 @@ public final class ae<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> ae<T> cdm() {
+    public static <T> ae<T> cdl() {
         return (ae<T>) a.iEe;
     }
 

@@ -47,7 +47,7 @@ public class StateSwitchView extends EditorInfoView {
             this.mState = 0;
         }
         ajs();
-        bOg();
+        bOf();
     }
 
     private void ajs() {
@@ -63,7 +63,7 @@ public class StateSwitchView extends EditorInfoView {
             this.mState = i;
         }
         ajs();
-        bOg();
+        bOf();
     }
 
     public void setStateString(String str, String str2) {
@@ -75,10 +75,10 @@ public class StateSwitchView extends EditorInfoView {
     public void setLeftStateDrawable(int i, int i2) {
         this.hTS = i;
         this.hTT = i2;
-        bOg();
+        bOf();
     }
 
-    private void bOg() {
+    private void bOf() {
         int dimensionPixelSize = getResources().getDimensionPixelSize(e.C0210e.ds48);
         if (this.mState == 1 && this.hTT > 0) {
             Drawable drawable = al.getDrawable(this.hTT);
@@ -118,7 +118,7 @@ public class StateSwitchView extends EditorInfoView {
             if (this.aHv > 0) {
                 al.i(this, this.aHv);
             }
-            bOg();
+            bOf();
             this.mSkinType = i;
         }
     }

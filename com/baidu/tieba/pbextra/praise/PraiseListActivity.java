@@ -44,7 +44,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
             this.gpx = new d();
         }
         this.gpx.setIsAuthor(z);
-        this.gpw = new e(this, this.gpx.bom());
+        this.gpw = new e(this, this.gpx.bol());
         this.gpw.lU(false);
         this.gpx.sW(this.pageType);
     }
@@ -61,14 +61,14 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gpw.bop()) {
-            bok();
-            if (this.gpx.bmt()) {
+        if (view == this.gpw.boo()) {
+            boj();
+            if (this.gpx.bms()) {
                 finish();
                 return;
             }
             n.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.gpx.getThreadId(), null, "praise_list"));
-        } else if (view == this.gpw.boq() && !this.gpw.Fi()) {
+        } else if (view == this.gpw.bop() && !this.gpw.Fi()) {
             this.gpw.lU(true);
             this.gpx.sW(this.pageType);
         }
@@ -82,9 +82,9 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         }
     }
 
-    private void bok() {
+    private void boj() {
         if (this.gpx != null) {
-            this.gpx.bol();
+            this.gpx.bok();
         }
     }
 
@@ -93,7 +93,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         if (k.isEmpty(str)) {
             str = getResources().getString(e.j.neterror);
         }
-        this.gpw.boo();
+        this.gpw.bon();
         this.gpw.aM(str, this.pageType);
     }
 
@@ -101,13 +101,13 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.gpw.aRw();
+        this.gpw.aRv();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        bok();
+        boj();
         super.onDestroy();
     }
 

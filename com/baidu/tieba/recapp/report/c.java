@@ -21,13 +21,13 @@ public class c {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.kV() && c.this.gRi != null) {
-                c.this.gRi.bvw();
+                c.this.gRi.bvv();
             }
         }
     };
     private d gRi = new g();
 
-    public static c bvu() {
+    public static c bvt() {
         if (gRh == null) {
             synchronized (c.class) {
                 if (gRh == null) {
@@ -38,7 +38,7 @@ public class c {
         return gRh;
     }
 
-    private boolean bvv() {
+    private boolean bvu() {
         return com.baidu.adp.lib.b.d.iQ().aO("ad_log_open") != 0;
     }
 
@@ -47,7 +47,7 @@ public class c {
     }
 
     public void a(b bVar) {
-        if (bvv() && bVar != null && this.gRi != null) {
+        if (bvu() && bVar != null && this.gRi != null) {
             if (j.kV()) {
                 this.gRi.b(bVar);
             } else {

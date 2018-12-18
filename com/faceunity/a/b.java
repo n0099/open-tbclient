@@ -66,7 +66,7 @@ public class b {
         return this.isc;
     }
 
-    public AudioRecord bZY() {
+    public AudioRecord bZX() {
         return this.mAudioRecord;
     }
 }

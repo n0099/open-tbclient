@@ -16,7 +16,7 @@ public class HotSearchInfoData extends OrmObject {
         return this.dnX;
     }
 
-    public long aZG() {
+    public long aZF() {
         return this.dnY;
     }
 

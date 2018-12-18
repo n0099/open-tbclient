@@ -13,7 +13,7 @@ public class g implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a>
     private int mCmd;
 
     public g() {
-        a(com.baidu.tieba.im.db.c.aQp(), 2001145);
+        a(com.baidu.tieba.im.db.c.aQo(), 2001145);
     }
 
     private void a(com.baidu.tieba.im.db.c cVar, int i) {

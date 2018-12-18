@@ -51,7 +51,7 @@ public class c extends LinkMovementMethod {
         return super.onTouchEvent(textView, spannable, motionEvent);
     }
 
-    public static c bMa() {
+    public static c bLZ() {
         if (hMY == null) {
             hMY = new c();
         }

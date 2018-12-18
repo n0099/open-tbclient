@@ -55,7 +55,7 @@ public class a {
         }
     }
 
-    public com.facebook.common.references.c<Bitmap> bYk() {
+    public com.facebook.common.references.c<Bitmap> bYj() {
         return this.ioR;
     }
 }

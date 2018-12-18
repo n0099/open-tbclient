@@ -89,8 +89,8 @@ public class RecAppStatic {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbadkCoreApplication.SWITCH_PROCESS_NOTIFICATION_KEY);
         inst.registerReceiver(broadcastReceiver, intentFilter);
-        b.buj().bum();
-        b.buj().buk();
+        b.bui().bul();
+        b.bui().buj();
         com.baidu.c.a.a.init(TbadkCoreApplication.getInst());
         com.baidu.c.a.a.a(new p());
         com.baidu.c.a.a.a(new q());

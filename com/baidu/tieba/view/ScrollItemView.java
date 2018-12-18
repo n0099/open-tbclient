@@ -107,11 +107,11 @@ public class ScrollItemView extends ListView {
     public void setData(List<String> list) {
         stopScroll();
         this.hNX.setData(list);
-        bMd();
+        bMc();
         aIb();
     }
 
-    private void bMd() {
+    private void bMc() {
         this.mCurrentPosition = (int) Math.floor(getItemCount() * Math.random());
         smoothScrollToPosition(this.mCurrentPosition);
     }

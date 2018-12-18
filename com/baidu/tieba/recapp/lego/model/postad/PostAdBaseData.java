@@ -135,7 +135,7 @@ public class PostAdBaseData implements ICardInfo {
         public String title;
         public String username;
 
-        public List<String> buR() {
+        public List<String> buQ() {
             return this.gMY;
         }
 

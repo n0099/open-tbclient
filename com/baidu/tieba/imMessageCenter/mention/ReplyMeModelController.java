@@ -45,7 +45,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean aqN() {
-        if (this.feU.Fi() || !aVB()) {
+        if (this.feU.Fi() || !aVA()) {
             return false;
         }
         this.feT.d(this.fdI);
@@ -56,7 +56,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean aFL() {
-        if (this.feU.Fi() || !aVB()) {
+        if (this.feU.Fi() || !aVA()) {
             return false;
         }
         this.fdI = null;
@@ -66,20 +66,20 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
         return true;
     }
 
-    protected boolean aVB() {
+    protected boolean aVA() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
         if (this.fdJ != null && this.fdJ.feH != null) {
             this.fdJ.feH.clear();
         }
-        this.feS.aWb();
+        this.feS.aWa();
         this.feS.b(false, (ArrayList<com.baidu.adp.widget.ListView.h>) null);
         return false;
     }
 
     public boolean aqM() {
-        if (aVB()) {
+        if (aVA()) {
             this.feV.a((com.baidu.tbadk.mvc.b.e) this.feT);
             return true;
         }
@@ -91,11 +91,11 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
         boolean z3;
         boolean z4;
         if (kVar.getUpdateType() != 4) {
-            this.fdJ.aVW().clear();
+            this.fdJ.aVV().clear();
         }
         this.fdJ.a(lVar);
-        if (lVar != null && lVar.aVW() != null && lVar.aVW().size() > 0) {
-            this.fdI = lVar.aVW().get(lVar.aVW().size() - 1);
+        if (lVar != null && lVar.aVV() != null && lVar.aVV().size() > 0) {
+            this.fdI = lVar.aVV().get(lVar.aVV().size() - 1);
             if (this.fdJ.yS() != null) {
                 z4 = this.fdJ.yS().yP() == 1;
             } else {

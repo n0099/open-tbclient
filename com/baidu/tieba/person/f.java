@@ -79,23 +79,23 @@ public class f extends com.baidu.adp.base.c {
         return this.mView;
     }
 
-    public View bor() {
+    public View boq() {
         return this.gpZ;
     }
 
-    public View bos() {
+    public View bor() {
         return this.gqa;
     }
 
-    public View bot() {
+    public View bos() {
         return this.gqb;
     }
 
-    public View bou() {
+    public View bot() {
         return this.fZM;
     }
 
-    public View bov() {
+    public View bou() {
         return this.gqh;
     }
 

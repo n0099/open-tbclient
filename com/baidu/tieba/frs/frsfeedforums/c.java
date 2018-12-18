@@ -34,7 +34,7 @@ public class c extends h<com.baidu.tieba.tbadkCore.h, d> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.h hVar, d dVar) {
         super.onFillViewHolder(i, view, viewGroup, hVar, dVar);
         if (hVar != null) {
-            this.dSO.e(hVar.getForumId(), hVar.bBk());
+            this.dSO.e(hVar.getForumId(), hVar.bBj());
         }
         return view;
     }

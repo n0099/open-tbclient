@@ -15,14 +15,14 @@ public class f {
     private final AtomicReference<g> iBi = new AtomicReference<>();
 
     @Deprecated
-    public static f ceR() {
+    public static f ceQ() {
         return iNK;
     }
 
     f() {
     }
 
-    public b ceS() {
+    public b ceR() {
         if (this.iNL.get() == null) {
             Object a = a(b.class, System.getProperties());
             if (a == null) {
@@ -34,11 +34,11 @@ public class f {
         return this.iNL.get();
     }
 
-    public d ceT() {
+    public d ceS() {
         if (this.iNM.get() == null) {
             Object a = a(d.class, System.getProperties());
             if (a == null) {
-                this.iNM.compareAndSet(null, e.ceQ());
+                this.iNM.compareAndSet(null, e.ceP());
             } else {
                 this.iNM.compareAndSet(null, (d) a);
             }
@@ -46,11 +46,11 @@ public class f {
         return this.iNM.get();
     }
 
-    public h ceU() {
+    public h ceT() {
         if (this.iNN.get() == null) {
             Object a = a(h.class, System.getProperties());
             if (a == null) {
-                this.iNN.compareAndSet(null, i.cfe());
+                this.iNN.compareAndSet(null, i.cfd());
             } else {
                 this.iNN.compareAndSet(null, (h) a);
             }
@@ -58,7 +58,7 @@ public class f {
         return this.iNN.get();
     }
 
-    public a ceV() {
+    public a ceU() {
         if (this.iNO.get() == null) {
             Object a = a(a.class, System.getProperties());
             if (a == null) {
@@ -113,11 +113,11 @@ public class f {
         }
     }
 
-    public g ceW() {
+    public g ceV() {
         if (this.iBi.get() == null) {
             Object a = a(g.class, System.getProperties());
             if (a == null) {
-                this.iBi.compareAndSet(null, g.cfd());
+                this.iBi.compareAndSet(null, g.cfc());
             } else {
                 this.iBi.compareAndSet(null, (g) a);
             }

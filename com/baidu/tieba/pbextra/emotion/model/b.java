@@ -71,7 +71,7 @@ class b {
         this.goD = this.goC + 1;
         this.goz = this.goC + 2;
         this.goH = 0;
-        int bnY = bnY();
+        int bnX = bnX();
         for (int i3 = this.goy; i3 < 65536; i3 *= 2) {
             i2++;
         }
@@ -80,12 +80,12 @@ class b {
         sR(i5);
         b(this.goC, outputStream);
         while (true) {
-            int bnY2 = bnY();
-            if (bnY2 != -1) {
-                int i6 = (bnY2 << this.got) + bnY;
-                int i7 = (bnY2 << i4) ^ bnY;
+            int bnX2 = bnX();
+            if (bnX2 != -1) {
+                int i6 = (bnX2 << this.got) + bnX;
+                int i7 = (bnX2 << i4) ^ bnX;
                 if (this.gow[i7] == i6) {
-                    bnY = this.gox[i7];
+                    bnX = this.gox[i7];
                 } else {
                     if (this.gow[i7] >= 0) {
                         int i8 = i5 - i7;
@@ -98,26 +98,26 @@ class b {
                                 i7 += i5;
                             }
                             if (this.gow[i7] == i6) {
-                                bnY = this.gox[i7];
+                                bnX = this.gox[i7];
                                 break;
                             }
                         } while (this.gow[i7] >= 0);
                     }
-                    b(bnY, outputStream);
+                    b(bnX, outputStream);
                     if (this.goz < this.gov) {
                         int[] iArr = this.gox;
                         int i9 = this.goz;
                         this.goz = i9 + 1;
                         iArr[i7] = i9;
                         this.gow[i7] = i6;
-                        bnY = bnY2;
+                        bnX = bnX2;
                     } else {
                         f(outputStream);
-                        bnY = bnY2;
+                        bnX = bnX2;
                     }
                 }
             } else {
-                b(bnY, outputStream);
+                b(bnX, outputStream);
                 b(this.goD, outputStream);
                 return;
             }
@@ -145,7 +145,7 @@ class b {
         return (1 << i) - 1;
     }
 
-    private int bnY() {
+    private int bnX() {
         if (this.goq == 0) {
             return -1;
         }

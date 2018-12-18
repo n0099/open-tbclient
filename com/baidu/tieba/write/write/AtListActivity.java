@@ -295,7 +295,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
                 }
             }
         });
-        aVp();
+        aVo();
     }
 
     private void ayF() {
@@ -374,7 +374,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
         });
     }
 
-    private void aVp() {
+    private void aVo() {
         int dimensionPixelSize = getResources().getDimensionPixelSize(e.C0210e.ds80) + getResources().getDimensionPixelSize(e.C0210e.ds16) + getResources().getDimensionPixelSize(e.C0210e.ds16);
         this.mListFooter = new View(getPageContext().getContext());
         this.mListFooter.setLayoutParams(new AbsListView.LayoutParams(-1, dimensionPixelSize));
@@ -400,18 +400,18 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
                 this.hWs.cancel();
             }
             if (str == null || str.length() == 0) {
-                if (this.hWu.bOj() != null) {
-                    ArrayList<MetaData> bOa = this.hWu.bOj().bOa();
-                    Iterator<MetaData> it = bOa.iterator();
+                if (this.hWu.bOi() != null) {
+                    ArrayList<MetaData> bNZ = this.hWu.bOi().bNZ();
+                    Iterator<MetaData> it = bNZ.iterator();
                     while (it.hasNext()) {
                         it.next().setChecked(false);
                     }
-                    if (bOa != null && !bOa.isEmpty()) {
+                    if (bNZ != null && !bNZ.isEmpty()) {
                         xq(0);
                     } else {
                         xq(1);
                     }
-                    this.hWv.setData(bOa);
+                    this.hWv.setData(bNZ);
                 } else {
                     this.hWv.setData(null);
                     if (this.hWt == null) {
@@ -424,7 +424,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
                 this.hWs = new a();
                 this.hWs.setPriority(2);
                 this.hWs.execute(str);
-                if (this.hWt == null && this.hWu.bOj() == null) {
+                if (this.hWt == null && this.hWu.bOi() == null) {
                     this.hWt = new b();
                     this.hWt.setPriority(3);
                     this.hWt.execute("");
@@ -451,7 +451,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
         if (metaData != null) {
             this.hWr.f(metaData);
             qx(this.hWr.getItemLength());
-            aVq();
+            aVp();
         }
     }
 
@@ -460,11 +460,11 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
         if (metaData != null) {
             this.hWr.h(metaData);
             qx(this.hWr.getItemLength());
-            aVq();
+            aVp();
         }
     }
 
-    private void aVq() {
+    private void aVp() {
         if (this.hWr.getItemLength() > 0) {
             this.fcA.setEnabled(true);
         } else {
@@ -525,7 +525,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
                 return null;
             }
             com.baidu.tieba.write.a.c cVar = new com.baidu.tieba.write.a.c();
-            cVar.a(CL, AtListActivity.this.hWu.bOj());
+            cVar.a(CL, AtListActivity.this.hWu.bOi());
             return cVar;
         }
 
@@ -537,13 +537,13 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
             AtListActivity.this.hWs = null;
             AtListActivity.this.mProgress.setVisibility(8);
             if (this.mNetwork.Dj().Ei().isRequestSuccess() && this.hWF != null && com.baidu.adp.lib.util.k.a(AtListActivity.this.mEditText.getText(), "").equals(this.hWF)) {
-                if (cVar == null || cVar.bOc().isEmpty()) {
+                if (cVar == null || cVar.bOb().isEmpty()) {
                     AtListActivity.this.xq(1);
                 } else {
                     AtListActivity.this.xq(0);
                 }
                 AtListActivity.this.hWu.a(cVar);
-                AtListActivity.this.hWv.setData(cVar.bOc());
+                AtListActivity.this.hWv.setData(cVar.bOb());
                 AtListActivity.this.hWv.notifyDataSetInvalidated();
                 AtListActivity.this.OF.setSelection(0);
             } else {
@@ -614,20 +614,20 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
                 AtListActivity.this.hWu.a(bVar);
                 if (AtListActivity.this.hWv != null) {
                     if (com.baidu.adp.lib.util.k.a(AtListActivity.this.mEditText.getText(), "").length() != 0) {
-                        if (AtListActivity.this.hWu.bOk() != null) {
-                            if (bVar != null && bVar.bOb() != null && !bVar.bOb().isEmpty()) {
+                        if (AtListActivity.this.hWu.bOj() != null) {
+                            if (bVar != null && bVar.bOa() != null && !bVar.bOa().isEmpty()) {
                                 AtListActivity.this.xq(2);
                             }
-                            AtListActivity.this.hWu.bOk().u(bVar.bOb());
+                            AtListActivity.this.hWu.bOj().u(bVar.bOa());
                             AtListActivity.this.hWv.notifyDataSetInvalidated();
                         }
                     } else {
-                        if (bVar == null || bVar.bOa() == null || !bVar.bOa().isEmpty()) {
+                        if (bVar == null || bVar.bNZ() == null || !bVar.bNZ().isEmpty()) {
                             AtListActivity.this.xq(0);
                         } else {
                             AtListActivity.this.xq(2);
                         }
-                        AtListActivity.this.hWq = bVar.bOa();
+                        AtListActivity.this.hWq = bVar.bNZ();
                         AtListActivity.this.hWv.setData(AtListActivity.this.hWq);
                         AtListActivity.this.hWv.notifyDataSetInvalidated();
                         AtListActivity.this.OF.setSelection(0);

@@ -50,7 +50,7 @@ public class m {
     public void sj(int i) {
         if (this.fSU != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
-            httpMessage.addParam("thread_id", this.fSU.bje());
+            httpMessage.addParam("thread_id", this.fSU.bjd());
             httpMessage.addParam("status", String.valueOf(i));
             MessageManager.getInstance().sendMessage(httpMessage);
         }

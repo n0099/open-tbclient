@@ -69,51 +69,51 @@ public class j extends com.baidu.adp.base.c {
         this.eMC = str;
     }
 
-    public String aPp() {
+    public String aPo() {
         return this.eMB;
     }
 
-    public String aPq() {
+    public String aPp() {
         return this.eMC;
     }
 
-    public View aPr() {
+    public View aPq() {
         return this.bhS;
     }
 
-    public int aPs() {
+    public int aPr() {
         return this.eMj;
     }
 
-    public View aPt() {
+    public View aPs() {
         return this.eMk;
     }
 
-    public View aPu() {
+    public View aPt() {
         if (this.eMm != null) {
-            return this.eMm.aPe();
+            return this.eMm.aPd();
         }
         if (this.eMn != null) {
-            return this.eMn.aPe();
+            return this.eMn.aPd();
         }
         return null;
     }
 
-    public View aPv() {
-        return this.eMq.aPm();
-    }
-
-    public View aPw() {
+    public View aPu() {
         return this.eMq.aPl();
     }
 
-    public boolean aPx() {
+    public View aPv() {
+        return this.eMq.aPk();
+    }
+
+    public boolean aPw() {
         return this.mIsLoading;
     }
 
-    public void aOS() {
-        this.eMr.aOS();
-        aPS();
+    public void aOR() {
+        this.eMr.aOR();
+        aPR();
     }
 
     public void pG(String str) {
@@ -127,7 +127,7 @@ public class j extends com.baidu.adp.base.c {
     public void setBusiness(String str) {
         this.business = str;
         this.eMr.setBusiness(str);
-        aPS();
+        aPR();
     }
 
     public String getBusiness() {
@@ -136,10 +136,10 @@ public class j extends com.baidu.adp.base.c {
 
     public void pH(String str) {
         this.eMr.setAddress(str);
-        aPS();
+        aPR();
     }
 
-    public boolean aPy() {
+    public boolean aPx() {
         return this.eMz;
     }
 
@@ -147,26 +147,26 @@ public class j extends com.baidu.adp.base.c {
         this.eMz = z;
     }
 
+    public void aOS() {
+        this.eMr.aOS();
+        aPR();
+    }
+
     public void aOT() {
         this.eMr.aOT();
-        aPS();
+        aPR();
     }
 
-    public void aOU() {
-        this.eMr.aOU();
-        aPS();
+    public View aPy() {
+        return this.eMr.aOP();
     }
 
-    public View aPz() {
+    public int aOQ() {
         return this.eMr.aOQ();
     }
 
-    public int aOR() {
-        return this.eMr.aOR();
-    }
-
-    public View aPA() {
-        return this.eMo.aPi();
+    public View aPz() {
+        return this.eMo.aPh();
     }
 
     public int getForumId() {
@@ -174,11 +174,11 @@ public class j extends com.baidu.adp.base.c {
     }
 
     public String getName() {
-        return this.eMo.aPh().getText().toString();
+        return this.eMo.aPg().getText().toString();
     }
 
     public String getIntro() {
-        return this.eMp.aPb().getText().toString();
+        return this.eMp.aPa().getText().toString();
     }
 
     public void setPortrait(String str) {
@@ -193,23 +193,23 @@ public class j extends com.baidu.adp.base.c {
         return this.eMl;
     }
 
+    public boolean aPA() {
+        return this.eMo != null && this.eMj == this.eMo.aOO();
+    }
+
     public boolean aPB() {
-        return this.eMo != null && this.eMj == this.eMo.aOP();
+        return this.eMp != null && this.eMj == this.eMp.aOO();
     }
 
     public boolean aPC() {
-        return this.eMp != null && this.eMj == this.eMp.aOP();
+        return this.eMq != null && this.eMj == this.eMq.aOO();
     }
 
     public boolean aPD() {
-        return this.eMq != null && this.eMj == this.eMq.aOP();
+        return this.eMr != null && this.eMj == this.eMr.aOO();
     }
 
     public boolean aPE() {
-        return this.eMr != null && this.eMj == this.eMr.aOP();
-    }
-
-    public boolean aPF() {
         return this.eMi != null && this.eMj == this.eMi.getCount();
     }
 
@@ -220,16 +220,16 @@ public class j extends com.baidu.adp.base.c {
         return null;
     }
 
-    public void aPG() {
-        this.eMq.aPm().setText(e.j.group_create_modify_photo_tip);
+    public void aPF() {
+        this.eMq.aPl().setText(e.j.group_create_modify_photo_tip);
     }
 
-    public void aPH() {
-        this.eMq.aPk();
+    public void aPG() {
+        this.eMq.aPj();
     }
 
     public void clearText() {
-        this.eMo.aPj();
+        this.eMo.aPi();
     }
 
     public j(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3, int i4) {
@@ -270,14 +270,14 @@ public class j extends com.baidu.adp.base.c {
     private void initData() {
         this.eMt = new com.baidu.tieba.im.util.b(this.eLu);
         this.eMt.setUniqueId(this.eLu.getUniqueId());
-        aPI();
+        aPH();
     }
 
-    public void aPI() {
+    public void aPH() {
         this.eMt.Rr();
     }
 
-    public void aPJ() {
+    public void aPI() {
         if (this.eMt != null) {
             this.eMt.cancelLoad();
         }
@@ -286,17 +286,17 @@ public class j extends com.baidu.adp.base.c {
     private void initListener() {
         this.bhS.setOnClickListener(this.eLu);
         this.eMk.setOnClickListener(this.eLu);
-        this.eMo.aPh().setFilters(new InputFilter[]{new com.baidu.tieba.im.util.a(20)});
-        this.eMo.aPh().addTextChangedListener(this.eLu);
-        this.eMp.aPb().addTextChangedListener(this.eLu);
-        this.eMq.aPm().setOnClickListener(this.eLu);
+        this.eMo.aPg().setFilters(new InputFilter[]{new com.baidu.tieba.im.util.a(20)});
+        this.eMo.aPg().addTextChangedListener(this.eLu);
+        this.eMp.aPa().addTextChangedListener(this.eLu);
         this.eMq.aPl().setOnClickListener(this.eLu);
-        this.eMr.aOQ().setOnClickListener(this.eLu);
+        this.eMq.aPk().setOnClickListener(this.eLu);
+        this.eMr.aOP().setOnClickListener(this.eLu);
         if (this.eMn != null) {
-            this.eMn.aPe().setOnClickListener(this.eLu);
+            this.eMn.aPd().setOnClickListener(this.eLu);
         }
         if (this.eMm != null) {
-            this.eMm.aPe().setOnClickListener(this.eLu);
+            this.eMm.aPd().setOnClickListener(this.eLu);
         }
     }
 
@@ -317,12 +317,12 @@ public class j extends com.baidu.adp.base.c {
         this.mNavigationBar = (NavigationBar) createGroupStepActivity.findViewById(e.g.view_navigation_bar);
         this.mNavigationBar.setSystemClickable(false);
         this.bhS = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        aPQ();
+        aPP();
         this.eMk = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, createGroupStepActivity.getResources().getString(e.j.next_step));
         ((LinearLayout.LayoutParams) this.eMk.getLayoutParams()).rightMargin = com.baidu.adp.lib.util.l.h(getPageContext().getPageActivity(), e.C0210e.ds16);
         al.i(this.eMk, e.f.s_navbar_button_bg);
         ip(false);
-        aPR();
+        aPQ();
     }
 
     private void b(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3, int i4) {
@@ -379,49 +379,49 @@ public class j extends com.baidu.adp.base.c {
 
     private void ip(boolean z) {
         this.eMh = z;
-        aPL();
+        aPK();
     }
 
-    public boolean aPK() {
+    public boolean aPJ() {
         return this.eMh;
     }
 
-    private void aPL() {
+    private void aPK() {
         this.eMk.setEnabled(this.eMh);
         al.i(this.eMk, e.f.s_navbar_button_bg);
     }
 
-    public void aPM() {
+    public void aPL() {
         if (this.eMj > 1) {
             this.eMj--;
-            aPO();
+            aPN();
+        }
+    }
+
+    public void aPM() {
+        if (this.eMj < this.eLy) {
+            this.eMj++;
+            aPN();
         }
     }
 
     public void aPN() {
-        if (this.eMj < this.eLy) {
-            this.eMj++;
-            aPO();
+        this.eMs.setCurrentItem(this.eMj - 1);
+        aPP();
+        aPQ();
+        aPR();
+        this.eMo.aPg().clearFocus();
+        this.eMp.aPa().clearFocus();
+        c(this.eMo.aPg());
+        c(this.eMp.aPa());
+        if (aPC() && aPw()) {
+            aPs().setEnabled(false);
+        } else {
+            aPs().setEnabled(true);
         }
     }
 
     public void aPO() {
-        this.eMs.setCurrentItem(this.eMj - 1);
-        aPQ();
-        aPR();
-        aPS();
-        this.eMo.aPh().clearFocus();
-        this.eMp.aPb().clearFocus();
-        c(this.eMo.aPh());
-        c(this.eMp.aPb());
-        if (aPD() && aPx()) {
-            aPt().setEnabled(false);
-        } else {
-            aPt().setEnabled(true);
-        }
-    }
-
-    public void aPP() {
         String[] strArr = {this.eLu.getResources().getString(e.j.take_photo), this.eLu.getResources().getString(e.j.album)};
         if (this.dJT == null) {
             this.dJT = new com.baidu.tbadk.core.dialog.b(this.eLu.getPageContext().getPageActivity());
@@ -477,53 +477,53 @@ public class j extends com.baidu.adp.base.c {
         }
     }
 
-    private void aPQ() {
+    private void aPP() {
         if (this.eMi.pI(this.eMj - 1) != null) {
             this.mNavigationBar.setTitleText(this.eMi.pI(this.eMj - 1).getTitle());
         }
     }
 
-    public void aPR() {
+    public void aPQ() {
         for (o oVar : this.eMi.getList()) {
-            if (oVar.aOP() == this.eMj) {
-                oVar.aOW();
-                if (!oVar.aPa()) {
+            if (oVar.aOO() == this.eMj) {
+                oVar.aOV();
+                if (!oVar.aOZ()) {
                     this.eMk.setVisibility(8);
                 } else {
                     this.eMk.setVisibility(0);
                 }
-                pI(oVar.aOY());
+                pI(oVar.aOX());
             } else {
-                oVar.aOV();
+                oVar.aOU();
             }
         }
-        if (this.eMi.pI(this.eMj - 1) != null && this.eMi.pI(this.eMj - 1).aOZ()) {
+        if (this.eMi.pI(this.eMj - 1) != null && this.eMi.pI(this.eMj - 1).aOY()) {
             ip(true);
         }
     }
 
-    public void aPS() {
-        if (aPB()) {
-            a(this.eMo.aPh().getText().length(), this.eMo.getLength() / 2, 2, 20);
-        } else if (aPC()) {
+    public void aPR() {
+        if (aPA()) {
+            a(this.eMo.aPg().getText().length(), this.eMo.getLength() / 2, 2, 20);
+        } else if (aPB()) {
             int length = this.eMp.getLength() / 2;
             R(length, 15, 300);
             int i = 300 - length;
-            this.eMp.aPc().setText(String.valueOf(i));
+            this.eMp.aPb().setText(String.valueOf(i));
             if (i <= 50) {
-                this.eMp.aPc().setVisibility(0);
+                this.eMp.aPb().setVisibility(0);
             } else {
-                this.eMp.aPc().setVisibility(8);
+                this.eMp.aPb().setVisibility(8);
             }
             if (i == 0) {
-                this.eMp.aPc().setTextColor(this.eLu.getResources().getColor(e.d.common_color_10170));
+                this.eMp.aPb().setTextColor(this.eLu.getResources().getColor(e.d.common_color_10170));
             } else if (i < 0) {
                 this.eMp.pH(300);
             } else {
-                this.eMp.aPd();
+                this.eMp.aPc();
             }
-        } else if (aPE()) {
-            if (this.eMr.aOR() != 3) {
+        } else if (aPD()) {
+            if (this.eMr.aOQ() != 3) {
                 ip(true);
             } else {
                 ip(false);
@@ -564,7 +564,7 @@ public class j extends com.baidu.adp.base.c {
         this.eLu.getLayoutMode().onModeChanged(this.mParent);
         al.e(this.mParent, i);
         this.mNavigationBar.onChangeSkinType(this.mContext, i);
-        aPL();
+        aPK();
         al.c(this.eMk, e.d.navbar_btn_color, 1);
         ViewGroup viewGroup = (ViewGroup) this.mParent.getParent().getParent();
         if (com.baidu.adp.lib.util.l.ln()) {

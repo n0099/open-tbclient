@@ -27,7 +27,7 @@ public abstract class e<T> implements Runnable {
 
     public void cancel() {
         if (this.ifG.compareAndSet(0, 2)) {
-            bSZ();
+            bSY();
         }
     }
 
@@ -37,7 +37,7 @@ public abstract class e<T> implements Runnable {
     protected void j(Exception exc) {
     }
 
-    protected void bSZ() {
+    protected void bSY() {
     }
 
     protected void an(T t) {

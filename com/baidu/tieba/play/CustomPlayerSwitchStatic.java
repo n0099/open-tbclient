@@ -41,7 +41,7 @@ public class CustomPlayerSwitchStatic extends com.baidu.adp.lib.b.a {
         gBw = i;
     }
 
-    public static int bqK() {
+    public static int bqJ() {
         return gBw;
     }
 }

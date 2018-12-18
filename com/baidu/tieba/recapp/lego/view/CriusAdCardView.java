@@ -99,7 +99,7 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View aYl() {
+    protected View aYk() {
         this.fgo = new LinearLayout(this.mContext.getPageActivity());
         this.fgo.setOrientation(1);
         return this.fgo;
@@ -131,7 +131,7 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
         this.gOs = criusAdCard;
         this.criusData = criusAdCard.getCriusData();
         if (this.criusData != null) {
-            buU();
+            buT();
         }
     }
 
@@ -173,7 +173,7 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
         }
     }
 
-    private void buS() {
+    private void buR() {
         if (this.gOq != null) {
             this.gOq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.CriusAdCardView.3
                 @Override // android.view.View.OnClickListener
@@ -298,7 +298,7 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
         }
     }
 
-    private void buT() {
+    private void buS() {
         DistributeVideoView distributeVideoView;
         AdvertAppInfo advertAppInfo = this.gOs.getAdvertAppInfo();
         a aVar = new a(this.gOs);
@@ -323,7 +323,7 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
         View da4 = this.gOl.da("viewbtn");
         if (da4 != null && (da4 instanceof JumpButton)) {
             this.gOq = (JumpButton) da4;
-            buS();
+            buR();
         }
         View da5 = this.gOl.da("bottombar");
         if (da5 != null && (da5 instanceof LinearLayout)) {
@@ -492,21 +492,21 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
         }
     }
 
-    private void buU() {
+    private void buT() {
         if (this.fgo != null && this.gOl != null) {
             this.fgo.removeAllViews();
             this.gOm = this.gOl.a(this.mContext.getPageActivity(), this.criusData, TbadkCoreApplication.getInst().getSkinType() == 1);
             this.fgo.addView(this.gOm);
             al.i(this.gOm, e.f.addresslist_item_bg);
-            buT();
+            buS();
         }
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.lego.card.view.e
-    public void aYt() {
+    public void aYs() {
         if (this.gOl != null && ((TextView) this.gOl.db("title")) != null) {
             this.criusData.d("title", TbConfig.getContentSize() / l.aR(this.mContext.getPageActivity()));
-            buU();
+            buT();
         }
     }
 }

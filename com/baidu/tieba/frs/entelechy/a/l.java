@@ -122,8 +122,8 @@ public class l extends com.baidu.tieba.frs.h<bb, com.baidu.tieba.card.a.a<x>> im
         bcVar.avM = 2;
         com.baidu.tieba.frs.g.a(aVar.aqe().aco(), this.dHF);
         com.baidu.tieba.frs.g.a(aVar.aqe().acp(), this.dHF);
-        if (this.dHF != null && this.dHF.bgi() != null && !StringUtils.isNull(this.dHF.bgi().getTopic_special_icon()) && !StringUtils.isNull(this.dHF.bgi().getTopic_special_icon_right())) {
-            aVar.aqe().al(this.dHF.bgi().getTopic_special_icon(), this.dHF.bgi().getTopic_special_icon_right());
+        if (this.dHF != null && this.dHF.bgh() != null && !StringUtils.isNull(this.dHF.bgh().getTopic_special_icon()) && !StringUtils.isNull(this.dHF.bgh().getTopic_special_icon_right())) {
+            aVar.aqe().al(this.dHF.bgh().getTopic_special_icon(), this.dHF.bgh().getTopic_special_icon_right());
         }
         aVar.aqe().a(bcVar);
         aVar.aqe().b(this.cat);

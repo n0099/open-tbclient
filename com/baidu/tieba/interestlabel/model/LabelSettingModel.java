@@ -60,7 +60,7 @@ public class LabelSettingModel extends BdBaseModel {
         this.fjq = aVar;
     }
 
-    public void aXe() {
+    public void aXd() {
         if (!j.kK()) {
             if (this.fjq != null) {
                 this.fjq.a(LabelRequestEnum.GET_LABEL, null, -1);

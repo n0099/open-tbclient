@@ -51,13 +51,13 @@ public class g implements d {
                 this.gRm.setUrl("http://als.baidu.com/clog/clog");
             }
             d(bVar);
-            bvx();
+            bvw();
         }
     }
 
     @Override // com.baidu.tieba.recapp.report.d
-    public void bvw() {
-        bvx();
+    public void bvv() {
+        bvw();
     }
 
     @Override // com.baidu.tieba.recapp.report.d
@@ -67,7 +67,7 @@ public class g implements d {
         }
     }
 
-    private void bvx() {
+    private void bvw() {
         if (v.H(this.gRn) > 0) {
             MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.gRn), this.gRm);
             this.gRn.clear();

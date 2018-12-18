@@ -260,8 +260,8 @@ public class b implements TabLayout.OnTabSelectedListener {
     }
 
     public void e(com.baidu.tieba.tbadkCore.l lVar) {
-        if (lVar != null && lVar.bgi() != null && lVar.bgi().getGood_classify() != null && !this.dYp.dYz) {
-            ArrayList<aa> good_classify = lVar.bgi().getGood_classify();
+        if (lVar != null && lVar.bgh() != null && lVar.bgh().getGood_classify() != null && !this.dYp.dYz) {
+            ArrayList<aa> good_classify = lVar.bgh().getGood_classify();
             TabData tabData = new TabData();
             d dVar = new d();
             dVar.tabId = 0;

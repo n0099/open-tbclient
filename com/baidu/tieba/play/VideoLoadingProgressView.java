@@ -67,7 +67,7 @@ public class VideoLoadingProgressView extends View {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (VideoLoadingProgressView.this.gEC == 2) {
-                    VideoLoadingProgressView.this.bsb();
+                    VideoLoadingProgressView.this.bsa();
                 } else if (VideoLoadingProgressView.this.gEC == 3 && VideoLoadingProgressView.this.gED != null) {
                     VideoLoadingProgressView.this.gED.onAnimationEnd();
                 }
@@ -105,7 +105,7 @@ public class VideoLoadingProgressView extends View {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (VideoLoadingProgressView.this.gEC == 2) {
-                    VideoLoadingProgressView.this.bsb();
+                    VideoLoadingProgressView.this.bsa();
                 } else if (VideoLoadingProgressView.this.gEC == 3 && VideoLoadingProgressView.this.gED != null) {
                     VideoLoadingProgressView.this.gED.onAnimationEnd();
                 }
@@ -143,7 +143,7 @@ public class VideoLoadingProgressView extends View {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (VideoLoadingProgressView.this.gEC == 2) {
-                    VideoLoadingProgressView.this.bsb();
+                    VideoLoadingProgressView.this.bsa();
                 } else if (VideoLoadingProgressView.this.gEC == 3 && VideoLoadingProgressView.this.gED != null) {
                     VideoLoadingProgressView.this.gED.onAnimationEnd();
                 }
@@ -164,7 +164,7 @@ public class VideoLoadingProgressView extends View {
     }
 
     public void startLoading() {
-        bsc();
+        bsb();
         this.gEC = 1;
         this.gEA = -90.0f;
         this.mStartAngle = -90.0f;
@@ -177,8 +177,8 @@ public class VideoLoadingProgressView extends View {
         invalidate();
     }
 
-    public void brX() {
-        bsc();
+    public void brW() {
+        bsb();
         this.gEC = 2;
         this.mStartAngle = this.gEA;
         this.gEF = ValueAnimator.ofFloat(-this.gEv);
@@ -189,8 +189,8 @@ public class VideoLoadingProgressView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bsb() {
-        bsc();
+    public void bsa() {
+        bsb();
         this.gEC = 3;
         this.mStartAngle = this.gEA;
         this.gEG = ValueAnimator.ofFloat(this.gEx);
@@ -200,12 +200,12 @@ public class VideoLoadingProgressView extends View {
         this.gEG.start();
     }
 
-    public void brZ() {
-        bsc();
+    public void brY() {
+        bsb();
         setVisibility(8);
     }
 
-    private void bsc() {
+    private void bsb() {
         if (this.gEE != null) {
             this.gEE.cancel();
         }
@@ -224,7 +224,7 @@ public class VideoLoadingProgressView extends View {
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bsc();
+        bsb();
     }
 
     @Override // android.view.View

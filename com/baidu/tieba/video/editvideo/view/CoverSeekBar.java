@@ -40,9 +40,9 @@ public class CoverSeekBar extends FrameLayout {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void bIZ();
+        void bIY();
 
-        void bJa();
+        void bIZ();
 
         void onProgress(int i);
     }
@@ -216,7 +216,7 @@ public class CoverSeekBar extends FrameLayout {
                 this.mDownX = motionEvent.getX();
                 this.bve = motionEvent.getY();
                 if (this.hDy != null) {
-                    this.hDy.bIZ();
+                    this.hDy.bIY();
                     M(motionEvent);
                     return true;
                 }
@@ -224,7 +224,7 @@ public class CoverSeekBar extends FrameLayout {
             case 1:
                 if (this.hDy != null) {
                     M(motionEvent);
-                    this.hDy.bJa();
+                    this.hDy.bIZ();
                     return true;
                 }
                 return true;

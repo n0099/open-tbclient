@@ -39,7 +39,7 @@ public class m {
 
     public ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> c(ImageRequest imageRequest) {
         ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> d = d(imageRequest);
-        if (imageRequest.bZO() != null) {
+        if (imageRequest.bZN() != null) {
             return t(d);
         }
         return d;
@@ -47,37 +47,37 @@ public class m {
 
     private ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> d(ImageRequest imageRequest) {
         com.facebook.common.internal.g.checkNotNull(imageRequest);
-        Uri bZE = imageRequest.bZE();
-        com.facebook.common.internal.g.checkNotNull(bZE, "Uri is null.");
-        switch (imageRequest.bZF()) {
+        Uri bZD = imageRequest.bZD();
+        com.facebook.common.internal.g.checkNotNull(bZD, "Uri is null.");
+        switch (imageRequest.bZE()) {
             case 0:
-                return bXD();
+                return bXC();
             case 1:
             default:
-                throw new IllegalArgumentException("Unsupported uri scheme! Uri is: " + A(bZE));
+                throw new IllegalArgumentException("Unsupported uri scheme! Uri is: " + A(bZD));
             case 2:
-                return bXG();
-            case 3:
                 return bXF();
+            case 3:
+                return bXE();
             case 4:
-                return bXH();
+                return bXG();
             case 5:
-                return bXJ();
-            case 6:
                 return bXI();
+            case 6:
+                return bXH();
             case 7:
-                return bXK();
+                return bXJ();
         }
     }
 
-    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> bXD() {
+    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> bXC() {
         if (this.ioa == null) {
-            this.ioa = p(bXE());
+            this.ioa = p(bXD());
         }
         return this.ioa;
     }
 
-    private synchronized ai<com.facebook.imagepipeline.f.d> bXE() {
+    private synchronized ai<com.facebook.imagepipeline.f.d> bXD() {
         if (this.iob == null) {
             this.iob = l.a(q(this.inQ.a(this.inm)));
             this.iob = this.inQ.a(this.iob, this.inr, this.inZ);
@@ -85,55 +85,55 @@ public class m {
         return this.iob;
     }
 
-    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> bXF() {
+    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> bXE() {
         if (this.ioc == null) {
-            this.ioc = o(this.inQ.bXA());
+            this.ioc = o(this.inQ.bXz());
         }
         return this.ioc;
     }
 
-    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> bXG() {
+    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> bXF() {
         if (this.iod == null) {
-            this.iod = s(this.inQ.bXC());
+            this.iod = s(this.inQ.bXB());
         }
         return this.iod;
     }
 
-    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> bXH() {
+    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> bXG() {
         if (this.ioe == null) {
-            this.ioe = a(this.inQ.bXx(), new at[]{this.inQ.bXy(), this.inQ.bXz()});
+            this.ioe = a(this.inQ.bXw(), new at[]{this.inQ.bXx(), this.inQ.bXy()});
         }
         return this.ioe;
     }
 
-    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> bXI() {
+    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> bXH() {
         if (this.iof == null) {
-            this.iof = o(this.inQ.bXB());
+            this.iof = o(this.inQ.bXA());
         }
         return this.iof;
     }
 
-    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> bXJ() {
+    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> bXI() {
         if (this.iog == null) {
-            this.iog = o(this.inQ.bXw());
+            this.iog = o(this.inQ.bXv());
         }
         return this.iog;
     }
 
-    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> bXK() {
+    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> bXJ() {
         if (this.ioh == null) {
-            ai<com.facebook.imagepipeline.f.d> bXv = this.inQ.bXv();
+            ai<com.facebook.imagepipeline.f.d> bXu = this.inQ.bXu();
             if (com.facebook.common.g.c.igK && (!this.inA || com.facebook.common.g.c.igN == null)) {
-                bXv = this.inQ.n(bXv);
+                bXu = this.inQ.n(bXu);
             }
             l lVar = this.inQ;
-            this.ioh = p(this.inQ.a(l.a(bXv), true, this.inZ));
+            this.ioh = p(this.inQ.a(l.a(bXu), true, this.inZ));
         }
         return this.ioh;
     }
 
     private ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> o(ai<com.facebook.imagepipeline.f.d> aiVar) {
-        return a(aiVar, new at[]{this.inQ.bXz()});
+        return a(aiVar, new at[]{this.inQ.bXy()});
     }
 
     private ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> a(ai<com.facebook.imagepipeline.f.d> aiVar, at<com.facebook.imagepipeline.f.d>[] atVarArr) {

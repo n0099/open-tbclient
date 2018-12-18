@@ -61,9 +61,9 @@ public class a {
         if (this.hmK) {
             this.hmK = false;
             this.hmM = null;
+            this.hmI.bDO();
             this.hmI.bDP();
-            this.hmI.bDQ();
-            this.hmH.bDS();
+            this.hmH.bDR();
             this.hmH.invalidate();
         }
     }
@@ -122,11 +122,11 @@ public class a {
         this.hmI.m(this.mTempRect);
         this.hmH.invalidate();
         if (this.hmM.hnq) {
-            this.hmI.bDN();
+            this.hmI.bDM();
         } else if (this.hmM.hnr) {
-            this.hmI.bDO();
+            this.hmI.bDN();
         } else {
-            this.hmI.bDP();
+            this.hmI.bDO();
         }
     }
 

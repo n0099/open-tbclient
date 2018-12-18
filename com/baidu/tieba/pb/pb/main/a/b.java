@@ -31,20 +31,20 @@ public class b {
             throw new NullPointerException("PbActivity is NullPointerException");
         }
         this.fUU = pbActivity;
-        blV();
-    }
-
-    public void onDestroy() {
         blU();
     }
 
-    private boolean blU() {
+    public void onDestroy() {
+        blT();
+    }
+
+    private boolean blT() {
         MessageManager.getInstance().unRegisterListener(this.geW);
         MessageManager.getInstance().unRegisterListener(this.geX);
         return true;
     }
 
-    public boolean blV() {
+    public boolean blU() {
         if (this.fUU != null) {
             this.fUU.registerListener(this.geW);
             this.fUU.registerListener(this.geX);

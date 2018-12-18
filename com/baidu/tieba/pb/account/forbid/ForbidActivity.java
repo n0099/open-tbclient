@@ -147,8 +147,8 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (ForbidActivity.this.fOd != null && !ao.isEmpty(ForbidActivity.this.fOd.bfU())) {
-                com.baidu.tieba.pb.account.forbid.a.a(ForbidActivity.this.mForumId, ForbidActivity.this.mForumName, ForbidActivity.this.mThreadId, ForbidActivity.this.mUserName, ForbidActivity.this.mPostId, (String) ForbidActivity.this.findViewById(ForbidActivity.this.fNZ.getCheckedRadioButtonId()).getTag(), ForbidActivity.this.fOd.bfU(), ForbidActivity.this.aRT, ForbidActivity.this.aRP, new a.b() { // from class: com.baidu.tieba.pb.account.forbid.ForbidActivity.3.1
+            if (ForbidActivity.this.fOd != null && !ao.isEmpty(ForbidActivity.this.fOd.bfT())) {
+                com.baidu.tieba.pb.account.forbid.a.a(ForbidActivity.this.mForumId, ForbidActivity.this.mForumName, ForbidActivity.this.mThreadId, ForbidActivity.this.mUserName, ForbidActivity.this.mPostId, (String) ForbidActivity.this.findViewById(ForbidActivity.this.fNZ.getCheckedRadioButtonId()).getTag(), ForbidActivity.this.fOd.bfT(), ForbidActivity.this.aRT, ForbidActivity.this.aRP, new a.b() { // from class: com.baidu.tieba.pb.account.forbid.ForbidActivity.3.1
                     @Override // com.baidu.tieba.pb.account.forbid.a.b
                     public void a(ForbidResultData forbidResultData) {
                         ForbidActivity.this.showToast(ForbidActivity.this.getPageContext().getString(e.j.forbid_success));
@@ -206,7 +206,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             this.fOj = strArr;
         }
 
-        public String bfU() {
+        public String bfT() {
             if (this.fOj == null || this.fOk >= this.fOj.length) {
                 return null;
             }

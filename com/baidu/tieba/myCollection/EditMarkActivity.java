@@ -39,7 +39,7 @@ public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements 
                             r1 = (String) objArr[1];
                         }
                         EditMarkActivity.this.fGQ.a(r1, EditMarkActivity.this.fGP, ((Boolean) objArr[2]).booleanValue());
-                        EditMarkActivity.this.fGS = EditMarkActivity.this.fGP.bdI();
+                        EditMarkActivity.this.fGS = EditMarkActivity.this.fGP.bdH();
                     } else if (((Integer) objArr[0]).intValue() == 3) {
                         EditMarkActivity.this.fGQ.completePullRefresh();
                         if (objArr[1] != null && (objArr[1] instanceof String)) {
@@ -81,7 +81,7 @@ public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements 
     }
 
     private void refresh() {
-        if (this.fGP.getCount() == 0 || this.fGP.bdL() < 0) {
+        if (this.fGP.getCount() == 0 || this.fGP.bdK() < 0) {
             this.fGP.e(true);
             return;
         }
@@ -99,9 +99,9 @@ public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements 
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fGQ.bdu()) {
-            this.fGQ.bdv();
-        } else if (view.getId() == this.fGQ.bdw()) {
+        if (view == this.fGQ.bdt()) {
+            this.fGQ.bdu();
+        } else if (view.getId() == this.fGQ.bdv()) {
             int intValue = ((Integer) view.getTag()).intValue();
             this.fGQ.awm();
             if (!this.fGP.rP(intValue)) {
@@ -113,11 +113,11 @@ public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements 
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (i >= 0 && i < this.fGP.bdI().size()) {
+        if (i >= 0 && i < this.fGP.bdH().size()) {
             this.fGR = i;
-            MarkData markData = this.fGP.bdI().get(i);
+            MarkData markData = this.fGP.bdH().get(i);
             MarkData markData2 = this.fGS.get(i);
-            int bdH = this.fGP.bdH();
+            int bdG = this.fGP.bdG();
             int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.a.HP().getMsgBookmark();
             TiebaStatic.eventStat(TbadkCoreApplication.getInst(), "my_favorite_content", "is_redpoint", markData2.getNewCounts() > 0 ? 1 : 0, new Object[0]);
             if (markData2.getNewCounts() > 0) {
@@ -126,8 +126,8 @@ public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements 
                 } else {
                     com.baidu.tbadk.coreExtra.messageCenter.a.HP().setMsgBookmark(0);
                 }
-                if (bdH > 0) {
-                    this.fGP.rO(bdH - 1);
+                if (bdG > 0) {
+                    this.fGP.rO(bdG - 1);
                 } else {
                     this.fGP.rO(0);
                 }
@@ -155,11 +155,11 @@ public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements 
             switch (i) {
                 case 17001:
                     MarkData markData = (MarkData) intent.getSerializableExtra("mark");
-                    if (markData != null && this.fGP.bdI().size() > this.fGR && this.fGR >= 0) {
-                        this.fGP.bdI().get(this.fGR).setPostId(markData.getPostId());
-                        this.fGP.bdI().get(this.fGR).setHostMode(markData.getHostMode());
-                        this.fGP.bdI().get(this.fGR).setSequence(markData.getSequence());
-                        this.fGQ.bdy();
+                    if (markData != null && this.fGP.bdH().size() > this.fGR && this.fGR >= 0) {
+                        this.fGP.bdH().get(this.fGR).setPostId(markData.getPostId());
+                        this.fGP.bdH().get(this.fGR).setHostMode(markData.getHostMode());
+                        this.fGP.bdH().get(this.fGR).setSequence(markData.getSequence());
+                        this.fGQ.bdx();
                         return;
                     }
                     return;
@@ -169,9 +169,9 @@ public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements 
         } else if (i2 == 1) {
             switch (i) {
                 case 17001:
-                    if (this.fGP.bdI().size() > this.fGR && this.fGR >= 0) {
-                        this.fGP.bdI().remove(this.fGR);
-                        this.fGQ.bdy();
+                    if (this.fGP.bdH().size() > this.fGR && this.fGR >= 0) {
+                        this.fGP.bdH().remove(this.fGR);
+                        this.fGQ.bdx();
                         return;
                     }
                     return;
@@ -201,7 +201,7 @@ public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (keyEvent.getKeyCode() == 4 && this.fGQ != null && this.fGQ.avq()) {
-            this.fGQ.bdv();
+            this.fGQ.bdu();
             return true;
         }
         return super.onKeyDown(i, keyEvent);

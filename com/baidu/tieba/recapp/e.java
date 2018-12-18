@@ -282,7 +282,7 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
     }
 
     private void a(AdvertAppInfo advertAppInfo, int i, int i2) {
-        com.baidu.tieba.recapp.report.c.bvu().a(com.baidu.tieba.recapp.report.f.a(advertAppInfo, 5, i, i2));
+        com.baidu.tieba.recapp.report.c.bvt().a(com.baidu.tieba.recapp.report.f.a(advertAppInfo, 5, i, i2));
         if (advertAppInfo != null && advertAppInfo.apI != null) {
             advertAppInfo.apI.mDiscardReason = i2;
         }

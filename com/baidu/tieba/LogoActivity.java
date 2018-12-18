@@ -454,14 +454,14 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             if (this.bwf == null) {
                 this.bwf = new com.baidu.tieba.u.d(this);
             }
-            if (this.bwf.bLP()) {
+            if (this.bwf.bLO()) {
                 this.bwg = this.bwf.n(0.8125d);
                 this.mRootView.addView(this.bwg);
                 this.bwf.a(this.bwl);
                 this.bwf.start();
                 return;
             }
-            this.bwf.bLU();
+            this.bwf.bLT();
         }
         Uk();
     }

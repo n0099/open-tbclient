@@ -26,11 +26,11 @@ class h {
         return this.mId;
     }
 
-    public String bQU() {
+    public String bQT() {
         return this.ibH;
     }
 
-    public String bQV() {
+    public String bQU() {
         return this.ibI;
     }
 
@@ -42,11 +42,11 @@ class h {
         return this.mType;
     }
 
-    public String bQW() {
+    public String bQV() {
         return this.ibK;
     }
 
-    public int bQX() {
+    public int bQW() {
         return this.mRate;
     }
 
@@ -62,7 +62,7 @@ class h {
         this.mCategory = str;
     }
 
-    public int bQY() {
+    public int bQX() {
         return this.ibL;
     }
 
@@ -70,7 +70,7 @@ class h {
         this.ibL = i;
     }
 
-    public int bQZ() {
+    public int bQY() {
         return this.ibM;
     }
 

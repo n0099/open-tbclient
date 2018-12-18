@@ -58,7 +58,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         public void c(BdFileDownloadData bdFileDownloadData) {
             if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(PluginDetailActivity.this.gFz.package_name)) {
                 PluginDetailActivity.this.showToast(bdFileDownloadData.getStatusMsg());
-                PluginDetailActivity.this.bsn();
+                PluginDetailActivity.this.bsm();
                 PluginDetailActivity.this.mFinished = true;
             }
         }
@@ -67,11 +67,11 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
             if (i == 0) {
                 PluginDetailActivity.this.showToast(PluginDetailActivity.this.getPageContext().getString(e.j.plugin_installation_finished));
-                PluginDetailActivity.this.bsn();
+                PluginDetailActivity.this.bsm();
                 return;
             }
             PluginDetailActivity.this.showToast(PluginDetailActivity.this.getPageContext().getString(e.j.plugin_installation_failed) + str);
-            PluginDetailActivity.this.bsn();
+            PluginDetailActivity.this.bsm();
         }
     };
     private final CustomMessageListener mNetworkChangedMessageListener = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.pluginCenter.PluginDetailActivity.5
@@ -79,7 +79,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.kV()) {
-                PluginDetailActivity.this.bsn();
+                PluginDetailActivity.this.bsm();
             }
         }
     };
@@ -126,7 +126,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
                 this.gFz.display_name = "";
             }
             this.mName.setText(this.gFz.display_name);
-            bsn();
+            bsm();
             if (this.gFz.newest != null) {
                 if (TextUtils.isEmpty(this.gFz.newest.change_log)) {
                     this.gFv.setText("");
@@ -144,7 +144,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bsn() {
+    public void bsm() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001303));
         if (PluginPackageManager.na().bZ(this.gFy) && PluginPackageManager.na().bX(this.gFy)) {
             this.cyh.setText(e.j.plugin_enabled);
@@ -190,22 +190,22 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     public void onClick(View view) {
         if (view == this.gFx) {
             if (this.mStatus == 0 || this.mStatus == 1) {
-                bso();
+                bsn();
             } else if (this.mStatus == 3) {
                 PluginPackageManager.na().bV(this.gFy);
-                bsn();
+                bsm();
             } else if (this.mStatus == 2) {
                 PluginPackageManager.na().bW(this.gFy);
-                bsn();
+                bsm();
             }
         }
     }
 
-    private void bso() {
+    private void bsn() {
         if (!j.kV()) {
             showToast(e.j.neterror);
         } else if (j.kX()) {
-            bsp();
+            bso();
         } else {
             al.c(this.gFx, e.d.cp_cont_d, 1);
             this.gFx.setEnabled(false);
@@ -213,7 +213,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         }
     }
 
-    private void bsp() {
+    private void bso() {
         String string;
         String string2;
         if (this.gFz != null && this.gFz.newest != null) {

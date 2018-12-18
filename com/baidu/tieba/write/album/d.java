@@ -32,7 +32,7 @@ public class d {
         void ox(boolean z);
     }
 
-    public static d bNM() {
+    public static d bNL() {
         if (hSk == null) {
             synchronized (d.class) {
                 if (hSk == null) {

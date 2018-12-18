@@ -21,18 +21,18 @@ public class b implements a {
     }
 
     @Override // org.java_websocket.d.a
-    public String ccI() {
+    public String ccH() {
         return this.iAy;
     }
 
     @Override // org.java_websocket.d.a
-    public a ccJ() {
-        return new b(ccI());
+    public a ccI() {
+        return new b(ccH());
     }
 
     @Override // org.java_websocket.d.a
     public String toString() {
-        return ccI();
+        return ccH();
     }
 
     public boolean equals(Object obj) {

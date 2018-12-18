@@ -12,10 +12,10 @@ public class PersonPostActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PersonPostActivityConfig.class, PersonPostActivity.class);
         m.init();
-        aMt();
+        aMs();
     }
 
-    private static void aMt() {
+    private static void aMs() {
         ay.Ef().a(new ay.a() { // from class: com.baidu.tieba.post.PersonPostActivityStatic.1
             @Override // com.baidu.tbadk.core.util.ay.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {

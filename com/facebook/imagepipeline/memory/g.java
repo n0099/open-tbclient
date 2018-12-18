@@ -14,7 +14,7 @@ public class g {
         return sparseIntArray;
     }
 
-    public static r bYr() {
+    public static r bYq() {
         return new r(4194304, ioY * 4194304, ae(131072, 4194304, ioY), 131072, 4194304, ioY);
     }
 }

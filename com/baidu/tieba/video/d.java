@@ -1,7 +1,7 @@
 package com.baidu.tieba.video;
 /* loaded from: classes.dex */
 public interface d {
-    void bHM();
+    void bHL();
 
     void onConvertAborted();
 

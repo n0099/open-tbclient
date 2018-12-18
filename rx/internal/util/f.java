@@ -141,7 +141,7 @@ public final class f<T> {
         return this.size == 0;
     }
 
-    public T[] ceo() {
+    public T[] cen() {
         return this.iLU;
     }
 }

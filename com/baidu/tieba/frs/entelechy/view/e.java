@@ -326,12 +326,12 @@ public class e extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
         if (v.I(zV)) {
             this.cUX.setVisibility(8);
         } else {
-            this.cUX.bEC();
+            this.cUX.bEB();
             this.cUX.setVisibility(0);
             VoiceData.VoiceModel voiceModel = zV.get(0);
             this.cUX.setVoiceModel(voiceModel);
             this.cUX.setTag(voiceModel);
-            this.cUX.aWg();
+            this.cUX.aWf();
             if (voiceModel != null) {
                 this.cUX.qw(voiceModel.voice_status.intValue());
             }

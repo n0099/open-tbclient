@@ -42,7 +42,7 @@ public class PersonBarModel extends BdBaseModel {
         this.mSex = i;
     }
 
-    public boolean aTC() {
+    public boolean aTB() {
         return this.mIsHost;
     }
 
@@ -50,18 +50,18 @@ public class PersonBarModel extends BdBaseModel {
         this.guh = i;
     }
 
-    public a bpu() {
+    public a bpt() {
         return this.mData;
     }
 
-    public void bps() {
+    public void bpr() {
         super.sendMessage(new PersonBarByUidLocalMessage());
     }
 
     public void a(boolean z, String str, int i, int i2) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_LIKE_BAR_CMD);
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-        if (!aTC()) {
+        if (!aTB()) {
             httpMessage.addParam("friend_uid", str);
             httpMessage.addParam("is_guest", String.valueOf(1));
             httpMessage.setExtra(str);

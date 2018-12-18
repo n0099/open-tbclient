@@ -94,7 +94,7 @@ public class SingleImageTextView extends RelativeLayout {
                             if (qD != null) {
                                 TiebaStatic.eventStat(SingleImageTextView.this.mContext, "message_open_detail", AiAppsUBCStatistic.TYPE_CLICK, 1, "task_type", qD.eNq, "task_id", qD.taskId, "loc", "0");
                                 if ((aVar.userType == 1 || aVar.userType == 3) && !"0".equals(qD.taskId)) {
-                                    com.baidu.tieba.im.b.a.aUn().qx(qD.taskId);
+                                    com.baidu.tieba.im.b.a.aUm().qx(qD.taskId);
                                 }
                             }
                             am amVar = new am("official_message_open_detail");

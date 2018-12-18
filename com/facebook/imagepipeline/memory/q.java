@@ -16,48 +16,48 @@ public class q {
         this.ipo = (p) com.facebook.common.internal.g.checkNotNull(pVar);
     }
 
-    public c bYI() {
+    public c bYH() {
         if (this.ilb == null) {
-            this.ilb = new c(this.ipo.bWL(), this.ipo.bYz(), this.ipo.bYA());
+            this.ilb = new c(this.ipo.bWK(), this.ipo.bYy(), this.ipo.bYz());
         }
         return this.ilb;
     }
 
-    public i bYJ() {
+    public i bYI() {
         if (this.ilg == null) {
-            this.ilg = new i(this.ipo.bWL(), this.ipo.bYD());
+            this.ilg = new i(this.ipo.bWK(), this.ipo.bYC());
         }
         return this.ilg;
     }
 
-    public int bYK() {
-        return this.ipo.bYD().ipw;
+    public int bYJ() {
+        return this.ipo.bYC().ipw;
     }
 
-    public k bYL() {
+    public k bYK() {
         if (this.ipp == null) {
-            this.ipp = new k(this.ipo.bWL(), this.ipo.bYB(), this.ipo.bYC());
+            this.ipp = new k(this.ipo.bWK(), this.ipo.bYA(), this.ipo.bYB());
         }
         return this.ipp;
     }
 
-    public com.facebook.common.memory.g bYM() {
+    public com.facebook.common.memory.g bYL() {
         if (this.ile == null) {
-            this.ile = new m(bYL(), bYN());
+            this.ile = new m(bYK(), bYM());
         }
         return this.ile;
     }
 
-    public com.facebook.common.memory.j bYN() {
+    public com.facebook.common.memory.j bYM() {
         if (this.ilu == null) {
-            this.ilu = new com.facebook.common.memory.j(bYO());
+            this.ilu = new com.facebook.common.memory.j(bYN());
         }
         return this.ilu;
     }
 
-    public com.facebook.common.memory.a bYO() {
+    public com.facebook.common.memory.a bYN() {
         if (this.ipq == null) {
-            this.ipq = new j(this.ipo.bWL(), this.ipo.bYE(), this.ipo.bYF());
+            this.ipq = new j(this.ipo.bWK(), this.ipo.bYD(), this.ipo.bYE());
         }
         return this.ipq;
     }

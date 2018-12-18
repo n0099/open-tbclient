@@ -6,7 +6,7 @@ public class b {
         @Override // rx.functions.b
         /* renamed from: c */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.cfu());
+            cVar.onSubscribe(rx.subscriptions.e.cft());
             cVar.onCompleted();
         }
     }, false);
@@ -15,7 +15,7 @@ public class b {
         @Override // rx.functions.b
         /* renamed from: c */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.cfu());
+            cVar.onSubscribe(rx.subscriptions.e.cft());
         }
     }, false);
     private final a iAI;

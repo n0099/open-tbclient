@@ -22,23 +22,23 @@ public class j {
     private String hjU = null;
     private String hjV = null;
 
-    public int bCc() {
+    public int bCb() {
         return this.hjH;
     }
 
-    public boolean bCd() {
+    public boolean bCc() {
         return this.hjS;
     }
 
-    public long bCe() {
+    public long bCd() {
         return this.hjT;
     }
 
-    public String bCf() {
+    public String bCe() {
         return this.hjU;
     }
 
-    public String bCg() {
+    public String bCf() {
         return this.hjV;
     }
 

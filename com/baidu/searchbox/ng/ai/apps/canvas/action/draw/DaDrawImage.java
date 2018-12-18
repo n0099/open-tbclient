@@ -130,13 +130,13 @@ public class DaDrawImage extends AbsDrawAction {
         if (this.mLoadStatus == 0 && canvasContext.mAttachedView != null && canvasContext.mAttachedView.getContext() != null && !TextUtils.isEmpty(this.mImageResource)) {
             this.mLoadStatus = 1;
             Context context = canvasContext.mAttachedView.getContext();
-            final b<a<com.facebook.imagepipeline.f.b>> e = c.bTX().e(ImageRequestBuilder.G(Uri.parse(this.mImageResource)).bZS(), context);
+            final b<a<com.facebook.imagepipeline.f.b>> e = c.bTW().e(ImageRequestBuilder.G(Uri.parse(this.mImageResource)).bZR(), context);
             e.a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.searchbox.ng.ai.apps.canvas.action.draw.DaDrawImage.1
                 @Override // com.facebook.imagepipeline.e.b
                 public void onNewResultImpl(@Nullable Bitmap bitmap) {
                     if (e.isFinished() && bitmap != null) {
                         DaDrawImage.this.mBitmap = Bitmap.createBitmap(bitmap);
-                        e.bTI();
+                        e.bTH();
                         if (canvasContext.mAttachedView != null) {
                             canvasContext.mAttachedView.postInvalidate();
                         }
@@ -148,11 +148,11 @@ public class DaDrawImage extends AbsDrawAction {
                 @Override // com.facebook.datasource.a
                 public void onFailureImpl(b<a<com.facebook.imagepipeline.f.b>> bVar) {
                     if (bVar != null) {
-                        bVar.bTI();
+                        bVar.bTH();
                     }
                     DaDrawImage.this.mLoadStatus = 3;
                 }
-            }, f.bTa());
+            }, f.bSZ());
         }
     }
 

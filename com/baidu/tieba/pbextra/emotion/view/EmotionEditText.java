@@ -54,13 +54,13 @@ public class EmotionEditText extends FrameLayout {
         this.gpn = this.mMargin * 2;
         this.gpk = 24;
         this.gpl = 16;
-        FrameLayout.LayoutParams bog = bog();
-        addView(this.mEditText, bog);
-        a(bog);
-        bof();
+        FrameLayout.LayoutParams bof = bof();
+        addView(this.mEditText, bof);
+        a(bof);
         boe();
+        bod();
         setTextSize(2, this.gpk);
-        boh();
+        bog();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -68,7 +68,7 @@ public class EmotionEditText extends FrameLayout {
         return Math.abs(motionEvent.getRawX() - this.mDownX) < this.drk && Math.abs(motionEvent.getRawY() - this.bve) < this.drk;
     }
 
-    private void boe() {
+    private void bod() {
         this.gpi = new ImageView(getContext());
         this.gpi.setImageResource(e.f.icon_frame_enlarge_n);
         this.gpi.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.pbextra.emotion.view.EmotionEditText.1
@@ -121,7 +121,7 @@ public class EmotionEditText extends FrameLayout {
         addView(this.mTextView, layoutParams);
     }
 
-    private void bof() {
+    private void boe() {
         this.gph = new ImageView(getContext());
         this.gph.setImageResource(e.f.icon_frame_close_n);
         this.gph.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pbextra.emotion.view.EmotionEditText.2
@@ -136,7 +136,7 @@ public class EmotionEditText extends FrameLayout {
         addView(this.gph, layoutParams);
     }
 
-    private FrameLayout.LayoutParams bog() {
+    private FrameLayout.LayoutParams bof() {
         this.mEditText = new EditText(getContext());
         this.mEditText.setHint(getContext().getResources().getString(e.j.emotion_edit_hint));
         this.mEditText.setBackgroundDrawable(null);
@@ -239,7 +239,7 @@ public class EmotionEditText extends FrameLayout {
         this.mEditText.setFocusableInTouchMode(false);
     }
 
-    public void boh() {
+    public void bog() {
         if (!this.gpm) {
             this.gpm = true;
             this.mEditText.setVisibility(4);
@@ -250,7 +250,7 @@ public class EmotionEditText extends FrameLayout {
         }
     }
 
-    public void boi() {
+    public void boh() {
         if (this.gpm) {
             this.gpm = false;
             this.mEditText.setVisibility(0);

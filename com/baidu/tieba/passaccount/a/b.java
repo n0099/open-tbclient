@@ -39,7 +39,7 @@ public class b {
         void b(AuthVerifyData.c cVar);
     }
 
-    public static b bfn() {
+    public static b bfm() {
         if (fMM == null) {
             synchronized (b.class) {
                 if (fMM == null) {
@@ -65,7 +65,7 @@ public class b {
         } else if (authVerifyData.getType() == 2) {
             sB(session.bduss);
         } else if (authVerifyData.getType() == 3) {
-            bfo();
+            bfn();
         }
     }
 
@@ -96,7 +96,7 @@ public class b {
         context.startActivity(intent);
     }
 
-    private void bfo() {
+    private void bfn() {
         Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
         Intent intent = new Intent(context, RemindActivity.class);
         intent.addFlags(268435456);
@@ -112,7 +112,7 @@ public class b {
                     BdStatisticsManager.getInstance().error("passloaderror", 0L, (String) null, "Exception", e.toString());
                     this.fMO.set(false);
                 }
-            } else if (!bfq()) {
+            } else if (!bfp()) {
                 try {
                     a(authVerifyData, aVar);
                 } catch (Exception e2) {
@@ -141,7 +141,7 @@ public class b {
     public void kk(boolean z) {
         a(new AuthVerifyData.c(false));
         if (z) {
-            bfp();
+            bfo();
         }
     }
 
@@ -150,11 +150,11 @@ public class b {
     }
 
     public void n(boolean z, String str) {
-        c.bfu().a((c.a) null);
+        c.bft().a((c.a) null);
         a(new AuthVerifyData.b(z, str));
     }
 
-    private void bfp() {
+    private void bfo() {
         com.baidu.tbadk.coreExtra.a.c FZ;
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj == null) {
@@ -173,15 +173,15 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bfq() {
-        ComponentName bfr = bfr();
-        if (bfr != null) {
-            return AuthActivity.class.getName().equals(bfr.getClassName()) || LivenessRecogActivity.class.getName().equals(bfr.getClassName()) || LivenessRecogGuidActivity.class.getName().equals(bfr.getClassName());
+    public boolean bfp() {
+        ComponentName bfq = bfq();
+        if (bfq != null) {
+            return AuthActivity.class.getName().equals(bfq.getClassName()) || LivenessRecogActivity.class.getName().equals(bfq.getClassName()) || LivenessRecogGuidActivity.class.getName().equals(bfq.getClassName());
         }
         return false;
     }
 
-    private ComponentName bfr() {
+    private ComponentName bfq() {
         ActivityManager activityManager;
         List<ActivityManager.RunningTaskInfo> runningTasks;
         try {
@@ -202,11 +202,11 @@ public class b {
     }
 
     public static void registerTask() {
+        bfr();
         bfs();
-        bft();
     }
 
-    private static void bfs() {
+    private static void bfr() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921372, new CustomMessageTask.CustomRunnable<AuthVerifyData>() { // from class: com.baidu.tieba.passaccount.a.b.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<AuthVerifyData> customMessage) {
@@ -218,7 +218,7 @@ public class b {
                             l.showToast(TbadkCoreApplication.getInst(), "验证失败，请您稍后再试");
                         } else {
                             MessageManager.getInstance().runTask(2921332, (Class) null);
-                            b.bfn().b(data, new C0276b(data));
+                            b.bfm().b(data, new C0276b(data));
                         }
                     }
                 }
@@ -229,14 +229,14 @@ public class b {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bft() {
+    private static void bfs() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921373, new CustomMessageTask.CustomRunnable() { // from class: com.baidu.tieba.passaccount.a.b.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Boolean> run(CustomMessage customMessage) {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2921373, Boolean.valueOf(b.bfn().bfq()));
+                return new CustomResponsedMessage<>(2921373, Boolean.valueOf(b.bfm().bfp()));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

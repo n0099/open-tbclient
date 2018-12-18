@@ -15,7 +15,7 @@ public class au<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> au<T> cdw() {
+    public static <T> au<T> cdv() {
         return (au<T>) a.iFE;
     }
 

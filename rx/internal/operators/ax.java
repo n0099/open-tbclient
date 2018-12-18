@@ -17,7 +17,7 @@ public final class ax<T> implements d.b<Notification<T>, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> ax<T> cdz() {
+    public static <T> ax<T> cdy() {
         return (ax<T>) a.iFQ;
     }
 
@@ -64,7 +64,7 @@ public final class ax<T> implements d.b<Notification<T>, T> {
 
         @Override // rx.e
         public void onCompleted() {
-            this.iFR = Notification.ccM();
+            this.iFR = Notification.ccL();
             drain();
         }
 
@@ -78,10 +78,10 @@ public final class ax<T> implements d.b<Notification<T>, T> {
         @Override // rx.e
         public void onNext(T t) {
             this.child.onNext(Notification.aV(t));
-            cdA();
+            cdz();
         }
 
-        private void cdA() {
+        private void cdz() {
             long j;
             AtomicLong atomicLong = this.requested;
             do {

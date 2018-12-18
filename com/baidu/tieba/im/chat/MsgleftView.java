@@ -77,7 +77,7 @@ public class MsgleftView extends g {
         String str = null;
         super.b(view, chatMessage);
         ArrayList<IconData> tShowInfoNew = chatMessage != null ? chatMessage.getUserInfo().getTShowInfoNew() : null;
-        aOp();
+        aOo();
         if (this.aKo != null && this.eIv) {
             this.aKo.setVisibility(0);
             this.aKo.setAutoChangedStyle(false);
@@ -190,7 +190,7 @@ public class MsgleftView extends g {
         }
     }
 
-    public void aOp() {
+    public void aOo() {
         if (this.eIv) {
             this.mName.setVisibility(0);
             this.aKo.setVisibility(0);

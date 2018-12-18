@@ -15,7 +15,7 @@ public class b implements c.a {
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
-    public void bIc() {
+    public void bIb() {
         this.hAI.nU(true);
         this.hAH.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
             /* JADX DEBUG: Method merged with bridge method */

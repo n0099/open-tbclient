@@ -82,7 +82,7 @@ public class e extends a {
         } else if (i(shareEntity.getImageUri())) {
             a(this.gZs, h(shareEntity.getImageUri()));
         } else {
-            a(this.gZs, byF());
+            a(this.gZs, byE());
         }
     }
 
@@ -97,7 +97,7 @@ public class e extends a {
         }
         WeiboMultiMessage weiboMultiMessage = new WeiboMultiMessage();
         if (!TextUtils.isEmpty(shareEntity.getContent())) {
-            weiboMultiMessage.textObject = byG();
+            weiboMultiMessage.textObject = byF();
         }
         if (bitmap != null) {
             weiboMultiMessage.imageObject = w(bitmap);
@@ -158,7 +158,7 @@ public class e extends a {
         return webpageObject;
     }
 
-    private TextObject byG() {
+    private TextObject byF() {
         if (this.gZs == null) {
             return null;
         }
