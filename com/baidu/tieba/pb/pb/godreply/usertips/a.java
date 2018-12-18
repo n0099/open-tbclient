@@ -73,26 +73,26 @@ public class a {
             this.fSo.animate().alpha(0.0f).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.usertips.a.1
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator) {
-                    a.this.bhx();
+                    a.this.bhw();
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    a.this.bhx();
+                    a.this.bhw();
                 }
             }).start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bhx() {
+    public void bhw() {
         if (this.fSo != null && this.fSo.getParent() != null && this.fSo.getParent() == this.amB) {
             this.fSo.setVisibility(4);
         }
     }
 
     public void br(View view) {
-        if (bhy()) {
+        if (bhx()) {
             Context context = view.getContext();
             view.getLocationOnScreen(this.fSn);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fSo.getLayoutParams();
@@ -113,7 +113,7 @@ public class a {
         }
     }
 
-    public boolean bhy() {
+    public boolean bhx() {
         return this.fSo != null && this.fSo.getParent() != null && this.fSo.getParent() == this.amB && this.fSo.getVisibility() == 0;
     }
 

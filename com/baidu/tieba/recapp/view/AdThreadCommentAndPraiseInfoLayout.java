@@ -219,7 +219,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     private void a(AdvertAppInfo advertAppInfo, String str, int i) {
         b c = f.c(advertAppInfo, 8, i);
         c.uU(str);
-        c.bvu().a(c);
+        c.bvt().a(c);
     }
 
     private void a(AdvertAppInfo advertAppInfo, final String str, final String str2) {

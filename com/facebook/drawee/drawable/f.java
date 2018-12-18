@@ -35,11 +35,11 @@ public class f extends a {
         }
     }
 
-    public void bUI() {
+    public void bUH() {
         this.ija++;
     }
 
-    public void bUJ() {
+    public void bUI() {
         this.ija--;
         invalidateSelf();
     }
@@ -73,13 +73,13 @@ public class f extends a {
         invalidateSelf();
     }
 
-    public void bUK() {
+    public void bUJ() {
         this.iiU = 0;
         Arrays.fill(this.iiZ, true);
         invalidateSelf();
     }
 
-    public void bUL() {
+    public void bUK() {
         this.iiU = 2;
         for (int i = 0; i < this.iiI.length; i++) {
             this.iiY[i] = this.iiZ[i] ? 255 : 0;
@@ -113,14 +113,14 @@ public class f extends a {
         switch (this.iiU) {
             case 0:
                 System.arraycopy(this.iiY, 0, this.iiX, 0, this.iiI.length);
-                this.iiW = bUM();
+                this.iiW = bUL();
                 boolean aH = aH(this.iiV == 0 ? 1.0f : 0.0f);
                 this.iiU = aH ? 2 : 1;
                 z = aH;
                 break;
             case 1:
                 com.facebook.common.internal.g.checkState(this.iiV > 0);
-                boolean aH2 = aH(((float) (bUM() - this.iiW)) / this.iiV);
+                boolean aH2 = aH(((float) (bUL() - this.iiW)) / this.iiV);
                 this.iiU = aH2 ? 2 : 1;
                 z = aH2;
                 break;
@@ -155,7 +155,7 @@ public class f extends a {
         return this.mAlpha;
     }
 
-    protected long bUM() {
+    protected long bUL() {
         return SystemClock.uptimeMillis();
     }
 }

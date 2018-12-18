@@ -43,7 +43,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
 
     private void VN() {
         if (!j.kV() && v.I(this.list)) {
-            byx();
+            byw();
         } else if (v.I(this.list)) {
             aFQ();
         } else if (this.gYF == null) {
@@ -91,7 +91,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         al.j(this.mRootView, e.d.cp_bg_line_d);
     }
 
-    public void byx() {
+    public void byw() {
         this.eaY.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.eq(e.j.refresh_view_title_text));

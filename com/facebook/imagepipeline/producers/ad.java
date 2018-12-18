@@ -46,7 +46,7 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
         if (!z) {
             return;
         }
-        aN.bZp();
+        aN.bZo();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -71,7 +71,7 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public class a {
-        private final CopyOnWriteArraySet<Pair<j<T>, aj>> iqO = com.facebook.common.internal.h.bTd();
+        private final CopyOnWriteArraySet<Pair<j<T>, aj>> iqO = com.facebook.common.internal.h.bTc();
         @GuardedBy("Multiplexer.this")
         @Nullable
         private T iqP;
@@ -99,14 +99,14 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
                     return false;
                 }
                 this.iqO.add(create);
-                List<ak> bZq = bZq();
-                List<ak> bZu = bZu();
-                List<ak> bZs = bZs();
+                List<ak> bZp = bZp();
+                List<ak> bZt = bZt();
+                List<ak> bZr = bZr();
                 Closeable closeable = this.iqP;
                 float f = this.iqQ;
-                d.eu(bZq);
-                d.ew(bZu);
-                d.ev(bZs);
+                d.eu(bZp);
+                d.ew(bZt);
+                d.ev(bZr);
                 synchronized (create) {
                     synchronized (this) {
                         if (closeable != this.iqP) {
@@ -131,7 +131,7 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
         private void a(final Pair<j<T>, aj> pair, aj ajVar) {
             ajVar.a(new e() { // from class: com.facebook.imagepipeline.producers.ad.a.1
                 @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-                public void bYY() {
+                public void bYX() {
                     boolean remove;
                     List list;
                     List list2;
@@ -148,11 +148,11 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
                             dVar = a.this.iqR;
                             list = null;
                         } else {
-                            List bZq = a.this.bZq();
-                            list = a.this.bZu();
-                            list2 = bZq;
+                            List bZp = a.this.bZp();
+                            list = a.this.bZt();
+                            list2 = bZp;
                             dVar = null;
-                            list3 = a.this.bZs();
+                            list3 = a.this.bZr();
                         }
                     }
                     d.eu(list2);
@@ -162,29 +162,29 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
                         dVar.cancel();
                     }
                     if (remove) {
-                        ((j) pair.first).bSZ();
+                        ((j) pair.first).bSY();
                     }
                 }
 
                 @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
+                public void bYY() {
+                    d.eu(a.this.bZp());
+                }
+
+                @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
                 public void bYZ() {
-                    d.eu(a.this.bZq());
+                    d.ev(a.this.bZr());
                 }
 
                 @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
                 public void bZa() {
-                    d.ev(a.this.bZs());
-                }
-
-                @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-                public void bZb() {
-                    d.ew(a.this.bZu());
+                    d.ew(a.this.bZt());
                 }
             });
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void bZp() {
+        public void bZo() {
             synchronized (this) {
                 com.facebook.common.internal.g.checkArgument(this.iqR == null);
                 com.facebook.common.internal.g.checkArgument(this.iqS == null);
@@ -193,7 +193,7 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
                     return;
                 }
                 aj ajVar = (aj) this.iqO.iterator().next().second;
-                this.iqR = new d(ajVar.bYR(), ajVar.getId(), ajVar.bYS(), ajVar.bUu(), ajVar.bYT(), bZr(), bZt(), bZv());
+                this.iqR = new d(ajVar.bYQ(), ajVar.getId(), ajVar.bYR(), ajVar.bUt(), ajVar.bYS(), bZq(), bZs(), bZu());
                 this.iqS = new C0365a();
                 ad.this.ipF.a(this.iqS, this.iqR);
             }
@@ -201,18 +201,18 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
 
         /* JADX INFO: Access modifiers changed from: private */
         @Nullable
-        public synchronized List<ak> bZq() {
-            return this.iqR == null ? null : this.iqR.oX(bZr());
+        public synchronized List<ak> bZp() {
+            return this.iqR == null ? null : this.iqR.oX(bZq());
         }
 
-        private synchronized boolean bZr() {
+        private synchronized boolean bZq() {
             boolean z;
             Iterator<Pair<j<T>, aj>> it = this.iqO.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = true;
                     break;
-                } else if (!((aj) it.next().second).bYU()) {
+                } else if (!((aj) it.next().second).bYT()) {
                     z = false;
                     break;
                 }
@@ -222,24 +222,24 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
 
         /* JADX INFO: Access modifiers changed from: private */
         @Nullable
-        public synchronized List<ak> bZs() {
+        public synchronized List<ak> bZr() {
             List<ak> oY;
             if (this.iqR == null) {
                 oY = null;
             } else {
-                oY = this.iqR.oY(bZt());
+                oY = this.iqR.oY(bZs());
             }
             return oY;
         }
 
-        private synchronized boolean bZt() {
+        private synchronized boolean bZs() {
             boolean z;
             Iterator<Pair<j<T>, aj>> it = this.iqO.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
                     break;
-                } else if (((aj) it.next().second).bYW()) {
+                } else if (((aj) it.next().second).bYV()) {
                     z = true;
                     break;
                 }
@@ -249,18 +249,18 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
 
         /* JADX INFO: Access modifiers changed from: private */
         @Nullable
-        public synchronized List<ak> bZu() {
-            return this.iqR == null ? null : this.iqR.a(bZv());
+        public synchronized List<ak> bZt() {
+            return this.iqR == null ? null : this.iqR.a(bZu());
         }
 
-        private synchronized Priority bZv() {
+        private synchronized Priority bZu() {
             Priority priority;
             Priority priority2 = Priority.LOW;
             Iterator<Pair<j<T>, aj>> it = this.iqO.iterator();
             while (true) {
                 priority = priority2;
                 if (it.hasNext()) {
-                    priority2 = Priority.getHigherPriority(priority, ((aj) it.next().second).bYV());
+                    priority2 = Priority.getHigherPriority(priority, ((aj) it.next().second).bYU());
                 }
             }
             return priority;
@@ -313,7 +313,7 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
                     this.iqR = null;
                     closeSafely(this.iqP);
                     this.iqP = null;
-                    bZp();
+                    bZo();
                 }
             }
         }
@@ -364,7 +364,7 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
             }
 
             @Override // com.facebook.imagepipeline.producers.b
-            protected void bXM() {
+            protected void bXL() {
                 a.this.a(this);
             }
 

@@ -160,7 +160,7 @@ public class s {
                 }
             });
             this.cVA.ed(this.cVE);
-            this.ane = new com.baidu.tieba.person.e(this.mContext, this.cVA.bLZ());
+            this.ane = new com.baidu.tieba.person.e(this.mContext, this.cVA.bLY());
         }
     }
 

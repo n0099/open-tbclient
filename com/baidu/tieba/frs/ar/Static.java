@@ -27,8 +27,8 @@ public class Static {
                 }
                 FrsAREntryView frsAREntryView = new FrsAREntryView(customMessage.getData().getPageContext().getPageActivity());
                 frsAREntryView.setForumArIno(forumArIno);
-                if (customMessage.getData().aAZ().bgi() != null) {
-                    frsAREntryView.setForumName(customMessage.getData().aAZ().bgi().getName());
+                if (customMessage.getData().aAZ().bgh() != null) {
+                    frsAREntryView.setForumName(customMessage.getData().aAZ().bgh().getName());
                 }
                 frsAREntryView.aDf();
                 RelativeLayout aBQ = customMessage.getData().aAI().aBQ();

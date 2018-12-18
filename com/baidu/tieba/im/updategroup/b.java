@@ -16,7 +16,7 @@ public class b extends d {
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void aUu() {
+    public void aUt() {
         String obj;
         if (this.mEditText.getText() != null && (obj = this.mEditText.getText().toString()) != null) {
             int length = obj.length();
@@ -31,18 +31,18 @@ public class b extends d {
             if (i == 0) {
                 this.eZt.setTextColor(this.eZu.getResources().getColor(e.d.common_color_10170));
             } else {
-                aPd();
+                aPc();
             }
         }
     }
 
-    private void aPd() {
+    private void aPc() {
         this.eZu.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
         this.eZu.getLayoutMode().onModeChanged(this.eZt);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public int aUv() {
+    public int aUu() {
         return e.j.group_step_info_error;
     }
 }

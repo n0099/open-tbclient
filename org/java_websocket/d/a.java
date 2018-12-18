@@ -1,9 +1,9 @@
 package org.java_websocket.d;
 /* loaded from: classes2.dex */
 public interface a {
-    String ccI();
+    String ccH();
 
-    a ccJ();
+    a ccI();
 
     String toString();
 

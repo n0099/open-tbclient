@@ -14,14 +14,14 @@ public abstract class MultiAudioMixer {
     public interface b {
         void N(byte[] bArr) throws IOException;
 
-        void bJL();
+        void bJK();
 
         void wx(int i);
     }
 
     abstract byte[] b(byte[][] bArr);
 
-    public static MultiAudioMixer bJK() {
+    public static MultiAudioMixer bJJ() {
         return new a();
     }
 
@@ -100,7 +100,7 @@ public abstract class MultiAudioMixer {
             }
         } while (!z);
         if (this.hFA != null) {
-            this.hFA.bJL();
+            this.hFA.bJK();
         }
     }
 

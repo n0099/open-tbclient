@@ -62,7 +62,7 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
         } else {
             this.gZy = new a(bVar);
             String ys = shareEntity.ys();
-            if (shareEntity.byD() != 0 && !TextUtils.isEmpty(ys) && (ys.startsWith("http://") || ys.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
+            if (shareEntity.byC() != 0 && !TextUtils.isEmpty(ys) && (ys.startsWith("http://") || ys.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
                 com.baidu.adp.lib.f.c.jA().a(ys, 34, this.gZz, 0, 0, getPageId(), new Object[0]);
             } else if (!TextUtils.isEmpty(shareEntity.getLinkUrl()) && !TextUtils.isEmpty(shareEntity.getTitle())) {
                 a(shareEntity, this.gZy);

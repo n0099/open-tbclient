@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class a extends AbstractExecutorService {
     private static final a ifE = new a();
 
-    public static a bSX() {
+    public static a bSW() {
         return ifE;
     }
 

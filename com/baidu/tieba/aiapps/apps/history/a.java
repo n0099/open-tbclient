@@ -31,7 +31,7 @@ public class a implements IAiAppHistoryIoc {
                 public List<com.baidu.tieba.aiapps.apps.history.impl.a.a> call(String str) {
                     return a.this.kx(str);
                 }
-            }).observeOn(rx.a.b.a.ccY()).subscribe(new b<List<com.baidu.tieba.aiapps.apps.history.impl.a.a>>() { // from class: com.baidu.tieba.aiapps.apps.history.a.1
+            }).observeOn(rx.a.b.a.ccX()).subscribe(new b<List<com.baidu.tieba.aiapps.apps.history.impl.a.a>>() { // from class: com.baidu.tieba.aiapps.apps.history.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 /* renamed from: aq */

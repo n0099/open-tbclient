@@ -56,7 +56,7 @@ public class e {
                         return null;
                     }
                     return (com.baidu.tieba.aiapps.apps.invoice.model.c) e.this.c(response.body().string(), new com.google.gson.b.a<com.baidu.tieba.aiapps.apps.invoice.model.c<InvoiceInfo>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.1.1
-                    }.caU());
+                    }.caT());
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -131,7 +131,7 @@ public class e {
                     return null;
                 }
                 return (com.baidu.tieba.aiapps.apps.invoice.model.c) e.this.c(response.body().string(), new com.google.gson.b.a<com.baidu.tieba.aiapps.apps.invoice.model.c<com.baidu.tieba.aiapps.apps.invoice.model.a>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.3.1
-                }.caU());
+                }.caT());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -169,7 +169,7 @@ public class e {
                     return null;
                 }
                 return (com.baidu.tieba.aiapps.apps.invoice.model.c) e.this.c(response.body().string(), new com.google.gson.b.a<com.baidu.tieba.aiapps.apps.invoice.model.c<InvoiceInfo>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.4.1
-                }.caU());
+                }.caT());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -208,7 +208,7 @@ public class e {
                     return null;
                 }
                 return (com.baidu.tieba.aiapps.apps.invoice.model.c) e.this.c(response.body().string(), new com.google.gson.b.a<com.baidu.tieba.aiapps.apps.invoice.model.c>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.5.1
-                }.caU());
+                }.caT());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -247,7 +247,7 @@ public class e {
                     return null;
                 }
                 return (com.baidu.tieba.aiapps.apps.invoice.model.c) e.this.c(response.body().string(), new com.google.gson.b.a<com.baidu.tieba.aiapps.apps.invoice.model.c<com.baidu.tieba.aiapps.apps.invoice.model.b>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.6.1
-                }.caU());
+                }.caT());
             }
 
             /* JADX DEBUG: Method merged with bridge method */

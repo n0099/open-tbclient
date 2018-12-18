@@ -71,7 +71,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        bpP();
+        bpO();
         if (!com.baidu.adp.lib.util.j.kV()) {
             showToast(e.j.neterror);
         }
@@ -233,7 +233,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             this.dIc.onDestory(getPageContext());
         }
         try {
-            PersonPolymericActivityStatic.bpP();
+            PersonPolymericActivityStatic.bpO();
             super.onDestroy();
         } catch (Exception e) {
         }
@@ -263,7 +263,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         return this.mUid;
     }
 
-    public String aTB() {
+    public String aTA() {
         return this.eWO;
     }
 
@@ -281,11 +281,11 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         super.onSaveInstanceState(bundle);
     }
 
-    public String bss() {
+    public String bsr() {
         if (this.isHost) {
             return getPageContext().getString(e.j.person_post_lv_empty_host);
         }
-        return String.format(getPageContext().getString(e.j.person_post_lv_empty_guest), aTB());
+        return String.format(getPageContext().getString(e.j.person_post_lv_empty_guest), aTA());
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -331,12 +331,12 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     @Override // com.baidu.adp.base.BdBaseFragmentActivity
     public com.baidu.adp.widget.ListView.k onGetPreLoadListView() {
         if (this.gGb != null) {
-            PersonThreadFragment bst = this.gGb.bst();
-            h bsw = bst != null ? bst.bsw() : null;
-            if (bsw == null || bsw.bsD() == null) {
+            PersonThreadFragment bss = this.gGb.bss();
+            h bsv = bss != null ? bss.bsv() : null;
+            if (bsv == null || bsv.bsC() == null) {
                 return null;
             }
-            return bsw.bsD().getPreLoadHandle();
+            return bsv.bsC().getPreLoadHandle();
         }
         return null;
     }
@@ -354,7 +354,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         return null;
     }
 
-    private void bpP() {
+    private void bpO() {
         com.baidu.tieba.tbadkCore.a.a.a(303002, UserPostPageSocketResponsedMessage.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.aU("c/u/feed/userpost", 303002));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -366,14 +366,14 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     }
 
     @Override // com.baidu.tieba.post.d
-    public void bsr() {
+    public void bsq() {
         if (this.gGb != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < this.gGb.getCount()) {
                     if (this.gGb.getItem(i2) instanceof c) {
-                        ((c) this.gGb.getItem(i2)).bsq();
+                        ((c) this.gGb.getItem(i2)).bsp();
                     }
                     i = i2 + 1;
                 } else {

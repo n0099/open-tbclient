@@ -24,7 +24,7 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
         a aVar = new a(bVar);
         jVar.add(bVar);
         jVar.add(aVar);
-        bVar.cdX();
+        bVar.cdW();
         this.iCr.unsafeSubscribe(aVar);
         return bVar;
     }
@@ -117,7 +117,7 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
             if (list != null) {
                 for (Object obj : list) {
                     if (obj == ch.iJr) {
-                        cdV();
+                        cdU();
                     } else if (NotificationLite.ba(obj)) {
                         error(NotificationLite.bc(obj));
                         return;
@@ -131,19 +131,19 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
             }
         }
 
-        void cdV() {
+        void cdU() {
             rx.e<T> eVar = this.iJt;
             if (eVar != null) {
                 eVar.onCompleted();
             }
-            cdW();
+            cdV();
             this.child.onNext(this.iJu);
         }
 
-        void cdW() {
-            UnicastSubject cfm = UnicastSubject.cfm();
-            this.iJt = cfm;
-            this.iJu = cfm;
+        void cdV() {
+            UnicastSubject cfl = UnicastSubject.cfl();
+            this.iJt = cfl;
+            this.iJu = cfl;
         }
 
         void bl(T t) {
@@ -173,7 +173,7 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
                     if (this.iJv == null) {
                         this.iJv = new ArrayList();
                     }
-                    this.iJv.add(NotificationLite.cdh());
+                    this.iJv.add(NotificationLite.cdg());
                     return;
                 }
                 List<Object> list = this.iJv;
@@ -188,7 +188,7 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
             }
         }
 
-        void cdX() {
+        void cdW() {
             boolean z = true;
             boolean z2 = false;
             synchronized (this.guard) {
@@ -208,7 +208,7 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
                     try {
                         eC(list2);
                         if (z3) {
-                            cdV();
+                            cdU();
                             z3 = false;
                         }
                         try {
@@ -289,7 +289,7 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
 
         @Override // rx.e
         public void onNext(U u) {
-            this.iJs.cdX();
+            this.iJs.cdW();
         }
 
         @Override // rx.e

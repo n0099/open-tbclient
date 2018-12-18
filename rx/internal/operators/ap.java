@@ -10,7 +10,7 @@ public final class ap<T, U> implements d.b<T, T>, rx.functions.g<U, U, Boolean> 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        static final ap<?, ?> iFf = new ap<>(UtilityFunctions.cew());
+        static final ap<?, ?> iFf = new ap<>(UtilityFunctions.cev());
     }
 
     @Override // rx.functions.f
@@ -18,7 +18,7 @@ public final class ap<T, U> implements d.b<T, T>, rx.functions.g<U, U, Boolean> 
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> ap<T, T> cdu() {
+    public static <T> ap<T, T> cdt() {
         return (ap<T, T>) a.iFf;
     }
 
@@ -28,7 +28,7 @@ public final class ap<T, U> implements d.b<T, T>, rx.functions.g<U, U, Boolean> 
     }
 
     public ap(rx.functions.g<? super U, ? super U, Boolean> gVar) {
-        this.iDP = UtilityFunctions.cew();
+        this.iDP = UtilityFunctions.cev();
         this.iFb = gVar;
     }
 

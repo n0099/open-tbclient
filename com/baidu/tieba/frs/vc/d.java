@@ -29,7 +29,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.d.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (ba.bJ(d.this.dJE.getPageContext().getPageActivity()) && !d.this.dLi.bHs() && !d.this.aCn()) {
+            if (ba.bJ(d.this.dJE.getPageContext().getPageActivity()) && !d.this.dLi.bHr() && !d.this.aCn()) {
                 if (d.this.ecY != null) {
                     d.this.ecY.aHz();
                 }
@@ -76,7 +76,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
         if (this.dOp != null) {
             aHb();
             this.dOp.setVisibility(z ? 0 : 8);
-            if (z && TbadkCoreApplication.isLogin() && (aAZ = this.dJE.aAZ()) != null && aAZ.hiU != null && aAZ.bgi() != null && !StringUtils.isNull(aAZ.bgi().getId()) && !StringUtils.isNull(aAZ.hiU.recom_title) && !StringUtils.isNull(aAZ.hiU.recom_topic) && com.baidu.tieba.frs.FrsHotTopic.a.aBi().n(aAZ.bgi().getId(), aAZ.hiU.uniq_topicid.longValue())) {
+            if (z && TbadkCoreApplication.isLogin() && (aAZ = this.dJE.aAZ()) != null && aAZ.hiU != null && aAZ.bgh() != null && !StringUtils.isNull(aAZ.bgh().getId()) && !StringUtils.isNull(aAZ.hiU.recom_title) && !StringUtils.isNull(aAZ.hiU.recom_topic) && com.baidu.tieba.frs.FrsHotTopic.a.aBi().n(aAZ.bgh().getId(), aAZ.hiU.uniq_topicid.longValue())) {
                 a(this.dOp, aAZ);
             }
         }
@@ -233,7 +233,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
     }
 
     public void a(View view, l lVar) {
-        if (this.dJE != null && lVar != null && lVar.bgi() != null && lVar.hiU != null) {
+        if (this.dJE != null && lVar != null && lVar.bgh() != null && lVar.hiU != null) {
             if (this.ecY == null) {
                 this.ecY = new i(this.dJE.getActivity(), this);
             }
@@ -244,6 +244,6 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
 
     @Override // com.baidu.tieba.frs.entelechy.b.d
     public boolean aEd() {
-        return (this.dLi.bHs() || aCn()) ? false : true;
+        return (this.dLi.bHr() || aCn()) ? false : true;
     }
 }

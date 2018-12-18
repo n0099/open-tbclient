@@ -42,12 +42,12 @@ public class AdPostImageView extends AdPostBaseView {
     protected void a(AdPost adPost) {
         if (adPost != null && adPost.getAdvertAppInfo() != null) {
             boolean xI = i.xE().xI();
-            if (adPost.feedData.buR().size() == 0 || !xI) {
+            if (adPost.feedData.buQ().size() == 0 || !xI) {
                 this.cVa.setVisibility(8);
                 return;
             }
             this.cVa.setVisibility(0);
-            this.cVa.setImageUrls(adPost.feedData.buR());
+            this.cVa.setImageUrls(adPost.feedData.buQ());
         }
     }
 

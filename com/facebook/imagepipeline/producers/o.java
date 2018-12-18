@@ -17,11 +17,11 @@ public class o implements ai<com.facebook.imagepipeline.f.d> {
     }
 
     private void c(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        if (ajVar.bYT().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
+        if (ajVar.bYS().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
             jVar.e(null, true);
             return;
         }
-        if (ajVar.bYR().bZM()) {
+        if (ajVar.bYQ().bZL()) {
             jVar = new a(jVar, ajVar, this.iqc);
         }
         this.ipF.a(jVar, ajVar);
@@ -44,9 +44,9 @@ public class o implements ai<com.facebook.imagepipeline.f.d> {
         /* renamed from: a */
         public void d(com.facebook.imagepipeline.f.d dVar, boolean z) {
             if (dVar != null && z) {
-                this.iqc.a(dVar, this.ipQ.bYR(), this.ipQ.bUu());
+                this.iqc.a(dVar, this.ipQ.bYQ(), this.ipQ.bUt());
             }
-            bZe().e(dVar, z);
+            bZd().e(dVar, z);
         }
     }
 }

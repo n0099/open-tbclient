@@ -9,7 +9,7 @@ public class e implements CacheErrorLogger {
     private e() {
     }
 
-    public static synchronized e bSs() {
+    public static synchronized e bSr() {
         e eVar;
         synchronized (e.class) {
             if (iex == null) {

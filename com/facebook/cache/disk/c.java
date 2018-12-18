@@ -20,14 +20,14 @@ public interface c {
 
         com.facebook.a.a am(Object obj) throws IOException;
 
-        boolean bSz();
+        boolean bSy();
     }
 
     long a(a aVar) throws IOException;
 
-    void bSv();
+    void bSu();
 
-    Collection<a> bSw() throws IOException;
+    Collection<a> bSv() throws IOException;
 
     boolean isExternal();
 

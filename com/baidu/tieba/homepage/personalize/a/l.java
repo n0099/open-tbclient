@@ -125,22 +125,22 @@ public class l {
         this.epR.add(new k(this.mPageContext, com.baidu.tieba.homepage.personalize.data.g.TYPE));
         this.epR.add(this.ewl);
         aDJ();
-        aLs();
+        aLr();
         jK("page_recommend");
     }
 
-    private void aLs() {
+    private void aLr() {
         if (!bb.ats.get()) {
             AdvertAppInfo.apn.set(false);
             return;
         }
-        this.dYq = r.buz().c(this.mPageContext, AdvertAppInfo.ape);
-        this.ewm = r.buz().c(this.mPageContext, AdvertAppInfo.aph);
-        this.ewn = r.buz().c(this.mPageContext, AdvertAppInfo.api);
-        this.ewo = r.buz().c(this.mPageContext, AdvertAppInfo.apj);
-        this.ewp = r.buz().c(this.mPageContext, AdvertAppInfo.apk);
-        this.ewq = r.buz().c(this.mPageContext, AdvertAppInfo.apl);
-        this.ewr = r.buz().c(this.mPageContext, AdvertAppInfo.apm);
+        this.dYq = r.buy().c(this.mPageContext, AdvertAppInfo.ape);
+        this.ewm = r.buy().c(this.mPageContext, AdvertAppInfo.aph);
+        this.ewn = r.buy().c(this.mPageContext, AdvertAppInfo.api);
+        this.ewo = r.buy().c(this.mPageContext, AdvertAppInfo.apj);
+        this.ewp = r.buy().c(this.mPageContext, AdvertAppInfo.apk);
+        this.ewq = r.buy().c(this.mPageContext, AdvertAppInfo.apl);
+        this.ewr = r.buy().c(this.mPageContext, AdvertAppInfo.apm);
         this.epR.add(this.dYq);
         this.epR.add(this.ewm);
         this.epR.add(this.ewn);
@@ -261,13 +261,13 @@ public class l {
     public boolean aDK() {
         if (this.dPH == null || this.dPH.size() <= 0) {
             this.dPH = new ArrayList();
-            ArrayList<BdUniqueId> bCF = q.bCF();
-            if (bCF == null || bCF.size() <= 0) {
+            ArrayList<BdUniqueId> bCE = q.bCE();
+            if (bCE == null || bCE.size() <= 0) {
                 return false;
             }
-            int size = bCF.size();
+            int size = bCE.size();
             for (int i = 0; i < size; i++) {
-                com.baidu.tieba.lego.card.a.a a = com.baidu.tieba.lego.d.b.aZv().a(this.mPageContext, bCF.get(i), 2);
+                com.baidu.tieba.lego.card.a.a a = com.baidu.tieba.lego.d.b.aZu().a(this.mPageContext, bCE.get(i), 2);
                 if (this.ews) {
                     a.setBusinessType(3);
                 }

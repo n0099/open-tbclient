@@ -36,7 +36,7 @@ public class d implements aj {
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public ImageRequest bYR() {
+    public ImageRequest bYQ() {
         return this.ipH;
     }
 
@@ -46,32 +46,32 @@ public class d implements aj {
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public al bYS() {
+    public al bYR() {
         return this.ipI;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public Object bUu() {
+    public Object bUt() {
         return this.ihW;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public ImageRequest.RequestLevel bYT() {
+    public ImageRequest.RequestLevel bYS() {
         return this.ipJ;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public synchronized boolean bYU() {
+    public synchronized boolean bYT() {
         return this.ipK;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public synchronized Priority bYV() {
+    public synchronized Priority bYU() {
         return this.ipL;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public synchronized boolean bYW() {
+    public synchronized boolean bYV() {
         return this.ipM;
     }
 
@@ -85,12 +85,12 @@ public class d implements aj {
             }
         }
         if (z) {
-            akVar.bYY();
+            akVar.bYX();
         }
     }
 
     public void cancel() {
-        et(bYX());
+        et(bYW());
     }
 
     @Nullable
@@ -130,7 +130,7 @@ public class d implements aj {
     }
 
     @Nullable
-    public synchronized List<ak> bYX() {
+    public synchronized List<ak> bYW() {
         ArrayList arrayList;
         if (this.aMy) {
             arrayList = null;
@@ -144,7 +144,7 @@ public class d implements aj {
     public static void et(@Nullable List<ak> list) {
         if (list != null) {
             for (ak akVar : list) {
-                akVar.bYY();
+                akVar.bYX();
             }
         }
     }
@@ -152,7 +152,7 @@ public class d implements aj {
     public static void eu(@Nullable List<ak> list) {
         if (list != null) {
             for (ak akVar : list) {
-                akVar.bYZ();
+                akVar.bYY();
             }
         }
     }
@@ -160,7 +160,7 @@ public class d implements aj {
     public static void ev(@Nullable List<ak> list) {
         if (list != null) {
             for (ak akVar : list) {
-                akVar.bZa();
+                akVar.bYZ();
             }
         }
     }
@@ -168,7 +168,7 @@ public class d implements aj {
     public static void ew(@Nullable List<ak> list) {
         if (list != null) {
             for (ak akVar : list) {
-                akVar.bZb();
+                akVar.bZa();
             }
         }
     }

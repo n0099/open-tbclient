@@ -53,7 +53,7 @@ public class a extends com.baidu.adp.base.c {
                 switch (i) {
                     case 0:
                         if (a.this.hCs != null) {
-                            a.this.hCs.bIr();
+                            a.this.hCs.bIq();
                             break;
                         }
                         break;
@@ -78,7 +78,7 @@ public class a extends com.baidu.adp.base.c {
         this.hDE.bU(this.mRootView);
         this.hDF.bU(this.mRootView);
         initView();
-        bJc();
+        bJb();
     }
 
     private void initView() {
@@ -98,7 +98,7 @@ public class a extends com.baidu.adp.base.c {
         this.hDF.getRootView().setVisibility(8);
     }
 
-    private boolean bJb() {
+    private boolean bJa() {
         return Build.VERSION.SDK_INT >= 18;
     }
 
@@ -111,7 +111,7 @@ public class a extends com.baidu.adp.base.c {
             fragmentTabIndicator.setTextSize(0, this.mResources.getDimension(e.C0210e.fontsize34));
             this.cmc.addView(fragmentTabIndicator, i);
         }
-        if (!bJb() && this.cmc.getChildAt(1) != null) {
+        if (!bJa() && this.cmc.getChildAt(1) != null) {
             this.cmc.getChildAt(1).setVisibility(8);
         }
         this.cmc.setDiverColor(this.mResources.getColor(e.d.cp_cont_b));
@@ -136,7 +136,7 @@ public class a extends com.baidu.adp.base.c {
                             a.this.hDE.getRootView().setVisibility(8);
                             a.this.hDD.getRootView().setVisibility(8);
                             a.this.hDD.nX(false);
-                            if (TextUtils.isEmpty(a.this.hDE.bJj())) {
+                            if (TextUtils.isEmpty(a.this.hDE.bJi())) {
                                 a.this.hDE.nX(false);
                             } else {
                                 a.this.hDE.nX(true);
@@ -154,32 +154,32 @@ public class a extends com.baidu.adp.base.c {
                     }
                     a.this.mCurrentTabIndex = i2;
                     a.this.cmc.setCurrentTab(a.this.mCurrentTabIndex, true, true);
+                    a.this.bJb();
                     a.this.bJc();
-                    a.this.bJd();
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bJc() {
+    public void bJb() {
         am amVar = new am("c12424");
         amVar.x("obj_locate", this.mCurrentTabIndex == 0 ? 1 : 3);
         TiebaStatic.log(amVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bJd() {
+    public void bJc() {
         if (this.mCurrentTabIndex == 0) {
-            bJh();
-            bJf();
+            bJg();
+            bJe();
             return;
         }
         replay();
     }
 
     public void replay() {
-        bJh();
+        bJg();
         this.hDB.start();
         this.hDB.seekTo(0);
     }
@@ -197,7 +197,7 @@ public class a extends com.baidu.adp.base.c {
     }
 
     public void onPause() {
-        bJh();
+        bJg();
         this.hDD.onPause();
         this.hDE.onPause();
         this.hDF.onPause();
@@ -213,7 +213,7 @@ public class a extends com.baidu.adp.base.c {
         this.hDF.onResume();
     }
 
-    public MaskVideoView bJe() {
+    public MaskVideoView bJd() {
         return this.hDB;
     }
 
@@ -252,7 +252,7 @@ public class a extends com.baidu.adp.base.c {
                         com.baidu.adp.lib.g.e.jG().postDelayed(new Runnable() { // from class: com.baidu.tieba.video.editvideo.view.a.2.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                a.this.hDD.bJp();
+                                a.this.hDD.bJo();
                             }
                         }, 200L);
                         if (Build.VERSION.SDK_INT >= 17) {
@@ -287,25 +287,25 @@ public class a extends com.baidu.adp.base.c {
         }
     }
 
-    public void bJf() {
+    public void bJe() {
         if (this.hDB != null) {
             this.hDB.seekTo(this.hDD.getCurrentPosition());
         }
     }
 
-    public void bJg() {
+    public void bJf() {
         if (this.hDB != null) {
             this.hDB.wu(this.hDD.getCurrentPosition());
         }
     }
 
-    public void bJh() {
+    public void bJg() {
         if (this.hDB != null) {
-            this.hDB.bJm();
+            this.hDB.bJl();
         }
     }
 
-    public void bJi() {
+    public void bJh() {
         if (this.hDB != null) {
             this.hDB.onPause();
         }
@@ -335,9 +335,9 @@ public class a extends com.baidu.adp.base.c {
         al.h(this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.mResources.getString(e.j.select_cover_next), new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.view.a.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.hDD.bsR();
+                a.this.hDD.bsQ();
                 if (a.this.hCs != null) {
-                    a.this.hCs.bIo();
+                    a.this.hCs.bIn();
                 }
             }
         }), e.d.cp_cont_f);
@@ -377,26 +377,26 @@ public class a extends com.baidu.adp.base.c {
         this.hDE.cS(str, str2);
     }
 
-    public void bIt() {
+    public void bIs() {
         if (this.hCs != null) {
-            this.hCs.bIt();
+            this.hCs.bIs();
         }
+    }
+
+    public String bJi() {
+        return this.hDE.bJi();
     }
 
     public String bJj() {
         return this.hDE.bJj();
     }
 
-    public String bJk() {
-        return this.hDE.bJk();
-    }
-
     public boolean isMute() {
         return this.mIsMute;
     }
 
-    public boolean bJl() {
-        return this.hDE.bJl();
+    public boolean bJk() {
+        return this.hDE.bJk();
     }
 
     public View getRootView() {
@@ -417,8 +417,8 @@ public class a extends com.baidu.adp.base.c {
     }
 
     public void setGenMaskCoverListener(MaskVideoView.b bVar) {
-        if (bVar != null && bJe() != null) {
-            bJe().setGenMaskCoverListener(bVar);
+        if (bVar != null && bJd() != null) {
+            bJd().setGenMaskCoverListener(bVar);
         }
     }
 }

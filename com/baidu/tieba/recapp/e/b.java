@@ -40,7 +40,7 @@ public class b extends e {
                 s.aH(b.this.mRootView.getContext(), fVar.scheme);
                 if (b.this.gRC != null) {
                     b.this.gRC.tT(302);
-                    com.baidu.tieba.recapp.report.c.bvu().a(b.this.gRC);
+                    com.baidu.tieba.recapp.report.c.bvt().a(b.this.gRC);
                 }
                 if (b.this.gRE != null) {
                     com.baidu.tieba.lego.card.b.c.a(b.this.gRE);

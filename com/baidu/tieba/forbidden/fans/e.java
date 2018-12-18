@@ -79,7 +79,7 @@ public class e {
                 }
             });
             this.dDH.ed(arrayList);
-            this.ane = new com.baidu.tieba.person.e(this.mContext.getPageActivity(), this.dDH.bLZ());
+            this.ane = new com.baidu.tieba.person.e(this.mContext.getPageActivity(), this.dDH.bLY());
             this.ane.ax(0.7f);
         }
         this.ane.show();

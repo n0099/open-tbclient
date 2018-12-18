@@ -118,15 +118,15 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                 int i;
                 ArrayList<Object> arrayList;
                 try {
-                    PublishSubject cfj = PublishSubject.cfj();
-                    rx.b.e eVar = new rx.b.e(cfj);
+                    PublishSubject cfi = PublishSubject.cfi();
+                    rx.b.e eVar = new rx.b.e(cfi);
                     synchronized (ResultManager.this) {
                         ResultManager resultManager = ResultManager.this;
                         i = resultManager.leftIds;
                         resultManager.leftIds = i + 1;
                         ResultManager.this.leftMap().put(Integer.valueOf(i), eVar);
                     }
-                    rx.d create = rx.d.create(new a(cfj, ResultManager.this.cancel));
+                    rx.d create = rx.d.create(new a(cfi, ResultManager.this.cancel));
                     a aVar = new a(i);
                     ResultManager.this.group.add(aVar);
                     OnSubscribeGroupJoin.this.iCM.call(t1).unsafeSubscribe(aVar);
@@ -297,9 +297,9 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
         }
 
         public void call(rx.j<? super T> jVar) {
-            rx.k cfo = this.iCQ.cfo();
-            C0408a c0408a = new C0408a(jVar, cfo);
-            c0408a.add(cfo);
+            rx.k cfn = this.iCQ.cfn();
+            C0408a c0408a = new C0408a(jVar, cfn);
+            c0408a.add(cfn);
             this.iCR.unsafeSubscribe(c0408a);
         }
 

@@ -115,7 +115,7 @@ public class a implements View.OnClickListener {
         return inflate;
     }
 
-    public int byL() {
+    public int byK() {
         if (this.gZM == null) {
             return 0;
         }
@@ -188,7 +188,7 @@ public class a implements View.OnClickListener {
         }
     }
 
-    public void byM() {
+    public void byL() {
         int size = this.gZM.size();
         for (int i = 0; i < size; i++) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
@@ -204,7 +204,7 @@ public class a implements View.OnClickListener {
         } else if (!com.baidu.tbadk.coreExtra.c.e.Kk()) {
             l.showToast(TbadkCoreApplication.getInst().getContext(), e.j.plugin_share_install_failure);
         } else {
-            byM();
+            byL();
             this.aws = new AlertDialog.Builder(this.mContext, e.k.DialogTheme).create();
             this.aws.setCanceledOnTouchOutside(true);
             this.aws.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.sharesdk.d.a.2
@@ -224,7 +224,7 @@ public class a implements View.OnClickListener {
             window.setGravity(80);
             window.setLayout(-1, -2);
             window.setContentView(this.mRootView);
-            byN();
+            byM();
             acj();
         }
     }
@@ -451,7 +451,7 @@ public class a implements View.OnClickListener {
     }
 
     @SuppressLint({"ResourceAsColor"})
-    private void byN() {
+    private void byM() {
     }
 
     private String m(d dVar) {

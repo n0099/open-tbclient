@@ -48,7 +48,7 @@ public class e extends as {
         }
     }
 
-    public TextView bhz() {
+    public TextView bhy() {
         return this.fSz;
     }
 }

@@ -75,7 +75,7 @@ public class CDNIPDirectConnect extends e {
         try {
             this.fiC = new a();
             this.fiB = new TbCdnMobileGetIpModel();
-            aWT();
+            aWS();
             this.fiv = new IPListReceiver();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(TbCDNTachometerService.TB_CDNIP_BROADCASE_ACTION);
@@ -94,11 +94,11 @@ public class CDNIPDirectConnect extends e {
         }
     }
 
-    private void aWT() {
-        CdnCacheItem aWU = aWU();
+    private void aWS() {
+        CdnCacheItem aWT = aWT();
         long currentTimeMillis = System.currentTimeMillis();
-        if (aWU != null && aWU.firstUseIpTime > 0 && currentTimeMillis - aWU.firstUseIpTime < 604800000) {
-            this.fiu = aWU;
+        if (aWT != null && aWT.firstUseIpTime > 0 && currentTimeMillis - aWT.firstUseIpTime < 604800000) {
+            this.fiu = aWT;
         }
         if (this.fiu == null) {
             this.fiu = new CdnCacheItem();
@@ -122,7 +122,7 @@ public class CDNIPDirectConnect extends e {
             }
         } else if (this.fiu.mobileLastTachometerTime == 0 || z || (this.fiu.mobileIsUsedIp() && currentTimeMillis - this.fiu.mobileLastTachometerTime > 3600000)) {
             this.fiu.identifier = netIdentifier;
-            aWS();
+            aWR();
         }
     }
 
@@ -197,7 +197,7 @@ public class CDNIPDirectConnect extends e {
             return new HttpGet(str);
         }
         if (System.currentTimeMillis() - this.fiu.mobileLastTachometerTime > 3600000) {
-            aWS();
+            aWR();
         }
         return bX(str, mobileCdnIp);
     }
@@ -231,7 +231,7 @@ public class CDNIPDirectConnect extends e {
         TbCDNTachometerService.startTachometerService(TbadkCoreApplication.getInst().getApp(), false, false);
     }
 
-    private void aWS() {
+    private void aWR() {
         if (this.fiC.ano) {
             this.fiu.mobileLastTachometerTime = System.currentTimeMillis();
             this.fiB.startGetMobileIpList();
@@ -271,11 +271,11 @@ public class CDNIPDirectConnect extends e {
                 }
             } else if (str2 != null && str2.length() > 0) {
                 if (this.fiu.setMoblieIPRank(i, 100.0f, str2) >= 100.0f) {
-                    aWS();
+                    aWR();
                     b(this.fiu);
                 }
             } else if (this.fiu.setMoblieIPRank(i, 100.0f, null) >= 100.0f) {
-                aWS();
+                aWR();
                 b(this.fiu);
             }
         }
@@ -343,7 +343,7 @@ public class CDNIPDirectConnect extends e {
         return null;
     }
 
-    private CdnCacheItem aWU() {
+    private CdnCacheItem aWT() {
         String string = b.getInstance().getString("cdn_iplist_cache_key_three", "");
         if (string == null || string.length() == 0) {
             return null;

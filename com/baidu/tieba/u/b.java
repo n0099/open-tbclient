@@ -41,7 +41,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
         e eVar = new e();
         eVar.jp().setUrl(this.mUrl);
         if (new com.baidu.adp.lib.network.http.c(eVar).a(str, null, 3, 3000, -1, -1, true, true)) {
-            return bLR();
+            return bLQ();
         }
         return "";
     }
@@ -59,7 +59,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
         }
     }
 
-    private String bLR() {
+    private String bLQ() {
         File file = new File(this.mPath + FILE_SEP + "videosplash.temp");
         File file2 = new File(this.mPath + FILE_SEP + (s.bC(this.mUrl) + ".mp4"));
         if (file2.exists()) {

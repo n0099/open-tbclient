@@ -55,11 +55,11 @@ public class c {
         }
     }
 
-    public boolean bHr() {
+    public boolean bHq() {
         return a(hzg);
     }
 
-    public boolean bHs() {
+    public boolean bHr() {
         return a(hzh);
     }
 

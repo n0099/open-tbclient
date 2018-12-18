@@ -71,11 +71,11 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         new a(uri, aVar5, headers) { // from class: com.baidu.searchbox.websocket.JavaWebSockeClientImpl$connect$1
             @Override // org.java_websocket.a.a
             public void onOpen(h hVar) {
-                Iterator<String> ccH;
+                Iterator<String> ccG;
                 HashMap hashMap = new HashMap();
-                if (hVar != null && (ccH = hVar.ccH()) != null) {
-                    while (ccH.hasNext()) {
-                        String next = ccH.next();
+                if (hVar != null && (ccG = hVar.ccG()) != null) {
+                    while (ccG.hasNext()) {
+                        String next = ccG.next();
                         hashMap.put(next, hVar.zM(next));
                     }
                 }

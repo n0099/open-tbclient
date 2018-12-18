@@ -13,7 +13,7 @@ public class d implements com.baidu.tbadk.coreExtra.a.c {
     private d() {
     }
 
-    public static synchronized d bfw() {
+    public static synchronized d bfv() {
         d dVar;
         synchronized (d.class) {
             if (fMX == null) {

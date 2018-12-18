@@ -48,8 +48,8 @@ public class CommitView extends FormItemBaseView {
     }
 
     private void init() {
+        buX();
         buY();
-        buZ();
         setBackgroundColor(0);
     }
 
@@ -57,7 +57,7 @@ public class CommitView extends FormItemBaseView {
         return this.gPu;
     }
 
-    private void buY() {
+    private void buX() {
         this.mCheckBox = new CheckBox(this.mContext, null, e.k.form_check_box_style);
         this.mCheckBox.setId(this.gPt);
         this.mCheckBox.setTextSize(0, (int) this.mResources.getDimension(e.C0210e.fontsize20));
@@ -82,7 +82,7 @@ public class CommitView extends FormItemBaseView {
         addView(this.mCheckBox, layoutParams);
     }
 
-    private void buZ() {
+    private void buY() {
         this.gPs = new Button(this.mContext);
         this.gPs.setGravity(17);
         this.gPs.setTextColor(this.gQb);
@@ -132,7 +132,7 @@ public class CommitView extends FormItemBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormCardView.a
-    public boolean bva() {
+    public boolean buZ() {
         return true;
     }
 

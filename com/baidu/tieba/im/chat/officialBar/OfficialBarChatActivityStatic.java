@@ -31,7 +31,7 @@ public class OfficialBarChatActivityStatic {
                         @Override // com.baidu.tbadk.util.w
                         /* renamed from: Ww */
                         public Void doInBackground() {
-                            return l.aQF().o(linkedList);
+                            return l.aQE().o(linkedList);
                         }
                     }, new h<Void>() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivityStatic.1.2
                         /* JADX DEBUG: Method merged with bridge method */

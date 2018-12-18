@@ -162,7 +162,7 @@ public class AiAppAbTestStatic {
             b.Xw();
             f.a(new d());
             if (com.baidu.pyramid.runtime.multiprocess.a.uL()) {
-                q.bRu();
+                q.bRt();
             }
             WebViewFactory.initOnAppStart(TbadkCoreApplication.getInst(), true, false);
             NgWebViewInitHelper.getInstance().initBWebkit();

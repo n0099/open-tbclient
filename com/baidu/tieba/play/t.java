@@ -9,7 +9,7 @@ public class t {
     private static boolean gEj = true;
     private static boolean gEk = true;
 
-    private static i brT() {
+    private static i brS() {
         if (gEi == null) {
             gEj = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("prefs_save_paled_video", true);
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016479, i.class);
@@ -22,57 +22,57 @@ public class t {
 
     public static String Z(String str, boolean z) {
         if (z) {
-            if (gEk && brT() != null) {
-                return brT().x(str, true);
+            if (gEk && brS() != null) {
+                return brS().x(str, true);
             }
             return str;
-        } else if (gEk && gEj && brT() != null) {
-            return brT().jA(str);
+        } else if (gEk && gEj && brS() != null) {
+            return brS().jA(str);
         } else {
             return str;
         }
     }
 
     public static String jB(String str) {
-        if (brT() != null) {
-            return brT().jB(str);
+        if (brS() != null) {
+            return brS().jB(str);
         }
         return null;
     }
 
     public static void g(Context context, String str, int i) {
-        if (brT() != null) {
-            brT().g(context, str, i);
+        if (brS() != null) {
+            brS().g(context, str, i);
         }
     }
 
     public static void as(Context context, String str) {
-        if (brT() != null) {
-            brT().as(context, str);
+        if (brS() != null) {
+            brS().as(context, str);
         }
     }
 
     public static void at(Context context, String str) {
-        if (gEk && gEj && brT() != null) {
-            brT().at(context, str);
+        if (gEk && gEj && brS() != null) {
+            brS().at(context, str);
         }
     }
 
     public static void jC(String str) {
-        if (gEk && gEj && brT() != null) {
-            brT().jC(str);
+        if (gEk && gEj && brS() != null) {
+            brS().jC(str);
         }
     }
 
     public static void clearCache(Context context) {
-        if (brT() != null) {
-            brT().clearCache(context);
+        if (brS() != null) {
+            brS().clearCache(context);
         }
     }
 
     public static String jD(String str) {
-        if (brT() != null) {
-            return brT().jD(str);
+        if (brS() != null) {
+            return brS().jD(str);
         }
         return null;
     }
@@ -81,7 +81,7 @@ public class t {
         gEj = z;
     }
 
-    public static void brU() {
+    public static void brT() {
         gEk = com.baidu.adp.lib.b.d.iQ().aO("android_video_cache_open") == 1;
     }
 }

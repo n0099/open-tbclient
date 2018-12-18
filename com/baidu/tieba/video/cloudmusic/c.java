@@ -8,7 +8,7 @@ public interface c {
     public interface a {
         void aDd();
 
-        void bIc();
+        void bIb();
     }
 
     /* loaded from: classes5.dex */

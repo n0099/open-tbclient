@@ -164,7 +164,7 @@ public class i {
 
     public static void b(TbPageContext tbPageContext, l lVar) {
         if (tbPageContext != null && lVar != null) {
-            com.baidu.tbadk.browser.a.a(tbPageContext.getPageActivity(), "福袋", TbConfig.SERVER_ADDRESS + TbConfig.FORTUNE_ADDRESS + "?fid=" + lVar.bgi().getId(), true, true, true);
+            com.baidu.tbadk.browser.a.a(tbPageContext.getPageActivity(), "福袋", TbConfig.SERVER_ADDRESS + TbConfig.FORTUNE_ADDRESS + "?fid=" + lVar.bgh().getId(), true, true, true);
         }
     }
 
@@ -230,7 +230,7 @@ public class i {
                 str = bbVar.avC.id;
                 str2 = valueOf;
             }
-            if (bbVar.Ad() > 0 && com.baidu.tieba.tbadkCore.util.e.bEr()) {
+            if (bbVar.Ad() > 0 && com.baidu.tieba.tbadkCore.util.e.bEq()) {
                 createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createHistoryCfg(bbVar.getTid(), String.valueOf(bbVar.Ad()), false, true, "frs_page");
             } else {
                 createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bbVar, frsFragment.getForumName(), "frs_page", 18003, true, false, z);

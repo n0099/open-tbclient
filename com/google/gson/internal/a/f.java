@@ -33,29 +33,29 @@ public final class f extends com.google.gson.stream.b {
         this.iuA = com.google.gson.j.itd;
     }
 
-    public com.google.gson.i caM() {
+    public com.google.gson.i caL() {
         if (!this.iuy.isEmpty()) {
             throw new IllegalStateException("Expected one JSON element but was " + this.iuy);
         }
         return this.iuA;
     }
 
-    private com.google.gson.i caN() {
+    private com.google.gson.i caM() {
         return this.iuy.get(this.iuy.size() - 1);
     }
 
     private void c(com.google.gson.i iVar) {
         if (this.iuz != null) {
-            if (!iVar.cah() || cbf()) {
-                ((com.google.gson.k) caN()).a(this.iuz, iVar);
+            if (!iVar.cag() || cbe()) {
+                ((com.google.gson.k) caM()).a(this.iuz, iVar);
             }
             this.iuz = null;
         } else if (this.iuy.isEmpty()) {
             this.iuA = iVar;
         } else {
-            com.google.gson.i caN = caN();
-            if (caN instanceof com.google.gson.f) {
-                ((com.google.gson.f) caN).b(iVar);
+            com.google.gson.i caM = caM();
+            if (caM instanceof com.google.gson.f) {
+                ((com.google.gson.f) caM).b(iVar);
                 return;
             }
             throw new IllegalStateException();
@@ -63,7 +63,7 @@ public final class f extends com.google.gson.stream.b {
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b caO() throws IOException {
+    public com.google.gson.stream.b caN() throws IOException {
         com.google.gson.f fVar = new com.google.gson.f();
         c(fVar);
         this.iuy.add(fVar);
@@ -71,11 +71,11 @@ public final class f extends com.google.gson.stream.b {
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b caP() throws IOException {
+    public com.google.gson.stream.b caO() throws IOException {
         if (this.iuy.isEmpty() || this.iuz != null) {
             throw new IllegalStateException();
         }
-        if (caN() instanceof com.google.gson.f) {
+        if (caM() instanceof com.google.gson.f) {
             this.iuy.remove(this.iuy.size() - 1);
             return this;
         }
@@ -83,7 +83,7 @@ public final class f extends com.google.gson.stream.b {
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b caQ() throws IOException {
+    public com.google.gson.stream.b caP() throws IOException {
         com.google.gson.k kVar = new com.google.gson.k();
         c(kVar);
         this.iuy.add(kVar);
@@ -91,11 +91,11 @@ public final class f extends com.google.gson.stream.b {
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b caR() throws IOException {
+    public com.google.gson.stream.b caQ() throws IOException {
         if (this.iuy.isEmpty() || this.iuz != null) {
             throw new IllegalStateException();
         }
-        if (caN() instanceof com.google.gson.k) {
+        if (caM() instanceof com.google.gson.k) {
             this.iuy.remove(this.iuy.size() - 1);
             return this;
         }
@@ -107,7 +107,7 @@ public final class f extends com.google.gson.stream.b {
         if (this.iuy.isEmpty() || this.iuz != null) {
             throw new IllegalStateException();
         }
-        if (caN() instanceof com.google.gson.k) {
+        if (caM() instanceof com.google.gson.k) {
             this.iuz = str;
             return this;
         }
@@ -117,14 +117,14 @@ public final class f extends com.google.gson.stream.b {
     @Override // com.google.gson.stream.b
     public com.google.gson.stream.b zu(String str) throws IOException {
         if (str == null) {
-            return caS();
+            return caR();
         }
         c(new com.google.gson.l(str));
         return this;
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b caS() throws IOException {
+    public com.google.gson.stream.b caR() throws IOException {
         c(com.google.gson.j.itd);
         return this;
     }
@@ -138,7 +138,7 @@ public final class f extends com.google.gson.stream.b {
     @Override // com.google.gson.stream.b
     public com.google.gson.stream.b k(Boolean bool) throws IOException {
         if (bool == null) {
-            return caS();
+            return caR();
         }
         c(new com.google.gson.l(bool));
         return this;
@@ -153,7 +153,7 @@ public final class f extends com.google.gson.stream.b {
     @Override // com.google.gson.stream.b
     public com.google.gson.stream.b b(Number number) throws IOException {
         if (number == null) {
-            return caS();
+            return caR();
         }
         if (!isLenient()) {
             double doubleValue = number.doubleValue();

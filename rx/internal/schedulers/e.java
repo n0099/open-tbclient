@@ -30,7 +30,7 @@ public final class e extends rx.g {
         @Override // rx.g.a
         public k a(rx.functions.a aVar) {
             aVar.call();
-            return rx.subscriptions.e.cfu();
+            return rx.subscriptions.e.cft();
         }
 
         @Override // rx.k

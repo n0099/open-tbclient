@@ -21,27 +21,27 @@ public class r {
         com.baidu.adp.lib.g.e.jG().postDelayed(this.gEe, 500L);
     }
 
-    public void brM() {
+    public void brL() {
         this.gEb = true;
     }
 
-    public void brN() {
+    public void brM() {
         com.baidu.adp.lib.g.e.jG().removeCallbacks(this.gEd);
         com.baidu.adp.lib.g.e.jG().postDelayed(this.gEd, 500L);
     }
 
     public void a(int i, int i2, com.baidu.tieba.j.i iVar) {
         if ((i == 701 || i2 == 701) && iVar != null && !this.gEb && !this.gEc) {
-            iVar.bcx();
+            iVar.bcw();
         } else if ((i == 702 || i2 == 702) && iVar != null && !this.gEb && !this.gEc) {
-            iVar.bcy();
+            iVar.bcx();
             this.gEb = false;
             this.gEc = false;
-            brO();
+            brN();
         }
     }
 
-    public void brO() {
+    public void brN() {
         com.baidu.adp.lib.g.e.jG().removeCallbacks(this.gEd);
         com.baidu.adp.lib.g.e.jG().removeCallbacks(this.gEe);
     }

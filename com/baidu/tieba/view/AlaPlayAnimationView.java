@@ -44,7 +44,7 @@ public class AlaPlayAnimationView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bLX();
+        bLW();
     }
 
     public void setAutoStartPlay(boolean z) {
@@ -61,7 +61,7 @@ public class AlaPlayAnimationView extends ImageView {
         }
     }
 
-    public void bLX() {
+    public void bLW() {
         if (this.hMt != null) {
             this.hMt.setRepeatCount(-1);
             this.hMt.cancel();

@@ -27,13 +27,13 @@ public class at {
             if (b != null) {
                 this.geN.or(true);
                 this.geP.setText(b);
-                if (z && this.geN.bMW() >= 0) {
+                if (z && this.geN.bMV() >= 0) {
                     this.geP.requestFocus();
-                    this.geP.setSelection(this.geN.bMW());
+                    this.geP.setSelection(this.geN.bMV());
                 } else {
                     this.geP.setSelection(selectionEnd);
                 }
-                this.geN.oq(this.geN.bMW() >= 0);
+                this.geN.oq(this.geN.bMV() >= 0);
             }
         }
     }
@@ -45,24 +45,24 @@ public class at {
             if (b != null) {
                 this.geO.or(true);
                 this.geQ.setText(b);
-                if (z && this.geO.bMW() >= 0) {
+                if (z && this.geO.bMV() >= 0) {
                     this.geQ.requestFocus();
-                    this.geQ.setSelection(this.geO.bMW());
+                    this.geQ.setSelection(this.geO.bMV());
                 } else {
                     this.geQ.setSelection(selectionEnd);
                 }
-                this.geO.oq(this.geO.bMW() >= 0);
+                this.geO.oq(this.geO.bMV() >= 0);
             }
         }
     }
 
-    public void blL() {
+    public void blK() {
         this.geO.xr(null);
         this.geO.az(null);
         this.geO.oq(false);
     }
 
-    public void blM() {
+    public void blL() {
         this.geN.xr(null);
         this.geN.az(null);
         this.geN.oq(false);
@@ -72,7 +72,7 @@ public class at {
         if (postWriteCallBackData != null) {
             this.geN.az(postWriteCallBackData.getSensitiveWords());
             this.geN.xr(postWriteCallBackData.getErrorString());
-            if (!com.baidu.tbadk.core.util.v.I(this.geN.bMV())) {
+            if (!com.baidu.tbadk.core.util.v.I(this.geN.bMU())) {
                 lx(true);
                 this.fXG = postWriteCallBackData;
             }
@@ -83,7 +83,7 @@ public class at {
         if (postWriteCallBackData != null) {
             this.geO.az(postWriteCallBackData.getSensitiveWords());
             this.geO.xr(postWriteCallBackData.getErrorString());
-            if (!com.baidu.tbadk.core.util.v.I(this.geO.bMV())) {
+            if (!com.baidu.tbadk.core.util.v.I(this.geO.bMU())) {
                 ly(true);
             }
         }
@@ -105,27 +105,27 @@ public class at {
     public void onChangeSkinType() {
         this.geN.onChangeSkinType();
         this.geO.onChangeSkinType();
-        if (this.geN.bMX()) {
+        if (this.geN.bMW()) {
             lx(false);
         }
-        if (this.geO.bMX()) {
+        if (this.geO.bMW()) {
             ly(false);
         }
     }
 
-    public com.baidu.tieba.write.b blN() {
+    public com.baidu.tieba.write.b blM() {
         return this.geN;
     }
 
-    public com.baidu.tieba.write.b blO() {
+    public com.baidu.tieba.write.b blN() {
         return this.geO;
     }
 
-    public EditText blP() {
+    public EditText blO() {
         return this.geQ;
     }
 
-    public PostWriteCallBackData blQ() {
+    public PostWriteCallBackData blP() {
         return this.fXG;
     }
 }

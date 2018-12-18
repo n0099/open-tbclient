@@ -26,7 +26,7 @@ public class CoreSearchRequestStatic {
     }
 
     private static void auY() {
-        c.bDL();
+        c.bDK();
         if (dog == null) {
             dog = new EnterForumModel(null);
             dog.a(new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.CoreSearchRequestStatic.1

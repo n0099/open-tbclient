@@ -75,7 +75,7 @@ public class FrsActivityStatic {
         aAj();
         aAk();
         aAl();
-        LocationModel.bEc();
+        LocationModel.bEb();
         aAp();
         aAn();
         aAq();
@@ -218,11 +218,11 @@ public class FrsActivityStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001012) {
                     com.baidu.tieba.frs.smartsort.a.aGB().aGD();
-                    if (com.baidu.tieba.recapp.r.buz().but() != null) {
-                        com.baidu.tieba.recapp.r.buz().but().buk();
+                    if (com.baidu.tieba.recapp.r.buy().bus() != null) {
+                        com.baidu.tieba.recapp.r.buy().bus().buj();
                     }
-                    if (com.baidu.tieba.recapp.r.buz().buu() != null) {
-                        com.baidu.tieba.recapp.r.buz().buu().bul();
+                    if (com.baidu.tieba.recapp.r.buy().but() != null) {
+                        com.baidu.tieba.recapp.r.buy().but().buk();
                     }
                 }
             }

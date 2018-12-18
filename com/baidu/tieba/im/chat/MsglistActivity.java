@@ -13,11 +13,11 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     protected abstract boolean v(Bundle bundle);
 
     @Override // com.baidu.tieba.im.chat.d
-    public void aOk() {
-        aNM();
+    public void aOj() {
+        aNL();
     }
 
-    public void aNM() {
+    public void aNL() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,10 +33,10 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         if (this.eIR != null) {
             this.eIR.setImageUploadUIProgressCallback(this.eIW);
         }
-        aOq();
+        aOp();
         if (a((d) this)) {
             loadDraft();
-            aNK();
+            aNJ();
             j.eIP = com.baidu.tbadk.util.i.PP();
         }
     }
@@ -55,7 +55,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
         initView();
         adjustResizeForSoftInput(e.d.common_color_10022, false);
-        aOq();
+        aOp();
         if (a((d) this)) {
             loadDraft();
         }
@@ -76,12 +76,12 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         super.onResume();
         if (this.eIQ != null) {
             this.eIQ.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            aNH();
+            aNG();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aNH() {
+    public void aNG() {
         if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
             this.eIQ.showReceiver();
         } else {
@@ -97,14 +97,14 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        aNL();
+        aNK();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void aNJ() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void aNK() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void aNL() {
     }
 }

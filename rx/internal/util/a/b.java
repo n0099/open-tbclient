@@ -12,7 +12,7 @@ abstract class b<E> extends d<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final LinkedQueueNode<E> cez() {
+    public final LinkedQueueNode<E> cey() {
         return (LinkedQueueNode) ae.iMJ.getObjectVolatile(this, iMw);
     }
 }

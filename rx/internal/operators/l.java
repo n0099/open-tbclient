@@ -65,7 +65,7 @@ public final class l<T, R> implements d.a<R> {
                 this.queue = new rx.internal.util.atomic.d(rx.internal.util.h.SIZE);
             } else {
                 this.iCD = i - (i >> 2);
-                if (rx.internal.util.a.ae.ceG()) {
+                if (rx.internal.util.a.ae.ceF()) {
                     this.queue = new rx.internal.util.a.q(i);
                 } else {
                     this.queue = new rx.internal.util.atomic.c(i);

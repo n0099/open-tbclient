@@ -81,7 +81,7 @@ public class f extends com.baidu.tieba.card.a<g> {
             } else {
                 this.gsJ.setImageDrawable(al.getDrawable(e.f.icon_crown_super_non));
             }
-            boL();
+            boK();
             String name_show = this.mUserData.getName_show();
             if (!TextUtils.isEmpty(name_show)) {
                 this.aKT.setText(name_show);
@@ -92,12 +92,12 @@ public class f extends com.baidu.tieba.card.a<g> {
             }
             this.aKT.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, this.mContext.getResources().getDrawable(i), (Drawable) null);
             this.gsK.setText(getContext().getString(e.j.person_center_default_introduce));
-            boM();
+            boL();
             d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void boL() {
+    private void boK() {
         if (this.mUserData != null && (this.mUserData.getIsMem() > 0 || this.mUserData.isBigV())) {
             al.c(this.aKT, e.d.cp_cont_h, 1);
         } else {
@@ -105,7 +105,7 @@ public class f extends com.baidu.tieba.card.a<g> {
         }
     }
 
-    private void boM() {
+    private void boL() {
         al.h(this.gsK, e.d.cp_cont_j);
     }
 

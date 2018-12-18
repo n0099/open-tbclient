@@ -117,7 +117,7 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
 
     private void C(VideoPlayFragment videoPlayFragment) {
         if (videoPlayFragment != null) {
-            this.hLF = videoPlayFragment.bLB();
+            this.hLF = videoPlayFragment.bLA();
         }
     }
 
@@ -127,7 +127,7 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
         this.mRect = rect;
     }
 
-    public void bLF() {
+    public void bLE() {
         int i = b.getInstance().getInt("nani_key_download_show_rate", 2);
         if (this.hLF > 0 && i != 1) {
             b.getInstance().putLong("key_vertical_shown_time", this.hLF);
@@ -145,7 +145,7 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
             List<String> mediaIDs = videoPlayFragment.getMediaIDs();
             if (v.H(mediaIDs) >= 5) {
                 list = mediaIDs;
-                str = videoPlayFragment.bLD();
+                str = videoPlayFragment.bLC();
             } else {
                 return;
             }
@@ -153,15 +153,15 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
             list = null;
             str = null;
         }
-        String bLD = (i + (-1) < 0 || (wJ2 = wJ(i + (-1))) == null) ? null : wJ2.bLD();
+        String bLC = (i + (-1) < 0 || (wJ2 = wJ(i + (-1))) == null) ? null : wJ2.bLC();
         if (i + 1 < getCount() && (wJ = wJ(i + 1)) != null) {
-            str2 = wJ.bLD();
+            str2 = wJ.bLC();
         }
         ArrayList arrayList = new ArrayList();
         int H = v.H(list);
         for (int i2 = 0; i2 < H; i2++) {
             String str3 = list.get(i2);
-            if (!TextUtils.equals(str3, str) && !TextUtils.equals(str3, bLD) && !TextUtils.equals(str3, str2)) {
+            if (!TextUtils.equals(str3, str) && !TextUtils.equals(str3, bLC) && !TextUtils.equals(str3, str2)) {
                 arrayList.add(str3);
             }
         }

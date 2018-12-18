@@ -22,7 +22,7 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
     public rx.j<? super T> call(rx.j<? super rx.d<T>> jVar) {
         b bVar = new b(jVar, this.iJw);
         jVar.add(bVar);
-        bVar.cdX();
+        bVar.cdW();
         return bVar;
     }
 
@@ -118,7 +118,7 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
             if (list != null) {
                 for (Object obj : list) {
                     if (obj == ci.iJr) {
-                        cdV();
+                        cdU();
                     } else if (NotificationLite.ba(obj)) {
                         error(NotificationLite.bc(obj));
                         return;
@@ -132,19 +132,19 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
             }
         }
 
-        void cdV() {
+        void cdU() {
             rx.e<T> eVar = this.iJt;
             if (eVar != null) {
                 eVar.onCompleted();
             }
-            cdW();
+            cdV();
             this.child.onNext(this.iJu);
         }
 
-        void cdW() {
-            UnicastSubject cfm = UnicastSubject.cfm();
-            this.iJt = cfm;
-            this.iJu = cfm;
+        void cdV() {
+            UnicastSubject cfl = UnicastSubject.cfl();
+            this.iJt = cfl;
+            this.iJu = cfl;
             try {
                 rx.d<? extends U> call = this.iJw.call();
                 a aVar = new a(this);
@@ -183,7 +183,7 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
                     if (this.iJv == null) {
                         this.iJv = new ArrayList();
                     }
-                    this.iJv.add(NotificationLite.cdh());
+                    this.iJv.add(NotificationLite.cdg());
                     return;
                 }
                 List<Object> list = this.iJv;
@@ -198,7 +198,7 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
             }
         }
 
-        void cdX() {
+        void cdW() {
             boolean z = true;
             boolean z2 = false;
             synchronized (this.guard) {
@@ -218,7 +218,7 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
                     try {
                         eC(list2);
                         if (z3) {
-                            cdV();
+                            cdU();
                             z3 = false;
                         }
                         try {
@@ -302,7 +302,7 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
         public void onNext(U u) {
             if (!this.done) {
                 this.done = true;
-                this.iJx.cdX();
+                this.iJx.cdW();
             }
         }
 

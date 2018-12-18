@@ -25,8 +25,8 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public void aNH() {
-        super.aNH();
+    public void aNG() {
+        super.aNG();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -56,7 +56,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean aNJ() {
+    public boolean aNI() {
         UserData user;
         return (!(this.eIR instanceof CommonPersonalMsglistModel) || (user = ((CommonPersonalMsglistModel) this.eIR).getUser()) == null || user.getUserIdLong() == 0) ? false : true;
     }
@@ -68,7 +68,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aNI() {
+    public void aNH() {
         Intent intent = getIntent();
         boolean booleanExtra = intent.getBooleanExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
         if (this.eIR != null) {
@@ -84,7 +84,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         super.a(view, i, i2, j);
         switch (i) {
             case 7:
-                if (aOt() && this.eIR != null && (msg = this.eIR.getMsg(i2)) != null && com.baidu.tieba.im.util.e.u(msg) && (content = msg.getContent()) != null) {
+                if (aOs() && this.eIR != null && (msg = this.eIR.getMsg(i2)) != null && com.baidu.tieba.im.util.e.u(msg) && (content = msg.getContent()) != null) {
                     JSONObject jSONObject = null;
                     try {
                         JSONArray jSONArray = new JSONArray(content);

@@ -34,7 +34,7 @@ public class h extends BaseAdapter {
     private boolean fKq = false;
     private boolean hSo = true;
 
-    public TbCameraView bNN() {
+    public TbCameraView bNM() {
         if (this.hSu != null) {
             return this.hSu.hSw;
         }
@@ -50,7 +50,7 @@ public class h extends BaseAdapter {
     public void setData(List<MediaFileInfo> list) {
         this.mDataList.clear();
         if (this.hSo) {
-            this.mDataList.add(bNO());
+            this.mDataList.add(bNN());
         }
         if (!v.I(list)) {
             this.mDataList.addAll(list);
@@ -58,7 +58,7 @@ public class h extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    private MediaFileInfo bNO() {
+    private MediaFileInfo bNN() {
         return new AddMediaInfo();
     }
 

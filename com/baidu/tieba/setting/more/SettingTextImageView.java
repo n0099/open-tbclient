@@ -42,13 +42,13 @@ public class SettingTextImageView extends FrameLayout {
         this.gYr.invalidate();
     }
 
-    public void byq() {
+    public void byp() {
         if (this.gYr != null) {
             this.gYr.setVisibility(8);
         }
     }
 
-    public void byr() {
+    public void byq() {
         if (this.gYr != null) {
             this.gYr.setVisibility(0);
         }

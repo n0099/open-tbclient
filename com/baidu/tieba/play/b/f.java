@@ -12,12 +12,12 @@ public class f {
         this.mList.add(new a(str, str2, str3));
     }
 
-    public String bsl() {
+    public String bsk() {
         JSONObject jSONObject = new JSONObject();
         try {
             int size = this.mList.size();
             for (int i = 0; i < size; i++) {
-                jSONObject.put(i + "", this.mList.get(i).bsm());
+                jSONObject.put(i + "", this.mList.get(i).bsl());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -37,7 +37,7 @@ public class f {
             this.gFp = str3;
         }
 
-        public JSONObject bsm() {
+        public JSONObject bsl() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("uuid", this.uuid);

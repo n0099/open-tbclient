@@ -64,7 +64,7 @@ public class d implements b {
             VideoFinishResult videoFinishResult2 = new VideoFinishResult();
             videoFinishResult2.setVideoMd5(this.WW);
             videoFinishResult2.setVideoUrl(b2.aEN);
-            bEx();
+            bEw();
             return videoFinishResult2;
         } else if (this.mCancelled) {
             return null;
@@ -93,7 +93,7 @@ public class d implements b {
                 VideoFinishResult videoFinishResult4 = new VideoFinishResult();
                 videoFinishResult4.setVideoUrl(b3.videoUrl);
                 videoFinishResult4.setVideoMd5(this.WW);
-                bEx();
+                bEw();
                 return videoFinishResult4;
             } else if (this.mCancelled || (b = b(this.hoo, i, true, str2)) == null) {
                 return null;
@@ -102,7 +102,7 @@ public class d implements b {
                 if (b.dPc == 0) {
                     videoFinishResult5.setVideoUrl(b.aEN);
                     videoFinishResult5.setVideoMd5(this.WW);
-                    bEx();
+                    bEw();
                 } else {
                     videoFinishResult5.setErrorNo(b.dPc);
                     videoFinishResult5.setUserMessage(b.mErrorMessage);
@@ -186,9 +186,9 @@ public class d implements b {
         }
     }
 
-    private void bEx() {
+    private void bEw() {
         if (this.hor != null) {
-            this.hor.bcr();
+            this.hor.bcq();
         }
     }
 }

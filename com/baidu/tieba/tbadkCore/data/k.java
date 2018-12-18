@@ -42,11 +42,11 @@ public class k {
         return this.text;
     }
 
-    public String bDc() {
+    public String bDb() {
         return this.c;
     }
 
-    public SpannableStringBuilder bDd() {
+    public SpannableStringBuilder bDc() {
         return this.hlg;
     }
 

@@ -16,27 +16,27 @@ public class h {
     private a hbJ = new a();
     private ArrayList<i> hcR = new ArrayList<>();
 
-    public int bzZ() {
+    public int bzY() {
         return this.hbn;
     }
 
-    public String bzx() {
+    public String bzw() {
         return this.hbo;
     }
 
-    public a bzz() {
+    public a bzy() {
         return this.hbJ;
     }
 
-    public ArrayList<i> bAa() {
+    public ArrayList<i> bzZ() {
         return this.hcR;
     }
 
-    public int bAb() {
+    public int bAa() {
         return this.hcP;
     }
 
-    public String bAc() {
+    public String bAb() {
         return this.hcQ;
     }
 

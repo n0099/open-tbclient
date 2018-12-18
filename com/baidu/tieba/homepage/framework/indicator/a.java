@@ -7,7 +7,7 @@ import com.baidu.tieba.e;
 public class a {
     private int etK;
     private int etL;
-    private int etM;
+    private int etM = -1;
     private int etN;
     private int etO;
     private int etP;
@@ -15,7 +15,6 @@ public class a {
     public a() {
         this.etK = -1;
         this.etL = -1;
-        this.etM = -1;
         this.etN = -1;
         this.etO = -1;
         this.etP = 1;
@@ -23,18 +22,9 @@ public class a {
         this.etK = i == 0 ? 0 : 1;
         this.etL = i == 0 ? 1 : 0;
         this.etP = i != 0 ? 0 : 1;
-        int aKP = aKP();
-        int i2 = 2;
-        int i3 = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("ribao_switch", 0);
-        if ((aKP & 1) > 0) {
-            this.etN = i3 == 0 ? 2 : -1;
-            this.etO = i3 != 0 ? 2 : -1;
-            i2 = 3;
-        }
-        if ((aKP & 8) > 0) {
-            this.etM = i2;
-            int i4 = i2 + 1;
-        }
+        int i2 = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("ribao_switch", 0);
+        this.etN = i2 == 0 ? 2 : -1;
+        this.etO = i2 != 0 ? 2 : -1;
     }
 
     public int oC(int i) {
@@ -75,10 +65,6 @@ public class a {
 
     public int aKO() {
         return this.etP;
-    }
-
-    private int aKP() {
-        return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("recommend_tab_show", 7);
     }
 
     public String p(Context context, int i) {

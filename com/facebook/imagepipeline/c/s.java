@@ -35,7 +35,7 @@ public class s implements r {
             return bolts.g.a(new Callable<com.facebook.imagepipeline.request.a>() { // from class: com.facebook.imagepipeline.c.s.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
-                /* renamed from: bVZ */
+                /* renamed from: bVY */
                 public com.facebook.imagepipeline.request.a call() throws Exception {
                     return s.this.b(str, c0366a);
                 }
@@ -48,7 +48,7 @@ public class s implements r {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [130=4] */
     protected com.facebook.imagepipeline.request.a b(String str, a.C0366a c0366a) {
-        com.facebook.imagepipeline.request.a bZV;
+        com.facebook.imagepipeline.request.a bZU;
         Cursor cursor = null;
         synchronized (s.class) {
             try {
@@ -59,7 +59,7 @@ public class s implements r {
                 Cursor query = this.ilY.getWritableDatabase().query("media_variations_index", PROJECTION, "media_id = ?", new String[]{str}, null, null, null);
                 try {
                     if (query.getCount() == 0) {
-                        bZV = c0366a.bZV();
+                        bZU = c0366a.bZU();
                         if (query != null) {
                             query.close();
                         }
@@ -72,7 +72,7 @@ public class s implements r {
                             String string = query.getString(columnIndexOrThrow4);
                             c0366a.a(Uri.parse(query.getString(columnIndexOrThrow)), query.getInt(columnIndexOrThrow2), query.getInt(columnIndexOrThrow3), TextUtils.isEmpty(string) ? null : ImageRequest.CacheChoice.valueOf(string));
                         }
-                        bZV = c0366a.bZV();
+                        bZU = c0366a.bZU();
                         if (query != null) {
                             query.close();
                         }
@@ -92,7 +92,7 @@ public class s implements r {
                 throw th;
             }
         }
-        return bZV;
+        return bZU;
     }
 
     @Override // com.facebook.imagepipeline.c.r

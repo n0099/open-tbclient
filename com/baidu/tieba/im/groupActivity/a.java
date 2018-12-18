@@ -88,8 +88,8 @@ public class a extends c<BaseFragmentActivity> {
         this.mDay = calendar.get(5);
         this.mHour = calendar.get(11);
         this.mMinute = calendar.get(12);
-        aRH();
         aRG();
+        aRF();
         this.eRs.ShowSoftKeyPadDelay(this.eRt, 500);
         this.eRy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupActivity.a.1
             @Override // android.view.View.OnClickListener
@@ -109,7 +109,7 @@ public class a extends c<BaseFragmentActivity> {
                             a.this.mMonth = i2;
                             a.this.mDay = i3;
                             g.b(a.this.eRA, a.this.eRs.getPageContext());
-                            a.this.aRH();
+                            a.this.aRG();
                             a.this.eRE = true;
                         }
                     };
@@ -129,7 +129,7 @@ public class a extends c<BaseFragmentActivity> {
                             a.this.mHour = i;
                             a.this.mMinute = i2;
                             g.b(a.this.eRB, a.this.eRs.getPageContext());
-                            a.this.aRG();
+                            a.this.aRF();
                             a.this.eRE = true;
                         }
                     };
@@ -194,7 +194,7 @@ public class a extends c<BaseFragmentActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aRG() {
+    public void aRF() {
         if (this.mHour > 12) {
             this.eRz.setText(this.eRs.getResources().getString(e.j.afternoon) + " " + (this.mHour - 12) + ":" + (this.mMinute < 10 ? "0" : "") + this.mMinute);
         } else {
@@ -203,7 +203,7 @@ public class a extends c<BaseFragmentActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aRH() {
+    public void aRG() {
         this.eRy.setText(this.mYear + Constants.ACCEPT_TIME_SEPARATOR_SERVER + (this.mMonth + 1) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mDay + " " + ao.m(this.mYear, this.mMonth, this.mDay));
     }
 
@@ -213,11 +213,11 @@ public class a extends c<BaseFragmentActivity> {
         this.eRw.removeTextChangedListener(this.eRD);
     }
 
-    public View aRI() {
+    public View aRH() {
         return this.eHK;
     }
 
-    public TextView aRJ() {
+    public TextView aRI() {
         return this.eRv;
     }
 
@@ -225,7 +225,7 @@ public class a extends c<BaseFragmentActivity> {
         return this.eRt.getText().toString();
     }
 
-    public String aRK() {
+    public String aRJ() {
         return this.eRw.getText().toString();
     }
 
@@ -260,8 +260,8 @@ public class a extends c<BaseFragmentActivity> {
         this.mDay = date.getDate();
         this.mHour = date.getHours();
         this.mMinute = date.getMinutes();
-        aRH();
         aRG();
+        aRF();
     }
 
     public void onChangeSkinType(int i) {
@@ -288,7 +288,7 @@ public class a extends c<BaseFragmentActivity> {
         this.mNavigationBar.setTitleText(e.j.group_activity_create);
     }
 
-    public boolean aRL() {
+    public boolean aRK() {
         return this.eRE;
     }
 }

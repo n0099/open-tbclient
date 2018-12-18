@@ -17,7 +17,7 @@ public class a {
     /* renamed from: com.baidu.tieba.video.editvideo.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     public interface InterfaceC0325a {
-        void bIa();
+        void bHZ();
 
         void cR(String str, String str2);
 
@@ -27,7 +27,7 @@ public class a {
     private a() {
     }
 
-    public static a bIM() {
+    public static a bIL() {
         if (hCj == null) {
             synchronized (a.class) {
                 if (hCj == null) {
@@ -45,7 +45,7 @@ public class a {
         }
         if (this.hCk == null) {
             this.hCk = new HashMap<>();
-            bIN();
+            bIM();
             if (this.hCk.size() > 0) {
                 return this.hCk.get(fK);
             }
@@ -54,7 +54,7 @@ public class a {
         return this.hCk.get(fK);
     }
 
-    public void bIN() {
+    public void bIM() {
         if (this.hCk == null) {
             this.hCk = new HashMap<>();
         } else {
@@ -102,7 +102,7 @@ public class a {
                             a.this.hCl = null;
                         }
                         if (interfaceC0325a != null) {
-                            interfaceC0325a.bIa();
+                            interfaceC0325a.bHZ();
                         }
                     }
                 }
@@ -149,7 +149,7 @@ public class a {
         }
     }
 
-    public void bIO() {
+    public void bIN() {
         if (this.hCl != null) {
             d.LR().u(this.hCl.getUrl(), true);
         }

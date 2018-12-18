@@ -57,9 +57,9 @@ public class QRCodeScanActivity extends BaseActivity implements View.OnClickList
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         super.onStart();
+        this.gIA.btP();
+        this.gIA.btN();
         this.gIA.btQ();
-        this.gIA.btO();
-        this.gIA.btR();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -102,23 +102,23 @@ public class QRCodeScanActivity extends BaseActivity implements View.OnClickList
     }
 
     @Override // com.baidu.tieba.qrcode.activity.a
-    public void btF() {
-        btH();
+    public void btE() {
+        btG();
         this.gID.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.qrcode.activity.a
-    public void btG() {
+    public void btF() {
         showProgressBar();
     }
 
     @Override // com.baidu.tieba.qrcode.activity.a
-    public void btH() {
+    public void btG() {
         hideProgressBar();
     }
 
     @Override // com.baidu.tieba.qrcode.activity.a
-    public void btI() {
+    public void btH() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
         aVar.bm(true);
         aVar.bl(true);
@@ -127,14 +127,14 @@ public class QRCodeScanActivity extends BaseActivity implements View.OnClickList
         aVar.a(getPageContext().getString(e.j.confirm), new a.b() { // from class: com.baidu.tieba.qrcode.activity.QRCodeScanActivity.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                QRCodeScanActivity.this.gIA.btR();
+                QRCodeScanActivity.this.gIA.btQ();
                 aVar2.dismiss();
             }
         });
         aVar.a(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.qrcode.activity.QRCodeScanActivity.2
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                QRCodeScanActivity.this.gIA.btR();
+                QRCodeScanActivity.this.gIA.btQ();
             }
         });
         aVar.b(getPageContext()).BF();

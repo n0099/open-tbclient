@@ -22,7 +22,7 @@ public class f {
         }
     }
 
-    public String bgN() {
+    public String bgM() {
         return this.rankUrl;
     }
 

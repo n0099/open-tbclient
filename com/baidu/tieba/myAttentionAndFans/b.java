@@ -18,7 +18,7 @@ public abstract class b extends BaseAdapter {
         this.mData.clear();
     }
 
-    public void bda() {
+    public void bcZ() {
         this.fFM = false;
         if (this.mData != null && this.mData.size() == 0) {
             this.fFM = true;

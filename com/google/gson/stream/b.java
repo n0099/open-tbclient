@@ -70,7 +70,7 @@ public class b implements Closeable, Flushable {
         this.isU = z;
     }
 
-    public final boolean cbe() {
+    public final boolean cbd() {
         return this.isU;
     }
 
@@ -78,46 +78,46 @@ public class b implements Closeable, Flushable {
         this.isT = z;
     }
 
-    public final boolean cbf() {
+    public final boolean cbe() {
         return this.isT;
     }
 
-    public b caO() throws IOException {
-        cbh();
+    public b caN() throws IOException {
+        cbg();
         return aq(1, "[");
     }
 
-    public b caP() throws IOException {
+    public b caO() throws IOException {
         return j(1, 2, "]");
     }
 
-    public b caQ() throws IOException {
-        cbh();
+    public b caP() throws IOException {
+        cbg();
         return aq(3, "{");
     }
 
-    public b caR() throws IOException {
+    public b caQ() throws IOException {
         return j(3, 5, "}");
     }
 
     private b aq(int i, String str) throws IOException {
-        cbk();
+        cbj();
         yU(i);
         this.out.write(str);
         return this;
     }
 
     private b j(int i, int i2, String str) throws IOException {
-        int cbg = cbg();
-        if (cbg != i2 && cbg != i) {
+        int cbf = cbf();
+        if (cbf != i2 && cbf != i) {
             throw new IllegalStateException("Nesting problem.");
         }
         if (this.iwA != null) {
             throw new IllegalStateException("Dangling name: " + this.iwA);
         }
         this.iut--;
-        if (cbg == i2) {
-            cbi();
+        if (cbf == i2) {
+            cbh();
         }
         this.out.write(str);
         return this;
@@ -135,7 +135,7 @@ public class b implements Closeable, Flushable {
         iArr2[i2] = i;
     }
 
-    private int cbg() {
+    private int cbf() {
         if (this.iut == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
@@ -160,9 +160,9 @@ public class b implements Closeable, Flushable {
         return this;
     }
 
-    private void cbh() throws IOException {
+    private void cbg() throws IOException {
         if (this.iwA != null) {
-            cbj();
+            cbi();
             zx(this.iwA);
             this.iwA = null;
         }
@@ -170,62 +170,62 @@ public class b implements Closeable, Flushable {
 
     public b zu(String str) throws IOException {
         if (str == null) {
-            return caS();
+            return caR();
         }
-        cbh();
-        cbk();
+        cbg();
+        cbj();
         zx(str);
         return this;
     }
 
-    public b caS() throws IOException {
+    public b caR() throws IOException {
         if (this.iwA != null) {
             if (this.isT) {
-                cbh();
+                cbg();
             } else {
                 this.iwA = null;
                 return this;
             }
         }
-        cbk();
+        cbj();
         this.out.write("null");
         return this;
     }
 
     public b pd(boolean z) throws IOException {
-        cbh();
-        cbk();
+        cbg();
+        cbj();
         this.out.write(z ? "true" : ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE);
         return this;
     }
 
     public b k(Boolean bool) throws IOException {
         if (bool == null) {
-            return caS();
+            return caR();
         }
-        cbh();
-        cbk();
+        cbg();
+        cbj();
         this.out.write(bool.booleanValue() ? "true" : ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE);
         return this;
     }
 
     public b dx(long j) throws IOException {
-        cbh();
-        cbk();
+        cbg();
+        cbj();
         this.out.write(Long.toString(j));
         return this;
     }
 
     public b b(Number number) throws IOException {
         if (number == null) {
-            return caS();
+            return caR();
         }
-        cbh();
+        cbg();
         String obj = number.toString();
         if (!this.isX && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals("NaN"))) {
             throw new IllegalArgumentException("Numeric values must be finite, but was " + number);
         }
-        cbk();
+        cbj();
         this.out.append((CharSequence) obj);
         return this;
     }
@@ -286,7 +286,7 @@ public class b implements Closeable, Flushable {
         this.out.write("\"");
     }
 
-    private void cbi() throws IOException {
+    private void cbh() throws IOException {
         if (this.iwz != null) {
             this.out.write("\n");
             int i = this.iut;
@@ -296,27 +296,27 @@ public class b implements Closeable, Flushable {
         }
     }
 
-    private void cbj() throws IOException {
-        int cbg = cbg();
-        if (cbg == 5) {
+    private void cbi() throws IOException {
+        int cbf = cbf();
+        if (cbf == 5) {
             this.out.write(44);
-        } else if (cbg != 3) {
+        } else if (cbf != 3) {
             throw new IllegalStateException("Nesting problem.");
         }
-        cbi();
+        cbh();
         yW(4);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private void cbk() throws IOException {
-        switch (cbg()) {
+    private void cbj() throws IOException {
+        switch (cbf()) {
             case 1:
                 yW(2);
-                cbi();
+                cbh();
                 return;
             case 2:
                 this.out.append(',');
-                cbi();
+                cbh();
                 return;
             case 3:
             case 5:

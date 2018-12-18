@@ -40,7 +40,7 @@ public class e implements c {
     @Override // com.facebook.cache.disk.c
     public boolean isExternal() {
         try {
-            return bSR().isExternal();
+            return bSQ().isExternal();
         } catch (IOException e) {
             return false;
         }
@@ -48,18 +48,18 @@ public class e implements c {
 
     @Override // com.facebook.cache.disk.c
     public com.facebook.a.a l(String str, Object obj) throws IOException {
-        return bSR().l(str, obj);
+        return bSQ().l(str, obj);
     }
 
     @Override // com.facebook.cache.disk.c
     public boolean m(String str, Object obj) throws IOException {
-        return bSR().m(str, obj);
+        return bSQ().m(str, obj);
     }
 
     @Override // com.facebook.cache.disk.c
-    public void bSv() {
+    public void bSu() {
         try {
-            bSR().bSv();
+            bSQ().bSu();
         } catch (IOException e) {
             com.facebook.common.c.a.b(iez, "purgeUnexpectedResources", (Throwable) e);
         }
@@ -67,39 +67,39 @@ public class e implements c {
 
     @Override // com.facebook.cache.disk.c
     public c.b k(String str, Object obj) throws IOException {
-        return bSR().k(str, obj);
+        return bSQ().k(str, obj);
     }
 
     @Override // com.facebook.cache.disk.c
-    public Collection<c.a> bSw() throws IOException {
-        return bSR().bSw();
+    public Collection<c.a> bSv() throws IOException {
+        return bSQ().bSv();
     }
 
     @Override // com.facebook.cache.disk.c
     public long a(c.a aVar) throws IOException {
-        return bSR().a(aVar);
+        return bSQ().a(aVar);
     }
 
-    synchronized c bSR() throws IOException {
-        if (bSS()) {
+    synchronized c bSQ() throws IOException {
+        if (bSR()) {
+            bSS();
             bST();
-            bSU();
         }
         return (c) com.facebook.common.internal.g.checkNotNull(this.ifq.ifr);
     }
 
-    private boolean bSS() {
+    private boolean bSR() {
         a aVar = this.ifq;
         return aVar.ifr == null || aVar.ifs == null || !aVar.ifs.exists();
     }
 
-    void bST() {
+    void bSS() {
         if (this.ifq.ifr != null && this.ifq.ifs != null) {
             com.facebook.common.file.a.ac(this.ifq.ifs);
         }
     }
 
-    private void bSU() throws IOException {
+    private void bST() throws IOException {
         File file = new File(this.ieP.get(), this.ieO);
         ab(file);
         this.ifq = new a(file, new DefaultDiskStorage(file, this.vz, this.ieE));

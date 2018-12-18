@@ -8,15 +8,15 @@ public final class a {
     private final g iBl;
 
     private a() {
-        g ccX = rx.a.a.a.ccU().ccV().ccX();
-        if (ccX != null) {
-            this.iBl = ccX;
+        g ccW = rx.a.a.a.ccT().ccU().ccW();
+        if (ccW != null) {
+            this.iBl = ccW;
         } else {
             this.iBl = new b(Looper.getMainLooper());
         }
     }
 
-    public static g ccY() {
+    public static g ccX() {
         return iBk.iBl;
     }
 }

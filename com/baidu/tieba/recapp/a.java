@@ -28,11 +28,11 @@ public abstract class a {
     public a(IVrPlayView iVrPlayView) {
         this.gKM = iVrPlayView;
         this.mContext = this.gKM.getPageContext();
-        bui();
+        buh();
         initListener();
     }
 
-    private void bui() {
+    private void buh() {
         if (this.mStatus == -1) {
             this.gKN = com.b.a.g.h(this.mContext.getPageActivity()).a(new g.f() { // from class: com.baidu.tieba.recapp.a.2
                 public void b(Surface surface) {

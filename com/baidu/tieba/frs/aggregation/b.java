@@ -183,14 +183,14 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
             this.dMY.a(new c.InterfaceC0297c() { // from class: com.baidu.tieba.frs.aggregation.b.1
                 @Override // com.baidu.tieba.play.c.InterfaceC0297c
                 public void YQ() {
-                    if (b.this.dMY.bqW()) {
+                    if (b.this.dMY.bqV()) {
                         b.this.dMN.setVisibility(8);
                     }
                 }
 
                 @Override // com.baidu.tieba.play.c.InterfaceC0297c
                 public void YR() {
-                    if (b.this.dMY.bqW()) {
+                    if (b.this.dMY.bqV()) {
                         b.this.dMN.setVisibility(8);
                     }
                     if (b.this.dNd) {
@@ -262,11 +262,11 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
             }
             this.bOp.setVideoStatsData(this.dNa);
             this.dMY.getVideoView().setBusiness(this.bOp);
-            this.dMY.aYP();
+            this.dMY.aYO();
             this.dMY.b(new c.d() { // from class: com.baidu.tieba.frs.aggregation.b.4
                 @Override // com.baidu.tieba.play.c.d
                 public void gU(boolean z) {
-                    if (!b.this.dMY.bqW()) {
+                    if (!b.this.dMY.bqV()) {
                         b.this.dMM.setVisibility(0);
                     } else if (z) {
                         if (b.this.dMM.getVisibility() == 0) {
@@ -281,7 +281,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
 
                 @Override // com.baidu.tieba.play.c.d
                 public void aCW() {
-                    if (!b.this.dMY.bqW()) {
+                    if (!b.this.dMY.bqV()) {
                         b.this.dMM.setVisibility(0);
                     } else if (b.this.dMM.getVisibility() == 0) {
                         b.this.dMM.setVisibility(8);
@@ -298,7 +298,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
                     }
                     if (aVar != null && !b.this.isFullScreen) {
                         aVar.mt(i);
-                        b.this.dMY.aLX();
+                        b.this.dMY.aLW();
                     }
                 }
             });
@@ -323,7 +323,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
                     b.this.dMN.setVisibility(8);
                 }
             });
-            this.dMY.aLX();
+            this.dMY.aLW();
             this.dMY.show();
             if (gVar.autoPlay) {
                 onClick(this.dML);
@@ -344,7 +344,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
     }
 
     public boolean isPlaying() {
-        return this.dMY.bqW();
+        return this.dMY.bqV();
     }
 
     public void aCQ() {
@@ -447,7 +447,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
         if (this.dMY != null && this.dML != null && this.mPageContext != null && this.mPageContext.getPageActivity() != null && this.mPageContext.getPageActivity().getWindow() != null && (this.mPageContext.getPageActivity().getWindow().getDecorView() instanceof FrameLayout)) {
             FrameLayout frameLayout = (FrameLayout) this.mPageContext.getPageActivity().getWindow().getDecorView();
             if (this.dNc) {
-                this.dMY.bqV();
+                this.dMY.bqU();
             }
             if (configuration.orientation == 2) {
                 this.isFullScreen = true;
@@ -479,7 +479,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
                 if (this.dML.getParent() == null) {
                     this.dMK.addView(this.dML, 0);
                     this.dML.setLayoutParams(new FrameLayout.LayoutParams(this.mWidth, (int) (0.5625f * this.mWidth)));
-                    this.dMY.aYP();
+                    this.dMY.aYO();
                     this.dNc = true;
                 } else {
                     return;
@@ -518,7 +518,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
         } else if (view == this.dMQ) {
             if (this.aFk != null && this.aFk.dNz != null) {
                 this.dMO.setVisibility(8);
-                this.dMY.bqZ();
+                this.dMY.bqY();
                 this.dMY.aZ(this.aFk.dNz.videoUrl, this.aFk.threadId);
                 oe("2");
             }

@@ -21,7 +21,7 @@ public class b implements e {
         private static b gLC = new b();
     }
 
-    public static b buA() {
+    public static b buz() {
         return C0305b.gLC;
     }
 

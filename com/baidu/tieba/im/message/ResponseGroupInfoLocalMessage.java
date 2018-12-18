@@ -44,7 +44,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
         private GroupActivityData eWr;
         private boolean isMemGroup;
 
-        public GroupActivityData aTc() {
+        public GroupActivityData aTb() {
             return this.eWr;
         }
 
@@ -60,7 +60,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.eWk = groupData;
         }
 
-        public List<MemberData> aTd() {
+        public List<MemberData> aTc() {
             return this.eWl;
         }
 
@@ -68,7 +68,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.eWl = list;
         }
 
-        public List<PhotoUrlData> aTe() {
+        public List<PhotoUrlData> aTd() {
             return this.eWm;
         }
 
@@ -76,7 +76,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.eWm = list;
         }
 
-        public int aTf() {
+        public int aTe() {
             return this.eWn;
         }
 
@@ -84,7 +84,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.eWn = i;
         }
 
-        public int aTg() {
+        public int aTf() {
             return this.eWo;
         }
 
@@ -92,7 +92,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.eWo = i;
         }
 
-        public boolean aTh() {
+        public boolean aTg() {
             return this.dzM;
         }
 
@@ -100,7 +100,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.dzM = z;
         }
 
-        public boolean aTi() {
+        public boolean aTh() {
             return this.eTY;
         }
 
@@ -120,7 +120,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.isMemGroup = z;
         }
 
-        public boolean aTj() {
+        public boolean aTi() {
             return this.eWq;
         }
 

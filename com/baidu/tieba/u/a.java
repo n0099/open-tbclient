@@ -12,7 +12,7 @@ public class a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                a.this.bLQ();
+                a.this.bLP();
             }
         }
     };
@@ -27,12 +27,12 @@ public class a {
     }
 
     private void init() {
-        bLQ();
+        bLP();
         this.hMe = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_video_splash_last_show_time", 0L);
         MessageManager.getInstance().registerListener(this.aof);
     }
 
-    public boolean bLP() {
+    public boolean bLO() {
         if (this.mStartTime == 0 || this.mEndTime == 0 || this.mInterval == 0) {
             return false;
         }
@@ -49,7 +49,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bLQ() {
+    public void bLP() {
         if (this.hMf == null) {
             this.hMf = new x();
         }

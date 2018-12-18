@@ -142,7 +142,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View aYl() {
+    protected View aYk() {
         MessageManager.getInstance().registerListener(this.gND);
         MessageManager.getInstance().registerListener(this.gNE);
         MessageManager.getInstance().registerListener(this.gNF);
@@ -776,7 +776,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.lego.card.view.e
-    public void aYt() {
+    public void aYs() {
         if (4 == getBusinessType()) {
             this.gNn.setTextSize(0, TbConfig.getContentSize());
         }

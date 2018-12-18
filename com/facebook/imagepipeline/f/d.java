@@ -57,12 +57,12 @@ public class d implements Closeable {
 
     public static d b(d dVar) {
         if (dVar != null) {
-            return dVar.bXY();
+            return dVar.bXX();
         }
         return null;
     }
 
-    public d bXY() {
+    public d bXX() {
         d dVar;
         if (this.ioB != null) {
             dVar = new d(this.ioB, this.ioD);
@@ -97,7 +97,7 @@ public class d implements Closeable {
         return z;
     }
 
-    public com.facebook.common.references.a<PooledByteBuffer> bXZ() {
+    public com.facebook.common.references.a<PooledByteBuffer> bXY() {
         return com.facebook.common.references.a.b(this.ioA);
     }
 
@@ -140,11 +140,11 @@ public class d implements Closeable {
         this.ioE = bVar;
     }
 
-    public com.facebook.c.c bYa() {
+    public com.facebook.c.c bXZ() {
         return this.ioC;
     }
 
-    public int bXX() {
+    public int bXW() {
         return this.ijg;
     }
 
@@ -161,7 +161,7 @@ public class d implements Closeable {
     }
 
     @Nullable
-    public com.facebook.cache.common.b bYb() {
+    public com.facebook.cache.common.b bYa() {
         return this.ioE;
     }
 
@@ -178,17 +178,17 @@ public class d implements Closeable {
         return (this.ioA == null || this.ioA.get() == null) ? this.ioD : this.ioA.get().size();
     }
 
-    public void bYc() {
-        Pair<Integer, Integer> bYe;
+    public void bYb() {
+        Pair<Integer, Integer> bYd;
         com.facebook.c.c s = com.facebook.c.d.s(getInputStream());
         this.ioC = s;
         if (com.facebook.c.b.a(s)) {
-            bYe = bYd();
+            bYd = bYc();
         } else {
-            bYe = bYe();
+            bYd = bYd();
         }
         if (s == com.facebook.c.b.ikK && this.ijg == -1) {
-            if (bYe != null) {
+            if (bYd != null) {
                 this.ijg = com.facebook.d.b.yP(com.facebook.d.b.w(getInputStream()));
                 return;
             }
@@ -197,7 +197,7 @@ public class d implements Closeable {
         this.ijg = 0;
     }
 
-    private Pair<Integer, Integer> bYd() {
+    private Pair<Integer, Integer> bYc() {
         Pair<Integer, Integer> y = com.facebook.d.e.y(getInputStream());
         if (y != null) {
             this.mWidth = ((Integer) y.first).intValue();
@@ -206,7 +206,7 @@ public class d implements Closeable {
         return y;
     }
 
-    private Pair<Integer, Integer> bYe() {
+    private Pair<Integer, Integer> bYd() {
         InputStream inputStream = null;
         try {
             inputStream = getInputStream();
@@ -227,13 +227,13 @@ public class d implements Closeable {
     }
 
     public void c(d dVar) {
-        this.ioC = dVar.bYa();
+        this.ioC = dVar.bXZ();
         this.mWidth = dVar.getWidth();
         this.mHeight = dVar.getHeight();
-        this.ijg = dVar.bXX();
+        this.ijg = dVar.bXW();
         this.mSampleSize = dVar.getSampleSize();
         this.ioD = dVar.getSize();
-        this.ioE = dVar.bYb();
+        this.ioE = dVar.bYa();
     }
 
     public static boolean d(d dVar) {

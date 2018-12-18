@@ -19,11 +19,11 @@ class e {
         this.hBX = new MediaMuxer(str, 0);
     }
 
-    public void bIG() {
+    public void bIF() {
         this.hBZ = true;
     }
 
-    public void bIH() {
+    public void bIG() {
         this.hCa = true;
     }
 

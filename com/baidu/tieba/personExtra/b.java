@@ -67,14 +67,14 @@ public class b extends BaseAdapter {
         return 0;
     }
 
-    public void bda() {
+    public void bcZ() {
         this.fFM = false;
         if (this.mForumList == null || this.mForumList.size() == 0) {
             this.fFM = true;
         }
     }
 
-    public boolean bpt() {
+    public boolean bps() {
         return this.fFM;
     }
 
@@ -177,7 +177,7 @@ public class b extends BaseAdapter {
                     aVar.guH.setText(String.format(this.gux.getPageContext().getString(e.j.sign_point_new), Integer.valueOf(forumData.getCurScore()), Integer.valueOf(forumData.getLevelupScore())));
                     aVar.guI.setOnClickListener(this.guy);
                     aVar.guI.setTag(Integer.valueOf(i));
-                    if (i < this.mData.bpi()) {
+                    if (i < this.mData.bph()) {
                         aVar.mName.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(e.f.icon_v), (Drawable) null);
                         if (!this.gsO && this.guz) {
                             aVar.guJ.setVisibility(0);
@@ -193,12 +193,12 @@ public class b extends BaseAdapter {
                         aVar.guK.setVisibility(0);
                     }
                 } else {
-                    if ((this.gux.aTA() == 0 && i < this.mData.bpi()) || (this.gux.aTA() == 1 && i < this.mData.bpj())) {
+                    if ((this.gux.aTz() == 0 && i < this.mData.bph()) || (this.gux.aTz() == 1 && i < this.mData.bpi())) {
                         aVar.mName.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(e.f.icon_v), (Drawable) null);
                     } else {
                         aVar.mName.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                     }
-                    if (this.gux.aTA() == 1) {
+                    if (this.gux.aTz() == 1) {
                         aVar.guE.setVisibility(8);
                     }
                     aVar.guJ.setVisibility(8);
@@ -210,7 +210,7 @@ public class b extends BaseAdapter {
                     aVar.guJ.setVisibility(8);
                 } else {
                     aVar.guI.setVisibility(8);
-                    if (i < this.mData.bpi() && this.eni && !this.gsO && this.guz) {
+                    if (i < this.mData.bph() && this.eni && !this.gsO && this.guz) {
                         aVar.guJ.setVisibility(0);
                     } else {
                         aVar.guJ.setVisibility(8);

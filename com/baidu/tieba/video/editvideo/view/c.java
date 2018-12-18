@@ -42,8 +42,8 @@ public class c extends com.baidu.adp.base.c {
                 if (c.this.hEi != null) {
                     c.this.hEi.a(aVar);
                 }
-                if (c.this.hBp != null && c.this.hBp.bJe() != null) {
-                    c.this.hBp.bJe().setFilter(aVar);
+                if (c.this.hBp != null && c.this.hBp.bJd() != null) {
+                    c.this.hBp.bJd().setFilter(aVar);
                 }
             }
         });

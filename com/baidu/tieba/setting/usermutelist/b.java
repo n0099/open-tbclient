@@ -59,7 +59,7 @@ public class b extends c<UserMuteListActivity> {
         this.mNoDataView.setTextOption(NoDataViewFactory.d.eq(e.j.user_mute_list_no_data_text));
     }
 
-    public void byx() {
+    public void byw() {
         this.OF.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.eq(e.j.refresh_view_title_text));

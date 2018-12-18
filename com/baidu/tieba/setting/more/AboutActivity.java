@@ -43,8 +43,8 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 }
             }
         });
-        this.gVI.bwE();
-        aNK();
+        this.gVI.bwD();
+        aNJ();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -52,7 +52,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public void onResume() {
         super.onResume();
         if (this.gVI != null) {
-            this.gVI.bwE();
+            this.gVI.bwD();
         }
     }
 
@@ -60,7 +60,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        aNL();
+        aNK();
         if (this.gVJ != null) {
             this.gVJ.cancelLoadData();
         }
@@ -90,9 +90,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         } else {
             this.gVJ.cancelLoadData();
         }
-        this.gVJ.bww();
+        this.gVJ.bwv();
         if (this.gVI != null) {
-            this.gVI.bwD();
+            this.gVI.bwC();
         }
     }
 
@@ -118,7 +118,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 showToast(getResources().getString(e.j.neednot_update));
             }
             if (this.gVI != null) {
-                this.gVI.bwE();
+                this.gVI.bwD();
                 return;
             }
             return;
@@ -135,19 +135,19 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (AboutActivity.this.gVI != null) {
-                AboutActivity.this.gVI.bwE();
+                AboutActivity.this.gVI.bwD();
             }
         }
     }
 
-    private void aNK() {
+    private void aNJ() {
         this.gVK = new a();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
         registerReceiver(this.gVK, intentFilter);
     }
 
-    private void aNL() {
+    private void aNK() {
         if (this.gVK != null) {
             unregisterReceiver(this.gVK);
         }

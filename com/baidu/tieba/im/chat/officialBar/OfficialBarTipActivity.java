@@ -53,8 +53,8 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                     OfficialBarTipActivity.this.d(customResponsedMessage);
                 } else if (customResponsedMessage.getCmd() == 2016001) {
                     OfficialBarTipActivity.this.eKx.setData(null, OfficialBarTipActivity.this.eKD);
-                } else if (customResponsedMessage.getCmd() == 2016011 && OfficialBarTipActivity.this.eKy != null && OfficialBarTipActivity.this.eKy.aOL() != null) {
-                    OfficialBarTipActivity.this.eKy.aOL().notifyDataSetChanged();
+                } else if (customResponsedMessage.getCmd() == 2016011 && OfficialBarTipActivity.this.eKy != null && OfficialBarTipActivity.this.eKy.aOK() != null) {
+                    OfficialBarTipActivity.this.eKy.aOK().notifyDataSetChanged();
                 }
             }
         }
@@ -82,7 +82,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     private com.baidu.tieba.im.chat.a.a eKD = new com.baidu.tieba.im.chat.a.a() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity.5
         @Override // com.baidu.tieba.im.chat.a.a
         public void onComplete() {
-            OfficialBarTipActivity.this.aOJ();
+            OfficialBarTipActivity.this.aOI();
         }
     };
     private final com.baidu.tieba.im.chat.a.b eKE = new com.baidu.tieba.im.chat.a.b() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity.7
@@ -103,13 +103,13 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         public void onPostExecute() {
             OfficialBarTipActivity.this.Tb();
             OfficialBarTipActivity.this.showToast(e.j.delete_success, false);
-            OfficialBarTipActivity.this.aOJ();
+            OfficialBarTipActivity.this.aOI();
         }
 
         @Override // com.baidu.tieba.im.chat.a.b
         public void onCanceled() {
             OfficialBarTipActivity.this.Tb();
-            OfficialBarTipActivity.this.aOJ();
+            OfficialBarTipActivity.this.aOI();
         }
     };
     private OfficialBarTipModel eKx;
@@ -136,7 +136,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.eKy.aOL().notifyDataSetChanged();
+        this.eKy.aOK().notifyDataSetChanged();
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a("-1000", -8)));
     }
 
@@ -173,19 +173,19 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
 
     private void initUI() {
         this.eKy = new f(this);
-        this.eKy.aOK().setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity.1
+        this.eKy.aOJ().setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                ImMessageCenterShowItemData pD = OfficialBarTipActivity.this.eKy.aOL().getItem(i);
+                ImMessageCenterShowItemData pD = OfficialBarTipActivity.this.eKy.aOK().getItem(i);
                 if (pD != null && view != null) {
                     ImMessageCenterShowItemData imMessageCenterShowItemData = pD;
-                    if (OfficialBarTipActivity.this.eKy.aOL().aOx()) {
+                    if (OfficialBarTipActivity.this.eKy.aOK().aOw()) {
                         ImageView imageView = (ImageView) view.findViewById(e.g.select_status);
                         if (imMessageCenterShowItemData.isSelected()) {
                             imMessageCenterShowItemData.setSelected(false);
                             al.j(view, e.d.cp_bg_line_d);
                             al.i(imageView, e.f.btn_bgb_choice_n);
-                            if (!OfficialBarTipActivity.this.aOG()) {
+                            if (!OfficialBarTipActivity.this.aOF()) {
                                 OfficialBarTipActivity.this.eKy.il(false);
                                 return;
                             }
@@ -208,7 +208,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                 }
             }
         });
-        this.eKy.aOK().setOnItemLongClickListener(new AnonymousClass2());
+        this.eKy.aOJ().setOnItemLongClickListener(new AnonymousClass2());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -220,16 +220,16 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
 
         @Override // android.widget.AdapterView.OnItemLongClickListener
         public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-            ImMessageCenterShowItemData pD = OfficialBarTipActivity.this.eKy.aOL().getItem(i);
+            ImMessageCenterShowItemData pD = OfficialBarTipActivity.this.eKy.aOK().getItem(i);
             if (pD != null) {
                 final ImMessageCenterShowItemData imMessageCenterShowItemData = pD;
-                if (OfficialBarTipActivity.this.eKy.aOL().aOx()) {
+                if (OfficialBarTipActivity.this.eKy.aOK().aOw()) {
                     ImageView imageView = (ImageView) view.findViewById(e.g.select_status);
                     if (imMessageCenterShowItemData.isSelected()) {
                         imMessageCenterShowItemData.setSelected(false);
                         al.j(view, e.d.cp_bg_line_d);
                         al.i(imageView, e.f.btn_bgb_choice_n);
-                        if (!OfficialBarTipActivity.this.aOG()) {
+                        if (!OfficialBarTipActivity.this.aOF()) {
                             OfficialBarTipActivity.this.eKy.ik(false);
                         }
                     } else {
@@ -313,11 +313,11 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         this.eKy.setData(this.eKx.getData());
     }
 
-    public void aOF() {
+    public void aOE() {
         this.eKx.deleteSelectedDatas(this.eKE);
     }
 
-    public boolean aOG() {
+    public boolean aOF() {
         List<ImMessageCenterShowItemData> data = this.eKx.getData();
         for (int i = 0; i != data.size(); i++) {
             if (data.get(i).isSelected()) {
@@ -327,7 +327,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         return false;
     }
 
-    public void aOH() {
+    public void aOG() {
         List<ImMessageCenterShowItemData> data = this.eKx.getData();
         for (int i = 0; i != data.size(); i++) {
             data.get(i).setUnReadCount(0);
@@ -336,7 +336,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         this.eKy.setData(this.eKx.getData());
     }
 
-    public boolean aOI() {
+    public boolean aOH() {
         List<ImMessageCenterShowItemData> data = this.eKx.getData();
         for (int i = 0; i != data.size(); i++) {
             if (data.get(i).getUnReadCount() != 0) {
@@ -355,7 +355,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
                 if (!TextUtils.isEmpty(str)) {
-                    com.baidu.tieba.im.settingcache.d.aUk().i(TbadkApplication.getCurrentAccount(), String.valueOf(str), false);
+                    com.baidu.tieba.im.settingcache.d.aUj().i(TbadkApplication.getCurrentAccount(), String.valueOf(str), false);
                 }
                 return null;
             }
@@ -367,7 +367,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     public void ayA() {
         Tb();
         if (this.eKA == null) {
-            this.eKA = com.baidu.tieba.im.db.e.aQr().cD(getPageContext().getPageActivity());
+            this.eKA = com.baidu.tieba.im.db.e.aQq().cD(getPageContext().getPageActivity());
         }
         this.eKA.show();
         this.eKA.setPercent(0);
@@ -385,14 +385,14 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyDataSetChanged() {
-        if (this.eKy != null && this.eKy.aOL() != null) {
-            this.eKy.aOL().notifyDataSetChanged();
+        if (this.eKy != null && this.eKy.aOK() != null) {
+            this.eKy.aOK().notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aOJ() {
-        if (this.eKy != null && this.eKy.aOL() != null && this.eKx != null) {
+    public void aOI() {
+        if (this.eKy != null && this.eKy.aOK() != null && this.eKx != null) {
             if (this.eKx != null && this.eKx.isEmpty()) {
                 finish();
             }

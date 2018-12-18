@@ -66,7 +66,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.EditNickNameActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                EditNickNameActivity.this.bpf();
+                EditNickNameActivity.this.bpe();
             }
         });
     }
@@ -112,7 +112,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bpf() {
+    public void bpe() {
         if (this.FT && this.mWebView != null && !TextUtils.isEmpty(this.mWebView.getUrl()) && this.mWebView.getUrl().contains("https://tieba.baidu.com/n/interact/modifyname")) {
             this.mWebView.loadUrl("javascript:__js_bridge_modify_name_back_action()");
         } else {
@@ -121,7 +121,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bpg() {
+    public void bpf() {
         this.mWebView.loadUrl("javascript:__js_bridge_modify_name_save_action()");
     }
 
@@ -177,7 +177,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            bpf();
+            bpe();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -269,7 +269,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
-                    EditNickNameActivity.this.bpg();
+                    EditNickNameActivity.this.bpf();
                 }
             });
             this.Td.b(e.j.cancel, new a.b() { // from class: com.baidu.tieba.personExtra.EditNickNameActivity.4

@@ -90,7 +90,7 @@ public class VideoMiddlePageFragment extends BaseFragment implements b, f.b {
                     if (VideoMiddlePageFragment.this.bOx != null) {
                         VideoMiddlePageFragment.this.bOx.setVisibility(8);
                     }
-                    if (j.kX() && !com.baidu.tieba.video.g.bHR().bHS() && VideoMiddlePageFragment.this.eeZ != null && VideoMiddlePageFragment.this.eeZ.pB()) {
+                    if (j.kX() && !com.baidu.tieba.video.g.bHQ().bHR() && VideoMiddlePageFragment.this.eeZ != null && VideoMiddlePageFragment.this.eeZ.pB()) {
                         VideoMiddlePageFragment.this.getPageContext().showToast(e.j.video_mobile_play_tips);
                     }
                 } else if (VideoMiddlePageFragment.this.bOx != null) {
@@ -482,6 +482,6 @@ public class VideoMiddlePageFragment extends BaseFragment implements b, f.b {
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.core.util.e.c
     public boolean videoNeedPreload() {
-        return j.kW() || com.baidu.tieba.video.g.bHR().bHS();
+        return j.kW() || com.baidu.tieba.video.g.bHQ().bHR();
     }
 }

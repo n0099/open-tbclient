@@ -22,10 +22,10 @@ class g {
             throw new NullPointerException();
         }
         this.mSurface = surface;
-        bII();
+        bIH();
     }
 
-    private void bII() {
+    private void bIH() {
         this.mEGLDisplay = EGL14.eglGetDisplay(0);
         if (this.mEGLDisplay == EGL14.EGL_NO_DISPLAY) {
             throw new RuntimeException("unable to get EGL14 display");

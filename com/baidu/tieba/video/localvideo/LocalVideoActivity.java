@@ -56,7 +56,7 @@ public class LocalVideoActivity extends BaseActivity<LocalVideoActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (LocalVideoActivity.this.hEz != null) {
-                LocalVideoActivity.this.hEz.bJu();
+                LocalVideoActivity.this.hEz.bJt();
             }
         }
     };
@@ -72,58 +72,58 @@ public class LocalVideoActivity extends BaseActivity<LocalVideoActivity> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (LocalVideoActivity.this.hEy != null) {
-                if (view != LocalVideoActivity.this.hEy.bJx()) {
-                    if (view == LocalVideoActivity.this.hEy.bJy()) {
-                        if (!LocalVideoActivity.this.hEy.bJv()) {
-                            if (LocalVideoActivity.this.hEy.bJC() == null || LocalVideoActivity.this.hEy.bJC().getDuration() <= KeepJobService.JOB_CHECK_PERIODIC) {
-                                VideoConvertUtil bJq = LocalVideoActivity.this.bJq();
-                                if (!bJq.isConvertRunning()) {
-                                    String bJB = LocalVideoActivity.this.hEy.bJB();
-                                    if (TextUtils.isEmpty(bJB)) {
+                if (view != LocalVideoActivity.this.hEy.bJw()) {
+                    if (view == LocalVideoActivity.this.hEy.bJx()) {
+                        if (!LocalVideoActivity.this.hEy.bJu()) {
+                            if (LocalVideoActivity.this.hEy.bJB() == null || LocalVideoActivity.this.hEy.bJB().getDuration() <= KeepJobService.JOB_CHECK_PERIODIC) {
+                                VideoConvertUtil bJp = LocalVideoActivity.this.bJp();
+                                if (!bJp.isConvertRunning()) {
+                                    String bJA = LocalVideoActivity.this.hEy.bJA();
+                                    if (TextUtils.isEmpty(bJA)) {
                                         l.showToast(LocalVideoActivity.this, e.j.mv_local_video_video_not_exist);
-                                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016328, bJB));
+                                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016328, bJA));
                                         return;
-                                    } else if (!new File(bJB).exists()) {
+                                    } else if (!new File(bJA).exists()) {
                                         l.showToast(LocalVideoActivity.this, e.j.mv_local_video_video_not_exist);
-                                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016328, bJB));
+                                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016328, bJA));
                                         return;
                                     } else {
-                                        int wy = e.wy(bJB);
+                                        int wy = e.wy(bJA);
                                         if (!XiaoyingUtil.isXiaoyingInstalled() || XiaoyingUtil.isXiaoyingForbidden()) {
-                                            d bJC = LocalVideoActivity.this.hEy.bJC();
-                                            if (bJC != null) {
+                                            d bJB = LocalVideoActivity.this.hEy.bJB();
+                                            if (bJB != null) {
                                                 LocalVideoActivity.this.hEy.aCQ();
-                                                LocalVideoActivity.this.hEB = bJC.getVideoPath();
+                                                LocalVideoActivity.this.hEB = bJB.getVideoPath();
                                                 LocalVideoActivity.this.nY(false);
                                                 return;
                                             }
                                             return;
                                         } else if (wy >= 1500000) {
-                                            if (LocalVideoActivity.this.bHQ()) {
-                                                File file = new File(com.baidu.tieba.video.e.hzN, "tieba_" + e.wx(bJB) + "_tiebaconverting.mp4");
+                                            if (LocalVideoActivity.this.bHP()) {
+                                                File file = new File(com.baidu.tieba.video.e.hzN, "tieba_" + e.wx(bJA) + "_tiebaconverting.mp4");
                                                 LocalVideoActivity.this.hEB = file.getAbsolutePath();
-                                                bJq.setConvertType(1);
-                                                bJq.cQ(bJB, LocalVideoActivity.this.hEB);
-                                                LocalVideoActivity.this.bJr();
+                                                bJp.setConvertType(1);
+                                                bJp.cQ(bJA, LocalVideoActivity.this.hEB);
+                                                LocalVideoActivity.this.bJq();
                                                 LocalVideoActivity.this.hED = false;
                                                 LocalVideoActivity.this.hEE = false;
                                                 return;
                                             }
                                             return;
                                         } else {
-                                            d bJC2 = LocalVideoActivity.this.hEy.bJC();
-                                            if (bJC2 != null) {
-                                                if (bJC2.getDuration() >= 15000) {
+                                            d bJB2 = LocalVideoActivity.this.hEy.bJB();
+                                            if (bJB2 != null) {
+                                                if (bJB2.getDuration() >= 15000) {
                                                     LocalVideoActivity.this.hEy.aCQ();
-                                                    LocalVideoActivity.this.hEB = bJC2.getVideoPath();
+                                                    LocalVideoActivity.this.hEB = bJB2.getVideoPath();
                                                     LocalVideoActivity.this.nY(false);
                                                     return;
                                                 }
-                                                File file2 = new File(com.baidu.tieba.video.e.hzN, "tieba_" + e.wx(bJB) + "_tiebaconverting.mp4");
+                                                File file2 = new File(com.baidu.tieba.video.e.hzN, "tieba_" + e.wx(bJA) + "_tiebaconverting.mp4");
                                                 LocalVideoActivity.this.hEB = file2.getAbsolutePath();
-                                                bJq.setConvertType(2);
-                                                bJq.cQ(bJB, LocalVideoActivity.this.hEB);
-                                                LocalVideoActivity.this.bJr();
+                                                bJp.setConvertType(2);
+                                                bJp.cQ(bJA, LocalVideoActivity.this.hEB);
+                                                LocalVideoActivity.this.bJq();
                                                 LocalVideoActivity.this.hED = false;
                                                 LocalVideoActivity.this.hEE = false;
                                                 return;
@@ -134,7 +134,7 @@ public class LocalVideoActivity extends BaseActivity<LocalVideoActivity> {
                                 }
                                 return;
                             }
-                            LocalVideoActivity.this.hEy.bJw();
+                            LocalVideoActivity.this.hEy.bJv();
                             return;
                         }
                         l.showToast(LocalVideoActivity.this, e.j.show_video_file_error);
@@ -173,8 +173,8 @@ public class LocalVideoActivity extends BaseActivity<LocalVideoActivity> {
                         LocalVideoActivity.this.hEB = LocalVideoActivity.this.hEB.replace("_tiebaconverting.mp4", ".mp4");
                         file.renameTo(new File(LocalVideoActivity.this.hEB));
                     }
-                    LocalVideoActivity.this.bJs();
-                    if (!LocalVideoActivity.this.hEC && LocalVideoActivity.this.hEy.bJC() != null) {
+                    LocalVideoActivity.this.bJr();
+                    if (!LocalVideoActivity.this.hEC && LocalVideoActivity.this.hEy.bJB() != null) {
                         d wR = e.wR(LocalVideoActivity.this.hEB);
                         VideoInfo videoInfo = new VideoInfo();
                         videoInfo.setVideoPath(LocalVideoActivity.this.hEB);
@@ -192,9 +192,9 @@ public class LocalVideoActivity extends BaseActivity<LocalVideoActivity> {
                     break;
                 case 5:
                     l.showToast(LocalVideoActivity.this, e.j.mv_local_video_compress_failed);
-                    VideoConvertUtil bJq = LocalVideoActivity.this.bJq();
-                    if (bJq != null && bJq.isConvertRunning()) {
-                        LocalVideoActivity.this.bJt();
+                    VideoConvertUtil bJp = LocalVideoActivity.this.bJp();
+                    if (bJp != null && bJp.isConvertRunning()) {
+                        LocalVideoActivity.this.bJs();
                         return;
                     }
                     return;
@@ -202,12 +202,12 @@ public class LocalVideoActivity extends BaseActivity<LocalVideoActivity> {
                     return;
             }
             LocalVideoActivity.this.hED = false;
-            LocalVideoActivity.this.bJs();
+            LocalVideoActivity.this.bJr();
         }
     };
     private com.baidu.tieba.video.d hEK = new com.baidu.tieba.video.d() { // from class: com.baidu.tieba.video.localvideo.LocalVideoActivity.6
         @Override // com.baidu.tieba.video.d
-        public void bHM() {
+        public void bHL() {
         }
 
         @Override // com.baidu.tieba.video.d
@@ -249,7 +249,7 @@ public class LocalVideoActivity extends BaseActivity<LocalVideoActivity> {
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public VideoConvertUtil bJq() {
+    public VideoConvertUtil bJp() {
         if (this.hEA == null) {
             this.hEA = new VideoConvertUtil(this);
             this.hEA.a(this.hEK);
@@ -258,7 +258,7 @@ public class LocalVideoActivity extends BaseActivity<LocalVideoActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bJr() {
+    public void bJq() {
         this.hEy.aCQ();
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(e.g.container);
         if (relativeLayout != null) {
@@ -280,8 +280,8 @@ public class LocalVideoActivity extends BaseActivity<LocalVideoActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bJs() {
-        this.hEy.bJz();
+    public void bJr() {
+        this.hEy.bJy();
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(e.g.container);
         if (relativeLayout != null && this.hEF.getParent() != null) {
             relativeLayout.removeView(this.hEF);
@@ -289,8 +289,8 @@ public class LocalVideoActivity extends BaseActivity<LocalVideoActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bJt() {
-        bJq().abortConvert();
+    public void bJs() {
+        bJp().abortConvert();
         this.hEE = true;
         if (this.hEB != null) {
             File file = new File(this.hEB);
@@ -298,13 +298,13 @@ public class LocalVideoActivity extends BaseActivity<LocalVideoActivity> {
                 file.delete();
             }
         }
-        bJs();
+        bJr();
         this.hEB = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bHQ() {
-        return VideoConvertUtil.bHQ();
+    public boolean bHP() {
+        return VideoConvertUtil.bHP();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -337,7 +337,7 @@ public class LocalVideoActivity extends BaseActivity<LocalVideoActivity> {
         this.hEy = new c(this, this.mOnClickListener);
         this.hEz = new LocalVideoModel(this);
         this.hEz.a(this.hEI);
-        this.hEz.bJu();
+        this.hEz.bJt();
         registerListener(this.hEH);
         registerListener(this.hEG);
         registerListener(this.hEL);
@@ -367,7 +367,7 @@ public class LocalVideoActivity extends BaseActivity<LocalVideoActivity> {
     public void onResume() {
         super.onResume();
         if (this.hEy != null) {
-            this.hEy.bJA();
+            this.hEy.bJz();
         }
         if (this.hED && !TextUtils.isEmpty(this.hEB) && new File(this.hEB).exists()) {
             nY(true);

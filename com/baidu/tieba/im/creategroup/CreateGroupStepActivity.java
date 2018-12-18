@@ -111,8 +111,8 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 22001) {
-            this.eMa.aOS();
-            this.eMa.aPI();
+            this.eMa.aOR();
+            this.eMa.aPH();
         } else if (i2 == -1) {
             switch (i) {
                 case 12001:
@@ -124,8 +124,8 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
                 case IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_DYNAMIC_PWD /* 12009 */:
                 case IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_LOGIN_PROXY_RESULT /* 12010 */:
                     this.eMa.setPortrait(intent.getStringExtra(EditHeadActivityConfig.PHOTO_RESOURCE));
-                    this.eMa.aPH();
                     this.eMa.aPG();
+                    this.eMa.aPF();
                     return;
                 case 21001:
                     this.eMa.setBusiness(intent.getStringExtra("Selected_Business"));
@@ -157,32 +157,32 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setIsLoading(boolean z) {
-        this.eMa.aPt().setEnabled(!z);
+        this.eMa.aPs().setEnabled(!z);
         this.eMa.setIsLoading(z);
     }
 
     private void back() {
-        if (this.eMa.aPs() == 1) {
+        if (this.eMa.aPr() == 1) {
             finish();
         } else {
-            this.eMa.aPM();
+            this.eMa.aPL();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.eMa.aPr()) {
+        if (view == this.eMa.aPq()) {
             back();
-        } else if (view == this.eMa.aPt()) {
+        } else if (view == this.eMa.aPs()) {
             int dip2px = com.baidu.adp.lib.util.l.dip2px(TbadkApplication.getInst().getApp(), 0.0f);
-            if (!this.eMa.aPK()) {
+            if (!this.eMa.aPJ()) {
                 String errMsg = this.eMa.getErrMsg();
                 if (!TextUtils.isEmpty(errMsg)) {
                     showToast(errMsg, dip2px);
                 }
-            } else if (this.eMa.aPF()) {
-                if (!this.eMa.aPx()) {
+            } else if (this.eMa.aPE()) {
+                if (!this.eMa.aPw()) {
                     setIsLoading(true);
                     this.eMb.setForumId(this.eMa.getForumId());
                     this.eMb.setName(this.eMa.getName());
@@ -191,38 +191,38 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
                     this.eMb.setPortrait(this.eMa.getPortrait());
                     this.eMb.setPosition(this.eMa.getAddressName());
                     this.eMb.setBusiness(this.eMa.getBusiness());
-                    this.eMb.setLng(this.eMa.aPp());
-                    this.eMb.setLat(this.eMa.aPq());
+                    this.eMb.setLng(this.eMa.aPo());
+                    this.eMb.setLat(this.eMa.aPp());
                     this.eMb.setSourceFrom(this.sourceFrom);
-                    this.eMb.setFlag(this.eMa.aPy() ? 1 : 0);
+                    this.eMb.setFlag(this.eMa.aPx() ? 1 : 0);
                     this.eMb.sendMessage();
                 }
             } else {
-                this.eMa.aPN();
+                this.eMa.aPM();
             }
-        } else if (this.eMa.aPu() == view) {
-            this.eMa.aPN();
-        } else if (view == this.eMa.aPv() || view == this.eMa.aPw()) {
-            this.eMa.aPP();
-        } else if (view == this.eMa.aPz()) {
+        } else if (this.eMa.aPt() == view) {
+            this.eMa.aPM();
+        } else if (view == this.eMa.aPu() || view == this.eMa.aPv()) {
+            this.eMa.aPO();
+        } else if (view == this.eMa.aPy()) {
             TiebaStatic.log("edit_place_at_creatgroup");
-            switch (this.eMa.aOR()) {
+            switch (this.eMa.aOQ()) {
                 case 0:
-                    sendMessage(new CustomMessage(2002001, new GroupAddressEditActivityConfig(getPageContext().getPageActivity(), 21001, this.eMc.getAddressList(), this.eMd, this.eMa.aPy())));
+                    sendMessage(new CustomMessage(2002001, new GroupAddressEditActivityConfig(getPageContext().getPageActivity(), 21001, this.eMc.getAddressList(), this.eMd, this.eMa.aPx())));
                     return;
                 case 1:
                     startActivityForResult(new Intent("android.settings.LOCATION_SOURCE_SETTINGS"), 22001);
                     return;
                 case 2:
-                    this.eMa.aOS();
-                    this.eMa.aPI();
+                    this.eMa.aOR();
+                    this.eMa.aPH();
                     return;
                 case 3:
                 case 4:
                 default:
                     return;
             }
-        } else if (view == this.eMa.aPA()) {
+        } else if (view == this.eMa.aPz()) {
             this.eMa.clearText();
         }
     }
@@ -233,7 +233,7 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
 
     @Override // android.text.TextWatcher
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.eMa.aPS();
+        this.eMa.aPR();
     }
 
     @Override // android.text.TextWatcher
@@ -249,7 +249,7 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     public void onDestroy() {
         super.onDestroy();
         this.eMb.cancelMessage();
-        this.eMa.aPJ();
+        this.eMa.aPI();
     }
 
     @Override // com.baidu.tieba.im.util.b.a
@@ -268,12 +268,12 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     }
 
     @Override // com.baidu.tieba.im.util.b.a
-    public void aPn() {
-        this.eMa.aOU();
+    public void aPm() {
+        this.eMa.aOT();
     }
 
     @Override // com.baidu.tieba.im.util.b.a
-    public void aPo() {
-        this.eMa.aOT();
+    public void aPn() {
+        this.eMa.aOS();
     }
 }

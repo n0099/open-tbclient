@@ -22,7 +22,7 @@ public class a {
     private e fFU;
     private int mScore = 0;
 
-    public static a buh() {
+    public static a bug() {
         if (gKE == null) {
             synchronized (a.class) {
                 if (gKE == null) {
@@ -94,7 +94,7 @@ public class a {
                     }
                 }
             });
-            this.fFU = new com.baidu.tieba.person.e(tbPageContext.getContext(), jVar.bLZ());
+            this.fFU = new com.baidu.tieba.person.e(tbPageContext.getContext(), jVar.bLY());
             this.fFU.ax(0.7f);
             g.a(this.fFU, tbPageContext);
             TiebaStatic.log(new am("c13071"));
@@ -154,7 +154,7 @@ public class a {
                 }
             });
             jVar.ed(arrayList);
-            this.fFU = new com.baidu.tieba.person.e(tbPageContext.getContext(), jVar.bLZ());
+            this.fFU = new com.baidu.tieba.person.e(tbPageContext.getContext(), jVar.bLY());
             this.fFU.ax(0.7f);
             g.a(this.fFU, tbPageContext);
             if (this.mScore == 1 || this.mScore == 2) {

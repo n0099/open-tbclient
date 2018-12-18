@@ -17,27 +17,27 @@ public class ag implements ai<com.facebook.common.references.a<com.facebook.imag
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> jVar, aj ajVar) {
-        al bYS = ajVar.bYS();
+        al bYR = ajVar.bYR();
         String id = ajVar.getId();
-        ImageRequest bYR = ajVar.bYR();
-        Object bUu = ajVar.bUu();
-        com.facebook.imagepipeline.request.b bZO = bYR.bZO();
-        if (bZO == null || bZO.bZW() == null) {
+        ImageRequest bYQ = ajVar.bYQ();
+        Object bUt = ajVar.bUt();
+        com.facebook.imagepipeline.request.b bZN = bYQ.bZN();
+        if (bZN == null || bZN.bZV() == null) {
             this.ipF.a(jVar, ajVar);
             return;
         }
-        bYS.db(id, bZc());
-        com.facebook.cache.common.b b = this.imn.b(bYR, bUu);
+        bYR.db(id, bZb());
+        com.facebook.cache.common.b b = this.imn.b(bYQ, bUt);
         com.facebook.common.references.a<com.facebook.imagepipeline.f.b> aH = this.ihu.aH(b);
         if (aH != null) {
-            bYS.a(id, bZc(), bYS.zl(id) ? ImmutableMap.of("cached_value_found", "true") : null);
+            bYR.a(id, bZb(), bYR.zl(id) ? ImmutableMap.of("cached_value_found", "true") : null);
             jVar.az(1.0f);
             jVar.e(aH, true);
             aH.close();
             return;
         }
-        a aVar = new a(jVar, b, bZO instanceof com.facebook.imagepipeline.request.c, this.ihu);
-        bYS.a(id, bZc(), bYS.zl(id) ? ImmutableMap.of("cached_value_found", ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE) : null);
+        a aVar = new a(jVar, b, bZN instanceof com.facebook.imagepipeline.request.c, this.ihu);
+        bYR.a(id, bZb(), bYR.zl(id) ? ImmutableMap.of("cached_value_found", ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE) : null);
         this.ipF.a(aVar, ajVar);
     }
 
@@ -61,17 +61,17 @@ public class ag implements ai<com.facebook.common.references.a<com.facebook.imag
         public void d(com.facebook.common.references.a<com.facebook.imagepipeline.f.b> aVar, boolean z) {
             if (aVar == null) {
                 if (z) {
-                    bZe().e(null, true);
+                    bZd().e(null, true);
                 }
             } else if (z || this.iqX) {
                 com.facebook.common.references.a<com.facebook.imagepipeline.f.b> a = this.ihu.a(this.ifw, aVar);
                 try {
-                    bZe().az(1.0f);
-                    j<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> bZe = bZe();
+                    bZd().az(1.0f);
+                    j<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> bZd = bZd();
                     if (a != null) {
                         aVar = a;
                     }
-                    bZe.e(aVar, z);
+                    bZd.e(aVar, z);
                 } finally {
                     com.facebook.common.references.a.c((com.facebook.common.references.a<?>) a);
                 }
@@ -79,7 +79,7 @@ public class ag implements ai<com.facebook.common.references.a<com.facebook.imag
         }
     }
 
-    protected String bZc() {
+    protected String bZb() {
         return "PostprocessedBitmapMemoryCacheProducer";
     }
 }

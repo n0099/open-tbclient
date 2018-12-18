@@ -14,7 +14,7 @@ public class e {
         this.mAuthSid = str;
     }
 
-    public String bzT() {
+    public String bzS() {
         this.mNetWork = new x(hcd);
         this.mNetWork.x("authsid", this.mAuthSid);
         this.mNetWork.Dj().Eh().aDq = true;

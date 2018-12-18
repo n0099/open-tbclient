@@ -40,20 +40,20 @@ public final class f<T> implements Queue<T> {
             throw new NullPointerException();
         }
         AtomicReferenceArray<Object> atomicReferenceArray = this.iMs;
-        long ceD = ceD();
+        long ceC = ceC();
         int i = this.iMr;
-        int u = u(ceD, i);
-        if (ceD < this.iMn) {
-            return a(atomicReferenceArray, t, ceD, u);
+        int u = u(ceC, i);
+        if (ceC < this.iMn) {
+            return a(atomicReferenceArray, t, ceC, u);
         }
         int i2 = this.iMq;
-        if (a(atomicReferenceArray, u(i2 + ceD, i)) == null) {
-            this.iMn = (i2 + ceD) - 1;
-            return a(atomicReferenceArray, t, ceD, u);
-        } else if (a(atomicReferenceArray, u(1 + ceD, i)) != null) {
-            return a(atomicReferenceArray, t, ceD, u);
+        if (a(atomicReferenceArray, u(i2 + ceC, i)) == null) {
+            this.iMn = (i2 + ceC) - 1;
+            return a(atomicReferenceArray, t, ceC, u);
+        } else if (a(atomicReferenceArray, u(1 + ceC, i)) != null) {
+            return a(atomicReferenceArray, t, ceC, u);
         } else {
-            a(atomicReferenceArray, ceD, u, t, i);
+            a(atomicReferenceArray, ceC, u, t, i);
             return true;
         }
     }
@@ -85,17 +85,17 @@ public final class f<T> implements Queue<T> {
     @Override // java.util.Queue
     public T poll() {
         AtomicReferenceArray<Object> atomicReferenceArray = this.iMu;
-        long ceE = ceE();
+        long ceD = ceD();
         int i = this.iMt;
-        int u = u(ceE, i);
+        int u = u(ceD, i);
         T t = (T) a(atomicReferenceArray, u);
         boolean z = t == iMv;
         if (t != null && !z) {
-            dP(ceE + 1);
+            dP(ceD + 1);
             a(atomicReferenceArray, u, (Object) null);
             return t;
         } else if (z) {
-            return a(a(atomicReferenceArray), ceE, i);
+            return a(a(atomicReferenceArray), ceD, i);
         } else {
             return null;
         }
@@ -116,11 +116,11 @@ public final class f<T> implements Queue<T> {
     @Override // java.util.Queue
     public T peek() {
         AtomicReferenceArray<Object> atomicReferenceArray = this.iMu;
-        long ceE = ceE();
+        long ceD = ceD();
         int i = this.iMt;
-        T t = (T) a(atomicReferenceArray, u(ceE, i));
+        T t = (T) a(atomicReferenceArray, u(ceD, i));
         if (t == iMv) {
-            return b(a(atomicReferenceArray), ceE, i);
+            return b(a(atomicReferenceArray), ceD, i);
         }
         return t;
     }
@@ -141,39 +141,39 @@ public final class f<T> implements Queue<T> {
 
     @Override // java.util.Collection
     public int size() {
-        long ceB = ceB();
+        long ceA = ceA();
         while (true) {
-            long ceC = ceC();
-            long ceB2 = ceB();
-            if (ceB == ceB2) {
-                return (int) (ceC - ceB2);
+            long ceB = ceB();
+            long ceA2 = ceA();
+            if (ceA == ceA2) {
+                return (int) (ceB - ceA2);
             }
-            ceB = ceB2;
+            ceA = ceA2;
         }
     }
 
     @Override // java.util.Collection
     public boolean isEmpty() {
-        return ceC() == ceB();
+        return ceB() == ceA();
     }
 
     private void zr(int i) {
         this.iMq = Math.min(i / 4, iMp);
     }
 
+    private long ceB() {
+        return this.producerIndex.get();
+    }
+
+    private long ceA() {
+        return this.consumerIndex.get();
+    }
+
     private long ceC() {
         return this.producerIndex.get();
     }
 
-    private long ceB() {
-        return this.consumerIndex.get();
-    }
-
     private long ceD() {
-        return this.producerIndex.get();
-    }
-
-    private long ceE() {
         return this.consumerIndex.get();
     }
 

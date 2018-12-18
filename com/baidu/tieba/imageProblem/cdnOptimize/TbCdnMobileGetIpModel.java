@@ -59,9 +59,9 @@ public class TbCdnMobileGetIpModel {
         public void handleMessage(Message message) {
             super.handleMessage(message);
             if (10001 == message.what) {
-                TbCdnMobileGetIpModel.this.aWR();
+                TbCdnMobileGetIpModel.this.aWQ();
             } else if (10002 == message.what) {
-                TbCdnMobileGetIpModel.this.aWS();
+                TbCdnMobileGetIpModel.this.aWR();
             }
         }
     };
@@ -71,7 +71,7 @@ public class TbCdnMobileGetIpModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aWR() {
+    public void aWQ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MOBILE_CDN_IPLIST_CMD, "http://httpdns.baidu.com/ips/v1");
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
         tbHttpMessageTask.setResponsedClass(TbMobileCdnGetIPListHttpResponseMsg.class);
@@ -107,7 +107,7 @@ public class TbCdnMobileGetIpModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aWS() {
+    public void aWR() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.MOBILE_CDN_IPLIST_CMD);
         httpMessage.addParam(ClientCookie.DOMAIN_ATTR, "hiphotos.jomodns.com");
         httpMessage.setTag(this.unique_id);

@@ -16,7 +16,7 @@ public class d extends a {
     private d() {
     }
 
-    public static d aUk() {
+    public static d aUj() {
         return eZc;
     }
 
@@ -43,7 +43,7 @@ public class d extends a {
         return officialSettingItemData;
     }
 
-    public void aQo() {
+    public void aQn() {
         super.p(OfficialSettingItemData.class);
     }
 
@@ -57,7 +57,7 @@ public class d extends a {
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> aUh() {
+    protected l<String> aUg() {
         return com.baidu.tbadk.core.c.a.BB().ey("tb.im_official_chat_setting");
     }
 
@@ -73,13 +73,13 @@ public class d extends a {
                 }
                 return;
             }
-            l<String> aUh = aUh();
+            l<String> aUg = aUg();
             String str = myUid + "@" + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(officialSettingItemData);
             synchronized (this.eYV) {
                 this.eYV.put(str, officialSettingItemData);
             }
-            aUh.e(str, jsonStrWithObject);
+            aUg.e(str, jsonStrWithObject);
         }
     }
 
@@ -104,7 +104,7 @@ public class d extends a {
                 @Override // com.baidu.tbadk.util.w
                 /* renamed from: Ww */
                 public Void doInBackground() {
-                    d.this.aUh().e(str, OrmObject.jsonStrWithObject(officialSettingItemData));
+                    d.this.aUg().e(str, OrmObject.jsonStrWithObject(officialSettingItemData));
                     return null;
                 }
             }, hVar);

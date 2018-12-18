@@ -48,7 +48,7 @@ public class g {
             if (view == g.this.gkj || view == g.this.gkk || view == g.this.gkn) {
                 g.this.bH(view);
             } else if (view == g.this.gkm) {
-                g.this.bnj();
+                g.this.bni();
             }
         }
     };
@@ -96,7 +96,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bnj() {
+    public void bni() {
         if (this.gkp) {
             if (!l.ll()) {
                 this.mContext.showToast(e.j.no_network_guide);
@@ -183,7 +183,7 @@ public class g {
         this.gkl.setAlpha(f);
     }
 
-    public View bnk() {
+    public View bnj() {
         return this.gkl;
     }
 

@@ -307,7 +307,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         this.mContentWidth = (this.hna + i6) - this.mPadding;
         if (this.hnc || z) {
             scrollTo(0, 0);
-            scrollBy(bDM(), 0);
+            scrollBy(bDL(), 0);
             this.hnc = false;
         }
     }
@@ -478,7 +478,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int bDM() {
+    public int bDL() {
         if (canScroll()) {
             return this.mContentWidth - ((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight());
         }
@@ -499,8 +499,8 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         int scrollX = getScrollX();
         int i2 = scrollX + i;
         if (z) {
-            if (i2 > bDM()) {
-                i = bDM() - scrollX;
+            if (i2 > bDL()) {
+                i = bDL() - scrollX;
             }
         } else if (i2 < 0) {
             i = -scrollX;
@@ -613,7 +613,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     }
 
     @Override // com.baidu.tieba.tbadkCore.imgView.d
-    public void bDN() {
+    public void bDM() {
         if (!this.hmX) {
             this.hmX = true;
             int scrollX = getScrollX();
@@ -623,19 +623,19 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     }
 
     @Override // com.baidu.tieba.tbadkCore.imgView.d
-    public void bDO() {
+    public void bDN() {
         if (!this.hmY) {
             this.hmY = true;
-            int bDM = bDM();
+            int bDL = bDL();
             int scrollX = getScrollX();
-            int scrollX2 = bDM - getScrollX();
+            int scrollX2 = bDL - getScrollX();
             this.mScroller.startScroll(scrollX, 0, scrollX2, 0, (int) (scrollX2 * 2.0f));
             invalidate();
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.imgView.d
-    public void bDP() {
+    public void bDO() {
         if (!this.mScroller.isFinished()) {
             this.mScroller.forceFinished(true);
         }
@@ -644,7 +644,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     }
 
     @Override // com.baidu.tieba.tbadkCore.imgView.d
-    public void bDQ() {
+    public void bDP() {
         reset();
     }
 
@@ -702,8 +702,8 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         if (!canScroll()) {
             this.mScroller.startScroll(scrollX, 0, 0 - scrollX, 0, 500);
             postInvalidate();
-        } else if (scrollX > bDM()) {
-            this.mScroller.startScroll(scrollX, 0, bDM() - scrollX, 0, 500);
+        } else if (scrollX > bDL()) {
+            this.mScroller.startScroll(scrollX, 0, bDL() - scrollX, 0, 500);
             postInvalidate();
         }
         postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadkCore.imgView.DragHorizonScrollView.2
@@ -717,8 +717,8 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
                     }
                 }
                 if (DragHorizonScrollView.this.canScroll()) {
-                    if (DragHorizonScrollView.this.getScrollX() > DragHorizonScrollView.this.bDM()) {
-                        DragHorizonScrollView.this.scrollTo(DragHorizonScrollView.this.bDM(), 0);
+                    if (DragHorizonScrollView.this.getScrollX() > DragHorizonScrollView.this.bDL()) {
+                        DragHorizonScrollView.this.scrollTo(DragHorizonScrollView.this.bDL(), 0);
                     }
                 } else {
                     DragHorizonScrollView.this.scrollTo(0, 0);
@@ -731,7 +731,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         return indexOfChild;
     }
 
-    public boolean bDR() {
+    public boolean bDQ() {
         return this.hnh;
     }
 

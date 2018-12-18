@@ -40,7 +40,7 @@ public final class j extends rx.g {
 
         private k a(rx.functions.a aVar, long j) {
             if (this.iLg.isUnsubscribed()) {
-                return rx.subscriptions.e.cfu();
+                return rx.subscriptions.e.cft();
             }
             final b bVar = new b(aVar, Long.valueOf(j), this.iLG.incrementAndGet());
             this.iLH.add(bVar);
@@ -51,7 +51,7 @@ public final class j extends rx.g {
                         poll.action.call();
                     }
                 } while (this.wip.decrementAndGet() > 0);
-                return rx.subscriptions.e.cfu();
+                return rx.subscriptions.e.cft();
             }
             return rx.subscriptions.e.j(new rx.functions.a() { // from class: rx.internal.schedulers.j.a.1
                 @Override // rx.functions.a

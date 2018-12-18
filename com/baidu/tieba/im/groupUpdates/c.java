@@ -65,28 +65,28 @@ public class c extends com.baidu.adp.base.c<UpdatesActivity> {
         this.eUv = null;
     }
 
-    public a aSE() {
+    public a aSD() {
         return this.eUH;
     }
 
-    public void aSF() {
+    public void aSE() {
         this.eUJ.setVisibility(8);
         this.eSB.setVisibility(8);
         this.eUK.setVisibility(0);
         this.eUM.setVisibility(0);
-        aRw();
+        aRv();
     }
 
-    public void aSG() {
+    public void aSF() {
         this.eUJ.setVisibility(0);
         this.eSB.setVisibility(0);
         this.eUK.setVisibility(8);
         this.eUM.setVisibility(8);
         qe(0);
-        aRw();
+        aRv();
     }
 
-    public void aRw() {
+    public void aRv() {
         if (this.eUH != null) {
             this.eUH.notifyDataSetChanged();
         }
@@ -120,23 +120,23 @@ public class c extends com.baidu.adp.base.c<UpdatesActivity> {
         al.i(this.eUL, e.f.btn_delete_groupupdates);
     }
 
-    public View aSH() {
+    public View aSG() {
         return this.eSB;
     }
 
-    public BdListView aSI() {
+    public BdListView aSH() {
         return this.eUG;
     }
 
-    public Button aSJ() {
+    public Button aSI() {
         return this.eUJ;
     }
 
-    public Button aSK() {
+    public Button aSJ() {
         return this.eUK;
     }
 
-    public Button aSL() {
+    public Button aSK() {
         return this.eUL;
     }
 }

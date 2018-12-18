@@ -34,14 +34,14 @@ public class b {
         this.fgK = (LinearLayout) this.fgI.findViewById(e.g.big_image_ad_source_container);
         this.fgL = (TextView) this.fgI.findViewById(e.g.big_image_ad_source);
         this.mContext = viewGroup.getContext();
-        aWm();
+        aWl();
     }
 
     public View getView() {
         return this.fgI;
     }
 
-    public void aWm() {
+    public void aWl() {
         this.mProgressBar = new ProgressBar(this.mContext, null, 16843399);
         this.mProgressBar.setIndeterminateDrawable(this.mContext.getResources().getDrawable(e.f.progressbar));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
@@ -51,16 +51,16 @@ public class b {
         this.fgI.addView(this.mProgressBar);
     }
 
-    public TbImageView aWn() {
+    public TbImageView aWm() {
         return this.due;
     }
 
-    public TextView aWo() {
+    public TextView aWn() {
         return this.ePI;
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void aWp() {
+    public void aWo() {
         this.ePI.setText(e.j.pause_load);
         this.ePI.setBackgroundResource(e.f.button_fenfa_xiazaizhong);
         al.b(this.ePI, e.d.common_color_10049, 1, 0);
@@ -74,13 +74,13 @@ public class b {
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void aWq() {
+    public void aWp() {
         this.ePI.setText(e.j.setup_text);
         this.ePI.setBackgroundResource(e.f.button_fenfa_download_selector);
         al.b(this.ePI, e.f.button_fenfa_download_text_selector, 1, 0);
     }
 
-    public void aWr() {
+    public void aWq() {
         int width = ((WindowManager) this.mContext.getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay().getWidth();
         ViewGroup.LayoutParams layoutParams = this.due.getLayoutParams();
         double loadedHeight = this.due.getLoadedHeight() / this.due.getLoadedWidth();
@@ -99,7 +99,7 @@ public class b {
         this.due.setOnClickListener(onClickListener);
     }
 
-    public void aWs() {
+    public void aWr() {
         this.mProgressBar.setVisibility(8);
     }
 }

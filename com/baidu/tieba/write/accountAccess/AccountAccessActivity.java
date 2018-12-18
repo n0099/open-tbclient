@@ -37,7 +37,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
             }
             this.hRx = new a(this.hRw, this.aZR);
             this.hRw.c(this.hRx);
-            this.hRx.al(bNg());
+            this.hRx.al(bNf());
         }
     }
 
@@ -58,7 +58,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         this.hRw.onDestory();
     }
 
-    public String bNg() {
+    public String bNf() {
         if (this.hRy == null || this.hRy.getUserInfo() == null) {
             return null;
         }

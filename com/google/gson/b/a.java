@@ -30,11 +30,11 @@ public class a<T> {
         return C$Gson$Types.f(((ParameterizedType) genericSuperclass).getActualTypeArguments()[0]);
     }
 
-    public final Class<? super T> caT() {
+    public final Class<? super T> caS() {
         return this.iwn;
     }
 
-    public final Type caU() {
+    public final Type caT() {
         return this.iuZ;
     }
 

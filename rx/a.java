@@ -10,7 +10,7 @@ public final class a {
 
     /* loaded from: classes2.dex */
     public interface d {
-        boolean ccL() throws MissingBackpressureException;
+        boolean ccK() throws MissingBackpressureException;
     }
 
     /* loaded from: classes2.dex */
@@ -21,7 +21,7 @@ public final class a {
         }
 
         @Override // rx.a.d
-        public boolean ccL() {
+        public boolean ccK() {
             return true;
         }
     }
@@ -35,7 +35,7 @@ public final class a {
         }
 
         @Override // rx.a.d
-        public boolean ccL() {
+        public boolean ccK() {
             return false;
         }
     }
@@ -48,7 +48,7 @@ public final class a {
         }
 
         @Override // rx.a.d
-        public boolean ccL() throws MissingBackpressureException {
+        public boolean ccK() throws MissingBackpressureException {
             throw new MissingBackpressureException("Overflowed buffer");
         }
     }

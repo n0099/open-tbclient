@@ -5,8 +5,8 @@ import java.util.List;
 public final class j {
     private h icC = new h();
 
-    public final List<i> bRK() {
-        return this.icC.bRK();
+    public final List<i> bRJ() {
+        return this.icC.bRJ();
     }
 
     public final void a(int i) {

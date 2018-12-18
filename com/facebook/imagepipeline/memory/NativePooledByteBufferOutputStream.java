@@ -10,7 +10,7 @@ public class NativePooledByteBufferOutputStream extends com.facebook.common.memo
     private int mCount;
 
     public NativePooledByteBufferOutputStream(k kVar) {
-        this(kVar, kVar.bYt());
+        this(kVar, kVar.bYs());
     }
 
     public NativePooledByteBufferOutputStream(k kVar, int i) {
@@ -22,9 +22,9 @@ public class NativePooledByteBufferOutputStream extends com.facebook.common.memo
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.memory.i
-    /* renamed from: bYv */
-    public l bTj() {
-        bTw();
+    /* renamed from: bYu */
+    public l bTi() {
+        bTv();
         return new l(this.ipd, this.mCount);
     }
 
@@ -43,7 +43,7 @@ public class NativePooledByteBufferOutputStream extends com.facebook.common.memo
         if (i < 0 || i2 < 0 || i + i2 > bArr.length) {
             throw new ArrayIndexOutOfBoundsException("length=" + bArr.length + "; regionStart=" + i + "; regionLength=" + i2);
         }
-        bTw();
+        bTv();
         yE(this.mCount + i2);
         this.ipd.get().c(this.mCount, bArr, i, i2);
         this.mCount += i2;
@@ -58,7 +58,7 @@ public class NativePooledByteBufferOutputStream extends com.facebook.common.memo
     }
 
     void yE(int i) {
-        bTw();
+        bTv();
         if (i > this.ipd.get().getSize()) {
             NativeMemoryChunk nativeMemoryChunk = this.ipe.get(i);
             this.ipd.get().a(0, nativeMemoryChunk, 0, this.mCount);
@@ -67,7 +67,7 @@ public class NativePooledByteBufferOutputStream extends com.facebook.common.memo
         }
     }
 
-    private void bTw() {
+    private void bTv() {
         if (!com.facebook.common.references.a.a(this.ipd)) {
             throw new InvalidStreamException();
         }

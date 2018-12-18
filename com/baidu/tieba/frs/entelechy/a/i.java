@@ -83,7 +83,7 @@ public class i extends com.baidu.tieba.frs.h<bb, com.baidu.tieba.card.a.a<com.ba
                         com.baidu.tieba.frs.e.b.aGK().a(i.this.dQi, bbVar, 1);
                     } else {
                         int i = 6;
-                        if (bbVar.AX() != null && bbVar.AX().bDu() != null && bbVar.AX().bDu().RZ() != null && bbVar.AX().bDu().RZ().size() > 0) {
+                        if (bbVar.AX() != null && bbVar.AX().bDt() != null && bbVar.AX().bDt().RZ() != null && bbVar.AX().bDt().RZ().size() > 0) {
                             i = bbVar.AX().hlS ? 9 : 8;
                         }
                         com.baidu.tieba.frs.e.b.aGK().a(i.this.dQi, bbVar, i);
@@ -210,8 +210,8 @@ public class i extends com.baidu.tieba.frs.h<bb, com.baidu.tieba.card.a.a<com.ba
         }
         com.baidu.tieba.frs.g.a(aVar.aqe().aco(), this.dHF);
         com.baidu.tieba.frs.g.a(aVar.aqe().acp(), this.dHF);
-        if (this.dHF != null && this.dHF.bgi() != null && !StringUtils.isNull(this.dHF.bgi().getTopic_special_icon()) && !StringUtils.isNull(this.dHF.bgi().getTopic_special_icon_right())) {
-            aVar.aqe().al(this.dHF.bgi().getTopic_special_icon(), this.dHF.bgi().getTopic_special_icon_right());
+        if (this.dHF != null && this.dHF.bgh() != null && !StringUtils.isNull(this.dHF.bgh().getTopic_special_icon()) && !StringUtils.isNull(this.dHF.bgh().getTopic_special_icon_right())) {
+            aVar.aqe().al(this.dHF.bgh().getTopic_special_icon(), this.dHF.bgh().getTopic_special_icon_right());
         }
         aVar.aqe().a(bbVar);
         aVar.aqe().setForumName(this.mForumName);

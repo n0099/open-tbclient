@@ -190,10 +190,10 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void resetData() {
-        this.gxh.bqu();
+        this.gxh.bqt();
     }
 
-    public com.baidu.tieba.personPolymeric.c.a bqA() {
+    public com.baidu.tieba.personPolymeric.c.a bqz() {
         return this.gxh;
     }
 

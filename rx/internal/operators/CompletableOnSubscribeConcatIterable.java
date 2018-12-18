@@ -14,7 +14,7 @@ public final class CompletableOnSubscribeConcatIterable implements b.a {
         try {
             Iterator<? extends rx.b> it = this.iBR.iterator();
             if (it == null) {
-                cVar.onSubscribe(rx.subscriptions.e.cfu());
+                cVar.onSubscribe(rx.subscriptions.e.cft());
                 cVar.onError(new NullPointerException("The iterator returned is null"));
                 return;
             }
@@ -22,7 +22,7 @@ public final class CompletableOnSubscribeConcatIterable implements b.a {
             cVar.onSubscribe(concatInnerSubscriber.sd);
             concatInnerSubscriber.next();
         } catch (Throwable th) {
-            cVar.onSubscribe(rx.subscriptions.e.cfu());
+            cVar.onSubscribe(rx.subscriptions.e.cft());
             cVar.onError(th);
         }
     }

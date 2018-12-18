@@ -178,7 +178,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String bdN() {
+    public String bdM() {
         return this.threadName;
     }
 
@@ -210,7 +210,7 @@ public class a implements f {
         this.postID = str;
     }
 
-    public boolean bdO() {
+    public boolean bdN() {
         return this.isHostOnly;
     }
 
@@ -218,7 +218,7 @@ public class a implements f {
         this.isHostOnly = z;
     }
 
-    public boolean bdP() {
+    public boolean bdO() {
         return this.isSquence;
     }
 

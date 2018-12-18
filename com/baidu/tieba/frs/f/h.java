@@ -60,7 +60,7 @@ public class h {
                     }
                 }
                 if (arrayList.size() > 0) {
-                    s.sendFRS(z, lVar.bgi().getFirst_class(), lVar.bgi().getSecond_class(), str, arrayList, adAdSense.Gw());
+                    s.sendFRS(z, lVar.bgh().getFirst_class(), lVar.bgh().getSecond_class(), str, arrayList, adAdSense.Gw());
                 }
             }
         }
@@ -81,10 +81,10 @@ public class h {
                 if (bbVar.zG() != null && bbVar.zG().getGodInfo() != null) {
                     TiebaStatic.log(new am("c10806").x("obj_locate", 3).aA("tid", bbVar.getId()));
                 }
-                if (lVar != null && lVar.bgi() != null) {
+                if (lVar != null && lVar.bgh() != null) {
                     com.baidu.tieba.frs.e.a aVar = new com.baidu.tieba.frs.e.a();
                     aVar.ebm = lVar.hiz == 1;
-                    aVar.ebo = lVar.bgi().getId();
+                    aVar.ebo = lVar.bgh().getId();
                     aVar.ebn = aAD.aGs();
                     if (com.baidu.tieba.frs.e.c.dQi != null) {
                         aVar.ebp = com.baidu.tieba.frs.e.c.dQi.ebp;

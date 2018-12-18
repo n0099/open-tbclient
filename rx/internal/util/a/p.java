@@ -8,7 +8,7 @@ abstract class p<E> extends n<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final long ceF() {
+    public final long ceE() {
         return this.iME;
     }
 

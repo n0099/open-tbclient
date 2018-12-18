@@ -1,7 +1,7 @@
 package com.facebook.common.c;
 /* loaded from: classes2.dex */
 public class a {
-    private static c ifN = b.bTe();
+    private static c ifN = b.bTd();
 
     public static boolean isLoggable(int i) {
         return ifN.isLoggable(i);

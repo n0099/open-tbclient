@@ -19,9 +19,9 @@ public class LocationInfoWithDelView extends LinearLayout implements View.OnClic
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bOe();
+        void bOd();
 
-        void bOf();
+        void bOe();
     }
 
     public LocationInfoWithDelView(Context context) {
@@ -87,9 +87,9 @@ public class LocationInfoWithDelView extends LinearLayout implements View.OnClic
     public void onClick(View view) {
         if (this.hTM != null) {
             if (view == this.hTL) {
-                this.hTM.bOf();
-            } else if (view == this) {
                 this.hTM.bOe();
+            } else if (view == this) {
+                this.hTM.bOd();
             }
         }
     }

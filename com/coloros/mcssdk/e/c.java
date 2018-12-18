@@ -5,11 +5,11 @@ public abstract class c {
     int ieo;
     String iep;
 
-    public String bSo() {
+    public String bSn() {
         return this.iep;
     }
 
-    public String bSp() {
+    public String bSo() {
         return this.appPackage;
     }
 

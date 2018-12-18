@@ -16,7 +16,7 @@ public class o {
     private static l icf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static final l bRs() {
+    public static final l bRr() {
         return icf;
     }
 
@@ -53,7 +53,7 @@ public class o {
     }
 
     public static void S(String str, String str2, String str3) {
-        d.bQP().d(str, str2, com.baidu.g.e.yp(str3), 8);
+        d.bQO().d(str, str2, com.baidu.g.e.yp(str3), 8);
     }
 
     public static final Flow yl(String str) {
@@ -70,7 +70,7 @@ public class o {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static IRemoteUBCService bRt() throws RemoteException {
+    public static IRemoteUBCService bRs() throws RemoteException {
         if (icd == null) {
             synchronized (o.class) {
                 if (icd == null) {

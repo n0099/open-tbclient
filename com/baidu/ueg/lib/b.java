@@ -50,13 +50,13 @@ public abstract class b {
         return 0;
     }
 
-    protected int bSi() {
+    protected int bSh() {
         return 8192;
     }
 
     private byte[] b(a aVar) {
         if (aVar.buffer == null) {
-            aVar.buffer = new byte[bSi()];
+            aVar.buffer = new byte[bSh()];
             aVar.pos = 0;
             aVar.idV = 0;
         } else {

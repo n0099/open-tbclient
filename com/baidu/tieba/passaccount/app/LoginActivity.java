@@ -95,11 +95,11 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         this.fMs = intent.getBooleanExtra("close", false);
         this.fMt = intent.getIntExtra(LoginActivityConfig.JUMP_AFTER_DESTROY, -1);
         this.fMz = intent.getStringExtra("url");
-        beY();
+        beX();
         TiebaStatic.log(new am("c12947").aA("obj_url", this.fMz));
     }
 
-    protected void beY() {
+    protected void beX() {
         try {
             SapiAccountManager.getInstance().getConfignation();
         } catch (Exception e) {
@@ -112,9 +112,9 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         if (d.iQ().aO("android_pass_login_sms_enable") == 1) {
             webLoginDTO.loginType = WebLoginDTO.EXTRA_LOGIN_WITH_SMS;
         }
-        PassManagerStatic.bfh();
+        PassManagerStatic.bfg();
         SapiAccountManager.getInstance().getConfignation().fastLoginFeatureList.clear();
-        SapiAccountManager.getInstance().getConfignation().fastLoginFeatureList.addAll(PassManagerStatic.bfd());
+        SapiAccountManager.getInstance().getConfignation().fastLoginFeatureList.addAll(PassManagerStatic.bfc());
         passportSDK.startLogin(getActivity(), new WebAuthListener() { // from class: com.baidu.tieba.passaccount.app.LoginActivity.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.SapiCallback
@@ -122,7 +122,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                 LoginActivity.this.fMv = webAuthResult;
                 LoginActivity.this.fMw = webAuthResult.activity;
                 com.baidu.tbadk.core.d.a.a("account", -1L, 0, "login_pass_success", 0, "", new Object[0]);
-                LoginActivity.this.beZ();
+                LoginActivity.this.beY();
                 LoginActivity.this.fMy = 0;
             }
 
@@ -177,7 +177,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void beZ() {
+    public void beY() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {

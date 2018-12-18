@@ -42,8 +42,8 @@ public class d implements com.baidu.tieba.frs.entelechy.b.b {
     public void a(f fVar, k kVar, l lVar) {
         if (fVar != null && kVar != null && lVar != null) {
             fVar.aHg();
-            if (lVar != null && lVar.bgi() != null) {
-                kVar.a(lVar.bgi().getFrsBannerData());
+            if (lVar != null && lVar.bgh() != null) {
+                kVar.a(lVar.bgh().getFrsBannerData());
             }
         }
     }

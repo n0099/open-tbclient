@@ -131,7 +131,7 @@ public final class CompositeException extends RuntimeException {
                 a(sb, it.next(), "\t");
                 i = i2 + 1;
             } else {
-                synchronized (aVar.ccZ()) {
+                synchronized (aVar.ccY()) {
                     aVar.println(sb.toString());
                 }
                 return;
@@ -153,7 +153,7 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static abstract class a {
-        abstract Object ccZ();
+        abstract Object ccY();
 
         abstract void println(Object obj);
 
@@ -171,7 +171,7 @@ public final class CompositeException extends RuntimeException {
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object ccZ() {
+        Object ccY() {
             return this.iBo;
         }
 
@@ -190,7 +190,7 @@ public final class CompositeException extends RuntimeException {
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object ccZ() {
+        Object ccY() {
             return this.iBp;
         }
 

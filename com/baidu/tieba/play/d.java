@@ -1,7 +1,9 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public interface d {
-    String brk();
+    String brj();
+
+    boolean brk();
 
     boolean brl();
 
@@ -9,15 +11,13 @@ public interface d {
 
     boolean brn();
 
-    boolean bro();
+    int bro();
 
-    int brp();
+    void brp();
 
-    void brq();
+    j brq();
 
-    j brr();
-
-    void brs();
+    void brr();
 
     void cY(long j);
 

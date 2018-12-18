@@ -41,6 +41,9 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
                 this.mCurTransaction = this.mFragmentManager.beginTransaction();
             }
             Fragment item = getItem(i);
+            if (item == null) {
+                return null;
+            }
             if (this.mSavedState.size() > i && (savedState = this.mSavedState.get(i)) != null) {
                 item.setInitialSavedState(savedState);
             }

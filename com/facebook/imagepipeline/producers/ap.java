@@ -11,13 +11,13 @@ public class ap<T> implements ai<T> {
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(final j<T> jVar, final aj ajVar) {
-        final al bYS = ajVar.bYS();
+        final al bYR = ajVar.bYR();
         final String id = ajVar.getId();
-        final ao<T> aoVar = new ao<T>(jVar, bYS, "BackgroundThreadHandoffProducer", id) { // from class: com.facebook.imagepipeline.producers.ap.1
+        final ao<T> aoVar = new ao<T>(jVar, bYR, "BackgroundThreadHandoffProducer", id) { // from class: com.facebook.imagepipeline.producers.ap.1
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.imagepipeline.producers.ao, com.facebook.common.b.e
             public void onSuccess(T t) {
-                bYS.a(id, "BackgroundThreadHandoffProducer", null);
+                bYR.a(id, "BackgroundThreadHandoffProducer", null);
                 ap.this.ipF.a(jVar, ajVar);
             }
 
@@ -32,7 +32,7 @@ public class ap<T> implements ai<T> {
         };
         ajVar.a(new e() { // from class: com.facebook.imagepipeline.producers.ap.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-            public void bYY() {
+            public void bYX() {
                 aoVar.cancel();
                 ap.this.imY.remove(aoVar);
             }

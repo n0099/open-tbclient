@@ -69,7 +69,7 @@ public class a extends d {
                         a.this.ghU.xr(null);
                         a.this.ghU.az(null);
                         a.this.ghU.oq(false);
-                        a.this.bLM();
+                        a.this.bLL();
                         a.this.resetData();
                         if (writeData2 != null) {
                             String string = a.this.GC().getResources().getString(e.j.replay_success);
@@ -99,7 +99,7 @@ public class a extends d {
                         a.this.xj(postWriteCallBackData.getErrorString());
                         a.this.ghU.az(postWriteCallBackData.getSensitiveWords());
                         a.this.ghU.xr(postWriteCallBackData.getErrorString());
-                        if (!v.I(a.this.ghU.bMV())) {
+                        if (!v.I(a.this.ghU.bMU())) {
                             a.this.lL(true);
                         }
                     } else if (postWriteCallBackData != null && (postWriteCallBackData.getErrorCode() == 230277 || postWriteCallBackData.getErrorCode() == 230278 || postWriteCallBackData.getErrorCode() == 340016 || postWriteCallBackData.getErrorCode() == 1990032 || AntiHelper.vA(postWriteCallBackData.getErrorCode()))) {
@@ -122,7 +122,7 @@ public class a extends d {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (a.this.ghU != null) {
-                    if (!a.this.ghU.bMY()) {
+                    if (!a.this.ghU.bMX()) {
                         a.this.lL(false);
                     }
                     a.this.ghU.or(false);
@@ -182,7 +182,7 @@ public class a extends d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bLM() {
+    public void bLL() {
         if (LX() != null) {
             LX().b(new com.baidu.tbadk.editortools.a(9, -1, true));
             LX().b(new com.baidu.tbadk.editortools.a(4, -1, ""));
@@ -229,7 +229,7 @@ public class a extends d {
                     this.baf.callback(false, (intent == null || !(intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) ? null : (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data"), null, this.aZR.getWriteData(), null);
                     return;
                 } else if (i2 == -1) {
-                    bLM();
+                    bLL();
                     return;
                 } else {
                     return;
@@ -248,13 +248,13 @@ public class a extends d {
             if (b != null) {
                 this.ghU.or(true);
                 inputView.setText(b);
-                if (z && this.ghU.bMW() >= 0) {
+                if (z && this.ghU.bMV() >= 0) {
                     inputView.requestFocus();
-                    inputView.setSelection(this.ghU.bMW());
+                    inputView.setSelection(this.ghU.bMV());
                 } else {
                     inputView.setSelection(selectionEnd);
                 }
-                this.ghU.oq(this.ghU.bMW() >= 0);
+                this.ghU.oq(this.ghU.bMV() >= 0);
             }
         }
     }
@@ -270,7 +270,7 @@ public class a extends d {
         this.hLY = interfaceC0333a;
     }
 
-    public void bLN() {
+    public void bLM() {
         am amVar = new am("c13026");
         amVar.aA("tid", this.mThreadId);
         amVar.i("uid", TbadkCoreApplication.getCurrentAccountId());

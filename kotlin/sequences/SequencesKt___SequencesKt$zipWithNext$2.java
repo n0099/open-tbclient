@@ -47,7 +47,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
         kotlin.coroutines.experimental.f fVar;
         Iterator it;
         Object obj2;
-        Object cbL = kotlin.coroutines.experimental.a.a.cbL();
+        Object cbK = kotlin.coroutines.experimental.a.a.cbK();
         switch (this.label) {
             case 0:
                 if (th == null) {
@@ -86,8 +86,8 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
             this.L$2 = obj2;
             this.L$3 = next;
             this.label = 1;
-            if (fVar.a(invoke, this) == cbL) {
-                return cbL;
+            if (fVar.a(invoke, this) == cbK) {
+                return cbK;
             }
             obj2 = next;
         }

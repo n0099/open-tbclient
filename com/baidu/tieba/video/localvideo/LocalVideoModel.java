@@ -22,7 +22,7 @@ public class LocalVideoModel extends BdBaseModel {
         return false;
     }
 
-    public void bJu() {
+    public void bJt() {
         b bVar = new b(this.hET);
         bVar.b(this.hEI);
         bVar.execute(new Void[0]);

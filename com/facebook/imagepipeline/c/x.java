@@ -6,7 +6,7 @@ public class x implements o {
     private x() {
     }
 
-    public static synchronized x bWa() {
+    public static synchronized x bVZ() {
         x xVar;
         synchronized (x.class) {
             if (imk == null) {
@@ -18,7 +18,7 @@ public class x implements o {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void bVR() {
+    public void bVQ() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
@@ -26,11 +26,11 @@ public class x implements o {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void bVS() {
+    public void bVR() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void bVT() {
+    public void bVS() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
@@ -38,11 +38,15 @@ public class x implements o {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void bVU() {
+    public void bVT() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
     public void p(com.facebook.cache.common.b bVar) {
+    }
+
+    @Override // com.facebook.imagepipeline.c.o
+    public void bVU() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
@@ -55,10 +59,6 @@ public class x implements o {
 
     @Override // com.facebook.imagepipeline.c.o
     public void bVX() {
-    }
-
-    @Override // com.facebook.imagepipeline.c.o
-    public void bVY() {
     }
 
     @Override // com.facebook.imagepipeline.c.o

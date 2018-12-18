@@ -36,7 +36,7 @@ public class b {
         public void run() {
             if (b.this.mWebView != null) {
                 b.this.showWebLoadingView(false);
-                b.this.bNk();
+                b.this.bNj();
             }
         }
     };
@@ -95,8 +95,8 @@ public class b {
                         if (!b.this.onPageFinishHasBeenCalled) {
                             b.this.onPageFinishHasBeenCalled = true;
                             b.this.showWebLoadingView(false);
-                            b.this.bNk();
-                            b.this.hRx.bNh();
+                            b.this.bNj();
+                            b.this.hRx.bNg();
                             return true;
                         }
                         return b.this.hRx.xv(str);
@@ -107,7 +107,7 @@ public class b {
                         super.onPageFinished(webView, str);
                         b.this.onPageFinishHasBeenCalled = true;
                         if (b.this.hRx != null) {
-                            b.this.hRx.bNh();
+                            b.this.hRx.bNg();
                         }
                     }
 
@@ -189,7 +189,7 @@ public class b {
         return this.mRatio;
     }
 
-    public float bNj() {
+    public float bNi() {
         return this.hRC;
     }
 
@@ -208,7 +208,7 @@ public class b {
         return translateAnimation;
     }
 
-    public void bNk() {
+    public void bNj() {
         if (this.mContext != null) {
             if (this.mRatio == this.hRC) {
                 this.mWebView.startAnimation(y(l.aQ(this.mContext.getBaseContext()) - (this.mWebView.getWidth() * 1.2631578f), 0.0f));

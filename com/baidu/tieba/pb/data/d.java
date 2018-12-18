@@ -91,7 +91,7 @@ public class d {
     private List<au.a> fQy = new ArrayList();
     private HashSet<String> fQz = new HashSet<>();
 
-    public boolean bgh() {
+    public boolean bgg() {
         return this.fPY;
     }
 
@@ -115,10 +115,10 @@ public class d {
         String str2 = "";
         if (isValid()) {
             int size = this.fPP.size() > 30 ? 30 : this.fPP.size();
-            if (bgk() == null || bgk().zG() == null || com.baidu.tbadk.core.util.ao.isEmpty(bgk().zG().getUserId())) {
+            if (bgj() == null || bgj().zG() == null || com.baidu.tbadk.core.util.ao.isEmpty(bgj().zG().getUserId())) {
                 return new String[]{null, ""};
             }
-            String userId = bgk().zG().getUserId();
+            String userId = bgj().zG().getUserId();
             int i = 0;
             while (true) {
                 if (i >= size) {
@@ -127,14 +127,14 @@ public class d {
                 PostData postData = (PostData) v.d(this.fPP, i);
                 if (postData != null && postData.zG() != null && !com.baidu.tbadk.core.util.ao.isEmpty(postData.zG().getUserId()) && com.baidu.tbadk.core.util.ao.equals(userId, postData.zG().getUserId())) {
                     if (com.baidu.tbadk.core.util.ao.isEmpty(str)) {
-                        str = postData.bDz();
+                        str = postData.bDy();
                     }
-                    String bDx = com.baidu.tbadk.core.util.ao.isEmpty(str2) ? postData.bDx() : str2;
-                    if (!com.baidu.tbadk.core.util.ao.isEmpty(str) && !com.baidu.tbadk.core.util.ao.isEmpty(bDx)) {
-                        str2 = bDx;
+                    String bDw = com.baidu.tbadk.core.util.ao.isEmpty(str2) ? postData.bDw() : str2;
+                    if (!com.baidu.tbadk.core.util.ao.isEmpty(str) && !com.baidu.tbadk.core.util.ao.isEmpty(bDw)) {
+                        str2 = bDw;
                         break;
                     }
-                    str2 = bDx;
+                    str2 = bDw;
                 }
                 i++;
                 str = str;
@@ -153,11 +153,11 @@ public class d {
         return new String[]{str, str2};
     }
 
-    public ForumData bgi() {
+    public ForumData bgh() {
         return this.fPN;
     }
 
-    public ay bgj() {
+    public ay bgi() {
         return this.fPO;
     }
 
@@ -168,11 +168,11 @@ public class d {
         return this.fPN.getId();
     }
 
-    public bb bgk() {
+    public bb bgj() {
         return this.bMJ;
     }
 
-    public List<bb> bgl() {
+    public List<bb> bgk() {
         return this.fQb;
     }
 
@@ -183,7 +183,7 @@ public class d {
         return this.bMJ.getId();
     }
 
-    public ArrayList<PostData> bgm() {
+    public ArrayList<PostData> bgl() {
         return this.fPP;
     }
 
@@ -191,11 +191,11 @@ public class d {
         return this.feI;
     }
 
-    public ad bgn() {
+    public ad bgm() {
         return this.fPW;
     }
 
-    public ao bgo() {
+    public ao bgn() {
         return this.fQa;
     }
 
@@ -249,22 +249,22 @@ public class d {
         }
     }
 
-    public String bgp() {
+    public String bgo() {
         return this.fQx;
     }
 
-    public boolean bgq() {
+    public boolean bgp() {
         return (this.bMJ == null || this.bMJ.zS() == null || this.bMJ.zS().size() <= 0 || this.bMJ.zS().get(0) == null || !this.bMJ.zS().get(0).yb()) ? false : true;
     }
 
-    public PostData bgr() {
+    public PostData bgq() {
         return this.fQA;
     }
 
     public void a(DataRes dataRes, Context context) {
         if (dataRes != null) {
             try {
-                com.baidu.tieba.recapp.d.a.bvp().uK(dataRes.asp_shown_info);
+                com.baidu.tieba.recapp.d.a.bvo().uK(dataRes.asp_shown_info);
                 List<User> list = dataRes.user_list;
                 if (list != null) {
                     for (int i = 0; i < list.size(); i++) {
@@ -306,17 +306,17 @@ public class d {
                             postData.setUserMap(this.userMap);
                             postData.kx(this.fPN.isBrandForum);
                             postData.a(post, context);
-                            postData.a(bgk().zt());
+                            postData.a(bgj().zt());
                             this.fQz.add(postData.getId());
-                            if (postData.bDs() == 1 && this.bMJ.Al()) {
-                                if (bgq()) {
+                            if (postData.bDr() == 1 && this.bMJ.Al()) {
+                                if (bgp()) {
                                     postData.setPostType(0);
                                 } else {
                                     postData.setPostType(this.bMJ.Ak());
                                 }
-                            } else if (postData.bDs() == 1 && this.bMJ.Ay()) {
+                            } else if (postData.bDr() == 1 && this.bMJ.Ay()) {
                                 postData.setPostType(41);
-                            } else if (postData.bDs() == 1 && this.bMJ != null && this.bMJ.Au()) {
+                            } else if (postData.bDr() == 1 && this.bMJ != null && this.bMJ.Au()) {
                                 postData.setPostType(0);
                                 postData.Sj();
                                 if (this.bMJ.zE() == null || this.bMJ.zE().size() == 0) {
@@ -335,7 +335,7 @@ public class d {
                                 }
                                 this.fQm = postData;
                             }
-                            if (postData.bDs() == 1 && this.bMJ != null && this.bMJ.isShareThread) {
+                            if (postData.bDr() == 1 && this.bMJ != null && this.bMJ.isShareThread) {
                                 postData.g(this.bMJ.avt);
                             }
                             this.fPP.add(postData);
@@ -368,26 +368,26 @@ public class d {
                     }
                 }
                 this.bMJ.cP(this.bMJ.zx() > 0 ? this.bMJ.zx() - 1 : 0);
-                List<AppData> bux = r.buz().bux();
-                if (bux != null) {
-                    bux.clear();
+                List<AppData> buw = r.buy().buw();
+                if (buw != null) {
+                    buw.clear();
                 }
                 this.fQf = null;
                 if (dataRes.banner_list != null) {
                     for (App app : dataRes.banner_list.app) {
                         l lVar = new l();
                         lVar.d(app);
-                        AppData bDg = lVar.bDg();
-                        if (!this.fQe.contains(lVar) && bDg.goods != null && (!StringUtils.isNull(bDg.goods.user_name) || !StringUtils.isNull(bDg.goods.lego_card))) {
+                        AppData bDf = lVar.bDf();
+                        if (!this.fQe.contains(lVar) && bDf.goods != null && (!StringUtils.isNull(bDf.goods.user_name) || !StringUtils.isNull(bDf.goods.lego_card))) {
                             this.fQe.add(lVar);
-                            if (bux != null) {
-                                bux.add(lVar.bDg());
+                            if (buw != null) {
+                                buw.add(lVar.bDf());
                             }
                         }
                     }
                     a(dataRes);
                 }
-                r.buz().buy();
+                r.buy().bux();
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (currentAccountObj != null) {
                     currentAccountObj.setIsSelectTail(this.fPU.getIsSelectTail());
@@ -488,20 +488,20 @@ public class d {
         l lVar = new l();
         lVar.hlk = true;
         lVar.d(app);
-        if (lVar.bDg().goods != null) {
+        if (lVar.bDf().goods != null) {
             this.fQf = lVar;
         }
     }
 
-    public String bgs() {
+    public String bgr() {
         return this.fQw;
     }
 
-    public CardHListViewData bgt() {
+    public CardHListViewData bgs() {
         return this.fQo;
     }
 
-    public PostData bgu() {
+    public PostData bgt() {
         return this.fQm;
     }
 
@@ -510,15 +510,15 @@ public class d {
         return postData;
     }
 
-    public k bgv() {
+    public k bgu() {
         return this.fQk;
     }
 
-    public int bgw() {
+    public int bgv() {
         return this.fPR;
     }
 
-    public int bgx() {
+    public int bgw() {
         return this.fPT;
     }
 
@@ -526,30 +526,30 @@ public class d {
         this.fPT = i;
     }
 
-    public List<MuteUser> bgy() {
+    public List<MuteUser> bgx() {
         return this.fPX;
     }
 
-    public ArrayList<l> bgz() {
+    public ArrayList<l> bgy() {
         return this.fQe;
     }
 
-    public l bgA() {
+    public l bgz() {
         return this.fQf;
     }
 
-    public void bgB() {
-        if (this.fQf.bDg() != null) {
-            this.fQf.bDg().legoCard = null;
+    public void bgA() {
+        if (this.fQf.bDf() != null) {
+            this.fQf.bDf().legoCard = null;
         }
         this.fQf = null;
     }
 
-    public a bgC() {
+    public a bgB() {
         return this.fPZ;
     }
 
-    public String bgD() {
+    public String bgC() {
         return this.fQl;
     }
 
@@ -557,39 +557,39 @@ public class d {
         this.fQl = str;
     }
 
-    public f bgE() {
+    public f bgD() {
         return this.fQn;
     }
 
-    public int bgF() {
+    public int bgE() {
         return this.fQc;
     }
 
-    public List<ay> bgG() {
+    public List<ay> bgF() {
         return this.fQj;
     }
 
-    public long bgH() {
+    public long bgG() {
         return this.fQp;
     }
 
-    public i bgI() {
+    public i bgH() {
         return this.fQq;
     }
 
-    public boolean bgJ() {
-        return (bgk() == null || !bgk().Au() || bgk().zY() == null) ? false : true;
+    public boolean bgI() {
+        return (bgj() == null || !bgj().Au() || bgj().zY() == null) ? false : true;
     }
 
-    public String bgK() {
+    public String bgJ() {
         return this.fPS;
     }
 
-    public AlaLiveInfoCoreData bgL() {
+    public AlaLiveInfoCoreData bgK() {
         return this.fQd;
     }
 
-    public List<au.a> bgM() {
+    public List<au.a> bgL() {
         return this.fQy;
     }
 }

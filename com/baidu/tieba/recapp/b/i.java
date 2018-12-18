@@ -31,10 +31,10 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.data.l lVar, j jVar) {
         boolean z = false;
-        AppData bDg = lVar.bDg();
-        if (bDg != null) {
-            com.baidu.tbadk.core.data.b bVar = bDg.advertAppContext;
-            if (bDg.goods != null && bDg.goods.goods_style == -1001) {
+        AppData bDf = lVar.bDf();
+        if (bDf != null) {
+            com.baidu.tbadk.core.data.b bVar = bDf.advertAppContext;
+            if (bDf.goods != null && bDf.goods.goods_style == -1001) {
                 z = true;
             }
             com.baidu.tbadk.core.data.b.b(bVar, lVar.getPosition(), z);

@@ -24,13 +24,13 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
 
     /* loaded from: classes5.dex */
     public interface a {
+        void bKG();
+
         void bKH();
 
         void bKI();
 
         void bKJ();
-
-        void bKK();
     }
 
     public VideoEffectButtonLayout(Context context) {
@@ -113,16 +113,16 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
             this.hJq = view;
             am amVar = new am("c12495");
             if (id == e.g.img_music) {
-                this.hJp.bKH();
+                this.hJp.bKG();
                 amVar.x("obj_type", 6);
             } else if (id == e.g.img_sticker) {
-                this.hJp.bKI();
+                this.hJp.bKH();
                 amVar.x("obj_type", 4);
             } else if (id == e.g.img_beauty) {
-                this.hJp.bKJ();
+                this.hJp.bKI();
                 amVar.x("obj_type", 3);
             } else if (id == e.g.img_filter) {
-                this.hJp.bKK();
+                this.hJp.bKJ();
                 amVar.x("obj_type", 2);
             }
             TiebaStatic.log(amVar);

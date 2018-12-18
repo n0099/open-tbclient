@@ -150,7 +150,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         this.mIsFollow = z;
     }
 
-    public boolean bdg() {
+    public boolean bdf() {
         return this.mIsFollow;
     }
 
@@ -171,14 +171,14 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public void ir(int i) {
         this.fGx = i;
         this.cIk = 0;
-        bdh();
+        bdg();
     }
 
     public int getLoadType() {
         return this.fGx;
     }
 
-    public void bdh() {
+    public void bdg() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_PERSONAL_LIST);
         HashMap hashMap = new HashMap();
         if (this.mIsFollow) {

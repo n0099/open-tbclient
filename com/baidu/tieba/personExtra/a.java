@@ -27,7 +27,7 @@ public class a {
         setHasMore(false);
     }
 
-    public int bpi() {
+    public int bph() {
         return this.gub;
     }
 
@@ -39,7 +39,7 @@ public class a {
         this.gub += i;
     }
 
-    public int bpj() {
+    public int bpi() {
         return this.guc;
     }
 
@@ -51,23 +51,23 @@ public class a {
         this.guc += i;
     }
 
-    public ArrayList<ForumData> bpk() {
+    public ArrayList<ForumData> bpj() {
         return this.gtV;
     }
 
-    public ArrayList<ForumData> bpl() {
+    public ArrayList<ForumData> bpk() {
         return this.gtW;
     }
 
-    public ArrayList<ForumData> bpm() {
+    public ArrayList<ForumData> bpl() {
         return this.gtY;
     }
 
-    public ArrayList<ForumData> bpn() {
+    public ArrayList<ForumData> bpm() {
         return this.gtZ;
     }
 
-    public ArrayList<ForumData> bpo() {
+    public ArrayList<ForumData> bpn() {
         return this.gtU;
     }
 
@@ -115,7 +115,7 @@ public class a {
         }
     }
 
-    public ArrayList<ForumData> bpp() {
+    public ArrayList<ForumData> bpo() {
         return this.gtX;
     }
 

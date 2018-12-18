@@ -226,7 +226,7 @@ public class j {
         return l(d3 * 6.283185307179586d * d * i) * 2.0d * d * d3;
     }
 
-    private void bJN() {
+    private void bJM() {
         this.hFX = System.currentTimeMillis();
         this.hFY = 0L;
         this.hFW = -1;
@@ -370,7 +370,7 @@ public class j {
         iArr3[0] = 0;
         double[] dArr4 = new double[i31 / 2];
         this.hFG.a(i31, 1, dArr3, iArr3, dArr4);
-        bJN();
+        bJM();
         int i33 = i31 / 2;
         double[][] dArr5 = (double[][]) Array.newInstance(Double.TYPE, i, (i33 / i8) + 1);
         double[][] dArr6 = (double[][]) Array.newInstance(Double.TYPE, i, i31);
@@ -914,7 +914,7 @@ public class j {
             i12 = i31;
             i13 = i29;
         }
-        bJN();
+        bJM();
         int i37 = i25 / 2;
         double[][] dArr7 = (double[][]) Array.newInstance(Double.TYPE, i, i25);
         double[][] dArr8 = (double[][]) Array.newInstance(Double.TYPE, i, i10 + 1 + i37);
@@ -1314,7 +1314,7 @@ public class j {
         ByteBuffer byteBuffer;
         double[] dArr = {0.0d};
         int i6 = 0;
-        bJN();
+        bJM();
         ByteBuffer byteBuffer2 = null;
         if (z) {
             byteBuffer2 = ByteBuffer.allocate(8);

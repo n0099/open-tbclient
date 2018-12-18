@@ -335,18 +335,18 @@ public final class ReplaySubject<T> extends c<T, T> {
 
         @Override // rx.subjects.ReplaySubject.a
         public void error(Throwable th) {
-            cfk();
+            cfj();
             this.error = th;
             this.done = true;
         }
 
         @Override // rx.subjects.ReplaySubject.a
         public void complete() {
-            cfk();
+            cfj();
             this.done = true;
         }
 
-        void cfk() {
+        void cfj() {
             long now = this.scheduler.now() - this.iOi;
             TimedNode<T> timedNode = this.iOj;
             TimedNode<T> timedNode2 = timedNode;
@@ -362,7 +362,7 @@ public final class ReplaySubject<T> extends c<T, T> {
             }
         }
 
-        TimedNode<T> cfl() {
+        TimedNode<T> cfk() {
             TimedNode<T> timedNode;
             long now = this.scheduler.now() - this.iOi;
             TimedNode<T> timedNode2 = this.iOj;
@@ -390,7 +390,7 @@ public final class ReplaySubject<T> extends c<T, T> {
                     long j3 = 0;
                     TimedNode<T> timedNode2 = (TimedNode) replayProducer.node;
                     if (timedNode2 == null) {
-                        timedNode2 = cfl();
+                        timedNode2 = cfk();
                     }
                     while (true) {
                         j = j3;

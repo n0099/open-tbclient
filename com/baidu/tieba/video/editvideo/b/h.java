@@ -7,8 +7,9 @@ import android.util.Log;
 import android.view.Surface;
 import com.faceunity.gles.Texture2dProgram;
 import com.faceunity.wrapper.faceunity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
-class h implements SurfaceTexture.OnFrameAvailableListener {
+public class h implements SurfaceTexture.OnFrameAvailableListener {
     private boolean hCd;
     private String hCe;
     private com.faceunity.gles.c hCg;
@@ -66,7 +67,7 @@ class h implements SurfaceTexture.OnFrameAvailableListener {
         faceunity.fuOnDeviceLost();
     }
 
-    public void bIJ() {
+    public void bII() {
         this.mSurfaceTexture.updateTexImage();
         this.mSurfaceTexture.getTransformMatrix(this.mSTMatrix);
         faceunity.fuItemSetParam(mFacebeautyItem, "filter_name", this.hCe);
@@ -79,7 +80,7 @@ class h implements SurfaceTexture.OnFrameAvailableListener {
         return this.mSurface;
     }
 
-    public void bIK() {
+    public void bIJ() {
         synchronized (this.hCc) {
             do {
                 if (!this.hCd) {

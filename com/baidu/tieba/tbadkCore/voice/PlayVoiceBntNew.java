@@ -86,23 +86,23 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
             this.mProgress.setVisibility(4);
         }
         this.mContext = context;
-        bEy();
+        bEx();
     }
 
-    private void bEy() {
+    private void bEx() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         al.i(this.hoD, e.f.btn_audio_frame_n);
         al.c(this.hoC, e.d.cp_cont_f, 1);
         if (this.play_type == 0) {
-            bEB();
+            bEA();
             this.fat.setPadding(l.dip2px(getContext(), 8.0f), 0, 0, 0);
         }
         this.hoE.onChangeSkinType(skinType);
     }
 
-    private void bEB() {
+    private void bEA() {
         if (this.fat != null) {
-            if (bEA()) {
+            if (bEz()) {
                 al.c(this.fat, e.f.icon_voice_stop);
             } else {
                 al.c(this.fat, e.f.icon_voice_play);
@@ -181,7 +181,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
         }
     }
 
-    public void aMx() {
+    public void aMw() {
         VoiceManager voiceManager;
         if (this.fax != null && (voiceManager = getVoiceManager()) != null) {
             voiceManager.stopPlay();
@@ -232,7 +232,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
             }
             this.play_type = tbRichTextVoiceInfo.SV();
             setVoiceModel(voiceModel);
-            bEy();
+            bEx();
             obj = voiceModel;
         }
         super.setTag(obj);
@@ -251,7 +251,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
     public void bz(int i) {
-        if (!bEA()) {
+        if (!bEz()) {
             qw(1);
             return;
         }
@@ -261,7 +261,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
         }
     }
 
-    private boolean bEA() {
+    private boolean bEz() {
         if (this.fax == null) {
             return false;
         }
@@ -279,8 +279,8 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
         return this.fax;
     }
 
-    public void aWg() {
-        bEy();
+    public void aWf() {
+        bEx();
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
@@ -306,7 +306,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
         qw(1);
     }
 
-    public void bEC() {
+    public void bEB() {
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hoE.getLayoutParams();
         layoutParams.width = -2;
         this.hoE.setLayoutParams(layoutParams);

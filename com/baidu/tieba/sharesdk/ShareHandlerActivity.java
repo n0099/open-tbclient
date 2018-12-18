@@ -37,7 +37,7 @@ public class ShareHandlerActivity extends ShareBaseActivity implements com.baidu
             return;
         }
         L(this.gZs.Kg());
-        this.gZr = this.gZs.byC();
+        this.gZr = this.gZs.byB();
         if (this.gZt != null) {
             this.gZt.onDestroy();
             this.gZt = null;
@@ -73,7 +73,7 @@ public class ShareHandlerActivity extends ShareBaseActivity implements com.baidu
                 this.gZt = new com.baidu.tieba.sharesdk.a.b(this);
                 break;
         }
-        if (this.gZs.byE() && !TextUtils.isEmpty(this.gZs.ys())) {
+        if (this.gZs.byD() && !TextUtils.isEmpty(this.gZs.ys())) {
             if (this.bzf == null) {
                 this.bzf = new com.baidu.tbadk.core.util.b.a();
             }

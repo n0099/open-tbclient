@@ -16,16 +16,16 @@ import com.baidu.tieba.tbadkCore.l;
 public class e {
     private static ShareFromFrsMsgData g(l lVar) {
         ShareFromFrsMsgData shareFromFrsMsgData = new ShareFromFrsMsgData();
-        shareFromFrsMsgData.setImageUrl(lVar.bgi().getImage_url());
-        shareFromFrsMsgData.setName(lVar.bgi().getName());
-        shareFromFrsMsgData.setMemberNum(lVar.bgi().getMember_num());
-        shareFromFrsMsgData.setPostNum(lVar.bgi().getPost_num());
-        shareFromFrsMsgData.setContent(lVar.bgi().getSlogan());
+        shareFromFrsMsgData.setImageUrl(lVar.bgh().getImage_url());
+        shareFromFrsMsgData.setName(lVar.bgh().getName());
+        shareFromFrsMsgData.setMemberNum(lVar.bgh().getMember_num());
+        shareFromFrsMsgData.setPostNum(lVar.bgh().getPost_num());
+        shareFromFrsMsgData.setContent(lVar.bgh().getSlogan());
         return shareFromFrsMsgData;
     }
 
     public static void a(final FrsFragment frsFragment, l lVar, final long j, final String str, final long j2) {
-        if (lVar != null && lVar.bgi() != null) {
+        if (lVar != null && lVar.bgh() != null) {
             final ShareFromFrsMsgData g = g(lVar);
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(frsFragment.getPageContext().getPageActivity());
             final FrsShareCardView frsShareCardView = new FrsShareCardView(frsFragment.getPageContext().getPageActivity());

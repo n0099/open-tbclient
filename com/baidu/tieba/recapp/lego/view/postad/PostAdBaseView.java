@@ -30,7 +30,7 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
 
     protected abstract void a(T t, int i);
 
-    protected abstract View aYl();
+    protected abstract View aYk();
 
     public PostAdBaseView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
@@ -72,27 +72,27 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
             }
             if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
                 this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-                aYp();
+                aYo();
                 a((PostAdBaseData) updateCard, this.mSkinType);
             }
-            aYo();
+            aYn();
             a((PostAdBaseData) updateCard);
             c((PostAdBaseData) updateCard);
         }
     }
 
-    private void aYp() {
+    private void aYo() {
     }
 
     protected final void c(T t) {
     }
 
-    public final void aYo() {
+    public final void aYn() {
         this.fnD.setVisibility(0);
     }
 
     private void init() {
-        aYn();
+        aYm();
         postInit();
         this.isInit = false;
     }
@@ -100,15 +100,15 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
     protected void postInit() {
     }
 
-    public final void aYn() {
+    public final void aYm() {
         FrameLayout frameLayout = new FrameLayout(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.fnD = aYl();
-        frameLayout.addView(this.fnD, aYm());
+        this.fnD = aYk();
+        frameLayout.addView(this.fnD, aYl());
         addView(frameLayout, layoutParams);
     }
 
-    protected final ViewGroup.LayoutParams aYm() {
+    protected final ViewGroup.LayoutParams aYl() {
         return new ViewGroup.LayoutParams(-1, -2);
     }
 
@@ -131,15 +131,15 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
+    public void aYp() {
+    }
+
+    @Override // com.baidu.tieba.lego.card.view.e
     public void aYq() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
     public void aYr() {
-    }
-
-    @Override // com.baidu.tieba.lego.card.view.e
-    public void aYs() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
@@ -160,6 +160,6 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void aYt() {
+    public void aYs() {
     }
 }

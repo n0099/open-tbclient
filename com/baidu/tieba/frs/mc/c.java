@@ -94,10 +94,10 @@ public class c {
             } else if (this.dIn.aGm() == 1) {
                 if (!this.dZQ.isLoading && !this.dIn.Fi()) {
                     int pn2 = this.dZQ.getPn();
-                    if (this.dZQ.bO(lVar.bBw())) {
+                    if (this.dZQ.bO(lVar.bBv())) {
                         this.dZQ.aGd();
                         this.dZQ.setSortType(this.dIn.abZ());
-                        this.dZQ.a(com.baidu.adp.lib.g.b.d(str2, 0L), lVar.bBw(), str, pn2, lVar.isBrandForum);
+                        this.dZQ.a(com.baidu.adp.lib.g.b.d(str2, 0L), lVar.bBv(), str, pn2, lVar.isBrandForum);
                     } else if (this.dZQ.aAJ() == 1) {
                         this.dZQ.aGd();
                         this.dZQ.setPn(pn2);

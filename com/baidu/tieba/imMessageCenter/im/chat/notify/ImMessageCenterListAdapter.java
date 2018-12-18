@@ -70,7 +70,7 @@ public class ImMessageCenterListAdapter extends c {
             if (!com.baidu.tbadk.coreExtra.messageCenter.c.Iw().IA()) {
                 str = "";
             } else {
-                if (!f.aUm().isAcceptNotify()) {
+                if (!f.aUl().isAcceptNotify()) {
                     str = "";
                     i = 0;
                 }

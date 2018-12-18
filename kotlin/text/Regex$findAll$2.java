@@ -29,6 +29,6 @@ final class Regex$findAll$2 extends FunctionReference implements kotlin.jvm.a.b<
     @Override // kotlin.jvm.a.b
     public final h invoke(h hVar) {
         kotlin.jvm.internal.p.h((Object) hVar, "p1");
-        return hVar.cca();
+        return hVar.cbZ();
     }
 }

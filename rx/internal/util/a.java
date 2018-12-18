@@ -21,6 +21,6 @@ public final class a<T> implements rx.e<T> {
 
     @Override // rx.e
     public void onCompleted() {
-        this.iLL.call(Notification.ccM());
+        this.iLL.call(Notification.ccL());
     }
 }

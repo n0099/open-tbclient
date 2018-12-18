@@ -46,7 +46,7 @@ public class AdCardVrVideoView extends AdCardBaseView implements k {
                 this.gOi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.AdCardVrVideoView.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        c.bvu().a(f.c(advertAppInfo, 2, advertAppInfo.advertAppContext.pn));
+                        c.bvt().a(f.c(advertAppInfo, 2, advertAppInfo.advertAppContext.pn));
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VrPlayerActivityConfig(AdCardVrVideoView.this.getContext(), 1, false, videoInfo.video_url)));
                     }
                 });

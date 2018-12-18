@@ -34,8 +34,8 @@ public final class l {
                         lVar.t(str);
                         lVar.z(String.valueOf(System.currentTimeMillis()));
                         dVar = d.a.icK;
-                        lVar.setPath(dVar.bRP());
-                        lVar.x(m.bRV().I());
+                        lVar.setPath(dVar.bRO());
+                        lVar.x(m.bRU().I());
                     } catch (Exception e) {
                         com.baidu.ubs.analytics.d.j.yI(e.toString());
                         com.baidu.ubs.analytics.d.b.yB(e.toString());

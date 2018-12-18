@@ -34,16 +34,16 @@ public class b implements QRCodeView.a {
 
     @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.a
     public void ul(String str) {
-        this.gIH.btH();
+        this.gIH.btG();
         if (StringUtils.isNull(str)) {
-            this.gIH.btF();
+            this.gIH.btE();
         } else if (!um(str)) {
             if (!StringUtils.isNull(str) && str.contains("feedavatar.baidu.com")) {
                 un(str);
             } else {
                 CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921339, null, str);
                 if (runTask == null || !(runTask.getData() instanceof Boolean) || !((Boolean) runTask.getData()).booleanValue()) {
-                    this.gIH.btI();
+                    this.gIH.btH();
                     return;
                 }
             }
@@ -77,7 +77,7 @@ public class b implements QRCodeView.a {
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.a
-    public void btJ() {
+    public void btI() {
         l.showToast(this.mTbPageContext.getPageActivity(), e.j.disallow_camera_permission);
         this.mTbPageContext.getPageActivity().finish();
     }
@@ -109,7 +109,7 @@ public class b implements QRCodeView.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            b.this.gIH.btG();
+            b.this.gIH.btF();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -127,7 +127,7 @@ public class b implements QRCodeView.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((C0302b) str);
-            b.this.gIH.btH();
+            b.this.gIH.btG();
             b.this.ul(str);
         }
     }

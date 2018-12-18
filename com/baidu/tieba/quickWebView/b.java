@@ -66,7 +66,7 @@ public class b {
                             str3 = quickWebViewHttpResMsg.getError() + "";
                         }
                         int i = z ? 1 : 0;
-                        String bub = c.bua().bub();
+                        String bua = c.btZ().bua();
                         StringBuilder sb = new StringBuilder();
                         sb.append("{");
                         sb.append("\"status\":");
@@ -79,7 +79,7 @@ public class b {
                         sb.append(",");
                         sb.append("\"cache_version\":");
                         sb.append("\"");
-                        sb.append(bub);
+                        sb.append(bua);
                         sb.append("\"");
                         sb.append(",");
                         sb.append("\"cache\":");
@@ -105,7 +105,7 @@ public class b {
                 str3 = quickWebViewHttpResMsg.getError() + "";
                 if (z) {
                 }
-                String bub2 = c.bua().bub();
+                String bua2 = c.btZ().bua();
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("{");
                 sb2.append("\"status\":");
@@ -118,7 +118,7 @@ public class b {
                 sb2.append(",");
                 sb2.append("\"cache_version\":");
                 sb2.append("\"");
-                sb2.append(bub2);
+                sb2.append(bua2);
                 sb2.append("\"");
                 sb2.append(",");
                 sb2.append("\"cache\":");
@@ -176,7 +176,7 @@ public class b {
                     }
                 }
                 quickWebViewHttpReqMsg.setUserAgent(this.gKp);
-                quickWebViewHttpReqMsg.addCookie("cache_version", c.bua().bub());
+                quickWebViewHttpReqMsg.addCookie("cache_version", c.btZ().bua());
                 TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_WEB_HTTP_PROXY, quickWebViewBridgeData.url);
                 tbHttpMessageTask.setResponsedClass(QuickWebViewHttpResMsg.class);
                 tbHttpMessageTask.setIsNeedAddCommenParam(false);

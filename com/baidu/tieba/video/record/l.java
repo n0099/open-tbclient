@@ -27,7 +27,7 @@ public class l {
                 }
                 l.this.v(downloadData);
                 if (l.this.hIK != null && l.this.hIL.equals(downloadData.getUrl())) {
-                    l.this.hIK.bIa();
+                    l.this.hIK.bHZ();
                 }
             }
         }
@@ -68,7 +68,7 @@ public class l {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void bIa();
+        void bHZ();
 
         void cR(String str, String str2);
 
@@ -86,12 +86,12 @@ public class l {
         }
         if (this.hCk == null) {
             this.hCk = new HashMap<>();
-            bKV();
+            bKU();
         }
         return this.hCk.get(fK);
     }
 
-    public void bKV() {
+    public void bKU() {
         if (!StringUtils.isNull(hII)) {
             if (this.hCk == null) {
                 this.hCk = new HashMap<>();

@@ -40,7 +40,7 @@ public class PushDialogStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921359, new CustomMessageTask.CustomRunnable() { // from class: com.baidu.tieba.pushdialog.PushDialogStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage customMessage) {
-                PushDialogLoopManager.btr();
+                PushDialogLoopManager.btq();
                 return null;
             }
         });
@@ -56,7 +56,7 @@ public class PushDialogStatic {
                     if (!(i2 >= 2) && TbSingleton.getInstance().canShowPermDialog()) {
                         final TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) customMessage.getData();
                         if (tbPageContextSupport.getPageContext() != null && tbPageContextSupport.getPageContext().getPageActivity() != null) {
-                            if (b.btx()) {
+                            if (b.btw()) {
                                 bVar = new a.b() { // from class: com.baidu.tieba.pushdialog.PushDialogStatic.2.1
                                     @Override // com.baidu.tbadk.core.dialog.a.b
                                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -72,7 +72,7 @@ public class PushDialogStatic {
                                     }
                                 };
                                 i = e.j.push_dialog_guide_content_miui;
-                            } else if (b.bty()) {
+                            } else if (b.btx()) {
                                 bVar = new a.b() { // from class: com.baidu.tieba.pushdialog.PushDialogStatic.2.2
                                     @Override // com.baidu.tbadk.core.dialog.a.b
                                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {

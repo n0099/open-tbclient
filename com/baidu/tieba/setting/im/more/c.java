@@ -31,6 +31,8 @@ public class c extends com.baidu.adp.base.c<SecretSettingActivity> {
 
     /* loaded from: classes3.dex */
     public interface a {
+        void bwn();
+
         void bwo();
 
         void bwp();
@@ -42,8 +44,6 @@ public class c extends com.baidu.adp.base.c<SecretSettingActivity> {
         void bws();
 
         void bwt();
-
-        void bwu();
 
         void onBackPressed();
     }
@@ -58,19 +58,19 @@ public class c extends com.baidu.adp.base.c<SecretSettingActivity> {
                     if (view == c.this.aMU) {
                         c.this.gVm.onBackPressed();
                     } else if (view == c.this.gVa) {
-                        c.this.gVm.bwo();
+                        c.this.gVm.bwn();
                     } else if (view == c.this.gVb) {
-                        c.this.gVm.bwp();
+                        c.this.gVm.bwo();
                     } else if (view == c.this.gVc) {
-                        c.this.gVm.bwr();
-                    } else if (view == c.this.gVh) {
                         c.this.gVm.bwq();
+                    } else if (view == c.this.gVh) {
+                        c.this.gVm.bwp();
                     } else if (view == c.this.gVd) {
-                        c.this.gVm.bws();
+                        c.this.gVm.bwr();
                     } else if (view == c.this.gVf) {
-                        c.this.gVm.bwt();
+                        c.this.gVm.bws();
                     } else if (view == c.this.gVl) {
-                        c.this.gVm.bwu();
+                        c.this.gVm.bwt();
                     }
                 }
             }
@@ -123,7 +123,7 @@ public class c extends com.baidu.adp.base.c<SecretSettingActivity> {
         this.gVm = aVar;
     }
 
-    public void bwv() {
+    public void bwu() {
         this.gVa.recycle();
     }
 
@@ -164,24 +164,24 @@ public class c extends com.baidu.adp.base.c<SecretSettingActivity> {
     public void d(com.baidu.tieba.setting.im.more.a aVar) {
         if (aVar != null && this.gVk != null) {
             int length = this.gVk.length;
-            int bwj = aVar.bwj() - 1;
-            if (bwj < length && bwj >= 0) {
-                this.gVh.setTip(this.gVk[bwj]);
-            }
             int bwi = aVar.bwi() - 1;
             if (bwi < length && bwi >= 0) {
-                this.gVb.setTip(this.gVk[bwi]);
+                this.gVh.setTip(this.gVk[bwi]);
+            }
+            int bwh = aVar.bwh() - 1;
+            if (bwh < length && bwh >= 0) {
+                this.gVb.setTip(this.gVk[bwh]);
             }
             int LB = aVar.LB() - 1;
             if (LB < length && LB >= 0) {
                 this.gVc.setTip(this.gVk[LB]);
             }
-            int bwl = aVar.bwl() - 1;
-            if (bwl < length && bwl >= 0) {
-                if (bwl == 0) {
+            int bwk = aVar.bwk() - 1;
+            if (bwk < length && bwk >= 0) {
+                if (bwk == 0) {
                     this.gVf.setTip(this.gVi.getString(e.j.all_person));
                 } else {
-                    this.gVf.setTip(this.gVk[bwl]);
+                    this.gVf.setTip(this.gVk[bwk]);
                 }
             }
         }

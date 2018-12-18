@@ -69,7 +69,7 @@ public class l extends c implements com.baidu.tbadk.core.util.e.a {
         am y = y(cYl, true);
         if (y != null && ZR() != null) {
             bb ZR = ZR();
-            y.x("obj_name", ZR.AX() != null && (ZR.AX().bDu() != null || ZR.AX().Sh() != null) ? 1 : 0);
+            y.x("obj_name", ZR.AX() != null && (ZR.AX().bDt() != null || ZR.AX().Sh() != null) ? 1 : 0);
             if (ZR.zG() != null) {
                 y.x("ab_type", ZR.zG().hadConcerned() ? 1 : 0);
             }

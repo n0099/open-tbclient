@@ -4,7 +4,7 @@ public class f {
     private static volatile f eZi;
     private boolean isAcceptNotify;
 
-    public static f aUm() {
+    public static f aUl() {
         if (eZi == null) {
             synchronized (f.class) {
                 if (eZi == null) {

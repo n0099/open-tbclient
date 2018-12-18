@@ -40,7 +40,7 @@ public class ap extends com.baidu.tbadk.core.view.userLike.c {
         this.gbK = i;
     }
 
-    private int bkv() {
+    private int bku() {
         String fromPageKey = UtilHelper.getFromPageKey(this.mPageContext);
         if (fromPageKey == null) {
             return 3;
@@ -72,7 +72,7 @@ public class ap extends com.baidu.tbadk.core.view.userLike.c {
         int i2 = 2;
         if (view != null && view.getAlpha() >= 0.4d) {
             String userId = this.aLt != null ? this.aLt.getUserId() : "";
-            TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12408").x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bkv()).aA(VideoPlayActivityConfig.OBJ_ID, userId).aA("tid", this.biw));
+            TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12408").x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bku()).aA(VideoPlayActivityConfig.OBJ_ID, userId).aA("tid", this.biw));
             if (this.gbJ != 1) {
                 i = this.gbJ == 3 ? 2 : 0;
             }

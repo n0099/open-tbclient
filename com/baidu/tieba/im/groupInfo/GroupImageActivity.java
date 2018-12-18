@@ -301,7 +301,7 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
         this.eGJ.setOnPageChangeListener(this.mOnPageChangeListener);
         this.eGJ.setItemOnclickListener(this.mOnClickListener);
         this.eGJ.setItemOnLongClickListener(onLongClickListener);
-        this.eGJ.setCurrentItem(aNE(), false);
+        this.eGJ.setCurrentItem(aND(), false);
         this.eGJ.setOnScrollOutListener(this.eGK);
         this.eGJ.setHasNext(false);
         this.eGJ.setNextTitle("mNextTitle");
@@ -326,7 +326,7 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
         }
     }
 
-    private int aNE() {
+    private int aND() {
         if (this.eSJ != null && this.eSJ.size() > 0) {
             int size = this.eSJ.size();
             if (this.mIndex >= size) {

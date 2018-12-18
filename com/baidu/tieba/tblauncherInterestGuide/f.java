@@ -67,7 +67,7 @@ public class f implements View.OnClickListener {
         ((Dialog) this.hsI).setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.tblauncherInterestGuide.f.3
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                aVar.bGa();
+                aVar.bFZ();
             }
         });
     }

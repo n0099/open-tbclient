@@ -157,7 +157,7 @@ public class e implements AiAppsPlayerContext {
         BdLog.d("onBackPressed ");
         if (this.bIS != null && this.mContainer != null && d(this.bJb, this.mContainer)) {
             if (this.bJb.getRequestedOrientation() != 1) {
-                this.bIW.aYK();
+                this.bIW.aYJ();
             }
             f(this.bJb, 0);
             return true;
@@ -365,12 +365,12 @@ public class e implements AiAppsPlayerContext {
         int aQ = l.aQ(this.bJb);
         if (z) {
             if (i == 90 || i == -90) {
-                this.bIW.aYK();
+                this.bIW.aYJ();
                 aO = aQ;
                 aQ = aO;
             }
         } else if (this.bJb.getRequestedOrientation() != 1) {
-            this.bIW.aYK();
+            this.bIW.aYJ();
         }
         if (z) {
             a(this.bJb, i, aO, aQ);

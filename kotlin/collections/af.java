@@ -56,7 +56,7 @@ final class af<T> extends d<T> implements RandomAccess {
         /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlin.collections.af$a */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // kotlin.collections.b
-        protected void cbB() {
+        protected void cbA() {
             if (this.count != 0) {
                 aT(af.this.ixX[this.index]);
                 this.index = (this.index + 1) % af.this.getCapacity();

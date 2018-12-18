@@ -26,7 +26,7 @@ public class j extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         this.gzt = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.j.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                j.this.bqB();
+                j.this.bqA();
             }
         };
         this.currentPageType = 4;
@@ -64,7 +64,7 @@ public class j extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bqB() {
+    public void bqA() {
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoListActivityConfig(this.mContext).createNormalCfg(this.uid, "personal")));
     }
 

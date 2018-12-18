@@ -138,7 +138,7 @@ public class c extends BaseAdapter {
         }
     }
 
-    public int bIu() {
+    public int bIt() {
         return this.hBH;
     }
 

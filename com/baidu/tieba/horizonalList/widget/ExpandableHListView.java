@@ -97,11 +97,11 @@ public class ExpandableHListView extends HListView {
 
     @Override // android.view.View
     public void onRtlPropertiesChanged(int i) {
+        aLP();
         aLQ();
-        aLR();
     }
 
-    private void aLQ() {
+    private void aLP() {
         if (this.eyD != null) {
             this.eyM = this.eyD.getIntrinsicWidth();
             this.eyN = this.eyD.getIntrinsicHeight();
@@ -111,7 +111,7 @@ public class ExpandableHListView extends HListView {
         this.eyN = 0;
     }
 
-    private void aLR() {
+    private void aLQ() {
         if (this.eyE != null) {
             this.eyO = this.eyE.getIntrinsicWidth();
             this.eyP = this.eyE.getIntrinsicHeight();
@@ -330,9 +330,9 @@ public class ExpandableHListView extends HListView {
             return 4294967295L;
         }
         ExpandableHListConnector.b oR = this.eyw.oR(oU(i));
-        long aLO = oR.eyq.aLO();
+        long aLN = oR.eyq.aLN();
         oR.recycle();
-        return aLO;
+        return aLN;
     }
 
     public long getSelectedPosition() {
@@ -388,9 +388,9 @@ public class ExpandableHListView extends HListView {
         ExpandableHListConnector.b oR = this.eyw.oR(oU(i));
         com.baidu.tieba.horizonalList.widget.a aVar = oR.eyq;
         long b2 = b(aVar);
-        long aLO = aVar.aLO();
+        long aLN = aVar.aLN();
         oR.recycle();
-        return new a(view, aLO, b2);
+        return new a(view, aLN, b2);
     }
 
     private long b(com.baidu.tieba.horizonalList.widget.a aVar) {
@@ -399,12 +399,12 @@ public class ExpandableHListView extends HListView {
 
     public void setChildIndicator(Drawable drawable) {
         this.eyE = drawable;
-        aLR();
+        aLQ();
     }
 
     public void setGroupIndicator(Drawable drawable) {
         this.eyD = drawable;
-        aLQ();
+        aLP();
     }
 
     /* loaded from: classes.dex */
@@ -460,7 +460,7 @@ public class ExpandableHListView extends HListView {
 
     @Override // com.baidu.tieba.horizonalList.widget.AbsHListView, android.view.View
     public Parcelable onSaveInstanceState() {
-        return new SavedState(super.onSaveInstanceState(), this.eyw != null ? this.eyw.aLM() : null);
+        return new SavedState(super.onSaveInstanceState(), this.eyw != null ? this.eyw.aLL() : null);
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.AbsHListView, android.view.View

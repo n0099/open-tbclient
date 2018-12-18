@@ -25,11 +25,11 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         this.fju = new LabelSettingModel(getPageContext());
         setContentView(this.fjt);
         this.fju.a(this);
-        aWY();
+        aWX();
     }
 
     @Override // com.baidu.tieba.interestlabel.model.a
-    public void aWY() {
+    public void aWX() {
         if (!j.kK()) {
             this.fjt.hideLoadingView();
             this.fjt.jp(true);
@@ -37,7 +37,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         }
         this.fjt.aaY();
         this.fjt.showLoadingView(true);
-        this.fju.aXe();
+        this.fju.aXd();
     }
 
     @Override // com.baidu.tieba.interestlabel.model.a
@@ -54,7 +54,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         switch (labelRequestEnum) {
             case GET_LABEL:
                 this.fjt.hideLoadingView();
-                if (bVar == null || v.I(bVar.aXc())) {
+                if (bVar == null || v.I(bVar.aXb())) {
                     this.fjt.jp(true);
                     return;
                 }
@@ -82,7 +82,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.fjt != null && this.fjt.aXo()) {
+        if (i == 4 && this.fjt != null && this.fjt.aXn()) {
             this.fjt.showDialog();
             return true;
         }

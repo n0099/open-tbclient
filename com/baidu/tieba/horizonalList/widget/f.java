@@ -92,10 +92,10 @@ public class f {
                     break;
                 }
             case 1:
-                if (!this.ezb.mFinished && !this.ezb.update() && !this.ezb.aLU()) {
+                if (!this.ezb.mFinished && !this.ezb.update() && !this.ezb.aLT()) {
                     this.ezb.finish();
                 }
-                if (!this.ezc.mFinished && !this.ezc.update() && !this.ezc.aLU()) {
+                if (!this.ezc.mFinished && !this.ezc.update() && !this.ezc.aLT()) {
                     this.ezc.finish();
                     break;
                 }
@@ -345,7 +345,7 @@ public class f {
         private void P(int i, int i2, int i3) {
             this.ezj = oX(i3 == 0 ? i - i2 : i3);
             O(i, i2, i3);
-            aLT();
+            aLS();
         }
 
         private void u(int i, int i2, int i3, int i4) {
@@ -374,7 +374,7 @@ public class f {
             }
         }
 
-        private void aLT() {
+        private void aLS() {
             float abs = (this.ezh * this.ezh) / (Math.abs(this.ezj) * 2.0f);
             float signum = Math.signum(this.ezh);
             if (abs > this.ezm) {
@@ -391,7 +391,7 @@ public class f {
             this.mDuration = -((int) ((1000.0f * this.ezh) / this.ezj));
         }
 
-        boolean aLU() {
+        boolean aLT() {
             switch (this.mState) {
                 case 0:
                     if (this.mDuration < this.ezk) {
@@ -399,7 +399,7 @@ public class f {
                         this.ezh = (int) this.ezi;
                         this.ezj = oX(this.ezh);
                         this.mStartTime += this.mDuration;
-                        aLT();
+                        aLS();
                         break;
                     } else {
                         return false;

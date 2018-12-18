@@ -4,7 +4,7 @@ public final class e {
     private static final e icL = new e();
     private l icM = new l();
 
-    public static e bRR() {
+    public static e bRQ() {
         return icL;
     }
 

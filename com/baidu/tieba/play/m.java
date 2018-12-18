@@ -26,9 +26,9 @@ public class m {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-                m.this.aMx();
+                m.this.aMw();
                 if (m.this.mIsShowing && m.this.mIsShowing) {
-                    m.this.b(m.this.fql.brP(), m.this.fql.brQ(), m.this.fql.brR(), m.this.fql.brS());
+                    m.this.b(m.this.fql.brO(), m.this.fql.brP(), m.this.fql.brQ(), m.this.fql.brR());
                 }
             }
         }
@@ -165,7 +165,7 @@ public class m {
                     fVar.startPlay();
                 }
             } else if (i == 2 && (view.getTag() instanceof e)) {
-                ((e) view.getTag()).aYw();
+                ((e) view.getTag()).aYv();
             }
         }
     }
@@ -177,7 +177,7 @@ public class m {
                 fVar.stopPlay();
             }
         } else if (i == 2 && (view.getTag() instanceof e)) {
-            ((e) view.getTag()).aYx();
+            ((e) view.getTag()).aYw();
         }
     }
 
@@ -200,14 +200,14 @@ public class m {
     public void destroy() {
         com.baidu.adp.lib.g.e.jG().removeCallbacks(this.fqm);
         com.baidu.adp.lib.g.e.jG().removeCallbacks(this.gCA);
-        aZa();
+        aYZ();
     }
 
     public void rc(int i) {
         this.fqg = i;
     }
 
-    public void aZa() {
+    public void aYZ() {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -227,7 +227,7 @@ public class m {
         this.fqf = str;
     }
 
-    public void aZd() {
+    public void aZc() {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -251,7 +251,7 @@ public class m {
         }
     }
 
-    public void aZe() {
+    public void aZd() {
         if (this.mIsShowing) {
             if (this.fqi != null && (this.fqi.getTag() instanceof f)) {
                 f fVar = (f) this.fqi.getTag();
@@ -259,14 +259,14 @@ public class m {
                     fVar.startPlay();
                 }
                 if (this.fqi.getTag() instanceof e) {
-                    ((e) this.fqi.getTag()).aYy();
+                    ((e) this.fqi.getTag()).aYx();
                 }
             }
             this.fqi = null;
         }
     }
 
-    public void aMx() {
+    public void aMw() {
         com.baidu.adp.lib.g.e.jG().removeCallbacks(this.fqm);
         com.baidu.adp.lib.g.e.jG().removeCallbacks(this.gCA);
         int i = 0;

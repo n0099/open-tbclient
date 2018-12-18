@@ -12,38 +12,38 @@ public final class i<E> extends m<E> {
         }
         E[] eArr = this.ixX;
         long j = this.iMB;
-        long ceC = ceC();
-        long dQ = dQ(ceC);
+        long ceB = ceB();
+        long dQ = dQ(ceB);
         if (b(eArr, dQ) != null) {
-            if (ceC - ceB() > j) {
+            if (ceB - ceA() > j) {
                 return false;
             }
             do {
             } while (b(eArr, dQ) != null);
             a(eArr, dQ, e);
-            dS(1 + ceC);
+            dS(1 + ceB);
             return true;
         }
         a(eArr, dQ, e);
-        dS(1 + ceC);
+        dS(1 + ceB);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long ceB;
-        long ceF = ceF();
+        long ceA;
+        long ceE = ceE();
         do {
-            ceB = ceB();
-            if (ceB >= ceF) {
-                long ceC = ceC();
-                if (ceB >= ceC) {
+            ceA = ceA();
+            if (ceA >= ceE) {
+                long ceB = ceB();
+                if (ceA >= ceB) {
                     return null;
                 }
-                dT(ceC);
+                dT(ceB);
             }
-        } while (!u(ceB, 1 + ceB));
-        long dQ = dQ(ceB);
+        } while (!u(ceA, 1 + ceA));
+        long dQ = dQ(ceA);
         E[] eArr = this.ixX;
         E a = a(eArr, dQ);
         b(eArr, dQ, null);
@@ -53,36 +53,36 @@ public final class i<E> extends m<E> {
     @Override // java.util.Queue
     public E peek() {
         E dR;
-        long ceF = ceF();
+        long ceE = ceE();
         do {
-            long ceB = ceB();
-            if (ceB >= ceF) {
-                long ceC = ceC();
-                if (ceB >= ceC) {
+            long ceA = ceA();
+            if (ceA >= ceE) {
+                long ceB = ceB();
+                if (ceA >= ceB) {
                     return null;
                 }
-                dT(ceC);
+                dT(ceB);
             }
-            dR = dR(dQ(ceB));
+            dR = dR(dQ(ceA));
         } while (dR == null);
         return dR;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long ceB = ceB();
+        long ceA = ceA();
         while (true) {
-            long ceC = ceC();
-            long ceB2 = ceB();
-            if (ceB == ceB2) {
-                return (int) (ceC - ceB2);
+            long ceB = ceB();
+            long ceA2 = ceA();
+            if (ceA == ceA2) {
+                return (int) (ceB - ceA2);
             }
-            ceB = ceB2;
+            ceA = ceA2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return ceB() == ceC();
+        return ceA() == ceB();
     }
 }

@@ -59,11 +59,11 @@ public class ReportUserInfoModel extends BdBaseModel {
         return false;
     }
 
-    public boolean bch() {
+    public boolean bcg() {
         return Math.abs(System.currentTimeMillis() - TbadkCoreApplication.getInst().getReporyUserInfoLastTime()) >= this.timeInterval;
     }
 
-    public void bci() {
+    public void bch() {
         TbadkCoreApplication.getInst().setReporyUserInfoCurrentTime();
     }
 
@@ -71,7 +71,7 @@ public class ReportUserInfoModel extends BdBaseModel {
         this.timeInterval = j;
     }
 
-    public void bcj() {
+    public void bci() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REPORT_USER_INFO, TbConfig.SERVER_ADDRESS + "c/c/user/report");
         tbHttpMessageTask.setResponsedClass(ResponseReportUserInfoMessage.class);

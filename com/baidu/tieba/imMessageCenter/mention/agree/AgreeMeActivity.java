@@ -78,8 +78,8 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.e {
             if (hVar instanceof com.baidu.tieba.imMessageCenter.mention.base.a) {
                 com.baidu.tieba.imMessageCenter.mention.base.a aVar = (com.baidu.tieba.imMessageCenter.mention.base.a) hVar;
                 AgreeMeActivity.this.a(aVar);
-                if (aVar.aWf() != null) {
-                    am x = new am(aVar.aWf()).x("obj_locate", 1);
+                if (aVar.aWe() != null) {
+                    am x = new am(aVar.aWe()).x("obj_locate", 1);
                     if (aVar.getType() == com.baidu.tieba.imMessageCenter.mention.base.a.ffO) {
                         x.x("obj_type", 2);
                     } else {

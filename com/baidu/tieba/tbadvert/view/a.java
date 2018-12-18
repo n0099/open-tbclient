@@ -18,9 +18,9 @@ public class a {
     /* renamed from: com.baidu.tieba.tbadvert.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public interface InterfaceC0321a {
-        void bEM();
+        void bEL();
 
-        void bEN();
+        void bEM();
     }
 
     public a(Context context, InterfaceC0321a interfaceC0321a) {
@@ -37,7 +37,7 @@ public class a {
         if (obj instanceof com.baidu.adp.widget.ImageView.a) {
             i((com.baidu.adp.widget.ImageView.a) obj);
         }
-        bET();
+        bES();
         vJ(i);
     }
 
@@ -51,14 +51,14 @@ public class a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (a.this.hpn != null) {
-                    a.this.hpn.bEM();
+                    a.this.hpn.bEL();
                 }
             }
         });
         this.mRootView.addView(this.hpm);
     }
 
-    private void bET() {
+    private void bES() {
         TextView textView = new TextView(this.mContext);
         textView.setText(e.j.tb_ad_label);
         int dimension = (int) this.mContext.getResources().getDimension(e.C0210e.ds28);
@@ -98,7 +98,7 @@ public class a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (a.this.hpn != null) {
-                    a.this.hpn.bEN();
+                    a.this.hpn.bEM();
                 }
             }
         });
@@ -106,7 +106,7 @@ public class a {
             @Override // com.baidu.tieba.tbadvert.view.CountDownTextView.b
             public void ak(View view) {
                 if (a.this.hpn != null) {
-                    a.this.hpn.bEN();
+                    a.this.hpn.bEM();
                 }
             }
         });

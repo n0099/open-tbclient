@@ -8,7 +8,7 @@ public class d implements com.facebook.common.g.a {
     private final i ilg;
 
     public d(q qVar) {
-        this.ilg = qVar.bYJ();
-        this.ilf = new b(qVar.bYM());
+        this.ilg = qVar.bYI();
+        this.ilf = new b(qVar.bYL());
     }
 }

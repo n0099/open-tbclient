@@ -56,7 +56,7 @@ public class h {
         }
     }
 
-    public j bCV() {
+    public j bCU() {
         return (j) v.d(this.hkX, 0);
     }
 
@@ -68,19 +68,19 @@ public class h {
         return this.templateId;
     }
 
-    public ArrayList<g> bCW() {
+    public ArrayList<g> bCV() {
         return this.hkW;
     }
 
-    public ArrayList<j> bCX() {
+    public ArrayList<j> bCW() {
         return this.hkX;
     }
 
-    public i bCY() {
+    public i bCX() {
         return this.hkY;
     }
 
-    public int bCZ() {
+    public int bCY() {
         return this.hkV;
     }
 

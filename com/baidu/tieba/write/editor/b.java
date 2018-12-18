@@ -24,15 +24,15 @@ public class b extends k {
         }
     }
 
-    public void bld() {
+    public void blc() {
         if (this.aYi instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.aYi).bld();
+            ((EditorInfoContainer) this.aYi).blc();
         }
     }
 
-    public void bOd() {
+    public void bOc() {
         if (this.aYi instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.aYi).bOd();
+            ((EditorInfoContainer) this.aYi).bOc();
         }
     }
 }

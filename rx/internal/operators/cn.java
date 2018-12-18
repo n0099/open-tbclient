@@ -23,7 +23,7 @@ public final class cn<T1, T2, R> implements d.b<R, T1> {
         try {
             if (!it.hasNext()) {
                 jVar.onCompleted();
-                return rx.b.g.ceN();
+                return rx.b.g.ceM();
             }
             return (rx.j<T1>) new rx.j<T1>(jVar) { // from class: rx.internal.operators.cn.1
                 boolean done;
@@ -62,7 +62,7 @@ public final class cn<T1, T2, R> implements d.b<R, T1> {
             };
         } catch (Throwable th) {
             rx.exceptions.a.a(th, jVar);
-            return rx.b.g.ceN();
+            return rx.b.g.ceM();
         }
     }
 }

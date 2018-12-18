@@ -55,7 +55,7 @@ public class DragLayer extends FrameLayout {
         return this.hno;
     }
 
-    public void bDS() {
+    public void bDR() {
         if (this.hno != null) {
             if (this.hno.bjV != null) {
                 this.hno.bjV.recycle();
@@ -81,6 +81,6 @@ public class DragLayer extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bDS();
+        bDR();
     }
 }

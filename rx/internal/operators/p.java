@@ -131,8 +131,8 @@ public final class p<T> implements d.a<T> {
         jVar.add(createWorker);
         final rx.subscriptions.d dVar = new rx.subscriptions.d();
         jVar.add(dVar);
-        final rx.subjects.b<T, T> serialized = rx.subjects.a.cfi().toSerialized();
-        serialized.subscribe((rx.j) rx.b.g.ceN());
+        final rx.subjects.b<T, T> serialized = rx.subjects.a.cfh().toSerialized();
+        serialized.subscribe((rx.j) rx.b.g.ceM());
         final rx.internal.producers.a aVar = new rx.internal.producers.a();
         final rx.functions.a aVar2 = new rx.functions.a() { // from class: rx.internal.operators.p.2
             @Override // rx.functions.a
@@ -146,7 +146,7 @@ public final class p<T> implements d.a<T> {
                             if (!this.done) {
                                 this.done = true;
                                 unsubscribe();
-                                serialized.onNext(Notification.ccM());
+                                serialized.onNext(Notification.ccL());
                             }
                         }
 
@@ -163,12 +163,12 @@ public final class p<T> implements d.a<T> {
                         public void onNext(T t) {
                             if (!this.done) {
                                 jVar.onNext(t);
-                                cdj();
+                                cdi();
                                 aVar.dL(1L);
                             }
                         }
 
-                        private void cdj() {
+                        private void cdi() {
                             long j;
                             do {
                                 j = atomicLong.get();
@@ -207,10 +207,10 @@ public final class p<T> implements d.a<T> {
                     @Override // rx.e
                     /* renamed from: b */
                     public void onNext(Notification<?> notification) {
-                        if (notification.ccR() && p.this.iDe) {
+                        if (notification.ccQ() && p.this.iDe) {
                             jVar2.onCompleted();
-                        } else if (notification.ccQ() && p.this.iDf) {
-                            jVar2.onError(notification.ccN());
+                        } else if (notification.ccP() && p.this.iDf) {
+                            jVar2.onError(notification.ccM());
                         } else {
                             jVar2.onNext(notification);
                         }

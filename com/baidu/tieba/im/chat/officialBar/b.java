@@ -12,7 +12,7 @@ public class b {
         this.eJx = new com.baidu.adp.lib.e.b<MultiImageTextTopView>(new com.baidu.adp.lib.e.c<MultiImageTextTopView>() { // from class: com.baidu.tieba.im.chat.officialBar.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: aOy */
+            /* renamed from: aOx */
             public MultiImageTextTopView jz() {
                 return new MultiImageTextTopView(context);
             }
@@ -50,7 +50,7 @@ public class b {
         this.eJy = new com.baidu.adp.lib.e.b<MultiImageTextBottomView>(new com.baidu.adp.lib.e.c<MultiImageTextBottomView>() { // from class: com.baidu.tieba.im.chat.officialBar.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: aOz */
+            /* renamed from: aOy */
             public MultiImageTextBottomView jz() {
                 return new MultiImageTextBottomView(context);
             }
@@ -88,7 +88,7 @@ public class b {
         this.eJz = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<SingleImageTextView>() { // from class: com.baidu.tieba.im.chat.officialBar.b.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: aOA */
+            /* renamed from: aOz */
             public SingleImageTextView jz() {
                 return new SingleImageTextView(context);
             }

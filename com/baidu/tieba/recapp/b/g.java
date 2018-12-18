@@ -135,7 +135,7 @@ public class g extends com.baidu.tieba.frs.h<AdvertAppInfo, h> {
     /* renamed from: bE */
     public h onCreateViewHolder(ViewGroup viewGroup) {
         View view;
-        if (this.gLO != null && (view = (View) com.baidu.tieba.lego.card.b.aXP().a(this.mPageContext, this.gLO, 1)) != null) {
+        if (this.gLO != null && (view = (View) com.baidu.tieba.lego.card.b.aXO().a(this.mPageContext, this.gLO, 1)) != null) {
             if (view instanceof AdPostImageView) {
                 AdPostImageView adPostImageView = (AdPostImageView) view;
                 adPostImageView.setConstrainImagePool(this.dME);
@@ -249,13 +249,13 @@ public class g extends com.baidu.tieba.frs.h<AdvertAppInfo, h> {
                 }
             }
         }
-        com.baidu.tieba.recapp.report.c.bvu().a(c);
+        com.baidu.tieba.recapp.report.c.bvt().a(c);
         c.tT(2);
-        com.baidu.tieba.recapp.report.c.bvu().a(c);
+        com.baidu.tieba.recapp.report.c.bvt().a(c);
         if (z) {
             HashMap<String, String> hashMap2 = new HashMap<>();
             hashMap2.put("isDeepLink", "1");
-            com.baidu.tieba.recapp.report.c.bvu().d(advertAppInfo.apt, hashMap2);
+            com.baidu.tieba.recapp.report.c.bvt().d(advertAppInfo.apt, hashMap2);
         }
         com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.e(advertAppInfo));
     }
@@ -279,7 +279,7 @@ public class g extends com.baidu.tieba.frs.h<AdvertAppInfo, h> {
                 }
             }
         }
-        com.baidu.tieba.recapp.report.c.bvu().a(c);
+        com.baidu.tieba.recapp.report.c.bvt().a(c);
         com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.e(advertAppInfo));
     }
 

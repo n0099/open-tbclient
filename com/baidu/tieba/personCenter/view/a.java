@@ -114,7 +114,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
             if (view.getId() == e.g.fans_action) {
                 if (this.mUserData != null) {
                     this.gsn.setVisibility(8);
-                    com.baidu.tieba.o.a.bvJ().c(2, false, true);
+                    com.baidu.tieba.o.a.bvI().c(2, false, true);
                     TiebaStatic.log(new am("c12523").x("obj_locate", 6));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.mTbPageContext.getPageActivity(), false, this.mUserData.getUserId(), this.mUserData.getSex())));
                 }

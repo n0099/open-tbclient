@@ -19,30 +19,30 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
             if (i == 8) {
                 if (!z) {
                     if (z2) {
-                        MsgReceiveActivity.this.gXo.bxx().nQ();
+                        MsgReceiveActivity.this.gXo.bxw().nQ();
                         MsgReceiveActivity.this.gXo.mW(false);
                         MsgReceiveActivity.this.gXo.mV(false);
                         return;
                     }
-                    MsgReceiveActivity.this.gXo.bxx().nP();
+                    MsgReceiveActivity.this.gXo.bxw().nP();
                     MsgReceiveActivity.this.gXo.mW(true);
                     MsgReceiveActivity.this.gXo.mV(true);
                 }
             } else if (i == 9) {
                 if (!z) {
                     if (z2) {
-                        MsgReceiveActivity.this.gXo.bxy().nQ();
+                        MsgReceiveActivity.this.gXo.bxx().nQ();
                     } else {
-                        MsgReceiveActivity.this.gXo.bxy().nP();
+                        MsgReceiveActivity.this.gXo.bxx().nP();
                     }
                 }
             } else if (i == 7) {
                 if (z) {
                     com.baidu.tbadk.coreExtra.messageCenter.c.Iw().cc(z2);
                 } else if (z2) {
-                    MsgReceiveActivity.this.gXo.bxz().nQ();
+                    MsgReceiveActivity.this.gXo.bxy().nQ();
                 } else {
-                    MsgReceiveActivity.this.gXo.bxz().nP();
+                    MsgReceiveActivity.this.gXo.bxy().nP();
                 }
             }
         }
@@ -68,14 +68,14 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.gXo.aSH()) {
+        if (view == this.gXo.aSG()) {
             finish();
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view == this.gXo.bxx()) {
+        if (view == this.gXo.bxw()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 this.gXp.a(8, true, this.gXr);
                 this.gXo.mW(true);
@@ -85,13 +85,13 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
             this.gXp.a(8, false, this.gXr);
             this.gXo.mW(false);
             this.gXo.mV(false);
-        } else if (view == this.gXo.bxy()) {
+        } else if (view == this.gXo.bxx()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 this.gXp.a(9, true, this.gXr);
             } else {
                 this.gXp.a(9, false, this.gXr);
             }
-        } else if (view == this.gXo.bxz()) {
+        } else if (view == this.gXo.bxy()) {
             this.gXp.a(7, switchState == BdSwitchView.SwitchState.OFF, this.gXr);
         }
     }
@@ -110,7 +110,7 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
         if (this.gXq == null) {
             this.gXq = new OfficialAccountPushModel(this.gXs);
         }
-        this.gXq.byy();
+        this.gXq.byx();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

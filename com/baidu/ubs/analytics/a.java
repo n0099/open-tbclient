@@ -11,13 +11,13 @@ public class a {
 
     public static void yr(String str) {
         if (icm) {
-            e.bRR().yr(str);
+            e.bRQ().yr(str);
         }
     }
 
     public static void ys(String str) {
         if (icm) {
-            e.bRR().ys(str);
+            e.bRQ().ys(str);
         }
     }
 

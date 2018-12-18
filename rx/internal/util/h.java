@@ -15,7 +15,7 @@ public class h implements k {
 
     static {
         int i = 128;
-        if (g.cep()) {
+        if (g.ceo()) {
             i = 16;
         }
         String property = System.getProperty("rx.ring-buffer.size");
@@ -29,12 +29,12 @@ public class h implements k {
         SIZE = i;
     }
 
-    public static h cet() {
-        return ae.ceG() ? new h(false, SIZE) : new h();
+    public static h ces() {
+        return ae.ceF() ? new h(false, SIZE) : new h();
     }
 
-    public static h ceu() {
-        return ae.ceG() ? new h(true, SIZE) : new h();
+    public static h cet() {
+        return ae.ceF() ? new h(true, SIZE) : new h();
     }
 
     private h(Queue<Object> queue, int i) {
@@ -81,7 +81,7 @@ public class h implements k {
 
     public void onCompleted() {
         if (this.iLX == null) {
-            this.iLX = NotificationLite.cdh();
+            this.iLX = NotificationLite.cdg();
         }
     }
 

@@ -3,15 +3,15 @@ package com.baidu.tieba.tbadkCore.util;
 public class e {
     private static boolean hnT = false;
 
-    public static void bEp() {
+    public static void bEo() {
         hnT = true;
     }
 
-    public static void bEq() {
+    public static void bEp() {
         hnT = false;
     }
 
-    public static boolean bEr() {
+    public static boolean bEq() {
         return hnT;
     }
 }

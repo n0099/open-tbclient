@@ -12,16 +12,16 @@ public class b {
     private final i<Boolean> ihp;
 
     @Nullable
-    public ImmutableList<a> bTS() {
+    public ImmutableList<a> bTR() {
         return this.ihn;
     }
 
     @Nullable
-    public g bTT() {
+    public g bTS() {
         return this.iho;
     }
 
-    public i<Boolean> bTU() {
+    public i<Boolean> bTT() {
         return this.ihp;
     }
 }

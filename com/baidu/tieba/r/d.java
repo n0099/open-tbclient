@@ -106,8 +106,8 @@ public class d implements View.OnClickListener, a {
     }
 
     public void show() {
-        bHq();
-        byN();
+        bHp();
+        byM();
         this.aws = new AlertDialog.Builder(this.mContext, e.k.DialogTheme).create();
         this.aws.setCanceledOnTouchOutside(true);
         this.aws.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.r.d.1
@@ -133,7 +133,7 @@ public class d implements View.OnClickListener, a {
         acj();
     }
 
-    private void bHq() {
+    private void bHp() {
         if (this.hyR) {
             this.hyN.addView(this.hyP.getView());
             this.hyN.setVisibility(0);
@@ -143,13 +143,13 @@ public class d implements View.OnClickListener, a {
             this.hyL.setVisibility(8);
         }
         if (this.mShareItem.aSr) {
-            this.hyO.addView(this.hyQ.bHp());
+            this.hyO.addView(this.hyQ.bHo());
         } else {
             this.hyO.setVisibility(8);
         }
     }
 
-    private void byN() {
+    private void byM() {
         al.i(this.aJG, e.d.cp_bg_line_e);
         al.h(this.mTitle, e.d.cp_cont_j);
         if (this.mShareItem != null && this.mShareItem.aSd) {

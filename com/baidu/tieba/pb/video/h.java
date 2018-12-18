@@ -35,7 +35,7 @@ public class h {
         }
     }
 
-    public View bnl() {
+    public View bnk() {
         if (this.gkv == null) {
             return null;
         }
@@ -53,7 +53,7 @@ public class h {
         }
     }
 
-    public View bnm() {
+    public View bnl() {
         if (this.gkw == null) {
             return null;
         }
@@ -63,7 +63,7 @@ public class h {
     public void ar(bb bbVar) {
         if (this.gkw != null && bbVar != null && bbVar.AJ() != null && bbVar.AJ().avY == 2) {
             if (this.gkx == null) {
-                this.gkx = new com.baidu.tieba.c.d(this.bBf.getPageContext(), this.gkw.bni());
+                this.gkx = new com.baidu.tieba.c.d(this.bBf.getPageContext(), this.gkw.bnh());
                 this.gkx.kV(UIMsg.m_AppUI.MSG_APP_GPS);
             }
             this.gkx.h(this.bBf.getResources().getString(e.j.pb_order_channel_tip), "pb_show_order_channel_tip", true);
@@ -98,10 +98,10 @@ public class h {
     }
 
     public void onDestroy() {
-        bnn();
+        bnm();
     }
 
-    public void bnn() {
+    public void bnm() {
         if (this.gkx != null) {
             this.gkx.arm();
         }

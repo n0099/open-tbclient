@@ -76,7 +76,7 @@ public class z {
         return amVar;
     }
 
-    public z bse() {
+    public z bsd() {
         z zVar = new z();
         zVar.mLocate = this.mLocate;
         zVar.mType = this.mType;

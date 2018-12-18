@@ -111,7 +111,7 @@ public class b extends c implements PersonalizePageView.a, BigdaySwipeRefreshLay
         });
     }
 
-    public com.baidu.tbadk.core.bigday.a aLx() {
+    public com.baidu.tbadk.core.bigday.a aLw() {
         return this.ewB;
     }
 
@@ -164,26 +164,26 @@ public class b extends c implements PersonalizePageView.a, BigdaySwipeRefreshLay
     }
 
     @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.a
-    public void aLu() {
+    public void aLt() {
         this.ewA.setText(this.ewF);
     }
 
     @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.a
-    public void aLv() {
+    public void aLu() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921348, false));
         this.ewA.animate().alpha(0.0f).setDuration(200L).start();
         this.ewz.animate().alpha(0.0f).setDuration(200L).start();
     }
 
     @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.a
-    public void aLw() {
+    public void aLv() {
         if (this.ewB != null && this.ewB.xR()) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BigdayActivityConfig(getContext(), this.ewB.imgUrl, this.ewB.aou, this.ewB.aow)));
         }
     }
 
     @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.a
-    public int aLt() {
+    public int aLs() {
         return (int) (l.aQ(getContext()) * 0.3d);
     }
 
@@ -205,7 +205,7 @@ public class b extends c implements PersonalizePageView.a, BigdaySwipeRefreshLay
             this.ewy.setProgress(f3);
             return;
         }
-        this.ewy.setAlpha(1.0f - ((f4 - dimension2) / (aLt() - dimension2)));
+        this.ewy.setAlpha(1.0f - ((f4 - dimension2) / (aLs() - dimension2)));
     }
 
     private void setAlpha(float f) {

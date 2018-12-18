@@ -71,10 +71,10 @@ public class RatingView extends LinearLayout {
     public void setRating(String str, String str2) {
         this.gOT = uG(str2);
         this.gOT.fqH = str;
-        aZf();
+        aZe();
     }
 
-    private void aZf() {
+    private void aZe() {
         int i;
         removeAllViews();
         if (this.gOT != null) {

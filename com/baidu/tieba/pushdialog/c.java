@@ -83,7 +83,7 @@ public class c implements View.OnClickListener {
             this.gIh.postInvalidate();
         }
         if (l.ln()) {
-            this.gIg = com.baidu.tieba.t.a.bHL();
+            this.gIg = com.baidu.tieba.t.a.bHK();
             if (this.gIg != null && this.gIa.getWindow() != null) {
                 this.gIa.getWindow().setBackgroundDrawable(this.gIg);
             }
@@ -132,10 +132,10 @@ public class c implements View.OnClickListener {
         return this.gIa.findViewById(i);
     }
 
-    public void btz() {
+    public void bty() {
         if (this.gIm != null) {
             this.gIm.setNetworkChange();
-            if (j.kX() && this.gIm.bqW() && this.gIe != null && this.gIe.getFileSize() > 0 && this.gIe.getDuration() > 0) {
+            if (j.kX() && this.gIm.bqV() && this.gIe != null && this.gIe.getFileSize() > 0 && this.gIe.getDuration() > 0) {
                 float fileSize = this.gIe.getFileSize() * (1.0f - ((this.gIm.getCurrentPosition() * 1.0f) / (this.gIe.getDuration() * 1000)));
                 DecimalFormat decimalFormat = new DecimalFormat("0.0");
                 if ((fileSize * 1.0f) / 1048576.0f >= 0.1d) {
@@ -149,38 +149,38 @@ public class c implements View.OnClickListener {
         int h;
         int h2;
         if (aVar != null) {
-            this.gIi.startLoad(aVar.btB(), 17, false);
-            this.gIj.setText(aVar.btA());
-            if (aVar.btD() != null) {
-                this.gIn.setData(aVar.btD());
-                this.tvUserName.setText(aVar.btD().getName_show());
-                if (aVar.btD().getGodUserData() != null && (!StringUtils.isNull(aVar.btD().getGodUserData().getForumName()) || !StringUtils.isNull(aVar.btD().getGodUserData().getIntro()))) {
-                    this.gIo.setText(aVar.btD().getGodUserData().getForumName() + "吧 " + aVar.btD().getGodIntro());
+            this.gIi.startLoad(aVar.btA(), 17, false);
+            this.gIj.setText(aVar.btz());
+            if (aVar.btC() != null) {
+                this.gIn.setData(aVar.btC());
+                this.tvUserName.setText(aVar.btC().getName_show());
+                if (aVar.btC().getGodUserData() != null && (!StringUtils.isNull(aVar.btC().getGodUserData().getForumName()) || !StringUtils.isNull(aVar.btC().getGodUserData().getIntro()))) {
+                    this.gIo.setText(aVar.btC().getGodUserData().getForumName() + "吧 " + aVar.btC().getGodIntro());
                     this.gIo.setVisibility(0);
                 } else {
                     this.gIo.setVisibility(8);
                 }
-                if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(aVar.btD().getUserId())) {
+                if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(aVar.btC().getUserId())) {
                     this.gIp.setVisibility(8);
                 } else {
-                    new com.baidu.tbadk.core.view.userLike.c(this.gIa.getPageContext(), this.gIp).a(aVar.btD());
+                    new com.baidu.tbadk.core.view.userLike.c(this.gIa.getPageContext(), this.gIp).a(aVar.btC());
                     this.gIp.onChangeSkinType(0);
                     this.gIp.setVisibility(0);
                 }
-                com.baidu.tieba.pushdialog.data.b btC = aVar.btC();
-                if (btC == null) {
-                    this.gIa.btq().bHI();
+                com.baidu.tieba.pushdialog.data.b btB = aVar.btB();
+                if (btB == null) {
+                    this.gIa.btp().bHH();
                     this.gIa.finish();
                     return;
                 }
-                boolean z = btC.btE() == null || v.I(btC.btE().RZ());
-                if (StringUtils.isNull(btC.getTitle()) && z) {
-                    this.gIa.btq().bHI();
+                boolean z = btB.btD() == null || v.I(btB.btD().RZ());
+                if (StringUtils.isNull(btB.getTitle()) && z) {
+                    this.gIa.btp().bHH();
                     this.gIa.finish();
                     return;
                 }
-                if (btC.btE() != null) {
-                    Iterator<TbRichTextData> it = btC.btE().RZ().iterator();
+                if (btB.btD() != null) {
+                    Iterator<TbRichTextData> it = btB.btD().RZ().iterator();
                     while (it.hasNext()) {
                         TbRichTextData next = it.next();
                         if (next != null) {
@@ -191,7 +191,7 @@ public class c implements View.OnClickListener {
                         }
                     }
                 }
-                this.tid = btC.getTid();
+                this.tid = btB.getTid();
                 if (this.gIe == null) {
                     this.gIm.setVisibility(8);
                     this.fgt.setVisibility(0);
@@ -207,7 +207,7 @@ public class c implements View.OnClickListener {
                     this.gIs.da(z2);
                     this.gIs.gK(h);
                     this.gIs.gL(h2);
-                    this.fgt.setText(btC.btE());
+                    this.fgt.setText(btB.btD());
                 } else {
                     this.fgt.setVisibility(8);
                     this.gIm.setVisibility(0);
@@ -220,7 +220,7 @@ public class c implements View.OnClickListener {
                     this.gIm.setIsNeedRecoveryVideoPlayer(true);
                     this.gIm.setThumbnail(this.gIe.getThumbUrl());
                     this.gIm.setVideoUrl(this.gIe.getVideoUrl(), String.valueOf(this.tid));
-                    this.gIm.aLX();
+                    this.gIm.aLW();
                     n nVar = new n(this.gIa.getActivity());
                     nVar.tU("2");
                     z zVar = new z();
@@ -230,20 +230,20 @@ public class c implements View.OnClickListener {
                     nVar.setVideoStatsData(zVar);
                     this.gIm.setQuickVideoViewBusiness(nVar);
                 }
-                if (StringUtils.isNull(btC.getTitle())) {
+                if (StringUtils.isNull(btB.getTitle())) {
                     this.gIl.setVisibility(8);
                 } else {
-                    this.gIl.setText(btC.getTitle());
+                    this.gIl.setText(btB.getTitle());
                     this.gIl.setVisibility(0);
                 }
-                this.gIr.setText(String.format(Locale.CHINA, this.gIa.getString(e.j.bottom_comment), Integer.valueOf(btC.getPostNum())));
-                if (!this.gIa.btq().isScreenOn()) {
-                    this.gIa.btq().bHJ();
+                this.gIr.setText(String.format(Locale.CHINA, this.gIa.getString(e.j.bottom_comment), Integer.valueOf(btB.getPostNum())));
+                if (!this.gIa.btp().isScreenOn()) {
+                    this.gIa.btp().bHI();
                     return;
                 }
                 return;
             }
-            this.gIa.btq().bHI();
+            this.gIa.btp().bHH();
             this.gIa.finish();
         }
     }
@@ -255,8 +255,8 @@ public class c implements View.OnClickListener {
             com.baidu.adp.lib.g.e.jG().postDelayed(new Runnable() { // from class: com.baidu.tieba.pushdialog.c.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (c.this.gIa != null && c.this.gIa.btq() != null) {
-                        c.this.gIa.btq().bHI();
+                    if (c.this.gIa != null && c.this.gIa.btp() != null) {
+                        c.this.gIa.btp().bHH();
                     }
                 }
             }, 100L);
@@ -268,7 +268,7 @@ public class c implements View.OnClickListener {
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.gIa).createNormalCfg(this.tid + "", null, null)));
-            this.gIa.btq().bHJ();
+            this.gIa.btp().bHI();
             this.gIa.finish();
         } else if (view == this.gIp) {
             TiebaStatic.log(new am("c13199").x("obj_locate", 3).aA("tid", this.gIa.getTid()));

@@ -20,11 +20,11 @@ public class v extends bb {
         return this.bQP;
     }
 
-    public bd bCN() {
+    public bd bCM() {
         return this.hku;
     }
 
-    public bg bCO() {
+    public bg bCN() {
         return this.hkv;
     }
 }

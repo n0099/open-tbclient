@@ -41,7 +41,7 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
     private al eRb = new al() { // from class: com.baidu.tieba.im.frsgroup.view.FrsGroupActivity.1
         @Override // com.baidu.tieba.frs.al
         public void a(int i, int i2, ar arVar, ArrayList<h> arrayList) {
-            FrsGroupActivity.this.aRz();
+            FrsGroupActivity.this.aRy();
             if (v.I(arrayList)) {
                 String str = "";
                 if (arVar != null) {
@@ -70,9 +70,9 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
         this.eQX = (FragmentTabWidget) findViewById(e.g.tab_widget);
         this.azq = (CustomViewPager) findViewById(e.g.fragment_pager);
         q(bundle);
-        aRA();
+        aRz();
         initViewPager();
-        aRy();
+        aRx();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -80,7 +80,7 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
     public void onNetRefreshButtonClicked() {
         if (j.kK()) {
             this.eQY.get(0).azr();
-            aRy();
+            aRx();
         }
     }
 
@@ -156,14 +156,14 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
         bundle.putBoolean(IntentConfig.SHOW_RECOMMEND, this.eQZ);
     }
 
-    private void aRy() {
+    private void aRx() {
         this.azq.setVisibility(4);
         this.eQX.setVisibility(4);
         showLoadingView(this.mRootView, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aRz() {
+    public void aRy() {
         this.azq.setVisibility(0);
         this.eQX.setVisibility(0);
         hideLoadingView(this.mRootView);
@@ -192,7 +192,7 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
         this.eQZ = bundle.getBoolean(FrsGroupActivityConfig.SHOW_RECOMMEND_GROUP, false);
     }
 
-    private void aRA() {
+    private void aRz() {
         if (this.eQZ) {
             c pW = pW(1);
             pW.b(this.eRb);

@@ -64,19 +64,19 @@ public class e extends com.baidu.adp.base.c<MsgReceiveActivity> {
             this.gXv.setText(e.j.stranger_msg_switch);
             this.gXv.setOnSwitchStateChangeListener(this.gXy);
             this.gXv.setLineVisibility(false);
-            bxv();
+            bxu();
             this.gXw = (MsgSettingItemView) this.gXy.findViewById(e.g.item_view_forum_broadcast_msg);
             this.gXw.setText(e.j.receive_forum_broadcast_message);
             this.gXw.setOnSwitchStateChangeListener(this.gXy);
             this.gXw.setLineVisibility(false);
-            bxw();
+            bxv();
             this.gXx = (TbSettingTextTipView) this.gXy.findViewById(e.g.item_view_offical_account_push_msg);
             this.gXx.setOnClickListener(this.csN);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void bxv() {
+    private void bxu() {
         if (this.gXu == null || this.gXv == null) {
             return;
         }
@@ -97,7 +97,7 @@ public class e extends com.baidu.adp.base.c<MsgReceiveActivity> {
         }
     }
 
-    private void bxw() {
+    private void bxv() {
         if (this.gXw != null) {
             this.gXw.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.c.Iw().IQ());
         }
@@ -124,19 +124,19 @@ public class e extends com.baidu.adp.base.c<MsgReceiveActivity> {
         this.gXx.onChangeSkinType(i);
     }
 
-    public View aSH() {
+    public View aSG() {
         return this.aMU;
     }
 
-    public BdSwitchView bxx() {
+    public BdSwitchView bxw() {
         return this.gXu.getSwitchView();
     }
 
-    public BdSwitchView bxy() {
+    public BdSwitchView bxx() {
         return this.gXv.getSwitchView();
     }
 
-    public BdSwitchView bxz() {
+    public BdSwitchView bxy() {
         return this.gXw.getSwitchView();
     }
 

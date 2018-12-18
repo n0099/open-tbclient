@@ -74,7 +74,7 @@ public abstract class a extends b {
                     WebSocket next = it.next();
                     if (next instanceof c) {
                         c cVar = (c) next;
-                        if (cVar.cck() < currentTimeMillis) {
+                        if (cVar.ccj() < currentTimeMillis) {
                             if (c.DEBUG) {
                                 System.out.println("Closing connection due to no pong received: " + next.toString());
                             }

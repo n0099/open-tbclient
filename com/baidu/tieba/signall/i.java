@@ -18,11 +18,11 @@ public class i {
         return this.forumId;
     }
 
-    public int bAd() {
+    public int bAc() {
         return this.signed;
     }
 
-    public int bAe() {
+    public int bAd() {
         return this.hcU;
     }
 
@@ -30,7 +30,7 @@ public class i {
         return this.hcV;
     }
 
-    public a bzz() {
+    public a bzy() {
         return this.hbJ;
     }
 

@@ -35,11 +35,11 @@ public class b {
                 case 1:
                 case 2:
                 case 3:
-                    b.this.eZz.aPo();
+                    b.this.eZz.aPn();
                     return;
                 case 4:
                 case 5:
-                    b.this.eZz.aPn();
+                    b.this.eZz.aPm();
                     return;
                 default:
                     return;
@@ -51,13 +51,13 @@ public class b {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 103010) {
-                b.this.eZz.aPn();
+                b.this.eZz.aPm();
             } else if (!(socketResponsedMessage instanceof ResponseRequestGroupLocMessage)) {
-                b.this.eZz.aPn();
+                b.this.eZz.aPm();
             } else {
                 ResponseRequestGroupLocMessage responseRequestGroupLocMessage = (ResponseRequestGroupLocMessage) socketResponsedMessage;
                 if (responseRequestGroupLocMessage.getError() != 0) {
-                    b.this.eZz.aPn();
+                    b.this.eZz.aPm();
                     return;
                 }
                 Iterator<String> iteraotrOfBusinessAreaList = responseRequestGroupLocMessage.getIteraotrOfBusinessAreaList();
@@ -67,7 +67,7 @@ public class b {
                 }
                 String position = responseRequestGroupLocMessage.getPosition();
                 if ((position == null || position.equals("")) && arrayList.size() < 1) {
-                    b.this.eZz.aPn();
+                    b.this.eZz.aPm();
                 } else {
                     b.this.eZz.a(position, arrayList, b.this.latitude, b.this.longitude);
                 }
@@ -79,9 +79,9 @@ public class b {
     public interface a {
         void a(String str, List<String> list, double d, double d2);
 
-        void aPn();
+        void aPm();
 
-        void aPo();
+        void aPn();
     }
 
     public b(a aVar) {

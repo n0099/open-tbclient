@@ -17,7 +17,7 @@ public class c {
         @Override // java.lang.Runnable
         public void run() {
             if (c.this.ddS != null && c.this.ddT != null) {
-                c.this.ddS.setData(c.this.ddT.bDG(), 100);
+                c.this.ddS.setData(c.this.ddT.bDF(), 100);
                 c.this.ddS.cv();
             }
         }
@@ -27,7 +27,7 @@ public class c {
         public void run() {
             if (c.this.ddS != null && c.this.ddT != null) {
                 c.this.ddS.stopAnimation();
-                c.this.ddS.setData(c.this.ddT.bDF());
+                c.this.ddS.setData(c.this.ddT.bDE());
             }
         }
     };
@@ -88,7 +88,7 @@ public class c {
 
     private void arf() {
         String lastId = getLastId();
-        if (this.ddT == null || lastId.equals(this.ddT.bDH()) || ao.isEmpty(this.ddT.Wa()) || ao.isEmpty(this.ddT.bDF())) {
+        if (this.ddT == null || lastId.equals(this.ddT.bDG()) || ao.isEmpty(this.ddT.Wa()) || ao.isEmpty(this.ddT.bDE())) {
             this.ddS.setVisibility(8);
             return;
         }
@@ -96,8 +96,8 @@ public class c {
             TiebaStatic.log(new am("c12912").x("obj_locate", this.mFrom));
         }
         this.ddS.setVisibility(0);
-        this.ddS.setData(this.ddT.bDF());
-        if (this.ddT.getStartTime() > 0 && this.ddT.getEndTime() > 0 && this.ddT.getEndTime() > this.ddT.getStartTime() && !v.I(this.ddT.bDG())) {
+        this.ddS.setData(this.ddT.bDE());
+        if (this.ddT.getStartTime() > 0 && this.ddT.getEndTime() > 0 && this.ddT.getEndTime() > this.ddT.getStartTime() && !v.I(this.ddT.bDF())) {
             com.baidu.adp.lib.g.e.jG().removeCallbacks(this.ddU);
             com.baidu.adp.lib.g.e.jG().removeCallbacks(this.ddV);
             com.baidu.adp.lib.g.e.jG().postDelayed(this.ddU, this.ddT.getStartTime() - System.currentTimeMillis());
@@ -107,19 +107,19 @@ public class c {
 
     private void arg() {
         String lastId = getLastId();
-        if (this.ddT == null || lastId.equals(this.ddT.bDH()) || ao.isEmpty(this.ddT.Wa()) || ao.isEmpty(this.ddT.bDF())) {
+        if (this.ddT == null || lastId.equals(this.ddT.bDG()) || ao.isEmpty(this.ddT.Wa()) || ao.isEmpty(this.ddT.bDE())) {
             this.ddS.setVisibility(8);
             return;
         }
         this.ddS.setVisibility(0);
-        this.ddS.setData(this.ddT.bDF());
+        this.ddS.setData(this.ddT.bDE());
         com.baidu.adp.lib.g.e.jG().removeCallbacks(this.ddW);
         com.baidu.adp.lib.g.e.jG().postDelayed(this.ddW, UtilHelper.getNextDayMorning() - System.currentTimeMillis());
     }
 
     public void arh() {
         if (this.ddS != null && this.ddT != null) {
-            if (getLastId().equals(this.ddT.bDH())) {
+            if (getLastId().equals(this.ddT.bDG())) {
                 this.ddS.setVisibility(8);
             }
             if (this.ddT.getType() == 2) {
@@ -156,7 +156,7 @@ public class c {
             } else {
                 str = "key_redpacket_float_frs_last_id_" + type;
             }
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putString(str, this.ddT.bDH());
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putString(str, this.ddT.bDG());
         }
     }
 

@@ -60,7 +60,7 @@ public class h extends com.baidu.tieba.frs.mc.h {
                 h.this.edD = true;
                 if (h.this.dId != null && h.this.eaN != null && h.this.dIo != null && h.this.dZP != null && h.this.dZP.isAdded()) {
                     if (h.this.dId != null && h.this.dId.aBx() != null) {
-                        h.this.dId.aBx().aMx();
+                        h.this.dId.aBx().aMw();
                     }
                     h.this.dZP.gs(false);
                     com.baidu.adp.lib.g.e.jG().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.vc.h.3.1
@@ -117,20 +117,20 @@ public class h extends com.baidu.tieba.frs.mc.h {
             @Override // com.baidu.tieba.view.BdExpandListView.a
             public void onRefresh() {
                 if (h.this.dId != null && h.this.dId.aBx() != null) {
-                    h.this.dId.aBx().aMx();
+                    h.this.dId.aBx().aMw();
                 }
                 com.baidu.tieba.card.v.apD().ft(false);
                 l aAZ = h.this.dZP.aAZ();
                 if (h.this.dId != null && aAZ != null && h.this.dIn != null) {
                     if (com.baidu.adp.lib.util.j.kV()) {
                         if (h.this.dId.aBy() instanceof com.baidu.tieba.frs.tab.c) {
-                            if (!aAZ.bCB()) {
+                            if (!aAZ.bCA()) {
                                 ((com.baidu.tieba.frs.tab.c) h.this.dId.aBy()).oB();
                             }
                             h.this.dId.di(true);
                         }
                         TiebaStatic.eventStat(h.this.dZP.getPageContext().getPageActivity(), "frs_pulldown", "frsclick", 1, new Object[0]);
-                        if (aAZ.bgi() != null && aAZ.hiz == 1) {
+                        if (aAZ.bgh() != null && aAZ.hiz == 1) {
                             com.baidu.tieba.frs.e.b.a(aAZ, h.this.dIn.aGs(), 1);
                         }
                         h.this.dZP.refresh();

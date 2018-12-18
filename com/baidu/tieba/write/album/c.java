@@ -29,15 +29,15 @@ public class c {
         this.hSg = videoFileInfo;
     }
 
-    public VideoFileInfo bNE() {
+    public VideoFileInfo bND() {
         return this.hSg;
     }
 
-    public boolean bNF() {
-        return !v.I(bNI());
+    public boolean bNE() {
+        return !v.I(bNH());
     }
 
-    public boolean bNG() {
+    public boolean bNF() {
         return this.hSg != null;
     }
 
@@ -62,7 +62,7 @@ public class c {
         }
     }
 
-    public void bNH() {
+    public void bNG() {
         if (this.mWriteImagesInfo != null) {
             this.mWriteImagesInfo.clear();
         }
@@ -75,7 +75,7 @@ public class c {
         return this.mWriteImagesInfo.isAdded(imageFileInfo);
     }
 
-    public List<ImageFileInfo> bNI() {
+    public List<ImageFileInfo> bNH() {
         if (this.mWriteImagesInfo != null) {
             return this.mWriteImagesInfo.getChosedFiles();
         }
@@ -111,7 +111,7 @@ public class c {
         return 0;
     }
 
-    public String bNJ() {
+    public String bNI() {
         return this.dwk;
     }
 
@@ -138,11 +138,11 @@ public class c {
         }
     }
 
-    public List<ImageFileInfo> bNK() {
+    public List<ImageFileInfo> bNJ() {
         return this.hSi;
     }
 
-    public List<com.baidu.tbadk.album.a> bNL() {
+    public List<com.baidu.tbadk.album.a> bNK() {
         return this.hSj;
     }
 

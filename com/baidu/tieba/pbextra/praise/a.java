@@ -36,7 +36,7 @@ public class a {
         return this.clY;
     }
 
-    public long boj() {
+    public long boi() {
         return this.gpr;
     }
 }

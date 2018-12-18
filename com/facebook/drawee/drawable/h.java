@@ -21,13 +21,13 @@ public class h extends g {
     @Override // com.facebook.drawee.drawable.g
     public Drawable j(Drawable drawable) {
         Drawable j = super.j(drawable);
-        bUO();
+        bUN();
         return j;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        bUN();
+        bUM();
         if (this.IK != null) {
             int save = canvas.save();
             canvas.clipRect(getBounds());
@@ -43,16 +43,16 @@ public class h extends g {
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
-        bUO();
+        bUN();
     }
 
-    private void bUN() {
+    private void bUM() {
         if (this.ijd != getCurrent().getIntrinsicWidth() || this.ije != getCurrent().getIntrinsicHeight()) {
-            bUO();
+            bUN();
         }
     }
 
-    private void bUO() {
+    private void bUN() {
         Drawable current = getCurrent();
         Rect bounds = getBounds();
         int intrinsicWidth = current.getIntrinsicWidth();

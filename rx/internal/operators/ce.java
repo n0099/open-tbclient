@@ -19,7 +19,7 @@ public final class ce<T> implements d.b<List<T>, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> ce<T> cdU() {
+    public static <T> ce<T> cdT() {
         return (ce<T>) a.iJj;
     }
 

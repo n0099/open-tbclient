@@ -103,7 +103,7 @@ public final class c {
             return this;
         }
 
-        public c bRH() {
+        public c bRG() {
             if (this.mContext == null) {
                 j.yB("Context must be not empty!");
                 return null;

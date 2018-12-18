@@ -237,16 +237,16 @@ public class d {
                 dVar = dVar;
             }
         }
-        List<AppData> bux = r.buz().bux();
-        if (bux != null) {
-            bux.clear();
+        List<AppData> buw = r.buy().buw();
+        if (buw != null) {
+            buw.clear();
         }
         if (builder.banner_list != null && builder.banner_list.app != null) {
             for (App app : builder.banner_list.app) {
                 com.baidu.tieba.homepage.personalize.data.a aVar = new com.baidu.tieba.homepage.personalize.data.a();
                 aVar.b(app);
-                if (bux != null && aVar.cXN != null) {
-                    bux.add(aVar.cXN.apI);
+                if (buw != null && aVar.cXN != null) {
+                    buw.add(aVar.cXN.apI);
                 }
                 AdvertAppInfo apV = aVar.apV();
                 if (apV == null) {
@@ -284,7 +284,7 @@ public class d {
                 }
             }
         }
-        r.buz().buy();
+        r.buy().bux();
         if (v.H(builder.card_god) != 0) {
             for (CardGod cardGod : builder.card_god) {
                 f fVar = new f();
@@ -446,7 +446,7 @@ public class d {
     }
 
     private static void a(AdvertAppInfo advertAppInfo, int i, int i2) {
-        com.baidu.tieba.recapp.report.c.bvu().a(com.baidu.tieba.recapp.report.f.b(advertAppInfo, 5, i, i2));
+        com.baidu.tieba.recapp.report.c.bvt().a(com.baidu.tieba.recapp.report.f.b(advertAppInfo, 5, i, i2));
         if (advertAppInfo != null && advertAppInfo.apI != null) {
             advertAppInfo.apI.mDiscardReason = i2;
         }

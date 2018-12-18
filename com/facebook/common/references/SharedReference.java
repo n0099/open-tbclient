@@ -56,14 +56,14 @@ public class SharedReference<T> {
         return sharedReference != null && sharedReference.isValid();
     }
 
-    public synchronized void bTt() {
-        bTw();
+    public synchronized void bTs() {
+        bTv();
         this.igq++;
     }
 
-    public void bTu() {
+    public void bTt() {
         T t;
-        if (bTv() == 0) {
+        if (bTu() == 0) {
             synchronized (this) {
                 t = this.mValue;
                 this.mValue = null;
@@ -73,14 +73,14 @@ public class SharedReference<T> {
         }
     }
 
-    private synchronized int bTv() {
-        bTw();
+    private synchronized int bTu() {
+        bTv();
         g.checkArgument(this.igq > 0);
         this.igq--;
         return this.igq;
     }
 
-    private void bTw() {
+    private void bTv() {
         if (!a(this)) {
             throw new NullReferenceException();
         }

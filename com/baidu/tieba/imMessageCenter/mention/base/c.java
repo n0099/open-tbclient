@@ -47,8 +47,8 @@ public class c extends com.baidu.tieba.card.a<a> {
         this.fgd = new OriginalThreadCardView.a() { // from class: com.baidu.tieba.imMessageCenter.mention.base.c.1
             @Override // com.baidu.tieba.card.OriginalThreadCardView.a
             public void a(OriginalThreadInfo originalThreadInfo) {
-                if (c.this.fgc != null && c.this.fgc.aWf() != null) {
-                    am x = new am(c.this.fgc.aWf()).x("obj_locate", 2);
+                if (c.this.fgc != null && c.this.fgc.aWe() != null) {
+                    am x = new am(c.this.fgc.aWe()).x("obj_locate", 2);
                     if (c.this.fgc.getType() == a.ffR || c.this.fgc.getType() == a.ffN) {
                         x.x("obj_type", 1);
                     } else {

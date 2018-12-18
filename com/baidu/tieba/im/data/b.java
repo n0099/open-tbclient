@@ -43,7 +43,7 @@ public class b {
         this.name = str;
     }
 
-    public int aQh() {
+    public int aQg() {
         return this.eNo;
     }
 
@@ -67,7 +67,7 @@ public class b {
         this.content = str;
     }
 
-    public List<b> aQi() {
+    public List<b> aQh() {
         return this.sub_menu;
     }
 

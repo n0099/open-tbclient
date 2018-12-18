@@ -119,7 +119,7 @@ public class PbChudianProcessBar extends RelativeLayout {
         this.gnj.setText(cU(j2));
     }
 
-    public void bnG() {
+    public void bnF() {
         if (this.bBR != null) {
             this.bBQ = ((this.bBR.getDuration() / 200) / 50) * 50;
             if (this.bBQ < 50) {

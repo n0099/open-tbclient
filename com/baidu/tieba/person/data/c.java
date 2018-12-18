@@ -7,7 +7,7 @@ public class c implements h {
     public static final BdUniqueId gqx = BdUniqueId.gen();
     private int gqy = 0;
 
-    public int bow() {
+    public int bov() {
         return this.gqy;
     }
 

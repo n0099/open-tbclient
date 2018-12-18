@@ -1408,7 +1408,7 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
         }
         if (this.brY) {
             if (tbRichTextData.Sp()) {
-                textView.setMovementMethod(com.baidu.tieba.view.c.bMa());
+                textView.setMovementMethod(com.baidu.tieba.view.c.bLZ());
             } else {
                 textView.setMovementMethod(LinkMovementMethod.getInstance());
             }

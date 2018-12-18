@@ -91,7 +91,7 @@ public class c extends b {
         }
     }
 
-    private synchronized Method bYQ() {
+    private synchronized Method bYP() {
         if (ipE == null) {
             try {
                 ipE = MemoryFile.class.getDeclaredMethod("getFileDescriptor", new Class[0]);
@@ -104,7 +104,7 @@ public class c extends b {
 
     private FileDescriptor a(MemoryFile memoryFile) {
         try {
-            return (FileDescriptor) bYQ().invoke(memoryFile, new Object[0]);
+            return (FileDescriptor) bYP().invoke(memoryFile, new Object[0]);
         } catch (Exception e) {
             throw k.r(e);
         }

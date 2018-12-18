@@ -67,7 +67,7 @@ public final class ay<T> implements d.b<T, T> {
             this.delayError = z;
             i = i <= 0 ? rx.internal.util.h.SIZE : i;
             this.limit = i - (i >> 2);
-            if (rx.internal.util.a.ae.ceG()) {
+            if (rx.internal.util.a.ae.ceF()) {
                 this.queue = new rx.internal.util.a.q(i);
             } else {
                 this.queue = new rx.internal.util.atomic.c(i);
@@ -82,7 +82,7 @@ public final class ay<T> implements d.b<T, T> {
                 public void request(long j) {
                     if (j > 0) {
                         rx.internal.operators.a.a(a.this.requested, j);
-                        a.this.cdH();
+                        a.this.cdG();
                     }
                 }
             });
@@ -96,7 +96,7 @@ public final class ay<T> implements d.b<T, T> {
                 if (!this.queue.offer(NotificationLite.aY(t))) {
                     onError(new MissingBackpressureException());
                 } else {
-                    cdH();
+                    cdG();
                 }
             }
         }
@@ -105,7 +105,7 @@ public final class ay<T> implements d.b<T, T> {
         public void onCompleted() {
             if (!isUnsubscribed() && !this.finished) {
                 this.finished = true;
-                cdH();
+                cdG();
             }
         }
 
@@ -117,10 +117,10 @@ public final class ay<T> implements d.b<T, T> {
             }
             this.error = th;
             this.finished = true;
-            cdH();
+            cdG();
         }
 
-        protected void cdH() {
+        protected void cdG() {
             if (this.iGi.getAndIncrement() == 0) {
                 this.iGh.a(this);
             }

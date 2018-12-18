@@ -89,7 +89,7 @@ public class k extends c {
             am mI = mI(cXX);
             if (mI != null && ZR() != null) {
                 bb ZR2 = ZR();
-                mI.x("obj_name", ZR2.AX() != null && (ZR2.AX().bDu() != null || ZR2.AX().Sh() != null) ? 1 : 0);
+                mI.x("obj_name", ZR2.AX() != null && (ZR2.AX().bDt() != null || ZR2.AX().Sh() != null) ? 1 : 0);
                 if (ZR2.zG() != null) {
                     mI.x("ab_type", ZR2.zG().hadConcerned() ? 1 : 0);
                 }
@@ -101,9 +101,9 @@ public class k extends c {
                 mI2.aA("ab_tag", apP()).aA("ab_action", "show");
                 if (ZR() != null) {
                     bb ZR3 = ZR();
-                    boolean z = (ZR3.AX() == null || (ZR3.AX().bDu() == null && ZR3.AX().Sh() == null)) ? false : true;
+                    boolean z = (ZR3.AX() == null || (ZR3.AX().bDt() == null && ZR3.AX().Sh() == null)) ? false : true;
                     mI2.x("obj_name", z ? 1 : 0);
-                    if (z && ZR3.AX().bDu() != null && ZR3.AX().bDu().RZ() != null && ZR3.AX().bDu().RZ().size() > 0) {
+                    if (z && ZR3.AX().bDt() != null && ZR3.AX().bDt().RZ() != null && ZR3.AX().bDt().RZ().size() > 0) {
                         mI2.x("obj_to", ZR3.AX().hlS ? 2 : 1);
                     }
                     if (ZR3.zG() != null) {
@@ -139,9 +139,9 @@ public class k extends c {
             mI.aA("ab_tag", apP()).aA("ab_action", "show");
             if (ZR() != null) {
                 bb ZR = ZR();
-                boolean z = (ZR.AX() == null || (ZR.AX().bDu() == null && ZR.AX().Sh() == null)) ? false : true;
+                boolean z = (ZR.AX() == null || (ZR.AX().bDt() == null && ZR.AX().Sh() == null)) ? false : true;
                 mI.x("obj_name", z ? 1 : 0);
-                if (z && ZR.AX().bDu() != null && ZR.AX().bDu().RZ() != null && ZR.AX().bDu().RZ().size() > 0) {
+                if (z && ZR.AX().bDt() != null && ZR.AX().bDt().RZ() != null && ZR.AX().bDt().RZ().size() > 0) {
                     mI.x("obj_to", ZR.AX().hlS ? 2 : 1);
                 }
             }

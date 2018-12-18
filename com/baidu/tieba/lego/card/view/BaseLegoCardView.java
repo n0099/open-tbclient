@@ -45,7 +45,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
 
     protected abstract void a(T t, int i);
 
-    protected abstract View aYl();
+    protected abstract View aYk();
 
     public abstract void e(T t);
 
@@ -58,7 +58,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     }
 
     private void init() {
-        aYn();
+        aYm();
         postInit();
         this.isInit = false;
     }
@@ -67,15 +67,15 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         return (S) view.findViewById(i);
     }
 
-    protected final ViewGroup.LayoutParams aYm() {
+    protected final ViewGroup.LayoutParams aYl() {
         return new ViewGroup.LayoutParams(-1, -2);
     }
 
-    public final void aYn() {
+    public final void aYm() {
         FrameLayout frameLayout = new FrameLayout(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.fnD = aYl();
-        frameLayout.addView(this.fnD, aYm());
+        this.fnD = aYk();
+        frameLayout.addView(this.fnD, aYl());
         this.fnE = new View(getContext());
         al.j(this.fnE, e.d.common_color_10205);
         frameLayout.addView(this.fnE, new ViewGroup.LayoutParams(-1, -1));
@@ -182,7 +182,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         }
     }
 
-    public final void aYo() {
+    public final void aYn() {
         this.fnD.setVisibility(0);
     }
 
@@ -204,10 +204,10 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
             }
             if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
                 this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-                aYp();
+                aYo();
                 a((BaseLegoCardInfo) updateCard, this.mSkinType);
             }
-            aYo();
+            aYn();
             e((BaseLegoCardInfo) updateCard);
             c((BaseLegoCardInfo) updateCard);
         }
@@ -307,7 +307,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         view.setBackgroundColor(i2);
     }
 
-    private void aYp() {
+    private void aYo() {
         al.j(this.fnH, e.d.cp_bg_line_d);
         al.c(this.fnH, e.d.cp_bg_line_b);
         switch (this.fmJ) {
@@ -361,15 +361,15 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
+    public void aYp() {
+    }
+
+    @Override // com.baidu.tieba.lego.card.view.e
     public void aYq() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
     public void aYr() {
-    }
-
-    @Override // com.baidu.tieba.lego.card.view.e
-    public void aYs() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
@@ -392,6 +392,6 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void aYt() {
+    public void aYs() {
     }
 }

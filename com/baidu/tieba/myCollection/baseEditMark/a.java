@@ -45,7 +45,7 @@ public class a {
         return this.fHD.size();
     }
 
-    public int bdH() {
+    public int bdG() {
         return this.fHF;
     }
 
@@ -67,7 +67,7 @@ public class a {
         return this.esW;
     }
 
-    public ArrayList<MarkData> bdI() {
+    public ArrayList<MarkData> bdH() {
         return this.fHD;
     }
 
@@ -78,7 +78,7 @@ public class a {
     public void al(ArrayList<MarkData> arrayList) {
         if (this.fHD != null && arrayList != null) {
             this.fHD.addAll(arrayList);
-            bdM();
+            bdL();
         }
     }
 
@@ -93,14 +93,14 @@ public class a {
         return this.fHD.size();
     }
 
-    public int bdJ() {
+    public int bdI() {
         return this.fHE;
     }
 
-    public void bdK() {
-        ArrayList<MarkData> bEl = com.baidu.tieba.tbadkCore.util.a.bEl();
-        if (bEl != null) {
-            ak(bEl);
+    public void bdJ() {
+        ArrayList<MarkData> bEk = com.baidu.tieba.tbadkCore.util.a.bEk();
+        if (bEk != null) {
+            ak(bEk);
         }
     }
 
@@ -319,15 +319,15 @@ public class a {
                 com.baidu.tbadk.core.d.a.a("collection", 0L, 0, "collection_thread_list_result", this.fHH.getErrorCode(), this.fHH.getErrorString(), new Object[0]);
             }
             a.this.fHE = aVar.getCount();
-            ArrayList<MarkData> bdI = aVar.bdI();
+            ArrayList<MarkData> bdH = aVar.bdH();
             if (this.fHJ.booleanValue()) {
-                if (bdI != null && bdI.size() != 0) {
-                    a.this.ak(bdI);
+                if (bdH != null && bdH.size() != 0) {
+                    a.this.ak(bdH);
                 }
             } else {
-                a.this.al(bdI);
+                a.this.al(bdH);
             }
-            Iterator<MarkData> it = bdI.iterator();
+            Iterator<MarkData> it = bdH.iterator();
             int i2 = 0;
             while (it.hasNext()) {
                 if (it.next().getNewCounts() > 0) {
@@ -385,25 +385,25 @@ public class a {
         public Boolean doInBackground(a... aVarArr) {
             a aVar = new a();
             try {
-                aVar.bdK();
+                aVar.bdJ();
                 this.mNetWork = new x();
                 this.mNetWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
-                int bdL = a.this.bdL();
-                if (aVar.getCount() - 1 <= bdL) {
-                    bdL = aVar.getCount() - 1;
+                int bdK = a.this.bdK();
+                if (aVar.getCount() - 1 <= bdK) {
+                    bdK = aVar.getCount() - 1;
                 }
-                while (bdL >= 0) {
-                    String bs = aVar.bs(bdL, 20);
+                while (bdK >= 0) {
+                    String bs = aVar.bs(bdK, 20);
                     this.mNetWork.p(new ArrayList<>());
                     this.mNetWork.x("data", bs);
                     this.fHH.parserJson(this.mNetWork.CL());
                     if (!this.mNetWork.Dj().Ei().isRequestSuccess() || this.fHH.getErrorCode() != 0) {
                         break;
                     }
-                    bdL -= 20;
+                    bdK -= 20;
                 }
-                a.this.rQ(bdL);
-                if (bdL >= 0) {
+                a.this.rQ(bdK);
+                if (bdK >= 0) {
                     return false;
                 }
                 return true;
@@ -528,7 +528,7 @@ public class a {
         }
     }
 
-    public int bdL() {
+    public int bdK() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("uploac_mark_offset", 399);
     }
 
@@ -552,7 +552,7 @@ public class a {
         this.fHG = dVar;
     }
 
-    private void bdM() {
+    private void bdL() {
         if (this.fHD != null) {
             HashSet hashSet = new HashSet();
             Iterator<MarkData> it = this.fHD.iterator();

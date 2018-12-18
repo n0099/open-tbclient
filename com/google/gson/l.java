@@ -28,57 +28,57 @@ public final class l extends i {
         this.value = obj;
     }
 
-    public boolean cam() {
+    public boolean cal() {
         return this.value instanceof Boolean;
     }
 
     @Override // com.google.gson.i
-    Boolean cal() {
+    Boolean cak() {
         return (Boolean) this.value;
     }
 
     @Override // com.google.gson.i
     public boolean getAsBoolean() {
-        return cam() ? cal().booleanValue() : Boolean.parseBoolean(cad());
+        return cal() ? cak().booleanValue() : Boolean.parseBoolean(cac());
     }
 
-    public boolean can() {
+    public boolean cam() {
         return this.value instanceof Number;
     }
 
     @Override // com.google.gson.i
-    public Number cac() {
+    public Number cab() {
         return this.value instanceof String ? new LazilyParsedNumber((String) this.value) : (Number) this.value;
     }
 
-    public boolean cao() {
+    public boolean can() {
         return this.value instanceof String;
     }
 
     @Override // com.google.gson.i
-    public String cad() {
-        if (can()) {
-            return cac().toString();
-        }
+    public String cac() {
         if (cam()) {
-            return cal().toString();
+            return cab().toString();
+        }
+        if (cal()) {
+            return cak().toString();
         }
         return (String) this.value;
     }
 
     @Override // com.google.gson.i
     public double getAsDouble() {
-        return can() ? cac().doubleValue() : Double.parseDouble(cad());
+        return cam() ? cab().doubleValue() : Double.parseDouble(cac());
     }
 
     @Override // com.google.gson.i
     public long getAsLong() {
-        return can() ? cac().longValue() : Long.parseLong(cad());
+        return cam() ? cab().longValue() : Long.parseLong(cac());
     }
 
     @Override // com.google.gson.i
     public int getAsInt() {
-        return can() ? cac().intValue() : Integer.parseInt(cad());
+        return cam() ? cab().intValue() : Integer.parseInt(cac());
     }
 
     private static boolean aP(Object obj) {
@@ -99,10 +99,10 @@ public final class l extends i {
             return 31;
         }
         if (a(this)) {
-            long longValue = cac().longValue();
+            long longValue = cab().longValue();
             return (int) (longValue ^ (longValue >>> 32));
         } else if (this.value instanceof Number) {
-            long doubleToLongBits = Double.doubleToLongBits(cac().doubleValue());
+            long doubleToLongBits = Double.doubleToLongBits(cab().doubleValue());
             return (int) (doubleToLongBits ^ (doubleToLongBits >>> 32));
         } else {
             return this.value.hashCode();
@@ -121,10 +121,10 @@ public final class l extends i {
         if (this.value == null) {
             return lVar.value == null;
         } else if (a(this) && a(lVar)) {
-            return cac().longValue() == lVar.cac().longValue();
+            return cab().longValue() == lVar.cab().longValue();
         } else if ((this.value instanceof Number) && (lVar.value instanceof Number)) {
-            double doubleValue = cac().doubleValue();
-            double doubleValue2 = lVar.cac().doubleValue();
+            double doubleValue = cab().doubleValue();
+            double doubleValue2 = lVar.cab().doubleValue();
             if (doubleValue == doubleValue2 || (Double.isNaN(doubleValue) && Double.isNaN(doubleValue2))) {
                 z = true;
             }

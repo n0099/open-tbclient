@@ -11,7 +11,7 @@ public interface i {
 
     String bcA();
 
-    String bcB();
+    void bct();
 
     void bcu();
 
@@ -23,7 +23,7 @@ public interface i {
 
     void bcy();
 
-    void bcz();
+    String bcz();
 
     void f(int i, int i2, String str);
 

@@ -15,7 +15,7 @@ public class p<K, V> implements t<K, V> {
     public com.facebook.common.references.a<V> aH(K k) {
         com.facebook.common.references.a<V> aH = this.ilW.aH(k);
         if (aH == null) {
-            this.ilX.bVE();
+            this.ilX.bVD();
         } else {
             this.ilX.aE(k);
         }
@@ -24,7 +24,7 @@ public class p<K, V> implements t<K, V> {
 
     @Override // com.facebook.imagepipeline.c.t
     public com.facebook.common.references.a<V> a(K k, com.facebook.common.references.a<V> aVar) {
-        this.ilX.bVF();
+        this.ilX.bVE();
         return this.ilW.a(k, aVar);
     }
 

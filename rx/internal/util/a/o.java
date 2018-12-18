@@ -5,7 +5,7 @@ abstract class o<E> extends k<E> {
     private volatile long producerIndex;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final long ceC() {
+    public final long ceB() {
         return this.producerIndex;
     }
 

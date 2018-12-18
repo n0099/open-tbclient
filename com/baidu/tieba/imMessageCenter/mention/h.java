@@ -11,23 +11,23 @@ public class h {
     private int chat = 0;
     private int feD = 0;
 
-    public int aVP() {
+    public int aVO() {
         return this.feA;
     }
 
-    public int aVQ() {
+    public int aVP() {
         return this.feB;
     }
 
-    public int aVR() {
+    public int aVQ() {
         return this.feC;
     }
 
-    public int aVS() {
+    public int aVR() {
         return this.fans;
     }
 
-    public int aVT() {
+    public int aVS() {
         return this.feD;
     }
 

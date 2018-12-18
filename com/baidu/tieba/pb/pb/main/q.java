@@ -111,7 +111,7 @@ public class q {
 
     public void a(com.baidu.tieba.pb.data.d dVar, boolean z, Context context) {
         com.baidu.tbadk.core.data.t tVar;
-        if (z || dVar == null || com.baidu.tbadk.core.util.v.I(dVar.bgG()) || this.fWW == null) {
+        if (z || dVar == null || com.baidu.tbadk.core.util.v.I(dVar.bgF()) || this.fWW == null) {
             if (this.fWX != null) {
                 this.fWX.setVisibility(8);
                 return;
@@ -129,10 +129,10 @@ public class q {
             this.fXe = (TextView) this.fWX.findViewById(e.g.pb_first_floor_multi_forum_del_txt);
         }
         this.fWX.setVisibility(0);
-        List<ay> bgG = dVar.bgG();
+        List<ay> bgF = dVar.bgF();
         StringBuilder sb = new StringBuilder();
-        for (ay ayVar : bgG) {
-            if (ayVar != null && !StringUtils.isNull(ayVar.getForumName()) && (tVar = ayVar.ata) != null && tVar.isDeleted && ((tVar.ara && (tVar.type == 1 || tVar.type == 2)) || (dVar.bgk() != null && dVar.bgk().zG() != null && TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), dVar.bgk().zG().getUserId())))) {
+        for (ay ayVar : bgF) {
+            if (ayVar != null && !StringUtils.isNull(ayVar.getForumName()) && (tVar = ayVar.ata) != null && tVar.isDeleted && ((tVar.ara && (tVar.type == 1 || tVar.type == 2)) || (dVar.bgj() != null && dVar.bgj().zG() != null && TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), dVar.bgj().zG().getUserId())))) {
                 sb.append(com.baidu.adp.lib.util.k.o(ayVar.getForumName(), 12)).append(context.getString(e.j.forum)).append("、");
             }
         }
@@ -143,7 +143,7 @@ public class q {
         } else {
             this.fXe.setVisibility(8);
         }
-        int H = com.baidu.tbadk.core.util.v.H(dVar.bgG());
+        int H = com.baidu.tbadk.core.util.v.H(dVar.bgF());
         if (H > 3) {
             H = 3;
         }
@@ -151,8 +151,8 @@ public class q {
         switch (H) {
             case 1:
                 this.fWZ.setMaxWidth(i);
-                this.fWZ.setText(context.getString(e.j.chosen_pb_original_bar, ((ay) com.baidu.tbadk.core.util.v.d(dVar.bgG(), 0)).getForumName()));
-                this.fWZ.setTag(((ay) com.baidu.tbadk.core.util.v.d(dVar.bgG(), 0)).getForumName());
+                this.fWZ.setText(context.getString(e.j.chosen_pb_original_bar, ((ay) com.baidu.tbadk.core.util.v.d(dVar.bgF(), 0)).getForumName()));
+                this.fWZ.setTag(((ay) com.baidu.tbadk.core.util.v.d(dVar.bgF(), 0)).getForumName());
                 this.fWZ.setVisibility(0);
                 this.fXa.setVisibility(0);
                 this.fXb.setVisibility(0);
@@ -161,12 +161,12 @@ public class q {
                 break;
             case 2:
                 this.fWZ.setMaxWidth(i);
-                this.fWZ.setText(context.getString(e.j.chosen_pb_original_bar, ((ay) com.baidu.tbadk.core.util.v.d(dVar.bgG(), 0)).getForumName()));
-                this.fWZ.setTag(((ay) com.baidu.tbadk.core.util.v.d(dVar.bgG(), 0)).getForumName());
+                this.fWZ.setText(context.getString(e.j.chosen_pb_original_bar, ((ay) com.baidu.tbadk.core.util.v.d(dVar.bgF(), 0)).getForumName()));
+                this.fWZ.setTag(((ay) com.baidu.tbadk.core.util.v.d(dVar.bgF(), 0)).getForumName());
                 this.fWZ.setVisibility(0);
                 this.fXa.setMaxWidth(i);
-                this.fXa.setText(context.getString(e.j.chosen_pb_original_bar, ((ay) com.baidu.tbadk.core.util.v.d(dVar.bgG(), 1)).getForumName()));
-                this.fXa.setTag(((ay) com.baidu.tbadk.core.util.v.d(dVar.bgG(), 1)).getForumName());
+                this.fXa.setText(context.getString(e.j.chosen_pb_original_bar, ((ay) com.baidu.tbadk.core.util.v.d(dVar.bgF(), 1)).getForumName()));
+                this.fXa.setTag(((ay) com.baidu.tbadk.core.util.v.d(dVar.bgF(), 1)).getForumName());
                 this.fXa.setVisibility(0);
                 this.fXb.setVisibility(8);
                 this.fXc.setVisibility(0);
@@ -174,16 +174,16 @@ public class q {
                 break;
             case 3:
                 this.fWZ.setMaxWidth(i);
-                this.fWZ.setText(context.getString(e.j.chosen_pb_original_bar, ((ay) com.baidu.tbadk.core.util.v.d(dVar.bgG(), 0)).getForumName()));
-                this.fWZ.setTag(((ay) com.baidu.tbadk.core.util.v.d(dVar.bgG(), 0)).getForumName());
+                this.fWZ.setText(context.getString(e.j.chosen_pb_original_bar, ((ay) com.baidu.tbadk.core.util.v.d(dVar.bgF(), 0)).getForumName()));
+                this.fWZ.setTag(((ay) com.baidu.tbadk.core.util.v.d(dVar.bgF(), 0)).getForumName());
                 this.fWZ.setVisibility(0);
                 this.fXa.setMaxWidth(i);
-                this.fXa.setText(context.getString(e.j.chosen_pb_original_bar, ((ay) com.baidu.tbadk.core.util.v.d(dVar.bgG(), 1)).getForumName()));
-                this.fXa.setTag(((ay) com.baidu.tbadk.core.util.v.d(dVar.bgG(), 1)).getForumName());
+                this.fXa.setText(context.getString(e.j.chosen_pb_original_bar, ((ay) com.baidu.tbadk.core.util.v.d(dVar.bgF(), 1)).getForumName()));
+                this.fXa.setTag(((ay) com.baidu.tbadk.core.util.v.d(dVar.bgF(), 1)).getForumName());
                 this.fXa.setVisibility(0);
                 this.fXb.setMaxWidth(i);
-                this.fXb.setText(context.getString(e.j.chosen_pb_original_bar, ((ay) com.baidu.tbadk.core.util.v.d(dVar.bgG(), 2)).getForumName()));
-                this.fXb.setTag(((ay) com.baidu.tbadk.core.util.v.d(dVar.bgG(), 2)).getForumName());
+                this.fXb.setText(context.getString(e.j.chosen_pb_original_bar, ((ay) com.baidu.tbadk.core.util.v.d(dVar.bgF(), 2)).getForumName()));
+                this.fXb.setTag(((ay) com.baidu.tbadk.core.util.v.d(dVar.bgF(), 2)).getForumName());
                 this.fXb.setVisibility(0);
                 this.fXc.setVisibility(0);
                 this.fXd.setVisibility(0);
@@ -192,10 +192,10 @@ public class q {
         this.fWZ.setOnClickListener(this.fXf);
         this.fXa.setOnClickListener(this.fXf);
         this.fXb.setOnClickListener(this.fXf);
-        biQ();
+        biP();
     }
 
-    private void biQ() {
+    private void biP() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.fWX != null && this.fXg != skinType) {
             com.baidu.tbadk.core.util.al.c(this.fWY, e.d.cp_cont_f, 1);

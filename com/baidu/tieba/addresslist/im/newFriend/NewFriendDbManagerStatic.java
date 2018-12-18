@@ -169,7 +169,7 @@ public class NewFriendDbManagerStatic {
                             public Void doInBackground() {
                                 if (0 != friendId) {
                                     b.WA().aY(friendId);
-                                    m.aQH().pP(String.valueOf(friendId));
+                                    m.aQG().pP(String.valueOf(friendId));
                                 }
                                 return null;
                             }

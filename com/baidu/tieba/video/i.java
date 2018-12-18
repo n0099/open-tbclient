@@ -1,19 +1,19 @@
 package com.baidu.tieba.video;
 /* loaded from: classes.dex */
 public class i {
-    public static boolean bHV() {
+    public static boolean bHU() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_video_guide_count", 0) < com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_video_guide_max_count", 0) && com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_no_behavior_count", 0) >= 2;
     }
 
-    public static void bHW() {
+    public static void bHV() {
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_video_guide_count", com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_video_guide_count", 0) + 1);
     }
 
-    public static void bHX() {
+    public static void bHW() {
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_no_behavior_count", com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_no_behavior_count", 0) + 1);
     }
 
-    public static void bHY() {
+    public static void bHX() {
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_no_behavior_count", 0);
     }
 }

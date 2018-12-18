@@ -35,9 +35,9 @@ public class b implements j, l {
     };
     private HashMap<String, g> gKV = new HashMap<>();
     private int gKW = 0;
-    private String gKX = buo();
+    private String gKX = bun();
 
-    public static b buj() {
+    public static b bui() {
         if (gKS == null) {
             synchronized (b.class) {
                 if (gKS == null) {
@@ -53,7 +53,7 @@ public class b implements j, l {
     }
 
     @Override // com.baidu.tieba.recapp.j
-    public void buk() {
+    public void buj() {
         if (!this.gKY) {
             Runnable runnable = new Runnable() { // from class: com.baidu.tieba.recapp.b.2
                 @Override // java.lang.Runnable
@@ -98,7 +98,7 @@ public class b implements j, l {
     }
 
     private void h(String str, boolean z, boolean z2) {
-        bup();
+        buo();
         g gVar = this.gKV.get(str);
         if (gVar == null) {
             gVar = new g();
@@ -114,9 +114,9 @@ public class b implements j, l {
         if (lVar != null) {
             JSONArray jSONArray = new JSONArray();
             for (Map.Entry<String, g> entry : hashMap.entrySet()) {
-                JSONObject bus = entry.getValue().bus();
-                if (bus != null) {
-                    jSONArray.put(bus);
+                JSONObject bur = entry.getValue().bur();
+                if (bur != null) {
+                    jSONArray.put(bur);
                 }
             }
             lVar.b(this.gKX, jSONArray.toString(), 86400000L);
@@ -135,7 +135,7 @@ public class b implements j, l {
 
     private int i(String str, boolean z, boolean z2) {
         g gVar = this.gKV.get(str);
-        if (gVar == null || !uv(buo())) {
+        if (gVar == null || !uv(bun())) {
             return 0;
         }
         return gVar.T(z, z2);
@@ -158,7 +158,7 @@ public class b implements j, l {
     }
 
     @Override // com.baidu.tieba.recapp.l
-    public void bul() {
+    public void buk() {
         if (!this.gKZ) {
             Runnable runnable = new Runnable() { // from class: com.baidu.tieba.recapp.b.3
                 @Override // java.lang.Runnable
@@ -189,24 +189,24 @@ public class b implements j, l {
     }
 
     @Override // com.baidu.tieba.recapp.l
-    public void bum() {
+    public void bul() {
         com.baidu.adp.lib.cache.l<String> lVar = this.gKU.get();
         if (lVar != null) {
-            bup();
+            buo();
             this.gKW++;
             lVar.b(this.gKX, Integer.toString(this.gKW), 86400000L);
         }
     }
 
     @Override // com.baidu.tieba.recapp.l
-    public int bun() {
-        if (uv(buo())) {
+    public int bum() {
+        if (uv(bun())) {
             return this.gKW;
         }
         return 0;
     }
 
-    private String buo() {
+    private String bun() {
         return new SimpleDateFormat(AiAppDateTimeUtil.DATE_FORMAT).format(new Date());
     }
 
@@ -217,12 +217,12 @@ public class b implements j, l {
         return this.gKX.equals(str);
     }
 
-    private void bup() {
-        String buo = buo();
-        if (!uv(buo)) {
+    private void buo() {
+        String bun = bun();
+        if (!uv(bun)) {
             this.gKV.clear();
             this.gKW = 0;
-            this.gKX = buo;
+            this.gKX = bun;
         }
     }
 

@@ -12,11 +12,11 @@ public class s {
         this.iqi = ajVar;
     }
 
-    public j<com.facebook.imagepipeline.f.d> bZe() {
+    public j<com.facebook.imagepipeline.f.d> bZd() {
         return this.iqb;
     }
 
-    public aj bZf() {
+    public aj bZe() {
         return this.iqi;
     }
 
@@ -24,15 +24,15 @@ public class s {
         return this.iqi.getId();
     }
 
-    public al bYS() {
-        return this.iqi.bYS();
+    public al bYR() {
+        return this.iqi.bYR();
     }
 
     public Uri getUri() {
-        return this.iqi.bYR().bZE();
+        return this.iqi.bYQ().bZD();
     }
 
-    public long bZg() {
+    public long bZf() {
         return this.iqj;
     }
 

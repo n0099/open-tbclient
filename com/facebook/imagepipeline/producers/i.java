@@ -30,20 +30,20 @@ public class i implements ai<com.facebook.imagepipeline.f.d> {
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
         public void d(com.facebook.imagepipeline.f.d dVar, boolean z) {
-            ImageRequest bYR = this.ipQ.bYR();
-            boolean a = au.a(dVar, bYR.bZH());
-            if (dVar != null && (a || bYR.bZL())) {
-                bZe().e(dVar, z && a);
+            ImageRequest bYQ = this.ipQ.bYQ();
+            boolean a = au.a(dVar, bYQ.bZG());
+            if (dVar != null && (a || bYQ.bZK())) {
+                bZd().e(dVar, z && a);
             }
             if (z && !a) {
                 com.facebook.imagepipeline.f.d.e(dVar);
-                i.this.ipP.a(bZe(), this.ipQ);
+                i.this.ipP.a(bZd(), this.ipQ);
             }
         }
 
         @Override // com.facebook.imagepipeline.producers.m, com.facebook.imagepipeline.producers.b
         protected void A(Throwable th) {
-            i.this.ipP.a(bZe(), this.ipQ);
+            i.this.ipP.a(bZd(), this.ipQ);
         }
     }
 }

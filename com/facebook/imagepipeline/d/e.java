@@ -3,6 +3,8 @@ package com.facebook.imagepipeline.d;
 import java.util.concurrent.Executor;
 /* loaded from: classes2.dex */
 public interface e {
+    Executor bWs();
+
     Executor bWt();
 
     Executor bWu();
@@ -10,6 +12,4 @@ public interface e {
     Executor bWv();
 
     Executor bWw();
-
-    Executor bWx();
 }

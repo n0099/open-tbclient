@@ -22,11 +22,11 @@ class d<V> {
         this.ioW = i3;
     }
 
-    public boolean bYn() {
-        return this.ioW + bYo() > this.mMaxLength;
+    public boolean bYm() {
+        return this.ioW + bYn() > this.mMaxLength;
     }
 
-    int bYo() {
+    int bYn() {
         return this.ioV.size();
     }
 
@@ -44,7 +44,7 @@ class d<V> {
         return (V) this.ioV.poll();
     }
 
-    public void bYp() {
+    public void bYo() {
         this.ioW++;
     }
 
@@ -59,7 +59,7 @@ class d<V> {
         this.ioV.add(v);
     }
 
-    public void bYq() {
+    public void bYp() {
         com.facebook.common.internal.g.checkState(this.ioW > 0);
         this.ioW--;
     }

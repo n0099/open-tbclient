@@ -41,7 +41,7 @@ public class c implements View.OnClickListener {
         this.hyD = aVar;
     }
 
-    public LinearLayout bHp() {
+    public LinearLayout bHo() {
         if (this.ceD == null) {
             initView();
         }

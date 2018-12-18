@@ -133,7 +133,7 @@ public class j {
                     if (aVar != null) {
                         chatImageWithTailView.getImage().reset();
                         if (chatImageWithTailView.getImage() instanceof ChatClipImageItemView) {
-                            chatImageWithTailView.getImage().aON();
+                            chatImageWithTailView.getImage().aOM();
                         }
                         aVar.a(chatImageWithTailView.getImage());
                     } else {
@@ -239,13 +239,13 @@ public class j {
             com.baidu.tieba.im.widget.a aVar = new com.baidu.tieba.im.widget.a();
             int bW = aVar.bW(chatMessage.getContent(), str);
             if (1 == aVar.getSubType()) {
-                if (aVar.aUD() != null) {
+                if (aVar.aUC() != null) {
                     if (bW == 0) {
                         shareFromPBView.setVisibility(0);
-                        shareFromPBView.setData(aVar.aUD() instanceof ShareFromPBMsgData ? (ShareFromPBMsgData) aVar.aUD() : null);
+                        shareFromPBView.setData(aVar.aUC() instanceof ShareFromPBMsgData ? (ShareFromPBMsgData) aVar.aUC() : null);
                     } else if (bW == 1) {
                         shareFromGameCenter.setVisibility(0);
-                        ShareFromGameCenterMsgData shareFromGameCenterMsgData = aVar.aUD() instanceof ShareFromGameCenterMsgData ? (ShareFromGameCenterMsgData) aVar.aUD() : null;
+                        ShareFromGameCenterMsgData shareFromGameCenterMsgData = aVar.aUC() instanceof ShareFromGameCenterMsgData ? (ShareFromGameCenterMsgData) aVar.aUC() : null;
                         if (!TextUtils.isEmpty(str) && str.endsWith("MsgleftView")) {
                             shareFromGameCenter.setData(shareFromGameCenterMsgData, false);
                         } else if (!TextUtils.isEmpty(str) && str.endsWith("MsgrightView")) {
@@ -255,7 +255,7 @@ public class j {
                 }
             } else if (4 == aVar.getSubType()) {
                 shareFromFrsView.setVisibility(0);
-                shareFromFrsView.setData(aVar.aUD() instanceof ShareFromFrsMsgData ? (ShareFromFrsMsgData) aVar.aUD() : null);
+                shareFromFrsView.setData(aVar.aUC() instanceof ShareFromFrsMsgData ? (ShareFromFrsMsgData) aVar.aUC() : null);
             }
         }
     }

@@ -85,10 +85,10 @@ public class c extends q.a {
 
     public void a(v vVar) {
         if (vVar != null) {
-            bd bCN = vVar.bCN();
-            bg bCO = vVar.bCO();
-            this.top_code = bCN;
-            this.news_info = bCO;
+            bd bCM = vVar.bCM();
+            bg bCN = vVar.bCN();
+            this.top_code = bCM;
+            this.news_info = bCN;
             if (vVar.aKt()) {
                 this.dSx.setVisibility(0);
             } else {
@@ -105,10 +105,10 @@ public class c extends q.a {
                 this.dSu.setVisibility(0);
                 this.dSp.startLoad(this.top_code.ys(), 10, false);
                 this.dSq.setText(this.top_code.getSummary());
-                if (StringUtils.isNull(bCN.Br())) {
+                if (StringUtils.isNull(bCM.Br())) {
                     this.dSt.setVisibility(8);
                 } else {
-                    this.dSt.setText(bCN.Br());
+                    this.dSt.setText(bCM.Br());
                     this.dSt.setVisibility(0);
                 }
                 int Bo = this.top_code.Bo();
@@ -122,7 +122,7 @@ public class c extends q.a {
                         this.dSr.setText(spannableString);
                         this.dSr.setVisibility(0);
                     }
-                    if (bCN.Bq() <= 0) {
+                    if (bCM.Bq() <= 0) {
                         this.dSs.setVisibility(8);
                     } else {
                         String str2 = this.mContext.getResources().getString(e.j.u9_worth) + this.top_code.Bq();
@@ -133,16 +133,16 @@ public class c extends q.a {
                     }
                 } else {
                     this.dSs.setVisibility(8);
-                    this.dSr.setText(bCN.getSubTitle());
+                    this.dSr.setText(bCM.getSubTitle());
                     this.dSr.setVisibility(0);
                 }
             }
-            if (this.news_info == null || StringUtils.isNull(bCO.getSummary())) {
+            if (this.news_info == null || StringUtils.isNull(bCN.getSummary())) {
                 this.dSo.setVisibility(8);
                 return;
             }
             this.dSo.setVisibility(0);
-            this.dSv.setText(bCO.getSummary());
+            this.dSv.setText(bCN.getSummary());
         }
     }
 

@@ -13,7 +13,7 @@ public class ab {
     private ab() {
     }
 
-    public static ab bWb() {
+    public static ab bWa() {
         return new ab();
     }
 
@@ -21,7 +21,7 @@ public class ab {
         com.facebook.common.internal.g.checkNotNull(bVar);
         com.facebook.common.internal.g.checkArgument(com.facebook.imagepipeline.f.d.f(dVar));
         com.facebook.imagepipeline.f.d.e(this.mMap.put(bVar, com.facebook.imagepipeline.f.d.b(dVar)));
-        bWc();
+        bWb();
     }
 
     public synchronized boolean d(com.facebook.cache.common.b bVar, com.facebook.imagepipeline.f.d dVar) {
@@ -33,18 +33,18 @@ public class ab {
         if (dVar2 == null) {
             z = false;
         } else {
-            com.facebook.common.references.a<PooledByteBuffer> bXZ = dVar2.bXZ();
-            com.facebook.common.references.a<PooledByteBuffer> bXZ2 = dVar.bXZ();
-            if (bXZ != null && bXZ2 != null && bXZ.get() == bXZ2.get()) {
+            com.facebook.common.references.a<PooledByteBuffer> bXY = dVar2.bXY();
+            com.facebook.common.references.a<PooledByteBuffer> bXY2 = dVar.bXY();
+            if (bXY != null && bXY2 != null && bXY.get() == bXY2.get()) {
                 this.mMap.remove(bVar);
-                com.facebook.common.references.a.c((com.facebook.common.references.a<?>) bXZ2);
-                com.facebook.common.references.a.c((com.facebook.common.references.a<?>) bXZ);
+                com.facebook.common.references.a.c((com.facebook.common.references.a<?>) bXY2);
+                com.facebook.common.references.a.c((com.facebook.common.references.a<?>) bXY);
                 com.facebook.imagepipeline.f.d.e(dVar2);
-                bWc();
+                bWb();
                 z = true;
             } else {
-                com.facebook.common.references.a.c((com.facebook.common.references.a<?>) bXZ2);
-                com.facebook.common.references.a.c((com.facebook.common.references.a<?>) bXZ);
+                com.facebook.common.references.a.c((com.facebook.common.references.a<?>) bXY2);
+                com.facebook.common.references.a.c((com.facebook.common.references.a<?>) bXY);
                 com.facebook.imagepipeline.f.d.e(dVar2);
                 z = false;
             }
@@ -90,7 +90,7 @@ public class ab {
         return z;
     }
 
-    private synchronized void bWc() {
+    private synchronized void bWb() {
         com.facebook.common.c.a.a(iez, "Count = %d", Integer.valueOf(this.mMap.size()));
     }
 }

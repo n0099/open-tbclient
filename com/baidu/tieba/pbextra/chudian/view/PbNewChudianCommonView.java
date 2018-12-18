@@ -90,13 +90,13 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
             this.gnu = hVar;
             this.gnn = bdBaseActivity;
             this.gnv = interfaceC0278a;
-            ArrayList<g> bCW = this.gnu.bCW();
-            if (bCW != null && bCW.size() > 0 && (gVar = bCW.get(0)) != null && !ao.isEmpty(gVar.getText())) {
+            ArrayList<g> bCV = this.gnu.bCV();
+            if (bCV != null && bCV.size() > 0 && (gVar = bCV.get(0)) != null && !ao.isEmpty(gVar.getText())) {
                 al.c(this.gno, e.d.cp_other_c, 1);
                 al.d(this.gno, e.f.label_bg_green, 1);
                 this.gno.setText(gVar.getText());
                 this.gno.setVisibility(0);
-                if (bCW.size() > 1 && (gVar2 = bCW.get(1)) != null && !ao.isEmpty(gVar2.getText())) {
+                if (bCV.size() > 1 && (gVar2 = bCV.get(1)) != null && !ao.isEmpty(gVar2.getText())) {
                     al.c(this.gnp, e.d.cp_other_c, 1);
                     al.d(this.gnp, e.f.label_bg_green, 1);
                     this.gnp.setText(gVar2.getText());
@@ -110,17 +110,17 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
                 al.c(this.gnq, e.f.icon_pic_place);
                 this.gnq.setVisibility(0);
             }
-            i bCY = this.gnu.bCY();
-            if (bCY != null && !ao.isEmpty(bCY.getText())) {
+            i bCX = this.gnu.bCX();
+            if (bCX != null && !ao.isEmpty(bCX.getText())) {
                 if (this.gno.getVisibility() != 0 && this.gnp.getVisibility() != 0) {
                     al.c(this.gnt, e.d.cp_link_tip_a, 1);
                     al.d(this.gnt, e.f.label_bg_blue, 1);
-                    this.gnt.setText(bCY.getText());
+                    this.gnt.setText(bCX.getText());
                     this.gnt.setVisibility(0);
                 } else {
                     al.c(this.gns, e.d.cp_link_tip_a, 1);
                     al.d(this.gns, e.f.label_bg_blue, 1);
-                    this.gns.setText(bCY.getText());
+                    this.gns.setText(bCX.getText());
                     this.gns.setVisibility(0);
                 }
             }
@@ -134,19 +134,19 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
     public void onClick(View view) {
         if (this.gnu != null) {
             if (view == this.gno) {
-                if (this.gnu.bCW() != null) {
-                    a(this.gnu.bCW().get(0));
+                if (this.gnu.bCV() != null) {
+                    a(this.gnu.bCV().get(0));
                 }
             } else if (view == this.gnp) {
-                if (this.gnu.bCW() != null) {
-                    a(this.gnu.bCW().get(1));
+                if (this.gnu.bCV() != null) {
+                    a(this.gnu.bCV().get(1));
                 }
             } else if (view == this.gns || view == this.gnt) {
-                i bCY = this.gnu.bCY();
-                if (!ao.isEmpty(bCY.getUrl())) {
-                    com.baidu.tbadk.browser.a.ad(this.mContext, bCY.getUrl());
+                i bCX = this.gnu.bCX();
+                if (!ao.isEmpty(bCX.getUrl())) {
+                    com.baidu.tbadk.browser.a.ad(this.mContext, bCX.getUrl());
                     if (this.gnv != null) {
-                        this.gnv.d(bCY.getUrl(), "BUTTON", "CLICK", null, null);
+                        this.gnv.d(bCX.getUrl(), "BUTTON", "CLICK", null, null);
                     }
                 }
             }

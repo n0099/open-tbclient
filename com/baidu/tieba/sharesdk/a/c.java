@@ -53,7 +53,7 @@ public class c extends b {
             }
         } else {
             this.gZy = new b.a(bVar);
-            if (shareEntity.byD() != 0) {
+            if (shareEntity.byC() != 0) {
                 a(shareEntity);
             } else {
                 b(shareEntity);

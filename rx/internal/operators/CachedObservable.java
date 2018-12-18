@@ -108,7 +108,7 @@ public final class CachedObservable<T> extends rx.d<T> {
         public void onNext(T t) {
             if (!this.iBK) {
                 add(NotificationLite.aY(t));
-                cde();
+                cdd();
             }
         }
 
@@ -118,7 +118,7 @@ public final class CachedObservable<T> extends rx.d<T> {
                 this.iBK = true;
                 add(NotificationLite.M(th));
                 this.iBG.unsubscribe();
-                cde();
+                cdd();
             }
         }
 
@@ -126,13 +126,13 @@ public final class CachedObservable<T> extends rx.d<T> {
         public void onCompleted() {
             if (!this.iBK) {
                 this.iBK = true;
-                add(NotificationLite.cdh());
+                add(NotificationLite.cdg());
                 this.iBG.unsubscribe();
-                cde();
+                cdd();
             }
         }
 
-        void cde() {
+        void cdd() {
             for (ReplayProducer<?> replayProducer : this.iBH) {
                 replayProducer.replay();
             }
@@ -233,7 +233,7 @@ public final class CachedObservable<T> extends rx.d<T> {
                             if (size != 0) {
                                 Object[] objArr = this.currentBuffer;
                                 if (objArr == null) {
-                                    objArr = this.state.cem();
+                                    objArr = this.state.cel();
                                     this.currentBuffer = objArr;
                                 }
                                 int length = objArr.length - 1;

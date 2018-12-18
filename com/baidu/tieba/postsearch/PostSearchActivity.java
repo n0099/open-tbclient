@@ -45,7 +45,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
     public void startSearch(String str) {
         this.dGt = str;
         this.gGX.tA(1);
-        this.gGY.btl();
+        this.gGY.btk();
         this.gGX.showLoadingView();
     }
 
@@ -53,34 +53,34 @@ public class PostSearchActivity extends BaseFragmentActivity {
         this.gGX.ug(str);
     }
 
-    public void bsV() {
+    public void bsU() {
         this.gGX.at(this.gGY.gHv);
     }
 
     public void a(int i, b bVar, boolean z) {
-        if (i == 1 && (bVar == null || !bVar.aTW())) {
+        if (i == 1 && (bVar == null || !bVar.aTV())) {
             this.gGX.hideLoadingView();
-            this.gGX.btp();
+            this.gGX.bto();
             return;
         }
         this.gGX.hideLoadingView();
-        this.gGX.btd();
+        this.gGX.btc();
         this.gGX.a(i, bVar, z);
     }
 
-    public boolean bsW() {
-        return this.gGX.bsW();
+    public boolean bsV() {
+        return this.gGX.bsV();
     }
 
-    public void bsR() {
-        this.gGX.bsR();
+    public void bsQ() {
+        this.gGX.bsQ();
     }
 
-    public d bsX() {
+    public d bsW() {
         return this.gGY;
     }
 
-    public g bsY() {
+    public g bsX() {
         return this.gGX;
     }
 
@@ -95,7 +95,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
             this.mForumName = intent.getStringExtra("forum_name");
             this.mForumId = intent.getStringExtra("forum_id");
         }
-        this.gGY.bti();
+        this.gGY.bth();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

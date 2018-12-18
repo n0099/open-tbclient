@@ -133,11 +133,11 @@ public class ScanBoxView extends View {
             a(obtainStyledAttributes.getIndex(i), obtainStyledAttributes);
         }
         obtainStyledAttributes.recycle();
-        btW();
         btV();
+        btU();
     }
 
-    private void btV() {
+    private void btU() {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.outWidth = this.gJn;
         options.outHeight = this.gJn;
@@ -215,7 +215,7 @@ public class ScanBoxView extends View {
         }
     }
 
-    private void btW() {
+    private void btV() {
         if (this.gJO != null) {
             this.gJU = ((BitmapDrawable) this.gJO).getBitmap();
         }
@@ -248,7 +248,7 @@ public class ScanBoxView extends View {
             E(canvas);
             F(canvas);
             D(canvas);
-            btX();
+            btW();
         }
     }
 
@@ -387,7 +387,7 @@ public class ScanBoxView extends View {
         }
     }
 
-    private void btX() {
+    private void btW() {
         if (this.gJC) {
             if (this.gJP == null) {
                 this.gJl += this.gJh;
@@ -437,10 +437,10 @@ public class ScanBoxView extends View {
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        btY();
+        btX();
     }
 
-    private void btY() {
+    private void btX() {
         int i = this.bjt + this.gJB;
         int width = (getWidth() - this.gJp) / 2;
         this.gJj = new Rect(width, i, this.gJp + width, this.gJq + i);
@@ -507,7 +507,7 @@ public class ScanBoxView extends View {
                 this.bjt = ((i - this.gJq) / 2) + (this.gJB / 2);
             }
         }
-        btY();
+        btX();
         postInvalidate();
     }
 

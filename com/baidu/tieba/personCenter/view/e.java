@@ -149,7 +149,7 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
                     this.cSe.a(view, this.gsG);
                     return;
                 } else {
-                    boK();
+                    boJ();
                     return;
                 }
             }
@@ -157,10 +157,10 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
         }
     }
 
-    private void boK() {
+    private void boJ() {
         switch (this.gsG.type) {
             case 10:
-                com.baidu.tieba.o.a.bvJ().c(1, false, true);
+                com.baidu.tieba.o.a.bvI().c(1, false, true);
                 TiebaStatic.log(new am("c12523").x("obj_locate", 13));
                 if (this.mUserData != null && TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.mTbPageContext.getPageActivity(), this.mUserData.getUserId(), this.mUserData.getUserName(), this.mUserData.getName_show(), this.mUserData.getSex(), "iowner_gift")));
@@ -175,7 +175,7 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
                 }
                 return;
             case 12:
-                com.baidu.tieba.o.a.bvJ().c(7, false, true);
+                com.baidu.tieba.o.a.bvI().c(7, false, true);
                 TiebaStatic.log(new am("c12523").x("obj_locate", 12));
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MembercenterActivityConfig(this.mTbPageContext.getPageActivity())));
                 return;
@@ -199,7 +199,7 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
                 return;
             case 16:
                 TiebaStatic.log(new am("c12523").x("obj_locate", 9));
-                com.baidu.tieba.o.a.bvJ().c(3, false, true);
+                com.baidu.tieba.o.a.bvI().c(3, false, true);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001259));
                 MessageManager.getInstance().sendMessage(new CustomMessage(2015005, new IntentConfig(this.mTbPageContext.getPageActivity())));
                 return;
@@ -233,7 +233,7 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
                 }
                 return;
             case 31:
-                com.baidu.tieba.o.a.bvJ().c(10, false, true);
+                com.baidu.tieba.o.a.bvI().c(10, false, true);
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("key_feedback_tip_show", false);
                 TiebaStatic.log(new am("c12523").x("obj_locate", 19));
                 com.baidu.tbadk.browser.a.ad(this.mTbPageContext.getPageActivity(), TbConfig.URL_UEG_SERVICE_CENTER);
@@ -266,7 +266,7 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
                     String Gk = activityPrizeData.Gk();
                     if (!StringUtils.isNull(Gk)) {
                         TiebaStatic.log(new am("c12598"));
-                        com.baidu.tieba.o.a.bvJ().c(9, false, true);
+                        com.baidu.tieba.o.a.bvI().c(9, false, true);
                         ay.Ef().a(getTbPageContext(), new String[]{Gk}, true);
                         return;
                     }

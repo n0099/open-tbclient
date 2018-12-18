@@ -64,13 +64,13 @@ public class a extends com.baidu.tbadk.core.dialog.a implements View.OnClickList
                 aVar.a(a.this.hJY);
             }
         };
-        bvk();
+        bvj();
         dd(1);
         bg(false);
         bf(false);
     }
 
-    private void bvk() {
+    private void bvj() {
         this.mContentView = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(e.h.easter_egg_dialog, (ViewGroup) null);
         this.hJY = (ImageView) this.mContentView.findViewById(e.g.dialog_bg);
         this.mMessageView = (TextView) this.mContentView.findViewById(e.g.message);

@@ -28,11 +28,11 @@ public class j {
     private ArrayList<PostData> fQP = new ArrayList<>();
     private int fQQ = 1;
 
-    public Error bgQ() {
+    public Error bgP() {
         return this.fQT;
     }
 
-    public PostData bgR() {
+    public PostData bgQ() {
         return this.fQO;
     }
 
@@ -40,14 +40,14 @@ public class j {
         this.fQO = postData;
     }
 
-    public int bgS() {
+    public int bgR() {
         if (this.fQR == -1) {
             this.fQR = this.mCurrentPage;
         }
         return this.fQR;
     }
 
-    public int bgT() {
+    public int bgS() {
         return this.fQR;
     }
 
@@ -55,26 +55,26 @@ public class j {
         if (jVar != null) {
             b(jVar.azX());
             this.fQR = jVar.TY();
-            a(jVar.bgX());
+            a(jVar.bgW());
             setPageSize(jVar.getPageSize());
             aa(jVar.ZR());
             setTotalCount(jVar.getTotalCount());
-            kJ(jVar.bgW());
-            this.fQP.addAll(0, jVar.bgV());
+            kJ(jVar.bgV());
+            this.fQP.addAll(0, jVar.bgU());
         }
     }
 
     public void b(j jVar, boolean z) {
         if (jVar != null) {
             b(jVar.azX());
-            a(jVar.bgX());
-            e(jVar.bgR());
+            a(jVar.bgW());
+            e(jVar.bgQ());
             aa(jVar.ZR());
-            if (jVar.bgV() != null) {
+            if (jVar.bgU() != null) {
                 setCurrentPage(jVar.TY());
                 setPageSize(jVar.getPageSize());
                 setTotalCount(jVar.getTotalCount());
-                kJ(jVar.bgW());
+                kJ(jVar.bgV());
             }
             int size = this.fQP.size();
             if (z && size % this.mPageSize != 0) {
@@ -82,21 +82,21 @@ public class j {
                     this.fQP.remove(this.fQP.size() - 1);
                 }
             }
-            this.fQP.addAll(jVar.bgV());
+            this.fQP.addAll(jVar.bgU());
         }
     }
 
     public void c(j jVar, boolean z) {
         if (jVar != null) {
             b(jVar.azX());
-            a(jVar.bgX());
-            e(jVar.bgR());
+            a(jVar.bgW());
+            e(jVar.bgQ());
             aa(jVar.ZR());
-            if (jVar.bgV() != null && jVar.bgV().size() > 0) {
+            if (jVar.bgU() != null && jVar.bgU().size() > 0) {
                 setCurrentPage(jVar.TY());
                 setPageSize(jVar.getPageSize());
                 setTotalCount(jVar.getTotalCount());
-                kJ(jVar.bgW());
+                kJ(jVar.bgV());
             }
             int size = this.fQP.size();
             if (z && size % this.mPageSize != 0) {
@@ -104,8 +104,8 @@ public class j {
                     this.fQP.remove(this.fQP.size() - 1);
                 }
             }
-            this.fQP.addAll(jVar.bgV());
-            bgU();
+            this.fQP.addAll(jVar.bgU());
+            bgT();
         }
     }
 
@@ -116,24 +116,24 @@ public class j {
     public void a(j jVar) {
         if (jVar != null) {
             b(jVar.azX());
-            a(jVar.bgX());
-            e(jVar.bgR());
+            a(jVar.bgW());
+            e(jVar.bgQ());
             aa(jVar.ZR());
-            if (jVar.bgV() != null && jVar.bgV().size() > 0) {
+            if (jVar.bgU() != null && jVar.bgU().size() > 0) {
                 setCurrentPage(jVar.TY());
                 setPageSize(jVar.getPageSize());
                 setTotalCount(jVar.getTotalCount());
-                kJ(jVar.bgW());
-                this.fQR = (this.mCurrentPage - (((jVar.bgV().size() - 1) + this.mPageSize) / this.mPageSize)) + 1;
+                kJ(jVar.bgV());
+                this.fQR = (this.mCurrentPage - (((jVar.bgU().size() - 1) + this.mPageSize) / this.mPageSize)) + 1;
                 if (this.fQR < 0) {
                     this.fQR = 0;
                 }
             }
-            this.fQP.addAll(jVar.bgV());
+            this.fQP.addAll(jVar.bgU());
         }
     }
 
-    public void bgU() {
+    public void bgT() {
         if (this.fQR < 0) {
             this.fQR = this.mCurrentPage;
         } else if (this.fQR > this.mCurrentPage) {
@@ -141,7 +141,7 @@ public class j {
         }
     }
 
-    public ArrayList<PostData> bgV() {
+    public ArrayList<PostData> bgU() {
         return this.fQP;
     }
 
@@ -149,7 +149,7 @@ public class j {
         this.fQP = arrayList;
     }
 
-    public int bgW() {
+    public int bgV() {
         return this.fQQ;
     }
 
@@ -187,7 +187,7 @@ public class j {
         this.bat = forumData;
     }
 
-    public ForumData bgX() {
+    public ForumData bgW() {
         return this.bat;
     }
 
@@ -203,7 +203,7 @@ public class j {
         this.bNv = bbVar;
     }
 
-    public boolean aTC() {
+    public boolean aTB() {
         return (this.bNv == null || this.fQO == null || this.bNv.zG() == null || this.bNv.zG().getUserId() == null || this.fQO.zG() == null || this.fQO.zG().getUserId() == null || !this.bNv.zG().getUserId().equals(this.fQO.zG().getUserId())) ? false : true;
     }
 

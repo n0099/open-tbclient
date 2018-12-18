@@ -4,7 +4,7 @@ public class c {
     private static volatile c eZb;
     private boolean isAcceptNotify;
 
-    public static c aUj() {
+    public static c aUi() {
         if (eZb == null) {
             synchronized (c.class) {
                 if (eZb == null) {

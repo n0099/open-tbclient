@@ -43,8 +43,8 @@ public class d {
                 if (statusCode == 200 && error == 0) {
                     d.this.gGT.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
                     d.this.tw(intValue);
-                    d.this.btj();
-                    d.this.btm();
+                    d.this.bti();
+                    d.this.btl();
                     return;
                 }
                 String errorString = postSearchHttpResponseMessage.getErrorString();
@@ -63,7 +63,7 @@ public class d {
             Object data;
             if (customResponsedMessage != null && (data = customResponsedMessage.getData()) != null && (data instanceof ArrayList)) {
                 d.this.gHv = (ArrayList) data;
-                d.this.gGT.bsV();
+                d.this.gGT.bsU();
             }
         }
     };
@@ -79,7 +79,7 @@ public class d {
             return false;
         }
         if (!str.equals(this.dGt)) {
-            btl();
+            btk();
         }
         switch (i) {
             case 1:
@@ -126,32 +126,32 @@ public class d {
         return true;
     }
 
-    public void bti() {
+    public void bth() {
         this.gGT.sendMessage(new CustomMessage(2009001));
     }
 
-    public void btj() {
+    public void bti() {
         if (!StringUtils.isNull(this.dGt) && !this.dGt.equals(this.gHm)) {
             this.gGT.sendMessage(new CustomMessage(2009003, this.dGt));
             this.gHm = this.dGt;
         }
     }
 
-    public void btk() {
+    public void btj() {
         if (this.gHv != null) {
             this.gHv.clear();
         }
         this.gGT.sendMessage(new CustomMessage(2009004));
     }
 
-    public void btl() {
+    public void btk() {
         this.gHp = 1;
         this.gHq = 1;
         this.gHr = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btm() {
+    public void btl() {
         if (this.gHv == null) {
             this.gHv = new ArrayList<>();
         }

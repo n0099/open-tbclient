@@ -168,7 +168,7 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
                 if (a.this.cUy != null) {
                     a.this.cUy.setVolume(0.0f, 0.0f);
                 }
-                a.this.cUA.bcL();
+                a.this.cUA.bcK();
                 a.this.apl();
             }
         };
@@ -542,7 +542,7 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
                 str = this.aFf.avC.id;
                 str2 = valueOf;
             }
-            if (this.aFf.Ad() > 0 && com.baidu.tieba.tbadkCore.util.e.bEr()) {
+            if (this.aFf.Ad() > 0 && com.baidu.tieba.tbadkCore.util.e.bEq()) {
                 PbActivityConfig createHistoryCfg = new PbActivityConfig(this.mContext.getPageActivity()).createHistoryCfg(this.aFf.getTid(), String.valueOf(this.aFf.Ad()), false, true, "frs_page");
                 String str3 = "frs";
                 if (this.dRl == 501) {
@@ -646,7 +646,7 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
                     this.boM.startAnimation(this.bOd);
                     this.boS.setVisibility(8);
                     this.cWf.setVisibility(8);
-                    this.boR.brY();
+                    this.boR.brX();
                     this.boQ.setVisibility(8);
                     this.boP.setVisibility(8);
                     if (this.aFf != null && this.aFf.zY() != null) {
@@ -656,7 +656,7 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
                     this.boN.setVisibility(8);
                     this.boM.startAnimation(this.bOd);
                     this.boS.setVisibility(8);
-                    this.boR.brZ();
+                    this.boR.brY();
                     this.boQ.setVisibility(0);
                     this.boP.setVisibility(0);
                     com.baidu.adp.lib.g.e.jG().postDelayed(this.boY, SystemScreenshotManager.DELAY_TIME);
@@ -667,7 +667,7 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
                     this.boM.clearAnimation();
                     this.boM.setVisibility(0);
                     this.boS.setVisibility(0);
-                    this.boR.brZ();
+                    this.boR.brY();
                     this.boQ.setVisibility(8);
                     this.boP.setVisibility(8);
                 }
@@ -816,8 +816,8 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
                     e(true, 4);
                     TiebaStatic.log(new am("c12026").aA("tid", this.aFf.getId()));
                 }
-                if (this.cXw != null && this.cXw.brH() != null) {
-                    this.cXw.brH().g(this.aFf.zY());
+                if (this.cXw != null && this.cXw.brG() != null) {
+                    this.cXw.brG().g(this.aFf.zY());
                 }
                 this.boO.ct(this.aEN, this.aFf.tid);
                 return;
@@ -891,7 +891,7 @@ public class a extends com.baidu.tieba.card.a<bb> implements com.baidu.tieba.a.e
             this.boO.stopPlayback();
             if (aa.Qn()) {
                 if (this.dRk || com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("auto_play_video_frs", 0) == 1) {
-                    this.cUA.bcK();
+                    this.cUA.bcJ();
                     e(true, 2);
                     if (StringUtils.isNull(this.aEN)) {
                         TiebaStatic.log(new am("c12619").aA("obj_locate", "frs").aA("tid", this.aFf.getId()));

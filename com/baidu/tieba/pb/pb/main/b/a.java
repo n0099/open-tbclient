@@ -74,7 +74,7 @@ public class a {
                     ay.Ef().c(a.this.ggl.getPageContext(), new String[]{str5});
                 }
             } else if (str3 != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(a.this.ggl.getPageContext().getPageActivity(), str3, str2, a.this.ggl.bhf(), AddFriendActivityConfig.TYPE_PB_HEAD)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(a.this.ggl.getPageContext().getPageActivity(), str3, str2, a.this.ggl.bhe(), AddFriendActivityConfig.TYPE_PB_HEAD)));
             }
         }
     };

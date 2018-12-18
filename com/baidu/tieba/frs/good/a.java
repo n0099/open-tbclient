@@ -109,8 +109,8 @@ public class a {
         this.dMl = new l(frsGoodFragment.getPageContext(), m.dKG);
         this.dPF = c.aAd().a(frsGoodFragment.getPageContext(), bb.auD, this.dYp.getUniqueId(), true);
         this.dPG = c.aAd().b(frsGoodFragment.getPageContext(), bb.auL, this.dYp.getUniqueId());
-        this.dYq = r.buz().a(this.dYp, AdvertAppInfo.aoY);
-        this.dYr = r.buz().a(this.dYp, AdvertAppInfo.aph);
+        this.dYq = r.buy().a(this.dYp, AdvertAppInfo.aoY);
+        this.dYr = r.buy().a(this.dYp, AdvertAppInfo.aph);
         this.dOF = new com.baidu.tieba.frs.entelechy.a.l(frsGoodFragment.getPageContext(), bb.atn, this.dYp.getUniqueId());
         this.mAdapters.add(this.dOD);
         this.mAdapters.add(this.dPD);
@@ -181,8 +181,8 @@ public class a {
                     } else {
                         aDT.ebm = false;
                     }
-                    if (this.dPO.bgi() != null) {
-                        aDT.ebo = this.dPO.bgi().getId();
+                    if (this.dPO.bgh() != null) {
+                        aDT.ebo = this.dPO.bgh().getId();
                     }
                     if (this.dYp != null) {
                         if (this.dYp.dYz) {
@@ -298,13 +298,13 @@ public class a {
             return false;
         }
         this.dPH = new ArrayList();
-        ArrayList<BdUniqueId> bCF = q.bCF();
-        if (bCF == null || bCF.size() <= 0) {
+        ArrayList<BdUniqueId> bCE = q.bCE();
+        if (bCE == null || bCE.size() <= 0) {
             return false;
         }
-        int size = bCF.size();
+        int size = bCE.size();
         for (int i = 0; i < size; i++) {
-            com.baidu.tieba.frs.h<ICardInfo, ? extends q.a> a = c.aAd().a(this.dYp.getPageContext(), bCF.get(i), this.dYp.getUniqueId());
+            com.baidu.tieba.frs.h<ICardInfo, ? extends q.a> a = c.aAd().a(this.dYp.getPageContext(), bCE.get(i), this.dYp.getUniqueId());
             if (a != null) {
                 this.mAdapters.add(a);
                 this.dPH.add(a);

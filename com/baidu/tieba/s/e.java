@@ -26,11 +26,11 @@ public class e {
         this.hzo = new ArrayList();
         this.hzp = new ArrayList();
         if (f.hA()) {
-            bHy();
+            bHx();
         }
     }
 
-    private void bHy() {
+    private void bHx() {
         new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.s.e.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -46,11 +46,11 @@ public class e {
         }.execute(new Void[0]);
     }
 
-    public static e bHz() {
+    public static e bHy() {
         return a.hzr;
     }
 
-    public void bHu() {
+    public void bHt() {
         if (f.hA()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.s.e.2
                 /* JADX DEBUG: Method merged with bridge method */
@@ -105,19 +105,19 @@ public class e {
     public synchronized void b(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             this.hzo.add(jSONObject.toString());
-            String bcN = bcN();
+            String bcM = bcM();
             if (f.hA()) {
-                j(jSONObject, bcN);
+                j(jSONObject, bcM);
             }
             if (this.hzo.size() >= com.baidu.tbadk.coreExtra.model.f.JM() || z) {
-                a(new d(this.hzo, bcN));
+                a(new d(this.hzo, bcM));
                 this.hzo.clear();
                 this.mCurrentFileName = null;
             }
         }
     }
 
-    private String bcN() {
+    private String bcM() {
         if (StringUtils.isNull(this.mCurrentFileName)) {
             if (f.hA()) {
                 this.mCurrentFileName = String.valueOf(System.currentTimeMillis());

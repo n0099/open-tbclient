@@ -34,7 +34,7 @@ public class m implements com.facebook.common.memory.g {
         try {
             try {
                 nativePooledByteBufferOutputStream.write(bArr, 0, bArr.length);
-                return nativePooledByteBufferOutputStream.bTj();
+                return nativePooledByteBufferOutputStream.bTi();
             } catch (IOException e) {
                 throw com.facebook.common.internal.k.r(e);
             }
@@ -57,13 +57,13 @@ public class m implements com.facebook.common.memory.g {
 
     l a(InputStream inputStream, NativePooledByteBufferOutputStream nativePooledByteBufferOutputStream) throws IOException {
         this.ilu.f(inputStream, nativePooledByteBufferOutputStream);
-        return nativePooledByteBufferOutputStream.bTj();
+        return nativePooledByteBufferOutputStream.bTi();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.memory.g
-    /* renamed from: bYu */
-    public NativePooledByteBufferOutputStream bTi() {
+    /* renamed from: bYt */
+    public NativePooledByteBufferOutputStream bTh() {
         return new NativePooledByteBufferOutputStream(this.ipe);
     }
 

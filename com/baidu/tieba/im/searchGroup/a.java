@@ -36,23 +36,23 @@ public class a extends c<AddGroupActivity> {
         initUI();
     }
 
-    public View aPA() {
+    public View aPz() {
         return this.eYo;
     }
 
-    public View aUb() {
+    public View aUa() {
         return this.eYp;
     }
 
-    public View aUc() {
+    public View aUb() {
         return this.eYm;
     }
 
-    public View aUd() {
+    public View aUc() {
         return this.eYq;
     }
 
-    public void aUe() {
+    public void aUd() {
         if (this.eYn != null) {
             this.eYn.setText("");
         }

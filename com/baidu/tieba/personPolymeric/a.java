@@ -82,7 +82,7 @@ public class a implements f {
     }
 
     @Override // com.baidu.tieba.view.f
-    public void bpL() {
+    public void bpK() {
     }
 
     @Override // com.baidu.tieba.view.f

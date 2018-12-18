@@ -27,8 +27,8 @@ public class b extends c.a {
     }
 
     @Override // com.baidu.tieba.m.c.a, com.baidu.tieba.m.c
-    public JSONObject bsk() {
-        JSONObject bsk = super.bsk();
+    public JSONObject bsj() {
+        JSONObject bsj = super.bsj();
         try {
             JSONArray jSONArray = new JSONArray();
             jSONArray.put(new JSONObject().put("error_msg", c(this.gFn, this.what, this.gFo, this.gFS).toString()));
@@ -44,11 +44,11 @@ public class b extends c.a {
             if (!StringUtils.isNull(this.gFT)) {
                 jSONArray.put(new JSONObject().put("error_parent", this.gFT));
             }
-            bsk.put("ext", jSONArray);
+            bsj.put("ext", jSONArray);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return bsk;
+        return bsj;
     }
 
     public static JSONObject c(int i, int i2, int i3, long j) {

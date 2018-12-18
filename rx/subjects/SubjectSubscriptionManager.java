@@ -25,9 +25,9 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     public SubjectSubscriptionManager() {
         super(a.iOt);
         this.active = true;
-        this.onStart = Actions.cdb();
-        this.onAdded = Actions.cdb();
-        this.onTerminated = Actions.cdb();
+        this.onStart = Actions.cda();
+        this.onAdded = Actions.cda();
+        this.onTerminated = Actions.cda();
     }
 
     public void call(j<? super T> jVar) {

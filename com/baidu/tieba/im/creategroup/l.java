@@ -44,7 +44,7 @@ public class l extends BaseAdapter {
             aVar = (a) view.getTag();
         }
         aVar.pD(getItem(i).toString());
-        if (this.eMK.aPT() == i) {
+        if (this.eMK.aPS() == i) {
             aVar.im(true);
         } else {
             aVar.im(false);

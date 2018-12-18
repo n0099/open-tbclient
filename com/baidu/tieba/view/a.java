@@ -67,7 +67,7 @@ public class a {
         this.hMK = dVar;
     }
 
-    public d bLY() {
+    public d bLX() {
         return this.hMK;
     }
 
@@ -108,7 +108,7 @@ public class a {
         }
     }
 
-    public View bLZ() {
+    public View bLY() {
         if (!StringUtils.isNull(this.titleText)) {
             this.amN.setText(this.titleText);
         } else {
@@ -157,8 +157,8 @@ public class a {
                     if (C0334a.this.hMQ != null) {
                         C0334a.this.hMQ.onClick();
                     }
-                    if (C0334a.this.hMN != null && C0334a.this.hMN.bLY() != null) {
-                        C0334a.this.hMN.bLY().hQ(C0334a.this.mId);
+                    if (C0334a.this.hMN != null && C0334a.this.hMN.bLX() != null) {
+                        C0334a.this.hMN.bLX().hQ(C0334a.this.mId);
                     }
                 }
             };
@@ -180,8 +180,8 @@ public class a {
                     if (C0334a.this.hMQ != null) {
                         C0334a.this.hMQ.onClick();
                     }
-                    if (C0334a.this.hMN != null && C0334a.this.hMN.bLY() != null) {
-                        C0334a.this.hMN.bLY().hQ(C0334a.this.mId);
+                    if (C0334a.this.hMN != null && C0334a.this.hMN.bLX() != null) {
+                        C0334a.this.hMN.bLX().hQ(C0334a.this.mId);
                     }
                 }
             };

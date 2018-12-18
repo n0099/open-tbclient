@@ -74,21 +74,21 @@ abstract class f implements org.aspectj.lang.c {
         return this.name;
     }
 
-    public Class ccd() {
+    public Class ccc() {
         if (this.izn == null) {
             this.izn = zh(2);
         }
         return this.izn;
     }
 
-    public String cce() {
+    public String ccd() {
         if (this.izm == null) {
-            this.izm = ccd().getName();
+            this.izm = ccc().getName();
         }
         return this.izm;
     }
 
-    private ClassLoader ccf() {
+    private ClassLoader cce() {
         if (this.izc == null) {
             this.izc = getClass().getClassLoader();
         }
@@ -119,7 +119,7 @@ abstract class f implements org.aspectj.lang.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Class zh(int i) {
-        return org.aspectj.a.b.b.b(zf(i), ccf());
+        return org.aspectj.a.b.b.b(zf(i), cce());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -128,7 +128,7 @@ abstract class f implements org.aspectj.lang.c {
         int countTokens = stringTokenizer.countTokens();
         Class[] clsArr = new Class[countTokens];
         for (int i2 = 0; i2 < countTokens; i2++) {
-            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), ccf());
+            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), cce());
         }
         return clsArr;
     }
@@ -139,32 +139,32 @@ abstract class f implements org.aspectj.lang.c {
         private SoftReference izr;
 
         public b() {
-            cch();
+            ccg();
         }
 
         @Override // org.aspectj.a.b.f.a
         public String zj(int i) {
-            String[] ccg = ccg();
-            if (ccg == null) {
+            String[] ccf = ccf();
+            if (ccf == null) {
                 return null;
             }
-            return ccg[i];
+            return ccf[i];
         }
 
         @Override // org.aspectj.a.b.f.a
         public void set(int i, String str) {
-            String[] ccg = ccg();
-            if (ccg == null) {
-                ccg = cch();
+            String[] ccf = ccf();
+            if (ccf == null) {
+                ccf = ccg();
             }
-            ccg[i] = str;
+            ccf[i] = str;
         }
 
-        private String[] ccg() {
+        private String[] ccf() {
             return (String[]) this.izr.get();
         }
 
-        private String[] cch() {
+        private String[] ccg() {
             String[] strArr = new String[3];
             this.izr = new SoftReference(strArr);
             return strArr;

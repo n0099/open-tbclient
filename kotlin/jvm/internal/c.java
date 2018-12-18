@@ -17,7 +17,7 @@ final class c extends kotlin.collections.m {
     }
 
     @Override // kotlin.collections.m
-    public char cbF() {
+    public char cbE() {
         try {
             char[] cArr = this.iyj;
             int i = this.index;

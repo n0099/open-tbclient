@@ -83,7 +83,7 @@ public class a extends BaseAdapter {
     private C0337a a(Object obj, HotTopicBussinessData hotTopicBussinessData) {
         C0337a c0337a;
         if (obj == null) {
-            c0337a = bOl();
+            c0337a = bOk();
         } else {
             c0337a = (C0337a) obj;
         }
@@ -95,7 +95,7 @@ public class a extends BaseAdapter {
         return c0337a;
     }
 
-    private C0337a bOl() {
+    private C0337a bOk() {
         C0337a c0337a = new C0337a();
         c0337a.mRootView = LayoutInflater.from(this.mContext).inflate(e.h.hot_topic_change_item, (ViewGroup) null);
         al.i(c0337a.mRootView, e.f.select_forum_item_bg);

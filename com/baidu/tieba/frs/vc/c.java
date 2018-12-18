@@ -19,7 +19,7 @@ public class c {
     }
 
     public void refresh() {
-        if (TbadkCoreApplication.isLogin() && this.dJE != null && this.dJE.aAZ() != null && this.dJE.aAZ().bgi() != null && !StringUtils.isNull(this.dJE.aAZ().bgi().getName()) && this.dJE.aAZ().hjk != null && aGZ() && this.ecU == null) {
+        if (TbadkCoreApplication.isLogin() && this.dJE != null && this.dJE.aAZ() != null && this.dJE.aAZ().bgh() != null && !StringUtils.isNull(this.dJE.aAZ().bgh().getName()) && this.dJE.aAZ().hjk != null && aGZ() && this.ecU == null) {
             this.ecU = new a();
             this.ecU.execute(new Void[0]);
         }
@@ -42,7 +42,7 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(Void... voidArr) {
             l<String> ey = com.baidu.tbadk.core.c.a.BB().ey("tb.enter_frs_dialog_list");
-            String encode = URLEncoder.encode(c.this.dJE.aAZ().bgi().getName());
+            String encode = URLEncoder.encode(c.this.dJE.aAZ().bgh().getName());
             if (ey.get(encode) == null) {
                 ey.e(encode, "1");
                 return true;

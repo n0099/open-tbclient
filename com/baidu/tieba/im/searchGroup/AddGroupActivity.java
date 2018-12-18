@@ -28,9 +28,9 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             AddGroupActivity.this.eYh.iC(false);
             if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 103007) {
-                AddGroupActivity.this.aUa();
+                AddGroupActivity.this.aTZ();
             } else if (!(socketResponsedMessage instanceof ResponseSearchGroupMessage)) {
-                AddGroupActivity.this.aUa();
+                AddGroupActivity.this.aTZ();
             } else {
                 ResponseSearchGroupMessage responseSearchGroupMessage = (ResponseSearchGroupMessage) socketResponsedMessage;
                 if (responseSearchGroupMessage.getError() != 0) {
@@ -39,7 +39,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
                 }
                 List<BaseGroupData> searchResult = responseSearchGroupMessage.getSearchResult();
                 if (searchResult == null || searchResult.size() <= 0) {
-                    AddGroupActivity.this.aUa();
+                    AddGroupActivity.this.aTZ();
                 } else {
                     AddGroupActivity.this.a(searchResult.get(0));
                 }
@@ -66,16 +66,16 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.eYh.aUc()) {
+        if (view == this.eYh.aUb()) {
             finish();
-        } else if (view == this.eYh.aUb()) {
+        } else if (view == this.eYh.aUa()) {
             TiebaStatic.log("add_group_searchbtn_click");
             if (view.getTag() instanceof String) {
                 qv((String) view.getTag());
             }
-        } else if (view == this.eYh.aPA()) {
-            this.eYh.aUe();
-        } else if (view == this.eYh.aUd()) {
+        } else if (view == this.eYh.aPz()) {
+            this.eYh.aUd();
+        } else if (view == this.eYh.aUc()) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2902030, new IntentConfig(getPageContext().getPageActivity())));
         }
     }
@@ -115,7 +115,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aUa() {
+    public void aTZ() {
         showToast(e.j.add_group_toast_noresult);
     }
 

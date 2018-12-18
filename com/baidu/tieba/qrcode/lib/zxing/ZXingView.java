@@ -19,10 +19,10 @@ public class ZXingView extends QRCodeView {
 
     public ZXingView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        btZ();
+        btY();
     }
 
-    private void btZ() {
+    private void btY() {
         this.gKc = new MultiFormatReader();
         this.gKc.setHints(a.gKb);
     }

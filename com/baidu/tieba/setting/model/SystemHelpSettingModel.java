@@ -32,21 +32,21 @@ public class SystemHelpSettingModel extends BdBaseModel {
         this.mContext = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
-    public void bwA() {
+    public void bwz() {
         if (this.gVC == null) {
             this.gVC = new a();
             this.gVC.execute(new String[0]);
         }
     }
 
-    public void bwB() {
+    public void bwA() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!TextUtils.isEmpty(currentAccount)) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, currentAccount));
         }
     }
 
-    public void bwC() {
+    public void bwB() {
         if (this.gVD == null) {
             this.gVD = new b();
             this.gVD.execute(new String[0]);

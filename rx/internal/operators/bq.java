@@ -50,11 +50,11 @@ public final class bq<T> implements d.b<T, T> {
             if (!this.iIu) {
                 this.child.onCompleted();
             } else if (!this.child.isUnsubscribed()) {
-                cdT();
+                cdS();
             }
         }
 
-        private void cdT() {
+        private void cdS() {
             a aVar = new a(this.child, this.iCl);
             this.serial.g(aVar);
             this.iIt.unsafeSubscribe(aVar);

@@ -32,8 +32,8 @@ public class d {
         String readAssetData = com.baidu.g.e.readAssetData(AppRuntime.getAppContext(), "ubc_config.json");
         if (!TextUtils.isEmpty(readAssetData)) {
             n nVar = new n("ubc_sign", com.baidu.g.e.yq(readAssetData));
-            nVar.bRo();
-            bQP().a(nVar);
+            nVar.bRn();
+            bQO().a(nVar);
         }
     }
 
@@ -42,7 +42,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static d bQP() {
+    public static d bQO() {
         if (ibh == null) {
             synchronized (d.class) {
                 if (ibh == null) {
@@ -60,7 +60,7 @@ public class d {
             } else {
                 this.mContext = context.getApplicationContext();
             }
-            this.ibl = com.baidu.g.b.bRF().getInt("ubc_key_flow_handle", 0);
+            this.ibl = com.baidu.g.b.bRE().getInt("ubc_key_flow_handle", 0);
             this.ibi = Executors.newSingleThreadExecutor();
             this.ibi.execute(new g(this, null));
             this.ibj = Executors.newSingleThreadExecutor();
@@ -105,7 +105,7 @@ public class d {
 
     boolean bc(String str, int i) {
         if (this.ibg == null || this.ibg.be(str, i)) {
-            if ((i & 16) == 0 || o.bRs().kH(str)) {
+            if ((i & 16) == 0 || o.bRr().kH(str)) {
                 if (this.ibg != null && this.ibg.yb(str) > 0) {
                     if (new Random().nextInt(100) >= this.ibg.yb(str)) {
                         return true;
@@ -132,7 +132,7 @@ public class d {
     public synchronized Flow n(String str, String str2, int i) {
         Flow bd;
         bd = bd(str, i);
-        if (bd != null && bd.bRi()) {
+        if (bd != null && bd.bRh()) {
             RunnableC0347d runnableC0347d = new RunnableC0347d(bd, str2);
             if (this.ibg != null && this.ibg.yd(str)) {
                 runnableC0347d.oK(true);
@@ -146,7 +146,7 @@ public class d {
         Flow flow = new Flow(str, this.ibl, i);
         if (this.ibg != null && !this.ibg.be(str, i)) {
             flow.oL(false);
-        } else if ((i & 16) != 0 && !o.bRs().kH(str)) {
+        } else if ((i & 16) != 0 && !o.bRr().kH(str)) {
             flow.oL(false);
         } else {
             if (this.ibg != null && this.ibg.yb(str) > 0) {
@@ -185,7 +185,7 @@ public class d {
         @Override // java.lang.Runnable
         public void run() {
             if (this.ibn.ibk != null) {
-                this.ibn.ibk.bQL();
+                this.ibn.ibk.bQK();
             }
         }
     }
@@ -247,9 +247,9 @@ public class d {
         @Override // java.lang.Runnable
         public void run() {
             Process.setThreadPriority(10);
-            d.this.ibg = com.baidu.ubc.e.bQQ();
+            d.this.ibg = com.baidu.ubc.e.bQP();
             d.this.ibk = new com.baidu.ubc.c(d.this.mContext);
-            d.this.ibk.bQO();
+            d.this.ibk.bQN();
         }
     }
 
@@ -288,11 +288,11 @@ public class d {
         @Override // java.lang.Runnable
         public void run() {
             if (d.this.ibk != null) {
-                this.ibr.bRh();
+                this.ibr.bRg();
                 if (!TextUtils.isEmpty(d.this.ibg.ya(this.ibr.getId()))) {
                     this.ibr.setCategory(d.this.ibg.ya(this.ibr.getId()));
                 }
-                if ((this.ibr.bRe() & 8) != 0) {
+                if ((this.ibr.bRd() & 8) != 0) {
                     d.this.ibk.b(this.ibr);
                 } else {
                     d.this.ibk.a(this.ibr);
@@ -307,7 +307,7 @@ public class d {
         private k ibt;
 
         RunnableC0347d(Flow flow, String str) {
-            this.ibt = new k(flow.getId(), flow.getHandle(), str, flow.bRe());
+            this.ibt = new k(flow.getId(), flow.getHandle(), str, flow.bRd());
             this.ibt.dn(flow.getStartTime());
             this.ibt.yi("1");
             d.d(d.this);
@@ -322,12 +322,12 @@ public class d {
         @Override // java.lang.Runnable
         public void run() {
             if (d.this.ibk != null) {
-                this.ibt.bRh();
+                this.ibt.bRg();
                 if (!TextUtils.isEmpty(d.this.ibg.ya(this.ibt.getId()))) {
                     this.ibt.setCategory(d.this.ibg.ya(this.ibt.getId()));
                 }
                 d.this.ibk.b(this.ibt);
-                com.baidu.g.b.bRF().putInt("ubc_key_flow_handle", d.this.ibl);
+                com.baidu.g.b.bRE().putInt("ubc_key_flow_handle", d.this.ibl);
             }
         }
     }

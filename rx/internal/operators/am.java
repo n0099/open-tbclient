@@ -20,12 +20,12 @@ public final class am<T, V> implements d.b<T, T> {
     /* JADX DEBUG: Type inference failed for r2v2. Raw type applied. Possible types: rx.j<T>, rx.j<? super T> */
     public rx.j<? super T> call(rx.j<? super T> jVar) {
         final rx.b.f fVar = new rx.b.f(jVar);
-        final PublishSubject cfj = PublishSubject.cfj();
-        jVar.add(rx.d.merge(cfj).unsafeSubscribe(rx.b.g.a(fVar)));
+        final PublishSubject cfi = PublishSubject.cfi();
+        jVar.add(rx.d.merge(cfi).unsafeSubscribe(rx.b.g.a(fVar)));
         return (rx.j<T>) new rx.j<T>(jVar) { // from class: rx.internal.operators.am.1
             @Override // rx.e
             public void onCompleted() {
-                cfj.onCompleted();
+                cfi.onCompleted();
             }
 
             @Override // rx.e
@@ -39,7 +39,7 @@ public final class am<T, V> implements d.b<T, T> {
             @Override // rx.e
             public void onNext(final T t) {
                 try {
-                    cfj.onNext(am.this.iEQ.call(t).take(1).defaultIfEmpty(null).map((rx.functions.f<V, T>) new rx.functions.f<V, T>() { // from class: rx.internal.operators.am.1.1
+                    cfi.onNext(am.this.iEQ.call(t).take(1).defaultIfEmpty(null).map((rx.functions.f<V, T>) new rx.functions.f<V, T>() { // from class: rx.internal.operators.am.1.1
                         @Override // rx.functions.f
                         public T call(V v) {
                             return (T) t;

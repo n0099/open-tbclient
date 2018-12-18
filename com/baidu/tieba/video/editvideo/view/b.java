@@ -58,27 +58,27 @@ public class b extends com.baidu.adp.base.c {
             }
         });
         this.hEc.setAdapter((ListAdapter) this.hEd);
-        this.hEd.setData(bJo());
+        this.hEd.setData(bJn());
         this.hEa.setOnProgressChanged(new CoverSeekBar.a() { // from class: com.baidu.tieba.video.editvideo.view.b.2
             @Override // com.baidu.tieba.video.editvideo.view.CoverSeekBar.a
             public void onProgress(int i) {
-                long duration = (b.this.hBp.bJe().getDuration() * i) / 1000;
+                long duration = (b.this.hBp.bJd().getDuration() * i) / 1000;
                 b.this.hEa.setProgressImage(i, (int) duration);
-                b.this.hBp.bJe().seekTo((int) duration);
+                b.this.hBp.bJd().seekTo((int) duration);
+            }
+
+            @Override // com.baidu.tieba.video.editvideo.view.CoverSeekBar.a
+            public void bIY() {
             }
 
             @Override // com.baidu.tieba.video.editvideo.view.CoverSeekBar.a
             public void bIZ() {
-            }
-
-            @Override // com.baidu.tieba.video.editvideo.view.CoverSeekBar.a
-            public void bJa() {
                 TiebaStatic.log("c12304");
             }
         });
     }
 
-    private List<PendantData> bJo() {
+    private List<PendantData> bJn() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(0, new PendantData(0));
         arrayList.add(1, new PendantData(1));
@@ -91,17 +91,17 @@ public class b extends com.baidu.adp.base.c {
         if (list == null) {
             list = new ArrayList<>();
         }
-        list.addAll(0, bJo());
+        list.addAll(0, bJn());
         this.hEd.setData(list);
     }
 
-    public void bJp() {
-        this.hEe.setVideoSize(this.hBp.bJe().getWidth(), this.hBp.bJe().getHeight());
-        this.hEe.setVideoLocation(this.hBp.bJe().getLeft(), this.hBp.bJe().getTop(), this.hBp.bJe().getRight(), this.hBp.bJe().getBottom());
+    public void bJo() {
+        this.hEe.setVideoSize(this.hBp.bJd().getWidth(), this.hBp.bJd().getHeight());
+        this.hEe.setVideoLocation(this.hBp.bJd().getLeft(), this.hBp.bJd().getTop(), this.hBp.bJd().getRight(), this.hBp.bJd().getBottom());
     }
 
-    public void bsR() {
-        this.hEe.bsR();
+    public void bsQ() {
+        this.hEe.bsQ();
     }
 
     public String getText() {
@@ -109,13 +109,13 @@ public class b extends com.baidu.adp.base.c {
     }
 
     public Bitmap s(Bitmap bitmap) {
-        this.hEe.bsR();
+        this.hEe.bsQ();
         String text = this.hEe.getText();
         if (bitmap == null || TextUtils.isEmpty(text)) {
             return null;
         }
-        int width = this.hBp.bJe().getWidth();
-        int height = this.hBp.bJe().getHeight();
+        int width = this.hBp.bJd().getWidth();
+        int height = this.hBp.bJd().getHeight();
         int width2 = bitmap.getWidth();
         int height2 = bitmap.getHeight();
         Bitmap createBitmap = Bitmap.createBitmap(width2, height2, Bitmap.Config.ARGB_8888);
@@ -125,7 +125,7 @@ public class b extends com.baidu.adp.base.c {
         if (tempBitmap != null) {
             Matrix matrix = new Matrix();
             matrix.postScale(width2 / width, height2 / height);
-            Bitmap createBitmap2 = Bitmap.createBitmap(tempBitmap, this.hBp.bJe().getLeft(), this.hBp.bJe().getTop(), width, height, matrix, true);
+            Bitmap createBitmap2 = Bitmap.createBitmap(tempBitmap, this.hBp.bJd().getLeft(), this.hBp.bJd().getTop(), width, height, matrix, true);
             if (createBitmap2 != null) {
                 canvas.drawBitmap(createBitmap2, 0.0f, 0.0f, (Paint) null);
             }
@@ -185,7 +185,7 @@ public class b extends com.baidu.adp.base.c {
             @Override // java.lang.Runnable
             public void run() {
                 b.this.hEa.seekTo(b.this.hEa.getCurrentPosition());
-                b.this.hBp.bJg();
+                b.this.hBp.bJf();
             }
         }, 500L);
     }

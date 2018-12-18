@@ -7,7 +7,7 @@ public class f extends e {
     }
 
     public static final c cn(int i, int i2) {
-        return i2 <= Integer.MIN_VALUE ? c.iyB.cbX() : new c(i, i2 - 1);
+        return i2 <= Integer.MIN_VALUE ? c.iyB.cbW() : new c(i, i2 - 1);
     }
 
     public static final int co(int i, int i2) {

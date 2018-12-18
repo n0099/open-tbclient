@@ -146,7 +146,7 @@ public class e implements d.b, com.baidu.tieba.play.g {
                     this.bxH.setDebugParams(entry.getKey(), entry.getValue());
                 }
             }
-            this.bxH.forceUseSystemMediaPlayer((CustomPlayerSwitchStatic.bqK() == 0) | this.bxR);
+            this.bxH.forceUseSystemMediaPlayer((CustomPlayerSwitchStatic.bqJ() == 0) | this.bxR);
             this.bxH.setListener(new PlayerListener(this.mMainThreadHandler));
             this.bxH.openVideo(this.bxQ.getUri(), new Surface(this.bxQ.getSurfaceTexture()), this.bxQ.getHost(), this.mPlayerReuseEnable);
         }

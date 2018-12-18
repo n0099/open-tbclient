@@ -33,7 +33,7 @@ public class a {
         }
     }
 
-    public void bHI() {
+    public void bHH() {
         try {
             this.hzA.reenableKeyguard();
             if (this.hzz != null) {
@@ -45,7 +45,7 @@ public class a {
         }
     }
 
-    public void bHJ() {
+    public void bHI() {
         try {
             if (this.hzz == null) {
                 this.hzz = this.hzy.newWakeLock(268435462, "ScreenLockNotify");
@@ -67,7 +67,7 @@ public class a {
         return this.hzx.inKeyguardRestrictedInputMode();
     }
 
-    public boolean bHK() {
+    public boolean bHJ() {
         try {
             return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.hzx, new Object[0])).booleanValue();
         } catch (Throwable th) {
@@ -80,7 +80,7 @@ public class a {
         return this.hzy.isScreenOn();
     }
 
-    public static Drawable bHL() {
+    public static Drawable bHK() {
         Bitmap bitmap;
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         try {

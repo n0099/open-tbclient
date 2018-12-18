@@ -17,7 +17,7 @@ public class h implements com.baidu.adp.widget.ListView.h {
         return ePB;
     }
 
-    public String aQZ() {
+    public String aQY() {
         return this.ePD;
     }
 
@@ -25,7 +25,7 @@ public class h implements com.baidu.adp.widget.ListView.h {
         this.ePD = str;
     }
 
-    public String aRa() {
+    public String aQZ() {
         return this.ePE;
     }
 
@@ -33,7 +33,7 @@ public class h implements com.baidu.adp.widget.ListView.h {
         this.ePE = str;
     }
 
-    public String aRb() {
+    public String aRa() {
         return this.ePF;
     }
 
@@ -41,7 +41,7 @@ public class h implements com.baidu.adp.widget.ListView.h {
         this.ePF = str;
     }
 
-    public int aRc() {
+    public int aRb() {
         return this.ePG;
     }
 
@@ -57,7 +57,7 @@ public class h implements com.baidu.adp.widget.ListView.h {
         this.bvK = obj;
     }
 
-    public NoDataViewFactory.ImgType aRd() {
+    public NoDataViewFactory.ImgType aRc() {
         return this.ePC;
     }
 

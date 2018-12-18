@@ -58,11 +58,11 @@ public class j implements com.baidu.tbadk.core.flow.a.a {
         return this.hlb;
     }
 
-    public String bDa() {
+    public String bCZ() {
         return this.hla;
     }
 
-    public String bDb() {
+    public String bDa() {
         return this.hlc;
     }
 }

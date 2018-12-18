@@ -219,7 +219,7 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
                     return;
                 }
             }
-            this.engine.ccj();
+            this.engine.cci();
         } catch (Exception e3) {
             onWebsocketError(this.engine, e3);
             this.engine.closeConnection(-1, e3.getMessage());
@@ -476,6 +476,6 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
         if (iOException instanceof SSLException) {
             onError(iOException);
         }
-        this.engine.ccj();
+        this.engine.cci();
     }
 }

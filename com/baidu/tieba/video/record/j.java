@@ -32,7 +32,7 @@ public class j implements i.a {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, com.baidu.tieba.j.l.class);
         com.baidu.tieba.j.l lVar = runTask != null ? (com.baidu.tieba.j.l) runTask.getData() : null;
         if (lVar != null) {
-            this.hms = lVar.bcM();
+            this.hms = lVar.bcL();
         }
         this.mContext = activity;
     }
@@ -78,7 +78,7 @@ public class j implements i.a {
             }
             this.isDownLoading = false;
             this.hEu = musicData.id;
-            String wH = com.baidu.tieba.video.editvideo.model.a.bIM().wH(musicData.resource);
+            String wH = com.baidu.tieba.video.editvideo.model.a.bIL().wH(musicData.resource);
             if (obj != null && (obj instanceof d.a)) {
                 this.mPosition = ((d.a) obj).position;
             }
@@ -89,7 +89,7 @@ public class j implements i.a {
                     aVar.hBF.setDrawBorder(false);
                     aVar.hBF.invalidate();
                     this.isDownLoading = true;
-                    com.baidu.tieba.video.editvideo.model.a.bIM().a(musicData.id, musicData.resource, new a.InterfaceC0325a() { // from class: com.baidu.tieba.video.record.j.1
+                    com.baidu.tieba.video.editvideo.model.a.bIL().a(musicData.id, musicData.resource, new a.InterfaceC0325a() { // from class: com.baidu.tieba.video.record.j.1
                         @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0325a
                         public void cR(String str, String str2) {
                             if (aVar.position == j.this.mPosition) {
@@ -119,7 +119,7 @@ public class j implements i.a {
                         }
 
                         @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0325a
-                        public void bIa() {
+                        public void bHZ() {
                             if (aVar.position == j.this.mPosition) {
                                 j.this.isDownLoading = false;
                                 aVar.hBF.setDrawBorder(true);
@@ -130,7 +130,7 @@ public class j implements i.a {
                     });
                     return;
                 }
-                com.baidu.tieba.video.editvideo.model.a.bIM().a(musicData.id, musicData.resource, new a.InterfaceC0325a() { // from class: com.baidu.tieba.video.record.j.2
+                com.baidu.tieba.video.editvideo.model.a.bIL().a(musicData.id, musicData.resource, new a.InterfaceC0325a() { // from class: com.baidu.tieba.video.record.j.2
                     @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0325a
                     public void cR(String str, String str2) {
                         if (!TextUtils.isEmpty(str2)) {
@@ -148,7 +148,7 @@ public class j implements i.a {
                     }
 
                     @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0325a
-                    public void bIa() {
+                    public void bHZ() {
                     }
                 });
                 return;
@@ -157,7 +157,7 @@ public class j implements i.a {
         }
     }
 
-    public boolean bKr() {
+    public boolean bKq() {
         return this.isDownLoading;
     }
 
@@ -205,12 +205,12 @@ public class j implements i.a {
             if (file.exists()) {
                 file.delete();
             }
-            com.baidu.tieba.video.editvideo.model.a.bIM().bIN();
+            com.baidu.tieba.video.editvideo.model.a.bIL().bIM();
         }
         a((Object) null, musicData);
     }
 
-    public String bKz() {
+    public String bKy() {
         return this.hEp;
     }
 
@@ -242,7 +242,7 @@ public class j implements i.a {
         }
     }
 
-    public void bKA() {
+    public void bKz() {
         if (this.Wd != null && this.Wd.isPlaying()) {
             this.Wd.pause();
         }

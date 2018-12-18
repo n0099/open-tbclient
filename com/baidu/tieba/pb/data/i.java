@@ -30,7 +30,7 @@ public class i implements com.baidu.adp.widget.ListView.h {
         return 0;
     }
 
-    public boolean bgO() {
+    public boolean bgN() {
         return this.bNv != null && this.bNv.AU() == 1;
     }
 
@@ -38,7 +38,7 @@ public class i implements com.baidu.adp.widget.ListView.h {
         this.fQM = z;
     }
 
-    public boolean bgP() {
+    public boolean bgO() {
         return this.fQM;
     }
 }

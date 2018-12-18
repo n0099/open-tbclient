@@ -58,27 +58,27 @@ public class t implements o {
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public j but() {
-        return b.buj();
+    public j bus() {
+        return b.bui();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public l buu() {
-        return b.buj();
+    public l but() {
+        return b.bui();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public com.baidu.tieba.p.a buv() {
+    public com.baidu.tieba.p.a buu() {
         return com.baidu.tieba.ad.statis.a.Wn();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public h buw() {
+    public h buv() {
         return com.baidu.tieba.ad.a.Wg();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public List<AppData> bux() {
+    public List<AppData> buw() {
         if (this.gLA == null) {
             this.gLA = new ArrayList();
         }
@@ -86,7 +86,7 @@ public class t implements o {
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public void buy() {
+    public void bux() {
         AdDebugService.updateFloatView(this.gLA != null ? StringUtils.string(Integer.valueOf(this.gLA.size())) : "0");
     }
 }

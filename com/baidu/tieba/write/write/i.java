@@ -41,10 +41,10 @@ public class i implements MultiImagePagerAdapter.a, com.baidu.tieba.write.write.
         this.hWX = hVar;
         initData(bundle);
         initListener();
-        bOW();
+        bOV();
     }
 
-    public void bOW() {
+    public void bOV() {
         if (this.mPageContext != null) {
             if (!com.baidu.adp.lib.util.j.kV()) {
                 if (this.mPageContext.getContext() != null) {
@@ -75,7 +75,7 @@ public class i implements MultiImagePagerAdapter.a, com.baidu.tieba.write.write.
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (view.getTag() != null) {
-                            i.this.hZq.I(Integer.parseInt(view.getTag().toString()), i.this.bOY());
+                            i.this.hZq.I(Integer.parseInt(view.getTag().toString()), i.this.bOX());
                         }
                     }
                 });
@@ -94,10 +94,10 @@ public class i implements MultiImagePagerAdapter.a, com.baidu.tieba.write.write.
                             if (!i.this.bzf.A(pageActivity)) {
                                 i.this.hZq.oC(false);
                                 if (i.this.hWX != null) {
-                                    if (i.this.hZu == null || i.this.hZu.getChosedFiles() == null || i.this.hZu.getChosedFiles().size() <= 0 || !i.this.hZu.isOriginalImg() || i.this.hZt <= 0 || !i.this.bPZ()) {
+                                    if (i.this.hZu == null || i.this.hZu.getChosedFiles() == null || i.this.hZu.getChosedFiles().size() <= 0 || !i.this.hZu.isOriginalImg() || i.this.hZt <= 0 || !i.this.bPY()) {
                                         i.this.hWX.b(true, i.this.hZu);
                                     } else {
-                                        i.this.hWX.bPW();
+                                        i.this.hWX.bPV();
                                     }
                                 }
                             }
@@ -132,7 +132,7 @@ public class i implements MultiImagePagerAdapter.a, com.baidu.tieba.write.write.
         if (str != null && i != -1) {
             this.hZu = new WriteImagesInfo();
             this.hZu.parseJson(str);
-            bPX();
+            bPW();
             if (this.hWX != null && this.hWX.hZk != null) {
                 this.hZq = new MultiImagePagerAdapter(this.mPageContext.getOrignalPage(), this.hWX.hZk, this.hZu.getChosedFiles(), i, this, this.hWX, this.hZu.mIsFromIm);
                 this.hWX.hZk.setAdapter(this.hZq);
@@ -145,7 +145,7 @@ public class i implements MultiImagePagerAdapter.a, com.baidu.tieba.write.write.
         }
     }
 
-    private void bPX() {
+    private void bPW() {
         if (this.hZu != null && this.hZu.isOriginalImg() && this.hZu.getChosedFiles() != null && this.hZu.getChosedFiles().size() != 0) {
             Iterator<ImageFileInfo> it = this.hZu.getChosedFiles().iterator();
             while (it.hasNext()) {
@@ -157,7 +157,7 @@ public class i implements MultiImagePagerAdapter.a, com.baidu.tieba.write.write.
         }
     }
 
-    public int bPY() {
+    public int bPX() {
         return this.hZr;
     }
 
@@ -166,7 +166,7 @@ public class i implements MultiImagePagerAdapter.a, com.baidu.tieba.write.write.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bPZ() {
+    public boolean bPY() {
         if (this.hZu == null || !this.hZu.isOriginalImg() || this.hZu.getChosedFiles() == null || this.hZu.getChosedFiles().size() == 0) {
             return false;
         }
@@ -181,28 +181,28 @@ public class i implements MultiImagePagerAdapter.a, com.baidu.tieba.write.write.
     }
 
     @Override // com.baidu.tieba.write.write.MultiImagePagerAdapter.a
-    public void bOX() {
+    public void bOW() {
     }
 
     @Override // com.baidu.tieba.write.write.MultiImagePagerAdapter.a
-    public boolean bOY() {
+    public boolean bOX() {
         return (this.hWX == null || this.hWX.hZl == null || v.I(this.hWX.hZl.getStickerViews())) ? false : true;
     }
 
-    public void bPV() {
+    public void bPU() {
         this.hZt++;
     }
 
-    public void bQa() {
+    public void bPZ() {
         this.hZt--;
     }
 
-    public WriteImagesInfo bQb() {
+    public WriteImagesInfo bQa() {
         return this.hZu;
     }
 
     public void oH(boolean z) {
-        if (bOY()) {
+        if (bOX()) {
             this.hWX.hZk.setmDisallowSlip(true);
         } else {
             this.hWX.hZk.setmDisallowSlip(false);
@@ -210,8 +210,8 @@ public class i implements MultiImagePagerAdapter.a, com.baidu.tieba.write.write.
     }
 
     @Override // com.baidu.tieba.write.write.MultiImagePagerAdapter.a
-    public void bOV() {
-        bQa();
+    public void bOU() {
+        bPZ();
         oH(false);
     }
 
@@ -251,7 +251,7 @@ public class i implements MultiImagePagerAdapter.a, com.baidu.tieba.write.write.
     }
 
     public boolean I(final Bitmap bitmap) {
-        if (!this.hZq.bOS() || this.mPageContext == null || this.mPageContext.getPageActivity() == null) {
+        if (!this.hZq.bOR() || this.mPageContext == null || this.mPageContext.getPageActivity() == null) {
             return false;
         }
         if (this.hWY == null) {

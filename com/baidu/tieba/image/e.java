@@ -90,14 +90,14 @@ public class e {
         this.mIsReserver = z;
     }
 
-    public void aWw() {
+    public void aWv() {
         this.fgY = false;
         if (!this.fgR) {
             d(this.biw, this.fgQ, 10, 0);
         }
     }
 
-    public void aWx() {
+    public void aWw() {
         this.fgY = true;
         String str = this.fgN.get(0);
         if (StringUtils.isNull(this.fgP)) {
@@ -183,7 +183,7 @@ public class e {
                 }
             }
             this.mNetWork.x("applist", e.this.fgZ);
-            aWy();
+            aWx();
             this.mNetWork.Dj().Eh().aDq = false;
             String CL = this.mNetWork.CL();
             if (!this.mNetWork.Dj().Ei().isRequestSuccess()) {
@@ -194,7 +194,7 @@ public class e {
             return hVar;
         }
 
-        private void aWy() {
+        private void aWx() {
             this.mNetWork.x("forum_id", e.this.mForumId);
             this.mNetWork.x("user_id", e.this.mUserId == null ? "0" : e.this.mUserId);
             this.mNetWork.x("scr_w", String.valueOf(l.aO(TbadkCoreApplication.getInst().getApp())));
@@ -237,7 +237,7 @@ public class e {
                     }
                     return;
                 }
-                boolean I = v.I(hVar.aWE());
+                boolean I = v.I(hVar.aWD());
                 if (e.this.mIsReset && !I) {
                     e.this.fgN.clear();
                     e.this.aTn.clear();
@@ -246,40 +246,40 @@ public class e {
                 if (hVar.getImageNum() != 0) {
                     e.this.fgT = hVar.getImageNum();
                 }
-                e.this.fgX = hVar.aWF();
+                e.this.fgX = hVar.aWE();
                 if (this.mPicId == null) {
                     e.this.fgN.clear();
                     e.this.fgO.clear();
                 }
-                LinkedList<f> aWE = hVar.aWE();
-                int size = aWE.size();
+                LinkedList<f> aWD = hVar.aWD();
+                int size = aWD.size();
                 if (size <= 0) {
                     e.this.fgR = true;
                 } else {
                     for (int i2 = 0; i2 < size; i2++) {
-                        f fVar = aWE.get(i2);
+                        f fVar = aWD.get(i2);
                         String a = e.this.a(fVar);
                         ImageUrlData imageUrlData = new ImageUrlData();
-                        imageUrlData.id = fVar.aWz();
+                        imageUrlData.id = fVar.aWy();
                         if (ao.equals(imageUrlData.id, e.this.fhb)) {
                             imageUrlData.setSourceImageRectInScreen(e.this.fha);
                         }
                         imageUrlData.imageUrl = a;
-                        String str2 = a + "*" + fVar.aWD();
+                        String str2 = a + "*" + fVar.aWC();
                         imageUrlData.urlType = 10;
                         imageUrlData.originalUrl = fVar.Sx();
                         imageUrlData.originalSize = fVar.getOriginalSize();
                         imageUrlData.threadId = com.baidu.adp.lib.g.b.d(this.biw, -1L);
-                        imageUrlData.postId = com.baidu.adp.lib.g.b.d(fVar.aWA(), -1L);
+                        imageUrlData.postId = com.baidu.adp.lib.g.b.d(fVar.aWz(), -1L);
                         imageUrlData.mIsReserver = e.this.mIsReserver;
                         imageUrlData.mIsSeeHost = e.this.fgU;
-                        imageUrlData.overAllIndex = fVar.aWD();
+                        imageUrlData.overAllIndex = fVar.aWC();
                         imageUrlData.mThreadType = e.this.mThreadType;
                         imageUrlData.mPicType = fVar.getPicType();
                         imageUrlData.mTagName = fVar.getTagName();
-                        imageUrlData.mIsShowOrigonButton = fVar.aWB();
+                        imageUrlData.mIsShowOrigonButton = fVar.aWA();
                         imageUrlData.isLongPic = fVar.isLongPic();
-                        imageUrlData.isBlockedPic = fVar.aWC();
+                        imageUrlData.isBlockedPic = fVar.aWB();
                         if (e.this.fgO.containsKey(imageUrlData.id)) {
                             String str3 = (String) e.this.fgO.get(imageUrlData.id);
                             ImageUrlData imageUrlData2 = (ImageUrlData) e.this.aTn.get(str3);
@@ -304,14 +304,14 @@ public class e {
                             e.this.fgO.put(imageUrlData.id, str2);
                         }
                     }
-                    f fVar2 = (f) v.d(aWE, 0);
+                    f fVar2 = (f) v.d(aWD, 0);
                     if (fVar2 != null) {
-                        e.this.fgP = fVar2.aWz();
+                        e.this.fgP = fVar2.aWy();
                     }
-                    f fVar3 = (f) v.d(aWE, size - 1);
+                    f fVar3 = (f) v.d(aWD, size - 1);
                     if (fVar3 != null) {
-                        e.this.fgQ = fVar3.aWz();
-                        e.this.fgR = ((long) e.this.fgT) == fVar3.aWD();
+                        e.this.fgQ = fVar3.aWy();
+                        e.this.fgR = ((long) e.this.fgT) == fVar3.aWC();
                     }
                 }
                 boolean z = false;

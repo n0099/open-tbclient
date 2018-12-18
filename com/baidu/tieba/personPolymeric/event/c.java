@@ -57,7 +57,7 @@ public class c extends a {
     public void a(e eVar) {
         this.gxo = eVar;
         if (this.gxo != null) {
-            this.gwO = this.gxo.bpY();
+            this.gwO = this.gxo.bpX();
         }
     }
 
@@ -93,7 +93,7 @@ public class c extends a {
                         kVar.cj(true);
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(kVar);
-                        this.gxo.bpZ().a((h) kVar, (List<h>) arrayList, 0);
+                        this.gxo.bpY().a((h) kVar, (List<h>) arrayList, 0);
                         return;
                     }
                     return;
@@ -117,9 +117,9 @@ public class c extends a {
                     this.mPageContext.getPageActivity().finish();
                     return;
                 case 9:
-                    if (this.gwO != null && this.gwO.bpT() != null) {
+                    if (this.gwO != null && this.gwO.bpS() != null) {
                         TiebaStatic.log("c12207");
-                        this.gwO.bpT().bqf();
+                        this.gwO.bpS().bqe();
                         return;
                     }
                     return;
@@ -207,7 +207,7 @@ public class c extends a {
                     return;
                 case 16:
                     th(7);
-                    com.baidu.tieba.o.a.bvJ().c(7, false, this.isHost);
+                    com.baidu.tieba.o.a.bvI().c(7, false, this.isHost);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MembercenterActivityConfig(this.mPageContext.getPageActivity())));
                     return;
                 case 17:
@@ -216,7 +216,7 @@ public class c extends a {
                     return;
                 case 20:
                     th(2);
-                    com.baidu.tieba.o.a.bvJ().c(3, false, this.isHost);
+                    com.baidu.tieba.o.a.bvI().c(3, false, this.isHost);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001259));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2015005, new IntentConfig(this.mPageContext.getPageActivity())));
                     return;
@@ -234,7 +234,7 @@ public class c extends a {
                     return;
                 case 24:
                     th(3);
-                    com.baidu.tieba.o.a.bvJ().c(4, false, this.isHost);
+                    com.baidu.tieba.o.a.bvI().c(4, false, this.isHost);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001185));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddressListActivityConfig(this.mPageContext.getPageActivity())));
                     return;
@@ -266,7 +266,7 @@ public class c extends a {
                     return;
                 case 32:
                     th(1);
-                    com.baidu.tieba.o.a.bvJ().c(8, false, this.isHost);
+                    com.baidu.tieba.o.a.bvI().c(8, false, this.isHost);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MessageCenterActivityConfig(this.mPageContext.getPageActivity())));
                     return;
                 case 33:
@@ -276,7 +276,7 @@ public class c extends a {
                 case 34:
                     if (ba.bJ(this.mPageContext.getPageActivity())) {
                         th(4);
-                        com.baidu.tieba.o.a.bvJ().c(1, false, this.isHost);
+                        com.baidu.tieba.o.a.bvI().c(1, false, this.isHost);
                         if (userData != null && TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), userData.getUserId(), userData.getUserName(), userData.getName_show(), userData.getSex(), "iowner_gift")));
                             return;

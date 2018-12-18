@@ -27,7 +27,7 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<bb> bOQ() {
+    public ArrayList<bb> bOP() {
         return this.hWN;
     }
 

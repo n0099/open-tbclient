@@ -51,23 +51,23 @@ public class b extends h {
     public void b(r rVar) {
         if (rVar != null) {
             l aAZ = this.dZP.aAZ();
-            if (this.dIn != null && this.dIo != null && this.dId != null && aAZ != null && aAZ.bgi() != null && rVar.getFid() != null) {
+            if (this.dIn != null && this.dIo != null && this.dId != null && aAZ != null && aAZ.bgh() != null && rVar.getFid() != null) {
                 boolean z = rVar.isLike() == 1;
-                if (rVar.getFid().equals(aAZ.bgi().getId())) {
-                    aAZ.bgi().setLike(rVar.isLike());
+                if (rVar.getFid().equals(aAZ.bgh().getId())) {
+                    aAZ.bgh().setLike(rVar.isLike());
                     if (!StringUtils.isNULL(rVar.getLevelName())) {
-                        aAZ.bgi().setLevelName(rVar.getLevelName());
+                        aAZ.bgh().setLevelName(rVar.getLevelName());
                     }
-                    if (rVar.bzL() >= 0) {
-                        aAZ.bgi().setUser_level(rVar.bzL());
+                    if (rVar.bzK() >= 0) {
+                        aAZ.bgh().setUser_level(rVar.bzK());
                     }
                     if (z) {
                         this.dIo.a(aAZ, false);
                         TbadkCoreApplication.getInst().addLikeForum(this.dZP.getForumName());
                         return;
                     }
-                    com.baidu.tieba.tbadkCore.c.bBd().ad(this.dZP.getForumName(), false);
-                    aAZ.bgi().setLike(0);
+                    com.baidu.tieba.tbadkCore.c.bBc().ad(this.dZP.getForumName(), false);
+                    aAZ.bgh().setLike(0);
                     this.dIo.aHl();
                     TbadkCoreApplication.getInst().delLikeForum(this.dZP.getForumName());
                     return;
@@ -77,8 +77,8 @@ public class b extends h {
                     this.dIo.i(aAZ);
                     this.eaM.a(aAZ, this.dIn.aGs());
                 }
-                if (aAZ.bgi().getBannerListData() != null) {
-                    aAZ.bgi().getBannerListData().setFeedForumLiked(rVar.getFid(), rVar.isLike());
+                if (aAZ.bgh().getBannerListData() != null) {
+                    aAZ.bgh().getBannerListData().setFeedForumLiked(rVar.getFid(), rVar.isLike());
                 }
                 this.dId.aBF();
             }

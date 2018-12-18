@@ -197,7 +197,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoadingDialog() {
         if (!j.kV()) {
-            this.gYT.byx();
+            this.gYT.byw();
             return;
         }
         if (this.mWaitingDialog == null) {

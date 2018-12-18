@@ -84,7 +84,7 @@ public class RMSwanHistoryAction extends AiAppAction {
             public Boolean call(String str3) {
                 return Boolean.valueOf(AiAppsRuntime.getHistoryRuntime().removeSwanHistory(str3, false));
             }
-        }).observeOn(a.ccY()).subscribe(new b<Boolean>() { // from class: com.baidu.searchbox.ng.ai.apps.scheme.actions.RMSwanHistoryAction.2
+        }).observeOn(a.ccX()).subscribe(new b<Boolean>() { // from class: com.baidu.searchbox.ng.ai.apps.scheme.actions.RMSwanHistoryAction.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             public void call(Boolean bool) {

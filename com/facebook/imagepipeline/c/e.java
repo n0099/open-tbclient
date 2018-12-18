@@ -16,7 +16,7 @@ public class e {
     private final com.facebook.common.memory.j ilu;
     private final Executor ilv;
     private final Executor ilw;
-    private final ab ilx = ab.bWb();
+    private final ab ilx = ab.bWa();
     private final o ily;
 
     public e(com.facebook.cache.disk.h hVar, com.facebook.common.memory.g gVar, com.facebook.common.memory.j jVar, Executor executor, Executor executor2, o oVar) {
@@ -41,7 +41,7 @@ public class e {
             return bolts.g.a(new Callable<Boolean>() { // from class: com.facebook.imagepipeline.c.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
-                /* renamed from: bVH */
+                /* renamed from: bVG */
                 public Boolean call() throws Exception {
                     return Boolean.valueOf(e.this.l(bVar));
                 }
@@ -67,7 +67,7 @@ public class e {
             return true;
         }
         com.facebook.common.c.a.a(iez, "Did not find image for %s in staging area", bVar.getUriString());
-        this.ily.bVV();
+        this.ily.bVU();
         try {
             return this.ilt.f(bVar);
         } catch (Exception e) {
@@ -80,7 +80,7 @@ public class e {
             return bolts.g.a(new Callable<com.facebook.imagepipeline.f.d>() { // from class: com.facebook.imagepipeline.c.e.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
-                /* renamed from: bVI */
+                /* renamed from: bVH */
                 public com.facebook.imagepipeline.f.d call() throws Exception {
                     if (!atomicBoolean.get()) {
                         com.facebook.imagepipeline.f.d q = e.this.ilx.q(bVar);
@@ -90,7 +90,7 @@ public class e {
                             q.t(bVar);
                         } else {
                             com.facebook.common.c.a.a(e.iez, "Did not find image for %s in staging area", bVar.getUriString());
-                            e.this.ily.bVV();
+                            e.this.ily.bVU();
                             try {
                                 com.facebook.common.references.a c = com.facebook.common.references.a.c(e.this.m(bVar));
                                 q = new com.facebook.imagepipeline.f.d(c);
@@ -156,11 +156,11 @@ public class e {
             com.facebook.a.a d = this.ilt.d(bVar);
             if (d == null) {
                 com.facebook.common.c.a.a(iez, "Disk cache miss for %s", bVar.getUriString());
-                this.ily.bVX();
+                this.ily.bVW();
                 return null;
             }
             com.facebook.common.c.a.a(iez, "Found entry in disk cache for %s", bVar.getUriString());
-            this.ily.bVW();
+            this.ily.bVV();
             InputStream openStream = d.openStream();
             PooledByteBuffer a = this.ile.a(openStream, (int) d.size());
             openStream.close();
@@ -168,7 +168,7 @@ public class e {
             return a;
         } catch (IOException e) {
             com.facebook.common.c.a.a(iez, e, "Exception reading from cache for %s", bVar.getUriString());
-            this.ily.bVY();
+            this.ily.bVX();
             throw e;
         }
     }

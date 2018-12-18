@@ -102,12 +102,12 @@ public class l {
         return new com.facebook.imagepipeline.producers.i(aiVar, aiVar2);
     }
 
-    public com.facebook.imagepipeline.producers.k bXv() {
+    public com.facebook.imagepipeline.producers.k bXu() {
         return new com.facebook.imagepipeline.producers.k(this.ile);
     }
 
     public com.facebook.imagepipeline.producers.l e(ai<com.facebook.imagepipeline.f.d> aiVar) {
-        return new com.facebook.imagepipeline.producers.l(this.iga, this.ini.bWv(), this.inj, this.inp, this.inf, this.inr, this.inF, aiVar);
+        return new com.facebook.imagepipeline.producers.l(this.iga, this.ini.bWu(), this.inj, this.inp, this.inf, this.inr, this.inF, aiVar);
     }
 
     public n f(ai<com.facebook.imagepipeline.f.d> aiVar) {
@@ -130,36 +130,36 @@ public class l {
         return new com.facebook.imagepipeline.producers.r(this.imW, this.imn, aiVar);
     }
 
-    public u bXw() {
-        return new u(this.ini.bWt(), this.ile, this.inX);
+    public u bXv() {
+        return new u(this.ini.bWs(), this.ile, this.inX);
     }
 
-    public v bXx() {
-        return new v(this.ini.bWt(), this.ile, this.mContentResolver);
+    public v bXw() {
+        return new v(this.ini.bWs(), this.ile, this.mContentResolver);
     }
 
-    public w bXy() {
-        return new w(this.ini.bWt(), this.ile, this.mContentResolver);
+    public w bXx() {
+        return new w(this.ini.bWs(), this.ile, this.mContentResolver);
     }
 
-    public x bXz() {
-        return new x(this.ini.bWt(), this.ile, this.mContentResolver);
+    public x bXy() {
+        return new x(this.ini.bWs(), this.ile, this.mContentResolver);
     }
 
     public as a(at<com.facebook.imagepipeline.f.d>[] atVarArr) {
         return new as(atVarArr);
     }
 
-    public com.facebook.imagepipeline.producers.z bXA() {
-        return new com.facebook.imagepipeline.producers.z(this.ini.bWt(), this.ile);
+    public com.facebook.imagepipeline.producers.z bXz() {
+        return new com.facebook.imagepipeline.producers.z(this.ini.bWs(), this.ile);
     }
 
-    public com.facebook.imagepipeline.producers.aa bXB() {
-        return new com.facebook.imagepipeline.producers.aa(this.ini.bWt(), this.ile, this.mResources);
+    public com.facebook.imagepipeline.producers.aa bXA() {
+        return new com.facebook.imagepipeline.producers.aa(this.ini.bWs(), this.ile, this.mResources);
     }
 
-    public ab bXC() {
-        return new ab(this.ini.bWt());
+    public ab bXB() {
+        return new ab(this.ini.bWs());
     }
 
     public ae a(af afVar) {
@@ -171,11 +171,11 @@ public class l {
     }
 
     public ah l(ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> aiVar) {
-        return new ah(aiVar, this.inn, this.ini.bWw());
+        return new ah(aiVar, this.inn, this.ini.bWv());
     }
 
     public am a(ai<com.facebook.imagepipeline.f.d> aiVar, boolean z, boolean z2) {
-        return new am(this.ini.bWw(), this.ile, z && !this.inf, aiVar, z2);
+        return new am(this.ini.bWv(), this.ile, z && !this.inf, aiVar, z2);
     }
 
     public <T> ap<T> a(ai<T> aiVar, aq aqVar) {
@@ -183,10 +183,10 @@ public class l {
     }
 
     public <T> ar<T> m(ai<T> aiVar) {
-        return new ar<>(5, this.ini.bWx(), aiVar);
+        return new ar<>(5, this.ini.bWw(), aiVar);
     }
 
     public av n(ai<com.facebook.imagepipeline.f.d> aiVar) {
-        return new av(this.ini.bWw(), this.ile, aiVar);
+        return new av(this.ini.bWv(), this.ile, aiVar);
     }
 }

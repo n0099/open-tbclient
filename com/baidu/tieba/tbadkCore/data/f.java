@@ -8,7 +8,7 @@ public class f {
         this.status = i;
     }
 
-    public String bCU() {
+    public String bCT() {
         return this.hkS;
     }
 

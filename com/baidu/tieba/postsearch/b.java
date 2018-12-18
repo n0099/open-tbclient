@@ -29,7 +29,7 @@ public class b {
         public String title;
     }
 
-    public boolean aTW() {
+    public boolean aTV() {
         return (this.gHa == null || this.gHa.size() == 0) ? false : true;
     }
 

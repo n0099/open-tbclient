@@ -87,7 +87,7 @@ public class SwipeViewPager extends ViewPager {
             c(obtainStyledAttributes);
             obtainStyledAttributes.recycle();
         }
-        bMe();
+        bMd();
         setOffscreenPageLimit(3);
         setOverScrollMode(2);
         setClipChildren(false);
@@ -222,7 +222,7 @@ public class SwipeViewPager extends ViewPager {
         }
     }
 
-    private void bMe() {
+    private void bMd() {
         this.hOd = new ValueAnimator();
         this.hOd.setDuration(150L);
         this.hOd.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.view.SwipeViewPager.4
@@ -261,25 +261,25 @@ public class SwipeViewPager extends ViewPager {
             this.hOi = getScrollX();
             this.hOh = this.mParentView.getScrollX();
         }
-        for (ViewParent parent = getParent(); parent != null && !bMg(); parent = parent.getParent()) {
+        for (ViewParent parent = getParent(); parent != null && !bMf(); parent = parent.getParent()) {
             parent.requestDisallowInterceptTouchEvent(true);
         }
         if (this.hOe != null && (count = this.hOe.getCount()) != 0) {
             if (count * this.hOe.getPageWidth(0) < 1.0f) {
-                return bMf();
+                return bMe();
             }
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
-    private boolean bMf() {
+    private boolean bMe() {
         if (this.hOe != null) {
             return this.hOe.getCount() <= ((this.hOe.getPageWidth(0) > 0.0f ? 1 : (this.hOe.getPageWidth(0) == 0.0f ? 0 : -1)) > 0 ? (int) (1.0d / ((double) this.hOe.getPageWidth(0))) : 0) + getCurrentItem();
         }
         return false;
     }
 
-    private boolean bMg() {
+    private boolean bMf() {
         return getScrollX() == 0;
     }
 
@@ -289,7 +289,7 @@ public class SwipeViewPager extends ViewPager {
             return false;
         }
         if (count * this.hOe.getPageWidth(0) < 1.0f) {
-            return bMf();
+            return bMe();
         }
         try {
             return super.onTouchEvent(motionEvent);
@@ -306,17 +306,17 @@ public class SwipeViewPager extends ViewPager {
         if (motionEvent.getPointerCount() <= 1) {
             if (this.hOd == null || !this.hOd.isRunning()) {
                 int action = motionEvent.getAction();
-                if (bMg() && (action & 255) == 2 && motionEvent.getRawX() - this.hOf > 0.0f) {
+                if (bMf() && (action & 255) == 2 && motionEvent.getRawX() - this.hOf > 0.0f) {
                     return false;
                 }
-                if (bMf()) {
+                if (bMe()) {
                     switch (action & 255) {
                         case 1:
                         case 3:
                             if (this.hOk) {
                                 O(motionEvent);
                             }
-                            bMh();
+                            bMg();
                             break;
                         case 2:
                             if (P(motionEvent)) {
@@ -334,23 +334,23 @@ public class SwipeViewPager extends ViewPager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bMh() {
-        if (bMg()) {
+    public void bMg() {
+        if (bMf()) {
             ca(this.mParentView.getScrollX(), 0);
-        } else if (!bMf() && this.mParentView.getScrollX() != (-this.hOj)) {
+        } else if (!bMe() && this.mParentView.getScrollX() != (-this.hOj)) {
             ca(this.mParentView.getScrollX(), -this.hOj);
-        } else if (bMf() && bMi()) {
+        } else if (bMe() && bMh()) {
             ca(this.mParentView.getScrollX(), this.hOc);
         }
     }
 
-    private boolean bMi() {
+    private boolean bMh() {
         return this.mTextView != null && this.mTextView.getVisibility() == 0;
     }
 
     private void ca(int i, int i2) {
         if (this.hOd == null) {
-            bMe();
+            bMd();
         }
         this.hOd.setIntValues(i, i2);
         this.hOd.start();
@@ -375,7 +375,7 @@ public class SwipeViewPager extends ViewPager {
         float rawX = (motionEvent.getRawX() - this.hOf) * 0.5f;
         this.hOk = false;
         if (this.mParentView != null) {
-            if (bMi()) {
+            if (bMh()) {
                 ca(this.mParentView.getScrollX(), this.hOc);
             } else {
                 ca(this.mParentView.getScrollX(), 0);
@@ -476,7 +476,7 @@ public class SwipeViewPager extends ViewPager {
 
         @Override // android.support.v4.view.ViewPager.SimpleOnPageChangeListener, android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            SwipeViewPager.this.bMh();
+            SwipeViewPager.this.bMg();
         }
     }
 

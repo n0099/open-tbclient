@@ -10,7 +10,7 @@ public class f extends c {
         super(new Handler(Looper.getMainLooper()));
     }
 
-    public static f bTa() {
+    public static f bSZ() {
         if (ifH == null) {
             ifH = new f();
         }
@@ -19,7 +19,7 @@ public class f extends c {
 
     @Override // com.facebook.common.b.c, java.util.concurrent.Executor
     public void execute(Runnable runnable) {
-        if (bSY()) {
+        if (bSX()) {
             runnable.run();
         } else {
             super.execute(runnable);

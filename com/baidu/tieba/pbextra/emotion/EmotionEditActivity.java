@@ -87,7 +87,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
                 EmotionEditActivity.this.gnE.lT(true);
-                EmotionEditActivity.this.bnJ();
+                EmotionEditActivity.this.bnI();
                 EmotionEditActivity.this.aGO();
             }
         });
@@ -109,8 +109,8 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         this.exm.setOnClickListener(this);
         this.gnA.setOnClickListener(this);
         this.gnC = l.aO(getPageContext().getPageActivity()) - getPageContext().getPageActivity().getResources().getDimensionPixelSize(e.C0210e.ds300);
-        bnI();
         bnH();
+        bnG();
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gnz.getLayoutParams();
         layoutParams.width = this.mImageWidth + getPageContext().getPageActivity().getResources().getDimensionPixelSize(e.C0210e.ds80);
         layoutParams.height = this.mImageHeight + getPageContext().getPageActivity().getResources().getDimensionPixelSize(e.C0210e.ds80);
@@ -120,7 +120,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         this.gnB.setVisibility(8);
     }
 
-    private void bnH() {
+    private void bnG() {
         this.gnD = new EmotionEditText(getPageContext().getPageActivity());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 81;
@@ -139,7 +139,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         });
     }
 
-    private void bnI() {
+    private void bnH() {
         if (this.mIsGif) {
             this.bmP = new GifView(getPageContext().getPageActivity());
             ((GifView) this.bmP).setSupportNoImage(false);
@@ -224,14 +224,14 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
             HidenSoftKeyPad(this.mInputManager, this.gnD.getEditText());
             if (TextUtils.isEmpty(this.gnD.getText())) {
                 this.gnG = this.fTm;
-                bnM();
+                bnL();
                 return;
             }
             String text = this.gnD.getText();
             switch (this.gnJ) {
                 case 2:
                     if (!TextUtils.isEmpty(this.gnI) && this.gnI.equals(text)) {
-                        bnO();
+                        bnN();
                         return;
                     }
                     break;
@@ -242,25 +242,25 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
                     }
                     break;
             }
-            bnJ();
+            bnI();
             this.gnI = this.gnD.getText();
-            bnK();
+            bnJ();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bnJ() {
+    public void bnI() {
         if (this.gnK != null && !this.gnK.isRecycled()) {
             this.gnK.recycle();
             this.gnK = null;
         }
     }
 
-    private void bnK() {
+    private void bnJ() {
         this.gnE.tw(this.gnD.getText());
     }
 
-    private void bnL() {
+    private void bnK() {
         if (!this.gnE.ji()) {
             this.gnD.getTextView().setBackgroundColor(getPageContext().getResources().getColor(e.d.transparent));
             if (this.mIsGif) {
@@ -299,7 +299,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         }
     }
 
-    private void bnM() {
+    private void bnL() {
         if (!this.gnE.ji()) {
             this.gnJ = 0;
             aGO();
@@ -308,7 +308,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
                 intent.putExtra("emotion_data", this.gnG);
                 setResult(-1, intent);
                 finish();
-                bnN();
+                bnM();
                 if (!TextUtils.isEmpty(this.gnF)) {
                     File file = new File(this.gnF);
                     if (file.exists()) {
@@ -323,7 +323,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         }
     }
 
-    private void bnN() {
+    private void bnM() {
         am amVar = new am("c12329");
         if (!TextUtils.isEmpty(this.mFrom)) {
             if (EmotionEditActivityConfig.FROM_PB_BOTTOM.equals(this.mFrom)) {
@@ -395,11 +395,11 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         super.onKeyboardVisibilityChanged(z);
         if (z) {
             this.gnB.setVisibility(0);
-            this.gnD.boi();
+            this.gnD.boh();
             return;
         }
         this.gnB.setVisibility(8);
-        this.gnD.boh();
+        this.gnD.bog();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -425,15 +425,15 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        bnJ();
+        bnI();
         if (this.gnE != null) {
             this.gnE.cancelLoadData();
         }
     }
 
     @Override // com.baidu.tieba.pbextra.emotion.model.EmotionEditModel.a
-    public void bnO() {
-        bnL();
+    public void bnN() {
+        bnK();
     }
 
     @Override // com.baidu.tieba.pbextra.emotion.model.EmotionEditModel.a
@@ -487,7 +487,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
                 }
                 this.gnG.setMemeText(this.gnD.getText());
                 this.gnG.setAuthorNameShow(this.fTm.getAuthorNameShow());
-                bnM();
+                bnL();
                 return;
             }
             showToast(e.j.upload_error);

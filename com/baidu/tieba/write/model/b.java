@@ -6,7 +6,7 @@ public class b {
     private com.baidu.tieba.write.a.b hTY = null;
     private c hTZ = null;
 
-    public com.baidu.tieba.write.a.b bOj() {
+    public com.baidu.tieba.write.a.b bOi() {
         return this.hTY;
     }
 
@@ -14,7 +14,7 @@ public class b {
         this.hTY = bVar;
     }
 
-    public c bOk() {
+    public c bOj() {
         return this.hTZ;
     }
 

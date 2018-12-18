@@ -45,22 +45,22 @@ public class b implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public int aOP() {
+    public int aOO() {
         return this.mIndex;
     }
 
-    public View aOQ() {
+    public View aOP() {
         return this.axd;
     }
 
-    public int aOR() {
+    public int aOQ() {
         return this.eLt;
     }
 
-    public void aOS() {
+    public void aOR() {
         this.eLw.setVisibility(0);
         this.eLx = false;
-        aOX();
+        aOW();
         this.axd.setText(e.j.location_loading);
         this.eLt = 3;
     }
@@ -68,7 +68,7 @@ public class b implements o {
     public void setBusiness(String str) {
         this.eLw.setVisibility(0);
         this.eLx = true;
-        aOX();
+        aOW();
         this.axd.setText(str);
         this.eLt = 0;
     }
@@ -76,42 +76,42 @@ public class b implements o {
     public void setAddress(String str) {
         this.eLw.setVisibility(8);
         this.eLx = true;
-        aOX();
+        aOW();
         this.axd.setText(str);
         this.eLt = 4;
     }
 
-    public void aOT() {
+    public void aOS() {
         this.eLw.setVisibility(0);
         this.eLx = false;
-        aOX();
+        aOW();
         this.axd.setText(e.j.address_locate_failed_opengps);
         this.eLt = 1;
     }
 
-    public void aOU() {
+    public void aOT() {
         this.eLx = false;
-        aOX();
+        aOW();
         this.axd.setText(e.j.address_locate_failed_tryagain);
         this.eLw.setVisibility(8);
         this.eLt = 2;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void aOV() {
+    public void aOU() {
         this.eLv.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void aOW() {
+    public void aOV() {
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
         this.eLu.getLayoutMode().setNightMode(z);
         this.eLu.getLayoutMode().onModeChanged(this.mView);
         this.eLv.startLoad(c.a(this.eLu.getActivity(), c.eLz, z), 29, false);
-        aOX();
+        aOW();
     }
 
-    private void aOX() {
+    private void aOW() {
         if (this.eLx) {
             Drawable drawable = al.getDrawable(e.f.icon_jq_lbs_s);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
@@ -131,7 +131,7 @@ public class b implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public String aOY() {
+    public String aOX() {
         if (this.mIndex != this.eLy) {
             return this.eLu.getPageContext().getString(e.j.next_step);
         }
@@ -139,7 +139,7 @@ public class b implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean aOZ() {
+    public boolean aOY() {
         return true;
     }
 
@@ -149,7 +149,7 @@ public class b implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean aPa() {
+    public boolean aOZ() {
         return true;
     }
 }

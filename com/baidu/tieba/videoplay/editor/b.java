@@ -60,7 +60,7 @@ public class b extends com.baidu.tbadk.editortools.c {
                                 aVar.GC().showToast(e.j.over_limit_tip);
                                 return;
                             case 8:
-                                aVar.bLN();
+                                aVar.bLM();
                                 if (b.this.a(aVar.GC(), 11001)) {
                                     aVar.MP();
                                     return;

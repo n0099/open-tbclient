@@ -7,7 +7,7 @@ public class g {
     private com.baidu.adp.lib.cache.l<byte[]> fVC = null;
     private com.baidu.adp.lib.cache.l<byte[]> fVD = null;
 
-    public static synchronized g biO() {
+    public static synchronized g biN() {
         g gVar;
         synchronized (g.class) {
             if (fVB == null) {

@@ -9,7 +9,7 @@ public class a {
     private List<String> gfv;
     private SingleBarEmotionRecommendData gfw;
 
-    public SingleBarEmotionRecommendData blX() {
+    public SingleBarEmotionRecommendData blW() {
         return this.gfw;
     }
 
@@ -25,7 +25,7 @@ public class a {
         this.dra = list;
     }
 
-    public List<String> blY() {
+    public List<String> blX() {
         return this.gfv;
     }
 

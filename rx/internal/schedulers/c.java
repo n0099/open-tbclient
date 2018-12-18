@@ -27,7 +27,7 @@ public final class c extends rx.g {
         final ConcurrentLinkedQueue<ScheduledAction> iGo = new ConcurrentLinkedQueue<>();
         final AtomicInteger wip = new AtomicInteger();
         final rx.subscriptions.b iKU = new rx.subscriptions.b();
-        final ScheduledExecutorService iKV = d.cej();
+        final ScheduledExecutorService iKV = d.cei();
 
         public a(Executor executor) {
             this.executor = executor;
@@ -36,7 +36,7 @@ public final class c extends rx.g {
         @Override // rx.g.a
         public k a(rx.functions.a aVar) {
             if (isUnsubscribed()) {
-                return rx.subscriptions.e.cfu();
+                return rx.subscriptions.e.cft();
             }
             ScheduledAction scheduledAction = new ScheduledAction(rx.c.c.g(aVar), this.iKU);
             this.iKU.add(scheduledAction);
@@ -84,7 +84,7 @@ public final class c extends rx.g {
                 return a(aVar);
             }
             if (isUnsubscribed()) {
-                return rx.subscriptions.e.cfu();
+                return rx.subscriptions.e.cft();
             }
             final rx.functions.a g = rx.c.c.g(aVar);
             rx.subscriptions.c cVar = new rx.subscriptions.c();

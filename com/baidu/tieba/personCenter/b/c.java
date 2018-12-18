@@ -26,11 +26,11 @@ public class c {
         this.grz.onChangeSkinType();
     }
 
-    public void boB() {
-        this.grz.boB();
+    public void boA() {
+        this.grz.boA();
     }
 
-    public void boC() {
-        this.grz.boC();
+    public void boB() {
+        this.grz.boB();
     }
 }

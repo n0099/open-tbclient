@@ -70,11 +70,11 @@ public class Slot implements Parcelable {
         this.icb = jSONObject;
     }
 
-    public boolean bRp() {
+    public boolean bRo() {
         return this.ibZ > 0;
     }
 
-    public boolean bRq() {
+    public boolean bRp() {
         return this.ica > 0;
     }
 
@@ -83,7 +83,7 @@ public class Slot implements Parcelable {
         this.ica = 0L;
     }
 
-    public JSONObject bRr() {
+    public JSONObject bRq() {
         JSONObject jSONObject;
         JSONException e;
         if (TextUtils.isEmpty(this.mCategory) || this.icc <= 0.0f) {

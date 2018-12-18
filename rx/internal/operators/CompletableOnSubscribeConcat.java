@@ -70,7 +70,7 @@ public final class CompletableOnSubscribeConcat implements b.a {
             onError(th);
         }
 
-        void cdf() {
+        void cde() {
             this.active = false;
             drain();
         }
@@ -119,7 +119,7 @@ public final class CompletableOnSubscribeConcat implements b.a {
 
             @Override // rx.c
             public void onCompleted() {
-                CompletableConcatSubscriber.this.cdf();
+                CompletableConcatSubscriber.this.cde();
             }
         }
     }

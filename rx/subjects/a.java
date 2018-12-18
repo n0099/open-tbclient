@@ -9,7 +9,7 @@ public final class a<T> extends c<T, T> {
     private static final Object[] iOe = new Object[0];
     private final SubjectSubscriptionManager<T> iOf;
 
-    public static <T> a<T> cfi() {
+    public static <T> a<T> cfh() {
         return g(null, false);
     }
 
@@ -38,9 +38,9 @@ public final class a<T> extends c<T, T> {
     @Override // rx.e
     public void onCompleted() {
         if (this.iOf.getLatest() == null || this.iOf.active) {
-            Object cdh = NotificationLite.cdh();
-            for (SubjectSubscriptionManager.b<T> bVar : this.iOf.terminate(cdh)) {
-                bVar.bu(cdh);
+            Object cdg = NotificationLite.cdg();
+            for (SubjectSubscriptionManager.b<T> bVar : this.iOf.terminate(cdg)) {
+                bVar.bu(cdg);
             }
         }
     }

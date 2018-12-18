@@ -45,18 +45,18 @@ public class b implements c.a {
                     b.a aVar2 = bVar.gTD.get(3);
                     b.a aVar3 = bVar.gTD.get(9);
                     b.a aVar4 = bVar.gTD.get(10);
-                    if (b.this.grt.boJ() != null) {
+                    if (b.this.grt.boI() != null) {
                         if (aVar2 != null) {
-                            b.this.grt.boJ().lY(aVar2.fsj);
+                            b.this.grt.boI().lY(aVar2.fsj);
                         }
                         if (aVar != null) {
-                            b.this.grt.boJ().mb(aVar.fsj);
+                            b.this.grt.boI().mb(aVar.fsj);
                         }
                         if (aVar3 != null) {
-                            b.this.grt.boJ().ma(aVar3.fsj);
+                            b.this.grt.boI().ma(aVar3.fsj);
                         }
                         if (aVar4 != null) {
-                            b.this.grt.boJ().lZ(aVar4.fsj);
+                            b.this.grt.boI().lZ(aVar4.fsj);
                         }
                     }
                     b.a aVar5 = bVar.gTD.get(5);
@@ -77,7 +77,7 @@ public class b implements c.a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                com.baidu.tieba.o.a.bvJ().mP(false);
+                com.baidu.tieba.o.a.bvI().mP(false);
             }
         }
     };
@@ -87,8 +87,8 @@ public class b implements c.a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             j jVar;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof j) && (jVar = (j) customResponsedMessage.getData()) != null) {
-                if (b.this.grt.boJ() != null) {
-                    b.this.grt.boJ().b(jVar);
+                if (b.this.grt.boI() != null) {
+                    b.this.grt.boI().b(jVar);
                     b.this.gru.notifyDataSetChanged();
                     return;
                 }
@@ -102,7 +102,7 @@ public class b implements c.a {
         this.gru.a(this);
         this.grt = new PersonCenterModel(tbPageContext, bdUniqueId);
         this.grt.a(this.grv);
-        com.baidu.tieba.o.a.bvJ();
+        com.baidu.tieba.o.a.bvI();
         this.grw.setTag(bdUniqueId);
         this.bAD.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.grw);
@@ -112,17 +112,17 @@ public class b implements c.a {
     }
 
     public void tz(String str) {
-        e boJ = this.grt.boJ();
-        if (boJ != null && boJ.getUserData() != null) {
-            boJ.getUserData().setName_show(str);
+        e boI = this.grt.boI();
+        if (boI != null && boI.getUserData() != null) {
+            boI.getUserData().setName_show(str);
             this.gru.notifyDataSetChanged();
         }
     }
 
     public void tA(String str) {
-        e boJ = this.grt.boJ();
-        if (boJ != null && boJ.getUserData() != null) {
-            boJ.getUserData().setPortrait(str);
+        e boI = this.grt.boI();
+        if (boI != null && boI.getUserData() != null) {
+            boI.getUserData().setPortrait(str);
             this.gru.notifyDataSetChanged();
         }
     }
@@ -148,12 +148,12 @@ public class b implements c.a {
         this.gru.onChangeSkinType(i);
     }
 
-    public void boD() {
-        this.gru.boB();
+    public void boC() {
+        this.gru.boA();
     }
 
-    public void boE() {
-        this.gru.boC();
+    public void boD() {
+        this.gru.boB();
     }
 
     @Override // com.baidu.tieba.personCenter.view.c.a

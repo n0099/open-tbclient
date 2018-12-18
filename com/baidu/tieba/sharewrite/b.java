@@ -25,7 +25,7 @@ public class b {
     public b(BaseActivity baseActivity, a aVar) {
         this.bBf = baseActivity;
         this.han = aVar;
-        byQ();
+        byP();
     }
 
     public void vg(String str) {
@@ -36,7 +36,7 @@ public class b {
         }
     }
 
-    public void byQ() {
+    public void byP() {
         if (this.bBf != null) {
             MessageManager messageManager = MessageManager.getInstance();
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD, TbConfig.SERVER_ADDRESS + "c/f/forum/getprefix");

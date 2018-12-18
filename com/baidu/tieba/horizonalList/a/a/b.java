@@ -18,7 +18,7 @@ public class b implements a {
         this.exs = aVar;
     }
 
-    public boolean aLA() {
+    public boolean aLz() {
         return this.exs != null;
     }
 

@@ -24,27 +24,27 @@ public final class l<T> extends o<T> {
     @Override // com.google.gson.o
     public T b(com.google.gson.stream.a aVar) throws IOException {
         if (this.iuT == null) {
-            return cax().b(aVar);
+            return caw().b(aVar);
         }
         com.google.gson.i h = com.google.gson.internal.g.h(aVar);
-        if (h.cah()) {
+        if (h.cag()) {
             return null;
         }
-        return this.iuT.a(h, this.iuU.caU(), this.iuW);
+        return this.iuT.a(h, this.iuU.caT(), this.iuW);
     }
 
     @Override // com.google.gson.o
     public void a(com.google.gson.stream.b bVar, T t) throws IOException {
         if (this.iuS == null) {
-            cax().a(bVar, t);
+            caw().a(bVar, t);
         } else if (t == null) {
-            bVar.caS();
+            bVar.caR();
         } else {
-            com.google.gson.internal.g.b(this.iuS.a(t, this.iuU.caU(), this.iuW), bVar);
+            com.google.gson.internal.g.b(this.iuS.a(t, this.iuU.caT(), this.iuW), bVar);
         }
     }
 
-    private o<T> cax() {
+    private o<T> caw() {
         o<T> oVar = this.itb;
         if (oVar != null) {
             return oVar;

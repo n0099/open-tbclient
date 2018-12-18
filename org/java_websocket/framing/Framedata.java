@@ -14,7 +14,7 @@ public interface Framedata {
         CLOSING
     }
 
-    ByteBuffer ccA();
+    boolean ccA();
 
     boolean ccB();
 
@@ -22,7 +22,7 @@ public interface Framedata {
 
     boolean ccD();
 
-    boolean ccE();
+    Opcode ccE();
 
-    Opcode ccF();
+    ByteBuffer ccz();
 }

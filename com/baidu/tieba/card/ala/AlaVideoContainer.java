@@ -310,7 +310,7 @@ public class AlaVideoContainer extends LinearLayout {
         layoutParams.height = (this.bOn.getWidth() * 9) / 16;
         this.bOn.setLayoutParams(layoutParams);
         this.cXw = new n(getContext());
-        this.cXw.brG();
+        this.cXw.brF();
         this.bOn.setBusiness(this.cXw);
         this.bOn.setOnPreparedListener(this.bxJ);
         this.bOn.setOnSurfaceDestroyedListener(this.bpa);

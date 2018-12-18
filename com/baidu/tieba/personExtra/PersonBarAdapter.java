@@ -8,7 +8,7 @@ public class PersonBarAdapter extends BasePersonInfoAdapter {
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoAdapter
-    protected BaseFragment boZ() {
+    protected BaseFragment boY() {
         return new PersonBarFragment();
     }
 }

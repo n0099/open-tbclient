@@ -5,11 +5,11 @@ import rx.g;
 public class b {
     private static final b iBj = new b();
 
-    public static b ccW() {
+    public static b ccV() {
         return iBj;
     }
 
-    public g ccX() {
+    public g ccW() {
         return null;
     }
 

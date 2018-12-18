@@ -89,15 +89,15 @@ public class al extends q.a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (al.this.gbv != null && al.this.gbv.mType == com.baidu.tieba.pb.data.h.fQF && customResponsedMessage != null && getTag() == al.this.gbx && (customResponsedMessage.getData() instanceof ar.a) && al.this.mRootView != null && al.this.gbr.bhy() && al.this.gbl != null && al.this.gbl.getVisibility() == 0) {
+                if (al.this.gbv != null && al.this.gbv.mType == com.baidu.tieba.pb.data.h.fQF && customResponsedMessage != null && getTag() == al.this.gbx && (customResponsedMessage.getData() instanceof ar.a) && al.this.mRootView != null && al.this.gbr.bhx() && al.this.gbl != null && al.this.gbl.getVisibility() == 0) {
                     if (al.this.mRootView == null || al.this.mRootView.getParent() == null) {
                         al.this.gbr.hideTip();
                         return;
                     }
-                    if (!al.this.gbr.bhy() && !com.baidu.tieba.pb.pb.godreply.usertips.b.cS(al.this.mRootView.getContext())) {
+                    if (!al.this.gbr.bhx() && !com.baidu.tieba.pb.pb.godreply.usertips.b.cS(al.this.mRootView.getContext())) {
                         al.this.gbr.showTip(al.this.gbl);
                     }
-                    if (al.this.gbr.bhy()) {
+                    if (al.this.gbr.bhx()) {
                         al.this.gbr.br(al.this.gbl);
                     }
                 }
@@ -188,7 +188,7 @@ public class al extends q.a {
                         }
                     };
                     this.gbo.setOnClickListener(onClickListener);
-                    if (!com.baidu.tieba.pb.pb.godreply.usertips.b.cS(context) && this.gbl != null && this.gbl.getVisibility() == 0 && !this.gbr.bhy()) {
+                    if (!com.baidu.tieba.pb.pb.godreply.usertips.b.cS(context) && this.gbl != null && this.gbl.getVisibility() == 0 && !this.gbr.bhx()) {
                         this.gbr.J(onClickListener);
                         this.gbr.showTip(this.gbl);
                     }

@@ -101,7 +101,7 @@ public class AppDownloadView extends LinearLayout {
                     al.c(this.gSk, e.f.icon_download_play);
                     break;
             }
-            int aJ = d.buG().aJ(downloadData.getId(), downloadData.getName());
+            int aJ = d.buF().aJ(downloadData.getId(), downloadData.getName());
             if (aJ >= 0) {
                 ua(aJ);
             } else {
@@ -124,22 +124,22 @@ public class AppDownloadView extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bvD();
+        bvC();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        bvC();
+        bvB();
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
         if (i == 0) {
-            bvC();
+            bvB();
         } else {
-            bvD();
+            bvC();
         }
     }
 
@@ -154,7 +154,7 @@ public class AppDownloadView extends LinearLayout {
         al.b(this.gSl, e.d.cp_cont_d, 1, i);
     }
 
-    private void bvC() {
+    private void bvB() {
         if (this.downloadListener != null) {
             MessageManager.getInstance().registerListener(this.downloadListener);
         }
@@ -163,7 +163,7 @@ public class AppDownloadView extends LinearLayout {
         }
     }
 
-    private void bvD() {
+    private void bvC() {
         if (this.downloadListener != null) {
             MessageManager.getInstance().unRegisterListener(this.downloadListener);
         }
@@ -200,7 +200,7 @@ public class AppDownloadView extends LinearLayout {
                         }
                         downloadData = null;
                         if (downloadData != null) {
-                            AppDownloadView.this.ua(d.buG().aJ(downloadData.getId(), downloadData.getName()));
+                            AppDownloadView.this.ua(d.buF().aJ(downloadData.getId(), downloadData.getName()));
                             AppDownloadView.this.postInvalidate();
                         }
                     }

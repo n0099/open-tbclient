@@ -50,11 +50,11 @@ public class EditView extends FormItemBaseView {
     }
 
     private void init() {
+        bva();
         bvb();
-        bvc();
     }
 
-    private void bvb() {
+    private void bva() {
         this.gPw = new EditText(this.mContext);
         this.gPw.setId(1);
         this.gPw.setTextSize(0, this.mFontSize);
@@ -64,7 +64,7 @@ public class EditView extends FormItemBaseView {
         this.gPw.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.recapp.lego.view.form.EditView.1
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
-                if (z || EditView.this.bva()) {
+                if (z || EditView.this.buZ()) {
                     EditView.this.a(EditView.this.gPw, FormItemBaseView.DrawableType.ORDINARY_FRAME);
                 } else {
                     EditView.this.a(EditView.this.gPw, FormItemBaseView.DrawableType.ERROR_FRAME);
@@ -75,7 +75,7 @@ public class EditView extends FormItemBaseView {
         addView(this.gPw, new RelativeLayout.LayoutParams(-1, -2));
     }
 
-    private void bvc() {
+    private void bvb() {
         this.gPx = new VerificationCodeView(this.mContext);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.gPU);
         layoutParams.topMargin = this.gPS;
@@ -119,7 +119,7 @@ public class EditView extends FormItemBaseView {
                         marginLayoutParams.height = this.gPU;
                         this.gPx.setListener(new VerificationCodeView.a() { // from class: com.baidu.tieba.recapp.lego.view.form.EditView.2
                             @Override // com.baidu.tieba.recapp.lego.view.form.VerificationCodeView.a
-                            public void bvd() {
+                            public void bvc() {
                                 EditView.this.gPx.setVerificationInfo(((Object) EditView.this.gPw.getText()) + "");
                             }
                         });
@@ -156,7 +156,7 @@ public class EditView extends FormItemBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormCardView.a
-    public boolean bva() {
+    public boolean buZ() {
         if (TextUtils.isEmpty(this.gPy)) {
             return true;
         }

@@ -5,7 +5,7 @@ public interface j {
 
     int ab(String str, boolean z);
 
-    void buk();
+    void buj();
 
     void f(String str, int i, boolean z);
 }

@@ -31,7 +31,7 @@ public final class f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean bRS() {
+    public static boolean bRR() {
         return ak;
     }
 
@@ -49,7 +49,7 @@ public final class f {
         icP = j;
     }
 
-    public static long bRT() {
+    public static long bRS() {
         return icP;
     }
 }

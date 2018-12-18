@@ -6,7 +6,7 @@ public class c {
     private a mLocationData;
     private long mTimeStamp;
 
-    public static c bDX() {
+    public static c bDW() {
         if (hnt == null) {
             synchronized (c.class) {
                 if (hnt == null) {
@@ -33,7 +33,7 @@ public class c {
         this.mLocationData = aVar;
     }
 
-    public boolean bDY() {
+    public boolean bDX() {
         return this.hnu;
     }
 

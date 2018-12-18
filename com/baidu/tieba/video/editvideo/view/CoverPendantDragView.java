@@ -117,7 +117,7 @@ public class CoverPendantDragView extends FrameLayout {
                         this.startTime = System.currentTimeMillis();
                         CoverPendantDragView.this.e(view, motionEvent);
                         if (CoverPendantDragView.this.hCO == 4) {
-                            CoverPendantDragView.this.bIV();
+                            CoverPendantDragView.this.bIU();
                             return true;
                         }
                         return true;
@@ -127,7 +127,7 @@ public class CoverPendantDragView extends FrameLayout {
                         float abs = Math.abs(rawX - CoverPendantDragView.this.mDownX);
                         float abs2 = Math.abs(rawY - CoverPendantDragView.this.bve);
                         if (!CoverPendantDragView.this.hCQ && abs < CoverPendantDragView.this.drk && abs2 < CoverPendantDragView.this.drk && System.currentTimeMillis() - this.startTime < 300) {
-                            CoverPendantDragView.this.bIW();
+                            CoverPendantDragView.this.bIV();
                         }
                         CoverPendantDragView.this.hCR = 0.0f;
                         CoverPendantDragView.this.hCS = 0.0f;
@@ -155,7 +155,7 @@ public class CoverPendantDragView extends FrameLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 CoverPendantDragView.this.hCL.setText("");
-                CoverPendantDragView.this.bsR();
+                CoverPendantDragView.this.bsQ();
             }
         });
         this.hCN.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.video.editvideo.view.CoverPendantDragView.3
@@ -461,7 +461,7 @@ public class CoverPendantDragView extends FrameLayout {
         this.hCN = (ImageView) this.hCI.findViewById(e.g.cover_scale);
     }
 
-    public void bsR() {
+    public void bsQ() {
         this.hCK.setText(this.hCL.getText());
         this.hCK.setVisibility(0);
         this.hCL.setVisibility(8);
@@ -471,7 +471,7 @@ public class CoverPendantDragView extends FrameLayout {
             this.hCI.setVisibility(8);
         }
         if (this.hCO == 4) {
-            bIU();
+            bIT();
         }
         this.hCZ.HidenSoftKeyPad(this.hCL);
     }
@@ -492,31 +492,31 @@ public class CoverPendantDragView extends FrameLayout {
             switch (pendantData.pendantType) {
                 case 0:
                     this.hCL.setText("");
-                    bsR();
+                    bsQ();
                     break;
                 case 1:
                     a(pendantData);
                     this.mContentView.setBackgroundResource(e.f.bg_cover_edit_blue);
-                    bIW();
+                    bIV();
                     break;
                 case 2:
                     a(pendantData);
                     this.mContentView.setBackgroundResource(e.f.bg_cover_edit_black);
-                    bIW();
+                    bIV();
                     break;
                 case 3:
                     a(pendantData);
                     this.mContentView.setBackgroundDrawable(null);
-                    bIW();
+                    bIV();
                     break;
                 default:
-                    bsR();
-                    String wI = com.baidu.tieba.video.editvideo.model.b.bIP().wI(pendantData.resource);
+                    bsQ();
+                    String wI = com.baidu.tieba.video.editvideo.model.b.bIO().wI(pendantData.resource);
                     if (TextUtils.isEmpty(wI)) {
                         if (view != null && (view.getTag() instanceof a.b)) {
                             a.b bVar = (a.b) view.getTag();
                             bVar.hBD.setVisibility(0);
-                            com.baidu.tieba.video.editvideo.model.b.bIP().a(pendantData.id, pendantData.resource, new a(bVar, this, pendantData));
+                            com.baidu.tieba.video.editvideo.model.b.bIO().a(pendantData.id, pendantData.resource, new a(bVar, this, pendantData));
                             break;
                         }
                     } else {
@@ -539,7 +539,7 @@ public class CoverPendantDragView extends FrameLayout {
     }
 
     private void a(PendantData pendantData) {
-        bIU();
+        bIT();
         a(this.mVideoWidth, l.h(getContext(), e.C0210e.ds100), this.mScreenWidth, pendantData);
         if (this.hCO == 4 || this.hCO == 0) {
             this.hCI.setX(this.hDa);
@@ -560,7 +560,7 @@ public class CoverPendantDragView extends FrameLayout {
         this.mVideoHeight = i2;
     }
 
-    private void bIU() {
+    private void bIT() {
         if (this.hDe) {
             this.hDe = false;
             this.hCM.setVisibility(8);
@@ -570,7 +570,7 @@ public class CoverPendantDragView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bIV() {
+    public void bIU() {
         if (!this.hDe) {
             this.hDe = true;
             this.hCM.setVisibility(0);
@@ -588,7 +588,7 @@ public class CoverPendantDragView extends FrameLayout {
             }
             Bitmap bitmap2 = bitmap;
             if (bitmap2 != null && !bitmap2.isRecycled() && bitmap2.getWidth() != 0 && bitmap2.getHeight() != 0) {
-                bIU();
+                bIT();
                 int width = bitmap2.getWidth();
                 int height = bitmap2.getHeight();
                 this.hCY = 1.0f;
@@ -627,7 +627,7 @@ public class CoverPendantDragView extends FrameLayout {
                 float abs = Math.abs(rawX - this.dLw);
                 float abs2 = Math.abs(rawY - this.dLx);
                 if (motionEvent.getPointerCount() <= 1 && abs < this.drk && abs2 < this.drk && System.currentTimeMillis() - this.startTime < 300) {
-                    bsR();
+                    bsQ();
                     break;
                 }
                 break;
@@ -642,7 +642,7 @@ public class CoverPendantDragView extends FrameLayout {
         return this.hCK.getText().toString();
     }
 
-    public void bIW() {
+    public void bIV() {
         this.hCK.setText(this.hCL.getText());
         this.hCK.setVisibility(8);
         this.hCL.setVisibility(0);
@@ -690,8 +690,8 @@ public class CoverPendantDragView extends FrameLayout {
             if (TextUtils.isEmpty(text)) {
                 e(getContext().getString(e.j.cover_hint), this.hDm);
                 this.hDf = this.hCL.getTextSize();
+                bIU();
                 bIV();
-                bIW();
             } else {
                 if (y.iN(text) > 20) {
                     text = y.H(text, 20);
@@ -717,12 +717,12 @@ public class CoverPendantDragView extends FrameLayout {
 
     public Bitmap getTempBitmap() {
         if (this.hDr == null) {
-            bIX();
+            bIW();
         }
         return this.hDr;
     }
 
-    private void bIX() {
+    private void bIW() {
         buildDrawingCache();
         Bitmap drawingCache = getDrawingCache();
         if (drawingCache != null) {
@@ -731,7 +731,7 @@ public class CoverPendantDragView extends FrameLayout {
         destroyDrawingCache();
     }
 
-    public void bIY() {
+    public void bIX() {
         if (this.hDr != null && !this.hDr.isRecycled()) {
             this.hDr.recycle();
             this.hDr = null;
@@ -741,11 +741,11 @@ public class CoverPendantDragView extends FrameLayout {
     public void nX(boolean z) {
         if (this.hCO != 0) {
             if (z) {
-                bIY();
+                bIX();
                 this.hCI.setVisibility(0);
                 return;
             }
-            bsR();
+            bsQ();
             getTempBitmap();
             this.hCI.setVisibility(8);
         }
@@ -760,7 +760,7 @@ public class CoverPendantDragView extends FrameLayout {
         }
         this.hDq.clear();
         this.hDq = null;
-        bIY();
+        bIX();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -803,7 +803,7 @@ public class CoverPendantDragView extends FrameLayout {
         }
 
         @Override // com.baidu.tieba.video.editvideo.model.b.a
-        public void bIa() {
+        public void bHZ() {
             if (this.hDt != null && this.hDt.get() != null) {
                 this.hDt.get().hBD.setVisibility(8);
             }

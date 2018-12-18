@@ -9,8 +9,8 @@ public final class b {
         this.icv.b(aVar);
     }
 
-    public final List<a> bRK() {
-        return this.icv.bRK();
+    public final List<a> bRJ() {
+        return this.icv.bRJ();
     }
 
     public final void a(int i) {

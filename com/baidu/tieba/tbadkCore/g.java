@@ -15,7 +15,7 @@ public class g implements com.baidu.adp.widget.ListView.h {
     private String url;
     private int weight;
 
-    public int bBg() {
+    public int bBf() {
         return this.hin;
     }
 
@@ -23,7 +23,7 @@ public class g implements com.baidu.adp.widget.ListView.h {
         this.hin = i;
     }
 
-    public int bBh() {
+    public int bBg() {
         return this.fQB;
     }
 
@@ -67,11 +67,11 @@ public class g implements com.baidu.adp.widget.ListView.h {
         this.time = i;
     }
 
-    public String bBi() {
+    public String bBh() {
         return this.obj_id;
     }
 
-    public String bBj() {
+    public String bBi() {
         return this.him;
     }
 

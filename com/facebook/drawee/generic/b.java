@@ -71,7 +71,7 @@ public class b {
         return this;
     }
 
-    public int bUW() {
+    public int bUV() {
         return this.ijX;
     }
 
@@ -80,7 +80,7 @@ public class b {
         return this;
     }
 
-    public float bUX() {
+    public float bUW() {
         return this.ijY;
     }
 
@@ -90,7 +90,7 @@ public class b {
     }
 
     @Nullable
-    public Drawable bUY() {
+    public Drawable bUX() {
         return this.ijZ;
     }
 
@@ -100,7 +100,7 @@ public class b {
     }
 
     @Nullable
-    public n.b bUZ() {
+    public n.b bUY() {
         return this.ika;
     }
 
@@ -110,7 +110,7 @@ public class b {
     }
 
     @Nullable
-    public Drawable bVa() {
+    public Drawable bUZ() {
         return this.ikb;
     }
 
@@ -120,7 +120,7 @@ public class b {
     }
 
     @Nullable
-    public n.b bVb() {
+    public n.b bVa() {
         return this.ikc;
     }
 
@@ -130,7 +130,7 @@ public class b {
     }
 
     @Nullable
-    public Drawable bVc() {
+    public Drawable bVb() {
         return this.ikd;
     }
 
@@ -140,7 +140,7 @@ public class b {
     }
 
     @Nullable
-    public n.b bVd() {
+    public n.b bVc() {
         return this.ike;
     }
 
@@ -150,7 +150,7 @@ public class b {
     }
 
     @Nullable
-    public Drawable bVe() {
+    public Drawable bVd() {
         return this.ikf;
     }
 
@@ -160,7 +160,7 @@ public class b {
     }
 
     @Nullable
-    public n.b bVf() {
+    public n.b bVe() {
         return this.ikg;
     }
 
@@ -171,22 +171,22 @@ public class b {
     }
 
     @Nullable
-    public n.b bVg() {
+    public n.b bVf() {
         return this.ikh;
     }
 
     @Nullable
-    public Matrix bVh() {
+    public Matrix bVg() {
         return this.iki;
     }
 
     @Nullable
-    public PointF bVi() {
+    public PointF bVh() {
         return this.ikj;
     }
 
     @Nullable
-    public ColorFilter bVj() {
+    public ColorFilter bVi() {
         return this.ikk;
     }
 
@@ -210,7 +210,7 @@ public class b {
     }
 
     @Nullable
-    public List<Drawable> bVk() {
+    public List<Drawable> bVj() {
         return this.ikl;
     }
 
@@ -226,7 +226,7 @@ public class b {
     }
 
     @Nullable
-    public Drawable bVl() {
+    public Drawable bVk() {
         return this.ikm;
     }
 
@@ -236,7 +236,7 @@ public class b {
     }
 
     @Nullable
-    public RoundingParams bVm() {
+    public RoundingParams bVl() {
         return this.ijR;
     }
 
@@ -248,7 +248,7 @@ public class b {
         }
     }
 
-    public a bVn() {
+    public a bVm() {
         validate();
         return new a(this);
     }

@@ -76,26 +76,26 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
         initData();
     }
 
-    public void aPI() {
+    public void aPH() {
         this.eMt.Rr();
     }
 
-    public void aPJ() {
+    public void aPI() {
         if (this.eMt != null) {
             this.eMt.cancelLoad();
             this.eMt = null;
         }
     }
 
-    public void aPY() {
+    public void aPX() {
         this.eMY.setVisibility(8);
     }
 
-    public void aPZ() {
+    public void aPY() {
         this.eMY.setVisibility(0);
     }
 
-    public void aPV() {
+    public void aPU() {
         if (this.eNg != null) {
             this.eNg.notifyDataSetChanged();
         }
@@ -156,23 +156,23 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
     private void initData() {
         this.eMt = new com.baidu.tieba.im.util.b(this.eMV);
         this.eMt.setUniqueId(this.eMV.getUniqueId());
-        aPI();
+        aPH();
     }
 
-    public void aQa() {
+    public void aPZ() {
         this.eMZ.setText(e.j.address_pos_list);
         this.eNb.setText(e.j.location_loading);
         this.eNc.setVisibility(8);
         this.eLt = 3;
-        aQc();
+        aQb();
     }
 
-    public void aQb() {
+    public void aQa() {
         this.eMZ.setText(e.j.address_locate_noaddresslist);
         this.eNb.setText(e.j.address_locate_failed_tryagain);
         this.eNc.setVisibility(0);
         this.eLt = 2;
-        aQc();
+        aQb();
     }
 
     public void y(String[] strArr) {
@@ -185,26 +185,26 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
         } else {
             this.eMZ.setText(e.j.address_locate_noaddresslist);
         }
-        aQc();
+        aQb();
     }
 
-    public void aOT() {
+    public void aOS() {
         this.eMZ.setText(e.j.address_pos_list);
         this.eNb.setText(e.j.address_locate_failed_opengps);
         this.eNc.setVisibility(0);
         this.eLt = 1;
-        aQc();
+        aQb();
     }
 
     public void onResume() {
         Drawable[] compoundDrawables = this.eNb.getCompoundDrawables();
         if (compoundDrawables != null && compoundDrawables.length > 0 && (compoundDrawables[0] instanceof AnimationDrawable)) {
             this.eNe = (AnimationDrawable) compoundDrawables[0];
-            aQc();
+            aQb();
         }
     }
 
-    private void aQc() {
+    private void aQb() {
         if (this.eNe != null) {
             if (this.eLt == 3) {
                 this.eNe.start();
@@ -223,7 +223,7 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
         this.eMC = str;
     }
 
-    public View aPU() {
+    public View aPT() {
         return this.bhR;
     }
 
@@ -231,15 +231,15 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
         return this.bhS;
     }
 
-    public View aQd() {
+    public View aQc() {
         return this.eMW;
     }
 
-    public View aQe() {
+    public View aQd() {
         return this.eNa;
     }
 
-    public int aOR() {
+    public int aOQ() {
         return this.eLt;
     }
 

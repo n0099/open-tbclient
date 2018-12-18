@@ -3,7 +3,7 @@ package kotlin.coroutines.experimental.a;
 public final class a {
     private static final Object iye = new Object();
 
-    public static final Object cbL() {
+    public static final Object cbK() {
         return iye;
     }
 }

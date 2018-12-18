@@ -14,7 +14,7 @@ public class c {
         }
     }
 
-    public static b bYP() {
+    public static b bYO() {
         return ipy;
     }
 }

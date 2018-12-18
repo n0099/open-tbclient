@@ -45,11 +45,11 @@ public class a {
         }
     }
 
-    public void boB() {
-        this.grq.boB();
+    public void boA() {
+        this.grq.boA();
     }
 
-    public void boC() {
+    public void boB() {
         this.grq.destroy();
     }
 }

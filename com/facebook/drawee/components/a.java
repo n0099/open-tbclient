@@ -11,7 +11,7 @@ public class a {
     private final Runnable ihG = new Runnable() { // from class: com.facebook.drawee.components.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.bUi();
+            a.bUh();
             for (InterfaceC0361a interfaceC0361a : a.this.ihF) {
                 interfaceC0361a.release();
             }
@@ -27,7 +27,7 @@ public class a {
         void release();
     }
 
-    public static synchronized a bUh() {
+    public static synchronized a bUg() {
         a aVar;
         synchronized (a.class) {
             if (ihE == null) {
@@ -39,19 +39,19 @@ public class a {
     }
 
     public void a(InterfaceC0361a interfaceC0361a) {
-        bUi();
+        bUh();
         if (this.ihF.add(interfaceC0361a) && this.ihF.size() == 1) {
             this.mUiHandler.post(this.ihG);
         }
     }
 
     public void b(InterfaceC0361a interfaceC0361a) {
-        bUi();
+        bUh();
         this.ihF.remove(interfaceC0361a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void bUi() {
+    public static void bUh() {
         g.checkState(Looper.getMainLooper().getThread() == Thread.currentThread());
     }
 }

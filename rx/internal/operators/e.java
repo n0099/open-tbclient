@@ -60,7 +60,7 @@ public final class e<T, R> implements d.a<R> {
             this.actual = jVar;
             this.iCf = fVar;
             this.iCg = i2;
-            if (rx.internal.util.a.ae.ceG()) {
+            if (rx.internal.util.a.ae.ceF()) {
                 cVar = new rx.internal.util.a.q<>(i);
             } else {
                 cVar = new rx.internal.util.atomic.c<>(i);

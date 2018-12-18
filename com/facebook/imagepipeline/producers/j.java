@@ -5,7 +5,7 @@ public interface j<T> {
 
     void az(float f);
 
-    void bSZ();
+    void bSY();
 
     void e(T t, boolean z);
 }

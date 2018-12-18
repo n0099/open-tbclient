@@ -56,7 +56,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.kV() && PushDialogActivity.this.gHN != null) {
-                PushDialogActivity.this.gHN.btz();
+                PushDialogActivity.this.gHN.bty();
             }
         }
     };
@@ -90,7 +90,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         this.gHS += "_1";
         TiebaStatic.eventStat(this, "push_dialog", this.gHS);
         super.onCreate(bundle);
-        this.efg = com.baidu.tieba.screenlocknotify.a.bvV().gTS;
+        this.efg = com.baidu.tieba.screenlocknotify.a.bvU().gTS;
         if (this.gHP == null) {
             this.gHP = new com.baidu.tieba.ueg.b();
         }
@@ -174,7 +174,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
     }
 
-    public com.baidu.tieba.t.a btq() {
+    public com.baidu.tieba.t.a btp() {
         return this.efg;
     }
 
@@ -286,7 +286,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             this.brI = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<GifView>() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.4
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.e.c
-                /* renamed from: biu */
+                /* renamed from: bit */
                 public GifView jz() {
                     return new GifView(PushDialogActivity.this);
                 }
@@ -326,7 +326,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             this.brF = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<View>() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.5
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.e.c
-                /* renamed from: biv */
+                /* renamed from: biu */
                 public View jz() {
                     PlayVoiceBntNew playVoiceBntNew = new PlayVoiceBntNew(PushDialogActivity.this, PlayVoiceBntNew.PLAY_TYPE.NORMAL);
                     playVoiceBntNew.setPlayTimeTextView(e.C0210e.fontsize28);
@@ -344,7 +344,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 @Override // com.baidu.adp.lib.e.c
                 /* renamed from: by */
                 public View v(View view) {
-                    ((PlayVoiceBntNew) view).bEC();
+                    ((PlayVoiceBntNew) view).bEB();
                     return view;
                 }
 
@@ -366,7 +366,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             this.brG = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<LinearLayout>() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.6
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.e.c
-                /* renamed from: bix */
+                /* renamed from: biw */
                 public LinearLayout jz() {
                     LinearLayout linearLayout = new LinearLayout(PushDialogActivity.this);
                     linearLayout.setId(e.g.pb_text_voice_layout);
@@ -410,7 +410,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         this.brH = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<RelativeLayout>() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: biw */
+            /* renamed from: biv */
             public RelativeLayout jz() {
                 return new RelativeLayout(PushDialogActivity.this);
             }

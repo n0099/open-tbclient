@@ -36,7 +36,7 @@ public class SelectLocationActivity extends NavigationBarActivity {
                     Object item = SelectLocationActivity.this.fsX.getItem(i);
                     if (item instanceof a.C0318a) {
                         a.C0318a c0318a = (a.C0318a) item;
-                        messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c0318a.getName(), c0318a.getAddr(), c0318a.bDW()));
+                        messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c0318a.getName(), c0318a.getAddr(), c0318a.bDV()));
                         SelectLocationActivity.this.finish();
                         return;
                     }

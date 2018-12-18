@@ -12,7 +12,7 @@ public class c {
 
     public void a(JSONObject jSONObject, b bVar) {
         String str;
-        HashMap<String, String> bOb = bVar.bOb();
+        HashMap<String, String> bOa = bVar.bOa();
         try {
             JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
             int i = 0;
@@ -22,7 +22,7 @@ public class c {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i2));
                     metaData.setName_show(metaData.getUserName());
-                    if (bOb != null && (str = bOb.get(metaData.getUserName())) != null) {
+                    if (bOa != null && (str = bOa.get(metaData.getUserName())) != null) {
                         metaData.setPortrait(str);
                     }
                     this.hTF.add(metaData);
@@ -60,7 +60,7 @@ public class c {
         }
     }
 
-    public ArrayList<MetaData> bOc() {
+    public ArrayList<MetaData> bOb() {
         return this.hTF;
     }
 }

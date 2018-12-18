@@ -17,11 +17,11 @@ public abstract class a<T> extends AbstractDataSource<T> {
     public a(ai<T> aiVar, an anVar, com.facebook.imagepipeline.g.b bVar) {
         this.iok = anVar;
         this.imT = bVar;
-        this.imT.a(anVar.bYR(), this.iok.bUu(), this.iok.getId(), this.iok.bYU());
-        aiVar.a(bXL(), anVar);
+        this.imT.a(anVar.bYQ(), this.iok.bUt(), this.iok.getId(), this.iok.bYT());
+        aiVar.a(bXK(), anVar);
     }
 
-    private j<T> bXL() {
+    private j<T> bXK() {
         return new com.facebook.imagepipeline.producers.b<T>() { // from class: com.facebook.imagepipeline.e.a.1
             @Override // com.facebook.imagepipeline.producers.b
             protected void d(@Nullable T t, boolean z) {
@@ -34,8 +34,8 @@ public abstract class a<T> extends AbstractDataSource<T> {
             }
 
             @Override // com.facebook.imagepipeline.producers.b
-            protected void bXM() {
-                a.this.bXM();
+            protected void bXL() {
+                a.this.bXL();
             }
 
             @Override // com.facebook.imagepipeline.producers.b
@@ -48,25 +48,25 @@ public abstract class a<T> extends AbstractDataSource<T> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void d(@Nullable T t, boolean z) {
         if (super.a((a<T>) t, z) && z) {
-            this.imT.a(this.iok.bYR(), this.iok.getId(), this.iok.bYU());
+            this.imT.a(this.iok.bYQ(), this.iok.getId(), this.iok.bYT());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void A(Throwable th) {
         if (super.t(th)) {
-            this.imT.a(this.iok.bYR(), this.iok.getId(), th, this.iok.bYU());
+            this.imT.a(this.iok.bYQ(), this.iok.getId(), th, this.iok.bYT());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void bXM() {
+    public synchronized void bXL() {
         g.checkState(isClosed());
     }
 
     @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-    public boolean bTI() {
-        if (!super.bTI()) {
+    public boolean bTH() {
+        if (!super.bTH()) {
             return false;
         }
         if (!super.isFinished()) {

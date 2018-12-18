@@ -91,7 +91,7 @@ public class b {
         this.hQx = arrayList;
     }
 
-    public ArrayList<String> bMV() {
+    public ArrayList<String> bMU() {
         return this.hQx;
     }
 
@@ -105,7 +105,7 @@ public class b {
         this.bgColor = al.getColor(this.hQz);
     }
 
-    public int bMW() {
+    public int bMV() {
         return this.hQA;
     }
 
@@ -113,7 +113,7 @@ public class b {
         this.hQB = z;
     }
 
-    public boolean bMX() {
+    public boolean bMW() {
         return this.hQB;
     }
 
@@ -121,7 +121,7 @@ public class b {
         this.hQC = z;
     }
 
-    public boolean bMY() {
+    public boolean bMX() {
         return this.hQC;
     }
 
@@ -129,7 +129,7 @@ public class b {
         this.Zm = str;
     }
 
-    public String bMZ() {
+    public String bMY() {
         return this.Zm;
     }
 }

@@ -79,8 +79,8 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            PersonGroupActivity aTG = PersonalGroupFragment.this.aTG();
-            if (PersonalGroupFragment.this.getActivity() != null && PersonalGroupFragment.this.eXo != null && aTG != null && aTG.aTD() != null) {
+            PersonGroupActivity aTF = PersonalGroupFragment.this.aTF();
+            if (PersonalGroupFragment.this.getActivity() != null && PersonalGroupFragment.this.eXo != null && aTF != null && aTF.aTC() != null) {
                 if (socketResponsedMessage.getCmd() == 103003) {
                     PersonalGroupFragment.this.eXo.completePullRefreshPostDelayed(SystemScreenshotManager.DELAY_TIME);
                 }
@@ -96,11 +96,11 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
                 if (PersonalGroupFragment.this.pageType == 1) {
                     groups = responseGroupsByUidMessage.getCommonGroups();
                 }
-                if (!aTG.aTC()) {
-                    aTG.setGroups(responseGroupsByUidMessage.getGroups());
-                    aTG.setCommonGroups(responseGroupsByUidMessage.getCommonGroups());
+                if (!aTF.aTB()) {
+                    aTF.setGroups(responseGroupsByUidMessage.getGroups());
+                    aTF.setCommonGroups(responseGroupsByUidMessage.getCommonGroups());
                 }
-                aTG.bp(responseGroupsByUidMessage.getGroupNum(), responseGroupsByUidMessage.getCommonGroupNum());
+                aTF.bp(responseGroupsByUidMessage.getGroupNum(), responseGroupsByUidMessage.getCommonGroupNum());
                 if (groups != null) {
                     PersonalGroupFragment.this.eXp.cM(groups);
                     PersonalGroupFragment.this.eXp.notifyDataSetChanged();
@@ -116,8 +116,8 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
                 }
                 if (socketResponsedMessage.getCmd() == 103003) {
                     PersonalGroupFragment.this.eCl = false;
-                } else if (socketResponsedMessage.getCmd() == 2001106 && aTG.aTD() != null) {
-                    aTG.aTD().update();
+                } else if (socketResponsedMessage.getCmd() == 2001106 && aTF.aTC() != null) {
+                    aTF.aTC().update();
                 }
             }
         }
@@ -126,8 +126,8 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            PersonGroupActivity aTG = PersonalGroupFragment.this.aTG();
-            if (PersonalGroupFragment.this.getActivity() != null && PersonalGroupFragment.this.eXo != null && aTG != null && aTG.aTD() != null) {
+            PersonGroupActivity aTF = PersonalGroupFragment.this.aTF();
+            if (PersonalGroupFragment.this.getActivity() != null && PersonalGroupFragment.this.eXo != null && aTF != null && aTF.aTC() != null) {
                 ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = (ResponseGroupsByUidLocalMessage) customResponsedMessage;
                 if (responseGroupsByUidLocalMessage.getError() != 0) {
                     if (responseGroupsByUidLocalMessage.getError() != 0 && !TextUtils.isEmpty(responseGroupsByUidLocalMessage.getErrorString())) {
@@ -136,12 +136,12 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
                     }
                     return;
                 }
-                if (aTG.aTC()) {
+                if (aTF.aTB()) {
                     List<GroupInfoData> groups = responseGroupsByUidLocalMessage.getGroups();
                     if (PersonalGroupFragment.this.pageType == 1) {
                         groups = responseGroupsByUidLocalMessage.getCommonGroups();
                     }
-                    aTG.bp(responseGroupsByUidLocalMessage.getGroupNum(), responseGroupsByUidLocalMessage.getCommonGroupNum());
+                    aTF.bp(responseGroupsByUidLocalMessage.getGroupNum(), responseGroupsByUidLocalMessage.getCommonGroupNum());
                     if (groups != null) {
                         PersonalGroupFragment.this.eXp.cM(groups);
                         PersonalGroupFragment.this.eXp.notifyDataSetChanged();
@@ -156,8 +156,8 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
                         PersonalGroupFragment.this.eXo.setVisibility(0);
                     }
                 }
-                if (aTG.aTD() != null) {
-                    aTG.aTD().update();
+                if (aTF.aTC() != null) {
+                    aTF.aTC().update();
                 }
             }
         }
@@ -174,7 +174,7 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
     };
     public boolean eCl = false;
 
-    public PersonGroupActivity aTG() {
+    public PersonGroupActivity aTF() {
         BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
         if (baseFragmentActivity instanceof PersonGroupActivity) {
             return (PersonGroupActivity) baseFragmentActivity;
@@ -224,7 +224,7 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
     public void onStart() {
         super.onStart();
         if (this.beX != null) {
-            this.beX.e(aTG().getPageContext());
+            this.beX.e(aTF().getPageContext());
         }
     }
 
@@ -242,15 +242,15 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
         this.pageType = getArguments().getInt("page_type", 0);
         getArguments().getInt("page_size", 1);
         View inflate = layoutInflater.inflate(e.h.person_group_fragment, viewGroup, false);
-        PersonGroupActivity aTG = aTG();
-        if (aTG != null && !aTG.aTC()) {
+        PersonGroupActivity aTF = aTF();
+        if (aTF != null && !aTF.aTB()) {
             if (this.pageType == 0) {
-                aD = NoDataViewFactory.d.gn(String.format(getString(e.j.person_group_no_personal_info), aTG.aTB()));
+                aD = NoDataViewFactory.d.gn(String.format(getString(e.j.person_group_no_personal_info), aTF.aTA()));
             } else {
                 aD = NoDataViewFactory.d.gn(getString(e.j.person_group_no_common_info));
             }
         } else {
-            aD = (aTG == null || !aTG.aTC()) ? null : NoDataViewFactory.d.aD(getString(e.j.group_no_data_tip), getString(e.j.group_no_data_tip_1));
+            aD = (aTF == null || !aTF.aTB()) ? null : NoDataViewFactory.d.aD(getString(e.j.group_no_data_tip), getString(e.j.group_no_data_tip_1));
         }
         this.beX = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(e.C0210e.ds102)), aD, null);
         this.eXo = (BdListView) inflate.findViewById(e.g.person_group_list);
@@ -259,9 +259,9 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
         this.mPullView.a(new j.b() { // from class: com.baidu.tieba.im.mygroup.PersonalGroupFragment.2
             @Override // com.baidu.tbadk.core.view.j.b
             public void bH(boolean z) {
-                PersonGroupActivity aTG2 = PersonalGroupFragment.this.aTG();
-                if (aTG2 != null) {
-                    aTG2.aTD().update();
+                PersonGroupActivity aTF2 = PersonalGroupFragment.this.aTF();
+                if (aTF2 != null) {
+                    aTF2.aTC().update();
                 }
             }
         });
@@ -271,7 +271,7 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
         this.beX.setVisibility(8);
         this.eXo.removeHeaderView(this.beX);
         this.eXq = inflate.findViewById(e.g.group_fragment_parent);
-        if (aTG() != null && this.pageType == aTG().aTA()) {
+        if (aTF() != null && this.pageType == aTF().aTz()) {
             this.eXo.startPullRefresh();
         }
         return inflate;
@@ -280,16 +280,16 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         GroupInfoData item = this.eXp.getItem(i);
-        PersonGroupActivity aTG = aTG();
-        if (aTG != null && !aTG.b(item) && item != null) {
-            if (this.pageType == 1 || aTG.aTC()) {
-                if (aTG.aTC()) {
+        PersonGroupActivity aTF = aTF();
+        if (aTF != null && !aTF.b(item) && item != null) {
+            if (this.pageType == 1 || aTF.aTB()) {
+                if (aTF.aTB()) {
                     TiebaStatic.eventStat(getActivity(), "my_group_item", AiAppsUBCStatistic.TYPE_CLICK, 1, new Object[0]);
                 } else {
                     TiebaStatic.eventStat(getActivity(), "common_group_item", AiAppsUBCStatistic.TYPE_CLICK, 1, new Object[0]);
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(getActivity(), item.getGroupId(), item.getName(), item.getAuthorId(), "group_lstb")));
-            } else if (aTG.cq(item.getGroupId())) {
+            } else if (aTF.cq(item.getGroupId())) {
                 TiebaStatic.eventStat(getActivity(), "common_group_item", AiAppsUBCStatistic.TYPE_CLICK, 1, new Object[0]);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(getActivity(), item.getGroupId(), item.getName(), item.getAuthorId(), "group_lstb")));
             } else {
@@ -307,8 +307,8 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
             if (view.getTag() instanceof GroupInfoData) {
                 groupInfoData = (GroupInfoData) view.getTag();
             }
-            PersonGroupActivity aTG = aTG();
-            if (aTG != null && !aTG.b(groupInfoData) && groupInfoData != null) {
+            PersonGroupActivity aTF = aTF();
+            if (aTF != null && !aTF.b(groupInfoData) && groupInfoData != null) {
                 sendMessage(new CustomMessage(2008011, new GroupInfoActivityConfig(getActivity(), groupInfoData.getGroupId(), 1)));
             }
         }
@@ -324,7 +324,7 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
             al.j(this.beX, e.d.cp_bg_line_d);
         }
         if (isAdded()) {
-            aTG().getLayoutMode().onModeChanged(this.eXq);
+            aTF().getLayoutMode().onModeChanged(this.eXq);
             this.mPullView.ey(i);
         }
     }

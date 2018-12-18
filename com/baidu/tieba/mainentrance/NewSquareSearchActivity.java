@@ -75,8 +75,8 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         registerListener(this.ftw);
         this.ftu = new com.baidu.tieba.mainentrance.a.e(this);
         this.ftr = new HotForumModel(getPageContext(), this);
-        this.ftr.aZE();
-        aZH();
+        this.ftr.aZD();
+        aZG();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -103,7 +103,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         }
     }
 
-    private void aZH() {
+    private void aZG() {
         this.ftx = (HotSearchInfoData) OrmObject.objectWithJsonStr(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("hot_search_info", ""), HotSearchInfoData.class);
         if (this.ftx != null) {
             this.mHotSearchInfo = this.ftx;
@@ -135,9 +135,9 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            BaseWebView baA = this.ftu.baA();
-            if (i == 4 && baA != null && baA.canGoBack()) {
-                baA.goBack();
+            BaseWebView baz = this.ftu.baz();
+            if (i == 4 && baz != null && baz.canGoBack()) {
+                baz.goBack();
                 return true;
             }
             closeActivity();

@@ -12,7 +12,7 @@ public class d {
         this.hkK = absDelegateAdapterList;
     }
 
-    public AbsDelegateAdapterList bCS() {
+    public AbsDelegateAdapterList bCR() {
         return this.hkK;
     }
 }

@@ -17,7 +17,7 @@ public final class UnsafeLazyImpl<T> implements Serializable, a<T> {
         if (this._value == d.ixK) {
             kotlin.jvm.a.a<? extends T> aVar = this.initializer;
             if (aVar == null) {
-                p.cbO();
+                p.cbN();
             }
             this._value = aVar.invoke();
             this.initializer = null;

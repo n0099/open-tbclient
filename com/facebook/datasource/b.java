@@ -6,12 +6,12 @@ import javax.annotation.Nullable;
 public interface b<T> {
     void a(d<T> dVar, Executor executor);
 
-    boolean bTF();
+    boolean bTE();
 
     @Nullable
-    Throwable bTH();
+    Throwable bTG();
 
-    boolean bTI();
+    boolean bTH();
 
     float getProgress();
 

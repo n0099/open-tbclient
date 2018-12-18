@@ -83,7 +83,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         public void m(Object obj) {
             boolean z = false;
             if (obj != null && (obj instanceof r)) {
-                c.bBd().ad(TbTitleActivity.this.mForumName, false);
+                c.bBc().ad(TbTitleActivity.this.mForumName, false);
                 z = true;
             }
             if (!z) {
@@ -150,7 +150,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
                 if (!TextUtils.isEmpty(str)) {
-                    com.baidu.tieba.im.settingcache.d.aUk().i(TbadkCoreApplication.getCurrentAccount(), String.valueOf(str), z);
+                    com.baidu.tieba.im.settingcache.d.aUj().i(TbadkCoreApplication.getCurrentAccount(), String.valueOf(str), z);
                 }
                 return null;
             }

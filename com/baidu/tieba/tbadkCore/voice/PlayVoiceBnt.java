@@ -98,11 +98,11 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
             this.mProgress.setVisibility(4);
         }
         this.mContext = context;
-        bEy();
+        bEx();
         setContentDescription(TbadkCoreApplication.getInst().getString(e.j.msglist_voice));
     }
 
-    private void bEy() {
+    private void bEx() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.play_type == 0) {
             int i = skinType != 1 ? -13553101 : -6574132;
@@ -167,10 +167,10 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
                 this.fat.setVisibility(0);
             }
             this.mProgress.setVisibility(4);
-            aUF();
+            aUE();
             return;
         }
-        aUG();
+        aUF();
         if (i == 1) {
             if (this.fat != null) {
                 this.fat.setVisibility(0);
@@ -202,7 +202,7 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
         }
     }
 
-    private void bEz() {
+    private void bEy() {
         int i;
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.play_type == 0) {
@@ -226,16 +226,16 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
         }
     }
 
-    private void aUF() {
+    private void aUE() {
         if (this.bdY != null) {
             this.bdY.stop();
         }
-        bEz();
+        bEy();
         this.bdY = (AnimationDrawable) this.fat.getDrawable();
         this.bdY.start();
     }
 
-    public void aUG() {
+    public void aUF() {
         Drawable drawable = this.fat.getDrawable();
         if (drawable instanceof AnimationDrawable) {
             this.bdY = (AnimationDrawable) drawable;
@@ -281,7 +281,7 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
             }
             this.play_type = tbRichTextVoiceInfo.SV();
             setVoiceModel(voiceModel);
-            bEy();
+            bEx();
             obj = voiceModel;
         }
         super.setTag(obj);
@@ -300,7 +300,7 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
     public void bz(int i) {
-        if (!bEA()) {
+        if (!bEz()) {
             qw(1);
             return;
         }
@@ -313,7 +313,7 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
         }
     }
 
-    private boolean bEA() {
+    private boolean bEz() {
         if (this.fax == null) {
             return false;
         }

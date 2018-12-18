@@ -43,7 +43,7 @@ public class h<T> {
     }
 
     public final k subscribe() {
-        return subscribe(Actions.cdb(), Actions.cdc());
+        return subscribe(Actions.cda(), Actions.cdb());
     }
 
     public final k subscribe(final rx.functions.b<? super T> bVar, final rx.functions.b<Throwable> bVar2) {
@@ -85,7 +85,7 @@ public class h<T> {
             rx.exceptions.a.J(th);
             try {
                 iVar.onError(rx.c.c.X(th));
-                return rx.subscriptions.e.cft();
+                return rx.subscriptions.e.cfs();
             } catch (Throwable th2) {
                 rx.exceptions.a.J(th2);
                 RuntimeException runtimeException = new RuntimeException("Error occurred attempting to subscribe [" + th.getMessage() + "] and then again while trying to pass to onError.", th2);
@@ -95,7 +95,7 @@ public class h<T> {
         }
     }
 
-    public final d<T> ccT() {
+    public final d<T> ccS() {
         return a(this);
     }
 
@@ -103,7 +103,7 @@ public class h<T> {
         if (bVar == null) {
             throw new IllegalArgumentException("onError is null");
         }
-        return a((a) new cp(this, Actions.cdb(), new rx.functions.b<Throwable>() { // from class: rx.h.2
+        return a((a) new cp(this, Actions.cda(), new rx.functions.b<Throwable>() { // from class: rx.h.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             public void call(Throwable th) {
@@ -116,7 +116,7 @@ public class h<T> {
         if (bVar == null) {
             throw new IllegalArgumentException("onSuccess is null");
         }
-        return a((a) new cp(this, bVar, Actions.cdb()));
+        return a((a) new cp(this, bVar, Actions.cda()));
     }
 
     public final h<T> a(long j, TimeUnit timeUnit, g gVar) {

@@ -10,7 +10,7 @@ public class as implements ai<com.facebook.imagepipeline.f.d> {
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        if (ajVar.bYR().bZH() == null) {
+        if (ajVar.bYQ().bZG() == null) {
             jVar.e(null, true);
         } else if (!a(0, jVar, ajVar)) {
             jVar.e(null, true);
@@ -28,7 +28,7 @@ public class as implements ai<com.facebook.imagepipeline.f.d> {
             super(jVar);
             this.ipQ = ajVar;
             this.irA = i;
-            this.ilm = this.ipQ.bYR().bZH();
+            this.ilm = this.ipQ.bYQ().bZG();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -37,26 +37,26 @@ public class as implements ai<com.facebook.imagepipeline.f.d> {
         /* renamed from: a */
         public void d(com.facebook.imagepipeline.f.d dVar, boolean z) {
             if (dVar != null && (!z || au.a(dVar, this.ilm))) {
-                bZe().e(dVar, z);
+                bZd().e(dVar, z);
             } else if (z) {
                 com.facebook.imagepipeline.f.d.e(dVar);
-                if (!as.this.a(this.irA + 1, bZe(), this.ipQ)) {
-                    bZe().e(null, true);
+                if (!as.this.a(this.irA + 1, bZd(), this.ipQ)) {
+                    bZd().e(null, true);
                 }
             }
         }
 
         @Override // com.facebook.imagepipeline.producers.m, com.facebook.imagepipeline.producers.b
         protected void A(Throwable th) {
-            if (!as.this.a(this.irA + 1, bZe(), this.ipQ)) {
-                bZe().B(th);
+            if (!as.this.a(this.irA + 1, bZd(), this.ipQ)) {
+                bZd().B(th);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(int i, j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        int a2 = a(i, ajVar.bYR().bZH());
+        int a2 = a(i, ajVar.bYQ().bZG());
         if (a2 == -1) {
             return false;
         }

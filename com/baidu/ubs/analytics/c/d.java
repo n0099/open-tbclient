@@ -15,7 +15,7 @@ public final class d {
         this.icJ = new Stack<>();
     }
 
-    public final Stack<WeakReference<Activity>> bRO() {
+    public final Stack<WeakReference<Activity>> bRN() {
         return this.icJ;
     }
 
@@ -39,11 +39,11 @@ public final class d {
                 i = i2 + 1;
             }
         }
-        bRP();
+        bRO();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final String bRP() {
+    public final String bRO() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < this.icJ.size(); i++) {
             Activity activity = this.icJ.get(i).get();

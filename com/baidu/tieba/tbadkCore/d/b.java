@@ -28,28 +28,28 @@ public class b {
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e bDK;
-        if (this.hmx != null && (bDK = bDK()) != null) {
+        e bDJ;
+        if (this.hmx != null && (bDJ = bDJ()) != null) {
             if (z) {
-                if (bDK.hmE != null) {
-                    bDK.hmE.num++;
+                if (bDJ.hmE != null) {
+                    bDJ.hmE.num++;
                     if (z2) {
-                        bDK.hmE.hmB += j2;
-                        bDK.hmE.size += j;
+                        bDJ.hmE.hmB += j2;
+                        bDJ.hmE.size += j;
                     } else {
-                        bDK.hmE.hmC++;
+                        bDJ.hmE.hmC++;
                     }
                 } else {
                     return;
                 }
-            } else if (bDK.hmF != null) {
-                bDK.hmF.num++;
+            } else if (bDJ.hmF != null) {
+                bDJ.hmF.num++;
                 if (z2) {
-                    bDK.hmF.hmB += j3;
-                    bDK.hmF.size += j;
+                    bDJ.hmF.hmB += j3;
+                    bDJ.hmF.size += j;
                     j2 = j3;
                 } else {
-                    bDK.hmF.hmC++;
+                    bDJ.hmF.hmC++;
                     j2 = j3;
                 }
             } else {
@@ -57,7 +57,7 @@ public class b {
             }
             this.hmx = null;
             if (z2) {
-                c.a(bDK, 10);
+                c.a(bDJ, 10);
             }
             if (this.mLogType == "frsStat") {
                 if (!z2 || j2 > 3000) {
@@ -76,19 +76,19 @@ public class b {
     }
 
     public void destory() {
-        e bDK;
-        if (this.hmx != null && (bDK = bDK()) != null && bDK.hmG != null) {
+        e bDJ;
+        if (this.hmx != null && (bDJ = bDJ()) != null && bDJ.hmG != null) {
             long jK = this.hmx.jK();
             if (jK > 3000) {
-                d dVar = bDK.hmG;
+                d dVar = bDJ.hmG;
                 dVar.hmB = jK + dVar.hmB;
-                bDK.hmG.num++;
-                c.a(bDK, 10);
+                bDJ.hmG.num++;
+                c.a(bDJ, 10);
             }
         }
     }
 
-    private e bDK() {
+    private e bDJ() {
         return c.l(this.mLogType, getNetType(), this.aDS);
     }
 

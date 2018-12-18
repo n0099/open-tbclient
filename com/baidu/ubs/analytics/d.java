@@ -27,7 +27,7 @@ public final class d {
         this();
     }
 
-    public final Map<String, g> bRI() {
+    public final Map<String, g> bRH() {
         return this.k;
     }
 
@@ -39,7 +39,7 @@ public final class d {
         this.j = z;
     }
 
-    public static d bRJ() {
+    public static d bRI() {
         return a.icu;
     }
 

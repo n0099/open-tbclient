@@ -15,7 +15,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
         this.gvY = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<PersonCommonForumItemView>() { // from class: com.baidu.tieba.personPolymeric.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: bpS */
+            /* renamed from: bpR */
             public PersonCommonForumItemView jz() {
                 return new PersonCommonForumItemView(b.this.mContext);
             }

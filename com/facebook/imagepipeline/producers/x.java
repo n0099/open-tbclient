@@ -30,16 +30,16 @@ public class x implements at<com.facebook.imagepipeline.f.d> {
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        al bYS = ajVar.bYS();
+        al bYR = ajVar.bYR();
         String id = ajVar.getId();
-        final ImageRequest bYR = ajVar.bYR();
-        final ao<com.facebook.imagepipeline.f.d> aoVar = new ao<com.facebook.imagepipeline.f.d>(jVar, bYS, "LocalExifThumbnailProducer", id) { // from class: com.facebook.imagepipeline.producers.x.1
+        final ImageRequest bYQ = ajVar.bYQ();
+        final ao<com.facebook.imagepipeline.f.d> aoVar = new ao<com.facebook.imagepipeline.f.d>(jVar, bYR, "LocalExifThumbnailProducer", id) { // from class: com.facebook.imagepipeline.producers.x.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.common.b.e
-            /* renamed from: bZo */
+            /* renamed from: bZn */
             public com.facebook.imagepipeline.f.d getResult() throws Exception {
-                ExifInterface D = x.this.D(bYR.bZE());
+                ExifInterface D = x.this.D(bYQ.bZD());
                 if (D == null || !D.hasThumbnail()) {
                     return null;
                 }
@@ -64,7 +64,7 @@ public class x implements at<com.facebook.imagepipeline.f.d> {
         };
         ajVar.a(new e() { // from class: com.facebook.imagepipeline.producers.x.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-            public void bYY() {
+            public void bYX() {
                 aoVar.cancel();
             }
         });

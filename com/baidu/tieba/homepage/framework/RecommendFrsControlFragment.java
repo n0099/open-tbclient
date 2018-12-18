@@ -243,7 +243,7 @@ public class RecommendFrsControlFragment extends BaseFragment {
                 }
             }
             this.esT.setPrimary(isPrimary());
-            this.esT.aKR();
+            this.esT.aKQ();
             this.esT.setVideoThreadId(this.bPH);
         }
     }
@@ -270,7 +270,7 @@ public class RecommendFrsControlFragment extends BaseFragment {
             this.esU.hK(System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("concern_unread_tip_next_show_time"), 0L));
         }
         a.aKB().setCreateTime(System.currentTimeMillis() - a.aKB().op(1));
-        this.esT.aKT();
+        this.esT.aKS();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -302,7 +302,7 @@ public class RecommendFrsControlFragment extends BaseFragment {
 
             @Override // com.baidu.tieba.homepage.framework.c.a
             public void a(String str, String str2, int i, boolean z, int i2) {
-                if (RecommendFrsControlFragment.this.esT.aKQ()) {
+                if (RecommendFrsControlFragment.this.esT.aKP()) {
                     RecommendFrsControlFragment.this.esT.w(str2, i, i2);
                 }
             }
@@ -410,7 +410,7 @@ public class RecommendFrsControlFragment extends BaseFragment {
     public void setPrimary(boolean z) {
         super.setPrimary(z);
         if (!z) {
-            this.esT.aKU();
+            this.esT.aKT();
         }
     }
 

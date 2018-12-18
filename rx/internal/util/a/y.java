@@ -152,14 +152,14 @@ public class y<E> extends aa<E> {
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public final int size() {
-        long ceB = ceB();
+        long ceA = ceA();
         while (true) {
-            long ceC = ceC();
-            long ceB2 = ceB();
-            if (ceB == ceB2) {
-                return (int) (ceC - ceB2);
+            long ceB = ceB();
+            long ceA2 = ceA();
+            if (ceA == ceA2) {
+                return (int) (ceB - ceA2);
             }
-            ceB = ceB2;
+            ceA = ceA2;
         }
     }
 
@@ -167,11 +167,11 @@ public class y<E> extends aa<E> {
         this.iMq = Math.min(i / 4, iMp);
     }
 
-    private long ceC() {
+    private long ceB() {
         return ae.iMJ.getLongVolatile(this, iMD);
     }
 
-    private long ceB() {
+    private long ceA() {
         return ae.iMJ.getLongVolatile(this, iMC);
     }
 

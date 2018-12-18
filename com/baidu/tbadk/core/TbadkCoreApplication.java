@@ -282,9 +282,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
                         TbadkCoreApplication.this.setLocationLat(valueOf);
                         TbadkCoreApplication.this.setLocationLng(valueOf2);
                         TbadkCoreApplication.this.setLocationPos(address.getAddressLine(0));
-                        com.baidu.tieba.recapp.d.a.bvp().pF(valueOf);
-                        com.baidu.tieba.recapp.d.a.bvp().pE(valueOf2);
-                        com.baidu.tieba.recapp.d.a.bvp().db(System.currentTimeMillis());
+                        com.baidu.tieba.recapp.d.a.bvo().pF(valueOf);
+                        com.baidu.tieba.recapp.d.a.bvo().pE(valueOf2);
+                        com.baidu.tieba.recapp.d.a.bvo().db(System.currentTimeMillis());
                     }
                 } catch (IllegalStateException e) {
                     BdLog.e(e.getMessage());
@@ -703,7 +703,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         com.baidu.adp.lib.Disk.d.hB().ar(TbConfig.getTempDirName());
         boolean isMainProcess = isMainProcess(false);
         init(getContext());
-        com.baidu.tieba.n.a.buh().init();
+        com.baidu.tieba.n.a.bug().init();
         com.baidu.tbadk.distribute.a.LK().cl(isMainProcess);
         intReadThreadHistory(isMainProcess);
         initTasks();
@@ -715,7 +715,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         initChangeSkinReceiver();
         initAccount();
         initLocationSetting();
-        com.baidu.tieba.q.a.bGg().b(this);
+        com.baidu.tieba.q.a.bGf().b(this);
         registerGoActionTask();
         registerPhoneListener();
         initICDN();
@@ -741,20 +741,20 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
 
     private void initJpusbSdk() {
         if (isMainProcess(true)) {
-            com.baidu.tieba.q.b.bGj().b(this);
+            com.baidu.tieba.q.b.bGi().b(this);
         }
     }
 
     private void initStatSdk() {
         if (isMainProcess(true)) {
-            com.baidu.tieba.q.c.bGn().autoTrace(this);
-            com.baidu.tieba.q.c.bGn().setAppChannel(this, getFrom(), true);
+            com.baidu.tieba.q.c.bGm().autoTrace(this);
+            com.baidu.tieba.q.c.bGm().setAppChannel(this, getFrom(), true);
         }
     }
 
     private void initQuickWebViewManager() {
         if (isMainProcess(true)) {
-            com.baidu.tieba.quickWebView.c.bua().init();
+            com.baidu.tieba.quickWebView.c.btZ().init();
             long currentTimeMillis = System.currentTimeMillis();
             com.baidu.tbadk.coreExtra.messageCenter.c.Iw().initSetting();
             n.Pp().aN(System.currentTimeMillis() - currentTimeMillis);
@@ -997,7 +997,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        com.baidu.tieba.video.g.bHR();
+        com.baidu.tieba.video.g.bHQ();
         if (isMainProcess(true)) {
             com.baidu.tbadk.imageManager.c.Nu().K(TbConfig.getMaxPhotoMemoryCache(), TbConfig.getBigImageMaxUsedMemory());
         } else {
@@ -1024,7 +1024,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         TbConfig.initBigImageWidth(getContext());
         TbConfig.initFriendPhotoConfig(getContext());
         if (IS_SUPPORT_EXCEPTION_HANDLER) {
-            com.baidu.tieba.q.d.bGo();
+            com.baidu.tieba.q.d.bGn();
         }
         boolean isMainProcess = isMainProcess(false);
         long currentTimeMillis = System.currentTimeMillis();
@@ -2520,7 +2520,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         MessageManager.getInstance().sendMessage(new CustomMessage(2005007));
         com.baidu.tbadk.coreExtra.messageCenter.a.HP().bP(true);
         NotificationHelper.cancelAllNotification(this);
-        com.baidu.tieba.tbadkCore.util.a.bEm();
+        com.baidu.tieba.tbadkCore.util.a.bEl();
     }
 
     public void onUserChanged(Intent intent2) {

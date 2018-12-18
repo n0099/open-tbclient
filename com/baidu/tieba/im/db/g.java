@@ -15,7 +15,7 @@ public class g {
     private static volatile SQLiteDatabase vu = null;
     public static HashMap<String, SQLiteDatabase> eNF = new HashMap<>();
 
-    public static synchronized SQLiteDatabase aQu() {
+    public static synchronized SQLiteDatabase aQt() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (g.class) {
             try {
@@ -44,16 +44,16 @@ public class g {
         return sQLiteDatabase;
     }
 
-    public static LinkedList<String> aQv() {
+    public static LinkedList<String> aQu() {
         Cursor cursor;
         Throwable th;
         Exception exc;
         Cursor cursor2 = null;
-        SQLiteDatabase aQu = aQu();
+        SQLiteDatabase aQt = aQt();
         LinkedList<String> linkedList = new LinkedList<>();
-        if (aQu != null) {
+        if (aQt != null) {
             try {
-                cursor2 = aQu.rawQuery("select * from sqlite_master where type='table'", null);
+                cursor2 = aQt.rawQuery("select * from sqlite_master where type='table'", null);
                 if (cursor2 != null) {
                     try {
                         cursor2.moveToFirst();
@@ -95,17 +95,17 @@ public class g {
     public static void pY(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                h.aQw().aQx();
-                Iterator<String> it = aQv().iterator();
+                h.aQv().aQw();
+                Iterator<String> it = aQu().iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     if (next != null) {
                         if (next.equals("tb_message_center")) {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("is_hidden", (Integer) 1);
-                            h.aQw().update("tb_message_center", contentValues, null, null);
+                            h.aQv().update("tb_message_center", contentValues, null, null);
                         } else if (!next.equals("tb_new_friends")) {
-                            h.aQw().a(next, null, null);
+                            h.aQv().a(next, null, null);
                         }
                     }
                 }
@@ -114,7 +114,7 @@ public class g {
             TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
             e.printStackTrace();
         } finally {
-            h.aQw().endTransaction();
+            h.aQv().endTransaction();
         }
     }
 }

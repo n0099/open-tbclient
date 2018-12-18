@@ -138,7 +138,7 @@ public class m extends com.baidu.adp.base.c {
                 m.this.ffo = j2;
                 m.this.ffp = j3;
                 if (m.this.ffl != null && m.this.ffm != null) {
-                    if (!m.this.ffm.aWd() || m.this.ffm.getReplyer() == null) {
+                    if (!m.this.ffm.aWc() || m.this.ffm.getReplyer() == null) {
                         m.this.ffl.hU(null);
                     } else {
                         m.this.ffl.hU(m.this.ffm.getReplyer().getName_show());
@@ -288,8 +288,8 @@ public class m extends com.baidu.adp.base.c {
                     }
                     if (view.getId() == e.g.message_bottom_reply_container) {
                         m.this.ffm = aVar;
-                        if (aVar.aWd()) {
-                            d = com.baidu.adp.lib.g.b.d(aVar.aWe(), 0L);
+                        if (aVar.aWc()) {
+                            d = com.baidu.adp.lib.g.b.d(aVar.aWd(), 0L);
                         } else {
                             d = com.baidu.adp.lib.g.b.d(aVar.getPost_id(), 0L);
                         }
@@ -300,8 +300,8 @@ public class m extends com.baidu.adp.base.c {
                             m.this.ffe.parserWithMetaData(m.this.ffm.getThreadAuthor());
                         }
                         m.this.ffk.a(d, 2, aVar.getFname(), aVar.getThread_id());
-                        if (aVar.aWf() != null) {
-                            am x = new am(aVar.aWf()).x("obj_locate", 3);
+                        if (aVar.aWe() != null) {
+                            am x = new am(aVar.aWe()).x("obj_locate", 3);
                             if (aVar.getType() == com.baidu.tieba.imMessageCenter.mention.base.a.ffR) {
                                 x.x("obj_type", 1);
                             } else {
@@ -337,7 +337,7 @@ public class m extends com.baidu.adp.base.c {
             }
         });
         this.bRk.setOnScrollListener(this.mScrollListener);
-        aVZ();
+        aVY();
         this.ffk = new ReplyMeModel(this.feS.getPageContext());
         this.ffk.a(this.ffr);
         this.ffq = new DataModel<MessageCenterActivity>(com.baidu.adp.base.i.aK(this.feS.getPageContext().getContext())) { // from class: com.baidu.tieba.imMessageCenter.mention.m.13
@@ -364,7 +364,7 @@ public class m extends com.baidu.adp.base.c {
                 writeData.setThreadId(m.this.ffm.getThread_id());
                 writeData.setIsAd(false);
                 writeData.setFloorNum(0);
-                if (m.this.ffm.aWd()) {
+                if (m.this.ffm.aWc()) {
                     writeData.setFloor(m.this.ffo > 0 ? String.valueOf(m.this.ffo) : m.this.ffm.getOriginalThreadInfo().postId);
                 } else {
                     writeData.setFloor(m.this.ffm.getPost_id());
@@ -419,7 +419,7 @@ public class m extends com.baidu.adp.base.c {
         return this.mRootView;
     }
 
-    private void aVZ() {
+    private void aVY() {
         this.feZ = new com.baidu.tieba.imMessageCenter.mention.base.f(this.feS.getPageContext());
         this.ffa = new com.baidu.tieba.imMessageCenter.mention.base.f(this.feS.getPageContext());
         this.feZ.aC(this.feS.getString(e.j.at_me), e.f.icon_im_at);
@@ -448,10 +448,10 @@ public class m extends com.baidu.adp.base.c {
             al.j(this.mNoDataView, e.d.cp_bg_line_d);
         }
         if (this.feZ != null) {
-            this.feZ.aWg();
+            this.feZ.aWf();
         }
         if (this.ffa != null) {
-            this.ffa.aWg();
+            this.ffa.aWf();
         }
         notifyDataSetChanged();
         al.j(this.bRk, this.ffh);
@@ -484,7 +484,7 @@ public class m extends com.baidu.adp.base.c {
         }
     }
 
-    public void aWa() {
+    public void aVZ() {
         qE(this.fff);
         qF(this.ffg);
     }

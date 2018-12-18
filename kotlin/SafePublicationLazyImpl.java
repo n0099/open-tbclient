@@ -28,7 +28,7 @@ public final class SafePublicationLazyImpl<T> implements Serializable, kotlin.a<
             kotlin.jvm.a.a<? extends T> aVar = this.initializer;
             if (aVar != null) {
                 T invoke = aVar.invoke();
-                if (Companion.cbz().compareAndSet(this, d.ixK, invoke)) {
+                if (Companion.cby().compareAndSet(this, d.ixK, invoke)) {
                     this.initializer = null;
                     return invoke;
                 }
@@ -60,7 +60,7 @@ public final class SafePublicationLazyImpl<T> implements Serializable, kotlin.a<
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> cbz() {
+        public final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> cby() {
             return SafePublicationLazyImpl.ixJ;
         }
     }

@@ -127,11 +127,11 @@ public class e {
         this.iov = i2;
     }
 
-    public int bXQ() {
+    public int bXP() {
         return this.iow;
     }
 
-    public int bXR() {
+    public int bXQ() {
         return this.iov;
     }
 }

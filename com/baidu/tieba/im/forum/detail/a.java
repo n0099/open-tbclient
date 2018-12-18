@@ -67,7 +67,7 @@ public class a extends c<ForumDetailActivity> {
         this.eOk = (ItemFootNavView) this.eOa.findViewById(e.g.item_foot_nav);
         this.eOk.setClickable(true);
         this.mRootView = this.eOa.findViewById(e.g.root_rl);
-        aQW();
+        aQV();
         this.eOh.setMsgOnClickListener(this.eOa);
         this.eOi.setEmotionOnClickListener(this.eOa);
         this.eOh.setSwitchChangeListener(this.eOa);
@@ -96,7 +96,7 @@ public class a extends c<ForumDetailActivity> {
         this.mProgressBar.setVisibility(0);
     }
 
-    private ProgressBar aQW() {
+    private ProgressBar aQV() {
         this.mProgressBar = new ProgressBar(this.eOa.getPageContext().getPageActivity());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
@@ -123,7 +123,7 @@ public class a extends c<ForumDetailActivity> {
         this.eOk.e(this.eOa);
     }
 
-    public void aQX() {
+    public void aQW() {
         if (this.eOl == null) {
             this.eOl = new com.baidu.tbadk.core.dialog.a(this.eOa.getPageContext().getPageActivity());
             this.eOl.db(e.j.officical_bar_info_clean_alert);
@@ -144,7 +144,7 @@ public class a extends c<ForumDetailActivity> {
         this.eOl.b(getPageContext()).BF();
     }
 
-    public NoNetworkView aQY() {
+    public NoNetworkView aQX() {
         return this.bOx;
     }
 

@@ -152,13 +152,13 @@ public class d {
     private Runnable eeh = new Runnable() { // from class: com.baidu.tieba.tblauncher.d.4
         @Override // java.lang.Runnable
         public void run() {
-            d.this.bFL();
+            d.this.bFK();
         }
     };
     private View.OnClickListener eei = new View.OnClickListener() { // from class: com.baidu.tieba.tblauncher.d.5
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.this.bFL();
+            d.this.bFK();
         }
     };
 
@@ -185,7 +185,7 @@ public class d {
                 } else {
                     TiebaStatic.log("kantie_entry");
                 }
-                d.this.bFK();
+                d.this.bFJ();
                 if (d.this.mTabHost.getCurrentTabType() != d.this.mTabHost.dy(i).mType) {
                     d.this.mTabHost.setCurrentTab(i);
                 }
@@ -194,7 +194,7 @@ public class d {
                     d.this.mSearchButton.setVisibility(0);
                 }
                 d.this.fGG = d.this.mTabHost.getCurrentTabType();
-                d.this.bFI();
+                d.this.bFH();
                 if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("enter_forum_edit_mode", false)) {
                     if (d.this.mTabHost.getCurrentTabType() != 3) {
                         if (d.this.mTabHost.getCurrentTabType() == 2) {
@@ -267,11 +267,11 @@ public class d {
         }
     }
 
-    public void bFG() {
+    public void bFF() {
         com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("has_show_message_tab_tips", this.hrC);
     }
 
-    public boolean bFH() {
+    public boolean bFG() {
         return this.hrz != null && this.hrz.getVisibility() == 0;
     }
 
@@ -376,7 +376,7 @@ public class d {
         }
     }
 
-    public void bFI() {
+    public void bFH() {
         FragmentTabHost.b dz;
         if (this.mTabHost != null && (dz = this.mTabHost.dz(this.mTabHost.getCurrentTabType())) != null && dz.azA != null && dz.azA.NP() != null) {
             String string = this.hrt.getPageContext().getString(dz.azA.NP().aFr);
@@ -484,7 +484,7 @@ public class d {
     }
 
     public void nI(boolean z) {
-        if (bFH()) {
+        if (bFG()) {
             if (z) {
                 if (this.hrA.getVisibility() != 0) {
                     this.hrA.setVisibility(0);
@@ -538,7 +538,7 @@ public class d {
         }
     }
 
-    public boolean bdm() {
+    public boolean bdl() {
         return this.fGK;
     }
 
@@ -573,11 +573,11 @@ public class d {
         return this.mTabHost;
     }
 
-    public MaintabBottomIndicator bFJ() {
+    public MaintabBottomIndicator bFI() {
         return this.hrF;
     }
 
-    public void bFK() {
+    public void bFJ() {
         if (this.mTabHost != null) {
             if ((this.mTabHost.getCurrentTabType() == 8 || this.mTabHost.getCurrentTabType() == 3 || this.mTabHost.getCurrentTabType() == 2 || this.mTabHost.getCurrentTabType() == 15 || this.mTabHost.getCurrentTabType() == 1) && this.mNavigationBar != null) {
                 this.mNavigationBar.setVisibility(8);
@@ -593,7 +593,7 @@ public class d {
         }
     }
 
-    public void bFL() {
+    public void bFK() {
         this.mHandler.removeCallbacks(this.eeg);
         this.mHandler.removeCallbacks(this.eeh);
         g.a(this.hrD);
@@ -625,11 +625,11 @@ public class d {
     }
 
     public void onDestroy() {
-        bFG();
+        bFF();
         if (aCo() != null) {
             aCo().reset();
         }
-        bFL();
+        bFK();
         if (this.dZG != null) {
             this.dZG.onDestroy();
         }

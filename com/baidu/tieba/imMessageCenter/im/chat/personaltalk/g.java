@@ -80,9 +80,9 @@ public class g {
 
     public void e(f fVar) {
         if (fVar != null) {
-            j(fVar.aUS(), fVar.aUR().sex.intValue());
-            jc(fVar.aUQ());
-            a(fVar.aUR());
+            j(fVar.aUR(), fVar.aUQ().sex.intValue());
+            jc(fVar.aUP());
+            a(fVar.aUQ());
             f(fVar);
         }
     }
@@ -116,7 +116,7 @@ public class g {
 
     public void f(f fVar) {
         String str;
-        if (fVar != null && fVar.aUR() != null && (str = fVar.aUR().portrait) != null && str.length() > 0) {
+        if (fVar != null && fVar.aUQ() != null && (str = fVar.aUQ().portrait) != null && str.length() > 0) {
             this.dKK.setImageResource(0);
             this.dKK.startLoad(str, 12, false);
         }

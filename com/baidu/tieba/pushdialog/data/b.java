@@ -35,7 +35,7 @@ public class b {
         return this.postNum;
     }
 
-    public TbRichText btE() {
+    public TbRichText btD() {
         return this.gIz;
     }
 }

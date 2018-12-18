@@ -225,7 +225,7 @@ public final class OperatorEagerConcatMap<T, R> implements d.b<R, T> {
         public a(b<?, T> bVar, int i) {
             Queue<Object> cVar;
             this.parent = bVar;
-            if (rx.internal.util.a.ae.ceG()) {
+            if (rx.internal.util.a.ae.ceF()) {
                 cVar = new rx.internal.util.a.q<>(i);
             } else {
                 cVar = new rx.internal.util.atomic.c<>(i);

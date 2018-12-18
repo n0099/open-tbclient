@@ -201,13 +201,13 @@ public class b {
 
     public void resume() {
         if (this.dKi != null) {
-            this.dKi.aZe();
+            this.dKi.aZd();
         }
     }
 
     public void pause() {
         if (this.dKi != null) {
-            this.dKi.aZd();
+            this.dKi.aZc();
         }
     }
 

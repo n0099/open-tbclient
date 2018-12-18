@@ -6,7 +6,7 @@ public class n implements s {
     private n() {
     }
 
-    public static synchronized n bYw() {
+    public static synchronized n bYv() {
         n nVar;
         synchronized (n.class) {
             if (ipf == null) {
@@ -26,11 +26,11 @@ public class n implements s {
     }
 
     @Override // com.facebook.imagepipeline.memory.s
-    public void bYx() {
+    public void bYw() {
     }
 
     @Override // com.facebook.imagepipeline.memory.s
-    public void bYy() {
+    public void bYx() {
     }
 
     @Override // com.facebook.imagepipeline.memory.s

@@ -20,7 +20,7 @@ public class a {
     private a() {
     }
 
-    public static a bvp() {
+    public static a bvo() {
         if (gQL == null) {
             synchronized (c.class) {
                 if (gQL == null) {
@@ -43,7 +43,7 @@ public class a {
         this.AJ = j;
     }
 
-    private String bvq() {
+    private String bvp() {
         if (TextUtils.isEmpty(this.gQJ)) {
             WifiInfo connectionInfo = ((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo();
             if (connectionInfo != null) {
@@ -63,13 +63,13 @@ public class a {
         this.gQK = str;
     }
 
-    public void bvr() {
+    public void bvq() {
         b.getInstance().putString("asp_shown_info", this.gQK);
     }
 
-    public AppPosInfo bvs() {
+    public AppPosInfo bvr() {
         AppPosInfo.Builder builder = new AppPosInfo.Builder();
-        builder.ap_mac = bvq();
+        builder.ap_mac = bvp();
         builder.ap_connected = Boolean.valueOf(j.kW());
         builder.latitude = this.latitude;
         builder.longitude = this.longitude;

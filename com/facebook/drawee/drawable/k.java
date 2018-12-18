@@ -149,12 +149,12 @@ public class k extends BitmapDrawable implements j, o {
 
     @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!bUP()) {
+        if (!bUO()) {
             super.draw(canvas);
             return;
         }
+        bUP();
         bUQ();
-        bUR();
         mh();
         int save = canvas.save();
         canvas.concat(this.ijt);
@@ -167,11 +167,11 @@ public class k extends BitmapDrawable implements j, o {
         canvas.restoreToCount(save);
     }
 
-    boolean bUP() {
+    boolean bUO() {
         return this.ijh || this.iji || this.mBorderWidth > 0.0f;
     }
 
-    private void bUQ() {
+    private void bUP() {
         if (this.iiG != null) {
             this.iiG.e(this.ijr);
             this.iiG.b(this.ijl);
@@ -196,7 +196,7 @@ public class k extends BitmapDrawable implements j, o {
         }
     }
 
-    private void bUR() {
+    private void bUQ() {
         if (this.ijw) {
             this.bIx.reset();
             this.ijl.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);

@@ -32,7 +32,7 @@ public class PbLocationInfoView extends TextView {
 
     public void onChangeSkinType() {
         setTextColor(al.getColor(e.d.cp_cont_c));
-        aZA();
+        aZz();
     }
 
     public void setState(int i, String str) {
@@ -48,14 +48,14 @@ public class PbLocationInfoView extends TextView {
             }
             setText(str);
         }
-        aZA();
+        aZz();
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void aZA() {
+    public void aZz() {
         if (this.mState == 1) {
             Drawable drawable = al.getDrawable(e.f.icon_posts_pin_loading_anim);
             if (drawable != null) {

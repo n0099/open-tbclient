@@ -13,9 +13,9 @@ public class l extends q.a implements com.baidu.tieba.play.f {
         this.dZj = eVar;
     }
 
-    public void aYt() {
+    public void aYs() {
         if (this.dZj != null) {
-            this.dZj.aYt();
+            this.dZj.aYs();
         }
     }
 

@@ -21,7 +21,7 @@ public final class i implements h {
     }
 
     @Override // kotlin.text.h
-    public kotlin.b.c cbZ() {
+    public kotlin.b.c cbY() {
         kotlin.b.c a2;
         MatchResult matchResult = this.iyS;
         kotlin.jvm.internal.p.g(matchResult, "matchResult");
@@ -67,7 +67,7 @@ public final class i implements h {
             MatchResult matchResult = i.this.iyS;
             kotlin.jvm.internal.p.g(matchResult, "matchResult");
             a = j.a(matchResult, i);
-            if (a.cbU().intValue() >= 0) {
+            if (a.cbT().intValue() >= 0) {
                 String group = i.this.iyS.group(i);
                 kotlin.jvm.internal.p.g(group, "matchResult.group(index)");
                 return new e(group, a);
@@ -77,7 +77,7 @@ public final class i implements h {
     }
 
     @Override // kotlin.text.h
-    public h cca() {
+    public h cbZ() {
         h a2;
         int end = (this.iyS.end() == this.iyS.start() ? 1 : 0) + this.iyS.end();
         if (end <= this.iyV.length()) {

@@ -29,7 +29,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence bne() {
+    public CharSequence bnd() {
         return this.gjH;
     }
 
@@ -51,7 +51,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean bnf() {
+    public boolean bne() {
         return false;
     }
 }

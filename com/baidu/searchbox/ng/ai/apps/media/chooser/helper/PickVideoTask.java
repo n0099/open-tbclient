@@ -153,7 +153,7 @@ public class PickVideoTask extends AsyncTask<VideoPickHelper.PickData, String, T
                 }
                 return outputTmpPath;
             }
-        }).subscribeOn(Schedulers.io()).observeOn(a.ccY()).subscribe(new b<String>() { // from class: com.baidu.searchbox.ng.ai.apps.media.chooser.helper.PickVideoTask.2
+        }).subscribeOn(Schedulers.io()).observeOn(a.ccX()).subscribe(new b<String>() { // from class: com.baidu.searchbox.ng.ai.apps.media.chooser.helper.PickVideoTask.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             public void call(String str) {

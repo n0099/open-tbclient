@@ -5,11 +5,11 @@ import rx.k;
 public final class e {
     private static final a iOF = new a();
 
-    public static k cft() {
-        return rx.subscriptions.a.cfn();
+    public static k cfs() {
+        return rx.subscriptions.a.cfm();
     }
 
-    public static k cfu() {
+    public static k cft() {
         return iOF;
     }
 

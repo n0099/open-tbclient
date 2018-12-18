@@ -23,13 +23,13 @@ public class PushService extends Service implements com.coloros.mcssdk.d.a {
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
         List<com.coloros.mcssdk.e.c> j = com.coloros.mcssdk.a.c.j(getApplicationContext(), intent);
-        List<com.coloros.mcssdk.b.c> bSk = a.bSl().bSk();
-        if (j == null || j.size() == 0 || bSk == null || bSk.size() == 0) {
+        List<com.coloros.mcssdk.b.c> bSj = a.bSk().bSj();
+        if (j == null || j.size() == 0 || bSj == null || bSj.size() == 0) {
             return super.onStartCommand(intent, i, i2);
         }
         for (com.coloros.mcssdk.e.c cVar : j) {
             if (cVar != null) {
-                for (com.coloros.mcssdk.b.c cVar2 : bSk) {
+                for (com.coloros.mcssdk.b.c cVar2 : bSj) {
                     if (cVar2 != null) {
                         try {
                             cVar2.a(getApplicationContext(), cVar, this);
@@ -49,19 +49,19 @@ public class PushService extends Service implements com.coloros.mcssdk.d.a {
 
     @Override // com.coloros.mcssdk.d.a
     public void processMessage(Context context, com.coloros.mcssdk.e.b bVar) {
-        if (a.bSl().bSm() == null) {
+        if (a.bSk().bSl() == null) {
             return;
         }
         switch (bVar.getCommand()) {
             case UIMsg.k_event.MV_MAP_CACHEMANAGE /* 12289 */:
-                a.bSl().bSm().onRegister(bVar.getResponseCode(), bVar.getContent());
+                a.bSk().bSl().onRegister(bVar.getResponseCode(), bVar.getContent());
                 if (bVar.getResponseCode() == 0) {
-                    a.bSl().yN(bVar.getContent());
+                    a.bSk().yN(bVar.getContent());
                     return;
                 }
                 return;
             case 12290:
-                a.bSl().bSm().onUnRegister(bVar.getResponseCode());
+                a.bSk().bSl().onUnRegister(bVar.getResponseCode());
                 return;
             case 12291:
             case 12299:
@@ -73,40 +73,40 @@ public class PushService extends Service implements com.coloros.mcssdk.d.a {
             default:
                 return;
             case 12292:
-                a.bSl().bSm().onSetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
+                a.bSk().bSl().onSetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
                 return;
             case 12293:
-                a.bSl().bSm().onGetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
+                a.bSk().bSl().onGetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
                 return;
             case 12294:
-                a.bSl().bSm().onUnsetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
+                a.bSk().bSl().onUnsetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
                 return;
             case 12295:
-                a.bSl().bSm().onSetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
+                a.bSk().bSl().onSetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
                 return;
             case 12296:
-                a.bSl().bSm().onGetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
+                a.bSk().bSl().onGetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
                 return;
             case 12297:
-                a.bSl().bSm().onUnsetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
+                a.bSk().bSl().onUnsetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
                 return;
             case 12298:
-                a.bSl().bSm().onSetPushTime(bVar.getResponseCode(), bVar.getContent());
+                a.bSk().bSl().onSetPushTime(bVar.getResponseCode(), bVar.getContent());
                 return;
             case 12301:
-                a.bSl().bSm().onSetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
+                a.bSk().bSl().onSetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
                 return;
             case Statistics.kTypeWhiteScreen /* 12302 */:
-                a.bSl().bSm().onGetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
+                a.bSk().bSl().onGetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
                 return;
             case 12303:
-                a.bSl().bSm().onUnsetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
+                a.bSk().bSl().onUnsetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
                 return;
             case 12306:
-                a.bSl().bSm().onGetPushStatus(bVar.getResponseCode(), d.a(bVar.getContent()));
+                a.bSk().bSl().onGetPushStatus(bVar.getResponseCode(), d.a(bVar.getContent()));
                 return;
             case 12309:
-                a.bSl().bSm().onGetNotificationStatus(bVar.getResponseCode(), d.a(bVar.getContent()));
+                a.bSk().bSl().onGetNotificationStatus(bVar.getResponseCode(), d.a(bVar.getContent()));
                 return;
         }
     }

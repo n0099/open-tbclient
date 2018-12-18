@@ -140,7 +140,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             spannableStringBuilder2.setSpan(new ForegroundColorSpan(al.getColor(e.d.cp_cont_h)), length, spannableStringBuilder2.length(), 33);
         }
         spannableStringBuilder.append((CharSequence) spannableStringBuilder2);
-        SpannableStringBuilder a2 = a(postData.bDu());
+        SpannableStringBuilder a2 = a(postData.bDt());
         if (a2 != null && !TextUtils.isEmpty(a2.toString())) {
             SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder("  |  ");
             int h = com.baidu.adp.lib.util.l.h(this.mContext, e.C0210e.tbds34);
@@ -206,13 +206,13 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             this.aJT.setVisibility(8);
             return;
         }
-        TbRichText bDu = postData.bDu();
-        if (bDu == null || bDu.RZ() == null) {
+        TbRichText bDt = postData.bDt();
+        if (bDt == null || bDt.RZ() == null) {
             this.aJS.setVisibility(8);
             this.aJT.setVisibility(8);
             return;
         }
-        Iterator<TbRichTextData> it = bDu.RZ().iterator();
+        Iterator<TbRichTextData> it = bDt.RZ().iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next != null) {
@@ -269,7 +269,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         al.j(this.mRootView, e.d.cp_bg_line_e);
         al.j(this.aJQ, e.d.cp_bg_line_e);
         al.h(this.aJQ, e.d.cp_cont_j);
-        this.aJR.aWg();
+        this.aJR.aWf();
     }
 
     public TextView getGodReplyContent() {

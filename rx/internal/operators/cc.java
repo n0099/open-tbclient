@@ -40,10 +40,10 @@ public class cc<T, U, V> extends cb<T> {
                         });
                     } catch (Throwable th) {
                         rx.exceptions.a.a(th, cVar);
-                        return rx.subscriptions.e.cfu();
+                        return rx.subscriptions.e.cft();
                     }
                 }
-                return rx.subscriptions.e.cfu();
+                return rx.subscriptions.e.cft();
             }
         }, new cb.b<T>() { // from class: rx.internal.operators.cc.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object] */
@@ -73,7 +73,7 @@ public class cc<T, U, V> extends cb<T> {
                     });
                 } catch (Throwable th) {
                     rx.exceptions.a.a(th, cVar);
-                    return rx.subscriptions.e.cfu();
+                    return rx.subscriptions.e.cft();
                 }
             }
         }, dVar, Schedulers.immediate());

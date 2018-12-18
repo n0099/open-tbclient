@@ -117,7 +117,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
         this.gsb = new e();
     }
 
-    public e boJ() {
+    public e boI() {
         return this.gsb;
     }
 

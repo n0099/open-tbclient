@@ -27,7 +27,7 @@ public class c {
         this.bPR = BdCacheService.iy().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
-    public static c bBd() {
+    public static c bBc() {
         if (hhP == null) {
             synchronized (c.class) {
                 if (hhP == null) {
@@ -38,7 +38,7 @@ public class c {
         return hhP;
     }
 
-    public long bBe() {
+    public long bBd() {
         long j = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_frs_cache_time", 604800000L);
         if (j < 0) {
             return 604800000L;
@@ -224,10 +224,10 @@ public class c {
     public void c(String str, byte[] bArr, boolean z) {
         if (str != null && str.length() > 0) {
             if (z) {
-                this.bPR.a(TbadkCoreApplication.getCurrentAccount() + str, bArr, bBe());
+                this.bPR.a(TbadkCoreApplication.getCurrentAccount() + str, bArr, bBd());
                 return;
             }
-            this.bPR.b(TbadkCoreApplication.getCurrentAccount() + str, bArr, bBe());
+            this.bPR.b(TbadkCoreApplication.getCurrentAccount() + str, bArr, bBd());
         }
     }
 

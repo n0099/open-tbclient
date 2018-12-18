@@ -21,7 +21,7 @@ public class a {
     private final c erk = new c();
     private final int bPQ = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("home_page_max_thread_count", 300);
 
-    public int aLz() {
+    public int aLy() {
         return this.bPQ;
     }
 

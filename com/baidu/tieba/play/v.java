@@ -70,7 +70,7 @@ public class v {
         }
     }
 
-    public long brV() {
+    public long brU() {
         return this.videoSize;
     }
 
@@ -78,7 +78,7 @@ public class v {
         return this.duration;
     }
 
-    public String brW() {
+    public String brV() {
         return this.gEm;
     }
 }

@@ -83,7 +83,7 @@ public class PersonHeaderAttentionView extends LinearLayout implements e {
             }
         };
         init(context);
-        bMb();
+        bMa();
         onChangeSkinType(0);
     }
 
@@ -130,7 +130,7 @@ public class PersonHeaderAttentionView extends LinearLayout implements e {
             }
         };
         init(context);
-        bMb();
+        bMa();
         onChangeSkinType(0);
     }
 
@@ -177,7 +177,7 @@ public class PersonHeaderAttentionView extends LinearLayout implements e {
             }
         };
         init(context);
-        bMb();
+        bMa();
         onChangeSkinType(0);
     }
 
@@ -203,7 +203,7 @@ public class PersonHeaderAttentionView extends LinearLayout implements e {
         this.hNL.setVisibility(8);
     }
 
-    private void bMb() {
+    private void bMa() {
         this.eis.setOnClickListener(this.csN);
         this.hNF.setOnClickListener(this.csN);
         this.gsl.setOnClickListener(this.csN);

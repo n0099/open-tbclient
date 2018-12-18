@@ -48,19 +48,19 @@ public class b {
             jSONObject.put("type", "0");
             if (!TextUtils.isEmpty(jVar.getContent())) {
                 jSONObject.put("content", jVar.getContent());
-            } else if (jVar.bRg() != null) {
-                jSONObject.put("content", jVar.bRg().toString());
+            } else if (jVar.bRf() != null) {
+                jSONObject.put("content", jVar.bRf().toString());
             }
-            if (!TextUtils.isEmpty(jVar.bRf())) {
-                jSONObject.put("abtest", jVar.bRf());
+            if (!TextUtils.isEmpty(jVar.bRe())) {
+                jSONObject.put("abtest", jVar.bRe());
             }
             if (!TextUtils.isEmpty(jVar.getCategory())) {
                 jSONObject.put("c", jVar.getCategory());
             }
-            if (jVar.bRa()) {
+            if (jVar.bQZ()) {
                 jSONObject.put("of", "1");
             }
-            jSONObject.put("idtype", e.bQQ().ye(jVar.getId()));
+            jSONObject.put("idtype", e.bQP().ye(jVar.getId()));
         } catch (JSONException e) {
         }
         byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);

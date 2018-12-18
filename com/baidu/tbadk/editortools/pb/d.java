@@ -116,8 +116,8 @@ public class d extends com.baidu.tbadk.editortools.d implements t.a {
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
             public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
-                if (aVar != null && !StringUtils.isNull(aVar.bDU())) {
-                    d.this.b(2, true, aVar.bDU());
+                if (aVar != null && !StringUtils.isNull(aVar.bDT())) {
+                    d.this.b(2, true, aVar.bDT());
                 } else {
                     dj(null);
                 }
@@ -415,18 +415,18 @@ public class d extends com.baidu.tbadk.editortools.d implements t.a {
             this.mContext.showToast(e.j.location_system_permission_prompt);
         } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
             MB();
-        } else if (this.aZQ.bEb()) {
+        } else if (this.aZQ.bEa()) {
             My();
         } else {
             this.aZQ.nx(false);
             b(1, true, null);
-            this.aZQ.bDZ();
+            this.aZQ.bDY();
         }
     }
 
     public void MA() {
-        if (this.aZQ != null && !com.baidu.tieba.tbadkCore.location.c.bDX().bDY() && UtilHelper.isSystemLocationProviderEnabled(this.mContext.getActivity()) && TbadkCoreApplication.getInst().getLocationShared()) {
-            this.aZQ.bDZ();
+        if (this.aZQ != null && !com.baidu.tieba.tbadkCore.location.c.bDW().bDX() && UtilHelper.isSystemLocationProviderEnabled(this.mContext.getActivity()) && TbadkCoreApplication.getInst().getLocationShared()) {
+            this.aZQ.bDY();
         }
     }
 
@@ -455,12 +455,12 @@ public class d extends com.baidu.tbadk.editortools.d implements t.a {
 
     public void MC() {
         if (this.aZQ.alM()) {
-            if (this.aZQ.bEb()) {
-                this.bad.a(com.baidu.tieba.tbadkCore.location.c.bDX().getLocationData());
+            if (this.aZQ.bEa()) {
+                this.bad.a(com.baidu.tieba.tbadkCore.location.c.bDW().getLocationData());
                 return;
             }
             if (l.ll()) {
-                this.aZQ.bDZ();
+                this.aZQ.bDY();
             }
             b(0, true, null);
             return;
@@ -719,7 +719,7 @@ public class d extends com.baidu.tbadk.editortools.d implements t.a {
                 this.aZR.getWriteData().setVoice(null);
                 this.aZR.getWriteData().setVoiceDuringTime(-1);
             }
-            if (!this.aZR.bEE()) {
+            if (!this.aZR.bED()) {
                 this.mContext.showToast(e.j.write_img_limit);
             } else if (this.aZZ == null || !this.aZZ.Mu()) {
                 if (this.aZY != null) {

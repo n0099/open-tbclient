@@ -122,7 +122,7 @@ public class e {
                 e.this.evh.Pb();
                 v.apD().dQ(true);
                 if (this.evB) {
-                    e.this.aLk();
+                    e.this.aLj();
                 }
                 this.evB = false;
                 if (e.this.dKi != null && e.this.evi) {
@@ -217,7 +217,7 @@ public class e {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (e.this.dMj != null) {
-                e.this.dKi.aMx();
+                e.this.dKi.aMw();
                 e.this.evi = false;
                 e.this.euC.setRefreshing(true);
             }
@@ -413,7 +413,7 @@ public class e {
         if (this.dKi != null) {
             this.dKi.jz(!z);
             if (z) {
-                this.dKi.aMx();
+                this.dKi.aMw();
             } else if (this.evi) {
                 this.dKi.b(this.dJv, this.bNa, this.dKa, true);
             }
@@ -432,20 +432,20 @@ public class e {
         this.euY = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("recommend_frs_cache_time", 43200L) * 1000;
         bdTypeRecyclerView.setOnScrollListener(this.mOnScrollListener);
         this.evf = new as();
-        aLl();
+        aLk();
         this.dKi = new m(this.mPageContext, this.dMj);
         this.euZ = new b(this.mDataList, this.euu);
     }
 
-    private boolean aLd() {
-        return com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean(aLf(), true);
+    private boolean aLc() {
+        return com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean(aLe(), true);
     }
 
-    private void aLe() {
-        com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean(aLf(), false);
+    private void aLd() {
+        com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean(aLe(), false);
     }
 
-    private String aLf() {
+    private String aLe() {
         return "key_rec_pfirst_load_" + TbadkCoreApplication.getCurrentAccount() + BaseRequestAction.SPLITE + TbConfig.getVersion();
     }
 
@@ -470,7 +470,7 @@ public class e {
         com.baidu.tieba.homepage.framework.a.aKB().k(System.currentTimeMillis(), 1);
         this.mPn = 1;
         this.evl = true;
-        if (this.mDataList.size() == 0 && !aLd()) {
+        if (this.mDataList.size() == 0 && !aLc()) {
             if (!this.equ) {
                 xU();
                 return;
@@ -498,7 +498,7 @@ public class e {
         }
     }
 
-    public void aLg() {
+    public void aLf() {
         if (this.dKi != null && !this.mIsBackground && this.evi) {
             this.dKi.b(this.dJv, this.bNa, this.dKa, true);
         }
@@ -527,7 +527,7 @@ public class e {
         if (Fi()) {
             com.baidu.tieba.homepage.framework.a.aKB().k(0L, 1);
         } else if (this.eva != null) {
-            aLi();
+            aLh();
             this.mPn++;
             setIsLoading(true);
             this.eva.s(this.mPn, (this.evb == null || this.evb.thread_list == null) ? 0 : this.evb.thread_list.size(), hQ(false), 0);
@@ -549,7 +549,7 @@ public class e {
                 this.eva.onError(2, str);
             }
         } else {
-            aLe();
+            aLd();
             if (this.eva != null) {
                 this.eva.onSuccess();
             }
@@ -568,8 +568,8 @@ public class e {
         if (z) {
             this.euu.notifyDataSetChanged();
         }
-        if (!aLh()) {
-            aLk();
+        if (!aLg()) {
+            aLj();
         }
     }
 
@@ -596,7 +596,7 @@ public class e {
         }
     }
 
-    public boolean aLh() {
+    public boolean aLg() {
         if (hR(false)) {
             if (this.dMj != null) {
                 this.dMj.setSelection(0);
@@ -610,7 +610,7 @@ public class e {
 
     private void xT() {
         if (this.eva != null) {
-            this.eva.H((this.evb == null || this.evb.thread_list == null || aLj()) ? 0 : this.evb.thread_list.size(), hQ(true), 0);
+            this.eva.H((this.evb == null || this.evb.thread_list == null || aLi()) ? 0 : this.evb.thread_list.size(), hQ(true), 0);
         }
     }
 
@@ -647,11 +647,11 @@ public class e {
     public void a(DataRes dataRes) {
         this.equ = true;
         if (dataRes != null) {
-            if (a(false, true, true, dataRes) && !aLj()) {
+            if (a(false, true, true, dataRes) && !aLi()) {
                 if (this.eva != null) {
                     this.eva.onSuccess();
                 }
-                aLk();
+                aLj();
                 return;
             }
             xT();
@@ -699,7 +699,7 @@ public class e {
         }
         long currentTimeMillis = System.currentTimeMillis();
         this.evc = dataRes.sug_seconds.intValue() * 1000;
-        if (z2 && aLj()) {
+        if (z2 && aLi()) {
             this.evb = null;
         }
         int size = z2 ? 0 : this.mDataList.size();
@@ -767,8 +767,8 @@ public class e {
         return z4;
     }
 
-    private void aLi() {
-        if (com.baidu.tbadk.core.util.v.H(this.mDataList) >= this.evg.aLz() - 40) {
+    private void aLh() {
+        if (com.baidu.tbadk.core.util.v.H(this.mDataList) >= this.evg.aLy() - 40) {
             com.baidu.tieba.homepage.personalize.model.c a2 = this.evg.a(true, this.evb, (DataRes.Builder) null, 1);
             List<h> list = a2 != null ? a2.bvL : null;
             if (list != null) {
@@ -784,7 +784,7 @@ public class e {
         x.a(new w<DataRes>() { // from class: com.baidu.tieba.homepage.personalize.e.18
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.w
-            /* renamed from: aLp */
+            /* renamed from: aLo */
             public DataRes doInBackground() {
                 com.baidu.adp.lib.cache.l<byte[]> am = com.baidu.tbadk.core.c.a.BB().am("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount());
                 if (am == null) {
@@ -886,7 +886,7 @@ public class e {
         }, null);
     }
 
-    private boolean aLj() {
+    private boolean aLi() {
         return hR(true);
     }
 
@@ -908,7 +908,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aLk() {
+    public void aLj() {
         long j = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("recommend_frs_guide_time", 0L);
         if (this.evc != 0) {
             if (j == 0 || Math.abs(System.currentTimeMillis() - j) > this.evc) {
@@ -917,7 +917,7 @@ public class e {
         }
     }
 
-    public void aLa() {
+    public void aKZ() {
         boolean z = true;
         com.baidu.tbadk.coreExtra.data.b activityPrizeData = TbadkCoreApplication.getInst().getActivityPrizeData();
         if (activityPrizeData.Gh() && !StringUtils.isNull(activityPrizeData.Gp())) {
@@ -1096,9 +1096,9 @@ public class e {
         }
     }
 
-    public void aLl() {
+    public void aLk() {
         this.dHZ = new com.baidu.tieba.tbadkCore.data.e("new_index", null);
-        this.dHZ.bCT();
+        this.dHZ.bCS();
     }
 
     public void a(int i, List<h> list, int i2) {
@@ -1106,7 +1106,7 @@ public class e {
         int i4;
         if (this.dHZ != null) {
             if (i == 0) {
-                this.dHZ.bCT();
+                this.dHZ.bCS();
             }
             if (list != null && !list.isEmpty()) {
                 int[] iArr = com.baidu.tieba.tbadkCore.data.e.hkN;
@@ -1165,7 +1165,7 @@ public class e {
         x.a(new w<String>() { // from class: com.baidu.tieba.homepage.personalize.e.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.w
-            /* renamed from: aLo */
+            /* renamed from: aLn */
             public String doInBackground() {
                 com.baidu.adp.lib.cache.l<String> an = com.baidu.tbadk.core.c.a.BB().an(e.this.evs, TbadkCoreApplication.getCurrentAccount());
                 if (an != null) {
@@ -1185,11 +1185,11 @@ public class e {
         });
     }
 
-    public void aLc() {
+    public void aLb() {
         c.e(this.dMj);
     }
 
-    public void aLm() {
+    public void aLl() {
         a(this.evv);
     }
 
@@ -1315,7 +1315,7 @@ public class e {
         }
     }
 
-    public FloatInfo aLn() {
+    public FloatInfo aLm() {
         return this.evo;
     }
 }

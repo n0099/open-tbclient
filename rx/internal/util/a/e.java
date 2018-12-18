@@ -12,7 +12,7 @@ abstract class e<E> extends c<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final LinkedQueueNode<E> cex() {
+    public final LinkedQueueNode<E> cew() {
         return (LinkedQueueNode) ae.iMJ.getObjectVolatile(this, iMx);
     }
 }

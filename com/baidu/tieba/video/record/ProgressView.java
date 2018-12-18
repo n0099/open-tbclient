@@ -248,7 +248,7 @@ public class ProgressView extends View {
         return this.hHm.getLast().intValue();
     }
 
-    public boolean bKq() {
+    public boolean bKp() {
         return this.hHm.isEmpty();
     }
 

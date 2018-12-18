@@ -23,7 +23,7 @@ public enum InternalObservableUtils {
             throw new OnErrorNotImplementedException(th);
         }
     };
-    public static final d.b<Boolean, Object> IS_EMPTY = new ad(UtilityFunctions.cev(), true);
+    public static final d.b<Boolean, Object> IS_EMPTY = new ad(UtilityFunctions.ceu(), true);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
@@ -212,7 +212,7 @@ public enum InternalObservableUtils {
         @Override // rx.functions.f
         /* renamed from: c */
         public Throwable call(Notification<?> notification) {
-            return notification.ccN();
+            return notification.ccM();
         }
     }
 
@@ -231,7 +231,7 @@ public enum InternalObservableUtils {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.e, java.util.concurrent.Callable
-        /* renamed from: cel */
+        /* renamed from: cek */
         public rx.observables.c<T> call() {
             return this.iBF.replay();
         }
@@ -254,7 +254,7 @@ public enum InternalObservableUtils {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.e, java.util.concurrent.Callable
-        /* renamed from: cel */
+        /* renamed from: cek */
         public rx.observables.c<T> call() {
             return this.iBF.replay(this.bufferSize);
         }
@@ -281,7 +281,7 @@ public enum InternalObservableUtils {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.e, java.util.concurrent.Callable
-        /* renamed from: cel */
+        /* renamed from: cek */
         public rx.observables.c<T> call() {
             return this.iBF.replay(this.time, this.unit, this.scheduler);
         }
@@ -310,7 +310,7 @@ public enum InternalObservableUtils {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.e, java.util.concurrent.Callable
-        /* renamed from: cel */
+        /* renamed from: cek */
         public rx.observables.c<T> call() {
             return this.iBF.replay(this.bufferSize, this.time, this.unit, this.scheduler);
         }

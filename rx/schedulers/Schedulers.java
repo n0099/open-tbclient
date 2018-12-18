@@ -16,7 +16,7 @@ public final class Schedulers {
     private final g iNU;
     private final g iNV;
 
-    private static Schedulers cff() {
+    private static Schedulers cfe() {
         Schedulers schedulers;
         while (true) {
             schedulers = iNW.get();
@@ -25,7 +25,7 @@ public final class Schedulers {
                 if (iNW.compareAndSet(null, schedulers)) {
                     break;
                 }
-                schedulers.cfh();
+                schedulers.cfg();
             } else {
                 break;
             }
@@ -34,24 +34,24 @@ public final class Schedulers {
     }
 
     private Schedulers() {
-        rx.c.g ceW = f.ceR().ceW();
-        g cfa = ceW.cfa();
+        rx.c.g ceV = f.ceQ().ceV();
+        g ceZ = ceV.ceZ();
+        if (ceZ != null) {
+            this.iNT = ceZ;
+        } else {
+            this.iNT = rx.c.g.ceW();
+        }
+        g cfa = ceV.cfa();
         if (cfa != null) {
-            this.iNT = cfa;
+            this.iNU = cfa;
         } else {
-            this.iNT = rx.c.g.ceX();
+            this.iNU = rx.c.g.ceX();
         }
-        g cfb = ceW.cfb();
+        g cfb = ceV.cfb();
         if (cfb != null) {
-            this.iNU = cfb;
+            this.iNV = cfb;
         } else {
-            this.iNU = rx.c.g.ceY();
-        }
-        g cfc = ceW.cfc();
-        if (cfc != null) {
-            this.iNV = cfc;
-        } else {
-            this.iNV = rx.c.g.ceZ();
+            this.iNV = rx.c.g.ceY();
         }
     }
 
@@ -64,15 +64,15 @@ public final class Schedulers {
     }
 
     public static g newThread() {
-        return c.f(cff().iNV);
+        return c.f(cfe().iNV);
     }
 
     public static g computation() {
-        return c.d(cff().iNT);
+        return c.d(cfe().iNT);
     }
 
     public static g io() {
-        return c.e(cff().iNU);
+        return c.e(cfe().iNU);
     }
 
     public static TestScheduler test() {
@@ -86,27 +86,27 @@ public final class Schedulers {
     public static void reset() {
         Schedulers andSet = iNW.getAndSet(null);
         if (andSet != null) {
-            andSet.cfh();
+            andSet.cfg();
         }
     }
 
     public static void start() {
-        Schedulers cff = cff();
-        cff.cfg();
-        synchronized (cff) {
+        Schedulers cfe = cfe();
+        cfe.cff();
+        synchronized (cfe) {
             d.iLc.start();
         }
     }
 
     public static void shutdown() {
-        Schedulers cff = cff();
-        cff.cfh();
-        synchronized (cff) {
+        Schedulers cfe = cfe();
+        cfe.cfg();
+        synchronized (cfe) {
             d.iLc.shutdown();
         }
     }
 
-    synchronized void cfg() {
+    synchronized void cff() {
         if (this.iNT instanceof h) {
             ((h) this.iNT).start();
         }
@@ -118,7 +118,7 @@ public final class Schedulers {
         }
     }
 
-    synchronized void cfh() {
+    synchronized void cfg() {
         if (this.iNT instanceof h) {
             ((h) this.iNT).shutdown();
         }

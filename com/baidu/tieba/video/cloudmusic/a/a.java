@@ -95,7 +95,7 @@ public class a extends BaseAdapter {
             } else {
                 c0323a.hAT.setVisibility(4);
             }
-            if (musicList.equals(com.baidu.tieba.video.cloudmusic.data.a.bIg().bIh())) {
+            if (musicList.equals(com.baidu.tieba.video.cloudmusic.data.a.bIf().bIg())) {
                 c0323a.hAS.setImageResource(e.f.btn_icon_stop_video);
                 c0323a.hAR.setDrawBorder(true);
                 c0323a.hAX.setVisibility(0);

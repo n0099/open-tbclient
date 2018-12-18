@@ -17,14 +17,14 @@ public class a {
             ixI = new c(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/" + context.getPackageName());
             Logger.a(ixI);
             debug = g.b(context);
-            Log.e("DebugLogger", "isOnDebug " + ixH + " debugConfig " + debug + " isDebuggable " + cby());
-            if (!cby()) {
+            Log.e("DebugLogger", "isOnDebug " + ixH + " debugConfig " + debug + " isDebuggable " + cbx());
+            if (!cbx()) {
                 Logger.a(Logger.Out.CONSOLE, Logger.Callback.Level.NULL);
             }
         }
     }
 
-    public static boolean cby() {
+    public static boolean cbx() {
         return ixH || debug;
     }
 

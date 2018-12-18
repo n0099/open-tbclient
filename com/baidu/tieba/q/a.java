@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class a {
     private static a hsR;
-    private InterfaceC0301a hsS = bGf();
+    private InterfaceC0301a hsS = bGe();
 
     /* renamed from: com.baidu.tieba.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -22,22 +22,22 @@ public class a {
         void onResume(Activity activity);
     }
 
-    private boolean bGe() {
+    private boolean bGd() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("pref_key_crab_sdk_enable", 1) == 1;
     }
 
     private a() {
     }
 
-    private InterfaceC0301a bGf() {
+    private InterfaceC0301a bGe() {
         CustomResponsedMessage runTask;
-        if (!bGe() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0301a.class)) == null) {
+        if (!bGd() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0301a.class)) == null) {
             return null;
         }
         return (InterfaceC0301a) runTask.getData();
     }
 
-    public static a bGg() {
+    public static a bGf() {
         if (hsR == null) {
             synchronized (a.class) {
                 if (hsR == null) {

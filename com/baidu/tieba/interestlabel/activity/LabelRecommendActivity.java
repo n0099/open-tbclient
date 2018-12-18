@@ -20,7 +20,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     private b fjp;
     private a fjq = new a() { // from class: com.baidu.tieba.interestlabel.activity.LabelRecommendActivity.1
         @Override // com.baidu.tieba.interestlabel.model.a
-        public void aWY() {
+        public void aWX() {
         }
 
         @Override // com.baidu.tieba.interestlabel.model.a
@@ -32,7 +32,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
             switch (AnonymousClass2.fjs[labelRequestEnum.ordinal()]) {
                 case 1:
                     LabelRecommendActivity.this.hideLoadingView(LabelRecommendActivity.this.fjp.getRootView());
-                    if (bVar == null || v.I(bVar.aXb()) || v.I(bVar.aXc())) {
+                    if (bVar == null || v.I(bVar.aXa()) || v.I(bVar.aXb())) {
                         LabelRecommendActivity.this.showNetRefreshView(LabelRecommendActivity.this.fjp.getRootView(), TbadkCoreApplication.getInst().getString(e.j.neterror), true);
                         return;
                     }
@@ -42,7 +42,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
                 case 2:
                     if (i == 0) {
                         com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("set_recommend_label", true);
-                        LabelRecommendActivity.this.aWX();
+                        LabelRecommendActivity.this.aWW();
                         LabelRecommendActivity.this.finish();
                         return;
                     }
@@ -88,18 +88,18 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     }
 
     private void loadData() {
-        this.fjo.aXe();
+        this.fjo.aXd();
         showLoadingView(this.fjp.getRootView(), true);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.fjp.aXk()) {
+        if (view == this.fjp.aXj()) {
             TiebaStatic.log(new am("c12245").x("obj_type", this.mFrom));
             finish();
-        } else if (view == this.fjp.aXl()) {
-            this.fjo.cP(this.fjp.aXn());
+        } else if (view == this.fjp.aXk()) {
+            this.fjo.cP(this.fjp.aXm());
         }
     }
 
@@ -111,14 +111,14 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aWX() {
-        List<Integer> aXn = this.fjp.aXn();
-        if (!v.I(aXn)) {
+    public void aWW() {
+        List<Integer> aXm = this.fjp.aXm();
+        if (!v.I(aXm)) {
             StringBuilder sb = new StringBuilder();
-            int size = aXn.size();
+            int size = aXm.size();
             for (int i = 0; i < size; i++) {
-                if (aXn.get(i) != null) {
-                    sb.append(aXn.get(i));
+                if (aXm.get(i) != null) {
+                    sb.append(aXm.get(i));
                     if (i < size - 1) {
                         sb.append(BaseRequestAction.SPLITE);
                     }

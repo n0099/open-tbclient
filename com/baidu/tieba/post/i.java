@@ -15,7 +15,7 @@ public class i implements com.baidu.tieba.j.f {
     @Override // com.baidu.tieba.j.f
     public void h(String str, int i, String str2) {
         if (ue(str)) {
-            this.gGK.bsL();
+            this.gGK.bsK();
             this.gGK.a(new com.baidu.tieba.m.d(i, "record", i, str2));
         }
     }
@@ -24,7 +24,7 @@ public class i implements com.baidu.tieba.j.f {
     public void i(String str, int i, String str2) {
         if (ue(str)) {
             if (i == 103 || i == 105 || i == 106 || i == 107 || i == 104) {
-                this.gGK.bsL();
+                this.gGK.bsK();
                 this.gGK.a(new com.baidu.tieba.m.d(i, str2, i, VideoPlatformStatic.hB(i)));
                 return;
             }
@@ -35,7 +35,7 @@ public class i implements com.baidu.tieba.j.f {
     @Override // com.baidu.tieba.j.f
     public void j(String str, int i, String str2) {
         if (ue(str)) {
-            this.gGK.bsL();
+            this.gGK.bsK();
             this.gGK.a(new com.baidu.tieba.m.d(i, "edit", i, str2));
         }
     }
@@ -43,9 +43,9 @@ public class i implements com.baidu.tieba.j.f {
     @Override // com.baidu.tieba.j.f
     public void e(String str, int i, int i2, String str2) {
         if (ue(str)) {
-            this.gGK.bsL();
-            this.gGK.bsJ();
-            this.gGK.bsN();
+            this.gGK.bsK();
+            this.gGK.bsI();
+            this.gGK.bsM();
             this.gGK.a(new com.baidu.tieba.m.d(i, "write", i2, str2));
         }
     }
@@ -53,7 +53,7 @@ public class i implements com.baidu.tieba.j.f {
     @Override // com.baidu.tieba.j.f
     public void rW(String str) {
         if (ue(str)) {
-            this.gGK.bsN();
+            this.gGK.bsM();
             this.gGK.a(new com.baidu.tieba.m.d(301, "write", -4399, ""));
         }
     }
@@ -61,8 +61,8 @@ public class i implements com.baidu.tieba.j.f {
     @Override // com.baidu.tieba.j.f
     public void rX(String str) {
         if (ue(str)) {
-            this.gGK.bsN();
-            this.gGK.bsK();
+            this.gGK.bsM();
+            this.gGK.bsJ();
             this.gGK.a(new com.baidu.tieba.m.d(401, "write", -4399, ""));
         }
     }
@@ -70,9 +70,9 @@ public class i implements com.baidu.tieba.j.f {
     @Override // com.baidu.tieba.j.f
     public void k(String str, int i, String str2) {
         if (ue(str)) {
-            this.gGK.bsL();
-            this.gGK.bsJ();
-            this.gGK.bsN();
+            this.gGK.bsK();
+            this.gGK.bsI();
+            this.gGK.bsM();
             this.gGK.a(new com.baidu.tieba.m.d(402, "write", i, str2));
         }
     }
@@ -80,21 +80,21 @@ public class i implements com.baidu.tieba.j.f {
     @Override // com.baidu.tieba.j.f
     public void ds(String str) {
         if (ue(str)) {
-            com.baidu.tieba.s.b.bHt().g(this.fEi, com.baidu.tieba.s.b.a(VideoPlatformStatic.VG(), this.gGK.bcF(), this.gGK.bcH()));
+            com.baidu.tieba.s.b.bHs().g(this.fEi, com.baidu.tieba.s.b.a(VideoPlatformStatic.VG(), this.gGK.bcE(), this.gGK.bcG()));
         }
     }
 
     @Override // com.baidu.tieba.j.f
     public boolean rY(String str) {
         if (ue(str)) {
-            return this.gGK.bsM();
+            return this.gGK.bsL();
         }
         return false;
     }
 
     @Override // com.baidu.tieba.j.f
     public boolean rZ(String str) {
-        return this.gGK.bsO();
+        return this.gGK.bsN();
     }
 
     @Override // com.baidu.tieba.j.f

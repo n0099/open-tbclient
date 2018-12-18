@@ -18,27 +18,27 @@ public class a implements e {
     }
 
     @Override // com.facebook.imagepipeline.d.e
+    public Executor bWs() {
+        return this.imM;
+    }
+
+    @Override // com.facebook.imagepipeline.d.e
     public Executor bWt() {
         return this.imM;
     }
 
     @Override // com.facebook.imagepipeline.d.e
     public Executor bWu() {
-        return this.imM;
-    }
-
-    @Override // com.facebook.imagepipeline.d.e
-    public Executor bWv() {
         return this.imN;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor bWw() {
+    public Executor bWv() {
         return this.imO;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor bWx() {
+    public Executor bWw() {
         return this.imP;
     }
 }

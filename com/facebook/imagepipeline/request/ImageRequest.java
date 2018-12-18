@@ -39,41 +39,41 @@ public class ImageRequest {
         if (uri == null) {
             return null;
         }
-        return ImageRequestBuilder.G(uri).bZS();
+        return ImageRequestBuilder.G(uri).bZR();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ImageRequest(ImageRequestBuilder imageRequestBuilder) {
-        this.irF = imageRequestBuilder.bZD();
-        this.irG = imageRequestBuilder.bZE();
+        this.irF = imageRequestBuilder.bZC();
+        this.irG = imageRequestBuilder.bZD();
         this.irH = F(this.irG);
-        this.irI = imageRequestBuilder.bZG();
-        this.inz = imageRequestBuilder.bWW();
-        this.irK = imageRequestBuilder.bZQ();
-        this.ilo = imageRequestBuilder.bZJ();
-        this.ilm = imageRequestBuilder.bZH();
-        this.iln = imageRequestBuilder.bZI() == null ? com.facebook.imagepipeline.common.d.bWn() : imageRequestBuilder.bZI();
-        this.irL = imageRequestBuilder.bZR();
-        this.ipJ = imageRequestBuilder.bYT();
-        this.irM = imageRequestBuilder.bZM();
-        this.ira = imageRequestBuilder.bZO();
-        this.imT = imageRequestBuilder.bZP();
+        this.irI = imageRequestBuilder.bZF();
+        this.inz = imageRequestBuilder.bWV();
+        this.irK = imageRequestBuilder.bZP();
+        this.ilo = imageRequestBuilder.bZI();
+        this.ilm = imageRequestBuilder.bZG();
+        this.iln = imageRequestBuilder.bZH() == null ? com.facebook.imagepipeline.common.d.bWm() : imageRequestBuilder.bZH();
+        this.irL = imageRequestBuilder.bZQ();
+        this.ipJ = imageRequestBuilder.bYS();
+        this.irM = imageRequestBuilder.bZL();
+        this.ira = imageRequestBuilder.bZN();
+        this.imT = imageRequestBuilder.bZO();
     }
 
-    public CacheChoice bZD() {
+    public CacheChoice bZC() {
         return this.irF;
     }
 
-    public Uri bZE() {
+    public Uri bZD() {
         return this.irG;
     }
 
-    public int bZF() {
+    public int bZE() {
         return this.irH;
     }
 
     @Nullable
-    public a bZG() {
+    public a bZF() {
         return this.irI;
     }
 
@@ -92,39 +92,39 @@ public class ImageRequest {
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.c bZH() {
+    public com.facebook.imagepipeline.common.c bZG() {
         return this.ilm;
     }
 
-    public com.facebook.imagepipeline.common.d bZI() {
+    public com.facebook.imagepipeline.common.d bZH() {
         return this.iln;
     }
 
-    public com.facebook.imagepipeline.common.a bZJ() {
+    public com.facebook.imagepipeline.common.a bZI() {
         return this.ilo;
     }
 
-    public boolean bZK() {
+    public boolean bZJ() {
         return this.inz;
     }
 
-    public boolean bZL() {
+    public boolean bZK() {
         return this.irK;
     }
 
-    public Priority bYV() {
+    public Priority bYU() {
         return this.irL;
     }
 
-    public RequestLevel bYT() {
+    public RequestLevel bYS() {
         return this.ipJ;
     }
 
-    public boolean bZM() {
+    public boolean bZL() {
         return this.irM;
     }
 
-    public synchronized File bZN() {
+    public synchronized File bZM() {
         if (this.irJ == null) {
             this.irJ = new File(this.irG.getPath());
         }
@@ -132,12 +132,12 @@ public class ImageRequest {
     }
 
     @Nullable
-    public b bZO() {
+    public b bZN() {
         return this.ira;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.g.b bZP() {
+    public com.facebook.imagepipeline.g.b bZO() {
         return this.imT;
     }
 

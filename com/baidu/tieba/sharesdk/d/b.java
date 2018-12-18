@@ -126,7 +126,7 @@ public class b implements View.OnClickListener {
         TextView textView = (TextView) LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(e.h.share_icon_text, (ViewGroup) null);
         textView.setCompoundDrawables(null, TbadkCoreApplication.getInst().getResources().getDrawable(i2), null, null);
         textView.setText(i);
-        textView.setLayoutParams(byO());
+        textView.setLayoutParams(byN());
         textView.setTag(Integer.valueOf(i2));
         textView.setOnClickListener(this);
         this.gZM.add(textView);
@@ -137,12 +137,12 @@ public class b implements View.OnClickListener {
         TextView textView = (TextView) LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(e.h.share_icon_text, (ViewGroup) null);
         textView.setCompoundDrawables(null, TbadkCoreApplication.getInst().getResources().getDrawable(i2), null, null);
         textView.setText(i);
-        textView.setLayoutParams(byO());
+        textView.setLayoutParams(byN());
         textView.setTag(Integer.valueOf(i2));
         return textView;
     }
 
-    public LinearLayout.LayoutParams byO() {
+    public LinearLayout.LayoutParams byN() {
         if (!this.mIsLandscape) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;
@@ -155,7 +155,7 @@ public class b implements View.OnClickListener {
         return layoutParams2;
     }
 
-    public int byL() {
+    public int byK() {
         if (this.gZM == null) {
             return 0;
         }
@@ -239,7 +239,7 @@ public class b implements View.OnClickListener {
         }
     }
 
-    public void byM() {
+    public void byL() {
         if (this.gZZ) {
             this.gZW = bL(e.j.share_copy, e.f.icon_copy_link);
         }
@@ -274,7 +274,7 @@ public class b implements View.OnClickListener {
         } else if (!com.baidu.tbadk.coreExtra.c.e.Kk()) {
             l.showToast(TbadkCoreApplication.getInst().getContext(), e.j.plugin_share_install_failure);
         } else {
-            byM();
+            byL();
             this.aws = new AlertDialog.Builder(this.mContext, e.k.DialogTheme).create();
             this.aws.setCanceledOnTouchOutside(true);
             this.aws.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.sharesdk.d.b.2
@@ -302,7 +302,7 @@ public class b implements View.OnClickListener {
             window.setGravity(80);
             window.setLayout(-1, -2);
             window.setContentView(this.mRootView);
-            byN();
+            byM();
             acj();
         }
     }
@@ -586,7 +586,7 @@ public class b implements View.OnClickListener {
     }
 
     @SuppressLint({"ResourceAsColor"})
-    private void byN() {
+    private void byM() {
         int size = this.gZM.size();
         for (int i = 0; i < size; i++) {
             View view = this.gZM.get(i);

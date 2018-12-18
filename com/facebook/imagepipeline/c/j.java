@@ -10,7 +10,7 @@ public class j implements f {
     protected j() {
     }
 
-    public static synchronized j bVQ() {
+    public static synchronized j bVP() {
         j jVar;
         synchronized (j.class) {
             if (ilV == null) {
@@ -23,26 +23,26 @@ public class j implements f {
 
     @Override // com.facebook.imagepipeline.c.f
     public com.facebook.cache.common.b a(ImageRequest imageRequest, Object obj) {
-        return new c(v(imageRequest.bZE()).toString(), imageRequest.bZH(), imageRequest.bZI(), imageRequest.bZJ(), null, null, obj);
+        return new c(v(imageRequest.bZD()).toString(), imageRequest.bZG(), imageRequest.bZH(), imageRequest.bZI(), null, null, obj);
     }
 
     @Override // com.facebook.imagepipeline.c.f
     public com.facebook.cache.common.b b(ImageRequest imageRequest, Object obj) {
         com.facebook.cache.common.b bVar;
         String str = null;
-        com.facebook.imagepipeline.request.b bZO = imageRequest.bZO();
-        if (bZO != null) {
-            bVar = bZO.bZW();
-            str = bZO.getClass().getName();
+        com.facebook.imagepipeline.request.b bZN = imageRequest.bZN();
+        if (bZN != null) {
+            bVar = bZN.bZV();
+            str = bZN.getClass().getName();
         } else {
             bVar = null;
         }
-        return new c(v(imageRequest.bZE()).toString(), imageRequest.bZH(), imageRequest.bZI(), imageRequest.bZJ(), bVar, str, obj);
+        return new c(v(imageRequest.bZD()).toString(), imageRequest.bZG(), imageRequest.bZH(), imageRequest.bZI(), bVar, str, obj);
     }
 
     @Override // com.facebook.imagepipeline.c.f
     public com.facebook.cache.common.b c(ImageRequest imageRequest, @Nullable Object obj) {
-        return a(imageRequest, imageRequest.bZE(), obj);
+        return a(imageRequest, imageRequest.bZD(), obj);
     }
 
     @Override // com.facebook.imagepipeline.c.f

@@ -26,11 +26,11 @@ public class f {
         return this.imageUrl;
     }
 
-    public String aWz() {
+    public String aWy() {
         return this.fhf;
     }
 
-    public String aWA() {
+    public String aWz() {
         return this.fhh;
     }
 
@@ -66,11 +66,11 @@ public class f {
         return this.tagName;
     }
 
-    public boolean aWB() {
+    public boolean aWA() {
         return this.fhi;
     }
 
-    public boolean aWC() {
+    public boolean aWB() {
         return this.isBlockedPic;
     }
 
@@ -78,7 +78,7 @@ public class f {
         return this.isLongPic;
     }
 
-    public long aWD() {
+    public long aWC() {
         return this.overAllIndex;
     }
 

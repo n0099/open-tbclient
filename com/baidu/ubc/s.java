@@ -5,7 +5,7 @@ public class s extends com.baidu.g.d {
         super("com.baidu.searchbox_ubc");
     }
 
-    public static s bRv() {
+    public static s bRu() {
         return a.icg;
     }
 

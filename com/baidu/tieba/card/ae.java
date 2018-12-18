@@ -183,7 +183,7 @@ public class ae extends com.baidu.tieba.person.e {
         this.cVI = new ForumManageModel(this.mPageContext);
         this.cVI.setLoadDataCallBack(this.cVM);
         this.aJH = z;
-        setContentView(this.cXa.bLZ());
+        setContentView(this.cXa.bLY());
     }
 
     public void onChangeSkinType() {

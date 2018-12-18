@@ -32,7 +32,7 @@ public class h {
         }
     }
 
-    public LinkedList<f> aWE() {
+    public LinkedList<f> aWD() {
         return this.fhk;
     }
 
@@ -156,7 +156,7 @@ public class h {
         return builder.build(true);
     }
 
-    public AdvertAppInfo aWF() {
+    public AdvertAppInfo aWE() {
         return this.fhl;
     }
 }

@@ -41,7 +41,7 @@ public class SelectMusicModel extends BdBaseModel {
         };
         this.mPageContext = tbPageContext;
         this.hCw = bVar;
-        bIT();
+        bIS();
         this.hCx.setTag(getUniqueId());
         this.hCx.setSelfListener(true);
         registerListener(this.hCx);
@@ -56,9 +56,9 @@ public class SelectMusicModel extends BdBaseModel {
                 /* renamed from: p */
                 public i doInBackground(Void... voidArr) {
                     if (TextUtils.isEmpty(str2) && !z) {
-                        return h.bJM().cT(str, str3);
+                        return h.bJL().cT(str, str3);
                     }
-                    return h.bJM().e(str, str2, str3, z);
+                    return h.bJL().e(str, str2, str3, z);
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -77,7 +77,7 @@ public class SelectMusicModel extends BdBaseModel {
         }
     }
 
-    public void bIS() {
+    public void bIR() {
         if (!j.kV()) {
             this.mPageContext.showToast(e.j.no_network);
         } else {
@@ -85,7 +85,7 @@ public class SelectMusicModel extends BdBaseModel {
         }
     }
 
-    private void bIT() {
+    private void bIS() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_SUG_MUSIC, TbConfig.SERVER_ADDRESS + "c/f/video/music");
         tbHttpMessageTask.setResponsedClass(VideoSugMusicResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

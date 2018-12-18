@@ -92,43 +92,43 @@ public class j extends com.baidu.adp.base.c<SignAllForumActivity> {
     public void a(c cVar, boolean z) {
         if (cVar != null) {
             this.hbW = cVar;
-            bAl();
-            ArrayList<d> bzy = cVar.bzy();
+            bAk();
+            ArrayList<d> bzx = cVar.bzx();
             this.hdr.c(this.hbW);
-            if (bzy.size() == hdo) {
+            if (bzx.size() == hdo) {
                 this.hdw.setVisibility(0);
-                this.hdw.setText(cVar.bzv());
+                this.hdw.setText(cVar.bzu());
             } else {
                 this.hdw.setVisibility(8);
             }
-            String bzp = this.hbW.bzp();
-            if (!StringUtils.isNull(bzp)) {
-                this.hdq.a(this.hdp, bzp, this.hbW.bzq());
+            String bzo = this.hbW.bzo();
+            if (!StringUtils.isNull(bzo)) {
+                this.hdq.a(this.hdp, bzo, this.hbW.bzp());
                 return;
             }
-            this.hdq.bAj();
+            this.hdq.bAi();
         }
     }
 
-    private void bAl() {
+    private void bAk() {
         if (this.hbW != null) {
-            this.hdq.setHasPrivilege(this.hbW.bzC());
-            this.hdq.setmCurrentStatus(this.hbW.bzE());
+            this.hdq.setHasPrivilege(this.hbW.bzB());
+            this.hdq.setmCurrentStatus(this.hbW.bzD());
             TextView message1 = this.hdq.getMessage1();
-            SpannableString spannableString = new SpannableString(this.hbW.bzs() + this.hbW.bnh() + this.hbW.bzt());
+            SpannableString spannableString = new SpannableString(this.hbW.bzr() + this.hbW.bng() + this.hbW.bzs());
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(TbadkApplication.getInst().getResources().getColor(e.d.common_color_10191));
-            int length = this.hbW.bzs().length();
-            spannableString.setSpan(foregroundColorSpan, length, this.hbW.bnh().length() + length, 33);
+            int length = this.hbW.bzr().length();
+            spannableString.setSpan(foregroundColorSpan, length, this.hbW.bng().length() + length, 33);
             message1.setText(spannableString);
-            this.hdq.getMessage2().setText(this.hbW.bzu());
+            this.hdq.getMessage2().setText(this.hbW.bzt());
             this.hdt.setText(this.hbW.getContent());
-            if (TextUtils.isEmpty(this.hbW.bzD())) {
+            if (TextUtils.isEmpty(this.hbW.bzC())) {
                 this.hdu.setText(e.j.member_buy_open);
             } else {
-                this.hdu.setText(this.hbW.bzD());
+                this.hdu.setText(this.hbW.bzC());
             }
             this.hdq.setVisibility(0);
-            if (this.hbW.bzC() || TbadkApplication.getInst().getIntentClass(MemberPrivilegeActivityConfig.class) == null) {
+            if (this.hbW.bzB() || TbadkApplication.getInst().getIntentClass(MemberPrivilegeActivityConfig.class) == null) {
                 this.hds.setVisibility(8);
             } else {
                 this.hds.setVisibility(0);
@@ -152,7 +152,7 @@ public class j extends com.baidu.adp.base.c<SignAllForumActivity> {
         this.OF.setOnItemClickListener(onItemClickListener);
     }
 
-    public SignAllForumProgressView bAm() {
+    public SignAllForumProgressView bAl() {
         return this.hdq;
     }
 
@@ -160,19 +160,19 @@ public class j extends com.baidu.adp.base.c<SignAllForumActivity> {
         return this.mProgressBar;
     }
 
-    public BdListView bAn() {
+    public BdListView bAm() {
         return this.OF;
     }
 
-    public c bAo() {
+    public c bAn() {
         return this.hbW;
     }
 
-    public g bAp() {
+    public g bAo() {
         return this.hdr;
     }
 
-    public LinearLayout bAq() {
+    public LinearLayout bAp() {
         return this.hdv;
     }
 

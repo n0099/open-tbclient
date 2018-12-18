@@ -257,7 +257,7 @@ public class d {
 
     public void mi(boolean z) {
         if (z) {
-            bpX();
+            bpW();
         }
     }
 
@@ -372,7 +372,7 @@ public class d {
         this.gww.setData(list);
     }
 
-    public void bpX() {
+    public void bpW() {
         if (an.jJ()) {
             if (this.gwy == null) {
                 this.gwy = new ImageView(this.mContext.getPageActivity());
@@ -380,7 +380,7 @@ public class d {
                 this.gwy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.b.d.5
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(d.this.mContext.getPageActivity(), null, com.baidu.tieba.pb.c.bfT(), true)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(d.this.mContext.getPageActivity(), null, com.baidu.tieba.pb.c.bfS(), true)));
                     }
                 });
             }

@@ -55,53 +55,36 @@ public class a {
         return true;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [207=4] */
     public synchronized List<b> vb() {
         LinkedList linkedList;
-        Cursor cursor;
-        com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-        SQLiteDatabase ge = mainDBDatabaseManager.ge();
+        SQLiteDatabase ge = TiebaDatabase.getInstance().getMainDBDatabaseManager().ge();
         ge.beginTransaction();
         linkedList = new LinkedList();
-        try {
-            cursor = ge.rawQuery("SELECT * FROM activity_mission_info", null);
-            while (cursor.moveToNext()) {
-                try {
-                    b bVar = new b();
-                    bVar.setActivityId(cursor.getInt(cursor.getColumnIndex("activityid")));
-                    bVar.bS(cursor.getInt(cursor.getColumnIndex("missionid")));
-                    bVar.dw(cursor.getString(cursor.getColumnIndex("activitysource")));
-                    bVar.bT(cursor.getInt(cursor.getColumnIndex("calltype")));
-                    bVar.bU(cursor.getInt(cursor.getColumnIndex("tasktype")));
-                    bVar.dx(cursor.getString(cursor.getColumnIndex("browsetimepage")));
-                    bVar.w(cursor.getLong(cursor.getColumnIndex("browsetime")));
-                    bVar.setThreadNum(cursor.getInt(cursor.getColumnIndex("threadnum")));
-                    bVar.bV(cursor.getInt(cursor.getColumnIndex("forumnum")));
-                    bVar.bW(cursor.getInt(cursor.getColumnIndex("cleartype")));
-                    bVar.x(cursor.getLong(cursor.getColumnIndex("cleartime")));
-                    bVar.y(cursor.getLong(cursor.getColumnIndex("specificcleartime")));
-                    bVar.setTid(cursor.getLong(cursor.getColumnIndex("tid")));
-                    bVar.setFid(cursor.getLong(cursor.getColumnIndex(ImageViewerConfig.FORUM_ID)));
-                    bVar.dy(cursor.getString(cursor.getColumnIndex("threadtext")));
-                    bVar.dz(cursor.getString(cursor.getColumnIndex("threadimg")));
-                    bVar.z(cursor.getInt(cursor.getColumnIndex("threadforum")));
-                    linkedList.add(bVar);
-                } catch (Throwable th) {
-                    th = th;
-                    mainDBDatabaseManager.a(th, "EmotionsDBManager.getAllActivityMissionInfo");
-                    com.baidu.adp.lib.util.n.e(cursor);
-                    ge.endTransaction();
-                    linkedList = null;
-                    return linkedList;
-                }
-            }
-            ge.setTransactionSuccessful();
-            com.baidu.adp.lib.util.n.e(cursor);
-            ge.endTransaction();
-        } catch (Throwable th2) {
-            th = th2;
-            cursor = null;
+        Cursor rawQuery = ge.rawQuery("SELECT * FROM activity_mission_info", null);
+        while (rawQuery.moveToNext()) {
+            b bVar = new b();
+            bVar.setActivityId(rawQuery.getInt(rawQuery.getColumnIndex("activityid")));
+            bVar.bS(rawQuery.getInt(rawQuery.getColumnIndex("missionid")));
+            bVar.dw(rawQuery.getString(rawQuery.getColumnIndex("activitysource")));
+            bVar.bT(rawQuery.getInt(rawQuery.getColumnIndex("calltype")));
+            bVar.bU(rawQuery.getInt(rawQuery.getColumnIndex("tasktype")));
+            bVar.dx(rawQuery.getString(rawQuery.getColumnIndex("browsetimepage")));
+            bVar.w(rawQuery.getLong(rawQuery.getColumnIndex("browsetime")));
+            bVar.setThreadNum(rawQuery.getInt(rawQuery.getColumnIndex("threadnum")));
+            bVar.bV(rawQuery.getInt(rawQuery.getColumnIndex("forumnum")));
+            bVar.bW(rawQuery.getInt(rawQuery.getColumnIndex("cleartype")));
+            bVar.x(rawQuery.getLong(rawQuery.getColumnIndex("cleartime")));
+            bVar.y(rawQuery.getLong(rawQuery.getColumnIndex("specificcleartime")));
+            bVar.setTid(rawQuery.getLong(rawQuery.getColumnIndex("tid")));
+            bVar.setFid(rawQuery.getLong(rawQuery.getColumnIndex(ImageViewerConfig.FORUM_ID)));
+            bVar.dy(rawQuery.getString(rawQuery.getColumnIndex("threadtext")));
+            bVar.dz(rawQuery.getString(rawQuery.getColumnIndex("threadimg")));
+            bVar.z(rawQuery.getInt(rawQuery.getColumnIndex("threadforum")));
+            linkedList.add(bVar);
         }
+        ge.setTransactionSuccessful();
+        com.baidu.adp.lib.util.n.e(rawQuery);
+        ge.endTransaction();
         return linkedList;
     }
 }

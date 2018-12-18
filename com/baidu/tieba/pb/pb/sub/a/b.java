@@ -212,13 +212,13 @@ public class b extends a<PostData, j> {
     private void b(j jVar) {
         jVar.fVN.setOnLongClickListener(this.aTo);
         if (this.gjx != null && this.gjx.getPageContext().getOrignalPage() != null) {
-            com.baidu.tieba.pb.pb.main.b.a bhd = this.gjx.bhd();
-            if (bhd != null) {
-                jVar.cKl.setOnClickListener(bhd.eig);
-                jVar.fVX.setOnClickListener(bhd.eig);
-                jVar.fWd.setOnClickListener(bhd.eig);
-                jVar.fWd.getHeadView().setOnClickListener(bhd.eig);
-                jVar.fVY.setOnEmotionClickListener(bhd.ggo);
+            com.baidu.tieba.pb.pb.main.b.a bhc = this.gjx.bhc();
+            if (bhc != null) {
+                jVar.cKl.setOnClickListener(bhc.eig);
+                jVar.fVX.setOnClickListener(bhc.eig);
+                jVar.fWd.setOnClickListener(bhc.eig);
+                jVar.fWd.getHeadView().setOnClickListener(bhc.eig);
+                jVar.fVY.setOnEmotionClickListener(bhc.ggo);
             }
             jVar.fVU.setOnClickListener(this.mCommonClickListener);
             jVar.fVY.setOnLongClickListener(this.aTo);

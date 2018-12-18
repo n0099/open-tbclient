@@ -9,7 +9,7 @@ public final class au {
         if (dVar == null) {
             return false;
         }
-        switch (dVar.bXX()) {
+        switch (dVar.bXW()) {
             case 90:
             case 270:
                 return a(dVar.getHeight(), dVar.getWidth(), cVar);

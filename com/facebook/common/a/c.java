@@ -6,7 +6,7 @@ public class c implements b {
     private c() {
     }
 
-    public static synchronized c bSW() {
+    public static synchronized c bSV() {
         c cVar;
         synchronized (c.class) {
             if (ifD == null) {

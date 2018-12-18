@@ -35,10 +35,10 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 0:
-                    NewUserGuideIntroduceFragment.this.bFY();
+                    NewUserGuideIntroduceFragment.this.bFX();
                     return;
                 case 1:
-                    NewUserGuideIntroduceFragment.this.bFX();
+                    NewUserGuideIntroduceFragment.this.bFW();
                     return;
                 default:
                     return;
@@ -74,13 +74,13 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (NewUserGuideIntroduceFragment.this.hsj != null) {
-                        if (NewUserGuideIntroduceFragment.this.hsj.bFU().bGb()) {
-                            NewUserGuideIntroduceFragment.this.hsj.bFW();
+                        if (NewUserGuideIntroduceFragment.this.hsj.bFT().bGa()) {
+                            NewUserGuideIntroduceFragment.this.hsj.bFV();
                             return;
                         }
-                        RightSlideViewPager bFT = NewUserGuideIntroduceFragment.this.hsj.bFT();
-                        if (bFT != null) {
-                            bFT.setCurrentItem(1, true);
+                        RightSlideViewPager bFS = NewUserGuideIntroduceFragment.this.hsj.bFS();
+                        if (bFS != null) {
+                            bFS.setCurrentItem(1, true);
                         }
                     }
                 }
@@ -92,14 +92,14 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
                 throw e;
             }
             BdLog.e(e);
-            this.hsj.bFW();
+            this.hsj.bFV();
             TbadkApplication.getInst().onAppMemoryLow();
             return new FrameLayout(layoutInflater.getContext());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFX() {
+    public void bFW() {
         this.hsk.setImageResource(e.f.pic_startpage1_one);
         this.hsl.setImageResource(e.f.pic_startpage1_two);
         this.hsm.setImageResource(e.f.pic_startpage1_three);
@@ -114,13 +114,13 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
         stop();
     }
 
-    public void bFY() {
+    public void bFX() {
         if (this.hsn != null) {
             this.hsn.onStart();
         }
     }
 
-    public void bFZ() {
+    public void bFY() {
         if (this.hsn != null) {
             this.hsn.onStop();
         }

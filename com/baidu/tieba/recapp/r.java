@@ -13,7 +13,7 @@ public class r implements o {
     public static final AtomicReference<o> gLv = new AtomicReference<>(null);
     private static final o gLw = new r();
 
-    public static o buz() {
+    public static o buy() {
         o oVar = gLv.get();
         return oVar == null ? gLw : oVar;
     }
@@ -47,37 +47,37 @@ public class r implements o {
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public j but() {
+    public j bus() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public l buu() {
+    public l but() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public com.baidu.tieba.p.a buv() {
+    public com.baidu.tieba.p.a buu() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public h buw() {
+    public h buv() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public List<AppData> bux() {
+    public List<AppData> buw() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public void buy() {
+    public void bux() {
         BdLog.e("recapp plugin install failed!");
     }
 }

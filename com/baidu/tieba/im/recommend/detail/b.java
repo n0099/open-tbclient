@@ -137,13 +137,13 @@ public class b {
         this.mNoDataView.setVisibility(0);
     }
 
-    public void aTY() {
+    public void aTX() {
         if (this.eYe != null) {
             this.eYe.setVisibility(0);
         }
     }
 
-    public void aTZ() {
+    public void aTY() {
         if (this.eYe != null) {
             this.eYe.setVisibility(8);
         }

@@ -202,14 +202,14 @@ public class b implements KeyboardEventLayout.a {
                 return true;
             }
             boolean kG = b.this.kG(sparseArray.get(e.g.tag_del_post_is_self) instanceof Boolean ? ((Boolean) sparseArray.get(e.g.tag_del_post_is_self)).booleanValue() : false) & TbadkCoreApplication.isLogin();
-            b.this.fTd.a(sparseArray, b.this.ghF.bgw(), kG);
+            b.this.fTd.a(sparseArray, b.this.ghF.bgv(), kG);
             if (kG) {
-                b.this.fTd.bjS().setVisibility(0);
-                b.this.fTd.bjS().setTag(postData.getId());
+                b.this.fTd.bjR().setVisibility(0);
+                b.this.fTd.bjR().setTag(postData.getId());
             } else {
-                b.this.fTd.bjS().setVisibility(8);
+                b.this.fTd.bjR().setVisibility(8);
             }
-            b.this.fTd.bjQ().setVisibility(8);
+            b.this.fTd.bjP().setVisibility(8);
             b.this.fTd.refreshUI();
             return false;
         }
@@ -222,7 +222,7 @@ public class b implements KeyboardEventLayout.a {
                     if (b.this.ghT != null) {
                         b.this.ghT.aFa();
                     }
-                    b.this.bmu();
+                    b.this.bmt();
                     if (view == null || !(view.getTag() instanceof c.a)) {
                         PostData postData = (PostData) v.d(b.this.giw, i);
                         if (postData == null) {
@@ -239,11 +239,11 @@ public class b implements KeyboardEventLayout.a {
                                 b.this.ffl.hX(str);
                             }
                         }
-                        b.this.bmv();
+                        b.this.bmu();
                         return;
                     }
-                    b.this.bmw();
-                    b.this.ghF.bmR();
+                    b.this.bmv();
+                    b.this.ghF.bmQ();
                 }
             }
         }
@@ -676,7 +676,7 @@ public class b implements KeyboardEventLayout.a {
         this.ghT = aVar;
     }
 
-    public void bmu() {
+    public void bmt() {
         if (this.mListView != null) {
             this.giD = this.mListView.getLastVisiblePosition();
         }
@@ -684,18 +684,18 @@ public class b implements KeyboardEventLayout.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean kG(boolean z) {
-        if (this.ghF == null || this.ghF.bmO() == null) {
+        if (this.ghF == null || this.ghF.bmN() == null) {
             return false;
         }
-        if (this.ghF.bgw() != 0) {
+        if (this.ghF.bgv() != 0) {
             return false;
         }
         return (this.ggF == null || this.ggF.ZR() == null || this.ggF.ZR().zG() == null || !TextUtils.equals(this.ggF.ZR().zG().getUserId(), TbadkCoreApplication.getCurrentAccount())) && !z;
     }
 
-    public void bmv() {
+    public void bmu() {
         if (this.ghF != null) {
-            if ((!bmy() && this.gis != null && this.gis.isShown()) || v.I(this.giw)) {
+            if ((!bmx() && this.gis != null && this.gis.isShown()) || v.I(this.giw)) {
                 this.ghF.lO(false);
             } else {
                 this.ghF.lO(true);
@@ -707,7 +707,7 @@ public class b implements KeyboardEventLayout.a {
         this.ghF = subPbModel;
     }
 
-    public void bmw() {
+    public void bmv() {
         a(this.gib);
         this.mListView.setNextPage(this.gip);
     }
@@ -718,7 +718,7 @@ public class b implements KeyboardEventLayout.a {
             postData.nt(true);
             PostData postData2 = new PostData();
             postData2.setPostType(52);
-            if (!bmy() && this.gis != null && this.gis.isShown()) {
+            if (!bmx() && this.gis != null && this.gis.isShown()) {
                 i = (this.giD - this.giC) - 1;
             } else {
                 i = this.giD - this.giC;
@@ -747,7 +747,7 @@ public class b implements KeyboardEventLayout.a {
         return this.chY;
     }
 
-    public void blm() {
+    public void bll() {
         if (this.giq != null) {
             com.baidu.adp.lib.g.g.a(this.giq, this.gib.getPageContext().getPageActivity());
         }
@@ -768,7 +768,7 @@ public class b implements KeyboardEventLayout.a {
         }
     }
 
-    public void bmx() {
+    public void bmw() {
         this.mListView.setNextPage(this.gip);
         this.gip.Fc();
     }
@@ -800,18 +800,18 @@ public class b implements KeyboardEventLayout.a {
             if (this.gic != null) {
                 this.gic.setVisibility(0);
             }
-            if (jVar.bgR() != null) {
-                this.giv = jVar.bgR().getId();
-                this.bqQ = jVar.bgR().bDs();
+            if (jVar.bgQ() != null) {
+                this.giv = jVar.bgQ().getId();
+                this.bqQ = jVar.bgQ().bDr();
                 if (this.bqQ > 0) {
                     this.mNavigationBar.setCenterTextTitle(String.format(this.gib.getResources().getString(e.j.subpb_floor_reply), Integer.valueOf(this.bqQ)));
                     this.dWY.setText(e.j.say_your_point);
                 } else {
                     this.mNavigationBar.setCenterTextTitle(null);
                 }
-                String str = this.gib.bmt() ? "PB" : null;
-                if (jVar.bgR().Ac() != null) {
-                    this.gio.setData(this.gib.getPageContext(), jVar.bgR().Ac(), com.baidu.tieba.tbadkCore.d.a.f("PB", "c0132", jVar.bgX().getId(), jVar.bgX().getName(), jVar.ZR().getId(), str));
+                String str = this.gib.bms() ? "PB" : null;
+                if (jVar.bgQ().Ac() != null) {
+                    this.gio.setData(this.gib.getPageContext(), jVar.bgQ().Ac(), com.baidu.tieba.tbadkCore.d.a.f("PB", "c0132", jVar.bgW().getId(), jVar.bgW().getName(), jVar.ZR().getId(), str));
                 } else {
                     this.gio.setData(null, null, null);
                 }
@@ -823,7 +823,7 @@ public class b implements KeyboardEventLayout.a {
                 this.gip.Fd();
                 this.giE.setHasMoreData(false);
             }
-            this.giw = jVar.bgV();
+            this.giw = jVar.bgU();
             if (this.giw == null || this.giw.size() <= ghZ) {
                 i2 = 0;
                 i3 = 0;
@@ -851,10 +851,10 @@ public class b implements KeyboardEventLayout.a {
             bVar.setReplyNum(jVar.getTotalCount());
             arrayList.add(0, bVar);
             if (this.aYF) {
-                arrayList.add(0, jVar.bgR());
+                arrayList.add(0, jVar.bgQ());
             }
             this.giE.a(this.ggF.ZR(), arrayList);
-            a(jVar.bgR(), jVar.aTC(), jVar.wq(), i, z);
+            a(jVar.bgQ(), jVar.aTB(), jVar.wq(), i, z);
             if (i4 > 0) {
                 this.mListView.setSelectionFromTop(i3, i2);
             }
@@ -879,7 +879,7 @@ public class b implements KeyboardEventLayout.a {
         }
     }
 
-    public boolean bmy() {
+    public boolean bmx() {
         return this.giE.hasMoreData();
     }
 
@@ -887,14 +887,14 @@ public class b implements KeyboardEventLayout.a {
     public void a(PostData postData, boolean z, boolean z2, int i, boolean z3) {
         if (postData != null && !this.aYF) {
             this.fQO = postData;
-            if (!StringUtils.isNull(postData.bDz())) {
+            if (!StringUtils.isNull(postData.bDy())) {
                 this.gim.setVisibility(0);
-                this.gim.startLoad(postData.bDz(), 10, true);
+                this.gim.startLoad(postData.bDy(), 10, true);
             } else {
                 this.gim.setVisibility(8);
             }
-            h bDB = postData.bDB();
-            if (bDB != null && bDB.hkU) {
+            h bDA = postData.bDA();
+            if (bDA != null && bDA.hkU) {
                 this.gin.setVisibility(0);
             } else {
                 this.gin.setVisibility(8);
@@ -919,10 +919,10 @@ public class b implements KeyboardEventLayout.a {
                 }
             }
             this.gik.setText(ao.L(postData.getTime()));
-            this.gij.setText(String.format(this.gib.getPageContext().getString(e.j.is_floor), Integer.valueOf(postData.bDs())));
+            this.gij.setText(String.format(this.gib.getPageContext().getString(e.j.is_floor), Integer.valueOf(postData.bDr())));
             postData.zG().getUserTbVipInfoData();
-            boolean a = a(this.gil, postData.bDu());
-            if (StringUtils.isNull(postData.bDz()) && !a && postData.Sh() != null) {
+            boolean a = a(this.gil, postData.bDt());
+            if (StringUtils.isNull(postData.bDy()) && !a && postData.Sh() != null) {
                 this.cUX.setVisibility(0);
                 this.cUX.setTag(postData.Sh());
                 return;
@@ -992,7 +992,7 @@ public class b implements KeyboardEventLayout.a {
                     case 2:
                     case 18:
                         tbRichTextData.db(true);
-                        textView.setMovementMethod(com.baidu.tieba.view.c.bMa());
+                        textView.setMovementMethod(com.baidu.tieba.view.c.bLZ());
                         continue;
                     case 17:
                         String str = next.Sk().mGifInfo.mSharpText;
@@ -1128,7 +1128,7 @@ public class b implements KeyboardEventLayout.a {
                         z5 = true;
                         z4 = true;
                     }
-                    int i2 = postData.bDs() != 1 ? 0 : 1;
+                    int i2 = postData.bDr() != 1 ? 0 : 1;
                     if (aq.k(postData)) {
                         z6 = z2;
                     } else {
@@ -1212,7 +1212,7 @@ public class b implements KeyboardEventLayout.a {
                 z5 = true;
                 z4 = true;
             }
-            if (postData.bDs() != 1) {
+            if (postData.bDr() != 1) {
             }
             if (aq.k(postData)) {
             }
@@ -1232,17 +1232,17 @@ public class b implements KeyboardEventLayout.a {
     }
 
     public void lM(boolean z) {
-        if (this.fTd != null && this.fTd.bjQ() != null) {
+        if (this.fTd != null && this.fTd.bjP() != null) {
             if (z) {
-                this.fTd.bjQ().setText(e.j.remove_mark);
+                this.fTd.bjP().setText(e.j.remove_mark);
             } else {
-                this.fTd.bjQ().setText(e.j.mark);
+                this.fTd.bjP().setText(e.j.mark);
             }
             this.fTd.refreshUI();
         }
     }
 
-    public View bmz() {
+    public View bmy() {
         return this.gis;
     }
 
@@ -1262,7 +1262,7 @@ public class b implements KeyboardEventLayout.a {
             this.ffl.LX().onChangeSkinType(i);
         }
         this.gip.ey(i);
-        this.cUX.aWg();
+        this.cUX.aWf();
         al.h(this.dWY, e.d.cp_cont_e);
         al.h(this.gcg, e.d.cp_link_tip_a);
         al.h(this.aKT, e.d.cp_cont_c);
@@ -1275,11 +1275,11 @@ public class b implements KeyboardEventLayout.a {
         }
     }
 
-    public void bmA() {
+    public void bmz() {
         this.mProgress.setVisibility(0);
     }
 
-    public void bmB() {
+    public void bmA() {
         this.mListView.setVisibility(0);
         this.mProgress.setVisibility(8);
         this.gip.Fd();
@@ -1296,7 +1296,7 @@ public class b implements KeyboardEventLayout.a {
         this.giE.c(onLongClickListener);
     }
 
-    public View bmC() {
+    public View bmB() {
         return this.gia;
     }
 
@@ -1304,11 +1304,11 @@ public class b implements KeyboardEventLayout.a {
         return this.dWY;
     }
 
-    public ImageView bmD() {
+    public ImageView bmC() {
         return this.giz;
     }
 
-    public ImageView bmE() {
+    public ImageView bmD() {
         return this.giA;
     }
 
@@ -1316,15 +1316,15 @@ public class b implements KeyboardEventLayout.a {
     public void sH(int i) {
     }
 
-    public View bmF() {
+    public View bmE() {
         return this.gie;
     }
 
-    public View bmG() {
+    public View bmF() {
         return this.gim;
     }
 
-    public MorePopupWindow bmH() {
+    public MorePopupWindow bmG() {
         return this.giq;
     }
 
@@ -1341,7 +1341,7 @@ public class b implements KeyboardEventLayout.a {
         }
     }
 
-    public TextView bmI() {
+    public TextView bmH() {
         return this.gil;
     }
 
@@ -1359,7 +1359,7 @@ public class b implements KeyboardEventLayout.a {
         }
     }
 
-    public y bmJ() {
+    public y bmI() {
         return this.fTd;
     }
 
@@ -1372,12 +1372,12 @@ public class b implements KeyboardEventLayout.a {
     public void onActivityDestroy() {
     }
 
-    public void bmK() {
+    public void bmJ() {
         if (this.gib.isPaused()) {
         }
     }
 
-    public View bmL() {
+    public View bmK() {
         return this.gif;
     }
 

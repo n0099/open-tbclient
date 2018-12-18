@@ -6,51 +6,51 @@ import org.java_websocket.framing.Framedata;
 /* loaded from: classes2.dex */
 public abstract class f implements Framedata {
     private Framedata.Opcode iAo;
-    private ByteBuffer iAp = org.java_websocket.e.b.ccK();
+    private ByteBuffer iAp = org.java_websocket.e.b.ccJ();
     private boolean iAn = true;
     private boolean iAq = false;
     private boolean iAr = false;
     private boolean iAs = false;
     private boolean iAt = false;
 
-    public abstract void ccy() throws InvalidDataException;
+    public abstract void ccx() throws InvalidDataException;
 
     public f(Framedata.Opcode opcode) {
         this.iAo = opcode;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean ccC() {
+    public boolean ccB() {
         return this.iAr;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean ccD() {
+    public boolean ccC() {
         return this.iAs;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean ccE() {
+    public boolean ccD() {
         return this.iAt;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean ccB() {
+    public boolean ccA() {
         return this.iAn;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public Framedata.Opcode ccF() {
+    public Framedata.Opcode ccE() {
         return this.iAo;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public ByteBuffer ccA() {
+    public ByteBuffer ccz() {
         return this.iAp;
     }
 
     public String toString() {
-        return "Framedata{ optcode:" + ccF() + ", fin:" + ccB() + ", rsv1:" + ccC() + ", rsv2:" + ccD() + ", rsv3:" + ccE() + ", payloadlength:[pos:" + this.iAp.position() + ", len:" + this.iAp.remaining() + "], payload:" + (this.iAp.remaining() > 1000 ? "(too big to display)" : new String(this.iAp.array())) + '}';
+        return "Framedata{ optcode:" + ccE() + ", fin:" + ccA() + ", rsv1:" + ccB() + ", rsv2:" + ccC() + ", rsv3:" + ccD() + ", payloadlength:[pos:" + this.iAp.position() + ", len:" + this.iAp.remaining() + "], payload:" + (this.iAp.remaining() > 1000 ? "(too big to display)" : new String(this.iAp.array())) + '}';
     }
 
     public void t(ByteBuffer byteBuffer) {

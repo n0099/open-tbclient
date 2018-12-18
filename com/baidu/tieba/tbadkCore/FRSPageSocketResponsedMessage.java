@@ -73,7 +73,7 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<i, 
         int l;
         CustomResponsedMessage runTask;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.responseData.bBI() != null && !StringUtils.isNull(this.responseData.bBI().yl(), true) && !this.responseData.bBI().yl().equals("0") && this.responseData.bBI().ym() == 3 && (l = com.baidu.adp.lib.g.b.l(this.responseData.bBI().yl(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(l))) != null) {
+        if (this.responseData.bBH() != null && !StringUtils.isNull(this.responseData.bBH().yl(), true) && !this.responseData.bBH().yl().equals("0") && this.responseData.bBH().ym() == 3 && (l = com.baidu.adp.lib.g.b.l(this.responseData.bBH().yl(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(l))) != null) {
             this.responseData.q(Integer.valueOf(((Integer) runTask.getData()).intValue()));
         }
     }
@@ -81,13 +81,13 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<i, 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        if (!hasError() && this.responseData != null && this.needCache && this.responseData.bgi() != null) {
+        if (!hasError() && this.responseData != null && this.needCache && this.responseData.bgh() != null) {
             int abZ = this.responseData.abZ();
-            String d = c.bBd().d(this.responseData.bgi().getName(), abZ, this.mIsGood, this.mCategoryId);
+            String d = c.bBc().d(this.responseData.bgh().getName(), abZ, this.mIsGood, this.mCategoryId);
             if (abZ == 3) {
-                c.bBd().o(d, bArr);
+                c.bBc().o(d, bArr);
             } else {
-                c.bBd().c(d, bArr, true);
+                c.bBc().c(d, bArr, true);
             }
         }
     }

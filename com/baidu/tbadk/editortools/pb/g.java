@@ -240,7 +240,7 @@ public class g extends com.baidu.tbadk.editortools.d {
                 this.aZR.getWriteData().setVoice(null);
                 this.aZR.getWriteData().setVoiceDuringTime(-1);
             }
-            if (!this.aZR.bEE()) {
+            if (!this.aZR.bED()) {
                 GC().showToast(e.j.write_img_limit);
             } else if (this.aZZ == null || !this.aZZ.Mu()) {
                 if (this.aZY != null) {

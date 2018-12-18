@@ -119,7 +119,7 @@ public class n {
         this.gAu = (TextView) view.findViewById(e.g.person_praise_number);
         this.gAn.setCompoundDrawablesWithIntrinsicBounds(this.mContext.getResources().getDrawable(e.f.icon_huobi_tdou), (Drawable) null, (Drawable) null, (Drawable) null);
         this.gAj = (PersonHeaderAttentionView) view.findViewById(e.g.person_center_header_attention_container);
-        bqE();
+        bqD();
         this.gAv = new m(this.mContext);
         this.gsJ.setOnClickListener(this.gAv);
         this.gAg.setOnClickListener(this.gAv);
@@ -176,7 +176,7 @@ public class n {
             } else {
                 this.gsJ.setVisibility(8);
             }
-            boL();
+            boK();
             String name_show = this.mUserData.getName_show();
             if (!TextUtils.isEmpty(name_show)) {
                 this.aKT.setText(name_show);
@@ -264,8 +264,8 @@ public class n {
             a(aVar.gxX);
             this.mUserData.setIsLike(this.mUserData.getHave_attention() == 1);
             this.cUn.a(this.mUserData);
+            bqE();
             bqF();
-            bqG();
             this.gAD.setText(this.mIsHost ? e.j.my_received_gift : e.j.he_received_gift);
             if ((this.mUserData.getPersonPrivate() == null || this.mUserData.getPersonPrivate().LB() != 3) && this.mUserData.getPersonPrivate().LB() == 2 && this.mUserData.getIsFriend() != 1) {
             }
@@ -310,7 +310,7 @@ public class n {
         if (this.mUserData != null && this.mUserData.getIsMem() <= 0 && this.gsJ != null && this.mIsHost) {
             this.gsJ.setImageDrawable(al.getDrawable(e.f.icon_crown_super_non));
         }
-        boL();
+        boK();
         al.c(this.gAi, e.d.cp_link_tip_a, 1);
         this.aKT.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, this.mContext.getResources().getDrawable(i2), (Drawable) null);
         if (this.gAj != null) {
@@ -374,14 +374,14 @@ public class n {
         this.gAf.gl(str);
     }
 
-    protected void bqE() {
+    protected void bqD() {
         this.gAf.setHasPendantStyle();
         this.gAf.getHeadView().setIsRound(true);
         this.gAf.getHeadView().setDrawBorder(false);
         this.gAf.getHeadView().setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
     }
 
-    protected void boL() {
+    protected void boK() {
         if (this.mUserData != null && (this.mUserData.getIsMem() > 0 || this.mUserData.isBigV())) {
             al.c(this.aKT, e.d.cp_cont_h, 1);
         } else {
@@ -389,21 +389,21 @@ public class n {
         }
     }
 
-    private void bqF() {
-        if (this.gAc != null && this.gAc.bqz() != null) {
+    private void bqE() {
+        if (this.gAc != null && this.gAc.bqy() != null) {
             this.gAA.removeAllViews();
-            int godType = this.gAc.bqz().getGodType();
-            if (godType == 2 && v.H(this.gAc.bqz().getForumGodList()) > 0) {
+            int godType = this.gAc.bqy().getGodType();
+            if (godType == 2 && v.H(this.gAc.bqy().getForumGodList()) > 0) {
                 this.gAA.setVisibility(0);
-                for (ForumGodDetailInfo forumGodDetailInfo : this.gAc.bqz().getForumGodList()) {
+                for (ForumGodDetailInfo forumGodDetailInfo : this.gAc.bqy().getForumGodList()) {
                     if (forumGodDetailInfo != null) {
                         cq(forumGodDetailInfo.forum_name, forumGodDetailInfo.intro);
                     }
                 }
                 return;
-            } else if (godType == 1 && this.gAc.bqz().getgodDetailInfo() != null && !StringUtils.isNull(this.gAc.bqz().getgodDetailInfo().intro)) {
+            } else if (godType == 1 && this.gAc.bqy().getgodDetailInfo() != null && !StringUtils.isNull(this.gAc.bqy().getgodDetailInfo().intro)) {
                 this.gAA.setVisibility(0);
-                cq(this.gAc.bqz().getgodDetailInfo().intro, "");
+                cq(this.gAc.bqy().getgodDetailInfo().intro, "");
                 return;
             } else {
                 return;
@@ -426,16 +426,16 @@ public class n {
         this.gAA.addView(inflate, layoutParams);
     }
 
-    private void bqG() {
+    private void bqF() {
         int i;
         for (int i2 = 0; i2 < gAd.length; i2++) {
             ((TbImageView) this.mRootView.findViewById(gAd[i2])).setVisibility(8);
         }
-        if (this.gAc == null || this.gAc.bqy() == null || v.H(this.gAc.bqy().gyl) <= 0) {
+        if (this.gAc == null || this.gAc.bqx() == null || v.H(this.gAc.bqx().gyl) <= 0) {
             i = 0;
         } else {
-            int i3 = this.gAc.bqy().giftNum;
-            List<com.baidu.adp.widget.ListView.h> list = this.gAc.bqy().gyl;
+            int i3 = this.gAc.bqx().giftNum;
+            List<com.baidu.adp.widget.ListView.h> list = this.gAc.bqx().gyl;
             for (int i4 = 0; i4 < list.size() && i4 < gAd.length; i4++) {
                 if (list.get(i4) instanceof com.baidu.tieba.personPolymeric.c.o) {
                     TbImageView tbImageView = (TbImageView) this.mRootView.findViewById(gAd[i4]);

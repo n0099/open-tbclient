@@ -84,7 +84,7 @@ public class b {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (v.I(bMV())) {
+        if (v.I(bMU())) {
             return false;
         }
         return j(editText) || j(editText2);
@@ -110,7 +110,7 @@ public class b {
         this.hQx = arrayList;
     }
 
-    public ArrayList<String> bMV() {
+    public ArrayList<String> bMU() {
         return this.hQx;
     }
 
@@ -118,7 +118,7 @@ public class b {
         this.Zm = str;
     }
 
-    public String bMZ() {
+    public String bMY() {
         return this.Zm;
     }
 }

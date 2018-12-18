@@ -5,7 +5,7 @@ public class b extends d {
         super("app_quick_config");
     }
 
-    public static b bRF() {
+    public static b bRE() {
         return a.icl;
     }
 

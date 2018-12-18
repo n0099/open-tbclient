@@ -11,9 +11,9 @@ public interface a {
 
     void b(BaseFragment baseFragment);
 
-    f bpT();
+    f bpS();
 
-    void bpU();
+    void bpT();
 
     void gu(boolean z);
 

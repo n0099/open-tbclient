@@ -187,7 +187,7 @@ public class VrPicView extends RelativeLayout {
                 this.gKN = g.h(tbPageContext.getPageActivity()).M(101).N(3).a(new g.c() { // from class: com.baidu.tieba.recapp.lego.view.VrPicView.3
                     public void a(a.b bVar) {
                         VrPicView.this.gPp = bVar;
-                        VrPicView.this.buX();
+                        VrPicView.this.buW();
                     }
                 }).I(true).b(this.gPk);
                 this.gKN.onResume(this.mPageContext.getPageActivity());
@@ -198,7 +198,7 @@ public class VrPicView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void buX() {
+    public void buW() {
         if (!StringUtils.isNull(this.gPm) && this.gPp != null) {
             mK(false);
             mL(true);
@@ -207,7 +207,7 @@ public class VrPicView extends RelativeLayout {
     }
 
     public void al(String str) {
-        buX();
+        buW();
     }
 
     public void onDestroy() {

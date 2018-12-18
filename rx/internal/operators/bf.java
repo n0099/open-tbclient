@@ -124,7 +124,7 @@ public final class bf<R, T> implements d.b<R, T> {
         public a(R r, rx.j<? super R> jVar) {
             Queue<Object> eVar;
             this.child = jVar;
-            if (rx.internal.util.a.ae.ceG()) {
+            if (rx.internal.util.a.ae.ceF()) {
                 eVar = new rx.internal.util.a.x<>();
             } else {
                 eVar = new rx.internal.util.atomic.e<>();
@@ -222,11 +222,11 @@ public final class bf<R, T> implements d.b<R, T> {
                     return;
                 }
                 this.emitting = true;
-                cdF();
+                cdE();
             }
         }
 
-        void cdF() {
+        void cdE() {
             rx.j<? super R> jVar = this.child;
             Queue<Object> queue = this.queue;
             AtomicLong atomicLong = this.requested;

@@ -86,7 +86,7 @@ public class c {
             }
             bottomLine.setLayoutParams(layoutParams);
         }
-        this.gsu.bpL();
+        this.gsu.bpK();
         this.gsu.setOnViewResponseListener(null);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -152,7 +152,7 @@ public class c {
 
     public void onDestroy() {
         if (this.gst != null) {
-            this.gst.boC();
+            this.gst.boB();
         }
     }
 
@@ -160,15 +160,15 @@ public class c {
         this.gsu.C(i, z);
     }
 
-    public void boB() {
+    public void boA() {
         if (this.gst != null) {
-            this.gst.boB();
+            this.gst.boA();
         }
     }
 
-    public void boC() {
+    public void boB() {
         if (this.gst != null) {
-            this.gst.boC();
+            this.gst.boB();
         }
     }
 }

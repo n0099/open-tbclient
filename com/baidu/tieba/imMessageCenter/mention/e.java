@@ -150,15 +150,15 @@ public class e extends com.baidu.adp.base.c<ChatAggregationFragment> implements 
                         if (customMessage != null && imMessageCenterShowItemData != null) {
                             imMessageCenterShowItemData.setUnReadCount(0);
                             if (imMessageCenterShowItemData.getOwnerName().equals("2")) {
-                                com.baidu.tieba.im.db.d.aQq().pR("apply_join_group");
+                                com.baidu.tieba.im.db.d.aQp().pR("apply_join_group");
                             } else if (imMessageCenterShowItemData.getOwnerName().equals("3")) {
-                                com.baidu.tieba.im.db.d.aQq().pR("group_intro_change");
-                                com.baidu.tieba.im.db.d.aQq().pR("group_name_change");
-                                com.baidu.tieba.im.db.d.aQq().pR("group_notice_change");
-                                com.baidu.tieba.im.db.d.aQq().pR("group_level_up");
-                                com.baidu.tieba.im.db.d.aQq().pR("dismiss_group");
-                                com.baidu.tieba.im.db.d.aQq().pR("kick_out");
-                                com.baidu.tieba.im.db.d.aQq().pR("group_activitys_change");
+                                com.baidu.tieba.im.db.d.aQp().pR("group_intro_change");
+                                com.baidu.tieba.im.db.d.aQp().pR("group_name_change");
+                                com.baidu.tieba.im.db.d.aQp().pR("group_notice_change");
+                                com.baidu.tieba.im.db.d.aQp().pR("group_level_up");
+                                com.baidu.tieba.im.db.d.aQp().pR("dismiss_group");
+                                com.baidu.tieba.im.db.d.aQp().pR("kick_out");
+                                com.baidu.tieba.im.db.d.aQp().pR("group_activitys_change");
                             }
                         }
                         return null;
@@ -229,7 +229,7 @@ public class e extends com.baidu.adp.base.c<ChatAggregationFragment> implements 
         this.eKD = new com.baidu.tieba.im.chat.a.a() { // from class: com.baidu.tieba.imMessageCenter.mention.e.10
             @Override // com.baidu.tieba.im.chat.a.a
             public void onComplete() {
-                e.this.aOJ();
+                e.this.aOI();
             }
         };
         this.aPU = new CustomMessageListener(2001120) { // from class: com.baidu.tieba.imMessageCenter.mention.e.2
@@ -258,7 +258,7 @@ public class e extends com.baidu.adp.base.c<ChatAggregationFragment> implements 
             public void onPostExecute() {
                 e.this.Tb();
                 e.this.fdW.showToast(e.j.delete_success, false);
-                e.this.aOJ();
+                e.this.aOI();
             }
 
             @Override // com.baidu.tieba.im.chat.a.b
@@ -398,13 +398,13 @@ public class e extends com.baidu.adp.base.c<ChatAggregationFragment> implements 
 
     private void jg(boolean z) {
         if (z) {
-            aVE();
+            aVD();
         } else {
-            aVF();
+            aVE();
         }
     }
 
-    private void aVE() {
+    private void aVD() {
         NoDataViewFactory.b bVar = null;
         if (com.baidu.adp.lib.b.d.iQ().aO("android_message_can_friend_chat") == 1) {
             bVar = NoDataViewFactory.b.a(new NoDataViewFactory.a(this.fdW.getResources().getString(e.j.maintab_imcenter_button_text), new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.4
@@ -423,7 +423,7 @@ public class e extends com.baidu.adp.base.c<ChatAggregationFragment> implements 
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void aVF() {
+    private void aVE() {
         NoDataViewFactory.a aVar = new NoDataViewFactory.a(this.fdW.getResources().getString(e.j.maintab_imcenter_unlogin_button_text), new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -478,7 +478,7 @@ public class e extends com.baidu.adp.base.c<ChatAggregationFragment> implements 
 
     public void jh(boolean z) {
         if (z) {
-            if (aVG() && this.feb.getVisibility() != 0) {
+            if (aVF() && this.feb.getVisibility() != 0) {
                 this.feb.setVisibility(0);
             }
         } else if (this.feb.getVisibility() != 8) {
@@ -504,7 +504,7 @@ public class e extends com.baidu.adp.base.c<ChatAggregationFragment> implements 
         this.fdZ.setVisibility(8);
     }
 
-    public boolean aVG() {
+    public boolean aVF() {
         return this.fef;
     }
 
@@ -577,12 +577,12 @@ public class e extends com.baidu.adp.base.c<ChatAggregationFragment> implements 
             if (!(responsedMessage instanceof NewsNotifyMessage)) {
                 BdLog.e("transform error");
             } else {
-                aVH();
+                aVG();
             }
         }
     }
 
-    private void aVH() {
+    private void aVG() {
         if (this.fea != null) {
             this.fea.notifyDataSetChanged();
         }
@@ -592,7 +592,7 @@ public class e extends com.baidu.adp.base.c<ChatAggregationFragment> implements 
     public void ayA() {
         Tb();
         if (this.eKA == null) {
-            this.eKA = com.baidu.tieba.im.db.e.aQr().cD(getPageContext().getPageActivity());
+            this.eKA = com.baidu.tieba.im.db.e.aQq().cD(getPageContext().getPageActivity());
         }
         this.eKA.show();
         this.eKA.setPercent(0);
@@ -607,7 +607,7 @@ public class e extends com.baidu.adp.base.c<ChatAggregationFragment> implements 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aOJ() {
+    public void aOI() {
         if (this.fdZ != null && this.fdX != null) {
             this.fdZ.completePullRefreshPostDelayed(SystemScreenshotManager.DELAY_TIME);
             if (this.fdX.getData() != null) {

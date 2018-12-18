@@ -14,7 +14,7 @@ public class l extends a {
         super("tb_oficial_msg_", OfficialChatMessage.class);
     }
 
-    public static synchronized l aQF() {
+    public static synchronized l aQE() {
         l lVar;
         synchronized (l.class) {
             if (eNO == null) {
@@ -25,11 +25,11 @@ public class l extends a {
         return lVar;
     }
 
-    public static List<String> aQG() {
+    public static List<String> aQF() {
         Cursor cursor = null;
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = h.aQw().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time ASC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
+            cursor = h.aQv().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time ASC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     arrayList.add(cursor.getString(cursor.getColumnIndex("gid")));

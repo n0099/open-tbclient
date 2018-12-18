@@ -17,12 +17,12 @@ public final class b implements p {
 
     @Override // com.google.gson.p
     public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-        Type caU = aVar.caU();
-        Class<? super T> caT = aVar.caT();
-        if (!Collection.class.isAssignableFrom(caT)) {
+        Type caT = aVar.caT();
+        Class<? super T> caS = aVar.caS();
+        if (!Collection.class.isAssignableFrom(caS)) {
             return null;
         }
-        Type a2 = C$Gson$Types.a(caU, (Class<?>) caT);
+        Type a2 = C$Gson$Types.a(caT, (Class<?>) caS);
         return new a(dVar, a2, dVar.a(com.google.gson.b.a.l(a2)), this.isQ.b(aVar));
     }
 
@@ -45,29 +45,29 @@ public final class b implements p {
         @Override // com.google.gson.o
         /* renamed from: i */
         public Collection<E> b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.caH() == JsonToken.NULL) {
+            if (aVar.caG() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
-            Collection<E> cav = this.iun.cav();
+            Collection<E> cau = this.iun.cau();
             aVar.beginArray();
             while (aVar.hasNext()) {
-                cav.add(this.ium.b(aVar));
+                cau.add(this.ium.b(aVar));
             }
             aVar.endArray();
-            return cav;
+            return cau;
         }
 
         public void a(com.google.gson.stream.b bVar, Collection<E> collection) throws IOException {
             if (collection == null) {
-                bVar.caS();
+                bVar.caR();
                 return;
             }
-            bVar.caO();
+            bVar.caN();
             for (E e : collection) {
                 this.ium.a(bVar, e);
             }
-            bVar.caP();
+            bVar.caO();
         }
     }
 }

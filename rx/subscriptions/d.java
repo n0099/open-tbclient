@@ -23,7 +23,7 @@ public final class d implements k {
         this.iOA.update(kVar);
     }
 
-    public k cfo() {
+    public k cfn() {
         return this.iOA.current();
     }
 }

@@ -6,7 +6,7 @@ import java.util.List;
 public class d implements b {
     final List<b> iew;
 
-    public List<b> bSr() {
+    public List<b> bSq() {
         return this.iew;
     }
 

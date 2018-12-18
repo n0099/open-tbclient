@@ -72,8 +72,8 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         setSwipeBackEnabled(false);
         setContentView(e.h.video_easter_egg_layout);
         ayF();
+        bLj();
         bLk();
-        bLl();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -92,7 +92,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (VideoEasterEggActivity.this.hKs != null) {
-                    VideoEasterEggActivity.this.hKs.bLm();
+                    VideoEasterEggActivity.this.hKs.bLl();
                     VideoEasterEggActivity.this.aCQ();
                     TiebaStatic.log(new am("c13045").x("obj_locate", 1));
                 }
@@ -100,7 +100,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         });
     }
 
-    private void bLk() {
+    private void bLj() {
         this.hKo = (ScaleVideoView) findViewById(e.g.scale_video_view);
         this.hKo.setOnErrorListener(new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.9
             @Override // android.media.MediaPlayer.OnErrorListener
@@ -117,7 +117,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
             public void onCompletion(MediaPlayer mediaPlayer) {
                 VideoEasterEggActivity.this.hKx = true;
                 if (VideoEasterEggActivity.this.hKs != null) {
-                    VideoEasterEggActivity.this.hKs.bLo();
+                    VideoEasterEggActivity.this.hKs.bLn();
                 }
             }
         });
@@ -146,7 +146,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         oi(true);
     }
 
-    private void bLl() {
+    private void bLk() {
         this.hKp = findViewById(e.g.error_container);
         this.hKq = (TextView) findViewById(e.g.load_error_text);
         this.hKq.setText(e.j.loading_error);
@@ -156,7 +156,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (VideoEasterEggActivity.this.hKs != null) {
-                    VideoEasterEggActivity.this.hKs.bLn();
+                    VideoEasterEggActivity.this.hKs.bLm();
                 }
             }
         });
@@ -304,7 +304,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 if (VideoEasterEggActivity.this.hKs != null) {
-                    VideoEasterEggActivity.this.hKs.bLn();
+                    VideoEasterEggActivity.this.hKs.bLm();
                     TiebaStatic.log(new am("c13044"));
                 }
                 VideoEasterEggActivity.this.hKw.dismiss();
@@ -314,7 +314,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 if (VideoEasterEggActivity.this.hKs != null) {
-                    VideoEasterEggActivity.this.hKs.bLm();
+                    VideoEasterEggActivity.this.hKs.bLl();
                     TiebaStatic.log(new am("c13045").x("obj_locate", 2));
                 }
                 VideoEasterEggActivity.this.hKw.dismiss();
@@ -324,7 +324,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
                 if (VideoEasterEggActivity.this.hKv) {
-                    VideoEasterEggActivity.this.hKs.bLp();
+                    VideoEasterEggActivity.this.hKs.bLo();
                 }
             }
         });

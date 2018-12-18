@@ -27,7 +27,7 @@ public class c extends BaseAdapter {
     private boolean fFM = false;
     private ArrayList<ProgressBar> gvG = new ArrayList<>();
 
-    public void bpI() {
+    public void bpH() {
         if (this.gvG != null) {
             int i = 0;
             while (true) {
@@ -47,7 +47,7 @@ public class c extends BaseAdapter {
         }
     }
 
-    public void bda() {
+    public void bcZ() {
         this.fFM = false;
         if (this.mData != null && this.mData.size() == 0) {
             this.fFM = true;

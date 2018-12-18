@@ -64,7 +64,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
 
     private void initView() {
         this.mHandler = new Handler();
-        bLe();
+        bLd();
         inflate(getContext(), e.h.layout_effect_container, this);
         this.dxS = (HListView) findViewById(e.g.effect_list_view);
         this.dxS.setDividerWidth(getContext().getResources().getDimensionPixelSize(e.C0210e.ds28));
@@ -86,7 +86,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         return eVar;
     }
 
-    private void bLe() {
+    private void bLd() {
         this.hJx = "2";
         this.hJz = c(e.f.beauty_icon_avatar_2, 1, "2", com.baidu.tieba.video.a.wk(2));
         this.aTi = getString(e.j.filter_nature);
@@ -99,7 +99,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         this.hJB = new e<>(3, getResources().getString(e.j.music_normal), new MusicData("-100", 1, getResources().getString(e.j.music_normal)), e.f.icon_video_mute);
     }
 
-    private void bLf() {
+    private void bLe() {
         if (this.hJu == null) {
             this.hJu = new ArrayList();
             a("No", com.baidu.tieba.video.a.wk(0));
@@ -115,7 +115,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         this.hJu.add(c(0, 1, str, aVar));
     }
 
-    private void bLg() {
+    private void bLf() {
         if (this.hJv == null) {
             this.hJv = new ArrayList();
             m(e.f.filter_icon_avatar_default, getString(e.j.filter_nature), "origin");
@@ -150,13 +150,13 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void bKH() {
+    public void bKG() {
         this.hJG = 3;
         k(this.hJw, this.hJy);
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void bKI() {
+    public void bKH() {
         this.hJG = 0;
         this.hJr.setAdapter((ListAdapter) this.hJt);
         this.hJt.notifyDataSetChanged();
@@ -170,16 +170,16 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void bKJ() {
+    public void bKI() {
         this.hJG = 1;
-        bLf();
+        bLe();
         k(this.hJu, this.hJx);
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void bKK() {
+    public void bKJ() {
         this.hJG = 2;
-        bLg();
+        bLf();
         k(this.hJv, this.aTi);
     }
 
@@ -288,7 +288,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
                 runnable.run();
                 oh(false);
             } else {
-                bLh();
+                bLg();
                 this.mHandler.postDelayed(runnable, 250L);
             }
         }
@@ -320,7 +320,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         return this.hJC;
     }
 
-    private void bLh() {
+    private void bLg() {
         if (this.hJE != null && this.hJE.isRunning()) {
             this.hJE.cancel();
         }
@@ -424,23 +424,23 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         this.hJw.addAll(list);
     }
 
-    public boolean bLc() {
+    public boolean bLb() {
         if (v.I(this.mStickerItems)) {
             return true;
         }
         return this.mStickerItems.size() == 1 && this.mStickerItems.get(0).id == -1;
     }
 
-    public void bLd() {
+    public void bLc() {
         if (this.hJs != null) {
-            this.hJs.bJQ();
+            this.hJs.bJP();
             this.hJy = TbadkCoreApplication.getInst().getString(e.j.music_normal);
         }
     }
 
-    public void bJR() {
+    public void bJQ() {
         if (this.hJs != null) {
-            this.hJs.bJR();
+            this.hJs.bJQ();
         }
     }
 }

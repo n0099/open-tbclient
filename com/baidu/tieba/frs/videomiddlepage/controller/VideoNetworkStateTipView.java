@@ -72,7 +72,7 @@ public class VideoNetworkStateTipView extends RelativeLayout {
     }
 
     public boolean aHO() {
-        return (hasAgreeToPlay() || g.bHR().bHS() || TbadkCoreApplication.getInst().getVideoAutoPlay() == 2 || !j.kX()) ? false : true;
+        return (hasAgreeToPlay() || g.bHQ().bHR() || TbadkCoreApplication.getInst().getVideoAutoPlay() == 2 || !j.kX()) ? false : true;
     }
 
     public void aHP() {

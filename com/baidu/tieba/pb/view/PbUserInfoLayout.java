@@ -79,7 +79,7 @@ public class PbUserInfoLayout extends FrameLayout {
     public void setPbEventController(com.baidu.tieba.pb.pb.a aVar) {
         this.ggl = aVar;
         if (this.ggl != null) {
-            this.fSY = this.ggl.bhd();
+            this.fSY = this.ggl.bhc();
         }
     }
 }

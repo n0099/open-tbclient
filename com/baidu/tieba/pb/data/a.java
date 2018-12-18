@@ -37,7 +37,7 @@ public class a extends PostData {
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData
-    public String bgd() {
+    public String bgc() {
         return this.fPK;
     }
 
@@ -49,15 +49,15 @@ public class a extends PostData {
         return this.picUrl;
     }
 
-    public String bge() {
+    public String bgd() {
         return this.buttonText;
     }
 
-    public String bgf() {
+    public String bge() {
         return this.apR;
     }
 
-    public int bgg() {
+    public int bgf() {
         return this.fPL;
     }
 

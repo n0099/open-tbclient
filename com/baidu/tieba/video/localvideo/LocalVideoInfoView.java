@@ -99,7 +99,7 @@ public class LocalVideoInfoView extends RelativeLayout {
         this.hES = false;
         this.hEN.setVisibility(8);
         this.videoPath = dVar.getVideoPath();
-        if (dVar != null && dVar.bJE()) {
+        if (dVar != null && dVar.bJD()) {
             setDataToView(dVar);
         } else {
             setDataToView(null);

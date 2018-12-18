@@ -11,7 +11,7 @@ public final class ao<T, U> implements d.b<T, T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        static final ao<?, ?> iFa = new ao<>(UtilityFunctions.cew());
+        static final ao<?, ?> iFa = new ao<>(UtilityFunctions.cev());
     }
 
     @Override // rx.functions.f
@@ -19,7 +19,7 @@ public final class ao<T, U> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> ao<T, T> cdt() {
+    public static <T> ao<T, T> cds() {
         return (ao<T, T>) a.iFa;
     }
 

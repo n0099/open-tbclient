@@ -142,7 +142,7 @@ public class c {
             this.hQS = (GridLayout) this.hQE.findViewById(e.g.type_container);
             this.hQS.setMeasureAllChild(true);
             this.hQS.setVerNum(1);
-            bNa();
+            bMZ();
             this.hQY.add(this.hQI);
             this.hQY.add(this.hQF);
             this.hQY.add(this.hQL);
@@ -165,7 +165,7 @@ public class c {
             this.hQG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.c.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    c.this.bNd();
+                    c.this.bNc();
                     TiebaStatic.log(new am("c12611").aA("obj_locate", c.this.hRe).x("obj_type", 2));
                     if (c.this.hIi == null) {
                         c.this.hIi = new ForumWriteData("0", null, null, null);
@@ -185,7 +185,7 @@ public class c {
                     int i2;
                     String str4;
                     String str5;
-                    c.this.bNd();
+                    c.this.bNc();
                     PostPrefixData postPrefixData = null;
                     AntiData antiData = null;
                     if (c.this.hIi != null) {
@@ -235,7 +235,7 @@ public class c {
                 public void onClick(View view) {
                     String str;
                     String str2 = null;
-                    c.this.bNd();
+                    c.this.bNc();
                     if (Build.VERSION.SDK_INT < 21) {
                         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(c.this.mContext.getPageActivity());
                         aVar.setAutoNight(false);
@@ -292,7 +292,7 @@ public class c {
         return aVar.A(activity);
     }
 
-    private void bNa() {
+    private void bMZ() {
         int aO = (int) (0.15555556f * l.aO(this.mContext.getPageActivity()));
         b(this.hQJ, aO);
         b(this.hQG, aO);
@@ -347,7 +347,7 @@ public class c {
         }
     }
 
-    private void bNb() {
+    private void bNa() {
         if (this.mFrom == "main_tab" && com.baidu.adp.lib.b.d.iQ().aO("android_bigday_switch") != 0 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_bigday_next_showtime_write", 0L)) {
             this.hRf = com.baidu.tbadk.core.bigday.b.xS().cA(3);
             if (this.hRf != null && this.hRf.xR()) {
@@ -361,7 +361,7 @@ public class c {
                             if (c.this.hRf != null && !StringUtils.isNULL(c.this.hRf.aou)) {
                                 ay.Ef().c(c.this.mContext, new String[]{c.this.hRf.aou});
                                 TiebaStatic.log(new am("c13114").i(VideoPlayActivityConfig.OBJ_ID, c.this.hRf.aow).aA("obj_to", c.this.hRf.aou));
-                                c.this.bNd();
+                                c.this.bNc();
                             }
                         }
                     });
@@ -414,7 +414,7 @@ public class c {
 
     public void os(boolean z) {
         if (!this.hQU && this.hQW && this.hQX && this.mRootView != null) {
-            bNb();
+            bNa();
             this.hQR.clearAnimation();
             this.hQU = true;
             if (this.hQE.getParent() == null) {
@@ -426,7 +426,7 @@ public class c {
             this.hQD.startAnimation(this.hRc);
             this.hQR.setVisibility(0);
             this.hQR.startAnimation(this.hRa);
-            bNc();
+            bNb();
             TiebaStatic.log(new am("c12052").aA("obj_locate", this.hRe));
             if (j.kX()) {
                 String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_baidu_sim_card_writting_tip", "");
@@ -438,7 +438,7 @@ public class c {
         }
     }
 
-    private void bNc() {
+    private void bNb() {
         clearAnimation();
         final int size = this.hQY.size();
         this.hQW = false;
@@ -494,14 +494,14 @@ public class c {
             }
             this.hQR.clearAnimation();
             this.hQR.startAnimation(this.hRb);
-            bNe();
+            bNd();
             this.hQT = new a(view);
             com.baidu.adp.lib.g.e.jG().postDelayed(this.hQT, 500L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bNd() {
+    public void bNc() {
         this.hQW = true;
         this.hQX = true;
         if (this.hQT != null) {
@@ -513,7 +513,7 @@ public class c {
         com.baidu.adp.lib.g.e.jG().postDelayed(this.hQT, 500L);
     }
 
-    private void bNe() {
+    private void bNd() {
         clearAnimation();
         int size = this.hQY.size();
         this.hQV = size;
@@ -596,7 +596,7 @@ public class c {
         int i2;
         String str5;
         String str6;
-        bNd();
+        bNc();
         PostPrefixData postPrefixData = null;
         AntiData antiData = null;
         if (this.hIi == null) {

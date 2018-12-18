@@ -30,7 +30,7 @@ public class c {
         MessageManager.getInstance().registerListener(this.eWK);
     }
 
-    public static c aTJ() {
+    public static c aTI() {
         if (eXI == null) {
             synchronized (c.class) {
                 if (eXI == null) {
@@ -73,11 +73,11 @@ public class c {
         return this.eIl;
     }
 
-    public Long aTK() {
-        return com.baidu.tieba.im.memorycache.b.aSN().aSY().get(this.eIl);
+    public Long aTJ() {
+        return com.baidu.tieba.im.memorycache.b.aSM().aSX().get(this.eIl);
     }
 
-    public synchronized List<Long> aTL() {
+    public synchronized List<Long> aTK() {
         ArrayList arrayList;
         arrayList = new ArrayList();
         for (Long l : this.eXJ) {
@@ -88,7 +88,7 @@ public class c {
         return arrayList;
     }
 
-    public synchronized void aTM() {
+    public synchronized void aTL() {
         this.eXJ.clear();
     }
 
@@ -116,7 +116,7 @@ public class c {
         }
     }
 
-    public synchronized boolean aTN() {
+    public synchronized boolean aTM() {
         boolean z;
         if (this.eIl > 0) {
             z = this.eXJ.size() > 0;
@@ -141,7 +141,7 @@ public class c {
         return z;
     }
 
-    public synchronized String aTO() {
+    public synchronized String aTN() {
         String str;
         str = "";
         for (Long l : this.eXJ) {

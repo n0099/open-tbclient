@@ -45,7 +45,7 @@ public class NewUserGuideMainFragment extends BaseFragment {
         public void onClick(View view) {
             if (view.getTag() == null || !(view.getTag() instanceof InterestFrsData.Tag)) {
                 if (view == NewUserGuideMainFragment.this.hsA) {
-                    if (NewUserGuideMainFragment.this.hsj.bFS()) {
+                    if (NewUserGuideMainFragment.this.hsj.bFR()) {
                         TbadkApplication.getInst().setLikeBarChanged(true);
                     }
                     NewUserGuideMainFragment.this.sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(NewUserGuideMainFragment.this.hsj.getPageContext().getPageActivity()).createNewUserCfg(1, NewUserGuideMainFragment.this.hrQ)));
@@ -56,7 +56,7 @@ public class NewUserGuideMainFragment extends BaseFragment {
                 TiebaStatic.log("newUserInterestSelect");
                 f fVar = new f(NewUserGuideMainFragment.this.hsj, (InterestFrsData.Tag) view.getTag(), new a() { // from class: com.baidu.tieba.tblauncherInterestGuide.NewUserGuideMainFragment.1.1
                     @Override // com.baidu.tieba.tblauncherInterestGuide.NewUserGuideMainFragment.a
-                    public void bGa() {
+                    public void bFZ() {
                         NewUserGuideMainFragment.this.dxZ.setVisibility(8);
                     }
                 });
@@ -69,7 +69,7 @@ public class NewUserGuideMainFragment extends BaseFragment {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bGa();
+        void bFZ();
     }
 
     public void c(InterestFrsData interestFrsData) {
@@ -81,7 +81,7 @@ public class NewUserGuideMainFragment extends BaseFragment {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.hsj = (NewUserGuideActivity) getBaseFragmentActivity();
-        this.hrO = this.hsj.bFU();
+        this.hrO = this.hsj.bFT();
         initData(bundle);
     }
 
@@ -92,7 +92,7 @@ public class NewUserGuideMainFragment extends BaseFragment {
             } else {
                 this.hrQ = this.hsj.getIntent().getBooleanExtra("is_new_user", false);
             }
-            d(this.hrO.bGc());
+            d(this.hrO.bGb());
         }
     }
 
@@ -154,7 +154,7 @@ public class NewUserGuideMainFragment extends BaseFragment {
                 throw e;
             }
             BdLog.e(e);
-            this.hsj.bFW();
+            this.hsj.bFV();
             TbadkApplication.getInst().onAppMemoryLow();
             return new FrameLayout(layoutInflater.getContext());
         }

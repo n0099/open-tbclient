@@ -66,7 +66,7 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
     private View h(int i, View view, ViewGroup viewGroup) {
         b d = b.d(this.gpy.getPageContext().getPageActivity(), view);
         a item = getItem(i);
-        d.a(StringUtils.isNull(item.getShowName()) ? item.getUserName() : item.getShowName(), item.getPortrait(), item.boj(), this.isScrolling);
+        d.a(StringUtils.isNull(item.getShowName()) ? item.getUserName() : item.getShowName(), item.getPortrait(), item.boi(), this.isScrolling);
         this.gpy.changSkinType(d.getView());
         return d.getView();
     }

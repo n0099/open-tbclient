@@ -158,10 +158,10 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
                 this.hRO = intent.getIntExtra("from_type", 0);
             }
         }
-        bNl();
+        bNk();
     }
 
-    private void bNl() {
+    private void bNk() {
         if (this.hRJ == 2) {
             this.hRI = new e() { // from class: com.baidu.tieba.write.album.AlbumActivity.2
                 @Override // com.baidu.tieba.write.album.e
@@ -193,7 +193,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         al.e(this.dKj, e.d.cp_bg_line_d, i);
     }
 
-    public void bNm() {
+    public void bNl() {
         if (this.hRJ == 3) {
             TiebaStatic.log("c10489");
         }
@@ -201,18 +201,18 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             showLoadingDialog("正在上传");
             new a().execute(new String[0]);
         } else if (this.hRF != null) {
-            if (this.hRP == null || !this.hRP.bNZ()) {
-                if (this.hRF.bNG()) {
-                    VideoFileInfo bNE = this.hRF.bNE();
+            if (this.hRP == null || !this.hRP.bNY()) {
+                if (this.hRF.bNF()) {
+                    VideoFileInfo bND = this.hRF.bND();
                     if (this.hRP == null) {
                         this.hRP = new i(this, this.forumName, this.forumId, "");
                         if (this.hRG != null) {
                             this.hRG.a(this.hRP);
                         }
                     }
-                    this.hRP.a(bNE, this.callFrom);
-                } else if (v.H(this.hRF.bNI()) == 1 && this.hRO == 0) {
-                    bNn();
+                    this.hRP.a(bND, this.callFrom);
+                } else if (v.H(this.hRF.bNH()) == 1 && this.hRO == 0) {
+                    bNm();
                 } else {
                     af(null);
                 }
@@ -243,13 +243,13 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     }
 
     public void b(TbPageContext tbPageContext) {
-        if (!ahL() && com.baidu.tieba.write.e.bNf()) {
+        if (!ahL() && com.baidu.tieba.write.e.bNe()) {
             sendMessage(new CustomMessage(2002001, new RecordVideoActivityConfig(tbPageContext.getPageActivity(), this.hRN ? 2 : 3, new ForumWriteData(this.forumId, this.forumName, null, null), this.hRF.getWriteImagesInfo(), "", this.hRO)));
             TiebaStatic.log(new am("c12611").x("obj_locate", 5).x("obj_type", 2));
         }
     }
 
-    private void bNn() {
+    private void bNm() {
         WriteImagesInfo writeImagesInfo;
         if (this.hRF != null && (writeImagesInfo = this.hRF.getWriteImagesInfo()) != null) {
             sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(getPageContext().getPageActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_THROUGH_SERVER, writeImagesInfo, 0)));
@@ -282,20 +282,20 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.hRG.bNw()) {
-            bNm();
-        } else if (view == this.hRG.bNy()) {
-            bNm();
-        } else if (view == this.hRG.bNv()) {
+        if (view == this.hRG.bNv()) {
+            bNl();
+        } else if (view == this.hRG.bNx()) {
+            bNl();
+        } else if (view == this.hRG.bNu()) {
             if (this.hRF != null) {
                 this.hRF.setLastAlbumId(null);
             }
-            bNs();
-        } else if (view == this.hRG.bNx()) {
+            bNr();
+        } else if (view == this.hRG.bNw()) {
             xa(0);
-        } else if (view == this.hRG.bNz()) {
+        } else if (view == this.hRG.bNy()) {
             wY(2);
-        } else if (view == this.hRG.bNA()) {
+        } else if (view == this.hRG.bNz()) {
             wY(1);
         }
     }
@@ -303,7 +303,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     private void wY(int i) {
         if (this.hRG != null && this.hRF != null) {
             this.hRF.setOriginalImg(!this.hRF.isOriginalImg());
-            bNo();
+            bNn();
             wZ(i);
         }
     }
@@ -314,7 +314,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         }
     }
 
-    public void bNo() {
+    public void bNn() {
         if (this.hRF != null && this.hRG != null) {
             this.hRG.ov(this.hRF.isOriginalImg());
         }
@@ -324,11 +324,11 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         return this.dKj;
     }
 
-    public int bNp() {
+    public int bNo() {
         return this.hRK;
     }
 
-    public c bNq() {
+    public c bNp() {
         return this.hRF;
     }
 
@@ -367,11 +367,11 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
                 imageFileInfo2.setIsLong(imageFileInfo.isLong());
                 this.hRF.a(null);
                 this.hRF.addChooseFile(imageFileInfo2);
-                bNo();
+                bNn();
                 return true;
             }
             return false;
-        } else if (bNr()) {
+        } else if (bNq()) {
             return c(imageFileInfo);
         } else {
             showToast(String.format(getPageContext().getContext().getString(e.j.album_beyond_max_choose), Integer.valueOf(maxImagesAllowed)));
@@ -379,12 +379,12 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         }
     }
 
-    public boolean bNr() {
+    public boolean bNq() {
         if (getIntent().getBooleanExtra(AlbumActivityConfig.IS_SELECT_DIRECTLY, false)) {
             int maxImagesAllowed = this.hRF.getMaxImagesAllowed();
             if (this.hRF.size() == maxImagesAllowed && maxImagesAllowed == 1) {
                 try {
-                    ImageFileInfo imageFileInfo = (ImageFileInfo) v.d(this.hRF.bNI(), 0);
+                    ImageFileInfo imageFileInfo = (ImageFileInfo) v.d(this.hRF.bNH(), 0);
                     if (d(imageFileInfo)) {
                         f(imageFileInfo, false);
                         g(imageFileInfo, false);
@@ -405,7 +405,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         }
         this.hRF.a(null);
         this.hRF.delChooseFile(imageFileInfo);
-        bNo();
+        bNn();
         return true;
     }
 
@@ -417,7 +417,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
                 if (this.hRF != null) {
                     this.hRF.setLastAlbumId(null);
                 }
-                bNs();
+                bNr();
                 return true;
             } else if (this.mCurrentPage == 1) {
                 xa(0);
@@ -444,7 +444,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         }
     }
 
-    private void bNs() {
+    private void bNr() {
         Intent intent = new Intent();
         String lastAlbumId = this.hRF.getLastAlbumId();
         if (TextUtils.isEmpty(lastAlbumId)) {
@@ -462,9 +462,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         }
     }
 
-    private void bNt() {
+    private void bNs() {
         if (this.hRG != null) {
-            this.hRG.bNt();
+            this.hRG.bNs();
         }
     }
 
@@ -481,7 +481,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         stopCamera();
         closeLoadingDialog();
         dismissAllDialog();
-        d.bNM().destory();
+        d.bNL().destory();
         if (this.dKj != null) {
             this.dKj.setBackgroundDrawable(null);
         }
@@ -550,7 +550,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        bNt();
+        bNs();
         if (this.hRP != null) {
             this.hRP.onResume();
         }

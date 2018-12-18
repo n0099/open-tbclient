@@ -614,7 +614,7 @@ public class k {
     }
 
     public void gw(boolean z) {
-        boolean z2 = z && com.baidu.tbadk.core.util.v.I(this.dJE.aAZ().bBU());
+        boolean z2 = z && com.baidu.tbadk.core.util.v.I(this.dJE.aAZ().bBT());
         if (this.dKc != null) {
             this.dKc.gw(z2);
         }
@@ -1264,7 +1264,7 @@ public class k {
         if (this.dKi != null) {
             if (z) {
                 this.dKi.jz(false);
-                this.dKi.aZd();
+                this.dKi.aZc();
                 return;
             }
             this.dKi.jz(true);

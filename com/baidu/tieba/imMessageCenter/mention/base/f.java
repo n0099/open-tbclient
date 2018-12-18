@@ -37,7 +37,7 @@ public class f {
     public void aC(String str, int i) {
         this.eJj.setText(str);
         this.mIcon = i;
-        aWg();
+        aWf();
     }
 
     public void y(int i, boolean z) {
@@ -52,7 +52,7 @@ public class f {
         this.eJm.setVisibility(8);
     }
 
-    public void aWg() {
+    public void aWf() {
         al.c(this.eJj, e.d.cp_cont_b, 1);
         al.i(this.fgn, e.f.addresslist_item_bg);
         al.i(this.mLine, e.d.cp_bg_line_c);

@@ -278,7 +278,7 @@ public class a {
         return this;
     }
 
-    public a byP() {
+    public a byO() {
         return nd(true);
     }
 

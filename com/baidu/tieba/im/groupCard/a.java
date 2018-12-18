@@ -82,27 +82,27 @@ public class a extends c<GroupCardActivity> {
         this.progressBar.setVisibility(8);
     }
 
-    public void aRY() {
+    public void aRX() {
         this.bmP.setVisibility(0);
     }
 
-    public View aRZ() {
+    public View aRY() {
         return this.eSt;
     }
 
-    public View aSa() {
+    public View aRZ() {
         return this.eSu;
     }
 
-    public View aSb() {
+    public View aSa() {
         return this.eSw;
     }
 
-    public View aSc() {
+    public View aSb() {
         return this.mNavigationBar;
     }
 
-    public LinearLayout aSd() {
+    public LinearLayout aSc() {
         return this.eSv;
     }
 

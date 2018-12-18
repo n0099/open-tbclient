@@ -66,7 +66,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                                 qE.setPass(false);
                                 qE.setShown(true);
                                 ValidateModel.updateValidateData(ValidateActivity.this.eZD, qE);
-                                ValidateActivity.this.eZC.aUB().notifyDataSetChanged();
+                                ValidateActivity.this.eZC.aUA().notifyDataSetChanged();
                                 return;
                             }
                             return;
@@ -83,7 +83,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                         } else {
                             ValidateActivity.this.showToast(socketResponsedMessage.getErrorString());
                         }
-                        ValidateActivity.this.eZC.aUB().notifyDataSetChanged();
+                        ValidateActivity.this.eZC.aUA().notifyDataSetChanged();
                     }
                 } else if (202004 == cmd) {
                     ResponseDelSystemMessage responseDelSystemMessage = (ResponseDelSystemMessage) socketResponsedMessage;
@@ -92,18 +92,18 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                         ValidateModel.deleteValidateData(ValidateActivity.this.eZE, ValidateActivity.this.eZD);
                         ValidateActivity.this.offset--;
                         ValidateActivity.this.totalCount--;
-                        a aUB = ValidateActivity.this.eZC.aUB();
-                        aUB.getDatas().remove(ValidateActivity.this.eZE);
+                        a aUA = ValidateActivity.this.eZC.aUA();
+                        aUA.getDatas().remove(ValidateActivity.this.eZE);
                         ImMessageCenterPojo imMessageCenterPojo = null;
-                        if (aUB.getDatas().size() > 0) {
+                        if (aUA.getDatas().size() > 0) {
                             ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
-                            imMessageCenterPojo2.setLast_content(aUB.getDatas().get(0).getUserName() + TbadkApplication.getInst().getApp().getApplicationContext().getString(e.j.validate_im_apply_prefix1) + aUB.getDatas().get(0).getGroupName());
-                            imMessageCenterPojo2.setLast_content_time(aUB.getDatas().get(0).getApplyTime());
+                            imMessageCenterPojo2.setLast_content(aUA.getDatas().get(0).getUserName() + TbadkApplication.getInst().getApp().getApplicationContext().getString(e.j.validate_im_apply_prefix1) + aUA.getDatas().get(0).getGroupName());
+                            imMessageCenterPojo2.setLast_content_time(aUA.getDatas().get(0).getApplyTime());
                             imMessageCenterPojo = imMessageCenterPojo2;
                         }
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001211, imMessageCenterPojo));
-                        aUB.notifyDataSetChanged();
-                        if (aUB != null && aUB.getDatas() != null && aUB.getDatas().size() == 0) {
+                        aUA.notifyDataSetChanged();
+                        if (aUA != null && aUA.getDatas() != null && aUA.getDatas().size() == 0) {
                             ValidateActivity.this.finish();
                         }
                     }
@@ -119,8 +119,8 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                 GroupNewsPojo p = ((PushMessage) customResponsedMessage).getP();
                 ValidateActivity.this.offset++;
                 ValidateActivity.this.totalCount++;
-                ValidateActivity.this.eZC.aUB().getDatas().add(0, ValidateModel.convertToValidateItemData(p));
-                ValidateActivity.this.eZC.aUB().notifyDataSetChanged();
+                ValidateActivity.this.eZC.aUA().getDatas().add(0, ValidateModel.convertToValidateItemData(p));
+                ValidateActivity.this.eZC.aUA().notifyDataSetChanged();
             }
         }
     };
@@ -130,7 +130,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.eZC = new c(this);
-        aSC();
+        aSB();
     }
 
     @Override // android.app.Activity
@@ -157,11 +157,11 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
-        a aUB;
+        a aUA;
         super.onStop();
         ChatStatusManager.getInst().setIsOpen(7, false);
-        if (this.eZC != null && (aUB = this.eZC.aUB()) != null) {
-            ValidateModel.markShown(aUB.getDatas());
+        if (this.eZC != null && (aUA = this.eZC.aUA()) != null) {
+            ValidateModel.markShown(aUA.getDatas());
         }
     }
 
@@ -171,7 +171,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         super.onPause();
     }
 
-    private void aSC() {
+    private void aSB() {
         this.eZD = new h<Boolean>() { // from class: com.baidu.tieba.im.validate.ValidateActivity.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.h
@@ -227,7 +227,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view != null && this.eZC != null && view.equals(this.eZC.aUA())) {
+        if (view != null && this.eZC != null && view.equals(this.eZC.aUz())) {
             finish();
         }
     }
@@ -255,13 +255,13 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         if (view != null && validateItemData != null && 200 == i) {
             this.eZE = validateItemData;
             if (this.eUn == null) {
-                aSD();
+                aSC();
             }
             this.eUn.BI();
         }
     }
 
-    private void aSD() {
+    private void aSC() {
         String string = getPageContext().getString(e.j.delete_user_chat);
         b.InterfaceC0158b interfaceC0158b = new b.InterfaceC0158b() { // from class: com.baidu.tieba.im.validate.ValidateActivity.4
             @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0158b
@@ -303,9 +303,9 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                 requestAddGroupUserMessage.setGroupId(com.baidu.adp.lib.g.b.d(validateItemData.getGroupId(), 0L));
                 requestAddGroupUserMessage.setNotice_id(validateItemData.getNotice_id());
                 String notice_id = validateItemData.getNotice_id();
-                String aTS = com.baidu.tieba.im.pushNotify.b.aTQ().aTS();
-                if (!TextUtils.isEmpty(notice_id) && !TextUtils.isEmpty(aTS) && TextUtils.isDigitsOnly(notice_id) && TextUtils.isDigitsOnly(aTS)) {
-                    requestAddGroupUserMessage.setSysGroupId(com.baidu.adp.lib.g.b.l(aTS, 0));
+                String aTR = com.baidu.tieba.im.pushNotify.b.aTP().aTR();
+                if (!TextUtils.isEmpty(notice_id) && !TextUtils.isEmpty(aTR) && TextUtils.isDigitsOnly(notice_id) && TextUtils.isDigitsOnly(aTR)) {
+                    requestAddGroupUserMessage.setSysGroupId(com.baidu.adp.lib.g.b.l(aTR, 0));
                     requestAddGroupUserMessage.setSysMsgId(String.valueOf(com.baidu.adp.lib.g.b.d(notice_id, 0L) / 100));
                     requestAddGroupUserMessage.setDecision(1);
                     this.eZF = true;
@@ -322,7 +322,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         if (!j.kV()) {
             showToast(e.j.neterror);
         } else if (validateItemData != null) {
-            long d = com.baidu.adp.lib.g.b.d(com.baidu.tieba.im.pushNotify.b.aTQ().aTS(), 0L);
+            long d = com.baidu.adp.lib.g.b.d(com.baidu.tieba.im.pushNotify.b.aTP().aTR(), 0L);
             if (d != 0) {
                 this.eZC.iL(true);
                 RequestDelSystemMessage requestDelSystemMessage = new RequestDelSystemMessage();
@@ -339,7 +339,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         if (str == null) {
             return null;
         }
-        List<ValidateItemData> datas = this.eZC.aUB().getDatas();
+        List<ValidateItemData> datas = this.eZC.aUA().getDatas();
         if (datas != null) {
             for (ValidateItemData validateItemData : datas) {
                 if (str.equals(validateItemData.getNotice_id())) {

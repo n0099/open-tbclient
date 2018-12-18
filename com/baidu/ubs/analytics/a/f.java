@@ -23,11 +23,11 @@ final class f {
         }
     }
 
-    public static synchronized f bRL() {
+    public static synchronized f bRK() {
         f fVar;
         synchronized (f.class) {
             if (icy == null) {
-                b(com.baidu.ubs.analytics.d.bRJ().getContext());
+                b(com.baidu.ubs.analytics.d.bRI().getContext());
             }
             fVar = icy;
         }

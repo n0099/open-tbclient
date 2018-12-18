@@ -69,7 +69,7 @@ public class f extends com.baidu.adp.base.c<OfficialBarTipActivity> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!f.this.eKM) {
-                    if (f.this.eKL.aOI()) {
+                    if (f.this.eKL.aOH()) {
                         f.this.eKS.setVisibility(0);
                     }
                     f.this.a(officialBarTipActivity, true);
@@ -107,7 +107,7 @@ public class f extends com.baidu.adp.base.c<OfficialBarTipActivity> {
         this.eKQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.f.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                officialBarTipActivity.aOF();
+                officialBarTipActivity.aOE();
                 f.this.a(officialBarTipActivity, false);
             }
         });
@@ -129,11 +129,11 @@ public class f extends com.baidu.adp.base.c<OfficialBarTipActivity> {
         });
     }
 
-    public BdListView aOK() {
+    public BdListView aOJ() {
         return this.eKJ;
     }
 
-    public OfficialBarTipListAdapter aOL() {
+    public OfficialBarTipListAdapter aOK() {
         return this.eKK;
     }
 
@@ -143,7 +143,7 @@ public class f extends com.baidu.adp.base.c<OfficialBarTipActivity> {
             this.eKN.setVisibility(0);
             this.eKK.ig(true);
             this.eKK.notifyDataSetChanged();
-            if (officialBarTipActivity.aOG()) {
+            if (officialBarTipActivity.aOF()) {
                 ik(true);
             } else {
                 ik(false);
@@ -152,7 +152,7 @@ public class f extends com.baidu.adp.base.c<OfficialBarTipActivity> {
             this.eKS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.f.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    f.this.eKL.aOH();
+                    f.this.eKL.aOG();
                     f.this.a(officialBarTipActivity, false);
                 }
             });

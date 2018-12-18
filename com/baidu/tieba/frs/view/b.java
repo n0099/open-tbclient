@@ -134,7 +134,7 @@ public abstract class b {
                     return;
                 }
                 ay.Ef().c(b.this.mContext, new String[]{url});
-                a.C0316a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", gVar.bBi(), b.this.dJE.getForumId(), b.this.dJE.getForumName(), null);
+                a.C0316a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", gVar.bBh(), b.this.dJE.getForumId(), b.this.dJE.getForumName(), null);
                 b.cM("obj_url", gVar.getUrl());
                 b.save();
             }

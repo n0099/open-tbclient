@@ -168,7 +168,7 @@ public class d {
         return this.mThreadId;
     }
 
-    public boolean bmt() {
+    public boolean bms() {
         return this.aYF;
     }
 
@@ -192,14 +192,14 @@ public class d {
         bundle.putInt(str, this.gpB);
     }
 
-    public void bol() {
+    public void bok() {
         MessageManager messageManager = MessageManager.getInstance();
         messageManager.unRegisterListener(this.gpF);
         messageManager.unRegisterTask(CmdConfigHttp.CMD_GRAFFITI_LIST);
         messageManager.unRegisterTask(309326);
     }
 
-    public String bom() {
+    public String bol() {
         return this.gpz;
     }
 
@@ -215,10 +215,10 @@ public class d {
     }
 
     public void sW(int i) {
-        bon();
+        bom();
     }
 
-    private void bon() {
+    private void bom() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
         httpMessage.addParam("post_id", this.mPostId + "");
         httpMessage.addParam("page_num", this.gpA + "");

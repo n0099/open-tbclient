@@ -6,19 +6,19 @@ public class s {
     private boolean dOV = false;
     private boolean gEh = true;
 
-    public int brP() {
+    public int brO() {
         return this.fLr;
     }
 
-    public int brQ() {
+    public int brP() {
         return this.gEg;
     }
 
-    public boolean brR() {
+    public boolean brQ() {
         return this.dOV;
     }
 
-    public boolean brS() {
+    public boolean brR() {
         return this.gEh;
     }
 

@@ -76,15 +76,15 @@ public class AdCloseView extends ImageView {
         this.gRL = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                int bvB = AdCloseView.this.bvB();
-                if (bvB > 0) {
+                int bvA = AdCloseView.this.bvA();
+                if (bvA > 0) {
                     AdCloseView.this.dUw.setText(e.j.confirm);
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(e.j.ad_close_title_prefix));
                     int color = al.getColor(e.d.cp_cont_d);
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, spannableStringBuilder.length(), 17);
                     int length = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) String.valueOf(bvB));
+                    spannableStringBuilder.append((CharSequence) String.valueOf(bvA));
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(al.getColor(e.d.cp_link_tip_a)), length, spannableStringBuilder.length(), 17);
                     int length2 = spannableStringBuilder.length();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(e.j.ad_close_title_postfix));
@@ -165,15 +165,15 @@ public class AdCloseView extends ImageView {
         this.gRL = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                int bvB = AdCloseView.this.bvB();
-                if (bvB > 0) {
+                int bvA = AdCloseView.this.bvA();
+                if (bvA > 0) {
                     AdCloseView.this.dUw.setText(e.j.confirm);
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(e.j.ad_close_title_prefix));
                     int color = al.getColor(e.d.cp_cont_d);
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, spannableStringBuilder.length(), 17);
                     int length = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) String.valueOf(bvB));
+                    spannableStringBuilder.append((CharSequence) String.valueOf(bvA));
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(al.getColor(e.d.cp_link_tip_a)), length, spannableStringBuilder.length(), 17);
                     int length2 = spannableStringBuilder.length();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(e.j.ad_close_title_postfix));
@@ -254,15 +254,15 @@ public class AdCloseView extends ImageView {
         this.gRL = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                int bvB = AdCloseView.this.bvB();
-                if (bvB > 0) {
+                int bvA = AdCloseView.this.bvA();
+                if (bvA > 0) {
                     AdCloseView.this.dUw.setText(e.j.confirm);
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(e.j.ad_close_title_prefix));
                     int color = al.getColor(e.d.cp_cont_d);
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, spannableStringBuilder.length(), 17);
                     int length = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) String.valueOf(bvB));
+                    spannableStringBuilder.append((CharSequence) String.valueOf(bvA));
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(al.getColor(e.d.cp_link_tip_a)), length, spannableStringBuilder.length(), 17);
                     int length2 = spannableStringBuilder.length();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(e.j.ad_close_title_postfix));
@@ -363,7 +363,7 @@ public class AdCloseView extends ImageView {
         if (this.mContext != null) {
             Uz();
             View contentView = getContentView();
-            bvA();
+            bvz();
             this.mContentView = contentView;
             this.mWindowHeight = getWindowMeasuredHeight();
             this.mPopupWindow = new PopupWindow(contentView, this.bwU, this.mWindowHeight);
@@ -408,7 +408,7 @@ public class AdCloseView extends ImageView {
         }
     }
 
-    private void bvA() {
+    private void bvz() {
         if (this.gRI != null && this.gRI.size() > 0) {
             int size = this.gRI.size();
             this.gRF.setVisibility(0);
@@ -558,7 +558,7 @@ public class AdCloseView extends ImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int bvB() {
+    public int bvA() {
         if (v.I(this.gRG)) {
             return 0;
         }

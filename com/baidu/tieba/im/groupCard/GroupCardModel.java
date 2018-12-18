@@ -20,7 +20,7 @@ public class GroupCardModel extends BdBaseModel<GroupCardActivity> {
     private String imageUrl;
     private final long mGroupId;
 
-    public static void aRW() {
+    public static void aRV() {
         eSq = 0L;
     }
 

@@ -151,7 +151,7 @@ public class f extends d {
             VoiceData.VoiceModel voiceModel = zV.get(0);
             this.cUX.setVoiceModel(voiceModel);
             this.cUX.setTag(voiceModel);
-            this.cUX.aWg();
+            this.cUX.aWf();
             if (voiceModel != null) {
                 this.cUX.qw(voiceModel.voice_status.intValue());
             }

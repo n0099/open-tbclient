@@ -67,7 +67,7 @@ public final class bp<T> implements d.b<T, rx.d<? extends T>> {
             this.child.add(rx.subscriptions.e.j(new rx.functions.a() { // from class: rx.internal.operators.bp.d.1
                 @Override // rx.functions.a
                 public void call() {
-                    d.this.cdS();
+                    d.this.cdR();
                 }
             }));
             this.child.setProducer(new rx.f() { // from class: rx.internal.operators.bp.d.2
@@ -82,7 +82,7 @@ public final class bp<T> implements d.b<T, rx.d<? extends T>> {
             });
         }
 
-        void cdS() {
+        void cdR() {
             synchronized (this) {
                 this.producer = null;
             }
@@ -94,9 +94,9 @@ public final class bp<T> implements d.b<T, rx.d<? extends T>> {
         public void onNext(rx.d<? extends T> dVar) {
             c cVar;
             long incrementAndGet = this.iIo.incrementAndGet();
-            rx.k cfo = this.serial.cfo();
-            if (cfo != null) {
-                cfo.unsubscribe();
+            rx.k cfn = this.serial.cfn();
+            if (cfn != null) {
+                cfn.unsubscribe();
             }
             synchronized (this) {
                 cVar = new c(incrementAndGet, this);

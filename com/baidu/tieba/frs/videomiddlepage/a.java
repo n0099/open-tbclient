@@ -329,7 +329,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
                 @Override // com.baidu.tieba.play.c.InterfaceC0297c
                 public void YR() {
                     a.this.aHE();
-                    if (a.this.dMY.bqW()) {
+                    if (a.this.dMY.bqV()) {
                     }
                     if (a.this.dNd) {
                         a.this.dMY.stopPlay();
@@ -408,7 +408,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
             this.bOp.setVideoStatsData(this.dNa);
             this.dMY.getVideoView().setBusiness(this.bOp);
             this.bOp.a(gVar);
-            this.dMY.aYP();
+            this.dMY.aYO();
             this.dMY.a(new g.a() { // from class: com.baidu.tieba.frs.videomiddlepage.a.11
                 @Override // com.baidu.tieba.play.g.a
                 public void onCompletion(com.baidu.tieba.play.g gVar2) {
@@ -418,7 +418,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
                     }
                     if (aVar != null && !a.this.isFullScreen) {
                         aVar.mt(i);
-                        a.this.dMY.aLX();
+                        a.this.dMY.aLW();
                     }
                 }
             });
@@ -437,7 +437,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
             this.dMY.setThumbnail(gVar.dNz.thumbnailUrl);
             this.dMY.setVideoUrl(gVar.dNz.videoUrl, gVar.threadId);
             this.dMY.setFid(gVar.forumId);
-            this.dMY.aLX();
+            this.dMY.aLW();
             this.dMY.show();
             hr(false);
             if (gVar.autoPlay) {
@@ -485,7 +485,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
 
     @Override // com.baidu.tieba.lego.card.view.i
     public boolean isPlaying() {
-        return this.dMY.bqW();
+        return this.dMY.bqV();
     }
 
     public void aCQ() {
@@ -576,7 +576,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
         if (this.dMY != null && this.dML != null && this.mPageContext != null && this.mPageContext.getPageActivity() != null && this.mPageContext.getPageActivity().getWindow() != null && (this.mPageContext.getPageActivity().getWindow().getDecorView() instanceof FrameLayout)) {
             FrameLayout frameLayout = (FrameLayout) this.mPageContext.getPageActivity().getWindow().getDecorView();
             if (this.dNc) {
-                this.dMY.bqV();
+                this.dMY.bqU();
             }
             if (configuration.orientation == 2) {
                 configuration.orientation = 2;
@@ -627,7 +627,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
             if (this.dML.getParent() == null) {
                 this.dMK.addView(this.dML, 0);
                 aHF();
-                this.dMY.aYP();
+                this.dMY.aYO();
             }
         }
     }

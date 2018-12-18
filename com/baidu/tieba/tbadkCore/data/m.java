@@ -36,15 +36,15 @@ public class m {
         return this.bBc;
     }
 
-    public String bDF() {
+    public String bDE() {
         return this.hmj;
     }
 
-    public List<String> bDG() {
+    public List<String> bDF() {
         return this.hmk;
     }
 
-    public String bDH() {
+    public String bDG() {
         return this.hml;
     }
 

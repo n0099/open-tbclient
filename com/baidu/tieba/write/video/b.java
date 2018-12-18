@@ -66,11 +66,11 @@ public class b {
         this.hVK = new com.baidu.tieba.write.b();
         this.hVK.wV(e.d.cp_cont_i);
         this.hVK.wW(e.d.cp_cont_h_alpha85);
-        bOw();
+        bOv();
         initView();
     }
 
-    private void bOw() {
+    private void bOv() {
         this.caH = (RelativeLayout) this.hVD.findViewById(e.g.layout_root);
         this.mNavigationBar = (NavigationBar) this.hVD.findViewById(e.g.navigation_bar);
         this.hVF = (EditText) this.hVD.findViewById(e.g.edit_content);
@@ -176,10 +176,10 @@ public class b {
                     b.this.hVL.setVisibility(0);
                     b.this.hVI.setVisibility(8);
                 }
-                long bOy = b.hVC - b.this.bOy();
-                if (bOy >= 0) {
+                long bOx = b.hVC - b.this.bOx();
+                if (bOx >= 0) {
                     al.h(b.this.hVI, e.d.cp_cont_e);
-                    b.this.hVI.setText(String.valueOf(bOy));
+                    b.this.hVI.setText(String.valueOf(bOx));
                     return;
                 }
                 b.this.hVI.setText("0");
@@ -191,7 +191,7 @@ public class b {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (b.this.hVK != null) {
-                    if (!b.this.hVK.bMY()) {
+                    if (!b.this.hVK.bMX()) {
                         b.this.oA(false);
                     }
                     b.this.hVK.or(false);
@@ -225,7 +225,7 @@ public class b {
         });
     }
 
-    public void bOx() {
+    public void bOw() {
         if (this.hVR != null) {
             this.hVR.setVisibility(0);
         }
@@ -305,18 +305,18 @@ public class b {
         return this.hVF.getText().toString();
     }
 
-    public long bOy() {
+    public long bOx() {
         if (this.hVF.getText() == null || this.hVF.getText().toString() == null) {
             return 0L;
         }
         return this.hVF.getText().length();
     }
 
-    public WriteLocationView bOz() {
+    public WriteLocationView bOy() {
         return this.hVH;
     }
 
-    public View bOA() {
+    public View bOz() {
         return this.hVE;
     }
 
@@ -324,11 +324,11 @@ public class b {
         return this.hVJ;
     }
 
-    public EditText bOB() {
+    public EditText bOA() {
         return this.hVF;
     }
 
-    public StateSwitchView bOC() {
+    public StateSwitchView bOB() {
         return this.hVG;
     }
 
@@ -366,7 +366,7 @@ public class b {
         }
     }
 
-    public void bJA() {
+    public void bJz() {
         if (this.hEZ != null) {
             this.hEZ.resume();
             this.hEZ.seekTo(this.hFj);
@@ -384,14 +384,14 @@ public class b {
     public void xK(String str) {
         if (StringUtils.isNull(str)) {
             this.mNavigationBar.setCenterTextTitle(this.hVD.getResources().getString(e.j.post_to_home_page));
-            bOD();
+            bOC();
             return;
         }
         this.mNavigationBar.setCenterTextTitle(this.hVD.getResources().getString(e.j.post_to) + str);
-        bOE();
+        bOD();
     }
 
-    private void bOD() {
+    private void bOC() {
         this.hVG = new StateSwitchView(this.hVD);
         this.hVG.setStateString(this.hVD.getString(e.j.public_to_all), this.hVD.getString(e.j.public_to_me));
         this.hVG.setBackgroundId(e.f.state_switch_bg);
@@ -408,7 +408,7 @@ public class b {
         this.caH.addView(this.hVG, layoutParams);
     }
 
-    private void bOE() {
+    private void bOD() {
         this.hVG = new StateSwitchView(this.hVD);
         this.hVG.setStateString(this.hVD.getString(e.j.display_to_home_page), this.hVD.getString(e.j.display_to_home_page));
         this.hVG.setLeftStateDrawable(e.f.icon_share_home_select_ok, e.f.icon_share_home_select);
@@ -426,7 +426,7 @@ public class b {
         this.caH.addView(this.hVG, layoutParams);
     }
 
-    public void bOF() {
+    public void bOE() {
         this.hVK.az(null);
         this.hVK.oq(false);
     }
@@ -435,7 +435,7 @@ public class b {
         if (postWriteCallBackData != null) {
             this.hVK.az(postWriteCallBackData.getSensitiveWords());
             this.hVK.xr(postWriteCallBackData.getErrorString());
-            if (!v.I(this.hVK.bMV())) {
+            if (!v.I(this.hVK.bMU())) {
                 oA(true);
             }
         }
@@ -448,18 +448,18 @@ public class b {
             if (b != null) {
                 this.hVK.or(true);
                 this.hVF.setText(b);
-                if (z && this.hVK.bMW() >= 0) {
+                if (z && this.hVK.bMV() >= 0) {
                     this.hVF.requestFocus();
-                    this.hVF.setSelection(this.hVK.bMW());
+                    this.hVF.setSelection(this.hVK.bMV());
                 } else {
                     this.hVF.setSelection(selectionEnd);
                 }
-                this.hVK.oq(this.hVK.bMW() >= 0);
+                this.hVK.oq(this.hVK.bMV() >= 0);
             }
         }
     }
 
-    public com.baidu.tieba.write.b bOG() {
+    public com.baidu.tieba.write.b bOF() {
         return this.hVK;
     }
 

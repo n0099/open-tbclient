@@ -9,7 +9,7 @@ public abstract class y implements ai<com.facebook.imagepipeline.f.d> {
     private final com.facebook.common.memory.g ile;
     private final Executor mExecutor;
 
-    protected abstract String bZc();
+    protected abstract String bZb();
 
     protected abstract com.facebook.imagepipeline.f.d e(ImageRequest imageRequest) throws IOException;
 
@@ -21,20 +21,20 @@ public abstract class y implements ai<com.facebook.imagepipeline.f.d> {
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        al bYS = ajVar.bYS();
+        al bYR = ajVar.bYR();
         String id = ajVar.getId();
-        final ImageRequest bYR = ajVar.bYR();
-        final ao<com.facebook.imagepipeline.f.d> aoVar = new ao<com.facebook.imagepipeline.f.d>(jVar, bYS, bZc(), id) { // from class: com.facebook.imagepipeline.producers.y.1
+        final ImageRequest bYQ = ajVar.bYQ();
+        final ao<com.facebook.imagepipeline.f.d> aoVar = new ao<com.facebook.imagepipeline.f.d>(jVar, bYR, bZb(), id) { // from class: com.facebook.imagepipeline.producers.y.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.common.b.e
-            /* renamed from: bZo */
+            /* renamed from: bZn */
             public com.facebook.imagepipeline.f.d getResult() throws Exception {
-                com.facebook.imagepipeline.f.d e = y.this.e(bYR);
+                com.facebook.imagepipeline.f.d e = y.this.e(bYQ);
                 if (e == null) {
                     return null;
                 }
-                e.bYc();
+                e.bYb();
                 return e;
             }
 
@@ -48,7 +48,7 @@ public abstract class y implements ai<com.facebook.imagepipeline.f.d> {
         };
         ajVar.a(new e() { // from class: com.facebook.imagepipeline.producers.y.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-            public void bYY() {
+            public void bYX() {
                 aoVar.cancel();
             }
         });

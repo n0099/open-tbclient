@@ -68,7 +68,7 @@ public class e implements com.baidu.tieba.frs.aggregation.a, com.baidu.tieba.leg
                 if (list.get(0) instanceof com.baidu.tieba.lego.card.view.h) {
                     com.baidu.tieba.lego.card.view.h hVar = (com.baidu.tieba.lego.card.view.h) list.get(0);
                     hVar.setAutoPlay(true);
-                    if (j.kX() && !com.baidu.tieba.video.g.bHR().bHS()) {
+                    if (j.kX() && !com.baidu.tieba.video.g.bHQ().bHR()) {
                         hVar.setWaitConfirm(true);
                     } else {
                         hVar.setWaitConfirm(false);
@@ -79,7 +79,7 @@ public class e implements com.baidu.tieba.frs.aggregation.a, com.baidu.tieba.leg
             if (this.mDatas.size() > i && !z && i != -1 && (this.mDatas.get(i) instanceof com.baidu.tieba.lego.card.view.h)) {
                 com.baidu.tieba.lego.card.view.h hVar2 = (com.baidu.tieba.lego.card.view.h) this.mDatas.get(i);
                 hVar2.setAutoPlay(true);
-                if (j.kW() || com.baidu.tieba.video.g.bHR().bHS()) {
+                if (j.kW() || com.baidu.tieba.video.g.bHQ().bHR()) {
                     hVar2.setWaitConfirm(false);
                 } else {
                     hVar2.setWaitConfirm(true);
@@ -188,7 +188,7 @@ public class e implements com.baidu.tieba.frs.aggregation.a, com.baidu.tieba.leg
                 if (this.mDatas.get(i2) instanceof com.baidu.tieba.lego.card.view.h) {
                     com.baidu.tieba.lego.card.view.h hVar2 = (com.baidu.tieba.lego.card.view.h) this.mDatas.get(i2);
                     hVar2.setAutoPlay(true);
-                    if (j.kW() || com.baidu.tieba.video.g.bHR().bHS()) {
+                    if (j.kW() || com.baidu.tieba.video.g.bHQ().bHR()) {
                         hVar2.setWaitConfirm(false);
                     } else {
                         hVar2.setWaitConfirm(true);
@@ -218,7 +218,7 @@ public class e implements com.baidu.tieba.frs.aggregation.a, com.baidu.tieba.leg
             } else if (this.dNt == this.mDatas.size() - 1 && (this.mDatas.get(this.dNt) instanceof com.baidu.tieba.lego.card.view.h)) {
                 com.baidu.tieba.lego.card.view.h hVar3 = (com.baidu.tieba.lego.card.view.h) this.mDatas.get(this.dNt);
                 hVar3.setAutoPlay(true);
-                if (j.kW() || com.baidu.tieba.video.g.bHR().bHS()) {
+                if (j.kW() || com.baidu.tieba.video.g.bHQ().bHR()) {
                     hVar3.setWaitConfirm(false);
                 } else {
                     hVar3.setWaitConfirm(true);
@@ -277,7 +277,7 @@ public class e implements com.baidu.tieba.frs.aggregation.a, com.baidu.tieba.leg
                 if (this.dNt <= this.mDatas.size() - 1 && (this.mDatas.get(this.dNt) instanceof com.baidu.tieba.lego.card.view.h)) {
                     com.baidu.tieba.lego.card.view.h hVar2 = (com.baidu.tieba.lego.card.view.h) this.mDatas.get(this.dNt);
                     hVar2.setAutoPlay(true);
-                    if (j.kW() || com.baidu.tieba.video.g.bHR().bHS()) {
+                    if (j.kW() || com.baidu.tieba.video.g.bHQ().bHR()) {
                         hVar2.setWaitConfirm(false);
                     } else {
                         hVar2.setWaitConfirm(true);

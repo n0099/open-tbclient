@@ -99,7 +99,7 @@ public class c {
         boolean z = true;
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             try {
-                com.baidu.ubs.analytics.a.a(new c.a().dn(TbadkCoreApplication.getInst()).oO(false).m23do(30L).xJ(1).oP(false).dp(15L).xK(1000).bRH());
+                com.baidu.ubs.analytics.a.a(new c.a().dn(TbadkCoreApplication.getInst()).oO(false).m23do(30L).xJ(1).oP(false).dp(15L).xK(1000).bRG());
             } catch (Exception e) {
                 e.printStackTrace();
                 z = false;

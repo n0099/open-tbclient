@@ -262,8 +262,8 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
     }
 
     public void aAW() {
-        if (this.dHF != null && this.dHF.bgi() != null && this.dHF.bgi().getBannerListData() != null) {
-            String lastIds = this.dHF.bgi().getBannerListData().getLastIds();
+        if (this.dHF != null && this.dHF.bgh() != null && this.dHF.bgh().getBannerListData() != null) {
+            String lastIds = this.dHF.bgh().getBannerListData().getLastIds();
             if (!TextUtils.isEmpty(lastIds)) {
                 this.dYT = lastIds;
             }

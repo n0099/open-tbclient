@@ -44,7 +44,7 @@ public class CloudMusicActivity extends BaseFragmentActivity implements c.b {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.kV() && CloudMusicActivity.this.hAr != null) {
-                CloudMusicActivity.this.hAr.bIc();
+                CloudMusicActivity.this.hAr.bIb();
             }
         }
     };
@@ -87,7 +87,7 @@ public class CloudMusicActivity extends BaseFragmentActivity implements c.b {
         this.dwz.setViewPager(this.aLN);
         registerListener(this.mNetworkChangedMessageListener);
         if (this.hAr != null) {
-            this.hAr.bIc();
+            this.hAr.bIb();
         }
     }
 
@@ -156,19 +156,19 @@ public class CloudMusicActivity extends BaseFragmentActivity implements c.b {
     @Override // android.app.Activity
     protected void onRestart() {
         super.onRestart();
-        com.baidu.tieba.video.editvideo.model.a.bIM().bIN();
+        com.baidu.tieba.video.editvideo.model.a.bIL().bIM();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        MusicPlayer.bId().bIe();
+        MusicPlayer.bIc().bId();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        MusicPlayer.bId().bIf();
+        MusicPlayer.bIc().bIe();
     }
 
     /* loaded from: classes5.dex */
@@ -208,7 +208,7 @@ public class CloudMusicActivity extends BaseFragmentActivity implements c.b {
     public void onDestroy() {
         super.onDestroy();
         this.hAr.aDd();
-        MusicPlayer.bId().UJ();
-        com.baidu.tieba.video.editvideo.model.a.bIM().bIO();
+        MusicPlayer.bIc().UJ();
+        com.baidu.tieba.video.editvideo.model.a.bIL().bIN();
     }
 }

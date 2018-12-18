@@ -22,7 +22,7 @@ public class a implements com.baidu.tbadk.q.a {
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0320a
         public void a(com.baidu.tieba.tbadvert.a.a aVar) {
             if (j.kV()) {
-                a.this.hoY.bER();
+                a.this.hoY.bEQ();
             } else if (a.this.hoX != null) {
                 a.this.hoX.PG();
             }
@@ -31,17 +31,17 @@ public class a implements com.baidu.tbadk.q.a {
                     @Override // java.lang.Runnable
                     public void run() {
                         if (j.kV() && j.kW()) {
-                            a.this.hoY.bES();
+                            a.this.hoY.bER();
                         }
                     }
                 }, 800L);
             } else if (j.kV() && j.kW()) {
-                a.this.hoY.bES();
+                a.this.hoY.bER();
             }
         }
 
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0320a
-        public void bEL() {
+        public void bEK() {
             if (a.this.fRA && a.this.hoX != null) {
                 a.this.hoX.PG();
             }
@@ -49,31 +49,31 @@ public class a implements com.baidu.tbadk.q.a {
 
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0320a
         public void ak(Object obj) {
-            com.baidu.tieba.tbadvert.a.b bEQ;
-            if (a.this.fRA && (bEQ = a.this.hoY.bEQ()) != null) {
-                a.this.hoW.f(obj, ((int) bEQ.showTime) / 1000);
+            com.baidu.tieba.tbadvert.a.b bEP;
+            if (a.this.fRA && (bEP = a.this.hoY.bEP()) != null) {
+                a.this.hoW.f(obj, ((int) bEP.showTime) / 1000);
                 if (a.this.hoX != null) {
-                    a.this.hoX.w(String.valueOf(bEQ.id), bEQ.isFullScreen());
+                    a.this.hoX.w(String.valueOf(bEP.id), bEP.isFullScreen());
                 }
             }
         }
     };
     private a.InterfaceC0321a hpa = new a.InterfaceC0321a() { // from class: com.baidu.tieba.tbadvert.a.2
         @Override // com.baidu.tieba.tbadvert.view.a.InterfaceC0321a
-        public void bEM() {
-            com.baidu.tieba.tbadvert.a.b bEQ = a.this.hoY.bEQ();
-            if (bEQ != null) {
+        public void bEL() {
+            com.baidu.tieba.tbadvert.a.b bEP = a.this.hoY.bEP();
+            if (bEP != null) {
                 if (a.this.hoX != null) {
-                    a.this.hoX.iw(String.valueOf(bEQ.id));
+                    a.this.hoX.iw(String.valueOf(bEP.id));
                 }
-                if (!TextUtils.isEmpty(bEQ.linkUrl)) {
-                    ay.Ef().a((TbPageContext) i.aK(a.this.mContext), new String[]{bEQ.linkUrl}, true);
+                if (!TextUtils.isEmpty(bEP.linkUrl)) {
+                    ay.Ef().a((TbPageContext) i.aK(a.this.mContext), new String[]{bEP.linkUrl}, true);
                 }
             }
         }
 
         @Override // com.baidu.tieba.tbadvert.view.a.InterfaceC0321a
-        public void bEN() {
+        public void bEM() {
             if (a.this.hoX != null) {
                 a.this.hoX.wH();
             }
@@ -99,7 +99,7 @@ public class a implements com.baidu.tbadk.q.a {
 
     @Override // com.baidu.tbadk.q.a
     public void PF() {
-        this.hoY.bEP();
+        this.hoY.bEO();
     }
 
     @Override // com.baidu.tbadk.q.a

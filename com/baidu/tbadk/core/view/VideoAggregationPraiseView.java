@@ -104,7 +104,7 @@ public class VideoAggregationPraiseView extends BasePraiseView<com.baidu.tieba.f
             ((com.baidu.tieba.frs.aggregation.g) this.mData).cW(1);
             ((com.baidu.tieba.frs.aggregation.g) this.mData).C(((com.baidu.tieba.frs.aggregation.g) this.mData).AS() + 1);
             ((com.baidu.tieba.frs.aggregation.g) this.mData).cY(2);
-            com.baidu.tieba.n.a.buh().y(getTbPageContext());
+            com.baidu.tieba.n.a.bug().y(getTbPageContext());
             i = 0;
         }
         return i;

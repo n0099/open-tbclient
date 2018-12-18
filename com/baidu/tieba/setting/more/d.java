@@ -66,10 +66,10 @@ public class d extends com.baidu.adp.base.c<MoreActivity> {
         this.gWN = cVar;
         this.gWM.setContentView(e.h.more_activity);
         Kx();
-        bxo();
+        bxn();
     }
 
-    public void bxm() {
+    public void bxl() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
             this.gWR.setVisibility(8);
@@ -81,16 +81,16 @@ public class d extends com.baidu.adp.base.c<MoreActivity> {
     public void ac(String str, boolean z) {
         if (str == null || str.length() <= 0) {
             if (this.gWR != null) {
-                this.gWR.byq();
+                this.gWR.byp();
                 return;
             }
             return;
         }
-        this.gWR.byr();
+        this.gWR.byq();
         this.gWR.setIcon(str, z);
     }
 
-    public void bxn() {
+    public void bxm() {
         if (this.gWY != null) {
             this.gWY.refresh();
         }
@@ -99,7 +99,7 @@ public class d extends com.baidu.adp.base.c<MoreActivity> {
         }
     }
 
-    public void bxo() {
+    public void bxn() {
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
             this.gXm.nR();
         } else {
@@ -129,7 +129,7 @@ public class d extends com.baidu.adp.base.c<MoreActivity> {
         BitmapHelper.clearCashBitmap();
     }
 
-    public void bwv() {
+    public void bwu() {
         this.gWR.recycle();
         this.gWS.recycle();
         this.gWT.recycle();
@@ -159,7 +159,7 @@ public class d extends com.baidu.adp.base.c<MoreActivity> {
         this.gWM.getLayoutMode().onModeChanged(this.gXd);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         this.gWV.d(this.gWM.getPageContext(), i);
-        bxn();
+        bxm();
         this.gXm.setBackgroundRes(al.dO(e.f.bg_switch_open), al.dO(e.f.bg_switch_close), al.dO(e.f.btn_handle));
         al.j(this.gXe, e.d.cp_bg_line_d);
     }
@@ -192,7 +192,7 @@ public class d extends com.baidu.adp.base.c<MoreActivity> {
         this.gWZ.setBottomLineVisibility(true);
         this.gXa = (TbSettingTextTipView) this.gWM.findViewById(e.g.recommend);
         this.gWV = (MsgSettingItemView) this.gWM.findViewById(e.g.memberAdSetting);
-        bxp();
+        bxo();
         if (!TbadkCoreApplication.getInst().getIsAppOn()) {
             this.gXa.setVisibility(8);
             this.gXa.setBottomLineVisibility(false);
@@ -210,16 +210,16 @@ public class d extends com.baidu.adp.base.c<MoreActivity> {
         this.gXi = this.gWM.findViewById(e.g.divide_view3);
         this.gXj = this.gWM.findViewById(e.g.divide_view4);
         this.gXk = this.gWM.findViewById(e.g.divide_view5);
-        bxn();
         bxm();
-        this.gWR.byq();
+        bxl();
+        this.gWR.byp();
         fu(TbadkCoreApplication.getInst().getSkinType());
         this.gXh.setVisibility(0);
         this.gXi.setVisibility(0);
         this.gXj.setVisibility(0);
         this.gXk.setVisibility(0);
         U(clickListener);
-        if (!bxs()) {
+        if (!bxr()) {
             this.gWU.setTip(this.gWM.getResources().getString(e.j.browsing_settings_tip_no_night));
             this.gXg.setVisibility(8);
             this.gXl.setVisibility(8);
@@ -229,7 +229,7 @@ public class d extends com.baidu.adp.base.c<MoreActivity> {
         this.gXl.setVisibility(0);
     }
 
-    private void bxp() {
+    private void bxo() {
         int i;
         int i2 = 0;
         this.gWV.setText(e.j.member_ad_setting_text);
@@ -251,15 +251,15 @@ public class d extends com.baidu.adp.base.c<MoreActivity> {
         }
     }
 
-    public void bxq() {
+    public void bxp() {
         this.gWV.nQ();
     }
 
-    public void bxr() {
+    public void bxq() {
         this.gWV.nP();
     }
 
-    private boolean bxs() {
+    private boolean bxr() {
         return MessageManager.getInstance().runTask(2001281, Boolean.class) != null;
     }
 
@@ -344,7 +344,7 @@ public class d extends com.baidu.adp.base.c<MoreActivity> {
         };
     }
 
-    public void bxt() {
+    public void bxs() {
         if (this.gWO == null) {
             createDialog();
         }
@@ -357,7 +357,7 @@ public class d extends com.baidu.adp.base.c<MoreActivity> {
         }
     }
 
-    public BdSwitchView bxu() {
+    public BdSwitchView bxt() {
         return this.gXm;
     }
 }

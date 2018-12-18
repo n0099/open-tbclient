@@ -28,12 +28,12 @@ final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a bRM() {
+    public static a bRL() {
         return icF;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Set<InterfaceC0348a> bRN() {
+    public final Set<InterfaceC0348a> bRM() {
         return this.icG;
     }
 
