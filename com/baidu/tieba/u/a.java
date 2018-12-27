@@ -1,66 +1,107 @@
 package com.baidu.tieba.u;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.data.x;
-import java.util.Date;
+import android.app.KeyguardManager;
+import android.app.WallpaperManager;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.PowerManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.l;
+import com.baidu.ar.parser.ARResourceKey;
+import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class a {
-    private CustomMessageListener aof = new CustomMessageListener(2001371) { // from class: com.baidu.tieba.u.a.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null) {
-                a.this.bLP();
-            }
-        }
-    };
-    private long hMe;
-    private x hMf;
-    private long mEndTime;
-    private long mInterval;
-    private long mStartTime;
+    private KeyguardManager hCI;
+    private PowerManager hCJ;
+    private PowerManager.WakeLock hCK;
+    private KeyguardManager.KeyguardLock hCL;
+    private Context mContext;
 
     public a() {
-        init();
+        try {
+            this.mContext = TbadkCoreApplication.getInst().getApp();
+            this.hCJ = (PowerManager) this.mContext.getSystemService(ARResourceKey.HTTP_POWER);
+            this.hCK = this.hCJ.newWakeLock(268435462, "ScreenLockNotify");
+            this.hCK.setReferenceCounted(false);
+            this.hCI = (KeyguardManager) this.mContext.getSystemService("keyguard");
+            this.hCL = this.hCI.newKeyguardLock("ScreenLockUtils");
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
     }
 
-    private void init() {
-        bLP();
-        this.hMe = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_video_splash_last_show_time", 0L);
-        MessageManager.getInstance().registerListener(this.aof);
+    public void bIx() {
+        try {
+            this.hCL.reenableKeyguard();
+            if (this.hCK != null) {
+                this.hCK.release();
+                this.hCK = null;
+            }
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
     }
 
-    public boolean bLO() {
-        if (this.mStartTime == 0 || this.mEndTime == 0 || this.mInterval == 0) {
+    public void bIy() {
+        try {
+            if (this.hCK == null) {
+                this.hCK = this.hCJ.newWakeLock(268435462, "ScreenLockNotify");
+                this.hCK.setReferenceCounted(false);
+            }
+            if (this.hCK != null) {
+                this.hCK.acquire(ErrDef.Feature.WEIGHT);
+                this.hCL.disableKeyguard();
+            }
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+    }
+
+    public boolean isKeyguardLocked() {
+        if (this.hCI == null) {
+            return true;
+        }
+        return this.hCI.inKeyguardRestrictedInputMode();
+    }
+
+    public boolean bIz() {
+        try {
+            return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.hCI, new Object[0])).booleanValue();
+        } catch (Throwable th) {
+            th.printStackTrace();
             return false;
         }
-        Date date = new Date();
-        return k(date) && l(date);
     }
 
-    private boolean k(Date date) {
-        return date != null && date.getTime() >= this.mStartTime && date.getTime() <= this.mEndTime;
+    public boolean isScreenOn() {
+        return this.hCJ.isScreenOn();
     }
 
-    private boolean l(Date date) {
-        return date != null && date.getTime() - this.hMe >= this.mInterval;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void bLP() {
-        if (this.hMf == null) {
-            this.hMf = new x();
+    public static Drawable bIA() {
+        Bitmap bitmap;
+        TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+        try {
+            Drawable drawable = WallpaperManager.getInstance(inst).getDrawable();
+            if (drawable != null && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null) {
+                int min = Math.min(l.aO(inst), bitmap.getWidth());
+                int min2 = Math.min(l.aQ(inst), bitmap.getHeight());
+                try {
+                    return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
+                } catch (Throwable th) {
+                    try {
+                        return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
+                    } catch (Throwable th2) {
+                        BdLog.e(th2.getMessage());
+                        return null;
+                    }
+                }
+            }
+            return null;
+        } catch (Exception e) {
+            return null;
         }
-        this.hMf.parseJson(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_video_splash_config", ""));
-        this.mStartTime = this.hMf.GZ();
-        this.mEndTime = this.hMf.Ha();
-        this.mInterval = this.hMf.Hb();
-    }
-
-    public void dm(long j) {
-        this.hMe = j;
-        com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("key_video_splash_last_show_time", j);
     }
 }

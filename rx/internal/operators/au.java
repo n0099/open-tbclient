@@ -7,7 +7,7 @@ public class au<T> implements d.b<T, T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        static final au<?> iFE = new au<>();
+        static final au<?> iIO = new au<>();
     }
 
     @Override // rx.functions.f
@@ -15,8 +15,8 @@ public class au<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> au<T> cdv() {
-        return (au<T>) a.iFE;
+    public static <T> au<T> cem() {
+        return (au<T>) a.iIO;
     }
 
     au() {

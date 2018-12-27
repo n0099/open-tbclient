@@ -14,36 +14,36 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class c {
     private static final String TAG = c.class.getSimpleName();
-    private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.largeImage.a.a> bcm;
-    private final com.baidu.tbadk.widget.largeImage.a.b bnH;
-    private final BitmapRegionDecoder bod;
-    private final List<BdAsyncTask> boe = new LinkedList();
-    private com.baidu.adp.lib.e.a<a.C0178a, com.baidu.tbadk.widget.largeImage.a.a> bof;
+    private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.largeImage.a.a> bcp;
+    private final com.baidu.tbadk.widget.largeImage.a.b bnK;
+    private final BitmapRegionDecoder bog;
+    private final List<BdAsyncTask> boh = new LinkedList();
+    private com.baidu.adp.lib.e.a<a.C0178a, com.baidu.tbadk.widget.largeImage.a.a> boi;
 
-    public void RD() {
-        for (BdAsyncTask bdAsyncTask : this.boe) {
+    public void RF() {
+        for (BdAsyncTask bdAsyncTask : this.boh) {
             if (bdAsyncTask != null) {
                 bdAsyncTask.cancel();
             }
         }
-        this.boe.clear();
+        this.boh.clear();
     }
 
     public void onDestory() {
-        RD();
-        if (this.bof != null) {
-            this.bof.aD(0);
-            this.bof.clear();
-            this.bof = null;
+        RF();
+        if (this.boi != null) {
+            this.boi.aD(0);
+            this.boi.clear();
+            this.boi = null;
         }
-        this.bcm = null;
+        this.bcp = null;
     }
 
     public c(com.baidu.tbadk.widget.largeImage.a.b bVar, BitmapRegionDecoder bitmapRegionDecoder) {
-        this.bnH = bVar;
-        this.bod = bitmapRegionDecoder;
-        com.baidu.tbadk.imageManager.c.Nu().fY((int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.7f));
-        this.bof = new com.baidu.adp.lib.e.a<a.C0178a, com.baidu.tbadk.widget.largeImage.a.a>((int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.3f)) { // from class: com.baidu.tbadk.widget.largeImage.b.c.1
+        this.bnK = bVar;
+        this.bog = bitmapRegionDecoder;
+        com.baidu.tbadk.imageManager.c.Nv().fZ((int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.7f));
+        this.boi = new com.baidu.adp.lib.e.a<a.C0178a, com.baidu.tbadk.widget.largeImage.a.a>((int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.3f)) { // from class: com.baidu.tbadk.widget.largeImage.b.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.a
@@ -60,82 +60,82 @@ public class c {
             @Override // com.baidu.adp.lib.e.a
             /* renamed from: a */
             public void entryRemoved(boolean z, a.C0178a c0178a, com.baidu.tbadk.widget.largeImage.a.a aVar, com.baidu.tbadk.widget.largeImage.a.a aVar2) {
-                if (z && c.this.bcm != null && aVar != null) {
-                    aVar.Rb();
-                    c.this.bcm.t(aVar);
+                if (z && c.this.bcp != null && aVar != null) {
+                    aVar.Rd();
+                    c.this.bcp.t(aVar);
                 }
             }
         };
-        this.bcm = com.baidu.tbadk.imageManager.c.Nu().fW(this.bnH.getBlockSize());
-        this.bcm.aG(6);
+        this.bcp = com.baidu.tbadk.imageManager.c.Nv().fX(this.bnK.getBlockSize());
+        this.bcp.aG(6);
     }
 
     public void a(a aVar) {
         if (aVar == null) {
             return;
         }
-        aVar.a(this, this.bnH, this.bod, RE());
+        aVar.a(this, this.bnK, this.bog, RG());
         aVar.execute(new Object[0]);
-        this.boe.add(aVar);
+        this.boh.add(aVar);
     }
 
-    public com.baidu.adp.lib.e.a<a.C0178a, com.baidu.tbadk.widget.largeImage.a.a> RE() {
-        return this.bof;
+    public com.baidu.adp.lib.e.a<a.C0178a, com.baidu.tbadk.widget.largeImage.a.a> RG() {
+        return this.boi;
     }
 
-    public com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.largeImage.a.a> RF() {
-        return this.bcm;
+    public com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.largeImage.a.a> RH() {
+        return this.bcp;
     }
 
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask {
-        private int bnu;
-        private BitmapRegionDecoder bod;
-        private com.baidu.adp.lib.e.a<a.C0178a, com.baidu.tbadk.widget.largeImage.a.a> bof;
-        private com.baidu.tbadk.widget.largeImage.a.b boh;
-        private com.baidu.tbadk.widget.largeImage.logic.a boi;
-        private c boj;
+        private int bnx;
+        private BitmapRegionDecoder bog;
+        private com.baidu.adp.lib.e.a<a.C0178a, com.baidu.tbadk.widget.largeImage.a.a> boi;
+        private com.baidu.tbadk.widget.largeImage.a.b bok;
+        private com.baidu.tbadk.widget.largeImage.logic.a bol;
+        private c bom;
         private int column;
         private int row;
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         protected Object doInBackground(Object[] objArr) {
-            com.baidu.tbadk.widget.largeImage.a.a Rj;
-            if (this.bof != null && this.boh.r(this.row, this.column, this.bnu)) {
-                Rect s = this.boh.s(this.row, this.column, this.bnu);
-                this.boh.g(s);
+            com.baidu.tbadk.widget.largeImage.a.a Rl;
+            if (this.boi != null && this.bok.r(this.row, this.column, this.bnx)) {
+                Rect s = this.bok.s(this.row, this.column, this.bnx);
+                this.bok.g(s);
                 if (!h(s)) {
                     try {
-                        Rj = this.boj.RF().jy();
-                        if (Rj != null) {
-                            if (!Rj.f(s)) {
+                        Rl = this.bom.RH().jy();
+                        if (Rl != null) {
+                            if (!Rl.f(s)) {
                                 System.currentTimeMillis();
-                                Rj.Rb();
+                                Rl.Rd();
                             }
                         } else {
-                            Rj = this.boh.Rj();
+                            Rl = this.bok.Rl();
                         }
                     } catch (Throwable th) {
                         TbadkCoreApplication.getInst().onAppMemoryLow();
-                        this.bof.aD((int) (this.bof.getMaxSize() * 0.8d));
+                        this.boi.aD((int) (this.boi.getMaxSize() * 0.8d));
                         System.gc();
                         try {
-                            Rj = this.boh.Rj();
+                            Rl = this.bok.Rl();
                         } catch (Throwable th2) {
                         }
                     }
                     BitmapFactory.Options options = new BitmapFactory.Options();
-                    options.inSampleSize = this.bnu;
-                    options.inBitmap = Rj.getBitmap();
+                    options.inSampleSize = this.bnx;
+                    options.inBitmap = Rl.getBitmap();
                     options.inMutable = true;
                     System.currentTimeMillis();
-                    Bitmap decodeRegion = this.bod.decodeRegion(s, options);
+                    Bitmap decodeRegion = this.bog.decodeRegion(s, options);
                     decodeRegion.prepareToDraw();
-                    Rj.setBitmap(decodeRegion);
-                    Rj.q(this.row, this.column, this.bnu);
-                    this.bof.put(Rj.Re(), Rj);
-                    if (this.boi != null) {
-                        this.boi.KR();
+                    Rl.setBitmap(decodeRegion);
+                    Rl.q(this.row, this.column, this.bnx);
+                    this.boi.put(Rl.Rg(), Rl);
+                    if (this.bol != null) {
+                        this.bol.KS();
                     }
                 }
             }
@@ -145,19 +145,19 @@ public class c {
         public a(int i, int i2, int i3) {
             this.row = i;
             this.column = i2;
-            this.bnu = i3;
+            this.bnx = i3;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(c cVar, com.baidu.tbadk.widget.largeImage.a.b bVar, BitmapRegionDecoder bitmapRegionDecoder, com.baidu.adp.lib.e.a<a.C0178a, com.baidu.tbadk.widget.largeImage.a.a> aVar) {
-            this.boh = bVar;
-            this.bod = bitmapRegionDecoder;
-            this.bof = aVar;
-            this.boj = cVar;
+            this.bok = bVar;
+            this.bog = bitmapRegionDecoder;
+            this.boi = aVar;
+            this.bom = cVar;
         }
 
         public void b(com.baidu.tbadk.widget.largeImage.logic.a aVar) {
-            this.boi = aVar;
+            this.bol = aVar;
         }
 
         private boolean h(Rect rect) {

@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk.core.view.userLike.b {
-    private TranslateAnimation ggR;
-    private ObjectAnimator ggS;
+    private TranslateAnimation gjK;
+    private ObjectAnimator gjL;
 
     public PbNavbarUserConcernView(Context context) {
         super(context);
@@ -40,7 +40,7 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void eE(int i) {
+    public void eF(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
@@ -58,11 +58,11 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
             setVisibility(0);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         } else if (z) {
-            if (this.ggR == null) {
-                this.ggR = new TranslateAnimation(0.0f, -getMeasuredWidth(), 0.0f, 0.0f);
-                this.ggR.setDuration(300L);
-                this.ggR.setFillAfter(true);
-                this.ggR.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbNavbarUserConcernView.1
+            if (this.gjK == null) {
+                this.gjK = new TranslateAnimation(0.0f, -getMeasuredWidth(), 0.0f, 0.0f);
+                this.gjK.setDuration(300L);
+                this.gjK.setFillAfter(true);
+                this.gjK.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbNavbarUserConcernView.1
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
                     }
@@ -77,15 +77,15 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
                     }
                 });
             }
-            startAnimation(this.ggR);
+            startAnimation(this.gjK);
         } else {
-            if (this.ggS == null) {
-                this.ggS = ObjectAnimator.ofFloat(this, "translationX", 0.0f, -30.0f);
-                this.ggS.setDuration(200L);
-                this.ggS.setRepeatCount(1);
-                this.ggS.setRepeatMode(2);
+            if (this.gjL == null) {
+                this.gjL = ObjectAnimator.ofFloat(this, "translationX", 0.0f, -30.0f);
+                this.gjL.setDuration(200L);
+                this.gjL.setRepeatCount(1);
+                this.gjL.setRepeatMode(2);
             }
-            this.ggS.start();
+            this.gjL.start();
         }
     }
 

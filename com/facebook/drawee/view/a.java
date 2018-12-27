@@ -16,15 +16,15 @@ public class a {
 
     public static void a(C0363a c0363a, float f, @Nullable ViewGroup.LayoutParams layoutParams, int i, int i2) {
         if (f > 0.0f && layoutParams != null) {
-            if (yk(layoutParams.height)) {
+            if (yx(layoutParams.height)) {
                 c0363a.height = View.MeasureSpec.makeMeasureSpec(View.resolveSize((int) (((View.MeasureSpec.getSize(c0363a.width) - i) / f) + i2), c0363a.height), AiAppsFileUtils.GB);
-            } else if (yk(layoutParams.width)) {
+            } else if (yx(layoutParams.width)) {
                 c0363a.width = View.MeasureSpec.makeMeasureSpec(View.resolveSize((int) (((View.MeasureSpec.getSize(c0363a.height) - i2) * f) + i), c0363a.width), AiAppsFileUtils.GB);
             }
         }
     }
 
-    private static boolean yk(int i) {
+    private static boolean yx(int i) {
         return i == 0 || i == -2;
     }
 }

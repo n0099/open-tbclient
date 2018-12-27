@@ -6,31 +6,31 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes2.dex */
 public class a {
-    private static final a ims = bWd().bWl();
-    public final int imt;
-    public final boolean imu;
-    public final boolean imv;
-    public final boolean imw;
-    public final boolean imx;
-    public final Bitmap.Config imy;
+    private static final a ipD = bWU().bXc();
+    public final int ipE;
+    public final boolean ipF;
+    public final boolean ipG;
+    public final boolean ipH;
+    public final boolean ipI;
+    public final Bitmap.Config ipJ;
     @Nullable
-    public final com.facebook.imagepipeline.decoder.b imz;
+    public final com.facebook.imagepipeline.decoder.b ipK;
 
     public a(b bVar) {
-        this.imt = bVar.bWe();
-        this.imu = bVar.bWf();
-        this.imv = bVar.bWg();
-        this.imw = bVar.bWh();
-        this.imx = bVar.bWj();
-        this.imy = bVar.bWk();
-        this.imz = bVar.bWi();
+        this.ipE = bVar.bWV();
+        this.ipF = bVar.bWW();
+        this.ipG = bVar.bWX();
+        this.ipH = bVar.bWY();
+        this.ipI = bVar.bXa();
+        this.ipJ = bVar.bXb();
+        this.ipK = bVar.bWZ();
     }
 
-    public static a bWc() {
-        return ims;
+    public static a bWT() {
+        return ipD;
     }
 
-    public static b bWd() {
+    public static b bWU() {
         return new b();
     }
 
@@ -42,14 +42,14 @@ public class a {
             return false;
         }
         a aVar = (a) obj;
-        return this.imu == aVar.imu && this.imv == aVar.imv && this.imw == aVar.imw && this.imx == aVar.imx && this.imy == aVar.imy && this.imz == aVar.imz;
+        return this.ipF == aVar.ipF && this.ipG == aVar.ipG && this.ipH == aVar.ipH && this.ipI == aVar.ipI && this.ipJ == aVar.ipJ && this.ipK == aVar.ipK;
     }
 
     public int hashCode() {
-        return (((((((this.imw ? 1 : 0) + (((this.imv ? 1 : 0) + (((this.imu ? 1 : 0) + (this.imt * 31)) * 31)) * 31)) * 31) + (this.imx ? 1 : 0)) * 31) + this.imy.ordinal()) * 31) + (this.imz != null ? this.imz.hashCode() : 0);
+        return (((((((this.ipH ? 1 : 0) + (((this.ipG ? 1 : 0) + (((this.ipF ? 1 : 0) + (this.ipE * 31)) * 31)) * 31)) * 31) + (this.ipI ? 1 : 0)) * 31) + this.ipJ.ordinal()) * 31) + (this.ipK != null ? this.ipK.hashCode() : 0);
     }
 
     public String toString() {
-        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.imt), Boolean.valueOf(this.imu), Boolean.valueOf(this.imv), Boolean.valueOf(this.imw), Boolean.valueOf(this.imx), this.imy.name(), this.imz);
+        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.ipE), Boolean.valueOf(this.ipF), Boolean.valueOf(this.ipG), Boolean.valueOf(this.ipH), Boolean.valueOf(this.ipI), this.ipJ.name(), this.ipK);
     }
 }

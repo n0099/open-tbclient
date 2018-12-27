@@ -18,64 +18,64 @@ import com.baidu.tieba.tbadkCore.d;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class b implements a {
-    private com.baidu.tieba.frs.worldcup.talkball.activity.a ejv;
-    private com.baidu.tieba.frs.worldcup.talkball.model.a ejw;
+    private com.baidu.tieba.frs.worldcup.talkball.activity.a eml;
+    private com.baidu.tieba.frs.worldcup.talkball.model.a emm;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, com.baidu.tieba.frs.worldcup.talkball.activity.a aVar, Bundle bundle) {
         this.mPageContext = tbPageContext;
-        this.ejv = aVar;
-        this.ejw = new com.baidu.tieba.frs.worldcup.talkball.model.b(this.mPageContext, this, bundle);
+        this.eml = aVar;
+        this.emm = new com.baidu.tieba.frs.worldcup.talkball.model.b(this.mPageContext, this, bundle);
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.c.a
     public void onRefresh() {
-        if (this.ejw != null) {
-            this.ejw.refresh();
+        if (this.emm != null) {
+            this.emm.refresh();
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.c.a
-    public void aIG() {
-        if (this.ejw != null) {
-            this.ejw.aab();
+    public void aJv() {
+        if (this.emm != null) {
+            this.emm.aad();
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.c.a
     public void a(d.a aVar, ArrayList<h> arrayList, c cVar) {
-        if (this.ejv != null) {
-            this.ejv.aaj();
-            if (this.ejv.d(aVar) && cVar != null) {
-                this.ejv.bU(cVar.aIB());
-                this.ejv.a(cVar.aIE());
-                this.ejv.a(cVar.aID());
-                this.ejv.c(cVar.aIF());
-                this.ejv.V(arrayList);
+        if (this.eml != null) {
+            this.eml.aal();
+            if (this.eml.d(aVar) && cVar != null) {
+                this.eml.bV(cVar.aJq());
+                this.eml.a(cVar.aJt());
+                this.eml.a(cVar.aJs());
+                this.eml.c(cVar.aJu());
+                this.eml.V(arrayList);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.c.a
     public boolean hasMore() {
-        if (this.ejw != null) {
-            return this.ejw.hasMore();
+        if (this.emm != null) {
+            return this.emm.hasMore();
         }
         return false;
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.c.a
-    public void aIH() {
-        if (this.ejw != null) {
-            TiebaStatic.log(new am("c12402").aA(ImageViewerConfig.FORUM_ID, this.ejw.getForumId()).aA("uid", TbadkCoreApplication.getCurrentAccount()).aA(ImageViewerConfig.FORUM_NAME, this.ejw.getForumName()));
-            if (!StringUtils.isNull(this.ejw.getForumName())) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PostSearchActivityConfig(this.mPageContext.getPageActivity(), this.ejw.getForumName(), this.ejw.getForumId())));
+    public void aJw() {
+        if (this.emm != null) {
+            TiebaStatic.log(new am("c12402").aA(ImageViewerConfig.FORUM_ID, this.emm.getForumId()).aA("uid", TbadkCoreApplication.getCurrentAccount()).aA(ImageViewerConfig.FORUM_NAME, this.emm.getForumName()));
+            if (!StringUtils.isNull(this.emm.getForumName())) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PostSearchActivityConfig(this.mPageContext.getPageActivity(), this.emm.getForumName(), this.emm.getForumId())));
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.c.a
-    public void aII() {
+    public void aJx() {
         if (ba.bJ(this.mPageContext.getPageActivity())) {
             TiebaStatic.log(new am("c12924").x("obj_locate", 2));
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MessageCenterActivityConfig(this.mPageContext.getPageActivity())));
@@ -84,13 +84,13 @@ public class b implements a {
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.c.a
     public void onDestroy() {
-        if (this.ejw != null) {
-            this.ejw.onDestroy();
+        if (this.emm != null) {
+            this.emm.onDestroy();
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.c.a
     public String getForumId() {
-        return this.ejw != null ? this.ejw.getForumId() : "";
+        return this.emm != null ? this.emm.getForumId() : "";
     }
 }

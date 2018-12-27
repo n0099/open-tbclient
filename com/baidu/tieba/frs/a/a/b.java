@@ -19,7 +19,7 @@ public class b extends h<v, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ay */
+    /* renamed from: az */
     public c onCreateViewHolder(ViewGroup viewGroup) {
         Log.e("Adapter", "Frs U9 Context:" + this.mContext + "   Resource:" + this.mContext.getResources() + "  Asset:" + this.mContext.getResources().getAssets());
         return new c(this.mPageContext, LayoutInflater.from(this.mContext).inflate(e.h.u9_info_layout, (ViewGroup) null, true), this.mPageId);

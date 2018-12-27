@@ -12,8 +12,8 @@ import rx.internal.util.ExceptionsUtils;
 import rx.internal.util.ScalarSynchronousObservable;
 /* loaded from: classes2.dex */
 public final class l<T, R> implements d.a<R> {
-    final rx.d<? extends T> iBF;
-    final rx.functions.f<? super T, ? extends Iterable<? extends R>> iCf;
+    final rx.d<? extends T> iEP;
+    final rx.functions.f<? super T, ? extends Iterable<? extends R>> iFp;
     final int prefetch;
 
     @Override // rx.functions.b
@@ -22,21 +22,21 @@ public final class l<T, R> implements d.a<R> {
     }
 
     protected l(rx.d<? extends T> dVar, rx.functions.f<? super T, ? extends Iterable<? extends R>> fVar, int i) {
-        this.iBF = dVar;
-        this.iCf = fVar;
+        this.iEP = dVar;
+        this.iFp = fVar;
         this.prefetch = i;
     }
 
     public void call(rx.j<? super R> jVar) {
-        final a aVar = new a(jVar, this.iCf, this.prefetch);
+        final a aVar = new a(jVar, this.iFp, this.prefetch);
         jVar.add(aVar);
         jVar.setProducer(new rx.f() { // from class: rx.internal.operators.l.1
             @Override // rx.f
             public void request(long j) {
-                aVar.dC(j);
+                aVar.dH(j);
             }
         });
-        this.iBF.unsafeSubscribe(aVar);
+        this.iEP.unsafeSubscribe(aVar);
     }
 
     public static <T, R> rx.d<R> a(rx.d<? extends T> dVar, rx.functions.f<? super T, ? extends Iterable<? extends R>> fVar, int i) {
@@ -48,9 +48,9 @@ public final class l<T, R> implements d.a<R> {
     public static final class a<T, R> extends rx.j<T> {
         final rx.j<? super R> actual;
         volatile boolean done;
-        final long iCD;
-        Iterator<? extends R> iCE;
-        final rx.functions.f<? super T, ? extends Iterable<? extends R>> iCf;
+        final long iFN;
+        Iterator<? extends R> iFO;
+        final rx.functions.f<? super T, ? extends Iterable<? extends R>> iFp;
         long produced;
         final Queue<Object> queue;
         final AtomicReference<Throwable> error = new AtomicReference<>();
@@ -59,13 +59,13 @@ public final class l<T, R> implements d.a<R> {
 
         public a(rx.j<? super R> jVar, rx.functions.f<? super T, ? extends Iterable<? extends R>> fVar, int i) {
             this.actual = jVar;
-            this.iCf = fVar;
+            this.iFp = fVar;
             if (i == Integer.MAX_VALUE) {
-                this.iCD = Long.MAX_VALUE;
+                this.iFN = Long.MAX_VALUE;
                 this.queue = new rx.internal.util.atomic.d(rx.internal.util.h.SIZE);
             } else {
-                this.iCD = i - (i >> 2);
-                if (rx.internal.util.a.ae.ceF()) {
+                this.iFN = i - (i >> 2);
+                if (rx.internal.util.a.ae.cfw()) {
                     this.queue = new rx.internal.util.a.q(i);
                 } else {
                     this.queue = new rx.internal.util.atomic.c(i);
@@ -100,7 +100,7 @@ public final class l<T, R> implements d.a<R> {
             drain();
         }
 
-        void dC(long j) {
+        void dH(long j) {
             if (j > 0) {
                 rx.internal.operators.a.a(this.requested, j);
                 drain();
@@ -126,7 +126,7 @@ public final class l<T, R> implements d.a<R> {
                 Queue<?> queue = this.queue;
                 int i = 1;
                 while (true) {
-                    Iterator<? extends R> it3 = this.iCE;
+                    Iterator<? extends R> it3 = this.iFO;
                     if (it3 == null) {
                         boolean z = this.done;
                         Object poll = queue.poll();
@@ -134,20 +134,20 @@ public final class l<T, R> implements d.a<R> {
                         if (!a(z, z2, jVar, queue)) {
                             if (!z2) {
                                 long j = this.produced + 1;
-                                if (j == this.iCD) {
+                                if (j == this.iFN) {
                                     this.produced = 0L;
                                     request(j);
                                 } else {
                                     this.produced = j;
                                 }
                                 try {
-                                    it = this.iCf.call((Object) NotificationLite.bb(poll)).iterator();
+                                    it = this.iFp.call((Object) NotificationLite.bb(poll)).iterator();
                                 } catch (Throwable th) {
                                     rx.exceptions.a.J(th);
                                     onError(th);
                                 }
                                 if (it.hasNext()) {
-                                    this.iCE = it;
+                                    this.iFO = it;
                                     if (it == null) {
                                         long j2 = this.requested.get();
                                         long j3 = 0;
@@ -162,13 +162,13 @@ public final class l<T, R> implements d.a<R> {
                                                         j3++;
                                                         try {
                                                             if (!it.hasNext()) {
-                                                                this.iCE = null;
+                                                                this.iFO = null;
                                                                 it2 = null;
                                                                 break;
                                                             }
                                                         } catch (Throwable th2) {
                                                             rx.exceptions.a.J(th2);
-                                                            this.iCE = null;
+                                                            this.iFO = null;
                                                             onError(th2);
                                                             it2 = null;
                                                         }
@@ -177,7 +177,7 @@ public final class l<T, R> implements d.a<R> {
                                                     }
                                                 } catch (Throwable th3) {
                                                     rx.exceptions.a.J(th3);
-                                                    this.iCE = null;
+                                                    this.iFO = null;
                                                     onError(th3);
                                                     it2 = null;
                                                 }
@@ -223,7 +223,7 @@ public final class l<T, R> implements d.a<R> {
         boolean a(boolean z, boolean z2, rx.j<?> jVar, Queue<?> queue) {
             if (jVar.isUnsubscribed()) {
                 queue.clear();
-                this.iCE = null;
+                this.iFO = null;
                 return true;
             }
             if (z) {
@@ -231,7 +231,7 @@ public final class l<T, R> implements d.a<R> {
                     Throwable terminate = ExceptionsUtils.terminate(this.error);
                     unsubscribe();
                     queue.clear();
-                    this.iCE = null;
+                    this.iFO = null;
                     jVar.onError(terminate);
                     return true;
                 } else if (z2) {
@@ -246,7 +246,7 @@ public final class l<T, R> implements d.a<R> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class b<T, R> implements d.a<R> {
-        final rx.functions.f<? super T, ? extends Iterable<? extends R>> iCf;
+        final rx.functions.f<? super T, ? extends Iterable<? extends R>> iFp;
         final T value;
 
         @Override // rx.functions.b
@@ -256,13 +256,13 @@ public final class l<T, R> implements d.a<R> {
 
         public b(T t, rx.functions.f<? super T, ? extends Iterable<? extends R>> fVar) {
             this.value = t;
-            this.iCf = fVar;
+            this.iFp = fVar;
         }
 
         /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
         public void call(rx.j<? super R> jVar) {
             try {
-                Iterator<? extends R> it = this.iCf.call((T) this.value).iterator();
+                Iterator<? extends R> it = this.iFp.call((T) this.value).iterator();
                 if (!it.hasNext()) {
                     jVar.onCompleted();
                 } else {

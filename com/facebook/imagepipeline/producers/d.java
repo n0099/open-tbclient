@@ -8,36 +8,36 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes2.dex */
 public class d implements aj {
-    private final Object ihW;
-    private final ImageRequest ipH;
-    private final al ipI;
-    private final ImageRequest.RequestLevel ipJ;
+    private final Object ilg;
+    private final ImageRequest isR;
+    private final al isS;
+    private final ImageRequest.RequestLevel isT;
     @GuardedBy("this")
-    private boolean ipK;
+    private boolean isU;
     @GuardedBy("this")
-    private Priority ipL;
+    private Priority isV;
     @GuardedBy("this")
-    private boolean ipM;
+    private boolean isW;
     private final String mId;
     @GuardedBy("this")
-    private boolean aMy = false;
+    private boolean aMA = false;
     @GuardedBy("this")
     private final List<ak> mCallbacks = new ArrayList();
 
     public d(ImageRequest imageRequest, String str, al alVar, Object obj, ImageRequest.RequestLevel requestLevel, boolean z, boolean z2, Priority priority) {
-        this.ipH = imageRequest;
+        this.isR = imageRequest;
         this.mId = str;
-        this.ipI = alVar;
-        this.ihW = obj;
-        this.ipJ = requestLevel;
-        this.ipK = z;
-        this.ipL = priority;
-        this.ipM = z2;
+        this.isS = alVar;
+        this.ilg = obj;
+        this.isT = requestLevel;
+        this.isU = z;
+        this.isV = priority;
+        this.isW = z2;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public ImageRequest bYQ() {
-        return this.ipH;
+    public ImageRequest bZH() {
+        return this.isR;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
@@ -46,33 +46,33 @@ public class d implements aj {
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public al bYR() {
-        return this.ipI;
+    public al bZI() {
+        return this.isS;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public Object bUt() {
-        return this.ihW;
+    public Object bVk() {
+        return this.ilg;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public ImageRequest.RequestLevel bYS() {
-        return this.ipJ;
+    public ImageRequest.RequestLevel bZJ() {
+        return this.isT;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public synchronized boolean bYT() {
-        return this.ipK;
+    public synchronized boolean bZK() {
+        return this.isU;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public synchronized Priority bYU() {
-        return this.ipL;
+    public synchronized Priority bZL() {
+        return this.isV;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public synchronized boolean bYV() {
-        return this.ipM;
+    public synchronized boolean bZM() {
+        return this.isW;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
@@ -80,26 +80,26 @@ public class d implements aj {
         boolean z = false;
         synchronized (this) {
             this.mCallbacks.add(akVar);
-            if (this.aMy) {
+            if (this.aMA) {
                 z = true;
             }
         }
         if (z) {
-            akVar.bYX();
+            akVar.bZO();
         }
     }
 
     public void cancel() {
-        et(bYW());
+        eu(bZN());
     }
 
     @Nullable
-    public synchronized List<ak> oX(boolean z) {
+    public synchronized List<ak> pa(boolean z) {
         ArrayList arrayList;
-        if (z == this.ipK) {
+        if (z == this.isU) {
             arrayList = null;
         } else {
-            this.ipK = z;
+            this.isU = z;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
@@ -108,51 +108,43 @@ public class d implements aj {
     @Nullable
     public synchronized List<ak> a(Priority priority) {
         ArrayList arrayList;
-        if (priority == this.ipL) {
+        if (priority == this.isV) {
             arrayList = null;
         } else {
-            this.ipL = priority;
+            this.isV = priority;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
     }
 
     @Nullable
-    public synchronized List<ak> oY(boolean z) {
+    public synchronized List<ak> pb(boolean z) {
         ArrayList arrayList;
-        if (z == this.ipM) {
+        if (z == this.isW) {
             arrayList = null;
         } else {
-            this.ipM = z;
+            this.isW = z;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
     }
 
     @Nullable
-    public synchronized List<ak> bYW() {
+    public synchronized List<ak> bZN() {
         ArrayList arrayList;
-        if (this.aMy) {
+        if (this.aMA) {
             arrayList = null;
         } else {
-            this.aMy = true;
+            this.aMA = true;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
-    }
-
-    public static void et(@Nullable List<ak> list) {
-        if (list != null) {
-            for (ak akVar : list) {
-                akVar.bYX();
-            }
-        }
     }
 
     public static void eu(@Nullable List<ak> list) {
         if (list != null) {
             for (ak akVar : list) {
-                akVar.bYY();
+                akVar.bZO();
             }
         }
     }
@@ -160,7 +152,7 @@ public class d implements aj {
     public static void ev(@Nullable List<ak> list) {
         if (list != null) {
             for (ak akVar : list) {
-                akVar.bYZ();
+                akVar.bZP();
             }
         }
     }
@@ -168,7 +160,15 @@ public class d implements aj {
     public static void ew(@Nullable List<ak> list) {
         if (list != null) {
             for (ak akVar : list) {
-                akVar.bZa();
+                akVar.bZQ();
+            }
+        }
+    }
+
+    public static void ex(@Nullable List<ak> list) {
+        if (list != null) {
+            for (ak akVar : list) {
+                akVar.bZR();
             }
         }
     }

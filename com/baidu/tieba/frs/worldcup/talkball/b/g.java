@@ -3,21 +3,21 @@ package com.baidu.tieba.frs.worldcup.talkball.b;
 import tbclient.TalkBall.VideoCard;
 /* loaded from: classes3.dex */
 public class g {
-    private String ejh;
-    private String eji;
-    private String ejj;
-    private String ejk;
+    private String elX;
+    private String elY;
+    private String elZ;
+    private String ema;
     private String mThreadId;
     private String mTitle;
 
     public void b(VideoCard videoCard) {
         if (videoCard != null) {
             this.mTitle = videoCard.title;
-            this.ejh = videoCard.cover_image;
-            this.eji = videoCard.video_duration;
-            this.ejj = videoCard.topic_title;
+            this.elX = videoCard.cover_image;
+            this.elY = videoCard.video_duration;
+            this.elZ = videoCard.topic_title;
             this.mThreadId = videoCard.thread_id;
-            this.ejk = videoCard.thread_url;
+            this.ema = videoCard.thread_url;
         }
     }
 
@@ -25,19 +25,19 @@ public class g {
         return this.mTitle;
     }
 
-    public String aIx() {
-        return this.ejh;
+    public String aJm() {
+        return this.elX;
     }
 
-    public String aIy() {
-        return this.eji;
+    public String aJn() {
+        return this.elY;
     }
 
     public String getThreadId() {
         return this.mThreadId;
     }
 
-    public String aIz() {
-        return this.ejk;
+    public String aJo() {
+        return this.ema;
     }
 }

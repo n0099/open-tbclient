@@ -26,7 +26,7 @@ public class b {
                 if (!mainDBDatabaseManager.af("DROP TABLE IF EXISTS account_data")) {
                     mainDBDatabaseManager.gg();
                 }
-                mainDBDatabaseManager.af("CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255),gender int,member_iconurl varchar(255),stoken varchar(255))");
+                mainDBDatabaseManager.af("CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255), personal_gid int, gender int, member_iconurl varchar(255),stoken varchar(255),name_show varchar(255))");
                 a(accountData, mainDBDatabaseManager);
             }
         }

@@ -4,131 +4,131 @@ import java.lang.ref.SoftReference;
 import java.util.StringTokenizer;
 /* loaded from: classes5.dex */
 abstract class f implements org.aspectj.lang.c {
-    int its;
-    ClassLoader izc = null;
-    String izm;
-    Class izn;
-    a izo;
-    private String izp;
+    ClassLoader iCm = null;
+    String iCw;
+    Class iCx;
+    a iCy;
+    private String iCz;
+    int iwC;
     String name;
-    private static boolean dkS = true;
+    private static boolean dnJ = true;
     static String[] EMPTY_STRING_ARRAY = new String[0];
-    static Class[] izq = new Class[0];
+    static Class[] iCA = new Class[0];
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public interface a {
         void set(int i, String str);
 
-        String zj(int i);
+        String zw(int i);
     }
 
     protected abstract String b(h hVar);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(int i, String str, Class cls) {
-        this.its = -1;
-        this.its = i;
+        this.iwC = -1;
+        this.iwC = i;
         this.name = str;
-        this.izn = cls;
+        this.iCx = cls;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(h hVar) {
         String str = null;
-        if (dkS) {
-            if (this.izo == null) {
+        if (dnJ) {
+            if (this.iCy == null) {
                 try {
-                    this.izo = new b();
+                    this.iCy = new b();
                 } catch (Throwable th) {
-                    dkS = false;
+                    dnJ = false;
                 }
             } else {
-                str = this.izo.zj(hVar.izB);
+                str = this.iCy.zw(hVar.iCL);
             }
         }
         if (str == null) {
             str = b(hVar);
         }
-        if (dkS) {
-            this.izo.set(hVar.izB, str);
+        if (dnJ) {
+            this.iCy.set(hVar.iCL, str);
         }
         return str;
     }
 
     public final String toString() {
-        return a(h.izD);
+        return a(h.iCN);
     }
 
     public int getModifiers() {
-        if (this.its == -1) {
-            this.its = zg(0);
+        if (this.iwC == -1) {
+            this.iwC = zt(0);
         }
-        return this.its;
+        return this.iwC;
     }
 
     public String getName() {
         if (this.name == null) {
-            this.name = zf(1);
+            this.name = zs(1);
         }
         return this.name;
     }
 
-    public Class ccc() {
-        if (this.izn == null) {
-            this.izn = zh(2);
+    public Class ccT() {
+        if (this.iCx == null) {
+            this.iCx = zu(2);
         }
-        return this.izn;
+        return this.iCx;
     }
 
-    public String ccd() {
-        if (this.izm == null) {
-            this.izm = ccc().getName();
+    public String ccU() {
+        if (this.iCw == null) {
+            this.iCw = ccT().getName();
         }
-        return this.izm;
+        return this.iCw;
     }
 
-    private ClassLoader cce() {
-        if (this.izc == null) {
-            this.izc = getClass().getClassLoader();
+    private ClassLoader ccV() {
+        if (this.iCm == null) {
+            this.iCm = getClass().getClassLoader();
         }
-        return this.izc;
+        return this.iCm;
     }
 
-    String zf(int i) {
+    String zs(int i) {
         int i2 = 0;
-        int indexOf = this.izp.indexOf(45);
+        int indexOf = this.iCz.indexOf(45);
         while (true) {
             int i3 = i - 1;
             if (i <= 0) {
                 break;
             }
             i2 = indexOf + 1;
-            indexOf = this.izp.indexOf(45, i2);
+            indexOf = this.iCz.indexOf(45, i2);
             i = i3;
         }
         if (indexOf == -1) {
-            indexOf = this.izp.length();
+            indexOf = this.iCz.length();
         }
-        return this.izp.substring(i2, indexOf);
+        return this.iCz.substring(i2, indexOf);
     }
 
-    int zg(int i) {
-        return Integer.parseInt(zf(i), 16);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Class zh(int i) {
-        return org.aspectj.a.b.b.b(zf(i), cce());
+    int zt(int i) {
+        return Integer.parseInt(zs(i), 16);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Class[] zi(int i) {
-        StringTokenizer stringTokenizer = new StringTokenizer(zf(i), ":");
+    public Class zu(int i) {
+        return org.aspectj.a.b.b.b(zs(i), ccV());
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public Class[] zv(int i) {
+        StringTokenizer stringTokenizer = new StringTokenizer(zs(i), ":");
         int countTokens = stringTokenizer.countTokens();
         Class[] clsArr = new Class[countTokens];
         for (int i2 = 0; i2 < countTokens; i2++) {
-            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), cce());
+            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), ccV());
         }
         return clsArr;
     }
@@ -136,37 +136,37 @@ abstract class f implements org.aspectj.lang.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static final class b implements a {
-        private SoftReference izr;
+        private SoftReference iCB;
 
         public b() {
-            ccg();
+            ccX();
         }
 
         @Override // org.aspectj.a.b.f.a
-        public String zj(int i) {
-            String[] ccf = ccf();
-            if (ccf == null) {
+        public String zw(int i) {
+            String[] ccW = ccW();
+            if (ccW == null) {
                 return null;
             }
-            return ccf[i];
+            return ccW[i];
         }
 
         @Override // org.aspectj.a.b.f.a
         public void set(int i, String str) {
-            String[] ccf = ccf();
-            if (ccf == null) {
-                ccf = ccg();
+            String[] ccW = ccW();
+            if (ccW == null) {
+                ccW = ccX();
             }
-            ccf[i] = str;
+            ccW[i] = str;
         }
 
-        private String[] ccf() {
-            return (String[]) this.izr.get();
+        private String[] ccW() {
+            return (String[]) this.iCB.get();
         }
 
-        private String[] ccg() {
+        private String[] ccX() {
             String[] strArr = new String[3];
-            this.izr = new SoftReference(strArr);
+            this.iCB = new SoftReference(strArr);
             return strArr;
         }
     }

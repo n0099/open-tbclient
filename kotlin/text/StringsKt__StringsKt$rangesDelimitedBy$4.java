@@ -25,7 +25,7 @@ final class StringsKt__StringsKt$rangesDelimitedBy$4 extends Lambda implements k
 
     public final Pair<Integer, Integer> invoke(CharSequence charSequence, int i) {
         Pair a;
-        kotlin.jvm.internal.p.h((Object) charSequence, "$receiver");
+        kotlin.jvm.internal.p.j(charSequence, "$receiver");
         a = r.a(charSequence, (Collection<String>) this.$delimitersList, i, this.$ignoreCase, false);
         if (a != null) {
             return kotlin.c.g(a.getFirst(), Integer.valueOf(((String) a.getSecond()).length()));

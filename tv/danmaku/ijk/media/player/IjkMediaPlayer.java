@@ -18,8 +18,6 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import com.baidu.ar.parser.ARResourceKey;
 import com.baidu.ar.util.SystemInfoUtil;
-import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
-import com.baidu.tbadk.MediaStatusCacheQueue;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.play.b.e;
 import java.io.FileDescriptor;
@@ -271,7 +269,6 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     public IjkMediaPlayer(IjkLibLoader ijkLibLoader) {
         this.mWakeLock = null;
         initPlayer(ijkLibLoader);
-        MediaStatusCacheQueue.getInstance().insertData(hashCode(), "IjkMediaPlayer@" + hashCode() + "_new");
     }
 
     private void initPlayer(IjkLibLoader ijkLibLoader) {
@@ -318,7 +315,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         setDataSource(context, uri, (Map<String, String>) null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [381=6, 382=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [379=6, 380=5] */
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     @TargetApi(14)
     public void setDataSource(Context context, Uri uri, Map<String, String> map) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException {
@@ -590,7 +587,6 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         resetListeners();
         try {
             _release();
-            MediaStatusCacheQueue.getInstance().removeData(hashCode());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -756,84 +752,80 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             IjkMediaPlayer ijkMediaPlayer = this.mWeakPlayer.get();
-            if (ijkMediaPlayer != null && ijkMediaPlayer.mNativeMediaPlayer != 0) {
-                MediaStatusCacheQueue.getInstance().insertData(ijkMediaPlayer.hashCode(), BaseRequestAction.SPLITE + message.what);
-                switch (message.what) {
-                    case 0:
-                    case 99:
-                    case 300:
-                    default:
-                        return;
-                    case 1:
-                        ijkMediaPlayer.notifyOnPrepared();
-                        return;
-                    case 2:
-                        ijkMediaPlayer.stayAwake(false);
+            if (ijkMediaPlayer == null || ijkMediaPlayer.mNativeMediaPlayer == 0) {
+                return;
+            }
+            switch (message.what) {
+                case 0:
+                case 99:
+                case 300:
+                default:
+                    return;
+                case 1:
+                    ijkMediaPlayer.notifyOnPrepared();
+                    return;
+                case 2:
+                    ijkMediaPlayer.stayAwake(false);
+                    ijkMediaPlayer.notifyOnCompletion();
+                    return;
+                case 3:
+                    long j = message.arg1;
+                    if (j < 0) {
+                        j = 0;
+                    }
+                    long duration = ijkMediaPlayer.getDuration();
+                    long j2 = duration > 0 ? (j * 100) / duration : 0L;
+                    if (j2 >= 100) {
+                        j2 = 100;
+                    }
+                    ijkMediaPlayer.notifyOnBufferingUpdate((int) j2);
+                    return;
+                case 4:
+                    ijkMediaPlayer.notifyOnSeekComplete();
+                    return;
+                case 5:
+                    ijkMediaPlayer.mVideoWidth = message.arg1;
+                    ijkMediaPlayer.mVideoHeight = message.arg2;
+                    ijkMediaPlayer.notifyOnVideoSizeChanged(ijkMediaPlayer.mVideoWidth, ijkMediaPlayer.mVideoHeight, ijkMediaPlayer.mVideoSarNum, ijkMediaPlayer.mVideoSarDen);
+                    return;
+                case 100:
+                    ijkMediaPlayer.notifySpeed(ijkMediaPlayer.getTcpSpeed());
+                    if (!ijkMediaPlayer.notifyOnError(-200, message.arg1, message.arg2)) {
                         ijkMediaPlayer.notifyOnCompletion();
+                    }
+                    ijkMediaPlayer.stayAwake(false);
+                    return;
+                case 200:
+                    int i = message.arg1;
+                    try {
+                        ijkMediaPlayer.notifyOnInfo(message.arg1, message.arg2);
                         return;
-                    case 3:
-                        long j = message.arg1;
-                        if (j < 0) {
-                            j = 0;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        return;
+                    }
+                case 400:
+                    e.bE(message.arg1, message.arg2);
+                    ijkMediaPlayer.notifyOnSubError(message.arg1, message.arg2, "");
+                    return;
+                case 500:
+                    if (message.arg1 == -998877 || message.arg2 == -998877) {
+                        this.ignoreSubError = true;
+                    }
+                    if (!this.ignoreSubError) {
+                        String str = null;
+                        if (message.obj instanceof String) {
+                            str = (String) message.obj;
                         }
-                        long duration = ijkMediaPlayer.getDuration();
-                        long j2 = duration > 0 ? (j * 100) / duration : 0L;
-                        if (j2 >= 100) {
-                            j2 = 100;
-                        }
-                        ijkMediaPlayer.notifyOnBufferingUpdate((int) j2);
+                        ijkMediaPlayer.notifyOnSubError(message.arg1, message.arg2, str);
                         return;
-                    case 4:
-                        ijkMediaPlayer.notifyOnSeekComplete();
-                        return;
-                    case 5:
-                        ijkMediaPlayer.mVideoWidth = message.arg1;
-                        ijkMediaPlayer.mVideoHeight = message.arg2;
-                        ijkMediaPlayer.notifyOnVideoSizeChanged(ijkMediaPlayer.mVideoWidth, ijkMediaPlayer.mVideoHeight, ijkMediaPlayer.mVideoSarNum, ijkMediaPlayer.mVideoSarDen);
-                        return;
-                    case 100:
-                        ijkMediaPlayer.notifySpeed(ijkMediaPlayer.getTcpSpeed());
-                        if (!ijkMediaPlayer.notifyOnError(-200, message.arg1, message.arg2)) {
-                            ijkMediaPlayer.notifyOnCompletion();
-                        }
-                        MediaStatusCacheQueue.getInstance().insertData(ijkMediaPlayer.hashCode(), "#" + message.arg1 + "#" + message.arg2);
-                        ijkMediaPlayer.stayAwake(false);
-                        return;
-                    case 200:
-                        int i = message.arg1;
-                        try {
-                            ijkMediaPlayer.notifyOnInfo(message.arg1, message.arg2);
-                            MediaStatusCacheQueue.getInstance().insertData(ijkMediaPlayer.hashCode(), "#" + message.arg1 + "#" + message.arg2);
-                            return;
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            return;
-                        }
-                    case 400:
-                        e.bD(message.arg1, message.arg2);
-                        ijkMediaPlayer.notifyOnSubError(message.arg1, message.arg2, "");
-                        return;
-                    case 500:
-                        if (message.arg1 == -998877 || message.arg2 == -998877) {
-                            this.ignoreSubError = true;
-                        }
-                        MediaStatusCacheQueue.getInstance().insertData(ijkMediaPlayer.hashCode(), "#" + message.arg1 + "#" + message.arg2 + "#" + message.obj);
-                        if (!this.ignoreSubError) {
-                            String str = null;
-                            if (message.obj instanceof String) {
-                                str = (String) message.obj;
-                            }
-                            ijkMediaPlayer.notifyOnSubError(message.arg1, message.arg2, str);
-                            return;
-                        }
-                        return;
-                    case 10001:
-                        ijkMediaPlayer.mVideoSarNum = message.arg1;
-                        ijkMediaPlayer.mVideoSarDen = message.arg2;
-                        ijkMediaPlayer.notifyOnVideoSizeChanged(ijkMediaPlayer.mVideoWidth, ijkMediaPlayer.mVideoHeight, ijkMediaPlayer.mVideoSarNum, ijkMediaPlayer.mVideoSarDen);
-                        MediaStatusCacheQueue.getInstance().insertData(ijkMediaPlayer.hashCode(), "#" + message.arg1 + "#" + message.arg2);
-                        return;
-                }
+                    }
+                    return;
+                case 10001:
+                    ijkMediaPlayer.mVideoSarNum = message.arg1;
+                    ijkMediaPlayer.mVideoSarDen = message.arg2;
+                    ijkMediaPlayer.notifyOnVideoSizeChanged(ijkMediaPlayer.mVideoWidth, ijkMediaPlayer.mVideoHeight, ijkMediaPlayer.mVideoSarNum, ijkMediaPlayer.mVideoSarDen);
+                    return;
             }
         }
     }

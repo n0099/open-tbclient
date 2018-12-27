@@ -17,39 +17,39 @@ import com.baidu.tieba.homepage.daily.b.e;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class d extends BaseAdapter {
-    private int esJ;
-    private int esK;
-    private List<e.a> esp;
+    private int evA;
+    private int evB;
+    private List<e.a> evg;
     private Context mContext;
 
     public d(Context context) {
         this.mContext = context;
-        this.esJ = ((((l.aO(context) - (l.h(context, e.C0210e.tbds44) * 2)) - l.h(context, e.C0210e.tbds60)) / 2) - l.h(context, e.C0210e.tbds104)) - l.h(context, e.C0210e.tbds26);
+        this.evA = ((((l.aO(context) - (l.h(context, e.C0210e.tbds44) * 2)) - l.h(context, e.C0210e.tbds60)) / 2) - l.h(context, e.C0210e.tbds104)) - l.h(context, e.C0210e.tbds26);
     }
 
     public void setData(List<e.a> list) {
         if (list != null) {
-            this.esp = list;
+            this.evg = list;
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return v.H(this.esp);
+        return v.H(this.evg);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: oo */
+    /* renamed from: oB */
     public e.a getItem(int i) {
-        return (e.a) v.d(this.esp, i);
+        return (e.a) v.d(this.evg, i);
     }
 
-    public String aKw() {
-        e.a aVar = (e.a) v.d(this.esp, 0);
+    public String aLl() {
+        e.a aVar = (e.a) v.d(this.evg, 0);
         if (aVar != null) {
-            return aVar.aKw();
+            return aVar.aLl();
         }
         return null;
     }
@@ -65,9 +65,9 @@ public class d extends BaseAdapter {
         if (view == null || !(view.getTag() instanceof a)) {
             view = LayoutInflater.from(this.mContext).inflate(e.h.daily_topic_item_view, (ViewGroup) null);
             a aVar2 = new a();
-            aVar2.esL = (TbImageView) view.findViewById(e.g.topic_pic);
-            aVar2.esD = (TextView) view.findViewById(e.g.topic_title);
-            aVar2.esM = (TextView) view.findViewById(e.g.topic_abstract);
+            aVar2.evC = (TbImageView) view.findViewById(e.g.topic_pic);
+            aVar2.evu = (TextView) view.findViewById(e.g.topic_title);
+            aVar2.evD = (TextView) view.findViewById(e.g.topic_abstract);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -75,26 +75,26 @@ public class d extends BaseAdapter {
         }
         e.a item = getItem(i);
         if (item != null) {
-            aVar.esL.startLoad(item.aKu(), 10, false);
-            aVar.esD.setText(this.mContext.getString(e.j.daily_topic_name, b(aVar.esD.getPaint(), item.yY(), this.esJ)));
-            aVar.esM.setText(item.aKv());
+            aVar.evC.startLoad(item.aLj(), 10, false);
+            aVar.evu.setText(this.mContext.getString(e.j.daily_topic_name, b(aVar.evu.getPaint(), item.yY(), this.evA)));
+            aVar.evD.setText(item.aLk());
         }
         aVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return view;
     }
 
     public String b(TextPaint textPaint, String str, int i) {
-        if (this.esK <= 0) {
-            this.esK = i - l.c(textPaint, "##");
+        if (this.evB <= 0) {
+            this.evB = i - l.c(textPaint, "##");
         }
-        return l.a(textPaint, str, this.esK);
+        return l.a(textPaint, str, this.evB);
     }
 
     /* loaded from: classes6.dex */
     private static class a {
-        public TextView esD;
-        public TbImageView esL;
-        public TextView esM;
+        public TbImageView evC;
+        public TextView evD;
+        public TextView evu;
         private int mSkinType;
 
         private a() {
@@ -104,9 +104,9 @@ public class d extends BaseAdapter {
         public void onChangeSkinType(int i) {
             if (i != this.mSkinType) {
                 this.mSkinType = i;
-                this.esL.setBorderColor(al.getColor(e.d.black_alpha15));
-                al.h(this.esD, e.d.cp_cont_b);
-                al.h(this.esM, e.d.cp_cont_d);
+                this.evC.setBorderColor(al.getColor(e.d.black_alpha15));
+                al.h(this.evu, e.d.cp_cont_b);
+                al.h(this.evD, e.d.cp_cont_d);
             }
         }
     }

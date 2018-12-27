@@ -93,19 +93,19 @@ public final class EmptySet implements Serializable, Set {
     }
 
     public boolean contains(Void r2) {
-        kotlin.jvm.internal.p.h((Object) r2, "element");
+        kotlin.jvm.internal.p.j(r2, "element");
         return false;
     }
 
     @Override // java.util.Set, java.util.Collection
     public boolean containsAll(Collection collection) {
-        kotlin.jvm.internal.p.h((Object) collection, "elements");
+        kotlin.jvm.internal.p.j(collection, "elements");
         return collection.isEmpty();
     }
 
     @Override // java.util.Set, java.util.Collection, java.lang.Iterable
     public Iterator iterator() {
-        return v.ixW;
+        return v.iBg;
     }
 
     private final Object readResolve() {

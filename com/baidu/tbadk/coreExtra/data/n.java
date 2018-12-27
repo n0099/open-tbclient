@@ -12,70 +12,70 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class n {
-    private long aNV;
+    private long aNX;
     private HashMap<String, Integer> mSwitchs;
     private boolean mGpuOpen = true;
-    private boolean aNT = true;
-    private int aNU = 100000;
-    private int aNW = 100;
-    private boolean aNY = false;
-    private int aOa = 1;
-    private String aNQ = null;
-    private String aNR = null;
-    private String mYijianfankuiFname = null;
+    private boolean aNV = true;
+    private int aNW = 100000;
+    private int aNY = 100;
+    private boolean aOa = false;
+    private int aOc = 1;
     private String aNS = null;
-    private final BannerData aNP = new BannerData();
-    private com.baidu.tbadk.core.data.k aNX = new com.baidu.tbadk.core.data.k();
-    private v aNZ = new v();
+    private String aNT = null;
+    private String mYijianfankuiFname = null;
+    private String aNU = null;
+    private final BannerData aNR = new BannerData();
+    private com.baidu.tbadk.core.data.k aNZ = new com.baidu.tbadk.core.data.k();
+    private v aOb = new v();
 
     public n() {
         this.mSwitchs = null;
         this.mSwitchs = new HashMap<>();
     }
 
-    public int GJ() {
-        return this.aNU;
-    }
-
-    public int getCrashLimitCount() {
+    public int GK() {
         return this.aNW;
     }
 
-    public v GK() {
-        return this.aNZ;
+    public int getCrashLimitCount() {
+        return this.aNY;
+    }
+
+    public v GL() {
+        return this.aOb;
     }
 
     public void parserJson(JSONObject jSONObject) {
         boolean z = false;
         if (jSONObject != null) {
             try {
-                this.aNP.parserJson(jSONObject.optJSONObject("banner"));
-                this.aNQ = jSONObject.optString("big_head_image_host");
-                this.aNR = jSONObject.optString("small_head_image_host");
+                this.aNR.parserJson(jSONObject.optJSONObject("banner"));
+                this.aNS = jSONObject.optString("big_head_image_host");
+                this.aNT = jSONObject.optString("small_head_image_host");
                 this.mYijianfankuiFname = jSONObject.optString("yijianfankui_fname");
-                this.aNS = jSONObject.optString("yijianfankui_fid");
-                this.aNW = jSONObject.optInt("crash_limit_count", 100);
+                this.aNU = jSONObject.optString("yijianfankui_fid");
+                this.aNY = jSONObject.optInt("crash_limit_count", 100);
                 int optInt = jSONObject.optInt("app_recommend", -1);
-                this.aNV = jSONObject.optLong("vip_new_task", 0L);
-                this.aNZ.parserJson(jSONObject.optJSONObject("webview_checkurl"));
+                this.aNX = jSONObject.optLong("vip_new_task", 0L);
+                this.aOb.parserJson(jSONObject.optJSONObject("webview_checkurl"));
                 JSONObject optJSONObject = jSONObject.optJSONObject("log_together");
                 if (optJSONObject != null) {
-                    com.baidu.tbadk.distribute.a.LK().fC(optJSONObject.optInt("distance", 60));
-                    com.baidu.tbadk.distribute.a.LK().fD(optJSONObject.optInt("items_num", 10));
-                    com.baidu.tbadk.distribute.a.LK().cm(1 == optJSONObject.optInt("ad_show", 1));
+                    com.baidu.tbadk.distribute.a.LL().fD(optJSONObject.optInt("distance", 60));
+                    com.baidu.tbadk.distribute.a.LL().fE(optJSONObject.optInt("items_num", 10));
+                    com.baidu.tbadk.distribute.a.LL().cm(1 == optJSONObject.optInt("ad_show", 1));
                 }
                 TbadkCoreApplication.getInst().setYijianfankuiFname(this.mYijianfankuiFname);
-                if (this.aNX == null) {
-                    this.aNX = new com.baidu.tbadk.core.data.k();
+                if (this.aNZ == null) {
+                    this.aNZ = new com.baidu.tbadk.core.data.k();
                 }
-                this.aNX.parseJson(jSONObject.optString("photo_strategy"));
+                this.aNZ.parseJson(jSONObject.optString("photo_strategy"));
                 if (com.baidu.tbadk.core.util.p.getInstance() != null) {
-                    com.baidu.tbadk.core.util.p.getInstance().setmCdnLogData(this.aNX);
+                    com.baidu.tbadk.core.util.p.getInstance().setmCdnLogData(this.aNZ);
                 }
                 com.baidu.tbadk.g.a aVar = new com.baidu.tbadk.g.a();
                 aVar.parseJson(jSONObject.optJSONObject("photo_cdn_time"));
                 if (com.baidu.tbadk.core.util.a.e.getInstance() != null) {
-                    if (!com.baidu.tbadk.core.util.a.e.getInstance().aDw) {
+                    if (!com.baidu.tbadk.core.util.a.e.getInstance().aDx) {
                         com.baidu.tbadk.core.util.a.e.getInstance().init();
                     }
                     com.baidu.tbadk.core.util.a.e.getInstance().setCDNImageTimeData(aVar);
@@ -83,11 +83,11 @@ public class n {
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("movideo");
                 if (optJSONObject2 != null) {
-                    com.baidu.tieba.tbadkCore.videoupload.a.vG(optJSONObject2.optInt("chunk_size"));
-                    com.baidu.tieba.tbadkCore.videoupload.a.vH(optJSONObject2.optInt("block_size"));
-                    com.baidu.tieba.tbadkCore.videoupload.a.vF(optJSONObject2.optInt("data_size"));
+                    com.baidu.tieba.tbadkCore.videoupload.a.vT(optJSONObject2.optInt("chunk_size"));
+                    com.baidu.tieba.tbadkCore.videoupload.a.vU(optJSONObject2.optInt("block_size"));
+                    com.baidu.tieba.tbadkCore.videoupload.a.vS(optJSONObject2.optInt("data_size"));
                 }
-                com.baidu.tbadk.l.m.Pk().ar(jSONObject.optLong("small_flow_time_out"));
+                com.baidu.tbadk.l.m.Pl().as(jSONObject.optLong("small_flow_time_out"));
                 TbadkCoreApplication.getInst().setInterviewLivePollingInterval(jSONObject.optLong("interview_pulling_interval"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("switch");
                 if (optJSONArray != null) {
@@ -139,11 +139,11 @@ public class n {
                 if (this.mSwitchs != null && this.mSwitchs.size() > 0) {
                     com.baidu.adp.lib.b.d.iQ().k(this.mSwitchs);
                 }
-                com.baidu.tieba.play.t.brT();
-                CustomPlayerSwitchStatic.tk(com.baidu.adp.lib.b.d.iQ().aO("android_custom_player_enabled_2"));
-                this.aNT = jSONObject.optInt("is_pushservice_open", 1) == 1;
-                TbadkCoreApplication.getInst().setIsPushServiceOpen(this.aNT);
-                if (!this.aNT) {
+                com.baidu.tieba.play.t.bsF();
+                CustomPlayerSwitchStatic.tx(com.baidu.adp.lib.b.d.iQ().aO("android_custom_player_enabled_2"));
+                this.aNV = jSONObject.optInt("is_pushservice_open", 1) == 1;
+                TbadkCoreApplication.getInst().setIsPushServiceOpen(this.aNV);
+                if (!this.aNV) {
                     UtilHelper.stopPushService(TbadkCoreApplication.getInst().getApp().getApplicationContext());
                 }
                 TbadkCoreApplication.getInst().setFeatureCrashAutoCloseLimit(jSONObject.optInt("feature_crash_auto_close_limit", 3));
@@ -151,8 +151,8 @@ public class n {
                 TbadkCoreApplication.getInst().setGpuOpen(this.mGpuOpen);
                 TbadkCoreApplication.getInst().setHttpClientOpen(jSONObject.optInt("http_client", 1) == 1);
                 TbadkCoreApplication.getInst().setHttpAutoSwitch(jSONObject.optInt("http_client_auto", 1) == 1);
-                this.aNY = jSONObject.optInt("voice_use_soft_decoder", 0) == 1;
-                VoiceManager.setVoiceUseSoftDecoder(this.aNY);
+                this.aOa = jSONObject.optInt("voice_use_soft_decoder", 0) == 1;
+                VoiceManager.setVoiceUseSoftDecoder(this.aOa);
                 if (TbadkCoreApplication.getInst().getFirstSyncImageQuality()) {
                     int optInt2 = jSONObject.optInt("open_abstract", 0);
                     if (!((optInt2 == 0 || TbadkCoreApplication.getInst().getIsAbstractStatus() != 0) ? true : true)) {
@@ -165,7 +165,7 @@ public class n {
                 } else if (optInt == 0) {
                     TbadkCoreApplication.getInst().setIsAppOn(false);
                 }
-                this.aNU = jSONObject.optInt("perform_sample_param", 100000);
+                this.aNW = jSONObject.optInt("perform_sample_param", 100000);
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("keepalive");
                 if (optJSONObject3 != null) {
                     JSONObject optJSONObject4 = optJSONObject3.optJSONObject("wifi");
@@ -186,20 +186,20 @@ public class n {
                     TbadkCoreApplication.getInst().setImTimeOut(new int[]{optJSONObject6.optInt("2gTo", 0) * 1000, optJSONObject6.optInt("3gTo", 0) * 1000, optJSONObject6.optInt("wifiTo", 0) * 1000});
                 }
                 JSONObject optJSONObject7 = jSONObject.optJSONObject("imNotifyRecordStrategy");
-                com.baidu.tbadk.data.e Lx = com.baidu.tbadk.data.e.Lx();
+                com.baidu.tbadk.data.e Ly = com.baidu.tbadk.data.e.Ly();
                 if (optJSONObject7 != null) {
-                    Lx.parserJson(optJSONObject7);
+                    Ly.parserJson(optJSONObject7);
                 }
                 JSONObject optJSONObject8 = jSONObject.optJSONObject("local_dialog");
                 if (optJSONObject8 != null) {
-                    this.aOa = optJSONObject8.optInt("local_dialog_android", 1);
-                    com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("sync_local_dialog", this.aOa);
+                    this.aOc = optJSONObject8.optInt("local_dialog_android", 1);
+                    com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("sync_local_dialog", this.aOc);
                 }
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008017));
-                TbConfig.setBigPhotoAdress(this.aNQ);
-                TbConfig.setSmallPhotoAdress(this.aNR);
-                TbConfig.setFeedBack(this.mYijianfankuiFname, this.aNS);
-                com.baidu.tbadk.core.util.e.e.EC().gh(jSONObject.optString("android_preload_conf"));
+                TbConfig.setBigPhotoAdress(this.aNS);
+                TbConfig.setSmallPhotoAdress(this.aNT);
+                TbConfig.setFeedBack(this.mYijianfankuiFname, this.aNU);
+                com.baidu.tbadk.core.util.e.e.EC().gi(jSONObject.optString("android_preload_conf"));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -221,7 +221,7 @@ public class n {
         return sb.toString();
     }
 
-    public long GL() {
-        return this.aNV;
+    public long GM() {
+        return this.aNX;
     }
 }

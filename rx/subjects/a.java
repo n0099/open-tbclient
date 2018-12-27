@@ -6,10 +6,10 @@ import rx.internal.operators.NotificationLite;
 import rx.subjects.SubjectSubscriptionManager;
 /* loaded from: classes2.dex */
 public final class a<T> extends c<T, T> {
-    private static final Object[] iOe = new Object[0];
-    private final SubjectSubscriptionManager<T> iOf;
+    private static final Object[] iRo = new Object[0];
+    private final SubjectSubscriptionManager<T> iRp;
 
-    public static <T> a<T> cfh() {
+    public static <T> a<T> cfY() {
         return g(null, false);
     }
 
@@ -32,25 +32,25 @@ public final class a<T> extends c<T, T> {
 
     protected a(d.a<T> aVar, SubjectSubscriptionManager<T> subjectSubscriptionManager) {
         super(aVar);
-        this.iOf = subjectSubscriptionManager;
+        this.iRp = subjectSubscriptionManager;
     }
 
     @Override // rx.e
     public void onCompleted() {
-        if (this.iOf.getLatest() == null || this.iOf.active) {
-            Object cdg = NotificationLite.cdg();
-            for (SubjectSubscriptionManager.b<T> bVar : this.iOf.terminate(cdg)) {
-                bVar.bu(cdg);
+        if (this.iRp.getLatest() == null || this.iRp.active) {
+            Object cdX = NotificationLite.cdX();
+            for (SubjectSubscriptionManager.b<T> bVar : this.iRp.terminate(cdX)) {
+                bVar.bu(cdX);
             }
         }
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        if (this.iOf.getLatest() == null || this.iOf.active) {
+        if (this.iRp.getLatest() == null || this.iRp.active) {
             Object M = NotificationLite.M(th);
             ArrayList arrayList = null;
-            for (SubjectSubscriptionManager.b<T> bVar : this.iOf.terminate(M)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.iRp.terminate(M)) {
                 try {
                     bVar.bu(M);
                 } catch (Throwable th2) {
@@ -60,15 +60,15 @@ public final class a<T> extends c<T, T> {
                     arrayList.add(th2);
                 }
             }
-            rx.exceptions.a.ez(arrayList);
+            rx.exceptions.a.eA(arrayList);
         }
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        if (this.iOf.getLatest() == null || this.iOf.active) {
+        if (this.iRp.getLatest() == null || this.iRp.active) {
             Object aY = NotificationLite.aY(t);
-            for (SubjectSubscriptionManager.b<T> bVar : this.iOf.next(aY)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.iRp.next(aY)) {
                 bVar.bu(aY);
             }
         }
@@ -76,6 +76,6 @@ public final class a<T> extends c<T, T> {
 
     @Override // rx.subjects.c
     public boolean hasObservers() {
-        return this.iOf.observers().length > 0;
+        return this.iRp.observers().length > 0;
     }
 }

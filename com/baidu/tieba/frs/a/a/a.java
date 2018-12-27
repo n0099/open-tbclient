@@ -14,17 +14,17 @@ import com.baidu.tieba.card.q;
 import com.baidu.tieba.frs.h;
 /* loaded from: classes3.dex */
 public class a extends h<n, C0219a> {
-    private boolean dSk;
+    private boolean dVb;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         super(tbPageContext, bdUniqueId);
-        this.dSk = z;
+        this.dVb = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ax */
+    /* renamed from: ay */
     public C0219a onCreateViewHolder(ViewGroup viewGroup) {
         q qVar = new q(this.mPageContext);
         qVar.setStatKey(null, "c10819");
@@ -38,12 +38,12 @@ public class a extends h<n, C0219a> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, n nVar, C0219a c0219a) {
         TiebaStatic.log(new am("c10835"));
         if (nVar != null) {
-            nVar.bMR = i + 1;
-            c0219a.dSl.kz(l.dip2px(this.mPageContext.getPageActivity(), 7.0f));
-            c0219a.dSl.showBottomLine(this.dSk);
-            c0219a.dSl.d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+            nVar.bMU = i + 1;
+            c0219a.dVc.kM(l.dip2px(this.mPageContext.getPageActivity(), 7.0f));
+            c0219a.dVc.showBottomLine(this.dVb);
+            c0219a.dVc.d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
-        c0219a.dSl.a(nVar);
+        c0219a.dVc.a(nVar);
         return c0219a.getView();
     }
 
@@ -51,11 +51,11 @@ public class a extends h<n, C0219a> {
     /* renamed from: com.baidu.tieba.frs.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public class C0219a extends q.a {
-        public com.baidu.tieba.card.q dSl;
+        public com.baidu.tieba.card.q dVc;
 
         public C0219a(com.baidu.tieba.card.q qVar) {
             super(qVar.getView());
-            this.dSl = qVar;
+            this.dVc = qVar;
         }
     }
 }

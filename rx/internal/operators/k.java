@@ -4,8 +4,8 @@ import rx.d;
 import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes2.dex */
 public final class k<T> implements d.a<T> {
-    final rx.d<T> iBF;
-    final rx.functions.f<? super T, Boolean> iCA;
+    final rx.d<T> iEP;
+    final rx.functions.f<? super T, Boolean> iFK;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -13,14 +13,14 @@ public final class k<T> implements d.a<T> {
     }
 
     public k(rx.d<T> dVar, rx.functions.f<? super T, Boolean> fVar) {
-        this.iBF = dVar;
-        this.iCA = fVar;
+        this.iEP = dVar;
+        this.iFK = fVar;
     }
 
     public void call(rx.j<? super T> jVar) {
-        a aVar = new a(jVar, this.iCA);
+        a aVar = new a(jVar, this.iFK);
         jVar.add(aVar);
-        this.iBF.unsafeSubscribe(aVar);
+        this.iEP.unsafeSubscribe(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,18 +28,18 @@ public final class k<T> implements d.a<T> {
     public static final class a<T> extends rx.j<T> {
         final rx.j<? super T> actual;
         boolean done;
-        final rx.functions.f<? super T, Boolean> iCA;
+        final rx.functions.f<? super T, Boolean> iFK;
 
         public a(rx.j<? super T> jVar, rx.functions.f<? super T, Boolean> fVar) {
             this.actual = jVar;
-            this.iCA = fVar;
+            this.iFK = fVar;
             request(0L);
         }
 
         @Override // rx.e
         public void onNext(T t) {
             try {
-                if (this.iCA.call(t).booleanValue()) {
+                if (this.iFK.call(t).booleanValue()) {
                     this.actual.onNext(t);
                 } else {
                     request(1L);

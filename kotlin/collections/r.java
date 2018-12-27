@@ -5,8 +5,8 @@ import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class r extends q {
     public static final <T> boolean a(Iterable<? extends T> iterable, kotlin.jvm.a.b<? super T, Boolean> bVar) {
-        kotlin.jvm.internal.p.h((Object) iterable, "$receiver");
-        kotlin.jvm.internal.p.h((Object) bVar, "predicate");
+        kotlin.jvm.internal.p.j(iterable, "$receiver");
+        kotlin.jvm.internal.p.j(bVar, "predicate");
         return a(iterable, bVar, false);
     }
 

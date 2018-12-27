@@ -11,13 +11,13 @@ public interface a {
 
     void b(BaseFragment baseFragment);
 
-    f bpS();
+    f bqE();
 
-    void bpT();
+    void bqF();
 
-    void gu(boolean z);
+    void gx(boolean z);
 
-    void mg(boolean z);
+    void mj(boolean z);
 
     void onChangeSkinType(int i);
 
@@ -25,7 +25,7 @@ public interface a {
 
     void onResume();
 
-    void tK(String str);
+    void tN(String str);
 
-    void tL(String str);
+    void tO(String str);
 }

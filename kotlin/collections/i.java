@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
 /* loaded from: classes2.dex */
 public class i extends h {
     public static final char b(char[] cArr) {
-        kotlin.jvm.internal.p.h((Object) cArr, "$receiver");
+        kotlin.jvm.internal.p.j(cArr, "$receiver");
         switch (cArr.length) {
             case 0:
                 throw new NoSuchElementException("Array is empty.");
@@ -20,8 +20,8 @@ public class i extends h {
     }
 
     public static final <T, C extends Collection<? super T>> C a(T[] tArr, C c) {
-        kotlin.jvm.internal.p.h((Object) tArr, "$receiver");
-        kotlin.jvm.internal.p.h((Object) c, "destination");
+        kotlin.jvm.internal.p.j(tArr, "$receiver");
+        kotlin.jvm.internal.p.j(c, "destination");
         for (T t : tArr) {
             c.add(t);
         }
@@ -29,14 +29,14 @@ public class i extends h {
     }
 
     public static final <T> HashSet<T> L(T[] tArr) {
-        kotlin.jvm.internal.p.h((Object) tArr, "$receiver");
-        return (HashSet) f.a(tArr, new HashSet(aa.yY(tArr.length)));
+        kotlin.jvm.internal.p.j(tArr, "$receiver");
+        return (HashSet) f.a(tArr, new HashSet(aa.zl(tArr.length)));
     }
 
     public static final <T> List<T> asList(T[] tArr) {
-        kotlin.jvm.internal.p.h((Object) tArr, "$receiver");
+        kotlin.jvm.internal.p.j(tArr, "$receiver");
         List<T> asList = j.asList(tArr);
-        kotlin.jvm.internal.p.g(asList, "ArraysUtilJVM.asList(this)");
+        kotlin.jvm.internal.p.i(asList, "ArraysUtilJVM.asList(this)");
         return asList;
     }
 }

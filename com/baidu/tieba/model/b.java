@@ -47,19 +47,19 @@ public class b {
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Integer, AccountData> {
         private final String aop;
-        private final String fDJ;
-        private final a.InterfaceC0155a fDK;
-        private final boolean fDL;
+        private final String fGB;
+        private final a.InterfaceC0155a fGC;
+        private final boolean fGD;
         private final String mName;
         private volatile x mNetwork = null;
         private String mStoken;
 
         public a(String str, String str2, String str3, a.InterfaceC0155a interfaceC0155a, boolean z) {
             this.mName = str;
-            this.fDJ = str2;
+            this.fGB = str2;
             this.aop = str3;
-            this.fDL = z;
-            this.fDK = interfaceC0155a == null ? new a.InterfaceC0155a() { // from class: com.baidu.tieba.model.b.a.1
+            this.fGD = z;
+            this.fGC = interfaceC0155a == null ? new a.InterfaceC0155a() { // from class: com.baidu.tieba.model.b.a.1
                 @Override // com.baidu.tbadk.core.a.a.InterfaceC0155a
                 public void ec(String str4) {
                 }
@@ -82,7 +82,7 @@ public class b {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            this.fDK.ec(this.mName);
+            this.fGC.ec(this.mName);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -101,13 +101,13 @@ public class b {
             a.b a;
             this.mNetwork = new x(TbConfig.LOGIN_FULL_ADDRESS);
             this.mNetwork.Dj().Eh().mIsUseCurrentBDUSS = false;
-            this.mNetwork.x("bdusstoken", this.fDJ + "|" + this.aop);
+            this.mNetwork.x("bdusstoken", this.fGB + "|" + this.aop);
             if (!StringUtils.isNull(this.mStoken)) {
                 this.mNetwork.x(ISapiAccount.SAPI_ACCOUNT_STOKEN, this.mStoken);
             }
             this.mNetwork.x("channel_id", TbadkCoreApplication.getInst().getPushChannelId());
             this.mNetwork.x("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
-            this.mNetwork.Dj().Eh().aDq = false;
+            this.mNetwork.Dj().Eh().aDr = false;
             String CL = this.mNetwork.CL();
             if (this.mNetwork.Dj().Ei().isRequestSuccess() && CL != null) {
                 ae aeVar = new ae();
@@ -116,8 +116,8 @@ public class b {
                 accountData2.setAccount(aeVar.getUser().getUserName());
                 accountData2.setPassword("");
                 accountData2.setID(aeVar.getUser().getUserId());
-                String str = this.fDJ;
-                if (this.fDL && (a = d.a(com.baidu.tbadk.core.a.a.xJ().eb(str))) != null) {
+                String str = this.fGB;
+                if (this.fGD && (a = d.a(com.baidu.tbadk.core.a.a.xJ().eb(str))) != null) {
                     str = a.El + "|" + a.aop;
                 }
                 accountData2.setBDUSS(str);
@@ -132,7 +132,7 @@ public class b {
                 accountData = null;
             }
             x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.URL_CHECK_SHOW_INIT_NAME_DIALOG);
-            xVar.Dj().Eh().aDq = false;
+            xVar.Dj().Eh().aDr = false;
             xVar.Dj().Eh().mIsUseCurrentBDUSS = false;
             if (accountData != null) {
                 xVar.x("BDUSS", accountData.getBDUSS());
@@ -186,7 +186,7 @@ public class b {
             ReloginManager.Ct().bp(false);
             com.baidu.tbadk.core.d.a.a("account", -1L, 0, "cslogin_result", this.mNetwork.Dn(), this.mNetwork.getErrorString(), new Object[0]);
             if (accountData != null && accountData.getBDUSS() != null) {
-                this.fDK.a(accountData);
+                this.fGC.a(accountData);
                 return;
             }
             String str = null;
@@ -197,7 +197,7 @@ public class b {
             if (str == null) {
                 str = TbadkCoreApplication.getInst().getApp().getResources().getString(e.j.data_load_error);
             }
-            this.fDK.b(this.mName, i, str);
+            this.fGC.b(this.mName, i, str);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask

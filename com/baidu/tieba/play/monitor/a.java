@@ -12,29 +12,29 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a implements e.a {
-    private String biw;
-    private i gCJ;
-    private String gCY;
+    private String biz;
+    private i gFA;
+    private String gFP;
 
     public a(String str, String str2, i iVar) {
-        this.biw = str;
-        this.gCY = str2;
-        this.gCJ = iVar;
+        this.biz = str;
+        this.gFP = str2;
+        this.gFA = iVar;
     }
 
     @Override // com.baidu.tieba.j.e.a
-    public void rG(int i) {
+    public void rT(int i) {
         if (i == 1) {
             am amVar = new am("c12620");
             amVar.x("obj_locate", 1);
-            amVar.aA("tid", this.biw);
+            amVar.aA("tid", this.biz);
             TiebaStatic.log(amVar);
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_MOOV_UPLOAD);
-            httpMessage.addParam("thread_id", this.biw);
-            httpMessage.addParam(WebVideoActivityConfig.KEY_VIDEO_URL, this.gCY);
+            httpMessage.addParam("thread_id", this.biz);
+            httpMessage.addParam(WebVideoActivityConfig.KEY_VIDEO_URL, this.gFP);
             MessageManager.getInstance().sendMessage(httpMessage);
-            if (this.gCJ != null) {
-                this.gCJ.a(new com.baidu.tieba.j.b() { // from class: com.baidu.tieba.play.monitor.a.1
+            if (this.gFA != null) {
+                this.gFA.a(new com.baidu.tieba.j.b() { // from class: com.baidu.tieba.play.monitor.a.1
                     @Override // com.baidu.tieba.j.b
                     public void ao(JSONObject jSONObject) throws JSONException {
                     }
@@ -57,10 +57,10 @@ public class a implements e.a {
         am amVar = new am("c12621");
         amVar.x("obj_locate", 1);
         amVar.x("obj_param1", z ? 1 : 0);
-        amVar.aA("tid", this.biw);
+        amVar.aA("tid", this.biz);
         TiebaStatic.log(amVar);
-        if (this.gCJ != null) {
-            this.gCJ.a(new com.baidu.tieba.j.b() { // from class: com.baidu.tieba.play.monitor.a.2
+        if (this.gFA != null) {
+            this.gFA.a(new com.baidu.tieba.j.b() { // from class: com.baidu.tieba.play.monitor.a.2
                 @Override // com.baidu.tieba.j.b
                 public void ao(JSONObject jSONObject) throws JSONException {
                 }
@@ -78,6 +78,6 @@ public class a implements e.a {
     }
 
     @Override // com.baidu.tieba.j.e.a
-    public void jO(boolean z) {
+    public void jR(boolean z) {
     }
 }

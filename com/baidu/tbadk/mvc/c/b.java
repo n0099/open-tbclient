@@ -3,27 +3,27 @@ package com.baidu.tbadk.mvc.c;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class b {
-    private int bef;
-    private boolean beh = true;
-    private com.baidu.tbadk.mvc.b.a bei;
-    private com.baidu.tbadk.mvc.d.b bej;
-    private com.baidu.tbadk.mvc.a.a bek;
+    private int bej;
+    private boolean bek = true;
+    private com.baidu.tbadk.mvc.b.a bel;
+    private com.baidu.tbadk.mvc.d.b bem;
+    private com.baidu.tbadk.mvc.a.a ben;
     private Object extra;
     private BdUniqueId uniqueId;
 
     public b(int i, com.baidu.tbadk.mvc.b.a aVar, com.baidu.tbadk.mvc.d.b bVar, com.baidu.tbadk.mvc.a.a aVar2) {
-        this.bef = i;
-        this.bei = aVar;
-        this.bej = bVar;
-        this.bek = aVar2;
+        this.bej = i;
+        this.bel = aVar;
+        this.bem = bVar;
+        this.ben = aVar2;
     }
 
-    public int Od() {
-        return this.bef;
+    public int Oe() {
+        return this.bej;
     }
 
-    public com.baidu.tbadk.mvc.b.a Oe() {
-        return this.bei;
+    public com.baidu.tbadk.mvc.b.a Of() {
+        return this.bel;
     }
 
     public Object getExtra() {
@@ -34,8 +34,8 @@ public class b {
         this.extra = obj;
     }
 
-    public boolean Of() {
-        return this.beh;
+    public boolean Og() {
+        return this.bek;
     }
 
     public BdUniqueId getUniqueId() {

@@ -3,30 +3,30 @@ package com.baidu.tieba.homepage.framework;
 import android.util.SparseArray;
 /* loaded from: classes6.dex */
 public class a {
-    private static a esN = new a();
-    private long esO = 0;
-    private SparseArray<Long> esP = new SparseArray<>();
-    private SparseArray<Long> esQ = new SparseArray<>();
-    private SparseArray<Long> esR = new SparseArray<>();
-    private SparseArray<Long> esS = new SparseArray<>();
+    private static a evE = new a();
+    private long evF = 0;
+    private SparseArray<Long> evG = new SparseArray<>();
+    private SparseArray<Long> evH = new SparseArray<>();
+    private SparseArray<Long> evI = new SparseArray<>();
+    private SparseArray<Long> evJ = new SparseArray<>();
 
     private a() {
     }
 
-    public static a aKB() {
-        return esN;
+    public static a aLq() {
+        return evE;
     }
 
     public long getCreateTime() {
-        return this.esO;
+        return this.evF;
     }
 
     public void setCreateTime(long j) {
-        this.esO = j;
+        this.evF = j;
     }
 
-    public long op(int i) {
-        Long l = this.esQ.get(i);
+    public long oC(int i) {
+        Long l = this.evH.get(i);
         if (l == null) {
             return -1L;
         }
@@ -34,11 +34,11 @@ public class a {
     }
 
     public void h(long j, int i) {
-        this.esQ.put(i, Long.valueOf(j));
+        this.evH.put(i, Long.valueOf(j));
     }
 
-    public long oq(int i) {
-        Long l = this.esP.get(i);
+    public long oD(int i) {
+        Long l = this.evG.get(i);
         if (l == null) {
             return -1L;
         }
@@ -46,11 +46,11 @@ public class a {
     }
 
     public void i(long j, int i) {
-        this.esP.put(i, Long.valueOf(j));
+        this.evG.put(i, Long.valueOf(j));
     }
 
-    public long or(int i) {
-        Long l = this.esR.get(i);
+    public long oE(int i) {
+        Long l = this.evI.get(i);
         if (l == null) {
             return -1L;
         }
@@ -58,11 +58,11 @@ public class a {
     }
 
     public void j(long j, int i) {
-        this.esR.put(i, Long.valueOf(j));
+        this.evI.put(i, Long.valueOf(j));
     }
 
-    public long os(int i) {
-        Long l = this.esS.get(i);
+    public long oF(int i) {
+        Long l = this.evJ.get(i);
         if (l == null) {
             return -1L;
         }
@@ -70,6 +70,6 @@ public class a {
     }
 
     public void k(long j, int i) {
-        this.esS.put(i, Long.valueOf(j));
+        this.evJ.put(i, Long.valueOf(j));
     }
 }

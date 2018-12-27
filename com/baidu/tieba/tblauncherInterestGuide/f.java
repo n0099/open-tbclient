@@ -15,67 +15,67 @@ import com.baidu.tieba.tblauncherInterestGuide.NewUserGuideMainFragment;
 import com.baidu.tieba.tblauncherInterestGuide.data.InterestFrsData;
 /* loaded from: classes3.dex */
 public class f implements View.OnClickListener {
-    private LikeModel aLl;
-    private NewUserGuideActivity hsH;
-    private a hsI;
-    private w hsJ;
-    private InterestFrsData.Tag hsf;
+    private LikeModel aLn;
+    private NewUserGuideActivity hvT;
+    private a hvU;
+    private w hvV;
+    private InterestFrsData.Tag hvr;
 
     public f(NewUserGuideActivity newUserGuideActivity, InterestFrsData.Tag tag, final NewUserGuideMainFragment.a aVar) {
-        this.hsH = newUserGuideActivity;
-        this.hsf = tag;
+        this.hvT = newUserGuideActivity;
+        this.hvr = tag;
         int btype = tag.getBtype();
         if (btype == 1) {
-            this.hsI = new e(this.hsH.getPageContext().getPageActivity(), e.k.NewUserDialog);
+            this.hvU = new e(this.hvT.getPageContext().getPageActivity(), e.k.NewUserDialog);
         } else if (btype == 2) {
-            this.hsI = new b(this.hsH.getPageContext().getPageActivity(), e.k.NewUserDialog);
+            this.hvU = new b(this.hvT.getPageContext().getPageActivity(), e.k.NewUserDialog);
         } else if (btype == 3) {
-            this.hsI = new d(this.hsH.getPageContext().getPageActivity(), e.k.NewUserDialog);
+            this.hvU = new d(this.hvT.getPageContext().getPageActivity(), e.k.NewUserDialog);
         }
-        this.aLl = new LikeModel(newUserGuideActivity.getPageContext());
-        this.aLl.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.tblauncherInterestGuide.f.1
+        this.aLn = new LikeModel(newUserGuideActivity.getPageContext());
+        this.aLn.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.tblauncherInterestGuide.f.1
             @Override // com.baidu.adp.base.d
             public void m(Object obj) {
                 if (obj == null) {
-                    f.this.hsH.showToast(e.j.neterror);
+                    f.this.hvT.showToast(e.j.neterror);
                 } else if (obj instanceof r) {
                     int l = com.baidu.adp.lib.g.b.l(((r) obj).getFid(), 0);
-                    f.this.hsI.vN(l);
+                    f.this.hvU.wa(l);
                     f.this.E(l, true);
-                    f.this.hsH.nM(true);
-                    f.this.hsH.nL(true);
-                    TiebaStatic.eventStat(f.this.hsH.getPageContext().getPageActivity(), "notlogin_12", AiAppsUBCStatistic.TYPE_CLICK, 1, new Object[0]);
+                    f.this.hvT.nP(true);
+                    f.this.hvT.nO(true);
+                    TiebaStatic.eventStat(f.this.hvT.getPageContext().getPageActivity(), "notlogin_12", AiAppsUBCStatistic.TYPE_CLICK, 1, new Object[0]);
                 }
             }
         });
-        this.hsJ = new w();
-        this.hsJ.a(new w.a() { // from class: com.baidu.tieba.tblauncherInterestGuide.f.2
+        this.hvV = new w();
+        this.hvV.a(new w.a() { // from class: com.baidu.tieba.tblauncherInterestGuide.f.2
             @Override // com.baidu.tieba.tbadkCore.w.a
             public void p(String str, long j) {
                 int l = com.baidu.adp.lib.g.b.l(String.valueOf(j), 0);
-                f.this.hsI.vO(l);
+                f.this.hvU.wb(l);
                 f.this.E(l, false);
             }
 
             @Override // com.baidu.tieba.tbadkCore.w.a
             public void q(String str, long j) {
-                f.this.hsH.showToast(e.j.error);
+                f.this.hvT.showToast(e.j.error);
             }
         });
-        this.hsI.setOnClickListener(this);
-        this.hsI.a(this.hsf);
-        ((Dialog) this.hsI).setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.tblauncherInterestGuide.f.3
+        this.hvU.setOnClickListener(this);
+        this.hvU.a(this.hvr);
+        ((Dialog) this.hvU).setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.tblauncherInterestGuide.f.3
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                aVar.bFZ();
+                aVar.bGP();
             }
         });
     }
 
     public void E(int i, boolean z) {
-        for (int i2 = 0; i2 < this.hsf.getCard_list().size(); i2++) {
-            if (this.hsf.getCard_list().get(i2).getFid() == i) {
-                this.hsf.getCard_list().get(i2).setIs_like(z ? 1 : 0);
+        for (int i2 = 0; i2 < this.hvr.getCard_list().size(); i2++) {
+            if (this.hvr.getCard_list().get(i2).getFid() == i) {
+                this.hvr.getCard_list().get(i2).setIs_like(z ? 1 : 0);
                 return;
             }
         }
@@ -84,23 +84,23 @@ public class f implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == e.g.box_close_layout) {
-            this.hsI.hide();
+            this.hvU.hide();
         } else if ((view.getId() == e.g.ll_like || view.getId() == e.g.pic_layout) && view.getTag() != null && (view.getTag() instanceof InterestFrsData.Card)) {
             InterestFrsData.Card card = (InterestFrsData.Card) view.getTag();
             if (card.getIs_like() == 1) {
-                this.hsJ.w(card.getFname(), card.getFid());
+                this.hvV.w(card.getFname(), card.getFid());
             } else {
-                this.aLl.Q(card.getFname(), String.valueOf(card.getFid()), "newuser");
+                this.aLn.Q(card.getFname(), String.valueOf(card.getFid()), "newuser");
             }
         }
     }
 
     public void show() {
-        if (this.hsH == null || g.q(this.hsH.getPageContext().getPageActivity())) {
+        if (this.hvT == null || g.q(this.hvT.getPageContext().getPageActivity())) {
             ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, 2, 0.5f, 2, 0.5f);
             scaleAnimation.setDuration(350L);
-            this.hsI.getRootView().setAnimation(scaleAnimation);
-            this.hsI.show();
+            this.hvU.getRootView().setAnimation(scaleAnimation);
+            this.hvU.show();
         }
     }
 }

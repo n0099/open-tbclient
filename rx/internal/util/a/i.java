@@ -10,79 +10,79 @@ public final class i<E> extends m<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.ixX;
-        long j = this.iMB;
-        long ceB = ceB();
-        long dQ = dQ(ceB);
-        if (b(eArr, dQ) != null) {
-            if (ceB - ceA() > j) {
+        E[] eArr = this.iBh;
+        long j = this.iPL;
+        long cfs = cfs();
+        long dV = dV(cfs);
+        if (b(eArr, dV) != null) {
+            if (cfs - cfr() > j) {
                 return false;
             }
             do {
-            } while (b(eArr, dQ) != null);
-            a(eArr, dQ, e);
-            dS(1 + ceB);
+            } while (b(eArr, dV) != null);
+            a(eArr, dV, e);
+            dX(1 + cfs);
             return true;
         }
-        a(eArr, dQ, e);
-        dS(1 + ceB);
+        a(eArr, dV, e);
+        dX(1 + cfs);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long ceA;
-        long ceE = ceE();
+        long cfr;
+        long cfv = cfv();
         do {
-            ceA = ceA();
-            if (ceA >= ceE) {
-                long ceB = ceB();
-                if (ceA >= ceB) {
+            cfr = cfr();
+            if (cfr >= cfv) {
+                long cfs = cfs();
+                if (cfr >= cfs) {
                     return null;
                 }
-                dT(ceB);
+                dY(cfs);
             }
-        } while (!u(ceA, 1 + ceA));
-        long dQ = dQ(ceA);
-        E[] eArr = this.ixX;
-        E a = a(eArr, dQ);
-        b(eArr, dQ, null);
+        } while (!u(cfr, 1 + cfr));
+        long dV = dV(cfr);
+        E[] eArr = this.iBh;
+        E a = a(eArr, dV);
+        b(eArr, dV, null);
         return a;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        E dR;
-        long ceE = ceE();
+        E dW;
+        long cfv = cfv();
         do {
-            long ceA = ceA();
-            if (ceA >= ceE) {
-                long ceB = ceB();
-                if (ceA >= ceB) {
+            long cfr = cfr();
+            if (cfr >= cfv) {
+                long cfs = cfs();
+                if (cfr >= cfs) {
                     return null;
                 }
-                dT(ceB);
+                dY(cfs);
             }
-            dR = dR(dQ(ceA));
-        } while (dR == null);
-        return dR;
+            dW = dW(dV(cfr));
+        } while (dW == null);
+        return dW;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long ceA = ceA();
+        long cfr = cfr();
         while (true) {
-            long ceB = ceB();
-            long ceA2 = ceA();
-            if (ceA == ceA2) {
-                return (int) (ceB - ceA2);
+            long cfs = cfs();
+            long cfr2 = cfr();
+            if (cfr == cfr2) {
+                return (int) (cfs - cfr2);
             }
-            ceA = ceA2;
+            cfr = cfr2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return ceA() == ceB();
+        return cfr() == cfs();
     }
 }

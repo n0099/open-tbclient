@@ -9,23 +9,23 @@ import java.util.List;
 public interface q {
     void a(com.baidu.tieba.frs.d dVar);
 
-    HashMap<Integer, bb> aDM();
+    HashMap<Integer, bb> aEB();
 
-    void aDN();
+    void aEC();
 
-    int aDO();
+    int aED();
 
-    int aDP();
+    int aEE();
 
-    int aDQ();
+    int aEF();
 
-    void aDR();
+    void aEG();
 
     void b(ArrayList<com.baidu.adp.widget.ListView.h> arrayList, com.baidu.tieba.tbadkCore.l lVar);
 
     List<com.baidu.adp.widget.ListView.h> getDatas();
 
-    void ha(boolean z);
+    void hd(boolean z);
 
     boolean k(BdUniqueId bdUniqueId);
 

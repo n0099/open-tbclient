@@ -8,42 +8,42 @@ import kotlin.collections.z;
 /* loaded from: classes2.dex */
 public final class i {
     public static final kotlin.collections.l Z(byte[] bArr) {
-        p.h((Object) bArr, com.baidu.fsg.base.statistics.b.j);
+        p.j(bArr, com.baidu.fsg.base.statistics.b.j);
         return new b(bArr);
     }
 
     public static final kotlin.collections.m c(char[] cArr) {
-        p.h((Object) cArr, com.baidu.fsg.base.statistics.b.j);
+        p.j(cArr, com.baidu.fsg.base.statistics.b.j);
         return new c(cArr);
     }
 
     public static final ag b(short[] sArr) {
-        p.h((Object) sArr, com.baidu.fsg.base.statistics.b.j);
+        p.j(sArr, com.baidu.fsg.base.statistics.b.j);
         return new k(sArr);
     }
 
     public static final y l(int[] iArr) {
-        p.h((Object) iArr, com.baidu.fsg.base.statistics.b.j);
+        p.j(iArr, com.baidu.fsg.base.statistics.b.j);
         return new f(iArr);
     }
 
     public static final z b(long[] jArr) {
-        p.h((Object) jArr, com.baidu.fsg.base.statistics.b.j);
+        p.j(jArr, com.baidu.fsg.base.statistics.b.j);
         return new j(jArr);
     }
 
     public static final w f(float[] fArr) {
-        p.h((Object) fArr, com.baidu.fsg.base.statistics.b.j);
+        p.j(fArr, com.baidu.fsg.base.statistics.b.j);
         return new e(fArr);
     }
 
     public static final u h(double[] dArr) {
-        p.h((Object) dArr, com.baidu.fsg.base.statistics.b.j);
+        p.j(dArr, com.baidu.fsg.base.statistics.b.j);
         return new d(dArr);
     }
 
     public static final kotlin.collections.k c(boolean[] zArr) {
-        p.h((Object) zArr, com.baidu.fsg.base.statistics.b.j);
+        p.j(zArr, com.baidu.fsg.base.statistics.b.j);
         return new a(zArr);
     }
 }

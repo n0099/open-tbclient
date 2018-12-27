@@ -43,7 +43,7 @@ public class PiffSampleEncryptionBox extends AbstractSampleEncryptionBox {
     }
 
     public void setAlgorithmId(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.ze(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.zr(i)));
         this.algorithmId = i;
     }
 
@@ -53,7 +53,7 @@ public class PiffSampleEncryptionBox extends AbstractSampleEncryptionBox {
     }
 
     public void setIvSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.ze(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.zr(i)));
         this.ivSize = i;
     }
 

@@ -30,10 +30,10 @@ public class TiebaIMActivityStatic {
         TbadkApplication.getInst().RegisterIntent(OfficialHistoryImageActivityConfig.class, OfficialHistoryImageActivity.class);
         TbadkApplication.getInst().RegisterIntent(PersonGroupActivityConfig.class, PersonGroupActivity.class);
         TbadkApplication.getInst().RegisterIntent(AddGroupActivityConfig.class, AddGroupActivity.class);
-        aNC();
+        aOq();
     }
 
-    private static void aNC() {
+    private static void aOq() {
         ay.Ef().a(new ay.a() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.1
             @Override // com.baidu.tbadk.core.util.ay.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {

@@ -9,27 +9,27 @@ import java.lang.reflect.Type;
 import java.util.Collection;
 /* loaded from: classes2.dex */
 public final class b implements p {
-    private final com.google.gson.internal.b isQ;
+    private final com.google.gson.internal.b iwa;
 
     public b(com.google.gson.internal.b bVar) {
-        this.isQ = bVar;
+        this.iwa = bVar;
     }
 
     @Override // com.google.gson.p
     public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-        Type caT = aVar.caT();
-        Class<? super T> caS = aVar.caS();
-        if (!Collection.class.isAssignableFrom(caS)) {
+        Type cbK = aVar.cbK();
+        Class<? super T> cbJ = aVar.cbJ();
+        if (!Collection.class.isAssignableFrom(cbJ)) {
             return null;
         }
-        Type a2 = C$Gson$Types.a(caT, (Class<?>) caS);
-        return new a(dVar, a2, dVar.a(com.google.gson.b.a.l(a2)), this.isQ.b(aVar));
+        Type a2 = C$Gson$Types.a(cbK, (Class<?>) cbJ);
+        return new a(dVar, a2, dVar.a(com.google.gson.b.a.l(a2)), this.iwa.b(aVar));
     }
 
     /* loaded from: classes2.dex */
     private static final class a<E> extends o<Collection<E>> {
-        private final o<E> ium;
-        private final com.google.gson.internal.e<? extends Collection<E>> iun;
+        private final o<E> ixw;
+        private final com.google.gson.internal.e<? extends Collection<E>> ixx;
 
         @Override // com.google.gson.o
         public /* bridge */ /* synthetic */ void a(com.google.gson.stream.b bVar, Object obj) throws IOException {
@@ -37,37 +37,37 @@ public final class b implements p {
         }
 
         public a(com.google.gson.d dVar, Type type, o<E> oVar, com.google.gson.internal.e<? extends Collection<E>> eVar) {
-            this.ium = new m(dVar, oVar, type);
-            this.iun = eVar;
+            this.ixw = new m(dVar, oVar, type);
+            this.ixx = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: i */
         public Collection<E> b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.caG() == JsonToken.NULL) {
+            if (aVar.cbx() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
-            Collection<E> cau = this.iun.cau();
+            Collection<E> cbl = this.ixx.cbl();
             aVar.beginArray();
             while (aVar.hasNext()) {
-                cau.add(this.ium.b(aVar));
+                cbl.add(this.ixw.b(aVar));
             }
             aVar.endArray();
-            return cau;
+            return cbl;
         }
 
         public void a(com.google.gson.stream.b bVar, Collection<E> collection) throws IOException {
             if (collection == null) {
-                bVar.caR();
+                bVar.cbI();
                 return;
             }
-            bVar.caN();
+            bVar.cbE();
             for (E e : collection) {
-                this.ium.a(bVar, e);
+                this.ixw.a(bVar, e);
             }
-            bVar.caO();
+            bVar.cbF();
         }
     }
 }

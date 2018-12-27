@@ -1,7 +1,7 @@
 package com.baidu.tieba.aiapps.apps.address.c;
 /* loaded from: classes4.dex */
 public class a {
-    public boolean bGd;
+    public boolean bGg;
     public String content;
     public String hint;
     public String label;

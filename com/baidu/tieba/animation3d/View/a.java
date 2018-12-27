@@ -16,49 +16,49 @@ import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 /* loaded from: classes.dex */
 class a implements EGL11 {
-    private EGL10 cRB;
-    Writer cRC;
-    boolean cRD;
-    boolean cRE;
-    private int cRF;
+    private EGL10 cUr;
+    Writer cUs;
+    boolean cUt;
+    boolean cUu;
+    private int cUv;
 
     @Override // javax.microedition.khronos.egl.EGL10
     public boolean eglChooseConfig(EGLDisplay eGLDisplay, int[] iArr, EGLConfig[] eGLConfigArr, int i, int[] iArr2) {
-        mA("eglChooseConfig");
+        mD("eglChooseConfig");
         a("display", eGLDisplay);
         a("attrib_list", iArr);
-        Y("config_size", i);
+        Z("config_size", i);
         end();
-        boolean eglChooseConfig = this.cRB.eglChooseConfig(eGLDisplay, iArr, eGLConfigArr, i, iArr2);
+        boolean eglChooseConfig = this.cUr.eglChooseConfig(eGLDisplay, iArr, eGLConfigArr, i, iArr2);
         k("configs", eGLConfigArr);
         a("num_config", iArr2);
-        fl(eglChooseConfig);
+        fn(eglChooseConfig);
         checkError();
         return eglChooseConfig;
     }
 
     @Override // javax.microedition.khronos.egl.EGL10
     public boolean eglCopyBuffers(EGLDisplay eGLDisplay, EGLSurface eGLSurface, Object obj) {
-        mA("eglCopyBuffers");
+        mD("eglCopyBuffers");
         a("display", eGLDisplay);
         a("surface", eGLSurface);
         i("native_pixmap", obj);
         end();
-        boolean eglCopyBuffers = this.cRB.eglCopyBuffers(eGLDisplay, eGLSurface, obj);
-        fl(eglCopyBuffers);
+        boolean eglCopyBuffers = this.cUr.eglCopyBuffers(eGLDisplay, eGLSurface, obj);
+        fn(eglCopyBuffers);
         checkError();
         return eglCopyBuffers;
     }
 
     @Override // javax.microedition.khronos.egl.EGL10
     public EGLContext eglCreateContext(EGLDisplay eGLDisplay, EGLConfig eGLConfig, EGLContext eGLContext, int[] iArr) {
-        mA("eglCreateContext");
+        mD("eglCreateContext");
         a("display", eGLDisplay);
         i("config", eGLConfig);
         a("share_context", eGLContext);
         a("attrib_list", iArr);
         end();
-        EGLContext eglCreateContext = this.cRB.eglCreateContext(eGLDisplay, eGLConfig, eGLContext, iArr);
+        EGLContext eglCreateContext = this.cUr.eglCreateContext(eGLDisplay, eGLConfig, eGLContext, iArr);
         Y(eglCreateContext);
         checkError();
         return eglCreateContext;
@@ -66,12 +66,12 @@ class a implements EGL11 {
 
     @Override // javax.microedition.khronos.egl.EGL10
     public EGLSurface eglCreatePbufferSurface(EGLDisplay eGLDisplay, EGLConfig eGLConfig, int[] iArr) {
-        mA("eglCreatePbufferSurface");
+        mD("eglCreatePbufferSurface");
         a("display", eGLDisplay);
         i("config", eGLConfig);
         a("attrib_list", iArr);
         end();
-        EGLSurface eglCreatePbufferSurface = this.cRB.eglCreatePbufferSurface(eGLDisplay, eGLConfig, iArr);
+        EGLSurface eglCreatePbufferSurface = this.cUr.eglCreatePbufferSurface(eGLDisplay, eGLConfig, iArr);
         Y(eglCreatePbufferSurface);
         checkError();
         return eglCreatePbufferSurface;
@@ -79,13 +79,13 @@ class a implements EGL11 {
 
     @Override // javax.microedition.khronos.egl.EGL10
     public EGLSurface eglCreatePixmapSurface(EGLDisplay eGLDisplay, EGLConfig eGLConfig, Object obj, int[] iArr) {
-        mA("eglCreatePixmapSurface");
+        mD("eglCreatePixmapSurface");
         a("display", eGLDisplay);
         i("config", eGLConfig);
         i("native_pixmap", obj);
         a("attrib_list", iArr);
         end();
-        EGLSurface eglCreatePixmapSurface = this.cRB.eglCreatePixmapSurface(eGLDisplay, eGLConfig, obj, iArr);
+        EGLSurface eglCreatePixmapSurface = this.cUr.eglCreatePixmapSurface(eGLDisplay, eGLConfig, obj, iArr);
         Y(eglCreatePixmapSurface);
         checkError();
         return eglCreatePixmapSurface;
@@ -93,13 +93,13 @@ class a implements EGL11 {
 
     @Override // javax.microedition.khronos.egl.EGL10
     public EGLSurface eglCreateWindowSurface(EGLDisplay eGLDisplay, EGLConfig eGLConfig, Object obj, int[] iArr) {
-        mA("eglCreateWindowSurface");
+        mD("eglCreateWindowSurface");
         a("display", eGLDisplay);
         i("config", eGLConfig);
         i("native_window", obj);
         a("attrib_list", iArr);
         end();
-        EGLSurface eglCreateWindowSurface = this.cRB.eglCreateWindowSurface(eGLDisplay, eGLConfig, obj, iArr);
+        EGLSurface eglCreateWindowSurface = this.cUr.eglCreateWindowSurface(eGLDisplay, eGLConfig, obj, iArr);
         Y(eglCreateWindowSurface);
         checkError();
         return eglCreateWindowSurface;
@@ -107,61 +107,61 @@ class a implements EGL11 {
 
     @Override // javax.microedition.khronos.egl.EGL10
     public boolean eglDestroyContext(EGLDisplay eGLDisplay, EGLContext eGLContext) {
-        mA("eglDestroyContext");
+        mD("eglDestroyContext");
         a("display", eGLDisplay);
         a("context", eGLContext);
         end();
-        boolean eglDestroyContext = this.cRB.eglDestroyContext(eGLDisplay, eGLContext);
-        fl(eglDestroyContext);
+        boolean eglDestroyContext = this.cUr.eglDestroyContext(eGLDisplay, eGLContext);
+        fn(eglDestroyContext);
         checkError();
         return eglDestroyContext;
     }
 
     @Override // javax.microedition.khronos.egl.EGL10
     public boolean eglDestroySurface(EGLDisplay eGLDisplay, EGLSurface eGLSurface) {
-        mA("eglDestroySurface");
+        mD("eglDestroySurface");
         a("display", eGLDisplay);
         a("surface", eGLSurface);
         end();
-        boolean eglDestroySurface = this.cRB.eglDestroySurface(eGLDisplay, eGLSurface);
-        fl(eglDestroySurface);
+        boolean eglDestroySurface = this.cUr.eglDestroySurface(eGLDisplay, eGLSurface);
+        fn(eglDestroySurface);
         checkError();
         return eglDestroySurface;
     }
 
     @Override // javax.microedition.khronos.egl.EGL10
     public boolean eglGetConfigAttrib(EGLDisplay eGLDisplay, EGLConfig eGLConfig, int i, int[] iArr) {
-        mA("eglGetConfigAttrib");
+        mD("eglGetConfigAttrib");
         a("display", eGLDisplay);
         i("config", eGLConfig);
-        Y(Config.EVENT_ATTR, i);
+        Z(Config.EVENT_ATTR, i);
         end();
-        boolean eglGetConfigAttrib = this.cRB.eglGetConfigAttrib(eGLDisplay, eGLConfig, i, iArr);
+        boolean eglGetConfigAttrib = this.cUr.eglGetConfigAttrib(eGLDisplay, eGLConfig, i, iArr);
         a("value", iArr);
-        fl(eglGetConfigAttrib);
+        fn(eglGetConfigAttrib);
         checkError();
         return false;
     }
 
     @Override // javax.microedition.khronos.egl.EGL10
     public boolean eglGetConfigs(EGLDisplay eGLDisplay, EGLConfig[] eGLConfigArr, int i, int[] iArr) {
-        mA("eglGetConfigs");
+        mD("eglGetConfigs");
         a("display", eGLDisplay);
-        Y("config_size", i);
+        Z("config_size", i);
         end();
-        boolean eglGetConfigs = this.cRB.eglGetConfigs(eGLDisplay, eGLConfigArr, i, iArr);
+        boolean eglGetConfigs = this.cUr.eglGetConfigs(eGLDisplay, eGLConfigArr, i, iArr);
         k("configs", eGLConfigArr);
         a("num_config", iArr);
-        fl(eglGetConfigs);
+        fn(eglGetConfigs);
         checkError();
         return eglGetConfigs;
     }
 
     @Override // javax.microedition.khronos.egl.EGL10
     public EGLContext eglGetCurrentContext() {
-        mA("eglGetCurrentContext");
+        mD("eglGetCurrentContext");
         end();
-        EGLContext eglGetCurrentContext = this.cRB.eglGetCurrentContext();
+        EGLContext eglGetCurrentContext = this.cUr.eglGetCurrentContext();
         Y(eglGetCurrentContext);
         checkError();
         return eglGetCurrentContext;
@@ -169,9 +169,9 @@ class a implements EGL11 {
 
     @Override // javax.microedition.khronos.egl.EGL10
     public EGLDisplay eglGetCurrentDisplay() {
-        mA("eglGetCurrentDisplay");
+        mD("eglGetCurrentDisplay");
         end();
-        EGLDisplay eglGetCurrentDisplay = this.cRB.eglGetCurrentDisplay();
+        EGLDisplay eglGetCurrentDisplay = this.cUr.eglGetCurrentDisplay();
         Y(eglGetCurrentDisplay);
         checkError();
         return eglGetCurrentDisplay;
@@ -179,10 +179,10 @@ class a implements EGL11 {
 
     @Override // javax.microedition.khronos.egl.EGL10
     public EGLSurface eglGetCurrentSurface(int i) {
-        mA("eglGetCurrentSurface");
-        Y("readdraw", i);
+        mD("eglGetCurrentSurface");
+        Z("readdraw", i);
         end();
-        EGLSurface eglGetCurrentSurface = this.cRB.eglGetCurrentSurface(i);
+        EGLSurface eglGetCurrentSurface = this.cUr.eglGetCurrentSurface(i);
         Y(eglGetCurrentSurface);
         checkError();
         return eglGetCurrentSurface;
@@ -190,10 +190,10 @@ class a implements EGL11 {
 
     @Override // javax.microedition.khronos.egl.EGL10
     public EGLDisplay eglGetDisplay(Object obj) {
-        mA("eglGetDisplay");
+        mD("eglGetDisplay");
         i("native_display", obj);
         end();
-        EGLDisplay eglGetDisplay = this.cRB.eglGetDisplay(obj);
+        EGLDisplay eglGetDisplay = this.cUr.eglGetDisplay(obj);
         Y(eglGetDisplay);
         checkError();
         return eglGetDisplay;
@@ -201,20 +201,20 @@ class a implements EGL11 {
 
     @Override // javax.microedition.khronos.egl.EGL10
     public int eglGetError() {
-        mA("eglGetError");
+        mD("eglGetError");
         end();
-        int eglGetError = this.cRB.eglGetError();
-        mB(kt(eglGetError));
+        int eglGetError = this.cUr.eglGetError();
+        mE(kF(eglGetError));
         return eglGetError;
     }
 
     @Override // javax.microedition.khronos.egl.EGL10
     public boolean eglInitialize(EGLDisplay eGLDisplay, int[] iArr) {
-        mA("eglInitialize");
+        mD("eglInitialize");
         a("display", eGLDisplay);
         end();
-        boolean eglInitialize = this.cRB.eglInitialize(eGLDisplay, iArr);
-        fl(eglInitialize);
+        boolean eglInitialize = this.cUr.eglInitialize(eGLDisplay, iArr);
+        fn(eglInitialize);
         a("major_minor", iArr);
         checkError();
         return eglInitialize;
@@ -222,137 +222,137 @@ class a implements EGL11 {
 
     @Override // javax.microedition.khronos.egl.EGL10
     public boolean eglMakeCurrent(EGLDisplay eGLDisplay, EGLSurface eGLSurface, EGLSurface eGLSurface2, EGLContext eGLContext) {
-        mA("eglMakeCurrent");
+        mD("eglMakeCurrent");
         a("display", eGLDisplay);
         a("draw", eGLSurface);
         a(AiAppsBluetoothConstants.KEY_CHARACTERISTICS_READ, eGLSurface2);
         a("context", eGLContext);
         end();
-        boolean eglMakeCurrent = this.cRB.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface2, eGLContext);
-        fl(eglMakeCurrent);
+        boolean eglMakeCurrent = this.cUr.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface2, eGLContext);
+        fn(eglMakeCurrent);
         checkError();
         return eglMakeCurrent;
     }
 
     @Override // javax.microedition.khronos.egl.EGL10
     public boolean eglQueryContext(EGLDisplay eGLDisplay, EGLContext eGLContext, int i, int[] iArr) {
-        mA("eglQueryContext");
+        mD("eglQueryContext");
         a("display", eGLDisplay);
         a("context", eGLContext);
-        Y(Config.EVENT_ATTR, i);
+        Z(Config.EVENT_ATTR, i);
         end();
-        boolean eglQueryContext = this.cRB.eglQueryContext(eGLDisplay, eGLContext, i, iArr);
-        kr(iArr[0]);
-        fl(eglQueryContext);
+        boolean eglQueryContext = this.cUr.eglQueryContext(eGLDisplay, eGLContext, i, iArr);
+        kD(iArr[0]);
+        fn(eglQueryContext);
         checkError();
         return eglQueryContext;
     }
 
     @Override // javax.microedition.khronos.egl.EGL10
     public String eglQueryString(EGLDisplay eGLDisplay, int i) {
-        mA("eglQueryString");
+        mD("eglQueryString");
         a("display", eGLDisplay);
-        Y("name", i);
+        Z("name", i);
         end();
-        String eglQueryString = this.cRB.eglQueryString(eGLDisplay, i);
-        mB(eglQueryString);
+        String eglQueryString = this.cUr.eglQueryString(eGLDisplay, i);
+        mE(eglQueryString);
         checkError();
         return eglQueryString;
     }
 
     @Override // javax.microedition.khronos.egl.EGL10
     public boolean eglQuerySurface(EGLDisplay eGLDisplay, EGLSurface eGLSurface, int i, int[] iArr) {
-        mA("eglQuerySurface");
+        mD("eglQuerySurface");
         a("display", eGLDisplay);
         a("surface", eGLSurface);
-        Y(Config.EVENT_ATTR, i);
+        Z(Config.EVENT_ATTR, i);
         end();
-        boolean eglQuerySurface = this.cRB.eglQuerySurface(eGLDisplay, eGLSurface, i, iArr);
-        kr(iArr[0]);
-        fl(eglQuerySurface);
+        boolean eglQuerySurface = this.cUr.eglQuerySurface(eGLDisplay, eGLSurface, i, iArr);
+        kD(iArr[0]);
+        fn(eglQuerySurface);
         checkError();
         return eglQuerySurface;
     }
 
     @Override // javax.microedition.khronos.egl.EGL10
     public boolean eglSwapBuffers(EGLDisplay eGLDisplay, EGLSurface eGLSurface) {
-        mA("eglInitialize");
+        mD("eglInitialize");
         a("display", eGLDisplay);
         a("surface", eGLSurface);
         end();
-        boolean eglSwapBuffers = this.cRB.eglSwapBuffers(eGLDisplay, eGLSurface);
-        fl(eglSwapBuffers);
+        boolean eglSwapBuffers = this.cUr.eglSwapBuffers(eGLDisplay, eGLSurface);
+        fn(eglSwapBuffers);
         checkError();
         return eglSwapBuffers;
     }
 
     @Override // javax.microedition.khronos.egl.EGL10
     public boolean eglTerminate(EGLDisplay eGLDisplay) {
-        mA("eglTerminate");
+        mD("eglTerminate");
         a("display", eGLDisplay);
         end();
-        boolean eglTerminate = this.cRB.eglTerminate(eGLDisplay);
-        fl(eglTerminate);
+        boolean eglTerminate = this.cUr.eglTerminate(eGLDisplay);
+        fn(eglTerminate);
         checkError();
         return eglTerminate;
     }
 
     @Override // javax.microedition.khronos.egl.EGL10
     public boolean eglWaitGL() {
-        mA("eglWaitGL");
+        mD("eglWaitGL");
         end();
-        boolean eglWaitGL = this.cRB.eglWaitGL();
-        fl(eglWaitGL);
+        boolean eglWaitGL = this.cUr.eglWaitGL();
+        fn(eglWaitGL);
         checkError();
         return eglWaitGL;
     }
 
     @Override // javax.microedition.khronos.egl.EGL10
     public boolean eglWaitNative(int i, Object obj) {
-        mA("eglWaitNative");
-        Y("engine", i);
+        mD("eglWaitNative");
+        Z("engine", i);
         i("bindTarget", obj);
         end();
-        boolean eglWaitNative = this.cRB.eglWaitNative(i, obj);
-        fl(eglWaitNative);
+        boolean eglWaitNative = this.cUr.eglWaitNative(i, obj);
+        fn(eglWaitNative);
         checkError();
         return eglWaitNative;
     }
 
     private void checkError() {
-        int eglGetError = this.cRB.eglGetError();
+        int eglGetError = this.cUr.eglGetError();
         if (eglGetError != 12288) {
-            String str = "eglError: " + kt(eglGetError);
-            mz(str);
-            if (this.cRE) {
+            String str = "eglError: " + kF(eglGetError);
+            mC(str);
+            if (this.cUu) {
                 throw new GLException(eglGetError, str);
             }
         }
     }
 
-    private void mz(String str) {
+    private void mC(String str) {
         log(str + '\n');
     }
 
     private void log(String str) {
         try {
-            this.cRC.write(str);
+            this.cUs.write(str);
         } catch (IOException e) {
         }
     }
 
-    private void mA(String str) {
+    private void mD(String str) {
         log(str + '(');
-        this.cRF = 0;
+        this.cUv = 0;
     }
 
     private void bl(String str, String str2) {
-        int i = this.cRF;
-        this.cRF = i + 1;
+        int i = this.cUv;
+        this.cUv = i + 1;
         if (i > 0) {
             log(", ");
         }
-        if (this.cRD) {
+        if (this.cUt) {
             log(str + ETAG.EQUAL);
         }
         log(str2);
@@ -365,13 +365,13 @@ class a implements EGL11 {
 
     private void flush() {
         try {
-            this.cRC.flush();
+            this.cUs.flush();
         } catch (IOException e) {
-            this.cRC = null;
+            this.cUs = null;
         }
     }
 
-    private void Y(String str, int i) {
+    private void Z(String str, int i) {
         bl(str, Integer.toString(i));
     }
 
@@ -405,21 +405,21 @@ class a implements EGL11 {
         }
     }
 
-    private void mB(String str) {
+    private void mE(String str) {
         log(" returns " + str + ";\n");
         flush();
     }
 
-    private void kr(int i) {
-        mB(Integer.toString(i));
+    private void kD(int i) {
+        mE(Integer.toString(i));
     }
 
-    private void fl(boolean z) {
-        mB(Boolean.toString(z));
+    private void fn(boolean z) {
+        mE(Boolean.toString(z));
     }
 
     private void Y(Object obj) {
-        mB(toString(obj));
+        mE(toString(obj));
     }
 
     private String toString(Object obj) {
@@ -478,11 +478,11 @@ class a implements EGL11 {
         return sb.toString();
     }
 
-    private static String ks(int i) {
+    private static String kE(int i) {
         return "0x" + Integer.toHexString(i);
     }
 
-    public static String kt(int i) {
+    public static String kF(int i) {
         switch (i) {
             case 12288:
                 return "EGL_SUCCESS";
@@ -515,7 +515,7 @@ class a implements EGL11 {
             case Statistics.kTypeWhiteScreen /* 12302 */:
                 return "EGL_CONTEXT_LOST";
             default:
-                return ks(i);
+                return kE(i);
         }
     }
 }

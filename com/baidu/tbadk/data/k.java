@@ -4,36 +4,36 @@ import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class k implements com.baidu.adp.widget.ListView.h {
     public static final BdUniqueId aBS = BdUniqueId.gen();
-    private String aXo;
-    private String aXp;
-    private boolean aXq = false;
+    private String aXr;
+    private String aXs;
+    private boolean aXt = false;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
         return aBS;
     }
 
-    public String LF() {
-        return this.aXo;
-    }
-
-    public void hu(String str) {
-        this.aXo = str;
-    }
-
-    public String getSmallUrl() {
-        return this.aXp;
+    public String LG() {
+        return this.aXr;
     }
 
     public void hv(String str) {
-        this.aXp = str;
+        this.aXr = str;
+    }
+
+    public String getSmallUrl() {
+        return this.aXs;
+    }
+
+    public void hw(String str) {
+        this.aXs = str;
     }
 
     public boolean isPortrait() {
-        return this.aXq;
+        return this.aXt;
     }
 
     public void cj(boolean z) {
-        this.aXq = z;
+        this.aXt = z;
     }
 }

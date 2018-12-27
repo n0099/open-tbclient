@@ -4,14 +4,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 /* loaded from: classes6.dex */
 public class b<T extends View> extends RecyclerView.ViewHolder {
-    private T dOy;
+    private T dRm;
 
     public b(T t) {
         super(t);
-        this.dOy = t;
+        this.dRm = t;
     }
 
-    public T aDg() {
-        return this.dOy;
+    public T aDV() {
+        return this.dRm;
     }
 }

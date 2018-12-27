@@ -5,12 +5,12 @@ public class b extends d {
         super("app_quick_config");
     }
 
-    public static b bRE() {
-        return a.icl;
+    public static b bSv() {
+        return a.ify;
     }
 
     /* loaded from: classes2.dex */
     private static final class a {
-        private static final b icl = new b();
+        private static final b ify = new b();
     }
 }

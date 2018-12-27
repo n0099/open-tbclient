@@ -15,19 +15,19 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class AutoBannerView extends RelativeLayout {
-    private com.baidu.tbadk.f.a aSJ;
-    private CoverFlowView<com.baidu.tieba.personCenter.data.a> dwH;
+    private com.baidu.tbadk.f.a aSL;
+    private CoverFlowView<com.baidu.tieba.personCenter.data.a> dzu;
     private List<com.baidu.tieba.personCenter.data.a> mData;
 
     public AutoBannerView(Context context) {
         super(context);
-        this.dwH = null;
+        this.dzu = null;
         this.mData = null;
         initUI();
     }
 
     private void initUI() {
-        this.dwH = new CoverFlowView<>(getContext());
+        this.dzu = new CoverFlowView<>(getContext());
         com.baidu.tbadk.core.flow.a.b bVar = new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.personCenter.view.AutoBannerView.1
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public com.baidu.tbadk.core.flow.a.e BQ() {
@@ -60,23 +60,23 @@ public class AutoBannerView extends RelativeLayout {
                 return cVar;
             }
         };
-        this.dwH.setIndicatorNoOffet(false);
-        this.dwH.setDisableParentEvent(false);
-        this.dwH.setCoverFlowFactory(bVar);
-        this.dwH.setIndicatorVisible(0);
-        this.dwH.setIsAutoPlayDragging(false);
-        addView(this.dwH);
+        this.dzu.setIndicatorNoOffet(false);
+        this.dzu.setDisableParentEvent(false);
+        this.dzu.setCoverFlowFactory(bVar);
+        this.dzu.setIndicatorVisible(0);
+        this.dzu.setIsAutoPlayDragging(false);
+        addView(this.dzu);
     }
 
     public CoverFlowView getCoverFlowView() {
-        return this.dwH;
+        return this.dzu;
     }
 
     public boolean checkIndex(int i) {
         return i > 0 && i <= v.H(this.mData);
     }
 
-    public void oR(String str) {
+    public void oU(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
                 ay.Ef().c((TbPageContext) i.aK(getContext()), new String[]{str});
@@ -86,44 +86,44 @@ public class AutoBannerView extends RelativeLayout {
         }
     }
 
-    public void FE() {
-        if (this.dwH != null) {
-            this.dwH.BT();
+    public void FF() {
+        if (this.dzu != null) {
+            this.dzu.BT();
         }
     }
 
     public void setIndicatorVisible(int i) {
-        if (this.dwH != null) {
-            this.dwH.setIndicatorVisible(i);
+        if (this.dzu != null) {
+            this.dzu.setIndicatorVisible(i);
         }
     }
 
-    public void bV(List<com.baidu.tieba.personCenter.data.a> list) {
+    public void bW(List<com.baidu.tieba.personCenter.data.a> list) {
         this.mData = list;
-        this.dwH.setData(list);
+        this.dzu.setData(list);
     }
 
     public void setIWindowChangedListener(com.baidu.tbadk.f.a aVar) {
-        this.aSJ = aVar;
+        this.aSL = aVar;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.dwH != null) {
-            this.dwH.onChangeSkinType();
+        if (this.dzu != null) {
+            this.dzu.onChangeSkinType();
         }
     }
 
     public void setMarqueenTime(long j) {
-        if (this.dwH != null) {
-            this.dwH.setMarqueenTime(j);
+        if (this.dzu != null) {
+            this.dzu.setMarqueenTime(j);
         }
     }
 
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        if (this.aSJ != null) {
-            this.aSJ.a(this, i == 0, null);
+        if (this.aSL != null) {
+            this.aSL.a(this, i == 0, null);
         }
     }
 }

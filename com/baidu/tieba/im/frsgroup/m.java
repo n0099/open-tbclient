@@ -18,27 +18,27 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class m extends com.baidu.adp.base.c<MembersActivity> {
-    private BdListView eKJ;
-    private l eQK;
-    private TextView eQL;
-    private NoDataView eQM;
-    private ViewGroup eQN;
-    private ViewGroup eQO;
-    private RelativeLayout eQP;
-    private ViewGroup eQQ;
-    private TextView eQR;
-    private TextView eQS;
-    private TextView eQT;
-    private View eQU;
-    private View eQV;
-    private MembersActivity eQr;
+    private BdListView eNA;
+    private l eTB;
+    private TextView eTC;
+    private NoDataView eTD;
+    private ViewGroup eTE;
+    private ViewGroup eTF;
+    private RelativeLayout eTG;
+    private ViewGroup eTH;
+    private TextView eTI;
+    private TextView eTJ;
+    private TextView eTK;
+    private View eTL;
+    private View eTM;
+    private MembersActivity eTi;
     private NavigationBar mNavigationBar;
     private ProgressBar mProgressBar;
     private ViewGroup mRootView;
 
     public m(MembersActivity membersActivity) {
         super(membersActivity.getPageContext());
-        this.eQr = membersActivity;
+        this.eTi = membersActivity;
         membersActivity.setContentView(e.h.im_members_activity);
         g(membersActivity);
         h(membersActivity);
@@ -46,35 +46,35 @@ public class m extends com.baidu.adp.base.c<MembersActivity> {
     }
 
     private void g(MembersActivity membersActivity) {
-        this.mRootView = (ViewGroup) this.eQr.findViewById(e.g.rootView);
-        this.mNavigationBar = (NavigationBar) this.eQr.findViewById(e.g.view_navigation_bar);
-        this.mNavigationBar.setTitleText(this.eQr.getPageContext().getString(e.j.group_info_member));
+        this.mRootView = (ViewGroup) this.eTi.findViewById(e.g.rootView);
+        this.mNavigationBar = (NavigationBar) this.eTi.findViewById(e.g.view_navigation_bar);
+        this.mNavigationBar.setTitleText(this.eTi.getPageContext().getString(e.j.group_info_member));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.m.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                m.this.eQr.finish();
+                m.this.eTi.finish();
             }
         });
-        this.eQV = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.group_member_navi_right_button, (View.OnClickListener) null);
-        this.eQL = (TextView) this.eQV.findViewById(e.g.right_textview);
-        this.eQL.setText(this.eQr.getResources().getString(e.j.members_order));
-        this.eQL.setOnClickListener(membersActivity);
+        this.eTM = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.group_member_navi_right_button, (View.OnClickListener) null);
+        this.eTC = (TextView) this.eTM.findViewById(e.g.right_textview);
+        this.eTC.setText(this.eTi.getResources().getString(e.j.members_order));
+        this.eTC.setOnClickListener(membersActivity);
     }
 
     private void h(MembersActivity membersActivity) {
-        this.eKJ = (BdListView) membersActivity.findViewById(e.g.members_list);
-        this.eQM = NoDataViewFactory.a(getPageContext().getPageActivity(), (FrameLayout) membersActivity.findViewById(e.g.content_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), null, null);
-        this.eQK = new l(this.eQr);
-        this.eKJ.setAdapter((ListAdapter) this.eQK);
-        this.eKJ.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.im.frsgroup.m.2
+        this.eNA = (BdListView) membersActivity.findViewById(e.g.members_list);
+        this.eTD = NoDataViewFactory.a(getPageContext().getPageActivity(), (FrameLayout) membersActivity.findViewById(e.g.content_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), null, null);
+        this.eTB = new l(this.eTi);
+        this.eNA.setAdapter((ListAdapter) this.eTB);
+        this.eNA.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.im.frsgroup.m.2
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
                 if (i == 0) {
-                    if (m.this.eQU != null) {
-                        m.this.eQU.setVisibility(0);
+                    if (m.this.eTL != null) {
+                        m.this.eTL.setVisibility(0);
                     }
-                } else if (m.this.eQU != null) {
-                    m.this.eQU.setVisibility(8);
+                } else if (m.this.eTL != null) {
+                    m.this.eTL.setVisibility(8);
                 }
             }
 
@@ -85,98 +85,98 @@ public class m extends com.baidu.adp.base.c<MembersActivity> {
     }
 
     private void i(MembersActivity membersActivity) {
-        this.eQN = (ViewGroup) membersActivity.findViewById(e.g.bottom_manager);
-        this.eQU = membersActivity.findViewById(e.g.bottom_divider_line);
-        this.eQO = (ViewGroup) membersActivity.findViewById(e.g.bottom_edit);
-        this.eQP = (RelativeLayout) membersActivity.findViewById(e.g.edit_lay);
-        this.eQQ = (ViewGroup) membersActivity.findViewById(e.g.bottom_send_edit);
-        this.eQR = (TextView) membersActivity.findViewById(e.g.edit_cancel);
-        this.eQS = (TextView) membersActivity.findViewById(e.g.edit_num);
-        this.eQT = (TextView) membersActivity.findViewById(e.g.members_edit);
+        this.eTE = (ViewGroup) membersActivity.findViewById(e.g.bottom_manager);
+        this.eTL = membersActivity.findViewById(e.g.bottom_divider_line);
+        this.eTF = (ViewGroup) membersActivity.findViewById(e.g.bottom_edit);
+        this.eTG = (RelativeLayout) membersActivity.findViewById(e.g.edit_lay);
+        this.eTH = (ViewGroup) membersActivity.findViewById(e.g.bottom_send_edit);
+        this.eTI = (TextView) membersActivity.findViewById(e.g.edit_cancel);
+        this.eTJ = (TextView) membersActivity.findViewById(e.g.edit_num);
+        this.eTK = (TextView) membersActivity.findViewById(e.g.members_edit);
         this.mProgressBar = (ProgressBar) membersActivity.findViewById(e.g.progress_loading);
-        pV(0);
+        qi(0);
     }
 
-    public void iC(boolean z) {
+    public void iF(boolean z) {
         this.mProgressBar.setVisibility(z ? 0 : 8);
     }
 
-    public ViewGroup aRq() {
-        return this.eQO;
+    public ViewGroup aSe() {
+        return this.eTF;
     }
 
     public void onChangeSkinType(int i) {
-        this.eQr.getLayoutMode().setNightMode(i == 1);
-        this.eQr.getLayoutMode().onModeChanged(this.mRootView);
-        this.eQr.getLayoutMode().onModeChanged(this.eQV);
+        this.eTi.getLayoutMode().setNightMode(i == 1);
+        this.eTi.getLayoutMode().onModeChanged(this.mRootView);
+        this.eTi.getLayoutMode().onModeChanged(this.eTM);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.eQT.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(e.f.icon_brief_edit), (Drawable) null, (Drawable) null, (Drawable) null);
-        if (this.eQK != null) {
-            this.eQK.notifyDataSetChanged();
+        this.eTK.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(e.f.icon_brief_edit), (Drawable) null, (Drawable) null, (Drawable) null);
+        if (this.eTB != null) {
+            this.eTB.notifyDataSetChanged();
         }
     }
 
-    public TextView aRr() {
-        return this.eQR;
+    public TextView aSf() {
+        return this.eTI;
     }
 
-    public TextView aRs() {
-        return this.eQS;
+    public TextView aSg() {
+        return this.eTJ;
     }
 
-    public void pV(int i) {
-        this.eQS.setText(this.eQr.getPageContext().getPageActivity().getString(e.j.members_delete_num, new Object[]{Integer.valueOf(i)}));
+    public void qi(int i) {
+        this.eTJ.setText(this.eTi.getPageContext().getPageActivity().getString(e.j.members_delete_num, new Object[]{Integer.valueOf(i)}));
     }
 
     public void setController(boolean z) {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.eKJ.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.eNA.getLayoutParams();
         if (z) {
-            layoutParams.bottomMargin = com.baidu.adp.lib.util.l.h(this.eQr.getPageContext().getPageActivity(), e.C0210e.ds150);
-            this.eQN.setVisibility(0);
-            this.eQP.setVisibility(0);
-            this.eQQ.setVisibility(8);
+            layoutParams.bottomMargin = com.baidu.adp.lib.util.l.h(this.eTi.getPageContext().getPageActivity(), e.C0210e.ds150);
+            this.eTE.setVisibility(0);
+            this.eTG.setVisibility(0);
+            this.eTH.setVisibility(8);
         } else {
             layoutParams.bottomMargin = 0;
-            this.eQN.setVisibility(8);
+            this.eTE.setVisibility(8);
         }
-        this.eKJ.requestLayout();
+        this.eNA.requestLayout();
     }
 
-    public void iD(boolean z) {
+    public void iG(boolean z) {
         if (z) {
-            this.eQP.setVisibility(8);
-            this.eQQ.setVisibility(0);
+            this.eTG.setVisibility(8);
+            this.eTH.setVisibility(0);
             return;
         }
-        this.eQP.setVisibility(0);
-        this.eQQ.setVisibility(8);
+        this.eTG.setVisibility(0);
+        this.eTH.setVisibility(8);
     }
 
-    public void aGO() {
-        this.eKJ.completePullRefreshPostDelayed(SystemScreenshotManager.DELAY_TIME);
+    public void aHD() {
+        this.eNA.completePullRefreshPostDelayed(SystemScreenshotManager.DELAY_TIME);
     }
 
-    public NoDataView aRt() {
-        return this.eQM;
+    public NoDataView aSh() {
+        return this.eTD;
     }
 
-    public l aRu() {
-        return this.eQK;
+    public l aSi() {
+        return this.eTB;
     }
 
-    public void aRv() {
-        this.eQK.notifyDataSetChanged();
+    public void aSj() {
+        this.eTB.notifyDataSetChanged();
     }
 
-    public TextView aRw() {
-        return this.eQL;
+    public TextView aSk() {
+        return this.eTC;
     }
 
-    public void iE(boolean z) {
-        this.eQL.setEnabled(z);
+    public void iH(boolean z) {
+        this.eTC.setEnabled(z);
     }
 
-    public BdListView aOJ() {
-        return this.eKJ;
+    public BdListView aPx() {
+        return this.eNA;
     }
 }

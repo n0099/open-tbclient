@@ -16,7 +16,7 @@ public class ae extends k<com.baidu.tieba.pb.data.g, com.baidu.tieba.pb.pb.a.c> 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bm */
+    /* renamed from: bn */
     public com.baidu.tieba.pb.pb.a.c onCreateViewHolder(ViewGroup viewGroup) {
         return new com.baidu.tieba.pb.pb.a.c(LayoutInflater.from(this.mContext).inflate(e.h.pb_no_data_item_layout, viewGroup, false), this.mContext);
     }
@@ -28,8 +28,8 @@ public class ae extends k<com.baidu.tieba.pb.data.g, com.baidu.tieba.pb.pb.a.c> 
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.g gVar, com.baidu.tieba.pb.pb.a.c cVar) {
         super.onFillViewHolder(i, view, viewGroup, gVar, cVar);
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.fUU.getLayoutMode().setNightMode(this.mSkinType == 1);
-        this.fUU.getLayoutMode().onModeChanged(view);
+        this.fXM.getLayoutMode().setNightMode(this.mSkinType == 1);
+        this.fXM.getLayoutMode().onModeChanged(view);
         return view;
     }
 }

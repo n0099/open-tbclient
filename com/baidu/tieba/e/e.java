@@ -4,19 +4,19 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId dky = BdUniqueId.gen();
-    private FeatureCardHot dkz;
+    public static final BdUniqueId dno = BdUniqueId.gen();
+    private FeatureCardHot dnp;
 
     public void a(FeatureCardHot featureCardHot) {
-        this.dkz = featureCardHot;
+        this.dnp = featureCardHot;
     }
 
-    public FeatureCardHot atL() {
-        return this.dkz;
+    public FeatureCardHot auA() {
+        return this.dnp;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dky;
+        return dno;
     }
 }

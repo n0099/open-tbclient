@@ -9,7 +9,7 @@ public class h {
     private String appId = "";
     private String appName = "";
     private String packageName = "";
-    private boolean aNH = false;
+    private boolean aNJ = false;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {

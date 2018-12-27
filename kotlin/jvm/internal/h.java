@@ -4,7 +4,7 @@ import java.util.Iterator;
 /* loaded from: classes2.dex */
 public final class h {
     public static final <T> Iterator<T> M(T[] tArr) {
-        p.h((Object) tArr, com.baidu.fsg.base.statistics.b.j);
+        p.j(tArr, com.baidu.fsg.base.statistics.b.j);
         return new g(tArr);
     }
 }

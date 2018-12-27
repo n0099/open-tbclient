@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class p {
-    private EmotionGroupType aOd;
+    private EmotionGroupType aOf;
     private int height;
     private String name;
     private String pid;
@@ -17,19 +17,19 @@ public class p {
         this.name = str;
     }
 
-    public EmotionGroupType GM() {
-        return this.aOd;
+    public EmotionGroupType GN() {
+        return this.aOf;
     }
 
     public void a(EmotionGroupType emotionGroupType) {
-        this.aOd = emotionGroupType;
+        this.aOf = emotionGroupType;
     }
 
-    public String GN() {
+    public String GO() {
         return this.pname;
     }
 
-    public void gD(String str) {
+    public void gE(String str) {
         this.pname = str;
     }
 

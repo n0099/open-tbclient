@@ -9,7 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class j {
-    private AntiData aNL = new AntiData();
+    private AntiData aNN = new AntiData();
     private ArrayList<String> arW;
     private UserData mUser;
 
@@ -20,7 +20,7 @@ public class j {
         this.arW = new ArrayList<>(3);
     }
 
-    public ArrayList<String> GF() {
+    public ArrayList<String> GG() {
         return this.arW;
     }
 
@@ -41,7 +41,7 @@ public class j {
                     this.arW.add(optJSONArray.optString(i, null));
                 }
             }
-            this.aNL.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
+            this.aNN.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }

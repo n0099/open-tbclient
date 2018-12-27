@@ -20,11 +20,11 @@ public class VideoAggregationDisPraiseView extends VideoAggregationPraiseView {
     @Override // com.baidu.tbadk.core.view.VideoAggregationPraiseView, com.baidu.tbadk.core.view.BasePraiseView
     public void EH() {
         this.agreeType = 5;
-        this.aFr = e.j.action_dislike;
-        this.aFu = e.d.cp_cont_i_alpha70;
-        this.aFv = e.d.cp_link_tip_a_alpha70;
-        this.aFs = e.f.icon_card_dislike_white_n;
-        this.aFt = e.f.icon_card_dislike_white_s;
+        this.aFs = e.j.action_dislike;
+        this.aFv = e.d.cp_cont_i_alpha70;
+        this.aFw = e.d.cp_link_tip_a_alpha70;
+        this.aFt = e.f.icon_card_dislike_white_n;
+        this.aFu = e.f.icon_card_dislike_white_s;
     }
 
     @Override // com.baidu.tbadk.core.view.VideoAggregationPraiseView, com.baidu.tbadk.core.view.BasePraiseView
@@ -41,7 +41,7 @@ public class VideoAggregationDisPraiseView extends VideoAggregationPraiseView {
         if (this.mData == 0) {
             return 0;
         }
-        if (((com.baidu.tieba.frs.aggregation.g) this.mData).aDb() && EK()) {
+        if (((com.baidu.tieba.frs.aggregation.g) this.mData).aDQ() && EK()) {
             ((com.baidu.tieba.frs.aggregation.g) this.mData).cY(5);
             ((com.baidu.tieba.frs.aggregation.g) this.mData).cW(0);
             ((com.baidu.tieba.frs.aggregation.g) this.mData).C(((com.baidu.tieba.frs.aggregation.g) this.mData).AS());
@@ -49,7 +49,7 @@ public class VideoAggregationDisPraiseView extends VideoAggregationPraiseView {
             i = 1;
         } else {
             int AV = ((com.baidu.tieba.frs.aggregation.g) this.mData).AV();
-            if ((((com.baidu.tieba.frs.aggregation.g) this.mData).aDb() && AV == 2) || AV == 1) {
+            if ((((com.baidu.tieba.frs.aggregation.g) this.mData).aDQ() && AV == 2) || AV == 1) {
                 ((com.baidu.tieba.frs.aggregation.g) this.mData).C(((com.baidu.tieba.frs.aggregation.g) this.mData).AS() - 1);
             }
             ((com.baidu.tieba.frs.aggregation.g) this.mData).cW(1);

@@ -55,10 +55,10 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(e.h.frs_lite_program_list_fragment_item, viewGroup, false);
             C0227a c0227a2 = new C0227a();
-            c0227a2.eaR = (RelativeLayout) view.findViewById(e.g.card);
-            c0227a2.eaP = (HeadImageView) view.findViewById(e.g.portrait);
+            c0227a2.edI = (RelativeLayout) view.findViewById(e.g.card);
+            c0227a2.edG = (HeadImageView) view.findViewById(e.g.portrait);
             c0227a2.mTitle = (TextView) view.findViewById(e.g.title);
-            c0227a2.eaQ = (TextView) view.findViewById(e.g.desc);
+            c0227a2.edH = (TextView) view.findViewById(e.g.desc);
             view.setTag(c0227a2);
             c0227a = c0227a2;
         } else {
@@ -66,22 +66,22 @@ public class a extends BaseAdapter {
         }
         b bVar = (b) getItem(i);
         int h = l.h(this.mContext.getPageActivity(), e.C0210e.tbds136);
-        c0227a.eaP.setIsRound(true);
-        c0227a.eaP.startLoad(bVar.avatar, 10, h, h, false);
+        c0227a.edG.setIsRound(true);
+        c0227a.edG.startLoad(bVar.avatar, 10, h, h, false);
         c0227a.mTitle.setText(bVar.name);
-        c0227a.eaQ.setText(bVar.eaT);
+        c0227a.edH.setText(bVar.edK);
         al.c(c0227a.mTitle, e.d.cp_cont_b, 1);
-        al.c(c0227a.eaQ, e.d.cp_cont_d, 1);
-        al.i(c0227a.eaR, e.f.lite_progrom_icorner_bg);
+        al.c(c0227a.edH, e.d.cp_cont_d, 1);
+        al.i(c0227a.edI, e.f.lite_progrom_icorner_bg);
         return view;
     }
 
     /* renamed from: com.baidu.tieba.frs.smartapp.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public class C0227a {
-        HeadImageView eaP;
-        TextView eaQ;
-        RelativeLayout eaR;
+        HeadImageView edG;
+        TextView edH;
+        RelativeLayout edI;
         TextView mTitle;
 
         public C0227a() {

@@ -4,24 +4,24 @@ import android.text.TextUtils;
 import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class ab {
-    private static ab dLv = new ab();
-    private final SparseArray<String> dLu = new SparseArray<>();
+    private static ab dOj = new ab();
+    private final SparseArray<String> dOi = new SparseArray<>();
 
     private ab() {
     }
 
-    public static ab aCs() {
-        return dLv;
+    public static ab aDh() {
+        return dOj;
     }
 
-    public void mp(int i) {
-        this.dLu.put(i, "1");
+    public void mC(int i) {
+        this.dOi.put(i, "1");
     }
 
-    public boolean mq(int i) {
+    public boolean mD(int i) {
         if (i > 100) {
             i = 100;
         }
-        return !TextUtils.isEmpty(this.dLu.get(i));
+        return !TextUtils.isEmpty(this.dOi.get(i));
     }
 }

@@ -15,13 +15,13 @@ import rx.j;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class UnicastSubject<T> extends c<T, T> {
-    final State<T> iOw;
+    final State<T> iRG;
 
-    public static <T> UnicastSubject<T> cfl() {
-        return zv(16);
+    public static <T> UnicastSubject<T> cgc() {
+        return zI(16);
     }
 
-    public static <T> UnicastSubject<T> zv(int i) {
+    public static <T> UnicastSubject<T> zI(int i) {
         return new UnicastSubject<>(new State(i, null));
     }
 
@@ -31,27 +31,27 @@ public final class UnicastSubject<T> extends c<T, T> {
 
     private UnicastSubject(State<T> state) {
         super(state);
-        this.iOw = state;
+        this.iRG = state;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.iOw.onNext(t);
+        this.iRG.onNext(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.iOw.onError(th);
+        this.iRG.onError(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.iOw.onCompleted();
+        this.iRG.onCompleted();
     }
 
     @Override // rx.subjects.c
     public boolean hasObservers() {
-        return this.iOw.subscriber.get() != null;
+        return this.iRG.subscriber.get() != null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -76,9 +76,9 @@ public final class UnicastSubject<T> extends c<T, T> {
             Queue<Object> xVar;
             this.terminateOnce = aVar != null ? new AtomicReference<>(aVar) : null;
             if (i > 1) {
-                xVar = ae.ceF() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
+                xVar = ae.cfw() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
             } else {
-                xVar = ae.ceF() ? new x<>() : new rx.internal.util.atomic.e<>();
+                xVar = ae.cfw() ? new x<>() : new rx.internal.util.atomic.e<>();
             }
             this.queue = xVar;
         }

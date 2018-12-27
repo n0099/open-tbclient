@@ -18,7 +18,7 @@ import java.io.File;
 public class g {
     public static final boolean a(Context context, AdvertAppInfo advertAppInfo, int i, DownloadStaticsData downloadStaticsData) {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        if (adAdSense != null && !adAdSense.GA()) {
+        if (adAdSense != null && !adAdSense.GB()) {
             return s.a(context, advertAppInfo, i, downloadStaticsData);
         }
         if (context == null || advertAppInfo == null) {
@@ -38,21 +38,21 @@ public class g {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.LK().b(advertAppInfo);
+        com.baidu.tbadk.distribute.a.LL().b(advertAppInfo);
         String str2 = advertAppInfo.apr;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        h.buL().a(advertAppInfo.apv, advertAppInfo.apu, str2, i, h.uz(advertAppInfo.apv).intValue(), null, true, false, true, advertAppInfo.apB.userPortrait, downloadStaticsData, advertAppInfo.apB.userName);
+        h.bvx().a(advertAppInfo.apv, advertAppInfo.apu, str2, i, h.uC(advertAppInfo.apv).intValue(), null, true, false, true, advertAppInfo.apB.userPortrait, downloadStaticsData, advertAppInfo.apB.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        if (adAdSense != null && !adAdSense.GA()) {
+        if (adAdSense != null && !adAdSense.GB()) {
             s.f(advertAppInfo);
         } else {
-            h.buL().j(advertAppInfo.apu, advertAppInfo.apv, true);
+            h.bvx().j(advertAppInfo.apu, advertAppInfo.apv, true);
         }
     }
 

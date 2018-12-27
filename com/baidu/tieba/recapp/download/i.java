@@ -22,8 +22,8 @@ public class i implements com.baidu.tbadk.download.c {
                 edit.putLong(downloadData.getId(), downloadData.getSize());
                 edit.commit();
             }
-            h.buL().c(downloadData);
-            h.buL().b(downloadData);
+            h.bvx().c(downloadData);
+            h.bvx().b(downloadData);
         }
     }
 
@@ -55,7 +55,7 @@ public class i implements com.baidu.tbadk.download.c {
                 TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "dl_game_success", AiAppsUBCStatistic.TYPE_CLICK, 1, "dev_id", downloadData.getId(), "ref_id", str, "is_detail", tag[2], "ref_type", str2);
             }
             NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-            h.buL().b(downloadData);
+            h.bvx().b(downloadData);
             if (downloadData.isNeedInvokeApk()) {
                 UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", BaseRequestAction.SPLITE) + ".apk");
             }
@@ -64,13 +64,13 @@ public class i implements com.baidu.tbadk.download.c {
 
     @Override // com.baidu.tbadk.download.c
     public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
-        h buL = h.buL();
+        h bvx = h.bvx();
         if (i == 3) {
-            buL.k(downloadData);
+            bvx.k(downloadData);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
         } else {
-            buL.l(downloadData);
+            bvx.l(downloadData);
         }
-        h.buL().b(downloadData);
+        h.bvx().b(downloadData);
     }
 }

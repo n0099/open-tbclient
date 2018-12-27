@@ -87,7 +87,7 @@ public class SyncLoginService extends BdBaseService {
                 this.mNetWork.x("scr_w", String.valueOf(l.aO(TbadkCoreApplication.getInst().getApp())));
                 this.mNetWork.x("scr_h", String.valueOf(l.aQ(TbadkCoreApplication.getInst().getApp())));
                 this.mNetWork.x("scr_dip", String.valueOf(l.aR(TbadkCoreApplication.getInst().getApp())));
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.Iw().Iz() > 0) {
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.Ix().IA() > 0) {
                     this.mNetWork.x("_msg_status", "0");
                 } else {
                     this.mNetWork.x("_msg_status", "1");

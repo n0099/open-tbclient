@@ -36,22 +36,22 @@ public class b {
             TiebaStatic.log(amVar);
             return;
         }
-        Bundle Kg = shareEntity.Kg();
-        if (Kg != null) {
-            int i3 = Kg.getInt("obj_param1");
+        Bundle Kh = shareEntity.Kh();
+        if (Kh != null) {
+            int i3 = Kh.getInt("obj_param1");
             if (i3 != 0) {
                 amVar.x("obj_param1", i3);
                 if (i3 == 2) {
-                    amVar.aA(ImageViewerConfig.FORUM_ID, Kg.getString(ImageViewerConfig.FORUM_ID));
+                    amVar.aA(ImageViewerConfig.FORUM_ID, Kh.getString(ImageViewerConfig.FORUM_ID));
                 } else if (i3 == 3) {
-                    int i4 = Kg.getInt("obj_type");
+                    int i4 = Kh.getInt("obj_type");
                     if (i4 != 0) {
                         amVar.x("obj_type", i4);
                     }
-                    amVar.aA("tid", Kg.getString("tid")).aA(ImageViewerConfig.FORUM_ID, Kg.getString(ImageViewerConfig.FORUM_ID));
+                    amVar.aA("tid", Kh.getString("tid")).aA(ImageViewerConfig.FORUM_ID, Kh.getString(ImageViewerConfig.FORUM_ID));
                 }
             }
-            String string = Kg.getString("obj_url");
+            String string = Kh.getString("obj_url");
             if (!ao.isEmpty(string)) {
                 amVar.aA("obj_url", string);
             }
@@ -86,11 +86,11 @@ public class b {
             TiebaStatic.log(amVar);
             return;
         }
-        Bundle Kg = shareEntity.Kg();
-        if (Kg != null) {
-            amVar.aA("tid", Kg.getString("tid"));
-            amVar.aA("uid", Kg.getString("uid"));
-            amVar.aA(ImageViewerConfig.FORUM_ID, Kg.getString(ImageViewerConfig.FORUM_ID));
+        Bundle Kh = shareEntity.Kh();
+        if (Kh != null) {
+            amVar.aA("tid", Kh.getString("tid"));
+            amVar.aA("uid", Kh.getString("uid"));
+            amVar.aA(ImageViewerConfig.FORUM_ID, Kh.getString(ImageViewerConfig.FORUM_ID));
         }
         TiebaStatic.log(amVar);
     }

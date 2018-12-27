@@ -5,81 +5,81 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class PersonBarActivity extends BasePersonInfoActivity {
-    private PersonBarAdapter gtS = null;
-    private PersonBarModel gtT = null;
+    private PersonBarAdapter gwJ = null;
+    private PersonBarModel gwK = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.gsO && this.eWS != 23011) {
+        if (this.gvF && this.eZJ != 23011) {
             setSwipeBackEnabled(false);
         }
-        this.gtT = new PersonBarModel(getPageContext(), aTB());
-        this.gtT.setSex(getSex());
-        this.gtT.setId(getUid());
-        this.gtT.setUniqueId(getUniqueId());
+        this.gwK = new PersonBarModel(getPageContext(), aUp());
+        this.gwK.setSex(getSex());
+        this.gwK.setId(getUid());
+        this.gwK.setUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public BasePersonInfoAdapter a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        if (this.gtS == null) {
-            this.gtS = new PersonBarAdapter(this, aTB());
+        if (this.gwJ == null) {
+            this.gwJ = new PersonBarAdapter(this, aUp());
         }
-        return this.gtS;
+        return this.gwJ;
     }
 
-    public PersonBarModel bpg() {
-        return this.gtT;
+    public PersonBarModel bpS() {
+        return this.gwK;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String boM() {
+    public String bpy() {
         return getPageContext().getString(e.j.person_bar_title);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String boN() {
+    public String bpz() {
         return getPageContext().getString(e.j.attention_bar);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String boO() {
+    public String bpA() {
         return getPageContext().getString(e.j.person_bar_no_common_title);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String boP() {
+    public String bpB() {
         return getPageContext().getString(e.j.person_bar_personal);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String boQ() {
+    public String bpC() {
         return getPageContext().getString(e.j.person_bar_common);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String boU() {
+    public String bpG() {
         return "common_forum";
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public int boV() {
+    public int bpH() {
         return 2;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         BaseFragment baseFragment;
-        b bpq;
+        b bqc;
         super.onPageSelected(i);
-        if (this.gtS != null && this.gtS.getItem(i) != null && (baseFragment = (BaseFragment) this.gtS.getItem(i)) != null && (baseFragment instanceof PersonBarFragment) && (bpq = ((PersonBarFragment) baseFragment).bpq()) != null) {
-            bpq.dq(false);
-            bpq.notifyDataSetChanged();
+        if (this.gwJ != null && this.gwJ.getItem(i) != null && (baseFragment = (BaseFragment) this.gwJ.getItem(i)) != null && (baseFragment instanceof PersonBarFragment) && (bqc = ((PersonBarFragment) baseFragment).bqc()) != null) {
+            bqc.dq(false);
+            bqc.notifyDataSetChanged();
         }
     }
 
     public int getRequestCode() {
-        return this.eWS;
+        return this.eZJ;
     }
 }

@@ -5,9 +5,9 @@ import rx.d;
 import rx.g;
 /* loaded from: classes2.dex */
 class cb<T> implements d.b<T, T> {
-    final rx.d<? extends T> iCr;
-    final a<T> iIY;
-    final b<T> iIZ;
+    final rx.d<? extends T> iFB;
+    final a<T> iMi;
+    final b<T> iMj;
     final rx.g scheduler;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,9 +27,9 @@ class cb<T> implements d.b<T, T> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cb(a<T> aVar, b<T> bVar, rx.d<? extends T> dVar, rx.g gVar) {
-        this.iIY = aVar;
-        this.iIZ = bVar;
-        this.iCr = dVar;
+        this.iMi = aVar;
+        this.iMj = bVar;
+        this.iFB = dVar;
         this.scheduler = gVar;
     }
 
@@ -39,10 +39,10 @@ class cb<T> implements d.b<T, T> {
         rx.b.f fVar = new rx.b.f(jVar);
         rx.subscriptions.d dVar = new rx.subscriptions.d();
         fVar.add(dVar);
-        c cVar = new c(fVar, this.iIZ, dVar, this.iCr, createWorker);
+        c cVar = new c(fVar, this.iMj, dVar, this.iFB, createWorker);
         fVar.add(cVar);
-        fVar.setProducer(cVar.iCl);
-        dVar.g(this.iIY.a(cVar, 0L, createWorker));
+        fVar.setProducer(cVar.iFv);
+        dVar.g(this.iMi.a(cVar, 0L, createWorker));
         return cVar;
     }
 
@@ -50,25 +50,25 @@ class cb<T> implements d.b<T, T> {
     /* loaded from: classes2.dex */
     public static final class c<T> extends rx.j<T> {
         long actual;
-        final rx.internal.producers.a iCl = new rx.internal.producers.a();
-        final rx.d<? extends T> iCr;
-        final g.a iEy;
-        final b<T> iIZ;
-        final rx.b.f<T> iJa;
+        final rx.d<? extends T> iFB;
+        final rx.internal.producers.a iFv = new rx.internal.producers.a();
+        final g.a iHI;
+        final b<T> iMj;
+        final rx.b.f<T> iMk;
         final rx.subscriptions.d serial;
         boolean terminated;
 
         c(rx.b.f<T> fVar, b<T> bVar, rx.subscriptions.d dVar, rx.d<? extends T> dVar2, g.a aVar) {
-            this.iJa = fVar;
-            this.iIZ = bVar;
+            this.iMk = fVar;
+            this.iMj = bVar;
             this.serial = dVar;
-            this.iCr = dVar2;
-            this.iEy = aVar;
+            this.iFB = dVar2;
+            this.iHI = aVar;
         }
 
         @Override // rx.j
         public void setProducer(rx.f fVar) {
-            this.iCl.setProducer(fVar);
+            this.iFv.setProducer(fVar);
         }
 
         @Override // rx.e
@@ -85,8 +85,8 @@ class cb<T> implements d.b<T, T> {
                 }
             }
             if (z) {
-                this.iJa.onNext(t);
-                this.serial.g(this.iIZ.a(this, Long.valueOf(j), t, this.iEy));
+                this.iMk.onNext(t);
+                this.serial.g(this.iMj.a(this, Long.valueOf(j), t, this.iHI));
             }
         }
 
@@ -102,7 +102,7 @@ class cb<T> implements d.b<T, T> {
             }
             if (z) {
                 this.serial.unsubscribe();
-                this.iJa.onError(th);
+                this.iMk.onError(th);
             }
         }
 
@@ -118,11 +118,11 @@ class cb<T> implements d.b<T, T> {
             }
             if (z) {
                 this.serial.unsubscribe();
-                this.iJa.onCompleted();
+                this.iMk.onCompleted();
             }
         }
 
-        public void dK(long j) {
+        public void dP(long j) {
             boolean z = true;
             synchronized (this) {
                 if (j != this.actual || this.terminated) {
@@ -132,32 +132,32 @@ class cb<T> implements d.b<T, T> {
                 }
             }
             if (z) {
-                if (this.iCr == null) {
-                    this.iJa.onError(new TimeoutException());
+                if (this.iFB == null) {
+                    this.iMk.onError(new TimeoutException());
                     return;
                 }
                 rx.j<T> jVar = new rx.j<T>() { // from class: rx.internal.operators.cb.c.1
                     @Override // rx.e
                     public void onNext(T t) {
-                        c.this.iJa.onNext(t);
+                        c.this.iMk.onNext(t);
                     }
 
                     @Override // rx.e
                     public void onError(Throwable th) {
-                        c.this.iJa.onError(th);
+                        c.this.iMk.onError(th);
                     }
 
                     @Override // rx.e
                     public void onCompleted() {
-                        c.this.iJa.onCompleted();
+                        c.this.iMk.onCompleted();
                     }
 
                     @Override // rx.j
                     public void setProducer(rx.f fVar) {
-                        c.this.iCl.setProducer(fVar);
+                        c.this.iFv.setProducer(fVar);
                     }
                 };
-                this.iCr.unsafeSubscribe(jVar);
+                this.iFB.unsafeSubscribe(jVar);
                 this.serial.g(jVar);
             }
         }

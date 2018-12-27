@@ -1,13 +1,13 @@
 package kotlin.internal;
 /* loaded from: classes2.dex */
 public final class a {
-    private static final int cl(int i, int i2) {
+    private static final int cm(int i, int i2) {
         int i3 = i % i2;
         return i3 >= 0 ? i3 : i3 + i2;
     }
 
     private static final int ag(int i, int i2, int i3) {
-        return cl(cl(i, i3) - cl(i2, i3), i3);
+        return cm(cm(i, i3) - cm(i2, i3), i3);
     }
 
     public static final int ah(int i, int i2, int i3) {

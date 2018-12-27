@@ -97,6 +97,7 @@ public class bb extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
     private String avE;
     private boolean avF;
     private SmartApp avG;
+    public int avH;
     private List<ReportInfo> ava;
     private boolean avg;
     private int avj;
@@ -832,8 +833,8 @@ public class bb extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
                         for (int i5 = 0; i5 < size3; i5++) {
                             if (zhiBoInfoTW.labelInfo.get(i5) != null) {
                                 com.baidu.tbadk.coreExtra.view.b bVar = new com.baidu.tbadk.coreExtra.view.b();
-                                bVar.fs(zhiBoInfoTW.labelInfo.get(i5).labelHot.intValue());
-                                bVar.hh(zhiBoInfoTW.labelInfo.get(i5).labelId);
+                                bVar.ft(zhiBoInfoTW.labelInfo.get(i5).labelHot.intValue());
+                                bVar.hi(zhiBoInfoTW.labelInfo.get(i5).labelId);
                                 bVar.setLabelName(zhiBoInfoTW.labelInfo.get(i5).labelContent);
                                 this.aue.add(bVar);
                             }
@@ -1471,19 +1472,19 @@ public class bb extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
     }
 
     private void a(SpannableString spannableString, String str, int i) {
-        com.baidu.adp.widget.ImageView.a C;
-        com.baidu.adp.widget.ImageView.a C2;
+        com.baidu.adp.widget.ImageView.a D;
+        com.baidu.adp.widget.ImageView.a D2;
         BitmapDrawable bitmapDrawable;
         if (!StringUtils.isNull(this.mUrl) && !StringUtils.isNull(this.auJ) && !StringUtils.isNull(str)) {
-            Bitmap bitmap = com.baidu.tbadk.imageManager.c.Nu().getBitmap(this.mUrl);
-            if ((bitmap == null || !com.baidu.tbadk.core.util.d.v.B(this.mUrl, 10)) && (C = com.baidu.tbadk.core.util.d.v.C(this.mUrl, 10)) != null) {
-                bitmap = C.op();
-                com.baidu.tbadk.imageManager.c.Nu().d(this.mUrl, bitmap);
+            Bitmap bitmap = com.baidu.tbadk.imageManager.c.Nv().getBitmap(this.mUrl);
+            if ((bitmap == null || !com.baidu.tbadk.core.util.d.v.C(this.mUrl, 10)) && (D = com.baidu.tbadk.core.util.d.v.D(this.mUrl, 10)) != null) {
+                bitmap = D.op();
+                com.baidu.tbadk.imageManager.c.Nv().d(this.mUrl, bitmap);
             }
-            Bitmap bitmap2 = com.baidu.tbadk.imageManager.c.Nu().getBitmap(this.auJ);
-            if ((bitmap2 == null || !com.baidu.tbadk.core.util.d.v.B(this.auJ, 10)) && (C2 = com.baidu.tbadk.core.util.d.v.C(this.auJ, 10)) != null) {
-                bitmap2 = C2.op();
-                com.baidu.tbadk.imageManager.c.Nu().d(this.auJ, bitmap2);
+            Bitmap bitmap2 = com.baidu.tbadk.imageManager.c.Nv().getBitmap(this.auJ);
+            if ((bitmap2 == null || !com.baidu.tbadk.core.util.d.v.C(this.auJ, 10)) && (D2 = com.baidu.tbadk.core.util.d.v.D(this.auJ, 10)) != null) {
+                bitmap2 = D2.op();
+                com.baidu.tbadk.imageManager.c.Nv().d(this.auJ, bitmap2);
             }
             Bitmap bitmap3 = bitmap2;
             if (bitmap != null && !bitmap.isRecycled() && bitmap3 != null && !bitmap3.isRecycled()) {
@@ -1512,7 +1513,7 @@ public class bb extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
                 public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str2, int i4) {
                     super.onLoaded((AnonymousClass2) aVar, str2, i4);
                     if (aVar != null) {
-                        com.baidu.tbadk.imageManager.c.Nu().d(str2, aVar.op());
+                        com.baidu.tbadk.imageManager.c.Nv().d(str2, aVar.op());
                     }
                 }
             }, ath);
@@ -1523,7 +1524,7 @@ public class bb extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
                 public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str2, int i4) {
                     super.onLoaded((AnonymousClass3) aVar, str2, i4);
                     if (aVar != null) {
-                        com.baidu.tbadk.imageManager.c.Nu().d(str2, aVar.op());
+                        com.baidu.tbadk.imageManager.c.Nv().d(str2, aVar.op());
                     }
                 }
             }, ath);
@@ -1600,7 +1601,7 @@ public class bb extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
             com.baidu.tbadk.data.i iVar = new com.baidu.tbadk.data.i();
             iVar.mLink = str;
             iVar.type = this.atw;
-            iVar.aXm = this.atx;
+            iVar.aXp = this.atx;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016493, iVar));
         }
     }

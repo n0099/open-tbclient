@@ -4,7 +4,7 @@ import android.graphics.PointF;
 import android.view.MotionEvent;
 /* loaded from: classes3.dex */
 public class a {
-    public static PointF S(MotionEvent motionEvent) {
+    public static PointF R(MotionEvent motionEvent) {
         if (motionEvent == null) {
             return null;
         }
@@ -13,7 +13,7 @@ public class a {
         return pointF;
     }
 
-    public static float T(MotionEvent motionEvent) {
+    public static float S(MotionEvent motionEvent) {
         if (motionEvent == null) {
             return 0.0f;
         }
@@ -22,7 +22,7 @@ public class a {
         return (float) Math.sqrt((x * x) + (y * y));
     }
 
-    public static float U(MotionEvent motionEvent) {
+    public static float T(MotionEvent motionEvent) {
         if (motionEvent == null) {
             return 0.0f;
         }

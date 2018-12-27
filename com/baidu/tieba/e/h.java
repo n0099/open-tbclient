@@ -4,27 +4,27 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
 /* loaded from: classes3.dex */
 public class h implements com.baidu.adp.widget.ListView.h {
-    public static BdUniqueId dkE = BdUniqueId.gen();
-    private FeatureCardTopic dkF;
-    private Integer dku;
-    private Integer dkv;
+    public static BdUniqueId dnv = BdUniqueId.gen();
+    private Integer dnk;
+    private Integer dnl;
+    private FeatureCardTopic dnw;
     private String mTitle;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dkE;
+        return dnv;
     }
 
-    public FeatureCardTopic atO() {
-        return this.dkF;
+    public FeatureCardTopic auD() {
+        return this.dnw;
     }
 
     public void a(FeatureCardTopic featureCardTopic) {
         if (featureCardTopic != null) {
-            this.dkF = featureCardTopic;
+            this.dnw = featureCardTopic;
             this.mTitle = featureCardTopic.title;
-            this.dku = featureCardTopic.floor;
-            this.dkv = featureCardTopic.type;
+            this.dnk = featureCardTopic.floor;
+            this.dnl = featureCardTopic.type;
         }
     }
 }

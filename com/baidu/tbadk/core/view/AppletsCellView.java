@@ -20,10 +20,10 @@ import com.baidu.tieba.e;
 import tbclient.SmartApp;
 /* loaded from: classes.dex */
 public class AppletsCellView extends LinearLayout implements View.OnClickListener {
-    private HeadImageView aFm;
-    private TextView aFn;
+    private HeadImageView aFn;
+    private TextView aFo;
     private SmartApp avG;
-    private TbImageView axk;
+    private TbImageView axl;
     private TextView mContentView;
     private String mForumId;
     private String mFrom;
@@ -50,19 +50,19 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
     private void init(Context context) {
         setOrientation(1);
         LayoutInflater.from(context).inflate(e.h.applets_cell_layout, (ViewGroup) this, true);
-        this.aFm = (HeadImageView) findViewById(e.g.applets_app_icon);
-        this.aFn = (TextView) findViewById(e.g.applets_app_name);
+        this.aFn = (HeadImageView) findViewById(e.g.applets_app_icon);
+        this.aFo = (TextView) findViewById(e.g.applets_app_name);
         this.mContentView = (TextView) findViewById(e.g.applets_app_content);
-        this.axk = (TbImageView) findViewById(e.g.applets_app_img);
-        this.aFm.setIsRound(true);
-        this.aFm.setIsPreDrawBorder(true);
-        this.aFm.setDrawBorder(true);
-        this.aFm.setBorderWidth(com.baidu.adp.lib.util.l.h(context, e.C0210e.tbds1));
-        this.aFm.setDefaultResource(e.d.cp_bg_line_e);
-        this.aFm.setRadius(com.baidu.adp.lib.util.l.h(context, e.C0210e.ds70));
-        ViewGroup.LayoutParams layoutParams = this.axk.getLayoutParams();
+        this.axl = (TbImageView) findViewById(e.g.applets_app_img);
+        this.aFn.setIsRound(true);
+        this.aFn.setIsPreDrawBorder(true);
+        this.aFn.setDrawBorder(true);
+        this.aFn.setBorderWidth(com.baidu.adp.lib.util.l.h(context, e.C0210e.tbds1));
+        this.aFn.setDefaultResource(e.d.cp_bg_line_e);
+        this.aFn.setRadius(com.baidu.adp.lib.util.l.h(context, e.C0210e.ds70));
+        ViewGroup.LayoutParams layoutParams = this.axl.getLayoutParams();
         layoutParams.height = ((com.baidu.adp.lib.util.l.aO(getContext()) - com.baidu.adp.lib.util.l.h(getContext(), e.C0210e.tbds130)) * 9) / 16;
-        this.axk.setLayoutParams(layoutParams);
+        this.axl.setLayoutParams(layoutParams);
         setOnClickListener(this);
         onChangeSkinType();
     }
@@ -82,32 +82,32 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
         }
         setVisibility(0);
         this.avG = smartApp;
-        this.aFm.startLoad(smartApp.avatar, 10, false);
-        this.aFn.setText(smartApp.name);
-        if (StringUtils.isNull(smartApp._abstract)) {
+        this.aFn.startLoad(smartApp.avatar, 10, false);
+        this.aFo.setText(smartApp.name);
+        if (StringUtils.isNull(smartApp._abstract, true)) {
             this.mContentView.setVisibility(8);
         } else {
             this.mContentView.setVisibility(0);
             this.mContentView.setText(smartApp._abstract);
         }
         if (StringUtils.isNull(smartApp.pic, true)) {
-            this.axk.setDefaultBgResource(e.f.pic_share_default_applets);
+            this.axl.setDefaultBgResource(e.f.pic_share_default_applets);
             return;
         }
-        this.axk.setEvent(new TbImageView.a() { // from class: com.baidu.tbadk.core.view.AppletsCellView.1
+        this.axl.setEvent(new TbImageView.a() { // from class: com.baidu.tbadk.core.view.AppletsCellView.1
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void s(String str, boolean z) {
                 if (!z) {
-                    AppletsCellView.this.axk.setDefaultBgResource(e.f.pic_share_default_applets);
+                    AppletsCellView.this.axl.setDefaultBgResource(e.f.pic_share_default_applets);
                 }
             }
 
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void onCancel() {
-                AppletsCellView.this.axk.setDefaultBgResource(e.f.pic_share_default_applets);
+                AppletsCellView.this.axl.setDefaultBgResource(e.f.pic_share_default_applets);
             }
         });
-        this.axk.startLoad(smartApp.pic, 10, false);
+        this.axl.startLoad(smartApp.pic, 10, false);
     }
 
     @Override // android.view.View.OnClickListener
@@ -129,11 +129,11 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
             al.j(this, e.d.cp_bg_line_e);
-            this.aFm.setBorderColor(al.getColor(e.d.cp_bg_line_d));
-            this.aFm.setIsNight(this.mSkinType == 1);
-            al.h(this.aFn, e.d.cp_cont_f);
+            this.aFn.setBorderColor(al.getColor(e.d.cp_bg_line_d));
+            this.aFn.setIsNight(this.mSkinType == 1);
+            al.h(this.aFo, e.d.cp_cont_f);
             al.h(this.mContentView, e.d.cp_cont_b);
-            this.axk.setIsNight(this.mSkinType == 1);
+            this.axl.setIsNight(this.mSkinType == 1);
         }
     }
 }

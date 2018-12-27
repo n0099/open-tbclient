@@ -3,14 +3,14 @@ package com.baidu.tbadk.coreExtra.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    public int aNE;
-    public int aNF;
+    public int aNG;
+    public int aNH;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.aNE = jSONObject.optInt("logined");
-                this.aNF = jSONObject.optInt("unlogin");
+                this.aNG = jSONObject.optInt("logined");
+                this.aNH = jSONObject.optInt("unlogin");
             } catch (Exception e) {
                 e.printStackTrace();
             }

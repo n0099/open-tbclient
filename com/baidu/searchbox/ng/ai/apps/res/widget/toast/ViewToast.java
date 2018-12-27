@@ -215,7 +215,7 @@ class ViewToast {
         if (contentView != null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(contentView.getContext()).inflate(R.layout.aiapps_left_icon_clickable_toast_view, (ViewGroup) null);
             linearLayout.setBackground(resources.getDrawable(R.drawable.aiapps_clickable_toast_view_bg));
-            ((SimpleDraweeView) linearLayout.findViewById(R.id.gif_toast_left_icon)).setController(c.bTU().oT(true).u(uri).bUD());
+            ((SimpleDraweeView) linearLayout.findViewById(R.id.gif_toast_left_icon)).setController(c.bUL().oW(true).u(uri).bVu());
             if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.gif_toast_info_view)) != null) {
                 textView.setTextColor(resources.getColor(R.color.aiapps_white_text));
                 textView.setText(charSequence);
@@ -357,7 +357,7 @@ class ViewToast {
         if (uri != null) {
             simpleDraweeView.setImageURI(uri);
             if (i != 1) {
-                simpleDraweeView.getHierarchy().a(new RoundingParams().oW(false));
+                simpleDraweeView.getHierarchy().a(new RoundingParams().oZ(false));
             }
         } else {
             simpleDraweeView.setVisibility(8);

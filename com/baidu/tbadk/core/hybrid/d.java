@@ -11,23 +11,23 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class d implements h {
-    private final l axX;
-    private final HashMap<String, Method> axY = new HashMap<>();
+    private final l axY;
+    private final HashMap<String, Method> axZ = new HashMap<>();
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tbadk.core.hybrid.d */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Multi-variable type inference failed */
     public d(l lVar) {
-        this.axX = lVar;
+        this.axY = lVar;
         l(getClass());
-        if (this.axY.isEmpty()) {
+        if (this.axZ.isEmpty()) {
             throw new IllegalStateException("No native methods found!");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Context getContext() {
-        return this.axX.getContext();
+        return this.axY.getContext();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -46,13 +46,13 @@ public abstract class d implements h {
         if (jSONObject != null) {
             hashMap.put("data", jSONObject);
         }
-        this.axX.a(m.f(str, hashMap));
+        this.axY.a(m.f(str, hashMap));
     }
 
     @Override // com.baidu.tbadk.core.hybrid.h
     public void a(String str, JSONObject jSONObject, JSONObject jSONObject2) {
         Object invoke;
-        Method method = this.axY.get(str);
+        Method method = this.axZ.get(str);
         if (method != null) {
             o oVar = (o) method.getAnnotation(o.class);
             String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
@@ -125,7 +125,7 @@ public abstract class d implements h {
         HashMap hashMap = new HashMap(4);
         hashMap.put("errNo", str2);
         hashMap.put("errMsg", str3);
-        this.axX.a(m.f(optString, hashMap));
+        this.axY.a(m.f(optString, hashMap));
     }
 
     private void l(Class<? extends d> cls) {
@@ -144,7 +144,7 @@ public abstract class d implements h {
                     value = method.getName();
                 }
                 method.setAccessible(true);
-                this.axY.put(value, method);
+                this.axZ.put(value, method);
             }
         }
         Class<? super Object> superclass = cls.getSuperclass();

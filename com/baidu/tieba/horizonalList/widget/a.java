@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class a {
-    private static ArrayList<a> eyp = new ArrayList<>(5);
-    public int eyt;
-    public int eyu;
-    int eyv;
+    private static ArrayList<a> eBg = new ArrayList<>(5);
+    public int eBk;
+    public int eBl;
+    int eBm;
     public int type;
 
-    private void UB() {
-        this.eyt = 0;
-        this.eyu = 0;
-        this.eyv = 0;
+    private void UD() {
+        this.eBk = 0;
+        this.eBl = 0;
+        this.eBm = 0;
         this.type = 0;
     }
 
@@ -21,31 +21,31 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long aLN() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.eyt, this.eyu) : ExpandableListView.getPackedPositionForGroup(this.eyt);
+    public long aMB() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.eBk, this.eBl) : ExpandableListView.getPackedPositionForGroup(this.eBk);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a oT(int i) {
+    public static a pg(int i) {
         return t(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a t(int i, int i2, int i3, int i4) {
-        a aLO = aLO();
-        aLO.type = i;
-        aLO.eyt = i2;
-        aLO.eyu = i3;
-        aLO.eyv = i4;
-        return aLO;
+        a aMC = aMC();
+        aMC.type = i;
+        aMC.eBk = i2;
+        aMC.eBl = i3;
+        aMC.eBm = i4;
+        return aMC;
     }
 
-    private static a aLO() {
+    private static a aMC() {
         a aVar;
-        synchronized (eyp) {
-            if (eyp.size() > 0) {
-                aVar = eyp.remove(0);
-                aVar.UB();
+        synchronized (eBg) {
+            if (eBg.size() > 0) {
+                aVar = eBg.remove(0);
+                aVar.UD();
             } else {
                 aVar = new a();
             }
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (eyp) {
-            if (eyp.size() < 5) {
-                eyp.add(this);
+        synchronized (eBg) {
+            if (eBg.size() < 5) {
+                eBg.add(this);
             }
         }
     }

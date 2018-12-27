@@ -25,21 +25,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class c {
-    private static com.baidu.poly.a bJE = null;
-    private static volatile c bJF;
+    private static com.baidu.poly.a bJH = null;
+    private static volatile c bJI;
     private Context mContext;
 
     public static synchronized c cl(Context context) {
         c cVar;
         synchronized (c.class) {
-            if (bJF == null) {
+            if (bJI == null) {
                 synchronized (c.class) {
-                    if (bJF == null) {
-                        bJF = new c(context.getApplicationContext());
+                    if (bJI == null) {
+                        bJI = new c(context.getApplicationContext());
                     }
                 }
             }
-            cVar = bJF;
+            cVar = bJI;
         }
         return cVar;
     }
@@ -49,7 +49,7 @@ public final class c {
     }
 
     public void a(Context context, String str, final BaiduPayCallback baiduPayCallback) {
-        if (!com.baidu.tbadk.pay.c.OX().OY()) {
+        if (!com.baidu.tbadk.pay.c.OY().OZ()) {
             l.showToast(TbadkCoreApplication.getInst(), e.j.plugin_pay_wallet_not_found);
         } else if (context instanceof Activity) {
             d dVar = new d();
@@ -69,7 +69,7 @@ public final class c {
     }
 
     public void doAliPay(Context context, String str, final AliPayCallback aliPayCallback) {
-        if (!com.baidu.tbadk.pay.c.OX().OY()) {
+        if (!com.baidu.tbadk.pay.c.OY().OZ()) {
             l.showToast(TbadkCoreApplication.getInst(), e.j.plugin_pay_wallet_not_found);
         } else if (context instanceof Activity) {
             d dVar = new d();
@@ -195,15 +195,15 @@ public final class c {
     }
 
     private static com.baidu.poly.a E(Activity activity) {
-        if (bJE != null) {
-            return bJE;
+        if (bJH != null) {
+            return bJH;
         }
-        bJE = new a.C0110a().a(new com.baidu.poly.d.b.a(activity)).bK(a.b.ONLINE).bn(activity);
-        return bJE;
+        bJH = new a.C0110a().a(new com.baidu.poly.d.b.a(activity)).bK(a.b.ONLINE).bn(activity);
+        return bJH;
     }
 
-    public static com.baidu.poly.a YU() {
-        return bJE;
+    public static com.baidu.poly.a YW() {
+        return bJH;
     }
 
     public boolean isWxAppInstalledAndSupported(Context context) {

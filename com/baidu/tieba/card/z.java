@@ -19,15 +19,15 @@ import com.baidu.tbadk.widget.layout.FrsBaseVideoView;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class z extends a<bb> implements com.baidu.tieba.a.e {
-    private bb aFf;
-    private final View byP;
-    private HeadImageView cWN;
-    private TextView cWO;
-    private TextView cWP;
-    private TextView cWQ;
-    private w cWR;
-    private FrsBaseVideoView cWS;
-    private String caw;
+    private bb aFg;
+    private final View byS;
+    private HeadImageView cZD;
+    private TextView cZE;
+    private TextView cZF;
+    private TextView cZG;
+    private w cZH;
+    private FrsBaseVideoView cZI;
+    private String caz;
     private TbPageContext<?> mPageContext;
 
     public z(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
@@ -35,25 +35,25 @@ public class z extends a<bb> implements com.baidu.tieba.a.e {
         View view = getView();
         view.setOnClickListener(this);
         this.mPageContext = tbPageContext;
-        this.cWN = (HeadImageView) view.findViewById(e.g.topic_icon);
-        this.cWN.setIsRound(true);
-        this.cWN.setDefaultResource(e.f.pic_head_topic);
-        this.cWO = (TextView) view.findViewById(e.g.card_topic_name);
-        this.cWQ = (TextView) view.findViewById(e.g.card_thread_title);
-        this.cWP = (TextView) view.findViewById(e.g.card_reply_time);
-        this.byP = view.findViewById(e.g.card_divider_line);
-        this.cWS = (FrsBaseVideoView) view.findViewById(e.g.base_video_view);
-        this.cWS.setClickListener(this);
+        this.cZD = (HeadImageView) view.findViewById(e.g.topic_icon);
+        this.cZD.setIsRound(true);
+        this.cZD.setDefaultResource(e.f.pic_head_topic);
+        this.cZE = (TextView) view.findViewById(e.g.card_topic_name);
+        this.cZG = (TextView) view.findViewById(e.g.card_thread_title);
+        this.cZF = (TextView) view.findViewById(e.g.card_reply_time);
+        this.byS = view.findViewById(e.g.card_divider_line);
+        this.cZI = (FrsBaseVideoView) view.findViewById(e.g.base_video_view);
+        this.cZI.setClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
-        this.cWN.invalidate();
-        al.h(this.cWO, e.d.cp_cont_b);
+        this.cZD.invalidate();
+        al.h(this.cZE, e.d.cp_cont_b);
         al.i(getView(), e.f.addresslist_item_bg);
-        al.j(this.byP, e.d.cp_bg_line_e);
-        if (this.cWS != null) {
-            this.cWS.onChangeSkinType(i);
+        al.j(this.byS, e.d.cp_bg_line_e);
+        if (this.cZI != null) {
+            this.cZI.onChangeSkinType(i);
         }
     }
 
@@ -73,53 +73,53 @@ public class z extends a<bb> implements com.baidu.tieba.a.e {
             }
             return;
         }
-        this.aFf = bbVar;
+        this.aFg = bbVar;
         if (getView() != null) {
             getView().setVisibility(0);
             getView().setOnClickListener(this);
         }
-        if (this.cWS != null) {
-            this.cWS.a(this.aFf, bbVar.zq());
+        if (this.cZI != null) {
+            this.cZI.a(this.aFg, bbVar.zq());
         }
         if (bbVar.zG() != null) {
-            this.cWO.setText(bbVar.zG().getName_show());
+            this.cZE.setText(bbVar.zG().getName_show());
         }
-        this.cWP.setText(ao.L(bbVar.zz() * 1000));
+        this.cZF.setText(ao.M(bbVar.zz() * 1000));
         String str = bbVar.Ba() + "：";
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
         spannableStringBuilder.append((CharSequence) bbVar.i(false, true));
         spannableStringBuilder.setSpan(new ForegroundColorSpan(al.getColor(e.d.cp_link_tip_c)), 0, str.length(), 33);
-        this.cWQ.setText(spannableStringBuilder);
-        o.a(this.cWQ, this.aFf.getTid(), e.d.cp_cont_b, e.d.cp_cont_d);
+        this.cZG.setText(spannableStringBuilder);
+        o.a(this.cZG, this.aFg.getTid(), e.d.cp_cont_b, e.d.cp_cont_d);
         d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.aFf != null) {
-            if (apc() != null) {
-                apc().a(view, this.aFf, this.cWR);
+        if (this.aFg != null) {
+            if (apS() != null) {
+                apS().a(view, this.aFg, this.cZH);
             }
-            o.mD(this.aFf.getTid());
-            o.a(this.cWQ, this.aFf.getTid(), e.d.cp_cont_b, e.d.cp_cont_d);
-            apE();
+            o.mG(this.aFg.getTid());
+            o.a(this.cZG, this.aFg.getTid(), e.d.cp_cont_b, e.d.cp_cont_d);
+            aqt();
         }
     }
 
-    private void apE() {
-        if (this.aFf != null && this.aFf.zG() != null && this.aFf.zG().getName_show() != null) {
-            if (com.baidu.tbadk.plugins.b.cP(true) && !com.baidu.tbadk.plugins.b.Px()) {
-                HotTopicActivityConfig createNormalConfig = new HotTopicActivityConfig(getContext()).createNormalConfig("", this.aFf.zG().getName_show() + "", "3");
-                createNormalConfig.setExtra(this.aFf.getFid(), this.aFf.Be(), this.aFf.Bf(), com.baidu.adp.lib.g.b.d(this.aFf.getTid(), 0L));
+    private void aqt() {
+        if (this.aFg != null && this.aFg.zG() != null && this.aFg.zG().getName_show() != null) {
+            if (com.baidu.tbadk.plugins.b.cP(true) && !com.baidu.tbadk.plugins.b.Pz()) {
+                HotTopicActivityConfig createNormalConfig = new HotTopicActivityConfig(getContext()).createNormalConfig("", this.aFg.zG().getName_show() + "", "3");
+                createNormalConfig.setExtra(this.aFg.getFid(), this.aFg.Be(), this.aFg.Bf(), com.baidu.adp.lib.g.b.d(this.aFg.getTid(), 0L));
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
                 return;
             }
-            ay.Ef().c(this.mPageContext, new String[]{this.aFf.Bg()});
+            ay.Ef().c(this.mPageContext, new String[]{this.aFg.Bg()});
         }
     }
 
     @Override // com.baidu.tieba.a.e
     public void setPage(String str) {
-        this.caw = str;
+        this.caz = str;
     }
 }

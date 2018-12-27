@@ -18,9 +18,9 @@ import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class g {
-    private NEGFeedBackView caU;
-    private ViewGroup caV;
-    private NEGFeedBackView.a caW = new NEGFeedBackView.a() { // from class: com.baidu.tieba.frs.vc.g.1
+    private NEGFeedBackView caX;
+    private ViewGroup caY;
+    private NEGFeedBackView.a caZ = new NEGFeedBackView.a() { // from class: com.baidu.tieba.frs.vc.g.1
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
         public void a(ah ahVar) {
             TiebaStatic.log(new am("c11973").aA(ImageViewerConfig.FORUM_ID, ahVar.getFid()).aA("tid", ahVar.getTid()).aA("uid", TbadkCoreApplication.getCurrentAccount()));
@@ -49,64 +49,64 @@ public class g {
 
     public g(TbPageContext tbPageContext, ViewGroup viewGroup) {
         this.mPageContext = tbPageContext;
-        this.caV = viewGroup;
+        this.caY = viewGroup;
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
     }
 
-    public boolean aHs() {
-        return this.caU != null && this.caU.getVisibility() == 0;
+    public boolean aIh() {
+        return this.caX != null && this.caX.getVisibility() == 0;
     }
 
     public void af(bb bbVar) {
         int i = 0;
-        if (bbVar != null && this.mPageContext != null && this.caV != null) {
+        if (bbVar != null && this.mPageContext != null && this.caY != null) {
             boolean z = (bbVar.zG() == null || bbVar.zG().getUserId() == null || !bbVar.zG().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
             if (bbVar.AI() && bbVar.yF() != null && !z) {
-                if (this.caU == null) {
-                    this.caU = new NEGFeedBackView(this.mPageContext);
-                    this.caU.setUniqueId(this.mBdUniqueId);
-                    this.caU.setId(e.g.negative_feedback_view);
-                    this.caU.setDefaultReasonArray(new String[]{this.mPageContext.getString(e.j.bad_quality), "", ""});
-                    this.caU.setEventCallback(this.caW);
-                    this.caU.a(this.caV, l.h(this.mPageContext.getPageActivity(), e.C0210e.tbds120), 0);
-                    this.caU.onChangeSkinType();
+                if (this.caX == null) {
+                    this.caX = new NEGFeedBackView(this.mPageContext);
+                    this.caX.setUniqueId(this.mBdUniqueId);
+                    this.caX.setId(e.g.negative_feedback_view);
+                    this.caX.setDefaultReasonArray(new String[]{this.mPageContext.getString(e.j.bad_quality), "", ""});
+                    this.caX.setEventCallback(this.caZ);
+                    this.caX.a(this.caY, l.h(this.mPageContext.getPageActivity(), e.C0210e.tbds120), 0);
+                    this.caX.onChangeSkinType();
                 }
-                if (this.caU.getVisibility() != 0) {
-                    this.caU.setVisibility(0);
+                if (this.caX.getVisibility() != 0) {
+                    this.caX.setVisibility(0);
                 }
                 ah ahVar = new ah();
                 ahVar.setTid(bbVar.getTid());
                 ahVar.setFid(bbVar.getFid());
                 ahVar.a(bbVar.yF());
-                this.caU.setData(ahVar);
+                this.caX.setData(ahVar);
             } else {
-                if (this.caU != null && this.caU.getVisibility() != 8) {
-                    this.caU.setVisibility(8);
+                if (this.caX != null && this.caX.getVisibility() != 8) {
+                    this.caX.setVisibility(8);
                 }
                 i = l.h(this.mPageContext.getPageActivity(), e.C0210e.ds32);
             }
-            if (this.caV.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.caV.getLayoutParams();
+            if (this.caY.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.caY.getLayoutParams();
                 layoutParams.rightMargin = i;
-                this.caV.setLayoutParams(layoutParams);
+                this.caY.setLayoutParams(layoutParams);
             }
-            if (this.caV.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.caV.getLayoutParams();
+            if (this.caY.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.caY.getLayoutParams();
                 layoutParams2.rightMargin = i;
-                this.caV.setLayoutParams(layoutParams2);
+                this.caY.setLayoutParams(layoutParams2);
             }
-            if (this.caU != null) {
-                this.caU.Uz();
+            if (this.caX != null) {
+                this.caX.UB();
             }
         }
     }
 
     public void onChangeSkinType() {
-        if (this.caU != null) {
-            this.caU.onChangeSkinType();
+        if (this.caX != null) {
+            this.caX.onChangeSkinType();
         }
     }
 }

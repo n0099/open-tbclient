@@ -170,7 +170,7 @@ public class b {
                                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                                 File file3 = new File(string3);
                                 if (file3.exists() && file3.isFile()) {
-                                    imageFileInfo.setModifyTime(ao.ae(file3.lastModified()));
+                                    imageFileInfo.setModifyTime(ao.af(file3.lastModified()));
                                 }
                                 imageFileInfo.setFilePath(string3);
                                 aVar.a(imageFileInfo);
@@ -371,7 +371,7 @@ public class b {
                                         }
                                         imageFileInfo.setIsGif(z);
                                         imageFileInfo.setIsLong(z2);
-                                        imageFileInfo.setModifyTime(ao.ae(file.lastModified()));
+                                        imageFileInfo.setModifyTime(ao.af(file.lastModified()));
                                         list.add(imageFileInfo);
                                         a(list, interfaceC0153b);
                                     }

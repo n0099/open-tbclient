@@ -5,8 +5,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import org.apache.http.client.methods.HttpGet;
 /* loaded from: classes.dex */
 public abstract class e {
-    private static e aDx = null;
-    public boolean aDw = false;
+    private static e aDy = null;
+    public boolean aDx = false;
 
     public abstract String getAllIPListCanUsed();
 
@@ -31,17 +31,17 @@ public abstract class e {
     public abstract void setIpDisableTime(int i);
 
     public static e getInstance() {
-        if (aDx == null) {
+        if (aDy == null) {
             synchronized (e.class) {
-                if (aDx == null) {
+                if (aDy == null) {
                     CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016102, e.class);
                     if (runTask != null && runTask.getData() != null) {
-                        aDx = (e) runTask.getData();
+                        aDy = (e) runTask.getData();
                     }
-                    return aDx;
+                    return aDy;
                 }
             }
         }
-        return aDx;
+        return aDy;
     }
 }

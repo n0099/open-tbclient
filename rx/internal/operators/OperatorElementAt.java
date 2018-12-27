@@ -4,8 +4,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class OperatorElementAt<T> implements d.b<T, T> {
-    final boolean iFq;
-    final T iFr;
+    final boolean iIA;
+    final T iIB;
     final int index;
 
     @Override // rx.functions.f
@@ -26,8 +26,8 @@ public final class OperatorElementAt<T> implements d.b<T, T> {
             throw new IndexOutOfBoundsException(i + " is out of bounds");
         }
         this.index = i;
-        this.iFr = t;
-        this.iFq = z;
+        this.iIB = t;
+        this.iIA = z;
     }
 
     public rx.j<? super T> call(final rx.j<? super T> jVar) {
@@ -53,8 +53,8 @@ public final class OperatorElementAt<T> implements d.b<T, T> {
             @Override // rx.e
             public void onCompleted() {
                 if (this.currentIndex <= OperatorElementAt.this.index) {
-                    if (OperatorElementAt.this.iFq) {
-                        jVar.onNext(OperatorElementAt.this.iFr);
+                    if (OperatorElementAt.this.iIA) {
+                        jVar.onNext(OperatorElementAt.this.iIB);
                         jVar.onCompleted();
                         return;
                     }

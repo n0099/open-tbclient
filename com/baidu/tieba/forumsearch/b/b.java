@@ -4,49 +4,49 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId dGO = BdUniqueId.gen();
-    private String dGK;
-    private String dGL;
-    private String dGM;
-    private boolean dGN;
-    private String dGt;
-    private String doa;
+    public static final BdUniqueId dJC = BdUniqueId.gen();
+    private String dJA;
+    private boolean dJB;
+    private String dJh;
+    private String dJy;
+    private String dJz;
+    private String dqR;
     private long mForumId;
     private String mForumName;
     private String mIntro;
 
     public b(String str) {
-        this.dGt = str;
+        this.dJh = str;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dGO;
+        return dJC;
     }
 
     public void a(SearchForum searchForum) {
         if (searchForum != null) {
             this.mForumId = searchForum.forum_id.longValue();
             this.mForumName = searchForum.forum_name;
-            this.doa = searchForum.avatar;
-            this.dGK = searchForum.post_num;
-            this.dGL = searchForum.concern_num;
-            this.dGM = searchForum.slogan;
+            this.dqR = searchForum.avatar;
+            this.dJy = searchForum.post_num;
+            this.dJz = searchForum.concern_num;
+            this.dJA = searchForum.slogan;
             this.mIntro = searchForum.intro;
-            this.dGN = searchForum.has_concerned.intValue() != 0;
+            this.dJB = searchForum.has_concerned.intValue() != 0;
         }
     }
 
     public String getAvatar() {
-        return this.doa;
+        return this.dqR;
     }
 
-    public String azP() {
-        return this.dGL;
+    public String aAE() {
+        return this.dJz;
     }
 
-    public String azQ() {
-        return this.dGK;
+    public String aAF() {
+        return this.dJy;
     }
 
     public String getForumName() {
@@ -57,7 +57,7 @@ public class b extends com.baidu.tieba.card.data.b {
         return this.mForumId;
     }
 
-    public String azR() {
-        return this.dGt;
+    public String aAG() {
+        return this.dJh;
     }
 }

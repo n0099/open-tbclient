@@ -180,7 +180,7 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
         }
         if (!this.azp.contains(bVar)) {
             if (bVar.azA != null) {
-                bVar.azA.NN();
+                bVar.azA.NO();
             }
             this.azl.addView(bVar.azy, i);
             if (i == -1) {
@@ -425,7 +425,7 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
         this.azl.onChangeSkinType(i);
         al.j(this.azv, e.d.cp_bg_line_b);
         for (b bVar : this.azp) {
-            bVar.azy.eC(i);
+            bVar.azy.eD(i);
         }
         if (this.azs != null) {
             int count = this.azs.getCount();

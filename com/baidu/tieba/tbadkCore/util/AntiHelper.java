@@ -36,7 +36,7 @@ public class AntiHelper {
         void onPositiveButtonClick(com.baidu.tbadk.core.dialog.a aVar);
     }
 
-    public static boolean ai(int i, String str) {
+    public static boolean aj(int i, String str) {
         if (i != 3250013) {
             return i == 3250002 || i == 3250001 || i == 3250003 || i == 3250004 || i == 3250013;
         }
@@ -47,7 +47,7 @@ public class AntiHelper {
         return true;
     }
 
-    public static boolean vA(int i) {
+    public static boolean vN(int i) {
         return i == 3250002 || i == 3250001 || i == 3250003 || i == 3250004 || i == 3250013;
     }
 
@@ -116,7 +116,7 @@ public class AntiHelper {
 
     public static boolean a(Context context, AntiData antiData, OperationType operationType, PageType pageType) {
         if (!g(antiData)) {
-            bEe();
+            bEW();
         }
         if (d(antiData) || f(antiData)) {
             if (antiData.isHas_chance()) {
@@ -294,14 +294,14 @@ public class AntiHelper {
     }
 
     public static boolean e(Context context, int i, String str) {
-        if (vB(i)) {
+        if (vO(i)) {
             aK(context, str);
             return true;
         }
         return false;
     }
 
-    public static boolean vB(int i) {
+    public static boolean vO(int i) {
         return i == 3250012;
     }
 
@@ -314,7 +314,7 @@ public class AntiHelper {
         }
     }
 
-    private static void bEe() {
+    private static void bEW() {
         com.baidu.tbadk.core.sharedPref.b.getInstance().remove("anti_vcode_no_longer_tip");
     }
 }

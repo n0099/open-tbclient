@@ -6,7 +6,7 @@ import android.os.Build;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes3.dex */
 public class c extends AsyncTask<Void, Void, String> {
-    private a gIU;
+    private a gLL;
     private Camera mCamera;
     private byte[] mData;
     private int orientation;
@@ -19,11 +19,11 @@ public class c extends AsyncTask<Void, Void, String> {
     public c(Camera camera, byte[] bArr, a aVar, int i) {
         this.mCamera = camera;
         this.mData = bArr;
-        this.gIU = aVar;
+        this.gLL = aVar;
         this.orientation = i;
     }
 
-    public c btM() {
+    public c buy() {
         if (Build.VERSION.SDK_INT >= 11) {
             executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
         } else {
@@ -41,7 +41,7 @@ public class c extends AsyncTask<Void, Void, String> {
     @Override // android.os.AsyncTask
     protected void onCancelled() {
         super.onCancelled();
-        this.gIU = null;
+        this.gLL = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -76,13 +76,13 @@ public class c extends AsyncTask<Void, Void, String> {
                 i = i2;
             }
             try {
-                if (this.gIU != null) {
-                    return this.gIU.a(bArr, i2, i, false);
+                if (this.gLL != null) {
+                    return this.gLL.a(bArr, i2, i, false);
                 }
                 return null;
             } catch (Exception e2) {
                 try {
-                    return this.gIU.a(bArr, i2, i, true);
+                    return this.gLL.a(bArr, i2, i, true);
                 } catch (Exception e3) {
                     return null;
                 }

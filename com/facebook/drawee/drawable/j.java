@@ -7,7 +7,7 @@ public interface j {
 
     void k(int i, float f);
 
-    void oU(boolean z);
+    void oX(boolean z);
 
     void setRadius(float f);
 }

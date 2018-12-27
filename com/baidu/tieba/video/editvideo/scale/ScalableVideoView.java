@@ -17,7 +17,7 @@ import java.util.Map;
 /* loaded from: classes5.dex */
 public class ScalableVideoView extends TextureView implements MediaPlayer.OnVideoSizeChangedListener, TextureView.SurfaceTextureListener {
     protected MediaPlayer Wd;
-    protected ScalableType hCD;
+    protected ScalableType hFO;
 
     public ScalableVideoView(Context context) {
         this(context, null);
@@ -30,11 +30,11 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     public ScalableVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes;
-        this.hCD = ScalableType.NONE;
+        this.hFO = ScalableType.NONE;
         if (attributeSet != null && (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, e.l.videoScaleStyle, 0, 0)) != null) {
             int i2 = obtainStyledAttributes.getInt(e.l.videoScaleStyle_videoScalableType, ScalableType.NONE.ordinal());
             obtainStyledAttributes.recycle();
-            this.hCD = ScalableType.values()[i2];
+            this.hFO = ScalableType.values()[i2];
         }
     }
 
@@ -81,12 +81,12 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
 
     private void aa(int i, int i2) {
         Matrix a;
-        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.hCD)) != null) {
+        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.hFO)) != null) {
             setTransform(a);
         }
     }
 
-    private void Xk() {
+    private void Xm() {
         if (this.Wd == null) {
             this.Wd = new MediaPlayer();
             this.Wd.setOnVideoSizeChangedListener(this);
@@ -110,32 +110,32 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     }
 
     public void setDataSource(String str) throws IOException {
-        Xk();
+        Xm();
         this.Wd.setDataSource(str);
     }
 
     public void setDataSource(Context context, Uri uri, Map<String, String> map) throws IOException {
-        Xk();
+        Xm();
         this.Wd.setDataSource(context, uri, map);
     }
 
     public void setDataSource(Context context, Uri uri) throws IOException {
-        Xk();
+        Xm();
         this.Wd.setDataSource(context, uri);
     }
 
     public void setDataSource(FileDescriptor fileDescriptor, long j, long j2) throws IOException {
-        Xk();
+        Xm();
         this.Wd.setDataSource(fileDescriptor, j, j2);
     }
 
     public void setDataSource(FileDescriptor fileDescriptor) throws IOException {
-        Xk();
+        Xm();
         this.Wd.setDataSource(fileDescriptor);
     }
 
     public void setScalableType(ScalableType scalableType) {
-        this.hCD = scalableType;
+        this.hFO = scalableType;
         aa(getVideoWidth(), getVideoHeight());
     }
 

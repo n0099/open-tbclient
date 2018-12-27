@@ -46,17 +46,17 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.LK().b(advertAppInfo);
+        com.baidu.tbadk.distribute.a.LL().b(advertAppInfo);
         String str2 = advertAppInfo.apr;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.d.buF().a(advertAppInfo.apv, advertAppInfo.apu, str2, i, com.baidu.tieba.recapp.download.d.uz(advertAppInfo.apv).intValue(), null, true, false, true, advertAppInfo.apB.userPortrait, downloadStaticsData, advertAppInfo.apB.userName);
+        com.baidu.tieba.recapp.download.d.bvr().a(advertAppInfo.apv, advertAppInfo.apu, str2, i, com.baidu.tieba.recapp.download.d.uC(advertAppInfo.apv).intValue(), null, true, false, true, advertAppInfo.apB.userPortrait, downloadStaticsData, advertAppInfo.apB.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.d.buF().j(advertAppInfo.apu, advertAppInfo.apv, true);
+        com.baidu.tieba.recapp.download.d.bvr().j(advertAppInfo.apu, advertAppInfo.apv, true);
     }
 
     public static final void aG(Context context, String str) {
@@ -168,11 +168,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.buy().sendFRS(z, str, str2, str3, list, str4);
+        r.bvk().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.buy().a(z, str, str2, str3, str4, list, str5);
+        r.bvk().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int e(TbPageContext tbPageContext, String str) {
@@ -191,15 +191,15 @@ public class s {
 
     private static boolean f(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        h buv = r.buy().buv();
-        if (buv == null) {
+        h bvh = r.bvk().bvh();
+        if (bvh == null) {
             return false;
         }
-        if (buv.jO(str)) {
-            buv.a(tbPageContext.getPageActivity(), strArr, true);
+        if (bvh.jP(str)) {
+            bvh.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return buv.d(tbPageContext.getPageActivity(), strArr);
+        return bvh.d(tbPageContext.getPageActivity(), strArr);
     }
 
     public static int aH(Context context, String str) {
@@ -218,14 +218,14 @@ public class s {
 
     private static boolean aI(Context context, String str) {
         String[] strArr = {str};
-        h buv = r.buy().buv();
-        if (buv == null) {
+        h bvh = r.bvk().bvh();
+        if (bvh == null) {
             return false;
         }
-        if (buv.jO(str)) {
-            buv.a(context, strArr, true);
+        if (bvh.jP(str)) {
+            bvh.a(context, strArr, true);
             return true;
         }
-        return buv.d(context, strArr);
+        return bvh.d(context, strArr);
     }
 }

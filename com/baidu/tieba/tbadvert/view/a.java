@@ -10,21 +10,21 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.tbadvert.view.CountDownTextView;
 /* loaded from: classes3.dex */
 public class a {
-    private ImageView hpm;
-    private InterfaceC0321a hpn;
+    private ImageView hsy;
+    private InterfaceC0321a hsz;
     private Context mContext;
     private FrameLayout mRootView;
 
     /* renamed from: com.baidu.tieba.tbadvert.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public interface InterfaceC0321a {
-        void bEL();
+        void bFD();
 
-        void bEM();
+        void bFE();
     }
 
     public a(Context context, InterfaceC0321a interfaceC0321a) {
-        this.hpn = interfaceC0321a;
+        this.hsz = interfaceC0321a;
         this.mContext = context;
         this.mRootView = new FrameLayout(context);
     }
@@ -37,28 +37,28 @@ public class a {
         if (obj instanceof com.baidu.adp.widget.ImageView.a) {
             i((com.baidu.adp.widget.ImageView.a) obj);
         }
-        bES();
-        vJ(i);
+        bFK();
+        vW(i);
     }
 
     private void i(com.baidu.adp.widget.ImageView.a aVar) {
-        this.hpm = new ImageView(this.mContext);
-        this.hpm.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.hsy = new ImageView(this.mContext);
+        this.hsy.setScaleType(ImageView.ScaleType.CENTER_CROP);
         if (aVar != null) {
-            this.hpm.setImageBitmap(aVar.op());
+            this.hsy.setImageBitmap(aVar.op());
         }
-        this.hpm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.1
+        this.hsy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.hpn != null) {
-                    a.this.hpn.bEL();
+                if (a.this.hsz != null) {
+                    a.this.hsz.bFD();
                 }
             }
         });
-        this.mRootView.addView(this.hpm);
+        this.mRootView.addView(this.hsy);
     }
 
-    private void bES() {
+    private void bFK() {
         TextView textView = new TextView(this.mContext);
         textView.setText(e.j.tb_ad_label);
         int dimension = (int) this.mContext.getResources().getDimension(e.C0210e.ds28);
@@ -77,7 +77,7 @@ public class a {
         this.mRootView.addView(textView, layoutParams);
     }
 
-    private void vJ(int i) {
+    private void vW(int i) {
         CountDownTextView countDownTextView = new CountDownTextView(this.mContext);
         String string = this.mContext.getResources().getString(e.j.skip);
         countDownTextView.setTextSize(0, (int) this.mContext.getResources().getDimension(e.C0210e.ds22));
@@ -90,23 +90,23 @@ public class a {
         gradientDrawable.setCornerRadius(this.mContext.getResources().getDimension(e.C0210e.ds4));
         gradientDrawable.setStroke(1, -16777216);
         countDownTextView.setBackgroundDrawable(gradientDrawable);
-        countDownTextView.N(string, i);
+        countDownTextView.O(string, i);
         layoutParams.gravity = 53;
         layoutParams.setMargins(0, (int) this.mContext.getResources().getDimension(e.C0210e.ds36), (int) this.mContext.getResources().getDimension(e.C0210e.ds32), 0);
         this.mRootView.addView(countDownTextView, layoutParams);
         countDownTextView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.hpn != null) {
-                    a.this.hpn.bEM();
+                if (a.this.hsz != null) {
+                    a.this.hsz.bFE();
                 }
             }
         });
         countDownTextView.setTimeoutListener(new CountDownTextView.b() { // from class: com.baidu.tieba.tbadvert.view.a.3
             @Override // com.baidu.tieba.tbadvert.view.CountDownTextView.b
             public void ak(View view) {
-                if (a.this.hpn != null) {
-                    a.this.hpn.bEM();
+                if (a.this.hsz != null) {
+                    a.this.hsz.bFE();
                 }
             }
         });

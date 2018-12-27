@@ -24,7 +24,7 @@ public class AudioAnimationView extends View {
     private int Tw;
     private int Tx;
     private final Runnable Ty;
-    private Rect[] hMw;
+    private Rect[] hPH;
     private Paint mPaint;
     private int mSkinType;
     private Random random;
@@ -105,8 +105,8 @@ public class AudioAnimationView extends View {
         if (this.Tq) {
             for (int i = 0; i < this.Tp; i++) {
                 pS();
-                if (i < this.hMw.length) {
-                    canvas.drawRect(this.hMw[i], this.mPaint);
+                if (i < this.hPH.length) {
+                    canvas.drawRect(this.hPH[i], this.mPaint);
                 }
             }
         }
@@ -130,8 +130,8 @@ public class AudioAnimationView extends View {
 
     private void pS() {
         int nextInt;
-        if (this.hMw == null || this.hMw.length != this.Tp) {
-            this.hMw = new Rect[this.Tp];
+        if (this.hPH == null || this.hPH.length != this.Tp) {
+            this.hPH = new Rect[this.Tp];
         }
         for (int i = 0; i < this.Tp; i++) {
             int i2 = this.Tw * i * 2;
@@ -142,10 +142,10 @@ public class AudioAnimationView extends View {
             }
             int i3 = this.Tw + i2;
             int i4 = this.Tt;
-            if (this.hMw[i] == null) {
-                this.hMw[i] = new Rect(i2, nextInt, i3, i4);
+            if (this.hPH[i] == null) {
+                this.hPH[i] = new Rect(i2, nextInt, i3, i4);
             } else {
-                this.hMw[i].set(i2, nextInt, i3, i4);
+                this.hPH[i].set(i2, nextInt, i3, i4);
             }
         }
     }

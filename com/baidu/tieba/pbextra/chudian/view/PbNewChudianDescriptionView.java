@@ -7,28 +7,28 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.pb.a;
 /* loaded from: classes3.dex */
 public class PbNewChudianDescriptionView extends LinearLayout implements View.OnClickListener {
-    private a.InterfaceC0278a gnv;
-    private String gnx;
-    private int gny;
+    private a.InterfaceC0278a gqm;
+    private String gqo;
+    private int gqp;
     private Context mContext;
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!ao.isEmpty(this.gnx)) {
-            com.baidu.tbadk.browser.a.ad(this.mContext, this.gnx);
-            if (this.gnv != null) {
-                switch (this.gny) {
+        if (!ao.isEmpty(this.gqo)) {
+            com.baidu.tbadk.browser.a.ad(this.mContext, this.gqo);
+            if (this.gqm != null) {
+                switch (this.gqp) {
                     case 0:
-                        this.gnv.d(this.gnx, "IMAGE1", "LINK_IMAGE", null, null);
+                        this.gqm.d(this.gqo, "IMAGE1", "LINK_IMAGE", null, null);
                         return;
                     case 1:
-                        this.gnv.d(this.gnx, "IMAGE1", "LINK_IMAGE", null, null);
+                        this.gqm.d(this.gqo, "IMAGE1", "LINK_IMAGE", null, null);
                         return;
                     case 2:
-                        this.gnv.d(this.gnx, "IMAGE2", "LINK_IMAGE", null, null);
+                        this.gqm.d(this.gqo, "IMAGE2", "LINK_IMAGE", null, null);
                         return;
                     case 3:
-                        this.gnv.d(this.gnx, "IMAGE3", "LINK_IMAGE", null, null);
+                        this.gqm.d(this.gqo, "IMAGE3", "LINK_IMAGE", null, null);
                         return;
                     default:
                         return;
@@ -38,7 +38,7 @@ public class PbNewChudianDescriptionView extends LinearLayout implements View.On
     }
 
     public void setClickUrl(String str, int i) {
-        this.gnx = str;
-        this.gny = i;
+        this.gqo = str;
+        this.gqp = i;
     }
 }

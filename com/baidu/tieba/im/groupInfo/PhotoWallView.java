@@ -20,14 +20,14 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class PhotoWallView extends FrameLayout {
-    private LinearLayout aIp;
-    private TbImageView[] eUd;
-    private LinearLayout eUe;
-    private LinearLayout eUf;
-    private LinearLayout eUg;
-    private c eUh;
-    private d eUi;
-    private List<PhotoUrlData> eUj;
+    private LinearLayout aIq;
+    private TbImageView[] eWU;
+    private LinearLayout eWV;
+    private LinearLayout eWW;
+    private LinearLayout eWX;
+    private c eWY;
+    private d eWZ;
+    private List<PhotoUrlData> eXa;
     private boolean isManager;
     private Context mContext;
     private int mScreenWidth;
@@ -35,11 +35,11 @@ public class PhotoWallView extends FrameLayout {
 
     public PhotoWallView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.eUd = new TbImageView[8];
-        this.aIp = null;
-        this.eUe = null;
-        this.eUf = null;
-        this.eUg = null;
+        this.eWU = new TbImageView[8];
+        this.aIq = null;
+        this.eWV = null;
+        this.eWW = null;
+        this.eWX = null;
         this.mTextView = null;
         this.mScreenWidth = 0;
         this.isManager = false;
@@ -48,11 +48,11 @@ public class PhotoWallView extends FrameLayout {
 
     public PhotoWallView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eUd = new TbImageView[8];
-        this.aIp = null;
-        this.eUe = null;
-        this.eUf = null;
-        this.eUg = null;
+        this.eWU = new TbImageView[8];
+        this.aIq = null;
+        this.eWV = null;
+        this.eWW = null;
+        this.eWX = null;
         this.mTextView = null;
         this.mScreenWidth = 0;
         this.isManager = false;
@@ -61,11 +61,11 @@ public class PhotoWallView extends FrameLayout {
 
     public PhotoWallView(Context context) {
         super(context);
-        this.eUd = new TbImageView[8];
-        this.aIp = null;
-        this.eUe = null;
-        this.eUf = null;
-        this.eUg = null;
+        this.eWU = new TbImageView[8];
+        this.aIq = null;
+        this.eWV = null;
+        this.eWW = null;
+        this.eWX = null;
         this.mTextView = null;
         this.mScreenWidth = 0;
         this.isManager = false;
@@ -75,11 +75,11 @@ public class PhotoWallView extends FrameLayout {
     private void init(Context context) {
         this.mContext = context;
         addView(LayoutInflater.from(context).inflate(e.h.photo_wall_view, (ViewGroup) null));
-        this.aIp = (LinearLayout) findViewById(e.g.photo_wall_container);
-        this.eUe = (LinearLayout) findViewById(e.g.first_line);
-        this.eUf = (LinearLayout) findViewById(e.g.second_line);
-        this.eUf.setVisibility(8);
-        this.eUg = (LinearLayout) findViewById(e.g.lay_hint_text);
+        this.aIq = (LinearLayout) findViewById(e.g.photo_wall_container);
+        this.eWV = (LinearLayout) findViewById(e.g.first_line);
+        this.eWW = (LinearLayout) findViewById(e.g.second_line);
+        this.eWW.setVisibility(8);
+        this.eWX = (LinearLayout) findViewById(e.g.lay_hint_text);
         this.mTextView = (TextView) findViewById(e.g.hint_text);
         this.mScreenWidth = l.aO(this.mContext);
     }
@@ -87,15 +87,15 @@ public class PhotoWallView extends FrameLayout {
     public void setData(List<PhotoUrlData> list) {
         TbImageView tbImageView;
         boolean z;
-        if (this.eUj != null && list != null) {
-            if (this.eUj.size() != list.size() || list.size() == 0 || this.eUj.size() == 0) {
+        if (this.eXa != null && list != null) {
+            if (this.eXa.size() != list.size() || list.size() == 0 || this.eXa.size() == 0) {
                 z = false;
             } else {
-                int size = this.eUj.size();
+                int size = this.eXa.size();
                 int i = 0;
                 z = false;
                 while (i < size) {
-                    if (this.eUj.get(i) == null || list.get(i) == null || !this.eUj.get(i).getPicId().equals(list.get(i).getPicId())) {
+                    if (this.eXa.get(i) == null || list.get(i) == null || !this.eXa.get(i).getPicId().equals(list.get(i).getPicId())) {
                         z = false;
                         break;
                     } else {
@@ -105,29 +105,29 @@ public class PhotoWallView extends FrameLayout {
                 }
             }
             if (!z) {
-                if (this.eUj == null) {
-                    this.eUj = new ArrayList();
+                if (this.eXa == null) {
+                    this.eXa = new ArrayList();
                 }
-                this.eUj.clear();
+                this.eXa.clear();
                 for (PhotoUrlData photoUrlData : list) {
-                    this.eUj.add(photoUrlData);
+                    this.eXa.add(photoUrlData);
                 }
             } else {
                 return;
             }
         }
-        this.eUe.removeAllViews();
-        this.eUf.removeAllViews();
-        LinearLayout.LayoutParams qd = qd(0);
-        LinearLayout.LayoutParams qd2 = qd(1);
-        LinearLayout.LayoutParams qd3 = qd(2);
+        this.eWV.removeAllViews();
+        this.eWW.removeAllViews();
+        LinearLayout.LayoutParams qq = qq(0);
+        LinearLayout.LayoutParams qq2 = qq(1);
+        LinearLayout.LayoutParams qq3 = qq(2);
         if (list != null && list.size() > 0) {
             int size2 = list.size();
             for (final int i2 = 0; i2 < size2 && i2 < 8; i2++) {
-                TbImageView tbImageView2 = this.eUd[i2];
+                TbImageView tbImageView2 = this.eWU[i2];
                 if (tbImageView2 == null) {
                     TbImageView tbImageView3 = new TbImageView(this.mContext);
-                    this.eUd[i2] = tbImageView3;
+                    this.eWU[i2] = tbImageView3;
                     tbImageView = tbImageView3;
                 } else {
                     tbImageView = tbImageView2;
@@ -141,8 +141,8 @@ public class PhotoWallView extends FrameLayout {
                     tbImageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupInfo.PhotoWallView.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            if (PhotoWallView.this.eUh != null) {
-                                PhotoWallView.this.eUh.a(view, 1, photoUrlData2, i2);
+                            if (PhotoWallView.this.eWY != null) {
+                                PhotoWallView.this.eWY.a(view, 1, photoUrlData2, i2);
                             }
                         }
                     });
@@ -150,8 +150,8 @@ public class PhotoWallView extends FrameLayout {
                         tbImageView.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.groupInfo.PhotoWallView.2
                             @Override // android.view.View.OnLongClickListener
                             public boolean onLongClick(View view) {
-                                if (PhotoWallView.this.eUi != null) {
-                                    PhotoWallView.this.eUi.a(view, photoUrlData2, i2);
+                                if (PhotoWallView.this.eWZ != null) {
+                                    PhotoWallView.this.eWZ.a(view, photoUrlData2, i2);
                                     return true;
                                 }
                                 return true;
@@ -161,24 +161,24 @@ public class PhotoWallView extends FrameLayout {
                 }
                 if (i2 < 4) {
                     if (i2 == 0) {
-                        this.eUe.addView(tbImageView, qd2);
+                        this.eWV.addView(tbImageView, qq2);
                     } else if (i2 == 3) {
-                        this.eUe.addView(tbImageView, qd3);
+                        this.eWV.addView(tbImageView, qq3);
                     } else {
-                        this.eUe.addView(tbImageView, qd);
+                        this.eWV.addView(tbImageView, qq);
                     }
                 } else if (i2 == 4) {
-                    this.eUf.addView(tbImageView, qd2);
+                    this.eWW.addView(tbImageView, qq2);
                 } else if (i2 == 7) {
-                    this.eUf.addView(tbImageView, qd3);
+                    this.eWW.addView(tbImageView, qq3);
                 } else {
-                    this.eUf.addView(tbImageView, qd);
+                    this.eWW.addView(tbImageView, qq);
                 }
             }
         }
         final int size3 = (list == null || list.size() == 0) ? 0 : list.size();
         if (this.isManager) {
-            this.eUg.setVisibility(0);
+            this.eWX.setVisibility(0);
             if (size3 == 0) {
                 this.mTextView.setText(this.mContext.getString(e.j.group_info_photo_add));
             } else {
@@ -197,44 +197,44 @@ public class PhotoWallView extends FrameLayout {
             tbImageView4.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupInfo.PhotoWallView.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (PhotoWallView.this.eUh != null) {
-                        PhotoWallView.this.eUh.a(view, 2, null, size3);
+                    if (PhotoWallView.this.eWY != null) {
+                        PhotoWallView.this.eWY.a(view, 2, null, size3);
                     }
                 }
             });
             tbImageView4.setOnLongClickListener(null);
             if (size3 < 4) {
                 if (size3 == 0) {
-                    this.eUe.addView(tbImageView4, qd2);
+                    this.eWV.addView(tbImageView4, qq2);
                 } else if (size3 == 3) {
-                    this.eUe.addView(tbImageView4, qd3);
+                    this.eWV.addView(tbImageView4, qq3);
                 } else {
-                    this.eUe.addView(tbImageView4, qd);
+                    this.eWV.addView(tbImageView4, qq);
                 }
             } else if (size3 == 4) {
-                this.eUf.addView(tbImageView4, qd2);
+                this.eWW.addView(tbImageView4, qq2);
             } else if (size3 == 7) {
-                this.eUf.addView(tbImageView4, qd3);
+                this.eWW.addView(tbImageView4, qq3);
             } else {
-                this.eUf.addView(tbImageView4, qd);
+                this.eWW.addView(tbImageView4, qq);
             }
         }
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eUe.getLayoutParams();
-        if (this.eUe.getChildCount() + this.eUf.getChildCount() > 4) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eWV.getLayoutParams();
+        if (this.eWV.getChildCount() + this.eWW.getChildCount() > 4) {
             layoutParams.bottomMargin = this.mContext.getResources().getDimensionPixelSize(e.C0210e.ds8);
-            this.eUe.setLayoutParams(layoutParams);
-            this.eUf.setVisibility(0);
+            this.eWV.setLayoutParams(layoutParams);
+            this.eWW.setVisibility(0);
             return;
         }
         layoutParams.bottomMargin = 0;
-        this.eUe.setLayoutParams(layoutParams);
+        this.eWV.setLayoutParams(layoutParams);
     }
 
     private void a(TbImageView tbImageView, String str) {
         tbImageView.startLoad(str, 10, false);
     }
 
-    private LinearLayout.LayoutParams qd(int i) {
+    private LinearLayout.LayoutParams qq(int i) {
         LinearLayout.LayoutParams layoutParams;
         int h = l.h(this.mContext, e.C0210e.ds54);
         int i2 = (this.mScreenWidth - h) / 4;
@@ -261,7 +261,7 @@ public class PhotoWallView extends FrameLayout {
 
     public void onDestory() {
         for (int i = 0; i < 8; i++) {
-            TbImageView tbImageView = this.eUd[i];
+            TbImageView tbImageView = this.eWU[i];
             if (tbImageView != null) {
                 tbImageView.setBackgroundDrawable(null);
                 tbImageView.setImageDrawable(null);
@@ -270,11 +270,11 @@ public class PhotoWallView extends FrameLayout {
     }
 
     public void setPhotoClickListener(c cVar) {
-        this.eUh = cVar;
+        this.eWY = cVar;
     }
 
     public void setPhotoLongClickListener(d dVar) {
-        this.eUi = dVar;
+        this.eWZ = dVar;
     }
 
     public void setIsManager(boolean z) {
@@ -282,6 +282,6 @@ public class PhotoWallView extends FrameLayout {
     }
 
     public void a(int i, BaseActivity baseActivity) {
-        baseActivity.getLayoutMode().onModeChanged(this.aIp);
+        baseActivity.getLayoutMode().onModeChanged(this.aIq);
     }
 }

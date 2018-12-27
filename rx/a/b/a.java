@@ -4,19 +4,19 @@ import android.os.Looper;
 import rx.g;
 /* loaded from: classes2.dex */
 public final class a {
-    private static final a iBk = new a();
-    private final g iBl;
+    private static final a iEu = new a();
+    private final g iEv;
 
     private a() {
-        g ccW = rx.a.a.a.ccT().ccU().ccW();
-        if (ccW != null) {
-            this.iBl = ccW;
+        g cdN = rx.a.a.a.cdK().cdL().cdN();
+        if (cdN != null) {
+            this.iEv = cdN;
         } else {
-            this.iBl = new b(Looper.getMainLooper());
+            this.iEv = new b(Looper.getMainLooper());
         }
     }
 
-    public static g ccX() {
-        return iBk.iBl;
+    public static g cdO() {
+        return iEu.iEv;
     }
 }

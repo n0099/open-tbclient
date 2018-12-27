@@ -5,70 +5,70 @@ import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
 public class f {
-    private static final f iNK = new f();
-    static final b iNP = new b() { // from class: rx.c.f.1
+    private static final f iQU = new f();
+    static final b iQZ = new b() { // from class: rx.c.f.1
     };
-    private final AtomicReference<b> iNL = new AtomicReference<>();
-    private final AtomicReference<d> iNM = new AtomicReference<>();
-    private final AtomicReference<h> iNN = new AtomicReference<>();
-    private final AtomicReference<a> iNO = new AtomicReference<>();
-    private final AtomicReference<g> iBi = new AtomicReference<>();
+    private final AtomicReference<b> iQV = new AtomicReference<>();
+    private final AtomicReference<d> iQW = new AtomicReference<>();
+    private final AtomicReference<h> iQX = new AtomicReference<>();
+    private final AtomicReference<a> iQY = new AtomicReference<>();
+    private final AtomicReference<g> iEs = new AtomicReference<>();
 
     @Deprecated
-    public static f ceQ() {
-        return iNK;
+    public static f cfH() {
+        return iQU;
     }
 
     f() {
     }
 
-    public b ceR() {
-        if (this.iNL.get() == null) {
+    public b cfI() {
+        if (this.iQV.get() == null) {
             Object a = a(b.class, System.getProperties());
             if (a == null) {
-                this.iNL.compareAndSet(null, iNP);
+                this.iQV.compareAndSet(null, iQZ);
             } else {
-                this.iNL.compareAndSet(null, (b) a);
+                this.iQV.compareAndSet(null, (b) a);
             }
         }
-        return this.iNL.get();
+        return this.iQV.get();
     }
 
-    public d ceS() {
-        if (this.iNM.get() == null) {
+    public d cfJ() {
+        if (this.iQW.get() == null) {
             Object a = a(d.class, System.getProperties());
             if (a == null) {
-                this.iNM.compareAndSet(null, e.ceP());
+                this.iQW.compareAndSet(null, e.cfG());
             } else {
-                this.iNM.compareAndSet(null, (d) a);
+                this.iQW.compareAndSet(null, (d) a);
             }
         }
-        return this.iNM.get();
+        return this.iQW.get();
     }
 
-    public h ceT() {
-        if (this.iNN.get() == null) {
+    public h cfK() {
+        if (this.iQX.get() == null) {
             Object a = a(h.class, System.getProperties());
             if (a == null) {
-                this.iNN.compareAndSet(null, i.cfd());
+                this.iQX.compareAndSet(null, i.cfU());
             } else {
-                this.iNN.compareAndSet(null, (h) a);
+                this.iQX.compareAndSet(null, (h) a);
             }
         }
-        return this.iNN.get();
+        return this.iQX.get();
     }
 
-    public a ceU() {
-        if (this.iNO.get() == null) {
+    public a cfL() {
+        if (this.iQY.get() == null) {
             Object a = a(a.class, System.getProperties());
             if (a == null) {
-                this.iNO.compareAndSet(null, new a() { // from class: rx.c.f.2
+                this.iQY.compareAndSet(null, new a() { // from class: rx.c.f.2
                 });
             } else {
-                this.iNO.compareAndSet(null, (a) a);
+                this.iQY.compareAndSet(null, (a) a);
             }
         }
-        return this.iNO.get();
+        return this.iQY.get();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0154 A[RETURN, SYNTHETIC] */
@@ -113,15 +113,15 @@ public class f {
         }
     }
 
-    public g ceV() {
-        if (this.iBi.get() == null) {
+    public g cfM() {
+        if (this.iEs.get() == null) {
             Object a = a(g.class, System.getProperties());
             if (a == null) {
-                this.iBi.compareAndSet(null, g.cfc());
+                this.iEs.compareAndSet(null, g.cfT());
             } else {
-                this.iBi.compareAndSet(null, (g) a);
+                this.iEs.compareAndSet(null, (g) a);
             }
         }
-        return this.iBi.get();
+        return this.iEs.get();
     }
 }

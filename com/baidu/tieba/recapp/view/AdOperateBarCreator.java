@@ -17,7 +17,7 @@ public class AdOperateBarCreator {
 
     public AdOperateBarHolder obtainHolder(AdPost adPost, RelativeLayout relativeLayout, AdOperateBarHolder adOperateBarHolder, c cVar) {
         if (adPost != null && adPost.adData != null) {
-            if (adOperateBarHolder != null && aP(adPost.adData.style, adOperateBarHolder.gRP)) {
+            if (adOperateBarHolder != null && aQ(adPost.adData.style, adOperateBarHolder.gUL)) {
                 adOperateBarHolder.setDownloadAppCallback(cVar);
                 return adOperateBarHolder;
             } else if (relativeLayout == null) {
@@ -38,7 +38,7 @@ public class AdOperateBarCreator {
         return adOperateBarHolder;
     }
 
-    private boolean aP(String str, int i) {
+    private boolean aQ(String str, int i) {
         return "apk_download".equals(str) ? i == 1 : "jump".equals(str) && i == 2;
     }
 }

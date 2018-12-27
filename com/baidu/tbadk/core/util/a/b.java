@@ -15,17 +15,17 @@ import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes.dex */
 public class b {
     public boolean aAT;
-    private final g aDp = new g();
+    private final g aDq = new g();
     public boolean mIsNeedTbs = false;
-    public boolean aDq = true;
+    public boolean aDr = true;
     public boolean mIsUseCurrentBDUSS = true;
     public boolean mIsNeedAddCommenParam = true;
     public boolean mIsFromCDN = false;
-    public boolean aDr = false;
-    public int aDs = 0;
+    public boolean aDs = false;
+    public int aDt = 0;
 
     public g Ek() {
-        return this.aDp;
+        return this.aDq;
     }
 
     public void a(q qVar) {
@@ -65,20 +65,20 @@ public class b {
         }
         int netType = j.netType();
         qVar.x(ETAG.KEY_NET_TYPE, String.valueOf(netType));
-        String Ge = com.baidu.tbadk.coreExtra.b.a.Gb().Ge();
+        String Gf = com.baidu.tbadk.coreExtra.b.a.Gc().Gf();
         if (1 == netType) {
             if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
-                str = Ge + "ka=open";
+                str = Gf + "ka=open";
                 z = true;
             }
-            str = Ge;
+            str = Gf;
             z = false;
         } else {
             if (TbadkCoreApplication.getInst().getKeepaliveNonWifi() == 1) {
-                str = Ge + "ka=open";
+                str = Gf + "ka=open";
                 z = true;
             }
-            str = Ge;
+            str = Gf;
             z = false;
         }
         com.baidu.adp.lib.network.a.a.setKeepAlive(z);
@@ -97,17 +97,17 @@ public class b {
     }
 
     public String El() {
-        if (this.aDp.mUrl == null) {
+        if (this.aDq.mUrl == null) {
             return null;
         }
         String str = TbConfig.SERVER_ADDRESS;
-        if (this.aDp.mUrl.startsWith(str)) {
-            int indexOf = this.aDp.mUrl.indexOf(63);
+        if (this.aDq.mUrl.startsWith(str)) {
+            int indexOf = this.aDq.mUrl.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.aDp.mUrl.length();
+                indexOf = this.aDq.mUrl.length();
             }
-            return this.aDp.mUrl.substring(str.length(), indexOf);
+            return this.aDq.mUrl.substring(str.length(), indexOf);
         }
-        return this.aDp.mUrl;
+        return this.aDq.mUrl;
     }
 }

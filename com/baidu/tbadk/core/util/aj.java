@@ -39,7 +39,7 @@ public class aj {
                         if (updateAttentionMessage.getError() == 3250013) {
                             BdToast.a(aj.this.mContext.getPageActivity(), updateAttentionMessage.getErrorString(), e.f.icon_toast_game_error, 3000).BN();
                         } else {
-                            AntiHelper.a(aj.this.mContext.getPageActivity(), data.aPr);
+                            AntiHelper.a(aj.this.mContext.getPageActivity(), data.aPt);
                         }
                     }
                     if (data.Jr) {

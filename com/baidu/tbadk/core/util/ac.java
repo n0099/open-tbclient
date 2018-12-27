@@ -53,17 +53,17 @@ public class ac {
 
     public void c(String str, String str2, boolean z, boolean z2, boolean z3) {
         if (str2 != null && str != null) {
-            String fK = ar.fK(str);
-            an.DL().copyFile(str2, fK);
+            String fL = ar.fL(str);
+            an.DL().copyFile(str2, fL);
             if (z || z2 || z3) {
                 synchronized (BitmapHelper.lockForSyncImageDecoder) {
-                    int fF = an.DL().fF(fK);
+                    int fF = an.DL().fF(fL);
                     if (fF > 0) {
                         if (z) {
-                            Bitmap fi = an.DL().fi(fK);
-                            com.baidu.tbadk.imageManager.c.Nu().ga(fF);
+                            Bitmap fi = an.DL().fi(fL);
+                            com.baidu.tbadk.imageManager.c.Nv().gb(fF);
                             if (fi != null) {
-                                a(str, fi, z2, an.DL().fE(fK), z3, fK);
+                                a(str, fi, z2, an.DL().fE(fL), z3, fL);
                             }
                         }
                     }
@@ -104,7 +104,7 @@ public class ac {
     }
 
     private static void a(String str, com.baidu.adp.widget.ImageView.a aVar) {
-        com.baidu.tbadk.imageManager.c.Nu().c(str, aVar);
+        com.baidu.tbadk.imageManager.c.Nv().c(str, aVar);
     }
 
     public Bitmap a(Bitmap bitmap, boolean z, boolean z2, String str) {

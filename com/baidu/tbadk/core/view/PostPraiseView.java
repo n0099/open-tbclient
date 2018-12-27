@@ -16,8 +16,8 @@ public class PostPraiseView extends BasePraiseView<PostData> {
 
     public PostPraiseView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aFp = 1;
-        if (this.aFp == 2) {
+        this.aFq = 1;
+        if (this.aFq == 2) {
             setDisPraiseFrom(9);
         } else {
             setDisPraiseFrom(8);
@@ -36,7 +36,7 @@ public class PostPraiseView extends BasePraiseView<PostData> {
     /* JADX WARN: Multi-variable type inference failed */
     public void a(PostData postData) {
         if (postData != 0) {
-            if (postData.aDb()) {
+            if (postData.aDQ()) {
                 if (postData.AV() == 0 || postData.AV() == 1 || postData.AV() == 2) {
                     postData.cY(2);
                 }
@@ -56,22 +56,22 @@ public class PostPraiseView extends BasePraiseView<PostData> {
     public void updateUI() {
         Context context = getContext();
         long num = getNum();
-        String string = context.getString(this.aFr);
-        if (!com.baidu.tbadk.util.a.PH().Gf()) {
+        String string = context.getString(this.aFs);
+        if (!com.baidu.tbadk.util.a.PJ().Gg()) {
             string = "";
         }
         if (num > 0) {
-            string = ao.W(num);
+            string = ao.X(num);
         }
-        this.aFw.setText(string);
-        this.aFw.setContentDescription(context.getString(this.aFr) + num);
-        if (this.mData != 0 && ((PostData) this.mData).aDb() && EK()) {
-            this.aFx.setImageDrawable(createStateDrawable(this.aFt, this.aFs));
-            this.aFw.setTextColor(createColorStateList(this.aFv, this.aFu));
+        this.aFx.setText(string);
+        this.aFx.setContentDescription(context.getString(this.aFs) + num);
+        if (this.mData != 0 && ((PostData) this.mData).aDQ() && EK()) {
+            this.aFy.setImageDrawable(createStateDrawable(this.aFu, this.aFt));
+            this.aFx.setTextColor(createColorStateList(this.aFw, this.aFv));
             return;
         }
-        this.aFx.setImageDrawable(createStateDrawable(this.aFs, this.aFt));
-        this.aFw.setTextColor(createColorStateList(this.aFu, this.aFv));
+        this.aFy.setImageDrawable(createStateDrawable(this.aFt, this.aFu));
+        this.aFx.setTextColor(createColorStateList(this.aFv, this.aFw));
     }
 
     public int EJ() {
@@ -79,20 +79,20 @@ public class PostPraiseView extends BasePraiseView<PostData> {
         if (this.mData == 0) {
             return 0;
         }
-        if (((PostData) this.mData).aDb() && EK()) {
+        if (((PostData) this.mData).aDQ() && EK()) {
             ((PostData) this.mData).cY(2);
-            ((PostData) this.mData).nv(false);
+            ((PostData) this.mData).ny(false);
             ((PostData) this.mData).C(((PostData) this.mData).AS() - 1);
             ((PostData) this.mData).D(((PostData) this.mData).AT());
             i = 1;
         } else {
-            if (((PostData) this.mData).aDb() && ((PostData) this.mData).AV() == 5) {
+            if (((PostData) this.mData).aDQ() && ((PostData) this.mData).AV() == 5) {
                 ((PostData) this.mData).D(((PostData) this.mData).AT() - 1);
             }
-            ((PostData) this.mData).nv(true);
+            ((PostData) this.mData).ny(true);
             ((PostData) this.mData).C(((PostData) this.mData).AS() + 1);
             ((PostData) this.mData).cY(2);
-            com.baidu.tieba.n.a.bug().y(getTbPageContext());
+            com.baidu.tieba.n.a.buS().y(getTbPageContext());
             i = 0;
         }
         return i;
@@ -105,8 +105,8 @@ public class PostPraiseView extends BasePraiseView<PostData> {
             updateUI();
             dZ(i);
             ea(i);
-            if (this.aEZ != null) {
-                this.aEZ.onClick(view);
+            if (this.aFa != null) {
+                this.aFa.onClick(view);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016529, this.mData));
         }

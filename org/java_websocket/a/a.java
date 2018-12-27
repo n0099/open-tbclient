@@ -206,7 +206,7 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
             sendHandshake();
             this.writeThread = new Thread(new RunnableC0403a());
             this.writeThread.start();
-            byte[] bArr = new byte[c.izH];
+            byte[] bArr = new byte[c.iCR];
             while (!isClosing() && !isClosed() && (read = inputStream.read(bArr)) != -1) {
                 try {
                     this.engine.k(ByteBuffer.wrap(bArr, 0, read));
@@ -219,7 +219,7 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
                     return;
                 }
             }
-            this.engine.cci();
+            this.engine.ccZ();
         } catch (Exception e3) {
             onWebsocketError(this.engine, e3);
             this.engine.closeConnection(-1, e3.getMessage());
@@ -250,7 +250,7 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
             rawPath = rawPath + '?' + rawQuery;
         }
         d dVar = new d();
-        dVar.zK(rawPath);
+        dVar.zN(rawPath);
         dVar.put("Host", this.uri.getHost() + (getPort() != 80 ? ":" + port : ""));
         if (this.headers != null) {
             for (Map.Entry<String, String> entry : this.headers.entrySet()) {
@@ -361,11 +361,11 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
             while (!Thread.interrupted()) {
                 try {
                     try {
-                        ByteBuffer take = a.this.engine.izI.take();
+                        ByteBuffer take = a.this.engine.iCS.take();
                         a.this.ostream.write(take.array(), 0, take.limit());
                         a.this.ostream.flush();
                     } catch (InterruptedException e) {
-                        for (ByteBuffer byteBuffer : a.this.engine.izI) {
+                        for (ByteBuffer byteBuffer : a.this.engine.iCS) {
                             a.this.ostream.write(byteBuffer.array(), 0, byteBuffer.limit());
                             a.this.ostream.flush();
                         }
@@ -476,6 +476,6 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
         if (iOException instanceof SSLException) {
             onError(iOException);
         }
-        this.engine.cci();
+        this.engine.ccZ();
     }
 }

@@ -451,7 +451,7 @@ public class LaunchAiApps {
             downloadAiAppsIconListener.getIcon(null);
             return;
         }
-        c.bTW().e(ImageRequestBuilder.G(uri).bZR(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.searchbox.ng.ai.apps.core.aps.LaunchAiApps.3
+        c.bUN().e(ImageRequestBuilder.G(uri).caI(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.searchbox.ng.ai.apps.core.aps.LaunchAiApps.3
             @Override // com.facebook.imagepipeline.e.b
             protected void onNewResultImpl(Bitmap bitmap) {
                 Bitmap copy;
@@ -488,7 +488,7 @@ public class LaunchAiApps {
                 AiAppsPerformanceUBC.onEvent(new AiAppsPerformanceUBC.Event(AiAppsPerformanceUBC.ID_STABILITY).from("swan").type(String.valueOf(detail2.code())).launchParams(aiAppsLaunchParams).infoAdd("detail", detail2.details().toString()));
                 DownloadAiAppsIconListener.this.getIcon(null);
             }
-        }, f.bSZ());
+        }, f.bTQ());
     }
 
     private static void launchUpdateInfoPage(Context context, String str, ErrCode errCode) {

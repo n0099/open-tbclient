@@ -12,12 +12,12 @@ public class f {
         this.mList.add(new a(str, str2, str3));
     }
 
-    public String bsk() {
+    public String bsW() {
         JSONObject jSONObject = new JSONObject();
         try {
             int size = this.mList.size();
             for (int i = 0; i < size; i++) {
-                jSONObject.put(i + "", this.mList.get(i).bsl());
+                jSONObject.put(i + "", this.mList.get(i).bsX());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -28,21 +28,21 @@ public class f {
     /* loaded from: classes.dex */
     private static class a {
         public final String error;
-        public final String gFp;
+        public final String gIg;
         public final String uuid;
 
         public a(String str, String str2, String str3) {
             this.uuid = str;
             this.error = str2;
-            this.gFp = str3;
+            this.gIg = str3;
         }
 
-        public JSONObject bsl() {
+        public JSONObject bsX() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("uuid", this.uuid);
                 jSONObject.put(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, this.error);
-                jSONObject.put("sub_error", this.gFp);
+                jSONObject.put("sub_error", this.gIg);
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -12,36 +12,36 @@ import java.util.Date;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public final class c extends o<Date> {
-    public static final p iuj = new p() { // from class: com.google.gson.internal.a.c.1
+    public static final p ixt = new p() { // from class: com.google.gson.internal.a.c.1
         @Override // com.google.gson.p
         public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-            if (aVar.caS() == Date.class) {
+            if (aVar.cbJ() == Date.class) {
                 return new c();
             }
             return null;
         }
     };
-    private final DateFormat iuo = DateFormat.getDateTimeInstance(2, 2, Locale.US);
-    private final DateFormat iup = DateFormat.getDateTimeInstance(2, 2);
+    private final DateFormat ixy = DateFormat.getDateTimeInstance(2, 2, Locale.US);
+    private final DateFormat ixz = DateFormat.getDateTimeInstance(2, 2);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.o
     /* renamed from: j */
     public Date b(com.google.gson.stream.a aVar) throws IOException {
-        if (aVar.caG() == JsonToken.NULL) {
+        if (aVar.cbx() == JsonToken.NULL) {
             aVar.nextNull();
             return null;
         }
-        return zs(aVar.nextString());
+        return zv(aVar.nextString());
     }
 
-    private synchronized Date zs(String str) {
+    private synchronized Date zv(String str) {
         Date parse;
         try {
-            parse = this.iup.parse(str);
+            parse = this.ixz.parse(str);
         } catch (ParseException e) {
             try {
-                parse = this.iuo.parse(str);
+                parse = this.ixy.parse(str);
             } catch (ParseException e2) {
                 try {
                     parse = com.google.gson.internal.a.a.a.parse(str, new ParsePosition(0));
@@ -57,9 +57,9 @@ public final class c extends o<Date> {
     @Override // com.google.gson.o
     public synchronized void a(com.google.gson.stream.b bVar, Date date) throws IOException {
         if (date == null) {
-            bVar.caR();
+            bVar.cbI();
         } else {
-            bVar.zu(this.iuo.format(date));
+            bVar.zx(this.ixy.format(date));
         }
     }
 }

@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ar;
 /* loaded from: classes.dex */
 public class w extends a {
-    private boolean aEI;
-    private boolean aEq;
+    private boolean aEJ;
+    private boolean aEr;
     private int procType;
 
     public w(boolean z, int i) {
@@ -17,12 +17,12 @@ public class w extends a {
     }
 
     public w(boolean z, int i, boolean z2) {
-        this.aEq = true;
+        this.aEr = true;
         this.procType = 0;
-        this.aEI = true;
-        this.aEq = z;
+        this.aEJ = true;
+        this.aEr = z;
         this.procType = i;
-        this.aEI = z2;
+        this.aEJ = z2;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
@@ -37,7 +37,7 @@ public class w extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
-        return this.aEq;
+        return this.aEr;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
@@ -55,19 +55,20 @@ public class w extends a {
         return this.procType;
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.d.a
-    protected com.baidu.adp.widget.ImageView.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, com.baidu.adp.widget.ImageView.a aVar2, Bitmap bitmap, boolean z, com.baidu.tbadk.core.util.a.i iVar, byte[] bArr, Rect rect) {
+    public com.baidu.adp.widget.ImageView.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, com.baidu.adp.widget.ImageView.a aVar2, Bitmap bitmap, boolean z, com.baidu.tbadk.core.util.a.i iVar, byte[] bArr, Rect rect) {
         if (f(bitmap)) {
             aVar2 = new com.baidu.adp.widget.ImageView.a(bitmap, z, str, rect);
-            if (!iVar.aEg) {
-                com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ar.fK(str2), DiskFileOperate.Action.WRITE);
+            if (!iVar.aEh) {
+                com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ar.fL(str2), DiskFileOperate.Action.WRITE);
                 cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
                 cVar.R(true);
                 cVar.setData(bArr);
                 cVar.T(false);
                 cVar.U(true);
                 cVar.W(z);
-                cVar.V(this.aEI);
+                cVar.V(this.aEJ);
                 com.baidu.adp.lib.Disk.d.hB().c(cVar);
                 if (aVar != null) {
                     e eVar = new e();

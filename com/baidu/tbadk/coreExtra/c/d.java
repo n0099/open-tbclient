@@ -15,68 +15,68 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class d {
-    public static final String aSu = l.FL + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
-    public String aSf;
-    public String aSj;
-    public String aSk;
-    public int aSn;
-    public String aSo;
-    private Bundle aSq;
-    public int avK;
+    public static final String aSw = l.FL + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
+    public String aSh;
+    public String aSl;
+    public String aSm;
+    public int aSp;
+    public String aSq;
+    private Bundle aSs;
+    public int avL;
     public String fid;
     public OriginalThreadInfo originalThreadInfo;
     public String tid;
     public String topic;
     public String uid;
-    public boolean aRW = false;
-    public boolean aRX = false;
     public boolean aRY = false;
     public boolean aRZ = false;
     public boolean aSa = false;
     public boolean aSb = false;
     public boolean aSc = false;
     public boolean aSd = false;
-    public String aSe = "";
-    public int aSl = 0;
-    public int aSm = 3;
+    public boolean aSe = false;
+    public boolean aSf = false;
+    public String aSg = "";
+    public int aSn = 0;
+    public int aSo = 3;
     public int shareType = 0;
-    public boolean aSr = true;
-    public boolean aSs = true;
     public boolean aSt = true;
+    public boolean aSu = true;
+    public boolean aSv = true;
     public String title = null;
     public String content = null;
     public String linkUrl = null;
-    public String aSg = null;
-    public Uri imageUri = null;
-    public Location aSh = null;
-    private WeakReference<Bitmap> aSp = null;
     public String aSi = null;
+    public Uri imageUri = null;
+    public Location aSj = null;
+    private WeakReference<Bitmap> aSr = null;
+    public String aSk = null;
     public String extData = null;
 
-    public Bundle Kg() {
-        return this.aSq;
+    public Bundle Kh() {
+        return this.aSs;
     }
 
     public void k(Bundle bundle) {
-        this.aSq = bundle;
+        this.aSs = bundle;
     }
 
-    public Bitmap Kh() {
+    public Bitmap Ki() {
         Bitmap bitmap;
-        if (this.aSp == null || (bitmap = this.aSp.get()) == null || bitmap.isRecycled()) {
+        if (this.aSr == null || (bitmap = this.aSr.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         return bitmap;
     }
 
     public void g(Bitmap bitmap) {
-        this.aSp = new WeakReference<>(bitmap);
+        this.aSr = new WeakReference<>(bitmap);
     }
 
-    public byte[] Ki() {
+    public byte[] Kj() {
         Bitmap bitmap;
         byte[] bArr;
-        if (this.aSp == null || (bitmap = this.aSp.get()) == null || bitmap.isRecycled()) {
+        if (this.aSr == null || (bitmap = this.aSr.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -94,16 +94,16 @@ public class d {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [202=4, 203=4, 205=4, 206=4] */
-    public void Kj() {
+    public void Kk() {
         FileOutputStream fileOutputStream = null;
-        if (this.aSp == null) {
+        if (this.aSr == null) {
             return;
         }
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
                 if (l.hA()) {
-                    File file = new File(aSu);
+                    File file = new File(aSw);
                     if (file.exists()) {
                         file.delete();
                     }
@@ -111,14 +111,14 @@ public class d {
                     if (parentFile != null && !parentFile.exists()) {
                         parentFile.mkdirs();
                     }
-                    byte[] Ki = Ki();
-                    if (Ki != null) {
+                    byte[] Kj = Kj();
+                    if (Kj != null) {
                         FileOutputStream fileOutputStream3 = new FileOutputStream(file);
                         try {
-                            fileOutputStream3.write(Ki);
+                            fileOutputStream3.write(Kj);
                             fileOutputStream3.close();
                             this.imageUri = Uri.fromFile(file);
-                            this.aSp = null;
+                            this.aSr = null;
                             if (fileOutputStream3 != null) {
                                 try {
                                     fileOutputStream3.close();

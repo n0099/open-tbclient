@@ -18,15 +18,15 @@ import java.util.regex.Pattern;
 public class k {
     private String c;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern hlh = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern hos = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String hlf = null;
-    private SpannableStringBuilder hlg = null;
-    private boolean hle = false;
+    private String hoq = null;
+    private SpannableStringBuilder hor = null;
+    private boolean hop = false;
 
-    public static boolean bR(int i, int i2) {
+    public static boolean bS(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
     }
 
@@ -42,20 +42,20 @@ public class k {
         return this.text;
     }
 
-    public String bDb() {
+    public String bDT() {
         return this.c;
     }
 
-    public SpannableStringBuilder bDc() {
-        return this.hlg;
+    public SpannableStringBuilder bDU() {
+        return this.hor;
     }
 
     public SpannableStringBuilder b(SpannableString spannableString) {
-        if (this.hlg == null) {
-            this.hlg = new SpannableStringBuilder();
+        if (this.hor == null) {
+            this.hor = new SpannableStringBuilder();
         }
-        this.hlg.append((CharSequence) spannableString);
-        return this.hlg;
+        this.hor.append((CharSequence) spannableString);
+        return this.hor;
     }
 
     public SpannableString cX(Context context) {
@@ -75,23 +75,23 @@ public class k {
                         if (matcher.find()) {
                             try {
                                 String group = matcher.group();
-                                iE(group.substring(group.lastIndexOf("/") + 1));
+                                iF(group.substring(group.lastIndexOf("/") + 1));
                                 return;
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
                         }
-                        Matcher matcher2 = k.hlh.matcher(k.this.link);
+                        Matcher matcher2 = k.hos.matcher(k.this.link);
                         if (matcher2.find()) {
                             try {
                                 String group2 = matcher2.group();
-                                iE(group2.substring(group2.lastIndexOf(ETAG.EQUAL) + 1));
+                                iF(group2.substring(group2.lastIndexOf(ETAG.EQUAL) + 1));
                                 return;
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }
                         }
-                        iD(k.this.link);
+                        iE(k.this.link);
                     }
                 }, 0, this.text.length() - 1, 33);
                 return spannableString;
@@ -138,7 +138,7 @@ public class k {
                 spannableString4.setSpan(new com.baidu.tbadk.util.k(context) { // from class: com.baidu.tieba.tbadkCore.data.k.1
                     @Override // com.baidu.tbadk.util.k, android.text.style.ClickableSpan
                     public void onClick(View view) {
-                        iD(k.this.text);
+                        iE(k.this.text);
                     }
                 }, string.length(), str.length() - 1, 33);
                 return spannableString4;

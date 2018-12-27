@@ -17,16 +17,16 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
     private ArrayList<Object> data;
-    private SelectLocationActivity ftb;
+    private SelectLocationActivity fvT;
     private boolean isShowLocation;
 
     public b(SelectLocationActivity selectLocationActivity) {
         this.isShowLocation = true;
-        this.ftb = selectLocationActivity;
-        com.baidu.tieba.tbadkCore.location.a locationData = c.bDW().getLocationData();
-        this.isShowLocation = c.bDW().bDX() ? false : true;
+        this.fvT = selectLocationActivity;
+        com.baidu.tieba.tbadkCore.location.a locationData = c.bEO().getLocationData();
+        this.isShowLocation = c.bEO().bEP() ? false : true;
         if (locationData != null) {
-            this.data = i(locationData.bDU(), locationData.bDT());
+            this.data = i(locationData.bEM(), locationData.bEL());
         }
     }
 
@@ -52,8 +52,8 @@ public class b extends BaseAdapter {
             c0318a3.setName(str);
             arrayList.add(0, c0318a3);
         }
-        if (this.ftb != null) {
-            arrayList.add(0, this.ftb.getPageContext().getString(e.j.select_position_no_location));
+        if (this.fvT != null) {
+            arrayList.add(0, this.fvT.getPageContext().getString(e.j.select_position_no_location));
         }
         return arrayList;
     }
@@ -114,8 +114,8 @@ public class b extends BaseAdapter {
     /* renamed from: com.baidu.tieba.location.selectpoi.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0268b {
-        View cJd;
-        ImageView ftc;
+        View cKd;
+        ImageView fvU;
         TextView title;
 
         private C0268b() {
@@ -129,11 +129,11 @@ public class b extends BaseAdapter {
         if (item instanceof String) {
             String str = (String) item;
             if (view == null || !(view.getTag() instanceof C0268b)) {
-                View inflate = LayoutInflater.from(this.ftb.getPageContext().getPageActivity()).inflate(e.h.select_location_nolocation_item, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.fvT.getPageContext().getPageActivity()).inflate(e.h.select_location_nolocation_item, (ViewGroup) null);
                 c0268b = new C0268b();
                 c0268b.title = (TextView) inflate.findViewById(e.g.select_location_title);
-                c0268b.ftc = (ImageView) inflate.findViewById(e.g.select_location_tick);
-                c0268b.cJd = inflate.findViewById(e.g.select_location_line);
+                c0268b.fvU = (ImageView) inflate.findViewById(e.g.select_location_tick);
+                c0268b.cKd = inflate.findViewById(e.g.select_location_line);
                 inflate.setTag(c0268b);
                 view2 = inflate;
             } else {
@@ -141,13 +141,13 @@ public class b extends BaseAdapter {
                 view2 = view;
             }
             if (i == 0 && !this.isShowLocation) {
-                c0268b.ftc.setVisibility(0);
-                al.c(c0268b.ftc, e.f.icon_site_ok);
+                c0268b.fvU.setVisibility(0);
+                al.c(c0268b.fvU, e.f.icon_site_ok);
             } else {
-                c0268b.ftc.setVisibility(4);
+                c0268b.fvU.setVisibility(4);
             }
             c0268b.title.setText(str);
-            al.j(c0268b.cJd, e.d.cp_bg_line_b);
+            al.j(c0268b.cKd, e.d.cp_bg_line_b);
             al.c(c0268b.title, e.d.cp_link_tip_a, 1);
             al.i(view2, e.f.home_recommend_item_bg);
             return view2;
@@ -158,9 +158,9 @@ public class b extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class a {
-        TextView bPh;
-        TextView fsU;
-        ImageView ftc;
+        TextView bPk;
+        TextView fvM;
+        ImageView fvU;
 
         private a() {
         }
@@ -172,28 +172,28 @@ public class b extends BaseAdapter {
         if (item instanceof a.C0318a) {
             a.C0318a c0318a = (a.C0318a) item;
             if (view == null || !(view.getTag() instanceof C0268b)) {
-                view = LayoutInflater.from(this.ftb.getPageContext().getPageActivity()).inflate(e.h.select_location_address_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.fvT.getPageContext().getPageActivity()).inflate(e.h.select_location_address_item, (ViewGroup) null);
                 a aVar2 = new a();
-                aVar2.bPh = (TextView) view.findViewById(e.g.select_location_name);
-                aVar2.fsU = (TextView) view.findViewById(e.g.select_location_address);
-                aVar2.ftc = (ImageView) view.findViewById(e.g.select_location_tick);
+                aVar2.bPk = (TextView) view.findViewById(e.g.select_location_name);
+                aVar2.fvM = (TextView) view.findViewById(e.g.select_location_address);
+                aVar2.fvU = (ImageView) view.findViewById(e.g.select_location_tick);
                 view.setTag(aVar2);
                 aVar = aVar2;
             } else {
                 aVar = (a) view.getTag();
             }
-            aVar.fsU.setText(c0318a.getAddr());
+            aVar.fvM.setText(c0318a.getAddr());
             if (this.isShowLocation && i == 1) {
-                aVar.ftc.setVisibility(0);
+                aVar.fvU.setVisibility(0);
                 if (TextUtils.isEmpty(c0318a.getAddr())) {
-                    aVar.fsU.setText(e.j.select_location_current);
+                    aVar.fvM.setText(e.j.select_location_current);
                 }
             } else {
-                aVar.ftc.setVisibility(4);
+                aVar.fvU.setVisibility(4);
             }
-            aVar.bPh.setText(c0318a.getName());
-            this.ftb.getLayoutMode().setNightMode(z);
-            this.ftb.getLayoutMode().onModeChanged(view);
+            aVar.bPk.setText(c0318a.getName());
+            this.fvT.getLayoutMode().setNightMode(z);
+            this.fvT.getLayoutMode().onModeChanged(view);
             al.i(view, e.f.home_recommend_item_bg);
             return view;
         }

@@ -6,7 +6,7 @@ import rx.g;
 import rx.schedulers.Schedulers;
 /* loaded from: classes2.dex */
 public final class bc<T> implements d.b<T, rx.d<T>> {
-    final rx.functions.g<Integer, Throwable, Boolean> iHo;
+    final rx.functions.g<Integer, Throwable, Boolean> iKy;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -14,7 +14,7 @@ public final class bc<T> implements d.b<T, rx.d<T>> {
     }
 
     public bc(rx.functions.g<Integer, Throwable, Boolean> gVar) {
-        this.iHo = gVar;
+        this.iKy = gVar;
     }
 
     public rx.j<? super rx.d<T>> call(rx.j<? super T> jVar) {
@@ -24,25 +24,25 @@ public final class bc<T> implements d.b<T, rx.d<T>> {
         jVar.add(dVar);
         rx.internal.producers.a aVar = new rx.internal.producers.a();
         jVar.setProducer(aVar);
-        return new a(jVar, this.iHo, createWorker, dVar, aVar);
+        return new a(jVar, this.iKy, createWorker, dVar, aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.j<rx.d<T>> {
         final rx.j<? super T> child;
-        final g.a iEy;
-        final rx.functions.g<Integer, Throwable, Boolean> iHo;
-        final rx.subscriptions.d iHp;
-        final rx.internal.producers.a iHq;
-        final AtomicInteger iHr = new AtomicInteger();
+        final g.a iHI;
+        final rx.internal.producers.a iKA;
+        final AtomicInteger iKB = new AtomicInteger();
+        final rx.functions.g<Integer, Throwable, Boolean> iKy;
+        final rx.subscriptions.d iKz;
 
         public a(rx.j<? super T> jVar, rx.functions.g<Integer, Throwable, Boolean> gVar, g.a aVar, rx.subscriptions.d dVar, rx.internal.producers.a aVar2) {
             this.child = jVar;
-            this.iHo = gVar;
-            this.iEy = aVar;
-            this.iHp = dVar;
-            this.iHq = aVar2;
+            this.iKy = gVar;
+            this.iHI = aVar;
+            this.iKz = dVar;
+            this.iKA = aVar2;
         }
 
         @Override // rx.e
@@ -58,10 +58,10 @@ public final class bc<T> implements d.b<T, rx.d<T>> {
         @Override // rx.e
         /* renamed from: h */
         public void onNext(final rx.d<T> dVar) {
-            this.iEy.a(new rx.functions.a() { // from class: rx.internal.operators.bc.a.1
+            this.iHI.a(new rx.functions.a() { // from class: rx.internal.operators.bc.a.1
                 @Override // rx.functions.a
                 public void call() {
-                    a.this.iHr.incrementAndGet();
+                    a.this.iKB.incrementAndGet();
                     rx.j<T> jVar = new rx.j<T>() { // from class: rx.internal.operators.bc.a.1.1
                         boolean done;
 
@@ -77,8 +77,8 @@ public final class bc<T> implements d.b<T, rx.d<T>> {
                         public void onError(Throwable th) {
                             if (!this.done) {
                                 this.done = true;
-                                if (a.this.iHo.j(Integer.valueOf(a.this.iHr.get()), th).booleanValue() && !a.this.iEy.isUnsubscribed()) {
-                                    a.this.iEy.a(this);
+                                if (a.this.iKy.j(Integer.valueOf(a.this.iKB.get()), th).booleanValue() && !a.this.iHI.isUnsubscribed()) {
+                                    a.this.iHI.a(this);
                                 } else {
                                     a.this.child.onError(th);
                                 }
@@ -89,16 +89,16 @@ public final class bc<T> implements d.b<T, rx.d<T>> {
                         public void onNext(T t) {
                             if (!this.done) {
                                 a.this.child.onNext(t);
-                                a.this.iHq.dL(1L);
+                                a.this.iKA.dQ(1L);
                             }
                         }
 
                         @Override // rx.j
                         public void setProducer(rx.f fVar) {
-                            a.this.iHq.setProducer(fVar);
+                            a.this.iKA.setProducer(fVar);
                         }
                     };
-                    a.this.iHp.g(jVar);
+                    a.this.iKz.g(jVar);
                     dVar.unsafeSubscribe(jVar);
                 }
             });

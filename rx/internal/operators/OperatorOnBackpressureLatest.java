@@ -9,7 +9,7 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        static final OperatorOnBackpressureLatest<Object> iGx = new OperatorOnBackpressureLatest<>();
+        static final OperatorOnBackpressureLatest<Object> iJH = new OperatorOnBackpressureLatest<>();
     }
 
     @Override // rx.functions.f
@@ -17,8 +17,8 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> OperatorOnBackpressureLatest<T> cdL() {
-        return (OperatorOnBackpressureLatest<T>) a.iGx;
+    public static <T> OperatorOnBackpressureLatest<T> ceC() {
+        return (OperatorOnBackpressureLatest<T>) a.iJH;
     }
 
     public rx.j<? super T> call(rx.j<? super T> jVar) {
@@ -71,7 +71,7 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
                     }
                 } while (!compareAndSet(j2, j3));
                 if (j2 == NOT_REQUESTED) {
-                    this.parent.dC(Long.MAX_VALUE);
+                    this.parent.dH(Long.MAX_VALUE);
                 }
                 emit();
             }
@@ -202,10 +202,10 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class b<T> extends rx.j<T> {
-        private final LatestEmitter<T> iGy;
+        private final LatestEmitter<T> iJI;
 
         b(LatestEmitter<T> latestEmitter) {
-            this.iGy = latestEmitter;
+            this.iJI = latestEmitter;
         }
 
         @Override // rx.j
@@ -215,20 +215,20 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onNext(T t) {
-            this.iGy.onNext(t);
+            this.iJI.onNext(t);
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.iGy.onError(th);
+            this.iJI.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.iGy.onCompleted();
+            this.iJI.onCompleted();
         }
 
-        void dC(long j) {
+        void dH(long j) {
             request(j);
         }
     }

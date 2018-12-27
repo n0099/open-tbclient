@@ -20,7 +20,7 @@ public class t {
             }
             return;
         }
-        new b(vz(str), aVar).execute(new String[0]);
+        new b(vC(str), aVar).execute(new String[0]);
     }
 
     public static void b(String str, a aVar) {
@@ -31,7 +31,7 @@ public class t {
             }
             return;
         }
-        new b(vy(str), aVar).execute(new String[0]);
+        new b(vB(str), aVar).execute(new String[0]);
     }
 
     public static void c(String str, a aVar) {
@@ -42,7 +42,7 @@ public class t {
             }
             return;
         }
-        new b(vA(str), aVar).execute(new String[0]);
+        new b(vD(str), aVar).execute(new String[0]);
     }
 
     public static void b(final String str, final WriteData writeData) {
@@ -54,10 +54,10 @@ public class t {
                 public Void doInBackground(Void... voidArr) {
                     com.baidu.adp.lib.cache.l<String> ey = com.baidu.tbadk.core.c.a.BB().ey("tb.pb_editor");
                     if (WriteData.this != null && WriteData.this.hasContentToSave()) {
-                        ey.a(t.vA(str), WriteData.this.toDraftString(), 604800000L);
+                        ey.a(t.vD(str), WriteData.this.toDraftString(), 604800000L);
                         return null;
                     }
-                    ey.remove(t.vA(str));
+                    ey.remove(t.vD(str));
                     return null;
                 }
             }.execute(new Void[0]);
@@ -73,10 +73,10 @@ public class t {
                 public Void doInBackground(Void... voidArr) {
                     com.baidu.adp.lib.cache.l<String> ey = com.baidu.tbadk.core.c.a.BB().ey("tb.pb_editor");
                     if (WriteData.this != null && WriteData.this.hasContentToSave()) {
-                        ey.a(t.vz(str), WriteData.this.toDraftString(), 604800000L);
+                        ey.a(t.vC(str), WriteData.this.toDraftString(), 604800000L);
                         return null;
                     }
-                    ey.remove(t.vz(str));
+                    ey.remove(t.vC(str));
                     return null;
                 }
             }.execute(new Void[0]);
@@ -92,25 +92,25 @@ public class t {
                 public Void doInBackground(Void... voidArr) {
                     com.baidu.adp.lib.cache.l<String> ey = com.baidu.tbadk.core.c.a.BB().ey("tb.pb_editor");
                     if (WriteData.this != null && WriteData.this.hasContentToSave()) {
-                        ey.a(t.vy(str), WriteData.this.toDraftString(), 604800000L);
+                        ey.a(t.vB(str), WriteData.this.toDraftString(), 604800000L);
                         return null;
                     }
-                    ey.remove(t.vy(str));
+                    ey.remove(t.vB(str));
                     return null;
                 }
             }.execute(new Void[0]);
         }
     }
 
-    protected static String vy(String str) {
+    protected static String vB(String str) {
         return TbadkCoreApplication.getCurrentAccount() + "@subpb" + str;
     }
 
-    protected static String vz(String str) {
+    protected static String vC(String str) {
         return TbadkCoreApplication.getCurrentAccount() + "@pb" + str;
     }
 
-    protected static String vA(String str) {
+    protected static String vD(String str) {
         return TbadkCoreApplication.getCurrentAccount() + "@frs";
     }
 
@@ -118,11 +118,11 @@ public class t {
     /* loaded from: classes.dex */
     public static class b extends BdAsyncTask<String, String, WriteData> {
         private final String cacheKey;
-        private final a hko;
+        private final a hnz;
 
         public b(String str, a aVar) {
             setPriority(3);
-            this.hko = aVar;
+            this.hnz = aVar;
             this.cacheKey = str;
         }
 
@@ -146,8 +146,8 @@ public class t {
         /* renamed from: c */
         public void onPostExecute(WriteData writeData) {
             super.onPostExecute(writeData);
-            if (this.hko != null) {
-                this.hko.a(writeData);
+            if (this.hnz != null) {
+                this.hnz.a(writeData);
             }
         }
     }

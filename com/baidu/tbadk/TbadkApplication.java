@@ -67,9 +67,9 @@ public class TbadkApplication extends TbadkCoreApplication {
         super.onCreate();
         initMotuFilterImageMap();
         if ((this.isCdnTachometerProcess == null || !this.isCdnTachometerProcess.booleanValue()) && !this.isPluginInstallProcess) {
-            boolean PT = m.PT();
+            boolean PV = m.PV();
             boolean isXiaomiPushSdkShouldOpen = isXiaomiPushSdkShouldOpen();
-            boolean z = PT && isXiaomiPushSdkShouldOpen;
+            boolean z = PV && isXiaomiPushSdkShouldOpen;
             if (Build.VERSION.SDK_INT >= 24) {
                 try {
                     new WebView(this);
@@ -78,13 +78,13 @@ public class TbadkApplication extends TbadkCoreApplication {
             }
             long currentTimeMillis = System.currentTimeMillis();
             String str = TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER;
-            PluginPackageManager.na().a(a.Pu(), new b(), PT && isXiaomiPushSdkShouldOpen);
+            PluginPackageManager.na().a(a.Pw(), new b(), PV && isXiaomiPushSdkShouldOpen);
             PluginSettings nz = com.baidu.adp.plugin.packageManager.pluginSettings.c.nC().nz();
             if (nz != null) {
                 String containerVersion = nz.getContainerVersion();
                 if (!TextUtils.isEmpty(containerVersion) && Util.P(containerVersion, str) == Util.VersionCompare.EQUAL) {
-                    n.Pp().cO(z);
-                    n.Pp().ax(System.currentTimeMillis() - currentTimeMillis);
+                    n.Pr().cO(z);
+                    n.Pr().ay(System.currentTimeMillis() - currentTimeMillis);
                 }
             }
         }
@@ -104,11 +104,11 @@ public class TbadkApplication extends TbadkCoreApplication {
                     ay.Ef().c(null, new String[]{str3});
                 }
             });
-            n.Pp().aG(System.currentTimeMillis() - currentTimeMillis2);
+            n.Pr().aH(System.currentTimeMillis() - currentTimeMillis2);
         }
         i.CG();
         if (this.isRemoteProcess) {
-            n.Pp().aO(System.currentTimeMillis() - this.processCreateTime);
+            n.Pr().aP(System.currentTimeMillis() - this.processCreateTime);
         }
     }
 
@@ -270,7 +270,7 @@ public class TbadkApplication extends TbadkCoreApplication {
         if (checkSyncPatchBlacklist() && com.baidu.adp.plugin.install.d.mL() && i == 0 && PluginPackageManager.na().ne()) {
             long currentTimeMillis = System.currentTimeMillis();
             PluginPackageManager.na().nf();
-            n.Pp().aw(System.currentTimeMillis() - currentTimeMillis);
+            n.Pr().ax(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 

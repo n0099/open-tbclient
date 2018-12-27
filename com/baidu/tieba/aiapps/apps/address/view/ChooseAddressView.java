@@ -19,13 +19,13 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ChooseAddressView extends FrameLayout {
-    private RecyclerView bGm;
-    private com.baidu.tieba.aiapps.apps.address.a.a bGn;
-    private View bGo;
-    private TextView bGp;
-    private CommonEmptyView bGq;
+    private RecyclerView bGp;
+    private com.baidu.tieba.aiapps.apps.address.a.a bGq;
     private View bGr;
-    private a.b bGs;
+    private TextView bGs;
+    private CommonEmptyView bGt;
+    private View bGu;
+    private a.b bGv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
@@ -47,22 +47,22 @@ public class ChooseAddressView extends FrameLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(e.h.delivery_choose_layout, this);
-        this.bGm = (RecyclerView) findViewById(e.g.delivery_list);
-        this.bGo = findViewById(e.g.delivery_add);
-        this.bGr = findViewById(e.g.delivery_add_line);
-        this.bGq = (CommonEmptyView) findViewById(e.g.delivery_empty);
-        this.bGp = (TextView) findViewById(e.g.delivery_add_txt);
+        this.bGp = (RecyclerView) findViewById(e.g.delivery_list);
+        this.bGr = findViewById(e.g.delivery_add);
+        this.bGu = findViewById(e.g.delivery_add_line);
+        this.bGt = (CommonEmptyView) findViewById(e.g.delivery_empty);
+        this.bGs = (TextView) findViewById(e.g.delivery_add_txt);
         a(PageState.Normal);
         onNightModeChanged(AiAppNightModeHelper.getNightModeSwitcherState());
-        this.bGn = new com.baidu.tieba.aiapps.apps.address.a.a(context);
-        this.bGm.setLayoutManager(new LinearLayoutManager(context));
-        this.bGm.addItemDecoration(new a(0, AiAppsUIUtils.dip2px(context, 7.0f)));
-        this.bGm.setAdapter(this.bGn);
-        this.bGo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.ChooseAddressView.1
+        this.bGq = new com.baidu.tieba.aiapps.apps.address.a.a(context);
+        this.bGp.setLayoutManager(new LinearLayoutManager(context));
+        this.bGp.addItemDecoration(new a(0, AiAppsUIUtils.dip2px(context, 7.0f)));
+        this.bGp.setAdapter(this.bGq);
+        this.bGr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.ChooseAddressView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ChooseAddressView.this.bGs != null) {
-                    ChooseAddressView.this.bGs.b(new b(), "add");
+                if (ChooseAddressView.this.bGv != null) {
+                    ChooseAddressView.this.bGv.b(new b(), "add");
                 }
             }
         });
@@ -70,45 +70,45 @@ public class ChooseAddressView extends FrameLayout {
 
     public void onNightModeChanged(boolean z) {
         if (z) {
-            this.bGm.setBackgroundColor(Color.parseColor("#161616"));
-            this.bGr.setBackgroundColor(Color.parseColor("#303030"));
-            this.bGo.setBackgroundColor(Color.parseColor("#191919"));
-            this.bGp.setBackgroundColor(Color.parseColor("#803C76FF"));
-            this.bGp.setTextColor(Color.parseColor("#80ffffff"));
+            this.bGp.setBackgroundColor(Color.parseColor("#161616"));
+            this.bGu.setBackgroundColor(Color.parseColor("#303030"));
+            this.bGr.setBackgroundColor(Color.parseColor("#191919"));
+            this.bGs.setBackgroundColor(Color.parseColor("#803C76FF"));
+            this.bGs.setTextColor(Color.parseColor("#80ffffff"));
         }
     }
 
     public void showEmptyView() {
         a(PageState.EMPTY_DATA);
-        this.bGq.setTitle(getResources().getString(e.j.delivery_empty_title));
-        this.bGq.setIcon(getResources().getDrawable(e.f.empty_icon_document));
+        this.bGt.setTitle(getResources().getString(e.j.delivery_empty_title));
+        this.bGt.setIcon(getResources().getDrawable(e.f.empty_icon_document));
     }
 
     public void h(View.OnClickListener onClickListener) {
         a(PageState.NET_ERROR);
-        this.bGq.setTitle(getResources().getString(e.j.net_error));
-        this.bGq.setIcon(getResources().getDrawable(e.f.aiapps_empty_icon_network));
-        this.bGq.setTextButtonClickListener(onClickListener);
+        this.bGt.setTitle(getResources().getString(e.j.net_error));
+        this.bGt.setIcon(getResources().getDrawable(e.f.aiapps_empty_icon_network));
+        this.bGt.setTextButtonClickListener(onClickListener);
     }
 
     private void a(PageState pageState) {
         boolean z = pageState == PageState.Normal;
-        this.bGq.setVisibility(z ? 8 : 0);
-        this.bGm.setVisibility(z ? 0 : 8);
+        this.bGt.setVisibility(z ? 8 : 0);
+        this.bGp.setVisibility(z ? 0 : 8);
     }
 
     public com.baidu.tieba.aiapps.apps.address.a.a getDeliveryAdapter() {
-        return this.bGn;
+        return this.bGq;
     }
 
     public void setDeliveryChooseListener(a.b bVar) {
-        this.bGs = bVar;
-        this.bGn.setDeliveryChooseListener(this.bGs);
+        this.bGv = bVar;
+        this.bGq.setDeliveryChooseListener(this.bGv);
     }
 
     public void ao(List<b> list) {
         if (list != null && list.size() > 0) {
-            this.bGn.ak(list);
+            this.bGq.ak(list);
             a(PageState.Normal);
             updateUI();
             return;
@@ -117,25 +117,25 @@ public class ChooseAddressView extends FrameLayout {
     }
 
     public void updateUI() {
-        this.bGn.notifyDataSetChanged();
+        this.bGq.notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public class a extends RecyclerView.ItemDecoration {
-        private int bGu;
-        private int bGv;
+        private int bGx;
+        private int bGy;
 
         public a(int i, int i2) {
-            this.bGu = i;
-            this.bGv = i2;
+            this.bGx = i;
+            this.bGy = i2;
         }
 
         @Override // android.support.v7.widget.RecyclerView.ItemDecoration
         public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
-            rect.top = this.bGv;
-            rect.left = this.bGu;
-            rect.right = this.bGu;
+            rect.top = this.bGy;
+            rect.left = this.bGx;
+            rect.right = this.bGx;
         }
     }
 }

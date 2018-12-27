@@ -45,16 +45,16 @@ public class a extends RecyclerView.Adapter<C0233a> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(C0233a c0233a, int i) {
-        c nR = nR(i);
-        if (nR != null) {
+        c oe = oe(i);
+        if (oe != null) {
             b(c0233a);
-            c0233a.eiI.startLoad(nR.aIp().get(0).getIcon(), 10, false);
-            c0233a.eiJ.setText(nR.aIp().get(0).getName());
-            c0233a.eiK.startLoad(nR.aIp().get(1).getIcon(), 10, false);
-            c0233a.eiL.setText(nR.aIp().get(1).getName());
-            c0233a.eiN.setText(nR.getType());
-            c0233a.eiO.setText(bY(nR.getTime()));
-            c0233a.eiP.setText(nR.aIq());
+            c0233a.ely.startLoad(oe.aJe().get(0).getIcon(), 10, false);
+            c0233a.elz.setText(oe.aJe().get(0).getName());
+            c0233a.elA.startLoad(oe.aJe().get(1).getIcon(), 10, false);
+            c0233a.elB.setText(oe.aJe().get(1).getName());
+            c0233a.elD.setText(oe.getType());
+            c0233a.elE.setText(cd(oe.getTime()));
+            c0233a.elF.setText(oe.aJf());
             a(c0233a);
         }
     }
@@ -62,20 +62,20 @@ public class a extends RecyclerView.Adapter<C0233a> {
     private void a(C0233a c0233a) {
         if (c0233a != null) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                c0233a.eiI.setForegroundColor(TbadkCoreApplication.getInst().getResources().getColor(e.d.black_alpha15));
-                c0233a.eiK.setForegroundColor(TbadkCoreApplication.getInst().getResources().getColor(e.d.black_alpha15));
+                c0233a.ely.setForegroundColor(TbadkCoreApplication.getInst().getResources().getColor(e.d.black_alpha15));
+                c0233a.elA.setForegroundColor(TbadkCoreApplication.getInst().getResources().getColor(e.d.black_alpha15));
             } else {
-                c0233a.eiI.setForegroundColor(TbadkCoreApplication.getInst().getResources().getColor(e.d.transparent));
-                c0233a.eiK.setForegroundColor(TbadkCoreApplication.getInst().getResources().getColor(e.d.transparent));
+                c0233a.ely.setForegroundColor(TbadkCoreApplication.getInst().getResources().getColor(e.d.transparent));
+                c0233a.elA.setForegroundColor(TbadkCoreApplication.getInst().getResources().getColor(e.d.transparent));
             }
             al.j(c0233a.itemView, e.d.cp_bg_line_d);
-            al.c(c0233a.eiM, e.f.icon_front_worldcup_vs_n);
-            al.h(c0233a.eiJ, e.d.cp_cont_f);
-            al.h(c0233a.eiL, e.d.cp_cont_f);
-            al.h(c0233a.eiO, e.d.cp_cont_d);
-            al.h(c0233a.eiN, e.d.cp_cont_f);
-            al.h(c0233a.eiP, e.f.btn_concern_like_focus_color);
-            al.i(c0233a.eiP, e.f.btn_transparent_focus_border_bg);
+            al.c(c0233a.elC, e.f.icon_front_worldcup_vs_n);
+            al.h(c0233a.elz, e.d.cp_cont_f);
+            al.h(c0233a.elB, e.d.cp_cont_f);
+            al.h(c0233a.elE, e.d.cp_cont_d);
+            al.h(c0233a.elD, e.d.cp_cont_f);
+            al.h(c0233a.elF, e.f.btn_concern_like_focus_color);
+            al.i(c0233a.elF, e.f.btn_transparent_focus_border_bg);
         }
     }
 
@@ -83,25 +83,25 @@ public class a extends RecyclerView.Adapter<C0233a> {
         if (c0233a.itemView.getLayoutParams() != null && (c0233a.itemView.getLayoutParams() instanceof RecyclerView.LayoutParams)) {
             RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) c0233a.itemView.getLayoutParams();
             if (getItemCount() == 1) {
-                if (!c0233a.eiQ) {
+                if (!c0233a.elG) {
                     layoutParams.width = -1;
                     layoutParams.rightMargin = this.mPageContext.getResources().getDimensionPixelOffset(e.C0210e.tbds44);
                     c0233a.itemView.setLayoutParams(layoutParams);
-                    c0233a.eiQ = true;
+                    c0233a.elG = true;
                 }
-            } else if (c0233a.eiQ) {
+            } else if (c0233a.elG) {
                 layoutParams.width = this.mPageContext.getResources().getDimensionPixelOffset(e.C0210e.tbds762);
                 layoutParams.rightMargin = this.mPageContext.getResources().getDimensionPixelOffset(e.C0210e.tbds20);
                 c0233a.itemView.setLayoutParams(layoutParams);
-                c0233a.eiQ = false;
+                c0233a.elG = false;
             }
         }
     }
 
-    private String bY(long j) {
+    private String cd(long j) {
         String f;
         Date date = new Date(j);
-        if (ao.aj(j)) {
+        if (ao.ak(j)) {
             f = k.b(date);
         } else {
             f = ao.f(date);
@@ -109,7 +109,7 @@ public class a extends RecyclerView.Adapter<C0233a> {
         return this.mPageContext.getResources().getString(e.j.competition_deadline) + f;
     }
 
-    private c nR(int i) {
+    private c oe(int i) {
         if (this.mData == null || i < 0 || i >= getItemCount()) {
             return null;
         }
@@ -127,15 +127,15 @@ public class a extends RecyclerView.Adapter<C0233a> {
     /* renamed from: com.baidu.tieba.frs.worldcup.talkball.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public class C0233a extends RecyclerView.ViewHolder {
-        public TbImageView eiI;
-        public TextView eiJ;
-        public TbImageView eiK;
-        public TextView eiL;
-        public ImageView eiM;
-        public TextView eiN;
-        public TextView eiO;
-        public TextView eiP;
-        public boolean eiQ;
+        public TbImageView elA;
+        public TextView elB;
+        public ImageView elC;
+        public TextView elD;
+        public TextView elE;
+        public TextView elF;
+        public boolean elG;
+        public TbImageView ely;
+        public TextView elz;
 
         public C0233a(View view) {
             super(view);
@@ -144,7 +144,7 @@ public class a extends RecyclerView.Adapter<C0233a> {
 
         private void init() {
             if (this.itemView != null) {
-                this.eiQ = false;
+                this.elG = false;
                 this.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.worldcup.talkball.a.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
@@ -153,17 +153,17 @@ public class a extends RecyclerView.Adapter<C0233a> {
                         }
                     }
                 });
-                this.eiI = (TbImageView) this.itemView.findViewById(e.g.country_icon_left);
-                al.i(this.eiI, e.f.picture_stroke);
-                this.eiJ = (TextView) this.itemView.findViewById(e.g.country_name_left);
-                this.eiK = (TbImageView) this.itemView.findViewById(e.g.country_icon_right);
-                al.i(this.eiK, e.f.picture_stroke);
-                this.eiL = (TextView) this.itemView.findViewById(e.g.country_name_right);
-                this.eiM = (ImageView) this.itemView.findViewById(e.g.vs_icon);
-                this.eiN = (TextView) this.itemView.findViewById(e.g.vs_type);
-                this.eiO = (TextView) this.itemView.findViewById(e.g.vs_time);
-                this.eiP = (TextView) this.itemView.findViewById(e.g.competitiom_btn);
-                this.eiP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.worldcup.talkball.a.a.a.2
+                this.ely = (TbImageView) this.itemView.findViewById(e.g.country_icon_left);
+                al.i(this.ely, e.f.picture_stroke);
+                this.elz = (TextView) this.itemView.findViewById(e.g.country_name_left);
+                this.elA = (TbImageView) this.itemView.findViewById(e.g.country_icon_right);
+                al.i(this.elA, e.f.picture_stroke);
+                this.elB = (TextView) this.itemView.findViewById(e.g.country_name_right);
+                this.elC = (ImageView) this.itemView.findViewById(e.g.vs_icon);
+                this.elD = (TextView) this.itemView.findViewById(e.g.vs_type);
+                this.elE = (TextView) this.itemView.findViewById(e.g.vs_time);
+                this.elF = (TextView) this.itemView.findViewById(e.g.competitiom_btn);
+                this.elF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.worldcup.talkball.a.a.a.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (a.this.mClickListener != null) {

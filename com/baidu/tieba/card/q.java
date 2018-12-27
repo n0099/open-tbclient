@@ -18,23 +18,23 @@ import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class q extends a<com.baidu.tieba.card.data.n> {
     private TextView amN;
-    private View cEB;
-    private TextView cVh;
-    private LinearLayout cVi;
-    private LinearLayout cVj;
-    private LinearLayout cVk;
-    private LinearLayout cVl;
-    private TextView cVm;
-    private TextView cVn;
-    private TextView cVo;
-    private TextView cVp;
-    private View cVq;
-    private View cVr;
-    private View cVs;
-    private View cVt;
-    private com.baidu.tieba.card.data.n cVu;
-    private String cVv;
-    private String cVw;
+    private View cFB;
+    private TextView cXX;
+    private LinearLayout cXY;
+    private LinearLayout cXZ;
+    private LinearLayout cYa;
+    private LinearLayout cYb;
+    private TextView cYc;
+    private TextView cYd;
+    private TextView cYe;
+    private TextView cYf;
+    private View cYg;
+    private View cYh;
+    private View cYi;
+    private View cYj;
+    private com.baidu.tieba.card.data.n cYk;
+    private String cYl;
+    private String cYm;
     private View mRootView;
 
     public q(TbPageContext<?> tbPageContext) {
@@ -45,25 +45,25 @@ public class q extends a<com.baidu.tieba.card.data.n> {
     private void init(View view) {
         this.mRootView = view.findViewById(e.g.home_card_hot_topic_root_view);
         this.amN = (TextView) view.findViewById(e.g.home_card_topic_title);
-        this.cVh = (TextView) view.findViewById(e.g.home_card_topic_more);
-        this.cVi = (LinearLayout) view.findViewById(e.g.home_card_topic_group_one);
-        this.cVj = (LinearLayout) view.findViewById(e.g.home_card_topic_group_two);
-        this.cVk = (LinearLayout) view.findViewById(e.g.home_card_topic_group_three);
-        this.cVl = (LinearLayout) view.findViewById(e.g.home_card_topic_group_four);
-        this.cVm = (TextView) view.findViewById(e.g.home_card_topic_one);
-        this.cVn = (TextView) view.findViewById(e.g.home_card_topic_two);
-        this.cVo = (TextView) view.findViewById(e.g.home_card_topic_three);
-        this.cVp = (TextView) view.findViewById(e.g.home_card_topic_four);
-        this.cVq = view.findViewById(e.g.home_top_div);
-        this.cVr = view.findViewById(e.g.home_top_topic_div_one);
-        this.cVs = view.findViewById(e.g.home_top_topic_div_two);
-        this.cVt = view.findViewById(e.g.home_card_top_divider_line);
-        this.cEB = view.findViewById(e.g.home_card_bottom_divider_line);
-        this.cVi.setOnClickListener(this);
-        this.cVj.setOnClickListener(this);
-        this.cVk.setOnClickListener(this);
-        this.cVl.setOnClickListener(this);
-        this.cVh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.q.1
+        this.cXX = (TextView) view.findViewById(e.g.home_card_topic_more);
+        this.cXY = (LinearLayout) view.findViewById(e.g.home_card_topic_group_one);
+        this.cXZ = (LinearLayout) view.findViewById(e.g.home_card_topic_group_two);
+        this.cYa = (LinearLayout) view.findViewById(e.g.home_card_topic_group_three);
+        this.cYb = (LinearLayout) view.findViewById(e.g.home_card_topic_group_four);
+        this.cYc = (TextView) view.findViewById(e.g.home_card_topic_one);
+        this.cYd = (TextView) view.findViewById(e.g.home_card_topic_two);
+        this.cYe = (TextView) view.findViewById(e.g.home_card_topic_three);
+        this.cYf = (TextView) view.findViewById(e.g.home_card_topic_four);
+        this.cYg = view.findViewById(e.g.home_top_div);
+        this.cYh = view.findViewById(e.g.home_top_topic_div_one);
+        this.cYi = view.findViewById(e.g.home_top_topic_div_two);
+        this.cYj = view.findViewById(e.g.home_card_top_divider_line);
+        this.cFB = view.findViewById(e.g.home_card_bottom_divider_line);
+        this.cXY.setOnClickListener(this);
+        this.cXZ.setOnClickListener(this);
+        this.cYa.setOnClickListener(this);
+        this.cYb.setOnClickListener(this);
+        this.cXX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.q.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 if (!com.baidu.tbadk.plugins.b.e(q.this.getTbPageContext())) {
@@ -74,8 +74,8 @@ public class q extends a<com.baidu.tieba.card.data.n> {
     }
 
     public void setStatKey(String str, String str2) {
-        this.cVv = str;
-        this.cVw = str2;
+        this.cYl = str;
+        this.cYm = str2;
     }
 
     @Override // com.baidu.tieba.card.a
@@ -86,10 +86,10 @@ public class q extends a<com.baidu.tieba.card.data.n> {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int l = com.baidu.adp.lib.g.b.l((String) view.getTag(), -1);
-        if (this.cVu != null && com.baidu.tbadk.core.util.v.d(this.cVu.cYu, l) != null) {
-            TiebaStatic.log(new am(this.cVw).aA("obj_locate", String.valueOf(this.cVu.bMR)).aA("obj_name", this.cVu.cYu.get(l).asM));
+        if (this.cYk != null && com.baidu.tbadk.core.util.v.d(this.cYk.dbm, l) != null) {
+            TiebaStatic.log(new am(this.cYm).aA("obj_locate", String.valueOf(this.cYk.bMU)).aA("obj_name", this.cYk.dbm.get(l).asM));
             if (l >= 0 && !com.baidu.tbadk.plugins.b.e(getTbPageContext())) {
-                getTbPageContext().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(getTbPageContext().getPageActivity()).createNormalConfig(String.valueOf(this.cVu.cYu.get(l).asL), this.cVu.cYu.get(l).asM, "")));
+                getTbPageContext().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(getTbPageContext().getPageActivity()).createNormalConfig(String.valueOf(this.cYk.dbm.get(l).asL), this.cYk.dbm.get(l).asM, "")));
             }
         }
     }
@@ -99,24 +99,24 @@ public class q extends a<com.baidu.tieba.card.data.n> {
         if (this.mSkinType != i) {
             al.i(this.mRootView, e.d.cp_bg_line_d);
             al.c(this.amN, e.d.cp_cont_d, 1);
-            al.c(this.cVh, e.d.cp_cont_d, 1);
-            al.c(this.cVm, e.d.cp_cont_b, 1);
-            al.c(this.cVn, e.d.cp_cont_b, 1);
-            al.c(this.cVo, e.d.cp_cont_b, 1);
-            al.c(this.cVp, e.d.cp_cont_b, 1);
-            al.i(this.cVq, e.d.cp_bg_line_b);
-            al.i(this.cVr, e.d.cp_bg_line_b);
-            al.i(this.cVs, e.d.cp_bg_line_b);
-            al.i(this.cVt, e.d.cp_bg_line_c);
-            al.i(this.cEB, e.d.cp_bg_line_c);
-            al.i(this.cVi, e.f.card_topic_click_selector);
-            al.i(this.cVj, e.f.card_topic_click_selector);
-            al.i(this.cVk, e.f.card_topic_click_selector);
-            al.i(this.cVl, e.f.card_topic_click_selector);
-            l(this.cVm, 0);
-            l(this.cVn, 1);
-            l(this.cVo, 2);
-            l(this.cVp, 3);
+            al.c(this.cXX, e.d.cp_cont_d, 1);
+            al.c(this.cYc, e.d.cp_cont_b, 1);
+            al.c(this.cYd, e.d.cp_cont_b, 1);
+            al.c(this.cYe, e.d.cp_cont_b, 1);
+            al.c(this.cYf, e.d.cp_cont_b, 1);
+            al.i(this.cYg, e.d.cp_bg_line_b);
+            al.i(this.cYh, e.d.cp_bg_line_b);
+            al.i(this.cYi, e.d.cp_bg_line_b);
+            al.i(this.cYj, e.d.cp_bg_line_c);
+            al.i(this.cFB, e.d.cp_bg_line_c);
+            al.i(this.cXY, e.f.card_topic_click_selector);
+            al.i(this.cXZ, e.f.card_topic_click_selector);
+            al.i(this.cYa, e.f.card_topic_click_selector);
+            al.i(this.cYb, e.f.card_topic_click_selector);
+            l(this.cYc, 0);
+            l(this.cYd, 1);
+            l(this.cYe, 2);
+            l(this.cYf, 3);
         }
         this.mSkinType = i;
     }
@@ -124,29 +124,29 @@ public class q extends a<com.baidu.tieba.card.data.n> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.card.data.n nVar) {
-        if (nVar == null || StringUtils.isNull(nVar.cYt) || com.baidu.tbadk.core.util.v.H(nVar.cYu) < 4) {
+        if (nVar == null || StringUtils.isNull(nVar.dbl) || com.baidu.tbadk.core.util.v.H(nVar.dbm) < 4) {
             this.mRootView.setVisibility(8);
             return;
         }
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        this.cVu = nVar;
-        this.cVt.setVisibility(this.cVu.cYr ? 0 : 8);
-        showBottomLine(this.cVu.cYs);
-        this.amN.setText(this.cVu.cYt.trim());
-        k(this.cVm, 0);
-        k(this.cVn, 1);
-        k(this.cVo, 2);
-        k(this.cVp, 3);
-        l(this.cVm, 0);
-        l(this.cVn, 1);
-        l(this.cVo, 2);
-        l(this.cVp, 3);
+        this.cYk = nVar;
+        this.cYj.setVisibility(this.cYk.dbj ? 0 : 8);
+        showBottomLine(this.cYk.dbk);
+        this.amN.setText(this.cYk.dbl.trim());
+        k(this.cYc, 0);
+        k(this.cYd, 1);
+        k(this.cYe, 2);
+        k(this.cYf, 3);
+        l(this.cYc, 0);
+        l(this.cYd, 1);
+        l(this.cYe, 2);
+        l(this.cYf, 3);
     }
 
     private void k(TextView textView, int i) {
-        com.baidu.tieba.card.data.m mVar = this.cVu.cYu.get(i);
+        com.baidu.tieba.card.data.m mVar = this.cYk.dbm.get(i);
         if (!StringUtils.isNull(mVar.asM)) {
             textView.setText(mVar.asM.trim());
         }
@@ -154,7 +154,7 @@ public class q extends a<com.baidu.tieba.card.data.n> {
 
     private void l(TextView textView, int i) {
         com.baidu.tieba.card.data.m mVar;
-        if (this.cVu != null && com.baidu.tbadk.core.util.v.H(this.cVu.cYu) >= 4 && (mVar = (com.baidu.tieba.card.data.m) com.baidu.tbadk.core.util.v.d(this.cVu.cYu, i)) != null) {
+        if (this.cYk != null && com.baidu.tbadk.core.util.v.H(this.cYk.dbm) >= 4 && (mVar = (com.baidu.tieba.card.data.m) com.baidu.tbadk.core.util.v.d(this.cYk.dbm, i)) != null) {
             switch (mVar.tag) {
                 case 1:
                     textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(e.f.icon_hottopic_new), (Drawable) null);
@@ -173,15 +173,15 @@ public class q extends a<com.baidu.tieba.card.data.n> {
 
     public void showBottomLine(boolean z) {
         if (z) {
-            this.cEB.setVisibility(0);
+            this.cFB.setVisibility(0);
         } else {
-            this.cEB.setVisibility(8);
+            this.cFB.setVisibility(8);
         }
     }
 
-    public void kz(int i) {
-        ViewGroup.LayoutParams layoutParams = this.cVt.getLayoutParams();
+    public void kM(int i) {
+        ViewGroup.LayoutParams layoutParams = this.cYj.getLayoutParams();
         layoutParams.height = i;
-        this.cVt.setLayoutParams(layoutParams);
+        this.cYj.setLayoutParams(layoutParams);
     }
 }

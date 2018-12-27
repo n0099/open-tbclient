@@ -56,7 +56,7 @@ public class b implements IAiAppPolymerPay {
         String str2;
         String str3;
         String str4;
-        if (!com.baidu.tbadk.pay.c.OX().OY()) {
+        if (!com.baidu.tbadk.pay.c.OY().OZ()) {
             l.showToast(TbadkCoreApplication.getInst(), e.j.plugin_pay_wallet_not_found);
         } else if (context instanceof Activity) {
             d dVar = new d();

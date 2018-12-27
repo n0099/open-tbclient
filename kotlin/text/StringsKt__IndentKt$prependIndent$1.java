@@ -15,7 +15,7 @@ final class StringsKt__IndentKt$prependIndent$1 extends Lambda implements kotlin
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.b
     public final String invoke(String str) {
-        kotlin.jvm.internal.p.h((Object) str, AdvanceSetting.NETWORK_TYPE);
+        kotlin.jvm.internal.p.j(str, AdvanceSetting.NETWORK_TYPE);
         if (k.i(str)) {
             return str.length() < this.$indent.length() ? this.$indent : str;
         }

@@ -20,16 +20,16 @@ import java.io.RandomAccessFile;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class f {
-    private a bcY;
-    private Object bcZ;
-    private e bda;
+    private a bdb;
+    private Object bdc;
+    private e bdd;
     private int bigHeight;
     private int bigWidth;
     private String from;
     private boolean isCancelled;
     private int smallHeight;
     private int smallWidth;
-    private int bcX = 512000;
+    private int bda = 512000;
     private String groupId = "1";
     private x mNetwork = null;
 
@@ -50,10 +50,10 @@ public class f {
     }
 
     public void a(a aVar, Object obj) {
-        this.bcY = aVar;
-        this.bcZ = obj;
+        this.bdb = aVar;
+        this.bdc = obj;
         if (aVar != null) {
-            this.bcX = 10240;
+            this.bda = 10240;
         }
     }
 
@@ -136,10 +136,10 @@ public class f {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.bda == null) {
-            this.bda = new e();
+        if (this.bdd == null) {
+            this.bdd = new e();
         }
-        return c(this.bda.c(imageFileInfo, z), z, z2);
+        return c(this.bdd.c(imageFileInfo, z), z, z2);
     }
 
     public ImageUploadResult d(ImageFileInfo imageFileInfo, boolean z) {
@@ -293,8 +293,8 @@ public class f {
                         imageUploadResult2 = imageUploadResult5;
                         randomAccessFile2 = null;
                     } else {
-                        String str2 = i + this.bcX;
-                        long j2 = length % ((long) this.bcX) == 0 ? length / this.bcX : (length / this.bcX) + 1;
+                        String str2 = i + this.bda;
+                        long j2 = length % ((long) this.bda) == 0 ? length / this.bda : (length / this.bda) + 1;
                         sb.append("|chunkNo=");
                         sb.append(j2);
                         randomAccessFile2 = new RandomAccessFile(str, "r");
@@ -328,14 +328,14 @@ public class f {
                                                 bArr = null;
                                             } else {
                                                 if (i4 < j2) {
-                                                    i5 = this.bcX;
+                                                    i5 = this.bda;
                                                 } else if (i4 == j2) {
-                                                    i5 = (int) (length - (this.bcX * (j2 - 1)));
+                                                    i5 = (int) (length - (this.bda * (j2 - 1)));
                                                 }
                                                 if (bArr2 == null || bArr2.length != i5) {
                                                     bArr2 = new byte[i5];
                                                 }
-                                                randomAccessFile2.seek(this.bcX * (i4 - 1));
+                                                randomAccessFile2.seek(this.bda * (i4 - 1));
                                                 randomAccessFile2.read(bArr2, 0, i5);
                                                 bArr = bArr2;
                                             }
@@ -391,9 +391,9 @@ public class f {
                                                 if (imageUploadResult3.error_code != ImageUploadResult.CHUNK_ERROR) {
                                                     int i6 = i4 + 1;
                                                     long j4 = j3 + i5;
-                                                    long j5 = i6 > 1 ? j4 + ((i6 - 1) * this.bcX) : j4;
-                                                    if (this.bcY != null) {
-                                                        this.bcY.a(str, this.bcZ, j5, length);
+                                                    long j5 = i6 > 1 ? j4 + ((i6 - 1) * this.bda) : j4;
+                                                    if (this.bdb != null) {
+                                                        this.bdb.a(str, this.bdc, j5, length);
                                                     }
                                                     i2 = i6;
                                                     j = j4;

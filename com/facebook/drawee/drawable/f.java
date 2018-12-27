@@ -6,101 +6,101 @@ import android.os.SystemClock;
 import java.util.Arrays;
 /* loaded from: classes2.dex */
 public class f extends a {
-    private final Drawable[] iiI;
-    int iiU;
-    int iiV;
-    long iiW;
-    int[] iiX;
-    int[] iiY;
-    boolean[] iiZ;
-    int ija;
+    private final Drawable[] ilS;
+    int ime;
+    int imf;
+    long imh;
+    int[] imi;
+    int[] imj;
+    boolean[] imk;
+    int iml;
     int mAlpha;
 
     public f(Drawable[] drawableArr) {
         super(drawableArr);
         com.facebook.common.internal.g.c(drawableArr.length >= 1, "At least one layer required!");
-        this.iiI = drawableArr;
-        this.iiX = new int[drawableArr.length];
-        this.iiY = new int[drawableArr.length];
+        this.ilS = drawableArr;
+        this.imi = new int[drawableArr.length];
+        this.imj = new int[drawableArr.length];
         this.mAlpha = 255;
-        this.iiZ = new boolean[drawableArr.length];
-        this.ija = 0;
+        this.imk = new boolean[drawableArr.length];
+        this.iml = 0;
         resetInternal();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void invalidateSelf() {
-        if (this.ija == 0) {
+        if (this.iml == 0) {
             super.invalidateSelf();
         }
     }
 
-    public void bUH() {
-        this.ija++;
+    public void bVy() {
+        this.iml++;
     }
 
-    public void bUI() {
-        this.ija--;
+    public void bVz() {
+        this.iml--;
         invalidateSelf();
     }
 
-    public void yc(int i) {
-        this.iiV = i;
-        if (this.iiU == 1) {
-            this.iiU = 0;
+    public void yp(int i) {
+        this.imf = i;
+        if (this.ime == 1) {
+            this.ime = 0;
         }
     }
 
     private void resetInternal() {
-        this.iiU = 2;
-        Arrays.fill(this.iiX, 0);
-        this.iiX[0] = 255;
-        Arrays.fill(this.iiY, 0);
-        this.iiY[0] = 255;
-        Arrays.fill(this.iiZ, false);
-        this.iiZ[0] = true;
+        this.ime = 2;
+        Arrays.fill(this.imi, 0);
+        this.imi[0] = 255;
+        Arrays.fill(this.imj, 0);
+        this.imj[0] = 255;
+        Arrays.fill(this.imk, false);
+        this.imk[0] = true;
     }
 
-    public void yd(int i) {
-        this.iiU = 0;
-        this.iiZ[i] = true;
+    public void yq(int i) {
+        this.ime = 0;
+        this.imk[i] = true;
         invalidateSelf();
     }
 
-    public void ye(int i) {
-        this.iiU = 0;
-        this.iiZ[i] = false;
+    public void yr(int i) {
+        this.ime = 0;
+        this.imk[i] = false;
         invalidateSelf();
     }
 
-    public void bUJ() {
-        this.iiU = 0;
-        Arrays.fill(this.iiZ, true);
+    public void bVA() {
+        this.ime = 0;
+        Arrays.fill(this.imk, true);
         invalidateSelf();
     }
 
-    public void bUK() {
-        this.iiU = 2;
-        for (int i = 0; i < this.iiI.length; i++) {
-            this.iiY[i] = this.iiZ[i] ? 255 : 0;
+    public void bVB() {
+        this.ime = 2;
+        for (int i = 0; i < this.ilS.length; i++) {
+            this.imj[i] = this.imk[i] ? 255 : 0;
         }
         invalidateSelf();
     }
 
     private boolean aH(float f) {
         boolean z = true;
-        for (int i = 0; i < this.iiI.length; i++) {
-            this.iiY[i] = (int) (((this.iiZ[i] ? 1 : -1) * 255 * f) + this.iiX[i]);
-            if (this.iiY[i] < 0) {
-                this.iiY[i] = 0;
+        for (int i = 0; i < this.ilS.length; i++) {
+            this.imj[i] = (int) (((this.imk[i] ? 1 : -1) * 255 * f) + this.imi[i]);
+            if (this.imj[i] < 0) {
+                this.imj[i] = 0;
             }
-            if (this.iiY[i] > 255) {
-                this.iiY[i] = 255;
+            if (this.imj[i] > 255) {
+                this.imj[i] = 255;
             }
-            if (this.iiZ[i] && this.iiY[i] < 255) {
+            if (this.imk[i] && this.imj[i] < 255) {
                 z = false;
             }
-            if (!this.iiZ[i] && this.iiY[i] > 0) {
+            if (!this.imk[i] && this.imj[i] > 0) {
                 z = false;
             }
         }
@@ -110,23 +110,23 @@ public class f extends a {
     @Override // com.facebook.drawee.drawable.a, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         boolean z = true;
-        switch (this.iiU) {
+        switch (this.ime) {
             case 0:
-                System.arraycopy(this.iiY, 0, this.iiX, 0, this.iiI.length);
-                this.iiW = bUL();
-                boolean aH = aH(this.iiV == 0 ? 1.0f : 0.0f);
-                this.iiU = aH ? 2 : 1;
+                System.arraycopy(this.imj, 0, this.imi, 0, this.ilS.length);
+                this.imh = bVC();
+                boolean aH = aH(this.imf == 0 ? 1.0f : 0.0f);
+                this.ime = aH ? 2 : 1;
                 z = aH;
                 break;
             case 1:
-                com.facebook.common.internal.g.checkState(this.iiV > 0);
-                boolean aH2 = aH(((float) (bUL() - this.iiW)) / this.iiV);
-                this.iiU = aH2 ? 2 : 1;
+                com.facebook.common.internal.g.checkState(this.imf > 0);
+                boolean aH2 = aH(((float) (bVC() - this.imh)) / this.imf);
+                this.ime = aH2 ? 2 : 1;
                 z = aH2;
                 break;
         }
-        for (int i = 0; i < this.iiI.length; i++) {
-            a(canvas, this.iiI[i], (this.iiY[i] * this.mAlpha) / 255);
+        for (int i = 0; i < this.ilS.length; i++) {
+            a(canvas, this.ilS[i], (this.imj[i] * this.mAlpha) / 255);
         }
         if (!z) {
             invalidateSelf();
@@ -135,9 +135,9 @@ public class f extends a {
 
     private void a(Canvas canvas, Drawable drawable, int i) {
         if (drawable != null && i > 0) {
-            this.ija++;
+            this.iml++;
             drawable.mutate().setAlpha(i);
-            this.ija--;
+            this.iml--;
             drawable.draw(canvas);
         }
     }
@@ -155,7 +155,7 @@ public class f extends a {
         return this.mAlpha;
     }
 
-    protected long bUL() {
+    protected long bVC() {
         return SystemClock.uptimeMillis();
     }
 }

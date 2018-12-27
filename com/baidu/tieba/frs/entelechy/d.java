@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class d implements com.baidu.tieba.frs.entelechy.b.b {
-    private float aSU = 0.16875f;
+    private float aSW = 0.16875f;
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(f fVar, l lVar) {
@@ -28,22 +28,22 @@ public class d implements com.baidu.tieba.frs.entelechy.b.b {
                         arrayList.add(next);
                     }
                 }
-                lVar.dM(arrayList);
+                lVar.dN(arrayList);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public boolean my(int i) {
+    public boolean mL(int i) {
         return false;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(f fVar, k kVar, l lVar) {
         if (fVar != null && kVar != null && lVar != null) {
-            fVar.aHg();
-            if (lVar != null && lVar.bgh() != null) {
-                kVar.a(lVar.bgh().getFrsBannerData());
+            fVar.aHV();
+            if (lVar != null && lVar.bgT() != null) {
+                kVar.a(lVar.bgT().getFrsBannerData());
             }
         }
     }
@@ -54,7 +54,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.b {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public void aM(View view) {
+    public void aP(View view) {
         view.setVisibility(8);
     }
 }

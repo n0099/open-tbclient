@@ -1,11 +1,11 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes2.dex */
 public interface ak {
-    void bYX();
+    void bZO();
 
-    void bYY();
+    void bZP();
 
-    void bYZ();
+    void bZQ();
 
-    void bZa();
+    void bZR();
 }

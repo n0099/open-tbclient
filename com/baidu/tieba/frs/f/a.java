@@ -16,12 +16,12 @@ public class a {
             bVar2.aa(list);
             if (forumData != null) {
                 bVar2.setForumId(forumData.getId());
-                bVar2.je(forumData.getFirst_class());
-                bVar2.jf(forumData.getSecond_class());
+                bVar2.jf(forumData.getFirst_class());
+                bVar2.jg(forumData.getSecond_class());
             }
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
-                bVar2.jg(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
+                bVar2.jh(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
             }
             bVar2.dj(z);
             bVar2.setPageNum(i);
@@ -31,7 +31,7 @@ public class a {
 
     public static void a(com.baidu.tieba.InjectPlugin.a.b bVar, l lVar, List<com.baidu.adp.widget.ListView.h> list, int i) {
         if (lVar != null) {
-            a(bVar, lVar.bgh(), list, false, i);
+            a(bVar, lVar.bgT(), list, false, i);
         }
     }
 
@@ -39,10 +39,10 @@ public class a {
         int[] iArr;
         int indexOf;
         if (eVar != null && v.H(list) > 0 && v.H(list2) > 0) {
-            for (int i : com.baidu.tieba.tbadkCore.data.e.hkO) {
+            for (int i : com.baidu.tieba.tbadkCore.data.e.hnZ) {
                 com.baidu.adp.widget.ListView.h hVar = (com.baidu.adp.widget.ListView.h) v.d(list, i);
                 if (hVar != null && (indexOf = list2.indexOf(hVar)) >= 0) {
-                    eVar.bQ(i, indexOf);
+                    eVar.bR(i, indexOf);
                 }
             }
         }

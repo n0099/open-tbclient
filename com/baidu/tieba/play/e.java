@@ -1,9 +1,9 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public interface e {
-    void aYv();
+    void aZj();
 
-    void aYw();
+    void aZk();
 
-    void aYx();
+    void aZl();
 }

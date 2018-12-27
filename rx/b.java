@@ -1,24 +1,24 @@
 package rx;
 /* loaded from: classes2.dex */
 public class b {
-    static final b iAJ = new b(new a() { // from class: rx.b.1
+    static final b iDT = new b(new a() { // from class: rx.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: c */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.cft());
+            cVar.onSubscribe(rx.subscriptions.e.cgk());
             cVar.onCompleted();
         }
     }, false);
-    static final b iAK = new b(new a() { // from class: rx.b.3
+    static final b iDU = new b(new a() { // from class: rx.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: c */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.cft());
+            cVar.onSubscribe(rx.subscriptions.e.cgk());
         }
     }, false);
-    private final a iAI;
+    private final a iDS;
 
     /* loaded from: classes2.dex */
     public interface a extends rx.functions.b<c> {
@@ -83,11 +83,11 @@ public class b {
     }
 
     protected b(a aVar) {
-        this.iAI = rx.c.c.b(aVar);
+        this.iDS = rx.c.c.b(aVar);
     }
 
     protected b(a aVar, boolean z) {
-        this.iAI = z ? rx.c.c.b(aVar) : aVar;
+        this.iDS = z ? rx.c.c.b(aVar) : aVar;
     }
 
     public final k subscribe() {
@@ -121,7 +121,7 @@ public class b {
     public final void a(c cVar) {
         requireNonNull(cVar);
         try {
-            rx.c.c.b(this, this.iAI).call(cVar);
+            rx.c.c.b(this, this.iDS).call(cVar);
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {

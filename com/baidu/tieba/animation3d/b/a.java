@@ -15,44 +15,44 @@ import javax.microedition.khronos.opengles.GL10;
 /* loaded from: classes.dex */
 public class a implements TBGLSurfaceView.m {
     private int bgColor;
-    int cQA;
-    private IntBuffer cQm;
-    private IntBuffer cQn;
-    protected float cQo;
-    protected float cQp;
-    protected float cQq;
-    protected Bitmap cQr;
-    protected Bitmap cQs;
-    protected Bitmap cQt;
-    protected Bitmap cQu;
-    protected Bitmap cQv;
-    protected Bitmap cQw;
-    protected float cQx;
-    protected float cQy;
+    private IntBuffer cTd;
+    private IntBuffer cTe;
+    protected float cTf;
+    protected float cTg;
+    protected float cTh;
+    protected Bitmap cTi;
+    protected Bitmap cTj;
+    protected Bitmap cTk;
+    protected Bitmap cTl;
+    protected Bitmap cTm;
+    protected Bitmap cTn;
+    protected float cTo;
+    protected float cTp;
+    int cTr;
     public Context context;
-    protected float cQz = 0.0f;
+    protected float cTq = 0.0f;
     private int one = 65536;
-    private Queue<com.baidu.tieba.animation3d.a.b> cQB = new ConcurrentLinkedQueue();
-    private Queue<com.baidu.tieba.animation3d.a.c> cQC = new ConcurrentLinkedQueue();
-    private int cQD = 0;
-    private int[] cQE = {this.one, this.one, -this.one, -this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, -this.one, -this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, -this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, -this.one, this.one, -this.one, -this.one, -this.one, this.one, this.one, -this.one, this.one, this.one, this.one, this.one, -this.one, -this.one, this.one, -this.one, this.one};
-    private int[] cQF = {this.one, 0, 0, 0, this.one, this.one, 0, this.one};
-    private int[] cQl = new int[1];
+    private Queue<com.baidu.tieba.animation3d.a.b> cTs = new ConcurrentLinkedQueue();
+    private Queue<com.baidu.tieba.animation3d.a.c> cTt = new ConcurrentLinkedQueue();
+    private int cTu = 0;
+    private int[] cTv = {this.one, this.one, -this.one, -this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, -this.one, -this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, -this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, -this.one, this.one, -this.one, -this.one, -this.one, this.one, this.one, -this.one, this.one, this.one, this.one, this.one, -this.one, -this.one, this.one, -this.one, this.one};
+    private int[] cTw = {this.one, 0, 0, 0, this.one, this.one, 0, this.one};
+    private int[] cTc = new int[1];
 
     public a(Context context) {
         this.context = context;
-        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(this.cQE.length * 4);
+        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(this.cTv.length * 4);
         allocateDirect.order(ByteOrder.nativeOrder());
-        this.cQm = allocateDirect.asIntBuffer();
-        this.cQm.put(this.cQE);
-        this.cQm.position(0);
-        ByteBuffer allocateDirect2 = ByteBuffer.allocateDirect(this.cQF.length * 4 * 6);
+        this.cTd = allocateDirect.asIntBuffer();
+        this.cTd.put(this.cTv);
+        this.cTd.position(0);
+        ByteBuffer allocateDirect2 = ByteBuffer.allocateDirect(this.cTw.length * 4 * 6);
         allocateDirect2.order(ByteOrder.nativeOrder());
-        this.cQn = allocateDirect2.asIntBuffer();
+        this.cTe = allocateDirect2.asIntBuffer();
         for (int i = 0; i < 6; i++) {
-            this.cQn.put(this.cQF);
+            this.cTe.put(this.cTw);
         }
-        this.cQn.position(0);
+        this.cTe.position(0);
     }
 
     @Override // com.baidu.tieba.animation3d.View.TBGLSurfaceView.m
@@ -71,64 +71,64 @@ public class a implements TBGLSurfaceView.m {
         gl10.glHint(3152, 4354);
         gl10.glEnableClientState(32884);
         gl10.glEnableClientState(32888);
-        gl10.glVertexPointer(3, 5132, 0, this.cQm);
-        gl10.glTexCoordPointer(2, 5132, 0, this.cQn);
-        gl10.glTranslatef(this.cQx, this.cQy, this.cQz);
-        if (this.cQC != null && this.cQC.size() != 0 && (peek = this.cQC.peek()) != null) {
-            if (peek.aox() == 2) {
-                peek.e(this.cQx, this.cQy, this.cQz, this.cQA);
-                this.cQC.poll();
-            } else if (peek.aox() == -1) {
-                if (!peek.aow()) {
-                    peek.kp(2);
+        gl10.glVertexPointer(3, 5132, 0, this.cTd);
+        gl10.glTexCoordPointer(2, 5132, 0, this.cTe);
+        gl10.glTranslatef(this.cTo, this.cTp, this.cTq);
+        if (this.cTt != null && this.cTt.size() != 0 && (peek = this.cTt.peek()) != null) {
+            if (peek.apn() == 2) {
+                peek.e(this.cTo, this.cTp, this.cTq, this.cTr);
+                this.cTt.poll();
+            } else if (peek.apn() == -1) {
+                if (!peek.apm()) {
+                    peek.kB(2);
                 } else {
-                    peek.kp(0);
+                    peek.kB(0);
                 }
-            } else if (peek.aox() == 0) {
-                peek.b(this.cQx, this.cQy, this.cQz, this.cQA);
-                float g = peek.g(this.cQx, this.cQy, this.cQz, this.cQA);
-                float h = peek.h(this.cQx, this.cQy, this.cQz, this.cQA);
-                float i = peek.i(this.cQx, this.cQy, this.cQz, this.cQA);
-                this.cQx = g;
-                this.cQy = h;
-                this.cQz = i;
-                peek.kp(1);
-            } else if (peek.aox() == 1) {
-                if (peek.c(this.cQx, this.cQy, this.cQz, this.cQA)) {
-                    peek.kp(2);
+            } else if (peek.apn() == 0) {
+                peek.b(this.cTo, this.cTp, this.cTq, this.cTr);
+                float g = peek.g(this.cTo, this.cTp, this.cTq, this.cTr);
+                float h = peek.h(this.cTo, this.cTp, this.cTq, this.cTr);
+                float i = peek.i(this.cTo, this.cTp, this.cTq, this.cTr);
+                this.cTo = g;
+                this.cTp = h;
+                this.cTq = i;
+                peek.kB(1);
+            } else if (peek.apn() == 1) {
+                if (peek.c(this.cTo, this.cTp, this.cTq, this.cTr)) {
+                    peek.kB(2);
                 } else {
-                    peek.d(this.cQx, this.cQy, this.cQz, this.cQA);
-                    float g2 = peek.g(this.cQx, this.cQy, this.cQz, this.cQA);
-                    float h2 = peek.h(this.cQx, this.cQy, this.cQz, this.cQA);
-                    float i2 = peek.i(this.cQx, this.cQy, this.cQz, this.cQA);
-                    this.cQx = g2;
-                    this.cQy = h2;
-                    this.cQz = i2;
+                    peek.d(this.cTo, this.cTp, this.cTq, this.cTr);
+                    float g2 = peek.g(this.cTo, this.cTp, this.cTq, this.cTr);
+                    float h2 = peek.h(this.cTo, this.cTp, this.cTq, this.cTr);
+                    float i2 = peek.i(this.cTo, this.cTp, this.cTq, this.cTr);
+                    this.cTo = g2;
+                    this.cTp = h2;
+                    this.cTq = i2;
                 }
             }
         }
-        gl10.glRotatef(this.cQo, 1.0f, 0.0f, 0.0f);
-        gl10.glRotatef(this.cQp, 0.0f, 1.0f, 0.0f);
-        gl10.glRotatef(this.cQq, 0.0f, 0.0f, 1.0f);
+        gl10.glRotatef(this.cTf, 1.0f, 0.0f, 0.0f);
+        gl10.glRotatef(this.cTg, 0.0f, 1.0f, 0.0f);
+        gl10.glRotatef(this.cTh, 0.0f, 0.0f, 1.0f);
         for (int i3 = 0; i3 < 6; i3++) {
             switch (i3) {
                 case 0:
-                    GLUtils.texImage2D(3553, 0, this.cQr, 0);
+                    GLUtils.texImage2D(3553, 0, this.cTi, 0);
                     break;
                 case 1:
-                    GLUtils.texImage2D(3553, 0, this.cQs, 0);
+                    GLUtils.texImage2D(3553, 0, this.cTj, 0);
                     break;
                 case 2:
-                    GLUtils.texImage2D(3553, 0, this.cQt, 0);
+                    GLUtils.texImage2D(3553, 0, this.cTk, 0);
                     break;
                 case 3:
-                    GLUtils.texImage2D(3553, 0, this.cQu, 0);
+                    GLUtils.texImage2D(3553, 0, this.cTl, 0);
                     break;
                 case 4:
-                    GLUtils.texImage2D(3553, 0, this.cQv, 0);
+                    GLUtils.texImage2D(3553, 0, this.cTm, 0);
                     break;
                 case 5:
-                    GLUtils.texImage2D(3553, 0, this.cQw, 0);
+                    GLUtils.texImage2D(3553, 0, this.cTn, 0);
                     break;
             }
             gl10.glDrawArrays(5, i3 * 4, 4);
@@ -136,45 +136,45 @@ public class a implements TBGLSurfaceView.m {
         gl10.glDisableClientState(32888);
         gl10.glDisableClientState(32884);
         double d2 = 0.0d;
-        if (this.cQB != null && this.cQB.size() != 0) {
-            com.baidu.tieba.animation3d.a.b peek2 = this.cQB.peek();
+        if (this.cTs != null && this.cTs.size() != 0) {
+            com.baidu.tieba.animation3d.a.b peek2 = this.cTs.peek();
             if (peek2 != null) {
-                if (peek2.aox() == 2) {
-                    peek2.e(this.cQo, this.cQp, this.cQq, this.cQA);
-                    this.cQB.poll();
+                if (peek2.apn() == 2) {
+                    peek2.e(this.cTf, this.cTg, this.cTh, this.cTr);
+                    this.cTs.poll();
                     return;
-                } else if (peek2.aox() == -1) {
-                    if (!peek2.aow()) {
-                        peek2.kp(2);
+                } else if (peek2.apn() == -1) {
+                    if (!peek2.apm()) {
+                        peek2.kB(2);
                         return;
                     } else {
-                        peek2.kp(0);
+                        peek2.kB(0);
                         return;
                     }
                 } else {
-                    if (peek2.aox() == 0) {
-                        peek2.b(this.cQo, this.cQp, this.cQq, this.cQA);
-                        double f = peek2.f(this.cQo, this.cQp, this.cQq, this.cQA);
-                        peek2.kp(1);
+                    if (peek2.apn() == 0) {
+                        peek2.b(this.cTf, this.cTg, this.cTh, this.cTr);
+                        double f = peek2.f(this.cTf, this.cTg, this.cTh, this.cTr);
+                        peek2.kB(1);
                         d = f;
-                    } else if (peek2.aox() == 1) {
-                        if (peek2.c(this.cQo, this.cQp, this.cQq, this.cQA)) {
-                            peek2.kp(2);
+                    } else if (peek2.apn() == 1) {
+                        if (peek2.c(this.cTf, this.cTg, this.cTh, this.cTr)) {
+                            peek2.kB(2);
                             return;
                         } else {
-                            peek2.d(this.cQo, this.cQp, this.cQq, this.cQA);
-                            d = peek2.f(this.cQo, this.cQp, this.cQq, this.cQA);
+                            peek2.d(this.cTf, this.cTg, this.cTh, this.cTr);
+                            d = peek2.f(this.cTf, this.cTg, this.cTh, this.cTr);
                         }
                     }
-                    aoy();
+                    apo();
                     d2 = d;
                 }
             }
             d = 0.0d;
-            aoy();
+            apo();
             d2 = d;
         }
-        this.cQo = (float) (this.cQo + d2);
+        this.cTf = (float) (this.cTf + d2);
     }
 
     @Override // com.baidu.tieba.animation3d.View.TBGLSurfaceView.m
@@ -183,7 +183,7 @@ public class a implements TBGLSurfaceView.m {
         gl10.glViewport(0, 0, i, i2);
         gl10.glMatrixMode(5889);
         gl10.glLoadIdentity();
-        switch (this.cQD) {
+        switch (this.cTu) {
             case 0:
                 a(gl10, f);
                 break;
@@ -224,55 +224,55 @@ public class a implements TBGLSurfaceView.m {
         gl10.glEnable(2929);
         gl10.glDepthFunc(515);
         gl10.glEnable(3553);
-        gl10.glGenTextures(1, this.cQl, 0);
-        gl10.glBindTexture(3553, this.cQl[0]);
+        gl10.glGenTextures(1, this.cTc, 0);
+        gl10.glBindTexture(3553, this.cTc[0]);
         gl10.glEnable(32925);
         gl10.glTexParameterf(3553, 10241, 9729.0f);
         gl10.glTexParameterf(3553, 10240, 9729.0f);
     }
 
-    public void aoy() {
-        this.cQA++;
+    public void apo() {
+        this.cTr++;
     }
 
-    public boolean aoz() {
-        this.cQA = 0;
+    public boolean app() {
+        this.cTr = 0;
         return true;
     }
 
-    public void aoA() {
-        this.cQo = 0.0f;
-        this.cQp = 0.0f;
-        this.cQq = 0.0f;
+    public void apq() {
+        this.cTf = 0.0f;
+        this.cTg = 0.0f;
+        this.cTh = 0.0f;
     }
 
     public void Eq() {
-        this.cQC.clear();
-        this.cQB.clear();
-        aoz();
-        aoA();
+        this.cTt.clear();
+        this.cTs.clear();
+        app();
+        apq();
     }
 
     public void a(Bitmap bitmap, Bitmap bitmap2, Bitmap bitmap3, Bitmap bitmap4, Bitmap bitmap5, Bitmap bitmap6) {
-        this.cQr = bitmap;
-        this.cQs = bitmap2;
-        this.cQt = bitmap3;
-        this.cQu = bitmap4;
-        this.cQv = bitmap5;
-        this.cQw = bitmap6;
+        this.cTi = bitmap;
+        this.cTj = bitmap2;
+        this.cTk = bitmap3;
+        this.cTl = bitmap4;
+        this.cTm = bitmap5;
+        this.cTn = bitmap6;
     }
 
     public void setProjectionMode(int i) {
-        this.cQD = i;
+        this.cTu = i;
     }
 
     public void a(com.baidu.tieba.animation3d.a.b bVar) {
         if (bVar != null) {
-            this.cQB.add(bVar);
+            this.cTs.add(bVar);
         }
     }
 
-    public void kq(int i) {
+    public void kC(int i) {
         this.bgColor = i;
     }
 
@@ -283,6 +283,6 @@ public class a implements TBGLSurfaceView.m {
     }
 
     public void aj(float f) {
-        this.cQz = f;
+        this.cTq = f;
     }
 }

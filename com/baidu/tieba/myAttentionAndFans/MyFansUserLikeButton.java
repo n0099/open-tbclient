@@ -18,7 +18,7 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class MyFansUserLikeButton extends CommonUserLikeButton {
     private int currentPage;
-    private e fFU;
+    private e fIM;
     private com.baidu.adp.base.e mContext;
     private String uid;
 
@@ -43,12 +43,12 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
     public void d(boolean z, int i) {
-        this.aLi = z;
+        this.aLk = z;
         if (z) {
             switch (i) {
                 case 1:
                     setTextSize(0, l.h(getContext(), e.C0210e.ds26));
-                    setText(this.aLg);
+                    setText(this.aLi);
                     break;
                 case 2:
                     setTextSize(0, l.h(getContext(), e.C0210e.ds24));
@@ -56,13 +56,13 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                     break;
                 default:
                     setTextSize(0, l.h(getContext(), e.C0210e.ds26));
-                    setText(this.aLg);
+                    setText(this.aLi);
                     break;
             }
             setPadding(0, 0, 0, 0);
         } else {
             setTextSize(0, l.h(getContext(), e.C0210e.ds26));
-            setText(this.aLh);
+            setText(this.aLj);
             setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0210e.ds18), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0210e.ds10), 0);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -75,7 +75,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.aLi) {
+        if (this.aLk) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             al.h(this, e.d.btn_forum_focus_gray_color);
             al.i(this, e.f.btn_transparent_gray_border);
@@ -97,14 +97,14 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
             public void onClick(final View view) {
                 if (MyFansUserLikeButton.this.currentPage != 1) {
                     if (MyFansUserLikeButton.this.currentPage == 2) {
-                        TiebaStatic.log(new am("c12605").x("obj_locate", MyFansUserLikeButton.this.aLi ? 3 : 2).aA("obj_param1", MyFansUserLikeButton.this.uid));
+                        TiebaStatic.log(new am("c12605").x("obj_locate", MyFansUserLikeButton.this.aLk ? 3 : 2).aA("obj_param1", MyFansUserLikeButton.this.uid));
                     }
                 } else {
-                    TiebaStatic.log(new am("c12772").aA("obj_locate", MyFansUserLikeButton.this.aLi ? "3" : "2").aA("obj_param1", MyFansUserLikeButton.this.uid));
+                    TiebaStatic.log(new am("c12772").aA("obj_locate", MyFansUserLikeButton.this.aLk ? "3" : "2").aA("obj_param1", MyFansUserLikeButton.this.uid));
                 }
-                if (MyFansUserLikeButton.this.aLi) {
+                if (MyFansUserLikeButton.this.aLk) {
                     if (MyFansUserLikeButton.this.mContext != null) {
-                        if (MyFansUserLikeButton.this.fFU == null) {
+                        if (MyFansUserLikeButton.this.fIM == null) {
                             com.baidu.tieba.view.a aVar = new com.baidu.tieba.view.a(MyFansUserLikeButton.this.mContext.getContext());
                             aVar.setTitleText(MyFansUserLikeButton.this.mContext.getString(e.j.confirm_unlike));
                             ArrayList arrayList = new ArrayList();
@@ -121,7 +121,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                                         } else {
                                             TiebaStatic.log(new am("c12773").aA("obj_param1", MyFansUserLikeButton.this.uid));
                                         }
-                                        g.b(MyFansUserLikeButton.this.fFU, MyFansUserLikeButton.this.mContext);
+                                        g.b(MyFansUserLikeButton.this.fIM, MyFansUserLikeButton.this.mContext);
                                     }
                                 }
                             });
@@ -129,16 +129,16 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                             aVar.a(new a.b() { // from class: com.baidu.tieba.myAttentionAndFans.MyFansUserLikeButton.1.2
                                 @Override // com.baidu.tieba.view.a.b
                                 public void onClick() {
-                                    if (MyFansUserLikeButton.this.fFU != null) {
-                                        g.b(MyFansUserLikeButton.this.fFU, MyFansUserLikeButton.this.mContext);
+                                    if (MyFansUserLikeButton.this.fIM != null) {
+                                        g.b(MyFansUserLikeButton.this.fIM, MyFansUserLikeButton.this.mContext);
                                     }
                                 }
                             });
-                            aVar.ed(arrayList);
-                            MyFansUserLikeButton.this.fFU = new com.baidu.tieba.person.e(MyFansUserLikeButton.this.mContext.getPageActivity(), aVar.bLY());
-                            MyFansUserLikeButton.this.fFU.ax(0.7f);
+                            aVar.ee(arrayList);
+                            MyFansUserLikeButton.this.fIM = new com.baidu.tieba.person.e(MyFansUserLikeButton.this.mContext.getPageActivity(), aVar.bMO());
+                            MyFansUserLikeButton.this.fIM.ax(0.7f);
                         }
-                        g.a(MyFansUserLikeButton.this.fFU, MyFansUserLikeButton.this.mContext);
+                        g.a(MyFansUserLikeButton.this.fIM, MyFansUserLikeButton.this.mContext);
                         return;
                     }
                     return;

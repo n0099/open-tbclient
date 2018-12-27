@@ -3,7 +3,7 @@ package rx.internal.operators;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class bb<T> implements d.b<T, T> {
-    final rx.functions.f<? super Throwable, ? extends rx.d<? extends T>> iGz;
+    final rx.functions.f<? super Throwable, ? extends rx.d<? extends T>> iJJ;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -44,7 +44,7 @@ public final class bb<T> implements d.b<T, T> {
     }
 
     public bb(rx.functions.f<? super Throwable, ? extends rx.d<? extends T>> fVar) {
-        this.iGz = fVar;
+        this.iJJ = fVar;
     }
 
     public rx.j<? super T> call(final rx.j<? super T> jVar) {
@@ -96,9 +96,9 @@ public final class bb<T> implements d.b<T, T> {
                     dVar.g(jVar3);
                     long j = this.produced;
                     if (j != 0) {
-                        aVar.dL(j);
+                        aVar.dQ(j);
                     }
-                    bb.this.iGz.call(th).unsafeSubscribe(jVar3);
+                    bb.this.iJJ.call(th).unsafeSubscribe(jVar3);
                 } catch (Throwable th2) {
                     rx.exceptions.a.a(th2, jVar);
                 }

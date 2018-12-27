@@ -19,78 +19,78 @@ import java.util.HashSet;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class c implements NetModel.b {
-    private FrsCommonTabFragment dOC;
-    private boolean dOI;
-    private d dOS;
-    private FrsCommonTabRequestData dOW;
-    private FrsCommonTabNetModel dOX;
-    private FrsDynamicRequestData dOY;
-    private FrsDynamicModel dOZ;
-    private boolean dPa;
+    private d dRG;
+    private FrsCommonTabRequestData dRK;
+    private FrsCommonTabNetModel dRL;
+    private FrsDynamicRequestData dRM;
+    private FrsDynamicModel dRN;
+    private boolean dRO;
+    private FrsCommonTabFragment dRq;
+    private boolean dRw;
     private int mErrorCode;
     private String mErrorString;
-    private HashSet<String> dPb = new HashSet<>();
+    private HashSet<String> dRP = new HashSet<>();
     private int mPn = 1;
 
     public c(FrsCommonTabFragment frsCommonTabFragment, int i, int i2) {
         if (frsCommonTabFragment != null) {
-            this.dOC = frsCommonTabFragment;
+            this.dRq = frsCommonTabFragment;
             if (i2 == 89) {
-                this.dOI = true;
-                this.dOY = new FrsDynamicRequestData();
-                this.dOY.forumId = i;
-                this.dOY.scrH = l.aQ(TbadkCoreApplication.getInst());
-                this.dOY.scrW = l.aO(TbadkCoreApplication.getInst());
-                this.dOY.scrDip = l.aR(TbadkCoreApplication.getInst());
-                this.dOZ = new FrsDynamicModel(frsCommonTabFragment.getPageContext(), this.dOY);
-                this.dOZ.a(this);
-                this.dOZ.setUniqueId(frsCommonTabFragment.getUniqueId());
+                this.dRw = true;
+                this.dRM = new FrsDynamicRequestData();
+                this.dRM.forumId = i;
+                this.dRM.scrH = l.aQ(TbadkCoreApplication.getInst());
+                this.dRM.scrW = l.aO(TbadkCoreApplication.getInst());
+                this.dRM.scrDip = l.aR(TbadkCoreApplication.getInst());
+                this.dRN = new FrsDynamicModel(frsCommonTabFragment.getPageContext(), this.dRM);
+                this.dRN.a(this);
+                this.dRN.setUniqueId(frsCommonTabFragment.getUniqueId());
                 return;
             }
-            this.dOI = false;
-            this.dOW = new FrsCommonTabRequestData();
-            this.dOW.fid = i;
-            this.dOW.tabId = i2;
-            this.dOX = new FrsCommonTabNetModel(frsCommonTabFragment.getPageContext(), this.dOW);
-            this.dOX.a(this);
-            this.dOX.setUniqueId(frsCommonTabFragment.getUniqueId());
+            this.dRw = false;
+            this.dRK = new FrsCommonTabRequestData();
+            this.dRK.fid = i;
+            this.dRK.tabId = i2;
+            this.dRL = new FrsCommonTabNetModel(frsCommonTabFragment.getPageContext(), this.dRK);
+            this.dRL.a(this);
+            this.dRL.setUniqueId(frsCommonTabFragment.getUniqueId());
         }
     }
 
-    public void aDj() {
-        this.dPa = true;
-        if (!this.dOI) {
-            if (!this.dOX.Fi()) {
+    public void aDY() {
+        this.dRO = true;
+        if (!this.dRw) {
+            if (!this.dRL.Fi()) {
                 this.mPn = 1;
-                this.dOW.pn = this.mPn;
-                this.dOX.Ow();
+                this.dRK.pn = this.mPn;
+                this.dRL.Ox();
             }
-        } else if (!this.dOZ.Fi()) {
+        } else if (!this.dRN.Fi()) {
             if (aq.DR().DT()) {
-                this.dOY.qType = 2;
+                this.dRM.qType = 2;
             } else {
-                this.dOY.qType = 1;
+                this.dRM.qType = 1;
             }
-            this.dOY.lastThreadId = 0L;
-            this.dOZ.Ow();
+            this.dRM.lastThreadId = 0L;
+            this.dRN.Ox();
         }
     }
 
-    public void aab() {
-        this.dPa = false;
-        if (!this.dOI) {
-            if (!this.dOX.Fi()) {
+    public void aad() {
+        this.dRO = false;
+        if (!this.dRw) {
+            if (!this.dRL.Fi()) {
                 this.mPn++;
-                this.dOW.pn = this.mPn;
-                this.dOX.Ow();
+                this.dRK.pn = this.mPn;
+                this.dRL.Ox();
             }
-        } else if (!this.dOZ.Fi()) {
+        } else if (!this.dRN.Fi()) {
             if (aq.DR().DT()) {
-                this.dOY.qType = 2;
+                this.dRM.qType = 2;
             } else {
-                this.dOY.qType = 1;
+                this.dRM.qType = 1;
             }
-            this.dOZ.Ow();
+            this.dRN.Ox();
         }
     }
 
@@ -98,36 +98,36 @@ public class c implements NetModel.b {
         if (dVar == null) {
             return false;
         }
-        if (this.dPa) {
-            this.dOS = dVar;
-            this.dPb.clear();
+        if (this.dRO) {
+            this.dRG = dVar;
+            this.dRP.clear();
             Iterator<h> it = dVar.threadList.iterator();
             while (it.hasNext()) {
                 h next = it.next();
                 if (next instanceof bb) {
                     String tid = ((bb) next).getTid();
-                    if (!this.dPb.contains(tid)) {
-                        this.dPb.add(tid);
+                    if (!this.dRP.contains(tid)) {
+                        this.dRP.add(tid);
                     }
                 }
             }
         } else {
-            this.dOS.hasMore = dVar.hasMore;
-            this.dOS.userMap.putAll(dVar.userMap);
+            this.dRG.hasMore = dVar.hasMore;
+            this.dRG.userMap.putAll(dVar.userMap);
             Iterator<h> it2 = dVar.threadList.iterator();
             while (it2.hasNext()) {
                 h next2 = it2.next();
                 if (next2 instanceof bb) {
                     String tid2 = ((bb) next2).getTid();
-                    if (!this.dPb.contains(tid2)) {
-                        ((bb) next2).avD = this.dOC.isBrandForum;
-                        this.dOS.threadList.add(next2);
-                        this.dPb.add(tid2);
+                    if (!this.dRP.contains(tid2)) {
+                        ((bb) next2).avD = this.dRq.isBrandForum;
+                        this.dRG.threadList.add(next2);
+                        this.dRP.add(tid2);
                     }
                 }
             }
         }
-        this.dOC.a(this.dOS);
+        this.dRq.a(this.dRG);
         return true;
     }
 
@@ -147,7 +147,7 @@ public class c implements NetModel.b {
                     if (!v.I(dVar2.threadList)) {
                         h hVar = (h) v.d(dVar2.threadList, dVar2.threadList.size() - 1);
                         if (hVar instanceof bb) {
-                            this.dOY.lastThreadId = com.baidu.adp.lib.g.b.d(((bb) hVar).getId(), 0L);
+                            this.dRM.lastThreadId = com.baidu.adp.lib.g.b.d(((bb) hVar).getId(), 0L);
                         }
                     }
                     dVar = dVar2;
@@ -160,7 +160,7 @@ public class c implements NetModel.b {
                 errorData.setError_code(this.mErrorCode);
                 errorData.setError_msg(this.mErrorString);
                 if (this.mErrorCode != 0) {
-                    this.dOC.a(errorData);
+                    this.dRq.a(errorData);
                 }
             }
         }
@@ -182,7 +182,7 @@ public class c implements NetModel.b {
                     if (!v.I(dVar2.threadList)) {
                         h hVar = (h) v.d(dVar2.threadList, dVar2.threadList.size() - 1);
                         if (hVar instanceof bb) {
-                            this.dOY.lastThreadId = com.baidu.adp.lib.g.b.d(((bb) hVar).getId(), 0L);
+                            this.dRM.lastThreadId = com.baidu.adp.lib.g.b.d(((bb) hVar).getId(), 0L);
                         }
                     }
                     dVar = dVar2;
@@ -195,13 +195,13 @@ public class c implements NetModel.b {
                 errorData.setError_code(this.mErrorCode);
                 errorData.setError_msg(this.mErrorString);
                 if (this.mErrorCode != 0) {
-                    this.dOC.a(errorData);
+                    this.dRq.a(errorData);
                 }
             }
         }
     }
 
     public boolean hasData() {
-        return (this.dOS == null || v.I(this.dOS.threadList)) ? false : true;
+        return (this.dRG == null || v.I(this.dRG.threadList)) ? false : true;
     }
 }

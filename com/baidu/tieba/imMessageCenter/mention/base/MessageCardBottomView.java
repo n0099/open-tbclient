@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.e;
 /* loaded from: classes4.dex */
 public class MessageCardBottomView extends LinearLayout {
-    private TextView aIW;
-    private String aSf;
-    private ViewGroup fgk;
-    private ImageView fgl;
-    private TextView fgm;
+    private TextView aIX;
+    private String aSh;
+    private ViewGroup fjd;
+    private ImageView fje;
+    private TextView fjf;
 
     public MessageCardBottomView(Context context) {
         super(context);
@@ -32,10 +32,10 @@ public class MessageCardBottomView extends LinearLayout {
 
     private void cr(Context context) {
         View inflate = LayoutInflater.from(context).inflate(e.h.message_card_bottom_layout, (ViewGroup) this, true);
-        this.aIW = (TextView) inflate.findViewById(e.g.message_bottom_bar_name);
-        this.fgk = (ViewGroup) inflate.findViewById(e.g.message_bottom_reply_container);
-        this.fgl = (ImageView) inflate.findViewById(e.g.message_bottom_reply_img);
-        this.fgm = (TextView) inflate.findViewById(e.g.message_bottom_reply);
+        this.aIX = (TextView) inflate.findViewById(e.g.message_bottom_bar_name);
+        this.fjd = (ViewGroup) inflate.findViewById(e.g.message_bottom_reply_container);
+        this.fje = (ImageView) inflate.findViewById(e.g.message_bottom_reply_img);
+        this.fjf = (TextView) inflate.findViewById(e.g.message_bottom_reply);
     }
 
     public void setData(String str, boolean z) {
@@ -44,23 +44,23 @@ public class MessageCardBottomView extends LinearLayout {
             return;
         }
         setVisibility(0);
-        this.fgk.setVisibility(z ? 0 : 8);
+        this.fjd.setVisibility(z ? 0 : 8);
         if (ao.isEmpty(str)) {
-            this.aIW.setVisibility(8);
+            this.aIX.setVisibility(8);
             return;
         }
-        this.aSf = str;
-        this.aIW.setText(UtilHelper.getForumNameWithBar(str, 5, true));
-        this.aIW.setVisibility(0);
+        this.aSh = str;
+        this.aIX.setText(UtilHelper.getForumNameWithBar(str, 5, true));
+        this.aIX.setVisibility(0);
     }
 
     public void onChangeSkinType() {
-        al.h(this.aIW, e.d.cp_cont_d);
-        al.h(this.fgm, e.f.selector_comment_and_prise_item_text_color);
-        al.c(this.fgl, e.f.icon_home_card_comment);
+        al.h(this.aIX, e.d.cp_cont_d);
+        al.h(this.fjf, e.f.selector_comment_and_prise_item_text_color);
+        al.c(this.fje, e.f.icon_home_card_comment);
     }
 
     public View getReplyContainer() {
-        return this.fgk;
+        return this.fjd;
     }
 }

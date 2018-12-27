@@ -10,19 +10,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b extends AiAppsNaViewModel {
-    public String bIP;
-    public boolean bIQ;
-    public boolean bJh;
-    public String bJi;
-    public int bJj;
-    public String bJk;
+    public String bIS;
+    public boolean bIT;
+    public boolean bJk;
     public String bJl;
-    public boolean bJm;
-    public boolean bJn;
-    public boolean bJo;
-    private boolean bJp;
-    private boolean bJq;
-    private boolean bJr;
+    public int bJm;
+    public String bJn;
+    public String bJo;
+    public boolean bJp;
+    public boolean bJq;
+    public boolean bJr;
+    private boolean bJs;
+    private boolean bJt;
+    private boolean bJu;
     public int duration;
     public boolean mAutoPlay;
     public boolean mLoop;
@@ -36,22 +36,22 @@ public class b extends AiAppsNaViewModel {
             bVar2.updateFromJson(jSONObject, bVar);
             bVar2.mPlayerId = jSONObject.optString("videoId", bVar.mPlayerId);
             bVar2.mAutoPlay = jSONObject.optBoolean("autoplay", bVar.mAutoPlay);
-            bVar2.bJh = jSONObject.optBoolean("muted", bVar.bJh);
-            bVar2.bIP = jSONObject.optString("objectFit", bVar.bIP);
-            bVar2.bJj = jSONObject.optInt("initialTime", bVar.bJj);
-            bVar2.bJi = jSONObject.optString("poster", bVar.bJi);
+            bVar2.bJk = jSONObject.optBoolean("muted", bVar.bJk);
+            bVar2.bIS = jSONObject.optString("objectFit", bVar.bIS);
+            bVar2.bJm = jSONObject.optInt("initialTime", bVar.bJm);
+            bVar2.bJl = jSONObject.optString("poster", bVar.bJl);
             bVar2.mPos = jSONObject.optInt("position", bVar.mPos);
-            bVar2.bIQ = jSONObject.optBoolean("fullScreen", bVar.bIQ);
-            bVar2.bJk = N(jSONObject);
-            bVar2.bJl = jSONObject.optString("danmuList", bVar.bJl);
-            bVar2.bJm = jSONObject.optBoolean("enableDanmu", bVar.bJm);
-            bVar2.bJn = jSONObject.optBoolean("danmuBtn", bVar.bJn);
+            bVar2.bIT = jSONObject.optBoolean("fullScreen", bVar.bIT);
+            bVar2.bJn = N(jSONObject);
+            bVar2.bJo = jSONObject.optString("danmuList", bVar.bJo);
+            bVar2.bJp = jSONObject.optBoolean("enableDanmu", bVar.bJp);
+            bVar2.bJq = jSONObject.optBoolean("danmuBtn", bVar.bJq);
             bVar2.mLoop = jSONObject.optBoolean("loop", bVar.mLoop);
-            bVar2.bJo = jSONObject.optBoolean("controls", bVar.bJo);
-            bVar2.mSrc = kG(jSONObject.optString(ImageCoverViewModel.KEY_SRC, bVar.mSrc));
-            bVar2.bJp = jSONObject.optBoolean("showPlayBtn", bVar.bJp);
-            bVar2.bJq = jSONObject.optBoolean("showMuteBtn", bVar.bJq);
-            bVar2.bJr = jSONObject.optBoolean("showCenterPlayBtn", bVar.bJr);
+            bVar2.bJr = jSONObject.optBoolean("controls", bVar.bJr);
+            bVar2.mSrc = kH(jSONObject.optString(ImageCoverViewModel.KEY_SRC, bVar.mSrc));
+            bVar2.bJs = jSONObject.optBoolean("showPlayBtn", bVar.bJs);
+            bVar2.bJt = jSONObject.optBoolean("showMuteBtn", bVar.bJt);
+            bVar2.bJu = jSONObject.optBoolean("showCenterPlayBtn", bVar.bJu);
         }
         return bVar2;
     }
@@ -59,19 +59,19 @@ public class b extends AiAppsNaViewModel {
     public b() {
         super("viewId", "video");
         this.mPlayerId = "";
-        this.bJh = false;
-        this.bJi = "";
-        this.bJj = 0;
+        this.bJk = false;
+        this.bJl = "";
+        this.bJm = 0;
         this.duration = 0;
         this.mAutoPlay = false;
         this.mLoop = false;
-        this.bIP = "";
+        this.bIS = "";
         this.mPos = 0;
-        this.bJk = "";
-        this.bJl = "";
-        this.bJm = false;
-        this.bJn = false;
-        this.bJo = true;
+        this.bJn = "";
+        this.bJo = "";
+        this.bJp = false;
+        this.bJq = false;
+        this.bJr = true;
         this.mSrc = "";
     }
 
@@ -95,11 +95,11 @@ public class b extends AiAppsNaViewModel {
         return jSONObject2.toString();
     }
 
-    private static String kG(String str) {
+    private static String kH(String str) {
         return (!StorageUtil.isLocalFileScheme(str) || AiApp.get() == null) ? str : StorageUtil.obtainPathFromScheme(str, AiApp.get());
     }
 
     public String toString() {
-        return "VideoPlayerParams{mPlayerId='" + this.mPlayerId + "', mSlaveId='" + this.slaveId + "', mMuted=" + this.bJh + "', mObjectFit='" + this.bIP + "', mControl=" + this.bJo + '}';
+        return "VideoPlayerParams{mPlayerId='" + this.mPlayerId + "', mSlaveId='" + this.slaveId + "', mMuted=" + this.bJk + "', mObjectFit='" + this.bIS + "', mControl=" + this.bJr + '}';
     }
 }

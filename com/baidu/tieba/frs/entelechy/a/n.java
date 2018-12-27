@@ -24,16 +24,16 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aw */
+    /* renamed from: ax */
     public o onCreateViewHolder(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(e.h.frs_video_activity_item, (ViewGroup) null);
         o oVar = new o(inflate);
-        al.h(oVar.bSy, e.d.cp_cont_b);
-        al.h(oVar.dQP, e.d.cp_cont_h);
-        al.c(oVar.dQO, e.f.icon_news_list_prompt);
-        al.c(oVar.dQQ, e.f.icon_index_category_arrow_r);
-        al.j(oVar.dQR, e.d.cp_bg_line_b);
-        al.j(oVar.dQS, e.d.cp_bg_line_b);
+        al.h(oVar.bSB, e.d.cp_cont_b);
+        al.h(oVar.dTG, e.d.cp_cont_h);
+        al.c(oVar.dTF, e.f.icon_news_list_prompt);
+        al.c(oVar.dTH, e.f.icon_index_category_arrow_r);
+        al.j(oVar.dTI, e.d.cp_bg_line_b);
+        al.j(oVar.dTJ, e.d.cp_bg_line_b);
         al.i(inflate, e.f.home_thread_card_item_bg);
         return oVar;
     }
@@ -56,16 +56,16 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
                 }
             }
         });
-        oVar.bSy.setText(kVar != null ? kVar.text : "");
-        if (bW(com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("frs_video_activity_tip" + this.mForumId, 0L))) {
-            oVar.dQO.setVisibility(0);
+        oVar.bSB.setText(kVar != null ? kVar.text : "");
+        if (cb(com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("frs_video_activity_tip" + this.mForumId, 0L))) {
+            oVar.dTF.setVisibility(0);
         } else {
-            oVar.dQO.setVisibility(8);
+            oVar.dTF.setVisibility(8);
         }
         return oVar.getView();
     }
 
-    private boolean bW(long j) {
+    private boolean cb(long j) {
         if (j == 0) {
             return true;
         }

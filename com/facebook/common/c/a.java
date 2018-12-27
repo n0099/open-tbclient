@@ -1,27 +1,27 @@
 package com.facebook.common.c;
 /* loaded from: classes2.dex */
 public class a {
-    private static c ifN = b.bTd();
+    private static c iiX = b.bTU();
 
     public static boolean isLoggable(int i) {
-        return ifN.isLoggable(i);
+        return iiX.isLoggable(i);
     }
 
     public static void d(Class<?> cls, String str) {
-        if (ifN.isLoggable(2)) {
-            ifN.v(r(cls), str);
+        if (iiX.isLoggable(2)) {
+            iiX.v(r(cls), str);
         }
     }
 
     public static void a(Class<?> cls, String str, Object obj) {
-        if (ifN.isLoggable(2)) {
-            ifN.v(r(cls), m(str, obj));
+        if (iiX.isLoggable(2)) {
+            iiX.v(r(cls), m(str, obj));
         }
     }
 
     public static void a(Class<?> cls, String str, Object obj, Object obj2) {
-        if (ifN.isLoggable(2)) {
-            ifN.v(r(cls), m(str, obj, obj2));
+        if (iiX.isLoggable(2)) {
+            iiX.v(r(cls), m(str, obj, obj2));
         }
     }
 
@@ -32,56 +32,56 @@ public class a {
     }
 
     public static void a(Class<?> cls, String str, Object obj, Object obj2, Object obj3, Object obj4) {
-        if (ifN.isLoggable(2)) {
-            ifN.v(r(cls), m(str, obj, obj2, obj3, obj4));
+        if (iiX.isLoggable(2)) {
+            iiX.v(r(cls), m(str, obj, obj2, obj3, obj4));
         }
     }
 
     public static void v(String str, String str2, Object... objArr) {
-        if (ifN.isLoggable(2)) {
-            ifN.v(str, m(str2, objArr));
+        if (iiX.isLoggable(2)) {
+            iiX.v(str, m(str2, objArr));
         }
     }
 
     public static void c(Class<?> cls, String str, Object... objArr) {
-        if (ifN.isLoggable(2)) {
-            ifN.v(r(cls), m(str, objArr));
+        if (iiX.isLoggable(2)) {
+            iiX.v(r(cls), m(str, objArr));
         }
     }
 
     public static void b(Class<?> cls, String str, Object obj) {
-        if (ifN.isLoggable(3)) {
-            ifN.d(r(cls), m(str, obj));
+        if (iiX.isLoggable(3)) {
+            iiX.d(r(cls), m(str, obj));
         }
     }
 
     public static void e(Class<?> cls, String str) {
-        if (ifN.isLoggable(4)) {
-            ifN.i(r(cls), str);
+        if (iiX.isLoggable(4)) {
+            iiX.i(r(cls), str);
         }
     }
 
     public static void f(Class<?> cls, String str) {
-        if (ifN.isLoggable(5)) {
-            ifN.w(r(cls), str);
+        if (iiX.isLoggable(5)) {
+            iiX.w(r(cls), str);
         }
     }
 
     public static void w(String str, String str2, Object... objArr) {
-        if (ifN.isLoggable(5)) {
-            ifN.w(str, m(str2, objArr));
+        if (iiX.isLoggable(5)) {
+            iiX.w(str, m(str2, objArr));
         }
     }
 
     public static void a(String str, Throwable th, String str2, Object... objArr) {
-        if (ifN.isLoggable(5)) {
-            ifN.w(str, m(str2, objArr), th);
+        if (iiX.isLoggable(5)) {
+            iiX.w(str, m(str2, objArr), th);
         }
     }
 
     public static void d(Class<?> cls, String str, Object... objArr) {
-        if (ifN.isLoggable(5)) {
-            ifN.w(r(cls), m(str, objArr));
+        if (iiX.isLoggable(5)) {
+            iiX.w(r(cls), m(str, objArr));
         }
     }
 
@@ -92,68 +92,68 @@ public class a {
     }
 
     public static void a(Class<?> cls, String str, Throwable th) {
-        if (ifN.isLoggable(5)) {
-            ifN.w(r(cls), str, th);
+        if (iiX.isLoggable(5)) {
+            iiX.w(r(cls), str, th);
         }
     }
 
     public static void e(String str, String str2) {
-        if (ifN.isLoggable(6)) {
-            ifN.e(str, str2);
+        if (iiX.isLoggable(6)) {
+            iiX.e(str, str2);
         }
     }
 
     public static void g(Class<?> cls, String str) {
-        if (ifN.isLoggable(6)) {
-            ifN.e(r(cls), str);
+        if (iiX.isLoggable(6)) {
+            iiX.e(r(cls), str);
         }
     }
 
     public static void b(String str, Throwable th, String str2, Object... objArr) {
-        if (ifN.isLoggable(6)) {
-            ifN.e(str, m(str2, objArr), th);
+        if (iiX.isLoggable(6)) {
+            iiX.e(str, m(str2, objArr), th);
         }
     }
 
     public static void e(Class<?> cls, String str, Object... objArr) {
-        if (ifN.isLoggable(6)) {
-            ifN.e(r(cls), m(str, objArr));
+        if (iiX.isLoggable(6)) {
+            iiX.e(r(cls), m(str, objArr));
         }
     }
 
     public static void b(Class<?> cls, Throwable th, String str, Object... objArr) {
-        if (ifN.isLoggable(6)) {
-            ifN.e(r(cls), m(str, objArr), th);
+        if (iiX.isLoggable(6)) {
+            iiX.e(r(cls), m(str, objArr), th);
         }
     }
 
     public static void e(String str, String str2, Throwable th) {
-        if (ifN.isLoggable(6)) {
-            ifN.e(str, str2, th);
+        if (iiX.isLoggable(6)) {
+            iiX.e(str, str2, th);
         }
     }
 
     public static void b(Class<?> cls, String str, Throwable th) {
-        if (ifN.isLoggable(6)) {
-            ifN.e(r(cls), str, th);
+        if (iiX.isLoggable(6)) {
+            iiX.e(r(cls), str, th);
         }
     }
 
     public static void f(String str, String str2, Object... objArr) {
-        if (ifN.isLoggable(6)) {
-            ifN.da(str, m(str2, objArr));
+        if (iiX.isLoggable(6)) {
+            iiX.da(str, m(str2, objArr));
         }
     }
 
     public static void f(Class<?> cls, String str, Object... objArr) {
-        if (ifN.isLoggable(6)) {
-            ifN.da(r(cls), m(str, objArr));
+        if (iiX.isLoggable(6)) {
+            iiX.da(r(cls), m(str, objArr));
         }
     }
 
     public static void c(Class<?> cls, String str, Throwable th) {
-        if (ifN.isLoggable(6)) {
-            ifN.f(r(cls), str, th);
+        if (iiX.isLoggable(6)) {
+            iiX.f(r(cls), str, th);
         }
     }
 

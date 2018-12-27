@@ -116,7 +116,7 @@ public class SaveVideoAction extends AiAppAction {
                     }
                     return null;
                 }
-            }).subscribeOn(Schedulers.io()).observeOn(a.ccX()).subscribe(new b<File>() { // from class: com.baidu.searchbox.ng.ai.apps.media.video.action.SaveVideoAction.2
+            }).subscribeOn(Schedulers.io()).observeOn(a.cdO()).subscribe(new b<File>() { // from class: com.baidu.searchbox.ng.ai.apps.media.video.action.SaveVideoAction.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 public void call(File file2) {

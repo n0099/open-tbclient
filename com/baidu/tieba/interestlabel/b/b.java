@@ -8,20 +8,20 @@ import tbclient.GetTagList.DataRes;
 import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes3.dex */
 public class b {
-    private List<a> fjv;
-    private List<Integer> fjw;
-    private List<a> fjz;
+    private List<a> fmm;
+    private List<Integer> fmn;
+    private List<a> fmq;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (!v.I(dataRes.sex_taglist)) {
-                this.fjz = new ArrayList();
-                o(this.fjz, dataRes.sex_taglist);
+                this.fmq = new ArrayList();
+                o(this.fmq, dataRes.sex_taglist);
             }
             if (!v.I(dataRes.taglist)) {
-                this.fjv = new ArrayList();
-                this.fjw = new ArrayList();
-                o(this.fjv, dataRes.taglist);
+                this.fmm = new ArrayList();
+                this.fmn = new ArrayList();
+                o(this.fmm, dataRes.taglist);
             }
         }
     }
@@ -33,23 +33,23 @@ public class b {
                     a aVar = new a();
                     aVar.a(responseTagInfo);
                     list.add(aVar);
-                    if (this.fjw != null && aVar.isFollow) {
-                        this.fjw.add(Integer.valueOf(aVar.labelId));
+                    if (this.fmn != null && aVar.isFollow) {
+                        this.fmn.add(Integer.valueOf(aVar.labelId));
                     }
                 }
             }
         }
     }
 
-    public List<a> aXa() {
-        return this.fjz;
+    public List<a> aXO() {
+        return this.fmq;
     }
 
-    public List<a> aXb() {
-        return this.fjv;
+    public List<a> aXP() {
+        return this.fmm;
     }
 
-    public List<Integer> aXc() {
-        return this.fjw;
+    public List<Integer> aXQ() {
+        return this.fmn;
     }
 }

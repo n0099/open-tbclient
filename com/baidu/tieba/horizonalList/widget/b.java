@@ -12,8 +12,8 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
     private List<c> arN;
-    public final ArrayList<e> bmX = new ArrayList<>();
-    private e eyY;
+    public final ArrayList<e> bna = new ArrayList<>();
+    private e eBP;
     private LayoutInflater mInflater;
     private View.OnClickListener mOnClickListener;
     private int mResourceId;
@@ -21,7 +21,7 @@ public class b extends BaseAdapter {
     public b(Context context, int i, e eVar) {
         this.mInflater = LayoutInflater.from(context);
         this.mResourceId = i;
-        this.eyY = eVar;
+        this.eBP = eVar;
     }
 
     public void setData(List<c> list) {
@@ -59,10 +59,10 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
             view = this.mInflater.inflate(this.mResourceId, viewGroup, false);
-            e ay = this.eyY.ay(view);
-            ay.setOnClickListener(this.mOnClickListener);
-            view.setTag(ay);
-            this.bmX.add(ay);
+            e aB = this.eBP.aB(view);
+            aB.setOnClickListener(this.mOnClickListener);
+            view.setTag(aB);
+            this.bna.add(aB);
         }
         e eVar = (e) view.getTag();
         if (v.d(this.arN, i) != null) {
@@ -78,8 +78,8 @@ public class b extends BaseAdapter {
     }
 
     public void ej(int i) {
-        if (v.H(this.bmX) > 0) {
-            Iterator<e> it = this.bmX.iterator();
+        if (v.H(this.bna) > 0) {
+            Iterator<e> it = this.bna.iterator();
             while (it.hasNext()) {
                 it.next().onChangeSkinType(i);
             }

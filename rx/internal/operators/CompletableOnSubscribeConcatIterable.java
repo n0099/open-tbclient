@@ -5,16 +5,16 @@ import java.util.concurrent.atomic.AtomicInteger;
 import rx.b;
 /* loaded from: classes2.dex */
 public final class CompletableOnSubscribeConcatIterable implements b.a {
-    final Iterable<? extends rx.b> iBR;
+    final Iterable<? extends rx.b> iFb;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
     /* renamed from: c */
     public void call(rx.c cVar) {
         try {
-            Iterator<? extends rx.b> it = this.iBR.iterator();
+            Iterator<? extends rx.b> it = this.iFb.iterator();
             if (it == null) {
-                cVar.onSubscribe(rx.subscriptions.e.cft());
+                cVar.onSubscribe(rx.subscriptions.e.cgk());
                 cVar.onError(new NullPointerException("The iterator returned is null"));
                 return;
             }
@@ -22,7 +22,7 @@ public final class CompletableOnSubscribeConcatIterable implements b.a {
             cVar.onSubscribe(concatInnerSubscriber.sd);
             concatInnerSubscriber.next();
         } catch (Throwable th) {
-            cVar.onSubscribe(rx.subscriptions.e.cft());
+            cVar.onSubscribe(rx.subscriptions.e.cgk());
             cVar.onError(th);
         }
     }

@@ -20,29 +20,29 @@ import java.net.URI;
 import java.net.URISyntaxException;
 /* loaded from: classes.dex */
 public class e {
-    private a aSv;
-    private b aSw;
-    private String aSx = TbadkCoreApplication.getInst().getContext().getString(e.j.share_tail);
-    private String aSy = TbadkCoreApplication.getInst().getContext().getString(e.j.weibo_share_tail) + this.aSx;
+    private a aSx;
+    private b aSy;
     private final Context mContext;
+    private String aSz = TbadkCoreApplication.getInst().getContext().getString(e.j.share_tail);
+    private String aSA = TbadkCoreApplication.getInst().getContext().getString(e.j.weibo_share_tail) + this.aSz;
 
     public e(Context context, a aVar) {
         c cVar;
-        this.aSv = null;
-        this.aSw = null;
+        this.aSx = null;
+        this.aSy = null;
         this.mContext = context;
-        this.aSv = aVar;
+        this.aSx = aVar;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001445, c.class);
         if (runTask.getData() != null && (cVar = (c) runTask.getData()) != null) {
-            this.aSw = cVar.a(this.mContext, this.aSv);
+            this.aSy = cVar.a(this.mContext, this.aSx);
         }
     }
 
     public static boolean bL(Context context) {
-        return Kk();
+        return Kl();
     }
 
-    public static boolean Kk() {
+    public static boolean Kl() {
         return TbadkCoreApplication.getInst().appResponseToCmd(2001445);
     }
 
@@ -51,56 +51,56 @@ public class e {
     }
 
     public void b(d dVar) {
-        if (this.aSw != null && dVar != null) {
-            dVar.content = b(dVar.content, 80, 20, dVar.aSs ? this.aSx : "");
-            this.aSw.a(a(dVar, "weixin"), 3, false);
+        if (this.aSy != null && dVar != null) {
+            dVar.content = b(dVar.content, 80, 20, dVar.aSu ? this.aSz : "");
+            this.aSy.a(a(dVar, "weixin"), 3, false);
         }
     }
 
     public void c(d dVar) {
-        if (this.aSw != null && dVar != null) {
-            dVar.content = b(dVar.content, 80, 20, dVar.aSs ? this.aSx : "");
-            if (StringUtils.isNull(dVar.aSk)) {
+        if (this.aSy != null && dVar != null) {
+            dVar.content = b(dVar.content, 80, 20, dVar.aSu ? this.aSz : "");
+            if (StringUtils.isNull(dVar.aSm)) {
                 dVar.title = dVar.content;
             } else {
-                dVar.title = dVar.aSk;
+                dVar.title = dVar.aSm;
             }
-            this.aSw.a(a(dVar, "weixin_timeline"), 2, false);
+            this.aSy.a(a(dVar, "weixin_timeline"), 2, false);
         }
     }
 
     public void d(d dVar) {
-        if (this.aSw != null && dVar != null) {
-            dVar.content = b(dVar.content, 80, 32, dVar.aSs ? this.aSx : "");
-            this.aSw.a(a(dVar, "qqfriend"), 8, true);
+        if (this.aSy != null && dVar != null) {
+            dVar.content = b(dVar.content, 80, 32, dVar.aSu ? this.aSz : "");
+            this.aSy.a(a(dVar, "qqfriend"), 8, true);
         }
     }
 
     public void e(d dVar) {
-        if (this.aSw != null) {
-            dVar.content = b(dVar.content, 80, 32, dVar.aSs ? this.aSx : "");
-            this.aSw.a(a(dVar, Constants.SOURCE_QZONE), 4, true);
+        if (this.aSy != null) {
+            dVar.content = b(dVar.content, 80, 32, dVar.aSu ? this.aSz : "");
+            this.aSy.a(a(dVar, Constants.SOURCE_QZONE), 4, true);
         }
     }
 
     public void f(d dVar) {
-        if (this.aSw != null) {
-            dVar.content = b(dVar.content, 140, 20, dVar.aSs ? this.aSx : "");
-            this.aSw.a(a(dVar, "tencent_weibo"), 5, true);
+        if (this.aSy != null) {
+            dVar.content = b(dVar.content, 140, 20, dVar.aSu ? this.aSz : "");
+            this.aSy.a(a(dVar, "tencent_weibo"), 5, true);
         }
     }
 
     public void g(d dVar) {
-        if (this.aSw != null) {
-            dVar.content = b(dVar.content, 140, 20, dVar.aSs ? this.aSy : "");
-            this.aSw.a(a(dVar, "sina_weibo"), 6, true);
+        if (this.aSy != null) {
+            dVar.content = b(dVar.content, 140, 20, dVar.aSu ? this.aSA : "");
+            this.aSy.a(a(dVar, "sina_weibo"), 6, true);
         }
     }
 
     public void h(d dVar) {
-        if (this.aSw != null) {
-            dVar.content = b(dVar.content, 140, 20, dVar.aSs ? this.aSx : "");
-            this.aSw.a(a(dVar, "renren"), 7, true);
+        if (this.aSy != null) {
+            dVar.content = b(dVar.content, 140, 20, dVar.aSu ? this.aSz : "");
+            this.aSy.a(a(dVar, "renren"), 7, true);
         }
     }
 
@@ -116,7 +116,7 @@ public class e {
     }
 
     private d a(d dVar, String str) {
-        if ((dVar.imageUri == null || dVar.imageUri.equals("")) && dVar.Kh() == null) {
+        if ((dVar.imageUri == null || dVar.imageUri.equals("")) && dVar.Ki() == null) {
             String str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
             if (str.startsWith("weixin")) {
                 str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
@@ -125,20 +125,20 @@ public class e {
         }
         if (dVar.imageUri != null && !dVar.imageUri.equals("")) {
             String uri = dVar.imageUri.toString();
-            if (!hc(uri) && !hd(uri)) {
+            if (!hd(uri) && !he(uri)) {
                 dVar.imageUri = Uri.parse("http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg");
             } else {
                 dVar.imageUri = Uri.parse(uri);
                 aH(uri, "sfc=" + str);
             }
         }
-        if (dVar.aSt) {
+        if (dVar.aSv) {
             dVar.linkUrl = r(dVar.linkUrl, str, dVar.tid);
         }
         return dVar;
     }
 
-    protected boolean hc(String str) {
+    protected boolean hd(String str) {
         if (!TextUtils.isEmpty(str) && str.startsWith("file://")) {
             try {
                 File file = new File(new URI(str));
@@ -176,9 +176,9 @@ public class e {
         return str + str3 + str2;
     }
 
-    private boolean hd(String str) {
+    private boolean he(String str) {
         String[] split = "jpg,jpeg,png,gif,bmp".split(",");
-        if (ay.Ef().fS(str)) {
+        if (ay.Ef().fT(str)) {
             if (split == null || split.length <= 0) {
                 return true;
             }

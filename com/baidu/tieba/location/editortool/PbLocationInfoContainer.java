@@ -14,16 +14,16 @@ import com.baidu.tbadk.editortools.pb.PbNewLocationInfoView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class PbLocationInfoContainer extends LinearLayout implements View.OnClickListener, l {
-    private PbNewLocationInfoView baj;
-    private ImageView bal;
-    private boolean eLn;
-    private EditorTools fsG;
-    private int fsH;
+    private PbNewLocationInfoView bam;
+    private ImageView bao;
+    private boolean eOe;
+    private EditorTools fvy;
+    private int fvz;
 
     public PbLocationInfoContainer(Context context) {
         super(context);
-        this.fsH = 0;
-        this.eLn = true;
+        this.fvz = 0;
+        this.eOe = true;
         initView();
     }
 
@@ -36,22 +36,22 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
         setLayoutParams(aVar);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(0, 0, com.baidu.adp.lib.util.l.h(getContext(), e.C0210e.ds24), 0);
-        this.baj = new PbNewLocationInfoView(getContext());
+        this.bam = new PbNewLocationInfoView(getContext());
         setOnClickListener(this);
-        addView(this.baj, layoutParams);
-        this.bal = new ImageView(getContext());
-        this.bal.setOnClickListener(this);
-        addView(this.bal, new LinearLayout.LayoutParams(com.baidu.adp.lib.util.l.h(getContext(), e.C0210e.ds24), com.baidu.adp.lib.util.l.h(getContext(), e.C0210e.ds24)));
+        addView(this.bam, layoutParams);
+        this.bao = new ImageView(getContext());
+        this.bao.setOnClickListener(this);
+        addView(this.bao, new LinearLayout.LayoutParams(com.baidu.adp.lib.util.l.h(getContext(), e.C0210e.ds24), com.baidu.adp.lib.util.l.h(getContext(), e.C0210e.ds24)));
     }
 
     public void Fj() {
-        this.baj.onChangeSkinType();
+        this.bam.onChangeSkinType();
         al.i(this, e.f.pb_new_locatin_view_selector);
-        al.c(this.bal, e.f.icon_edit_close_n);
+        al.c(this.bao, e.f.icon_edit_close_n);
     }
 
     public void setLocationInfoViewState(int i, String str) {
-        this.baj.setState(i, str);
+        this.bam.setState(i, str);
     }
 
     public void setLocationInfoViewState(int i) {
@@ -59,18 +59,18 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
     }
 
     public int getLocationInfoViewState() {
-        return this.baj.getState();
+        return this.bam.getState();
     }
 
     public int getLocationInfoViewVisibility() {
-        return this.baj.getVisibility();
+        return this.bam.getVisibility();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this) {
             b(new com.baidu.tbadk.editortools.a(18, -1, null));
-        } else if (view == this.bal) {
+        } else if (view == this.bao) {
             hide();
             b(new com.baidu.tbadk.editortools.a(20, -1, null));
         }
@@ -104,24 +104,24 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
 
     @Override // com.baidu.tbadk.editortools.l
     public void setEditorTools(EditorTools editorTools) {
-        this.fsG = editorTools;
+        this.fvy = editorTools;
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.fsG != null) {
-            this.fsG.b(aVar);
+        if (this.fvy != null) {
+            this.fvy.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void setToolId(int i) {
-        this.fsH = i;
+        this.fvz = i;
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public int getToolId() {
-        return this.fsH;
+        return this.fvz;
     }
 
     @Override // com.baidu.tbadk.editortools.l
@@ -130,8 +130,8 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
 
     @Override // com.baidu.tbadk.editortools.l
     public void pN() {
-        if (this.eLn) {
-            this.eLn = false;
+        if (this.eOe) {
+            this.eOe = false;
             b(new com.baidu.tbadk.editortools.a(18, -1, Config.TRACE_VISIT_FIRST));
         }
         setVisibility(0);

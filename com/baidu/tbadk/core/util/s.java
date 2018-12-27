@@ -174,11 +174,11 @@ public class s {
         String str5;
         if (com.baidu.adp.lib.util.l.ll() && dVar != null) {
             String str6 = "";
-            boolean iB = com.baidu.tbadk.util.i.iB(str2);
+            boolean iC = com.baidu.tbadk.util.i.iC(str2);
             boolean z5 = false;
             if (com.baidu.tbadk.core.util.a.e.getInstance() != null) {
                 z5 = true;
-                if (!com.baidu.tbadk.core.util.a.e.getInstance().aDw) {
+                if (!com.baidu.tbadk.core.util.a.e.getInstance().aDx) {
                     com.baidu.tbadk.core.util.a.e.getInstance().init();
                 }
             }
@@ -193,10 +193,10 @@ public class s {
                 z4 = j > ((long) com.baidu.tbadk.core.util.a.e.getInstance().getCDNImageTimeData().anm);
             }
             boolean z6 = false;
-            if (iB && z5) {
+            if (iC && z5) {
                 z6 = com.baidu.tbadk.core.util.a.e.getInstance().isShouldCDNFallBack();
             }
-            if (iB && kW && z6) {
+            if (iC && kW && z6) {
                 if (z) {
                     p.getInstance().insertNormalData(j, str);
                 } else {
@@ -206,7 +206,7 @@ public class s {
                     }
                 }
             }
-            if (iB) {
+            if (iC) {
                 aAo = str;
             }
             boolean z7 = false;
@@ -214,7 +214,7 @@ public class s {
                 z7 = true;
             }
             synchronized (syncLock) {
-                r a2 = a(kW, iB, str2, z7);
+                r a2 = a(kW, iC, str2, z7);
                 boolean z8 = aAl.aAq;
                 if (a2 != null) {
                     a2.num++;
@@ -262,7 +262,7 @@ public class s {
             if (TextUtils.isEmpty(str6)) {
                 str6 = t.Da().Db();
             }
-            if (!iB || !TextUtils.isEmpty("")) {
+            if (!iC || !TextUtils.isEmpty("")) {
                 str4 = "";
             } else {
                 str4 = t.Da().fw(str);
@@ -294,7 +294,7 @@ public class s {
             aVar.append("status", String.valueOf(dVar.CN));
             aVar.append("up", String.valueOf(dVar.CF));
             aVar.append("down", String.valueOf(dVar.CG));
-            aVar.append("isCDN", iB ? "1" : "0");
+            aVar.append("isCDN", iC ? "1" : "0");
             aVar.append("isWebp", bool.booleanValue() ? "1" : "0");
             aVar.append("isMobileProxy", z3 ? "1" : "0");
             aVar.append(com.baidu.fsg.base.statistics.b.k, dVar.CL);
@@ -309,7 +309,7 @@ public class s {
                 aVar.append("tracecode2", dVar.CT);
             }
             BdStatisticsManager.getInstance().debug(SocialConstants.PARAM_IMG_URL, aVar);
-            if (iB && !TextUtils.isEmpty(str6) && TextUtils.isEmpty(str4) && !z) {
+            if (iC && !TextUtils.isEmpty(str6) && TextUtils.isEmpty(str4) && !z) {
                 aAl.aAp++;
             }
         }
@@ -507,7 +507,7 @@ public class s {
     }
 
     private static String CU() {
-        return com.baidu.tbadk.imageManager.c.Nu().ib();
+        return com.baidu.tbadk.imageManager.c.Nv().ib();
     }
 
     private static String CV() {

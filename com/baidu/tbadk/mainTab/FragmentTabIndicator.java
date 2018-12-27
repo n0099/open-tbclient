@@ -28,17 +28,17 @@ import java.util.Map;
 public class FragmentTabIndicator extends TbFragmentTabIndicator {
     private boolean PT;
     private int bdA;
-    private boolean bdB;
+    public int bdB;
     private int bdC;
-    private String bdD;
-    private BdUniqueId bdE;
-    private TextView bdF;
-    private int bdG;
-    private int bdH;
-    private HashMap<String, TbFragmentTabIndicator.a> bdI;
-    private int bdx;
-    public int bdy;
-    private int bdz;
+    private int bdD;
+    private boolean bdE;
+    private int bdF;
+    private String bdG;
+    private BdUniqueId bdH;
+    private TextView bdI;
+    private int bdJ;
+    private int bdK;
+    private HashMap<String, TbFragmentTabIndicator.a> bdL;
     private String iconUrl;
     private final com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> mCallback;
     private ImageView mIconView;
@@ -46,11 +46,11 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
 
     public FragmentTabIndicator(Context context) {
         super(context);
-        this.bdx = 0;
+        this.bdA = 0;
         this.nk = 0;
-        this.bdB = true;
+        this.bdE = true;
         this.PT = true;
-        this.bdI = new HashMap<>();
+        this.bdL = new HashMap<>();
         this.mCallback = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.mainTab.FragmentTabIndicator.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -58,7 +58,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                 super.onLoaded((AnonymousClass2) aVar, str, i);
                 if (FragmentTabIndicator.this.mIconView == null || aVar == null || !aVar.oq()) {
-                    FragmentTabIndicator.this.NS();
+                    FragmentTabIndicator.this.NT();
                     return;
                 }
                 FragmentTabIndicator.this.mIconView.setBackgroundResource(0);
@@ -71,11 +71,11 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
 
     public FragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bdx = 0;
+        this.bdA = 0;
         this.nk = 0;
-        this.bdB = true;
+        this.bdE = true;
         this.PT = true;
-        this.bdI = new HashMap<>();
+        this.bdL = new HashMap<>();
         this.mCallback = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.mainTab.FragmentTabIndicator.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -83,7 +83,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                 super.onLoaded((AnonymousClass2) aVar, str, i);
                 if (FragmentTabIndicator.this.mIconView == null || aVar == null || !aVar.oq()) {
-                    FragmentTabIndicator.this.NS();
+                    FragmentTabIndicator.this.NT();
                     return;
                 }
                 FragmentTabIndicator.this.mIconView.setBackgroundResource(0);
@@ -95,21 +95,21 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     }
 
     private void init() {
-        this.bdG = getResources().getDimensionPixelSize(e.C0210e.ds2);
-        this.bdH = getResources().getDimensionPixelSize(e.C0210e.ds12);
+        this.bdJ = getResources().getDimensionPixelSize(e.C0210e.ds2);
+        this.bdK = getResources().getDimensionPixelSize(e.C0210e.ds12);
         View inflate = LayoutInflater.from(getContext()).inflate(e.h.fragment_bottom_indicator_item, this);
         this.mIconView = (ImageView) inflate.findViewById(e.g.view_bottom_icon);
-        this.bdF = (TextView) inflate.findViewById(e.g.view_bottom_text);
-        this.bdF.setDuplicateParentStateEnabled(true);
-        NS();
+        this.bdI = (TextView) inflate.findViewById(e.g.view_bottom_text);
+        this.bdI.setDuplicateParentStateEnabled(true);
+        NT();
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setContentTvTopMargin(int i) {
-        if (this.bdF.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bdF.getLayoutParams();
+        if (this.bdI.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bdI.getLayoutParams();
             layoutParams.topMargin = i;
-            this.bdF.setLayoutParams(layoutParams);
+            this.bdI.setLayoutParams(layoutParams);
         }
     }
 
@@ -118,7 +118,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         super.onMeasure(i, i2);
         int size = View.MeasureSpec.getSize(i);
         int size2 = View.MeasureSpec.getSize(i2);
-        for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.bdI.entrySet()) {
+        for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.bdL.entrySet()) {
             TbFragmentTabIndicator.a value = entry.getValue();
             ViewGroup.LayoutParams layoutParams = value.view.getLayoutParams();
             if (layoutParams.width == -2) {
@@ -135,20 +135,20 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         int i5;
         int measuredHeight;
         super.onLayout(z, i, i2, i3, i4);
-        Iterator<Map.Entry<String, TbFragmentTabIndicator.a>> it = this.bdI.entrySet().iterator();
-        while (it.hasNext() && this.bdF.getText() != null) {
+        Iterator<Map.Entry<String, TbFragmentTabIndicator.a>> it = this.bdL.entrySet().iterator();
+        while (it.hasNext() && this.bdI.getText() != null) {
             TbFragmentTabIndicator.a value = it.next().getValue();
             int measuredWidth2 = value.view.getMeasuredWidth();
             int measuredHeight2 = value.view.getMeasuredHeight();
-            int measureText = (int) this.bdF.getPaint().measureText(this.bdF.getText().toString());
-            if (value.beb) {
+            int measureText = (int) this.bdI.getPaint().measureText(this.bdI.getText().toString());
+            if (value.bee) {
                 measuredWidth = (measureText / 2) + (getMeasuredWidth() / 2) + value.Cd;
             } else {
                 measuredWidth = ((getMeasuredWidth() / 2) - value.Cd) - (measureText / 2);
             }
-            if (this.bdx == 1) {
-                i5 = measuredWidth - this.bdH;
-                measuredHeight = this.bdG;
+            if (this.bdA == 1) {
+                i5 = measuredWidth - this.bdK;
+                measuredHeight = this.bdJ;
             } else {
                 i5 = measuredWidth;
                 measuredHeight = (getMeasuredHeight() / 2) - (value.view.getMeasuredHeight() / 2);
@@ -158,90 +158,90 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     }
 
     public void setTipTopMargin(int i) {
-        this.bdG = i;
+        this.bdJ = i;
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setTipPosType(int i) {
-        this.bdx = i;
+        this.bdA = i;
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void a(String str, TbFragmentTabIndicator.a aVar) {
         if (aVar.view != null) {
             addView(aVar.view);
-            this.bdI.put(str, aVar);
+            this.bdL.put(str, aVar);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public TbFragmentTabIndicator.a io(String str) {
-        return this.bdI.get(str);
+    public TbFragmentTabIndicator.a ip(String str) {
+        return this.bdL.get(str);
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setText(int i) {
-        this.bdF.setText(i);
+        this.bdI.setText(i);
     }
 
     public void setWidth(int i) {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i, -2);
         layoutParams.addRule(13, -1);
-        this.bdF.setLayoutParams(layoutParams);
+        this.bdI.setLayoutParams(layoutParams);
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setText(String str) {
-        this.bdF.setText(str);
-        this.bdF.setContentDescription(str);
+        this.bdI.setText(str);
+        this.bdI.setContentDescription(str);
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setCheckDescriptionText(boolean z) {
-        String charSequence = this.bdF.getText().toString();
+        String charSequence = this.bdI.getText().toString();
         if (z) {
             charSequence = getContext().getString(e.j.talk_checked_tip) + charSequence;
         }
-        this.bdF.setContentDescription(charSequence);
+        this.bdI.setContentDescription(charSequence);
     }
 
     public void setTextSpan(SpannableString spannableString) {
-        this.bdF.setText(spannableString);
+        this.bdI.setText(spannableString);
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setIconResourceId(int i) {
-        this.bdC = i;
-        NS();
+        this.bdF = i;
+        NT();
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setCompoundDrawablesTopResId(int i) {
-        this.bdz = i;
+        this.bdC = i;
     }
 
     public void setCompoundDrawablesRightResId(int i) {
-        this.bdA = i;
+        this.bdD = i;
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setCompoundDrawablePadding(int i) {
-        this.bdF.setCompoundDrawablePadding(i);
+        this.bdI.setCompoundDrawablePadding(i);
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setTextSize(float f) {
-        this.bdF.setTextSize(f);
+        this.bdI.setTextSize(f);
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setTextSize(int i, float f) {
-        this.bdF.setTextSize(i, f);
+        this.bdI.setTextSize(i, f);
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setTextColorResId(int i) {
-        this.bdy = i;
+        this.bdB = i;
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
@@ -251,28 +251,28 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setIsContentSelectBold(boolean z) {
-        this.bea = z;
+        this.bed = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        eC(TbadkCoreApplication.getInst().getSkinType());
+        eD(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void eC(int i) {
+    public void eD(int i) {
         if (this.PT) {
-            al.c(this.bdF, this.bdy, 1);
+            al.c(this.bdI, this.bdB, 1);
         } else {
-            al.b(this.bdF, this.bdy, 1, 0);
+            al.b(this.bdI, this.bdB, 1, 0);
         }
-        if (this.bdF != null) {
-            this.bdF.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.c((Resources) null, this.bdz), al.c((Resources) null, this.bdA), (Drawable) null);
+        if (this.bdI != null) {
+            this.bdI.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.c((Resources) null, this.bdC), al.c((Resources) null, this.bdD), (Drawable) null);
         }
-        NR();
-        for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.bdI.entrySet()) {
-            entry.getValue().eC(i);
+        NS();
+        for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.bdL.entrySet()) {
+            entry.getValue().eD(i);
         }
     }
 
@@ -282,47 +282,47 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void NQ() {
-        if (this.nk > 0 && this.bdB) {
+    public void NR() {
+        if (this.nk > 0 && this.bdE) {
             try {
-                this.bdB = false;
+                this.bdE = false;
                 Animation loadAnimation = AnimationUtils.loadAnimation(this.mIconView.getContext(), this.nk);
                 loadAnimation.setAnimationListener(new com.baidu.adp.lib.g.d() { // from class: com.baidu.tbadk.mainTab.FragmentTabIndicator.1
                     @Override // com.baidu.adp.lib.g.d
                     public void b(Animation animation) {
-                        FragmentTabIndicator.this.bdB = true;
+                        FragmentTabIndicator.this.bdE = true;
                     }
                 });
                 this.mIconView.startAnimation(loadAnimation);
             } catch (Exception e) {
-                this.bdB = true;
+                this.bdE = true;
             }
         }
     }
 
     public void setContentWidthWrapContent() {
-        ViewGroup.LayoutParams layoutParams = this.bdF.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.bdI.getLayoutParams();
         layoutParams.width = -2;
-        this.bdF.setLayoutParams(layoutParams);
+        this.bdI.setLayoutParams(layoutParams);
     }
 
     public void setIsSupportNight(boolean z) {
         if (!z) {
-            al.b(this.bdF, this.bdy, 1, 0);
+            al.b(this.bdI, this.bdB, 1, 0);
         }
         this.PT = z;
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public View getContentTv() {
-        return this.bdF;
+        return this.bdI;
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setIconViewWithoutText(int i, int i2) {
         setClipToPadding(false);
         setClipChildren(false);
-        this.bdF.setVisibility(8);
+        this.bdI.setVisibility(8);
         this.mIconView.setVisibility(0);
         if (i > 0) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
@@ -333,17 +333,17 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             layoutParams.addRule(14, -1);
             this.mIconView.setLayoutParams(layoutParams);
         }
-        NR();
+        NS();
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setIconViewWithText(int i, int i2) {
-        this.bdF.setVisibility(0);
+        this.bdI.setVisibility(0);
         this.mIconView.setVisibility(0);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(12, -1);
         layoutParams.addRule(14, -1);
-        this.bdF.setLayoutParams(layoutParams);
+        this.bdI.setLayoutParams(layoutParams);
         if (i > 0) {
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams2.width = i;
@@ -353,51 +353,51 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             layoutParams2.addRule(14, -1);
             this.mIconView.setLayoutParams(layoutParams2);
         }
-        NR();
+        NS();
     }
 
     @Override // android.view.View
     public void setSelected(boolean z) {
         super.setSelected(z);
-        if (this.bea) {
-            this.bdF.getPaint().setFakeBoldText(z);
+        if (this.bed) {
+            this.bdI.getPaint().setFakeBoldText(z);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void aL(String str, String str2) {
         this.iconUrl = str;
-        this.bdD = str2;
-        NR();
+        this.bdG = str2;
+        NS();
     }
 
-    private void NR() {
-        if (this.bdz <= 0 && this.bdA <= 0) {
-            if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(this.bdD)) {
-                com.baidu.adp.lib.f.c.jA().a(this.bdD, 10, this.mCallback, getBdUniqueId());
+    private void NS() {
+        if (this.bdC <= 0 && this.bdD <= 0) {
+            if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(this.bdG)) {
+                com.baidu.adp.lib.f.c.jA().a(this.bdG, 10, this.mCallback, getBdUniqueId());
             } else if (!TextUtils.isEmpty(this.iconUrl)) {
                 com.baidu.adp.lib.f.c.jA().a(this.iconUrl, 10, this.mCallback, getBdUniqueId());
             } else {
-                NS();
+                NT();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void NS() {
-        if (this.bdC > 0) {
-            al.c(this.mIconView, this.bdC);
+    public void NT() {
+        if (this.bdF > 0) {
+            al.c(this.mIconView, this.bdF);
         }
     }
 
     private BdUniqueId getBdUniqueId() {
-        if (this.bdE != null) {
-            return this.bdE;
+        if (this.bdH != null) {
+            return this.bdH;
         }
         com.baidu.adp.base.e<?> aK = i.aK(getContext());
         if (aK != null) {
-            this.bdE = aK.getUniqueId();
+            this.bdH = aK.getUniqueId();
         }
-        return this.bdE;
+        return this.bdH;
     }
 }

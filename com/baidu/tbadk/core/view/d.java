@@ -12,20 +12,20 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class d {
-    private AlertDialog aFF;
-    private String aFG;
-    private DialogInterface.OnCancelListener aFH;
-    private boolean aFI;
-    private TextView axd;
+    private AlertDialog aFG;
+    private String aFH;
+    private DialogInterface.OnCancelListener aFI;
+    private boolean aFJ;
+    private TextView axe;
     private Activity mActivity;
     private TbPageContext<?> mContext;
 
     public d(TbPageContext<?> tbPageContext) {
         this.mContext = null;
         this.mActivity = null;
-        this.aFG = null;
-        this.axd = null;
-        this.aFI = true;
+        this.aFH = null;
+        this.axe = null;
+        this.aFJ = true;
         this.mContext = tbPageContext;
         if (this.mContext != null && this.mContext.getPageActivity() != null) {
             this.mActivity = this.mContext.getPageActivity();
@@ -35,30 +35,30 @@ public class d {
     public d(Activity activity) {
         this.mContext = null;
         this.mActivity = null;
-        this.aFG = null;
-        this.axd = null;
-        this.aFI = true;
+        this.aFH = null;
+        this.axe = null;
+        this.aFJ = true;
         this.mActivity = activity;
     }
 
     private d b(DialogInterface.OnCancelListener onCancelListener) {
         if (this.mActivity != null) {
-            this.aFF = new AlertDialog.Builder(this.mActivity).create();
-            com.baidu.adp.lib.g.g.a(this.aFF, this.mActivity);
+            this.aFG = new AlertDialog.Builder(this.mActivity).create();
+            com.baidu.adp.lib.g.g.a(this.aFG, this.mActivity);
             View inflate = LayoutInflater.from(this.mActivity).inflate(e.h.custom_loading_toast, (ViewGroup) null);
-            this.axd = (TextView) inflate.findViewById(e.g.custom_loading_text);
-            if (!StringUtils.isNull(this.aFG) && this.axd != null) {
-                this.axd.setText(this.aFG);
+            this.axe = (TextView) inflate.findViewById(e.g.custom_loading_text);
+            if (!StringUtils.isNull(this.aFH) && this.axe != null) {
+                this.axe.setText(this.aFH);
             }
-            if (this.aFF != null && this.aFF.getWindow() != null) {
-                this.aFF.getWindow().setContentView(inflate);
+            if (this.aFG != null && this.aFG.getWindow() != null) {
+                this.aFG.getWindow().setContentView(inflate);
                 if (onCancelListener != null) {
-                    this.aFF.setCancelable(true);
-                    this.aFF.setCanceledOnTouchOutside(true);
-                    this.aFF.setOnCancelListener(onCancelListener);
+                    this.aFG.setCancelable(true);
+                    this.aFG.setCanceledOnTouchOutside(true);
+                    this.aFG.setOnCancelListener(onCancelListener);
                 } else {
-                    this.aFF.setCanceledOnTouchOutside(false);
-                    this.aFF.setCancelable(false);
+                    this.aFG.setCanceledOnTouchOutside(false);
+                    this.aFG.setCancelable(false);
                 }
             }
         }
@@ -67,17 +67,17 @@ public class d {
 
     private d c(DialogInterface.OnCancelListener onCancelListener) {
         if (this.mActivity != null) {
-            this.aFF = new AlertDialog.Builder(this.mActivity).create();
-            com.baidu.adp.lib.g.g.a(this.aFF, this.mActivity);
+            this.aFG = new AlertDialog.Builder(this.mActivity).create();
+            com.baidu.adp.lib.g.g.a(this.aFG, this.mActivity);
             View inflate = LayoutInflater.from(this.mActivity).inflate(e.h.custom_loading_toast, (ViewGroup) null);
-            this.axd = (TextView) inflate.findViewById(e.g.custom_loading_text);
-            if (!StringUtils.isNull(this.aFG) && this.axd != null) {
-                this.axd.setText(this.aFG);
+            this.axe = (TextView) inflate.findViewById(e.g.custom_loading_text);
+            if (!StringUtils.isNull(this.aFH) && this.axe != null) {
+                this.axe.setText(this.aFH);
             }
-            if (this.aFF != null && this.aFF.getWindow() != null) {
-                this.aFF.getWindow().setContentView(inflate);
+            if (this.aFG != null && this.aFG.getWindow() != null) {
+                this.aFG.getWindow().setContentView(inflate);
                 if (onCancelListener != null) {
-                    this.aFF.setOnCancelListener(onCancelListener);
+                    this.aFG.setOnCancelListener(onCancelListener);
                 }
             }
         }
@@ -86,51 +86,51 @@ public class d {
 
     public void bA(boolean z) {
         if (z) {
-            if (this.aFI) {
-                b(this.aFH);
+            if (this.aFJ) {
+                b(this.aFI);
                 return;
             } else {
-                c(this.aFH);
+                c(this.aFI);
                 return;
             }
         }
-        com.baidu.adp.lib.g.g.b(this.aFF, this.mActivity);
+        com.baidu.adp.lib.g.g.b(this.aFG, this.mActivity);
     }
 
     public void ec(int i) {
         if (this.mActivity != null) {
-            this.aFG = this.mActivity.getString(i);
+            this.aFH = this.mActivity.getString(i);
         }
     }
 
-    public void gk(String str) {
-        this.aFG = str;
-        if (this.axd != null) {
-            this.axd.setText(str);
+    public void gl(String str) {
+        this.aFH = str;
+        if (this.axe != null) {
+            this.axe.setText(str);
         }
     }
 
     public void d(DialogInterface.OnCancelListener onCancelListener) {
-        this.aFH = onCancelListener;
+        this.aFI = onCancelListener;
     }
 
     public boolean isShowing() {
-        return this.aFF != null && this.aFF.isShowing();
+        return this.aFG != null && this.aFG.isShowing();
     }
 
     public void bB(boolean z) {
-        this.aFI = z;
+        this.aFJ = z;
     }
 
     public void setCancelable(boolean z) {
-        if (this.aFF != null) {
-            this.aFF.setCancelable(z);
+        if (this.aFG != null) {
+            this.aFG.setCancelable(z);
         }
     }
 
     public void setCanceledOnTouchOutside(boolean z) {
-        if (this.aFF != null) {
-            this.aFF.setCanceledOnTouchOutside(z);
+        if (this.aFG != null) {
+            this.aFG.setCanceledOnTouchOutside(z);
         }
     }
 }

@@ -12,7 +12,7 @@ public interface d {
 
     /* loaded from: classes4.dex */
     public interface b extends d {
-        void bc(long j);
+        void bd(long j);
     }
 
     /* loaded from: classes4.dex */
@@ -23,7 +23,7 @@ public interface d {
     /* renamed from: com.baidu.tieba.aiapps.apps.invoice.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public interface InterfaceC0198d extends d {
-        void bd(long j);
+        void be(long j);
     }
 
     /* loaded from: classes4.dex */
@@ -33,5 +33,5 @@ public interface d {
 
     void aX(String str, String str2);
 
-    void kz(String str);
+    void kA(String str);
 }

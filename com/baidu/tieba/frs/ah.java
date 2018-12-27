@@ -3,11 +3,11 @@ package com.baidu.tieba.frs;
 public interface ah {
     void Fj();
 
-    void aaA();
-
-    void aaB();
-
     void aaC();
+
+    void aaD();
+
+    void aaE();
 
     void setHeaderViewHeight(int i);
 

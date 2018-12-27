@@ -11,10 +11,10 @@ import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class b extends a {
     private static int mPadding;
-    private TextView hWf;
-    private TextView hWg;
-    private TextView hWh;
-    private TextView hWi;
+    private TextView hZq;
+    private TextView hZr;
+    private TextView hZs;
+    private TextView hZt;
 
     public b(e eVar) {
         super(eVar);
@@ -26,37 +26,37 @@ public class b extends a {
     }
 
     public void w(View.OnClickListener onClickListener) {
-        this.hWf.setTag(0);
-        this.hWg.setTag(1);
-        this.hWh.setTag(2);
-        this.hWi.setTag(3);
-        this.hWf.setOnClickListener(onClickListener);
-        this.hWg.setOnClickListener(onClickListener);
-        this.hWh.setOnClickListener(onClickListener);
-        this.hWi.setOnClickListener(onClickListener);
+        this.hZq.setTag(0);
+        this.hZr.setTag(1);
+        this.hZs.setTag(2);
+        this.hZt.setTag(3);
+        this.hZq.setOnClickListener(onClickListener);
+        this.hZr.setOnClickListener(onClickListener);
+        this.hZs.setOnClickListener(onClickListener);
+        this.hZt.setOnClickListener(onClickListener);
     }
 
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
         this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(e.h.pic_rorate_view, (ViewGroup) null);
-        this.hWf = (TextView) this.mRootView.findViewById(e.g.rotate_left);
-        this.hWg = (TextView) this.mRootView.findViewById(e.g.rotate_right);
-        this.hWh = (TextView) this.mRootView.findViewById(e.g.rotate_left_right);
-        this.hWi = (TextView) this.mRootView.findViewById(e.g.rotate_up_down);
+        this.hZq = (TextView) this.mRootView.findViewById(e.g.rotate_left);
+        this.hZr = (TextView) this.mRootView.findViewById(e.g.rotate_right);
+        this.hZs = (TextView) this.mRootView.findViewById(e.g.rotate_left_right);
+        this.hZt = (TextView) this.mRootView.findViewById(e.g.rotate_up_down);
     }
 
     public void onChangeSkinType() {
-        al.h(this.hWf, e.d.cp_cont_j);
-        al.h(this.hWg, e.d.cp_cont_j);
-        al.h(this.hWh, e.d.cp_cont_j);
-        al.h(this.hWi, e.d.cp_cont_j);
-        this.hWf.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.filter_rotate_left), (Drawable) null, (Drawable) null);
-        this.hWg.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.filter_rotate_right), (Drawable) null, (Drawable) null);
-        this.hWi.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.filter_flip_up_down), (Drawable) null, (Drawable) null);
-        this.hWh.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.filter_flip_left_right), (Drawable) null, (Drawable) null);
-        this.hWf.setCompoundDrawablePadding(mPadding);
-        this.hWg.setCompoundDrawablePadding(mPadding);
-        this.hWi.setCompoundDrawablePadding(mPadding);
-        this.hWh.setCompoundDrawablePadding(mPadding);
+        al.h(this.hZq, e.d.cp_cont_j);
+        al.h(this.hZr, e.d.cp_cont_j);
+        al.h(this.hZs, e.d.cp_cont_j);
+        al.h(this.hZt, e.d.cp_cont_j);
+        this.hZq.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.filter_rotate_left), (Drawable) null, (Drawable) null);
+        this.hZr.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.filter_rotate_right), (Drawable) null, (Drawable) null);
+        this.hZt.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.filter_flip_up_down), (Drawable) null, (Drawable) null);
+        this.hZs.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.filter_flip_left_right), (Drawable) null, (Drawable) null);
+        this.hZq.setCompoundDrawablePadding(mPadding);
+        this.hZr.setCompoundDrawablePadding(mPadding);
+        this.hZt.setCompoundDrawablePadding(mPadding);
+        this.hZs.setCompoundDrawablePadding(mPadding);
     }
 }

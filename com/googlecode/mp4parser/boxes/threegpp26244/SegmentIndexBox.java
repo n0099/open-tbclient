@@ -134,7 +134,7 @@ public class SegmentIndexBox extends AbstractFullBox {
     }
 
     public void setReferenceId(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.dz(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.dE(j)));
         this.referenceId = j;
     }
 
@@ -144,7 +144,7 @@ public class SegmentIndexBox extends AbstractFullBox {
     }
 
     public void setTimeScale(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.dz(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.dE(j)));
         this.timeScale = j;
     }
 
@@ -154,7 +154,7 @@ public class SegmentIndexBox extends AbstractFullBox {
     }
 
     public void setEarliestPresentationTime(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.dz(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.dE(j)));
         this.earliestPresentationTime = j;
     }
 
@@ -164,7 +164,7 @@ public class SegmentIndexBox extends AbstractFullBox {
     }
 
     public void setFirstOffset(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.dz(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.dE(j)));
         this.firstOffset = j;
     }
 
@@ -174,7 +174,7 @@ public class SegmentIndexBox extends AbstractFullBox {
     }
 
     public void setReserved(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.ze(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.zr(i)));
         this.reserved = i;
     }
 

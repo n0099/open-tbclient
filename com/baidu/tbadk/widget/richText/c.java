@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class c extends ClickableSpan {
-    private String bru;
-    private int brv;
+    private String brx;
+    private int bry;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -43,8 +43,8 @@ public class c extends ClickableSpan {
         this.mType = i;
     }
 
-    public void gV(int i) {
-        this.brv = i;
+    public void gW(int i) {
+        this.bry = i;
     }
 
     public void setColor(int i) {
@@ -55,12 +55,12 @@ public class c extends ClickableSpan {
         this.textColor = i;
     }
 
-    public void gW(int i) {
+    public void gX(int i) {
         this.urlType = i;
     }
 
-    public void iZ(String str) {
-        this.bru = str;
+    public void ja(String str) {
+        this.brx = str;
     }
 
     public String getLink() {
@@ -79,13 +79,13 @@ public class c extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.brv == 1 && (this.mType == 18 || this.mType == 2)) {
+        } else if (this.bry == 1 && (this.mType == 18 || this.mType == 2)) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 textPaint.bgColor = al.getColor(e.d.cp_bg_line_c);
             } else {
                 textPaint.bgColor = al.getColor(e.d.cp_bg_line_z);
             }
-        } else if (this.brv == 2) {
+        } else if (this.bry == 2) {
             textPaint.bgColor = al.getColor(e.d.transparent);
         }
     }
@@ -94,7 +94,7 @@ public class c extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.mType, this.mUrl, this.bru));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.mType, this.mUrl, this.brx));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {

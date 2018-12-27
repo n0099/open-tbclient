@@ -1,9 +1,9 @@
 package com.baidu.tbadk.q;
 /* loaded from: classes.dex */
 public interface b {
-    void PG();
+    void PI();
 
-    void iw(String str);
+    void ix(String str);
 
     void w(String str, boolean z);
 

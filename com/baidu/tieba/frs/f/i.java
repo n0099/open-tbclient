@@ -41,23 +41,23 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class i {
-    private static void oM(String str) {
+    private static void oP(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
-        Map<String, String> fN = ay.fN(str);
-        if (fN != null) {
+        Map<String, String> fO = ay.fO(str);
+        if (fO != null) {
             am amVar = new am("c10320");
-            amVar.aA("obj_locate", fN.get("obj_locate"));
+            amVar.aA("obj_locate", fO.get("obj_locate"));
             amVar.x("obj_type", 1);
-            amVar.aA(ImageViewerConfig.FORUM_NAME, fN.get("kw"));
-            amVar.aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, fN.get(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE));
-            amVar.aA("obj_param2", fN.get("obj_param2"));
+            amVar.aA(ImageViewerConfig.FORUM_NAME, fO.get("kw"));
+            amVar.aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, fO.get(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE));
+            amVar.aA("obj_param2", fO.get("obj_param2"));
             amVar.x("obj_to", 2);
-            amVar.aA(VideoPlayActivityConfig.OBJ_ID, fN.get("bdid"));
-            if (!ao.isEmpty(fN.get("ext_log"))) {
+            amVar.aA(VideoPlayActivityConfig.OBJ_ID, fO.get("bdid"));
+            if (!ao.isEmpty(fO.get("ext_log"))) {
                 try {
-                    JSONObject jSONObject = new JSONObject(fN.get("ext_log"));
+                    JSONObject jSONObject = new JSONObject(fO.get("ext_log"));
                     Iterator<String> keys = jSONObject.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
@@ -87,18 +87,18 @@ public class i {
             Matcher matcher = Pattern.compile(".*fr=(.*)&kw=(.*)").matcher(decode);
             if (matcher.find()) {
                 if (!"mpush".equals(matcher.group(1)) && "bpush".equals(matcher.group(1))) {
-                    oM(decode);
+                    oP(decode);
                 }
                 dVar.forumName = matcher.group(2);
             } else {
-                oM(decode);
+                oP(decode);
                 int indexOf = decode.indexOf("kw=");
                 if (indexOf < 0 || (length = indexOf + "kw=".length()) > decode.length()) {
                     return null;
                 }
                 dVar.forumName = decode.substring(length);
                 try {
-                    dVar.ecq = data.getQueryParameter("from");
+                    dVar.efh = data.getQueryParameter("from");
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -150,13 +150,13 @@ public class i {
                     frsFragment.showToast(e.j.sdcard_permission_denied_advert_for_camera);
                 }
             } else if (i == 25040) {
-                com.baidu.tieba.frs.entelechy.c aDo = frsFragment.aBf().aDo();
-                String yl = aDo.yl();
-                String aDH = aDo.aDH();
+                com.baidu.tieba.frs.entelechy.c aEd = frsFragment.aBU().aEd();
+                String yl = aEd.yl();
+                String aEw = aEd.aEw();
                 if (iArr[0] == 0 && strArr[0].equals("android.permission.WRITE_EXTERNAL_STORAGE")) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921334, yl));
                 } else {
-                    ay.Ef().c(frsFragment.getPageContext(), new String[]{aDH});
+                    ay.Ef().c(frsFragment.getPageContext(), new String[]{aEw});
                 }
             }
         }
@@ -164,7 +164,7 @@ public class i {
 
     public static void b(TbPageContext tbPageContext, l lVar) {
         if (tbPageContext != null && lVar != null) {
-            com.baidu.tbadk.browser.a.a(tbPageContext.getPageActivity(), "福袋", TbConfig.SERVER_ADDRESS + TbConfig.FORTUNE_ADDRESS + "?fid=" + lVar.bgh().getId(), true, true, true);
+            com.baidu.tbadk.browser.a.a(tbPageContext.getPageActivity(), "福袋", TbConfig.SERVER_ADDRESS + TbConfig.FORTUNE_ADDRESS + "?fid=" + lVar.bgT().getId(), true, true, true);
         }
     }
 
@@ -230,7 +230,7 @@ public class i {
                 str = bbVar.avC.id;
                 str2 = valueOf;
             }
-            if (bbVar.Ad() > 0 && com.baidu.tieba.tbadkCore.util.e.bEq()) {
+            if (bbVar.Ad() > 0 && com.baidu.tieba.tbadkCore.util.e.bFi()) {
                 createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createHistoryCfg(bbVar.getTid(), String.valueOf(bbVar.Ad()), false, true, "frs_page");
             } else {
                 createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bbVar, frsFragment.getForumName(), "frs_page", 18003, true, false, z);

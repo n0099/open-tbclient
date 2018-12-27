@@ -15,7 +15,7 @@ public class y {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public static int iL(String str) {
+    public static int iM(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -30,7 +30,7 @@ public class y {
         return i;
     }
 
-    public static int iM(String str) {
+    public static int iN(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -41,13 +41,13 @@ public class y {
             if (substring.length() >= 2) {
                 i += 2;
             } else {
-                i += iL(substring);
+                i += iM(substring);
             }
         }
         return i;
     }
 
-    public static int iN(String str) {
+    public static int iO(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -61,13 +61,13 @@ public class y {
         return i;
     }
 
-    public static String H(String str, int i) {
+    public static String I(String str, int i) {
         int codePointCount = str.codePointCount(0, str.length());
         int i2 = 1;
         String str2 = str;
         while (i2 <= codePointCount) {
             String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-            if (iN(substring) > i) {
+            if (iO(substring) > i) {
                 break;
             }
             i2++;
@@ -76,11 +76,11 @@ public class y {
         return str2;
     }
 
-    public static String I(String str, int i) {
+    public static String J(String str, int i) {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (iL(str) > i) {
+        if (iM(str) > i) {
             return q(str, 0, i - 2) + "...";
         }
         return str;
@@ -146,13 +146,13 @@ public class y {
         return sb.toString();
     }
 
-    public static String J(String str, int i) {
+    public static String K(String str, int i) {
         int codePointCount = str.codePointCount(0, str.length());
         int i2 = 1;
         String str2 = str;
         while (i2 <= codePointCount) {
             String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-            if (iM(substring) > i) {
+            if (iN(substring) > i) {
                 break;
             }
             i2++;

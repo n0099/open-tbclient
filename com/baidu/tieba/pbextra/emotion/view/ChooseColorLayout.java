@@ -8,19 +8,19 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class ChooseColorLayout extends LinearLayout {
-    public View.OnClickListener aSY;
-    private int[] goS;
-    private int goT;
-    private int goU;
-    private int goV;
-    private int goW;
-    private a goX;
+    public View.OnClickListener aTa;
+    private int[] grJ;
+    private int grK;
+    private int grL;
+    private int grM;
+    private int grN;
+    private a grO;
     private int mPadding;
     private int mWidth;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void sO(int i);
+        void tb(int i);
     }
 
     public ChooseColorLayout(Context context) {
@@ -33,20 +33,20 @@ public class ChooseColorLayout extends LinearLayout {
 
     public ChooseColorLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aSY = new View.OnClickListener() { // from class: com.baidu.tieba.pbextra.emotion.view.ChooseColorLayout.1
+        this.aTa = new View.OnClickListener() { // from class: com.baidu.tieba.pbextra.emotion.view.ChooseColorLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 int intValue;
-                if ((view instanceof ChooseColorView) && (intValue = ((Integer) view.getTag()).intValue()) != ChooseColorLayout.this.goW) {
-                    View childAt = ChooseColorLayout.this.getChildAt(ChooseColorLayout.this.goW);
+                if ((view instanceof ChooseColorView) && (intValue = ((Integer) view.getTag()).intValue()) != ChooseColorLayout.this.grN) {
+                    View childAt = ChooseColorLayout.this.getChildAt(ChooseColorLayout.this.grN);
                     if (childAt instanceof ChooseColorView) {
                         ((ChooseColorView) childAt).setIsChooseView(false);
                     }
-                    ChooseColorLayout.this.goW = intValue;
-                    ChooseColorLayout.this.goV = ((ChooseColorView) view).getChooseColor();
+                    ChooseColorLayout.this.grN = intValue;
+                    ChooseColorLayout.this.grM = ((ChooseColorView) view).getChooseColor();
                     ((ChooseColorView) view).setIsChooseView(true);
-                    if (ChooseColorLayout.this.goX != null) {
-                        ChooseColorLayout.this.goX.sO(ChooseColorLayout.this.goV);
+                    if (ChooseColorLayout.this.grO != null) {
+                        ChooseColorLayout.this.grO.tb(ChooseColorLayout.this.grM);
                     }
                 }
             }
@@ -56,33 +56,33 @@ public class ChooseColorLayout extends LinearLayout {
 
     private void init() {
         this.mWidth = l.aO(getContext());
-        this.goS = getResources().getIntArray(e.b.choose_colors);
+        this.grJ = getResources().getIntArray(e.b.choose_colors);
         this.mPadding = getResources().getDimensionPixelSize(e.C0210e.ds24);
-        this.goT = (this.mWidth - (this.mPadding * 2)) / 8;
-        this.goU = (this.goT - (getResources().getDimensionPixelSize(e.C0210e.ds16) * 2)) / 2;
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.goT, this.goT);
+        this.grK = (this.mWidth - (this.mPadding * 2)) / 8;
+        this.grL = (this.grK - (getResources().getDimensionPixelSize(e.C0210e.ds16) * 2)) / 2;
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.grK, this.grK);
         layoutParams.gravity = 17;
-        for (int i = 0; i < this.goS.length; i++) {
+        for (int i = 0; i < this.grJ.length; i++) {
             ChooseColorView chooseColorView = new ChooseColorView(getContext());
-            chooseColorView.setChooseColor(this.goS[i]);
+            chooseColorView.setChooseColor(this.grJ[i]);
             chooseColorView.setTag(Integer.valueOf(i));
-            chooseColorView.setRadius(this.goU);
+            chooseColorView.setRadius(this.grL);
             if (i == 0) {
                 chooseColorView.setIsChooseView(true);
-                this.goV = this.goS[i];
-                this.goW = i;
+                this.grM = this.grJ[i];
+                this.grN = i;
             }
-            chooseColorView.setOnClickListener(this.aSY);
+            chooseColorView.setOnClickListener(this.aTa);
             addView(chooseColorView, layoutParams);
         }
         setPadding(this.mPadding, 0, this.mPadding, getResources().getDimensionPixelSize(e.C0210e.ds20));
     }
 
     public int getCurrentChooseColor() {
-        return this.goV;
+        return this.grM;
     }
 
     public void setOnChooseColorChangeListener(a aVar) {
-        this.goX = aVar;
+        this.grO = aVar;
     }
 }

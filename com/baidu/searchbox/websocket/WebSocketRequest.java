@@ -31,7 +31,7 @@ public final class WebSocketRequest {
     }
 
     public WebSocketRequest(String str) {
-        p.h((Object) str, "url");
+        p.j(str, "url");
         this.url = str;
         this.method = "GET";
     }
@@ -45,7 +45,7 @@ public final class WebSocketRequest {
     }
 
     public final void setMethod(String str) {
-        p.h((Object) str, "<set-?>");
+        p.j(str, "<set-?>");
         this.method = str;
     }
 
@@ -73,7 +73,7 @@ public final class WebSocketRequest {
         this(r0);
         String url = builder.getUrl();
         if (url == null) {
-            p.cbN();
+            p.ccE();
         }
         this.method = builder.getMethod();
         this.headers = builder.getHeaders();
@@ -90,7 +90,7 @@ public final class WebSocketRequest {
         }
 
         public final WebSocketRequest build(b<? super Builder, e> bVar) {
-            p.h((Object) bVar, "block");
+            p.j(bVar, "block");
             Builder builder = new Builder();
             bVar.invoke(builder);
             return builder.build();
@@ -98,31 +98,31 @@ public final class WebSocketRequest {
 
         /* JADX WARN: Type inference failed for: r0v12, types: [T, org.json.JSONArray] */
         public final WebSocketRequest fromJSON(JSONObject jSONObject) {
-            p.h((Object) jSONObject, "params");
+            p.j(jSONObject, "params");
             Companion companion = WebSocketRequest.Companion;
             Builder builder = new Builder();
             builder.setUrl(jSONObject.getString("url"));
             if (jSONObject.has("method")) {
                 String string = jSONObject.getString("method");
-                p.g(string, "params.getString(PARAM_KEY_METHOD)");
+                p.i(string, "params.getString(PARAM_KEY_METHOD)");
                 builder.setMethod(string);
             }
             if (jSONObject.has("header")) {
                 JSONObject jSONObject2 = jSONObject.getJSONObject("header");
                 Iterator<String> keys = jSONObject2.keys();
-                p.g(keys, "headers.keys()");
+                p.i(keys, "headers.keys()");
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    p.g(next, RimArmor.KEY);
+                    p.i(next, RimArmor.KEY);
                     String string2 = jSONObject2.getString(next);
-                    p.g(string2, "headers.getString(key)");
+                    p.i(string2, "headers.getString(key)");
                     builder.addHeader(next, string2);
                 }
             }
             if (jSONObject.has(WebSocketRequest.PARAM_KEY_PROTOCOLS)) {
                 Ref.ObjectRef objectRef = new Ref.ObjectRef();
                 objectRef.element = jSONObject.getJSONArray(WebSocketRequest.PARAM_KEY_PROTOCOLS);
-                builder.setProtocols(d.b(d.c(n.d(kotlin.b.d.cn(0, ((JSONArray) objectRef.element).length())), new WebSocketRequest$Companion$fromJSON$1$2(objectRef))));
+                builder.setProtocols(d.b(d.c(n.d(kotlin.b.d.co(0, ((JSONArray) objectRef.element).length())), new WebSocketRequest$Companion$fromJSON$1$2(objectRef))));
             }
             return builder.build();
         }
@@ -148,7 +148,7 @@ public final class WebSocketRequest {
         }
 
         public final void setMethod(String str) {
-            p.h((Object) str, "<set-?>");
+            p.j(str, "<set-?>");
             this.method = str;
         }
 
@@ -169,8 +169,8 @@ public final class WebSocketRequest {
         }
 
         public final void addHeader(String str, String str2) {
-            p.h((Object) str, RimArmor.KEY);
-            p.h((Object) str2, "value");
+            p.j(str, RimArmor.KEY);
+            p.j(str2, "value");
             Builder builder = this;
             if (builder.headers == null) {
                 builder.headers = new HashMap();

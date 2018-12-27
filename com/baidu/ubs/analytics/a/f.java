@@ -6,39 +6,39 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes6.dex */
 final class f {
-    private static f icy;
-    private static SQLiteOpenHelper icz;
-    private AtomicInteger icA = new AtomicInteger();
-    private SQLiteDatabase icB;
+    private static f ifL;
+    private static SQLiteOpenHelper ifM;
+    private AtomicInteger ifN = new AtomicInteger();
+    private SQLiteDatabase ifO;
 
     f() {
     }
 
     private static synchronized void b(Context context) {
         synchronized (f.class) {
-            if (icy == null) {
-                icy = new f();
-                icz = new d(context);
+            if (ifL == null) {
+                ifL = new f();
+                ifM = new d(context);
             }
         }
     }
 
-    public static synchronized f bRK() {
+    public static synchronized f bSB() {
         f fVar;
         synchronized (f.class) {
-            if (icy == null) {
-                b(com.baidu.ubs.analytics.d.bRI().getContext());
+            if (ifL == null) {
+                b(com.baidu.ubs.analytics.d.bSz().getContext());
             }
-            fVar = icy;
+            fVar = ifL;
         }
         return fVar;
     }
 
     public final synchronized SQLiteDatabase getDatabase() {
-        if (this.icA.incrementAndGet() == 1) {
-            com.baidu.ubs.analytics.d.b.yA("***************新建立了 一个数据库的实例****************");
-            this.icB = icz.getWritableDatabase();
+        if (this.ifN.incrementAndGet() == 1) {
+            com.baidu.ubs.analytics.d.b.yD("***************新建立了 一个数据库的实例****************");
+            this.ifO = ifM.getWritableDatabase();
         }
-        return this.icB;
+        return this.ifO;
     }
 }

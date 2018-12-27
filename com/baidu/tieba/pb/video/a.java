@@ -11,7 +11,7 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.k;
 /* loaded from: classes6.dex */
 public class a extends k<b, c> {
-    public View.OnClickListener bDZ;
+    public View.OnClickListener bEc;
 
     public a(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
@@ -20,7 +20,7 @@ public class a extends k<b, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bu */
+    /* renamed from: bv */
     public c onCreateViewHolder(ViewGroup viewGroup) {
         return new c(LayoutInflater.from(this.mContext).inflate(e.h.pb_god_reply_look_more_item, viewGroup, false));
     }
@@ -31,14 +31,14 @@ public class a extends k<b, c> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
         super.onFillViewHolder(i, view, viewGroup, bVar, cVar);
-        if (cVar != null && cVar.cVh != null) {
-            if (this.bDZ != null) {
-                cVar.cVh.setOnClickListener(this.bDZ);
+        if (cVar != null && cVar.cXX != null) {
+            if (this.bEc != null) {
+                cVar.cXX.setOnClickListener(this.bEc);
             }
-            if (cVar.aLF != TbadkCoreApplication.getInst().getSkinType()) {
-                cVar.aLF = TbadkCoreApplication.getInst().getSkinType();
-                al.h(cVar.cVh, e.d.cp_cont_f);
-                al.i(cVar.cVh, e.f.more_all);
+            if (cVar.aLH != TbadkCoreApplication.getInst().getSkinType()) {
+                cVar.aLH = TbadkCoreApplication.getInst().getSkinType();
+                al.h(cVar.cXX, e.d.cp_cont_f);
+                al.i(cVar.cXX, e.f.more_all);
                 al.i(cVar.dividerLine, e.d.cp_bg_line_c);
             }
         }
@@ -46,6 +46,6 @@ public class a extends k<b, c> {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.bDZ = onClickListener;
+        this.bEc = onClickListener;
     }
 }

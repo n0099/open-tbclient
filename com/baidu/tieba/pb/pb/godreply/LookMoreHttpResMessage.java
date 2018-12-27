@@ -31,7 +31,7 @@ public class LookMoreHttpResMessage extends HttpResponsedMessage {
             for (Post post : list) {
                 PostData postData = new PostData();
                 postData.a(post, TbadkCoreApplication.getInst());
-                postData.hlT = 102;
+                postData.hpe = 102;
                 this.list.add(postData);
             }
         }

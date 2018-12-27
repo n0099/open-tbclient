@@ -5,19 +5,19 @@ import com.tencent.open.SocialConstants;
 public class h extends g {
     public String NK;
     public long NL;
-    public boolean bfM;
+    public boolean bfP;
     public boolean isSuccess;
 
-    public void Pf() {
+    public void Pg() {
         o oVar;
-        if (m.Pk().Pl() && (oVar = (o) m.Pk().gl(this.mSubType)) != null) {
+        if (m.Pl().Pm() && (oVar = (o) m.Pl().gm(this.mSubType)) != null) {
             oVar.a(this, "head");
         }
     }
 
-    public void Pg() {
+    public void Ph() {
         o oVar;
-        if (m.Pk().Pl() && (oVar = (o) m.Pk().gl(this.mSubType)) != null) {
+        if (m.Pl().Pm() && (oVar = (o) m.Pl().gm(this.mSubType)) != null) {
             oVar.a(this, SocialConstants.PARAM_IMG_URL);
         }
     }

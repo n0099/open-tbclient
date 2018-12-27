@@ -5,11 +5,11 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class j {
     private String Ss;
-    private JSONObject ibP;
-    private int ibQ;
-    private String ibR;
-    private boolean ibS;
-    private int ibs;
+    private int ieF;
+    private JSONObject ifc;
+    private int ifd;
+    private String ife;
+    private boolean iff;
     private String mCategory;
     private String mContent;
     private String mFlowId;
@@ -18,56 +18,56 @@ public class j {
 
     public j(String str, String str2, int i) {
         this.mContent = "";
-        this.ibS = false;
+        this.iff = false;
         this.Ss = "";
         this.mId = str;
         this.mFlowId = str;
-        this.ibs = -1;
+        this.ieF = -1;
         this.mContent = str2;
-        this.ibQ = i;
-        if ((this.ibQ & 2) == 0) {
+        this.ifd = i;
+        if ((this.ifd & 2) == 0) {
             this.mTime = System.currentTimeMillis();
         }
     }
 
     public j(String str, JSONObject jSONObject, int i) {
         this.mContent = "";
-        this.ibS = false;
+        this.iff = false;
         this.Ss = "";
         this.mId = str;
         this.mFlowId = str;
-        this.ibs = -1;
-        this.ibP = jSONObject;
-        this.ibQ = i;
-        if ((this.ibQ & 2) == 0) {
+        this.ieF = -1;
+        this.ifc = jSONObject;
+        this.ifd = i;
+        if ((this.ifd & 2) == 0) {
             this.mTime = System.currentTimeMillis();
         }
     }
 
     public j(String str, String str2, int i, String str3, int i2) {
         this.mContent = "";
-        this.ibS = false;
+        this.iff = false;
         this.Ss = "";
         this.mId = str2;
         this.mFlowId = str;
-        this.ibs = i;
+        this.ieF = i;
         this.mContent = str3;
-        this.ibQ = i2;
-        if ((this.ibQ & 2) == 0) {
+        this.ifd = i2;
+        if ((this.ifd & 2) == 0) {
             this.mTime = System.currentTimeMillis();
         }
     }
 
     public j(String str, String str2, int i, String str3, long j, int i2) {
         this.mContent = "";
-        this.ibS = false;
+        this.iff = false;
         this.Ss = "";
         this.mId = str2;
         this.mFlowId = str;
-        this.ibs = i;
+        this.ieF = i;
         this.mContent = str3;
-        this.ibQ = i2;
-        if ((this.ibQ & 2) == 0) {
+        this.ifd = i2;
+        if ((this.ifd & 2) == 0) {
             if (j > 0) {
                 this.mTime = j;
             } else {
@@ -80,12 +80,12 @@ public class j {
         return this.mId;
     }
 
-    public String bRb() {
+    public String bRS() {
         return this.mFlowId;
     }
 
-    public int bRc() {
-        return this.ibs;
+    public int bRT() {
+        return this.ieF;
     }
 
     public String getContent() {
@@ -96,12 +96,12 @@ public class j {
         return this.mTime;
     }
 
-    public int bRd() {
-        return this.ibQ;
+    public int bRU() {
+        return this.ifd;
     }
 
-    public String bRe() {
-        return this.ibR;
+    public String bRV() {
+        return this.ife;
     }
 
     public String getCategory() {
@@ -112,29 +112,29 @@ public class j {
         this.mCategory = str;
     }
 
-    public JSONObject bRf() {
-        return this.ibP;
+    public JSONObject bRW() {
+        return this.ifc;
     }
 
     public String getFileName() {
         return this.Ss;
     }
 
-    public void jm(String str) {
+    public void jn(String str) {
         this.Ss = str;
     }
 
-    public boolean bQZ() {
-        return this.ibS;
+    public boolean bRQ() {
+        return this.iff;
     }
 
-    public void oK(boolean z) {
-        this.ibS = z;
+    public void oN(boolean z) {
+        this.iff = z;
     }
 
-    public void bRg() {
-        if (this.mId != null && this.mId.equals(this.mFlowId) && e.bQP().xZ(this.mId)) {
-            this.ibR = o.bRr().Zd();
+    public void bRX() {
+        if (this.mId != null && this.mId.equals(this.mFlowId) && e.bRG().yc(this.mId)) {
+            this.ife = o.bSi().Zf();
         }
     }
 }

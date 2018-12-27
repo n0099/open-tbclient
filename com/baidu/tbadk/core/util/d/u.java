@@ -22,4 +22,14 @@ public class u extends w {
         }
         return a;
     }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.util.d.w, com.baidu.tbadk.core.util.d.a
+    public com.baidu.adp.widget.ImageView.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, com.baidu.adp.widget.ImageView.a aVar2, Bitmap bitmap, boolean z, com.baidu.tbadk.core.util.a.i iVar, byte[] bArr, Rect rect) {
+        byte[] bArr2;
+        if (bitmap == null || (bArr2 = BitmapHelper.Bitmap2Bytes(bitmap, 100)) == null) {
+            bArr2 = bArr;
+        }
+        return super.a(str, str2, aVar, aVar2, bitmap, z, iVar, bArr2, rect);
+    }
 }

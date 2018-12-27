@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ah;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.e;
-import com.baidu.tieba.t.b;
+import com.baidu.tieba.u.b;
 import com.baidu.webkit.internal.GlobalConstants;
 /* loaded from: classes.dex */
 public class KuangFloatingViewController {
@@ -98,7 +98,7 @@ public class KuangFloatingViewController {
 
     public void showFloatingView() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        layoutParams.type = b.wi(2002);
+        layoutParams.type = b.wv(2002);
         layoutParams.flags = 65800;
         layoutParams.format = -3;
         layoutParams.x = 0;

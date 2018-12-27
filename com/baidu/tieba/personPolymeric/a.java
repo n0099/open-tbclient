@@ -18,8 +18,8 @@ import com.baidu.tieba.view.f;
 import com.baidu.tieba.view.g;
 /* loaded from: classes3.dex */
 public class a implements f {
-    private ImageView gvO;
-    private ImageView gvP;
+    private ImageView gyF;
+    private ImageView gyG;
     private NavigationBar mNavigationBar;
     private UserData mUserData;
 
@@ -27,54 +27,54 @@ public class a implements f {
     public void a(Context context, NavigationBar navigationBar) {
         this.mNavigationBar = navigationBar;
         this.mNavigationBar.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
-        this.gvP = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.view_topbar_icon, (View.OnClickListener) null);
-        if (this.gvP.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gvP.getLayoutParams();
+        this.gyG = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.view_topbar_icon, (View.OnClickListener) null);
+        if (this.gyG.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gyG.getLayoutParams();
             layoutParams.rightMargin = context.getResources().getDimensionPixelSize(e.C0210e.ds4);
-            this.gvP.setLayoutParams(layoutParams);
+            this.gyG.setLayoutParams(layoutParams);
         }
-        this.gvO = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.view_topbar_icon, (View.OnClickListener) null);
-        if (this.gvO.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gvO.getLayoutParams();
+        this.gyF = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.view_topbar_icon, (View.OnClickListener) null);
+        if (this.gyF.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gyF.getLayoutParams();
             layoutParams2.rightMargin = context.getResources().getDimensionPixelSize(e.C0210e.ds14);
-            this.gvO.setLayoutParams(layoutParams2);
+            this.gyF.setLayoutParams(layoutParams2);
         }
         if (TbadkCoreApplication.isLogin()) {
-            this.gvO.setVisibility(0);
+            this.gyF.setVisibility(0);
             return;
         }
-        this.gvO.setVisibility(8);
-        if (this.gvP.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.gvP.getLayoutParams();
+        this.gyF.setVisibility(8);
+        if (this.gyG.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.gyG.getLayoutParams();
             layoutParams3.rightMargin = context.getResources().getDimensionPixelSize(e.C0210e.ds14);
-            this.gvP.setLayoutParams(layoutParams3);
+            this.gyG.setLayoutParams(layoutParams3);
         }
     }
 
     @Override // com.baidu.tieba.view.f
     public void setOnViewResponseListener(final g gVar) {
-        if (this.gvO != null) {
-            this.gvO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.1
+        if (this.gyF != null) {
+            this.gyF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (j.kV()) {
                         TiebaStatic.log(new am("c12503").aA("obj_locate", "2"));
                         b bVar = new b();
-                        bVar.dqN = 9;
+                        bVar.dtB = 9;
                         gVar.a(view, bVar);
                     }
                 }
             });
         }
-        if (this.gvP != null) {
-            this.gvP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.2
+        if (this.gyG != null) {
+            this.gyG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     TiebaStatic.log(new am("c12503").aA("obj_locate", "1"));
                     b bVar = new b();
-                    bVar.dqN = 42;
-                    bVar.dqO = new Bundle();
-                    bVar.dqO.putSerializable(UserData.TYPE_USER, a.this.mUserData);
+                    bVar.dtB = 42;
+                    bVar.dtC = new Bundle();
+                    bVar.dtC.putSerializable(UserData.TYPE_USER, a.this.mUserData);
                     gVar.a(view, bVar);
                 }
             });
@@ -82,7 +82,7 @@ public class a implements f {
     }
 
     @Override // com.baidu.tieba.view.f
-    public void bpK() {
+    public void bqw() {
     }
 
     @Override // com.baidu.tieba.view.f
@@ -92,13 +92,13 @@ public class a implements f {
     @Override // com.baidu.tieba.view.f
     public void c(float f, boolean z) {
         float f2;
-        if (this.gvO != null) {
+        if (this.gyF != null) {
             if (z) {
-                al.c(this.gvO, e.f.selector_topbar_more_black);
-                al.c(this.gvP, e.f.selector_topbar_chat_black);
+                al.c(this.gyF, e.f.selector_topbar_more_black);
+                al.c(this.gyG, e.f.selector_topbar_chat_black);
             } else {
-                al.c(this.gvO, e.f.selector_topbar_more_white);
-                al.c(this.gvP, e.f.selector_topbar_chat_white);
+                al.c(this.gyF, e.f.selector_topbar_more_white);
+                al.c(this.gyG, e.f.selector_topbar_chat_white);
             }
             if (f < 0.5f) {
                 f2 = 1.0f - (f * 2.0f);
@@ -106,22 +106,22 @@ public class a implements f {
                 f2 = (f * 2.0f) - 1.0f;
             }
             if (f2 >= 0.0f && f2 <= 1.0f) {
-                this.gvO.setAlpha(f2);
-                this.gvP.setAlpha(f2);
+                this.gyF.setAlpha(f2);
+                this.gyG.setAlpha(f2);
             }
         }
     }
 
     @Override // com.baidu.tieba.view.f
     public void onChangeSkinType(int i) {
-        if (this.gvO != null) {
+        if (this.gyF != null) {
             if (this.mNavigationBar.getBarBgView().getAlpha() < 0.5f) {
-                al.c(this.gvO, e.f.selector_topbar_more_white);
-                al.c(this.gvP, e.f.selector_topbar_chat_white);
+                al.c(this.gyF, e.f.selector_topbar_more_white);
+                al.c(this.gyG, e.f.selector_topbar_chat_white);
                 return;
             }
-            al.c(this.gvO, e.f.selector_topbar_more_black);
-            al.c(this.gvP, e.f.selector_topbar_chat_black);
+            al.c(this.gyF, e.f.selector_topbar_more_black);
+            al.c(this.gyG, e.f.selector_topbar_chat_black);
         }
     }
 

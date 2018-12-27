@@ -5,13 +5,13 @@ import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class r {
-    private int aOh;
+    private int aOj;
     private String link;
     private String title;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null && jSONObject != null) {
-            this.aOh = jSONObject.optInt("offline");
+            this.aOj = jSONObject.optInt("offline");
             this.title = jSONObject.optString("title");
             this.link = jSONObject.optString(SelectForumActivityConfig.KEY_SHARE_LINK);
             if (!TextUtils.isEmpty(this.link)) {

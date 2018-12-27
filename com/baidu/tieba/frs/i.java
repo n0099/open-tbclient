@@ -3,13 +3,13 @@ package com.baidu.tieba.frs;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class i implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId dHN = BdUniqueId.gen();
+    public static final BdUniqueId dKB = BdUniqueId.gen();
     private int height = 0;
-    private int dHO = 0;
+    private int dKC = 0;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dHN;
+        return dKB;
     }
 
     public int getHeight() {
@@ -20,11 +20,11 @@ public class i implements com.baidu.adp.widget.ListView.h {
         this.height = i;
     }
 
-    public int aAy() {
-        return this.dHO;
+    public int aBn() {
+        return this.dKC;
     }
 
-    public void lU(int i) {
-        this.dHO = i;
+    public void mh(int i) {
+        this.dKC = i;
     }
 }

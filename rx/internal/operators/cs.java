@@ -4,11 +4,11 @@ import rx.g;
 import rx.h;
 /* loaded from: classes2.dex */
 public final class cs<T> implements h.a<T> {
-    final h.a<T> iKi;
+    final h.a<T> iNs;
     final rx.g scheduler;
 
     public cs(h.a<T> aVar, rx.g gVar) {
-        this.iKi = aVar;
+        this.iNs = aVar;
         this.scheduler = gVar;
     }
 
@@ -20,7 +20,7 @@ public final class cs<T> implements h.a<T> {
         a aVar = new a(iVar, createWorker);
         iVar.add(createWorker);
         iVar.add(aVar);
-        this.iKi.call(aVar);
+        this.iNs.call(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,24 +28,24 @@ public final class cs<T> implements h.a<T> {
     public static final class a<T> extends rx.i<T> implements rx.functions.a {
         final rx.i<? super T> actual;
         Throwable error;
-        final g.a iKj;
+        final g.a iNt;
         T value;
 
         public a(rx.i<? super T> iVar, g.a aVar) {
             this.actual = iVar;
-            this.iKj = aVar;
+            this.iNt = aVar;
         }
 
         @Override // rx.i
         public void onSuccess(T t) {
             this.value = t;
-            this.iKj.a(this);
+            this.iNt.a(this);
         }
 
         @Override // rx.i
         public void onError(Throwable th) {
             this.error = th;
-            this.iKj.a(this);
+            this.iNt.a(this);
         }
 
         @Override // rx.functions.a
@@ -61,7 +61,7 @@ public final class cs<T> implements h.a<T> {
                     this.actual.onSuccess(t);
                 }
             } finally {
-                this.iKj.unsubscribe();
+                this.iNt.unsubscribe();
             }
         }
     }

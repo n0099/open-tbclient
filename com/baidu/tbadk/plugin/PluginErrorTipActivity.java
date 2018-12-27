@@ -20,11 +20,11 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity> {
-    private View aMU;
-    private TextView bhb;
-    private TextView bhc;
-    private TextView bhd;
-    private PluginStatus bhe;
+    private View aMW;
+    private TextView bhe;
+    private TextView bhf;
+    private TextView bhg;
+    private PluginStatus bhh;
     private NavigationBar mNavigationBar;
 
     public static final void a(Context context, PluginStatus pluginStatus) {
@@ -46,11 +46,11 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null) {
-            this.bhe = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
+            this.bhh = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
         } else {
-            this.bhe = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
+            this.bhh = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
         }
-        if (this.bhe == null) {
+        if (this.bhh == null) {
             finish();
             return;
         }
@@ -60,27 +60,27 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
 
     protected void initUI() {
         this.mNavigationBar = (NavigationBar) findViewById(e.g.view_navigation_bar);
-        this.aMU = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
-        this.aMU.setOnClickListener(this);
+        this.aMW = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
+        this.aMW.setOnClickListener(this);
         this.mNavigationBar.setTitleText(e.j.pluginstatus_tip_title);
-        this.bhb = (TextView) findViewById(e.g.plugin_error_tip_msg);
-        this.bhc = (TextView) findViewById(e.g.plugin_error_tip_resolve);
-        this.bhd = (TextView) findViewById(e.g.plugin_error_btn);
-        this.bhd.setOnClickListener(this);
-        this.bhb.setText(this.bhe.getErrorMsg());
-        this.bhc.setText(this.bhe.nI());
-        if (this.bhe.getErrorCode() == 5 || this.bhe.getErrorCode() == 1 || this.bhe.getErrorCode() == 100) {
-            this.bhd.setText(e.j.pluginstatus_btn_restartapp);
-            this.bhd.setVisibility(0);
+        this.bhe = (TextView) findViewById(e.g.plugin_error_tip_msg);
+        this.bhf = (TextView) findViewById(e.g.plugin_error_tip_resolve);
+        this.bhg = (TextView) findViewById(e.g.plugin_error_btn);
+        this.bhg.setOnClickListener(this);
+        this.bhe.setText(this.bhh.getErrorMsg());
+        this.bhf.setText(this.bhh.nI());
+        if (this.bhh.getErrorCode() == 5 || this.bhh.getErrorCode() == 1 || this.bhh.getErrorCode() == 100) {
+            this.bhg.setText(e.j.pluginstatus_btn_restartapp);
+            this.bhg.setVisibility(0);
             return;
         }
-        this.bhd.setVisibility(8);
+        this.bhg.setVisibility(8);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.bhe);
+        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.bhh);
         if (jsonStrWithObject != null) {
             bundle.putString(PluginStatus.class.getName(), jsonStrWithObject);
         }
@@ -88,10 +88,10 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.aMU) {
+        if (view == this.aMW) {
             finish();
-        } else if (view == this.bhd) {
-            if (this.bhe != null && this.bhe.getErrorCode() == 100) {
+        } else if (view == this.bhg) {
+            if (this.bhh != null && this.bhh.getErrorCode() == 100) {
                 com.baidu.adp.plugin.b.a.mN().ao(true);
             }
             showLoadingDialog(getResources().getString(e.j.waiting));

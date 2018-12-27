@@ -9,45 +9,45 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class d {
-    private static d ikV;
-    private int ikW;
+    private static d ioh;
+    private int ioi;
     @Nullable
-    private List<c.a> ikX;
-    private final c.a ikY = new a();
+    private List<c.a> ioj;
+    private final c.a iok = new a();
 
     private d() {
-        bVz();
+        bWq();
     }
 
-    public void es(@Nullable List<c.a> list) {
-        this.ikX = list;
-        bVz();
+    public void et(@Nullable List<c.a> list) {
+        this.ioj = list;
+        bWq();
     }
 
     public c q(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.ikW];
-        int a = a(this.ikW, inputStream, bArr);
-        if (this.ikX != null) {
-            for (c.a aVar : this.ikX) {
+        byte[] bArr = new byte[this.ioi];
+        int a = a(this.ioi, inputStream, bArr);
+        if (this.ioj != null) {
+            for (c.a aVar : this.ioj) {
                 c j = aVar.j(bArr, a);
-                if (j != null && j != c.ikT) {
+                if (j != null && j != c.iof) {
                     return j;
                 }
             }
         }
-        c j2 = this.ikY.j(bArr, a);
+        c j2 = this.iok.j(bArr, a);
         if (j2 == null) {
-            return c.ikT;
+            return c.iof;
         }
         return j2;
     }
 
-    private void bVz() {
-        this.ikW = this.ikY.getHeaderSize();
-        if (this.ikX != null) {
-            for (c.a aVar : this.ikX) {
-                this.ikW = Math.max(this.ikW, aVar.getHeaderSize());
+    private void bWq() {
+        this.ioi = this.iok.getHeaderSize();
+        if (this.ioj != null) {
+            for (c.a aVar : this.ioj) {
+                this.ioi = Math.max(this.ioi, aVar.getHeaderSize());
             }
         }
     }
@@ -67,19 +67,19 @@ public class d {
         return com.facebook.common.internal.a.a(inputStream, bArr, 0, i);
     }
 
-    public static synchronized d bVA() {
+    public static synchronized d bWr() {
         d dVar;
         synchronized (d.class) {
-            if (ikV == null) {
-                ikV = new d();
+            if (ioh == null) {
+                ioh = new d();
             }
-            dVar = ikV;
+            dVar = ioh;
         }
         return dVar;
     }
 
     public static c r(InputStream inputStream) throws IOException {
-        return bVA().q(inputStream);
+        return bWr().q(inputStream);
     }
 
     public static c s(InputStream inputStream) {

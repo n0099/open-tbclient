@@ -24,9 +24,9 @@ public class h {
     }
 
     public static void a(k kVar, BdUniqueId bdUniqueId) {
-        if (kVar != null && !StringUtils.isNull(kVar.LF()) && v.I(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
+        if (kVar != null && !StringUtils.isNull(kVar.LG()) && v.I(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
-            httpMessage.addParam("pic_url", kVar.LF());
+            httpMessage.addParam("pic_url", kVar.LG());
             httpMessage.setTag(bdUniqueId);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -34,13 +34,13 @@ public class h {
 
     public static void a(k kVar, List<com.baidu.adp.widget.ListView.h> list) {
         k kVar2;
-        if (kVar != null && !v.I(list) && !StringUtils.isNull(kVar.LF())) {
+        if (kVar != null && !v.I(list) && !StringUtils.isNull(kVar.LG())) {
             JSONArray jSONArray = new JSONArray();
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 com.baidu.adp.widget.ListView.h hVar = list.get(i);
                 if ((hVar instanceof k) && (kVar2 = (k) hVar) != kVar && !kVar2.isPortrait()) {
-                    jSONArray.put(kVar2.LF());
+                    jSONArray.put(kVar2.LG());
                 }
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
@@ -66,7 +66,7 @@ public class h {
                 if (hVar instanceof k) {
                     k kVar = (k) hVar;
                     if (!kVar.isPortrait()) {
-                        jSONArray.put(kVar.LF());
+                        jSONArray.put(kVar.LG());
                     }
                 }
             }

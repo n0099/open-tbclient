@@ -18,13 +18,13 @@ import com.baidu.tieba.e;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a extends n {
-    private l ayM;
-    private String cXO;
+    private l ayN;
+    private String daG;
 
     public a(l lVar, String str) {
         super(lVar);
-        this.ayM = lVar;
-        this.cXO = str;
+        this.ayN = lVar;
+        this.daG = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -45,22 +45,22 @@ public class a extends n {
                     return;
                 }
                 if (StringUtils.isNull(optString2)) {
-                    ou(optString);
+                    ox(optString);
                 } else {
-                    com.baidu.tieba.recapp.download.d.buF().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.d.uz(optString).intValue(), null, true, false, true, optString3, null, null);
+                    com.baidu.tieba.recapp.download.d.bvr().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.d.uC(optString).intValue(), null, true, false, true, optString3, null, null);
                 }
-                TiebaStatic.log(new am("c12775").aA(ImageViewerConfig.FORUM_ID, StringUtils.isNull(this.cXO) ? "" : this.cXO));
+                TiebaStatic.log(new am("c12775").aA(ImageViewerConfig.FORUM_ID, StringUtils.isNull(this.daG) ? "" : this.daG));
             }
         }
     }
 
-    private void ou(String str) {
+    private void ox(String str) {
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + str));
         try {
-            if (!(this.ayM.getContext() instanceof Activity)) {
+            if (!(this.ayN.getContext() instanceof Activity)) {
                 intent.addFlags(268435456);
             }
-            this.ayM.getContext().startActivity(intent);
+            this.ayN.getContext().startActivity(intent);
         } catch (ActivityNotFoundException e) {
             BdLog.e(e.getMessage());
         }

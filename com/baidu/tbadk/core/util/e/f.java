@@ -18,57 +18,57 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 /* loaded from: classes.dex */
 public class f {
-    private b aEL;
-    private a aEM;
+    private b aEM;
+    private a aEN;
     private String mUrl;
 
     public f(String str, b bVar) {
         this.mUrl = str;
-        this.aEL = bVar;
+        this.aEM = bVar;
     }
 
     public void load() {
         if (TextUtils.isEmpty(this.mUrl)) {
             g.log("VideoLoaderImp url == null");
-        } else if (t.jB(this.mUrl) != null) {
-            if (this.aEL != null) {
+        } else if (t.jC(this.mUrl) != null) {
+            if (this.aEM != null) {
                 g.log("complete file has exist, 不需要下载");
-                this.aEL.onSuccess(this.mUrl);
+                this.aEM.onSuccess(this.mUrl);
             }
         } else {
-            String jD = t.jD(this.mUrl);
-            if (TextUtils.isEmpty(jD)) {
-                this.aEL.aC(this.mUrl, "dir is null");
+            String jE = t.jE(this.mUrl);
+            if (TextUtils.isEmpty(jE)) {
+                this.aEM.aC(this.mUrl, "dir is null");
                 g.log("dir is null " + this.mUrl);
                 return;
             }
-            File file = new File(jD + "/segments");
+            File file = new File(jE + "/segments");
             if (!file.exists()) {
                 file.mkdirs();
             }
             File file2 = new File(file, "0");
             if (file2.exists()) {
                 g.log("segment has exist " + this.mUrl);
-                this.aEL.onSuccess(this.mUrl);
+                this.aEM.onSuccess(this.mUrl);
                 return;
             }
-            this.aEM = new a(this.mUrl, jD, file2.getAbsolutePath(), this.aEL);
-            this.aEM.execute(new Void[0]);
+            this.aEN = new a(this.mUrl, jE, file2.getAbsolutePath(), this.aEM);
+            this.aEN.execute(new Void[0]);
         }
     }
 
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<Void, Void, Boolean> {
-        private b aEL;
-        private String aEN;
+        private b aEM;
         private String aEO;
         private String aEP;
+        private String aEQ;
 
         public a(String str, String str2, String str3, b bVar) {
-            this.aEN = str;
-            this.aEO = str3;
-            this.aEL = bVar;
-            this.aEP = str2;
+            this.aEO = str;
+            this.aEP = str3;
+            this.aEM = bVar;
+            this.aEQ = str2;
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [179=5, 180=4, 182=4, 183=4, 184=4] */
@@ -87,8 +87,8 @@ public class f {
             String str;
             int i = UIMsg.m_AppUI.MSG_APP_GPS;
             try {
-                g.log("start load  " + this.aEN + " des file " + this.aEO);
-                HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.aEN).openConnection();
+                g.log("start load  " + this.aEO + " des file " + this.aEP);
+                HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.aEO).openConnection();
                 try {
                     httpURLConnection2.setRequestProperty("Range", "bytes=0-" + e.EC().getSize());
                     int hr = com.baidu.adp.framework.c.b.hn().ho().hr();
@@ -147,8 +147,8 @@ public class f {
                             throw th;
                         }
                     }
-                    str = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + "/" + s.bC(this.aEN);
-                    g.log("temp file path is   " + str + "  url: " + this.aEN);
+                    str = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + "/" + s.bC(this.aEO);
+                    g.log("temp file path is   " + str + "  url: " + this.aEO);
                     fileOutputStream = new FileOutputStream(str, true);
                 } catch (Exception e3) {
                     inputStream = null;
@@ -170,12 +170,12 @@ public class f {
                         }
                         fileOutputStream.write(bArr, 0, read);
                     }
-                    g.log("download success   des: " + this.aEO + "  mVideoUrl " + this.aEN);
+                    g.log("download success   des: " + this.aEP + "  mVideoUrl " + this.aEO);
                     File file = new File(str);
                     if (file.exists()) {
-                        File file2 = new File(this.aEO);
+                        File file2 = new File(this.aEP);
                         if (file2.exists()) {
-                            g.log("des file exist " + this.aEO + "  mVideoUrl " + this.aEN);
+                            g.log("des file exist " + this.aEP + "  mVideoUrl " + this.aEO);
                             file.delete();
                             if (httpURLConnection2 != null) {
                                 httpURLConnection2.disconnect();
@@ -187,9 +187,9 @@ public class f {
                         }
                         file.renameTo(file2);
                     }
-                    f.j(this.aEP, System.currentTimeMillis());
-                    new File(this.aEP, "header_downloaded").createNewFile();
-                    g.log("rename success   des: " + this.aEO + "  mVideoUrl " + this.aEN);
+                    f.j(this.aEQ, System.currentTimeMillis());
+                    new File(this.aEQ, "header_downloaded").createNewFile();
+                    g.log("rename success   des: " + this.aEP + "  mVideoUrl " + this.aEO);
                     if (httpURLConnection2 != null) {
                         httpURLConnection2.disconnect();
                     }
@@ -236,11 +236,11 @@ public class f {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
             if (bool.booleanValue()) {
-                if (this.aEL != null) {
-                    this.aEL.onSuccess(this.aEN);
+                if (this.aEM != null) {
+                    this.aEM.onSuccess(this.aEO);
                 }
-            } else if (this.aEL != null) {
-                this.aEL.aC(this.aEN, "fail");
+            } else if (this.aEM != null) {
+                this.aEM.aC(this.aEO, "fail");
             }
         }
 
@@ -248,16 +248,16 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.aEL != null) {
-                this.aEL.gg(this.aEN);
+            if (this.aEM != null) {
+                this.aEM.gh(this.aEO);
             }
         }
     }
 
     public void release() {
         g.log("release url: " + this.mUrl);
+        this.aEN = null;
         this.aEM = null;
-        this.aEL = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -22,8 +22,8 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip;
 /* loaded from: classes6.dex */
 public class HomeTabBarView extends RelativeLayout implements View.OnClickListener {
-    private ImageView dYm;
-    private PagerSlidingTabStrip exr;
+    private PagerSlidingTabStrip eAk;
+    private ImageView ebd;
     private int mSkinType;
 
     public HomeTabBarView(Context context) {
@@ -46,10 +46,10 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(e.h.home_tab_bar_view_layout, (ViewGroup) this, true);
-        this.dYm = (ImageView) findViewById(e.g.home_page_search_icon);
-        this.exr = (PagerSlidingTabStrip) findViewById(e.g.home_page_tabstrip);
-        this.exr.e(l.h(context, e.C0210e.ds34), l.h(context, e.C0210e.ds4), false);
-        this.dYm.setOnClickListener(this);
+        this.ebd = (ImageView) findViewById(e.g.home_page_search_icon);
+        this.eAk = (PagerSlidingTabStrip) findViewById(e.g.home_page_tabstrip);
+        this.eAk.e(l.h(context, e.C0210e.ds34), l.h(context, e.C0210e.ds4), false);
+        this.ebd.setOnClickListener(this);
         setOnClickListener(this);
         onChangeSkinType();
     }
@@ -59,39 +59,39 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.dYm) {
+        if (view == this.ebd) {
             TiebaStatic.log(new am("c10378").x("obj_type", 1));
             MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new SquareSearchActivityConfig(getContext(), "", false)));
         }
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        this.exr.setOnPageChangeListener(onPageChangeListener);
+        this.eAk.setOnPageChangeListener(onPageChangeListener);
     }
 
     public void setShowConcernRedTip(boolean z) {
-        if (this.exr != null) {
-            this.exr.setShowConcernRedTip(z);
+        if (this.eAk != null) {
+            this.eAk.setShowConcernRedTip(z);
         }
     }
 
-    public boolean aKN() {
-        if (this.exr != null) {
-            return this.exr.aKN();
+    public boolean aLB() {
+        if (this.eAk != null) {
+            return this.eAk.aLB();
         }
         return false;
     }
 
     public void setViewPager(ViewPager viewPager) {
-        this.exr.setViewPager(viewPager);
+        this.eAk.setViewPager(viewPager);
     }
 
     public void setTabItemClicked(boolean z) {
-        this.exr.setTabItemClicked(z);
+        this.eAk.setTabItemClicked(z);
     }
 
     public void notifyDataSetChanged() {
-        this.exr.notifyDataSetChanged();
+        this.eAk.notifyDataSetChanged();
     }
 
     public void onChangeSkinType() {
@@ -99,24 +99,24 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
             al.j(this, e.d.cp_bg_line_d);
-            ap.DQ().c(this.dYm, e.f.icon_topbar_search_n_svg, e.d.select_topbar_icon_color_tint);
-            this.exr.onChangeSkinType();
+            ap.DQ().c(this.ebd, e.f.icon_topbar_search_n_svg, e.d.select_topbar_icon_color_tint);
+            this.eAk.onChangeSkinType();
         }
     }
 
-    public View oA(int i) {
-        return this.exr.oA(i);
+    public View oN(int i) {
+        return this.eAk.oN(i);
     }
 
     public void onResume() {
-        ap.DQ().c(this.dYm, e.f.icon_topbar_search_n_svg, e.d.select_topbar_icon_color_tint);
+        ap.DQ().c(this.ebd, e.f.icon_topbar_search_n_svg, e.d.select_topbar_icon_color_tint);
     }
 
     public void setConcernTabIndex(int i) {
-        this.exr.setConcernTabIndex(i);
+        this.eAk.setConcernTabIndex(i);
     }
 
     public void setOnTabItemClickListener(PagerSlidingTabStrip.a aVar) {
-        this.exr.setOnTabItemClickListener(aVar);
+        this.eAk.setOnTabItemClickListener(aVar);
     }
 }

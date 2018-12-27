@@ -17,17 +17,17 @@ import com.baidu.tbadk.core.util.ab;
 import java.util.Locale;
 /* loaded from: classes3.dex */
 public class a implements com.baidu.adp.lib.d.b {
-    private static a fsq = null;
+    private static a fvi = null;
     private Address Cm;
-    private C0265a fst;
-    private LocationClientOption fsu;
+    private C0265a fvl;
+    private LocationClientOption fvm;
     private Context mContext;
     private LocationClient mLocationClient;
     private boolean mIsOpen = true;
-    private String fsr = "";
-    private a.b fss = null;
+    private String fvj = "";
+    private a.b fvk = null;
     private long Cg = 0;
-    private boolean fsv = false;
+    private boolean fvn = false;
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2001330) { // from class: com.baidu.tieba.location.a.1
@@ -37,9 +37,9 @@ public class a implements com.baidu.adp.lib.d.b {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001330) {
                     if ((!com.baidu.e.a.uo() || ab.bB(TbadkCoreApplication.getInst())) && (customResponsedMessage.getData() instanceof Boolean)) {
                         if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                            com.baidu.adp.lib.d.a.iW().a(a.aZw());
+                            com.baidu.adp.lib.d.a.iW().a(a.bak());
                         } else {
-                            com.baidu.adp.lib.d.a.iW().b(a.aZw());
+                            com.baidu.adp.lib.d.a.iW().b(a.bak());
                         }
                     }
                 }
@@ -47,15 +47,15 @@ public class a implements com.baidu.adp.lib.d.b {
         });
     }
 
-    public static a aZw() {
-        if (fsq == null) {
+    public static a bak() {
+        if (fvi == null) {
             synchronized (a.class) {
-                if (fsq == null) {
-                    fsq = new a();
+                if (fvi == null) {
+                    fvi = new a();
                 }
             }
         }
-        return fsq;
+        return fvi;
     }
 
     private a() {
@@ -64,19 +64,19 @@ public class a implements com.baidu.adp.lib.d.b {
     @Override // com.baidu.adp.lib.d.b
     public void a(a.b bVar) {
         this.mContext = TbadkCoreApplication.getInst().getContext();
-        this.fss = bVar;
-        this.fsr = "baidu";
+        this.fvk = bVar;
+        this.fvj = "baidu";
         if (this.mIsOpen) {
             try {
                 this.mLocationClient = new LocationClient(this.mContext);
-                this.fsu = new LocationClientOption();
-                this.fsu.setOpenGps(true);
-                this.fsu.setIgnoreKillProcess(true);
-                this.fsu.setProdName(this.fsr);
-                this.fsu.setAddrType("all");
-                this.fsu.setCoorType("bd09ll");
-                this.fst = new C0265a();
-                this.mLocationClient.registerLocationListener(this.fst);
+                this.fvm = new LocationClientOption();
+                this.fvm.setOpenGps(true);
+                this.fvm.setIgnoreKillProcess(true);
+                this.fvm.setProdName(this.fvj);
+                this.fvm.setAddrType("all");
+                this.fvm.setCoorType("bd09ll");
+                this.fvl = new C0265a();
+                this.mLocationClient.registerLocationListener(this.fvl);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -87,11 +87,11 @@ public class a implements com.baidu.adp.lib.d.b {
     public void ah(boolean z) {
         if ((!com.baidu.e.a.uo() || ab.bB(TbadkCoreApplication.getInst())) && this.mIsOpen && this.mLocationClient != null) {
             try {
-                this.fsv = z;
+                this.fvn = z;
                 if (z) {
-                    this.fsu.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
+                    this.fvm.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
                 }
-                this.mLocationClient.setLocOption(this.fsu);
+                this.mLocationClient.setLocOption(this.fvm);
                 if (!this.mLocationClient.isStarted()) {
                     this.mLocationClient.start();
                 }
@@ -99,8 +99,8 @@ public class a implements com.baidu.adp.lib.d.b {
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 stopLocation();
-                if (this.fss != null) {
-                    this.fss.a(5, "", this.Cm, this.Cg, this.fsv);
+                if (this.fvk != null) {
+                    this.fvk.a(5, "", this.Cm, this.Cg, this.fvn);
                 }
             }
         }
@@ -144,11 +144,11 @@ public class a implements com.baidu.adp.lib.d.b {
                 if (bDLocation.getAddrStr() != null) {
                     a.this.Cm.setAddressLine(0, stringBuffer.toString());
                 }
-                if (a.this.fss != null) {
-                    a.this.fss.a(0, "", a.this.Cm, a.this.Cg, a.this.fsv);
-                    com.baidu.tieba.recapp.d.a.bvo().pF(String.valueOf(a.this.Cm.getLatitude()));
-                    com.baidu.tieba.recapp.d.a.bvo().pE(String.valueOf(a.this.Cm.getLongitude()));
-                    com.baidu.tieba.recapp.d.a.bvo().db(System.currentTimeMillis());
+                if (a.this.fvk != null) {
+                    a.this.fvk.a(0, "", a.this.Cm, a.this.Cg, a.this.fvn);
+                    com.baidu.tieba.recapp.d.a.bwa().pI(String.valueOf(a.this.Cm.getLatitude()));
+                    com.baidu.tieba.recapp.d.a.bwa().pH(String.valueOf(a.this.Cm.getLongitude()));
+                    com.baidu.tieba.recapp.d.a.bwa().dg(System.currentTimeMillis());
                 }
             }
         }

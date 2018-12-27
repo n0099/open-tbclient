@@ -5,16 +5,16 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
 public class aa implements l {
-    private final e iml;
-    private final e imm;
-    private final f imn;
-    private final int imo;
+    private final e ipw;
+    private final e ipx;
+    private final f ipy;
+    private final int ipz;
 
     public aa(e eVar, e eVar2, f fVar, int i) {
-        this.iml = eVar;
-        this.imm = eVar2;
-        this.imn = fVar;
-        this.imo = i;
+        this.ipw = eVar;
+        this.ipx = eVar2;
+        this.ipy = fVar;
+        this.ipz = i;
     }
 
     /* JADX DEBUG: Type inference failed for r0v5. Raw type applied. Possible types: bolts.g<TContinuationResult>, bolts.g<com.facebook.imagepipeline.f.d> */
@@ -23,15 +23,15 @@ public class aa implements l {
     public bolts.g<com.facebook.imagepipeline.f.d> a(ImageRequest imageRequest, Object obj, final AtomicBoolean atomicBoolean) {
         e eVar;
         final e eVar2;
-        final com.facebook.cache.common.b c = this.imn.c(imageRequest, obj);
-        boolean i = this.imm.i(c);
-        boolean i2 = this.iml.i(c);
+        final com.facebook.cache.common.b c = this.ipy.c(imageRequest, obj);
+        boolean i = this.ipx.i(c);
+        boolean i2 = this.ipw.i(c);
         if (i || !i2) {
-            eVar = this.imm;
-            eVar2 = this.iml;
+            eVar = this.ipx;
+            eVar2 = this.ipw;
         } else {
-            eVar = this.iml;
-            eVar2 = this.imm;
+            eVar = this.ipw;
+            eVar2 = this.ipx;
         }
         return eVar.a(c, atomicBoolean).b(new bolts.f<com.facebook.imagepipeline.f.d, bolts.g<com.facebook.imagepipeline.f.d>>() { // from class: com.facebook.imagepipeline.c.aa.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -48,13 +48,13 @@ public class aa implements l {
 
     @Override // com.facebook.imagepipeline.c.l
     public void a(com.facebook.imagepipeline.f.d dVar, ImageRequest imageRequest, Object obj) {
-        com.facebook.cache.common.b c = this.imn.c(imageRequest, obj);
+        com.facebook.cache.common.b c = this.ipy.c(imageRequest, obj);
         switch (a(imageRequest, dVar)) {
             case DEFAULT:
-                this.iml.a(c, dVar);
+                this.ipw.a(c, dVar);
                 return;
             case SMALL:
-                this.imm.a(c, dVar);
+                this.ipx.a(c, dVar);
                 return;
             default:
                 return;
@@ -64,7 +64,7 @@ public class aa implements l {
     @Override // com.facebook.imagepipeline.c.l
     public ImageRequest.CacheChoice a(ImageRequest imageRequest, com.facebook.imagepipeline.f.d dVar) {
         int size = dVar.getSize();
-        return (size < 0 || size >= this.imo) ? ImageRequest.CacheChoice.DEFAULT : ImageRequest.CacheChoice.SMALL;
+        return (size < 0 || size >= this.ipz) ? ImageRequest.CacheChoice.DEFAULT : ImageRequest.CacheChoice.SMALL;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

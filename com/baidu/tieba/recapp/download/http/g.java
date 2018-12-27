@@ -5,17 +5,17 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class g {
-    protected h gMD = new h();
-    protected i gME = new i();
+    protected h gPv = new h();
+    protected i gPw = new i();
     private LinkedList<e> CX = new LinkedList<>();
-    private e gMF = null;
+    private e gPx = null;
 
-    public h buO() {
-        return this.gMD;
+    public h bvA() {
+        return this.gPv;
     }
 
-    public i buP() {
-        return this.gME;
+    public i bvB() {
+        return this.gPw;
     }
 
     public List<e> jr() {
@@ -29,6 +29,6 @@ public class g {
     }
 
     public void b(e eVar) {
-        this.gMF = eVar;
+        this.gPx = eVar;
     }
 }

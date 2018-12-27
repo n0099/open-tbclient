@@ -15,14 +15,14 @@ public final class g {
     public static i h(com.google.gson.stream.a aVar) throws JsonParseException {
         boolean z = true;
         try {
-            aVar.caG();
+            aVar.cbx();
             z = false;
-            return n.ivX.b(aVar);
+            return n.izh.b(aVar);
         } catch (MalformedJsonException e) {
             throw new JsonSyntaxException(e);
         } catch (EOFException e2) {
             if (z) {
-                return j.itd;
+                return j.iwn;
             }
             throw new JsonSyntaxException(e2);
         } catch (IOException e3) {
@@ -33,7 +33,7 @@ public final class g {
     }
 
     public static void b(i iVar, com.google.gson.stream.b bVar) throws IOException {
-        n.ivX.a(bVar, iVar);
+        n.izh.a(bVar, iVar);
     }
 
     public static Writer a(Appendable appendable) {
@@ -42,22 +42,22 @@ public final class g {
 
     /* loaded from: classes2.dex */
     private static final class a extends Writer {
-        private final Appendable iud;
-        private final C0368a iue = new C0368a();
+        private final Appendable ixn;
+        private final C0368a ixo = new C0368a();
 
         a(Appendable appendable) {
-            this.iud = appendable;
+            this.ixn = appendable;
         }
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) throws IOException {
-            this.iue.chars = cArr;
-            this.iud.append(this.iue, i, i + i2);
+            this.ixo.chars = cArr;
+            this.ixn.append(this.ixo, i, i + i2);
         }
 
         @Override // java.io.Writer
         public void write(int i) throws IOException {
-            this.iud.append((char) i);
+            this.ixn.append((char) i);
         }
 
         @Override // java.io.Writer, java.io.Flushable

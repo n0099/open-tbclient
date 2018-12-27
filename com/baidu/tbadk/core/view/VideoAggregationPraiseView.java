@@ -23,18 +23,18 @@ public class VideoAggregationPraiseView extends BasePraiseView<com.baidu.tieba.f
     @Override // com.baidu.tbadk.core.view.BasePraiseView
     public void EH() {
         super.EH();
-        this.aFu = e.d.cp_cont_i_alpha70;
-        this.aFv = e.d.cp_cont_h_alpha70;
-        this.aFs = e.f.icon_card_like_video_n;
-        this.aFt = e.f.icon_card_like_video_s;
+        this.aFv = e.d.cp_cont_i_alpha70;
+        this.aFw = e.d.cp_cont_h_alpha70;
+        this.aFt = e.f.icon_card_like_video_n;
+        this.aFu = e.f.icon_card_like_video_s;
     }
 
     @Override // com.baidu.tbadk.core.view.BasePraiseView
     protected void initView(Context context) {
         if (context != null) {
             View inflate = View.inflate(context, e.h.praise_view_middlevideo, this);
-            this.aFw = (TextView) inflate.findViewById(e.g.thread_info_praise_num);
-            this.aFx = (ImageView) inflate.findViewById(e.g.thread_info_praise_img);
+            this.aFx = (TextView) inflate.findViewById(e.g.thread_info_praise_num);
+            this.aFy = (ImageView) inflate.findViewById(e.g.thread_info_praise_img);
             setDisPraiseFrom(6);
         }
     }
@@ -51,7 +51,7 @@ public class VideoAggregationPraiseView extends BasePraiseView<com.baidu.tieba.f
     /* JADX WARN: Multi-variable type inference failed */
     public void a(com.baidu.tieba.frs.aggregation.g gVar) {
         if (gVar != 0) {
-            if (gVar.aDb()) {
+            if (gVar.aDQ()) {
                 if (gVar.AV() == 0 || gVar.AV() == 1) {
                     gVar.cY(2);
                 }
@@ -71,19 +71,19 @@ public class VideoAggregationPraiseView extends BasePraiseView<com.baidu.tieba.f
     public void updateUI() {
         Context context = getContext();
         long num = getNum();
-        String string = context.getString(this.aFr);
+        String string = context.getString(this.aFs);
         if (num > 0) {
-            string = ao.W(num);
+            string = ao.X(num);
         }
-        this.aFw.setText(string);
-        this.aFw.setContentDescription(context.getString(this.aFr) + num);
-        if (((com.baidu.tieba.frs.aggregation.g) this.mData).aDb() && EK()) {
-            this.aFx.setImageDrawable(createStateDrawable(this.aFt, this.aFs));
-            this.aFw.setTextColor(createColorStateList(this.aFv, this.aFu));
+        this.aFx.setText(string);
+        this.aFx.setContentDescription(context.getString(this.aFs) + num);
+        if (((com.baidu.tieba.frs.aggregation.g) this.mData).aDQ() && EK()) {
+            this.aFy.setImageDrawable(createStateDrawable(this.aFu, this.aFt));
+            this.aFx.setTextColor(createColorStateList(this.aFw, this.aFv));
             return;
         }
-        this.aFx.setImageDrawable(createStateDrawable(this.aFs, this.aFt));
-        this.aFw.setTextColor(createColorStateList(this.aFu, this.aFv));
+        this.aFy.setImageDrawable(createStateDrawable(this.aFt, this.aFu));
+        this.aFx.setTextColor(createColorStateList(this.aFv, this.aFw));
     }
 
     public int EJ() {
@@ -91,20 +91,20 @@ public class VideoAggregationPraiseView extends BasePraiseView<com.baidu.tieba.f
         if (this.mData == 0) {
             return 0;
         }
-        if (((com.baidu.tieba.frs.aggregation.g) this.mData).aDb() && EK()) {
+        if (((com.baidu.tieba.frs.aggregation.g) this.mData).aDQ() && EK()) {
             ((com.baidu.tieba.frs.aggregation.g) this.mData).cY(2);
             ((com.baidu.tieba.frs.aggregation.g) this.mData).cW(0);
             ((com.baidu.tieba.frs.aggregation.g) this.mData).C(((com.baidu.tieba.frs.aggregation.g) this.mData).AS() - 1);
             ((com.baidu.tieba.frs.aggregation.g) this.mData).D(((com.baidu.tieba.frs.aggregation.g) this.mData).AT());
             i = 1;
         } else {
-            if (((com.baidu.tieba.frs.aggregation.g) this.mData).aDb() && ((com.baidu.tieba.frs.aggregation.g) this.mData).AV() == 5) {
+            if (((com.baidu.tieba.frs.aggregation.g) this.mData).aDQ() && ((com.baidu.tieba.frs.aggregation.g) this.mData).AV() == 5) {
                 ((com.baidu.tieba.frs.aggregation.g) this.mData).D(((com.baidu.tieba.frs.aggregation.g) this.mData).AT() - 1);
             }
             ((com.baidu.tieba.frs.aggregation.g) this.mData).cW(1);
             ((com.baidu.tieba.frs.aggregation.g) this.mData).C(((com.baidu.tieba.frs.aggregation.g) this.mData).AS() + 1);
             ((com.baidu.tieba.frs.aggregation.g) this.mData).cY(2);
-            com.baidu.tieba.n.a.bug().y(getTbPageContext());
+            com.baidu.tieba.n.a.buS().y(getTbPageContext());
             i = 0;
         }
         return i;
@@ -126,8 +126,8 @@ public class VideoAggregationPraiseView extends BasePraiseView<com.baidu.tieba.f
         bbVar.C(((com.baidu.tieba.frs.aggregation.g) this.mData).AS());
         bbVar.D(((com.baidu.tieba.frs.aggregation.g) this.mData).AT());
         a(EJ, bbVar);
-        if (this.aEZ != null) {
-            this.aEZ.onClick(view);
+        if (this.aFa != null) {
+            this.aFa.onClick(view);
         }
         return EJ;
     }

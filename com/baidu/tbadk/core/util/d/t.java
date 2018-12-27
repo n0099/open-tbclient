@@ -7,33 +7,33 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class t extends a {
-    private static BdAsyncTaskParallel aEF = null;
-    private String aEE;
-    private boolean aEG;
-    private int aEH;
+    private static BdAsyncTaskParallel aEG = null;
+    private String aEF;
+    private boolean aEH;
+    private int aEI;
     private int size;
 
     public t(boolean z, boolean z2, int i) {
-        this.aEE = null;
+        this.aEF = null;
         this.size = 0;
-        this.aEG = false;
-        this.aEH = 0;
+        this.aEH = false;
+        this.aEI = 0;
         float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-        this.aEG = z;
-        this.aEH = i;
+        this.aEH = z;
+        this.aEI = i;
         if (f < 2.0f) {
-            this.aEE = TbConfig.getPhotoSmallAddress();
+            this.aEF = TbConfig.getPhotoSmallAddress();
             this.size = 80;
         } else {
-            this.aEE = TbConfig.getBigPhotoAdress();
+            this.aEF = TbConfig.getBigPhotoAdress();
             this.size = 110;
         }
         if (z2) {
-            this.aEE = TbConfig.getBigPhotoAdress();
+            this.aEF = TbConfig.getBigPhotoAdress();
             this.size = 110;
             return;
         }
-        this.aEE = TbConfig.getPhotoSmallAddress();
+        this.aEF = TbConfig.getPhotoSmallAddress();
         this.size = 80;
     }
 
@@ -47,7 +47,7 @@ public class t extends a {
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
         com.baidu.adp.widget.ImageView.a checkIsValidPhotoMemoryCache;
-        if (this.aEG || (checkIsValidPhotoMemoryCache = BitmapHelper.checkIsValidPhotoMemoryCache(str, com.baidu.tbadk.imageManager.c.Nu().ig(str), i, i2)) == null || checkIsValidPhotoMemoryCache.op() == null || checkIsValidPhotoMemoryCache.op().isRecycled()) {
+        if (this.aEH || (checkIsValidPhotoMemoryCache = BitmapHelper.checkIsValidPhotoMemoryCache(str, com.baidu.tbadk.imageManager.c.Nv().ih(str), i, i2)) == null || checkIsValidPhotoMemoryCache.op() == null || checkIsValidPhotoMemoryCache.op().isRecycled()) {
             return null;
         }
         checkIsValidPhotoMemoryCache.NI.NK = "memory";
@@ -60,7 +60,7 @@ public class t extends a {
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
-        if (this.aEG) {
+        if (this.aEH) {
             return null;
         }
         return super.a(str, str2, i, i2, aVar, objArr);
@@ -68,7 +68,7 @@ public class t extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a
     protected String n(String str, int i, int i2) {
-        return this.aEE + str;
+        return this.aEF + str;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
@@ -77,7 +77,7 @@ public class t extends a {
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
             aVar.be(i);
             aVar.bf(i2);
-            com.baidu.tbadk.imageManager.c.Nu().b(str, aVar);
+            com.baidu.tbadk.imageManager.c.Nv().b(str, aVar);
         }
     }
 
@@ -108,14 +108,14 @@ public class t extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
     public BdAsyncTaskParallel jE() {
-        if (aEF == null) {
-            aEF = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, BdUniqueId.gen());
+        if (aEG == null) {
+            aEG = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, BdUniqueId.gen());
         }
-        return aEF;
+        return aEG;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
     public int Ex() {
-        return this.aEH;
+        return this.aEI;
     }
 }

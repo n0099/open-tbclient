@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes3.dex */
 public class PersonBarModel extends BdBaseModel {
-    private static final String bDI = TbConfig.SERVER_ADDRESS + "c/f/forum/like";
-    private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, bDI);
-    private int guh;
+    private static final String bDL = TbConfig.SERVER_ADDRESS + "c/f/forum/like";
+    private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, bDL);
+    private int gwY;
     private a mData;
     private String mId;
     private boolean mIsHost;
@@ -42,26 +42,26 @@ public class PersonBarModel extends BdBaseModel {
         this.mSex = i;
     }
 
-    public boolean aTB() {
+    public boolean aUp() {
         return this.mIsHost;
     }
 
-    public void tc(int i) {
-        this.guh = i;
+    public void tp(int i) {
+        this.gwY = i;
     }
 
-    public a bpt() {
+    public a bqf() {
         return this.mData;
     }
 
-    public void bpr() {
+    public void bqd() {
         super.sendMessage(new PersonBarByUidLocalMessage());
     }
 
     public void a(boolean z, String str, int i, int i2) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_LIKE_BAR_CMD);
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-        if (!aTB()) {
+        if (!aUp()) {
             httpMessage.addParam("friend_uid", str);
             httpMessage.addParam("is_guest", String.valueOf(1));
             httpMessage.setExtra(str);
@@ -81,8 +81,8 @@ public class PersonBarModel extends BdBaseModel {
         return false;
     }
 
-    public void tH(String str) {
-        if (this.guh == 1 && this.mIsHost) {
+    public void tK(String str) {
+        if (this.gwY == 1 && this.mIsHost) {
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str2 = TbadkCoreApplication.getCurrentAccountObj().getID();

@@ -6,11 +6,11 @@ import org.java_websocket.framing.Framedata;
 public interface b {
     void c(Framedata framedata) throws InvalidDataException;
 
-    String ccu();
+    String cdl();
 
-    String ccv();
+    String cdm();
 
-    b ccw();
+    b cdn();
 
     void d(Framedata framedata);
 
@@ -20,7 +20,7 @@ public interface b {
 
     String toString();
 
-    boolean zI(String str);
+    boolean zL(String str);
 
-    boolean zJ(String str);
+    boolean zM(String str);
 }

@@ -32,19 +32,19 @@ import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
 public class f extends e {
-    private TextView dRH;
-    private View dRI;
-    private TbImageView dRJ;
-    private TextView dRK;
-    private ArrayList<String> dRL;
-    private View.OnClickListener dRM;
+    private TbImageView dUA;
+    private TextView dUB;
+    private ArrayList<String> dUC;
+    private View.OnClickListener dUD;
+    private TextView dUy;
+    private View dUz;
     private long forumId;
     private TbImageView.b mOnDrawListener;
     private String taskId;
 
     public f(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.dRL = new ArrayList<>();
+        this.dUC = new ArrayList<>();
         this.mOnDrawListener = new TbImageView.b() { // from class: com.baidu.tieba.frs.entelechy.view.f.1
             @Override // com.baidu.tbadk.widget.TbImageView.b
             public void a(TbImageView tbImageView, Canvas canvas) {
@@ -55,10 +55,10 @@ public class f extends e {
                 float f3;
                 float f4;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a ih = com.baidu.tbadk.imageManager.c.Nu().ih(com.baidu.adp.lib.f.c.jA().k(tbImageView.getUrl(), f.this.aEq ? 13 : 14));
-                    if (ih != null) {
-                        int width = ih.getWidth();
-                        i = ih.getHeight();
+                    com.baidu.adp.widget.ImageView.a ii = com.baidu.tbadk.imageManager.c.Nv().ii(com.baidu.adp.lib.f.c.jA().k(tbImageView.getUrl(), f.this.aEr ? 13 : 14));
+                    if (ii != null) {
+                        int width = ii.getWidth();
+                        i = ii.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -103,15 +103,15 @@ public class f extends e {
             public void b(TbImageView tbImageView, Canvas canvas) {
             }
         };
-        this.dRM = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.f.2
+        this.dUD = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.f.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (v.H(f.this.dRL) > 0) {
+                if (v.H(f.this.dUC) > 0) {
                     if (TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
-                        String str = (String) f.this.dRL.get(0);
+                        String str = (String) f.this.dUC.get(0);
                         ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = new ConcurrentHashMap<>();
                         ImageUrlData imageUrlData = new ImageUrlData();
-                        imageUrlData.urlType = f.this.aEq ? 13 : 14;
+                        imageUrlData.urlType = f.this.aEr ? 13 : 14;
                         imageUrlData.imageUrl = str;
                         imageUrlData.originalUrl = str;
                         imageUrlData.originalSize = 0L;
@@ -120,7 +120,7 @@ public class f extends e {
                         imageUrlData.threadId = 0L;
                         imageUrlData.postId = 0L;
                         concurrentHashMap.put(str, imageUrlData);
-                        ImageViewerConfig createConfig = new ImageViewerConfig(f.this.mPageContext.getPageActivity()).createConfig(f.this.dRL, 0, "", "", "", f.this.aEq, str, false, concurrentHashMap, false);
+                        ImageViewerConfig createConfig = new ImageViewerConfig(f.this.mPageContext.getPageActivity()).createConfig(f.this.dUC, 0, "", "", "", f.this.aEr, str, false, concurrentHashMap, false);
                         createConfig.getIntent().putExtra("from", "frs");
                         Rect rect = new Rect();
                         view.getGlobalVisibleRect(rect);
@@ -142,17 +142,17 @@ public class f extends e {
             ((ViewStub) view.findViewById(e.g.viewstub_interview_live_info)).inflate();
             View findViewById = view.findViewById(e.g.text_interview_live);
             if (findViewById instanceof TextView) {
-                this.dRH = (TextView) findViewById;
+                this.dUy = (TextView) findViewById;
             }
-            this.dRI = ((ViewStub) view.findViewById(e.g.viewstub_img_interview_live)).inflate();
+            this.dUz = ((ViewStub) view.findViewById(e.g.viewstub_img_interview_live)).inflate();
             View findViewById2 = view.findViewById(e.g.img_interview_live);
             if (findViewById2 instanceof TbImageView) {
-                this.dRJ = (TbImageView) findViewById2;
-                this.dRJ.setPageId(bdUniqueId);
+                this.dUA = (TbImageView) findViewById2;
+                this.dUA.setPageId(bdUniqueId);
             }
             View findViewById3 = view.findViewById(e.g.interview_live_tip);
             if (findViewById3 instanceof TextView) {
-                this.dRK = (TextView) findViewById3;
+                this.dUB = (TextView) findViewById3;
             }
         }
     }
@@ -161,7 +161,7 @@ public class f extends e {
     @Override // com.baidu.tieba.frs.entelechy.view.e, com.baidu.tieba.card.a
     /* renamed from: F */
     public void a(bb bbVar) {
-        if (bbVar != null && this.dRI != null && this.dRJ != null && this.cUY != null) {
+        if (bbVar != null && this.dUz != null && this.dUA != null && this.cXO != null) {
             if (bbVar.zR() != null) {
                 bbVar.zR().clear();
             }
@@ -172,22 +172,22 @@ public class f extends e {
                 this.taskId = zn.getTaskId();
                 super.a(bbVar);
                 if (com.baidu.tbadk.core.i.xE().xI() && zn != null && !StringUtils.isNull(zn.getThreadImgUrl())) {
-                    this.dRL.clear();
-                    this.dRL.add(zn.getThreadImgUrl());
-                    this.dRI.setVisibility(0);
-                    this.dRJ.setSupportNoImage(true);
-                    this.dRJ.setScaleType(ImageView.ScaleType.MATRIX);
-                    this.dRJ.setOnDrawListener(this.mOnDrawListener);
-                    this.dRJ.startLoad(zn.getThreadImgUrl(), this.aEq ? 13 : 14, false);
-                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dRI.getLayoutParams();
+                    this.dUC.clear();
+                    this.dUC.add(zn.getThreadImgUrl());
+                    this.dUz.setVisibility(0);
+                    this.dUA.setSupportNoImage(true);
+                    this.dUA.setScaleType(ImageView.ScaleType.MATRIX);
+                    this.dUA.setOnDrawListener(this.mOnDrawListener);
+                    this.dUA.startLoad(zn.getThreadImgUrl(), this.aEr ? 13 : 14, false);
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dUz.getLayoutParams();
                     layoutParams.width = l.aO(getContext()) - l.h(getContext(), e.C0210e.ds68);
                     layoutParams.height = (int) ((layoutParams.width * 428.0f) / 760.0f);
-                    this.dRI.setLayoutParams(layoutParams);
+                    this.dUz.setLayoutParams(layoutParams);
                 } else {
-                    this.dRI.setVisibility(8);
+                    this.dUz.setVisibility(8);
                 }
-                this.dRJ.setOnClickListener(this.dRM);
-                this.cUY.setVisibility(8);
+                this.dUA.setOnClickListener(this.dUD);
+                this.cXO.setVisibility(8);
             }
         }
     }
@@ -195,15 +195,15 @@ public class f extends e {
     @Override // com.baidu.tieba.frs.entelechy.view.e, com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (i != this.mSkinType) {
-            al.h(this.dRH, e.d.cp_cont_f);
-            al.h(this.dRK, e.d.cp_cont_i);
+            al.h(this.dUy, e.d.cp_cont_f);
+            al.h(this.dUB, e.d.cp_cont_i);
         }
         super.d(tbPageContext, i);
     }
 
-    public void hc(boolean z) {
-        if (this.byP != null) {
-            this.byP.setVisibility(z ? 0 : 8);
+    public void hf(boolean z) {
+        if (this.byS != null) {
+            this.byS.setVisibility(z ? 0 : 8);
         }
     }
 }

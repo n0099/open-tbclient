@@ -22,7 +22,7 @@ import com.tencent.connect.common.Constants;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f {
-    private e hUD;
+    private e hXO;
     private BdUniqueId mPageId;
     private String yX = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
 
@@ -37,7 +37,7 @@ public class f {
     }
 
     public void a(e eVar) {
-        this.hUD = eVar;
+        this.hXO = eVar;
     }
 
     /* loaded from: classes3.dex */
@@ -55,7 +55,7 @@ public class f {
             if (cVarArr.length == 0 || (cVar = cVarArr[0]) == null) {
                 return null;
             }
-            com.baidu.adp.lib.Disk.ops.c cVar2 = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ar.fK(cVar.imageUrl + 42), DiskFileOperate.Action.READ);
+            com.baidu.adp.lib.Disk.ops.c cVar2 = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ar.fL(cVar.imageUrl + 42), DiskFileOperate.Action.READ);
             cVar2.R(true);
             cVar2.S(false);
             ImageUploadResult c = new com.baidu.tbadk.img.f(null).c(cX(cVar2.hK(), cVar2.getName()), true, false);
@@ -69,7 +69,7 @@ public class f {
                 }
             }
             if (StringUtils.isNull(str)) {
-                str = cVar.hUl;
+                str = cVar.hXw;
             }
             x xVar = new x();
             xVar.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
@@ -83,7 +83,7 @@ public class f {
             xVar.x("new_vcode", "1");
             xVar.x("content", cVar.Jt);
             xVar.x(ImageViewerConfig.FORUM_ID, cVar.forumId);
-            xVar.x("kw", cVar.hUk);
+            xVar.x("kw", cVar.hXv);
             xVar.x("is_hide", "0");
             xVar.x(IntentConfig.CALL_FROM, "2");
             xVar.x("title", cVar.Jt);
@@ -96,28 +96,28 @@ public class f {
                 xVar.x("lat", String.valueOf(af.getLatitude()));
                 xVar.x("lng", String.valueOf(af.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bDW().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bEO().getLocationData();
             if (locationData != null) {
-                xVar.x("name", locationData.bDT());
-                xVar.x("sn", locationData.bDV());
+                xVar.x("name", locationData.bEL());
+                xVar.x("sn", locationData.bEN());
             }
             xVar.x("is_link_thread", "0");
             if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
                 xVar.x("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
             }
             xVar.x("tbopen_app_key", cVar.appKey);
-            xVar.x("tbopen_app_icon", cVar.bGI);
+            xVar.x("tbopen_app_icon", cVar.bGL);
             xVar.x("tbopen_app_name", cVar.appName);
             xVar.x("share_abstract", cVar.content);
             xVar.x("share_image", str);
             xVar.x("share_h5_url", cVar.linkUrl);
-            xVar.x("share_swan_app_key", cVar.hUj);
-            xVar.x("share_swan_path", cVar.hUm);
+            xVar.x("share_swan_app_key", cVar.hXu);
+            xVar.x("share_swan_path", cVar.hXx);
             String CL = xVar.CL();
             d dVar = new d();
             try {
                 JSONObject jSONObject = new JSONObject(CL);
-                dVar.hUo = jSONObject.optString("msg");
+                dVar.hXz = jSONObject.optString("msg");
                 dVar.preMsg = jSONObject.optString("pre_msg");
                 dVar.fid = cVar.forumId;
                 dVar.tid = jSONObject.optString("tid");
@@ -135,7 +135,7 @@ public class f {
             if (errorData.error_code != 0 && !j.kV()) {
                 errorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(e.j.neterror));
             }
-            dVar.hUn = errorData;
+            dVar.hXy = errorData;
             AntiData antiData = new AntiData();
             try {
                 antiData.parserJson(new JSONObject(CL).optJSONObject("anti_stat"));
@@ -158,8 +158,8 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(d dVar) {
-            if (f.this.hUD != null) {
-                f.this.hUD.a(dVar);
+            if (f.this.hXO != null) {
+                f.this.hXO.a(dVar);
             }
         }
     }

@@ -19,38 +19,38 @@ import com.baidu.tbadk.browser.TbWebViewActivity;
 import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes.dex */
 public class c extends WebChromeClient {
-    private final a axT;
-    private WebChromeClient axU;
-    private q axV;
+    private final a axU;
+    private WebChromeClient axV;
+    private q axW;
 
     public c() {
         this(null);
     }
 
     public c(WebChromeClient webChromeClient) {
-        this.axT = new a(this);
-        this.axU = webChromeClient;
+        this.axU = new a(this);
+        this.axV = webChromeClient;
     }
 
     public void a(q qVar) {
-        this.axV = qVar;
+        this.axW = qVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String ap(String str, String str2) {
-        return this.axV.ap(str, str2);
+        return this.axW.ap(str, str2);
     }
 
     public void a(WebChromeClient webChromeClient) {
-        this.axU = webChromeClient;
+        this.axV = webChromeClient;
     }
 
     /* loaded from: classes.dex */
     private static final class a {
-        private final c axW;
+        private final c axX;
 
         public a(c cVar) {
-            this.axW = cVar;
+            this.axX = cVar;
         }
 
         public boolean aq(String str, String str2) {
@@ -58,17 +58,17 @@ public class c extends WebChromeClient {
         }
 
         public String ar(String str, String str2) {
-            return this.axW.ap(str, str2.substring("ctieba://".length()));
+            return this.axX.ap(str, str2.substring("ctieba://".length()));
         }
     }
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if (this.axT.aq(str, str2)) {
-            jsPromptResult.confirm(this.axT.ar(str, str2));
+        if (this.axU.aq(str, str2)) {
+            jsPromptResult.confirm(this.axU.ar(str, str2));
             return true;
-        } else if (this.axU != null) {
-            return this.axU.onJsPrompt(webView, str, str2, str3, jsPromptResult);
+        } else if (this.axV != null) {
+            return this.axV.onJsPrompt(webView, str, str2, str3, jsPromptResult);
         } else {
             return true;
         }
@@ -76,8 +76,8 @@ public class c extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onProgressChanged(WebView webView, int i) {
-        if (this.axU != null) {
-            this.axU.onProgressChanged(webView, i);
+        if (this.axV != null) {
+            this.axV.onProgressChanged(webView, i);
         } else {
             super.onProgressChanged(webView, i);
         }
@@ -85,8 +85,8 @@ public class c extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onReceivedTitle(WebView webView, String str) {
-        if (this.axU != null) {
-            this.axU.onReceivedTitle(webView, str);
+        if (this.axV != null) {
+            this.axV.onReceivedTitle(webView, str);
         } else {
             super.onReceivedTitle(webView, str);
         }
@@ -94,8 +94,8 @@ public class c extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onReceivedIcon(WebView webView, Bitmap bitmap) {
-        if (this.axU != null) {
-            this.axU.onReceivedIcon(webView, bitmap);
+        if (this.axV != null) {
+            this.axV.onReceivedIcon(webView, bitmap);
         } else {
             super.onReceivedIcon(webView, bitmap);
         }
@@ -103,8 +103,8 @@ public class c extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onReceivedTouchIconUrl(WebView webView, String str, boolean z) {
-        if (this.axU != null) {
-            this.axU.onReceivedTouchIconUrl(webView, str, z);
+        if (this.axV != null) {
+            this.axV.onReceivedTouchIconUrl(webView, str, z);
         } else {
             super.onReceivedTouchIconUrl(webView, str, z);
         }
@@ -112,8 +112,8 @@ public class c extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onShowCustomView(View view, WebChromeClient.CustomViewCallback customViewCallback) {
-        if (this.axU != null) {
-            this.axU.onShowCustomView(view, customViewCallback);
+        if (this.axV != null) {
+            this.axV.onShowCustomView(view, customViewCallback);
         } else {
             super.onShowCustomView(view, customViewCallback);
         }
@@ -121,8 +121,8 @@ public class c extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onShowCustomView(View view, int i, WebChromeClient.CustomViewCallback customViewCallback) {
-        if (this.axU != null) {
-            this.axU.onShowCustomView(view, i, customViewCallback);
+        if (this.axV != null) {
+            this.axV.onShowCustomView(view, i, customViewCallback);
         } else {
             super.onShowCustomView(view, i, customViewCallback);
         }
@@ -130,8 +130,8 @@ public class c extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onHideCustomView() {
-        if (this.axU != null) {
-            this.axU.onHideCustomView();
+        if (this.axV != null) {
+            this.axV.onHideCustomView();
         } else {
             super.onHideCustomView();
         }
@@ -139,13 +139,13 @@ public class c extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onCreateWindow(WebView webView, boolean z, boolean z2, Message message) {
-        return this.axU != null ? this.axU.onCreateWindow(webView, z, z2, message) : super.onCreateWindow(webView, z, z2, message);
+        return this.axV != null ? this.axV.onCreateWindow(webView, z, z2, message) : super.onCreateWindow(webView, z, z2, message);
     }
 
     @Override // android.webkit.WebChromeClient
     public void onRequestFocus(WebView webView) {
-        if (this.axU != null) {
-            this.axU.onRequestFocus(webView);
+        if (this.axV != null) {
+            this.axV.onRequestFocus(webView);
         } else {
             super.onRequestFocus(webView);
         }
@@ -153,8 +153,8 @@ public class c extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onCloseWindow(WebView webView) {
-        if (this.axU != null) {
-            this.axU.onCloseWindow(webView);
+        if (this.axV != null) {
+            this.axV.onCloseWindow(webView);
         } else {
             super.onCloseWindow(webView);
         }
@@ -162,23 +162,23 @@ public class c extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        return this.axU != null ? this.axU.onJsAlert(webView, str, str2, jsResult) : super.onJsAlert(webView, str, str2, jsResult);
+        return this.axV != null ? this.axV.onJsAlert(webView, str, str2, jsResult) : super.onJsAlert(webView, str, str2, jsResult);
     }
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-        return this.axU != null ? this.axU.onJsConfirm(webView, str, str2, jsResult) : super.onJsConfirm(webView, str, str2, jsResult);
+        return this.axV != null ? this.axV.onJsConfirm(webView, str, str2, jsResult) : super.onJsConfirm(webView, str, str2, jsResult);
     }
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-        return this.axU != null ? this.axU.onJsBeforeUnload(webView, str, str2, jsResult) : super.onJsBeforeUnload(webView, str, str2, jsResult);
+        return this.axV != null ? this.axV.onJsBeforeUnload(webView, str, str2, jsResult) : super.onJsBeforeUnload(webView, str, str2, jsResult);
     }
 
     @Override // android.webkit.WebChromeClient
     public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
-        if (this.axU != null) {
-            this.axU.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+        if (this.axV != null) {
+            this.axV.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
         } else {
             super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
         }
@@ -186,8 +186,8 @@ public class c extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onReachedMaxAppCacheSize(long j, long j2, WebStorage.QuotaUpdater quotaUpdater) {
-        if (this.axU != null) {
-            this.axU.onReachedMaxAppCacheSize(j, j2, quotaUpdater);
+        if (this.axV != null) {
+            this.axV.onReachedMaxAppCacheSize(j, j2, quotaUpdater);
         } else {
             super.onReachedMaxAppCacheSize(j, j2, quotaUpdater);
         }
@@ -195,8 +195,8 @@ public class c extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onGeolocationPermissionsShowPrompt(String str, GeolocationPermissions.Callback callback) {
-        if (this.axU != null) {
-            this.axU.onGeolocationPermissionsShowPrompt(str, callback);
+        if (this.axV != null) {
+            this.axV.onGeolocationPermissionsShowPrompt(str, callback);
         } else {
             super.onGeolocationPermissionsShowPrompt(str, callback);
         }
@@ -204,8 +204,8 @@ public class c extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onGeolocationPermissionsHidePrompt() {
-        if (this.axU != null) {
-            this.axU.onGeolocationPermissionsHidePrompt();
+        if (this.axV != null) {
+            this.axV.onGeolocationPermissionsHidePrompt();
         } else {
             super.onGeolocationPermissionsHidePrompt();
         }
@@ -213,14 +213,14 @@ public class c extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsTimeout() {
-        return this.axU != null ? this.axU.onJsTimeout() : super.onJsTimeout();
+        return this.axV != null ? this.axV.onJsTimeout() : super.onJsTimeout();
     }
 
     @Override // android.webkit.WebChromeClient
     @Deprecated
     public void onConsoleMessage(String str, int i, String str2) {
-        if (this.axU != null) {
-            this.axU.onConsoleMessage(str, i, str2);
+        if (this.axV != null) {
+            this.axV.onConsoleMessage(str, i, str2);
         } else {
             super.onConsoleMessage(str, i, str2);
         }
@@ -228,32 +228,32 @@ public class c extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-        return this.axU != null ? this.axU.onConsoleMessage(consoleMessage) : super.onConsoleMessage(consoleMessage);
+        return this.axV != null ? this.axV.onConsoleMessage(consoleMessage) : super.onConsoleMessage(consoleMessage);
     }
 
     @Override // android.webkit.WebChromeClient
     public Bitmap getDefaultVideoPoster() {
-        return this.axU != null ? this.axU.getDefaultVideoPoster() : super.getDefaultVideoPoster();
+        return this.axV != null ? this.axV.getDefaultVideoPoster() : super.getDefaultVideoPoster();
     }
 
     @Override // android.webkit.WebChromeClient
     public View getVideoLoadingProgressView() {
-        return this.axU != null ? this.axU.getVideoLoadingProgressView() : super.getVideoLoadingProgressView();
+        return this.axV != null ? this.axV.getVideoLoadingProgressView() : super.getVideoLoadingProgressView();
     }
 
     @Override // android.webkit.WebChromeClient
     public void getVisitedHistory(ValueCallback<String[]> valueCallback) {
-        if (this.axU != null) {
-            this.axU.getVisitedHistory(valueCallback);
+        if (this.axV != null) {
+            this.axV.getVisitedHistory(valueCallback);
         } else {
             super.getVisitedHistory(valueCallback);
         }
     }
 
     public void openFileChooser(ValueCallback<Uri> valueCallback) {
-        if (this.axU != null) {
+        if (this.axV != null) {
             try {
-                this.axU.getClass().getDeclaredMethod("openFileChooser", ValueCallback.class).invoke(this.axU, valueCallback);
+                this.axV.getClass().getDeclaredMethod("openFileChooser", ValueCallback.class).invoke(this.axV, valueCallback);
             } catch (IllegalAccessException e) {
                 e.eE(e.getMessage());
             } catch (NoSuchMethodException e2) {
@@ -267,9 +267,9 @@ public class c extends WebChromeClient {
     }
 
     public void openFileChooser(ValueCallback valueCallback, String str) {
-        if (this.axU != null) {
+        if (this.axV != null) {
             try {
-                this.axU.getClass().getDeclaredMethod("openFileChooser", ValueCallback.class, String.class).invoke(this.axU, valueCallback, str);
+                this.axV.getClass().getDeclaredMethod("openFileChooser", ValueCallback.class, String.class).invoke(this.axV, valueCallback, str);
             } catch (IllegalAccessException e) {
                 e.eE(e.getMessage());
             } catch (NoSuchMethodException e2) {
@@ -283,9 +283,9 @@ public class c extends WebChromeClient {
     }
 
     public void openFileChooser(ValueCallback<Uri> valueCallback, String str, String str2) {
-        if (this.axU != null) {
+        if (this.axV != null) {
             try {
-                this.axU.getClass().getDeclaredMethod("openFileChooser", ValueCallback.class, String.class, String.class).invoke(this.axU, valueCallback, str, str2);
+                this.axV.getClass().getDeclaredMethod("openFileChooser", ValueCallback.class, String.class, String.class).invoke(this.axV, valueCallback, str, str2);
             } catch (IllegalAccessException e) {
                 e.eE(e.getMessage());
             } catch (NoSuchMethodException e2) {
@@ -308,10 +308,10 @@ public class c extends WebChromeClient {
                 intent.putExtra("android.intent.extra.ALLOW_MULTIPLE", true);
             }
             intent.setType("image/*");
-            if (this.axV == null || !(this.axV.getContext() instanceof TbWebViewActivity)) {
+            if (this.axW == null || !(this.axW.getContext() instanceof TbWebViewActivity)) {
                 return true;
             }
-            TbWebViewActivity tbWebViewActivity = (TbWebViewActivity) this.axV.getContext();
+            TbWebViewActivity tbWebViewActivity = (TbWebViewActivity) this.axW.getContext();
             tbWebViewActivity.setUploadMessageAboveL(valueCallback);
             tbWebViewActivity.startActivityForResult(Intent.createChooser(intent, "File Chooser"), 1);
             return true;

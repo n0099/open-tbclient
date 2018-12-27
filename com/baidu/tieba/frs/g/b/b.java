@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.h;
 /* loaded from: classes6.dex */
 public class b implements h {
-    public static final BdUniqueId ekF = BdUniqueId.gen();
+    public static final BdUniqueId enw = BdUniqueId.gen();
     private String url;
 
     public b(String str) {
@@ -17,6 +17,6 @@ public class b implements h {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return ekF;
+        return enw;
     }
 }

@@ -8,9 +8,9 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 /* loaded from: classes6.dex */
 final class a {
-    private static final a icF = new a();
+    private static final a ifS = new a();
     private boolean ac;
-    private final Set<InterfaceC0348a> icG = new LinkedHashSet();
+    private final Set<InterfaceC0348a> ifT = new LinkedHashSet();
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
@@ -28,26 +28,26 @@ final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a bRL() {
-        return icF;
+    public static a bSC() {
+        return ifS;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Set<InterfaceC0348a> bRM() {
-        return this.icG;
+    public final Set<InterfaceC0348a> bSD() {
+        return this.ifT;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(InterfaceC0348a interfaceC0348a) {
-        synchronized (this.icG) {
-            this.icG.add(interfaceC0348a);
+        synchronized (this.ifT) {
+            this.ifT.add(interfaceC0348a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void S() {
-        synchronized (this.icG) {
-            this.icG.clear();
+        synchronized (this.ifT) {
+            this.ifT.clear();
         }
     }
 
@@ -59,7 +59,7 @@ final class a {
         try {
             ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new h(this));
         } catch (Exception e) {
-            com.baidu.ubs.analytics.d.j.yB("registerActivityLifecycleCallbacks encounter exception");
+            com.baidu.ubs.analytics.d.j.yE("registerActivityLifecycleCallbacks encounter exception");
         }
         this.ac = true;
     }

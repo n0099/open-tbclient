@@ -14,47 +14,47 @@ import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class i implements o {
     private int OH;
-    HeadImageView eLU;
-    ImageView eLV;
-    TextView eLW;
-    private com.baidu.adp.widget.ImageView.a eLX = null;
-    private a eLY = null;
-    CreateGroupStepActivity eLu;
-    private int eLy;
+    HeadImageView eOL;
+    ImageView eOM;
+    TextView eON;
+    private com.baidu.adp.widget.ImageView.a eOO = null;
+    private a eOP = null;
+    CreateGroupStepActivity eOl;
+    private int eOp;
     private int mIndex;
     View mView;
 
     public i(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3) {
-        this.eLu = null;
+        this.eOl = null;
         this.mView = null;
-        this.eLU = null;
-        this.eLV = null;
-        this.eLW = null;
-        this.eLu = createGroupStepActivity;
+        this.eOL = null;
+        this.eOM = null;
+        this.eON = null;
+        this.eOl = createGroupStepActivity;
         this.mView = LayoutInflater.from(createGroupStepActivity.getPageContext().getPageActivity()).inflate(e.h.create_group_step3_view, (ViewGroup) null);
-        this.eLV = (ImageView) this.mView.findViewById(e.g.step3_img_bg);
-        this.eLU = (HeadImageView) this.mView.findViewById(e.g.step3_img_scr);
-        this.eLW = (TextView) this.mView.findViewById(e.g.create_group3);
+        this.eOM = (ImageView) this.mView.findViewById(e.g.step3_img_bg);
+        this.eOL = (HeadImageView) this.mView.findViewById(e.g.step3_img_scr);
+        this.eON = (TextView) this.mView.findViewById(e.g.create_group3);
         this.mIndex = i;
         this.OH = i2;
-        this.eLy = i3;
+        this.eOp = i3;
     }
 
-    public void aPj() {
-        if (this.eLY != null) {
-            this.eLY.cancel();
+    public void aPX() {
+        if (this.eOP != null) {
+            this.eOP.cancel();
         }
-        this.eLX = null;
-        this.eLY = new a();
-        this.eLY.execute(new Object[0]);
+        this.eOO = null;
+        this.eOP = new a();
+        this.eOP.execute(new Object[0]);
     }
 
-    public ImageView aPk() {
-        return this.eLV;
+    public ImageView aPY() {
+        return this.eOM;
     }
 
-    public TextView aPl() {
-        return this.eLW;
+    public TextView aPZ() {
+        return this.eON;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
@@ -63,15 +63,15 @@ public class i implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void aOU() {
-        this.eLV.setBackgroundDrawable(null);
+    public void aPI() {
+        this.eOM.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void aOV() {
-        this.eLu.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.eLu.getLayoutMode().onModeChanged(this.mView);
-        this.eLU.refresh();
+    public void aPJ() {
+        this.eOl.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.eOl.getLayoutMode().onModeChanged(this.mView);
+        this.eOL.refresh();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -111,33 +111,33 @@ public class i implements o {
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
             if (bitmap != null) {
-                i.this.eLU.setVisibility(0);
-                i.this.eLX = new com.baidu.adp.widget.ImageView.a(bitmap, false, (String) null);
-                i.this.eLX.a(i.this.eLU);
+                i.this.eOL.setVisibility(0);
+                i.this.eOO = new com.baidu.adp.widget.ImageView.a(bitmap, false, (String) null);
+                i.this.eOO.a(i.this.eOL);
             }
         }
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String getTitle() {
-        return String.format(this.eLu.getPageContext().getString(e.j.group_create_step_photo), Integer.valueOf(this.OH));
+        return String.format(this.eOl.getPageContext().getString(e.j.group_create_step_photo), Integer.valueOf(this.OH));
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public String aOX() {
-        if (this.mIndex != this.eLy) {
-            return this.eLu.getPageContext().getString(e.j.next_step);
+    public String aPL() {
+        if (this.mIndex != this.eOp) {
+            return this.eOl.getPageContext().getString(e.j.next_step);
         }
-        return this.eLu.getPageContext().getString(e.j.group_create_step_done_tip);
+        return this.eOl.getPageContext().getString(e.j.group_create_step_done_tip);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean aOY() {
+    public boolean aPM() {
         return true;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public int aOO() {
+    public int aPC() {
         return this.mIndex;
     }
 
@@ -147,7 +147,7 @@ public class i implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean aOZ() {
+    public boolean aPN() {
         return true;
     }
 }

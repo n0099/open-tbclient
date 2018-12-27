@@ -30,14 +30,14 @@ public final class f {
     /* loaded from: classes2.dex */
     public static final class a {
         private final String className;
-        private C0354a ifI;
-        private C0354a ifJ;
-        private boolean ifK;
+        private C0354a iiS;
+        private C0354a iiT;
+        private boolean iiU;
 
         private a(String str) {
-            this.ifI = new C0354a();
-            this.ifJ = this.ifI;
-            this.ifK = false;
+            this.iiS = new C0354a();
+            this.iiT = this.iiS;
+            this.iiU = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -49,15 +49,15 @@ public final class f {
             return o(str, String.valueOf(z));
         }
 
-        public a bf(String str, int i) {
+        public a bg(String str, int i) {
             return o(str, String.valueOf(i));
         }
 
         public String toString() {
-            boolean z = this.ifK;
+            boolean z = this.iiU;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0354a c0354a = this.ifI.ifL; c0354a != null; c0354a = c0354a.ifL) {
+            for (C0354a c0354a = this.iiS.iiV; c0354a != null; c0354a = c0354a.iiV) {
                 if (!z || c0354a.value != null) {
                     append.append(str);
                     str = ", ";
@@ -70,17 +70,17 @@ public final class f {
             return append.append('}').toString();
         }
 
-        private C0354a bTa() {
+        private C0354a bTR() {
             C0354a c0354a = new C0354a();
-            this.ifJ.ifL = c0354a;
-            this.ifJ = c0354a;
+            this.iiT.iiV = c0354a;
+            this.iiT = c0354a;
             return c0354a;
         }
 
         private a o(String str, @Nullable Object obj) {
-            C0354a bTa = bTa();
-            bTa.value = obj;
-            bTa.name = (String) g.checkNotNull(str);
+            C0354a bTR = bTR();
+            bTR.value = obj;
+            bTR.name = (String) g.checkNotNull(str);
             return this;
         }
 
@@ -88,7 +88,7 @@ public final class f {
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
         public static final class C0354a {
-            C0354a ifL;
+            C0354a iiV;
             String name;
             Object value;
 

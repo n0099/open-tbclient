@@ -5,26 +5,26 @@ import kotlin.coroutines.experimental.d;
 import kotlin.jvm.internal.p;
 /* loaded from: classes2.dex */
 public final class e implements d {
-    public static final e iyd = new e();
+    public static final e iBn = new e();
 
     private e() {
     }
 
     @Override // kotlin.coroutines.experimental.d
     public <E extends d.b> E a(d.c<E> cVar) {
-        p.h((Object) cVar, RimArmor.KEY);
+        p.j(cVar, RimArmor.KEY);
         return null;
     }
 
     @Override // kotlin.coroutines.experimental.d
     public <R> R a(R r, kotlin.jvm.a.c<? super R, ? super d.b, ? extends R> cVar) {
-        p.h((Object) cVar, "operation");
+        p.j(cVar, "operation");
         return r;
     }
 
     @Override // kotlin.coroutines.experimental.d
     public d b(d.c<?> cVar) {
-        p.h((Object) cVar, RimArmor.KEY);
+        p.j(cVar, RimArmor.KEY);
         return this;
     }
 

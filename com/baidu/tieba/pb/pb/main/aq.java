@@ -28,13 +28,13 @@ public class aq {
     }
 
     public static boolean k(PostData postData) {
-        if (postData == null || postData.bDA() == null) {
+        if (postData == null || postData.bEs() == null) {
             return false;
         }
-        com.baidu.tieba.tbadkCore.data.h bDA = postData.bDA();
-        if (bDA.hkU) {
-            int bCY = bDA.bCY();
-            return bCY == 2 || bCY == 1 || bCY == 3;
+        com.baidu.tieba.tbadkCore.data.h bEs = postData.bEs();
+        if (bEs.hof) {
+            int bDQ = bEs.bDQ();
+            return bDQ == 2 || bDQ == 1 || bDQ == 3;
         }
         return false;
     }

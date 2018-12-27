@@ -187,11 +187,11 @@ public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
     }
 
     public ArrayList<String> getBigUrlList() {
-        if (this.mData == null || this.mData.aTd() == null || this.mData.aTd().size() <= 0) {
+        if (this.mData == null || this.mData.aTR() == null || this.mData.aTR().size() <= 0) {
             return null;
         }
         ArrayList<String> arrayList = new ArrayList<>();
-        for (PhotoUrlData photoUrlData : this.mData.aTd()) {
+        for (PhotoUrlData photoUrlData : this.mData.aTR()) {
             if (photoUrlData != null) {
                 arrayList.add(photoUrlData.getBigurl());
             }
@@ -201,8 +201,8 @@ public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
 
     public HashMap<String, ImageUrlData> getAssistUrls() {
         HashMap<String, ImageUrlData> hashMap = new HashMap<>();
-        if (this.mData != null && this.mData.aTd() != null && this.mData.aTd().size() > 0) {
-            for (PhotoUrlData photoUrlData : this.mData.aTd()) {
+        if (this.mData != null && this.mData.aTR() != null && this.mData.aTR().size() > 0) {
+            for (PhotoUrlData photoUrlData : this.mData.aTR()) {
                 if (photoUrlData != null) {
                     String bigurl = photoUrlData.getBigurl();
                     ImageUrlData imageUrlData = new ImageUrlData();
@@ -225,12 +225,12 @@ public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
             return null;
         }
         this.mChangePhotoUrlData = photoUrlData;
-        if (this.mData != null && this.mData.aTd() != null && this.mData.aTd().size() > 0) {
-            int size = this.mData.aTd().size();
-            List<PhotoUrlData> aTd = this.mData.aTd();
+        if (this.mData != null && this.mData.aTR() != null && this.mData.aTR().size() > 0) {
+            int size = this.mData.aTR().size();
+            List<PhotoUrlData> aTR = this.mData.aTR();
             for (int i = 1; i < size; i++) {
-                if (aTd.get(i) != null && !picId.equals(aTd.get(i).getPicId())) {
-                    sb.append(aTd.get(i).getPicId());
+                if (aTR.get(i) != null && !picId.equals(aTR.get(i).getPicId())) {
+                    sb.append(aTR.get(i).getPicId());
                     if (i != size - 1) {
                         sb.append(",");
                     }
@@ -250,12 +250,12 @@ public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
             return null;
         }
         this.mChangePhotoUrlData = photoUrlData;
-        if (this.mData != null && this.mData.aTd() != null && this.mData.aTd().size() > 0) {
-            List<PhotoUrlData> aTd = this.mData.aTd();
-            int size = aTd.size();
+        if (this.mData != null && this.mData.aTR() != null && this.mData.aTR().size() > 0) {
+            List<PhotoUrlData> aTR = this.mData.aTR();
+            int size = aTR.size();
             for (int i = 1; i < size; i++) {
-                if (aTd.get(i) != null) {
-                    sb.append(aTd.get(i).getPicId());
+                if (aTR.get(i) != null) {
+                    sb.append(aTR.get(i).getPicId());
                     sb.append(",");
                 }
             }
@@ -267,10 +267,10 @@ public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
     }
 
     public void delePhotoData() {
-        if (this.mData != null && this.mData.aTd() != null && this.mData.aTd().size() > 0 && this.mChangePhotoUrlData != null) {
-            for (PhotoUrlData photoUrlData : this.mData.aTd()) {
+        if (this.mData != null && this.mData.aTR() != null && this.mData.aTR().size() > 0 && this.mChangePhotoUrlData != null) {
+            for (PhotoUrlData photoUrlData : this.mData.aTR()) {
                 if (photoUrlData != null && photoUrlData.getPicId().equals(this.mChangePhotoUrlData.getPicId())) {
-                    this.mData.aTd().remove(photoUrlData);
+                    this.mData.aTR().remove(photoUrlData);
                     return;
                 }
             }
@@ -279,47 +279,47 @@ public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
 
     public void addPhotoData() {
         if (this.mData != null && this.mChangePhotoUrlData != null) {
-            if (this.mData.aTd() == null) {
+            if (this.mData.aTR() == null) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(this.mChangePhotoUrlData);
-                this.mData.cL(arrayList);
+                this.mData.cM(arrayList);
                 return;
             }
-            if (this.mData.aTd().size() > 0 && this.mData.aTd().get(0) != null && TextUtils.isEmpty(this.mData.aTd().get(0).getPicId())) {
-                this.mData.aTd().remove(0);
+            if (this.mData.aTR().size() > 0 && this.mData.aTR().get(0) != null && TextUtils.isEmpty(this.mData.aTR().get(0).getPicId())) {
+                this.mData.aTR().remove(0);
             }
             PhotoUrlData photoUrlData = new PhotoUrlData();
             photoUrlData.setBigurl(this.mChangePhotoUrlData.getBigurl());
             photoUrlData.setPicId(this.mChangePhotoUrlData.getPicId());
             photoUrlData.setSmallurl(this.mChangePhotoUrlData.getSmallurl());
-            this.mData.aTd().add(photoUrlData);
+            this.mData.aTR().add(photoUrlData);
         }
     }
 
     public void updataPortraitData() {
-        if (this.mData != null && this.mData.aTd() != null && this.mData.aTd().size() > 0 && this.mChangePhotoUrlData != null) {
+        if (this.mData != null && this.mData.aTR() != null && this.mData.aTR().size() > 0 && this.mChangePhotoUrlData != null) {
             int i = 0;
             while (true) {
-                if (i >= this.mData.aTd().size()) {
+                if (i >= this.mData.aTR().size()) {
                     i = -1;
                     break;
-                } else if (this.mData.aTd().get(i) == null || this.mData.aTd().get(i).getPicId() == null || !this.mData.aTd().get(i).getPicId().equals(this.mChangePhotoUrlData.getPicId())) {
+                } else if (this.mData.aTR().get(i) == null || this.mData.aTR().get(i).getPicId() == null || !this.mData.aTR().get(i).getPicId().equals(this.mChangePhotoUrlData.getPicId())) {
                     i++;
                 } else {
-                    this.mData.aTd().remove(i);
+                    this.mData.aTR().remove(i);
                     break;
                 }
             }
-            if (this.mData.aTd().size() > 0 && this.mData.aTd().get(0) != null && TextUtils.isEmpty(this.mData.aTd().get(0).getPicId())) {
-                this.mData.aTd().remove(0);
+            if (this.mData.aTR().size() > 0 && this.mData.aTR().get(0) != null && TextUtils.isEmpty(this.mData.aTR().get(0).getPicId())) {
+                this.mData.aTR().remove(0);
             }
-            this.mData.aTd().add(i, this.mData.aTd().get(0));
-            this.mData.aTd().remove(0);
+            this.mData.aTR().add(i, this.mData.aTR().get(0));
+            this.mData.aTR().remove(0);
             PhotoUrlData photoUrlData = new PhotoUrlData();
             photoUrlData.setBigurl(this.mChangePhotoUrlData.getBigurl());
             photoUrlData.setPicId(this.mChangePhotoUrlData.getPicId());
             photoUrlData.setSmallurl(this.mChangePhotoUrlData.getSmallurl());
-            this.mData.aTd().add(0, photoUrlData);
+            this.mData.aTR().add(0, photoUrlData);
         }
     }
 
@@ -331,10 +331,10 @@ public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
     }
 
     public boolean removeMemberByUid(String str) {
-        if (str != null && this.mData != null && this.mData.aTc() != null && this.mData.aTc().size() > 0) {
-            for (MemberData memberData : this.mData.aTc()) {
+        if (str != null && this.mData != null && this.mData.aTQ() != null && this.mData.aTQ().size() > 0) {
+            for (MemberData memberData : this.mData.aTQ()) {
                 if (str.equals(String.valueOf(memberData.getUserId()))) {
-                    this.mData.aTc().remove(memberData);
+                    this.mData.aTQ().remove(memberData);
                     return true;
                 }
             }

@@ -7,35 +7,35 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Random;
 /* loaded from: classes3.dex */
 public class a {
-    private static final String[] dkM = {"119.75.222.62", "119.75.222.63"};
-    private static final String[] dkN = {"111.13.100.247", "117.185.16.61"};
-    private static final String[] dkO = {"111.206.37.190"};
-    private static final String[] dkP = {"115.239.211.146", "180.97.33.196"};
+    private static final String[] dnD = {"119.75.222.62", "119.75.222.63"};
+    private static final String[] dnE = {"111.13.100.247", "117.185.16.61"};
+    private static final String[] dnF = {"111.206.37.190"};
+    private static final String[] dnG = {"115.239.211.146", "180.97.33.196"};
     private volatile String imsi;
     private volatile int operator;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String atR() {
-        atS();
+    public String auG() {
+        auH();
         if (j.kW()) {
-            return dkP[new Random().nextInt(dkP.length)];
+            return dnG[new Random().nextInt(dnG.length)];
         }
         if (j.kX()) {
             if (this.operator == 1) {
-                return dkM[new Random().nextInt(dkM.length)];
+                return dnD[new Random().nextInt(dnD.length)];
             }
             if (this.operator == 2) {
-                return dkN[new Random().nextInt(dkN.length)];
+                return dnE[new Random().nextInt(dnE.length)];
             }
             if (this.operator == 3) {
-                return dkO[new Random().nextInt(dkO.length)];
+                return dnF[new Random().nextInt(dnF.length)];
             }
             return "119.75.222.62";
         }
         return "119.75.222.62";
     }
 
-    protected void atS() {
+    protected void auH() {
         this.imsi = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSubscriberId();
         this.operator = 0;
         if (this.imsi != null) {

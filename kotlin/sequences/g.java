@@ -4,12 +4,12 @@ import java.util.Iterator;
 import kotlin.jvm.internal.p;
 /* loaded from: classes2.dex */
 public final class g<T, R> implements c<R> {
-    private final c<T> iyC;
-    private final kotlin.jvm.a.b<T, R> iyP;
+    private final c<T> iBM;
+    private final kotlin.jvm.a.b<T, R> iBZ;
 
     /* loaded from: classes2.dex */
     public static final class a implements Iterator<R> {
-        private final Iterator<T> iyF;
+        private final Iterator<T> iBP;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -18,17 +18,17 @@ public final class g<T, R> implements c<R> {
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
-            this.iyF = g.this.iyC.iterator();
+            this.iBP = g.this.iBM.iterator();
         }
 
         @Override // java.util.Iterator
         public R next() {
-            return (R) g.this.iyP.invoke(this.iyF.next());
+            return (R) g.this.iBZ.invoke(this.iBP.next());
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.iyF.hasNext();
+            return this.iBP.hasNext();
         }
     }
 
@@ -36,10 +36,10 @@ public final class g<T, R> implements c<R> {
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlin.jvm.a.b<? super T, ? extends R> */
     /* JADX WARN: Multi-variable type inference failed */
     public g(c<? extends T> cVar, kotlin.jvm.a.b<? super T, ? extends R> bVar) {
-        p.h((Object) cVar, "sequence");
-        p.h((Object) bVar, "transformer");
-        this.iyC = cVar;
-        this.iyP = bVar;
+        p.j(cVar, "sequence");
+        p.j(bVar, "transformer");
+        this.iBM = cVar;
+        this.iBZ = bVar;
     }
 
     @Override // kotlin.sequences.c

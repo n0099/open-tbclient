@@ -132,7 +132,7 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
             }
             bitmap = Bytes2Bitmap;
         }
-        if (!iVar.aEg) {
+        if (!iVar.aEh) {
             a(str, bArr, false, aVar);
         }
         return new com.baidu.adp.widget.ImageView.a(bitmap, com.baidu.adp.lib.util.l.r(bArr), str, bArr);
@@ -148,15 +148,15 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     }
 
     public static void a(String str, byte[] bArr, boolean z, com.baidu.adp.lib.f.a aVar) {
-        String gc = gc(str);
-        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ar.fK(gc == null ? str : gc), DiskFileOperate.Action.WRITE_FORCE);
+        String gd = gd(str);
+        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ar.fL(gd == null ? str : gd), DiskFileOperate.Action.WRITE_FORCE);
         cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
         cVar.R(true);
         cVar.W(z);
         cVar.T(false);
         cVar.U(true);
-        if (gc != null) {
-            cVar.X(gd(str));
+        if (gd != null) {
+            cVar.X(ge(str));
         } else {
             cVar.X(true);
         }
@@ -170,9 +170,9 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     }
 
     public static byte[] a(String str, com.baidu.adp.lib.f.a aVar) {
-        String gc = gc(str);
+        String gd = gd(str);
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ar.fK(gc == null ? str : gc), DiskFileOperate.Action.READ);
+        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ar.fL(gd == null ? str : gd), DiskFileOperate.Action.READ);
         cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
         cVar.R(true);
         cVar.S(true);
@@ -197,7 +197,7 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
                 }
             }
             if (cVar.isSuccess()) {
-                if (gc == null || cVar.hW() || !gd(str)) {
+                if (gd == null || cVar.hW() || !ge(str)) {
                     return cVar.hX();
                 }
                 return null;
@@ -207,16 +207,16 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         return null;
     }
 
-    public static boolean gb(String str) {
-        String gc = gc(str);
-        if (gc != null) {
-            str = gc;
+    public static boolean gc(String str) {
+        String gd = gd(str);
+        if (gd != null) {
+            str = gd;
         }
-        String fK = ar.fK(str);
-        if (TextUtils.isEmpty(fK)) {
+        String fL = ar.fL(str);
+        if (TextUtils.isEmpty(fL)) {
             return false;
         }
-        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, fK, DiskFileOperate.Action.INFO);
+        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, fL, DiskFileOperate.Action.INFO);
         cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
         cVar.R(true);
         cVar.T(false);
@@ -234,12 +234,12 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         return 1;
     }
 
-    private static String gc(String str) {
+    private static String gd(String str) {
         int i;
         if (str == null) {
             return null;
         }
-        if (com.baidu.tbadk.util.i.iB(str)) {
+        if (com.baidu.tbadk.util.i.iC(str)) {
             int lastIndexOf = str.lastIndexOf("/");
             int lastIndexOf2 = str.lastIndexOf(".");
             int lastIndexOf3 = str.lastIndexOf(".jpg");
@@ -262,9 +262,9 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         return null;
     }
 
-    private static boolean gd(String str) {
+    private static boolean ge(String str) {
         String[] split;
-        if (str != null && com.baidu.tbadk.util.i.iB(str)) {
+        if (str != null && com.baidu.tbadk.util.i.iC(str)) {
             String[] split2 = str.split("/");
             if (split2.length > 3) {
                 try {

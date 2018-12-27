@@ -10,22 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private a aye = null;
+    private a ayf = null;
 
     /* loaded from: classes.dex */
     private static final class c {
-        private static final g ayq = new g();
+        private static final g ayr = new g();
     }
 
     public static g Cc() {
-        return c.ayq;
+        return c.ayr;
     }
 
     public void a(int i, j jVar) {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
-                this.aye = new a(i, jVar);
-                this.aye.Ce();
+                this.ayf = new a(i, jVar);
+                this.ayf.Ce();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -35,12 +35,12 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b implements InvocationHandler {
-        protected a aye;
-        private final List<Long> ayo = new ArrayList(240);
-        private final List<Integer> ayp = new ArrayList(15);
+        protected a ayf;
+        private final List<Long> ayp = new ArrayList(240);
+        private final List<Integer> ayq = new ArrayList(15);
 
         public b(a aVar) {
-            this.aye = aVar;
+            this.ayf = aVar;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -63,15 +63,15 @@ public class g {
         }
 
         private void doFrame(long j) {
-            this.ayo.add(Long.valueOf(j));
-            this.aye.Ce();
+            this.ayp.add(Long.valueOf(j));
+            this.ayf.Ce();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.aye = null;
-            this.ayo.clear();
+            this.ayf = null;
             this.ayp.clear();
+            this.ayq.clear();
         }
     }
 
@@ -79,31 +79,31 @@ public class g {
     /* loaded from: classes.dex */
     public static class a {
         private final int MAX_FRAME_COUNT;
-        private final Class<?> ayf;
-        private final Object ayg;
-        private final Class<?> ayh;
-        private final Method ayi;
-        private final Object ayj;
-        private final Method ayk;
-        private final b ayl;
-        private final j aym;
+        private final Class<?> ayg;
+        private final Object ayh;
+        private final Class<?> ayi;
+        private final Method ayj;
+        private final Object ayk;
+        private final Method ayl;
+        private final b aym;
+        private final j ayn;
         private int index;
 
         private a(int i, j jVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
             this.index = 0;
-            this.ayh = Class.forName("android.view.Choreographer");
-            this.ayf = Class.forName("android.view.Choreographer$FrameCallback");
-            this.ayl = new b(this);
-            this.ayg = Proxy.newProxyInstance(this.ayf.getClassLoader(), new Class[]{this.ayf}, this.ayl);
-            this.ayi = this.ayh.getMethod("getInstance", new Class[0]);
-            this.ayj = this.ayi.invoke(null, new Object[0]);
-            this.ayk = this.ayh.getMethod("postFrameCallback", this.ayf);
+            this.ayi = Class.forName("android.view.Choreographer");
+            this.ayg = Class.forName("android.view.Choreographer$FrameCallback");
+            this.aym = new b(this);
+            this.ayh = Proxy.newProxyInstance(this.ayg.getClassLoader(), new Class[]{this.ayg}, this.aym);
+            this.ayj = this.ayi.getMethod("getInstance", new Class[0]);
+            this.ayk = this.ayj.invoke(null, new Object[0]);
+            this.ayl = this.ayi.getMethod("postFrameCallback", this.ayg);
             this.MAX_FRAME_COUNT = i <= 0 ? 16 : i;
-            this.aym = jVar;
+            this.ayn = jVar;
         }
 
         private void Cd() throws InvocationTargetException, IllegalAccessException {
-            this.ayk.invoke(this.ayj, this.ayg);
+            this.ayl.invoke(this.ayk, this.ayh);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -112,8 +112,8 @@ public class g {
                 com.baidu.adp.lib.g.e.jG().post(new Runnable() { // from class: com.baidu.tbadk.core.hybrid.g.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.aym.F(a.this.Cg());
-                        a.this.ayl.destroy();
+                        a.this.ayn.F(a.this.Cg());
+                        a.this.aym.destroy();
                         a.this.destroy();
                     }
                 });
@@ -128,12 +128,12 @@ public class g {
         }
 
         private List<Long> Cf() {
-            return this.ayl.ayo;
+            return this.aym.ayp;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.ayl.destroy();
+            this.aym.destroy();
         }
 
         /* JADX INFO: Access modifiers changed from: private */

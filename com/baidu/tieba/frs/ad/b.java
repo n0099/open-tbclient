@@ -14,23 +14,23 @@ import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class b extends com.baidu.tieba.card.a<c> {
-    private RelativeLayout bAw;
-    protected ConstrainImageGroup cVa;
-    private TbImageView dMm;
-    private TextView dMn;
-    private TextView dMo;
-    private c dMp;
+    private RelativeLayout bAz;
+    protected ConstrainImageGroup cXQ;
+    private TbImageView dPa;
+    private TextView dPb;
+    private TextView dPc;
+    private c dPd;
     private View mDivider;
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         View view = getView();
-        this.dMm = (TbImageView) view.findViewById(e.g.ad_portrait);
-        this.dMn = (TextView) view.findViewById(e.g.ad_title);
-        this.dMo = (TextView) view.findViewById(e.g.ad_desc);
-        this.cVa = (ConstrainImageGroup) view.findViewById(e.g.ad_img_layout);
+        this.dPa = (TbImageView) view.findViewById(e.g.ad_portrait);
+        this.dPb = (TextView) view.findViewById(e.g.ad_title);
+        this.dPc = (TextView) view.findViewById(e.g.ad_desc);
+        this.cXQ = (ConstrainImageGroup) view.findViewById(e.g.ad_img_layout);
         this.mDivider = view.findViewById(e.g.item_divider);
-        this.bAw = (RelativeLayout) view.findViewById(e.g.frs_ad_list_item_view);
+        this.bAz = (RelativeLayout) view.findViewById(e.g.frs_ad_list_item_view);
         view.setOnClickListener(this);
     }
 
@@ -38,10 +38,10 @@ public class b extends com.baidu.tieba.card.a<c> {
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            al.h(this.dMn, e.d.cp_cont_b);
-            al.h(this.dMo, e.d.cp_cont_d);
-            al.i(this.bAw, e.f.ad_list_item_bg);
-            this.cVa.onChangeSkinType();
+            al.h(this.dPb, e.d.cp_cont_b);
+            al.h(this.dPc, e.d.cp_cont_d);
+            al.i(this.bAz, e.f.ad_list_item_bg);
+            this.cXQ.onChangeSkinType();
         }
     }
 
@@ -51,20 +51,20 @@ public class b extends com.baidu.tieba.card.a<c> {
     }
 
     public void setSingleImageRatio(double d) {
-        if (this.cVa != null) {
-            this.cVa.setSingleImageRatio(d);
+        if (this.cXQ != null) {
+            this.cXQ.setSingleImageRatio(d);
         }
     }
 
     public void setConstrainLayoutPool(com.baidu.adp.lib.e.b<ConstrainImageLayout> bVar) {
-        if (this.cVa != null) {
-            this.cVa.setConstrainLayoutPool(bVar);
+        if (this.cXQ != null) {
+            this.cXQ.setConstrainLayoutPool(bVar);
         }
     }
 
     public void setConstrainImagePool(com.baidu.adp.lib.e.b<TbImageView> bVar) {
-        if (this.cVa != null) {
-            this.cVa.setImageViewPool(bVar);
+        if (this.cXQ != null) {
+            this.cXQ.setImageViewPool(bVar);
         }
     }
 
@@ -72,29 +72,29 @@ public class b extends com.baidu.tieba.card.a<c> {
     @Override // com.baidu.tieba.card.a
     public void a(c cVar) {
         if (cVar != null) {
-            this.dMp = cVar;
-            this.dMm.startLoad(cVar.aCI(), 10, false);
-            this.dMm.setRadius(l.h(getContext(), e.C0210e.tbds26));
-            this.dMm.setDrawerType(1);
-            this.dMm.setDrawBorder(true);
-            this.dMm.setBorderColor(al.getColor(e.d.black_alpha15));
-            this.dMm.setBorderWidth(l.h(getContext(), e.C0210e.tbds1));
-            this.dMm.setDefaultResource(e.f.transparent_bg);
-            this.dMm.setDefaultBgResource(e.f.transparent_bg);
-            this.dMn.setText(cVar.aCJ());
-            this.dMo.setText(cVar.aCK());
-            al.h(this.dMn, e.d.cp_cont_b);
-            al.h(this.dMo, e.d.cp_cont_d);
-            al.i(this.bAw, e.f.ad_list_item_bg);
-            if (v.H(cVar.aCL()) > 0) {
+            this.dPd = cVar;
+            this.dPa.startLoad(cVar.aDx(), 10, false);
+            this.dPa.setRadius(l.h(getContext(), e.C0210e.tbds26));
+            this.dPa.setDrawerType(1);
+            this.dPa.setDrawBorder(true);
+            this.dPa.setBorderColor(al.getColor(e.d.black_alpha15));
+            this.dPa.setBorderWidth(l.h(getContext(), e.C0210e.tbds1));
+            this.dPa.setDefaultResource(e.f.transparent_bg);
+            this.dPa.setDefaultBgResource(e.f.transparent_bg);
+            this.dPb.setText(cVar.aDy());
+            this.dPc.setText(cVar.aDz());
+            al.h(this.dPb, e.d.cp_cont_b);
+            al.h(this.dPc, e.d.cp_cont_d);
+            al.i(this.bAz, e.f.ad_list_item_bg);
+            if (v.H(cVar.aDA()) > 0) {
                 com.baidu.tbadk.widget.layout.e eVar = new com.baidu.tbadk.widget.layout.e(3);
                 eVar.g(1.0d);
-                this.cVa.setVisibility(0);
-                this.cVa.setFromCDN(true);
-                this.cVa.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0210e.tbds20));
-                this.cVa.setImageProcessor(eVar);
-                this.cVa.setImageMediaList(cVar.aCL());
-                if (!cVar.aCM()) {
+                this.cXQ.setVisibility(0);
+                this.cXQ.setFromCDN(true);
+                this.cXQ.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0210e.tbds20));
+                this.cXQ.setImageProcessor(eVar);
+                this.cXQ.setImageMediaList(cVar.aDA());
+                if (!cVar.aDB()) {
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, l.h(getContext(), e.C0210e.tbds16));
                     layoutParams.addRule(12);
                     this.mDivider.setLayoutParams(layoutParams);
@@ -105,8 +105,8 @@ public class b extends com.baidu.tieba.card.a<c> {
                 this.mDivider.setVisibility(8);
                 return;
             }
-            this.cVa.setVisibility(8);
-            if (!cVar.aCM()) {
+            this.cXQ.setVisibility(8);
+            if (!cVar.aDB()) {
                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, l.h(getContext(), e.C0210e.tbds1));
                 layoutParams2.addRule(12);
                 this.mDivider.setLayoutParams(layoutParams2);

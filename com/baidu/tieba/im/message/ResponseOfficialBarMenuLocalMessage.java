@@ -32,37 +32,37 @@ public class ResponseOfficialBarMenuLocalMessage extends CustomResponsedMessage<
                 setOfficialBarMenuDatas(new c());
                 if (forumMenuResIdl.data != null) {
                     getOfficialBarMenuDatas().setUpdate_time(forumMenuResIdl.data.update_time.intValue());
-                    getOfficialBarMenuDatas().pM(forumMenuResIdl.data.has_menu.intValue());
-                    getOfficialBarMenuDatas().cx(new ArrayList());
+                    getOfficialBarMenuDatas().pZ(forumMenuResIdl.data.has_menu.intValue());
+                    getOfficialBarMenuDatas().cy(new ArrayList());
                     int size = forumMenuResIdl.data.parent_menu.size();
                     for (int i2 = 0; i2 < size; i2++) {
                         com.baidu.tieba.im.data.b bVar = new com.baidu.tieba.im.data.b();
                         Menu menu = forumMenuResIdl.data.parent_menu.get(i2);
-                        bVar.pL(menu.action_type.intValue());
+                        bVar.pY(menu.action_type.intValue());
                         bVar.setContent(menu.content);
                         bVar.setCreate_time(menu.create_time.intValue());
                         bVar.setForum_id(menu.forum_id + "");
                         bVar.setId(menu.id + "");
                         bVar.setLevel(menu.level.intValue());
                         bVar.setName(menu.name);
-                        bVar.cw(new ArrayList());
+                        bVar.cx(new ArrayList());
                         if (menu.sub_menu != null) {
                             int size2 = menu.sub_menu.size();
                             for (int i3 = 0; i3 < size2; i3++) {
                                 SubMenu subMenu = menu.sub_menu.get(i3);
                                 com.baidu.tieba.im.data.b bVar2 = new com.baidu.tieba.im.data.b();
-                                bVar2.pL(subMenu.action_type.intValue());
+                                bVar2.pY(subMenu.action_type.intValue());
                                 bVar2.setContent(subMenu.content);
                                 bVar2.setForum_id(subMenu.forum_id + "");
                                 bVar2.setId(subMenu.id + "");
                                 bVar2.setLevel(subMenu.level.intValue());
                                 bVar2.setName(subMenu.name);
-                                bVar2.pK(subMenu.parent_id.intValue());
+                                bVar2.pX(subMenu.parent_id.intValue());
                                 bVar2.setUpdate_time(subMenu.update_time.intValue());
-                                bVar.aQh().add(bVar2);
+                                bVar.aQV().add(bVar2);
                             }
                         }
-                        getOfficialBarMenuDatas().aQj().add(bVar);
+                        getOfficialBarMenuDatas().aQX().add(bVar);
                     }
                 }
             }

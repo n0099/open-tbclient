@@ -10,12 +10,12 @@ import tbclient.HotThread.HotThreadReqIdl;
 public class a implements e, h {
     private int requestCount;
 
-    public void aqR() {
+    public void arG() {
         this.requestCount++;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> Ob() {
+    public HashMap<String, Object> Oc() {
         return null;
     }
 
@@ -35,12 +35,12 @@ public class a implements e, h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String NY() {
+    public String NZ() {
         return "tb.pb_normal";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean NZ() {
+    public boolean Oa() {
         return true;
     }
 

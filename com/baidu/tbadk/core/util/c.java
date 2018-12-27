@@ -31,8 +31,8 @@ public class c {
         if (kVar == null || mainDBDatabaseManager == null) {
             return false;
         }
-        mainDBDatabaseManager.f("delete from chunk_upload_data where md5=? and account=?", new String[]{kVar.GG(), TbadkCoreApplication.getCurrentAccount()});
-        return mainDBDatabaseManager.f("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{kVar.GG(), Long.valueOf(kVar.getTotalLength()), Integer.valueOf(kVar.GH()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
+        mainDBDatabaseManager.f("delete from chunk_upload_data where md5=? and account=?", new String[]{kVar.GH(), TbadkCoreApplication.getCurrentAccount()});
+        return mainDBDatabaseManager.f("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{kVar.GH(), Long.valueOf(kVar.getTotalLength()), Integer.valueOf(kVar.GI()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
     }
 
     public static com.baidu.tbadk.coreExtra.data.k eP(String str) {
@@ -50,9 +50,9 @@ public class c {
                     if (cursor.moveToFirst()) {
                         kVar = new com.baidu.tbadk.coreExtra.data.k();
                         try {
-                            kVar.gC(str);
-                            kVar.eQ(cursor.getInt(3));
-                            kVar.al(cursor.getLong(2));
+                            kVar.gD(str);
+                            kVar.eR(cursor.getInt(3));
+                            kVar.am(cursor.getLong(2));
                         } catch (Exception e2) {
                             e = e2;
                             mainDBDatabaseManager.a(e, "getChunkUploadDataByMd5");

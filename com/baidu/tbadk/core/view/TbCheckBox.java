@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private a aIA;
-    private int aIy;
+    private int aIA;
+    private a aIB;
     private int aIz;
 
     /* loaded from: classes.dex */
@@ -31,21 +31,21 @@ public class TbCheckBox extends ImageView {
 
     public TbCheckBox(Context context) {
         super(context);
-        this.aIy = e.f.icon_set_list_ok_s;
-        this.aIz = e.f.icon_set_list_ok_n;
+        this.aIz = e.f.icon_set_list_ok_s;
+        this.aIA = e.f.icon_set_list_ok_n;
         initialize();
     }
 
     public TbCheckBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aIy = e.f.icon_set_list_ok_s;
-        this.aIz = e.f.icon_set_list_ok_n;
+        this.aIz = e.f.icon_set_list_ok_s;
+        this.aIA = e.f.icon_set_list_ok_n;
         initialize();
     }
 
     public void setBackgroundDrawableId(int i, int i2) {
-        this.aIy = i;
-        this.aIz = i2;
+        this.aIz = i;
+        this.aIA = i2;
     }
 
     private void initialize() {
@@ -59,16 +59,16 @@ public class TbCheckBox extends ImageView {
     }
 
     public void setStatedChangedListener(a aVar) {
-        this.aIA = aVar;
+        this.aIB = aVar;
     }
 
     public void Fj() {
         if (Fk()) {
-            al.c(this, this.aIy);
+            al.c(this, this.aIz);
             setContentDescription(getResources().getString(e.j.check_box_checked));
             return;
         }
-        al.c(this, this.aIz);
+        al.c(this, this.aIA);
         setContentDescription(getResources().getString(e.j.check_box_not_checked));
     }
 
@@ -91,8 +91,8 @@ public class TbCheckBox extends ImageView {
             ((b) tag).setChecked(z);
         }
         Fj();
-        if (this.aIA != null) {
-            this.aIA.a(this, z, getTag());
+        if (this.aIB != null) {
+            this.aIB.a(this, z, getTag());
         }
     }
 }

@@ -9,10 +9,10 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 /* loaded from: classes.dex */
 public class b {
-    public Bitmap bjV;
-    public Bundle hnp;
-    public boolean hnq;
-    public boolean hnr;
+    public Bitmap bjY;
+    public Bundle hqB;
+    public boolean hqC;
+    public boolean hqD;
     private Context mContext;
     public Rect rect;
     private Rect si = new Rect();
@@ -23,7 +23,7 @@ public class b {
 
     public void draw(Canvas canvas) {
         DisplayMetrics displayMetrics = this.mContext.getResources().getDisplayMetrics();
-        this.si.set(0, 0, this.bjV.getScaledWidth(displayMetrics), this.bjV.getScaledHeight(displayMetrics));
-        canvas.drawBitmap(this.bjV, this.si, this.rect, (Paint) null);
+        this.si.set(0, 0, this.bjY.getScaledWidth(displayMetrics), this.bjY.getScaledHeight(displayMetrics));
+        canvas.drawBitmap(this.bjY, this.si, this.rect, (Paint) null);
     }
 }

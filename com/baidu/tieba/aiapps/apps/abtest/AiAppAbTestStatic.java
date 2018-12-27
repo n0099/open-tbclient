@@ -35,10 +35,10 @@ import com.baidu.ubc.q;
 import com.baidu.webkit.sdk.WebViewFactory;
 /* loaded from: classes4.dex */
 public class AiAppAbTestStatic {
-    public static int bFb = 0;
+    public static int bFe = 0;
 
     static {
-        Xv();
+        Xx();
         CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.aiapps.apps.abtest.AiAppAbTestStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(final CustomMessage<String> customMessage) {
@@ -55,17 +55,17 @@ public class AiAppAbTestStatic {
                         aVar.a(new a.InterfaceC0160a() { // from class: com.baidu.tieba.aiapps.apps.abtest.AiAppAbTestStatic.1.1
                             @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0160a
                             public void Eu() {
-                                if (AiAppAbTestStatic.bFb == 0) {
+                                if (AiAppAbTestStatic.bFe == 0) {
                                     try {
                                         BdSailorWebView bdSailorWebView = new BdSailorWebView(TbadkCoreApplication.getInst());
-                                        AiAppAbTestStatic.bFb = 1;
+                                        AiAppAbTestStatic.bFe = 1;
                                         bdSailorWebView.destroy();
                                     } catch (Exception e) {
-                                        AiAppAbTestStatic.bFb = -1;
+                                        AiAppAbTestStatic.bFe = -1;
                                         return;
                                     }
                                 }
-                                if (AiAppAbTestStatic.bFb < 0) {
+                                if (AiAppAbTestStatic.bFe < 0) {
                                     l.showToast(TbadkCoreApplication.getInst(), e.j.ai_apps_not_support);
                                     return;
                                 }
@@ -75,16 +75,16 @@ public class AiAppAbTestStatic {
                         aVar.A(fX);
                         return null;
                     }
-                    if (AiAppAbTestStatic.bFb == 0) {
+                    if (AiAppAbTestStatic.bFe == 0) {
                         try {
                             BdSailorWebView bdSailorWebView = new BdSailorWebView(TbadkCoreApplication.getInst());
-                            AiAppAbTestStatic.bFb = 1;
+                            AiAppAbTestStatic.bFe = 1;
                             bdSailorWebView.destroy();
                         } catch (Exception e) {
-                            AiAppAbTestStatic.bFb = -1;
+                            AiAppAbTestStatic.bFe = -1;
                         }
                     }
-                    if (AiAppAbTestStatic.bFb < 0) {
+                    if (AiAppAbTestStatic.bFe < 0) {
                         l.showToast(TbadkCoreApplication.getInst(), e.j.ai_apps_not_support);
                         return null;
                     }
@@ -155,14 +155,14 @@ public class AiAppAbTestStatic {
         });
     }
 
-    private static void Xv() {
+    private static void Xx() {
         AppRuntimeInit.onApplicationattachBaseContext(TbadkCoreApplication.getInst());
         f.onApplicationattachBaseContext(TbadkCoreApplication.getInst());
         if (Build.VERSION.SDK_INT > 21 && !TbadkCoreApplication.getInst().isRemoteProcess()) {
-            b.Xw();
+            b.Xy();
             f.a(new d());
             if (com.baidu.pyramid.runtime.multiprocess.a.uL()) {
-                q.bRt();
+                q.bSk();
             }
             WebViewFactory.initOnAppStart(TbadkCoreApplication.getInst(), true, false);
             NgWebViewInitHelper.getInstance().initBWebkit();

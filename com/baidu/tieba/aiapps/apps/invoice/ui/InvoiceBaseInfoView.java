@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import com.baidu.tieba.aiapps.apps.invoice.f;
 /* loaded from: classes4.dex */
 public abstract class InvoiceBaseInfoView extends LinearLayout implements f {
-    protected InvoiceInfoItemView[] bHn;
+    protected InvoiceInfoItemView[] bHq;
 
     public InvoiceBaseInfoView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -17,21 +17,21 @@ public abstract class InvoiceBaseInfoView extends LinearLayout implements f {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setTextChangedListener(TextWatcher textWatcher) {
-        if (this.bHn != null && textWatcher != null) {
-            for (int i = 0; i < this.bHn.length; i++) {
-                this.bHn[i].setTextChangedListener(textWatcher);
+        if (this.bHq != null && textWatcher != null) {
+            for (int i = 0; i < this.bHq.length; i++) {
+                this.bHq[i].setTextChangedListener(textWatcher);
             }
         }
     }
 
     @Override // com.baidu.tieba.aiapps.apps.invoice.f
-    public boolean Yy() {
+    public boolean YA() {
         InvoiceInfoItemView[] invoiceInfoItemViewArr;
-        if (this.bHn == null || this.bHn.length == 0) {
+        if (this.bHq == null || this.bHq.length == 0) {
             return false;
         }
-        for (InvoiceInfoItemView invoiceInfoItemView : this.bHn) {
-            if (invoiceInfoItemView.YC() && TextUtils.isEmpty(invoiceInfoItemView.getContent())) {
+        for (InvoiceInfoItemView invoiceInfoItemView : this.bHq) {
+            if (invoiceInfoItemView.YE() && TextUtils.isEmpty(invoiceInfoItemView.getContent())) {
                 return false;
             }
         }
@@ -39,11 +39,11 @@ public abstract class InvoiceBaseInfoView extends LinearLayout implements f {
     }
 
     @Override // com.baidu.tieba.aiapps.apps.invoice.f
-    public boolean Yz() {
-        if (this.bHn == null || this.bHn.length == 0) {
+    public boolean YB() {
+        if (this.bHq == null || this.bHq.length == 0) {
             return false;
         }
-        for (InvoiceInfoItemView invoiceInfoItemView : this.bHn) {
+        for (InvoiceInfoItemView invoiceInfoItemView : this.bHq) {
             if (!TextUtils.isEmpty(invoiceInfoItemView.getContent())) {
                 return true;
             }

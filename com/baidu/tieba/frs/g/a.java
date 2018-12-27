@@ -12,12 +12,12 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public abstract class a<T extends h> extends BaseAdapter {
     private List<T> data;
-    private TbPageContext ekr;
+    private TbPageContext eni;
 
     protected abstract View d(int i, View view, ViewGroup viewGroup);
 
     public a(@NonNull TbPageContext tbPageContext) {
-        this.ekr = tbPageContext;
+        this.eni = tbPageContext;
     }
 
     public void setData(@NonNull List<T> list) {
@@ -27,11 +27,11 @@ public abstract class a<T extends h> extends BaseAdapter {
 
     @NonNull
     public Context getContext() {
-        return this.ekr.getPageActivity();
+        return this.eni.getPageActivity();
     }
 
-    public TbPageContext aIM() {
-        return this.ekr;
+    public TbPageContext aJB() {
+        return this.eni;
     }
 
     @Override // android.widget.Adapter

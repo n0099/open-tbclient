@@ -37,7 +37,7 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
                         this.mUserInfo.setLike(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
                         this.mUserInfo.setCurScore(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
                         this.mUserInfo.setLevelupScore(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
-                        this.mUserInfo.uW(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
+                        this.mUserInfo.vj(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
                         this.mUserInfo.setLevelName(getMemberInfoResIdl.data.forum_member_info.level_name);
                     }
                     this.mMemberGroupInfoList = getMemberInfoResIdl.data.member_group_info;

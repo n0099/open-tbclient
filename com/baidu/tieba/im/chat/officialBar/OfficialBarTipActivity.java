@@ -39,8 +39,11 @@ import com.baidu.tieba.im.model.OfficialBarTipModel;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity> {
-    private com.baidu.tbadk.core.dialog.d eKA;
-    private final CustomMessageListener eKB = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity.3
+    private OfficialBarTipModel eNo;
+    private f eNp;
+    private ImMessageCenterShowItemData eNq;
+    private com.baidu.tbadk.core.dialog.d eNr;
+    private final CustomMessageListener eNs = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -52,14 +55,14 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                 } else if (customResponsedMessage.getCmd() == 2016007) {
                     OfficialBarTipActivity.this.d(customResponsedMessage);
                 } else if (customResponsedMessage.getCmd() == 2016001) {
-                    OfficialBarTipActivity.this.eKx.setData(null, OfficialBarTipActivity.this.eKD);
-                } else if (customResponsedMessage.getCmd() == 2016011 && OfficialBarTipActivity.this.eKy != null && OfficialBarTipActivity.this.eKy.aOK() != null) {
-                    OfficialBarTipActivity.this.eKy.aOK().notifyDataSetChanged();
+                    OfficialBarTipActivity.this.eNo.setData(null, OfficialBarTipActivity.this.eNu);
+                } else if (customResponsedMessage.getCmd() == 2016011 && OfficialBarTipActivity.this.eNp != null && OfficialBarTipActivity.this.eNp.aPy() != null) {
+                    OfficialBarTipActivity.this.eNp.aPy().notifyDataSetChanged();
                 }
             }
         }
     };
-    private final com.baidu.adp.framework.listener.c eKC = new com.baidu.adp.framework.listener.c(104102) { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity.4
+    private final com.baidu.adp.framework.listener.c eNt = new com.baidu.adp.framework.listener.c(104102) { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -70,7 +73,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                     RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) orginalMessage;
                     if (requestUpdateMaskInfoMessage.getMaskType() == 12 && requestUpdateMaskInfoMessage.getIsMask() == 1) {
                         if (responseUpdateMaskInfoMessage.getError() == 0) {
-                            OfficialBarTipActivity.this.px(requestUpdateMaskInfoMessage.getList());
+                            OfficialBarTipActivity.this.pA(requestUpdateMaskInfoMessage.getList());
                         } else {
                             OfficialBarTipActivity.this.getPageContext().showToast(StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString()) ? OfficialBarTipActivity.this.getPageContext().getResources().getString(e.j.neterror) : responseUpdateMaskInfoMessage.getErrorString());
                         }
@@ -79,42 +82,39 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
             }
         }
     };
-    private com.baidu.tieba.im.chat.a.a eKD = new com.baidu.tieba.im.chat.a.a() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity.5
+    private com.baidu.tieba.im.chat.a.a eNu = new com.baidu.tieba.im.chat.a.a() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity.5
         @Override // com.baidu.tieba.im.chat.a.a
         public void onComplete() {
-            OfficialBarTipActivity.this.aOI();
+            OfficialBarTipActivity.this.aPw();
         }
     };
-    private final com.baidu.tieba.im.chat.a.b eKE = new com.baidu.tieba.im.chat.a.b() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity.7
+    private final com.baidu.tieba.im.chat.a.b eNv = new com.baidu.tieba.im.chat.a.b() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity.7
         @Override // com.baidu.tieba.im.chat.a.b
         public void onPreExecute() {
-            OfficialBarTipActivity.this.ayA();
+            OfficialBarTipActivity.this.azp();
         }
 
         @Override // com.baidu.tieba.im.chat.a.b
         public void onProgressUpdate(int i, String str, int i2) {
-            if (OfficialBarTipActivity.this.eKA != null) {
-                OfficialBarTipActivity.this.eKA.setPercent(i);
+            if (OfficialBarTipActivity.this.eNr != null) {
+                OfficialBarTipActivity.this.eNr.setPercent(i);
             }
             OfficialBarTipActivity.this.notifyDataSetChanged();
         }
 
         @Override // com.baidu.tieba.im.chat.a.b
         public void onPostExecute() {
-            OfficialBarTipActivity.this.Tb();
+            OfficialBarTipActivity.this.Td();
             OfficialBarTipActivity.this.showToast(e.j.delete_success, false);
-            OfficialBarTipActivity.this.aOI();
+            OfficialBarTipActivity.this.aPw();
         }
 
         @Override // com.baidu.tieba.im.chat.a.b
         public void onCanceled() {
-            OfficialBarTipActivity.this.Tb();
-            OfficialBarTipActivity.this.aOI();
+            OfficialBarTipActivity.this.Td();
+            OfficialBarTipActivity.this.aPw();
         }
     };
-    private OfficialBarTipModel eKx;
-    private f eKy;
-    private ImMessageCenterShowItemData eKz;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
@@ -125,30 +125,30 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     }
 
     private void registerListener() {
-        registerListener(2016004, this.eKB);
-        registerListener(2016007, this.eKB);
-        registerListener(2016001, this.eKB);
-        registerListener(2016011, this.eKB);
-        registerListener(2016002, this.eKB);
-        registerListener(this.eKC);
+        registerListener(2016004, this.eNs);
+        registerListener(2016007, this.eNs);
+        registerListener(2016001, this.eNs);
+        registerListener(2016011, this.eNs);
+        registerListener(2016002, this.eNs);
+        registerListener(this.eNt);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.eKy.aOK().notifyDataSetChanged();
+        this.eNp.aPy().notifyDataSetChanged();
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a("-1000", -8)));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        Tb();
+        Td();
         super.onDestroy();
     }
 
     private void initData() {
-        this.eKx = new OfficialBarTipModel(getPageContext());
+        this.eNo = new OfficialBarTipModel(getPageContext());
     }
 
     @Override // android.app.Activity
@@ -172,21 +172,21 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     }
 
     private void initUI() {
-        this.eKy = new f(this);
-        this.eKy.aOJ().setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity.1
+        this.eNp = new f(this);
+        this.eNp.aPx().setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                ImMessageCenterShowItemData pD = OfficialBarTipActivity.this.eKy.aOK().getItem(i);
-                if (pD != null && view != null) {
-                    ImMessageCenterShowItemData imMessageCenterShowItemData = pD;
-                    if (OfficialBarTipActivity.this.eKy.aOK().aOw()) {
+                ImMessageCenterShowItemData pQ = OfficialBarTipActivity.this.eNp.aPy().getItem(i);
+                if (pQ != null && view != null) {
+                    ImMessageCenterShowItemData imMessageCenterShowItemData = pQ;
+                    if (OfficialBarTipActivity.this.eNp.aPy().aPk()) {
                         ImageView imageView = (ImageView) view.findViewById(e.g.select_status);
                         if (imMessageCenterShowItemData.isSelected()) {
                             imMessageCenterShowItemData.setSelected(false);
                             al.j(view, e.d.cp_bg_line_d);
                             al.i(imageView, e.f.btn_bgb_choice_n);
-                            if (!OfficialBarTipActivity.this.aOF()) {
-                                OfficialBarTipActivity.this.eKy.il(false);
+                            if (!OfficialBarTipActivity.this.aPt()) {
+                                OfficialBarTipActivity.this.eNp.io(false);
                                 return;
                             }
                             return;
@@ -194,7 +194,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                         imMessageCenterShowItemData.setSelected(true);
                         al.j(view, e.d.cp_bg_line_e);
                         al.i(imageView, e.f.btn_bgb_choice_s);
-                        OfficialBarTipActivity.this.eKy.ik(true);
+                        OfficialBarTipActivity.this.eNp.in(true);
                         return;
                     }
                     try {
@@ -208,7 +208,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                 }
             }
         });
-        this.eKy.aOJ().setOnItemLongClickListener(new AnonymousClass2());
+        this.eNp.aPx().setOnItemLongClickListener(new AnonymousClass2());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -220,23 +220,23 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
 
         @Override // android.widget.AdapterView.OnItemLongClickListener
         public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-            ImMessageCenterShowItemData pD = OfficialBarTipActivity.this.eKy.aOK().getItem(i);
-            if (pD != null) {
-                final ImMessageCenterShowItemData imMessageCenterShowItemData = pD;
-                if (OfficialBarTipActivity.this.eKy.aOK().aOw()) {
+            ImMessageCenterShowItemData pQ = OfficialBarTipActivity.this.eNp.aPy().getItem(i);
+            if (pQ != null) {
+                final ImMessageCenterShowItemData imMessageCenterShowItemData = pQ;
+                if (OfficialBarTipActivity.this.eNp.aPy().aPk()) {
                     ImageView imageView = (ImageView) view.findViewById(e.g.select_status);
                     if (imMessageCenterShowItemData.isSelected()) {
                         imMessageCenterShowItemData.setSelected(false);
                         al.j(view, e.d.cp_bg_line_d);
                         al.i(imageView, e.f.btn_bgb_choice_n);
-                        if (!OfficialBarTipActivity.this.aOF()) {
-                            OfficialBarTipActivity.this.eKy.ik(false);
+                        if (!OfficialBarTipActivity.this.aPt()) {
+                            OfficialBarTipActivity.this.eNp.in(false);
                         }
                     } else {
                         imMessageCenterShowItemData.setSelected(true);
                         al.j(view, e.d.cp_bg_line_e);
                         al.i(imageView, e.f.btn_bgb_choice_s);
-                        OfficialBarTipActivity.this.eKy.ik(true);
+                        OfficialBarTipActivity.this.eNp.in(true);
                     }
                 } else {
                     com.baidu.tbadk.coreExtra.d.a.a(OfficialBarTipActivity.this.getPageContext(), e.j.operation, new CharSequence[]{TbadkCoreApplication.getInst().getString(e.j.delete_user_chat), TbadkCoreApplication.getInst().getString(e.j.cancel_subscribe)}, new b.InterfaceC0158b() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity.2.1
@@ -244,15 +244,15 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                         public void a(com.baidu.tbadk.core.dialog.b bVar, int i2, View view2) {
                             bVar.dismiss();
                             if (i2 == 0) {
-                                OfficialBarTipActivity.this.eKx.asyncDeleteItem(imMessageCenterShowItemData, OfficialBarTipActivity.this.eKE);
+                                OfficialBarTipActivity.this.eNo.asyncDeleteItem(imMessageCenterShowItemData, OfficialBarTipActivity.this.eNv);
                                 return;
                             }
                             com.baidu.tbadk.core.dialog.a a = com.baidu.tbadk.coreExtra.d.a.a(OfficialBarTipActivity.this.getPageContext(), -1, e.j.make_sure_cancel_subscribe, e.j.confirm, e.j.cancel, new a.b() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity.2.1.1
                                 @Override // com.baidu.tbadk.core.dialog.a.b
                                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                                     aVar.dismiss();
-                                    OfficialBarTipActivity.this.eKx.subscribeBar(false, imMessageCenterShowItemData.getFriendId());
-                                    OfficialBarTipActivity.this.eKz = imMessageCenterShowItemData;
+                                    OfficialBarTipActivity.this.eNo.subscribeBar(false, imMessageCenterShowItemData.getFriendId());
+                                    OfficialBarTipActivity.this.eNq = imMessageCenterShowItemData;
                                 }
                             }, new a.b() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity.2.1.2
                                 @Override // com.baidu.tbadk.core.dialog.a.b
@@ -272,7 +272,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.eKy.onChangeSkinType(i);
+        this.eNp.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -288,11 +288,11 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
             MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
             ImMessageCenterPojo data = memoryChangedMessage.getData();
             if (memoryChangedMessage.getType() == 1) {
-                if (this.eKx != null) {
-                    this.eKx.insertOrUpdate(data, this.eKD);
+                if (this.eNo != null) {
+                    this.eNo.insertOrUpdate(data, this.eNu);
                 }
-            } else if (memoryChangedMessage.getType() == 2 && this.eKx != null) {
-                this.eKx.remove(data, this.eKD);
+            } else if (memoryChangedMessage.getType() == 2 && this.eNo != null) {
+                this.eNo.remove(data, this.eNu);
             }
         }
     }
@@ -302,23 +302,23 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
             ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
             List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
-            if (responsedMemoryListMessage.getType() == 2 && this.eKx != null) {
-                this.eKx.setData(data, this.eKD);
+            if (responsedMemoryListMessage.getType() == 2 && this.eNo != null) {
+                this.eNo.setData(data, this.eNu);
             }
         }
     }
 
     public void updateEditStatus(boolean z) {
-        this.eKx.updateEditStatus(z);
-        this.eKy.setData(this.eKx.getData());
+        this.eNo.updateEditStatus(z);
+        this.eNp.setData(this.eNo.getData());
     }
 
-    public void aOE() {
-        this.eKx.deleteSelectedDatas(this.eKE);
+    public void aPs() {
+        this.eNo.deleteSelectedDatas(this.eNv);
     }
 
-    public boolean aOF() {
-        List<ImMessageCenterShowItemData> data = this.eKx.getData();
+    public boolean aPt() {
+        List<ImMessageCenterShowItemData> data = this.eNo.getData();
         for (int i = 0; i != data.size(); i++) {
             if (data.get(i).isSelected()) {
                 return true;
@@ -327,17 +327,17 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         return false;
     }
 
-    public void aOG() {
-        List<ImMessageCenterShowItemData> data = this.eKx.getData();
+    public void aPu() {
+        List<ImMessageCenterShowItemData> data = this.eNo.getData();
         for (int i = 0; i != data.size(); i++) {
             data.get(i).setUnReadCount(0);
             MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(data.get(i).getFriendId(), 4)));
         }
-        this.eKy.setData(this.eKx.getData());
+        this.eNp.setData(this.eNo.getData());
     }
 
-    public boolean aOH() {
-        List<ImMessageCenterShowItemData> data = this.eKx.getData();
+    public boolean aPv() {
+        List<ImMessageCenterShowItemData> data = this.eNo.getData();
         for (int i = 0; i != data.size(); i++) {
             if (data.get(i).getUnReadCount() != 0) {
                 return true;
@@ -347,15 +347,15 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void px(final String str) {
-        this.eKx.asyncDeleteItem(this.eKz, this.eKE);
+    public void pA(final String str) {
+        this.eNo.asyncDeleteItem(this.eNq, this.eNv);
         new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity.6
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
                 if (!TextUtils.isEmpty(str)) {
-                    com.baidu.tieba.im.settingcache.d.aUj().i(TbadkApplication.getCurrentAccount(), String.valueOf(str), false);
+                    com.baidu.tieba.im.settingcache.d.aUX().i(TbadkApplication.getCurrentAccount(), String.valueOf(str), false);
                 }
                 return null;
             }
@@ -364,20 +364,20 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ayA() {
-        Tb();
-        if (this.eKA == null) {
-            this.eKA = com.baidu.tieba.im.db.e.aQq().cD(getPageContext().getPageActivity());
+    public void azp() {
+        Td();
+        if (this.eNr == null) {
+            this.eNr = com.baidu.tieba.im.db.e.aRe().cD(getPageContext().getPageActivity());
         }
-        this.eKA.show();
-        this.eKA.setPercent(0);
+        this.eNr.show();
+        this.eNr.setPercent(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Tb() {
-        if (this.eKA != null && this.eKA.isShowing()) {
-            this.eKA.dismiss();
-            this.eKA = null;
+    public void Td() {
+        if (this.eNr != null && this.eNr.isShowing()) {
+            this.eNr.dismiss();
+            this.eNr = null;
         }
         closeLoadingDialog();
         dismissAllDialog();
@@ -385,19 +385,19 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyDataSetChanged() {
-        if (this.eKy != null && this.eKy.aOK() != null) {
-            this.eKy.aOK().notifyDataSetChanged();
+        if (this.eNp != null && this.eNp.aPy() != null) {
+            this.eNp.aPy().notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aOI() {
-        if (this.eKy != null && this.eKy.aOK() != null && this.eKx != null) {
-            if (this.eKx != null && this.eKx.isEmpty()) {
+    public void aPw() {
+        if (this.eNp != null && this.eNp.aPy() != null && this.eNo != null) {
+            if (this.eNo != null && this.eNo.isEmpty()) {
                 finish();
             }
             new AddMsgRecordModel().req();
-            this.eKy.setData(this.eKx.getData());
+            this.eNp.setData(this.eNo.getData());
         }
     }
 }

@@ -10,13 +10,13 @@ import com.baidu.tieba.frs.h;
 import com.baidu.tieba.frs.worldcup.c;
 /* loaded from: classes3.dex */
 public class b extends h<bb, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.worldcup.videotopic.d.a>> {
-    private ad<bb> ejN;
+    private ad<bb> emD;
     private String mForumId;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
         this.mForumId = "";
-        this.ejN = new ad<bb>() { // from class: com.baidu.tieba.frs.worldcup.videotopic.a.b.1
+        this.emD = new ad<bb>() { // from class: com.baidu.tieba.frs.worldcup.videotopic.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             public void a(View view, bb bbVar) {
@@ -31,10 +31,10 @@ public class b extends h<bb, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.worldc
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: Z */
+    /* renamed from: aa */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.frs.worldcup.videotopic.d.a> onCreateViewHolder(ViewGroup viewGroup) {
         com.baidu.tieba.frs.worldcup.videotopic.d.a aVar = new com.baidu.tieba.frs.worldcup.videotopic.d.a(this.mPageContext, this.mPageId);
-        aVar.b(this.ejN);
+        aVar.b(this.emD);
         aVar.j(this.mPageId);
         return new com.baidu.tieba.card.a.a<>(aVar);
     }
@@ -44,12 +44,12 @@ public class b extends h<bb, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.worldc
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bb bbVar, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.worldcup.videotopic.d.a> aVar) {
-        if (aVar == null || aVar.aqe() == null) {
+        if (aVar == null || aVar.aqT() == null) {
             return null;
         }
         super.onFillViewHolder(i, view, viewGroup, bbVar, aVar);
-        aVar.aqe().b(this.ejN);
-        aVar.aqe().a(bbVar);
+        aVar.aqT().b(this.emD);
+        aVar.aqT().a(bbVar);
         if (bbVar != null) {
             bbVar.AD();
         }

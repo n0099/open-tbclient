@@ -13,31 +13,31 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.f.a;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.tieba.f.b cvK;
+    private com.baidu.tieba.f.b cwP;
     private Context mContext;
     private boolean mIsEnable;
     private BdUniqueId mPageId;
     private VelocityTracker mVelocityTracker;
-    private boolean biK = false;
-    private a.InterfaceC0214a cvL = new a.InterfaceC0214a() { // from class: com.baidu.tieba.frs.gametab.b.1
-        final int cHa = (int) TbadkCoreApplication.getInst().getResources().getDimension(e.C0210e.ds98);
-
-        @Override // com.baidu.tieba.f.a.InterfaceC0214a
-        public void aq(int i, int i2) {
-            if (Math.abs(i) <= Math.abs(i2) && ag(i2)) {
-                b.this.gN(false);
-            }
-        }
+    private boolean biN = false;
+    private a.InterfaceC0214a cwQ = new a.InterfaceC0214a() { // from class: com.baidu.tieba.frs.gametab.b.1
+        final int cIa = (int) TbadkCoreApplication.getInst().getResources().getDimension(e.C0210e.ds98);
 
         @Override // com.baidu.tieba.f.a.InterfaceC0214a
         public void ar(int i, int i2) {
             if (Math.abs(i) <= Math.abs(i2) && ag(i2)) {
-                b.this.gN(true);
+                b.this.gQ(false);
             }
         }
 
         @Override // com.baidu.tieba.f.a.InterfaceC0214a
         public void as(int i, int i2) {
+            if (Math.abs(i) <= Math.abs(i2) && ag(i2)) {
+                b.this.gQ(true);
+            }
+        }
+
+        @Override // com.baidu.tieba.f.a.InterfaceC0214a
+        public void at(int i, int i2) {
         }
 
         private boolean ag(float f) {
@@ -50,8 +50,8 @@ public class b {
         this.mPageId = bdUniqueId;
         this.mIsEnable = z;
         if (this.mIsEnable) {
-            this.cvK = new com.baidu.tieba.f.b(context);
-            this.cvK.a(this.cvL);
+            this.cwP = new com.baidu.tieba.f.b(context);
+            this.cwP.a(this.cwQ);
         }
     }
 
@@ -75,8 +75,8 @@ public class b {
                     break;
                 }
         }
-        if (this.mIsEnable && this.cvK != null) {
-            this.cvK.onTouchEvent(motionEvent);
+        if (this.mIsEnable && this.cwP != null) {
+            this.cwP.onTouchEvent(motionEvent);
         }
     }
 
@@ -89,10 +89,10 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gN(boolean z) {
-        this.biK = z;
+    public void gQ(boolean z) {
+        this.biN = z;
         if (this.mIsEnable) {
-            o(!this.biK, true);
+            o(!this.biN, true);
         }
     }
 

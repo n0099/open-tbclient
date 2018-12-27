@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a {
-    private com.baidu.tieba.personCenter.a.c gqZ;
-    private d grp;
-    private com.baidu.tieba.personCenter.a.a grq;
-    private com.baidu.tieba.personCenter.a.b grr;
-    private e grs;
+    private com.baidu.tieba.personCenter.a.c gtQ;
+    private d gug;
+    private com.baidu.tieba.personCenter.a.a guh;
+    private com.baidu.tieba.personCenter.a.b gui;
+    private e guj;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
@@ -26,16 +26,16 @@ public class a {
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.grp = new d(tbPageContext, g.grV);
-        this.grq = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.c.grF);
-        this.grr = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.d.grG);
-        this.grs = new e(tbPageContext, i.gsa);
-        this.gqZ = new com.baidu.tieba.personCenter.a.c(tbPageContext, f.grU);
-        this.mAdapters.add(this.grp);
-        this.mAdapters.add(this.grq);
-        this.mAdapters.add(this.grr);
-        this.mAdapters.add(this.grs);
-        this.mAdapters.add(this.gqZ);
+        this.gug = new d(tbPageContext, g.guM);
+        this.guh = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.c.guw);
+        this.gui = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.d.gux);
+        this.guj = new e(tbPageContext, i.guR);
+        this.gtQ = new com.baidu.tieba.personCenter.a.c(tbPageContext, f.guL);
+        this.mAdapters.add(this.gug);
+        this.mAdapters.add(this.guh);
+        this.mAdapters.add(this.gui);
+        this.mAdapters.add(this.guj);
+        this.mAdapters.add(this.gtQ);
         bdTypeListView.addAdapters(this.mAdapters);
     }
 
@@ -45,11 +45,11 @@ public class a {
         }
     }
 
-    public void boA() {
-        this.grq.boA();
+    public void bpm() {
+        this.guh.bpm();
     }
 
-    public void boB() {
-        this.grq.destroy();
+    public void bpn() {
+        this.guh.destroy();
     }
 }

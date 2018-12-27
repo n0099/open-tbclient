@@ -33,6 +33,11 @@ public class az {
                 iArr[1] = iArr[1] - findViewById.getHeight();
             }
         }
+        int[] aS = com.baidu.adp.lib.util.l.aS(activity);
+        if (iArr[0] == 0 || iArr[1] == 0) {
+            iArr[0] = aS[0];
+            iArr[1] = aS[1];
+        }
         return iArr;
     }
 }

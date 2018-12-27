@@ -11,9 +11,9 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import tbclient.BlockPopInfo;
 /* loaded from: classes.dex */
 public class c {
-    private static BlockPopInfo hzg;
-    private static BlockPopInfo hzh;
-    private CustomMessageListener bQv = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.ueg.c.3
+    private static BlockPopInfo hCr;
+    private static BlockPopInfo hCs;
+    private CustomMessageListener bQy = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.ueg.c.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -27,7 +27,7 @@ public class c {
 
     public c(TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
-        this.mContext.registerListener(this.bQv);
+        this.mContext.registerListener(this.bQy);
     }
 
     private boolean a(BlockPopInfo blockPopInfo) {
@@ -55,12 +55,12 @@ public class c {
         }
     }
 
-    public boolean bHq() {
-        return a(hzg);
+    public boolean bIg() {
+        return a(hCr);
     }
 
-    public boolean bHr() {
-        return a(hzh);
+    public boolean bIh() {
+        return a(hCs);
     }
 
     private void b(final BlockPopInfo blockPopInfo) {
@@ -91,10 +91,10 @@ public class c {
     }
 
     public static void d(BlockPopInfo blockPopInfo) {
-        hzg = blockPopInfo;
+        hCr = blockPopInfo;
     }
 
     public static void e(BlockPopInfo blockPopInfo) {
-        hzh = blockPopInfo;
+        hCs = blockPopInfo;
     }
 }

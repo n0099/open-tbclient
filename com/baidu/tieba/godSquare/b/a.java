@@ -19,15 +19,15 @@ import com.baidu.tieba.card.data.f;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tieba.card.a<f> {
-    private c cUn;
-    public ClickableHeaderImageView eiq;
-    public CommonUserLikeButton eoN;
-    private TextView eoO;
-    private TextView eoP;
-    private TextView eoQ;
-    private Drawable eoR;
-    private MetaData eoS;
-    private f eoT;
+    private c cXd;
+    public ClickableHeaderImageView elg;
+    public CommonUserLikeButton erE;
+    private TextView erF;
+    private TextView erG;
+    private TextView erH;
+    private Drawable erI;
+    private MetaData erJ;
+    private f erK;
     private View mBottomLine;
     private TbPageContext<?> mPageContext;
 
@@ -35,17 +35,17 @@ public class a extends com.baidu.tieba.card.a<f> {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
         getView().setOnClickListener(this);
-        this.eiq = (ClickableHeaderImageView) getView().findViewById(e.g.god_header_view);
-        this.eiq.setGodIconMargin(e.C0210e.ds4);
-        this.eiq.setAfterClickListener(this);
-        this.eoP = (TextView) getView().findViewById(e.g.god_name);
-        this.eoQ = (TextView) getView().findViewById(e.g.god_describe);
-        this.eoN = (CommonUserLikeButton) getView().findViewById(e.g.god_like_btn);
-        this.cUn = new c(tbPageContext, this.eoN);
-        this.eoN.setAfterOnClickListener(this);
+        this.elg = (ClickableHeaderImageView) getView().findViewById(e.g.god_header_view);
+        this.elg.setGodIconMargin(e.C0210e.ds4);
+        this.elg.setAfterClickListener(this);
+        this.erG = (TextView) getView().findViewById(e.g.god_name);
+        this.erH = (TextView) getView().findViewById(e.g.god_describe);
+        this.erE = (CommonUserLikeButton) getView().findViewById(e.g.god_like_btn);
+        this.cXd = new c(tbPageContext, this.erE);
+        this.erE.setAfterOnClickListener(this);
         this.mBottomLine = getView().findViewById(e.g.bottom_line);
-        this.eoO = (TextView) getView().findViewById(e.g.god_rank);
-        this.eoR = this.mPageContext.getResources().getDrawable(e.f.transparent_bg);
+        this.erF = (TextView) getView().findViewById(e.g.god_rank);
+        this.erI = this.mPageContext.getResources().getDrawable(e.f.transparent_bg);
     }
 
     public void h(BdUniqueId bdUniqueId) {
@@ -57,10 +57,10 @@ public class a extends com.baidu.tieba.card.a<f> {
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             al.i(getView(), e.f.home_thread_card_item_bg);
-            al.h(this.eoP, e.d.cp_cont_b);
-            al.h(this.eoQ, e.d.cp_cont_d);
+            al.h(this.erG, e.d.cp_cont_b);
+            al.h(this.erH, e.d.cp_cont_d);
             al.j(this.mBottomLine, e.d.cp_bg_line_b);
-            al.h(this.eoO, e.d.cp_cont_d);
+            al.h(this.erF, e.d.cp_cont_d);
         }
         this.mSkinType = i;
     }
@@ -74,51 +74,51 @@ public class a extends com.baidu.tieba.card.a<f> {
     @Override // com.baidu.tieba.card.a
     public void a(f fVar) {
         if (fVar != null && fVar.atK != null && fVar.atK.getGodUserData() != null) {
-            this.eoT = fVar;
-            this.eoS = fVar.atK;
-            ok(fVar.rank);
-            this.eiq.setData(fVar.atK);
-            this.eoP.setText(fVar.atK.getName_show());
-            this.eoQ.setText(fVar.atK.getGodUserData().getIntro());
-            this.cUn.a(fVar.atK);
+            this.erK = fVar;
+            this.erJ = fVar.atK;
+            ox(fVar.rank);
+            this.elg.setData(fVar.atK);
+            this.erG.setText(fVar.atK.getName_show());
+            this.erH.setText(fVar.atK.getGodUserData().getIntro());
+            this.cXd.a(fVar.atK);
             d(null, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void ok(int i) {
+    private void ox(int i) {
         String str;
         switch (i) {
             case 1:
-                this.eoO.setText("");
-                al.i(this.eoO, e.f.icon_grade_round_no1);
+                this.erF.setText("");
+                al.i(this.erF, e.f.icon_grade_round_no1);
                 return;
             case 2:
-                this.eoO.setText("");
-                al.i(this.eoO, e.f.icon_grade_round_no2);
+                this.erF.setText("");
+                al.i(this.erF, e.f.icon_grade_round_no2);
                 return;
             case 3:
-                this.eoO.setText("");
-                al.i(this.eoO, e.f.icon_grade_round_no3);
+                this.erF.setText("");
+                al.i(this.erF, e.f.icon_grade_round_no3);
                 return;
             default:
-                this.eoO.setBackgroundDrawable(this.eoR);
+                this.erF.setBackgroundDrawable(this.erI);
                 if (i < 100) {
                     str = String.format("%02d", Integer.valueOf(i));
                 } else {
                     str = i + "";
                 }
-                this.eoO.setText(str);
+                this.erF.setText(str);
                 return;
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (apc() != null) {
-            apc().a(view, this.eoT);
+        if (apS() != null) {
+            apS().a(view, this.erK);
         }
-        if (view == getView() && this.eoS != null && !StringUtils.isNull(this.eoS.getName_show()) && !StringUtils.isNull(this.eoS.getUserId())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.g.b.d(this.eoS.getUserId(), 0L), false, this.eoS.isBigV())));
+        if (view == getView() && this.erJ != null && !StringUtils.isNull(this.erJ.getName_show()) && !StringUtils.isNull(this.erJ.getUserId())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.g.b.d(this.erJ.getUserId(), 0L), false, this.erJ.isBigV())));
         }
     }
 }

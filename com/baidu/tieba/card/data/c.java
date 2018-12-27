@@ -14,64 +14,64 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
 public abstract class c extends b implements ae {
-    private String cXG;
-    private int cXH;
-    private String cXI;
-    private String cXJ;
-    public int cXM;
+    private String daA;
+    private String daB;
+    public int daE;
+    private String dax;
+    private int daz;
     private String mExtra;
     private String mSource;
     public String tid;
-    public int aFp = 1;
-    public int cXK = 0;
+    public int aFq = 1;
+    public int daC = 0;
     public SparseArray<String> asc = null;
-    private Integer cXL = 0;
+    private Integer daD = 0;
 
     public void setWeight(String str) {
-        this.cXG = str;
+        this.dax = str;
     }
 
     public void setSource(String str) {
         this.mSource = str;
     }
 
-    public void kC(int i) {
-        this.cXH = i;
+    public void kP(int i) {
+        this.daz = i;
     }
 
-    public void mG(String str) {
-        this.cXI = str;
+    public void mJ(String str) {
+        this.daA = str;
     }
 
-    public int apN() {
-        return this.cXH;
+    public int aqC() {
+        return this.daz;
     }
 
-    public String apO() {
-        return this.mSource + "#" + this.cXH + "#" + this.cXI;
+    public String aqD() {
+        return this.mSource + "#" + this.daz + "#" + this.daA;
     }
 
     public String getWeight() {
-        return this.cXG;
+        return this.dax;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String apP() {
-        return this.cXI;
+    public String aqE() {
+        return this.daA;
     }
 
-    public String apQ() {
-        return this.cXJ;
+    public String aqF() {
+        return this.daB;
     }
 
-    public void mH(String str) {
-        this.cXJ = str;
+    public void mK(String str) {
+        this.daB = str;
     }
 
-    public bb ZR() {
+    public bb ZT() {
         return null;
     }
 
@@ -87,49 +87,49 @@ public abstract class c extends b implements ae {
         return this.mExtra;
     }
 
-    public Integer apR() {
-        return this.cXL;
+    public Integer aqG() {
+        return this.daD;
     }
 
     public void c(Integer num) {
-        this.cXL = num;
+        this.daD = num;
     }
 
-    public am mI(String str) {
+    public am mL(String str) {
         return y(str, false);
     }
 
     public am y(String str, boolean z) {
-        bb ZR = ZR();
-        if (ZR == null) {
+        bb ZT = ZT();
+        if (ZT == null) {
             return null;
         }
-        am aA = new am(str).aA(ImageViewerConfig.FORUM_ID, String.valueOf(ZR.getFid())).aA("tid", String.valueOf(ZR.getTid())).aA(VideoPlayActivityConfig.OBJ_ID, getExtra()).aA("obj_param1", getWeight()).x("obj_param2", 1).aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).x("obj_locate", apN()).aA("uid", TbadkCoreApplication.getCurrentAccount()).aA("obj_param3", com.baidu.tieba.card.o.apu());
+        am aA = new am(str).aA(ImageViewerConfig.FORUM_ID, String.valueOf(ZT.getFid())).aA("tid", String.valueOf(ZT.getTid())).aA(VideoPlayActivityConfig.OBJ_ID, getExtra()).aA("obj_param1", getWeight()).x("obj_param2", 1).aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).x("obj_locate", aqC()).aA("uid", TbadkCoreApplication.getCurrentAccount()).aA("obj_param3", com.baidu.tieba.card.o.aqj());
         if (!z) {
-            aA.x("obj_type", apS());
+            aA.x("obj_type", aqH());
         } else {
-            if (ZR.avr > 0) {
+            if (ZT.avr > 0) {
                 aA.x("midpageflag", 1);
             } else {
                 aA.x("midpageflag", 0);
             }
-            aA.aA("ab_tag", apP());
-            aA.x("is_vertical", apR().intValue());
+            aA.aA("ab_tag", aqE());
+            aA.x("is_vertical", aqG().intValue());
         }
-        if (ZR.AX() != null && ZR.AX().bDt() != null && ZR.AX().bDt().RZ() != null && ZR.AX().bDt().RZ().size() > 0) {
-            aA.x("obj_to", ZR.AX().hlS ? 2 : 1);
+        if (ZT.AX() != null && ZT.AX().bEl() != null && ZT.AX().bEl().Sb() != null && ZT.AX().bEl().Sb().size() > 0) {
+            aA.x("obj_to", ZT.AX().hpd ? 2 : 1);
         }
         return aA;
     }
 
-    public am aa(String str, int i) {
-        bb ZR = ZR();
-        if (ZR == null) {
+    public am ab(String str, int i) {
+        bb ZT = ZT();
+        if (ZT == null) {
             return null;
         }
-        am aA = new am(str).aA(ImageViewerConfig.FORUM_ID, String.valueOf(ZR.getFid())).aA("tid", String.valueOf(ZR.getTid())).x(VideoPlayActivityConfig.OBJ_ID, R(ZR)).x("obj_param2", 1).aA("obj_param1", getWeight()).aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).x("obj_locate", apN()).aA("obj_name", apP()).aA("uid", TbadkCoreApplication.getCurrentAccount()).aA("obj_param3", com.baidu.tieba.card.o.apu());
+        am aA = new am(str).aA(ImageViewerConfig.FORUM_ID, String.valueOf(ZT.getFid())).aA("tid", String.valueOf(ZT.getTid())).x(VideoPlayActivityConfig.OBJ_ID, R(ZT)).x("obj_param2", 1).aA("obj_param1", getWeight()).aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).x("obj_locate", aqC()).aA("obj_name", aqE()).aA("uid", TbadkCoreApplication.getCurrentAccount()).aA("obj_param3", com.baidu.tieba.card.o.aqj());
         if (i == 0) {
-            aA.x("obj_type", apS());
+            aA.x("obj_type", aqH());
         } else {
             aA.x("obj_type", i);
         }
@@ -137,14 +137,14 @@ public abstract class c extends b implements ae {
         return aA;
     }
 
-    private int apS() {
+    private int aqH() {
         int i;
         int i2 = 0;
-        bb ZR = ZR();
-        if (ZR == null) {
+        bb ZT = ZT();
+        if (ZT == null) {
             return 0;
         }
-        ArrayList<MediaData> zR = ZR.zR();
+        ArrayList<MediaData> zR = ZT.zR();
         if (zR == null) {
             i = 0;
         } else {
@@ -166,9 +166,9 @@ public abstract class c extends b implements ae {
 
     @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<PreLoadImageInfo> getImages() {
-        bb ZR = ZR();
-        if (ZR != null) {
-            return ZR.getImages();
+        bb ZT = ZT();
+        if (ZT != null) {
+            return ZT.getImages();
         }
         return null;
     }
@@ -180,11 +180,11 @@ public abstract class c extends b implements ae {
         return (int) bbVar.AJ().channelId;
     }
 
-    public void kD(int i) {
-        this.cXM = i;
+    public void kQ(int i) {
+        this.daE = i;
     }
 
-    public boolean apT() {
-        return this.cXM == 1;
+    public boolean aqI() {
+        return this.daE == 1;
     }
 }

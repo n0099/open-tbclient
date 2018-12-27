@@ -9,7 +9,7 @@ import rx.k;
 import rx.subscriptions.e;
 /* loaded from: classes2.dex */
 public class TestScheduler extends g {
-    static long iDN;
+    static long iGX;
     final Queue<c> queue = new PriorityQueue(11, new a());
     long time;
 
@@ -18,16 +18,16 @@ public class TestScheduler extends g {
     public static final class c {
         final rx.functions.a action;
         private final long count;
-        final g.a iOb;
+        final g.a iRl;
         final long time;
 
         c(g.a aVar, long j, rx.functions.a aVar2) {
-            long j2 = TestScheduler.iDN;
-            TestScheduler.iDN = 1 + j2;
+            long j2 = TestScheduler.iGX;
+            TestScheduler.iGX = 1 + j2;
             this.count = j2;
             this.time = j;
             this.action = aVar2;
-            this.iOb = aVar;
+            this.iRl = aVar;
         }
 
         public String toString() {
@@ -67,14 +67,14 @@ public class TestScheduler extends g {
     }
 
     public void advanceTimeTo(long j, TimeUnit timeUnit) {
-        dY(timeUnit.toNanos(j));
+        ed(timeUnit.toNanos(j));
     }
 
     public void triggerActions() {
-        dY(this.time);
+        ed(this.time);
     }
 
-    private void dY(long j) {
+    private void ed(long j) {
         while (!this.queue.isEmpty()) {
             c peek = this.queue.peek();
             if (peek.time > j) {
@@ -82,7 +82,7 @@ public class TestScheduler extends g {
             }
             this.time = peek.time == 0 ? this.time : peek.time;
             this.queue.remove();
-            if (!peek.iOb.isUnsubscribed()) {
+            if (!peek.iRl.isUnsubscribed()) {
                 peek.action.call();
             }
         }
@@ -96,19 +96,19 @@ public class TestScheduler extends g {
 
     /* loaded from: classes2.dex */
     final class b extends g.a {
-        private final rx.subscriptions.a iNX = new rx.subscriptions.a();
+        private final rx.subscriptions.a iRh = new rx.subscriptions.a();
 
         b() {
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.iNX.unsubscribe();
+            this.iRh.unsubscribe();
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.iNX.isUnsubscribed();
+            return this.iRh.isUnsubscribed();
         }
 
         @Override // rx.g.a

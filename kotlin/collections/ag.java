@@ -12,7 +12,7 @@ public abstract class ag implements Iterator<Short> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: cbI */
+    /* renamed from: ccz */
     public final Short next() {
         return Short.valueOf(nextShort());
     }

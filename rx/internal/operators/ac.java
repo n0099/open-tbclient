@@ -4,10 +4,10 @@ import rx.d;
 import rx.internal.producers.SingleDelayedProducer;
 /* loaded from: classes2.dex */
 public final class ac<T> implements d.b<Boolean, T> {
-    final rx.functions.f<? super T, Boolean> iCA;
+    final rx.functions.f<? super T, Boolean> iFK;
 
     public ac(rx.functions.f<? super T, Boolean> fVar) {
-        this.iCA = fVar;
+        this.iFK = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,7 @@ public final class ac<T> implements d.b<Boolean, T> {
             public void onNext(T t) {
                 if (!this.done) {
                     try {
-                        if (!ac.this.iCA.call(t).booleanValue()) {
+                        if (!ac.this.iFK.call(t).booleanValue()) {
                             this.done = true;
                             singleDelayedProducer.setValue(false);
                             unsubscribe();

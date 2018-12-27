@@ -81,7 +81,7 @@ public class SampleToChunkBox extends AbstractFullBox {
     }
 
     public long[] blowup(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.ze(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.zr(i)));
         long[] jArr = new long[i];
         LinkedList linkedList = new LinkedList(this.entries);
         Collections.reverse(linkedList);

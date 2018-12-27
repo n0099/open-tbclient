@@ -1,7 +1,7 @@
 package com.facebook.common.e;
 /* loaded from: classes2.dex */
 public class a {
-    private static volatile b igr = new C0353a();
+    private static volatile b ijB = new C0353a();
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -18,6 +18,6 @@ public class a {
     }
 
     public static void loadLibrary(String str) {
-        igr.loadLibrary(str);
+        ijB.loadLibrary(str);
     }
 }

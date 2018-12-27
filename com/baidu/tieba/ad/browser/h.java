@@ -23,7 +23,7 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class h implements com.baidu.tieba.tbadkCore.e.b {
-    private AdBaseWebView bBF;
+    private AdBaseWebView bBI;
     private final TbPageContext<?> mTbPageContext;
     private final CustomMessageListener installListener = new CustomMessageListener(2002501) { // from class: com.baidu.tieba.ad.browser.h.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -184,7 +184,7 @@ public class h implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private void startDownload(String str) {
-        com.baidu.tbadk.download.b.LP().a("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(e.j.xiuba_apk_name), -1, -1);
+        com.baidu.tbadk.download.b.LQ().a("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(e.j.xiuba_apk_name), -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -199,8 +199,8 @@ public class h implements com.baidu.tieba.tbadkCore.e.b {
         JSONObject jsonWithObject = OrmObject.jsonWithObject(jSResultData);
         if (this.mTbPageContext.getOrignalPage() instanceof AdBaseWebViewActivity) {
             ((AdBaseWebViewActivity) this.mTbPageContext.getOrignalPage()).loadUrl("javascript:addEventLisener('download'," + jsonWithObject + ")");
-        } else if (this.bBF != null) {
-            this.bBF.loadUrl("javascript:addEventLisener('download'," + jsonWithObject + ")");
+        } else if (this.bBI != null) {
+            this.bBI.loadUrl("javascript:addEventLisener('download'," + jsonWithObject + ")");
         }
     }
 
@@ -216,8 +216,8 @@ public class h implements com.baidu.tieba.tbadkCore.e.b {
         JSONObject jsonWithObject = OrmObject.jsonWithObject(jSResultData);
         if (this.mTbPageContext.getOrignalPage() instanceof AdBaseWebViewActivity) {
             ((AdBaseWebViewActivity) this.mTbPageContext.getOrignalPage()).loadUrl("javascript:addEventLisener('install'," + jsonWithObject + ")");
-        } else if (this.bBF != null) {
-            this.bBF.loadUrl("javascript:addEventLisener('install'," + jsonWithObject + ")");
+        } else if (this.bBI != null) {
+            this.bBI.loadUrl("javascript:addEventLisener('install'," + jsonWithObject + ")");
         }
     }
 

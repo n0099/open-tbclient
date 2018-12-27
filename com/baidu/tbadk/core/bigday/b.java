@@ -124,7 +124,7 @@ public class b {
             this.aoz = c(arrayList, 3);
             this.aoB = arrayList;
             xV();
-            if (this.aoy != null && d.ge(this.aoy.imgUrl) && com.baidu.adp.lib.b.d.iQ().aO("android_bigday_switch") == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_bigday_next_showtime_home", 0L)) {
+            if (this.aoy != null && d.gf(this.aoy.imgUrl) && com.baidu.adp.lib.b.d.iQ().aO("android_bigday_switch") == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_bigday_next_showtime_home", 0L)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.aoy));
             }
         }
@@ -143,7 +143,7 @@ public class b {
             this.aoz = c2;
         }
         xV();
-        if (this.aoy != null && d.ge(this.aoy.imgUrl) && com.baidu.adp.lib.b.d.iQ().aO("android_bigday_switch") == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_bigday_next_showtime_home", 0L)) {
+        if (this.aoy != null && d.gf(this.aoy.imgUrl) && com.baidu.adp.lib.b.d.iQ().aO("android_bigday_switch") == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_bigday_next_showtime_home", 0L)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.aoy));
         }
     }
@@ -153,7 +153,7 @@ public class b {
             Iterator<com.baidu.tbadk.core.bigday.a> it = this.aoB.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.core.bigday.a next = it.next();
-                if (!d.ge(next.imgUrl)) {
+                if (!d.gf(next.imgUrl)) {
                     c.jA().a(next.imgUrl, 41, null, this.mTag);
                 }
             }
@@ -203,7 +203,7 @@ public class b {
             if (this.aoy != null && (currentTimeMillis < this.aoy.startTime || currentTimeMillis > this.aoy.endTime)) {
                 this.aoy = c(this.aoB, 1);
             }
-            if (this.aoy != null && d.ge(this.aoy.imgUrl)) {
+            if (this.aoy != null && d.gf(this.aoy.imgUrl)) {
                 return this.aoy;
             }
         } else if (i == 3) {
@@ -213,7 +213,7 @@ public class b {
             if (this.aoz != null && (currentTimeMillis < this.aoz.startTime || currentTimeMillis > this.aoz.endTime)) {
                 this.aoz = c(this.aoB, 3);
             }
-            if (this.aoz != null && d.ge(this.aoz.imgUrl)) {
+            if (this.aoz != null && d.gf(this.aoz.imgUrl)) {
                 return this.aoz;
             }
         }
@@ -246,9 +246,9 @@ public class b {
                 if (next != null) {
                     String k = c.jA().k(next.imgUrl, 41);
                     if (!StringUtils.isNULL(k)) {
-                        String fK = ar.fK(k);
-                        if (!StringUtils.isNULL(fK)) {
-                            this.aoG.add(fK);
+                        String fL = ar.fL(k);
+                        if (!StringUtils.isNULL(fL)) {
+                            this.aoG.add(fL);
                         }
                     }
                 }

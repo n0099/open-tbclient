@@ -12,15 +12,15 @@ import rx.d;
 import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes2.dex */
 public final class OperatorReplay<T> extends rx.observables.c<T> {
-    static final rx.functions.e iGS = new rx.functions.e() { // from class: rx.internal.operators.OperatorReplay.1
+    static final rx.functions.e iKc = new rx.functions.e() { // from class: rx.internal.operators.OperatorReplay.1
         @Override // rx.functions.e, java.util.concurrent.Callable
         public Object call() {
             return new UnboundedReplayBuffer(16);
         }
     };
-    final rx.d<? extends T> iBF;
-    final AtomicReference<b<T>> iGF;
-    final rx.functions.e<? extends a<T>> iGR;
+    final rx.d<? extends T> iEP;
+    final AtomicReference<b<T>> iJP;
+    final rx.functions.e<? extends a<T>> iKb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
@@ -92,14 +92,14 @@ public final class OperatorReplay<T> extends rx.observables.c<T> {
     }
 
     public static <T> rx.observables.c<T> k(rx.d<? extends T> dVar) {
-        return a(dVar, iGS);
+        return a(dVar, iKc);
     }
 
     public static <T> rx.observables.c<T> b(rx.d<? extends T> dVar, final int i) {
         return i == Integer.MAX_VALUE ? k(dVar) : a(dVar, new rx.functions.e<a<T>>() { // from class: rx.internal.operators.OperatorReplay.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.e, java.util.concurrent.Callable
-            /* renamed from: cdM */
+            /* renamed from: ceD */
             public a<T> call() {
                 return new SizeBoundReplayBuffer(i);
             }
@@ -115,7 +115,7 @@ public final class OperatorReplay<T> extends rx.observables.c<T> {
         return a(dVar, new rx.functions.e<a<T>>() { // from class: rx.internal.operators.OperatorReplay.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.e, java.util.concurrent.Callable
-            /* renamed from: cdM */
+            /* renamed from: ceD */
             public a<T> call() {
                 return new SizeAndTimeBoundReplayBuffer(i, millis, gVar);
             }
@@ -147,7 +147,7 @@ public final class OperatorReplay<T> extends rx.observables.c<T> {
                 InnerProducer<T> innerProducer = new InnerProducer<>(bVar, jVar);
                 bVar.a(innerProducer);
                 jVar.add(innerProducer);
-                bVar.iHc.replay(innerProducer);
+                bVar.iKm.replay(innerProducer);
                 jVar.setProducer(innerProducer);
             }
         }, dVar, atomicReference, eVar);
@@ -155,56 +155,56 @@ public final class OperatorReplay<T> extends rx.observables.c<T> {
 
     private OperatorReplay(d.a<T> aVar, rx.d<? extends T> dVar, AtomicReference<b<T>> atomicReference, rx.functions.e<? extends a<T>> eVar) {
         super(aVar);
-        this.iBF = dVar;
-        this.iGF = atomicReference;
-        this.iGR = eVar;
+        this.iEP = dVar;
+        this.iJP = atomicReference;
+        this.iKb = eVar;
     }
 
     @Override // rx.observables.c
     public void c(rx.functions.b<? super rx.k> bVar) {
         b<T> bVar2;
         while (true) {
-            bVar2 = this.iGF.get();
+            bVar2 = this.iJP.get();
             if (bVar2 != null && !bVar2.isUnsubscribed()) {
                 break;
             }
-            b<T> bVar3 = new b<>(this.iGR.call());
+            b<T> bVar3 = new b<>(this.iKb.call());
             bVar3.init();
-            if (this.iGF.compareAndSet(bVar2, bVar3)) {
+            if (this.iJP.compareAndSet(bVar2, bVar3)) {
                 bVar2 = bVar3;
                 break;
             }
         }
-        boolean z = !bVar2.iGP.get() && bVar2.iGP.compareAndSet(false, true);
+        boolean z = !bVar2.iJZ.get() && bVar2.iJZ.compareAndSet(false, true);
         bVar.call(bVar2);
         if (z) {
-            this.iBF.unsafeSubscribe(bVar2);
+            this.iEP.unsafeSubscribe(bVar2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class b<T> extends rx.j<T> implements rx.k {
-        static final InnerProducer[] iHd = new InnerProducer[0];
-        static final InnerProducer[] iHe = new InnerProducer[0];
+        static final InnerProducer[] iKn = new InnerProducer[0];
+        static final InnerProducer[] iKo = new InnerProducer[0];
         boolean done;
         boolean emitting;
-        final a<T> iHc;
-        volatile long iHh;
-        long iHi;
-        long iHj;
-        long iHk;
-        List<InnerProducer<T>> iHl;
-        boolean iHm;
+        final a<T> iKm;
+        volatile long iKr;
+        long iKs;
+        long iKt;
+        long iKu;
+        List<InnerProducer<T>> iKv;
+        boolean iKw;
         boolean missed;
         volatile rx.f producer;
         volatile boolean terminated;
-        final rx.internal.util.f<InnerProducer<T>> iHf = new rx.internal.util.f<>();
-        InnerProducer<T>[] iHg = iHd;
-        final AtomicBoolean iGP = new AtomicBoolean();
+        final rx.internal.util.f<InnerProducer<T>> iKp = new rx.internal.util.f<>();
+        InnerProducer<T>[] iKq = iKn;
+        final AtomicBoolean iJZ = new AtomicBoolean();
 
         public b(a<T> aVar) {
-            this.iHc = aVar;
+            this.iKm = aVar;
             request(0L);
         }
 
@@ -213,10 +213,10 @@ public final class OperatorReplay<T> extends rx.observables.c<T> {
                 @Override // rx.functions.a
                 public void call() {
                     if (!b.this.terminated) {
-                        synchronized (b.this.iHf) {
+                        synchronized (b.this.iKp) {
                             if (!b.this.terminated) {
-                                b.this.iHf.terminate();
-                                b.this.iHh++;
+                                b.this.iKp.terminate();
+                                b.this.iKr++;
                                 b.this.terminated = true;
                             }
                         }
@@ -231,10 +231,10 @@ public final class OperatorReplay<T> extends rx.observables.c<T> {
                 throw new NullPointerException();
             }
             if (!this.terminated) {
-                synchronized (this.iHf) {
+                synchronized (this.iKp) {
                     if (!this.terminated) {
-                        this.iHf.add(innerProducer);
-                        this.iHh++;
+                        this.iKp.add(innerProducer);
+                        this.iKr++;
                         z = true;
                     }
                 }
@@ -244,13 +244,13 @@ public final class OperatorReplay<T> extends rx.observables.c<T> {
 
         void b(InnerProducer<T> innerProducer) {
             if (!this.terminated) {
-                synchronized (this.iHf) {
+                synchronized (this.iKp) {
                     if (!this.terminated) {
-                        this.iHf.remove(innerProducer);
-                        if (this.iHf.isEmpty()) {
-                            this.iHg = iHd;
+                        this.iKp.remove(innerProducer);
+                        if (this.iKp.isEmpty()) {
+                            this.iKq = iKn;
                         }
-                        this.iHh++;
+                        this.iKr++;
                     }
                 }
             }
@@ -269,7 +269,7 @@ public final class OperatorReplay<T> extends rx.observables.c<T> {
         @Override // rx.e
         public void onNext(T t) {
             if (!this.done) {
-                this.iHc.next(t);
+                this.iKm.next(t);
                 replay();
             }
         }
@@ -279,7 +279,7 @@ public final class OperatorReplay<T> extends rx.observables.c<T> {
             if (!this.done) {
                 this.done = true;
                 try {
-                    this.iHc.error(th);
+                    this.iKm.error(th);
                     replay();
                 } finally {
                     unsubscribe();
@@ -292,7 +292,7 @@ public final class OperatorReplay<T> extends rx.observables.c<T> {
             if (!this.done) {
                 this.done = true;
                 try {
-                    this.iHc.complete();
+                    this.iKm.complete();
                     replay();
                 } finally {
                     unsubscribe();
@@ -301,35 +301,35 @@ public final class OperatorReplay<T> extends rx.observables.c<T> {
         }
 
         void c(InnerProducer<T> innerProducer) {
-            InnerProducer<T>[] cdN;
+            InnerProducer<T>[] ceE;
             long j;
             List<InnerProducer<T>> list;
             boolean z;
             long j2;
-            InnerProducer<T>[] cdN2;
+            InnerProducer<T>[] ceE2;
             if (!isUnsubscribed()) {
                 synchronized (this) {
                     if (this.emitting) {
                         if (innerProducer != null) {
-                            List list2 = this.iHl;
+                            List list2 = this.iKv;
                             if (list2 == null) {
                                 list2 = new ArrayList();
-                                this.iHl = list2;
+                                this.iKv = list2;
                             }
                             list2.add(innerProducer);
                         } else {
-                            this.iHm = true;
+                            this.iKw = true;
                         }
                         this.missed = true;
                         return;
                     }
                     this.emitting = true;
-                    long j3 = this.iHj;
+                    long j3 = this.iKt;
                     if (innerProducer != null) {
                         j = Math.max(j3, innerProducer.totalRequested.get());
                     } else {
                         j = j3;
-                        for (InnerProducer<T> innerProducer2 : cdN()) {
+                        for (InnerProducer<T> innerProducer2 : ceE()) {
                             if (innerProducer2 != null) {
                                 j = Math.max(j, innerProducer2.totalRequested.get());
                             }
@@ -343,12 +343,12 @@ public final class OperatorReplay<T> extends rx.observables.c<T> {
                                 return;
                             }
                             this.missed = false;
-                            list = this.iHl;
-                            this.iHl = null;
-                            z = this.iHm;
-                            this.iHm = false;
+                            list = this.iKv;
+                            this.iKv = null;
+                            z = this.iKw;
+                            this.iKw = false;
                         }
-                        long j4 = this.iHj;
+                        long j4 = this.iKt;
                         if (list != null) {
                             long j5 = j4;
                             for (InnerProducer<T> innerProducer3 : list) {
@@ -359,7 +359,7 @@ public final class OperatorReplay<T> extends rx.observables.c<T> {
                             j2 = j4;
                         }
                         if (z) {
-                            for (InnerProducer<T> innerProducer4 : cdN()) {
+                            for (InnerProducer<T> innerProducer4 : ceE()) {
                                 if (innerProducer4 != null) {
                                     j2 = Math.max(j2, innerProducer4.totalRequested.get());
                                 }
@@ -371,26 +371,26 @@ public final class OperatorReplay<T> extends rx.observables.c<T> {
             }
         }
 
-        InnerProducer<T>[] cdN() {
+        InnerProducer<T>[] ceE() {
             InnerProducer<T>[] innerProducerArr;
-            synchronized (this.iHf) {
-                InnerProducer<T>[] cen = this.iHf.cen();
-                int length = cen.length;
+            synchronized (this.iKp) {
+                InnerProducer<T>[] cfe = this.iKp.cfe();
+                int length = cfe.length;
                 innerProducerArr = new InnerProducer[length];
-                System.arraycopy(cen, 0, innerProducerArr, 0, length);
+                System.arraycopy(cfe, 0, innerProducerArr, 0, length);
             }
             return innerProducerArr;
         }
 
         void s(long j, long j2) {
-            long j3 = this.iHk;
+            long j3 = this.iKu;
             rx.f fVar = this.producer;
             long j4 = j - j2;
             if (j4 != 0) {
-                this.iHj = j;
+                this.iKt = j;
                 if (fVar != null) {
                     if (j3 != 0) {
-                        this.iHk = 0L;
+                        this.iKu = 0L;
                         fVar.request(j3 + j4);
                         return;
                     }
@@ -401,29 +401,29 @@ public final class OperatorReplay<T> extends rx.observables.c<T> {
                 if (j5 < 0) {
                     j5 = Long.MAX_VALUE;
                 }
-                this.iHk = j5;
+                this.iKu = j5;
             } else if (j3 != 0 && fVar != null) {
-                this.iHk = 0L;
+                this.iKu = 0L;
                 fVar.request(j3);
             }
         }
 
         void replay() {
-            InnerProducer<T>[] innerProducerArr = this.iHg;
-            if (this.iHi != this.iHh) {
-                synchronized (this.iHf) {
-                    innerProducerArr = this.iHg;
-                    InnerProducer<T>[] cen = this.iHf.cen();
-                    int length = cen.length;
+            InnerProducer<T>[] innerProducerArr = this.iKq;
+            if (this.iKs != this.iKr) {
+                synchronized (this.iKp) {
+                    innerProducerArr = this.iKq;
+                    InnerProducer<T>[] cfe = this.iKp.cfe();
+                    int length = cfe.length;
                     if (innerProducerArr.length != length) {
                         innerProducerArr = new InnerProducer[length];
-                        this.iHg = innerProducerArr;
+                        this.iKq = innerProducerArr;
                     }
-                    System.arraycopy(cen, 0, innerProducerArr, 0, length);
-                    this.iHi = this.iHh;
+                    System.arraycopy(cfe, 0, innerProducerArr, 0, length);
+                    this.iKs = this.iKr;
                 }
             }
-            a<T> aVar = this.iHc;
+            a<T> aVar = this.iKm;
             for (InnerProducer<T> innerProducer : innerProducerArr) {
                 if (innerProducer != null) {
                     aVar.replay(innerProducer);
@@ -471,7 +471,7 @@ public final class OperatorReplay<T> extends rx.observables.c<T> {
                 } while (!compareAndSet(j2, j3));
                 addTotalRequested(j);
                 this.parent.c(this);
-                this.parent.iHc.replay(this);
+                this.parent.iKm.replay(this);
             }
         }
 
@@ -548,7 +548,7 @@ public final class OperatorReplay<T> extends rx.observables.c<T> {
 
         @Override // rx.internal.operators.OperatorReplay.a
         public void complete() {
-            add(NotificationLite.cdg());
+            add(NotificationLite.cdX());
             this.size++;
         }
 
@@ -687,7 +687,7 @@ public final class OperatorReplay<T> extends rx.observables.c<T> {
 
         @Override // rx.internal.operators.OperatorReplay.a
         public final void complete() {
-            Object enterTransform = enterTransform(NotificationLite.cdg());
+            Object enterTransform = enterTransform(NotificationLite.cdX());
             long j = this.index + 1;
             this.index = j;
             addLast(new Node(enterTransform, j));

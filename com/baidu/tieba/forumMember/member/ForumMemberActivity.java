@@ -13,17 +13,17 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements j.b {
-    private ao dEC;
-    private com.baidu.tieba.forumMember.member.a.b dEE;
-    private e dEF;
+    private ao dHq;
+    private com.baidu.tieba.forumMember.member.a.b dHs;
+    private e dHt;
     private String mForumId;
     private String mForumName;
-    private List<com.baidu.adp.widget.ListView.h> dED = null;
-    private al dEG = new al() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.1
+    private List<com.baidu.adp.widget.ListView.h> dHr = null;
+    private al dHu = new al() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.1
         @Override // com.baidu.tieba.frs.al
         public void a(int i, int i2, ar arVar, ArrayList<com.baidu.adp.widget.ListView.h> arrayList) {
-            ForumMemberActivity.this.dEE.hideLoadingView();
-            ForumMemberActivity.this.dEE.completePullRefresh();
+            ForumMemberActivity.this.dHs.hideLoadingView();
+            ForumMemberActivity.this.dHs.completePullRefresh();
             if (arrayList != null) {
                 Iterator<com.baidu.adp.widget.ListView.h> it = arrayList.iterator();
                 while (it.hasNext()) {
@@ -33,23 +33,23 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                 }
             }
             if (!v.I(arrayList)) {
-                ForumMemberActivity.this.dEE.aaY();
-                ForumMemberActivity.this.dED = arrayList;
-                ForumMemberActivity.this.dEE.bz(ForumMemberActivity.this.dED);
-            } else if (v.I(ForumMemberActivity.this.dED) && arVar != null) {
-                ForumMemberActivity.this.dEE.nT(arVar.errMsg);
+                ForumMemberActivity.this.dHs.aba();
+                ForumMemberActivity.this.dHr = arrayList;
+                ForumMemberActivity.this.dHs.bA(ForumMemberActivity.this.dHr);
+            } else if (v.I(ForumMemberActivity.this.dHr) && arVar != null) {
+                ForumMemberActivity.this.dHs.nW(arVar.errMsg);
             }
         }
     };
-    private NoNetworkView.a cZk = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.2
+    private NoNetworkView.a dcc = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.2
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void bF(boolean z) {
-            ForumMemberActivity.this.dEE.gm(z);
+            ForumMemberActivity.this.dHs.go(z);
             if (z) {
-                if (v.I(ForumMemberActivity.this.dED)) {
-                    ForumMemberActivity.this.azr();
+                if (v.I(ForumMemberActivity.this.dHr)) {
+                    ForumMemberActivity.this.aAg();
                 } else {
-                    ForumMemberActivity.this.dEE.startPullRefresh();
+                    ForumMemberActivity.this.dHs.startPullRefresh();
                 }
             }
         }
@@ -60,13 +60,13 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         q(bundle);
-        this.dEE = new com.baidu.tieba.forumMember.member.a.b(this);
-        this.dEE.g(this.cZk);
-        this.dEF = new e();
-        this.dEF.setTag(getUniqueId());
-        this.dEF.init();
-        this.dEF.a(this.dEG);
-        azr();
+        this.dHs = new com.baidu.tieba.forumMember.member.a.b(this);
+        this.dHs.g(this.dcc);
+        this.dHt = new e();
+        this.dHt.setTag(getUniqueId());
+        this.dHt.init();
+        this.dHt.a(this.dHu);
+        aAg();
     }
 
     private void q(Bundle bundle) {
@@ -81,9 +81,9 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
             this.mForumId = bundle.getString("forum_id", "");
             this.mForumName = bundle.getString("forum_name", "");
         }
-        this.dEC = new ao();
-        this.dEC.forumId = this.mForumId;
-        this.dEC.forumName = this.mForumName;
+        this.dHq = new ao();
+        this.dHq.forumId = this.mForumId;
+        this.dHq.forumName = this.mForumName;
     }
 
     @Override // android.app.Activity
@@ -97,39 +97,39 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.dEE.onChangeSkinType(i);
+        this.dHs.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.dEF.acl();
-        if (this.dEE != null) {
-            this.dEE.onDestroy();
+        this.dHt.acn();
+        if (this.dHs != null) {
+            this.dHs.onDestroy();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.j.b
     public void bH(boolean z) {
-        e eVar = this.dEF;
-        e eVar2 = this.dEF;
-        eVar.a(3, 0, this.dEC);
+        e eVar = this.dHt;
+        e eVar2 = this.dHt;
+        eVar.a(3, 0, this.dHq);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         if (com.baidu.adp.lib.util.j.kK()) {
-            azr();
+            aAg();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void azr() {
-        this.dEE.showLoadingView();
-        e eVar = this.dEF;
-        e eVar2 = this.dEF;
-        eVar.a(3, 0, this.dEC);
+    public void aAg() {
+        this.dHs.showLoadingView();
+        e eVar = this.dHt;
+        e eVar2 = this.dHt;
+        eVar.a(3, 0, this.dHq);
     }
 }

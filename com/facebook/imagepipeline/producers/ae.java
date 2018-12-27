@@ -8,21 +8,21 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class ae implements ai<com.facebook.imagepipeline.f.d> {
-    private final com.facebook.common.memory.a iga;
-    private final com.facebook.common.memory.g ile;
-    private final af inm;
+    private final com.facebook.common.memory.a ijk;
+    private final com.facebook.common.memory.g ioq;
+    private final af iqx;
 
     public ae(com.facebook.common.memory.g gVar, com.facebook.common.memory.a aVar, af afVar) {
-        this.ile = gVar;
-        this.iga = aVar;
-        this.inm = afVar;
+        this.ioq = gVar;
+        this.ijk = aVar;
+        this.iqx = afVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        ajVar.bYR().db(ajVar.getId(), "NetworkFetchProducer");
-        final s d = this.inm.d(jVar, ajVar);
-        this.inm.a((af) d, new af.a() { // from class: com.facebook.imagepipeline.producers.ae.1
+        ajVar.bZI().db(ajVar.getId(), "NetworkFetchProducer");
+        final s d = this.iqx.d(jVar, ajVar);
+        this.iqx.a((af) d, new af.a() { // from class: com.facebook.imagepipeline.producers.ae.1
             @Override // com.facebook.imagepipeline.producers.af.a
             public void e(InputStream inputStream, int i) throws IOException {
                 ae.this.a(d, inputStream, i);
@@ -34,7 +34,7 @@ public class ae implements ai<com.facebook.imagepipeline.f.d> {
             }
 
             @Override // com.facebook.imagepipeline.producers.af.a
-            public void bSY() {
+            public void bTP() {
                 ae.this.b(d);
             }
         });
@@ -42,59 +42,59 @@ public class ae implements ai<com.facebook.imagepipeline.f.d> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(s sVar, InputStream inputStream, int i) throws IOException {
-        com.facebook.common.memory.i bTh;
+        com.facebook.common.memory.i bTY;
         if (i > 0) {
-            bTh = this.ile.xU(i);
+            bTY = this.ioq.yh(i);
         } else {
-            bTh = this.ile.bTh();
+            bTY = this.ioq.bTY();
         }
-        byte[] bArr = this.iga.get(16384);
+        byte[] bArr = this.ijk.get(16384);
         while (true) {
             try {
                 int read = inputStream.read(bArr);
                 if (read >= 0) {
                     if (read > 0) {
-                        bTh.write(bArr, 0, read);
-                        a(bTh, sVar);
-                        sVar.bZd().az(ch(bTh.size(), i));
+                        bTY.write(bArr, 0, read);
+                        a(bTY, sVar);
+                        sVar.bZU().az(ci(bTY.size(), i));
                     }
                 } else {
-                    this.inm.a((af) sVar, bTh.size());
-                    b(bTh, sVar);
+                    this.iqx.a((af) sVar, bTY.size());
+                    b(bTY, sVar);
                     return;
                 }
             } finally {
-                this.iga.release(bArr);
-                bTh.close();
+                this.ijk.release(bArr);
+                bTY.close();
             }
         }
     }
 
-    private static float ch(int i, int i2) {
+    private static float ci(int i, int i2) {
         return i2 > 0 ? i / i2 : 1.0f - ((float) Math.exp((-i) / 50000.0d));
     }
 
     private void a(com.facebook.common.memory.i iVar, s sVar) {
         long uptimeMillis = SystemClock.uptimeMillis();
-        if (c(sVar) && uptimeMillis - sVar.bZf() >= 100) {
-            sVar.dv(uptimeMillis);
-            sVar.bYR().T(sVar.getId(), "NetworkFetchProducer", "intermediate_result");
-            a(iVar, false, sVar.bZd());
+        if (c(sVar) && uptimeMillis - sVar.bZW() >= 100) {
+            sVar.dA(uptimeMillis);
+            sVar.bZI().T(sVar.getId(), "NetworkFetchProducer", "intermediate_result");
+            a(iVar, false, sVar.bZU());
         }
     }
 
     private void b(com.facebook.common.memory.i iVar, s sVar) {
-        sVar.bYR().a(sVar.getId(), "NetworkFetchProducer", b(sVar, iVar.size()));
-        a(iVar, true, sVar.bZd());
+        sVar.bZI().a(sVar.getId(), "NetworkFetchProducer", b(sVar, iVar.size()));
+        a(iVar, true, sVar.bZU());
     }
 
     private void a(com.facebook.common.memory.i iVar, boolean z, j<com.facebook.imagepipeline.f.d> jVar) {
         com.facebook.imagepipeline.f.d dVar;
-        com.facebook.common.references.a c = com.facebook.common.references.a.c(iVar.bTi());
+        com.facebook.common.references.a c = com.facebook.common.references.a.c(iVar.bTZ());
         try {
             dVar = new com.facebook.imagepipeline.f.d(c);
             try {
-                dVar.bYb();
+                dVar.bYS();
                 jVar.e(dVar, z);
                 com.facebook.imagepipeline.f.d.e(dVar);
                 com.facebook.common.references.a.c((com.facebook.common.references.a<?>) c);
@@ -112,27 +112,27 @@ public class ae implements ai<com.facebook.imagepipeline.f.d> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(s sVar, Throwable th) {
-        sVar.bYR().a(sVar.getId(), "NetworkFetchProducer", th, null);
-        sVar.bZd().B(th);
+        sVar.bZI().a(sVar.getId(), "NetworkFetchProducer", th, null);
+        sVar.bZU().B(th);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(s sVar) {
-        sVar.bYR().b(sVar.getId(), "NetworkFetchProducer", null);
-        sVar.bZd().bSY();
+        sVar.bZI().b(sVar.getId(), "NetworkFetchProducer", null);
+        sVar.bZU().bTP();
     }
 
     private boolean c(s sVar) {
-        if (sVar.bZe().bYQ().bZJ()) {
-            return this.inm.a(sVar);
+        if (sVar.bZV().bZH().caA()) {
+            return this.iqx.a(sVar);
         }
         return false;
     }
 
     @Nullable
     private Map<String, String> b(s sVar, int i) {
-        if (sVar.bYR().zl(sVar.getId())) {
-            return this.inm.b(sVar, i);
+        if (sVar.bZI().zo(sVar.getId())) {
+            return this.iqx.b(sVar, i);
         }
         return null;
     }

@@ -4,10 +4,10 @@ import android.os.Process;
 import java.util.concurrent.ThreadFactory;
 /* loaded from: classes2.dex */
 public class k implements ThreadFactory {
-    private final int inV;
+    private final int irf;
 
     public k(int i) {
-        this.inV = i;
+        this.irf = i;
     }
 
     @Override // java.util.concurrent.ThreadFactory
@@ -16,7 +16,7 @@ public class k implements ThreadFactory {
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    Process.setThreadPriority(k.this.inV);
+                    Process.setThreadPriority(k.this.irf);
                 } catch (Throwable th) {
                 }
                 runnable.run();

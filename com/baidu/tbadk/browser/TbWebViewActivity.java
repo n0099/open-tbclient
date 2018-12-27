@@ -240,7 +240,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             TbWebChromeClient tbWebChromeClient = new TbWebChromeClient(this);
             tbWebChromeClient.setOnJsPromptCallback(this.jsCallback);
             this.mWebView.setWebChromeClient(tbWebChromeClient);
-            com.baidu.tieba.q.c.bGm().trackWebView(this, this.mWebView, tbWebChromeClient);
+            com.baidu.tieba.r.c.bHc().trackWebView(this, this.mWebView, tbWebChromeClient);
             if (this.mEnableJs) {
                 addJavascriptInterface();
             }
@@ -546,7 +546,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.bDS();
+            this.jsBridge.bEK();
         }
         if (this.mWebView != null) {
             this.mWebView.getSettings().setBuiltInZoomControls(true);
@@ -842,7 +842,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                             if (!StringUtils.isNull(optString7) && !StringUtils.isNull(optString8)) {
                                 JSONObject jSONObject3 = new JSONObject();
                                 jSONObject3.put(optString7, optString8);
-                                TbWebViewActivity.this.mShareItem.aSo = jSONObject3.toString();
+                                TbWebViewActivity.this.mShareItem.aSq = jSONObject3.toString();
                             }
                         } catch (JSONException e) {
                         }
