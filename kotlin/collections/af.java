@@ -7,7 +7,7 @@ import kotlin.TypeCastException;
 /* loaded from: classes2.dex */
 final class af<T> extends d<T> implements RandomAccess {
     private final int capacity;
-    private final Object[] ixX;
+    private final Object[] iBh;
     private int size;
     private int startIndex;
 
@@ -16,7 +16,7 @@ final class af<T> extends d<T> implements RandomAccess {
         if (!(this.capacity >= 0)) {
             throw new IllegalArgumentException(("ring buffer capacity should not be negative but it is " + this.capacity).toString());
         }
-        this.ixX = new Object[this.capacity];
+        this.iBh = new Object[this.capacity];
     }
 
     public final int getCapacity() {
@@ -34,8 +34,8 @@ final class af<T> extends d<T> implements RandomAccess {
 
     @Override // kotlin.collections.d, java.util.List
     public T get(int i) {
-        d.ixP.cj(i, size());
-        return (T) this.ixX[(this.startIndex + i) % getCapacity()];
+        d.iAZ.ck(i, size());
+        return (T) this.iBh[(this.startIndex + i) % getCapacity()];
     }
 
     public final boolean isFull() {
@@ -56,9 +56,9 @@ final class af<T> extends d<T> implements RandomAccess {
         /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlin.collections.af$a */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // kotlin.collections.b
-        protected void cbA() {
+        protected void ccr() {
             if (this.count != 0) {
-                aT(af.this.ixX[this.index]);
+                aT(af.this.iBh[this.index]);
                 this.index = (this.index + 1) % af.this.getCapacity();
                 this.count--;
                 return;
@@ -78,21 +78,21 @@ final class af<T> extends d<T> implements RandomAccess {
     @Override // kotlin.collections.a, java.util.Collection
     public <T> T[] toArray(T[] tArr) {
         int i = 0;
-        kotlin.jvm.internal.p.h((Object) tArr, com.baidu.fsg.base.statistics.b.j);
+        kotlin.jvm.internal.p.j(tArr, com.baidu.fsg.base.statistics.b.j);
         if (tArr.length < size()) {
             tArr = (T[]) Arrays.copyOf(tArr, size());
-            kotlin.jvm.internal.p.g(tArr, "java.util.Arrays.copyOf(this, newSize)");
+            kotlin.jvm.internal.p.i(tArr, "java.util.Arrays.copyOf(this, newSize)");
         }
         int size = size();
         int i2 = this.startIndex;
         int i3 = 0;
         while (i3 < size && i2 < this.capacity) {
-            tArr[i3] = this.ixX[i2];
+            tArr[i3] = this.iBh[i2];
             i2++;
             i3++;
         }
         while (i3 < size) {
-            tArr[i3] = this.ixX[i];
+            tArr[i3] = this.iBh[i];
             i3++;
             i++;
         }
@@ -117,13 +117,13 @@ final class af<T> extends d<T> implements RandomAccess {
         if (isFull()) {
             throw new IllegalStateException("ring buffer is full");
         }
-        this.ixX[(this.startIndex + size()) % getCapacity()] = t;
+        this.iBh[(this.startIndex + size()) % getCapacity()] = t;
         setSize(size() + 1);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: kotlin.collections.af<T> */
     /* JADX WARN: Multi-variable type inference failed */
-    public final void yZ(int i) {
+    public final void zm(int i) {
         if (!(i >= 0)) {
             throw new IllegalArgumentException(("n shouldn't be negative but it is " + i).toString());
         }
@@ -134,10 +134,10 @@ final class af<T> extends d<T> implements RandomAccess {
             int i2 = this.startIndex;
             int capacity = (i2 + i) % getCapacity();
             if (i2 > capacity) {
-                a(this.ixX, null, i2, this.capacity);
-                a(this.ixX, null, 0, capacity);
+                a(this.iBh, null, i2, this.capacity);
+                a(this.iBh, null, 0, capacity);
             } else {
-                a(this.ixX, null, i2, capacity);
+                a(this.iBh, null, i2, capacity);
             }
             this.startIndex = capacity;
             setSize(size() - i);

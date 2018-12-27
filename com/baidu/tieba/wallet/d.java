@@ -21,7 +21,7 @@ public class d {
                 }
                 String str = strArr[0];
                 if (str.startsWith(TbConfig.URL_JUMP_TAG_WALLET)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, d.xn(str)));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, d.xq(str)));
                     if (tbPageContext.getOrignalPage() instanceof BaseWebViewActivity) {
                         ((BaseWebViewActivity) tbPageContext.getOrignalPage()).finish();
                     }
@@ -33,7 +33,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String xn(String str) {
+    public static String xq(String str) {
         URL url;
         try {
             url = new URL(str);

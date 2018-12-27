@@ -11,7 +11,7 @@ public final class NotImplementedError extends Error {
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NotImplementedError(String str) {
         super(str);
-        p.h((Object) str, "message");
+        p.j(str, "message");
     }
 
     public /* synthetic */ NotImplementedError(String str, int i, o oVar) {

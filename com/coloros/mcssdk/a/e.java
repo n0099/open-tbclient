@@ -18,13 +18,13 @@ public final class e extends c {
     public final com.coloros.mcssdk.e.c ao(Intent intent) {
         try {
             com.coloros.mcssdk.e.d dVar = new com.coloros.mcssdk.e.d();
-            dVar.xQ(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("messageID"))));
-            dVar.yS(com.coloros.mcssdk.c.a.a(intent.getStringExtra(WebSocketAction.PARAM_KEY_TASKID)));
-            dVar.yT(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appPackage")));
+            dVar.yd(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("messageID"))));
+            dVar.yV(com.coloros.mcssdk.c.a.a(intent.getStringExtra(WebSocketAction.PARAM_KEY_TASKID)));
+            dVar.yW(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appPackage")));
             dVar.setContent(com.coloros.mcssdk.c.a.a(intent.getStringExtra("content")));
             dVar.setDescription(com.coloros.mcssdk.c.a.a(intent.getStringExtra("description")));
             dVar.setAppID(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appID")));
-            dVar.yU(com.coloros.mcssdk.c.a.a(intent.getStringExtra("globalID")));
+            dVar.yX(com.coloros.mcssdk.c.a.a(intent.getStringExtra("globalID")));
             com.coloros.mcssdk.c.c.a("OnHandleIntent-message:" + dVar.toString());
             return dVar;
         } catch (Exception e) {

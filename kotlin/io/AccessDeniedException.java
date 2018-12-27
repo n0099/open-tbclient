@@ -12,6 +12,6 @@ public final class AccessDeniedException extends FileSystemException {
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AccessDeniedException(File file, File file2, String str) {
         super(file, file2, str);
-        p.h((Object) file, "file");
+        p.j(file, "file");
     }
 }

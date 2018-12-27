@@ -23,50 +23,50 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
-    public String bUG;
-    public String dZg;
-    private QuickVideoView.c gCG;
-    private j.b gCq;
-    private boolean hLD;
-    private a hLE;
-    private long hLF;
-    private SparseArray<VideoPlayFragment> hLG;
+    public String bUJ;
+    public String ebX;
+    private j.b gFh;
+    private QuickVideoView.c gFx;
+    private boolean hOO;
+    private a hOP;
+    private long hOQ;
+    private SparseArray<VideoPlayFragment> hOR;
     private List<VideoItemData> mDatas;
     public String mFrom;
     private Rect mRect;
 
     public VideoPlayFragmentAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
-        this.hLF = -1L;
-        this.hLG = new SparseArray<>();
-        this.hLE = new a();
+        this.hOQ = -1L;
+        this.hOR = new SparseArray<>();
+        this.hOP = new a();
     }
 
     @Override // android.support.v4.app.FragmentStatePagerAdapter
     public Fragment getItem(int i) {
         VideoPlayFragment videoPlayFragment = new VideoPlayFragment();
-        videoPlayFragment.a(this.gCq);
-        videoPlayFragment.setVideoStatusListener(this.gCG);
+        videoPlayFragment.a(this.gFh);
+        videoPlayFragment.setVideoStatusListener(this.gFx);
         Bundle bundle = new Bundle();
         bundle.putSerializable(VideoPlayActivityConfig.VIDEO_DATA, (Serializable) v.d(this.mDatas, i));
         bundle.putSerializable(VideoPlayActivityConfig.VIDEO_INDEX, Integer.valueOf(i));
         bundle.putSerializable(VideoPlayActivityConfig.PAGE_FROM, this.mFrom);
-        bundle.putSerializable("from", this.bUG);
-        bundle.putSerializable(VideoPlayActivityConfig.OBJ_ID, this.dZg);
-        if (this.hLD) {
+        bundle.putSerializable("from", this.bUJ);
+        bundle.putSerializable(VideoPlayActivityConfig.OBJ_ID, this.ebX);
+        if (this.hOO) {
             bundle.putParcelable(VideoPlayActivityConfig.VIDEO_COVER_RECT, this.mRect);
-            this.hLD = false;
+            this.hOO = false;
         }
         videoPlayFragment.setArguments(bundle);
         return videoPlayFragment;
     }
 
     public void setVideoStatusListener(QuickVideoView.c cVar) {
-        this.gCG = cVar;
+        this.gFx = cVar;
     }
 
     public void a(j.b bVar) {
-        this.gCq = bVar;
+        this.gFh = bVar;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -80,13 +80,13 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
     @Override // android.support.v4.app.FragmentStatePagerAdapter, android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         super.destroyItem(viewGroup, i, obj);
-        this.hLG.remove(i);
+        this.hOR.remove(i);
     }
 
     @Override // android.support.v4.app.FragmentStatePagerAdapter, android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         VideoPlayFragment videoPlayFragment = (VideoPlayFragment) super.instantiateItem(viewGroup, i);
-        this.hLG.put(i, videoPlayFragment);
+        this.hOR.put(i, videoPlayFragment);
         return videoPlayFragment;
     }
 
@@ -99,17 +99,17 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
         return bundle;
     }
 
-    public VideoPlayFragment wJ(int i) {
-        return this.hLG.get(i);
+    public VideoPlayFragment wW(int i) {
+        return this.hOR.get(i);
     }
 
     @Override // android.support.v4.app.FragmentStatePagerAdapter, android.support.v4.view.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (this.hLE.hv(true)) {
-            if (this.hLE.aHM() < 0) {
-                this.hLE.wL(i);
-            } else if (this.hLE.aHM() == i) {
+        if (this.hOP.hy(true)) {
+            if (this.hOP.aIB() < 0) {
+                this.hOP.wY(i);
+            } else if (this.hOP.aIB() == i) {
                 C((VideoPlayFragment) obj);
             }
         }
@@ -117,35 +117,35 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
 
     private void C(VideoPlayFragment videoPlayFragment) {
         if (videoPlayFragment != null) {
-            this.hLF = videoPlayFragment.bLA();
+            this.hOQ = videoPlayFragment.bMq();
         }
     }
 
     public void a(List<VideoItemData> list, Rect rect) {
         this.mDatas = list;
-        this.hLD = true;
+        this.hOO = true;
         this.mRect = rect;
     }
 
-    public void bLE() {
+    public void bMu() {
         int i = b.getInstance().getInt("nani_key_download_show_rate", 2);
-        if (this.hLF > 0 && i != 1) {
-            b.getInstance().putLong("key_vertical_shown_time", this.hLF);
+        if (this.hOQ > 0 && i != 1) {
+            b.getInstance().putLong("key_vertical_shown_time", this.hOQ);
         }
     }
 
-    public void wK(int i) {
+    public void wX(int i) {
         List<String> list;
         String str;
-        VideoPlayFragment wJ;
-        VideoPlayFragment wJ2;
+        VideoPlayFragment wW;
+        VideoPlayFragment wW2;
         String str2 = null;
-        VideoPlayFragment videoPlayFragment = this.hLG.get(i);
+        VideoPlayFragment videoPlayFragment = this.hOR.get(i);
         if (videoPlayFragment != null) {
             List<String> mediaIDs = videoPlayFragment.getMediaIDs();
             if (v.H(mediaIDs) >= 5) {
                 list = mediaIDs;
-                str = videoPlayFragment.bLC();
+                str = videoPlayFragment.bMs();
             } else {
                 return;
             }
@@ -153,15 +153,15 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
             list = null;
             str = null;
         }
-        String bLC = (i + (-1) < 0 || (wJ2 = wJ(i + (-1))) == null) ? null : wJ2.bLC();
-        if (i + 1 < getCount() && (wJ = wJ(i + 1)) != null) {
-            str2 = wJ.bLC();
+        String bMs = (i + (-1) < 0 || (wW2 = wW(i + (-1))) == null) ? null : wW2.bMs();
+        if (i + 1 < getCount() && (wW = wW(i + 1)) != null) {
+            str2 = wW.bMs();
         }
         ArrayList arrayList = new ArrayList();
         int H = v.H(list);
         for (int i2 = 0; i2 < H; i2++) {
             String str3 = list.get(i2);
-            if (!TextUtils.equals(str3, str) && !TextUtils.equals(str3, bLC) && !TextUtils.equals(str3, str2)) {
+            if (!TextUtils.equals(str3, str) && !TextUtils.equals(str3, bMs) && !TextUtils.equals(str3, str2)) {
                 arrayList.add(str3);
             }
         }

@@ -15,18 +15,20 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private BdUniqueId bwA = BdUniqueId.gen();
-    private BdUniqueId bwB = BdUniqueId.gen();
-    private CustomMessageListener bwC = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.NEGFeedBack.a.2
+    private JSONArray bwB;
+    private HttpMessageListener bwC;
+    private BdUniqueId bwD = BdUniqueId.gen();
+    private BdUniqueId bwE = BdUniqueId.gen();
+    private CustomMessageListener bwF = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.NEGFeedBack.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.kK() && a.this.bwy != null) {
-                a.this.a(a.this.bwy, a.this.bwB);
+            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.kK() && a.this.bwB != null) {
+                a.this.a(a.this.bwB, a.this.bwE);
             }
         }
     };
-    private CustomMessageListener bwD = new CustomMessageListener(2016488) { // from class: com.baidu.tieba.NEGFeedBack.a.3
+    private CustomMessageListener bwG = new CustomMessageListener(2016488) { // from class: com.baidu.tieba.NEGFeedBack.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -35,36 +37,34 @@ public class a {
             }
         }
     };
-    private JSONArray bwy;
-    private HttpMessageListener bwz;
     private String mFrom;
 
     public a(TbPageContext tbPageContext, String str) {
         this.mFrom = str;
-        if (this.bwz == null) {
-            this.bwz = new HttpMessageListener(CmdConfigHttp.CMD_NEG_FEED_BACK) { // from class: com.baidu.tieba.NEGFeedBack.a.1
+        if (this.bwC == null) {
+            this.bwC = new HttpMessageListener(CmdConfigHttp.CMD_NEG_FEED_BACK) { // from class: com.baidu.tieba.NEGFeedBack.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                     if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003184 && httpResponsedMessage.getError() == 0) {
-                        a.this.bwy = null;
+                        a.this.bwB = null;
                     }
                 }
             };
         }
-        this.bwz.setTag(this.bwB);
-        MessageManager.getInstance().registerListener(this.bwz);
+        this.bwC.setTag(this.bwE);
         MessageManager.getInstance().registerListener(this.bwC);
-        this.bwD.setTag(tbPageContext.getUniqueId());
-        this.bwD.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.bwD);
+        MessageManager.getInstance().registerListener(this.bwF);
+        this.bwG.setTag(tbPageContext.getUniqueId());
+        this.bwG.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.bwG);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.bwz);
         MessageManager.getInstance().unRegisterListener(this.bwC);
-        MessageManager.getInstance().unRegisterListener(this.bwD);
-        this.bwy = null;
+        MessageManager.getInstance().unRegisterListener(this.bwF);
+        MessageManager.getInstance().unRegisterListener(this.bwG);
+        this.bwB = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -73,14 +73,14 @@ public class a {
             if (j.kK()) {
                 JSONArray jSONArray = new JSONArray();
                 jSONArray.put(jSONObject);
-                a(jSONArray, this.bwA);
+                a(jSONArray, this.bwD);
                 return;
             }
-            if (this.bwy == null) {
-                this.bwy = new JSONArray();
+            if (this.bwB == null) {
+                this.bwB = new JSONArray();
             }
-            if (this.bwy.length() <= 100) {
-                this.bwy.put(jSONObject);
+            if (this.bwB.length() <= 100) {
+                this.bwB.put(jSONObject);
             }
         }
     }

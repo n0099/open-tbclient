@@ -11,11 +11,11 @@ import tbclient.RecommendForumInfo;
 /* loaded from: classes4.dex */
 public class b {
     private boolean Jr;
-    private List<com.baidu.tieba.enterForum.multiConcern.b> dnU;
-    private HotSearchInfoData dnV;
+    private List<com.baidu.tieba.enterForum.multiConcern.b> dqL;
+    private HotSearchInfoData dqM;
     private int time = 0;
-    private g dnS = new g();
-    private j dnT = new j();
+    private g dqJ = new g();
+    private j dqK = new j();
 
     public b() {
         this.Jr = true;
@@ -27,7 +27,7 @@ public class b {
     }
 
     public HotSearchInfoData getHotSearchInfoData() {
-        return this.dnV;
+        return this.dqM;
     }
 
     public void a(DataRes dataRes) {
@@ -42,20 +42,20 @@ public class b {
             try {
                 setTime(dataRes.time.intValue());
                 if (dataRes.like_forum != null) {
-                    this.dnS.be(dataRes.like_forum);
+                    this.dqJ.bf(dataRes.like_forum);
                 }
                 if (dataRes.recommend_forum_info != null) {
-                    this.dnT.bf(dataRes.recommend_forum_info);
+                    this.dqK.bg(dataRes.recommend_forum_info);
                 }
                 if (dataRes.hot_search != null) {
-                    this.dnV = new HotSearchInfoData();
-                    this.dnV.a(dataRes.hot_search);
+                    this.dqM = new HotSearchInfoData();
+                    this.dqM.a(dataRes.hot_search);
                 }
                 if (!v.I(dataRes.tag_recommend_forum)) {
-                    if (this.dnU == null) {
-                        this.dnU = new ArrayList();
+                    if (this.dqL == null) {
+                        this.dqL = new ArrayList();
                     } else {
-                        this.dnU.clear();
+                        this.dqL.clear();
                     }
                     int i2 = 0;
                     for (RecommendForumInfo recommendForumInfo : dataRes.tag_recommend_forum) {
@@ -70,7 +70,7 @@ public class b {
                                 bVar.followNum = recommendForumInfo.member_count.intValue();
                                 bVar.threadNum = recommendForumInfo.thread_count.intValue();
                                 bVar.isSelected = true;
-                                this.dnU.add(bVar);
+                                this.dqL.add(bVar);
                                 i = i2 + 1;
                             }
                             i2 = i;
@@ -80,31 +80,31 @@ public class b {
                     }
                     return;
                 }
-                this.dnU = null;
+                this.dqL = null;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
     }
 
-    public g auP() {
-        return this.dnS;
+    public g avE() {
+        return this.dqJ;
     }
 
     public void a(g gVar) {
-        this.dnS = gVar;
+        this.dqJ = gVar;
     }
 
     public void a(j jVar) {
-        this.dnT = jVar;
+        this.dqK = jVar;
     }
 
-    public List<com.baidu.tieba.enterForum.multiConcern.b> auQ() {
-        return this.dnU;
+    public List<com.baidu.tieba.enterForum.multiConcern.b> avF() {
+        return this.dqL;
     }
 
-    public void bd(List<com.baidu.tieba.enterForum.multiConcern.b> list) {
-        this.dnU = list;
+    public void be(List<com.baidu.tieba.enterForum.multiConcern.b> list) {
+        this.dqL = list;
     }
 
     public void bo(boolean z) {
@@ -115,11 +115,11 @@ public class b {
         return this.Jr;
     }
 
-    public boolean auR() {
-        return System.currentTimeMillis() / com.baidu.tbadk.data.d.aWN.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.d.aWN.longValue();
+    public boolean avG() {
+        return System.currentTimeMillis() / com.baidu.tbadk.data.d.aWQ.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.d.aWQ.longValue();
     }
 
     public void a(HotSearchInfoData hotSearchInfoData) {
-        this.dnV = hotSearchInfoData;
+        this.dqM = hotSearchInfoData;
     }
 }

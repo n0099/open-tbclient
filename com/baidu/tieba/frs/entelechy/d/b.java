@@ -6,77 +6,77 @@ import com.baidu.tieba.frs.entelechy.view.g;
 import com.baidu.tieba.play.f;
 /* loaded from: classes3.dex */
 public class b extends q.a implements f {
-    private com.baidu.tieba.frs.entelechy.a.a dSh;
-    private a dSi;
-    private g dSj;
+    private com.baidu.tieba.frs.entelechy.a.a dUY;
+    private a dUZ;
+    private g dVa;
 
     public b(g gVar) {
-        super(gVar.aEk());
-        this.dSh = new com.baidu.tieba.frs.entelechy.a.a(gVar.aEm());
-        this.dSi = new a(gVar.aEl());
-        this.dSj = gVar;
+        super(gVar.aEZ());
+        this.dUY = new com.baidu.tieba.frs.entelechy.a.a(gVar.aFb());
+        this.dUZ = new a(gVar.aFa());
+        this.dVa = gVar;
     }
 
-    public g aEs() {
-        return this.dSj;
+    public g aFh() {
+        return this.dVa;
     }
 
-    public com.baidu.tieba.frs.entelechy.a.a aEt() {
-        return this.dSh;
+    public com.baidu.tieba.frs.entelechy.a.a aFi() {
+        return this.dUY;
     }
 
-    public a aEu() {
-        return this.dSi;
+    public a aFj() {
+        return this.dUZ;
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlayStarted() {
-        if (this.dSh == null) {
+        if (this.dUY == null) {
             return false;
         }
-        return this.dSh.isPlayStarted();
+        return this.dUY.isPlayStarted();
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlaying() {
-        if (this.dSh == null) {
+        if (this.dUY == null) {
             return false;
         }
-        return this.dSh.isPlaying();
+        return this.dUY.isPlaying();
     }
 
     @Override // com.baidu.tieba.play.f
     public void startPlay() {
-        if (this.dSh != null) {
-            this.dSh.startPlay();
+        if (this.dUY != null) {
+            this.dUY.startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public void stopPlay() {
-        if (this.dSh != null) {
-            this.dSh.stopPlay();
+        if (this.dUY != null) {
+            this.dUY.stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public View getVideoContainer() {
-        if (this.dSh == null) {
+        if (this.dUY == null) {
             return null;
         }
-        return this.dSh.getVideoContainer();
+        return this.dUY.getVideoContainer();
     }
 
     @Override // com.baidu.tieba.play.f
     public String getPlayUrl() {
-        return this.dSh == null ? "" : this.dSh.getPlayUrl();
+        return this.dUY == null ? "" : this.dUY.getPlayUrl();
     }
 
     @Override // com.baidu.tieba.play.f
     public int getCurrentPosition() {
-        if (this.dSh == null) {
+        if (this.dUY == null) {
             return 0;
         }
-        return this.dSh.getCurrentPosition();
+        return this.dUY.getCurrentPosition();
     }
 }

@@ -20,18 +20,18 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c NP;
+                c NQ;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001616 && customResponsedMessage.getData() != null) {
                     ad adVar = (ad) customResponsedMessage.getData();
                     FrsGameStrategyFragmentDelegateStatic frsGameStrategyFragmentDelegateStatic = new FrsGameStrategyFragmentDelegateStatic();
                     adVar.b(frsGameStrategyFragmentDelegateStatic);
-                    if (adVar.getContext() != null && (NP = frsGameStrategyFragmentDelegateStatic.NP()) != null) {
+                    if (adVar.getContext() != null && (NQ = frsGameStrategyFragmentDelegateStatic.NQ()) != null) {
                         Bundle bundle = new Bundle();
                         bundle.putString("name", adVar.getForumName());
                         bundle.putString("from", "game_frs");
                         bundle.putBoolean("back_special", false);
                         bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
-                        NP.bdK.setArguments(bundle);
+                        NQ.bdN.setArguments(bundle);
                     }
                 }
             }
@@ -44,18 +44,18 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c NO() {
+    public c NP() {
         c cVar = new c();
-        cVar.bdK = new FrsGameStrategyMainFragment();
+        cVar.bdN = new FrsGameStrategyMainFragment();
         cVar.type = 3;
-        cVar.bdQ = c.bdN;
+        cVar.bdT = c.bdQ;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator bR(Context context) {
-        this.bdw = (FragmentTabIndicator) LayoutInflater.from(context).inflate(e.h.fragmenttabindicator, (ViewGroup) null);
-        this.bdw.setTextSize(2.0f);
-        return this.bdw;
+        this.bdz = (FragmentTabIndicator) LayoutInflater.from(context).inflate(e.h.fragmenttabindicator, (ViewGroup) null);
+        this.bdz.setTextSize(2.0f);
+        return this.bdz;
     }
 }

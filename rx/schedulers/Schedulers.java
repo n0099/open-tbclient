@@ -11,21 +11,21 @@ import rx.internal.schedulers.h;
 import rx.internal.schedulers.j;
 /* loaded from: classes2.dex */
 public final class Schedulers {
-    private static final AtomicReference<Schedulers> iNW = new AtomicReference<>();
-    private final g iNT;
-    private final g iNU;
-    private final g iNV;
+    private static final AtomicReference<Schedulers> iRg = new AtomicReference<>();
+    private final g iRd;
+    private final g iRe;
+    private final g iRf;
 
-    private static Schedulers cfe() {
+    private static Schedulers cfV() {
         Schedulers schedulers;
         while (true) {
-            schedulers = iNW.get();
+            schedulers = iRg.get();
             if (schedulers == null) {
                 schedulers = new Schedulers();
-                if (iNW.compareAndSet(null, schedulers)) {
+                if (iRg.compareAndSet(null, schedulers)) {
                     break;
                 }
-                schedulers.cfg();
+                schedulers.cfX();
             } else {
                 break;
             }
@@ -34,45 +34,45 @@ public final class Schedulers {
     }
 
     private Schedulers() {
-        rx.c.g ceV = f.ceQ().ceV();
-        g ceZ = ceV.ceZ();
-        if (ceZ != null) {
-            this.iNT = ceZ;
+        rx.c.g cfM = f.cfH().cfM();
+        g cfQ = cfM.cfQ();
+        if (cfQ != null) {
+            this.iRd = cfQ;
         } else {
-            this.iNT = rx.c.g.ceW();
+            this.iRd = rx.c.g.cfN();
         }
-        g cfa = ceV.cfa();
-        if (cfa != null) {
-            this.iNU = cfa;
+        g cfR = cfM.cfR();
+        if (cfR != null) {
+            this.iRe = cfR;
         } else {
-            this.iNU = rx.c.g.ceX();
+            this.iRe = rx.c.g.cfO();
         }
-        g cfb = ceV.cfb();
-        if (cfb != null) {
-            this.iNV = cfb;
+        g cfS = cfM.cfS();
+        if (cfS != null) {
+            this.iRf = cfS;
         } else {
-            this.iNV = rx.c.g.ceY();
+            this.iRf = rx.c.g.cfP();
         }
     }
 
     public static g immediate() {
-        return e.iLf;
+        return e.iOp;
     }
 
     public static g trampoline() {
-        return j.iLF;
+        return j.iOP;
     }
 
     public static g newThread() {
-        return c.f(cfe().iNV);
+        return c.f(cfV().iRf);
     }
 
     public static g computation() {
-        return c.d(cfe().iNT);
+        return c.d(cfV().iRd);
     }
 
     public static g io() {
-        return c.e(cfe().iNU);
+        return c.e(cfV().iRe);
     }
 
     public static TestScheduler test() {
@@ -84,49 +84,49 @@ public final class Schedulers {
     }
 
     public static void reset() {
-        Schedulers andSet = iNW.getAndSet(null);
+        Schedulers andSet = iRg.getAndSet(null);
         if (andSet != null) {
-            andSet.cfg();
+            andSet.cfX();
         }
     }
 
     public static void start() {
-        Schedulers cfe = cfe();
-        cfe.cff();
-        synchronized (cfe) {
-            d.iLc.start();
+        Schedulers cfV = cfV();
+        cfV.cfW();
+        synchronized (cfV) {
+            d.iOm.start();
         }
     }
 
     public static void shutdown() {
-        Schedulers cfe = cfe();
-        cfe.cfg();
-        synchronized (cfe) {
-            d.iLc.shutdown();
+        Schedulers cfV = cfV();
+        cfV.cfX();
+        synchronized (cfV) {
+            d.iOm.shutdown();
         }
     }
 
-    synchronized void cff() {
-        if (this.iNT instanceof h) {
-            ((h) this.iNT).start();
+    synchronized void cfW() {
+        if (this.iRd instanceof h) {
+            ((h) this.iRd).start();
         }
-        if (this.iNU instanceof h) {
-            ((h) this.iNU).start();
+        if (this.iRe instanceof h) {
+            ((h) this.iRe).start();
         }
-        if (this.iNV instanceof h) {
-            ((h) this.iNV).start();
+        if (this.iRf instanceof h) {
+            ((h) this.iRf).start();
         }
     }
 
-    synchronized void cfg() {
-        if (this.iNT instanceof h) {
-            ((h) this.iNT).shutdown();
+    synchronized void cfX() {
+        if (this.iRd instanceof h) {
+            ((h) this.iRd).shutdown();
         }
-        if (this.iNU instanceof h) {
-            ((h) this.iNU).shutdown();
+        if (this.iRe instanceof h) {
+            ((h) this.iRe).shutdown();
         }
-        if (this.iNV instanceof h) {
-            ((h) this.iNV).shutdown();
+        if (this.iRf instanceof h) {
+            ((h) this.iRf).shutdown();
         }
     }
 }

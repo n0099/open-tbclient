@@ -29,9 +29,9 @@ public class OfficialBarChatActivityStatic {
                     x.b(new w<Void>() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivityStatic.1.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.w
-                        /* renamed from: Ww */
+                        /* renamed from: Wy */
                         public Void doInBackground() {
-                            return l.aQE().o(linkedList);
+                            return l.aRs().o(linkedList);
                         }
                     }, new h<Void>() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivityStatic.1.2
                         /* JADX DEBUG: Method merged with bridge method */

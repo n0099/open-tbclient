@@ -9,10 +9,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    public List<b> hpd;
-    public List<b> hpe;
+    public List<b> hsp;
+    public List<b> hsq;
 
-    public void wa(String str) {
+    public void wd(String str) {
         JSONObject jSONObject;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -32,20 +32,20 @@ public class a {
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("splash_schedule")) != null) {
             JSONArray optJSONArray = optJSONObject.optJSONArray("current");
             if (optJSONArray != null) {
-                this.hpd = new ArrayList();
+                this.hsp = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     b bVar = new b();
                     bVar.parserJson(optJSONArray.optJSONObject(i));
-                    this.hpd.add(bVar);
+                    this.hsp.add(bVar);
                 }
             }
             JSONArray optJSONArray2 = optJSONObject.optJSONArray(UnitedSchemeConstants.UNITED_SCHEME_NEXT);
             if (optJSONArray != null) {
-                this.hpe = new ArrayList();
+                this.hsq = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                     b bVar2 = new b();
                     bVar2.parserJson(optJSONArray2.optJSONObject(i2));
-                    this.hpe.add(bVar2);
+                    this.hsq.add(bVar2);
                 }
             }
         }

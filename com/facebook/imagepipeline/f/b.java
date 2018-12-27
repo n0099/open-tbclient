@@ -10,8 +10,8 @@ public abstract class b implements e, Closeable {
 
     public abstract boolean isClosed();
 
-    public g bXU() {
-        return f.ioF;
+    public g bYL() {
+        return f.irP;
     }
 
     public boolean isStateful() {

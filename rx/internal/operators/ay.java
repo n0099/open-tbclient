@@ -32,7 +32,7 @@ public final class ay<T> implements d.b<T, T> {
         return jVar;
     }
 
-    public static <T> d.b<T, T> zn(final int i) {
+    public static <T> d.b<T, T> zA(final int i) {
         return new d.b<T, T>() { // from class: rx.internal.operators.ay.1
             @Override // rx.functions.f
             public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -54,20 +54,20 @@ public final class ay<T> implements d.b<T, T> {
         final boolean delayError;
         Throwable error;
         volatile boolean finished;
-        final g.a iGh;
-        long iGj;
+        final g.a iJr;
+        long iJt;
         final int limit;
         final Queue<Object> queue;
         final AtomicLong requested = new AtomicLong();
-        final AtomicLong iGi = new AtomicLong();
+        final AtomicLong iJs = new AtomicLong();
 
         public a(rx.g gVar, rx.j<? super T> jVar, boolean z, int i) {
             this.child = jVar;
-            this.iGh = gVar.createWorker();
+            this.iJr = gVar.createWorker();
             this.delayError = z;
             i = i <= 0 ? rx.internal.util.h.SIZE : i;
             this.limit = i - (i >> 2);
-            if (rx.internal.util.a.ae.ceF()) {
+            if (rx.internal.util.a.ae.cfw()) {
                 this.queue = new rx.internal.util.a.q(i);
             } else {
                 this.queue = new rx.internal.util.atomic.c(i);
@@ -82,11 +82,11 @@ public final class ay<T> implements d.b<T, T> {
                 public void request(long j) {
                     if (j > 0) {
                         rx.internal.operators.a.a(a.this.requested, j);
-                        a.this.cdG();
+                        a.this.cex();
                     }
                 }
             });
-            jVar.add(this.iGh);
+            jVar.add(this.iJr);
             jVar.add(this);
         }
 
@@ -96,7 +96,7 @@ public final class ay<T> implements d.b<T, T> {
                 if (!this.queue.offer(NotificationLite.aY(t))) {
                     onError(new MissingBackpressureException());
                 } else {
-                    cdG();
+                    cex();
                 }
             }
         }
@@ -105,7 +105,7 @@ public final class ay<T> implements d.b<T, T> {
         public void onCompleted() {
             if (!isUnsubscribed() && !this.finished) {
                 this.finished = true;
-                cdG();
+                cex();
             }
         }
 
@@ -117,19 +117,19 @@ public final class ay<T> implements d.b<T, T> {
             }
             this.error = th;
             this.finished = true;
-            cdG();
+            cex();
         }
 
-        protected void cdG() {
-            if (this.iGi.getAndIncrement() == 0) {
-                this.iGh.a(this);
+        protected void cex() {
+            if (this.iJs.getAndIncrement() == 0) {
+                this.iJr.a(this);
             }
         }
 
         @Override // rx.functions.a
         public void call() {
             long j;
-            long j2 = this.iGj;
+            long j2 = this.iJt;
             Queue<Object> queue = this.queue;
             rx.j<? super T> jVar = this.child;
             long j3 = 1;
@@ -159,8 +159,8 @@ public final class ay<T> implements d.b<T, T> {
                     }
                 }
                 if (j4 != j2 || !a(this.finished, queue.isEmpty(), jVar, queue)) {
-                    this.iGj = j2;
-                    j3 = this.iGi.addAndGet(-j3);
+                    this.iJt = j2;
+                    j3 = this.iJs.addAndGet(-j3);
                 } else {
                     return;
                 }

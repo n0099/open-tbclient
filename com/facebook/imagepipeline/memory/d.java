@@ -7,8 +7,8 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes2.dex */
 class d<V> {
-    final Queue ioV;
-    private int ioW;
+    final Queue isf;
+    private int isg;
     public final int mItemSize;
     public final int mMaxLength;
 
@@ -18,49 +18,49 @@ class d<V> {
         com.facebook.common.internal.g.checkState(i3 >= 0);
         this.mItemSize = i;
         this.mMaxLength = i2;
-        this.ioV = new LinkedList();
-        this.ioW = i3;
+        this.isf = new LinkedList();
+        this.isg = i3;
     }
 
-    public boolean bYm() {
-        return this.ioW + bYn() > this.mMaxLength;
+    public boolean bZd() {
+        return this.isg + bZe() > this.mMaxLength;
     }
 
-    int bYn() {
-        return this.ioV.size();
+    int bZe() {
+        return this.isf.size();
     }
 
     @Nullable
     public V get() {
         V pop = pop();
         if (pop != null) {
-            this.ioW++;
+            this.isg++;
         }
         return pop;
     }
 
     @Nullable
     public V pop() {
-        return (V) this.ioV.poll();
+        return (V) this.isf.poll();
     }
 
-    public void bYo() {
-        this.ioW++;
+    public void bZf() {
+        this.isg++;
     }
 
     public void release(V v) {
         com.facebook.common.internal.g.checkNotNull(v);
-        com.facebook.common.internal.g.checkState(this.ioW > 0);
-        this.ioW--;
+        com.facebook.common.internal.g.checkState(this.isg > 0);
+        this.isg--;
         aL(v);
     }
 
     void aL(V v) {
-        this.ioV.add(v);
+        this.isf.add(v);
     }
 
-    public void bYp() {
-        com.facebook.common.internal.g.checkState(this.ioW > 0);
-        this.ioW--;
+    public void bZg() {
+        com.facebook.common.internal.g.checkState(this.isg > 0);
+        this.isg--;
     }
 }

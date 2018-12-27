@@ -7,18 +7,18 @@ import tbclient.ActPost;
 import tbclient.LinkInfo;
 /* loaded from: classes.dex */
 public class c {
-    private String hkH;
-    private ArrayList<a> hkI = new ArrayList<>();
-    private ArrayList<b> hkJ = new ArrayList<>();
+    private String hnS;
+    private ArrayList<a> hnT = new ArrayList<>();
+    private ArrayList<b> hnU = new ArrayList<>();
 
     public void a(ActPost actPost) {
         if (actPost != null) {
-            this.hkH = actPost.list_head;
+            this.hnS = actPost.list_head;
             for (ActHot actHot : actPost.act_hot) {
                 if (actHot != null) {
                     a aVar = new a();
                     aVar.a(actHot);
-                    this.hkI.add(aVar);
+                    this.hnT.add(aVar);
                 }
             }
             List<LinkInfo> list = actPost.link_info;
@@ -26,7 +26,7 @@ public class c {
                 if (list != null) {
                     b bVar = new b();
                     bVar.a(linkInfo);
-                    this.hkJ.add(bVar);
+                    this.hnU.add(bVar);
                 }
             }
         }

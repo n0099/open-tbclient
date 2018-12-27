@@ -17,7 +17,7 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(gf(str), com.baidu.tbadk.imageManager.c.Nu().ih(gf(str)), i, i2);
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(gg(str), com.baidu.tbadk.imageManager.c.Nv().ii(gg(str)), i, i2);
         if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.op() == null || checkIsValidPicMemoryCache.op().isRecycled()) {
             return null;
         }
@@ -40,7 +40,7 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
             aVar.be(i);
             aVar.bf(i2);
-            com.baidu.tbadk.imageManager.c.Nu().c(gf(str), aVar);
+            com.baidu.tbadk.imageManager.c.Nv().c(gg(str), aVar);
         }
     }
 
@@ -72,7 +72,7 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         return null;
     }
 
-    public String gf(String str) {
+    public String gg(String str) {
         return "videoThumb_" + str;
     }
 }

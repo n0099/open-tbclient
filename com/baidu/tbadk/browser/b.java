@@ -358,8 +358,8 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
                 JSONObject jSONObject = new JSONObject(str);
                 String optString = jSONObject.optString("pkgName");
                 String optString2 = jSONObject.optString("schema");
-                List<String> GB = com.baidu.tbadk.coreExtra.data.f.GB();
-                if (b(GB, optString2)) {
+                List<String> GC = com.baidu.tbadk.coreExtra.data.f.GC();
+                if (b(GC, optString2)) {
                     Intent intent = new Intent();
                     intent.setData(Uri.parse(optString2));
                     try {
@@ -373,7 +373,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
                 }
                 if (!z2) {
                     try {
-                        if (b(GB, optString) && (launchIntentForPackage = this.mContext.getPackageManager().getLaunchIntentForPackage(optString)) != null) {
+                        if (b(GC, optString) && (launchIntentForPackage = this.mContext.getPackageManager().getLaunchIntentForPackage(optString)) != null) {
                             this.mContext.startActivity(launchIntentForPackage);
                             z2 = true;
                         }

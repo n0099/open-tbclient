@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util.e;
 public interface b {
     void aC(String str, String str2);
 
-    void gg(String str);
+    void gh(String str);
 
     void onSuccess(String str);
 }

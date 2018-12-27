@@ -41,17 +41,17 @@ public class n extends a {
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
         String str3 = str + (TbadkCoreApplication.getInst().getSkinType() == 1 ? "_1" : "");
-        com.baidu.adp.widget.ImageView.a ih = com.baidu.tbadk.imageManager.c.Nu().ih(str3);
-        if (ih == null) {
+        com.baidu.adp.widget.ImageView.a ii = com.baidu.tbadk.imageManager.c.Nv().ii(str3);
+        if (ii == null) {
             Bitmap dO = al.dO(com.baidu.adp.lib.g.b.l(str2, 0));
             if (dO == null) {
                 return null;
             }
             com.baidu.adp.widget.ImageView.a aVar = new com.baidu.adp.widget.ImageView.a(dO, false, str2);
-            com.baidu.tbadk.imageManager.c.Nu().c(str3, aVar);
+            com.baidu.tbadk.imageManager.c.Nv().c(str3, aVar);
             return aVar;
         }
-        return ih;
+        return ii;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a

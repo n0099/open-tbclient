@@ -2,66 +2,66 @@ package com.baidu.tieba.VideoCache;
 /* loaded from: classes6.dex */
 public class h {
     private String alG;
-    private String bzK;
-    private boolean bzL;
-    private long bzM = -1;
-    private long bzN = -1;
-    private long bzO = 0;
-    private long bzP = 0;
+    private String bzN;
+    private boolean bzO;
+    private long bzP = -1;
+    private long bzQ = -1;
+    private long bzR = 0;
+    private long bzS = 0;
 
-    public String Vm() {
-        return this.bzK;
-    }
-
-    public void jt(String str) {
-        this.bzK = str;
-    }
-
-    public String Vn() {
-        return this.alG;
-    }
-
-    public void ju(String str) {
-        this.alG = str;
-    }
-
-    public boolean Vo() {
-        return this.bzL;
-    }
-
-    public void dp(boolean z) {
-        this.bzL = z;
-    }
-
-    public long Vp() {
-        return this.bzM;
-    }
-
-    public void aS(long j) {
-        this.bzM = j;
-    }
-
-    public long Vq() {
+    public String Vo() {
         return this.bzN;
     }
 
-    public void aT(long j) {
-        this.bzN = j;
+    public void ju(String str) {
+        this.bzN = str;
     }
 
-    public long getTotalLength() {
+    public String Vp() {
+        return this.alG;
+    }
+
+    public void jv(String str) {
+        this.alG = str;
+    }
+
+    public boolean Vq() {
         return this.bzO;
     }
 
-    public void al(long j) {
-        this.bzO = j;
-    }
-
-    public void aU(long j) {
-        this.bzP = j;
+    public void dp(boolean z) {
+        this.bzO = z;
     }
 
     public long Vr() {
         return this.bzP;
+    }
+
+    public void aT(long j) {
+        this.bzP = j;
+    }
+
+    public long Vs() {
+        return this.bzQ;
+    }
+
+    public void aU(long j) {
+        this.bzQ = j;
+    }
+
+    public long getTotalLength() {
+        return this.bzR;
+    }
+
+    public void am(long j) {
+        this.bzR = j;
+    }
+
+    public void aV(long j) {
+        this.bzS = j;
+    }
+
+    public long Vt() {
+        return this.bzS;
     }
 }

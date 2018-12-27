@@ -28,8 +28,8 @@ public class a implements IAiAppPaymentIoc {
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppPaymentIoc
     public boolean removeWalletUI() {
-        com.baidu.poly.a YU = c.YU();
-        return YU != null && YU.finish();
+        com.baidu.poly.a YW = c.YW();
+        return YW != null && YW.finish();
     }
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppPaymentIoc

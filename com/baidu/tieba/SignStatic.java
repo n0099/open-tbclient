@@ -55,7 +55,7 @@ public class SignStatic {
                         } else {
                             if (!ao.isEmpty(CL)) {
                                 JSONObject jSONObject = new JSONObject(CL);
-                                if (AntiHelper.vA(xVar.Dn()) || "199901".equals(jSONObject.optString("error_code"))) {
+                                if (AntiHelper.vN(xVar.Dn()) || "199901".equals(jSONObject.optString("error_code"))) {
                                     signData = new SignData();
                                     signData.parserJson(CL);
                                     signData.is_signed = 1;

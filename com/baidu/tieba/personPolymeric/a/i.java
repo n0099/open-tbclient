@@ -15,17 +15,17 @@ import com.baidu.tieba.card.t;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class i extends com.baidu.adp.widget.ListView.a<CardPersonDynamicThreadData, com.baidu.tieba.card.a.a<t>> {
-    private com.baidu.adp.lib.e.b<ConstrainImageLayout> dMD;
-    private com.baidu.adp.lib.e.b<TbImageView> dME;
+    private com.baidu.adp.lib.e.b<ConstrainImageLayout> dPr;
+    private com.baidu.adp.lib.e.b<TbImageView> dPs;
     private boolean isHost;
     private TbPageContext<?> mPageContext;
 
     public i(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), CardPersonDynamicThreadData.cYv);
-        this.dMD = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.personPolymeric.a.i.2
+        super(tbPageContext.getPageActivity(), CardPersonDynamicThreadData.dbn);
+        this.dPr = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.personPolymeric.a.i.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: aCN */
+            /* renamed from: aDC */
             public ConstrainImageLayout jz() {
                 return new ConstrainImageLayout(i.this.mPageContext.getPageActivity());
             }
@@ -51,10 +51,10 @@ public class i extends com.baidu.adp.widget.ListView.a<CardPersonDynamicThreadDa
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.dME = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tieba.personPolymeric.a.i.3
+        this.dPs = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tieba.personPolymeric.a.i.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: Ft */
+            /* renamed from: Fu */
             public TbImageView jz() {
                 TbImageView tbImageView = new TbImageView(i.this.mPageContext.getPageActivity());
                 tbImageView.setDrawBorder(true);
@@ -93,20 +93,20 @@ public class i extends com.baidu.adp.widget.ListView.a<CardPersonDynamicThreadDa
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: Z */
+    /* renamed from: aa */
     public com.baidu.tieba.card.a.a<t> onCreateViewHolder(ViewGroup viewGroup) {
         t tVar = new t(this.mPageContext);
-        tVar.setConstrainLayoutPool(this.dMD);
-        tVar.setConstrainImagePool(this.dME);
+        tVar.setConstrainLayoutPool(this.dPr);
+        tVar.setConstrainImagePool(this.dPs);
         tVar.currentPageType = 4;
-        if (tVar.cVO != null) {
-            tVar.cVO.avL = 4;
+        if (tVar.cYE != null) {
+            tVar.cYE.avM = 4;
         }
-        if (tVar.caJ != null) {
-            tVar.caJ.avL = 4;
+        if (tVar.caM != null) {
+            tVar.caM.avM = 4;
         }
-        if (tVar.cWl != null) {
-            tVar.cWl.cWY = 4;
+        if (tVar.cZb != null) {
+            tVar.cZb.cZO = 4;
         }
         tVar.b(new ad<CardPersonDynamicThreadData>() { // from class: com.baidu.tieba.personPolymeric.a.i.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -123,8 +123,8 @@ public class i extends com.baidu.adp.widget.ListView.a<CardPersonDynamicThreadDa
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, CardPersonDynamicThreadData cardPersonDynamicThreadData, com.baidu.tieba.card.a.a<t> aVar) {
-        aVar.aqe().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar.aqe().a(cardPersonDynamicThreadData);
+        aVar.aqT().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.aqT().a(cardPersonDynamicThreadData);
         return aVar.getView();
     }
 

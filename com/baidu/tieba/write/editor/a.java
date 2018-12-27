@@ -12,7 +12,7 @@ public class a {
     /* renamed from: com.baidu.tieba.write.editor.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public interface InterfaceC0335a {
-        void xj(int i);
+        void xw(int i);
     }
 
     public static void a(final String str, final int i, final InterfaceC0335a interfaceC0335a) {
@@ -37,7 +37,7 @@ public class a {
                     /* renamed from: n */
                     public void onReturnDataInUI(Integer num) {
                         if (InterfaceC0335a.this != null) {
-                            InterfaceC0335a.this.xj(num.intValue());
+                            InterfaceC0335a.this.xw(num.intValue());
                         }
                     }
                 });
@@ -45,7 +45,7 @@ public class a {
         }
     }
 
-    public static void ba(String str, int i) {
+    public static void bb(String str, int i) {
         l<String> ey;
         if (!StringUtils.isNull(str)) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();

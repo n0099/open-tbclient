@@ -12,11 +12,11 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class an {
-    private PbActivity fUU;
-    private com.baidu.tieba.c.d gbC;
+    private PbActivity fXM;
+    private com.baidu.tieba.c.d gev;
 
     public an(PbActivity pbActivity) {
-        this.fUU = pbActivity;
+        this.fXM = pbActivity;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SUBMIT_PB_SHOW_TIP, TbConfig.SERVER_ADDRESS + TbConfig.SUBMIT_SHOW_PB_TIPS);
         tbHttpMessageTask.setResponsedClass(SubmitPbShowTipHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -25,24 +25,24 @@ public class an {
 
     public void a(View view, String str, String str2, String str3) {
         if (view != null && !StringUtils.isNull(str) && view.getVisibility() == 0 && view.getAlpha() >= 0.4d) {
-            if (this.gbC == null) {
-                this.gbC = new com.baidu.tieba.c.d(this.fUU.getPageContext(), view);
-                this.gbC.kU(e.f.bg_tip_blue_up_left);
-                this.gbC.kT(16);
-                this.gbC.fG(true);
-                this.gbC.kX(57);
-                this.gbC.setYOffset(-10);
+            if (this.gev == null) {
+                this.gev = new com.baidu.tieba.c.d(this.fXM.getPageContext(), view);
+                this.gev.lh(e.f.bg_tip_blue_up_left);
+                this.gev.lg(16);
+                this.gev.fI(true);
+                this.gev.lk(57);
+                this.gev.setYOffset(-10);
             }
-            this.gbC.kV(UIMsg.m_AppUI.MSG_APP_GPS);
-            this.gbC.mR(str);
+            this.gev.li(UIMsg.m_AppUI.MSG_APP_GPS);
+            this.gev.mU(str);
             co(str2, str3);
             TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12504"));
         }
     }
 
     public void destroy() {
-        if (this.gbC != null) {
-            this.gbC.arm();
+        if (this.gev != null) {
+            this.gev.asb();
         }
     }
 
@@ -51,7 +51,7 @@ public class an {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SUBMIT_PB_SHOW_TIP);
             httpMessage.addParam("thread_user_id", str);
             httpMessage.addParam("thread_id", str2);
-            this.fUU.sendMessage(httpMessage);
+            this.fXM.sendMessage(httpMessage);
         }
     }
 }

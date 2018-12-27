@@ -48,12 +48,12 @@ public class c {
 
     /* loaded from: classes6.dex */
     public static class a extends ad<bb> {
-        private int eiw;
+        private int elm;
         private String mForumId;
 
         public a(String str, int i) {
             this.mForumId = str;
-            this.eiw = i;
+            this.elm = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -62,18 +62,18 @@ public class c {
             if (view != null && bbVar != null && (obj instanceof BdUniqueId)) {
                 BdUniqueId bdUniqueId = (BdUniqueId) obj;
                 if (bb.atg.getId() == bdUniqueId.getId()) {
-                    c.b(bbVar, this.mForumId, this.eiw);
+                    c.b(bbVar, this.mForumId, this.elm);
                 } else if (bb.atj.getId() == bdUniqueId.getId()) {
-                    c.b(bbVar, this.mForumId, this.eiw);
+                    c.b(bbVar, this.mForumId, this.elm);
                 } else if (bb.atp.getId() == bdUniqueId.getId()) {
-                    c.b(bbVar, this.mForumId, this.eiw);
-                    if (this.eiw == 1) {
+                    c.b(bbVar, this.mForumId, this.elm);
+                    if (this.elm == 1) {
                         c.a(bbVar, this.mForumId, 2);
                     }
                 } else if (bb.ato.getId() == bdUniqueId.getId()) {
-                    c.b(bbVar, this.mForumId, this.eiw);
+                    c.b(bbVar, this.mForumId, this.elm);
                 } else if (bb.ati.getId() == bdUniqueId.getId()) {
-                    c.b(bbVar, this.mForumId, this.eiw);
+                    c.b(bbVar, this.mForumId, this.elm);
                 }
             }
         }

@@ -18,53 +18,53 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> epR = new ArrayList();
-    private BdTypeListView epS;
-    private com.baidu.tieba.b.a epT;
-    private f epU;
-    private d epV;
-    private com.baidu.tieba.homepage.concern.a.b epW;
-    private com.baidu.tieba.homepage.concern.a.a epX;
-    private e epY;
-    private h epZ;
-    private h eqa;
-    private c eqb;
-    private g eqc;
+    private List<com.baidu.adp.widget.ListView.a> esI = new ArrayList();
+    private BdTypeListView esJ;
+    private com.baidu.tieba.b.a esK;
+    private f esL;
+    private d esM;
+    private com.baidu.tieba.homepage.concern.a.b esN;
+    private com.baidu.tieba.homepage.concern.a.a esO;
+    private e esP;
+    private h esQ;
+    private h esR;
+    private c esS;
+    private g esT;
     private TbPageContext<?> mPageContext;
 
     public a(Context context, BdTypeListView bdTypeListView) {
-        this.epS = bdTypeListView;
+        this.esJ = bdTypeListView;
         this.mPageContext = (TbPageContext) i.aK(context);
         cs(context);
-        bdTypeListView.addAdapters(this.epR);
+        bdTypeListView.addAdapters(this.esI);
     }
 
     private void cs(Context context) {
-        this.epT = new com.baidu.tieba.b.a(this.mPageContext, com.baidu.tbadk.data.b.aWJ);
-        this.epY = new e(this.mPageContext, k.TYPE);
-        this.epZ = new h(this.mPageContext, l.cYh);
-        this.eqa = new h(this.mPageContext, l.cYi);
-        this.epU = new f(this.mPageContext.getContext());
-        this.epV = new d(this.mPageContext.getContext());
-        this.epW = new com.baidu.tieba.homepage.concern.a.b(this.mPageContext, com.baidu.tieba.homepage.concern.b.b.erc);
-        this.epX = new com.baidu.tieba.homepage.concern.a.a(this.mPageContext, com.baidu.tieba.homepage.concern.b.b.erd);
-        this.eqb = new c(this.mPageContext, j.TYPE);
-        this.eqc = new g(this.mPageContext, k.atn);
-        this.epR.add(this.epT);
-        this.epR.add(this.epY);
-        this.epR.add(this.epZ);
-        this.epR.add(this.eqa);
-        this.epR.add(this.epU);
-        this.epR.add(this.epV);
-        this.epR.add(this.epW);
-        this.epR.add(this.epX);
-        this.epR.add(this.eqb);
-        this.epR.add(this.eqc);
-        jK("page_concern");
+        this.esK = new com.baidu.tieba.b.a(this.mPageContext, com.baidu.tbadk.data.b.aWM);
+        this.esP = new e(this.mPageContext, k.TYPE);
+        this.esQ = new h(this.mPageContext, l.daZ);
+        this.esR = new h(this.mPageContext, l.dba);
+        this.esL = new f(this.mPageContext.getContext());
+        this.esM = new d(this.mPageContext.getContext());
+        this.esN = new com.baidu.tieba.homepage.concern.a.b(this.mPageContext, com.baidu.tieba.homepage.concern.b.b.etU);
+        this.esO = new com.baidu.tieba.homepage.concern.a.a(this.mPageContext, com.baidu.tieba.homepage.concern.b.b.etV);
+        this.esS = new c(this.mPageContext, j.TYPE);
+        this.esT = new g(this.mPageContext, k.atn);
+        this.esI.add(this.esK);
+        this.esI.add(this.esP);
+        this.esI.add(this.esQ);
+        this.esI.add(this.esR);
+        this.esI.add(this.esL);
+        this.esI.add(this.esM);
+        this.esI.add(this.esN);
+        this.esI.add(this.esO);
+        this.esI.add(this.esS);
+        this.esI.add(this.esT);
+        jL("page_concern");
     }
 
     public void ak(List<com.baidu.adp.widget.ListView.h> list) {
-        this.epS.setData(list);
+        this.esJ.setData(list);
     }
 
     public void onChangeSkinType(int i) {
@@ -72,27 +72,27 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        if (this.epS != null && (this.epS.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
-            this.epS.getAdapter().notifyDataSetChanged();
+        if (this.esJ != null && (this.esJ.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
+            this.esJ.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.eqb.bdE = bdUniqueId;
-        this.epY.bdE = bdUniqueId;
-        this.epZ.bdE = bdUniqueId;
-        this.eqa.bdE = bdUniqueId;
-        this.epW.bdE = bdUniqueId;
-        this.epX.bdE = bdUniqueId;
-        this.eqb.bdE = bdUniqueId;
-        this.eqc.bdE = bdUniqueId;
+        this.esS.bdH = bdUniqueId;
+        this.esP.bdH = bdUniqueId;
+        this.esQ.bdH = bdUniqueId;
+        this.esR.bdH = bdUniqueId;
+        this.esN.bdH = bdUniqueId;
+        this.esO.bdH = bdUniqueId;
+        this.esS.bdH = bdUniqueId;
+        this.esT.bdH = bdUniqueId;
     }
 
-    private void jK(String str) {
-        if (this.epR != null) {
-            for (com.baidu.adp.widget.ListView.a aVar : this.epR) {
+    private void jL(String str) {
+        if (this.esI != null) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.esI) {
                 if (aVar instanceof com.baidu.tieba.a.f) {
-                    ((com.baidu.tieba.a.f) aVar).jK(str);
+                    ((com.baidu.tieba.a.f) aVar).jL(str);
                 }
             }
         }

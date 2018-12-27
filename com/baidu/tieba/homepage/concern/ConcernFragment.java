@@ -28,11 +28,11 @@ import java.util.List;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes6.dex */
 public class ConcernFragment extends BaseFragment implements ah {
-    private boolean dxO;
-    private ConcernPageView eqd;
-    private ConcernPageView.a eqe;
-    private boolean eqf = false;
-    private CustomMessageListener bVk = new CustomMessageListener(2001115) { // from class: com.baidu.tieba.homepage.concern.ConcernFragment.1
+    private boolean dAB;
+    private ConcernPageView esU;
+    private ConcernPageView.a esV;
+    private boolean esW = false;
+    private CustomMessageListener bVn = new CustomMessageListener(2001115) { // from class: com.baidu.tieba.homepage.concern.ConcernFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -40,9 +40,9 @@ public class ConcernFragment extends BaseFragment implements ah {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(ConcernFragment.this.getUniqueId())) {
-                    if (updateAttentionMessage.getData().aPr != null) {
-                        if (AntiHelper.a(ConcernFragment.this.getActivity(), updateAttentionMessage.getData().aPr, ConcernFragment.this.dJg) != null) {
-                            TiebaStatic.log(new am("c12534").x("obj_locate", as.a.aCN));
+                    if (updateAttentionMessage.getData().aPt != null) {
+                        if (AntiHelper.a(ConcernFragment.this.getActivity(), updateAttentionMessage.getData().aPt, ConcernFragment.this.dLU) != null) {
+                            TiebaStatic.log(new am("c12534").x("obj_locate", as.a.aCO));
                         }
                     } else if (updateAttentionMessage.getData().Jr && updateAttentionMessage.getData().isAttention) {
                         l.showToast(ConcernFragment.this.getActivity(), e.j.attention_success);
@@ -51,15 +51,15 @@ public class ConcernFragment extends BaseFragment implements ah {
             }
         }
     };
-    private final AntiHelper.a dJg = new AntiHelper.a() { // from class: com.baidu.tieba.homepage.concern.ConcernFragment.2
+    private final AntiHelper.a dLU = new AntiHelper.a() { // from class: com.baidu.tieba.homepage.concern.ConcernFragment.2
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onPositiveButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
-            TiebaStatic.log(new am("c12536").x("obj_locate", as.a.aCN));
+            TiebaStatic.log(new am("c12536").x("obj_locate", as.a.aCO));
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onNavigationButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
-            TiebaStatic.log(new am("c12535").x("obj_locate", as.a.aCN));
+            TiebaStatic.log(new am("c12535").x("obj_locate", as.a.aCO));
         }
     };
 
@@ -68,25 +68,25 @@ public class ConcernFragment extends BaseFragment implements ah {
 
     @SuppressLint({"ValidFragment"})
     public ConcernFragment(Context context) {
-        this.eqd = new ConcernPageView(context);
-        this.eqd.aEW();
-        registerListener(this.bVk);
+        this.esU = new ConcernPageView(context);
+        this.esU.aFL();
+        registerListener(this.bVn);
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        if (this.eqd.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.eqd.getParent()).removeView(this.eqd);
-            if (this.eqe != null) {
-                this.eqd.setCallback(this.eqe);
+        if (this.esU.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.esU.getParent()).removeView(this.esU);
+            if (this.esV != null) {
+                this.esU.setCallback(this.esV);
             }
         }
-        this.eqd.setPageUniqueId(getUniqueId());
-        if (this.eqf) {
-            this.eqd.aEW();
-            this.eqf = false;
+        this.esU.setPageUniqueId(getUniqueId());
+        if (this.esW) {
+            this.esU.aFL();
+            this.esW = false;
         }
-        return this.eqd;
+        return this.esU;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -96,15 +96,15 @@ public class ConcernFragment extends BaseFragment implements ah {
 
     @Override // com.baidu.tieba.frs.ah
     public void setHeaderViewHeight(int i) {
-        if (this.eqd != null) {
-            this.eqd.setHeaderViewHeight(i);
+        if (this.esU != null) {
+            this.esU.setHeaderViewHeight(i);
         }
     }
 
     @Override // com.baidu.tieba.frs.ah
     public void setRecommendFrsNavigationAnimDispatcher(u uVar) {
-        if (this.eqd != null) {
-            this.eqd.setRecommendFrsNavigationAnimDispatcher(uVar);
+        if (this.esU != null) {
+            this.esU.setRecommendFrsNavigationAnimDispatcher(uVar);
         }
     }
 
@@ -120,15 +120,15 @@ public class ConcernFragment extends BaseFragment implements ah {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.eqd != null) {
-            this.eqd.onResume();
+        if (this.esU != null) {
+            this.esU.onResume();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        this.eqd.setTabInForeBackgroundState(true);
+        this.esU.setTabInForeBackgroundState(true);
     }
 
     @Override // android.support.v4.app.Fragment
@@ -138,76 +138,76 @@ public class ConcernFragment extends BaseFragment implements ah {
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDetach() {
-        MessageManager.getInstance().unRegisterListener(this.bVk);
+        MessageManager.getInstance().unRegisterListener(this.bVn);
         super.onDetach();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.eqd.onDestroy();
-        this.eqf = true;
+        this.esU.onDestroy();
+        this.esW = true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            if (!this.dxO) {
-                if (this.eqd != null) {
-                    this.eqd.aJY();
+            if (!this.dAB) {
+                if (this.esU != null) {
+                    this.esU.aKN();
                 }
-                this.dxO = true;
+                this.dAB = true;
             }
-            this.eqd.setViewForeground();
+            this.esU.setViewForeground();
             return;
         }
-        this.eqd.aKc();
+        this.esU.aKR();
         completePullRefresh();
     }
 
-    public void aaW() {
-        this.eqd.setViewForeground(true);
+    public void aaY() {
+        this.esU.setViewForeground(true);
     }
 
     public void completePullRefresh() {
-        this.eqd.completePullRefresh();
+        this.esU.completePullRefresh();
     }
 
     public void setCallback(ConcernPageView.a aVar) {
-        this.eqe = aVar;
-        this.eqd.setCallback(aVar);
+        this.esV = aVar;
+        this.esU.setCallback(aVar);
     }
 
-    public void ag(String str, int i) {
-        this.eqd.ag(str, i);
+    public void ah(String str, int i) {
+        this.esU.ah(str, i);
     }
 
     public void a(DataRes dataRes, boolean z) {
-        if (this.eqd != null) {
-            this.eqd.a(dataRes, z);
+        if (this.esU != null) {
+            this.esU.a(dataRes, z);
         }
     }
 
-    public void aJX() {
-        if (this.eqd != null) {
-            this.eqd.aJZ();
+    public void aKM() {
+        if (this.esU != null) {
+            this.esU.aKO();
         }
-    }
-
-    @Override // com.baidu.tieba.frs.ah
-    public void aaA() {
-        if (this.dxO) {
-            this.eqd.reload();
-        }
-    }
-
-    @Override // com.baidu.tieba.frs.ah
-    public void aaB() {
     }
 
     @Override // com.baidu.tieba.frs.ah
     public void aaC() {
+        if (this.dAB) {
+            this.esU.reload();
+        }
+    }
+
+    @Override // com.baidu.tieba.frs.ah
+    public void aaD() {
+    }
+
+    @Override // com.baidu.tieba.frs.ah
+    public void aaE() {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a
@@ -232,7 +232,7 @@ public class ConcernFragment extends BaseFragment implements ah {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.eqd.onChangeSkinType(i);
+        this.esU.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tieba.frs.ah

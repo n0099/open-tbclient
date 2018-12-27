@@ -4,31 +4,31 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes6.dex */
 public class l {
-    private static l bAb;
-    private ExecutorService bAc = Executors.newFixedThreadPool(10);
+    private static l bAe;
+    private ExecutorService bAf = Executors.newFixedThreadPool(10);
 
-    public static l Vt() {
-        if (bAb == null) {
+    public static l Vv() {
+        if (bAe == null) {
             synchronized (l.class) {
-                if (bAb == null) {
-                    bAb = new l();
+                if (bAe == null) {
+                    bAe = new l();
                 }
             }
         }
-        return bAb;
+        return bAe;
     }
 
     public void f(Runnable runnable) {
-        if (this.bAc != null) {
-            this.bAc.execute(runnable);
+        if (this.bAf != null) {
+            this.bAf.execute(runnable);
         }
     }
 
     public void destroy() {
-        if (this.bAc != null) {
-            this.bAc.shutdown();
-            this.bAc = null;
-            bAb = null;
+        if (this.bAf != null) {
+            this.bAf.shutdown();
+            this.bAf = null;
+            bAe = null;
         }
     }
 }

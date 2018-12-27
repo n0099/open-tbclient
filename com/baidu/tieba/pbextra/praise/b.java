@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class b {
-    private View bFK;
-    private HeadImageView gps;
-    private TextView gpt;
-    private TextView gpu;
-    private ImageView gpv;
+    private View bFN;
+    private HeadImageView gsj;
+    private TextView gsk;
+    private TextView gsl;
+    private ImageView gsm;
 
     public static b d(Context context, View view) {
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
@@ -25,28 +25,28 @@ public class b {
     }
 
     private b(Context context) {
-        this.bFK = null;
-        this.gps = null;
-        this.gpt = null;
-        this.gpu = null;
-        this.gpv = null;
-        this.bFK = LayoutInflater.from(context).inflate(e.h.zan_list_item, (ViewGroup) null);
-        this.gps = (HeadImageView) this.bFK.findViewById(e.g.zan_list_item_head);
-        this.gpt = (TextView) this.bFK.findViewById(e.g.zan_list_item_name);
-        this.gpu = (TextView) this.bFK.findViewById(e.g.zan_list_item_time);
-        this.gpv = (ImageView) this.bFK.findViewById(e.g.zan_list_item_line_bottom);
-        this.gpv.setVisibility(0);
-        this.bFK.setTag(this);
+        this.bFN = null;
+        this.gsj = null;
+        this.gsk = null;
+        this.gsl = null;
+        this.gsm = null;
+        this.bFN = LayoutInflater.from(context).inflate(e.h.zan_list_item, (ViewGroup) null);
+        this.gsj = (HeadImageView) this.bFN.findViewById(e.g.zan_list_item_head);
+        this.gsk = (TextView) this.bFN.findViewById(e.g.zan_list_item_name);
+        this.gsl = (TextView) this.bFN.findViewById(e.g.zan_list_item_time);
+        this.gsm = (ImageView) this.bFN.findViewById(e.g.zan_list_item_line_bottom);
+        this.gsm.setVisibility(0);
+        this.bFN.setTag(this);
     }
 
     public View getView() {
-        return this.bFK;
+        return this.bFN;
     }
 
     public void a(String str, String str2, long j, boolean z) {
-        this.gpt.setText(str);
-        this.gps.setImageDrawable(null);
-        this.gpu.setText(ao.L(j));
-        this.gps.startLoad(str2, 28, false);
+        this.gsk.setText(str);
+        this.gsj.setImageDrawable(null);
+        this.gsl.setText(ao.M(j));
+        this.gsj.startLoad(str2, 28, false);
     }
 }

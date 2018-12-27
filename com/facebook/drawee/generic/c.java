@@ -40,7 +40,7 @@ public class c {
                     } else if (index == a.C0359a.GenericDraweeHierarchy_progressBarImage) {
                         bVar.p(a(context, obtainStyledAttributes, index));
                     } else if (index == a.C0359a.GenericDraweeHierarchy_fadeDuration) {
-                        bVar.yh(obtainStyledAttributes.getInt(index, 0));
+                        bVar.yu(obtainStyledAttributes.getInt(index, 0));
                     } else if (index == a.C0359a.GenericDraweeHierarchy_viewAspectRatio) {
                         bVar.aJ(obtainStyledAttributes.getFloat(index, 0.0f));
                     } else if (index == a.C0359a.GenericDraweeHierarchy_placeholderImageScaleType) {
@@ -62,7 +62,7 @@ public class c {
                     } else if (index == a.C0359a.GenericDraweeHierarchy_overlayImage) {
                         bVar.r(a(context, obtainStyledAttributes, index));
                     } else if (index == a.C0359a.GenericDraweeHierarchy_roundAsCircle) {
-                        a(bVar).oW(obtainStyledAttributes.getBoolean(index, false));
+                        a(bVar).oZ(obtainStyledAttributes.getBoolean(index, false));
                     } else if (index == a.C0359a.GenericDraweeHierarchy_roundedCornerRadius) {
                         i2 = obtainStyledAttributes.getDimensionPixelSize(index, i2);
                     } else if (index == a.C0359a.GenericDraweeHierarchy_roundTopLeft) {
@@ -74,11 +74,11 @@ public class c {
                     } else if (index == a.C0359a.GenericDraweeHierarchy_roundBottomRight) {
                         z4 = obtainStyledAttributes.getBoolean(index, z4);
                     } else if (index == a.C0359a.GenericDraweeHierarchy_roundWithOverlayColor) {
-                        a(bVar).yi(obtainStyledAttributes.getColor(index, 0));
+                        a(bVar).yv(obtainStyledAttributes.getColor(index, 0));
                     } else if (index == a.C0359a.GenericDraweeHierarchy_roundingBorderWidth) {
                         a(bVar).aK(obtainStyledAttributes.getDimensionPixelSize(index, 0));
                     } else if (index == a.C0359a.GenericDraweeHierarchy_roundingBorderColor) {
-                        a(bVar).yj(obtainStyledAttributes.getColor(index, 0));
+                        a(bVar).yw(obtainStyledAttributes.getColor(index, 0));
                     } else if (index == a.C0359a.GenericDraweeHierarchy_roundingBorderPadding) {
                         a(bVar).aL(obtainStyledAttributes.getDimensionPixelSize(index, 0));
                     }
@@ -92,8 +92,8 @@ public class c {
             z3 = true;
             i = 0;
         }
-        if (bVar.bVd() != null && i > 0) {
-            bVar.p(new com.facebook.drawee.drawable.b(bVar.bVd(), i));
+        if (bVar.bVU() != null && i > 0) {
+            bVar.p(new com.facebook.drawee.drawable.b(bVar.bVU(), i));
         }
         if (i2 > 0) {
             a(bVar).k(z3 ? i2 : 0.0f, z2 ? i2 : 0.0f, z4 ? i2 : 0.0f, z ? i2 : 0.0f);
@@ -103,10 +103,10 @@ public class c {
 
     @ReturnsOwnership
     private static RoundingParams a(b bVar) {
-        if (bVar.bVl() == null) {
+        if (bVar.bWc() == null) {
             bVar.b(new RoundingParams());
         }
-        return bVar.bVl();
+        return bVar.bWc();
     }
 
     @Nullable
@@ -124,21 +124,21 @@ public class c {
             case -1:
                 return null;
             case 0:
-                return n.b.ijH;
+                return n.b.imS;
             case 1:
-                return n.b.ijI;
+                return n.b.imT;
             case 2:
-                return n.b.ijJ;
+                return n.b.imU;
             case 3:
-                return n.b.ijK;
+                return n.b.imV;
             case 4:
-                return n.b.ijL;
+                return n.b.imW;
             case 5:
-                return n.b.ijM;
+                return n.b.imX;
             case 6:
-                return n.b.ijN;
+                return n.b.imY;
             case 7:
-                return n.b.ijO;
+                return n.b.imZ;
             default:
                 throw new RuntimeException("XML attribute not specified!");
         }

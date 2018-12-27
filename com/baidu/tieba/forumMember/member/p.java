@@ -4,59 +4,59 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes3.dex */
 public class p implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId dFv = BdUniqueId.gen();
-    private String dFy;
-    private String dFz;
-    private int dFw = -1;
-    private int dFx = -1;
-    private int dFA = -1;
+    public static final BdUniqueId dIj = BdUniqueId.gen();
+    private String dIm;
+    private String dIn;
+    private int dIk = -1;
+    private int dIl = -1;
+    private int dIo = -1;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dFv;
+        return dIj;
     }
 
-    public int azv() {
-        return this.dFw;
+    public int aAk() {
+        return this.dIk;
     }
 
-    public void lM(int i) {
-        this.dFw = i;
+    public void lZ(int i) {
+        this.dIk = i;
     }
 
-    public int azw() {
-        return this.dFA;
+    public int aAl() {
+        return this.dIo;
     }
 
-    public void lN(int i) {
-        this.dFA = i;
+    public void ma(int i) {
+        this.dIo = i;
     }
 
-    public int azx() {
-        return this.dFx;
+    public int aAm() {
+        return this.dIl;
     }
 
-    public void lO(int i) {
-        this.dFx = i;
+    public void mb(int i) {
+        this.dIl = i;
     }
 
-    public String azy() {
-        return this.dFy;
+    public String aAn() {
+        return this.dIm;
     }
 
-    public void nR(String str) {
-        this.dFy = str;
+    public void nU(String str) {
+        this.dIm = str;
     }
 
-    public String azz() {
-        return this.dFz;
+    public String aAo() {
+        return this.dIn;
     }
 
-    public void nS(String str) {
-        this.dFz = str;
+    public void nV(String str) {
+        this.dIn = str;
     }
 
     public boolean isEmpty() {
-        return StringUtils.isNull(this.dFy) || StringUtils.isNull(this.dFz) || this.dFw < 0 || this.dFx < 0;
+        return StringUtils.isNull(this.dIm) || StringUtils.isNull(this.dIn) || this.dIk < 0 || this.dIl < 0;
     }
 }

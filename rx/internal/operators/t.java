@@ -4,10 +4,10 @@ import java.util.NoSuchElementException;
 import rx.h;
 /* loaded from: classes2.dex */
 public class t<T> implements h.a<T> {
-    private final rx.d<T> iDF;
+    private final rx.d<T> iGP;
 
     public t(rx.d<T> dVar) {
-        this.iDF = dVar;
+        this.iGP = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -15,9 +15,9 @@ public class t<T> implements h.a<T> {
     /* renamed from: b */
     public void call(final rx.i<? super T> iVar) {
         rx.j<T> jVar = new rx.j<T>() { // from class: rx.internal.operators.t.1
-            private boolean iDG;
-            private boolean iDH;
-            private T iDI;
+            private boolean iGQ;
+            private boolean iGR;
+            private T iGS;
 
             @Override // rx.j
             public void onStart() {
@@ -26,9 +26,9 @@ public class t<T> implements h.a<T> {
 
             @Override // rx.e
             public void onCompleted() {
-                if (!this.iDG) {
-                    if (this.iDH) {
-                        iVar.onSuccess(this.iDI);
+                if (!this.iGQ) {
+                    if (this.iGR) {
+                        iVar.onSuccess(this.iGS);
                     } else {
                         iVar.onError(new NoSuchElementException("Observable emitted no items"));
                     }
@@ -43,18 +43,18 @@ public class t<T> implements h.a<T> {
 
             @Override // rx.e
             public void onNext(T t) {
-                if (this.iDH) {
-                    this.iDG = true;
+                if (this.iGR) {
+                    this.iGQ = true;
                     iVar.onError(new IllegalArgumentException("Observable emitted too many elements"));
                     unsubscribe();
                     return;
                 }
-                this.iDH = true;
-                this.iDI = t;
+                this.iGR = true;
+                this.iGS = t;
             }
         };
         iVar.add(jVar);
-        this.iDF.unsafeSubscribe(jVar);
+        this.iGP.unsafeSubscribe(jVar);
     }
 
     public static <T> t<T> g(rx.d<T> dVar) {

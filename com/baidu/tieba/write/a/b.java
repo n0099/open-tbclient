@@ -9,15 +9,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    private final ArrayList<MetaData> hTD = new ArrayList<>();
-    private HashMap<String, String> hTE = null;
+    private final ArrayList<MetaData> hWO = new ArrayList<>();
+    private HashMap<String, String> hWP = null;
 
-    public void c(JSONObject jSONObject, boolean z) {
+    public void d(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             if (z) {
                 try {
-                    if (this.hTE == null) {
-                        this.hTE = new HashMap<>();
+                    if (this.hWP == null) {
+                        this.hWP = new HashMap<>();
                     }
                 } catch (Exception e) {
                     BdLog.detailException(e);
@@ -30,9 +30,9 @@ public class b {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (!TextUtils.isEmpty(metaData.getName_show())) {
-                        this.hTD.add(metaData);
+                        this.hWO.add(metaData);
                         if (z) {
-                            this.hTE.put(metaData.getName_show(), metaData.getPortrait());
+                            this.hWP.put(metaData.getName_show(), metaData.getPortrait());
                         }
                     }
                 }
@@ -40,19 +40,19 @@ public class b {
         }
     }
 
-    public void xA(String str) {
+    public void xD(String str) {
         try {
-            c(new JSONObject(str), true);
+            d(new JSONObject(str), true);
         } catch (Exception e) {
             BdLog.detailException(e);
         }
     }
 
-    public ArrayList<MetaData> bNZ() {
-        return this.hTD;
+    public ArrayList<MetaData> bOQ() {
+        return this.hWO;
     }
 
-    public HashMap<String, String> bOa() {
-        return this.hTE;
+    public HashMap<String, String> bOR() {
+        return this.hWP;
     }
 }

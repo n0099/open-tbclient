@@ -195,7 +195,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     }
 
     private void initData() {
-        Map<String, String> fN;
+        Map<String, String> fO;
         Intent intent = getIntent();
         if (intent != null) {
             Uri data = intent.getData();
@@ -216,8 +216,8 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                     if (decode.startsWith("//")) {
                         decode = decode.substring(2);
                     }
-                    if (!StringUtils.isNull(decode) && (fN = ay.fN(decode)) != null) {
-                        this.mUrl = fN.get("url");
+                    if (!StringUtils.isNull(decode) && (fO = ay.fO(decode)) != null) {
+                        this.mUrl = fO.get("url");
                         this.mIsShowNavBar = true;
                     } else {
                         return;
@@ -399,12 +399,12 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (context == null || str == null || (parse = Uri.parse(str)) == null) {
             return null;
         }
-        List<String> GB = com.baidu.tbadk.coreExtra.data.f.GB();
-        if (v.I(GB)) {
+        List<String> GC = com.baidu.tbadk.coreExtra.data.f.GC();
+        if (v.I(GC)) {
             return null;
         }
         String scheme = parse.getScheme();
-        Iterator<String> it = GB.iterator();
+        Iterator<String> it = GC.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -489,7 +489,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (!TextUtils.isEmpty(str4)) {
             dVar.imageUri = Uri.parse(str4);
         }
-        dVar.aSc = true;
+        dVar.aSe = true;
         dVar.extData = this.mUrl;
         Bundle bundle = new Bundle();
         bundle.putString("obj_url", dVar.linkUrl);
@@ -533,7 +533,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                             if (!StringUtils.isNull(optString7) && !StringUtils.isNull(optString8)) {
                                 JSONObject jSONObject3 = new JSONObject();
                                 jSONObject3.put(optString7, optString8);
-                                dVar.aSo = jSONObject3.toString();
+                                dVar.aSq = jSONObject3.toString();
                             }
                         } catch (JSONException e) {
                         }

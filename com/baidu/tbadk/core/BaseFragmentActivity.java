@@ -173,7 +173,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             arrayList4.addAll(arrayList3);
             arrayList = arrayList4;
         }
-        if (getPageStayFilter() == null || getPageStayFilter().OM()) {
+        if (getPageStayFilter() == null || getPageStayFilter().ON()) {
             if (StringUtils.isNull(currentPageKey)) {
                 arrayList2 = arrayList;
             } else {
@@ -206,7 +206,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public com.baidu.tbadk.pageStayDuration.d getPageStayDurationItem() {
         if (this.pageStayDurationItem == null) {
             this.pageStayDurationItem = new com.baidu.tbadk.pageStayDuration.d();
-            this.pageStayDurationItem.iq(getCurrentPageKey());
+            this.pageStayDurationItem.ir(getCurrentPageKey());
         }
         this.pageStayDurationItem.U(getCurrentPageSourceKeyList());
         return this.pageStayDurationItem;
@@ -241,7 +241,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             CompatibleUtile.getInstance().openGpu(getPageContext().getPageActivity());
         }
         TbadkCoreApplication.setIsAppRunning(true);
-        aw.fL(getClass().getName());
+        aw.fM(getClass().getName());
         this.mLayoutMode = new c();
         registerListener(this.nightResourcesChangeListener);
         registerListener(this.skinTypeChangeListener);
@@ -307,11 +307,11 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void onResume() {
         MenuKeyUtils.hideSoftMenuKey(getWindow());
         super.onResume();
-        com.baidu.tieba.q.a.bGf().onResume(this);
+        com.baidu.tieba.r.a.bGV().onResume(this);
         this.lastResumeTime = System.currentTimeMillis();
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
         TbadkCoreApplication.getInst().AddResumeNum();
-        aw.fL(getClass().getName());
+        aw.fM(getClass().getName());
         TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (this.mIsLogin != isLogin) {
@@ -423,13 +423,13 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
-        com.baidu.tieba.q.a.bGf().onPause(this);
+        com.baidu.tieba.r.a.bGV().onPause(this);
         super.onPause();
         if (this.lastResumeTime != 0) {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             com.baidu.tbadk.pageStayDuration.d pageStayDurationItem = getPageStayDurationItem();
-            pageStayDurationItem.ap(currentTimeMillis);
-            com.baidu.tbadk.pageStayDuration.e.OR().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            pageStayDurationItem.aq(currentTimeMillis);
+            com.baidu.tbadk.pageStayDuration.e.OS().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
         }
         TbadkCoreApplication.getInst().DelResumeNum();
         TbadkCoreApplication.getInst().setCurrentActivity(null);
@@ -486,7 +486,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (!isFinishing() && com.baidu.adp.lib.g.g.a(getPageContext())) {
             this.mWaitingDialog = new com.baidu.tbadk.core.view.d(getPageContext());
             if (str != null) {
-                this.mWaitingDialog.gk(str);
+                this.mWaitingDialog.gl(str);
             } else {
                 this.mWaitingDialog.ec(e.j.Waiting);
             }
@@ -504,7 +504,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
         this.mWaitingDialog = new com.baidu.tbadk.core.view.d(getPageContext());
         if (str != null) {
-            this.mWaitingDialog.gk(str);
+            this.mWaitingDialog.gl(str);
         } else {
             this.mWaitingDialog.ec(e.j.Waiting);
         }
@@ -1008,7 +1008,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        com.baidu.tieba.q.a.bGf().behaviorRecordEvent(motionEvent, this);
+        com.baidu.tieba.r.a.bGV().behaviorRecordEvent(motionEvent, this);
         return super.dispatchTouchEvent(motionEvent);
     }
 

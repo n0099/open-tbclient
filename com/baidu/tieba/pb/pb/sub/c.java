@@ -27,28 +27,28 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class c extends BaseAdapter {
-    private bb bNv;
+    private bb bNy;
     protected Context mContext;
     protected ArrayList<PostData> mData = null;
-    protected View.OnClickListener giJ = null;
-    protected int giK = 0;
-    protected boolean giL = false;
-    protected boolean giM = false;
-    protected boolean ddJ = false;
+    protected View.OnClickListener glA = null;
+    protected int glB = 0;
+    protected boolean glC = false;
+    protected boolean glD = false;
+    protected boolean dgA = false;
     private boolean mIsFromCDN = true;
-    private boolean aEY = false;
-    private boolean aYF = false;
+    private boolean aEZ = false;
+    private boolean aYI = false;
     private String mPostId = "";
     private int mSelectedPosition = -1;
-    private View.OnLongClickListener aTo = null;
+    private View.OnLongClickListener aTr = null;
     private View.OnClickListener mCommonClickListener = null;
 
     /* loaded from: classes6.dex */
     public static class b {
-        public TextView cEg;
-        public TbRichTextView fWI;
-        public LinearLayout giO;
-        public View giP;
+        public TextView cFg;
+        public TbRichTextView fZA;
+        public LinearLayout glF;
+        public View glG;
         public int mSkinType = 3;
         public View rootView;
     }
@@ -63,16 +63,16 @@ public class c extends BaseAdapter {
     }
 
     public void aa(bb bbVar) {
-        this.bNv = bbVar;
+        this.bNy = bbVar;
     }
 
     public void M(View.OnClickListener onClickListener) {
-        this.giJ = onClickListener;
+        this.glA = onClickListener;
     }
 
     public void B(int i, boolean z) {
-        this.giK = i;
-        this.giL = z;
+        this.glB = i;
+        this.glC = z;
     }
 
     @Override // android.widget.Adapter
@@ -104,20 +104,20 @@ public class c extends BaseAdapter {
             postData = (PostData) getItem(i);
         }
         if (view == null) {
-            if (postData.getType() == PostData.hlq) {
-                view = bmL();
+            if (postData.getType() == PostData.hoB) {
+                view = bnx();
             } else {
                 view = oD();
             }
         }
-        if ((view.getTag() instanceof a) && postData.getType() != PostData.hlq) {
+        if ((view.getTag() instanceof a) && postData.getType() != PostData.hoB) {
             view = oD();
         }
-        if ((view.getTag() instanceof SparseArray) && postData.getType() == PostData.hlq) {
-            view = bmL();
+        if ((view.getTag() instanceof SparseArray) && postData.getType() == PostData.hoB) {
+            view = bnx();
         }
         if ((view.getTag() instanceof SparseArray) && (bVar = (b) ((SparseArray) view.getTag()).get(e.g.tag_holder)) != null && postData != null) {
-            boolean z = !this.ddJ && i + 1 >= getCount();
+            boolean z = !this.dgA && i + 1 >= getCount();
             boolean z2 = i == this.mSelectedPosition;
             a(bVar, postData, !z, i == 0, z2);
             if (z2) {
@@ -132,31 +132,31 @@ public class c extends BaseAdapter {
 
     /* loaded from: classes6.dex */
     public static class a {
-        public View byP;
-        public TextView giN;
+        public View byS;
+        public TextView glE;
         public View mRootView;
         private int mSkinType = 3;
 
         public a(Context context, View view) {
             this.mRootView = view;
-            this.byP = view.findViewById(e.g.divider_line);
-            this.giN = (TextView) view.findViewById(e.g.center_reply_text);
-            this.giN.setTextSize(0, TbConfig.getContentSizeOfLzl());
+            this.byS = view.findViewById(e.g.divider_line);
+            this.glE = (TextView) view.findViewById(e.g.center_reply_text);
+            this.glE.setTextSize(0, TbConfig.getContentSizeOfLzl());
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
 
         public void onChangeSkinType(int i) {
             if (i != this.mSkinType) {
-                al.j(this.byP, e.d.cp_cont_d);
-                al.h(this.giN, e.d.cp_cont_d);
-                al.j(this.giN, e.d.cp_bg_line_d);
-                this.giN.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.y(i, e.f.icon_floor_arrow_n), (Drawable) null);
+                al.j(this.byS, e.d.cp_cont_d);
+                al.h(this.glE, e.d.cp_cont_d);
+                al.j(this.glE, e.d.cp_bg_line_d);
+                this.glE.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.y(i, e.f.icon_floor_arrow_n), (Drawable) null);
             }
             this.mSkinType = i;
         }
     }
 
-    public View bmL() {
+    public View bnx() {
         View inflate = LayoutInflater.from(this.mContext).inflate(e.h.new_sub_pb_list_expand_view, (ViewGroup) null);
         inflate.setTag(new a(this.mContext, inflate));
         return inflate;
@@ -166,29 +166,29 @@ public class c extends BaseAdapter {
         b bVar = new b();
         View inflate = LayoutInflater.from(this.mContext).inflate(e.h.new_sub_pb_list_item, (ViewGroup) null);
         bVar.rootView = inflate;
-        bVar.giO = (LinearLayout) inflate.findViewById(e.g.sub_pb_item_columnlayout);
-        if (this.aEY) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) bVar.giO.getLayoutParams();
+        bVar.glF = (LinearLayout) inflate.findViewById(e.g.sub_pb_item_columnlayout);
+        if (this.aEZ) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) bVar.glF.getLayoutParams();
             layoutParams.topMargin = l.h(this.mContext, e.C0210e.ds8);
             layoutParams.bottomMargin = l.h(this.mContext, e.C0210e.ds8);
-            bVar.giO.setLayoutParams(layoutParams);
+            bVar.glF.setLayoutParams(layoutParams);
         }
-        bVar.cEg = (TextView) inflate.findViewById(e.g.manage_btn);
-        bVar.fWI = (TbRichTextView) inflate.findViewById(e.g.new_sub_pb_list_richText);
-        bVar.giP = inflate.findViewById(e.g.divide_bottom_view);
-        bVar.fWI.getLayoutStrategy().setSupportNoImage();
-        if (!this.aEY) {
-            bVar.fWI.getLayoutStrategy().setLineSpacing(l.h(TbadkCoreApplication.getInst().getContext(), e.C0210e.tbds12), 1.0f);
-            bVar.fWI.getLayoutStrategy().gS(0);
-            bVar.fWI.getLayoutStrategy().gQ(l.h(this.mContext, e.C0210e.tbds20));
-            bVar.fWI.getLayoutStrategy().gR(l.h(this.mContext, e.C0210e.tbds3));
+        bVar.cFg = (TextView) inflate.findViewById(e.g.manage_btn);
+        bVar.fZA = (TbRichTextView) inflate.findViewById(e.g.new_sub_pb_list_richText);
+        bVar.glG = inflate.findViewById(e.g.divide_bottom_view);
+        bVar.fZA.getLayoutStrategy().setSupportNoImage();
+        if (!this.aEZ) {
+            bVar.fZA.getLayoutStrategy().setLineSpacing(l.h(TbadkCoreApplication.getInst().getContext(), e.C0210e.tbds12), 1.0f);
+            bVar.fZA.getLayoutStrategy().gT(0);
+            bVar.fZA.getLayoutStrategy().gR(l.h(this.mContext, e.C0210e.tbds20));
+            bVar.fZA.getLayoutStrategy().gS(l.h(this.mContext, e.C0210e.tbds3));
         }
-        bVar.fWI.setSubPbPost(true);
-        bVar.fWI.setTextColor(al.getColor(e.d.cp_cont_f));
-        bVar.fWI.setTextSize(TbConfig.getContentSizeOfLzl());
-        bVar.fWI.setTextCenter(true);
-        bVar.fWI.setOnClickListener(this.mCommonClickListener);
-        bVar.cEg.setOnClickListener(this.giJ);
+        bVar.fZA.setSubPbPost(true);
+        bVar.fZA.setTextColor(al.getColor(e.d.cp_cont_f));
+        bVar.fZA.setTextSize(TbConfig.getContentSizeOfLzl());
+        bVar.fZA.setTextCenter(true);
+        bVar.fZA.setOnClickListener(this.mCommonClickListener);
+        bVar.cFg.setOnClickListener(this.glA);
         SparseArray sparseArray = new SparseArray();
         sparseArray.put(e.g.tag_holder, bVar);
         inflate.setTag(sparseArray);
@@ -203,21 +203,21 @@ public class c extends BaseAdapter {
         boolean z8;
         SparseArray sparseArray;
         if (bVar != null && postData != null) {
-            if (!postData.hmc && (this.mContext instanceof com.baidu.tieba.pb.pb.a)) {
+            if (!postData.hpn && (this.mContext instanceof com.baidu.tieba.pb.pb.a)) {
                 com.baidu.tieba.pb.pb.a aVar = (com.baidu.tieba.pb.pb.a) this.mContext;
-                postData.a(aVar.getPageContext(), postData.zG() != null && aVar.sN(postData.zG().getUserId()));
+                postData.a(aVar.getPageContext(), postData.zG() != null && aVar.sQ(postData.zG().getUserId()));
             }
             if (z3) {
                 al.j(bVar.rootView, e.d.cp_bg_line_b);
             } else {
                 bVar.rootView.setBackgroundResource(0);
             }
-            if (postData.bDs()) {
-                bVar.giP.setVisibility(0);
+            if (postData.bEk()) {
+                bVar.glG.setVisibility(0);
             } else {
-                bVar.giP.setVisibility(8);
+                bVar.glG.setVisibility(8);
             }
-            bVar.fWI.setPadding(0, 0, 0, 0);
+            bVar.fZA.setPadding(0, 0, 0, 0);
             if (postData.zG() != null) {
                 String name_show = postData.zG().getName_show();
                 String userId = postData.zG().getUserId();
@@ -225,28 +225,28 @@ public class c extends BaseAdapter {
                 if (sparseArray2 == null) {
                     sparseArray2 = new SparseArray();
                     bVar.rootView.setTag(sparseArray2);
-                    bVar.fWI.setTag(sparseArray2);
+                    bVar.fZA.setTag(sparseArray2);
                 }
                 sparseArray2.put(e.g.tag_photo_username, name_show);
                 sparseArray2.put(e.g.tag_photo_userid, userId);
                 sparseArray2.put(e.g.tag_clip_board, postData);
                 sparseArray2.put(e.g.tag_is_subpb, true);
             }
-            bVar.fWI.setLinkTextColor(al.getColor(e.d.cp_link_tip_c));
-            bVar.fWI.setTextColor(al.getColor(e.d.cp_cont_f));
-            a(postData, this.aEY);
-            TbRichText bDt = postData.bDt();
-            if (bDt != null) {
-                bVar.fWI.setVoiceViewRes(e.h.voice_play_btn_new);
-                bVar.fWI.setIsFromCDN(this.mIsFromCDN);
+            bVar.fZA.setLinkTextColor(al.getColor(e.d.cp_link_tip_c));
+            bVar.fZA.setTextColor(al.getColor(e.d.cp_cont_f));
+            a(postData, this.aEZ);
+            TbRichText bEl = postData.bEl();
+            if (bEl != null) {
+                bVar.fZA.setVoiceViewRes(e.h.voice_play_btn_new);
+                bVar.fZA.setIsFromCDN(this.mIsFromCDN);
                 if (bVar.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
-                    bDt.isChanged = true;
+                    bEl.isChanged = true;
                 }
-                bVar.fWI.setText(bDt);
+                bVar.fZA.setText(bEl);
             }
             String userId2 = postData.zG().getUserId();
-            if (this.giK != 0) {
-                boolean z9 = this.giK != 1002;
+            if (this.glB != 0) {
+                boolean z9 = this.glB != 1002;
                 if (userId2 != null && userId2.equals(TbadkCoreApplication.getCurrentAccount())) {
                     z9 = false;
                 }
@@ -261,7 +261,7 @@ public class c extends BaseAdapter {
                 z4 = false;
                 z5 = false;
             }
-            if (!this.giL) {
+            if (!this.glC) {
                 z6 = false;
             } else if (userId2 == null || !userId2.equals(TbadkCoreApplication.getCurrentAccount())) {
                 z6 = true;
@@ -277,12 +277,12 @@ public class c extends BaseAdapter {
                 z7 = true;
                 z8 = true;
             }
-            bVar.cEg.setVisibility(8);
+            bVar.cFg.setVisibility(8);
             SparseArray sparseArray3 = (SparseArray) bVar.rootView.getTag();
             if (sparseArray3 == null) {
                 SparseArray sparseArray4 = new SparseArray();
                 bVar.rootView.setTag(sparseArray4);
-                bVar.fWI.setTag(sparseArray4);
+                bVar.fZA.setTag(sparseArray4);
                 sparseArray = sparseArray4;
             } else {
                 sparseArray = sparseArray3;
@@ -290,7 +290,7 @@ public class c extends BaseAdapter {
             sparseArray.put(e.g.tag_subpb_main_floor_post_id, this.mPostId);
             if (z5) {
                 sparseArray.put(e.g.tag_should_manage_visible, true);
-                sparseArray.put(e.g.tag_manage_user_identity, Integer.valueOf(this.giK));
+                sparseArray.put(e.g.tag_manage_user_identity, Integer.valueOf(this.glB));
                 if (postData.zG() != null) {
                     sparseArray.put(e.g.tag_forbid_user_name, postData.zG().getUserName());
                     sparseArray.put(e.g.tag_forbid_user_name_show, postData.zG().getName_show());
@@ -303,7 +303,7 @@ public class c extends BaseAdapter {
             sparseArray.put(e.g.tag_forbid_user_post_id, postData.getId());
             sparseArray.put(e.g.tag_clip_board, postData);
             if (z6) {
-                if (this.bNv != null) {
+                if (this.bNy != null) {
                     sparseArray.put(e.g.tag_user_mute_visible, true);
                     sparseArray.put(e.g.tag_is_mem, Integer.valueOf(TbadkCoreApplication.getCurrentMemberType()));
                     if (postData.zG() != null) {
@@ -311,8 +311,8 @@ public class c extends BaseAdapter {
                         sparseArray.put(e.g.tag_user_mute_mute_username, postData.zG().getUserName());
                         sparseArray.put(e.g.tag_user_mute_mute_nameshow, postData.zG().getName_show());
                     }
-                    if (this.bNv.getId() != null) {
-                        sparseArray.put(e.g.tag_user_mute_thread_id, this.bNv.getId());
+                    if (this.bNy.getId() != null) {
+                        sparseArray.put(e.g.tag_user_mute_thread_id, this.bNy.getId());
                     }
                     sparseArray.put(e.g.tag_user_mute_post_id, postData.getId());
                 }
@@ -321,29 +321,29 @@ public class c extends BaseAdapter {
             }
             if (z8) {
                 sparseArray.put(e.g.tag_should_delete_visible, true);
-                sparseArray.put(e.g.tag_manage_user_identity, Integer.valueOf(this.giK));
+                sparseArray.put(e.g.tag_manage_user_identity, Integer.valueOf(this.glB));
                 sparseArray.put(e.g.tag_del_post_is_self, Boolean.valueOf(z7));
                 sparseArray.put(e.g.tag_del_post_type, 2);
                 sparseArray.put(e.g.tag_del_post_id, postData.getId());
             } else {
                 sparseArray.put(e.g.tag_should_delete_visible, false);
             }
-            if (this.aEY && z2 && this.aYF) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) bVar.giO.getLayoutParams();
+            if (this.aEZ && z2 && this.aYI) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) bVar.glF.getLayoutParams();
                 layoutParams.topMargin = l.h(this.mContext, e.C0210e.ds32);
                 layoutParams.bottomMargin = l.h(this.mContext, e.C0210e.ds8);
-                bVar.giO.setLayoutParams(layoutParams);
+                bVar.glF.setLayoutParams(layoutParams);
             }
-            if (this.aEY && !z2) {
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) bVar.giO.getLayoutParams();
+            if (this.aEZ && !z2) {
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) bVar.glF.getLayoutParams();
                 layoutParams2.topMargin = l.h(this.mContext, e.C0210e.ds8);
                 layoutParams2.bottomMargin = l.h(this.mContext, e.C0210e.ds8);
-                bVar.giO.setLayoutParams(layoutParams2);
+                bVar.glF.setLayoutParams(layoutParams2);
             }
-            bVar.cEg.setTag(sparseArray);
-            bVar.fWI.setTag(sparseArray);
+            bVar.cFg.setTag(sparseArray);
+            bVar.fZA.setTag(sparseArray);
             bVar.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            bVar.fWI.setOnLongClickListener(this.aTo);
+            bVar.fZA.setOnLongClickListener(this.aTr);
         }
     }
 
@@ -352,87 +352,87 @@ public class c extends BaseAdapter {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void a(PostData postData, boolean z) {
-        TbRichText bDt;
-        SpannableStringBuilder Sg;
+        TbRichText bEl;
+        SpannableStringBuilder Si;
         TbRichTextData tbRichTextData;
         String str;
         String str2;
-        SpannableStringBuilder Sg2;
-        if (postData != null && (bDt = postData.bDt()) != null) {
-            ArrayList<TbRichTextData> RZ = bDt.RZ();
-            if (!v.I(RZ)) {
+        SpannableStringBuilder Si2;
+        if (postData != null && (bEl = postData.bEl()) != null) {
+            ArrayList<TbRichTextData> Sb = bEl.Sb();
+            if (!v.I(Sb)) {
                 if (z) {
-                    TbRichTextData tbRichTextData2 = RZ.get(RZ.size() - 1);
+                    TbRichTextData tbRichTextData2 = Sb.get(Sb.size() - 1);
                     int type = tbRichTextData2 != null ? tbRichTextData2.getType() : -1;
                     if (type == 1) {
-                        String str3 = "   " + ao.L(postData.getTime());
-                        if (RZ.size() > 1) {
-                            if ((RZ.get(RZ.size() + (-2)) != null ? RZ.get(RZ.size() - 2).getType() : -1) != type) {
-                                str2 = ao.L(postData.getTime());
-                                Sg2 = tbRichTextData2.Sg();
-                                if (bDt.hasAppendTime && Sg2 != 0 && bDt.appendLength <= Sg2.length()) {
-                                    Sg2.delete(Sg2.length() - bDt.appendLength, Sg2.length());
+                        String str3 = "   " + ao.M(postData.getTime());
+                        if (Sb.size() > 1) {
+                            if ((Sb.get(Sb.size() + (-2)) != null ? Sb.get(Sb.size() - 2).getType() : -1) != type) {
+                                str2 = ao.M(postData.getTime());
+                                Si2 = tbRichTextData2.Si();
+                                if (bEl.hasAppendTime && Si2 != 0 && bEl.appendLength <= Si2.length()) {
+                                    Si2.delete(Si2.length() - bEl.appendLength, Si2.length());
                                 }
                                 String fG = ao.fG(str2);
-                                if (Sg2 != null) {
-                                    Sg2.append((CharSequence) fG);
+                                if (Si2 != null) {
+                                    Si2.append((CharSequence) fG);
                                 }
-                                bDt.hasAppendTime = true;
-                                bDt.appendLength = fG.length();
+                                bEl.hasAppendTime = true;
+                                bEl.appendLength = fG.length();
                                 tbRichTextData = tbRichTextData2;
                                 str = fG;
                             }
                         }
                         str2 = str3;
-                        Sg2 = tbRichTextData2.Sg();
-                        if (bDt.hasAppendTime) {
-                            Sg2.delete(Sg2.length() - bDt.appendLength, Sg2.length());
+                        Si2 = tbRichTextData2.Si();
+                        if (bEl.hasAppendTime) {
+                            Si2.delete(Si2.length() - bEl.appendLength, Si2.length());
                         }
                         String fG2 = ao.fG(str2);
-                        if (Sg2 != null) {
+                        if (Si2 != null) {
                         }
-                        bDt.hasAppendTime = true;
-                        bDt.appendLength = fG2.length();
+                        bEl.hasAppendTime = true;
+                        bEl.appendLength = fG2.length();
                         tbRichTextData = tbRichTextData2;
                         str = fG2;
-                    } else if (bDt.hasAppendTime) {
+                    } else if (bEl.hasAppendTime) {
                         tbRichTextData = tbRichTextData2;
                         str = "";
                     } else {
-                        String L = ao.L(postData.getTime());
+                        String M = ao.M(postData.getTime());
                         tbRichTextData = new TbRichTextData(1);
-                        str = ao.fG(L);
+                        str = ao.fG(M);
                         tbRichTextData.append(str);
-                        bDt.hasAppendTime = true;
-                        bDt.appendLength = str.length();
-                        RZ.add(tbRichTextData);
+                        bEl.hasAppendTime = true;
+                        bEl.appendLength = str.length();
+                        Sb.add(tbRichTextData);
                     }
-                    SpannableStringBuilder Sg3 = tbRichTextData.Sg();
-                    if (Sg3 != null && str.length() <= Sg3.length()) {
+                    SpannableStringBuilder Si3 = tbRichTextData.Si();
+                    if (Si3 != null && str.length() <= Si3.length()) {
                         AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(TbConfig.getContentSizeOfLzl());
                         ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(al.getColor(e.d.cp_cont_d));
-                        Sg3.setSpan(absoluteSizeSpan, Sg3.length() - str.length(), Sg3.length(), 33);
-                        Sg3.setSpan(foregroundColorSpan, Sg3.length() - str.length(), Sg3.length(), 33);
+                        Si3.setSpan(absoluteSizeSpan, Si3.length() - str.length(), Si3.length(), 33);
+                        Si3.setSpan(foregroundColorSpan, Si3.length() - str.length(), Si3.length(), 33);
                         return;
                     }
                     return;
                 }
-                TbRichTextData tbRichTextData3 = RZ.get(RZ.size() - 1);
-                if (bDt.hasAppendTime && tbRichTextData3 != null && (Sg = tbRichTextData3.Sg()) != null && bDt.appendLength <= Sg.length()) {
-                    Sg.delete(Sg.length() - bDt.appendLength, Sg.length());
+                TbRichTextData tbRichTextData3 = Sb.get(Sb.size() - 1);
+                if (bEl.hasAppendTime && tbRichTextData3 != null && (Si = tbRichTextData3.Si()) != null && bEl.appendLength <= Si.length()) {
+                    Si.delete(Si.length() - bEl.appendLength, Si.length());
                 }
-                bDt.hasAppendTime = false;
-                bDt.appendLength = 0;
+                bEl.hasAppendTime = false;
+                bEl.appendLength = 0;
             }
         }
     }
 
-    public void tp(String str) {
+    public void ts(String str) {
         this.mPostId = str;
     }
 
     public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.aTo = onLongClickListener;
+        this.aTr = onLongClickListener;
     }
 
     public void s(View.OnClickListener onClickListener) {

@@ -37,12 +37,12 @@ public class Static {
                     RequestAddGroupMessage requestAddGroupMessage = (RequestAddGroupMessage) responseAddGroupMessage.getOrginalMessage();
                     ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                     imMessageCenterPojo.setGroup_name(requestAddGroupMessage.getName());
-                    imMessageCenterPojo.setCustomGroupType(com.baidu.tieba.im.a.a.qk(requestAddGroupMessage.getGroupType()));
+                    imMessageCenterPojo.setCustomGroupType(com.baidu.tieba.im.a.a.qx(requestAddGroupMessage.getGroupType()));
                     AddGroupInfoData addGroupInfo = responseAddGroupMessage.getAddGroupInfo();
                     if (addGroupInfo != null) {
                         imMessageCenterPojo.setGroup_head(addGroupInfo.getPortrait());
                         imMessageCenterPojo.setGid(String.valueOf(addGroupInfo.getGroupId()));
-                        imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.d.cC(1L));
+                        imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.d.cH(1L));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016016, imMessageCenterPojo));
                     }
                 }

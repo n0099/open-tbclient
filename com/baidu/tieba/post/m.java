@@ -10,16 +10,16 @@ import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedM
 /* loaded from: classes3.dex */
 public class m {
     public static void init() {
-        aNA();
-        bpP();
+        aOo();
+        bqB();
     }
 
-    public static void aNA() {
+    public static void aOo() {
         com.baidu.tieba.tbadkCore.a.a.a(303002, UserPostPageSocketResponsedMessage.class, false, false);
     }
 
-    private static void bpP() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.aU("c/u/feed/userpost", 303002));
+    private static void bqB() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.aV("c/u/feed/userpost", 303002));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);

@@ -49,7 +49,7 @@ public final class b {
     }
 
     public static String getBduss(Context context) {
-        return !Xy() ? "" : TbadkCoreApplication.getCurrentBduss();
+        return !XA() ? "" : TbadkCoreApplication.getCurrentBduss();
     }
 
     public static String cg(Context context) {
@@ -63,12 +63,12 @@ public final class b {
     }
 
     public static String getUid(Context context) {
-        return !Xy() ? "" : TbadkCoreApplication.getCurrentAccount();
+        return !XA() ? "" : TbadkCoreApplication.getCurrentAccount();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String getSession(Context context, String str, String str2) {
-        return !Xy() ? str2 : SapiAccountManager.getInstance().getSession(str);
+        return !XA() ? str2 : SapiAccountManager.getInstance().getSession(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -89,7 +89,7 @@ public final class b {
         return TbConfig.PHOTO_BIG_ADDRESS + TbadkCoreApplication.getCurrentPortrait();
     }
 
-    public static String Xx() {
+    public static String Xz() {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(TbadkCoreApplication.getInst(), e.class, null);
         if (!callOnMainWithContentProvider.isOk() || callOnMainWithContentProvider.mResult == null) {
             return null;
@@ -98,7 +98,7 @@ public final class b {
     }
 
     public static String ch(Context context) {
-        if (Xy()) {
+        if (XA()) {
             return TbadkCoreApplication.getCurrentAccountNameShow();
         }
         return null;
@@ -116,7 +116,7 @@ public final class b {
     }
 
     public static void a(Context context, final TypedCallback<Bundle> typedCallback, @Nullable String... strArr) {
-        if (!Xy()) {
+        if (!XA()) {
             throw new IllegalStateException("must call in MainProcess");
         }
         if (strArr == null) {
@@ -175,7 +175,7 @@ public final class b {
     }
 
     public static boolean isLogin(Context context) {
-        if (Xy()) {
+        if (XA()) {
             return TbadkCoreApplication.isLogin();
         }
         return false;
@@ -207,14 +207,14 @@ public final class b {
                     }
                     int i = delegateResult.mResult.getInt("result_code", -1);
                     OnAiAppLoginResultListener.this.onResult(i);
-                    b.hO(i);
+                    b.hP(i);
                 }
             }
         });
     }
 
     public static void login(Activity activity, String str, final OnAiAppLoginResultListener onAiAppLoginResultListener) {
-        if (!Xy()) {
+        if (!XA()) {
             onAiAppLoginResultListener.onResult(-1);
             return;
         }
@@ -246,14 +246,14 @@ public final class b {
                     }
                     int i2 = delegateResult.mResult.getInt("result_code", -1);
                     OnAiAppLoginResultListener.this.onResult(i2);
-                    b.hO(i2);
+                    b.hP(i2);
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void hO(int i) {
+    public static void hP(int i) {
         boolean z = i == 0;
         String str = "";
         AiApp aiApp = AiApp.get();
@@ -266,7 +266,7 @@ public final class b {
     public static void thirdLogin(Activity activity, int i, String str, OnAiAppLoginResultListener onAiAppLoginResultListener) {
     }
 
-    private static boolean Xy() {
+    private static boolean XA() {
         return TbadkCoreApplication.getInst().isMainProcess(true);
     }
 

@@ -37,7 +37,7 @@ public class d extends h<e, f> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ah */
+    /* renamed from: ai */
     public f onCreateViewHolder(ViewGroup viewGroup) {
         return new f(LayoutInflater.from(this.mContext).inflate(e.h.manito_item_member, (ViewGroup) null));
     }
@@ -51,21 +51,21 @@ public class d extends h<e, f> {
         if (eVar != null && fVar != null) {
             if (fVar.mSkinType != this.mSkinType) {
                 al.i(fVar.getView(), e.f.frs_member_manito_bg);
-                al.c(fVar.bPh, e.d.cp_cont_b, 1);
-                al.c(fVar.cZS, e.d.cp_cont_c, 1);
+                al.c(fVar.bPk, e.d.cp_cont_b, 1);
+                al.c(fVar.dcL, e.d.cp_cont_c, 1);
                 al.j(fVar.dividerLine, e.d.cp_bg_line_c);
-                al.c(fVar.dEy, e.d.cp_cont_c, 1);
+                al.c(fVar.dHm, e.d.cp_cont_c, 1);
             }
-            fVar.dEx.startLoad(eVar.azq(), 12, false);
-            fVar.bPh.setText(y.I(eVar.getNameShow(), 16));
+            fVar.dHl.startLoad(eVar.aAf(), 12, false);
+            fVar.bPk.setText(y.J(eVar.getNameShow(), 16));
             if (StringUtils.isNull(eVar.getIntro())) {
-                fVar.cZS.setText(e.j.god_intro_default);
+                fVar.dcL.setText(e.j.god_intro_default);
             } else {
-                fVar.cZS.setText(y.I(eVar.getIntro(), 30));
+                fVar.dcL.setText(y.J(eVar.getIntro(), 30));
             }
             int color = al.getColor(e.d.cp_cont_h);
-            String P = ao.P(eVar.getFansNum());
-            fVar.dEy.setText(a(String.format(this.mContext.getResources().getString(e.j.fans_count), P), new String[]{P}, new int[]{color}));
+            String Q = ao.Q(eVar.getFansNum());
+            fVar.dHm.setText(a(String.format(this.mContext.getResources().getString(e.j.fans_count), Q), new String[]{Q}, new int[]{color}));
             fVar.getView().setTag(eVar);
             fVar.getView().setOnClickListener(this.mOnItemClickListener);
             fVar.mSkinType = this.mSkinType;

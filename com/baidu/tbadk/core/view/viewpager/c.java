@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter.a;
 /* loaded from: classes.dex */
 public abstract class c<T extends h, V extends BdBaseViewPagerAdapter.a> {
-    protected a<T, V> aLY;
+    protected a<T, V> aMa;
     protected Context mContext;
     protected BdUniqueId mType;
 
@@ -37,10 +37,10 @@ public abstract class c<T extends h, V extends BdBaseViewPagerAdapter.a> {
     }
 
     public void setOnItemClickListener(a<T, V> aVar) {
-        this.aLY = aVar;
+        this.aMa = aVar;
     }
 
-    public a<T, V> FF() {
-        return this.aLY;
+    public a<T, V> FG() {
+        return this.aMa;
     }
 }

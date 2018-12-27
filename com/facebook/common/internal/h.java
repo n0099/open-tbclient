@@ -9,16 +9,16 @@ import java.util.concurrent.CopyOnWriteArraySet;
 /* loaded from: classes2.dex */
 public final class h {
     public static <E> HashSet<E> K(E... eArr) {
-        HashSet<E> xS = xS(eArr.length);
-        Collections.addAll(xS, eArr);
-        return xS;
+        HashSet<E> yf = yf(eArr.length);
+        Collections.addAll(yf, eArr);
+        return yf;
     }
 
-    public static <E> HashSet<E> xS(int i) {
+    public static <E> HashSet<E> yf(int i) {
         return new HashSet<>(i);
     }
 
-    public static <E> Set<E> bTb() {
+    public static <E> Set<E> bTS() {
         return newSetFromMap(new IdentityHashMap());
     }
 
@@ -26,7 +26,7 @@ public final class h {
         return Collections.newSetFromMap(map);
     }
 
-    public static <E> CopyOnWriteArraySet<E> bTc() {
+    public static <E> CopyOnWriteArraySet<E> bTT() {
         return new CopyOnWriteArraySet<>();
     }
 }

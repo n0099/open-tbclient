@@ -4,7 +4,7 @@ import android.util.SparseIntArray;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes2.dex */
 public class h {
-    public static r bYq() {
+    public static r bZh() {
         SparseIntArray sparseIntArray = new SparseIntArray();
         sparseIntArray.put(1024, 5);
         sparseIntArray.put(2048, 5);
@@ -17,10 +17,10 @@ public class h {
         sparseIntArray.put(262144, 2);
         sparseIntArray.put(524288, 2);
         sparseIntArray.put(1048576, 2);
-        return new r(bYr(), bYk(), sparseIntArray);
+        return new r(bZi(), bZb(), sparseIntArray);
     }
 
-    private static int bYr() {
+    private static int bZi() {
         int min = (int) Math.min(Runtime.getRuntime().maxMemory(), 2147483647L);
         if (min < 16777216) {
             return 3145728;
@@ -31,7 +31,7 @@ public class h {
         return 12582912;
     }
 
-    private static int bYk() {
+    private static int bZb() {
         int min = (int) Math.min(Runtime.getRuntime().maxMemory(), 2147483647L);
         return min < 16777216 ? min / 2 : (min / 4) * 3;
     }

@@ -92,9 +92,9 @@ public class AppData extends OrmObject {
         this.app_time = 0;
         this.goods_info = null;
         this.goods = null;
-        ICardInfo qZ = com.baidu.tieba.lego.card.b.qZ(str);
-        if (qZ != null) {
-            ICardInfo viewItem = qZ.getViewItem(0, 4);
+        ICardInfo rc = com.baidu.tieba.lego.card.b.rc(str);
+        if (rc != null) {
+            ICardInfo viewItem = rc.getViewItem(0, 4);
             if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                 this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                 if (this.legoCard != null) {
@@ -113,7 +113,7 @@ public class AppData extends OrmObject {
     }
 
     public AppData(App app) {
-        ICardInfo qZ;
+        ICardInfo rc;
         this.legoCard = null;
         this.mDiscardReason = -1;
         if (app == null) {
@@ -165,8 +165,8 @@ public class AppData extends OrmObject {
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {
                     this.goods = new AppGoods(goodsInfo);
-                    if (com.baidu.adp.lib.b.d.iQ().aO("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (qZ = com.baidu.tieba.lego.card.b.qZ(this.goods.lego_card)) != null) {
-                        ICardInfo viewItem = qZ.getViewItem(0, 1);
+                    if (com.baidu.adp.lib.b.d.iQ().aO("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (rc = com.baidu.tieba.lego.card.b.rc(this.goods.lego_card)) != null) {
+                        ICardInfo viewItem = rc.getViewItem(0, 1);
                         if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                             this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                             return;

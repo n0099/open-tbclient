@@ -46,7 +46,7 @@ public class d {
         }
     }
 
-    public boolean Ya() {
+    public boolean Yc() {
         return this.acq.size() > 0;
     }
 

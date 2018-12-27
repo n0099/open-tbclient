@@ -6,9 +6,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class f {
-    private static f bir = new f();
-    private b bis;
-    private a bit;
+    private static f biu = new f();
+    private b biv;
+    private a biw;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,22 +18,22 @@ public class f {
     private f() {
     }
 
-    public static f PN() {
-        return bir;
+    public static f PP() {
+        return biu;
     }
 
     public void a(a aVar) {
-        this.bit = aVar;
-        if (this.bis != null) {
-            this.bis.cancel();
+        this.biw = aVar;
+        if (this.biv != null) {
+            this.biv.cancel();
         }
-        this.bis = new b();
-        this.bis.setPriority(4);
-        this.bis.execute(new String[0]);
+        this.biv = new b();
+        this.biv.setPriority(4);
+        this.biv.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean PO() {
+    public boolean PQ() {
         int i;
         long j = 0;
         byte[] fj = com.baidu.tbadk.core.util.l.fj(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
@@ -69,15 +69,15 @@ public class f {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(f.this.PO());
+            return Boolean.valueOf(f.this.PQ());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (f.this.bit != null && bool != null) {
-                f.this.bit.onResult(bool.booleanValue());
+            if (f.this.biw != null && bool != null) {
+                f.this.biw.onResult(bool.booleanValue());
             }
         }
     }

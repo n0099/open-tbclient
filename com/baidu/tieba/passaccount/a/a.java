@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.relogin.ReloginManager;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.tbadk.core.a.a {
-    private static a fMI = null;
-    private final a.InterfaceC0155a fMJ = new a.InterfaceC0155a() { // from class: com.baidu.tieba.passaccount.a.a.1
+    private static a fPA = null;
+    private final a.InterfaceC0155a fPB = new a.InterfaceC0155a() { // from class: com.baidu.tieba.passaccount.a.a.1
         @Override // com.baidu.tbadk.core.a.a.InterfaceC0155a
         public void ec(String str) {
         }
@@ -53,11 +53,11 @@ public class a extends com.baidu.tbadk.core.a.a {
     private a() {
     }
 
-    public static a bfl() {
-        if (fMI == null) {
-            fMI = new a();
+    public static a bfX() {
+        if (fPA == null) {
+            fPA = new a();
         }
-        return fMI;
+        return fPA;
     }
 
     @Override // com.baidu.tbadk.core.a.a
@@ -95,7 +95,7 @@ public class a extends com.baidu.tbadk.core.a.a {
         AccountData currentAccountObj;
         a.b eb;
         if (j.kV() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (eb = eb(currentAccountObj.getBDUSS())) != null) {
-            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), eb.El, eb.aop, currentAccountObj.getStoken(), this.fMJ);
+            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), eb.El, eb.aop, currentAccountObj.getStoken(), this.fPB);
         }
     }
 

@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class BLauncher extends ImageView implements g {
-    private boolean aXT;
+    private boolean aXW;
     private int mIcon;
     private int mId;
     private int mSkinType;
@@ -19,7 +19,7 @@ public class BLauncher extends ImageView implements g {
     public BLauncher(Context context, int i, int i2) {
         super(context);
         this.mSkinType = 0;
-        this.aXT = false;
+        this.aXW = false;
         setIcon(i);
         setToolId(i2);
     }
@@ -48,11 +48,11 @@ public class BLauncher extends ImageView implements g {
 
     @Override // com.baidu.tbadk.editortools.g
     public void hide() {
-        LW();
+        LX();
         setVisibility(8);
     }
 
-    public void hB(String str) {
+    public void hC(String str) {
         if (getVisibility() != 8 && !TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
@@ -83,7 +83,7 @@ public class BLauncher extends ImageView implements g {
         }
     }
 
-    public void LW() {
+    public void LX() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -98,9 +98,9 @@ public class BLauncher extends ImageView implements g {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                LW();
+                LX();
             } else if (aVar.data instanceof String) {
-                hB((String) aVar.data);
+                hC((String) aVar.data);
             }
         }
     }
@@ -120,11 +120,11 @@ public class BLauncher extends ImageView implements g {
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.aXT;
+        return this.aXW;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.aXT = z;
+        this.aXW = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

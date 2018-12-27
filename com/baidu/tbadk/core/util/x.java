@@ -109,7 +109,7 @@ public class x {
     }
 
     public int Dn() {
-        return this.aAQ.Ei().aDt;
+        return this.aAQ.Ei().aDu;
     }
 
     public int Do() {
@@ -117,7 +117,7 @@ public class x {
     }
 
     public String Dp() {
-        return this.aAQ.Ei().aDu;
+        return this.aAQ.Ei().aDv;
     }
 
     public String getErrorString() {
@@ -162,13 +162,13 @@ public class x {
             }
             this.aAS.Dj().Eh().mIsNeedAddCommenParam = false;
             this.aAS.Dj().Eh().mIsUseCurrentBDUSS = false;
-            this.aAS.Dj().Eh().aDq = false;
+            this.aAS.Dj().Eh().aDr = false;
             this.aAS.x("un", str);
             this.aAS.x("passwd", str2);
             this.aAS.x("isphone", "0");
             this.aAS.x("channel_id", TbadkCoreApplication.getInst().getPushChannelId());
             this.aAS.x("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
-            this.aAS.Dj().Eh().Ek().aDR = true;
+            this.aAS.Dj().Eh().Ek().aDS = true;
             CL = this.aAS.CL();
         } catch (Exception e) {
             BdLog.detailException(e);
@@ -238,7 +238,7 @@ public class x {
         stringBuffer.append("tiebaclient!!!");
         this.aAR.x("sign", com.baidu.adp.lib.util.s.bC(stringBuffer.toString()));
         if (this.aAQ.Eh().aAT) {
-            this.aAR.x("sig", StringU.ji(stringBuffer.toString()));
+            this.aAR.x("sig", StringU.jj(stringBuffer.toString()));
         }
     }
 
@@ -281,7 +281,7 @@ public class x {
             aa.dF(this.aAV);
             return CO;
         } else if (!this.aAQ.Ei().isRequestSuccess()) {
-            if (this.aAQ.Ei().aDt == 1 && this.aAQ.Eh().aDq) {
+            if (this.aAQ.Ei().aDu == 1 && this.aAQ.Eh().aDr) {
                 String str = this.aAQ.Ei().mErrorString;
                 this.aAQ.Ei().mErrorString = "";
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
@@ -318,9 +318,9 @@ public class x {
     }
 
     private void f(AccountData accountData) {
-        com.baidu.tbadk.coreExtra.a.c FZ;
-        if (!TextUtils.isEmpty(accountData.getID()) && (FZ = com.baidu.tbadk.coreExtra.a.a.FZ()) != null) {
-            FZ.f(accountData);
+        com.baidu.tbadk.coreExtra.a.c Ga;
+        if (!TextUtils.isEmpty(accountData.getID()) && (Ga = com.baidu.tbadk.coreExtra.a.a.Ga()) != null) {
+            Ga.f(accountData);
         }
     }
 
@@ -341,7 +341,7 @@ public class x {
                 return null;
         }
         if (this.aAQ.Ei().Dm()) {
-            switch (this.aAQ.Ei().aDt) {
+            switch (this.aAQ.Ei().aDu) {
                 case 1:
                 case 2:
                 case 5:

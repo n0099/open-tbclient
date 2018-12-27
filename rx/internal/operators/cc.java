@@ -25,7 +25,7 @@ public class cc<T, U, V> extends cb<T> {
                         return ((rx.d) rx.functions.e.this.call()).unsafeSubscribe(new rx.j<U>() { // from class: rx.internal.operators.cc.1.1
                             @Override // rx.e
                             public void onCompleted() {
-                                cVar.dK(l.longValue());
+                                cVar.dP(l.longValue());
                             }
 
                             @Override // rx.e
@@ -35,15 +35,15 @@ public class cc<T, U, V> extends cb<T> {
 
                             @Override // rx.e
                             public void onNext(U u) {
-                                cVar.dK(l.longValue());
+                                cVar.dP(l.longValue());
                             }
                         });
                     } catch (Throwable th) {
                         rx.exceptions.a.a(th, cVar);
-                        return rx.subscriptions.e.cft();
+                        return rx.subscriptions.e.cgk();
                     }
                 }
-                return rx.subscriptions.e.cft();
+                return rx.subscriptions.e.cgk();
             }
         }, new cb.b<T>() { // from class: rx.internal.operators.cc.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object] */
@@ -58,7 +58,7 @@ public class cc<T, U, V> extends cb<T> {
                     return ((rx.d) rx.functions.f.this.call(t)).unsafeSubscribe(new rx.j<V>() { // from class: rx.internal.operators.cc.2.1
                         @Override // rx.e
                         public void onCompleted() {
-                            cVar.dK(l.longValue());
+                            cVar.dP(l.longValue());
                         }
 
                         @Override // rx.e
@@ -68,12 +68,12 @@ public class cc<T, U, V> extends cb<T> {
 
                         @Override // rx.e
                         public void onNext(V v) {
-                            cVar.dK(l.longValue());
+                            cVar.dP(l.longValue());
                         }
                     });
                 } catch (Throwable th) {
                     rx.exceptions.a.a(th, cVar);
-                    return rx.subscriptions.e.cft();
+                    return rx.subscriptions.e.cgk();
                 }
             }
         }, dVar, Schedulers.immediate());

@@ -23,14 +23,14 @@ public final class y implements d.a<Long> {
         final g.a createWorker = this.scheduler.createWorker();
         jVar.add(createWorker);
         createWorker.a(new rx.functions.a() { // from class: rx.internal.operators.y.1
-            long iDN;
+            long iGX;
 
             @Override // rx.functions.a
             public void call() {
                 try {
                     rx.j jVar2 = jVar;
-                    long j = this.iDN;
-                    this.iDN = 1 + j;
+                    long j = this.iGX;
+                    this.iGX = 1 + j;
                     jVar2.onNext(Long.valueOf(j));
                 } catch (Throwable th) {
                     try {

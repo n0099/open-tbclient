@@ -45,40 +45,40 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void uZ(String str) {
-        aT(str, e.f.icon_toast_game_error);
+    public void vc(String str) {
+        aU(str, e.f.icon_toast_game_error);
     }
 
-    protected void va(String str) {
-        aT(str, e.f.icon_toast_game_ok);
+    protected void vd(String str) {
+        aU(str, e.f.icon_toast_game_ok);
     }
 
-    protected void aT(String str, int i) {
+    protected void aU(String str, int i) {
         BdToast.b(getAppContext(), str, i).BN();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void uE(int i) {
-        ag(i, null);
+    public void uR(int i) {
+        ah(i, null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ag(int i, String str) {
+    public void ah(int i, String str) {
         if (i == 1) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(e.j.share_success, new Object[0]);
             }
-            va(str);
+            vd(str);
         } else if (i == 3) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(e.j.share_cancel, new Object[0]);
             }
-            uZ(str);
+            vc(str);
         } else if (i == 2) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(e.j.share_failed, new Object[0]);
             }
-            uZ(str);
+            vc(str);
         }
     }
 
@@ -93,12 +93,12 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap byE() {
+    public Bitmap bzu() {
         return BitmapHelper.getCashBitmap(e.f.icon);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap vb(String str) {
+    public Bitmap ve(String str) {
         return BitmapHelper.loadBitmap(str);
     }
 

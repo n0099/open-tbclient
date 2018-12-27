@@ -6,23 +6,23 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 public class e {
-    private final com.facebook.common.memory.a iga;
-    private int iot = 0;
-    private int ios = 0;
-    private int iou = 0;
-    private int iow = 0;
-    private int iov = 0;
-    private int ior = 0;
+    private final com.facebook.common.memory.a ijk;
+    private int irD = 0;
+    private int irC = 0;
+    private int irE = 0;
+    private int irG = 0;
+    private int irF = 0;
+    private int irB = 0;
 
     public e(com.facebook.common.memory.a aVar) {
-        this.iga = (com.facebook.common.memory.a) g.checkNotNull(aVar);
+        this.ijk = (com.facebook.common.memory.a) g.checkNotNull(aVar);
     }
 
     public boolean a(com.facebook.imagepipeline.f.d dVar) {
-        if (this.ior != 6 && dVar.getSize() > this.iot) {
-            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(dVar.getInputStream(), this.iga.get(16384), this.iga);
+        if (this.irB != 6 && dVar.getSize() > this.irD) {
+            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(dVar.getInputStream(), this.ijk.get(16384), this.ijk);
             try {
-                com.facebook.common.util.c.a(fVar, this.iot);
+                com.facebook.common.util.c.a(fVar, this.irD);
                 return t(fVar);
             } catch (IOException e) {
                 k.r(e);
@@ -36,75 +36,75 @@ public class e {
 
     private boolean t(InputStream inputStream) {
         int read;
-        int i = this.iov;
-        while (this.ior != 6 && (read = inputStream.read()) != -1) {
+        int i = this.irF;
+        while (this.irB != 6 && (read = inputStream.read()) != -1) {
             try {
-                this.iot++;
-                switch (this.ior) {
+                this.irD++;
+                switch (this.irB) {
                     case 0:
                         if (read == 255) {
-                            this.ior = 1;
+                            this.irB = 1;
                             break;
                         } else {
-                            this.ior = 6;
+                            this.irB = 6;
                             break;
                         }
                     case 1:
                         if (read == 216) {
-                            this.ior = 2;
+                            this.irB = 2;
                             break;
                         } else {
-                            this.ior = 6;
+                            this.irB = 6;
                             break;
                         }
                     case 2:
                         if (read != 255) {
                             break;
                         } else {
-                            this.ior = 3;
+                            this.irB = 3;
                             break;
                         }
                     case 3:
                         if (read == 255) {
-                            this.ior = 3;
+                            this.irB = 3;
                             break;
                         } else if (read == 0) {
-                            this.ior = 2;
+                            this.irB = 2;
                             break;
                         } else {
                             if (read == 218 || read == 217) {
-                                yo(this.iot - 2);
+                                yB(this.irD - 2);
                             }
-                            if (yn(read)) {
-                                this.ior = 4;
+                            if (yA(read)) {
+                                this.irB = 4;
                                 break;
                             } else {
-                                this.ior = 2;
+                                this.irB = 2;
                                 break;
                             }
                         }
                     case 4:
-                        this.ior = 5;
+                        this.irB = 5;
                         break;
                     case 5:
-                        int i2 = ((this.ios << 8) + read) - 2;
+                        int i2 = ((this.irC << 8) + read) - 2;
                         com.facebook.common.util.c.a(inputStream, i2);
-                        this.iot = i2 + this.iot;
-                        this.ior = 2;
+                        this.irD = i2 + this.irD;
+                        this.irB = 2;
                         break;
                     default:
                         g.checkState(false);
                         break;
                 }
-                this.ios = read;
+                this.irC = read;
             } catch (IOException e) {
                 k.r(e);
             }
         }
-        return (this.ior == 6 || this.iov == i) ? false : true;
+        return (this.irB == 6 || this.irF == i) ? false : true;
     }
 
-    private static boolean yn(int i) {
+    private static boolean yA(int i) {
         boolean z = true;
         if (i == 1) {
             return false;
@@ -118,20 +118,20 @@ public class e {
         return false;
     }
 
-    private void yo(int i) {
-        if (this.iou > 0) {
-            this.iow = i;
+    private void yB(int i) {
+        if (this.irE > 0) {
+            this.irG = i;
         }
-        int i2 = this.iou;
-        this.iou = i2 + 1;
-        this.iov = i2;
+        int i2 = this.irE;
+        this.irE = i2 + 1;
+        this.irF = i2;
     }
 
-    public int bXP() {
-        return this.iow;
+    public int bYG() {
+        return this.irG;
     }
 
-    public int bXQ() {
-        return this.iov;
+    public int bYH() {
+        return this.irF;
     }
 }

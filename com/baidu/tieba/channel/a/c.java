@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    private d cZZ;
-    private e daa;
+    private d dcS;
+    private e dcT;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
 
     public c(Context context, BdTypeListView bdTypeListView) {
@@ -16,20 +16,20 @@ public class c {
     }
 
     private void a(Context context, BdTypeListView bdTypeListView) {
-        this.cZZ = new d(context, a.C0208a.daz);
-        this.daa = new e(context, a.C0208a.daA);
-        this.mAdapters.add(this.cZZ);
-        this.mAdapters.add(this.daa);
+        this.dcS = new d(context, a.C0208a.ddq);
+        this.dcT = new e(context, a.C0208a.ddr);
+        this.mAdapters.add(this.dcS);
+        this.mAdapters.add(this.dcT);
         bdTypeListView.addAdapters(this.mAdapters);
     }
 
     public void a(com.baidu.tieba.channel.view.b bVar) {
-        this.cZZ.a(bVar);
-        this.daa.a(bVar);
+        this.dcS.a(bVar);
+        this.dcT.a(bVar);
     }
 
     public void setIsHost(boolean z) {
-        this.cZZ.setIsHost(z);
-        this.daa.setIsHost(z);
+        this.dcS.setIsHost(z);
+        this.dcT.setIsHost(z);
     }
 }

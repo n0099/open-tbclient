@@ -21,200 +21,200 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class j implements i {
-    private String aEN;
-    private String biw;
-    private boolean fEA;
-    private String fEB;
-    private List<b> fEC;
-    private int fED;
-    private String fEE;
-    private String fEF;
-    private long fEG;
-    private long fEH;
-    private long fEI;
-    private long fEJ;
-    private long fEK;
-    private int fEL;
-    private String fEj;
-    private int fEk;
-    private int fEl;
-    private com.baidu.tieba.j.a.b fEo;
-    private com.baidu.tieba.j.a.d fEp;
-    private List<com.baidu.tieba.j.a.c> fEq;
-    private long fEu;
-    private long fEv;
-    private long fEw;
-    private boolean fEx;
+    private String aEO;
+    private String biz;
+    private long fHA;
+    private long fHB;
+    private long fHC;
+    private int fHD;
+    private String fHb;
+    private int fHc;
+    private int fHd;
+    private com.baidu.tieba.j.a.b fHg;
+    private com.baidu.tieba.j.a.d fHh;
+    private List<com.baidu.tieba.j.a.c> fHi;
+    private long fHm;
+    private long fHn;
+    private long fHo;
+    private boolean fHp;
+    private boolean fHs;
+    private String fHt;
+    private List<b> fHu;
+    private int fHv;
+    private String fHw;
+    private String fHx;
+    private long fHy;
+    private long fHz;
     private int mCurrentState;
     private int mError;
     private String mSource;
-    private boolean fEy = true;
-    private boolean fEz = false;
-    private String fEi = UUID.randomUUID().toString();
-    private Map<String, Long> fEn = new HashMap();
-    private List<com.baidu.tieba.m.c> fEm = new ArrayList();
-    private long fEr = 0;
-    private long fEs = 0;
-    private long fEt = 0;
+    private boolean fHq = true;
+    private boolean fHr = false;
+    private String fHa = UUID.randomUUID().toString();
+    private Map<String, Long> fHf = new HashMap();
+    private List<com.baidu.tieba.m.c> fHe = new ArrayList();
+    private long fHj = 0;
+    private long fHk = 0;
+    private long fHl = 0;
 
     public j(String str, String str2, String str3) {
         this.mCurrentState = 0;
         this.mCurrentState = 0;
-        this.biw = str;
-        this.aEN = str2;
-        this.fEj = str3;
-        bcI();
+        this.biz = str;
+        this.aEO = str2;
+        this.fHb = str3;
+        bdw();
     }
 
     @Override // com.baidu.tieba.j.i
-    public void bct() {
-        this.fEr = System.currentTimeMillis();
-        this.fEm.add(new com.baidu.tieba.m.a(3));
+    public void bdh() {
+        this.fHj = System.currentTimeMillis();
+        this.fHe.add(new com.baidu.tieba.m.a(3));
         this.mCurrentState = 0;
     }
 
     @Override // com.baidu.tieba.j.i
-    public void sc(String str) {
-        sh(str);
-        this.fEm.add(new com.baidu.tieba.m.a(1));
+    public void sf(String str) {
+        sk(str);
+        this.fHe.add(new com.baidu.tieba.m.a(1));
         this.mCurrentState = 1;
     }
 
-    private void sh(String str) {
+    private void sk(String str) {
         if (!StringUtils.isNull(str)) {
-            this.fEl = VideoPlatformStatic.jG(str);
-            if (this.fEl != 0) {
-                this.fEx = true;
+            this.fHd = VideoPlatformStatic.jH(str);
+            if (this.fHd != 0) {
+                this.fHp = true;
             }
         }
     }
 
     @Override // com.baidu.tieba.j.i
-    public void bcu() {
-        this.fEm.add(new com.baidu.tieba.m.a(2));
+    public void bdi() {
+        this.fHe.add(new com.baidu.tieba.m.a(2));
         this.mCurrentState = 2;
     }
 
     @Override // com.baidu.tieba.j.i
-    public void bcv() {
+    public void bdj() {
         if (this.mCurrentState != 2) {
-            this.fEr = System.currentTimeMillis();
-            this.fEm.add(new com.baidu.tieba.m.a(101));
+            this.fHj = System.currentTimeMillis();
+            this.fHe.add(new com.baidu.tieba.m.a(101));
             this.mCurrentState = 2;
         }
     }
 
     @Override // com.baidu.tieba.j.i
     public void a(int i, String str, int i2, int i3, int i4, String str2, int i5) {
-        this.fEr = System.currentTimeMillis();
-        sh(str);
-        this.fEm.add(new com.baidu.tieba.m.e(4, i, i2, i3, i4, str2, i5));
+        this.fHj = System.currentTimeMillis();
+        sk(str);
+        this.fHe.add(new com.baidu.tieba.m.e(4, i, i2, i3, i4, str2, i5));
         this.mCurrentState = 2;
     }
 
     @Override // com.baidu.tieba.j.i
-    public void rH(int i) {
+    public void rU(int i) {
         if (this.mCurrentState != 4 && this.mCurrentState != 5 && this.mCurrentState != 7 && this.mCurrentState != 8) {
-            this.fEk = i;
-            this.fEy = true;
-            long currentTimeMillis = System.currentTimeMillis() - this.fEr;
+            this.fHc = i;
+            this.fHq = true;
+            long currentTimeMillis = System.currentTimeMillis() - this.fHj;
             if (currentTimeMillis > 86400000) {
                 currentTimeMillis = ErrDef.Feature.WEIGHT;
             }
-            this.fEn.put("loadingTime", Long.valueOf(currentTimeMillis));
-            this.fEr = 0L;
-            this.fEs = System.currentTimeMillis();
-            this.fEm.add(new com.baidu.tieba.m.a(102));
+            this.fHf.put("loadingTime", Long.valueOf(currentTimeMillis));
+            this.fHj = 0L;
+            this.fHk = System.currentTimeMillis();
+            this.fHe.add(new com.baidu.tieba.m.a(102));
             this.mCurrentState = 3;
         }
     }
 
     @Override // com.baidu.tieba.j.i
-    public void rI(int i) {
+    public void rV(int i) {
         if (this.mCurrentState == 5) {
-            bcB();
+            bdp();
         } else if (this.mCurrentState == 3) {
-            this.fEk = i;
-            this.fEm.add(new com.baidu.tieba.m.a(200));
+            this.fHc = i;
+            this.fHe.add(new com.baidu.tieba.m.a(200));
             this.mCurrentState = 4;
         }
     }
 
     @Override // com.baidu.tieba.j.i
-    public void bcw() {
-        if (this.fEs != 0) {
+    public void bdk() {
+        if (this.fHk != 0) {
             long currentTimeMillis = System.currentTimeMillis();
-            this.fEt += currentTimeMillis - this.fEs;
-            this.fEs = currentTimeMillis;
+            this.fHl += currentTimeMillis - this.fHk;
+            this.fHk = currentTimeMillis;
         }
-        this.fEu++;
-        this.fEw = System.currentTimeMillis();
-        this.fEm.add(new com.baidu.tieba.m.a(201));
+        this.fHm++;
+        this.fHo = System.currentTimeMillis();
+        this.fHe.add(new com.baidu.tieba.m.a(201));
     }
 
     @Override // com.baidu.tieba.j.i
-    public void bcx() {
-        this.fEs = System.currentTimeMillis();
-        if (this.fEw != 0) {
-            this.fEv += System.currentTimeMillis() - this.fEw;
+    public void bdl() {
+        this.fHk = System.currentTimeMillis();
+        if (this.fHo != 0) {
+            this.fHn += System.currentTimeMillis() - this.fHo;
         }
-        this.fEm.add(new com.baidu.tieba.m.a(202));
+        this.fHe.add(new com.baidu.tieba.m.a(202));
     }
 
     @Override // com.baidu.tieba.j.i
-    public void bcy() {
+    public void bdm() {
         if (this.mCurrentState == 4 || this.mCurrentState == 3) {
-            if (this.fEs != 0) {
+            if (this.fHk != 0) {
                 long currentTimeMillis = System.currentTimeMillis();
-                this.fEt += currentTimeMillis - this.fEs;
-                this.fEs = currentTimeMillis;
+                this.fHl += currentTimeMillis - this.fHk;
+                this.fHk = currentTimeMillis;
             }
-            this.fEm.add(new com.baidu.tieba.m.a(203));
+            this.fHe.add(new com.baidu.tieba.m.a(203));
             this.mCurrentState = 5;
         }
     }
 
-    public void bcB() {
+    public void bdp() {
         if (this.mCurrentState == 5) {
-            this.fEs = System.currentTimeMillis();
-            this.fEm.add(new com.baidu.tieba.m.a(204));
+            this.fHk = System.currentTimeMillis();
+            this.fHe.add(new com.baidu.tieba.m.a(204));
             this.mCurrentState = 4;
         }
     }
 
     @Override // com.baidu.tieba.j.i
-    public void sd(String str) {
+    public void sg(String str) {
         if (this.mCurrentState != 8 && this.mCurrentState != 7 && this.mCurrentState != 6 && this.mCurrentState != -1) {
-            this.mSource = VideoPlatformStatic.jH(str);
-            bcD();
-            this.fEm.add(new com.baidu.tieba.m.a(205));
+            this.mSource = VideoPlatformStatic.jI(str);
+            bdr();
+            this.fHe.add(new com.baidu.tieba.m.a(205));
             this.mCurrentState = 8;
             report();
         }
     }
 
     @Override // com.baidu.tieba.j.i
-    public String se(String str) {
+    public String sh(String str) {
         if (this.mCurrentState == 8 || this.mCurrentState == 7 || this.mCurrentState == 6 || this.mCurrentState == -1) {
-            return this.fEi;
+            return this.fHa;
         }
-        this.mSource = VideoPlatformStatic.jH(str);
-        bcD();
-        this.fEn.put("stallDuration", Long.valueOf(this.fEv));
-        this.fEm.add(new com.baidu.tieba.m.a(206));
+        this.mSource = VideoPlatformStatic.jI(str);
+        bdr();
+        this.fHf.put("stallDuration", Long.valueOf(this.fHn));
+        this.fHe.add(new com.baidu.tieba.m.a(206));
         this.mCurrentState = 6;
         report();
-        return this.fEi;
+        return this.fHa;
     }
 
     @Override // com.baidu.tieba.j.i
-    public boolean sf(String str) {
+    public boolean si(String str) {
         if (this.mCurrentState == 8 || this.mCurrentState == 7 || this.mCurrentState == 6 || this.mCurrentState == -1 || this.mCurrentState == 1) {
             return false;
         }
-        this.mSource = VideoPlatformStatic.jH(str);
-        bcD();
-        this.fEm.add(new com.baidu.tieba.m.a(HttpStatus.SC_MULTI_STATUS));
+        this.mSource = VideoPlatformStatic.jI(str);
+        bdr();
+        this.fHe.add(new com.baidu.tieba.m.a(HttpStatus.SC_MULTI_STATUS));
         this.mCurrentState = 7;
         report();
         return true;
@@ -223,108 +223,108 @@ public class j implements i {
     @Override // com.baidu.tieba.j.i
     public void f(int i, int i2, String str) {
         if (i == -10000 || i == -24399 || i == -34399 || i == -300) {
-            if (this.fEp == null && com.baidu.adp.lib.util.f.hA()) {
-                this.fEp = new com.baidu.tieba.j.a.d(this.fEi);
-                a(this.fEp);
+            if (this.fHh == null && com.baidu.adp.lib.util.f.hA()) {
+                this.fHh = new com.baidu.tieba.j.a.d(this.fHa);
+                a(this.fHh);
             }
-            if (this.fEp != null) {
+            if (this.fHh != null) {
                 if (StringUtils.isNull(str)) {
                     str = "";
                 }
-                this.fEp.a(new com.baidu.tieba.play.b.d(-200, i, i2, str));
+                this.fHh.a(new com.baidu.tieba.play.b.d(-200, i, i2, str));
             }
-        } else if ("1".equals(com.baidu.tbadk.coreExtra.model.f.JQ())) {
-            if (this.fEo == null && com.baidu.adp.lib.util.f.hA()) {
-                this.fEo = new com.baidu.tieba.j.a.b(this.fEi);
-                a(this.fEo);
+        } else if ("1".equals(com.baidu.tbadk.coreExtra.model.f.JR())) {
+            if (this.fHg == null && com.baidu.adp.lib.util.f.hA()) {
+                this.fHg = new com.baidu.tieba.j.a.b(this.fHa);
+                a(this.fHg);
             }
-            if (this.fEo != null) {
-                if (this.fEo.size() == 0) {
-                    this.fED = i2;
+            if (this.fHg != null) {
+                if (this.fHg.size() == 0) {
+                    this.fHv = i2;
                 }
-                this.fEo.a(new com.baidu.tieba.play.b.d(-200, i, i2, str));
+                this.fHg.a(new com.baidu.tieba.play.b.d(-200, i, i2, str));
             }
         }
     }
 
     private void a(com.baidu.tieba.j.a.c cVar) {
-        if (this.fEq == null) {
-            this.fEq = new ArrayList();
+        if (this.fHi == null) {
+            this.fHi = new ArrayList();
         }
-        this.fEq.add(cVar);
+        this.fHi.add(cVar);
     }
 
     @Override // com.baidu.tieba.j.i
     public String a(int i, int i2, int i3, String str, boolean z, long j, String str2) {
         if (this.mCurrentState == 8 || this.mCurrentState == 7 || this.mCurrentState == 6 || this.mCurrentState == -1) {
-            return this.fEi;
+            return this.fHa;
         }
-        this.fEk = i;
-        this.fEy = false;
-        this.fEz = z;
+        this.fHc = i;
+        this.fHq = false;
+        this.fHr = z;
         this.mError = i3;
-        this.mSource = VideoPlatformStatic.jH(str);
-        bcD();
-        if (!v.I(this.fEq)) {
-            int size = this.fEq.size();
+        this.mSource = VideoPlatformStatic.jI(str);
+        bdr();
+        if (!v.I(this.fHi)) {
+            int size = this.fHi.size();
             for (int i4 = 0; i4 < size; i4++) {
-                com.baidu.tieba.j.a.c cVar = this.fEq.get(i4);
+                com.baidu.tieba.j.a.c cVar = this.fHi.get(i4);
                 if (cVar != null) {
-                    cVar.bcQ();
+                    cVar.bdE();
                 }
             }
         }
-        this.fEm.add(new com.baidu.tieba.m.b(i, i2, i3, j, str2, bcC()));
+        this.fHe.add(new com.baidu.tieba.m.b(i, i2, i3, j, str2, bdq()));
         this.mCurrentState = -1;
         report();
-        return this.fEi;
+        return this.fHa;
     }
 
-    private com.baidu.tieba.j.a.e[] bcC() {
-        if (this.fEq == null || this.fEq.size() == 0) {
+    private com.baidu.tieba.j.a.e[] bdq() {
+        if (this.fHi == null || this.fHi.size() == 0) {
             return null;
         }
-        com.baidu.tieba.j.a.e[] eVarArr = new com.baidu.tieba.j.a.e[this.fEq.size()];
+        com.baidu.tieba.j.a.e[] eVarArr = new com.baidu.tieba.j.a.e[this.fHi.size()];
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.fEq.size()) {
+            if (i2 >= this.fHi.size()) {
                 return eVarArr;
             }
-            eVarArr[i2] = this.fEq.get(i2).bcO();
+            eVarArr[i2] = this.fHi.get(i2).bdC();
             i = i2 + 1;
         }
     }
 
     @Override // com.baidu.tieba.j.i
-    public void sg(String str) {
-        this.fEB = str;
+    public void sj(String str) {
+        this.fHt = str;
     }
 
-    private void bcD() {
-        if (this.fEs != 0) {
-            this.fEt += System.currentTimeMillis() - this.fEs;
+    private void bdr() {
+        if (this.fHk != 0) {
+            this.fHl += System.currentTimeMillis() - this.fHk;
         }
-        this.fEn.put("playDuration", Long.valueOf(this.fEt));
-        this.fEn.put("stallCount", Long.valueOf(this.fEu));
-        this.fEn.put("stallDuration", Long.valueOf(this.fEv));
-        if (!this.fEn.containsKey("loadingTime")) {
-            this.fEn.put("loadingTime", 0L);
+        this.fHf.put("playDuration", Long.valueOf(this.fHl));
+        this.fHf.put("stallCount", Long.valueOf(this.fHm));
+        this.fHf.put("stallDuration", Long.valueOf(this.fHn));
+        if (!this.fHf.containsKey("loadingTime")) {
+            this.fHf.put("loadingTime", 0L);
         }
-        this.fEr = 0L;
-        this.fEs = 0L;
-        this.fEt = 0L;
-        this.fEu = 0L;
-        this.fEv = 0L;
-        this.fEw = 0L;
+        this.fHj = 0L;
+        this.fHk = 0L;
+        this.fHl = 0L;
+        this.fHm = 0L;
+        this.fHn = 0L;
+        this.fHo = 0L;
     }
 
     @Override // com.baidu.tieba.j.i
     public void report() {
-        if (!this.fEA) {
+        if (!this.fHs) {
             int reportType = com.baidu.tbadk.coreExtra.model.f.getReportType();
-            if ((com.baidu.tbadk.coreExtra.model.f.JL() || !this.fEy) && reportType != 3) {
-                this.fEA = true;
+            if ((com.baidu.tbadk.coreExtra.model.f.JM() || !this.fHq) && reportType != 3) {
+                this.fHs = true;
                 new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.j.j.1
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
@@ -333,22 +333,22 @@ public class j implements i {
                         int reportType2 = com.baidu.tbadk.coreExtra.model.f.getReportType();
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("baseInfo", j.this.VG());
-                            jSONObject.put("kpiInfo", j.this.bcE());
-                            if (reportType2 == 0 || (reportType2 == 4 && j.this.fEy)) {
-                                JSONObject bcG = j.this.bcG();
-                                bcG.put("running", j.this.bcH());
-                                jSONObject.put("debugInfo", bcG);
+                            jSONObject.put("baseInfo", j.this.VI());
+                            jSONObject.put("kpiInfo", j.this.bds());
+                            if (reportType2 == 0 || (reportType2 == 4 && j.this.fHq)) {
+                                JSONObject bdu = j.this.bdu();
+                                bdu.put("running", j.this.bdv());
+                                jSONObject.put("debugInfo", bdu);
                             } else if (reportType2 == 2) {
-                                jSONObject.put("debugInfo", j.this.bcG());
+                                jSONObject.put("debugInfo", j.this.bdu());
                             } else if (reportType2 == 1) {
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        com.baidu.tieba.s.e.bHy().b(jSONObject, j.this.fEy ? false : true);
-                        if (j.this.fEC != null) {
-                            j.this.fEC.clear();
+                        com.baidu.tieba.t.e.bIo().c(jSONObject, j.this.fHq ? false : true);
+                        if (j.this.fHu != null) {
+                            j.this.fHu.clear();
                             return null;
                         }
                         return null;
@@ -359,49 +359,49 @@ public class j implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject VG() {
-        JSONObject VG = VideoPlatformStatic.VG();
-        if (this.fEC != null) {
+    public JSONObject VI() {
+        JSONObject VI = VideoPlatformStatic.VI();
+        if (this.fHu != null) {
             try {
-                int size = this.fEC.size();
+                int size = this.fHu.size();
                 for (int i = 0; i < size; i++) {
-                    this.fEC.get(i).ao(VG);
+                    this.fHu.get(i).ao(VI);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        return VG;
+        return VI;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject bcE() {
+    public JSONObject bds() {
         JSONObject jSONObject = new JSONObject();
         try {
-            for (Map.Entry<String, Long> entry : this.fEn.entrySet()) {
+            for (Map.Entry<String, Long> entry : this.fHf.entrySet()) {
                 jSONObject.put(entry.getKey(), entry.getValue());
             }
-            if (!this.fEn.containsKey("loadingTime")) {
+            if (!this.fHf.containsKey("loadingTime")) {
                 jSONObject.put("loadingTime", 0L);
             }
-            if (!this.fEn.containsKey("playDuration")) {
+            if (!this.fHf.containsKey("playDuration")) {
                 jSONObject.put("playDuration", 0L);
             }
-            if (!this.fEn.containsKey("stallCount")) {
+            if (!this.fHf.containsKey("stallCount")) {
                 jSONObject.put("stallCount", 0);
             }
-            if (!this.fEn.containsKey("stallDuration")) {
+            if (!this.fHf.containsKey("stallDuration")) {
                 jSONObject.put("stallDuration", 0L);
             }
-            jSONObject.put("isCacheHit", this.fEx ? 1 : 0);
-            jSONObject.put("playSuccess", this.fEy ? 1 : 0);
-            jSONObject.put("startPlayTimeInfo", bcF());
-            jSONObject.put("retryError", this.fEz ? 1 : 0);
+            jSONObject.put("isCacheHit", this.fHp ? 1 : 0);
+            jSONObject.put("playSuccess", this.fHq ? 1 : 0);
+            jSONObject.put("startPlayTimeInfo", bdt());
+            jSONObject.put("retryError", this.fHr ? 1 : 0);
             jSONObject.put(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, this.mError);
-            if (this.fEC != null) {
-                int size = this.fEC.size();
+            if (this.fHu != null) {
+                int size = this.fHu.size();
                 for (int i = 0; i < size; i++) {
-                    this.fEC.get(i).ap(jSONObject);
+                    this.fHu.get(i).ap(jSONObject);
                 }
             }
         } catch (Exception e) {
@@ -410,46 +410,46 @@ public class j implements i {
         return jSONObject;
     }
 
-    private JSONObject bcF() {
+    private JSONObject bdt() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(SystemScreenshotManager.PAGE, this.fEE);
-            jSONObject.put("tid", this.fEF);
-            jSONObject.put("preparedTime", this.fEG);
-            jSONObject.put("startTime", this.fEH);
-            jSONObject.put("totalTime", this.fEI);
-            jSONObject.put(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, this.fEJ);
-            jSONObject.put(QzonePublish.PUBLISH_TO_QZONE_VIDEO_SIZE, this.fEK);
-            jSONObject.put("autoPlay", this.fEL);
+            jSONObject.put(SystemScreenshotManager.PAGE, this.fHw);
+            jSONObject.put("tid", this.fHx);
+            jSONObject.put("preparedTime", this.fHy);
+            jSONObject.put("startTime", this.fHz);
+            jSONObject.put("totalTime", this.fHA);
+            jSONObject.put(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, this.fHB);
+            jSONObject.put(QzonePublish.PUBLISH_TO_QZONE_VIDEO_SIZE, this.fHC);
+            jSONObject.put("autoPlay", this.fHD);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        bcI();
+        bdw();
         return jSONObject;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject bcG() {
+    public JSONObject bdu() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("uuid", this.fEi);
-            if (!StringUtils.isNull(this.fEj)) {
-                jSONObject.put("parentUuid", this.fEj);
+            jSONObject.put("uuid", this.fHa);
+            if (!StringUtils.isNull(this.fHb)) {
+                jSONObject.put("parentUuid", this.fHb);
             }
-            jSONObject.put("tid", this.biw);
-            jSONObject.put("videoUrl", this.aEN);
+            jSONObject.put("tid", this.biz);
+            jSONObject.put("videoUrl", this.aEO);
             jSONObject.put("source", this.mSource);
-            jSONObject.put("playerType", VideoPlatformStatic.hz(this.fEk));
-            jSONObject.put("urlType", this.fEl);
-            jSONObject.put("sub_error", this.fED);
+            jSONObject.put("playerType", VideoPlatformStatic.hA(this.fHc));
+            jSONObject.put("urlType", this.fHd);
+            jSONObject.put("sub_error", this.fHv);
             jSONObject.put("current_pid", Process.myPid());
-            if (!StringUtils.isNull(this.fEB)) {
-                jSONObject.put("error_stack", this.fEB);
+            if (!StringUtils.isNull(this.fHt)) {
+                jSONObject.put("error_stack", this.fHt);
             }
-            if (this.fEC != null) {
-                int size = this.fEC.size();
+            if (this.fHu != null) {
+                int size = this.fHu.size();
                 for (int i = 0; i < size; i++) {
-                    this.fEC.get(i).aq(jSONObject);
+                    this.fHu.get(i).aq(jSONObject);
                 }
             }
         } catch (Exception e) {
@@ -459,39 +459,39 @@ public class j implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONArray bcH() {
+    public JSONArray bdv() {
         JSONArray jSONArray = new JSONArray();
-        if (this.fEm == null) {
+        if (this.fHe == null) {
             return jSONArray;
         }
-        int size = this.fEm.size();
+        int size = this.fHe.size();
         for (int i = 0; i < size; i++) {
-            jSONArray.put(this.fEm.get(i).bsj());
+            jSONArray.put(this.fHe.get(i).bsV());
         }
         return jSONArray;
     }
 
     @Override // com.baidu.tieba.j.i
     public void a(b bVar) {
-        if (this.fEC == null) {
-            this.fEC = new ArrayList();
+        if (this.fHu == null) {
+            this.fHu = new ArrayList();
         }
-        this.fEC.add(bVar);
+        this.fHu.add(bVar);
     }
 
     @Override // com.baidu.tieba.j.i
-    public void jP(boolean z) {
-        this.fEy = z;
+    public void jS(boolean z) {
+        this.fHq = z;
     }
 
     @Override // com.baidu.tieba.j.i
-    public String bcz() {
-        return this.fEi;
+    public String bdn() {
+        return this.fHa;
     }
 
     @Override // com.baidu.tieba.j.i
-    public String bcA() {
-        return this.fED + "";
+    public String bdo() {
+        return this.fHv + "";
     }
 
     @Override // com.baidu.tieba.j.i
@@ -499,24 +499,24 @@ public class j implements i {
         if (ao.isEmpty(str)) {
             str = "default";
         }
-        this.fEE = str;
-        this.fEG = j;
-        this.fEH = j2;
-        this.fEI = j3;
-        this.fEJ = j4;
-        this.fEK = j5;
-        this.fEF = str2;
-        this.fEL = i;
+        this.fHw = str;
+        this.fHy = j;
+        this.fHz = j2;
+        this.fHA = j3;
+        this.fHB = j4;
+        this.fHC = j5;
+        this.fHx = str2;
+        this.fHD = i;
     }
 
-    private void bcI() {
-        this.fEE = "default";
-        this.fEG = 0L;
-        this.fEH = 0L;
-        this.fEI = 0L;
-        this.fEJ = 0L;
-        this.fEK = 0L;
-        this.fEF = "";
-        this.fEL = 0;
+    private void bdw() {
+        this.fHw = "default";
+        this.fHy = 0L;
+        this.fHz = 0L;
+        this.fHA = 0L;
+        this.fHB = 0L;
+        this.fHC = 0L;
+        this.fHx = "";
+        this.fHD = 0;
     }
 }

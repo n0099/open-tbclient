@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.r;
 /* loaded from: classes.dex */
 public class k extends l {
     public static void b(r rVar, r rVar2, r rVar3, r rVar4, r rVar5, int i) {
-        if (m.Pk().Pl()) {
+        if (m.Pl().Pm()) {
             com.baidu.adp.lib.stats.a jB = jB();
             jB.append("action", "dlStat");
             jB.append("c_dnum", String.valueOf(rVar.num));
@@ -33,13 +33,13 @@ public class k extends l {
             jB.append("op_spnum", String.valueOf(rVar5.aAh));
             jB.append("op_costt", String.valueOf(rVar5.time));
             jB.append("op_dlsize", String.valueOf(rVar5.CG));
-            jB.append("nettype", m.gk(i));
+            jB.append("nettype", m.gl(i));
             BdStatisticsManager.getInstance().performance("image", jB);
         }
     }
 
     public static void a(int i, int i2, long j) {
-        if (m.Pk().Pl()) {
+        if (m.Pl().Pm()) {
             com.baidu.adp.lib.stats.a jB = jB();
             jB.append("action", "dcStat");
             jB.append("dcnum", String.valueOf(i));

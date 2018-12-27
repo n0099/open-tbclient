@@ -213,21 +213,21 @@ public final class i {
 
     public static String y() {
         if (TextUtils.isEmpty(z)) {
-            p(com.baidu.ubs.analytics.d.bRI().getContext());
+            p(com.baidu.ubs.analytics.d.bSz().getContext());
         }
         return z;
     }
 
     public static String z() {
         if (TextUtils.isEmpty(A)) {
-            p(com.baidu.ubs.analytics.d.bRI().getContext());
+            p(com.baidu.ubs.analytics.d.bSz().getContext());
         }
         return A;
     }
 
     public static String A() {
         if (TextUtils.isEmpty(B)) {
-            p(com.baidu.ubs.analytics.d.bRI().getContext());
+            p(com.baidu.ubs.analytics.d.bSz().getContext());
         }
         return B;
     }

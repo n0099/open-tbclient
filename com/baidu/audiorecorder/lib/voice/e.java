@@ -55,14 +55,14 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
                 return false;
             }
             stopPlay(true);
-            this.Tg = com.baidu.tbadk.core.voice.a.FM();
-            String gu = com.baidu.tbadk.core.voice.a.gu(this.Tg);
+            this.Tg = com.baidu.tbadk.core.voice.a.FN();
+            String gv = com.baidu.tbadk.core.voice.a.gv(this.Tg);
             if (this.Th == null) {
                 this.Th = new a();
             }
             com.baidu.audiorecorder.lib.voice.a.stop();
             releaseWakeLock();
-            boolean a2 = com.baidu.audiorecorder.lib.voice.a.a(gu, i, this.Th);
+            boolean a2 = com.baidu.audiorecorder.lib.voice.a.a(gv, i, this.Th);
             if (a2) {
                 this.Tf.onStartedRecorder(true);
                 h.Hb = 2;
@@ -118,7 +118,7 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
             new Thread(new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.e.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    final String str2 = com.baidu.tbadk.core.voice.a.b.gw(com.baidu.tbadk.core.voice.a.gv(str)).md5;
+                    final String str2 = com.baidu.tbadk.core.voice.a.b.gx(com.baidu.tbadk.core.voice.a.gw(str)).md5;
                     if (e.this.mHandle != null) {
                         e.this.mHandle.removeCallbacks(e.this.Ti);
                         if (StringUtils.isNull(str2)) {

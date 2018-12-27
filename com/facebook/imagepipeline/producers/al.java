@@ -14,5 +14,5 @@ public interface al {
 
     void db(String str, String str2);
 
-    boolean zl(String str);
+    boolean zo(String str);
 }

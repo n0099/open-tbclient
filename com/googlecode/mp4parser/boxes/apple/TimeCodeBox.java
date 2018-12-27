@@ -108,7 +108,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
 
     @Override // com.coremedia.iso.boxes.sampleentry.SampleEntry
     public void setDataReferenceIndex(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.ze(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.zr(i)));
         this.dataReferenceIndex = i;
     }
 
@@ -123,7 +123,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
     }
 
     public void setTimeScale(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.ze(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.zr(i)));
         this.timeScale = i;
     }
 
@@ -133,7 +133,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
     }
 
     public void setFrameDuration(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_6, this, this, org.aspectj.a.a.a.ze(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_6, this, this, org.aspectj.a.a.a.zr(i)));
         this.frameDuration = i;
     }
 
@@ -143,7 +143,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
     }
 
     public void setNumberOfFrames(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.ze(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.zr(i)));
         this.numberOfFrames = i;
     }
 
@@ -153,7 +153,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
     }
 
     public void setReserved1(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, this, this, org.aspectj.a.a.a.ze(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, this, this, org.aspectj.a.a.a.zr(i)));
         this.reserved1 = i;
     }
 
@@ -163,7 +163,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
     }
 
     public void setReserved2(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_12, this, this, org.aspectj.a.a.a.ze(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_12, this, this, org.aspectj.a.a.a.zr(i)));
         this.reserved2 = i;
     }
 
@@ -173,7 +173,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
     }
 
     public void setFlags(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.dz(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.dE(j)));
         this.flags = j;
     }
 

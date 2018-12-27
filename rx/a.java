@@ -3,25 +3,25 @@ package rx;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes2.dex */
 public final class a {
-    public static final d iAB = c.iAH;
-    public static final d iAC = iAB;
-    public static final d iAD = b.iAG;
-    public static final d iAE = C0405a.iAF;
+    public static final d iDL = c.iDR;
+    public static final d iDM = iDL;
+    public static final d iDN = b.iDQ;
+    public static final d iDO = C0405a.iDP;
 
     /* loaded from: classes2.dex */
     public interface d {
-        boolean ccK() throws MissingBackpressureException;
+        boolean cdB() throws MissingBackpressureException;
     }
 
     /* loaded from: classes2.dex */
     static final class b implements d {
-        static final b iAG = new b();
+        static final b iDQ = new b();
 
         private b() {
         }
 
         @Override // rx.a.d
-        public boolean ccK() {
+        public boolean cdB() {
             return true;
         }
     }
@@ -29,26 +29,26 @@ public final class a {
     /* renamed from: rx.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     static final class C0405a implements d {
-        static final C0405a iAF = new C0405a();
+        static final C0405a iDP = new C0405a();
 
         private C0405a() {
         }
 
         @Override // rx.a.d
-        public boolean ccK() {
+        public boolean cdB() {
             return false;
         }
     }
 
     /* loaded from: classes2.dex */
     static final class c implements d {
-        static final c iAH = new c();
+        static final c iDR = new c();
 
         private c() {
         }
 
         @Override // rx.a.d
-        public boolean ccK() throws MissingBackpressureException {
+        public boolean cdB() throws MissingBackpressureException {
             throw new MissingBackpressureException("Overflowed buffer");
         }
     }

@@ -9,15 +9,15 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class a {
-    private DragLayer hmH;
-    private d hmI;
-    private c hmJ;
-    public boolean hmK;
-    private float hmL;
-    private b hmM;
-    private Rect hmN;
-    private int hmO;
-    private int hmP;
+    private DragLayer hpT;
+    private d hpU;
+    private c hpV;
+    public boolean hpW;
+    private float hpX;
+    private b hpY;
+    private Rect hpZ;
+    private int hqa;
+    private int hqb;
     private Context mContext;
     public float mStartX;
     private Rect mTempRect = new Rect();
@@ -26,45 +26,45 @@ public class a {
     public a(Context context) {
         this.mContext = context;
         this.mVibrator = (Vibrator) context.getSystemService("vibrator");
-        this.hmL = this.mContext.getResources().getDisplayMetrics().density * 20.0f;
+        this.hpX = this.mContext.getResources().getDisplayMetrics().density * 20.0f;
     }
 
     public void a(DragLayer dragLayer) {
-        this.hmH = dragLayer;
+        this.hpT = dragLayer;
         dragLayer.setDragController(this);
-        this.hmO = this.hmH.getPaddingLeft();
-        this.hmP = this.hmH.getPaddingRight();
+        this.hqa = this.hpT.getPaddingLeft();
+        this.hqb = this.hpT.getPaddingRight();
     }
 
     public void b(View view, Bundle bundle) {
-        if (this.hmH != null && view != null && view.getDrawingCache() != null) {
-            this.hmK = true;
-            this.hmM = new b(this.mContext);
+        if (this.hpT != null && view != null && view.getDrawingCache() != null) {
+            this.hpW = true;
+            this.hpY = new b(this.mContext);
             Rect rect = new Rect();
             view.getDrawingRect(rect);
-            this.hmH.offsetDescendantRectToMyCoords(view, rect);
+            this.hpT.offsetDescendantRectToMyCoords(view, rect);
             view.setDrawingCacheEnabled(true);
             view.buildDrawingCache();
-            this.hmM.bjV = Bitmap.createBitmap(view.getDrawingCache());
+            this.hpY.bjY = Bitmap.createBitmap(view.getDrawingCache());
             view.destroyDrawingCache();
             view.setDrawingCacheEnabled(false);
-            this.hmM.rect = rect;
-            this.hmM.hnp = bundle;
+            this.hpY.rect = rect;
+            this.hpY.hqB = bundle;
             view.setVisibility(4);
-            a(this.hmM);
-            this.hmH.setDragObject(this.hmM);
+            a(this.hpY);
+            this.hpT.setDragObject(this.hpY);
             this.mVibrator.vibrate(300L);
         }
     }
 
     public void endDrag() {
-        if (this.hmK) {
-            this.hmK = false;
-            this.hmM = null;
-            this.hmI.bDO();
-            this.hmI.bDP();
-            this.hmH.bDR();
-            this.hmH.invalidate();
+        if (this.hpW) {
+            this.hpW = false;
+            this.hpY = null;
+            this.hpU.bEG();
+            this.hpU.bEH();
+            this.hpT.bEJ();
+            this.hpT.invalidate();
         }
     }
 
@@ -80,18 +80,18 @@ public class a {
                 endDrag();
                 break;
         }
-        return this.hmK;
+        return this.hpW;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.hmK) {
-            if (this.hmN == null) {
-                this.hmN = new Rect();
-                this.hmH.getDrawingRect(this.hmN);
-                Rect rect = this.hmN;
-                rect.top = (int) (rect.top - this.hmL);
-                Rect rect2 = this.hmN;
-                rect2.bottom = (int) (rect2.bottom + this.hmL);
+        if (this.hpW) {
+            if (this.hpZ == null) {
+                this.hpZ = new Rect();
+                this.hpT.getDrawingRect(this.hpZ);
+                Rect rect = this.hpZ;
+                rect.top = (int) (rect.top - this.hpX);
+                Rect rect2 = this.hpZ;
+                rect2.bottom = (int) (rect2.bottom + this.hpX);
             }
             switch (motionEvent.getAction() & 255) {
                 case 0:
@@ -106,8 +106,8 @@ public class a {
                 case 2:
                     float x = motionEvent.getX(0);
                     this.mStartX = x;
-                    this.hmM.rect.offset((int) (x - this.mStartX), 0);
-                    a(this.hmM);
+                    this.hpY.rect.offset((int) (x - this.mStartX), 0);
+                    a(this.hpY);
                     swap();
                     break;
             }
@@ -117,49 +117,49 @@ public class a {
     }
 
     public void swap() {
-        this.mTempRect.set(this.hmM.rect);
-        this.hmH.offsetRectIntoDescendantCoords((View) this.hmI, this.mTempRect);
-        this.hmI.m(this.mTempRect);
-        this.hmH.invalidate();
-        if (this.hmM.hnq) {
-            this.hmI.bDM();
-        } else if (this.hmM.hnr) {
-            this.hmI.bDN();
+        this.mTempRect.set(this.hpY.rect);
+        this.hpT.offsetRectIntoDescendantCoords((View) this.hpU, this.mTempRect);
+        this.hpU.m(this.mTempRect);
+        this.hpT.invalidate();
+        if (this.hpY.hqC) {
+            this.hpU.bEE();
+        } else if (this.hpY.hqD) {
+            this.hpU.bEF();
         } else {
-            this.hmI.bDO();
+            this.hpU.bEG();
         }
     }
 
     private void a(b bVar) {
-        bVar.hnq = false;
-        bVar.hnr = false;
+        bVar.hqC = false;
+        bVar.hqD = false;
         Rect rect = bVar.rect;
         int width = rect.width();
-        int width2 = (this.hmH.getWidth() - this.hmO) - this.hmP;
-        if (rect.left < this.hmO) {
-            rect.left = this.hmO;
+        int width2 = (this.hpT.getWidth() - this.hqa) - this.hqb;
+        if (rect.left < this.hqa) {
+            rect.left = this.hqa;
             rect.right = rect.left + width;
         }
-        if (rect.right > this.hmO + width2) {
-            rect.right = this.hmO + width2;
+        if (rect.right > this.hqa + width2) {
+            rect.right = this.hqa + width2;
             rect.left = rect.right - width;
         }
-        if (rect.left < this.hmO + this.hmL) {
-            bVar.hnq = true;
-            bVar.hnr = false;
+        if (rect.left < this.hqa + this.hpX) {
+            bVar.hqC = true;
+            bVar.hqD = false;
         }
-        if (rect.right > (this.hmO + width2) - this.hmL) {
-            bVar.hnq = false;
-            bVar.hnr = true;
+        if (rect.right > (this.hqa + width2) - this.hpX) {
+            bVar.hqC = false;
+            bVar.hqD = true;
         }
     }
 
     public void a(d dVar) {
-        this.hmI = dVar;
+        this.hpU = dVar;
     }
 
     public void a(c cVar) {
-        this.hmJ = cVar;
-        this.hmJ.setDragController(this);
+        this.hpV = cVar;
+        this.hpV.setDragController(this);
     }
 }

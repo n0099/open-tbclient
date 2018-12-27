@@ -19,39 +19,39 @@ import tbclient.HotThread.tinfo;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
     private TextView amN;
-    private View.OnClickListener csN;
-    private TextView dcT;
-    private TextView dcU;
-    private TextView dcY;
-    private RelativeLayout ddc;
-    private TbImageView ddd;
-    private TbImageView dde;
-    private TbImageView ddf;
+    private View.OnClickListener cts;
+    private TextView dfL;
+    private TextView dfM;
+    private TextView dfQ;
+    private RelativeLayout dfU;
+    private TbImageView dfV;
+    private TbImageView dfW;
+    private TbImageView dfX;
 
     public c(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.csN = new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.c.1
+        this.cts = new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 Object tag = view2.getTag();
                 if (tag instanceof Integer) {
                     com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(4096, new d(((Integer) tag).intValue(), c.this.getData()), null, null);
                     bVar.setUniqueId(c.this.getUniqueId());
-                    c.this.OL().dispatchMvcEvent(bVar);
+                    c.this.OM().dispatchMvcEvent(bVar);
                 }
             }
         };
         this.amN = (TextView) view.findViewById(e.g.chosen_picture_title);
-        this.dcT = (TextView) view.findViewById(e.g.chosen_picture_praise);
-        this.dcU = (TextView) view.findViewById(e.g.chosen_picture_comment);
-        this.dcY = (TextView) view.findViewById(e.g.chosen_picture_head);
-        this.ddc = (RelativeLayout) view.findViewById(e.g.chosen_picture_pic_container);
-        this.ddd = (TbImageView) view.findViewById(e.g.chosen_picture_pic_one);
-        this.dde = (TbImageView) view.findViewById(e.g.chosen_picture_pic_two);
-        this.ddf = (TbImageView) view.findViewById(e.g.chosen_picture_pic_thr);
-        this.ddd.setOnClickListener(this.csN);
-        this.dde.setOnClickListener(this.csN);
-        this.ddf.setOnClickListener(this.csN);
+        this.dfL = (TextView) view.findViewById(e.g.chosen_picture_praise);
+        this.dfM = (TextView) view.findViewById(e.g.chosen_picture_comment);
+        this.dfQ = (TextView) view.findViewById(e.g.chosen_picture_head);
+        this.dfU = (RelativeLayout) view.findViewById(e.g.chosen_picture_pic_container);
+        this.dfV = (TbImageView) view.findViewById(e.g.chosen_picture_pic_one);
+        this.dfW = (TbImageView) view.findViewById(e.g.chosen_picture_pic_two);
+        this.dfX = (TbImageView) view.findViewById(e.g.chosen_picture_pic_thr);
+        this.dfV.setOnClickListener(this.cts);
+        this.dfW.setOnClickListener(this.cts);
+        this.dfX.setOnClickListener(this.cts);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -77,22 +77,22 @@ public class c extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
                 });
             }
             if (StringUtils.isNull(tinfoVar.title)) {
-                this.dcY.setVisibility(8);
+                this.dfQ.setVisibility(8);
             } else {
-                this.dcY.setVisibility(0);
-                this.dcY.setText(tinfoVar.title);
+                this.dfQ.setVisibility(0);
+                this.dfQ.setText(tinfoVar.title);
             }
             if (tinfoVar.zan_num == null) {
-                this.dcT.setVisibility(8);
+                this.dfL.setVisibility(8);
             } else {
-                this.dcT.setVisibility(0);
-                this.dcT.setText(tinfoVar.zan_num + "");
+                this.dfL.setVisibility(0);
+                this.dfL.setText(tinfoVar.zan_num + "");
             }
             if (tinfoVar.reply_num == null) {
-                this.dcU.setVisibility(8);
+                this.dfM.setVisibility(8);
             } else {
-                this.dcU.setVisibility(0);
-                this.dcU.setText(tinfoVar.reply_num + "");
+                this.dfM.setVisibility(0);
+                this.dfM.setText(tinfoVar.reply_num + "");
             }
             b(tinfoVar);
         }
@@ -101,7 +101,7 @@ public class c extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
     private void b(tinfo tinfoVar) {
         if (tinfoVar != null) {
             if (i.xE().xI() && tinfoVar.pics != null && tinfoVar.pics.size() > 0) {
-                this.ddc.setVisibility(0);
+                this.dfU.setVisibility(0);
                 switch (tinfoVar.pics.size()) {
                     case 0:
                     default:
@@ -110,23 +110,23 @@ public class c extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
                         break;
                     case 3:
                         String str = tinfoVar.pics.get(2).small_pic;
-                        this.ddf.setVisibility(0);
-                        this.ddf.startLoad(str, 10, false);
-                        this.ddf.setTag(2);
+                        this.dfX.setVisibility(0);
+                        this.dfX.startLoad(str, 10, false);
+                        this.dfX.setTag(2);
                     case 2:
                         String str2 = tinfoVar.pics.get(1).small_pic;
-                        this.dde.setVisibility(0);
-                        this.dde.startLoad(str2, 10, false);
-                        this.dde.setTag(1);
+                        this.dfW.setVisibility(0);
+                        this.dfW.startLoad(str2, 10, false);
+                        this.dfW.setTag(1);
                         break;
                 }
                 String str3 = tinfoVar.pics.get(0).small_pic;
-                this.ddd.setVisibility(0);
-                this.ddd.startLoad(str3, 10, false);
-                this.ddd.setTag(0);
+                this.dfV.setVisibility(0);
+                this.dfV.startLoad(str3, 10, false);
+                this.dfV.setTag(0);
                 return;
             }
-            this.ddc.setVisibility(8);
+            this.dfU.setVisibility(8);
         }
     }
 

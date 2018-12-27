@@ -15,20 +15,20 @@ import com.baidu.tieba.card.v;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.h, com.baidu.tieba.card.a.a<com.baidu.tieba.card.k>> {
-    public BdUniqueId bdE;
-    private ad<com.baidu.tieba.card.data.h> dNp;
-    private com.baidu.tieba.card.k evP;
+    public BdUniqueId bdH;
+    private ad<com.baidu.tieba.card.data.h> dQd;
+    private com.baidu.tieba.card.k eyI;
     private TbPageContext<?> mPageContext;
 
     public g(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity(), com.baidu.tieba.card.data.h.TYPE);
-        this.dNp = new ad<com.baidu.tieba.card.data.h>() { // from class: com.baidu.tieba.homepage.personalize.a.g.1
+        this.dQd = new ad<com.baidu.tieba.card.data.h>() { // from class: com.baidu.tieba.homepage.personalize.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             public void a(View view, com.baidu.tieba.card.data.h hVar) {
-                if (view != null && g.this.evP != null && g.this.evP.cUi != null && g.this.evP.cUi.cUm != null && g.this.evP.cUi.cUk != null && g.this.evP.cUi.getView() != null) {
-                    if (view.getId() != g.this.evP.cUi.cUm.getId() || !(view.getTag() instanceof MetaData)) {
-                        if ((view.getId() == g.this.evP.cUi.getView().getId() || view.getId() == g.this.evP.cUi.cUk.getId()) && (view.getTag(e.g.rec_god_item_root) instanceof String)) {
+                if (view != null && g.this.eyI != null && g.this.eyI.cWY != null && g.this.eyI.cWY.cXc != null && g.this.eyI.cWY.cXa != null && g.this.eyI.cWY.getView() != null) {
+                    if (view.getId() != g.this.eyI.cWY.cXc.getId() || !(view.getTag() instanceof MetaData)) {
+                        if ((view.getId() == g.this.eyI.cWY.getView().getId() || view.getId() == g.this.eyI.cWY.cXa.getId()) && (view.getTag(e.g.rec_god_item_root) instanceof String)) {
                             TiebaStatic.log(new am("c11005").aA(VideoPlayActivityConfig.OBJ_ID, (String) view.getTag(e.g.rec_god_item_root)));
                         }
                     } else if (!StringUtils.isNull(((MetaData) view.getTag()).getUserId())) {
@@ -43,10 +43,10 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: Z */
+    /* renamed from: aa */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        this.evP = new com.baidu.tieba.card.k(this.mPageContext, this.bdE);
-        return new com.baidu.tieba.card.a.a(this.evP);
+        this.eyI = new com.baidu.tieba.card.k(this.mPageContext, this.bdH);
+        return new com.baidu.tieba.card.a.a(this.eyI);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,17 +54,17 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.h hVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.k> aVar) {
-        this.evP = aVar.aqe();
-        aVar.aqe().a(hVar);
-        aVar.aqe().b(this.dNp);
-        aVar.aqe().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        v.apD().a(new am("c11006"));
+        this.eyI = aVar.aqT();
+        aVar.aqT().a(hVar);
+        aVar.aqT().b(this.dQd);
+        aVar.aqT().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        v.aqs().a(new am("c11006"));
         return aVar.getView();
     }
 
-    public void oH(int i) {
-        if (this.evP != null) {
-            this.evP.d(this.mPageContext, i);
+    public void oU(int i) {
+        if (this.eyI != null) {
+            this.eyI.d(this.mPageContext, i);
         }
     }
 }

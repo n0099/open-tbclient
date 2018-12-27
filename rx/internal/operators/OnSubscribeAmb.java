@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class OnSubscribeAmb<T> implements d.a<T> {
-    final Iterable<? extends rx.d<? extends T>> iBR;
+    final Iterable<? extends rx.d<? extends T>> iFb;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -105,18 +105,18 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.j<T> {
-        private final Selection<T> iBY;
-        private boolean iBZ;
+        private final Selection<T> iFi;
+        private boolean iFj;
         private final rx.j<? super T> subscriber;
 
         a(long j, rx.j<? super T> jVar, Selection<T> selection) {
             this.subscriber = jVar;
-            this.iBY = selection;
+            this.iFi = selection;
             request(j);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void dC(long j) {
+        public void dH(long j) {
             request(j);
         }
 
@@ -142,18 +142,18 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
         }
 
         private boolean isSelected() {
-            if (this.iBZ) {
+            if (this.iFj) {
                 return true;
             }
-            if (this.iBY.get() == this) {
-                this.iBZ = true;
+            if (this.iFi.get() == this) {
+                this.iFj = true;
                 return true;
-            } else if (this.iBY.compareAndSet(null, this)) {
-                this.iBY.unsubscribeOthers(this);
-                this.iBZ = true;
+            } else if (this.iFi.compareAndSet(null, this)) {
+                this.iFi.unsubscribeOthers(this);
+                this.iFj = true;
                 return true;
             } else {
-                this.iBY.unsubscribeLosers();
+                this.iFi.unsubscribeLosers();
                 return false;
             }
         }
@@ -185,7 +185,7 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
     }
 
     private OnSubscribeAmb(Iterable<? extends rx.d<? extends T>> iterable) {
-        this.iBR = iterable;
+        this.iFb = iterable;
     }
 
     public void call(rx.j<? super T> jVar) {
@@ -200,7 +200,7 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
                 OnSubscribeAmb.m(selection.ambSubscribers);
             }
         }));
-        for (rx.d<? extends T> dVar : this.iBR) {
+        for (rx.d<? extends T> dVar : this.iFb) {
             if (jVar.isUnsubscribed()) {
                 break;
             }
@@ -221,16 +221,16 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
             public void request(long j) {
                 a<T> aVar3 = selection.get();
                 if (aVar3 != null) {
-                    aVar3.dC(j);
+                    aVar3.dH(j);
                     return;
                 }
                 for (a<T> aVar4 : selection.ambSubscribers) {
                     if (!aVar4.isUnsubscribed()) {
                         if (selection.get() == aVar4) {
-                            aVar4.dC(j);
+                            aVar4.dH(j);
                             return;
                         }
-                        aVar4.dC(j);
+                        aVar4.dH(j);
                     }
                 }
             }

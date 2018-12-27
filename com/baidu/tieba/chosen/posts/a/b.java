@@ -17,20 +17,20 @@ import tbclient.HotThread.tinfo;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
     private TextView amN;
-    private TextView bdp;
-    private TextView dcT;
-    private TextView dcU;
-    private TextView dcY;
-    private LinearLayout dcZ;
+    private TextView bds;
+    private TextView dfL;
+    private TextView dfM;
+    private TextView dfQ;
+    private LinearLayout dfR;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.amN = (TextView) view.findViewById(e.g.chosen_no_picture_title);
-        this.dcT = (TextView) view.findViewById(e.g.chosen_no_picture_praise);
-        this.dcU = (TextView) view.findViewById(e.g.chosen_no_picture_comment);
-        this.dcY = (TextView) view.findViewById(e.g.chosen_no_picture_head);
-        this.bdp = (TextView) view.findViewById(e.g.chosen_no_picture_sub);
-        this.dcZ = (LinearLayout) view.findViewById(e.g.chosen_no_picture_comment_line);
+        this.dfL = (TextView) view.findViewById(e.g.chosen_no_picture_praise);
+        this.dfM = (TextView) view.findViewById(e.g.chosen_no_picture_comment);
+        this.dfQ = (TextView) view.findViewById(e.g.chosen_no_picture_head);
+        this.bds = (TextView) view.findViewById(e.g.chosen_no_picture_sub);
+        this.dfR = (LinearLayout) view.findViewById(e.g.chosen_no_picture_comment_line);
     }
 
     @Override // com.baidu.tieba.tbadkCore.o
@@ -47,15 +47,15 @@ public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
     public void L(final tinfo tinfoVar) {
         super.L(tinfoVar);
         if (StringUtils.isNull(tinfoVar.title)) {
-            this.dcY.setVisibility(8);
+            this.dfQ.setVisibility(8);
         } else {
-            this.dcY.setVisibility(0);
-            this.dcY.setText(tinfoVar.title);
+            this.dfQ.setVisibility(0);
+            this.dfQ.setText(tinfoVar.title);
         }
         if (StringUtils.isNull(tinfoVar.forum_name)) {
-            this.dcZ.setVisibility(8);
+            this.dfR.setVisibility(8);
         } else {
-            this.dcZ.setVisibility(0);
+            this.dfR.setVisibility(0);
             this.amN.setVisibility(0);
             this.amN.setText(UtilHelper.getFixedText(getContext().getString(e.j.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
             this.amN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.b.1
@@ -69,23 +69,23 @@ public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
                 }
             });
             if (tinfoVar.zan_num == null) {
-                this.dcT.setVisibility(8);
+                this.dfL.setVisibility(8);
             } else {
-                this.dcT.setVisibility(0);
-                this.dcT.setText(tinfoVar.zan_num + "");
+                this.dfL.setVisibility(0);
+                this.dfL.setText(tinfoVar.zan_num + "");
             }
             if (tinfoVar.reply_num == null) {
-                this.dcU.setVisibility(8);
+                this.dfM.setVisibility(8);
             } else {
-                this.dcU.setVisibility(0);
-                this.dcU.setText(tinfoVar.reply_num + "");
+                this.dfM.setVisibility(0);
+                this.dfM.setText(tinfoVar.reply_num + "");
             }
         }
         if (StringUtils.isNull(tinfoVar._abstract)) {
-            this.bdp.setVisibility(8);
+            this.bds.setVisibility(8);
             return;
         }
-        this.bdp.setVisibility(0);
-        this.bdp.setText(tinfoVar._abstract);
+        this.bds.setVisibility(0);
+        this.bds.setText(tinfoVar._abstract);
     }
 }

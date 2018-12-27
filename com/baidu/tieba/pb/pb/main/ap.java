@@ -9,23 +9,23 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes6.dex */
 public class ap extends com.baidu.tbadk.core.view.userLike.c {
-    private String biw;
-    public boolean gbI;
-    private int gbJ;
-    private int gbK;
+    private String biz;
+    public boolean geB;
+    private int geC;
+    private int geD;
     public boolean isBigV;
     private TbPageContext mPageContext;
 
     public ap(TbPageContext tbPageContext, com.baidu.tbadk.core.view.userLike.b bVar, int i) {
         super(tbPageContext, bVar);
-        this.gbI = false;
+        this.geB = false;
         this.isBigV = false;
-        this.gbJ = 0;
-        this.gbJ = i;
+        this.geC = 0;
+        this.geC = i;
         this.mPageContext = tbPageContext;
-        if (this.gbJ == 1) {
+        if (this.geC == 1) {
             super.setFromType("4");
-        } else if (this.gbJ == 3) {
+        } else if (this.geC == 3) {
             super.setFromType("5");
         } else {
             super.setFromType("0");
@@ -33,14 +33,14 @@ public class ap extends com.baidu.tbadk.core.view.userLike.c {
     }
 
     public void setTid(String str) {
-        this.biw = str;
+        this.biz = str;
     }
 
-    public void sx(int i) {
-        this.gbK = i;
+    public void sK(int i) {
+        this.geD = i;
     }
 
-    private int bku() {
+    private int blg() {
         String fromPageKey = UtilHelper.getFromPageKey(this.mPageContext);
         if (fromPageKey == null) {
             return 3;
@@ -71,31 +71,31 @@ public class ap extends com.baidu.tbadk.core.view.userLike.c {
         int i = 3;
         int i2 = 2;
         if (view != null && view.getAlpha() >= 0.4d) {
-            String userId = this.aLt != null ? this.aLt.getUserId() : "";
-            TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12408").x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bku()).aA(VideoPlayActivityConfig.OBJ_ID, userId).aA("tid", this.biw));
-            if (this.gbJ != 1) {
-                i = this.gbJ == 3 ? 2 : 0;
+            String userId = this.aLv != null ? this.aLv.getUserId() : "";
+            TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12408").x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, blg()).aA(VideoPlayActivityConfig.OBJ_ID, userId).aA("tid", this.biz));
+            if (this.geC != 1) {
+                i = this.geC == 3 ? 2 : 0;
             }
             com.baidu.tbadk.core.util.am amVar = new com.baidu.tbadk.core.util.am("c12507");
             amVar.x("obj_locate", i);
             amVar.aA(VideoPlayActivityConfig.OBJ_ID, userId);
-            amVar.aA("tid", this.biw);
-            amVar.x("obj_param1", this.gbK);
+            amVar.aA("tid", this.biz);
+            amVar.x("obj_param1", this.geD);
             if (!com.baidu.tbadk.core.util.ao.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                 amVar.aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, TbadkCoreApplication.getInst().getTaskId());
             }
             TiebaStatic.log(amVar);
             super.onClick(view);
-            if (this.gbI && this.aLt != null) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.am("c11924").aA(VideoPlayActivityConfig.OBJ_ID, this.aLt.getUserId()));
+            if (this.geB && this.aLv != null) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.am("c11924").aA(VideoPlayActivityConfig.OBJ_ID, this.aLv.getUserId()));
             }
-            if (this.isBigV && this.aLt != null) {
-                if (this.gbJ == 1) {
+            if (this.isBigV && this.aLv != null) {
+                if (this.geC == 1) {
                     i2 = 1;
-                } else if (this.gbJ != 2) {
+                } else if (this.geC != 2) {
                     i2 = 0;
                 }
-                TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12150").x("obj_locate", i2).aA(VideoPlayActivityConfig.OBJ_ID, this.aLt.getUserId()));
+                TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12150").x("obj_locate", i2).aA(VideoPlayActivityConfig.OBJ_ID, this.aLv.getUserId()));
             }
         }
     }

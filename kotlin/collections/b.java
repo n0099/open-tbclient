@@ -4,10 +4,10 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* loaded from: classes2.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State ixM = State.NotReady;
-    private T ixN;
+    private State iAW = State.NotReady;
+    private T iAX;
 
-    protected abstract void cbA();
+    protected abstract void ccr();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -16,14 +16,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (!kotlin.jvm.internal.p.h(this.ixM, State.Failed)) {
-            switch (this.ixM) {
+        if (!kotlin.jvm.internal.p.h(this.iAW, State.Failed)) {
+            switch (this.iAW) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return cbz();
+                    return ccq();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -32,26 +32,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.ixM = State.NotReady;
-            return this.ixN;
+            this.iAW = State.NotReady;
+            return this.iAX;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean cbz() {
-        this.ixM = State.Failed;
-        cbA();
-        return kotlin.jvm.internal.p.h(this.ixM, State.Ready);
+    private final boolean ccq() {
+        this.iAW = State.Failed;
+        ccr();
+        return kotlin.jvm.internal.p.h(this.iAW, State.Ready);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void aT(T t) {
-        this.ixN = t;
-        this.ixM = State.Ready;
+        this.iAX = t;
+        this.iAW = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.ixM = State.Done;
+        this.iAW = State.Done;
     }
 }

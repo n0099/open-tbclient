@@ -12,27 +12,27 @@ public class ChosenPostCacheModel extends CacheModel<b, ChosenPostActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<b> On() {
+    public Class<b> Oo() {
         return b.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String NY() {
+    public String NZ() {
         return "tb.pb_normal";
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int Oo() {
+    public int Op() {
         return 2001312;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int Op() {
+    public int Oq() {
         return 2001313;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    protected boolean Og() {
+    protected boolean Oh() {
         return false;
     }
 }

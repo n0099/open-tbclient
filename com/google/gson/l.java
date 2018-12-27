@@ -4,7 +4,7 @@ import com.google.gson.internal.LazilyParsedNumber;
 import java.math.BigInteger;
 /* loaded from: classes2.dex */
 public final class l extends i {
-    private static final Class<?>[] itf = {Integer.TYPE, Long.TYPE, Short.TYPE, Float.TYPE, Double.TYPE, Byte.TYPE, Boolean.TYPE, Character.TYPE, Integer.class, Long.class, Short.class, Float.class, Double.class, Byte.class, Boolean.class, Character.class};
+    private static final Class<?>[] iwp = {Integer.TYPE, Long.TYPE, Short.TYPE, Float.TYPE, Double.TYPE, Byte.TYPE, Boolean.TYPE, Character.TYPE, Integer.class, Long.class, Short.class, Float.class, Double.class, Byte.class, Boolean.class, Character.class};
     private Object value;
 
     public l(Boolean bool) {
@@ -28,57 +28,57 @@ public final class l extends i {
         this.value = obj;
     }
 
-    public boolean cal() {
+    public boolean cbc() {
         return this.value instanceof Boolean;
     }
 
     @Override // com.google.gson.i
-    Boolean cak() {
+    Boolean cbb() {
         return (Boolean) this.value;
     }
 
     @Override // com.google.gson.i
     public boolean getAsBoolean() {
-        return cal() ? cak().booleanValue() : Boolean.parseBoolean(cac());
+        return cbc() ? cbb().booleanValue() : Boolean.parseBoolean(caT());
     }
 
-    public boolean cam() {
+    public boolean cbd() {
         return this.value instanceof Number;
     }
 
     @Override // com.google.gson.i
-    public Number cab() {
+    public Number caS() {
         return this.value instanceof String ? new LazilyParsedNumber((String) this.value) : (Number) this.value;
     }
 
-    public boolean can() {
+    public boolean cbe() {
         return this.value instanceof String;
     }
 
     @Override // com.google.gson.i
-    public String cac() {
-        if (cam()) {
-            return cab().toString();
+    public String caT() {
+        if (cbd()) {
+            return caS().toString();
         }
-        if (cal()) {
-            return cak().toString();
+        if (cbc()) {
+            return cbb().toString();
         }
         return (String) this.value;
     }
 
     @Override // com.google.gson.i
     public double getAsDouble() {
-        return cam() ? cab().doubleValue() : Double.parseDouble(cac());
+        return cbd() ? caS().doubleValue() : Double.parseDouble(caT());
     }
 
     @Override // com.google.gson.i
     public long getAsLong() {
-        return cam() ? cab().longValue() : Long.parseLong(cac());
+        return cbd() ? caS().longValue() : Long.parseLong(caT());
     }
 
     @Override // com.google.gson.i
     public int getAsInt() {
-        return cam() ? cab().intValue() : Integer.parseInt(cac());
+        return cbd() ? caS().intValue() : Integer.parseInt(caT());
     }
 
     private static boolean aP(Object obj) {
@@ -86,7 +86,7 @@ public final class l extends i {
             return true;
         }
         Class<?> cls = obj.getClass();
-        for (Class<?> cls2 : itf) {
+        for (Class<?> cls2 : iwp) {
             if (cls2.isAssignableFrom(cls)) {
                 return true;
             }
@@ -99,10 +99,10 @@ public final class l extends i {
             return 31;
         }
         if (a(this)) {
-            long longValue = cab().longValue();
+            long longValue = caS().longValue();
             return (int) (longValue ^ (longValue >>> 32));
         } else if (this.value instanceof Number) {
-            long doubleToLongBits = Double.doubleToLongBits(cab().doubleValue());
+            long doubleToLongBits = Double.doubleToLongBits(caS().doubleValue());
             return (int) (doubleToLongBits ^ (doubleToLongBits >>> 32));
         } else {
             return this.value.hashCode();
@@ -121,10 +121,10 @@ public final class l extends i {
         if (this.value == null) {
             return lVar.value == null;
         } else if (a(this) && a(lVar)) {
-            return cab().longValue() == lVar.cab().longValue();
+            return caS().longValue() == lVar.caS().longValue();
         } else if ((this.value instanceof Number) && (lVar.value instanceof Number)) {
-            double doubleValue = cab().doubleValue();
-            double doubleValue2 = lVar.cab().doubleValue();
+            double doubleValue = caS().doubleValue();
+            double doubleValue2 = lVar.caS().doubleValue();
             if (doubleValue == doubleValue2 || (Double.isNaN(doubleValue) && Double.isNaN(doubleValue2))) {
                 z = true;
             }

@@ -9,13 +9,8 @@ public class ReplyMeCacheModel extends CacheModel<l, ReplyMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<l> On() {
+    public Class<l> Oo() {
         return l.class;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int Oo() {
-        return 2001257;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
@@ -24,7 +19,12 @@ public class ReplyMeCacheModel extends CacheModel<l, ReplyMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String NY() {
+    public int Oq() {
+        return 2001257;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.CacheModel
+    public String NZ() {
         return "tb_user_replyme";
     }
 }

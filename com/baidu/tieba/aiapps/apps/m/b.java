@@ -53,7 +53,7 @@ public class b extends AiAppAction {
                     String optString5 = jSONObject2.optString("third_app_pic");
                     String optString6 = jSONObject2.optString("third_app_link");
                     SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(context, 10086);
-                    selectForumActivityConfig.setAiAppsParams(optString3, optString4, optString5, null, optString6, null);
+                    selectForumActivityConfig.setAiAppsParams(optString3, optString4, optString5, null, null, optString6);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, selectForumActivityConfig));
                     z = true;
                 }

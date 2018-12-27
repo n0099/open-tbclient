@@ -7,23 +7,23 @@ import java.util.Set;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class b implements k {
-    private volatile boolean iBn;
-    private Set<k> iOz;
+    private volatile boolean iEx;
+    private Set<k> iRJ;
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.iBn;
+        return this.iEx;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.iBn) {
+            if (!this.iEx) {
                 synchronized (this) {
-                    if (!this.iBn) {
-                        if (this.iOz == null) {
-                            this.iOz = new HashSet(4);
+                    if (!this.iEx) {
+                        if (this.iRJ == null) {
+                            this.iRJ = new HashSet(4);
                         }
-                        this.iOz.add(kVar);
+                        this.iRJ.add(kVar);
                         return;
                     }
                 }
@@ -33,10 +33,10 @@ public final class b implements k {
     }
 
     public void b(k kVar) {
-        if (!this.iBn) {
+        if (!this.iEx) {
             synchronized (this) {
-                if (!this.iBn && this.iOz != null) {
-                    boolean remove = this.iOz.remove(kVar);
+                if (!this.iEx && this.iRJ != null) {
+                    boolean remove = this.iRJ.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
                     }
@@ -47,12 +47,12 @@ public final class b implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.iBn) {
+        if (!this.iEx) {
             synchronized (this) {
-                if (!this.iBn) {
-                    this.iBn = true;
-                    Set<k> set = this.iOz;
-                    this.iOz = null;
+                if (!this.iEx) {
+                    this.iEx = true;
+                    Set<k> set = this.iRJ;
+                    this.iRJ = null;
                     n(set);
                 }
             }
@@ -71,7 +71,7 @@ public final class b implements k {
                     arrayList = arrayList2;
                 }
             }
-            rx.exceptions.a.ez(arrayList);
+            rx.exceptions.a.eA(arrayList);
         }
     }
 }

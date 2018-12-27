@@ -7,16 +7,16 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.widget.CountDownTextView;
 /* loaded from: classes3.dex */
 public class e {
-    protected final String gRB;
-    protected com.baidu.tieba.recapp.report.b gRC;
-    protected AdvertAppInfo gRD;
-    protected com.baidu.tieba.lego.card.b.b gRE;
+    protected final String gUt;
+    protected com.baidu.tieba.recapp.report.b gUu;
+    protected AdvertAppInfo gUv;
+    protected com.baidu.tieba.lego.card.b.b gUw;
     public TbPageContext mContext;
     protected final View mRootView;
 
     public e(View view, String str) {
         this.mRootView = view;
-        this.gRB = str;
+        this.gUt = str;
     }
 
     public void a(AdCard.f fVar) {
@@ -26,28 +26,28 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final <T> T tZ(int i) {
+    public final <T> T um(int i) {
         return (T) this.mRootView.findViewById(i);
     }
 
-    public void bvx() {
+    public void bwj() {
         this.mRootView.setVisibility(0);
-        if (this.gRC != null) {
-            this.gRC.tT(303);
-            com.baidu.tieba.recapp.report.c.bvt().a(this.gRC);
+        if (this.gUu != null) {
+            this.gUu.ug(303);
+            com.baidu.tieba.recapp.report.c.bwf().a(this.gUu);
         }
     }
 
-    public void bvy() {
+    public void bwk() {
         this.mRootView.setVisibility(8);
     }
 
     public void e(com.baidu.tieba.recapp.report.b bVar) {
-        this.gRC = bVar;
+        this.gUu = bVar;
     }
 
     public void c(com.baidu.tieba.lego.card.b.b bVar) {
-        this.gRE = bVar;
+        this.gUw = bVar;
     }
 
     public void setPageContext(TbPageContext<?> tbPageContext) {
@@ -60,10 +60,10 @@ public class e {
     public void setTimeoutListener(CountDownTextView.b bVar) {
     }
 
-    public void mM(boolean z) {
+    public void mP(boolean z) {
     }
 
     public void setAdvertAppInfo(AdvertAppInfo advertAppInfo) {
-        this.gRD = advertAppInfo;
+        this.gUv = advertAppInfo;
     }
 }

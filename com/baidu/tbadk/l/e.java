@@ -7,24 +7,24 @@ import com.baidu.searchbox.ng.ai.apps.statistic.AiAppsUBCStatistic;
 public class e extends o {
     @Override // com.baidu.tbadk.l.o
     public void a(i iVar) {
-        if (m.Pk().Pl()) {
+        if (m.Pl().Pm()) {
             com.baidu.adp.lib.stats.a jB = jB();
             jB.append("action", "time_t");
             a(jB, iVar);
-            jB.append("ishttp", iVar.bfZ ? "1" : "0");
+            jB.append("ishttp", iVar.bgc ? "1" : "0");
             jB.append("issuccess", iVar.isSuccess ? "1" : "0");
-            jB.append("nettype", m.Pk().getNetType());
-            jB.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(iVar.bfO));
-            jB.append("wt", String.valueOf(iVar.bfW));
-            jB.append("qt", String.valueOf(iVar.bfP));
-            jB.append("connt", String.valueOf(iVar.bfQ));
-            jB.append("rwt", String.valueOf(iVar.bfR));
-            jB.append("dect", String.valueOf(iVar.bfS));
-            jB.append("parset", String.valueOf(iVar.bfT));
-            jB.append("rendert", String.valueOf(iVar.bfV));
-            jB.append("ss", String.valueOf(iVar.bfX));
-            jB.append("hs", String.valueOf(iVar.bfY));
-            if (iVar.bfZ && iVar.socketErrNo != 0) {
+            jB.append("nettype", m.Pl().getNetType());
+            jB.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(iVar.bfR));
+            jB.append("wt", String.valueOf(iVar.bfZ));
+            jB.append("qt", String.valueOf(iVar.bfS));
+            jB.append("connt", String.valueOf(iVar.bfT));
+            jB.append("rwt", String.valueOf(iVar.bfU));
+            jB.append("dect", String.valueOf(iVar.bfV));
+            jB.append("parset", String.valueOf(iVar.bfW));
+            jB.append("rendert", String.valueOf(iVar.bfY));
+            jB.append("ss", String.valueOf(iVar.bga));
+            jB.append("hs", String.valueOf(iVar.bgb));
+            if (iVar.bgc && iVar.socketErrNo != 0) {
                 jB.append("salno", String.valueOf(iVar.socketErrNo));
                 if (iVar.socketCostTime != 0) {
                     jB.append("scosttime", String.valueOf(iVar.socketCostTime));
@@ -33,8 +33,8 @@ public class e extends o {
             if (iVar.errCode != 0) {
                 jB.f(AiAppsUBCStatistic.EXT_KEY_ERRCODE, Integer.valueOf(iVar.errCode));
             }
-            if (iVar.bfZ) {
-                jB.append("c_logid", String.valueOf(iVar.bgd));
+            if (iVar.bgc) {
+                jB.append("c_logid", String.valueOf(iVar.bgg));
             } else {
                 jB.append("seq_id", String.valueOf(iVar.sequenceID & 4294967295L));
             }
@@ -44,12 +44,12 @@ public class e extends o {
 
     @Override // com.baidu.tbadk.l.o
     public void a(h hVar, String str) {
-        if (hVar != null && str != null && m.Pk().Pl()) {
+        if (hVar != null && str != null && m.Pl().Pm()) {
             com.baidu.adp.lib.stats.a jB = jB();
             jB.append("action", "resource_t");
             jB.append("actype", str);
             jB.append("issuccess", hVar.isSuccess ? "1" : "0");
-            jB.append("isfs", hVar.bfM ? "1" : "0");
+            jB.append("isfs", hVar.bfP ? "1" : "0");
             jB.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(hVar.NL));
             jB.append("from", String.valueOf(hVar.NK));
             BdStatisticsManager.getInstance().performance(this.subType, jB);
@@ -64,29 +64,29 @@ public class e extends o {
 
     @Override // com.baidu.tbadk.l.o
     public void a(i iVar, boolean z) {
-        if (m.Pk().Pl()) {
-            if (!z || iVar.bge > 0) {
-                if (z || iVar.bgf > 0) {
+        if (m.Pl().Pm()) {
+            if (!z || iVar.bgh > 0) {
+                if (z || iVar.bgi > 0) {
                     com.baidu.adp.lib.stats.a jB = jB();
                     jB.append("action", "time_t");
                     a(jB, iVar);
                     if (z) {
-                        jB.append("put", String.valueOf(iVar.bge));
+                        jB.append("put", String.valueOf(iVar.bgh));
                     } else {
-                        jB.append("pdt", String.valueOf(iVar.bgf));
+                        jB.append("pdt", String.valueOf(iVar.bgi));
                     }
-                    jB.append("ishttp", iVar.bfZ ? "1" : "0");
+                    jB.append("ishttp", iVar.bgc ? "1" : "0");
                     jB.append("issuccess", iVar.isSuccess ? "1" : "0");
-                    jB.append("nettype", m.Pk().getNetType());
-                    jB.append("qt", String.valueOf(iVar.bfP));
-                    jB.append("connt", String.valueOf(iVar.bfQ));
-                    jB.append("rwt", String.valueOf(iVar.bfR));
-                    jB.append("dect", String.valueOf(iVar.bfS));
-                    jB.append("parset", String.valueOf(iVar.bfT));
-                    jB.append("rendert", String.valueOf(iVar.bfV));
-                    jB.append("ss", String.valueOf(iVar.bfX));
-                    jB.append("hs", String.valueOf(iVar.bfY));
-                    if (iVar.bfZ && iVar.socketErrNo != 0) {
+                    jB.append("nettype", m.Pl().getNetType());
+                    jB.append("qt", String.valueOf(iVar.bfS));
+                    jB.append("connt", String.valueOf(iVar.bfT));
+                    jB.append("rwt", String.valueOf(iVar.bfU));
+                    jB.append("dect", String.valueOf(iVar.bfV));
+                    jB.append("parset", String.valueOf(iVar.bfW));
+                    jB.append("rendert", String.valueOf(iVar.bfY));
+                    jB.append("ss", String.valueOf(iVar.bga));
+                    jB.append("hs", String.valueOf(iVar.bgb));
+                    if (iVar.bgc && iVar.socketErrNo != 0) {
                         jB.append("salno", String.valueOf(iVar.socketErrNo));
                         if (iVar.socketCostTime != 0) {
                             jB.append("scosttime", String.valueOf(iVar.socketCostTime));
@@ -103,11 +103,11 @@ public class e extends o {
 
     @Override // com.baidu.tbadk.l.o
     public void a(i iVar, int i) {
-        if (m.Pk().Pl() && iVar.bgg > 0) {
+        if (m.Pl().Pm() && iVar.bgj > 0) {
             com.baidu.adp.lib.stats.a jB = jB();
             jB.append("action", "time_t");
             a(jB, iVar);
-            jB.append("pct", String.valueOf(iVar.bgg));
+            jB.append("pct", String.valueOf(iVar.bgj));
             switch (i) {
                 case 0:
                     jB.append("pct_type", String.valueOf(100));

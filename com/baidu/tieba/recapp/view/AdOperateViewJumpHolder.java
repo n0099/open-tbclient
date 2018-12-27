@@ -16,10 +16,10 @@ import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class AdOperateViewJumpHolder extends AdOperateBarHolder<AdPost> {
     private static final String TAG = AdOperateViewJumpHolder.class.getSimpleName();
-    private TextView fCT;
-    private TextView gRQ;
-    private ImageView gRR;
-    private Button gRV;
+    private TextView fFL;
+    private TextView gUM;
+    private ImageView gUN;
+    private Button gUR;
     private View mRootView;
     private TextView mTitleTextView;
 
@@ -31,26 +31,26 @@ public class AdOperateViewJumpHolder extends AdOperateBarHolder<AdPost> {
 
     private void init() {
         this.mTitleTextView = (TextView) this.mRootView.findViewById(e.g.ad_operate_title);
-        this.fCT = (TextView) this.mRootView.findViewById(e.g.ad_operate_content);
-        this.gRQ = (TextView) this.mRootView.findViewById(e.g.ad_operate_tag_name);
-        this.gRR = (ImageView) this.mRootView.findViewById(e.g.ad_operate_divider);
-        this.gRV = (Button) this.mRootView.findViewById(e.g.ad_operate_action);
-        if (this.gRP == 2) {
+        this.fFL = (TextView) this.mRootView.findViewById(e.g.ad_operate_content);
+        this.gUM = (TextView) this.mRootView.findViewById(e.g.ad_operate_tag_name);
+        this.gUN = (ImageView) this.mRootView.findViewById(e.g.ad_operate_divider);
+        this.gUR = (Button) this.mRootView.findViewById(e.g.ad_operate_action);
+        if (this.gUL == 2) {
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdOperateViewJumpHolder.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     AdPost adPost = (AdPost) AdOperateViewJumpHolder.this.getTag();
                     if (adPost != null && adPost.adData != null) {
                         int e = s.e(AdOperateViewJumpHolder.this.mPageContext, adPost.adData.scheme);
-                        if (AdOperateViewJumpHolder.this.fnI != null) {
+                        if (AdOperateViewJumpHolder.this.fqA != null) {
                             HashMap<String, Object> hashMap = new HashMap<>();
                             hashMap.put("da_area", "adarea");
-                            AdOperateViewJumpHolder.this.fnI.b(e, hashMap);
+                            AdOperateViewJumpHolder.this.fqA.b(e, hashMap);
                         }
                     }
                 }
             });
-            this.gRV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdOperateViewJumpHolder.2
+            this.gUR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdOperateViewJumpHolder.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     AdPost adPost = (AdPost) AdOperateViewJumpHolder.this.getTag();
@@ -68,11 +68,11 @@ public class AdOperateViewJumpHolder extends AdOperateBarHolder<AdPost> {
         super.onChangeSkinType();
         al.j(this.mRootView, e.d.cp_bg_line_e);
         al.c(this.mTitleTextView, e.d.cp_cont_j, 1);
-        al.c(this.fCT, e.d.cp_cont_j, 1);
-        al.c(this.gRQ, e.d.cp_cont_f, 1);
-        al.c(this.gRV, e.d.cp_link_tip_a, 3);
-        al.c(this.gRR, e.f.ad_divider);
-        al.i(this.gRV, e.f.feed_ad_progress_button_bg);
+        al.c(this.fFL, e.d.cp_cont_j, 1);
+        al.c(this.gUM, e.d.cp_cont_f, 1);
+        al.c(this.gUR, e.d.cp_link_tip_a, 3);
+        al.c(this.gUN, e.f.ad_divider);
+        al.i(this.gUR, e.f.feed_ad_progress_button_bg);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -81,25 +81,25 @@ public class AdOperateViewJumpHolder extends AdOperateBarHolder<AdPost> {
         super.update((AdOperateViewJumpHolder) adPost);
         if (adPost != null && isOperateValid(adPost.adData)) {
             PostAdBaseData.a aVar = adPost.adData;
-            this.mTitleTextView.setText(aVar.gMV);
-            if (StringUtils.isNull(aVar.gMW)) {
-                this.fCT.setVisibility(8);
+            this.mTitleTextView.setText(aVar.gPN);
+            if (StringUtils.isNull(aVar.gPO)) {
+                this.fFL.setVisibility(8);
             } else {
-                this.fCT.setVisibility(0);
-                this.fCT.setText(aVar.gMW);
+                this.fFL.setVisibility(0);
+                this.fFL.setText(aVar.gPO);
             }
-            this.gRQ.setText(StringUtils.isNull(aVar.tagName) ? getResources().getString(e.j.advert_label) : aVar.tagName);
+            this.gUM.setText(StringUtils.isNull(aVar.tagName) ? getResources().getString(e.j.advert_label) : aVar.tagName);
             if (StringUtils.isNull(aVar.buttonText)) {
-                if (this.gRP == 2) {
-                    this.gRV.setText(getResources().getString(e.j.check_immediately));
-                } else if (this.gRP == 1) {
-                    this.gRV.setText(getResources().getString(e.j.download));
+                if (this.gUL == 2) {
+                    this.gUR.setText(getResources().getString(e.j.check_immediately));
+                } else if (this.gUL == 1) {
+                    this.gUR.setText(getResources().getString(e.j.download));
                 } else {
-                    this.gRV.setText(getResources().getString(e.j.check_immediately));
-                    Log.e(TAG, "invalid operate type: " + this.gRP);
+                    this.gUR.setText(getResources().getString(e.j.check_immediately));
+                    Log.e(TAG, "invalid operate type: " + this.gUL);
                 }
             } else {
-                this.gRV.setText(aVar.buttonText);
+                this.gUR.setText(aVar.buttonText);
             }
             onChangeSkinType();
         }
@@ -110,15 +110,15 @@ public class AdOperateViewJumpHolder extends AdOperateBarHolder<AdPost> {
         if (bVar != null) {
             int e = s.e(this.mPageContext, bVar.scheme);
             if (e == 1 || e == 2) {
-                if (this.fnI != null) {
+                if (this.fqA != null) {
                     HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put("da_area", "adarea");
-                    this.fnI.b(e, hashMap);
+                    this.fqA.b(e, hashMap);
                 }
-            } else if (this.fnI != null) {
+            } else if (this.fqA != null) {
                 HashMap<String, Object> hashMap2 = new HashMap<>();
                 hashMap2.put("da_area", "adarea");
-                this.fnI.b(bVar.abf, bVar.abg, hashMap2);
+                this.fqA.b(bVar.abf, bVar.abg, hashMap2);
             }
         }
     }

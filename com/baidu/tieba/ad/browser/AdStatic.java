@@ -49,7 +49,7 @@ public class AdStatic {
                 }
             }
         });
-        com.baidu.tieba.ad.a.Wg().a(new h.c() { // from class: com.baidu.tieba.ad.browser.AdStatic.2
+        com.baidu.tieba.ad.a.Wi().a(new h.c() { // from class: com.baidu.tieba.ad.browser.AdStatic.2
             @Override // com.baidu.tieba.recapp.h.c
             public int b(Context context, String str, String str2, boolean z, h.d dVar, boolean z2) {
                 if (z2) {
@@ -67,10 +67,10 @@ public class AdStatic {
     }
 
     private static void wR() {
-        com.baidu.tieba.ad.a.Wg().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.3
+        com.baidu.tieba.ad.a.Wi().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.3
             @Override // com.baidu.tieba.recapp.h.a
             public int e(Context context, String[] strArr) {
-                Bundle iP;
+                Bundle iQ;
                 if (context == null || strArr == null || strArr.length == 0) {
                     return 3;
                 }
@@ -119,7 +119,7 @@ public class AdStatic {
                         ((Activity) context).finish();
                     }
                     return 1;
-                } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (iP = ab.iP(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(iP.getString("path"))) {
+                } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (iQ = ab.iQ(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(iQ.getString("path"))) {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001372));
                     return 0;
                 } else {
@@ -145,7 +145,7 @@ public class AdStatic {
         });
     }
 
-    private static String jP(String str) {
+    private static String jQ(String str) {
         String str2;
         if (TextUtils.isEmpty(str)) {
             return "";
@@ -209,8 +209,8 @@ public class AdStatic {
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         TiebaStatic.eventStat(context, "url_1", null);
-        String jP = jP(str);
-        if (!jQ(jP) && Wh() && jS(GlobalConstants.SEARCHBOX_PACKAGE_NAME) && jR(jP) && amE) {
+        String jQ = jQ(str);
+        if (!jR(jQ) && Wj() && jT(GlobalConstants.SEARCHBOX_PACKAGE_NAME) && jS(jQ) && amE) {
             TiebaStatic.eventStat(context, "url_2", null);
             b(context, str, str2, z, z2, z3, z4);
             return;
@@ -218,19 +218,19 @@ public class AdStatic {
         c(context, str, str2, z, z2, z3, z4);
     }
 
-    private static boolean jQ(String str) {
+    private static boolean jR(String str) {
         return str != null;
     }
 
-    private static boolean Wh() {
+    private static boolean Wj() {
         return com.baidu.adp.lib.b.d.iQ().aO("switch_mbaidu_startup") == 1;
     }
 
-    private static boolean jR(String str) {
+    private static boolean jS(String str) {
         return str.startsWith("http://") || str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX) || !str.contains("://");
     }
 
-    private static boolean jS(String str) {
+    private static boolean jT(String str) {
         try {
             PackageInfo packageInfo = TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(str, 1);
             if (packageInfo == null) {
@@ -265,7 +265,7 @@ public class AdStatic {
     }
 
     private static void wS() {
-        com.baidu.tieba.ad.a.Wg().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.4
+        com.baidu.tieba.ad.a.Wi().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.4
             @Override // com.baidu.tieba.recapp.h.a
             public int e(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
@@ -335,7 +335,7 @@ public class AdStatic {
     }
 
     private static void wT() {
-        com.baidu.tieba.ad.a.Wg().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.5
+        com.baidu.tieba.ad.a.Wi().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.5
             @Override // com.baidu.tieba.recapp.h.a
             public int e(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {

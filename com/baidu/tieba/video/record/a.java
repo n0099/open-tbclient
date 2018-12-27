@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a {
-    public static boolean ob(boolean z) {
+    public static boolean oe(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -33,7 +33,7 @@ public class a {
         return true;
     }
 
-    public static int oc(boolean z) {
+    public static int of(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {

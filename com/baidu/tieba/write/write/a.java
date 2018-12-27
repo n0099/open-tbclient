@@ -14,12 +14,12 @@ import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private TbCheckBox.a fcq;
-    private AtListActivity hWG;
-    private boolean hWI;
+    private TbCheckBox.a ffh;
+    private AtListActivity hZR;
+    private boolean hZT;
     private final Context mContext;
     private ArrayList<MetaData> mData;
-    private b hWH = null;
+    private b hZS = null;
     private ViewGroup mParent = null;
 
     /* loaded from: classes3.dex */
@@ -29,14 +29,14 @@ public class a extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(b bVar) {
-        this.hWH = bVar;
+        this.hZS = bVar;
     }
 
     public a(AtListActivity atListActivity, boolean z) {
-        this.hWI = true;
-        this.hWG = atListActivity;
-        this.mContext = this.hWG.getPageContext().getContext();
-        this.hWI = z;
+        this.hZT = true;
+        this.hZR = atListActivity;
+        this.mContext = this.hZR.getPageContext().getContext();
+        this.hZT = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -46,7 +46,7 @@ public class a extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(TbCheckBox.a aVar) {
-        this.fcq = aVar;
+        this.ffh = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -59,7 +59,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: xr */
+    /* renamed from: xE */
     public MetaData getItem(int i) {
         if (this.mData != null && i < this.mData.size()) {
             return this.mData.get(i);
@@ -94,37 +94,37 @@ public class a extends BaseAdapter {
         C0344a c0344a;
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (obj == null) {
-            c0344a = bOO();
+            c0344a = bPF();
         } else {
             c0344a = (C0344a) obj;
         }
-        if (this.hWH != null) {
-            this.hWH.a(c0344a.rootView, metaData);
+        if (this.hZS != null) {
+            this.hZS.a(c0344a.rootView, metaData);
         }
         String portrait = metaData.getPortrait();
-        c0344a.clh.setText(metaData.getName_show());
-        c0344a.fct.setTagData(metaData);
-        c0344a.fbY.setTag(portrait);
-        if (this.hWI) {
-            c0344a.fct.setVisibility(0);
+        c0344a.clo.setText(metaData.getName_show());
+        c0344a.ffk.setTagData(metaData);
+        c0344a.feP.setTag(portrait);
+        if (this.hZT) {
+            c0344a.ffk.setVisibility(0);
         } else {
-            c0344a.fct.setVisibility(8);
+            c0344a.ffk.setVisibility(8);
         }
-        c0344a.fbY.startLoad(portrait, 12, false);
-        this.hWG.getPageContext().getLayoutMode().setNightMode(skinType == 1);
-        this.hWG.getPageContext().getLayoutMode().onModeChanged(c0344a.rootView);
+        c0344a.feP.startLoad(portrait, 12, false);
+        this.hZR.getPageContext().getLayoutMode().setNightMode(skinType == 1);
+        this.hZR.getPageContext().getLayoutMode().onModeChanged(c0344a.rootView);
         return c0344a;
     }
 
-    private C0344a bOO() {
+    private C0344a bPF() {
         C0344a c0344a = new C0344a();
         c0344a.rootView = LayoutInflater.from(this.mContext).inflate(e.h.invite_friend_list_item, (ViewGroup) null);
-        c0344a.fbY = (HeadImageView) c0344a.rootView.findViewById(e.g.photo);
-        c0344a.fbY.setIsRound(false);
-        c0344a.clh = (TextView) c0344a.rootView.findViewById(e.g.txt_user_name);
-        c0344a.fct = (TbCheckBox) c0344a.rootView.findViewById(e.g.ckb_select);
-        if (this.fcq != null) {
-            c0344a.fct.setStatedChangedListener(this.fcq);
+        c0344a.feP = (HeadImageView) c0344a.rootView.findViewById(e.g.photo);
+        c0344a.feP.setIsRound(false);
+        c0344a.clo = (TextView) c0344a.rootView.findViewById(e.g.txt_user_name);
+        c0344a.ffk = (TbCheckBox) c0344a.rootView.findViewById(e.g.ckb_select);
+        if (this.ffh != null) {
+            c0344a.ffk.setStatedChangedListener(this.ffh);
         }
         c0344a.rootView.setTag(c0344a);
         return c0344a;
@@ -134,9 +134,9 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.write.write.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public class C0344a {
-        public TextView clh;
-        public HeadImageView fbY;
-        public TbCheckBox fct;
+        public TextView clo;
+        public HeadImageView feP;
+        public TbCheckBox ffk;
         public View rootView;
 
         private C0344a() {

@@ -18,21 +18,21 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private String dwk;
-    private int dwl;
-    private AlbumActivity hRT;
+    private String dyX;
+    private int dyY;
+    private AlbumActivity hVe;
     private LayoutInflater mLayoutInflater;
     private List<com.baidu.tbadk.album.a> mList;
 
     public b(AlbumActivity albumActivity) {
-        this.hRT = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.hRT.getPageContext().getPageActivity());
-        this.dwl = l.aO(this.hRT.getPageContext().getPageActivity()) / 2;
+        this.hVe = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.hVe.getPageContext().getPageActivity());
+        this.dyY = l.aO(this.hVe.getPageContext().getPageActivity()) / 2;
     }
 
     public void setData(List<com.baidu.tbadk.album.a> list, String str) {
         this.mList = list;
-        this.dwk = str;
+        this.dyX = str;
     }
 
     @Override // android.widget.Adapter
@@ -42,7 +42,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: lC */
+    /* renamed from: lP */
     public com.baidu.tbadk.album.a getItem(int i) {
         return (com.baidu.tbadk.album.a) v.d(this.mList, i);
     }
@@ -60,11 +60,11 @@ public class b extends BaseAdapter {
         } else {
             view = this.mLayoutInflater.inflate(e.h.album_list_item, viewGroup, false);
             aVar = new a();
-            aVar.hSe = (TbImageView) view.findViewById(e.g.item_head);
-            aVar.dwo = (TextView) view.findViewById(e.g.item_name);
-            aVar.dwp = (ImageView) view.findViewById(e.g.item_arrow);
-            aVar.hSe.setGifIconSupport(false);
-            aVar.hSe.setLongIconSupport(false);
+            aVar.hVp = (TbImageView) view.findViewById(e.g.item_head);
+            aVar.dzb = (TextView) view.findViewById(e.g.item_name);
+            aVar.dzc = (ImageView) view.findViewById(e.g.item_arrow);
+            aVar.hVp.setGifIconSupport(false);
+            aVar.hVp.setLongIconSupport(false);
             view.setTag(aVar);
         }
         com.baidu.tbadk.album.a item = getItem(i);
@@ -73,24 +73,24 @@ public class b extends BaseAdapter {
         } else {
             view.setVisibility(0);
             if (!TextUtils.isEmpty(item.getName())) {
-                aVar.dwo.setText(l.a(aVar.dwo.getPaint(), item.getName(), this.dwl) + "(" + item.getCount() + ")");
+                aVar.dzb.setText(l.a(aVar.dzb.getPaint(), item.getName(), this.dyY) + "(" + item.getCount() + ")");
             } else {
-                aVar.dwo.setText("");
+                aVar.dzb.setText("");
             }
             String albumId = item.getAlbumId();
-            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.dwk)) {
-                al.c(aVar.dwp, e.f.icon_list_select_ok_n);
-                aVar.dwp.setVisibility(0);
+            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.dyX)) {
+                al.c(aVar.dzc, e.f.icon_list_select_ok_n);
+                aVar.dzc.setVisibility(0);
             } else {
-                aVar.dwp.setVisibility(8);
+                aVar.dzc.setVisibility(8);
             }
             MediaFileInfo wd = item.wd();
             if (wd instanceof VideoFileInfo) {
-                aVar.hSe.startLoad(((VideoFileInfo) wd).videoPath, 37, false);
+                aVar.hVp.startLoad(((VideoFileInfo) wd).videoPath, 37, false);
             } else if (wd instanceof ImageFileInfo) {
-                aVar.hSe.startLoad(((ImageFileInfo) wd).getFilePath(), 35, false);
+                aVar.hVp.startLoad(((ImageFileInfo) wd).getFilePath(), 35, false);
             }
-            al.h(aVar.dwo, e.d.cp_cont_b);
+            al.h(aVar.dzb, e.d.cp_cont_b);
             al.i(view, e.f.addresslist_item_bg);
         }
         return view;
@@ -98,9 +98,9 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     private class a {
-        TextView dwo;
-        ImageView dwp;
-        TbImageView hSe;
+        TextView dzb;
+        ImageView dzc;
+        TbImageView hVp;
 
         private a() {
         }

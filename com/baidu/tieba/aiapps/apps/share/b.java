@@ -16,18 +16,18 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes4.dex */
 public class b implements IAiAppsSocialShareIoc {
-    private IAiAppsSocialShareIoc.OnShareResultListener bJO;
+    private IAiAppsSocialShareIoc.OnShareResultListener bJR;
     private String errorCallback = "";
-    private String bJN = "";
-    private CustomMessageListener bJP = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.b.1
+    private String bJQ = "";
+    private CustomMessageListener bJS = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (b.this.bJO != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (b.this.bJR != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    b.this.bJO.notify(b.this.bJN, String.valueOf(true));
+                    b.this.bJR.notify(b.this.bJQ, String.valueOf(true));
                 } else {
-                    b.this.bJO.notify(b.this.errorCallback, String.valueOf(false));
+                    b.this.bJR.notify(b.this.errorCallback, String.valueOf(false));
                 }
             }
         }
@@ -35,7 +35,7 @@ public class b implements IAiAppsSocialShareIoc {
 
     public b() {
         TbadkCoreApplication.getInst().setSkinType(0);
-        MessageManager.getInstance().registerListener(this.bJP);
+        MessageManager.getInstance().registerListener(this.bJS);
     }
 
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppsSocialShareIoc

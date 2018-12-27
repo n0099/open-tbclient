@@ -78,10 +78,10 @@ public class TiebaStatic {
     }
 
     public static void net(com.baidu.tbadk.core.util.a.a aVar) {
-        if (aVar != null && aVar.Ej().aDv.CJ <= 180000) {
+        if (aVar != null && aVar.Ej().aDw.CJ <= 180000) {
             try {
-                if (aVar.Ej().aDv.CJ >= 0 && aVar.Ej().aDv.connectTime >= 0 && aVar.Ej().aDv.CH >= 0) {
-                    int i = aVar.Ei().aDt;
+                if (aVar.Ej().aDw.CJ >= 0 && aVar.Ej().aDw.connectTime >= 0 && aVar.Ej().aDw.CH >= 0) {
+                    int i = aVar.Ei().aDu;
                     if (!aVar.Ei().Dm()) {
                         i = aVar.Ei().De;
                     }
@@ -90,10 +90,10 @@ public class TiebaStatic {
                     if (i != 0) {
                         str = aVar.Ei().mErrorString;
                     }
-                    if (aVar.Eh().aDr) {
-                        BdStatisticsManager.getInstance().imgNet(i == 0 ? null : aVar.Eh().El(), Ed, aVar.Ej().aDv.CG, aVar.Ej().aDv.CF, aVar.Ej().aDv.CJ, aVar.Ej().aDv.connectTime, aVar.Ej().aDv.CH, aVar.Ej().aDv.CI, i, str, new Object[0]);
+                    if (aVar.Eh().aDs) {
+                        BdStatisticsManager.getInstance().imgNet(i == 0 ? null : aVar.Eh().El(), Ed, aVar.Ej().aDw.CG, aVar.Ej().aDw.CF, aVar.Ej().aDw.CJ, aVar.Ej().aDw.connectTime, aVar.Ej().aDw.CH, aVar.Ej().aDw.CI, i, str, new Object[0]);
                     } else {
-                        BdStatisticsManager.getInstance().net(aVar.Eh().El(), Ed, aVar.Ej().aDv.CG, aVar.Ej().aDv.CF, aVar.Ej().aDv.CJ, aVar.Ej().aDv.connectTime, aVar.Ej().aDv.CH, aVar.Ej().aDv.CI, i, str, new Object[0]);
+                        BdStatisticsManager.getInstance().net(aVar.Eh().El(), Ed, aVar.Ej().aDw.CG, aVar.Ej().aDw.CF, aVar.Ej().aDw.CJ, aVar.Ej().aDw.connectTime, aVar.Ej().aDw.CH, aVar.Ej().aDw.CI, i, str, new Object[0]);
                     }
                 }
             } catch (Exception e) {
@@ -277,7 +277,7 @@ public class TiebaStatic {
             s.CP();
             s.CQ();
             s.CR();
-            com.baidu.tbadk.l.j.Pi();
+            com.baidu.tbadk.l.j.Pj();
             com.baidu.adp.lib.f.d.jC();
             BdStatisticsManager.getInstance().save();
             sendMultiProcessBroadcast();

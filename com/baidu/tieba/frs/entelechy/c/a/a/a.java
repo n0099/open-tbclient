@@ -13,17 +13,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a extends b {
-    private b.InterfaceC0158b awE;
-    private FrsFragment dJE;
-    private int dRg;
+    private b.InterfaceC0158b awF;
+    private FrsFragment dMs;
+    private int dTX;
     private List<x> mDatas;
 
     public a(FrsFragment frsFragment, b.InterfaceC0158b interfaceC0158b) {
         super(frsFragment.getActivity());
-        this.dRg = 0;
+        this.dTX = 0;
         if (frsFragment != null && interfaceC0158b != null) {
-            this.dJE = frsFragment;
-            this.awE = interfaceC0158b;
+            this.dMs = frsFragment;
+            this.awF = interfaceC0158b;
         }
     }
 
@@ -33,8 +33,8 @@ public class a extends b {
             this.mDatas.addAll(list);
             if (TbadkCoreApplication.isLogin()) {
                 x xVar = new x();
-                xVar.name = this.dJE.getResources().getString(e.j.attention_users_thread);
-                xVar.dLp = 6;
+                xVar.name = this.dMs.getResources().getString(e.j.attention_users_thread);
+                xVar.dOd = 6;
                 this.mDatas.add(xVar);
             }
             ArrayList arrayList = new ArrayList();
@@ -44,11 +44,11 @@ public class a extends b {
                 }
             }
             reset();
-            a(arrayList, this.awE);
+            a(arrayList, this.awF);
         }
     }
 
-    public List<x> aEi() {
+    public List<x> aEX() {
         return this.mDatas;
     }
 

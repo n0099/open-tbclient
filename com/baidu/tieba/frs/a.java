@@ -7,38 +7,38 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private AntiData aNL;
-    private final ArrayList<bb> dHe;
-    private boolean dHf;
-    private b dHg;
+    private AntiData aNN;
+    private final ArrayList<bb> dJS;
+    private boolean dJT;
+    private b dJU;
     private String forumId;
 
     /* loaded from: classes.dex */
     public interface b {
-        void aAa();
+        void aAP();
 
-        void lS(int i);
+        void mf(int i);
 
         void y(boolean z, boolean z2);
     }
 
     private a() {
-        this.dHf = false;
-        this.dHe = new ArrayList<>();
+        this.dJT = false;
+        this.dJS = new ArrayList<>();
     }
 
-    public static a azU() {
-        return C0218a.dHh;
+    public static a aAJ() {
+        return C0218a.dJV;
     }
 
-    public boolean azV() {
-        return this.dHf;
+    public boolean aAK() {
+        return this.dJT;
     }
 
     public void x(boolean z, boolean z2) {
-        this.dHf = z;
-        if (this.dHg != null) {
-            this.dHg.y(this.dHf, z2);
+        this.dJT = z;
+        if (this.dJU != null) {
+            this.dJU.y(this.dJT, z2);
         }
     }
 
@@ -46,42 +46,42 @@ public class a {
         if (bbVar == null) {
             return false;
         }
-        if (this.dHe.size() > 29) {
-            if (this.dHg != null) {
-                this.dHg.aAa();
+        if (this.dJS.size() > 29) {
+            if (this.dJU != null) {
+                this.dJU.aAP();
                 return false;
             }
             return false;
         }
-        this.dHe.add(bbVar);
-        if (this.dHg != null) {
-            this.dHg.lS(this.dHe.size());
+        this.dJS.add(bbVar);
+        if (this.dJU != null) {
+            this.dJU.mf(this.dJS.size());
         }
         return true;
     }
 
-    public List<bb> azW() {
-        return this.dHe;
+    public List<bb> aAL() {
+        return this.dJS;
     }
 
     public void W(bb bbVar) {
-        this.dHe.remove(bbVar);
-        if (this.dHg != null) {
-            this.dHg.lS(this.dHe.size());
+        this.dJS.remove(bbVar);
+        if (this.dJU != null) {
+            this.dJU.mf(this.dJS.size());
         }
     }
 
     public void clearData() {
-        Iterator<bb> it = this.dHe.iterator();
+        Iterator<bb> it = this.dJS.iterator();
         while (it.hasNext()) {
             bb next = it.next();
             if (next != null) {
                 next.bd(false);
             }
         }
-        this.dHe.clear();
-        if (this.dHg != null) {
-            this.dHg.lS(0);
+        this.dJS.clear();
+        if (this.dJU != null) {
+            this.dJU.mf(0);
         }
     }
 
@@ -91,22 +91,22 @@ public class a {
     }
 
     public void a(b bVar) {
-        this.dHg = bVar;
+        this.dJU = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0218a {
-        private static a dHh = new a();
+        private static a dJV = new a();
     }
 
-    public AntiData azX() {
-        return this.aNL;
+    public AntiData aAM() {
+        return this.aNN;
     }
 
     public void b(AntiData antiData) {
-        this.aNL = antiData;
+        this.aNN = antiData;
     }
 
     public String getForumId() {
@@ -117,9 +117,9 @@ public class a {
         this.forumId = str;
     }
 
-    public void bB(List<String> list) {
-        if (!com.baidu.tbadk.core.util.v.I(list) && !com.baidu.tbadk.core.util.v.I(this.dHe)) {
-            Iterator<bb> it = this.dHe.iterator();
+    public void bC(List<String> list) {
+        if (!com.baidu.tbadk.core.util.v.I(list) && !com.baidu.tbadk.core.util.v.I(this.dJS)) {
+            Iterator<bb> it = this.dJS.iterator();
             while (it.hasNext()) {
                 bb next = it.next();
                 int i = 0;
@@ -135,13 +135,13 @@ public class a {
                     }
                 }
             }
-            if (this.dHg != null) {
-                this.dHg.lS(this.dHe.size());
+            if (this.dJU != null) {
+                this.dJU.mf(this.dJS.size());
             }
         }
     }
 
-    public boolean azY() {
-        return this.aNL != null && this.aNL.isMultiDeleteEnable();
+    public boolean aAN() {
+        return this.aNN != null && this.aNN.isMultiDeleteEnable();
     }
 }

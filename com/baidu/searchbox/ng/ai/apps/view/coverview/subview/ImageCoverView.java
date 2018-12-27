@@ -31,7 +31,7 @@ public class ImageCoverView extends SimpleDraweeView implements ICoverView {
     public ImageCoverView(Context context) {
         super(context);
         this.mCoverViewHelper = new CoverViewHelper();
-        getHierarchy().b(n.b.ijH);
+        getHierarchy().b(n.b.imS);
     }
 
     @Override // com.baidu.searchbox.ng.ai.apps.view.coverview.subview.ICoverView
@@ -77,7 +77,7 @@ public class ImageCoverView extends SimpleDraweeView implements ICoverView {
             String str = ((ImageCoverViewModel) coverViewModel).imageSource;
             if (!TextUtils.isEmpty(str) && (transformUri = transformUri(str)) != null) {
                 final boolean z = ((ImageCoverViewModel) coverViewModel).loadStateSwitcher;
-                e b = c.bTU().b(getController()).b(new b<com.facebook.imagepipeline.f.e>() { // from class: com.baidu.searchbox.ng.ai.apps.view.coverview.subview.ImageCoverView.1
+                e b = c.bUL().b(getController()).b(new b<com.facebook.imagepipeline.f.e>() { // from class: com.baidu.searchbox.ng.ai.apps.view.coverview.subview.ImageCoverView.1
                     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
                     public void onFailure(String str2, Throwable th) {
                         super.onFailure(str2, th);
@@ -102,7 +102,7 @@ public class ImageCoverView extends SimpleDraweeView implements ICoverView {
                     }
                 });
                 b.u(transformUri);
-                setController(b.bUD());
+                setController(b.bVu());
             }
         }
     }

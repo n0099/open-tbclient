@@ -7,16 +7,16 @@ import java.io.IOException;
 import java.util.concurrent.Executor;
 /* loaded from: classes2.dex */
 public class u extends y {
-    private final AssetManager inX;
+    private final AssetManager irh;
 
     public u(Executor executor, com.facebook.common.memory.g gVar, AssetManager assetManager) {
         super(executor, gVar);
-        this.inX = assetManager;
+        this.irh = assetManager;
     }
 
     @Override // com.facebook.imagepipeline.producers.y
     protected com.facebook.imagepipeline.f.d e(ImageRequest imageRequest) throws IOException {
-        return d(this.inX.open(g(imageRequest), 2), f(imageRequest));
+        return d(this.irh.open(g(imageRequest), 2), f(imageRequest));
     }
 
     private int f(ImageRequest imageRequest) {
@@ -24,7 +24,7 @@ public class u extends y {
         Throwable th;
         int i;
         try {
-            assetFileDescriptor = this.inX.openFd(g(imageRequest));
+            assetFileDescriptor = this.irh.openFd(g(imageRequest));
         } catch (IOException e) {
             assetFileDescriptor = null;
         } catch (Throwable th2) {
@@ -62,11 +62,11 @@ public class u extends y {
     }
 
     @Override // com.facebook.imagepipeline.producers.y
-    protected String bZb() {
+    protected String bZS() {
         return "LocalAssetFetchProducer";
     }
 
     private static String g(ImageRequest imageRequest) {
-        return imageRequest.bZD().getPath().substring(1);
+        return imageRequest.cau().getPath().substring(1);
     }
 }

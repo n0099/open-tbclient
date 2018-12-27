@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends j {
-    private boolean bCw;
+    private boolean bCz;
 
     public b() {
         super(304001);
@@ -21,13 +21,13 @@ public class b extends j {
     public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
             com.baidu.tieba.addresslist.relationship.a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
-            this.bCw = TbadkCoreApplication.getInst().appResponseToCmd(2002006);
+            this.bCz = TbadkCoreApplication.getInst().appResponseToCmd(2002006);
             if (addressListData != null) {
                 for (e eVar : addressListData.getAddressList()) {
                     List<com.baidu.tbadk.coreExtra.relationship.a> contacts = eVar.getContacts();
                     ArrayList arrayList = new ArrayList();
                     for (com.baidu.tbadk.coreExtra.relationship.a aVar : contacts) {
-                        if (!this.bCw && aVar.getUserType() == 1) {
+                        if (!this.bCz && aVar.getUserType() == 1) {
                             arrayList.add(aVar);
                         }
                     }

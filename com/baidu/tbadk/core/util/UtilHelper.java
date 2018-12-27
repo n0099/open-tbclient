@@ -153,7 +153,7 @@ public class UtilHelper {
 
     /* loaded from: classes.dex */
     public static class a {
-        public NativePageType aDf = NativePageType.NONE;
+        public NativePageType aDg = NativePageType.NONE;
         public String id;
     }
 
@@ -525,7 +525,7 @@ public class UtilHelper {
                 String group = matcher.group(2);
                 if (!TextUtils.isEmpty(group)) {
                     aVar.id = group;
-                    aVar.aDf = NativePageType.PB;
+                    aVar.aDg = NativePageType.PB;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -560,7 +560,7 @@ public class UtilHelper {
             }
             if (!TextUtils.isEmpty(str2)) {
                 aVar.id = str2;
-                aVar.aDf = NativePageType.PB;
+                aVar.aDg = NativePageType.PB;
             }
         }
         if (str != null) {
@@ -592,7 +592,7 @@ public class UtilHelper {
             }
             if (!TextUtils.isEmpty(str3)) {
                 aVar.id = str3;
-                aVar.aDf = NativePageType.FRS;
+                aVar.aDg = NativePageType.FRS;
             }
         }
         return aVar;
@@ -1532,14 +1532,14 @@ public class UtilHelper {
                 int intExtra7 = intent.getIntExtra("group_msg_updates", 0);
                 int intExtra8 = intent.getIntExtra("officialbar_msg", 0);
                 int intExtra9 = intent.getIntExtra("KeyOfNotiId", 16);
-                com.baidu.tbadk.coreExtra.messageCenter.a.HP().c(com.baidu.tbadk.coreExtra.messageCenter.a.HP().Ii(), com.baidu.tbadk.coreExtra.messageCenter.a.HP().getMsgReplyme(), com.baidu.tbadk.coreExtra.messageCenter.a.HP().getMsgAtme(), com.baidu.tbadk.coreExtra.messageCenter.a.HP().Ij(), com.baidu.tbadk.coreExtra.messageCenter.a.HP().getMsgFans(), com.baidu.tbadk.coreExtra.messageCenter.a.HP().getMsgGiftNum());
+                com.baidu.tbadk.coreExtra.messageCenter.a.HQ().c(com.baidu.tbadk.coreExtra.messageCenter.a.HQ().Ij(), com.baidu.tbadk.coreExtra.messageCenter.a.HQ().getMsgReplyme(), com.baidu.tbadk.coreExtra.messageCenter.a.HQ().getMsgAtme(), com.baidu.tbadk.coreExtra.messageCenter.a.HQ().Ik(), com.baidu.tbadk.coreExtra.messageCenter.a.HQ().getMsgFans(), com.baidu.tbadk.coreExtra.messageCenter.a.HQ().getMsgGiftNum());
                 boolean z3 = intExtra4 > 0 || intExtra7 > 0 || intExtra6 > 0 || intExtra5 > 0 || intExtra8 > 0;
                 boolean z4 = intExtra9 == 29 && intExtra > 0;
                 boolean z5 = intExtra9 == 24 && intExtra3 > 0;
                 boolean z6 = intExtra9 == 25 && intExtra2 > 0;
                 if (z4) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AgreeMeActivityConfig(context)));
-                    com.baidu.tbadk.coreExtra.messageCenter.a.HP().eV(0);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.HQ().eW(0);
                     Intent intent2 = new Intent();
                     intent2.putExtra(MentionActivityConfig.KEY_GO_TO_PAGE, 2);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016321, intent2));
@@ -1567,7 +1567,7 @@ public class UtilHelper {
                         break;
                     } else {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtMessageActivityConfig(context)));
-                        com.baidu.tbadk.coreExtra.messageCenter.a.HP().setMsgAtme(0);
+                        com.baidu.tbadk.coreExtra.messageCenter.a.HQ().setMsgAtme(0);
                         Intent intent4 = new Intent();
                         intent4.putExtra(MentionActivityConfig.KEY_GO_TO_PAGE, 2);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016321, intent4));
@@ -1576,7 +1576,7 @@ public class UtilHelper {
                     }
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MessageCenterActivityConfig(context, intent.getIntExtra(MyBookrackActivityConfig.TAB_ID, -1))));
-                    com.baidu.tbadk.coreExtra.messageCenter.a.HP().setMsgReplyme(0);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.HQ().setMsgReplyme(0);
                     Intent intent5 = new Intent();
                     intent5.putExtra(MentionActivityConfig.KEY_GO_TO_PAGE, 2);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016321, intent5));
@@ -1607,7 +1607,7 @@ public class UtilHelper {
                 if (com.baidu.tbadk.core.e.b.getCurrentTabType() == 8) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(8)));
                 } else if (!TextUtils.isEmpty(currentAccount) && !TextUtils.isEmpty(currentAccountName)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, currentAccount, currentAccountName, com.baidu.tbadk.coreExtra.messageCenter.a.HP().getMsgFans())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, currentAccount, currentAccountName, com.baidu.tbadk.coreExtra.messageCenter.a.HQ().getMsgFans())));
                 }
                 z = true;
                 break;
@@ -1620,7 +1620,7 @@ public class UtilHelper {
                 z = true;
                 break;
             case 15:
-                com.baidu.tbadk.pay.c.OX().a(new PayConfig(com.baidu.adp.lib.g.b.l(intent.getStringExtra("pay_type"), 0), intent.getStringExtra("is_left"), intent.getStringExtra("props_id"), intent.getStringExtra("quan_num"), intent.getStringExtra("props_mon"), true, intent.getStringExtra("refer_page"), intent.getStringExtra("click_zone")), context);
+                com.baidu.tbadk.pay.c.OY().a(new PayConfig(com.baidu.adp.lib.g.b.l(intent.getStringExtra("pay_type"), 0), intent.getStringExtra("is_left"), intent.getStringExtra("props_id"), intent.getStringExtra("quan_num"), intent.getStringExtra("props_mon"), true, intent.getStringExtra("refer_page"), intent.getStringExtra("click_zone")), context);
                 z = false;
                 break;
             case 18:

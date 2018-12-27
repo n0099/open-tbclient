@@ -15,43 +15,43 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 /* loaded from: classes.dex */
 public class c {
-    private static c gRh;
-    private CustomMessageListener gRj = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.c.1
+    private static c gTZ;
+    private CustomMessageListener gUb = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.kV() && c.this.gRi != null) {
-                c.this.gRi.bvv();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.kV() && c.this.gUa != null) {
+                c.this.gUa.bwh();
             }
         }
     };
-    private d gRi = new g();
+    private d gUa = new g();
 
-    public static c bvt() {
-        if (gRh == null) {
+    public static c bwf() {
+        if (gTZ == null) {
             synchronized (c.class) {
-                if (gRh == null) {
-                    gRh = new c();
+                if (gTZ == null) {
+                    gTZ = new c();
                 }
             }
         }
-        return gRh;
+        return gTZ;
     }
 
-    private boolean bvu() {
+    private boolean bwg() {
         return com.baidu.adp.lib.b.d.iQ().aO("ad_log_open") != 0;
     }
 
     private c() {
-        MessageManager.getInstance().registerListener(this.gRj);
+        MessageManager.getInstance().registerListener(this.gUb);
     }
 
     public void a(b bVar) {
-        if (bvu() && bVar != null && this.gRi != null) {
+        if (bwg() && bVar != null && this.gUa != null) {
             if (j.kV()) {
-                this.gRi.b(bVar);
+                this.gUa.b(bVar);
             } else {
-                this.gRi.c(bVar);
+                this.gUa.c(bVar);
             }
         }
     }

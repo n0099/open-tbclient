@@ -13,12 +13,13 @@ import com.baidu.tieba.forumsearch.message.SearchPostForumRequestMessage;
 import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
 /* loaded from: classes3.dex */
 public class d {
-    private com.baidu.adp.framework.listener.a dGE = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466) { // from class: com.baidu.tieba.forumsearch.controller.d.1
+    private a dJn;
+    private com.baidu.adp.framework.listener.a dJs = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466) { // from class: com.baidu.tieba.forumsearch.controller.d.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null || responsedMessage.hasError() || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != d.this.mPageId) {
-                if (d.this.dGz != null) {
-                    d.this.dGz.a(false, null);
+                if (d.this.dJn != null) {
+                    d.this.dJn.a(false, null);
                     return;
                 }
                 return;
@@ -27,12 +28,11 @@ public class d {
             if (responsedMessage instanceof SearchPostForumSocketResponseMessage) {
                 searchData = ((SearchPostForumSocketResponseMessage) responsedMessage).getSearchData();
             }
-            if (d.this.dGz != null) {
-                d.this.dGz.a(searchData != null, searchData);
+            if (d.this.dJn != null) {
+                d.this.dJn.a(searchData != null, searchData);
             }
         }
     };
-    private a dGz;
     TbPageContext mPageContext;
     private final BdUniqueId mPageId;
 
@@ -44,15 +44,15 @@ public class d {
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.mPageId = bdUniqueId;
-        this.dGE.setTag(this.mPageId);
-        MessageManager.getInstance().registerListener(this.dGE);
+        this.dJs.setTag(this.mPageId);
+        MessageManager.getInstance().registerListener(this.dJs);
     }
 
     public void a(a aVar) {
-        this.dGz = aVar;
+        this.dJn = aVar;
     }
 
-    public void nV(String str) {
+    public void nY(String str) {
         if (!StringUtils.isNull(str)) {
             if (!l.ll()) {
                 this.mPageContext.showToast(e.j.neterror);

@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.play.i;
 /* loaded from: classes6.dex */
 public class VCacheClientStatic {
-    private static CustomMessageListener bAk = new CustomMessageListener(2007015) { // from class: com.baidu.tieba.VideoCacheClient.VCacheClientStatic.1
+    private static CustomMessageListener bAn = new CustomMessageListener(2007015) { // from class: com.baidu.tieba.VideoCacheClient.VCacheClientStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -17,7 +17,7 @@ public class VCacheClientStatic {
                 new Thread(new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.VCacheClientStatic.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        b.Vy().bY(TbadkCoreApplication.getInst().getContext());
+                        b.VA().bY(TbadkCoreApplication.getInst().getContext());
                     }
                 }).start();
             }
@@ -25,16 +25,16 @@ public class VCacheClientStatic {
     };
 
     static {
-        VD();
-        MessageManager.getInstance().registerListener(bAk);
+        VF();
+        MessageManager.getInstance().registerListener(bAn);
     }
 
-    private static void VD() {
+    private static void VF() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2016479, new CustomMessageTask.CustomRunnable<i>() { // from class: com.baidu.tieba.VideoCacheClient.VCacheClientStatic.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<i> run(CustomMessage<i> customMessage) {
-                return new CustomResponsedMessage<>(2016479, b.Vy());
+                return new CustomResponsedMessage<>(2016479, b.VA());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

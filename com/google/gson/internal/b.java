@@ -24,39 +24,39 @@ import java.util.concurrent.ConcurrentNavigableMap;
 import java.util.concurrent.ConcurrentSkipListMap;
 /* loaded from: classes2.dex */
 public final class b {
-    private final Map<Type, com.google.gson.e<?>> iti;
+    private final Map<Type, com.google.gson.e<?>> iws;
 
     public b(Map<Type, com.google.gson.e<?>> map) {
-        this.iti = map;
+        this.iws = map;
     }
 
     public <T> e<T> b(com.google.gson.b.a<T> aVar) {
-        final Type caT = aVar.caT();
-        Class<? super T> caS = aVar.caS();
-        final com.google.gson.e<?> eVar = this.iti.get(caT);
+        final Type cbK = aVar.cbK();
+        Class<? super T> cbJ = aVar.cbJ();
+        final com.google.gson.e<?> eVar = this.iws.get(cbK);
         if (eVar != null) {
             return new e<T>() { // from class: com.google.gson.internal.b.1
                 /* JADX WARN: Type inference failed for: r0v1, types: [T, java.lang.Object] */
                 @Override // com.google.gson.internal.e
-                public T cau() {
-                    return eVar.b(caT);
+                public T cbl() {
+                    return eVar.b(cbK);
                 }
             };
         }
-        final com.google.gson.e<?> eVar2 = this.iti.get(caS);
+        final com.google.gson.e<?> eVar2 = this.iws.get(cbJ);
         if (eVar2 != null) {
             return new e<T>() { // from class: com.google.gson.internal.b.7
                 /* JADX WARN: Type inference failed for: r0v1, types: [T, java.lang.Object] */
                 @Override // com.google.gson.internal.e
-                public T cau() {
-                    return eVar2.b(caT);
+                public T cbl() {
+                    return eVar2.b(cbK);
                 }
             };
         }
-        e<T> u = u(caS);
+        e<T> u = u(cbJ);
         if (u == null) {
-            e<T> c = c(caT, caS);
-            return c == null ? d(caT, caS) : c;
+            e<T> c = c(cbK, cbJ);
+            return c == null ? d(cbK, cbJ) : c;
         }
         return u;
     }
@@ -70,7 +70,7 @@ public final class b {
             return new e<T>() { // from class: com.google.gson.internal.b.8
                 /* JADX WARN: Type inference failed for: r0v5, types: [T, java.lang.Object] */
                 @Override // com.google.gson.internal.e
-                public T cau() {
+                public T cbl() {
                     try {
                         return declaredConstructor.newInstance(null);
                     } catch (IllegalAccessException e) {
@@ -93,7 +93,7 @@ public final class b {
                 return new e<T>() { // from class: com.google.gson.internal.b.9
                     /* JADX WARN: Type inference failed for: r0v0, types: [T, java.util.TreeSet] */
                     @Override // com.google.gson.internal.e
-                    public T cau() {
+                    public T cbl() {
                         return new TreeSet();
                     }
                 };
@@ -102,7 +102,7 @@ public final class b {
                 return new e<T>() { // from class: com.google.gson.internal.b.10
                     /* JADX WARN: Type inference failed for: r0v9, types: [T, java.util.EnumSet] */
                     @Override // com.google.gson.internal.e
-                    public T cau() {
+                    public T cbl() {
                         if (type instanceof ParameterizedType) {
                             Type type2 = ((ParameterizedType) type).getActualTypeArguments()[0];
                             if (type2 instanceof Class) {
@@ -118,7 +118,7 @@ public final class b {
                 return new e<T>() { // from class: com.google.gson.internal.b.11
                     /* JADX WARN: Type inference failed for: r0v0, types: [T, java.util.LinkedHashSet] */
                     @Override // com.google.gson.internal.e
-                    public T cau() {
+                    public T cbl() {
                         return new LinkedHashSet();
                     }
                 };
@@ -127,7 +127,7 @@ public final class b {
                 return new e<T>() { // from class: com.google.gson.internal.b.12
                     /* JADX WARN: Type inference failed for: r0v0, types: [T, java.util.ArrayDeque] */
                     @Override // com.google.gson.internal.e
-                    public T cau() {
+                    public T cbl() {
                         return new ArrayDeque();
                     }
                 };
@@ -135,7 +135,7 @@ public final class b {
             return new e<T>() { // from class: com.google.gson.internal.b.13
                 /* JADX WARN: Type inference failed for: r0v0, types: [T, java.util.ArrayList] */
                 @Override // com.google.gson.internal.e
-                public T cau() {
+                public T cbl() {
                     return new ArrayList();
                 }
             };
@@ -144,7 +144,7 @@ public final class b {
                 return new e<T>() { // from class: com.google.gson.internal.b.14
                     /* JADX WARN: Type inference failed for: r0v0, types: [java.util.concurrent.ConcurrentSkipListMap, T] */
                     @Override // com.google.gson.internal.e
-                    public T cau() {
+                    public T cbl() {
                         return new ConcurrentSkipListMap();
                     }
                 };
@@ -153,7 +153,7 @@ public final class b {
                 return new e<T>() { // from class: com.google.gson.internal.b.2
                     /* JADX WARN: Type inference failed for: r0v0, types: [T, java.util.concurrent.ConcurrentHashMap] */
                     @Override // com.google.gson.internal.e
-                    public T cau() {
+                    public T cbl() {
                         return new ConcurrentHashMap();
                     }
                 };
@@ -162,16 +162,16 @@ public final class b {
                 return new e<T>() { // from class: com.google.gson.internal.b.3
                     /* JADX WARN: Type inference failed for: r0v0, types: [java.util.TreeMap, T] */
                     @Override // com.google.gson.internal.e
-                    public T cau() {
+                    public T cbl() {
                         return new TreeMap();
                     }
                 };
             }
-            if ((type instanceof ParameterizedType) && !String.class.isAssignableFrom(com.google.gson.b.a.l(((ParameterizedType) type).getActualTypeArguments()[0]).caS())) {
+            if ((type instanceof ParameterizedType) && !String.class.isAssignableFrom(com.google.gson.b.a.l(((ParameterizedType) type).getActualTypeArguments()[0]).cbJ())) {
                 return new e<T>() { // from class: com.google.gson.internal.b.4
                     /* JADX WARN: Type inference failed for: r0v0, types: [java.util.LinkedHashMap, T] */
                     @Override // com.google.gson.internal.e
-                    public T cau() {
+                    public T cbl() {
                         return new LinkedHashMap();
                     }
                 };
@@ -179,7 +179,7 @@ public final class b {
             return new e<T>() { // from class: com.google.gson.internal.b.5
                 /* JADX WARN: Type inference failed for: r0v0, types: [T, com.google.gson.internal.LinkedTreeMap] */
                 @Override // com.google.gson.internal.e
-                public T cau() {
+                public T cbl() {
                     return new LinkedTreeMap();
                 }
             };
@@ -190,13 +190,13 @@ public final class b {
 
     private <T> e<T> d(final Type type, final Class<? super T> cls) {
         return new e<T>() { // from class: com.google.gson.internal.b.6
-            private final h itm = h.caF();
+            private final h iww = h.cbw();
 
             /* JADX WARN: Type inference failed for: r0v2, types: [T, java.lang.Object] */
             @Override // com.google.gson.internal.e
-            public T cau() {
+            public T cbl() {
                 try {
-                    return this.itm.newInstance(cls);
+                    return this.iww.newInstance(cls);
                 } catch (Exception e) {
                     throw new RuntimeException("Unable to invoke no-args constructor for " + type + ". Register an InstanceCreator with Gson for this type may fix this problem.", e);
                 }
@@ -205,6 +205,6 @@ public final class b {
     }
 
     public String toString() {
-        return this.iti.toString();
+        return this.iws.toString();
     }
 }

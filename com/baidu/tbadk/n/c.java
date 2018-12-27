@@ -112,8 +112,8 @@ public class c extends com.baidu.adp.framework.a.d {
         }
         int netType = j.netType();
         httpMessage.addParam(ETAG.KEY_NET_TYPE, String.valueOf(netType));
-        if (com.baidu.tbadk.coreExtra.b.a.Gb().Gc()) {
-            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.Gb().Gd()));
+        if (com.baidu.tbadk.coreExtra.b.a.Gc().Gd()) {
+            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.Gc().Ge()));
         }
         if (1 == netType) {
             if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
@@ -160,7 +160,7 @@ public class c extends com.baidu.adp.framework.a.d {
         stringBuffer.append("tiebaclient!!!");
         httpMessage.addParam("sign", s.bC(stringBuffer.toString()));
         if (httpMessage.getHeaders() != null && "1".equals(httpMessage.getHeaders().get("needSig")) && com.baidu.tbadk.p.s.jJ()) {
-            httpMessage.addParam("sig", StringU.ji(stringBuffer.toString()));
+            httpMessage.addParam("sig", StringU.jj(stringBuffer.toString()));
         }
         httpMessage.getHeaders().remove("needSig");
     }

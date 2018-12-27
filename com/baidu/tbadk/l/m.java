@@ -8,32 +8,32 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class m {
-    private static String bgw = "tb_perfor_samllflow_time";
-    private static volatile m bgz;
-    private long bgy;
-    private boolean bgu = false;
-    private long bgx = 86400;
-    private long bgv = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(bgw, 0);
+    private static volatile m bgC;
+    private static String bgz = "tb_perfor_samllflow_time";
+    private long bgB;
+    private boolean bgx = false;
+    private long bgA = 86400;
+    private long bgy = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(bgz, 0);
 
-    public static m Pk() {
-        if (bgz == null) {
+    public static m Pl() {
+        if (bgC == null) {
             synchronized (m.class) {
-                if (bgz == null) {
-                    bgz = new m();
+                if (bgC == null) {
+                    bgC = new m();
                 }
             }
         }
-        return bgz;
+        return bgC;
     }
 
     private m() {
-        this.bgy = 0L;
-        this.bgy = this.bgx;
+        this.bgB = 0L;
+        this.bgB = this.bgA;
     }
 
-    public boolean Pl() {
-        if (!this.bgu || (System.currentTimeMillis() - this.bgv) / 1000 <= this.bgy) {
-            return this.bgu;
+    public boolean Pm() {
+        if (!this.bgx || (System.currentTimeMillis() - this.bgy) / 1000 <= this.bgB) {
+            return this.bgx;
         }
         return false;
     }
@@ -41,17 +41,17 @@ public class m {
     public void cM(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.bgv || currentTimeMillis - this.bgv >= this.bgy) {
-                this.bgv = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(bgw, this.bgv);
+            if (0 == this.bgy || currentTimeMillis - this.bgy >= this.bgB) {
+                this.bgy = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(bgz, this.bgy);
             }
         } else {
-            this.bgv = 0L;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(bgw, this.bgv);
+            this.bgy = 0L;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(bgz, this.bgy);
         }
-        this.bgu = z;
+        this.bgx = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            n.Pp().Pq();
+            n.Pr().Ps();
         }
     }
 
@@ -74,7 +74,7 @@ public class m {
         return "2G";
     }
 
-    public static String gk(int i) {
+    public static String gl(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -87,7 +87,7 @@ public class m {
         return "WIFI";
     }
 
-    public long Pm() {
+    public long Pn() {
         try {
             Runtime runtime = Runtime.getRuntime();
             return (runtime.totalMemory() - runtime.freeMemory()) / PlaybackStateCompat.ACTION_SET_CAPTIONING_ENABLED;
@@ -97,8 +97,8 @@ public class m {
         }
     }
 
-    public l gl(int i) {
-        if (Pl()) {
+    public l gm(int i) {
+        if (Pm()) {
             switch (i) {
                 case 1000:
                     o oVar = new o();
@@ -128,9 +128,9 @@ public class m {
         return null;
     }
 
-    public void ar(long j) {
+    public void as(long j) {
         if (j > 0) {
-            this.bgy = j;
+            this.bgB = j;
         }
     }
 
@@ -143,7 +143,7 @@ public class m {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int Pn() {
+    public int Po() {
         BufferedReader bufferedReader;
         Process process;
         Process process2;

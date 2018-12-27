@@ -1,24 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes6.dex */
 public class ab {
-    public String gal;
-    public boolean gam;
-    public boolean gan;
-    public boolean fZX = false;
-    public boolean fZY = false;
-    public boolean fQS = false;
-    public boolean fZZ = false;
+    public String gdd;
+    public boolean gde;
+    public boolean gdf;
+    public boolean gcP = false;
+    public boolean gcQ = false;
+    public boolean fTK = false;
+    public boolean gcR = false;
     public boolean qZ = false;
-    public boolean gaa = false;
-    public boolean gab = false;
-    public boolean gac = false;
-    public boolean gad = false;
-    public boolean gae = false;
-    public boolean gaf = false;
-    public boolean gag = false;
-    public boolean gah = false;
-    public boolean gai = false;
-    public boolean gaj = false;
-    public boolean gak = false;
+    public boolean gcS = false;
+    public boolean gcT = false;
+    public boolean gcU = false;
+    public boolean gcV = false;
+    public boolean gcW = false;
+    public boolean gcX = false;
+    public boolean gcY = false;
+    public boolean gcZ = false;
+    public boolean gda = false;
+    public boolean gdb = false;
+    public boolean gdc = false;
     public boolean isHostOnly = false;
 }

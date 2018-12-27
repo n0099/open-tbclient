@@ -12,16 +12,16 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class f {
-    private PostSearchActivity gGT;
-    private PostSearchListFragment gHH;
-    private PostSearchListFragment gHI;
-    private PostSearchListFragment gHJ;
+    private PostSearchActivity gJK;
+    private PostSearchListFragment gKA;
+    private PostSearchListFragment gKy;
+    private PostSearchListFragment gKz;
     private ViewPager.OnPageChangeListener mOnPageChangeListener;
     private View mRootView;
     private FragmentTabHost mTabHost;
 
     public f(PostSearchActivity postSearchActivity, View view) {
-        this.gGT = postSearchActivity;
+        this.gJK = postSearchActivity;
         this.mRootView = view;
     }
 
@@ -29,16 +29,16 @@ public class f {
         return this.mTabHost.getCurrentTabType();
     }
 
-    public void tA(int i) {
+    public void tN(int i) {
         if (this.mTabHost == null) {
-            tB(1);
+            tO(1);
             return;
         }
-        btn();
+        btZ();
         if (this.mTabHost.getCurrentTabType() == i) {
-            PostSearchListFragment tD = tD(i);
-            if (tD != null) {
-                tD.mH(true);
+            PostSearchListFragment tQ = tQ(i);
+            if (tQ != null) {
+                tQ.mK(true);
                 return;
             }
             return;
@@ -58,9 +58,9 @@ public class f {
 
     public void a(int i, b bVar, boolean z) {
         setVisibility(true);
-        PostSearchListFragment tD = tD(i);
-        if (tD != null) {
-            tD.a(bVar, z);
+        PostSearchListFragment tQ = tQ(i);
+        if (tQ != null) {
+            tQ.a(bVar, z);
         }
     }
 
@@ -70,14 +70,14 @@ public class f {
         }
     }
 
-    private void tB(int i) {
+    private void tO(int i) {
         View inflate = ((ViewStub) this.mRootView.findViewById(e.g.search_tab_host_viewstub)).inflate();
         inflate.setVisibility(0);
         this.mTabHost = (FragmentTabHost) inflate.findViewById(e.g.post_search_tab_host);
-        this.mTabHost.setup(this.gGT.getSupportFragmentManager());
-        this.mTabHost.setTabWidgetViewHeight((int) this.gGT.getResources().getDimension(e.C0210e.ds80));
+        this.mTabHost.setup(this.gJK.getSupportFragmentManager());
+        this.mTabHost.setTabWidgetViewHeight((int) this.gJK.getResources().getDimension(e.C0210e.ds80));
         this.mTabHost.setShouldDrawIndicatorLine(true);
-        btm();
+        btY();
         this.mTabHost.dw(3);
         this.mTabHost.setCurrentTabByType(i);
         this.mTabHost.setNeedShowThemeStyle(false);
@@ -93,54 +93,54 @@ public class f {
         }
     }
 
-    private void btm() {
+    private void btY() {
         FragmentTabHost.b bVar = new FragmentTabHost.b();
-        this.gHH = new PostSearchListFragment(1);
-        bVar.azz = this.gHH;
-        bVar.azy = tC(e.j.searching_time_tab);
+        this.gKy = new PostSearchListFragment(1);
+        bVar.azz = this.gKy;
+        bVar.azy = tP(e.j.searching_time_tab);
         bVar.mType = 1;
         this.mTabHost.a(bVar);
         FragmentTabHost.b bVar2 = new FragmentTabHost.b();
-        this.gHI = new PostSearchListFragment(2);
-        bVar2.azz = this.gHI;
-        bVar2.azy = tC(e.j.searching_relative_tab);
+        this.gKz = new PostSearchListFragment(2);
+        bVar2.azz = this.gKz;
+        bVar2.azy = tP(e.j.searching_relative_tab);
         bVar2.mType = 2;
         this.mTabHost.a(bVar2);
         FragmentTabHost.b bVar3 = new FragmentTabHost.b();
-        this.gHJ = new PostSearchListFragment(3);
-        bVar3.azz = this.gHJ;
-        bVar3.azy = tC(e.j.searching_only_thread_tab);
+        this.gKA = new PostSearchListFragment(3);
+        bVar3.azz = this.gKA;
+        bVar3.azy = tP(e.j.searching_only_thread_tab);
         bVar3.mType = 3;
         this.mTabHost.a(bVar3);
     }
 
-    private FragmentTabIndicator tC(int i) {
-        int aO = (l.aO(this.gGT.getPageContext().getContext()) - (this.gGT.getResources().getDimensionPixelSize(e.C0210e.ds34) * 2)) / 3;
-        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.gGT.getPageContext().getPageActivity()).inflate(e.h.fragmenttabindicator, (ViewGroup) null);
+    private FragmentTabIndicator tP(int i) {
+        int aO = (l.aO(this.gJK.getPageContext().getContext()) - (this.gJK.getResources().getDimensionPixelSize(e.C0210e.ds34) * 2)) / 3;
+        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.gJK.getPageContext().getPageActivity()).inflate(e.h.fragmenttabindicator, (ViewGroup) null);
         fragmentTabIndicator.setText(i);
-        fragmentTabIndicator.setTextSize(0, this.gGT.getResources().getDimensionPixelSize(e.C0210e.ds32));
-        fragmentTabIndicator.bdy = e.d.s_actionbar_text_color;
-        fragmentTabIndicator.setContentTvTopMargin(this.gGT.getResources().getDimensionPixelSize(e.C0210e.ds4));
+        fragmentTabIndicator.setTextSize(0, this.gJK.getResources().getDimensionPixelSize(e.C0210e.ds32));
+        fragmentTabIndicator.bdB = e.d.s_actionbar_text_color;
+        fragmentTabIndicator.setContentTvTopMargin(this.gJK.getResources().getDimensionPixelSize(e.C0210e.ds4));
         fragmentTabIndicator.setWidth(aO);
         return fragmentTabIndicator;
     }
 
-    private PostSearchListFragment tD(int i) {
+    private PostSearchListFragment tQ(int i) {
         switch (i) {
             case 1:
-                return this.gHH;
+                return this.gKy;
             case 2:
-                return this.gHI;
+                return this.gKz;
             case 3:
-                return this.gHJ;
+                return this.gKA;
             default:
                 return null;
         }
     }
 
-    private void btn() {
-        this.gHH.bte();
-        this.gHI.bte();
-        this.gHJ.bte();
+    private void btZ() {
+        this.gKy.btQ();
+        this.gKz.btQ();
+        this.gKA.btQ();
     }
 }

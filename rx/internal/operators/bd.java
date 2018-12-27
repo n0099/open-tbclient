@@ -4,8 +4,8 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class bd<T, U> implements d.b<T, T> {
-    static final Object iHx = new Object();
-    final rx.d<U> iHw;
+    static final Object iKH = new Object();
+    final rx.d<U> iKG;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -13,20 +13,20 @@ public final class bd<T, U> implements d.b<T, T> {
     }
 
     public bd(rx.d<U> dVar) {
-        this.iHw = dVar;
+        this.iKG = dVar;
     }
 
     public rx.j<? super T> call(rx.j<? super T> jVar) {
         final rx.b.f fVar = new rx.b.f(jVar);
-        final AtomicReference atomicReference = new AtomicReference(iHx);
+        final AtomicReference atomicReference = new AtomicReference(iKH);
         final AtomicReference atomicReference2 = new AtomicReference();
         final rx.j<U> jVar2 = new rx.j<U>() { // from class: rx.internal.operators.bd.1
             /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: rx.b.f */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // rx.e
             public void onNext(U u) {
-                Object andSet = atomicReference.getAndSet(bd.iHx);
-                if (andSet != bd.iHx) {
+                Object andSet = atomicReference.getAndSet(bd.iKH);
+                if (andSet != bd.iKH) {
                     fVar.onNext(andSet);
                 }
             }
@@ -66,7 +66,7 @@ public final class bd<T, U> implements d.b<T, T> {
         atomicReference2.lazySet(jVar3);
         jVar.add(jVar3);
         jVar.add(jVar2);
-        this.iHw.unsafeSubscribe(jVar2);
+        this.iKG.unsafeSubscribe(jVar2);
         return jVar3;
     }
 }

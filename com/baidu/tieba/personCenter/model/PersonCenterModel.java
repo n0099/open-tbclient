@@ -19,11 +19,11 @@ import com.baidu.tieba.personCenter.data.e;
 /* loaded from: classes5.dex */
 public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
     public static final int REQUEST_NO_NETWORK = -1;
-    private e gsb;
-    private a gsc;
-    private boolean gsd;
-    private com.baidu.adp.framework.listener.a gse;
-    private CustomMessageListener gsf;
+    private e guS;
+    private a guT;
+    private boolean guU;
+    private com.baidu.adp.framework.listener.a guV;
+    private CustomMessageListener guW;
     public boolean mIsDataLoaded;
 
     /* loaded from: classes5.dex */
@@ -36,23 +36,23 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
     public PersonCenterModel(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext);
         this.mIsDataLoaded = false;
-        this.gsd = false;
-        this.gse = new com.baidu.adp.framework.listener.a(CmdConfigHttp.PROFILE_HTTP_CMD, 303012) { // from class: com.baidu.tieba.personCenter.model.PersonCenterModel.1
+        this.guU = false;
+        this.guV = new com.baidu.adp.framework.listener.a(CmdConfigHttp.PROFILE_HTTP_CMD, 303012) { // from class: com.baidu.tieba.personCenter.model.PersonCenterModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
                     if (((responsedMessage instanceof ProfileSocketResponseMessage) || (responsedMessage instanceof ProfileHttpResponseMessage)) && PersonCenterModel.this.unique_id == responsedMessage.getOrginalMessage().getTag()) {
                         if (responsedMessage.getError() != 0) {
-                            PersonCenterModel.this.gsc.onFail(responsedMessage.getError(), responsedMessage.getErrorString());
+                            PersonCenterModel.this.guT.onFail(responsedMessage.getError(), responsedMessage.getErrorString());
                             return;
                         }
                         PersonCenterModel.this.mIsDataLoaded = true;
-                        PersonCenterModel.this.gsc.a(PersonCenterModel.this.gsb);
+                        PersonCenterModel.this.guT.a(PersonCenterModel.this.guS);
                     }
                 }
             }
         };
-        this.gsf = new CustomMessageListener(2001380) { // from class: com.baidu.tieba.personCenter.model.PersonCenterModel.2
+        this.guW = new CustomMessageListener(2001380) { // from class: com.baidu.tieba.personCenter.model.PersonCenterModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -62,21 +62,21 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
             }
         };
         setUniqueId(bdUniqueId);
-        registerListener(this.gsf);
-        registerListener(this.gse);
+        registerListener(this.guW);
+        registerListener(this.guV);
     }
 
     public void a(a aVar) {
-        this.gsc = aVar;
+        this.guT = aVar;
     }
 
-    public void lX(boolean z) {
-        this.gsd = z;
+    public void ma(boolean z) {
+        this.guU = z;
     }
 
-    public void cV(long j) {
+    public void da(long j) {
         if (!j.kK()) {
-            this.gsc.onFail(-1, null);
+            this.guT.onFail(-1, null);
         } else if (TbadkCoreApplication.getCurrentAccount() != null) {
             ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
             profileRequestMessage.set_uid(Long.valueOf(b.d(TbadkCoreApplication.getCurrentAccount(), 0L)));
@@ -88,14 +88,14 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
             profileRequestMessage.set_error_hint(true);
             profileRequestMessage.setSelf(true);
             profileRequestMessage.setTag(this.unique_id);
-            if (this.gsd) {
+            if (this.guU) {
                 profileRequestMessage.setIs_from_usercenter(1);
             } else {
                 profileRequestMessage.setIs_from_usercenter(0);
             }
             profileRequestMessage.setPage(1);
-            this.gsb = new e();
-            profileRequestMessage.setPersonCenterData(this.gsb);
+            this.guS = new e();
+            profileRequestMessage.setPersonCenterData(this.guS);
             sendMessage(profileRequestMessage);
         }
     }
@@ -103,7 +103,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
         cancelLoadData();
-        cV(TbadkCoreApplication.getCurrentAccountId());
+        da(TbadkCoreApplication.getCurrentAccountId());
         return true;
     }
 
@@ -114,18 +114,18 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void resetData() {
-        this.gsb = new e();
+        this.guS = new e();
     }
 
-    public e boI() {
-        return this.gsb;
+    public e bpu() {
+        return this.guS;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(PersonChangeData personChangeData) {
-        if (personChangeData != null && this.gsb != null && this.gsb.getUserData() != null && TbadkCoreApplication.getCurrentAccount() != null) {
+        if (personChangeData != null && this.guS != null && this.guS.getUserData() != null && TbadkCoreApplication.getCurrentAccount() != null) {
             resetData();
-            cV(b.d(TbadkCoreApplication.getCurrentAccount(), 0L));
+            da(b.d(TbadkCoreApplication.getCurrentAccount(), 0L));
         }
     }
 }

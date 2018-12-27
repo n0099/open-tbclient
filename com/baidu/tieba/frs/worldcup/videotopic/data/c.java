@@ -11,8 +11,8 @@ import tbclient.VideoTopicList.DataRes;
 import tbclient.VideoTopicList.VideoTopicListResIdl;
 /* loaded from: classes3.dex */
 public class c implements com.baidu.tbadk.mvc.b.c {
-    public List<h> bvL = new ArrayList();
-    public int daL;
+    public List<h> bvO = new ArrayList();
+    public int ddD;
 
     @Override // com.baidu.tbadk.mvc.b.j
     public void a(Message message) {
@@ -29,20 +29,20 @@ public class c implements com.baidu.tbadk.mvc.b.c {
                     bb bbVar = new bb();
                     bbVar.a(threadInfo);
                     if (bbVar.getType() == bb.atv) {
-                        this.bvL.add(bbVar);
+                        this.bvO.add(bbVar);
                     }
                 }
             }
-            this.daL = dataRes.has_more.intValue();
+            this.ddD = dataRes.has_more.intValue();
         }
     }
 
-    public List<h> aIJ() {
-        return this.bvL;
+    public List<h> aJy() {
+        return this.bvO;
     }
 
-    public Integer aIK() {
-        return Integer.valueOf(this.daL);
+    public Integer aJz() {
+        return Integer.valueOf(this.ddD);
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
@@ -51,7 +51,7 @@ public class c implements com.baidu.tbadk.mvc.b.c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] NX() {
+    public byte[] NY() {
         return new byte[0];
     }
 

@@ -6,17 +6,17 @@ import java.util.List;
 import tbclient.PbContent;
 /* loaded from: classes6.dex */
 public class b implements h {
-    public static final BdUniqueId ekz = BdUniqueId.gen();
+    public static final BdUniqueId enq = BdUniqueId.gen();
     private List<PbContent> content;
-    private String ekA;
-    private int ekB;
-    private int ekC;
-    private String ekD;
+    private String enr;
+    private int ens;
+    private int ent;
+    private String enu;
     private String groupName;
     private int rank;
 
-    public b nV(int i) {
-        this.ekB = i;
+    public b oi(int i) {
+        this.ens = i;
         return this;
     }
 
@@ -24,62 +24,62 @@ public class b implements h {
         return this.rank;
     }
 
-    public b nW(int i) {
+    public b oj(int i) {
         this.rank = i;
         return this;
     }
 
-    public String aIN() {
-        return this.ekD;
+    public String aJC() {
+        return this.enu;
     }
 
-    public String aIz() {
-        return this.ekA;
+    public String aJo() {
+        return this.enr;
     }
 
-    public b oU(String str) {
-        this.ekA = str;
+    public b oX(String str) {
+        this.enr = str;
         return this;
     }
 
-    public b oV(String str) {
-        this.ekD = str;
+    public b oY(String str) {
+        this.enu = str;
         return this;
     }
 
-    public b oW(String str) {
+    public b oZ(String str) {
         this.groupName = str;
         return this;
     }
 
-    public b nX(int i) {
-        this.ekC = i;
+    public b ok(int i) {
+        this.ent = i;
         return this;
     }
 
-    public b bX(List<PbContent> list) {
+    public b bY(List<PbContent> list) {
         this.content = list;
         return this;
     }
 
-    public boolean aIO() {
-        return this.ekC == 3;
+    public boolean aJD() {
+        return this.ent == 3;
     }
 
-    public int aIP() {
-        return this.ekB;
+    public int aJE() {
+        return this.ens;
     }
 
     public String getGroupName() {
         return this.groupName;
     }
 
-    public List<PbContent> aIQ() {
+    public List<PbContent> aJF() {
         return this.content;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return ekz;
+        return enq;
     }
 }

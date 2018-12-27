@@ -10,12 +10,12 @@ import com.baidu.tieba.e;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class a<T> {
-    private WeakReference<InterfaceC0172a<T>> bcv = null;
-    private c bcw = null;
-    private a<T>.b bcx = null;
-    public T bcy;
-    private final f bcz;
+    public T bcB;
+    private final f bcC;
     private String mPath;
+    private WeakReference<InterfaceC0172a<T>> bcy = null;
+    private c bcz = null;
+    private a<T>.b bcA = null;
 
     /* renamed from: com.baidu.tbadk.img.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -31,31 +31,31 @@ public class a<T> {
     public a(String str, String str2) {
         this.mPath = null;
         this.mPath = str;
-        this.bcz = new f(str2);
+        this.bcC = new f(str2);
     }
 
     public void h(int i, int i2, int i3, int i4) {
-        this.bcz.h(i, i2, i3, i4);
+        this.bcC.h(i, i2, i3, i4);
     }
 
     public void cA(boolean z) {
-        if (this.bcx == null) {
-            this.bcx = new b();
-            this.bcx.cB(z);
-            this.bcx.execute(new String[0]);
+        if (this.bcA == null) {
+            this.bcA = new b();
+            this.bcA.cB(z);
+            this.bcA.execute(new String[0]);
         }
     }
 
     /* loaded from: classes.dex */
     private class b extends BdAsyncTask<String, Integer, ImageUploadResult> implements f.a {
-        private boolean bcA;
+        private boolean bcD;
 
         private b() {
-            this.bcA = false;
+            this.bcD = false;
         }
 
         protected void cB(boolean z) {
-            this.bcA = z;
+            this.bcD = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,12 +63,12 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: r */
         public ImageUploadResult doInBackground(String... strArr) {
-            return NC();
+            return ND();
         }
 
-        private ImageUploadResult NC() {
-            a.this.bcz.a(this, null);
-            ImageUploadResult v = a.this.bcz.v(a.this.mPath, this.bcA);
+        private ImageUploadResult ND() {
+            a.this.bcC.a(this, null);
+            ImageUploadResult v = a.this.bcC.v(a.this.mPath, this.bcD);
             publishProgress(100);
             return v;
         }
@@ -92,8 +92,8 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onProgressUpdate(Integer... numArr) {
-            if (numArr != null && numArr.length != 0 && a.this.bcv != null && a.this.bcv.get() != null) {
-                ((InterfaceC0172a) a.this.bcv.get()).b(numArr[0].intValue(), a.this.bcy);
+            if (numArr != null && numArr.length != 0 && a.this.bcy != null && a.this.bcy.get() != null) {
+                ((InterfaceC0172a) a.this.bcy.get()).b(numArr[0].intValue(), a.this.bcB);
             }
         }
 
@@ -101,19 +101,19 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreCancel() {
             super.onPreCancel();
-            if (a.this.bcw != null) {
+            if (a.this.bcz != null) {
                 ImageUploadResult imageUploadResult = new ImageUploadResult();
                 imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_CALCELLED;
                 imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(e.j.send_error);
-                a.this.bcw.a(a.this.mPath, imageUploadResult);
+                a.this.bcz.a(a.this.mPath, imageUploadResult);
             }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            a.this.bcx = null;
-            a.this.bcz.cancel();
+            a.this.bcA = null;
+            a.this.bcC.cancel();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -122,40 +122,40 @@ public class a<T> {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            a.this.bcx = null;
-            if (a.this.bcw != null) {
+            a.this.bcA = null;
+            if (a.this.bcz != null) {
                 if (imageUploadResult == null) {
                     imageUploadResult = new ImageUploadResult();
                     imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_ERROR;
                     imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(e.j.send_error);
                     TiebaStatic.imgError(TbErrInfo.ERR_IMG_SEND, imageUploadResult.error_msg, "");
                 }
-                a.this.bcw.a(a.this.mPath, imageUploadResult);
+                a.this.bcz.a(a.this.mPath, imageUploadResult);
             }
         }
     }
 
     public void a(InterfaceC0172a<T> interfaceC0172a) {
-        this.bcv = new WeakReference<>(interfaceC0172a);
+        this.bcy = new WeakReference<>(interfaceC0172a);
     }
 
     public void a(c cVar) {
-        this.bcw = cVar;
+        this.bcz = cVar;
     }
 
     public void setGroupId(String str) {
-        this.bcz.setGroupId(str);
+        this.bcC.setGroupId(str);
     }
 
-    public T NA() {
-        return this.bcy;
+    public T NB() {
+        return this.bcB;
     }
 
     public void I(T t) {
-        this.bcy = t;
+        this.bcB = t;
     }
 
-    public void NB() {
+    public void NC() {
         LocalViewSize.ImageSize De = LocalViewSize.Dc().De();
         LocalViewSize.ImageSize Df = LocalViewSize.Dc().Df();
         h(Df.width, Df.height, De.width, De.height);

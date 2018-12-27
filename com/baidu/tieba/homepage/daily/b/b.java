@@ -8,22 +8,22 @@ import java.util.List;
 import tbclient.GodBanner;
 /* loaded from: classes6.dex */
 public class b {
-    private List<a> esh;
+    private List<a> euY;
     private List<h> mDataList = new ArrayList();
 
-    public List<a> aKp() {
-        return this.esh;
+    public List<a> aLe() {
+        return this.euY;
     }
 
     public List<h> getDataList() {
         return this.mDataList;
     }
 
-    public List<a> ci(List<GodBanner> list) {
-        if (this.esh == null) {
-            this.esh = new ArrayList();
+    public List<a> cj(List<GodBanner> list) {
+        if (this.euY == null) {
+            this.euY = new ArrayList();
         }
-        this.esh.clear();
+        this.euY.clear();
         if (v.I(list)) {
             return null;
         }
@@ -31,18 +31,18 @@ public class b {
             if (godBanner != null && !StringUtils.isNull(godBanner.pic_url)) {
                 a aVar = new a();
                 aVar.ej(godBanner.pic_url);
-                aVar.pi(godBanner.link_url);
+                aVar.pl(godBanner.link_url);
                 aVar.setTitle(godBanner.intro);
-                this.esh.add(aVar);
-                if (v.H(this.esh) == 5) {
+                this.euY.add(aVar);
+                if (v.H(this.euY) == 5) {
                     break;
                 }
             }
         }
-        return this.esh;
+        return this.euY;
     }
 
-    public boolean OK() {
-        return v.I(this.esh) && v.I(this.mDataList);
+    public boolean OL() {
+        return v.I(this.euY) && v.I(this.mDataList);
     }
 }

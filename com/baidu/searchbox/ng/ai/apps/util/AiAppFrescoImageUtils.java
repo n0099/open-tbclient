@@ -10,17 +10,17 @@ import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes2.dex */
 public class AiAppFrescoImageUtils {
     public static boolean isLoadedInMemory(Uri uri) {
-        return uri != null && c.bTW().x(uri);
+        return uri != null && c.bUN().x(uri);
     }
 
     public static boolean isLoadedInSdcard(Uri uri) {
         if (uri == null) {
             return false;
         }
-        b<Boolean> y = c.bTW().y(uri);
-        boolean z = y != null && y.bTE() && y.getResult() != null && y.getResult().booleanValue();
+        b<Boolean> y = c.bUN().y(uri);
+        boolean z = y != null && y.bUv() && y.getResult() != null && y.getResult().booleanValue();
         if (y != null) {
-            y.bTH();
+            y.bUy();
             return z;
         }
         return z;
@@ -31,22 +31,22 @@ public class AiAppFrescoImageUtils {
             return null;
         }
         if (isLoadedInMemory(uri)) {
-            return fetchImage(c.bTW().d(ImageRequest.E(uri), context.getApplicationContext()));
+            return fetchImage(c.bUN().d(ImageRequest.E(uri), context.getApplicationContext()));
         }
-        b<Boolean> y = c.bTW().y(uri);
-        if (y == null || !y.bTE() || y.getResult() == null || !y.getResult().booleanValue()) {
+        b<Boolean> y = c.bUN().y(uri);
+        if (y == null || !y.bUv() || y.getResult() == null || !y.getResult().booleanValue()) {
             return null;
         }
         try {
-            return fetchImage(c.bTW().e(ImageRequest.E(uri), context));
+            return fetchImage(c.bUN().e(ImageRequest.E(uri), context));
         } finally {
-            y.bTH();
+            y.bUy();
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [108=4] */
     private static Bitmap fetchImage(b<a<com.facebook.imagepipeline.f.b>> bVar) {
-        Bitmap bXT;
+        Bitmap bYK;
         a<com.facebook.imagepipeline.f.b> aVar = null;
         if (bVar == null) {
             return null;
@@ -56,10 +56,10 @@ public class AiAppFrescoImageUtils {
             if (result != null) {
                 try {
                     com.facebook.imagepipeline.f.b bVar2 = result.get();
-                    if (bVar2 != null && (bVar2 instanceof com.facebook.imagepipeline.f.a) && (bXT = ((com.facebook.imagepipeline.f.a) bVar2).bXT()) != null && !bXT.isRecycled()) {
+                    if (bVar2 != null && (bVar2 instanceof com.facebook.imagepipeline.f.a) && (bYK = ((com.facebook.imagepipeline.f.a) bVar2).bYK()) != null && !bYK.isRecycled()) {
                         try {
-                            Bitmap createBitmap = Bitmap.createBitmap(bXT);
-                            bVar.bTH();
+                            Bitmap createBitmap = Bitmap.createBitmap(bYK);
+                            bVar.bUy();
                             a.c((a<?>) result);
                             return createBitmap;
                         } catch (OutOfMemoryError e) {
@@ -69,12 +69,12 @@ public class AiAppFrescoImageUtils {
                 } catch (Throwable th) {
                     aVar = result;
                     th = th;
-                    bVar.bTH();
+                    bVar.bUy();
                     a.c((a<?>) aVar);
                     throw th;
                 }
             }
-            bVar.bTH();
+            bVar.bUy();
             a.c((a<?>) result);
             return null;
         } catch (Throwable th2) {

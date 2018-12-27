@@ -5,50 +5,50 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class x {
-    private String aOA;
-    private String aOv;
-    private long aOw;
-    private long aOx;
+    private long aOA;
+    private String aOB;
+    private String aOC;
+    private String aOx;
     private long aOy;
-    private String aOz;
+    private long aOz;
 
     public void parseJson(String str) {
         if (!ao.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.aOv = jSONObject.optString("splash_video_url");
-                this.aOw = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.aOx = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.aOy = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.aOz = jSONObject.optString("splash_video_h5_url");
-                this.aOA = jSONObject.optString("splash_video_h5_text");
+                this.aOx = jSONObject.optString("splash_video_url");
+                this.aOy = jSONObject.optLong("splash_video_start_time") * 1000;
+                this.aOz = jSONObject.optLong("splash_video_end_time") * 1000;
+                this.aOA = jSONObject.optLong("splash_video_interval_time") * 1000;
+                this.aOB = jSONObject.optString("splash_video_h5_url");
+                this.aOC = jSONObject.optString("splash_video_h5_text");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String GY() {
-        return this.aOv;
-    }
-
-    public long GZ() {
-        return this.aOw;
-    }
-
-    public long Ha() {
+    public String GZ() {
         return this.aOx;
     }
 
-    public long Hb() {
+    public long Ha() {
         return this.aOy;
     }
 
-    public String Hc() {
+    public long Hb() {
         return this.aOz;
     }
 
-    public String Hd() {
+    public long Hc() {
         return this.aOA;
+    }
+
+    public String Hd() {
+        return this.aOB;
+    }
+
+    public String He() {
+        return this.aOC;
     }
 }

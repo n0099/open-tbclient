@@ -3,6 +3,6 @@ package com.baidu.tieba.im.chat;
 public class OfficialMsgImageActivity extends AbsMsgImageActivity {
     @Override // com.baidu.tieba.im.chat.AbsMsgImageActivity
     protected void a(String str, com.baidu.tieba.im.sendmessage.c cVar) {
-        com.baidu.tieba.im.sendmessage.a.aUe().d(str, cVar);
+        com.baidu.tieba.im.sendmessage.a.aUS().d(str, cVar);
     }
 }

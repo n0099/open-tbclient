@@ -54,7 +54,7 @@ public class d {
 
     private void registerTask() {
         com.baidu.tieba.tbadkCore.a.a.a(309626, DecryptCodeSocketRespMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, com.baidu.tieba.tbadkCore.a.a.aU(TbConfig.DECRYPT_CODE_URL, 309626));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, com.baidu.tieba.tbadkCore.a.a.aV(TbConfig.DECRYPT_CODE_URL, 309626));
         tbHttpMessageTask.setResponsedClass(DecryptCodeHttpRespMsg.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -75,7 +75,7 @@ public class d {
                 if (decryptData != null) {
                     UtilHelper.clearClipBoard();
                     int vK = decryptData.vK();
-                    if (vK == 1) {
+                    if (vK == 1 || vK == 0) {
                         if (MessageManager.getInstance().findTask(2921361) != null) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921377, decryptData));
                         }

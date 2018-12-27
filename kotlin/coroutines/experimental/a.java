@@ -6,24 +6,24 @@ import kotlin.coroutines.experimental.d;
 import kotlin.jvm.internal.p;
 /* loaded from: classes2.dex */
 public final class a implements d {
-    private final d ixZ;
-    private final d.b iya;
+    private final d iBj;
+    private final d.b iBk;
 
     public a(d dVar, d.b bVar) {
-        p.h((Object) dVar, "left");
-        p.h((Object) bVar, "element");
-        this.ixZ = dVar;
-        this.iya = bVar;
+        p.j(dVar, "left");
+        p.j(bVar, "element");
+        this.iBj = dVar;
+        this.iBk = bVar;
     }
 
     @Override // kotlin.coroutines.experimental.d
     public <E extends d.b> E a(d.c<E> cVar) {
-        p.h((Object) cVar, RimArmor.KEY);
+        p.j(cVar, RimArmor.KEY);
         a aVar = this;
         while (true) {
-            E e = (E) aVar.iya.a(cVar);
+            E e = (E) aVar.iBk.a(cVar);
             if (e == null) {
-                d dVar = aVar.ixZ;
+                d dVar = aVar.iBj;
                 if (dVar instanceof a) {
                     aVar = (a) dVar;
                 } else {
@@ -37,34 +37,34 @@ public final class a implements d {
 
     @Override // kotlin.coroutines.experimental.d
     public <R> R a(R r, kotlin.jvm.a.c<? super R, ? super d.b, ? extends R> cVar) {
-        p.h((Object) cVar, "operation");
-        return cVar.invoke((Object) this.ixZ.a(r, cVar), this.iya);
+        p.j(cVar, "operation");
+        return cVar.invoke((Object) this.iBj.a(r, cVar), this.iBk);
     }
 
     @Override // kotlin.coroutines.experimental.d
     public d b(d.c<?> cVar) {
-        p.h((Object) cVar, RimArmor.KEY);
-        if (this.iya.a(cVar) != null) {
-            return this.ixZ;
+        p.j(cVar, RimArmor.KEY);
+        if (this.iBk.a(cVar) != null) {
+            return this.iBj;
         }
-        d b = this.ixZ.b(cVar);
-        return b == this.ixZ ? this : b == e.iyd ? this.iya : new a(b, this.iya);
+        d b = this.iBj.b(cVar);
+        return b == this.iBj ? this : b == e.iBn ? this.iBk : new a(b, this.iBk);
     }
 
     private final int size() {
-        if (this.ixZ instanceof a) {
-            return ((a) this.ixZ).size() + 1;
+        if (this.iBj instanceof a) {
+            return ((a) this.iBj).size() + 1;
         }
         return 2;
     }
 
     private final boolean a(d.b bVar) {
-        return p.h(a((d.c<d.b>) bVar.cbJ()), bVar);
+        return p.h(a((d.c<d.b>) bVar.ccA()), bVar);
     }
 
     private final boolean a(a aVar) {
-        while (a(aVar.iya)) {
-            d dVar = aVar.ixZ;
+        while (a(aVar.iBk)) {
+            d dVar = aVar.iBj;
             if (dVar instanceof a) {
                 aVar = (a) dVar;
             } else if (dVar == null) {
@@ -81,7 +81,7 @@ public final class a implements d {
     }
 
     public int hashCode() {
-        return this.ixZ.hashCode() + this.iya.hashCode();
+        return this.iBj.hashCode() + this.iBk.hashCode();
     }
 
     public String toString() {

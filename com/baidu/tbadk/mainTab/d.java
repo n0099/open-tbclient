@@ -13,11 +13,11 @@ public class d {
     }
 
     public void a(b bVar) {
-        if (bVar != null && bVar.NP() != null) {
+        if (bVar != null && bVar.NQ() != null) {
             Iterator<b> it = this.anu.iterator();
             while (it.hasNext()) {
                 b next = it.next();
-                if (next != null && next.NP() != null && next.NP().type == bVar.NP().type) {
+                if (next != null && next.NQ() != null && next.NQ().type == bVar.NQ().type) {
                     return;
                 }
             }

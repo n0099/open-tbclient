@@ -4,64 +4,64 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 /* loaded from: classes3.dex */
 public class h implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId ePB = BdUniqueId.gen();
-    private Object bvK;
-    private NoDataViewFactory.ImgType ePC;
-    private String ePD;
-    private String ePE;
-    private String ePF;
-    private int ePG;
+    public static final BdUniqueId eSs = BdUniqueId.gen();
+    private Object bvN;
+    private NoDataViewFactory.ImgType eSt;
+    private String eSu;
+    private String eSv;
+    private String eSw;
+    private int eSx;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return ePB;
+        return eSs;
     }
 
-    public String aQY() {
-        return this.ePD;
+    public String aRM() {
+        return this.eSu;
     }
 
-    public void qd(String str) {
-        this.ePD = str;
+    public void qg(String str) {
+        this.eSu = str;
     }
 
-    public String aQZ() {
-        return this.ePE;
+    public String aRN() {
+        return this.eSv;
     }
 
-    public void qe(String str) {
-        this.ePE = str;
+    public void qh(String str) {
+        this.eSv = str;
     }
 
-    public String aRa() {
-        return this.ePF;
+    public String aRO() {
+        return this.eSw;
     }
 
-    public void qf(String str) {
-        this.ePF = str;
+    public void qi(String str) {
+        this.eSw = str;
     }
 
-    public int aRb() {
-        return this.ePG;
+    public int aRP() {
+        return this.eSx;
     }
 
-    public void pS(int i) {
-        this.ePG = i;
+    public void qf(int i) {
+        this.eSx = i;
     }
 
-    public Object TU() {
-        return this.bvK;
+    public Object TW() {
+        return this.bvN;
     }
 
     public void setExtraData(Object obj) {
-        this.bvK = obj;
+        this.bvN = obj;
     }
 
-    public NoDataViewFactory.ImgType aRc() {
-        return this.ePC;
+    public NoDataViewFactory.ImgType aRQ() {
+        return this.eSt;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.ePC = imgType;
+        this.eSt = imgType;
     }
 }

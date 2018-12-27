@@ -67,7 +67,7 @@ public class a implements IAiAppLiveIoc {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        b a = b.a(paramsJSONObject, au.YL());
+        b a = b.a(paramsJSONObject, au.YN());
         if (interfaceC0201a != null) {
             return interfaceC0201a.a(context, a, au);
         }
@@ -78,7 +78,7 @@ public class a implements IAiAppLiveIoc {
         return a(context, unitedSchemeEntity, callbackHandler, aiApp, new InterfaceC0201a() { // from class: com.baidu.tieba.aiapps.apps.media.b.a.1
             @Override // com.baidu.tieba.aiapps.apps.media.b.a.InterfaceC0201a
             public boolean a(Context context2, b bVar, e eVar) {
-                eVar.f(bVar.bIQ, bVar.mDirection);
+                eVar.f(bVar.bIT, bVar.mDirection);
                 return true;
             }
         });
@@ -88,7 +88,7 @@ public class a implements IAiAppLiveIoc {
         return a(context, unitedSchemeEntity, callbackHandler, aiApp, new InterfaceC0201a() { // from class: com.baidu.tieba.aiapps.apps.media.b.a.2
             @Override // com.baidu.tieba.aiapps.apps.media.b.a.InterfaceC0201a
             public boolean a(Context context2, b bVar, e eVar) {
-                eVar.dD(bVar.bIK);
+                eVar.dD(bVar.bIN);
                 return true;
             }
         });

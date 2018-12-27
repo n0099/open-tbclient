@@ -5,19 +5,19 @@ import com.baidu.tbadk.core.util.l;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    public static a gw(String str) {
+    public static a gx(String str) {
         a aVar = new a();
         if (str == null) {
             aVar.error_code = 6;
-            aVar.error_msg = a.eN(aVar.error_code);
+            aVar.error_msg = a.eO(aVar.error_code);
         } else if (!l.eR(l.getCacheDir() + "voice")) {
             aVar.error_code = 7;
-            aVar.error_msg = a.eN(aVar.error_code);
+            aVar.error_msg = a.eO(aVar.error_code);
         } else {
             String i = s.i(l.fl(str));
             if (i == null) {
                 aVar.error_code = 5;
-                aVar.error_msg = a.eN(aVar.error_code);
+                aVar.error_msg = a.eO(aVar.error_code);
             } else {
                 String b = l.b(i, 1, true);
                 if (l.az(str, b)) {
@@ -25,7 +25,7 @@ public class b {
                     aVar.md5 = i;
                 } else {
                     aVar.error_code = 1;
-                    aVar.error_msg = a.eN(aVar.error_code);
+                    aVar.error_msg = a.eO(aVar.error_code);
                 }
             }
         }
@@ -36,7 +36,7 @@ public class b {
         return l.az(str, l.b(str2, 1, true));
     }
 
-    public static synchronized void FN() {
+    public static synchronized void FO() {
         synchronized (b.class) {
             File file = new File(l.getCacheDir() + "voice");
             if (file.exists() && file.isDirectory()) {

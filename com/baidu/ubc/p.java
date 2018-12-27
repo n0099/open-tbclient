@@ -1,6 +1,6 @@
 package com.baidu.ubc;
 /* loaded from: classes2.dex */
 public class p {
-    public static void ym(String str) {
+    public static void yp(String str) {
     }
 }

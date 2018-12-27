@@ -6,25 +6,25 @@ import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class g implements f.a {
-    private f.b efm;
-    private VideoMiddleModel efn;
-    private VideoSerializeVideoThreadInfo efo;
-    private VideoMiddleModel.a efp = new VideoMiddleModel.a() { // from class: com.baidu.tieba.frs.videomiddlepage.g.1
+    private f.b eid;
+    private VideoMiddleModel eie;
+    private VideoSerializeVideoThreadInfo eif;
+    private VideoMiddleModel.a eig = new VideoMiddleModel.a() { // from class: com.baidu.tieba.frs.videomiddlepage.g.1
         @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.a
         public void i(List<com.baidu.tieba.card.data.b> list, boolean z) {
-            if (g.this.efm != null) {
-                g.this.efm.hideLoadingView();
+            if (g.this.eid != null) {
+                g.this.eid.hideLoadingView();
                 g.this.mHasMore = z;
-                g.this.efm.c(list, z, false);
+                g.this.eid.c(list, z, false);
             }
         }
 
         @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.a
-        public void oi(String str) {
-            if (g.this.efm != null) {
-                g.this.efm.hideLoadingView();
-                g.this.efm.showMsg(str);
-                g.this.efm.Nf();
+        public void ol(String str) {
+            if (g.this.eid != null) {
+                g.this.eid.hideLoadingView();
+                g.this.eid.showMsg(str);
+                g.this.eid.Ng();
             }
         }
     };
@@ -36,16 +36,16 @@ public class g implements f.a {
 
     public g(f.b bVar) {
         if (bVar instanceof VideoMiddlePageFragment) {
-            this.efm = bVar;
-            this.efm.a(this);
-            this.efn = new VideoMiddleModel(((VideoMiddlePageFragment) bVar).getPageContext(), this.efp);
+            this.eid = bVar;
+            this.eid.a(this);
+            this.eie = new VideoMiddleModel(((VideoMiddlePageFragment) bVar).getPageContext(), this.eig);
         }
     }
 
-    public void aHK() {
-        if (this.efn != null) {
-            this.efn.setFrom(this.mFrom);
-            this.efn.LoadData();
+    public void aIz() {
+        if (this.eie != null) {
+            this.eie.setFrom(this.mFrom);
+            this.eie.LoadData();
         }
     }
 
@@ -53,51 +53,51 @@ public class g implements f.a {
         this.mFrom = str;
     }
 
-    public void aab() {
-        if (this.efn != null && this.mHasMore) {
-            this.efn.setFrom(this.mFrom);
-            this.efn.LoadData();
+    public void aad() {
+        if (this.eie != null && this.mHasMore) {
+            this.eie.setFrom(this.mFrom);
+            this.eie.LoadData();
         }
     }
 
     public void setId(String str) {
         this.mId = str;
-        if (this.efn != null) {
-            this.efn.setId(this.mId);
+        if (this.eie != null) {
+            this.eie.setId(this.mId);
         }
     }
 
-    public void oh(String str) {
+    public void ok(String str) {
         this.st_type = str;
-        if (this.efn != null) {
-            this.efn.oh(str);
+        if (this.eie != null) {
+            this.eie.ok(str);
         }
     }
 
     public void setLocation(String str) {
         this.yuelaou_locate = str;
-        if (this.efn != null) {
-            this.efn.setLocation(str);
+        if (this.eie != null) {
+            this.eie.setLocation(str);
         }
     }
 
     public void a(VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo) {
-        this.efo = videoSerializeVideoThreadInfo;
+        this.eif = videoSerializeVideoThreadInfo;
     }
 
-    public VideoSerializeVideoThreadInfo aHL() {
-        return this.efo;
+    public VideoSerializeVideoThreadInfo aIA() {
+        return this.eif;
     }
 
-    public void aDd() {
-        if (this.efn != null) {
-            this.efn.cancelLoadData();
+    public void aDS() {
+        if (this.eie != null) {
+            this.eie.cancelLoadData();
         }
     }
 
     public int getPageNum() {
-        if (this.efn != null) {
-            return this.efn.getPageNum();
+        if (this.eie != null) {
+            return this.eie.getPageNum();
         }
         return 0;
     }

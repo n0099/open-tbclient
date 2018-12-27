@@ -6,10 +6,10 @@ import java.util.concurrent.locks.ReentrantLock;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class s<T> implements d.a<T> {
-    private final rx.observables.c<? extends T> source;
-    volatile rx.subscriptions.b iDz = new rx.subscriptions.b();
-    final AtomicInteger iDA = new AtomicInteger(0);
+    volatile rx.subscriptions.b iGJ = new rx.subscriptions.b();
+    final AtomicInteger iGK = new AtomicInteger(0);
     final ReentrantLock lock = new ReentrantLock();
+    private final rx.observables.c<? extends T> source;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -23,7 +23,7 @@ public final class s<T> implements d.a<T> {
     public void call(rx.j<? super T> jVar) {
         boolean z;
         this.lock.lock();
-        if (this.iDA.incrementAndGet() == 1) {
+        if (this.iGK.incrementAndGet() == 1) {
             AtomicBoolean atomicBoolean = new AtomicBoolean(true);
             try {
                 this.source.c(a(jVar, atomicBoolean));
@@ -37,7 +37,7 @@ public final class s<T> implements d.a<T> {
             }
         }
         try {
-            a(jVar, this.iDz);
+            a(jVar, this.iGJ);
         } finally {
             this.lock.unlock();
         }
@@ -50,8 +50,8 @@ public final class s<T> implements d.a<T> {
             /* renamed from: a */
             public void call(rx.k kVar) {
                 try {
-                    s.this.iDz.add(kVar);
-                    s.this.a(jVar, s.this.iDz);
+                    s.this.iGJ.add(kVar);
+                    s.this.a(jVar, s.this.iGJ);
                 } finally {
                     s.this.lock.unlock();
                     atomicBoolean.set(false);
@@ -83,10 +83,10 @@ public final class s<T> implements d.a<T> {
             void cleanup() {
                 s.this.lock.lock();
                 try {
-                    if (s.this.iDz == bVar) {
-                        s.this.iDz.unsubscribe();
-                        s.this.iDz = new rx.subscriptions.b();
-                        s.this.iDA.set(0);
+                    if (s.this.iGJ == bVar) {
+                        s.this.iGJ.unsubscribe();
+                        s.this.iGJ = new rx.subscriptions.b();
+                        s.this.iGK.set(0);
                     }
                 } finally {
                     s.this.lock.unlock();
@@ -101,9 +101,9 @@ public final class s<T> implements d.a<T> {
             public void call() {
                 s.this.lock.lock();
                 try {
-                    if (s.this.iDz == bVar && s.this.iDA.decrementAndGet() == 0) {
-                        s.this.iDz.unsubscribe();
-                        s.this.iDz = new rx.subscriptions.b();
+                    if (s.this.iGJ == bVar && s.this.iGK.decrementAndGet() == 0) {
+                        s.this.iGJ.unsubscribe();
+                        s.this.iGJ = new rx.subscriptions.b();
                     }
                 } finally {
                     s.this.lock.unlock();

@@ -12,7 +12,7 @@ import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static boolean axp = false;
+    private static boolean axq = false;
     private static Handler sHandler = new Handler() { // from class: com.baidu.tbadk.core.diskCache.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -32,7 +32,7 @@ public class a {
     }
 
     public static void bo(boolean z) {
-        axp = z;
+        axq = z;
     }
 
     public static void init() {
@@ -42,7 +42,7 @@ public class a {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        if (!a.axp) {
+                        if (!a.axq) {
                             a.sHandler.sendEmptyMessageDelayed(1, ErrDef.Feature.WEIGHT);
                             return;
                         }

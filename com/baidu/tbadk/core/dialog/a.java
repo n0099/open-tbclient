@@ -26,32 +26,32 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class a {
     private View awA;
-    private String awk;
+    private View awB;
     private String awl;
-    private b awo;
+    private String awm;
     private b awp;
-    private DialogInterface.OnCancelListener awq;
-    private DialogInterface.OnDismissListener awr;
-    private AlertDialog aws;
-    private ViewGroup awt;
-    private Object aww;
-    private TextView awx;
+    private b awq;
+    private DialogInterface.OnCancelListener awr;
+    private DialogInterface.OnDismissListener aws;
+    private AlertDialog awt;
+    private ViewGroup awu;
+    private Object awx;
     private TextView awy;
-    private View awz;
+    private TextView awz;
     protected final Activity mActivity;
     private View mContentView;
     private String mMessage;
     private DialogInterface.OnKeyListener mOnKeyListener;
     private final ViewGroup mRootView;
     private String mTitle;
-    private int awg = -1;
-    private boolean awh = true;
-    private boolean awi = false;
+    private int awh = -1;
+    private boolean awi = true;
     private boolean awj = false;
-    private int awm = -1;
-    private int awn = 0;
-    private boolean awu = false;
-    private boolean awv = true;
+    private boolean awk = false;
+    private int awn = -1;
+    private int awo = 0;
+    private boolean awv = false;
+    private boolean aww = true;
     private boolean mCancelable = true;
     private boolean isAutoNight = true;
 
@@ -81,24 +81,24 @@ public class a {
     }
 
     public a a(DialogInterface.OnCancelListener onCancelListener) {
-        this.awq = onCancelListener;
+        this.awr = onCancelListener;
         return this;
     }
 
     public a a(DialogInterface.OnDismissListener onDismissListener) {
-        this.awr = onDismissListener;
+        this.aws = onDismissListener;
         return this;
     }
 
     public a a(String str, b bVar) {
-        this.awk = str;
-        this.awo = bVar;
+        this.awl = str;
+        this.awp = bVar;
         return this;
     }
 
     public a b(String str, b bVar) {
-        this.awl = str;
-        this.awp = bVar;
+        this.awm = str;
+        this.awq = bVar;
         return this;
     }
 
@@ -111,16 +111,16 @@ public class a {
 
     public a a(int i, b bVar) {
         if (this.mActivity != null) {
-            this.awk = this.mActivity.getResources().getString(i);
-            this.awo = bVar;
+            this.awl = this.mActivity.getResources().getString(i);
+            this.awp = bVar;
         }
         return this;
     }
 
     public a b(int i, b bVar) {
         if (this.mActivity != null) {
-            this.awl = this.mActivity.getResources().getString(i);
-            this.awp = bVar;
+            this.awm = this.mActivity.getResources().getString(i);
+            this.awq = bVar;
         }
         return this;
     }
@@ -131,40 +131,40 @@ public class a {
     }
 
     public a bg(boolean z) {
-        this.awv = z;
+        this.aww = z;
         return this;
     }
 
     public a(Activity activity) {
         this.mActivity = activity;
         this.mRootView = (ViewGroup) LayoutInflater.from(activity).inflate(e.h.dialog_bdalert, (ViewGroup) null);
-        this.awt = (ViewGroup) this.mRootView.findViewById(e.g.real_view);
+        this.awu = (ViewGroup) this.mRootView.findViewById(e.g.real_view);
     }
 
     public a dc(int i) {
         if (isAutoNight()) {
-            this.awm = al.getColor(i);
+            this.awn = al.getColor(i);
         } else {
-            this.awm = this.mActivity.getResources().getColor(i);
+            this.awn = this.mActivity.getResources().getColor(i);
         }
         return this;
     }
 
     public a dd(int i) {
-        this.awn = i;
+        this.awo = i;
         return this;
     }
 
     public a b(@Nullable com.baidu.adp.base.e<?> eVar) {
         boolean z;
         boolean z2 = true;
-        if (!this.awu) {
-            this.awu = true;
+        if (!this.awv) {
+            this.awv = true;
             LinearLayout linearLayout = (LinearLayout) this.mRootView.findViewById(e.g.dialog_content);
-            this.awx = (TextView) this.mRootView.findViewById(e.g.yes);
-            this.awy = (TextView) this.mRootView.findViewById(e.g.no);
-            this.awz = this.mRootView.findViewById(e.g.divider_yes_no_button);
-            this.awA = this.mRootView.findViewById(e.g.bdDialog_divider_line);
+            this.awy = (TextView) this.mRootView.findViewById(e.g.yes);
+            this.awz = (TextView) this.mRootView.findViewById(e.g.no);
+            this.awA = this.mRootView.findViewById(e.g.divider_yes_no_button);
+            this.awB = this.mRootView.findViewById(e.g.bdDialog_divider_line);
             if (this.mContentView != null) {
                 linearLayout.removeAllViews();
                 if (this.mContentView.getParent() != null) {
@@ -190,30 +190,30 @@ public class a {
                 }
             }
             c(eVar);
-            if (this.awm != -1) {
-                if (this.awx != null) {
-                    this.awx.setTextColor(this.awm);
-                }
+            if (this.awn != -1) {
                 if (this.awy != null) {
-                    this.awy.setTextColor(this.awm);
+                    this.awy.setTextColor(this.awn);
+                }
+                if (this.awz != null) {
+                    this.awz.setTextColor(this.awn);
                 }
             }
-            if (TextUtils.isEmpty(this.awk) || this.awx == null) {
+            if (TextUtils.isEmpty(this.awl) || this.awy == null) {
                 z = false;
             } else {
-                this.awx.setText(this.awk);
-                this.awx.setTag(this.aww);
-                if (this.awo != null) {
-                    this.awx.setOnClickListener(new View$OnClickListenerC0157a(this, this.awo));
+                this.awy.setText(this.awl);
+                this.awy.setTag(this.awx);
+                if (this.awp != null) {
+                    this.awy.setOnClickListener(new View$OnClickListenerC0157a(this, this.awp));
                 }
                 z = true;
             }
-            if (TextUtils.isEmpty(this.awl) || this.awy == null) {
+            if (TextUtils.isEmpty(this.awm) || this.awz == null) {
                 z2 = false;
             } else {
-                this.awy.setText(this.awl);
-                if (this.awp != null) {
-                    this.awy.setOnClickListener(new View$OnClickListenerC0157a(this, this.awp));
+                this.awz.setText(this.awm);
+                if (this.awq != null) {
+                    this.awz.setOnClickListener(new View$OnClickListenerC0157a(this, this.awq));
                 }
             }
             j(z, z2);
@@ -229,11 +229,11 @@ public class a {
                 LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(e.h.bdalert_two_message_view, (ViewGroup) null);
                 TextView textView = (TextView) linearLayout.findViewById(e.g.title_view);
                 TextView textView2 = (TextView) linearLayout.findViewById(e.g.message_view);
-                if (this.awi) {
+                if (this.awj) {
                     textView.setGravity(17);
                     textView2.setGravity(17);
                 }
-                if (this.awj) {
+                if (this.awk) {
                     textView.setGravity(17);
                 }
                 textView.setText(this.mTitle);
@@ -246,7 +246,7 @@ public class a {
                 textView3.setText(this.mTitle);
                 return linearLayout2;
             }
-            if (this.awh) {
+            if (this.awi) {
                 textView3.setGravity(17);
             }
             textView3.setText(this.mMessage);
@@ -271,44 +271,44 @@ public class a {
 
     private void j(boolean z, boolean z2) {
         if (z && z2) {
-            if (this.awz != null) {
-                this.awz.setVisibility(0);
-            }
             if (this.awA != null) {
                 this.awA.setVisibility(0);
+            }
+            if (this.awB != null) {
+                this.awB.setVisibility(0);
                 return;
             }
             return;
         }
         int skinType = isAutoNight() ? TbadkCoreApplication.getInst().getSkinType() : 0;
-        if (this.awz != null) {
-            this.awz.setVisibility(8);
+        if (this.awA != null) {
+            this.awA.setVisibility(8);
         }
         if (!z && !z2) {
-            if (this.awx != null && this.awy != null && this.awz != null && this.awA != null) {
-                this.awx.setVisibility(8);
+            if (this.awy != null && this.awz != null && this.awA != null && this.awB != null) {
                 this.awy.setVisibility(8);
                 this.awz.setVisibility(8);
                 this.awA.setVisibility(8);
+                this.awB.setVisibility(8);
             }
         } else if (z) {
-            al.d(this.awx, e.f.dialog_single_button_bg_selector, skinType);
-            if (this.awy != null && this.awz != null && this.awA != null) {
-                this.awA.setVisibility(0);
-                this.awx.setVisibility(0);
-                this.awy.setVisibility(8);
+            al.d(this.awy, e.f.dialog_single_button_bg_selector, skinType);
+            if (this.awz != null && this.awA != null && this.awB != null) {
+                this.awB.setVisibility(0);
+                this.awy.setVisibility(0);
+                this.awz.setVisibility(8);
             }
         } else if (z2) {
-            al.d(this.awy, e.f.dialog_single_button_bg_selector, skinType);
-            if (this.awx != null && this.awz != null && this.awA != null) {
-                this.awA.setVisibility(0);
-                this.awy.setVisibility(0);
-                this.awx.setVisibility(8);
+            al.d(this.awz, e.f.dialog_single_button_bg_selector, skinType);
+            if (this.awy != null && this.awA != null && this.awB != null) {
+                this.awB.setVisibility(0);
+                this.awz.setVisibility(0);
+                this.awy.setVisibility(8);
             }
-        } else if (this.awx != null && this.awy != null && this.awA != null) {
-            this.awA.setVisibility(8);
-            this.awx.setVisibility(8);
+        } else if (this.awy != null && this.awz != null && this.awB != null) {
+            this.awB.setVisibility(8);
             this.awy.setVisibility(8);
+            this.awz.setVisibility(8);
         }
     }
 
@@ -317,37 +317,37 @@ public class a {
     }
 
     private a bh(boolean z) {
-        if (!this.awu) {
+        if (!this.awv) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
-        if (this.aws != null) {
+        if (this.awt != null) {
             if (z) {
-                com.baidu.adp.lib.g.g.a(this.aws, this.mActivity);
+                com.baidu.adp.lib.g.g.a(this.awt, this.mActivity);
             } else {
-                this.aws.show();
+                this.awt.show();
             }
         } else {
-            this.aws = new AlertDialog.Builder(this.mActivity).create();
-            this.aws.setCanceledOnTouchOutside(this.awv);
-            this.aws.setCancelable(this.mCancelable);
-            this.aws.setOnKeyListener(this.mOnKeyListener);
-            if (this.awq != null) {
-                this.aws.setOnCancelListener(this.awq);
-            }
+            this.awt = new AlertDialog.Builder(this.mActivity).create();
+            this.awt.setCanceledOnTouchOutside(this.aww);
+            this.awt.setCancelable(this.mCancelable);
+            this.awt.setOnKeyListener(this.mOnKeyListener);
             if (this.awr != null) {
-                this.aws.setOnDismissListener(this.awr);
+                this.awt.setOnCancelListener(this.awr);
+            }
+            if (this.aws != null) {
+                this.awt.setOnDismissListener(this.aws);
             }
             if (z) {
-                com.baidu.adp.lib.g.g.a(this.aws, this.mActivity);
+                com.baidu.adp.lib.g.g.a(this.awt, this.mActivity);
             } else {
-                this.aws.show();
+                this.awt.show();
             }
-            if (this.aws.getWindow().getDecorView().getParent() != null) {
-                Window window = this.aws.getWindow();
-                if (this.awg == -1) {
-                    this.awg = 17;
+            if (this.awt.getWindow().getDecorView().getParent() != null) {
+                Window window = this.awt.getWindow();
+                if (this.awh == -1) {
+                    this.awh = 17;
                 }
-                window.setGravity(this.awg);
+                window.setGravity(this.awh);
                 window.setBackgroundDrawableResource(e.f.transparent_bg);
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.dimAmount = 0.7f;
@@ -384,25 +384,25 @@ public class a {
     }
 
     public int BE() {
-        return this.awn == 1 ? l.h(this.mActivity, e.C0210e.ds40) : l.h(this.mActivity, e.C0210e.ds90);
+        return this.awo == 1 ? l.h(this.mActivity, e.C0210e.ds40) : l.h(this.mActivity, e.C0210e.ds90);
     }
 
     public boolean isShowing() {
-        if (this.aws != null) {
-            return this.aws.isShowing();
+        if (this.awt != null) {
+            return this.awt.isShowing();
         }
         return false;
     }
 
     public void bi(boolean z) {
-        if (this.awx != null) {
-            this.awx.setClickable(z);
+        if (this.awy != null) {
+            this.awy.setClickable(z);
         }
     }
 
     public void bj(boolean z) {
-        if (this.awy != null) {
-            this.awy.setClickable(z);
+        if (this.awz != null) {
+            this.awz.setClickable(z);
         }
     }
 
@@ -411,14 +411,14 @@ public class a {
     }
 
     public void hide() {
-        if (this.aws != null) {
-            this.aws.hide();
+        if (this.awt != null) {
+            this.awt.hide();
         }
     }
 
     public void dismiss() {
-        if (this.aws != null) {
-            com.baidu.adp.lib.g.g.b(this.aws, this.mActivity);
+        if (this.awt != null) {
+            com.baidu.adp.lib.g.g.b(this.awt, this.mActivity);
         }
     }
 
@@ -427,31 +427,31 @@ public class a {
     /* loaded from: classes.dex */
     public class View$OnClickListenerC0157a implements View.OnClickListener {
         private final a Td;
-        private final b awD;
+        private final b awE;
 
         public View$OnClickListenerC0157a(a aVar, b bVar) {
             this.Td = aVar;
-            this.awD = bVar;
+            this.awE = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.awD != null) {
-                this.awD.onClick(this.Td);
+            if (this.awE != null) {
+                this.awE.onClick(this.Td);
             }
         }
     }
 
     public ViewGroup BG() {
-        return this.awt;
+        return this.awu;
     }
 
     public void H(Object obj) {
-        this.aww = obj;
+        this.awx = obj;
     }
 
     public Object BH() {
-        return this.aww;
+        return this.awx;
     }
 
     public boolean isAutoNight() {
@@ -463,15 +463,15 @@ public class a {
     }
 
     public void bk(boolean z) {
-        this.awh = z;
-    }
-
-    public void bl(boolean z) {
         this.awi = z;
     }
 
-    public void bm(boolean z) {
+    public void bl(boolean z) {
         this.awj = z;
+    }
+
+    public void bm(boolean z) {
+        this.awk = z;
     }
 
     public void setOnKeyListener(DialogInterface.OnKeyListener onKeyListener) {
@@ -479,6 +479,6 @@ public class a {
     }
 
     public void reset() {
-        this.awu = false;
+        this.awv = false;
     }
 }

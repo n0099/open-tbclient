@@ -7,19 +7,19 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class d implements ae {
     private String avatar;
-    private int bQW;
-    private int dgT;
+    private int bQZ;
+    private int djJ;
     private String errorMsg;
     private int forumId;
     private String forumName;
-    private int hbO;
-    private int hbP;
-    private int hbQ;
-    private boolean hbR;
-    private boolean hbS;
-    private boolean hbT;
-    private boolean hbU;
-    private int hbV;
+    private int heS;
+    private int heT;
+    private int heU;
+    private boolean heV;
+    private boolean heW;
+    private boolean heX;
+    private boolean heY;
+    private int heZ;
 
     public int getForumId() {
         return this.forumId;
@@ -33,82 +33,82 @@ public class d implements ae {
         return this.avatar;
     }
 
-    public int bzI() {
-        return this.hbO;
+    public int bAy() {
+        return this.heS;
     }
 
-    public int bzJ() {
-        return this.bQW;
+    public int bAz() {
+        return this.bQZ;
     }
 
-    public int bzK() {
-        return this.dgT;
+    public int bAA() {
+        return this.djJ;
     }
 
-    public int bzL() {
-        return this.hbP;
+    public int bAB() {
+        return this.heT;
     }
 
-    public int bzM() {
-        return this.hbQ;
+    public int bAC() {
+        return this.heU;
     }
 
-    public void uU(int i) {
-        this.hbO = i;
+    public void vh(int i) {
+        this.heS = i;
     }
 
-    public void uV(int i) {
-        this.bQW = i;
+    public void vi(int i) {
+        this.bQZ = i;
     }
 
-    public void uW(int i) {
-        this.dgT = i;
+    public void vj(int i) {
+        this.djJ = i;
     }
 
-    public boolean aaL() {
-        return this.hbR;
+    public boolean aaN() {
+        return this.heV;
     }
 
-    public void nf(boolean z) {
-        this.hbR = z;
-        this.hbO = 1;
+    public void ni(boolean z) {
+        this.heV = z;
+        this.heS = 1;
     }
 
-    public boolean bzN() {
-        return this.hbT;
+    public boolean bAD() {
+        return this.heX;
     }
 
-    public void ng(boolean z) {
-        this.hbT = z;
-        this.hbO = 0;
+    public void nj(boolean z) {
+        this.heX = z;
+        this.heS = 0;
     }
 
-    public boolean bzO() {
-        return this.hbU;
+    public boolean bAE() {
+        return this.heY;
     }
 
-    public void nh(boolean z) {
-        this.hbU = z;
+    public void nk(boolean z) {
+        this.heY = z;
     }
 
-    public int bzP() {
-        return this.hbV;
+    public int bAF() {
+        return this.heZ;
     }
 
-    public void uX(int i) {
-        this.hbV = i;
+    public void vk(int i) {
+        this.heZ = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean bzQ() {
-        return this.hbS;
+    public boolean bAG() {
+        return this.heW;
     }
 
-    public void ni(boolean z) {
-        this.hbS = z;
+    public void nl(boolean z) {
+        this.heW = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -116,14 +116,14 @@ public class d implements ae {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString("avatar");
-            this.hbO = jSONObject.optInt("is_sign_in");
-            this.bQW = jSONObject.optInt("cont_sign_num");
-            this.dgT = jSONObject.optInt("user_level");
-            this.hbP = jSONObject.optInt("user_exp");
-            this.hbQ = jSONObject.optInt("need_exp");
-            if (this.hbO != 0) {
-                this.hbR = true;
-                this.hbT = false;
+            this.heS = jSONObject.optInt("is_sign_in");
+            this.bQZ = jSONObject.optInt("cont_sign_num");
+            this.djJ = jSONObject.optInt("user_level");
+            this.heT = jSONObject.optInt("user_exp");
+            this.heU = jSONObject.optInt("need_exp");
+            if (this.heS != 0) {
+                this.heV = true;
+                this.heX = false;
             }
         }
     }

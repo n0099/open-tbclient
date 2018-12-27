@@ -27,22 +27,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class DeliveryListActivity extends TbAiAppsBaseActivity implements a.b {
-    private String bFr;
-    private ChooseAddressView bFu;
-    private List<b> bFv = new ArrayList();
-    private Handler bFw;
-    private Bundle bFx;
-    private boolean bFy;
+    private Bundle bFA;
+    private boolean bFB;
+    private String bFu;
+    private ChooseAddressView bFx;
+    private List<b> bFy = new ArrayList();
+    private Handler bFz;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.aiapps.apps.TbAiAppsBaseActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         parseIntent(getIntent());
-        XF();
+        XH();
     }
 
-    private void XF() {
+    private void XH() {
         if (!com.baidu.tieba.aiapps.apps.a.b.isLogin(TbadkCoreApplication.getInst())) {
             com.baidu.tieba.aiapps.apps.a.b.login(this, null, new OnAiAppLoginResultListener() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryListActivity.1
                 @Override // com.baidu.searchbox.ng.ai.apps.account.OnAiAppLoginResultListener
@@ -55,71 +55,71 @@ public class DeliveryListActivity extends TbAiAppsBaseActivity implements a.b {
     }
 
     private void init() {
-        this.bFu = new ChooseAddressView(this);
-        setContentView(this.bFu);
-        XB();
-        this.bFu.setDeliveryChooseListener(this);
-        this.bFw = new Handler(new Handler.Callback() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryListActivity.2
+        this.bFx = new ChooseAddressView(this);
+        setContentView(this.bFx);
+        XD();
+        this.bFx.setDeliveryChooseListener(this);
+        this.bFz = new Handler(new Handler.Callback() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryListActivity.2
             @Override // android.os.Handler.Callback
             public boolean handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        DeliveryListActivity.this.bFu.ao(DeliveryListActivity.this.bFv);
-                        DeliveryListActivity.this.XH();
+                        DeliveryListActivity.this.bFx.ao(DeliveryListActivity.this.bFy);
+                        DeliveryListActivity.this.XJ();
                         return true;
                     default:
                         return false;
                 }
             }
         });
-        com.baidu.tieba.aiapps.apps.address.b.a.XM().n(this.bFx);
-        XG();
+        com.baidu.tieba.aiapps.apps.address.b.a.XO().n(this.bFA);
+        XI();
     }
 
-    private void XB() {
-        AiAppsBdActionBar Xu = Xu();
-        if (TextUtils.equals(this.bFr, "aiapp")) {
-            Xu.setTitle(e.j.delivery_title_choose);
-            Xu.setLeftFirstViewVisibility(true);
+    private void XD() {
+        AiAppsBdActionBar Xw = Xw();
+        if (TextUtils.equals(this.bFu, "aiapp")) {
+            Xw.setTitle(e.j.delivery_title_choose);
+            Xw.setLeftFirstViewVisibility(true);
             return;
         }
-        Xu.setTitle(e.j.delivery_title_list);
+        Xw.setTitle(e.j.delivery_title_list);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.bFy) {
-            this.bFv = com.baidu.tieba.aiapps.apps.address.b.a.XM().XP();
-            this.bFu.ao(this.bFv);
+        if (this.bFB) {
+            this.bFy = com.baidu.tieba.aiapps.apps.address.b.a.XO().XR();
+            this.bFx.ao(this.bFy);
         }
     }
 
-    private void XG() {
-        List<b> XP = com.baidu.tieba.aiapps.apps.address.b.a.XM().XP();
-        if (XP.size() > 0) {
-            this.bFv = XP;
-            this.bFu.ao(this.bFv);
-            XH();
+    private void XI() {
+        List<b> XR = com.baidu.tieba.aiapps.apps.address.b.a.XO().XR();
+        if (XR.size() > 0) {
+            this.bFy = XR;
+            this.bFx.ao(this.bFy);
+            XJ();
             return;
         }
         AiAppExecutorUtils.postOnIO(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryListActivity.3
             @Override // java.lang.Runnable
             public void run() {
-                List<b> XN = com.baidu.tieba.aiapps.apps.address.b.a.XM().XN();
-                if (XN != null && XN.size() > 0) {
-                    DeliveryListActivity.this.bFv = XN;
+                List<b> XP = com.baidu.tieba.aiapps.apps.address.b.a.XO().XP();
+                if (XP != null && XP.size() > 0) {
+                    DeliveryListActivity.this.bFy = XP;
                 }
-                DeliveryListActivity.this.bFw.sendEmptyMessage(1);
+                DeliveryListActivity.this.bFz.sendEmptyMessage(1);
             }
         }, "loadDeliveryData");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void XH() {
+    public void XJ() {
         showLoading();
-        if (TextUtils.equals(this.bFr, "aiapp")) {
+        if (TextUtils.equals(this.bFu, "aiapp")) {
             AiAppsRuntime.getAiAppAccountRuntime().getTplStoken(this, new TypedCallback<Bundle>() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryListActivity.4
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.ng.ai.apps.util.typedbox.TypedCallback
@@ -127,9 +127,9 @@ public class DeliveryListActivity extends TbAiAppsBaseActivity implements a.b {
                     if (bundle != null) {
                         String string = bundle.getString(OAuthDef.TPL, "");
                         if (!TextUtils.isEmpty(string)) {
-                            DeliveryListActivity.this.bFx.putString(ISapiAccount.SAPI_ACCOUNT_STOKEN, string);
-                            com.baidu.tieba.aiapps.apps.address.b.a.XM().n(DeliveryListActivity.this.bFx);
-                            DeliveryListActivity.this.XI();
+                            DeliveryListActivity.this.bFA.putString(ISapiAccount.SAPI_ACCOUNT_STOKEN, string);
+                            com.baidu.tieba.aiapps.apps.address.b.a.XO().n(DeliveryListActivity.this.bFA);
+                            DeliveryListActivity.this.XK();
                             return;
                         }
                     }
@@ -137,15 +137,15 @@ public class DeliveryListActivity extends TbAiAppsBaseActivity implements a.b {
                 }
             }, OAuthDef.TPL);
         } else {
-            XI();
+            XK();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void XI() {
-        com.baidu.tieba.aiapps.apps.address.b.a.XM().a(new a.C0195a() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryListActivity.5
+    public void XK() {
+        com.baidu.tieba.aiapps.apps.address.b.a.XO().a(new a.C0195a() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryListActivity.5
             @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0195a, com.baidu.tieba.aiapps.apps.address.b.b
-            public void XJ() {
+            public void XL() {
                 DeliveryListActivity.this.dismissLoading();
             }
 
@@ -157,11 +157,11 @@ public class DeliveryListActivity extends TbAiAppsBaseActivity implements a.b {
             @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0195a, com.baidu.tieba.aiapps.apps.address.b.b
             public void onFailure() {
                 UniversalToast.makeText(AppRuntime.getAppContext(), DeliveryListActivity.this.getResources().getString(e.j.delivery_net_error)).showToast();
-                if (DeliveryListActivity.this.bFv == null || DeliveryListActivity.this.bFv.size() == 0) {
-                    DeliveryListActivity.this.bFu.h(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryListActivity.5.1
+                if (DeliveryListActivity.this.bFy == null || DeliveryListActivity.this.bFy.size() == 0) {
+                    DeliveryListActivity.this.bFx.h(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryListActivity.5.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            DeliveryListActivity.this.XH();
+                            DeliveryListActivity.this.XJ();
                         }
                     });
                 }
@@ -172,10 +172,10 @@ public class DeliveryListActivity extends TbAiAppsBaseActivity implements a.b {
     /* JADX INFO: Access modifiers changed from: private */
     public void aj(List<b> list) {
         if (list != null && list.size() > 0) {
-            this.bFu.ao(list);
-            this.bFv = list;
-        } else if (this.bFv == null || this.bFv.size() <= 0) {
-            this.bFu.showEmptyView();
+            this.bFx.ao(list);
+            this.bFy = list;
+        } else if (this.bFy == null || this.bFy.size() <= 0) {
+            this.bFx.showEmptyView();
         }
     }
 
@@ -187,13 +187,13 @@ public class DeliveryListActivity extends TbAiAppsBaseActivity implements a.b {
             bundle.putString("addrInfo", b.c(bVar).toString());
             bundle.putString("type", str);
             intent.putExtra("data", bundle);
-            intent.putExtra("openSource", this.bFr);
+            intent.putExtra("openSource", this.bFu);
             intent.setClass(this, DeliveryEditActivity.class);
-            startActivityForResult(intent, kq(str));
+            startActivityForResult(intent, kr(str));
         }
     }
 
-    private int kq(String str) {
+    private int kr(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -838846263:
@@ -224,18 +224,18 @@ public class DeliveryListActivity extends TbAiAppsBaseActivity implements a.b {
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
-            this.bFy = intent.getBooleanExtra("dataChanged", false);
+            this.bFB = intent.getBooleanExtra("dataChanged", false);
         }
     }
 
     @Override // com.baidu.tieba.aiapps.apps.address.a.a.b
-    public void hQ(int i) {
-        if (this.bFv != null && i < this.bFv.size()) {
-            b bVar = this.bFv.get(i);
-            if (TextUtils.equals(this.bFr, "main")) {
+    public void hR(int i) {
+        if (this.bFy != null && i < this.bFy.size()) {
+            b bVar = this.bFy.get(i);
+            if (TextUtils.equals(this.bFu, "main")) {
                 a(bVar, i);
             }
-            if (TextUtils.equals(this.bFr, "aiapp")) {
+            if (TextUtils.equals(this.bFu, "aiapp")) {
                 Intent intent = new Intent();
                 intent.putExtra("data", b.d(bVar).toString());
                 setResult(-1, intent);
@@ -247,17 +247,17 @@ public class DeliveryListActivity extends TbAiAppsBaseActivity implements a.b {
     private void a(b bVar, final int i) {
         b bVar2 = new b();
         bVar2.id = bVar.id;
-        com.baidu.tieba.aiapps.apps.address.b.a.XM().d(bVar2, new a.C0195a() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryListActivity.6
+        com.baidu.tieba.aiapps.apps.address.b.a.XO().d(bVar2, new a.C0195a() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryListActivity.6
             @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0195a, com.baidu.tieba.aiapps.apps.address.b.b
-            public void P(String str, int i2) {
-                for (int i3 = 0; i3 < DeliveryListActivity.this.bFv.size(); i3++) {
-                    b bVar3 = (b) DeliveryListActivity.this.bFv.get(i3);
-                    bVar3.bGl = false;
+            public void Q(String str, int i2) {
+                for (int i3 = 0; i3 < DeliveryListActivity.this.bFy.size(); i3++) {
+                    b bVar3 = (b) DeliveryListActivity.this.bFy.get(i3);
+                    bVar3.bGo = false;
                     if (i3 == i) {
-                        bVar3.bGl = true;
+                        bVar3.bGo = true;
                     }
                 }
-                DeliveryListActivity.this.bFu.ao(DeliveryListActivity.this.bFv);
+                DeliveryListActivity.this.bFx.ao(DeliveryListActivity.this.bFy);
             }
 
             @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0195a, com.baidu.tieba.aiapps.apps.address.b.b
@@ -268,7 +268,7 @@ public class DeliveryListActivity extends TbAiAppsBaseActivity implements a.b {
     }
 
     @Override // com.baidu.tieba.aiapps.apps.address.a.a.b
-    public void hR(final int i) {
+    public void hS(final int i) {
         com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(this);
         ArrayList arrayList = new ArrayList();
         arrayList.add(getString(e.j.invoice_menu_delete));
@@ -276,7 +276,7 @@ public class DeliveryListActivity extends TbAiAppsBaseActivity implements a.b {
             @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0158b
             public void a(com.baidu.tbadk.core.dialog.b bVar2, int i2, View view) {
                 if (i2 == 0) {
-                    DeliveryListActivity.this.hS(i);
+                    DeliveryListActivity.this.hT(i);
                     bVar2.dismiss();
                 }
             }
@@ -285,27 +285,27 @@ public class DeliveryListActivity extends TbAiAppsBaseActivity implements a.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hS(final int i) {
+    public void hT(final int i) {
         com.baidu.tieba.aiapps.apps.address.c.b bVar;
-        if (this.bFv != null && i < this.bFv.size() && (bVar = this.bFv.get(i)) != null && !TextUtils.isEmpty(bVar.id)) {
-            final boolean z = bVar.bGl;
+        if (this.bFy != null && i < this.bFy.size() && (bVar = this.bFy.get(i)) != null && !TextUtils.isEmpty(bVar.id)) {
+            final boolean z = bVar.bGo;
             com.baidu.tieba.aiapps.apps.address.c.b bVar2 = new com.baidu.tieba.aiapps.apps.address.c.b();
             bVar2.id = bVar.id;
             showLoading();
-            com.baidu.tieba.aiapps.apps.address.b.a.XM().b(bVar2, new a.C0195a() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryListActivity.8
+            com.baidu.tieba.aiapps.apps.address.b.a.XO().b(bVar2, new a.C0195a() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryListActivity.8
                 @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0195a, com.baidu.tieba.aiapps.apps.address.b.b
-                public void XJ() {
+                public void XL() {
                     DeliveryListActivity.this.dismissLoading();
                 }
 
                 @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0195a, com.baidu.tieba.aiapps.apps.address.b.b
-                public void Q(String str, int i2) {
-                    DeliveryListActivity.this.bFv.remove(i);
-                    if (z && DeliveryListActivity.this.bFv.size() > 0) {
-                        ((com.baidu.tieba.aiapps.apps.address.c.b) DeliveryListActivity.this.bFv.get(0)).bGl = true;
+                public void R(String str, int i2) {
+                    DeliveryListActivity.this.bFy.remove(i);
+                    if (z && DeliveryListActivity.this.bFy.size() > 0) {
+                        ((com.baidu.tieba.aiapps.apps.address.c.b) DeliveryListActivity.this.bFy.get(0)).bGo = true;
                     }
-                    DeliveryListActivity.this.bFy = true;
-                    DeliveryListActivity.this.bFu.ao(DeliveryListActivity.this.bFv);
+                    DeliveryListActivity.this.bFB = true;
+                    DeliveryListActivity.this.bFx.ao(DeliveryListActivity.this.bFy);
                 }
 
                 @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0195a, com.baidu.tieba.aiapps.apps.address.b.b
@@ -317,11 +317,11 @@ public class DeliveryListActivity extends TbAiAppsBaseActivity implements a.b {
     }
 
     private void parseIntent(Intent intent) {
-        this.bFx = intent.getBundleExtra("addrParams");
-        if (this.bFx != null) {
-            String string = this.bFx.getString("openSource");
+        this.bFA = intent.getBundleExtra("addrParams");
+        if (this.bFA != null) {
+            String string = this.bFA.getString("openSource");
             if (!TextUtils.isEmpty(string)) {
-                this.bFr = string;
+                this.bFu = string;
             }
         }
     }
@@ -330,8 +330,8 @@ public class DeliveryListActivity extends TbAiAppsBaseActivity implements a.b {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.bFy) {
-            com.baidu.tieba.aiapps.apps.address.b.a.XM().XO();
+        if (this.bFB) {
+            com.baidu.tieba.aiapps.apps.address.b.a.XO().XQ();
         }
     }
 }

@@ -14,7 +14,7 @@ import java.lang.reflect.Method;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class c extends b {
-    private static Method ipE;
+    private static Method isO;
 
     @Override // com.facebook.imagepipeline.h.b
     public /* bridge */ /* synthetic */ com.facebook.common.references.a S(Bitmap bitmap) {
@@ -38,7 +38,7 @@ public class c extends b {
 
     @Override // com.facebook.imagepipeline.h.b
     protected Bitmap a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, BitmapFactory.Options options) {
-        return a(aVar, i, a(aVar, i) ? null : ipC, options);
+        return a(aVar, i, a(aVar, i) ? null : isM, options);
     }
 
     private static MemoryFile a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, @Nullable byte[] bArr) throws IOException {
@@ -91,20 +91,20 @@ public class c extends b {
         }
     }
 
-    private synchronized Method bYP() {
-        if (ipE == null) {
+    private synchronized Method bZG() {
+        if (isO == null) {
             try {
-                ipE = MemoryFile.class.getDeclaredMethod("getFileDescriptor", new Class[0]);
+                isO = MemoryFile.class.getDeclaredMethod("getFileDescriptor", new Class[0]);
             } catch (Exception e) {
                 throw k.r(e);
             }
         }
-        return ipE;
+        return isO;
     }
 
     private FileDescriptor a(MemoryFile memoryFile) {
         try {
-            return (FileDescriptor) bYP().invoke(memoryFile, new Object[0]);
+            return (FileDescriptor) bZG().invoke(memoryFile, new Object[0]);
         } catch (Exception e) {
             throw k.r(e);
         }
@@ -115,7 +115,7 @@ public class c extends b {
         try {
             try {
                 memoryFile = a(aVar, i, bArr);
-                return (Bitmap) g.checkNotNull(com.facebook.common.g.c.igN.decodeFileDescriptor(a(memoryFile), null, options), "BitmapFactory returned null");
+                return (Bitmap) g.checkNotNull(com.facebook.common.g.c.ijX.decodeFileDescriptor(a(memoryFile), null, options), "BitmapFactory returned null");
             } catch (IOException e) {
                 throw k.r(e);
             }

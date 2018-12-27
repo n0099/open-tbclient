@@ -9,17 +9,17 @@ import com.baidu.tieba.recapp.m;
 import com.baidu.tieba.recapp.n;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.tieba.frs.h<bb, f> implements m {
-    private n bvx;
+    private n bvA;
 
     public e(n nVar, BdUniqueId bdUniqueId) {
         super(nVar.getTbPageContext(), bdUniqueId);
-        this.bvx = nVar;
+        this.bvA = nVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bD */
+    /* renamed from: bE */
     public f onCreateViewHolder(ViewGroup viewGroup) {
         View view = new View(this.mPageContext.getPageActivity());
         view.setVisibility(8);

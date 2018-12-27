@@ -34,15 +34,15 @@ public class a implements IAiAppVideoIoc {
             AiAppsPlayerManager.addPlayerContext(aVar);
             M = aVar;
         }
-        b a = b.a(optParamsAsJo, M.YO());
+        b a = b.a(optParamsAsJo, M.YQ());
         a(context, M, a);
-        b YO = M.YO();
+        b YQ = M.YQ();
         M.a(a);
         if (a.isAutoPlay()) {
-            if (!TextUtils.equals(YO.mSrc, a.mSrc)) {
-                if (M.bqV()) {
+            if (!TextUtils.equals(YQ.mSrc, a.mSrc)) {
+                if (M.brH()) {
                     M.stopPlay();
-                    M.bqL();
+                    M.brx();
                 }
             } else if (M.hasStart()) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
@@ -70,11 +70,11 @@ public class a implements IAiAppVideoIoc {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        b a = b.a(optParamsAsJo, M.YO());
-        b YO = M.YO();
+        b a = b.a(optParamsAsJo, M.YQ());
+        b YQ = M.YQ();
         M.a(a);
-        if (!TextUtils.equals(YO.mSrc, a.mSrc)) {
-            if (M.bqV()) {
+        if (!TextUtils.equals(YQ.mSrc, a.mSrc)) {
+            if (M.brH()) {
                 M.stopPlay();
             }
             M.aZ(a.mSrc, null);
@@ -97,9 +97,9 @@ public class a implements IAiAppVideoIoc {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        b a = b.a(optParamsAsJo, M.YO());
-        b YO = M.YO();
-        if (M.hasStart() && TextUtils.equals(a.mSrc, YO.mSrc)) {
+        b a = b.a(optParamsAsJo, M.YQ());
+        b YQ = M.YQ();
+        if (M.hasStart() && TextUtils.equals(a.mSrc, YQ.mSrc)) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }
@@ -142,7 +142,7 @@ public class a implements IAiAppVideoIoc {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        M.getVideoView().seekTo(b.a(optParamsAsJo, M.YO()).mPos);
+        M.getVideoView().seekTo(b.a(optParamsAsJo, M.YQ()).mPos);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
     }
@@ -177,14 +177,14 @@ public class a implements IAiAppVideoIoc {
 
     private void a(Context context, com.baidu.tieba.aiapps.apps.media.video.view.a aVar, b bVar) {
         AiAppsNAViewContainer aiAppsNAViewContainer;
-        if (aVar != null && aVar.brh() != null) {
+        if (aVar != null && aVar.brT() != null) {
             AiAppsNAViewContainer findNAViewById = NAViewFinder.findNAViewById(bVar.slaveId, bVar.id, AiAppsUtils.getCurrentNAViewRoot(bVar.slaveId));
-            if (aVar.brh().getParent() != null) {
-                ((ViewGroup) aVar.brh().getParent()).removeView(aVar.brh());
+            if (aVar.brT().getParent() != null) {
+                ((ViewGroup) aVar.brT().getParent()).removeView(aVar.brT());
             }
             if (findNAViewById == null) {
                 aiAppsNAViewContainer = new AiAppsNAViewContainer(context);
-                aiAppsNAViewContainer.insertView(aVar.brh(), bVar);
+                aiAppsNAViewContainer.insertView(aVar.brT(), bVar);
             } else {
                 AiAppsNaViewModel cloneModel = bVar.cloneModel();
                 findNAViewById.removeView();
@@ -193,7 +193,7 @@ public class a implements IAiAppVideoIoc {
                 cloneModel.id = findNAViewById.getViewId();
                 cloneModel.position.setTop(cloneModel.position.getTop());
                 cloneModel.position.setHeight(cloneModel.position.getHeight());
-                findNAViewById.insertView(aVar.brh(), cloneModel);
+                findNAViewById.insertView(aVar.brT(), cloneModel);
                 aiAppsNAViewContainer = findNAViewById;
             }
             aVar.a(aiAppsNAViewContainer);

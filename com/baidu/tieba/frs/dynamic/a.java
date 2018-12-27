@@ -21,7 +21,7 @@ public class a implements c {
     public boolean hasMore;
     public ArrayList<h> threadList = new ArrayList<>();
     public HashMap<String, MetaData> userMap = new HashMap<>();
-    public int dPc = 0;
+    public int dRQ = 0;
 
     public StarTrendsResIdl J(byte[] bArr) {
         if (bArr == null) {
@@ -73,7 +73,7 @@ public class a implements c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] NX() {
+    public byte[] NY() {
         return null;
     }
 

@@ -12,19 +12,19 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class q {
-    private static final byte[] biC = new byte[1];
-    private static q biD = null;
+    private static final byte[] biF = new byte[1];
+    private static q biG = null;
     private CustomMessageListener mNetworkChangedListener;
 
-    public static q PW() {
-        if (biD == null) {
-            synchronized (biC) {
-                if (biD == null) {
-                    biD = new q();
+    public static q PY() {
+        if (biG == null) {
+            synchronized (biF) {
+                if (biG == null) {
+                    biG = new q();
                 }
             }
         }
-        return biD;
+        return biG;
     }
 
     private q() {
@@ -34,7 +34,7 @@ public class q {
     public void wm() {
         try {
             if (this.mNetworkChangedListener == null) {
-                this.mNetworkChangedListener = PX();
+                this.mNetworkChangedListener = PZ();
                 MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
             }
         } catch (Exception e) {
@@ -43,26 +43,26 @@ public class q {
         }
     }
 
-    private CustomMessageListener PX() {
+    private CustomMessageListener PZ() {
         return new CustomMessageListener(2000994) { // from class: com.baidu.tbadk.util.q.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                    q.this.PY();
+                    q.this.Qa();
                 }
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void PY() {
+    public void Qa() {
         try {
             boolean kV = com.baidu.adp.lib.util.j.kV();
             if (kV) {
                 if (com.baidu.adp.lib.util.j.kW()) {
                     aq.DR().bv(true);
-                    com.baidu.tieba.recapp.d.a.bvo().uJ(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
+                    com.baidu.tieba.recapp.d.a.bwa().uM(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
                 } else if (com.baidu.adp.lib.util.j.kX()) {
                     aq.DR().bv(false);
                 }

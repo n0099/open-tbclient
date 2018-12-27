@@ -22,12 +22,12 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes6.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a bAf;
+    private static a bAi;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
     private boolean mNeedFinish = false;
     private byte[] mBuffer = new byte[1024];
-    private Runnable bdm = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
+    private Runnable bdp = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
         @Override // java.lang.Runnable
         public void run() {
             Socket socket;
@@ -46,13 +46,13 @@ public class a {
                     }
                 }
                 if (!a.this.mNeedFinish) {
-                    String Vx = a.this.Vx();
-                    if (Vx != null && !Vx.isEmpty()) {
-                        File file = new File(c.bzU + b.jy(Vx) + "/header_downloaded");
+                    String Vz = a.this.Vz();
+                    if (Vz != null && !Vz.isEmpty()) {
+                        File file = new File(c.bzX + b.jz(Vz) + "/header_downloaded");
                         if (file.exists()) {
-                            d.log(a.TAG, "header exists " + Vx);
+                            d.log(a.TAG, "header exists " + Vz);
                         } else {
-                            d.log(a.TAG, "client preload start: " + Vx);
+                            d.log(a.TAG, "client preload start: " + Vz);
                             long j2 = 0;
                             int i2 = 0;
                             int i3 = 0;
@@ -71,8 +71,8 @@ public class a {
                                 BufferedReader bufferedReader2 = null;
                                 InputStream inputStream = null;
                                 try {
-                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(Vx);
-                                    int port = b.Vy().getPort();
+                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(Vz);
+                                    int port = b.VA().getPort();
                                     socket = new Socket();
                                     try {
                                         socket.connect(new InetSocketAddress(NetworkDef.IP_LOOPBACK, port), UIMsg.m_AppUI.MSG_APP_GPS);
@@ -130,7 +130,7 @@ public class a {
                                                 }
                                             } while (!"".equals(readLine));
                                             inputStream = socket.getInputStream();
-                                            d.log(a.TAG, "client preload check1: " + Vx);
+                                            d.log(a.TAG, "client preload check1: " + Vz);
                                             int i4 = i2;
                                             while (true) {
                                                 try {
@@ -149,7 +149,7 @@ public class a {
                                                 }
                                             }
                                             try {
-                                                d.log(a.TAG, "client preload check2: " + Vx);
+                                                d.log(a.TAG, "client preload check2: " + Vz);
                                                 if (!file.exists()) {
                                                     if (file.getParentFile() != null && !file.getParentFile().exists()) {
                                                         file.getParentFile().mkdirs();
@@ -178,7 +178,7 @@ public class a {
                                                 }
                                             } catch (Exception e13) {
                                                 e = e13;
-                                                TiebaStatic.log(new am("c12027").aA("errormsg", "预加载文件失败").aA(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, e.getMessage()).aA("url", Vx));
+                                                TiebaStatic.log(new am("c12027").aA("errormsg", "预加载文件失败").aA(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, e.getMessage()).aA("url", Vz));
                                                 e.printStackTrace();
                                                 try {
                                                     outputStreamWriter.close();
@@ -238,7 +238,7 @@ public class a {
                                 i2 = i;
                                 j2 = j;
                             }
-                            d.log(a.TAG, "client preload end: " + Vx);
+                            d.log(a.TAG, "client preload end: " + Vz);
                         }
                     }
                 } else {
@@ -247,29 +247,29 @@ public class a {
             }
         }
     };
-    private Thread mThread = new Thread(this.bdm);
+    private Thread mThread = new Thread(this.bdp);
 
     private a() {
         this.mThread.start();
     }
 
-    public static a Vw() {
-        if (bAf == null) {
+    public static a Vy() {
+        if (bAi == null) {
             synchronized (a.class) {
-                if (bAf == null) {
-                    bAf = new a();
+                if (bAi == null) {
+                    bAi = new a();
                 }
             }
         }
-        return bAf;
+        return bAi;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized String Vx() {
+    public synchronized String Vz() {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 
-    public synchronized void jz(String str) {
+    public synchronized void jA(String str) {
         this.mUrlList.clear();
         this.mUrlList.add(str);
         synchronized (this.mLock) {

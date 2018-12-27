@@ -1,30 +1,30 @@
 package kotlin.jvm.internal;
 /* loaded from: classes2.dex */
 public final class r implements l {
-    private final String eBd;
-    private final Class<?> iyr;
+    private final String eDU;
+    private final Class<?> iBB;
 
     public r(Class<?> cls, String str) {
-        p.h((Object) cls, "jClass");
-        p.h((Object) str, "moduleName");
-        this.iyr = cls;
-        this.eBd = str;
+        p.j(cls, "jClass");
+        p.j(str, "moduleName");
+        this.iBB = cls;
+        this.eDU = str;
     }
 
     @Override // kotlin.jvm.internal.l
-    public Class<?> cbL() {
-        return this.iyr;
+    public Class<?> ccC() {
+        return this.iBB;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof r) && p.h(cbL(), ((r) obj).cbL());
+        return (obj instanceof r) && p.h(ccC(), ((r) obj).ccC());
     }
 
     public int hashCode() {
-        return cbL().hashCode();
+        return ccC().hashCode();
     }
 
     public String toString() {
-        return cbL().toString() + " (Kotlin reflection is not available)";
+        return ccC().toString() + " (Kotlin reflection is not available)";
     }
 }

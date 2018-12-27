@@ -1763,11 +1763,11 @@ public class l {
                 bArr = com.baidu.adp.lib.util.d.kE().Bitmap2Bytes(decodeByteArray, 100);
                 decodeByteArray.recycle();
             }
-            String fK = ar.fK(str);
-            if (fK != null) {
-                String str3 = fK + str2;
+            String fL = ar.fL(str);
+            if (fL != null) {
+                String str3 = fL + str2;
                 for (int i = 0; eS(str3) && i < 10000; i++) {
-                    str3 = fK + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str2;
+                    str3 = fL + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str2;
                 }
                 String g = g(str3, bArr);
                 if (g != null) {
@@ -1794,11 +1794,11 @@ public class l {
             } else {
                 str3 = ".gif";
             }
-            String fK = ar.fK(str2);
-            if (fK != null) {
-                String str4 = fK + str3;
+            String fL = ar.fL(str2);
+            if (fL != null) {
+                String str4 = fL + str3;
                 for (int i = 0; eS(str4) && i < 10000; i++) {
-                    str4 = fK + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str3;
+                    str4 = fL + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str3;
                 }
                 String str5 = getCacheDir() + str4;
                 com.baidu.adp.lib.util.f.b(new File(str), new File(str5));

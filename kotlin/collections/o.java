@@ -12,12 +12,12 @@ public class o {
 
     public static final <T> List<T> aU(T t) {
         List<T> singletonList = Collections.singletonList(t);
-        kotlin.jvm.internal.p.g(singletonList, "java.util.Collections.singletonList(element)");
+        kotlin.jvm.internal.p.i(singletonList, "java.util.Collections.singletonList(element)");
         return singletonList;
     }
 
     public static final kotlin.b.c i(Collection<?> collection) {
-        kotlin.jvm.internal.p.h((Object) collection, "$receiver");
+        kotlin.jvm.internal.p.j(collection, "$receiver");
         return new kotlin.b.c(0, collection.size() - 1);
     }
 }

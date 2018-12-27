@@ -5,7 +5,7 @@ import java.io.Closeable;
 @com.facebook.common.internal.d
 /* loaded from: classes2.dex */
 public class NativeMemoryChunk implements Closeable {
-    private final long ipc;
+    private final long ism;
     private boolean mClosed;
     private final int mSize;
 
@@ -34,13 +34,13 @@ public class NativeMemoryChunk implements Closeable {
     public NativeMemoryChunk(int i) {
         com.facebook.common.internal.g.checkArgument(i > 0);
         this.mSize = i;
-        this.ipc = nativeAllocate(this.mSize);
+        this.ism = nativeAllocate(this.mSize);
         this.mClosed = false;
     }
 
     public NativeMemoryChunk() {
         this.mSize = 0;
-        this.ipc = 0L;
+        this.ism = 0L;
         this.mClosed = true;
     }
 
@@ -48,7 +48,7 @@ public class NativeMemoryChunk implements Closeable {
     public synchronized void close() {
         if (!this.mClosed) {
             this.mClosed = true;
-            nativeFree(this.ipc);
+            nativeFree(this.ism);
         }
     }
 
@@ -61,43 +61,43 @@ public class NativeMemoryChunk implements Closeable {
     }
 
     public synchronized int c(int i, byte[] bArr, int i2, int i3) {
-        int cg;
+        int ch;
         com.facebook.common.internal.g.checkNotNull(bArr);
         com.facebook.common.internal.g.checkState(!isClosed());
-        cg = cg(i, i3);
-        A(i, bArr.length, i2, cg);
-        nativeCopyFromByteArray(this.ipc + i, bArr, i2, cg);
-        return cg;
+        ch = ch(i, i3);
+        A(i, bArr.length, i2, ch);
+        nativeCopyFromByteArray(this.ism + i, bArr, i2, ch);
+        return ch;
     }
 
     public synchronized int d(int i, byte[] bArr, int i2, int i3) {
-        int cg;
+        int ch;
         com.facebook.common.internal.g.checkNotNull(bArr);
         com.facebook.common.internal.g.checkState(!isClosed());
-        cg = cg(i, i3);
-        A(i, bArr.length, i2, cg);
-        nativeCopyToByteArray(this.ipc + i, bArr, i2, cg);
-        return cg;
+        ch = ch(i, i3);
+        A(i, bArr.length, i2, ch);
+        nativeCopyToByteArray(this.ism + i, bArr, i2, ch);
+        return ch;
     }
 
-    public synchronized byte xT(int i) {
+    public synchronized byte yg(int i) {
         byte nativeReadByte;
         synchronized (this) {
             com.facebook.common.internal.g.checkState(!isClosed());
             com.facebook.common.internal.g.checkArgument(i >= 0);
             com.facebook.common.internal.g.checkArgument(i < this.mSize);
-            nativeReadByte = nativeReadByte(this.ipc + i);
+            nativeReadByte = nativeReadByte(this.ism + i);
         }
         return nativeReadByte;
     }
 
     public void a(int i, NativeMemoryChunk nativeMemoryChunk, int i2, int i3) {
         com.facebook.common.internal.g.checkNotNull(nativeMemoryChunk);
-        if (nativeMemoryChunk.ipc == this.ipc) {
-            Log.w("NativeMemoryChunk", "Copying from NativeMemoryChunk " + Integer.toHexString(System.identityHashCode(this)) + " to NativeMemoryChunk " + Integer.toHexString(System.identityHashCode(nativeMemoryChunk)) + " which share the same address " + Long.toHexString(this.ipc));
+        if (nativeMemoryChunk.ism == this.ism) {
+            Log.w("NativeMemoryChunk", "Copying from NativeMemoryChunk " + Integer.toHexString(System.identityHashCode(this)) + " to NativeMemoryChunk " + Integer.toHexString(System.identityHashCode(nativeMemoryChunk)) + " which share the same address " + Long.toHexString(this.ism));
             com.facebook.common.internal.g.checkArgument(false);
         }
-        if (nativeMemoryChunk.ipc < this.ipc) {
+        if (nativeMemoryChunk.ism < this.ism) {
             synchronized (nativeMemoryChunk) {
                 synchronized (this) {
                     b(i, nativeMemoryChunk, i2, i3);
@@ -116,12 +116,12 @@ public class NativeMemoryChunk implements Closeable {
         com.facebook.common.internal.g.checkState(!isClosed());
         com.facebook.common.internal.g.checkState(nativeMemoryChunk.isClosed() ? false : true);
         A(i, nativeMemoryChunk.mSize, i2, i3);
-        nativeMemcpy(nativeMemoryChunk.ipc + i2, this.ipc + i, i3);
+        nativeMemcpy(nativeMemoryChunk.ism + i2, this.ism + i, i3);
     }
 
     protected void finalize() throws Throwable {
         if (!isClosed()) {
-            Log.w("NativeMemoryChunk", "finalize: Chunk " + Integer.toHexString(System.identityHashCode(this)) + " still active. Underlying address = " + Long.toHexString(this.ipc));
+            Log.w("NativeMemoryChunk", "finalize: Chunk " + Integer.toHexString(System.identityHashCode(this)) + " still active. Underlying address = " + Long.toHexString(this.ism));
             try {
                 close();
             } finally {
@@ -130,7 +130,7 @@ public class NativeMemoryChunk implements Closeable {
         }
     }
 
-    private int cg(int i, int i2) {
+    private int ch(int i, int i2) {
         return Math.min(Math.max(0, this.mSize - i), i2);
     }
 

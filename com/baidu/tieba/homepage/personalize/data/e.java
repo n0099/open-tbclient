@@ -4,23 +4,23 @@ import java.util.List;
 import tbclient.UnreadTip.DataRes;
 /* loaded from: classes6.dex */
 public class e {
-    public int ewM;
-    public List<String> ewN;
-    public long ewO;
-    public String ewP;
-    public int ewQ;
+    public int ezF;
+    public List<String> ezG;
+    public long ezH;
+    public String ezI;
+    public int ezJ;
 
-    public boolean aLx() {
-        return this.ewM > 0;
+    public boolean aMl() {
+        return this.ezF > 0;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.ewM = dataRes.user_count.intValue();
-            this.ewN = dataRes.portrait_list;
-            this.ewO = dataRes.hide_unix.longValue() * 1000;
-            this.ewP = dataRes.show_tip;
-            this.ewQ = dataRes.thread_count.intValue();
+            this.ezF = dataRes.user_count.intValue();
+            this.ezG = dataRes.portrait_list;
+            this.ezH = dataRes.hide_unix.longValue() * 1000;
+            this.ezI = dataRes.show_tip;
+            this.ezJ = dataRes.thread_count.intValue();
         }
     }
 }

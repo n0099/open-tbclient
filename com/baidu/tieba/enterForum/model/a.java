@@ -11,25 +11,25 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
 /* loaded from: classes4.dex */
 public class a {
-    private static a dpe;
-    private WindowManager.LayoutParams dpb;
-    private ImageView dpc;
-    private boolean dpd;
+    private static a drU;
+    private WindowManager.LayoutParams drR;
+    private ImageView drS;
+    private boolean drT;
     private boolean mHasInited;
     private int mHeight;
     private int mStatusBarHeight;
     private int mWidth;
     private WindowManager mWindowManager;
 
-    public static a avt() {
-        if (dpe == null) {
+    public static a awi() {
+        if (drU == null) {
             synchronized (a.class) {
-                if (dpe == null) {
-                    dpe = new a();
+                if (drU == null) {
+                    drU = new a();
                 }
             }
         }
-        return dpe;
+        return drU;
     }
 
     private a() {
@@ -46,17 +46,17 @@ public class a {
 
     public void destroy() {
         this.mHasInited = false;
-        dpe = null;
+        drU = null;
     }
 
     public boolean isDragging() {
-        return this.dpd;
+        return this.drT;
     }
 
     public void a(Context context, View view, int i, int i2) {
         Bitmap createBitmap;
         if (view != null) {
-            this.dpd = true;
+            this.drT = true;
             view.setPressed(true);
             view.setDrawingCacheEnabled(true);
             Bitmap drawingCache = view.getDrawingCache();
@@ -70,32 +70,32 @@ public class a {
         }
     }
 
-    public void aG(int i, int i2) {
-        avu();
-        aH(i, i2);
+    public void aH(int i, int i2) {
+        awj();
+        aI(i, i2);
         if (this.mWindowManager != null) {
-            this.mWindowManager.updateViewLayout(this.dpc, this.dpb);
+            this.mWindowManager.updateViewLayout(this.drS, this.drR);
         }
     }
 
-    private void avu() {
+    private void awj() {
         if (!this.mHasInited) {
             BdLog.e("should do init first!");
         }
     }
 
     private void a(Context context, Bitmap bitmap, int i, int i2) {
-        avu();
+        awj();
         if (bitmap != null) {
-            aH(i, i2);
-            this.dpc = new ImageView(context);
-            this.dpc.setImageBitmap(bitmap);
+            aI(i, i2);
+            this.drS = new ImageView(context);
+            this.drS.setImageBitmap(bitmap);
             if (context instanceof Activity) {
                 Activity activity = (Activity) context;
                 if (!activity.isFinishing() && activity.getWindow() != null && z(activity.getWindow().getDecorView())) {
                     try {
                         if (this.mWindowManager != null) {
-                            this.mWindowManager.addView(this.dpc, this.dpb);
+                            this.mWindowManager.addView(this.drS, this.drR);
                         }
                     } catch (Exception e) {
                     }
@@ -119,31 +119,31 @@ public class a {
         return false;
     }
 
-    private void avv() {
-        this.dpb = new WindowManager.LayoutParams();
-        this.dpb.format = -3;
-        this.dpb.gravity = 51;
-        this.dpb.alpha = 1.0f;
-        this.dpb.width = -2;
-        this.dpb.height = -2;
-        this.dpb.flags = 24;
+    private void awk() {
+        this.drR = new WindowManager.LayoutParams();
+        this.drR.format = -3;
+        this.drR.gravity = 51;
+        this.drR.alpha = 1.0f;
+        this.drR.width = -2;
+        this.drR.height = -2;
+        this.drR.flags = 24;
     }
 
-    private void aH(int i, int i2) {
-        if (this.dpb == null) {
-            avv();
+    private void aI(int i, int i2) {
+        if (this.drR == null) {
+            awk();
         }
-        this.dpb.x = i - (this.mWidth / 2);
-        this.dpb.y = (i2 - (this.mHeight / 2)) - this.mStatusBarHeight;
+        this.drR.x = i - (this.mWidth / 2);
+        this.drR.y = (i2 - (this.mHeight / 2)) - this.mStatusBarHeight;
     }
 
-    public void avw() {
-        if (this.dpc != null) {
+    public void awl() {
+        if (this.drS != null) {
             if (this.mWindowManager != null) {
-                this.mWindowManager.removeView(this.dpc);
+                this.mWindowManager.removeView(this.drS);
             }
-            this.dpc = null;
+            this.drS = null;
         }
-        this.dpd = false;
+        this.drT = false;
     }
 }

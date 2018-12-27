@@ -3,19 +3,19 @@ package com.baidu.tieba.frs;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes6.dex */
 public class p extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId dKL = BdUniqueId.gen();
-    private long dKM;
+    public static final BdUniqueId dNz = BdUniqueId.gen();
+    private long dNA;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dKL;
+        return dNz;
     }
 
-    public long aCb() {
-        return this.dKM;
+    public long aCQ() {
+        return this.dNA;
     }
 
-    public void bU(long j) {
-        this.dKM = j;
+    public void bZ(long j) {
+        this.dNA = j;
     }
 }

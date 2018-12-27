@@ -134,7 +134,7 @@ public class f {
                 imageFileInfo.setAlbumnId(string);
                 imageFileInfo.setFilePath(string3);
                 imageFileInfo.setIsGif(endsWith);
-                imageFileInfo.setModifyTime(ao.ae(j2));
+                imageFileInfo.setModifyTime(ao.af(j2));
                 imageFileInfo.setSortTime(j);
                 arrayList.add(imageFileInfo);
                 com.baidu.tbadk.album.a aVar2 = this.ami.get(string);

@@ -7,23 +7,23 @@ import android.view.ViewTreeObserver;
 import android.widget.ScrollView;
 /* loaded from: classes.dex */
 public class EditorScrollView extends ScrollView {
-    private boolean dri;
-    private int ggD;
-    private ViewTreeObserver.OnScrollChangedListener ggE;
+    private boolean dtW;
+    private int gjw;
+    private ViewTreeObserver.OnScrollChangedListener gjx;
 
     public EditorScrollView(Context context) {
         super(context);
-        this.ggD = 50;
+        this.gjw = 50;
     }
 
     public EditorScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ggD = 50;
+        this.gjw = 50;
     }
 
     public EditorScrollView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ggD = 50;
+        this.gjw = 50;
     }
 
     @Override // android.widget.ScrollView, android.view.View
@@ -31,11 +31,11 @@ public class EditorScrollView extends ScrollView {
         switch (motionEvent.getAction()) {
             case 0:
             case 2:
-                this.dri = true;
+                this.dtW = true;
                 break;
             case 1:
             case 3:
-                this.dri = false;
+                this.dtW = false;
                 break;
         }
         return super.onTouchEvent(motionEvent);
@@ -44,12 +44,12 @@ public class EditorScrollView extends ScrollView {
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.ggE != null && this.dri && Math.abs(i3 - i2) >= this.ggD) {
-            this.ggE.onScrollChanged();
+        if (this.gjx != null && this.dtW && Math.abs(i3 - i2) >= this.gjw) {
+            this.gjx.onScrollChanged();
         }
     }
 
     public void setListener(ViewTreeObserver.OnScrollChangedListener onScrollChangedListener) {
-        this.ggE = onScrollChangedListener;
+        this.gjx = onScrollChangedListener;
     }
 }

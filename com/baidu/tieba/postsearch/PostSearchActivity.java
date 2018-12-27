@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 /* loaded from: classes3.dex */
 public class PostSearchActivity extends BaseFragmentActivity {
-    public String dGt;
-    private g gGX;
-    private d gGY;
+    public String dJh;
+    private g gJO;
+    private d gJP;
     public String mForumId;
     public String mForumName;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.postsearch.PostSearchActivity.1
@@ -23,7 +23,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            PostSearchActivity.this.tu(i);
+            PostSearchActivity.this.tH(i);
         }
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -35,58 +35,58 @@ public class PostSearchActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gGX = new g(this);
-        this.gGX.initView();
-        this.gGX.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.gGY = new d(this);
+        this.gJO = new g(this);
+        this.gJO.initView();
+        this.gJO.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.gJP = new d(this);
         initData();
     }
 
     public void startSearch(String str) {
-        this.dGt = str;
-        this.gGX.tA(1);
-        this.gGY.btk();
-        this.gGX.showLoadingView();
+        this.dJh = str;
+        this.gJO.tN(1);
+        this.gJP.btW();
+        this.gJO.showLoadingView();
     }
 
-    public void ug(String str) {
-        this.gGX.ug(str);
+    public void uj(String str) {
+        this.gJO.uj(str);
     }
 
-    public void bsU() {
-        this.gGX.at(this.gGY.gHv);
+    public void btG() {
+        this.gJO.at(this.gJP.gKm);
     }
 
     public void a(int i, b bVar, boolean z) {
-        if (i == 1 && (bVar == null || !bVar.aTV())) {
-            this.gGX.hideLoadingView();
-            this.gGX.bto();
+        if (i == 1 && (bVar == null || !bVar.aUJ())) {
+            this.gJO.hideLoadingView();
+            this.gJO.bua();
             return;
         }
-        this.gGX.hideLoadingView();
-        this.gGX.btc();
-        this.gGX.a(i, bVar, z);
+        this.gJO.hideLoadingView();
+        this.gJO.btO();
+        this.gJO.a(i, bVar, z);
     }
 
-    public boolean bsV() {
-        return this.gGX.bsV();
+    public boolean btH() {
+        return this.gJO.btH();
     }
 
-    public void bsQ() {
-        this.gGX.bsQ();
+    public void btC() {
+        this.gJO.btC();
     }
 
-    public d bsW() {
-        return this.gGY;
+    public d btI() {
+        return this.gJP;
     }
 
-    public g bsX() {
-        return this.gGX;
+    public g btJ() {
+        return this.gJO;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.gGX.onChangeSkinType(i);
+        this.gJO.onChangeSkinType(i);
     }
 
     private void initData() {
@@ -95,20 +95,20 @@ public class PostSearchActivity extends BaseFragmentActivity {
             this.mForumName = intent.getStringExtra("forum_name");
             this.mForumId = intent.getStringExtra("forum_id");
         }
-        this.gGY.bth();
+        this.gJP.btT();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.gGX != null) {
-            this.gGX.onDestroy();
+        if (this.gJO != null) {
+            this.gJO.onDestroy();
         }
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tu(int i) {
+    public void tH(int i) {
         int i2 = 0;
         switch (i) {
             case 0:

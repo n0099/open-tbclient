@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a aNb = null;
-    private boolean aNa;
-    private int aNc;
+    private static volatile a aNd = null;
+    private boolean aNc;
+    private int aNe;
 
     private a() {
-        this.aNa = false;
-        this.aNc = 0;
+        this.aNc = false;
+        this.aNe = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
             dVar.T(true);
@@ -20,10 +20,10 @@ public class a {
             if (dVar.hC()) {
                 String content = dVar.getContent();
                 if (content != null) {
-                    this.aNc = Integer.parseInt(content);
+                    this.aNe = Integer.parseInt(content);
                 }
-                if (this.aNc == 1 || this.aNc == 2) {
-                    this.aNa = true;
+                if (this.aNe == 1 || this.aNe == 2) {
+                    this.aNc = true;
                 }
             }
         } catch (Throwable th) {
@@ -31,26 +31,26 @@ public class a {
         }
     }
 
-    public static a Gb() {
-        if (aNb == null) {
+    public static a Gc() {
+        if (aNd == null) {
             synchronized (a.class) {
-                if (aNb == null) {
-                    aNb = new a();
+                if (aNd == null) {
+                    aNd = new a();
                 }
             }
         }
-        return aNb;
+        return aNd;
     }
 
-    public boolean Gc() {
-        return this.aNa;
-    }
-
-    public int Gd() {
+    public boolean Gd() {
         return this.aNc;
     }
 
-    public String Ge() {
-        return this.aNa ? "pub_env=" + this.aNc + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
+    public int Ge() {
+        return this.aNe;
+    }
+
+    public String Gf() {
+        return this.aNc ? "pub_env=" + this.aNe + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

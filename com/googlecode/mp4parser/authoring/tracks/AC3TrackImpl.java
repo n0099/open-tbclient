@@ -185,19 +185,19 @@ public class AC3TrackImpl extends AbstractTrack {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public class a implements Sample {
-        private final long ayy;
+        private final long ayz;
         private final DataSource dataSource;
         private final long size;
 
         public a(long j, long j2, DataSource dataSource) {
-            this.ayy = j;
+            this.ayz = j;
             this.size = j2;
             this.dataSource = dataSource;
         }
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public void writeTo(WritableByteChannel writableByteChannel) throws IOException {
-            this.dataSource.transferTo(this.ayy, this.size, writableByteChannel);
+            this.dataSource.transferTo(this.ayz, this.size, writableByteChannel);
         }
 
         @Override // com.googlecode.mp4parser.authoring.Sample
@@ -208,7 +208,7 @@ public class AC3TrackImpl extends AbstractTrack {
         @Override // com.googlecode.mp4parser.authoring.Sample
         public ByteBuffer asByteBuffer() {
             try {
-                return this.dataSource.map(this.ayy, this.size);
+                return this.dataSource.map(this.ayz, this.size);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

@@ -12,25 +12,25 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class f implements a {
-    private e dNr;
-    private boolean dNs;
+    private e dQf;
+    private boolean dQg;
     private TbPageContext mContext;
     private BdTypeListView mListView;
     private List<com.baidu.adp.widget.ListView.h> mDatas = new ArrayList();
     private final List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
-    private int dNt = -1;
+    private int dQh = -1;
 
     public f(TbPageContext tbPageContext, BdTypeListView bdTypeListView, boolean z) {
-        this.dNs = false;
+        this.dQg = false;
         this.mContext = tbPageContext;
         this.mListView = bdTypeListView;
-        this.dNs = z;
+        this.dQg = z;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.dNr = new e(this.mContext, this, this.dNs);
-        this.mAdapters.add(this.dNr);
+        this.dQf = new e(this.mContext, this, this.dQg);
+        this.mAdapters.add(this.dQf);
         this.mListView.addAdapters(this.mAdapters);
     }
 
@@ -41,8 +41,8 @@ public class f implements a {
             }
             this.mDatas.addAll(list);
             this.mListView.setData(this.mDatas);
-            if (z && list.size() > 0 && this.dNs && j.kW()) {
-                aDa();
+            if (z && list.size() > 0 && this.dQg && j.kW()) {
+                aDP();
                 list.get(0).autoPlay = true;
             }
         }
@@ -59,8 +59,8 @@ public class f implements a {
                     break;
                 }
                 com.baidu.adp.widget.ListView.h next = it.next();
-                if (next != null && (next instanceof g) && ((g) next).dNy != null && str.equals(((g) next).dNy.userId)) {
-                    ((g) next).dNy.hasFocus = z;
+                if (next != null && (next instanceof g) && ((g) next).dQm != null && str.equals(((g) next).dQm.userId)) {
+                    ((g) next).dQm.hasFocus = z;
                     z2 = true;
                 }
                 z3 = z2;
@@ -78,32 +78,32 @@ public class f implements a {
     }
 
     public void onDestroy() {
-        this.dNr.onDestroy();
+        this.dQf.onDestroy();
     }
 
     public boolean pB() {
-        return this.dNr.pB();
+        return this.dQf.pB();
     }
 
     public void pz() {
-        this.dNr.pz();
+        this.dQf.pz();
     }
 
     public void pA() {
-        this.dNr.pA();
+        this.dQf.pA();
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        this.dNr.onConfigurationChanged(configuration);
+        this.dQf.onConfigurationChanged(configuration);
     }
 
-    public boolean mu(int i) {
-        return this.dNr.mu(i);
+    public boolean mH(int i) {
+        return this.dQf.mH(i);
     }
 
     @Override // com.baidu.tieba.frs.aggregation.a
-    public void mt(int i) {
-        this.dNt = i;
+    public void mG(int i) {
+        this.dQh = i;
         if (!v.I(this.mDatas) && this.mListView != null) {
             for (com.baidu.adp.widget.ListView.h hVar : this.mDatas) {
                 if (hVar instanceof g) {
@@ -111,27 +111,27 @@ public class f implements a {
                 }
             }
             if (j.kW()) {
-                if (this.dNt < this.mDatas.size() - 1) {
+                if (this.dQh < this.mDatas.size() - 1) {
                     List<com.baidu.adp.widget.ListView.h> list = this.mDatas;
-                    int i2 = this.dNt + 1;
-                    this.dNt = i2;
+                    int i2 = this.dQh + 1;
+                    this.dQh = i2;
                     if (list.get(i2) instanceof g) {
-                        ((g) this.mDatas.get(this.dNt)).autoPlay = true;
+                        ((g) this.mDatas.get(this.dQh)).autoPlay = true;
                         this.mListView.smoothScrollToPositionFromTop(this.mListView.getHeaderViewsCount() + i + 1, 0);
                         notifyDataSetChanged();
                     }
-                } else if (this.dNt == this.mDatas.size() - 1 && (this.mDatas.get(this.dNt) instanceof g)) {
-                    ((g) this.mDatas.get(this.dNt)).autoPlay = false;
+                } else if (this.dQh == this.mDatas.size() - 1 && (this.mDatas.get(this.dQh) instanceof g)) {
+                    ((g) this.mDatas.get(this.dQh)).autoPlay = false;
                 }
             }
         }
     }
 
-    public int aCY() {
-        return this.dNt;
+    public int aDN() {
+        return this.dQh;
     }
 
-    public void aCZ() {
+    public void aDO() {
         if (!v.I(this.mDatas)) {
             Iterator<com.baidu.adp.widget.ListView.h> it = this.mDatas.iterator();
             while (it.hasNext()) {
@@ -142,12 +142,12 @@ public class f implements a {
 
     @Override // com.baidu.tieba.frs.aggregation.a
     public void cancel() {
-        aDa();
+        aDP();
     }
 
-    private void aDa() {
-        aCZ();
-        this.dNt = 0;
+    private void aDP() {
+        aDO();
+        this.dQh = 0;
         pz();
     }
 }

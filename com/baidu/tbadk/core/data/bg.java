@@ -7,7 +7,7 @@ import org.json.JSONObject;
 import tbclient.FrsPage.TopNews;
 /* loaded from: classes.dex */
 public class bg extends PostData {
-    public static final BdUniqueId avX = BdUniqueId.gen();
+    public static final BdUniqueId avY = BdUniqueId.gen();
     private String aso;
     private int position = 0;
     private String summary;
@@ -41,6 +41,6 @@ public class bg extends PostData {
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return avX;
+        return avY;
     }
 }

@@ -4,13 +4,13 @@ public class c {
     public String Jt;
     public String appKey;
     public String appName;
-    public String bGI;
+    public String bGL;
     public String content;
     public String forumId;
-    public String hUj;
-    public String hUk;
-    public String hUl;
-    public String hUm;
+    public String hXu;
+    public String hXv;
+    public String hXw;
+    public String hXx;
     public String imageUrl;
     public String linkUrl;
     public String title;

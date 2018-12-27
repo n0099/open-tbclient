@@ -13,7 +13,7 @@ import java.util.Enumeration;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static final String axR = "code_cache" + File.separator + "secondary-dexes";
+    private static final String axS = "code_cache" + File.separator + "secondary-dexes";
 
     private static SharedPreferences bv(Context context) {
         return context.getSharedPreferences("multidex.version", Build.VERSION.SDK_INT < 11 ? 0 : 4);
@@ -22,7 +22,7 @@ public class c {
     public static List<String> bw(Context context) throws PackageManager.NameNotFoundException, IOException {
         ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 0);
         File file = new File(applicationInfo.sourceDir);
-        File file2 = new File(applicationInfo.dataDir, axR);
+        File file2 = new File(applicationInfo.dataDir, axS);
         ArrayList arrayList = new ArrayList();
         arrayList.add(applicationInfo.sourceDir);
         String str = file.getName() + ".classes";

@@ -144,13 +144,13 @@ public final class EmptyList implements Serializable, List, RandomAccess {
     }
 
     public boolean contains(Void r2) {
-        kotlin.jvm.internal.p.h((Object) r2, "element");
+        kotlin.jvm.internal.p.j(r2, "element");
         return false;
     }
 
     @Override // java.util.List, java.util.Collection
     public boolean containsAll(Collection collection) {
-        kotlin.jvm.internal.p.h((Object) collection, "elements");
+        kotlin.jvm.internal.p.j(collection, "elements");
         return collection.isEmpty();
     }
 
@@ -161,23 +161,23 @@ public final class EmptyList implements Serializable, List, RandomAccess {
     }
 
     public int indexOf(Void r2) {
-        kotlin.jvm.internal.p.h((Object) r2, "element");
+        kotlin.jvm.internal.p.j(r2, "element");
         return -1;
     }
 
     public int lastIndexOf(Void r2) {
-        kotlin.jvm.internal.p.h((Object) r2, "element");
+        kotlin.jvm.internal.p.j(r2, "element");
         return -1;
     }
 
     @Override // java.util.List, java.util.Collection, java.lang.Iterable
     public Iterator iterator() {
-        return v.ixW;
+        return v.iBg;
     }
 
     @Override // java.util.List
     public ListIterator listIterator() {
-        return v.ixW;
+        return v.iBg;
     }
 
     @Override // java.util.List
@@ -185,7 +185,7 @@ public final class EmptyList implements Serializable, List, RandomAccess {
         if (i != 0) {
             throw new IndexOutOfBoundsException("Index: " + i);
         }
-        return v.ixW;
+        return v.iBg;
     }
 
     @Override // java.util.List

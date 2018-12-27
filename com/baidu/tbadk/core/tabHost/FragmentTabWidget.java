@@ -219,7 +219,7 @@ public class FragmentTabWidget extends LinearLayout {
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = getChildAt(i2);
             if (childAt instanceof FragmentTabIndicator) {
-                ((FragmentTabIndicator) childAt).eC(i);
+                ((FragmentTabIndicator) childAt).eD(i);
             }
         }
         invalidate();

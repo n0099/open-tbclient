@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public class q {
     private static final String TAG = q.class.getSimpleName();
 
-    public static void bRt() {
+    public static void bSk() {
         IPCServiceManager.addService("remote_ubc_service", new IRemoteUBCService.Stub() { // from class: com.baidu.ubc.UBCIPCManager$1
             @Override // com.baidu.ubc.IRemoteUBCService
             public void ubcOnEvent(String str, String str2, int i) throws RemoteException {
@@ -46,7 +46,7 @@ public class q {
             @Override // com.baidu.ubc.IRemoteUBCService
             public void flowSetValueWithDuration(Flow flow, String str) throws RemoteException {
                 if (flow != null) {
-                    flow.yg(str);
+                    flow.yj(str);
                 }
             }
 
@@ -68,7 +68,7 @@ public class q {
             @Override // com.baidu.ubc.IRemoteUBCService
             public void flowEndSlot(Flow flow, String str) throws RemoteException {
                 if (flow != null) {
-                    flow.yh(str);
+                    flow.yk(str);
                 }
             }
 

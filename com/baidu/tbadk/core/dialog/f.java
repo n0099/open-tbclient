@@ -52,23 +52,23 @@ public class f extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(e.h.dialog_rich_bdlist_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.axd = (TextView) view.findViewById(e.g.text_tip);
-            aVar2.axe = (TextView) view.findViewById(e.g.text_desc);
-            aVar2.axf = (CheckBox) view.findViewById(e.g.checked_icon);
+            aVar2.axe = (TextView) view.findViewById(e.g.text_tip);
+            aVar2.axf = (TextView) view.findViewById(e.g.text_desc);
+            aVar2.axg = (CheckBox) view.findViewById(e.g.checked_icon);
             aVar2.divider = view.findViewById(e.g.line);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.axd.setText(gVar.getTip());
+        aVar.axe.setText(gVar.getTip());
         if (StringUtils.isNull(gVar.getDesc())) {
-            aVar.axe.setVisibility(8);
+            aVar.axf.setVisibility(8);
         } else {
-            aVar.axe.setText(gVar.getDesc());
-            aVar.axe.setVisibility(0);
+            aVar.axf.setText(gVar.getDesc());
+            aVar.axf.setVisibility(0);
         }
-        aVar.axf.setChecked(gVar.isChecked());
-        aVar.axf.setButtonDrawable(gVar.isChecked() ? al.getDrawable(e.f.icon_set_list_ok_s) : new ColorDrawable(e.d.common_color_10022));
+        aVar.axg.setChecked(gVar.isChecked());
+        aVar.axg.setButtonDrawable(gVar.isChecked() ? al.getDrawable(e.f.icon_set_list_ok_s) : new ColorDrawable(e.d.common_color_10022));
         if (dq(i)) {
             aVar.divider.setVisibility(8);
             al.i(view, e.f.dialog_single_button_bg_selector);
@@ -88,9 +88,9 @@ public class f extends BaseAdapter {
 
     /* loaded from: classes.dex */
     private class a {
-        TextView axd;
         TextView axe;
-        CheckBox axf;
+        TextView axf;
+        CheckBox axg;
         View divider;
 
         private a() {

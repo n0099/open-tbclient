@@ -15,44 +15,44 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
-    private c gra;
-    private List<h> grb;
-    private PersonMoreData grc;
+    private c gtR;
+    private List<h> gtS;
+    private PersonMoreData gtT;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, Bundle bundle, ad<f> adVar) {
         this.mPageContext = tbPageContext;
-        this.gra = new c(tbPageContext);
-        this.gra.b(adVar);
+        this.gtR = new c(tbPageContext);
+        this.gtR.b(adVar);
         if (bundle != null && (OrmObject.objectWithBundle(bundle, PersonMoreData.class) instanceof PersonMoreData)) {
-            this.grc = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
+            this.gtT = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
         }
     }
 
     public void initView() {
         this.mPageContext.getPageActivity().setContentView(e.h.person_center_more_layout);
-        this.gra.initView(this.mPageContext.getPageActivity().findViewById(e.g.person_more_layout));
-        boy();
-        this.gra.setData(this.grb);
+        this.gtR.initView(this.mPageContext.getPageActivity().findViewById(e.g.person_more_layout));
+        bpk();
+        this.gtR.setData(this.gtS);
     }
 
     public void onChangeSkinType() {
-        if (this.gra != null) {
-            this.gra.onChangeSkinType();
+        if (this.gtR != null) {
+            this.gtR.onChangeSkinType();
         }
     }
 
-    private void boy() {
-        this.grb = new ArrayList();
-        if (this.grc != null && !v.I(this.grc.mUrlMaps)) {
-            for (PersonMoreItemData personMoreItemData : this.grc.mUrlMaps) {
+    private void bpk() {
+        this.gtS = new ArrayList();
+        if (this.gtT != null && !v.I(this.gtT.mUrlMaps)) {
+            for (PersonMoreItemData personMoreItemData : this.gtT.mUrlMaps) {
                 if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
                     f fVar = new f();
                     fVar.title = personMoreItemData.mName;
                     fVar.type = 36;
                     fVar.aou = personMoreItemData.mUrl;
                     fVar.itemId = personMoreItemData.mId;
-                    this.grb.add(fVar);
+                    this.gtS.add(fVar);
                 }
             }
         }

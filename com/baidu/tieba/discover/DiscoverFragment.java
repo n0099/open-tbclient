@@ -19,30 +19,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class DiscoverFragment extends BaseFragment implements ah {
-    private a dkG;
-    private boolean dkH;
+    private a dnx;
+    private boolean dny;
     private String mUrl = TbConfig.DISCOVER_PAGE;
-    private boolean bRT = true;
+    private boolean bRW = true;
     CustomMessageListener htmlLoadMessageListener = new CustomMessageListener(2921023) { // from class: com.baidu.tieba.discover.DiscoverFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && DiscoverFragment.this.dkG != null && DiscoverFragment.this.dkG.getWebView() != null && DiscoverFragment.this.dkG.getWebView().getUrl() != null) {
-                if (DiscoverFragment.this.dkG.getWebView().getUrl().contains((String) customResponsedMessage.getData())) {
-                    DiscoverFragment.this.dkG.hideLoadingView();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && DiscoverFragment.this.dnx != null && DiscoverFragment.this.dnx.getWebView() != null && DiscoverFragment.this.dnx.getWebView().getUrl() != null) {
+                if (DiscoverFragment.this.dnx.getWebView().getUrl().contains((String) customResponsedMessage.getData())) {
+                    DiscoverFragment.this.dnx.hideLoadingView();
                 }
             }
         }
     };
-    private CustomMessageListener dkI = new CustomMessageListener(2921041) { // from class: com.baidu.tieba.discover.DiscoverFragment.2
+    private CustomMessageListener dnz = new CustomMessageListener(2921041) { // from class: com.baidu.tieba.discover.DiscoverFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921041 && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    DiscoverFragment.this.aaB();
+                    DiscoverFragment.this.aaD();
                 } else {
-                    DiscoverFragment.this.aaC();
+                    DiscoverFragment.this.aaE();
                 }
             }
         }
@@ -50,33 +50,33 @@ public class DiscoverFragment extends BaseFragment implements ah {
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.dkG = new a();
-        return this.dkG.a(layoutInflater, viewGroup);
+        this.dnx = new a();
+        return this.dnx.a(layoutInflater, viewGroup);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.dkG.j(getPageContext());
+        this.dnx.j(getPageContext());
         registerListener(this.htmlLoadMessageListener);
-        registerListener(this.dkI);
-        ab.a(this.dkG.getWebView(), getUniqueId());
+        registerListener(this.dnz);
+        ab.a(this.dnx.getWebView(), getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.bRT || StringUtils.isNull(this.dkG.getWebView().getUrl())) {
+        if (this.bRW || StringUtils.isNull(this.dnx.getWebView().getUrl())) {
             if (TbadkApplication.getInst().getSkinType() == 1) {
-                this.dkG.loadUrl(le(this.mUrl));
+                this.dnx.loadUrl(lf(this.mUrl));
             } else {
-                this.dkG.loadUrl(this.mUrl);
+                this.dnx.loadUrl(this.mUrl);
             }
-            this.bRT = false;
+            this.bRW = false;
         }
     }
 
-    private String le(String str) {
+    private String lf(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -96,8 +96,8 @@ public class DiscoverFragment extends BaseFragment implements ah {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.dkG != null) {
-            this.dkG.onDestroy();
+        if (this.dnx != null) {
+            this.dnx.onDestroy();
         }
     }
 
@@ -123,32 +123,32 @@ public class DiscoverFragment extends BaseFragment implements ah {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (!this.bRT) {
+        if (!this.bRW) {
             if (i == 1) {
-                this.dkG.loadUrl(le(this.mUrl));
+                this.dnx.loadUrl(lf(this.mUrl));
             } else {
-                this.dkG.loadUrl(this.mUrl);
+                this.dnx.loadUrl(this.mUrl);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.ah
-    public void aaA() {
+    public void aaC() {
     }
 
     @Override // com.baidu.tieba.frs.ah
-    public void aaB() {
-        if (this.dkG != null && !this.dkH) {
-            this.dkH = true;
-            this.dkG.atP();
+    public void aaD() {
+        if (this.dnx != null && !this.dny) {
+            this.dny = true;
+            this.dnx.auE();
         }
     }
 
     @Override // com.baidu.tieba.frs.ah
-    public void aaC() {
-        if (this.dkG != null && this.dkH) {
-            this.dkH = false;
-            this.dkG.atQ();
+    public void aaE() {
+        if (this.dnx != null && this.dny) {
+            this.dny = false;
+            this.dnx.auF();
         }
     }
 

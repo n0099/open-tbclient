@@ -25,7 +25,7 @@ public final class bs<T> implements d.b<T, T> {
         jVar.setProducer(new rx.f() { // from class: rx.internal.operators.bs.1
             @Override // rx.f
             public void request(long j) {
-                aVar.dC(j);
+                aVar.dH(j);
             }
         });
         return aVar;
@@ -37,7 +37,7 @@ public final class bs<T> implements d.b<T, T> {
         final rx.j<? super T> actual;
         final int count;
         final AtomicLong requested = new AtomicLong();
-        final ArrayDeque<Object> iEn = new ArrayDeque<>();
+        final ArrayDeque<Object> iHx = new ArrayDeque<>();
 
         public a(rx.j<? super T> jVar, int i) {
             this.actual = jVar;
@@ -46,21 +46,21 @@ public final class bs<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onNext(T t) {
-            if (this.iEn.size() == this.count) {
-                this.iEn.poll();
+            if (this.iHx.size() == this.count) {
+                this.iHx.poll();
             }
-            this.iEn.offer(NotificationLite.aY(t));
+            this.iHx.offer(NotificationLite.aY(t));
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.iEn.clear();
+            this.iHx.clear();
             this.actual.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            rx.internal.operators.a.a(this.requested, this.iEn, this.actual, this);
+            rx.internal.operators.a.a(this.requested, this.iHx, this.actual, this);
         }
 
         @Override // rx.functions.f
@@ -68,9 +68,9 @@ public final class bs<T> implements d.b<T, T> {
             return (T) NotificationLite.bb(obj);
         }
 
-        void dC(long j) {
+        void dH(long j) {
             if (j > 0) {
-                rx.internal.operators.a.a(this.requested, j, this.iEn, this.actual, this);
+                rx.internal.operators.a.a(this.requested, j, this.iHx, this.actual, this);
             }
         }
     }

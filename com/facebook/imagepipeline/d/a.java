@@ -4,41 +4,41 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 /* loaded from: classes2.dex */
 public class a implements e {
-    private final Executor imM;
-    private final Executor imN;
-    private final Executor imO;
-    private final Executor imP;
+    private final Executor ipX;
+    private final Executor ipY;
+    private final Executor ipZ;
+    private final Executor iqa;
 
     public a(int i) {
         k kVar = new k(10);
-        this.imM = Executors.newFixedThreadPool(2);
-        this.imN = Executors.newFixedThreadPool(i, kVar);
-        this.imO = Executors.newFixedThreadPool(i, kVar);
-        this.imP = Executors.newFixedThreadPool(1, kVar);
+        this.ipX = Executors.newFixedThreadPool(2);
+        this.ipY = Executors.newFixedThreadPool(i, kVar);
+        this.ipZ = Executors.newFixedThreadPool(i, kVar);
+        this.iqa = Executors.newFixedThreadPool(1, kVar);
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor bWs() {
-        return this.imM;
+    public Executor bXj() {
+        return this.ipX;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor bWt() {
-        return this.imM;
+    public Executor bXk() {
+        return this.ipX;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor bWu() {
-        return this.imN;
+    public Executor bXl() {
+        return this.ipY;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor bWv() {
-        return this.imO;
+    public Executor bXm() {
+        return this.ipZ;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor bWw() {
-        return this.imP;
+    public Executor bXn() {
+        return this.iqa;
     }
 }

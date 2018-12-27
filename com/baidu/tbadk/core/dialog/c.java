@@ -10,8 +10,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class c extends AlertDialog {
-    private TextView awQ;
-    private CircleView awR;
+    private TextView awR;
+    private CircleView awS;
     private FrameLayout mFrameLayout;
     private String mMessage;
     private TextView mTextView;
@@ -31,11 +31,11 @@ public class c extends AlertDialog {
             layoutParams.topMargin = getContext().getResources().getDimensionPixelSize(e.C0210e.ds32);
             this.mFrameLayout.setLayoutParams(layoutParams);
             if (!StringUtils.isNull(this.mMessage)) {
-                this.awQ = (TextView) window.findViewById(e.g.text_progress_dialog_message);
-                this.awQ.setText(this.mMessage);
+                this.awR = (TextView) window.findViewById(e.g.text_progress_dialog_message);
+                this.awR.setText(this.mMessage);
             }
             this.mTextView = (TextView) window.findViewById(e.g.text_progress_dialog_percent);
-            this.awR = (CircleView) window.findViewById(e.g.circle_progress_dialog);
+            this.awS = (CircleView) window.findViewById(e.g.circle_progress_dialog);
         }
     }
 
@@ -43,15 +43,15 @@ public class c extends AlertDialog {
         if (this.mTextView != null) {
             this.mTextView.setText(i + "%");
         }
-        if (this.awR != null) {
-            this.awR.setProgress(i);
+        if (this.awS != null) {
+            this.awS.setProgress(i);
         }
     }
 
     public void setMessage(String str) {
         this.mMessage = str;
-        if (this.awQ != null) {
-            this.awQ.setText(this.mMessage);
+        if (this.awR != null) {
+            this.awR.setText(this.mMessage);
         }
     }
 }

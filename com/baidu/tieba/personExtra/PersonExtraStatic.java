@@ -30,10 +30,10 @@ public class PersonExtraStatic {
         MessageManager.getInstance().registerTask(bVar);
         TbadkCoreApplication.getInst().RegisterIntent(PersonChangeActivityConfig.class, PersonChangeActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(EditNickNameActivityConfig.class, EditNickNameActivity.class);
-        ZE();
+        ZG();
     }
 
-    private static void ZE() {
+    private static void ZG() {
         ay.Ef().a(new ay.a() { // from class: com.baidu.tieba.personExtra.PersonExtraStatic.1
             @Override // com.baidu.tbadk.core.util.ay.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {

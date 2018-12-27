@@ -13,33 +13,33 @@ import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 /* loaded from: classes5.dex */
 public class LocalVideoInfoView extends RelativeLayout {
-    public static final Object hEO = new Object();
-    private static long hEP = 3600000;
+    public static final Object hHZ = new Object();
+    private static long hIa = 3600000;
     private ImageView ahQ;
     private TextView aiY;
-    private TextView hEN;
-    private SimpleDateFormat hEQ;
-    private SimpleDateFormat hER;
-    private boolean hES;
+    private TextView hHY;
+    private SimpleDateFormat hIb;
+    private SimpleDateFormat hIc;
+    private boolean hId;
     private Context mContext;
     private View mRootView;
     private String videoPath;
 
     public LocalVideoInfoView(Context context) {
         super(context);
-        this.hES = false;
+        this.hId = false;
         init(context);
     }
 
     public LocalVideoInfoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hES = false;
+        this.hId = false;
         init(context);
     }
 
     public LocalVideoInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hES = false;
+        this.hId = false;
         init(context);
     }
 
@@ -49,22 +49,22 @@ public class LocalVideoInfoView extends RelativeLayout {
         this.ahQ = (ImageView) this.mRootView.findViewById(e.g.local_video_selet_thumb);
         this.ahQ.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.aiY = (TextView) this.mRootView.findViewById(e.g.local_video_select_duration);
-        this.hEN = (TextView) this.mRootView.findViewById(e.g.no_video_title);
+        this.hHY = (TextView) this.mRootView.findViewById(e.g.no_video_title);
         addView(this.mRootView, -1, -1);
-        this.hER = new SimpleDateFormat("mm:ss");
-        this.hEQ = new SimpleDateFormat("HH:mm:ss");
+        this.hIc = new SimpleDateFormat("mm:ss");
+        this.hIb = new SimpleDateFormat("HH:mm:ss");
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.hER.setTimeZone(timeZone);
-        this.hEQ.setTimeZone(timeZone);
+        this.hIc.setTimeZone(timeZone);
+        this.hIb.setTimeZone(timeZone);
     }
 
     public void setDataToView(d dVar) {
-        if (!this.hES) {
+        if (!this.hId) {
             if (dVar != null) {
                 if (dVar.getVideoPath().equals(this.videoPath)) {
                     this.ahQ.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     this.ahQ.setImageBitmap(dVar.getThumbnailBitmap());
-                    this.aiY.setText(dk(dVar.getDuration()));
+                    this.aiY.setText(dp(dVar.getDuration()));
                     return;
                 }
                 return;
@@ -77,14 +77,14 @@ public class LocalVideoInfoView extends RelativeLayout {
         }
     }
 
-    public void nZ(boolean z) {
-        this.hES = true;
+    public void oc(boolean z) {
+        this.hId = true;
         if (z) {
             this.ahQ.setScaleType(ImageView.ScaleType.CENTER);
             this.ahQ.setImageBitmap(null);
             this.ahQ.setImageResource(0);
             this.ahQ.setBackgroundColor(getResources().getColor(e.d.cp_bg_line_d));
-            this.hEN.setVisibility(0);
+            this.hHY.setVisibility(0);
             return;
         }
         this.ahQ.setScaleType(ImageView.ScaleType.CENTER);
@@ -92,21 +92,21 @@ public class LocalVideoInfoView extends RelativeLayout {
         this.ahQ.setImageBitmap(null);
         this.ahQ.setBackgroundColor(getResources().getColor(e.d.white_alpha50));
         this.aiY.setText("");
-        this.hEN.setVisibility(8);
+        this.hHY.setVisibility(8);
     }
 
     public void a(d dVar) {
-        this.hES = false;
-        this.hEN.setVisibility(8);
+        this.hId = false;
+        this.hHY.setVisibility(8);
         this.videoPath = dVar.getVideoPath();
-        if (dVar != null && dVar.bJD()) {
+        if (dVar != null && dVar.bKt()) {
             setDataToView(dVar);
         } else {
             setDataToView(null);
         }
     }
 
-    private String dk(long j) {
-        return j > hEP ? this.hEQ.format(Long.valueOf(j)) : this.hER.format(Long.valueOf(j));
+    private String dp(long j) {
+        return j > hIa ? this.hIb.format(Long.valueOf(j)) : this.hIc.format(Long.valueOf(j));
     }
 }

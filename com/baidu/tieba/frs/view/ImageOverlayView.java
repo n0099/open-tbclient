@@ -11,28 +11,28 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class ImageOverlayView extends ViewGroup {
-    private int eia;
-    private int eib;
-    private int eic;
-    private int eid;
-    private a eie;
-    private List<String> eif;
-    public final View.OnClickListener eig;
+    private int ekQ;
+    private int ekR;
+    private int ekS;
+    private int ekT;
+    private a ekU;
+    private List<String> ekV;
+    public final View.OnClickListener ekW;
     private int mImageHeight;
     private int mImageWidth;
 
     /* loaded from: classes6.dex */
     public interface a {
-        void aId();
+        void aIS();
     }
 
     public ImageOverlayView(Context context) {
         super(context);
-        this.eig = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ImageOverlayView.1
+        this.ekW = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ImageOverlayView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ImageOverlayView.this.eie != null) {
-                    ImageOverlayView.this.eie.aId();
+                if (ImageOverlayView.this.ekU != null) {
+                    ImageOverlayView.this.ekU.aIS();
                 }
             }
         };
@@ -40,11 +40,11 @@ public class ImageOverlayView extends ViewGroup {
 
     public ImageOverlayView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eig = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ImageOverlayView.1
+        this.ekW = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ImageOverlayView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ImageOverlayView.this.eie != null) {
-                    ImageOverlayView.this.eie.aId();
+                if (ImageOverlayView.this.ekU != null) {
+                    ImageOverlayView.this.ekU.aIS();
                 }
             }
         };
@@ -52,36 +52,36 @@ public class ImageOverlayView extends ViewGroup {
 
     public ImageOverlayView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.eig = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ImageOverlayView.1
+        this.ekW = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ImageOverlayView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ImageOverlayView.this.eie != null) {
-                    ImageOverlayView.this.eie.aId();
+                if (ImageOverlayView.this.ekU != null) {
+                    ImageOverlayView.this.ekU.aIS();
                 }
             }
         };
     }
 
     public void i(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.eia = i;
+        this.ekQ = i;
         this.mImageWidth = i2;
         this.mImageHeight = i3;
-        this.eib = i4;
-        this.eic = i5;
-        this.eid = i6;
-        aIc();
+        this.ekR = i4;
+        this.ekS = i5;
+        this.ekT = i6;
+        aIR();
     }
 
-    private void aIc() {
-        for (int i = 0; i < this.eia; i++) {
+    private void aIR() {
+        for (int i = 0; i < this.ekQ; i++) {
             HeadImageView headImageView = new HeadImageView(getContext());
             headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.mImageWidth, this.mImageHeight));
             headImageView.setIsRound(true);
             headImageView.setBorderSurroundContent(true);
             headImageView.setDrawBorder(true);
-            headImageView.setBorderWidth(this.eib);
+            headImageView.setBorderWidth(this.ekR);
             headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            headImageView.setBorderColor(al.getColor(this.eic));
+            headImageView.setBorderColor(al.getColor(this.ekS));
             headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
             addView(headImageView);
         }
@@ -89,25 +89,25 @@ public class ImageOverlayView extends ViewGroup {
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        setMeasuredDimension(resolveSize(((getPaddingLeft() + getPaddingRight()) + (this.eia * this.mImageWidth)) - ((this.eia - 1) * this.eid), i), resolveSize(getPaddingTop() + getPaddingBottom() + this.mImageHeight, i2));
+        setMeasuredDimension(resolveSize(((getPaddingLeft() + getPaddingRight()) + (this.ekQ * this.mImageWidth)) - ((this.ekQ - 1) * this.ekT), i), resolveSize(getPaddingTop() + getPaddingBottom() + this.mImageHeight, i2));
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         View childAt;
-        int paddingLeft = ((this.eia - 1) * (this.mImageWidth - this.eid)) + getPaddingLeft();
+        int paddingLeft = ((this.ekQ - 1) * (this.mImageWidth - this.ekT)) + getPaddingLeft();
         int paddingTop = getPaddingTop();
-        for (int i5 = 0; i5 < this.eia && i5 < getChildCount() && (childAt = getChildAt(i5)) != null; i5++) {
+        for (int i5 = 0; i5 < this.ekQ && i5 < getChildCount() && (childAt = getChildAt(i5)) != null; i5++) {
             childAt.layout(paddingLeft, paddingTop, this.mImageWidth + paddingLeft, this.mImageHeight + paddingTop);
-            paddingLeft -= this.mImageWidth - this.eid;
+            paddingLeft -= this.mImageWidth - this.ekT;
         }
     }
 
     public void setData(List<String> list) {
         HeadImageView headImageView;
         if (!v.I(list)) {
-            this.eif = list;
-            for (int i = 0; i < this.eia && (headImageView = (HeadImageView) getChildAt(i)) != null; i++) {
+            this.ekV = list;
+            for (int i = 0; i < this.ekQ && (headImageView = (HeadImageView) getChildAt(i)) != null; i++) {
                 if (i >= list.size()) {
                     headImageView.setVisibility(8);
                 } else {
@@ -130,7 +130,7 @@ public class ImageOverlayView extends ViewGroup {
             if (i2 < getChildCount()) {
                 View childAt = getChildAt(i2);
                 if (childAt instanceof HeadImageView) {
-                    ((HeadImageView) childAt).setBorderColor(al.getColor(this.eic));
+                    ((HeadImageView) childAt).setBorderColor(al.getColor(this.ekS));
                 }
                 i = i2 + 1;
             } else {
@@ -140,6 +140,6 @@ public class ImageOverlayView extends ViewGroup {
     }
 
     public void setImageClickListener(a aVar) {
-        this.eie = aVar;
+        this.ekU = aVar;
     }
 }

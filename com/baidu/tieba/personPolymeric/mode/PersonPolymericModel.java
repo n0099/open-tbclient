@@ -24,23 +24,23 @@ import tbclient.UserMuteCheck.DataRes;
 /* loaded from: classes3.dex */
 public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
     public static final int RN = 20;
-    private CustomMessageListener fTS;
-    private CustomMessageListener fTT;
-    private CustomMessageListener fTU;
-    private CustomMessageListener gsf;
-    private int gws;
-    private String gwt;
-    private com.baidu.tieba.personPolymeric.c.a gxh;
-    private b gyF;
-    private a gyG;
-    private com.baidu.adp.framework.listener.a gyH;
+    private CustomMessageListener fWK;
+    private CustomMessageListener fWL;
+    private CustomMessageListener fWM;
+    private b gBw;
+    private a gBx;
+    private com.baidu.adp.framework.listener.a gBy;
+    private CustomMessageListener guW;
+    private com.baidu.tieba.personPolymeric.c.a gzY;
+    private int gzj;
+    private String gzk;
     private boolean isHost;
 
     public PersonPolymericModel(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, boolean z) {
         super(baseFragmentActivity.getPageContext());
-        this.gws = -1;
-        this.gwt = "";
-        this.gyH = new com.baidu.adp.framework.listener.a(CmdConfigHttp.PROFILE_HTTP_CMD, 303012) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.1
+        this.gzj = -1;
+        this.gzk = "";
+        this.gBy = new com.baidu.adp.framework.listener.a(CmdConfigHttp.PROFILE_HTTP_CMD, 303012) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
@@ -50,64 +50,64 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
                             cVar = (ProfileHttpResponseMessage) responsedMessage;
                         }
                         if (cVar.getErrorCode() == 0) {
-                            PersonPolymericModel.this.gxh.a(cVar);
+                            PersonPolymericModel.this.gzY.a(cVar);
                         }
                         if (responsedMessage.getError() == 0) {
-                            PersonPolymericModel.this.gyF.b(PersonPolymericModel.this.gxh);
+                            PersonPolymericModel.this.gBw.b(PersonPolymericModel.this.gzY);
                         } else {
-                            PersonPolymericModel.this.gyF.b(null);
+                            PersonPolymericModel.this.gBw.b(null);
                         }
                     }
                 }
             }
         };
-        this.fTU = new CustomMessageListener(2001426) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.2
+        this.fWM = new CustomMessageListener(2001426) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.usermute.a) && customResponsedMessage.getOrginalMessage().getTag() == PersonPolymericModel.this.unique_id) {
                     com.baidu.tieba.usermute.a aVar = (com.baidu.tieba.usermute.a) customResponsedMessage.getData();
-                    DataRes dataRes = aVar.hzw;
+                    DataRes dataRes = aVar.hCH;
                     if (aVar.error == 0 && !StringUtils.isNULL(dataRes.is_mute)) {
                         if (dataRes.is_mute.equals("0")) {
-                            PersonPolymericModel.this.gws = 0;
-                            PersonPolymericModel.this.gwt = dataRes.mute_confirm;
-                            if (ao.isEmpty(PersonPolymericModel.this.gwt)) {
-                                PersonPolymericModel.this.gwt = "确定禁言？";
+                            PersonPolymericModel.this.gzj = 0;
+                            PersonPolymericModel.this.gzk = dataRes.mute_confirm;
+                            if (ao.isEmpty(PersonPolymericModel.this.gzk)) {
+                                PersonPolymericModel.this.gzk = "确定禁言？";
                             }
                         } else if (dataRes.is_mute.equals("1")) {
-                            PersonPolymericModel.this.gws = 1;
+                            PersonPolymericModel.this.gzj = 1;
                         }
-                        PersonPolymericModel.this.gyG.a(0, PersonPolymericModel.this.gws, PersonPolymericModel.this.gwt, aVar.error, aVar.errorString);
+                        PersonPolymericModel.this.gBx.a(0, PersonPolymericModel.this.gzj, PersonPolymericModel.this.gzk, aVar.error, aVar.errorString);
                     }
                 }
             }
         };
-        this.fTS = new CustomMessageListener(2001427) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.3
+        this.fWK = new CustomMessageListener(2001427) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() == PersonPolymericModel.this.unique_id) {
                     UserMuteAddResponseMessage userMuteAddResponseMessage = (UserMuteAddResponseMessage) customResponsedMessage.getData();
                     if (userMuteAddResponseMessage.getMuteErrorCode() == 0) {
-                        PersonPolymericModel.this.gws = 1;
+                        PersonPolymericModel.this.gzj = 1;
                     }
-                    PersonPolymericModel.this.gyG.a(1, PersonPolymericModel.this.gws, PersonPolymericModel.this.gwt, userMuteAddResponseMessage.getMuteErrorCode(), userMuteAddResponseMessage.getErrorString());
+                    PersonPolymericModel.this.gBx.a(1, PersonPolymericModel.this.gzj, PersonPolymericModel.this.gzk, userMuteAddResponseMessage.getMuteErrorCode(), userMuteAddResponseMessage.getErrorString());
                 }
             }
         };
-        this.fTT = new CustomMessageListener(2001428) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.4
+        this.fWL = new CustomMessageListener(2001428) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() == PersonPolymericModel.this.unique_id) {
-                    PersonPolymericModel.this.gws = 0;
+                    PersonPolymericModel.this.gzj = 0;
                     UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) customResponsedMessage.getData();
-                    PersonPolymericModel.this.gyG.a(2, PersonPolymericModel.this.gws, PersonPolymericModel.this.gwt, userMuteDelResponseMessage.getMuteErrorCode(), userMuteDelResponseMessage.getMuteMessage());
+                    PersonPolymericModel.this.gBx.a(2, PersonPolymericModel.this.gzj, PersonPolymericModel.this.gzk, userMuteDelResponseMessage.getMuteErrorCode(), userMuteDelResponseMessage.getMuteMessage());
                 }
             }
         };
-        this.gsf = new CustomMessageListener(2001380) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.5
+        this.guW = new CustomMessageListener(2001380) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -118,29 +118,29 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
         };
         setUniqueId(bdUniqueId);
         if (!z) {
-            registerListener(this.fTU);
-            registerListener(this.fTS);
-            registerListener(this.fTT);
+            registerListener(this.fWM);
+            registerListener(this.fWK);
+            registerListener(this.fWL);
         } else {
-            registerListener(this.gsf);
+            registerListener(this.guW);
         }
         this.isHost = z;
-        registerListener(this.gyH);
+        registerListener(this.gBy);
     }
 
     public void d(com.baidu.tieba.personPolymeric.c.a aVar) {
-        this.gxh = aVar;
+        this.gzY = aVar;
     }
 
     public void a(b bVar) {
-        this.gyF = bVar;
+        this.gBw = bVar;
     }
 
     public void a(a aVar) {
-        this.gyG = aVar;
+        this.gBx = aVar;
     }
 
-    public void cW(long j) {
+    public void db(long j) {
         if (j.kK()) {
             ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
             if (TbadkCoreApplication.getCurrentAccount() != null) {
@@ -164,7 +164,7 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void cX(long j) {
+    public void dc(long j) {
         if (j.kK()) {
             long d = com.baidu.adp.lib.g.b.d(TbadkCoreApplication.getCurrentAccount(), 0L);
             if (j != d && TbadkCoreApplication.isLogin()) {
@@ -190,18 +190,18 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void resetData() {
-        this.gxh.bqt();
+        this.gzY.brf();
     }
 
-    public com.baidu.tieba.personPolymeric.c.a bqz() {
-        return this.gxh;
+    public com.baidu.tieba.personPolymeric.c.a brl() {
+        return this.gzY;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(PersonChangeData personChangeData) {
-        if (personChangeData != null && this.gxh != null && this.gxh.getUserData() != null && this.isHost && TbadkCoreApplication.getCurrentAccount() != null) {
+        if (personChangeData != null && this.gzY != null && this.gzY.getUserData() != null && this.isHost && TbadkCoreApplication.getCurrentAccount() != null) {
             resetData();
-            cW(com.baidu.adp.lib.g.b.d(TbadkCoreApplication.getCurrentAccount(), 0L));
+            db(com.baidu.adp.lib.g.b.d(TbadkCoreApplication.getCurrentAccount(), 0L));
         }
     }
 

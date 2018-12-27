@@ -13,30 +13,30 @@ import java.util.List;
 @SuppressLint({"WrongCall"})
 /* loaded from: classes.dex */
 public class TbListTextView extends TextView {
-    private boolean bkk;
+    private boolean bkn;
 
     public TbListTextView(Context context) {
         super(context);
-        this.bkk = true;
+        this.bkn = true;
     }
 
     public TbListTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bkk = true;
+        this.bkn = true;
     }
 
     public TbListTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bkk = true;
+        this.bkn = true;
     }
 
     public void setCheckSelection(boolean z) {
-        this.bkk = z;
+        this.bkn = z;
     }
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (!this.bkk) {
+        if (!this.bkn) {
             return super.onTouchEvent(motionEvent);
         }
         setLongClickable(false);
@@ -64,7 +64,7 @@ public class TbListTextView extends TextView {
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         a b = b(spannableStringBuilder, i, i2);
-        if (b.bkl) {
+        if (b.bko) {
             a(i, i2, spannableStringBuilder, b);
         } else {
             N(i, i2);
@@ -93,7 +93,7 @@ public class TbListTextView extends TextView {
                 BdLog.e(e.getMessage());
             }
         }
-        return a.QL();
+        return a.QN();
     }
 
     private boolean b(CharSequence charSequence, int i) {
@@ -106,7 +106,7 @@ public class TbListTextView extends TextView {
     }
 
     private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, a aVar) {
-        for (Object obj : aVar.bkn) {
+        for (Object obj : aVar.bkq) {
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             spannableStringBuilder.delete(spanEnd, spanEnd + 1);
             try {
@@ -116,7 +116,7 @@ public class TbListTextView extends TextView {
             }
         }
         boolean z = true;
-        for (Object obj2 : aVar.bkm) {
+        for (Object obj2 : aVar.bkp) {
             int spanStart = spannableStringBuilder.getSpanStart(obj2);
             spannableStringBuilder.delete(spanStart - 1, spanStart);
             try {
@@ -140,22 +140,22 @@ public class TbListTextView extends TextView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public final boolean bkl;
-        public final List<Object> bkm;
-        public final List<Object> bkn;
+        public final boolean bko;
+        public final List<Object> bkp;
+        public final List<Object> bkq;
 
         public static a d(List<Object> list, List<Object> list2) {
             return new a(true, list, list2);
         }
 
-        public static a QL() {
+        public static a QN() {
             return new a(false, null, null);
         }
 
         private a(boolean z, List<Object> list, List<Object> list2) {
-            this.bkl = z;
-            this.bkm = list;
-            this.bkn = list2;
+            this.bko = z;
+            this.bkp = list;
+            this.bkq = list2;
         }
     }
 }

@@ -14,8 +14,8 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
     final int bufferSize;
     final rx.functions.o<? extends R> combiner;
     final boolean delayError;
-    final rx.d<? extends T>[] iCc;
-    final Iterable<? extends rx.d<? extends T>> iCd;
+    final rx.d<? extends T>[] iFm;
+    final Iterable<? extends rx.d<? extends T>> iFn;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -27,8 +27,8 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
     }
 
     public OnSubscribeCombineLatest(rx.d<? extends T>[] dVarArr, Iterable<? extends rx.d<? extends T>> iterable, rx.functions.o<? extends R> oVar, int i, boolean z) {
-        this.iCc = dVarArr;
-        this.iCd = iterable;
+        this.iFm = dVarArr;
+        this.iFn = iterable;
         this.combiner = oVar;
         this.bufferSize = i;
         this.delayError = z;
@@ -38,17 +38,17 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
         int length;
         rx.d<? extends T>[] dVarArr;
         rx.d<? extends T>[] dVarArr2;
-        rx.d<? extends T>[] dVarArr3 = this.iCc;
+        rx.d<? extends T>[] dVarArr3 = this.iFm;
         if (dVarArr3 == null) {
-            if (this.iCd instanceof List) {
-                List list = (List) this.iCd;
+            if (this.iFn instanceof List) {
+                List list = (List) this.iFn;
                 rx.d<? extends T>[] dVarArr4 = (rx.d[]) list.toArray(new rx.d[list.size()]);
                 length = dVarArr4.length;
                 dVarArr = dVarArr4;
             } else {
                 int i = 0;
                 rx.d<? extends T>[] dVarArr5 = new rx.d[8];
-                for (rx.d<? extends T> dVar : this.iCd) {
+                for (rx.d<? extends T> dVar : this.iFn) {
                     if (i == dVarArr5.length) {
                         dVarArr2 = new rx.d[(i >> 2) + i];
                         System.arraycopy(dVarArr5, 0, dVarArr2, 0, i);
@@ -190,7 +190,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
                 }
             }
             if (!z && obj != null) {
-                aVar.dC(1L);
+                aVar.dH(1L);
             } else {
                 drain();
             }
@@ -232,7 +232,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
                                 }
                                 try {
                                     jVar.onNext((R) this.combiner.call(objArr));
-                                    aVar.dC(1L);
+                                    aVar.dH(1L);
                                     j3 = 1 + j;
                                 } catch (Throwable th) {
                                     this.cancelled = true;
@@ -312,11 +312,11 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
     /* loaded from: classes2.dex */
     public static final class a<T, R> extends rx.j<T> {
         boolean done;
-        final LatestCoordinator<T, R> iCe;
+        final LatestCoordinator<T, R> iFo;
         final int index;
 
         public a(LatestCoordinator<T, R> latestCoordinator, int i) {
-            this.iCe = latestCoordinator;
+            this.iFo = latestCoordinator;
             this.index = i;
             request(latestCoordinator.bufferSize);
         }
@@ -324,7 +324,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
         @Override // rx.e
         public void onNext(T t) {
             if (!this.done) {
-                this.iCe.combine(NotificationLite.aY(t), this.index);
+                this.iFo.combine(NotificationLite.aY(t), this.index);
             }
         }
 
@@ -334,20 +334,20 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
                 rx.c.c.onError(th);
                 return;
             }
-            this.iCe.onError(th);
+            this.iFo.onError(th);
             this.done = true;
-            this.iCe.combine(null, this.index);
+            this.iFo.combine(null, this.index);
         }
 
         @Override // rx.e
         public void onCompleted() {
             if (!this.done) {
                 this.done = true;
-                this.iCe.combine(null, this.index);
+                this.iFo.combine(null, this.index);
             }
         }
 
-        public void dC(long j) {
+        public void dH(long j) {
             request(j);
         }
     }

@@ -18,27 +18,27 @@ public class FrsDynamicModel<T> extends NetAutoModel<FrsDynamicRequestData, a, T
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int Os() {
+    protected int Ot() {
         return CmdConfigHttp.CMD_FRS_DYNAMIC;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int Ot() {
+    protected int Ou() {
         return 309602;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String Ou() {
+    protected String Ov() {
         return TbConfig.FRS_DYNAMIC_ADDRESS;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> Oq() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> Or() {
         return FrsDynamicHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> Or() {
+    protected Class<? extends MvcSocketResponsedMessage> Os() {
         return FrsDynamicSocketResponsedMessage.class;
     }
 }

@@ -8,7 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    public static List<b> kv(String str) {
+    public static List<b> kw(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

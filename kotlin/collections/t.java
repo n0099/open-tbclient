@@ -11,22 +11,22 @@ public class t extends s {
 
     /* loaded from: classes2.dex */
     public static final class a implements kotlin.sequences.c<T> {
-        final /* synthetic */ Iterable ixV;
+        final /* synthetic */ Iterable iBf;
 
         public a(Iterable iterable) {
-            this.ixV = iterable;
+            this.iBf = iterable;
         }
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            return this.ixV.iterator();
+            return this.iBf.iterator();
         }
     }
 
     public static final <T> T b(Iterable<? extends T> iterable) {
-        kotlin.jvm.internal.p.h((Object) iterable, "$receiver");
+        kotlin.jvm.internal.p.j(iterable, "$receiver");
         if (iterable instanceof List) {
-            return (T) n.ex((List) iterable);
+            return (T) n.ey((List) iterable);
         }
         Iterator<? extends T> it = iterable.iterator();
         if (!it.hasNext()) {
@@ -39,8 +39,8 @@ public class t extends s {
         return next;
     }
 
-    public static final <T> T ex(List<? extends T> list) {
-        kotlin.jvm.internal.p.h((Object) list, "$receiver");
+    public static final <T> T ey(List<? extends T> list) {
+        kotlin.jvm.internal.p.j(list, "$receiver");
         switch (list.size()) {
             case 0:
                 throw new NoSuchElementException("List is empty.");
@@ -52,8 +52,8 @@ public class t extends s {
     }
 
     public static final <T, C extends Collection<? super T>> C a(Iterable<? extends T> iterable, C c) {
-        kotlin.jvm.internal.p.h((Object) iterable, "$receiver");
-        kotlin.jvm.internal.p.h((Object) c, "destination");
+        kotlin.jvm.internal.p.j(iterable, "$receiver");
+        kotlin.jvm.internal.p.j(c, "destination");
         for (T t : iterable) {
             c.add(t);
         }
@@ -61,17 +61,17 @@ public class t extends s {
     }
 
     public static final <T> HashSet<T> c(Iterable<? extends T> iterable) {
-        kotlin.jvm.internal.p.h((Object) iterable, "$receiver");
-        return (HashSet) n.a(iterable, new HashSet(aa.yY(n.a(iterable, 12))));
+        kotlin.jvm.internal.p.j(iterable, "$receiver");
+        return (HashSet) n.a(iterable, new HashSet(aa.zl(n.a(iterable, 12))));
     }
 
     public static final <T, A extends Appendable> A a(Iterable<? extends T> iterable, A a2, CharSequence charSequence, CharSequence charSequence2, CharSequence charSequence3, int i, CharSequence charSequence4, kotlin.jvm.a.b<? super T, ? extends CharSequence> bVar) {
-        kotlin.jvm.internal.p.h((Object) iterable, "$receiver");
-        kotlin.jvm.internal.p.h((Object) a2, "buffer");
-        kotlin.jvm.internal.p.h((Object) charSequence, "separator");
-        kotlin.jvm.internal.p.h((Object) charSequence2, "prefix");
-        kotlin.jvm.internal.p.h((Object) charSequence3, "postfix");
-        kotlin.jvm.internal.p.h((Object) charSequence4, "truncated");
+        kotlin.jvm.internal.p.j(iterable, "$receiver");
+        kotlin.jvm.internal.p.j(a2, "buffer");
+        kotlin.jvm.internal.p.j(charSequence, "separator");
+        kotlin.jvm.internal.p.j(charSequence2, "prefix");
+        kotlin.jvm.internal.p.j(charSequence3, "postfix");
+        kotlin.jvm.internal.p.j(charSequence4, "truncated");
         a2.append(charSequence2);
         int i2 = 0;
         for (T t : iterable) {
@@ -92,18 +92,18 @@ public class t extends s {
     }
 
     public static final <T> String a(Iterable<? extends T> iterable, CharSequence charSequence, CharSequence charSequence2, CharSequence charSequence3, int i, CharSequence charSequence4, kotlin.jvm.a.b<? super T, ? extends CharSequence> bVar) {
-        kotlin.jvm.internal.p.h((Object) iterable, "$receiver");
-        kotlin.jvm.internal.p.h((Object) charSequence, "separator");
-        kotlin.jvm.internal.p.h((Object) charSequence2, "prefix");
-        kotlin.jvm.internal.p.h((Object) charSequence3, "postfix");
-        kotlin.jvm.internal.p.h((Object) charSequence4, "truncated");
+        kotlin.jvm.internal.p.j(iterable, "$receiver");
+        kotlin.jvm.internal.p.j(charSequence, "separator");
+        kotlin.jvm.internal.p.j(charSequence2, "prefix");
+        kotlin.jvm.internal.p.j(charSequence3, "postfix");
+        kotlin.jvm.internal.p.j(charSequence4, "truncated");
         String sb = ((StringBuilder) n.a(iterable, new StringBuilder(), charSequence, charSequence2, charSequence3, i, charSequence4, bVar)).toString();
-        kotlin.jvm.internal.p.g(sb, "joinTo(StringBuilder(), …ed, transform).toString()");
+        kotlin.jvm.internal.p.i(sb, "joinTo(StringBuilder(), …ed, transform).toString()");
         return sb;
     }
 
     public static final <T> kotlin.sequences.c<T> d(Iterable<? extends T> iterable) {
-        kotlin.jvm.internal.p.h((Object) iterable, "$receiver");
+        kotlin.jvm.internal.p.j(iterable, "$receiver");
         return new a(iterable);
     }
 }

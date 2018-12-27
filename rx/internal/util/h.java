@@ -9,13 +9,13 @@ import rx.k;
 /* loaded from: classes2.dex */
 public class h implements k {
     public static final int SIZE;
-    public volatile Object iLX;
+    public volatile Object iPh;
     private Queue<Object> queue;
     private final int size;
 
     static {
         int i = 128;
-        if (g.ceo()) {
+        if (g.cff()) {
             i = 16;
         }
         String property = System.getProperty("rx.ring-buffer.size");
@@ -29,12 +29,12 @@ public class h implements k {
         SIZE = i;
     }
 
-    public static h ces() {
-        return ae.ceF() ? new h(false, SIZE) : new h();
+    public static h cfj() {
+        return ae.cfw() ? new h(false, SIZE) : new h();
     }
 
-    public static h cet() {
-        return ae.ceF() ? new h(true, SIZE) : new h();
+    public static h cfk() {
+        return ae.cfw() ? new h(true, SIZE) : new h();
     }
 
     private h(Queue<Object> queue, int i) {
@@ -80,8 +80,8 @@ public class h implements k {
     }
 
     public void onCompleted() {
-        if (this.iLX == null) {
-            this.iLX = NotificationLite.cdg();
+        if (this.iPh == null) {
+            this.iPh = NotificationLite.cdX();
         }
     }
 
@@ -96,9 +96,9 @@ public class h implements k {
             Queue<Object> queue = this.queue;
             if (queue != null) {
                 Object poll = queue.poll();
-                obj = this.iLX;
+                obj = this.iPh;
                 if (poll == null && obj != null && queue.peek() == null) {
-                    this.iLX = null;
+                    this.iPh = null;
                 } else {
                     obj = poll;
                 }
@@ -115,7 +115,7 @@ public class h implements k {
                 obj = null;
             } else {
                 Object peek = queue.peek();
-                obj = this.iLX;
+                obj = this.iPh;
                 if (peek != null || obj == null || queue.peek() != null) {
                     obj = peek;
                 }

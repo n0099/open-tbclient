@@ -8,17 +8,17 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public final class h implements Application.ActivityLifecycleCallbacks {
-    private a icS;
+    private a igf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.icS = aVar;
+        this.igf = aVar;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityResumed(Activity activity) {
-        synchronized (this.icS.bRM()) {
-            for (a.InterfaceC0348a interfaceC0348a : this.icS.bRM()) {
+        synchronized (this.igf.bSD()) {
+            for (a.InterfaceC0348a interfaceC0348a : this.igf.bSD()) {
                 interfaceC0348a.T();
             }
         }
@@ -26,8 +26,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityPaused(Activity activity) {
-        synchronized (this.icS.bRM()) {
-            for (a.InterfaceC0348a interfaceC0348a : this.icS.bRM()) {
+        synchronized (this.igf.bSD()) {
+            for (a.InterfaceC0348a interfaceC0348a : this.igf.bSD()) {
                 interfaceC0348a.U();
             }
         }
@@ -35,8 +35,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityCreated(Activity activity, Bundle bundle) {
-        synchronized (this.icS.bRM()) {
-            for (a.InterfaceC0348a interfaceC0348a : this.icS.bRM()) {
+        synchronized (this.igf.bSD()) {
+            for (a.InterfaceC0348a interfaceC0348a : this.igf.bSD()) {
                 interfaceC0348a.a(activity);
             }
         }
@@ -44,8 +44,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStarted(Activity activity) {
-        synchronized (this.icS.bRM()) {
-            Iterator<a.InterfaceC0348a> it = this.icS.bRM().iterator();
+        synchronized (this.igf.bSD()) {
+            Iterator<a.InterfaceC0348a> it = this.igf.bSD().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -54,8 +54,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStopped(Activity activity) {
-        synchronized (this.icS.bRM()) {
-            Iterator<a.InterfaceC0348a> it = this.icS.bRM().iterator();
+        synchronized (this.igf.bSD()) {
+            Iterator<a.InterfaceC0348a> it = this.igf.bSD().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -64,8 +64,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        synchronized (this.icS.bRM()) {
-            Iterator<a.InterfaceC0348a> it = this.icS.bRM().iterator();
+        synchronized (this.igf.bSD()) {
+            Iterator<a.InterfaceC0348a> it = this.igf.bSD().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -74,8 +74,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityDestroyed(Activity activity) {
-        synchronized (this.icS.bRM()) {
-            for (a.InterfaceC0348a interfaceC0348a : this.icS.bRM()) {
+        synchronized (this.igf.bSD()) {
+            for (a.InterfaceC0348a interfaceC0348a : this.igf.bSD()) {
                 interfaceC0348a.onActivityDestroyed(activity);
             }
         }

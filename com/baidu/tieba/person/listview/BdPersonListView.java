@@ -20,13 +20,13 @@ public class BdPersonListView extends BdTypeListView {
     private float Os;
     private final int Ot;
     private final int Ou;
-    private final Scroller gqO;
-    private View gqP;
-    private b gqQ;
-    private b gqR;
-    public a gqS;
-    private boolean gqT;
-    private boolean gqU;
+    private final Scroller gtF;
+    private View gtG;
+    private b gtH;
+    private b gtI;
+    public a gtJ;
+    private boolean gtK;
+    private boolean gtL;
     private final Context mContext;
     private final Scroller mScroller;
     private float startX;
@@ -46,11 +46,11 @@ public class BdPersonListView extends BdTypeListView {
     public BdPersonListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.Or = false;
-        this.gqT = true;
-        this.gqU = false;
+        this.gtK = true;
+        this.gtL = false;
         this.mContext = context;
         this.mScroller = new Scroller(this.mContext);
-        this.gqO = new Scroller(this.mContext);
+        this.gtF = new Scroller(this.mContext);
         this.Ot = ViewConfiguration.get(context).getScaledTouchSlop();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, e.l.ExpandListView);
         this.Ou = obtainStyledAttributes.getDimensionPixelSize(ExpandListView_expandDistance, 0);
@@ -62,12 +62,12 @@ public class BdPersonListView extends BdTypeListView {
     }
 
     public void setOuterExpandView(View view) {
-        this.gqP = view;
+        this.gtG = view;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.On == null || !this.gqT) {
+        if (this.On == null || !this.gtK) {
             return super.dispatchTouchEvent(motionEvent);
         }
         int action = motionEvent.getAction();
@@ -78,19 +78,19 @@ public class BdPersonListView extends BdTypeListView {
                     int height = this.On.getHeight();
                     this.startY = this.Op;
                     this.startX = this.Os;
-                    this.gqQ = new b(0, height, 0, this.Ou + height);
-                    int height2 = this.gqP.getHeight();
-                    this.gqR = new b(0, height2, 0, this.Ou + height2);
+                    this.gtH = new b(0, height, 0, this.Ou + height);
+                    int height2 = this.gtG.getHeight();
+                    this.gtI = new b(0, height2, 0, this.Ou + height2);
                     break;
                 case 1:
                 case 3:
                     if (this.Or) {
                         oA();
-                        if (this.gqU) {
+                        if (this.gtL) {
                             return true;
                         }
                     } else {
-                        this.gqS.oC();
+                        this.gtJ.oC();
                         break;
                     }
                     break;
@@ -98,25 +98,25 @@ public class BdPersonListView extends BdTypeListView {
                     float f = this.Os - this.startX;
                     float f2 = this.Op - this.startY;
                     this.startX = this.Os;
-                    if (this.On.getParent() == this && this.gqQ != null && this.On.isShown() && this.On.getTop() >= 0 && Math.abs(f2) >= this.Ot && Math.abs(f) < this.Ot) {
-                        int O = this.gqQ.O(this.Op - this.startY);
-                        if (O > this.gqQ.startY && O <= this.gqQ.endY) {
+                    if (this.On.getParent() == this && this.gtH != null && this.On.isShown() && this.On.getTop() >= 0 && Math.abs(f2) >= this.Ot && Math.abs(f) < this.Ot) {
+                        int O = this.gtH.O(this.Op - this.startY);
+                        if (O > this.gtH.startY && O <= this.gtH.endY) {
                             this.Or = true;
                             this.On.setLayoutParams(new AbsListView.LayoutParams(this.On.getWidth(), O));
-                            if (this.gqP != null) {
-                                int O2 = this.gqR.O(this.Op - this.startY);
-                                ViewGroup.LayoutParams layoutParams = this.gqP.getLayoutParams();
+                            if (this.gtG != null) {
+                                int O2 = this.gtI.O(this.Op - this.startY);
+                                ViewGroup.LayoutParams layoutParams = this.gtG.getLayoutParams();
                                 if (layoutParams != null) {
                                     layoutParams.height = O2;
-                                    this.gqP.setLayoutParams(layoutParams);
+                                    this.gtG.setLayoutParams(layoutParams);
                                 }
                             }
-                            M(O - this.gqQ.startY);
+                            M(O - this.gtH.startY);
                             break;
-                        } else if (O <= this.gqQ.startY) {
+                        } else if (O <= this.gtH.startY) {
                             this.Or = false;
                             break;
-                        } else if (O > this.gqQ.endY) {
+                        } else if (O > this.gtH.endY) {
                             this.Or = true;
                             break;
                         } else {
@@ -151,27 +151,27 @@ public class BdPersonListView extends BdTypeListView {
     }
 
     private void oA() {
-        if (this.gqQ != null) {
-            if (this.On.getHeight() >= this.gqQ.endY - (this.Ou / 2)) {
+        if (this.gtH != null) {
+            if (this.On.getHeight() >= this.gtH.endY - (this.Ou / 2)) {
                 oB();
             } else {
-                this.gqS.oC();
+                this.gtJ.oC();
             }
-            this.mScroller.startScroll(0, this.On.getHeight(), 0, this.gqQ.startY - this.On.getHeight(), 200);
-            this.gqO.startScroll(0, this.gqP.getHeight(), 0, this.gqR.startY - this.gqP.getHeight(), 200);
+            this.mScroller.startScroll(0, this.On.getHeight(), 0, this.gtH.startY - this.On.getHeight(), 200);
+            this.gtF.startScroll(0, this.gtG.getHeight(), 0, this.gtI.startY - this.gtG.getHeight(), 200);
             invalidate();
             this.Or = false;
         }
     }
 
     public void oB() {
-        if (this.gqS != null) {
-            this.gqS.onRefresh();
+        if (this.gtJ != null) {
+            this.gtJ.onRefresh();
         }
     }
 
     public void setPersonListRefreshListener(a aVar) {
-        this.gqS = aVar;
+        this.gtJ = aVar;
     }
 
     @Override // android.view.View
@@ -182,17 +182,17 @@ public class BdPersonListView extends BdTypeListView {
         } else {
             super.computeScroll();
         }
-        if (this.gqO.computeScrollOffset()) {
-            int currY = this.gqO.getCurrY();
-            if (this.gqP != null && (layoutParams = this.gqP.getLayoutParams()) != null) {
+        if (this.gtF.computeScrollOffset()) {
+            int currY = this.gtF.getCurrY();
+            if (this.gtG != null && (layoutParams = this.gtG.getLayoutParams()) != null) {
                 layoutParams.height = currY;
-                this.gqP.setLayoutParams(layoutParams);
+                this.gtG.setLayoutParams(layoutParams);
             }
         }
     }
 
     private void M(float f) {
-        this.gqS.N(360.0f - ((f * 360.0f) / this.Ou));
+        this.gtJ.N(360.0f - ((f * 360.0f) / this.Ou));
     }
 
     /* loaded from: classes5.dex */

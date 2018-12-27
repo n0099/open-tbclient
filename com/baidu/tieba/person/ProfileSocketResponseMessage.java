@@ -209,14 +209,14 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         l<String> an;
         super.beforeDispatchInBackGround(i, (int) bArr);
         if (this.ucCardData != null && (an = com.baidu.tbadk.core.c.a.BB().an("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
-            List<g.a> list = this.ucCardData.gqk;
+            List<g.a> list = this.ucCardData.gtb;
             if (v.H(list) > 4) {
                 list.get(4).timeStamp = 8L;
                 for (g.a aVar : list) {
                     if (aVar.timeStamp > com.baidu.adp.lib.g.b.d(an.get(aVar.title), 0L)) {
-                        aVar.gql = true;
+                        aVar.gtc = true;
                     } else {
-                        aVar.gql = false;
+                        aVar.gtc = false;
                     }
                 }
             }

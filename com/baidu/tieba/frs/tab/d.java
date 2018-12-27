@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.tab;
 import com.baidu.tieba.frs.au;
 /* loaded from: classes6.dex */
 public class d {
-    public au ebU;
+    public au eeL;
     public String name;
     public int tabId;
     public String url;

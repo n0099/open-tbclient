@@ -3,7 +3,7 @@ package com.baidu.tieba.dnsproxy;
 import android.text.TextUtils;
 /* loaded from: classes3.dex */
 public class h {
-    public static final boolean mY(String str) {
+    public static final boolean nb(String str) {
         return !TextUtils.isEmpty(str);
     }
 }

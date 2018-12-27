@@ -51,7 +51,7 @@ public class MovieFragmentRandomAccessOffsetBox extends AbstractFullBox {
     }
 
     public void setMfraSize(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.dz(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.dE(j)));
         this.mfraSize = j;
     }
 }

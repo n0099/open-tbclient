@@ -1,24 +1,24 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes2.dex */
 public class ap<T> implements ai<T> {
-    private final aq imY;
-    private final ai<T> ipF;
+    private final aq iqj;
+    private final ai<T> isP;
 
     public ap(ai<T> aiVar, aq aqVar) {
-        this.ipF = (ai) com.facebook.common.internal.g.checkNotNull(aiVar);
-        this.imY = aqVar;
+        this.isP = (ai) com.facebook.common.internal.g.checkNotNull(aiVar);
+        this.iqj = aqVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(final j<T> jVar, final aj ajVar) {
-        final al bYR = ajVar.bYR();
+        final al bZI = ajVar.bZI();
         final String id = ajVar.getId();
-        final ao<T> aoVar = new ao<T>(jVar, bYR, "BackgroundThreadHandoffProducer", id) { // from class: com.facebook.imagepipeline.producers.ap.1
+        final ao<T> aoVar = new ao<T>(jVar, bZI, "BackgroundThreadHandoffProducer", id) { // from class: com.facebook.imagepipeline.producers.ap.1
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.imagepipeline.producers.ao, com.facebook.common.b.e
             public void onSuccess(T t) {
-                bYR.a(id, "BackgroundThreadHandoffProducer", null);
-                ap.this.ipF.a(jVar, ajVar);
+                bZI.a(id, "BackgroundThreadHandoffProducer", null);
+                ap.this.isP.a(jVar, ajVar);
             }
 
             @Override // com.facebook.imagepipeline.producers.ao, com.facebook.common.b.e
@@ -32,11 +32,11 @@ public class ap<T> implements ai<T> {
         };
         ajVar.a(new e() { // from class: com.facebook.imagepipeline.producers.ap.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-            public void bYX() {
+            public void bZO() {
                 aoVar.cancel();
-                ap.this.imY.remove(aoVar);
+                ap.this.iqj.remove(aoVar);
             }
         });
-        this.imY.n(aoVar);
+        this.iqj.n(aoVar);
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class b {
-    private a hUh;
+    private a hXs;
     private HttpMessageListener mHttpMessageListener = new HttpMessageListener(CmdConfigHttp.CMD_CHECK_SHARE_SDK) { // from class: com.baidu.tieba.write.share.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -23,8 +23,8 @@ public class b {
                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
                     httpResponsedMessage.setErrorString(TbadkCoreApplication.getInst().getString(e.j.share_sdk_check_no_resp));
                 }
-                if (b.this.hUh != null) {
-                    b.this.hUh.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                if (b.this.hXs != null) {
+                    b.this.hXs.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
@@ -38,12 +38,12 @@ public class b {
 
     private void init() {
         MessageManager messageManager = MessageManager.getInstance();
-        messageManager.registerTask(bOl());
+        messageManager.registerTask(bPc());
         this.mHttpMessageListener.setTag(this.mPageId);
         messageManager.registerListener(this.mHttpMessageListener);
     }
 
-    private HttpMessageTask bOl() {
+    private HttpMessageTask bPc() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_SHARE_SDK, TbConfig.CHECK_SHARE_SDK_URL);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setRetry(3);
@@ -52,13 +52,13 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.hUh = aVar;
+        this.hXs = aVar;
     }
 
     public void cW(String str, String str2) {
         if (StringUtils.isNull(str)) {
-            if (this.hUh != null) {
-                this.hUh.a(null, -2112, TbadkCoreApplication.getInst().getString(e.j.check_share_sdk_appkey_null));
+            if (this.hXs != null) {
+                this.hXs.a(null, -2112, TbadkCoreApplication.getInst().getString(e.j.check_share_sdk_appkey_null));
                 return;
             }
             return;

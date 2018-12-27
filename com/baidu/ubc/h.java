@@ -1,13 +1,13 @@
 package com.baidu.ubc;
 /* loaded from: classes2.dex */
 class h {
-    private String ibH;
-    private String ibI;
-    private int ibJ;
-    private String ibK;
-    private int ibL;
-    private int ibM;
-    private String ibN;
+    private String ieU;
+    private String ieV;
+    private int ieW;
+    private String ieX;
+    private int ieY;
+    private int ieZ;
+    private String ifa;
     private String mCategory;
     private String mId;
     private int mRate;
@@ -15,42 +15,42 @@ class h {
 
     public h(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.ibH = str2;
-        this.ibI = str3;
-        this.ibJ = i;
+        this.ieU = str2;
+        this.ieV = str3;
+        this.ieW = i;
         this.mType = str4;
-        this.ibK = str5;
+        this.ieX = str5;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String bQT() {
-        return this.ibH;
+    public String bRK() {
+        return this.ieU;
     }
 
-    public String bQU() {
-        return this.ibI;
+    public String bRL() {
+        return this.ieV;
     }
 
     public int getTimeout() {
-        return this.ibJ;
+        return this.ieW;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String bQV() {
-        return this.ibK;
+    public String bRM() {
+        return this.ieX;
     }
 
-    public int bQW() {
+    public int bRN() {
         return this.mRate;
     }
 
-    public void xC(int i) {
+    public void xP(int i) {
         this.mRate = i;
     }
 
@@ -62,27 +62,27 @@ class h {
         this.mCategory = str;
     }
 
-    public int bQX() {
-        return this.ibL;
+    public int bRO() {
+        return this.ieY;
     }
 
-    public void xD(int i) {
-        this.ibL = i;
+    public void xQ(int i) {
+        this.ieY = i;
     }
 
-    public int bQY() {
-        return this.ibM;
+    public int bRP() {
+        return this.ieZ;
     }
 
-    public void xE(int i) {
-        this.ibM = i;
+    public void xR(int i) {
+        this.ieZ = i;
     }
 
     public String getIdType() {
-        return this.ibN;
+        return this.ifa;
     }
 
-    public void yf(String str) {
-        this.ibN = str;
+    public void yi(String str) {
+        this.ifa = str;
     }
 }

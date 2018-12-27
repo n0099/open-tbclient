@@ -17,23 +17,23 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private List<String> fus;
+    private List<String> fxk;
     private Context mContext;
     private String mKeyWord;
 
     public a(Context context, ArrayList<String> arrayList) {
         this.mContext = context;
-        this.fus = arrayList;
+        this.fxk = arrayList;
     }
 
     public void setData(List<String> list) {
-        this.fus = list;
-        if (this.fus != null) {
+        this.fxk = list;
+        if (this.fxk != null) {
             notifyDataSetChanged();
         }
     }
 
-    public void rm(String str) {
+    public void rp(String str) {
         if (!StringUtils.isNull(str)) {
             this.mKeyWord = str.trim();
         }
@@ -41,10 +41,10 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.fus == null) {
+        if (this.fxk == null) {
             return 0;
         }
-        return this.fus.size();
+        return this.fxk.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class a extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.fus.get(i);
+        return this.fxk.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -69,7 +69,7 @@ public class a extends BaseAdapter {
             view = LayoutInflater.from(this.mContext).inflate(e.h.search_suggest_item, (ViewGroup) null);
             C0270a c0270a2 = new C0270a();
             c0270a2.mRootView = view.findViewById(e.g.rootview);
-            c0270a2.fut = (TextView) view.findViewById(e.g.searchSuggestTitle);
+            c0270a2.fxl = (TextView) view.findViewById(e.g.searchSuggestTitle);
             c0270a2.mDividerView = view.findViewById(e.g.searchItemSep);
             view.setTag(c0270a2);
             c0270a = c0270a2;
@@ -78,12 +78,12 @@ public class a extends BaseAdapter {
         }
         String item = getItem(i);
         if (!StringUtils.isNull(item)) {
-            a(c0270a.fut, item);
+            a(c0270a.fxl, item);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (skinType != c0270a.mSkinType) {
                 c0270a.mSkinType = skinType;
                 al.i(c0270a.mRootView, e.f.addresslist_item_bg);
-                al.h(c0270a.fut, e.d.cp_cont_b);
+                al.h(c0270a.fxl, e.d.cp_cont_b);
                 al.j(c0270a.mDividerView, e.d.cp_bg_line_c);
             }
         }
@@ -93,7 +93,7 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.mainentrance.searchSuggestList.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     private class C0270a {
-        TextView fut;
+        TextView fxl;
         View mDividerView;
         View mRootView;
         int mSkinType;

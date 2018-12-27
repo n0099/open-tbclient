@@ -8,16 +8,16 @@ import java.util.List;
 import tbclient.DailyTopic;
 /* loaded from: classes6.dex */
 public class e extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId eso = BdUniqueId.gen();
-    public List<a> esp;
+    public static final BdUniqueId evf = BdUniqueId.gen();
+    public List<a> evg;
 
-    public static e cj(List<DailyTopic> list) {
+    public static e ck(List<DailyTopic> list) {
         if (v.I(list)) {
             return null;
         }
         e eVar = new e();
         ArrayList arrayList = new ArrayList();
-        eVar.esp = arrayList;
+        eVar.evg = arrayList;
         int i = 0;
         Iterator<DailyTopic> it = list.iterator();
         while (true) {
@@ -43,43 +43,43 @@ public class e extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return eso;
+        return evf;
     }
 
     /* loaded from: classes6.dex */
     public static class a {
-        private String ejj;
-        private String esq;
-        private String esr;
-        private String ess;
-        private String est;
+        private String elZ;
+        private String evh;
+        private String evi;
+        private String evj;
+        private String evk;
 
         public void a(DailyTopic dailyTopic) {
-            this.esq = dailyTopic.topic_pic;
-            this.ejj = dailyTopic.topic_title;
-            this.esr = dailyTopic.topic_abstract;
-            this.ess = dailyTopic.topic_url;
-            this.est = dailyTopic.topic_rank_url;
+            this.evh = dailyTopic.topic_pic;
+            this.elZ = dailyTopic.topic_title;
+            this.evi = dailyTopic.topic_abstract;
+            this.evj = dailyTopic.topic_url;
+            this.evk = dailyTopic.topic_rank_url;
         }
 
-        public String aKu() {
-            return this.esq;
+        public String aLj() {
+            return this.evh;
         }
 
         public String yY() {
-            return this.ejj;
+            return this.elZ;
         }
 
-        public String aKv() {
-            return this.esr;
+        public String aLk() {
+            return this.evi;
         }
 
         public String Bg() {
-            return this.ess;
+            return this.evj;
         }
 
-        public String aKw() {
-            return this.est;
+        public String aLl() {
+            return this.evk;
         }
     }
 }

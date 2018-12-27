@@ -72,23 +72,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class TalkableActivity<T> extends BaseActivity<T> implements View.OnTouchListener, com.baidu.adp.lib.c.a, com.baidu.adp.lib.c.b, BdListView.e, BdListView.h, a.InterfaceC0073a, b.InterfaceC0158b, VoiceManager.c, com.baidu.tbadk.widget.richText.e {
-    private boolean bTK;
-    private com.baidu.tbadk.core.util.b.a bzf;
-    protected VoiceManager dIc;
-    protected boolean eIV;
-    private View eIY;
-    private boolean eJc;
+    private boolean bTN;
+    private com.baidu.tbadk.core.util.b.a bzi;
+    protected VoiceManager dKQ;
+    protected boolean eLM;
+    private View eLP;
+    private boolean eLT;
     protected Handler handler = new Handler();
-    protected AbsMsglistView eIQ = null;
-    protected MsglistModel eIR = null;
-    protected LocalPicModel eIS = null;
-    protected com.baidu.adp.base.d eIT = null;
-    protected i eIU = null;
-    protected a.InterfaceC0172a<ChatMessage> eIW = null;
-    private long eIX = -1;
+    protected AbsMsglistView eLH = null;
+    protected MsglistModel eLI = null;
+    protected LocalPicModel eLJ = null;
+    protected com.baidu.adp.base.d eLK = null;
+    protected i eLL = null;
+    protected a.InterfaceC0172a<ChatMessage> eLN = null;
+    private long eLO = -1;
     private WriteImagesInfo writeImagesInfo = new WriteImagesInfo(1);
-    private boolean eIZ = true;
-    private CustomMessageListener eJa = new CustomMessageListener(2001332) { // from class: com.baidu.tieba.im.chat.TalkableActivity.5
+    private boolean eLQ = true;
+    private CustomMessageListener eLR = new CustomMessageListener(2001332) { // from class: com.baidu.tieba.im.chat.TalkableActivity.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -98,92 +98,92 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
             }
         }
     };
-    protected com.baidu.adp.base.d eJb = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.im.chat.TalkableActivity.7
+    protected com.baidu.adp.base.d eLS = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.im.chat.TalkableActivity.7
         /* JADX DEBUG: Multi-variable search result rejected for r1v9, resolved type: com.baidu.tieba.im.chat.TalkableActivity */
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // com.baidu.adp.base.d
         public void m(Object obj) {
             if (!com.baidu.adp.lib.util.j.kV()) {
-                if (TalkableActivity.this.eIQ != null) {
-                    TalkableActivity.this.eIQ.displayNoNetwork();
+                if (TalkableActivity.this.eLH != null) {
+                    TalkableActivity.this.eLH.displayNoNetwork();
                 }
-            } else if (TalkableActivity.this.eIQ != null) {
-                TalkableActivity.this.eIQ.hideNoNetwork();
+            } else if (TalkableActivity.this.eLH != null) {
+                TalkableActivity.this.eLH.hideNoNetwork();
             }
-            switch (TalkableActivity.this.eIR.getLoadDataMode()) {
+            switch (TalkableActivity.this.eLI.getLoadDataMode()) {
                 case 1:
-                    if (TalkableActivity.this.eIX > -1) {
-                        TalkableActivity.this.eIX = -1L;
+                    if (TalkableActivity.this.eLO > -1) {
+                        TalkableActivity.this.eLO = -1L;
                     }
-                    TalkableActivity.this.eIQ.closeProgress();
-                    TalkableActivity.this.eIQ.refreshGo2New(TalkableActivity.this.eIR.getData());
+                    TalkableActivity.this.eLH.closeProgress();
+                    TalkableActivity.this.eLH.refreshGo2New(TalkableActivity.this.eLI.getData());
                     return;
                 case 2:
-                    TalkableActivity.this.eIQ.refreshPrepage(TalkableActivity.this.eIR.getData());
+                    TalkableActivity.this.eLH.refreshPrepage(TalkableActivity.this.eLI.getData());
                     return;
                 case 3:
-                    TalkableActivity.this.eIQ.refreshCheckNew(TalkableActivity.this.eIR.getData());
+                    TalkableActivity.this.eLH.refreshCheckNew(TalkableActivity.this.eLI.getData());
                     return;
                 case 4:
-                    TalkableActivity.this.eIQ.refreshGo2New(TalkableActivity.this.eIR.getData());
+                    TalkableActivity.this.eLH.refreshGo2New(TalkableActivity.this.eLI.getData());
                     return;
                 case 5:
-                    TalkableActivity.this.eIQ.refreshNormal(TalkableActivity.this.eIR.getData());
+                    TalkableActivity.this.eLH.refreshNormal(TalkableActivity.this.eLI.getData());
                     return;
                 case 6:
-                    TalkableActivity.this.eIQ.refreshNormal(TalkableActivity.this.eIR.getData());
+                    TalkableActivity.this.eLH.refreshNormal(TalkableActivity.this.eLI.getData());
                     return;
                 case 7:
-                    TalkableActivity.this.eIQ.refreshNormal(TalkableActivity.this.eIR.getData());
+                    TalkableActivity.this.eLH.refreshNormal(TalkableActivity.this.eLI.getData());
                     return;
                 case 8:
                     if (obj != null && (obj instanceof String)) {
                         String str = (String) obj;
-                        TalkableActivity.this.eIQ.setDraft(str);
-                        TalkableActivity.this.eIR.setDraft(str);
+                        TalkableActivity.this.eLH.setDraft(str);
+                        TalkableActivity.this.eLI.setDraft(str);
                         return;
                     }
                     return;
                 case 9:
-                    TalkableActivity.this.eIZ = false;
+                    TalkableActivity.this.eLQ = false;
                     TalkableActivity.this.finish();
                     return;
                 case 10:
                     if (obj != null && (obj instanceof String)) {
-                        TalkableActivity.this.eIQ.refreshHeaderFooter((String) obj, true);
+                        TalkableActivity.this.eLH.refreshHeaderFooter((String) obj, true);
                         return;
                     }
                     return;
                 case 11:
                     TbadkCoreApplication.getInst().login(TalkableActivity.this.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(TalkableActivity.this.getPageContext().getContext())));
-                    TalkableActivity.this.eIZ = false;
+                    TalkableActivity.this.eLQ = false;
                     TalkableActivity.this.finish();
                     return;
                 case 12:
-                    TalkableActivity.this.eIQ.refreshGo2New(TalkableActivity.this.eIR.getData());
+                    TalkableActivity.this.eLH.refreshGo2New(TalkableActivity.this.eLI.getData());
                     return;
                 case 13:
-                    TalkableActivity.this.eIQ.refreshNormal(TalkableActivity.this.eIR.getData());
+                    TalkableActivity.this.eLH.refreshNormal(TalkableActivity.this.eLI.getData());
                     break;
                 case 14:
                     break;
                 default:
                     return;
             }
-            TalkableActivity.this.eIQ.refreshNormal(TalkableActivity.this.eIR.getData());
+            TalkableActivity.this.eLH.refreshNormal(TalkableActivity.this.eLI.getData());
         }
     };
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aOp() {
-        this.eIT = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.im.chat.TalkableActivity.1
+    public void aPd() {
+        this.eLK = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.im.chat.TalkableActivity.1
             @Override // com.baidu.adp.base.d
             public void m(Object obj) {
                 if (obj != null && (obj instanceof LocalPicModel.ResponseData)) {
                     LocalPicModel.ResponseData responseData = (LocalPicModel.ResponseData) obj;
-                    if (TalkableActivity.this.eIR != null) {
-                        TalkableActivity.this.eIR.sendPicMessage(responseData.getSPathGen(), responseData.getBitmap());
+                    if (TalkableActivity.this.eLI != null) {
+                        TalkableActivity.this.eLI.sendPicMessage(responseData.getSPathGen(), responseData.getBitmap());
                         return;
                     }
                     return;
@@ -200,20 +200,20 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
         setSwipeBackIsSupportNight(false);
         Intent intent = getIntent();
         if (intent != null) {
-            this.eIX = intent.getLongExtra("TibaStatic.StartTime", -1L);
+            this.eLO = intent.getLongExtra("TibaStatic.StartTime", -1L);
         } else {
-            this.eIX = System.currentTimeMillis();
+            this.eLO = System.currentTimeMillis();
         }
-        this.eIW = new a.InterfaceC0172a<ChatMessage>() { // from class: com.baidu.tieba.im.chat.TalkableActivity.2
+        this.eLN = new a.InterfaceC0172a<ChatMessage>() { // from class: com.baidu.tieba.im.chat.TalkableActivity.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.img.a.InterfaceC0172a
             /* renamed from: a */
             public void b(int i, ChatMessage chatMessage) {
-                TalkableActivity.this.eIQ.updateAdapter(i, chatMessage);
+                TalkableActivity.this.eLH.updateAdapter(i, chatMessage);
             }
         };
-        aOq();
-        aOs();
+        aPe();
+        aPg();
         addGlobalLayoutListener();
         setSkinType(0);
     }
@@ -235,9 +235,9 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
                         str2 = null;
                         str = TbConfig.IMAGE_RESIZED_FILE;
                     }
-                    if (this.eIS != null) {
-                        this.eIS.cancelLoadData();
-                        this.eIS = null;
+                    if (this.eLJ != null) {
+                        this.eLJ.cancelLoadData();
+                        this.eLJ = null;
                     }
                     String stringExtra2 = intent.getStringExtra(AlbumActivityConfig.ALBUM_RESULT);
                     if (stringExtra2 != null) {
@@ -260,25 +260,25 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
                             }, new com.baidu.tbadk.util.h<Object>() { // from class: com.baidu.tieba.im.chat.TalkableActivity.4
                                 @Override // com.baidu.tbadk.util.h
                                 public void onReturnDataInUI(Object obj) {
-                                    TalkableActivity.this.eIS = new LocalPicModel(str2, str, null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY);
-                                    TalkableActivity.this.eIS.setLoadDataCallBack(TalkableActivity.this.eIT);
-                                    TalkableActivity.this.eIS.getData();
-                                    TalkableActivity.this.eIQ.hideMore();
+                                    TalkableActivity.this.eLJ = new LocalPicModel(str2, str, null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY);
+                                    TalkableActivity.this.eLJ.setLoadDataCallBack(TalkableActivity.this.eLK);
+                                    TalkableActivity.this.eLJ.getData();
+                                    TalkableActivity.this.eLH.hideMore();
                                     TalkableActivity.this.writeImagesInfo.clear();
                                 }
                             });
                             return;
                         }
-                        this.eIS = new LocalPicModel(str2, str, null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY);
-                        this.eIS.setLoadDataCallBack(this.eIT);
-                        this.eIS.getData();
-                        this.eIQ.hideMore();
+                        this.eLJ = new LocalPicModel(str2, str, null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY);
+                        this.eLJ.setLoadDataCallBack(this.eLK);
+                        this.eLJ.getData();
+                        this.eLH.hideMore();
                         return;
                     }
-                    this.eIS = new LocalPicModel(str2, str, null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY);
-                    this.eIS.setLoadDataCallBack(this.eIT);
-                    this.eIS.getData();
-                    this.eIQ.hideMore();
+                    this.eLJ = new LocalPicModel(str2, str, null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY);
+                    this.eLJ.setLoadDataCallBack(this.eLK);
+                    this.eLJ.getData();
+                    this.eLH.hideMore();
                     return;
                 }
                 int maxChatImageWidthInPx = TiebaIMConfig.getMaxChatImageWidthInPx(getPageContext().getContext());
@@ -300,19 +300,19 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
             if (i == 12010) {
                 takePhoto();
             } else if (i == 12009 && !WriteImageActivityConfig.isActivityInStack) {
-                aOu();
+                aPi();
             }
         }
     }
 
     private void takePhoto() {
-        if (this.bzf == null) {
-            this.bzf = new com.baidu.tbadk.core.util.b.a();
+        if (this.bzi == null) {
+            this.bzi = new com.baidu.tbadk.core.util.b.a();
         }
         Activity pageActivity = getPageContext().getPageActivity();
-        this.bzf.Et();
-        this.bzf.c(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-        if (!this.bzf.A(pageActivity)) {
+        this.bzi.Et();
+        this.bzi.c(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+        if (!this.bzi.A(pageActivity)) {
             ak.b(getPageContext());
         }
     }
@@ -335,15 +335,15 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
     }
 
     public void b(View view, int i, int i2, long j) {
-        this.eIY = view;
-        ChatMessage msg = this.eIR.getMsg(i2);
+        this.eLP = view;
+        ChatMessage msg = this.eLI.getMsg(i2);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (msg != null && msg.getLocalData() != null && msg.getLocalData().getStatus().shortValue() != 1) {
             if (msg.getUserInfo() != null && currentAccountObj != null && !TextUtils.isEmpty(currentAccountObj.getID())) {
-                this.eIV = msg.getUserInfo().getUserIdLong() == Long.parseLong(currentAccountObj.getID());
+                this.eLM = msg.getUserInfo().getUserIdLong() == Long.parseLong(currentAccountObj.getID());
             }
             if (i == 3 || i == 4 || i == 5 || i == 7 || i == 8 || i == 9 || i == 10 || i == 15 || i == 11 || i == 17) {
-                this.eIQ.showDiaItemContentOperate(i2, u(i, this.eIV));
+                this.eLH.showDiaItemContentOperate(i2, u(i, this.eLM));
             }
         }
     }
@@ -413,20 +413,20 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         if (intent != null) {
-            this.eIX = intent.getLongExtra("TibaStatic.StartTime", -1L);
+            this.eLO = intent.getLongExtra("TibaStatic.StartTime", -1L);
         } else {
-            this.eIX = System.currentTimeMillis();
+            this.eLO = System.currentTimeMillis();
         }
-        aOq();
-        aOs();
+        aPe();
+        aPg();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (this.dIc != null) {
-            this.dIc.onStart(getPageContext());
+        if (this.dKQ != null) {
+            this.dKQ.onStart(getPageContext());
         }
     }
 
@@ -434,11 +434,11 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.bTK = false;
-        if (this.dIc != null) {
-            this.dIc.onPause(getPageContext());
+        this.bTN = false;
+        if (this.dKQ != null) {
+            this.dKQ.onPause(getPageContext());
         }
-        MessageManager.getInstance().unRegisterListener(this.eJa);
+        MessageManager.getInstance().unRegisterListener(this.eLR);
     }
 
     @Override // android.app.Activity
@@ -448,69 +448,69 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        return this.dIc;
+        return this.dKQ;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager.b c(VoiceData.VoiceModel voiceModel) {
-        if (this.eIQ == null || this.eIQ.getMsgListView() == null) {
+        if (this.eLH == null || this.eLH.getMsgListView() == null) {
             return null;
         }
-        View findViewWithTag = this.eIQ.getMsgListView().findViewWithTag(voiceModel);
+        View findViewWithTag = this.eLH.getMsgListView().findViewWithTag(voiceModel);
         if (findViewWithTag == null || !(findViewWithTag instanceof VoiceManager.b)) {
             return null;
         }
         return (VoiceManager.b) findViewWithTag;
     }
 
-    private void aOq() {
-        if (this.dIc == null) {
-            this.dIc = new VoiceManager();
-            this.dIc.onCreate(getPageContext());
+    private void aPe() {
+        if (this.dKQ == null) {
+            this.dKQ = new VoiceManager();
+            this.dKQ.onCreate(getPageContext());
         }
-        this.dIc.setSpeakerphoneOn(!TbadkCoreApplication.getInst().isHeadsetModeOn());
+        this.dKQ.setSpeakerphoneOn(!TbadkCoreApplication.getInst().isHeadsetModeOn());
     }
 
     @Override // com.baidu.tbadk.widget.richText.e
     public ListView getListView() {
-        if (this.eIQ == null) {
+        if (this.eLH == null) {
             return null;
         }
-        return this.eIQ.getMsgListView();
+        return this.eLH.getMsgListView();
     }
 
     @Override // com.baidu.tbadk.widget.richText.e
-    public int SG() {
+    public int SI() {
         return 0;
     }
 
     @Override // com.baidu.tbadk.widget.richText.e
-    public com.baidu.adp.lib.e.b<ImageView> SH() {
+    public com.baidu.adp.lib.e.b<ImageView> SJ() {
         return null;
     }
 
     @Override // com.baidu.tbadk.widget.richText.e
-    public com.baidu.adp.lib.e.b<TextView> SI() {
+    public com.baidu.adp.lib.e.b<TextView> SK() {
         return null;
     }
 
     @Override // com.baidu.tbadk.widget.richText.e
-    public com.baidu.adp.lib.e.b<GifView> SJ() {
+    public com.baidu.adp.lib.e.b<GifView> SL() {
         return null;
     }
 
     @Override // com.baidu.tbadk.widget.richText.e
-    public com.baidu.adp.lib.e.b<View> SK() {
+    public com.baidu.adp.lib.e.b<View> SM() {
         return null;
     }
 
     @Override // com.baidu.tbadk.widget.richText.e
-    public com.baidu.adp.lib.e.b<LinearLayout> SL() {
+    public com.baidu.adp.lib.e.b<LinearLayout> SN() {
         return null;
     }
 
     @Override // com.baidu.tbadk.widget.richText.e
-    public com.baidu.adp.lib.e.b<RelativeLayout> SM() {
+    public com.baidu.adp.lib.e.b<RelativeLayout> SO() {
         return null;
     }
 
@@ -545,8 +545,8 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (4 == i) {
-            if (this.eIQ != null && this.eIQ.isMoreVisible()) {
-                this.eIQ.hideMore();
+            if (this.eLH != null && this.eLH.isMoreVisible()) {
+                this.eLH.hideMore();
                 return true;
             }
             finish();
@@ -557,22 +557,22 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void finish() {
-        if (this.eIZ && this.eIQ != null) {
-            aOr();
+        if (this.eLQ && this.eLH != null) {
+            aPf();
         }
         super.finish();
     }
 
-    protected boolean aOr() {
-        return this.eIR.saveDraft(this.eIQ.getDraft());
+    protected boolean aPf() {
+        return this.eLI.saveDraft(this.eLH.getDraft());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.dIc != null) {
-            this.dIc.onStop(getPageContext());
+        if (this.dKQ != null) {
+            this.dKQ.onStop(getPageContext());
         }
     }
 
@@ -580,21 +580,21 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.bTK = true;
-        if (this.dIc != null) {
-            this.dIc.onResume(getPageContext());
-            this.dIc.setSpeakerphoneOn(TbadkCoreApplication.getInst().isHeadsetModeOn() ? false : true);
+        this.bTN = true;
+        if (this.dKQ != null) {
+            this.dKQ.onResume(getPageContext());
+            this.dKQ.setSpeakerphoneOn(TbadkCoreApplication.getInst().isHeadsetModeOn() ? false : true);
         }
-        registerListener(this.eJa);
+        registerListener(this.eLR);
     }
 
-    private void aAX() {
-        if (this.dIc != null) {
-            this.dIc.stopPlay();
+    private void aBM() {
+        if (this.dKQ != null) {
+            this.dKQ.stopPlay();
         }
     }
 
-    public boolean aOs() {
+    public boolean aPg() {
         if (l.hA()) {
             return true;
         }
@@ -603,21 +603,21 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aOt() {
-        final String beforeSendMsgText = this.eIQ.beforeSendMsgText();
+    public void aPh() {
+        final String beforeSendMsgText = this.eLH.beforeSendMsgText();
         if (!TextUtils.isEmpty(beforeSendMsgText)) {
-            this.eIQ.afterSendMsgText();
+            this.eLH.afterSendMsgText();
             this.handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.im.chat.TalkableActivity.6
                 @Override // java.lang.Runnable
                 public void run() {
-                    TalkableActivity.this.eIR.sendTextMessage(beforeSendMsgText);
+                    TalkableActivity.this.eLI.sendTextMessage(beforeSendMsgText);
                 }
             }, 100L);
         }
     }
 
-    public void aOu() {
-        if (aOs()) {
+    public void aPi() {
+        if (aPg()) {
             this.writeImagesInfo.mIsFromIm = true;
             AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) getPageContext().getPageActivity(), this.writeImagesInfo.toJsonString(), true, false);
             albumActivityConfig.setRequestCode(IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_CHECK);
@@ -628,14 +628,14 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view != null && this.eIQ != null) {
-            aAX();
-            if (view == this.eIQ.getBtnBack()) {
-                this.eIQ.sendmsgCloseSoftkey();
+        if (view != null && this.eLH != null) {
+            aBM();
+            if (view == this.eLH.getBtnBack()) {
+                this.eLH.sendmsgCloseSoftkey();
                 finish();
-            } else if (view == this.eIQ.getLayNewMsg()) {
-                this.eIQ.refreshGo2New(this.eIR.getData());
-                this.eIQ.closeNewMsg();
+            } else if (view == this.eLH.getLayNewMsg()) {
+                this.eLH.refreshGo2New(this.eLI.getData());
+                this.eLH.closeNewMsg();
             }
         }
     }
@@ -643,14 +643,14 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        if (this.dIc != null) {
-            this.dIc.onSaveInstanceState(getPageContext().getPageActivity());
+        if (this.dKQ != null) {
+            this.dKQ.onSaveInstanceState(getPageContext().getPageActivity());
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.eJc && motionEvent.getAction() == 261) {
+        if (this.eLT && motionEvent.getAction() == 261) {
             return true;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -658,54 +658,54 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (view == this.eIQ.getBtnSendVoice()) {
+        if (view == this.eLH.getBtnSendVoice()) {
             Activity pageActivity = getPageContext().getPageActivity();
-            if (this.bzf == null) {
-                this.bzf = new com.baidu.tbadk.core.util.b.a();
+            if (this.bzi == null) {
+                this.bzi = new com.baidu.tbadk.core.util.b.a();
             }
-            this.bzf.Et();
-            this.bzf.c(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-            this.bzf.c(pageActivity, "android.permission.RECORD_AUDIO");
-            if (this.bzf.A(pageActivity)) {
+            this.bzi.Et();
+            this.bzi.c(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+            this.bzi.c(pageActivity, "android.permission.RECORD_AUDIO");
+            if (this.bzi.A(pageActivity)) {
                 return false;
             }
             com.baidu.tieba.tbadkCore.voice.a recorderManager = getRecorderManager();
             if (motionEvent.getAction() == 0) {
-                if (this.dIc == null || !recorderManager.pQ()) {
+                if (this.dKQ == null || !recorderManager.pQ()) {
                     return true;
                 }
-                recorderManager.a(this.eIQ, -1);
-                this.eIQ.closeRecordCancel();
-                this.eIQ.refreshSendVoiceText(true);
-                this.eIQ.startRecordVoice();
-                this.eJc = true;
+                recorderManager.a(this.eLH, -1);
+                this.eLH.closeRecordCancel();
+                this.eLH.refreshSendVoiceText(true);
+                this.eLH.startRecordVoice();
+                this.eLT = true;
             } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
                 if (motionEvent.getY() < com.baidu.adp.lib.util.l.dip2px(getPageContext().getContext(), 5.0f) * (-1)) {
                     if (recorderManager != null) {
                         recorderManager.pP();
                     }
-                    this.eIQ.closeRecordCancel();
-                } else if (!this.bTK) {
+                    this.eLH.closeRecordCancel();
+                } else if (!this.bTN) {
                     if (recorderManager != null) {
                         recorderManager.pP();
                     }
-                    this.eIQ.stopRecordVoice();
+                    this.eLH.stopRecordVoice();
                 } else {
                     if (recorderManager != null) {
                         recorderManager.stopRecord();
                     }
-                    this.eIQ.stopRecordVoice();
+                    this.eLH.stopRecordVoice();
                 }
-                this.eIQ.refreshSendVoiceText(false);
-                this.eJc = false;
+                this.eLH.refreshSendVoiceText(false);
+                this.eLT = false;
             } else if (motionEvent.getAction() == 2) {
                 if (motionEvent.getY() < com.baidu.adp.lib.util.l.dip2px(getPageContext().getContext(), 5.0f) * (-1)) {
-                    this.eIQ.showRecordCancel();
-                    this.eIQ.stopRecordVoice();
-                    this.eJc = false;
+                    this.eLH.showRecordCancel();
+                    this.eLH.stopRecordVoice();
+                    this.eLT = false;
                 } else {
-                    this.eIQ.closeRecordCancel();
-                    this.eIQ.startRecordVoice();
+                    this.eLH.closeRecordCancel();
+                    this.eLH.startRecordVoice();
                 }
             }
             return true;
@@ -714,61 +714,61 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
     }
 
     public void c(p pVar) {
-        this.eIR.sendBigEmotionMessage(pVar);
+        this.eLI.sendBigEmotionMessage(pVar);
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.h
     public void onScrollToTop() {
-        aOv();
+        aPj();
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        this.eIQ.closeNewMsg();
+        this.eLH.closeNewMsg();
     }
 
-    private void aOv() {
-        this.eIR.loadPrepage();
+    private void aPj() {
+        this.eLI.loadPrepage();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.eIR != null) {
-            this.eIR.onDestroy();
+        if (this.eLI != null) {
+            this.eLI.onDestroy();
         }
         super.onDestroy();
-        if (this.dIc != null) {
-            this.dIc.onDestory(getPageContext());
+        if (this.dKQ != null) {
+            this.dKQ.onDestory(getPageContext());
         }
-        if (this.eIU != null) {
-            this.eIU = null;
+        if (this.eLL != null) {
+            this.eLL = null;
         }
-        if (this.eIS != null) {
-            this.eIS.cancelLoadData();
-            this.eIS = null;
+        if (this.eLJ != null) {
+            this.eLJ.cancelLoadData();
+            this.eLJ = null;
         }
-        if (this.eIQ != null) {
-            this.eIQ.onDestory();
+        if (this.eLH != null) {
+            this.eLH.onDestory();
         }
     }
 
     @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0158b
     public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
-        if (bVar == this.eIQ.getMsgItemOperationDialog()) {
+        if (bVar == this.eLH.getMsgItemOperationDialog()) {
             int intValue = ((Integer) bVar.getRootView().getTag()).intValue();
             if (view instanceof TextView) {
                 String charSequence = ((TextView) view).getText().toString();
                 if (!TextUtils.isEmpty(charSequence)) {
-                    P(intValue, charSequence);
-                    this.eIQ.getMsgItemOperationDialog().dismiss();
+                    Q(intValue, charSequence);
+                    this.eLH.getMsgItemOperationDialog().dismiss();
                 }
             }
         }
     }
 
-    protected void P(int i, String str) {
-        ChatMessage msg = this.eIR.getMsg(i);
+    protected void Q(int i, String str) {
+        ChatMessage msg = this.eLI.getMsg(i);
         if (str.equals(TbadkCoreApplication.getInst().getString(e.j.copy))) {
             if (msg != null && msg.getCacheData() != null) {
                 com.baidu.adp.lib.util.a.bg(msg.getContent());
@@ -776,38 +776,38 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
             }
         } else if (str.equals(TbadkCoreApplication.getInst().getString(e.j.msg_at))) {
             if (msg != null && msg.getUserInfo() != null && msg.getUserInfo().getUserName() != null) {
-                this.eIQ.addAt2SendMsg(msg.getUserInfo().getUserName());
+                this.eLH.addAt2SendMsg(msg.getUserInfo().getUserName());
             }
         } else if (str.equals(TbadkCoreApplication.getInst().getString(e.j.delete))) {
-            if ((this.eIY instanceof ChatVoiceView) && ((ChatVoiceView) this.eIY).isPlaying() && this.dIc != null) {
-                this.dIc.stopPlay();
+            if ((this.eLP instanceof ChatVoiceView) && ((ChatVoiceView) this.eLP).isPlaying() && this.dKQ != null) {
+                this.dKQ.stopPlay();
             }
-            this.eIR.markDeleteMsg(i);
+            this.eLI.markDeleteMsg(i);
             showToast(e.j.delete_success);
         } else if (str.equals(TbadkCoreApplication.getInst().getString(e.j.save))) {
             String P = com.baidu.tieba.im.util.e.P(msg.getContent(), true);
             if (P != null) {
                 Activity pageActivity = getPageContext().getPageActivity();
-                if (this.bzf == null) {
-                    this.bzf = new com.baidu.tbadk.core.util.b.a();
+                if (this.bzi == null) {
+                    this.bzi = new com.baidu.tbadk.core.util.b.a();
                 }
-                this.bzf.Et();
-                this.bzf.c(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-                if (!this.bzf.A(pageActivity)) {
-                    this.eIU = new i(P, this);
-                    this.eIU.execute();
+                this.bzi.Et();
+                this.bzi.c(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+                if (!this.bzi.A(pageActivity)) {
+                    this.eLL = new i(P, this);
+                    this.eLL.execute();
                 }
             }
         } else if (str.equals(TbadkCoreApplication.getInst().getString(e.j.group_open_receiver)) || str.equals(TbadkCoreApplication.getInst().getString(e.j.group_close_receiver))) {
             if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
                 TbadkCoreApplication.getInst().setHeadsetModeOn(false);
-                this.dIc.setSpeakerphoneOn(true);
-                this.eIQ.closeReceiver();
+                this.dKQ.setSpeakerphoneOn(true);
+                this.eLH.closeReceiver();
                 return;
             }
             TbadkCoreApplication.getInst().setHeadsetModeOn(true);
-            this.dIc.setSpeakerphoneOn(false);
-            this.eIQ.showReceiver();
+            this.dKQ.setSpeakerphoneOn(false);
+            this.eLH.showReceiver();
         }
     }
 
@@ -845,15 +845,15 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
             default:
                 return;
             case 5:
-                if (!aOs() || (msg2 = this.eIR.getMsg(i2)) == null || !com.baidu.tieba.im.util.e.v(msg2)) {
+                if (!aPg() || (msg2 = this.eLI.getMsg(i2)) == null || !com.baidu.tieba.im.util.e.v(msg2)) {
                 }
                 return;
             case 6:
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getContext(), TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getCurrentAccountName())));
                 return;
             case 8:
-                ChatMessage msg3 = this.eIR.getMsg(i2);
-                if (msg3 != null && com.baidu.tieba.im.util.e.x(msg3) && (msg = this.eIR.getMsg(i2)) != null && (content2 = msg.getContent()) != null) {
+                ChatMessage msg3 = this.eLI.getMsg(i2);
+                if (msg3 != null && com.baidu.tieba.im.util.e.x(msg3) && (msg = this.eLI.getMsg(i2)) != null && (content2 = msg.getContent()) != null) {
                     try {
                         JSONObject optJSONObject = new JSONObject(content2).optJSONObject("eventParam");
                         if (optJSONObject != null) {
@@ -868,7 +868,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
                 }
                 return;
             case 10:
-                ChatMessage msg4 = this.eIR.getMsg(i2);
+                ChatMessage msg4 = this.eLI.getMsg(i2);
                 if (msg4 != null && (content = msg4.getContent()) != null) {
                     try {
                         JSONArray jSONArray = new JSONArray(content);
@@ -881,17 +881,17 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
                     }
                     com.baidu.tieba.im.widget.a aVar2 = new com.baidu.tieba.im.widget.a();
                     aVar2.bW(msg4.getContent(), getClass().getName());
-                    if (aVar2.getSubType() == 1 && aVar2.aUC() != null) {
-                        String theNewThemeId = ((ShareFromPBMsgData) aVar2.aUC()).getTheNewThemeId();
+                    if (aVar2.getSubType() == 1 && aVar2.aVq() != null) {
+                        String theNewThemeId = ((ShareFromPBMsgData) aVar2.aVq()).getTheNewThemeId();
                         if (!StringUtils.isNull(theNewThemeId)) {
                             long d = com.baidu.adp.lib.g.b.d(theNewThemeId, 0L);
                             if (d > 0) {
-                                sendMessage(new CustomMessage(2002001, new PbChosenActivityConfig(getPageContext().getContext(), d, ((ShareFromPBMsgData) aVar2.aUC()).getImageUrl())));
+                                sendMessage(new CustomMessage(2002001, new PbChosenActivityConfig(getPageContext().getContext(), d, ((ShareFromPBMsgData) aVar2.aVq()).getImageUrl())));
                                 return;
                             }
                             return;
-                        } else if (!StringUtils.isNull(((ShareFromPBMsgData) aVar2.aUC()).getThreadId())) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getPageContext().getContext()).createNormalCfg(((ShareFromPBMsgData) aVar2.aUC()).getThreadId(), ((ShareFromPBMsgData) aVar2.aUC()).getPostId(), null)));
+                        } else if (!StringUtils.isNull(((ShareFromPBMsgData) aVar2.aVq()).getThreadId())) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getPageContext().getContext()).createNormalCfg(((ShareFromPBMsgData) aVar2.aVq()).getThreadId(), ((ShareFromPBMsgData) aVar2.aVq()).getPostId(), null)));
                             return;
                         } else {
                             return;
@@ -905,11 +905,11 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
                     showToast(TbadkCoreApplication.getInst().getString(e.j.rand_chat_waiting_net_error));
                     return;
                 }
-                ChatMessage msg5 = this.eIR.getMsg(i2);
+                ChatMessage msg5 = this.eLI.getMsg(i2);
                 if (msg5 != null && msg5.getContent() != null) {
                     com.baidu.tieba.im.widget.a aVar3 = new com.baidu.tieba.im.widget.a();
                     aVar3.bW(msg5.getContent(), getClass().getName());
-                    if (aVar3.getSubType() == 1 && aVar3.aUC() != null) {
+                    if (aVar3.getSubType() == 1 && aVar3.aVq() != null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001255, aVar3));
                         return;
                     }
@@ -921,12 +921,12 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
                     showToast(TbadkCoreApplication.getInst().getString(e.j.rand_chat_waiting_net_error));
                     return;
                 }
-                ChatMessage msg6 = this.eIR.getMsg(i2);
+                ChatMessage msg6 = this.eLI.getMsg(i2);
                 if (msg6 != null && msg6.getContent() != null) {
                     com.baidu.tieba.im.widget.a aVar4 = new com.baidu.tieba.im.widget.a();
                     aVar4.bW(msg6.getContent(), getClass().getName());
-                    if (aVar4.getSubType() == 1 && aVar4.aUC() != null) {
-                        ay.Ef().a(getPageContext(), new String[]{((ShareFromGameCenterMsgData) aVar4.aUC()).getShareSourceUrl()}, true);
+                    if (aVar4.getSubType() == 1 && aVar4.aVq() != null) {
+                        ay.Ef().a(getPageContext(), new String[]{((ShareFromGameCenterMsgData) aVar4.aVq()).getShareSourceUrl()}, true);
                         return;
                     }
                     return;
@@ -937,7 +937,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
                     showToast(TbadkCoreApplication.getInst().getString(e.j.rand_chat_waiting_net_error));
                     return;
                 }
-                ChatMessage msg7 = this.eIR.getMsg(i2);
+                ChatMessage msg7 = this.eLI.getMsg(i2);
                 if (msg7 != null && msg7.getContent() != null) {
                     try {
                         ay.Ef().a(getPageContext(), new String[]{new JSONArray(msg7.getContent()).getJSONObject(0).optString("shareSourceUrl")}, true);
@@ -949,12 +949,12 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
                 }
                 return;
             case 15:
-                ChatMessage msg8 = this.eIR.getMsg(i2);
+                ChatMessage msg8 = this.eLI.getMsg(i2);
                 if (msg8 != null && msg8.getContent() != null) {
                     com.baidu.tieba.im.widget.a aVar5 = new com.baidu.tieba.im.widget.a();
                     aVar5.bW(msg8.getContent(), getClass().getName());
-                    if (aVar5.getSubType() == 4 && aVar5.aUC() != null && !StringUtils.isNull(((ShareFromFrsMsgData) aVar5.aUC()).getName())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getPageContext().getContext()).createNormalCfg(((ShareFromFrsMsgData) aVar5.aUC()).getName(), null)));
+                    if (aVar5.getSubType() == 4 && aVar5.aVq() != null && !StringUtils.isNull(((ShareFromFrsMsgData) aVar5.aVq()).getName())) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getPageContext().getContext()).createNormalCfg(((ShareFromFrsMsgData) aVar5.aVq()).getName(), null)));
                         return;
                     }
                     return;
@@ -965,19 +965,19 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
 
     /* JADX INFO: Access modifiers changed from: private */
     public void reSendMsg(int i) {
-        this.eIR.reSendMsg(i);
+        this.eLI.reSendMsg(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void deleteMsg(int i) {
-        this.eIR.deleteMsg(i);
+        this.eLI.deleteMsg(i);
     }
 
     public com.baidu.tieba.tbadkCore.voice.a getRecorderManager() {
-        if (this.dIc == null || this.dIc.getRecorderManager() == null) {
+        if (this.dKQ == null || this.dKQ.getRecorderManager() == null) {
             return null;
         }
-        return this.dIc.getRecorderManager();
+        return this.dKQ.getRecorderManager();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity

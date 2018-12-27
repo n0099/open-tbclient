@@ -17,8 +17,8 @@ import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class g {
     private View amM;
-    private TextView ftD;
-    private View ftE;
+    private TextView fwv;
+    private View fww;
     private TbPageContext<?> mContext;
     private TableLayout mTableLayout;
 
@@ -28,20 +28,20 @@ public class g {
 
     public View oD() {
         this.amM = LayoutInflater.from(this.mContext.getPageActivity()).inflate(e.h.search_topic, (ViewGroup) null);
-        this.ftE = this.amM.findViewById(e.g.titleTopDivider);
-        this.ftE.setVisibility(0);
+        this.fww = this.amM.findViewById(e.g.titleTopDivider);
+        this.fww.setVisibility(0);
         this.mTableLayout = (TableLayout) this.amM.findViewById(e.g.search_topic_layout);
-        this.ftD = (TextView) this.amM.findViewById(e.g.square_search_fourm_header_text);
-        this.ftD.setText(this.mContext.getResources().getString(e.j.hot_topic_title));
+        this.fwv = (TextView) this.amM.findViewById(e.g.square_search_fourm_header_text);
+        this.fwv.setText(this.mContext.getResources().getString(e.j.hot_topic_title));
         return this.amM;
     }
 
     public void setTitleText(String str) {
-        if (this.ftD != null) {
+        if (this.fwv != null) {
             if (!StringUtils.isNull(str)) {
-                this.ftD.setText(str);
+                this.fwv.setText(str);
             } else {
-                this.ftD.setText(this.mContext.getResources().getString(e.j.hot_topic_title));
+                this.fwv.setText(this.mContext.getResources().getString(e.j.hot_topic_title));
             }
         }
     }
@@ -50,7 +50,7 @@ public class g {
         this.mTableLayout.removeAllViews();
         this.amM.setVisibility(8);
         this.mTableLayout.setVisibility(8);
-        this.ftD.setVisibility(8);
+        this.fwv.setVisibility(8);
     }
 
     public View a(c cVar, int i) {
@@ -62,7 +62,7 @@ public class g {
             imageView.setVisibility(0);
             imageView.setTag(Integer.valueOf(tag));
             d(imageView, tag, TbadkCoreApplication.getInst().getSkinType());
-            textView.setText(ai(cVar.getName(), 8));
+            textView.setText(aj(cVar.getName(), 8));
             linearLayout.setTag(cVar);
         } else {
             textView.setText(e.j.hot_forum_title_more);
@@ -93,7 +93,7 @@ public class g {
         }
     }
 
-    private String ai(String str, int i) {
+    private String aj(String str, int i) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -138,14 +138,14 @@ public class g {
         }
     }
 
-    public void jC(boolean z) {
-        this.ftE.setVisibility(z ? 0 : 8);
+    public void jF(boolean z) {
+        this.fww.setVisibility(z ? 0 : 8);
     }
 
     public void show() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         this.amM.setVisibility(0);
         this.mTableLayout.setVisibility(0);
-        this.ftD.setVisibility(0);
+        this.fwv.setVisibility(0);
     }
 }

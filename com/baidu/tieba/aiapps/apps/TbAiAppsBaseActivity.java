@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.view.d;
 import com.baidu.tieba.e;
 /* loaded from: classes4.dex */
 public class TbAiAppsBaseActivity extends BaseActivity<TbAiAppsBaseActivity> {
-    private AiAppsBdActionBar bEZ;
-    private d bib;
+    private AiAppsBdActionBar bFc;
+    private d bif;
     private RelativeLayout mRootView;
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -25,14 +25,14 @@ public class TbAiAppsBaseActivity extends BaseActivity<TbAiAppsBaseActivity> {
     @Override // android.app.Activity
     public void setContentView(View view) {
         View inflate = getLayoutInflater().inflate(e.h.delivery_base_layout, (ViewGroup) null);
-        this.bEZ = (AiAppsBdActionBar) inflate.findViewById(e.g.ai_apps_title_bar);
+        this.bFc = (AiAppsBdActionBar) inflate.findViewById(e.g.ai_apps_title_bar);
         this.mRootView = (RelativeLayout) inflate.findViewById(e.g.delivery_root);
         this.mRootView.addView(view, new RelativeLayout.LayoutParams(-1, -1));
         if (UtilHelper.canUseStyleImmersiveSticky()) {
             UtilHelper.useNavigationBarStyleImmersiveSticky(this);
             ((LinearLayout) inflate.findViewById(e.g.ai_apps_title_bar_container)).addView(createStateBarFillView(), 0);
         }
-        Xt();
+        Xv();
         super.setContentView(inflate);
     }
 
@@ -48,25 +48,25 @@ public class TbAiAppsBaseActivity extends BaseActivity<TbAiAppsBaseActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bib = new d(getPageContext());
-        this.bib.gk("加载中...");
-        this.bib.setCancelable(true);
+        this.bif = new d(getPageContext());
+        this.bif.gl("加载中...");
+        this.bif.setCancelable(true);
     }
 
-    private void Xt() {
-        if (this.bEZ != null) {
-            this.bEZ.setLeftTitleInvalidate(true);
-            this.bEZ.setRightTxtZone1Visibility(8);
-            this.bEZ.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbAiAppsBaseActivity.1
+    private void Xv() {
+        if (this.bFc != null) {
+            this.bFc.setLeftTitleInvalidate(true);
+            this.bFc.setRightTxtZone1Visibility(8);
+            this.bFc.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbAiAppsBaseActivity.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     TbAiAppsBaseActivity.this.onActionBarBackPressed();
                 }
             });
-            this.bEZ.setRightExitViewVisibility(false);
-            this.bEZ.setRightMenuVisibility(false);
-            this.bEZ.setLeftZoneImageSrcMinWidth(AiAppsUIUtils.dip2px(this, 38.0f));
-            this.bEZ.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbAiAppsBaseActivity.2
+            this.bFc.setRightExitViewVisibility(false);
+            this.bFc.setRightMenuVisibility(false);
+            this.bFc.setLeftZoneImageSrcMinWidth(AiAppsUIUtils.dip2px(this, 38.0f));
+            this.bFc.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbAiAppsBaseActivity.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     TbAiAppsBaseActivity.this.onActionBarBackPressed();
@@ -80,17 +80,17 @@ public class TbAiAppsBaseActivity extends BaseActivity<TbAiAppsBaseActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public AiAppsBdActionBar Xu() {
-        return this.bEZ;
+    public AiAppsBdActionBar Xw() {
+        return this.bFc;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void showLoading() {
-        this.bib.bA(true);
+        this.bif.bA(true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void dismissLoading() {
-        this.bib.bA(false);
+        this.bif.bA(false);
     }
 }

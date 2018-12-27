@@ -17,25 +17,25 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.view.userLike.b {
-    private boolean gyN;
+    private boolean gBE;
 
     public BlueLikeButton(Context context) {
         super(context);
-        this.gyN = false;
+        this.gBE = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gyN = false;
+        this.gBE = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gyN = false;
+        this.gBE = false;
     }
 
     public void bK(boolean z) {
-        this.gyN = z;
+        this.gBE = z;
         if (z) {
             setText(e.j.followed);
             setBackgroundDrawable(al.getDrawable(e.f.selector_like_button_gray_bg));
@@ -62,7 +62,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void eE(int i) {
+    public void eF(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
@@ -75,7 +75,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
             amVar.aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, TbadkCoreApplication.getInst().getTaskId());
             TiebaStatic.log(amVar);
         }
-        if (!this.gyN) {
+        if (!this.gBE) {
             Context context = getContext();
             if ((context instanceof Activity) && (context instanceof com.baidu.tbadk.pageStayDuration.a)) {
                 String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");
@@ -93,7 +93,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
     }
 
     public void onChangeSkinType(int i) {
-        if (this.gyN) {
+        if (this.gBE) {
             setBackgroundDrawable(al.getDrawable(e.f.selector_like_button_gray_bg));
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             al.c(this, e.d.cp_cont_e, 1);

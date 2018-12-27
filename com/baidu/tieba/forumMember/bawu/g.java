@@ -18,13 +18,13 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class g {
     private BdListView OF;
-    private com.baidu.tbadk.coreExtra.view.a aMS;
+    private com.baidu.tbadk.coreExtra.view.a aMU;
     private View amM;
-    private BawuTeamInfoActivity dEd;
-    private h dEe;
-    private NoNetworkView dEf;
-    private boolean dEg = false;
-    private h.b dEh;
+    private BawuTeamInfoActivity dGR;
+    private h dGS;
+    private NoNetworkView dGT;
+    private boolean dGU = false;
+    private h.b dGV;
     private NavigationBar mNavigationBar;
     private View mParent;
 
@@ -33,88 +33,88 @@ public class g {
     }
 
     public g(BawuTeamInfoActivity bawuTeamInfoActivity) {
-        this.dEd = bawuTeamInfoActivity;
-        this.amM = LayoutInflater.from(this.dEd.getPageContext().getPageActivity()).inflate(e.h.bawu_team_info_activity_layout, (ViewGroup) null);
-        this.dEd.setContentView(this.amM);
+        this.dGR = bawuTeamInfoActivity;
+        this.amM = LayoutInflater.from(this.dGR.getPageContext().getPageActivity()).inflate(e.h.bawu_team_info_activity_layout, (ViewGroup) null);
+        this.dGR.setContentView(this.amM);
         this.mParent = this.amM.findViewById(e.g.root_bawu_team_info);
         this.mNavigationBar = (NavigationBar) this.amM.findViewById(e.g.view_navigation_bar);
-        this.mNavigationBar.setCenterTextTitle(this.dEd.getString(e.j.bawu_manager_team));
+        this.mNavigationBar.setCenterTextTitle(this.dGR.getString(e.j.bawu_manager_team));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.showBottomLine();
-        this.dEf = (NoNetworkView) this.amM.findViewById(e.g.view_no_network);
+        this.dGT = (NoNetworkView) this.amM.findViewById(e.g.view_no_network);
         this.OF = (BdListView) this.amM.findViewById(e.g.listview_bawu_team_info);
-        this.dEe = new h(this.dEd.getPageContext());
-        this.OF.setAdapter((ListAdapter) this.dEe);
-        this.dEh = new h.b() { // from class: com.baidu.tieba.forumMember.bawu.g.1
+        this.dGS = new h(this.dGR.getPageContext());
+        this.OF.setAdapter((ListAdapter) this.dGS);
+        this.dGV = new h.b() { // from class: com.baidu.tieba.forumMember.bawu.g.1
             /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivity */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // com.baidu.tieba.forumMember.bawu.h.b
-            public void nO(String str) {
+            public void nR(String str) {
                 if (!TbadkCoreApplication.isLogin() || !StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
-                    ay.Ef().c(g.this.dEd.getPageContext(), new String[]{str});
+                    ay.Ef().c(g.this.dGR.getPageContext(), new String[]{str});
                 } else {
                     g.this.i(TbadkCoreApplication.getCurrentAccountInfo());
                 }
             }
         };
-        this.dEe.a(this.dEh);
+        this.dGS.a(this.dGV);
     }
 
     public void a(ArrayList<i> arrayList, p pVar, boolean z) {
         if (arrayList == null || arrayList.size() <= 0) {
-            this.dEg = true;
+            this.dGU = true;
         } else {
-            this.dEg = false;
+            this.dGU = false;
         }
-        if (z && this.dEg) {
-            azn();
+        if (z && this.dGU) {
+            aAc();
             return;
         }
-        azo();
-        this.dEe.N(arrayList);
-        this.dEe.a(pVar);
-        this.dEe.notifyDataSetChanged();
+        aAd();
+        this.dGS.N(arrayList);
+        this.dGS.a(pVar);
+        this.dGS.notifyDataSetChanged();
     }
 
-    public boolean azm() {
-        return this.dEg;
+    public boolean aAb() {
+        return this.dGU;
     }
 
     public void onChangeSkinType(int i) {
-        this.dEd.getLayoutMode().setNightMode(i == 1);
-        this.dEd.getLayoutMode().onModeChanged(this.amM);
-        this.mNavigationBar.onChangeSkinType(this.dEd.getPageContext(), i);
-        this.dEf.onChangeSkinType(this.dEd.getPageContext(), i);
-        this.dEe.notifyDataSetChanged();
+        this.dGR.getLayoutMode().setNightMode(i == 1);
+        this.dGR.getLayoutMode().onModeChanged(this.amM);
+        this.mNavigationBar.onChangeSkinType(this.dGR.getPageContext(), i);
+        this.dGT.onChangeSkinType(this.dGR.getPageContext(), i);
+        this.dGS.notifyDataSetChanged();
     }
 
-    public void azn() {
+    public void aAc() {
         this.OF.setVisibility(8);
-        this.dEd.showNetRefreshView(this.amM, this.dEd.getPageContext().getResources().getString(e.j.no_data_text), true);
+        this.dGR.showNetRefreshView(this.amM, this.dGR.getPageContext().getResources().getString(e.j.no_data_text), true);
     }
 
-    public void azo() {
-        this.dEd.hideNetRefreshView(this.amM);
+    public void aAd() {
+        this.dGR.hideNetRefreshView(this.amM);
         this.OF.setVisibility(0);
     }
 
     public void f(NoNetworkView.a aVar) {
-        this.dEf.a(aVar);
+        this.dGT.a(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i(AccountData accountData) {
-        if (this.aMS == null) {
-            this.aMS = new com.baidu.tbadk.coreExtra.view.a(this.dEd);
+        if (this.aMU == null) {
+            this.aMU = new com.baidu.tbadk.coreExtra.view.a(this.dGR);
         }
-        this.aMS.Ku();
-        this.aMS.setAccountData(accountData);
-        this.aMS.fr(1);
+        this.aMU.Kv();
+        this.aMU.setAccountData(accountData);
+        this.aMU.fs(1);
     }
 
     public void onDestroy() {
-        if (this.aMS != null) {
-            this.aMS.onDestroy();
+        if (this.aMU != null) {
+            this.aMU.onDestroy();
         }
     }
 }

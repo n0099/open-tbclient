@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private static int fKK = 3;
+    private static int fNC = 3;
     private Context mContext;
     private List<TransmitForumData> mDataList = new ArrayList();
 
@@ -60,45 +60,45 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     public static class a {
-        public TextView aJK;
-        public BarImageView fKM;
-        public View hUM;
+        public TextView aJM;
+        public BarImageView fNE;
+        public View hXX;
         public int mSkinType = 3;
 
         public a(View view) {
             if (view != null) {
-                this.aJK = (TextView) view.findViewById(e.g.transmit_forum_name);
-                this.fKM = (BarImageView) view.findViewById(e.g.forum_avatar);
-                this.hUM = view.findViewById(e.g.divider_line);
+                this.aJM = (TextView) view.findViewById(e.g.transmit_forum_name);
+                this.fNE = (BarImageView) view.findViewById(e.g.forum_avatar);
+                this.hXX = view.findViewById(e.g.divider_line);
             }
         }
 
         public void a(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
-                this.aJK.setText(transmitForumData.forumName);
-                this.fKM.startLoad(transmitForumData.avatar, 10, false);
+                this.aJM.setText(transmitForumData.forumName);
+                this.fNE.startLoad(transmitForumData.avatar, 10, false);
             }
         }
 
         public void Fj() {
-            if (b.fKK != this.mSkinType) {
-                al.h(this.aJK, e.d.cp_cont_b);
-                al.j(this.hUM, e.d.cp_bg_line_c);
+            if (b.fNC != this.mSkinType) {
+                al.h(this.aJM, e.d.cp_cont_b);
+                al.j(this.hXX, e.d.cp_bg_line_c);
             }
-            this.mSkinType = b.fKK;
+            this.mSkinType = b.fNC;
         }
     }
 
-    public void cV(List<TransmitForumData> list) {
+    public void cW(List<TransmitForumData> list) {
         this.mDataList.clear();
         this.mDataList.addAll(list);
         notifyDataSetChanged();
     }
 
     public void onChangeSkinType(int i) {
-        if (fKK != i) {
+        if (fNC != i) {
             notifyDataSetChanged();
         }
-        fKK = i;
+        fNC = i;
     }
 }

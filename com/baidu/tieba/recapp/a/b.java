@@ -8,38 +8,40 @@ import com.baidu.tbadk.a.f;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class b implements e {
-    private final HashMap<String, f> flA;
+
+    /* renamed from: for  reason: not valid java name */
+    private final HashMap<String, f> f0for;
 
     private b() {
-        this.flA = new HashMap<>();
+        this.f0for = new HashMap<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.recapp.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0305b {
-        private static b gLC = new b();
+        private static b gOt = new b();
     }
 
-    public static b buz() {
-        return C0305b.gLC;
+    public static b bvl() {
+        return C0305b.gOt;
     }
 
     public void a(Object obj, String str, HashMap<String, String> hashMap, d dVar) {
         if (str != null) {
-            a ux = a.ux(str);
-            f fVar = this.flA.get(ux.getKey());
-            if (fVar != null && ux.isValid()) {
+            a uA = a.uA(str);
+            f fVar = this.f0for.get(uA.getKey());
+            if (fVar != null && uA.isValid()) {
                 if (hashMap != null && !hashMap.isEmpty()) {
-                    ux.getParams().putAll(hashMap);
+                    uA.getParams().putAll(hashMap);
                 }
-                fVar.a(obj, ux.getParams(), str, dVar);
+                fVar.a(obj, uA.getParams(), str, dVar);
             }
         }
     }
 
     public void a(String str, f fVar) {
-        this.flA.put(str, fVar);
+        this.f0for.put(str, fVar);
     }
 
     public void a(com.baidu.tbadk.a.a aVar) {
@@ -80,7 +82,7 @@ public class b implements e {
             this.params = new HashMap<>();
         }
 
-        public static a ux(String str) {
+        public static a uA(String str) {
             return new a(str);
         }
     }

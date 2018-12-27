@@ -1,9 +1,11 @@
 package com.baidu.tieba.aiapps;
 
+import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.webkit.internal.ETAG;
 import java.net.URLEncoder;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,13 +24,17 @@ public class a {
                 sb.append("/");
             }
             sb.append(str2);
-            if (!str2.endsWith("/")) {
-                sb.append("/");
-            }
         } else {
             sb.append("/");
         }
-        sb.append("?");
+        if (!TextUtils.isEmpty(Uri.parse(sb.toString()).getQuery())) {
+            sb.append(ETAG.ITEM_SEPARATOR);
+        } else {
+            if (!sb.toString().endsWith("/")) {
+                sb.append("/");
+            }
+            sb.append("?");
+        }
         sb.append("_baiduboxapp=");
         JSONObject jSONObject = new JSONObject();
         try {

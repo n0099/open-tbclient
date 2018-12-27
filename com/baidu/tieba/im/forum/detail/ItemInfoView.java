@@ -20,7 +20,7 @@ import tbclient.PbContent;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes3.dex */
 public class ItemInfoView extends LinearLayout {
-    private TextView eOJ;
+    private TextView eRA;
 
     public ItemInfoView(Context context) {
         super(context);
@@ -36,14 +36,14 @@ public class ItemInfoView extends LinearLayout {
         setOrientation(1);
         LayoutInflater.from(context).inflate(e.h.forum_detail_info, (ViewGroup) this, true);
         setVisibility(8);
-        this.eOJ = (TextView) findViewById(e.g.info_brief_content);
+        this.eRA = (TextView) findViewById(e.g.info_brief_content);
     }
 
     public void setData(RecommendForumInfo recommendForumInfo) {
         if ((recommendForumInfo != null && recommendForumInfo.content != null && recommendForumInfo.content.size() > 0) || (recommendForumInfo != null && !ao.isEmpty(recommendForumInfo.slogan))) {
-            this.eOJ.setText(h(recommendForumInfo.content, recommendForumInfo.slogan));
+            this.eRA.setText(h(recommendForumInfo.content, recommendForumInfo.slogan));
         } else {
-            this.eOJ.setText(getResources().getString(e.j.forum_detail_info_no_brief));
+            this.eRA.setText(getResources().getString(e.j.forum_detail_info_no_brief));
         }
         setVisibility(0);
     }
@@ -56,7 +56,7 @@ public class ItemInfoView extends LinearLayout {
             PbContent pbContent = list.get(i);
             if (pbContent != null) {
                 if (pbContent.type.intValue() == 2) {
-                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(bVar.hD(pbContent.text));
+                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(bVar.hE(pbContent.text));
                     if (cashBitmap != null) {
                         BitmapDrawable bitmapDrawable = new BitmapDrawable(cashBitmap);
                         bitmapDrawable.setBounds(0, 0, cashBitmap.getWidth(), cashBitmap.getHeight());
@@ -73,7 +73,7 @@ public class ItemInfoView extends LinearLayout {
     }
 
     public void a(ForumDetailActivity forumDetailActivity, int i) {
-        al.c(this.eOJ, e.d.common_color_10177, 1);
+        al.c(this.eRA, e.d.common_color_10177, 1);
         forumDetailActivity.getLayoutMode().setNightMode(i == 1);
         forumDetailActivity.getLayoutMode().onModeChanged(this);
     }

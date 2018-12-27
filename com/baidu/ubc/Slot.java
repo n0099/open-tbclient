@@ -18,40 +18,40 @@ public class Slot implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: xH */
+        /* renamed from: xU */
         public Slot[] newArray(int i) {
             return new Slot[i];
         }
     };
-    private long ibZ;
-    private long ica;
-    private JSONObject icb;
-    private float icc;
+    private long ifm;
+    private long ifn;
+    private JSONObject ifo;
+    private float ifp;
     private String mCategory;
 
     public Slot(String str, long j, JSONObject jSONObject) {
-        this.ibZ = 0L;
-        this.ica = 0L;
-        this.ibZ = j;
+        this.ifm = 0L;
+        this.ifn = 0L;
+        this.ifm = j;
         this.mCategory = str;
-        this.icb = jSONObject;
+        this.ifo = jSONObject;
     }
 
     protected Slot(Parcel parcel) {
-        this.ibZ = 0L;
-        this.ica = 0L;
-        this.ibZ = parcel.readLong();
-        this.ica = parcel.readLong();
+        this.ifm = 0L;
+        this.ifn = 0L;
+        this.ifm = parcel.readLong();
+        this.ifn = parcel.readLong();
         this.mCategory = parcel.readString();
-        this.icc = parcel.readFloat();
+        this.ifp = parcel.readFloat();
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeLong(this.ibZ);
-        parcel.writeLong(this.ica);
+        parcel.writeLong(this.ifm);
+        parcel.writeLong(this.ifn);
         parcel.writeString(this.mCategory);
-        parcel.writeFloat(this.icc);
+        parcel.writeFloat(this.ifp);
     }
 
     @Override // android.os.Parcelable
@@ -60,36 +60,36 @@ public class Slot implements Parcelable {
     }
 
     public void setEnd(long j) {
-        if (j > 0 && j > this.ibZ) {
-            this.ica = j;
-            this.icc = (((float) (this.ica - this.ibZ)) / 1000.0f) + this.icc;
+        if (j > 0 && j > this.ifm) {
+            this.ifn = j;
+            this.ifp = (((float) (this.ifn - this.ifm)) / 1000.0f) + this.ifp;
         }
     }
 
     public void az(JSONObject jSONObject) {
-        this.icb = jSONObject;
+        this.ifo = jSONObject;
     }
 
-    public boolean bRo() {
-        return this.ibZ > 0;
+    public boolean bSf() {
+        return this.ifm > 0;
     }
 
-    public boolean bRp() {
-        return this.ica > 0;
+    public boolean bSg() {
+        return this.ifn > 0;
     }
 
     public void clean() {
-        this.ibZ = 0L;
-        this.ica = 0L;
+        this.ifm = 0L;
+        this.ifn = 0L;
     }
 
-    public JSONObject bRq() {
+    public JSONObject bSh() {
         JSONObject jSONObject;
         JSONException e;
-        if (TextUtils.isEmpty(this.mCategory) || this.icc <= 0.0f) {
+        if (TextUtils.isEmpty(this.mCategory) || this.ifp <= 0.0f) {
             return null;
         }
-        String format = String.format("%.3f", Float.valueOf(this.icc));
+        String format = String.format("%.3f", Float.valueOf(this.ifp));
         try {
             jSONObject = new JSONObject();
         } catch (JSONException e2) {
@@ -99,8 +99,8 @@ public class Slot implements Parcelable {
         try {
             jSONObject.put("id", this.mCategory);
             jSONObject.put("d", format);
-            if (this.icb != null) {
-                jSONObject.put("info", this.icb);
+            if (this.ifo != null) {
+                jSONObject.put("info", this.ifo);
                 return jSONObject;
             }
             return jSONObject;

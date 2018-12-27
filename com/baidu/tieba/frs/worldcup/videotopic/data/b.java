@@ -24,19 +24,19 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b<T> implements a {
-    public static final Integer ejP = 1;
-    public static final Integer ejQ = 2;
-    private com.baidu.tieba.frs.worldcup.videotopic.c.a ejJ;
-    private VideoTopicNetModelImpl ejR;
-    private VideoTopicRequestData ejS;
-    private Integer ejf;
-    private h ejl;
+    public static final Integer emF = 1;
+    public static final Integer emG = 2;
+    private Integer elV;
+    private VideoTopicNetModelImpl emH;
+    private VideoTopicRequestData emI;
+    private h emb;
+    private com.baidu.tieba.frs.worldcup.videotopic.c.a emz;
     private String mForumId;
     private TbPageContext mPageContext;
     private ArrayList<h> mThreadList;
     private Integer mPn = 1;
     private boolean hasMore = false;
-    private NetModel.b ejp = new NetModel.b() { // from class: com.baidu.tieba.frs.worldcup.videotopic.data.b.1
+    private NetModel.b emf = new NetModel.b() { // from class: com.baidu.tieba.frs.worldcup.videotopic.data.b.1
         @Override // com.baidu.tbadk.mvc.model.NetModel.c
         public void a(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
             d.a f = b.this.f(mvcHttpResponsedMessage);
@@ -58,52 +58,52 @@ public class b<T> implements a {
 
     public b(TbPageContext tbPageContext, com.baidu.tieba.frs.worldcup.videotopic.c.a aVar, Bundle bundle) {
         this.mPageContext = tbPageContext;
-        this.ejJ = aVar;
+        this.emz = aVar;
         if (bundle != null) {
-            this.ejf = Integer.valueOf(bundle.getInt(IntentConfig.TOPIC_ID, 0));
+            this.elV = Integer.valueOf(bundle.getInt(IntentConfig.TOPIC_ID, 0));
             this.mForumId = bundle.getString("forum_id");
         }
-        aIA();
+        aJp();
         fc();
     }
 
-    private void aIA() {
+    private void aJp() {
         this.mThreadList = new ArrayList<>();
-        this.ejl = new m();
-        this.mThreadList.add(this.ejl);
+        this.emb = new m();
+        this.mThreadList.add(this.emb);
     }
 
     private void fc() {
-        this.ejS = new VideoTopicRequestData();
+        this.emI = new VideoTopicRequestData();
         Integer valueOf = Integer.valueOf(l.aO(TbadkCoreApplication.getInst()));
         Integer valueOf2 = Integer.valueOf(l.aQ(TbadkCoreApplication.getInst()));
         Float valueOf3 = Float.valueOf(l.aR(TbadkCoreApplication.getInst()));
         Integer valueOf4 = Integer.valueOf(aq.DR().DT() ? 2 : 1);
-        this.ejS.setScrW(valueOf);
-        this.ejS.setScrH(valueOf2);
-        this.ejS.oS(Float.toString(valueOf3.floatValue()));
-        this.ejS.oT(Integer.toString(valueOf4.intValue()));
-        this.ejS.l(this.ejf);
-        this.ejS.setRn(10);
-        this.ejR = new VideoTopicNetModelImpl(this.mPageContext, this.ejS);
-        this.ejR.a(this.ejp);
+        this.emI.setScrW(valueOf);
+        this.emI.setScrH(valueOf2);
+        this.emI.oV(Float.toString(valueOf3.floatValue()));
+        this.emI.oW(Integer.toString(valueOf4.intValue()));
+        this.emI.l(this.elV);
+        this.emI.setRn(10);
+        this.emH = new VideoTopicNetModelImpl(this.mPageContext, this.emI);
+        this.emH.a(this.emf);
     }
 
     @Override // com.baidu.tieba.frs.worldcup.videotopic.data.a
     public void refresh() {
-        if (!this.ejR.Fi()) {
-            this.ejS.bZ(1L);
-            this.ejS.m(ejP);
-            this.ejR.Ow();
+        if (!this.emH.Fi()) {
+            this.emI.ce(1L);
+            this.emI.m(emF);
+            this.emH.Ox();
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.videotopic.data.a
-    public void aab() {
-        if (!this.ejR.Fi() && hasMore()) {
-            this.ejS.bZ(this.mPn.intValue());
-            this.ejS.m(ejQ);
-            this.ejR.Ow();
+    public void aad() {
+        if (!this.emH.Fi() && hasMore()) {
+            this.emI.ce(this.mPn.intValue());
+            this.emI.m(emG);
+            this.emH.Ox();
         }
     }
 
@@ -114,8 +114,8 @@ public class b<T> implements a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(d.a aVar, ArrayList<h> arrayList) {
-        if (this.ejJ != null) {
-            this.ejJ.a(aVar, arrayList);
+        if (this.emz != null) {
+            this.emz.a(aVar, arrayList);
         }
     }
 
@@ -126,8 +126,8 @@ public class b<T> implements a {
 
     @Override // com.baidu.tieba.frs.worldcup.videotopic.data.a
     public void onDestroy() {
-        if (this.ejR != null) {
-            this.ejR.cancelLoadData();
+        if (this.emH != null) {
+            this.emH.cancelLoadData();
         }
     }
 
@@ -135,11 +135,11 @@ public class b<T> implements a {
     public d.a f(ResponsedMessage responsedMessage) {
         d.a aVar = new d.a();
         if (responsedMessage != null) {
-            aVar.hhQ = j.kV() && (responsedMessage.getError() < -13 || responsedMessage.getError() > -10);
+            aVar.hlc = j.kV() && (responsedMessage.getError() < -13 || responsedMessage.getError() > -10);
             aVar.isSuccess = responsedMessage.hasError() ? false : true;
             aVar.errorCode = responsedMessage.getError();
             aVar.errorMsg = responsedMessage.getErrorString();
-            aVar.hhR = responsedMessage.getDownSize();
+            aVar.hld = responsedMessage.getDownSize();
         }
         return aVar;
     }
@@ -157,11 +157,11 @@ public class b<T> implements a {
         if (cVar != null) {
             ArrayList<h> a = a(cVar);
             if (!v.I(a)) {
-                this.mThreadList.remove(this.ejl);
-                if (i == ejP.intValue()) {
+                this.mThreadList.remove(this.emb);
+                if (i == emF.intValue()) {
                     this.mThreadList.clear();
                     this.mThreadList.addAll(0, a);
-                } else if (i == ejQ.intValue()) {
+                } else if (i == emG.intValue()) {
                     this.mThreadList.addAll(a);
                 }
             }
@@ -170,11 +170,11 @@ public class b<T> implements a {
 
     private ArrayList<h> a(c cVar) {
         ArrayList<h> arrayList = new ArrayList<>();
-        List<h> aIJ = cVar.aIJ();
-        if (aIJ == null) {
+        List<h> aJy = cVar.aJy();
+        if (aJy == null) {
             return arrayList;
         }
-        Iterator<h> it = aIJ.iterator();
+        Iterator<h> it = aJy.iterator();
         while (it.hasNext()) {
             bb bbVar = (bb) it.next();
             if (bbVar != null) {
@@ -186,7 +186,7 @@ public class b<T> implements a {
 
     private void b(c cVar) {
         if (cVar != null) {
-            this.hasMore = cVar.aIK().intValue() == 1;
+            this.hasMore = cVar.aJz().intValue() == 1;
         }
     }
 

@@ -18,19 +18,19 @@ import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private static a gKE;
-    private e fFU;
+    private static a gNv;
+    private e fIM;
     private int mScore = 0;
 
-    public static a bug() {
-        if (gKE == null) {
+    public static a buS() {
+        if (gNv == null) {
             synchronized (a.class) {
-                if (gKE == null) {
-                    gKE = new a();
+                if (gNv == null) {
+                    gNv = new a();
                 }
             }
         }
-        return gKE;
+        return gNv;
     }
 
     public void init() {
@@ -73,30 +73,30 @@ public class a {
         if (tbPageContext != null) {
             j jVar = new j(tbPageContext.getContext());
             jVar.setTitleText(tbPageContext.getContext().getString(e.j.is_tieba_pleased));
-            jVar.wP(8);
-            jVar.wO(0);
+            jVar.xc(8);
+            jVar.xb(0);
             int h = l.h(tbPageContext.getContext(), e.C0210e.ds86);
             int h2 = l.h(tbPageContext.getContext(), e.C0210e.ds138);
             int h3 = l.h(tbPageContext.getContext(), e.C0210e.ds27);
             jVar.setTitleSize(e.C0210e.ds28);
             jVar.setTitlePadding(0, h, 0, h3);
             jVar.z(0, 0, 0, h2);
-            jVar.on(true);
+            jVar.oq(true);
             jVar.a(new j.e() { // from class: com.baidu.tieba.n.a.1
                 @Override // com.baidu.tieba.view.j.e
-                public void tK(int i) {
-                    if (a.this.fFU != null) {
-                        a.this.fFU.dismiss();
-                        a.this.fFU = null;
+                public void tX(int i) {
+                    if (a.this.fIM != null) {
+                        a.this.fIM.dismiss();
+                        a.this.fIM = null;
                         a.this.mScore = i;
                         TiebaStatic.log(new am("c13072").x("obj_type", a.this.mScore));
                         a.this.A(tbPageContext);
                     }
                 }
             });
-            this.fFU = new com.baidu.tieba.person.e(tbPageContext.getContext(), jVar.bLY());
-            this.fFU.ax(0.7f);
-            g.a(this.fFU, tbPageContext);
+            this.fIM = new com.baidu.tieba.person.e(tbPageContext.getContext(), jVar.bMO());
+            this.fIM.ax(0.7f);
+            g.a(this.fIM, tbPageContext);
             TiebaStatic.log(new am("c13071"));
         }
     }
@@ -114,10 +114,10 @@ public class a {
             }
             ArrayList arrayList = new ArrayList();
             arrayList.add(aVar);
-            jVar.wN(this.mScore);
-            jVar.wO(0);
-            jVar.wP(0);
-            jVar.on(false);
+            jVar.xa(this.mScore);
+            jVar.xb(0);
+            jVar.xc(0);
+            jVar.oq(false);
             l.h(tbPageContext.getContext(), e.C0210e.ds42);
             int h = l.h(tbPageContext.getContext(), e.C0210e.ds32);
             l.h(tbPageContext.getContext(), e.C0210e.ds51);
@@ -126,9 +126,9 @@ public class a {
             aVar.a(new j.c() { // from class: com.baidu.tieba.n.a.2
                 @Override // com.baidu.tieba.view.j.c
                 public void onClick() {
-                    if (a.this.fFU != null) {
-                        a.this.fFU.dismiss();
-                        a.this.fFU = null;
+                    if (a.this.fIM != null) {
+                        a.this.fIM.dismiss();
+                        a.this.fIM = null;
                         if (a.this.mScore == 1 || a.this.mScore == 2) {
                             a.this.C(tbPageContext);
                             TiebaStatic.log(new am("c13077"));
@@ -142,9 +142,9 @@ public class a {
             jVar.a(new j.b() { // from class: com.baidu.tieba.n.a.3
                 @Override // com.baidu.tieba.view.j.b
                 public void onClick() {
-                    if (a.this.fFU != null) {
-                        a.this.fFU.dismiss();
-                        a.this.fFU = null;
+                    if (a.this.fIM != null) {
+                        a.this.fIM.dismiss();
+                        a.this.fIM = null;
                         if (a.this.mScore == 1 || a.this.mScore == 2) {
                             TiebaStatic.log(new am("c13078"));
                         } else {
@@ -153,10 +153,10 @@ public class a {
                     }
                 }
             });
-            jVar.ed(arrayList);
-            this.fFU = new com.baidu.tieba.person.e(tbPageContext.getContext(), jVar.bLY());
-            this.fFU.ax(0.7f);
-            g.a(this.fFU, tbPageContext);
+            jVar.ee(arrayList);
+            this.fIM = new com.baidu.tieba.person.e(tbPageContext.getContext(), jVar.bMO());
+            this.fIM.ax(0.7f);
+            g.a(this.fIM, tbPageContext);
             if (this.mScore == 1 || this.mScore == 2) {
                 TiebaStatic.log(new am("c13076"));
             } else {

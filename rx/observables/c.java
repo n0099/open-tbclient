@@ -12,7 +12,7 @@ public abstract class c<T> extends rx.d<T> {
         super(aVar);
     }
 
-    public rx.d<T> ceI() {
+    public rx.d<T> cfz() {
         return create(new s(this));
     }
 }

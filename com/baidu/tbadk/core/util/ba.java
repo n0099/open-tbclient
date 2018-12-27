@@ -16,10 +16,10 @@ import com.baidu.tieba.e;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class ba {
-    private static int aDg = -1;
     private static int aDh = -1;
-    private static boolean aDi = false;
-    private static com.baidu.adp.lib.e.a<Integer, Integer> aDj = new com.baidu.adp.lib.e.a<>(500);
+    private static int aDi = -1;
+    private static boolean aDj = false;
+    private static com.baidu.adp.lib.e.a<Integer, Integer> aDk = new com.baidu.adp.lib.e.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
@@ -29,13 +29,13 @@ public class ba {
 
     public static void bG(Context context) {
         mAppContext = context;
-        aDi = true;
+        aDj = true;
     }
 
     private static void Eg() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            aDh = mAppContext.getResources().getColor(e.d.common_color_10097);
-            aDg = mAppContext.getResources().getColor(e.d.common_color_10004);
+            aDi = mAppContext.getResources().getColor(e.d.common_color_10097);
+            aDh = mAppContext.getResources().getColor(e.d.common_color_10004);
         }
     }
 
@@ -45,11 +45,11 @@ public class ba {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static int bw(boolean z) {
-        if (aDi) {
-            aDi = false;
+        if (aDj) {
+            aDj = false;
             Eg();
         }
-        return z ? aDg : aDh;
+        return z ? aDh : aDi;
     }
 
     public static void J(View view) {
@@ -60,16 +60,16 @@ public class ba {
 
     public static void K(View view) {
         if (view != null) {
-            aDj.remove(Integer.valueOf(System.identityHashCode(view)));
+            aDk.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void b(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = aDj.get(Integer.valueOf(identityHashCode));
+        Integer num = aDk.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             c(viewGroup, i);
-            aDj.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            aDk.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 

@@ -118,7 +118,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
             this.mUseStyleImmersiveSticky = UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
         }
         TbadkCoreApplication.setIsAppRunning(true);
-        aw.fL(getClass().getName());
+        aw.fM(getClass().getName());
         registerListener(this.skinTypeChangeListener);
         enterExitAnimation();
         this.mIsLogin = TbadkCoreApplication.isLogin();
@@ -486,7 +486,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
         this.customToast.onResume();
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
         TbadkCoreApplication.getInst().AddResumeNum();
-        aw.fL(getClass().getName());
+        aw.fM(getClass().getName());
         TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (this.mIsLogin != isLogin) {
@@ -800,7 +800,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
         if (this.refreshView == null) {
             this.refreshView = new g(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.refreshView.in(str);
+        this.refreshView.io(str);
         this.refreshView.attachView(view, z);
     }
 
@@ -815,8 +815,8 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
     }
 
     protected void setNetRefreshLayoutMarginTopWhenIsNoNetworkViewDismiss(boolean z) {
-        if (this.refreshView != null && this.refreshView.isViewAttached() && this.refreshView.NJ() != null && (this.refreshView.NJ().getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ((ViewGroup.MarginLayoutParams) this.refreshView.NJ().getLayoutParams()).topMargin = z ? BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT, false) : BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        if (this.refreshView != null && this.refreshView.isViewAttached() && this.refreshView.NK() != null && (this.refreshView.NK().getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ((ViewGroup.MarginLayoutParams) this.refreshView.NK().getLayoutParams()).topMargin = z ? BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT, false) : BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
         }
     }
 

@@ -9,72 +9,72 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class i {
-    private String fhW;
-    private int fhX;
-    private int fhY;
-    private long fhV = 0;
-    private HashMap<String, Boolean> fhU = new HashMap<>();
+    private String fkP;
+    private int fkQ;
+    private int fkR;
+    private long fkO = 0;
+    private HashMap<String, Boolean> fkN = new HashMap<>();
 
-    public void qI(int i) {
-        this.fhY = i;
+    public void qV(int i) {
+        this.fkR = i;
     }
 
-    public int aWO() {
-        return this.fhY;
+    public int aXC() {
+        return this.fkR;
     }
 
     public void b(Bundle bundle, Intent intent) {
         if (bundle != null) {
-            this.fhW = bundle.getString(ImageViewerConfig.PV_TYPE);
+            this.fkP = bundle.getString(ImageViewerConfig.PV_TYPE);
         } else if (intent != null) {
-            this.fhW = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
+            this.fkP = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
             int intExtra = intent.getIntExtra("index", -1);
-            this.fhX = intExtra;
-            this.fhY = intExtra;
+            this.fkQ = intExtra;
+            this.fkR = intExtra;
         }
     }
 
     public void D(Bundle bundle) {
         if (bundle != null) {
-            bundle.putString(ImageViewerConfig.PV_TYPE, this.fhW);
+            bundle.putString(ImageViewerConfig.PV_TYPE, this.fkP);
         }
     }
 
     public void e(List<String> list, int i, int i2) {
-        synchronized (this.fhU) {
-            if (System.nanoTime() - this.fhV > 300000000 && list != null && i < list.size()) {
-                this.fhU.put(list.get(i), true);
+        synchronized (this.fkN) {
+            if (System.nanoTime() - this.fkO > 300000000 && list != null && i < list.size()) {
+                this.fkN.put(list.get(i), true);
             }
-            this.fhV = System.nanoTime();
-            if (list != null && i2 < list.size() && this.fhU.get(list.get(i2)) == null) {
-                this.fhU.put(list.get(i2), false);
+            this.fkO = System.nanoTime();
+            if (list != null && i2 < list.size() && this.fkN.get(list.get(i2)) == null) {
+                this.fkN.put(list.get(i2), false);
             }
         }
-        if (this.fhU.size() >= 100) {
-            aWP();
+        if (this.fkN.size() >= 100) {
+            aXD();
         }
     }
 
-    public void aWP() {
-        if (this.fhU != null) {
-            synchronized (this.fhU) {
-                if (this.fhU.size() > 0) {
+    public void aXD() {
+        if (this.fkN != null) {
+            synchronized (this.fkN) {
+                if (this.fkN.size() > 0) {
                     int i = 0;
-                    for (Map.Entry<String, Boolean> entry : this.fhU.entrySet()) {
+                    for (Map.Entry<String, Boolean> entry : this.fkN.entrySet()) {
                         if (entry.getValue().booleanValue()) {
                             i++;
                         }
                     }
-                    TbadkCoreApplication.getInst().sendImagePv(i, this.fhU.size(), this.fhW, this.fhX + 1, this.fhY + 1);
-                    this.fhU.clear();
+                    TbadkCoreApplication.getInst().sendImagePv(i, this.fkN.size(), this.fkP, this.fkQ + 1, this.fkR + 1);
+                    this.fkN.clear();
                 }
             }
         }
     }
 
-    public void U(int i, String str) {
-        if (i == 1 && System.nanoTime() - this.fhV > 300000000) {
-            this.fhU.put(str, true);
+    public void V(int i, String str) {
+        if (i == 1 && System.nanoTime() - this.fkO > 300000000) {
+            this.fkN.put(str, true);
         }
     }
 }

@@ -13,7 +13,7 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes6.dex */
 public class a {
-    private final c erk = new c();
+    private final c euc = new c();
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         if (i != 0 && i != 1) {
@@ -40,7 +40,7 @@ public class a {
                 } else if (l.S(bbVar)) {
                     l lVar = new l(bbVar);
                     lVar.tid = bbVar.getTid();
-                    lVar.kD(concernData.source.intValue());
+                    lVar.kQ(concernData.source.intValue());
                     if (lVar.isValid()) {
                         linkedList.add(lVar);
                     }
@@ -48,7 +48,7 @@ public class a {
                     j jVar = new j(bbVar);
                     if (jVar != null) {
                         jVar.tid = bbVar.getTid();
-                        jVar.mH("3");
+                        jVar.mK("3");
                     }
                     if (jVar != null && jVar.isValid()) {
                         linkedList.add(jVar);
@@ -56,17 +56,17 @@ public class a {
                 } else {
                     k kVar2 = new k();
                     kVar2.threadData = bbVar;
-                    kVar2.mH(kVar2.threadData.isLinkThread() ? "4" : "1");
+                    kVar2.mK(kVar2.threadData.isLinkThread() ? "4" : "1");
                     kVar2.isLinkThread = false;
-                    kVar2.kD(concernData.source.intValue());
+                    kVar2.kQ(concernData.source.intValue());
                     if (kVar2.threadData != null && kVar2.isValid() && !StringUtils.isNull(kVar2.threadData.getId()) && !"0".equals(kVar2.threadData.getTid())) {
                         linkedList.add(kVar2);
                     }
                 }
             }
         }
-        this.erk.bvL = linkedList;
-        return this.erk;
+        this.euc.bvO = linkedList;
+        return this.euc;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -93,7 +93,7 @@ public class a {
                     }
                 }
             }
-            this.erk.ewX = v.H(list) - H;
+            this.euc.ezQ = v.H(list) - H;
         }
     }
 

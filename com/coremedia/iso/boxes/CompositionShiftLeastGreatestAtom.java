@@ -77,7 +77,7 @@ public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
     }
 
     public void setCompositionOffsetToDisplayOffsetShift(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.ze(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.zr(i)));
         this.compositionOffsetToDisplayOffsetShift = i;
     }
 
@@ -87,7 +87,7 @@ public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
     }
 
     public void setLeastDisplayOffset(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.ze(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.zr(i)));
         this.leastDisplayOffset = i;
     }
 
@@ -97,7 +97,7 @@ public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
     }
 
     public void setGreatestDisplayOffset(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.ze(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.zr(i)));
         this.greatestDisplayOffset = i;
     }
 
@@ -107,7 +107,7 @@ public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
     }
 
     public void setDisplayStartTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.ze(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.zr(i)));
         this.displayStartTime = i;
     }
 
@@ -117,7 +117,7 @@ public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
     }
 
     public void setDisplayEndTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.ze(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.zr(i)));
         this.displayEndTime = i;
     }
 }

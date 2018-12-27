@@ -10,14 +10,14 @@ public class n {
 
     /* loaded from: classes2.dex */
     public interface b {
-        public static final b ijH = i.ijP;
-        public static final b ijI = h.ijP;
-        public static final b ijJ = f.ijP;
-        public static final b ijK = g.ijP;
-        public static final b ijL = c.ijP;
-        public static final b ijM = e.ijP;
-        public static final b ijN = d.ijP;
-        public static final b ijO = j.ijP;
+        public static final b imS = i.ina;
+        public static final b imT = h.ina;
+        public static final b imU = f.ina;
+        public static final b imV = g.ina;
+        public static final b imW = c.ina;
+        public static final b imX = e.ina;
+        public static final b imY = d.ina;
+        public static final b imZ = j.ina;
 
         Matrix a(Matrix matrix, Rect rect, int i, int i2, float f, float f2);
     }
@@ -64,7 +64,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class i extends a {
-        public static final b ijP = new i();
+        public static final b ina = new i();
 
         private i() {
         }
@@ -82,7 +82,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class h extends a {
-        public static final b ijP = new h();
+        public static final b ina = new h();
 
         private h() {
         }
@@ -101,7 +101,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class f extends a {
-        public static final b ijP = new f();
+        public static final b ina = new f();
 
         private f() {
         }
@@ -121,7 +121,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class g extends a {
-        public static final b ijP = new g();
+        public static final b ina = new g();
 
         private g() {
         }
@@ -141,7 +141,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class c extends a {
-        public static final b ijP = new c();
+        public static final b ina = new c();
 
         private c() {
         }
@@ -158,7 +158,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class e extends a {
-        public static final b ijP = new e();
+        public static final b ina = new e();
 
         private e() {
         }
@@ -178,7 +178,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class d extends a {
-        public static final b ijP = new d();
+        public static final b ina = new d();
 
         private d() {
         }
@@ -206,7 +206,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class j extends a {
-        public static final b ijP = new j();
+        public static final b ina = new j();
 
         private j() {
         }

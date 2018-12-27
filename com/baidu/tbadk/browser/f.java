@@ -232,8 +232,8 @@ public class f {
                     }
                 }
             });
-            aVar.ed(arrayList);
-            this.ane = new com.baidu.tieba.person.e(this.amL, aVar.bLY());
+            aVar.ee(arrayList);
+            this.ane = new com.baidu.tieba.person.e(this.amL, aVar.bMO());
             this.ane.ax(0.7f);
         }
         this.ane.show();

@@ -19,78 +19,78 @@ import java.util.ArrayList;
 @Deprecated
 /* loaded from: classes3.dex */
 public class c {
-    private TextView bAy;
-    private LinearLayout duP;
-    private BdListView eaY;
-    EditMarkActivity fGU;
-    private e fGV;
-    private com.baidu.tbadk.core.dialog.a fGW = null;
-    a.b fGX = null;
-    private boolean fGY = false;
+    private TextView bAB;
+    private LinearLayout dxC;
+    private BdListView edP;
+    EditMarkActivity fJM;
+    private e fJN;
+    private com.baidu.tbadk.core.dialog.a fJO = null;
+    a.b fJP = null;
+    private boolean fJQ = false;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
     private ProgressBar mProgressBar;
     private k mPullView;
 
     public c(EditMarkActivity editMarkActivity) {
-        this.fGU = null;
-        this.eaY = null;
+        this.fJM = null;
+        this.edP = null;
         this.mNoDataView = null;
-        this.fGV = null;
-        this.bAy = null;
-        this.duP = null;
+        this.fJN = null;
+        this.bAB = null;
+        this.dxC = null;
         this.mProgressBar = null;
-        this.fGU = editMarkActivity;
+        this.fJM = editMarkActivity;
         editMarkActivity.setContentView(e.h.edit_mark_activity);
         this.mProgressBar = (ProgressBar) editMarkActivity.findViewById(e.g.progress);
-        this.duP = (LinearLayout) editMarkActivity.findViewById(e.g.parent);
-        this.mNoDataView = NoDataViewFactory.a(this.fGU.getPageContext().getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) TbadkCoreApplication.getInst().getResources().getDimension(e.C0210e.ds160)), NoDataViewFactory.d.H(e.j.mark_nodata, e.j.mark_nodata_2), null);
-        this.duP.addView(this.mNoDataView, 1);
-        this.fGV = new e(editMarkActivity.getPageContext());
-        this.fGV.notifyDataSetChanged();
+        this.dxC = (LinearLayout) editMarkActivity.findViewById(e.g.parent);
+        this.mNoDataView = NoDataViewFactory.a(this.fJM.getPageContext().getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) TbadkCoreApplication.getInst().getResources().getDimension(e.C0210e.ds160)), NoDataViewFactory.d.H(e.j.mark_nodata, e.j.mark_nodata_2), null);
+        this.dxC.addView(this.mNoDataView, 1);
+        this.fJN = new e(editMarkActivity.getPageContext());
+        this.fJN.notifyDataSetChanged();
         this.mPullView = new k(editMarkActivity.getPageContext());
         this.mPullView.a(editMarkActivity);
-        this.eaY = (BdListView) editMarkActivity.findViewById(e.g.list);
-        this.eaY.setAdapter((ListAdapter) this.fGV);
-        this.eaY.setPullRefresh(this.mPullView);
-        this.eaY.setOnSrollToBottomListener(editMarkActivity);
-        this.eaY.setOnItemClickListener(editMarkActivity);
+        this.edP = (BdListView) editMarkActivity.findViewById(e.g.list);
+        this.edP.setAdapter((ListAdapter) this.fJN);
+        this.edP.setPullRefresh(this.mPullView);
+        this.edP.setOnSrollToBottomListener(editMarkActivity);
+        this.edP.setOnItemClickListener(editMarkActivity);
         this.mNavigationBar = (NavigationBar) editMarkActivity.findViewById(e.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(editMarkActivity.getResources().getString(e.j.my_mark));
-        this.bAy = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, editMarkActivity.getResources().getString(e.j.edit));
-        this.bAy.setOnClickListener(editMarkActivity);
-        this.bAy.setVisibility(4);
-        this.fGV.C(editMarkActivity);
+        this.bAB = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, editMarkActivity.getResources().getString(e.j.edit));
+        this.bAB.setOnClickListener(editMarkActivity);
+        this.bAB.setVisibility(4);
+        this.fJN.C(editMarkActivity);
     }
 
-    public TextView bdt() {
-        return this.bAy;
+    public TextView beh() {
+        return this.bAB;
     }
 
     public void c(a.b bVar) {
-        this.fGX = bVar;
+        this.fJP = bVar;
     }
 
-    public void bdu() {
-        if (!this.fGV.VU()) {
-            this.fGV.dq(true);
-            this.bAy.setText(e.j.done);
-            al.d(this.bAy, TbadkCoreApplication.getInst().getSkinType());
-            this.fGV.notifyDataSetChanged();
+    public void bei() {
+        if (!this.fJN.VW()) {
+            this.fJN.dq(true);
+            this.bAB.setText(e.j.done);
+            al.d(this.bAB, TbadkCoreApplication.getInst().getSkinType());
+            this.fJN.notifyDataSetChanged();
             return;
         }
-        this.fGV.dq(false);
-        this.bAy.setText(e.j.edit);
-        al.f(this.bAy, TbadkCoreApplication.getInst().getSkinType());
-        this.fGV.notifyDataSetChanged();
+        this.fJN.dq(false);
+        this.bAB.setText(e.j.edit);
+        al.f(this.bAB, TbadkCoreApplication.getInst().getSkinType());
+        this.fJN.notifyDataSetChanged();
     }
 
-    public boolean avq() {
-        return this.fGV.VU();
+    public boolean awf() {
+        return this.fJN.VW();
     }
 
-    public int bdv() {
+    public int bej() {
         return e.g.home_lv_markitem_delete;
     }
 
@@ -98,46 +98,46 @@ public class c {
         if (i == 0) {
             this.mProgressBar.setVisibility(0);
         }
-        this.fGV.setRefreshing(true);
-        this.fGV.notifyDataSetChanged();
+        this.fJN.setRefreshing(true);
+        this.fJN.notifyDataSetChanged();
     }
 
     public void showLoading() {
         this.mProgressBar.setVisibility(0);
     }
 
-    public void aFP() {
+    public void aGE() {
         this.mProgressBar.setVisibility(8);
     }
 
     public void a(String str, com.baidu.tieba.myCollection.baseEditMark.a aVar, boolean z) {
-        this.fGV.setRefreshing(true);
+        this.fJN.setRefreshing(true);
         if (str != null) {
-            this.fGU.showToast(str);
+            this.fJM.showToast(str);
         }
         if (aVar != null) {
-            if (aVar.bdI() != 0 || z || aVar.getCount() <= 0) {
+            if (aVar.beu() != 0 || z || aVar.getCount() <= 0) {
             }
-            if (aVar.bdI() < 20) {
-                this.fGV.setHasMore(false);
-                this.fGV.jX(aVar.isFirst() ? false : true);
+            if (aVar.beu() < 20) {
+                this.fJN.setHasMore(false);
+                this.fJN.ka(aVar.isFirst() ? false : true);
             } else {
-                this.fGV.setHasMore(true);
-                this.fGV.jX(true);
+                this.fJN.setHasMore(true);
+                this.fJN.ka(true);
             }
-            this.fGV.setData(aVar.bdH());
+            this.fJN.setData(aVar.bet());
             if (aVar.getCount() > 0) {
-                this.bAy.setVisibility(0);
+                this.bAB.setVisibility(0);
                 this.mNoDataView.setVisibility(8);
-                this.eaY.setVisibility(0);
-                this.fGV.notifyDataSetChanged();
+                this.edP.setVisibility(0);
+                this.fJN.notifyDataSetChanged();
             } else if (aVar.getCount() == 0 && !z) {
-                this.bAy.setVisibility(4);
+                this.bAB.setVisibility(4);
                 this.mNoDataView.setVisibility(0);
-                this.eaY.setVisibility(8);
+                this.edP.setVisibility(8);
             }
         }
-        this.fGV.setRefreshing(false);
+        this.fJN.setRefreshing(false);
         this.mProgressBar.setVisibility(8);
         if (z && !isPullRefreshing()) {
             showLoading();
@@ -148,85 +148,85 @@ public class c {
     }
 
     public void startSync() {
-        this.fGU.showLoadingDialog(this.fGU.getPageContext().getString(e.j.syncing));
+        this.fJM.showLoadingDialog(this.fJM.getPageContext().getString(e.j.syncing));
     }
 
     public void a(boolean z, String str, boolean z2) {
-        this.fGU.closeLoadingDialog();
+        this.fJM.closeLoadingDialog();
         if (str != null) {
-            this.fGU.showToast(str);
+            this.fJM.showToast(str);
         }
         if (z2) {
-            bdw();
+            bek();
         }
-        this.fGV.notifyDataSetChanged();
+        this.fJN.notifyDataSetChanged();
     }
 
-    public void awm() {
+    public void axb() {
         this.mProgressBar.setVisibility(0);
     }
 
     public void a(boolean z, String str, com.baidu.tieba.myCollection.baseEditMark.a aVar) {
         if (z) {
-            this.fGU.showToast(this.fGU.getPageContext().getString(e.j.delete_success));
-            if (aVar == null || aVar.bdH() == null) {
+            this.fJM.showToast(this.fJM.getPageContext().getString(e.j.delete_success));
+            if (aVar == null || aVar.bet() == null) {
                 this.mProgressBar.setVisibility(8);
                 return;
-            } else if (aVar.bdH().size() == 0) {
+            } else if (aVar.bet().size() == 0) {
                 aVar.a((Boolean) true, false);
             } else {
-                this.fGV.setData(aVar.bdH());
+                this.fJN.setData(aVar.bet());
             }
         } else {
-            this.fGU.showToast(str);
+            this.fJM.showToast(str);
         }
-        this.fGV.jX(false);
+        this.fJN.ka(false);
         this.mProgressBar.setVisibility(8);
     }
 
     public void aj(ArrayList<MarkData> arrayList) {
-        this.fGV.setData(arrayList);
+        this.fJN.setData(arrayList);
     }
 
-    private void bdw() {
-        if (this.fGW == null) {
-            this.fGW = new com.baidu.tbadk.core.dialog.a(this.fGU.getPageContext().getPageActivity());
-            this.fGW.eA(this.fGU.getPageContext().getString(e.j.sync_mark_fail));
-            this.fGW.eB(this.fGU.getPageContext().getString(e.j.neterror));
-            if (this.fGX != null) {
-                this.fGW.a(this.fGU.getPageContext().getString(e.j.retry_rightnow), this.fGX);
+    private void bek() {
+        if (this.fJO == null) {
+            this.fJO = new com.baidu.tbadk.core.dialog.a(this.fJM.getPageContext().getPageActivity());
+            this.fJO.eA(this.fJM.getPageContext().getString(e.j.sync_mark_fail));
+            this.fJO.eB(this.fJM.getPageContext().getString(e.j.neterror));
+            if (this.fJP != null) {
+                this.fJO.a(this.fJM.getPageContext().getString(e.j.retry_rightnow), this.fJP);
             }
-            this.fGW.b(this.fGU.getPageContext().getString(e.j.confirm), new a.b() { // from class: com.baidu.tieba.myCollection.c.1
+            this.fJO.b(this.fJM.getPageContext().getString(e.j.confirm), new a.b() { // from class: com.baidu.tieba.myCollection.c.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
                 }
             });
-            this.fGW.b(this.fGU.getPageContext());
-            this.fGW.bg(true);
+            this.fJO.b(this.fJM.getPageContext());
+            this.fJO.bg(true);
         }
-        this.fGW.BF();
+        this.fJO.BF();
     }
 
     public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(this.fGU.getPageContext(), i);
-        this.fGU.getLayoutMode().onModeChanged(this.duP);
+        this.mNavigationBar.onChangeSkinType(this.fJM.getPageContext(), i);
+        this.fJM.getLayoutMode().onModeChanged(this.dxC);
         if (this.mPullView != null) {
             this.mPullView.ey(i);
         }
         if (this.mNoDataView != null) {
-            this.mNoDataView.onChangeSkinType(this.fGU.getPageContext(), i);
+            this.mNoDataView.onChangeSkinType(this.fJM.getPageContext(), i);
         }
     }
 
-    public void bdx() {
-        this.fGV.notifyDataSetChanged();
+    public void bel() {
+        this.fJN.notifyDataSetChanged();
     }
 
     public void onDestroy() {
-        if (this.fGW != null) {
-            this.fGW.dismiss();
-            this.fGW = null;
+        if (this.fJO != null) {
+            this.fJO.dismiss();
+            this.fJO = null;
         }
         if (this.mProgressBar != null) {
             this.mProgressBar.setVisibility(8);
@@ -234,16 +234,16 @@ public class c {
     }
 
     public void completePullRefresh() {
-        if (this.eaY != null) {
-            this.eaY.completePullRefreshPostDelayed(SystemScreenshotManager.DELAY_TIME);
+        if (this.edP != null) {
+            this.edP.completePullRefreshPostDelayed(SystemScreenshotManager.DELAY_TIME);
         }
     }
 
     public boolean isPullRefreshing() {
-        return this.fGY;
+        return this.fJQ;
     }
 
     public void cE(boolean z) {
-        this.fGY = z;
+        this.fJQ = z;
     }
 }

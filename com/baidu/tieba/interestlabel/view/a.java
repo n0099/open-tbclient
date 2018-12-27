@@ -12,66 +12,66 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a implements View.OnClickListener {
-    private ViewGroup fjH;
-    private TextView fjI;
-    private TextView fjJ;
-    private ImageView fjK;
-    private TextView fjL;
-    private ImageView fjM;
-    private TextView fjN;
-    private int fjO;
-    private int fjP;
-    private int fjQ;
+    private TextView fmA;
+    private ImageView fmB;
+    private TextView fmC;
+    private ImageView fmD;
+    private TextView fmE;
+    private int fmF;
+    private int fmG;
+    private int fmH;
+    private ViewGroup fmy;
+    private TextView fmz;
 
     public a(Context context) {
-        this.fjH = (ViewGroup) LayoutInflater.from(context).inflate(e.h.label_recommend_header, (ViewGroup) null);
-        this.fjI = (TextView) this.fjH.findViewById(e.g.choose_like_label);
-        this.fjJ = (TextView) this.fjH.findViewById(e.g.recommend_interest_thread);
-        this.fjK = (ImageView) this.fjH.findViewById(e.g.male_icon);
-        this.fjL = (TextView) this.fjH.findViewById(e.g.male_text);
-        this.fjM = (ImageView) this.fjH.findViewById(e.g.female_icon);
-        this.fjN = (TextView) this.fjH.findViewById(e.g.female_text);
-        this.fjK.setOnClickListener(this);
-        this.fjM.setOnClickListener(this);
+        this.fmy = (ViewGroup) LayoutInflater.from(context).inflate(e.h.label_recommend_header, (ViewGroup) null);
+        this.fmz = (TextView) this.fmy.findViewById(e.g.choose_like_label);
+        this.fmA = (TextView) this.fmy.findViewById(e.g.recommend_interest_thread);
+        this.fmB = (ImageView) this.fmy.findViewById(e.g.male_icon);
+        this.fmC = (TextView) this.fmy.findViewById(e.g.male_text);
+        this.fmD = (ImageView) this.fmy.findViewById(e.g.female_icon);
+        this.fmE = (TextView) this.fmy.findViewById(e.g.female_text);
+        this.fmB.setOnClickListener(this);
+        this.fmD.setOnClickListener(this);
         onChangeSkinType();
     }
 
     private void onChangeSkinType() {
-        al.h(this.fjI, e.d.cp_cont_b);
-        al.h(this.fjJ, e.d.cp_cont_d);
-        al.c(this.fjK, e.f.img_lable_boy_n);
-        al.h(this.fjL, e.d.cp_cont_d);
-        al.c(this.fjM, e.f.img_lable_girl_n);
-        al.h(this.fjN, e.d.cp_cont_d);
+        al.h(this.fmz, e.d.cp_cont_b);
+        al.h(this.fmA, e.d.cp_cont_d);
+        al.c(this.fmB, e.f.img_lable_boy_n);
+        al.h(this.fmC, e.d.cp_cont_d);
+        al.c(this.fmD, e.f.img_lable_girl_n);
+        al.h(this.fmE, e.d.cp_cont_d);
     }
 
     public void setData(List<com.baidu.tieba.interestlabel.b.a> list) {
         if (v.H(list) == 2) {
-            this.fjO = list.get(0).labelId;
-            this.fjP = list.get(1).labelId;
+            this.fmF = list.get(0).labelId;
+            this.fmG = list.get(1).labelId;
         }
     }
 
-    public ViewGroup aXh() {
-        return this.fjH;
+    public ViewGroup aXV() {
+        return this.fmy;
     }
 
-    public int aXi() {
-        return this.fjQ;
+    public int aXW() {
+        return this.fmH;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
-        if (view == this.fjK) {
+        if (view == this.fmB) {
             z = true;
         } else {
-            z = view == this.fjM ? false : false;
+            z = view == this.fmD ? false : false;
         }
-        this.fjQ = z ? this.fjO : this.fjP;
-        al.c(this.fjK, z ? e.f.img_lable_boy_s : e.f.img_lable_boy_n);
-        al.h(this.fjL, z ? e.d.cp_link_tip_a : e.d.cp_cont_d);
-        al.c(this.fjM, z ? e.f.img_lable_girl_n : e.f.img_lable_girl_s);
-        al.h(this.fjN, z ? e.d.cp_cont_d : e.d.cp_cont_h);
+        this.fmH = z ? this.fmF : this.fmG;
+        al.c(this.fmB, z ? e.f.img_lable_boy_s : e.f.img_lable_boy_n);
+        al.h(this.fmC, z ? e.d.cp_link_tip_a : e.d.cp_cont_d);
+        al.c(this.fmD, z ? e.f.img_lable_girl_n : e.f.img_lable_girl_s);
+        al.h(this.fmE, z ? e.d.cp_cont_d : e.d.cp_cont_h);
     }
 }

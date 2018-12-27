@@ -19,13 +19,13 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class CardFrsGameSpecialTopicItemView extends LinearLayout {
-    private RelativeLayout cTQ;
-    private TbImageView cTR;
-    private TextView cTS;
-    private TextView cTT;
-    private TextView cTU;
-    private View cTq;
-    private View cTr;
+    private RelativeLayout cWG;
+    private TbImageView cWH;
+    private TextView cWI;
+    private TextView cWJ;
+    private TextView cWK;
+    private View cWg;
+    private View cWh;
     private String mForumId;
     public int mSkinType;
 
@@ -49,18 +49,18 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(e.h.card_frs_game_special_topic_view_item, (ViewGroup) this, true);
-        this.cTQ = (RelativeLayout) findViewById(e.g.card_frs_game_special_topic_layout);
-        this.cTR = (TbImageView) findViewById(e.g.card_frs_game_special_topic_img);
-        this.cTS = (TextView) findViewById(e.g.card_frs_game_special_topic_title);
-        this.cTT = (TextView) findViewById(e.g.card_frs_game_special_topic_dsc);
-        this.cTU = (TextView) findViewById(e.g.card_frs_game_special_topic_update_time);
-        this.cTq = findViewById(e.g.divider_line_1);
-        this.cTr = findViewById(e.g.divider_line_2);
+        this.cWG = (RelativeLayout) findViewById(e.g.card_frs_game_special_topic_layout);
+        this.cWH = (TbImageView) findViewById(e.g.card_frs_game_special_topic_img);
+        this.cWI = (TextView) findViewById(e.g.card_frs_game_special_topic_title);
+        this.cWJ = (TextView) findViewById(e.g.card_frs_game_special_topic_dsc);
+        this.cWK = (TextView) findViewById(e.g.card_frs_game_special_topic_update_time);
+        this.cWg = findViewById(e.g.divider_line_1);
+        this.cWh = findViewById(e.g.divider_line_2);
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(e.C0210e.tbds170) * 2;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cTQ.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cWG.getLayoutParams();
         layoutParams.width = (dimensionPixelSize * 21) / 9;
         layoutParams.height = dimensionPixelSize;
-        this.cTQ.setLayoutParams(layoutParams);
+        this.cWG.setLayoutParams(layoutParams);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -81,29 +81,29 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
     }
 
     public TbImageView getSpecialTopicPicView() {
-        return this.cTR;
+        return this.cWH;
     }
 
     public TextView getSpecialTopicNameView() {
-        return this.cTS;
+        return this.cWI;
     }
 
     public TextView getSpecialTopicUpdateTimeView() {
-        return this.cTU;
+        return this.cWK;
     }
 
     public TextView getSpecialTopicDscView() {
-        return this.cTT;
+        return this.cWJ;
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            al.i(this.cTq, e.d.cp_bg_line_e);
-            al.i(this.cTr, e.d.cp_bg_line_e);
-            al.c(this.cTS, e.d.cp_cont_i, 1);
-            al.c(this.cTT, e.d.cp_cont_i_alpha80, 1);
-            al.c(this.cTU, e.d.cp_cont_i_alpha80, 1);
+            al.i(this.cWg, e.d.cp_bg_line_e);
+            al.i(this.cWh, e.d.cp_bg_line_e);
+            al.c(this.cWI, e.d.cp_cont_i, 1);
+            al.c(this.cWJ, e.d.cp_cont_i_alpha80, 1);
+            al.c(this.cWK, e.d.cp_cont_i_alpha80, 1);
         }
     }
 }

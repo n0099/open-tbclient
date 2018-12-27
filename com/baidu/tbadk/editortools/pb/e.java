@@ -8,45 +8,45 @@ import com.baidu.tbadk.editortools.k;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class e extends k {
-    private EditText bai;
+    private EditText bal;
 
     public e(Context context) {
         super(context, (String) null, 27);
-        this.aYZ = false;
-        this.aYY = 3;
-        this.aYi = new PbNewInputContainer(context);
-        this.bai = ((PbNewInputContainer) this.aYi).getInputView();
-        ((PbNewInputContainer) this.aYi).setHint(context.getString(e.j.say_your_point));
-        this.aZa = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39};
+        this.aZc = false;
+        this.aZb = 3;
+        this.aYl = new PbNewInputContainer(context);
+        this.bal = ((PbNewInputContainer) this.aYl).getInputView();
+        ((PbNewInputContainer) this.aYl).setHint(context.getString(e.j.say_your_point));
+        this.aZd = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39};
     }
 
     public void b(TextWatcher textWatcher) {
-        this.bai.addTextChangedListener(textWatcher);
+        this.bal.addTextChangedListener(textWatcher);
     }
 
     public void c(TextWatcher textWatcher) {
-        this.bai.removeTextChangedListener(textWatcher);
+        this.bal.removeTextChangedListener(textWatcher);
     }
 
     public void setHint(String str) {
-        if (this.aYi != null && !StringUtils.isNull(str)) {
-            ((PbNewInputContainer) this.aYi).setHint(str);
+        if (this.aYl != null && !StringUtils.isNull(str)) {
+            ((PbNewInputContainer) this.aYl).setHint(str);
         }
     }
 
     public EditText getInputView() {
-        return this.bai;
+        return this.bal;
     }
 
     public void setType(int i) {
-        if (this.aYi != null) {
-            ((PbNewInputContainer) this.aYi).setType(i);
+        if (this.aYl != null) {
+            ((PbNewInputContainer) this.aYl).setType(i);
         }
     }
 
-    public void fS(int i) {
-        if (this.aYi != null) {
-            ((PbNewInputContainer) this.aYi).fS(i);
+    public void fT(int i) {
+        if (this.aYl != null) {
+            ((PbNewInputContainer) this.aYl).fT(i);
         }
     }
 }

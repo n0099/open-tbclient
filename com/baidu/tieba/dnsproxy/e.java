@@ -31,14 +31,14 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public class e {
-    private static e dkU = null;
+    private static e dnL = null;
     private static final Random random = new Random();
     private final String Bj = "c.tieba.baidu.com";
-    private HashSet<String> dkV = new HashSet<>();
-    private Map<String, List<DnsProxyResponseData.DnsProxyIpData>> dkW = new ConcurrentHashMap();
-    private Map<String, List<DnsProxyResponseData.DnsProxyIpData>> dkX = new ConcurrentHashMap();
-    private Map<String, List<DnsProxyResponseData.DnsProxyIpData>> dkY = new ConcurrentHashMap();
-    private BroadcastReceiver dkZ = new BroadcastReceiver() { // from class: com.baidu.tieba.dnsproxy.e.1
+    private HashSet<String> dnM = new HashSet<>();
+    private Map<String, List<DnsProxyResponseData.DnsProxyIpData>> dnN = new ConcurrentHashMap();
+    private Map<String, List<DnsProxyResponseData.DnsProxyIpData>> dnO = new ConcurrentHashMap();
+    private Map<String, List<DnsProxyResponseData.DnsProxyIpData>> dnP = new ConcurrentHashMap();
+    private BroadcastReceiver dnQ = new BroadcastReceiver() { // from class: com.baidu.tieba.dnsproxy.e.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (intent != null && "com.baidu.tieba.dnsproxy.dnsproxydata".equals(intent.getAction())) {
@@ -59,75 +59,75 @@ public class e {
                             concurrentHashMap.put(str, arrayList);
                         }
                         if (concurrentHashMap.size() > 0) {
-                            e.this.dkX.clear();
-                            e.this.dkX.putAll(concurrentHashMap);
-                            e.this.fV(true);
+                            e.this.dnO.clear();
+                            e.this.dnO.putAll(concurrentHashMap);
+                            e.this.fX(true);
                         }
                     }
                 } catch (Throwable th) {
                     BdLog.detailException(th);
-                    d.atU().aX("dpm_broadcast", th.getMessage());
+                    d.auJ().aX("dpm_broadcast", th.getMessage());
                 }
             }
         }
     };
-    private CustomMessageListener dla = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.dnsproxy.e.4
+    private CustomMessageListener dnR = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.dnsproxy.e.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if ((customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.kV()) {
-                com.baidu.tieba.dnsproxy.a.d.aui().auj();
-                e.this.atW();
+                com.baidu.tieba.dnsproxy.a.d.auX().auY();
+                e.this.auL();
             }
         }
     };
-    private CustomMessageListener dlb = new CustomMessageListener(2001011) { // from class: com.baidu.tieba.dnsproxy.e.5
+    private CustomMessageListener dnS = new CustomMessageListener(2001011) { // from class: com.baidu.tieba.dnsproxy.e.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                 if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    com.baidu.adp.lib.g.e.jG().removeCallbacks(e.this.dld);
-                    DnsProxyStatic.aua();
-                    DnsProxyStatic.aub();
-                    com.baidu.tieba.dnsproxy.a.c.aue().aug();
+                    com.baidu.adp.lib.g.e.jG().removeCallbacks(e.this.dnU);
+                    DnsProxyStatic.auP();
+                    DnsProxyStatic.auQ();
+                    com.baidu.tieba.dnsproxy.a.c.auT().auV();
                     return;
                 }
-                e.this.atW();
+                e.this.auL();
             }
         }
     };
     private Handler mHandler = null;
-    private HandlerThread dlc = new HandlerThread(getClass().getName());
-    private Runnable dld = new Runnable() { // from class: com.baidu.tieba.dnsproxy.e.7
+    private HandlerThread dnT = new HandlerThread(getClass().getName());
+    private Runnable dnU = new Runnable() { // from class: com.baidu.tieba.dnsproxy.e.7
         @Override // java.lang.Runnable
         public void run() {
-            e.this.atW();
+            e.this.auL();
         }
     };
-    private long dle = 0;
-    private c dlf = null;
+    private long dnV = 0;
+    private c dnW = null;
 
-    public static final e atV() {
-        if (dkU == null) {
+    public static final e auK() {
+        if (dnL == null) {
             synchronized (e.class) {
-                if (dkU == null) {
-                    dkU = new e();
+                if (dnL == null) {
+                    dnL = new e();
                 }
             }
         }
-        return dkU;
+        return dnL;
     }
 
     private e() {
-        this.dlc.start();
+        this.dnT.start();
     }
 
     public void h(final Runnable runnable) {
         if (runnable != null) {
             if (this.mHandler == null) {
-                if (this.dlc.getLooper() != null) {
-                    this.mHandler = new Handler(this.dlc.getLooper());
+                if (this.dnT.getLooper() != null) {
+                    this.mHandler = new Handler(this.dnT.getLooper());
                     this.mHandler.post(runnable);
                 }
                 com.baidu.adp.lib.g.e.jG().postDelayed(new Runnable() { // from class: com.baidu.tieba.dnsproxy.e.6
@@ -142,13 +142,13 @@ public class e {
         }
     }
 
-    protected void atW() {
-        atX();
-        com.baidu.adp.lib.g.e.jG().removeCallbacks(this.dld);
-        com.baidu.adp.lib.g.e.jG().postDelayed(this.dld, ReportUserInfoModel.TIME_INTERVAL);
+    protected void auL() {
+        auM();
+        com.baidu.adp.lib.g.e.jG().removeCallbacks(this.dnU);
+        com.baidu.adp.lib.g.e.jG().postDelayed(this.dnU, ReportUserInfoModel.TIME_INTERVAL);
     }
 
-    private void atX() {
+    private void auM() {
         new g() { // from class: com.baidu.tieba.dnsproxy.e.8
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -156,36 +156,36 @@ public class e {
             /* renamed from: o */
             public void onPostExecute(HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> hashMap) {
                 super.onPostExecute(hashMap);
-                e.this.dkY.clear();
+                e.this.dnP.clear();
                 if (hashMap != null) {
-                    e.this.dkY.putAll(hashMap);
-                    e.this.fV(false);
+                    e.this.dnP.putAll(hashMap);
+                    e.this.fX(false);
                 }
             }
-        }.execute(new HashSet(this.dkV));
+        }.execute(new HashSet(this.dnM));
     }
 
-    public void fU(final boolean z) {
+    public void fW(final boolean z) {
         if (z || TbadkCoreApplication.getInst().isMainProcess(false)) {
             if (!l.lk()) {
                 com.baidu.adp.lib.g.e.jG().post(new Runnable() { // from class: com.baidu.tieba.dnsproxy.e.9
                     @Override // java.lang.Runnable
                     public void run() {
-                        e.this.fU(z);
+                        e.this.fW(z);
                     }
                 });
-            } else if (this.dlf == null && System.currentTimeMillis() - this.dle >= 5000) {
+            } else if (this.dnW == null && System.currentTimeMillis() - this.dnV >= 5000) {
                 if (!z) {
-                    this.dle = System.currentTimeMillis();
+                    this.dnV = System.currentTimeMillis();
                 }
-                this.dlf = new c(z) { // from class: com.baidu.tieba.dnsproxy.e.10
+                this.dnW = new c(z) { // from class: com.baidu.tieba.dnsproxy.e.10
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                     /* renamed from: o */
                     public void onPostExecute(HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> hashMap) {
                         super.onPostExecute(hashMap);
-                        e.this.dlf = null;
+                        e.this.dnW = null;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -197,21 +197,21 @@ public class e {
                         if (hashMapArr != null && hashMapArr.length > 0) {
                             if (hashMapArr[0] != null) {
                                 p(hashMapArr[0]);
-                            } else if (this.dkS) {
-                                e.this.dlf = null;
-                                e.this.fU(false);
+                            } else if (this.dnJ) {
+                                e.this.dnW = null;
+                                e.this.fW(false);
                             }
-                        } else if (this.dkS) {
-                            e.this.dlf = null;
-                            e.this.fU(false);
+                        } else if (this.dnJ) {
+                            e.this.dnW = null;
+                            e.this.fW(false);
                         }
                     }
 
                     private void p(HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> hashMap) {
-                        e.this.dkX.clear();
+                        e.this.dnO.clear();
                         if (hashMap != null) {
-                            e.this.dkX.putAll(hashMap);
-                            e.this.fV(true);
+                            e.this.dnO.putAll(hashMap);
+                            e.this.fX(true);
                             if (TbadkCoreApplication.getInst().isMainProcess(false)) {
                                 Intent intent = new Intent();
                                 intent.setAction("com.baidu.tieba.dnsproxy.dnsproxydata");
@@ -232,49 +232,49 @@ public class e {
                         }
                     }
                 };
-                this.dlf.execute(new HashSet(this.dkV));
+                this.dnW.execute(new HashSet(this.dnM));
             }
         }
     }
 
     public void start() {
-        this.dkV.add("c.tieba.baidu.com");
+        this.dnM.add("c.tieba.baidu.com");
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            MessageManager.getInstance().unRegisterListener(this.dla);
-            MessageManager.getInstance().registerListener(this.dla);
+            MessageManager.getInstance().unRegisterListener(this.dnR);
+            MessageManager.getInstance().registerListener(this.dnR);
         }
-        MessageManager.getInstance().unRegisterListener(this.dlb);
-        MessageManager.getInstance().registerListener(this.dlb);
-        com.baidu.tieba.dnsproxy.a.d.aui().open();
+        MessageManager.getInstance().unRegisterListener(this.dnS);
+        MessageManager.getInstance().registerListener(this.dnS);
+        com.baidu.tieba.dnsproxy.a.d.auX().open();
         com.baidu.adp.lib.g.e.jG().post(new Runnable() { // from class: com.baidu.tieba.dnsproxy.e.11
             @Override // java.lang.Runnable
             public void run() {
-                e.this.atW();
+                e.this.auL();
             }
         });
-        fU(true);
+        fW(true);
         if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-            TbadkCoreApplication.getInst().unregisterReceiver(this.dkZ);
+            TbadkCoreApplication.getInst().unregisterReceiver(this.dnQ);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.baidu.tieba.dnsproxy.dnsproxydata");
-            TbadkCoreApplication.getInst().registerReceiver(this.dkZ, intentFilter);
+            TbadkCoreApplication.getInst().registerReceiver(this.dnQ, intentFilter);
         }
     }
 
     public void close() {
-        this.dkV.clear();
-        com.baidu.tieba.dnsproxy.a.d.aui().close();
-        com.baidu.adp.lib.g.e.jG().removeCallbacks(this.dld);
-        MessageManager.getInstance().unRegisterListener(this.dla);
-        MessageManager.getInstance().unRegisterListener(this.dlb);
-        TbadkCoreApplication.getInst().unregisterReceiver(this.dkZ);
+        this.dnM.clear();
+        com.baidu.tieba.dnsproxy.a.d.auX().close();
+        com.baidu.adp.lib.g.e.jG().removeCallbacks(this.dnU);
+        MessageManager.getInstance().unRegisterListener(this.dnR);
+        MessageManager.getInstance().unRegisterListener(this.dnS);
+        TbadkCoreApplication.getInst().unregisterReceiver(this.dnQ);
     }
 
     public String G(String str, boolean z) {
-        if (!TextUtils.isEmpty(str) && this.dkV.contains(str)) {
-            String a = a(str, this.dkW, z);
+        if (!TextUtils.isEmpty(str) && this.dnM.contains(str)) {
+            String a = a(str, this.dnN, z);
             if (TextUtils.isEmpty(a)) {
-                return a(str, this.dkX, z);
+                return a(str, this.dnO, z);
             }
             return a;
         }
@@ -289,7 +289,7 @@ public class e {
         if (list != null && list.size() > 0) {
             if (list.size() == 1) {
                 String ip = list.get(0).getIp();
-                if (random.nextFloat() < com.baidu.tieba.dnsproxy.a.d.aui().bq("c.tieba.baidu.com", ip)) {
+                if (random.nextFloat() < com.baidu.tieba.dnsproxy.a.d.auX().bq("c.tieba.baidu.com", ip)) {
                     return ip;
                 }
             } else {
@@ -304,7 +304,7 @@ public class e {
                             }
                             if (dnsProxyIpData != null || dnsProxyIpData2 == null) {
                                 if (dnsProxyIpData == null || dnsProxyIpData2 != null) {
-                                    return com.baidu.tieba.dnsproxy.a.d.aui().br(str, dnsProxyIpData.getIp()) - com.baidu.tieba.dnsproxy.a.d.aui().br(str, dnsProxyIpData2.getIp()) < 0.0f ? -1 : 1;
+                                    return com.baidu.tieba.dnsproxy.a.d.auX().br(str, dnsProxyIpData.getIp()) - com.baidu.tieba.dnsproxy.a.d.auX().br(str, dnsProxyIpData2.getIp()) < 0.0f ? -1 : 1;
                                 }
                                 return -1;
                             }
@@ -322,7 +322,7 @@ public class e {
                             }
                             if (dnsProxyIpData != null || dnsProxyIpData2 == null) {
                                 if (dnsProxyIpData == null || dnsProxyIpData2 != null) {
-                                    return com.baidu.tieba.dnsproxy.a.d.aui().bq(str, dnsProxyIpData.getIp()) - com.baidu.tieba.dnsproxy.a.d.aui().bq(str, dnsProxyIpData2.getIp()) < 0.0f ? 1 : -1;
+                                    return com.baidu.tieba.dnsproxy.a.d.auX().bq(str, dnsProxyIpData.getIp()) - com.baidu.tieba.dnsproxy.a.d.auX().bq(str, dnsProxyIpData2.getIp()) < 0.0f ? 1 : -1;
                                 }
                                 return 1;
                             }
@@ -331,9 +331,9 @@ public class e {
                     });
                 }
                 for (DnsProxyResponseData.DnsProxyIpData dnsProxyIpData : list) {
-                    if (dnsProxyIpData != null && h.mY(dnsProxyIpData.getIp())) {
+                    if (dnsProxyIpData != null && h.nb(dnsProxyIpData.getIp())) {
                         String ip2 = dnsProxyIpData.getIp();
-                        if (random.nextFloat() < com.baidu.tieba.dnsproxy.a.d.aui().bq("c.tieba.baidu.com", ip2)) {
+                        if (random.nextFloat() < com.baidu.tieba.dnsproxy.a.d.auX().bq("c.tieba.baidu.com", ip2)) {
                             return ip2;
                         }
                     }
@@ -344,16 +344,16 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fV(boolean z) {
+    public void fX(boolean z) {
         Map<String, List<DnsProxyResponseData.DnsProxyIpData>> map;
         Map<String, List<DnsProxyResponseData.DnsProxyIpData>> map2;
         if (z) {
-            Map<String, List<DnsProxyResponseData.DnsProxyIpData>> map3 = this.dkX;
-            map = this.dkY;
+            Map<String, List<DnsProxyResponseData.DnsProxyIpData>> map3 = this.dnO;
+            map = this.dnP;
             map2 = map3;
         } else {
-            Map<String, List<DnsProxyResponseData.DnsProxyIpData>> map4 = this.dkY;
-            map = this.dkX;
+            Map<String, List<DnsProxyResponseData.DnsProxyIpData>> map4 = this.dnP;
+            map = this.dnO;
             map2 = map4;
         }
         for (String str : map2.keySet()) {
@@ -363,14 +363,14 @@ public class e {
             HashSet hashSet2 = new HashSet();
             if (list != null) {
                 for (DnsProxyResponseData.DnsProxyIpData dnsProxyIpData : list) {
-                    if (dnsProxyIpData != null && h.mY(dnsProxyIpData.getIp())) {
+                    if (dnsProxyIpData != null && h.nb(dnsProxyIpData.getIp())) {
                         hashSet2.add(dnsProxyIpData.getIp());
                     }
                 }
             }
             if (list2 != null) {
                 for (DnsProxyResponseData.DnsProxyIpData dnsProxyIpData2 : list2) {
-                    if (dnsProxyIpData2 != null && h.mY(dnsProxyIpData2.getIp()) && hashSet2.contains(dnsProxyIpData2.getIp())) {
+                    if (dnsProxyIpData2 != null && h.nb(dnsProxyIpData2.getIp()) && hashSet2.contains(dnsProxyIpData2.getIp())) {
                         hashSet.add(dnsProxyIpData2.getIp());
                     }
                 }
@@ -381,7 +381,7 @@ public class e {
                 dnsProxyIpData3.setIp(str2);
                 arrayList.add(dnsProxyIpData3);
             }
-            this.dkW.put(str, arrayList);
+            this.dnN.put(str, arrayList);
         }
     }
 }

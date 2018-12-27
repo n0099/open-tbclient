@@ -5,6 +5,6 @@ import kotlin.jvm.internal.s;
 import kotlin.reflect.j;
 /* loaded from: classes2.dex */
 public final class a {
-    static final /* synthetic */ j[] iyf = {s.a(new PropertyReference0Impl(s.h(a.class, "kotlin-stdlib"), "stdin", "getStdin()Ljava/io/BufferedReader;"))};
-    private static final kotlin.a iyg = kotlin.b.a(ConsoleKt$stdin$2.INSTANCE);
+    static final /* synthetic */ j[] iBp = {s.a(new PropertyReference0Impl(s.h(a.class, "kotlin-stdlib"), "stdin", "getStdin()Ljava/io/BufferedReader;"))};
+    private static final kotlin.a iBq = kotlin.b.a(ConsoleKt$stdin$2.INSTANCE);
 }

@@ -72,12 +72,12 @@ public class TalkBallRequestData extends OrmObject implements e, h {
         return this.requestType;
     }
 
-    public void nS(int i) {
+    public void of(int i) {
         this.requestType = i;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean NZ() {
+    public boolean Oa() {
         return false;
     }
 
@@ -92,12 +92,12 @@ public class TalkBallRequestData extends OrmObject implements e, h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String NY() {
+    public String NZ() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> Ob() {
+    public HashMap<String, Object> Oc() {
         return null;
     }
 }

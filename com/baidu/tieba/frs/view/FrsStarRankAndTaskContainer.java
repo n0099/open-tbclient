@@ -35,25 +35,25 @@ import tbclient.FrsPage.StarContriRecord;
 import tbclient.FrsPage.StarRank;
 /* loaded from: classes6.dex */
 public class FrsStarRankAndTaskContainer extends LinearLayout implements View.OnClickListener {
-    private TextView ehI;
-    private TextView ehJ;
-    private TextView ehK;
-    private ImageView ehL;
-    private ViewGroup ehM;
-    private ViewGroup ehN;
-    private ListView ehO;
-    private a ehP;
-    private d ehQ;
-    private int ehR;
-    private Runnable ehS;
-    private StarRank ehy;
+    private TextView ekA;
+    private ImageView ekB;
+    private ViewGroup ekC;
+    private ViewGroup ekD;
+    private ListView ekE;
+    private a ekF;
+    private d ekG;
+    private int ekH;
+    private Runnable ekI;
+    private StarRank ekp;
+    private TextView eky;
+    private TextView ekz;
     private Handler handler;
     private Runnable mRunnable;
     private TbPageContext mTbPageContext;
 
     static /* synthetic */ int b(FrsStarRankAndTaskContainer frsStarRankAndTaskContainer) {
-        int i = frsStarRankAndTaskContainer.ehR + 1;
-        frsStarRankAndTaskContainer.ehR = i;
+        int i = frsStarRankAndTaskContainer.ekH + 1;
+        frsStarRankAndTaskContainer.ekH = i;
         return i;
     }
 
@@ -64,12 +64,12 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
     public FrsStarRankAndTaskContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.handler = new Handler();
-        this.ehR = 0;
-        this.ehS = new Runnable() { // from class: com.baidu.tieba.frs.view.FrsStarRankAndTaskContainer.1
+        this.ekH = 0;
+        this.ekI = new Runnable() { // from class: com.baidu.tieba.frs.view.FrsStarRankAndTaskContainer.1
             @Override // java.lang.Runnable
             public void run() {
-                if (FrsStarRankAndTaskContainer.this.ehO != null) {
-                    FrsStarRankAndTaskContainer.this.ehO.smoothScrollToPositionFromTop(FrsStarRankAndTaskContainer.b(FrsStarRankAndTaskContainer.this), 0, 300);
+                if (FrsStarRankAndTaskContainer.this.ekE != null) {
+                    FrsStarRankAndTaskContainer.this.ekE.smoothScrollToPositionFromTop(FrsStarRankAndTaskContainer.b(FrsStarRankAndTaskContainer.this), 0, 300);
                 }
                 FrsStarRankAndTaskContainer.this.handler.removeCallbacksAndMessages(null);
                 FrsStarRankAndTaskContainer.this.handler.postDelayed(this, 3000L);
@@ -78,7 +78,7 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
         this.mRunnable = new Runnable() { // from class: com.baidu.tieba.frs.view.FrsStarRankAndTaskContainer.4
             @Override // java.lang.Runnable
             public void run() {
-                FrsStarRankAndTaskContainer.this.ehO.setSelection(FrsStarRankAndTaskContainer.this.ehR);
+                FrsStarRankAndTaskContainer.this.ekE.setSelection(FrsStarRankAndTaskContainer.this.ekH);
             }
         };
         init();
@@ -95,7 +95,7 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         this.handler.removeCallbacksAndMessages(null);
-        aIb();
+        aIQ();
     }
 
     private void init() {
@@ -103,26 +103,26 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
         setOrientation(0);
         setPadding(l.h(context, e.C0210e.tbds35), l.h(context, e.C0210e.tbds30), l.h(context, e.C0210e.tbds35), 0);
         LayoutInflater.from(getContext()).inflate(e.h.view_frs_star_rank_and_task, (ViewGroup) this, true);
-        this.ehI = (TextView) findViewById(e.g.rank_number);
-        this.ehJ = (TextView) findViewById(e.g.user_contributions);
-        this.ehK = (TextView) findViewById(e.g.star_task);
-        this.ehL = (ImageView) findViewById(e.g.image_rank_icon);
-        this.ehN = (ViewGroup) findViewById(e.g.task_container);
-        this.ehM = (ViewGroup) findViewById(e.g.rank_container);
-        this.ehN.setOnClickListener(this);
-        this.ehM.setOnClickListener(this);
-        this.ehO = (ListView) findViewById(e.g.rank_scroll);
-        this.ehO.setClickable(false);
-        this.ehO.setFocusable(false);
-        this.ehO.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.frs.view.FrsStarRankAndTaskContainer.2
+        this.eky = (TextView) findViewById(e.g.rank_number);
+        this.ekz = (TextView) findViewById(e.g.user_contributions);
+        this.ekA = (TextView) findViewById(e.g.star_task);
+        this.ekB = (ImageView) findViewById(e.g.image_rank_icon);
+        this.ekD = (ViewGroup) findViewById(e.g.task_container);
+        this.ekC = (ViewGroup) findViewById(e.g.rank_container);
+        this.ekD.setOnClickListener(this);
+        this.ekC.setOnClickListener(this);
+        this.ekE = (ListView) findViewById(e.g.rank_scroll);
+        this.ekE.setClickable(false);
+        this.ekE.setFocusable(false);
+        this.ekE.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.frs.view.FrsStarRankAndTaskContainer.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                if (FrsStarRankAndTaskContainer.this.ehM != null) {
-                    FrsStarRankAndTaskContainer.this.ehM.performClick();
+                if (FrsStarRankAndTaskContainer.this.ekC != null) {
+                    FrsStarRankAndTaskContainer.this.ekC.performClick();
                 }
             }
         });
-        this.ehO.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.frs.view.FrsStarRankAndTaskContainer.3
+        this.ekE.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.frs.view.FrsStarRankAndTaskContainer.3
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
                 if (i == 0) {
@@ -135,8 +135,8 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
             }
         });
-        this.ehP = new a(getContext());
-        this.ehO.setAdapter((ListAdapter) this.ehP);
+        this.ekF = new a(getContext());
+        this.ekE.setAdapter((ListAdapter) this.ekF);
         onChangeSkinType();
     }
 
@@ -144,7 +144,7 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
         String string;
         int i;
         if (starRank != null) {
-            this.ehy = starRank;
+            this.ekp = starRank;
             if (starRank.rank_ranking.intValue() > 0 && starRank.rank_ranking.intValue() <= 1000) {
                 Locale locale = Locale.CHINA;
                 String string2 = getResources().getString(e.j.star_rank_number);
@@ -155,48 +155,48 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
             } else {
                 string = getResources().getString(e.j.no_bang);
             }
-            this.ehI.setText(string);
-            this.ehJ.setText(starRank.user_task_notice);
-            if (!v.I(this.ehy.user_task_info)) {
-                int size = this.ehy.user_task_info.size();
+            this.eky.setText(string);
+            this.ekz.setText(starRank.user_task_notice);
+            if (!v.I(this.ekp.user_task_info)) {
+                int size = this.ekp.user_task_info.size();
                 int i2 = 0;
                 int i3 = 0;
                 while (i2 < size) {
-                    if (this.ehy.user_task_info.get(i2) == null) {
+                    if (this.ekp.user_task_info.get(i2) == null) {
                         i = i3;
                     } else {
-                        i = this.ehy.user_task_info.get(i2).task_status.intValue() == 1 ? i3 + 1 : i3;
+                        i = this.ekp.user_task_info.get(i2).task_status.intValue() == 1 ? i3 + 1 : i3;
                     }
                     i2++;
                     i3 = i;
                 }
-                this.ehK.setText(String.format(Locale.CHINA, getResources().getString(e.j.see_task), Integer.valueOf(i3), Integer.valueOf(size)));
+                this.ekA.setText(String.format(Locale.CHINA, getResources().getString(e.j.see_task), Integer.valueOf(i3), Integer.valueOf(size)));
             } else {
-                this.ehK.setText(e.j.no_have_task);
+                this.ekA.setText(e.j.no_have_task);
             }
-            this.ehP.setData(starRank.contri_record_list);
-            aIb();
+            this.ekF.setData(starRank.contri_record_list);
+            aIQ();
         }
     }
 
-    public void aIb() {
-        if (this.ehP.getCount() != 0) {
-            this.handler.removeCallbacks(this.ehS);
-            this.handler.postDelayed(this.ehS, 3000L);
+    public void aIQ() {
+        if (this.ekF.getCount() != 0) {
+            this.handler.removeCallbacks(this.ekI);
+            this.handler.postDelayed(this.ekI, 3000L);
         }
     }
 
     public void onChangeSkinType() {
-        al.h(this.ehI, e.d.cp_cont_i);
-        al.c(this.ehL, e.f.icon_frs_idol_ranking);
-        al.i(this.ehM, e.f.bg_fts_star_rank_entrance);
-        al.i(this.ehN, e.f.bg_frs_star_task_entrance);
-        this.ehK.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(e.f.icon_arrow12_white_right), (Drawable) null);
-        al.h(this.ehK, e.d.cp_cont_i);
-        al.h(this.ehJ, e.d.cp_cont_i);
-        this.ehP.notifyDataSetChanged();
-        if (this.ehQ != null) {
-            this.ehQ.aIa();
+        al.h(this.eky, e.d.cp_cont_i);
+        al.c(this.ekB, e.f.icon_frs_idol_ranking);
+        al.i(this.ekC, e.f.bg_fts_star_rank_entrance);
+        al.i(this.ekD, e.f.bg_frs_star_task_entrance);
+        this.ekA.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(e.f.icon_arrow12_white_right), (Drawable) null);
+        al.h(this.ekA, e.d.cp_cont_i);
+        al.h(this.ekz, e.d.cp_cont_i);
+        this.ekF.notifyDataSetChanged();
+        if (this.ekG != null) {
+            this.ekG.aIP();
         }
     }
 
@@ -242,7 +242,7 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
             if (view == null) {
                 view = LayoutInflater.from(this.mContext).inflate(e.h.item_star_rank_user_contri, viewGroup, false);
                 bVar = new b();
-                bVar.ehU = (TextView) view.findViewById(e.g.contri_desc);
+                bVar.ekK = (TextView) view.findViewById(e.g.contri_desc);
                 bVar.tvUserName = (TextView) view.findViewById(e.g.contri_username);
                 view.setTag(bVar);
             } else {
@@ -253,14 +253,14 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
                 return null;
             }
             bVar.tvUserName.setText(starContriRecord.user_name);
-            bVar.ehU.setText(starContriRecord.record_notice);
+            bVar.ekK.setText(starContriRecord.record_notice);
             bVar.tvUserName.requestLayout();
             if (UtilHelper.isCurrentAccount(String.valueOf(starContriRecord.user_id))) {
-                al.h(bVar.ehU, e.d.common_color_10326);
+                al.h(bVar.ekK, e.d.common_color_10326);
                 al.h(bVar.tvUserName, e.d.common_color_10326);
                 return view;
             }
-            al.h(bVar.ehU, e.d.cp_cont_i);
+            al.h(bVar.ekK, e.d.cp_cont_i);
             al.h(bVar.tvUserName, e.d.cp_cont_i);
             return view;
         }
@@ -268,7 +268,7 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
 
     /* loaded from: classes6.dex */
     private static class b {
-        TextView ehU;
+        TextView ekK;
         TextView tvUserName;
 
         private b() {
@@ -277,17 +277,17 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.ehN) {
+        if (view == this.ekD) {
             TiebaStatic.log(new am("c12880"));
             if (ba.bJ(getContext())) {
-                if (this.ehQ == null) {
-                    this.ehQ = new d();
+                if (this.ekG == null) {
+                    this.ekG = new d();
                 }
-                this.ehQ.a(getContext(), this.ehy);
+                this.ekG.a(getContext(), this.ekp);
             }
-        } else if (view == this.ehM) {
-            if (this.mTbPageContext != null && this.ehy != null) {
-                this.mTbPageContext.sendMessage(new CustomMessage(2002001, new ShareWebActivityConfig(this.mTbPageContext.getContext(), "", this.ehy.url, true)));
+        } else if (view == this.ekC) {
+            if (this.mTbPageContext != null && this.ekp != null) {
+                this.mTbPageContext.sendMessage(new CustomMessage(2002001, new ShareWebActivityConfig(this.mTbPageContext.getContext(), "", this.ekp.url, true)));
             }
             TiebaStatic.log(new am("c12879"));
         }

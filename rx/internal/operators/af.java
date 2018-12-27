@@ -5,8 +5,8 @@ import java.util.List;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class af<T, TClosing> implements d.b<List<T>, T> {
-    final rx.functions.e<? extends rx.d<? extends TClosing>> iEf;
-    final int iEg;
+    final rx.functions.e<? extends rx.d<? extends TClosing>> iHp;
+    final int iHq;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -14,25 +14,25 @@ public final class af<T, TClosing> implements d.b<List<T>, T> {
     }
 
     public af(rx.functions.e<? extends rx.d<? extends TClosing>> eVar, int i) {
-        this.iEf = eVar;
-        this.iEg = i;
+        this.iHp = eVar;
+        this.iHq = i;
     }
 
     public af(final rx.d<? extends TClosing> dVar, int i) {
-        this.iEf = new rx.functions.e<rx.d<? extends TClosing>>() { // from class: rx.internal.operators.af.1
+        this.iHp = new rx.functions.e<rx.d<? extends TClosing>>() { // from class: rx.internal.operators.af.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.e, java.util.concurrent.Callable
-            /* renamed from: cdm */
+            /* renamed from: ced */
             public rx.d<? extends TClosing> call() {
                 return dVar;
             }
         };
-        this.iEg = i;
+        this.iHq = i;
     }
 
     public rx.j<? super T> call(rx.j<? super List<T>> jVar) {
         try {
-            rx.d<? extends TClosing> call = this.iEf.call();
+            rx.d<? extends TClosing> call = this.iHp.call();
             final a aVar = new a(new rx.b.f(jVar));
             rx.j<TClosing> jVar2 = new rx.j<TClosing>() { // from class: rx.internal.operators.af.2
                 @Override // rx.e
@@ -56,7 +56,7 @@ public final class af<T, TClosing> implements d.b<List<T>, T> {
             return aVar;
         } catch (Throwable th) {
             rx.exceptions.a.a(th, jVar);
-            return rx.b.g.ceM();
+            return rx.b.g.cfD();
         }
     }
 
@@ -65,18 +65,18 @@ public final class af<T, TClosing> implements d.b<List<T>, T> {
     public final class a extends rx.j<T> {
         final rx.j<? super List<T>> child;
         boolean done;
-        List<T> iEk;
+        List<T> iHu;
 
         public a(rx.j<? super List<T>> jVar) {
             this.child = jVar;
-            this.iEk = new ArrayList(af.this.iEg);
+            this.iHu = new ArrayList(af.this.iHq);
         }
 
         @Override // rx.e
         public void onNext(T t) {
             synchronized (this) {
                 if (!this.done) {
-                    this.iEk.add(t);
+                    this.iHu.add(t);
                 }
             }
         }
@@ -86,7 +86,7 @@ public final class af<T, TClosing> implements d.b<List<T>, T> {
             synchronized (this) {
                 if (!this.done) {
                     this.done = true;
-                    this.iEk = null;
+                    this.iHu = null;
                     this.child.onError(th);
                     unsubscribe();
                 }
@@ -99,8 +99,8 @@ public final class af<T, TClosing> implements d.b<List<T>, T> {
                 synchronized (this) {
                     if (!this.done) {
                         this.done = true;
-                        List<T> list = this.iEk;
-                        this.iEk = null;
+                        List<T> list = this.iHu;
+                        this.iHu = null;
                         this.child.onNext(list);
                         this.child.onCompleted();
                         unsubscribe();
@@ -114,8 +114,8 @@ public final class af<T, TClosing> implements d.b<List<T>, T> {
         void emit() {
             synchronized (this) {
                 if (!this.done) {
-                    List<T> list = this.iEk;
-                    this.iEk = new ArrayList(af.this.iEg);
+                    List<T> list = this.iHu;
+                    this.iHu = new ArrayList(af.this.iHq);
                     try {
                         this.child.onNext(list);
                     } finally {

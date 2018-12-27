@@ -131,7 +131,7 @@ public final class CompositeException extends RuntimeException {
                 a(sb, it.next(), "\t");
                 i = i2 + 1;
             } else {
-                synchronized (aVar.ccY()) {
+                synchronized (aVar.cdP()) {
                     aVar.println(sb.toString());
                 }
                 return;
@@ -153,7 +153,7 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static abstract class a {
-        abstract Object ccY();
+        abstract Object cdP();
 
         abstract void println(Object obj);
 
@@ -164,39 +164,39 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class b extends a {
-        private final PrintStream iBo;
+        private final PrintStream iEy;
 
         b(PrintStream printStream) {
-            this.iBo = printStream;
+            this.iEy = printStream;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object ccY() {
-            return this.iBo;
+        Object cdP() {
+            return this.iEy;
         }
 
         @Override // rx.exceptions.CompositeException.a
         void println(Object obj) {
-            this.iBo.println(obj);
+            this.iEy.println(obj);
         }
     }
 
     /* loaded from: classes2.dex */
     static final class c extends a {
-        private final PrintWriter iBp;
+        private final PrintWriter iEz;
 
         c(PrintWriter printWriter) {
-            this.iBp = printWriter;
+            this.iEz = printWriter;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object ccY() {
-            return this.iBp;
+        Object cdP() {
+            return this.iEz;
         }
 
         @Override // rx.exceptions.CompositeException.a
         void println(Object obj) {
-            this.iBp.println(obj);
+            this.iEz.println(obj);
         }
     }
 

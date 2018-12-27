@@ -19,8 +19,8 @@ public class a {
 
     /* loaded from: classes.dex */
     public static class b {
-        public String biw;
-        public int cXH;
+        public String biz;
+        public int daz;
         public String mPid;
     }
 
@@ -62,36 +62,36 @@ public class a {
     /* loaded from: classes.dex */
     public static class C0316a {
         private final boolean arM;
-        private final am flk;
-        private final String hmv;
-        private final String hmw;
+        private final am fob;
+        private final String hpG;
+        private final String hpH;
+        private final String hpI;
         private final String key;
-        private final String line;
         private final String page;
 
         private C0316a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
-            this.line = str2;
+            this.hpG = str2;
             this.page = str3;
-            this.hmv = str4;
-            this.hmw = str5;
+            this.hpH = str4;
+            this.hpI = str5;
             this.arM = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.flk = bDI();
+            this.fob = bEA();
         }
 
-        private am bDI() {
+        private am bEA() {
             am amVar = new am(this.key);
-            if (!StringUtils.isNull(this.line)) {
-                amVar = amVar.aA("line", this.line);
+            if (!StringUtils.isNull(this.hpG)) {
+                amVar = amVar.aA("line", this.hpG);
             }
             if (!StringUtils.isNull(this.page)) {
                 amVar = amVar.aA(SystemScreenshotManager.PAGE, this.page);
             }
-            if (!StringUtils.isNull(this.hmv)) {
-                amVar = amVar.aA("locate", this.hmv);
+            if (!StringUtils.isNull(this.hpH)) {
+                amVar = amVar.aA("locate", this.hpH);
             }
-            if (!StringUtils.isNull(this.hmw)) {
-                return amVar.aA(WebSocketAction.PARAM_KEY_TASK, this.hmw);
+            if (!StringUtils.isNull(this.hpI)) {
+                return amVar.aA(WebSocketAction.PARAM_KEY_TASK, this.hpI);
             }
             return amVar;
         }
@@ -99,33 +99,33 @@ public class a {
         /* JADX INFO: Access modifiers changed from: private */
         public am e(String str, String str2, String str3, String str4, String str5) {
             if (!StringUtils.isNull(str)) {
-                this.flk.aA(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
+                this.fob.aA(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
             }
             if (!StringUtils.isNull(str2)) {
-                this.flk.aA(VideoPlayActivityConfig.OBJ_ID, str2);
+                this.fob.aA(VideoPlayActivityConfig.OBJ_ID, str2);
             }
             if (!StringUtils.isNull(str3)) {
-                this.flk.aA(ImageViewerConfig.FORUM_ID, str3);
+                this.fob.aA(ImageViewerConfig.FORUM_ID, str3);
             }
             if (!StringUtils.isNull(str4)) {
-                this.flk.aA(ImageViewerConfig.FORUM_NAME, str4);
+                this.fob.aA(ImageViewerConfig.FORUM_NAME, str4);
             }
             if (!StringUtils.isNull(str5)) {
-                this.flk.aA("tid", str5);
+                this.fob.aA("tid", str5);
             }
-            this.flk.x("obj_cpid", 0).x("obj_good_id", 0).aA("obj_throw_type", "BY_POST").aA("client_type", "MOBILE_APP").aA("user_timestamp", String.valueOf(System.currentTimeMillis())).aA("os", HttpConstants.OS_TYPE_VALUE).aA(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE).aA("log_ver", "1.1");
-            return this.flk;
+            this.fob.x("obj_cpid", 0).x("obj_good_id", 0).aA("obj_throw_type", "BY_POST").aA("client_type", "MOBILE_APP").aA("user_timestamp", String.valueOf(System.currentTimeMillis())).aA("os", HttpConstants.OS_TYPE_VALUE).aA(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE).aA("log_ver", "1.1");
+            return this.fob;
         }
 
         public C0316a cM(String str, String str2) {
             if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                this.flk.aA(str, str2);
+                this.fob.aA(str, str2);
             }
             return this;
         }
 
         public void save() {
-            TiebaStatic.log(this.flk);
+            TiebaStatic.log(this.fob);
             if (!this.arM) {
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     throw new IllegalArgumentException();
@@ -135,7 +135,7 @@ public class a {
         }
 
         public void delete(String str) {
-            this.flk.delete(str);
+            this.fob.delete(str);
         }
     }
 }

@@ -12,33 +12,33 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class c {
-    private a dDA;
-    private HttpMessageListener dDB = new HttpMessageListener(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS) { // from class: com.baidu.tieba.forbidden.fans.c.1
+    private al dGm;
+    private ArrayList<com.baidu.tieba.forbidden.fans.a> dGn;
+    private a dGo;
+    private HttpMessageListener dGp = new HttpMessageListener(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS) { // from class: com.baidu.tieba.forbidden.fans.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof GetForbiddenFansResponse) {
                 GetForbiddenFansResponse getForbiddenFansResponse = (GetForbiddenFansResponse) httpResponsedMessage;
-                c.this.dDy = getForbiddenFansResponse.getPageData();
-                if (c.this.dDz == null) {
-                    c.this.dDz = new ArrayList();
+                c.this.dGm = getForbiddenFansResponse.getPageData();
+                if (c.this.dGn == null) {
+                    c.this.dGn = new ArrayList();
                 }
-                if (c.this.dDy != null) {
-                    if (c.this.dDy.yN() == 1) {
-                        c.this.dDz.clear();
+                if (c.this.dGm != null) {
+                    if (c.this.dGm.yN() == 1) {
+                        c.this.dGn.clear();
                     }
                     if (getForbiddenFansResponse.getFansList() != null) {
-                        c.this.dDz.addAll(getForbiddenFansResponse.getFansList());
+                        c.this.dGn.addAll(getForbiddenFansResponse.getFansList());
                     }
                 }
-                if (c.this.dDA != null) {
-                    c.this.dDA.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), c.this.dDz);
+                if (c.this.dGo != null) {
+                    c.this.dGo.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), c.this.dGn);
                 }
             }
         }
     };
-    private al dDy;
-    private ArrayList<com.baidu.tieba.forbidden.fans.a> dDz;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -52,19 +52,19 @@ public class c {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(GetForbiddenFansResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.dDB);
+        MessageManager.getInstance().registerListener(this.dGp);
     }
 
-    public void azf() {
+    public void azU() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
         httpMessage.addParam("rn", 20);
         httpMessage.addParam(Config.PACKAGE_NAME, 1);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void azg() {
-        if (this.dDy == null || this.dDy.yP() == 1) {
-            int yN = this.dDy != null ? this.dDy.yN() + 1 : 1;
+    public void azV() {
+        if (this.dGm == null || this.dGm.yP() == 1) {
+            int yN = this.dGm != null ? this.dGm.yN() + 1 : 1;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
             httpMessage.addParam("rn", 20);
             httpMessage.addParam(Config.PACKAGE_NAME, yN);
@@ -73,14 +73,14 @@ public class c {
     }
 
     public boolean hasMore() {
-        return this.dDy != null && this.dDy.yP() == 1;
+        return this.dGm != null && this.dGm.yP() == 1;
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.dDB);
+        MessageManager.getInstance().unRegisterListener(this.dGp);
     }
 
     public void a(a aVar) {
-        this.dDA = aVar;
+        this.dGo = aVar;
     }
 }

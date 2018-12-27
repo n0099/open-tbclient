@@ -11,13 +11,13 @@ import com.baidu.tieba.e;
 /* loaded from: classes5.dex */
 public class VideoRecordButton extends FrameLayout {
     private TextView SZ;
-    private View hJR;
-    private View hJS;
-    private View hJT;
-    private ObjectAnimator hJU;
-    private ObjectAnimator hJV;
-    private ObjectAnimator hJW;
-    private ObjectAnimator hJX;
+    private View hNc;
+    private View hNd;
+    private View hNe;
+    private ObjectAnimator hNf;
+    private ObjectAnimator hNg;
+    private ObjectAnimator hNh;
+    private ObjectAnimator hNi;
 
     public VideoRecordButton(Context context) {
         super(context);
@@ -36,84 +36,84 @@ public class VideoRecordButton extends FrameLayout {
 
     private void initView() {
         inflate(getContext(), e.h.layout_record_button, this);
-        this.hJR = findViewById(e.g.record_layer1);
-        this.hJS = findViewById(e.g.record_layer2);
-        this.hJT = findViewById(e.g.record_layer3);
+        this.hNc = findViewById(e.g.record_layer1);
+        this.hNd = findViewById(e.g.record_layer2);
+        this.hNe = findViewById(e.g.record_layer3);
         this.SZ = (TextView) findViewById(e.g.tv_tip);
-        this.hJT.setScaleX(0.766f);
-        this.hJT.setScaleY(0.766f);
+        this.hNe.setScaleX(0.766f);
+        this.hNe.setScaleY(0.766f);
     }
 
     public View getLayer3() {
-        return this.hJT;
+        return this.hNe;
     }
 
     public View getLayer1() {
-        return this.hJR;
+        return this.hNc;
     }
 
     public View getLayer2() {
-        return this.hJS;
+        return this.hNd;
     }
 
     public TextView getTvTip() {
         return this.SZ;
     }
 
-    public void bLh() {
-        if (this.hJX != null && this.hJX.isRunning()) {
-            this.hJW.cancel();
+    public void bLX() {
+        if (this.hNi != null && this.hNi.isRunning()) {
+            this.hNh.cancel();
         }
-        if (this.hJW == null) {
-            this.hJW = ObjectAnimator.ofPropertyValuesHolder(this.hJS, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
-            this.hJW.setDuration(200L);
+        if (this.hNh == null) {
+            this.hNh = ObjectAnimator.ofPropertyValuesHolder(this.hNd, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
+            this.hNh.setDuration(200L);
         }
-        this.hJW.start();
+        this.hNh.start();
     }
 
-    public void bLi() {
-        if (this.hJW != null && this.hJW.isRunning()) {
-            this.hJW.cancel();
+    public void bLY() {
+        if (this.hNh != null && this.hNh.isRunning()) {
+            this.hNh.cancel();
         }
-        if (this.hJS.getScaleX() != 1.0f) {
-            if (this.hJX == null) {
-                this.hJX = ObjectAnimator.ofPropertyValuesHolder(this.hJS, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
-                this.hJX.setDuration(200L);
+        if (this.hNd.getScaleX() != 1.0f) {
+            if (this.hNi == null) {
+                this.hNi = ObjectAnimator.ofPropertyValuesHolder(this.hNd, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
+                this.hNi.setDuration(200L);
             }
-            this.hJX.start();
+            this.hNi.start();
         }
     }
 
-    public void og(boolean z) {
-        if (this.hJV != null && this.hJV.isRunning()) {
-            this.hJV.cancel();
+    public void oj(boolean z) {
+        if (this.hNg != null && this.hNg.isRunning()) {
+            this.hNg.cancel();
         }
-        if (this.hJU == null) {
-            this.hJU = ObjectAnimator.ofPropertyValuesHolder(this.hJT, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
-            this.hJU.setRepeatCount(-1);
-            this.hJU.setRepeatMode(2);
-            this.hJU.setDuration(1000L);
+        if (this.hNf == null) {
+            this.hNf = ObjectAnimator.ofPropertyValuesHolder(this.hNe, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
+            this.hNf.setRepeatCount(-1);
+            this.hNf.setRepeatMode(2);
+            this.hNf.setDuration(1000L);
         }
-        this.hJT.setVisibility(0);
+        this.hNe.setVisibility(0);
         if (z) {
-            this.hJR.setVisibility(8);
+            this.hNc.setVisibility(8);
         } else {
-            this.hJR.setBackgroundResource(e.f.red_square_bg);
+            this.hNc.setBackgroundResource(e.f.red_square_bg);
         }
         this.SZ.setVisibility(8);
-        this.hJU.start();
+        this.hNf.start();
     }
 
-    public void bKW() {
-        if (this.hJU != null && this.hJU.isRunning()) {
-            this.hJU.cancel();
+    public void bLM() {
+        if (this.hNf != null && this.hNf.isRunning()) {
+            this.hNf.cancel();
         }
-        if (this.hJV == null) {
-            this.hJV = ObjectAnimator.ofPropertyValuesHolder(this.hJT, PropertyValuesHolder.ofFloat("scaleX", this.hJT.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.hJT.getScaleY(), 0.766f));
-            this.hJV.setDuration((500.0f * Math.abs(0.766f - this.hJT.getScaleX())) / 0.3f);
+        if (this.hNg == null) {
+            this.hNg = ObjectAnimator.ofPropertyValuesHolder(this.hNe, PropertyValuesHolder.ofFloat("scaleX", this.hNe.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.hNe.getScaleY(), 0.766f));
+            this.hNg.setDuration((500.0f * Math.abs(0.766f - this.hNe.getScaleX())) / 0.3f);
         }
-        this.hJR.setVisibility(0);
-        this.hJR.setBackgroundResource(e.f.red_circle_bg);
-        this.hJV.start();
+        this.hNc.setVisibility(0);
+        this.hNc.setBackgroundResource(e.f.red_circle_bg);
+        this.hNg.start();
     }
 }

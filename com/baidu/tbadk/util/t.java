@@ -7,53 +7,53 @@ import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 /* loaded from: classes.dex */
 public class t {
-    private View biI;
-    private int biJ;
-    private boolean biK;
+    private View biL;
+    private int biM;
+    private boolean biN;
     private final Handler mHandler;
 
-    public void Qa() {
+    public void Qc() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void Qb() {
+    public void Qd() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
         }
     }
 
-    public void Qc() {
+    public void Qe() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
     public void cR(boolean z) {
-        if (this.biI != null) {
-            if (z || this.biI.getVisibility() != 8) {
-                Qb();
+        if (this.biL != null) {
+            if (z || this.biL.getVisibility() != 8) {
+                Qd();
             }
         }
     }
 
     public void cS(boolean z) {
-        if (this.biI != null) {
-            if (z || this.biI.getVisibility() != 0) {
-                Qa();
+        if (this.biL != null) {
+            if (z || this.biL.getVisibility() != 0) {
+                Qc();
             }
         }
     }
 
     public void onScroll(int i, int i2) {
-        if (this.biI != null) {
-            if (i != 0 && i2 > i && this.biI.getVisibility() != 8) {
+        if (this.biL != null) {
+            if (i != 0 && i2 > i && this.biL.getVisibility() != 8) {
                 cR(false);
-            } else if ((i == 0 || i2 < i) && this.biI.getVisibility() != 0) {
+            } else if ((i == 0 || i2 < i) && this.biL.getVisibility() != 0) {
                 cS(false);
             }
-            this.biJ = i;
+            this.biM = i;
         }
     }
 
@@ -67,12 +67,12 @@ public class t {
             } else {
                 return;
             }
-            if (firstVisiblePosition > this.biJ) {
+            if (firstVisiblePosition > this.biM) {
                 cR(true);
-            } else if (firstVisiblePosition < this.biJ) {
+            } else if (firstVisiblePosition < this.biM) {
                 cS(true);
-            } else if (firstVisiblePosition == this.biJ) {
-                if (firstVisiblePosition == 0 || !this.biK) {
+            } else if (firstVisiblePosition == this.biM) {
+                if (firstVisiblePosition == 0 || !this.biN) {
                     cS(true);
                 } else {
                     cR(true);
