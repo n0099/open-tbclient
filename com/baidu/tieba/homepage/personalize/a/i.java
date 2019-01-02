@@ -31,6 +31,7 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             TiebaStatic.log(lVar.T(lVar.bMM));
             com.baidu.tieba.q.c.bBT().b(this.bdH, com.baidu.tieba.q.a.a(lVar.bMM, "a002", "common_click", 1, lVar.aqC(), false, null, null));
         } else if (this.eyL.getVideoView() != null && view.getId() == this.eyL.getVideoView().getId()) {
+            TiebaStatic.log(lVar.T(lVar.bMM));
             com.baidu.tieba.q.c.bBT().b(this.bdH, com.baidu.tieba.q.a.a(lVar.bMM, "a002", "common_click", 4, lVar.aqC(), false, null, null));
         } else if (this.eyL.caM != null && this.eyL.caM.getBarNameTv() != null && view.getId() == this.eyL.caM.getBarNameTv().getId()) {
             TiebaStatic.log(lVar.aqP());
